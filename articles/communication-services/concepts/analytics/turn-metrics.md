@@ -3,7 +3,6 @@ title: TURN metrics definitions for Azure Communication Services
 titleSuffix: An Azure Communication Services concept document
 description: This document covers definitions of TURN metrics available in the Azure portal.
 author: mkhribech
-manager: timmitchell
 services: azure-communication-services
 ms.author: mkhribech
 ms.date: 06/26/2023
@@ -18,6 +17,8 @@ Azure Communication Services currently provides metrics for all Communication Se
 - Plot your own charts.
 - Investigate abnormalities in your metric values.
 - Understand your API traffic by using the metrics data that Chat requests emit.
+
+[!INCLUDE [TURN retirment](../../includes/turn-retirement.md)]
 
 ## Where to find metrics
 

@@ -6,7 +6,7 @@ ms.author: timlt
 ms.service: iot-develop
 ms.devlang: c
 ms.topic: quickstart
-ms.date: 10/13/2023
+ms.date: 1/23/2024
 ---
 
 # Quickstart: Connect an STMicroelectronics B-U585I-IOT02A Discovery kit to IoT Hub
@@ -355,11 +355,11 @@ In this quickstart, you built a custom image that contains Azure RTOS sample cod
 As a next step, explore the following articles to learn more about using the IoT device SDKs, or Azure RTOS to connect devices to Azure IoT.
 
 > [!div class="nextstepaction"]
-> [Connect a general simulated device to IoT Hub](quickstart-send-telemetry-iot-hub.md)
+> [Connect a general simulated device to IoT Hub](../iot/tutorial-send-telemetry-iot-hub.md)
 > [!div class="nextstepaction"]
 > [Quickstart: Connect an STMicroelectronics B-L4S5I-IOT01A Discovery kit to IoT Hub](quickstart-devkit-stm-b-l4s5i-iot-hub.md)
 > [!div class="nextstepaction"]
-> [Learn more about connecting embedded devices using C SDK and Embedded C SDK](concepts-using-c-sdk-and-embedded-c-sdk.md)
+> [Learn more about connecting embedded devices using C SDK and Embedded C SDK](../iot/concepts-using-c-sdk-and-embedded-c-sdk.md)
 
 > [!IMPORTANT]
 > Azure RTOS provides OEMs with components to secure communication and to create code and data isolation using underlying MCU/MPU hardware protection mechanisms. However, each OEM is ultimately responsible for ensuring that their device meets evolving security requirements.

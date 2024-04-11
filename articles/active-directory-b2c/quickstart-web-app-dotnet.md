@@ -8,9 +8,12 @@ manager: CelesteDG
 ms.service: active-directory
 ms.topic: quickstart
 ms.custom: devx-track-csharp, mvc, mode-other
-ms.date: 01/17/2023
+ms.date: 01/24/2023
 ms.author: godonnell
 ms.subservice: B2C
+
+#Customer Intent: As a developer building an ASP.NET application, I want to set up sign-in functionality using Azure Active Directory B2C, so that I can authenticate users with social or enterprise accounts and protect my application and customer data.
+
 ---
 
 # Quickstart: Set up sign in for an ASP.NET application using Azure Active Directory B2C

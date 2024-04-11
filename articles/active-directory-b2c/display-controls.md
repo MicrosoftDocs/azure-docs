@@ -9,9 +9,13 @@ manager: CelesteDG
 ms.service: active-directory
 
 ms.topic: reference
-ms.date: 12/9/2021
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
+
+
+#Customer intent: As a developer integrating Azure Active Directory B2C, I want to understand how to define and use display controls, so that I can create user interface elements with special functionality that interact with the back-end service and perform actions on the page.
+
 ---
 
 # Display controls
@@ -39,7 +43,7 @@ The **DisplayControl** element contains the following attributes:
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
 | `Id` | Yes | An identifier that's used for the display control. It can be [referenced](#referencing-display-controls). |
-| `UserInterfaceControlType` | Yes | The type of the display control. Currently supported is [VerificationControl](display-control-verification.md), and [TOTP controls](display-control-time-based-one-time-password.md). |
+| `UserInterfaceControlType` | Yes | The type of the display control. Currently supported is [VerificationControl](display-control-verification.md), [TOTP controls](display-control-time-based-one-time-password.md), and [CAPTCHA controls](display-control-captcha.md). |
 
 ### Verification control
 

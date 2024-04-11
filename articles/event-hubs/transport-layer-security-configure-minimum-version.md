@@ -2,7 +2,6 @@
 title: Configure the minimum TLS version for an Event Hubs namespace
 titleSuffix: Event Hubs
 description: Configure an Azure Event Hubs namespace to use a minimum version of Transport Layer Security (TLS).
-services: event-hubs
 author: EldertGrootenboer
 
 ms.service: event-hubs

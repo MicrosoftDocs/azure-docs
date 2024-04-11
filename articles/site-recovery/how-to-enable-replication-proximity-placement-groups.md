@@ -12,6 +12,9 @@ ms.date: 08/01/2023
 
 # Replicate virtual machines running in a proximity placement group to another region
 
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
+
 This article describes how to replicate, fail over, and fail back Azure virtual machines (VMs) running in a proximity placement group to a secondary region.
 
 [Proximity placement groups](../virtual-machines/windows/proximity-placement-groups-portal.md) are a logical grouping capability in Azure Virtual Machines. You can use them to decrease the inter-VM network latency associated with your applications. 
@@ -229,7 +232,7 @@ You can easily update your selection of a proximity placement group in the DR re
 ### VMware to Azure
 
 1. [Prepare your on-premises VMware servers](./vmware-azure-tutorial-prepare-on-premises.md) for disaster recovery to Azure.
-2. [Sign in to your account and set your subscription](./vmware-azure-disaster-recovery-powershell.md#log-into-azure).
+2. [Sign in to your account and set your subscription](./vmware-azure-disaster-recovery-powershell.md#log-in-to-azure).
 3. [Set up a Recovery Services vault](./vmware-azure-disaster-recovery-powershell.md#set-up-a-recovery-services-vault) and [set a vault context](./vmware-azure-disaster-recovery-powershell.md#set-the-vault-context).
 4. [Validate your vault registration](./vmware-azure-disaster-recovery-powershell.md#validate-vault-registration).
 5. [Create a replication policy](./vmware-azure-disaster-recovery-powershell.md#create-a-replication-policy).

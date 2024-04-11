@@ -1,15 +1,14 @@
 ---
-title: Azure Write Accelerator 
+title: Azure Write Accelerator
 description: Documentation on how to enable and use Write Accelerator
 author: raiye
 manager: markkie
 ms.service: virtual-machines
 ms.topic: how-to
-ms.workload: infrastructure
 ms.date: 04/11/2023
 ms.author: raiye
-ms.subservice: disks 
-ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-linux
+ms.subservice: disks
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
 # Enable Write Accelerator
@@ -55,6 +54,11 @@ There are limits of Azure Premium Storage VHDs per VM that can be supported by W
 | M32ms, M32ls, M32ts, M32s, M32dms_v2, M32ms_v2 | 4 | 5000 |
 | M16ms, M16s | 2 | 2500 |
 | M8ms, M8s | 1 | 1250 |
+| Standard_M12s_v3, Standard_M12ds_v3 | 1 | 5000 |
+| Standard_M24s_v3, Standard_M24ds_v3 | 2 | 5000 |
+| Standard_M48s_1_v3, Standard_M48ds_1_v3 | 4 | 5000 |
+| Standard_M96s_1_v3, Standard_M96ds_1_v3, Standard_M96s_2_v3, Standard_M96ds_2_v3 | 8 | 10000 |
+| Standard_M176s_3_v3, Standard_M176ds_3_v3, Standard_M176s_4_v3, Standard_M176ds_4_v3 | 16 | 20000 |
 
 The IOPS limits are per VM and *not* per disk. All Write Accelerator disks share the same IOPS limit per VM. Attached disks cannot exceed the write accelerator IOPS limit for a VM. For an example, even though the attached disks can do 30,000 IOPS, the system does not allow the disks to go above 20,000 IOPS for M416ms_v2.
 
@@ -82,7 +86,7 @@ A new switch parameter, **-WriteAccelerator** has been added to the following cm
 - [Add-AzVmssDataDisk](/powershell/module/az.compute/Add-AzVmssDataDisk)
 
 >[!NOTE]
-> If enabling Write Accelerator on Virtual Machine Scale Sets using Flexible Orchestration Mode, you need to enable it on each individual instance. 
+> If enabling Write Accelerator on Virtual Machine Scale Sets using Flexible Orchestration Mode, you need to enable it on each individual instance.
 
 Not giving the parameter sets the property to false and will deploy disks that have no support by Write Accelerator.
 
@@ -148,8 +152,8 @@ $vmName="myVM"
 #Specify your Resource Group
 $rgName = "myWAVMs"
 #data disk name
-$datadiskname = "test-log001" 
-#new Write Accelerator status ($true for enabled, $false for disabled) 
+$datadiskname = "test-log001"
+#new Write Accelerator status ($true for enabled, $false for disabled)
 $newstatus = $true
 #Pulls the VM info for later
 $vm=Get-AzVM -ResourceGroupName $rgname -Name $vmname

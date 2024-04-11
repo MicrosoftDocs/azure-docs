@@ -3,7 +3,6 @@ title: Create a profile container with Azure Files and Microsoft Entra ID
 description: Set up an FSLogix profile container on an Azure file share in an existing Azure Virtual Desktop host pool with your Microsoft Entra domain.
 services: virtual-desktop
 author: Heidilohr
-manager: femila
 ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 04/28/2023

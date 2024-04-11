@@ -7,7 +7,6 @@ ms.topic: sample
 ms.date: 12/06/2022
 ms.author: ericg
 ms.service: app-service
-ms.workload: web 
 ms.custom: devx-track-azurepowershell
 ---
 

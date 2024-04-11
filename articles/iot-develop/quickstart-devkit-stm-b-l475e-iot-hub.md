@@ -6,7 +6,7 @@ ms.author: timlt
 ms.service: iot-develop
 ms.devlang: c
 ms.topic: quickstart
-ms.date: 06/27/2023
+ms.date: 1/23/2024
 # CustomerIntent: As an embedded device developer, I want to use Azure RTOS to connect my device to Azure IoT Hub, so that I can learn about device connectivity and development. 
 ---
 
@@ -358,7 +358,7 @@ In this quickstart, you built a custom image that contains Azure RTOS sample cod
 As a next step, explore the following articles to learn more about using the IoT device SDKs, or Azure RTOS to connect devices to Azure IoT.
 
 > [!div class="nextstepaction"]
-> [Connect a simulated device to IoT Hub](quickstart-send-telemetry-iot-hub.md)
+> [Connect a simulated device to IoT Hub](../iot/tutorial-send-telemetry-iot-hub.md)
 > [!div class="nextstepaction"]
 > [Connect an STMicroelectronics B-L475E-IOT01A to IoT Central](quickstart-devkit-stm-b-l475e.md)
 

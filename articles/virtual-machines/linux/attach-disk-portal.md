@@ -1,19 +1,19 @@
 ---
-title: Attach a data disk to a Linux VM 
+title: Attach a data disk to a Linux VM
 description: Use the portal to attach new or existing data disk to a Linux VM.
 author: roygara
 ms.service: azure-disk-storage
-ms.custom: devx-track-linux
+ms.custom: linux-related-content
 ms.topic: how-to
 ms.date: 08/09/2023
 ms.author: rogarana
 ms.collection: linux
 ---
-# Use the portal to attach a data disk to a Linux VM 
+# Use the portal to attach a data disk to a Linux VM
 
-**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets
 
-This article shows you how to attach both new and existing disks to a Linux virtual machine through the Azure portal. You can also [attach a data disk to a Windows VM in the Azure portal](../windows/attach-managed-disk-portal.md). 
+This article shows you how to attach both new and existing disks to a Linux virtual machine through the Azure portal. You can also [attach a data disk to a Windows VM in the Azure portal](../windows/attach-managed-disk-portal.md).
 
 Before you attach disks to your VM, review these tips:
 
@@ -33,7 +33,7 @@ Before you attach disks to your VM, review these tips:
 1. On the **Disks** pane, under **Data disks**, select **Create and attach a new disk**.
 
 1. Enter a name for your managed disk. Review the default settings, and update the **Storage type**, **Size (GiB)**, **Encryption** and **Host caching** as necessary.
-   
+
    :::image type="content" source="./media/attach-disk-portal/create-new-md.png" alt-text="Review disk settings.":::
 
 
@@ -42,13 +42,13 @@ Before you attach disks to your VM, review these tips:
 
 ## Attach an existing disk
 1. On the **Disks** pane, under **Data disks**, select  **Attach existing disks**.
-1. Select the drop-down menu for **Disk name** and select a disk from the list of available managed disks. 
+1. Select the drop-down menu for **Disk name** and select a disk from the list of available managed disks.
 
 1. Select **Save** to attach the existing managed disk and update the VM configuration:
-   
+
 
 ## Connect to the Linux VM to mount the new disk
-To partition, format, and mount your new disk so your Linux VM can use it, SSH into your VM. For more information, see [How to use SSH with Linux on Azure](mac-create-ssh-keys.md). The following example connects to a VM with the public IP address of *10.123.123.25* with the username *azureuser*: 
+To partition, format, and mount your new disk so your Linux VM can use it, SSH into your VM. For more information, see [How to use SSH with Linux on Azure](mac-create-ssh-keys.md). The following example connects to a VM with the public IP address of *10.123.123.25* with the username *azureuser*:
 
 ```bash
 ssh azureuser@10.123.123.25
@@ -56,7 +56,7 @@ ssh azureuser@10.123.123.25
 
 ## Find the disk
 
-Once connected to your VM, you need to find the disk. In this example, we're using `lsblk` to list the disks. 
+Once connected to your VM, you need to find the disk. In this example, we're using `lsblk` to list the disks.
 
 ```bash
 lsblk -o NAME,HCTL,SIZE,MOUNTPOINT | grep -i "sd"
@@ -101,14 +101,14 @@ From the output of `lsblk` you can see that the 4GB disk at LUN 0 is `sdc`, the 
 ### Prepare a new empty disk
 
 > [!IMPORTANT]
-> If you are using an existing disk that contains data, skip to [mounting the disk](#mount-the-disk). 
+> If you are using an existing disk that contains data, skip to [mounting the disk](#mount-the-disk).
 > The following instructions will delete data on the disk.
 
 If you're attaching a new disk, you need to partition the disk.
 
 The `parted` utility can be used to partition and to format a data disk.
 - Use the latest version `parted` that is available for your distro.
-- If the disk size is 2 tebibytes (TiB) or larger, you must use GPT partitioning. If disk size is under 2 TiB, then you can use either MBR or GPT partitioning.  
+- If the disk size is 2 tebibytes (TiB) or larger, you must use GPT partitioning. If disk size is under 2 TiB, then you can use either MBR or GPT partitioning.
 
 
 The following example uses `parted` on `/dev/sdc`, which is where the first data disk will typically be on most VMs. Replace `sdc` with the correct option for your disk. We're also formatting it using the [XFS](https://xfs.wiki.kernel.org/) filesystem.
@@ -163,7 +163,7 @@ When you're done editing the file, save and close the editor.
 
 > [!NOTE]
 > Later removing a data disk without editing fstab could cause the VM to fail to boot. Most distributions provide either the *nofail* and/or *nobootwait* fstab options. These options allow a system to boot even if the disk fails to mount at boot time. Consult your distribution's documentation for more information on these parameters.
-> 
+>
 > The *nofail* option ensures that the VM starts even if the filesystem is corrupt or the disk does not exist at boot time. Without this option, you may encounter behavior as described in [Cannot SSH to Linux VM due to FSTAB errors](/archive/blogs/linuxonazure/cannot-ssh-to-linux-vm-after-adding-data-disk-to-etcfstab-and-rebooting)
 
 
@@ -202,7 +202,7 @@ There are two ways to enable TRIM support in your Linux VM. As usual, consult yo
     UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   xfs   defaults,discard   1   2
     ```
 * In some cases, the `discard` option may have performance implications. Alternatively, you can run the `fstrim` command manually from the command line, or add it to your crontab to run regularly:
-  
+
 # [Ubuntu](#tab/ubuntu)
 
 ```bash

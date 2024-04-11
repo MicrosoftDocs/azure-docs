@@ -3,7 +3,7 @@ title: Azure IoT Central application security guide
 description: This guide describes how to secure your IoT Central application including users, devices, API access, and authentication to other services for data export.
 author: dominicbetts 
 ms.author: dobett 
-ms.date: 11/28/2022
+ms.date: 03/04/2024
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
@@ -90,7 +90,7 @@ To learn more, see:
 
 ## Connect to a destination on a secure virtual network
 
-Data export in IoT Central lets you continuously stream device data to destinations such as Azure Blob Storage, Azure Event Hubs, Azure Service Bus Messaging. You may choose to lock down these destinations by using an Azure Virtual Network (VNet) and private endpoints. To enable IoT Central to connect to a destination on a secure VNet, configure a firewall exception. To learn more, see [Export data to a secure destination on an Azure Virtual Network](howto-connect-secure-vnet.md).
+Data export in IoT Central lets you continuously stream device data to destinations such as Azure Blob Storage, Azure Event Hubs, Azure Service Bus Messaging. You can choose to lock down these destinations by using an Azure Virtual Network and private endpoints. To enable IoT Central to connect to a destination on a secure virtual network, configure a firewall exception. To learn more, see [Export data to a secure destination on an Azure Virtual Network](howto-connect-secure-vnet.md).
 
 ## Audit logs
 

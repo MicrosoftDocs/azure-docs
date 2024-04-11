@@ -85,6 +85,8 @@ Codeless / Agent-based | Autoinstrumentation
 Traces | Logs
 Requests | Server Spans
 Dependencies | Other Span Types (Client, Internal, etc.)
+Operation ID | Trace ID
+ID or Operation Parent ID | Span ID
 
 [!INCLUDE [azure-monitor-app-insights-opentelemetry-support](../includes/azure-monitor-app-insights-opentelemetry-support.md)]
 

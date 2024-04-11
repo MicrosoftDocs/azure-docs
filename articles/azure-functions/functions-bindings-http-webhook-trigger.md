@@ -3,7 +3,8 @@ title: Azure Functions HTTP trigger
 description: Learn how to call an Azure Function via HTTP.
 ms.topic: reference
 ms.date: 03/06/2023
-ms.devlang: csharp, java, javascript, powershell, python
+ms.devlang: csharp
+# ms.devlang: csharp, java, javascript, powershell, python
 ms.custom: devx-track-csharp, devx-track-python, devx-track-extended-java, devx-track-js
 zone_pivot_groups: programming-languages-set-functions
 ---
@@ -47,6 +48,8 @@ This article supports both programming models.
 ::: zone pivot="programming-language-csharp"
 
 [!INCLUDE [functions-bindings-csharp-intro](../../includes/functions-bindings-csharp-intro.md)]
+
+[!INCLUDE [functions-in-process-model-retirement-note](../../includes/functions-in-process-model-retirement-note.md)]
 
 The code in this article defaults to .NET Core syntax, used in Functions version 2.x and higher. For information on the 1.x syntax, see the [1.x functions templates](https://github.com/Azure/azure-functions-templates/tree/v1.x/Functions.Templates/Templates).
 
@@ -188,7 +191,7 @@ This example reads the body of a POST request, as a `String`, and uses it to bui
 
 #### Read parameter from a route
 
-This example reads a mandatory parameter, named `id`, and an optional parameter `name` from the route path, and uses them to build a JSON document returned to the client, with content type `application/json`. T
+This example reads a mandatory parameter, named `id`, and an optional parameter `name` from the route path, and uses them to build a JSON document returned to the client, with content type `application/json`.
 
 ```java
 @FunctionName("TriggerStringRoute")
@@ -692,7 +695,7 @@ The trigger input type is declared as either `HttpRequest` or a custom type. If 
 By default when you create a function for an HTTP trigger, the function is addressable with a route of the form:
 
 ```http
-http://<APP_NAME>.azurewebsites.net/api/<FUNCTION_NAME>
+https://<APP_NAME>.azurewebsites.net/api/<FUNCTION_NAME>
 ```
 
 You can customize this route using the optional `route` property on the HTTP trigger's input binding. You can use any [Web API Route Constraint](https://www.asp.net/web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2#constraints) with your parameters. 
@@ -909,10 +912,10 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 Using this configuration, the function is now addressable with the following route instead of the original route.
 
 ```
-http://<APP_NAME>.azurewebsites.net/api/products/electronics/357
+https://<APP_NAME>.azurewebsites.net/api/products/electronics/357
 ```
 
-This configuration allows the function code to support two parameters in the address, _category_ and _id_. For more information on how route parameters are tokenized in a URL, see [Routing in ASP.NET Core](/aspnet/core/fundamentals/routing#route-constraint-reference).
+This configuration allows the function code to support two parameters in the address, _category_ and _ID_. For more information on how route parameters are tokenized in a URL, see [Routing in ASP.NET Core](/aspnet/core/fundamentals/routing#route-constraint-reference).
 
 By default, all function routes are prefixed with *api*. You can also customize or remove the prefix using the `extensions.http.routePrefix` property in your [host.json](functions-host-json.md) file. The following example removes the *api* route prefix by using an empty string for the prefix in the *host.json* file.
 
@@ -1002,6 +1005,12 @@ TypeScript samples are not documented for model v3.
 When you use route parameters, an `invoke_URL_template` is automatically created for your function. Your clients can use the URL template to understand the parameters they need to pass in the URL when calling your function using its URL. Navigate to one of your HTTP-triggered functions in the [Azure portal](https://portal.azure.com) and select **Get function URL**.
 
 You can programmatically access the `invoke_URL_template` by using the Azure Resource Manager APIs for [List Functions](/rest/api/appservice/webapps/listfunctions) or [Get Function](/rest/api/appservice/webapps/getfunction).
+
+::: zone pivot="programming-language-javascript,programming-language-typescript"  
+### HTTP streams (preview)
+
+You can now stream requests to and responses from your HTTP endpoint in Node.js v4 function apps. For more information, see [HTTP streams](functions-reference-node.md?pivots=nodejs-model-v4#http-streams-preview).   
+::: zone-end  
 
 ### Working with client identities
 

@@ -3,7 +3,8 @@ title: Azure Event Grid SDKs
 description: Describes the SDKs for Azure Event Grid. These SDKs provide management, publishing and consumption.
 ms.topic: reference
 ms.date: 07/06/2023
-ms.devlang: csharp, golang, java, javascript, python
+ms.devlang: csharp
+# ms.devlang: csharp, golang, java, javascript, python
 ---
 
 # Event Grid SDKs for management and publishing

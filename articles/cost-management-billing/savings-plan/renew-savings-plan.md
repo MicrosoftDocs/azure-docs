@@ -6,9 +6,8 @@ author: bandersmsft
 ms.reviewer: onwokolo
 ms.service: cost-management-billing
 ms.subservice: savings-plan
-ms.custom: ignite-2022
 ms.topic: how-to
-ms.date: 11/17/2023
+ms.date: 02/14/2024
 ms.author: banders
 ---
 
@@ -88,7 +87,7 @@ Renewal notification emails are sent 30 days before expiration and again on the 
 
 Emails are sent to different people depending on your purchase method:
 
-- EA customers - Emails are sent to the notification contacts set on the EA portal or Enterprise Administrators who are automatically enrolled to receive usage notifications.
+- EA customers - Emails are sent to the notification contacts set in the Azure portal or Enterprise Administrators who are automatically enrolled to receive usage notifications.
 - MPA - No email notifications are currently sent for Microsoft Partner Agreement subscriptions.
 
 ## Need help? Contact us.

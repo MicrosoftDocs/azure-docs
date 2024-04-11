@@ -1,12 +1,12 @@
 ---
 title: Configure and use Azure Synapse Link for Azure Cosmos DB
-description: Learn how to enable Synapse Link for Azure Cosmos DB accounts, create a container with analytical store enabled, connect the Azure Cosmos DB database to Synapse workspace, and run queries. 
+description: Learn how to enable Synapse Link for Azure Cosmos DB accounts, create a container with analytical store enabled, connect the Azure Cosmos DB database to Synapse workspace, and run queries.
 author: Rodrigossz
 ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 09/26/2022
 ms.author: rosouz
-ms.custom: references_regions, synapse-cosmos-db, ignite-2022
+ms.custom: references_regions, synapse-cosmos-db
 ---
 
 # Configure and use Azure Synapse Link for Azure Cosmos DB
@@ -222,16 +222,6 @@ try:
 except exceptions.CosmosResourceExistsError:
     print('A container with already exists')
 ```
-
-## Optional - Disable analytical store
-
-Analytical store can be disabled in SQL API containers or in MongoDB API collections, using Azure CLI or PowerShell. It is done by setting `analytical TTL` to `0`.
-
-> [!NOTE]
-> Please note that currently this action can't be undone. If analytical store is disabled in a container, it can never be re-enabled.
-
-> [!NOTE]
-> Please note that currently it is not possible to disable Synapse Link from a database account.
 
 ## <a id="connect-to-cosmos-database"></a> Connect to a Synapse workspace
 

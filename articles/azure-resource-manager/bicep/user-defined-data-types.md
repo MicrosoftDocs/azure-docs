@@ -146,7 +146,7 @@ The valid type expressions include:
     type mixedTypeArray = ('fizz' | 42 | {an: 'object'} | null)[]
     ```
 
-In addition to be used in the `type` statement, type expressions can also be used in these places for creating user-defined date types:
+In addition to be used in the `type` statement, type expressions can also be used in these places for creating user-defined data types:
 
 - As the type clause of a `param` statement. For example:
 

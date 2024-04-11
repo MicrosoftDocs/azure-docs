@@ -1,5 +1,5 @@
 ---
-title: How Azure Storage account customer-managed failover to recover from an outage in the primary regin works
+title: How Azure Storage account customer-managed failover works
 titleSuffix: Azure Storage
 description: Azure Storage supports account failover for geo-redundant storage accounts to recover from a service endpoint outage. Learn what happens to your storage account and storage services during a customer-managed failover to the secondary region if the primary endpoint becomes unavailable.
 services: storage
@@ -7,13 +7,12 @@ author: stevenmatthew
 
 ms.service: azure-storage
 ms.topic: conceptual
-ms.date: 09/24/2023
+ms.date: 09/22/2023
 ms.author: shaas
 ms.subservice: storage-common-concepts
-ms.custom: 
 ---
 
-# How customer-managed failover works
+# How customer-managed storage account failover works
 
 Customer-managed failover of Azure Storage accounts enables you to fail over your entire geo-redundant storage account to the secondary region if the storage service endpoints for the primary region become unavailable. During failover, the original secondary region becomes the new primary and all storage service endpoints for blobs, tables, queues and files are redirected to the new primary region. After the storage service endpoint outage has been resolved, you can perform another failover operation to *fail back* to the original primary region.
 
@@ -30,7 +29,7 @@ When a storage account is configured for GRS or RA-GRS redundancy, data is repli
 
 During the customer-managed failover process, the DNS entries for the storage service endpoints are changed such that those for the secondary region become the new primary endpoints for your storage account. After failover, the copy of your storage account in the original primary region is deleted and your storage account continues to be replicated three times locally within the original secondary region (the new primary). At that point, your storage account becomes locally redundant (LRS).
 
-The original and current redundancy configurations are stored in the properties of the storage account. This functionality allows you to eventually return to your original configuration when you fail back.
+The original and current redundancy configurations are stored in the properties of the storage account to allow you eventually return to your original configuration when you fail back.
 
 To regain geo-redundancy after a failover, you will need to reconfigure your account as GRS. (GZRS is not an option post-failover since the new primary will be LRS after the failover). After the account is reconfigured for geo-redundancy, Azure immediately begins copying data from the new primary region to the new secondary. If you configure your storage account for read access (RA) to the secondary region, that access will be available but it may take some time for replication from the primary to make the secondary current.
 
@@ -39,7 +38,7 @@ To regain geo-redundancy after a failover, you will need to reconfigure your acc
 >
 > **To avoid a major data loss**, check the value of the [**Last Sync Time**](last-sync-time-get.md) property before failing back. Compare the last sync time to the last times that data was written to the new primary to evaluate potential data loss.
 
-The failback process is essentially the same as the failover process except Azure restores the replication configuration to its original state before it was failed over (the replication configuration, not the data). So, if your storage account was originally configured as GZRS, the primary region after failback becomes ZRS.
+The failback process is essentially the same as the failover process except Azure restores the replication configuration to its original state before it was failed over (the replication configuration, not the data). So, if your storage account was originally configured as GZRS, the primary region after faillback becomes ZRS.
 
 After failback, you can configure your storage account to be geo-redundant again. If the original primary region was configured for LRS, you can configure it to be GRS or RA-GRS. If the original primary was configured as ZRS, you can configure it to be GZRS or RA-GZRS. For additional options, see [Change how a storage account is replicated](redundancy-migration.md).
 

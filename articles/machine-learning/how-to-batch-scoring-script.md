@@ -10,7 +10,7 @@ author: santiagxf
 ms.author: fasantia
 ms.reviewer: larryfr
 ms.date: 11/03/2022
-ms.custom: how-to
+ms.custom: how-to, update-code
 ---
 
 # Author scoring scripts for batch deployments

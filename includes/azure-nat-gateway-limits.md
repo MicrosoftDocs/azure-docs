@@ -17,8 +17,10 @@ The following limits apply to NAT gateway resources managed through Azure Resour
 |---------------------|--------------------|
 | Public IP addresses | 16 per NAT gateway |
 | Subnets             | 800 per NAT gateway |
-| Data throughput     | 50 Gbps |
+| Data throughput     | 50* Gbps |
 | NAT gateways        | 1,000 per subscription per region |
 | Packets processed   | 1M - 5M packets per second |
 | Connections to same destination endpoint | 50,000 connections to the same destination per public IP |
 | Connections total | 2M connections per NAT gateway |
+
+\* The total data throughput of 50 Gbps is split between outbound and inbound (return) data through a NAT gateway resource. Data throughput is rate limited at 25 Gbps for outbound data and 25 Gbps for inbound (response) data through NAT gateway.

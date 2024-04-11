@@ -19,7 +19,7 @@ Many of the samples below require a specific hardware device and the prerequisit
 
 ## Use the SDK for Embedded C
 
-The SDK for Embedded C offers a lightweight solution to connect constrained devices to Azure IoT services, including using the [IoT Plug and Play conventions](../articles/iot-develop/concepts-convention.md). The following links include samples for MCU-based devices and for educational and debugging purposes.
+The SDK for Embedded C offers a lightweight solution to connect constrained devices to Azure IoT services, including using the [IoT Plug and Play conventions](../articles/iot/concepts-convention.md). The following links include samples for MCU-based devices and for educational and debugging purposes.
 
 ### Use an MCU-based device
 
@@ -44,7 +44,7 @@ Azure RTOS includes a lightweight layer that adds native connectivity to Azure I
 
 The Azure RTOS samples are provided with different kinds of IDE and toolchain combinations, such as:
 
-- IAR: IAR's [Embedded Workbench](https://www.iar.com/iar-embedded-workbench/) IDE
+- IAR: IAR's [Embedded Workbench](https://www.iar.com/products/architectures/arm/iar-embedded-workbench-for-arm/) IDE
 - GCC/CMake: Build on top of the open-source [CMake](https://cmake.org/) build system and [GNU Arm Embedded toolchain](https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/gnu-rm).
 - MCUExpresso: NXP's [MCUXpresso IDE](https://www.nxp.com/design/software/development-software/mcuxpresso-software-and-tools-/mcuxpresso-integrated-development-environment-ide:MCUXpresso-IDE)
 - STM32Cube: STMicroelectronics's [STM32Cube IDE](https://www.st.com/en/development-tools/stm32cubeide.html)

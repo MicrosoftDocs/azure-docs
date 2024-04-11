@@ -7,10 +7,14 @@ manager: CelesteDG
 ms.service: active-directory
 
 ms.topic: reference
-ms.date: 08/22/2022
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: "b2c-support"
+
+
+#Customer intent: As a developer building an Azure Static Web App, I want to configure authentication using Azure AD B2C, so that users can sign up, sign in, and reset their passwords securely.
+
 ---
 
 # Configure authentication in an Azure Static Web App by using Azure AD B2C

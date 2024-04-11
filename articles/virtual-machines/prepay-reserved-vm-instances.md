@@ -6,7 +6,6 @@ manager: vikramdesai01
 ms.service: virtual-machines
 ms.subservice: billing
 ms.topic: conceptual
-ms.workload: infrastructure-services
 ms.date: 01/09/2023
 ms.author: vikdesai
 ms.reviewer: jushiman

@@ -69,7 +69,7 @@ Microsoft Defender for IoT can automatically monitor some of the recommendations
 
 - **Use X.509 certificates to authenticate your devices to IoT Hub or IoT Central**: IoT Hub and IoT Central support both X509 certificate-based authentication and security tokens as methods for a device to authenticate. If possible, use X509-based authentication in production environments as it provides greater security. To learn more, see [Authenticating a device to IoT Hub](../iot-hub/iot-hub-dev-guide-sas.md#authenticating-a-device-to-iot-hub) and [Device authentication concepts in IoT Central](../iot-central/core/concepts-device-authentication.md).
 
-- **Use Transport Layer Security (TLS) 1.2 to secure connections from devices**: IoT Hub and IoT Central use TLS to secure connections from IoT devices and services. Three versions of the TLS protocol are currently supported: 1.0, 1.1, and 1.2. TLS 1.0 and 1.1 are considered legacy. To learn more, see [Authentication and authorization](iot-overview-device-connectivity.md#authentication-and-authorization).
+- **Use Transport Layer Security (TLS) 1.2 to secure connections from devices**: IoT Hub and IoT Central use TLS to secure connections from IoT devices and services. Three versions of the TLS protocol are currently supported: 1.0, 1.1, and 1.2. TLS 1.0 and 1.1 are considered legacy. To learn more, see [Authentication and authorization](iot-overview-device-connectivity.md#authentication).
 
 - **Ensure you have a way to update the TLS root certificate on your devices**: TLS root certificates are long-lived, but they still may expire or be revoked. If there's no way of updating the certificate on the device, the device may not be able to connect to IoT Hub, IoT Central, or any other cloud service at a later date.
 

@@ -1,10 +1,8 @@
 ---
 title: Understand how effects work
 description: Azure Policy definitions have various effects that determine how compliance is managed and reported.
-author: davidsmatlak
 ms.date: 12/19/2023
 ms.topic: conceptual
-ms.author: davidsmatlak
 ---
 
 # Understand Azure Policy effects
@@ -99,12 +97,12 @@ condition as non-compliant.
 
 An append effect only has a **details** array, which is required. As **details** is an array, it can
 take either a single **field/value** pair or multiples. Refer to
-[definition structure](definition-structure.md#fields) for the list of acceptable fields.
+[definition structure](./definition-structure-policy-rule.md#fields) for the list of acceptable fields.
 
 ### Append examples
 
 Example 1: Single **field/value** pair using a non-`[*]`
-[alias](definition-structure.md#aliases) with an array **value** to set IP rules on a storage
+[alias](./definition-structure-alias.md) with an array **value** to set IP rules on a storage
 account. When the non-`[*]` alias is an array, the effect appends the **value** as the entire
 array. If the array already exists, a deny event occurs from the conflict.
 
@@ -125,7 +123,7 @@ array. If the array already exists, a deny event occurs from the conflict.
 }
 ```
 
-Example 2: Single **field/value** pair using an `[*]` [alias](definition-structure.md#aliases)
+Example 2: Single **field/value** pair using an `[*]` [alias](./definition-structure-alias.md)
 with an array **value** to set IP rules on a storage account. When you use the `[*]` alias, the
 effect appends the **value** to a potentially pre-existing array. If the array doesn't exist yet,
 it's created.
@@ -812,7 +810,7 @@ to `Unknown`. The `Unknown` compliance state indicates that you must attest the 
 The following screenshot shows how a manual policy assignment with the `Unknown`
 state appears in the Azure portal:
 
-![Resource compliance table in the Azure portal showing an assigned manual policy with a compliance reason of 'unknown.'](./manual-policy-portal.png)
+:::image type="content" source="../media/effects/manual-policy-portal.png" alt-text="Screenshot of Resource compliance table in the Azure portal that shows an assigned manual policy with a compliance reason of unknown.":::
 
 When a policy definition with `manual` effect is assigned, you can set the compliance states of targeted resources or scopes through custom [attestations](attestation-structure.md). Attestations also allow you to provide optional supplemental information through the form of metadata and links to **evidence** that accompany the chosen compliance state. The person assigning the manual policy can recommend a default storage location for evidence by specifying the `evidenceStorages` property of the [policy assignment's metadata](../concepts/assignment-structure.md#metadata).
 
@@ -899,7 +897,7 @@ needed for remediation and the **operations** used to add, update, or remove tag
         _Remove_. _Add_ behaves similar to the [Append](#append) effect.
     - **field** (required)
       - The tag to add, replace, or remove. Tag names must adhere to the same naming convention for
-        other [fields](./definition-structure.md#fields).
+        other [fields](./definition-structure-policy-rule.md#fields).
     - **value** (optional)
       - The value to set the tag to.
       - This property is required if **operation** is _addOrReplace_ or _Add_.

@@ -332,7 +332,7 @@ az containerapp create \
   --resource-group $RESOURCE_GROUP \
   --environment $ENVIRONMENT \
   --image $ACR_NAME.azurecr.io/$API_NAME \
-  --target-port 3500 \
+  --target-port 8080 \
   --ingress 'external' \
   --registry-server $ACR_NAME.azurecr.io \
   --query properties.configuration.ingress.fqdn
@@ -340,7 +340,7 @@ az containerapp create \
 
 * By setting `--ingress` to `external`, your container app is accessible from the public internet.
 
-* The `target-port` is set to `3500` to match the port that the container is listening to for requests.
+* The `target-port` is set to `8080` to match the port that the container is listening to for requests.
 
 * Without a `query` property, the call to `az containerapp create` returns a JSON response that includes a rich set of details about the application. Adding a query parameter filters the output to just the app's fully qualified domain name (FQDN).
 
@@ -394,7 +394,7 @@ $AppArgs = @{
     TemplateContainer = $TemplateObj
     ConfigurationRegistry = $RegistryObj
     ConfigurationSecret = $SecretObj
-    IngressTargetPort = 3500
+    IngressTargetPort = 8080
     IngressExternal = $true
 }
 $MyApp = New-AzContainerApp @AppArgs
@@ -404,7 +404,7 @@ $MyApp.IngressFqdn
 ```
 
 * By setting `IngressExternal` to `external`, your container app is accessible from the public internet.
-* The `IngressTargetPort` parameter is set to `3500` to match the port that the container is listening to for requests.
+* The `IngressTargetPort` parameter is set to `8080` to match the port that the container is listening to for requests.
 
 ---
 

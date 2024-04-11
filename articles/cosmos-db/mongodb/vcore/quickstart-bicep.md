@@ -76,8 +76,8 @@ resource firewallRules 'Microsoft.DocumentDB/mongoClusters/firewallRules@2022-10
 
 Two Azure resources are defined in the Bicep file:
 
-- [`Microsoft.DocumentDB/databaseAccounts`](/azure/templates/microsoft.documentdb/databaseAccounts?pivots=deployment-language-bicep): Creates an Azure Cosmos DB for MongoDB vCore cluster.
-  - [`Microsoft.DocumentDB/databaseAccounts/sqlDatabases`](/azure/templates/microsoft.documentdb/databaseAccounts?pivots=deployment-language-bicep): Creates firewall rules for the Azure Cosmos DB for MongoDB vCore cluster.
+- [`Microsoft.DocumentDB/mongoclusters`](/azure/templates/microsoft.documentdb/mongoclusters?pivots=deployment-language-bicep): Creates an Azure Cosmos DB for MongoDB vCore cluster.
+  - [`Microsoft.DocumentDB/mongoClusters/firewallRules`](/azure/templates/microsoft.documentdb/mongoclusters?pivots=deployment-language-bicep): Creates firewall rules for the Azure Cosmos DB for MongoDB vCore cluster.
 
 ## Deploy the Bicep file
 

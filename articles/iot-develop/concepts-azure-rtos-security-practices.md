@@ -1,11 +1,11 @@
 ---
 title: Azure RTOS security guidance for embedded devices
 description: Learn best practices for developing secure applications on embedded devices with Azure RTOS.
-author: edlamie80
-ms.author: v-edlamie
+author: timlt
+ms.author: timlt
 ms.service: iot-develop
 ms.topic: conceptual
-ms.date: 11/29/2022
+ms.date: 1/23/2024
 ---
 
 # Develop secure embedded applications with Azure RTOS

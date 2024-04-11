@@ -1,14 +1,14 @@
 ---
 title: General key-value extraction - Document Intelligence (formerly Form Recognizer)
 titleSuffix: Azure AI services
-description: Extract key-value pairs, tables, selection marks, and text from your documents with Document Intelligence
+description: Extract key-value pairs, tables, selection marks, and text from your documents with Document Intelligence.
 author: laujan
 manager: nitinme
 ms.service: azure-ai-document-intelligence
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 11/21/2023
+ms.date: 03/06/2024
 ms.author: lajanuar
 ---
 
@@ -19,11 +19,11 @@ ms.author: lajanuar
 :::moniker range="doc-intel-4.0.0"
 
 > [!IMPORTANT]
-> Starting with Document Intelligence **2023-10-31-preview** and going forward, the general document model (prebuilt-document) is deprecated. To extract key-value pairs, selection marks, text, tables, and structure from documents, use the following models:
+> Starting with Document Intelligence versions **2024-02-29-preview, 2023-10-31-preview** and going forward, the general document model (prebuilt-document) is deprecated. To extract key-value pairs, selection marks, text, tables, and structure from documents, use the following models:
 
 | Feature   | version| Model ID |
 |----------  |---------|--------|
-|`Layout` model with the optional query string parameter **`features=keyValuePairs`** enabled.|&bullet; v4:2023-10-31-preview</br>&bullet; v3.1:2023-07-31 (GA) |**`prebuilt-layout`**|
+|`Layout` model with the optional query string parameter **`features=keyValuePairs`** enabled.|&bullet; v4:2024-02-29-preview</br>&bullet; v3.1:2023-07-31 (GA) |**`prebuilt-layout`**|
 |General document model|&bullet; v3.1:2023-07-31 (GA)</br>&bullet; v3.0:2022-08-31 (GA)</br>&bullet; v2.1 (GA)|**`prebuilt-document`**|
 :::moniker-end
 
@@ -32,10 +32,10 @@ ms.author: lajanuar
 ::: moniker-end
 
 ::: moniker range="doc-intel-3.0.0"
-**This content applies to:** ![checkmark](media/yes-icon.png) **v3.0 (GA)** | **Latest versions:** ![purple-checkmark](media/purple-yes-icon.png) [**v4.0 (preview)**](?view=doc-intel-4.0.0&preserve-view=true) ![purple-checkmark](media/purple-yes-icon.png) [**v3.1 (preview)**](?view=doc-intel-3.1.0&preserve-view=true)
+**This content applies to:** ![checkmark](media/yes-icon.png) **v3.0 (GA)** | **Latest versions:** ![purple-checkmark](media/purple-yes-icon.png) [**v4.0 (preview)**](?view=doc-intel-4.0.0&preserve-view=true) ![purple-checkmark](media/purple-yes-icon.png) [**v3.1**](?view=doc-intel-3.1.0&preserve-view=true)
 ::: moniker-end
 
-The General document model combines powerful Optical Character Recognition (OCR) capabilities with deep learning models to extract key-value pairs, tables, and selection marks from documents. General document is available with the v3.1 and v3.0 APIs.  For more information, _see_ our [migration guide](v3-1-migration-guide.md).
+The General document model combines powerful Optical Character Recognition (OCR) capabilities with deep learning models to extract key-value pairs, tables, and selection marks from documents. General document is available with the v3.1 and v3.0 APIs. For more information, _see_ our [migration guide](v3-1-migration-guide.md).
 
 ::: moniker range="doc-intel-3.1.0 || doc-intel-3.0.0"
 
@@ -47,7 +47,7 @@ The General document model combines powerful Optical Character Recognition (OCR)
 
 * The general document model supports structured, semi-structured, and unstructured documents.
 
-* Selection marks are identified as fields with a value of ```:selected:``` or ```:unselected:```
+* Selection marks are identified as fields with a value of `:selected:` or `:unselected:`.
 
 ***Sample document processed in the Document Intelligence Studio***
 
@@ -91,7 +91,7 @@ Try extracting data from forms and documents using the Document Intelligence Stu
 
 You need the following resources:
 
-* An Azure subscription—you can [create one for free](https://azure.microsoft.com/free/cognitive-services/)
+* An Azure subscription—you can [create one for free](https://azure.microsoft.com/free/cognitive-services/).
 
 * A [Document Intelligence instance](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) in the Azure portal. You can use the free pricing tier (`F0`) to try the service. After your resource deploys, select **Go to resource** to get your key and endpoint.
 
@@ -100,20 +100,20 @@ You need the following resources:
 > [!NOTE]
 > Document Intelligence Studio and the general document model are available with the v3.0 API.
 
-1. On the Document Intelligence Studio home page, select **General documents**
+1. On the Document Intelligence Studio home page, select **General documents**.
 
 1. You can analyze the sample document or upload your own files.
 
-1. Select the **Run analysis** button and, if necessary, configure the **Analyze options** :
+1. Select the **Run analysis** button and, if necessary, configure the **Analyze options**:
 
     :::image type="content" source="media/studio/run-analysis-analyze-options.png" alt-text="Screenshot of Run analysis and Analyze options buttons in the Document Intelligence Studio.":::
 
     > [!div class="nextstepaction"]
-    > [Try Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=document)
+    > [Try Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=document).
 
 ## Key-value pairs
 
-Key-value pairs are specific spans within the document that identify a label or key and its associated response or value. In a structured form, these pairs could be the label and the value the user entered for that field. In an unstructured  document, they could be the date a contract was executed on based on the text in a paragraph.  The AI model is trained to extract identifiable keys and values based on a wide variety of document types, formats, and structures.
+Key-value pairs are specific spans within the document that identify a label or key and its associated response or value. In a structured form, these pairs could be the label and the value the user entered for that field. In an unstructured  document, they could be the date a contract was executed on based on the text in a paragraph. The AI model is trained to extract identifiable keys and values based on a wide variety of document types, formats, and structures.
 
 Keys can also exist in isolation when the model detects that a key exists, with no associated value or when processing optional fields. For example, a middle name field can be left blank on a form in some instances. Key-value pairs are spans of text contained in the document. For documents where the same value is described in different ways, for example, customer/user, the associated key is either customer or user (based on context).
 
@@ -131,7 +131,7 @@ Keys can also exist in isolation when the model detects that a key exists, with 
 
 ## Considerations
 
-* Keys are spans of text extracted from the document, for semi structured documents, keys can need to be mapped to an existing dictionary of keys.
+* Because keys are spans of text extracted from the document, for semi structured documents, keys need to be mapped to an existing dictionary of keys.
 
 * Expect to see key-value pairs with a key, but no value. For example if a user chose to not provide an email address on the form.
 

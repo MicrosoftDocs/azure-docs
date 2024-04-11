@@ -9,11 +9,15 @@ manager: CelesteDG
 ms.service: active-directory
 
 ms.topic: how-to
-ms.date: 10/16/2023
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: fasttrack-edit
 zone_pivot_groups: b2c-policy-type
+
+
+#Customer intent: As a developer integrating a SAML application with Azure AD B2C, I want to understand the configuration options available for connecting the application, so that I can properly configure the SAML response signature, encryption, and other settings required for successful integration.
+
 ---
 
 # Options for registering a SAML application in Azure AD B2C

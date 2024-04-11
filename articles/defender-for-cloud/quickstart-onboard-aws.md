@@ -2,15 +2,13 @@
 title: Connect your AWS account
 description: Defend your AWS resources by using Microsoft Defender for Cloud.
 ms.topic: install-set-up-deploy
-ms.custom: devx-track-linux
-ms.date: 11/23/2023
+ms.custom:
+ms.date: 01/03/2024
 ---
 
 # Connect your AWS account to Microsoft Defender for Cloud
 
 Workloads commonly span multiple cloud platforms. Cloud security services must do the same. Microsoft Defender for Cloud helps protect workloads in Amazon Web Services (AWS), but you need to set up the connection between them and Defender for Cloud.
-
-If you're connecting an AWS account that you previously connected by using the classic connector, you must [remove it](how-to-use-the-classic-connector.md#remove-classic-aws-connectors) first. Using an AWS account connected by both the classic and native connectors can produce duplicate recommendations.
 
 The following screenshot shows AWS accounts displayed in the Defender for Cloud [overview dashboard](overview-page.md).
 
@@ -88,7 +86,7 @@ AWS Systems Manager (SSM) manages autoprovisioning by using the SSM Agent. Some 
 Ensure that your SSM Agent has the managed policy [AmazonSSMManagedInstanceCore](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AmazonSSMManagedInstanceCore.html). It enables core functionality for the AWS Systems Manager service.
 
 Enable these other extensions on the Azure Arc-connected machines:
-  
+
 - Microsoft Defender for Endpoint
 - A vulnerability assessment solution (TVM or Qualys)
 - The Log Analytics agent on Azure Arc-connected machines or the Azure Monitor agent
@@ -117,12 +115,12 @@ Ensure that your SSM Agent has the managed policy [AmazonSSMManagedInstanceCore]
 **You must have the SSM Agent for auto provisioning Arc agent on EC2 machines. If the SSM doesn't exist, or is removed from the EC2, the Arc provisioning won't be able to proceed.**
 
 > [!NOTE]
-> As part of the cloud formation template that is run during the onboarding process, an automation process is created and triggered every 30 days, over all the EC2s that existed during the initial run of the cloud formation. The goal of this scheduled scan is to ensure that all the relevant EC2s have an IAM profile with the required IAM policy that allows Defender for Cloud to access, manage, and provide the relevant security features (including the Arc agent provisioning). The scan does not apply to EC2s that were created after the run of the cloud formation.
+> As part of the CloudFormation template that is run during the onboarding process, an automation process is created and triggered every 30 days, over all the EC2s that existed during the initial run of the CloudFormation. The goal of this scheduled scan is to ensure that all the relevant EC2s have an IAM profile with the required IAM policy that allows Defender for Cloud to access, manage, and provide the relevant security features (including the Arc agent provisioning). The scan does not apply to EC2s that were created after the run of the CloudFormation.
 
 If you want to manually install Azure Arc on your existing and future EC2 instances, use the [EC2 instances should be connected to Azure Arc](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/231dee23-84db-44d2-bd9d-c32fbcfb42a3) recommendation to identify instances that don't have Azure Arc installed.
 
 Enable these other extensions on the Azure Arc-connected machines:
-  
+
 - Microsoft Defender for Endpoint
 - A vulnerability assessment solution (TVM or Qualys)
 - The Log Analytics agent on Azure Arc-connected machines or the Azure Monitor agent
@@ -174,7 +172,7 @@ In this section of the wizard, you select the Defender for Cloud plans that you 
 
 1. Select **Next: Select plans**.
 
-    The **Select plans** tab is where you choose which Defender for Cloud capabilities to enable for this AWS account. Each plan has its own [requirements for permissions](concept-aws-connector.md#native-connector-plan-requirements) and might incur [charges](https://azure.microsoft.com/pricing/details/defender-for-cloud/?v=17.23h).
+    The **Select plans** tab is where you choose which Defender for Cloud capabilities to enable for this AWS account. Each plan has its own [requirements for permissions](#native-connector-plan-requirements) and might incur [charges](https://azure.microsoft.com/pricing/details/defender-for-cloud/?v=17.23h).
 
     :::image type="content" source="media/quickstart-onboard-aws/add-aws-account-plans-selection.png" alt-text="Screenshot that shows the tab for selecting plans for an AWS account." lightbox="media/quickstart-onboard-aws/add-aws-account-plans-selection.png":::
 
@@ -188,12 +186,12 @@ In this section of the wizard, you select the Defender for Cloud plans that you 
     Optionally, select **Configure** to edit the configuration as required.
 
     > [!NOTE]
-    > The respective Azure Arc servers for EC2 instances or GCP virtual machines that no longer exist (and the respective Azure Arc servers with a status of [Disconnected or Expired](/azure/azure-arc/servers/overview)) are removed after 7 days. This process removes irrelevant Azure Arc entities to ensure that only Azure Arc servers related to existing instances are displayed.
+    > The respective Azure Arc servers for EC2 instances or GCP virtual machines that no longer exist (and the respective Azure Arc servers with a status of [Disconnected or Expired](../azure-arc/servers/overview.md)) are removed after 7 days. This process removes irrelevant Azure Arc entities to ensure that only Azure Arc servers related to existing instances are displayed.
 
 1. By default, the **Containers** plan is set to **On**. This setting is necessary to have Defender for Containers protect your AWS EKS clusters. Ensure that you fulfilled the [network requirements](./defender-for-containers-enable.md?pivots=defender-for-container-eks&source=docs&tabs=aks-deploy-portal%2ck8s-deploy-asc%2ck8s-verify-asc%2ck8s-remove-arc%2caks-removeprofile-api#network-requirements) for the Defender for Containers plan.
 
     > [!NOTE]
-    > Azure Arc-enabled Kubernetes, the Azure Arc extensions for Defender agent, and Azure Policy for Kubernetes should be installed. Use the dedicated Defender for Cloud recommendations to deploy the extensions (and Azure Arc, if necessary), as explained in [Protect Amazon Elastic Kubernetes Service clusters](defender-for-containers-enable.md?tabs=defender-for-container-eks).
+    > Azure Arc-enabled Kubernetes, the Azure Arc extensions for Defender sensor, and Azure Policy for Kubernetes should be installed. Use the dedicated Defender for Cloud recommendations to deploy the extensions (and Azure Arc, if necessary), as explained in [Protect Amazon Elastic Kubernetes Service clusters](defender-for-containers-enable.md?tabs=defender-for-container-eks).
 
     Optionally, select **Configure** to edit the configuration as required. If you choose to turn off this configuration, the **Threat detection (control plane)** feature is also disabled. [Learn more about feature availability](supported-machines-endpoint-solutions-clouds-containers.md).
 
@@ -236,27 +234,27 @@ Deploy the CloudFormation template by using Stack (or StackSet if you have a man
 - **Upload a template file**: AWS automatically creates an S3 bucket that the CloudFormation template is saved to. The automation for the S3 bucket has a security misconfiguration that causes the `S3 buckets should require requests to use Secure Socket Layer` recommendation to appear. You can remediate this recommendation by applying the following policy:
 
     ```bash
-    {  
-      "Id": "ExamplePolicy",  
-      "Version": "2012-10-17",  
-      "Statement": [  
-        {  
-          "Sid": "AllowSSLRequestsOnly",  
-          "Action": "s3:*",  
-          "Effect": "Deny",  
-          "Resource": [  
-            "<S3_Bucket ARN>",  
-            "<S3_Bucket ARN>/*"  
-          ],  
-          "Condition": {  
-            "Bool": {  
-              "aws:SecureTransport": "false"  
-            }  
-          },  
-          "Principal": "*"  
-        }  
-      ]  
-    }  
+    { 
+      "Id": "ExamplePolicy", 
+      "Version": "2012-10-17", 
+      "Statement": [ 
+        { 
+          "Sid": "AllowSSLRequestsOnly", 
+          "Action": "s3:*", 
+          "Effect": "Deny", 
+          "Resource": [ 
+            "<S3_Bucket ARN>", 
+            "<S3_Bucket ARN>/*" 
+          ], 
+          "Condition": { 
+            "Bool": { 
+              "aws:SecureTransport": "false" 
+            } 
+          }, 
+          "Principal": "*" 
+        } 
+      ] 
+    } 
     ```
 
     > [!NOTE]
@@ -275,7 +273,7 @@ To view all the active recommendations for your resources by resource type, use 
 
 :::image type="content" source="./media/quickstart-onboard-aws/aws-resource-types-in-inventory.png" alt-text="Screenshot of AWS options in the asset inventory page's resource type filter." lightbox="media/quickstart-onboard-aws/aws-resource-types-in-inventory.png":::
 
-## Integrate with Microsoft Defender XDR (Preview)
+## Integrate with Microsoft Defender XDR
 
 When you enable Defender for Cloud, Defender for Cloud alerts are automatically integrated into the Microsoft Defender Portal. No further steps are needed.
 
@@ -302,4 +300,3 @@ Connecting your AWS account is part of the multicloud experience available in Mi
 - Set up your [on-premises machines](quickstart-onboard-machines.md) and [GCP projects](quickstart-onboard-gcp.md).
 - Get answers to [common questions](faq-general.yml) about onboarding your AWS account.
 - [Troubleshoot your multicloud connectors](troubleshooting-guide.md#troubleshoot-connectors).
-

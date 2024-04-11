@@ -34,7 +34,7 @@ Billing tags are applied in the Azure portal. The required permissions are:
 
 **Billing profile tags**
 
-1. Go to [https://portal.azure.com.](https://portal.azure.com.)
+1. Go to [https://portal.azure.com.](https://portal.azure.com).
 1. Search for and select **Cost Management + Billing**.
 1. Select the billing profile where you want to set the tags.
 1. On the left menu, select **Properties** under **Settings** and then select **Add or Update tags**.  

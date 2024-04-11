@@ -7,10 +7,14 @@ manager: CelesteDG
 ms.service: active-directory
 
 ms.topic: how-to
-ms.date: 03/24/2023
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: "b2c-support"
+
+
+#Customer intent: As a developer building a single-page application, I want to enable authentication using Azure AD B2C, so that I can securely authenticate users accessing my application and protect sensitive data.
+
 ---
 
 # Enable authentication in your own single-page application by using Azure AD B2C

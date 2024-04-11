@@ -1,6 +1,6 @@
 ---
-title:  Use DICOMweb Standard APIs with the DICOM servixw in Azure Health Data Services
-description: This tutorial describes how to use DICOMweb Standard APIs with the DICOM service. 
+title:  Access DICOMweb APIs with the DICOM service in Azure Health Data Services
+description: Learn how to use the DICOMweb APIs to store, review, search, and delete DICOM objects with the DICOM service. The DICOM service also offers custom APIs for tracking changes and defining custom tags for DICOM data. 
 author: mmitrik
 ms.service: healthcare-apis
 ms.subservice: dicom
@@ -11,7 +11,7 @@ ms.author: mmitrik
 
 # Access DICOMweb APIs with the DICOM service
 
-The DICOM&reg; service allows you to store, review, search, and delete DICOM objects using a subset of DICOMweb APIs, which are web-based services that follow the DICOM standard. By using these APIs, you can access and manage your organization's DICOM data in the cloud without requiring complex protocols or formats.
+The DICOM&reg; service allows you to store, review, search, and delete DICOM objects by using a subset of DICOMweb APIs, which are web-based services that follow the DICOM standard. By using these APIs, you can access and manage your organization's DICOM data in the cloud without requiring complex protocols or formats.
 
 The supported services are:
 
@@ -22,8 +22,11 @@ The supported services are:
 
 In addition to the subset of DICOMweb APIs, the DICOM service supports two custom APIs that are unique to Microsoft:
 
-* [Change feed](dicom-change-feed-overview.md): Track changes to DICOM data over time.
+* [Change feed](change-feed-overview.md): Track changes to DICOM data over time.
 * [Extended query tags](dicom-extended-query-tags-overview.md): Define custom tags for querying DICOM data.
+* [Bulk update](update-files.md)
+* [Bulk import](import-files.md)
+* [Export](export-dicom-files.md)
 
 ## Prerequisites
 

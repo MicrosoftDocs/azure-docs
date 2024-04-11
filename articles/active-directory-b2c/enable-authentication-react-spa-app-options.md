@@ -7,10 +7,14 @@ manager: CelesteDG
 ms.service: active-directory
 
 ms.topic: reference
-ms.date: 07/07/2022
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: "b2c-support"
+
+
+#Customer intent: As a React application developer, I want to configure authentication options using Azure Active Directory B2C, so that I can customize and enhance the authentication experience for my single-page application.
+
 ---
 
 # Configure authentication options in a React application by using Azure Active Directory B2C

@@ -6,8 +6,8 @@ ms.author: timlt
 ms.service: iot-develop
 ms.devlang: c
 ms.topic: quickstart
-ms.date: 10/21/2022
-ms.custom: mode-other, engagement-fy23
+ms.date: 1/23/2024
+ms.custom: mode-other
 zone_pivot_groups: iot-develop-stm32-toolset
 
 # Owner: timlt
@@ -650,9 +650,7 @@ In this quickstart, you built a custom image that contains Azure RTOS sample cod
 As a next step, explore the following articles to learn more about using the IoT device SDKs to connect devices to Azure IoT.
 
 > [!div class="nextstepaction"]
-> [Connect a simulated device to IoT Central](quickstart-send-telemetry-central.md)
-> [!div class="nextstepaction"]
-> [Connect a simulated device to IoT Hub](quickstart-send-telemetry-iot-hub.md)
+> [Connect a simulated device to IoT Hub](../iot/tutorial-send-telemetry-iot-hub.md)
 
 > [!IMPORTANT]
 > Azure RTOS provides OEMs with components to secure communication and to create code and data isolation using underlying MCU/MPU hardware protection mechanisms. However, each OEM is ultimately responsible for ensuring that their device meets evolving security requirements.

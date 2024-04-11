@@ -2,9 +2,7 @@
 title: Choose VM sizes and images for pools
 description: How to choose from the available VM sizes and OS versions for compute nodes in Azure Batch pools
 ms.topic: conceptual
-ms.date: 02/13/2023
-ms.custom: seodec18
-
+ms.date: 02/29/2024
 ---
 
 # Choose a VM size and image for compute nodes in an Azure Batch pool
@@ -30,9 +28,15 @@ az batch location list-skus --location <azure-region>
 ```
 
 > [!TIP]
-> Batch **does not** support any VM SKU sizes that have only remote storage. A local temporary disk is required for Batch.
-> For example, Batch supports [ddv4 and ddsv4](../virtual-machines/ddv4-ddsv4-series.md), but does not support
-> [dv4 and dsv4](../virtual-machines/dv4-dsv4-series.md).
+> It's recommended to avoid VM SKUs/families with impending Batch support end of life (EOL) dates. These dates can be discovered
+> via the [`ListSupportedVirtualMachineSkus` API](/rest/api/batchmanagement/location/list-supported-virtual-machine-skus),
+> [PowerShell](/powershell/module/az.batch/get-azbatchsupportedvirtualmachinesku),
+> or [Azure CLI](/cli/azure/batch/location#az-batch-location-list-skus).
+> For more information, see the [Batch best practices guide](best-practices.md) regarding Batch pool VM SKU selection.
+
+Batch **doesn't** support any VM SKU sizes that have only remote storage. A local temporary disk is required for Batch.
+For example, Batch supports [ddv4 and ddsv4](../virtual-machines/ddv4-ddsv4-series.md), but does not support
+[dv4 and dsv4](../virtual-machines/dv4-dsv4-series.md).
 
 ### Using Generation 2 VM Images
 
@@ -83,10 +87,11 @@ For example, using the Azure CLI, you can obtain the list of supported VM images
 az batch pool supported-images list
 ```
 
-It's recommended to avoid images with impending Batch support end of life (EOL) dates. These dates can be discovered via
-the [`ListSupportedImages` API](/rest/api/batchservice/account/listsupportedimages),
-[PowerShell](/powershell/module/az.batch/get-azbatchsupportedimage), or [Azure CLI](/cli/azure/batch/pool/supported-images).
-For more information, see the [Batch best practices guide](best-practices.md) regarding Batch pool VM image selection.
+> [!TIP]
+> It's recommended to avoid images with impending Batch support end of life (EOL) dates. These dates can be discovered via
+> the [`ListSupportedImages` API](/rest/api/batchservice/account/listsupportedimages),
+> [PowerShell](/powershell/module/az.batch/get-azbatchsupportedimage), or [Azure CLI](/cli/azure/batch/pool/supported-images).
+> For more information, see the [Batch best practices guide](best-practices.md) regarding Batch pool VM image selection.
 
 ## Next steps
 

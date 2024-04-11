@@ -1,18 +1,20 @@
 ---
-title: Learn about diagnostic logging for Azure Analysis Services | Microsoft Docs
-description: Describes how to setup up logging to monitoring your Azure Analysis Services server.
-author: minewiskan
+title: Set up diagnostic logging for Azure Analysis Services | Microsoft Docs
+description: Describes how to set up logging to monitor your Azure Analysis Services server.
+author: kfollis
 ms.service: analysis-services
 ms.topic: conceptual
-ms.date: 01/27/2023
-ms.author: owend
+ms.date: 02/16/2024
+ms.author: kfollis
 ms.reviewer: minewiskan 
 ms.custom: devx-track-azurepowershell
 
 ---
-# Setup diagnostic logging
+# Set up diagnostic logging
 
-An important part of any Analysis Services solution is monitoring how your servers are performing. Azure Analysis services is integrated with Azure Monitor. With [Azure Monitor resource logs](../azure-monitor/essentials/platform-logs-overview.md), you can monitor and send logs to [Azure Storage](https://azure.microsoft.com/services/storage/), stream them to [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), and export them to [Azure Monitor logs](../azure-monitor/overview.md).
+An important part of any Analysis Services solution is monitoring how your servers are performing. For general information about monitoring Azure Analysis Services, see [Monitor Azure Analysis Services](monitor-analysis-services.md).
+
+This article describes how to set up, view, and manage [Azure Monitor resource logs](/azure/azure-monitor/essentials/platform-logs-overview) for your Analysis Services servers. You can send resource logs to [Azure Storage](https://azure.microsoft.com/services/storage/), stream them to [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), and export them to [Azure Monitor logs](/azure/azure-monitor/overview).
 
 ![Resource logging to Storage, Event Hubs, or Azure Monitor logs](./media/analysis-services-logging/aas-logging-overview.png)
 
@@ -20,51 +22,9 @@ An important part of any Analysis Services solution is monitoring how your serve
 
 ## What's logged?
 
-You can select **Engine**, **Service**, and **Metrics** categories.
+You can select **Engine**, **Service**, and **Metrics** log categories. For a listing of what's logged for each category, see [Supported resource logs for Microsoft.AnalysisServices/servers](monitor-analysis-services-reference.md#supported-resource-logs-for-microsoftanalysisservicesservers).
 
-### Engine
-
-Selecting **Engine** logs all [xEvents](/analysis-services/instances/monitor-analysis-services-with-sql-server-extended-events). You cannot select individual events. 
-
-|XEvent categories |Event name  |
-|---------|---------|
-|Security Audit    |   Audit Login      |
-|Security Audit    |   Audit Logout      |
-|Security Audit    |   Audit Server Starts And Stops      |
-|Progress Reports     |   Progress Report Begin      |
-|Progress Reports     |   Progress Report End      |
-|Progress Reports     |   Progress Report Current      |
-|Queries     |  Query Begin       |
-|Queries     |   Query End      |
-|Commands     |  Command Begin       |
-|Commands     |  Command End       |
-|Errors & Warnings     |   Error      |
-|Discover     |   Discover End      |
-|Notification     |    Notification     |
-|Session     |  Session Initialize       |
-|Locks    |  Deadlock       |
-|Query Processing     |   VertiPaq SE Query Begin      |
-|Query Processing     |   VertiPaq SE Query End      |
-|Query Processing     |   VertiPaq SE Query Cache Match      |
-|Query Processing     |   Direct Query Begin      |
-|Query Processing     |  Direct Query End       |
-
-### Service
-
-|Operation name  |Occurs when  |
-|---------|---------|
-|ResumeServer     |    Resume a server     |
-|SuspendServer    |   Pause a server      |
-|DeleteServer     |    Delete a server     |
-|RestartServer    |     User restarts a server through SSMS or PowerShell    |
-|GetServerLogFiles    |    User exports server log through PowerShell     |
-|ExportModel     |   User exports a model in the portal by using Open in Visual Studio     |
-
-### All metrics
-
-The Metrics category logs the same [Server metrics](analysis-services-monitor.md#server-metrics) to the AzureMetrics table. If you're using query [scale-out](analysis-services-scale-out.md) and need to separate metrics for each read replica, use the AzureDiagnostics table instead, where **OperationName** is equal to **LogMetric**.
-
-## Setup diagnostics logging
+## Set up diagnostics logging
 
 ### Azure portal
 
@@ -76,9 +36,9 @@ The Metrics category logs the same [Server metrics](analysis-services-monitor.md
 
     * **Name**. Enter a name for the logs to create.
 
-    * **Archive to a storage account**. To use this option, you need an existing storage account to connect to. See [Create a storage account](../storage/common/storage-account-create.md). Follow the instructions to create a Resource Manager, general-purpose account, then select your storage account by returning to this page in the portal. It may take a few minutes for newly created storage accounts to appear in the drop-down menu.
-    * **Stream to an event hub**. To use this option, you need an existing Event Hub namespace and event hub to connect to. To learn more, see [Create an Event Hubs namespace and an event hub using the Azure portal](../event-hubs/event-hubs-create.md). Then return to this page in the portal to select the Event Hub namespace and policy name.
-    * **Send to Azure Monitor (Log Analytics workspace)**. To use this option, either use an existing workspace or [create a new workspace](../azure-monitor/logs/quick-create-workspace.md) resource in the portal. For more information on viewing your logs, see [View logs in Log Analytics workspace](#view-logs-in-log-analytics-workspace) in this article.
+    * **Archive to a storage account**. To use this option, you need an existing storage account to connect to. See [Create a storage account](/azure/storage/common/storage-account-create). Follow the instructions to create a Resource Manager, general-purpose account, then select your storage account by returning to this page in the portal. It may take a few minutes for newly created storage accounts to appear in the drop-down menu.
+    * **Stream to an event hub**. To use this option, you need an existing Event Hub namespace and event hub to connect to. To learn more, see [Create an Event Hubs namespace and an event hub using the Azure portal](/azure/event-hubs/event-hubs-create). Then return to this page in the portal to select the Event Hub namespace and policy name.
+    * **Send to Azure Monitor (Log Analytics workspace)**. To use this option, either use an existing workspace or [create a new workspace](/azure/azure-monitor/logs/quick-create-workspace) resource in the portal. For more information on viewing your logs, see [View logs in Log Analytics workspace](#view-logs-in-log-analytics-workspace) in this article.
 
     * **Engine**. Select this option to log xEvents. If you're archiving to a storage account, you can select the retention period for the resource logs. Logs are autodeleted after the retention period expires.
     * **Service**. Select this option to log service level events. If you are archiving to a storage account, you can select the retention period for the resource logs. Logs are autodeleted after the retention period expires.
@@ -148,64 +108,13 @@ Logs are typically available within a couple hours of setting up logging. It's u
 
 ## View logs in Log Analytics workspace
 
-Metrics and server events are integrated with xEvents in your Log Analytics workspace resource for side-by-side analysis. Log Analytics workspace can also be configured to receive events from other Azure services providing a holistic view of diagnostic logging data across your architecture.
-
 To view your diagnostic data, in Log Analytics workspace, open **Logs**  from the left menu.
 
 ![Screenshot showing log Search options in the Azure portal.](./media/analysis-services-logging/aas-logging-open-log-search.png)
 
 In the query builder, expand **LogManagement** > **AzureDiagnostics**. AzureDiagnostics includes Engine and Service events. Notice a query is created on-the-fly. The EventClass\_s field contains xEvent names, which may look familiar if you've used xEvents for on-premises logging. Click **EventClass\_s** or one of the event names and Log Analytics workspace continues constructing a query. Be sure to save your queries to reuse later.
 
-### Example queries
-
-#### Example 1
-
-The following query returns durations for each query end/refresh end event for a model database and server. If scaled out, the results are broken out by replica because the replica number is included in ServerName_s. Grouping by RootActivityId_g reduces the row count retrieved from the Azure Diagnostics REST API and helps stay within the limits as described in Log Analytics Rate limits.
-
-```Kusto
-let window = AzureDiagnostics
-   | where ResourceProvider == "MICROSOFT.ANALYSISSERVICES" and Resource =~ "MyServerName" and DatabaseName_s =~ "MyDatabaseName" ;
-window
-| where OperationName has "QueryEnd" or (OperationName has "CommandEnd" and EventSubclass_s == 38)
-| where extract(@"([^,]*)", 1,Duration_s, typeof(long)) > 0
-| extend DurationMs=extract(@"([^,]*)", 1,Duration_s, typeof(long))
-| project  StartTime_t,EndTime_t,ServerName_s,OperationName,RootActivityId_g,TextData_s,DatabaseName_s,ApplicationName_s,Duration_s,EffectiveUsername_s,User_s,EventSubclass_s,DurationMs
-| order by StartTime_t asc
-```
-
-#### Example 2
-
-The following query returns memory and QPU consumption for a server. If scaled out, the results are broken out by replica because the replica number is included in ServerName_s.
-
-```Kusto
-let window = AzureDiagnostics
-   | where ResourceProvider == "MICROSOFT.ANALYSISSERVICES" and Resource =~ "MyServerName";
-window
-| where OperationName == "LogMetric" 
-| where name_s == "memory_metric" or name_s == "qpu_metric"
-| project ServerName_s, TimeGenerated, name_s, value_s
-| summarize avg(todecimal(value_s)) by ServerName_s, name_s, bin(TimeGenerated, 1m)
-| order by TimeGenerated asc 
-```
-
-#### Example 3
-
-The following query returns the Rows read/sec Analysis Services engine performance counters for a server.
-
-```Kusto
-let window =  AzureDiagnostics
-   | where ResourceProvider == "MICROSOFT.ANALYSISSERVICES" and Resource =~ "MyServerName";
-window
-| where OperationName == "LogMetric" 
-| where parse_json(tostring(parse_json(perfobject_s).counters))[0].name == "Rows read/sec" 
-| extend Value = tostring(parse_json(tostring(parse_json(perfobject_s).counters))[0].value) 
-| project ServerName_s, TimeGenerated, Value
-| summarize avg(todecimal(Value)) by ServerName_s, bin(TimeGenerated, 1m)
-| order by TimeGenerated asc 
-```
-
-There are hundreds of queries you can use. To learn more about queries, see [Get started with Azure Monitor log queries](../azure-monitor/logs/get-started-queries.md).
-
+For more queries you can use with Analysis Services, see [Sample Kusto queries](monitor-analysis-services.md#sample-kusto-queries).
 
 ## Turn on logging by using PowerShell
 
@@ -217,7 +126,7 @@ To complete this tutorial, you must have the following resources:
 
 * An existing Azure Analysis Services server. For instructions on creating a server resource, see [Create a server in Azure portal](analysis-services-create-server.md), or [Create an Azure Analysis Services server by using PowerShell](analysis-services-create-powershell.md).
 
-### </a>Connect to your subscriptions
+### Connect to your subscriptions
 
 Start an Azure PowerShell session and sign in to your Azure account with the following command:  
 
@@ -323,6 +232,5 @@ Set-AzDiagnosticSetting -ResourceId $account.ResourceId`
 
 ## Next steps
 
-Learn more about [Azure Monitor resource logging](../azure-monitor/essentials/platform-logs-overview.md).
-
-See [Set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting) in PowerShell help.
+- Learn more about [Azure Monitor resource logging](/azure/azure-monitor/essentials/platform-logs-overview).
+- See [Set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting) in PowerShell help.

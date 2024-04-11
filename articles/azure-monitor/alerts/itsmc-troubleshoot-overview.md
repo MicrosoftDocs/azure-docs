@@ -1,11 +1,12 @@
 ---
 title: Troubleshoot problems in ITSMC 
 description: Learn how to resolve common problems in IT Service Management Connector.  
+ms.author: abbyweisberg
 ms.topic: conceptual
 ms.date: 06/19/2023
 ms.reviewer: nolavime
-
 ---
+
 # Troubleshoot problems in IT Service Management Connector
 
 This article discusses common problems in IT Service Management Connector (ITSMC) and how to troubleshoot them.
@@ -103,11 +104,11 @@ The following sections identify common symptoms, possible causes, and resolution
 
 ### In the incidents received from ServiceNow, the configuration item is blank 
 **Cause**: The cause can be one of several reasons:
-* The alert isn't a log alert. Configuration items are only supported by log alerts.
+* The alert isn't a log search alert. Configuration items are only supported by log search alerts.
 * The search results don't include the **Computer** or **Resource** column.
 * The values in the configuration item field don't match an entry in the CMDB.
 
 **Resolution**: 
-* Check if the alert is a log alert. If it isn't a log alert, configuration items are not supported.
+* Check if the alert is a log search alert. If it isn't a log search alert, configuration items are not supported.
 * If the search results don't have  a Computer or Resource column, add them to the query. When you're defining a query in Log Search alerts you need to have in the query result the Configuration items names with one of the label names "Computer",  "Resource", "_ResourceId" or "ResourceId”. This mapping enables to map the configuration items to the ITSM payload
 * Check that the values in the Computer and Resource columns are identical to the values in the CMDB. If they aren't, add a new entry to the CMDB with the matching values.

@@ -4,7 +4,6 @@ description: Common PowerShell commands to get you started creating and managing
 author: ju-shim
 ms.service: virtual-machines
 ms.topic: how-to
-ms.workload: infrastructure-services
 ms.date: 09/07/2023
 ms.author: jushiman
 ---

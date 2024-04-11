@@ -3,7 +3,7 @@ title: Linter rule - no conflicting metadata
 description: Linter rule - no conflicting metadata
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 10/05/2023
+ms.date: 03/20/2024
 ---
 
 # Linter rule - no conflicting metadata

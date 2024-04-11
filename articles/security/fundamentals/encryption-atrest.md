@@ -2,7 +2,6 @@
 title: Azure Data Encryption-at-Rest - Azure Security
 description: This article provides an overview of Azure Data Encryption at-rest, the overall capabilities, and general considerations.
 services: security
-documentationcenter: na
 author: msmbaldwin
 manager: rkarlin
 
@@ -10,8 +9,6 @@ ms.assetid: 9dcb190e-e534-4787-bf82-8ce73bf47dba
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/14/2022
 ms.author: mbaldwin
 

@@ -4,13 +4,12 @@ description: Overview of how to bring your Linux VM images or create new images 
 author: danielsollondon
 ms.service: virtual-machines
 ms.subservice: imaging
+ms.custom: linux-related-content
 ms.collection: linux
 ms.topic: overview
-ms.workload: infrastructure
 ms.date: 06/22/2020
 ms.author: danis
 ms.reviewer: cynthn
-
 ---
 
 

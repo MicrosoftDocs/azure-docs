@@ -9,9 +9,13 @@ manager: CelesteDG
 ms.service: active-directory
 
 ms.topic: how-to
-ms.date: 09/30/2022
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
+
+
+#Customer intent: As a developer of an Azure Active Directory B2C app, I want to publish my app to the Microsoft Entra app gallery, so that customers can easily find and deploy my app, enable single sign-on, and automate user setup within their Microsoft Entra tenant.
+
 ---
 
 # Publish your Azure Active Directory B2C app to the Microsoft Entra app gallery

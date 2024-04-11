@@ -15,7 +15,9 @@ Every Data Product working on Azure Operator Insights platform has built-in supp
 
 Azure Operator Insights platform monitors data quality when data is ingested into Data Product input storage (first AOI Data Product Storage block in the following image) and after data is processed and made available to customers (AOI Data Product Compute in following image).
 
-:::image type="content" source="media/concept-data-quality-monitoring/operator-insights-architecture.svg" alt-text="Diagram of Azure Operator Insights Data Product architecture. It shows ingestion from on-premises data sources, processing in a Data Product, and analysis and use in Logic Apps and Power BI." lightbox="media/concept-data-quality-monitoring/operator-insights-architecture.svg":::
+:::image type="complex" source="media/operator-insights-architecture.svg" alt-text="Diagram of ingestion agents and Data Products for Azure Operator Insights " lightbox="media/operator-insights-architecture.svg":::
+    Diagram of the Azure Operator Insights architecture. It shows ingestion by ingestion agents from on-premises data sources, processing in a Data Product, and analysis and use in Logic Apps and Power BI.
+:::image-end:::
 
 ## Quality dimensions
 
@@ -32,8 +34,8 @@ Data quality dimensions are the various aspects or characteristics that define t
 
 All data quality dimensions are covered by quality metrics produced by Azure Operator Insights platform. There are two types of the quality metrics:
 
-- Basic - Standard set of checks across all data products.
-- Custom - Custom set of checks, allowing all data products to implement checks that are specific to their product.
+- Basic - Standard set of checks across all Data Products.
+- Custom - Custom set of checks, allowing all Data Products to implement checks that are specific to their product.
 
 The basic quality metrics produced by the platform are available in the following table.
 
@@ -52,7 +54,7 @@ The basic quality metrics produced by the platform are available in the followin
 | Percentiles for lag between data processed and available for querying            | Timeliness    | Processed       |
 | Ages for materialized views                                                      | Timeliness    | Processed       |
 
-The custom data quality metrics are implemented on per data product basis. These metrics cover the accuracy and consistency dimensions. Data product documentation contains description for the custom quality metrics available.
+The custom data quality metrics are implemented on per Data Product basis. These metrics cover the accuracy and consistency dimensions. Data Product documentation contains description for the custom quality metrics available.
 
 ## Monitoring
 

@@ -59,5 +59,3 @@ You can learn more about how to [build queries with cloud security explorer](how
 ## Next steps
 
 [Learn about](defender-for-apis-introduction.md) Defender for APIs.
-
-

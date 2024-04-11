@@ -5,7 +5,6 @@ author: Heidilohr
 ms.topic: how-to
 ms.date: 09/12/2023
 ms.author: helohr
-manager: femila
 ---
 # Use Azure Virtual Desktop Insights to monitor your deployment
 

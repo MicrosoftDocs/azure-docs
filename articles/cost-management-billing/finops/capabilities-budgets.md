@@ -1,13 +1,11 @@
 ---
 title: Budget management
 description: This article helps you understand the budget management capability within the FinOps Framework and how to implement that in the Microsoft Cloud.
-keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 06/23/2023
+ms.date: 03/21/2024
 ms.topic: conceptual
-ms.service: cost-management-billing
-ms.subservice: finops
+ms.service: finops
 ms.reviewer: micflan
 ---
 
@@ -53,7 +51,7 @@ So far, you've defined granular and targeted cost alerts for each scope and appl
 
 ## Learn more at the FinOps Foundation
 
-This capability is a part of the FinOps Framework by the FinOps Foundation, a non-profit organization dedicated to advancing cloud cost management and optimization. For more information about FinOps, including useful playbooks, training and certification programs, and more, see to the [Budget management](https://www.finops.org/framework/capabilities/budget-management) article in the FinOps Framework documentation.
+This capability is a part of the FinOps Framework by the FinOps Foundation, a non-profit organization dedicated to advancing cloud cost management and optimization. For more information about FinOps, including useful playbooks, training and certification programs, and more, see the [Budget management](https://www.finops.org/framework/capabilities/budgeting/) article in the FinOps Framework documentation.
 
 ## Next steps
 

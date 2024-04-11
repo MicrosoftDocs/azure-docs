@@ -194,6 +194,12 @@ __Reason__: The access token used to invoke the REST API for the endpoint/deploy
 
 __Solution__: When generating an authentication token to be used with the Batch Endpoint REST API, ensure the `resource` parameter is set to `https://ml.azure.com`. Please notice that this resource is different from the resource you need to indicate to manage the endpoint using the REST API. All Azure resources (including batch endpoints) use the resource `https://management.azure.com` for managing them. Ensure you use the right resource URI on each case. Notice that if you want to use the management API and the job invocation API at the same time, you'll need two tokens. For details see: [Authentication on batch endpoints (REST)](how-to-authenticate-batch-endpoint.md?tabs=rest).
 
+### No valid deployments to route to. Please check that the endpoint has at least one deployment with positive weight values or use a deployment specific header to route. 
+
+__Reason__: Default Batch Deployment isn't set correctly.
+
+__Solution__: ensure the default batch deployment is set correctly. You may need to update the default batch deployment. For details see: [Update the default batch deployment](how-to-use-batch-model-deployments.md?tabs=cli&#update-the-default-batch-deployment)
+
 ## Limitations and not supported scenarios
 
 When designing machine learning solutions that rely on batch endpoints, some configurations and scenarios may not be supported.

@@ -3,7 +3,6 @@ title: Authorize test console of API Management developer portal using OAuth 2.0
 titleSuffix: Azure API Management
 description: Set up OAuth 2.0 user authorization for the test console in the Azure API Management developer portal. This example uses Microsoft Entra ID as an OAuth 2.0 provider.
 services: api-management
-documentationcenter: ''
 author: dlepow
 
 ms.service: api-management
@@ -15,6 +14,8 @@ ms.custom: engagement-fy23
 
 # How to authorize test console of developer portal by configuring OAuth 2.0 user authorization
 
+[!INCLUDE [api-management-availability-premium-dev-standard-basic-standardv2-basicv2](../../includes/api-management-availability-premium-dev-standard-basic-standardv2-basicv2.md)]
+
 Many APIs support [OAuth 2.0](https://oauth.net/2/) to secure the API and ensure that only valid users have access, and they can only access resources to which they're entitled. To use Azure API Management's interactive developer console with such APIs, the service allows you to configure an external provider for OAuth 2.0 user authorization.
 
 Configuring OAuth 2.0 user authorization in the test console of the developer portal provides developers with a convenient way to acquire an OAuth 2.0 access token. From the test console, the token is then passed to the backend with the API call. Token validation must be configured separately - either using a [JWT validation policy](validate-jwt-policy.md), or in the backend service.
@@ -25,7 +26,6 @@ This article shows you how to configure your API Management service instance to 
 
 If you haven't yet created an API Management service instance, see [Create an API Management service instance][Create an API Management service instance].
 
-[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 ## Scenario overview
 
@@ -257,7 +257,7 @@ Optionally:
 
 1. Select **Create** to save the API Management OAuth 2.0 authorization server configuration. 
 
-1. [Republish](api-management-howto-developer-portal-customize.md#publish) the developer portal.
+1. [Republish](developer-portal-overview.md#publish-the-portal) the developer portal.
 
     > [!IMPORTANT]
     > When making OAuth 2.0-related changes, be sure to republish the developer portal after every modification as relevant changes (for example, scope change) otherwise cannot propagate into the portal and subsequently be used in trying out the APIs.
@@ -307,7 +307,7 @@ For more information about using OAuth 2.0 and API Management, see [Protect a we
 [Publish a product]: api-management-howto-add-products.md#publish-product
 [Get started with Azure API Management]: get-started-create-service-instance.md
 [API Management policy reference]: ./api-management-policies.md
-[Caching policies]: ./api-management-policies.md#caching-policies
+[Caching policies]: ./api-management-policies.md#caching
 [Create an API Management service instance]: get-started-create-service-instance.md
 
 [https://oauth.net/2/]: https://oauth.net/2/

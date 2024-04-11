@@ -344,7 +344,7 @@ Radar tiles, showing areas of rain, snow, ice and mixed conditions, are returned
 [Get Daily Forecast]: /rest/api/maps/weather/get-current-air-quality
 [Get Daily Indices]: /rest/api/maps/weather/get-daily-indices
 [Get Hourly Forecast]: /rest/api/maps/weather/get-hourly-forecast
-[Get Map Tile]: /rest/api/maps/render-v2/get-map-tile
+[Get Map Tile]: /rest/api/maps/render/get-map-tile
 [Get Minute forecast]: /rest/api/maps/weather/get-minute-forecast
 [Get Quarter Day Forecast]: /rest/api/maps/weather/get-quarter-day-forecast
 [Get Weather Along Route]: /rest/api/maps/weather/get-weather-along-route

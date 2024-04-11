@@ -3,9 +3,9 @@ title: Use JSON Schema with Apache Kafka applications
 description: This article provides information on how to use JSON Schema in Schema Registry with Apache Kafka applications.
 ms.topic: how-to
 ms.date: 04/26/2023
-ms.devlang: scala
-author: kasun04
-ms.author: kindrasiri
+ms.devlang: spark-scala
+author: spelluru
+ms.author: spelluru
 ---
 
 # Use JSON Schema with Apache Kafka applications (Preview)

@@ -39,7 +39,7 @@ For each client application, we recommend the following tasks.
 
 - Update the operating system to the latest version.
 
-- Update your development libraries and frameworks to their latest versions. (For example, Python 3.6 and 3.7 support TLS 1.2).
+- Update your development libraries and frameworks to their latest versions.
 
 - Fix hardcoded instances of older security protocols TLS 1.0 and 1.1.
 

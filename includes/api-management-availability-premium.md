@@ -6,9 +6,4 @@ ms.date: 08/08/2023
 ms.author: danlep
 ---
 
-## Availability
-
-> [!IMPORTANT]
-> This feature is available only in the **Premium** tier of API Management.
->
-> For feature availability in the v2 tiers (preview), see the [v2 tiers overview](../articles/api-management/v2-service-tiers-overview.md#features-and-limitations).
+**APPLIES TO: Premium**

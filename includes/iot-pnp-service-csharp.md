@@ -80,7 +80,7 @@ s_logger.LogDebug($"Model Id of this Twin is: {twin.ModelId}");
 ```
 
 > [!NOTE]
-> This sample uses the **Microsoft.Azure.Devices.Client** namespace from the **IoT Hub service client**. To learn more about the APIs, including the digital twins API, see the [service developer guide](../articles/iot-develop/concepts-developer-guide-service.md).
+> This sample uses the **Microsoft.Azure.Devices.Client** namespace from the **IoT Hub service client**. To learn more about the APIs, including the digital twins API, see the [service developer guide](../articles/iot/concepts-developer-guide-service.md).
 
 This code generates the following output:
 

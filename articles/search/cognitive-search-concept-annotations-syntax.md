@@ -1,5 +1,5 @@
 ---
-title: Reference inputs and outputs in skillsets
+title: Reference enriched nodes during skillset execution
 titleSuffix: Azure AI Search
 description: Explains the annotation syntax and how to reference inputs and outputs of a skillset in an AI enrichment pipeline in Azure AI Search.
 author: HeidiSteen
@@ -7,24 +7,15 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.custom:
   - ignite-2023
-ms.topic: conceptual
-ms.date: 09/16/2022
+ms.topic: how-to
+ms.date: 01/18/2024
 ---
-# Reference an annotation in an Azure AI Search skillset
 
-In this article, you'll learn how to reference *annotations* (or an enrichment node) in skill definitions, using examples to illustrate various scenarios. 
+# Reference a path to enriched nodes using context and source properties an Azure AI Search skillset
 
-Skills read inputs and write outputs to nodes in an [enriched document](cognitive-search-working-with-skillsets.md#enrichment-tree) tree, building the tree as the enrichments progress. Any node can be referenced in an input for further downstream enrichment, or mapped to an output field in an index. This article introduces the syntax and provides examples for specifying a path to a node. For the full syntax, see [Skill context and input annotation language language](cognitive-search-skill-annotation-language.md).
+During skillset execution, the engine builds an in-memory [enrichment tree](cognitive-search-working-with-skillsets.md#enrichment-tree) that captures each enrichment, such as recognized entities or translated text. In this article, learn how to reference an enrichment node in the enrichment tree so that you can pass output to downstream skills or specify an output field mapping for a search index field. 
 
-Paths to an annotation are specified in the "context" and "source" properties of a skillset, and in [output field mappings](cognitive-search-output-field-mapping.md) in an indexer. Here's an example of what paths might look like in a skillset:
-
-:::image type="content" source="media/cognitive-search-annotations-syntax/content-source-annotation-path.png" alt-text="Screenshot of a skillset definition with context and source elements highlighted.":::
-
-The example in the screenshot illustrates the path for an item in an Azure Cosmos DB collection.
-
-+ "context" path is `/document/HotelId` because the collection is partitioned into documents by the `/HotelId` field.
-
-+ "source" path is `/document/Description` because the skill is a translation skill, and the field that you'll want the skill to translate is the `Description` field in each document.
+This article uses examples to illustrate various scenarios. For the full syntax, see [Skill context and input annotation language language](cognitive-search-skill-annotation-language.md).
 
 ## Background concepts
 
@@ -32,13 +23,21 @@ Before reviewing the syntax, let's revisit a few important concepts to better un
 
 | Term | Description |
 |------|-------------|
-| "enriched document" | An enriched document is an internal structure that collects skill output as it's created and it holds all annotations related to a document. Think of an enriched document as a tree of annotations. Generally, an annotation created from a previous annotation becomes its child. </p>Enriched documents only exist for the duration of skillset execution. Once content is mapped to the search index, the enriched document is no longer needed. Although you don't interact with enriched documents directly, it's useful to have a mental model of the documents when creating a skillset. |
-| "annotation" | Within an enriched document, a node that is created and populated by a skill, such as "text" and "layoutText" in the OCR skill, is called an annotation. An enriched document is populated with both annotations and unchanged field values or metadata copied from the source. |
+| "enriched document" | An enriched document is an in-memory structure that collects skill output as it's created and it holds all enrichments related to a document. Think of an enriched document as a tree. Generally, the tree starts at the root document level, and each new enrichment is created from a previous as its child.  |
+| "node" | Within an enriched document, a node (sometimes referred to as an "annotation") is created and populated by a skill, such as "text" and "layoutText" in the OCR skill. An enriched document is populated with both enrichments and original source field values or metadata copied from the source. |
 | "context" | The scope of enrichment, which is either the entire document, a portion of a document, or if you're working with images, the extracted images from a document. By default, the enrichment context is at the `"/document"` level, scoped to individual documents contained in the data source. When a skill runs, the outputs of that skill become [properties of the defined context](#example-2). |
 
 ## Paths for different scenarios
 
 Paths are specified in the "context" and "source" properties of a skillset, and in the [output field mappings](cognitive-search-output-field-mapping.md) in an indexer.
+
+:::image type="content" source="media/cognitive-search-annotations-syntax/content-source-annotation-path.png" alt-text="Screenshot of a skillset definition with context and source elements highlighted.":::
+
+The example in the screenshot illustrates the path for an item in an Azure Cosmos DB collection.
+
++ `context` path is `/document/HotelId` because the collection is partitioned into documents by the `/HotelId` field.
+
++ `source` path is `/document/Description` because the skill is a translation skill, and the field that you'll want the skill to translate is the `Description` field in each document.
 
 All paths start with `/document`. An enriched document is created in the "document cracking" stage of indexer execution, when the indexer opens a document or reads in a row from the data source. Initially, the only node in an enriched document is the [root node (`/document`)](cognitive-search-skill-annotation-language.md#document-root), and it's the node from which all other enrichments occur. 
 
@@ -57,7 +56,7 @@ Examples in the remainder of this article are based on the "content" field gener
 
 ## Example 1: Simple annotation reference
 
-In Azure Blob Storage, suppose you have a variety of files containing references to people's names that you want to extract using entity recognition. In the skill definition below, `"/document/content"` is the textual representation of the entire document, and "people" is an extraction of full names for entities identified as persons.
+In Azure Blob Storage, suppose you have a variety of files containing references to people's names that you want to extract using entity recognition. In the following skill definition, `"/document/content"` is the textual representation of the entire document, and "people" is an extraction of full names for entities identified as persons.
 
 Because the default context is `"/document"`, the list of people can now be referenced as `"/document/people"`. In this specific case `"/document/people"` is an annotation, which could now be mapped to a field in an index, or used in another skill in the same skillset.
 

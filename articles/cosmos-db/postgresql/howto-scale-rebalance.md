@@ -1,7 +1,7 @@
 ---
 title: Rebalance shards - Azure Cosmos DB for PostgreSQL
 description: Learn how to use the Azure portal to rebalance data in a cluster using the Shard rebalancer.
-ms.custom: kr2b-contr-experiment, ignite-2022
+ms.custom: kr2b-contr-experiment
 ms.author: jonels
 author: jonels-msft
 ms.service: cosmos-db

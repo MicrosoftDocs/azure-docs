@@ -7,8 +7,8 @@ ms.subservice: apache-cassandra
 ms.topic: troubleshooting
 ms.date: 12/02/2021
 ms.author: IriaOsara
-ms.devlang: csharp, java
-ms.custom: ignite-2022
+ms.devlang: csharp
+# ms.devlang: csharp, java
 ---
 
 # Troubleshoot NoHostAvailableException and NoNodeAvailableException

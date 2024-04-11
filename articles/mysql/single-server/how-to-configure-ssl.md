@@ -6,7 +6,8 @@ ms.subservice: single-server
 author: SudheeshGH
 ms.author: sunaray
 ms.topic: how-to
-ms.devlang: csharp, golang, java, javascript, php, python, ruby
+ms.devlang: csharp
+# ms.devlang: csharp, golang, java, javascript, php, python, ruby
 ms.custom: devx-track-csharp
 ms.date: 06/20/2022
 ---

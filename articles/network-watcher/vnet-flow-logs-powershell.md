@@ -6,18 +6,20 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: network-watcher
 ms.topic: how-to
-ms.date: 08/16/2023
+ms.date: 02/14/2024
 ms.custom: devx-track-azurepowershell
+
+#CustomerIntent: As an Azure administrator, I want to log my virtual network IP traffic using Network Watcher VNet flow logs so that I can analyze it later.
 ---
 
 # Create, change, enable, disable, or delete VNet flow logs using Azure PowerShell
 
-> [!IMPORTANT]
-> VNet flow logs is currently in PREVIEW. This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
 Virtual network flow logging is a feature of Azure Network Watcher that allows you to log information about IP traffic flowing through an Azure virtual network. For more information about virtual network flow logging, see [VNet flow logs overview](vnet-flow-logs-overview.md).
 
-In this article, you learn how to create, change, enable, disable, or delete a VNet flow log using Azure PowerShell. You can learn how to manage a VNet flow log using the [Azure CLI](vnet-flow-logs-cli.md).
+In this article, you learn how to create, change, enable, disable, or delete a VNet flow log using Azure PowerShell. You can learn how to manage a VNet flow log using the [Azure portal](vnet-flow-logs-portal.md) or [Azure CLI](vnet-flow-logs-cli.md).
+
+> [!IMPORTANT]
+> The VNet flow logs feature is currently in preview. This preview version is provided without a service-level agreement, and we don't recommend it for production workloads. Certain features might not be supported or might have constrained capabilities. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Prerequisites
 
@@ -93,13 +95,16 @@ Get-AzNetworkWatcherFlowLog -NetworkWatcherName NetworkWatcher_eastus -ResourceG
 
 ## Download a flow log
 
-To access and download VNet flow logs from your storage account, you can use Azure Storage Explorer. Fore more information, see [Get started with Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md).
+To download VNet flow logs from your storage account, use [Get-AzStorageBlobContent](/powershell/module/az.storage/get-azstorageblobcontent) cmdlet.
 
-VNet flow log files saved to a storage account follow the logging path shown in the following example:
+VNet flow log files are saved to the storage account at the following path:
 
 ```
 https://{storageAccountName}.blob.core.windows.net/insights-logs-flowlogflowevent/flowLogResourceID=/SUBSCRIPTIONS/{subscriptionID}/RESOURCEGROUPS/NETWORKWATCHERRG/PROVIDERS/MICROSOFT.NETWORK/NETWORKWATCHERS/NETWORKWATCHER_{Region}/FLOWLOGS/{FlowlogResourceName}/y={year}/m={month}/d={day}/h={hour}/m=00/macAddress={macAddress}/PT1H.json
 ```
+
+> [!NOTE]
+> You can also access and download VNet flow logs files from the storage account container using the Azure Storage Explorer. Storage Explorer is a standalone app that you can conveniently use to access and work with Azure Storage data. For more information, see [Get started with Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md).
 
 ## Disable traffic analytics on flow log resource 
 
@@ -138,7 +143,7 @@ To delete a VNet flow log resource, use [Remove-AzNetworkWatcherFlowLog](/powers
 Remove-AzNetworkWatcherFlowLog -Name myVNetFlowLog -NetworkWatcherName NetworkWatcher_eastus -ResourceGroupName NetworkWatcherRG
 ```
 
-## Next steps
+## Related content
 
 - To learn about traffic analytics, see [Traffic analytics](traffic-analytics.md).
 - To learn how to use Azure built-in policies to audit or enable traffic analytics, see [Manage traffic analytics using Azure Policy](traffic-analytics-policy-portal.md).

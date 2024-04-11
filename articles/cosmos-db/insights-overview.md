@@ -7,7 +7,7 @@ ms.topic: conceptual
 ms.service: cosmos-db
 ms.date: 02/08/2023
 ms.reviewer: markjbrown
-ms.custom: subject-monitoring, ignite-2022
+ms.custom: subject-monitoring
 ---
 
 # Explore Azure Monitor Azure Cosmos DB insights

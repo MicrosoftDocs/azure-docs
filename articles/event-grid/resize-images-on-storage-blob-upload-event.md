@@ -3,7 +3,8 @@ title: 'Tutorial: Use Azure Event Grid to automate resizing uploaded images'
 description: 'In this tutorial, you learn how to integrate Azure Blob Storage and Azure Functions via Azure Event Grid. When a blob is uploaded to a container, an event is triggered. The event is delivered to an Azure function by Azure Event Grid.'
 ms.topic: tutorial
 ms.date: 05/16/2023
-ms.devlang: csharp, javascript
+ms.devlang: csharp
+# ms.devlang: csharp, javascript
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
 

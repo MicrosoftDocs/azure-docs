@@ -10,11 +10,12 @@ ms.custom: references_regions
 ---
 # Support and prerequisites for Defender for APIs deployment
 
-Review the requirements on this page before setting up [Microsoft Defender for APIs](defender-for-apis-introduction.md). 
+Review the requirements on this page before setting up [Microsoft Defender for APIs](defender-for-apis-introduction.md).
 
 ## Cloud and region support
 
 Defender for APIs is available in the Azure commercial cloud, in these regions:
+
 - Asia (Southeast Asia, EastAsia)
 - Australia (Australia East, Australia Southeast, Australia Central, Australia Central 2)
 - Brazil (Brazil South, Brazil Southeast)
@@ -27,20 +28,18 @@ Defender for APIs is available in the Azure commercial cloud, in these regions:
 
 Review the latest cloud support information for Defender for Cloud plans and features in the [cloud support matrix](support-matrix-cloud-environment.md).
 
-
 ## API support
 
 **Feature** | **Supported**
---- | --- 
+--- | ---
 Availability | This feature is available in the Premium, Standard, Basic, and Developer tiers of Azure API Management.
-API gateways | Azure API Management<br/><br/> Defender for APIs currently doesn't onboard APIs that are exposed using the API Management [self-hosted gateway](../api-management/self-hosted-gateway-overview.md), or managed using API Management [workspaces](../api-management/workspaces-overview.md). 
+API gateways | Azure API Management<br/><br/> Defender for APIs currently doesn't onboard APIs that are exposed using the API Management [self-hosted gateway](../api-management/self-hosted-gateway-overview.md), or managed using API Management [workspaces](../api-management/workspaces-overview.md).
 API types | Currently, Defender for APIs discovers and analyzes REST APIs.
 Multi-region support | There is currently limited support for API security insights for APIs published in Azure API Management multi-region deployments. Security insights, including data classifications, assessments of inactive APIs, unauthenticated APIs, and external APIs, is limited to supporting API traffic to the primary region (no support for security insights for secondary regions). All security detections and subsequently generated security alerts will work for API traffic sent to both primary and secondary regions.
 
 ## Defender CSPM integration
 
 To explore API security risks using Cloud Security Explorer, the Defender Cloud Security Posture Management (CSPM) plan must be enabled. [Learn more](concept-cloud-security-posture-management.md).
-
 
 ## Onboarding requirements
 
@@ -56,4 +55,3 @@ Onboarding location | You can [enable Defender for APIs in the Defender for Clou
 ## Next steps
 
 [Enable and onboard](defender-for-apis-deploy.md) Defender for APIs.
-

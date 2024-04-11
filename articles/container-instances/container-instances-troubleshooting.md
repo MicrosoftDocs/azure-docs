@@ -7,7 +7,7 @@ author: tomvcassidy
 ms.service: container-instances
 services: container-instances
 ms.date: 06/17/2022
-ms.custom: mvc, devx-track-azurecli, devx-track-linux
+ms.custom: mvc, devx-track-azurecli, linux-related-content
 ---
 
 # Troubleshoot common issues in Azure Container Instances
@@ -111,7 +111,7 @@ When running container groups without long-running processes you may see repeate
 az container create -g MyResourceGroup --name myapp --image ubuntu --command-line "tail -f /dev/null"
 ```
 
-```azurecli-interactive 
+```azurecli-interactive
 ## Deploying a Windows container
 az container create -g myResourceGroup --name mywindowsapp --os-type Windows --image mcr.microsoft.com/windows/servercore:ltsc2019
  --command-line "ping -t localhost"
@@ -218,8 +218,8 @@ If you want to confirm that Azure Container Instances can listen on the port you
     --ip-address Public --ports 9000 \
     --environment-variables 'PORT'='9000'
     ```
-1. Find the IP address of the container group in the command output of `az container create`. Look for the value of **ip**. 
-1. After the container is provisioned successfully, browse to the IP address and port of the container application in your browser, for example: `192.0.2.0:9000`. 
+1. Find the IP address of the container group in the command output of `az container create`. Look for the value of **ip**.
+1. After the container is provisioned successfully, browse to the IP address and port of the container application in your browser, for example: `192.0.2.0:9000`.
 
     You should see the "Welcome to Azure Container Instances!" message displayed by the web app.
 1. When you're done with the container, remove it using the `az container delete` command:
@@ -228,19 +228,19 @@ If you want to confirm that Azure Container Instances can listen on the port you
     az container delete --resource-group myResourceGroup --name mycontainer
     ```
 
-## Issues during confidential container group deployments 
+## Issues during confidential container group deployments
 
-### Policy errors while using custom CCE policy 
+### Policy errors while using custom CCE policy
 
-Custom CCE policies must be generated the [Azure CLI confcom extension](https://github.com/Azure/azure-cli-extensions/blob/main/src/confcom/azext_confcom/README.md). Before generating the policy, ensure that all properties specified in your ARM template are valid and match what you expect to be represented in a confidential computing policy. Some properties to validate include the container image, environment variables, volume mounts, and container commands. 
+Custom CCE policies must be generated the [Azure CLI confcom extension](https://github.com/Azure/azure-cli-extensions/blob/main/src/confcom/azext_confcom/README.md). Before generating the policy, ensure that all properties specified in your ARM template are valid and match what you expect to be represented in a confidential computing policy. Some properties to validate include the container image, environment variables, volume mounts, and container commands.
 
-### Missing hash from policy 
+### Missing hash from policy
 
-The Azure CLI confcom extension will use cached images on your local machine which may not match those that are available remotely which can result in layer mismatch when the policy is validated. Please ensure that you remove any old images and pull the latest container images to your local environment.  Once you are sure that you have the latest SHA, you should regenerate the CCE policy. 
+The Azure CLI confcom extension will use cached images on your local machine which may not match those that are available remotely which can result in layer mismatch when the policy is validated. Please ensure that you remove any old images and pull the latest container images to your local environment.  Once you are sure that you have the latest SHA, you should regenerate the CCE policy.
 
 ### Process/container terminated with exit code: 139
 
-This exit code occurs due to limitations with the Ubuntu Version 22.04 base image. The recommendation is to use a different base image to resolve this issue. 
+This exit code occurs due to limitations with the Ubuntu Version 22.04 base image. The recommendation is to use a different base image to resolve this issue.
 
 ## Next steps
 

@@ -7,8 +7,9 @@ ms.author: aahi
 author: aahill
 manager: nitinme
 ms.topic: reference
-ms.date: 01/12/2021
-ms.devlang: csharp, javascript
+ms.date: 01/19/2024
+ms.devlang: csharp
+# ms.devlang: csharp, javascript
 ms.custom: devx-track-csharp
 ---
 
@@ -36,8 +37,6 @@ The Language Understanding service is accessed from an Azure resource you need t
 
 * Use the **authoring** resource for training to create, edit, train, and publish.
 * Use the **prediction** for runtime to send user's text and receive a prediction.
-
-Learn about the [V3 prediction endpoint](luis-migration-api-v3.md).
 
 Use [Azure AI services sample code](https://github.com/Azure-Samples/cognitive-services-quickstart-code) to learn and use the most common tasks.
 

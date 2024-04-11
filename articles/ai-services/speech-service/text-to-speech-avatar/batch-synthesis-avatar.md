@@ -1,14 +1,14 @@
 ---
 title: How to use batch synthesis for text to speech avatar - Speech service
 titleSuffix: Azure AI services
-description: Learn how to create text to speech avatar batch synthesis
-author: sally-baolian
+description: Learn how to create text to speech avatar batch synthesis.
 manager: nitinme
 ms.service: azure-ai-speech
 ms.topic: how-to
-ms.date: 11/15/2023
-ms.author: v-baolianzou
-keywords: text to speech avatar batch synthesis
+ms.date: 2/24/2024
+ms.reviewer: v-baolianzou
+ms.author: eur
+author: eric-urban
 ---
 
 # How to use batch synthesis for text to speech avatar (preview)
@@ -62,7 +62,7 @@ curl -v -X POST -H "Ocp-Apim-Subscription-Key: YourSpeechKey" -H "Content-Type: 
     "inputs": [
         {
          "text": "<speak version='\''1.0'\'' xml:lang='\''en-US'\''>
-                <voice name='\''en-US-JennyNeural'\''>
+                <voice name='\''en-US-AvaMultilingualNeural'\''>
                     The rainbow has seven colors.
                 </voice>
             </speak>"
@@ -165,7 +165,7 @@ You receive a response body in the following format:
         {
             "textType": "PlainText",
             "synthesisConfig": {
-                "voice": "en-US-JennyNeural"
+                "voice": "en-US-AvaMultilingualNeural"
             },
             "customVoices": {},
             "properties": {
@@ -257,7 +257,7 @@ The summary file contains the synthesis results for each text input. Here's an e
   "results":  [
     {
       "texts":  [
-        "<speak version='1.0' xml:lang='en-US'>\n\t\t\t\t<voice name='en-US-JennyNeural'>\n\t\t\t\t\tThe rainbow has seven colors.\n\t\t\t\t</voice>\n\t\t\t</speak>"
+        "<speak version='1.0' xml:lang='en-US'>\n\t\t\t\t<voice name='en-US-AvaMultilingualNeural'>\n\t\t\t\t\tThe rainbow has seven colors.\n\t\t\t\t</voice>\n\t\t\t</speak>"
       ],
       "status":  "Succeeded",
       "billingDetails":  {

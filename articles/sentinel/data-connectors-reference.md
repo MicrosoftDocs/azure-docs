@@ -3,8 +3,12 @@ title: Find your Microsoft Sentinel data connector | Microsoft Docs
 description: Learn about specific configuration steps for Microsoft Sentinel data connectors.
 author: cwatson-cat
 ms.topic: reference
-ms.date: 10/23/2023
+ms.date: 03/02/2024
 ms.author: cwatson
+appliesto:
+    - Microsoft Sentinel in the Azure portal
+    - Microsoft Sentinel in the Microsoft Defender portal
+ms.collection: usx-security
 ---
 
 # Find your Microsoft Sentinel data connector
@@ -14,10 +18,11 @@ This article lists all supported, out-of-the-box data connectors and links to ea
 > [!IMPORTANT]
 > - Noted Microsoft Sentinel data connectors are currently in **Preview**. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 > - For connectors that use the Log Analytics agent, the agent will be [retired on **31 August, 2024**](https://azure.microsoft.com/updates/were-retiring-the-log-analytics-agent-in-azure-monitor-on-31-august-2024/). If you are using the Log Analytics agent in your Microsoft Sentinel deployment, we recommend that you start planning your migration to the AMA. For more information, see [AMA migration for Microsoft Sentinel](ama-migrate.md).
+> - [!INCLUDE [unified-soc-preview-without-alert](includes/unified-soc-preview-without-alert.md)]
 
 Data connectors are available as part of the following offerings:
 
-- Solutions: Many data connectors are deployed as part of [Microsoft Sentinel solution](sentinel-solutions.md) together with related content like analytics rules, workbooks and playbooks. For more information, see the [Microsoft Sentinel solutions catalog](sentinel-solutions-catalog.md).
+- Solutions: Many data connectors are deployed as part of [Microsoft Sentinel solution](sentinel-solutions.md) together with related content like analytics rules, workbooks, and playbooks. For more information, see the [Microsoft Sentinel solutions catalog](sentinel-solutions-catalog.md).
 
 - Community connectors: More data connectors are provided by the Microsoft Sentinel community and can be found in the [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?filters=solution-templates&page=1&search=sentinel). Documentation for community data connectors is the responsibility of the organization that created the connector.
 
@@ -25,7 +30,7 @@ Data connectors are available as part of the following offerings:
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
-### Data connector prerequisites
+## Data connector prerequisites
 
 [!INCLUDE [data-connector-prereq](includes/data-connector-prereq.md)]
 
@@ -52,7 +57,7 @@ Data connectors are available as part of the following offerings:
 ## Amazon Web Services
 
 - [Amazon Web Services](data-connectors/amazon-web-services.md)
-- [Amazon Web Services S3 (preview)](data-connectors/amazon-web-services-s3.md)
+- [Amazon Web Services S3](data-connectors/amazon-web-services-s3.md)
 
 ## Apache
 
@@ -123,6 +128,7 @@ Data connectors are available as part of the following offerings:
 - [[Recommended] Cisco Secure Email Gateway via AMA](data-connectors/recommended-cisco-secure-email-gateway-via-ama.md)
 - [Cisco Application Centric Infrastructure](data-connectors/cisco-application-centric-infrastructure.md)
 - [Cisco ASA](data-connectors/cisco-asa.md)
+- [Cisco ASA/FTD via AMA (Preview)](data-connectors/cisco-asa-ftd-via-ama.md)
 - [Cisco Duo Security (using Azure Functions)](data-connectors/cisco-duo-security-using-azure-functions.md)
 - [Cisco Identity Services Engine](data-connectors/cisco-identity-services-engine.md)
 - [Cisco Meraki](data-connectors/cisco-meraki.md)
@@ -173,6 +179,7 @@ Data connectors are available as part of the following offerings:
 ## Crowdstrike
 
 - [Crowdstrike Falcon Data Replicator (using Azure Functions)](data-connectors/crowdstrike-falcon-data-replicator-using-azure-functions.md)
+- [Crowdstrike Falcon Data Replicator V2 (using Azure Functions) (Preview)](data-connectors/crowdstrike-falcon-data-replicator-v2-using-azure-functions.md)
 - [CrowdStrike Falcon Endpoint Protection](data-connectors/crowdstrike-falcon-endpoint-protection.md)
 
 ## Cyber Defense Group B.V.
@@ -183,6 +190,10 @@ Data connectors are available as part of the following offerings:
 
 - [CyberArk Enterprise Password Vault (EPV) Events](data-connectors/cyberark-enterprise-password-vault-epv-events.md)
 - [CyberArkEPM (using Azure Functions)](data-connectors/cyberarkepm-using-azure-functions.md)
+
+## CyberPion
+
+- [IONIX Security Logs](data-connectors/ionix-security-logs.md)
 
 ## Cybersixgill
 
@@ -390,11 +401,9 @@ Data connectors are available as part of the following offerings:
 ## Microsoft
 
 - [Automated Logic WebCTRL](data-connectors/automated-logic-webctrl.md)
-- [Microsoft Entra ID](data-connectors/azure-active-directory.md)
-- [Microsoft Entra ID Protection](data-connectors/azure-active-directory-identity-protection.md)
 - [Azure Activity](data-connectors/azure-activity.md)
 - [Azure Batch Account](data-connectors/azure-batch-account.md)
-- [Azure AI Search](data-connectors/azure-cognitive-search.md)
+- [Azure Cognitive Search](data-connectors/azure-cognitive-search.md)
 - [Azure Data Lake Storage Gen1](data-connectors/azure-data-lake-storage-gen1.md)
 - [Azure DDoS Protection](data-connectors/azure-ddos-protection.md)
 - [Azure Event Hub](data-connectors/azure-event-hub.md)
@@ -419,6 +428,8 @@ Data connectors are available as part of the following offerings:
 - [Microsoft Defender for IoT](data-connectors/microsoft-defender-for-iot.md)
 - [Microsoft Defender for Office 365 (preview)](data-connectors/microsoft-defender-for-office-365.md)
 - [Microsoft Defender Threat Intelligence](data-connectors/microsoft-defender-threat-intelligence.md)
+- [Microsoft Entra ID](data-connectors/azure-active-directory.md)
+- [Microsoft Entra ID Protection](data-connectors/microsoft-entra-id-protection.md)
 - [Microsoft PowerBI (preview)](data-connectors/microsoft-powerbi.md)
 - [Microsoft Project (preview)](data-connectors/microsoft-project.md)
 - [Microsoft Purview (preview)](data-connectors/microsoft-purview.md)
@@ -429,7 +440,7 @@ Data connectors are available as part of the following offerings:
 - [Threat intelligence - TAXII](data-connectors/threat-intelligence-taxii.md)
 - [Threat Intelligence Platforms](data-connectors/threat-intelligence-platforms.md)
 - [Threat Intelligence Upload Indicators API (Preview)](data-connectors/threat-intelligence-upload-indicators-api.md)
-- [Windows DNS Events via AMA (Preview)](data-connectors/windows-dns-events-via-ama.md)
+- [Windows DNS Events via AMA](data-connectors/windows-dns-events-via-ama.md)
 - [Windows Firewall](data-connectors/windows-firewall.md)
 - [Windows Forwarded Events](data-connectors/windows-forwarded-events.md)
 - [Windows Security Events via AMA](data-connectors/windows-security-events-via-ama.md)
@@ -611,6 +622,9 @@ Data connectors are available as part of the following offerings:
 
 - [SentinelOne (using Azure Functions)](data-connectors/sentinelone-using-azure-functions.md)
 
+## SERAPHIC ALGORITHMS LTD
+- [Seraphic Web Security](data-connectors/seraphic-web-security.md)
+
 ## Slack
 
 - [Slack Audit (using Azure Functions)](data-connectors/slack-audit-using-azure-functions.md)
@@ -678,6 +692,10 @@ Data connectors are available as part of the following offerings:
 ## Ubiquiti
 
 - [Ubiquiti UniFi (Preview)](data-connectors/ubiquiti-unifi.md)
+
+## Valence Security Inc.
+
+- [SaaS Security](data-connectors/saas-security.md)
 
 ## vArmour Networks
 

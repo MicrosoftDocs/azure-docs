@@ -5,9 +5,9 @@ description: Learn how to train a model, convert it to ONNX, deploy it to Azure 
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: hudequei, randolphwest
-ms.date: 09/14/2023
-ms.prod: sql
-ms.technology: machine-learning
+ms.date: 01/10/2024
+ms.service: sql
+ms.subservice: machine-learning
 ms.topic: quickstart
 ms.custom: mode-other
 keywords: deploy SQL Edge

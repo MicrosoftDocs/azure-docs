@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, wsilveira
 ms.topic: how-to
-ms.date: 07/21/2023
+ms.date: 01/10/2024
 #Customer intent: As a developer, I want to export one or more Consumption workflows to a Standard workflow.
 ---
 

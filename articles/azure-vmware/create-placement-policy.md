@@ -3,7 +3,7 @@ title: Create placement policy
 description: Learn how to create a placement policy in Azure VMware Solution to control the placement of virtual machines (VMs) on hosts within a cluster through the Azure portal.
 ms.topic: how-to 
 ms.service: azure-vmware
-ms.date: 1/8/2024
+ms.date: 3/22/2024
 ms.custom: engagement-fy23
 
 #Customer intent: As an Azure service administrator, I want to control the placement of virtual machines on hosts within a cluster in my private cloud. 
@@ -183,7 +183,7 @@ Yes, and no. While vSphere DRS implements the current set of policies, we simpli
 
 ### As this is an existing functionality available in vCenter Server, why can't I use it directly? 
 
-Azure VMware Solution provides a private cloud in Azure. In this managed VMware solution infrastructure, Microsoft manages the clusters, hosts, datastores, and distributed virtual switches in the private cloud. At the same time, the tenant is responsible for managing the workloads deployed on the private cloud. As a result, the tenant administering the private cloud doesn't have the [same set of privileges](concepts-identity.md) as available to the VMware solution administrator in an on-premises deployment. 
+Azure VMware Solution provides a private cloud in Azure. In this managed VMware solution infrastructure, Microsoft manages the clusters, hosts, datastores, and distributed virtual switches in the private cloud. At the same time, the tenant is responsible for managing the workloads deployed on the private cloud. As a result, the tenant administering the private cloud doesn't have the [same set of privileges](architecture-identity.md) as available to the VMware solution administrator in an on-premises deployment. 
 
 Further, the lack of the desired granularity in the vSphere privileges presents some challenges when managing the placement of the workloads on the private cloud. For example, vSphere DRS rules commonly used on-premises to define affinity and anti-affinity rules can't be used as-is in an Azure VMware Solution environment, as some of those rules can block day-to-day operation the private cloud. Placement Policies provides a way to define those rules using the Azure portal, thereby circumventing the need to use DRS rules. Coupled with a simplified experience, Placement Policies ensure the rules don't impact the day-to-day infrastructure maintenance and operation activities. 
 

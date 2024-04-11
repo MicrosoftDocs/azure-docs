@@ -7,7 +7,6 @@ author: laujan
 manager: nitinme
 
 ms.service: azure-ai-translator
-ms.custom: event-tier1-build-2022
 ms.topic: conceptual
 ms.date: 11/30/2023
 ms.author: lajanuar

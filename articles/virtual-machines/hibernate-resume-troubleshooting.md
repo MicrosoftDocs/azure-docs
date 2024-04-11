@@ -3,12 +3,10 @@ title: Troubleshoot VM hibernation
 description: Learn how to troubleshoot VM hibernation.
 author: mattmcinnes
 ms.service: virtual-machines
-ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 10/31/2023
 ms.author: jainan
 ms.reviewer: mattmcinnes
-ms.custom: 
 ---
 
 # Troubleshooting VM hibernation

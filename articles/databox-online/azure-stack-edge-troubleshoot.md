@@ -7,10 +7,12 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: troubleshooting
-ms.date: 06/08/2021
+ms.date: 02/24/2024
 ms.author: alkohli
 ---
 # Troubleshoot your Azure Stack Edge Pro FPGA issues
+
+[!INCLUDE [Azure Stack Edge Pro FPGA end-of-life](../../includes/azure-stack-edge-fpga-eol.md)]
 
 This article describes how to troubleshoot issues on your Azure Stack Edge Pro FPGA. 
 

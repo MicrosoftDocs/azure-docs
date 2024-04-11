@@ -1,12 +1,12 @@
 ---
-title: Use an Azure free account to try Azure Database for PostgreSQL - Flexible Server for free
-description: Guidance on how to deploy an Azure Database for PostgreSQL - Flexible Server for free using an Azure Free Account. 
+title: Use an Azure free account to try for free
+description: Guidance on how to deploy an Azure Database for PostgreSQL - Flexible Server instance for free using an Azure Free Account.
 author: shreyaaithal 
 ms.author: shaithal
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: how-to 
-ms.date: 12/12/2023
+ms.date: 01/02/2024
 ms.custom: template-how-to 
 ---
 
@@ -15,11 +15,11 @@ ms.custom: template-how-to
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
-Azure Database for PostgreSQL - Flexible Server is a managed service that you use to run, manage, and scale highly available PostgreSQL databases in the cloud. With an Azure free account, you can use Flexible Server for **free for 12 months** with **monthly limits** of up to:
+Azure Database for PostgreSQL flexible server is a managed service that you use to run, manage, and scale highly available PostgreSQL databases in the cloud. With an Azure free account, you can use Azure Database for PostgreSQL flexible server for **free for 12 months** with **monthly limits** of up to:
 - **750 hours** of **Burstable B1MS** instance, enough hours to run a database instance continuously each month.
 - **32 GB storage and 32 GB backup storage**.
 
-This article shows you how to create and use a flexible server for free using an [Azure free account](https://azure.microsoft.com/free/). 
+This article shows you how to create and use an Azure Database for PostgreSQL flexible server instance for free using an [Azure free account](https://azure.microsoft.com/free/). 
 
 ## Prerequisites
 
@@ -28,16 +28,16 @@ To complete this tutorial, you need:
 - An Azure free account. If you don’t have one, [create a free account](https://azure.microsoft.com/free/) before you begin. 
 
 
-## Create an Azure Database for PostgreSQL - Flexible Server
+## Create an Azure Database for PostgreSQL flexible server instance
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) with your Azure free account.
     
     The default view is your service dashboard.
 
-1. To create a PostgreSQL Flexible Server database, search for and select **Azure Database for PostgreSQL servers**:
+1. To create an Azure Database for PostgreSQL flexible server instance, search for and select **Azure Database for PostgreSQL servers**:
 
     
-    :::image type="content" source="media/how-to-deploy-on-azure-free-account/select-postgresql.png" alt-text="Screenshot that shows how to search and select Azure Database for PostgreSQL.":::
+    :::image type="content" source="media/how-to-deploy-on-azure-free-account/select-postgresql.png" alt-text="Screenshot that shows how to search and select Azure Database for PostgreSQL flexible server.":::
 
 
     Alternatively, you can search for and navigate to **Free Services**, and then select **Azure Database for PostgreSQL** tile from the list:
@@ -47,9 +47,9 @@ To complete this tutorial, you need:
 
 1. Select **Create**.
 
-1. Enter the basic settings for a new **Flexible Server**.
+1. Enter the basic settings for a new **Azure Database for PostgreSQL flexible server** instance.
 
-    :::image type="content" source="media/how-to-deploy-on-azure-free-account/basic-settings-postgresql.png" alt-text="Screenshot that shows the Basic Settings for creating Flexible Server.":::
+    :::image type="content" source="media/how-to-deploy-on-azure-free-account/basic-settings-postgresql.png" alt-text="Screenshot that shows the Basic Settings for creating an Azure Database for PostgreSQL flexible server instance.":::
 
     | Setting               | Suggested Value                  | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
     |-----------------------|----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -80,18 +80,18 @@ To complete this tutorial, you need:
 
 1.	Select **Networking** tab to configure how to reach your server.
 
-    Azure Database for PostgreSQL - Flexible Server provides two ways to connect:
+    Azure Database for PostgreSQL flexible server provides two ways to connect:
     - Public access (allowed IP addresses) and Private endpoint
     - Private access (VNet Integration)
     
-    With public access, access to your server is limited to allowed IP addresses that you include in a firewall rule or to applications which can reach the instance of PostgreSQL via private endpoints. This method prevents external applications and tools from connecting to the server and any databases on the server, unless you create a rule to open the firewall for a specific IP address or range, or create a private endpoint.
+    With public access, access to your server is limited to allowed IP addresses that you include in a firewall rule or to applications which can reach the instance of Azure Database for PostgreSQL flexible server via private endpoints. This method prevents external applications and tools from connecting to the server and any databases on the server, unless you create a rule to open the firewall for a specific IP address or range, or create a private endpoint.
     
     With private access, access to your server is limited to your virtual network. For more information about connectivity methods, [**see Networking overview**](./concepts-networking.md).
     
     For the purposes of this tutorial, enable public access to connect to the server.
 
     >[!NOTE]
-    >Azure Database for PostgreSQL - Flexible Server support for Private Endpoints in Preview requires enablement of **Enable Private Endpoints for PostgreSQL flexible servers** [preview feature in your subscription](../../azure-resource-manager/management/preview-features.md).
+    >Azure Database for PostgreSQL flexible server support for Private Endpoints in Preview requires enablement of **Enable Private Endpoints for PostgreSQL flexible servers** [preview feature in your subscription](../../azure-resource-manager/management/preview-features.md).
     >Only **after preview feature is enabled** you can create servers which are PE capable, i.e. can be networked using Private Link.
 
 1. On the **Networking** tab, for **Connectivity method** select **Public access (allowed IP addresses) and Private endpoint**.
@@ -102,27 +102,27 @@ To complete this tutorial, you need:
     
     :::image type="content" source="media/how-to-deploy-on-azure-free-account/networking-postgresql.png" alt-text="Screenshot that shows the networking options to be chosen, and highlights the add current client IP address button.":::
 
-1. To review your flexible server configuration, select **Review + create**.
+1. To review your Azure Database for PostgreSQL flexible server configuration, select **Review + create**.
 
     :::image type="content" source="media/how-to-deploy-on-azure-free-account/review-create-postgresql.png" alt-text="Screenshot that shows the Review + create blade.":::
 
     >[!IMPORTANT]
-    >While creating the Flexible server instance from your Azure free account, you will still see an **Estimated cost per month** in the **Compute + Storage : Cost Summary** blade and **Review + Create** tab. But, as long as you are using your Azure free account, and your free service usage is within monthly limits (to view usage information, refer [**Monitor and track free services usage**](#monitor-and-track-free-services-usage) section below), you won't be charged for the service. We're currently working to improve the **Cost Summary** experience for free services. 
+    >While creating the Azure Database for PostgreSQL flexible server instance from your Azure free account, you still see an **Estimated cost per month** in the **Compute + Storage : Cost Summary** blade and **Review + Create** tab. But, as long as you are using your Azure free account, and your free service usage is within monthly limits (to view usage information, refer [**Monitor and track free services usage**](#monitor-and-track-free-services-usage) section below), you won't be charged for the service. We're currently working to improve the **Cost Summary** experience for free services. 
 
 1. Select **Create** to provision the server.
 
-    Provisioning can take a few minutes
+    Provisioning can take a few minutes.
 
 1.	On the toolbar, select **Notifications** (the bell icon) to monitor the deployment process.
 
-    After the deployment is complete, select **Pin to dashboard**, to create a tile for the flexible server on your Azure portal dashboard. This tile is a shortcut to the server's **Overview** page. When you select **Go to resource**, the server's **Overview** page opens.
+    After the deployment is complete, select **Pin to dashboard**, to create a tile for the Azure Database for PostgreSQL flexible server instance on your Azure portal dashboard. This tile is a shortcut to the server's **Overview** page. When you select **Go to resource**, the server's **Overview** page opens.
 
-    By default, a **postgres** database is created under your server. The postgres database is a default database that's meant for use by users, utilities, and third-party applications. (The other default database is **azure_maintenance**. Its function is to separate the managed service processes from user actions. You cannot access this database.)
+    By default, a **postgres** database is created under your server. The postgres database is a default database that's meant for use by users, utilities, and third-party applications. (The other default database is **azure_maintenance**. Its function is to separate the managed service processes from user actions. You can't access this database.)
 
 
 ## Connect and query
 
-Now that you’ve created an Azure Database for PostgreSQL flexible server in a resource group, you can connect to server and query databases by using the following Connect and query quickstarts:
+Now that you’ve created an Azure Database for PostgreSQL flexible server instance in a resource group, you can connect to server and query databases by using the following Connect and query quickstarts:
 - [psql](quickstart-create-server-portal.md#connect-to-the-postgresql-database-using-psql)
 - [Azure CLI](connect-azure-cli.md)
 - [Python](connect-python.md)
@@ -133,7 +133,7 @@ Now that you’ve created an Azure Database for PostgreSQL flexible server in a 
 
 ## Monitor and track free services usage
 
-You're not charged for Azure Database for PostgreSQL - Flexible Server services that are included for free with your Azure free account unless you exceed the free service limits. To remain within the limits, use the Azure portal to track and monitor your free services usage.
+You're not charged for Azure Database for PostgreSQL flexible server services that are included for free with your Azure free account unless you exceed the free service limits. To remain within the limits, use the Azure portal to track and monitor your free services usage.
 
 1.	In the Azure portal, search for **Subscriptions** and select the Azure free account - **Free Trial** subscription.
 1.	On the **Overview** page, scroll down to show the tile **Top free services by usage**, and then select **View all free services**.
@@ -165,9 +165,9 @@ You're not charged for Azure Database for PostgreSQL - Flexible Server services 
 
 ## Clean up resources
     
-If you are using the flexible server for development, testing, or predictable, time-bound production workloads, optimize usage by starting and stopping the server on-demand. After you stop the server, it remains in that state for seven days unless restarted sooner. For more information, see Start/Stop Server to lower TCO. When your Flexible Server is stopped, there is no Compute usage, but Storage usage is still considered.
+If you're using the Azure Database for PostgreSQL flexible server instance for development, testing, or predictable, time-bound production workloads, optimize usage by starting and stopping the server on-demand. After you stop the server, it remains in that state for seven days unless restarted sooner. For more information, see Start/Stop Server to lower TCO. When your Azure Database for PostgreSQL flexible server instance is stopped, there's no Compute usage, but Storage usage is still considered.
 
-Alternatively, if you don't expect to need these resources in the future, you can delete them by deleting the resource group, or you can just delete the PostgreSQL server.
+Alternatively, if you don't expect to need these resources in the future, you can delete them by deleting the resource group, or you can just delete the Azure Database for PostgreSQL flexible server instance.
 
 - To delete the resource group, complete the following steps:
     1. In the Azure portal, search for and select **Resource groups**.
@@ -175,7 +175,7 @@ Alternatively, if you don't expect to need these resources in the future, you ca
     1. On the **Overview** page for your resource group, select **Delete resource group.**
     1. In the confirmation dialog box, type the name of your resource group, and then select **Delete**.
     
-- To delete the PostgreSQL server, on **Overview** page for the server, select **Delete**.
+- To delete the Azure Database for PostgreSQL flexible server instance, on the **Overview** page for the server, select **Delete**.
  
 
 

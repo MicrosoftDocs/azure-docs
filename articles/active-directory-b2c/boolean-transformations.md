@@ -9,9 +9,13 @@ manager: CelesteDG
 ms.service: active-directory
 
 ms.topic: reference
-ms.date: 02/16/2022
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
+
+
+#Customer intent: As a developer working with Azure Active Directory B2C, I want to understand how to use boolean claims transformations, so that I can manipulate and evaluate boolean claims in my application.
+
 ---
 
 # Boolean claims transformations

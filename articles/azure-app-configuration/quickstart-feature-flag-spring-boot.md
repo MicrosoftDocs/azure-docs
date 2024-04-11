@@ -13,7 +13,7 @@ ms.custom: devx-track-java, mode-other
 
 # Quickstart: Add feature flags to a Spring Boot app
 
-In this quickstart, you incorporate Azure App Configuration into a Spring Boot web app to create an end-to-end implementation of feature management. You can use the App Configuration service to centrally store all your feature flags and control their states.
+In this quickstart, you incorporate Azure App Configuration into a Spring Boot web app to create an end-to-end implementation of feature management. You can use App Configuration to centrally store all your feature flags and control their states.
 
 The Spring Boot Feature Management libraries extend the framework with comprehensive feature flag support. These libraries do **not** have a dependency on any Azure libraries. They seamlessly integrate with App Configuration through its Spring Boot configuration provider.
 
@@ -73,7 +73,7 @@ To create a new Spring Boot project:
             <dependency>
             <groupId>com.azure.spring</groupId>
             <artifactId>spring-cloud-azure-dependencies</artifactId>
-            <version>5.5.0</version>
+            <version>5.8.0</version>
             <type>pom</type>
             <scope>import</scope>
             </dependency>
@@ -102,7 +102,7 @@ To create a new Spring Boot project:
             <dependency>
             <groupId>com.azure.spring</groupId>
             <artifactId>spring-cloud-azure-dependencies</artifactId>
-            <version>4.11.0</version>
+            <version>4.14.0</version>
             <type>pom</type>
             <scope>import</scope>
             </dependency>

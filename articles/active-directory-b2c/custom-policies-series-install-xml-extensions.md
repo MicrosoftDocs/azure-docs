@@ -10,10 +10,14 @@ ms.service: active-directory
 
 ms.topic: how-to
 ms.custom: b2c-docs-improvements
-ms.date: 11/20/2023
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.reviewer: yoelh
 ms.subservice: B2C
+
+
+#Customer intent: As a developer working with Azure AD B2C custom policies, I want to validate my custom policy files using the TrustFrameworkPolicy schema, so that I can ensure that my files are properly formatted and free of errors before uploading them.
+
 ---
 
 # Validate custom policy files by using TrustFrameworkPolicy schema  

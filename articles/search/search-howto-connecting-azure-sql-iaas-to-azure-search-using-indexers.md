@@ -10,7 +10,7 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 08/24/2022
+ms.date: 02/24/2024
 ---
 
 # Indexer connections to a SQL Server instance on an Azure virtual machine

@@ -7,10 +7,14 @@ manager: CelesteDG
 ms.service: active-directory
 
 ms.topic: how-to
-ms.date: 03/24/2023
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: "b2c-support"
+
+
+#Customer intent: As an iOS Swift app developer, I want to enable Azure AD B2C authentication in my app, so that users can sign in using their Azure AD B2C accounts and access protected resources.
+
 ---
 
 # Enable authentication in your own iOS Swift app by using Azure AD B2C

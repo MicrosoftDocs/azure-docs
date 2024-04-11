@@ -5,7 +5,7 @@ author: timlt
 ms.author: timlt
 ms.service: iot-develop
 ms.topic: overview
-ms.date: 12/15/2022
+ms.date: 1/23/2024
 ---
 
 # Overview of Azure IoT Device SDKs
@@ -22,7 +22,7 @@ The main consideration in choosing an SDK is the device's own hardware. General 
 |[Embedded device SDKs](#embedded-device-sdks)|Embedded devices|Special-purpose MCU-based devices with compute and memory limitations|Sensors|
 
 > [!Note] 
-> For more information on different device categories so you can choose the best SDK for your device, see [Azure IoT Device Types](concepts-iot-device-types.md).
+> For more information on different device categories so you can choose the best SDK for your device, see [Azure IoT Device Types](../iot/concepts-iot-device-types.md).
 
 ## Device SDKs
 

@@ -4,7 +4,7 @@ description: Learn how to transition from Storage Analytics metrics (classic met
 author: normesta
 ms.service: azure-storage
 ms.topic: conceptual
-ms.date: 01/09/2024
+ms.date: 01/11/2024
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: storage-common-concepts

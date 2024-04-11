@@ -7,7 +7,7 @@ ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 01/04/2024
 
-# As a developer, I want to automate deployment for workflows hosted in single-tenant Azure Logic Apps by using DevOps tools and processes.
+# Customer intent: As a developer, I want to automate deployment for workflows hosted in single-tenant Azure Logic Apps by using DevOps tools and processes.
 ---
 
 # Set up DevOps deployment for Standard logic app workflows in single-tenant Azure Logic Apps

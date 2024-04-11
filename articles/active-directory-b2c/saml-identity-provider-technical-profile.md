@@ -9,9 +9,13 @@ manager: CelesteDG
 ms.service: active-directory
 
 ms.topic: reference
-ms.date: 01/05/2023
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
+
+
+#Customer intent: As a developer integrating Azure AD B2C with a SAML-based identity provider, I want to understand how to define a SAML identity provider technical profile, so that I can configure the necessary metadata and certificates for the integration.
+
 ---
 
 # Define a SAML identity provider technical profile in an Azure Active Directory B2C custom policy

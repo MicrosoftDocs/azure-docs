@@ -7,7 +7,7 @@ ms.subservice: reservations
 ms.author: banders
 ms.reviewer: primittal
 ms.topic: troubleshooting
-ms.date: 07/20/2023
+ms.date: 03/21/2024
 ---
 
 # Troubleshoot no eligible subscriptions
@@ -25,7 +25,7 @@ This article helps you troubleshoot the *No eligible subscriptions* error messag
     You do not have any eligible subscriptions to purchase reservations. To purchase a reservation, you should have owner or reservation purchaser permission on at least one subscription of the following type: Pay-as-you-go, CSP, Microsoft Enterprise or Microsoft Customer Agreement.
     ```
 1. In the **Select the product you want to purchase** area, expand the **Billing subscription** list to see the reason why a specific subscription isn't eligible to purchase a reserved instance. The following image shows examples why a reservation can't be purchased.  
-    :::image type="content" source="./media/troubleshoot-no-eligible-subscriptions/select-product-to-purchase.png" alt-text="Example showing why a reservation can't be purchased" lightbox="./media/troubleshoot-no-eligible-subscriptions/select-product-to-purchase.png" :::
+    :::image type="content" source="./media/troubleshoot-no-eligible-subscriptions/select-product-to-purchase.png" alt-text="Screenshot showing why a reservation can't be purchased." lightbox="./media/troubleshoot-no-eligible-subscriptions/select-product-to-purchase.png" :::
 
 ## Cause
 
@@ -46,7 +46,7 @@ Subscription not eligible for purchase
 This subscription is not eligible for reservation benefit an cannot be used to purchase a reservation.
 ```
 
-:::image type="content" source="./media/troubleshoot-no-eligible-subscriptions/subscription-not-eligible.png" alt-text="Example showing the Subscription not eligible for purchase error message" :::
+:::image type="content" source="./media/troubleshoot-no-eligible-subscriptions/subscription-not-eligible.png" alt-text="Screenshot showing the Subscription not eligible for purchase error message." :::
 
 >[!NOTE]
 > Reservations aren't supported by the China legacy Online Service Premium Agreement (OSPA) platform. For more information, see [Microsoft Azure operated by 21Vianet OSPA purchase](https://go.microsoft.com/fwlink/?linkid=2239835).

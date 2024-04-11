@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: container-apps
 ms.topic: conceptual
-ms.date: 12/05/2023
+ms.date: 01/30/2024
 ms.author: cshoe
 ---
 
@@ -183,7 +183,25 @@ ARM64 based clusters aren't supported at this time.
  - Fix to image pull secret retrieval issues
  - Update placement of Envoy to distribute across available nodes where possible
  - When container apps fail to provision as a result of revision conflicts, set the provisioning state to failed
- 
+
+### Container Apps extension v1.30.6 (January 2024)
+
+ - Update KEDA to v2.12
+ - Update Envoy SC image to v1.0.4
+ - Update Dapr image to v1.11.6
+ - Added default response timeout for Envoy routes to 1800 seconds
+ - Changed Fluent bit default log level to warn
+ - Delay deletion of job pods to ensure log emission
+ - Fixed issue for job pod deletion for failed job executions
+ - Ensure jobs in suspended state also have failed pods deleted
+ - Update to not resolve HTTPOptions for TCP applications
+ - Allow applications to listen on HTTP or HTTPS
+ - Add ability to suspend jobs
+ - Fixed issue where KEDA scaler was failing to create job after stopped job execution
+ - Add startingDeadlineSeconds to Container App Job in case of cluster reboot
+ - Removed heavy logging in Envoy access log server
+ - Updated Monitoring Configuration version for Azure Container Apps on Azure Arc enabled Kubernetes
+  
 ## Next steps
 
 [Create a Container Apps connected environment (Preview)](azure-arc-enable-cluster.md)

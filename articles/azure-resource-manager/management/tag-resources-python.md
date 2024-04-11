@@ -2,10 +2,11 @@
 title: Tag resources, resource groups, and subscriptions with Python
 description: Shows how to use Python to apply tags to Azure resources.
 ms.topic: conceptual
-ms.date: 04/19/2023
+ms.date: 01/27/2024
 ms.custom: devx-track-python
 content_well_notification: 
   - AI-contribution
+ai-usage: ai-assisted
 ---
 
 # Apply tags with Python
@@ -14,7 +15,7 @@ This article describes how to use Python to tag resources, resource groups, and 
 
 ## Prerequisites
 
-* Python 3.7 or later installed. To install the latest, see [Python.org](https://www.python.org/downloads/)
+* Python 3.8 or later installed. To install the latest, see [Python.org](https://www.python.org/downloads/)
 
 * The following Azure library packages for Python installed in your virtual environment. To install any of the packages, use `pip install {package-name}`
   * azure-identity

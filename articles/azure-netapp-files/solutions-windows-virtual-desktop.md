@@ -2,15 +2,8 @@
 title: Using Azure Virtual Desktop with Azure NetApp Files | Microsoft Docs
 description: Provides best practice guidance and sample blueprints on deploying Azure Virtual Desktop with Azure NetApp Files.
 services: azure-netapp-files
-documentationcenter: ''
 author: b-hchen
-manager: ''
-editor: ''
-
-ms.assetid:
 ms.service: azure-netapp-files
-ms.workload: storage
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/13/2020
 ms.author: anfdocs
@@ -38,13 +31,13 @@ This recommendation is confirmed by a 500-user LoginVSI test, logging approximat
 
 As an example, at 62 users per D16as_V4 virtual machine, Azure NetApp Files can easily support 60,000 users per environment. Testing to evaluate the upper limit of the D32as_v4 virtual machine is ongoing. If the Azure Virtual Desktop user per vCPU recommendation holds true for the D32as_v4, more than 120,000 users would fit within 1,000 virtual machines before broaching [the 1,000 IP VNet limit](./azure-netapp-files-network-topologies.md), as shown in the following figure.  
 
-![Azure Virtual Desktop pooled desktop scenario](../media/azure-netapp-files/solutions-pooled-desktop-scenario.png)   
+![Azure Virtual Desktop pooled desktop scenario](./media/solutions-windows-virtual-desktop/solutions-pooled-desktop-scenario.png)   
 
 ### Personal desktop scenario 
 
 In a personal desktop scenario, the following figure shows the general-purpose architectural recommendation. Users are mapped to specific desktop pods and each pod has just under 1,000 virtual machines, leaving room for IP addresses propagating from the management VNet. Azure NetApp Files can easily handle 900+ personal desktops per single-session host pool VNet, with the actual number of virtual machines being equal to 1,000 minus the number of management hosts found in the Hub VNet. If more personal desktops are needed, it's easy to add more pods (host pools and virtual networks), as shown in the following figure. 
 
-![Azure Virtual Desktop personal desktop scenario](../media/azure-netapp-files/solutions-personal-desktop-scenario.png)  
+![Azure Virtual Desktop personal desktop scenario](./media/solutions-windows-virtual-desktop/solutions-personal-desktop-scenario.png)  
 
 When building a POD based architecture like this, assigning users to the correct pod upon login is of importance to assure users will always find their user profiles. 
 

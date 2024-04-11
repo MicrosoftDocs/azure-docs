@@ -258,7 +258,7 @@ If the response code is "424 Model Error", it means that the error is caused by 
 
 ### Consume using Python
 
-We have created [a utility file](https://aka.ms/pf-streaming-sample-util) as an example to demonstrate how to consume the server-sent event. A sample usage would like:
+A sample usage would like:
 
 ```python
 try:
@@ -283,7 +283,7 @@ There are several libraries to consume server-sent events in JavaScript. For exa
 
 ## A sample chat app using Python
 
-Here's a sample chat app written in Python. (To view the source code, see [chat_app.py](https://aka.ms/pf-streaming-sample-chat))
+Here's a sample chat app written in Python.
 
 :::image type="content" source="./media/how-to-enable-streaming-mode/chat-app.gif" alt-text="Gif a sample chat app using Python."lightbox ="./media/how-to-enable-streaming-mode/chat-app.gif":::
 

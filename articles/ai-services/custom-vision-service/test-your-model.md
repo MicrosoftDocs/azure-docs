@@ -8,13 +8,13 @@ manager: nitinme
 
 ms.service: azure-ai-custom-vision
 ms.topic: how-to
-ms.date: 07/05/2022
+ms.date: 01/21/2024
 ms.author: pafarley
 ---
 
-# Test and retrain a model with Custom Vision Service
+# Test and retrain a Custom Vision model
 
-After you train your Custom Vision model, you can quickly test it using a locally stored image or a URL pointing to a remote image. The test uses the most recently trained iteration of your model. Then you can decide whether further training is needed.
+After you train your Custom Vision model, you can quickly test it using a locally stored image or a URL pointing to a remote image. Test the most recently trained iteration of your model, and then decide whether further training is needed.
 
 ## Test your model
 
@@ -32,23 +32,23 @@ The image you select appears in the middle of the page. Then the prediction resu
 
 You can now take the image submitted previously for testing and use it to retrain your model.
 
-1. To view images submitted to the classifier, open the [Custom Vision web page](https://customvision.ai) and select the __Predictions__ tab.
+1. To view images submitted to the classifier, open the [Custom Vision web page](https://customvision.ai) and select the **Predictions** tab.
 
     ![Image of the predictions tab](./media/test-your-model/predictions-tab.png)
 
     > [!TIP]
-    > The default view shows images from the current iteration. You can use the __Iteration__ drop down field to view images submitted during previous iterations.
+    > The default view shows images from the current iteration. You can use the **Iteration** drop down field to view images submitted during previous iterations.
 
 1. Hover over an image to see the tags that were predicted by the classifier.
 
     > [!TIP]
-    > Images are ranked, so that the images that can bring the most gains to the classifier are at the top. To select a different sorting, use the __Sort__ section.
+    > Images are ranked, so that the images that can bring the most gains to the classifier are at the top. To select a different sorting, use the **Sort** section.
 
-    To add an image to your training data, select the image, manually select the tag(s), and then select __Save and close__. The image is removed from __Predictions__ and added to the training images. You can view it by selecting the __Training Images__ tab.
+    To add an image to your training data, select the image, manually select the tag(s), and then select **Save and close**. The image is removed from **Predictions** and added to the training images. You can view it by selecting the **Training Images** tab.
 
     ![Screenshot of the tagging page.](./media/test-your-model/tag-image.png)
 
-1. Use the __Train__ button to retrain the classifier.
+1. Use the **Train** button to retrain the classifier.
 
 ## Next steps
 

@@ -8,12 +8,15 @@ manager: CelesteDG
 
 ms.service: active-directory
 
-ms.custom: 
 ms.topic: reference
-ms.date: 11/06/2023
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.reviewer: yoelhor
 ms.subservice: B2C
+
+
+#Customer intent: As a developer using Azure Active Directory B2C, I want to define a technical profile for Microsoft Entra user management, so that I can interact with a claims provider that supports the standardized protocol and perform operations like reading, writing, and deleting user accounts.
+
 ---
 
 # Define a Microsoft Entra technical profile in an Azure Active Directory B2C custom policy

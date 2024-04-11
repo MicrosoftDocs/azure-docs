@@ -7,7 +7,7 @@ author: aahill
 ms.manager: nitinme
 ms.subservice: azure-ai-luis
 ms.topic: how-to
-ms.date: 12/14/2021
+ms.date: 01/19/2024
 ---
 
 # Publish your active, trained app
