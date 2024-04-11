@@ -19,23 +19,21 @@ But, timeouts become increasingly frequent, especially during unexpected traffic
 
 You chose MongoDB as your app's database for its flexibility. Now, when you have demanding requirements for scalability, availability, and continuity, Azure Cosmos DB for MongoDB comes to the rescue.
 
-You point your app to the connection string of this fully managed database, which offers single-digit millisecond response times, automatic and instant scalability, and guaranteed speed at any scale. Even OpenAI chose its parent database to [dynamically scale their ChatGPT service](../introduction.md) – one of the fastest-growing consumer apps ever – enabling high reliability and low maintenance. Meanwhile, you continue to use your existing MongoDB skills and your favorite MongoDB drivers, SDKs, and tools.
+You point your app to the connection string of this fully managed database, which offers single-digit millisecond response times, automatic and instant scalability, and guaranteed speed at any scale. Even OpenAI chose its parent database to [dynamically scale their ChatGPT service](../introduction.md) – one of the fastest-growing consumer apps ever – enabling high reliability and low maintenance. While you continue to use your existing MongoDB skills and your favorite MongoDB drivers, SDKs, and tools, you also reap the following benefits:
 
 ## Dynamically scale your MongoDB app
-
-MongoDB users can reap the following unique benefits of Azure Cosmos DB for MongoDB:
 
 ### Request Unit (RU) architecture
 
 [A fully managed MongoDB-compatible service](./ru/introduction.md) with flexible scaling using [Request Units (RUs)](../request-units.md). Designed for cloud-native applications.
 
-- **Instantaneous scalability**: With the [Autoscale](../provision-throughput-autoscale.md) feature, your database scales instantaneously with zero warmup period. Other MongoDB offerings such as MongoDB Atlas can take hours to scale up and up to days to scale down.
+- **Instantaneous scalability**: With the [Autoscale](../provision-throughput-autoscale.md) feature, your database scales instantaneously with zero warmup period. You no longer have to wait for MongoDB Atlas or another MongoDB service you use to take hours to scale up and up to days to scale down.
 
-- **Automatic and transparent sharding**: The infrastructure is fully managed for you. This management includes sharding and optimizing the number of shards. Other MongoDB offerings such as MongoDB Atlas, require you to specify and manage sharding to horizontally scale. This automation gives you more time to focus on developing applications for your users.
+- **Automatic and transparent sharding**: The infrastructure is fully managed for you. This management includes sharding and optimizing the number of shards as your applications horizontally scale. The automatic and transparent sharding saves you the time and effort your previously spent on specifying and managing MongoDB Atlas sharding, and you can better focus on developing applications for your users.
 
 - **Five 9's of availability**: [99.999% availability](../high-availability.md) is easily configurable to ensure your data is always there for you.
 
-- **Active-active database**: Databases can span multiple regions, with no single point of failure for **writes and reads for the same data**. MongoDB  global clusters only support active-passive deployments for writes for the same data.
+- **Active-active database**: Databases can span multiple regions, with no single point of failure for **writes and reads for the same data**. MongoDB global clusters only support active-passive deployments for writes for the same data.
 
 - **Cost efficient, granular, unlimited scalability**: The platform can scale in increments as small as 1/100th of a VM due to its architecture. This scalability means that you can scale your database to the exact size you need, without paying for unused resources.
 
@@ -50,7 +48,7 @@ MongoDB users can reap the following unique benefits of Azure Cosmos DB for Mong
 
 [A fully managed MongoDB-compatible service](./vcore/introduction.md) with dedicated instances for new and existing MongoDB apps. This architecture offers a familiar vCore architecture for MongoDB users, efficient scaling, and seamless integration with Azure services.
 
-- **Integrated Vector Database**: Seamlessly integrate your AI-based applications using the integrated vector database. This integration is an all-in-one solution, unlike other vector search solutions that send your data between service integrations.  
+- **Integrated Vector Database**: Seamlessly integrate your AI-based applications using the integrated vector database. This integration is an all-in-one solution, unlike other vector database solutions that send your data between service integrations.  
 
 - **Flat pricing with Low total cost of ownership**: Enjoy a familiar pricing model, based on compute (vCores & RAM) and storage (disks).
 
