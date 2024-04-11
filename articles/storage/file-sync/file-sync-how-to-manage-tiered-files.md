@@ -1,6 +1,6 @@
 ---
 title: How to manage Azure File Sync tiered files
-description: Tips and PowerShell commandlets to help you manage tiered files
+description: Tips and PowerShell commands to help manage cloud tiering with Azure File Sync.
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
@@ -29,7 +29,7 @@ There are several ways to check whether a file has been tiered to your Azure fil
         |:----------------:|-----------|------------|
         | A | Archive | Indicates that the file should be backed up by backup software. This attribute is always set, regardless of whether the file is tiered or stored fully on disk. |
         | P | Sparse file | Indicates that the file is a sparse file. A sparse file is a specialized type of file that NTFS offers for efficient use when the file on the disk stream is mostly empty. Azure File Sync uses sparse files because a file is either fully tiered or partially recalled. In a fully tiered file, the file stream is stored in the cloud. In a partially recalled file, that part of the file is already on disk. This might occur when files are partially read by applications like multimedia players or zip utilities. If a file is fully recalled to disk, Azure File Sync converts it from a sparse file to a regular file. This attribute is only set on Windows Server 2016 and older.|
-        | M | Recall on data access | Indicates that the file's data isn't fully present on local storage. Reading the file will cause at least some of the file content to be fetched from an Azure file share to which the server endpoint is connected. This attribute is only set on Windows Server 2019. |
+        | M | Recall on data access | Indicates that the file's data isn't fully present on local storage. Reading the file will cause at least some of the file content to be fetched from an Azure file share to which the server endpoint is connected. This attribute is only set on Windows Server 2019 and newer. |
         | L | Reparse point | Indicates that the file has a reparse point. A reparse point is a special pointer for use by a file system filter. Azure File Sync uses reparse points to define to the Azure File Sync file system filter (StorageSync.sys) the cloud location where the file is stored. This supports seamless access. Users won't need to know that Azure File Sync is being used or how to get access to the file in your Azure file share. When a file is fully recalled, Azure File Sync removes the reparse point from the file. |
         | O | Offline | Indicates that some or all of the file's content isn't stored on disk. When a file is fully recalled, Azure File Sync removes this attribute. |
 
@@ -81,9 +81,17 @@ To exclude files or folders from cloud tiering, perform the following steps:
 	**net stop filesyncsvc**  
 	**net start filesyncsvc**
 
+### Tiered downloads
+
+When you exclude a file type or pattern, it won't be tiered from that server anymore. However, all files changed or created in a different endpoint will continue to be downloaded as tiered files and will stay tiered. These files will be recalled gradually based on exclusion policy.
+
+For example, if you exclude PDF files, the PDF files that you create directly on the server won't be tiered. However, any PDF files that you create on a different endpoint, such as another server endpoint or the Azure file share, will still download as tiered files. These excluded tiered files will be fully recalled within the next 3-4 days.
+
+If you don't want any files to be in a tiered state, enable [proactive recalling](file-sync-cloud-tiering-overview.md#proactive-recalling). This feature will prevent tiered download of all files and stop background tiering.
+
 ### More information
 
--  If the Azure File Sync agent is installed on a Failover Cluster, the **GhostingExclusionList** registry setting must be created under `HKEY_LOCAL_MACHINE\Cluster\StorageSync\SOFTWARE\Microsoft\Azure\StorageSync`.
+-  If the Azure File Sync agent is installed on a Failover Cluster, you must create the **GhostingExclusionList** registry setting under `HKEY_LOCAL_MACHINE\Cluster\StorageSync\SOFTWARE\Microsoft\Azure\StorageSync`.
 	-  Example: **reg ADD "HKEY_LOCAL_MACHINE\Cluster\StorageSync\SOFTWARE\Microsoft\Azure\StorageSync" /v GhostingExclusionList /t REG_SZ /d .one|.lnk|.log /f**
 -  Each exclusion in the registry should be separated by a pipe (|) character.
 -  Use double backslash (\\\\) when specifying a path to exclude.
