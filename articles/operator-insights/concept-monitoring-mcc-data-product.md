@@ -39,20 +39,34 @@ The following data type is provided as part of the Monitoring - Affirmed MCC Dat
 To use the Monitoring - Affirmed MCC Data Product:
 
 1. Deploy the Data Product by following [Create an Azure Operator Insights Data Product](data-product-create.md).
-1. Configure your network to provide data by setting up an Azure Operator Insights ingestion agent on a virtual machine (VM).
+1. Configure your MCCs to produce performance management data.
+1. Set up ingestion (data upload) from your network. For example, you could use the [Azure Operator Insights ingestion agent](ingestion-agent-overview.md) or [connect Azure Data Factory](ingestion-with-data-factory.md) to your Data Product.
+    - Use the information in [Required ingestion configuration for the Data Product](#required-ingestion-configuration-for-the-data-product) when you're setting up ingestion.
+    - If you're using the Azure Operator Insights ingestion agent, also meet the requirements in [Requirements for the Azure Operator Insights ingestion agent](#requirements-for-the-azure-operator-insights-ingestion-agent).
 
-    1. Read [Requirements for the Azure Operator Insights ingestion agent](#requirements-for-the-azure-operator-insights-ingestion-agent).
-    1. [Install the Azure Operator Insights ingestion agent and configure it to upload data](set-up-ingestion-agent.md).
+### Required ingestion configuration
 
-    Alternatively, you can provide your own ingestion agent.
+Use the information in this section to configure your ingestion method. Refer to the documentation for your chosen method to determine how to supply these values.
 
-## Requirements for the Azure Operator Insights ingestion agent
+| Data type | Required container name | Requirements for data |
+|---------|---------|---------|
+|`pmstats` | `pmstats` | Performance data from MCC nodes |
 
-Use the VM requirements to set up a suitable VM for the ingestion agent. Use the example configuration to configure the ingestion agent to upload data to the Data Product, as part of following [Install the Azure Operator Insights ingestion agent and configure it to upload data](set-up-ingestion-agent.md).
+If you're using the Azure Operator Insights ingestion agent:
+- Configure it to use SFTP pull.
+- We recommend the following configuration settings in addition to the (required) settings in the previous table.
 
-## Choosing agents and VMs
+|Information | Configuration setting for Azure Operator Ingestion agent  | Recommended value  |
+| --------- | --------- | --------- |
+| [Settling time](ingestion-agent-overview.md#processing-files) | `source.sftp_pull.filtering.settling_time` | `60s` (upload files that haven't been modified in the last 60 seconds) |
+| Schedule for checking for new files | `source.sftp_pull.scheduling.cron` | `0 */5 * * * * *` (every 5 minutes) |
 
-An ingestion agent collects files from _ingestion pipelines_ that you configure on it. Ingestion pipelines include the details of the SFTP server, the files to collect from it and how to manage those files.
+> [!TIP]
+> For more information about all the configuration options for the ingestion agent, see [Configuration reference for Azure Operator Insights ingestion agent](ingestion-agent-configuration-reference.md).
+
+### Requirements for the Azure Operator Insights ingestion agent
+
+The Azure Operator Insights ingestion agent collects files from _ingestion pipelines_ that you configure on it. Ingestion pipelines include the details of the SFTP server, the files to collect from it and how to manage those files.
 
 You must choose how to set up your agents, pipelines, and VMs using the following rules.
 
@@ -74,10 +88,8 @@ As a guide, this table documents the throughput that the recommended specificati
 
 For example, if you need to collect from two file sources, you could:
 
-- Deploy one VM with one agent that collects from both file sources.
+- Deploy one VM with one agent, configured with two pipelines. Each pipeline collects from one file source.
 - Deploy two VMs, each with one agent. Each agent (and therefore each VM) collects from one file source.
-
-### VM requirements
 
 Each Linux VM running the agent must meet the following minimum specifications.
 
@@ -91,23 +103,6 @@ Each Linux VM running the agent must meet the following minimum specifications.
 | Software | systemd, logrotate, and zip installed                                |
 | Other    | SSH or alternative access to run shell commands                     |
 | DNS      | (Preferable) Ability to resolve Microsoft hostnames. If not, you need to perform extra configuration when you set up the agent (described in [Map Microsoft hostnames to IP addresses for ingestion agents that can't resolve public hostnames](map-hostnames-ip-addresses.md).) |
-
-### Required agent configuration
-
-Use the information in this section when [setting up the agent and configuring the agent software](set-up-ingestion-agent.md#configure-the-agent-software).
-
-The ingestion agent must use SFTP pull as a data source.
-
-|Information | Configuration setting for Azure Operator Ingestion agent  | Value  |
-|---------|---------|---------|
-|Container in the Data Product input storage account |`sink.container_name` | `pmstats` |
-| [Settling time](ingestion-agent-overview.md#processing-files) | `source.sftp_pull.filtering.settling_time` | `60s` (upload files that haven't been modified in the last 60 seconds) |
-| Schedule for checking for new files | `source.sftp_pull.scheduling.cron` | `0 */5 * * * * *` (every 5 minutes) |
-
-> [!IMPORTANT]
-> `sink.container_name` must be set exactly as specified here. You can change other configuration to meet your requirements.
-
-For more information about all the configuration options, see [Configuration reference for Azure Operator Insights ingestion agent](ingestion-agent-configuration-reference.md).
 
 ## Related content
 
