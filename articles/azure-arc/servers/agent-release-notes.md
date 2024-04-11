@@ -52,7 +52,7 @@ Download for [Windows](https://download.microsoft.com/download/4/8/f/48f69eb1-f7
 
 ### Known issues
 
-Windows machines that try to upgrade to version 1.38 via Microsoft Update and encounter an error might fail to roll back to the previously installed version. As a result, the machine will appear "Disconnected" and won't be manageable from Azure. The update has been removed from the Microsoft Update Catalog while Microsoft investigates this behavior. Manual installations of the agent on new and existing machines aren't affected.
+Windows machines that try and fail to upgrade to version 1.38 manually or via Microsoft Update might not roll back to the previously installed version. As a result, the machine will appear "Disconnected" and won't be manageable from Azure. A new version of 1.38 was released to Microsoft Update and the Microsoft Download Center on March 5, 2024 that resolves this issue.
 
 If your machine was affected by this issue, you can repair the agent by downloading and installing the agent again. The agent will automatically discover the existing configuration and restore connectivity with Azure. You don't need to run `azcmagent connect`.
 
