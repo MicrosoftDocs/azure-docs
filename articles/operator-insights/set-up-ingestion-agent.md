@@ -201,24 +201,18 @@ If the VM can't use DNS to resolve public Microsoft hostnames to IP addresses, [
 
 ## Install the agent software
 
-The agent software package is hosted on the "Linux software repository for Microsoft products": [https://packages.microsoft.com](https://packages.microsoft.com).
+The agent software package is hosted on the "Linux software repository for Microsoft products" at [https://packages.microsoft.com](https://packages.microsoft.com)
 
-To download and install a package from the software repository, **follow the steps available at: [
-How to install Microsoft software packages using the Linux Repository](/linux/packages#how-to-install-microsoft-software-packages-using-the-linux-repository), which vary dependent on your VM's Linux distribution.**
+**The name of the ingestion agent package is `az-aoi-ingestion`.**
 
-_For example, if you are installing on a VM running Red Hat Enterprise Linux (RHEL) 8, the command to download the repo config package is:_
-```
-curl -sSL -O https://packages.microsoft.com/config/rhel/8/packages-microsoft-prod.rpm
-```
+To download and install a package from the software repository, follow the relevant steps for your VM's Linux distribution in [
+How to install Microsoft software packages using the Linux Repository](/linux/packages#how-to-install-microsoft-software-packages-using-the-linux-repository)
 
-Once the repo config package is installed, the agent can then be installed and upgraded using the standard package manager for the VM's Linux distribution.
+ For example, if you are installing on a VM running Red Hat Enterprise Linux (RHEL) 8, follow the instructions under the [Red Hat-based Linux distributions](/linux/packages#red-hat-based-linux-distributions) heading, substituting the following parameters:
 
- **The name of the ingestion agent package (\<package-name\>) is `az-aoi-ingestion`.**
-
-_For example, if using a Red Hat-based Linux distribution, after installing the repo config package the agent can be installed using:_
-```
-sudo dnf install az-aoi-ingestion
-```
+- distribution:  `rhel`
+- version: `8`
+- package-name: `az-aoi-ingestion`
 
 ## Configure the agent software
 
