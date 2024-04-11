@@ -14,7 +14,7 @@ For many Microsoft Sentinel workspaces created before July 2023, there's a separ
 ## Prerequisites
 - The Log Analytics workspace pricing tier must be on pay-as-you-go or a commitment tier before enrolling in a simplified pricing tier. Log Analytics legacy pricing tiers aren't supported.
 - Microsoft Sentinel was enabled on the workspace before July 2023. Workspaces that enable Microsoft Sentinel from July 2023 onwards are automatically set to the simplified pricing experience as the default. 
-- Microsoft Sentinel Contributor role is required to switch pricing tiers.
+- You must have **Contributor** or **Owner** for the Microsoft Sentinel workspace to change the pricing tier.
 
 ## Change pricing tier to simplified
 Classic pricing tiers are when Microsoft Sentinel and Log Analytics pricing tiers are configured separately and show up as different meters on your invoice. To move to the simplified pricing tier where Microsoft Sentinel and Log Analytics billing are combined for the same pricing meter, **Switch to new pricing**.
