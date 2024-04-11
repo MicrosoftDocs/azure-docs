@@ -392,7 +392,7 @@ self.teamsCallAgent?.startCall(participants: callees, options: startTeamsCallOpt
 ```
 ## Join a Teams meeting
 
-The `join` method allows user to join a teams meeting/
+The `join` method allows user to join a teams meeting.
 
 ```Swift
 let joinTeamsCallOptions = JoinTeamsCallOptions()
@@ -405,6 +405,7 @@ if sendingVideo
     joinTeamsCallOptions.videoOptions = videoOptions
 }
 
+// Join the Teams meeting muted
 if isMuted
 {
     let outgoingAudioOptions = OutgoingAudioOptions()
@@ -417,7 +418,6 @@ let teamsMeetingLinkLocator = TeamsMeetingLinkLocator(meetingLink: "https://meet
 self.teamsCallAgent?.join(with: teamsMeetingLinkLocator, options: joinTeamsCallOptions) { (call, error) in
     setTeamsCallAndObserver(teamsCall: call, error: error)
 }
-
 ```
 
 `TeamsCallObserver` and `RemotePariticipantObserver` are used to manage mid-call events and remote participants. We set the observers in the `setTeamsCallAndObserver` function.
