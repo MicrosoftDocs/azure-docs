@@ -43,7 +43,7 @@ platform :ios, '13.0'
 use_frameworks!
 
 target 'VideoCallingQuickstart' do
-  pod 'AzureCommunicationCalling', '~> 2.5.0-beta.1'
+  pod 'AzureCommunicationCalling', '~> 2.10.0'
 end
 ```
 
@@ -376,21 +376,48 @@ func toggleLocalVideo() {
 The `startCall` method is set as the action that is performed when the Start Call button is tapped. In this quickstart, outgoing calls are audio only by default. To start a call with video, we need to set `VideoOptions` with `LocalVideoStream` and pass it with `startCallOptions` to set initial options for the call.
 
 ```Swift
-func startCall() {
-        let startTeamsCallOptions = StartTeamsCallOptions()
-        if(sendingVideo)
-        {
-            if (self.localVideoStream == nil) {
-                self.localVideoStream = [LocalVideoStream]()
-            }
-            let videoOptions = VideoOptions(localVideoStreams: localVideoStream!)
-            startTeamsCallOptions.videoOptions = videoOptions
-        }
-        let callees:[CommunicationIdentifier] = [CommunicationUserIdentifier(self.callee)]
-        self.teamsCallAgent?.startCall(participants: callees, options: startTeamsCallOptions) { (call, error) in
-            setTeamsCallAndObserver(teamsCall: call, error: error)
-        }
+let startTeamsCallOptions = StartTeamsCallOptions()
+if(sendingVideo)
+{
+    if (self.localVideoStream == nil) {
+        self.localVideoStream = [LocalVideoStream]()
     }
+    let videoOptions = VideoOptions(localVideoStreams: localVideoStream!)
+    startTeamsCallOptions.videoOptions = videoOptions
+}
+let callees:[CommunicationIdentifier] = [CommunicationUserIdentifier(self.callee)]
+self.teamsCallAgent?.startCall(participants: callees, options: startTeamsCallOptions) { (call, error) in
+    setTeamsCallAndObserver(teamsCall: call, error: error)
+}
+```
+## Join a Teams meeting
+
+The `join` method allows user to join a teams meeting/
+
+```Swift
+let joinTeamsCallOptions = JoinTeamsCallOptions()
+if sendingVideo
+{
+    if (self.localVideoStream == nil) {
+        self.localVideoStream = [LocalVideoStream]()
+    }
+    let videoOptions = VideoOptions(localVideoStreams: localVideoStream!)
+    joinTeamsCallOptions.videoOptions = videoOptions
+}
+
+if isMuted
+{
+    let outgoingAudioOptions = OutgoingAudioOptions()
+    outgoingAudioOptions.muted = true
+    joinTeamsCallOptions.outgoingAudioOptions = outgoingAudioOptions
+}
+
+let teamsMeetingLinkLocator = TeamsMeetingLinkLocator(meetingLink: "https://meeting_link")
+
+self.teamsCallAgent?.join(with: teamsMeetingLinkLocator, options: joinTeamsCallOptions) { (call, error) in
+    setTeamsCallAndObserver(teamsCall: call, error: error)
+}
+
 ```
 
 `TeamsCallObserver` and `RemotePariticipantObserver` are used to manage mid-call events and remote participants. We set the observers in the `setTeamsCallAndObserver` function.
@@ -470,7 +497,7 @@ The actions attached to `answer` and `decline` are implemented as the following 
 ```Swift
 func answerIncomingCall() {
     isIncomingCall = false
-    let options = AcceptCallOptions()
+    let options = AcceptTeamsCallOptions()
     if (self.incomingCall != nil) {
         guard let deviceManager = deviceManager else {
             return
