@@ -7,7 +7,7 @@ ms.author: eur
 manager: nitinme
 ms.service: azure-ai-speech
 ms.topic: how-to
-ms.date: 1/22/2024
+ms.date: 4/15/2024
 ---
 
 # Generate a REST API client library for the Speech to text REST API
@@ -21,15 +21,13 @@ The Speech service offers a Swagger specification to interact with a handful of 
 
 ## Generating code from the Swagger specification
 
-The [Swagger specification](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1) has options that allow you to quickly test for various paths. However, sometimes it's desirable to generate code for all paths, creating a single library of calls that you can base future solutions on. Let's take a look at the process to generate a Python library.
+The [Swagger specification](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/cognitiveservices/data-plane/Speech/SpeechToText/stable/v3.1/speechtotext.json) has options that allow you to quickly test for various paths. However, sometimes it's desirable to generate code for all paths, creating a single library of calls that you can base future solutions on. Let's take a look at the process to generate a Python library for the Speech to text REST API version 3.1.
 
 You need to set Swagger to the region of your Speech resource. You can confirm the region in the **Overview** part of your Speech resource settings in Azure portal. The complete list of supported regions is available [here](regions.md#speech-service).
 
-1. In a browser, go to the Swagger specification for your [region](regions.md#speech-service):  
-       `https://<your-region>.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1`
-1. On that page, select **API definition**, and select **Swagger**. Copy the URL of the page that appears.
-1. In a new browser, go to [https://editor.swagger.io](https://editor.swagger.io)
-1. Select **File**, select **Import URL**, paste the URL, and select **OK**.
+1. In a browser, go to [https://editor.swagger.io](https://editor.swagger.io)
+1. Select **File**, select **Import URL**, 
+1. Enter the URL `https://github.com/Azure/azure-rest-api-specs/blob/master/specification/cognitiveservices/data-plane/Speech/SpeechToText/stable/v3.1/speechtotext.json` and select **OK**.
 1. Select **Generate Client** and select **python**. The client library downloads to your computer in a `.zip` file.
 1. Extract everything from the download. You might use `tar -xf` to extract everything.
 1. Install the extracted module into your Python environment:  

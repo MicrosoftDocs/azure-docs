@@ -277,13 +277,13 @@ Logging can be enabled or disabled in the persistent custom model endpoint setti
 
 You can enable audio and transcription logging for a custom model endpoint:
 - When you create the endpoint using the Speech Studio, REST API, or Speech CLI. For details about how to enable logging for a custom speech endpoint, see [Deploy a custom speech model](how-to-custom-speech-deploy-model.md#add-a-deployment-endpoint).
-- When you update the endpoint ([Endpoints_Update](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Endpoints_Update)) using the [Speech to text REST API](rest-speech-to-text.md). For an example of how to update the logging setting for an endpoint, see [Turn off logging for a custom model endpoint](#turn-off-logging-for-a-custom-model-endpoint). But instead of setting the `contentLoggingEnabled` property to `false`, set it to `true` to enable logging for the endpoint.
+- When you update the endpoint ([Endpoints_Update](/rest/api/speechtotext/endpoints/update)) using the [Speech to text REST API](rest-speech-to-text.md). For an example of how to update the logging setting for an endpoint, see [Turn off logging for a custom model endpoint](#turn-off-logging-for-a-custom-model-endpoint). But instead of setting the `contentLoggingEnabled` property to `false`, set it to `true` to enable logging for the endpoint.
 
 ## Turn off logging for a custom model endpoint
 
 To disable audio and transcription logging for a custom model endpoint, you must update the persistent endpoint logging setting using the [Speech to text REST API](rest-speech-to-text.md). There isn't a way to disable logging for an existing custom model endpoint using the Speech Studio.
 
-To turn off logging for a custom endpoint, use the [Endpoints_Update](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Endpoints_Update) operation of the [Speech to text REST API](rest-speech-to-text.md). Construct the request body according to the following instructions:
+To turn off logging for a custom endpoint, use the [Endpoints_Update](/rest/api/speechtotext/endpoints/update) operation of the [Speech to text REST API](rest-speech-to-text.md). Construct the request body according to the following instructions:
 
 - Set the `contentLoggingEnabled` property within `properties`. Set this property to `true` to enable logging of the endpoint's traffic. Set this property to `false` to disable logging of the endpoint's traffic. 
 
@@ -356,18 +356,18 @@ With this approach, you can download all available log sets at once. There's no 
 You can download all or a subset of available log sets.
 
 This method is applicable for base and [custom model](how-to-custom-speech-deploy-model.md) endpoints. To list and download audio and transcription logs:
-- Base models: Use the [Endpoints_ListBaseModelLogs](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Endpoints_ListBaseModelLogs) operation of the [Speech to text REST API](rest-speech-to-text.md). This operation gets the list of audio and transcription logs that are stored when using the default base model of a given language.
-- Custom model endpoints: Use the [Endpoints_ListLogs](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Endpoints_ListLogs) operation of the [Speech to text REST API](rest-speech-to-text.md). This operation gets the list of audio and transcription logs that are stored for a given endpoint.
+- Base models: Use the [Endpoints_ListBaseModelLogs](/rest/api/speechtotext/endpoints/list-base-model-logs) operation of the [Speech to text REST API](rest-speech-to-text.md). This operation gets the list of audio and transcription logs that are stored when using the default base model of a given language.
+- Custom model endpoints: Use the [Endpoints_ListLogs](/rest/api/speechtotext/endpoints/list-logs) operation of the [Speech to text REST API](rest-speech-to-text.md). This operation gets the list of audio and transcription logs that are stored for a given endpoint.
 
 ### Get log IDs with Speech to text REST API
 
 In some scenarios, you might need to get IDs of the available logs. For example, you might want to delete a specific log as described [later in this article](#delete-specific-log).
 
 To get IDs of the available logs:
-- Base models: Use the [Endpoints_ListBaseModelLogs](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Endpoints_ListBaseModelLogs) operation of the [Speech to text REST API](rest-speech-to-text.md). This operation gets the list of audio and transcription logs that are stored when using the default base model of a given language.
-- Custom model endpoints: Use the [Endpoints_ListLogs](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Endpoints_ListLogs) operation of the [Speech to text REST API](rest-speech-to-text.md). This operation gets the list of audio and transcription logs that are stored for a given endpoint.
+- Base models: Use the [Endpoints_ListBaseModelLogs](/rest/api/speechtotext/endpoints/list-base-model-logs) operation of the [Speech to text REST API](rest-speech-to-text.md). This operation gets the list of audio and transcription logs that are stored when using the default base model of a given language.
+- Custom model endpoints: Use the [Endpoints_ListLogs](/rest/api/speechtotext/endpoints/list-logs) operation of the [Speech to text REST API](rest-speech-to-text.md). This operation gets the list of audio and transcription logs that are stored for a given endpoint.
 
-Here's a sample output of [Endpoints_ListLogs](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Endpoints_ListLogs). For simplicity, only one log set is shown:
+Here's a sample output of [Endpoints_ListLogs](/rest/api/speechtotext/endpoints/list-logs). For simplicity, only one log set is shown:
 
 ```json
 {
@@ -420,8 +420,8 @@ To delete audio and transcription logs you must use the [Speech to text REST API
 
 To delete all logs or logs for a given time frame:
 
-- Base models: Use the [Endpoints_DeleteBaseModelLogs](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Endpoints_DeleteBaseModelLogs) operation of the [Speech to text REST API](rest-speech-to-text.md). 
-- Custom model endpoints: Use the [Endpoints_DeleteLogs](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Endpoints_DeleteLogs) operation of the [Speech to text REST API](rest-speech-to-text.md).
+- Base models: Use the [Endpoints_DeleteBaseModelLogs](/rest/api/speechtotext/endpoints/delete-base-model-logs) operation of the [Speech to text REST API](rest-speech-to-text.md). 
+- Custom model endpoints: Use the [Endpoints_DeleteLogs](/rest/api/speechtotext/endpoints/delete-logs) operation of the [Speech to text REST API](rest-speech-to-text.md).
 
 Optionally, set the `endDate` of the audio logs deletion (specific day, UTC). Expected format: "yyyy-mm-dd". For instance, "2023-03-15" results in deleting all logs on March 15, 2023 and before. 
 
@@ -429,8 +429,8 @@ Optionally, set the `endDate` of the audio logs deletion (specific day, UTC). Ex
 
 To delete a specific log by ID:
 
-- Base models: Use the [Endpoints_DeleteBaseModelLog](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Endpoints_DeleteBaseModelLog) operation of the [Speech to text REST API](rest-speech-to-text.md).
-- Custom model endpoints: Use the [Endpoints_DeleteLog](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Endpoints_DeleteLog) operation of the [Speech to text REST API](rest-speech-to-text.md).
+- Base models: Use the [Endpoints_DeleteBaseModelLog](/rest/api/speechtotext/endpoints/delete-base-model-log) operation of the [Speech to text REST API](rest-speech-to-text.md).
+- Custom model endpoints: Use the [Endpoints_DeleteLog](/rest/api/speechtotext/endpoints/delete-log) operation of the [Speech to text REST API](rest-speech-to-text.md).
 
 For details about how to get Log IDs, see a previous section [Get log IDs with Speech to text REST API](#get-log-ids-with-speech-to-text-rest-api).
 

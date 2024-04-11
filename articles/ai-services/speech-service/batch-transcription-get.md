@@ -20,7 +20,7 @@ To get transcription results, first check the [status](#get-transcription-status
 
 ::: zone pivot="rest-api"
 
-To get the status of the transcription job, call the [Transcriptions_Get](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Transcriptions_Get) operation of the [Speech to text REST API](rest-speech-to-text.md).
+To get the status of the transcription job, call the [Transcriptions_Get](/rest/api/speechtotext/transcriptions/get) operation of the [Speech to text REST API](rest-speech-to-text.md).
 
 > [!IMPORTANT]
 > Batch transcription jobs are scheduled on a best-effort basis. At peak hours, it may take up to 30 minutes or longer for a transcription job to start processing. Most of the time during the execution the transcription status will be `Running`. This is because the job is assigned the `Running` status the moment it moves to the batch transcription backend system. When the base model is used, this assignment happens almost immediately; it's slightly slower for custom models. Thus, the amount of time a transcription job spends in the `Running` state doesn't correspond to the actual transcription time but also includes waiting time in the internal queues.
@@ -134,7 +134,7 @@ spx help batch transcription
 
 ::: zone pivot="rest-api"
 
-The [Transcriptions_ListFiles](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Transcriptions_ListFiles) operation returns a list of result files for a transcription. A [transcription report](#transcription-report-file) file is provided for each submitted batch transcription job. In addition, one [transcription](#transcription-result-file) file (the end result) is provided for each successfully transcribed audio file.  
+The [Transcriptions_ListFiles](/rest/api/speechtotext/transcriptions/list-files) operation returns a list of result files for a transcription. A [transcription report](#transcription-report-file) file is provided for each submitted batch transcription job. In addition, one [transcription](#transcription-result-file) file (the end result) is provided for each successfully transcribed audio file.  
 
 Make an HTTP GET request using the "files" URI from the previous response body. Replace `YourTranscriptionId` with your transcription ID, replace `YourSubscriptionKey` with your Speech resource key, and replace `YourServiceRegion` with your Speech resource region.
 
