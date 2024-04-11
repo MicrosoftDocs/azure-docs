@@ -58,14 +58,15 @@ For more information, see [Service Limits](azure-stack-edge-virtual-machine-sizi
 The following table provides a summary of issues fixed in this release.
 
   |No.  |Feature  | Issue |  SKU Fixed In |
-  |-----|-----|-----|-----|----|
+  |-----|---------|-------|---------------|
   | 1 | Local distributed tracing | In Multi PDN session establishment/Release call flows with different DNs, the distributed tracing web GUI fails to display some of 4G NAS messages (Activate/deactivate Default EPS Bearer Context Request) and some S1AP messages (ERAB request, ERAB Release). | 2403.0-2 |
-  | 2 | Packet Forwarding | A slight(0.01%) increase in packet drops is observed in latest AP5GC release installed on ASE Platform Pro 2 with ASE-2309 for throughput higher than 3.0 Gbps. | 2403.0-2 |  
+  | 2 | Packet Forwarding | A slight(0.01%) increase in packet drops is observed in latest AP5GC release installed on ASE Platform Pro 2 with ASE-2309 for throughput higher than 3.0 Gbps. | 2403.0-2 |
+  | 3 | Security | [CVE-2024-20685](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2024-20685) | 2403.0-2 |
 
 ## Known issues in the AP5GC 2403 release
 <!--**TO BE UPDATED**>
   |No.  |Feature  | Issue | Workaround/comments |
-  |-----|-----|-----|-----|
+  |-----|-----|-----|
   | 1 |  |  |  |
 <-->
 

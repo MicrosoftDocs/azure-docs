@@ -3,7 +3,7 @@ author: jboback
 manager: nitinme
 ms.service: azure-ai-language
 ms.topic: include
-ms.date: 12/19/2023
+ms.date: 03/29/2024
 ms.author: jboback
 ---
 
@@ -68,7 +68,7 @@ namespace LanguageDetectionExample
 
         static void Main(string[] args)
         {
-            var client = new TextAnalyticsClient(endpoint, credentials);
+            var client = new TextAnalyticsClient(languageEndpoint, languageKey);
             LanguageDetectionExample(client);
 
             Console.Write("Press any key to exit.");

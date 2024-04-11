@@ -178,7 +178,7 @@ You can use the **Termite** app to monitor communication and confirm that your d
 1. Start **Termite**.
 
     > [!TIP]
-    > If you have issues getting your device to initialize or connect after flashing, see [Troubleshooting](troubleshoot-embedded-device-quickstarts.md).
+    > If you have issues getting your device to initialize or connect after flashing, see [Troubleshooting](../iot/troubleshoot-embedded-device-tutorials.md).
 
 1. Select **Settings**.
 
@@ -362,7 +362,7 @@ To use Azure CLI to call a method:
 
 ## Troubleshoot and debug
 
-If you experience issues building the device code, flashing the device, or connecting, see [Troubleshooting](troubleshoot-embedded-device-quickstarts.md).
+If you experience issues building the device code, flashing the device, or connecting, see [Troubleshooting](../iot/troubleshoot-embedded-device-tutorials.md).
 
 For debugging the application, see [Debugging with Visual Studio Code](https://github.com/azure-rtos/getting-started/blob/master/docs/debugging.md).
 

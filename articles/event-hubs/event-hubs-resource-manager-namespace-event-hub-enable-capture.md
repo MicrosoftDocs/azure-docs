@@ -1,6 +1,6 @@
 ---
 title: Create an event hub with capture enabled - Azure Event Hubs | Microsoft Docs
-description: Create an Azure Event Hubs namespace with one event hub and enable Capture using Azure Resource Manager template
+description: Create an Azure Event Hubs namespace with one event hub and enable Capture using Azure Resource Manager template.
 ms.topic: quickstart
 ms.date: 08/26/2022
 ms.custom: mode-other, devx-track-azurecli, devx-track-arm-template
@@ -19,13 +19,14 @@ For more information about patterns and practices for Azure Resources naming con
 
 For the complete templates, select the following GitHub links:
 
-- [Event hub and enable Capture to Storage template][Event Hub and enable Capture to Storage template]
-- [Event hub and enable Capture to Azure Data Lake Store template][Event Hub and enable Capture to Azure Data Lake Store template]
+- [Create an event hub and enable Capture to Storage template][Event Hub and enable Capture to Storage template]
+- [Create an event hub and enable Capture to Azure Data Lake Store template][Event Hub and enable Capture to Azure Data Lake Store template]
 
 > [!NOTE]
 > To check for the latest templates, visit the [Azure Quickstart Templates][Azure Quickstart Templates] gallery and search for Event Hubs.
->
->
+
+> [!IMPORTANT]
+> Azure Data Lake Storage Gen1 is retired, so don't use it for capturing event data. For more information, see the [official announcement](https://azure.microsoft.com/updates/action-required-switch-to-azure-data-lake-storage-gen2-by-29-february-2024/). If you are using Azure Data Lake Storage Gen1, migrate to Azure Data Lake Storage Gen2. For more information, see [Azure Data Lake Storage migration guidelines and patterns](../storage/blobs/data-lake-storage-migrate-gen1-to-gen2.md).
 
 ## What will you deploy?
 
@@ -166,7 +167,7 @@ The size interval at which Capture starts capturing the data.
 
 ### captureNameFormat
 
-The name format used by Event Hubs Capture to write the Avro files. Note that a Capture name format must contain `{Namespace}`, `{EventHub}`, `{PartitionId}`, `{Year}`, `{Month}`, `{Day}`, `{Hour}`, `{Minute}`, and `{Second}` fields. These can be arranged in any order, with or without delimiters.
+The name format used by Event Hubs Capture to write the Avro files. The capture name format must contain `{Namespace}`, `{EventHub}`, `{PartitionId}`, `{Year}`, `{Month}`, `{Day}`, `{Hour}`, `{Minute}`, and `{Second}` fields. These fields can be arranged in any order, with or without delimiters.
 
 ```json
 "captureNameFormat": {
@@ -221,8 +222,6 @@ The blob container in which to capture your event data.
 }
 ```
 
-Use the following parameters if you choose Azure Data Lake Store Gen 1 as your destination. You must set permissions on your Data Lake Store path, in which you want to Capture the event. To set permissions, see [Capture data to Azure Data Lake Storage Gen 1](event-hubs-capture-enable-through-portal.md#capture-data-to-azure-data-lake-storage-gen-1).
-
 ### subscriptionId
 
 Subscription ID for the Event Hubs namespace and Azure Data Lake Store. Both these resources must be under the same subscription ID.
@@ -251,7 +250,7 @@ The Azure Data Lake Store name for the captured events.
 
 ### dataLakeFolderPath
 
-The destination folder path for the captured events. This is the folder in your Data Lake Store to which the events will be pushed during the capture operation. To set permissions on this folder, see [Use Azure Data Lake Store to capture data from Event Hubs](../data-lake-store/data-lake-store-archive-eventhub-capture.md).
+The destination folder path for the captured events. This path is the folder in your Data Lake Store to which the events are pushed during the capture operation. To set permissions on this folder, see [Use Azure Data Lake Store to capture data from Event Hubs](../data-lake-store/data-lake-store-archive-eventhub-capture.md).
 
 ```json
 "dataLakeFolderPath": {
@@ -264,7 +263,7 @@ The destination folder path for the captured events. This is the folder in your 
 
 ## Azure Storage or Azure Data Lake Storage Gen 2 as destination
 
-Creates a namespace of type **EventHub**, with one event hub, and also enables Capture to Azure Blob Storage or Azure Data Lake Storage Gen2. 
+Creates a namespace of type `Microsoft.EventHub/Namespaces`, with one event hub, and also enables Capture to Azure Blob Storage or Azure Data Lake Storage Gen2. 
 
 ```json
 "resources":[
@@ -323,57 +322,6 @@ Creates a namespace of type **EventHub**, with one event hub, and also enables C
     }
   ]
 ```
-
-## Azure Data Lake Storage Gen1 as destination
-
-Creates a namespace of type **EventHub**, with one event hub, and also enables Capture to Azure Data Lake Storage Gen1. If you're using Gen2 of Data Lake Storage, see the previous section.
-
-```json
- "resources": [
-        {
-            "apiVersion": "2017-04-01",
-            "name": "[parameters('namespaceName')]",
-            "type": "Microsoft.EventHub/Namespaces",
-            "location": "[variables('location')]",
-            "sku": {
-                "name": "Standard",
-                "tier": "Standard"
-            },
-            "resources": [
-                {
-                    "apiVersion": "2017-04-01",
-                    "name": "[parameters('eventHubName')]",
-                    "type": "EventHubs",
-                    "dependsOn": [
-                        "[concat('Microsoft.EventHub/namespaces/', parameters('namespaceName'))]"
-                    ],
-                    "properties": {
-                        "path": "[parameters('eventHubName')]",
-                        "captureDescription": {
-                            "enabled": "true",
-                            "skipEmptyArchives": false,
-                            "encoding": "[parameters('archiveEncodingFormat')]",
-                            "intervalInSeconds": "[parameters('captureTime')]",
-                            "sizeLimitInBytes": "[parameters('captureSize')]",
-                            "destination": {
-                                "name": "EventHubArchive.AzureDataLake",
-                                "properties": {
-                                    "DataLakeSubscriptionId": "[parameters('subscriptionId')]",
-                                    "DataLakeAccountName": "[parameters('dataLakeAccountName')]",
-                                    "DataLakeFolderPath": "[parameters('dataLakeFolderPath')]",
-                                    "ArchiveNameFormat": "[parameters('captureNameFormat')]"
-                                }
-                            }
-                        }
-                    }
-                }
-            ]
-        }
-    ]
-```
-
-> [!NOTE]
-> You can enable or disable emitting empty files when no events occur during the Capture window by using the **skipEmptyArchives** property.
 
 ## Commands to run deployment
 
