@@ -338,7 +338,7 @@ We can also join an existing call with preset options, such as being muted
 public TeamsCall joinTeamsCall(TeamsCallAgent teamsCallAgent){
 	TeamsMeetingLinkLocator link = new TeamsMeetingLinkLocator("meetingLink");
 	AudioOptions audioOptions = new AudioOptions().setMuted(true);
-	JoinCallOptions options = new JoinCallOptions().setAudioOptions(audioOptions);
+	JoinTeamsCallOptions options = new JoinTeamsCallOptions().setAudioOptions(audioOptions);
 	TeamsCall call = teamsCallAgent.join(this, link, options);
 }
 ```
