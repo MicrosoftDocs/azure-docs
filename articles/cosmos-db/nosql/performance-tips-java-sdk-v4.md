@@ -80,7 +80,7 @@ The Async API implements nonblocking IO and is the optimal choice if your goal i
     
 Using Sync API can be the right choice if you want or need an API, which blocks on the response to each request, or if synchronous operation is the dominant paradigm in your application. For example, you might want the Sync API when you are persisting data to Azure Cosmos DB in a microservices application, provided throughput is not critical.  
     
-Note, sync API throughput degrades with increasing request response-time, whereas the Async API can saturate the full bandwidth capabilities of your hardware. 
+Note sync API throughput degrades with increasing request response-time, whereas the Async API can saturate the full bandwidth capabilities of your hardware. 
     
 Geographic collocation can give you higher and more consistent throughput when using Sync API (see [Collocate clients in same Azure region for performance](#collocate-clients)) but still is not expected to exceed Async API attainable throughput.
 
@@ -188,7 +188,7 @@ Java SDK V4 (Maven com.azure::azure-cosmos) Sync API
 
 --- 
 
-rather than providing only the item instance, as shown below:
+Rather than providing only the item instance, as shown below:
 
 # [Async](#tab/api-async)
 
@@ -269,7 +269,7 @@ While the automated retry behavior helps to improve resiliency and usability for
 
 * **Design for smaller documents for higher throughput**
 
-The request charge (the request processing cost) of a given operation is directly correlated to the size of the document. Operations on large documents cost more than operations for small documents. Ideally, architect your application and workflows to have your item size be ~1 KB, or similar order or magnitude. For latency-sensitive applications large items should be avoided - multi-MB documents will slow down your application.
+The request charge (the request processing cost) of a given operation is directly correlated to the size of the document. Operations on large documents cost more than operations for small documents. Ideally, architect your application and workflows to have your item size be ~1 KB, or similar order or magnitude. For latency-sensitive applications large items should be avoided - multi-MB documents slow down your application.
 
 ## Next steps
 
