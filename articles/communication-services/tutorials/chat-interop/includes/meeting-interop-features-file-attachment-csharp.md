@@ -14,10 +14,10 @@ Find the finalized code of this tutorial on [GitHub](https://github.com/Azure-Sa
 
 ## Prerequisites 
 
-* You've gone through the quickstart - [Join your chat app to a Teams meeting](../../../quickstarts/chat/meeting-interop.md). 
-* Create an Azure Communication Services resource. For details, see [Create an Azure Communication Services resource](../../../quickstarts/create-communication-resource.md). You need to **record your connection string** for this tutorial.
-* You've set up a Teams meeting using your business account and have the meeting URL ready.
-* You're using the Chat SDK for JavaScript (@azure/communication-chat) 1.5.0-beta.1 or the latest. See [here](https://www.npmjs.com/package/@azure/communication-chat).
+* You went through the quickstart - [Join your chat app to a Teams meeting](../../../quickstarts/chat/meeting-interop.md). 
+* Created an Azure Communication Services resource. For details, see [Create an Azure Communication Services resource](../../../quickstarts/create-communication-resource.md). You need to **record your connection string** for this tutorial.
+* You set up a Teams meeting using your business account and have the meeting URL ready.
+* You have the Chat SDK for C# (@azure/communication-chat) 1.3.0 or the latest. See [here](https://www.nuget.org/packages/Azure.Communication.Chat).
 
 ## Handle file attachments
 
@@ -57,7 +57,7 @@ As an example, the following JSON is an example of what `ChatAttachment` might l
 ]
 ```
 
-Now let's go back to event handler we have created in previous [quickstart](../../../quickstarts/chat/meeting-interop.md) to add some extra logic to handle attachments with `ChatAttachmentType` of `file`: 
+Now let's go back to event handler we created in previous [quickstart](../../../quickstarts/chat/meeting-interop.md) to add some extra logic to handle attachments with `ChatAttachmentType` of `file`: 
 
 ```csharp
 
@@ -87,22 +87,22 @@ await foreach (ChatMessage message in allMessages)
 
 ```
 
-Specifically, for each file attachments, we get the `previewUrl` and construct a list of URLs in the `for loop`. Then we embed the string along with the chat message content.
+Specifically, for each file attachment, we get the `previewUrl` and construct a list of URLs in the `for loop`. Then we embed the string along with the chat message content.
 
-That's all we need to do to handle file attachments.
+Now you know how you can handle file attachments.
 
 
 ## Handle image attachments
 
-Image attachments need to be treated differently to standard `file` attachments. Image attachment have the `ChatAttachmentType` of `image`, which requires the communication token to retrieve either the preview or full-size images.
+Image attachments need to be treated differently to standard `file` attachments. Image attachments have the `ChatAttachmentType` of `image`, which requires the communication token to retrieve either the preview or full-size images.
 
-Please go over the tutorial [Enabling inline image support](../meeting-interop-features-inline-image.md) first. To identity image attachments, we need to check if message content contains the same image ID from the attachments.
+Make sure you went through this tutorial [Enabling inline image support](../meeting-interop-features-inline-image.md) first. To identity image attachments, we need to check if message content contains the same image ID from the attachments.
 
 ```csharp
 bool isImageAttachment = message.Content.Message.Contains(x.Id);
 ```
 
-if this flag is true, then we should apply inline image logic to render it:
+If this flag is true, then we should apply inline image logic to render it:
 
 ```csharp
 IEnumerable<ChatAttachment> imageAttachments = message.Content.Attachments.Where(x => x.AttachmentType == ChatAttachmentType.Image);
@@ -124,5 +124,5 @@ foreach (ChatAttachment imageAttachment in imageAttachments)
 ```
 
 
-That's it! Now we have added image attachment support as well.
+That's it! Now we have support for image attachments as well.
 
