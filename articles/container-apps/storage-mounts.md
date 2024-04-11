@@ -235,11 +235,13 @@ Azure Files supports both SMB and NFS protocols. You can mount an Azure Files sh
 To enable Azure Files storage in your container, you need to set up your environment and container app as follows:
 
 * Create a storage definition in the Container Apps environment.
-* If you are using NFS, your environment must be configured with a custom VNet and the storage account must be configured to allow access from the VNet.
+* If you are using NFS, your environment must be configured with a custom VNet and the storage account must be configured to allow access from the VNet. For more information, see [NFS file shares in Azure Files
+](../storage/files/files-nfs-protocol.md).
 * If your environment is configured with a custom VNet, you must allow ports 445 and 2049 in the network security group (NSG) associated with the subnet.
 * Define a volume of type `AzureFile` (SMB) or `NfsAzureFile` (NFS) in a revision.
 * Define a volume mount in one or more containers in the revision.
 * The Azure Files storage account used must be accessible from your container app's virtual network. For more information, see [Grant access from a virtual network](/azure/storage/common/storage-network-security#grant-access-from-a-virtual-network).
+    * If you're using NFS, you must also disable secure transfer. For more information, see [NFS file shares in Azure Files](../storage/files/files-nfs-protocol.md) and the *Create an NFS Azure file share* section in [this tutorial](../storage/files/storage-files-quick-create-use-linux.md#create-an-nfs-azure-file-share).
 
 ### Prerequisites
 
