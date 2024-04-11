@@ -40,6 +40,9 @@ The following table shows all the properties you can use to configure a retry po
 | `backoff` | int | The backoff interval (in seconds) between each retry. Only applies to linear backoff strategy. | 15 seconds | No | Yes |
 | `random_jitter_range` | int | A number (in seconds) which indicates a range to jitter/randomize for the backoff interval. For example, setting `random_jitter_range` to 3 means that a backoff interval of x can vary between x+3 and x-3. | 3 seconds | Yes | Yes |
 
+> [!NOTE]
+> The properties `connect_retries`, `read_retries`, and `status_retries` are used to count different types of errors. The remaining retry count is calculated as the *minimum* of the following values: `retry_total`, `connect_retries`, `read_retries`, and `status_retries`. Because of this, setting only `retry_total` might not have an effect unless you also set the other properties. In most cases, you can set all four properties to the same value to enforce a maximum number of retries. However, you should tune these properties based on the specific needs of your app.
+
 The following sections show how to configure a retry policy using different approaches:
 
 - [Use the default retry policy](#use-the-default-retry-policy)
@@ -50,7 +53,7 @@ The following sections show how to configure a retry policy using different appr
 
 The default retry policy for the Azure Storage client library for Python is an instance of [ExponentialRetry](/python/api/azure-storage-blob/azure.storage.blob.exponentialretry) with the default values. If you don't specify a retry policy, the default retry policy is used. You can also pass any configuration properties as keyword arguments when you create a client object for the service.
 
-The following code example shows how to pass a value for the `retry_total` property as a keyword argument when creating a client object for the blob service. In this example, the client object uses the default retry policy with the `retry_total` property set to 5 retries:
+The following code example shows how to pass a value for the `retry_total` property as a keyword argument when creating a client object for the blob service. In this example, the client object uses the default retry policy with the `retry_total` property and other retry count properties set to 5:
 
 :::code language="python" source="~/azure-storage-snippets/blobs\howto\python\blob-devguide-py\blob_devguide_retry.py" id="Snippet_retry_default":::
 
@@ -58,7 +61,7 @@ The following code example shows how to pass a value for the `retry_total` prope
 
 You can configure a retry policy by creating an instance of [ExponentialRetry](/python/api/azure-storage-blob/azure.storage.blob.exponentialretry), and passing the instance to the client constructor using the `retry_policy` keyword argument. This approach can be useful if you need to configure multiple properties or multiple policies for different clients.
 
-The following code example shows how to configure the retry options using an instance of `ExponentialRetry`. In this example, we set `initial_backoff` to 10 seconds, `increment_base` to 4 seconds, and `retry_total` to 5 retries:
+The following code example shows how to configure the retry options using an instance of `ExponentialRetry`. In this example, we set `initial_backoff` to 10 seconds, `increment_base` to 4 seconds, and `retry_total` to 3 retries:
 
 :::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob_devguide_retry.py" id="Snippet_retry_exponential":::
 
@@ -66,7 +69,7 @@ The following code example shows how to configure the retry options using an ins
 
 You can configure a retry policy by creating an instance of [LinearRetry](/python/api/azure-storage-blob/azure.storage.blob.linearretry), and passing the instance to the client constructor using the `retry_policy` keyword argument. This approach can be useful if you need to configure multiple properties or multiple policies for different clients.
 
-The following code example shows how to configure the retry options using an instance of `LinearRetry`. In this example, we set `backoff` to 10 seconds, `retry_total` to 5 retries, and `retry_to_secondary` to `True`:
+The following code example shows how to configure the retry options using an instance of `LinearRetry`. In this example, we set `backoff` to 10 seconds, `retry_total` to 3 retries, and `retry_to_secondary` to `True`:
 
 :::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob_devguide_retry.py" id="Snippet_retry_linear":::
 
