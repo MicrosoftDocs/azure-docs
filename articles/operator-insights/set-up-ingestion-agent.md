@@ -206,7 +206,7 @@ The agent software package is hosted on the "Linux software repository for Micro
 **The name of the ingestion agent package is `az-aoi-ingestion`.**
 
 To download and install a package from the software repository, follow the relevant steps for your VM's Linux distribution in [
-How to install Microsoft software packages using the Linux Repository](/linux/packages#how-to-install-microsoft-software-packages-using-the-linux-repository)
+How to install Microsoft software packages using the Linux Repository](/linux/packages#how-to-install-microsoft-software-packages-using-the-linux-repository).
 
  For example, if you are installing on a VM running Red Hat Enterprise Linux (RHEL) 8, follow the instructions under the [Red Hat-based Linux distributions](/linux/packages#red-hat-based-linux-distributions) heading, substituting the following parameters:
 
