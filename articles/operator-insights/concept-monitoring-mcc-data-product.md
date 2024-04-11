@@ -51,8 +51,8 @@ To use the Monitoring - Affirmed MCC Data Product:
     1. IP address, user, and password of the [SFTP server](set-up-ingestion-agent.md#prepare-the-sftp-server) are required for this step.
     1. Follow the instructions in the section [Copying Performance Management Statistics Files to Destination Server](https://manuals.metaswitch.com/MCC/13.1/Acuitas_Users_RevB/Content/Appendix%20Interfacing%20with%20Northbound%20Interfaces/Exported_Performance_Management_Data.htm#northbound_2817469247_308739) to configure the transfer of EMS stats to the SFTP server.
 
-[!IMPORTANT]
-Increase the frequency of the cron job by reducing the `timeInterval` argument from `15` (default) to `5` minutes.
+> [!IMPORTANT]
+> Increase the frequency of the cron job by reducing the `timeInterval` argument from `15` (default) to `5` minutes.
 
        
 
