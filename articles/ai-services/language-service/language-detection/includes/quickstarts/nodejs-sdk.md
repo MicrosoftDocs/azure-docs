@@ -3,7 +3,7 @@ author: jboback
 manager: nitinme
 ms.service: azure-ai-language
 ms.topic: include
-ms.date: 12/19/2023
+ms.date: 03/29/2024
 ms.author: jboback
 ms.custom: devx-track-js
 ---
@@ -75,7 +75,6 @@ const documents = [
     "This document is written in English.",
     "这是一个用中文写的文件",
 ];
-
 
 //Example of how to use the client library to detect language
 async function main() {

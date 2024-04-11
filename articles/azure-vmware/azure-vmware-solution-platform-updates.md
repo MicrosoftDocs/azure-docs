@@ -4,12 +4,16 @@ description: Learn about the platform updates to Azure VMware Solution.
 ms.topic: reference
 ms.custom: "references_regions, engagement-fy23"
 ms.service: azure-vmware
-ms.date: 3/27/2024
+ms.date: 4/10/2024
 ---
 
 # What's new in Azure VMware Solution
 
 Microsoft regularly applies important updates to the Azure VMware Solution for new features and software lifecycle management. You should receive a notification through Azure Service Health that includes the timeline of the maintenance. For more information, see [Host maintenance and lifecycle management](architecture-private-clouds.md#host-maintenance-and-lifecycle-management).
+
+## April 2024
+
+Azure VMware Solution Stretched Clusters is now generally available in the East US region. [Learn more](architecture-stretched-clusters.md)
 
 ## March 2024
 
@@ -92,7 +96,7 @@ Stretched Clusters for Azure VMware Solution is now available and provides 99.99
 
 **Azure VMware Solution in Azure Gov**
  
-Azure VMware Service will become generally available on May 17, 2023, to US Federal and State and Local Government (US) customers and their partners, in the regions of Arizona and Virginia. With this release, we are combining world-class Azure infrastructure together with VMware technologies by offering Azure VMware Solutions on Azure Government, which is designed, built, and supported by Microsoft. 
+Azure VMware Service will become generally available on May 17, 2023, to US Federal and State and Local Government (US) customers and their partners, in the regions of Arizona and Virginia. With this release, we're combining world-class Azure infrastructure together with VMware technologies by offering Azure VMware Solutions on Azure Government, which is designed, built, and supported by Microsoft. 
 
 **New Azure VMware Solution Region: Qatar**
 
