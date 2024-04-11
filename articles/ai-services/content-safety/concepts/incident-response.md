@@ -12,13 +12,14 @@ ms.date: 04/11/2024
 ms.author: pafarley
 ---
 
+# Incident response
 
 Incident response in content moderation scenarios is the process of identifying, analyzing, containing, eradicating, and recovering from cyber incidents that involve inappropriate or harmful content on online platforms. 
 
 An incident may involve a set of emerging content patterns (text, image, or other modalities) that violate Microsoft community guidelines or customers' policies and expectations. These incidents need to be mitigated quickly and accurately to avoid potential live site issues or harm to users and communities. 
 
 ## Incident response features
-Using [Blocklists](https://learn.microsoft.com/azure/ai-services/content-safety/how-to/use-blocklist) is one way to deal with emerging content incidents, but it only allows exact text matching, and no image matching. The Azure AI Content Safety incident response API offers the following advanced capabilities: 
+Using [Blocklists](/azure/ai-services/content-safety/how-to/use-blocklist) is one way to deal with emerging content incidents, but it only allows exact text matching, and no image matching. The Azure AI Content Safety incident response API offers the following advanced capabilities: 
 - semantic text matching using embedding search with a lightweight classifier
 - image matching with a lightweight object-tracking model and embedding search.
 
