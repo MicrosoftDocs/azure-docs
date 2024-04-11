@@ -301,6 +301,19 @@ Once a `StartTeamsCallOptions` object is obtained, `TeamsCallAgent` can be used 
     this.teamsCallAgent.IncomingCallReceived += OnIncomingCallAsync;
 ```
 
+Application has an opportunity to configure how the incoming call should be accepted, such as video and audio stream kinds.
+```C#
+        private async void OnIncomingCallAsync(object sender, TeamsIncomingCallReceivedEventArgs args)
+        {
+            var teamsIncomingCall = args.IncomingCall;
+
+            var acceptteamsCallOptions = new AcceptTeamsCallOptions() { };
+
+            teamsCall = await teamsIncomingCall.AcceptAsync(acceptteamsCallOptions);
+            teamsCall.StateChanged += OnStateChangedAsync;
+        }
+```
+
 ## Join a Teams Call
 
 User can also join an existing call by passing a link
@@ -309,19 +322,6 @@ User can also join an existing call by passing a link
 TeamsMeetingLinkLocator link = new TeamsMeetingLinkLocator("meetingLink");
 JoinTeamsCallOptions options = new JoinTeamsCallOptions();
 TeamsCall call = await teamsCallAgent.JoinAsync(link, options);
-```
-
-Application has an opportunity to configure how the incoming call should be accepted, such as video and audio stream kinds.
-```C#
-        private async void OnIncomingCallAsync(object sender, TeamsIncomingCallReceivedEventArgs args)
-        {
-            var teamsIncomingCall = args.IncomingCall;
-
-            var acceptCallOptions = new AcceptCallOptions() { };
-
-            teamsCall = await teamsIncomingCall.AcceptAsync(acceptCallOptions);
-            teamsCall.StateChanged += OnStateChangedAsync;
-        }
 ```
 
 ### Monitor and respond to call state change event
