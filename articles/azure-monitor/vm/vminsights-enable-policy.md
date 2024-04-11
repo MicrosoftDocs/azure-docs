@@ -20,7 +20,7 @@ This article explains how to enable VM insights for Azure virtual machines, virt
 VM insights policy initiatives install Azure Monitor Agent and the Dependency agent on new virtual machines in your Azure environment. Assign these initiatives to a management group, subscription, or resource group to install the agents on Windows or Linux Azure virtual machines in the defined scope automatically.
 
 > [!NOTE]
-> Using VM Insights initiatives to deploy Dependency Agent with Azure Monitoring Agent doesn't work if Dependency Agent already exists on the machine. We recommend that you uninstall existing Dependency Agent extensions before deploying an initiative, or [enable VM insights by using PowerShell](/azure/azure-monitor/vm/vminsights-enable-powershell) to migrate from Log Analytics agent to Azure Monitor agent on VMs with VM Insights.
+> Using VM Insights initiatives to deploy Dependency Agent with Azure Monitoring Agent won't work properly if Dependency Agent already exists on the machine. We recommend that you uninstall existing Dependency Agent extensions before deploying an initiative, or [enable VM insights by using PowerShell](/azure/azure-monitor/vm/vminsights-enable-powershell) to migrate from Log Analytics agent to Azure Monitor agent on VMs with VM Insights.
 
 The initiatives apply to new machines you create and machines you modify, but not to existing VMs.
 
