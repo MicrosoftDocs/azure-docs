@@ -28,7 +28,7 @@ The error code/subcode is
 | subcode          | 40235                                                 |
 | message          | AccessToken expired                                   |
 
-When the signaling layer detects the access token expiry, it may change its connection state.
+When the signaling layer detects the access token expiry, it might change its connection state.
 The application can subscribe to the [connectionStateChanged](/javascript/api/azure-communication-services/%40azure/communication-calling/callagent#@azure-communication-calling-callagent-on-2) event. If the connection state changes due to the token expiry, you can see the `reason` field in the `connectionStateChanged` event is `invalidToken`.
 
 ## How to mitigate or resolve
