@@ -144,6 +144,8 @@
               href: concepts-network-azure-cni-podsubnet.md
             - name: Legacy CNI options
               href: concepts-network-legacy-cni.md
+        - name: IP Address Planning
+          href: concepts-network-ip-address-planning.md
         - name: Services
           href: concepts-network-services.md
     - name: Storage

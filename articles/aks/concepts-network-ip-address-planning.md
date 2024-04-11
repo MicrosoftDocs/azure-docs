@@ -1,0 +1,55 @@
+---
+title: Concepts - IP Address Planning in Azure Kubernetes Service (AKS)
+description: Learn about IP address planning in Azure Kubernetes Service (AKS).
+ms.topic: conceptual
+ms.date: 04/10/2024
+author: schaffererin
+ms.author: schaffererin
+
+ms.custom: fasttrack-edit
+---
+
+# IP Address Planning in Azure Kubernetes Service (AKS)
+
+This article provides guidance on IP address planning for Azure Kubernetes Service (AKS) clusters.
+
+## Plan IP addressing for your cluster
+
+Aside from the prerequisites, there are several considerations to keep in mind for your IP address planning depending on your CNI plugin choice.
+
+For specific guidance on IP address planning for individual CNI options, see the [Next Steps](#next-steps) section for links to the appropriate CNI plugin documentation.
+
+### Subnet Sizing
+
+Your Azure VNet subnet must be large enough to accommodate your cluster. This will largely depend on whether you are using an overlay network or a flat network.
+
+With overlay networks like Azure CNI Overlay, your subnet needs to be large enough to assign IPs to your nodes. Pods are assigned IPs from a separate, private CIDR range and won't require VNet IPs. So, the VNet subnet you use for your cluster can be smaller than with flat networks.
+
+Ensuring you allot enough space in your Private CIDR range for your pods to account for scaling is still an important factor and you should calculate your maximum pod count when planning your IP address range sizes. 
+
+Flat networks like Azure CNI PodSubnet require a large enough subnet to accommodate both nodes _and_ pods. Since nodes and pods receive IPs from your VNet, you need to plan for the maximum number of nodes and pods you expect to run. Azure CNI Podsubnet uses a subnet for your Nodes and a separate subnet for your Pods, so you need to plan for both.
+
+### Upgrading and Scaling Considerations
+
+> [!IMPORTANT]
+> When IP address planning for your AKS cluster, you should consider the number of IP addresses required for upgrade and scaling operations. If you set the IP address range to only support a fixed number of nodes, you won't be able to upgrade or scale your cluster.
+
+When you **upgrade** your AKS cluster, a new node is deployed in the cluster. Services and workloads begin to run on the new node, and an older node is removed from the cluster. This rolling upgrade process requires a minimum of one additional block of IP addresses to be available. Your node count is then `n + 1` where `n` is the number of nodes in your cluster.
+This consideration is particularly important when you use Windows Server node pools. Windows Server nodes in AKS do not automatically apply Windows Updates. Instead, you perform an upgrade on the node pool. This upgrade deploys new nodes with the latest Window Server 2019 base node image and security patches. For more information on upgrading a Windows Server node pool, see [Upgrade a node pool in AKS][nodepool-upgrade].
+
+When you **scale** an AKS cluster, a new node is deployed in the cluster. Services and workloads begin to run on the new node. Your IP address range needs to take into considerations how you want to scale up the number of nodes and pods your cluster can support. One additional node for upgrade operations should also be included. Your node count is then `n + number-of-additional-scaled-nodes-you-anticipate + 1`.
+
+If you expect your nodes to run the maximum number of pods, and regularly destroy and deploy pods, you should also factor in some extra IP addresses per node. A few seconds can be required to delete a service and release its IP address for a new service to be deployed and acquire the address. These extra IP addresses consider this possibility.
+
+The IP address plan for an AKS cluster consists of a virtual network, at least one subnet for nodes and pods, and a Kubernetes service address range.
+
+| Address range / Azure resource | Limits and sizing |
+| --------- | ------------- |
+| Virtual network | The Azure virtual network can be as large as /8, but is limited to 65,536 configured IP addresses. Consider all your networking needs, including communicating with services in other virtual networks, before configuring your address space. For example, if you configure too large of an address space, you might run into issues with overlapping other address spaces within your network.|
+| Subnet | Must be large enough to accommodate the nodes, pods, and all Kubernetes and Azure resources that might be provisioned in your cluster. For example, if you deploy an internal Azure Load Balancer, its front-end IPs are allocated from the cluster subnet, not public IPs. The subnet size should also take into account upgrade operations or future scaling needs.<p/> Use the following equation to calculate the *minimum* subnet size including an extra node for upgrade operations: `(number of nodes + 1) + ((number of nodes + 1) * maximum pods per node that you configure)`<p/> Example for a 50 node cluster: `(51) + (51  * 30 (default)) = 1,581` (/21 or larger)<p/>Example for a 50 node cluster that also includes preparation to scale up an extra 10 nodes: `(61) + (61 * 30 (default)) = 1,891` (/21 or larger)<p>If you don't specify a maximum number of pods per node when you create your cluster, the maximum number of pods per node is set to *30*. The minimum number of IP addresses required is based on that value. If you calculate your minimum IP address requirements on a different maximum value, see [Maximum pods per node](#maximum-pods-per-node) to set this value when you deploy your cluster. |
+| Kubernetes service address range | Any network element on or connected to this virtual network must not use this range. Service address CIDR must be smaller than /12. You can reuse this range across different AKS clusters. |
+| Kubernetes DNS service IP address | IP address within the Kubernetes service address range that is used by cluster service discovery. Don't use the first IP address in your address range. The first address in your subnet range is used for the *kubernetes.default.svc.cluster.local* address. |
+
+
+<!-- LINKS - Internal -->
+[nodepool-upgrade]: upgrade.md
