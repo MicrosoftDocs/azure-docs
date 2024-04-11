@@ -33,7 +33,7 @@ Metrics are reported in a simple human-friendly form.
 To collect a diagnostics package, SSH to the Virtual Machine and run the command `/usr/bin/microsoft/az-aoi-ingestion-gather-diags`. This command generates a date-stamped zip file in the current directory that you can copy from the system.
 
 > [!NOTE]
-> Microsoft Support might request diagnostic packages when investigating an issue. Diagnostics packages don't contain any customer data or the value of any credentials.
+> Microsoft Support might request diagnostics packages when investigating an issue. Diagnostics packages don't contain any customer data or the value of any credentials.
 
 
 ## Problems common to all sources
@@ -83,7 +83,7 @@ Symptoms: MCC reports alarms about MSFs being unavailable.
 Symptoms: no data appears in Azure Data Explorer.
 
 - Check that the MCC is healthy and ingestion agents are running.
-- Check the ingestion agent logs in the diagnostic package for errors uploading to Azure. If the logs point to an invalid connection string, or connectivity issues, fix the configuration, connection string, or SAS token, and restart the agent.
+- Check the ingestion agent logs in the diagnostics package for errors uploading to Azure. If the logs point to an invalid connection string, or connectivity issues, fix the configuration, connection string, or SAS token, and restart the agent.
 - Check the network connectivity and firewall configuration on the storage account.
 
 ### Data missing or incomplete
@@ -113,7 +113,7 @@ Symptoms: No files are uploaded to AOI. The agent log file, */var/log/az-aoi-ing
 
 ### No files are uploaded to Azure Operator Insights
 
-Symptoms: No data appears in Azure Data Explorer. The AOI *Data Ingested* metric for the relevant data type in the diagnostic package is zero. 
+Symptoms: No data appears in Azure Data Explorer. The AOI *Data Ingested* metric for the relevant data type in the diagnostics package is zero. 
 
 - Check that the agent is running on all VMs and isn't reporting errors in logs.
 - Check that files exist in the correct location on the SFTP server, and that they aren't being excluded due to file source config (see [Files are missing](#files-are-missing)).
