@@ -137,7 +137,9 @@ az containerapp update \
 
 Similarly to what you need to do upon creating a new Container App you have to create an object called [EnvironmentVar](/dotnet/api/Microsoft.Azure.PowerShell.Cmdlets.App.Models.EnvironmentVar), which is contained within a [Container](/dotnet/api/Microsoft.Azure.PowerShell.Cmdlets.App.Models.Container). This [Container](/dotnet/api/Microsoft.Azure.PowerShell.Cmdlets.App.Models.Container) is then used with the [New-AzContainerApp](/powershell/module/az.app/new-azcontainerapp) PowerShell cmdlet.
 
+
 In this cmdlet, you only need to pass the template object you defined previously as described in the [Configure environment variables](#configure-environment-variables) section.
+
 
 ```azurepowershell
 Update-AzContainerApp -TemplateContainer $containerTemplate

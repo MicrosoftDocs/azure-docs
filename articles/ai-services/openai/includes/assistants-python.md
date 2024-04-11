@@ -215,4 +215,4 @@ If you want to clean up and remove an Azure OpenAI resource, you can delete the 
 * Learn more about how to use Assistants with our [How-to guide on Assistants](../how-to/assistant.md).
 * [Azure OpenAI Assistants API samples](https://github.com/Azure-Samples/azureai-samples/tree/main/scenarios/Assistants)
 
--->
+
