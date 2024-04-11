@@ -4,7 +4,7 @@ description: Learn about connectivity and networking options for Azure Database 
 author: GennadNY
 ms.author: gennadyk
 ms.reviewer: maghan
-ms.date: 01/22/2024
+ms.date: 04/01/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.custom:
