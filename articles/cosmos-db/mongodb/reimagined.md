@@ -17,11 +17,28 @@ You have launched an app. Word of mouth spreads slowly, and a small but loyal us
 
 But, timeouts become increasingly frequent, especially when traffic spikes. The rapid growth and unpredictable demand push your infrastructure to its limits, making scalability a pressing issue. Yet overhauling your data pipeline is out of the question given your resource and time constraints.
 
-You chose MongoDB for its flexibility. Now, when you have demanding requirements for scalability, availability, and continuity, Azure Cosmos DB for MongoDB comes to the rescue.
+You chose MongoDB for its flexibility. Now, when you need to manage cost while satisfying demanding requirements for scalability, availability, and continuity, Azure Cosmos DB for MongoDB comes to the rescue.
 
-You point your app to the connection string of this fully managed database, which offers single-digit millisecond response times, automatic and instant scalability, and guaranteed speed at any scale. Even OpenAI chose its parent database to [dynamically scale their ChatGPT service](../introduction.md) – one of the fastest-growing consumer apps ever – enabling high reliability and low maintenance. While you continue to use your existing MongoDB skills and your favorite MongoDB drivers, SDKs, and tools, you also reap the following benefits from chosing either of the two available architectures:
+You point your app to the connection string of this fully managed database, which offers single-digit millisecond response times, automatic and instant scalability, and guaranteed speed at any scale. Even OpenAI chose the underlying service to [dynamically scale their ChatGPT service](../introduction.md) – one of the fastest-growing consumer apps ever – enabling high reliability and low maintenance. While you continue to use your existing MongoDB skills and your favorite MongoDB drivers, SDKs, and tools, you also reap the following benefits from chosing either of the two available architectures:
 
 ## Dynamically scale your MongoDB app
+
+### vCore Architecture
+
+[A fully managed MongoDB-compatible service](./vcore/introduction.md) with dedicated instances for new and existing MongoDB apps. This architecture offers a familiar vCore architecture for MongoDB users, efficient scaling, and seamless integration with Azure services.
+
+- **Integrated Vector Database: Seamlessly integrate your AI-based applications using the integrated vector database. This integration offers an all-in-one solution, allowing you to store your operational/transactional data and vector data together. Unlike other vector database solutions that involve sending your data between service integrations, this approach saves on cost and complexity.
+
+- **Flat pricing with Low total cost of ownership**: Enjoy a familiar pricing model, based on compute (vCores & RAM) and storage (disks).
+
+- **Elevate querying with Text Indexes**: Enhance your data querying efficiency with our text indexing feature. Seamlessly navigate full-text searches across MongoDB collections, simplifying the process of extracting valuable insights from your documents.
+
+- **Scale with no shard key required**: Simplify your development process with high-capacity vertical scaling, all without the need for a shard key. Sharding and scaling horizontally is simple once collections are into the TBs.
+
+- **Free 35 day Backups with point in time restore (PITR)**: Free 35 day backups for any amount of data.
+
+> [!TIP]
+> Visit [Choose your model](./choose-model.md) for an in-depth comparison of each architecture to help you choose which one is right for you.
 
 ### Request Unit (RU) architecture
 
@@ -40,23 +57,6 @@ You point your app to the connection string of this fully managed database, whic
 - **Real time analytics (HTAP) at any scale**: Run analytics workloads against your transactional MongoDB data in real time with no effect on your database. This analysis is fast and inexpensive, due to the cloud native analytical columnar store being utilized, with no ETL pipelines. Easily create Power BI dashboards, integrate with Azure Machine Learning and Azure AI services, and bring all of your data from your MongoDB workloads into a single data warehousing solution. Learn more about the [Azure Synapse Link](../synapse-link.md).
 
 - **Serverless deployments**: In [serverless capacity mode](../serverless.md), you're only charged per operation, and don't pay for the database when you don't use it.
-
-> [!TIP]
-> Visit [Choose your model](./choose-model.md) for an in-depth comparison of each architecture to help you choose which one is right for you.
-
-### vCore Architecture
-
-[A fully managed MongoDB-compatible service](./vcore/introduction.md) with dedicated instances for new and existing MongoDB apps. This architecture offers a familiar vCore architecture for MongoDB users, efficient scaling, and seamless integration with Azure services.
-
-- **Integrated Vector Database: Seamlessly integrate your AI-based applications using the integrated vector database. This integration offers an all-in-one solution, allowing you to store your operational/transactional data and vector data together. Unlike other vector database solutions that involve sending your data between service integrations, this approach saves on cost and complexity.
-
-- **Flat pricing with Low total cost of ownership**: Enjoy a familiar pricing model, based on compute (vCores & RAM) and storage (disks).
-
-- **Elevate querying with Text Indexes**: Enhance your data querying efficiency with our text indexing feature. Seamlessly navigate full-text searches across MongoDB collections, simplifying the process of extracting valuable insights from your documents.
-
-- **Scale with no shard key required**: Simplify your development process with high-capacity vertical scaling, all without the need for a shard key. Sharding and scaling horizontally is simple once collections are into the TBs.
-
-- **Free 35 day Backups with point in time restore (PITR)**: Free 35 day backups for any amount of data.
 
 > [!TIP]
 > Visit [Choose your model](./choose-model.md) for an in-depth comparison of each architecture to help you choose which one is right for you.
