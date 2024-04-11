@@ -94,7 +94,7 @@ Export allows you to export the data stored in Azure Cache for Redis to Redis co
    > - Export works with page blobs that are supported by both classic and Resource Manager storage accounts.
    > - Azure Cache for Redis does not support exporting to ADLS Gen2 storage accounts.
    > - Export is not supported by Blob storage accounts at this time.
-   > - If your cache data export to Firewall-enabled storage accounts fails, refer to [How to export if I have firewall enabled on my storage account?](#how-to-export-if-i-have-firewall-enabled-on-my-storage-account)
+   > - If your cache data export to Firewall-enabled storage accounts fails, refer to [What if I have firewall enabled on my storage account?](#what-if-i-have-firewall-enabled-on-my-storage-account)
    >
    > For more information, see [Azure storage account overview](../storage/common/storage-account-overview.md).
    >
