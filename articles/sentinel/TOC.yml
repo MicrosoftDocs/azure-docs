@@ -1108,7 +1108,7 @@
       href: create-tasks-playbook.md
 - name: Optimize your security operations
   items:
-  - name: Optimize your security operations
+  - name: SOC optimizations overview
     href: soc-optimization/soc-optimization-access.md
   - name: SOC optimization reference
     href: soc-optimization/soc-optimization-reference.md
