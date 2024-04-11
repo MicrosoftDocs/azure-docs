@@ -11,7 +11,7 @@ ms.author: rifox
 Mobile push notifications are the pop-up notifications you see on mobile devices. For calling, we'll be focusing on VoIP (Voice over Internet Protocol) push notifications. We'll register for push notifications, handle push notifications, and then un-register push notifications. For guide on CallKit integration in your iOS application please refer here, [CallKit integration with iOS ACS SDK](../../callkit-integration.md).
 
 > [!NOTE]
-> To Register for Push Notifications and handling of the Push Notifications for a Custom Teams Endpoint (CTE) the API's are the same. The API's described below can also be invoked on the `CommonCallAgent` or `TeamsCallAgent` object for Custom Teams Endpoint (CTE).
+> To Register for Push Notifications and handling of the Push Notifications for a Custom Teams Endpoint (CTE) the API's are the same. The API's described below can also be invoked on the `CommonCallAgent` or `TeamsCallAgent` class for Custom Teams Endpoint (CTE).
 
 ## Set up push notifications
 
