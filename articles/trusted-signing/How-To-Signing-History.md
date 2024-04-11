@@ -1,16 +1,16 @@
 ---
-title: Access signed transactions in Trusted Signing #Required; page title displayed in search results. Include the word "quickstart". Include the brand.
-description: How-to access signed transactions in Trusted Signing in Azure portal. #Required; article description that is displayed in search results. Include the word "quickstart".
-author: mehasharma #Required; your GitHub user alias, with correct capitalization.
-ms.author: mesharm #Required; microsoft alias of author; optional team alias.
-ms.service: trusted-signing #Required; service per approved list. service slug assigned to your service by ACOM.
-ms.topic: how-to #Required; leave this attribute/value as-is.
-ms.date: 04/01/2024 #Required; mm/dd/yyyy format.
+title: Access signed transactions in Trusted Signing 
+description: How-to access signed transactions in Trusted Signing in Azure portal. 
+author: mehasharma 
+ms.author: mesharm 
+ms.service: azure-code-signing 
+ms.topic: how-to 
+ms.date: 04/01/2024 
 ---
 
 # Access signed transactions in Trusted Signing
 
-Review the details of the signing requests executed by Trusted Signing in Azure Portal. 
+Review the details of the signing requests executed by Trusted Signing in Azure portal. 
 Currently there are four different options enabled:  
 - Log Analytics workspace  
 - Storage Account  

@@ -61,7 +61,7 @@ The resources must be created in Azure regions where Trusted Signing is currentl
 - Globally unique.
 - Case insensitive (“Abc” is the same as “abc”).
 
-# [Az CLI](#tab/account-cli)
+# [Azure CLI](#tab/account-cli)
 
 The resources must be created in Azure regions where Trusted Signing is currently available. Refer to the table below for the current Azure regions with Trusted Signing resources: 
 
@@ -91,7 +91,7 @@ az upgrade [--all {false, true}]
    [--allow-preview {false, true}]
     [--yes]
 ```
-5.  To set your default subscription id, use the `az account set -s <subscriptionId>` command. 
+5.  To set your default subscription ID, use the `az account set -s <subscriptionId>` command. 
 
 6.  Create a resource group using the following command:
 ```
@@ -130,7 +130,7 @@ You can complete your own Identity Validation by filing out the request form wit
 Here are the steps to create an Identity Validation request:
 1.  Navigate to your new Trusted Signing account in the Azure portal.
 2.  Confirm you have the **Trusted Signing Identity Verifier role**. 
-•   For role Based Access management (RBAC) access management, see link to RBAC and role assignment.
+•   For Role Based Access management (RBAC) access management, see link to RBAC and role assignment.
 3.  From either the Trusted Signing account overview page or from Objects, select **Identity Validation**.
 4.  Select **New Identity Validation** > Public or Private. 
     - Public identity validation is applicable to certificate profile types: Public Trust, Public Trust Test, VBS Enclave (this isn't supported yet).
@@ -224,7 +224,7 @@ trustedsigning certificate-profile show -g myRG --account-name MyAccount -n  MyP
 - Begin with a letter, end with a letter or digit, and not contain consecutive hyphens.
 - Unique within the account.
 - Inherits region from the account.
-- Case insensitive (“Abc” is the same as “abc”) .
+- Case insensitive (“Abc” is the same as “abc”).
 
 **Helpful commands**:
 - Show help for sample commands and detailed parameter descriptions:   `trustedsigning certificate-profile create -–help`
