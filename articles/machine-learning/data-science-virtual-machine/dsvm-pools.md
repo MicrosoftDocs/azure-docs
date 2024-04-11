@@ -10,7 +10,7 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: conceptual
 ms.reviewer: franksolomon
-ms.date: 04/10/2024
+ms.date: 04/11/2024
 ---
 
 # Create a shared pool of Data Science Virtual Machines
