@@ -65,20 +65,10 @@ Depending on network conditions and other activity in your selected region, the 
 
 ## Optional: Verify the functionality of the deployment
 
-By default, the JBoss EAP Server is deployed on an Azure VM in a dedicated virtual network without public access. If you want to verify the functionality of the deployment by viewing the **Red Hat JBoss Enterprise Application Platform** management console, use the following steps to assign the VM a public IP address for access.
-
-1. On the deployment page, select **Deployment details** to expand the list of Azure resource deployed. Select network security group `jbosseap-nsg` to open its details page.
-1. Under **Settings**, select **Inbound security rules**. Select **+ Add** to open **Add inbound security rule** panel for adding a new inbound security rule.
-1. Fill in *9990,8080* for **Destination port ranges**. Fill in *Port_jbosseap* for **Name**. Select **Add**. Wait until the security rule created.
-1. Select **X** icon to close the network security group `jbosseap-nsg` details page. You're switched back to the deployment page.
-1. Select the resource ending with `-nic` (with type `Microsoft.Network/networkInterfaces`) to open its details page.
-1. Under **Settings**, select **IP configurations**. Select `ipconfig1` from the list of IP configurations to open its configuration details panel.
-1. Under **Public IP address**, select **Associate**. Select **Create new** to open the **Add a public IP address** popup. Fill in *jbosseapvm-ip* for **Name**. Select **Static** for **Assignment**. Select **OK**.
-1. Select **Save**. Wait until the public IP address created and the update completes. Select the **X** icon to close the IP configuration page.
-1. Copy the value of the public IP address from the **Public IP address** column for `ipconfig1`. For example, `20.232.155.59`.
-
-   :::image type="content" source="media/jboss-eap-single-server-azure-vm/public-ip-address.png" alt-text="Screenshot of public IP address assigned to the network interface." lightbox="media/jboss-eap-single-server-azure-vm/public-ip-address.png":::
-
+1. Open the resource group you just created in the Azure portal.
+2. Select the VM resource which name is "jbosieapVm".
+3. In the **Overview** pane, note the **Public IP address** assigned to the network interface.
+4. Copy the public IP address.
 1. Paste the public IP address in an Internet-connected web browser, append `:9990`, and press **Enter**. You should see the familiar **Red Hat JBoss Enterprise Application Platform** management console sign-in screen, as shown in the following screenshot.
 
    :::image type="content" source="media/jboss-eap-single-server-azure-vm/jboss-eap-console-login.png" alt-text="Screenshot of JBoss EAP management console sign-in screen." lightbox="media/jboss-eap-single-server-azure-vm/jboss-eap-console-login.png":::
