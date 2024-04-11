@@ -17,8 +17,6 @@ This article shows how to enable your *API Center portal*, an automatically gene
 > [!IMPORTANT]
 > The Azure-hosted API Center portal is experimental and will be removed from API Center in an upcoming release. You will have an option to self-host an API Center portal for API discovery in an upcoming release.
 
-[!INCLUDE [api-center-preview-feedback](includes/api-center-preview-feedback.md)]
-
 
 
 
