@@ -61,10 +61,18 @@ Publishing locations for individual SDK packages are detailed below.
 
 ### SDK platform support details
 
-#### iOS and Android
+#### Android Calling SDK support
 
-- Communication Services iOS SDKs target iOS version 13+, and Xcode 11+.
-- Android Java SDKs target Android API level 21+ and Android Studio 4.0+
+- Support for Android API Level 21 or Higher
+- Support for Java 7 or higher
+- Support for Android Studio 2.0
+- **Android Auto (AAOS)** and **IoT devices running Android** are currently not supported
+
+#### iOS Calling SDK support
+
+- Support for iOS 10.0+ at build time, and iOS 12.0+ at run time
+- Xcode 12.0+
+- Support for **iPadOS** 13.0+
 
 #### .NET
 
