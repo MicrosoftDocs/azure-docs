@@ -17,7 +17,7 @@ ms.date: 03/29/2024
 
 This article identifies the known issues and when applicable their workarounds in Azure Arc site manager.
 
-The release notes are continuously updated, and as critical issues are discovered, they're added.  
+This page is continuously updated, and as known issues are discovered, they're added.  
 
 > [!IMPORTANT]
 > This release is the first iteration of Public Preview and represents what is currently possible in Azure Arc site manager.
@@ -32,6 +32,6 @@ The release notes are continuously updated, and as critical issues are discovere
 | Site Creation | Error: "Site already associated with subscription scope" occurs during site creation | This is presently by design, subscriptions can't be associated to duplicate sites. This indicates that the subscription has already been associated to a site previously. Locate that associated site and make the desired changes to that site. |
 | Sites tab view | In the sites tab view, a resource isn't showing up (visible) | Ensure that the resource is a supported resource type for sites. This likely is occurring as the resource isn't currently supported for sites |
 | Site manager | Site manager isn't displaying, or searching, or visible anywhere in Azure portal | Check the url being used while in the Azure portal, you might have a text in the url that is preventing site manager from displaying or being searchable. Try to restart your Azure portal session and ensure your url doesn't have any extra text. 
-| Resource status in site manager | Connectivity, alerts, and/or update status aren't showing | Site manager is unable to display resource status in the following regions. 
+| Resource status in site manager | Connectivity, alerts, and/or update status aren't showing | Site manager is unable to display resource status in the following regions: 
 
 

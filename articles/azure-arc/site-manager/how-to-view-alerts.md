@@ -1,5 +1,5 @@
 ---
-title: "How to view and create alerts for a site"
+title: "How to view alerts for a site"
 description: "How to view and create alerts for a site"
 author: kgremban
 ms.author: kgremban

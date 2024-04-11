@@ -44,10 +44,12 @@ landingContent:
             url: how-to-view-update-status.md
           - text: How do I view alerts?
             url: how-to-view-alerts.md
-          - text: How do I configure monitor?
+          - text: How do I configure Azure Monitor alerts?
             url: how-to-configure-monitor-site.md
           - text: Known issues.
             url: known-issues.md
+          - text: Troubleshooting.
+            url: troubleshooting.md
   - title: Explore more
     linkLists:
       - linkListType: reference

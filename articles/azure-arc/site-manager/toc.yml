@@ -14,18 +14,21 @@
     href: how-to-view-connectivity-status.md
   - name: View update status
     href: how-to-view-update-status.md
-  - name: Configure monitor
+  - name: Configure Azure Monitor alerts
     href: how-to-configure-monitor-site.md
-  - name: Configure and view alerts
+  - name: View alerts
     href: how-to-view-alerts.md
 - name: FAQ
   items:
   - name: FAQ
     href: faq.md
-- name: Troubleshooting
+- name: Fix common issues
+
   items:
   - name: Known Issues
     href: known-issues.md
+  - name: Troubleshooting
+    href: troubleshooting.md
 - name: Reference
   items:
   - name: Azure Arc
