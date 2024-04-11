@@ -4,7 +4,7 @@ description: Set up TLS encryption for communication between Kafka clients and K
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 04/08/2024
+ms.date: 04/11/2024
 ---
 
 # Set up TLS encryption and authentication for ESP Apache Kafka cluster in Azure HDInsight
