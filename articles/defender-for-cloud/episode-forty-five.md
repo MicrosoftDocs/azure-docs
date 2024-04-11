@@ -5,7 +5,7 @@ ms.topic: reference
 ms.date: 04/11/2024
 ---
 
-# Risk prioritization
+# Risk prioritization in Defender for Cloud
 
 **Episode description**: In this episode of Defender for Cloud in the Field, Aviram Yitzhak joins Yuri Diogenes to talk about recommendation prioritization in Microsoft Defender for Cloud. Aviram explains the correlation between recommendation prioritization and attack path, and when to use each dashboard. Aviram also demonstrates the user experience when using recommendation prioritization dashboard to triage recommendations based on risk factors.
 
