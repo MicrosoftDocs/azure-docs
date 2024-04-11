@@ -53,7 +53,9 @@ The Service Bus connector has different versions, based on [logic app workflow t
 * If your logic app resource uses a managed identity for authenticating access to your Service Bus namespace and messaging entity, make sure that you've assigned role permissions at the corresponding levels. For example, to access a queue, the managed identity requires a role that has the necessary permissions for that queue.
 
   * Each logic app resource should use only one managed identity, even if the logic app's workflow accesses different messaging entities.
+
   * Each managed identity that accesses a queue or topic subscription should use its own Service Bus API connection.
+
   * Service Bus operations that exchange messages with different messaging entities and require different permissions should use their own Service Bus API connections.
 
   For more information about managed identities, see [Authenticate access to Azure resources with managed identities in Azure Logic Apps](../logic-apps/create-managed-service-identity.md).
