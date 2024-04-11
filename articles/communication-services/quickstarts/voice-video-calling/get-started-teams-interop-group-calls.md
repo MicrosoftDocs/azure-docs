@@ -102,7 +102,7 @@ placeInteropGroupCallButton.addEventListener("click", () => {
     const participants = teamsIdsInput.value.split(',').map(id => {
         const participantId = id.replace(' ', '');
         return {
-            microsoftTeamsUserId: `8:orgid${participantId}`
+            microsoftTeamsUserId: `8:orgid:${participantId}`
         };
     })
 
