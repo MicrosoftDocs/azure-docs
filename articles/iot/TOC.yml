@@ -146,8 +146,6 @@ items:
         href: ../azure-maps/index.yml
       - name: Time Series Insights
         href: ../time-series-insights/index.yml
-    - name: IoT device developer
-      href: ../iot-develop/index.yml
     - name: Azure IoT SDKs
       items:
       - name: Device and Service SDKs

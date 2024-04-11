@@ -187,10 +187,10 @@ You can use the **Termite** app to monitor communication and confirm that your d
     Initializing Azure IoT Hub client
         Hub hostname: ***.azure-devices.net
         Device id: mydevice
-        Model id: dtmi:azurertos:devkit:gsgmxchip;2
+        Model id: dtmi:eclipsethreadx:devkit:gsgmxchip;2
     SUCCESS: Connected to IoT Hub
 
-    Receive properties: {"desired":{"$version":1},"reported":{"deviceInformation":{"__t":"c","manufacturer":"MXCHIP","model":"AZ3166","swVersion":"1.0.0","osName":"Azure RTOS","processorArchitecture":"Arm Cortex M4","processorManufacturer":"STMicroelectronics","totalStorage":1024,"totalMemory":128},"ledState":false,"telemetryInterval":{"ac":200,"av":1,"value":10},"$version":4}}
+    Receive properties: {"desired":{"$version":1},"reported":{"deviceInformation":{"__t":"c","manufacturer":"MXCHIP","model":"AZ3166","swVersion":"1.0.0","osName":"Eclipse ThreadX","processorArchitecture":"Arm Cortex M4","processorManufacturer":"STMicroelectronics","totalStorage":1024,"totalMemory":128},"ledState":false,"telemetryInterval":{"ac":200,"av":1,"value":10},"$version":4}}
     Sending property: $iothub/twin/PATCH/properties/reported/?$rid=3{"deviceInformation":{"__t":"c","manufacturer":"MXCHIP","model":"AZ3166","swVersion":"1.0.0","osName":"Eclipse ThreadX","processorArchitecture":"Arm Cortex M4","processorManufacturer":"STMicroelectronics","totalStorage":1024,"totalMemory":128}}
     Sending property: $iothub/twin/PATCH/properties/reported/?$rid=5{"ledState":false}
     Sending property: $iothub/twin/PATCH/properties/reported/?$rid=7{"telemetryInterval":{"ac":200,"av":1,"value":10}}

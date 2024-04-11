@@ -31,7 +31,7 @@ The web UI lets you search for and retrieve the models and interfaces.
 
 ## Devices
 
-A device builder implements the code to run on an IoT device using one of the [Azure IoT device SDKs](../iot-develop/about-iot-sdks.md). The device SDKs help the device builder to:
+A device builder implements the code to run on an IoT device using one of the [Azure IoT device SDKs](./iot-sdks.md). The device SDKs help the device builder to:
 
 - Connect securely to an IoT hub.
 - Register the device with your IoT hub and announce the model ID that identifies the collection of DTDL interfaces the device implements.
