@@ -10,7 +10,7 @@ ms.reviewer: jeffwo
 ---
 
 # Collect Firewall logs with Azure Monitor Agent (Preview)
-Windows Firewall is a Microsoft Windows application that filters information coming to your system from the Internet and blocks potentially harmful programs. It is also known as Microsoft Defender Firewall in Windows 10 version 2004 and later. You can turn it on or off by following these steps:
+Windows Firewall is a Microsoft Windows application that filters information coming to your system from the Internet and blocks potentially harmful programs. Windows Firewall logs are generated on both client and server operating systems. These logs provide valuable information about network traffic, including dropped packets and successful connections. Parsing Windows Firewall log files can be done using methods like Windows Event Forwarding (WEF) or forwarding logs to a SIEM product like Azure Sentinel. You can turn it on or off by following these steps on any Windows system:
 - Select Start, then open Settings
 - Under Update & Security, select Windows Security, Firewall & network protection.
 - Select a network profile: domain, private, or public.
