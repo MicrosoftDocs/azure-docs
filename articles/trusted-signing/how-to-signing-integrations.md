@@ -5,11 +5,7 @@ author: microsoftshawarma #Required; your GitHub user alias, with correct capita
 ms.author: rakiasegev #Required; microsoft alias of author; optional team alias.
 ms.service: azure-code-signing #Required; service per approved list. slug assigned by ACOM.
 ms.topic: how-to #Required; leave this attribute/value as-is.
-<<<<<<< HEAD
-ms.date: 03/31/2024 #Required; mm/dd/yyyy format.
-=======
 ms.date: 04/04/2024 #Required; mm/dd/yyyy format.
->>>>>>> 46436ab4cb7246da4125502a36412d301321083b
 ms.custom: template-how-to-pattern #Required; leave this attribute/value as-is.
 ---
 
