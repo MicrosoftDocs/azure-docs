@@ -501,7 +501,7 @@ The following ARM template snippets demonstrate how to add an Azure Files share 
           "volumes": [
             {
               "name": "azure-files-volume",
-              "storageType": "azureFile",
+              "storageType": "AzureFile",
               "storageName": "myazurefiles"
             }
           ]
@@ -547,7 +547,7 @@ The following ARM template snippets demonstrate how to add an Azure Files share 
           "volumes": [
             {
               "name": "azure-files-volume",
-              "storageType": "nfsAzureFile",
+              "storageType": "NfsAzureFile",
               "storageName": "myazurefiles"
             }
           ]
@@ -560,7 +560,7 @@ The following ARM template snippets demonstrate how to add an Azure Files share 
 
     - Add a `volumes` array to the `template` section of your container app definition and define a volume. If you already have a `volumes` array, add a new volume to the array.
         - The `name` is an identifier for the volume.
-        - For `storageType`, use `azureFile` for SMB, or `nfsAzureFile` for NFS. This value must match the storage type you defined in the environment.
+        - For `storageType`, use `AzureFile` for SMB, or `NfsAzureFile` for NFS. This value must match the storage type you defined in the environment.
         - For `storageName`, use the name of the storage you defined in the environment.
     - For each container in the template that you want to mount Azure Files storage, define a volume mount in the `volumeMounts` array of the container definition.
         - The `volumeName` is the name defined in the `volumes` array.
@@ -615,7 +615,7 @@ To configure a volume mount for Azure Files storage in the Azure portal, add a f
 
 # [NFS](#tab/nfs)
 
-Azure portal doesn't support creating NFS Azure Files volumes. To create an NFS Azure Files volume, use the Azure CLI or ARM template.
+Azure portal doesn't support creating NFS Azure Files volumes. To create an NFS Azure Files volume, use the [Azure CLI](storage-mounts.md?tabs=nfs&pivots=azure-cli#azure-files) or [ARM template](storage-mounts.md?tabs=nfs&pivots=azure-resource-manager#azure-files).
 
 ---
 
