@@ -11,7 +11,7 @@ author: shashankbarsin
 
 This article addresses upgrade experiences for Istio-based service mesh add-on for Azure Kubernetes Service (AKS).
 
-New Istio add-on releases are announced via [AKS release notes](https://github.com/Azure/AKS/releases).
+Announcements about the releases of new minor revisions or patches to the Istio-based service mesh add-on are published in the [AKS release notes][aks-release-notes].
 
 ## Minor revision upgrade
 

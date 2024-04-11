@@ -47,7 +47,7 @@ The add-on requires Azure CLI version 2.57.0 or later installed. You can run `az
     > When rotating certificates, to control how quickly the secrets are synced down to the cluster you can use the `--rotation-poll-interval` parameter of the Azure Key Vault Secrets Provider add-on. For example:
     > `az aks addon update --resource-group $RESOURCE_GROUP --name $CLUSTER --addon azure-keyvault-secrets-provider --enable-secret-rotation --rotation-poll-interval 20s`
 
-1. Authorize the system-assigned managed identity of the add-on to have access to the Azure Key Vault resource:
+1. Authorize the user-assigned managed identity of the add-on to have access to the Azure Key Vault resource:
 
     ```bash
     OBJECT_ID=$(az aks show --resource-group $RESOURCE_GROUP --name $CLUSTER --query 'addonProfiles.azureKeyvaultSecretsProvider.identity.objectId' -o tsv)
@@ -56,7 +56,7 @@ The add-on requires Azure CLI version 2.57.0 or later installed. You can run `az
     ```
 
     > [!NOTE]
-    > If you created your Key Vault with Azure RBAC Authorization, follow the instructions [here](https://learn.microsoft.com/azure/key-vault/general/rbac-guide) to create permissions for the managed identity. Add a role assignment for `Key Vault Reader` for the cluster's system-assigned managed identity. 
+    > If you created your Key Vault with Azure RBAC Authorization, follow the instructions [here][akv-rbac-guide] to create permissions for the managed identity. Add a role assignment for `Key Vault Reader` for the cluster's system-assigned managed identity. 
 
 ## Set up Istio-based service mesh addon with plug-in CA certificates
 
@@ -253,6 +253,7 @@ You may need to periodically rotate the certificate authorities for security or 
 
 [akv-quickstart]: ../key-vault/general/quick-create-cli.md
 [akv-addon]: ./csi-secrets-store-driver.md
+[akv-rbac-guide]: ../key-vault/general/rbac-guide.md
 [install-azure-cli]: /cli/azure/install-azure-cli
 [az-feature-register]: /cli/azure/feature#az-feature-register
 [az-feature-show]: /cli/azure/feature#az-feature-show
