@@ -47,8 +47,10 @@ More details on eligible subscription types are as follows:
 |Canada|
 |Denmark|
 |France|
+|Germany|
 |Ireland|
 |Italy|
+|Japan|
 |Netherlands|
 |Puerto Rico|
 |Spain|

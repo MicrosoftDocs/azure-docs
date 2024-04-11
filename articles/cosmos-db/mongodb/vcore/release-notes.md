@@ -26,7 +26,7 @@ This article contains release notes for the API for MongoDB vCore. These release
 	- $min & $max operator with $project.
 	- $binarySize aggregation operator.
 - Ability to build indexes in background (except Unique indexes). (Public Preview)
-- Significant performance improvements for $ne/$nq/$in queries.
+- Significant performance improvements for $ne/$eq/$in queries.
 - Performance improvements up to 30% on Range queries (involving index pushdown).
 
 ## Previous releases

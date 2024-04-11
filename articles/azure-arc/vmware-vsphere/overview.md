@@ -2,7 +2,7 @@
 title: What is Azure Arc-enabled VMware vSphere?
 description: Azure Arc-enabled VMware vSphere extends Azure governance and management capabilities to VMware vSphere infrastructure and delivers a consistent management experience across both platforms. 
 ms.topic: overview
-ms.date: 03/13/2024
+ms.date: 03/21/2024
 ms.custom: references_regions
 ms.service: azure-arc
 ms.subservice: azure-arc-vmware-vsphere
@@ -65,7 +65,6 @@ The easiest way to think of this is as follows:
 
 You have the flexibility to start with either option, and incorporate the other one later without any disruption. With both the options, you enjoy the same consistent experience.
 
-
 ## Supported VMware vSphere versions
 
 Azure Arc-enabled VMware vSphere currently works with vCenter Server versions 7 and 8.
@@ -99,10 +98,20 @@ You can use Azure Arc-enabled VMware vSphere in these supported regions:
 
 For the most up-to-date information about region availability of Azure Arc-enabled VMware vSphere, see [Azure Products by Region](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=azure-arc&regions=all) page.
 
-
 ## Data Residency
 
 Azure Arc-enabled VMware vSphere doesn't store/process customer data outside the region the customer deploys the service instance in.  
+
+## Azure Kubernetes Service (AKS) Arc on VMware (preview)
+
+Starting in March 2024, Azure Kubernetes Service (AKS) enabled by Azure Arc on VMware is available for preview. AKS Arc on VMware enables you to use Azure Arc to create new Kubernetes clusters on VMware vSphere. For more information, see [What is AKS enabled by Arc on VMware?](/azure/aks/hybrid/aks-vmware-overview).
+
+The following capabilities are available in the AKS Arc on VMware preview:
+
+- **Simplified infrastructure deployment on Arc-enabled VMware vSphere**: Onboard VMware vSphere to Azure using a single-step process with the AKS Arc extension installed.
+- **Azure CLI**: A consistent command-line experience, with [AKS Arc on Azure Stack HCI 23H2](/azure/aks/hybrid/aks-create-clusters-cli), for creating and managing Kubernetes clusters. Note that the preview only supports a limited set commands.
+- **Cloud-based management**: Use familiar tools such as Azure CLI to create and manage Kubernetes clusters on VMware.
+- **Support for managing and scaling node pools and clusters**.
 
 ## Next steps
 

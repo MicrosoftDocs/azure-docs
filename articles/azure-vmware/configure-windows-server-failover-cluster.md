@@ -3,7 +3,7 @@ title: Configure Windows Server Failover Cluster on Azure VMware Solution vSAN
 description: Learn how to configure Windows Server Failover Cluster (WSFC) on Azure VMware Solution vSAN with native shared disks.
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 12/07/2023
+ms.date: 3/29/2024
 ms.custom: engagement-fy23
 ---
 
@@ -40,7 +40,7 @@ Azure VMware Solution provides native support for virtualized WSFC. It supports 
 
 The following diagram illustrates the architecture of WSFC virtual nodes on an Azure VMware Solution private cloud. It shows where Azure VMware Solution resides, including the WSFC virtual servers (blue box), in relation to the broader Azure platform. This diagram illustrates a typical hub-spoke architecture, but a similar setup is possible using Azure Virtual WAN. Both offer all the value other Azure services can bring you.
 
-:::image type="content" source="media/windows-server-failover-cluster/windows-server-failover-architecture.svg" alt-text="Diagram of Windows Server Failover Cluster virtual nodes on an Azure VMware Solution private cloud." border="false" lightbox="media/windows-server-failover-cluster/windows-server-failover-architecture.svg":::
+:::image type="content" source="media/windows-server-failover-cluster/windows-server-failover-architecture.png" alt-text="Diagram of Windows Server Failover Cluster virtual nodes on an Azure VMware Solution private cloud." border="false" lightbox="media/windows-server-failover-cluster/windows-server-failover-architecture.png":::
 
 ## Supported configurations
 

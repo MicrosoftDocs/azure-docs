@@ -119,7 +119,7 @@ By default, service tags reflect the ranges for the entire cloud. Some service t
 | **MicrosoftPurviewPolicyDistribution** | This tag should be used within the outbound security rules for a data source (e.g. Azure SQL MI) configured with private endpoint to retrieve policies from Microsoft Purview | Outbound| No | No |
 | **PowerBI** | Power BI platform backend services and API endpoints.<br/><br/>**Note:** does not include frontend endpoints at the moment (e.g., app.powerbi.com).<br/><br/>Access to frontend endpoints should be provided through AzureCloud tag (Outbound, HTTPS, can be regional). | Both | No | Yes |
 | **PowerPlatformInfra** | This tag represents the IP addresses used by the infrastructure to host Power Platform services. | Both | Yes | Yes |
-| **PowerPlatformPlex** | This tag represents the IP addresses used by the infrastructure to host Power Platform extension execution on behalf of the customer. | Inbound | Yes | Yes |
+| **PowerPlatformPlex** | This tag represents the IP addresses used by the infrastructure to host Power Platform extension execution on behalf of the customer. | Both | Yes | Yes |
 | **PowerQueryOnline** | Power Query Online. | Both | No | Yes |
 | **Scuba** | Data connectors for Microsoft security products (Sentinel, Defender, etc). | Inbound | No | No|
 | **SerialConsole** | Limit access to boot diagnostics storage accounts from only Serial Console service tag | Inbound | No | Yes |

@@ -9,7 +9,7 @@ metadata:
   ms.topic: landing-page
   author: halkazwini
   ms.author: halkazwini
-  ms.date: 02/15/2024
+  ms.date: 04/03/2024
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
 landingContent:
@@ -93,7 +93,7 @@ landingContent:
           - text: Manage NSG flow logs
             url: nsg-flow-logs-portal.md
           - text: Manage VNet flow logs
-            url: vnet-flow-logs-powershell.md
+            url: vnet-flow-logs-portal.md
 
   # Card (optional)
   - title: Traffic analytics

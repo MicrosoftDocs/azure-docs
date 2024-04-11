@@ -8,7 +8,7 @@ ms.subservice: mongodb
 ms.devlang: csharp
 ms.topic: quickstart
 ms.date: 07/06/2022
-ms.custom: devx-track-csharp, mode-api, devguide-csharp, cosmos-db-dev-journey, devx-track-azurecli, devx-track-dotnet
+ms.custom: devx-track-csharp, mode-api, devguide-csharp, cosmos-db-dev-journey, devx-track-azurecli, devx-track-dotnet, devx-track-extended-azdevcli
 zone_pivot_groups: azure-cosmos-db-quickstart-env
 ---
 

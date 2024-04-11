@@ -6,7 +6,7 @@ ms.author: cephalin
 ms.devlang: java
 ms.topic: tutorial
 ms.date: 12/10/2018
-ms.custom: mvc, devx-track-java, devx-track-azurecli, devx-track-extended-java, AppServiceConnectivity
+ms.custom: mvc, devx-track-java, devx-track-azurecli, devx-track-extended-java, AppServiceConnectivity, linux-related-content
 ---
 
 # Tutorial: Build a Java Spring Boot web app with Azure App Service on Linux and Azure Cosmos DB

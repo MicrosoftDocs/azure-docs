@@ -67,6 +67,8 @@ items:
             href: app/azure-web-apps-java.md
           - name: Node.js
             href: app/azure-web-apps-nodejs.md
+          - name: Python
+            href: app/azure-web-apps-python.md
         - name: Azure Functions
           displayName: functions, monitor functions, automation
           href: app/monitor-functions.md
@@ -298,6 +300,10 @@ items:
         items:
         - name: Overview
           href: insights/code-optimizations.md
+        - name: Set up Code Optimizations
+          href: insights/set-up-code-optimizations.md
+        - name: View insights
+          href: insights/view-code-optimizations.md
         - name: Troubleshooting
           href: /troubleshoot/azure/azure-monitor/app-insights/code-optimizations-troubleshooting
       - name: Snapshot Debugger
@@ -502,9 +508,20 @@ items:
         - name: High scale
           displayName: Prometheus
           href: containers/prometheus-metrics-scrape-scale.md
-      - name: KEDA integration
-        displayName: Prometheus
-        href: containers/integrate-keda.md
+      - name: Integrations
+        items:
+        - name: Monitor Argo CD
+          displayName: Prometheus
+          href: containers/prometheus-argo-cd-integration.md
+        - name: Monitor Elastic Search
+          displayName: Prometheus
+          href: containers/prometheus-elasticsearch-integration.md
+        - name: Monitor Apache Kafka
+          displayName: Prometheus
+          href: containers/prometheus-kafka-integration.md
+        - name: Scale using KEDA based on Prometheus metrics
+          displayName: Prometheus
+          href: containers/integrate-keda.md
       - name: Send to multiple metric workspaces
         displayName: Prometheus
         href: containers/prometheus-metrics-multiple-workspaces.md
@@ -579,9 +596,9 @@ items:
         href: containers/container-insights-livedata-metrics.md
     - name: Alerting
       items:
-      - name: Prometheus alert rules
-        href: containers/container-insights-metric-alerts.md
-      - name: Log search alert rules
+      - name: Metric alert rules
+        href: containers/kubernetes-metric-alerts.md
+      - name: Log alert rules
         displayName: Container insights
         href: containers/container-insights-log-alerts.md
     - name: Manage cost and usage
@@ -610,9 +627,6 @@ items:
     href: monitor-azure-monitor.md
 - name: Data collection
   items:
-  - name: Overview
-    displayName: data collection, data collection rules
-    href: essentials/data-collection.md
   - name: Data sources
     href: data-sources.md
   - name: Data collection methods
@@ -626,17 +640,16 @@ items:
         displayName: data collection, data collection rules
         href: essentials/data-collection-rule-best-practices.md
       - name: Create and edit
-        displayName: Data collection rules
-        href: essentials/data-collection-rule-create-edit.md
-      - name: Edit tutorial
-        displayName: data collection rules
-        href: essentials/data-collection-rule-edit.md
-      - name: Structure
-        displayName: Data collection rules
-        href: essentials/data-collection-rule-structure.md
-      - name: Monitor
-        displayName: Data collection rules
-        href: essentials/data-collection-monitor.md
+        items:
+        - name: Create
+          displayName: Data collection rules
+          href: essentials/data-collection-rule-create-edit.md
+        - name: Edit tutorial
+          displayName: data collection rules
+          href: essentials/data-collection-rule-edit.md
+        - name: Structure
+          displayName: Data collection rules
+          href: essentials/data-collection-rule-structure.md
       - name: Transformations
         items:
         - name: Overview
@@ -645,19 +658,25 @@ items:
         - name: Structure
           displayName: Transformations
           href: essentials/data-collection-transformations-structure.md
-        - name: Transformation tutorials
+        - name: Tutorial
+          displayName: Custom text logs, transformations
+          href: agents/azure-monitor-agent-transformation.md
+        - name: Workspace transformations
           items:
-          - name: Workspace transformation
-            items:
-            - name: Azure portal
-              displayName: Workspace transformations
-              href: logs/tutorial-workspace-transformations-portal.md
-            - name: Resource Manager templates
-              displayName: Workspace transformations
-              href: logs/tutorial-workspace-transformations-api.md
-          - name: Text log transformation
-            displayName: Custom text logs
-            href: agents/azure-monitor-agent-transformation.md
+          - name: Overview
+            displayName: Workspace transformations
+            href: essentials/data-collection-transformations-workspace.md
+          - name: Create in Azure portal
+            displayName: Workspace transformations
+            href: logs/tutorial-workspace-transformations-portal.md
+          - name: Create with ARM templates
+            displayName: Workspace transformations
+            href: logs/tutorial-workspace-transformations-api.md
+      - name: Monitor
+        displayName: Data collection rules
+        href: essentials/data-collection-monitor.md
+      - name: Samples
+        href: essentials/data-collection-rule-samples.md      
       - name: Data collection endpoints
         href: essentials/data-collection-endpoint-overview.md
     - name: Diagnostic Settings
@@ -1377,22 +1396,6 @@ items:
         href: alerts/test-action-group-errors.md
     - name: Legacy alerts
       items:
-      - name: About classic alerts
-        href: alerts/alerts-classic.overview.md
-      - name: Prepare for migration
-        href: alerts/alerts-prepare-migration.md
-      - name: Understand the migration tool
-        href: alerts/alerts-understand-migration.md
-      - name: Automatic migration process
-        href: alerts/alerts-automatic-migration.md
-      - name: Manage classic metric alerts
-        href: alerts/alerts-classic-portal.md
-      - name: Classic metric alert using a Resource Manager template
-        href: alerts/alerts-enable-template.md
-      - name: Classic metric alert calling a webhook
-        href: alerts/alerts-webhooks.md
-      - name: Legacy Log Analytics alerts API
-        href: alerts/api-alerts.md
       - name: Upgrade from the legacy Log Analytics alerts API
         href: alerts/alerts-log-api-switch.md
       - name: Edit log search alerts created in previous versions
@@ -1435,8 +1438,6 @@ items:
     items:
     - name: Overview
       href: resource-manager-samples.md
-    - name: Agents
-      href: agents/resource-manager-agent.md
     - name: Alerts
       items:
       - name: Log search alert rules
@@ -1451,10 +1452,6 @@ items:
         href: alerts/resource-manager-alerts-resource-health.md
       - name: Action groups
         href: alerts/resource-manager-action-groups.md
-    - name: Data collection rules
-      href: agents/resource-manager-data-collection-rules.md
-    - name: Data collection endpoints
-      href: essentials/data-collection-endpoint-sample.md
     - name: Diagnostic settings
       href: essentials/resource-manager-diagnostic-settings.md
     - name: Log Analytics workspaces
@@ -1477,8 +1474,6 @@ items:
         href: alerts/alerts-log-alert-query-samples.md
       - name: Log search alert payloads with webhooks
         href: alerts/alerts-log-webhook.md
-  - name: Data collection rules
-    href: essentials/data-collection-rule-samples.md
   - name: Monitor Logs in Azure CLI
     href: logs\azure-cli-log-analytics-workspace-sample.md
   - name: Configure workspaces using PowerShell
@@ -1504,7 +1499,7 @@ items:
   - name: Logs Tables reference
     href: /azure/azure-monitor/reference/
   - name: Self-monitoring data reference
-    href: azure-monitor-monitoring-reference.md
+    href: monitor-azure-monitor-reference.md
   - name: Supported metrics
     items:
     - name: Resource metrics

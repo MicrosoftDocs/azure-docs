@@ -4,6 +4,9 @@ description: Learn the different ways to upgrade an Azure Kubernetes Service (AK
 ms.topic: article
 ms.subservice: aks-upgrade
 ms.date: 02/08/2024
+author: schaffererin
+ms.author: schaffererin
+
 ---
 
 # Upgrade options for Azure Kubernetes Service (AKS) clusters
@@ -68,3 +71,4 @@ This article listed different upgrade options for AKS clusters. For a detailed d
 [planned-maintenance]: planned-maintenance.md
 [specific-nodepool]: node-image-upgrade.md#upgrade-a-specific-node-pool
 [upgrade-operators-guide]: /azure/architecture/operator-guides/aks/aks-upgrade-practices
+

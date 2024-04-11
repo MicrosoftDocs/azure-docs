@@ -368,7 +368,7 @@ items:
         - name: Configure anonymous access
           href: anonymous-read-access-configure.md
     - name: Microsoft Defender for Storage
-      href: ../common/azure-defender-storage-configure.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+      href: ../../defender-for-cloud/defender-for-storage-introduction.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
   - name: Data protection
     items:
     - name: Data protection
@@ -400,14 +400,14 @@ items:
     - name: Immutable storage
       href: immutable-storage-overview.md
       items:
-      - name: Time-based retention policies
-        href: immutable-time-based-retention-policy-overview.md
-      - name: Legal holds
-        href: immutable-legal-hold-overview.md
-      - name: Configure version-level immutability policies
-        href: immutable-policy-configure-version-scope.md
-      - name: Configure container-level immutability policies
+      - name: Container-level policies
+        href: immutable-container-level-worm-policies.md
+      - name: Version-level policies
+        href: immutable-version-level-worm-policies.md
+      - name: Configure container-level policies
         href: immutable-policy-configure-container-scope.md
+      - name: Configure version-level policies
+        href: immutable-policy-configure-version-scope.md
   - name: Availability and disaster recovery
     items:
     - name: Design highly available applications

@@ -276,7 +276,7 @@ The following table summarizes the inputs and outputs for batch deployments:
 
 | Deployment type | Input's number | Supported input's types | Output's number | Supported output's types |
 |--|--|--|--|--|
-| [Model deployment](concept-endpoints-batch.md#model-deployments) | 1 | [Data inputs](#data-inputs) | 1 | [Data outputs](#data-outputs) |
+| [Model deployment](concept-endpoints-batch.md#model-deployment) | 1 | [Data inputs](#data-inputs) | 1 | [Data outputs](#data-outputs) |
 | [Pipeline component deployment](concept-endpoints-batch.md#pipeline-component-deployment) | [0..N] | [Data inputs](#data-inputs) and [literal inputs](#literal-inputs) | [0..N] | [Data outputs](#data-outputs) |
 
 > [!TIP]

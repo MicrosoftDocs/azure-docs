@@ -4,7 +4,7 @@ description: Learn how to use VMware Tanzu App Accelerator with the Azure Spring
 author: KarlErickson
 ms.service: spring-apps
 ms.topic: how-to
-ms.date: 11/29/2022
+ms.date: 01/23/2024
 ms.author: caiqing
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
 ---

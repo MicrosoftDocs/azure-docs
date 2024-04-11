@@ -4,6 +4,7 @@
   author: htaubenfeld
   ms.author: htaubenfeld
   ms.service: microsoft-linux
+  ms.custom: linux-related-content
   ms.topic: faq
   ms.date: 12/12/2023
 ---

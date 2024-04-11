@@ -1,10 +1,14 @@
 ---
 title: Create and perform incident tasks in Microsoft Sentinel using playbooks
 description: This article explains how to use playbooks to create (and optionally perform) incident tasks, in order to manage complex analyst workflow processes in Microsoft Sentinel.
-author: yelevin
-ms.author: yelevin
 ms.topic: how-to
-ms.date: 11/24/2022
+author: batamig
+ms.author: bagol
+ms.date: 03/14/2024
+appliesto:
+    - Microsoft Sentinel in the Azure portal
+    - Microsoft Sentinel in the Microsoft Defender portal
+ms.collection: usx-security
 ---
 
 # Create and perform incident tasks in Microsoft Sentinel using playbooks
@@ -103,7 +107,7 @@ In this example we're going to add a playbook action that researches an IP addre
 
 1. Inside the **For each** loop, select **Add an action**.  
     Add a **Condition** from the **Control** actions library.  
-    Add the **Last analysis statistics Malicious** dynamic content item from the **Get an IP report** output (you may have to select "See more" to find it), select the **is greater than** operator, and enter `0` as the value. This condition asks the question "Did the Virus Total IP report have any results?"
+    Add the **Last analysis statistics Malicious** dynamic content item from the **Get an IP report** output (you might have to select "See more" to find it), select the **is greater than** operator, and enter `0` as the value. This condition asks the question "Did the Virus Total IP report have any results?"
 
     :::image type="content" source="media/create-tasks-playbook/set-condition.png" alt-text="Screenshot shows how to set a true-false condition in a playbook.":::
 

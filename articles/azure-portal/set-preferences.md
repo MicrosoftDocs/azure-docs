@@ -1,7 +1,7 @@
 ---
 title: Manage Azure portal settings and preferences
 description: Change Azure portal settings such as default subscription/directory, timeouts, menu mode, contrast, theme, notifications, language/region and more.
-ms.date: 03/14/2024
+ms.date: 04/04/2024
 ms.topic: how-to
 ---
 
@@ -70,7 +70,6 @@ To create a new filter, select **Create a filter**. You can create up to ten fil
 
 Each filter must have a unique name that is between 8 and 50 characters long and contains only letters, numbers, and hyphens.
 
-
 After you've named your filter, enter at least one condition. In the **Filter type** field, select **Management group**, **Subscription ID**, **Subscription name**, or **Subscription state**. Then select an operator and the value to filter on.
 
 :::image type="content" source="media/set-preferences/settings-create-filter.png" alt-text="Screenshot showing options for Create a filter.":::
@@ -88,7 +87,7 @@ To delete a filter, select the trash can icon in that filter's row. You can't de
 
 ## Appearance + startup views
 
-The **Appearance + startup views** pane has two sections. The **Appearance** section lets you choose menu behavior, your color theme, and whether to use a high-contrast theme. 
+The **Appearance + startup views** pane has two sections. The **Appearance** section lets you choose menu behavior, your color theme, and whether to use a high-contrast theme.
 
 :::image type="content" source="media/set-preferences/azure-portal-settings-appearance.png" alt-text="Screenshot showing the Appearance section of Appearance + startup views.":::
 
@@ -142,7 +141,7 @@ Select an option to control the way dates, time, numbers, and currency are shown
 
 The options shown in the **Regional format** drop-down list correspond to the **Language** options. For example, if you select **English** as your language, and then select **English (United States)** as the regional format, currency is shown in U.S. dollars. If you select **English** as your language and then select **English (Europe)** as the regional format, currency is shown in euros. You can also select a regional format that is different from your language selection.
 
-Once you have made the desired changes to your language and regional format settings, select **Apply**.
+After making the desired changes to your language and regional format settings, select **Apply**.
 
 ## My information
 
@@ -150,9 +149,9 @@ Once you have made the desired changes to your language and regional format sett
 
 ### Email setting
 
-The email address you provide here will be used if we need to contact you for updates on Azure services, billing, support, or security issues. You can change this address at any time.
+The email address you provide here is used when we need to contact you for updates on Azure services, billing, support, or security issues. You can change this address at any time.
 
-Here, you can also indicate whether you'd like to receive additional emails about Microsoft Azure and other Microsoft products and services.
+You can also indicate whether you'd like to receive additional emails about Microsoft Azure and other Microsoft products and services. If you select the checkbox to receive these emails, you'll be prompted to select the country/region in which you'll receive these emails. Note that certain countries/regions may not be available. You only need to specify a country/region if you want to receive these additional emails; selecting a country/region isn't required in order to receive emails about your Azure account at the address you provide in this section.
 
 ### Portal personalization
 
@@ -180,7 +179,7 @@ Due to the dynamic nature of user settings and risk of data corruption, you can'
 
 #### Restore default settings
 
-If you've made changes to the Azure portal settings and want to discard them, select **Restore default settings** from the top of the **My information** pane. You'll be prompted to confirm this action. When you do so, any changes you've made to your Azure portal settings will be lost. This option doesn't affect dashboard customizations.
+If you've made changes to the Azure portal settings and want to discard them, select **Restore default settings** from the top of the **My information** pane. You'll be prompted to confirm this action. If you do so, any changes you've made to your Azure portal settings are lost. This option doesn't affect dashboard customizations.
 
 #### Delete user settings and dashboards
 

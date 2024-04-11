@@ -257,3 +257,4 @@ You may need to periodically rotate the certificate authorities for security or 
 [az-aks-mesh-disable]: /cli/azure/aks/mesh#az-aks-mesh-disable
 [istio-generate-certs]: https://istio.io/latest/docs/tasks/security/cert-management/plugin-ca-cert/#plug-in-certificates-and-key-into-the-cluster
 [istio-mtls-reference]: https://istio.io/latest/docs/concepts/security/#mutual-tls-authentication
+

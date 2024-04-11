@@ -22,6 +22,17 @@ Learn what's new in the service. These items might be release notes, videos, blo
 
 You can now use regular expressions in blocklists to match a wider range of content. [Use a blocklist](./how-to/use-blocklist.md)
 
+## March 2024
+
+### Prompt Shields public preview
+
+Previously known as **Jailbreak risk detection**, this updated feature detects User Prompt injection attacks, in which users deliberately exploit system vulnerabilities to elicit unauthorized behavior from large language model. Prompt Shields analyzes both direct user prompt attacks and indirect attacks that are embedded in input documents or images. See [Prompt Shields](./concepts/jailbreak-detection.md) to learn more.
+
+### Groundedness detection public preview
+
+The Groundedness detection API detects whether the text responses of large language models (LLMs) are grounded in the source materials provided by the users. Ungroundedness refers to instances where the LLMs produce information that is non-factual or inaccurate from what was present in the source materials. See [Groundedness detection](./concepts/groundedness.md) to learn more.
+
+
 ## January 2024
 
 ### Content Safety SDK GA

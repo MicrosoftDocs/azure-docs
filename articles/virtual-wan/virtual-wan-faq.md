@@ -5,7 +5,7 @@ author: cherylmc
 ms.service: virtual-wan
 ms.custom: devx-track-azurepowershell
 ms.topic: faq
-ms.date: 10/30/2023
+ms.date: 03/27/2024
 ms.author: cherylmc
 # Customer intent: As someone with a networking background, I want to read more details about Virtual WAN in a FAQ format.
 ---
@@ -46,7 +46,7 @@ Virtual WAN supports [Azure VPN client](https://go.microsoft.com/fwlink/?linkid=
 
 ### For User VPN (point-to-site)- why is the P2S client pool split into two routes?
 
-Each gateway has two instances, the split happens so that each gateway instance can independently allocate client IPs for connected clients and traffic from the virtual network is routed back to the correct gateway instance to avoid inter-gateway instance hop.
+Each gateway has two instances. The split happens so that each gateway instance can independently allocate client IPs for connected clients and traffic from the virtual network is routed back to the correct gateway instance to avoid inter-gateway instance hop.
 
 ### How do I add DNS servers for P2S clients?
 
@@ -311,32 +311,7 @@ Yes. Customers can now create more than one hub in the same region for the same 
 
 ### How does the virtual hub in a virtual WAN select the best path for a route from multiple hubs?
 
-If a virtual hub learns the same route from multiple remote hubs, the order in which it decides is as follows:
-1.	Select routes with Longest Prefix Match (LPM).
-2.	Prefer static routes learned from the virtual hub route table over BGP routes.
-3.	Select best path based on the [Virtual hub routing preference](about-virtual-hub-routing-preference.md) configuration. There are three possible configurations for Virtual hub routing preference and the route preference changes accordingly.
-
-    * **ExpressRoute** (This is the default setting)
-        1.	Prefer routes from local virtual hub connections over routes learned from remote virtual hub.
-        2. If there are Routes from both ExpressRoute and Site-to-site VPN connections:
-              * If all the routes are local to the virtual hub, the routes learned from ExpressRoute connections will be chosen because Virtual hub routing preference is set to ExpressRoute.
-              * If all the routes are through remote hubs, Site-to-site VPN will be preferred over ExpressRoute. 
-        3.	Prefer routes with the shortest BGP AS-Path length.
-
-    * **VPN**
-        1.	Prefer routes from local virtual hub connections over routes learned from remote virtual hub.
-        2.	If there are routes from both ExpressRoute and Site-to-site VPN connections, the Site-to-site VPN routes will be chosen.
-        3.	Prefer routes with the shortest BGP AS-Path length.
-
-    * **AS Path**
-        1.	Prefer routes with the shortest BGP AS-Path length irrespective of the source of the route advertisements. 
-         Note: In vWANs with multiple remote virtual hubs, If there's a tie between remote routes and remote site-to-site VPN routes. Remote site-to-site VPN will be preferred.
-
-        2.	Prefer routes from local virtual hub connections over routes learned from remote virtual hub.
-        3.	If there are routes from both ExpressRoute and Site-to-site VPN connections:
-            *	If all the routes are local to the virtual hub, the routes from ExpressRoute connections will be chosen.
-            * If all the routes are through remote virtual hubs, the routes from Site-to-site VPN connections will be chosen.
-
+For information, see the  [Virtual hub routing preference](about-virtual-hub-routing-preference.md) page. 
 
 ### Does the Virtual WAN hub allow connectivity between ExpressRoute circuits?
 
@@ -374,7 +349,7 @@ The current behavior is to prefer the ExpressRoute circuit path for standalone (
 
 In Azure portal, the **Allow traffic from remote Virtual WAN networks** and **Allow traffic from non Virtual WAN networks** toggles allow connectivity between the standalone virtual network (VNet 4) and the spoke virtual networks directly connected to the Virtual WAN hub (VNet 2 and VNet 3). To allow this connectivity, both toggles need to be enabled: the **Allow traffic from remote Virtual WAN networks** toggle for the ExpressRoute gateway in the standalone virtual network and the **Allow traffic from non Virtual WAN networks** for the ExpressRoute gateway in the Virtual WAN hub. In the diagram below, if both of these toggles are enabled, then connectivity would be allowed between the standalone VNet 4 and the VNets directly connected to hub 2 (VNet 2 and VNet 3). If an Azure Route Server is deployed in standalone VNet 4, and the Route Server has [branch-to-branch](../route-server/quickstart-configure-route-server-portal.md#configure-route-exchange) enabled, then connectivity will be blocked between VNet 1 and standalone VNet 4. 
 
-Enabling or disabling the toggle will only affect the following traffic flow: traffic flowing between the Virtual WAN hub and standalone VNet(s) via the ExpressRoute circuit. Enabling or disabling the toggle will **not** incur downtime for all other traffic flows (Ex: on-premises site to spoke VNet 2 will not be impacted, VNet 2 to VNet 3 will not be impacted, etc). 
+Enabling or disabling the toggle will only affect the following traffic flow: traffic flowing between the Virtual WAN hub and standalone VNet(s) via the ExpressRoute circuit. Enabling or disabling the toggle will **not** incur downtime for all other traffic flows (Ex: on-premises site to spoke VNet 2 won't be impacted, VNet 2 to VNet 3 won't be impacted, etc). 
 
 :::image type="content" source="./media/virtual-wan-expressroute-portal/expressroute-bowtie-virtual-network-virtual-wan.png" alt-text="Diagram of a standalone virtual network connecting to a virtual hub via ExpressRoute circuit." lightbox="./media/virtual-wan-expressroute-portal/expressroute-bowtie-virtual-network-virtual-wan.png":::
 
@@ -433,7 +408,7 @@ Yes, BGP communities generated by on-premises will be preserved in Virtual WAN. 
 
 ### Is there a way to change the ASN for a VPN gateway?
 
-No. Virtual WAN does not support ASN changes for VPN gateways.
+No. Virtual WAN doesn't support ASN changes for VPN gateways.
 
 ### In Virtual WAN, what are the estimated performances by ExpressRoute gateway SKU?
 
@@ -469,7 +444,7 @@ Additional things to note:
 
 * If you change your spoke virtual network's subscription status from disabled to enabled and then upgrade the virtual hub, you'll need to update your virtual network connection after the virtual hub upgrade (Ex: you can configure the virtual network connection to propagate to a dummy label).
 
-* If your hub is connected to a large number of spoke virtual networks (60 or more), then you may notice that 1 or more spoke VNet peerings will enter a failed state after the upgrade. To restore these VNet peerings to a successful state after the upgrade, you can configure the virtual network connections to propagate to a dummy label, or you can delete and recreate these respective VNet connections. 
+* If your hub is connected to a large number of spoke virtual networks (60 or more), then you might notice that 1 or more spoke VNet peerings will enter a failed state after the upgrade. To restore these VNet peerings to a successful state after the upgrade, you can configure the virtual network connections to propagate to a dummy label, or you can delete and recreate these respective VNet connections. 
 
 ### Is there a route limit for OpenVPN clients connecting to an Azure P2S VPN gateway?
 
@@ -504,7 +479,7 @@ At this time, advanced notification can't be enabled for the maintenance of Netw
 
 At this time, you need to configure a minimum of a five hour window in your preferred time zone.
 
-### Can I configure a maintenance schedule that does not repeat daily?
+### Can I configure a maintenance schedule that doesn't repeat daily?
 
 At this time, you need to configure a daily maintenance window.
 
