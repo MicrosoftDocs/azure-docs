@@ -112,7 +112,7 @@ An individual assistant can access up to 128 tools including `code interpreter`,
 
 #### [TypeScript](#tab/typescript)
 
-Sign in to Azure with `az login` then create and run an assistant with the following **recommdended** passwordless TypeScript module (index.ts):
+Sign in to Azure with `az login` then create and run an assistant with the following **recommended** passwordless TypeScript module (index.ts):
 
 :::code language="typescript" source="~/azure-typescript-e2e-apps/quickstarts/azure-openai-assistants/ts/src/index.ts" :::
 
@@ -122,7 +122,7 @@ To use the service key for authentication, you can create and run an assistant w
 
 #### [JavaScript](#tab/javascript)
 
-Sign in to Azure with `az login` then create and run an assistant with the following **recommdended** passwordless Javascript module (index.mjs):
+Sign in to Azure with `az login` then create and run an assistant with the following **recommended** passwordless Javascript module (index.mjs):
 
 :::code language="javascript" source="~/azure-typescript-e2e-apps/quickstarts/azure-openai-assistants/js/src/index.mjs" :::
 
