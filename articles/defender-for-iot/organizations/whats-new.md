@@ -21,6 +21,7 @@ Features released earlier than nine months ago are described in the [What's new 
 |Service area  |Updates  |
 |---------|---------|
 | **OT networks** | [Sensor time drift detection](#sensor-time-drift-detection) |
+| | [Security updates](#security-update) |
 
 ### Sensor time drift detection
 
@@ -28,6 +29,15 @@ This version introduces a new troubleshooting test in the connectivity tool feat
 
 One common challenge when connecting sensors to Defender for IoT in the Azure portal arises from discrepancies in the sensor’s UTC time, which can lead to connectivity problems. To address this issue, we recommend that you configure a Network Time Protocol (NTP) server [in the sensor settings](configure-sensor-settings-portal.md#ntp).
 
+### Security update
+This version resolves the following CVEs:
+    - CVE-2024-29055<br>
+    - CVE-2024-29054<br>
+    - CVE-2024-29053<br>
+    - CVE-2024-21324<br>
+    - CVE-2024-21323<br>
+    - CVE-2024-21322<br>
+    
 ## February 2024
 
 |Service area  |Updates  |
