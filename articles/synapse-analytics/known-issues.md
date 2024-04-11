@@ -21,18 +21,20 @@ To learn more about Azure Synapse Analytics, see the [Azure Synapse Analytics Ov
 
 |Azure Synapse Component|Status|Issue|
 |:---------|:---------|:---------|
-|Azure Synapse dedicated SQL pool|[Customers are unable to monitor their usage of dedicated SQL pool by using metrics](#customers-are-unable-to-monitor-their-usage-of-dedicated-sql-pool-by-using-metrics)|Has Workaround|
-|Azure Synapse dedicated SQL pool|[Query failure when ingesting a parquet file into a table with AUTO_CREATE_TABLE='ON'](#query-failure-when-ingesting-a-parquet-file-into-a-table-with-auto_create_tableon)|Has Workaround|
-|Azure Synapse dedicated SQL pool|[Queries failing with Data Exfiltration Error](#queries-failing-with-data-exfiltration-error)|Has Workaround|
-|Azure Synapse dedicated SQL pool|[UPDATE STATISTICS statement fails with error: "The provided statistics stream is corrupt."](#update-statistics-failure)|Has Workaround|
-|Azure Synapse serverless SQL pool|[Query failures from serverless SQL pool to Azure Cosmos DB analytical store](#query-failures-from-serverless-sql-pool-to-azure-cosmos-db-analytical-store)|Has Workaround|
-|Azure Synapse serverless SQL pool|[Azure Cosmos DB analytical store view propagates wrong attributes in the column](#azure-cosmos-db-analytical-store-view-propagates-wrong-attributes-in-the-column)|Has Workaround|
-|Azure Synapse serverless SQL pool|[Query failures in serverless SQL pools](#query-failures-in-serverless-sql-pools)|Has Workaround|
-|Azure Synapse Workspace|[Blob storage linked service with User Assigned Managed Identity (UAMI) is not getting listed](#blob-storage-linked-service-with-user-assigned-managed-identity-uami-is-not-getting-listed)|Has Workaround|
-|Azure Synapse Workspace|[Failed to delete Synapse workspace & Unable to delete virtual network](#failed-to-delete-synapse-workspace--unable-to-delete-virtual-network)|Has Workaround|
-|Azure Synapse Workspace|[REST API PUT operations or ARM/Bicep templates to update network settings fail](#rest-api-put-operations-or-armbicep-templates-to-update-network-settings-fail)|Has Workaround|
-|Azure Synapse Workspace|[Known issue incorporating square brackets [] in the value of Tags](#known-issue-incorporating-square-brackets--in-the-value-of-tags)|Has Workaround|
-|Azure Synapse Workspace|[Deployment Failures in Synapse Workspace using Synapse-workspace-deployment v1.8.0 in GitHub actions with ARM templates](#deployment-failures-in-synapse-workspace-using-synapse-workspace-deployment-v180-in-github-actions-with-arm-templates)|Has Workaround|
+|Azure Synapse dedicated SQL pool|[Customers are unable to monitor their usage of dedicated SQL pool by using metrics](#customers-are-unable-to-monitor-their-usage-of-dedicated-sql-pool-by-using-metrics)|Has workaround|
+|Azure Synapse dedicated SQL pool|[Query failure when ingesting a parquet file into a table with AUTO_CREATE_TABLE='ON'](#query-failure-when-ingesting-a-parquet-file-into-a-table-with-auto_create_tableon)|Has workaround|
+|Azure Synapse dedicated SQL pool|[Queries failing with Data Exfiltration Error](#queries-failing-with-data-exfiltration-error)|Has workaround|
+|Azure Synapse dedicated SQL pool|[UPDATE STATISTICS statement fails with error: "The provided statistics stream is corrupt."](#update-statistics-failure)|Has workaround|
+|Azure Synapse serverless SQL pool|[Query failures from serverless SQL pool to Azure Cosmos DB analytical store](#query-failures-from-serverless-sql-pool-to-azure-cosmos-db-analytical-store)|Has workaround|
+|Azure Synapse serverless SQL pool|[Azure Cosmos DB analytical store view propagates wrong attributes in the column](#azure-cosmos-db-analytical-store-view-propagates-wrong-attributes-in-the-column)|Has workaround|
+|Azure Synapse serverless SQL pool|[Query failures in serverless SQL pools](#query-failures-in-serverless-sql-pools)|Has workaround|
+|Azure Synapse serverless SQL pool|[Storage access issues due to authorization header being too long](#storage-access-issues-due-to-authorization-header-being-too-long)|Has workaround|
+|Azure Synapse Workspace|[Blob storage linked service with User Assigned Managed Identity (UAMI) is not getting listed](#blob-storage-linked-service-with-user-assigned-managed-identity-uami-is-not-getting-listed)|Has workaround|
+|Azure Synapse Workspace|[Failed to delete Synapse workspace & Unable to delete virtual network](#failed-to-delete-synapse-workspace--unable-to-delete-virtual-network)|Has workaround|
+|Azure Synapse Workspace|[REST API PUT operations or ARM/Bicep templates to update network settings fail](#rest-api-put-operations-or-armbicep-templates-to-update-network-settings-fail)|Has workaround|
+|Azure Synapse Workspace|[Known issue incorporating square brackets [] in the value of Tags](#known-issue-incorporating-square-brackets--in-the-value-of-tags)|Has workaround|
+|Azure Synapse Workspace|[Deployment Failures in Synapse Workspace using Synapse-workspace-deployment v1.8.0 in GitHub actions with ARM templates](#deployment-failures-in-synapse-workspace-using-synapse-workspace-deployment-v180-in-github-actions-with-arm-templates)|Has workaround|
+
 
 
 ## Azure Synapse Analytics dedicated SQL pool active known issues summary
@@ -107,7 +109,7 @@ In the context of updating tag values within an Azure Synapse workspace, the inc
 
 The failure occurs during the deployment to production and is related to a trigger that contains a host name with a double backslash. 
 
-The error message displayed is "Action failed - Error: Orchestrate failed - SyntaxError: Unexpected token in JSON at position 2057".
+The error message displayed is `Action failed - Error: Orchestrate failed - SyntaxError: Unexpected token in JSON at position 2057`.
 
 **Workaround**: Following actions can be taken as quick mitigation:
 
@@ -180,7 +182,7 @@ For MSI token expiration:
 
 ### Storage access issues due to authorization header being too long
 
-Example error messages:
+Example error messages in serverless SQL pools:
 
 - `File {path} cannot be opened because it does not exist or it is used by another process.`
 - `Content of directory on path {path} cannot be listed.`
