@@ -84,9 +84,11 @@ The settings in this tab are described in the following table.
 ### [ARM](#tab/ARM)
 
 ### Configure pipeline using ARM templates
+The following sections provide samples ARM templates to create each of the resources required to enable and configure the Azure Monitor edge pipeline. 
 
 
 ### Edge pipeline extension
+The following ARM template adds the edge pipeline extension to your Arc-enabled Kubernetes cluster. Replace the properties in the following table before deploying the template.
 
 | Parameter | Description |
 |:---|:--|
@@ -121,8 +123,37 @@ The settings in this tab are described in the following table.
 }
 ```
 
+### Custom location
+The following ARM template creates the custom location for to your Arc-enabled Kubernetes cluster. Replace the properties in the following table before deploying the template.
+
+| Parameter | Description |
+|:---|:--|
+| `name` | Name of the custom location. Must be unique for the cluster. |
+| `location` | Location of the custom location. |
+| `hostResourceId` | Resource ID of the Arc-enabled Kubernetes cluster. |
+| `namespace` | Namespace for the custom location. Can use the custom location name. |
+| `clusterExtensionIds` | Array of cluster extension IDs. |
+
+
+```json
+{
+    "type": "Microsoft.ExtendedLocation/customLocations",
+    "name": "custom-location-name",
+    "location": "eastus",
+    "apiVersion": "2021-08-15",
+    "tags": "",
+    "properties": {
+        "hostResourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/my-resource-group/providers/Microsoft.Kubernetes/connectedClusters/my-arc-cluster",
+        "namespace": "custom-location-name",
+        "clusterExtensionIds": "[parameters('clusterExtensionIds')]",
+        "hostType": "Kubernetes"
+    }
+}
+```
+
 
 ### DCE
+The following ARM template creates the [data collection endpoint (DCE)](./data-collection-endpoint-overview.md) required for the edge pipeline to connect to the cloud pipeline. Replace the properties in the following table before deploying the template.
 
 | Parameter | Description |
 |:---|:--|
@@ -148,7 +179,9 @@ The settings in this tab are described in the following table.
 
 
 ### DCR
-The DCR is stored in Azure Monitor and defines how the data will be processed when its received from the edge pipeline. See [Structure of a data collection rule in Azure Monitor](./data-collection-rule-overview.md) for details on the structure of a DCR. The edge pipeline configuration specifies the `immutable ID` of the DCR and the `stream` in the DCR that will process the data. 
+The DCR is stored in Azure Monitor and defines how the data will be processed when its received from the edge pipeline.  The edge pipeline configuration specifies the `immutable ID` of the DCR and the `stream` in the DCR that will process the data. 
+
+Replace the properties in the following table before deploying the template. See [Structure of a data collection rule in Azure Monitor](./data-collection-rule-overview.md) for details on the structure of a DCR.
 
 | Parameter | Description |
 |:---|:--|
@@ -169,89 +202,88 @@ The DCR is stored in Azure Monitor and defines how the data will be processed wh
 
 ```json
 {
-    {
-        "type": "Microsoft.Insights/dataCollectionRules",
-        "name": "my-dcr",
-        "location": "eastus",
-        "apiVersion": "2021-09-01-preview",
-        "tags": "",
-        "properties": {
-            "dataCollectionEndpointId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/my-resource-group/providers/Microsoft.Insights/dataCollectionEndpoints/my-dce",
-            "streamDeclarations": {
-                "Custom-OTLP": {
-                    "columns": [
-                        {
-                            "name": "Body",
-                            "type": "string"
-                        },
-                        {
-                            "name": "TimeGenerated",
-                            "type": "datetime"
-                        },
-                        {
-                            "name": "SeverityText",
-                            "type": "string"
-                        }
-                    ]
-                },
-                "Custom-Syslog": {
-                    "columns": [
-                        {
-                            "name": "Body",
-                            "type": "string"
-                        },
-                        {
-                            "name": "TimeGenerated",
-                            "type": "datetime"
-                        },
-                        {
-                            "name": "SeverityText",
-                            "type": "string"
-                        }
-                    ]
-                }
-            },
-            "dataSources": {},
-            "destinations": {
-                "logAnalytics": [
+    "type": "Microsoft.Insights/dataCollectionRules",
+    "name": "my-dcr",
+    "location": "eastus",
+    "apiVersion": "2021-09-01-preview",
+    "tags": "",
+    "properties": {
+        "dataCollectionEndpointId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/my-resource-group/providers/Microsoft.Insights/dataCollectionEndpoints/my-dce",
+        "streamDeclarations": {
+            "Custom-OTLP": {
+                "columns": [
                     {
-                        "name": "LogAnayticsWorkspace01",
-                        "workspaceResourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/my-resource-group/providers/Microsoft.OperationalInsights/workspaces/my-workspace",
-                        "workspaceId": "dcr-00000000000000000000000000000000"
+                        "name": "Body",
+                        "type": "string"
+                    },
+                    {
+                        "name": "TimeGenerated",
+                        "type": "datetime"
+                    },
+                    {
+                        "name": "SeverityText",
+                        "type": "string"
                     }
                 ]
             },
-            "dataFlows": [
+            "Custom-Syslog": {
+                "columns": [
+                    {
+                        "name": "Body",
+                        "type": "string"
+                    },
+                    {
+                        "name": "TimeGenerated",
+                        "type": "datetime"
+                    },
+                    {
+                        "name": "SeverityText",
+                        "type": "string"
+                    }
+                ]
+            }
+        },
+        "dataSources": {},
+        "destinations": {
+            "logAnalytics": [
                 {
-                    "streams": [
-                        "Custom-OTLP"
-                    ],
-                    "destinations": [
-                        "LogAnayticsWorkspace01"
-                    ],
-                    "transformKql": "source",
-                    "outputStream": "Custom-OTelLogs_CL"
-                },
-                {
-                    "streams": [
-                        "Custom-Syslog"
-                    ],
-                    "destinations": [
-                        "LogAnayticsWorkspace01"
-                    ],
-                    "transformKql": "source",
-                    "outputStream": "Custom-Syslog_CL"
+                    "name": "LogAnayticsWorkspace01",
+                    "workspaceResourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/my-resource-group/providers/Microsoft.OperationalInsights/workspaces/my-workspace",
+                    "workspaceId": "dcr-00000000000000000000000000000000"
                 }
             ]
-        }
+        },
+        "dataFlows": [
+            {
+                "streams": [
+                    "Custom-OTLP"
+                ],
+                "destinations": [
+                    "LogAnayticsWorkspace01"
+                ],
+                "transformKql": "source",
+                "outputStream": "Custom-OTelLogs_CL"
+            },
+            {
+                "streams": [
+                    "Custom-Syslog"
+                ],
+                "destinations": [
+                    "LogAnayticsWorkspace01"
+                ],
+                "transformKql": "source",
+                "outputStream": "Custom-Syslog_CL"
+            }
+        ]
     }
 }
 ```
 
 
+### Edge pipeline configuration
+The edge pipeline configuration defines the details of the edge pipeline instance and deploy the data flows necessary to receive and send telemetry to the cloud.
 
-#### Edge pipeline configuration
-The pipeline configuration defines how the Azure Monitor Pipeline Controller will configure your cluster and deploy the pipelines necessary to receive and send telemetry to the cloud.
+Replace the properties in the following table before deploying the template.
 
 | Property | Description |
 |:---|:--|
@@ -267,13 +299,15 @@ The pipeline configuration defines how the Azure Monitor Pipeline Controller wil
 | - `type` | Only currently supported type is `AzureMonitorWorkspaceLogs`. |
 | - `name` | Must be unique for the pipeline instance. The name is used in the `pipelines` section of the configuration. |
 | - `dataCollectionEndpointUrl` |  URL of your DCE. You can locate this in the Azure portal by navigating to the DCE and copying the Logs Ingestion value. |
-| - `dataCollectionRule` | Immutable ID of the DCR. From the JSON view of your DCR, copy the value of the immutable ID in the **General** section. |
-| `stream` | Name of the stream in your DCR that will accept the data. |
-| `schema` | Schema of the data being sent to the cloud pipeline. This must match the schema defined in the stream in the DCR. |
-
-##### `service` 
- Contains the `pipelines` section that defines the data flows for the pipeline instance that each match a `receiver` with an `exporter`. 
-
+| - `dataCollectionRule` | Immutable ID of the DCR. From the JSON view of your DCR, copy the value of the **immutable ID** in the **General** section. |
+| - `stream` | Name of the stream in your DCR that will accept the data. |
+| - `schema` | Schema of the data being sent to the cloud pipeline. This must match the schema defined in the stream in the DCR. The schema used in the example is valid for both Syslog and OTLP. |
+| `service` | One entry for each pipeline instance. Only one instance for each pipeline extension is recommended. |
+| - `pipelines` | One entry for each data flow. Each entry matches a `receiver` with an `exporter`. |
+| - - `name` | Unique name of the pipeline. |
+| - - `receivers` | One or more receivers to listen for data to receive. |
+| - - `processors` | Reserved for future use. |
+| - - `exporters` | One or more exporters to send the data to the cloud pipeline. |
 
 
 ```json
@@ -367,7 +401,7 @@ The pipeline configuration defines how the Azure Monitor Pipeline Controller wil
 
 ### ARM template sample to configure all components
 
-You can deploy all of the required components for the Azure Monitor edge pipeline using the single ARM template shown below. Edit the parameter file with specific values for your environment. Each section of the template is described below including sections that you must modify before using it.
+You can deploy all of the required components for the Azure Monitor edge pipeline using the single ARM template shown below. Edit the parameter file with specific values for your environment. Each section of the template is described below including sections that you must modify before using it. 
 
 
 | Component | Type | Description |
@@ -417,10 +451,6 @@ You can deploy all of the required components for the Azure Monitor edge pipelin
         "tagsByResource": {
             "type": "object",
             "defaultValue": {}
-        },
-        "tableInfo": {
-            "type": "array",
-            "defaultValue": []
         }
     },
     "resources": [
@@ -666,15 +696,32 @@ You can deploy all of the required components for the Azure Monitor edge pipelin
     "clusterId": {
       "value": ""
     },
-    "workspaceResourceId": {
-      "value": "/subscriptions/<subscriptionId>/resourcegroups/<resourceGroupName>/providers/microsoft.operationalinsights/workspaces/<workspaceName>"
+    "clusterExtensionIds": {
+      "value": [
+        "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.KubernetesConfiguration/extensions/<extensionName>"
+      ]
     },
-    "workspaceRegion": {
-      "value": "<workspaceRegion>"
+    "customLocationName": {
+      "value": "my-custom-location"
     },
-    "workspaceDomain": {
-      "value": "<workspaceDomainName>"
-    }    
+    "dceName": {
+      "value": "my-dce"
+    },
+    "dcrName": {
+      "value": "my-dcr"
+    },
+    "logAnalyticsWorkspaceName": {
+      "value": "my-workspace"
+    },
+    "pipelineExtensionName": {
+      "value": "my-pipeline-extension"
+    },
+    "pipelineGroupName": {
+      "value": "my-pipeline-group"
+    },
+    "tagsByResource": {
+      "value": {}
+    }
   }
 }
 ```
@@ -714,18 +761,6 @@ During disconnected periods, the edge pipeline will write collected data as file
 | Expiration | Defines the amount of time the data can remain in the cache before it's discarded. |
 | Persistent volume limit | Memory limit for the cache. When the limit is reached, data is removed according to the data sync type. |
 
-
-### Data sync type
-
-| Type | Description |
-|:---|:---|
-| FIFO | First in, first out. When connectivity is restored, the oldest data is sent first, and all data in the queue is sent before any real-time data. This preserves the chronological order and completeness of the data making it ideal for data that is informative and used for SLI/SLOs or business KPIs.  |
-| LIFO | Last in, first out. When connectivity is restored, the newest data is sent first, and all data in the queue is sent before any real-time data. This delivers the most recent and relevant data making it ideal for dynamic and adaptive data such as security events. |
-| Real-time | Real-time data is prioritized before cached data is delivered. This data is ideal for time-sensitive and critical data such as health monitoring or emergency response. |
-|  Filtering | You can filter out certain data during data synchronization depending on the application requirements and the data characteristics. |
-| Aggregation and sampling | Aggregate and sample data depending on its category to reduce the amount of data to be synced and optimize the bandwidth. |
-| Data sync duration | Specify a time slot for data sync to ensure the optimum bandwidth consumption. For example, a retail customer may require to pick an after-store-hour time slot for data synchronization so that the data sync does not interfere with the regular store activities. |
-| Bandwidth allocation | Allocate a percentage of bandwidth to sync the cached data to prioritize the real-time data to be ingested to cloud. |
 
 ## Next steps
 
