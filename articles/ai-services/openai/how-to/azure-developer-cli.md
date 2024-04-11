@@ -22,6 +22,8 @@ Use this article to learn how to automate resource deployment for Azure OpenAI O
 
   Azure OpenAI requires registration and is currently only available to approved enterprise customers and partners. [See Limited access to Azure OpenAI Service](/legal/cognitive-services/openai/limited-access?context=/azure/ai-services/openai/context/context) for more information. You can apply for access to Azure OpenAI by completing the form at <a href="https://aka.ms/oai/access" target="_blank">https://aka.ms/oai/access</a>. Open an issue on this repo to contact us if you have an issue.
 
+- The Azure Developer CLI [installed](/azure/developer/azure-developer-cli/install-azd) on your machine
+-  
 ## Clone and initialize the Azure Developer CLI template
 
 
@@ -80,6 +82,6 @@ Use this article to learn how to automate resource deployment for Azure OpenAI O
 > [!NOTE]
 > The search indexer is set to run every 5 minutes to index the data in the storage account. You can either wait a few minutes for the uploaded data to be indexed, or you can manually run the indexer from the search service page.
 
-## Next steps
+## Connect or create an application
 
 After running the `azd` template and uploading your data, you're ready to start using Azure OpenAI on Your Data. See the [quickstart article](../use-your-data-quickstart.md) for code samples you can use to build your applications.
