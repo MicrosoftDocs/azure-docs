@@ -253,7 +253,7 @@ Added a new entity definition for `ModelCopyAuthorizationDefinition`:
 ### CustomModelLinks copy properties
 
 Added a new `copy` property.
-- `copyTo` URI: The location of the obsolete model copy action. See the [Models_CopyTo](/rest/api/speechtotext/models/copyto) operation for more details.
+- `copyTo` URI: The location of the obsolete model copy action. See the [Models_CopyTo](/rest/api/speechtotext/models/copy-to) operation for more details.
 - `copy` URI: The location of the model copy action. See the [Models_Copy](/rest/api/speechtotext/models/copy) operation for more details.
 
 ```json
