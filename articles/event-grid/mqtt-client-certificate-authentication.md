@@ -8,7 +8,7 @@ ms.author: geguirgu
 ms.subservice: mqtt
 ---
 
-# MQTT Client authentication using certificates
+# MQTT client authentication using certificates
 
 Azure Event Grid's MQTT broker supports authentication of clients using X.509 certificates. X.509 certificate provides the credentials to associate a particular client with the tenant. In this model, authentication generally happens once during session establishment. Then, all future operations using the same session are assumed to come from that identity.
 
@@ -20,12 +20,12 @@ Supported authentication modes are:
 
 This article focuses on certificates. To learn about authentication using Microsoft Entra ID tokens, see [authenticate client using Microsoft Entra ID token](mqtt-client-azure-ad-token-and-rbac.md).
 
-## Certificate Authority (CA) signed certificates:
+## Certificate Authority (CA) signed certificates
 
 In this method, a root or intermediate X.509 certificate is registered with the service. Essentially, the root or intermediary certificate that is used to sign the client certificate, must be registered with the service first.
 
 > [!IMPORTANT]
-> - Ensure to upload the root or intemediate certificate that is used to sign the client certificate.  It is not needed to upload the entire certificate chain.
+> - Ensure to upload the root or intermediate certificate that is used to sign the client certificate.  It is not needed to upload the entire certificate chain.
 > - For example, if you have a chain of root, intermediate, and leaf certificates, ensure to upload the intermediate certificate that signed the leaf/client certificates.  
 
 :::image type="content" source="./media/mqtt-client-authentication/mqtt-creating-certificate-chain.png" alt-text="Screenshot showing the CA certificates page with root and intermediate certificates used to sign the client certificates.":::

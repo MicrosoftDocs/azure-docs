@@ -13,7 +13,7 @@ ms.subservice: mqtt
 
 # Client authentication
 
-Azure Event Grid's MQTT broken supports the following authentication modes. 
+Azure Event Grid's MQTT broker supports the following authentication modes. 
 
 - Certificate-based authentication
 - Microsoft Entra ID authentication 

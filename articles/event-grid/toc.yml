@@ -67,7 +67,7 @@ items:
         - name: MQTT client authentication
           href: mqtt-client-authentication.md                
           items:
-          - name: MQTT Client authentication using certificates
+          - name: MQTT client authentication using certificates
             href: mqtt-client-certificate-authentication.md        
           - name: JWT authentication and RBAC authorization for clients with Microsoft Entra identity
             href: mqtt-client-microsoft-entra-token-and-rbac.md
