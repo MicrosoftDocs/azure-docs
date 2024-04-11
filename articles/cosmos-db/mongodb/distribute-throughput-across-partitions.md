@@ -315,4 +315,4 @@ Learn about how to use provisioned throughput with the following articles:
 * Learn more about [request units.](../request-units.md)
 * Need to monitor for hot partitions? See [monitoring request units.](../monitor-normalized-request-units.md#how-to-monitor-for-hot-partitions)
 * Want to learn the best practices? See [best practices for scaling provisioned throughput.](../scaling-provisioned-throughput-best-practices.md)
-* Learn more about [Rate limiting errors](../prevent-rate-limiting-errors.md)
+* Learn more about [Rate limiting errors](prevent-rate-limiting-errors.md)
