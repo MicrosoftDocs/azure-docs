@@ -126,7 +126,7 @@ Regardless of which trigger you chose to create your playbook with in the previo
 
     :::image type="content" source="media/tutorial-respond-threats-playbook/logic-app-blank.png" alt-text="Screenshot of logic app designer screen with opening trigger." lightbox="media/tutorial-respond-threats-playbook/logic-app-blank.png":::
 
-    If you chose the **Microsoft Sentinel entity (Preview)** trigger, select the type of entity you want this playbook to receive as an input.
+    If you chose the **Microsoft Sentinel entity** trigger, select the type of entity you want this playbook to receive as an input.
 
     :::image type="content" source="media/tutorial-respond-threats-playbook/entity-trigger-types.png" alt-text="Screenshot of drop-down list of entity types to choose from to set playbook schema.":::
 
