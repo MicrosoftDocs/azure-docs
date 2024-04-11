@@ -4,7 +4,7 @@ description: Learn about changes in the Microsoft Defender portal with the integ
 author: cwatson-cat
 ms.author: cwatson
 ms.topic: conceptual
-ms.date: 04/04/2024
+ms.date: 04/11/2024
 appliesto: 
     - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
@@ -37,7 +37,7 @@ The following table describes the new or improved capabilities available in the 
 
 Most Microsoft Sentinel capabilities are available in both the Azure and Defender portals. In the Defender portal, some Microsoft Sentinel experiences open out to the Azure portal for you to complete a task.
 
-This section covers the Microsoft Sentinel capabilities or integrations in the unified security operations platform that are only available in either the Azure portal or Defender portal. It excludes the Microsoft Sentinel experiences that open the Azure portal from the Defender portal.
+This section covers the Microsoft Sentinel capabilities or integrations in the unified security operations platform that are only available in either the Azure portal or Defender portal or other significant differences between the portals. It excludes the Microsoft Sentinel experiences that open the Azure portal from the Defender portal.
 
 ### Defender portal only
 
@@ -58,6 +58,14 @@ The following capabilities are only available in the Azure portal.
 | Automation | Some automation procedures are available only in the Azure portal. <br><br>Other automation procedures are the same in the Defender and Azure portals, but differ in the Azure portal between workspaces that are onboarded to the unified security operations platform and workspaces that aren't.  <br><br>For more information, see [Automation with the unified security operations platform](automation.md#automation-with-the-unified-security-operations-platform). |
 | Hunt using bookmarks | [Bookmarks](/azure/sentinel/bookmarks) aren't supported in the advanced hunting experience in the Microsoft Defender portal. In the Defender portal, they are supported in the **Microsoft Sentinel > Threat management > Hunting**. |
 |Tasks   |     [Use tasks to manage incidents in Microsoft Sentinel](incident-tasks.md)    |
+
+### Other portal differences
+
+The following table describes the significant differences between the portals that you might notice after you onboard Microsoft Sentinel to the unified security operations platform.
+
+|Feature area  |Description  |
+|---------|---------|
+|Data connectors |In the Defender portal, after you onboard Microsoft Sentinel, the following data connectors that are part of the unified security operations platform aren't shown in the **Data connectors** page:<br><br>- Microsoft Defender for Cloud Apps<br>- Microsoft Defender for Endpoint<br>- Microsoft Defender for Identity<br>- Microsoft Defender for Office 365 (Preview)<br>- Microsoft Defender XDR<br>- Subscription-based Microsoft Defender for Cloud (Legacy)<br>- Tenant-based Microsoft Defender for Cloud (Preview)<br><br>In the Azure portal, these data connectors are still listed with the installed data connectors in Microsoft Sentinel.|
 
 ## Quick reference
 
