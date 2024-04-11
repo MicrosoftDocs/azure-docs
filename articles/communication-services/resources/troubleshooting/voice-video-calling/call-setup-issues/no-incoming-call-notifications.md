@@ -19,7 +19,7 @@ However, if the user's network is experiencing problems, such as disconnection o
 
 ## How to detect using the SDK
 The application can listen the [connectionStateChanged event](/javascript/api/azure-communication-services/@azure/communication-calling/callagent?view=azure-communication-services-js&preserve-view=true#@azure-communication-calling-callagent-on-2) on callAgent object.
-If the connection state isn't `Connected`, the user cannot receive incoming call notifications.
+If the connection state isn't `Connected`, the user can't receive incoming call notifications.
 
 ## How to mitigate or resolve
 This error happens when the signaling connection fails.
