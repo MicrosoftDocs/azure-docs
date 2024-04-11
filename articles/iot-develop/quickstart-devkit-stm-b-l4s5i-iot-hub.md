@@ -150,7 +150,7 @@ You can use the **Termite** app to monitor communication and confirm that your d
 
 1. Start **Termite**.
     > [!TIP]
-    > If you are unable to connect Termite to your devkit, install the [ST-LINK driver](https://www.st.com/en/development-tools/stsw-link009.html) and try again. See  [Troubleshooting](troubleshoot-embedded-device-quickstarts.md) for additional steps.
+    > If you are unable to connect Termite to your devkit, install the [ST-LINK driver](https://www.st.com/en/development-tools/stsw-link009.html) and try again. See  [Troubleshooting](../iot/troubleshoot-embedded-device-tutorials.md) for additional steps.
 1. Select **Settings**.
 1. In the **Serial port settings** dialog, check the following settings and update if needed:
     * **Baud rate**: 115,200
@@ -343,7 +343,7 @@ To use Azure CLI to call a method:
 
 ## Troubleshoot and debug
 
-If you experience issues building the device code, flashing the device, or connecting, see [Troubleshooting](troubleshoot-embedded-device-quickstarts.md).
+If you experience issues building the device code, flashing the device, or connecting, see [Troubleshooting](../iot/troubleshoot-embedded-device-tutorials.md).
 
 For debugging the application, see [Debugging with Visual Studio Code](https://github.com/azure-rtos/getting-started/blob/master/docs/debugging.md).
 
@@ -357,8 +357,6 @@ As a next step, explore the following articles to learn more about using the IoT
 
 > [!div class="nextstepaction"]
 > [Connect a general device to IoT Hub](../iot/tutorial-send-telemetry-iot-hub.md)
-> [!div class="nextstepaction"]
-> [Quickstart: Connect an STMicroelectronics B-L475E-IOT01A Discovery kit to IoT Hub](quickstart-devkit-stm-b-l475e-iot-hub.md)
 > [!div class="nextstepaction"]
 > [Learn more about connecting embedded devices using C SDK and Embedded C SDK](../iot/concepts-using-c-sdk-and-embedded-c-sdk.md)
 

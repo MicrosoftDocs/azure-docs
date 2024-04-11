@@ -136,6 +136,8 @@
               href: how-to-ip-prefixes.md
             - name: Network Packet Broker
               href: howto-configure-network-packet-broker.md
+            - name: Validate cables for Nexus Network Fabric
+              href: how-to-validate-cables.md
     - name: Nexus Kubernetes cluster
       expanded: false
       items:

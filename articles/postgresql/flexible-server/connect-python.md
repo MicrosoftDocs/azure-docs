@@ -8,7 +8,7 @@ ms.author: sunila
 author: sunilagarwal
 ms.devlang: python
 ms.custom: mvc, mode-api, devx-track-python
-ms.date: 01/02/2024
+ms.date: 03/16/2024
 ---
 
 # Quickstart: Use Python to connect and query data in Azure Database for PostgreSQL - Flexible Server
