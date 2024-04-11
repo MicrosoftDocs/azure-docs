@@ -35,7 +35,7 @@ landingContent:
           - text: Access signed transactions in Trusted Signing 
             url: how-to-sign-history.md
           - text: Revoke a certificate profile in Trusted Signing
-            url: how-to-certificate-revocation.md
+            url: how-to-cert-revocation.md
   - title: Overview
     linkLists:
         - linkListType: overview
