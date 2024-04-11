@@ -313,6 +313,35 @@ private void startCall() {
 }
 ```
 
+## Join a Teams Call
+
+A user can join an existing call by passing a link
+
+```java
+/**
+ * Join a call using a teams meeting link.
+ */
+public TeamsCall joinTeamsCall(TeamsCallAgent teamsCallAgent){
+	TeamsMeetingLinkLocator link = new TeamsMeetingLinkLocator("meetingLink");
+	TeamsCall call = teamsCallAgent.join(this, link);
+}
+```
+
+## Join a Teams Call with options
+
+We can also join an existing call with preset options, such as being muted
+
+```java
+/**
+ * Join a call using a teams meeting link while muted.
+ */
+public TeamsCall joinTeamsCall(TeamsCallAgent teamsCallAgent){
+	TeamsMeetingLinkLocator link = new TeamsMeetingLinkLocator("meetingLink");
+	AudioOptions audioOptions = new AudioOptions().setMuted(true);
+	JoinCallOptions options = new JoinCallOptions().setAudioOptions(audioOptions);
+	TeamsCall call = teamsCallAgent.join(this, link, options);
+}
+```
 
 ## Launch the app and call the echo bot
 
