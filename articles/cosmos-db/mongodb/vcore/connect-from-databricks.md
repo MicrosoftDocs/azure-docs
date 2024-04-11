@@ -169,5 +169,5 @@ Output:
 
 The following articles demonstrate how to use aggregation pipelines in Azure Cosmos DB for MongoDB vCore:
 
-* [Maven central](hhttps://mvnrepository.com/artifact/org.mongodb.spark/mongo-spark-connector) is where you can find Spark Connector.
+* [Maven central](https://mvnrepository.com/artifact/org.mongodb.spark/mongo-spark-connector) is where you can find Spark Connector.
 * [Aggregation Pipeline](../tutorial-aggregation.md)
