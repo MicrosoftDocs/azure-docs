@@ -2,12 +2,12 @@
 title: Release notes for 2024 Azure Health Data Services monthly releases
 description: 2024 - Stay updated with the latest features and improvements for the FHIR, DICOM, and MedTech services in Azure Health Data Services in 2024. Read the monthly release notes and learn how to get the most out of healthcare data.
 services: healthcare-apis
-author: kgaddam10
+author: shellyhaverkamp
 ms.service: healthcare-apis
 ms.subservice: workspace
 ms.topic: reference
-ms.date: 04/02/2024
-ms.author: kavitagaddam 
+ms.date: 04/11/2024
+ms.author: msjasteppe
 ms.custom: references_regions
 ---
 
@@ -21,11 +21,11 @@ This article describes features, enhancements, and bug fixes released in 2024 fo
 
 #### Enhanced Upsert operation
 
-The enhanced Upsert operation provides the ability to upload a DICOM image to the server and seamlessly replace it if it already exists. Before this enhancement, users had to perform a Delete operation followed by a STOW-RS to achieve the same result. With the enhanced Upsert operation, managing DICOM images is more efficient and streamlined.
+The enhanced Upsert operation enables you to upload a DICOM image to the server and seamlessly replace it if it already exists. Before this enhancement, users had to perform a Delete operation followed by a STOW-RS to achieve the same result. With the enhanced Upsert operation, managing DICOM images is more efficient and streamlined.
 
 #### Expanded storage for required attributes
 
-The DICOM service allows users to upload DICOM files confidently, knowing that requests are limited to 4GB. Additionally, no single DICOM file or combination of files is allowed to exceed this limit. This enhancement ensures efficient management of medical imaging data while maintaining compliance with size restrictions.
+The DICOM service allows users to upload DICOM files confidently, knowing that requests are limited to 4 GB. Additionally, no single DICOM file or combination of files is allowed to exceed this limit. This enhancement ensures efficient management of medical imaging data while maintaining compliance with size restrictions.
 
 ### FHIR service
 
@@ -74,7 +74,7 @@ Import operation allowed to have resource type per input file in the request par
 
 #### Bug Fixes
 
-- **Fixed: Import operation ingest resources with same resource type and lastUpdated field value**. Before this change, resources executed in a batch with same type and lastUpdated field value were not ingested into the FHIR service. This bug fix addresses the issue. See [PR#3768](https://github.com/microsoft/fhir-server/pull/3768).
+- **Fixed: Import operation ingests resources with the same resource type and lastUpdated field value**. Before this change, resources executed in a batch with the same type and `lastUpdated` field value weren't ingested into the FHIR service. This bug fix addresses the issue. See [PR#3768](https://github.com/microsoft/fhir-server/pull/3768).
 
 - **Fixed: FHIR search with 3 or more custom search parameters**. Before this fix, FHIR search query at the root with three or more custom search parameters resulted in HTTP status code 504. See [PR#3701](https://github.com/microsoft/fhir-server/pull/3701).
 
