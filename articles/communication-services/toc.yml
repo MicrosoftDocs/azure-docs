@@ -1069,6 +1069,28 @@ items:
             href: resources/troubleshooting/voice-video-calling/device-issues/no-permission-prompt.md
           - name: The askDevicePermission API takes too long
             href: resources/troubleshooting/voice-video-calling/device-issues/ask-device-permission-api-takes-too-long.md
+        - name: Audio issues
+          items:
+          - name: Overview
+            href: resources/troubleshooting/voice-video-calling/audio-issues/overview.md
+          - name: The user cannot hear sound during the call
+            items:
+            - name: The speaking participant doesn't grant the microphone permission
+              href: resources/troubleshooting/voice-video-calling/audio-issues/microphone-permission.md
+            - name: The speaking participant's microphone has a problem
+              href: resources/troubleshooting/voice-video-calling/audio-issues/microphone-issue.md
+            - name: The user's speaker has a problem
+              href: resources/troubleshooting/voice-video-calling/audio-issues/speaker-issue.md
+            - name: There is a network issue in the call
+              href: resources/troubleshooting/voice-video-calling/audio-issues/network-issue.md
+          - name: The user experiences poor audio quality
+            href: resources/troubleshooting/voice-video-calling/audio-issues/poor-quality.md
+          - name: The user experiences delays during the call
+            href: resources/troubleshooting/voice-video-calling/audio-issues/delay-issue.md
+          - name: The user experiences echo during the call
+            href: resources/troubleshooting/voice-video-calling/audio-issues/echo-issue.md
+          - name: The volume of the incoming audio is low
+            href: resources/troubleshooting/voice-video-calling/audio-issues/incoming-audio-low-volume.md
         - name: Video issues
           items:
           - name: Overview
