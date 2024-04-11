@@ -14,7 +14,7 @@ ms.custom: mode-other
 # Add audio quality enhancements to your WebJS calling experience
 You can use the Audio effects feature to add audio enhancements to your audio in calls. This feature enables developers to turn on audio enhancements such as ML based noise suppression into their calling experience.
 
-[!INCLUDE [Public Preview](../../includes/public-preview-include-document.md)]
+[!INCLUDE [Public Preview](../includes/includes/public-preview-include-document.md)]
 
 ## Using audio effects
 ### Install the package
@@ -32,7 +32,7 @@ See [here](https://www.npmjs.com/package/@azure/communication-calling-effects) f
 > [!NOTE]
 > Currently browser support for adding audio effects is only available on Chrome and Edge Desktop Browsers (Windows and Mac).
 
-> Go here to take a look at the API references - [@azure/communication-calling API reference](https://learn.microsoft.com/en-ca/javascript/api/azure-communication-services/@azure/communication-calling/?view=azure-communication-services-js&preserve-view=true)
+> Go here to take a look at the API references - [@azure/communication-calling API reference](/javascript/api/azure-communication-services/@azure/communication-calling/?view=azure-communication-services-js&preserve-view=true)
 
 To use audio effects with the Azure Communication Calling SDK, you need the `LocalAudioStream` that is currently in the call (more information on how to get this is in the code sample below). You need to get the `AudioEffects` feature API of the `LocalAudioStream` to start/stop audio effects:
 ```js
