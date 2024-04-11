@@ -4,7 +4,7 @@ description: Learn how to do Apache Kafka operations using a Kafka REST proxy on
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom:
-ms.date: 03/23/2023
+ms.date: 04/09/2024
 ---
 
 # Interact with Apache Kafka clusters in Azure HDInsight using a REST proxy

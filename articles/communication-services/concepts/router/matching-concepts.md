@@ -262,7 +262,7 @@ worker = client.upsert_worker(worker_id = worker.id, available_for_offers = Fals
 ::: zone pivot="programming-language-java"
 
 ```java
-worker = client.updateWorkerWithResponse(worker.getId(), worker.setAvailableForOffers(false));
+client.updateWorker(worker.getId(), BinaryData.fromObject(worker.setAvailableForOffers(false)), null);
 ```
 
 ::: zone-end
