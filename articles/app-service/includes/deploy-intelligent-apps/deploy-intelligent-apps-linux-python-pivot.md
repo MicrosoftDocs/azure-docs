@@ -9,7 +9,7 @@ ms.author: jefmarti
 
 You can use Azure App Service to work with popular AI frameworks like LangChain and Semantic Kernel connected to OpenAI for creating intelligent apps.  In the following tutorial we will be adding an Azure OpenAI service using LangChain to a Python (Flask) application.
 
-### Prerequisites
+#### Prerequisites
 
 - An [Azure OpenAI resource](https://learn.microsoft.com/azure/ai-services/openai/quickstart?pivots=programming-language-csharp&tabs=command-line%2Cpython#set-up) or an [OpenAI account](https://platform.openai.com/overview).
 - A Flask web application.  Create the sample app using our [quickstart](https://learn.microsoft.com/azure/app-service/quickstart-python?tabs=flask%2Cwindows%2Cazure-cli%2Cvscode-deploy%2Cdeploy-instructions-azportal%2Cterminal-bash%2Cdeploy-instructions-zip-azcli#1---sample-application).
@@ -270,7 +270,7 @@ Then, go to the azure portal and navigate to the Environment variables.  If you 
 
 If you have followed the steps above, you are ready to deploy to App Service and you can deploy as you normally would. If you run into any issues remember that you need to have done the following: grant your app access to your Key Vault, add the app settings with key vault references as your values. App Service will resolve the app settings in your application that match what you’ve added in the portal.
 
-**Authentication**
+### Authentication
 
 Although optional, it is highly recommended that you also add authentication to your web app when using an Azure OpenAI or OpenAI service. This can add a level of security with no additional code. Learn how to enable authentication for your web app [here](https://learn.microsoft.com/azure/app-service/scenario-secure-app-authentication-app-service).
 

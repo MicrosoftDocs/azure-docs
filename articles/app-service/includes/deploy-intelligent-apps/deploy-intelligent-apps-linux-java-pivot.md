@@ -9,7 +9,7 @@ ms.author: jefmarti
 
 You can use Azure App Service to create applications using Azure OpenAI and OpenAI.  In the following tutorial we will be adding an Azure OpenAI service to a Java 17 Spring Boot application using the Azure SDK.
 
-### Prerequisites
+#### Prerequisites
 
 - An [Azure OpenAI resource](https://learn.microsoft.com/azure/ai-services/openai/quickstart?pivots=programming-language-csharp&tabs=command-line%2Cpython#set-up) or an [OpenAI account](https://platform.openai.com/overview).
 - A Java spring boot application. Create the application using this [quickstart](https://learn.microsoft.com/azure/app-service/quickstart-java?tabs=springboot&pivots=java-maven-javase).
@@ -28,7 +28,7 @@ For this Spring Boot application, we’ll be building off the [quickstart](https:/
   }
 ```
 
-**API Keys and Endpoints**
+### API Keys and Endpoints
 
 First, you will need to grab the keys and endpoint values from Azure OpenAI or OpenAI and add them as secrets for use in your application. Retrieve and save the values for later use to build the client.
 
@@ -235,7 +235,7 @@ If you completed the steps above you can deploy to App Service as you normally w
 Once deployed, you can visit your site URL and you will be greeted with the text that contains the response from your chat message prompt.  
 
 
-**Authentication**
+### Authentication
 
 Although optional, it is highly recommended that you also add authentication to your web app when using an Azure OpenAI or OpenAI service. This can add a level of security with no additional code. Learn how to enable authentication for your web app [here](https://learn.microsoft.com/azure/app-service/scenario-secure-app-authentication-app-service).
 
