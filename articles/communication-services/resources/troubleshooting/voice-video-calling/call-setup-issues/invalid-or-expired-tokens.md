@@ -29,7 +29,7 @@ The error code/subcode is
 | message          | AccessToken expired                                   |
 
 When the signaling layer detects the access token expiry, it may change its connection state.
-The application can subscribe to the [connectionStateChanged](/javascript/api/azure-communication-services/%40azure/communication-calling/callagent@azure-communication-calling-callagent-on-2) event. 
+The application can subscribe to the [connectionStateChanged](/javascript/api/azure-communication-services/%40azure/communication-calling/callagent@azure-communication-calling-callagent-on-2) event. If the connection state changes due to the token expiry, you can see the `reason` field in the `connectionStateChanged` event is `invalidToken`.
 
 ## How to mitigate or resolve
 If you have a long-running call that could exceed the lifetime of the token, you need to implement refreshing logic in your application.
