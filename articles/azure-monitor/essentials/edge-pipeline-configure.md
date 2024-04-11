@@ -84,7 +84,7 @@ The settings in this tab are described in the following table.
 ### [ARM](#tab/ARM)
 
 ### Configure pipeline using ARM templates
-The following sections provide samples ARM templates to create each of the resources required to enable and configure the Azure Monitor edge pipeline. 
+The following sections provide sample ARM templates to create each of the resources required to enable and configure the Azure Monitor edge pipeline. 
 
 
 ### Edge pipeline extension
@@ -93,7 +93,7 @@ The following ARM template adds the edge pipeline extension to your Arc-enabled 
 | Parameter | Description |
 |:---|:--|
 | `name` | Name of the pipeline extension. Must be unique for the subscription. |
-| `scope` | Resource ID of the Arc-enabled Kubernetes cluster. |
+| `scope` | Resource ID of your Arc-enabled Kubernetes cluster. |
 | `releaseNamespace` | Namespace in the cluster where the extension will be deployed. |
 
 ```json
@@ -145,7 +145,7 @@ The following ARM template creates the custom location for to your Arc-enabled K
     "properties": {
         "hostResourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/my-resource-group/providers/Microsoft.Kubernetes/connectedClusters/my-arc-cluster",
         "namespace": "custom-location-name",
-        "clusterExtensionIds": "[parameters('clusterExtensionIds')]",
+        "clusterExtensionIds": "",
         "hostType": "Kubernetes"
     }
 }
@@ -188,7 +188,7 @@ Replace the properties in the following table before deploying the template. See
 | `name` | Name of the DCR. Must be unique for the subscription. |
 | `location` | Location of the DCR. Must match the location of the DCE. |
 | `dataCollectionEndpointId` | Resource ID of the DCE. |
-| `streamDeclarations` | Schema of the data being received. One stream is required for each dataflow in the pipeline configuration. The name must be unique in the DCR and must begin with *Custom-*. The `column` sections in the samples below should be used for the OLTP and Syslog data flows. If the schema for your destination table is different, then you can modify it using a transformation. |
+| `streamDeclarations` | Schema of the data being received. One stream is required for each dataflow in the pipeline configuration. The name must be unique in the DCR and must begin with *Custom-*. The `column` sections in the samples below should be used for the OLTP and Syslog data flows. If the schema for your destination table is different, then you can modify it using a transformation defined in the `transformKql` parameter. |
 | `destinations` | Add additional section to send data to multiple workspaces. |
 | - `name` | Name for the destination to reference in the `dataFlows` section. Must be unique for the DCR. |
 | - `workspaceResourceId` | Resource ID of the Log Analytics workspace. |
