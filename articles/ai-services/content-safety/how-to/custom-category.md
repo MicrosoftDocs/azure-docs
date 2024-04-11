@@ -1,39 +1,40 @@
-#  Custom Category API private preview documentation  ![informational](https://shields.io/badge/-PrivatePreview-PrivatePreview) 
+---
+title: "Use the custom category API"
+titleSuffix: Azure AI services
+description: Learn how to use the custom category API to create your own harmful content categories and train the Content Safety model for your use case.
+#services: cognitive-services
+author: PatrickFarley
+manager: nitinme
+ms.service: azure-ai-content-safety
+ms.custom: build-2024
+ms.topic: how-to
+ms.date: 04/11/2024
+ms.author: pafarley
+---
 
-## Overview
+# Use the custom category API
 
-The Azure AI Content Safety Custom Category feature empowers users to create and manage their own content categories for enhanced moderation and filtering. This feature enables customers to define categories specific to their needs, provide sample data, train a custom machine learning model, and utilize it to classify new content according to the predefined categories.
-
-To use this private preview feature, you should first make sure your subscription is whitelisted, if not please submit a request through this [form](https://forms.office.com/r/38GYZwLC0u), and please expect our reply within 3 business days.
-
-
-
-## How it works
-The Azure AI Content Safety Custom Category feature is designed to provide a streamlined process for creating, training, and using custom content classification models. Here's an in-depth look at the underlying workflow:
-### Step 1: Definition and Setup
- 
-When you define a custom category, you are essentially instructing the AI on what type of content you want to identify. This involves providing a clear **category name** and a detailed **definition** that encapsulates the content's characteristics. The setup phase is crucial, as it lays the groundwork for the AI to understand your specific moderation needs.
-
-Then, collect a balanced dataset with both **positive** and (optional)**negative examples** allows the AI to learn the nuances of the category. This data should be representative of the variety of content that the model will encounter in a real-world scenario.
-### Step 2: Model Training
- 
-Once you have your dataset ready, the Azure AI Content Safety service uses it to train a new model. During training, the AI analyzes the data, learning to distinguish between content that matches the custom category and content that does not. 
-### Step 3: Model Inferencing
- 
-After training, you need to evaluate the model to ensure it meets your accuracy requirements. This is done by testing the model with new content that it hasn't seen before. The evaluation phase helps you identify any potential adjustments needed before deploying the model into a production environment.
+> [!CAUTION]
+> The sample data in this guide might contain offensive content. User discretion is advised.
 
 
+Learn how to use the custom category API to create your own harmful content categories and train the Content Safety model for your use case.
 
 
-## Quickstart
+## Prerequisites
+* An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/)
+* Get access: The custom categories API is a gated feature. Apply for access by submitting this form with your Azure subscription ID: [Microsoft Forms](tbd). The request will take up to three business days to approve. Once you receive an approval notification from Microsoft, you can go to the next step.
+* Once you have your Azure subscription, <a href="https://aka.ms/acs-create"  title="Create a Content Safety resource"  target="_blank">create a Content Safety resource </a> in the Azure portal to get your key and endpoint. Enter a unique name for your resource, select your subscription, and select a resource group, supported region (East US), and supported pricing tier. Then select **Create**.
+  * The resource takes a few minutes to deploy. After it finishes, Select **go to resource**. In the left pane, under **Resource Management**, select **Subscription Key and Endpoint**. The endpoint and either of the keys are used to call APIs.
+* You also need to enable **Identity** for the Content Safety resource. 
+    - Go to your Content Safety resource's page in the Azure portal -> **Resource Management** -> **Identity** -> **System assigned**, and make sure the **status** is **On**.
+* One of the following installed:
+  * [cURL](https://curl.haxx.se/) for REST API calls.
+  * [Python 3.x](https://www.python.org/) installed
 
-### Prerequisites
-1. Sign in to the [Azure Portal](https://portal.azure.com/).
-2. [Create Content Safety Resource](https://aka.ms/acs-create). Enter a unique name for your resource, select your whitelisted subscription, resource group, region and pricing tier. Currently this feature is available in: **East US**.
-3. The resource will take a few minutes to deploy. After it does, go to the new resource. In the left pane, under **Resource Management**, select **API Keys and Endpoints**. Copy one of the subscription key values and endpoint to a temporary location for later use.
-4. Also you need to enable **Identity** for the Content Safety resource. 
-    - Go to your Content Safety instance -> Resource Management -> Identity -> System assigned, make sure the "status" is "On"
-5. Format your data to a **.jsonl file** and put the data file into an Azure Storage Account blob. Copy the blob url for later use.
+## Prepare training data
+
+1. Format your data to a **.jsonl file** and put the data file into an Azure Storage Account blob. Copy the blob url for later use.
 You can create a new [Azure Storage Account](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM) if you don't have one.
 Here is an example for the .jsonl file content (negative examples are optional):
     ```jsonl
@@ -41,14 +42,98 @@ Here is an example for the .jsonl file content (negative examples are optional):
     {"text": "This is the 2nd sample.", "isPositive": false}
     {"text": "This is the 3rd sample.", "isPositive": false}
     ```
-6. Go to *Access Control* in your Azure Storage Account, and select *+Add Role Assignment* and Assign the role of **Storage Blob Data Contributor/Owner** to the Managed identity you enabled in step 4.
+1. Go to *Access Control* in your Azure Storage Account, and select *+Add Role Assignment* and Assign the role of **Storage Blob Data Contributor/Owner** to the Managed identity you enabled in step tbd.
 ![image](https://hackmd.io/_uploads/BJQPW6mgR.png)
 
-### Sample Code
-⚠️ *Disclaimer: The sample code could have offensive content, user discretion is advised.*
 
-**Python Sample Code**
+## How it works
+The Azure AI Content Safety Custom Category feature is designed to provide a streamlined process for creating, training, and using custom content classification models. Here's an in-depth look at the underlying workflow:
 
+### Step 1: Definition and Setup
+ 
+When you define a custom category, you are essentially instructing the AI on what type of content you want to identify. This involves providing a clear **category name** and a detailed **definition** that encapsulates the content's characteristics. The setup phase is crucial, as it lays the groundwork for the AI to understand your specific moderation needs.
+
+Then, collect a balanced dataset with both **positive** and (optional)**negative examples** allows the AI to learn the nuances of the category. This data should be representative of the variety of content that the model will encounter in a real-world scenario.
+
+### Step 2: Model Training
+ 
+Once you have your dataset ready, the Azure AI Content Safety service uses it to train a new model. During training, the AI analyzes the data, learning to distinguish between content that matches the custom category and content that does not.
+
+### Step 3: Model Inferencing
+ 
+After training, you need to evaluate the model to ensure it meets your accuracy requirements. This is done by testing the model with new content that it hasn't seen before. The evaluation phase helps you identify any potential adjustments needed before deploying the model into a production environment.
+
+## Create and train a custom category
+
+#### [cURL](#tab/curl)
+
+Replace `<your_api_key>`, `<your_endpoint>`, and other necessary parameters with your own values.
+
+### 0. SET UP your API key and endpoint:
+```bash
+API_KEY="<your_api_key>"
+API_ENDPOINT="<your_endpoint>"
+CATEGORY_NAME="example-category"
+```
+### 1. Create new category version:
+
+```bash
+curl -X PUT "$API_ENDPOINT/contentsafety/text/categories/$CATEGORY_NAME?api-version=2024-03-30-preview" \
+     -H "Ocp-Apim-Subscription-Key: $API_KEY" \
+     -H "Content-Type: application/json" \
+     -d "{
+        \"categoryName\": \"$CATEGORY_NAME\",
+        \"definition\": \"Example Definition\",
+        \"sampleBlobUrl\": \"https://example.blob.core.windows.net/example-container/sample.jsonl\",
+        \"blobDelimiter\" : \"/\"
+     }"
+```
+
+### 2. Get a customized category or a specific version of it:
+
+```bash
+curl -X GET "$API_ENDPOINT/contentsafety/text/categories/$CATEGORY_NAME?api-version=2024-03-30-preview&version=1" \
+     -H "Ocp-Apim-Subscription-Key: $API_KEY" \
+     -H "Content-Type: application/json"
+```
+
+### 3. List categories of their latest versions:
+
+```bash
+curl -X GET "$API_ENDPOINT/contentsafety/text/categories?api-version=2024-03-30-preview" \
+     -H "Ocp-Apim-Subscription-Key: $API_KEY" \
+     -H "Content-Type: application/json"
+```
+
+### 4. Trigger the category build process:
+
+```bash
+curl -X POST "$API_ENDPOINT/contentsafety/text/categories/$CATEGORY_NAME:build?api-version=2024-03-30-preview&version=1" \
+     -H "Ocp-Apim-Subscription-Key: $API_KEY" \
+     -H "Content-Type: application/json"
+```
+
+### 5. Delete a customized category or a specific version of it:
+
+```bash
+curl -X DELETE "$API_ENDPOINT/contentsafety/text/categories/$CATEGORY_NAME?api-version=2024-03-30-preview&version=1" \
+     -H "Ocp-Apim-Subscription-Key: $API_KEY" \
+     -H "Content-Type: application/json"
+```
+
+### 6. Analyze text with a customized category:
+
+```bash
+curl -X POST "$API_ENDPOINT/contentsafety/text:analyze?api-version=2024-03-30-preview" \
+     -H "Ocp-Apim-Subscription-Key: $API_KEY" \
+     -H "Content-Type: application/json" \
+     -d "{
+        \"text\": \"Example text to analyze\",
+        \"customizedCategories\": [{\"categoryName\": \"$CATEGORY_NAME\", \"version\": 1}]
+     }"
+```
+
+#### [Python](#tab/python)
 First, you need to install the required Python library:
 
 ```bash
@@ -178,91 +263,11 @@ result = analyze_text_with_customized_category(text, customized_categories)
 print(result)
 ```
 
-**cURL Sample Code**
 
-Replace `<your_api_key>`, `<your_endpoint>`, and other necessary parameters with your own values.
 
-### 0. SET UP your API key and endpoint:
-```bash
-API_KEY="<your_api_key>"
-API_ENDPOINT="<your_endpoint>"
-CATEGORY_NAME="example-category"
-```
-### 1. Create new category version:
-
-```bash
-curl -X PUT "$API_ENDPOINT/contentsafety/text/categories/$CATEGORY_NAME?api-version=2024-03-30-preview" \
-     -H "Ocp-Apim-Subscription-Key: $API_KEY" \
-     -H "Content-Type: application/json" \
-     -d "{
-        \"categoryName\": \"$CATEGORY_NAME\",
-        \"definition\": \"Example Definition\",
-        \"sampleBlobUrl\": \"https://example.blob.core.windows.net/example-container/sample.jsonl\",
-        \"blobDelimiter\" : \"/\"
-     }"
-```
-
-### 2. Get a customized category or a specific version of it:
-
-```bash
-curl -X GET "$API_ENDPOINT/contentsafety/text/categories/$CATEGORY_NAME?api-version=2024-03-30-preview&version=1" \
-     -H "Ocp-Apim-Subscription-Key: $API_KEY" \
-     -H "Content-Type: application/json"
-```
-
-### 3. List categories of their latest versions:
-
-```bash
-curl -X GET "$API_ENDPOINT/contentsafety/text/categories?api-version=2024-03-30-preview" \
-     -H "Ocp-Apim-Subscription-Key: $API_KEY" \
-     -H "Content-Type: application/json"
-```
-
-### 4. Trigger the category build process:
-
-```bash
-curl -X POST "$API_ENDPOINT/contentsafety/text/categories/$CATEGORY_NAME:build?api-version=2024-03-30-preview&version=1" \
-     -H "Ocp-Apim-Subscription-Key: $API_KEY" \
-     -H "Content-Type: application/json"
-```
-
-### 5. Delete a customized category or a specific version of it:
-
-```bash
-curl -X DELETE "$API_ENDPOINT/contentsafety/text/categories/$CATEGORY_NAME?api-version=2024-03-30-preview&version=1" \
-     -H "Ocp-Apim-Subscription-Key: $API_KEY" \
-     -H "Content-Type: application/json"
-```
-
-### 6. Analyze text with a customized category:
-
-```bash
-curl -X POST "$API_ENDPOINT/contentsafety/text:analyze?api-version=2024-03-30-preview" \
-     -H "Ocp-Apim-Subscription-Key: $API_KEY" \
-     -H "Content-Type: application/json" \
-     -d "{
-        \"text\": \"Example text to analyze\",
-        \"customizedCategories\": [{\"categoryName\": \"$CATEGORY_NAME\", \"version\": 1}]
-     }"
-```
+---
 
 Remember to replace the placeholders with your actual values for the API key, endpoint, and specific content (category name, definition .etc). These examples should help you get started with using the Azure AI Content Safety API to analyze your text and work with customized categories.
-
-## Limitations
-| Object           | Limitation   |
-| ---------------- | ------------ |
-| Support language | English only |
-|     Number of categories per user             |         5     |
-|         Number of category version per category         |        5      |
-|       Number of concurrent build (process) per category           |       1       |
-|       Inference RPS           |    10          |
-|        Customized category number in one text analyze request          |       5       |
-|        Number of samples for a category version          |        At least 50, at most 10K (no dupilicated samples allowed)      |
-|       Sample file           |     At most 128000 bytes         |
-|       Length of a sample           |           125K characters   |
-|        Length of deinition          |         1000 characters     |
-|       Length of category name           |          128 characters    |
-|           Length of blob url       |          at most 500 characters    |
 
 
 ## Best practices
@@ -286,23 +291,3 @@ Negative samples should be carefully chosen to ensure they do not inadvertently 
  
 Strive for a balance between the number of positive and negative samples. An uneven dataset can bias the model, causing it to favor one type of classification over another, which may lead to a higher rate of false positives or negatives.
 
-
-## API Reference 
-Here's the API swagger of this new feature: [Custom Category API Swagger](https://github.com/mengaims/azure-rest-api-specs/blob/acs-0330-private/specification/cognitiveservices/data-plane/ContentSafety/preview/2024-03-30-preview/contentsafety.json).
-You could open this swagger in any swagger editor, like https://editor-next.swagger.io/.
-
-There are six APIs related to this feature in the overall swagger:
-![image](https://hackmd.io/_uploads/r13XVxm10.png)
-
-
-## Support
- 
-Should you encounter any issues or require further assistance with the Azure AI Content Safety Custom Category feature, our dedicated support team is here to help. Reach out to us with any queries, concerns, or feedback, and we will ensure you have the support you need to successfully implement and manage your custom categories.
- 
-Email us at contentsafetysupport@microsoft.com with the following information:
-* Your Azure subscription ID
-* A detailed description of the issue or question
-* Any relevant screenshots or error messages
-* The name of the custom category model in question (if applicable)
-
-We value your feedback as it helps us improve our services. If you have suggestions for the Custom Category feature or the support process, please let us know in your email.
