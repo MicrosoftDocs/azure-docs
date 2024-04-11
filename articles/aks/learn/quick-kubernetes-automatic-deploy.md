@@ -112,14 +112,16 @@ The following sample output resembles successful creation of the resource group:
 }
 ```
 
-## Create an AKS Automatic cluster
+## Create an AKS Automatic cluster with integrated monitoring
 
-To create an AKS Automatic cluster, use the [az aks create][az-aks-create] command. The following example creates a cluster named *myAKSAutomaticCluster*.
+To create an AKS Automatic cluster, use the [az aks create][az-aks-create] command. The following example creates a cluster named *myAKSAutomaticCluster* with Managed Prometheus and Container Insights integration enabled.
 
 ```azurecli
 az aks create \
   --resource-group myResourceGroup \
   --name myAKSAutomaticCluster \
+  --enable-azure-monitor-metrics \
+  --enable-addons monitoring \
   --sku automatic
 ```
 
