@@ -51,14 +51,14 @@ sections:
 
       - question: Does a NAT gateway support IP fragmentation?
         answer: |
-          No, a NAT gateway doesn't support IP fragmentation for the transmission control protocol (TCP) or the User Datagram Protocol (UDP).
+          No, a NAT gateway doesn't support IP fragmentation for Transmission Control Protocol (TCP) or User Datagram Protocol (UDP).
                   
   - name: NAT gateway metrics
     questions: 
       - question: What is the difference between SNAT Connection Count and Total SNAT Connection Count metrics for a NAT gateway?
 
         answer: |
-          The [source network address translation (SNAT) Connection Count](nat-metrics.md#snat-connection-count) metric shows the number of new SNAT connections made per second. The [Total SNAT Connection Count](nat-metrics.md#total-snat-connection-count) metric shows the total number of active connections on a NAT gateway resource. 
+          The [SNAT Connection Count](nat-metrics.md#snat-connection-count) metric shows the number of new source network address translation (SNAT) connections made per second. The [Total SNAT Connection Count](nat-metrics.md#total-snat-connection-count) metric shows the total number of active connections on a NAT gateway resource. 
 
       - question: How can I see SNAT port usage on a NAT gateway?
         answer: |
@@ -66,7 +66,7 @@ sections:
 
       - question: How can I store my NAT gateway metrics long term?
         answer: |
-          NAT gateway metrics can be retrieved by using the [metrics REST API](/rest/api/monitor/metrics/list). Alternatively, you can select Share and then Download to Excel from the NAT gateway metrics pane in the Azure portal.
+          NAT gateway metrics can be retrieved by using the [metrics REST API](/rest/api/monitor/metrics/list). Alternatively, you can select **Share** and then **Download to Excel** from the **NAT gateway metrics** pane in the Azure portal.
 
       - question: Can NAT gateway metrics be retrieved by using diagnostic settings?
         answer: |
