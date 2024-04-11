@@ -8,6 +8,7 @@ items:
   - name: Get started with Cloud Shell
     items:
       - name: Get started (Classic)
+        href: get-started/classic.md
   - name: How to use Cloud Shell
     items:
       - name: Use the window (Classic UI)
