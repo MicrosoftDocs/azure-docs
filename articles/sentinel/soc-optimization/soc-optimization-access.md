@@ -11,7 +11,7 @@ ms.collection:
   - tier1
   - usx-security
 ms.topic: how-to
-ms.date: 03/17/2024
+ms.date: 04/11/2024
 appliesto:
   - Microsoft Sentinel in the Microsoft Defender portal
   - Microsoft Sentinel in the Azure portal
@@ -32,12 +32,9 @@ Use SOC optimization recommendations to help you close coverage gaps against spe
 
 ## Prerequisites
 
-To use SOC optimization in the Microsoft Defender portal, you must have Microsoft Sentinel integrated with Microsoft Defender XDR.
+- SOC optimimization uses standard Microsoft Sentinel roles and permissions. For more information, see [Roles and permissions in Microsoft Sentinel](../roles.md).
 
-For more information, see:
-
-- [Connect Microsoft Sentinel to Microsoft Defender XDR](/microsoft-365/security/defender/microsoft-sentinel-onboard)
-- [Roles and permissions in Microsoft Sentinel](../roles.md).
+- To use SOC optimization in the Microsoft Defender portal, you must have Microsoft Sentinel integrated with Microsoft Defender XDR. For more information, see [Connect Microsoft Sentinel to Microsoft Defender XDR](/microsoft-365/security/defender/microsoft-sentinel-onboard).
 
 ## Access the SOC optimization page
 
@@ -76,17 +73,35 @@ Select **See all threat scenarios** to view the full list of relevant threats, a
 
 ### [Defender portal](#tab/defender-portal)
 
-|Title  |Description |
+|Title  | Description |
 |---------|---------|
 |**Recent optimization value**    | Shows value gained based on recommendations you recently implemented |
 |**Ingested data**     | Shows the total data ingested in your workspace over the last 90 days. |
 |**Threat-based coverage optimizations**     |   Shows coverage levels for relevant threats. <br>Coverage levels are based on the number of analytics rules found in your workspace, compared with the number of rules recommended by the Microsoft research team. <br><br>Supported coverage levels include:<br>- **Best**: 	90% to 100% of recommended rules are found<br>- **Better**: 60% to 89% of recommended rules were created<br>- **Good**: 40% to 59% of recommended rules were created<br>- **Moderate**: 20% to 39% of recommended rules were created<br>- **None**: 0% to 19% of recommended rules were created<br><br>Select **View all threat scenarios** to view the full list of relevant threats, active and recommended detections, and coverage levels.    |
 |**Optimization status**     | Shows the number of recommended optimizations that are currently active, completed, and dismissed.        |
+
 ---
 
 ## View and manage optimization recommendations
 
-Optimization recommendations are listed in the **Your Optimizations** area on the **SOC optimizations** tab. Each optimization card includes the status, title, the date it was created, a high-level description, and the workspace it applies to.
+### [Azure portal](#tab/azure-portal)
+
+In the Azure protal, SOC optimization recommendations are listed on the **SOC optimization > Overview** tab. 
+
+For example:
+
+:::image type="content" source="media/soc-optimization-access/soc-optimization-overview-azure.png" alt-text="Screenshot of the SOC optimization Overview tab in the Azure portal." lightbox="media/soc-optimization-access/soc-optimization-overview-azure.png":::
+
+
+### [Defender portal](#tab/defender-portal)
+
+In the Defender portal, SOC optimization recommendations are listed in the **Your Optimizations** area on the **SOC optimizations** tab. 
+
+:::image type="content" source="media/soc-optimization-access/soc-optimization-overview-defender.png" alt-text="Screenshot of the SOC optimization Overview tab in the Defender portal." lightbox="media/soc-optimization-access/soc-optimization-overview-defender.png":::
+
+---
+
+Each optimization card includes the status, title, the date it was created, a high-level description, and the workspace it applies to.
 
 ### Filter optimizations
 
@@ -100,21 +115,24 @@ Filter the optimizations based on optimization type, or search for a specific op
 
 In each optimization card, select **View full details** to see a full description of the observation that led to the recommendation, and the value you'll see in your environment when that recommendation is implemented.
 
-Scroll down to the bottom of the details pane for a link to where you can take the recommended actions. For example, if an optimization includes recommendations to add analytics rules, select **Got to Content Hub**.
+Scroll down to the bottom of the details pane for a link to where you can take the recommended actions. For example:
+
+- If an optimization includes recommendations to add analytics rules, select **Got to Content Hub**.
+- If an optimization incldues recommendations to move a table to basic logs, select **Change plan**.
 
 ### Manage optimizations
 
-By default, optimization statuses are Active. Change their statuses by selecting one of the following actions:
+By default, optimization statuses are **Active**. Change their statuses as your teams progress through triaging and implementing recommendations. 
 
-<!--in progress vs active - keep the same-->
+Either select the options menu or select **View full details** to take one of the following actions:
+
+<!--what's the diff btwn in prog or active? is this up to the customer discretion?-->
 |Action |Description  |
 |---------|---------|
 |**Complete**     | Complete an optimization when you've completed each recommended action. <br><br>If a change in your environment is detected that makes the recommendation irrelevant, the optimization is automatically completed and moved to the **Completed** tab. <br><br>For example, you might have an optimization related to a previously unused table. If your table is now used in a new analytics rule, the optimization recommendation is now irrelevant. <br><br>In such cases, a banner shows in the **Overview** tab with the number of automatically completed optimizations since your last visit.        |
-| **In progress** | Mark an optimization as *In progress* or **Active** to notify other team members that you're actively working on it. | 
+| **Mark as in progress** / **Mark as active**| Mark an optimization as in progress or active to notify other team members that you're actively working on it. <br><br>Use these two statuses flexibly, but consistantly, as needed for your organization. |
 |**Dismiss**     |  Dismiss an optimization if you're not planning to take the recommended action and no longer want to see it in the list.       |
 |**Provide feedback**     | We invite you to share your thoughts on the recommended actions with the Microsoft team! <br><br>When sharing your feedback, be careful not to share any confidential data. For more information, see  [Microsoft Privacy Statement](https://privacy.microsoft.com/privacystatement).      |
-
-Select an action either from the options menu at the top right of each optimization card, or after selecting **View full details**, from the optimization details pane.
 
 ## View completed and dismissed optimizations
 
@@ -124,9 +142,9 @@ From here, either select the options menu or select **View full details** to tak
 
 - **Reactivate the optimization**, sending it back to the **Overview** tab. Reactivated optimizations are recalculated to provide the most updated value and action. Recalculating these details can take up to an hour, so wait before checking the details and recommended actions again.
 
-    Reactivated optimizations might also move directly to the **Completed** tab if, after recalculating the details, they're found to be no longer relevant.
+  Reactivated optimizations might also move directly to the **Completed** tab if, after recalculating the details, they're found to be no longer relevant.
 
-- **Provide further feedback** to the Microsoft team. When sharing your feedback, be careful not to share any confidential data. For more information, see  [Microsoft Privacy Statement](https://privacy.microsoft.com/privacystatement). 
+- **Provide further feedback** to the Microsoft team. When sharing your feedback, be careful not to share any confidential data. For more information, see  [Microsoft Privacy Statement](https://privacy.microsoft.com/privacystatement).
 
 
 ## Related content
