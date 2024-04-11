@@ -20,7 +20,7 @@ Features released earlier than nine months ago are described in the [What's new 
 
 |Service area  |Updates  |
 |---------|---------|
-| **OT networks** | [Sensor time drift detection](#sensor-time-drift-detection) <br> [Security updates](#security-update) |
+| **OT networks** | [Sensor time drift detection](#sensor-time-drift-detection) <br> [Security update](#security-update) |
 
 ### Sensor time drift detection
 
