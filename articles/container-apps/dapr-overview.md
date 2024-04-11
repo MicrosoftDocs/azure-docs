@@ -52,7 +52,7 @@ To learn more about using _alpha_ Dapr APIs and features, [see the Dapr FAQ][dap
 
 ### Managed versus standard components
 
-In Azure Container Apps, a subset of Dapr components is supported. Within that subset, Dapr components are broken into two support categories: _managed_ or _standard_. Components are organized into each category based on usage and quality. 
+In Azure Container Apps, a subset of Dapr components is supported. Within that subset, Dapr components are broken into two support categories: _managed_ or _standard_. 
 
 - [Managed components:](#managed-components) Fully managed, GA components that receive immediate investigation in critical (security or serious regression) scenarios. 
 - [Standard components:](#standard-components) Built-in components that receive immediate investigation and are supported with best effort attempt to address with third party provider.
@@ -63,7 +63,7 @@ In Azure Container Apps, a subset of Dapr components is supported. Within that s
 | --- | --------- | ------ |
 | State management | Azure Blob Storage v1<br>Azure Table Storage<br>Microsoft SQL Server | `state.azure.blobstorage`<br>`state.azure.tablestorage`<br>`state.sqlserver` | 
 | Publish & subscribe | Azure Service Bus Queues<br>Azure Service Bus Topics<br>Azure Event Hubs | `pubsub.azure.servicebus.queues`<br>`pubsub.azure.servicebus.topics`<br>`pubsub.azure.eventhubs` |
-| Binding | Azure Storage Queues<br>Azure Service Bus Queues<br>Azure Blob Storage<br>Azure Event Hubs<br> | `bindings.azure.storagequeues`<br>`bindings.azure.servicebusqueues`<br>`bindings.azure.blobstorage`<br>`bindings.azure.eventhubs` |
+| Binding | Azure Storage Queues<br>Azure Service Bus Queues<br>Azure Blob Storage<br>Azure Event Hubs<br>Cron | `bindings.azure.storagequeues`<br>`bindings.azure.servicebusqueues`<br>`bindings.azure.blobstorage`<br>`bindings.azure.eventhubs`<br>`bindings.cron` |
 
 #### Standard components
 
