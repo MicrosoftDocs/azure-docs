@@ -406,7 +406,7 @@ You can now create a job that uses to use the container image. In this section, 
         --cpu "2.0" \
         --memory "4Gi" \
         --secrets "personal-access-token=$GITHUB_PAT" \
-        --env-vars "GITHUB_PAT=secretref:personal-access-token" "REPO_URL=https://github.com/$REPO_OWNER/$REPO_NAME" "REGISTRATION_TOKEN_API_URL=https://api.github.com/repos/$REPO_OWNER/$REPO_NAME/actions/runners/registration-token" \
+        --env-vars "GITHUB_PAT=secretref:personal-access-token" "GH_URL=https://github.com/$REPO_OWNER/$REPO_NAME" "REGISTRATION_TOKEN_API_URL=https://api.github.com/repos/$REPO_OWNER/$REPO_NAME/actions/runners/registration-token" \
         --registry-server "$CONTAINER_REGISTRY_NAME.azurecr.io"
     ```
 
@@ -429,7 +429,7 @@ You can now create a job that uses to use the container image. In this section, 
         --cpu "2.0" `
         --memory "4Gi" `
         --secrets "personal-access-token=$GITHUB_PAT" `
-        --env-vars "GITHUB_PAT=secretref:personal-access-token" "REPO_URL=https://github.com/$REPO_OWNER/$REPO_NAME" "REGISTRATION_TOKEN_API_URL=https://api.github.com/repos/$REPO_OWNER/$REPO_NAME/actions/runners/registration-token" `
+        --env-vars "GITHUB_PAT=secretref:personal-access-token" "GH_URL=https://github.com/$REPO_OWNER/$REPO_NAME" "REGISTRATION_TOKEN_API_URL=https://api.github.com/repos/$REPO_OWNER/$REPO_NAME/actions/runners/registration-token" `
         --registry-server "$CONTAINER_REGISTRY_NAME.azurecr.io"
     ```
 
