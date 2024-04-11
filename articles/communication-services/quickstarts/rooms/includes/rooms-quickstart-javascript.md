@@ -42,7 +42,7 @@ Create a new file `index.js` where the code for this quickstart will be added.
 
 ### Install the packages
 
-You need to use the Azure Communication Rooms client library for JavaScript [version 1.0.0](https://www.npmjs.com/package/@azure/communication-rooms) or above.
+You need to use the Azure Communication Rooms client library for JavaScript [version 1.1.0](https://www.npmjs.com/package/@azure/communication-rooms) or above.
 
 Use the `npm install` command to install the below Communication Services SDKs for JavaScript.
 

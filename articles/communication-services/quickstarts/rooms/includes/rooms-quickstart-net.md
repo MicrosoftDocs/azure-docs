@@ -47,7 +47,7 @@ Install the Azure Communication Rooms client library for .NET with [NuGet][https
 ```console
 dotnet add package Azure.Communication.Rooms
 ```
-You'll need to use the Azure Communication Rooms client library for .NET [version 1.0.0](https://www.nuget.org/packages/Azure.Communication.Rooms/1.0.0) or above.
+You'll need to use the Azure Communication Rooms client library for .NET [version 1.1.0](https://www.nuget.org/packages/Azure.Communication.Rooms/1.1.0) or above.
 
 ### Set up the app framework
 

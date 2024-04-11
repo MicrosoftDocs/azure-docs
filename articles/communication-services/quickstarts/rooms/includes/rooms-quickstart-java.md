@@ -35,7 +35,7 @@ mvn archetype:generate -DgroupId=com.communication.quickstart -DartifactId=commu
 
 ### Include the package
 
-You need to use the Azure Communication Rooms client library for Java [version 1.0.0](https://search.maven.org/artifact/com.azure/azure-communication-rooms/1.0.0/jar) or above.
+You need to use the Azure Communication Rooms client library for Java [version 1.1.0](https://search.maven.org/artifact/com.azure/azure-communication-rooms/1.1.0/jar) or above.
 
 #### Include the BOM file
 
