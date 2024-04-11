@@ -42,7 +42,7 @@ When you create an instance of Azure Spring Apps Enterprise, you must choose a d
 
 For more information, see [Language Family Buildpacks for VMware Tanzu](https://docs.vmware.com/en/VMware-Tanzu-Buildpacks/services/tanzu-buildpacks/GUID-index.html).
 
-These buildpacks support building with source code or artifacts for Java, .NET Core, Go, web static files, Node.js, and Python apps. You can also create a custom builder by specifying buildpacks and a stack.
+These buildpacks support building with source code or artifacts for Java, .NET Core, Go, web static files, Node.js, and Python apps. You can also see buildpack versions during creating or viewing a builder. And you can create a custom builder by specifying buildpacks and a stack.
 
 All the builders configured in an Azure Spring Apps service instance are listed on the **Build Service** page, as shown in the following screenshot:
 
