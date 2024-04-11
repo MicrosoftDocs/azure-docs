@@ -3,12 +3,12 @@ title: Log metrics, parameters, and files with MLflow
 titleSuffix: Azure Machine Learning
 description: Enable logging on your ML training runs to monitor real-time run metrics with MLflow, and to help diagnose errors and warnings.
 services: machine-learning
-ms.author: amipatel
-author: amibp
-ms.reviewer: sgilley
+ms.author: fasantia
+author: santiagxf
+ms.reviewer: mopeakande
 ms.service: machine-learning
-ms.subservice: core
-ms.date: 01/30/2024
+ms.subservice: mlops
+ms.date: 04/11/2024
 ms.topic: how-to
 ms.custom: sdkv2
 ---
@@ -27,6 +27,7 @@ Logs can help you diagnose errors and warnings, or track performance metrics lik
 > [!div class="checklist"]
 > * Log metrics, parameters, and models when submitting jobs.
 > * Track runs when training interactively.
+> * Log metrics asynchronously.
 > * View diagnostic information about training.
 
 > [!TIP]
@@ -40,6 +41,9 @@ Logs can help you diagnose errors and warnings, or track performance metrics lik
     ```bash
     pip install mlflow azureml-mlflow
     ```
+
+    > [!NOTE]
+    > For asynchronous logging, you need to have `MLflow` version 2.8.0+ and `azureml-mlflow` version 1.55+.
 
 * If you're doing remote tracking (tracking experiments that run outside Azure Machine Learning), configure MLflow to track experiments. For more information, see [Configure MLflow for Azure Machine Learning](how-to-use-mlflow-configure-tracking.md).
 
@@ -142,9 +146,9 @@ params = {
 mlflow.log_params(params)
 ```
 
-## Log metrics
+## Log metrics synchronously
 
-Metrics, as opposite to parameters, are always numeric. The following table describes how to log specific numeric types:
+Metrics, as opposite to parameters, are always numeric. MLflow allows the logging of metrics in a synchronous way, meaning that metrics are persisted and immediately available for consumption upon call return. The following table describes how to log specific numeric types:
 
 |Logged value|Example code| Notes|
 |----|----|----|
@@ -168,6 +172,86 @@ import time
 client = MlflowClient()
 client.log_batch(mlflow.active_run().info.run_id, 
                  metrics=[Metric(key="sample_list", value=val, timestamp=int(time.time() * 1000), step=0) for val in list_to_log])
+```
+
+## Log metrics asynchronously
+
+MLflow also allows logging of metrics in an asynchronous way. Asynchronous metric logging is particularly useful in cases with high throughput where large training jobs with hundreds of compute nodes might be running and try to log metrics concurrently.
+
+Asynchronous metric logging allows you to log metrics and wait for them to be ingested before trying to read them back. This approach scales to large training routines that log hundreds of thousands of metric values.
+
+To log metrics asynchronously, use the MLflow logging API as you typically would, but add the extra parameter `synchronous=False`.
+
+```python
+import mlflow
+
+with mlflow.start_run():
+    # (...)
+    mlflow.log_metric("metric1", 9.42, synchronous=False)
+    # (...)
+```
+
+When you use `log_metric(synchronous=False)`, control is automatically returned to the caller once the operation is accepted; however, there is no guarantee at that moment that the metric value has been persisted.
+
+> [!IMPORTANT]
+> Even with `synchronous=False`, Azure Machine Learning guarantees the ordering of metrics.
+
+If you need to wait for a particular value to be persisted in the backend, then you can use the metric operation returned to wait on it, as shown in the following example:
+
+```python
+import mlflow
+
+with mlflow.start_run():
+    # (...)
+    run_operation = mlflow.log_metric("metric1", 9.42, synchronous=False)
+    # (...)
+    run_operation.wait()
+    # (...)
+```
+
+You can asynchronously log one metric at a time or log a batch of metrics:
+
+```python
+import mlflow
+import time
+from mlflow.entities import Metric
+
+with mlflow.start_run() as current_run:
+    mlflow_client = mlflow.tracking.MlflowClient()
+
+    metrics = {"metric-0": 3.14, "metric-1": 6.28}
+    timestamp = int(time.time() * 1000)
+    metrics_arr = [Metric(key, value, timestamp, 0) for key, value in metrics.items()]
+
+    run_operation = mlflow_client.log_batch(
+        run_id=current_run.info.run_id,
+        metrics=metrics_arr,
+        synchronous=False,
+    )
+```
+
+The `wait()` operation is also available when logging a batch of metrics:
+
+```python
+run_operation.wait()
+```
+
+You don't have to call `wait()` on your routines if you don't need immediate access to the metric values. Azure Machine Learning will wait automatically when the job is about to finish if there is any pending metric to be persisted. By the time a job is completed in Azure Machine Learning, all metrics are guaranteed to be persisted.
+
+### Changing the default logging behavior
+
+If you're performiong [automatic logging](#automatic-logging), using `autolog`, or you're using a logger like PyTorch lightning, You won't have access to the method `log_metric(synchronous=False)` directly. In such cases, you can change the default logging behavior by using the following configuration:
+
+```python
+import mlflow
+
+mlflow.config.enable_async_logging()
+```
+
+The same property can be set, using an environment variable:
+
+```python
+export MLFLOW_ENABLE_ASYNC_LOGGING=True
 ```
 
 ## Log images
@@ -294,7 +378,7 @@ For jobs training on multi-compute clusters, logs are present for each IP node. 
 
 Azure Machine Learning logs information from various sources during training, such as AutoML or the Docker container that runs the training job. Many of these logs aren't documented. If you encounter problems and contact Microsoft support, they might be able to use these logs during troubleshooting.
 
-## Next steps
+## Related content
 
 * [Train ML models with MLflow and Azure Machine Learning](how-to-train-mlflow-projects.md)
 * [Migrate from SDK v1 logging to MLflow tracking](reference-migrate-sdk-v1-mlflow-tracking.md)
