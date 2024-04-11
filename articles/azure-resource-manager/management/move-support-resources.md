@@ -932,8 +932,10 @@ Before starting your move operation, review the [checklist](./move-resource-grou
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
+> | licenses | **Yes** | **Yes** | No |
 > | machines | **Yes** | **Yes** | No |
 > | machines / extensions | **Yes** | **Yes** | No |
+> | privatelinkscopes | **Yes** | **Yes** | No |
 
 ## Microsoft.HybridData
 
