@@ -102,17 +102,17 @@ On Azure Linux VMs, the temporary disk is typically /dev/sdb and on Windows VMs 
 
 ### When to use data disks
 
-Generally, you should use the data disk to store your applications and data. Using that configuration offers the following benefits you can't have if you use the OS disk to store all your applications and data:
+Generally, you should use the data disk to store your applications and data, instead of storing them on OS disks. Using data disks offers the following benefits you can't have if you use the OS disk to store all your applications and data:
 
-- Backup and Disaster Recovery: You can establish backup and disaster recovery strategies tailored to your specific needs. For example, you can back up the data disk more frequently while the OS disk might require less frequent backups, since it mainly contains the operating system and system files. You can have more efficient backup and recovery operations, which may reduce downtime in the event of data loss or system failure. It can be easier to perform these operations when your data isn't on the OS disk.
+- You can have more efficient backup and recovery operations, reducing downtime in the event of data loss or system failure, by frequently backing up your data disks. If the data disk experiences an issue, it's easier to recover since it's separate from the OS disk.
 
-- Flexibility and Scalability: If you need to expand your data storage capacity, you can add or upgrade data disks without affecting the OS disk, adapting to the changing needs of your business-critical applications. Also, only data disks support live resize. You can't increase the size of OS disks without stopping the VM. 
+- You can expand your storage capacity by adding or expanding data disks without affecting the OS disk. Only data disks support live resize, you can't increase the size of OS disks without stopping the VM. 
 
-- Performance Isolation: Separating the OS and data onto different disks helps ensure that disks IOPs from the operating system and the application data don't interfere with each other. This can enhance overall system performance, and prevent contention issues that might happen when both the OS and the application are competing for disk resources.
+- Separating the OS from your applications and data onto different disks helps ensure that disks IOPs from the operating system and the application data don't interfere with each other. This can enhance overall system performance, and prevent contention issues that might happen when both the OS and applications are competing for disk resources.
 
-- Ease of Maintenance and Recovery: If there's a system failure or corruption occurs on the OS disk, you can reimage or reinstall the operating system without affecting the data disk. This reduces the risk of data loss and makes it easier when troubleshooting and for maintenance procedures.
+- If there's a system failure or corruption occurs on the OS disk, you can reimage or reinstall the operating system without affecting the data disk. This reduces the risk of data loss and makes it easier when troubleshooting and for maintenance procedures.
 
-- Improved Security and Access Control: You can apply separate access controls and permissions to the OS disk and the data disk. This separation limits access to critical system files on the OS disk, while providing appropriate access rights to the data disk. This reduces the chances of unauthorized access or accidental modifications to system files, mitigating potential security risks.
+- You can apply separate access controls and permissions to the OS disk and the data disk. This separation limits access to critical system files on the OS disk, mitigating potential security risks.
 
 ## Managed disk snapshots
 
