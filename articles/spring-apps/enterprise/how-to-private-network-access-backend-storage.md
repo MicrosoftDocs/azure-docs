@@ -1,5 +1,5 @@
 ---
-title:  Private network access to backend storage in your virtual network
+title:  Configure private network access for backend storage in your virtual network
 description: Learn how to configure private network access to backend storage in your virtual network
 author: KarlErickson
 ms.author: karler
@@ -9,7 +9,7 @@ ms.date: 01/10/2024
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
 ---
 
-# Private network access to backend storage in your virtual network
+# Configure private network access for backend storage in your virtual network
 
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
@@ -59,6 +59,9 @@ az spring update \
     --enable-private-storage-access true/false
 ```
 
+> [!IMPORTANT]
+> Due to the backend storage is accessed privately after enabling this feature, you should deploy your application within your virtual network.
+
 ## FAQs
 
 ### IP Address may be Exhausted in Smaller Subnet Ranges
@@ -71,8 +74,11 @@ The Azure Spring Apps instance does not incur charges for this feature. However,
 
 ### Using Custom DNS Servers
 
-If you use custom DNS server and Azure DNS IP `168.63.129.16` is not configured as the upstream DNS server, you should manually bind all of the DNS records of private DNS zones shown in the resource group `ap-res_{service instance name}_{service instance region}` to resolve the private IP addresses.
+If you are using a custom DNS server and the Azure DNS IP `168.63.129.16` is not configured as the upstream DNS server, you should manually bind all the DNS records of private DNS zones shown in the resource group `ap-res_{service instance name}_{service instance region}` to resolve the private IP addresses.
 
+### Mitigate Possibly Issue caused by DNS cache
+
+We have not observed any obvious downtime caused by DNS cache after enabling or disabling the private storage access feature. If you encounter any issues caused by DNS cache, please try flushing the DNS settings. For more information, see [How to flush DNS settings changes in Azure Spring Apps](how-to-use-flush-dns-settings.md).
 
 ## Next steps
 
