@@ -52,6 +52,8 @@ Data Box Heavy is designed to move massive amounts of data to Azure with little 
 
 ## Features and specifications
 
+[!INCLUDE [data-box-cross-region](../../includes/data-box-cross-region.md)]
+
 The Data Box Heavy device has the following features in this release.
 
 | Specifications                                          | Description              |
