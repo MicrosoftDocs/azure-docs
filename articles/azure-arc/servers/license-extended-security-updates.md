@@ -45,6 +45,12 @@ Each WS2012 ESU license can cover up to and including 10,000 cores. If you need 
 
 In all cases, you're required to attest to conformance with SA or SPLA. There is no exception for these requirements. Software Assurance or an equivalent Server Subscription is required for you to purchase Extended Security Updates on-premises and in hosted environments. You will be able to purchase Extended Security Updates from Enterprise Agreement (EA), Enterprise Subscription Agreement (EAS), a Server & Cloud Enrollment (SCE), and Enrollment for Education Solutions (EES). On Azure, you do not need Software Assurance to get free Extended Security Updates, but Software Assurance or Server Subscription is required to take advantage of the Azure Hybrid Benefit.
 
+### Visual Studio subscription benefit for dev/test scenarios
+
+Visual Studio subscriptions allow developers to get product keys for Windows Server at no additional cost to help them develop and test their software. If a Windows Server 2012 server's operating system is licensed through a product key obtained from a Visual Studio subscription, you can also get extended security updates for these servers at no additional cost. To configure ESU licenses for these servers using Azure Arc, you must have at least one server with paid ESU usage. You can't create an ESU license where all associated servers are entitled to the Visual Studio subscription benefit. See [additional scenarios](deliver-extended-security-updates.md#additional-scenarios) in the deployment article for more information on how to provision an ESU license correctly for this scenario.
+
+Development, test, and other non-production servers that have a paid operating system license (from your organization's volume licensing key, for example) **must** use a paid ESU license as well. The only servers entitled to ESU licenses at no additional cost are those whose operating system licenses came from a Visual Studio subscription.
+
 ## Cost savings with migration and modernization of workloads
 
 As you migrate and modernize your Windows Server 2012 and Windows 2012 R2 infrastructure through the end of 2023, you can utilize the flexibility of monthly billing with Windows Server 2012 ESUs enabled by Azure Arc for cost savings benefits.
