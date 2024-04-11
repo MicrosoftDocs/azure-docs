@@ -14,15 +14,15 @@ ms.date: 02/29/2024
 
 The ingestion agent is a software package that is installed onto a Linux Virtual Machine (VM) owned and managed by you. You might need to upgrade the agent.
 
-This article contains examples on how to upgrade your ingestion agent, and how to roll back an upgrade.
+This article describes how to upgrade your ingestion agent, and how to roll back an upgrade.
 
 ## Prerequisites
 
-Decide which version of the ingestion agent you would like to upgrade to. If no version is specified when upgrading, the current version is installed.
+Decide which version of the ingestion agent you would like to upgrade to. If you don't specify a version when you upgrade, you'll upgrade to the most recent version.
 
 See [What's new with Azure Operator Insights ingestion agent](ingestion-agent-release-notes.md) for a list of recent releases and to see what's changed in each version. If you're looking for an agent version that's more than six months old, check out the [release notes archive](ingestion-agent-release-notes-archive.md).
 
-If you would like to verify the authenticity of the ingestion agent package before upgrading, see [How to use the GPG Repository Signing Key](https://learn.microsoft.com/linux/packages#how-to-use-the-gpg-repository-signing-key).
+If you would like to verify the authenticity of the ingestion agent package before upgrading, see [How to use the GPG Repository Signing Key](/linux/packages#how-to-use-the-gpg-repository-signing-key).
 
 ## Upgrade the agent software
 
