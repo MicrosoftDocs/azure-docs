@@ -93,6 +93,9 @@ Our testing setup was done in US East region with client virtual machine type [D
 > [!div class="mx-imgBorder"]
 > ![Results for sequential IOPS tests](./media/network-file-system-protocol-performance-benchmark/seq_iops.png)
 
+> [!NOTE]
+> Results for sequential IOPS tests show values larger than [Storage Account limits](../common/scalability-targets-standard-account.md) for requests per second. IOPS are measured on the client side and larger values are due to service optimizations and sequential nature of the test.
+
 ### Measuring random IOPS
 
 #### Read IOPS
