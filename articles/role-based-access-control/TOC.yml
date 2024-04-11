@@ -47,6 +47,8 @@
       href: delegate-role-assignments-overview.md
     - name: Authorization actions and attributes
       href: conditions-authorization-actions-attributes.md
+    - name: Example conditions
+      href: delegate-role-assignments-examples.md
   - name: ABAC conditions
     items:
     - name: Condition format
@@ -103,8 +105,6 @@
       href: role-assignments-portal-subscription-admin.md
     - name: Delegate role assignment management with conditions
       href: delegate-role-assignments-portal.md
-    - name: Example conditions
-      href: delegate-role-assignments-examples.md
   - name: Add or edit ABAC conditions
     items:
     - name: Portal
