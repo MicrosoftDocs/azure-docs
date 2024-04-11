@@ -16,7 +16,8 @@
           "**/includes/**",
           "**/obj/**",
           "**/*.graffle",
-          "machine-learning/**"
+          "machine-learning/**",
+          "machine-learning/v1/**"
         ]
       },
       {
@@ -121,7 +122,8 @@
           "ai-services/document-intelligence/**",
           "**/_themes/**",
           "**/obj/**",
-          "machine-learning/**"
+          "machine-learning/**",
+          "machine-learning/v1/**"
         ]
       },
       {
