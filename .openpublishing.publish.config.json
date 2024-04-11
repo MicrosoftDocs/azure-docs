@@ -975,6 +975,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "azure-typescript-e2e-apps",
+      "url": "https://github.com/Azure-Samples/azure-typescript-e2e-apps",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "azure-webpubsub",
       "url": "https://github.com/Azure/azure-webpubsub",
       "branch": "main",
