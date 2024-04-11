@@ -39,8 +39,6 @@ The VM availability metric is currently in public preview. This metric value ind
 
 The dimension Logical Unit Number (`LUN`) is associated with some of the preceding metrics.
 
-## Azure Monitor Logs tables
-
 [!INCLUDE [horz-monitor-ref-logs-tables](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-logs-tables.md)]
 
 | Table | Categories | Data collection method|[Supports basic log plan](/azure/azure-monitor/logs/basic-logs-configure?tabs=portal-1#compare-the-basic-and-analytics-log-data-plans)| Queries|
