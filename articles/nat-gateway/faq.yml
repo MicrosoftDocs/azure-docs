@@ -104,7 +104,7 @@ sections:
           No configuration on the subnet route table is required in order to start connecting outbound with NAT gateway. When NAT gateway is assigned to a subnet, NAT gateway becomes the next hop type for all internet destined traffic. Traffic can start connecting outbound to the internet as soon as NAT gateway is assigned to a subnet and at least one public IP address. 
           
   - name: NAT gateway configurations
-    questions:  
+    questions:
       - question: Can NAT gateway be deployed without a public IP address or subnet?
         answer: |
           Yes, NAT gateway can be deployed without a public IP address or prefix and subnet. However, it's not operational until you attach at least one public IP address or prefix and a subnet. 
@@ -205,7 +205,7 @@ sections:
           When a TCP/UDP connection is closed, the port is placed in a cool down period before it can be reused to connect to the same destination endpoint. For more information, see [SNAT port reuse timers](nat-gateway-resource.md#port-reuse-timers). Connections going to a different destination can use a SNAT port right away. For more information, see [SNAT with NAT gateway](/azure/nat-gateway/nat-gateway-snat#nat-gateway-snat-port-selection-and-reuse). 
           
   - name: NAT gateway integration with other Azure services
-    questions:  
+    questions:
       - question: Can I use NAT gateway with Azure App Services? 
         answer: |
           Yes. NAT gateway can be used with Azure App Services in order to allow applications to direct outbound traffic to the internet from a virtual network. To use this integration between NAT gateway and Azure App Services, regional virtual network integration must be enabled. For guidance on how to enable virtual network integration with NAT gateway, see [NAT gateway integration](../app-service/networking/nat-gateway-integration.md).

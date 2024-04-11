@@ -15,7 +15,7 @@ summary: |
 
 sections:
   - name: General
-    questions:        
+    questions:
       - question: |
           What's the difference between autoscale and autopilot in Azure Cosmos DB?
         answer: |

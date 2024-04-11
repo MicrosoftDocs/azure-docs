@@ -266,7 +266,7 @@
     - name: Linux
       href: ../virtual-machines/linux/scheduled-events.md
       maintainContext: true
-      displayname: Scheduled events
+      displayName: Scheduled events
     - name: Windows
       items:
       - name: Scheduled events
