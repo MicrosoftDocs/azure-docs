@@ -1,5 +1,5 @@
 ---
-title: Known issues
+title: Troubleshooting
 description: "Troubleshooting in site manager"
 author: torreymicrosoft
 ms.author: torreyt
