@@ -1,162 +1,162 @@
 {
   "redirections": [
     {
-      "source_path": "articles/iot-accelerators/about-iot-accelerators.md",
+      "source_path_from_root": "/articles/iot-accelerators/about-iot-accelerators.md",
       "redirect_url": "/previous-versions/azure/iot-accelerators/about-iot-accelerators",
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/iot-accelerators/iot-accelerators-connected-factory-configure.md",
+      "source_path_from_root": "/articles/iot-accelerators/iot-accelerators-connected-factory-configure.md",
       "redirect_url": "/previous-versions/azure/iot-accelerators/iot-accelerators-connected-factory-configure",
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/iot-accelerators/iot-accelerators-connected-factory-customize.md",
+      "source_path_from_root": "/articles/iot-accelerators/iot-accelerators-connected-factory-customize.md",
       "redirect_url": "/previous-versions/azure/iot-accelerators/iot-accelerators-connected-factory-customize",
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/iot-accelerators/iot-accelerators-connected-factory-dashboard.md",
+      "source_path_from_root": "/articles/iot-accelerators/iot-accelerators-connected-factory-dashboard.md",
       "redirect_url": "/previous-versions/azure/iot-accelerators/iot-accelerators-connected-factory-dashboard",
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/iot-accelerators/iot-accelerators-connected-factory-features.md",
+      "source_path_from_root": "/articles/iot-accelerators/iot-accelerators-connected-factory-features.md",
       "redirect_url": "/previous-versions/azure/iot-accelerators/iot-accelerators-connected-factory-features",
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/iot-accelerators/iot-accelerators-permissions.md",
+      "source_path_from_root": "/articles/iot-accelerators/iot-accelerators-permissions.md",
       "redirect_url": "/previous-versions/azure/iot-accelerators/iot-accelerators-permissions",
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/iot-accelerators/overview-iot-industrial.md",
+      "source_path_from_root": "/articles/iot-accelerators/overview-iot-industrial.md",
       "redirect_url": "/previous-versions/azure/iot-accelerators/overview-iot-industrial",
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/iot-accelerators/quickstart-connected-factory-deploy.md",
+      "source_path_from_root": "/articles/iot-accelerators/quickstart-connected-factory-deploy.md",
       "redirect_url": "/previous-versions/azure/iot-accelerators/quickstart-connected-factory-deploy",
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/iot-accelerators/iot-accelerators-faq-cf.yml",
+      "source_path_from_root": "/articles/iot-accelerators/iot-accelerators-faq-cf.yml",
       "redirect_url": "/previous-versions/azure/iot-accelerators/iot-accelerators-faq-cf",
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/iot-accelerators/iot-accelerators-faq.yml",
+      "source_path_from_root": "/articles/iot-accelerators/iot-accelerators-faq.yml",
       "redirect_url": "/previous-versions/azure/iot-accelerators/iot-accelerators-faq",
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/iot-accelerators/index.yml",
+      "source_path_from_root": "/articles/iot-accelerators/index.yml",
       "redirect_url": "/previous-versions/azure/iot-accelerators/",
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/iot-accelerators/iot-accelerators-device-simulation-advanced-device.md",
+      "source_path_from_root": "/articles/iot-accelerators/iot-accelerators-device-simulation-advanced-device.md",
       "redirect_url": "/previous-versions/azure/iot-accelerators/iot-accelerators-device-simulation-advanced-device",
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/iot-accelerators/iot-accelerators-device-simulation-choose-hub.md",
+      "source_path_from_root": "/articles/iot-accelerators/iot-accelerators-device-simulation-choose-hub.md",
       "redirect_url": "/previous-versions/azure/iot-accelerators/iot-accelerators-device-simulation-choose-hub",
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/iot-accelerators/iot-accelerators-device-simulation-create-custom-device.md",
+      "source_path_from_root": "/articles/iot-accelerators/iot-accelerators-device-simulation-create-custom-device.md",
       "redirect_url": "/previous-versions/azure/iot-accelerators/iot-accelerators-device-simulation-create-custom-device",
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/iot-accelerators/iot-accelerators-device-simulation-create-simulation.md",
+      "source_path_from_root": "/articles/iot-accelerators/iot-accelerators-device-simulation-create-simulation.md",
       "redirect_url": "/previous-versions/azure/iot-accelerators/iot-accelerators-device-simulation-create-simulation",
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/iot-accelerators/iot-accelerators-device-simulation-overview.md",
+      "source_path_from_root": "/articles/iot-accelerators/iot-accelerators-device-simulation-overview.md",
       "redirect_url": "/previous-versions/azure/iot-accelerators/iot-accelerators-device-simulation-overview",
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/iot-accelerators/iot-accelerators-device-simulation-protobuf.md",
+      "source_path_from_root": "/articles/iot-accelerators/iot-accelerators-device-simulation-protobuf.md",
       "redirect_url": "/previous-versions/azure/iot-accelerators/iot-accelerators-device-simulation-protobuf",
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/iot-accelerators/iot-accelerators-device-simulation-time-series-insights.md",
+      "source_path_from_root": "/articles/iot-accelerators/iot-accelerators-device-simulation-time-series-insights.md",
       "redirect_url": "/previous-versions/azure/iot-accelerators/iot-accelerators-device-simulation-time-series-insights",
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/iot-accelerators/howto-opc-publisher-configure.md",
+      "source_path_from_root": "/articles/iot-accelerators/howto-opc-publisher-configure.md",
       "redirect_url": "/previous-versions/azure/iot-accelerators/howto-opc-publisher-configure",
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/iot-accelerators/howto-opc-publisher-run.md",
+      "source_path_from_root": "/articles/iot-accelerators/howto-opc-publisher-run.md",
       "redirect_url": "/previous-versions/azure/iot-accelerators/howto-opc-publisher-run",
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/iot-accelerators/howto-opc-twin-deploy-dependencies.md",
+      "source_path_from_root": "/articles/iot-accelerators/howto-opc-twin-deploy-dependencies.md",
       "redirect_url": "/previous-versions/azure/iot-accelerators/howto-opc-twin-deploy-dependencies",
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/iot-accelerators/howto-opc-twin-deploy-existing.md",
+      "source_path_from_root": "/articles/iot-accelerators/howto-opc-twin-deploy-existing.md",
       "redirect_url": "/previous-versions/azure/iot-accelerators/howto-opc-twin-deploy-existing",
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/iot-accelerators/howto-opc-twin-deploy-modules.md",
+      "source_path_from_root": "/articles/iot-accelerators/howto-opc-twin-deploy-modules.md",
       "redirect_url": "/previous-versions/azure/iot-accelerators/howto-opc-twin-deploy-modules",
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/iot-accelerators/howto-opc-vault-deploy.md",
+      "source_path_from_root": "/articles/iot-accelerators/howto-opc-vault-deploy.md",
       "redirect_url": "/previous-versions/azure/iot-accelerators/howto-opc-vault-deploy",
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/iot-accelerators/howto-opc-vault-manage.md",
+      "source_path_from_root": "/articles/iot-accelerators/howto-opc-vault-manage.md",
       "redirect_url": "/previous-versions/azure/iot-accelerators/howto-opc-vault-manage",
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/iot-accelerators/howto-opc-vault-secure-ca.md",
+      "source_path_from_root": "/articles/iot-accelerators/howto-opc-vault-secure-ca.md",
       "redirect_url": "/previous-versions/azure/iot-accelerators/howto-opc-vault-secure-ca",
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/iot-accelerators/howto-opc-vault-secure.md",
+      "source_path_from_root": "/articles/iot-accelerators/howto-opc-vault-secure.md",
       "redirect_url": "/previous-versions/azure/iot-accelerators/howto-opc-vault-secure",
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/iot-accelerators/overview-opc-publisher.md",
+      "source_path_from_root": "/articles/iot-accelerators/overview-opc-publisher.md",
       "redirect_url": "/previous-versions/azure/iot-accelerators/overview-opc-publisher",
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/iot-accelerators/overview-opc-twin-architecture.md",
+      "source_path_from_root": "/articles/iot-accelerators/overview-opc-twin-architecture.md",
       "redirect_url": "/previous-versions/azure/iot-accelerators/overview-opc-twin-architecture",
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/iot-accelerators/overview-opc-twin.md",
+      "source_path_from_root": "/articles/iot-accelerators/overview-opc-twin.md",
       "redirect_url": "/previous-versions/azure/iot-accelerators/overview-opc-twin",
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/iot-accelerators/overview-opc-vault-architecture.md",
+      "source_path_from_root": "/articles/iot-accelerators/overview-opc-vault-architecture.md",
       "redirect_url": "/previous-versions/azure/iot-accelerators/overview-opc-vault-architecture",
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/iot-accelerators/overview-opc-vault.md",
+      "source_path_from_root": "/articles/iot-accelerators/overview-opc-vault.md",
       "redirect_url": "/previous-versions/azure/iot-accelerators/overview-opc-vault",
       "redirect_document_id": false
     },
