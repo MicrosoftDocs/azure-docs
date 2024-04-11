@@ -14,7 +14,7 @@ ms.collection: Tier1
 # Azure Firewall integration in Microsoft Copilot for Security
 
 > [!IMPORTANT]
-> Azure Firewall in Microsoft Copilot for Security is currently in PREVIEW.
+> Azure Firewall integration in Microsoft Copilot for Security is currently in PREVIEW.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 
@@ -48,7 +48,7 @@ This article introduces you to Copilot and includes sample prompts that can help
  
 For more information about writing effective Copilot for Security prompts, see [Create effective prompts](/copilot/security/prompting-tips).
 
-## Using Azure Firewall plugin in Copilot for Security standalone portal
+## Using the Azure Firewall integration in the Copilot for Security standalone portal
 
 1.  Ensure your Azure Firewall is configured correctly:
 - [Azure Structured Firewall Logs](firewall-structured-logs.md#resource-specific-mode) – the Azure Firewalls to be used with Copilot for Security must be configured with resource specific structured logs for IDPS and Threat Intelligence and these logs must be sent to a Log Analytics workspace.
