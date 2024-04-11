@@ -4,7 +4,6 @@ description: Public endpoint connectivity for Virtual Machines using Azure Stand
 services: virtual-machines-windows,virtual-network,storage,
 author: rdeltcheva
 manager: juergent
-tags: azure-resource-manager
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article

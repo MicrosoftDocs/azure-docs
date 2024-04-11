@@ -5,7 +5,7 @@ description: This article shows you how to use Azure Front Door to deliver high-
 services: frontdoor
 author: duongau
 ms.service: frontdoor
-ms.topic: quickstart
+ms.topic: how-to
 ms.date: 08/22/2023
 ms.author: duau
 ms.custom: mvc, mode-other

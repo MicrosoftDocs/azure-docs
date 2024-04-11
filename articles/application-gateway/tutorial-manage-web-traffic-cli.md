@@ -7,7 +7,7 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 04/27/2023
 ms.author: greglin
-ms.custom: devx-track-azurecli, linux-related-content
+ms.custom: devx-track-azurecli
 ---
 
 # Manage web traffic with an application gateway using the Azure CLI
@@ -24,7 +24,7 @@ If you prefer, you can complete this procedure using [Azure PowerShell](tutorial
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
  - This tutorial requires version 2.0.4 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 

@@ -156,13 +156,13 @@ Before starting this part of the tutorial, ensure you've completed the steps in 
 3. In **hero.service.js**, export the new modules:
 
    ```javascript
-    module.exports = {
-      getHeroes,
-      postHero,
-      putHero,
-      deleteHero
-    };
-    ```
+   module.exports = {
+     getHeroes,
+     postHero,
+     putHero,
+     deleteHero
+   };
+   ```
 
 4. Now that we've updated the code, select the **Restart** button :::image type="icon" source="./media/tutorial-develop-nodejs-part-6/restart-debugger-button.png"::: in Visual Studio Code.
 

@@ -65,13 +65,28 @@ If you have permission to approve the Microsoft Purview private endpoint connect
 1. Go to **Manage** -> **Microsoft Purview** -> **Edit**
 2. In the private endpoint list, click the **Edit** (pencil) button next to each private endpoint name
 3. Click **Manage approvals in Azure portal** which will bring you to the resource.
-4. On the given resource, go to **Networking** -> **Private endpoint connection** to approve it. The private endpoint is named as `data_factory_name.your_defined_private_endpoint_name` with description as "Requested by data_factory_name".
+4. On the given resource, go to **Networking** -> **Private endpoint connection** or **Ingestion private endpoint connections** to approve it. The private endpoint is named as `data_factory_name.your_defined_private_endpoint_name` with description as "Requested by data_factory_name".
 5. Repeat this operation for all private endpoints.
 
 If you don't have permission to approve the Microsoft Purview private endpoint connection, ask the Microsoft Purview account owner to do as follows.
 
+For Microsoft Purview accounts using the [Microsoft Purview portal](/purview/purview-portal):
+
+1. Go to the Azure portal -> your Microsoft Purview account.
+1. Select **Networking** -> **Ingestion private endpoint connections** to approve it. The private endpoint is named as `data_factory_name.your_defined_private_endpoint_name` with description as "Requested by data_factory_name".
+
+For Microsoft Purview accounts using the [classic Microsoft Purview governance portal](/purview/use-microsoft-purview-governance-portal):
+
 - For *account* private endpoint, go to Azure portal -> your Microsoft Purview account -> Networking -> Private endpoint connection to approve.
-- For *ingestion* private endpoints, go to Azure portal -> your Microsoft Purview account -> Managed resources, click into the Storage account and Event Hubs namespace respectively, and approve the private endpoint connection in Networking -> Private endpoint connection page.
+- If your account was created after November 10 2023 (or deployed using API version 2023-05-01-preview onwards):
+   1. Go to the Azure portal -> your Microsoft Purview account.
+   1. Select **Networking** -> **Ingestion private endpoint connections** to approve it. The private endpoint is named as `data_factory_name.your_defined_private_endpoint_name` with description as "Requested by data_factory_name".
+- If your account was created before November 10 2023 (or deployed using a version of the API older than 2023-05-01-preview):
+   1. Go to Azure portal -> your Microsoft Purview account -> Managed resources.
+   1. Select the Storage account and Event Hubs namespace respectively, and approve the private endpoint connection in Networking -> Private endpoint connection page.
+
+      >[!TIP]
+      > Your account will only have a managed Event Hubs namespace if it is [configured for Kafka notifications](/purview/configure-event-hubs-for-kafka).
 
 ### Monitor managed private endpoints
 

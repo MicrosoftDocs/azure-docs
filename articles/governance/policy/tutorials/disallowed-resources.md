@@ -88,7 +88,7 @@ Now that you assigned a built-in policy definition, go to [All Services](https:/
 Now suppose that one subscope should be allowed to have the resource types disabled by this policy. Let's create an exemption on this scope so that otherwise restricted resources can be deployed there.
 
 > [!WARNING]
-> If you assign this policy definition to your root management group scope, Azure portal is unable to detect exemptions at lower level scopes. Resources disallowed by the policy assignment will show as disabled from the **All Services** list and the **Create** option is unavailable.
+> If you assign this policy definition to your root management group scope, Azure portal is unable to detect exemptions at lower level scopes. Resources disallowed by the policy assignment will show as disabled from the **All Services** list and the **Create** option is unavailable. But you can create resources in the exempted scope with clients like Azure CLI, Azure PowerShell, or Azure Resource Manager templates.
 
 1. Select **Assignments** under **Authoring** in the left side of the Azure Policy page.
 

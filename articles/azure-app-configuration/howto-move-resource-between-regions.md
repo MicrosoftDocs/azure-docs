@@ -54,7 +54,7 @@ Follow these steps to export your configuration to the target store using the Az
     az appconfig kv export -n SourceConfigurationStore -d appconfig --dest-name TargetConfigurationStore --key * --label * --preserve-labels
     ```
 
-1. To verify that your configurations have been successfully transferred from your source to your target store, list all of the key values in your target store.
+1. To verify that your configurations have been successfully transferred from your source to your target store, list all of the key-values in your target store.
 
     ```azurecli
     az appconfig kv list -n TargetAppConfiguration --all

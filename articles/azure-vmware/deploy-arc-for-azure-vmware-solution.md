@@ -1,5 +1,5 @@
 ---
-title: Deploy Arc-enabled Azure VMware Solution
+title: Deploy Arc-enabled VMware vSphere for Azure VMware Solution private cloud
 description: Learn how to set up and enable Arc for your Azure VMware Solution private cloud.
 ms.topic: how-to 
 ms.service: azure-vmware
@@ -7,9 +7,9 @@ ms.date: 12/08/2023
 ms.custom: references_regions, devx-track-azurecli, engagement-fy23
 ---
 
-# Deploy Arc-enabled Azure VMware Solution
+# Deploy Arc-enabled VMware vSphere for Azure VMware Solution private cloud
 
-In this article, learn how to deploy Arc for Azure VMware Solution. Once you set up the components needed, you're ready to execute operations in Azure VMware Solution vCenter Server from the Azure portal. Arc-enabled Azure VMware Solution allows you to do the actions:
+In this article, learn how to deploy Arc-enabled VMware vSphere for Azure VMware Solution private cloud. Once you set up the components needed, you're ready to execute operations in Azure VMware Solution vCenter Server from the Azure portal. Arc-enabled Azure VMware Solution allows you to do the following actions:
 
 - Identify your VMware vSphere resources (VMs, templates, networks, datastores, clusters/hosts/resource pools) and register them with Arc at scale. 
 - Perform different virtual machine (VM) operations directly from Azure like; create, resize, delete, and power cycle operations (start/stop/restart) on VMware VMs consistently with Azure.
@@ -20,14 +20,12 @@ In this article, learn how to deploy Arc for Azure VMware Solution. Once you set
 
 ## Deployment Considerations 
 
-Running software in Azure VMware Solution, as a private cloud in Azure, offers some benefits not realized by operating your environment outside of Azure. For software running in a VM, such as SQL Server and Windows Server, running in Azure VMware Solution provides additional value such as free Extended Security Updates (ESUs).
+When you run software in Azure VMware Solution, as a private cloud in Azure, there are benefits not realized by operating your environment outside of Azure. For software running in a virtual machine (VM) like, SQL Server and Windows Server, running in Azure VMware Solution provides more value such as free Extended Security Updates (ESUs).
 
-To take advantage of these benefits if you are running in an Azure VMware Solution it is important to enable Arc through this document to fully integrate the experience with the AVS private cloud. Alternatively, Arc-enabling VMs through the following mechanisms will not create the necessary attributes to register the VM and software as part of Azure VMware Solution and therefore result in billing for SQL Server ESUs for:
+To take advantage of the benefits when you're running in an Azure VMware Solution, use this article to enable Arc and fully integrate the experience with the Azure VMware Solution private cloud. Alternatively, Arc-enabling VMs through the following mechanisms won't create the necessary attributes to register the VM and software as part of Azure VMware Solution and will result in billing for SQL Server ESUs for:
 
 - Arc-enabled servers
-
 - Arc-enabled VMware vSphere
-
 - SQL Server enabled by Azure Arc
 
 ## How to manually integrate an Arc-enabled VM into Azure VMware Solutions
@@ -40,7 +38,7 @@ There are two ways to refresh the integration between the Arc-enabled VMs and Az
 
 1. In the Azure VMware Solution private cloud, navigate to the vCenter Server inventory and Virtual Machines section within the portal. Locate the virtual machine that requires updating and follow the process to 'Enable in Azure'. If the option is grayed out, you must first **Remove from Azure** and then proceed to **Enable in Azure**
 
-2. Run the [az connectedvmware vm create ](/cli/azure/connectedvmware/vm#az-connectedvmware-vm-create)Azure CLI command on the VM in Azure VMware Solution to update the machine type. 
+2. Run the [az connectedvmware vm create](/cli/azure/connectedvmware/vm?view=azure-cli-latest%22%20\l%20%22az-connectedvmware-vm-create&preserve-view=true) Azure CLI command on the VM in Azure VMware Solution to update the machine type. 
 
 
 ```azurecli
@@ -63,37 +61,25 @@ You need the following items to ensure you're set up to begin the onboarding pro
 - From the Management VM, verify you  have access to [vCenter Server and NSX-T manager portals](/azure/azure-vmware/tutorial-access-private-cloud#connect-to-the-vcenter-server-of-your-private-cloud).
 - A resource group in the subscription where you have an owner or contributor role.
 - An unused, isolated [NSX Data Center network segment](/azure/azure-vmware/tutorial-nsx-t-network-segment) that is a static network segment used for deploying the Arc for Azure VMware Solution OVA. If an isolated NSX-T Data Center network segment doesn't exist, one gets created.
-- Verify your Azure subscription is enabled and has connectivity to Azure end points.
-- The firewall and proxy URLs must be allowlisted in order to enable communication from the management machine, Appliance VM, and Control Plane IP to the required Arc resource bridge URLs. See the [Azure Arc resource bridge network requirements](/azure/azure-arc/resource-bridge/network-requirements).
-- Verify your vCenter Server version is 6.7 or higher.
+- The firewall and proxy URLs must be allowlisted to enable communication from the management machine and Appliance VM to the required Arc resource bridge URLs. See the [Azure Arc resource bridge network requirements](/azure/azure-arc/resource-bridge/network-requirements).
+- Verify your vCenter Server version is 7.0 or higher.
 - A resource pool or a cluster with a minimum capacity of 16 GB of RAM and four vCPUs.
 - A datastore with a minimum of 100 GB of free disk space is available through the resource pool or cluster. 
-- On the vCenter Server, allow inbound connections on TCP port 443. This action ensures that the Arc resource bridge and VMware vSphere cluster extension can communicate with the vCenter Server.
 
 > [!NOTE]
 > - Private endpoint is currently not supported.
 > - DHCP support isn't available to customers at this time, only static IP addresses are currently supported.
 
+If you want to use a custom DNS, use the following steps:
 
-## Registration to Arc for Azure VMware Solution feature set
-
-The following **Register features** are for provider registration using Azure CLI.
-
-```azurecli
-az provider register --namespace Microsoft.ConnectedVMwarevSphere 
-az provider register --namespace Microsoft.ExtendedLocation 
-az provider register --namespace Microsoft.KubernetesConfiguration 
-az provider register --namespace Microsoft.ResourceConnector 
-az provider register --namespace Microsoft.AVS
-```
-Alternately, users can sign in to their Subscription, navigate to the **Resource providers** tab, and register themselves on the resource providers mentioned previously.
-
+1. In your Azure VMware Solution private cloud, navigate to the DNS page, under **Workload networking**, select **DNS** and identify the default forwarder-zones under the **DNS zones** tab.
+1. Edit the forwarder zone to add the custom DNS server IP. By adding the custom DNS as the first IP, it allows requests to be directly forwarded to the first IP and decreases the number of retries.
 
 ## Onboard process to deploy Azure Arc
 
 Use the following steps to guide you through the process to onboard Azure Arc for Azure VMware Solution.
 
-1. Sign in to the jumpbox VM and extract the contents from the compressed file from the following [location](https://github.com/Azure/ArcOnAVS/releases/latest). The extracted file contains the scripts to install the preview software.
+1. Sign in to the Management VM and extract the contents from the compressed file from the following [location](https://github.com/Azure/ArcOnAVS/releases/latest). The extracted file contains the scripts to install the software.
 2. Open the 'config_avs.json' file and populate all the variables.
 
     **Config JSON**
@@ -121,7 +107,9 @@ Use the following steps to guide you through the process to onboard Azure Arc fo
     - `GatewayIPAddress` is the gateway for the segment for Arc appliance VM. 
     - `applianceControlPlaneIpAddress` is the IP address for the Kubernetes API server that should be part of the segment IP CIDR provided. It shouldn't be part of the K8s node pool IP range.  
     - `k8sNodeIPPoolStart`, `k8sNodeIPPoolEnd` are the starting and ending IP of the pool of IPs to assign to the appliance VM. Both need to be within the `networkCIDRForApplianceVM`. 
-    - `k8sNodeIPPoolStart`, `k8sNodeIPPoolEnd`, `gatewayIPAddress` ,`applianceControlPlaneIpAddress` are optional. You can choose to skip all the optional fields or provide values for all. If you choose not to provide the optional fields, then you must use /28 address space for `networkCIDRForApplianceVM`
+    - `k8sNodeIPPoolStart`, `k8sNodeIPPoolEnd`, `gatewayIPAddress` ,`applianceControlPlaneIpAddress` are optional. You can choose to skip all the optional fields or provide values for all. If you choose not to provide the optional fields, then you must use /28 address space for `networkCIDRForApplianceVM` with the first lp as the gateway.
+    - If all the parameters are provided, the firewall and proxy URLs must be allowlisted for the lps between k8sNodeIPPoolStart, k8sNodeIPPoolEnd.
+    - If you're skipping the optional fields, the firewall and proxy URLs must be allowlisted the following IPs in the segment. If the networkCIDRForApplianceVM is x.y.z.1/28, the IPs to allowlist are between x.y.z.11 – x.y.z.14. See the [Azure Arc resource bridge network requirements](/azure/azure-arc/resource-bridge/network-requirements).  
 
     **Json example**
     ```json
@@ -199,15 +187,16 @@ Once you connected your Azure VMware Solution private cloud to Azure, you can br
 Repeat the previous steps for one or more virtual machine, network, resource pool, and VM template resources.
 
 Additionally, for virtual machines there is an additional section to configure **VM extensions**.  This will enable guest management to facilitate additional Azure extensions to be installed on the VM. The steps to enable this would be:
+
 1. Select **Enable guest management**.
 2. Choose a __Connectivity Method__ for the Arc agent.
 3. Provide an Administrator/Root access username and password for the VM.
 
-If you choose to enable the guest management as a separate step or have issues with the VM extension install steps please review the prerequisites and steps discussed in the section below. 
+If you choose to enable the guest management as a separate step or have issues with the VM extension install steps, review the prerequisites and steps discussed in the following section. 
 
 ## Enable guest management and extension installation
 
-Before you install an extension, you need to enable guest management on the VMware VM.
+Before you install an extension, you must enable guest management on the VMware VM.
 
 ### Prerequisite
 
@@ -231,17 +220,9 @@ You need to enable guest management on the VMware VM before you can install an e
 1. Select **Configuration** from the left navigation for a VMware VM.
 1. Verify **Enable guest management** is now checked.
 
-From here additional extensions can be installed. See the [VM extensions](/azure/azure-arc/servers/manage-vm-extensions?branch=main) for a list of current extensions. 
-
-### Install extensions
-To add extensions, follow these steps:
-1. Go to **vCenter Server Inventory >** **Virtual Machines** and select the virtual machine to which you need to add an extension.
-2.  Locate **Settings >** **Extensions** from the left navigation and select **Add**. Alternatively, in the **Overview** page an **Extensions** click-through is listed under Properties.
-1. Select the extension you want to install. Some extensions require additional information.
-4.  When you're done, select **Review + create**.
+From here additional extensions can be installed. See the [VM extensions Overview](/azure/azure-arc/servers/manage-vm-extensions) for a list of current extensions.   
 
 ### Next Steps
 
 To manage Arc-enabled Azure VMware Solution go to: [Manage Arc-enabled Azure VMware private cloud - Azure VMware Solution](/azure/azure-vmware/manage-arc-enabled-azure-vmware-solution)
-
 To remove Arc-enabled  Azure VMWare Solution resources from Azure go to: [Remove Arc-enabled Azure VMware Solution vSphere resources from Azure - Azure VMware Solution](/azure/azure-vmware/remove-arc-enabled-azure-vmware-solution-vsphere-resources-from-azure)

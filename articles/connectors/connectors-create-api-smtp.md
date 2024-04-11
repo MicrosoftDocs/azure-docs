@@ -6,7 +6,6 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 01/04/2024
-tags: connectors
 ---
 
 # Connect to your SMTP account from Azure Logic Apps

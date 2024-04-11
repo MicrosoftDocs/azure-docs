@@ -4,8 +4,6 @@ description: Azure PowerShell Script Sample - Create a Service Fabric cluster se
 services: service-fabric
 author: athinanthny
 manager: chackdan
-tags: azure-service-management
-
 ms.assetid: 0f9c8bc5-3789-4eb3-8deb-ae6e2200795a
 ms.service: service-fabric
 ms.topic: sample

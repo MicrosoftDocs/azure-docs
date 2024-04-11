@@ -6,24 +6,20 @@ ms.reviewer: sapnakeshari
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 09/06/2023
+ms.date: 02/13/2024
 ms.author: banders
 ---
 
 # Get started with your Enterprise Agreement billing account
+
+>[!NOTE]
+> On February 15, 2024, the [EA portal](https://ea.azure.com) retired. It's now read only. All EA customers and partners use Cost Management + Billing in the Azure portal to manage their enrollments.
 
 This article helps direct and indirect Azure Enterprise Agreement (Azure EA) customers with their billing administration on the [Azure portal](https://portal.azure.com). Get basic information about:
 
 - Roles used to manage the Enterprise billing account in the Azure portal
 - Subscription creation
 - Cost analysis in the Azure portal
-
-> [!NOTE]
-> The Azure Enterprise portal (EA portal) is getting deprecated. We recommend that EA customers and partners use Cost Management + Billing in the Azure portal to manage their enrollment and billing instead of using the EA portal. For more information about enrollment management in the Azure portal or Azure Government portal,  see [Get started with EA billing in the Azure portal](ea-direct-portal-get-started.md).
->
-> - The EA portal is retiring on November 15, 2023, for EA enrollments in the Azure commercial cloud.
-> - Starting November 15, 2023, indirect EA customers and partners won’t be able to manage their Azure Government EA enrollment in the EA portal. Instead, they must use the Azure Government portal.
-> - The Azure Government portal is accessed only with Azure Government credentials. For more information, see [Access your EA billing account in the Azure Government portal](../../azure-government/documentation-government-how-to-access-enterprise-agreement-billing-account.md).
 
 We have several videos that walk you through getting started with the Azure portal for Enterprise Agreements. Check out the series at [Enterprise Customer Billing Experience in the Azure portal](https://www.youtube.com/playlist?list=PLeZrVF6SXmsoHSnAgrDDzL0W5j8KevFIm).
 
@@ -82,10 +78,9 @@ If you'd like to know about how Azure reservations for VM reserved instances can
 
 [Azure Marketplace](./ea-azure-marketplace.md) explains how EA customers and partners can view marketplace charges and enable Azure Marketplace purchases.
 
-For explanations about the common tasks that a partner EA administrator accomplishes in the Azure EA portal, see [Azure EA portal administration for partners](ea-partner-portal-administration.md).
+For explanations about the common tasks that a partner EA administrator accomplishes in the Azure portal, see [EA billing administration for partners in the Azure portal](ea-billing-administration-partners.md).
 
 ## Next steps
 
 - Read the [Cost Management + Billing FAQ](../cost-management-billing-faq.yml) for questions and answers about getting started with the EA billing administration.
 - Azure Enterprise administrators should read [Azure EA billing administration](direct-ea-administration.md) to learn about common administrative tasks.
-- If you need help with troubleshooting Azure Enterprise portal issues, see [Troubleshoot Azure Enterprise portal access](ea-portal-troubleshoot.md).

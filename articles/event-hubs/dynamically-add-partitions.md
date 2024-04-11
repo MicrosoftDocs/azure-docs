@@ -69,7 +69,7 @@ Event Hubs provides three sender options:
 - **Round-robin sender (default)** – In this scenario, the Event Hubs service round robins the events across partitions, and also uses a load-balancing algorithm. Event Hubs service is aware of partition count changes and will send to new partitions within seconds of altering partition count.
 
 ### Receiver/consumer clients
-Event Hubs provides direct receivers and an easy consumer library called the [Event Processor Host (old SDK)](event-hubs-event-processor-host.md)  or [Event Processor (new SDK)](event-processor-balance-partition-load.md).
+Event Hubs provides direct receivers and an easy consumer library called the [Event Processor](event-processor-balance-partition-load.md).
 
 - **Direct receivers** – The direct receivers listen to specific partitions. Their runtime behavior isn't affected when partitions are scaled out for an event hub. The application that uses direct receivers needs to take care of picking up the new partitions and assigning the receivers accordingly.
 - **Event processor host** – This client doesn't automatically refresh the entity metadata. So, it wouldn't pick up on partition count increase. Recreating an event processor instance will cause an entity metadata fetch, which in turn will create new blobs for the newly added partitions. Pre-existing blobs won't be affected. Restarting all event processor instances is recommended to ensure that all instances are aware of the newly added partitions, and load-balancing is handled correctly among consumers.

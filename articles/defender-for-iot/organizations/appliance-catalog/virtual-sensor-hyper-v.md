@@ -54,7 +54,7 @@ This procedure describes how to create a virtual machine by using Hyper-V.
 
 1. Enter a name for the virtual machine.
 
-1. Select **Generation** and set it to **Generation 1**, and then select **Next**.
+1. Select **Generation** and set it to **Generation 2**, and then select **Next**.
 
 1. Specify the memory allocation [according to your organization's needs](../ot-appliance-sizing.md), in standard RAM denomination (eg. 8192, 16384, 32768). Do not enable **Dynamic Memory**.
 

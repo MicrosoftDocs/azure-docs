@@ -6,6 +6,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/storage/common/azure-defender-storage-configure.md",
+            "redirect_url": "/azure/defender-for-cloud/defender-for-storage-introduction",
+            "redirect_document_id": false
+        },      
+        {
             "source_path_from_root": "/articles/storage/queues/storage-c-plus-plus-how-to-use-queues.md",
             "redirect_url": "/previous-versions/azure/storage/queues/storage-c-plus-plus-how-to-use-queues",
             "redirect_document_id": false
@@ -78,6 +83,16 @@
         {
             "source_path_from_root": "/articles/storage/blobs/data-lake-storage-evaluation.md",
             "redirect_url": "/azure/storage/blobs/data-lake-storage-upgrade",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/immutable-time-based-retention-policy-overview.md",
+            "redirect_url": "/azure/storage/blobs/immutable-storage-overview#time-based-retention-policies",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/immutable-legal-hold-overview.md",
+            "redirect_url": "/azure/storage/blobs/immutable-storage-overview#legal-holds",
             "redirect_document_id": false
         },
         {
@@ -2229,7 +2244,16 @@
             "source_path_from_root": "/articles/vs-azure-tools-storage-manage-with-storage-explorer.md",
             "redirect_url": "/azure/storage/storage-explorer/vs-azure-tools-storage-manage-with-storage-explorer",
             "redirect_document_id": true
-        }
-                        
+        },
+        {
+             "source_path_from_root": "/articles/storage/blobs/data-lake-storage-quickstart-create-connect-hdi-cluster.md",
+             "redirect_url": "/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters",
+             "redirect_document_id": false
+        },
+        {
+             "source_path_from_root": "/articles/storage/blobs/data-lake-storage-use-hdi-cluster.md",
+             "redirect_url": "/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2",
+             "redirect_document_id": false
+        }                  
     ]
 }

@@ -170,7 +170,7 @@ The following table displays the current Defender for Cloud feature availability
 | <li> [Microsoft Defender for open-source relational databases](../../defender-for-cloud/defender-for-databases-introduction.md)                                                         | GA             | Not Available                  |
 | <li> [Microsoft Defender for Key Vault](../../defender-for-cloud/defender-for-key-vault-introduction.md)                                                                                | GA             | Not Available                  |
 | <li> [Microsoft Defender for Resource Manager](../../defender-for-cloud/defender-for-resource-manager-introduction.md)                                                                  | GA             | GA                             |
-| <li> [Microsoft Defender for Storage](../../defender-for-cloud/defender-for-storage-introduction.md) <sup>[6](#footnote6)</sup>                                                         | GA             | GA                             |
+| <li> [Microsoft Defender for Storage](../../defender-for-cloud/defender-for-storage-introduction.md) <sup>[6](#footnote6)</sup>                                                         | GA             | GA (activity monitoring)              |
 | <li> [Microsoft Defender for Azure Cosmos DB](../../defender-for-cloud/defender-for-databases-enable-cosmos-protections.md)                                              | GA | Not Available                  |
 | <li> [Kubernetes workload protection](../../defender-for-cloud/kubernetes-workload-protections.md)                                                                                      | GA             | GA                             |
 | <li> [Bi-directional alert synchronization with Microsoft Sentinel](../../sentinel/connect-azure-security-center.md)                                                                           | Public Preview | Public Preview                 |
@@ -197,7 +197,7 @@ The following table displays the current Defender for Cloud feature availability
 
 <sup><a name="footnote5"></a>5</sup> Requires Microsoft Defender for Kubernetes.
 
-<sup><a name="footnote6"></a>6</sup> Partially GA: Some of the threat protection alerts from Microsoft Defender for Storage are in public preview.
+<sup><a name="footnote6"></a>6</sup> Partially GA: Some of the threat protection alerts from Microsoft Defender for Storage are in public preview. 
 
 <sup><a name="footnote7"></a>7</sup> These features all require [Microsoft Defender for servers](../../defender-for-cloud/defender-for-servers-introduction.md).
 

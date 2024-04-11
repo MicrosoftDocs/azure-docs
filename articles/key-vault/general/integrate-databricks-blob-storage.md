@@ -4,6 +4,7 @@ description: In this tutorial, you'll learn how to access Azure Blob Storage fro
 author: msmbaldwin
 ms.author: mbaldwin
 ms.service: key-vault
+subservice: general
 ms.custom: devx-track-azurecli
 ms.topic: tutorial
 ms.date: 01/30/2024

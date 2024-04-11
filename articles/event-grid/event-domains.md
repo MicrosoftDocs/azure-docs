@@ -48,35 +48,6 @@ Event domains also allow for domain-scope subscriptions. An event subscription o
 
 When you create an event domain, you're given a publishing endpoint similar to if you had created a topic in Event Grid. To publish events to any topic in an event domain, push the events to the domain's endpoint the [same way you would for a custom topic](./post-to-custom-topic.md). The only difference is that you must specify the topic you'd like the event to be delivered to. For example, publishing the following array of events would send event with `"id": "1111"` to topic `foo` while the event with `"id": "2222"` would be sent to topic `bar`.
 
-# [Event Grid event schema](#tab/event-grid-event-schema)
-When using the **Event Grid event schema**, specify the name of the Event Grid topic in the domain as a value for the `topic` property. In the following example, `topic` property is set to `foo` for the first event and to `bar` for the second event.
-
-```json
-[{
-  "topic": "foo",
-  "id": "1111",
-  "eventType": "maintenanceRequested",
-  "subject": "myapp/vehicles/diggers",
-  "eventTime": "2018-10-30T21:03:07+00:00",
-  "data": {
-    "make": "Contoso",
-    "model": "Small Digger"
-  },
-  "dataVersion": "1.0"
-},
-{
-  "topic": "bar",
-  "id": "2222",
-  "eventType": "maintenanceCompleted",
-  "subject": "myapp/vehicles/tractors",
-  "eventTime": "2018-10-30T21:04:12+00:00",
-  "data": {
-    "make": "Contoso",
-    "model": "Big Tractor"
-  },
-  "dataVersion": "1.0"
-}]
-```
 # [Cloud event schema](#tab/cloud-event-schema)
 
 When using the **cloud event schema**, specify the name of the Event Grid topic in the domain as a value for the `source` property. In the following example, `source` property is set to `foo` for the first event and to `bar` for the second event. 
@@ -107,6 +78,36 @@ If you want to use a different field to specify the intended topic in the domain
     "model": "Big Tractor"
   },
 	"specversion": "1.0"
+}]
+```
+
+# [Event Grid event schema](#tab/event-grid-event-schema)
+When using the **Event Grid event schema**, specify the name of the Event Grid topic in the domain as a value for the `topic` property. In the following example, `topic` property is set to `foo` for the first event and to `bar` for the second event.
+
+```json
+[{
+  "topic": "foo",
+  "id": "1111",
+  "eventType": "maintenanceRequested",
+  "subject": "myapp/vehicles/diggers",
+  "eventTime": "2018-10-30T21:03:07+00:00",
+  "data": {
+    "make": "Contoso",
+    "model": "Small Digger"
+  },
+  "dataVersion": "1.0"
+},
+{
+  "topic": "bar",
+  "id": "2222",
+  "eventType": "maintenanceCompleted",
+  "subject": "myapp/vehicles/tractors",
+  "eventTime": "2018-10-30T21:04:12+00:00",
+  "data": {
+    "make": "Contoso",
+    "model": "Big Tractor"
+  },
+  "dataVersion": "1.0"
 }]
 ```
 

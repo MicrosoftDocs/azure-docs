@@ -6,7 +6,7 @@ author: laujan
 manager: nitinme
 ms.service: azure-ai-document-intelligence
 ms.topic: conceptual
-ms.date: 11/21/2023
+ms.date: 02/29/2024
 ms.author: lajanuar
 ms.custom:
   - references_regions
@@ -28,32 +28,36 @@ monikerRange: '>=doc-intel-3.0.0'
 ::: moniker-end
 
 ::: moniker range="doc-intel-3.0.0"
-**This content applies to:** ![checkmark](media/yes-icon.png) **v3.0 (GA)** | **Latest versions:** ![purple-checkmark](media/purple-yes-icon.png) [**v4.0 (preview)**](?view=doc-intel-4.0.0&preserve-view=true) ![purple-checkmark](media/purple-yes-icon.png) [**v3.1 (preview)**](?view=doc-intel-3.1.0&preserve-view=true)
+**This content applies to:** ![checkmark](media/yes-icon.png) **v3.0 (GA)** | **Latest versions:** ![purple-checkmark](media/purple-yes-icon.png) [**v4.0 (preview)**](?view=doc-intel-4.0.0&preserve-view=true) ![purple-checkmark](media/purple-yes-icon.png) [**v3.1**](?view=doc-intel-3.1.0&preserve-view=true)
 ::: moniker-end
 
-Custom neural document models or neural models are a deep learned model type that combines layout and language features to accurately extract labeled fields from documents. The base custom neural model is trained on various document types that makes it suitable to be trained for extracting fields from structured, semi-structured and unstructured documents. Custom neural models are available in the [v3.0 and later models](v3-1-migration-guide.md) The table below lists common document types for each category:
+Custom neural document models or neural models are a deep learned model type that combines layout and language features to accurately extract labeled fields from documents. The base custom neural model is trained on various document types that makes it suitable to be trained for extracting fields from structured, semi-structured, and unstructured documents. Custom neural models are available in the [v3.0 and later models](v3-1-migration-guide.md) The table below lists common document types for each category:
 
-|Documents | Examples |
+| Documents | Examples |
 |---|--|
-|structured| surveys, questionnaires|
-|semi-structured | invoices, purchase orders |
-|unstructured | contracts, letters|
+| Structured| surveys, questionnaires|
+| Semi-structured | invoices, purchase orders |
+| Unstructured | contracts, letters |
 
 Custom neural models share the same labeling format and strategy as [custom template](concept-custom-template.md) models. Currently custom neural models only support a subset of the field types supported by custom template models.
 
 ## Model capabilities
 
+ > [!IMPORTANT]
+ > Starting with API version ```2024-02-29-preview``` custom neural models add support for overlapping fields and table cell confidence.
+
 Custom neural models currently only support key-value pairs and selection marks and structured fields (tables), future releases include support for signatures.
 
-| Form fields | Selection marks | Tabular fields | Signature | Region |
-|:--:|:--:|:--:|:--:|:--:|
-| Supported | Supported | Supported | Unsupported | Supported <sup>1</sup> |
+| Form fields | Selection marks | Tabular fields | Signature | Region | Overlapping fields |
+|:--:|:--:|:--:|:--:|:--:|:--:|
+| Supported | Supported | Supported | Unsupported | Supported <sup>1</sup> | Supported <sup>2</sup> |
 
 <sup>1</sup> Region labels in custom neural models use the results from the Layout API for specified region. This feature is different from template models where, if no value is present, text is generated at training time.
+<sup>2</sup> Overlapping fields are supported starting with REST API version `2024-02-29-preview`. Overlapping fields have some limits. For more information, *see* [overlapping fields](#overlapping-fields).
 
 ### Build mode
 
-The build custom model operation supports *template* and *neural* custom models. Previous versions of the REST API and SDKs only supported a single build mode that is now known as the *template* mode.
+The build custom model operation supports *template* and *neural* custom models. Previous versions of the REST API and client libraries only supported a single build mode that is now known as the *template* mode.
 
 Neural models support documents that have the same information, but different page structures. Examples of these documents include United States W2 forms, which share the same information, but can vary in appearance across companies. For more information, *see* [Custom model build mode](concept-custom.md#build-mode).
 
@@ -61,7 +65,24 @@ Neural models support documents that have the same information, but different pa
 
 *See* our [Language Support—custom models](language-support-custom.md) page for a complete list of supported languages.
 
-## Tabular fields
+## Overlapping fields
+
+With the release of API versions **2024-02-29-preview** and  later, custom neural models will support overlapping fields:
+
+To use the overlapping fields, your dataset needs to contain at least one sample with the expected overlap. To label an overlap, use **region labeling** to designate each of the spans of content (with the overlap) for each field. Labeling an overlap with field selection (highlighting a value) will fail in the studio as region labeling is the only supported labeling tool for indicating field overlaps. Overlap support includes:
+
+* Complete overlap. The same set of tokens are labeled for two different fields.
+* Partial overlap. Some tokens belong to both fields, but there are tokens that are only part of one field or the other.
+
+Overlapping fields have some limits:
+
+* Any token or word can only be labeled as two fields.
+* overlapping fields in a table can't span table rows.
+* Overlapping fields can only be recognized if at least one sample in the dataset contains overlapping labels for those fields.
+
+To use overlapping fields, label your dataset with the overlaps and train the model with the API version ```2024-02-29-preview``` or later.
+
+## Tabular fields adds table, row and cell confidence
 
 With the release of API versions **2022-06-30-preview** and  later, custom neural models will support tabular fields (tables):
 
@@ -75,6 +96,19 @@ Tabular fields support **cross page tables** by default:
 * As a best practice, ensure that your dataset contains a few samples of the expected variations. For example, include samples where the entire table is on a single page and where tables span two or more pages.
 
 Tabular fields are also useful when extracting repeating information within a document that isn't recognized as a table. For example, a repeating section of work experiences in a resume can be labeled and extracted as a tabular field.
+
+Tabular fields provide **table, row and cell confidence** starting with the ```2024-02-29-preview``` API:
+
+* Fixed or dynamic tables add confidence support for the following elements:
+
+  * Table confidence, a measure of how accurately the entire table is recognized.
+  * Row confidence, a measure of recognition of an individual row.
+  * Cell confidence, a measure of recognition of an individual cell.
+
+* The recommended approach is to review the accuracy in a top-down manner starting with the table first, followed by the row and then the cell.
+
+See  [confidence and accuracy scores](concept-accuracy-confidence.md) to learn more about table, row, and cell confidence.
+
 
 ## Supported regions
 
@@ -103,8 +137,7 @@ As of October 18, 2022, Document Intelligence custom neural model training will 
 > [!TIP]
 > You can [copy a model](disaster-recovery.md#copy-api-overview) trained in one of the select regions listed to **any other region** and use it accordingly.
 >
-> Use the [**REST API**](/rest/api/aiservices/document-models/copy-model-to?view=rest-aiservices-2023-10-31-preview&preserve-view=true
-&tabs=HTTP) or [**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com/studio/custommodel/projects) to copy a model to another region.
+> Use the [**REST API**](/rest/api/aiservices/operation-groups?view=rest-aiservices-2024-02-29-preview&preserve-view=true) or [**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com/studio/custommodel/projects) to copy a model to another region.
 
 :::moniker-end
 
@@ -132,17 +165,17 @@ As of October 18, 2022, Document Intelligence custom neural model training will 
 
 * Supported file formats:
 
-    |Model | PDF |Image: </br>JPEG/JPG, PNG, BMP, TIFF, HEIF | Microsoft Office: </br> Word (DOCX), Excel (XLSX), PowerPoint (PPTX), and HTML|
-    |--------|:----:|:-----:|:---------------:
+    |Model | PDF |Image: </br>jpeg/jpg, png, bmp, tiff, heif | Microsoft Office: </br> Word (docx), Excel (xlsx), PowerPoint (pptx), and HTML|
+    |--------|:----:|:-----:|:---------------:|
     |Read            | ✔    | ✔    | ✔  |
-    |Layout          | ✔  | ✔ | ✔ (2023-10-31-preview)  |
+    |Layout          | ✔  | ✔ | ✔ (2024-02-29-preview, 2023-10-31-preview, or later)  |
     |General&nbsp;Document| ✔  | ✔ |   |
     |Prebuilt        |  ✔  | ✔ |   |
-    |Custom          |  ✔  | ✔ |   |
+    |Custom neural   |  ✔  | ✔ |   |
 
     &#x2731; Microsoft Office files are currently not supported for other models or versions.
 
-* For PDF and TIFF, up to 2000 pages can be processed (with a free tier subscription, only the first two pages are processed).
+* For PDF and TIFF, up to 2,000 pages can be processed (with a free tier subscription, only the first two pages are processed).
 
 * The file size for analyzing documents is 500 MB for paid (S0) tier and 4 MB for free (F0) tier.
 
@@ -150,7 +183,7 @@ As of October 18, 2022, Document Intelligence custom neural model training will 
 
 * If your PDFs are password-locked, you must remove the lock before submission.
 
-* The minimum height of the text to be extracted is 12 pixels for a 1024 x 768 pixel image. This dimension corresponds to about `8`-point text at 150 dots per inch (DPI).
+* The minimum height of the text to be extracted is 12 pixels for a 1024 x 768 pixel image. This dimension corresponds to about `8`-point text at 150 dots per inch.
 
 * For custom model training, the maximum number of pages for training data is 500 for the custom template model and 50,000 for the custom neural model.
 
@@ -172,21 +205,20 @@ When you label the data, labeling the field relevant to the value improves the a
 
 ### Labeling contiguous values
 
-Value tokens/words of one field must be either
+Value tokens/words of one field must be either:
 
-* Consecutive sequence in natural reading order without interleaving with other fields
+* In a consecutive sequence in natural reading order, without interleaving with other fields
 * In a region that don't cover any other fields
 
 ### Representative data
 
-Values in training cases should be diverse and representative. For example, if a field is named *date*, values for this field should be a date. synthetic value like a random string can affect model performance.
+Values in training cases should be diverse and representative. For example, if a field is named *date*, values for this field should be a date. Synthetic value like a random string can affect model performance.
 
 ## Current Limitations
 
-* The model doesn't recognize values split across page boundaries.
-* Custom neural models are only trained in English. Model performance is lower for documents in other languages.
-* If a dataset labeled for custom template models is used to train a custom neural model, the unsupported field types are ignored.
-* Custom neural models are limited to 20 build operations per month. Open a support request if you need the limit increased. For more information, see [Document Intelligence service quotas and limits](service-limits.md)
+* Custom neural model doesn't recognize values split across page boundaries.
+* Custom neural unsupported field types are ignored if a dataset labeled for custom template models is used to train a custom neural model.
+* Custom neural models are limited to 20 build operations per month. Open a support request if you need the limit increased. For more information, see [Document Intelligence service quotas and limits](service-limits.md).
 
 ## Training a model
 
@@ -201,7 +233,7 @@ The build operation to train model supports a new ```buildMode``` property, to t
 :::moniker range="doc-intel-4.0.0"
 
 ```REST
-https://{endpoint}/documentintelligence/documentModels:build?api-version=2023-10-31-preview
+https://{endpoint}/documentintelligence/documentModels:build?api-version=2024-02-29-preview
 
 {
   "modelId": "string",

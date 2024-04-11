@@ -3,12 +3,12 @@ title: How to label your data for custom classification - Azure AI services
 titleSuffix: Azure AI services
 description: Learn about how to label your data for use with the custom text classification.
 #services: cognitive-services
-author: aahill
+author: jboback
 manager: nitinme
 ms.service: azure-ai-language
 ms.topic: how-to
 ms.date: 12/19/2023
-ms.author: aahi
+ms.author: jboback
 ms.custom: language-service-custom-classification
 ---
 

@@ -28,7 +28,7 @@ In this tutorial, you learn how to:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 ## Create a resource group
 
@@ -64,7 +64,7 @@ az aks create -n myCluster -g myResourceGroup --network-plugin azure --enable-ma
 appGatewayId=$(az aks show -n myCluster -g myResourceGroup -o tsv --query "addonProfiles.ingressApplicationGateway.config.effectiveApplicationGatewayId")
 
 # Get Application Gateway subnet id
-appGatewaySubnetId=$(az network application-gateway show --ids $appGatewayId -o tsv --query "gatewayIpConfigurations[0].subnet.id")
+appGatewaySubnetId=$(az network application-gateway show --ids $appGatewayId -o tsv --query "gatewayIPConfigurations[0].subnet.id")
 
 # Get AGIC addon identity
 agicAddonIdentity=$(az aks show -n myCluster -g myResourceGroup -o tsv --query "addonProfiles.ingressApplicationGateway.identity.clientId")
@@ -125,7 +125,7 @@ In this tutorial, you:
 - Created new AKS cluster with the AGIC add-on enabled
 - Deployed a sample application by using AGIC for ingress on the AKS cluster
 
-To learn more about AGIC, see [What is Application Gateway Ingress Controller?](ingress-controller-overview.md) and [Disable and re-enable AGIC add-on for your AKS cluster](ingress-controller-disable-addon.md)
+To learn more about AGIC, see [What is Application Gateway Ingress Controller](ingress-controller-overview.md) and [Disable and re-enable AGIC add-on for your AKS cluster](ingress-controller-disable-addon.md).
 
 To learn how to enable application gateway ingress controller add-on for an existing AKS cluster with an existing application gateway, advance to the next tutorial.
 

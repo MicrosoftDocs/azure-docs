@@ -7,7 +7,7 @@ ms.subservice: change-inventory-management
 ms.topic: conceptual
 ms.date: 02/07/2024
 ms.author: sudhirsneha
-ms.custom: devx-track-azurepowershell
+ms.custom:
 ---
 
 # Migration guidance from Change Tracking and inventory using Log Analytics to Change Tracking and inventory using Azure Monitoring Agent version
@@ -148,4 +148,3 @@ The disable method incorporates the following:
 
 ## Next steps
 -  To enable from the Azure portal, see [Enable Change Tracking and Inventory from the Azure portal](../change-tracking/enable-vms-monitoring-agent.md).
-

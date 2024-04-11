@@ -22,7 +22,7 @@ In this tutorial, you learn how to:
 > * Create a public IP address with the **Internet** routing preference.
 > * Create Azure Kubernetes cluster with **Internet** routing preference public IP.
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 

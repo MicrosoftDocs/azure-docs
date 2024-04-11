@@ -3,10 +3,10 @@ title: Create and configure a key vault for Azure Disk Encryption with Microsoft
 description: In this article, learn how to create and configure a key vault for Azure Disk Encryption with Microsoft Entra ID.
 author: msmbaldwin
 ms.service: virtual-machines
-ms.subservice: disks
+ms.subservice: security
 ms.topic: how-to
 ms.author: mbaldwin
-ms.date: 01/04/2023
+ms.date: 02/20/2024
 ms.custom: devx-track-azurecli, devx-track-azurepowershell, has-azure-ad-ps-ref
 ---
 # Creating and configuring a key vault for Azure Disk Encryption with Microsoft Entra ID (previous release)

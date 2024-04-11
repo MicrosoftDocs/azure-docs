@@ -134,7 +134,7 @@ Before you can send notifications to Teams from your pipelines, you must create 
                     },
                     {
                         "name": "Pipline Name:",
-                        "value": "@{pipeline().parameters.name}"
+                        "value": "@{pipeline().Pipeline}"
                     },
                     {
                         "name": "Pipeline Status:",

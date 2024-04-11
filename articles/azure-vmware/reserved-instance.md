@@ -3,7 +3,7 @@ title: Reserved instances of Azure VMware Solution
 description: Learn how to buy a reserved instance for Azure VMware Solution. The reserved instance covers only the compute part of your usage and includes software licensing costs.
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 12/19/2023
+ms.date: 4/4/2024
 ms.custom: engagement-fy23
 ---
 
@@ -112,7 +112,6 @@ You can also split a reservation into smaller chunks or merge reservations. None
 
 For details about CSP-managed reservations, see [Sell Microsoft Azure reservations to customers using Partner Center, the Azure portal, or APIs](/partner-center/azure-reservations).
 
-
 >[!NOTE]
 >Once you've purchased your reservation, you won't be able to make these types of changes directly:
 >
@@ -125,7 +124,7 @@ For details about CSP-managed reservations, see [Sell Microsoft Azure reservatio
 
 ## Cancel, exchange, or refund reservations
 
-You can cancel, exchange, or refund reservations with certain limitations. For more information, see [Self-service exchanges and refunds for Azure Reservations](../cost-management-billing/reservations/exchange-and-refund-azure-reservations.md).
+You can cancel, exchange, or refund reservations with certain limitations. For more information, see [Self-service exchanges and refunds for Azure Reservations (Note: Azure VMware Solution reservations do not fall into his category and therefore the new exchange rules don’t apply).](../cost-management-billing/reservations/exchange-and-refund-azure-reservations.md)
 
 CSPs can cancel, exchange, or refund reservations, with certain limitations, purchased for their customer. For more information, see [Manage, cancel, exchange, or refund Microsoft Azure reservations for customers](/partner-center/azure-reservations-manage).
 

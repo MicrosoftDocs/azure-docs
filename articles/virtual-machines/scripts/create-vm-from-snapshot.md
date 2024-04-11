@@ -5,7 +5,6 @@ services: virtual-machines-linux
 author: ramankumarlive
 manager: kavithag
 editor: ramankum
-tags: azure-service-management
 ms.service: azure-disk-storage
 ms.devlang: azurecli
 ms.topic: sample
@@ -21,7 +20,7 @@ This script creates a virtual machine from a snapshot of an OS disk.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 ## Sample script
 

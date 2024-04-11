@@ -41,6 +41,8 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
+          - text: Use Azure OpenAI Assistants in the playground
+            url: quickstarts/assistants.md
           - text: Hear and speak with chat in the playground
             url: quickstarts/hear-speak-playground.md
           - text: Moderate text and images
@@ -53,6 +55,8 @@ landingContent:
             url: tutorials/deploy-chat-web-app.md
           - text: Build your own copilot using prompt flow
             url: tutorials/deploy-copilot-ai-studio.md
+          - text: Build your own copilot using Azure AI CLI and SDK
+            url: tutorials/deploy-copilot-sdk.md
 
   # Card
   - title: Develop apps

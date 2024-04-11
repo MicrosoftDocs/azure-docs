@@ -4,7 +4,7 @@ metadata:
   description: In this article, discover answers to common questions about backing up Azure VMs with the Azure Backup service.
   ms.topic: faq
   ms.service: backup
-  ms.date: 01/24/2024
+  ms.date: 03/19/2024
   author: AbhishekMallick-MS
   ms.author: v-abhmallick
 
@@ -392,7 +392,9 @@ sections:
         answer: |
           Backup data fully replicated to the secondary region before the failure of the primary region will remain intact. This remains the case even after the primary region has recovered from the failure. In other words, the virtual machine can be recovered in the secondary region with the data it had before the failure as per the replication schedule. Note that the RPO for the secondary region is 36 hours i.e., data takes approximately 36 hours to be fully replicated from primary to the secondary region.
 
-
+      - question: When I update the backup policy, why is the expiry time not getting updated immediately?
+        answer: |
+          **Expiry Time** of recovery points are updated when Garbage Collector (GC) runs, which is *every 24 hours*. Once you update the backup policy, it can take up to *24 hours* to show the updates in the **Expiry Time**, if there're no delays in GC jobs.
 
 
 

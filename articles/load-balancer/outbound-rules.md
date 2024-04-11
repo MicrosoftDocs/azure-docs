@@ -164,13 +164,13 @@ Revert to the [default port allocation](load-balancer-outbound-connections.md#pr
 Use a public standard load balancer to provide outbound NAT for a group of VMs. In this scenario, use an outbound rule by itself, without configuring extra rules.
 
 > [!NOTE]
-> **Azure Virtual Network NAT** can provide outbound connectivity for virtual machines without the need for a load balancer. See [What is Azure Virtual Network NAT?](../virtual-network/nat-gateway/nat-overview.md) for more information.
+> **Azure NAT Gateway** can provide outbound connectivity for virtual machines without the need for a load balancer. See [What is Azure NAT Gateway?](../virtual-network/nat-gateway/nat-overview.md) for more information.
 
 ### <a name="scenario4out"></a>Scenario 4: Outbound NAT for VMs only (no inbound)
 
 
 > [!NOTE]
-> **Azure Virtual Network NAT** can provide outbound connectivity for virtual machines without the need for a load balancer. See [What is Azure Virtual Network NAT?](../virtual-network/nat-gateway/nat-overview.md) for more information.
+> **Azure NAT Gateway** can provide outbound connectivity for virtual machines without the need for a load balancer. See [What is Azure NAT Gateway?](../virtual-network/nat-gateway/nat-overview.md) for more information.
 
 #### Details
 
@@ -196,7 +196,7 @@ Use a prefix or public IP to scale [SNAT](load-balancer-outbound-connections.md)
 
 
 > [!NOTE]
-> **Azure Virtual Network NAT** can provide outbound connectivity for virtual machines utilizing an internal standard load balancer. See [What is Azure Virtual Network NAT?](../virtual-network/nat-gateway/nat-overview.md) for more information.
+> **Azure NAT Gateway** can provide outbound connectivity for virtual machines utilizing an internal standard load balancer. See [What is Azure NAT Gateway?](../virtual-network/nat-gateway/nat-overview.md) for more information.
 
 #### Details
 

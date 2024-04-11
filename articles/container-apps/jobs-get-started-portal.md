@@ -111,8 +111,6 @@ Next, create an environment for your container app.
 
     The logs show the output of the job execution. It may take a few minutes for the logs to appear.
 
-[!INCLUDE [.NET data protection](../../includes/container-apps-net-data-protection-scaling.md)]
-
 ## Clean up resources
 
 If you're not going to continue to use this application, you can delete the Azure Container Apps instance and all the associated services by removing the resource group.

@@ -40,7 +40,7 @@ Logs in Azure Monitor are stored in a Log Analytics workspace that's based on [A
 >
 >Azure Monitor Logs is a log data platform that collects Activity logs and resource logs along with other monitoring data to provide deep analysis across your entire set of resources.
 
- You can work with [log queries](logs/log-query-overview.md) interactively with [Log Analytics](logs/log-query-overview.md) in the Azure portal. You can also add the results to an [Azure dashboard](app/overview-dashboard.md#create-custom-kpi-dashboards-using-application-insights) for visualization in combination with other data. You can create [log alerts](alerts/alerts-log.md), which will trigger an alert based on the results of a schedule query.
+ You can work with [log queries](logs/log-query-overview.md) interactively with [Log Analytics](logs/log-query-overview.md) in the Azure portal. You can also add the results to an [Azure dashboard](app/overview-dashboard.md#create-custom-kpi-dashboards-using-application-insights) for visualization in combination with other data. You can create [log search alerts](alerts/alerts-log.md), which will trigger an alert based on the results of a schedule query.
 
 Read more about Azure Monitor logs including their sources of data in [Logs in Azure Monitor](logs/data-platform-logs.md).
 

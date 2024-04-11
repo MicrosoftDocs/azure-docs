@@ -11,7 +11,7 @@ ms.reviewer: aul
 This article describes how to configure data collection in Container insights using ConfigMap. [ConfigMaps](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/) are a Kubernetes mechanism that allow you to store non-confidential data such as configuration file or environment variables. 
 
 The ConfigMap is primarily used to configure data collection of the container logs and environment variables of the cluster. You can individually configure the stdout and stderr logs and also enable multiline logging.
-
+l
 Specific configuration you can perform with the ConfigMap includes:
 
 - Enable/disable and namespace filtering for stdout and stderr logs
@@ -21,8 +21,10 @@ Specific configuration you can perform with the ConfigMap includes:
 - Enable/disable multiline logging
 - Ignore proxy settings  
 
-> [!NOTE]
-> See [Configure data collection in Container insights using data collection rule](./container-insights-data-collection-dcr.md) to configure data collection using a DCR which allows you to configure different settings.
+> [!IMPORTANT]
+> Complete configuration of data collection in Container insights may require editing of both the ConfigMap and the data collection rule (DCR) for the cluster since each method allows configuration of a different set of settings. 
+> 
+> See [Configure data collection in Container insights using data collection rule](./container-insights-data-collection-dcr.md) for a list of settings and the process to configure data collection using the DCR.
 
 ## Prerequisites 
 - ConfigMap is a global list and there can be only one ConfigMap applied to the agent for Container insights. Applying another ConfigMap will overrule the previous ConfigMap collection settings.
@@ -33,15 +35,7 @@ Specific configuration you can perform with the ConfigMap includes:
 Use the following procedure to configure and deploy your ConfigMap configuration file to your cluster:
 
 1. Download the [template ConfigMap YAML file](https://aka.ms/container-azm-ms-agentconfig) and open it in an editor. If you already have a ConfigMap file, then you can use that one.
-1. Edit the ConfigMap YAML file with your customizations to collect stdout, stderr, and environmental variables:
-
-    - To exclude specific namespaces for stdout log collection, configure the key/value by using the following example:
-    `[log_collection_settings.stdout] enabled = true exclude_namespaces = ["my-namespace-1", "my-namespace-2"]`.
-    - To disable environment variable collection for a specific container, set the key/value `[log_collection_settings.env_var] enabled = true` to enable variable collection globally. Then follow the steps [here](container-insights-manage-agent.md#disable-environment-variable-collection-on-a-container) to complete configuration for the specific container.
-    - To disable stderr log collection cluster-wide, configure the key/value by using the following example: `[log_collection_settings.stderr] enabled = false`.
-    
-3. Save your changes in the editor.
-
+1. Edit the ConfigMap YAML file with your customizations using the settings described in [Data collection settings](#data-collection-settings)
 1. Create a ConfigMap by running the following kubectl command: 
 
     ```azurecli

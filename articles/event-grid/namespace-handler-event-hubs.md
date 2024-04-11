@@ -2,9 +2,8 @@
 title: Event hubs as event handler for Azure Event Grid namespaces
 description: Describes how you can use an Azure event hub as an event handler for Azure Event Grid namespaces.
 ms.topic: conceptual
-ms.custom:
-  - ignite-2023
-ms.date: 11/15/2023
+ms.custom: ignite-2023, devx-track-azurecli
+ms.date: 02/21/2024
 ---
 
 # Azure Event hubs as a handler destination in subscriptions to Azure Event Grid namespace topics (Preview)
@@ -171,6 +170,17 @@ If you need to publish events to a specific partition within an event hub, set t
 |`PartitionKey` | Static or dynamic |
 
 For more information, see [Custom delivery properties on namespaces](namespace-delivery-properties.md).
+
+## Azure portal
+
+When creating an event subscription with event delivery mode set to **Push**, you can select Event Hubs as the type of event handler and configure an event hub as a handler. 
+
+:::image type="content" source="./media/publish-events-using-namespace-topics-portal/create-push-subscription-page.png" alt-text="Screenshot that shows the Create Subscription page with Push selected for Delivery mode." lightbox="./media/publish-events-using-namespace-topics-portal/create-push-subscription-page.png":::       
+
+For step-by-step instructions, see [Use Event Hubs a destination for namespace topics](publish-deliver-events-with-namespace-topics-portal.md#create-an-event-subscription).
+
+## Azure CLI
+For step-by-step instructions, see [Configure Event Hubs a destination](publish-deliver-events-with-namespace-topics.md#create-an-event-subscription).
 
 ## Next steps
 

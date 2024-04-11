@@ -18,7 +18,7 @@ By the end of this tutorial, you'll learn how to perform the operations below wi
 * Enable backup for Azure file shares
 * Trigger an on-demand backup for file shares
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
  - This tutorial requires version 2.0.18 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 

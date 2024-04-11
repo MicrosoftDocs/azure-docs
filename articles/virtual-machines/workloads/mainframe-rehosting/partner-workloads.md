@@ -4,10 +4,10 @@ description: Use a mainframe emulator and other services from Microsoft partners
 services: virtual-machines
 ms.service: virtual-machines
 ms.subservice: mainframe-rehosting
-author: njray
+author: johnjrayborn
 manager: edprice
 editor: edprice
-ms.author: larryme
+ms.author: johnray
 ms.date: 05/09/2020
 ms.topic: article
 ---

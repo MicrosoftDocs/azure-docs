@@ -6,7 +6,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: automl
 author: manashgoswami
-ms.author: magoswam
+ms.author: manashg
 ms.reviewer: ssalgado
 ms.date: 11/04/2022
 ms.topic: how-to

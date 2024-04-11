@@ -5,7 +5,7 @@ author: msangapu-msft
 ms.author: msangapu
 ms.date: 06/29/2023
 ms.topic: quickstart
-ms.custom: devx-track-csharp, mode-other, devdivchpfy22
+ms.custom: devx-track-csharp, mode-other, devdivchpfy22, linux-related-content
 zone_pivot_groups: app-service-containers-windows-linux-portal-ps-cli
 ---
 

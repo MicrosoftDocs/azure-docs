@@ -9,8 +9,8 @@ ms.custom:
 ms.topic: how-to
 ms.date: 1/10/2024
 ms.reviewer: eur
-ms.author: eur
-author: eric-urban
+ms.author: sgilley
+author: sdgilley
 ---
 
 # Get started with Azure AI projects in VS Code
@@ -107,4 +107,5 @@ For cross-language compatibility and seamless integration of Azure AI capabiliti
 ## Next steps
 
 - [Get started with the Azure AI CLI](cli-install.md)
+- [Build your own copilot using Azure AI CLI and SDK](../tutorials/deploy-copilot-sdk.md)
 - [Quickstart: Analyze images and video with GPT-4 for Vision in the playground](../quickstarts/multimodal-vision.md)

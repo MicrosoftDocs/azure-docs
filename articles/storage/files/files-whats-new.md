@@ -4,7 +4,7 @@ description: Learn about new features and enhancements in Azure Files and Azure 
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: conceptual
-ms.date: 02/01/2024
+ms.date: 03/29/2024
 ms.author: kendownie
 ---
 
@@ -15,6 +15,11 @@ Azure Files and Azure File Sync are updated regularly to offer new features and 
 ## What's new in 2024
 
 ### 2024 quarter 1 (January, February, March)
+
+#### Azure Files geo-redundancy for standard large file shares is generally available
+
+Standard SMB file shares that are geo-redundant (GRS and GZRS) can now scale up to 100TiB capacity with significantly improved IOPS and throughput limits. For more information, see [blog post](https://techcommunity.microsoft.com/t5/azure-storage-blog/general-availability-azure-files-geo-redundancy-for-standard/ba-p/4097935) and [documentation](geo-redundant-storage-for-large-file-shares.md).
+
 
 #### Metadata caching for premium SMB file shares is in public preview
 

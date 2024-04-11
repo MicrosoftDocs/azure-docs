@@ -132,15 +132,13 @@ Generating a user's auth token is a two-step process.
 The first step to get an access token for many OpenID Connect (OIDC) and OAuth 2.0 flows is to redirect the user to the Microsoft identity platform `/authorize` endpoint. Microsoft Entra ID signs the user in and requests their consent for the permissions your app requests. In the authorization code grant flow, after consent is obtained, Microsoft Entra ID returns an authorization code to your app that it can redeem at the Microsoft identity platform `/token` endpoint for an access token.
 
 1. Prepare the request format using the parameters.
-#### Request format
-
- ```bash
-  https://login.microsoftonline.com/<tenant-id>/oauth2/v2.0/authorize?client_id=<client-id>
-  &response_type=code
-  &redirect_uri=<redirect-uri>
-  &response_mode=query
-  &scope=<client-id>%2f.default&state=12345&sso_reload=true
-```
+   ```bash
+   https://login.microsoftonline.com/<tenant-id>/oauth2/v2.0/authorize?client_id=<client-id>
+   &response_type=code
+   &redirect_uri=<redirect-uri>
+   &response_mode=query
+   &scope=<client-id>%2f.default&state=12345&sso_reload=true
+   ```
 2. After you replace the parameters, you can paste the request in the URL of any browser and select Enter.
 3. Sign in to your Azure portal if you aren't signed in already.
 4. You might see the "Hmmm...can't reach this page" error message in the browser. You can ignore it.
@@ -149,20 +147,17 @@ The first step to get an access token for many OpenID Connect (OIDC) and OAuth 2
 
 5. The browser redirects to `http://localhost:8080/?code={authorization code}&state=...` upon successful authentication.
 6. Copy the response from the URL bar of the browser and fetch the text between `code=` and `&state`.
-
-#### Sample response
-
-```bash
-http://localhost:8080/?code=0.BRoAv4j5cvGGr0...au78f&state=12345&session....
-```
+   ```bash
+   http://localhost:8080/?code=0.BRoAv4j5cvGGr0...au78f&state=12345&session....
+   ```
 
 7. Keep this `authorization-code` handy for future use.
 
-|Parameter| Description|
-| --- | --- |
-|code|The authorization code that the app requested. The app can use the authorization code to request an access token for the target resource. Authorization codes are short lived. Typically, they expire after about 10 minutes.|
-|state|If a state parameter is included in the request, the same value should appear in the response. The app should verify that the state values in the request and response are identical. This check helps to detect [CSRF attacks](https://tools.ietf.org/html/rfc6749#section-10.12) against the client.|
-|session_state|A unique value that identifies the current user session. This value is a GUID, but it should be treated as an opaque value that's passed without examination.|
+   |Parameter| Description|
+   | --- | --- |
+   |code|The authorization code that the app requested. The app can use the authorization code to request an access token for the target resource. Authorization codes are short lived. Typically, they expire after about 10 minutes.|
+   |state|If a state parameter is included in the request, the same value should appear in the response. The app should verify that the state values in the request and response are identical. This check helps to detect [CSRF attacks](https://tools.ietf.org/html/rfc6749#section-10.12) against the client.|
+   |session_state|A unique value that identifies the current user session. This value is a GUID, but it should be treated as an opaque value that's passed without examination.|
 
 > [!WARNING]
 > Running the URL in Postman won't work because it requires extra configuration for token retrieval.

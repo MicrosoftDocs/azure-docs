@@ -2,7 +2,11 @@
 title: Use Azure Policy to secure your Azure Kubernetes Service (AKS) clusters
 description: Learn how to use Azure Policy to secure your Azure Kubernetes Service (AKS) clusters.
 ms.topic: how-to
+ms.subservice: aks-security
 ms.date: 06/20/2023
+author: schaffererin
+ms.author: schaffererin
+
 ms.custom: template-how-to
 ---
 
@@ -191,3 +195,4 @@ For more information about how Azure Policy works, see the following articles:
 [custom-policy-tutorial-assign]: ../governance/policy/concepts/policy-for-kubernetes.md#assign-a-policy-definition
 [azure-policy-samples]: ../governance/policy/samples/index.md
 [azure-policy-definition-structure]: ../governance/policy/concepts/definition-structure.md
+
