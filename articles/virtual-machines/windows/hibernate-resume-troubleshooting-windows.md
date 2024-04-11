@@ -105,7 +105,7 @@ If the extension or the guest sleep state reports an error, you'd need to update
 Also validate that the AzureHibernateExtension returns to a Succeeded state. If the extension is still in a failed state, then update the extension state by triggering [reapply VM API](/rest/api/compute/virtual-machines/reapply?tabs=HTTP)
 
 >[!NOTE]
->If the extension remains in a failed state, you can't hibernate the VM
+>If the extension remains in a failed state, you can't hibernate the VM.
 
 Commonly seen issues where the extension fails.
 
@@ -143,8 +143,8 @@ Commonly seen issues:
 Logs needed for troubleshooting:
 
 If you encounter an issue outside of these known scenarios, the following logs can help Azure troubleshoot the issue: 
-1. Relevant event logs on the guest: Microsoft-Windows-Kernel-Power, Microsoft-Windows-Kernel-General, Microsoft-Windows-Kernel-Boot.
-1. During a bug check, a guest crash dump is helpful.
+- Relevant event logs on the guest: Microsoft-Windows-Kernel-Power, Microsoft-Windows-Kernel-General, Microsoft-Windows-Kernel-Boot.
+- During a bug check, a guest crash dump is helpful.
 
 ## Unable to resume a Windows VM
 When you start a VM from a hibernated state, you can use the VM instance view to get more details on whether the guest successfully resumed from its previous hibernated state or if it failed to resume and instead did a cold boot. 
