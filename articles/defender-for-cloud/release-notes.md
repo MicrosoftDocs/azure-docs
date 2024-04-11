@@ -2,7 +2,7 @@
 title: Release notes
 description: This page is updated frequently with the latest updates in Defender for Cloud.
 ms.topic: overview
-ms.date: 04/02/2024
+ms.date: 04/11/2024
 ---
 
 # What's new in Microsoft Defender for Cloud?
@@ -24,7 +24,7 @@ If you're looking for items older than six months, you can find them in the [Arc
 
 |Date | Update |
 |--|--|
-| April 17 | Defender for open-source databases is now available for RDS instances on AWS (Preview) |
+| April 17 | [Defender for open-source databases is now available for RDS instances on AWS (Preview)](#defender-for-open-source-databases-is-now-available-for-rds-instances-on-aws-preview) |
 | April 3 | [Risk prioritization is now the default experience in Defender for Cloud](#risk-prioritization-is-now-the-default-experience-in-defender-for-cloud) |
 | April 3 | [New container vulnerability assessment recommendations](#new-container-vulnerability-assessment-recommendations) |
 | April 3 | [Defender for open-source relational databases updates](#defender-for-open-source-relational-databases-updates) |
