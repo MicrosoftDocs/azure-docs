@@ -6,7 +6,7 @@ author: pauljewellmsft
 ms.author: pauljewell
 ms.service: azure-blob-storage
 ms.topic: how-to
-ms.date: 04/09/2024
+ms.date: 04/10/2024
 ms.custom: devx-track-python, devguide-python
 ---
 
@@ -20,44 +20,55 @@ This article shows you how to use the Azure Storage client library for Python to
 
 Retry policies for Blob Storage are configured programmatically, offering control over how retry options are applied to various service requests and scenarios. For example, a web app issuing requests based on user interaction might implement a policy with fewer retries and shorter delays to increase responsiveness and notify the user when an error occurs. Alternatively, an app or component running batch requests in the background might increase the number of retries and use an exponential backoff strategy to allow the request time to complete successfully.
 
-The following sections show the properties of the [ExponentialRetry](/dotnet/api/azure.core.retryoptions) and [LinearRetry](/dotnet/api/azure.core.retryoptions) classes, along with the type, a brief description, default values, and a code example. You should be proactive in tuning the values of these properties to meet the needs of your app.
+To configure a retry policy for client requests, you can choose from the following approaches:
 
-#### Exponential backoff
+- **Use the default values**: The default retry policy for the Azure Storage client library for Python is an instance of [ExponentialRetry](/python/api/azure-storage-blob/azure.storage.blob.exponentialretry) with the default values. If you don't specify a retry policy, the default retry policy is used.
+- **Pass values as keywords to the client constructor**: You can pass values for the retry policy properties as keyword arguments when you create a client object for the service. This approach allows you to customize the retry policy for the client, and is useful if you only need to configure a few options.
+- **Create an instance of a retry policy class**: You can create an instance of the [ExponentialRetry](/python/api/azure-storage-blob/azure.storage.blob.exponentialretry) or [LinearRetry](/python/api/azure-storage-blob/azure.storage.blob.linearretry) class and set the properties to configure the retry policy. Then, you can pass the instance to the client constructor to apply the retry policy to all service requests.
 
-An exponential backoff strategy increases the backoff interval between each retry attempt. The following table shows the properties of the [ExponentialRetry](/python/api/azure-storage-blob/azure.storage.blob.exponentialretry) class:
+The following table shows all the properties you can use to configure a retry policy. Any of these properties can be passed as keywords to the client constructor, but some are only available to use with an `ExponentialRetry` or `LinearRetry` instance. These restrictions are noted in the table, along with the default values for each property if you make no changes. You should be proactive in tuning the values of these properties to meet the needs of your app.
 
-| Property | Type | Description | Default value |
-| --- | --- | --- | --- |
-| `initial_backoff` | int | The initial backoff interval, in seconds, for the first retry. | 15 seconds |
-| `increment_base` | int | The base, in seconds, to increment the initial_backoff by after the first retry. | 3 seconds |
-| `max_attempts` | int | The maximum number of retry attempts. |  |
-| `retry_to_secondary` | bool | Whether the request should be retried to the secondary endpoint, if able. Only use this option for storage accounts with geo-redundant replication enabled, such as RA-GRS or RA-GZRS. You should also ensure your app can handle potentially stale data. | `False` |
-| `random_jitter_range` | int | A number in seconds which indicates a range to jitter/randomize for the backoff interval. For example, setting `random_jitter_range` to 3 means that a backoff interval of x can vary between x+3 and x-3. | 3 seconds |
-| `retry_total` | int |  | 3 |
+| Property | Type | Description | Default value | ExponentialRetry | LinearRetry |
+| --- | --- | --- | --- | --- | --- |
+| `retry_total` | int | The maximum number of retries. | 10 | Yes | Yes |
+| `connect_retries` | int | The maximum number of connect retries | 3 | Yes | Yes |
+| `read_retries` | int | The maximum number of read retries | 3 | Yes | Yes |
+| `status_retries` | int | The maximum number of status retries | 3 | Yes | Yes |
+| `retry_to_secondary` | bool | Whether the request should be retried to the secondary endpoint, if able. Only use this option for storage accounts with geo-redundant replication enabled, such as RA-GRS or RA-GZRS. You should also ensure your app can handle potentially stale data. | `False` | Yes | Yes |
+| `initial_backoff` | int | The initial backoff interval (in seconds) for the first retry. Only applies to exponential backoff strategy. | 15 seconds | Yes | No |
+| `increment_base` | int | The base (in seconds) to increment the initial_backoff by after the first retry. Only applies to exponential backoff strategy. | 3 seconds | Yes | No |
+| `backoff` | int | The backoff interval (in seconds) between each retry. Only applies to linear backoff strategy. | 15 seconds | No | Yes |
+| `random_jitter_range` | int | A number (in seconds) which indicates a range to jitter/randomize for the backoff interval. For example, setting `random_jitter_range` to 3 means that a backoff interval of x can vary between x+3 and x-3. | 3 seconds | Yes | Yes |
 
-In the following code example, we configure the retry options in the `ExponentialRetry` class. Then, we create a client object for the blob service using the retry options.
+The following sections show how to configure a retry policy using different approaches:
 
-:::code language="python" source="~/azure-storage-snippets/blobs\howto\python\blob-devguide-py\blob_devguide_retry.py" id="Snippet_retry_exponential":::
+- [Use the default retry policy](#use-the-default-retry-policy)
+- [Create an ExponentialRetry policy](#create-an-exponentialretry-policy)
+- [Create a LinearRetry policy](#create-a-linearretry-policy)
 
-In this example, each service request issued from the `BlobServiceClient` object uses the retry options defined in the `ExponentialRetry` object. You can configure various retry strategies for service clients based on the needs of your app.
+#### Use the default retry policy
 
-#### Linear retry
+The default retry policy for the Azure Storage client library for Python is an instance of [ExponentialRetry](/python/api/azure-storage-blob/azure.storage.blob.exponentialretry) with the default values. If you don't specify a retry policy, the default retry policy is used. You can also pass any configuration properties as keyword arguments when you create a client object for the service.
 
-A linear retry strategy increases the backoff interval by a fixed amount for each retry attempt. The following table shows the properties of the [LinearRetry](/python/api/azure-storage-blob/azure.storage.blob.linearretry) class:
+The following code example shows how to pass a value for the `retry_total` property as a keyword argument when creating a client object for the blob service. In this example, the client object uses the default retry policy with the `retry_total` property set to 5 retries:
 
-| Property | Type | Description | Default value |
-| --- | --- | --- | --- |
-| `backoff` | int | The backoff interval, in seconds, between each retry. | 15 seconds |
-| `max_attempts` | int | The maximum number of retry attempts. |  |
-| `retry_to_secondary` | bool | Whether the request should be retried to the secondary endpoint, if able. Only use this option for storage accounts with geo-redundant replication enabled, such as RA-GRS or RA-GZRS. You should also ensure your app can handle potentially stale data. | `False` |
-| `random_jitter_range` | int | A number in seconds which indicates a range to jitter/randomize for the backoff interval. For example, setting `random_jitter_range` to 3 means that a backoff interval of x can vary between x+3 and x-3. | 3 seconds |
-| `retry_total` | int |  | 3 |
+:::code language="python" source="~/azure-storage-snippets/blobs\howto\python\blob-devguide-py\blob_devguide_retry.py" id="Snippet_retry_default":::
 
-In the following code example, we configure the retry options in the `LinearRetry` class. Then, we create a client object for the blob service using the retry options.
+#### Create an ExponentialRetry policy
 
-:::code language="python" source="~/azure-storage-snippets/blobs\howto\python\blob-devguide-py\blob_devguide_retry.py" id="Snippet_retry_linear":::
+You can configure a retry policy by creating an instance of [ExponentialRetry](/python/api/azure-storage-blob/azure.storage.blob.exponentialretry), and passing the instance to the client constructor using the `retry_policy` keyword argument. This approach can be useful if you need to configure multiple properties or multiple policies for different clients.
 
-In this example, each service request issued from the `BlobServiceClient` object uses the retry options defined in the `LinearRetry` object. You can configure various retry strategies for clients based on the needs of your app.
+The following code example shows how to configure the retry options using an instance of `ExponentialRetry`. In this example, we set `initial_backoff` to 10 seconds, `increment_base` to 4 seconds, and `retry_total` to 5 retries:
+
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob_devguide_retry.py" id="Snippet_retry_exponential":::
+
+#### Create a LinearRetry policy
+
+You can configure a retry policy by creating an instance of [LinearRetry](/python/api/azure-storage-blob/azure.storage.blob.linearretry), and passing the instance to the client constructor using the `retry_policy` keyword argument. This approach can be useful if you need to configure multiple properties or multiple policies for different clients.
+
+The following code example shows how to configure the retry options using an instance of `LinearRetry`. In this example, we set `backoff` to 10 seconds, `retry_total` to 5 retries, and `retry_to_secondary` to `True`:
+
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob_devguide_retry.py" id="Snippet_retry_linear":::
 
 ## Next steps
 
