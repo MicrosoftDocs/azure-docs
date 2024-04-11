@@ -213,6 +213,8 @@
         href: critical-assets-protection.md
       - name: Agentless machine scanning
         href: concept-agentless-data-collection.md
+      - name: Copilot
+        href: copilot.md
       - name: Integrations
         items:  
         - name: ServiceNow
@@ -339,6 +341,9 @@
           displayName: security, recommendations, owner, azure, resource, graph, azure
             resource graph, csv report
           href: review-security-recommendations.md
+        - name: Review recommendations wih Copilot
+          displayName: copilot, security, recommendations
+          href: review-with-copilot.md
         - name: Review resources exempted from recommendations
           href: review-exemptions.md
         - name: Remediate recommendations

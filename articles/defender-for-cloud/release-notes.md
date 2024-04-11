@@ -20,6 +20,20 @@ To learn about *planned* changes that are coming soon to Defender for Cloud, see
 
 If you're looking for items older than six months, you can find them in the [Archive for What's new in Microsoft Defender for Cloud](release-notes-archive.md).
 
+## May 2024
+
+| Date | Update|
+|--|--|
+| May 7 | [Copilot in Defender for Cloud](#copilot-in-defender-for-cloud) |
+
+### Copilot in Defender for Cloud
+
+May 7, 2024
+
+Defender for Cloud has integrated Copilot into the security experience in order to provide users with the ability to ask questions and get answers in natural language. Copilot can help you understand the context of a recommendation, the impact of implementing a recommendation, and the steps to take to implement a recommendation. 
+
+Learn more about [Copilot in Defender for Cloud](copilot.md).
+
 ## April 2024
 
 |Date | Update |

@@ -68,14 +68,13 @@ Copilot gives you the ability to summarize a recommendation. By using prompts, y
 
     :::image type="content" source="media/review-with-copilot/summarize-with-copilot.png" alt-text="Screenshot of a recommendation that shows where the Summarize with Copilot button is located." lightbox="media/review-with-copilot/summarize-with-copilot.png":::
 
-1. (Optional) if prompted, select a resource type to summarize.
+1. Review the summary provided by Copilot and prompt copilot with addition questions if needed.
 
-    :::image type="content" source="media/review-with-copilot/resource-to-summarize.png" alt-text="Screenshot of the resource options that can be selected by copilot in the prompt." lightbox="media/review-with-copilot/resource-to-summarize.png":::
+    :::image type="content" source="media/review-with-copilot/summarize-with-copilot-results.png" alt-text="Screenshot of the Copilot window that shows the summary of the recommendation." lightbox="media/review-with-copilot/summarize-with-copilot-results.png":::
 
-1. Review the summary provided by Copilot.
+1. Enter additional prompts as needed.
 
-1. Enter a natural language response, for example `help me remediate this recommendation` or select from the suggested prompts.
+## Next step
 
-
-
-    
+> [!div class="nextstepaction"]
+> [Remediate recommendations](implement-security-recommendations.md)
