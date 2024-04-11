@@ -1057,6 +1057,18 @@ items:
           href: resources/troubleshooting/voice-video-calling/general-troubleshooting-strategies/report-issue.md
       - name: Calling (JavaScript)
         items:
+        - name: Call setup issues
+          items:
+          - name: Overview
+            href: resources/troubleshooting/voice-video-calling/call-setup-issues/overview.md
+          - name: Invalid or expired tokens
+            href: resources/troubleshooting/voice-video-calling/call-setup-issues/invalid-or-expired-tokens.md
+          - name: Failed to create callAgent
+            href: resources/troubleshooting/voice-video-calling/call-setup-issues/failed-to-create-call-agent.md
+          - name: The user doesn't receive incoming call notifications
+            href: resources/troubleshooting/voice-video-calling/call-setup-issues/no-incoming-call-notifications.md
+          - name: The call setup takes too long
+            href: resources/troubleshooting/voice-video-calling/call-setup-issues/call-setup-takes-too-long.md
         - name: Device and permission issues
           items:
           - name: Overview
