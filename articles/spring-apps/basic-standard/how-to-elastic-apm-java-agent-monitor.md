@@ -76,11 +76,11 @@ Before proceeding, you need your Elastic APM server connectivity information han
 
 1. In the Azure portal, go to the **Overview** page of your Elastic deployment, then select **Manage Elastic Cloud Deployment**.
 
-   :::image type="content" source="media/how-to-elastic-apm-java-agent-monitor/elastic-apm-get-link-from-microsoft-azure.png" alt-text="Screenshot of Azure portal 'Elasticsearch (Elastic Cloud)' page." lightbox="media/how-to-elastic-apm-java-agent-monitor/elastic-apm-get-link-from-microsoft-azure.png":::
+   :::image type="content" source="media/how-to-elastic-apm-java-agent-monitor/elastic-apm-get-link-from-microsoft-azure.png" alt-text="Screenshot of the Azure portal Elasticsearch (Elastic Cloud) page." lightbox="media/how-to-elastic-apm-java-agent-monitor/elastic-apm-get-link-from-microsoft-azure.png":::
 
 1. Under your deployment on Elastic Cloud Console, select the **APM & Fleet** section to get Elastic APM Server endpoint and secret token.
 
-   :::image type="content" source="media/how-to-elastic-apm-java-agent-monitor/elastic-apm-endpoint-secret.png" alt-text="Screenshot of the APM & Fleet page with Copy endpoint and APM Server secret token highlighted." lightbox="media/how-to-elastic-apm-java-agent-monitor/elastic-apm-endpoint-secret.png":::
+   :::image type="content" source="media/how-to-elastic-apm-java-agent-monitor/elastic-apm-endpoint-secret.png" alt-text="Screenshot of the Elastic APM & Fleet page with Copy endpoint and APM Server secret token highlighted." lightbox="media/how-to-elastic-apm-java-agent-monitor/elastic-apm-endpoint-secret.png":::
 
 1. Download Elastic APM Java Agent from [Maven Central](https://search.maven.org/search?q=g:co.elastic.apm%20AND%20a:elastic-apm-agent).
 
@@ -88,7 +88,7 @@ Before proceeding, you need your Elastic APM server connectivity information han
 
 1. Upload Elastic APM Agent to the custom persistent storage you enabled earlier. Go to Azure Fileshare and select **Upload** to add the agent JAR file.
 
-   :::image type="content" source="media/how-to-elastic-apm-java-agent-monitor/upload-files-microsoft-azure.png" alt-text="Screenshot of Azure portal showing 'Upload files' pane of 'File share' page." lightbox="media/how-to-elastic-apm-java-agent-monitor/upload-files-microsoft-azure.png":::
+   :::image type="content" source="media/how-to-elastic-apm-java-agent-monitor/upload-files-microsoft-azure.png" alt-text="Screenshot of the Azure portal that shows the Upload files pane of the File share page." lightbox="media/how-to-elastic-apm-java-agent-monitor/upload-files-microsoft-azure.png":::
 
 1. After you have the Elastic APM endpoint and secret token, use the following command to activate Elastic APM Java agent when deploying applications. The placeholder *`<agent-location>`* refers to the mounted storage location of the Elastic APM Java Agent.
 
@@ -169,11 +169,11 @@ Use the following steps to monitor applications and metrics:
 
 1. In the Azure portal, go to the **Overview** page of your Elastic deployment, then select the Kibana link.
 
-   :::image type="content" source="media/how-to-elastic-apm-java-agent-monitor/elastic-apm-get-kibana-link.png" alt-text="Screenshot of Azure portal showing Elasticsearch page with 'Deployment U R L / Kibana' highlighted." lightbox="media/how-to-elastic-apm-java-agent-monitor/elastic-apm-get-kibana-link.png":::
+   :::image type="content" source="media/how-to-elastic-apm-java-agent-monitor/elastic-apm-get-kibana-link.png" alt-text="Screenshot of the Azure portal that shows the Elasticsearch page with the Deployment URL Kibana link highlighted." lightbox="media/how-to-elastic-apm-java-agent-monitor/elastic-apm-get-kibana-link.png":::
 
 1. After Kibana is open, search for *APM* in the search bar, then select **APM**.
 
-   :::image type="content" source="media/how-to-elastic-apm-java-agent-monitor/elastic-apm-kibana-search-apm.png" alt-text="Screenshot of Elastic / Kibana that shows the A P M search results." lightbox="media/how-to-elastic-apm-java-agent-monitor/elastic-apm-kibana-search-apm.png":::
+   :::image type="content" source="media/how-to-elastic-apm-java-agent-monitor/elastic-apm-kibana-search-apm.png" alt-text="Screenshot of Elastic / Kibana that shows the APM search results." lightbox="media/how-to-elastic-apm-java-agent-monitor/elastic-apm-kibana-search-apm.png":::
 
 Kibana APM is the curated application to support Application Monitoring workflows. Here you can view high-level details such as request/response times, throughput, and the transactions in a service with the most impact on the duration.
 

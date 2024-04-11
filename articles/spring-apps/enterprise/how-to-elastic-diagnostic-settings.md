@@ -35,7 +35,7 @@ To configure diagnostics settings, use the following steps:
 1. Enter a name for the setting, choose **Send to partner solution**, then select **Elastic** and an Elastic deployment where you want to send the logs.
 1. Select **Save**.
 
-:::image type="content" source="media/how-to-elastic-diagnostic-settings/diagnostic-settings-asc-2.png" alt-text="Screenshot of Azure portal showing the Diagnostic setting page with selected options and the name specified for the setting." lightbox="media/how-to-elastic-diagnostic-settings/diagnostic-settings-asc-2.png":::
+:::image type="content" source="media/how-to-elastic-diagnostic-settings/diagnostic-settings-asc-2.png" alt-text="Screenshot of the Azure portal that shows the Diagnostic setting page with selected options and the name specified for the setting." lightbox="media/how-to-elastic-diagnostic-settings/diagnostic-settings-asc-2.png":::
 
 > [!NOTE]
 > There might be a gap of up to 15 minutes between when logs are emitted and when they appear in your Elastic deployment.
@@ -49,7 +49,7 @@ Use the following steps to analyze the logs:
 
 1. From the Elastic deployment overview page in the Azure portal, open **Kibana**.
 
-   :::image type="content" source="media/how-to-elastic-diagnostic-settings/elastic-on-azure-native-microsoft-azure.png" alt-text="Screenshot of Azure portal showing 'Elasticsearch (Elastic Cloud)' page with Deployment U R L / Kibana highlighted." lightbox="media/how-to-elastic-diagnostic-settings/elastic-on-azure-native-microsoft-azure.png":::
+   :::image type="content" source="media/how-to-elastic-diagnostic-settings/elastic-on-azure-native-microsoft-azure.png" alt-text="Screenshot of the Azure portal that shows the Elasticsearch (Elastic Cloud) page with the Deployment URL Kibana link highlighted." lightbox="media/how-to-elastic-diagnostic-settings/elastic-on-azure-native-microsoft-azure.png":::
 
 1. In Kibana, in the **Search** bar at top, type *Spring Cloud type:dashboard*.
 
@@ -75,7 +75,7 @@ Application logs provide critical information and verbose logs about your applic
 
 1. In the **Discover** app, select the **logs-** index pattern if it's not already selected.
 
-   :::image type="content" source="media/how-to-elastic-diagnostic-settings/elastic-kibana-index-pattern.png" alt-text="Screenshot of Elastic / Kibana screenshot that shows the logs page in the Discover app." lightbox="media/how-to-elastic-diagnostic-settings/elastic-kibana-index-pattern.png":::
+   :::image type="content" source="media/how-to-elastic-diagnostic-settings/elastic-kibana-index-pattern.png" alt-text="Screenshot of Elastic / Kibana that shows the logs page in the Discover app." lightbox="media/how-to-elastic-diagnostic-settings/elastic-kibana-index-pattern.png":::
 
 1. Use queries such as the ones in the following sections to help you understand your application's current and past states.
 
@@ -89,7 +89,7 @@ To review a list of application logs from Azure Spring Apps, sorted by time with
 azure_log_forwarder.resource_type : "Microsoft.AppPlatform/Spring"
 ```
 
-:::image type="content" source="media/how-to-elastic-diagnostic-settings/elastic-kibana-kql-asc-logs.png" alt-text="Screenshot of Elastic / Kibana screenshot that shows the Discover app with all logs displayed." lightbox="media/how-to-elastic-diagnostic-settings/elastic-kibana-kql-asc-logs.png":::
+:::image type="content" source="media/how-to-elastic-diagnostic-settings/elastic-kibana-kql-asc-logs.png" alt-text="Screenshot of Elastic / Kibana that shows the Discover app with all logs displayed." lightbox="media/how-to-elastic-diagnostic-settings/elastic-kibana-kql-asc-logs.png":::
 
 ### Show specific log types from Azure Spring Apps
 
