@@ -337,9 +337,22 @@ We can also join an existing call with preset options, such as being muted
  */
 public TeamsCall joinTeamsCall(TeamsCallAgent teamsCallAgent){
 	TeamsMeetingLinkLocator link = new TeamsMeetingLinkLocator("meetingLink");
-	AudioOptions audioOptions = new AudioOptions().setMuted(true);
+	OutgoingAudioOptions audioOptions = new OutgoingAudioOptions().setMuted(true);
 	JoinTeamsCallOptions options = new JoinTeamsCallOptions().setAudioOptions(audioOptions);
 	TeamsCall call = teamsCallAgent.join(this, link, options);
+}
+```
+
+## Setup Incoming Call Listener
+
+To be able to detect incoming calls and other actions not done by this user, listeners must be setup
+
+```java
+private TeamsIncomingCall teamsincomingCall;
+teamsCallAgent.addOnIncomingCallListener(this::handleIncomingCall);
+
+private void handleIncomingCall(TeamsIncomingCall incomingCall) {
+	this.teamsincomingCall = incomingCall;
 }
 ```
 
