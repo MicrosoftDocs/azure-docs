@@ -1,6 +1,6 @@
 ---
 title: Relocation guidance for Azure Automation
-description: Learn how to relocate an Azure Automation to a new region
+description: Learn how to relocate an Azure Automation to a another region
 author: anaharris-ms
 ms.author: anaharris
 ms.reviewer: anaharris
@@ -38,6 +38,10 @@ To get started, export a Resource Manager template. This template contains setti
 5. Locate the .zip file that you downloaded from the portal, and unzip that file to a folder of your choice.
 
    This zip file contains the .json files that include the template and scripts to deploy the template.
+
+## Downtime
+
+To understand the possible downtimes involved, see [Cloud Adoption Framework for Azure: Select a relocation method](/azure/cloud-adoption-framework/relocate/select#select-a-relocation-method).
 
 ## Redeploy
 
