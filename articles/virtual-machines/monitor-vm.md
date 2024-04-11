@@ -20,7 +20,9 @@ This article provides an overview of how to monitor the health and performance o
 
 ## Overview: Monitor VM host and guest metrics and logs
 
-You can collect metrics and logs from the **VM host**, which is the physical server and hypervisor that creates and manages the VM, and from the **VM guest**, which includes the operating system and applications that run inside the VM. Host-level data gives you an understanding of the VM's overall performance and load, while the guest-level data gives you visibility into the applications, components, and processes running on the machine and their performance and health. For example, if you’re troubleshooting a performance issue, you might start with host metrics to see which VM is under heavy load, and then use guest metrics to drill down into the details of the operating system and application performance.
+You can collect metrics and logs from the **VM host**, which is the physical server and hypervisor that creates and manages the VM, and from the **VM guest**, which includes the operating system and applications that run inside the VM. 
+
+Host-level data gives you an understanding of the VM's overall performance and load, while the guest-level data gives you visibility into the applications, components, and processes running on the machine and their performance and health. For example, if you’re troubleshooting a performance issue, you might start with host metrics to see which VM is under heavy load, and then use guest metrics to drill down into the details of the operating system and application performance.
 
 
 ### VM host data
