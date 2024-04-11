@@ -18,7 +18,7 @@ You can use Azure App Service to work with popular AI frameworks like LangChain 
 
 ---
 
-For this Flask web application, we’ll be building off the [quickstart](https://learn.microsoft.com/azure/app-service/quickstart-python?tabs=flask%2Cwindows%2Cazure-cli%2Cvscode-deploy%2Cdeploy-instructions-azportal%2Cterminal-bash%2Cdeploy-instructions-zip-azcli#1---sample-application) app and updating the *[app.py](http://app.py)* file to send and receive requests to an Azure OpenAI OR OpenAI service using LangChain.
+For this Flask web application, we’ll be building off the [quickstart](https://learn.microsoft.com/azure/app-service/quickstart-python?tabs=flask%2Cwindows%2Cazure-cli%2Cvscode-deploy%2Cdeploy-instructions-azportal%2Cterminal-bash%2Cdeploy-instructions-zip-azcli#1---sample-application) app and updating the *app.py* file to send and receive requests to an Azure OpenAI OR OpenAI service using LangChain.
 
 First, copy and replace the *index.htm*l file with the following code:
 
