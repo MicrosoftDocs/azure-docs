@@ -4,7 +4,7 @@ description: Set up Hadoop, Kafka, Spark, or HBase clusters for HDInsight from a
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive, devx-track-azurepowershell, linux-related-content
-ms.date: 03/16/2023
+ms.date: 04/11/2024
 ---
 
 # Set up clusters in HDInsight with Apache Hadoop, Apache Spark, Apache Kafka, and more

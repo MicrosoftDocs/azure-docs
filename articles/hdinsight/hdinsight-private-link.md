@@ -5,7 +5,7 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.author: piyushgupta
 author: piyush-gupta1999
-ms.date: 03/30/2023
+ms.date: 04/11/2024
 ---
 
 # Enable Private Link on an HDInsight cluster
