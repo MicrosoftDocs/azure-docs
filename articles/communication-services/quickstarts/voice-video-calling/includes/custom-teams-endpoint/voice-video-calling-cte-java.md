@@ -313,6 +313,16 @@ private void startCall() {
 }
 ```
 
+## Answer a Call
+
+Accepting a call can be done using the teams call agent using only a reference to the current context
+
+```java
+public void acceptACall(TeamsIncomingCall teamsIncomingCall){
+	teamsIncomingCall.accept(this);
+}
+```
+
 ## Join a Teams Call
 
 A user can join an existing call by passing a link
