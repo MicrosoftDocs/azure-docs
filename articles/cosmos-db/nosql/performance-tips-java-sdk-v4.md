@@ -45,9 +45,9 @@ An app that interacts with a multi-region Azure Cosmos DB account needs to confi
 
 **Enable accelerated networking to reduce latency and CPU jitter**
 
-We strongly recommend to follow the instructions to enable [Accelerated Networking](../../virtual-network/accelerated-networking-overview.md) in your [Windows (select for instructions)](../../virtual-network/create-vm-accelerated-networking-powershell.md) or [Linux (select for instructions)](../../virtual-network/create-vm-accelerated-networking-cli.md) Azure VM. This should maximize performance by reducing latency and CPU jitter.
+We strongly recommend following the instructions to enable [Accelerated Networking](../../virtual-network/accelerated-networking-overview.md) in your [Windows (select for instructions)](../../virtual-network/create-vm-accelerated-networking-powershell.md) or [Linux (select for instructions)](../../virtual-network/create-vm-accelerated-networking-cli.md) Azure VM to maximize the performance by reducing latency and CPU jitter.
 
-Without accelerated networking, IO that transits between your Azure VM and other Azure resources might be routed through a host and virtual switch situated between the VM and its network card. Having the host and virtual switch inline in the datapath not only increases latency and jitter in the communication channel, it also steals CPU cycles from the VM. With accelerated networking, the VM interfaces directly with the NIC without intermediaries. All network policy details will be handled in the hardware at the NIC, bypassing the host and virtual switch. Generally you can expect lower latency and higher throughput, as well as more *consistent* latency and decreased CPU utilization when you enable accelerated networking.
+Without accelerated networking, IO that transits between your Azure VM and other Azure resources might be routed through a host and virtual switch situated between the VM and its network card. Having the host and virtual switch inline in the datapath not only increases latency and jitter in the communication channel, it also steals CPU cycles from the VM. With accelerated networking, the VM interfaces directly with the NIC without intermediaries. All network policy details are handled in the hardware at the NIC, bypassing the host and virtual switch. Generally you can expect lower latency and higher throughput, as well as more *consistent* latency and decreased CPU utilization when you enable accelerated networking.
 
 Limitations: accelerated networking must be supported on the VM OS, and can only be enabled when the VM is stopped and deallocated. The VM cannot be deployed with Azure Resource Manager. [App Service](../../app-service/overview.md) has no accelerated network enabled.
 
@@ -60,15 +60,15 @@ For optimizing direct and gateway mode connection configurations, see how to [tu
 ## SDK usage
 * **Install the most recent SDK**
 
-The Azure Cosmos DB SDKs are constantly being improved to provide the best performance. See the [Azure Cosmos DB SDK](sdk-java-async-v2.md) pages to determine the most recent SDK and review improvements.
+The Azure Cosmos DB SDKs are constantly being improved to provide the best performance. To determine the most recent SDK improvements, visit the [Azure Cosmos DB SDK](sdk-java-async-v2.md).
 
 * <a id="max-connection"></a> **Use a singleton Azure Cosmos DB client for the lifetime of your application**
 
-Each Azure Cosmos DB client instance is thread-safe and performs efficient connection management and address caching. To allow efficient connection management and better performance by the Azure Cosmos DB client, we strongly recommend to use a single instance of the Azure Cosmos DB client for the lifetime of the application.
+Each Azure Cosmos DB client instance is thread-safe and performs efficient connection management and address caching. To allow efficient connection management and better performance by the Azure Cosmos DB client, we strongly recommend using a single instance of the Azure Cosmos DB client for the lifetime of the application.
 
 * <a id="override-default-consistency-javav4"></a> **Use the lowest consistency level required for your application**
 
-When you create a *CosmosClient*, the default consistency used if not explicitly set is *Session*. If *Session* consistency is not required by your application logic set the *Consistency* to *Eventual*. Note: it is recommended to use at least *Session* consistency in applications employing the Azure Cosmos DB Change Feed processor.
+When you create a *CosmosClient*, the default consistency used if not explicitly set is *Session*. If *Session* consistency is not required by your application logic set the *Consistency* to *Eventual*. Note: it is recommended using at least *Session* consistency in applications employing the Azure Cosmos DB Change Feed processor.
 
 * **Use Async API to max out provisioned throughput**
 
@@ -76,11 +76,11 @@ Azure Cosmos DB Java SDK v4 bundles two APIs, Sync and Async. Roughly speaking, 
     
 The choice of API is determined during client initialization; a *CosmosAsyncClient* supports Async API while a *CosmosClient* supports Sync API. 
     
-The Async API implements non-blocking IO and is the optimal choice if your goal is to max out throughput when issuing requests to Azure Cosmos DB. 
+The Async API implements nonblocking IO and is the optimal choice if your goal is to max out throughput when issuing requests to Azure Cosmos DB. 
     
 Using Sync API can be the right choice if you want or need an API, which blocks on the response to each request, or if synchronous operation is the dominant paradigm in your application. For example, you might want the Sync API when you are persisting data to Azure Cosmos DB in a microservices application, provided throughput is not critical.  
     
-Be aware that Sync API throughput degrades with increasing request response-time, whereas the Async API can saturate the full bandwidth capabilities of your hardware. 
+Note, sync API throughput degrades with increasing request response-time, whereas the Async API can saturate the full bandwidth capabilities of your hardware. 
     
 Geographic collocation can give you higher and more consistent throughput when using Sync API (see [Collocate clients in same Azure region for performance](#collocate-clients)) but still is not expected to exceed Async API attainable throughput.
 
@@ -125,16 +125,16 @@ After the result is received, you should avoid doing any CPU intensive work on t
 
 [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/async/SampleDocumentationSnippetsAsync.java?name=PerformanceAddSchedulerAsync)]
 
-Based on the type of your work you should use the appropriate existing Reactor Scheduler for your work. Read here
+Based on the type of your work, you should use the appropriate existing Reactor Scheduler for your work. Read here
 [``Schedulers``](https://projectreactor.io/docs/core/release/api/reactor/core/scheduler/Schedulers.html).
 
 To further understand the threading and scheduling model of project Reactor, refer to this [blog post by Project Reactor](https://spring.io/blog/2019/12/13/flight-of-the-flux-3-hopping-threads-and-schedulers).
 
-For more information on Azure Cosmos DB Java SDK v4, please look at the [Azure Cosmos DB directory of the Azure SDK for Java monorepo on GitHub](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cosmos/azure-cosmos).
+For more information on Azure Cosmos DB Java SDK v4, look at the [Azure Cosmos DB directory of the Azure SDK for Java monorepo on GitHub](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cosmos/azure-cosmos).
 
 * **Optimize logging settings in your application**
 
-For various reasons, you might want or need to add logging in a thread which is generating high request throughput. If your goal is to fully saturate a container's provisioned throughput with requests generated by this thread, logging optimizations can greatly improve performance.
+For various reasons, you should add logging in a thread that is generating high request throughput. If your goal is to fully saturate a container's provisioned throughput with requests generated by this thread, logging optimizations can greatly improve performance.
 
 * ***Configure an async logger***
 
@@ -248,7 +248,7 @@ Java SDK V4 (Maven com.azure::azure-cosmos) Sync API
 
 --- 
 
-The request charge returned in this header is a fraction of your provisioned throughput. For example, if you have 2000 RU/s provisioned, and if the preceding query returns 1000 1KB-documents, the cost of the operation is 1000. As such, within one second, the server honors only two such requests before rate limiting subsequent requests. For more information, see [Request units](../request-units.md) and the [request unit calculator](https://cosmos.azure.com/capacitycalculator).
+The request charge returned in this header is a fraction of your provisioned throughput. For example, if you have 2000 RU/s provisioned, and if the preceding query returns 1,000 1KB documents, the cost of the operation is 1000. As such, within one second, the server honors only two such requests before rate limiting subsequent requests. For more information, see [Request units](../request-units.md) and the [request unit calculator](https://cosmos.azure.com/capacitycalculator).
 
 <a id="429"></a>
 * **Handle rate limiting/request rate too large**
@@ -269,7 +269,7 @@ While the automated retry behavior helps to improve resiliency and usability for
 
 * **Design for smaller documents for higher throughput**
 
-The request charge (the request processing cost) of a given operation is directly correlated to the size of the document. Operations on large documents cost more than operations for small documents. Ideally, architect your application and workflows to have your item size be ~1KB, or similar order or magnitude. For latency-sensitive applications large items should be avoided - multi-MB documents will slow down your application.
+The request charge (the request processing cost) of a given operation is directly correlated to the size of the document. Operations on large documents cost more than operations for small documents. Ideally, architect your application and workflows to have your item size be ~1 KB, or similar order or magnitude. For latency-sensitive applications large items should be avoided - multi-MB documents will slow down your application.
 
 ## Next steps
 
