@@ -296,7 +296,7 @@ To deploy the application, you use a manifest file to create all the objects req
 1. Deploy the application using the [kubectl apply][kubectl-apply] command into the `aks-store-demo` namespace.
 
     ```bash
-    kubectl apply -n aks-store-demo -f https://raw.githubusercontent.com/Azure-Samples/aks-store-demo/main/aks-store-quickstart.yaml
+    kubectl apply -n aks-store-demo -f https://raw.githubusercontent.com/Azure-Samples/aks-store-demo/main/aks-store-ingress-quickstart.yaml
     ```
 
     The following sample output shows the deployments and services:
@@ -311,6 +311,7 @@ To deploy the application, you use a manifest file to create all the objects req
     service/product-service created
     deployment.apps/store-front created
     service/store-front created
+    ingress/store-front created
     ```
 
 ## Test the application
@@ -326,26 +327,26 @@ When the application runs, a Kubernetes service exposes the application front en
 1. Check for a public IP address for the store-front application. Monitor progress using the [kubectl get service][kubectl-get] command with the `--watch` argument.
 
     ```bash
-    kubectl get service store-front -n aks-store-demo --watch
+    kubectl get ingress store-front -n aks-store-demo --watch
     ```
 
-    The **EXTERNAL-IP** output for the `store-front` service initially shows as *pending*:
+    The **ADDRESS** output for the `store-front` service initially shows empty:
 
     ```output
-    NAME          TYPE           CLUSTER-IP    EXTERNAL-IP   PORT(S)        AGE
-    store-front   LoadBalancer   10.0.100.10   <pending>     80:30025/TCP   3m
+    NAME          CLASS                                HOSTS   ADDRESS        PORTS   AGE
+    store-front   webapprouting.kubernetes.azure.com   *                      80      12m
     ```
 
-1. Once the **EXTERNAL-IP** address changes from *pending* to an actual public IP address, use `CTRL-C` to stop the `kubectl` watch process.
+1. Once the **ADDRESS** changes from blank to an actual public IP address, use `CTRL-C` to stop the `kubectl` watch process.
 
     The following sample output shows a valid public IP address assigned to the service:
 
     ```output
-    NAME          TYPE           CLUSTER-IP    EXTERNAL-IP    PORT(S)        AGE
-    store-front   LoadBalancer   10.0.100.10   20.62.159.19   80:30025/TCP   4m
+    NAME          CLASS                                HOSTS   ADDRESS        PORTS   AGE
+    store-front   webapprouting.kubernetes.azure.com   *       4.255.22.196   80      12m
     ```
 
-1. Open a web browser to the external IP address of your service to see the Azure Store app in action.
+1. Open a web browser to the external IP address of your ingress to see the Azure Store app in action.
 
     :::image type="content" source="media/quick-kubernetes-deploy-cli/aks-store-application.png" alt-text="Screenshot of AKS Store sample application." lightbox="media/quick-kubernetes-deploy-cli/aks-store-application.png":::
 
