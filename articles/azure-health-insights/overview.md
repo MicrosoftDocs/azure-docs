@@ -48,9 +48,6 @@ Review the following information to learn how to deploy Azure AI Health Insights
 > [Deploy Azure AI Health Insights using Azure portal](deploy-portal.md) 
 
 >[!div class="nextstepaction"]
-> [Deploy Azure AI Health Insights using commandline](deploy-command-line.md)
-
->[!div class="nextstepaction"]
 > [Onco-Phenotype](oncophenotype/overview.md) 
 
 >[!div class="nextstepaction"]
