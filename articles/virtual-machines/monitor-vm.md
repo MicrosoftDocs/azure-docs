@@ -22,7 +22,10 @@ This article provides an overview of how to monitor the health and performance o
 
 You can collect metrics and logs from the **VM host**, which is the physical server and hypervisor that creates and manages the VM, and from the **VM guest**, which includes the operating system and applications that run inside the VM. Host-level data gives you an understanding of the VM's overall performance and load, while the guest-level data gives you visibility into the applications, components, and processes running on the machine and their performance and health. For example, if you’re troubleshooting a performance issue, you might start with host metrics to see which VM is under heavy load, and then use guest metrics to drill down into the details of the operating system and application performance.
 
+
 ### VM host data
+
+VM host data is available without additional setup. Enable [recommended alert rules](#recommended-alert-rules) to be notified when key host metrics deviate from their expected baseline values.     
 
 | Scenario | Details | Data collection | Available data |
 |-|-|-|-|
@@ -30,7 +33,8 @@ You can collect metrics and logs from the **VM host**, which is the physical ser
 
 
 ### VM guest data 
-Analyze and troubleshoot performance and operational efficiency of workloads running in your Azure environment. Install [Azure Monitor Agent](/azure/azure-monitor/agents/agents-overview) on the VM and set up a [data collection rule (DCR)](#data-collection-rules). 
+
+VM guest data lets you analyze and troubleshoot the performance and operational efficiency of workloads running on your VMs. To monitor VM guest data, you need to install [Azure Monitor Agent](/azure/azure-monitor/agents/agents-overview) on the VM and set up a [data collection rule (DCR)](#data-collection-rules). The [VM Insights](#vm-insights) feature automatically installs Azure Monitor Agent on your VM and sets up a default data collection rule for quick and easy onboarding. 
 
 | Scenario | Details | Data collection | Available data |
 |-|-|-|-|
