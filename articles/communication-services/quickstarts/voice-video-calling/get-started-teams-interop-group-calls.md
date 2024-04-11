@@ -11,7 +11,7 @@ ms.subservice: calling
 ms.custom: mode-other, devx-track-js
 ---
 
-# Quickstart: Place interop group calls between Azure Communication Services and Microst Teams
+# Quickstart: Place interop group calls between Azure Communication Services and Microsoft Teams
 
 In this quickstart you are going to learn how to start a group call from Azure Communication Services user to Teams users. You are going to achieve it with the following steps:
 
@@ -125,7 +125,7 @@ placeInteropGroupCallButton.addEventListener("click", () => {
 });
 ```
 
-## Get the Teams users ids
+## Get the Teams user ids
 
 The Teams user ids can be retrieved using Graph APIs, which is detailed in [Graph documentation](https://learn.microsoft.com/graph/api/user-get?view=graph-rest-1.0&tabs=http).
 
