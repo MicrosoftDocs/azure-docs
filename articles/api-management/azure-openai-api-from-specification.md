@@ -11,6 +11,8 @@ ms.custom: template-how-to
 
 # Import an Azure OpenAI API as a REST API
 
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
+
 This article shows how to import an [Azure OpenAI](/azure/ai-services/openai/overview) API into an Azure API Management instance from its OpenAPI specification. After importing the API as a REST API, you can manage and secure it, and publish it to developers.
 
 ## Prerequisites

@@ -50,10 +50,6 @@ Sign in to the Azure portal with this [Preview link](https://aka.ms/expressroute
 
     :::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/maximum-resiliency.png" alt-text="Diagram of maximum resiliency for an ExpressRoute connection.":::
 
-    **High Resiliency** - This option provides a single ExpressRoute circuit with redundancy at two peering locations within the same metropolitan area.
-
-    :::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/high-resiliency.png" alt-text="Diagram of high resiliency for an ExpressRoute connection.":::
-
     **Standard Resiliency** - This option provides a single ExpressRoute circuit with local redundancy at a single ExpressRoute location.
     
     > [!NOTE]

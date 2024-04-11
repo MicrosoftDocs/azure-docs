@@ -11,15 +11,15 @@ ms.custom: template-concept
 
 # Generative AI in Azure Data Manager for Agriculture
 
-The copilot templates for agriculture enable seamless retrieval of data stored in Azure Data Manager for Agriculture so that farming-related context and insights can be queried in a conversational context. These capabilities enable customers and partners to build their own agriculture copilots.
-
-Customers and partners can deliver insights to users around disease, yield, harvest windows, and more, by using actual planning and observational data. Although Azure Data Manager for Agriculture isn't required to operationalize copilot templates for agriculture, it enables customers to more easily integrate generative AI scenarios for their users.
+Microsoft copilot templates empower organizations to build agriculture copilots. Our copilot templates enable seamless retrieval of data stored in Azure Data Manager for Agriculture so that farming-related context and insights can be queried in a conversational context. 
 
 Many customers have proprietary data outside Azure Data Manager for Agriculture; for example, agronomy PDFs or market price data. These customers can benefit from an orchestration framework that allows for plugins, embedded data structures, and subprocesses to be selected as part of the query flow.
 
 Customers who have farm operations data in Azure Data Manager for Agriculture can use plugins that enable seamless selection of APIs mapped to farm operations. These plugins allow for a combination of results, calculation of area, ranking, and summarizing to help serve customer prompts.
 
-The copilot templates for agriculture make generative AI in agriculture a reality.
+Customers and partners can deliver insights to users around disease, yield, harvest windows, and more, by using actual planning and observational data. Although Azure Data Manager for Agriculture isn't required to operationalize copilot templates for agriculture, it enables customers to more easily integrate generative AI scenarios for their users.
+
+Our copilot templates make generative AI in agriculture a reality.
 
 > [!NOTE]
 > Azure might include preview, beta, or other prerelease features, services, software, or regions offered by Microsoft for optional evaluation. Previews are licensed to you as part of [your agreement](https://azure.microsoft.com/support) governing the use of Azure, and are subject to terms applicable to previews.

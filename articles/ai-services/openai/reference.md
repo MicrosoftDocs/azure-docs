@@ -1191,6 +1191,8 @@ The operation returns a `204` status code if successful. This API only succeeds 
 
 ## Speech to text
 
+You can use a Whisper model in Azure OpenAI Service for speech to text transcription or speech translation. For more information about using a Whisper model, see the [quickstart](./whisper-quickstart.md) and [the Whisper model overview](../speech-service/whisper-overview.md). 
+
 ### Request a speech to text transcription
 
 Transcribes an audio file.
@@ -1220,7 +1222,7 @@ POST https://{your-resource-name}.openai.azure.com/openai/deployments/{deploymen
 
 | Parameter | Type | Required? | Default | Description |
 |--|--|--|--|--|
-| ```file```| file | Yes | N/A | The audio file object (not file name) to transcribe, in one of these formats: `flac`, `mp3`, `mp4`, `mpeg`, `mpga`, `m4a`, `ogg`, `wav`, or `webm`.<br/><br/>The file size limit for the Azure OpenAI Whisper model is 25 MB. If you need to transcribe a file larger than 25 MB, break it into chunks. Alternatively you can use the Azure AI Speech [batch transcription](../speech-service/batch-transcription-create.md#use-a-whisper-model) API.<br/><br/>You can get sample audio files from the [Azure AI Speech SDK repository at GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/sampledata/audiofiles). |
+| ```file```| file | Yes | N/A | The audio file object (not file name) to transcribe, in one of these formats: `flac`, `mp3`, `mp4`, `mpeg`, `mpga`, `m4a`, `ogg`, `wav`, or `webm`.<br/><br/>The file size limit for the Whisper model in Azure OpenAI Service is 25 MB. If you need to transcribe a file larger than 25 MB, break it into chunks. Alternatively you can use the Azure AI Speech [batch transcription](../speech-service/batch-transcription-create.md#use-a-whisper-model) API.<br/><br/>You can get sample audio files from the [Azure AI Speech SDK repository at GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/sampledata/audiofiles). |
 | ```language``` | string | No | Null | The language of the input audio such as `fr`. Supplying the input language in [ISO-639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) format improves accuracy and latency.<br/><br/>For the list of supported languages, see the [OpenAI documentation](https://platform.openai.com/docs/guides/speech-to-text/supported-languages). |
 | ```prompt``` | string | No | Null | An optional text to guide the model's style or continue a previous audio segment. The prompt should match the audio language.<br/><br/>For more information about prompts including example use cases, see the [OpenAI documentation](https://platform.openai.com/docs/guides/speech-to-text/supported-languages). |
 | ```response_format``` | string | No | json | The format of the transcript output, in one of these options: json, text, srt, verbose_json, or vtt.<br/><br/>The default value is *json*. |
@@ -1381,7 +1383,7 @@ The speech is returned as an audio file from the previous request.
 
 ## Management APIs
 
-Azure OpenAI is deployed as a part of the Azure AI services. All Azure AI services rely on the same set of management APIs for creation, update, and delete operations. The management APIs are also used for deploying models within an OpenAI resource.
+Azure OpenAI is deployed as a part of the Azure AI services. All Azure AI services rely on the same set of management APIs for creation, update, and delete operations. The management APIs are also used for deploying models within an Azure OpenAI resource.
 
 [**Management APIs reference documentation**](/rest/api/aiservices/)
 

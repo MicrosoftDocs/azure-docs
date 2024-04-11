@@ -4,6 +4,9 @@ description: Learn about the core components that make up workloads and clusters
 ms.topic: conceptual
 ms.custom: build-2023
 ms.date: 01/16/2024
+author: schaffererin
+ms.author: schaffererin
+
 ---
 
 # Core Kubernetes concepts for Azure Kubernetes Service
@@ -411,3 +414,4 @@ This article covers some of the core Kubernetes components and how they apply to
 [aks-tags]: use-tags.md
 [aks-support]: support-policies.md#user-customization-of-agent-nodes
 [intro-azure-linux]: ../azure-linux/intro-azure-linux.md
+

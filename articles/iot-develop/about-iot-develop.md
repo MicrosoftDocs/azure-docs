@@ -49,7 +49,7 @@ The current embedded SDKs target the **C** language. The embedded SDKs provide e
 ## Choosing your hardware
 Azure IoT devices are the basic building blocks of an IoT solution and are responsible for observing and interacting with their environment. There are many different types of IoT devices, and it's helpful to understand the kinds of devices that exist and how they can affect your development process.
 
-For more information on the difference between devices types covered in this article, see [About IoT Device Types](concepts-iot-device-types.md).
+For more information on the difference between devices types covered in this article, see [About IoT Device Types](../iot/concepts-iot-device-types.md).
 
 ## Choosing an SDK
 As an Azure IoT device developer, you have a diverse set of SDKs, protocols and tools to help build device-enabled cloud applications. 

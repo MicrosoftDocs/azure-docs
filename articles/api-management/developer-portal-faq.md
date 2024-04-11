@@ -14,15 +14,15 @@ ms.custom: devx-track-azurepowershell, devx-track-arm-template
 
 # API Management developer portal - frequently asked questions
 
-This article provides answers to frequently asked questions about the [developer portal](developer-portal-overview.md) in Azure API Management.
+[!INCLUDE [api-management-availability-premium-dev-standard-basic-standardv2-basicv2](../../includes/api-management-availability-premium-dev-standard-basic-standardv2-basicv2.md)]
 
 ## What if I need functionality that isn't supported in the portal?
 
 You have the following options:
 
-* For small customizations, use a built-in widget to [add custom HTML](developer-portal-extend-custom-functionality.md#use-custom-html-code-widget).
+* For small customizations,  use a built-in widget to [add custom HTML](developer-portal-extend-custom-functionality.md#use-custom-html-code-widget). Currently, the custom HTML code widget isn't available in the v2 tiers of API Management.
 
-* For larger customizations, [create and upload](developer-portal-extend-custom-functionality.md#create-and-upload-custom-widget) a custom widget to the managed developer portal.
+* For larger customizations, [create and upload](developer-portal-extend-custom-functionality.md#create-and-upload-custom-widget) a custom widget to the managed developer portal. Currently, custom widgets aren't available in the v2 tiers of API Management.
 
 * [Self-host the developer portal](developer-portal-self-host.md), only if you need to make modifications to the core of the developer portal codebase.
 

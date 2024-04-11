@@ -22,7 +22,7 @@ In this article, you learn how to get question and answer pairs from your source
 ## Install the Synthetics Package
 
 ```shell
-python --version  # ensure you've >=3.8
+python --version  # use version 3.8 or later
 pip3 install azure-identity azure-ai-generative
 pip3 install wikipedia langchain nltk unstructured
 ```
