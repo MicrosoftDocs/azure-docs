@@ -137,7 +137,9 @@ Supported JDKs are automatically patched on a quarterly basis in January, April,
 Patches and fixes for major security vulnerabilities will be released as soon as they become available in Microsoft builds of the OpenJDK. A "major" vulnerability is defined by a base score of 9.0 or higher on the [NIST Common Vulnerability Scoring System, version 2](https://nvd.nist.gov/vuln-metrics/cvss).
 
 Tomcat 8.5 has reached [End of Life as of March 31, 2024](https://tomcat.apache.org/tomcat-85-eol.html) and Tomcat 10.0 has reached [End of Life as of October 31, 2022](https://tomcat.apache.org/tomcat-10.0-eol.html).
+
 While the runtimes are still available on Azure App Service, Azure won't apply security updates to Tomcat 8.5 or 10.0.
+
 When possible, migrate your applications to Tomcat 9.5 or Tomcat 10.1. Tomcat 9.5 and Tomcat 10.1 are available on Azure App Service. For more information, see the [official Tomcat site](https://tomcat.apache.org/whichversion.html).
 
 Community support for Java 7 ended on July 29, 2022 and [Java 7 was retired from App Service](https://azure.microsoft.com/updates/transition-to-java-11-or-8-by-29-july-2022/). If you have a web app running on Java 7, upgrade to Java 8 or 11 immediately.
