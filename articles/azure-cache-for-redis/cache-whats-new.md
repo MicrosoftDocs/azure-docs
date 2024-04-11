@@ -13,6 +13,12 @@ ms.date: 02/28/2024
 
 # What's New in Azure Cache for Redis
 
+## April 2024
+
+Support for a built-in _flush_ operation that can be started at the control plane level for caches in the Basic, Standard, and Premium tier has now reached General Availability (GA).
+
+For more information, see [flush data operation](cache-administration.md#flush-data-preview).
+
 ## February 2024
 
 Support for using customer managed keys for disk (CMK) encryption has now reached General Availability (GA).
@@ -33,7 +39,7 @@ Basic, Standard, and Premium tier caches now support a built-in _flush_ operatio
 
 For more information, see [flush data operation](cache-administration.md#flush-data-preview).
 
-### Update channel for Basic, Standard and Premium Caches (preview)
+### Update channel for Basic, Standard, and Premium Caches (preview)
 
 With Basic, Standard or Premium tier caches, you can choose to receive early updates by configuring the "Preview" or the "Stable" update channel.
 
@@ -118,7 +124,7 @@ For more information, see [Use Redis modules with Azure Cache for Redis](cache-r
 
 ### Redis 6 becomes default update
 
-All versions of Azure Cache for Redis REST API, PowerShell, Azure CLI and Azure SDK, will create Redis instances using Redis 6 starting January 20, 2023. Previously, we announced this change would take place on November 1, 2022, but due to unforeseen changes, the date has now been pushed out to January 20, 2023.
+All versions of Azure Cache for Redis REST API, PowerShell, Azure CLI, and Azure SDK, create Redis instances using Redis 6 starting January 20, 2023. Previously, we announced this change would take place on November 1, 2022, but due to unforeseen changes, the date has now been pushed out to January 20, 2023.
 
 For more information, see [Redis 6 becomes default for new cache instances](#redis-6-becomes-default-for-new-cache-instances).
 
@@ -126,7 +132,7 @@ For more information, see [Redis 6 becomes default for new cache instances](#red
 
 ### Enhancements for passive geo-replication
 
-Several enhancements have been made to the passive geo-replication functionality offered on the Premium tier of Azure Cache for Redis.
+Several enhancements were made to the passive geo-replication functionality offered on the Premium tier of Azure Cache for Redis.
 
 - New metrics are available for customers to better track the health and status of their geo-replication link, including statistics around the amount of data that is waiting to be replicated. For more information, see [Monitor Azure Cache for Redis](cache-how-to-monitor.md).
   
