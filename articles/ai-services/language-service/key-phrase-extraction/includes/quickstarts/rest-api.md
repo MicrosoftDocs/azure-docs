@@ -31,6 +31,8 @@ Use this quickstart to send key phrase extraction requests using the REST API. I
 [!INCLUDE [Create environment variables](../../../includes/environment-variables.md)]
 
 
+
+
 ## Create a JSON file with the example request body
 
 In a code editor, create a new file named `test_kpe_payload.json` and copy the following JSON example. This example request will be sent to the API in the next step.

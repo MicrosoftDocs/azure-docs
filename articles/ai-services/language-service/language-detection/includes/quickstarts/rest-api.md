@@ -30,6 +30,9 @@ Use this quickstart to send language detection requests using the REST API. In t
 
 [!INCLUDE [Create environment variables](../../../includes/environment-variables.md)]
 
+
+
+
 ## Create a JSON file with the example request body
 
 In a code editor, create a new file named `test_languagedetection_payload.json` and copy the following JSON example. This example request will be sent to the API in the next step.
@@ -57,7 +60,7 @@ Save `test_languagedetection_payload.json` somewhere on your computer. For examp
 
 Use the following commands to send the API request using the program you're using. Copy the command into your terminal, and run it.
 
-|parameter  |Description  |
+|Parameter  |Description  |
 |---------|---------|
 |`-X POST <endpoint>`     | Specifies your endpoint for accessing the API.        |
 |`-H Content-Type: application/json`     | The content type for sending JSON data.          |
