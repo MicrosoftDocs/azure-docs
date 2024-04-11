@@ -1333,7 +1333,7 @@
     {
       "source_path_from_root": "/articles/iot-hub/iot-hub-reliability-features-in-sdks.md",
       "redirect_url": "/azure/iot/concepts-manage-device-reconnections",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-hub/iot-hub-device-embedded-c-sdk.md",
