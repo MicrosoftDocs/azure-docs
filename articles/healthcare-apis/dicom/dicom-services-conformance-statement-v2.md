@@ -58,12 +58,14 @@ The [Studies Service](https://dicom.nema.org/medical/dicom/current/output/html/p
 
 ### Store (STOW-RS)
 
-This transaction uses the POST method to store representations of studies, series, and instances contained in the request payload.
+This transaction uses the POST or PUT method to store representations of studies, series, and instances contained in the request payload.
 
 | Method | Path               | Description |
 | :----- | :----------------- | :---------- |
 | POST   | ../studies         | Store instances. |
 | POST   | ../studies/{study} | Store instances for a specific study. |
+| PUT    | ../studies         | Upsert instances. |
+| PUT    | ../studies/{study} | Upsert instances for a specific study. |
 
 Parameter `study` corresponds to the DICOM attribute StudyInstanceUID. If specified, any instance that doesn't belong to the provided study is rejected with a `43265` warning code.
 
@@ -77,7 +79,7 @@ The following `Content-Type` header(s) are supported:
 * `application/dicom`
 
 > [!NOTE]
-> The Server **will not** coerce or replace attributes that conflict with existing data. All data will be stored as provided.
+> The server won't coerce or replace attributes that conflict with existing data for POST requests. All data is stored as provided. For upsert (PUT) requests, the existing data is replaced by the new data received. 
 
 #### Store required attributes
 The following DICOM elements are required to be present in every DICOM file attempting to be stored:

@@ -49,7 +49,7 @@ If you don't have an Azure subscription, create a free account before you begin.
     To run the training examples, first clone the examples repository and change into the `sdk` directory:
 
     ```bash
-    git clone --depth 1 https://github.com/Azure/azureml-examples --branch sdk-preview
+    git clone --depth 1 https://github.com/Azure/azureml-examples
     cd azureml-examples/sdk
     ```
 
