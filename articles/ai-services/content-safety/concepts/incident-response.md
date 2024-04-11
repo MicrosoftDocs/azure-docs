@@ -24,6 +24,12 @@ Using [Blocklists](https://learn.microsoft.com/azure/ai-services/content-safety/
 
 ## Limitations
 
+### Language availability
+
+The text incident response API supports all languages that are supported by Content Safety text moderation. See [Language support](/azure/ai-services/content-safety/language-support). 
+
+### Input limitations
+
 See the following table for the input limitations of the incident response API:
 
 | Object     | Limitation      |
@@ -33,7 +39,13 @@ See the following table for the input limitations of the incident response API:
 | Maximum size of each sample | Text: less than 500 characters<br>Image: less than 4 MB  |
 | Maximum number of text or image incidents per resource| 100 |  
 | Supported Image formats | BMP, GIF, JPEG, PNG, TIF, WEBP|
-| Supported languages for text incident response | All languages by text moderation. See [Language support](/azure/ai-services/content-safety/language-support). | 
+
+### Regions
+
+To use this API, you must create your Azure AI Content Safety resource in the supported regions. Currently, it's available in the following Azure regions:
+
+- East US
+- Sweden Central
 
 ## Next steps
 
