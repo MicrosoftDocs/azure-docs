@@ -21,7 +21,8 @@ When you're matching patients to trials, you can define a list of filters to que
 - Specifying multiple values for the same filter category results in a trial set that is a union of the two sets.
 
 > [!NOTE]
-> The examples below are based on API version: 2023-03-01-preview. 
+> The examples below are based on API version: 2023-03-01-preview. There might be changes between
+API versions. For a specific API version, please use the reference to the REST API to see full description. 
 
 In the following configuration, the model queries trials that are in recruitment status ```recruiting``` or ```not yet recruiting```.
 
