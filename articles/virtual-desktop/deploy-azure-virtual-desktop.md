@@ -5,7 +5,7 @@ ms.topic: how-to
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 author: dknappettmsft
 ms.author: daknappe
-ms.date: 02/28/2024
+ms.date: 04/11/2024
 ---
 
 # Deploy Azure Virtual Desktop
@@ -61,6 +61,8 @@ In addition, you need:
    - A stable connection to Azure from your on-premises network.
 
    - At least one Windows OS image available on the cluster. For more information, see how to [create VM images using Azure Marketplace images](/azure-stack/hci/manage/virtual-machine-image-azure-marketplace), [use images in Azure Storage account](/azure-stack/hci/manage/virtual-machine-image-storage-account), and [use images in local share](/azure-stack/hci/manage/virtual-machine-image-local-share).
+   
+   - A logical network that you created on your Azure Stack HCI cluster. Both DHCP logical networks or static logical networks (automatic IP allocation) are supported. For more information, see [Create logical network](/azure-stack/hci/manage/create-logical-networks?tabs=azurecli).
 
 # [Azure PowerShell](#tab/powershell)
 
