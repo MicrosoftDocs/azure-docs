@@ -49,7 +49,7 @@ sections:
           If more documentation is required for identity validation, you're asked to provide those documents on the Azure portal. Otherwise, we recommend checking for an email sent to the listed address for email validation. However, if your organization fails identity validation we can't onboard you to Trusted Signing. We recommend you delete your Trusted Signing account so you don't get billed for unused resources.
       - question: What is the cost of using Trusted Signing?
         answer: | 
-          For the beginning of Public Preview until June 2024 Trusted Signing is free. You'll still be prompted to select a Basic or Premium SKU when you create your account and we throttle signing requests.
+          For Public Preview Trusted Signing is free for now. You'll still be prompted to select a Basic or Premium SKU when you create your account and we throttle signing requests.
       - question: What are my support options when onboarding to Trusted Signing?
         answer: | 
           If you're a managed customer on Azure, and have a support plan you can create a support ticket with the service on the Azure portal and be assisted by Azure customer support. Otherwise, we recommend you go to Microsoft Q&A or StackOverflow under the tag Trusted-Signing to ask questions.  
