@@ -33,7 +33,7 @@ landingContent:
           - text: Signing Integrations with Trusted Signing
             url: how-to-signing-integrations.md
           - text: Access signed transactions in Trusted Signing 
-            url: how-to-signed-history.md
+            url: how-to-signing-history.md
           - text: Revoke a certificate profile in Trusted Signing
             url: how-to-certificate-revocation.md
   - title: Overview
