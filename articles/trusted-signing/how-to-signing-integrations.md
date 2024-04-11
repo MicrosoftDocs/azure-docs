@@ -32,7 +32,7 @@ Prerequisites:
 
 Overview of steps:  
 1.	[Download and install SignTool.](#download-and-install-signtool)
-2.	[Download and install the .NET 6 Runtime.](#download-and-install-net-60-runtime)
+2.	[Download and install the .NET 8 Runtime.](#download-and-install-net-80-runtime)
 3.	[Download and install the Trusted Signing Dlib Package.](#download-and-install-trusted-signing-dlib-package)
 4.	[Create JSON file to provide your Trusted Signing account and Certificate Profile.](#create-json-file)
 5.	[Invoke SignTool.exe to sign a file.](#invoke-signtool-to-sign-a-file)
@@ -59,11 +59,11 @@ Invoke-WebRequest -Uri https://dist.nuget.org/win-x86-commandline/latest/nuget.e
 .\nuget.exe install Microsoft.Windows.SDK.BuildTools -Version 10.0.20348.19 
 ```
 
-### Download and install .NET 6.0 Runtime
-The components that SignTool.exe uses to interface with Trusted Signing require the installation of the [.NET 6.0 Runtime](https://dotnet.microsoft.com/en-us/download/dotnet/6.0) You only need the core .NET 6.0 Runtime. Make sure you install the correct platform runtime depending on which version of SignTool.exe you intend to run (or simply install both). For example: 
+### Download and install .NET 8.0 Runtime
+The components that SignTool.exe uses to interface with Trusted Signing require the installation of the [.NET 8.0 Runtime](https://dotnet.microsoft.com/en-us/download/dotnet/8.0) You only need the core .NET 8.0 Runtime. Make sure you install the correct platform runtime depending on which version of SignTool.exe you intend to run (or simply install both). For example: 
 
-* For x64 SignTool.exe: [Download Download .NET 6.0 Runtime - Windows x64 Installer](https://dotnet.microsoft.com/en-us/download/dotnet/thank-you/runtime-6.0.9-windows-x64-installer)
-* For x86 SignTool.exe: [Download Download .NET 6.0 Runtime - Windows x86 Installer](https://dotnet.microsoft.com/en-us/download/dotnet/thank-you/runtime-6.0.9-windows-x86-installer)
+* For x64 SignTool.exe: [Download Download .NET 8.0 Runtime - Windows x64 Installer](https://dotnet.microsoft.com/en-us/download/dotnet/thank-you/runtime-8.0.4-windows-x64-installer)
+* For x86 SignTool.exe: [Download Download .NET 8.0 Runtime - Windows x86 Installer](https://dotnet.microsoft.com/en-us/download/dotnet/thank-you/runtime-8.0.4-windows-x86-installer)
 
 ### Download and install Trusted Signing Dlib package
 Complete these steps to download and install the Trusted Signing Dlib package (.ZIP):
@@ -90,8 +90,8 @@ To sign using Trusted Signing, you need to provide the details of your Trusted S
 |--------------|-----------|------------|
 | East US  | EastUS  | `https://eus.codesigning.azure.net` |
 | West US   | WestUS  | `https://wus.codesigning.azure.net` |
-| West Central US  | WestCentralUS  | `https://wcus.codesigning.azure.net/` |
-| West US 2   | WestUS2   | `https://wus2.codesigning.azure.net/` |
+| West Central US  | WestCentralUS  | `https://wcus.codesigning.azure.net` |
+| West US 2   | WestUS2   | `https://wus2.codesigning.azure.net` |
 | North Europe   | NorthEurope   | `https://neu.codesigning.azure.net`   |
 | West Europe   | WestEurope   | `https://weu.codesigning.azure.net`  |
 

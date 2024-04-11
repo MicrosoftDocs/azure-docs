@@ -40,7 +40,7 @@ Examples of specialized hardware and operating systems include:
 
 [Windows for IoT](/windows/iot/product-family/windows-iot) is an embedded version of Windows for MPUs with cloud connectivity that lets you create secure devices with easy provisioning and management.
 
-[Azure RTOS](/azure/rtos/overview-rtos) is a real time operating system for IoT and edge devices powered by MCUs. Azure RTOS is designed to support highly constrained devices that are battery powered and have less than 64 KB of flash memory.
+[Eclipse ThreadX](https://github.com/eclipse-threadx/rtos-docs) is a real time operating system for IoT and edge devices powered by MCUs. Eclipse ThreadX is designed to support highly constrained devices that are battery powered and have less than 64 KB of flash memory.
 
 [Azure Sphere](/azure-sphere/product-overview/what-is-azure-sphere) is a secure, high-level application platform with built-in communication and security features for internet-connected devices. It comprises a secured, connected, crossover MCU, a custom high-level Linux-based operating system, and a cloud-based security service that provides continuous, renewable security.
 
@@ -71,7 +71,7 @@ For MPU devices, device SDKs are available for the following languages:
 
 For MCU devices, see:
 
-- [Azure RTOS Middleware](https://github.com/eclipse-threadx)
+- [Eclipse ThreadX](https://github.com/eclipse-threadx)
 - [FreeRTOS Middleware](https://github.com/Azure/azure-iot-middleware-freertos)
 - [Azure SDK for Embedded C](https://github.com/Azure/azure-sdk-for-c)
 

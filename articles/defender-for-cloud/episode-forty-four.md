@@ -33,4 +33,4 @@ ms.date: 01/28/2024
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [New AWS Connector in Microsoft Defender for Cloud](episode-one.md)
+> [Risk prioritization](episode-forty-five.md)
