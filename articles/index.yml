@@ -173,13 +173,6 @@ productDirectory:
         - ai-machine-learning
       url: open-datasets/index.yml
     # Card
-    - title: Azure RTOS
-      summary: Making embedded IoT development and connectivity easy
-      imageSrc: ./media/index/rtos.svg
-      azureCategories:
-        - iot
-      url: /azure/rtos/
-    # Card
     - title: Azure Communication Services
       summary: Build rich communication experiences with the same secure platform used by Microsoft Teams
       imageSrc: ./media/index/communication-services.svg
