@@ -6,7 +6,7 @@ description: Learn how to use the incident response API to mitigate harmful cont
 author: PatrickFarley
 manager: nitinme
 ms.service: azure-ai-content-safety
-ms.custom: build-2023
+ms.custom: build-2024
 ms.topic: how-to
 ms.date: 04/11/2024
 ms.author: pafarley

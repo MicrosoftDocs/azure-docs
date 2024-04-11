@@ -6,7 +6,7 @@ description: Learn about content incidents and how you can use Azure AI Content 
 author: PatrickFarley
 manager: nitinme
 ms.service: azure-ai-content-safety
-ms.custom: build-2023
+ms.custom: build-2024
 ms.topic: conceptual
 ms.date: 04/11/2024
 ms.author: pafarley
