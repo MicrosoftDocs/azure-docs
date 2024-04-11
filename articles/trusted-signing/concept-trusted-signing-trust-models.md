@@ -17,21 +17,19 @@ This article explains the concept of trust models, the primary trust models that
 
 A trust model defines the rules and mechanisms for validating digital signatures and ensuring the security of communications in a digital environment. In other words, trust models define how trust is established and maintained within entities in a digital ecosystem.
 
-For signature consumers like publicly trusted code signing for Microsoft Windows applications, trust models depend on signatures that have certificates from a Certification Authority (CA) that is part of the [Microsoft Root Certificate Program](https://learn.microsoft.com/security/trusted-root/program-requirements). This is because Trusted Signing is designed to support Windows Authenticode signing and security features that use code signing on Windows (e.g. [Smart App Control](https://learn.microsoft.com/windows/apps/develop/smart-app-control/overview) and [Windows Defender Application Control](https://learn.microsoft.com/windows/security/application-security/application-control/windows-defender-application-control/wdac)).
+For signature consumers like publicly trusted code signing for Microsoft Windows applications, trust models depend on signatures that have certificates from a Certification Authority (CA) that is part of the [Microsoft Root Certificate Program](https://learn.microsoft.com/security/trusted-root/program-requirements). This is primarily why Trusted Signing trust models are designed to support Windows Authenticode signing and security features that use code signing on Windows (e.g. [Smart App Control](https://learn.microsoft.com/windows/apps/develop/smart-app-control/overview) and [Windows Defender Application Control](https://learn.microsoft.com/windows/security/application-security/application-control/windows-defender-application-control/wdac)).
 
 Trusted Signing provides two primary trust models to support a wide variety of signature consumption (validations): 
 
-- Public-Trust <add link to #public-trust>
-- Private-Trust <add link to #private-trust>
+- [Public-Trust](#public-trust)
+- [Private-Trust](#private-trust)
 
 >[!NOTE]
 >Subscribers to Trusted Signing aren't limited to the signing scenarios application of the trust models shared in this article. Trusted Signing was designed to support Windows Authenticode code signing and App Control for Business features in Windows with an ability to broadly support other signing and trust models beyond Windows. 
 
 ## Public-Trust
 
-Public-Trust is one of the models provided in Trusted Signing and is the most commonly used model. The certificates are issued from a CA that complies with the [CA/Browser Forum's Baseline Requirements for Code-Signing Certificates](https://cabforum.org/working-groups/code-signing/documents/) and is included a relying party's root certificate program such as the [Microsoft Root Certificate Program](https://learn.microsoft.com/security/trusted-root/program-requirements). 
-
-Trusted Signing's Public-Trust Identity Validation and Certificate Profiles are backed by a CA included in the Microsoft Root Certificate Program. The Public-Trust Root CA certificate is [Microsoft Identity Verification Root Certificate Authority 2020](https://www.microsoft.com/pkiops/certs/microsoft%20identity%20verification%20root%20certificate%20authority%202020.crt) and complies with the [Microsoft PKI Services Third Party Certification Practice Statement (CPS)](https://www.microsoft.com/pkiops/docs/repository.htm). 
+Public-Trust is one of the models provided in Trusted Signing and is the most commonly used model. The certificates in the Public-Trust model are issued from the [Microsoft Identity Verification Root Certificate Authority 2020](https://www.microsoft.com/pkiops/certs/microsoft%20identity%20verification%20root%20certificate%20authority%202020.crt) and complies with the [Microsoft PKI Services Third Party Certification Practice Statement (CPS)](https://www.microsoft.com/pkiops/docs/repository.htm). This root CA is included a relying party's root certificate program such as the [Microsoft Root Certificate Program](https://learn.microsoft.com/security/trusted-root/program-requirements) for the usage of code signing and timestamping. 
 
 The Public-Trust resources in Trusted Signing are designed to support the following signing scenarios and security features:
 
@@ -42,8 +40,8 @@ The Public-Trust resources in Trusted Signing are designed to support the follow
 
 Public-Trust is recommended for signing any artifact that is to be shared publicly and for the signer to be a validated legal organization or individual. 
 
->[!NOTE]
->Trusted Signing includes options for "Test" Certificate Profiles under the Public-Trust collection. These "Test" Certificate Profiles are intended to be used for inner loop dev/test signing and trust only in test environments.
+[!NOTE]
+Trusted Signing includes options for "Test" Certificate Profiles under the Public-Trust collection, but not publicly trusted. These "Test" Certificate Profiles are intended to be used for inner loop dev/test signing and should NOT be trusted.
 
 ## Private-Trust
 
