@@ -301,6 +301,16 @@ Once a `StartTeamsCallOptions` object is obtained, `TeamsCallAgent` can be used 
     this.teamsCallAgent.IncomingCallReceived += OnIncomingCallAsync;
 ```
 
+## Join a Teams Call
+
+User can also join an existing call by passing a link
+
+```c#
+TeamsMeetingLinkLocator link = new TeamsMeetingLinkLocator("meetingLink");
+JoinTeamsCallOptions options = new JoinTeamsCallOptions();
+TeamsCall call = await teamsCallAgent.JoinAsync(link, options);
+```
+
 Application has an opportunity to configure how the incoming call should be accepted, such as video and audio stream kinds.
 ```C#
         private async void OnIncomingCallAsync(object sender, TeamsIncomingCallReceivedEventArgs args)
