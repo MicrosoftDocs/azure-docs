@@ -7,7 +7,7 @@ ms.service: healthcare-apis
 ms.subservice: workspace
 ms.topic: reference
 ms.date: 04/11/2024
-ms.author: msjasteppe
+ms.author: jasteppe
 ms.custom: references_regions
 ---
 
