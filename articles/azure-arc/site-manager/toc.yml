@@ -22,7 +22,8 @@
   items:
   - name: FAQ
     href: faq.md
-- name: Fix Common Issues
+- name: Fix common issues
+
   items:
   - name: Known Issues
     href: known-issues.md
