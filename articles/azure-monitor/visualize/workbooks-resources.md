@@ -14,7 +14,7 @@ Resource parameters allow picking of resources in workbooks. This functionality 
 Values from resource pickers can come from the workbook context, static list, or Azure Resource Graph queries.
 
 > [!NOTE]
-> For resource parameters, the label for each resource in the parameter always comes from the resource id.  It is not possible to replace that name with another value. Examples below will show the label field being set to the id for clarity, but that value will not be used in the parameter.
+> The label for each resource in the resource parameter list is based on the resource id.  You cannot replace that name with another value. For clarity, the examples in this document show the label field set to the id, but that value isn't used in the actual parameter.
 
 
 ## Create a resource parameter (workbook resources)
