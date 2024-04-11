@@ -27,7 +27,7 @@ App Service follows community support timelines for the lifecycle of the runtime
 
 End-of-support dates for runtime versions are determined independently by their respective stacks and are outside the control of App Service. App Service sends reminder notifications to subscription owners for upcoming end-of-support runtime versions when they become available for each language.
 
-Those who receive notifications include account administrators, service administrators, and coadministrators.  Contributors, readers, or other roles won't directly receive notifications, unless they opt in to receive notification emails, using [Service Health Alerts](../service-health/alerts-activity-log-service-notifications-portal.md).  
+Those who receive notifications include account administrators, service administrators, and coadministrators.  Contributors, readers, or other roles don't directly receive notifications unless they opt in to receive notification emails, using [Service Health Alerts](../service-health/alerts-activity-log-service-notifications-portal.md).  
 
 ## Timelines for language runtime version support
 
@@ -128,15 +128,15 @@ Microsoft and Adoptium builds of OpenJDK are provided and supported on App Servi
 
 If you're [pinned](configure-language-java.md#choosing-a-java-runtime-version) to an older minor version of Java, your site may be using the deprecated [Azul Zulu for Azure](https://devblogs.microsoft.com/java/end-of-updates-support-and-availability-of-zulu-for-azure/) binaries provided through [Azul Systems](https://www.azul.com/). You can continue to use these binaries for your site, but any security patches or improvements will only be available in new versions of the OpenJDK, so we recommend that you periodically update your Web Apps to a later version of Java.
 
-Major version updates will be provided through new runtime options in Azure App Service. Customers update to these newer versions of Java by configuring their App Service deployment and are responsible for testing and ensuring the major update meets their needs.
+Major version updates are provided through new runtime options in Azure App Service. Customers update to these newer versions of Java by configuring their App Service deployment and are responsible for testing and ensuring the major update meets their needs.
 
 Supported JDKs are automatically patched on a quarterly basis in January, April, July, and October of each year. For more information on Java on Azure, see [this support document](/azure/developer/java/fundamentals/java-support-on-azure).
 
 ### Security updates
 
-Patches and fixes for major security vulnerabilities will be released as soon as they become available in Microsoft builds of the OpenJDK. A "major" vulnerability is defined by a base score of 9.0 or higher on the [NIST Common Vulnerability Scoring System, version 2](https://nvd.nist.gov/vuln-metrics/cvss).
+Patches and fixes for major security vulnerabilities are released as soon as they become available in Microsoft builds of the OpenJDK. A "major" vulnerability is defined by a base score of 9.0 or higher on the [NIST Common Vulnerability Scoring System, version 2](https://nvd.nist.gov/vuln-metrics/cvss).
 
-Tomcat 8.5 has reached [End of Life as of March 31, 2024](https://tomcat.apache.org/tomcat-85-eol.html) and Tomcat 10.0 has reached [End of Life as of October 31, 2022](https://tomcat.apache.org/tomcat-10.0-eol.html).
+Tomcat 8.5 reached [End of Life as of March 31, 2024](https://tomcat.apache.org/tomcat-85-eol.html) and Tomcat 10.0 reached [End of Life as of October 31, 2022](https://tomcat.apache.org/tomcat-10.0-eol.html).
 
 While the runtimes are still available on Azure App Service, Azure won't apply security updates to Tomcat 8.5 or 10.0.
 
