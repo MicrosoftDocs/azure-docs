@@ -53,7 +53,17 @@ Run the following command to update to the latest version of the extension relea
 az extension update --name aks-preview
 ```
 
-### Register the `AutomaticSKUPreview` feature flag
+### Register the feature flags
+
+While in preview, AKS Automatic use other features that require their feature flags to be registered. Register the following flags using the [az feature register][az-feature-register] command.
+
+```azurecli-interactive
+az feature register --namespace Microsoft.ContainerService --name EnableAPIServerVnetIntegrationPreview
+az feature register --namespace Microsoft.ContainerService --name NRGLockdownPreview
+az feature register --namespace Microsoft.ContainerService --name SafeguardsPreview
+az feature register --namespace Microsoft.ContainerService --name NodeAutoProvisioningPreview
+az feature register --namespace Microsoft.ContainerService --name DisableSSHPreview
+```
 
 Register the `AutomaticSKUPreview` feature flag by using the [az feature register][az-feature-register] command, as shown in the following example:
 
@@ -61,7 +71,7 @@ Register the `AutomaticSKUPreview` feature flag by using the [az feature registe
 az feature register --namespace "Microsoft.ContainerService" --name "AutomaticSKUPreview"
 ```
 
-It takes a few minutes for the status to show *Registered*. Verify the registration status by using the [az feature show][az-feature-show] command:
+It takes a few minutes for the status to show *Registered*. Verify the registration status by using the [az feature show][az-feature-show] command, for example:
 
 ```azurecli-interactive
 az feature show --namespace "Microsoft.ContainerService" --name "AutomaticSKUPreview"
@@ -134,11 +144,11 @@ kubectl get nodes
 The following sample output shows the managed node pools created in the previous steps. Make sure the node status is *Ready*.
 
 ```output
-NAME                                 STATUS   ROLES   AGE     VERSION
-aks-default-f8vj2                    Ready    agent   2m26s   v1.28.5
-aks-systempool-13213685-vmss000000   Ready    agent   2m26s   v1.28.5
-aks-systempool-13213685-vmss000001   Ready    agent   2m26s   v1.28.5
-aks-systempool-13213685-vmss000002   Ready    agent   2m26s   v1.28.5
+NAME                                STATUS   ROLES   AGE     VERSION
+aks-default-f8vj2                   Ready    agent   2m26s   v1.28.5
+aks-nodepool1-13213685-vmss000000   Ready    agent   2m26s   v1.28.5
+aks-nodepool1-13213685-vmss000001   Ready    agent   2m26s   v1.28.5
+aks-nodepool1-13213685-vmss000002   Ready    agent   2m26s   v1.28.5
 ```
 
 :::zone-end
@@ -201,7 +211,7 @@ resource aks 'Microsoft.ContainerService/managedClusters@2024-02-02-preview' = {
       {
         name: 'systempool'
         count: 3
-        vmSize: 'Standard_D8d_v5'
+        vmSize: 'Standard_DS4_v2'
         osType: 'Linux'
         mode: 'System'
       }
@@ -251,11 +261,11 @@ kubectl get nodes
 The following sample output shows the managed node pools created in the previous steps. Make sure the node status is *Ready*.
 
 ```output
-NAME                                 STATUS   ROLES   AGE     VERSION
-aks-default-f8vj2                    Ready    agent   2m26s   v1.28.5
-aks-systempool-13213685-vmss000000   Ready    agent   2m26s   v1.28.5
-aks-systempool-13213685-vmss000001   Ready    agent   2m26s   v1.28.5
-aks-systempool-13213685-vmss000002   Ready    agent   2m26s   v1.28.5
+NAME                                STATUS   ROLES   AGE     VERSION
+aks-default-f8vj2                   Ready    agent   2m26s   v1.28.5
+aks-nodepool1-13213685-vmss000000   Ready    agent   2m26s   v1.28.5
+aks-nodepool1-13213685-vmss000001   Ready    agent   2m26s   v1.28.5
+aks-nodepool1-13213685-vmss000002   Ready    agent   2m26s   v1.28.5
 ```
 
 :::zone-end
@@ -305,7 +315,7 @@ To deploy the application, you use a manifest file to create all the objects req
 
 When the application runs, a Kubernetes service exposes the application front end to the internet. This process can take a few minutes to complete.
 
-1. Check the status of the deployed pods using the [kubectl get pods][kubectl-get] command. Make sure all pods are `Running` before proceeding.
+1. Check the status of the deployed pods using the [kubectl get pods][kubectl-get] command. Make sure all pods are `Running` before proceeding. If this is the first workload you deploy, it may take a few minutes for [node auto provisioning][node-auto-provisioning] to create a node pool to run the pods.
 
     ```bash
     kubectl get pods -n aks-store-demo
@@ -321,7 +331,7 @@ When the application runs, a Kubernetes service exposes the application front en
 
     ```output
     NAME          TYPE           CLUSTER-IP    EXTERNAL-IP   PORT(S)        AGE
-    store-front   LoadBalancer   10.0.100.10   <pending>     80:30025/TCP   4h4m
+    store-front   LoadBalancer   10.0.100.10   <pending>     80:30025/TCP   3m
     ```
 
 1. Once the **EXTERNAL-IP** address changes from *pending* to an actual public IP address, use `CTRL-C` to stop the `kubectl` watch process.
@@ -330,7 +340,7 @@ When the application runs, a Kubernetes service exposes the application front en
 
     ```output
     NAME          TYPE           CLUSTER-IP    EXTERNAL-IP    PORT(S)        AGE
-    store-front   LoadBalancer   10.0.100.10   20.62.159.19   80:30025/TCP   4h5m
+    store-front   LoadBalancer   10.0.100.10   20.62.159.19   80:30025/TCP   4m
     ```
 
 1. Open a web browser to the external IP address of your service to see the Azure Store app in action.
@@ -375,6 +385,7 @@ To learn more about AKS and walk through a complete code-to-deployment example, 
 [az-aks-install-cli]: /cli/azure/aks#az-aks-install-cli
 [az-group-create]: /cli/azure/group#az-group-create
 [az-group-delete]: /cli/azure/group#az-group-delete
+[node-auto-provisioning]: ../node-autoprovision.md
 [kubernetes-deployment]: ../concepts-clusters-workloads.md#deployments-and-yaml-manifests
 [aks-solution-guidance]: /azure/architecture/reference-architectures/containers/aks-start-here?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
 [baseline-reference-architecture]: /azure/architecture/reference-architectures/containers/aks/baseline-aks?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
