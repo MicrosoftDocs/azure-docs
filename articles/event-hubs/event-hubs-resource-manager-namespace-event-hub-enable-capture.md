@@ -24,8 +24,9 @@ For the complete templates, select the following GitHub links:
 
 > [!NOTE]
 > To check for the latest templates, visit the [Azure Quickstart Templates][Azure Quickstart Templates] gallery and search for Event Hubs.
->
->
+
+> [!IMPORTANT]
+> Azure Data Lake Storage Gen1 is retired, so don't use for capturing event data. For more information, see the [official announcement](https://azure.microsoft.com/updates/action-required-switch-to-azure-data-lake-storage-gen2-by-29-february-2024/). If you are using Azure Data Lake Storage Gen1, migrate to Azure Data Lake Storage Gen2. For more information, see [Azure Data Lake Storage migration guidelines and patterns](../storage/blobs/data-lake-storage-migrate-gen1-to-gen2.md).
 
 ## What will you deploy?
 
@@ -221,8 +222,6 @@ The blob container in which to capture your event data.
 }
 ```
 
-Use the following parameters if you choose Azure Data Lake Store Gen 1 as your destination. You must set permissions on your Data Lake Store path, in which you want to Capture the event. To set permissions, see [Capture data to Azure Data Lake Storage Gen 1](event-hubs-capture-enable-through-portal.md#capture-data-to-azure-data-lake-storage-gen-1).
-
 ### subscriptionId
 
 Subscription ID for the Event Hubs namespace and Azure Data Lake Store. Both these resources must be under the same subscription ID.
@@ -323,57 +322,6 @@ Creates a namespace of type **EventHub**, with one event hub, and also enables C
     }
   ]
 ```
-
-## Azure Data Lake Storage Gen1 as destination
-
-Creates a namespace of type **EventHub**, with one event hub, and also enables Capture to Azure Data Lake Storage Gen1. If you're using Gen2 of Data Lake Storage, see the previous section.
-
-```json
- "resources": [
-        {
-            "apiVersion": "2017-04-01",
-            "name": "[parameters('namespaceName')]",
-            "type": "Microsoft.EventHub/Namespaces",
-            "location": "[variables('location')]",
-            "sku": {
-                "name": "Standard",
-                "tier": "Standard"
-            },
-            "resources": [
-                {
-                    "apiVersion": "2017-04-01",
-                    "name": "[parameters('eventHubName')]",
-                    "type": "EventHubs",
-                    "dependsOn": [
-                        "[concat('Microsoft.EventHub/namespaces/', parameters('namespaceName'))]"
-                    ],
-                    "properties": {
-                        "path": "[parameters('eventHubName')]",
-                        "captureDescription": {
-                            "enabled": "true",
-                            "skipEmptyArchives": false,
-                            "encoding": "[parameters('archiveEncodingFormat')]",
-                            "intervalInSeconds": "[parameters('captureTime')]",
-                            "sizeLimitInBytes": "[parameters('captureSize')]",
-                            "destination": {
-                                "name": "EventHubArchive.AzureDataLake",
-                                "properties": {
-                                    "DataLakeSubscriptionId": "[parameters('subscriptionId')]",
-                                    "DataLakeAccountName": "[parameters('dataLakeAccountName')]",
-                                    "DataLakeFolderPath": "[parameters('dataLakeFolderPath')]",
-                                    "ArchiveNameFormat": "[parameters('captureNameFormat')]"
-                                }
-                            }
-                        }
-                    }
-                }
-            ]
-        }
-    ]
-```
-
-> [!NOTE]
-> You can enable or disable emitting empty files when no events occur during the Capture window by using the **skipEmptyArchives** property.
 
 ## Commands to run deployment
 
