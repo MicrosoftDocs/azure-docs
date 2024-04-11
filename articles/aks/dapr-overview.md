@@ -66,10 +66,7 @@ Enabling auto-upgrade keeps your Dapr extension updated to the latest minor vers
 
 #### Stable Dapr APIs
 
-The Dapr extension offers stable and alpha versions of Dapr APIs (building blocks). 
-
-- Stable: Indicates that the API is fully managed and supported for use in production environments. 
-- Alpha: Alpha APIs are available for early testing and aren't recommended for production. Alpha support is provided at best effort.
+The Dapr extension supports stable versions of Dapr APIs (building blocks). Alpha APIs are not supported at this time.
 
 | Dapr API                                              | Status | Description                                                                                                                                                     |
 | ----------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |  
