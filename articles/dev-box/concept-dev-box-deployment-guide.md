@@ -206,7 +206,7 @@ Consider the cost of the compute resources associated with a dev box definition 
 
 In Microsoft Dev Box, you create and associate a project with a dev center. A project typically corresponds with a development project within your organization. For example, you might create a project for the development of a line of business application, and another project for the development of the company website.
 
-Within a project, you define the list of [dev box pools](#step-x-create-dev-box-pools) that are available for dev box users to create dev boxes. At the project level, you can specify a limit to the number of dev boxes a dev box user can create.
+Within a project, you define the list of [dev box pools](#step-10-create-dev-box-pools) that are available for dev box users to create dev boxes. At the project level, you can specify a limit to the number of dev boxes a dev box user can create.
 
 Microsoft Dev Box uses Azure role-based access control (Azure RBAC) to grant access to functionality at the project level:
 
