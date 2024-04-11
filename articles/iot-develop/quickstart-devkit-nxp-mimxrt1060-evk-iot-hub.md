@@ -133,7 +133,7 @@ You can use the **Termite** app to monitor communication and confirm that your d
 
 1. Start **Termite**.
     > [!TIP]
-    > If you have issues getting your device to initialize or connect after flashing, see [Troubleshooting](troubleshoot-embedded-device-quickstarts.md).
+    > If you have issues getting your device to initialize or connect after flashing, see [Troubleshooting](../iot/troubleshoot-embedded-device-tutorials.md).
 1. Select **Settings**.
 1. In the **Serial port settings** dialog, check the following settings and update if needed:
     * **Baud rate**: 115,200
@@ -318,7 +318,7 @@ To use Azure CLI to call a method:
 
 ## Troubleshoot and debug
 
-If you experience issues building the device code, flashing the device, or connecting, see [Troubleshooting](troubleshoot-embedded-device-quickstarts.md).
+If you experience issues building the device code, flashing the device, or connecting, see [Troubleshooting](../iot/troubleshoot-embedded-device-tutorials.md).
 
 For debugging the application, see [Debugging with Visual Studio Code](https://github.com/azure-rtos/getting-started/blob/master/docs/debugging.md).
 
@@ -331,9 +331,9 @@ In this quickstart, you built a custom image that contains Azure RTOS sample cod
 As a next step, explore the following articles to learn more about using the IoT device SDKs, or Azure RTOS to connect devices to Azure IoT.
 
 > [!div class="nextstepaction"]
-> [Connect a simulated device to IoT Hub](quickstart-send-telemetry-iot-hub.md)
+> [Connect a simulated device to IoT Hub](../iot/tutorial-send-telemetry-iot-hub.md)
 > [!div class="nextstepaction"]
-> [Learn more about connecting embedded devices using C SDK and Embedded C SDK](concepts-using-c-sdk-and-embedded-c-sdk.md)
+> [Learn more about connecting embedded devices using C SDK and Embedded C SDK](../iot/concepts-using-c-sdk-and-embedded-c-sdk.md)
 
 > [!IMPORTANT]
 > Azure RTOS provides OEMs with components to secure communication and to create code and data isolation using underlying MCU/MPU hardware protection mechanisms. However, each OEM is ultimately responsible for ensuring that their device meets evolving security requirements.

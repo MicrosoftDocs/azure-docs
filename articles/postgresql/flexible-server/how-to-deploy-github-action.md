@@ -4,7 +4,7 @@ description: Use Azure Database for PostgreSQL - Flexible Server from a GitHub A
 author: sunilagarwal
 ms.author: sunila
 ms.reviewer: maghan
-ms.date: 01/02/2024
+ms.date: 03/20/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: quickstart
