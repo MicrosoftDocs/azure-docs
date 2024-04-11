@@ -5,6 +5,9 @@ ms.topic: article
 ms.subservice: aks-security
 ms.custom: build-2023
 ms.date: 11/17/2023
+author: tamram
+ms.author: tamram
+
 ---
 
 # Use Microsoft Entra Workload ID with Azure Kubernetes Service (AKS)
@@ -314,3 +317,4 @@ The following table summarizes our migration or deployment recommendations for w
 [aks-virtual-nodes]: virtual-nodes.md
 [unsupported-regions-user-assigned-managed-identities]: ../active-directory/workload-identities/workload-identity-federation-considerations.md#unsupported-regions-user-assigned-managed-identities
 [general-federated-identity-credential-considerations]: ../active-directory/workload-identities/workload-identity-federation-considerations.md#general-federated-identity-credential-considerations
+

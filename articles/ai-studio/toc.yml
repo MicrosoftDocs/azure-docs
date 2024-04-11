@@ -68,6 +68,7 @@ items:
       href: how-to/create-secure-ai-hub.md
     - name: Create an Azure AI hub resource from template
       href: how-to/create-azure-ai-hub-template.md
+      displayName: ARM, bicep
     - name: Create an Azure AI project
       href: how-to/create-projects.md
     - name: Create and manage compute
@@ -91,6 +92,7 @@ items:
       items:
       - name: Add data to your project
         href: how-to/data-add.md
+        displayName: index
       - name: Use your image data with Azure OpenAI
         href: how-to/data-image-add.md
         displayName: vision, gpt, turbo
@@ -173,14 +175,21 @@ items:
     items:
     - name: Deployments overview
       href: concepts/deployments-overview.md
+      displayName: endpoint
     - name: Deploy Azure OpenAI models
       href: how-to/deploy-models-openai.md
+    - name: Deploy Cohere models
+      items:
+      - name: Deploy Cohere Command models
+        href: how-to/deploy-models-cohere-command.md
+      - name: Deploy Cohere Embed models
+        href: how-to/deploy-models-cohere-embed.md
     - name: Deploy Llama 2 family models
       href: how-to/deploy-models-llama.md
-      displayName: maas, as a service
+      displayName: maas
     - name: Deploy Mistral family models
       href: how-to/deploy-models-mistral.md
-      displayName: maas, as a service
+      displayName: maas
     - name: Deploy open models
       href: how-to/deploy-models-open.md
       displayName: oss, open source
@@ -192,6 +201,7 @@ items:
     items:
     - name: Plan and manage costs
       href: how-to/costs-plan-manage.md
+      displayName: pricing, budget, estimate
     - name: Manage quotas
       href: how-to/quota.md
     - name: Increase rate limit

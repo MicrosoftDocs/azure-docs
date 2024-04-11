@@ -3131,6 +3131,24 @@ groups:
     title: Dependency analysis Agentless
   - id: dependency-analysis-agent-based-requirements
     title: Dependency analysis Agent based
+# Owner: marymichael
+- id: web-apps-assessment-app-service
+  title: Assess ASP.NET web apps for migration to Azure App Service
+  prompt: Choose assessment scenario
+  pivots:
+  - id: asp-net
+    title: ASP.NET
+  - id: java
+    title: Java
+# Owner: marymichael
+- id: web-apps-assessment-aks
+  title: Assess ASP.NET web apps for migration to AKS
+  prompt: Choose assessment scenario
+  pivots:
+  - id: asp-net
+    title: ASP.NET
+  - id: java
+    title: Java
 # Owner: tejaswikolli-web
 - id: container-registry-zones
   title: Container registry ide

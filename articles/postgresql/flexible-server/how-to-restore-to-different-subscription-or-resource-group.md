@@ -7,7 +7,7 @@ ms.topic: how-to
 author: kabharati
 ms.author: kabharati
 ms.reviewer: maghan
-ms.date: 01/02/2024
+ms.date: 01/23/2024
 ---
 
 # Cross subscription and cross resource group restore in Azure Database for PostgreSQL - Flexible Server

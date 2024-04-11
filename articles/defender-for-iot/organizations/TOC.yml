@@ -266,14 +266,9 @@
           href: configure-windows-endpoint-monitoring.md
         - name: Configure reverse DNS lookup
           href: configure-reverse-dns-lookup.md
-      - name: Update OT monitoring software
-        items:
-        - name: Update from a recent version
-          href: update-ot-software.md
-          displayName: upgrade
-        - name: Update from legacy versions
-          href: update-legacy-ot-software.md
-          displayName: upgrade
+      - name: Update OT monitoring software from a recent version
+        href: update-ot-software.md
+        displayName: upgrade
       - name: Backup and restore
         href: back-up-restore-sensor.md
         displayName: back up

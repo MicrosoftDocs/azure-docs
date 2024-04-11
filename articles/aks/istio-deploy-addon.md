@@ -263,3 +263,4 @@ az group delete --name ${RESOURCE_GROUP} --yes --no-wait
 [istio-deploy-ingress]: istio-deploy-ingress.md
 [az-aks-mesh-get-revisions]: /cli/azure/aks/mesh#az-aks-mesh-get-revisions(aks-preview)
 [bicep-aks-resource-definition]: /azure/templates/microsoft.containerservice/managedclusters
+
