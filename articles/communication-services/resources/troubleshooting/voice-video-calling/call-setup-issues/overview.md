@@ -13,7 +13,7 @@ ms.subservice: calling
 ---
 
 # Overview of call setup issues
-When using the Azure Communication Services WebJS SDK to make a call, the first step is to create a `CallClient` instance and use it to create a call agent.
+When making a call with Azure Communication Services WebJS SDK , the first step is to create a `CallClient` instance and use it to create a call agent.
 When a call agent is created, the SDK registers the user with the service, allowing other users to reach them.
 When the user joins or accepts a call, the SDK establishes media sessions between the two endpoints.
 If a user is unable to connect to a call, it's important to determine at which stage the issue is occurring.
@@ -32,8 +32,8 @@ Here we list several common call setup issues, along with potential causes for e
 * The SDK fails to connect to the service infrastructure.
 
 ### The user doesn't receive incoming call notifications
-* The token has expired.
-* There is an issue with the signaling connection.
+* There's an expired token.
+* There's an issue with the signaling connection.
 
 ### The call setup takes too long
 * The user is experiencing network issues.
