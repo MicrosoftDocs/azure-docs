@@ -25,5 +25,5 @@ ms.custom: Include file
 | Maximum requests per minute (data plane) | 3,000 | 6,000  |
 
 <sup>1</sup> To increase a limit in the Standard tier, contact [support](https://azure.microsoft.com/support/options/).<br/>
-<sup>2</sup> In the Free tier, API analysis and access through the data plane API are limited to 5 APIs.<br/>
+<sup>2</sup> In the Free tier, use of full service features including API analysis and access through the data plane API is limited to the first 5 APIs.<br/>
 <sup>3</sup> Custom metadata properties assigned to APIs, deployments, and environments.
