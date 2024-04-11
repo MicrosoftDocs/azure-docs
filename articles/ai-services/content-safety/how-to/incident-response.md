@@ -1,51 +1,62 @@
-
+---
+title: "Use the incident response API"
+titleSuffix: Azure AI services
+description: Learn how to use the incident response API to mitigate harmful content incidents quickly.
+#services: cognitive-services
+author: PatrickFarley
+manager: nitinme
+ms.service: azure-ai-content-safety
+ms.custom: build-2023
+ms.topic: how-to
+ms.date: 04/11/2024
+ms.author: pafarley
+---
 
 
 # Use the incident response API
 
-Incident response in content moderation scenarios is the process of identifying, analyzing, containing, eradicating, and recovering from cyber incidents that involve inappropriate or harmful content on online platforms. 
-
-An incident may involve a set of emerging content patterns (text, image, or other modalities) that violate the Microsoft community guidelines or customers' policies and expectations, that need to be mitigated quickly and accurately to avoid potential live site issues or harm to users/communities. 
-
-
-For any new incidents, users could use the incident response features from Azure AI Content Safety to mitigate the new incidents quickly.
-
-Incident response provides a set of APIs to help users mitigate harmful content incidents quickly. [Custom Blocklists](https://learn.microsoft.com/azure/ai-services/content-safety/how-to/use-blocklist) are one solution, but only provide exact match. Incident response offers the advanced capabilities of text semantic match using embedding search and a lightweight classifier, and image matching, a light-weight image object tracking model and embedding search to address image incidents with low latency and high performance.
-
-For this advanced text and image incident response, you can easily define an incident with few examples in one specific topic, and the API will start detecting similar content. 
-
-Note: This new feature is only available in **East US** and **Sweden Central**. 
-
 > [!CAUTION]
-> The sample code could have offensive content, user discretion is advised.
+> The sample data in this guide might contain offensive content. User discretion is advised.
+
+tbd
 
 
-## Quick start
+For text and image incident response, you can easily define an incident with a few examples in a specific topic, and the API will start detecting similar content. 
 
-### Step 1. Whitelist your subscription ID
 
-1. Submit this form by filling in your subscription ID to whitelist this feature to you: [Microsoft Forms](https://forms.office.com/r/38GYZwLC0u).
-2. The whitelist will take up to 48 hours to approve. Once you receive a notification from Microsoft, you can go to the next step.
+> [!IMPORTANT]
+> This new feature is only available in **East US** and **Sweden Central**. 
 
-### Step 2. Create an Azure Content Safety resource
+## Prerequisites
 
-1. Sign in to the [Azure Portal](https://portal.azure.com/).
-2. [Create Content Safety Resource](https://aka.ms/acs-create). Enter a unique name for your resource, select the **whitelisted subscription**, resource group, and your preferred region in one of the **East US, Sweden Central** and pricing tier. Select **Create**.
-3. **The resource will take a few minutes to deploy.** After it does, go to the new resource. To access your Content Safety resource, you'll need a subscription key; In the left pane, under **Resource Management**, select **API Keys and Endpoints**. Copy one of the subscription key values and endpoint for later use.
+* An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/) 
+* Get access: The incident response API is a gated feature. Apply for access by submitting this form with your Azure subscription ID: [Microsoft Forms](tbd). The request will take up to 48 hours to approve. Once you receive an approval notification from Microsoft, you can go to the next step.
+* Once you have your Azure subscription, <a href="https://aka.ms/acs-create"  title="Create a Content Safety resource"  target="_blank">create a Content Safety resource </a> in the Azure portal to get your key and endpoint. Enter a unique name for your resource, select your subscription, and select a resource group, supported region (East US or Sweden Central), and supported pricing tier. Then select **Create**.
+  * The resource takes a few minutes to deploy. After it finishes, Select **go to resource**. In the left pane, under **Resource Management**, select **Subscription Key and Endpoint**. The endpoint and either of the keys are used to call APIs.
+* One of the following installed:
+  * [cURL](https://curl.haxx.se/) for REST API calls.
+  * [Python 3.x](https://www.python.org/) installed
 
-### Step 3A. Test with Sample request of text incident response
+tbd env vars?
 
-#### 1. Create an incident
+## Test the text incident response API
+
+Follow these steps to define an incident with a few examples of text content and then analyze new text content to see if it matches the incident.
+
+1. Create an incident
+
+#### [cURL](#tab/curl)
 
 ```shell
 curl --location --request PATCH 'https://<endpoint>/contentsafety/text/incidents/text-incident-name?api-version=2023-10-30-preview' \
---header 'Ocp-Apim-Subscription-Key: <api_key>' \
+--header 'Ocp-Apim-Subscription-Key: <your-content-safety-key>' \
 --header 'Content-Type: application/json' \
 --data '{
   "incidentName": "text-incident-name",
   "description": "string"
 }'
 ```
+#### [Python](#tab/python)
 
 ```python
 import requests
@@ -58,7 +69,7 @@ payload = json.dumps({
   "description": "string"
 })
 headers = {
-  'Ocp-Apim-Subscription-Key': '<api_key>',
+  'Ocp-Apim-Subscription-Key': '<your-content-safety-key>',
   'Content-Type': 'application/json'
 }
 
@@ -66,12 +77,15 @@ response = requests.request("PATCH", url, headers=headers, data=payload)
 
 print(response.text)
 ```
+---
 
-#### 2. Add samples to the incident
+1. Add samples to the incident
+
+#### [cURL](#tab/curl)
 
 ```shell
 curl --location 'https://<endpoint>/contentsafety/text/incidents/text-incident-name:addIncidentSamples?api-version=2023-10-30-preview' \
---header 'Ocp-Apim-Subscription-Key: <api_key>' \
+--header 'Ocp-Apim-Subscription-Key: <your-content-safety-key>' \
 --header 'Content-Type: application/json' \
 --data-raw '{
   "incidentSamples": [
@@ -89,6 +103,7 @@ curl --location 'https://<endpoint>/contentsafety/text/incidents/text-incident-n
   ]
 }'
 ```
+#### [Python](#tab/python)
 
 ```python
 import requests
@@ -134,7 +149,7 @@ payload = json.dumps({
   ]
 })
 headers = {
-  'Ocp-Apim-Subscription-Key': '<api_key>',
+  'Ocp-Apim-Subscription-Key': '<your-content-safety-key>',
   'Content-Type': 'application/json'
 }
 
@@ -142,12 +157,14 @@ response = requests.request("POST", url, headers=headers, data=payload)
 
 print(response.text)
 ```
+---
 
-#### 3. Analyze text with incident response
+1. Analyze text with incident response
+#### [cURL](#tab/curl)
 
 ```shell
 curl --location 'https://<endpoint>/contentsafety/text:analyze?api-version=2023-10-30-preview' \
---header 'Ocp-Apim-Subscription-Key: <api_key>' \
+--header 'Ocp-Apim-Subscription-Key: <your-content-safety-key>' \
 --header 'Content-Type: application/json' \
 --data '{
   "text":  "COCKSUCKER BEFORE YOU PISS AROUND ON MY WORK",
@@ -159,6 +176,7 @@ curl --location 'https://<endpoint>/contentsafety/text:analyze?api-version=2023-
   }
 }'
 ```
+#### [Python](#tab/python)
 
 ```python
 import requests
@@ -176,7 +194,7 @@ payload = json.dumps({
   }
 })
 headers = {
-  'Ocp-Apim-Subscription-Key': '<api_key>',
+  'Ocp-Apim-Subscription-Key': '<your-content-safety-key>',
   'Content-Type': 'application/json'
 }
 
@@ -184,20 +202,23 @@ response = requests.request("POST", url, headers=headers, data=payload)
 
 print(response.text)
 ```
+---
 
-## Image incident response
+## Test the image incident response API
 
-#### 1. Create an incident
+1. Create an incident
+#### [cURL](#tab/curl)
 
 ```shell
 curl --location --request PATCH 'https://<endpoint>/contentsafety/image/incidents/image-incident-name?api-version=2023-10-30-preview' \
---header 'Ocp-Apim-Subscription-Key: <api_key>' \
+--header 'Ocp-Apim-Subscription-Key: <your-content-safety-key>' \
 --header 'Content-Type: application/json' \
 --data '{
   "incidentName": "image-incident-name",
   "description": "string"
 }'
 ```
+#### [Python](#tab/python)
 
 ```python
 import requests
@@ -210,7 +231,7 @@ payload = json.dumps({
   "description": "string"
 })
 headers = {
-  'Ocp-Apim-Subscription-Key': '<api_key>',
+  'Ocp-Apim-Subscription-Key': '<your-content-safety-key>',
   'Content-Type': 'application/json'
 }
 
@@ -219,12 +240,14 @@ response = requests.request("PATCH", url, headers=headers, data=payload)
 print(response.text)
 
 ```
+---
 
-#### 2. Add samples to the incident
+1. Add samples to the incident
+#### [cURL](#tab/curl)
 
 ```shell
 curl --location 'https://<endpoint>/contentsafety/image/incidents/image-incident-name:addIncidentSamples?api-version=2023-10-30-preview' \
---header 'Ocp-Apim-Subscription-Key: <api_key>' \
+--header 'Ocp-Apim-Subscription-Key: <your-content-safety-key>' \
 --header 'Content-Type: application/json' \
 --data '{
   "incidentSamples": [
@@ -237,6 +260,7 @@ curl --location 'https://<endpoint>/contentsafety/image/incidents/image-incident
   ]
 }'
 ```
+#### [Python](#tab/python)
 
 ```python
 import requests
@@ -255,7 +279,7 @@ payload = json.dumps({
   ]
 })
 headers = {
-  'Ocp-Apim-Subscription-Key': '<api_key>',
+  'Ocp-Apim-Subscription-Key': '<your-content-safety-key>',
   'Content-Type': 'application/json'
 }
 
@@ -264,12 +288,14 @@ response = requests.request("POST", url, headers=headers, data=payload)
 print(response.text)
 
 ```
+---
 
-#### 3. Analyze image with incident response
+1. Analyze image with incident response
+#### [cURL](#tab/curl)
 
 ```shell
 curl --location 'https://<endpoint>/contentsafety/image:analyze?api-version=2023-10-30-preview' \
---header 'Ocp-Apim-Subscription-Key: <api_key>' \
+--header 'Ocp-Apim-Subscription-Key: <your-content-safety-key>' \
 --header 'Content-Type: application/json' \
 --data '{
     "image":
@@ -289,7 +315,7 @@ curl --location 'https://<endpoint>/contentsafety/image:analyze?api-version=2023
   }
 }'
 ```
-
+#### [Python](#tab/python)
 
 ```python
 import requests
@@ -314,7 +340,7 @@ payload = json.dumps({
   }
 })
 headers = {
-  'Ocp-Apim-Subscription-Key': '<api_key>',
+  'Ocp-Apim-Subscription-Key': '<your-content-safety-key>',
   'Content-Type': 'application/json'
 }
 
@@ -323,29 +349,20 @@ response = requests.request("POST", url, headers=headers, data=payload)
 print(response.text)
 
 ```
+---
 
-## Limitations
-| Object     | Limitation                                                  |
-| :------------ | :------------------ |
-| Maximum length of an incident name | 100 characters | 
-| Maximum number of samples per text/image incident | 1000 |
-|Maximum size of each sample | Text less than 500 characters, Image less than 4M  |
-| Maximum number of text or image incidents | 100 |  
-| Supported Image format | BMP, GIF, JPEG, PNG, TIF, WEBP|
-| Supported language for text incident response | All languages that supported by Azure AI Content Safety | 
+## Other incident operations
 
-
-## Sample Code 
-
-### Text Incident Management related API
+### Text
 
 #### Get the incidents list
+#### [cURL](#tab/curl)
 
 ```shell
 curl --location 'https://<endpoint>/contentsafety/text/incidents?api-version=2023-10-30-preview' \
---header 'Ocp-Apim-Subscription-Key: <api_key>'
+--header 'Ocp-Apim-Subscription-Key: <your-content-safety-key>'
 ```
-
+#### [Python](#tab/python)
 ```python
 import requests
 
@@ -353,20 +370,23 @@ url = "https://<endpoint>/contentsafety/text/incidents?api-version=2023-10-30-pr
 
 payload = {}
 headers = {
-  'Ocp-Apim-Subscription-Key': '<api_key>'
+  'Ocp-Apim-Subscription-Key': '<your-content-safety-key>'
 }
 
 response = requests.request("GET", url, headers=headers, data=payload)
 
 print(response.text)
 ```
+---
 
 #### Get the incident details
+#### [cURL](#tab/curl)
 
 ```shell
 curl --location 'https://<endpoint>/contentsafety/text/incidents/text-incident-name?api-version=2023-10-30-preview' \
---header 'Ocp-Apim-Subscription-Key: <api_key>'
+--header 'Ocp-Apim-Subscription-Key: <your-content-safety-key>'
 ```
+#### [Python](#tab/python)
 
 ```python
 import requests
@@ -375,20 +395,23 @@ url = "https://<endpoint>/contentsafety/text/incidents/text-incident-name?api-ve
 
 payload = {}
 headers = {
-  'Ocp-Apim-Subscription-Key': '<api_key>'
+  'Ocp-Apim-Subscription-Key': '<your-content-safety-key>'
 }
 
 response = requests.request("GET", url, headers=headers, data=payload)
 
 print(response.text)
 ```
+---
 
 #### Delete the incident
+#### [cURL](#tab/curl)
 
 ```shell
 curl --location --request DELETE 'https://<endpoint>/contentsafety/text/incidents/text-incident-name?api-version=2023-10-30-preview' \
---header 'Ocp-Apim-Subscription-Key: <api_key>'
+--header 'Ocp-Apim-Subscription-Key: <your-content-safety-key>'
 ```
+#### [Python](#tab/python)
 
 ```python
 import requests
@@ -397,20 +420,23 @@ url = "https://<endpoint>/contentsafety/text/incidents/text-incident-name?api-ve
 
 payload = {}
 headers = {
-  'Ocp-Apim-Subscription-Key': '<api_key>'
+  'Ocp-Apim-Subscription-Key': '<your-content-safety-key>'
 }
 
 response = requests.request("DELETE", url, headers=headers, data=payload)
 
 print(response.text)
 ```
+---
 
 #### Retrieve the incident sample list
+#### [cURL](#tab/curl)
 
 ```shell
 curl --location 'https://<endpoint>/contentsafety/text/incidents/text-incident-name/incidentSamples?api-version=2023-10-30-preview' \
---header 'Ocp-Apim-Subscription-Key: <api_key>'
+--header 'Ocp-Apim-Subscription-Key: <your-content-safety-key>'
 ```
+#### [Python](#tab/python)
 
 ```python
 import requests
@@ -419,20 +445,23 @@ url = "https://<endpoint>/contentsafety/text/incidents/text-incident-name/incide
 
 payload = {}
 headers = {
-  'Ocp-Apim-Subscription-Key': '<api_key>'
+  'Ocp-Apim-Subscription-Key': '<your-content-safety-key>'
 }
 
 response = requests.request("GET", url, headers=headers, data=payload)
 
 print(response.text)
 ```
+---
 
 #### Get the incident sample's details
+#### [cURL](#tab/curl)
 
 ```shell
 curl --location 'https://<endpoint>/contentsafety/text/incidents/text-incident-name/incidentSamples/00e63d3f-54a6-4495-8191-6020923ca789?api-version=2023-10-30-preview' \
---header 'Ocp-Apim-Subscription-Key: <api_key>'
+--header 'Ocp-Apim-Subscription-Key: <your-content-safety-key>'
 ```
+#### [Python](#tab/python)
 
 ```python
 import requests
@@ -441,19 +470,21 @@ url = "https://<endpoint>/contentsafety/text/incidents/text-incident-name/incide
 
 payload = {}
 headers = {
-  'Ocp-Apim-Subscription-Key': '<api_key>'
+  'Ocp-Apim-Subscription-Key': '<your-content-safety-key>'
 }
 
 response = requests.request("GET", url, headers=headers, data=payload)
 
 print(response.text)
 ```
+---
 
 #### Delete an incident sample
+#### [cURL](#tab/curl)
 
 ```shell
 curl --location 'https://<endpoint>/contentsafety/text/incidents/text-incident-name:removeIncidentSamples?api-version=2023-10-30-preview' \
---header 'Ocp-Apim-Subscription-Key: <api_key>' \
+--header 'Ocp-Apim-Subscription-Key: <your-content-safety-key>' \
 --header 'Content-Type: application/json' \
 --data '{
   "incidentSampleIds": [
@@ -461,6 +492,7 @@ curl --location 'https://<endpoint>/contentsafety/text/incidents/text-incident-n
   ]
 }'
 ```
+#### [Python](#tab/python)
 
 ```python
 import requests
@@ -474,7 +506,7 @@ payload = json.dumps({
   ]
 })
 headers = {
-  'Ocp-Apim-Subscription-Key': '<api_key>',
+  'Ocp-Apim-Subscription-Key': '<your-content-safety-key>',
   'Content-Type': 'application/json'
 }
 
@@ -482,15 +514,18 @@ response = requests.request("POST", url, headers=headers, data=payload)
 
 print(response.text)
 ```
+---
 
-### Image Incident Management related API
+### Image incident API
 
 #### Get the incidents list
+#### [cURL](#tab/curl)
 
 ```shell
 curl --location 'https://<endpoint>/contentsafety/image/incidents?api-version=2023-10-30-preview' \
---header 'Ocp-Apim-Subscription-Key: <api_key>'
+--header 'Ocp-Apim-Subscription-Key: <your-content-safety-key>'
 ```
+#### [Python](#tab/python)
 
 ```python
 import requests
@@ -499,20 +534,23 @@ url = "https://<endpoint>/contentsafety/image/incidents?api-version=2023-10-30-p
 
 payload = {}
 headers = {
-  'Ocp-Apim-Subscription-Key': '<api_key>'
+  'Ocp-Apim-Subscription-Key': '<your-content-safety-key>'
 }
 
 response = requests.request("GET", url, headers=headers, data=payload)
 
 print(response.text)
 ```
+---
 
 #### Get the incident details
+#### [cURL](#tab/curl)
 
 ```shell
 curl --location 'https://<endpoint>/contentsafety/image/incidents/image-incident-name?api-version=2023-10-30-preview' \
---header 'Ocp-Apim-Subscription-Key: <api_key>'
+--header 'Ocp-Apim-Subscription-Key: <your-content-safety-key>'
 ```
+#### [Python](#tab/python)
 
 ```python
 import requests
@@ -521,20 +559,23 @@ url = "https://<endpoint>/contentsafety/image/incidents/image-incident-name?api-
 
 payload = {}
 headers = {
-  'Ocp-Apim-Subscription-Key': '<api_key>'
+  'Ocp-Apim-Subscription-Key': '<your-content-safety-key>'
 }
 
 response = requests.request("GET", url, headers=headers, data=payload)
 
 print(response.text)
 ```
+---
 
 #### Delete the incident
+#### [cURL](#tab/curl)
 
 ```shell
 curl --location --request DELETE 'https://<endpoint>/contentsafety/image/incidents/image-incident-name?api-version=2023-10-30-preview' \
---header 'Ocp-Apim-Subscription-Key: <api_key>'
+--header 'Ocp-Apim-Subscription-Key: <your-content-safety-key>'
 ```
+#### [Python](#tab/python)
 
 ```python
 import requests
@@ -543,20 +584,23 @@ url = "https://<endpoint>/contentsafety/image/incidents/image-incident-name?api-
 
 payload = {}
 headers = {
-  'Ocp-Apim-Subscription-Key': '<api_key>'
+  'Ocp-Apim-Subscription-Key': '<your-content-safety-key>'
 }
 
 response = requests.request("DELETE", url, headers=headers, data=payload)
 
 print(response.text)
 ```
+---
 
 #### Get the incident sample list
+#### [cURL](#tab/curl)
 
 ```shell
 curl --location 'https://<endpoint>/contentsafety/image/incidents/image-incident-name/incidentSamples?api-version=2023-10-30-preview' \
---header 'Ocp-Apim-Subscription-Key: <api_key>'
+--header 'Ocp-Apim-Subscription-Key: <your-content-safety-key>'
 ```
+#### [Python](#tab/python)
 
 ```python
 import requests
@@ -565,20 +609,23 @@ url = "https://<endpoint>/contentsafety/image/incidents/image-incident-name/inci
 
 payload = {}
 headers = {
-  'Ocp-Apim-Subscription-Key': '<api_key>'
+  'Ocp-Apim-Subscription-Key': '<your-content-safety-key>'
 }
 
 response = requests.request("GET", url, headers=headers, data=payload)
 
 print(response.text)
 ```
+---
 
 #### Get the incident sample details
+#### [cURL](#tab/curl)
 
 ```shell
 curl --location 'https://<endpoint>/contentsafety/image/incidents/image-incident-name/incidentSamples/00e63d3f-54a6-4495-8191-6020923ca789?api-version=2023-10-30-preview' \
---header 'Ocp-Apim-Subscription-Key: <api_key>'
+--header 'Ocp-Apim-Subscription-Key: <your-content-safety-key>'
 ```
+#### [Python](#tab/python)
 
 ```python
 import requests
@@ -587,19 +634,21 @@ url = "https://<endpoint>/contentsafety/image/incidents/image-incident-name/inci
 
 payload = {}
 headers = {
-  'Ocp-Apim-Subscription-Key': '<api_key>'
+  'Ocp-Apim-Subscription-Key': '<your-content-safety-key>'
 }
 
 response = requests.request("GET", url, headers=headers, data=payload)
 
 print(response.text)
 ```
+---
 
 #### Delete the incident sample
+#### [cURL](#tab/curl)
 
 ```shell
 curl --location 'https://<endpoint>/contentsafety/image/incidents/image-incident-name:removeIncidentSamples?api-version=2023-10-30-preview' \
---header 'Ocp-Apim-Subscription-Key: <api_key>' \
+--header 'Ocp-Apim-Subscription-Key: <your-content-safety-key>' \
 --header 'Content-Type: application/json' \
 --data '{
   "incidentSampleIds": [
@@ -607,6 +656,7 @@ curl --location 'https://<endpoint>/contentsafety/image/incidents/image-incident
   ]
 }'
 ```
+#### [Python](#tab/python)
 
 ```python
 import requests
@@ -620,7 +670,7 @@ payload = json.dumps({
   ]
 })
 headers = {
-  'Ocp-Apim-Subscription-Key': '<api_key>',
+  'Ocp-Apim-Subscription-Key': '<your-content-safety-key>',
   'Content-Type': 'application/json'
 }
 
@@ -628,4 +678,5 @@ response = requests.request("POST", url, headers=headers, data=payload)
 
 print(response.text)
 ```
+---
 
