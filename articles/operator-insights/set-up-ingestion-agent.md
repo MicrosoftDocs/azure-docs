@@ -322,7 +322,7 @@ The configuration you need is specific to the type of source and your Data Produ
 
         ---
     - `sink`. Sink configuration controls uploading data to the Data Product's input storage account.
-        - In the `sas_token` section, set the `secret_provider` to the appropriate `key_vault` secret provider for the Data Product, or use the default `data_product_keyvault` if you used the default name earlier. Leave and `secret_name` unchanged.
+        - In the `sas_token` section, set the `secret_provider` to the appropriate `key_vault` secret provider for the Data Product, or use the default `data_product_keyvault` if you used the default name earlier. Leave `secret_name` unchanged.
         - Refer to your Data Product's documentation for information on required values for other parameters.
             > [!IMPORTANT]
             > The `container_name` field must be set exactly as specified by your Data Product's documentation.
