@@ -8,7 +8,7 @@ ms.custom: mode-ui
 
 # Enable capturing of events streaming through Azure Event Hubs
 
-Azure [Event Hubs Capture][capture-overview] enables you to automatically deliver the streaming data in Event Hubs to an [Azure Blob storage](https://azure.microsoft.com/services/storage/blobs/) or [Azure Data Lake Storage Gen 2](https://azure.microsoft.com/services/data-lake-store/) account of your choice.You can configure capture settings using the [Azure portal](https://portal.azure.com) when creating an event hub or for an existing event hub. For conceptual information on this feature, see [Event Hubs Capture overview][capture-overview].
+Azure [Event Hubs Capture][capture-overview] enables you to automatically deliver the streaming data in Event Hubs to an [Azure Blob storage](https://azure.microsoft.com/services/storage/blobs/) or [Azure Data Lake Storage Gen 2](https://azure.microsoft.com/services/data-lake-store/) account of your choice. You can configure capture settings using the [Azure portal](https://portal.azure.com) when creating an event hub or for an existing event hub. For conceptual information on this feature, see [Event Hubs Capture overview][capture-overview].
 
 > [!IMPORTANT]
 > Event Hubs doesn't support capturing events in a **premium** storage account. 
@@ -59,7 +59,7 @@ See one of the following sections based on the type of storage you want to use t
 
 Follow [Create a storage account](../storage/common/storage-account-create.md?tabs=azure-portal#create-a-storage-account) article to create an Azure Storage account. Set **Hierarchical namespace** to **Enabled** on the **Advanced** tab to make it an Azure Data Lake Storage Gen 2 account. The Azure Storage account must be in the same subscription as the event hub.
 
-1. Select **Azure Storage** as the capture provider. To use a Gen 2 of Azure Data Lake Storage, you select **Azure Storage**.
+1. Select **Azure Storage** as the capture provider. To use Azure Data Lake Storage Gen2, you select **Azure Storage**.
 2. For **Azure Storage Container**, click the **Select the container** link.
 
     :::image type="content" source="./media/event-hubs-capture-enable-through-portal/select-container-link.png" alt-text="Screenshot that shows the Create event hub page with the Select container link.":::
