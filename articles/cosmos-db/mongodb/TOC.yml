@@ -1,5 +1,7 @@
 - name: What is Azure Cosmos DB for MongoDB?
   href: introduction.md
+- name: Your MongoDB app reimagined
+  href: reimagined.md
 - name: Choose your model
   href: choose-model.md
 - name: Comparing MongoDB Atlas
