@@ -5,7 +5,7 @@ services: ddos-protection
 author: AbdullahBell
 ms.service: ddos-protection
 ms.topic: tutorial
-ms.date: 11/07/2023
+ms.date: 04/11/2024
 ms.author: abell
 ---
 
@@ -220,6 +220,9 @@ RedWolf's [DDoS Testing](https://www.redwolfsecurity.com/services/) service suit
    - **Guided Service**: Leverage RedWolf's team to run tests. For more information about RedWolf's guided service, see [Guided Service](https://www.redwolfsecurity.com/managed-testing-explained/).
    - **Self Service**: Leverage RedWol to run tests yourself. For more information about RedWolf's self-service, see [Self Service](https://www.redwolfsecurity.com/self-serve-testing/).
 
+## MazeBolt
+
+The RADAR™ platform continuously identifies and enables the elimination of DDoS vulnerabilities – proactively and with zero disruption to business operations.
 
 ## Next steps
 
