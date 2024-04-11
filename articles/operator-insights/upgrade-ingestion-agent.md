@@ -30,7 +30,7 @@ To upgrade to a new release of the agent, repeat the following steps on each VM 
 
 1. Connect to the VM over SSH.
 1. Save a copy of the existing */etc/az-aoi-ingestion/config.yaml* configuration file.
-1. Upgrade the RPM using your VM's package manager. For example, for Red Hat-based Linux Distributions:
+1. Upgrade the agent using your VM's package manager. For example, for Red Hat-based Linux Distributions:
     ```
     sudo dnf upgrade az-aoi-ingestion
     ```
