@@ -41,11 +41,6 @@ The dimension Logical Unit Number (`LUN`) is associated with some of the precedi
 
 ## Azure Monitor Logs tables
 
-[!INCLUDE [Microsoft.Compute/virtualMachines](~/azure-reference-other-repo/azure-monitor-ref/supported-logs/includes/microsoft-compute-virtualmachines-logs-include.md)]
-
-> [!IMPORTANT]
-> For Azure VMs, all the important data is collected by the Azure Monitor agent. The resource log categories available for Azure VMs aren't important and aren't available for collection from the Azure portal. For detailed information about how the Azure Monitor agent collects VM log data, see [Monitor virtual machines with Azure Monitor: Collect data](/azure/azure-monitor/vm/monitor-virtual-machine-data-collection).
-
 [!INCLUDE [horz-monitor-ref-logs-tables](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-logs-tables.md)]
 
 | Table | Categories | Data collection method|[Supports basic log plan](/azure/azure-monitor/logs/basic-logs-configure?tabs=portal-1#compare-the-basic-and-analytics-log-data-plans)| Queries|
