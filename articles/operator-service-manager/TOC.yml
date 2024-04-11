@@ -60,7 +60,7 @@
 - name: How-to guides
   expanded: false
   items:
-  - name: Onboard Network Functions and Infrastructure to Azure Operator Service Manager (AOSM)
+  - name: Onboard Network Functions and Azure Resource Manager (ARM) resources to Azure Operator Service Manager (AOSM)
     expanded: false
     items:
       - name: Onboard a Containerized Network Function (CNF) using the Azure Operator Service Manager (AOSM) CLI Extension
@@ -69,6 +69,8 @@
         href: how-to-onboard-a-vnf-using-the-azure-cli.md
       - name: Use Helm option parameters to prevent Containerized Network Function (CNF) deletion on install failure
         href: how-to-use-helm-option-parameters.md
+      - name: Onboard Azure Resource Manager (ARM) resources using the Azure Operator Service Manager (AOSM) CLI Extension
+        href: how-to-onboard-arm-resources-using-the-azure-cli.md
   - name: Create a custom role
     href: how-to-create-custom-role.md
   - name: Assign a custom role
