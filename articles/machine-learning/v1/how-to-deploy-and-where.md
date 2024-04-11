@@ -14,7 +14,6 @@ ms.custom: UpdateFrequency5, deploy, devx-track-azurecli, mktng-kw-nov2021, cliv
 adobe-target: true
 ---
 
-
 # Deploy machine learning models to Azure
 
 [!INCLUDE [sdk & cli v1](../includes/machine-learning-dev-v1.md)]
@@ -138,7 +137,7 @@ For more information on `az ml model register`, see the [reference documentation
 ### Register a model from a local file
 
 You can register a model by providing the local path of the model. You can provide the path of either a folder or a single file on your local machine.
-<!-- pyhton nb call -->
+<!-- python nb call -->
 [!Notebook-python[] (~/azureml-examples-archive/v1/python-sdk/tutorials/deploy-local/1.deploy-local.ipynb?name=register-model-from-local-file-code)]
 
 
@@ -192,7 +191,7 @@ For more information, see the documentation for the [Model class](/python/api/az
 > - **From local files**, which will register a v2 model.
 > - **From local files (based on framework)**, which will register a v1 model.
 >
->Note that only models registered via the **From local files (based on framework)** entrance (which are known as v1 models) can be deployed as webservices using SDKv1/CLIv1.
+> Note that only models registered via the **From local files (based on framework)** entrance (which are known as v1 models) can be deployed as webservices using SDKv1/CLIv1.
 
 ## Define a dummy entry script
 

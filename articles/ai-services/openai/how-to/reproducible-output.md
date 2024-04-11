@@ -10,7 +10,6 @@ ms.date: 04/09/2024
 author: mrbullwinkle
 ms.author: mbullwin
 recommendations: false
-
 ---
 
 # Learn how to use reproducible output (preview)
@@ -36,7 +35,7 @@ Support for reproducible output was first added in API version [`2023-12-01-prev
 
 First we'll generate three responses to the same question to demonstrate the variability that is common to Chat Completion responses even when other parameters are the same:
 
-# [Python](#tab/pyton)
+# [Python](#tab/python)
 
 ```python
 import os
@@ -131,7 +130,7 @@ Notice that while each story might have similar elements and some verbatim repet
 
 Now we'll run the same code as before but this time uncomment the line for the parameter that says `seed=42`
 
-# [Python](#tab/pyton)
+# [Python](#tab/python)
 
 ```python
 import os

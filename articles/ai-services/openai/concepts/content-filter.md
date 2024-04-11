@@ -568,7 +568,7 @@ except openai.error.InvalidRequestError as e:
 
 ```
 
-# [JavaScript](#tab/javascrit)
+# [JavaScript](#tab/javascript)
 
 [Azure OpenAI JavaScript SDK source code & samples](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/openai/openai)
 
