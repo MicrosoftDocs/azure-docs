@@ -22,7 +22,7 @@ Azure Event Grid's MQTT broken supports the following authentication modes.
 You can use Certificate Authority (CA) signed certificates or self-signed certificates to authenticate clients. For more information, see [MQTT Client authentication using certificates](mqtt-client-certificate-authentication.md).
 
 ## Microsoft Entra ID authentication
-You can authenticate MQTT clients with Microsoft Entra JWT to connect to Event Grid namespace. You can use Azure role-based access control (Azure RBAC) to enable MQTT clients, with Microsoft Entra identity, to publish or subscribe access to specific topic spaces. For more information, see [Microsoft Entra JWT authentication and Azure RBAC authorization to publish or subscribe MQTT messages](mqtt-client-microsoft-entra-token-and-rbac). 
+You can authenticate MQTT clients with Microsoft Entra JWT to connect to Event Grid namespace. You can use Azure role-based access control (Azure RBAC) to enable MQTT clients, with Microsoft Entra identity, to publish or subscribe access to specific topic spaces. For more information, see [Microsoft Entra JWT authentication and Azure RBAC authorization to publish or subscribe MQTT messages](mqtt-client-microsoft-entra-token-and-rbac.md). 
 
 ## Next steps
 - Learn how to [authenticate clients using certificate chain](mqtt-certificate-chain-client-authentication.md)
