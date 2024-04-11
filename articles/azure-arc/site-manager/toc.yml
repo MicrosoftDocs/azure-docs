@@ -22,7 +22,7 @@
   items:
   - name: FAQ
     href: faq.md
-- name: Troubleshooting
+- name: Fix Common Issues
   items:
   - name: Known Issues
     href: known-issues.md

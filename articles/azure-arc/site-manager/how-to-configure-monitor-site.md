@@ -1,5 +1,5 @@
 ---
-title: "How to configure azure monitor alerts for a site"
+title: "How to configure Azure Monitor alerts for a site"
 description: "How to configure monitor for a site."
 author: kgremban
 ms.author: kgremban
