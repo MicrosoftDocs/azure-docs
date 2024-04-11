@@ -1067,8 +1067,6 @@ items:
             href: resources/troubleshooting/voice-video-calling/call-setup-issues/failed-to-create-call-agent.md
           - name: The user doesn't receive incoming call notifications
             href: resources/troubleshooting/voice-video-calling/call-setup-issues/no-incoming-call-notifications.md
-          - name: The user is unable to establish a call
-            href: resources/troubleshooting/voice-video-calling/call-setup-issues/unable-to-establish-a-call.md
           - name: The call setup takes too long
             href: resources/troubleshooting/voice-video-calling/call-setup-issues/call-setup-takes-too-long.md
         - name: Device and permission issues
