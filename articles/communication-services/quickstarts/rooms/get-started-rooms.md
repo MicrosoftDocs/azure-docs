@@ -30,8 +30,6 @@ The table below lists the main properties of `room` objects:
 | `participants`        | List of participants to a `room`. Specified as a `CommunicationIdentifier`. |
 | `roleType`            | The role of a room participant. Can be either `Presenter`, `Attendee`, or `Consumer`. |
 
-*pstnDialOutEnabled is currently in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
-
 ::: zone pivot="platform-azcli"
 [!INCLUDE[Use rooms with Azure CLI](./includes/rooms-quickstart-az-cli.md)]
 ::: zone-end
