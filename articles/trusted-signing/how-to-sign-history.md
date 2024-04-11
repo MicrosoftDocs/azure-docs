@@ -34,6 +34,3 @@ Follow the steps to access and send sign transactions to your storage account:�
     6.	Navigate to the storage account created in step 1. In this example, we will use storage account **storagetestneu1**.  
     7.	From storage account resource, navigate to **Containers** under **Data storage**. 
     8.	From the list, select container named **insights-logs-signtransactions** and navigate to the date and time you're looking to download the log.    
-
-
-

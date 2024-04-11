@@ -13,7 +13,7 @@
     - name: Sign CI Policies with Trusted Signing
       href: how-to-sign-ci-policy.md
     - name: Access signed transactions in Trusted Signing 
-      href: how-to-signing-history.md
+      href: how-to-sign-history.md
     - name: Revoke a certificate profile in Trusted Signing
       href: how-to-certificate-revocation.md
   - name: Quickstart
