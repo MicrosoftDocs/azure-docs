@@ -8,7 +8,7 @@ ms.service: cosmos-db
 ms.subservice: mongodb
 ms.custom: devx-track-azurecli
 ms.topic: concept-article
-ms.date: 04/02/2024
+ms.date: 11/02/2024
 ---
 
 # Redistribute throughput across partitions
@@ -98,7 +98,7 @@ $parameters = @{
 Install-Module @parameters
 ```
 
-#### [Azure CLI](#tab/Azure CLI)
+#### [Azure CLI](#tab/azure-cli)
 
 Use [`az extension add`](/cli/azure/extension#az-extension-add) to install the [cosmosdb-preview](https://github.com/azure/azure-cli-extensions/tree/main/src/cosmosdb-preview) Azure CLI extension.
 
@@ -143,7 +143,7 @@ $allPartitionsSharedThroughputDatabase = Get-AzCosmosDBMongoDBDatabasePerPartiti
 
 ```
 
-#### [API for MongoDB](#tab/mongodb/Azure CLI)
+#### [Azure CLI](#tab/azure-cli)
 
 Read the current RU/s on each physical partition by using [`az cosmosdb mongodb collection retrieve-partition-throughput`](/cli/azure/cosmosdb/sql/container#az-cosmosdb-mongodb-collection-retrieve-partition-throughput).
 
@@ -203,7 +203,7 @@ To understand the below example, let's take an example where we have a container
 
 We specify partitions 0 and 2 as our source partitions, and specify that after the redistribution, they should have a minimum RU/s of 1000 RU/s. Partition 1 is out target partition, which we specify should have 4000 RU/s.
 
-#### [API for MongoDB](#tab/mongodb/azure-powershell)
+#### [PowerShell](#tab/azure-powershell)
 
 Use the `Update-AzCosmosDBMongoDBCollectionPerPartitionThroughput` for collections with dedicated RU/s or the `Update-AzCosmosDBMongoDBDatabasePerPartitionThroughput` command for databases with shared RU/s to redistribute throughput across physical partitions. In shared throughput databases, the Ids of the physical partitions are represented by a GUID string.
 
@@ -233,7 +233,7 @@ Update-AzCosmosDBMongoDBDatabasePerPartitionThroughput `
     -TargetPhysicalPartitionThroughputObject $TargetPhysicalPartitionObjects
 ```
 
-#### [API for MongoDB](#tab/mongodb/Azure CLI)
+#### [Azure CLI](#tab/azure-cli)
 
 Update the RU/s on each physical partition by using [`az cosmosdb mongodb collection redistribute-partition-throughput`](/cli/azure/cosmosdb/mongodb/collection#az-cosmosdb-mongodb-collection-redistribute-partition-throughput).
 
@@ -274,7 +274,7 @@ Update-AzCosmosDBMongoDBDatabasePerPartitionThroughput `
     -EqualDistributionPolicy
 ```
 
-#### [API for MongoDB](#tab/mongodb/Azure CLI)
+#### [Azure CLI](#tab/azure-cli)
 
 Update the RU/s on each physical partition by using [`az cosmosdb mongodb collection redistribute-partition-throughput`](/cli/azure/cosmosdb/mongodb/collection#az-cosmosdb-mongodb-collection-redistribute-partition-throughput) with the parameter `--evenly-distribute`.
 
