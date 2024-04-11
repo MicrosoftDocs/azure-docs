@@ -17,7 +17,7 @@ You have launched an app. Word of mouth spreads slowly, and a small but loyal us
 
 But, timeouts become increasingly frequent, especially when traffic spikes. The rapid growth and unpredictable demand push your infrastructure to its limits, making scalability a pressing issue. Yet overhauling your data pipeline is out of the question given your resource and time constraints.
 
-You chose MongoDB for its flexibility. Now, when you need to manage cost while satisfying demanding requirements for scalability, availability, and continuity, Azure Cosmos DB for MongoDB comes to the rescue.
+You chose MongoDB for its flexibility. Now, when you face demanding requirements on scalability, availability, continuity, and cost, Azure Cosmos DB for MongoDB comes to the rescue.
 
 You point your app to the connection string of this fully managed database, which offers single-digit millisecond response times, automatic and instant scalability, and guaranteed speed at any scale. Even OpenAI chose the underlying service to [dynamically scale their ChatGPT service](../introduction.md) – one of the fastest-growing consumer apps ever – enabling high reliability and low maintenance. While you continue to use your existing MongoDB skills and your favorite MongoDB drivers, SDKs, and tools, you also reap the following benefits from choosing either of the two available architectures:
 
