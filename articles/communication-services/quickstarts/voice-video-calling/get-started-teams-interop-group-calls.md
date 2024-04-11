@@ -162,8 +162,8 @@ If you want to clean up and remove a Communication Services subscription, you ca
 
 For advanced flows using Call Automation, see the following articles:
 
-- [Outbound calls with Call Automation](../call-automation/quickstart-make-an-outbound-call?tabs=visual-studio-code&pivots=programming-language-javascript)
-- [Add Microsoft Teams user](../call-automation/teams-interop-call-automation?pivots=programming-language-javascript)
+- [Outbound calls with Call Automation](../call-automation/quickstart-make-an-outbound-call.md?tabs=visual-studio-code&pivots=programming-language-javascript)
+- [Add Microsoft Teams user](../../how-tos/call-automation/teams-interop-call-automation.md?pivots=programming-language-javascript)
 
 For more information, see the following articles:
 
