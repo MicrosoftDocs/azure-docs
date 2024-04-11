@@ -68,7 +68,7 @@ Routes send messages or event logs to an Azure service for storage or processing
 
    | Parameter | Value |
    | --------- | ----- |
-   | **Endpoint type** | Select **Cosmos DB (preview)**. |
+   | **Endpoint type** | Select **Cosmos DB**. |
    | **Endpoint name** | Provide a unique name for a new endpoint, or select **Select existing** to choose an existing Storage endpoint. |
    | **Cosmos DB account** | Use the drop-down menu to select an existing Cosmos DB account in your subscription. |
    | **Database** | Use the drop-down menu to select an existing database in your Cosmos DB account. |
