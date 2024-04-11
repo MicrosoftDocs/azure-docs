@@ -29,7 +29,7 @@ az extension add --name communication
 ```
 
 ### Sign in to Azure CLI
-You need to [sign in to Azure CLI](/cli/azure/authenticate-azure-cli). You can sign in running the ```az login``` command from the terminal and providing your credentials.
+You need to [sign in to Azure CLI](/cli/azure/authenticate-azure-cli). You can sign in by running the ```az login``` command from the terminal and providing your credentials.
 
 
 ### Store your connection string in an environment variable 
@@ -88,7 +88,7 @@ If you've stored the connection string in environment variables as stated above,
 az communication rooms create 
 ```
 
-### Enable PSTN Dial Out Capability for a Room
+### Enable PSTN dial out capability for a room
 The PSTN dial out can be enabled during `rooms create` by defining the `--pstn-dial-out-enabled` parameter as "True". This capability can also be modified during `rooms update` by specifying the `--pstn-dial-out-enabled` parameter.
 
 ```azurecli-interactive

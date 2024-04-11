@@ -61,7 +61,7 @@ This quickstart helps you get started with Azure Communication Services Rooms. A
 
 ## Next steps
 
-You can learn how to [join a rooms call](join-rooms-call.md) ater creating and configuring the room.
+You can learn how to [join a rooms call](join-rooms-call.md) after creating and configuring the room.
 
 In this section you learned how to:
 > [!div class="checklist"]

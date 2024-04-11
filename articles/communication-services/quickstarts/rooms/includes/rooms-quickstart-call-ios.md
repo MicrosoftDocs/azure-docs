@@ -46,7 +46,7 @@ end
 4. Open the .xcworkspace with Xcode.
 
 
-### Request access to the Microphone and Camera
+### Request access to the microphone and camera
 To access the device's microphone and camera, you need to update your app's Information Property List with an `NSMicrophoneUsageDescription` and `NSCameraUsageDescription`. You set the associated value to a string that will be included in the dialog the system uses to request access from the user.
 
 Right-click the `Info.plist` entry of the project tree and select Open As > Source Code. Add the following lines the top level `<dict>` section, and then save the file.
@@ -199,7 +199,7 @@ struct HomePageView_Previews: PreviewProvider {
 }
 ```
 
-### Authenticate the Client
+### Authenticate the client
 In order to initialize a CallAgent instance we need a User Access Token which will enable us to join Room calls. 
 
 Once you have a token, Add the following code to the `onAppear` callback in `ContentView.swift`. You will need to replace `<USER ACCESS TOKEN>` with a valid user access token for your resource:
