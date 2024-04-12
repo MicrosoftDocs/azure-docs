@@ -35,21 +35,20 @@ In this example, you will add a another frontend to your Load Balancer.
 5. Select **+ Add** in **Frontend IP configuration** to add a frontend.
 
 6. Enter or select the following information in **Add frontend IP configuration**.
-If **myLoadBalancer** is a Public Load Balancer:
+- If **myLoadBalancer** is a _Public_ Load Balancer:
     | Setting | Value |
     | ------- | ----- |
     | Name | **myFrontend2** |
     | IP Version | Select **IPv4** or **IPv6**. |
     | IP type | Select **IP address** or **IP prefix**. |
     | Public IP address | Select an existing Public IP address or create a new one. |
-
-If **myLoadBalancer** is in Internal Load Balancer:
+- If **myLoadBalancer** is an _Internal_ Load Balancer:
     | Setting | Value |
     | ------- | ----- |
     | Name | **myFrontend2** |
     | IP Version | Select **IPv4** or **IPv6**. |
     | Subnet | Select an existing subnet. |
-    | Availability zone | Select *zone-redundant* for resilient applications. You can also select a specific zone.
+    | Availability zone | Select *zone-redundant* for resilient applications. You can also select a specific zone. |
 
 7. Select **Save**.
 
@@ -64,11 +63,13 @@ In this example, you'll remove a frontend IP configuration.
 
 3. Select **myLoadBalancer** or your load balancer.
 
-4. In the load balancer page, select **Load balancing rules** in **Settings**.
+4. In the load balancer page, select **Frontend IP configuration** in **Settings**.
 
-5. Select the three dots next to the rule you want to remove.
+5. Select the delete icon next to the frontend you would like to remove.
 
-6. Select **Delete**.
+6. Note the associated resources that will also be deleted. Check the box that says 'I have read and understood that this frontend IP configuration as well as the associated resources listed above will be deleted'
+
+7. Select **Delete**.
 
     :::image type="content" source="./media/manage-rules-how-to/remove-load-balancing-rule.png" alt-text="Screenshot of removing a load-balancing rule." border="true":::
 
