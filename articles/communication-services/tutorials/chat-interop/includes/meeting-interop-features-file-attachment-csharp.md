@@ -7,7 +7,7 @@ ms.topic: include
 ms.service: azure-communication-services
 ---
 
-In this tutorial, you learn how to enable file attachment support using the Azure Communication Services Chat SDK for JavaScript.
+In this tutorial, you learn how to enable file attachment support using the Azure Communication Services Chat SDK for C#.
 
 ## Sample code
 Find the finalized code of this tutorial on [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/ChatTeamsInteropQuickStart).
