@@ -1,8 +1,8 @@
 ---
 title: Reliability in Azure Cosmos DB for NoSQL
 description: Learn about reliability in Azure Cosmos DB for NoSQL
-author: AbdullahBell
-ms.author: anaharris-ms
+author: anaharris-ms
+ms.author: anaharris
 ms.topic: reliability-article
 ms.custom: subject-reliability, references_regions
 ms.service: cosmos-db
@@ -158,7 +158,7 @@ Azure CosmosDB offers:
 
 **Individual node outage resiliency.** Azure Cosmos DB automatically mitigates [replica](/azure/cosmos-db/distribute-data-globally) outages by guaranteeing at least three replicas of your data in each Azure region for your account within a four-replica quorum. This guarantee results in an RTO of 0 and an RPO of 0 for individual node outages, without requiring application changes or configurations. 
 
-**Zone outage resiliency.** When you deploy an Azure Cosmos DB account by using [availability zones](./availability-zones-overview.md), Azure Cosmos DB provides an RTO of 0 and an RPO of 0, even in a zone outage. For information on RTO, see [Recovery objectives](disaster-recovery-overview#recovery-objectives). 
+**Zone outage resiliency.** When you deploy an Azure Cosmos DB account by using [availability zones](../cosmos-db/availability-zones-overview.md), Azure Cosmos DB provides an RTO of 0 and an RPO of 0, even in a zone outage. For information on RTO, see [Recovery objectives](disaster-recovery-overview.md#recovery-objectives). 
 
 With availability zones enabled, Azure Cosmos DB for NoSQL supports a *zone-redundant* configuration.
 
@@ -182,7 +182,7 @@ The following table summarizes the high-availability capabilities of various acc
 |Read availability SLA  | 99.99% | 99.995% | 99.999% | 99.999% | 99.999% |
 |Zone failures: data loss | Data loss | No data loss | No data loss | No data loss | No data loss |
 |Zone failures: availability | Availability loss | No availability loss | No availability loss | No availability loss | No availability loss |
-|Regional outage: data loss | Data loss |  Data loss | Dependent on consistency level. For more information, see [Consistency, availability, and performance tradeoffs](./consistency-levels.md). | Dependent on consistency level. For more information, see [Consistency, availability, and performance tradeoffs](./consistency-levels.md). | Dependent on consistency level. For more information, see [Consistency, availability, and performance tradeoffs](./consistency-levels.md).
+|Regional outage: data loss | Data loss |  Data loss | Dependent on consistency level. For more information, see [Consistency, availability, and performance tradeoffs](../cosmos-db/consistency-levels.md). | Dependent on consistency level. For more information, see [Consistency, availability, and performance tradeoffs](./consistency-levels.md). | Dependent on consistency level. For more information, see [Consistency, availability, and performance tradeoffs](../cosmos-db/consistency-levels.md).
 |Regional outage: availability | Availability loss | Availability loss | No availability loss for read region failure, temporary for write region failure | No availability loss for read region failure, temporary for write region failure | No read availability loss, temporary write availability loss in the affected region |
 |Price (***1***) | Not applicable | Provisioned RU/s x 1.25 rate | Provisioned RU/s x *N* regions | Provisioned RU/s x 1.25 rate x *N* regions (***2***) | Multiple-region write rate x *N* regions |
 
@@ -224,8 +224,8 @@ When an Azure Cosmos DB account is deployed in a single region, generally no dat
 
 To help you protect against complete data loss that might result from catastrophic disasters in a region, Azure Cosmos DB provides two backup modes:
 
-- [Continuous backups](./continuous-backup-restore-introduction.md) back up each region every 100 seconds. They enable you to restore your data to any point in time with 1-second granularity. In each region, the backup is dependent on the data committed in that region.
-- [Periodic backups](./periodic-backup-restore-introduction.md) fully back up all partitions from all containers under your account, with no synchronization across partitions. The minimum backup interval is 1 hour.
+- [Continuous backups](../cosmos-db/continuous-backup-restore-introduction.md) back up each region every 100 seconds. They enable you to restore your data to any point in time with 1-second granularity. In each region, the backup is dependent on the data committed in that region.
+- [Periodic backups](../cosmos-db/periodic-backup-restore-introduction.md) fully back up all partitions from all containers under your account, with no synchronization across partitions. The minimum backup interval is 1 hour.
 
 When an Azure Cosmos DB account is deployed in multiple regions, data durability depends on the consistency level that you configure on the account. The following table details, for all consistency levels, the RPO of an Azure Cosmos DB account that's deployed in at least two regions.
 
@@ -241,7 +241,7 @@ When an Azure Cosmos DB account is deployed in multiple regions, data durability
 
 For multiple-region accounts, the minimum value of *K* and *T* is 100,000 write operations or 300 seconds. This value defines the minimum RPO for data when you're using bounded staleness.
 
-For more information on the differences between consistency levels, see [Consistency levels in Azure Cosmos DB](./consistency-levels.md).
+For more information on the differences between consistency levels, see [Consistency levels in Azure Cosmos DB](../cosmos-db/consistency-levels.md).
 
 ### Service managed failover
 
@@ -249,7 +249,7 @@ If your solution requires continuous uptime during region outages, you can confi
 
 Single-region accounts might lose accessibility after a regional outage. To ensure business continuity at all times, we recommend that you set up your Azure Cosmos DB account with *a single write region and at least a second (read) region* and enable *service-managed failover*.
 
-Service-managed failover allows Azure Cosmos DB to fail over the write region of a multiple-region account in order to preserve business continuity at the cost of data loss, as described earlier in the [Durability](#durability) section. Regional failovers are detected and handled in the Azure Cosmos DB client. They don't require any changes from the application. For instructions on how to enable multiple read regions and service-managed failover, see [Manage an Azure Cosmos DB account using the Azure portal](./how-to-manage-database-account.md).
+Service-managed failover allows Azure Cosmos DB to fail over the write region of a multiple-region account in order to preserve business continuity at the cost of data loss, as described earlier in the [Durability](#durability) section. Regional failovers are detected and handled in the Azure Cosmos DB client. They don't require any changes from the application. For instructions on how to enable multiple read regions and service-managed failover, see [Manage an Azure Cosmos DB account using the Azure portal](../cosmos-db/how-to-manage-database-account.md).
 
 > [!IMPORTANT]
 > If you have chosen single-region write configuration with multiple read regions, we strongly recommend that you configure the Azure Cosmos DB accounts used for production workloads to *enable service-managed failover*. This configuration enables Azure Cosmos DB to fail over the account databases to available regions.
@@ -264,7 +264,7 @@ Service-managed failover allows Azure Cosmos DB to fail over the write region of
 
 You can configure Azure Cosmos DB to accept writes in multiple regions. This configuration is useful for reducing write latency  in geographically distributed applications.
 
-When you configure an Azure Cosmos DB account for multiple write regions, strong consistency isn't supported and write conflicts might arise. For more information on how to resolve these conflicts, see [Conflict types and resolution policies when using multiple write regions](./conflict-resolution-policies.md).
+When you configure an Azure Cosmos DB account for multiple write regions, strong consistency isn't supported and write conflicts might arise. For more information on how to resolve these conflicts, see [Conflict types and resolution policies when using multiple write regions](../cosmos-db/conflict-resolution-policies.md).
 
 > [!IMPORTANT]
 > Updating same Document ID frequently (or recreating same document ID frequently after TTL or delete) will have an effect on replication performance due to increased number of conflicts generated in the system.  
