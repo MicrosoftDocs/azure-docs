@@ -15,6 +15,69 @@ ms.custom: linux-related-content
 
 The faults listed in this article are currently available for use. To understand which resource types are supported, see [Supported resource types and role assignments for Azure Chaos Studio](./chaos-studio-fault-providers.md).
 
+## Overview: fault list
+
+### Agent-based faults
+
+Agent-based faults are injected into Azure Virtual Machines or Virtual Machine Scale Set instances by installing the Chaos Studio Agent.
+
+| Applicable OS types | Fault name                                                                  | Fault URN                                                   |
+|---------------------|-----------------------------------------------------------------------------|-------------------------------------------------------------|
+| Windows, Linux      | [CPU Pressure](#cpu-pressure)                                               | `urn:csci:microsoft:agent:cpuPressure/1.0`                  |
+| Windows, Linux      | [Kill Process](#kill-process)                                               | `urn:csci:microsoft:agent:killProcess/1.0`                  |
+| Windows, Linux      | [Network Disconnect](#network-disconnect)                                   | `urn:csci:microsoft:agent:networkDisconnect/1.1`            |
+| Windows, Linux      | [Network Latency](#network-latency)                                         | `urn:csci:microsoft:agent:networkLatency/1.1`               |
+| Windows, Linux      | [Network Packet Loss](#network-packet-loss)                                 | `urn:csci:microsoft:agent:networkPacketLoss/1.0`            |
+| Windows, Linux      | [Physical Memory Pressure](#physical-memory-pressure)                       | `urn:csci:microsoft:agent:physicalMemoryPressure/1.0`       |
+| Windows, Linux      | [Stop Service](#stop-service)                                               | `urn:csci:microsoft:agent:stopService/1.0`                  |
+| Windows, Linux      | [Time Change](#time-change)                                                 | `urn:csci:microsoft:agent:timeChange/1.0`                   |
+| Windows, Linux      | [Virtual Memory Pressure](#virtual-memory-pressure)                         | `urn:csci:microsoft:agent:virtualMemoryPressure/1.0`        |
+| Linux               | [Arbitrary Stress-ng Stressor](#arbitrary-stress-ng-stress)                 | `urn:csci:microsoft:agent:stressNg/1.0`                     |
+| Linux               | [Linux DiskIO Pressure](#disk-io-pressure-linux)                            | `urn:csci:microsoft:agent:linuxDiskIOPressure/1.1`          |
+| Windows             | [DiskIO Pressure](#disk-io-pressure-windows)                                | `urn:csci:microsoft:agent:diskIOPressure/1.1`               |
+| Windows             | [DNS Failure](#dns-failure)                                                 | `urn:csci:microsoft:agent:dnsFailure/1.0`                   |
+| Windows             | [Network Disconnect (Via Firewall)](#network-disconnect-with-firewall-rule) | `urn:csci:microsoft:agent:networkDisconnectViaFirewall/1.0` |
+
+### Service-direct faults
+
+| Azure resource type              | Fault name                                                                          | Fault URN                                                             |
+|----------------------------------|-------------------------------------------------------------------------------------|-----------------------------------------------------------------------|
+| App Service                      | [Stop App Service](#stop-app-service)                                               | `urn:csci:microsoft:appService:stop/1.0`                              |
+| Autoscale Settings               | [Disable Autoscale](#disable-autoscale)                                             | `urn:csci:microsoft:autoscalesettings:disableAutoscale/1.0`           |
+| Azure Kubernetes Service         | [AKS Chaos Mesh DNS Chaos](#aks-chaos-mesh-dns-faults)                              | `urn:csci:microsoft:azureKubernetesServiceChaosMesh:dnsChaos/2.1`     |
+| Azure Kubernetes Service         | [AKS Chaos Mesh HTTP Chaos](#aks-chaos-mesh-http-faults)                            | `urn:csci:microsoft:azureKubernetesServiceChaosMesh:httpChaos/2.1`    |
+| Azure Kubernetes Service         | [AKS Chaos Mesh IO Chaos](#aks-chaos-mesh-io-faults)                                | `urn:csci:microsoft:azureKubernetesServiceChaosMesh:IOChaos/2.1`      |
+| Azure Kubernetes Service         | [AKS Chaos Mesh Kernel Chaos](#aks-chaos-mesh-kernel-faults)                        | `urn:csci:microsoft:azureKubernetesServiceChaosMesh:kernelChaos/2.1`  |
+| Azure Kubernetes Service         | [AKS Chaos Mesh Network Chaos](#aks-chaos-mesh-network-faults)                      | `urn:csci:microsoft:azureKubernetesServiceChaosMesh:networkChaos/2.1` |
+| Azure Kubernetes Service         | [AKS Chaos Mesh Pod Chaos](#aks-chaos-mesh-pod-faults)                              | `urn:csci:microsoft:azureKubernetesServiceChaosMesh:podChaos/2.1`     |
+| Azure Kubernetes Service         | [AKS Chaos Mesh Stress Chaos](#aks-chaos-mesh-stress-faults)                        | `urn:csci:microsoft:azureKubernetesServiceChaosMesh:stressChaos/2.1`  |
+| Azure Kubernetes Service         | [AKS Chaos Mesh Time Chaos](#aks-chaos-mesh-time-faults)                            | `urn:csci:microsoft:azureKubernetesServiceChaosMesh:timeChaos/2.1`    |
+| Cloud Services (Classic)         | [Cloud Service Shutdown](#cloud-services-classic-shutdown)                          | `urn:csci:microsoft:domainName:shutdown/1.0`                          |
+| Clustered Cache for Redis        | [Azure Cache for Redis (Reboot)](#azure-cache-for-redis-reboot)                     | `urn:csci:microsoft:azureClusteredCacheForRedis:reboot/1.0`           |
+| Cosmos DB                        | [Cosmos DB Failover](#azure-cosmos-db-failover)                                     | `urn:csci:microsoft:cosmosDB:failover/1.0`                            |
+| Event Hubs                       | [Change Event Hub State](#change-event-hub-state)                                   | `urn:csci:microsoft:eventHub:changeEventHubState/1.0`                 |
+| Key Vault                        | [Key Vault Deny Access](#key-vault-deny-access)                                     | `urn:csci:microsoft:keyVault:denyAccess/1.0`                          |
+| Key Vault                        | [Key Vault Disable Certificate](#key-vault-disable-certificate)                     | `urn:csci:microsoft:keyvault:disableCertificate/1.0`                  |
+| Key Vault                        | [Key Vault Increment Certificate Version](#key-vault-increment-certificate-version) | `urn:csci:microsoft:keyvault:incrementCertificateVersion/1.0`         |
+| Key Vault                        | [Key Vault Update Certificate Policy](#key-vault-update-certificate-version)        | `urn:csci:microsoft:keyvault:updateCertificatePolicy/1.0`             |
+| Network Security Group           | [NSG Security Rule](#rule)                                                          | `urn:csci:microsoft:networkSecurityGroup:securityRule/1.0`            |
+| Service Bus                      | [Change Queue State](#service-bus-change-queue-state)                               | `urn:csci:microsoft:serviceBus:changeQueueState/1.0`                  |
+| Service Bus                      | [Change Subscription State](#service-bus-change-subscription-state)                 | `urn:csci:microsoft:serviceBus:changeSubscriptionState/1.0`           |
+| Service Bus                      | [Change Topic State](#service-bus-change-topic-state)                               | `urn:csci:microsoft:serviceBus:changeTopicState/1.0`                  |
+| Virtual Machine (service-direct) | [VM Redeploy](#virtual-machine-redeploy)                                            | `urn:csci:microsoft:virtualMachine:redeploy/1.0`                      |
+| Virtual Machine (service-direct) | [VM Shutdown](#virtual-machine-shutdown)                                            | `urn:csci:microsoft:virtualMachine:shutdown/1.0`                      |
+| Virtual Machine Scale Set        | [VMSS Shutdown](#virtual-machine-scale-set-instance-shutdown)                       | `urn:csci:microsoft:virtualMachineScaleSet:shutdown/1.0`              |
+| Virtual Machine Scale Set        | [VMSS Shutdown (2.0)](#virtual-machine-scale-set-instance-shutdown)                 | `urn:csci:microsoft:virtualMachineScaleSet:shutdown/2.0`              |
+
+### Orchestration actions
+
+| Action category | Fault name                                                                  | Fault URN                                       |
+|-----------------|-----------------------------------------------------------------------------|-------------------------------------------------|
+| Load            | [Start load test (Azure Load Testing)](#azure-load-testing-start-load-test) | `urn:csci:microsoft:azureLoadTest:start/1.0`    |
+| Load            | [Stop load test (Azure Load Testing)](#azure-load-testing-stop-load-test)   | `urn:csci:microsoft:azureLoadTest:stop/1.0`     |
+| Time delay      | [Delay](#time-delay)                                                        | `urn:csci:microsoft:chaosStudio:timedDelay/1.0` |
+
+
 ## Time delay
 
 | Property | Value |
