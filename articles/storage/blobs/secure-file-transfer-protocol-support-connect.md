@@ -56,6 +56,8 @@ When using custom domains the connection string is `myaccount.myuser@customdomai
 > [!IMPORTANT]
 > Ensure your DNS provider does not proxy requests. Proxying may cause the connection attempt to time out.
 
+Add a link to the custom domain content.
+
 ## Connect using a private endpoint
 
 When using a private endpoint the connection string is `myaccount.myuser@myaccount.privatelink.blob.core.windows.net`. If home directory hasn't been specified for the user, it's `myaccount.mycontainer.myuser@myaccount.privatelink.blob.core.windows.net`.
