@@ -94,25 +94,21 @@ This disk has a maximum capacity of 4,095 GiB. However, many operating systems a
 
 A data disk is a managed disk that's attached to a virtual machine to store application data, or other data you need to keep. Data disks are registered as SCSI drives and are labeled with a letter that you choose. The size of the virtual machine determines how many data disks you can attach to it and the type of storage you can use to host the disks.
 
+Generally, you should use the data disk to store your applications and data, instead of storing them on OS disks. Using data disks to store applications and data offers the following benefits over using the OS disk:
+
+- Improved Backup and Disaster Recovery
+- More flexibility and scalability
+- Performance isolation
+- Easier maintenance
+- Improved security and access control
+
+For more details on these benefits, see 
+
 ### Temporary disk
 
 Most VMs contain a temporary disk, which is not a managed disk. The temporary disk provides short-term storage for applications and processes, and is intended to only store data such as page files, swap files, or SQL Server tempdb. Data on the temporary disk may be lost during a [maintenance event](./understand-vm-reboots.md), when you [redeploy a VM](/troubleshoot/azure/virtual-machines/redeploy-to-new-node-windows?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), or when you stop the VM. During a successful standard reboot of the VM, data on the temporary disk will persist. For more information about VMs without temporary disks, see [Azure VM sizes with no local temporary disk](azure-vms-no-temp-disk.yml).
 
 On Azure Linux VMs, the temporary disk is typically /dev/sdb and on Windows VMs the temporary disk is D: by default. The temporary disk is not encrypted unless (for server side encryption) you enable encryption at host or (for Azure Disk Encryption) with the [VolumeType parameter set to All on Windows](./windows/disk-encryption-windows.md#enable-encryption-on-a-newly-added-data-disk) or [EncryptFormatAll on Linux](./linux/disk-encryption-linux.md#use-encryptformatall-feature-for-data-disks-on-linux-vms).
-
-### When to use data disks
-
-Generally, you should use the data disk to store your applications and data, instead of storing them on OS disks. Using data disks offers the following benefits you can't have if you use the OS disk to store all your applications and data:
-
-- You can have more efficient backup and recovery operations, reducing downtime in the event of data loss or system failure, by frequently backing up your data disks. If the data disk experiences an issue, it's easier to recover since it's separate from the OS disk.
-
-- You can expand your storage capacity by adding or expanding data disks without affecting the OS disk. Only data disks support live resize, you can't increase the size of OS disks without stopping the VM. 
-
-- Separating the OS from your applications and data onto different disks helps ensure that disks IOPs from the operating system and the application data don't interfere with each other. This can enhance overall system performance, and prevent contention issues that might happen when both the OS and applications are competing for disk resources.
-
-- If there's a system failure or corruption occurs on the OS disk, you can reimage or reinstall the operating system without affecting the data disk. This reduces the risk of data loss and makes it easier when troubleshooting and for maintenance procedures.
-
-- You can apply separate access controls and permissions to the OS disk and the data disk. This separation limits access to critical system files on the OS disk, mitigating potential security risks.
 
 ## Managed disk snapshots
 

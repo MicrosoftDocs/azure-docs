@@ -5,7 +5,7 @@ metadata:
   author: roygara
   ms.service: azure-disk-storage
   ms.topic: faq
-  ms.date: 10/20/2023
+  ms.date: 04/11/2024
   ms.author: rogarana
   ms.custom: references_regions
 title: Frequently asked questions about Azure IaaS VM disks and managed and unmanaged premium disks
@@ -148,6 +148,20 @@ sections:
           For Premium SSD v2, the Azure pricing calculator gives me different pricing?
         answer: |
           Premium SSD v2 provides a baseline performance of 3,000 IOPS and 125 MB/s for any size that is offered at no additional cost. Currently, for the following regions, the pricing calculator has an incorrect price. Until the pricing calculator is corrected, deduct 3000IOPS from target IOPS and 125MB/s for target bandwidth for these regions to correctly estimate the cost: North Central US, West Central US, West US, UK West, UAE Central, UAE North, Switzerland North, Switzerland West, Sweden South, Korea Central, Korea South, Japan East, Japan West, Italy North, Central India, South India, Germany North, Germany West Central, France Central, Canada Central, Canada East, Brazil South, US GOV Arizona, US GOV Virginia, Australia Central, Australia Central 2, Australia Southeast, South Africa North, South Arica West.
+
+      - question: |
+          What benefits do I get from using the data disk to store applications and data over the OS disk?
+        answer: |
+          - You can have more efficient backup and recovery operations, reducing downtime in the event of data loss or system failure, by frequently backing up your data disks. If the data disk experiences an issue, it's easier to recover since it's separate from the OS disk.
+
+          - You can expand your storage capacity by adding or expanding data disks without affecting the OS disk. Only data disks support live resize, you can't increase the size of OS disks without stopping the VM. 
+
+          - Separating the OS from your applications and data onto different disks helps ensure that disks IOPs from the operating system and the application data don't interfere with each other. This can enhance overall system performance, and prevent contention issues that might happen when both the OS and applications are competing for disk resources.
+
+          - If there's a system failure or corruption occurs on the OS disk, you can reimage or reinstall the operating system without affecting the data disk. This reduces the risk of data loss and makes it easier when troubleshooting and for maintenance procedures.
+
+          - You can apply separate access controls and permissions to the OS disk and the data disk. This separation limits access to critical system files on the OS disk, mitigating potential security risks.
+
 
   - name: Snapshots
     questions:
