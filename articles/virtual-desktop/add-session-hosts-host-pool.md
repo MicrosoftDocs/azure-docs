@@ -50,7 +50,7 @@ Review the [Prerequisites for Azure Virtual Desktop](prerequisites.md) for a gen
 
    - If you create VMs on Azure Stack HCI outside of the Azure Virtual Desktop service, such as with an automated pipeline, then add them as session hosts to a host pool, you need to install the [Azure Connected Machine agent](../azure-arc/servers/agent-overview.md) on the virtual machines so they can communicate with [Azure Instance Metadata Service](../virtual-machines/instance-metadata-service.md), which is a [required endpoint for Azure Virtual Desktop](../virtual-desktop/required-fqdn-endpoint.md).
 
-   - A logical network that you created on your Azure Stack HCI cluster. Both DHCP logical networks or static logical networks (automatic IP allocation) are supported. For more information, see [Create logical networks](/azure-stack/hci/manage/create-logical-networks?tabs=azurecli).
+   - A logical network that you created on your Azure Stack HCI cluster. DHCP logical networks or static logical networks with automatic IP allocation are supported. For more information, see [Create logical networks for Azure Stack HCI](/azure-stack/hci/manage/create-logical-networks).
 
 - If you want to use Azure CLI or Azure PowerShell locally, see [Use Azure CLI and Azure PowerShell with Azure Virtual Desktop](cli-powershell.md) to make sure you have the [desktopvirtualization](/cli/azure/desktopvirtualization) Azure CLI extension or the [Az.DesktopVirtualization](/powershell/module/az.desktopvirtualization) PowerShell module installed. Alternatively, use the [Azure Cloud Shell](../cloud-shell/overview.md).
 
@@ -78,7 +78,6 @@ Here's how to generate a registration key using the Azure portal.
 1. Select **Generate new key**, then enter an expiration date and time and select **OK**. The registration key will be created.
 
 1. Select **Download** to download a text file containing the registration key, or copy the registration key to your clipboard to use later. You can also retrieve the registration key later by returning to the host pool overview.
-
 
 # [Azure PowerShell](#tab/powershell)
 
