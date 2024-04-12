@@ -107,7 +107,7 @@ You can implement integrated vector database functionalities for the following [
 
 ### API for MongoDB
 
-Use the natively [integrated vector database in Azure Cosmos DB for MongoDB vCore](mongodb/vcore/vector-search.md), which offers an efficient way to store, index, and search high-dimensional vector data directly alongside other application data. This approach removes the necessity of migrating your data to costlier alternative vector databases and provides a seamless integration of your AI-driven applications.
+Use the natively [integrated vector database in Azure Cosmos DB for MongoDB](mongodb/vcore/vector-search.md), which offers an efficient way to store, index, and search high-dimensional vector data directly alongside other application data. This approach removes the necessity of migrating your data to costlier alternative vector databases and provides a seamless integration of your AI-driven applications.
 
 #### Code samples
 
@@ -149,7 +149,7 @@ The natively integrated vector database in our NoSQL API will become available i
 > [!div class="nextstepaction"]
 > [Use the Azure Cosmos DB lifetime free tier](free-tier.md)
 
-## More Vector Stores
+## More Vector Store Solutions
 
 - [Azure PostgreSQL Server pgvector Extension](../postgresql/flexible-server/how-to-use-pgvector.md)
 - [Azure AI Search](../search/vector-store.md)
