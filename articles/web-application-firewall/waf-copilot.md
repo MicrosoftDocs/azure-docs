@@ -19,7 +19,7 @@ ms.collection: Tier1
 
 Microsoft Copilot for Security is a cloud-based AI platform that provides natural language copilot experience. It can help support security professionals in different scenarios, like incident response, threat hunting, and intelligence gathering. For more information, see [What is Microsoft Copilot for Security?](/security-copilot/microsoft-security-copilot)
 
-Azure Web Application Firewall (WAF) integration in Copilot for Security enables deep investigation of Azure WAF events. It can help you investigate WAF logs triggered by Azure WAF in a matter of minutes and provide related attack vectors using natural language responses at machine speed. It provides visibility into your environment’s threat landscape. It allows you to retrieve a list of most frequently triggered WAF rules  and identify the top offending IPs in your environment. 
+Azure Web Application Firewall (WAF) integration in Copilot for Security enables deep investigation of Azure WAF events. It can help you investigate WAF logs triggered by Azure WAF in a matter of minutes and provide related attack vectors using natural language responses at machine speed. It provides visibility into your environment’s threat landscape. It allows you to retrieve a list of most frequently triggered WAF rules  and identify the top offending IP addressess in your environment. 
 
 Copilot for Security integration is supported on both Azure WAF integrated with Azure Application Gateway and Azure WAF integrated with Azure Front Door.
 
@@ -42,7 +42,7 @@ The preview standalone experience in Azure WAF can help you with:
 
 - Summarizing SQL injection(SQLi) attacks. This Azure WAF skill helps to understand why Azure WAF blocks SQL injection (SQLi) attacks to web applications. It does this by analyzing Azure WAF diagnostic logs and connecting related logs over a specific time period. The result is an easy-to-understand natural language explanation of why a SQLi request was blocked. 
 - Summarizing Cross-site scripting (XSS) attacks. This Azure WAF skill helps to understand why Azure WAF blocks Cross Site Scripting(XSS) attacks to web applications. It does this by analyzing Azure WAF diagnostic logs and connecting related logs over a specific time period. The result is an easy-to-understand natural language explanation of why an XSS request was blocked. 
-- Providing a list of malicious IP addresses in the customer environment and generating related threats. This Azure WAF skill helps to understand client IPs blocked by the WAF. It does this by analyzing Azure WAF diagnostic logs and connecting related logs over a specific time period. The result is an easy-to-understand natural language explanation of which IP addresses that WAF blocked and the reason for the blocks. 
+- Providing a list of malicious IP addresses in the customer environment and generating related threats. This Azure WAF skill helps to understand client IP addresses blocked by the WAF. It does this by analyzing Azure WAF diagnostic logs and connecting related logs over a specific time period. The result is an easy-to-understand natural language explanation of which IP addresses that WAF blocked and the reason for the blocks. 
 - Providing a list of top WAF rules triggered in the customer environment and generating deep context with related attack vectors. This Azure WAF skill helps to understand why WAF blocks certain requests to web applications. This skill provides details around WAF rules that are triggered due to WAF block. It provides an ordered list of rules based on trigger frequency in the desired time period. It does this by analyzing Azure WAF diagnostic logs and connecting related logs over a specific time period. The result is an easy-to-understand natural language explanation of why a particular request was blocked.
 
 ## Enable the Azure WAF integration in Microsoft Copilot for Security
@@ -78,7 +78,7 @@ The following example prompts might be helpful.
 ### Summarize information about SQL injection attacks
 
 - Was there a SQL injection attack in my global WAF in the last day?
-- Show me IPs related to the top SQL injection attack in my global WAF
+- Show me IP addressess related to the top SQL injection attack in my global WAF
 - Show me all SQL injection attacks in regional WAF in the last 24 hours
 
 ### Summarize information about Cross-site scripting attacks
@@ -93,10 +93,10 @@ The following example prompts might be helpful.
 - Was there any bot attack in my regional WAF in the last day?
 - Summarize custom rule blocks triggered by Azure Front Door WAF in the last day.
 
-### Generate a list of threats in my environment based on malicious IPS
+### Generate a list of threats in my environment based on malicious IP addresses
 
 - What was the top offending IP in regional WAF in the last day?
-- Summarize list of malicious IPs in my Azure Front Door WAF in the last six hours?
+- Summarize list of malicious IP addressess in my Azure Front Door WAF in the last six hours?
 
 ## Provide feedback
 
