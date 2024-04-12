@@ -24,10 +24,9 @@ The custom category API lets you create your own harmful content categories for 
 
 ## Prerequisites
 * An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/)
-* Get access: The custom categories API is a gated feature. Apply for access by submitting this form with your Azure subscription ID: [Microsoft Forms](tbd). The request will take up to three business days to approve. Once you receive an approval notification from Microsoft, you can go to the next step.
+* Get access: The custom categories API is a gated feature. Apply for access by submitting this form with your Azure subscription ID: [Microsoft Forms](https://aka.ms/content-safety-gate). The request will take up to three business days to approve. Once you receive an approval notification from Microsoft, you can go to the next step.
 * Once you have your Azure subscription, <a href="https://aka.ms/acs-create"  title="Create a Content Safety resource"  target="_blank">create a Content Safety resource </a> in the Azure portal to get your key and endpoint. Enter a unique name for your resource, select your subscription, and select a resource group, supported region (East US), and supported pricing tier. Then select **Create**.
    * The resource takes a few minutes to deploy. After it finishes, Select **go to resource**. In the left pane, under **Resource Management**, select **Subscription Key and Endpoint**. The endpoint and either of the keys are used to call APIs.
-   * You also need to enable **Identity** for the Content Safety resource. Go to your Content Safety resource's page in the Azure portal -> **Resource Management** -> **Identity** -> **System assigned**, and make sure the **status** is **On**.
 * One of the following installed:
    * [cURL](https://curl.haxx.se/) for REST API calls.
    * [Python 3.x](https://www.python.org/) installed
@@ -53,8 +52,9 @@ To train a custom category, you need example text data that represents the categ
 
 1. Upload the .jsonl file to an Azure Storage account blob. You can create a new [Azure Storage Account](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM) if you don't have one. Copy the blob URL to a temporary location for later use.
 
-1. In your Azure Storage account's page in the Azure portal, go to **Access Control** and select **Add Role Assignment**. Assign the role of **Storage Blob Data Contributor/Owner** to the Managed identity you enabled in the prerequisite steps.
-![image](https://hackmd.io/_uploads/BJQPW6mgR.png)
+### Grant storage access 
+
+[!INCLUDE [storage-account-access](../includes/storage-account-access.md)]
 
 ## Create and train a custom category
 
