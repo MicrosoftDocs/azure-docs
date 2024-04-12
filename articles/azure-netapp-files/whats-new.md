@@ -14,6 +14,10 @@ ms.author: anfdocs
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
 
+[No downtime upgrade to Standard network features](configure-network-features.md#edit-network-features-option-for-existing-volumes)
+
+    The option to edit network features is shifting to a non-disruptive process. In some regions, the process remains disruptive and can last up to five minutes. In regions where the nondisruptive upgrade has been released, the process can take up to 25 minues during which time you cannot create new volumes or application volume groups. 
+
 ## March 2024
 
 * [Large volumes (Preview) improvement:](large-volumes-requirements-considerations.md) new minimum size of 50 TiB
