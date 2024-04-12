@@ -26,9 +26,6 @@ The diagram shows a connection through Azure ExpressRoute to an Azure VMware Sol
 
 :::image type="content" source="media/netapp-files/netapp-files-topology.png" alt-text="Diagram showing NetApp Files for Azure VMware Solution with Virtual Machines architecture." border="false" lightbox="media/netapp-files/netapp-files-topology.png":::
 
-border="false" lightbox="":::
-
-
 ## Prerequisites 
 
 > [!div class="checklist"]
@@ -65,7 +62,7 @@ Verify the preconfigured Azure NetApp Files created in Azure on Azure NetApp Fil
 
 3. Select **Capacity pools** to verify the configured pool. 
 
-   :::image type="content" source="media/netapp-files/netapp-settings.png" alt-text="Screenshot showing options to view capacity pools and volumes of a configured NetApp Files account." border="false" lightbox=""media/netapp-files/netapp-settings.png":::
+   :::image type="content" source="media/netapp-files/netapp-settings.png" alt-text="Screenshot showing options to view capacity pools and volumes of a configured NetApp Files account." border="false" lightbox="media/netapp-files/netapp-settings.png":::
 
    The Capacity pools page opens showing the capacity and service level. In this example, the storage pool is configured as 4 TiB with a Premium service level.
 
