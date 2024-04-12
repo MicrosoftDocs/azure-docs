@@ -5,7 +5,6 @@ services: traffic-manager
 author: greg-lindsay
 ms.service: traffic-manager
 ms.topic: conceptual
-ms.workload: infrastructure-services
 ms.date: 04/27/2023
 ms.author: greglin
 ms.custom: template-concept
@@ -70,4 +69,4 @@ For more information about probes and monitoring, see [Traffic Manager endpoint 
 
 ## Next steps
 - Learn more about [Azure Monitor service](../azure-monitor/essentials/metrics-supported.md)
-- Learn how to [create a chart using Azure Monitor](../azure-monitor/essentials/metrics-getting-started.md#create-your-first-metric-chart)
+- Learn how to [create a chart in Azure Monitor](../azure-monitor/essentials/analyze-metrics.md#create-a-metric-chart)

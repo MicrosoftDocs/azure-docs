@@ -4,7 +4,7 @@ description: Learn how to configure a virtual network for injection of Azure-SSI
 ms.service: data-factory
 ms.subservice: integration-services
 ms.topic: conceptual
-ms.date: 04/12/2023
+ms.date: 01/05/2024
 author: chugugrace
 ms.author: chugu 
 ---
@@ -82,7 +82,7 @@ Using Azure portal, you can grant the user creating Azure-SSIS IR the necessary 
 
 :::image type="content" source="media/join-azure-ssis-integration-runtime-virtual-network/grant-virtual-network-permissions.png" alt-text="Grant virtual network permissions":::
 
-## Next steps
+## Related content
 
 - [Express virtual network injection method](azure-ssis-integration-runtime-express-virtual-network-injection.md)
 - [Standard virtual network injection method](azure-ssis-integration-runtime-standard-virtual-network-injection.md)

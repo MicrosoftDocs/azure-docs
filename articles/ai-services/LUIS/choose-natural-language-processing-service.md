@@ -1,13 +1,13 @@
 ---
 title: Use NLP with QnA Maker for chat bots
 description: Azure AI services provides two natural language processing services, Language Understanding and QnA Maker, each with a different purpose. Understand when to use each service and how they compliment each other.
-ms.service: cognitive-services
-ms.subservice: language-understanding
+ms.service: azure-ai-language
+ms.subservice: azure-ai-luis
 ms.author: aahi
 author: aahill
 manager: nitinme
 ms.topic: conceptual
-ms.date: 10/20/2020
+ms.date: 01/19/2024
 ---
 
 # Use Azure AI services with natural language processing (NLP) to enrich chat bot conversations

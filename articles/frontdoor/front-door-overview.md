@@ -5,10 +5,9 @@ services: frontdoor
 author: duongau
 ms.service: frontdoor
 ms.topic: overview
-ms.workload: infrastructure-services
-ms.date: 03/18/2023
+ms.date: 10/12/2023
 ms.author: duau
-# Customer intent: As an IT admin, I want to learn about Front Door and what I can use it for. 
+# Customer intent: As an IT admin, I want to learn about Front Door and what I can use it for.
 ---
 
 # What is Azure Front Door?
@@ -22,6 +21,8 @@ Azure Front Door is Microsoft’s modern cloud Content Delivery Network (CDN) th
 [!INCLUDE [ddos-waf-recommendation](../../includes/ddos-waf-recommendation.md)]
 
 ## Why use Azure Front Door?
+
+> [!VIDEO https://www.youtube.com/embed/-4FQYxV9mAE]
 
 Azure Front Door enables internet-facing application to:
 
@@ -94,7 +95,7 @@ For a comparison of supported features in Azure Front Door, see [Tier comparison
 
 ## Where is the service available?
 
-Azure Front Door Classic/Standard/Premium SKUs are available in Microsoft Azure (Commercial) and Azure Front Door Classic SKU is available in Microsoft Azure Government (US).
+Azure Front Door Standard, Premium and Classic tiers are available in Microsoft Azure (Commercial) and Microsoft Azure Government (US).
 
 ## Pricing
 

@@ -4,7 +4,6 @@ description: Learn about determining business needs to meet business goals in mu
 ms.topic: how-to
 author: dcurwin
 ms.author: dacurwin
-ms.custom: ignite-2022
 ms.date: 10/03/2022
 ---
 

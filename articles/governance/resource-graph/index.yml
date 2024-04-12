@@ -1,17 +1,16 @@
 ### YamlMime:Landing
 
 title: Azure Resource Graph documentation
-summary: Explore all of your cloud resources and more effectively manage your cloud inventory
+summary: Explore all of your cloud resources and more effectively manage your cloud inventory.
 
 metadata:
   title: Azure Resource Graph documentation
-  description: Explore all of your cloud resources and more effectively manage your cloud inventory
+  description: Explore all of your cloud resources and more effectively manage your cloud inventory.
   ms.service: resource-graph
   ms.topic: landing-page
-  ms.collection: collection
   author: davidsmatlak
   ms.author: davidsmatlak
-  ms.date: 06/29/2020
+  ms.date: 02/22/2024
 
 landingContent:
   - title: About Azure Resource Graph
@@ -39,22 +38,12 @@ landingContent:
             url: ./first-query-azurecli.md
           - text: First query (Azure PowerShell)
             url: ./first-query-powershell.md
-          - text: First query (.NET)
-            url: ./first-query-dotnet.md
-          - text: First query (Go)
-            url: ./first-query-go.md
-          - text: First query (Java)
-            url: ./first-query-java.md
-      - linkListType: quickstart
-        links:
-          - text: First query (JavaScript)
-            url: ./first-query-javascript.md
-          - text: First query (Python)
-            url: ./first-query-python.md
-          - text: First query (Ruby)
-            url: ./first-query-ruby.md
           - text: First query (REST)
             url: ./first-query-rest-api.md
+          - text: Create alert on ARG query
+            url: ./alerts-query-quickstart.md
+          - text: Run ARG query with Power BI connector
+            url: ./power-bi-connector-quickstart.md
           - text: Share queries (Portal)
             url: ./tutorials/create-share-query.md
       - linkListType: concept
@@ -92,12 +81,12 @@ landingContent:
     linkLists:
       - linkListType: download
         links:
-          - text: OpenAPI - 2019-04-01
-            url: https://github.com/Azure/azure-rest-api-specs/tree/master/specification/resourcegraph/resource-manager/Microsoft.ResourceGraph/stable/2019-04-01
+          - text: OpenAPI
+            url: https://github.com/Azure/azure-rest-api-specs/tree/master/specification/resourcegraph/resource-manager/Microsoft.ResourceGraph/stable/2022-10-01
           - text: Azure SDK for .NET - NuGet
-            url: https://www.nuget.org/packages/Microsoft.Azure.Management.ResourceGraph/
+            url: https://www.nuget.org/packages/Azure.ResourceManager.ResourceGraph/
           - text: Azure SDK for Java - Maven
-            url: https://search.maven.org/artifact/com.microsoft.azure.resourcegraph.v2019_04_01/azure-mgmt-resourcegraph/1.0.0-beta/jar
+            url: https://central.sonatype.com/artifact/com.azure.resourcemanager/azure-resourcemanager-resourcegraph/1.0.0
           - text: Azure SDK for Ruby - Gem
             url: https://rubygems.org/gems/azure_mgmt_resourcegraph
 
@@ -110,11 +99,11 @@ landingContent:
           - text: Azure PowerShell
             url: /powershell/module/az.resourcegraph/#resourcegraph
           - text: Azure SDK for .NET
-            url: /dotnet/api/Microsoft.Azure.Management.ResourceGraph
+            url: /dotnet/api/azure.resourcemanager.resourcegraph
           - text: Azure SDK for Go
-            url: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/resourcegraph/mgmt/2019-04-01/resourcegraph
+            url: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/resourcegraph/mgmt/2021-03-01/resourcegraph
           - text: Azure SDK for Java
-            url: /java/api/overview/azure/resourcegraph/management
+            url: /java/api/com.azure.resourcemanager.resourcegraph
           - text: Azure SDK for JavaScript
             url: /javascript/api/@azure/arm-resourcegraph
           - text: Azure SDK for Python

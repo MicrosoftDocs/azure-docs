@@ -92,7 +92,7 @@
         },
         {
             "source_path_from_root": "/articles/cognitive-services/form-recognizer/quickstarts/client-library.md",
-            "redirect_url": "/azure/ai-services/document-intelligence/quickstarts/client-library",
+            "redirect_url": "/azure/ai-services/document-intelligence/quickstarts/get-started-sdks-rest-api",
             "redirect_document_id": false
         },
         {

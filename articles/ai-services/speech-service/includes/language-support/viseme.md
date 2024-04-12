@@ -1,7 +1,6 @@
 ---
 author: sally-baolian
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.date: 07/06/2023
 ms.topic: include
 ms.author: Zoubaolian

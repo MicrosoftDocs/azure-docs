@@ -4,8 +4,7 @@ titleSuffix: Azure AI services
 description: BLEU is a measurement of the differences between machine translation and human-created reference translations of the same source sentence.
 author: laujan
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: translator-text
+ms.service: azure-ai-translator
 ms.topic: conceptual
 ms.date: 07/18/2023
 ms.author: lajanuar

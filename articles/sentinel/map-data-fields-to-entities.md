@@ -5,34 +5,50 @@ author: yelevin
 ms.topic: how-to
 ms.date: 04/26/2022
 ms.author: yelevin
-ms.custom: ignite-fall-2021
+ms.collection: usx-security
+appliesto:
+    - Microsoft Sentinel in the Azure portal
+    - Microsoft Sentinel in the Microsoft Defender portal
 ---
 
 # Map data fields to entities in Microsoft Sentinel 
-
-> [!IMPORTANT]
->
-> - See "[Notes on the new version](#notes-on-the-new-version)" at the end of this document for important information about backward compatibility and differences between the new and old versions of entity mapping.
-
-## Introduction
 
 Entity mapping is an integral part of the configuration of [scheduled query analytics rules](detect-threats-custom.md). It enriches the rules' output (alerts and incidents) with essential information that serves as the building blocks of any investigative processes and remedial actions that follow.
 
 The procedure detailed below is part of the analytics rule creation wizard. It's treated here independently to address the scenario of adding or changing entity mappings in an existing analytics rule.
 
+> [!IMPORTANT]
+>
+> - See "[Notes on the new version](#notes-on-the-new-version)" at the end of this document for important information about backward compatibility and differences between the new and old versions of entity mapping.
+> - [!INCLUDE [unified-soc-preview-without-alert](includes/unified-soc-preview-without-alert.md)]
+
 ## How to map entities
 
-1. From the Microsoft Sentinel navigation menu, select **Analytics**.
+1. Enter the **Analytics** page in the portal through which you access Microsoft Sentinel:
+
+    # [Azure portal](#tab/azure)
+
+    From the **Configuration** section of the Microsoft Sentinel navigation menu, select **Analytics**.
+
+    # [Defender portal](#tab/defender)
+
+    From the Microsoft Defender navigation menu, expand **Microsoft Sentinel**, then **Configuration**. Select **Analytics**.
+
+    ---
 
 1. Select a scheduled query rule and select **Edit** from the details pane. Or create a new rule by clicking **Create > Scheduled query rule** at the top of the screen.
 
-1. Select the **Set rule logic** tab. 
+1. Select the **Set rule logic** tab. If a new rule, type a query in the **Rule query** window.
 
-1. In the **Alert enrichment** section, expand **Entity mapping**.
+1. In the **Alert enhancement** section, expand **Entity mapping**.
 
     :::image type="content" source="media/map-data-fields-to-entities/alert-enrichment.png" alt-text="Expand entity mapping":::
 
-1. In the now-expanded **Entity mapping** section, select an entity type from the **Entity type** drop-down list.
+1. In the now-expanded **Entity mapping** section, select **Add new entity**.
+
+    :::image type="content" source="media/map-data-fields-to-entities/add-new-entity.png" alt-text="Screenshot shows how to add a new entity.":::
+
+1. Select an entity type from the **Entity** drop-down list.
 
     :::image type="content" source="media/map-data-fields-to-entities/choose-entity-type.png" alt-text="Choose an entity type":::
 
@@ -67,8 +83,8 @@ The procedure detailed below is part of the analytics rule creation wizard. It's
 
 In this document, you learned how to map data fields to entities in Microsoft Sentinel analytics rules. To learn more about Microsoft Sentinel, see the following articles:
 
+- Explore the other ways to enrich your alerts:
+    - [Surface custom event details in alerts in Microsoft Sentinel](surface-custom-details-in-alerts.md)
+    - [Customize alert details in Microsoft Sentinel](customize-alert-details.md)
 - Get the complete picture on [scheduled query analytics rules](detect-threats-custom.md).
 - Learn more about [entities in Microsoft Sentinel](entities.md).
-
-
-

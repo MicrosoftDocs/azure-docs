@@ -4,7 +4,6 @@ metadata:
   description: Answers to frequently asked questions about Azure confidential computing.
   author: stempesta
   ms.topic: faq
-  ms.workload: infrastructure
   ms.service: virtual-machines
   ms.subservice: confidential-computing
   ms.date: 11/1/2021

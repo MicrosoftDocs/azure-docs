@@ -5,6 +5,7 @@ author: bandersmsft
 manager: yashesvi
 ms.service: virtual-machines
 ms.subservice: billing
+ms.custom: linux-related-content
 ms.topic: conceptual
 ms.date: 06/17/2022
 ms.author: banders

@@ -14,8 +14,6 @@ ms.service: azure-communication-services
 
 # Distribution modes
 
-[!INCLUDE [Public Preview Disclaimer](../../includes/public-preview-include-document.md)]
-
 When creating a distribution policy, we specify one of the following distribution modes to define the strategy to use when distributing jobs to workers:
 
 ## Round robin mode
@@ -34,25 +32,25 @@ Assume that each `chat` job has been configured to consume one capacity for a wo
 
 ```text
 Worker A:
-TotalCapacity = 5
+Capacity = 5
 ConsumedScore = 3 (Currently handling 3 chats)
 LoadRatio = 3 / 5 = 0.6
 LastAvailable: 5 mins ago
 
 Worker B:
-TotalCapacity = 4
+Capacity = 4
 ConsumedScore = 3 (Currently handling 3 chats)
 LoadRatio = 3 / 4 = 0.75
 LastAvailable: 3 min ago
 
 Worker C:
-TotalCapacity = 5
+Capacity = 5
 ConsumedScore = 3 (Currently handling 3 chats)
 LoadRatio = 3 / 5 = 0.6
 LastAvailable: 7 min ago
 
 Worker D:
-TotalCapacity = 3
+Capacity = 3
 ConsumedScore = 0 (Currently idle)
 LoadRatio = 0 / 4 = 0
 LastAvailable: 2 min ago

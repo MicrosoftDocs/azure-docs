@@ -2,14 +2,14 @@
 title: Overview of transaction processing in Azure Service Bus
 description: This article gives you an overview of transaction processing and the send via feature in Azure Service Bus.
 ms.topic: article
-ms.date: 09/28/2022
+ms.date: 11/13/2023
 ms.devlang: csharp
 ms.custom: devx-track-csharp
 ---
 
 # Overview of Service Bus transaction processing
 
-This article discusses the transaction capabilities of Microsoft Azure Service Bus. Much of the discussion is illustrated by the [AMQP Transactions with Service Bus sample](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/TransactionsAndSendVia/TransactionsAndSendVia/AMQPTransactionsSendVia). This article is limited to an overview of transaction processing and the *send via* feature in Service Bus, while the Atomic Transactions sample is broader and more complex in scope.
+This article discusses the transaction capabilities of Microsoft Azure Service Bus. Much of the discussion is illustrated by the [Transactions sample](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/servicebus/Azure.Messaging.ServiceBus/samples/Sample06_Transactions.md). This article is limited to an overview of transaction processing and the *send via* feature in Service Bus, while the Atomic Transactions sample is broader and more complex in scope.
 
 > [!NOTE]
 > - The basic tier of Service Bus doesn't support transactions. The standard and premium tiers support transactions. For differences between these tiers, see [Service Bus pricing](https://azure.microsoft.com/pricing/details/service-bus/).
@@ -42,17 +42,20 @@ The disposition of the message (complete, abandon, dead-letter, defer) then occu
 > [!IMPORTANT]
 > Azure Service Bus doesn't retry an operation in case of an exception when the operation is in a transaction scope.
 
-## Operations that do not enlist in transaction scopes
+## Operations that don't enlist in transaction scopes
 
-Be aware that message processing code that calls into databases and other services like Cosmos DB does not automatically enlist those downstream resources into the same transactional scope. For more information on how to handle these scenarios, look into the [guidelines on idempotent message processing](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-data-platform#idempotent-message-processing).
+Be aware that message processing code that calls into databases and other services like Cosmos DB doesn't automatically enlist those downstream resources into the same transactional scope. For more information on how to handle these scenarios, look into the [guidelines on idempotent message processing](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-data-platform#idempotent-message-processing).
 
 ## Transfers and "send via"
 
-To enable transactional handover of data from a queue or topic to a processor, and then to another queue or topic, Service Bus supports *transfers*. In a transfer operation, a sender first sends a message to a *transfer queue or topic*, and the transfer queue or topic immediately moves the message to the intended destination queue or topic using the same robust transfer implementation that the autoforward capability relies on. The message is never committed to the transfer queue or topic's log in a way that it becomes visible for the transfer queue or topic's consumers.
+To enable transactional handover of data from a queue or topic to a processor, and then to another queue or topic, Service Bus supports *transfers*. In a transfer operation, a sender first sends a message to a *transfer queue or topic*, and the transfer queue or topic immediately moves the message to the intended destination queue or topic using the same robust transfer implementation that the autoforward capability relies on. The message is never committed to the transfer queue or topic's log such a way that it becomes visible for the transfer queue or topic's consumers.
 
 The power of this transactional capability becomes apparent when the transfer queue or topic itself is the source of the sender's input messages. In other words, Service Bus can transfer the message to the destination queue or topic "via" the transfer queue or topic, while performing a complete (or defer, or dead-letter) operation on the input message, all in one atomic operation. 
 
 If you need to receive from a topic subscription and then send to a queue or topic in the same transaction, the transfer entity must be a topic. In this scenario, start transaction scope on the topic, receive from the subscription with in the transaction scope, and send via the transfer topic to a queue or topic destination. 
+
+> [!NOTE]
+> If a message is sent via a transfer queue in the scope of a transaction, `TransactionPartitionKey` is functionally equivalent to `PartitionKey`. It ensures that messages are kept together and in order as they are transferred. 
 
 ### See it in code
 
@@ -83,13 +86,12 @@ To learn more about the `EnableCrossEntityTransactions` property, see the follow
 ## Timeout
 A transaction times out after 2 minutes. The transaction timer starts when the first operation in the transaction starts. 
 
+
 ## Next steps
 
 For more information about Service Bus queues, see the following articles:
 
 * [How to use Service Bus queues](service-bus-dotnet-get-started-with-queues.md)
 * [Chaining Service Bus entities with autoforwarding](service-bus-auto-forwarding.md)
-* [Autoforward sample](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/AutoForward) (`Microsoft.ServiceBus.Messaging` library)
-* [Atomic Transactions with Service Bus sample](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/AtomicTransactions) (`Microsoft.ServiceBus.Messaging` library)
 * [Working with transactions sample](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/servicebus/Azure.Messaging.ServiceBus/samples/Sample06_Transactions.md) (`Azure.Messaging.ServiceBus` library)
 * [Azure Queue Storage and Service Bus queues compared](service-bus-azure-and-service-bus-queues-compared-contrasted.md)

@@ -3,7 +3,6 @@ title: Use .NET for Apache Spark
 description: Learn about using .NET and Apache Spark to do batch processing, real-time streaming, machine learning, and write ad-hoc queries in Azure Synapse Analytics notebooks.
 author: juluczni
 ms.author: juluczni
-services: synapse-analytics
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: spark
@@ -118,7 +117,7 @@ The following features are available when you use .NET for Apache Spark in the A
 
 ### `DotNetRunner: null` / `Futures timeout` in Synapse Spark Job Definition Run
 
-Synapse Spark Job Definitions on Spark Pools using Spark 2.4 require `Microsoft.Spark` 1.0.0. Clear your `bin` and `obj` directories, and publish the project using 1.0.0.
+Synapse Spark Job Definitions on Spark Pools using [Spark 2.4](./apache-spark-24-runtime.md) require `Microsoft.Spark` 1.0.0. Clear your `bin` and `obj` directories, and publish the project using 1.0.0.
 
 ### OutOfMemoryError: java heap space at org.apache.spark
 

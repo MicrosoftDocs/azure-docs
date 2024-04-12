@@ -19,7 +19,7 @@ The following comparison matrix shows basic functionality, and comparison of mig
 |    | [Atempo](https://www.atempo.com/) | [Data Dynamics](https://www.datadynamicsinc.com/) | [Komprise](https://www.komprise.com/) |
 |--- |---------------------------------------------------|---------------------------------------------------|---------------------------------------|
 |  **Solution name**  | [Miria](https://www.atempo.com/solutions/miria-migration-for-hybrid-nas-and-file-storages/)|       [Data Mobility and Migration](https://azuremarketplace.microsoft.com/marketplace/apps/datadynamicsinc1581991927942.vm_4?tab=PlansAndPrice)      | [Elastic Data Migration](https://azuremarketplace.microsoft.com/marketplace/apps/komprise_inc.intelligent_data_management?tab=Overview​)    |
-| **Support provided by**             | [Atempo](https://www.atempo.com/support-en/contacting-support/)   | [Data Dynamics](https://www.datdynsupport.com/)<sub>1</sub> | [Komprise](https://komprise.freshdesk.com/support/home)<sub>1</sub> |
+| **Support provided by**             | [Atempo](https://www.atempo.com/support-en/contacting-support/)   | [Data Dynamics](https://ddsupport.datadynamicsinc.com/)<sub>1</sub> | [Komprise](https://komprise.freshdesk.com/support/home)<sub>1</sub> |
 | **Azure Files support (all tiers)** | Yes   | Yes            | Yes                            |
 | **Azure NetApp Files support**      | Yes   | Yes            | Yes                            |
 | **Azure Blob Hot / Cool support**   | Yes   | Yes            | Yes                            |
@@ -29,7 +29,7 @@ The following comparison matrix shows basic functionality, and comparison of mig
 
 ## Supported protocols (source / destination)
 
-|    | [Atempo](https://www.atempo.com/) | [Data Dynamics](https://www.datadynamicsinc.com/) | [Komprise](https://www.komprise.com/) |
+|    | [Atempo](https://www.atempo.com/) | [Data Dynamics](https://ddsupport.datadynamicsinc.com/) | [Komprise](https://www.komprise.com/) |
 |--- |---------------------------------------------------|---------------------------------------------------|---------------------------------------|
 |  **Solution name**  | [Miria](https://www.atempo.com/solutions/miria-migration-for-hybrid-nas-and-file-storages/)|       [Data Mobility and Migration](https://azuremarketplace.microsoft.com/marketplace/apps/datadynamicsinc1581991927942.vm_4?tab=PlansAndPrice)      | [Elastic Data Migration](https://azuremarketplace.microsoft.com/marketplace/apps/komprise_inc.intelligent_data_management?tab=Overview​)    |
 | **SMB 2.1**       | Yes   | Yes | Yes |
@@ -42,7 +42,7 @@ The following comparison matrix shows basic functionality, and comparison of mig
 
 ## Extended features
 
-|    | [Atempo](https://www.atempo.com/) | [Data Dynamics](https://www.datadynamicsinc.com/) | [Komprise](https://www.komprise.com/) |
+|    | [Atempo](https://www.atempo.com/) | [Data Dynamics](https://ddsupport.datadynamicsinc.com/) | [Komprise](https://www.komprise.com/) |
 |--- |---------------------------------------------------|---------------------------------------------------|---------------------------------------|
 |  **Solution name**  | [Miria](https://www.atempo.com/solutions/miria-migration-for-hybrid-nas-and-file-storages/)|       [Data Mobility and Migration](https://azuremarketplace.microsoft.com/marketplace/apps/datadynamicsinc1581991927942.vm_4?tab=PlansAndPrice)      | [Elastic Data Migration](https://azuremarketplace.microsoft.com/marketplace/apps/komprise_inc.intelligent_data_management?tab=Overview​)    |
 | **UID / SID remapping**                   | No  | Yes | No                             |
@@ -74,7 +74,7 @@ The following comparison matrix shows basic functionality, and comparison of mig
 
 ## Assessment and reporting
 
-|    | [Atempo](https://www.atempo.com/) | [Data Dynamics](https://www.datadynamicsinc.com/) | [Komprise](https://www.komprise.com/) |
+|    | [Atempo](https://www.atempo.com/) | [Data Dynamics](https://ddsupport.datadynamicsinc.com/) | [Komprise](https://www.komprise.com/) |
 |--- |---------------------------------------------------|---------------------------------------------------|---------------------------------------|
 |  **Solution name**  | [Miria](https://www.atempo.com/solutions/miria-migration-for-hybrid-nas-and-file-storages/)|       [Data Mobility and Migration](https://azuremarketplace.microsoft.com/marketplace/apps/datadynamicsinc1581991927942.vm_4?tab=PlansAndPrice)      | [Elastic Data Migration](https://azuremarketplace.microsoft.com/marketplace/apps/komprise_inc.intelligent_data_management?tab=Overview​)    |
 | **Capacity**                        | Yes | Yes | Yes            |
@@ -87,7 +87,7 @@ The following comparison matrix shows basic functionality, and comparison of mig
 
 ## Licensing
 
-|    | [Atempo](https://www.atempo.com/) | [Data Dynamics](https://www.datadynamicsinc.com/) | [Komprise](https://www.komprise.com/) |
+|    | [Atempo](https://www.atempo.com/) | [Data Dynamics](https://ddsupport.datadynamicsinc.com/) | [Komprise](https://www.komprise.com/) |
 |--- |---------------------------------------------------|---------------------------------------------------|---------------------------------------|
 |  **Solution name**  | [Miria](https://www.atempo.com/solutions/miria-migration-for-hybrid-nas-and-file-storages/)|       [Data Mobility and Migration](https://azuremarketplace.microsoft.com/marketplace/apps/datadynamicsinc1581991927942.vm_4?tab=PlansAndPrice)      | [Elastic Data Migration](https://azuremarketplace.microsoft.com/marketplace/apps/komprise_inc.intelligent_data_management?tab=Overview​)    |
 | **BYOL**             | Yes | Yes | Yes |
@@ -162,4 +162,3 @@ The following comparison matrix shows basic functionality, and comparison of mig
 
 > [!IMPORTANT]
 > Support provided by ISV, not Microsoft
-

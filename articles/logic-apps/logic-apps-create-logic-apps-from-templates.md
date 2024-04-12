@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 10/19/2022
+ms.date: 01/04/2024
 #Customer intent: As an Azure Logic Apps developer, I want to build a logic app workflow from a template so that I can reduce development time.
 ---
 

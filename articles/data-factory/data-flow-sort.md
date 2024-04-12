@@ -61,6 +61,6 @@ BasketballStats sort(desc(PTS, true),
     asc(Age, true)) ~> Sort1
 ```
 
-## Next steps
+## Related content
 
 After sorting, you may want to use the [Aggregate Transformation](data-flow-aggregate.md)

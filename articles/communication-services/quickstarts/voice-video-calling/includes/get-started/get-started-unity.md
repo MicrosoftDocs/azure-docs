@@ -1971,7 +1971,7 @@ private async void InitCallAgentAndDeviceManagerAsync()
 
 ### Start the call
 
-Once a `StartCallOptions` object is obtained, `CallAgent` can be used to initiate the ACS call:
+Once a `StartCallOptions` object is obtained, `CallAgent` can be used to initiate the Azure Communication Services call:
 
 ```C#
 public async void CallButton_Click()

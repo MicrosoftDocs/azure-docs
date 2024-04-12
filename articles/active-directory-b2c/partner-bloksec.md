@@ -2,17 +2,17 @@
 title: Tutorial to configure Azure Active Directory B2C with BlokSec for passwordless authentication
 titleSuffix: Azure AD B2C
 description: Learn how to integrate Azure AD B2C authentication with BlokSec for Passwordless authentication
-services: active-directory-b2c
 author: gargi-sinha
 manager: martinco
 ms.reviewer: kengaderdus
 ms.service: active-directory
-ms.workload: identity
 ms.topic: how-to
-ms.date: 03/09/2023
+ms.date: 01/26/2024
 ms.author: gasinh
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
+
+# Customer intent: I'm a developer integrating Azure Active Directory B2C with BlokSec for passwordless authentication. I need to configure integration, so I can simplify user sign-in and protect against identity-related attacks.
 ---
 
 # Tutorial: Configure Azure Active Directory B2C with BlokSec for passwordless authentication
@@ -64,7 +64,7 @@ The following architecture diagram illustrates the sign-up, sign-in flow in the 
 
 To get started, you need:
 
-* An Azure AD subscription
+* An Azure subscription
   * If you don't have one, get an [Azfree account](https://azure.microsoft.com/free/)
 * An [Azure AD B2C tenant](./tutorial-create-tenant.md) linked to the Azure subscription
 * A BlokSec [demo](https://bloksec.com/)

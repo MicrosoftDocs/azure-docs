@@ -4,7 +4,7 @@ description: Learn how to migrate files from an on-premises Network Attached Sto
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 12/15/2022
+ms.date: 11/21/2023
 ms.author: kendownie
 recommendations: false
 ---
@@ -38,7 +38,7 @@ The goal is to move the shares on your NAS appliance to Azure and have them beco
 The migration process consists of several phases. You'll need to deploy Azure storage accounts and file shares and configure networking. Then you'll migrate your files using Azure DataBox, and RoboCopy to catch-up with changes. Finally, you'll cut-over your users and apps to the newly created Azure file shares. The following sections describe the phases of the migration process in detail.
 
 > [!TIP]
-> If you are returning to this article, use the navigation on the right side to jump to the migration phase where you left off.
+> If you're returning to this article, use the navigation on the right side to jump to the migration phase where you left off.
 
 ## Phase 1: Identify how many Azure file shares you need
 
@@ -129,7 +129,7 @@ To save time, you should proceed with this phase while you wait for your DataBox
     :::column-end:::
     :::column:::
         This video is a guide and demo for how to securely expose Azure file shares directly to information workers and apps in five simple steps.</br>
-        The video references dedicated documentation for some topics:
+        The video references dedicated documentation for the following topics. Note that Azure Active Directory is now Microsoft Entra ID. For more information, see [New name for Azure AD](https://aka.ms/azureadnewname).
 
 * [Identity overview](storage-files-active-directory-overview.md)
 * [How to domain join a storage account](storage-files-identity-auth-active-directory-enable.md)
@@ -145,7 +145,7 @@ To save time, you should proceed with this phase while you wait for your DataBox
 
 ## Phase 6: Copy files onto your DataBox
 
-When your DataBox arrives, you need to set up your DataBox in a line of sight to your NAS appliance. Follow the setup documentation for the DataBox type you ordered.
+When your DataBox arrives, you need to set up your DataBox with unimpeded network connectivity to your NAS appliance. Follow the setup documentation for the DataBox type you ordered.
 
 * [Set up Data Box](../../databox/data-box-quickstart-portal.md)
 * [Set up Data Box Disk](../../databox/data-box-disk-quickstart-portal.md)

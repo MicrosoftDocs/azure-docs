@@ -179,4 +179,5 @@ To use a system-assigned identity, the Azure Key Vault must be configured to use
 
 ## Next steps
 
-* [Configure customer-managed keys with managed Hardware Security Module](configure-customer-managed-keys-hardware.md)
+* [Configure customer-managed keys](configure-customer-managed-keys.md)
+* [Security FAQs](faq-security.md)

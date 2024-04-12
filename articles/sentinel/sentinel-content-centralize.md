@@ -123,7 +123,7 @@ Here's an example of an analytics rule before and after the centralization chang
 
 - After you run the tool to reinstate the analytics rule template, the source changes to the solution that it's reinstated from.
 
-  :::image type="content" source="media/sentinel-content-centralize/after-tool-analytic-rule-template-2.png" alt-text="Screenshot that shows the analytics rule template after being reinstated from the content hub Azure Active Directory solution." lightbox="media/sentinel-content-centralize/after-tool-analytic-rule-template-2.png":::
+  :::image type="content" source="media/sentinel-content-centralize/after-tool-analytic-rule-template-2.png" alt-text="Screenshot that shows the analytics rule template after being reinstated from the content hub Microsoft Entra solution." lightbox="media/sentinel-content-centralize/after-tool-analytic-rule-template-2.png":::
 
 ## Action needed
 

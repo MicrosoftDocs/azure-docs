@@ -13,12 +13,14 @@ The Log Analytics Query API is a REST API that you can use to query the full set
 ## Log Analytics API authentication
 
 You must authenticate to access the Log Analytics API:
-- To query your workspaces, you must use [Azure Active Directory (Azure AD) authentication](../../../active-directory/fundamentals/active-directory-whatis.md).
-- To quickly explore the API without using Azure AD authentication, you can use an API key to query sample data in a non-production environment.
+- To query your workspaces, you must use [Microsoft Entra authentication](../../../active-directory/fundamentals/active-directory-whatis.md).
+- To quickly explore the API without using Microsoft Entra authentication, you can use an API key to query sample data in a non-production environment.
 
-### Azure AD authentication for workspace data
+<a name='azure-ad-authentication-for-workspace-data'></a>
 
-The Log Analytics API supports Azure AD authentication with three different [Azure AD OAuth2](/azure/active-directory/develop/active-directory-protocols-oauth-code) flows:
+### Microsoft Entra authentication for workspace data
+
+The Log Analytics API supports Microsoft Entra authentication with three different [Microsoft Entra ID OAuth2](/azure/active-directory/develop/active-directory-protocols-oauth-code) flows:
 - Authorization code
 - Implicit
 - Client credentials
@@ -29,10 +31,10 @@ After you receive a token, the process for calling the Log Analytics API is the 
 
 ### API key authentication for sample data
 
-To quickly explore the API without using Azure AD authentication, we provide a demonstration workspace with sample data. You can [authenticate by using an API key](./access-api.md#authenticate-with-a-demo-api-key).
+To quickly explore the API without using Microsoft Entra authentication, we provide a demonstration workspace with sample data. You can [authenticate by using an API key](./access-api.md#authenticate-with-a-demo-api-key).
 
 > [!NOTE]
-> When you use Azure AD authentication, it might take up to 60 minutes for the Application Insights REST API to recognize new role-based access control permissions. While permissions are propagating, REST API calls might fail with [error code 403](./errors.md#insufficient-permissions).
+> When you use Microsoft Entra authentication, it might take up to 60 minutes for the Application Insights REST API to recognize new role-based access control permissions. While permissions are propagating, REST API calls might fail with [error code 403](./errors.md#insufficient-permissions).
 
 ## Log Analytics API query limits
 

@@ -5,14 +5,15 @@ description: Guidance for integration and responsible use of Personalizer
 author: jcodella
 ms.author: jacodel
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: personalizer
-ms.date: 05/23/2022
+ms.service: azure-ai-personalizer
+ms.date: 01/19/2024
 ms.topic: conceptual
 ---
 
 
 # Guidance for integration and responsible use of Personalizer
+
+[!INCLUDE [Deprecation announcement](includes/deprecation.md)]
 
 Microsoft works to help customers responsibly develop and deploy solutions by using Azure AI Personalizer. Our principled approach upholds personal agency and dignity by considering the AI system's:  
 

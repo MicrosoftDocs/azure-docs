@@ -4,14 +4,15 @@ titleSuffix: Azure Bastion
 description: Learn how to connect to a VM from a Windows computer by using Bastion and a native client.
 author: cherylmc
 ms.service: bastion
+ms.custom: devx-track-azurecli
 ms.topic: how-to
-ms.date: 08/08/2023
+ms.date: 09/21/2023
 ms.author: cherylmc
 ---
 
 # Connect to a VM using Bastion and the Windows native client
 
-This article helps you connect to a VM in the VNet using the native client (SSH or RDP) on your local Windows computer. The native client feature lets you connect to your target VMs via Bastion using Azure CLI, and expands your sign-in options to include local SSH key pair and Azure Active Directory (Azure AD). For more information and steps to configure Bastion for native client connections, see [Configure Bastion for native client connections](native-client.md). Connections via native client require the Bastion Standard SKU.
+This article helps you connect to a VM in the VNet using the native client (SSH or RDP) on your local Windows computer. The native client feature lets you connect to your target VMs via Bastion using Azure CLI, and expands your sign-in options to include local SSH key pair and Microsoft Entra ID. For more information and steps to configure Bastion for native client connections, see [Configure Bastion for native client connections](native-client.md). Connections via native client require the Bastion Standard SKU.
 
 :::image type="content" source="./media/native-client/native-client-architecture.png" alt-text="Diagram shows a connection via native client." lightbox="./media/native-client/native-client-architecture.png":::
 
@@ -49,18 +50,16 @@ The steps in the following sections help you connect to a VM from a Windows nati
    az network bastion rdp --name "<BastionName>" --resource-group "<ResourceGroupName>" --target-resource-id "<VMResourceId>"
    ```
 
-1. After running the command, you're prompted to input your credentials. You can use either a local username and password, or your Azure AD credentials. Once you sign in to your target VM, the native client on your computer opens up with your VM session via **MSTSC**.
+1. After running the command, you're prompted to input your credentials. You can use either a local username and password, or your Microsoft Entra credentials. Once you sign in to your target VM, the native client on your computer opens up with your VM session via **MSTSC**.
 
    > [!IMPORTANT]
-   > Remote connection to VMs that are joined to Azure AD is allowed only from Windows 10 or later PCs that are Azure AD registered (starting with Windows 10 20H1), Azure AD joined, or hybrid Azure AD joined to the *same* directory as the VM.
+   > Remote connection to VMs that are joined to Microsoft Entra ID is allowed only from Windows 10 or later PCs that are Microsoft Entra registered (starting with Windows 10 20H1), Microsoft Entra joined, or Microsoft Entra hybrid joined to the *same* directory as the VM.
 
 #### Specify authentication method
 
 Optionally, you can also specify the authentication method as part of the command.
 
-* **Azure AD authentication:** `--auth-type "AAD"` For more information, see [Azure Windows VMs and Azure AD](../active-directory/devices/howto-vm-sign-in-azure-ad-windows.md).
-
-* **User name and password:** `--auth-type "password" --username "<Username>"`
+* **Microsoft Entra authentication:** For Windows 10 version 20H2+, Windows 11 21H2+, and Windows Server 2022, use `--enable-mfa`. For more information, see [az network bastion rdp - optional parameters](/cli/azure/network/bastion?#az-network-bastion-rdp(bastion)-optional-parameters).
 
 #### Specify a custom port
 
@@ -76,7 +75,7 @@ az network bastion rdp --name "<BastionName>" --resource-group "<ResourceGroupNa
 
 #### RDP to a Windows VM IP address
 
-You can also connect to a VM private IP address, instead of the resource ID. Azure AD authentication, and custom ports and protocols aren't supported when using this type of connection. For more information about IP-based connections, see [Connect to a VM - IP address](connect-ip-address.md).
+You can also connect to a VM private IP address, instead of the resource ID. Microsoft Entra authentication, and custom ports and protocols aren't supported when using this type of connection. For more information about IP-based connections, see [Connect to a VM - IP address](connect-ip-address.md).
 
 Using the `az network bastion` command, replace `--target-resource-id` with `--target-ip-address` and the specified IP address to connect to your VM.
 
@@ -90,9 +89,9 @@ az network bastion rdp --name "<BastionName>" --resource-group "<ResourceGroupNa
 
 1. Sign in to your target Linux VM using one of the following example options. If you want to specify a custom port value, include the field **--resource-port** in the sign-in command.
 
-   **Azure AD:**
+   **Microsoft Entra ID:**
 
-   If you’re signing in to an Azure AD login-enabled VM, use the following command. For more information, see [Azure Linux VMs and Azure AD](../active-directory/devices/howto-vm-sign-in-azure-ad-linux.md).
+   If you’re signing in to a Microsoft Entra login-enabled VM, use the following command. For more information, see [Azure Linux VMs and Microsoft Entra ID](../active-directory/devices/howto-vm-sign-in-azure-ad-linux.md).
 
      ```azurecli
      az network bastion ssh --name "<BastionName>" --resource-group "<ResourceGroupName>" --target-resource-id "<VMResourceId or VMSSInstanceResourceId>" --auth-type "AAD"
@@ -118,7 +117,7 @@ az network bastion rdp --name "<BastionName>" --resource-group "<ResourceGroupNa
 
 #### SSH to a Linux VM IP address
 
-You can also connect to a VM private IP address, instead of the resource ID. Azure AD authentication, and custom ports and protocols aren't supported when using this type of connection. For more information about IP-based connections, see [Connect to a VM - IP address](connect-ip-address.md).
+You can also connect to a VM private IP address, instead of the resource ID. Microsoft Entra authentication, and custom ports and protocols aren't supported when using this type of connection. For more information about IP-based connections, see [Connect to a VM - IP address](connect-ip-address.md).
 
 Using the `az network bastion` command, replace `--target-resource-id` with `--target-ip-address` and the specified IP address to connect to your VM.
 

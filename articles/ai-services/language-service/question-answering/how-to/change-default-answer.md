@@ -1,16 +1,15 @@
 ---
 title: Get default answer - custom question answering
 description: The default answer is returned when there is no match to the question. You may want to change the default answer from the standard default answer in custom question answering.
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: how-to
-ms.date: 11/02/2021
+ms.date: 12/19/2023
 author: jboback
 ms.author: jboback
-ms.custom: language-service-question-answering, ignite-fall-2021
+ms.custom: language-service-question-answering
 ---
 
-# Change default answer for question answering
+# Change default answer for custom question answering
 
 The default answer for a project is meant to be returned when an answer is not found. If you are using a client application, such as the [Azure AI Bot Service](/azure/bot-service/bot-builder-howto-qna), it may also have a separate default answer, indicating no answer met the score threshold.
 
@@ -19,7 +18,7 @@ The default answer for a project is meant to be returned when an answer is not f
 
 |Default answer|Description of answer|
 |--|--|
-|KB answer when no answer is determined|`No good match found in KB.` - When the question answering API finds no matching answer to the question it displays a default text response. In Custom question answering, you can set this text in the **Settings** of your project. |
+|KB answer when no answer is determined|`No good match found in KB.` - When the custom question answering API finds no matching answer to the question it displays a default text response. In custom question answering, you can set this text in the **Settings** of your project. |
 
 ### Client application integration
 
@@ -30,9 +29,9 @@ For a client application, such as a bot with the [Azure AI Bot Service](/azure/b
 
 ## Change default answer in Language Studio
 
-The project default answer is returned when no answer is returned from question answering.
+The project default answer is returned when no answer is returned from custom question answering.
 
-1. Sign in to the [Language Studio](https://language.azure.com). Go to Custom question answering and select your project from the list.
+1. Sign in to the [Language Studio](https://language.azure.com). Go to custom question answering and select your project from the list.
 1. Select **Settings** from the left navigation bar.
 1. Change the value of **Default answer when no answer found** > Select **Save**.
 

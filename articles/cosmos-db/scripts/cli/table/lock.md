@@ -8,14 +8,14 @@ ms.service: cosmos-db
 ms.subservice: table
 ms.topic: sample
 ms.date: 06/16/2022
-ms.custom: kr2b-contr-experiment, ignite-2022, devx-track-azurecli
+ms.custom: kr2b-contr-experiment, devx-track-azurecli
 ---
 
 # Use Azure CLI for resource lock operations on Azure Cosmos DB for Table tables
 
 [!INCLUDE[Table](../../../includes/appliesto-table.md)]
 
-The script in this article demonstrates performing resource lock operations for a API for Table table. 
+The script in this article demonstrates performing resource lock operations for a API for Table table.
 
 > [!IMPORTANT]
 > To enable resource locking, the Azure Cosmos DB account must have the `disableKeyBasedMetadataWriteAccess` property enabled. This property prevents any changes to resources from clients that connect via account keys, such as the Azure Cosmos DB Table SDK, Azure Storage Table SDK, or Azure portal. For more information, see [Preventing changes from SDKs](../../../role-based-access-control.md#prevent-sdk-changes).
@@ -29,15 +29,15 @@ The script in this article demonstrates performing resource lock operations for 
 
 - This script requires Azure CLI version 2.12.1 or later.
 
-  - You can run the script in the Bash environment in [Azure Cloud Shell](../../../../cloud-shell/quickstart.md). When Cloud Shell opens, make sure **Bash** appears in the environment field at the upper left of the shell window. Cloud Shell always has the latest version of Azure CLI.
+  - You can run the script in the Bash environment in [Azure Cloud Shell](../../../../cloud-shell/get-started.md). When Cloud Shell opens, make sure **Bash** appears in the environment field at the upper left of the shell window. Cloud Shell always has the latest version of Azure CLI.
 
-    [![Launch Cloud Shell in a new window](../../../../../includes/media/cloud-shell-try-it/hdi-launch-cloud-shell.png)](https://shell.azure.com)
+    :::image type="icon" source="~/reusable-content/ce-skilling/azure/media/cloud-shell/launch-cloud-shell-button.png" alt-text="Button to launch the Azure Cloud Shell." border="false" link="https://shell.azure.com":::
 
     Cloud Shell is automatically authenticated under the account you used to sign in to the Azure portal. You can use [az account set](/cli/azure/account#az-account-set) to sign in with a different subscription, replacing `<subscriptionId>` with your Azure subscription ID.
 
     ```azurecli
     subscription="<subscriptionId>" # add subscription here
-    
+
     az account set -s $subscription # ...or use 'az login'
     ```
 

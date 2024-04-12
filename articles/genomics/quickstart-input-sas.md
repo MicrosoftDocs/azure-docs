@@ -2,9 +2,7 @@
 title: Workflow using shared access signatures
 titleSuffix: Microsoft Genomics
 description: This article demonstrates how to submit a workflow to the Microsoft Genomics service using shared access signatures (SAS) instead of storage account keys.
-services: genomics
 author: vigunase
-manager: cgronlun
 ms.author: vigunase
 ms.service: genomics
 ms.topic: conceptual

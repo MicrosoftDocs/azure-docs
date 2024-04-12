@@ -6,7 +6,7 @@ author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: troubleshooting
-ms.date: 01/25/2023
+ms.date: 10/20/2023
 ms.author: jianleishen
 ms.custom: has-adal-ref, synapse
 ---
@@ -52,7 +52,7 @@ This article provides suggestions to troubleshoot common problems with the XML f
 
 - **Recommendation**:  Correct the XML file to make it well formed.
 
-## Next steps
+## Related content
 
 For more troubleshooting help, try these resources:
 

@@ -5,7 +5,6 @@ manager: CelesteDG
 
 ms.service: app-service
 ms.topic: include
-ms.workload: identity
 ms.date: 08/19/2022
 ms.author: ryanwi
 ms.reviewer: stsoneff
@@ -17,7 +16,7 @@ Learn how to access Microsoft Graph from a web app running on Azure App Service.
 
 :::image type="content" alt-text="Diagram that shows accessing Microsoft Graph." source="../../media/scenario-secure-app-access-microsoft-graph/web-app-access-graph.svg" border="false":::
 
-You want to call Microsoft Graph for the web app. A safe way to give your web app access to data is to use a [system-assigned managed identity](../../../active-directory/managed-identities-azure-resources/overview.md). A managed identity from Azure Active Directory allows App Service to access resources through role-based access control (RBAC), without requiring app credentials. After assigning a managed identity to your web app, Azure takes care of the creation and distribution of a certificate. You don't have to worry about managing secrets or app credentials.
+You want to call Microsoft Graph for the web app. A safe way to give your web app access to data is to use a [system-assigned managed identity](../../../active-directory/managed-identities-azure-resources/overview.md). A managed identity from Microsoft Entra ID allows App Service to access resources through role-based access control (RBAC), without requiring app credentials. After assigning a managed identity to your web app, Azure takes care of the creation and distribution of a certificate. You don't have to worry about managing secrets or app credentials.
 
 In this tutorial, you learn how to:
 
@@ -46,7 +45,7 @@ If you create and publish your web app through Visual Studio, the managed identi
 
 ## Grant access to Microsoft Graph
 
-When accessing the Microsoft Graph, the managed identity needs to have proper permissions for the operation it wants to perform. Currently, there's no option to assign such permissions through the Azure portal. 
+When accessing the Microsoft Graph, the managed identity needs to have proper permissions for the operation it wants to perform. Currently, there's no option to assign such permissions through the Microsoft Entra admin center. 
 
 1. Run the following script to add the requested Microsoft Graph API permissions to the managed identity service principal object.
 
@@ -109,9 +108,9 @@ When accessing the Microsoft Graph, the managed identity needs to have proper pe
 
     ---
 
-1. After executing the script, you can verify in the [Azure portal](https://portal.azure.com) that the requested API permissions are assigned to the managed identity.
+1. After executing the script, you can verify in the [Microsoft Entra admin center](https://entra.microsoft.com) that the requested API permissions are assigned to the managed identity.
 
-1. Go to **Azure Active Directory**, and then select **Enterprise applications**. This pane displays all the service principals in your tenant. In **Managed Identities**, select the service principal for the managed identity.
+1. Go to **Applications**, and then select **Enterprise applications**. This pane displays all the service principals in your tenant. **Add a filter** for "Application type==Managed identities" and select the service principal for the managed identity.
 
     If you're following this tutorial, there are two service principals with the same display name (SecureWebApp2020094113531, for example). The service principal that has a **Homepage URL** represents the web app in your tenant. The service principal that appears in **Managed Identities** should *not* have a **Homepage URL** listed and the **Object ID** should match the object ID value of the managed identity in the [previous step](#enable-managed-identity-on-app).
 

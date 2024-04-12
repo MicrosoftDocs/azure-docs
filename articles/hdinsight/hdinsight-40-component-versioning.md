@@ -3,7 +3,7 @@ title: Open-source components and versions - Azure HDInsight 4.0
 description: Learn about the open-source  components and versions in Azure HDInsight 4.0.
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 03/08/2023
+ms.date: 04/11/2024
 ---
 
 # HDInsight 4.0 component versions
@@ -40,15 +40,6 @@ This table lists certain HDInsight 4.0 cluster types that have retired or will b
 | HDInsight 4.0 Kafka             | 1.1               | Dec 31, 2020                 | Dec 31, 2020    |
 | HDInsight 4.0 Kafka             | 2.1.0             | Sep 30, 2022                 | Oct 1, 2022     |
 
-## Spark versions supported in Azure HDInsight
-
-Apache Spark versions supported in Azure HDIinsight 
-
-|Apache Spark version on HDInsight|Release date|Release stage|End of life announcement date|End of standard support|End of basic support|
-|--|--|--|--|--|--|
-|2.4|July 8, 2019|End of Life Announced (EOLA)| Feb10,2023| Aug 10,2023|Feb 10,2024|
-|3.1|March 11,2022|GA |-|-|-|
-|3.3|To be announced for Public Preview|-|-|-|-|
 
 ## Apache Spark 2.4 to Spark 3.x Migration Guides 
 

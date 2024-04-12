@@ -2,19 +2,15 @@
 title: Install SAP HANA on Azure (Large Instances) | Microsoft Docs
 description: Learn how to install and configure SAP HANA on Azure (Large Instances).
 services: virtual-machines-linux
-documentationcenter: 
 author: hermanndms
 manager: juergent
-editor:
 ms.service: sap-on-azure
 ms.subservice: sap-large-instances
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure
 ms.date: 02/11/2022
 ms.author: hermannd
 ms.custom: H1Hack27Feb2017
-
 ---
 # Install and configure SAP HANA (Large Instances) on Azure
 
@@ -56,7 +52,7 @@ After you receive the HANA Large Instances from Microsoft, establish access and 
 
     The HANA Large Instance can connect to this SMT instance. (For more information, see [How to set up SMT server for SUSE Linux](hana-setup-smt.md)). If you're using a Red Hat OS, it needs to be registered with the Red Hat Subscription Manager that you'll connect to. For more information, see the remarks in [What is SAP HANA on Azure (Large Instances)?](./hana-overview-architecture.md?toc=/azure/virtual-machines/linux/toc.json). 
 
-    This step is necessary for patching the OS, which is your responsibility. For SUSE, see the documentation on [installing and configuring SMT](https://www.suse.com/documentation/sles-12/book_smt/data/smt_installation.html).
+    This step is necessary for patching the OS, which is your responsibility. For SUSE, see the documentation on [installing and configuring SMT](https://documentation.suse.com/soc/9/html/suse-openstack-cloud-crowbar-all/app-deploy-smt.html).
 
 3. Check for new patches and fixes of the specific OS release/version. Verify that the HANA Large Instance has the latest patches. Sometimes the latest patches aren't included, so be sure to check.
 

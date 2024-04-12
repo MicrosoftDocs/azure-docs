@@ -2,15 +2,13 @@
 title: "Create captions with speech to text quickstart - Speech service"
 titleSuffix: Azure AI services
 description: In this quickstart, you convert speech to text as captions.
-services: cognitive-services
 author: eric-urban
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: quickstart
-ms.date: 04/23/2022
+ms.date: 2/16/2024
 ms.author: eur
-ms.devlang: cpp, csharp
+ms.devlang: cpp
 ms.custom: devx-track-extended-java, devx-track-go, devx-track-js, devx-track-python
 zone_pivot_groups: programming-languages-speech-sdk-cli
 ---

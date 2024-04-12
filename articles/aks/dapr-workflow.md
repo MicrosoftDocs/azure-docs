@@ -7,6 +7,7 @@ ms.reviewer: nuversky
 ms.service: azure-kubernetes-service
 ms.topic: article
 ms.date: 04/05/2023
+ms.subservice: aks-developer
 ms.custom: devx-track-azurecli
 ---
 
@@ -67,7 +68,7 @@ Create an AKS cluster.
 az aks create --resource-group myResourceGroup --name myAKSCluster --node-count 2 --generate-ssh-keys 
 ```
 
-[Make sure `kubectl` is installed and pointed to your AKS cluster.][kubectl] If you use [the Azure Cloud Shell][az-cloud-shell], `kubectl` is already installed. 
+[Make sure `kubectl` is installed and pointed to your AKS cluster.][kubectl] If you use the Azure Cloud Shell, `kubectl` is already installed. 
 
 For more information, see the [Deploy an AKS cluster][cluster] tutorial.
 
@@ -202,3 +203,4 @@ Notice that the workflow status is marked as completed.
 [deployment-yaml]: https://github.com/Azure/dapr-workflows-aks-sample/blob/main/Deploy/deployment.yaml
 [docker]: https://docs.docker.com/get-docker/
 [helm]: https://helm.sh/docs/intro/install/
+

@@ -4,10 +4,10 @@ description: This article describes how to configure replication for VMs with cu
 author: ankitaduttaMSFT
 manager: rochakm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 10/19/2022
+ms.custom: devx-track-azurepowershell
+ms.topic: how-to
+ms.date: 03/27/2024
 ms.author: ankitadutta
-
 ---
 
 # Replicate machines with Customer-Managed Keys (CMK) enabled disks
@@ -26,7 +26,7 @@ As an example, the primary Azure region is East Asia, and the secondary region i
 1. In the **Enable replication** page, under **Source**, do the following:
    - **Region**: Select the Azure region from where you want to protect your VMs. 
    For example, the source location is *East Asia*.
-   - **Subscription**: Select the subscription to which your source VMs belong. This can be any subscription within the same Azure Active Directory tenant where your recovery services vault exists.
+   - **Subscription**: Select the subscription to which your source VMs belong. This can be any subscription within the same Microsoft Entra tenant where your recovery services vault exists.
    - **Resource group**: Select the resource group to which your source virtual machines belong. All the VMs in the selected resource group are listed for protection in the next step.
    - **Virtual machine deployment model**: Select Azure deployment model of the source machines.
    - **Disaster recovery between availability zones**: Select **Yes** if you want to perform zonal disaster recovery on virtual machines.
@@ -65,7 +65,7 @@ As an example, the primary Azure region is East Asia, and the secondary region i
          :::image type="Storage" source="./media/azure-to-azure-how-to-enable-replication-cmk-disks/storage.png" alt-text="Screenshot of Storage."::: 
   
        - **Replica-managed disk**: Site Recovery creates new replica-managed disks in the target region to mirror the source VM's managed disks with the same storage type (Standard or premium) as the source VM's managed disk.
-       - **Cache storage**: Site Recovery needs extra storage account called cache storage in the source region. All the changes happening on the source VMs are tracked and sent to cache storage account before replicating them to the target location. This storage account should be Standard. 
+       - **Cache storage**: Site Recovery needs extra storage account called cache storage in the source region. All the changes happening on the source VMs are tracked and sent to cache storage account before replicating them to the target location. 
          
     1. **Availability options**: Select appropriate availability option for your VM in the target region. If an availability set that was created by Site Recovery already exists, it's reused. Select **View/edit availability options** to view or edit the availability options.
         >[!NOTE]
@@ -106,15 +106,70 @@ As an example, the primary Azure region is East Asia, and the secondary region i
 
 ## FAQs
 
-* I have enabled CMK on an existing replicated item, how can I ensure that CMK is applied on the target region as well?
+* **I have enabled CMK on an existing replicated item, how can I ensure that CMK is applied on the target region as well?**
 
     You can find out the name of the replica managed disk (created by Azure Site Recovery in the target region) and attach DES to this replica disk. However, you will not be able to see the DES details in the Disks blade once you attach it. Alternatively, you can choose to disable the replication of the VM and enable it again. It will ensure you see DES and key vault details in the Disks blade for the replicated item.
 
-* I have added a new CMK enabled disk to the replicated item. How can I replicate this disk with Azure Site Recovery?
+* **I have added a new CMK enabled disk to the replicated item. How can I replicate this disk with Azure Site Recovery?**
 
-    Addition of a new CMK enabled disk to an existing replicated item is not supported. Disable the replication and enable the replication again for the virtual machine.
+    You can add a new CMK enabled disk to an existing replicated item using PowerShell. Find the code snippet for guidance:
+   
+     ```powershell
+     #set vaultname and resource group name for the vault.
+     $vaultname="RSVNAME"
+     $vaultrgname="RSVRGNAME"
 
-* I have enabled both platform and customer managed keys, how can I protect my disks?
+     #set VMName
+     $VMName = "VMNAME"
+
+     #get the vault object
+     $vault = Get-AzRecoveryServicesVault -Name $vaultname -ResourceGroupName $vaultrgname
+
+     #set job context to this vault
+     $vault | Set-AzRecoveryServicesAsrVaultContext
+
+     =============
+
+     #set resource id of disk encryption set
+     $diskencryptionset = "RESOURCEIDOFTHEDISKENCRYPTIONSET"
+
+     #set resource id of cache storage account
+     $primaryStorageAccount = "RESOURCEIDOFCACHESTORAGEACCOUNT"
+
+     #set resource id of recovery resource group
+     $RecoveryResourceGroup = "RESOURCEIDOFRG"
+     
+     #set resource id of disk to be replicated
+     $dataDisk =  "RESOURCEIDOFTHEDISKTOBEREPLICATED"
+
+     #setdiskconfig
+     $diskconfig = New-AzRecoveryServicesAsrAzureToAzureDiskReplicationConfig `
+               -ManagedDisk `
+               -DiskId $dataDisk `
+               -LogStorageAccountId $primaryStorageAccount `
+               -RecoveryResourceGroupId $RecoveryResourceGroup `
+               -RecoveryReplicaDiskAccountType Standard_LRS `
+               -RecoveryTargetDiskAccountType Standard_LRS `
+               -RecoveryDiskEncryptionSetId $diskencryptionset
+
+    
+     #get fabric object from the source region.
+     $fabric = Get-AzRecoveryServicesAsrFabric
+     #use to fabric name to get the container.
+     $primaryContainerName =Get-AzRecoveryServicesAsrProtectionContainer -Fabric $fabric[1]
+
+     #get the context of the protected item
+     $protectedItemObject = Get-AsrReplicationProtectedItem -ProtectionContainer $primaryContainerName | where { $_.FriendlyName -eq $VMName };$protectedItemObject
+
+     #initiate enable replication using below command
+     $protectedItemObject |Add-AzRecoveryServicesAsrReplicationProtectedItemDisk -AzureToAzureDiskReplicationConfiguration $diskconfig
+     ```
+
+
+* **I have enabled both platform and customer managed keys, how can I protect my disks?**
 
     Enabling double encryption with both platform and customer managed keys is supported by Site Recovery. Follow the instructions in this article to protect your machine. You need to create a double encryption enabled DES in the target region in advance. At the time of enabling the replication for such a VM, you can provide this DES to Site Recovery.
 
+## Next steps
+
+- [Learn more](site-recovery-test-failover-to-azure.md) about running a test failover.

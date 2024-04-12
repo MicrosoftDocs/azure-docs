@@ -3,14 +3,14 @@ title: Azure Automation Hybrid Runbook Worker overview
 description: Know about Hybrid Runbook Worker. How to install and run the  runbooks on machines in your local datacenter or cloud provider.
 services: automation
 ms.subservice: process-automation
-ms.date: 04/20/2023
+ms.date: 09/17/2023
 ms.topic: conceptual 
 ---
 
 # Automation Hybrid Runbook Worker overview
 
 > [!IMPORTANT]
->  Azure Automation Agent-based User Hybrid Runbook Worker (Windows and Linux) will retire on **31 August 2024** and wouldn't be supported after that date. You must complete migrating existing Agent-based User Hybrid Runbook Workers to Extension-based Workers before 31 August 2024. Moreover, starting **1 October 2023**, creating new Agent-based Hybrid Workers wouldn't be possible. [Learn more](migrate-existing-agent-based-hybrid-worker-to-extension-based-workers.md).
+>  Azure Automation Agent-based User Hybrid Runbook Worker (Windows and Linux) will retire on **31 August 2024** and wouldn't be supported after that date. You must complete migrating existing Agent-based User Hybrid Runbook Workers to Extension-based Workers before 31 August 2024. Moreover, starting **1 November 2023**, creating new Agent-based Hybrid Workers wouldn't be possible. [Learn more](migrate-existing-agent-based-hybrid-worker-to-extension-based-workers.md).
 
 Runbooks in Azure Automation might not have access to resources in other clouds or in your on-premises environment because they run on the Azure cloud platform. You can use the Hybrid Runbook Worker feature of Azure Automation to run runbooks directly on the machine hosting the role and against resources in the environment to manage those local resources. Runbooks are stored and managed in Azure Automation and then delivered to one or more assigned machines.
 
@@ -31,7 +31,7 @@ The extension-based Hybrid Runbook Worker only supports the user Hybrid Runbook 
 The extension-based approach greatly simplifies the installation and management of the User Hybrid Runbook Worker, removing the complexity of working with the agent-based approach. Here are some key benefits:
 - **Seamless onboarding** – The Agent-based approach for onboarding Hybrid Runbook worker is dependent on the Log Analytics agent, which is a multi-step, time-consuming, and error-prone process. The extension-based approach is no longer dependent on the Log Analytics agent. 
 - **Ease of Manageability** – It offers native integration with ARM identity for Hybrid Runbook Worker and provides the flexibility for governance at scale through policies and templates.
-- **Azure Active Directory based authentication** – It uses a VM system-assigned managed identities provided by Azure Active Directory. This centralizes control and management of identities and resource credentials.
+- **Microsoft Entra ID based authentication** – It uses a VM system-assigned managed identities provided by Microsoft Entra ID. This centralizes control and management of identities and resource credentials.
 - **Unified experience** – It offers an identical experience for managing Azure and off-Azure Arc-enabled machines.
 - **Multiple onboarding channels** – You can choose to onboard and manage extension-based workers through the Azure portal, PowerShell cmdlets, Bicep, ARM templates, REST API and Azure CLI. You can also install the extension on an existing Azure VM or Arc-enabled server within the Azure portal experience of that machine through the Extensions blade.
 - **Default Automatic upgrade** – It offers Automatic upgrade of minor versions by default, significantly reducing the manageability of staying updated on the latest version. We recommend enabling Automatic upgrades to take advantage of any security or feature updates without the manual overhead. You can also opt out of automatic upgrades at any time. Any major version upgrades are currently not supported and should be managed manually.

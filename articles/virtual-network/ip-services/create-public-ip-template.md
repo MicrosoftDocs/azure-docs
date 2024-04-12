@@ -16,6 +16,9 @@ ms.custom: mode-other
 
 This article shows how to create a public IP address resource within a Resource Manager template.
 
+:::image type="content" source="./media/create-public-ip-portal/public-ip-example-resources.png" alt-text="Diagram of an example use of a public IP address. A public IP address is assigned to a load balancer.":::
+
+
 For more information on resources this public IP can be associated to and the difference between the basic and standard SKUs, see [Public IP addresses](public-ip-addresses.md). 
 
 ## Prerequisites
@@ -220,6 +223,6 @@ To use a standard global public IPv4 address, the template section should look s
 For more information on the public IP properties listed in this article, see [Manage public IP addresses](virtual-network-public-ip-address.md#create-a-public-ip-address).
 
 ## Next steps
-- Associate a [public IP address to a Virtual Machine](./associate-public-ip-address-vm.md#azure-portal)
+- Associate a [public IP address to a Virtual Machine](./associate-public-ip-address-vm.md)
 - Learn more about [public IP addresses](public-ip-addresses.md#public-ip-addresses) in Azure.
 - Learn more about all [public IP address settings](virtual-network-public-ip-address.md#create-a-public-ip-address).

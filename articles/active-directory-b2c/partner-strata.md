@@ -2,21 +2,25 @@
 title: Tutorial to configure Azure Active Directory B2C with Strata
 titleSuffix: Azure AD B2C
 description: Learn how to integrate Azure AD B2C authentication with whoIam for user verification 
-services: active-directory-b2c
 author: gargi-sinha
 manager: martinco
 ms.reviewer: kengaderdus
 ms.service: active-directory
-ms.workload: identity
 ms.topic: how-to
-ms.date: 12/16/2022
+ms.date: 01/26/2024
 ms.author: gasinh
 ms.subservice: B2C
+
+# Customer intent: As an IT admin, I want to integrate Azure Active Directory B2C with StrataMaverics Identity Orchestrator. I need to protect on-premises applications and enable customer single sign-on (SSO) to hybrid apps.
+
 ---
 
 # Tutorial to configure Azure Active Directory B2C with Strata
 
-In this tutorial, learn how to integrate Azure Active Directory B2C (Azure AD B2C) with Strata [Maverics Identity Orchestrator](https://www.strata.io/maverics-identity-orchestrator/), which helps protect on-premises applications. It connects to identity systems, migrates users and credentials, synchronizes policies and configurations, and abstracts authentication and session management. Use Strata to transition from legacy, to Azure AD B2C, without rewriting applications. 
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
+
+In this tutorial, learn how to integrate Azure Active Directory B2C (Azure AD B2C) with Strata [Maverics Identity Orchestrator](https://www.strata.io/), which helps protect on-premises applications. It connects to identity systems, migrates users and credentials, synchronizes policies and configurations, and abstracts authentication and session management. Use Strata to transition from legacy, to Azure AD B2C, without rewriting applications. 
 
 The solution has the following benefits:
 
@@ -30,11 +34,12 @@ The solution has the following benefits:
 
 To get started, you'll need:
 
-- An Azure AD subscription
+* An Azure subscription
+
   - If you don't have one, you can get an [Azure free account](https://azure.microsoft.com/free/)
 - An [Azure AD B2C tenant](./tutorial-create-tenant.md) linked to your Azure subscription
 - An instance of [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) to store secrets used by Maverics Identity Orchestrator. Connect to Azure AD B2C or other attribute providers such as a Lightweight Directory Access Protocol (LDAP) directory or database.
-- An instance of [Maverics Identity Orchestrator](https://www.strata.io/maverics-identity-orchestrator/) running in an Azure virtual machine (VM), or an on-premises server. To get software and documentation, go to strata.io [Contact Strata Identity](https://www.strata.io/contact/).
+- An instance of [Maverics Identity Orchestrator](https://www.strata.io/) running in an Azure virtual machine (VM), or an on-premises server. To get software and documentation, go to strata.io [Contact Strata Identity](https://www.strata.io/company/contact/).
 - An on-premises application to transition to Azure AD B2C
 
 ## Scenario description
@@ -54,7 +59,7 @@ The following architecture diagram shows the implementation.
 1. The user requests access the on-premises hosted application. Maverics Identity Orchestrator proxies the request to the application.
 2. Orchestrator checks the user authentication state. If there's no session token, or the token is invalid, the user goes to Azure AD B2C for authentication
 3. Azure AD B2C sends the authentication request to the configured social IdP.
-4. The IdP challenges the user for credential. Multi-factor authentication (MFA) might be required.
+4. The IdP challenges the user for credential. Multifactor authentication (MFA) might be required.
 5. The IdP sends the authentication response to Azure AD B2C. The user can create a local account in the Azure AD B2C directory.
 6. Azure AD B2C sends the user request to the endpoint specified during the Orchestrator app registration in the Azure AD B2C tenant.
 7. The Orchestrator evaluates access policies and attribute values for HTTP headers forwarded to the app. Orchestrator might call to other attribute providers to retrieve information to set the header values. The Orchestrator sends the request to the app.
@@ -62,7 +67,7 @@ The following architecture diagram shows the implementation.
 
 ## Maverics Identity Orchestrator
 
-To get software and documentation, go to strata.io [Contact Strata Identity](https://www.strata.io/contact/). Determine Orchestrator prerequisites. Install and configure.
+To get software and documentation, go to strata.io [Contact Strata Identity](https://www.strata.io/company/contact/). Determine Orchestrator prerequisites. Install and configure.
 
 ## Configure your Azure AD B2C tenant
 
@@ -99,12 +104,12 @@ You can run your Orchestrator instance on any server, whether on-premises or in 
 - **Ports**: 22 (SSH/SCP), 443, 80
 - **Root access**: For install/administrative tasks
 - **Maverics Identity Orchestrator**: Runs as user `maverics` under `systemd`
-- **Network egress**: From the server hosting Maverics Identity Orchestrator that can reach your Azure AD tenant
+- **Network egress**: From the server hosting Maverics Identity Orchestrator that can reach your Microsoft Entra tenant
 
 ### Install Maverics Identity Orchestrator
 
 1. Obtain the latest Maverics RPM package. 
-2. Place the package on the system you'd like to install Maverics. If you're copying to a remote host, use SSH [scp](https://www.ssh.com/ssh/scp/).
+2. Place the package on the system you'd like to install Maverics. If you're copying to a remote host, use SSH [scp](https://www.ssh.com/academy/ssh/scp).
 3. Run the following command. Use your filename to replace `maverics.rpm`.
 
    `sudo rpm -Uvf maverics.rpm`

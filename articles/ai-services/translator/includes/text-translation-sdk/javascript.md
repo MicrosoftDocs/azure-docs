@@ -3,8 +3,7 @@ title: "Quickstart: Translator Text JavaScript SDK"
 description: 'Text translation processing using the JavaScript programming language'
 author: laujan
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: translator-text
+ms.service: azure-ai-translator
 ms.topic: include
 ms.date: 07/18/2023
 ms.author: lajanuar
@@ -115,7 +114,7 @@ async function main() {
 }
 
 main().catch((err) => {
-    console.error("An error occured:", err);
+    console.error("An error occurred:", err);
     process.exit(1);
   });
 

@@ -10,12 +10,18 @@ ms.date: 04/10/2023
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
-zone_pivot_groups: acs-azcli-js-csharp-java-python-logic-apps
+zone_pivot_groups: acs-azcli-js-csharp-java-python-portal-nocode
 ---
 
 # Quickstart: How to send an email using Azure Communication Service
 
+[!INCLUDE [Survey Request](../../includes/survey-request.md)]
+
 In this quick start, you'll learn about how to send email using our Email SDKs.
+
+::: zone pivot="platform-azportal"
+[!INCLUDE [Send email using Try Email in Azure Portal ](./includes/try-send-email.md)]
+::: zone-end
 
 ::: zone pivot="platform-azcli"
 [!INCLUDE [Send email with Azure CLI](./includes/send-email-az-cli.md)]
@@ -37,7 +43,7 @@ In this quick start, you'll learn about how to send email using our Email SDKs.
 [!INCLUDE [Send Email with Python SDK](./includes/send-email-python.md)]
 ::: zone-end
 
-::: zone pivot="programming-language-power-platform"
+::: zone pivot="platform-nocode"
 [!INCLUDE [Azure Logic Apps](./includes/send-email-logic-app.md)]
 ::: zone-end
 

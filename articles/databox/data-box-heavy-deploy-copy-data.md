@@ -2,13 +2,13 @@
 title: Tutorial to copy data via SMB on Azure Data Box Heavy | Microsoft Docs
 description: In this tutorial, learn how to connect to and copy data from your host computer to Azure Data Box Heavy by using SMB with the local web UI.
 services: databox
-author: alkohli
+author: stevenmatthew
 
 ms.service: databox
 ms.subservice: heavy
 ms.topic: tutorial
-ms.date: 08/29/2019
-ms.author: alkohli
+ms.date: 03/25/2024
+ms.author: shaas
 #Customer intent: As an IT admin, I need to be able to copy data to Data Box Heavy to upload on-premises data from my server onto Azure.
 ---
 ::: zone target = "docs"
@@ -25,6 +25,11 @@ ms.author: alkohli
 
 ::: zone target = "docs"
 
+> [!IMPORTANT]
+> Azure Data Box now supports access tier assignment at the blob level. The steps contained within this tutorial reflect the updated data copy process and are specific to block blobs. 
+>
+> The information contained within this section applies to orders placed after April 1, 2024.
+
 This tutorial describes how to connect to and copy data from your host computer using the local web UI.
 
 In this tutorial, you learn how to:
@@ -39,7 +44,7 @@ In this tutorial, you learn how to:
 
 You can copy data from your source server to your Data Box via SMB, NFS, REST, data copy service or to managed disks.
 
-In each case, make sure that the share and folder names, and the data size follow guidelines described in the [Azure Storage and Data Box Heavy service limits](data-box-heavy-limits.md).
+In each case, make sure that the share names, folder names, and data size follow guidelines described in the [Azure Storage and Data Box Heavy service limits](data-box-heavy-limits.md).
 
 ::: zone-end
 
@@ -49,37 +54,45 @@ In each case, make sure that the share and folder names, and the data size follo
 
 Before you begin, make sure that:
 
-1. You've completed the [Tutorial: Set up Azure Data Box Heavy](data-box-deploy-set-up.md).
-2. You've received your Data Box Heavy and the order status in the portal is **Delivered**.
-3. You have a host computer that has the data that you want to copy over to Data Box Heavy. Your host computer must
+1. You complete the [Tutorial: Set up Azure Data Box Heavy](data-box-deploy-set-up.md).
+2. You receive your Data Box Heavy and that the order status in the portal is **Delivered**.
+3. You have a host computer that has the data that you want to copy over to Data Box Heavy. Your host computer must:
     - Run a [Supported operating system](data-box-system-requirements.md).
     - Be connected to a high-speed network. For fastest copy speeds, two 40-GbE connections (one per node) can be utilized in parallel. If you do not have 40-GbE connection available, we recommend that you have at least two 10-GbE connections (one per node).
-   
 
 ## Connect to Data Box Heavy shares
 
 Based on the storage account selected, Data Box Heavy creates up to:
+
 - Three shares for each associated storage account for GPv1 and GPv2.
 - One share for premium storage.
-- One share for blob storage account.
+- One share for a blob storage account, containing one folder for each of the four access tiers.
 
-These shares are created on both the nodes of the device.
+The following table identifies the names of the Data Box shares to which you can connect, and the type of data uploaded to your target storage account. It also identifies the hierarchy of shares and directories into which you copy your source data.
 
-Under block blob and page blob shares:
-- First-level entities are containers.
-- Second-level entities are blobs.
+| Storage type | Share name                       | First-level entity  | Second-level entity | Third-level entity |
+|--------------|----------------------------------|---------------------|---------------------|--------------------|
+| Block blob   | \<storageAccountName\>_BlockBlob | <\accessTier\>      | <\containerName\>   | <\blockBlob\>      |
+| Page blob    | <\storageAccountName\>_PageBlob  | <\containerName\>   | <\pageBlob\>        |                    |
+| File storage | <\storageAccountName\>_AzFile    | <\fileShareName\>   | <\file\>            |                    |
 
-Under shares for Azure Files:
-- First-level entities are shares.
-- Second-level entities are files.
+You can't copy files directly to the *root* folder of any Data Box share. Instead, create folders within the Data Box share depending on your use case.
 
-The following table shows the UNC path to the shares on your Data Box Heavy and Azure Storage path URL where the data is uploaded. The final Azure Storage path URL can be derived from the UNC share path.
+Block blobs support the assignment of access tiers at the file level. When copying files to the block blob share, the recommended best-practice is to add new subfolders within the appropriate access tier. After creating new subfolders, continue adding files to each subfolder as appropriate. 
+
+A new container is created for any folder residing at the root of the block blob share. Any file within that folder is copied to the storage account's default access tier as a block blob.
+
+For more information about blob access tiers, see [Access tiers for blob data](../storage/blobs/access-tiers-overview.md). For more detailed information about access tier best practices, see [Best practices for using blob access tiers](../storage/blobs/access-tiers-best-practices.md).
+
+The following table shows the UNC path to the shares on your Data Box and the corresponding Azure Storage path URL to which data is uploaded. The final Azure Storage path URL can be derived from the UNC share path.
  
-| Storage           | UNC path                                                                       |
-|-------------------|--------------------------------------------------------------------------------|
-| Azure Block blobs | <li>UNC path to shares: `\\<DeviceIPAddress>\<StorageAccountName_BlockBlob>\<ContainerName>\files\a.txt`</li><li>Azure Storage URL: `https://<StorageAccountName>.blob.core.windows.net/<ContainerName>/files/a.txt`</li> |  
-| Azure Page blobs  | <li>UNC path to shares: `\\<DeviceIPAddres>\<StorageAccountName_PageBlob>\<ContainerName>\files\a.txt`</li><li>Azure Storage URL: `https://<StorageAccountName>.blob.core.windows.net/<ContainerName>/files/a.txt`</li>   |  
-| Azure Files       |<li>UNC path to shares: `\\<DeviceIPAddres>\<StorageAccountName_AzFile>\<ShareName>\files\a.txt`</li><li>Azure Storage URL: `https://<StorageAccountName>.file.core.windows.net/<ShareName>/files/a.txt`</li>        |      
+| Azure Storage types | Data Box shares |
+|---------------------|-----------------|
+| Azure Block blobs   | <li>UNC path to shares: `\\<DeviceIPAddress>\<storageaccountname_BlockBlob>\<accessTier>\<ContainerName>\myBlob.txt`</li><li>Azure Storage URL: `https://<storageaccountname>.blob.core.windows.net/<ContainerName>/myBlob.txt`</li> |
+| Azure Page blobs    | <li>UNC path to shares: `\\<DeviceIPAddress>\<storageaccountname_PageBlob>\<ContainerName>\myBlob.vhd`</li><li>Azure Storage URL: `https://<storageaccountname>.blob.core.windows.net/<ContainerName>/myBlob.vhd`</li> | 
+| Azure Files         | <li>UNC path to shares: `\\<DeviceIPAddress>\<storageaccountname_AzFile>\<ShareName>\myFile.txt`</li><li>Azure Storage URL: `https://<storageaccountname>.file.core.windows.net/<ShareName>/myFile.txt`</li> | 
+
+For more information about blob access tiers, see [Access tiers for blob data](../storage/blobs/access-tiers-overview.md). For more detailed information about access tier best practices, see [Best practices for using blob access tiers](../storage/blobs/access-tiers-best-practices.md).
 
 The steps to connect using a Windows or a Linux client are different.
 
@@ -107,23 +120,25 @@ If using a Windows Server host computer, follow these steps to connect to the Da
     - Azure Page blob - `\\10.100.10.100\databoxe2etest_PageBlob`
     - Azure Files - `\\10.100.10.100\databoxe2etest_AzFile`
     
-4. Enter the password for the share when prompted. The following sample shows connecting to a share via the preceding command.
+4. Enter the password for the share when prompted. The following sample can be used to connect to *BlockBlob* share on the Data Box having in IP address of *10.100.10.100*.
 
     ```
-    C:\Users\Databoxuser>net use \\10.100.10.100\databoxe2etest_BlockBlob /u:databoxe2etest
+    net use \\10.100.10.100\databoxe2etest_BlockBlob /u:databoxe2etest
     Enter the password for 'databoxe2etest' to connect to '10.100.10.100':
     The command completed successfully.
     ```
 
-4. Press  Windows + R. In the **Run** window, specify the `\\<device IP address>`. Click **OK** to open File Explorer.
+5. Press  Windows + R. In the **Run** window, specify the `\\<device IP address>`. Click **OK** to open File Explorer.
     
     ![Connect to share via File Explorer](media/data-box-heavy-deploy-copy-data/connect-shares-file-explorer-1.png)
 
-    You should now see the shares as folders.
+    You should now see the shares as folders. Note that in this example the *BlockBlob* share is being used. Accordingly, the four folders representing the four available access tiers are present. These folders are not available in other shares.
     
     ![Connect to share via File Explorer 2](media/data-box-heavy-deploy-copy-data/connect-shares-file-explorer-2.png)
 
-    **Always create a folder for the files that you intend to copy under the share and then copy the files to that folder**. The folder created under block blob and page blob shares represents a container to which data is uploaded as blobs. You cannot copy files directly to *root* folder in the storage account.
+    **Always create a folder for the files that you intend to copy under the share and then copy the files to that folder**.  You cannot copy files directly to the *root* folder in the storage account. Any folders created under the *PageBlob* share represents containers into which data is uploaded as blobs. Similarly, any sub-folders created within the folders representing access tiers in the *BlockBlob* share also represents a blob storage container. Folders created within the *AzFile* share represent file shares.
+
+    Folders created at the *root* of the *BlockBlob* share will be created as blob containers. The access tier of these container will be inherited from the storage account.
     
 ### Connect on a Linux system
 

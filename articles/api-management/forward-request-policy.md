@@ -6,11 +6,13 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: article
-ms.date: 07/14/2023
+ms.date: 03/18/2024
 ms.author: danlep
 ---
 
 # Forward request
+
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
 The `forward-request` policy forwards the incoming request to the backend service specified in the request [context](api-management-policy-expressions.md#ContextVariables). The backend service URL is specified in the API [settings](./import-and-publish.md) and can be changed using the [set backend service](api-management-transformation-policies.md) policy.
 
@@ -23,15 +25,16 @@ The `forward-request` policy forwards the incoming request to the backend servic
 ## Policy statement
 
 ```xml
-<forward-request http-version="1 | 2or1 | 2" timeout="time in seconds" continue-timeout="time in seconds" follow-redirects="false | true" buffer-request-body="false | true" buffer-response="true | false" fail-on-error-status-code="false | true"/>
+<forward-request http-version="1 | 2or1 | 2" timeout="time in seconds (alternatively, use timeout-ms)" | timeout-ms="time in milliseconds (alternatively, use timeout)" continue-timeout="time in seconds" follow-redirects="false | true" buffer-request-body="false | true" buffer-response="true | false" fail-on-error-status-code="false | true"/>
 ```
 
 ## Attributes
 
 | Attribute                                     | Description                                                                                                                                                                                                                                                                                                    | Required | Default |
 | --------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
-| timeout                             | The amount of time in seconds to wait for the HTTP response headers to be returned by the backend service before a timeout error is raised. Minimum value is 0 seconds. Values greater than 240 seconds may not be honored, because the underlying network infrastructure can drop idle connections after this time. Policy expressions are allowed. | No       | 300    |
-| continue-timeout | The amount of time in seconds to wait for a `100 Continue` status code to be returned by the backend service before a timeout error is raised. Policy expressions are allowed. | No  | N /A |
+| timeout                             | The amount of time in seconds to wait for the HTTP response headers to be returned by the backend service before a timeout error is raised. Minimum value is 0 seconds. Values greater than 240 seconds may not be honored, because the underlying network infrastructure can drop idle connections after this time. Policy expressions are allowed. You can specify either `timeout` or `timeout-ms` but not both. | No       | 300    |
+| timeout-ms                             | The amount of time in milliseconds to wait for the HTTP response headers to be returned by the backend service before a timeout error is raised. Minimum value is 0 ms. Policy expressions are allowed. You can specify either `timeout` or `timeout-ms` but not both.  | No       | N/A    |
+| continue-timeout | The amount of time in seconds to wait for a `100 Continue` status code to be returned by the backend service before a timeout error is raised. Policy expressions are allowed. | No  | N/A |
 | http-version                             | The HTTP spec version to use when sending the HTTP response to the backend service. When using `2or1`, the gateway will favor HTTP /2 over /1, but fall back to HTTP /1 if HTTP /2 doesn't work. | No       | 1    |
 | follow-redirects | Specifies whether redirects from the backend service are followed by the gateway or returned to the caller. Policy expressions are allowed.                                                                                                                                                                                                    | No       | `false`   |
 | buffer-request-body      | When set to `true`, request is buffered and will be reused on [retry](retry-policy.md).                                                                                                                                                                                               | No       | `false`   |
@@ -43,7 +46,7 @@ The `forward-request` policy forwards the incoming request to the backend servic
 
 - [**Policy sections:**](./api-management-howto-policies.md#sections) backend
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, workspace, product, API, operation
--  [**Gateways:**](api-management-gateways-overview.md) dedicated, consumption, self-hosted
+-  [**Gateways:**](api-management-gateways-overview.md) classic, v2, consumption, self-hosted
 
 ## Examples
 
@@ -150,6 +153,6 @@ This operation level policy doesn't forward requests to the backend service.
 
 ## Related policies
 
-* [API Management advanced policies](api-management-advanced-policies.md)
+* [Routing](api-management-policies.md#routing)
 
 [!INCLUDE [api-management-policy-ref-next-steps](../../includes/api-management-policy-ref-next-steps.md)]

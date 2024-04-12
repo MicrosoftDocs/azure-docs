@@ -6,7 +6,7 @@ author: msmbaldwin
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.date: 01/17/2023
+ms.date: 01/30/2024
 ms.author: mbaldwin
 ---
 # Azure Key Vault developer's guide
@@ -43,7 +43,7 @@ For installation packages and source code, see [Client libraries](client-librari
 
 ## Authenticate to Key Vault in code
 
-Key Vault uses Azure Active Directory (Azure AD) authentication, which requires an Azure AD security principal to grant access. An Azure AD security principal can be a user, an application service principal, a [managed identity for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md), or a group of any of these types.
+Key Vault uses Microsoft Entra authentication, which requires a Microsoft Entra security principal to grant access. A Microsoft Entra security principal can be a user, an application service principal, a [managed identity for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md), or a group of any of these types.
 
 ### Authentication best practices
 
@@ -145,7 +145,7 @@ For certificates, you can use:
 For secrets, you can use:
 
 - Key Vault secrets with App Service application settings. For more information, see [Use Key Vault references for App Service and Azure Functions](../../app-service/app-service-key-vault-references.md).
-- Key Vault secrets with the App Configuration service for applications hosted in an Azure VM. For more information, see [Configure applications with App Configuration and Key Vault](/samples/azure/azure-sdk-for-net/app-secrets-configuration/).
+- Key Vault references with Azure App Configuration to streamline your application's access to configuration and secrets. For more information, see [Use Key Vault references in Azure App Configuration](../../azure-app-configuration/use-key-vault-references-dotnet-core.md).
 
 ## Code examples
 

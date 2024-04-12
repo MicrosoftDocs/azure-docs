@@ -8,8 +8,8 @@ ms.date: 03/07/2023
 author: seesharprun
 ms.author: sidandrews
 ms.reviewer: mjbrown
-ms.devlang: cpp, csharp, java, javascript, php, python, ruby
-ms.custom: ignite-2022
+ms.devlang: cpp
+# ms.devlang: cpp, csharp, java, javascript, php, python, ruby
 ---
 
 # Develop with Azure Cosmos DB for Table and Azure Table Storage

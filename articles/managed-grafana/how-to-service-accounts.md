@@ -1,8 +1,8 @@
 ---
 title: How to use service accounts in Azure Managed Grafana
 description: In this guide, learn how to use service accounts in Azure Managed Grafana.
-author: mcleanbyron
-ms.author: mcleans
+author: maud-lv
+ms.author: malev
 ms.service: managed-grafana
 ms.custom: devx-track-azurecli
 ms.topic: how-to 

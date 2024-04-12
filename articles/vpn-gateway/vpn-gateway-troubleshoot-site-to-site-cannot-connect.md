@@ -98,7 +98,7 @@ If the Internet-facing IP address of the VPN device is included in the **Local n
 
 > [!NOTE]
 > Basic SKU VPN gateways do not reply to health probe.
-> They are not recommended for [production workloads](vpn-gateway-about-vpn-gateway-settings.md#workloads).
+> They are not recommended for [production workloads](about-gateway-skus.md#workloads).
 
 ### Step 8: Check whether the on-premises VPN device has the perfect forward secrecy feature enabled
 

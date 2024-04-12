@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 10/25/2022
+ms.date: 10/20/2023
 ms.author: yexu
 ---
 
@@ -105,7 +105,7 @@ A one-time copy operation enables data movement from a source to a destination o
 :::image type="content" source="./media/copy-data-tool/scheduling-options.png" alt-text="Scheduling options":::
 
 
-## Next steps
+## Related content
 Try these tutorials that use the Copy Data tool:
 
 - [Quickstart: Create a data factory using the Copy Data tool](quickstart-hello-world-copy-data-tool.md)

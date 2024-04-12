@@ -2,15 +2,15 @@
 title: Identity proofing and verification for Azure AD B2C
 titleSuffix: Azure AD B2C
 description: Learn about our partners who integrate with Azure AD B2C to provide identity proofing and verification solutions 
-services: active-directory-b2c
 author: gargi-sinha
 manager: martinco
 ms.reviewer: kengaderdus
 ms.service: active-directory
-ms.workload: identity
 ms.topic: how-to
-ms.date: 01/18/2023
+ms.date: 01/26/2024
 ms.author: gasinh
+
+# Customer intent: I'm a developer integrating Azure AD B2C, and I want to configure an identity verification and proofing provider. I need to combat identity fraud and create a trusted user experience for account registration.
 ---
 
 # Identity verification and proofing partners
@@ -21,7 +21,7 @@ With Azure Active Directory B2C (Azure AD B2C) and solutions from software-vendo
 
 The following architecture diagram illustrates the verification and proofing flow.
 
-   ![Diagram of of the identity proofing flow, from registration to access approval.](./media/partner-gallery/third-party-identity-proofing.png)
+   ![Diagram of the identity proofing flow, from registration to access approval.](./media/partner-gallery/third-party-identity-proofing.png)
 
 1. User begins registration with a device.
 2. User enters information.

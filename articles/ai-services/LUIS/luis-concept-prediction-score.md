@@ -1,13 +1,13 @@
 ---
 title: Prediction scores - LUIS
 description: A prediction score indicates the degree of confidence the LUIS API service has for prediction results, based on a user utterance.
-ms.service: cognitive-services
-ms.subservice: language-understanding
+ms.service: azure-ai-language
+ms.subservice: azure-ai-luis
 ms.author: aahi
 author: aahill
 manager: nitinme
 ms.topic: conceptual
-ms.date: 04/14/2020
+ms.date: 01/19/2024
 ---
 
 # Prediction scores indicate prediction accuracy for intent and entities

@@ -298,6 +298,214 @@ Machine 2:
 
 [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/changefeedpull/SampleChangeFeedPullModel.java?name=Machine2)]
 
+### [JavaScript](#tab/JavaScript)
+
+To process the change feed by using the pull model, create an instance of `ChangeFeedPullModelIterator`. When you initially create `ChangeFeedPullModelIterator`, you must specify a required `changeFeedStartFrom` value inside the `ChangeFeedIteratorOptions` which consists of both the starting position for reading changes and the resource(a partition key or a FeedRange) for which changes are to be fetched.
+> [!NOTE]
+> If no `changeFeedStartFrom` value is specified, then changefeed will be fetched for an entire container from Now().
+> Currently, only [latest version](change-feed-modes.md#latest-version-change-feed-mode) is supported by JS SDK and is selected by default.
+
+You can optionally use `maxItemCount` in `ChangeFeedIteratorOptions` to set the maximum number of items received per page.
+Here's an example of how to obtain the iterator in latest version mode that returns entity objects:
+
+```js
+const options = {
+    changeFeedStartFrom: ChangeFeedStartFrom.Now()
+};
+
+const iterator = container.items.getChangeFeedIterator(options);
+```
+
+### Consume the changes for an entire container
+
+If you don't supply a `FeedRange` or `PartitionKey` parameter inside `ChangeFeedStartFrom`, you can process an entire container's change feed at your own pace. Here's an example, which starts reading all changes, starting at the current time: 
+
+```js
+async function waitFor(milliseconds: number): Promise<void> {
+  return new Promise((resolve) => setTimeout(resolve, milliseconds));
+}
+
+const options = {
+      changeFeedStartFrom: ChangeFeedStartFrom.Beginning()
+};
+
+const iterator = container.items.getChangeFeedIterator(options);
+
+let timeout = 0;
+
+while(iterator.hasMoreResults) {
+    const response = await iterator.readNext();
+    if (response.statusCode === StatusCodes.NotModified) {
+        timeout = 5000;
+    } 
+    else {
+        console.log("Result found", response.result);
+        timeout = 0;
+    }
+    await waitFor(timeout);
+}
+```
+
+Because the change feed is effectively an infinite list of items that encompass all future writes and updates, the value of `hasMoreResults` is always `true`. When you try to read the change feed and there are no new changes available, you receive a response with `NotModified` status. In the preceding example, it's handled by waiting five seconds before rechecking for changes.
+
+### Consume the changes for a partition key
+
+In some cases, you might want to process only the changes for a specific partition key. You can obtain iterator for a specific partition key and process the changes the same way that you can for an entire container.
+
+```js
+async function waitFor(milliseconds: number): Promise<void> {
+  return new Promise((resolve) => setTimeout(resolve, milliseconds));
+}
+
+const options = {
+      changeFeedStartFrom: ChangeFeedStartFrom.Beginning("partitionKeyValue")
+};
+
+const iterator = container.items.getChangeFeedIterator(options);
+
+let timeout = 0;
+
+while(iterator.hasMoreResults) {
+    const response = await iterator.readNext();
+    if (response.statusCode === StatusCodes.NotModified) {
+        timeout = 5000;
+    } 
+    else {
+        console.log("Result found", response.result);
+        timeout = 0;
+    }
+    await waitFor(timeout);
+}
+```
+
+### Use FeedRange for parallelization
+
+In the change feed pull model, you can use the `FeedRange` to parallelize the processing of the change feed. A `FeedRange` represents a range of partition key values.
+
+Here's an example that shows how to get a list of ranges for your container:
+
+```js
+const ranges = await container.getFeedRanges();
+```
+
+When you get a list of `FeedRange` values for your container, you get one `FeedRange` per [physical partition](../partitioning-overview.md#physical-partitions).
+
+By using a `FeedRange`, you can create iterator to parallelize the processing of the change feed across multiple machines or threads. Unlike the previous example that showed how to obtain a changefeed iterator for the entire container or a single partition key, you can use FeedRanges to obtain multiple iterators, which can process the change feed in parallel.
+
+Here's a sample that shows how to read from the beginning of the container's change feed by using two hypothetical separate machines that read in parallel:
+
+Machine 1:
+
+```js
+async function waitFor(milliseconds: number): Promise<void> {
+  return new Promise((resolve) => setTimeout(resolve, milliseconds));
+}
+
+const options = {
+      changeFeedStartFrom: ChangeFeedStartFrom.Beginning(ranges[0])
+};
+
+const iterator = container.items.getChangeFeedIterator(options);
+
+let timeout = 0;
+
+while(iterator.hasMoreResults) {
+    const response = await iterator.readNext();
+    if (response.statusCode === StatusCodes.NotModified) {
+        timeout = 5000;
+    } 
+    else {
+        console.log("Result found", response.result);
+        timeout = 0;
+    }
+    await waitFor(timeout);
+}
+```
+
+Machine 2:
+
+```js
+async function waitFor(milliseconds: number): Promise<void> {
+  return new Promise((resolve) => setTimeout(resolve, milliseconds));
+}
+
+const options = {
+      changeFeedStartFrom: ChangeFeedStartFrom.Beginning(ranges[1])
+};
+
+const iterator = container.items.getChangeFeedIterator(options);
+
+let timeout = 0;
+
+while(iterator.hasMoreResults) {
+    const response = await iterator.readNext();
+    if (response.statusCode === StatusCodes.NotModified) {
+        timeout = 5000;
+    } 
+    else {
+        console.log("Result found", response.result);
+        timeout = 0;
+    }
+    await waitFor(timeout);
+}
+```
+
+### Save continuation tokens
+
+You can save the position of your iterator by obtaining the continuation token. A continuation token is a string value that keeps of track of your changefeed iterator last processed changes and allows the iterator to resume at this point later. The continuation token, if specified, takes precedence over the start time and start from beginning values. The following code reads through the change feed since container creation. After no more changes are available, it will persist a continuation token so that change feed consumption can be later resumed.
+
+```js
+const options = {
+      changeFeedStartFrom: ChangeFeedStartFrom.Beginning()
+};
+
+const iterator = container.items.getChangeFeedIterator(options);
+
+let timeout = 0;
+let continuation = "";
+while(iterator.hasMoreResults) {
+    const response = await iterator.readNext();
+    if (response.statusCode === StatusCodes.NotModified) {
+        continuation = response.continuationToken;
+        break;
+    } 
+    else {
+        console.log("Result found", response.result);
+    }
+}
+
+// For checking any new changes using the continuation token
+const continuationOptions = {
+    changeFeedStartFrom: ChangeFeedStartFrom(continuation)
+}
+const newIterator = container.items.getChangeFeedIterator(continuationOptions);
+```
+Continuation token never expires as long as the Azure Cosmos DB container still exists.
+
+### Use AsyncIterator 
+
+You can use the JavaScript Async Iterator to fetch the changefeed. Here is an example to use Async Iterator.
+
+```js
+async function waitFor(milliseconds: number): Promise<void> {
+  return new Promise((resolve) => setTimeout(resolve, milliseconds));
+}
+const options = {
+      changeFeedStartFrom: ChangeFeedStartFrom.Beginning()
+};
+let timeout = 0;
+
+for await(const result of container.items.getChangeFeedIterator(options).getAsyncIterator()) {
+    if (result.statusCode === StatusCodes.NotModified) {
+      timeout = 5000;
+    }
+    else {
+      console.log("Result found", result.result);
+      timeout = 0;
+    }
+    await waitFor(timeout);
+}
+```
 ---
 
 ## Next steps

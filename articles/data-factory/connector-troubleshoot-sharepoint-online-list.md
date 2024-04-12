@@ -6,7 +6,7 @@ author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: troubleshooting
-ms.date: 02/08/2023
+ms.date: 01/05/2024
 ms.author: jianleishen
 ms.custom: has-adal-ref, synapse
 ---
@@ -58,7 +58,7 @@ You need to enable ACS to acquire the access token. Take the following steps:
 1. Use ACS to get the access token. 
 
 
-## Next steps
+## Related content
 
 For more troubleshooting help, try these resources:
 

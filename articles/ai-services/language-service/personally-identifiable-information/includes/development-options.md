@@ -1,15 +1,14 @@
 ---
-services: cognitive-services
-author: aahill
+#services: cognitive-services
+author: jboback
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: include
-ms.date: 01/10/2023
-ms.author: aahi
+ms.date: 12/19/2023
+ms.author: jboback
 ---
 
-To use PII detection, you submit raw unstructured text for analysis and handle the API output in your application. Analysis is performed as-is, with no customization to the model used on your data. There are two ways to use PII detection:
+To use PII detection, you submit text for analysis and handle the API output in your application. Analysis is performed as-is, with no customization to the model used on your data. There are two ways to use PII detection:
 
 
 |Development option  |Description  |

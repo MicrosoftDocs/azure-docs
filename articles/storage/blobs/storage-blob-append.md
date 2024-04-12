@@ -8,7 +8,8 @@ ms.author: pauljewell
 ms.date: 09/01/2023
 ms.service: azure-blob-storage
 ms.topic: how-to
-ms.devlang: csharp, python
+ms.devlang: csharp
+# ms.devlang: csharp, python
 ms.custom: devx-track-csharp, devx-track-dotnet, devguide-csharp
 ---
 
@@ -51,8 +52,8 @@ static async Task AppendToBlob(
     while (bytesLeft > 0)
     {
         int blockSize = (int)Math.Min(bytesLeft, maxBlockSize);
-        int bytesRead = await logEntryStream.ReadAsync(buffer, 0, blockSize);
-        using (MemoryStream memoryStream = new MemoryStream(buffer, 0, bytesRead))
+        int bytesRead = await logEntryStream.ReadAsync(buffer.AsMemory(0, blockSize));
+        await using (MemoryStream memoryStream = new MemoryStream(buffer, 0, bytesRead))
         {
             await appendBlobClient.AppendBlockAsync(memoryStream);
         }

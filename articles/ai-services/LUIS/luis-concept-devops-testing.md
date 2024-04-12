@@ -1,13 +1,13 @@
 ---
 title: Testing for DevOps for LUIS apps
 description: How to test your Language Understanding (LUIS) app in a DevOps environment.
-ms.service: cognitive-services
-ms.subservice: language-understanding
+ms.service: azure-ai-language
+ms.subservice: azure-ai-luis
 ms.author: aahi
 author: aahill
 manager: nitinme
 ms.topic: conceptual
-ms.date: 06/3/2020
+ms.date: 01/19/2024
 ---
 
 # Testing for LUIS DevOps

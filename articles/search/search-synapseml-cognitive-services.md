@@ -1,30 +1,32 @@
 ---
 title: 'Tutorial: Index at scale (Spark)'
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: Search big data from Apache Spark that's been transformed by SynapseML. You'll load invoices into data frames, apply machine learning, and then send output to a generated search index.
 
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: tutorial
 ms.date: 02/01/2023
 ---
 
-# Tutorial: Index large data from Apache Spark using SynapseML and Cognitive Search
+# Tutorial: Index large data from Apache Spark using SynapseML and Azure AI Search
 
-In this Azure Cognitive Search tutorial, learn how to index and query large data loaded from a Spark cluster. You'll set up a Jupyter Notebook that performs the following actions:
+In this Azure AI Search tutorial, learn how to index and query large data loaded from a Spark cluster. You'll set up a Jupyter Notebook that performs the following actions:
 
 > [!div class="checklist"]
 > + Load various forms (invoices) into a data frame in an Apache Spark session
 > + Analyze them to determine their features
 > + Assemble the resulting output into a tabular data structure
-> + Write the output to a search index hosted in Azure Cognitive Search
+> + Write the output to a search index hosted in Azure AI Search
 > + Explore and query over the content you created
 
 This tutorial takes a dependency on [SynapseML](https://www.microsoft.com/research/blog/synapseml-a-simple-multilingual-and-massively-parallel-machine-learning-library/), an open source library that supports massively parallel machine learning over big data. In SynapseML, search indexing and machine learning are exposed through *transformers* that perform specialized tasks. Transformers tap into a wide range of AI capabilities. In this exercise, you'll use the **AzureSearchWriter** APIs for analysis and AI enrichment.
 
-Although Azure Cognitive Search has native [AI enrichment](cognitive-search-concept-intro.md), this tutorial shows you how to access AI capabilities outside of Cognitive Search. By using SynapseML instead of indexers or skills, you're not subject to data limits or other constraints associated with those objects.
+Although Azure AI Search has native [AI enrichment](cognitive-search-concept-intro.md), this tutorial shows you how to access AI capabilities outside of Azure AI Search. By using SynapseML instead of indexers or skills, you're not subject to data limits or other constraints associated with those objects.
 
 > [!TIP]
 > Watch a short video of this demo at [https://www.youtube.com/watch?v=iXnBLwp7f88](https://www.youtube.com/watch?v=iXnBLwp7f88). The video expands on this tutorial with more steps and visuals.
@@ -34,7 +36,7 @@ Although Azure Cognitive Search has native [AI enrichment](cognitive-search-conc
 You'll need the `synapseml` library and several Azure resources. If possible, use the same subscription and region for your Azure resources and put everything into one resource group for simple cleanup later. The following links are for portal installs. The sample data is imported from a public site.
 
 + [SynapseML package](https://microsoft.github.io/SynapseML/docs/Get%20Started/Install%20SynapseML/#python) <sup>1</sup> 
-+ [Azure Cognitive Search](search-create-service-portal.md) (any tier) <sup>2</sup> 
++ [Azure AI Search](search-create-service-portal.md) (any tier) <sup>2</sup> 
 + [Azure AI services](../ai-services/multi-service-resource.md?pivots=azportal) (any tier) <sup>3</sup> 
 + [Azure Databricks](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal?tabs=azure-portal) (any tier) <sup>4</sup>
 
@@ -220,7 +222,6 @@ display(translated_df)
 Paste the following code in the sixth cell and then run it. No modifications are required.
 
 This code loads [AzureSearchWriter](https://microsoft.github.io/SynapseML/docs/Explore%20Algorithms/AI%20Services/Overview/#azure-cognitive-search-sample). It consumes a tabular dataset and infers a search index schema that defines one field for each column. The translations structure is an array, so it's articulated in the index as a complex collection with subfields for each language translation. The generated index will have a document key and use the default values for fields created using the [Create Index REST API](/rest/api/searchservice/create-index).
-This code loads [AzureSearchWriter](). It consumes a tabular dataset and infers a search index schema that defines one field for each column. The translations structure is an array, so it's articulated in the index as a complex collection with subfields for each language translation. The generated index will have a document key and use the default values for fields created using the [Create Index REST API](/rest/api/searchservice/create-index).
 
 ```python
 from synapse.ml.cognitive import *
@@ -271,9 +272,9 @@ You can find and manage resources in the portal, using the **All resources** or 
 
 ## Next steps
 
-In this tutorial, you learned about the [AzureSearchWriter](https://microsoft.github.io/SynapseML/docs/Explore%20Algorithms/AI%20Services/Overview/#azure-cognitive-search-sample) transformer in SynapseML, which is a new way of creating and loading search indexes in Azure Cognitive Search. The transformer takes structured JSON as an input. The FormOntologyLearner can provide the necessary structure for output produced by the Document Intelligence transformers in SynapseML.
+In this tutorial, you learned about the [AzureSearchWriter](https://microsoft.github.io/SynapseML/docs/Explore%20Algorithms/AI%20Services/Overview/#azure-cognitive-search-sample) transformer in SynapseML, which is a new way of creating and loading search indexes in Azure AI Search. The transformer takes structured JSON as an input. The FormOntologyLearner can provide the necessary structure for output produced by the Document Intelligence transformers in SynapseML.
 
-As a next step, review the other SynapseML tutorials that produce transformed content you might want to explore through Azure Cognitive Search:
+As a next step, review the other SynapseML tutorials that produce transformed content you might want to explore through Azure AI Search:
 
 > [!div class="nextstepaction"]
 > [Tutorial: Text Analytics with Azure AI services](../synapse-analytics/machine-learning/tutorial-text-analytics-use-mmlspark.md)

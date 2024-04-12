@@ -5,7 +5,7 @@ author: dearandyxu
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
-ms.date: 04/12/2023
+ms.date: 01/05/2024
 ms.author: yexu
 ---
 # Build large-scale data copy pipelines with metadata-driven approach in copy data tool
@@ -201,7 +201,7 @@ This pipeline will copy objects from one group. The objects belonging to this gr
 - OPENJSON is used in generated SQL scripts by copy data tool. If you are using SQL Server to host control table, it must be SQL Server 2016 (13.x) and later in order to support OPENJSON function.
 
 
-## Next steps
+## Related content
 Try these tutorials that use the Copy Data tool:
 
 - [Quickstart: Create a data factory using the Copy Data tool](quickstart-hello-world-copy-data-tool.md)

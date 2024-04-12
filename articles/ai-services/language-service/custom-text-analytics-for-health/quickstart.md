@@ -2,15 +2,14 @@
 title: Quickstart - Custom Text Analytics for health (Custom TA4H)
 titleSuffix: Azure AI services
 description: Quickly start building an AI model to categorize and extract information from healthcare unstructured text.
-services: cognitive-services
-author: aahill
+#services: cognitive-services
+author: jboback
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: quickstart
-ms.date: 04/14/2023
-ms.author: aahi
-ms.custom: language-service-custom-TA4H, ignite-fall-2021, mode-other, event-tier1-build-2022
+ms.date: 12/19/2023
+ms.author: jboback
+ms.custom: language-service-custom-TA4H, mode-other
 zone_pivot_groups: usage-custom-language-features
 ---
 
@@ -46,4 +45,3 @@ When you start to create your own custom Text Analytics for health projects, use
 * [Tag data](how-to/label-data.md)
 * [Train a model](how-to/train-model.md)
 * [Model evaluation](how-to/view-model-evaluation.md)
-

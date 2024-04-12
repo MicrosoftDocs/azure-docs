@@ -12,7 +12,7 @@
       href: quickstart-send-telemetry-cli.md
     - name: Send telemetry using SDK
       displayName: IoT Plug and Play, Azure IoT Explorer
-      href: ../iot-develop/quickstart-send-telemetry-iot-hub.md?toc=/azure/iot-hub/toc.json&bc=/azure/iot-hub/breadcrumb/toc.json
+      href: ../iot/tutorial-send-telemetry-iot-hub.md?toc=/azure/iot-hub/toc.json&bc=/azure/iot-hub/breadcrumb/toc.json
     - name: Control a device
       displayName: direct method, Azure IoT Explorer
       href: quickstart-control-device.md
@@ -47,9 +47,13 @@
       - name: Visualize data in Power BI
         displayName: Stream Analytics
         href: iot-hub-live-data-visualization-in-power-bi.md
-      - name: Visualize data in an App Service web app
+      - name: Visualize data in App Service web apps
         displayName: Node.js
         href: iot-hub-live-data-visualization-in-web-apps.md
+      - name: Monitor and notify with Logic Apps
+        displayName: Service Bus, queue, namespace
+        href: iot-hub-monitoring-notifications-with-azure-logic-apps.md
+
 - name: Concepts
   items:
     - name: IoT Hub concepts overview
@@ -74,7 +78,7 @@
       - name: Schedule jobs on multiple devices
         href: iot-hub-devguide-jobs.md
       - name: IoT Hub endpoints
-        displayName: multi-tenant
+        displayName: multitenant
         href: iot-hub-devguide-endpoints.md
       - name: Queries
         items:
@@ -127,7 +131,7 @@
         href: iot-hub-message-enrichments-overview.md
     - name: Message routing
       items:
-      - name: Use message routing to send device-to-cloud messages
+      - name: Route device-to-cloud messages to Azure services
         displayName: endpoints, built-in endpoint, Azure storage, Service Bus Queues, fallback, route
         href: iot-hub-devguide-messages-d2c.md
       - name: Add queries to message routes
@@ -161,17 +165,17 @@
       - name: High availability and disaster recovery
         displayName: HA, DR, availability zone, failover, failback
         href: iot-hub-ha-dr.md
-    - name: Control access to IoT Hub
+    - name: Authentication and authorization
       items:
-        - name: Overview
-          displayName: access control, permissions, Azure Active Directory, Azure AD, identity registry
-          href: iot-hub-devguide-security.md
-        - name: Control access with Azure AD
-          displayName: Active Directory, permissions, security principal, RBAC
-          href: iot-hub-dev-guide-azure-ad-rbac.md
-        - name: Control access with SAS
-          displayName: Shared Access Signatures, permissions, MQTT, AMQP, HTTPS, SASL PLAIN
-          href: iot-hub-dev-guide-sas.md
+      - name: Microsoft Entra ID
+        displayName: authenticate, authentication, auth, authn, authz
+        href: authenticate-authorize-azure-ad.md
+      - name: Shared access signatures
+        displayName: authenticate, authentication, auth, authn, authz
+        href: authenticate-authorize-sas.md
+      - name: X.509 certificates
+        displayName: authenticate, authentication, auth, authn, authz
+        href: authenticate-authorize-x509.md
     - name: IoT Hub SDKs
       items:
         - name: SDK overview
@@ -194,16 +198,6 @@
         - name: TLS support
           displayName: security, Transport Layer Security
           href: iot-hub-tls-support.md
-        - name: Secure using X.509 CA certificates
-          items:
-            - name: X.509 certificate concepts
-              displayName: Public Key Cryptography, X.509 certificates, public key infrastructure (PKI), certificates, Certification Authorities, encryption, ciphertext 
-              href: iot-hub-x509-certificate-concepts.md
-            - name: X.509 CA certificate security concepts
-              displayName: Device Provisioning Service, DPS, Hardware Secure Modules, HSM, self-signed certificate, Public Key Infrastructure, PKI
-              href: iot-hub-x509ca-concept.md
-            - name: X.509 CA certificates for IoT Hub
-              href: iot-hub-x509ca-overview.md
         - name: Virtual networks support
           displayName: Security, Private Link, network isolation, private endpoint
           href: virtual-network-support.md
@@ -403,6 +397,8 @@
         - name: Query Avro data from a hub route
           displayName: Azure Data Lake, U-SQL
           href: iot-hub-query-avro-data.md
+        - name: Use Raspberry Pi to run samples
+          href: raspberry-pi-get-started.md
     - name: Monitor
       items:
         - name: Monitor IoT Hub
@@ -431,26 +427,7 @@
         - name: Deploy an update
           displayName: device update
           href: ../iot-hub-device-update/deploy-update.md
-    - name: Use real devices
-      items:
-        - name: Use an online simulator
-          displayName: Raspberry Pi, assembly area, coding area, integrated console window, create IoT hub, register new device, Pi web simulator
-          href: iot-hub-raspberry-pi-web-simulator-get-started.md
-        - name: Use a physical device
-          displayName: IoT scenarios, Node.js, C
-          href: iot-hub-get-started-physical.md
-          items:
-            - name: Raspberry Pi with Node.js
-              displayName: BME280 sensor
-              href: iot-hub-raspberry-pi-kit-node-get-started.md
-            - name: Raspberry Pi with C
-              displayName: BME280 sensor
-              href: iot-hub-raspberry-pi-kit-c-get-started.md
-    - name: Extended IoT scenarios
-      items:
-        - name: Remote monitoring and notifications with Logic Apps
-          href: iot-hub-monitoring-notifications-with-azure-logic-apps.md
-    - name: Troubleshoot and problem solution
+    - name: Troubleshoot and resolve problems
       items:
         - name: Troubleshoot device connectivity
           href: iot-hub-troubleshoot-connectivity.md
@@ -536,8 +513,6 @@
         - name: TLS 1.0 and 1.1 deprecation
           displayName: Transport Layer Security 
           href: iot-hub-tls-deprecating-1-0-and-1-1.md
-        - name: Classic IP filter
-          href: iot-hub-ip-filter-classic.md
 - name: Resources
   items:
     - name: Support and help options
@@ -560,15 +535,12 @@
         href: ../azure-maps/index.yml
       - name: Time Series Insights
         href: ../time-series-insights/index.yml
-    - name: IoT device developer
-      displayName: MXCHIP, microchip, NXP MIMXRT, evaluation kit, STMicroelectronics
-      href: ../iot-develop/index.yml
     - name: Azure IoT SDKs
       items:
       - name: IoT Service SDKs
         href: ./iot-hub-devguide-sdks.md#azure-iot-hub-service-sdks
       - name: IoT Device SDKs
-        href: ../iot-develop/about-iot-sdks.md
+        href: ../iot/iot-sdks.md
     - name: Azure IoT samples
       items:
       - name: C# (.NET)
@@ -606,8 +578,6 @@
       - name: IoT Hub shared access policy data source
         displayName: Terraform
         href: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/iothub_shared_access_policy
-    - name: Azure Certified Device catalog
-      href: https://devicecatalog.azure.com/
     - name: Azure IoT Developer Center
       href: https://azure.microsoft.com/develop/iot/
     - name: Customer data requests

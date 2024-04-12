@@ -3,7 +3,7 @@ title: "F5 Networks connector for Microsoft Sentinel"
 description: "Learn how to install the connector F5 Networks to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 05/22/2023
+ms.date: 11/29/2023
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---

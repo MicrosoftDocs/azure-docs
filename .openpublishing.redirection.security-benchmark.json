@@ -544,6 +544,6 @@
         "source_path_from_root": "/articles/peering-service/security-baseline.md",
         "redirect_url": "/security/benchmark/azure/baselines/peering-service-desktop-security-baseline",
         "redirect_document_id": false
-    },
+    }
   ]
 }

@@ -94,7 +94,10 @@ ms.reviewer: azmetadatadev
                 "offer": "WindowsServer",
                 "publisher": "MicrosoftWindowsServer",
                 "sku": "2019-Datacenter",
-                "version": "latest"
+                "version": "latest",
+                "communityGalleryImageId": "/CommunityGalleries/testgallery/Images/1804Gen2/Versions/latest",
+                "sharedGalleryImageId": "/SharedGalleries/1P/Images/gen2/Versions/latest",
+                "exactVersion": "1.1686127202.30113"
             },
             "osDisk": {
                 "caching": "ReadWrite",
@@ -255,7 +258,10 @@ ms.reviewer: azmetadatadev
                 "offer": "UbuntuServer",
                 "publisher": "Canonical",
                 "sku": "16.04.0-LTS",
-                "version": "latest"
+                "version": "latest",
+                "communityGalleryImageId": "/CommunityGalleries/testgallery/Images/1804Gen2/Versions/latest",
+                "sharedGalleryImageId": "/SharedGalleries/1P/Images/gen2/Versions/latest",
+                "exactVersion": "1.1686127202.30113"
             },
             "osDisk": {
                 "caching": "ReadWrite",

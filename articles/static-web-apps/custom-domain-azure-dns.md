@@ -64,11 +64,10 @@ Now that your domain is configured for Azure to manage the DNS, you can now link
 
 2. Select **+ Add**.
 
-3. In the *Domain name* box, enter your domain name prefixed with **www**.
+3. In the *Subdomain* box, enter your subdomain name (*i.e.*, **www**). The **Full domain** field should then display the name of your custom domain, including subdomain.
 
-    For instance, if your domain name is `example.com`, enter `www.example.com` into this box.
     > [!NOTE]
-    > If you elected to *Add custom domain on Azure DNS*, you will have the option to select the *DNS zone* and the following steps will be done automatically for you once you select **Add**.
+    > If you have delegated your domain to Azure DNS, and also elected to *Add custom domain on Azure DNS* when configuring your custom domain, you will have the option to select the *Azure DNS zone*. The following steps will then be performed automatically for you after you select **Add**.
 
 4. Select **Next**.
 

@@ -5,12 +5,11 @@ description: Learn about the Azure Machine Learning compute instance, a fully ma
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: compute
-ms.custom: event-tier1-build-2022
 ms.topic: conceptual
-ms.author: jcioffi
-author: jesscioffi
+ms.author: vijetaj
+author: vijetajo
 ms.reviewer: sgilley
-ms.date: 10/19/2022
+ms.date: 01/17/2024
 monikerRange: 'azureml-api-2 || azureml-api-1'
 #Customer intent: As a data scientist, I want to know what a compute instance is and how to use it for Azure Machine Learning.
 ---
@@ -52,11 +51,13 @@ A compute instance is a fully managed cloud-based workstation optimized for your
 
 Azure Machine Learning compute instance enables you to author, train, and deploy models in a fully integrated notebook experience in your workspace.
 
-You can run Jupyter notebooks in [VS Code](https://techcommunity.microsoft.com/t5/azure-ai/power-your-vs-code-notebooks-with-azml-compute-instances/ba-p/1629630) using compute instance as the remote server with no SSH needed. You can also enable VS Code integration through [remote SSH extension](https://devblogs.microsoft.com/python/enhance-your-azure-machine-learning-experience-with-the-vs-code-extension/).
+You can run notebooks from [your Azure Machine Learning workspace](./how-to-run-jupyter-notebooks.md), [Jupyter](https://jupyter.org/), [JupyterLab](https://jupyterlab.readthedocs.io), or [Visual Studio Code](./how-to-launch-vs-code-remote.md). VS Code Desktop can be configured to access your compute instance. Or use VS Code for the Web, directly from the browser, and without any required installations or dependencies.
+
+We recommend you try VS Code for the Web to take advantage of the easy integration and rich development environment it provides.  VS Code for the Web gives you many of the features of VS Code Desktop that you love, including search and syntax highlighting while browsing and editing.  For more information about using VS Code Desktop and VS Code for the Web, see [Launch Visual Studio Code integrated with Azure Machine Learning (preview)](how-to-launch-vs-code-remote.md) and [Work in VS Code remotely connected to a compute instance (preview)](how-to-work-in-vs-code-remote.md).
 
 You can [install packages](how-to-access-terminal.md#install-packages) and [add kernels](how-to-access-terminal.md#add-new-kernels) to your compute instance.
 
-Following tools and environments are already installed on the compute instance:
+The following tools and environments are already installed on the compute instance:
 
 |General tools & environments|Details|
 |----|:----:|
@@ -75,25 +76,25 @@ Following tools and environments are already installed on the compute instance:
 
 You can [Add RStudio or Posit Workbench (formerly RStudio Workbench)](how-to-create-compute-instance.md#add-custom-applications-such-as-rstudio-or-posit-workbench) when you create the instance.
 
-|**PYTHON** tools & environments|Details|
+|**PYTHON** tools & environments |Details|
 |----|----|
 |Anaconda Python||
 |Jupyter and extensions||
 |Jupyterlab and extensions||
-[Azure Machine Learning SDK for Python](https://aka.ms/sdk-v2-install)</br>from PyPI|Includes azure-ai-ml and many common azure extra packages.  To see the full list, [open a terminal window on your compute instance](how-to-access-terminal.md) and run <br/> `conda list -n azureml_py310_sdkv2 ^azure` |
+[Azure Machine Learning SDK <br/> for Python](https://aka.ms/sdk-v2-install) from PyPI|Includes azure-ai-ml and many common azure extra packages.  To see the full list, <br/> [open a terminal window on your compute instance](how-to-access-terminal.md) and run <br/> `conda list -n azureml_py310_sdkv2 ^azure` |
 |Other PyPI packages|`jupytext`</br>`tensorboard`</br>`nbconvert`</br>`notebook`</br>`Pillow`|
 |Conda packages|`cython`</br>`numpy`</br>`ipykernel`</br>`scikit-learn`</br>`matplotlib`</br>`tqdm`</br>`joblib`</br>`nodejs`|
 |Deep learning packages|`PyTorch`</br>`TensorFlow`</br>`Keras`</br>`Horovod`</br>`MLFlow`</br>`pandas-ml`</br>`scrapbook`|
 |ONNX packages|`keras2onnx`</br>`onnx`</br>`onnxconverter-common`</br>`skl2onnx`</br>`onnxmltools`|
 |Azure Machine Learning Python samples||
 
-Python packages are all installed in the **Python 3.8 - AzureML** environment. Compute instance has Ubuntu 20.04 as the base OS.
+The compute instance has Ubuntu as the base OS.
 
 ## Accessing files
 
 Notebooks and Python scripts are stored in the default storage account of your workspace in Azure file share.  These files are located under your "User files" directory. This storage makes it easy to share notebooks between compute instances. The storage account also keeps your notebooks safely preserved when you stop or delete a compute instance.
 
-The Azure file share account of your workspace is mounted as a drive on the compute instance. This drive is the default working directory for Jupyter, Jupyter Labs, RStudio, and Posit Workbench. This means that the notebooks and other files you create in Jupyter, JupyterLab, RStudio, or Posit are automatically stored on the file share and available to use in other compute instances as well.
+The Azure file share account of your workspace is mounted as a drive on the compute instance. This drive is the default working directory for Jupyter, Jupyter Labs, RStudio, and Posit Workbench. This means that the notebooks and other files you create in Jupyter, JupyterLab, VS Code for Web, RStudio, or Posit are automatically stored on the file share and available to use in other compute instances as well.
 
 The files in the file share are accessible from all compute instances in the same workspace. Any changes to these files on the compute instance will be reliably persisted back to the file share.
 
@@ -137,7 +138,7 @@ A compute instance:
 
 * Has a job queue.
 * Runs jobs securely in a virtual network environment, without requiring enterprises to open up SSH port. The job executes in a containerized environment and packages your model dependencies in a Docker container.
-* Can run multiple small jobs in parallel.  One job per core can run in parallel while the rest of the jobs are queued.
+* Can run multiple small jobs in parallel.  One job per vCPU can run in parallel while the rest of the jobs are queued.
 * Supports single-node multi-GPU [distributed training](how-to-train-distributed-gpu.md) jobs
 
 You can use compute instance as a local inferencing deployment target for test/debug scenarios.

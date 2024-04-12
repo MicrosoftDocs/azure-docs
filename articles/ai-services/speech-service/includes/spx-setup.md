@@ -1,11 +1,10 @@
 ---
 author: eric-urban
 manager: nitinme
-ms.service: cognitive-services
+ms.service: azure-ai-speech
 ms.topic: include
 ms.date: 11/12/2022
 ms.author: eur
-ms.custom: ignite-fall-2021
 ---
 
 #### [Windows](#tab/windowsinstall)
@@ -35,10 +34,13 @@ If you output to a file, a text editor like Notepad or a web browser like Micros
 
 #### [Linux](#tab/linuxinstall)
 
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
+
 The following Linux distributions are supported for x64 architectures that use the Speech CLI:
 
 * CentOS 7/8
-* Debian 9/10 
+* Debian 9/10
 * Red Hat Enterprise Linux (RHEL) 7/8
 * Ubuntu 18.04/20.04
 
@@ -90,13 +92,13 @@ Follow these steps to install the Speech CLI in a Docker container:
 
 1. <a href="https://www.docker.com/get-started" target="_blank">Install Docker Desktop</a> for your platform if it isn't already installed.
 2. In a new command prompt or terminal, enter this command:
-   ```console   
+   ```console
    docker pull msftspeech/spx
    ```
 
 Enter this command to display help information for the Speech CLI:
 
-```console 
+```console
 docker run -it --rm msftspeech/spx help
 ```
 
@@ -135,7 +137,7 @@ docker run -it -v c:\spx-data:/data --rm msftspeech/spx
 
 On Linux or macOS, your commands look like the following sample. Replace `ABSOLUTE_PATH` with the absolute path for your mounted directory. The `pwd` command returned this path in the previous section. If you run this command before setting your key and region, you'll get an error that tells you to set your key and region.
 
-```console   
+```console
 sudo docker run -it -v ABSOLUTE_PATH:/data --rm msftspeech/spx
 ```
 

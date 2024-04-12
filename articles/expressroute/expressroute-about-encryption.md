@@ -1,21 +1,26 @@
 ---
 title: 'Azure ExpressRoute: About Encryption'
-description: Learn about ExpressRoute encryption. 
+description: Learn about ExpressRoute encryption.
 services: expressroute
 author: duongau
 ms.service: expressroute
+ms.custom:
+  - ignite-2023
 ms.topic: conceptual
-ms.date: 03/15/2023
+ms.date: 11/15/2023
 ms.author: duau
-
 ---
 # ExpressRoute encryption
  
-ExpressRoute supports a couple of encryption technologies to ensure confidentiality and integrity of the data traversing between your network and Microsoft's network. By default traffic over an ExpressRoute connection is not encrypted.
+ExpressRoute supports a couple of encryption technologies to ensure confidentiality and integrity of the data traversing between your network and Microsoft's network. By default traffic over an ExpressRoute connection isn't encrypted.
 
 ## Point-to-point encryption by MACsec FAQ
 
 MACsec is an [IEEE standard](https://1.ieee802.org/security/802-1ae/). It encrypts data at the Media Access control (MAC) level or Network Layer 2. You can use MACsec to encrypt the physical links between your network devices and Microsoft's network devices when you connect to Microsoft via [ExpressRoute Direct](expressroute-erdirect-about.md). MACsec is disabled on ExpressRoute Direct ports by default. You bring your own MACsec key for encryption and store it in [Azure Key Vault](../key-vault/general/overview.md). You decide when to rotate the key.
+
+### Can I enable Azure Key Vault firewall policies when storing MACsec keys?
+ 
+Yes, ExpressRoute is a trusted Microsoft service. You can configure Azure Key Vault firewall policies and allow trusted services to bypass the firewall. For more information, see [Configure Azure Key Vault firewalls and virtual networks](../key-vault/general/network-security.md).
 
 ### Can I enable MACsec on my ExpressRoute circuit provisioned by an ExpressRoute provider?
 
@@ -47,11 +52,11 @@ We support the following [standard ciphers](https://1.ieee802.org/security/802-1
 
 ### Does ExpressRoute Direct MACsec support Secure Channel Identifier (SCI)?
 
-Yes, you can set [Secure Channel Identifier (SCI)](https://en.wikipedia.org/wiki/IEEE_802.1AE) on the ExpressRoute Direct ports. Refer to [Configure MACsec](./expressroute-howto-macsec.md).
+Yes, you can set [Secure Channel Identifier (SCI)](https://en.wikipedia.org/wiki/IEEE_802.1AE) on the ExpressRoute Direct ports. For more information, see [Configure MACsec](expressroute-howto-macsec.md).
 
 ## End-to-end encryption by IPsec FAQ
 
-IPsec is an [IETF standard](https://tools.ietf.org/html/rfc6071). It encrypts data at the Internet Protocol (IP) level or Network Layer 3. You can use IPsec to encrypt an end-to-end connection between your on-premises network and your virtual network (VNET) on Azure.
+IPsec is an [IETF standard](https://tools.ietf.org/html/rfc6071). It encrypts data at the Internet Protocol (IP) level or Network Layer 3. You can use IPsec to encrypt an end-to-end connection between your on-premises network and your virtual network on Azure.
 
 ### Can I enable IPsec in addition to MACsec on my ExpressRoute Direct ports?
 
@@ -59,16 +64,14 @@ Yes. MACsec secures the physical connections between you and Microsoft. IPsec se
 
 ### Can I use Azure VPN gateway to set up the IPsec tunnel over Azure Private Peering?
 
-Yes. If you adopt Azure Virtual WAN, you can follow [these steps](../virtual-wan/vpn-over-expressroute.md) to encrypt the end-to-end connection. If you have regular Azure VNET, you can follow [these steps](../vpn-gateway/site-to-site-vpn-private-peering.md) to establish an IPsec tunnel between Azure VPN gateway and your on-premises VPN gateway.
+Yes. If you adopt Azure Virtual WAN, you can follow steps in [VPN over ExpressRoute for Virtual WAN](../virtual-wan/vpn-over-expressroute.md) to encrypt your end-to-end connection. If you have regular Azure virtual network, you can follow [site-to-site VPN connection over Private peering](../vpn-gateway/site-to-site-vpn-private-peering.md) to establish an IPsec tunnel between Azure VPN gateway and your on-premises VPN gateway.
 
 ### What is the throughput I'll get after enabling IPsec on my ExpressRoute connection?
 
-If Azure VPN gateway is used, check the [performance numbers here](../vpn-gateway/vpn-gateway-about-vpngateways.md). If a third-party VPN gateway is used, check with the vendor for the performance numbers.
+If Azure VPN gateway is used, review these [performance numbers](../vpn-gateway/vpn-gateway-about-vpngateways.md) to see if they match your expected throughput. If a third-party VPN gateway is used, check with the vendor for their performance numbers.
 
 ## Next steps
 
-* See [Configure IPsec](site-to-site-vpn-over-microsoft-peering.md) for more information about the IPsec configuration.
+* For more information about the IPsec configuration, see [Configure IPsec](site-to-site-vpn-over-microsoft-peering.md) 
 
 * For more information about the MACsec configuration, see [Configure MACsec](expressroute-howto-macsec.md).
-
-* For more information about the IPsec configuration, See [Configure IPsec](site-to-site-vpn-over-microsoft-peering.md).

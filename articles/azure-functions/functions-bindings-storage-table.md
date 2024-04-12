@@ -3,7 +3,7 @@ title: Azure Tables bindings for Azure Functions
 description: Understand how to use Azure Tables bindings in Azure Functions.
 ms.topic: reference
 ms.date: 11/11/2022
-ms.custom: devx-track-csharp, devx-track-python, ignite-2022, devx-track-extended-java, devx-track-js
+ms.custom: devx-track-csharp, devx-track-python, devx-track-extended-java, devx-track-js
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
  
@@ -21,15 +21,17 @@ Azure Functions integrates with [Azure Tables](../cosmos-db/table/introduction.m
 
 The extension NuGet package you install depends on the C# mode you're using in your function app: 
 
-# [In-process](#tab/in-process)
+# [Isolated worker model](#tab/isolated-process)
+
+Functions execute in an isolated C# worker process. To learn more, see [Guide for running C# Azure Functions in an isolated worker process](dotnet-isolated-process-guide.md).
+
+# [In-process model](#tab/in-process)
+
+[!INCLUDE [functions-in-process-model-retirement-note](../../includes/functions-in-process-model-retirement-note.md)]
 
 Functions execute in the same process as the Functions host. To learn more, see [Develop C# class library functions using Azure Functions](functions-dotnet-class-library.md).
 
 In a variation of this model, Functions can be run using [C# scripting], which is supported primarily for C# portal editing. To update existing binding extensions for C# script apps running in the portal without having to republish your function app, see [Update your extensions].
-
-# [Isolated process](#tab/isolated-process)
-
-Functions execute in an isolated C# worker process. To learn more, see [Guide for running C# Azure Functions in an isolated worker process](dotnet-isolated-process-guide.md).
 
 ---
 
@@ -52,10 +54,10 @@ Using the .NET CLI:
 
 ```dotnetcli
 # Install the Azure Tables extension
-dotnet add package Microsoft.Azure.WebJobs.Extensions.Tables --version 1.0.0
+dotnet add package Microsoft.Azure.WebJobs.Extensions.Tables
 
 # Update the combined Azure Storage extension (to a version which no longer includes Azure Tables)
-dotnet add package Microsoft.Azure.WebJobs.Extensions.Storage --version 5.0.0
+dotnet add package Microsoft.Azure.WebJobs.Extensions.Storage
 ``` 
 
 [!INCLUDE [functions-bindings-storage-extension-v5-tables-note](../../includes/functions-bindings-storage-extension-v5-tables-note.md)]
@@ -70,6 +72,8 @@ Working with the bindings requires that you reference the appropriate NuGet pack
 > Tables have been moved out of this package starting in its 5.x version. You need to instead use version 4.x of the extension NuGet package or additionally include the [Azure Tables extension](#table-api-extension) when using version 5.x.
 
 # [Functions 1.x](#tab/functionsv1/in-process)
+
+[!INCLUDE [functions-runtime-1x-retirement-note](../../includes/functions-runtime-1x-retirement-note.md)]
 
 Functions 1.x apps automatically have a reference the [Microsoft.Azure.WebJobs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs) NuGet package, version 2.x.
 
@@ -94,6 +98,15 @@ dotnet add package Microsoft.Azure.Functions.Worker.Extensions.Storage --version
 ``` 
 
 [!INCLUDE [functions-bindings-storage-extension-v5-isolated-worker-tables-note](../../includes/functions-bindings-storage-extension-v5-isolated-worker-tables-note.md)]
+
+If you're writing your application using F#, you must also configure this extension as part of the app's [startup configuration](./dotnet-isolated-process-guide.md#start-up-and-configuration). In the call to `ConfigureFunctionsWorkerDefaults()` or `ConfigureFunctionsWebApplication()`, add a delegate that takes an `IFunctionsWorkerApplication` parameter. Then within the body of that delegate, call `ConfigureTablesExtension()` on the object:
+
+```fsharp
+let hostBuilder = new HostBuilder()
+hostBuilder.ConfigureFunctionsWorkerDefaults(fun (context: HostBuilderContext) (appBuilder: IFunctionsWorkerApplicationBuilder) ->
+    appBuilder.ConfigureTablesExtension() |> ignore
+) |> ignore
+```
 
 # [Combined Azure Storage extension](#tab/storage-extension/isolated-process)
 
@@ -142,14 +155,14 @@ Functions 1.x apps automatically have a reference to the extension.
 
 The binding types supported for .NET depend on both the extension version and C# execution mode, which can be one of the following: 
    
-# [In-process](#tab/in-process)
-
-An in-process class library is a compiled C# function runs in the same process as the Functions runtime.
- 
-# [Isolated process](#tab/isolated-process)
+# [Isolated worker model](#tab/isolated-process)
 
 An isolated worker process class library compiled C# function runs in a process isolated from the runtime.  
 
+# [In-process model](#tab/in-process)
+
+An in-process class library is a compiled C# function runs in the same process as the Functions runtime.
+ 
 ---
 
 Choose a version to see binding type details for the mode and version.

@@ -344,7 +344,7 @@ class MainActivity : AppCompatActivity() {
 
 
 ## Run your project
-Before running your project, replace `<ACS_USER_TOKEN>` in  `MainActivity.kt` with your ACS User Access Token.
+Before running your project, replace `<ACS_USER_TOKEN>` in  `MainActivity.kt` with your Azure Communication Services User Access Token.
 
 ```
 private val userToken = "<ACS_USER_TOKEN>"

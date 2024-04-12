@@ -14,6 +14,7 @@ In this quickstart, you'll learn how to join a Teams meeting using the Azure Com
 
 - A working [Communication Services calling Windows app](../../getting-started-with-calling.md).
 - A [Teams deployment](/deployoffice/teams-install).
+- An [access token](../../../identity/access-tokens.md).
 
 ## Add the Teams UI controls and Enable the Teams UI controls
 

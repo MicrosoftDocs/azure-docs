@@ -5,7 +5,7 @@ ms.topic: article
 ms.date: 07/22/2022
 ---
 
-# Authenticate a managed identity with Azure Active Directory to access Azure Relay resources 
+# Authenticate a managed identity with Microsoft Entra ID to access Azure Relay resources 
 [Managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md) is a cross-Azure feature that enables you to create a secure identity associated with the deployment under which your application code runs. You can then associate that identity with access-control roles that grant custom permissions for accessing specific Azure resources that your application needs.
 
 With managed identities, the Azure platform manages this runtime identity. You don't need to store and protect access keys in your application code or configuration, either for the identity itself, or for the resources you need to access. A Relay client app running inside an Azure App Service application or in a virtual machine with enabled managed entities for Azure resources support doesn't need to handle SAS rules and keys, or any other access tokens. The client app only needs the endpoint address of the Relay namespace. When the app connects, Relay binds the managed entity's context to the client in an operation that is shown in an example later in this article. Once it's associated with a managed identity, your Relay client can do all authorized operations. Authorization is granted by associating a managed entity with Relay roles.
@@ -16,7 +16,7 @@ With managed identities, the Azure platform manages this runtime identity. You d
 [!INCLUDE [relay-roles](./includes/relay-roles.md)]
 
 ## Enable managed identity
-First, enable managed identity for the Azure resource that needs to access Azure Relay entities (hybrid connections or WCF relays). For an example, if your Relay client application is running on an Azure VM, enable managed identity for the VM by following instructions from the [Configure managed identity for an Azure VM](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md) article. Once you've enabled this setting, a new managed service identity is created in your Azure Active Directory (Azure AD).
+First, enable managed identity for the Azure resource that needs to access Azure Relay entities (hybrid connections or WCF relays). For an example, if your Relay client application is running on an Azure VM, enable managed identity for the VM by following instructions from the [Configure managed identity for an Azure VM](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md) article. Once you've enabled this setting, a new managed service identity is created in your Microsoft Entra ID.
 
 For a list of services that support managed identities, see [Services that support managed identities for Azure resources](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md).
 
@@ -39,7 +39,7 @@ The following section uses a simple application that runs under a managed identi
     > Follow the same steps to run the [console application for WCF Relays](https://github.com/Azure/azure-relay/tree/master/samples/wcf-relay/RoleBasedAccessControl).
 
 #### Highlighted code from the sample
-Here's the code from the sample that shows how to use Azure AD authentication to connect to the Azure Relay service.  
+Here's the code from the sample that shows how to use Microsoft Entra authentication to connect to the Azure Relay service.  
 
 1. Create a [TokenProvider](/dotnet/api/microsoft.azure.relay.tokenprovider) object by using the `TokenProvider.CreateManagedIdentityTokenProvider` method. 
     
@@ -74,6 +74,3 @@ To learn more about Azure Relay, see the following articles.
 - [What is Relay?](relay-what-is-it.md)
 - [Get started with Azure Relay Hybrid connections WebSockets](relay-hybrid-connections-dotnet-get-started.md)
 - [Get stated with Azure Relay Hybrid connections HTTP requests](relay-hybrid-connections-http-requests-dotnet-get-started.md)
-
-
-

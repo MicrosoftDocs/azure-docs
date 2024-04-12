@@ -1,12 +1,12 @@
 ---
 title: Container support
 titleSuffix: Azure AI services
-services: cognitive-services
+#services: cognitive-services
 author: mrbullwinkle
 manager: nitinme
-ms.service: cognitive-services
+ms.service: azure-ai-anomaly-detector
 ms.topic: include 
-ms.date: 09/10/2020
+ms.date: 01/18/2024
 ms.author: mbullwin
 ---
 

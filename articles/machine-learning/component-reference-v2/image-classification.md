@@ -39,7 +39,7 @@ AutoML runs a number of trials (specified in max_trials) in parallel (specified 
 
 1. Specify the **Primary Metric** you want AutoML to use to measure your model's success. Visit this link for an [explanation on each primary metric for computer vision.](../how-to-auto-train-image-models.md#primary-metric)
 
-1. (Optional) You are able to configure algorithm settings. Visit this link for a {list of supported algorithms for computer vision.](../how-to-auto-train-image-models.md#supported-model-algorithms
+1. (Optional) You are able to configure algorithm settings. Visit this link for a [list of supported algorithms for computer vision.](../how-to-auto-train-image-models.md#explanations)
 
 1. (Optional) To configure job limits, visit [this link for more explanation.](../how-to-auto-train-image-models.md#job-limits)
 

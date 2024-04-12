@@ -12,33 +12,33 @@ ms.topic: conceptual
 
 # Disable local (access key) authentication with Azure SignalR Service
 
-There are two ways to authenticate to Azure SignalR Service resources: Microsoft Entra ID and Access Key. Microsoft Entra ID offers superior security and ease of use compared to the access key method. 
-With Microsoft Entra ID, you do not need to store tokens in your code, reducing the risk of potential security vulnerabilities.
-We highly recommend using Microsoft Entra ID for your Azure SignalR Service resources whenever possible.
+There are two ways to authenticate to Azure SignalR Service resources: Microsoft Entra ID and access key. Microsoft Entra ID offers superior security and ease of use compared to the access key method.
+
+With Microsoft Entra ID, you don't need to store tokens in your code, reducing the risk of potential security vulnerabilities. We highly recommend using Microsoft Entra ID for your Azure SignalR Service resources whenever possible.
 
 > [!IMPORTANT]
-> Disabling local authentication can have following consequences.
+> Disabling local authentication can have the following consequences:
 >
-> - The current set of access keys will be permanently deleted.
-> - Tokens signed with the current set of access keys will become unavailable.
+> - The current set of access keys is permanently deleted.
+> - Tokens signed with the current set of access keys become unavailable.
 
-## Use Azure portal
+## Use the Azure portal
 
-In this section, you will learn how to use the Azure portal to disable local authentication.
+In this section, you learn how to use the Azure portal to disable local authentication.
 
-1. Navigate to your SignalR Service resource in the [Azure portal](https://portal.azure.com).
+1. In the [Azure portal](https://portal.azure.com), go to your Azure SignalR Service resource.
 
-2. in the **Settings** section of the menu sidebar, select **Keys** tab.
+2. In the **Settings** section of the menu sidebar, select **Keys**.
 
-3. Select **Disabled** for local authentication.
+3. For **Access Key**, select **Disable**.
 
-4. Click **Save** button.
+4. Select the **Save** button.
 
-![Screenshot of disabling local auth.](./media/howto-disable-local-auth/disable-local-auth.png)
+![Screenshot of selections for disabling local authentication in the Azure portal.](./media/howto-disable-local-auth/disable-local-auth.png)
 
-## Use Azure Resource Manager template
+## Use an Azure Resource Manager template
 
-You can disable local authentication by setting `disableLocalAuth` property to true as shown in the following Azure Resource Manager template.
+You can disable local authentication by setting the `disableLocalAuth` property to `true`, as shown in the following Azure Resource Manager template:
 
 ```json
 {
@@ -108,16 +108,16 @@ You can disable local authentication by setting `disableLocalAuth` property to t
 }
 ```
 
-## Use Azure Policy
+## Use an Azure policy
 
-You can assign the [Azure SignalR Service should have local authentication methods disabled](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff70eecba-335d-4bbc-81d5-5b17b03d498f) Azure policy to an Azure subscription or a resource group to enforce disabling of local authentication for all SignalR resources in the subscription or the resource group.
+To enforce disabling of local authentication for all Azure SignalR Service resources in an Azure subscription or a resource group, you can assign the following Azure policy: [Azure SignalR Service should have local authentication methods disabled](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff70eecba-335d-4bbc-81d5-5b17b03d498f).
 
-![Screenshot of disabling local auth policy.](./media/howto-disable-local-auth/disable-local-auth-policy.png)
+![Screenshot that shows disabling local authentication by using a policy.](./media/howto-disable-local-auth/disable-local-auth-policy.png)
 
 ## Next steps
 
-See the following docs to learn about authentication methods.
+See the following articles to learn about authentication methods:
 
-- [Overview of Microsoft Entra ID for SignalR](signalr-concept-authorize-azure-active-directory.md)
-- [Authenticate with Azure applications](./signalr-howto-authorize-application.md)
-- [Authenticate with managed identities](./signalr-howto-authorize-managed-identity.md)
+- [Authorize access with Microsoft Entra ID for Azure SignalR Service](signalr-concept-authorize-azure-active-directory.md)
+- [Authorize requests to Azure SignalR Service resources with Microsoft Entra applications](./signalr-howto-authorize-application.md)
+- [Authorize requests to Azure SignalR Service resources with Microsoft Entra managed identities](./signalr-howto-authorize-managed-identity.md)

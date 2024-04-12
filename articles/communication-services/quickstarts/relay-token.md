@@ -15,6 +15,8 @@ ms.custom: mode-other, devx-track-extended-java, devx-track-js, devx-track-pytho
 
 This quickstart shows how to retrieve a network relay token to access Azure Communication Services TURN servers.
 
+[!INCLUDE [TURN retirment](../includes/turn-retirement.md)]
+
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free)

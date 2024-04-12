@@ -12,9 +12,9 @@ ms.custom: template-how-to
 
 # Modify the local access configuration in a site
 
-You can use [Azure Active Directory (Azure AD)](../active-directory/authentication/overview-authentication.md) or a local username and password to authenticate access to the [distributed tracing](distributed-tracing.md) and [packet core dashboards](packet-core-dashboards.md). Additionally, you can use a self-signed certificate or provide your own to attest access to your local diagnostics tools.
+You can use [Microsoft Entra ID](../active-directory/authentication/overview-authentication.md) or a local username and password to authenticate access to the [distributed tracing](distributed-tracing.md) and [packet core dashboards](packet-core-dashboards.md). Additionally, you can use a self-signed certificate or provide your own to attest access to your local diagnostics tools.
 
-To improve security in your deployment, we recommend setting up Azure AD authentication over local usernames and passwords, as well as providing a certificate signed by a globally known and trusted certificate authority (CA).
+To improve security in your deployment, we recommend setting up Microsoft Entra authentication over local usernames and passwords, as well as providing a certificate signed by a globally known and trusted certificate authority (CA).
 
 In this how-to guide, you'll learn how to use the Azure portal to change the authentication method and the certificate used for securing access to a site's local monitoring tools.
 
@@ -25,7 +25,7 @@ In this how-to guide, you'll learn how to use the Azure portal to change the aut
 
 - Refer to [Choose the authentication method for local monitoring tools](collect-required-information-for-a-site.md#choose-the-authentication-method-for-local-monitoring-tools) and [Collect local monitoring values](collect-required-information-for-a-site.md#collect-local-monitoring-values) to collect the required values and make sure they're in the correct format.
 - If you want to add or update a custom HTTPS certificate for accessing your local monitoring tools, you'll need a certificate signed by a globally known and trusted CA and stored in an Azure Key Vault. Your certificate must use a private key of type RSA or EC to ensure it's exportable (see [Exportable or non-exportable key](../key-vault/certificates/about-certificates.md) for more information).
-- If you want to update your local monitoring authentication method, ensure your local machine has core kubectl access to the Azure Arc-enabled Kubernetes cluster. This requires a core kubeconfig file, which you can obtain by following [Set up kubectl access](commission-cluster.md#set-up-kubectl-access).
+- If you want to update your local monitoring authentication method, ensure your local machine has core kubectl access to the Azure Arc-enabled Kubernetes cluster. This requires a core kubeconfig file, which you can obtain by following [Core namespace access](set-up-kubectl-access.md#core-namespace-access).
 - Ensure you can sign in to the Azure portal using an account with access to the active subscription you used to create your private mobile network. This account must have the built-in Contributor or Owner role at the subscription scope.
 
 ## View the local access configuration
@@ -74,9 +74,9 @@ In this step, you'll navigate to the **Packet Core Control Plane** resource repr
 
 Follow this step if you changed the authentication type for local monitoring access.
 
-If you switched from local usernames and passwords to Azure AD, follow the steps in [Enable Azure Active Directory (Azure AD) for local monitoring tools](enable-azure-active-directory.md).
+If you switched from local usernames and passwords to Microsoft Entra ID, follow the steps in [Enable Microsoft Entra ID for local monitoring tools](enable-azure-active-directory.md).
 
-If you switched from Azure AD to local usernames and passwords:
+If you switched from Microsoft Entra ID to local usernames and passwords:
 
 1. Sign in to [Azure Cloud Shell](../cloud-shell/overview.md) and select **PowerShell**. If this is your first time accessing your cluster via Azure Cloud Shell, follow [Access your cluster](../azure-arc/kubernetes/cluster-connect.md?tabs=azure-cli) to configure kubectl access.
 1. Delete the Kubernetes Secret Objects:

@@ -173,7 +173,7 @@ class MainActivity : AppCompatActivity() {
 
     /**
      *
-     * @return String endpoint URL from ACS Admin UI, "https://example.domain.com/"
+     * @return String endpoint URL from Azure Communication Services Admin UI, "https://example.domain.com/"
      */
     private val endpoint: String?
         get() = "https://example.domain.com/"
@@ -195,14 +195,14 @@ class MainActivity : AppCompatActivity() {
 
     /**
      *
-     * @return String secure ACS access token for the current user
+     * @return String secure Azure Communication Services access token for the current user
      */
     private val accessToken: String?
         get() = ""
 
     /**
      *
-     * @return String id of ACS chat thread to join
+     * @return String id of Azure Communication Services chat thread to join
      * Looks like "19:AVNnEll25N4KoNtKolnUAhAMu8ntI_Ra03saj0Za0r01@thread.v2"
      */
     private val threadId: String?
@@ -277,7 +277,7 @@ public class MainActivity extends AppCompatActivity {
     }
     /**
      *
-     * @return String endpoint URL from ACS Admin UI, "https://example.domain.com/"
+     * @return String endpoint URL from Azure Communication Services Admin UI, "https://example.domain.com/"
      */
     private String endpoint(){
         return "https://example.domain.com/";
@@ -299,14 +299,14 @@ public class MainActivity extends AppCompatActivity {
     }
     /**
      *
-     * @return String secure ACS access token for the current user
+     * @return String secure Azure Communication Services access token for the current user
      */
     private String accessToken(){
         return "";
     }
     /**
      *
-     * @return String id of ACS chat thread to join
+     * @return String id of Azure Communication Services chat thread to join
      * Looks like "19:AVNnEll25N4KoNtKolnUAhAMu8ntI_Ra03saj0Za0r01@thread.v2"
      */
     private String threadId(){

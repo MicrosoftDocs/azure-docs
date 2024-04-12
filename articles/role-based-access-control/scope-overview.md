@@ -1,12 +1,10 @@
 ---
 title: Understand scope for Azure RBAC
 description: Learn about scope for Azure role-based access control (Azure RBAC) and how to determine the scope for a resource.
-services: active-directory
 author: rolyon
 manager: amycolannino
 ms.service: role-based-access-control
 ms.topic: how-to
-ms.workload: identity
 ms.date: 06/02/2023
 ms.author: rolyon
 ---
@@ -45,7 +43,7 @@ The scope consists of a series of identifiers separated by the slash (/) charact
 ```
 
 - `{subscriptionId}` is the ID of the subscription to use (a GUID).
-- `{resourcesGroupName}` is the name of the containing resource group.
+- `{resourceGroupName}` is the name of the containing resource group.
 - `{providerName}` is the name of the [resource provider](../azure-resource-manager/management/azure-services-resource-providers.md) that handles the resource, then `{resourceType}` and `{resourceSubType*}` identify further levels within that resource provider.
 - `{resourceName}` is the last part of the string that identifies a specific resource.
 

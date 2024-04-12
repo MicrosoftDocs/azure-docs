@@ -1,13 +1,13 @@
 ---
 title: Azure CLI sample for moving a Marketplace Azure VM to another subscription
 description: Azure CLI sample for moving an Azure Marketplace Virtual Machine to a different subscription.
-author: cynthn
-ms.author: cynthn
+author: ju-shim
+ms.author: jushiman
 ms.reviewer: mattmcinnes
 ms.date: 04/20/2023
 ms.topic: sample
 ms.service: virtual-machines
-ms.devlang: azurecli 
+ms.devlang: azurecli
 ms.custom: devx-track-azurecli
 ---
 
@@ -25,7 +25,7 @@ This script demonstrates three operations:
 - Move the snapshot to a different subscription.
 - Create a virtual machine based on that snapshot.
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 ## Sample script
 

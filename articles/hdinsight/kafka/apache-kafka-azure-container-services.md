@@ -4,7 +4,7 @@ description: Learn how to use Kafka on HDInsight from container images hosted in
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 11/17/2022
+ms.date: 12/05/2023
 ---
 
 # Use Azure Kubernetes Service with Apache Kafka on HDInsight
@@ -27,7 +27,7 @@ This document assumes that you are familiar with creating and using the followin
 * Azure Kubernetes Service
 * Azure Virtual Networks
 
-This document also assumes that you have walked through the [Azure Kubernetes Service tutorial](../../aks/tutorial-kubernetes-prepare-app.md). This article creates a container service, creates a Kubernetes cluster, a container registry, and configures the `kubectl` utility.
+This document also assumes that you completed the [Azure Kubernetes Service tutorial](../../aks/tutorial-kubernetes-prepare-app.md). This article creates a container service, creates a Kubernetes cluster, a container registry, and configures the `kubectl` utility.
 
 ## Architecture
 
@@ -37,7 +37,7 @@ Both HDInsight and AKS use an Azure Virtual Network as a container for compute r
 
 The following diagram illustrates the network topology used in this document:
 
-:::image type="content" source="./media/apache-kafka-azure-container-services/kafka-aks-architecture.png" alt-text="HDInsight in one virtual network, AKS in another, using peering" border="false":::
+:::image type="content" source="./media/apache-kafka-azure-container-services/kafka-aks-architecture.png" alt-text="HDInsight in one virtual network, AKS in another, using peering." border="false":::
 
 > [!IMPORTANT]  
 > Name resolution is not enabled between the peered networks, so IP addressing is used. By default, Kafka on HDInsight is configured to return host names instead of IP addresses when clients connect. The steps in this document modify Kafka to use IP advertising instead.
@@ -75,7 +75,7 @@ If you do not already have an AKS cluster, use one of the following documents to
     |Address space|You must use an address space that does not overlap the one used by the AKS cluster network.|
     |Location|Use the same __Location__ for the virtual network that you used for the AKS cluster.|
 
-1. Wait until the virtual network has been created before going to the next step.
+1. Wait until the virtual network is created before proceeding to the next step.
 
 ### Configure peering
 
@@ -105,15 +105,15 @@ Use the following steps to configure Kafka to advertise IP addresses instead of 
 
 2. To view information on Kafka, select __Kafka__ from the list on the left.
 
-    :::image type="content" source="./media/apache-kafka-azure-container-services/select-kafka-service.png" alt-text="Service list with Kafka highlighted" border="true":::
+    :::image type="content" source="./media/apache-kafka-azure-container-services/select-kafka-service.png" alt-text="Service list with Kafka highlighted." border="true":::
 
 3. To view Kafka configuration, select __Configs__ from the top middle.
 
-    :::image type="content" source="./media/apache-kafka-azure-container-services/select-kafka-config1.png" alt-text="Apache Ambari services configuration" border="true":::
+    :::image type="content" source="./media/apache-kafka-azure-container-services/select-kafka-config1.png" alt-text="Apache Ambari services configuration." border="true":::
 
 4. To find the __kafka-env__ configuration, enter `kafka-env` in the __Filter__ field on the upper right.
 
-    :::image type="content" source="./media/apache-kafka-azure-container-services/search-for-kafka-env.png" alt-text="Kafka configuration, for kafka-env" border="true":::
+    :::image type="content" source="./media/apache-kafka-azure-container-services/search-for-kafka-env.png" alt-text="Kafka configuration, for kafka-env." border="true":::
 
 5. To configure Kafka to advertise IP addresses, add the following text to the bottom of the __kafka-env-template__ field:
 
@@ -129,17 +129,17 @@ Use the following steps to configure Kafka to advertise IP addresses instead of 
 
 7. To configure Kafka to listen on all network interfaces, change the value in the __listeners__ field to `PLAINTEXT://0.0.0.0:9092`.
 
-8. To save the configuration changes, use the __Save__ button. Enter a text message describing the changes. Select __OK__ once the changes have been saved.
+8. To save the configuration changes, use the __Save__ button. Enter a text message describing the changes. Select __OK__ once the changes are saved.
 
-    :::image type="content" source="./media/apache-kafka-azure-container-services/save-configuration-button.png" alt-text="Apache Ambari save configuration" border="true":::
+    :::image type="content" source="./media/apache-kafka-azure-container-services/save-configuration-button.png" alt-text="Apache Ambari save configuration." border="true":::
 
 9. To prevent errors when restarting Kafka, use the __Service Actions__ button and select __Turn On Maintenance Mode__. Select OK to complete this operation.
 
-    :::image type="content" source="./media/apache-kafka-azure-container-services/turn-on-maintenance-mode.png" alt-text="Service actions, with turn on maintenance highlighted" border="true":::
+    :::image type="content" source="./media/apache-kafka-azure-container-services/turn-on-maintenance-mode.png" alt-text="Service actions, with turn on maintenance highlighted." border="true":::
 
-10. To restart Kafka, use the __Restart__ button and select __Restart All Affected__. Confirm the restart, and then use the __OK__ button after the operation has completed.
+10. To restart Kafka, use the __Restart__ button and select __Restart All Affected__. Confirm the restart, and then use the __OK__ button after the operation is completed.
 
-    :::image type="content" source="./media/apache-kafka-azure-container-services/restart-required-button.png" alt-text="Restart button with restart all affected highlighted" border="true":::
+    :::image type="content" source="./media/apache-kafka-azure-container-services/restart-required-button.png" alt-text="Restart button with restart all affected highlighted." border="true":::
 
 11. To disable maintenance mode, use the __Service Actions__ button and select __Turn Off Maintenance Mode__. Select **OK** to complete this operation.
 
@@ -156,7 +156,7 @@ At this point, Kafka and Azure Kubernetes Service are in communication through t
     * `var topic = 'mytopic'`: Replace `mytopic` with the name of the Kafka topic used by this application.
     * `var brokerHost = '176.16.0.13:9092'`: Replace `176.16.0.13` with the internal IP address of one of the broker hosts for your cluster.
 
-        To find the internal IP address of the broker hosts (workernodes) in the cluster, see the [Apache Ambari REST API](../hdinsight-hadoop-manage-ambari-rest-api.md#get-the-internal-ip-address-of-cluster-nodes) document. Pick IP address of one of the entries where the domain name begins with `wn`.
+        To find the internal IP address of the broker hosts (worker nodes) in the cluster, see the [Apache Ambari REST API](../hdinsight-hadoop-manage-ambari-rest-api.md#get-the-internal-ip-address-of-cluster-nodes) document. Pick IP address of one of the entries where the domain name begins with `wn`.
 
 4. From a command line in the `src` directory, install dependencies and use Docker to build an image for deployment:
 
@@ -209,7 +209,7 @@ At this point, Kafka and Azure Kubernetes Service are in communication through t
 
 11. Open a web browser and enter the external IP address for the service. You arrive at a page similar to the following image:
 
-    :::image type="content" source="./media/apache-kafka-azure-container-services/test-web-page-image1.png" alt-text="Apache Kafka test web page image" border="true":::
+    :::image type="content" source="./media/apache-kafka-azure-container-services/test-web-page-image1.png" alt-text="Apache Kafka test web page image." border="true":::
 
 12. Enter text into the field and then select the __Send__ button. The data is sent to Kafka. Then the Kafka consumer in the application reads the message and adds it to the __Messages from Kafka__ section.
 

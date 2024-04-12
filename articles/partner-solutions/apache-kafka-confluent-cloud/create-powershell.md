@@ -1,16 +1,16 @@
 ---
-title: Create Apache Kafka for Confluent Cloud through Azure PowerShell
-description: This article describes how to use Azure PowerShell to create an instance of Apache Kafka for Confluent Cloud.
+title: Create Apache Kafka & Apache Flink on Confluent Cloud through Azure PowerShell
+description: This article describes how to use Azure PowerShell to create an instance of Apache Kafka & Apache Flink on Confluent Cloud.
+# customerIntent: As a developer I want create a new instance of Apache Kafka & Apache Flink on Confluent Cloud using Azure PowerShell.
 ms.topic: quickstart
-ms.date: 11/03/2021
-author: flang-msft
-ms.author: franlanglois
-ms.custom: devx-track-azurepowershell, mode-api
+ms.custom: devx-track-azurepowershell
+ms.date: 1/31/2024
+
 ---
 
-# QuickStart: Get started with Apache Kafka for Confluent Cloud - Azure PowerShell
+# QuickStart: Get started with Apache Kafka & Apache Flink on Confluent Cloud - Azure PowerShell
 
-In this quickstart, you'll use the Azure Marketplace and Azure PowerShell to create an instance of Apache Kafka for Confluent Cloud.
+In this quickstart, you'll use the Azure Marketplace and Azure PowerShell to create an instance of Apache Kafka® & Apache Flink® on Confluent Cloud™ - An Azure Native ISV Service.
 
 ## Prerequisites
 
@@ -19,7 +19,7 @@ In this quickstart, you'll use the Azure Marketplace and Azure PowerShell to cre
 
 ## Find offer
 
-Use the Azure portal to find the Apache Kafka for Confluent Cloud application.
+Use the Azure portal to find the Apache Kafka & Apache Flink on Confluent Cloud application.
 
 1. In a web browser, go to the [Azure portal](https://portal.azure.com/) and sign in.
 
@@ -29,7 +29,7 @@ Use the Azure portal to find the Apache Kafka for Confluent Cloud application.
 
 1. From the **Marketplace** page, you have two options based on the type of plan you want. You can sign up for a pay-as-you-go plan or commitment plan. Pay-as-you-go is publicly available. The commitment plan is available to customers who have been approved for a private offer.
 
-   - For **pay-as-you-go** customers, search for _Apache Kafka on Confluent Cloud_. Select the offer for Apache Kafka on Confluent Cloud.
+   - For **pay-as-you-go** customers, search for _Apache Kafka on Confluent Cloud_. Select the offer for Apache Kafka & Apache Flink on Confluent Cloud.
 
      :::image type="content" source="media/search-pay-as-you-go.png" alt-text="search Azure Marketplace offer.":::
 
@@ -37,13 +37,13 @@ Use the Azure portal to find the Apache Kafka for Confluent Cloud application.
 
      :::image type="content" source="media/view-private-offers.png" alt-text="view private offers.":::
 
-     Look for _Apache Kafka on Confluent Cloud_.
+     Look for _Apache Kafka & Apache Flink on Confluent Cloud_.
 
      :::image type="content" source="media/select-from-private-offers.png" alt-text="select private offer.":::
 
 ## Create resource
 
-After you've selected the offer for Apache Kafka on Confluent Cloud, you're ready to set up the application.
+After you've selected the offer for Apache Kafka & Apache Flink on Confluent Cloud, you're ready to set up the application.
 
 Start by preparing your environment for Azure PowerShell:
 
@@ -102,7 +102,7 @@ You can view the organization by name:
 Get-AzConfluentOrganization -Name myOrganization -ResourceGroupName myResourceGroup
 ```
 
-If you get an error, see [Troubleshooting Apache Kafka for Confluent Cloud solutions](troubleshoot.md).
+If you get an error, see [Troubleshooting Apache Kafka & Apache Flink on Confluent Cloud solutions](troubleshoot.md).
 
 ## Next steps
 

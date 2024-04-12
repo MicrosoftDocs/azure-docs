@@ -2,16 +2,14 @@
 title: 'Manage your environment using Azure Resource Manager templates - Azure Time Series Insights | Microsoft Docs'
 description: Learn how to manage your Azure Time Series Insights environment programmatically using Azure Resource Manager.
 ms.service: time-series-insights
-services: time-series-insights
 author: tedvilutis
 ms.author: tvilutis
 manager: cnovak
 ms.reviewer: orspodek
 ms.devlang: csharp
-ms.workload: big-data
 ms.topic: conceptual
 ms.date: 09/30/2020
-ms.custom: seodec18, devx-track-arm-template
+ms.custom: devx-track-arm-template
 ---
 
 # Create Azure Time Series Insights Gen 1 resources using Azure Resource Manager templates
@@ -82,8 +80,8 @@ The following procedure describes how to use PowerShell to deploy an Azure Resou
      | eventSourceDisplayName | An optional friendly name to show in tooling or user interfaces instead of the event source name. |
      | eventSourceTimestampPropertyName | The event property that will be used as the event source's timestamp. If a value isn't specified for timestampPropertyName, or if null or empty-string is specified, the event creation time will be used. |
      | eventSourceKeyName | The name of the shared access key that the Azure Time Series Insights service will use to connect to the event hub. |
-     | accessPolicyReaderObjectIds | A list of object IDs of the users or applications in Azure AD that should have Reader access to the environment. The service principal objectId can be obtained by calling the **Get-AzADUser** or the **Get-AzADServicePrincipal** cmdlets. Creating an access policy for Azure AD groups is not yet supported. |
-     | accessPolicyContributorObjectIds | A list of object IDs of the users or applications in Azure AD that should have Contributor access to the environment. The service principal objectId can be obtained by calling the **Get-AzADUser** or the **Get-AzADServicePrincipal** cmdlets. Creating an access policy for Azure AD groups is not yet supported. |
+     | accessPolicyReaderObjectIds | A list of object IDs of the users or applications in Microsoft Entra ID that should have Reader access to the environment. The service principal objectId can be obtained by calling the **Get-AzADUser** or the **Get-AzADServicePrincipal** cmdlets. Creating an access policy for Microsoft Entra groups is not yet supported. |
+     | accessPolicyContributorObjectIds | A list of object IDs of the users or applications in Microsoft Entra ID that should have Contributor access to the environment. The service principal objectId can be obtained by calling the **Get-AzADUser** or the **Get-AzADServicePrincipal** cmdlets. Creating an access policy for Microsoft Entra groups is not yet supported. |
 
    - As an example, the following parameters file would be used to create an environment and an event source that reads events from an existing event hub. It also creates two access policies that grant Contributor access to the environment.
 
@@ -245,11 +243,8 @@ The following procedure describes how to use PowerShell to deploy an Azure Resou
 1. Deploy the quickstart template through the Azure portal
 
    - The quickstart template's home page on GitHub also includes a **Deploy to Azure** button. Clicking it opens a Custom Deployment page in the Azure portal. From this page, you can enter or select values for each of the parameters from the [required parameters](#required-parameters) or [optional parameters](#optional-parameters) tables. After filling out the settings, clicking the **Purchase** button will initiate the template deployment.
-    </br>
-    </br>
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.timeseriesinsights%2Ftimeseriesinsights-environment-with-eventhub%2Fazuredeploy.json" target="_blank">
-       <img src="https://azuredeploy.net/deploybutton.png" alt="The Deploy to Azure button."/>
-    </a>
+  
+[![Deploy to Azure Button](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.timeseriesinsights%2Ftimeseriesinsights-environment-with-eventhub%2Fazuredeploy.json)
 
 ## Next steps
 

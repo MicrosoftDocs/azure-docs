@@ -5,7 +5,6 @@ ms.author: jonels
 author: jonels-msft
 ms.service: cosmos-db
 ms.subservice: postgresql
-ms.custom: ignite-2022
 ms.topic: how-to
 ms.date: 06/05/2023
 ---
@@ -38,7 +37,7 @@ queries.
 > [!NOTE]
 > To take advantage of newly added nodes you must [rebalance distributed table
 > shards](howto-scale-rebalance.md), which means moving some
-> [shards](concepts-distributed-data.md#shards) from existing nodes
+> [shards](concepts-nodes.md#shards) from existing nodes
 > to the new ones. Rebalancing can work in the background, and requires no
 > downtime.
 

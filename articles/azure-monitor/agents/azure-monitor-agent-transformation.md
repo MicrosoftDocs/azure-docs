@@ -42,8 +42,8 @@ To complete this procedure, you need:
     For information about the KQL operators that transformations support, see [Structure of transformation in Azure Monitor](../essentials/data-collection-transformations-structure.md#kql-limitations).
    
    > [!Note]
-   > The only columns that are available to apply transfroms against are TimeGenerated and RawData.  Other columns are added to the table automatically after the transformation and are not availiable at the time of transformation.
-   > The _ResourceId column can't be used in the trasnformation.
+   > The only columns that are available to apply transforms against are TimeGenerated and RawData.  Other columns are added to the table automatically after the transformation and are not available at the time of transformation.
+   > The _ResourceId column can't be used in the transformation.
 
     **Example**
     
@@ -61,7 +61,7 @@ To complete this procedure, you need:
     RawData 
     ```
     > [!NOTE]
-    > Information the user should notice even if skimmingQuerying table data in this way doesn't actually modify the data in the table. Azure Monitor applies the transformation in the [data ingestion pipeline](../essentials/data-collection-transformations.md#how-transformations-work) after you [add your transformation query to the data collection rule](#apply-the-transformation-to-your-data-collection-rule).
+    > Querying table data in this way doesn't actually modify the data in the table. Azure Monitor applies the transformation in the [data ingestion pipeline](../essentials/data-collection-transformations.md) after you [add your transformation query to the data collection rule](#apply-the-transformation-to-your-data-collection-rule).
 
 1. Format the query into a single line and replace the table name in the first line of the query with the word `source`.
     

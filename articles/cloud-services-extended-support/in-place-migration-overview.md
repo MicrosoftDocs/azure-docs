@@ -8,7 +8,6 @@ author: hirenshah1
 ms.author: hirshah
 ms.reviewer: mimckitt
 ms.date: 2/08/2021
-ms.custom: 
 ---
  
 # Migrate Azure Cloud Services (classic) to Azure Cloud Services (extended support)
@@ -24,7 +23,7 @@ The below table highlights comparison between these two options.
 
 | Redeploy | In-place migration | 
 |---|---|
-| Customers can deploy a new cloud service directly in Azure Resource Manager and then delete the old cloud service in Azure Service Manager thorough validation. | The in-place migration tool enables a seamless, platform orchestrated migration of existing Cloud Services (classic) deployments to Cloud Services (extended support). | 
+| Customers can deploy a new cloud service directly in Azure Resource Manager and then delete the old cloud service in Azure Service Manager after thorough validation. | The in-place migration tool enables a seamless, platform orchestrated migration of existing Cloud Services (classic) deployments to Cloud Services (extended support). | 
 | Redeploy allows customers to: <br><br> - Define resource names. <br><br> - Organize or reuse resources as preferred. <br><br> - Reuse service configuration and definition files with minimal changes. | For in-place migration, the platform: <br><br> - Defines resource names. <br><br> - Organizes each deployment and related resources in individual Resource Groups. <br><br> - Modifies existing configuration and definition file for Azure Resource Manager. | 
 | Customers need to orchestrate traffic to the new deployment. | Migration retains IP address and data path remains the same. | 
 | Customers need to delete the old cloud services in Azure Resource Manager. | Platform deletes the Cloud Services (classic) resources after migration. | 
@@ -128,7 +127,7 @@ These are top scenarios involving combinations of resources, features, and Cloud
 
 | Service |	Configuration | Comments | 
 |---|---|---|
-| [Azure AD Domain Services](../active-directory-domain-services/overview.md) | Virtual networks that contain Azure Active Directory Domain services. | Virtual network containing both Cloud Service deployment and Azure AD Domain services is supported. Customer first needs to separately migrate Azure AD Domain services and then migrate the virtual network left only with the Cloud Service deployment |
+| [Microsoft Entra Domain Services](../active-directory-domain-services/overview.md) | Virtual networks that contain Microsoft Entra Domain Services. | Virtual network containing both Cloud Service deployment and Microsoft Entra Domain Services is supported. Customer first needs to separately migrate Microsoft Entra Domain Services and then migrate the virtual network left only with the Cloud Service deployment |
 | Cloud Service | Cloud Service with a deployment in a single slot only. | Cloud Services containing a prod slot deployment can be migrated. It is not recommended to migrate staging slot as this can result in issues with retaining service FQDN. To migrate staging slot, first promote staging deployment to production and then migrate to ARM. |
 | Cloud Service | Deployment not in a publicly visible virtual network (default virtual network deployment) | A Cloud Service can be in a publicly visible virtual network, in a hidden virtual network or not in any virtual network.  Cloud Services in a hidden virtual network and publicly visible virtual networks are supported for migration. Customer can use the Validate API to tell if a deployment is inside a default virtual network or not and thus determine if it can be migrated. |
 |Cloud Service | XML extensions (BGInfo, Visual Studio Debugger, Web Deploy, and Remote Debugging). | All xml extensions are supported for migration 

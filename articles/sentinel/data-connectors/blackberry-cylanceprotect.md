@@ -76,7 +76,7 @@ Configure the facilities you want to collect and their severities.
 
 3. Configure and connect the CylancePROTECT
 
-[Follow these instructions](https://docs.blackberry.com/content/dam/docs-blackberry-com/release-pdfs/en/cylance-products/syslog-guides/Cylance%20Syslog%20Guide%20v2.0%20rev12.pdf) to configure the CylancePROTECT to forward syslog. Use the IP address or hostname for the Linux device with the Linux agent installed as the Destination IP address.
+ Use the IP address or hostname for the Linux device with the Linux agent installed as the Destination IP address.
 
 
 

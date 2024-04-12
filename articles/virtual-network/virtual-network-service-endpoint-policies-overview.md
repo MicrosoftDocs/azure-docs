@@ -79,7 +79,7 @@ Let's take a quick look at the Service Endpoint Policy object.
 
 - RA-GRS secondary access is automatically allowed if the primary account is listed.
 
-- Storage accounts can be in the same or a different subscription or Azure Active Directory tenant as the virtual network.
+- Storage accounts can be in the same or a different subscription or Microsoft Entra tenant as the virtual network.
 
 ## Scenarios
 
@@ -138,7 +138,7 @@ No centralized logging is available for service endpoint policies. For service r
 
 A user with write access to a virtual network configures service endpoint policies on subnets. Learn more about Azure [built-in roles](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) and assigning specific permissions to [custom roles](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
-Virtual networks and Azure Storage accounts can be in the same or different subscriptions, or Azure Active Directory tenants.
+Virtual networks and Azure Storage accounts can be in the same or different subscriptions, or Microsoft Entra tenants.
 
 ## Limitations
 
@@ -150,7 +150,7 @@ Virtual networks and Azure Storage accounts can be in the same or different subs
 
 - You can't use service endpoint policies for traffic from your on-premises network to Azure services.
 
-- Azure managed services other than Azure SQL Managed Instance don't currently support endpoint policies. This limitation includes managed services deployed into shared subnets (such as *Azure Batch, Azure AD DS, Azure Application Gateway, Azure VPN Gateway, Azure Firewall*) or into dedicated subnets (such as *Azure App Service Environment, Azure Redis Cache, Azure API Management, classic managed services*).
+- Azure managed services other than Azure SQL Managed Instance don't currently support endpoint policies. This limitation includes managed services deployed into shared subnets (such as *Azure Batch, Microsoft Entra Domain Services, Azure Application Gateway, Azure VPN Gateway, Azure Firewall*) or into dedicated subnets (such as *Azure App Service Environment, Azure Redis Cache, Azure API Management, classic managed services*).
 
  > [!WARNING]
  > Azure services deployed into your virtual network, such as Azure HDInsight, access other Azure services, such as Azure Storage, for infrastructure requirements. Restricting endpoint policy to specific resources could break access to these infrastructure resources for the Azure services deployed in your virtual network.

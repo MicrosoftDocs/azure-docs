@@ -1,16 +1,9 @@
 ---
 title: Get started with Azure Application Consistent Snapshot tool for Azure NetApp Files | Microsoft Docs
-description: Provides a guide for installing the Azure Application Consistent Snapshot tool that you can use with Azure NetApp Files. 
+description: Provides a guide for installing the Azure Application Consistent Snapshot tool that you can use with Azure NetApp Files.
 services: azure-netapp-files
-documentationcenter: ''
 author: Phil-Jensen
-manager: ''
-editor: ''
-
-ms.assetid:
 ms.service: azure-netapp-files
-ms.workload: storage
-ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.date: 03/03/2022
 ms.author: phjensen
@@ -166,7 +159,7 @@ The following guidance is provided to illustrate the usage of the snapshot tools
 
 - [What are the prerequisites for the storage snapshot](azacsnap-installation.md#prerequisites-for-installation)
   - [Enable communication with storage](azacsnap-installation.md#enable-communication-with-storage)
-  - [Enable communication with database](azacsnap-installation.md#enable-communication-with-database)
+  - [Enable communication with database](azacsnap-installation.md#enable-communication-with-the-database)
 - [How to take snapshots manually](azacsnap-tips.md#take-snapshots-manually)
 - [How to set up automatic snapshot backup](azacsnap-tips.md#setup-automatic-snapshot-backup)
 - [How to monitor the snapshots](azacsnap-tips.md#monitor-the-snapshots)
@@ -187,4 +180,3 @@ The following guidance is provided to illustrate the usage of the snapshot tools
 ## Next steps
 
 - [Install Azure Application Consistent Snapshot tool](azacsnap-installation.md)
-

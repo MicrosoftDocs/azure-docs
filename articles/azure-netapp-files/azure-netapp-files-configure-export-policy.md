@@ -5,15 +5,24 @@ services: azure-netapp-files
 author: b-hchen
 ms.author: anfdocs
 ms.service: azure-netapp-files
-ms.workload: storage
 ms.topic: how-to
 ms.date: 07/28/2021
 ---
 # Configure export policy for NFS or dual-protocol volumes
 
-You can configure export policy to control access to an Azure NetApp Files volume that uses the NFS protocol (NFSv3 and NFSv4.1) or the dual protocol (NFSv3 and SMB, or NFSv4.1 and SMB). 
+You can configure export policy to control access to an Azure NetApp Files volume that uses the NFS protocol (NFSv3 and NFSv4.1) or the dual protocol (NFSv3 and SMB, or NFSv4.1 and SMB).
 
 You can create up to five export policy rules.
+
+Once created, you can modify details of the export policy rule. The modifiable fields are: 
+
+-	IP address (For example, x.x.x.x)
+-	CIDR range (A subnet range; for example, 0.0.0.0/0)
+-	IP address comma separated list (For example, x.x.x.x, y.y.y.y)
+- Access level 
+- [Export policy rule order](network-attached-storage-permissions.md#export-policy-rule-ordering)
+
+Before modifying policy rules with NFS Kerberos enabled, see [Export policy rules with NFS Kerberos enabled](network-attached-storage-permissions.md#export-policy-rule-ordering).
 
 ## Configure the policy 
 
@@ -36,11 +45,11 @@ You can create up to five export policy rules.
 
     * **Read-only** and **Read/Write**: If you use Kerberos encryption with NFSv4.1, follow the instructions in [Configure NFSv4.1 Kerberos encryption](configure-kerberos-encryption.md).  For performance impact of Kerberos, see [Performance impact of Kerberos on NFSv4.1 volumes](performance-impact-kerberos.md). 
 
-      ![Kerberos security options](../media/azure-netapp-files/kerberos-security-options.png) 
+      ![Kerberos security options](./media/azure-netapp-files-configure-export-policy/kerberos-security-options.png) 
 
     * **Root Access**: Specify whether the `root` account can access the volume.  By default, Root Access is set to **On**, and the `root` account has access to the volume.  This option is not available for NFSv4.1 Kerberos volumes.
 
-      ![Export policy](../media/azure-netapp-files/azure-netapp-files-export-policy.png) 
+      ![Export policy](./media/azure-netapp-files-configure-export-policy/azure-netapp-files-export-policy.png) 
 
     * **Chown Mode**:	Modify the change ownership mode as needed to set the ownership management capabilities of files and directories.  Two options are available:   
 
@@ -49,9 +58,10 @@ You can create up to five export policy rules.
 
         Registration requirement and considerations apply for setting **`Chown Mode`**. Follow instructions in [Configure Unix permissions and change ownership mode](configure-unix-permissions-change-ownership-mode.md).  
 
-      ![Screenshot that shows the change ownership mode option.](../media/azure-netapp-files/chown-mode-export-policy.png) 
+      ![Screenshot that shows the change ownership mode option.](./media/azure-netapp-files-configure-export-policy/chown-mode-export-policy.png) 
 
 ## Next steps 
+* [Understand NAS permissions in Azure NetApp Files](network-attached-storage-permissions.md)
 * [Mount or unmount a volume](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)
 * [Configure Unix permissions and change ownership mode](configure-unix-permissions-change-ownership-mode.md) 
 * [Manage snapshots](azure-netapp-files-manage-snapshots.md)

@@ -10,6 +10,8 @@ ms.date: 06/24/2022
 
 # Understanding the changes in the Root CA change for Azure Database for MariaDB
 
+[!INCLUDE [azure-database-for-mariadb-deprecation](includes/azure-database-for-mariadb-deprecation.md)]
+
 Azure database for MariaDB as part of standard maintenance and security best practices will complete the root certificate change starting March 2023. This article gives you more details about the changes, the resources affected, and the steps needed to ensure that your application maintains connectivity to your database server.
 
 > [!NOTE]

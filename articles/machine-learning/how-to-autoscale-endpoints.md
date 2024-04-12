@@ -8,7 +8,7 @@ ms.topic: how-to
 author: dem108
 ms.author: sehan
 ms.reviewer: mopeakande
-ms.custom: devplatv2, cliv2, event-tier1-build-2022
+ms.custom: devplatv2, cliv2
 
 ms.date: 02/07/2023
 ---
@@ -256,15 +256,15 @@ rule_scale_in = ScaleRule(
         metric_resource_uri = deployment.id, 
         time_grain = datetime.timedelta(minutes = 1),
         statistic = "Average",
-        operator = "GreaterThan", 
+        operator = "LessThan", 
         time_aggregation = "Last",
         time_window = datetime.timedelta(minutes = 5), 
-        threshold = 70
+        threshold = 30
     ), 
     scale_action = ScaleAction(
         direction = "Increase", 
         type = "ChangeCount", 
-        value = 2, 
+        value = 1, 
         cooldown = datetime.timedelta(hours = 1)
     )
 )

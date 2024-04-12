@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: 
 ms.custom: synapse
 ms.topic: how-to
-ms.date: 07/17/2023
+ms.date: 01/05/2024
 ms.author: jburchel
 ---
 
@@ -192,7 +192,7 @@ Perf
 | summarize Value=max(CounterValue) by CounterName, TimeStamps=TimeGenerated
 ```
 
-## Next Steps
+## Related content
 
 - [Review integration runtime concepts in Azure Data Factory.](concepts-integration-runtime.md)
 - Learn how to [create a self-hosted integration runtime in the Azure portal.](create-self-hosted-integration-runtime.md)

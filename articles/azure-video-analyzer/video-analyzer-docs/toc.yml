@@ -3,7 +3,7 @@
 - name: Overview
   items:
   - name: About Video Indexer
-    href: ../../azure-video-indexer/video-indexer-overview.md
+    href: /azure/azure-video-indexer/video-indexer-overview
   - name: What's new
 - name: Quickstarts
   items:

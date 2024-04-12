@@ -2,7 +2,7 @@
 title: Resources without 800 count limit
 description: Lists the Azure resource types that can have more than 800 instances in a resource group.
 ms.topic: conceptual
-ms.date: 08/15/2023
+ms.date: 03/19/2024
 ---
 
 # Resources not limited to 800 instances per resource group
@@ -226,7 +226,7 @@ Some resources have a limit on the number instances per region. This limit is di
 ## Microsoft.Web
 
 * apiManagementAccounts/apis
-* certificates - By default, limited to 800 instances. That limit can be increased by [registering the following features](preview-features.md) - Microsoft.Web/DisableResourcesPerRGLimitForAPIMinWebApp 
+* certificates
 * sites
 
 ## Next steps

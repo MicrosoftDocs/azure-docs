@@ -80,7 +80,7 @@ For more information about backup and restore with Cross Region Restore, see the
 - [Cross Region Restore for Azure VMs](backup-azure-arm-restore-vms.md#cross-region-restore)
 - [Cross Region Restore for SQL Server databases](restore-sql-database-azure-vm.md#cross-region-restore)
 - [Cross Region Restore for SAP HANA databases](sap-hana-db-restore.md#cross-region-restore)
-- [Cross Region Restore for MARS (Preview)](about-restore-microsoft-azure-recovery-services.md#cross-region-restore-preview)
+- [Cross Region Restore for MARS (Preview)](about-restore-microsoft-azure-recovery-services.md#cross-region-restore)
 
 ## Set encryption settings
 
@@ -95,13 +95,13 @@ To configure your vault to encrypt with customer-managed keys:
 1. Enable soft delete and purge protection in Azure Key Vault.
 1. Assign the encryption key to the Recovery Services vault.
 
-You can find instructions for each of these steps in [this article](encryption-at-rest-with-cmk.md#configure-a-vault-to-encrypt-using-customer-managed-keys).
+You can find instructions for each of these steps in [this article](encryption-at-rest-with-cmk.md#configure-a-vault-to-encrypt-by-using-customer-managed-keys).
 
 ## Modify default settings
 
 We highly recommend that you review the default settings for storage replication type and security before you configure backups in the vault.
 
-By default, **Soft delete** is set to **Enabled** on newly created vaults to help protect backup data from accidental or malicious deletions. To review and modify the settings, [follow these steps](./backup-azure-security-feature-cloud.md#enabling-and-disabling-soft-delete).
+By default, **Soft delete** is set to **Enabled** on newly created vaults to help protect backup data from accidental or malicious deletions. To review and modify the settings, [follow these steps](./backup-azure-security-feature-cloud.md#enable-and-disable-soft-delete).
 
 Before you decide to move from GRS to LRS, review the trade-offs between lower cost and higher data durability that fit your scenario. If you must move from GRS to LRS after you configure backup, you have the following two choices. Your choice will depend on your business requirements to retain the backup data.
 
@@ -114,7 +114,7 @@ To help protect workloads in a new LRS vault, you need to delete the current pro
 
 To stop and delete current protection on the GRS vault:
 
-1. Follow [these steps](backup-azure-security-feature-cloud.md#disabling-soft-delete-using-azure-portal) to disable soft delete in the GRS vault's properties.
+1. Follow [these steps](backup-azure-security-feature-cloud.md?tabs=azure-portal#disable-soft-delete) to disable soft delete in the GRS vault's properties.
 
 1. Stop protection and delete backups from the existing GRS vault. On the vault dashboard menu, select **Backup Items**. If you need to move items that are listed here to the LRS vault, you must remove them and their backup data. See [Delete protected items in the cloud](backup-azure-delete-vault.md#delete-protected-items-in-the-cloud) and [Delete protected items on-premises](backup-azure-delete-vault.md#delete-protected-items-on-premises).
 

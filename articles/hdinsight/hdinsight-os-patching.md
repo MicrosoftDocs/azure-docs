@@ -3,8 +3,8 @@ title: Configure OS patching schedule for Azure HDInsight clusters
 description: Learn how to configure OS patching schedule for Linux-based HDInsight clusters.
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: hdinsightactive
-ms.date: 02/01/2023
+ms.custom: hdinsightactive, linux-related-content
+ms.date: 02/12/2024
 ---
 
 # Configure the OS patching schedule for Linux-based HDInsight clusters
@@ -21,14 +21,13 @@ HDInsight provides support for you to perform common tasks on your cluster such 
 > Script actions won't automatically apply updates for all future update cycles. Run the scripts each time new updates must be applied to install the updates, and then restart the VM.
 > 
 > If you are using a firewall for network restriction, the below URL needs to be in allow list. 
-> * http://security.ubuntu.com/ubuntu 
-> * https://hdiconfigactions.blob.core.windows.net
+> * http://security.ubuntu.com/ubuntu
 
 ## Preparation
 
 Patch on a representative non-production environment prior to  deploying to production. Develop a plan to adequately test your system prior to your actual patching.
 
-From time-to-time, from an ssh session with your cluster, you may receive a message that security updates are available. The message may looks something like:
+From time-to-time, from an ssh session with your cluster, you may receive a message that security updates are available. The message might look something like:
 
 ```
 89 packages can be updated.
@@ -44,7 +43,7 @@ Patching is optional and at your discretion.
 
 ## Restart nodes
   
-The script [schedule-reboots](https://hdiconfigactions.blob.core.windows.net/linuxospatchingrebootconfigv02/schedule-reboots.sh), sets the type of reboot that will be performed on the machines in the cluster. When submitting the script action, set it to apply on all three node types: head node, worker node, and zookeeper. If the script isn't applied to a node type, the VMs for that node type won't be updated or restarted.
+The script [schedule-reboots](https://hdiconfigactions.blob.core.windows.net/linuxospatchingrebootconfigv02/schedule-reboots.sh) sets the type of reboot that will be performed on the machines in the cluster. When submitting the script action, set it to apply on all three node types: head node, worker node, and zookeeper. If the script isn't applied to a node type, the VMs for that node type won't be updated or restarted.
 
 The `schedule-reboots script` accepts one numeric parameter:
 

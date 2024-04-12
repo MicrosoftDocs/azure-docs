@@ -3,7 +3,7 @@ title: Continuously update function app code using Azure Pipelines
 description: Learn how to set up an Azure DevOps pipeline that targets Azure Functions.
 author: juliakm
 ms.topic: conceptual
-ms.date: 05/15/2023
+ms.date: 03/23/2024
 ms.author: jukullam
 ms.custom: devx-track-csharp, devx-track-azurecli, devops-pipelines-deploy
 ms.devlang: azurecli
@@ -22,30 +22,32 @@ Choose your task version at the top of the article. YAML pipelines aren't availa
 
 ## Prerequisites
 
-* A GitHub account, where you can create a repository. If you don't have one, you can [create one for free](https://github.com).
-
 * An Azure DevOps organization. If you don't have one, you can [create one for free](/azure/devops/pipelines/get-started/pipelines-sign-up). If your team already has one, then make sure you're an administrator of the Azure DevOps project that you want to use.
 
 * An ability to run pipelines on Microsoft-hosted agents. You can either purchase a [parallel job](/azure/devops/pipelines/licensing/concurrent-jobs) or you can request a free tier. 
 
-* A function app with its code in a GitHub repository.  If you don't yet have an Azure Functions code project, you can create one by completing the following language-specific article:
-    # [C\#](#tab/csharp)
+* If you plan to use GitHub instead of Azure Repos, you also need a GitHub repository. If you don't have a GitHub account, you can [create one for free](https://github.com). 
+
+* An existing function app in Azure that has its source code in a supported repository. If you don't yet have an Azure Functions code project, you can create one by completing the following language-specific article:
+    ### [C\#](#tab/csharp)
 
     [Quickstart: Create a C# function in Azure using Visual Studio Code](create-first-function-vs-code-csharp.md)
 
-    # [JavaScript](#tab/javascript)
+    ### [JavaScript](#tab/javascript)
 
     [Quickstart: Create a JavaScript function in Azure using Visual Studio Code](create-first-function-vs-code-node.md)
 
-    # [Python](#tab/python)
+    ### [Python](#tab/python)
 
     [Quickstart: Create a function in Azure with Python using Visual Studio Code](create-first-function-vs-code-python.md)
 
-    # [PowerShell](#tab/powershell)
+    ### [PowerShell](#tab/powershell)
 
     [Quickstart: Create a PowerShell function in Azure using Visual Studio Code](create-first-function-vs-code-powershell.md)
 
     ---
+    
+    Remember to upload the local code project to your GitHub or Azure Repos respository after you publish it to your function app. 
 
 ::: zone pivot="v1"
 
@@ -54,11 +56,13 @@ Choose your task version at the top of the article. YAML pipelines aren't availa
 # [YAML](#tab/yaml)
 
 1. Sign in to your Azure DevOps organization and navigate to your project.
-1. In your project, navigate to the **Pipelines** page. Then choose the action to create a new pipeline.
-1. Walk through the steps of the wizard by first selecting **GitHub** as the location of your source code.
-1. You might be redirected to GitHub to sign in. If so, enter your GitHub credentials.
+1. In your project, navigate to the **Pipelines** page. Then select **New pipeline**.
+1. Select one of these options for **Where is your code?**:
+    + **GitHub**: You might be redirected to GitHub to sign in. If so, enter your GitHub credentials. When this is the first connection to GitHub, the wizard also walks you through the process of connecting DevOps to your GitHub accounts.
+    + **Azure Repos Git**: You are immediately able to choose a repository in your current DevOps project. 
 1. When the list of repositories appears, select your sample app repository.
-1. Azure Pipelines will analyze your repository and recommend a template. Select **Save and run**, then select **Commit directly to the main branch**, and then choose **Save and run** again.
+1. Azure Pipelines analyzes your repository and in **Configure your pipeline** provides a list of potential templates. Choose the appropriate **function app** template for your language. If you don't see the correct template select **Show more**.  
+1. Select **Save and run**, then select **Commit directly to the main branch**, and then choose **Save and run** again.
 1. A new run is started. Wait for the run to finish.
 
 # [Classic](#tab/classic)
@@ -149,16 +153,14 @@ steps:
 
 Use one of the following samples to create a YAML file to build an app for a specific Python version. Python is only supported for function apps running on Linux.
 
-**Version 3.7**
-
 ```yaml
 pool:
   vmImage: ubuntu-latest
 steps:
 - task: UsePythonVersion@0
-  displayName: "Setting Python version to 3.7 as required by functions"
+  displayName: "Set Python version to 3.9"
   inputs:
-    versionSpec: '3.7'
+    versionSpec: '3.9'
     architecture: 'x64'
 - bash: |
     if [ -f extensions.csproj ]
@@ -178,34 +180,7 @@ steps:
     artifactName: 'drop'
 ```
 
-**Version 3.6**
-
-```yaml
-pool:
-  vmImage: ubuntu-latest
-steps:
-- task: UsePythonVersion@0
-  displayName: "Setting Python version to 3.6 as required by functions"
-  inputs:
-    versionSpec: '3.6'
-    architecture: 'x64'
-- bash: |
-    if [ -f extensions.csproj ]
-    then
-        dotnet build extensions.csproj --output ./bin
-    fi
-    pip install --target="./.python_packages/lib/python3.6/site-packages" -r ./requirements.txt
-- task: ArchiveFiles@2
-  displayName: "Archive files"
-  inputs:
-    rootFolderOrFile: "$(System.DefaultWorkingDirectory)"
-    includeRootFolder: false
-    archiveFile: "$(System.DefaultWorkingDirectory)/build$(Build.BuildId).zip"
-- task: PublishBuildArtifacts@1
-  inputs:
-    PathtoPublish: '$(System.DefaultWorkingDirectory)/build$(Build.BuildId).zip'
-    artifactName: 'drop'
-```
+To learn about potential issues with these pipeline tasks, see [Functions not found after deployment](recover-python-functions.md#functions-not-found-after-deployment). 
 
 # [PowerShell](#tab/powershell)
 
@@ -471,16 +446,15 @@ steps:
 
 Use one of the following samples to create a YAML file to build an app for a specific Python version. Python is only supported for function apps running on Linux.
 
-**Version 3.7**
 
 ```yaml
 pool:
   vmImage: ubuntu-latest
 steps:
 - task: UsePythonVersion@0
-  displayName: "Setting Python version to 3.7 as required by functions"
+  displayName: "Set Python version to 3.9"
   inputs:
-    versionSpec: '3.7'
+    versionSpec: '3.9'
     architecture: 'x64'
 - bash: |
     if [ -f extensions.csproj ]
@@ -500,34 +474,8 @@ steps:
     artifactName: 'drop'
 ```
 
-**Version 3.6**
-
-```yaml
-pool:
-  vmImage: ubuntu-latest
-steps:
-- task: UsePythonVersion@0
-  displayName: "Setting Python version to 3.6 as required by functions"
-  inputs:
-    versionSpec: '3.6'
-    architecture: 'x64'
-- bash: |
-    if [ -f extensions.csproj ]
-    then
-        dotnet build extensions.csproj --output ./bin
-    fi
-    pip install --target="./.python_packages/lib/python3.6/site-packages" -r ./requirements.txt
-- task: ArchiveFiles@2
-  displayName: "Archive files"
-  inputs:
-    rootFolderOrFile: "$(System.DefaultWorkingDirectory)"
-    includeRootFolder: false
-    archiveFile: "$(System.DefaultWorkingDirectory)/build$(Build.BuildId).zip"
-- task: PublishBuildArtifacts@1
-  inputs:
-    PathtoPublish: '$(System.DefaultWorkingDirectory)/build$(Build.BuildId).zip'
-    artifactName: 'drop'
-```
+Please check the generated archive to ensure that the deployed file has the right format. 
+To learn about potential issues with these pipeline tasks, see [Functions not found after deployment](recover-python-functions.md#functions-not-found-after-deployment). 
 
 # [PowerShell](#tab/powershell)
 

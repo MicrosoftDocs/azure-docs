@@ -5,7 +5,7 @@ description: Azure Blob storage stores massive amounts of unstructured object da
 services: storage
 author: akashdubey-ms
 
-ms.service: azure-storage
+ms.service: azure-blob-storage
 ms.topic: overview
 ms.date: 11/04/2019
 ms.author: akashdubey

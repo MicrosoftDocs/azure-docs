@@ -22,6 +22,41 @@ The following resources are also available:
 - <a href="/azure/service-fabric/service-fabric-versions" target="blank">Supported Versions</a> 
 - <a href="https://azure.microsoft.com/resources/samples/?service=service-fabric&sort=0" target="blank">Code Samples</a>
 
+## Service Fabric 10.1
+
+We're excited to announce that the 10.1 release of the Service Fabric runtime has started rolling out to the various Azure regions along with tooling and SDK updates. The updates for .NET SDK, Java SDK, and Service Fabric runtimes can be downloaded from the links provided in Release Notes. The SDK, NuGet packages, and Maven repositories are available in all regions within 7-10 days.
+
+### Key announcements
+- Service Fabric runtime defines two client roles - Admin and Client. The Admin role is highly privileged, and undistinguishable from the runtime itself which can be problematic in shared clusters, where all tenants have Admin privileges and can perform unintended destructive operations on the services of another tenant. In this release we are introducing third client role - ElevatedAdmin, which, combined with properly configured Security/ClientAccess section of cluster manifest, can prevent the described scenario.
+- Service Fabric now emits a health event visible in SFX/SFE when Sessions are exhausted.
+- This allows the weight of InBuild Auxiliary replicas to be set when applied to InBuild throttling. A higher weight means that an InBuild Auxiliary replica will take up more of the InBuild limit, and likewise a lower weight would consume less of the limit, allowing more replicas to be placed InBuild before the limit is reached.
+
+### Service Fabric 10.1 releases
+| Release date | Release | More info |
+|---|---|---|
+| November 1, 2023 | Azure Service Fabric 10.1 Release  | [Release notes](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_101RTO.md) |
+| April 1, 2024 | Azure Service Fabric 10.1 Second Refresh Release | [Release notes](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_101CU2.md) |
+
+## Service Fabric 10.0
+
+We're excited to announce that the 10.0 release of the Service Fabric runtime has started rolling out to the various Azure regions along with tooling and SDK updates. The updates for .NET SDK, Java SDK, and Service Fabric runtimes can be downloaded from the links provided in Release Notes. The SDK, NuGet packages, and Maven repositories are available in all regions within 7-10 days.
+
+### Key announcements
+- Enhance Container image pruning.
+- Balancing of a cluster per node type.
+- Expose health check phase and timer for application and cluster upgrade.
+- Support ESE.dll version compatibility in the replica building process.
+- Enable Lease probes.
+- Extend the FabricClient constructor to include "SecurityCredentials" without "HostEndpoints".
+- Security audit of cluster management endpoint settings.
+
+### Service Fabric 10.0 releases
+| Release date | Release | More info |
+|---|---|---|
+| September 09, 2023 | Azure Service Fabric 10.0 Release  | [Release notes](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_10.md) |
+| November 1, 2023 | Azure Service Fabric 10.0 First Refresh Release  | [Release notes](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_100CU1.md) |
+| April 1, 2024 | Azure Service Fabric 10.1 Third Refresh Release | [Release notes](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_100CU3.md) |
+
 ## Service Fabric 9.1
 
 We're excited to announce that the 9.1 release of the Service Fabric runtime has started rolling out to the various Azure regions along with tooling and SDK updates. The updates for .NET SDK, Java SDK, and Service Fabric runtimes can be downloaded from the links provided in Release Notes. The SDK, NuGet packages, and Maven repositories are available in all regions within 7-10 days.
@@ -40,6 +75,10 @@ Instead, you should enable Automatic OS upgrades through Virtual Machine Scale S
 | March 1, 2023 | Azure Service Fabric 9.1 Second Refresh Release  | [Release notes](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_91CU2.md) |
 | April 6, 2023 | Azure Service Fabric 9.1 Third Refresh Release  | [Release notes](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_91CU3.md) |
 | May 15, 2023 | Azure Service Fabric 9.1 Fourth Refresh Release  | [Release notes](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_91CU4.md) |
+| June 19, 2023 | Azure Service Fabric 9.1 Fifth Refresh Release  | [Release notes](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_91CU5.md) |
+| August 30, 2023 | Azure Service Fabric 9.1 Sixth Refresh Release  | [Release notes](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_91CU6.md) |
+| November 1, 2023 | Azure Service Fabric 9.1 Seventh Refresh Release  | [Release notes](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_91CU7.md) |
+| April 1, 2024 | Azure Service Fabric 9.1 Ninth Refresh Release  | [Release notes](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_91CU9.md) |
 
 ## Service Fabric 9.0
 
@@ -81,6 +120,7 @@ We're excited to announce that 9.0 release of the Service Fabric runtime has sta
 | March 1, 2023 | Azure Service Fabric 9.0 Seventh Refresh Release  | [Release notes](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_90CU7.md) |
 | April 6, 2023 | Azure Service Fabric 9.0 Eighth Refresh Release  | [Release notes](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_90CU8.md) |
 | May 15, 2023 | Azure Service Fabric 9.0 Ninth Refresh Release  | [Release notes](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_90CU9.md) |
+| November 1, 2023 | Azure Service Fabric 9.0 Twelfth Refresh Release  | [Release notes](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_90CU12.md) |
 
 ## Service Fabric 8.2
 
@@ -214,8 +254,8 @@ We also have published updates to end of support date for major releases startin
 
 #### Improve application life cycle experience
 
-- **[Preview:Request drain](./service-fabric-application-upgrade-advanced.md#avoid-connection-drops-during-stateless-service-planned-downtime)**: During planned service maintenance, such as service upgrades or node deactivation, you would like to allow the  services to gracefully drain connections. This feature adds an instance close delay duration in the service configuration. During planned operations, SF removes the Service's address from discovery and then wait this duration before shutting down the service.
-- **[Automatic Subcluster Detection and Balancing](./cluster-resource-manager-subclustering.md)**: Subclustering happens when services with different placement constraints have a common [load metric](./service-fabric-cluster-resource-manager-metrics.md). If the load on the different sets of nodes differs significantly, the Service Fabric Cluster Resource Manager believes that the cluster is imbalanced, even when it has the best possible balance because of the placement constraints. As a result, it attempts to rebalance the cluster, potentially causing unnecessary service movements (since the "imbalance" can't be substantially improved). Starting with this release, the Cluster Resource Manager will now attempt to automatically detect these sorts of configurations and understand when the imbalance can be fixed through movement, and when instead it should leave things alone since no substantial improvement can be made.  
+- **[Preview:Request drain](./service-fabric-application-upgrade-advanced.md#avoid-connection-drops-during-stateless-service-planned-downtime)**: During planned service maintenance, such as service upgrades or node deactivation, you would like to allow the  services to gracefully drain connections. This feature adds an instance close delay duration in the service configuration. During planned operations, SF removes the Service's address from discovery and then waits this duration before shutting down the service.
+- **[Automatic Subcluster Detection and Balancing](./cluster-resource-manager-subclustering.md)**: Subclustering happens when services with different placement constraints have a common [load metric](./service-fabric-cluster-resource-manager-metrics.md). If the load on the different sets of nodes differs significantly, the Service Fabric Cluster Resource Manager believes that the cluster is imbalanced, even when it has the best possible balance because of the placement constraints. As a result, it attempts to rebalance the cluster, potentially causing unnecessary service movements (since the "imbalance" can't be substantially improved). The Cluster Resource Manager will now attempt to automatically detect these sorts of configurations and understand when the imbalance can be fixed through movement, and when instead it should leave things alone since no substantial improvement can be made.  
 - [**Different Move cost for secondary replicas**](./service-fabric-cluster-resource-manager-movement-cost.md): We have introduced new move cost value VeryHigh that provides more flexibility in some scenarios to define if a separate move cost should be used for secondary replicas.
 - Enabled [**Liveness Probe**](./probes-codepackage.md) mechanism for containerized applications. Liveness Probe help announce the liveness of the containerized application and when they don't respond in a timely fashion, it results in a restart.
 - [**Run to completion/once for services**](./run-to-completion.md)**
@@ -275,7 +315,7 @@ We will also update our planned release dates to indicate that we take this poli
 - Announcing availability of the [**ReliableCollectionsMissingTypesTool**](https://github.com/hiadusum/ReliableCollectionsMissingTypesTool): 
 This tool helps validate that types used in reliable collections are forward and backward compatible during a rolling application upgrade. This helps prevent upgrade failures or data loss and data corruption due to missing or incompatible types.
 
-- [**Enable stable reads on secondary replicas**](./service-fabric-reliable-services-configuration.md#configuration-names-1):Stable reads restrict secondary replicas to returning values which have been quorum-acked.
+- [**Enable stable reads on secondary replicas**](./service-fabric-reliable-services-configuration.md#configuration-names-1): Stable reads restrict secondary replicas to returning values which have been quorum-acked.
 
 In addition, this release contains other new features, bug fixes, and supportability, reliability, and performance improvements. For the full list of changes, please refer to the [release notes](https://github.com/Azure/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_70.md).
 

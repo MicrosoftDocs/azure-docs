@@ -98,10 +98,10 @@ It converts the definition to the following REST API operation, which is sent to
 
 ```HTTP
 PUT
-https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/mystorageaccount?api-version=2019-04-01
+https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/mystorageaccount?api-version=2022-09-01
 REQUEST BODY
 {
-  "location": "westus",
+  "location": "centralus",
   "sku": {
     "name": "Standard_LRS"
   },

@@ -7,10 +7,10 @@ ms.service: machine-learning
 ms.subservice: training
 ms.author: balapv
 author: balapv
-ms.reviewer: mopeakande
+ms.reviewer: sgilley
 ms.date: 11/04/2022
 ms.topic: how-to
-ms.custom: UpdateFrequency5, sdkv1, event-tier1-build-2022
+ms.custom: UpdateFrequency5, sdkv1
 #Customer intent: As a Python PyTorch developer, I need to combine open-source with a cloud platform to train, evaluate, and deploy my deep learning models at scale.
 ---
 
@@ -116,8 +116,6 @@ except ComputeTargetException:
 ```
 
 If you instead want to create a CPU cluster, provide a different VM size to the vm_size parameter, such as STANDARD_D2_V2.
-
-[!INCLUDE [low-pri-note](../includes/machine-learning-low-pri-vm.md)]
 
 For more information on compute targets, see the [what is a compute target](../concept-compute-target.md) article.
 

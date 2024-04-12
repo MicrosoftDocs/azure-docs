@@ -10,7 +10,7 @@ ms.reviewer: ofmanor
 
 # Sample alert payloads
 
-The common alert schema standardizes the consumption experience for alert notifications in Azure. Historically, activity log, metric, and log alerts each had their own email templates and webhook schemas. The common alert schema provides one standardized schema for all alert notifications. 
+The common alert schema standardizes the consumption experience for alert notifications in Azure. Historically, activity log, metric, and log search alerts each had their own email templates and webhook schemas. The common alert schema provides one standardized schema for all alert notifications. 
 
 A standardized schema can help you minimize the number of integrations, which simplifies the process of managing and maintaining your integrations.
 
@@ -173,14 +173,14 @@ The following are sample metric alert payloads.
 }
 ```
 
-## Sample log alerts
+## Sample log search alerts
 
 > [!NOTE]
-> When you enable the common schema, the fields in the payload are reset to the common schema fields. Therefore, log alerts have these limitations regarding the common schema:
-> - The common schema is not supported for log alerts using webhooks with a custom email subject and/or JSON payload, since the common schema overwrites the custom configurations.
-> - Alerts using the common schema have an upper size limit of 256 KB per alert. If the log alerts payload includes search results that cause the alert to exceed the maximum size, the search results aren't embedded in the log alerts payload. You can check if the payload includes the search results with the `IncludedSearchResults` flag. Use `LinkToFilteredSearchResultsAPI` or `LinkToSearchResultsAPI` to access query results with the [Log Analytics API](/rest/api/loganalytics/dataaccess/query/get) if the search results are not included.
+> When you enable the common schema, the fields in the payload are reset to the common schema fields. Therefore, log search alerts have these limitations regarding the common schema:
+> - The common schema is not supported for log search alerts using webhooks with a custom email subject and/or JSON payload, since the common schema overwrites the custom configurations.
+> - Alerts using the common schema have an upper size limit of 256 KB per alert. If the log search alerts payload includes search results that cause the alert to exceed the maximum size, the search results aren't embedded in the log search alerts payload. You can check if the payload includes the search results with the `IncludedSearchResults` flag. Use `LinkToFilteredSearchResultsAPI` or `LinkToSearchResultsAPI` to access query results with the [Log Analytics API](/rest/api/loganalytics/dataaccess/query/get) if the search results are not included.
 
-### Log alert with monitoringService = Platform
+### Log search alert with monitoringService = Platform
 
 ```json
 {
@@ -254,7 +254,7 @@ The following are sample metric alert payloads.
   }
 }
 ```
-### Log alert with monitoringService = Application Insights
+### Log search alert with monitoringService = Application Insights
 
 ```json
 {
@@ -325,10 +325,10 @@ The following are sample metric alert payloads.
 }
 ```
 
-### Log alert with monitoringService = Log Alerts V2
+### Log search alert with monitoringService = Log Alerts V2
 
 > [!NOTE]
-> Log alert rules from API version 2020-05-01 use this payload type, which only supports common schema. Search results aren't embedded in the log alerts payload when you use this version. Use [dimensions](./alerts-unified-log.md#split-by-alert-dimensions) to provide context to fired alerts. You can also use `LinkToFilteredSearchResultsAPI` or `LinkToSearchResultsAPI` to access query results with the [Log Analytics API](/rest/api/loganalytics/dataaccess/query/get). If you must embed the results, use a logic app with the provided links to generate a custom payload.
+> Log search alert rules from API version 2020-05-01 use this payload type, which only supports common schema. Search results aren't embedded in the log search alerts payload when you use this version. Use [dimensions](./alerts-types.md#monitor-the-same-condition-on-multiple-resources-using-splitting-by-dimensions-1) to provide context to fired alerts. You can also use `LinkToFilteredSearchResultsAPI` or `LinkToSearchResultsAPI` to access query results with the [Log Analytics API](/rest/api/loganalytics/dataaccess/query/get). If you must embed the results, use a logic app with the provided links to generate a custom payload.
 
 ```json
 {
@@ -772,9 +772,9 @@ The following are sample metric alert payloads.
 }
 ```
 
-### Sample test action log alerts
+### Sample test action log search alerts
 
-#### Test action log alert V1 – Metric
+#### Test action log search alert V1 – Metric
 
 ```json
 {
@@ -864,7 +864,7 @@ The following are sample metric alert payloads.
 }
 ```
 
-#### Test action log alert V1 - Numresults
+#### Test action log search alert V1 - Numresults
 
 ```json
 {
@@ -952,10 +952,10 @@ The following are sample metric alert payloads.
 }
 ```
 
-#### Test action log alert V2
+#### Test action log search alert V2
 
 > [!NOTE]
-> Log alerts rules from API version 2020-05-01 use this payload type, which only supports common schema. Search results aren't embedded in the log alerts payload when you use this version. Use [dimensions](./alerts-unified-log.md#split-by-alert-dimensions) to provide context to fired alerts.
+> Log search alerts rules from API version 2020-05-01 use this payload type, which only supports common schema. Search results aren't embedded in the log search alerts payload when you use this version. Use [dimensions](./alerts-types.md#monitor-the-same-condition-on-multiple-resources-using-splitting-by-dimensions-1) to provide context to fired alerts.
 
 You can also use `LinkToFilteredSearchResultsAPI` or `LinkToSearchResultsAPI` to access query results with the [Log Analytics API](/rest/api/loganalytics/dataaccess/query/get). If you must embed the results, use a logic app with the provided links to generate a custom payload.
 
@@ -1097,7 +1097,7 @@ You can also use `LinkToFilteredSearchResultsAPI` or `LinkToSearchResultsAPI` to
             "/subscriptions/11111111-1111-1111-1111-111111111111"
          ],
          "originAlertId":"12345678-1234-1234-1234-1234567890ab",
-         "firedDateTime":"2021-11-17T05:34:48.0623172",
+         "firedDateTime":"2021-11-17T05:34:48.0623172Z",
          "description":"Alert rule description",
          "essentialsVersion":"1.0",
          "alertContextVersion":"1.0"

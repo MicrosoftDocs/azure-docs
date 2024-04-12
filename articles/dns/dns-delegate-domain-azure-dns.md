@@ -5,7 +5,7 @@ services: dns
 author: greg-lindsay
 ms.service: dns
 ms.topic: tutorial
-ms.date: 09/27/2022
+ms.date: 11/30/2023
 ms.author: greglin
 ms.custom: template-tutorial
 #Customer intent: As an experienced network administrator, I want to configure Azure DNS, so I can host DNS zones.

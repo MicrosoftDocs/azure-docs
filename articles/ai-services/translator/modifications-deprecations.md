@@ -1,12 +1,11 @@
 ---
 title: Modifications to Translator Service
 description: Translator Service changes, modifications, and deprecations
-services: cognitive-services
+#services: cognitive-services
 author: laujan
 manager: nitinme
-ms.service: cognitive-services
+ms.service: azure-ai-translator
 ms.topic: reference
-ms.subservice: translator-text
 ms.date: 07/18/2023
 ms.author: lajanuar
 ---

@@ -80,7 +80,7 @@ Most storage browsing tools enable you to view the metadata of blobs; you can al
      $_.ICloudBlob.Metadata.LogType -match 'write'  
  } |  
  ForEach-Object {  
-     "{0}  {1}  {2}  {3}" –f $_.Name,   
+     "{0}  {1}  {2}  {3}" -f $_.Name,   
      $_.ICloudBlob.Metadata.StartTime,   
      $_.ICloudBlob.Metadata.EndTime,   
      $_.ICloudBlob.Metadata.LogType  

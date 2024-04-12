@@ -19,7 +19,6 @@ The [Crowdstrike](https://www.crowdstrike.com/) Falcon Data Replicator connector
 | **Application settings** | AWS_KEY<br/>AWS_SECRET<br/>AWS_REGION_NAME<br/>QUEUE_URL<br/>WorkspaceID<br/>WorkspaceKey<br/>logAnalyticsUri (optional) |
 | **Azure function app code** | https://aka.ms/sentinel-CrowdstrikeReplicator-functionapp |
 | **Kusto function alias** | CrowdstrikeReplicator |
-| **Kusto function url** | https://aka.ms/sentinel-crowdstrikereplicator-parser |
 | **Log Analytics table(s)** | CrowdstrikeReplicatorLogs_CL<br/> |
 | **Data collection rules support** | Not currently supported |
 | **Supported by** | [Microsoft Corporation](https://support.microsoft.com) |
@@ -54,7 +53,7 @@ To integrate with Crowdstrike Falcon Data Replicator (using Azure Functions) mak
 
 
 > [!NOTE]
-   >  This data connector depends on a parser based on a Kusto Function to work as expected. [Follow these steps](https://aka.ms/sentinel-crowdstrikereplicator-parser) to create the Kusto functions alias, **CrowdstrikeReplicator**.
+   >  This data connector depends on a parser based on a Kusto Function to work as expected.
 
 
 **STEP 1 - Contact CrowdStrike support to obtain the credentials and Queue URL.**

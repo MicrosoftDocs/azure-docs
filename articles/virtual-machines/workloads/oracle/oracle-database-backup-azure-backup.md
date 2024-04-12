@@ -4,19 +4,19 @@ description: Learn how to back up and recover an Oracle Database instance by usi
 author: cro27
 ms.service: virtual-machines
 ms.subservice: oracle
-ms.custom: devx-track-azurecli, devx-track-linux
+ms.custom: devx-track-azurecli, linux-related-content
 ms.collection: linux
 ms.topic: article
 ms.date: 01/28/2021
 ms.author: cholse
-ms.reviewer: jjaygbay1 
+ms.reviewer: jjaygbay1
 ---
 
 # Back up and recover Oracle Database on an Azure Linux VM by using Azure Backup
 
 **Applies to:** :heavy_check_mark: Linux VMs
 
-This article demonstrates the use of Azure Backup to take disk snapshots of virtual machine (VM) disks, which include the Oracle Database files and the Oracle fast recovery area. By using Azure Backup, you can take full disk snapshots that are suitable as backups and are stored in a [Recovery Services vault](../../../backup/backup-azure-recovery-services-vault-overview.md).  
+This article demonstrates the use of Azure Backup to take disk snapshots of virtual machine (VM) disks, which include the Oracle Database files and the Oracle fast recovery area. By using Azure Backup, you can take full disk snapshots that are suitable as backups and are stored in a [Recovery Services vault](../../../backup/backup-azure-recovery-services-vault-overview.md).
 
 Azure Backup also provides application-consistent backups, which ensure that more fixes aren't required to restore the data. Application-consistent backups work with both file system and Oracle Automatic Storage Management (ASM) databases.
 
@@ -30,7 +30,7 @@ This article walks you through the following tasks:
 > * Restore and recover the database from a recovery point.
 > * Restore the VM from a recovery point.
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 * To perform the backup and recovery process, you must first create a Linux VM that has an installed instance of Oracle Database 12.1 or later.
 
@@ -68,7 +68,7 @@ To prepare the environment, complete these steps:
 
 The Oracle Database instance's archived redo log files play a crucial role in database recovery. They store the committed transactions needed to roll forward from a database snapshot taken in the past.
 
-When the database is in `ARCHIVELOG` mode, it archives the contents of online redo log files when they become full and switch. Together with a backup, they're required to achieve point-in-time recovery when the database is lost.  
+When the database is in `ARCHIVELOG` mode, it archives the contents of online redo log files when they become full and switch. Together with a backup, they're required to achieve point-in-time recovery when the database is lost.
 
 Oracle provides the capability to archive redo log files to different locations. The industry best practice is that at least one of those destinations should be on remote storage, so it's separate from the host storage and protected with independent snapshots. Azure Files meets those requirements.
 
@@ -267,7 +267,7 @@ During Oracle installation, we recommend that you use `backupdba` as the OS grou
 1. Create a new backup user named `azbackup` that belongs to the OS group that you verified or created in the previous steps. Substitute `<group name>` with the name of the verified group. The user is also added to the `oinstall` group to enable it to open ASM disks.
 
    ```bash
-   sudo useradd -g <group name> -G oinstall azbackup 
+   sudo useradd -g <group name> -G oinstall azbackup
    ```
 
 1. Set up external authentication for the new backup user.
@@ -335,7 +335,7 @@ During Oracle installation, we recommend that you use `backupdba` as the OS grou
    SQL> QUIT
    ```
 
-### Set up application-consistent backups  
+### Set up application-consistent backups
 
 1. Switch to the root user:
 
@@ -442,7 +442,7 @@ During Oracle installation, we recommend that you use `backupdba` as the OS grou
       --vault-name myVault \
       --backup-management-type AzureIaasVM \
       --container-name vmoracle19c \
-      --item-name vmoracle19c 
+      --item-name vmoracle19c
    ```
 
 1. Monitor the progress of the backup job by using `az backup job list` and `az backup job show`.
@@ -639,7 +639,7 @@ To set up your storage account and file share, run the following commands:
    * The blob container name, at the end of `Config Blob Container Name`. In this example, it's `vmoracle19c-75aefd4b34c64dd39fdcd3db579783f2`.
    * The template name, at the end of `Template Blob Uri`. In this example, it's `azuredeployc009747a-0d2e-4ac9-9632-f695bf874693.json`.
 
-1. Use the values from the preceding step in the following command to assign variables in preparation for creating the VM. A shared access signature (SAS) key is generated for the storage container with a 30-minute duration.  
+1. Use the values from the preceding step in the following command to assign variables in preparation for creating the VM. A shared access signature (SAS) key is generated for the storage container with a 30-minute duration.
 
    ```azurecli
    expiretime=$(date -u -d "30 minutes" '+%Y-%m-%dT%H:%MZ')
@@ -740,7 +740,7 @@ After the VM is restored, you should reassign the original IP address to the new
    ```azurecli
    az vm nic remove --nics vmoracle19cRestoredNICc2e8a8a4fc3f47259719d5523cd32dcf --resource-group rg-oracle --vm-name vmoracle19c
    ```
-  
+
 1. Start the VM:
 
    ```azurecli

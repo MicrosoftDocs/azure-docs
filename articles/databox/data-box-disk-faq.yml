@@ -3,13 +3,13 @@ metadata:
   title: Microsoft Azure Data Box Disk FAQ | Microsoft Docs in data
   description: Contains frequently asked questions and answers for Azure Data Box Disk, a cloud solution that enables you to transfer large amounts of data into Azure
   services: databox
-  author: alkohli
+  author: stevenmatthew
   
   ms.service: databox
   ms.subservice: disk
   ms.topic: faq
   ms.date: 05/06/2022
-  ms.author: alkohli
+  ms.author: shaas
   ms.custom: references_regions
 title: "Azure Data Box Disk: Frequently Asked Questions"
 summary: |

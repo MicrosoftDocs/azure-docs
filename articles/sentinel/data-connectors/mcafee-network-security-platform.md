@@ -10,7 +10,7 @@ ms.author: cwatson
 
 # McAfee Network Security Platform connector for Microsoft Sentinel
 
-The [McAfee® Network Security Platform](https://www.mcafee.com/enterprise/en-us/products/network-security-platform.html) data connector provides the capability to ingest [McAfee® Network Security Platform events](https://docs.mcafee.com/bundle/network-security-platform-10.1.x-integration-guide-unmanaged/page/GUID-8C706BE9-6AC9-4641-8A53-8910B51207D8.html) into Microsoft Sentinel. Refer to [McAfee® Network Security Platform](https://docs.mcafee.com/bundle/network-security-platform-10.1.x-integration-guide-unmanaged/page/GUID-F7D281EC-1CC9-4962-A7A3-5A9D9584670E.html) for more information.
+The [McAfee® Network Security Platform](https://www.mcafee.com/enterprise/en-us/products/network-security-platform.html) data connector provides the capability to ingest McAfee® Network Security Platform events into Microsoft Sentinel.
 
 ## Connector attributes
 
@@ -44,9 +44,7 @@ The [McAfee® Network Security Platform](https://www.mcafee.com/enterprise/en-us
 
    Follow the configuration steps below to get McAfee® Network Security Platform logs into Microsoft Sentinel.
    
-   1. [Follow these instructions](https://docs.mcafee.com/bundle/network-security-platform-10.1.x-product-guide/page/GUID-E4A687B0-FAFB-4170-AC94-1D968A10380F.html) to forward alerts from the Manager to a syslog server.
-
-   2. Add a syslog notification profile, [more details here](https://docs.mcafee.com/bundle/network-security-platform-10.1.x-product-guide/page/GUID-5BADD5D7-21AE-4E3B-AEE2-A079F3FD6A38.html). This is mandatory. While creating a profile, to make sure that events are formatted correctly, enter the following text in the Message text box:
+   1. While creating a profile, to make sure that events are formatted correctly, enter the following text in the Message text box:
    
       ```text
       <SyslogAlertForwarderNSP>:|SENSOR_ALERT_UUID|ALERT_TYPE|ATTACK_TIME|ATTACK_NAME|ATTACK_ID

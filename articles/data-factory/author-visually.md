@@ -8,7 +8,7 @@ ms.custom: synapse
 ms.topic: conceptual
 author: nabhishek
 ms.author: abnarain
-ms.date: 10/25/2022
+ms.date: 10/20/2023
 ---
 
 # Visual authoring in Azure Data Factory
@@ -89,6 +89,6 @@ Select **Feedback** to comment about features or to notify Microsoft about issue
 
 :::image type="content" source="media/author-visually/provide-feedback.png" alt-text="Feedback":::
 
-## Next steps
+## Related content
 
 To learn more about monitoring and managing pipelines, see [Monitor and manage pipelines programmatically](monitor-programmatically.md).

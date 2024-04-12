@@ -123,7 +123,7 @@ Then, open the *pom.xml* file in a text editor and add a `<dependency>` for `spr
 <dependency>
     <groupId>com.azure.spring</groupId>
     <artifactId>spring-cloud-azure-appconfiguration-config-web</artifactId>
-    <version>5.4.0</version>
+    <version>5.8.0</version>
 </dependency>
 ```
 
@@ -133,7 +133,7 @@ Then, open the *pom.xml* file in a text editor and add a `<dependency>` for `spr
 <dependency>
     <groupId>com.azure.spring</groupId>
     <artifactId>spring-cloud-azure-appconfiguration-config-web</artifactId>
-    <version>4.10.0</version>
+    <version>4.14.0</version>
 </dependency>
 ```
 

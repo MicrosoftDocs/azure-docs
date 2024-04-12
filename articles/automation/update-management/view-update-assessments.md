@@ -9,6 +9,9 @@ ms.topic: conceptual
 
 # View update assessments in Update Management
 
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
+
 In Update Management, you can view information about your machines, missing updates, update deployments, and scheduled update deployments. You can view the assessment information scoped to the selected Azure virtual machine, from the selected Azure Arc-enabled server, or from the Automation account across all configured machines and servers.
 
 ## View update assessment
@@ -25,7 +28,7 @@ In Update Management, you can view information about your machine, missing updat
 To view update assessment from an Azure Arc-enabled server:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Navigate to **Servers - Azure Arc** and select your server from the list. From the left menu, under **Operation**, select **Guest + host updates** and select **Go to Updates using Update management center**.
+1. Navigate to **Servers - Azure Arc** and select your server from the list. From the left menu, under **Operation**, select **Guest + host updates** and select **Go to Updates using Update Manager**.
 
 In Update Management, you can view information about your Azure Arc-enabled machine, total updates, assess updates, scheduled update deployments, and so on.
 

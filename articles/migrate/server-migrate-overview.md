@@ -25,7 +25,7 @@ Use these selected comparisons to help you decide which method to use. You can a
 
 **Setting** | **Agentless** | **Agent-based**
 --- | --- | ---
-**Azure permissions** | You need permissions to create an Azure Migrate project, and to register Azure AD apps created when you deploy the Azure Migrate appliance. | You need Contributor permissions on the Azure subscription. 
+**Azure permissions** | You need permissions to create an Azure Migrate project, and to register Microsoft Entra apps created when you deploy the Azure Migrate appliance. | You need Contributor permissions on the Azure subscription. 
 **Replication** | You can simultaneously replicate a maximum of 500 VMs across multiple vCenter Servers (discovered from one appliance) using a scale-out appliance. In the portal, you can select up to 10 machines at once for replication. To replicate more machines, add in batches of 10.| Replication capacity increases by scaling the replication appliance.
 **Appliance deployment** | The [Azure Migrate appliance](migrate-appliance.md) is deployed on-premises. | The [Azure Migrate Replication appliance](migrate-replication-appliance.md) is deployed on-premises.
 **Site Recovery compatibility** | Compatible. | You can't replicate with the Migration and modernization tool if you've set up replication for a machine using Site Recovery.
@@ -56,6 +56,3 @@ After reviewing the limitations, understanding the steps involved in deploying e
 ## Next steps
 
 [Migrate VMware VMs](tutorial-migrate-vmware.md) with agentless migration.
-
-
-

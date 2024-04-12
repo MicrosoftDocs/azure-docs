@@ -2,13 +2,11 @@
 title: 'Send Custom Commands activity to client application'                           
 titleSuffix: Azure AI services
 description: In this article, you learn how to send activity from a Custom Commands application to a client application running the Speech SDK.
-services: cognitive-services
 author: eric-urban
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: how-to
-ms.date: 06/18/2020
+ms.date: 1/18/2024
 ms.author: eur
 ms.devlang: csharp
 ms.custom: cogserv-non-critical-speech
@@ -103,7 +101,7 @@ using Windows.UI.Core;
 
 ### Handle the received payload
 
-In `InitializeDialogServiceConnector`, replace the `ActivityReceived` event handler with following code. The modified `ActivityReceived` event handler will extract the payload from the activity and change the visual state of the tv or fan respectively.
+In `InitializeDialogServiceConnector`, replace the `ActivityReceived` event handler with following code. The modified `ActivityReceived` event handler extracts the payload from the activity and change the visual state of the tv or fan respectively.
 
 ```C#
 connector.ActivityReceived += async (sender, activityReceivedEventArgs) =>

@@ -6,16 +6,13 @@ summary: Azure Cosmos DB for Apache Cassandra accounts provides support for stor
 metadata:
   title: Azure Cosmos DB for Apache Cassandra documentation
   description: Azure Cosmos DB for Apache Cassandra accounts provides support for storing data for apps written for Apache Cassandra.
-  services: cosmos-db
   author: seesharprun
   ms.author: sidandrews
   ms.reviewer: markjbrown
   ms.service: cosmos-db
   ms.subservice: apache-cassandra
   ms.topic: landing-page
-  ms.collection: collection
-  ms.date: 02/28/2023
-  ms.custom: ignite-2022
+  ms.date: 02/21/2024
 landingContent:
   - title: About API for Cassandra
     linkLists:
@@ -85,5 +82,5 @@ landingContent:
         links:
           - text: Migrate from PostgreSQL using Apache Kafka
             url: postgres-migrate-cosmos-db-kafka.md
-          - text: Migrate from Oracle DB to API for Striim
+          - text: Migrate from Oracle Database to API for Striim
             url: migrate-data-striim.md

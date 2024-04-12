@@ -1,8 +1,7 @@
 ---
 author: chschrae
 manager: travisw
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.date: 11/15/2021
 ms.topic: include
 ms.author: chschrae

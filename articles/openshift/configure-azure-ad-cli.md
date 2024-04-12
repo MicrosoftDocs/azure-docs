@@ -1,6 +1,6 @@
 ---
-title: Azure Red Hat OpenShift running OpenShift 4  - Configure Azure Active Directory authentication using the command line
-description: Learn how to configure Azure Active Directory authentication for an Azure Red Hat OpenShift cluster running OpenShift 4 using the command line
+title: Azure Red Hat OpenShift running OpenShift 4  - Configure Microsoft Entra authentication using the command line
+description: Learn how to configure Microsoft Entra authentication for an Azure Red Hat OpenShift cluster running OpenShift 4 using the command line
 ms.service: azure-redhat-openshift
 ms.topic: article
 ms.date: 03/12/2020
@@ -8,14 +8,14 @@ author: sabbour
 ms.author: asabbour
 keywords: aro, openshift, az aro, red hat, cli
 ms.custom: mvc, devx-track-azurecli
-#Customer intent: As an operator, I need to configure Azure Active Directory authentication for an Azure Red Hat OpenShift cluster running OpenShift 4
+#Customer intent: As an operator, I need to configure Microsoft Entra authentication for an Azure Red Hat OpenShift cluster running OpenShift 4
 ---
 
-# Configure Azure Active Directory authentication for an Azure Red Hat OpenShift 4 cluster (CLI)
+# Configure Microsoft Entra authentication for an Azure Red Hat OpenShift 4 cluster (CLI)
 
 If you choose to install and use the CLI locally, this article requires that you are running the Azure CLI version 2.30.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
 
-Retrieve your cluster-specific URLs that are going to be used to configure the Azure Active Directory application.
+Retrieve your cluster-specific URLs that are going to be used to configure the Microsoft Entra application.
 
 Set the variables for resource group and cluster name.
 
@@ -56,7 +56,9 @@ The format of the oauthCallbackURL is slightly different with custom domains:
 > [!NOTE]
 > The `AAD` section in the OAuth callback URL should match the OAuth identity provider name you'll setup later.
 
-## Create an Azure Active Directory application for authentication
+<a name='create-an-azure-active-directory-application-for-authentication'></a>
+
+## Create a Microsoft Entra application for authentication
 
 Replace **\<client_secret>** with a secure password for the application.
 
@@ -64,7 +66,7 @@ Replace **\<client_secret>** with a secure password for the application.
 client_secret=<client_secret>
 ```
 
-Create an Azure Active Directory application and retrieve the created application identifier.
+Create a Microsoft Entra application and retrieve the created application identifier.
 
 ```azurecli-interactive
 app_id=$(az ad app create \
@@ -82,17 +84,17 @@ tenant_id=$(az account show --query tenantId -o tsv)
 
 ## Create a manifest file to define the optional claims to include in the ID Token
 
-Application developers can use [optional claims](../active-directory/develop/active-directory-optional-claims.md) in their Azure AD applications to specify which claims they want in tokens sent to their application.
+Application developers can use [optional claims](../active-directory/develop/active-directory-optional-claims.md) in their Microsoft Entra applications to specify which claims they want in tokens sent to their application.
 
 You can use optional claims to:
 
 - Select additional claims to include in tokens for your application.
-- Change the behavior of certain claims that Azure AD returns in tokens.
+- Change the behavior of certain claims that Microsoft Entra ID returns in tokens.
 - Add and access custom claims for your application.
 
-We'll configure OpenShift to use the `email` claim and fall back to `upn` to set the Preferred Username by adding the `upn` as part of the ID token returned by Azure Active Directory.
+We'll configure OpenShift to use the `email` claim and fall back to `upn` to set the Preferred Username by adding the `upn` as part of the ID token returned by Microsoft Entra ID.
 
-Create a **manifest.json** file to configure the Azure Active Directory application.
+Create a **manifest.json** file to configure the Microsoft Entra application.
 
 ```bash
 cat > manifest.json<< EOF
@@ -111,7 +113,9 @@ cat > manifest.json<< EOF
 EOF
 ```
 
-## Update the Azure Active Directory application's optionalClaims with a manifest
+<a name='update-the-azure-active-directory-applications-optionalclaims-with-a-manifest'></a>
+
+## Update the Microsoft Entra application's optionalClaims with a manifest
 
 ```azurecli-interactive
 az ad app update \
@@ -119,9 +123,11 @@ az ad app update \
   --id $app_id
 ```
 
-## Update the Azure Active Directory application scope permissions
+<a name='update-the-azure-active-directory-application-scope-permissions'></a>
 
-To be able to read the user information from Azure Active Directory, we need to define the proper scopes.
+## Update the Microsoft Entra application scope permissions
+
+To be able to read the user information from Microsoft Entra ID, we need to define the proper scopes.
 
 Add permission for the **Azure Active Directory Graph.User.Read** scope to enable sign in and read user profile.
 
@@ -133,13 +139,13 @@ az ad app permission add \
 ```
 
 > [!NOTE]
-> You can safely ignore the message to grant the consent unless you are authenticated as a Global Administrator for this Azure Active Directory. Standard domain users will be asked to grant consent when they first login to the cluster using their AAD credentials.
+> You can safely ignore the message to grant the consent unless you are authenticated as a Global Administrator for this Microsoft Entra ID. Standard domain users will be asked to grant consent when they first login to the cluster using their Microsoft Entra credentials.
 
 ## Assign users and groups to the cluster (optional)
 
-Applications registered in an Azure Active Directory (Azure AD) tenant are, by default, available to all users of the tenant who authenticate successfully. Azure AD allows tenant administrators and developers to restrict an app to a specific set of users or security groups in the tenant.
+Applications registered in a Microsoft Entra tenant are, by default, available to all users of the tenant who authenticate successfully. Microsoft Entra ID allows tenant administrators and developers to restrict an app to a specific set of users or security groups in the tenant.
 
-Follow the instructions on the Azure Active Directory documentation to [assign users and groups to the app](../active-directory/develop/howto-restrict-your-app-to-a-set-of-users.md).
+Follow the instructions on the Microsoft Entra documentation to [assign users and groups to the app](../active-directory/develop/howto-restrict-your-app-to-a-set-of-users.md).
 
 ## Configure OpenShift OpenID authentication
 
@@ -158,7 +164,7 @@ Log in to the OpenShift cluster's API server using the following command.
 oc login $apiServer -u kubeadmin -p $kubeadmin_password
 ```
 
-Create an OpenShift secret to store the Azure Active Directory application secret.
+Create an OpenShift secret to store the Microsoft Entra application secret.
 
 ```azurecli-interactive
 oc create secret generic openid-client-secret-azuread \
@@ -166,7 +172,7 @@ oc create secret generic openid-client-secret-azuread \
   --from-literal=clientSecret=$client_secret
 ```
 
-Create a **oidc.yaml** file to configure OpenShift OpenID authentication against Azure Active Directory. 
+Create a **oidc.yaml** file to configure OpenShift OpenID authentication against Microsoft Entra ID. 
 
 ```bash
 cat > oidc.yaml<< EOF
@@ -212,8 +218,10 @@ You will get back a response similar to the following.
 oauth.config.openshift.io/cluster configured
 ```
 
-## Verify login through Azure Active Directory
+<a name='verify-login-through-azure-active-directory'></a>
 
-If you now logout of the OpenShift Web Console and try to log in again, you'll be presented with a new option to log in with **AAD**. You may need to wait for a few minutes.
+## Verify login through Microsoft Entra ID
 
-![Log in screen with Azure Active Directory option](media/aro4-login-2.png)
+If you now logout of the OpenShift Web Console and try to log in again, you'll be presented with a new option to log in with **Microsoft Entra ID**. You may need to wait for a few minutes.
+
+![Log in screen with Microsoft Entra option](media/aro4-login-2.png)

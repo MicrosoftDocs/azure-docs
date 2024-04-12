@@ -44,6 +44,9 @@ This table shows what features are supported between Azure portal and Visual Stu
 |Compatibility level     |1.0</br>1.1</br>1.2  (default)         |1.0</br>1.1</br>1.2 (default)           |
 |Built-in ML-based Anomaly Detection functions     |Yes         |Yes         |
 |Built-in GeoSpatial functions     |Yes         |Yes         |
+| Power BI output | Yes | No |
+| Protobuf serialization | Yes | No |
+| Autogranting managed identity permissions for added endpoints | Yes | No | 
 
 <!-- 
 |Feature  |Portal  |Visual Studio  |Visual Studio Code  |

@@ -2,7 +2,7 @@
 title: Azure Service Bus - message expiration
 description: This article explains about expiration and time to live (TTL) of Azure Service Bus messages. After such a deadline, the message is no longer delivered.
 ms.topic: conceptual
-ms.date: 06/08/2023
+ms.date: 10/10/2023
 ---
 
 # Azure Service Bus - Message expiration (Time to Live)
@@ -17,7 +17,7 @@ The expiration for any individual message can be controlled by setting the **tim
 
 Past the **expires-at-utc** instant, messages become ineligible for retrieval. The expiration doesn't affect messages that are currently locked for delivery. Those messages are still handled normally. If the lock expires or the message is abandoned, the expiration takes immediate effect. While the message is under lock, the application might be in possession of a message that has expired. Whether the application is willing to go ahead with processing or chooses to abandon the message is up to the implementer.
 
-Extremely low TTL in the order of milliseconds or seconds may cause messages to expire before receiver applications receive it. Consider the highest TTL that works for your application.
+Extremely low TTL in the order of milliseconds or seconds might cause messages to expire before receiver applications receive it. Consider the highest TTL that works for your application.
 
 > [!NOTE]
 > For [scheduled messages](message-sequencing.md#scheduled-messages), you specify the enqueue time at which you want the message to materialize in the queue for retrieval. The time at which the message is sent to Service Bus is different from the time at which the message is enqueued. The message expiration time depends on the enqueued time, not on the time at which the message is sent to Service Bus. Therefore, the **expires-at-utc** is still **enqueued time + time-to-live**. 
@@ -40,6 +40,8 @@ The combination of time-to-live and automatic (and transactional) dead-lettering
 
 For example, consider a web site that needs to reliably execute jobs on a scale-constrained backend, and which occasionally experiences traffic spikes or wants to be insulated against availability episodes of that backend. In the regular case, the server-side handler for the submitted user data pushes the information into a queue and subsequently receives a reply confirming successful handling of the transaction into a reply queue. If there's a traffic spike and the backend handler can't process its backlog items in time, the expired jobs are returned on the dead-letter queue. The interactive user can be notified that the requested operation takes a little longer than usual, and the request can then be put on a different queue for a processing path where the eventual processing result is sent to the user by email. 
 
+### Expiration for session-enabled entities
+For session-enabled queues or topics' subscriptions, messages are locked at the session level. If the TTL for any of the messages expires, all messages related to that session are either dropped or dead-lettered based on the dead-lettering enabled on messaging expiration setting on the entity. In other words, if there's a single message in the session that has passed the TTL, all the messages in the session are expired. The messages expire only if there's an active listener. 
 
 ## Temporary entities
 

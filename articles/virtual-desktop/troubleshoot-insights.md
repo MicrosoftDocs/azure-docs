@@ -3,50 +3,17 @@ title: Troubleshoot Monitor Azure Virtual Desktop - Azure
 description: How to troubleshoot issues with Azure Virtual Desktop Insights.
 author: Heidilohr
 ms.topic: troubleshooting
-ms.date: 06/14/2023
+ms.date: 09/12/2023
 ms.author: helohr
-manager: femila
 ---
 # Troubleshoot Azure Virtual Desktop Insights
-
-> [!IMPORTANT]
-> Azure Virtual Desktops Insights support for the Azure Monitor Agent is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 This article presents known issues and solutions for common problems in Azure Virtual Desktop Insights.
 
 >[!IMPORTANT]
->[The Log Analytics Agent is currently being deprecated](https://azure.microsoft.com/updates/were-retiring-the-log-analytics-agent-in-azure-monitor-on-31-august-2024/). While Azure Virtual Desktop Insights currently uses the Log Analytics Agent for Azure Virtual Desktop support, you'll eventually need to migrate to the [Azure Monitor Agent](../azure-monitor/agents/agents-overview.md) by August 31, 2024.
+>[The Log Analytics Agent is currently being deprecated](https://azure.microsoft.com/updates/were-retiring-the-log-analytics-agent-in-azure-monitor-on-31-august-2024/). If you use the Log Analytics Agent for Azure Virtual Desktop support, you'll eventually need to migrate to the [Azure Monitor Agent](../azure-monitor/agents/agents-overview.md) by August 31, 2024.
 
-# [Log Analytics agent](#tab/analytics)
-
-## Issues with configuration and setup
-
-If the configuration workbook isn't working properly to automate setup, you can use these resources to set up your environment manually:
-
-- To manually enable diagnostics or access the Log Analytics workspace, see [Send Azure Virtual Desktop diagnostics to Log Analytics](diagnostics-log-analytics.md).
-- To install the Log Analytics extension on a session host manually, see [Log Analytics virtual machine extension for Windows](../virtual-machines/extensions/oms-windows.md).
-- To set up a new Log Analytics workspace, see [Create a Log Analytics workspace in the Azure portal](../azure-monitor/logs/quick-create-workspace.md).
-- To add, remove, or edit performance counters, see [Configuring performance counters](../azure-monitor/agents/data-sources-performance-counters.md).
-- To configure Windows Event Logs for a Log Analytics workspace, see [Collect Windows event log data sources with Log Analytics agent](../azure-monitor/agents/data-sources-windows-events.md).
-
-## My data isn't displaying properly
-
-If your data isn't displaying properly, check the following common solutions:
-
-- First, make sure you've set up correctly with the configuration workbook as described in [Use Azure Virtual Desktop Insights to monitor your deployment](insights.md). If you're missing any counters or events, the data associated with them won't appear in the Azure portal.
-- Check your access permissions and contact the resource owners to request missing permissions. Anyone monitoring Azure Virtual Desktop requires the following permissions:
-    - Read-access to the Azure resource groups that hold your Azure Virtual Desktop resources
-    - Read-access to the subscription's resource groups that hold your Azure Virtual Desktop session hosts 
-    - Read-access to whichever Log Analytics workspaces you're using
-- You may need to open outgoing ports in your server's firewall to allow Azure Monitor and Log Analytics to send data to the portal. To learn how to do this, see the following articles:
-      - [Azure Monitor Outgoing ports](../azure-monitor/app/ip-addresses.md)
-      - [Log Analytics Firewall Requirements](../azure-monitor/agents/log-analytics-agent.md#firewall-requirements). 
-- Not seeing data from recent activity? You may want to wait for 15 minutes and refresh the feed. Azure Monitor has a 15-minute latency period for populating log data. To learn more, see [Log data ingestion time in Azure Monitor](../azure-monitor/logs/data-ingestion-time.md).
-
-If you're not missing any information but your data still isn't displaying properly, there may be an issue in the query or the data sources. For more information, see [known issues and limitations](#known-issues-and-limitations). 
-
-# [Azure Monitor Agent (preview)](#tab/monitor)
+# [Azure Monitor Agent](#tab/monitor)
 
 ## Issues with configuration and setup
 
@@ -71,6 +38,34 @@ If your data isn't displaying properly, check the following common solutions:
 
 If you're not missing any information but your data still isn't displaying properly, there may be an issue in the query or the data sources. For more information, see [known issues and limitations](#known-issues-and-limitations). 
 
+# [Log Analytics agent](#tab/analytics)
+
+## Issues with configuration and setup
+
+If the configuration workbook isn't working properly to automate setup, you can use these resources to set up your environment manually:
+
+- To manually enable diagnostics or access the Log Analytics workspace, see [Send Azure Virtual Desktop diagnostics to Log Analytics](diagnostics-log-analytics.md).
+- To install the Log Analytics extension on a session host manually, see [Log Analytics virtual machine extension for Windows](../virtual-machines/extensions/oms-windows.md).
+- To set up a new Log Analytics workspace, see [Create a Log Analytics workspace in the Azure portal](../azure-monitor/logs/quick-create-workspace.md).
+- To add, remove, or edit performance counters, see [Configuring performance counters](../azure-monitor/agents/data-sources-performance-counters.md).
+- To configure Windows Event Logs for a Log Analytics workspace, see [Collect Windows event log data sources with Log Analytics agent](../azure-monitor/agents/data-sources-windows-events.md).
+
+## My data isn't displaying properly
+
+If your data isn't displaying properly, check the following common solutions:
+
+- First, make sure you've set up correctly with the configuration workbook as described in [Use Azure Virtual Desktop Insights to monitor your deployment](insights.md). If you're missing any counters or events, the data associated with them won't appear in the Azure portal.
+- Check your access permissions and contact the resource owners to request missing permissions. Anyone monitoring Azure Virtual Desktop requires the following permissions:
+    - Read-access to the Azure resource groups that hold your Azure Virtual Desktop resources
+    - Read-access to the subscription's resource groups that hold your Azure Virtual Desktop session hosts 
+    - Read-access to whichever Log Analytics workspaces you're using
+- You may need to open outgoing ports in your server's firewall to allow Azure Monitor and Log Analytics to send data to the portal. To learn how to do this, see the following articles:
+      - [Azure Monitor Outgoing ports](../azure-monitor/ip-addresses.md)
+      - [Log Analytics Firewall Requirements](../azure-monitor/agents/log-analytics-agent.md#firewall-requirements). 
+- Not seeing data from recent activity? You may want to wait for 15 minutes and refresh the feed. Azure Monitor has a 15-minute latency period for populating log data. To learn more, see [Log data ingestion time in Azure Monitor](../azure-monitor/logs/data-ingestion-time.md).
+
+If you're not missing any information but your data still isn't displaying properly, there may be an issue in the query or the data sources. For more information, see [known issues and limitations](#known-issues-and-limitations). 
+
 ---
 
 ## I want to customize Azure Virtual Desktop Insights
@@ -83,6 +78,15 @@ By design, custom Workbook templates will not automatically adopt updates from t
 
 Learn more about data terms at the [Azure Virtual Desktop Insights glossary](insights-glossary.md).
 
+# [Azure Monitor Agent](#tab/monitor)
+
+## The data I need isn't available
+
+If this article doesn't have the data point you need to resolve an issue, you can send us feedback at the following places:
+
+- To learn how to leave feedback, see [Troubleshooting overview, feedback, and support for Azure Virtual Desktop](troubleshoot-set-up-overview.md).
+- You can also leave feedback for Azure Virtual Desktop at the [Azure Virtual Desktop feedback hub](https://support.microsoft.com/help/4021566/windows-10-send-feedback-to-microsoft-with-feedback-hub-app).
+
 # [Log Analytics agent](#tab/analytics)
 
 ## The data I need isn't available
@@ -93,15 +97,6 @@ If you want to monitor more Performance counters or Windows Event Logs, you can 
 - To add Windows Events, see [Configuring Windows Event Logs](../azure-monitor/agents/data-sources-windows-events.md#configure-windows-event-logs)
 
 Can't find a data point to help diagnose an issue? Send us feedback!
-
-- To learn how to leave feedback, see [Troubleshooting overview, feedback, and support for Azure Virtual Desktop](troubleshoot-set-up-overview.md).
-- You can also leave feedback for Azure Virtual Desktop at the [Azure Virtual Desktop feedback hub](https://support.microsoft.com/help/4021566/windows-10-send-feedback-to-microsoft-with-feedback-hub-app).
-
-# [Azure Monitor Agent (preview)](#tab/monitor)
-
-## The data I need isn't available
-
-If this article doesn't have the data point you need to resolve an issue, you can send us feedback at the following places:
 
 - To learn how to leave feedback, see [Troubleshooting overview, feedback, and support for Azure Virtual Desktop](troubleshoot-set-up-overview.md).
 - You can also leave feedback for Azure Virtual Desktop at the [Azure Virtual Desktop feedback hub](https://support.microsoft.com/help/4021566/windows-10-send-feedback-to-microsoft-with-feedback-hub-app).

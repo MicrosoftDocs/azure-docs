@@ -1,24 +1,18 @@
 ---
-title: Join a Linux VM to an Azure Active Directory Domain | Microsoft Docs
-description: Describes how to join a Linux VM to an Azure Active Directory Domain
+title: Join a Linux VM to a Microsoft Entra Domain | Microsoft Docs
+description: Describes how to join a Linux VM to a Microsoft Entra Domain
 services: azure-netapp-files
-documentationcenter: ''
 author: b-ahibbard
-manager: ''
-editor: ''
-
-ms.assetid:
 ms.service: azure-netapp-files
-ms.workload: storage
-ms.tgt_pltfrm: na
+ms.custom: linux-related-content
 ms.topic: how-to
 ms.date: 12/20/2022
 ms.author: anfdocs
 ---
 
-# Join a Linux VM to an Azure Active Directory Domain
+# Join a Linux VM to a Microsoft Entra Domain
 
-Joining a Linux virtual machine (VM) to an [Azure Active Directory Domain Services (Azure AD DS)](../active-directory-domain-services/overview.md) managed domain enables users to sign into to VMs with one set of credentials. Once joined, the user accounts and credentials can be used to sign in, access, and manage servers. 
+Joining a Linux virtual machine (VM) to an [Microsoft Entra Domain Services](../active-directory-domain-services/overview.md) managed domain enables users to sign into to VMs with one set of credentials. Once joined, the user accounts and credentials can be used to sign in, access, and manage servers. 
 
 Refer to [Understand guidelines for Active Directory Domain Services site design and planning](understand-guidelines-active-directory-domain-service-site.md) to learn more about using Active Directory in Azure NetApp Files. 
 
@@ -46,7 +40,7 @@ Refer to [Understand guidelines for Active Directory Domain Services site design
 
 5.	Configure the NTP client.  
 
-    RHEL 8 uses chrony by default. Following the configuration guidelines in [Using the `Chrony` suite to configure NTP](https://access.redhat.com/documentation/en-us/red-hat-enterprise-linux/8/guide/6c230de2-39f1-455a-902d-737eea31ad34).
+    RHEL 8 uses chrony by default. Following the configuration guidelines in [Using the `Chrony` suite to configure NTP](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/system_administrators_guide/ch-configuring_ntp_using_the_chrony_suite).
 
 6.	Join the Active Directory domain:  
 

@@ -1,19 +1,22 @@
 ---
 title: "Quickstart: Use SDK to create and manage project - custom question answering"
 description: This quickstart shows you how to create and manage your project using custom question answering.
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: quickstart
-ms.date: 06/06/2022
+ms.date: 12/19/2023
 author: jboback
 ms.author: jboback
 recommendations: false
-ms.devlang: csharp, python
-ms.custom: devx-track-python, devx-track-csharp, language-service-question-answering, ignite-fall-2021, mode-api, devx-track-dotnet
+ms.devlang: csharp
+# ms.devlang: csharp, python
+ms.custom: devx-track-python, devx-track-csharp, language-service-question-answering, mode-api, devx-track-dotnet
 zone_pivot_groups: custom-qna-quickstart
 ---
 
-# Quickstart: question answering
+# Quickstart: custom question answering
+
+> [!NOTE]
+> [Azure Open AI On Your Data](../../../openai/concepts/use-your-data.md) utilizes large language models (LLMs) to produce similar results to Custom Question Answering. If you wish to connect an existing Custom Question Answering project to Azure Open AI On Your Data, please check out our [guide](../how-to/azure-openai-integration.md).
 
 > [!NOTE]
 > Are you looking to migrate your workloads from QnA Maker? See our [migration guide](../how-to/migrate-qnamaker-to-question-answering.md) for information on feature comparisons and migration steps.
@@ -47,7 +50,7 @@ If you want to clean up and remove an Azure AI services subscription, you can de
 
 ## Explore the REST API
 
-To learn about automating your question answering pipeline consult the REST API documentation. Currently authoring functionality is only available via REST API:
+To learn about automating your custom question answering pipeline consult the REST API documentation. Currently authoring functionality is only available via REST API:
 
 * [Authoring API reference](/rest/api/cognitiveservices/questionanswering/question-answering-projects)
 * [Authoring API cURL examples](../how-to/authoring.md)

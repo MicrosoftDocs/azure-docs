@@ -4,7 +4,7 @@ description: Handle large messages using chunking in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.topic: how-to
-ms.date: 08/01/2022
+ms.date: 01/04/2024
 ---
 
 # Handle large messages in workflows using chunking in Azure Logic Apps

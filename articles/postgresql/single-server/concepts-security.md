@@ -49,7 +49,7 @@ Private Link allows you to connect to your Azure Database for PostgreSQL Single 
 
 While creating the Azure Database for PostgreSQL server, you provide credentials for an administrator role. This administrator role can be used to create additional [PostgreSQL roles](https://www.postgresql.org/docs/current/user-manag.html).
 
-You can also connect to the server using [Azure Active Directory authentication](concepts-azure-ad-authentication.md).
+You can also connect to the server using [Microsoft Entra authentication](concepts-azure-ad-authentication.md).
 
 ## Threat protection
 
@@ -64,4 +64,4 @@ Oracle supports Transparent Data Encryption (TDE) to encrypt table and tablespac
 ## Next steps
 
 - Enable firewall rules for [IPs](concepts-firewall-rules.md) or [virtual networks](concepts-data-access-and-security-vnet.md)
-- Learn about [Azure Active Directory authentication](concepts-azure-ad-authentication.md) in Azure Database for PostgreSQL
+- Learn about [Microsoft Entra authentication](concepts-azure-ad-authentication.md) in Azure Database for PostgreSQL

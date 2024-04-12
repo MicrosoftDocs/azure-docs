@@ -6,8 +6,7 @@ services: front-door
 author: duongau
 ms.service: frontdoor
 ms.topic: conceptual
-ms.workload: infrastructure-services
-ms.date: 06/01/2023
+ms.date: 12/04/2023
 ms.author: duau
 zone_pivot_groups: front-door-tiers
 ---
@@ -24,6 +23,8 @@ A *route* in Azure Front Door defines how traffic gets handled when the incoming
 ::: zone-end
 
 ::: zone pivot="front-door-classic"
+
+[!INCLUDE [Azure Front Door (classic) retirement notice](../../includes/front-door-classic-retirement.md)]
 
 When a request arrives Azure Front Door (classic) edge, one of the first things that Front Door does is determine how to route the matching request to a backend resource and then take a defined action in the routing configuration. The following document explains how Front Door determines which route configuration to use when processing a request.
 
@@ -89,7 +90,7 @@ After Front Door determines the specific frontend host and filters for possible 
 ::: zone pivot="front-door-standard-premium"
 
 >[!NOTE]
-> * Any paths without a wildcard are considered to be exact-match paths. If a path ends in a `/`, this is considered an exact match.
+> The wildcard character `*` is only valid for paths that don't have any other characters after it. Additionally, the wildcard character `*` must be preceded by a slash `/`. Paths without a wildcard are considered to be exact-match paths. A path that ends in a slash `/` is also an exact-match path. Ensure that your paths follow these rules to avoid any errors.
 
 ::: zone-end
 

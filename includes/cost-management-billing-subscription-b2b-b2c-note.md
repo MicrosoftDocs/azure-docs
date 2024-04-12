@@ -12,4 +12,4 @@ ms.custom: include file
 ---
 
 > [!NOTE]
-> You can't provision Azure resources such as subscriptions, virtual machines, Azure web apps, or Azure functions in an Azure AD B2B or Azure AD B2C tenant. You must create those resources in your Azure AD tenant.
+> You can't provision Azure resources such as subscriptions, virtual machines, Azure web apps, or Azure functions in a Microsoft Entra B2B or Azure AD B2C tenant. You must create those resources in your Microsoft Entra tenant.

@@ -3,13 +3,11 @@ metadata:
   title: "Voice Assistants on Windows - FAQ"
   titleSuffix: Azure AI services
   description: Common questions that frequently come up during Windows voice agent development.
-  services: cognitive-services
   author: cfogg6
   manager: trrwilson
-  ms.service: cognitive-services
-  ms.subservice: speech-service
+  ms.service: azure-ai-speech
   ms.topic: faq
-  ms.date: 04/15/2020
+  ms.date: 1/22/2024
   ms.author: travisw
   ms.custom: cogserv-non-critical-speech
 title: Samples and FAQs
@@ -18,10 +16,10 @@ summary: |
   
   The UWP Voice Assistant Sample is a voice assistant on Windows that serves to
   
-  - demonstrate the use of the Windows ConversationalAgent APIs
-  - display best practices for a voice agent on Windows
-  - provide an adaptable app and reusable components for your MVP agent application
-  - show how Direct Line Speech and the Bot Framework can be used together with the Windows ConversationalAgent APIs for an end-to-end voice agent experience
+  - Demonstrate the use of the Windows ConversationalAgent APIs
+  - Display best practices for a voice agent on Windows
+  - Provide an adaptable app and reusable components for your MVP agent application
+  - Show how Direct Line Speech and the Bot Framework can be used together with the Windows ConversationalAgent APIs for an end-to-end voice agent experience
   
   The documentation provided with the sample app walks through the code path of voice activation and agent management, from the prerequisites of startup through proper cleanup.
   
@@ -35,7 +33,7 @@ sections:
       - question: |
           My app is showing in a small window when I activate it by voice. How can I transition from the compact view to a full application window?
         answer: |
-          When your application is first activated by voice, it is started in a compact view. Please read the [Design guidance for voice activation preview](windows-voice-assistants-best-practices.md#design-guidance-for-voice-activation-preview) for guidance on the different views and transitions between them for voice assistants on Windows.
+          When your application is first activated by voice, it's started in a compact view. Read the [Design guidance for voice activation preview](windows-voice-assistants-best-practices.md#design-guidance-for-voice-activation-preview) for guidance on the different views and transitions between them for voice assistants on Windows.
           
           To make the transition from compact view to full app view, use the appView API `TryEnterViewModeAsync`:
           

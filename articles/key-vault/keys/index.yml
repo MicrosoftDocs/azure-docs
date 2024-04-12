@@ -6,13 +6,12 @@ summary: Azure Key Vault enables Microsoft Azure applications and users to store
 metadata:
   title: Keys 
   description: Azure Key Vault enables Microsoft Azure applications and users to store and use keys. It supports multiple key types and algorithms, and enables the use of Hardware Security Modules (HSM) for high value keys.
-  services: key-vault
   ms.service: key-vault
   ms.subservice: keys
   ms.topic: landing-page
   author: msmbaldwin
   ms.author: mbaldwin
-  ms.date: 04/07/2020
+  ms.date: 02/20/2024
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 

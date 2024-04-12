@@ -6,7 +6,6 @@ ms.author: thvankra
 ms.service: managed-instance-apache-cassandra
 ms.topic: tutorial
 ms.date: 11/02/2021
-ms.custom: ignite-fall-2021
 ---
 
 # Live migration to Azure Managed Instance for Apache Cassandra by using a dual-write proxy

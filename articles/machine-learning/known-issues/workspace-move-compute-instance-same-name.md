@@ -13,11 +13,10 @@ ms.custom: known-issue
 
 # Known issue  - Creating compute instance after a workspace move results in an Etag conflict error.
 
+[!INCLUDE [dev v2](../includes/machine-learning-dev-v2.md)]
+
 After a moving a workspace to a different subscription or resource group, creating a compute instance with the same name as a previous compute instance will fail with an Etag conflict error.
 
-
-[!INCLUDE [dev v2](../includes/machine-learning-dev-v2.md)]
-<!--- Choose the correct include --->
 
 **Status:** Open
 

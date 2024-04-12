@@ -8,7 +8,8 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
-ms.date: 07/31/2023
+ms.devlang: nosql
+ms.date: 02/27/2024
 ms.custom: query-reference
 ---
 
@@ -38,7 +39,7 @@ If the result of the scalar expression is ``undefined``, the item isn't included
 
 For example, the following query's comparison between a number and string value produces ``undefined``. Therefore, the filter doesn't include any results.
 
-```sql
+```nosql
 SELECT
     *
 FROM
@@ -47,7 +48,7 @@ WHERE
     0 = "true"
 ```
 
-## Next steps
+## Related content
 
 - [``SELECT`` clause](select.md)
 - [Keywords](keywords.md)

@@ -44,7 +44,7 @@ To integrate with Island Enterprise Browser Admin Audit (Polling CCP) make sure 
 
 Connect Island to Microsoft Sentinel
 
-Provide the Island API URL and Key.  API URL is https://management.island.io/api/external/v1/adminActions for US or https://eu.management.island.io/api/external/v1/adminActions for EU.
+Provide the Island API URL and Key.  API URL is ```https://management.island.io/api/external/v1/adminActions``` for US or ```https://eu.management.island.io/api/external/v1/adminActions``` for EU.
   Generate the API Key in the Management Console under Settings > API.
 
 

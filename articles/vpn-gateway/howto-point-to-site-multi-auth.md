@@ -5,7 +5,7 @@ description: Learn how to connect to a VNet via P2S using multiple authenticatio
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 07/29/2022
+ms.date: 10/17/2023
 ms.author: cherylmc
 
 ---
@@ -85,6 +85,9 @@ The client address pool is a range of private IP addresses that you specify. The
 
 In this section, you configure authentication type and tunnel type. On the **Point-to-site configuration** page, if you don't see **Tunnel type** or **Authentication type**, your gateway is using the Basic SKU. The Basic SKU does not support IKEv2 or RADIUS authentication. If you want to use these settings, you need to delete and recreate the gateway using a different gateway SKU.
 
+> [!IMPORTANT]
+> [!INCLUDE [Entra ID note for portal pages](../../includes/vpn-gateway-entra-portal-note.md)]
+
    :::image type="content" source="./media/howto-point-to-site-multi-auth/authentication-types.png" alt-text="Screenshot of authentication types and tunnel type.":::
 
 ### <a name="tunneltype"></a>Tunnel type
@@ -103,15 +106,15 @@ For **Authentication type**, select the desired types. Options are:
 
 * Azure certificate
 * RADIUS
-* Azure Active Directory
+* Microsoft Entra ID
 
 See the below table to check what authentication mechanisms are compatible with selected tunnel types.
 
 [!INCLUDE [All client articles](../../includes/vpn-gateway-vpn-multiauth-tunnel-mapping.md)]
 
 >[!NOTE]
->For tunnel type "IKEv2 and OpenVPN" and selected authentication mechanisms "Azure AD and Radius" or "Azure AD and Azure
->Certificate", Azure AD will only work for OpenVPN since it is not supported by IKEv2
+>For tunnel type "IKEv2 and OpenVPN" and selected authentication mechanisms "Microsoft Entra ID and Radius" or "Microsoft Entra ID and Azure
+>Certificate", Microsoft Entra ID will only work for OpenVPN since it is not supported by IKEv2
 >
 
 Depending on the authentication type(s) selected, you will see different configuration setting fields that will have to be filled in. Fill in the required information and select **Save** at the top of the page to save all of the configuration settings.
@@ -120,7 +123,7 @@ For more information about authentication type, see:
 
 * [Azure certificate](vpn-gateway-howto-point-to-site-resource-manager-portal.md#type)
 * [RADIUS](point-to-site-how-to-radius-ps.md)
-* [Azure Active Directory](openvpn-azure-ad-tenant.md)
+* [Microsoft Entra ID](openvpn-azure-ad-tenant.md)
 
 ## <a name="clientconfig"></a>VPN client configuration package
 

@@ -38,6 +38,9 @@ From the **Export** menu in Log Analytics, select one of the two options for cre
 - **Power BI (as an M query)**: This option exports the query (together with the connection string for the query) to a .txt file that you can use in Power BI Desktop. Use this option if you need to model or transform the data in ways that aren't available in the Power BI service. Otherwise, consider exporting the query as a new dataset.
 - **Power BI (new Dataset)**: This option creates a new dataset based on your query directly in the Power BI service. After the dataset has been created, you can create reports, use Analyze in Excel, share it with others, and use other Power BI features. For more information, see [Create a Power BI dataset directly from Log Analytics](/power-bi/connect-data/create-dataset-log-analytics).
 
+> [!NOTE]
+> The export operation is subject to the [Log Analytics Query API limits](../service-limits.md#la-query-api). If your query results exceed the maximum size of data returned by the Query API, the operation exports partial results.
+
 ## Collect data with Power BI dataflows
 
 [Power BI dataflows](/power-bi/service-dataflows-overview) also allow you to collect and store data. A dataflow is a type of cloud ETL (extract, transform, and load) process that helps you collect and prepare your data. A dataset is the "model" designed to help you connect different entities and model them for your needs.

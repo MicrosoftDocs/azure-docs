@@ -2,13 +2,13 @@
 title: Manage Azure Data Box, Azure Data Box Heavy via Azure portal | Microsoft Docs 
 description: Describes how to use the Azure portal to administer your Azure Data Box and Azure Data Box Heavy.
 services: databox
-author: alkohli
+author: stevenmatthew
 
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
 ms.date: 02/22/2023
-ms.author: alkohli
+ms.author: shaas
 ---
 
 # Use the Azure portal to administer your Azure Data Box and Azure Data Box Heavy

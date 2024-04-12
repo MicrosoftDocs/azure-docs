@@ -17,6 +17,7 @@ Find the finalized code for this quickstart on [GitHub](https://github.com/Azure
 
 - A working [Communication Services calling Android app](../../getting-started-with-calling.md).
 - A [Teams deployment](/deployoffice/teams-install).
+- An [access token](../../../identity/access-tokens.md).
 
 
 ## Add the Teams UI controls
@@ -235,7 +236,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * Shows recording status status bar
+     * Shows recording status bar
      */
     private void setRecordingStatus(boolean status) {
         if (status == true) {

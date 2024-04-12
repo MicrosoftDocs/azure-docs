@@ -19,13 +19,31 @@ In this section you'll find troubleshooting guidance for general issues with the
 
 [!INCLUDE [troubleshoot-aadj-connections-all](includes/include-troubleshoot-azure-ad-joined-connections-all.md)]
 
+## Collect logs
+
+Here's how to collect logs from the Remote Desktop client for macOS:
+
+1. Open **Microsoft Remote Desktop** and make sure there aren't any connections to devices or apps.
+
+1. From the macOS menu bar, select **Help**, followed by **Troubleshooting**, then select **Logging**.
+
+1. Select a **Core log level** and a **UI log level**.
+
+1. For **When logging, write the output to**, select the drop-down menu, then select **Choose Folder** and choose which folder to save the logs to.
+
+1. Select **Start Logging**.
+
+1. Use the Remote Desktop client as you normally would. If you have an issue, reproduce it.
+
+1. Once you're finished, select **Stop Logging**. You can find the log file in the directory you chose to save the logs to. You can open the files in a text editor, or provide them to support.
+
 ## Authentication and identity
 
 In this section you'll find troubleshooting guidance for authentication and identity issues with the Remote Desktop client.
 
 ### Account switch detected
 
-If you see the error **Account switch detected**, you need to refresh the Azure AD token. To refresh the Azure AD token, do the following:
+If you see the error **Account switch detected**, you need to refresh the Microsoft Entra token. To refresh the Microsoft Entra token, do the following:
 
 1. Delete any workspaces from the Remote Desktop client. For more information, see [Edit, refresh, or delete a workspace](users/client-features-macos.md#edit-refresh-or-delete-a-workspace).
 

@@ -1,7 +1,7 @@
 ---
 title: Open and save files with SSIS packages deployed in Azure
 description: Learn how to open and save files on premises and in Azure when you lift and shift SSIS packages that use local file systems into SSIS in Azure
-ms.date: 04/12/2023
+ms.date: 01/05/2024
 ms.topic: conceptual
 ms.service: data-factory
 ms.subservice: integration-services
@@ -44,7 +44,7 @@ To use **Azure Files** when you lift and shift packages that use local file syst
 
 3. Update local file paths in your packages to UNC paths pointing to Azure Files. For example, update `C:\abc.txt` to `\\<storage-account-name>.file.core.windows.net\<share-name>\abc.txt`.
 
-## Next steps
+## Related content
 
 - Deploy your packages. For more info, see [Deploy an SSIS project to Azure with SSMS](/sql/integration-services/ssis-quickstart-deploy-ssms).
 - Run your packages. For more info, see [Run SSIS packages in Azure with SSMS](/sql/integration-services/ssis-quickstart-run-ssms).

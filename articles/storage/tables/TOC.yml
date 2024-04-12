@@ -54,7 +54,7 @@
   - name: Authorization
     href: ../common/authorize-data-access.md?toc=/azure/storage/tables/toc.json
     items:
-    - name: Authenticate and authorize with Azure AD
+    - name: Authenticate and authorize with Microsoft Entra ID
       href: authorize-access-azure-active-directory.md
     - name: Authorize with Shared Key
       items:

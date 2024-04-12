@@ -26,44 +26,44 @@ Review the standard terms, area paths, and variable names before you begin your 
 
 The naming convention's example formats use the following placeholder values.
 
-| Placeholder | Concept | Character limit | Example |
-| ----------- | ------- | --------------- | ------- |
-| `{ENVIRONMENT}` | Environment | 5 | `DEV`, `PROTO`, `NP`, `PROD` |
-| `{REGION_MAP}` | [Region](#azure-region-names) map | 4 | `weus` for `westus` |
-| `{SAP_VNET}` | SAP virtual network | 7 |  `SAP0` |
-| `{SID}` | SAP system identifier | 3 | `X01` |
-| `{PREFIX}` | SAP resource prefix | | `DEV-WEEU-SAP01-X01` |
-| `{DEPLOY_VNET}` | Deployer virtual network | 7 |  |
-| `{REMOTE_VNET}` | Remote virtual network | 7 |  |
-| `{LOCAL_VNET}` |Local virtual network | 7 |  |
-| `{CODENAME}` | Logical name for version |  | `version1`, `beta` |
-| `{VM_NAME}` | VM name |  |  |
-| `{SUBNET}` | Subnet |  |  |
-| `{DBSID}` | Database system identifier |  |  |
-| `{DIAG}` | | 5 |  |
-| `{RND}` | | 3 |  |
-| `{USER}` | | 12 |  |
-| `{COMPUTER_NAME}` | | 14 |  |
+| Placeholder       | Concept                           | Character limit | Example                      |
+| ----------------- | --------------------------------- | --------------- | ---------------------------- |
+| `{ENVIRONMENT}`   | Environment                       | 5               | `DEV`, `PROTO`, `NP`, `PROD` |
+| `{REGION_MAP}`    | [Region](#azure-region-names) map | 4               | `weus` for `westus`          |
+| `{SAP_VNET}`      | SAP virtual network               | 7               |  `SAP0`                      |
+| `{SID}`           | SAP system identifier             | 3               | `X01`                        |
+| `{PREFIX}`        | SAP resource prefix               |                 | `DEV-WEEU-SAP01-X01`         |
+| `{DEPLOY_VNET}`   | Deployer virtual network          | 7               |                              |
+| `{REMOTE_VNET}`   | Remote virtual network            | 7               |                              |
+| `{LOCAL_VNET}`    | Local virtual network             | 7               |                              |
+| `{CODENAME}`      | Logical name for version          |                 | `version1`, `beta`           |
+| `{VM_NAME}`       | VM name                           |                 |                              |
+| `{SUBNET}`        | Subnet                            |                 |                              |
+| `{DBSID}`         | Database system identifier        |                 |                              |
+| `{DIAG}`          |                                   | 5               |                              |
+| `{RND}`           |                                   | 3               |                              |
+| `{USER}`          |                                   | 12              |                              |
+| `{COMPUTER_NAME}` |                                   | 14              |                              |
 
 ### Deployer names
 
 For an explanation of the **Format** column, see the [definitions for placeholder values](#placeholder-values).
 
-| Concept | Character limit | Format | Example |
-| ------- | --------------- | ------ | ------- |
-| Resource group | 80 | `{ENVIRONMENT}-{REGION_MAP}-{DEPLOY_VNET}-INFRASTRUCTURE` |  `MGMT-WEEU-DEP00-INFRASTRUCTURE` |
-| Virtual network | 38 (64)  | `{ENVIRONMENT}-{REGION_MAP}-{DEPLOY_VNET}-vnet` | `MGMT-WEEU-DEP00-vnet` |
-| Subnet | 80 | `{ENVIRONMENT}-{REGION_MAP}-{DEPLOY_VNET}_deployment-subnet` | `MGMT-WEEU-DEP00_deployment-subnet` |
-| Storage account | 24 | `{ENVIRONMENT}{REGION_MAP}{SAP_VNET}{DIAG}{RND}` | `mgmtweeudep00diagxxx` |
-| Network security group (NSG) | 80 | `{ENVIRONMENT}-{REGION_MAP}-{DEPLOY_VNET}_deployment-nsg` | `MGMT-WEEU-DEP00_deployment-nsg` |
-| Route table | | `{ENVIRONMENT}-{REGION_MAP}-{DEPLOY_VNET}_routeTable` | `MGMT-WEEU-DEP00_route-table` |
-| Network interface component | 80 | `{ENVIRONMENT}-{REGION_MAP}-{DEPLOY_VNET}_{COMPUTER_NAME}-nic` | `-ipconfig1` (None required for the block `ip_configuration`.) |
-| Disk | |`{vm.name}-deploy00` | `PROTO-WUS2-DEPLOY_deploy00-disk00` |
-| VM | | `{ENVIRONMENT}-{REGION_MAP}-{SAP_VNET}_deploy##` | `MGMT-WEEU-DEP00_permweeudep00deploy00` |
-| Operating system (OS) disk | | `{ENVIRONMENT}-{REGION_MAP}-{DEPLOY_VNET}_deploy##-OsDisk` | `PERM-WEEU-DEP00_permweeudep00deploy00-OsDisk` |
-| Computer name | | `{environment[_map]}{DEPLOY_VNET}{region_map}deploy##` | `MGMT-WEEU-DEP00_permweeudep00deploy00` |
-| Key vault | 24 | `{ENVIRONMENT}{REGION_MAP}{DEPLOY_VNET}{USER}{RND}` (deployment credentials) | `MGMTWEEUDEP00userxxx` |
-| Public IP address | | `{ENVIRONMENT}-{REGION_MAP}-{DEPLOY_VNET}_{COMPUTER_NAME}-pip` | `MGMT-WEEU-DEP00_permweeudep00deploy00-pip` |
+| Concept                     | Character limit | Format                                                         | Example                                        |
+| --------------------------- | --------------- | -------------------------------------------------------------- | ---------------------------------------------- |
+| Resource group              | 80              | `{ENVIRONMENT}-{REGION_MAP}-{DEPLOY_VNET}-INFRASTRUCTURE`      |  `MGMT-WEEU-DEP00-INFRASTRUCTURE`              |
+| Virtual network             | 38 (64)         | `{ENVIRONMENT}-{REGION_MAP}-{DEPLOY_VNET}-vnet`                | `MGMT-WEEU-DEP00-vnet`                         |
+| Subnet                      | 80              | `{ENVIRONMENT}-{REGION_MAP}-{DEPLOY_VNET}_deployment-subnet`   | `MGMT-WEEU-DEP00_deployment-subnet`            |
+| Storage account             | 24              | `{ENVIRONMENT}{REGION_MAP}{SAP_VNET}{DIAG}{RND}`               | `mgmtweeudep00diagxxx`                         |
+| Network security group      | 80              | `{ENVIRONMENT}-{REGION_MAP}-{DEPLOY_VNET}_deployment-nsg`      | `MGMT-WEEU-DEP00_deployment-nsg`               |
+| Route table                 |                 | `{ENVIRONMENT}-{REGION_MAP}-{DEPLOY_VNET}_routeTable`          | `MGMT-WEEU-DEP00_route-table`                  |
+| Network interface component | 80              | `{ENVIRONMENT}-{REGION_MAP}-{DEPLOY_VNET}_{COMPUTER_NAME}-nic` | `-ipconfig1`                                   |
+| Disk                        |                 |`{vm.name}-deploy00`                                            | `PROTO-WUS2-DEPLOY_deploy00-disk00`            |
+| Virtual Machine name        |                 | `{ENVIRONMENT}-{REGION_MAP}-{SAP_VNET}_deploy##`               | `MGMT-WEEU-DEP00_permweeudep00deploy00`        |
+| Operating system (OS) disk  |                 | `{ENVIRONMENT}-{REGION_MAP}-{DEPLOY_VNET}_deploy##-OsDisk`     | `PERM-WEEU-DEP00_permweeudep00deploy00-OsDisk` |
+| Computer name               |                 | `{environment[_map]}{DEPLOY_VNET}{region_map}deploy##`         | `MGMT-WEEU-DEP00_permweeudep00deploy00`        |
+| Key vault                   | 24              | `{ENVIRONMENT}{REGION_MAP}{DEPLOY_VNET}{USER}{RND}`            | `MGMTWEEUDEP00userxxx`                         |
+| Public IP address           |                 | `{ENVIRONMENT}-{REGION_MAP}-{DEPLOY_VNET}_{COMPUTER_NAME}-pip` | `MGMT-WEEU-DEP00_permweeudep00deploy00-pip`    |
 
 ### SAP library names
 

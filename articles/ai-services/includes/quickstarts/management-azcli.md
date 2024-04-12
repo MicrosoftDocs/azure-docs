@@ -2,15 +2,18 @@
 title: Create an Azure AI services resource using the Azure CLI
 titleSuffix: Azure AI services
 description: Get started with Azure AI services by using Azure CLI commands to create and subscribe to a resource.
-services: cognitive-services
+#services: cognitive-services
 author: aahill
 manager: nitinme
-ms.service: cognitive-services
+ms.service: azure-ai-services
 keywords: Azure AI services, cognitive intelligence, cognitive solutions, ai services
 ms.topic: quickstart
 ms.date: 06/06/2022
 ms.author: aahi
-ms.custom: mode-api, devx-track-azurecli 
+ms.custom:
+  - mode-api
+  - devx-track-azurecli
+  - ignite-2023
 ms.devlang: azurecli
 ---
 
@@ -124,5 +127,3 @@ To remove the resource group and its associated resources, use the az group dele
 ```azurecli-interactive
 az group delete --name ai-services-resource-group
 ```
-
-If you need to recover a deleted resource, see [Recover deleted Azure AI services resources](../../manage-resources.md).

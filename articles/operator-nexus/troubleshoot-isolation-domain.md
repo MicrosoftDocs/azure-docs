@@ -41,7 +41,7 @@ For further instructions, see [Change the administrative state of an L3 isolatio
 
 When you're creating an isolation domain, VLAN IDs below 500 are reserved for infrastructure purposes and shouldn't be used. Instead, establish an external network with a VLAN ID higher than 500 on the partner end (PE) side to enable peering between the customer end (CE) and the PE (Option A peering).
 
-For further instructions, see [Create external networks](./howto-configure-isolation-domain.md#create-an-external-network-by-using-option-a).
+For further instructions, see [Create external networks](./howto-configure-isolation-domain.md#create-an-external-network-with-option-a).
 
 ## Isolation domain stuck in a disabled state (Option A)
 
@@ -70,3 +70,4 @@ Before you enable isolation, it's necessary to create one or more internal or ex
 To access further details in the logs, see [Log Analytics workspace](../../articles/operator-nexus/concepts-observability.md#log-analytic-workspace).
 
 If you still have questions, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+For more information about Support plans, see [Azure Support plans](https://azure.microsoft.com/support/plans/response/).

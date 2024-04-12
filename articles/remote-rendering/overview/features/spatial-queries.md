@@ -1,8 +1,8 @@
 ---
 title: Spatial queries
 description: How to do spatial queries in a scene
-author: jakrams
-ms.author: jakras
+author: FlorianBorn71
+ms.author: flborn
 ms.date: 02/07/2020
 ms.topic: article
 ms.custom: devx-track-csharp

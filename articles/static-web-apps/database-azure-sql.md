@@ -23,7 +23,7 @@ For the sake of simplicity, this tutorial shows you how to use an Azure database
 In this tutorial, you learn to:
 
 > [!div class="checklist"]
-> * Link a Azure SQL database to your static web app
+> * Link an Azure SQL database to your static web app
 > * Create, read, update, and delete data
 
 ## Prerequisites

@@ -1,13 +1,13 @@
 ---
 title: Publish
 description:  Learn how to publish.
-ms.service: cognitive-services
+ms.service: azure-ai-language
 ms.author: aahi
 author: aahill
 ms.manager: nitinme
-ms.subservice: language-understanding
+ms.subservice: azure-ai-luis
 ms.topic: how-to
-ms.date: 12/14/2021
+ms.date: 01/19/2024
 ---
 
 # Publish your active, trained app

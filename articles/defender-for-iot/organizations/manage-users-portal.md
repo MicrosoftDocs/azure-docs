@@ -11,7 +11,7 @@ ms.collection:
 
 Microsoft Defender for IoT provides tools both in the Azure portal and on-premises for managing user access across Defender for IoT resources.
 
-In the Azure portal, user management is managed at the *subscription* level with [Azure Active Directory](../../active-directory/index.yml) and [Azure role-based access control (RBAC)](../../role-based-access-control/overview.md). Assign Azure Active Directory users with Azure roles at the subscription level so that they can add or update Defender for IoT pricing plans and access device data, manage sensors, and access device data across Defender for IoT.
+In the Azure portal, user management is managed at the *subscription* level with [Microsoft Entra ID](../../active-directory/index.yml) and [Azure role-based access control (RBAC)](../../role-based-access-control/overview.md). Assign Microsoft Entra users with Azure roles at the subscription level so that they can add or update Defender for IoT pricing plans and access device data, manage sensors, and access device data across Defender for IoT.
 
 For OT network monitoring, Defender for IoT has the extra *site* level, which you can use to add granularity to your user management. For example, assign roles at the site level to apply different permissions for the same users across different sites.
 

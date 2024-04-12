@@ -1,17 +1,17 @@
 ---
-title: Create a SQL Managed Instance using Kubernetes tools
-description: Deploy Azure Arc-enabled SQL Managed Instance using Kubernetes tools.
+title: Deploy a new SQL Managed Instance enabled by Azure Arc using Kubernetes tools
+description: Describes how to use Kubernetes tools to deploy SQL Managed Instance enabled by Azure Arc.
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data-sqlmi
-author: dnethi
-ms.author: dinethi
+author: AbdullahMSFT
+ms.author: amamun
 ms.reviewer: mikeray
 ms.date: 02/28/2022
 ms.topic: how-to
 ---
 
-# Create Azure Arc-enabled SQL Managed Instance using Kubernetes tools 
+# Deploy SQL Managed Instance enabled by Azure Arc using Kubernetes tools 
 
 This article demonstrates how to deploy Azure SQL Managed Instance for Azure Arc with Kubernetes tools.
 
@@ -53,7 +53,7 @@ A Kubernetes secret is stored as a base64 encoded string - one for the username 
 > For optimum security, using the value `sa` is not allowed for the login .
 > Follow the [password complexity policy](/sql/relational-databases/security/password-policy#password-complexity).
 
-You can use an online tool to base64 encode your desired username and password or you can use built in CLI tools depending on your platform.
+You can use an online tool to base64 encode your desired username and password or you can use CLI tools depending on your platform.
 
 PowerShell
 
@@ -90,7 +90,7 @@ Requirements for resource limits and requests:
 - The cores limit and request must be a positive integer value, if specified.
 - The minimum of 1 core is required for the cores request, if specified.
 - The memory value format follows the Kubernetes notation. 
-- A minimum of 2 Gi is required for memory request, if specified.
+- A minimum of 2 GB is required for memory request, if specified.
 - As a general guideline, you should have 4 GB of RAM for each 1 core for production use cases.
 
 ### Customizing service type
@@ -153,6 +153,6 @@ kubectl describe pod/<pod name> --namespace arc
 
 If you encounter any troubles with the deployment, please see the [troubleshooting guide](troubleshoot-guide.md).
 
-## Next steps
+## Related content
 
-[Connect to Azure Arc-enabled SQL Managed Instance](connect-managed-instance.md)
+[Connect to SQL Managed Instance enabled by Azure Arc](connect-managed-instance.md)

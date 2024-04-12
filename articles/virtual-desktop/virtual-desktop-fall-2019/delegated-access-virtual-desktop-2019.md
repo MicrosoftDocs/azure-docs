@@ -1,6 +1,6 @@
 ---
 title: Delegated access in Azure Virtual Desktop (classic) - Azure
-description: How to delegate administrative capabilities on a Azure Virtual Desktop (classic) deployment, including examples.
+description: How to delegate administrative capabilities on an Azure Virtual Desktop (classic) deployment, including examples.
 author: Heidilohr
 ms.topic: conceptual
 ms.date: 03/30/2020
@@ -48,13 +48,13 @@ You can run the following cmdlets to create, view, and remove role assignments:
 
 You can modify the basic three cmdlets with the following parameters:
 
-* **AadTenantId**: specifies the Azure Active Directory tenant ID from which the service principal is a member.
+* **AadTenantId**: specifies the Microsoft Entra tenant ID from which the service principal is a member.
 * **AppGroupName**: name of the Remote Desktop application group.
 * **Diagnostics**: indicates the diagnostics scope. (Must be paired with either the **Infrastructure** or **Tenant** parameters.)
 * **HostPoolName**: name of the Remote Desktop host pool.
 * **Infrastructure**: indicates the infrastructure scope.
 * **RoleDefinitionName**: name of the Remote Desktop Services role-based access control role assigned to the user, group, or app. (For example, Remote Desktop Services Owner, Remote Desktop Services Reader, and so on.)
-* **ServerPrincipleName**: name of the Azure Active Directory application.
+* **ServerPrincipleName**: name of the Microsoft Entra application.
 * **SignInName**: the user's email address or user principal name.
 * **TenantName**: name of the Remote Desktop tenant.
 
@@ -62,4 +62,4 @@ You can modify the basic three cmdlets with the following parameters:
 
 For a more complete list of PowerShell cmdlets each role can use, see the [PowerShell reference](/powershell/windows-virtual-desktop/overview).
 
-For guidelines for how to set up a Azure Virtual Desktop environment, see [Azure Virtual Desktop environment](environment-setup-2019.md).
+For guidelines for how to set up an Azure Virtual Desktop environment, see [Azure Virtual Desktop environment](environment-setup-2019.md).

@@ -25,7 +25,7 @@ The work flow for granting access is:
 This article focuses on the actions consumers take to enable JIT access and approve requests. To learn about publishing a managed application with JIT access, see [Request just-in-time access in Azure Managed Applications](request-just-in-time-access.md).
 
 > [!NOTE]
-> To use just-in-time access, you must have a [Azure Active Directory P2 license](../../active-directory/privileged-identity-management/subscription-requirements.md).
+> To use just-in-time access, you must have a [Microsoft Entra ID P2 license](../../active-directory/privileged-identity-management/subscription-requirements.md).
 
 ## Enable during deployment
 
@@ -53,7 +53,7 @@ This article focuses on the actions consumers take to enable JIT access and appr
 
    The activation maximum duration specifies the maximum amount of time a publisher can request for access to the managed resource group.
 
-   The approvers list is the Azure Active Directory users that can approve of JIT access requests. To add an approver, select **Add Approver** and search for the user.
+   The approvers list is the Microsoft Entra users that can approve of JIT access requests. To add an approver, select **Add Approver** and search for the user.
 
    After updating the setting, select **Save**.
 
@@ -73,7 +73,7 @@ To change the settings for a deployed managed application:
 
 ## Approve requests
 
-When the publisher requests access, you're notified of the request. You can approve JIT access requests either directly through the managed application, or across all managed applications through the Azure AD Privileged Identity Management service. To use just-in-time access, you must have a [Azure Active Directory P2 license](../../active-directory/privileged-identity-management/subscription-requirements.md).
+When the publisher requests access, you're notified of the request. You can approve JIT access requests either directly through the managed application, or across all managed applications through the Microsoft Entra Privileged Identity Management service. To use just-in-time access, you must have a [Microsoft Entra ID P2 license](../../active-directory/privileged-identity-management/subscription-requirements.md).
 
 To approve requests through the managed application:
 
@@ -87,9 +87,9 @@ To approve requests through the managed application:
 
 1. In the form, provide the reason for the approval and select **Approve**.
 
-To approve requests through Azure AD Privileged Identity Management:
+To approve requests through Microsoft Entra Privileged Identity Management:
 
-1. Select **All services** and begin searching for **Azure AD Privileged Identity Management**. Select it from the available options.
+1. Select **All services** and begin searching for **Microsoft Entra Privileged Identity Management**. Select it from the available options.
 
    ![Search for service](./media/approve-just-in-time-access/search.png)
 

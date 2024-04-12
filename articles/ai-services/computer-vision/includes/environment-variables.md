@@ -1,7 +1,6 @@
 ---
 author: PatrickFarley
-ms.service: cognitive-services
-ms.subservice: computer-vision
+ms.service: azure-ai-vision
 ms.topic: include
 ms.date: 08/07/2023
 ms.author: pafarley

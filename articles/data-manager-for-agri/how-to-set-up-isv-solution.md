@@ -15,7 +15,7 @@ Follow the following guidelines to install and use an ISV solution.
 
 ## Install an ISV solution
 
-1. Once you've installed an instance of Azure Data Manager for Agriculture from Azure portal, navigate to Settings ->Solutions tab on the left hand side in your instance.
+1. Once you've installed an instance of Azure Data Manager for Agriculture from Azure portal, navigate to Settings ->Solutions tab on the left hand side in your instance. Ensure you have application admin permission. 
 2. Click on **Add** to view the list of Solutions available for installation. Select the solution of your choice and click on **Add** button against it.
 > [!NOTE]
 >

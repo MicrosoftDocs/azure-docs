@@ -6,7 +6,6 @@ services: front-door
 author: duongau
 ms.service: frontdoor
 ms.topic: conceptual
-ms.workload: infrastructure-services
 ms.date: 06/01/2023
 ms.author: duau
 zone_pivot_groups: front-door-tiers
@@ -26,9 +25,9 @@ With this feature, you can redirect your end users to a different origin based o
 
 The **source pattern** is the URL path in the initial request you want to replace. Currently, source pattern uses a prefix-based match. To match all URL paths, you can define a forward slash (`/`) as the source pattern value.
 
-For the source pattern in a URL rewrite action, only the path after the *patterns to match* in the route configuration is considered. For example, you have the following incoming URL format `contoso.com/patten-to-match/source-pattern`, only `/source-pattern` gets considered by the rule set as the source pattern to be rewritten. The format of the out going URL after URL rewrite gets applied is `contoso.com/pattern-to-match/destination`.
+For the source pattern in a URL rewrite action, only the path after the *patterns to match* in the route configuration is considered. For example, you have the following incoming URL format `contoso.com/pattern-to-match/source-pattern`, only `/source-pattern` gets considered by the rule set as the source pattern to be rewritten. The format of the out going URL after URL rewrite gets applied is `contoso.com/pattern-to-match/destination`.
 
-For situation, when you need to remove the `/patterns-to-match` segment of the URL, set the **origin path** for the origin group in route configuration to `/`.
+For situation, when you need to remove the `/pattern-to-match` segment of the URL, set the **origin path** for the origin group in route configuration to `/`.
 
 ## Destination
 
@@ -41,12 +40,14 @@ Preserve unmatched path allows you to append the remaining path after the source
 | Preserve unmatched path | Source pattern | Destination | Incoming request | Content served from origin |
 |--|--|--|--|--|
 | Yes | / | /foo/ | contoso.com/sub/1.jpg | /foo/sub/1.jpg |
-| Yes | /sub/ | /foo/ | contoso.com/sub/image/1.jpg | /foo/image/1.jpg` |
+| Yes | /sub/ | /foo/ | contoso.com/sub/image/1.jpg | /foo/image/1.jpg |
 | No | /sub/ | /foo/2.jpg | contoso.com/sub/image/1.jpg | /foo/2.jpg |
 
 ::: zone-end
 
 ::: zone pivot="front-door-classic"
+
+[!INCLUDE [Azure Front Door (classic) retirement notice](../../includes/front-door-classic-retirement.md)]
 
 Azure Front Door (classic) supports URL rewrite by configuring a **Custom forwarding path** when configuring the forward routing type rule. By default, if only a forward slash (`/*`) is defined, Front Door copies the incoming URL path to the URL used in the forwarded request. The host header used in the forwarded request is as configured for the selected backend. For more information, see [Backend host header](origin.md#origin-host-header).
 

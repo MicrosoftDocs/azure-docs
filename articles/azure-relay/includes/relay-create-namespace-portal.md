@@ -2,7 +2,7 @@
 author: spelluru
 ms.service: service-bus-relay
 ms.topic: include
-ms.date: 08/10/2023
+ms.date: 01/04/2024
 ms.author: spelluru
 ---
 1. Sign in to the [Azure portal].

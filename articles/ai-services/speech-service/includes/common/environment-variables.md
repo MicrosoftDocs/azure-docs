@@ -1,7 +1,6 @@
 ---
 author: eric-urban
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: include
 ms.date: 08/24/2023
 ms.author: eur
@@ -30,6 +29,10 @@ setx SPEECH_REGION your-region
 After you add the environment variables, you might need to restart any programs that need to read the environment variable, including the console window. For example, if you're using Visual Studio as your editor, restart Visual Studio before you run the example.
 
 #### [Linux](#tab/linux)
+
+##### Bash
+
+Edit your *.bashrc* file, and add the environment variables:
 
 ```bash
 export SPEECH_KEY=your-key

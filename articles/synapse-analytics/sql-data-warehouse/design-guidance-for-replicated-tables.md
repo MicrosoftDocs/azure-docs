@@ -1,15 +1,14 @@
 ---
 title: Design guidance for replicated tables
-description: Recommendations for designing replicated tables in Synapse SQL pool  
-manager: craigg
-ms.service: synapse-analytics
-ms.topic: conceptual
-ms.subservice: sql-dw 
-ms.date: 09/27/2022
+description: Recommendations for designing replicated tables in Synapse SQL pool
 author: WilliamDAssafMSFT
 ms.author: wiassaf
-ms.reviewer: 
-ms.custom: seo-lt-2019, azure-synapse
+ms.date: 01/09/2024
+ms.service: synapse-analytics
+ms.subservice: sql-dw
+ms.topic: conceptual
+ms.custom:
+  - azure-synapse
 ---
 
 # Design guidance for using replicated tables in Synapse SQL pool
@@ -163,6 +162,8 @@ For example, this load pattern loads data from four sources, but only invokes on
 
 To ensure consistent query execution times, consider forcing the build of the replicated tables after a batch load. Otherwise, the first query will still use data movement to complete the query.
 
+The 'Build Replicated Table Cache' operation can execute up to two operations simultaneously. For example, if you attempt to rebuild the cache for five tables, the system will utilize a staticrc20 (which cannot be modified) to concurrently build two tables at the time. Therefore, it is recommended to avoid using large replicated tables exceeding 2 GB, as this may slow down the cache rebuild across the nodes and increase the overall time.
+
 This query uses the [sys.pdw_replicated_table_cache_state](/sql/relational-databases/system-catalog-views/sys-pdw-replicated-table-cache-state-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) DMV to list the replicated tables that have been modified, but not rebuilt.
 
 ```sql
@@ -183,6 +184,41 @@ To trigger a rebuild, run the following statement on each table in the preceding
 ```sql
 SELECT TOP 1 * FROM [ReplicatedTable]
 ```
+
+> [!NOTE]
+> If you are planning to rebuild the statistics of the uncached replicated table, make sure to update the statistics before triggering the cache. Updating statistics will invalidate the cache, so the sequence is important.
+> 
+> Example: Start with `UPDATE STATISTICS`, then trigger the rebuild of the cache. In the following examples, the correct sample updates the statistics then triggers the rebuild of the cache.
+> 
+> ```sql
+> -- Incorrect sequence. Ensure that the rebuild operation is the last statement within the batch.
+> BEGIN
+> SELECT TOP 1 * FROM [ReplicatedTable]
+> 
+> UPDATE STATISTICS [ReplicatedTable]
+> END
+> ```
+>
+> ```sql
+> -- Correct sequence. Ensure that the rebuild operation is the last statement within the batch.
+> BEGIN
+> UPDATE STATISTICS [ReplicatedTable]
+>
+> SELECT TOP 1 * FROM [ReplicatedTable]
+> END
+> ```
+
+To monitor the rebuild process, you can use [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?view=azure-sqldw-latest&preserve-view=true), where the `command` will start with 'BuildReplicatedTableCache'. For example:
+
+```sql
+-- Monitor Build Replicated Cache
+SELECT *
+FROM sys.dm_pdw_exec_requests
+WHERE command like 'BuildReplicatedTableCache%'
+```
+
+> [!TIP]
+> [Table size queries](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-overview#table-size-queries) can be used to verify which table(s) have a replicated distribution policy and which are larger than 2 GB.
 
 ## Next steps
 

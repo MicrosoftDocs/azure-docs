@@ -1,8 +1,6 @@
 ---
 title: Data storage in Azure Fluid Relay
 description: Better understand the data storage in Fluid Relay Server
-author: hickeys
-ms.author: hickeys
 ms.date: 5/18/2022
 ms.service: azure-fluid
 ms.topic: reference
@@ -14,7 +12,7 @@ A Container is the atomic unit of storage in the Azure Fluid Relay service and r
 
 You have control of the Azure region where container data is stored. During the provisioning of the Azure Fluid Relay resource, you can select the region where you want that data to be stored at-rest. All containers created in that Azure Fluid Relay resource will be stored in that region. Once selected, the region can't be changed. You'll need to create a new Azure Fluid Relay resource in another region to store data in a different region.
 
-To deliver a highly available service, the container data is replicated to another region. This data replication helps in the cases where disaster recovery is needed in face of a full regional outage. Internally, Azure Fluid Relay uses Azure Blob Storage cross-region replication to achieve that. The region where data is replicated is defined by the Azure regional pairs listed on the [Cross-region replication in Azure](../../availability-zones/cross-region-replication-azure.md#azure-cross-region-replication-pairings-for-all-geographies) page.
+To deliver a highly available service, the container data is replicated to another region. This data replication helps in the cases where disaster recovery is needed in face of a full regional outage. Internally, Azure Fluid Relay uses Azure Blob Storage cross-region replication to achieve that. The region where data is replicated is defined by the Azure regional pairs listed on the [Cross-region replication in Azure](../../availability-zones/cross-region-replication-azure.md#azure-paired-regions) page.
 
 ## Single region offering
 

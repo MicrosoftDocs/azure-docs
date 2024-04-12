@@ -7,7 +7,6 @@ ms.reviewer: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 01/06/2021
-ms.custom: seo-nov-2020, ignite-2022
 adobe-target: true
 ---
 # Distribute your data globally with Azure Cosmos DB

@@ -2,15 +2,15 @@
 title: Configure xID with Azure Active Directory B2C for passwordless authentication
 titleSuffix: Azure AD B2C
 description: Configure Azure Active Directory B2C with xID for passwordless authentication
-services: active-directory-b2c
 author: gargi-sinha
 manager: martinco
 ms.service: active-directory
-ms.workload: identity
 ms.topic: how-to
-ms.date: 05/04/2023
+ms.date: 01/26/2024
 ms.author: gasinh
 ms.subservice: B2C
+
+# Customer intent: As an Azure AD B2C administrator, I want to configure xID as an identity provider, so users can sign in using xID and authenticate with their digital identity on their device.
 ---
 
 # Configure xID with Azure Active Directory B2C for passwordless authentication
@@ -19,7 +19,8 @@ In this tutorial, learn to integrate Azure Active Directory B2C (Azure AD B2C) a
 
 ## Prerequisites
 
-* An Azure AD subscription
+* An Azure subscription
+
   * If you don't have one, you can get an [Azure free account](https://azure.microsoft.com/free/)
 * An Azure AD B2C tenant linked to the Azure subscription
   * See, [Tutorial: Create an Azure Active Directory B2C tenant](./tutorial-create-tenant.md)

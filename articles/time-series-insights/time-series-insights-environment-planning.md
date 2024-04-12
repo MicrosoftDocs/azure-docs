@@ -1,17 +1,14 @@
 ---
 title: 'Plan your Gen1 environment - Azure Time Series Insights | Microsoft Docs'
 description: Best practices for preparing, configuring, and deploying your Azure Time Series Insights Gen1 environment.
-services: time-series-insights
 ms.service: time-series-insights
 author: tedvilutis
 ms.author: tvilutis
 manager: cnovak
 ms.reviewer: orspodek
 ms.devlang: csharp
-ms.workload: big-data
 ms.topic: conceptual
 ms.date: 09/29/2020
-ms.custom: seodec18
 ---
 
 # Plan your Azure Time Series Insights Gen1 environment

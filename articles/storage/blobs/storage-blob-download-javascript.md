@@ -15,6 +15,8 @@ ms.custom: devx-track-js, devguide-js
 
 # Download a blob with JavaScript
 
+[!INCLUDE [storage-dev-guide-selector-download](../../../includes/storage-dev-guides/storage-dev-guide-selector-download.md)]
+
 This article shows how to download a blob using the [Azure Storage client library for JavaScript](https://www.npmjs.com/package/@azure/storage-blob). You can download blob data to various destinations, including a local file path, stream, or text string.
 
 ## Prerequisites

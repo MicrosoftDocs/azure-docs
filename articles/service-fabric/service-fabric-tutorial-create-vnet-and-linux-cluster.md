@@ -5,7 +5,7 @@ ms.topic: tutorial
 ms.author: tomcassidy
 author: tomvcassidy
 ms.service: service-fabric
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, linux-related-content
 services: service-fabric
 ms.date: 07/14/2022
 ---
@@ -79,6 +79,42 @@ The names of the virtual network and subnet are declared in the template paramet
 * Service Fabric subnet address space: 10.0.2.0/24
 
 If any other application ports are needed, then you will need to adjust the Microsoft.Network/loadBalancers resource to allow the traffic in.
+
+### Service Fabric Extension
+
+In the **Microsoft.Compute/virtualMachineScaleSets** resource, the Service Fabric Linux extension is configured. This extension is used to bootstrap Service Fabric to Azure Virtual Machines and configure Node Security.
+
+The following is a template snippet for the Service Fabric Linux extension:
+
+```json
+"extensions": [
+  {
+    "name": "[concat('ServiceFabricNodeVmExt','_vmNodeType0Name')]",
+    "properties": {
+      "type": "ServiceFabricLinuxNode",
+      "autoUpgradeMinorVersion": true,
+      "enableAutomaticUpgrade": true,
+      "protectedSettings": {
+        "StorageAccountKey1": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('supportLogStorageAccountName')),'2015-05-01-preview').key1]",
+       },
+       "publisher": "Microsoft.Azure.ServiceFabric",
+       "settings": {
+         "clusterEndpoint": "[reference(parameters('clusterName')).clusterEndpoint]",
+         "nodeTypeRef": "[variables('vmNodeType0Name')]",
+         "durabilityLevel": "Silver",
+         "enableParallelJobs": true,
+         "nicPrefixOverride": "[variables('subnet0Prefix')]",
+         "certificate": {
+           "commonNames": [
+             "[parameters('certificateCommonName')]"
+           ],
+           "x509StoreName": "[parameters('certificateStoreValue')]"
+         }
+       },
+       "typeHandlerVersion": "2.0"
+     }
+   },
+```
 
 ## Set template parameters
 

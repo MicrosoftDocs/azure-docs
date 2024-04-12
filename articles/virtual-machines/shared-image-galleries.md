@@ -36,7 +36,7 @@ When you use a gallery to store images, multiple resource types are created:
 
 Image definitions are a logical grouping for versions of an image. The image definition holds information about why the image was created and also contains Image metadata such as, what OS it is for, features it supports and other information about using the image. An image definition is like a plan for all of the details around creating a specific image. You don't deploy a VM from an image definition, but from the image versions created from the definition.
 
-There are three parameters for each image definition that are used in combination - **Publisher**, **Offer** and **SKU**. These are used to find a specific image definition. You can have image versions that share one or two, but not all three values.  For example, here are three image definitions and their values:
+There are three parameters for each image definition that are used in combination - **Publisher**, **Offer** and **SKU**. These are used to find a specific image definition. You can have image definitions that share one or two, but not all three values. For example, here are three image definitions and their values:
 
 |Image Definition|Publisher|Offer|Sku|
 |---|---|---|---|
@@ -139,6 +139,34 @@ There are three main ways to share images an Azure Compute Gallery, depending on
 | RBAC + [Direct shared gallery](./share-gallery-direct.md)  | Yes | Yes | Yes | Yes | No |
 | RBAC + [Community gallery](./share-gallery-community.md) | Yes | Yes | Yes | No | Yes |
 
+## What RBAC Permissions are required to create an ACG Image:
+ACG images can be created by users from various sources, including virtual machines, disks/snapshots, and VHDs. The section outlines the various user permissions necessary for creating an Azure Compute Gallery image. Identifies without the necessary permissions will not be able to create ACG images.
+
+### [VM as source](#tab/vmsource)
+- Users will require write permission on the Virtual Machine to create an ACG Image version.
+- For Azure SDK, use the property [properties.storageProfile.source.virtualMachineId](/rest/api/compute/gallery-image-versions/create-or-update), This property requires API version 2023-07-03 or [Version 1.4.0](https://www.nuget.org/packages/Azure.ResourceManager.Compute) (or higher) of .NET SDK
+### [Disk/Snapshot as Source](#tab/disksnapsource)
+- Users will require write permission (contributor) on the source disk/snapshot to create an ACG Image version.
+### [VHD as Source](#tab/vhdsource)
+- Users will require Microsoft.Storage/storageAccounts/listKeys/action, Microsoft.Storage/storageAccounts/write permission (contributor role) on the storage account.
+- For SDK, use the property [properties.storageProfile.osDiskImage.source.storageAccountId](/rest/api/compute/gallery-image-versions/create-or-update), This property requires minimum api-version 2022-03-03.
+### [Managed Image and Gallery Image Version as Source](#tab/managedgallerysource)
+- Users will require read permission on the Managed Image/Gallery Image.
+
+---
+
+|Source type |Permissions Required | 
+|---|---|
+| Virtual machine | Write |
+| Disk/snapshot |	Write |
+| VHD	| Write (listKeys) |
+| Managed Image	| Read|
+| Gallery Image	| Read|
+
+Refer to our documentation for additional information regarding [Azure built-in roles](../role-based-access-control/built-in-roles.md), for [granting RBAC permissions](../role-based-access-control/quickstart-assign-role-user-portal.md)
+
+
+
 ## Shallow replication 
 
 When you create an image version, you can set the replication mode to shallow for development and test. Shallow replication skips copying the image, so the image version is ready faster. But, it also means you can't deploy a large number of VMs from that image version. This is similar to the way that the older managed images worked.
@@ -173,7 +201,7 @@ You can create Azure Compute Gallery resource using templates. There are several
 * [Can I move the Azure Compute Gallery resource to a different subscription after it has been created?](#can-i-move-the-azure-compute-gallery-resource-to-a-different-subscription-after-it-has-been-created)
 * [Can I replicate my image versions across clouds such as Microsoft Azure operated by 21Vianet, Azure Germany, or Azure Government Cloud?](#can-i-replicate-my-image-versions-across-clouds-such-as-azure-operated-by-21vianet-or-azure-germany-or-azure-government-cloud)
 * [Can I replicate my image versions across subscriptions?](#can-i-replicate-my-image-versions-across-subscriptions)
-* [Can I share image versions across Azure AD tenants?](#can-i-share-image-versions-across-azure-ad-tenants)
+* [Can I share image versions across Microsoft Entra tenants?](#can-i-share-image-versions-across-azure-ad-tenants)
 * [How long does it take to replicate image versions across the target regions?](#how-long-does-it-take-to-replicate-image-versions-across-the-target-regions)
 * [What is the difference between source region and target region?](#what-is-the-difference-between-source-region-and-target-region)
 * [How do I specify the source region while creating the image version?](#how-do-i-specify-the-source-region-while-creating-the-image-version)
@@ -183,6 +211,7 @@ You can create Azure Compute Gallery resource using templates. There are several
 * [What API version should I use when creating images?](#what-api-version-should-i-use-when-creating-images)
 * [What API version should I use to create a VM or Virtual Machine Scale Set out of the image version?](#what-api-version-should-i-use-to-create-a-vm-or-virtual-machine-scale-set-out-of-the-image-version)
 * [Can I update my Virtual Machine Scale Set created using managed image to use Azure Compute Gallery images?](#can-i-update-my-virtual-machine-scale-set-created-using-managed-image-to-use-azure-compute-gallery-images)
+* [How can I update my code to use the new property and ensure permissions are granted accurately during VM image creation?](#how-can-i-update-my-code-to-use-the-new-property-and-ensure-permissions-are-granted-accurately-during-vm-image-creation)
 
 ### How can I list all the Azure Compute Gallery resources across subscriptions?
 
@@ -192,7 +221,8 @@ To list all the Azure Compute Gallery resources across subscriptions that you ha
 1. Scroll down the page and select **All resources**.
 1. Select all the subscriptions under which you'd like to list all the resources.
 1. Look for resources of the **Azure Compute Gallery** type.
-  
+
+
 ### [Azure CLI](#tab/azure-cli)
 
 To list all the Azure Compute Gallery resources, across subscriptions that you have permissions to, use the following command in the Azure CLI:
@@ -214,8 +244,6 @@ $params = @{
 
 Get-AzSubscription | ForEach-Object @params
 ```
-
----
 
 For more information, see [List, update, and delete image resources](update-image-resources.md).
 
@@ -249,7 +277,9 @@ No, you can't replicate image versions across clouds.
 
 No, you may replicate the image versions across regions in a subscription and use it in other subscriptions through RBAC.
 
-### Can I share image versions across Azure AD tenants? 
+<a name='can-i-share-image-versions-across-azure-ad-tenants'></a>
+
+### Can I share image versions across Microsoft Entra tenants? 
 
 Yes, you can use RBAC to share to individuals across tenants. But, to share at scale, see "Share gallery images across Azure tenants" using [PowerShell](share-gallery.md?tabs=powershell) or [CLI](share-gallery.md?tabs=cli).
 
@@ -272,7 +302,7 @@ There are two ways you can specify the number of image version replicas to be cr
 1. The regional replica count which specifies the number of replicas you want to create per region. 
 2. The common replica count which is the default per region count in case regional replica count isn't specified. 
 
-### [Azure CLI](#tab/azure-cli)
+### [Azure CLI]
 
 To specify the regional replica count, pass the location along with the number of replicas you want to create in that region: "South Central US=2".
 
@@ -280,15 +310,13 @@ If regional replica count isn't specified with each location, then the default n
 
 To specify the common replica count in Azure CLI, use the **--replica-count** argument in the `az sig image-version create` command.
 
-### [Azure PowerShell](#tab/azure-powershell)
+### [Azure PowerShell]
 
 To specify the regional replica count, pass the location along with the number of replicas you want to create in that region, `@{Name = 'South Central US';ReplicaCount = 2}`, to the **-TargetRegion** parameter in the `New-AzGalleryImageVersion` command.
 
 If regional replica count isn't specified with each location, then the default number of replicas will be the common replica count that you specified.
 
 To specify the common replica count in Azure PowerShell, use the **-ReplicaCount** parameter in the `New-AzGalleryImageVersion` command.
-
----
 
 ### Can I create the gallery in a different location than the one for the image definition and image version?
 
@@ -310,6 +338,32 @@ For VM and Virtual Machine Scale Set deployments using an image version, we reco
 
 Yes, you can update the scale set image reference from a managed image to an Azure Compute Gallery image, as long as the OS type, Hyper-V generation, and the data disk layout matches between the images.
 
+### How can I update my code to use the new property and ensure permissions are granted accurately during VM image creation?
+For Virtual Machine ID field, use VirtualMachineId field under GallerySource(GalleryImageVersionStorageProfile.GallerySource.VirtualMachineID). The new property requires api-version 2023-07-03 or version 1.4.0 (or higher) of .NET SDK
+```
+StorageProfile = new GalleryImageVersionStorageProfile()
+            {
+                GallerySource = new GalleryArtifactVersionFullSource()
+                {
+                    VirtualMachineId = new ResourceIdentifier(virtualMachineId),
+                }
+            },
+```
+
+For VHD as a source, use StorageAccountID field under GallerySource under OSDiskImage or Data disk Image(GalleryImageVersionStorageProfile.OSDiskImage.GallerySource.StorageAccountId). The new property requires api-version 2022-03-03
+```
+StorageProfile = new GalleryImageVersionStorageProfile()
+            {
+                OSDiskImage = new GalleryOSDiskImage()
+                {
+                    GallerySource = new GalleryDiskImageSource()
+                    {
+                        StorageAccountId = new ResourceIdentifier(storageAccountId),
+                        Uri = new Uri(blobUri),
+                    }
+                }
+            },
+```
 ## Troubleshoot
 If you have issues with performing any operations on the gallery resources, consult the list of common errors in the [troubleshooting guide](troubleshooting-shared-images.md).
 

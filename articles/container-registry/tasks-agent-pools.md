@@ -4,8 +4,9 @@ description: Set up a dedicated compute pool (agent pool) in your registry to ru
 ms.topic: article
 author: tejaswikolli-web
 ms.author: tejaswikolli
-ms.date: 10/11/2022
+ms.date: 10/31/2023
 ms.custom: references_regions, devx-track-azurecli
+ms.service: container-registry
 ---
 
 # Run an ACR task on a dedicated agent pool
@@ -102,6 +103,8 @@ Task agent pools require access to the following Azure services. The following f
 
 > [!NOTE]
 > If your tasks require additional resources from the public internet, add the corresponding rules. For example, additional rules are needed to run a docker build task that pulls the base images from Docker Hub, or restores a NuGet package.
+
+Customers basing their deployments with MCR can refer to [MCR/MAR firewall rules.](https://github.com/microsoft/containerregistry/blob/main/docs/client-firewall-rules.md)
 
 ### Create pool in VNet
 

@@ -8,7 +8,8 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
-ms.date: 07/24/2023
+ms.devlang: nosql
+ms.date: 02/27/2024
 ms.custom: query-reference
 ---
 
@@ -20,7 +21,7 @@ Returns a numeric value truncated to the closest integer value.
 
 ## Syntax
 
-```sql
+```nosql
 TRUNC(<numeric_expr>)
 ```
 
@@ -38,7 +39,7 @@ Returns a numeric expression.
 
 This example illustrates various ways to truncate a number to the closest integer.
 
-:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/trunc/query.sql" highlight="2-6":::
+:::code language="nosql" source="~/cosmos-db-nosql-query-samples/scripts/trunc/query.sql" highlight="2-6":::
 
 :::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/trunc/result.json":::
 
@@ -46,7 +47,7 @@ This example illustrates various ways to truncate a number to the closest intege
 
 - This function benefits from a [range index](../../index-policy.md#includeexclude-strategy).
 
-## Next steps
+## Related content
 
 - [System functions](system-functions.yml)
 - [`TRIM`](trim.md)

@@ -1,8 +1,8 @@
 ---
 title: Process real-time IoT data streams with Azure Stream Analytics
 description: IoT sensor tags and data streams with stream analytics and real-time data processing
-author: enkrumah
-ms.author: ebnkruma
+author: AliciaLiMicrosoft 
+ms.author: ali 
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 08/15/2023
@@ -55,8 +55,7 @@ For ease of use, this getting started guide provides a sample data file, which w
 ## Create an Azure Stream Analytics query
 After your job is created, write a query. You can test queries against sample data without connecting an input or output to your job.
 
-1. Download the [HelloWorldASA-InputStream.json](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/GettingStarted/HelloWorldASA-InputStream.json
-) from GitHub. 
+1. Download the [HelloWorldASA-InputStream.json](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/GettingStarted/HelloWorldASA-InputStream.json) from GitHub. 
 1. On the **Azure Stream Analytics job** page in the Azure portal, select **Query** under **Job topology** from the left menu. 
 1. Select **Upload sample input**, select the `HelloWorldASA-InputStream.json` file you downloaded, and select **OK**. 
 

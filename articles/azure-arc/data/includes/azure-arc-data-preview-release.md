@@ -2,22 +2,22 @@
 author: jkleinschnitz-msft
 ms.author: jameskl
 ms.service: azure-arc
+ms.custom:
+  - ignite-2023
 ms.topic: include
-ms.date: 05/02/2023
+ms.date: 03/12/2024
 ---
 
-
-<!--
+<!---
 At this time, a test or preview build is not available for the next release.
-
 -->
 
-Sept 2023 preview release is now available.
+April, 2024 preview release is now available.
 
 |Component|Value|
 |-----------|-----------|
 |Container images registry/repository |`mcr.microsoft.com/arcdata/preview`|
-|Container images tag |`v1.23.0_2023-09-12`|
+|Container images tag |`v1.29.0_2024-04-09`|
 |**CRD names and version:**| |
 |`activedirectoryconnectors.arcdata.microsoft.com`| v1beta1, v1beta2, v1, v2|
 |`datacontrollers.arcdata.microsoft.com`| v1beta1, v1 through v5|
@@ -33,14 +33,16 @@ Sept 2023 preview release is now available.
 |`sqlmanagedinstancerestoretasks.tasks.sql.arcdata.microsoft.com`| v1beta1, v1|
 |`telemetrycollectors.arcdata.microsoft.com`| v1beta1 through v1beta5|
 |`telemetryrouters.arcdata.microsoft.com`| v1beta1 through v1beta5|
-|Azure Resource Manager (ARM) API version|2023-01-15-preview|
-|`arcdata` Azure CLI extension version|1.5.5 ([Download](https://aka.ms/az-cli-arcdata-ext))|
-|Arc-enabled Kubernetes helm chart extension version|1.23.0|
+|Azure Resource Manager (ARM) API version|2023-11-01-preview|
+|`arcdata` Azure CLI extension version|1.5.13 ([Download](https://aka.ms/az-cli-arcdata-ext))|
+|Arc-enabled Kubernetes helm chart extension version|1.29.0|
 |Azure Arc Extension for Azure Data Studio<br/>`arc`<br/>`azcli`|<br/>1.8.0 ([Download](https://aka.ms/ads-arcdata-ext))</br>1.8.0 ([Download](https://aka.ms/ads-azcli-ext))|
-|SQL Database version | 957 |
+|SQL Database version | 968 |
 
-<!--
 ### Release notes
 
--->
+Arc SQL Server | Support for moving Arc-enabled SQL Server instances and child resources (DBs, AGs) across different subscriptions & resource groups | Public Preview
 
+Arc SQL Server | "Free"/Dev license for SQL IP and ESU | GA
+
+Arc SQL Server | Allow the database inventory feature for all license types | GA

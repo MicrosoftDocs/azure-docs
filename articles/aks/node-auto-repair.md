@@ -3,6 +3,9 @@ title: Automatically repair Azure Kubernetes Service (AKS) nodes
 description: Learn about node auto-repair functionality and how AKS fixes broken worker nodes.
 ms.topic: conceptual
 ms.date: 05/30/2023
+author: nickomang
+ms.author: nickoman
+
 ---
 
 # Azure Kubernetes Service (AKS) node auto-repair
@@ -40,7 +43,7 @@ AKS engineers investigate alternative remediations if auto-repair is unsuccessfu
 
 ## Node auto-drain
 
-[Scheduled events][scheduled-events] can occur on the underlying VMs in any of your node pools. For [spot node pools][spot-node-pools], scheduled events may cause a *preempt* node event for the node. Certain node events, such as  *preempt*, cause AKS node auto-drain to attempt a cordon and drain of the affected node. This process enables rescheduling for any affected workloads on that node. You might notice the node receives a taint with `"remediator.aks.microsoft.com/unschedulable"`, because of `"kubernetes.azure.com/scalesetpriority: spot"`.
+[Scheduled events][scheduled-events] can occur on the underlying VMs in any of your node pools. For [spot node pools][spot-node-pools], scheduled events may cause a *preempt* node event for the node. Certain node events, such as  *preempt*, cause AKS node auto-drain to attempt a cordon and drain of the affected node. This process enables rescheduling for any affected workloads on that node. You might notice the node receives a taint with `"remediator.kubernetes.azure.com/unschedulable"`, because of `"kubernetes.azure.com/scalesetpriority: spot"`.
 
 The following table shows the node events and actions they cause for AKS node auto-drain:
 
@@ -69,3 +72,4 @@ Use [availability zones][availability-zones] to increase high availability with 
 [vm-updates]: ../virtual-machines/maintenance-and-updates.md
 [scheduled-events]: ../virtual-machines/linux/scheduled-events.md
 [spot-node-pools]: spot-node-pool.md
+

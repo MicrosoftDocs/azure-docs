@@ -4,14 +4,14 @@ description: Overview of the framework and tooling for SAP Deployment Automation
 author: kimforss
 ms.author: kimforss
 ms.reviewer: kimforss
-ms.date: 05/29/2022
+ms.date: 12/21/2023
 ms.service: sap-on-azure
 ms.subservice: sap-automation
 ms.topic: conceptual
 ---
 # SAP Deployment Automation Framework
 
-[SAP Deployment Automation Framework](https://github.com/Azure/sap-automation) is an open-source orchestration tool that's used to deploy, install, and maintain SAP environments. You can create infrastructure for SAP landscapes based on SAP HANA and NetWeaver with AnyDB by using [Terraform](https://www.terraform.io/) and [Ansible](https://www.ansible.com/) for the operating system and application configuration. You can deploy the systems on any of the SAP-supported operating system versions and into any Azure region.
+[SAP Deployment Automation Framework](https://github.com/Azure/sap-automation) is an open-source orchestration tool that can deploy, install, and maintain SAP environments. You can deploy the systems on any of the SAP-supported operating system versions and into any Azure region. You can create infrastructure for SAP landscapes based on SAP HANA and NetWeaver with AnyDB by using [Terraform](https://www.terraform.io/). The environments can be configured using [Ansible](https://www.ansible.com/). 
 
 [Terraform](https://www.terraform.io/) from Hashicorp is an open-source tool for provisioning and managing cloud infrastructure.
 
@@ -19,8 +19,12 @@ ms.topic: conceptual
 
 The [automation framework](https://github.com/Azure/sap-automation) has two main components:
 
-- Deployment infrastructure (control plane and hub component)
-- SAP infrastructure (SAP workload and spoke component)
+- Deployment infrastructure (control plane, typically deployed in the hub)
+- SAP infrastructure (SAP workload zone, typically deployed in a spoke.)
+
+The dependency between the control plane and the application plane is illustrated in the following diagram. In a typical deployment, a single control plane is used to manage multiple SAP deployments.
+
+:::image type="content" source="./media/deployment-framework/control-plane-sap-infrastructure.png" alt-text="Diagram that shows the dependency between the control plane and the application plane for SAP Deployment Automation Framework.":::
 
 You use the control plane of SAP Deployment Automation Framework to deploy the SAP infrastructure and the SAP application. The deployment uses Terraform templates to create the [infrastructure as a service (IaaS)](https://azure.microsoft.com/overview/what-is-iaas)-defined infrastructure to host the SAP applications.
 
@@ -35,9 +39,6 @@ You can use the automation framework to deploy the following SAP architectures:
 - **Distributed**: With this architecture, you can separate the database server and the application tier. The application tier can further be separated in two by having SAP central services on a VM and one or more application servers.
 - **Distributed (highly available)**: This architecture is similar to the distributed architecture. In this deployment, the database and/or SAP central services can both be configured by using a highly available configuration that uses two VMs, each with Pacemaker clusters.
 
-The dependency between the control plane and the application plane is illustrated in the following diagram. In a typical deployment, a single control plane is used to manage multiple SAP deployments.
-
-:::image type="content" source="./media/deployment-framework/control-plane-sap-infrastructure.png" alt-text="Diagram that shows the dependency between the control plane and the application plane for SAP Deployment Automation Framework.":::
 
 ## About the control plane
 
@@ -52,7 +53,7 @@ The control plane provides the following services:
 - Persistent storage for the downloaded SAP software
 - Azure Key Vault for secure storage for deployment credentials
 - Private DNS zone (optional)
-- Configuration for web applications
+- A Web application for configuration management
 
 The control plane is typically a regional resource deployed into the hub subscription in a [hub-and-spoke architecture](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke).
 
@@ -72,6 +73,36 @@ The application configuration is performed from the deployment agents in the con
 
 For more information about how to configure and deploy the control plane, see [Configure the control plane](configure-control-plane.md) and [Deploy the control plane](deploy-control-plane.md).
 
+### Deployer VMs
+
+These VMs are used to run the orchestration scripts that deploy the Azure resources by using Terraform. They're also Ansible controllers and are used to execute the Ansible playbooks on all the managed nodes, that is, the VMs of an SAP deployment.
+
+
+## About the SAP workload zone
+
+The workload zone allows for partitioning of the SAP systems deployments into different environments, such as development, test, and production. The workload zone provides the shared resources (networking and credentials management) that are used by the SAP systems. 
+
+You would typically create a workload zone for each unique Azure Virtual network (VNet) that you want to deploy the SAP systems into.
+
+The SAP workload zone provides the following services to the SAP systems:
+
+- Virtual network
+- Azure Key Vault for system credentials (VMs and SAP accounts)
+- Shared storage (optional)
+
+It is recommended to deploy the workload zone into a spoke subscription in a [hub-and-spoke architecture](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) and use a dedicated deployment credential for each workload zone. 
+
+For more information about how to configure and deploy the SAP workload zone, see [Configure the workload zone](configure-workload-zone.md) and [Deploy the SAP workload zone](deploy-workload-zone.md).
+
+## About the SAP systems
+
+Each SAP system is deployed into a dedicated resource group and they use the services from the workload zone. 
+
+The SAP system deployment consists of the VMs and the associated resources required to run the SAP application, including the web, app, and database tiers.
+
+For more information about how to configure and deploy the SAP system, see [Configure the SAP system](configure-system.md) and [Deploy the SAP system](deploy-system.md).
+
+
 ## Software acquisition process
 
 The framework also provides an Ansible playbook that can be used to download the software from SAP and persist it in the storage accounts in the control plane's SAP library resource group.
@@ -84,40 +115,7 @@ The software acquisition is using an SAP application manifest file that contains
 
 The SAP software download playbook processes the manifest file and the dependent manifest files and downloads the SAP software from SAP by using the specified SAP user account. The software is downloaded to the SAP library storage account and is available for the installation process.
 
-As part of the download process, the application manifest and the supporting templates are also persisted in the storage account. The application manifest and the dependent manifests are aggregated into a single manifest file that's used by the installation process.
-
-### Deployer VMs
-
-These VMs are used to run the orchestration scripts that deploy the Azure resources by using Terraform. They're also Ansible controllers and are used to execute the Ansible playbooks on all the managed nodes, that is, the VMs of an SAP deployment.
-
-## About the SAP workload
-
-The SAP workload contains all the Azure infrastructure resources for the SAP deployments. These resources are deployed from the control plane.
-
-The SAP workload has two main components:
-
-- SAP workload zone
-- SAP systems
-
-## About the SAP workload zone
-
-The workload zone allows for partitioning of the deployments into different environments, such as development, test, and production. The workload zone provides the shared services (networking and credentials management) to the SAP systems.
-
-The SAP workload zone provides the following services to the SAP systems:
-
-- Virtual networking infrastructure
-- Azure Key Vault for system credentials (VMs and SAP)
-- Shared storage (optional)
-
-For more information about how to configure and deploy the SAP workload zone, see [Configure the workload zone](configure-workload-zone.md) and [Deploy the SAP workload zone](deploy-workload-zone.md).
-
-## About the SAP system
-
-The system deployment consists of the VMs that run the SAP application, including the web, app, and database tiers.
-
-The SAP system provides VM, storage, and support infrastructure to host the SAP applications.
-
-For more information about how to configure and deploy the SAP system, see [Configure the SAP system](configure-system.md) and [Deploy the SAP system](deploy-system.md).
+As part of the download process, the application manifest and the supporting templates are also persisted in the storage account. The application manifest and the dependent manifests are aggregated into a single manifest file that is used by the installation process.
 
 ## Glossary
 

@@ -1,8 +1,8 @@
 ---
 title: Drawing tools events | Microsoft Azure Maps
 description: This article demonstrates how to add a drawing toolbar to a map using Microsoft Azure Maps Web SDK
-author: dubiety
-ms.author: yuchungchen
+author: sinnypan
+ms.author: sipa
 ms.date: 05/23/2023
 ms.topic: conceptual
 ms.service: azure-maps
@@ -100,7 +100,7 @@ Check out more code samples:
 > [Code sample page]
 
 [Azure Maps Samples]:https://samples.azuremaps.com
-[Code sample page]: https://aka.ms/AzureMapsSamples
+[Code sample page]: https://samples.azuremaps.com/
 [Create a measuring tool sample code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Drawing%20Tools%20Module/Create%20a%20measuring%20tool/Create%20a%20measuring%20tool.html
 [Create a measuring tool]: https://samples.azuremaps.com/drawing-tools-module/create-a-measuring-tool
 [Draw and search polygon area sample code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Drawing%20Tools%20Module/Draw%20and%20search%20polygon%20area/Draw%20and%20search%20polygon%20area.html

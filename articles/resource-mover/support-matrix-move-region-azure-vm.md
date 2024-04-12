@@ -1,17 +1,18 @@
 ---
 title: Support matrix for moving Azure VMs to another region with Azure Resource Mover
-description: Review support for moving Azure VMs between regions with Azure Resource Mover. 
+description: Review support for moving Azure VMs between regions with Azure Resource Mover.
 author: ankitaduttaMSFT
-manager: evansma
 ms.service: resource-mover
 ms.topic: how-to
-ms.date: 03/21/2023
+ms.date: 03/29/2024
 ms.author: ankitadutta
-ms.custom: engagement-fy23, UpdateFrequency.5
-
+ms.custom: engagement-fy23, UpdateFrequency.5, linux-related-content
 ---
 
 # Support for moving Azure VMs between Azure regions
+
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 This article summarizes support and prerequisites when you move virtual machines and related network resources across Azure regions using Resource Mover.
 
@@ -54,26 +55,26 @@ Oracle Linux | 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5,
 
 ### Supported Ubuntu kernel versions
 
-**Release** | **Kernel version** 
---- | --- 
-14.04 LTS |  3.13.0-24-generic to 3.13.0-170-generic,<br/>3.16.0-25-generic to 3.16.0-77-generic,<br/>3.19.0-18-generic to 3.19.0-80-generic,<br/>4.2.0-18-generic to 4.2.0-42-generic,<br/>4.4.0-21-generic to 4.4.0-148-generic,<br/>4.15.0-1023-azure to 4.15.0-1045-azure 
+**Release** | **Kernel version**
+--- | ---
+14.04 LTS |  3.13.0-24-generic to 3.13.0-170-generic,<br/>3.16.0-25-generic to 3.16.0-77-generic,<br/>3.19.0-18-generic to 3.19.0-80-generic,<br/>4.2.0-18-generic to 4.2.0-42-generic,<br/>4.4.0-21-generic to 4.4.0-148-generic,<br/>4.15.0-1023-azure to 4.15.0-1045-azure
 16.04 LTS |  4.4.0-21-generic to 4.4.0-171-generic,<br/>4.8.0-34-generic to 4.8.0-58-generic,<br/>4.10.0-14-generic to 4.10.0-42-generic,<br/>4.11.0-13-generic to 4.11.0-14-generic,<br/>4.13.0-16-generic to 4.13.0-45-generic,<br/>4.15.0-13-generic to 4.15.0-74-generic<br/>4.11.0-1009-azure to 4.11.0-1016-azure,<br/>4.13.0-1005-azure to 4.13.0-1018-azure <br/>4.15.0-1012-azure to 4.15.0-1066-azure
 18.04 LTS | 4.15.0-20-generic to 4.15.0-74-generic </br> 4.18.0-13-generic to 4.18.0-25-generic </br> 5.0.0-15-generic to 5.0.0-37-generic </br> 5.3.0-19-generic to 5.3.0-24-generic </br> 4.15.0-1009-azure to 4.15.0-1037-azure </br> 4.18.0-1006-azure to 4.18.0-1025-azure </br> 5.0.0-1012-azure to 5.0.0-1028-azure </br> 5.3.0-1007-azure to 5.3.0-1009-azure
 
 
-### Supported Debian kernel versions 
+### Supported Debian kernel versions
 
-**Release** |  **Kernel version** 
---- |  --- 
-Debian 7 |  3.2.0-4-amd64 to 3.2.0-6-amd64, 3.16.0-0.bpo.4-amd64 
-Debian 8 |  3.16.0-4-amd64 to 3.16.0-10-amd64, 4.9.0-0.bpo.4-amd64 to 4.9.0-0.bpo.11-amd64 
+**Release** |  **Kernel version**
+--- |  ---
+Debian 7 |  3.2.0-4-amd64 to 3.2.0-6-amd64, 3.16.0-0.bpo.4-amd64
+Debian 8 |  3.16.0-4-amd64 to 3.16.0-10-amd64, 4.9.0-0.bpo.4-amd64 to 4.9.0-0.bpo.11-amd64
 Debian 8 |  3.16.0-4-amd64 to 3.16.0-10-amd64, 4.9.0-0.bpo.4-amd64 to 4.9.0-0.bpo.9-amd64
 
-### Supported SUSE Linux Enterprise Server 12 kernel versions 
+### Supported SUSE Linux Enterprise Server 12 kernel versions
 
-**Release** | **Kernel version** 
---- |  --- 
-SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4) |  All [stock SUSE 12 SP1,SP2,SP3,SP4 kernels](https://www.suse.com/support/kb/doc/?id=000019587) are supported.</br></br> 4.4.138-4.7-azure to 4.4.180-4.31-azure,</br>4.12.14-6.3-azure to 4.12.14-6.34-azure  
+**Release** | **Kernel version**
+--- |  ---
+SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4) |  All [stock SUSE 12 SP1,SP2,SP3,SP4 kernels](https://www.suse.com/support/kb/doc/?id=000019587) are supported.</br></br> 4.4.138-4.7-azure to 4.4.180-4.31-azure,</br>4.12.14-6.3-azure to 4.12.14-6.34-azure
 
 
 ### Supported SUSE Linux Enterprise Server 15 kernel versions
@@ -147,11 +148,11 @@ Premium P20 or P30 or P40 or P50 disk | 16 KB or greater |20 MB/s | 1684 GB per 
 
 **Setting** | **Support** | **Details**
 --- | --- | ---
-NIC | Supported | Specify an existing resource in the target region, or  create a new resource during the Prepare process. 
-Internal load balancer | Supported | Specify an existing resource in the target region, or create a new resource during the Prepare process.  
-Public load balancer | Supported | Specify an existing resource in the target region, or create a new resource during the Prepare process.  
+NIC | Supported | Specify an existing resource in the target region, or  create a new resource during the Prepare process.
+Internal load balancer | Supported | Specify an existing resource in the target region, or create a new resource during the Prepare process.
+Public load balancer | Supported | Specify an existing resource in the target region, or create a new resource during the Prepare process.
 Public IP address | Supported | Specify an existing resource in the target region, or create a new resource during the Prepare process.<br/><br/> The public IP address is region-specific, and won't be retained in the target region after the move. Keep this in mind when you modify networking settings (including load balancing rules) in the target location.
-Network security group | Supported | Specify an existing resource in the target region, or create a new resource during the Prepare process.  
+Network security group | Supported | Specify an existing resource in the target region, or create a new resource during the Prepare process.
 Reserved (static) IP address | Supported | You can't currently configure this. The value defaults to the source value. <br/><br/> If the NIC on the source VM has a static IP address, and the target subnet has the same IP address available, it's assigned to the target VM.<br/><br/> If the target subnet doesn't have the same IP address available, the initiate move for the VM will fail.
 Dynamic IP address | Supported | You can't currently configure this. The value defaults to the source value.<br/><br/> If the NIC on the source has dynamic IP addressing, the NIC on the target VM is also dynamic by default.
 IP configurations | Supported | You can't currently configure this. The value defaults to the source value.
@@ -166,12 +167,12 @@ Azure VMs that you want to move need outbound access.
 
  If you're using a URL-based firewall proxy to control outbound connectivity, allow access to these URLs:
 
-**Name** | **Azure public cloud** | **Details** 
---- | --- | --- 
-Storage | `*.blob.core.windows.net`  | Allows data to be written from the VM to the cache storage account in the source region. 
-Azure Active Directory | `login.microsoftonline.com`  | Provides authorization and authentication to Site Recovery service URLs. 
-Replication | `*.hypervrecoverymanager.windowsazure.com` | Allows the VM to communicate with the Site Recovery service. 
-Service Bus | `*.servicebus.windows.net` | Allows the VM to write Site Recovery monitoring and diagnostics data. 
+**Name** | **Azure public cloud** | **Details**
+--- | --- | ---
+Storage | `*.blob.core.windows.net`  | Allows data to be written from the VM to the cache storage account in the source region.
+Microsoft Entra ID | `login.microsoftonline.com`  | Provides authorization and authentication to Site Recovery service URLs.
+Replication | `*.hypervrecoverymanager.windowsazure.com` | Allows the VM to communicate with the Site Recovery service.
+Service Bus | `*.servicebus.windows.net` | Allows the VM to write Site Recovery monitoring and diagnostics data.
 
 ## NSG rules
 If you're using a network security group (NSG) rules to control outbound connectivity, create these [service tag](../virtual-network/service-tags-overview.md) rules. Each rule should allow outbound access on HTTPS (443).
@@ -181,7 +182,7 @@ If you're using a network security group (NSG) rules to control outbound connect
     - **EventHub*
     - *AzureKeyVault*
     - *GuestAndHybridManagement*
-- We recommend you test rules in a non-production environment. [Review some examples](../site-recovery/azure-to-azure-about-networking.md#outbound-connectivity-using-service-tags). 
+- We recommend you test rules in a non-production environment. [Review some examples](../site-recovery/azure-to-azure-about-networking.md#outbound-connectivity-using-service-tags).
 
 ## Next steps
 

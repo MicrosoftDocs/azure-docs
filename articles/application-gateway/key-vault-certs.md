@@ -5,7 +5,7 @@ services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
 ms.topic: conceptual
-ms.date: 03/04/2022
+ms.date: 02/02/2024
 ms.author: greglin
 ---
 
@@ -31,12 +31,12 @@ Application Gateway integration with Key Vault offers many benefits, including:
 
 Application Gateway currently supports software-validated certificates only. Hardware security module (HSM)-validated certificates aren’t supported. 
 
-After Application Gateway is configured to use Key Vault certificates, its instances retrieve the certificate from Key Vault and install them locally for TLS termination. The instances poll Key Vault at four-hour intervals to retrieve a renewed version of the certificate, if it exists. If an updated certificate is found, the TLS/SSL certificate that's currently associated with the HTTPS listener is automatically rotated.
+After Application Gateway is configured to use Key Vault certificates, its instances retrieve the certificate from Key Vault and install them locally for TLS termination. The instances poll Key Vault at four-hour intervals to retrieve a renewed version of the certificate, if it exists. If an updated certificate is found, the TLS/SSL certificate that's associated with the HTTPS listener is automatically rotated.
 
 > [!TIP]
-> Any change to Application Gateway will force a check against Key Vault to see if any new versions of certificates are available. This includes, but not limited to, changes to Frontend IP Configurations, Listeners, Rules, Backend Pools, Resource Tags, and more. If an updated certificate is found, the new certificate will immediately be presented.
+> Any change to Application Gateway forces a check against Key Vault to see if any new versions of certificates are available. This includes, but not limited to, changes to Frontend IP Configurations, Listeners, Rules, Backend Pools, Resource Tags, and more. If an updated certificate is found, the new certificate is immediately presented.
 
-Application Gateway uses a secret identifier in Key Vault to reference the certificates. For Azure PowerShell, the Azure CLI, or Azure Resource Manager, we strongly recommend that you use a secret identifier that doesn't specify a version. This way, Application Gateway will automatically rotate the certificate if a newer version is available in your Key Vault. An example of a secret URI without a version is `https://myvault.vault.azure.net/secrets/mysecret/`. You may refer to the PowerShell steps provided in the [section below](#key-vault-azure-role-based-access-control-permission-model).
+Application Gateway uses a secret identifier in Key Vault to reference the certificates. For Azure PowerShell, the Azure CLI, or Azure Resource Manager, we strongly recommend that you use a secret identifier that doesn't specify a version. This way, Application Gateway automatically rotates the certificate if a newer version is available in your Key Vault. An example of a secret URI without a version is `https://myvault.vault.azure.net/secrets/mysecret/`. You may refer to the PowerShell steps provided in the [following section](#key-vault-azure-role-based-access-control-permission-model).
 
 The Azure portal supports only Key Vault certificates, not secrets. Application Gateway still supports referencing secrets from Key Vault, but only through non-portal resources like PowerShell, the Azure CLI, APIs, and Azure Resource Manager templates (ARM templates).
 
@@ -66,8 +66,8 @@ You can either create a new user-assigned managed identity or reuse an existing 
 Define access policies to use the user-assigned managed identity with your Key Vault:
 
 1. In the Azure portal, go to **Key Vault**.
-1. Select the Key Vault that contains your certificate.
-1. If you're using the permission model **Vault access policy**: Select **Access Policies**, select **+ Add Access Policy**, select **Get** for **Secret permissions**, and choose your user-assigned managed identity for **Select principal**. Then select **Save**.
+2. Select the Key Vault that contains your certificate.
+3. If you're using the permission model **Vault access policy**: Select **Access Policies**, select **+ Add Access Policy**, select **Get** for **Secret permissions**, and choose your user-assigned managed identity for **Select principal**. Then select **Save**.
    
    If you're using **Azure role-based access control** follow the article [Assign a managed identity access to a resource](../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md) and assign the user-assigned managed identity the **Key Vault Secrets User** role to the Azure Key Vault.
 
@@ -80,13 +80,13 @@ When you're using a restricted Key Vault, use the following steps to configure A
 > [!TIP]
 > Steps 1-3 are not required if your Key Vault has a Private Endpoint enabled. The application gateway can access the Key Vault using the private IP address.
 
-> [!Note]
-> If using Private Endpoints to access Key Vault, you must link the privatelink.vaultcore.azure.net private DNS zone, containing the corresponding record to the referenced Key Vault, to the virtual network containing Application Gateway. Custom DNS servers may continue to be used on the virtual network instead of the Azure DNS provided resolvers, however the private dns zone will need to remain linked to the virtual network as well.
+> [!IMPORTANT]
+> If using Private Endpoints to access Key Vault, you must link the privatelink.vaultcore.azure.net private DNS zone, containing the corresponding record to the referenced Key Vault, to the virtual network containing Application Gateway. Custom DNS servers may continue to be used on the virtual network instead of the Azure DNS provided resolvers, however the private DNS zone needs to remain linked to the virtual network as well.
 
 1. In the Azure portal, in your Key Vault, select **Networking**.
-1. On the **Firewalls and virtual networks** tab, select **Selected networks**.
-1. For **Virtual networks**, select **+ Add existing virtual networks**, and then add the virtual network and subnet for your Application Gateway instance. If prompted, ensure the _Do not configure 'Microsoft.KeyVault' service endpoint(s) at this time_ checkbox is unchecked to ensure the `Microsoft.KeyVault` service endpoint is enabled on the subnet.
-1. Select **Yes** to allow trusted services to bypass the Key Vault's firewall.
+2. On the **Firewalls and virtual networks** tab, select **Selected networks**.
+3. For **Virtual networks**, select **+ Add existing virtual networks**, and then add the virtual network and subnet for your Application Gateway instance. If prompted, ensure the _Do not configure 'Microsoft.KeyVault' service endpoint(s) at this time_ checkbox is unchecked to ensure the `Microsoft.KeyVault` service endpoint is enabled on the subnet.
+4. Select **Yes** to allow trusted services to bypass the Key Vault's firewall.
 
    ![Screenshot that shows selections for configuring Application Gateway to use firewalls and virtual networks.](media/key-vault-certs/key-vault-firewall.png)
 
@@ -134,7 +134,7 @@ $appgw = Get-AzApplicationGateway -Name MyApplicationGateway -ResourceGroupName 
 Set-AzApplicationGatewayIdentity -ApplicationGateway $appgw -UserAssignedIdentityId "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/MyResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/MyManagedIdentity"
 # Get the secret ID from Key Vault
 $secret = Get-AzKeyVaultSecret -VaultName "MyKeyVault" -Name "CertificateName"
-$secretId = $secret.Id.Replace($secret.Version, "") # Remove the secret version so AppGW will use the latest version in future syncs
+$secretId = $secret.Id.Replace($secret.Version, "") # Remove the secret version so Application Gateway uses the latest version in future syncs
 # Specify the secret ID from Key Vault 
 Add-AzApplicationGatewaySslCertificate -KeyVaultSecretId $secretId -ApplicationGateway $appgw -Name $secret.Name
 # Commit the changes to the Application Gateway
@@ -148,24 +148,24 @@ Under **Choose a certificate** select the certificate named in the previous step
 ## Investigating and resolving Key Vault errors
 
 > [!NOTE]
-> It is important to consider any impact on your Application Gateway resource when making changes or revoking access to your Key Vault resource. In case your application gateway is unable to access the associated key vault or locate the certificate object in it, it will automatically put that listener in a disabled state. 
+> It is important to consider any impact on your application gateway resource when making changes or revoking access to your Key Vault resource. If your application gateway is unable to access the associated key vault or locate the certificate object in it, the application gateway automatically sets the listener to a disabled state. 
 >
-> You can identify this user-driven event by viewing the Resource Health for your Application Gateway. [Learn more](../application-gateway/disabled-listeners.md).
+> You can identify this user-driven event by viewing the Resource Health for your application gateway. [Learn more](../application-gateway/disabled-listeners.md).
  
 Azure Application Gateway doesn't just poll for the renewed certificate version on Key Vault at every four-hour interval. It also logs any error and is integrated with Azure Advisor to surface any misconfiguration with a recommendation for its fix.
  
 1. Sign-in to your Azure portal
-1. Select Advisor
-1. Select Operational Excellence category from the left menu.
-1. You will find a recommendation titled **Resolve Azure Key Vault issue for your Application Gateway**, if your gateway is experiencing this issue. Ensure the correct Subscription is selected from the drop-down options above.
-1. Select it to view the error details, the associated key vault resource and the  [troubleshooting guide](../application-gateway/application-gateway-key-vault-common-errors.md) to fix your exact issue.
+2. Select Advisor
+3. Select Operational Excellence category from the left menu.
+4. You find a recommendation titled **Resolve Azure Key Vault issue for your Application Gateway**, if your gateway is experiencing this issue. Ensure the correct subscription is selected from the drop-down options above.
+5. Select it to view the error details, the associated key vault resource and the  [troubleshooting guide](../application-gateway/application-gateway-key-vault-common-errors.md) to fix your exact issue.
 
 By identifying such an event through Azure Advisor or Resource Health, you can quickly resolve any configuration problems with your Key Vault. We strongly recommend you take advantage of [Azure Advisor](../advisor/advisor-alerts-portal.md) and [Resource Health](../service-health/resource-health-alert-monitor-guide.md) alerts to stay informed when a problem is detected.
  
-For Advisor alert, use "Resolve Azure Key Vault issue for your Application Gateway" in the recommendation type as shown below.</br>
+For Advisor alert, use "Resolve Azure Key Vault issue for your Application Gateway" in the recommendation type shown:</br>
 ![Diagram that shows steps for Advisor alert.](media/key-vault-certs/advisor-alert.png)
  
-You can configure the Resource health alert as illustrated below.</br>
+You can configure the Resource health alert as illustrated:</br>
 ![Diagram that shows steps for Resource health alert.](media/key-vault-certs/resource-health-alert.png)
 
 ## Next steps

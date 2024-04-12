@@ -2,11 +2,12 @@
 title: Import or export data with Azure App Configuration
 description: Learn how to import or export configuration data to or from Azure App Configuration. Exchange data between your App Configuration store and code project.
 services: azure-app-configuration
-author: mcleanbyron
+author: maud-lv
 ms.service: azure-app-configuration
+ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.date: 08/24/2022
-ms.author: mcleans
+ms.author: malev
 ---
 
 # Import or export configuration data

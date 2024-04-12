@@ -21,6 +21,13 @@ This article describes limitations of Azure Arc-enabled PostgreSQL.
 
 Configuring high availability to recover from infrastructure failures isn't yet available.
 
+## Monitoring
+
+Currently, local monitoring with Grafana is only available for the default `postgres` database. Metrics dashboards for user created databases will be empty.
+
+## Configuration
+
+System configurations that are stored in `postgresql.auto.conf` are backed up when a base backup is created. This means that changes made after the last base backup, will not be present in a restored server until a new base backup is taken to capture those changes.
 
 ## Roles and responsibilities
 
@@ -41,7 +48,7 @@ The table below summarizes answers to frequently asked questions regarding suppo
 
 __Why doesn't Microsoft provide SLAs on Azure Arc hybrid services?__ Because with a hybrid service, you or your provider owns the infrastructure.
 
-## Next steps
+## Related content
 
 - **Try it out.** Get started quickly with [Azure Arc Jumpstart](https://github.com/microsoft/azure_arc#azure-arc-enabled-data-services) on Azure Kubernetes Service (AKS), AWS Elastic Kubernetes Service (EKS), Google Cloud Kubernetes Engine (GKE) or in an Azure VM. 
 

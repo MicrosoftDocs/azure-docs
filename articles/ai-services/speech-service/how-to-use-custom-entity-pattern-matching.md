@@ -2,23 +2,21 @@
 title:  How to recognize intents with custom entity pattern matching
 titleSuffix: Azure AI services
 description: In this guide, you learn how to recognize intents and custom entities from simple patterns.
-services: cognitive-services
 author: chschrae
 manager: travisw
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: how-to
-ms.date: 11/15/2021
+ms.date: 1/21/2024
 ms.author: chschrae
 zone_pivot_groups: programming-languages-set-thirteen
-ms.custom: devx-track-cpp, devx-track-csharp, mode-other, devx-track-extended-java
+ms.custom: devx-track-cpp, devx-track-csharp, mode-other, devx-track-extended-java, linux-related-content
 ---
 
 # How to recognize intents with custom entity pattern matching
 
 The Azure AI services [Speech SDK](speech-sdk.md) has a built-in feature to provide **intent recognition** with **simple language pattern matching**. An intent is something the user wants to do: close a window, mark a checkbox, insert some text, etc.
 
-In this guide, you use the Speech SDK to develop a console application that derives intents from speech utterances spoken through your device's microphone. You'll learn how to:
+In this guide, you use the Speech SDK to develop a console application that derives intents from speech utterances spoken through your device's microphone. You learn how to:
 
 > [!div class="checklist"]
 >

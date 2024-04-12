@@ -2,12 +2,11 @@
 title: Actions and attributes for Azure role assignment conditions for Azure Blob Storage
 titleSuffix: Azure Storage
 description: Supported actions and attributes for Azure role assignment conditions and Azure attribute-based access control (Azure ABAC) for Azure Blob Storage. 
-author: jimmart-dev
-
-ms.service: azure-storage
+author: pauljewellmsft
+ms.author: pauljewell
+ms.service: azure-blob-storage
 ms.topic: conceptual
-ms.date: 08/10/2023
-ms.author: jammart
+ms.date: 04/01/2024
 ms.reviewer: nachakra
 ---
 
@@ -23,7 +22,7 @@ To understand the role assignment condition format, see [Azure role assignment c
 
 Multiple Storage service operations can be associated with a single permission or DataAction. However, each of these operations that are associated with the same permission might support different parameters. *Suboperations* enable you to differentiate between service operations that require the same permission but support a different set of attributes for conditions. Thus, by using a suboperation, you can specify one condition for access to a subset of operations that support a given parameter. Then, you can use another access condition for operations with the same action that doesn't support that parameter.
 
-For example, the `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write` action is required for over a dozen different service operations. Some of these operations can accept blob index tags as a request parameter, while others don't. For operations that accept blob index tags as a parameter, you can use blob index tags in a Request condition. However, if such a condition is defined on the `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write` action, all operations that don't accept tags as a request parameter can't evaluate this condition, and will fail the authorization access check.
+For example, the `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write` action is required for over a dozen different service operations. Some of these operations can accept blob index tags as a request parameter, while others don't. For operations that accept blob index tags as a parameter, you can use blob index tags in a Request condition. However, if such a condition is defined on the `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write` action, all operations that don't accept tags as a request parameter can't evaluate this condition, and fails the authorization access check.
 
 In this case, the optional suboperation `Blob.Write.WithTagHeaders` can be used to apply a condition to only those operations that support blob index tags as a request parameter.
 
@@ -32,7 +31,7 @@ In this case, the optional suboperation `Blob.Write.WithTagHeaders` can be used 
 
 ## Azure Blob Storage actions and suboperations
 
-This section lists the supported Azure Blob Storage actions and suboperations you can target for conditions. They are summarized in the following table:
+This section lists the supported Azure Blob Storage actions and suboperations you can target for conditions. They're summarized in the following table:
 
 > [!div class="mx-tableFixed"]
 > | Display name | DataAction | Suboperation |
@@ -338,17 +337,19 @@ The following table summarizes the available attributes by source:
 | | [Subnet](#subnet)                         | The subnet over which an object is accessed                        |
 | | [UTC now](#utc-now)                       | The current date and time in Coordinated Universal Time            |
 | **Request**       | | |
-| | [Blob index tags [Keys]](#blob-index-tags-keys) | Index tags on a blob resource (keys)                         |
-| | [Blob index tags [Values in key]](#blob-index-tags-values-in-key) | Index tags on a blob resource (values in key) |
+| | [Blob index tags [Keys]](#blob-index-tags-keys) | Index tags on a blob resource (keys); available only for storage accounts where hierarchical namespace is not enabled        |
+| | [Blob index tags [Values in key]](#blob-index-tags-values-in-key) | Index tags on a blob resource (values in key); available only for storage accounts where hierarchical namespace is not enabled |
 | | [Blob prefix](#blob-prefix)               | Allowed prefix of blobs to be listed                               |
-| | [Snapshot](#snapshot)                     | The Snapshot identifier for the Blob snapshot                      |
-| | [Version ID](#version-id)                 | The version ID of the versioned Blob                               |
+| | [List blob include](#list-blob-include)   | Information that can be included with listing operations, such as metadata, snapshots, or versions |
+| | [Snapshot](#snapshot)                     | The Snapshot identifier for the Blob snapshot       |
+| | [Version ID](#version-id)                 | The version ID of the versioned blob; available only for storage accounts where hierarchical namespace is not enabled                               |
 | **Resource**      | | |
 | | [Account name](#account-name)             | The storage account name                                           |
 | | [Blob index tags [Keys]](#blob-index-tags-keys) | Index tags on a blob resource (keys)                         |
 | | [Blob index tags [Values in key]](#blob-index-tags-values-in-key) | Index tags on a blob resource (values in key) |
 | | [Blob path](#blob-path)                   | Path of a virtual directory, blob, folder or file resource         |
 | | [Container name](#container-name)         | Name of a storage container or file system                         |
+| | [Container metadata](#container-metadata) | Metadata key/value pair associated with a container                |
 | | [Encryption scope name](#encryption-scope-name) | Name of the encryption scope used to encrypt data            |
 | | [Is current version](#is-current-version) | Whether the resource is the current version of the blob            |
 | | [Is hierarchical namespace enabled](#is-hierarchical-namespace-enabled) | Whether hierarchical namespace is enabled on the storage account |
@@ -371,7 +372,7 @@ The following table summarizes the available attributes by source:
 > | Property | Value |
 > | --- | --- |
 > | **Display name** | Blob index tags [Keys] |
-> | **Description** | Index tags on a blob resource.<br/>Arbitrary user-defined key-value properties that you can store alongside a blob resource. Use when you want to check the key in blob index tags. |
+> | **Description** | Index tags on a blob resource.<br/>Arbitrary user-defined key-value properties that you can store alongside a blob resource. Use when you want to check the key in blob index tags.<br/>*Available only for storage accounts where hierarchical namespace is not enabled.* |
 > | **Attribute** | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags&$keys$&` |
 > | **Attribute source** | [Resource](../../role-based-access-control/conditions-format.md#resource-attributes)<br/>[Request](../../role-based-access-control/conditions-format.md#request-attributes) |
 > | **Attribute type** | [StringList](../../role-based-access-control/conditions-format.md#cross-product-comparison-operators) |
@@ -386,7 +387,7 @@ The following table summarizes the available attributes by source:
 > | Property | Value |
 > | --- | --- |
 > | **Display name** | Blob index tags [Values in key] |
-> | **Description** | Index tags on a blob resource.<br/>Arbitrary user-defined key-value properties that you can store alongside a blob resource. Use when you want to check both the key (case-sensitive) and value in blob index tags. |
+> | **Description** | Index tags on a blob resource.<br/>Arbitrary user-defined key-value properties that you can store alongside a blob resource. Use when you want to check both the key (case-sensitive) and value in blob index tags.<br/>*Available only for storage accounts where hierarchical namespace is not enabled.* |
 > | **Attribute** | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags` |
 > | **Attribute source** | [Resource](../../role-based-access-control/conditions-format.md#resource-attributes)<br/>[Request](../../role-based-access-control/conditions-format.md#request-attributes) |
 > | **Attribute type** | [String](../../role-based-access-control/conditions-format.md#string-comparison-operators) |
@@ -437,13 +438,25 @@ The following table summarizes the available attributes by source:
 > | **Attribute type** | [String](../../role-based-access-control/conditions-format.md#string-comparison-operators) |
 > | **Examples** | `@Resource[Microsoft.Storage/storageAccounts/blobServices/containers:name] StringEquals 'blobs-example-container'`<br/>[Example: Read, write, or delete blobs in named containers](storage-auth-abac-examples.md#example-read-write-or-delete-blobs-in-named-containers) |
 
+### Container metadata
+
+> [!div class="mx-tdCol2BreakAll"]
+> | Property | Value |
+> | --- | --- |
+> | **Display name** | Container metadata |
+> | **Description** | Metadata key/value pair associated with a container.<br/>Use when you want to check specific metadata for a container. *Currently in preview.* |
+> | **Attribute** | `Microsoft.Storage/storageAccounts/blobServices/containers/metadata` |
+> | **Attribute source** | [Resource](../../role-based-access-control/conditions-format.md#resource-attributes) |
+> | **Attribute type** | [String](../../role-based-access-control/conditions-format.md#string-comparison-operators) |
+> | **Examples** | `@Resource[Microsoft.Storage/storageAccounts/blobServices/containers/metadata:testKey] StringEquals 'testValue'`<br/>[Example: Read blobs in a container with specific metadata](storage-auth-abac-examples.md#example-read-blobs-in-container-with-specific-metadata)<br/>[Example: Write or delete blobs in container with specific metadata](storage-auth-abac-examples.md#example-write-or-delete-blobs-in-container-with-specific-metadata) |
+
 ### Encryption scope name
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Property | Value |
 > | --- | --- |
 > | **Display name** | Encryption scope name |
-> | **Description** | Name of the encryption scope used to encrypt data.<br/>*Available only for storage accounts where hierarchical namespace is not enabled.* |
+> | **Description** | Name of the encryption scope used to encrypt data. |
 > | **Attribute** | `Microsoft.Storage/storageAccounts/encryptionScopes:name` |
 > | **Attribute source** | [Resource](../../role-based-access-control/conditions-format.md#resource-attributes) |
 > | **Attribute type** | [String](../../role-based-access-control/conditions-format.md#string-comparison-operators) |
@@ -469,7 +482,7 @@ The following table summarizes the available attributes by source:
 > | Property | Value |
 > | --- | --- |
 > | **Display name** | Is hierarchical namespace enabled |
-> | **Description** | Whether hierarchical namespace is enabled on the storage account.<br/>*Applicable only at resource group scope or above.* |
+> | **Description** | Whether hierarchical namespace is enabled on the storage account.<br/>*Applicable only at resource group scope or higher.* |
 > | **Attribute** | `Microsoft.Storage/storageAccounts:isHnsEnabled` |
 > | **Attribute source** | [Resource](../../role-based-access-control/conditions-format.md#resource-attributes) |
 > | **Attribute type** | [Boolean](../../role-based-access-control/conditions-format.md#boolean-comparison-operators) |
@@ -489,6 +502,18 @@ The following table summarizes the available attributes by source:
 > | **Applies to** | For copy operations using the following REST operations, this attribute only applies to the destination storage account, and not the source:<br><br>[Copy Blob](/rest/api/storageservices/copy-blob)<br>[Copy Blob From URL](/rest/api/storageservices/copy-blob-from-url)<br>[Put Blob From URL](/rest/api/storageservices/put-blob-from-url)<br>[Put Block From URL](/rest/api/storageservices/put-block-from-url)<br>[Append Block From URL](/rest/api/storageservices/append-block-from-url)<br>[Put Page From URL](/rest/api/storageservices/put-page-from-url)<br><br>For all other read, write, create, delete, and rename operations, it applies to the storage account that is the target of the operation |
 > | **Examples** | `@Environment[isPrivateLink] BoolEquals true`<br/>[Example: Require private link access to read blobs with high sensitivity](storage-auth-abac-examples.md#example-require-private-link-access-to-read-blobs-with-high-sensitivity) |
 > | **Learn more** | [Use private endpoints for Azure Storage](../common/storage-private-endpoints.md) |
+
+### List blob include
+
+> [!div class="mx-tdCol2BreakAll"]
+> | Property | Value |
+> | --- | --- |
+> | **Display name** | List blob include |
+> | **Description** | Information that can be included with a [List Blobs](/rest/api/storageservices/list-blobs) operation, such as metadata, snapshots, or versions.<br/>Use when you want to allow or restrict values for the `include` parameter when calling the [List Blobs](/rest/api/storageservices/list-blobs) operation.<br/>*Currently in preview. Available only for storage accounts where hierarchical namespace is not enabled.* |
+> | **Attribute** | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs:include` |
+> | **Attribute source** | [Request](../../role-based-access-control/conditions-format.md#request-attributes) |
+> | **Attribute type** | [String](../../role-based-access-control/conditions-format.md#string-comparison-operators) |
+> | **Examples** | `@Request[Microsoft.Storage/storageAccounts/blobServices/containers/blobs:include] ForAllOfAnyValues:StringEqualsIgnoreCase {'metadata', 'snapshots', 'versions'}`<br/>`@Request[Microsoft.Storage/storageAccounts/blobServices/containers/blobs:include] ForAllOfAllValues:StringNotEquals {'metadata'}`<br/>[Example: Allow list blob operation to include blob metadata, snapshots, or versions](storage-auth-abac-examples.md#example-allow-list-blob-operation-to-include-blob-metadata-snapshots-or-versions)<br/>[Example: Restrict list blob operation to not include blob metadata](storage-auth-abac-examples.md#example-restrict-list-blob-operation-to-not-include-blob-metadata) |
 
 ### Private endpoint
 
@@ -525,7 +550,7 @@ The following table summarizes the available attributes by source:
 > | Property | Value |
 > | --- | --- |
 > | **Display name** | Subnet |
-> | **Description** | The subnet over which an object is accessed.<br/>Use to restrict access to a specific subnet.<br/>*Available only for storage accounts in subscriptions that have at least one virtual network subnet configured.* |
+> | **Description** | The subnet over which an object is accessed.<br/>Use to restrict access to a specific subnet.<br/>*Available only for storage accounts in subscriptions that have at least one virtual network subnet using [service endpoints](../common/storage-network-security.md#grant-access-from-a-virtual-network) configured.* |
 > | **Attribute** | `Microsoft.Network/virtualNetworks/subnets` |
 > | **Attribute source** | [Environment](../../role-based-access-control/conditions-format.md#environment-attributes) |
 > | **Attribute type** | [String](../../role-based-access-control/conditions-format.md#string-comparison-operators) |

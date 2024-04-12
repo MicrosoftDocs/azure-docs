@@ -8,7 +8,8 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
-ms.date: 07/24/2023
+ms.devlang: nosql
+ms.date: 02/27/2024
 ms.custom: query-reference
 ---
 
@@ -20,7 +21,7 @@ Returns a boolean value indicating whether the specified GeoJSON **Point**, **Po
 
 ## Syntax
 
-```sql
+```nosql
 ST_ISVALID(<spatial_expr>)  
 ```
 
@@ -38,7 +39,7 @@ Returns a boolean value.
 
 The following example how to check validity of multiple objects.
 
-:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/st-isvalid/query.sql" highlight="2-9":::
+:::code language="nosql" source="~/cosmos-db-nosql-query-samples/scripts/st-isvalid/query.sql" highlight="2-9":::
 
 :::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/st-isvalid/result.json":::
 
@@ -46,7 +47,7 @@ The following example how to check validity of multiple objects.
 
 - The GeoJSON specification requires that points within a Polygon be specified in counter-clockwise order. A Polygon specified in clockwise order represents the inverse of the region within it.
 
-## Next steps
+## Related content
 
 - [System functions](system-functions.yml)
 - [`ST_ISVALIDDETAILED`](st-isvaliddetailed.md)

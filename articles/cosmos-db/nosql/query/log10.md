@@ -7,7 +7,8 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
-ms.date: 07/20/2023
+ms.devlang: nosql
+ms.date: 02/27/2024
 ms.custom: query-reference
 ---
 
@@ -19,7 +20,7 @@ Returns the base-10 logarithm of the specified numeric expression.
   
 ## Syntax
 
-```sql
+```nosql
 LOG10(<numeric_expr>)  
 ```  
 
@@ -37,7 +38,7 @@ Returns a numeric expression.
 
 The following example returns the logarithm value of various values.
 
-:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/log10/query.sql" highlight="2-4":::
+:::code language="nosql" source="~/cosmos-db-nosql-query-samples/scripts/log10/query.sql" highlight="2-4":::
 
 :::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/log10/result.json":::
 
@@ -46,7 +47,7 @@ The following example returns the logarithm value of various values.
 - This function doesn't use the index.
 - The `LOG10` and `POWER` functions are inversely related to one another.
 
-## Next steps
+## Related content
 
 - [System functions](system-functions.yml)
 - [`LOG`](log.md)

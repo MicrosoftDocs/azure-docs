@@ -1,23 +1,25 @@
 ---
-title: Register a service app in Azure AD - Azure API for FHIR
-description: Learn how to register a service client application in Azure Active Directory. 
+title: Register a service app in Microsoft Entra ID - Azure API for FHIR
+description: Learn how to register a service client application in Microsoft Entra ID. 
 author: expekesheth
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
-ms.date: 06/03/2022
+ms.date: 09/27/2023
 ms.author: kesheth
 ---
 
-# Register a service client application in Azure Active Directory for Azure API for FHIR
+# Register a service client application in Microsoft Entra ID for Azure API for FHIR
 
-In this article, you'll learn how to register a service client application in Azure Active Directory (Azure AD). Client application registrations are Azure AD representations of applications that can be used to authenticate and obtain tokens. A service client is intended to be used by an application to obtain an access token without interactive authentication of a user. It will have certain application permissions and use an application secret (password) when obtaining access tokens.
+[!INCLUDE [retirement banner](../includes/healthcare-apis-azure-api-fhir-retirement.md)]
+
+In this article, you'll learn how to register a service client application in Microsoft Entra ID. Client application registrations are Microsoft Entra representations of applications that can be used to authenticate and obtain tokens. A service client is intended to be used by an application to obtain an access token without interactive authentication of a user. It will have certain application permissions and use an application secret (password) when obtaining access tokens.
 
 Follow these steps to create a new service client.
 
 ## App registrations in Azure portal
 
-1. In the [Azure portal](https://portal.azure.com), navigate to **Azure Active Directory**.
+1. In the [Azure portal](https://portal.azure.com), navigate to **Microsoft Entra ID**.
 
 2. Select **App registrations**.
 
@@ -53,7 +55,7 @@ The service client needs a secret (password) to obtain a token.
 
 ## Next steps
 
-In this article, you've learned how to register a service client application in Azure AD. Next, test access to your FHIR server using Postman.
+In this article, you've learned how to register a service client application in Microsoft Entra ID. Next, test access to your FHIR server using Postman.
  
 >[!div class="nextstepaction"]
 >[Access the FHIR service using Postman](./../fhir/use-postman.md)

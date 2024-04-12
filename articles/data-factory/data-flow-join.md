@@ -157,6 +157,6 @@ LeftStream, RightStream
     )~> JoiningColumns
 ```
 
-## Next steps
+## Related content
 
 After joining data, create a [derived column](data-flow-derived-column.md) and [sink](data-flow-sink.md) your data to a destination data store.

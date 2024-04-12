@@ -3,8 +3,8 @@ title: Generate recommendations using Apache Mahout in Azure HDInsight
 description: Learn how to use the Apache Mahout machine learning library to generate movie recommendations with HDInsight.
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: hdinsightactive,seoapr2020
-ms.date: 10/25/2022
+ms.custom: hdinsightactive, linux-related-content
+ms.date: 11/21/2023
 ---
 
 # Generate recommendations using Apache Mahout in Azure HDInsight
@@ -23,7 +23,7 @@ One of the functions that is provided by Mahout is a recommendation engine. This
 
 The following workflow is a simplified example that uses movie data:
 
-* **Co-occurrence**: Joe, Alice, and Bob all liked *Star Wars*, *The Empire Strikes Back*, and *Return of the Jedi*. Mahout determines that users who like any one of these movies also like the other two.
+* **Co-occurrence**: Joe, Alice, and Bob all liked *Star Wars*, *The Empire Strikes Back*, and *Return of the `Jedi`*. Mahout determines that users who like any one of these movies also like the other two.
 
 * **Co-occurrence**: Bob and Alice also liked *The Phantom Menace*, *Attack of the Clones*, and *Revenge of the Sith*. Mahout determines that users who liked the previous three movies also like these three movies.
 
@@ -47,7 +47,7 @@ The data contained in `user-ratings.txt` has a structure of `userID`, `movieID`,
 
 ## Run the analysis
 
-1. Use [ssh command](../hdinsight-hadoop-linux-use-ssh-unix.md) to connect to your cluster. Edit the command below by replacing CLUSTERNAME with the name of your cluster, and then enter the command:
+1. Use [ssh command](../hdinsight-hadoop-linux-use-ssh-unix.md) to connect to your cluster. Edit the following command by replacing CLUSTERNAME with the name of your cluster, and then enter the command:
 
     ```cmd
     ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net

@@ -6,10 +6,9 @@ author: mbender-ms
 keywords: ipv6, azure load balancer, dual stack, public ip, native ipv6, mobile, iot
 ms.service: load-balancer
 ms.topic: conceptual
-ms.workload: infrastructure-services
 ms.date: 05/03/2023
 ms.author: mbender
-ms.custom: template-concept, seodec18, engagement-fy23
+ms.custom: template-concept, engagement-fy23
 ---
 
 # Overview of IPv6 for Azure Load Balancer
@@ -67,11 +66,10 @@ Limitations
 * Azure VMs cannot connect over IPv6 to other VMs, other Azure services, or on-premises devices. They can only communicate with the Azure load balancer over IPv6. However, they can communicate with these other resources using IPv4.
 * Network Security Group (NSG) protection for IPv4 is supported in dual-stack (IPv4+IPv6) deployments. NSGs do not apply to the IPv6 endpoints.
 * The IPv6 endpoint on the VM is not exposed directly to the internet. It is behind a load balancer. Only the ports specified in the load balancer rules are accessible over IPv6.
-* Changing the IdleTimeout parameter for IPv6 is **currently not supported**. The default is four minutes.
 * Changing the loadDistributionMethod parameter for IPv6 is **currently not supported**.
 * IPv6 for Basic Load Balancer is locked to a **Dynamic** SKU.  IPv6 for a Standard Load Balancer is locked to a **Static** SKU.
 * NAT64 (translation of IPv6 to IPv4) is not supported.
-* Attaching a secondary NIC that refers to an IPv6 subnet to a back-end pool is **not supported** for Basic Load Balancer.
+* Attaching a secondary NIC that refers to an IPv6 subnet to a backend pool is **not supported** for Basic Load Balancer.
 
 ## Next steps
 

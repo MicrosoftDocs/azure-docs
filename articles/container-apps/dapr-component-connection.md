@@ -6,7 +6,7 @@ ms.author: hannahhunter
 ms.reviewer: nickgreenf
 ms.service: container-apps
 ms.topic: how-to 
-ms.date: 07/06/2023
+ms.date: 12/20/2023
 ms.custom: template-tutorial, service-connector, build-2023, engagement
 ---
 
@@ -99,9 +99,11 @@ You can then check the YAML/Bicep artifact into a repo and recreate it outside o
 
    :::image type="content" source="media/dapr-component-connection/manage-dapr-component.png" alt-text="Screenshot of the Azure platform showing existing Dapr Components.":::
 
-
-
 ## Next steps
+
+[Enable Dapr on your container apps.](./enable-dapr.md)
+
+## Related links
 
 Learn more about:
 - [Using Dapr with Azure Container Apps](./dapr-overview.md)

@@ -1,21 +1,22 @@
 ---
-title: Install Azure Monitor Agent for connection monitor
-description: This article describes how to install Azure Monitor Agent.
-services: network-watcher
+title: Install and upgrade Azure Monitor Agent - Azure Arc-enabled servers
+titleSuffix: Azure Network Watcher
+description: Learn how to install, upgrade, and uninstall Azure Monitor Agent on Azure Arc-enabled servers.
 author: halkazwini
-ms.service: network-watcher
-ms.custom: ignite-2022, devx-track-azurecli, devx-track-azurepowershell
-ms.topic: how-to
-ms.date: 10/25/2022
 ms.author: halkazwini
-#Customer intent: I need to monitor a connection by using Azure Monitor Agent.
+ms.service: network-watcher
+ms.topic: how-to
+ms.date: 11/15/2023
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
+
+#Customer intent: As an Azure administrator, I need to install the Azure Monitor Agent on Azure Arc-enabled servers so I can monitor a connection using the Connection Monitor.
 ---
 
-# Install Azure Monitor Agent 
+# Install and upgrade Azure Monitor Agent on Azure Arc-enabled servers
 
-Azure Monitor Agent is implemented as an Azure virtual machine (VM) extension. You can install Azure Monitor Agent by using any of the methods for installing virtual machine extensions, including those described in the [Azure Monitor Agent overview](../azure-monitor/agents/agents-overview.md) article. 
+Azure Monitor Agent is implemented as an Azure virtual machine (VM) extension. You can install Azure Monitor Agent using any of the methods described in [Azure Monitor Agent overview](../azure-monitor/agents/agents-overview.md?toc=/azure/network-watcher/toc.json). 
 
-The following section covers installing Azure Monitor Agent on Azure Arc-enabled servers by using PowerShell and the Azure CLI. For more information, see [Manage Azure Monitor Agent](../azure-monitor/agents/azure-monitor-agent-manage.md?tabs=ARMAgentPowerShell%2CPowerShellWindows%2CPowerShellWindowsArc%2CCLIWindows%2CCLIWindowsArc).
+This article covers installing Azure Monitor Agent on Azure Arc-enabled servers using PowerShell or the Azure CLI. For more information, see [Manage Azure Monitor Agent](../azure-monitor/agents/azure-monitor-agent-manage.md?tabs=ARMAgentPowerShell%2CPowerShellWindows%2CPowerShellWindowsArc%2CCLIWindows%2CCLIWindowsArc).
 
 ## Use PowerShell
 
@@ -122,8 +123,7 @@ New-AzConnectedMachineExtension -Name AzureNetworkWatcherExtension -ExtensionTyp
 ```
 ---
 
-## Next steps
+## Next step
 
-- After you've installed the monitoring agents, [create a connection monitor](connection-monitor-create-using-portal.md#create-a-connection-monitor). Then, after you've created a connection monitor, analyze your monitoring data, set alerts, and diagnose issues in your connection monitor and your network. 
-
-- Monitor the network connectivity of your Azure and non-Azure setups by using [Connection Monitor](connection-monitor-overview.md). 
+> [!div class="nextstepaction"]
+> [create a connection monitor](connection-monitor-create-using-portal.md)

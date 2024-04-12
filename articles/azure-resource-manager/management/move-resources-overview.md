@@ -2,7 +2,7 @@
 title: Move Azure resources across resource groups, subscriptions, or regions.
 description: Overview of Azure resource types that can be moved across resource groups, subscriptions, or regions.
 ms.topic: conceptual
-ms.date: 01/30/2023
+ms.date: 03/19/2024
 ---
 
 # Move Azure resources across resource groups, subscriptions, or regions
@@ -13,17 +13,17 @@ Azure resources can be moved to a new resource group or subscription, or across 
 
 You can move Azure resources to either another Azure subscription or another resource group under the same subscription. You can use the Azure portal, Azure PowerShell, Azure CLI, or the REST API to move resources. To learn more, see [Move resources to a new resource group or subscription](move-resource-group-and-subscription.md).
 
-The move operation doesn't support moving resources to new [Azure Active Directory tenant](../../active-directory/develop/quickstart-create-new-tenant.md). If the tenant IDs for the source and destination subscriptions aren't the same, use the following methods to reconcile the tenant IDs:
+The move operation doesn't support moving resources to new [Microsoft Entra tenant](../../active-directory/develop/quickstart-create-new-tenant.md). If the tenant IDs for the source and destination subscriptions aren't the same, use the following methods to reconcile the tenant IDs:
 
 * [Transfer ownership of an Azure subscription to another account](../../cost-management-billing/manage/billing-subscription-transfer.md)
-* [How to associate or add an Azure subscription to Azure Active Directory](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
+* [How to associate or add an Azure subscription to Microsoft Entra ID](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
 
 ### Upgrade a subscription
 
 If you actually want to upgrade your Azure subscription (such as switching from free to pay-as-you-go), you need to convert your subscription.
 
-- To upgrade a free trial, see [Upgrade your Free Trial or Microsoft Imagine Azure subscription to Pay-As-You-Go](../../cost-management-billing/manage/upgrade-azure-subscription.md).
-- To change a pay-as-you-go account, see [Change your Azure Pay-As-You-Go subscription to a different offer](../../cost-management-billing/manage/switch-azure-offer.md).
+- To upgrade a free trial, see [Upgrade your Free Trial or Microsoft Imagine Azure subscription to pay-as-you-go](../../cost-management-billing/manage/upgrade-azure-subscription.md).
+- To change a pay-as-you-go account, see [Change your Azure pay-as-you-go subscription to a different offer](../../cost-management-billing/manage/switch-azure-offer.md).
 
 If you can't convert the subscription, [create an Azure support request](../../azure-portal/supportability/how-to-create-azure-support-request.md). Select **Subscription Management** for the issue type.
 
@@ -57,7 +57,16 @@ You can move resources to another region using a couple of different methods:
 - **Start moving resources from a resource group**: With this method, you kick off the region move from within a resource group. After selecting the resources you want to move, the process continues in the Resource Mover hub, to check resource dependencies, and orchestrate the move process. [Learn more](../../resource-mover/move-region-within-resource-group.md).
 - **Start moving resources directly from the Resource Mover hub**: With this method, you kick off the region move process directly in the hub. [Learn more](../../resource-mover/tutorial-move-region-virtual-machines.md).
 
+### Move resources manually through redeployment
+
+To move resources that aren't supported by Azure Resource Mover or to move any service manually, see [Azure services relocation guidance overview](/azure/operational-excellence/overview-relocation).
+
+### Move resources from non availability zone to availability zone support
+
+To move resources from a region that doesn't support availability zones to one that does, see [Availability zone migration guidance overview for Microsoft Azure products and services](/azure/reliability/availability-zones-migration-overview).
+
 ## Next steps
 
 - To check if a resource type supports being moved, see [Move operation support for resources](move-support-resources.md).
 - To learn more about the region move process, see [About the move process](../../resource-mover/about-move-process.md).
+- To learn more deeply about service relocation and planning recommendations, see [Relocated cloud workloads](/azure/cloud-adoption-framework/relocate/).

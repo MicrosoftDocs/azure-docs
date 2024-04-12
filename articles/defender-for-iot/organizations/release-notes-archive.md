@@ -1,6 +1,6 @@
 ---
 title: What's new archive for Microsoft Defender for IoT for organizations
-description: Learn about the features and enhancements released for Microsoft Defender for IoT for organizations more than 6 months ago.
+description: Learn about the features and enhancements released for Microsoft Defender for IoT for organizations more than six months ago.
 ms.topic: concept-article
 ms.date: 08/07/2022
 ---
@@ -27,7 +27,7 @@ Noted features listed below are in PREVIEW. The [Azure Preview Supplemental Term
 
 The new **IoT OT Threat Monitoring with Defender for IoT solution** is available and provides enhanced capabilities for Microsoft Defender for IoT integration with Microsoft Sentinel. The **IoT OT Threat Monitoring with Defender for IoT solution** is a set of bundled content, including analytics rules, workbooks, and playbooks, configured specifically for Defender for IoT data. This solution currently supports only Operational Networks (OT/ICS). 
 
-For information on integrating with Microsoft Sentinel, see [Tutorial: Integrate Defender for Iot and Sentinel](../../sentinel/iot-solution.md?tabs=use-out-of-the-box-analytics-rules-recommended)
+For information on integrating with Microsoft Sentinel, see [Tutorial: Integrate Defender for IoT and Sentinel](../../sentinel/iot-solution.md?tabs=use-out-of-the-box-analytics-rules-recommended)
 
 ### Apache Log4j vulnerability
 
@@ -101,7 +101,7 @@ This new functionality is available on the following alerts:
 
 The following feature enhancements are available with version 10.5.3 of Microsoft Defender for IoT.
 
-- The on-premises management console, has a new API to support our ServiceNow integration. For more information, see [Integration API reference for on-premises management consoles (Public preview)](api/management-integration-apis.md#integration-api-reference-for-on-premises-management-consoles-public-preview).
+- The on-premises management console has a new API to support our ServiceNow integration. For more information, see [Integration API reference for on-premises management consoles (Public preview)](api/management-integration-apis.md#integration-api-reference-for-on-premises-management-consoles-public-preview).
 
 - Enhancements have been made to the network traffic analysis of multiple OT and ICS protocol dissectors.
 
@@ -269,17 +269,17 @@ Certificate and password recovery enhancements were made for this release.
 
 This version lets you:
 
-- Upload SSL certificates directly to the sensors and on-premises management consoles.
+- Upload TLS/SSL certificates directly to the sensors and on-premises management consoles.
 - Perform validation between the on-premises management console and connected sensors, and between a management console and a High Availability management console. Validation is based on expiration dates, root CA authenticity, and Certificate Revocation Lists.  If validation fails, the session won't continue.
 
 For upgrades:
 
-- There's no change in SSL certificate or validation functionality during the upgrade.
-- After upgrading, sensor and on-premises management console administrative users can replace SSL certificates, or activate SSL certificate validation from the System Settings, SSL Certificate window.  
+- There's no change in TLS/SSL certificate or validation functionality during the upgrade.
+- After you update your sensors and on-premises management consoles, administrative users can replace TLS/SSL certificates, or activate TLS/SSL certificate validation from the System Settings, TLS/SSL Certificate window.  
 
 For Fresh Installations:
 
-- During first-time sign-in, users are required to either use an SSL Certificate (recommended) or a locally generated self-signed certificate (not recommended)
+- During first-time sign-in, users are required to either use an TLS/SSL Certificate (recommended) or a locally generated self-signed certificate (not recommended)
 - Certificate validation is turned on by default for fresh installations.
 
 #### Password recovery

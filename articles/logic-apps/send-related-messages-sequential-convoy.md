@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: apseth, divswa, azla
 ms.topic: how-to
-ms.date: 05/29/2020
+ms.date: 01/04/2024
 ---
 
 # Send related messages in order by using a sequential convoy in Azure Logic Apps with Azure Service Bus

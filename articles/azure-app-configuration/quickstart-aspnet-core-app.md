@@ -5,9 +5,9 @@ services: azure-app-configuration
 author: zhenlan
 ms.service: azure-app-configuration
 ms.devlang: csharp
-ms.custom: devx-track-csharp, contperf-fy21q1, mode-other, engagement-fy23
+ms.custom: devx-track-csharp, mode-other, engagement-fy23
 ms.topic: quickstart
-ms.date: 03/27/2023
+ms.date: 02/20/2024
 ms.author: zhenlwa
 #Customer intent: As an ASP.NET Core developer, I want to learn how to manage all my app settings in one place.
 ---
@@ -19,10 +19,10 @@ In this quickstart, you'll use Azure App Configuration to externalize storage an
 
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
 - An App Configuration store. [Create a store](./quickstart-azure-app-configuration-create.md#create-an-app-configuration-store).
-- [.NET Core SDK](https://dotnet.microsoft.com/download)
+- [.NET SDK 6.0 or later](https://dotnet.microsoft.com/download)
 
 > [!TIP]
-> The Azure Cloud Shell is a free, interactive shell that you can use to run the command line instructions in this article. It has common Azure tools preinstalled, including the .NET Core SDK. If you're logged in to your Azure subscription, launch your [Azure Cloud Shell](https://shell.azure.com) from shell.azure.com. You can learn more about Azure Cloud Shell by [reading our documentation](../cloud-shell/overview.md)
+> The Azure Cloud Shell is a free, interactive shell that you can use to run the command line instructions in this article. It has common Azure tools preinstalled, including the .NET SDK. If you're logged in to your Azure subscription, launch your [Azure Cloud Shell](https://shell.azure.com) from shell.azure.com. You can learn more about Azure Cloud Shell by [reading our documentation](../cloud-shell/overview.md)
 
 ## Add key-values
 
@@ -37,23 +37,13 @@ Add the following key-values to the App Configuration store and leave **Label** 
 
 ## Create an ASP.NET Core web app
 
-Use the [.NET Core command-line interface (CLI)](/dotnet/core/tools) to create a new ASP.NET Core web app project. The [Azure Cloud Shell](https://shell.azure.com) provides these tools for you. They're also available across the Windows, macOS, and Linux platforms.
+Use the [.NET command-line interface (CLI)](/dotnet/core/tools) to create a new ASP.NET Core web app project. The [Azure Cloud Shell](https://shell.azure.com) provides these tools for you. They're also available across the Windows, macOS, and Linux platforms.
 
 Run the following command to create an ASP.NET Core web app in a new *TestAppConfig* folder:
-
-#### [.NET 6.x](#tab/core6x)
 
 ```dotnetcli
 dotnet new webapp --output TestAppConfig --framework net6.0
 ```
-
-#### [.NET Core 3.x](#tab/core3x)
-
-```dotnetcli
-dotnet new webapp --output TestAppConfig --framework netcoreapp3.1
-```
-
----
 
 ## Connect to the App Configuration store
 
@@ -73,11 +63,9 @@ dotnet new webapp --output TestAppConfig --framework netcoreapp3.1
     > [!TIP]
     > Some shells will truncate the connection string unless it's enclosed in quotes. Ensure that the output of the `dotnet user-secrets list` command shows the entire connection string. If it doesn't, rerun the command, enclosing the connection string in quotes.
 
-    Secret Manager stores the secret outside of your project tree, which helps prevent the accidental sharing of secrets within source code. It's used only to test the web app locally. When the app is deployed to Azure like [App Service](../app-service/overview.md), use the *Connection strings*, *Application settings* or environment variables to store the connection string. Alternatively, to avoid connection strings all together, you can [connect to App Configuration using managed identities](./howto-integrate-azure-managed-service-identity.md) or your other [Azure AD identities](./concept-enable-rbac.md).
+    Secret Manager stores the secret outside of your project tree, which helps prevent the accidental sharing of secrets within source code. It's used only to test the web app locally. When the app is deployed to Azure like [App Service](../app-service/overview.md), use the *Connection strings*, *Application settings* or environment variables to store the connection string. Alternatively, to avoid connection strings all together, you can [connect to App Configuration using managed identities](./howto-integrate-azure-managed-service-identity.md) or your other [Microsoft Entra identities](./concept-enable-rbac.md).
 
 1. Open *Program.cs* and add Azure App Configuration as an extra configuration source by calling the `AddAzureAppConfiguration` method.
-
-    #### [.NET 6.x](#tab/core6x)
 
     ```csharp
     var builder = WebApplication.CreateBuilder(args);
@@ -91,31 +79,6 @@ dotnet new webapp --output TestAppConfig --framework netcoreapp3.1
     // The rest of existing code in program.cs
     // ... ...
     ```
-
-    #### [.NET Core 3.x](#tab/core3x)
-
-    Update the `CreateHostBuilder` method.
-
-    ```csharp
-    public static IHostBuilder CreateHostBuilder(string[] args) =>
-        Host.CreateDefaultBuilder(args)
-            .ConfigureWebHostDefaults(webBuilder =>
-            {
-                webBuilder.ConfigureAppConfiguration(config =>
-                {
-                    // Retrieve the connection string
-                    IConfiguration settings = config.Build();
-                    string connectionString = settings.GetConnectionString("AppConfig");
-
-                    // Load configuration from Azure App Configuration
-                    config.AddAzureAppConfiguration(connectionString);
-                });
-
-                webBuilder.UseStartup<Startup>();
-            });
-    ```
-
-    ---
 
     This code will connect to your App Configuration store using a connection string and load *all* key-values that have *no labels*. For more information on the App Configuration provider, see the [App Configuration provider API reference](/dotnet/api/Microsoft.Extensions.Configuration.AzureAppConfiguration).
 
@@ -140,8 +103,6 @@ In this example, you'll update a web page to display its content using the setti
 
 1. Bind the `TestApp:Settings` section in configuration to the `Settings` object.
 
-    #### [.NET 6.x](#tab/core6x)
-
     Update *Program.cs* with the following code and add the `TestAppConfig` namespace at the beginning of the file.
 
     ```csharp
@@ -160,22 +121,6 @@ In this example, you'll update a web page to display its content using the setti
     // The rest of existing code in program.cs
     // ... ...
     ```
-
-    #### [.NET Core 3.x](#tab/core3x)
-
-    Open *Startup.cs* and update the `ConfigureServices` method.
-
-    ```csharp
-    public void ConfigureServices(IServiceCollection services)
-    {
-        services.AddRazorPages();
-
-        // Bind configuration "TestApp:Settings" section to the Settings object
-        services.Configure<Settings>(Configuration.GetSection("TestApp:Settings"));
-    }
-    ```
-
-    ---
 
 1. Open *Index.cshtml.cs* in the *Pages* directory, and update the `IndexModel` class with the following code. Add the `using Microsoft.Extensions.Options` namespace at the beginning of the file, if it's not already there.
 
@@ -219,7 +164,7 @@ In this example, you'll update a web page to display its content using the setti
 
 ## Build and run the app locally
 
-1. To build the app using the .NET Core CLI, navigate to the root directory of your project. Run the following command in the command shell:
+1. To build the app using the .NET CLI, navigate to the root directory of your project. Run the following command in the command shell:
 
     ```dotnetcli
     dotnet build

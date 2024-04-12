@@ -2,8 +2,8 @@
 title: Create a Batch account in the Azure portal
 description: Learn how to use the Azure portal to create and manage an Azure Batch account for running large-scale parallel workloads in the cloud.
 ms.topic: how-to
-ms.date: 07/18/2023
-ms.custom: subject-rbac-steps, devx-track-linux
+ms.date: 04/04/2024
+ms.custom: subject-rbac-steps, linux-related-content
 ---
 
 # Create a Batch account in the Azure portal
@@ -29,12 +29,12 @@ To create a Batch account in the default Batch service mode:
    - **Subscription**: Select the subscription to use if not already selected.
    - **Resource group**: Select the resource group for the Batch account, or create a new one.
    - **Account name**: Enter a name for the Batch account. The name must be unique within the Azure region, can contain only lowercase characters or numbers, and must be 3-24 characters long.
-     
+
      > [!NOTE]
      > The Batch account name is part of its ID and can't be changed after creation.
 
    - **Location**: Select the Azure region for the Batch account if not already selected.
-   - **Storage account**: Optionally, select **Select a storage account** to associate an [Azure Storage account](accounts.md#azure-storage-accounts) with the Batch account. 
+   - **Storage account**: Optionally, select **Select a storage account** to associate an [Azure Storage account](accounts.md#azure-storage-accounts) with the Batch account.
 
      :::image type="content" source="media/batch-account-create-portal/batch-account-portal.png" alt-text="Screenshot of the New Batch account screen.":::
 
@@ -62,7 +62,7 @@ On your Batch account page, you can access all account settings and properties f
 
   :::image type="content" source="media/batch-account-create-portal/batch-account-keys.png" alt-text="Screenshot of Batch account keys in the Azure portal.":::
 
-  Batch also supports Azure Active Directory (Azure AD) authentication. User subscription mode Batch accounts must be accessed by using Azure AD. For more information, see [Authenticate Azure Batch services with Azure Active Directory](batch-aad-auth.md).
+  Batch also supports Microsoft Entra authentication. User subscription mode Batch accounts must be accessed by using Microsoft Entra ID. For more information, see [Authenticate Azure Batch services with Microsoft Entra ID](batch-aad-auth.md).
 
 - To view the name and keys of the storage account associated with your Batch account, select **Storage account**.
 
@@ -111,7 +111,7 @@ When you create the first user subscription mode Batch account in an Azure subsc
    :::image type="content" source="media/batch-account-create-portal/register_provider.png" alt-text="Screenshot of the Resource providers page.":::
 
 1. Return to the **Subscription** page and select **Access control (IAM)** from the left navigation.
-1. At the top of the **Access control (IAM)** page, select **Add** > **Add role assignment**. 
+1. At the top of the **Access control (IAM)** page, select **Add** > **Add role assignment**.
 1. On the **Add role assignment** screen, under **Assignment type**, select **Privileged administrator role**, and then select **Next**.
 1. On the **Role** tab, select either the **Contributor** or **Owner** role for the Batch account, and then select **Next**.
 1. On the **Members** tab, select **Select members**. On the **Select members** screen, search for and select **Microsoft Azure Batch**, and then select **Select**.
@@ -159,6 +159,8 @@ Select **Add**, then ensure that the **Azure Virtual Machines for deployment** a
 :::image type="content" source="media/batch-account-create-portal/key-vault-access-policy.png" alt-text="Screenshot of the Access policy screen.":::
 
 -->
+> [!NOTE]
+> Currently, the Batch account name supports only access policies. When creating a Batch account, ensure that the key vault uses the associated access policy instead of the EntraID RBAC permissions. For more information on how to add an access policy to your Azure key vault instance, see [Configure your Azure Key Vault instance](batch-customer-managed-key.md).
 
 ### Configure subscription quotas
 

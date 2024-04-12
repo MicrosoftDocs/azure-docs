@@ -1,12 +1,12 @@
 ---
-title: Create an ingress controller with an existing Application Gateway 
-description: This article provides information on how to deploy an Application Gateway Ingress Controller with an existing Application Gateway. 
+title: Create an ingress controller with an existing Application Gateway
+description: This article provides information on how to deploy an Application Gateway Ingress Controller with an existing Application Gateway.
 services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
-ms.custom: devx-track-arm-template, devx-track-linux
+ms.custom: devx-track-arm-template, devx-track-azurecli
 ms.topic: how-to
-ms.date: 07/28/2023
+ms.date: 02/07/2024
 ms.author: greglin
 ---
 
@@ -17,13 +17,13 @@ AGIC monitors the Kubernetes [Ingress](https://kubernetes.io/docs/concepts/servi
 resources, and creates and applies Application Gateway config based on the status of the Kubernetes cluster.
 
 > [!TIP]
-> Also see [What is Application Gateway for Containers?](for-containers/overview.md) currently in public preview.
+> Also see [What is Application Gateway for Containers](for-containers/overview.md).
 
 ## Outline
 
 - [Prerequisites](#prerequisites)
 - [Azure Resource Manager Authentication (ARM)](#azure-resource-manager-authentication)
-    - Option 1: [Set up Azure AD workload identity](#set-up-azure-ad-workload-identity) and create Azure Identity on ARMs
+    - Option 1: [Set up Microsoft Entra Workload ID](#set-up-azure-ad-workload-identity) and create Azure Identity on ARMs
     - Option 2: [Set up a Service Principal](#using-a-service-principal)
 - [Install Ingress Controller using Helm](#install-ingress-controller-as-a-helm-chart)
 - [Shared Application Gateway](#shared-application-gateway): Install AGIC in an environment, where Application Gateway is
@@ -35,7 +35,7 @@ This document assumes you already have the following tools and infrastructure in
 
 - [An AKS cluster](../aks/intro-kubernetes.md) with [Azure Container Networking Interface (CNI)](../aks/configure-azure-cni.md)
 - [Application Gateway v2](./tutorial-autoscale-ps.md) in the same virtual network as the AKS cluster
-- [Azure AD workload identity](../aks/workload-identity-overview.md) configured for your AKS cluster
+- [Microsoft Entra Workload ID](../aks/workload-identity-overview.md) configured for your AKS cluster
 - [Cloud Shell](https://shell.azure.com/) is the Azure shell environment, which has `az` CLI, `kubectl`, and `helm` installed. These tools are required for commands used to support configuring this deployment.
 
 **Backup your Application Gateway's configuration** before installing AGIC:
@@ -63,12 +63,6 @@ Gateway should that become necessary
     helm init --tiller-namespace kube-system --service-account tiller-sa
     ```
 
-    - *Kubernetes RBAC disabled* AKS cluster
-
-    ```bash
-    helm init
-    ```
-
 2. Add the AGIC Helm repository:
     ```bash
     helm repo add application-gateway-kubernetes-ingress https://appgwingress.blob.core.windows.net/ingress-azure-helm-package/
@@ -80,9 +74,11 @@ Gateway should that become necessary
 AGIC communicates with the Kubernetes API server and the Azure Resource Manager. It requires an identity to access
 these APIs.
 
-## Set up Azure AD workload identity
+<a name='set-up-azure-ad-workload-identity'></a>
 
-[Azure AD workload identity](../aks/workload-identity-overview.md) is an identity you assign to a software workload, to authenticate and access other services and resources. This identity enables your AKS pod to use this identity and authenticate with other Azure resources. For this configuration, we need authorization
+## Set up Microsoft Entra Workload ID
+
+[Microsoft Entra Workload ID](../aks/workload-identity-overview.md) is an identity you assign to a software workload, to authenticate and access other services and resources. This identity enables your AKS pod to use this identity and authenticate with other Azure resources. For this configuration, we need authorization
 for the AGIC pod to make HTTP requests to [ARM](../azure-resource-manager/management/overview.md).
 
 1. Use the Azure CLI [az account set](/cli/azure/account#az-account-set) command to set a specific subscription to be the current active subscription. Then use the [az identity create](/cli/azure/identity#az-identity-create) command to create a managed identity. The identity needs to be created in the [node resource group](../aks/concepts-clusters-workloads.md#node-resource-group). The node resource group is assigned a name by default, such as *MC_myResourceGroup_myAKSCluster_eastus*.
@@ -97,8 +93,10 @@ for the AGIC pod to make HTTP requests to [ARM](../azure-resource-manager/manage
 
 1. For the role assignment, run the following command to identify the `principalId` for the newly created identity:
 
-    ```azurecli
-    az identity show -g <resourcegroup> -n <identity-name>
+    ```powershell-interactive
+    $resourceGroup="resource-group-name"
+    $identityName="identity-name"
+    az identity list -g $resourceGroup --query "[?name == '$identityName'].principalId | [0]" -o tsv
     ```
 
 1. Grant the identity **Contributor** access to your Application Gateway. You need the ID of the Application Gateway, which
@@ -110,25 +108,36 @@ looks like: `/subscriptions/A/resourceGroups/B/providers/Microsoft.Network/appli
 
    To assign the identity **Contributor** access, run the following command:
 
-    ```azurecli
-    az role assignment create \
-        --role Contributor \
-        --assignee <principalId> \
-        --scope <App-Gateway-ID>
+    ```powershell-interactive 
+    $resourceGroup="resource-group-name"
+    $identityName="identity-Name"
+    # Get the Application Gateway ID
+    $AppGatewayID=$(az network application-gateway list --query '[].id' -o tsv)
+    $role="contributor"
+    # Get the principal ID for the User assigned identity
+    $principalId=$(az identity list -g $resourceGroup --query "[?name == '$identityName'].principalId | [0]" -o tsv)
+    az role assignment create --assignee $principalId --role $role --scope $AppGatewayID
     ```
 
 1. Grant the identity **Reader** access to the Application Gateway resource group. The resource group ID looks like:
 `/subscriptions/A/resourceGroups/B`. You can get all resource groups with: `az group list --query '[].id'`
 
-    ```azurecli
-    az role assignment create \
-        --role Reader \
-        --assignee <principalId> \
-        --scope <App-Gateway-Resource-Group-ID>
+    ```powershell-interactive
+    $resourceGroup="resource-group-name"
+    $identityName="identity-Name"
+    # Get the Application Gateway resource group
+    $AppGatewayResourceGroup=$(az network application-gateway list --query '[].resourceGroup' -o tsv)
+    # Get the Application Gateway resource group ID
+    $AppGatewayResourceGroupID=$(az group show --name $AppGatewayResourceGroup --query id -o tsv)
+    $role="Reader"
+    # Get the principal ID for the User assigned identity
+    $principalId=$(az identity list -g $resourceGroup --query "[?name == '$identityName'].principalId | [0]" -o tsv)
+    # Assign the Reader role to the User assigned identity at the resource group scope
+    az role assignment create --role $role --assignee $principalId  --scope $AppGatewayResourceGroupID
     ```
 
 >[!NOTE]
-> If the virtual network Application Gateway is deployed into doesn't reside in the same resource group as the AKS nodes, please ensure the identity used by AGIC has the **Microsoft.Network/virtualNetworks/subnets/join/action** permission delegated to the subnet Application Gateway is deployed into. If a custom role is not defined with this permission, you may use the built-in **Network Contributor** role, which contains the **Microsoft.Network/virtualNetworks/subnets/join/action** permission.
+> Please ensure the identity used by AGIC has the **Microsoft.Network/virtualNetworks/subnets/join/action** permission delegated to the subnet where Application Gateway is deployed. If a custom role is not defined with this permission, you can use the built-in **Network Contributor** role, which contains the **Microsoft.Network/virtualNetworks/subnets/join/action** permission.
 
 ## Using a Service Principal
 
@@ -149,6 +158,53 @@ next section.
         type: servicePrincipal
         secretJSON: <Base64-Encoded-Credentials>
     ```
+
+## Deploy the Azure Application Gateway Ingress Controller Add-on
+### Create an Ingress Controller deployment manifest
+```yaml
+---
+# file: pet-supplies-ingress.yaml
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: pet-supplies-ingress
+  annotations:
+    kubernetes.io/ingress.class: azure/application-gateway
+
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: store-front
+            port:
+              number: 80
+      - path: /order-service
+        pathType: Prefix
+        backend:
+          service:
+            name: order-service
+            port:
+              number: 3000
+      - path: /product-service
+        pathType: Prefix
+        backend:
+          service:
+            name: product-service
+            port:
+              number: 3002
+
+```
+### Deploy Ingress Controller
+
+```powershell-interactive
+$namespace="namespace"
+$file="pet-supplies-ingress.yaml"
+kubectl apply -f $file -n $namespace
+```
 
 ## Install Ingress Controller as a Helm Chart
 
@@ -174,7 +230,7 @@ In the first few steps, we install Helm's Tiller on your Kubernetes cluster. Use
 
     # Verbosity level of the App Gateway Ingress Controller
     verbosityLevel: 3
-    
+
     ################################################################################
     # Specify which application gateway the ingress controller must manage
     #
@@ -182,12 +238,12 @@ In the first few steps, we install Helm's Tiller on your Kubernetes cluster. Use
         subscriptionId: <subscriptionId>
         resourceGroup: <resourceGroupName>
         name: <applicationGatewayName>
-    
+
         # Setting appgw.shared to "true" creates an AzureIngressProhibitedTarget CRD.
         # This prohibits AGIC from applying config for any host/path.
         # Use "kubectl get AzureIngressProhibitedTargets" to view and change this.
         shared: false
-    
+
     ################################################################################
     # Specify which kubernetes namespace the ingress controller must watch
     # Default value is "default"
@@ -196,35 +252,35 @@ In the first few steps, we install Helm's Tiller on your Kubernetes cluster. Use
     #
     # kubernetes:
     #   watchNamespace: <namespace>
-    
+
     ################################################################################
     # Specify the authentication with Azure Resource Manager
     #
     # Two authentication methods are available:
-    # - Option 1: Azure-AD-workload-identity 
+    # - Option 1: Azure-AD-workload-identity
     armAuth:
         type: workloadIdentity
         identityClientID:  <identityClientId>
-    
+
     ## Alternatively you can use Service Principal credentials
     # armAuth:
     #    type: servicePrincipal
     #    secretJSON: <<Generate this value with: "az ad sp create-for-rbac --role Contributor --sdk-auth | base64 -w0" >>
-    
+
     ################################################################################
     # Specify if the cluster is Kubernetes RBAC enabled or not
     rbac:
         enabled: false # true/false
-    
+
     # Specify aks cluster related information. THIS IS BEING DEPRECATED.
     aksClusterConfiguration:
         apiServerAddress: <aks-api-server-address>
     ```
 
 1. Edit helm-config.yaml and fill in the values for `appgw` and `armAuth`.
-  
+
     > [!NOTE]
-    > The `<identity-client-id>` is a property of the Azure AD workload identity you setup in the previous section. You can retrieve this information by running the following command: `az identity show -g <resourcegroup> -n <identity-name>`, where `<resourcegroup>` is the resource group hosting the infrastructure resources related to the AKS cluster, Application Gateway and managed identity.
+    > The `<identity-client-id>` is a property of the Microsoft Entra Workload ID you setup in the previous section. You can retrieve this information by running the following command: `az identity show -g <resourcegroup> -n <identity-name>`, where `<resourcegroup>` is the resource group hosting the infrastructure resources related to the AKS cluster, Application Gateway and managed identity.
 
 1. Install Helm chart `application-gateway-kubernetes-ingress` with the `helm-config.yaml` configuration from the previous step
 

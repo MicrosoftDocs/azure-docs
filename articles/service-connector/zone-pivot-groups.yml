@@ -11,3 +11,16 @@ groups:
     title: Azure Database for MySQL - Flexible Server
   - id: sql
     title: Azure SQL Database
+
+- id: howto-authtype
+  title: Choose the authentication type
+  prompt: Choose the authentication type
+  pivots:
+  - id: system-identity
+    title: System-assigned managed identity
+  - id: user-identity
+    title: User-assigned managed identity
+  - id: connection-string
+    title: Connection string
+  - id: service-principal
+    title: Service principal

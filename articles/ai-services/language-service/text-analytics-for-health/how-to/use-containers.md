@@ -2,15 +2,14 @@
 title: How to use Text Analytics for health containers
 titleSuffix: Azure AI services
 description: Learn how to extract and label medical information on premises using Text Analytics for health Docker container.
-services: cognitive-services
+#services: cognitive-services
 author: jboback
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: how-to
-ms.date: 01/18/2023
+ms.date: 12/19/2023
 ms.author: jboback
-ms.custom: language-service-health, ignite-fall-2021, devx-track-azurecli 
+ms.custom: language-service-health, devx-track-azurecli
 ms.devlang: azurecli
 ---
 
@@ -71,7 +70,7 @@ Once the container is on the host computer, use the [docker run](https://docs.do
 There are multiple ways you can install and run the Text Analytics for health container. 
 
 - Use the Azure portal to create a Language resource, and use Docker to get your container.
-- Use an Azure VM with Docker to run the container. Refer to [Docker on Azure](../../../../docker/index.yml).
+- Use an Azure VM with Docker to run the container. 
 - Use the following PowerShell and Azure CLI scripts to automate resource deployment and container configuration.
 
 When you use the Text Analytics for health container, the data contained in your API requests and responses is not visible to Microsoft, and is not used for training the model applied to your data. 

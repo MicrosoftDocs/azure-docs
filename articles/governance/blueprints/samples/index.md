@@ -1,10 +1,12 @@
 ---
 title: Index of blueprint samples
 description: Index of compliance and standard samples for deploying environments, policies, and Cloud Adoptions Framework foundations with Azure Blueprints.
-ms.date: 03/11/2022
+ms.date: 09/07/2023
 ms.topic: sample
 ---
 # Azure Blueprints samples
+
+[!INCLUDE [Blueprints deprecation note](../../../../includes/blueprints-deprecation-note.md)]
 
 The following table includes links to samples for Azure Blueprints. Each sample is production
 quality and ready to deploy today to assist you in meeting your various compliance needs.
@@ -19,7 +21,6 @@ quality and ready to deploy today to assist you in meeting your various complian
 | [ISO 27001](./iso-27001-2013.md) | Provides guardrails for compliance with ISO 27001. |
 | [ISO 27001 Shared Services](./iso27001-shared/index.md) | Provides a set of compliant infrastructure patterns and policy guardrails that help toward ISO 27001 attestation. |
 | [ISO 27001 App Service Environment/SQL Database workload](./iso27001-ase-sql-workload/index.md) | Provides more infrastructure to the [ISO 27001 Shared Services](./iso27001-shared/index.md) blueprint sample. |
-| [New Zealand ISM Restricted](./new-zealand-ism.md) | Assigns policies to address specific New Zealand Information Security Manual controls. |
 | [SWIFT CSP-CSCF v2020](./swift-2020/index.md) | Aides in SWIFT CSP-CSCF v2020 compliance. |
 | [UK OFFICIAL and UK NHS Governance](./ukofficial-uknhs.md) | Provides a set of compliant infrastructure patterns and policy guardrails that help toward UK OFFICIAL and UK NHS attestation. |
 | [CAF Foundation](./caf-foundation/index.md) | Provides a set of controls to help you manage your cloud estate in alignment with the [Microsoft Cloud Adoption Framework for Azure (CAF)](/azure/architecture/cloud-adoption/governance/journeys/index). |

@@ -2,8 +2,8 @@
 title: 'Tutorial: Create a private endpoint DNS infrastructure with Azure Private Resolver for an on-premises workload'
 titleSuffix: Azure Private Link
 description: Learn how to deploy a private endpoint with an Azure Private resolver for an on-premises workload.
-author: asudbring
-ms.author: allensu
+author: abell
+ms.author: abell
 ms.service: private-link
 ms.topic: tutorial
 ms.date: 08/29/2023
@@ -13,6 +13,8 @@ ms.custom: template-tutorial
 # Tutorial: Create a private endpoint DNS infrastructure with Azure Private Resolver for an on-premises workload
 
 When an Azure Private Endpoint is created, it uses Azure Private DNS Zones for name resolution by default. For on-premises workloads to access the endpoint, a forwarder to a virtual machine in Azure hosting DNS or on-premises DNS records for the private endpoint were required. Azure Private Resolver alleviates the need to deploy a VM in Azure for DNS or manage the private endpoint DNS records on an on-premises DNS server.
+
+:::image type="content" source="./media/tutorial-dns-on-premises-private-resolver/resources-diagram.png" alt-text="Diagram of Azure resources created in tutorial." lightbox="./media/tutorial-dns-on-premises-private-resolver/resources-diagram.png":::
 
 In this tutorial, you learn how to:
 

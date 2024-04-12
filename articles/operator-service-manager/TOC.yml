@@ -1,7 +1,79 @@
 - name: Azure Operator Service Manager documentation
-  href: ./overview.md
+  href: index.yml
 - name: Overview
   expanded: true
   items:
-  - name: About Azure Operator Service Manager
-    href: ./overview.md
+  - name: What is Azure Operator Service Manager?
+    href: ./azure-operator-service-manager-overview.md
+- name: Concepts
+  expanded: false
+  items:
+  - name: Best Practices
+    expanded: false
+    items:
+      - name: Onboard and deploy a Network Function
+        href: best-practices-onboard-deploy.md
+  - name: Roles and Interfaces
+    href: roles-interfaces.md
+  - name: Helm Package Requirements
+    href: helm-requirements.md
+  - name: Publisher Tenants, subscriptions, regions and preview management
+    href: publisher-resource-preview-management.md
+- name: Quickstarts
+  expanded: false
+  items:
+  - name: Containerized Network Function (CNF)
+    expanded: false
+    items:
+      - name: Prerequisites for using Azure Operator Service Manager
+        href: quickstart-containerized-network-function-prerequisites.md
+      - name: Publish a Network Function Definition
+        href: quickstart-publish-containerized-network-function-definition.md
+      - name: Design a Network Service Design
+        href: quickstart-containerized-network-function-network-design.md
+      - name: Prerequisites for Operator
+        href: quickstart-containerized-network-function-operator.md
+      - name: Create a site
+        href: quickstart-containerized-network-function-create-site.md
+      - name: Create a Site Network Service
+        href: quickstart-containerized-network-function-create-site-network-service.md
+  - name: Virtualized Network Function (VNF)
+    expanded: false
+    items:
+      - name: Prerequisites for using Azure Operator Service Manager
+        href: quickstart-virtualized-network-function-prerequisites.md
+      - name: Publish a Network Function Definition
+        href: quickstart-publish-virtualized-network-function-definition.md
+      - name: Design a Network Service Design
+        href: quickstart-virtualized-network-function-network-design.md
+      - name: Prerequisites for Operator
+        href: quickstart-virtualized-network-function-operator.md
+      - name: Create a site
+        href: quickstart-virtualized-network-function-create-site.md
+      - name: Create a Site Network Service
+        href: quickstart-virtualized-network-function-create-site-network-service.md
+
+- name: How-to guides
+  expanded: false
+  items:
+  - name: Create a custom role
+    href: how-to-create-custom-role.md
+  - name: Assign a custom role
+    href: how-to-assign-custom-role.md
+  - name: Create a user assigned managed identity
+    href: how-to-create-user-assigned-managed-identity.md
+  - name: Create a site
+    href: how-to-create-site.md
+  - name: Delete operator resources
+    href: how-to-delete-operator-resources.md
+  - name: Create site network service
+    href: how-to-create-site-network-service.md
+  - name: Use Azure Operator Service Manager (AOSM) CLI extension
+    href: how-to-use-azure-operator-service-manager-cli-extension.md
+- name: Resources
+  expanded: false
+  items:
+  - name: Glossary
+    href: glossary.md
+  - name: REST API 
+    href: /rest/api/hybridnetwork

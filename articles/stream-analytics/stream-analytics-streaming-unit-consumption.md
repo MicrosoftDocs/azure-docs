@@ -5,7 +5,7 @@ author: ahartoon
 ms.author: anboisve
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 07/07/2022
+ms.date: 01/02/2024
 ---
 # Understand and adjust Stream Analytics streaming units
 
@@ -26,9 +26,9 @@ The underlying compute power for V1 and V2 streaming units is as follows:
 For information on SU pricing, visit the [Azure Stream Analytics Pricing Page](https://azure.microsoft.com/pricing/details/stream-analytics/).
 
 ## Understand streaming unit conversions and where they apply
-There's an automatic conversion of Streaming Units which occurs from REST API layer to UI.  You may also notice this conversion in your [Activity log](stream-analytics-job-diagnostic-logs.md) where SU count appears different than the value which was specified on the UI for a particular job.  This is by design and it is because REST API fields must be limited to integer values and ASA jobs support fractional nodes (1/3 SUV2 and 2/3 SUV2).  To support this, we put an automatic conversion in place from Azure Portal to backend.  On the portal, you will see 1/3, 2/3, 1, 2, 3, … and so on.  In activity logs, REST API, etc. SU V2 values are 3, 7, 10, 20, 30, etc.  The backend structure is the proposal multiplied by 10 (rounding up in some cases).  This allows us to convey the same granularity and eliminate the decimal point at the API layer.  This conversion is automatic and has no impact on your job's performance.
+There's an automatic conversion of Streaming Units which occurs from REST API layer to UI (Azure Portal and Visual Studio Code).  You will notice this conversion in the [Activity log](stream-analytics-job-diagnostic-logs.md) as well where SU values appear different than the values on the UI.  This is by design and the reason for it is because REST API fields are limited to integer values and ASA jobs support fractional nodes (1/3 and 2/3 Streaming Units).  ASA's UI displays node values 1/3, 2/3, 1, 2, 3, … etc, while backend (activity logs, REST API layer) display the same values multiplied by 10 as 3, 7, 10, 20, 30 respectively. 
 
-| Standard  | Standard V2 (UI) | Standard V2 (Backend) |
+| Standard  | Standard V2 (UI) | Standard V2 (Backend such as logs, Rest API, etc.) |
 | ------------- | ------------- | ------------- |
 | 1  | 1/3  | 3  |
 | 3  | 2/3  | 7  |
@@ -37,6 +37,7 @@ There's an automatic conversion of Streaming Units which occurs from REST API la
 | 18  | 3  | 30  |
 | ...  | ...  | ... |
 
+This allows us to convey the same granularity and eliminate the decimal point at the API layer for V2 SKUs.  This conversion is automatic and has no impact on your job's performance.
 
 ## Understand consumption and memory utilization
 To achieve low latency stream processing, Azure Stream Analytics jobs perform all processing in memory.  When running out of memory, the streaming job fails. As a result, for a production job, it’s important to monitor a streaming job’s resource usage, and make sure there's enough resource allocated to keep the jobs running 24/7.
@@ -156,7 +157,7 @@ User can configure the out of order buffer size in the Event Ordering configurat
 To remediate overflow of the out of order buffer, scale out query using **PARTITION BY**. Once the query is partitioned out, it's spread out over multiple nodes. As a result, the number of events coming into each node is reduced thereby reducing the number of events in each reorder buffer. 
 
 ## Input partition count 
-Each input partition of a job input has a buffer. The larger number of input partitions, the more resource the job consumes. For each streaming unit, Azure Stream Analytics can process roughly 1 MB/s of input. Therefore, you can optimize by matching the number of Stream Analytics streaming units with the number of partitions in your event hub. 
+Each input partition of a job input has a buffer. The larger number of input partitions, the more resource the job consumes. For each streaming unit, Azure Stream Analytics can process roughly 7 MB/s of input. Therefore, you can optimize by matching the number of Stream Analytics streaming units with the number of partitions in your event hub. 
 
 Typically, a job configured with 1/3 streaming unit is sufficient for an event hub with two partitions (which is the minimum for event hub). If the event hub has more partitions, your Stream Analytics job consumes more resources, but not necessarily uses the extra throughput provided by Event Hubs. 
 

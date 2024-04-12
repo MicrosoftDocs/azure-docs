@@ -6,11 +6,13 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: article
-ms.date: 06/07/2023
+ms.date: 03/18/2024
 ms.author: danlep
 ---
 
 # Azure SQL data source for a resolver
+
+[!INCLUDE [api-management-availability-premium-dev-standard-basic-standardv2-basicv2](../../includes/api-management-availability-premium-dev-standard-basic-standardv2-basicv2.md)]
 
 The `sql-data-source` resolver policy configures a Transact-SQL (T-SQL) request to an [Azure SQL](/azure/azure-sql/azure-sql-iaas-vs-paas-what-is-overview) database and an optional response to resolve data for an object type and field in a GraphQL schema. The schema must be imported to API Management as a GraphQL API.  
 
@@ -67,7 +69,7 @@ The `sql-data-source` resolver policy configures a Transact-SQL (T-SQL) request 
 
 |Element|Description|Required|
 |----------|-----------------|--------------|
-| [connection-string](#connection-string-attributes) | Specifies the Azure SQL connection string. The connection string uses either SQL authentication (username and password) or Azure AD authentication if an API Management managed identity is configured. |  Yes |
+| [connection-string](#connection-string-attributes) | Specifies the Azure SQL connection string. The connection string uses either SQL authentication (username and password) or Microsoft Entra authentication if an API Management managed identity is configured. |  Yes |
 | [include-fragment](include-fragment-policy.md) | Inserts a policy fragment in the policy definition. If there are multiple fragments, then add additional `include-fragment` elements. | No |
 | [authentication-certificate](authentication-certificate-policy.md)  | Authenticates using a client certificate in the resolver's SQL request.  | No  | 
 
@@ -117,7 +119,7 @@ The `sql-data-source` resolver policy configures a Transact-SQL (T-SQL) request 
 ## Usage
 
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) GraphQL resolver
--  [**Gateways:**](api-management-gateways-overview.md) dedicated
+-  [**Gateways:**](api-management-gateways-overview.md) classic, v2
 
 ### Usage notes
 
@@ -126,18 +128,20 @@ The `sql-data-source` resolver policy configures a Transact-SQL (T-SQL) request 
 
 ## Configure managed identity integration with Azure SQL
 
-You can configure an API Management system-assigned managed identity for access to Azure SQL instead of configuring SQL authentication with username and password. For background, see [Configure and manage Azure AD authentication with Azure SQL](/azure/azure-sql/database/authentication-aad-configure).
+You can configure an API Management system-assigned managed identity for access to Azure SQL instead of configuring SQL authentication with username and password. For background, see [Configure and manage Microsoft Entra authentication with Azure SQL](/azure/azure-sql/database/authentication-aad-configure).
 
 ### Prerequisites
 
 * Enable a system-assigned [managed identity](api-management-howto-use-managed-service-identity.md) in your API Management instance. 
 
-### Enable Azure AD access
+<a name='enable-azure-ad-access'></a>
 
-Enable Azure Active Directory authentication to SQL Database by assigning an Azure AD user as the admin of the server.
+### Enable Microsoft Entra ID access
+
+Enable Microsoft Entra authentication to SQL Database by assigning a Microsoft Entra user as the admin of the server.
 
 1. In the [portal](https://portal.azure.com), go to your Azure SQL server. 
-1. Select **Azure Active Directory**.
+1. Select **Microsoft Entra ID**.
 1. Select **Set admin** and select yourself or a group to which you belong. 
 1. Select **Save**.
 
@@ -207,7 +211,7 @@ The following example resolves a GraphQL query by making a single-result T-SQL r
         </sql-statement> 
         <parameters> 
             <parameter name="@familyId">       
-                {context.GraphQL.Arguments.["id"]}
+                @(context.GraphQL.Arguments["id"])
             </parameter> 
         </parameters> 
     </request>
@@ -240,7 +244,7 @@ The query parameter is accessed using the `context.GraphQL.Arguments` context va
         </sql-statement> 
         <parameters> 
             <parameter name="@familyId">       
-                {context.GraphQL.Arguments.["id"]}
+                @(context.GraphQL.Arguments["id"])
             </parameter> 
         </parameters> 
     </request> 
@@ -286,10 +290,10 @@ The following example resolves a GraphQL mutation using a T-SQL INSERT statement
         </sql-statement> 
         <parameters> 
             <parameter name="@familyId">       
-                {context.GraphQL.Arguments.["id"]}
+                @(context.GraphQL.Arguments["id"])
             </parameter>
             <parameter name="@familyName">       
-                {context.GraphQL.Arguments.["name"]}
+                @(context.GraphQL.Arguments["name"])
             </parameter> 
         </parameters> 
     </request>    
@@ -298,6 +302,6 @@ The following example resolves a GraphQL mutation using a T-SQL INSERT statement
 
 ## Related policies
 
-* [GraphQL resolver policies](api-management-policies.md#graphql-resolver-policies)
+* [GraphQL resolvers](api-management-policies.md#graphql-resolvers)
 
 [!INCLUDE [api-management-policy-ref-next-steps](../../includes/api-management-policy-ref-next-steps.md)]

@@ -1,14 +1,16 @@
 ---
 title: "Add search to web sites (Python tutorial)"
-titleSuffix: Azure Cognitive Search
-description: Technical overview and setup for adding search to a website with Python and deploying to Azure Static Web App. 
+titleSuffix: Azure AI Search
+description: Technical overview and setup for adding search to a website with Python and deploying to Azure Static Web App.
 manager: nitinme
 author: diberry
 ms.author: diberry
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 07/18/2023
-ms.custom: devx-track-python
+ms.custom:
+  - devx-track-python
+  - ignite-2023
 ms.devlang: python
 ---
 
@@ -16,23 +18,19 @@ ms.devlang: python
 
 This tutorial builds a website to search through a catalog of books then deploys the website to an Azure Static Web App. 
 
-The application is available: 
-* [Sample](https://github.com/Azure-Samples/azure-search-python-samples/tree/master/search-website-functions-v4)
-* [Demo website - aka.ms/azs-good-books](https://aka.ms/azs-good-books)
-
 ## What does the sample do? 
 
 [!INCLUDE [tutorial-overview](includes/tutorial-add-search-website-what-sample-does.md)]
 
 ## How is the sample organized?
 
-The [sample](https://github.com/Azure-Samples/azure-search-python-samples/tree/master/search-website-functions-v4) includes the following:
+The [sample code](https://github.com/Azure-Samples/azure-search-python-samples/tree/main/search-website-functions-v4) includes the following:
 
 |App|Purpose|GitHub<br>Repository<br>Location|
 |--|--|--|
-|Client|React app (presentation layer) to display books, with search. It calls the Azure Function app. |[/search-website-functions-v4/client](https://github.com/Azure-Samples/azure-search-python-samples/tree/master/search-website-functions-v4/client)|
-|Server|Azure Function app (business layer) - calls the Azure Cognitive Search API using Python SDK |[/search-website-functions-v4/api](https://github.com/Azure-Samples/azure-search-python-samples/tree/master/search-website-functions-v4/api)|
-|Bulk insert|Python file to create the index and add documents to it.|[/search-website-functions-v4/bulk-upload](https://github.com/Azure-Samples/azure-search-python-samples/tree/master/search-website-functions-v4/bulk-upload)|
+|Client|React app (presentation layer) to display books, with search. It calls the Azure Function app. |[/search-website-functions-v4/client](https://github.com/Azure-Samples/azure-search-python-samples/tree/main/search-website-functions-v4/client)|
+|Server|Azure Function app (business layer) - calls the Azure AI Search API using Python SDK |[/search-website-functions-v4/api](https://github.com/Azure-Samples/azure-search-python-samples/tree/main/search-website-functions-v4/api)|
+|Bulk insert|Python file to create the index and add documents to it.|[/search-website-functions-v4/bulk-upload](https://github.com/Azure-Samples/azure-search-python-samples/tree/main/search-website-functions-v4/bulk-upload)|
 
 ## Set up your development environment
 
@@ -59,7 +57,7 @@ Forking the sample repository is critical to be able to deploy the static web ap
     Replace `YOUR-GITHUB-ALIAS` with your GitHub alias. 
 
     ```bash
-    git clone https://github.com/YOUR-GITHUB-ALIAS/azure-search-python-samples
+    git clone https://github.com/YOUR-GITHUB-ALIAS/azure-search-python-samples.git
     ```
 
 1. In Visual Studio Code, open your local folder of the cloned repository. The remaining tasks are accomplished from Visual Studio Code, unless specified.

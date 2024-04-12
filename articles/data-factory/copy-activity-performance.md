@@ -2,23 +2,17 @@
 title: Copy activity performance and scalability guide
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn about key factors that affect the performance of data movement in Azure Data Factory and Azure Synapse Analytics pipelines when you use the copy activity.
-services: data-factory
-documentationcenter: ''
 ms.author: jianleishen
 author: jianleishen
 manager: shwang
 ms.service: data-factory
 ms.subservice: data-movement
-ms.workload: data-services
 ms.topic: conceptual
-ms.custom: synapse, contperf-fy22q2
-ms.date: 10/25/2022
+ms.custom: synapse
+ms.date: 10/20/2023
 ---
 # Copy activity performance and scalability guide
 
-> [!div class="op_single_selector" title1="Select the version of Azure Data Factory that you're using:"]
-> * [Version 1](v1/data-factory-copy-activity-performance.md)
-> * [Current version](copy-activity-performance.md)
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
@@ -170,7 +164,7 @@ You can set the `parallelCopies` property to indicate the parallelism you want t
 
 A data copy operation can send the data _directly_ to the sink data store. Alternatively, you can choose to use Blob storage as an _interim staging_ store. [Learn more](copy-activity-performance-features.md#staged-copy).
 
-## Next steps
+## Related content
 
 See the other copy activity articles:
 

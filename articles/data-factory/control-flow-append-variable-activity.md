@@ -6,10 +6,10 @@ ms.service: data-factory
 ms.subservice: orchestration
 ms.custom: synapse
 ms.topic: conceptual
-author: chez-charlie
-ms.author: chez
+author: kromerm
+ms.author: makromer
 ms.reviewer: jburchel
-ms.date: 10/23/2022
+ms.date: 10/20/2023
 ---
 
 # Append Variable activity in Azure Data Factory and Synapse Analytics
@@ -44,7 +44,7 @@ Type | Activity Type is AppendVariable | Yes
 Value | String literal or expression object value used to append into specified variable | Yes
 VariableName | Name of the variable that will be modified by activity, the variable must be of type ‘Array’ | Yes
 
-## Next steps
+## Related content
 Learn about a related control flow activity: 
 
 - [Set Variable Activity](control-flow-set-variable-activity.md)

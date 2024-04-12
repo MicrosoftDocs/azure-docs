@@ -6,9 +6,12 @@ ms.service: virtual-network
 ms.topic: how-to
 ms.date: 04/18/2023
 ms.author: steveesp
-ms.custom: fasttrack-edit, devx-track-azurecli, devx-track-linux
+ms.custom: fasttrack-edit, devx-track-azurecli, linux-related-content
 ---
 # Use Azure CLI to create a Windows or Linux VM with Accelerated Networking
+
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 This article describes how to create a Linux or Windows virtual machine (VM) with Accelerated Networking (AccelNet) enabled by using the Azure CLI command-line interface. The article also discusses how to enable and manage Accelerated Networking on existing VMs.
 
@@ -58,7 +61,7 @@ In the following examples, you can replace the example parameters such as `<myRe
 1. The NSG contains several default rules, one of which disables all inbound access from the internet. Use [az network nsg rule create](/cli/azure/network/nsg/rule#az-network-nsg-rule-create) to open a port to allow remote desktop protocol (RDP) or secure shell (SSH) access to the VM.
 
    # [Windows](#tab/windows)
-   
+
    ```azurecli
    az network nsg rule create \
      --resource-group <myResourceGroup> \
@@ -73,9 +76,9 @@ In the following examples, you can replace the example parameters such as `<myRe
      --destination-address-prefix "*" \
      --destination-port-range 3389
    ```
-   
+
    # [Linux](#tab/linux)
-   
+
    ```azurecli
    az network nsg rule create \
      --resource-group <myResourceGroup> \
@@ -142,7 +145,7 @@ The following example creates a VM with a size that supports Accelerated Network
 az vm create \
   --resource-group <myResourceGroup> \
   --name <myVm> \
-  --image UbuntuLTS \
+  --image Ubuntu2204 \
   --size Standard_DS4_v2 \
   --admin-username <myAdminUser> \
   --generate-ssh-keys \
@@ -215,7 +218,7 @@ Once you create the VM in Azure, connect to the VM and confirm that the Ethernet
    - **CentOS**: 3.10.0-693.
 
    > [!NOTE]
-   > Other kernel versions may be supported. For an updated list, see the compatibility tables for each distribution at [Supported Linux and FreeBSD virtual machines for Hyper-V](/windows-server/virtualization/hyper-v/supported-linux-and-freebsd-virtual-machines-for-hyper-v-on-windows), and confirm that SR-IOV is supported. You can find more details in the release notes for [Linux Integration Services for Hyper-V and Azure](https://www.microsoft.com/download/details.aspx?id=55106). * 
+   > Other kernel versions may be supported. For an updated list, see the compatibility tables for each distribution at [Supported Linux and FreeBSD virtual machines for Hyper-V](/windows-server/virtualization/hyper-v/supported-linux-and-freebsd-virtual-machines-for-hyper-v-on-windows), and confirm that SR-IOV is supported. You can find more details in the release notes for [Linux Integration Services for Hyper-V and Azure](https://www.microsoft.com/download/details.aspx?id=55106). *
 
 1. Use the `lspci` command to confirm that the Mellanox VF device is exposed to the VM. The returned output should be similar to the following example:
 
@@ -249,6 +252,25 @@ You must run an application over the synthetic NIC to guarantee that the applica
 For more information about application binding requirements, see [How Accelerated Networking works in Linux and FreeBSD VMs](./accelerated-networking-how-it-works.md#application-usage).
 
 <a name="enable-accelerated-networking-on-existing-vms"></a>
+
+In order to ensure that your custom image or applications correctly support the dynamic binding and revocation of virtual functions, the functionality can be tested on any Windows Hyper-V server. Use a local Windows Server running Hyper-V in the following configuration:
+ - Ensure you have a physical network adapter that supports SR-IOV.
+ - An external virtual switch is created on top of this SR-IOV adapter with "Enable single-root I/O virtualization (SR-IOV)" checked.
+ - A virtual machine running your operating system image or application is created/deployed.
+ - The network adapters for this virtual machine, under Hardware Acceleration, have "Enable SR-IOV" selected.
+
+Once you've verified your virtual machine and application are leveraging a network adapter using SR-IOV, you can modify the following example commands to toggle SR-IOV off/on in order to revoke and add the virtual function which will simulate what happens during Azure host servicing:
+
+``` Powershell
+# Get the virtual network adapter to test
+$vmNic = Get-VMNetworkAdapter -VMName "myvm" | where {$_.MacAddress -eq "001122334455"}
+
+# Enable SR-IOV on a virtual network adapter
+Set-VMNetworkAdapter $vmNic -IovWeight 100 -IovQueuePairsRequested 1
+
+# Disable SR-IOV on a virtual network adapter
+Set-VMNetworkAdapter $vmNic -IovWeight 0
+```
 
 ## Manage Accelerated Networking on existing VMs
 

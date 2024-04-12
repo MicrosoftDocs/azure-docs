@@ -8,9 +8,9 @@ ms.subservice: enterprise-readiness
 ms.reviewer: larryfr
 ms.author: jhirono
 author: jhirono
-ms.date: 06/17/2022
+ms.date: 09/29/2023
 ms.topic: how-to
-ms.custom: UpdateFrequency5, contperf-fy20q4, tracking-python, contperf-fy21q1, security, cliv1, sdkv1, event-tier1-build-2022, build-2023
+ms.custom: UpdateFrequency5, tracking-python, security, cliv1, sdkv1, build-2023
 ---
 
 # Secure an Azure Machine Learning workspace with virtual networks (v1)
@@ -50,8 +50,8 @@ In this article you learn how to enable the following workspaces resources in a 
 
 + An existing virtual network and subnet to use with your compute resources.
 
-    > [!IMPORTANT]
-    > We do not recommend using the 172.17.0.0/16 IP address range for your VNet. This is the default subnet range used by the Docker bridge network. Other ranges may also conflict depending on what you want to connect to the virtual network. For example, if you plan to connect your on premises network to the VNet, and your on-premises network also uses the 172.16.0.0/16 range. Ultimately, it is up to __you__ to plan your network infrastructure.
+    > [!WARNING]
+    > Do not use the 172.17.0.0/16 IP address range for your VNet. This is the default subnet range used by the Docker bridge network, and will result in errors if used for your VNet. Other ranges may also conflict depending on what you want to connect to the virtual network. For example, if you plan to connect your on premises network to the VNet, and your on-premises network also uses the 172.16.0.0/16 range. Ultimately, it is up to __you__ to plan your network infrastructure.
 
 [!INCLUDE [network-rbac](../includes/network-rbac.md)]
 
@@ -136,7 +136,7 @@ Azure Machine Learning supports storage accounts configured to use either a priv
 1. Select __Save__ to save the configuration.
 
 > [!TIP]
-> When using a private endpoint, you can also disable public access. For more information, see [disallow public read access](../../storage/blobs/anonymous-read-access-configure.md#allow-or-disallow-public-read-access-for-a-storage-account).
+> When using a private endpoint, you can also disable anonymous access. For more information, see [disallow anonymous access](../../storage/blobs/anonymous-read-access-configure.md#allow-or-disallow-anonymous-read-access-for-a-storage-account).
 
 # [Service endpoint](#tab/se)
 
@@ -159,7 +159,7 @@ Azure Machine Learning supports storage accounts configured to use either a priv
 1. Select __Save__ to save the configuration.
 
 > [!TIP]
-> When using a service endpoint, you can also disable public access. For more information, see [disallow public read access](../../storage/blobs/anonymous-read-access-configure.md#allow-or-disallow-public-read-access-for-a-storage-account).
+> When using a service endpoint, you can also disable anonymous access. For more information, see [disallow anonymous access](../../storage/blobs/anonymous-read-access-configure.md#allow-or-disallow-anonymous-read-access-for-a-storage-account).
 
 
 ---
@@ -365,5 +365,3 @@ This article is part of a series on securing an Azure Machine Learning workflow.
 * [Tutorial: Create a secure workspace](../tutorial-create-secure-workspace.md)
 * [Tutorial: Create a secure workspace using a template](../tutorial-create-secure-workspace-template.md)
 * [API platform network isolation](../how-to-configure-network-isolation-with-v2.md)
-
-

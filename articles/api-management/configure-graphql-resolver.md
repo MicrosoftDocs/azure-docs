@@ -12,6 +12,9 @@ ms.author: danlep
 
 # Configure a GraphQL resolver
 
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
+
+
 Configure a resolver to retrieve or set data for a GraphQL field in an object type specified in a GraphQL schema. The schema must be imported to API Management as a GraphQL API. 
 
 Currently, API Management supports resolvers that can access the following data sources:
@@ -26,10 +29,6 @@ Currently, API Management supports resolvers that can access the following data 
 * Each resolver resolves data for a single field. To resolve data for multiple fields, configure a separate resolver for each.
 * Resolver-scoped policies are evaluated *after* any `inbound` and `backend` policies in the policy execution pipeline. They don't inherit policies from other scopes. For more information, see [Policies in API Management](api-management-howto-policies.md).
 * You can configure API-scoped policies for a GraphQL API, independent of the resolver-scoped policies. For example, add a [validate-graphql-request](validate-graphql-request-policy.md) policy to the `inbound` scope to validate the request before the resolver is invoked. Configure API-scoped policies on the **API policies** tab for the API.
-
-> [!IMPORTANT]
-> * If you use the preview `set-graphql-resolver` policy in policy definitions, you should migrate to the managed resolvers described in this article.
-> * After you configure a managed resolver for a GraphQL field, the gateway will skip the `set-graphql-resolver` policy in any policy definitions. You can't combine use of managed resolvers and the `set-graphql-resolver` policy in your API Management instance.
 
 ## Prerequisites
 
@@ -100,7 +99,7 @@ The `context` variable that is passed through the request and response pipeline 
 
 ### context.GraphQL.parent
 
-The `context.ParentResult` is set to the parent object for the current resolver execution.  Consider the following partial schema:
+The `context.GraphQL.parent` is set to the parent object for the current resolver execution.  Consider the following partial schema:
 
 ``` graphql
 type Comment {
@@ -198,6 +197,6 @@ You can define the resolver as follows:
 For more resolver examples, see:
 
 
-* [GraphQL resolver policies](api-management-policies.md#graphql-resolver-policies)
+* [GraphQL resolver policies](api-management-policies.md#graphql-resolvers)
 
 * [Sample APIs for Azure API Management](https://github.com/Azure-Samples/api-management-sample-apis)

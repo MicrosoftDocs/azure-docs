@@ -1,17 +1,20 @@
 ---
 title: "Add questions and answer in QnA Maker portal"
 description: This article shows how to add question and answer pairs with metadata so your users can find the right answer to their question.
-ms.service: cognitive-services
+ms.service: azure-ai-language
 manager: nitinme
 ms.author: jboback
 author: jboback
-ms.subservice: qna-maker
+ms.subservice: azure-ai-qna-maker
 ms.topic: how-to
-ms.date: 05/26/2020
-ms.custom: ignite-fall-2021, mode-ui
+ms.date: 01/19/2024
+ms.custom: mode-ui
 ---
 
 # Add questions and answer with QnA Maker portal
+
+> [!NOTE]
+> [Azure Open AI On Your Data](../../openai/concepts/use-your-data.md) utilizes large language models (LLMs) to produce similar results to QnA Maker. If you wish to migrate your QnA Maker project to Azure Open AI On Your Data, please check out our [guide](../How-To/migrate-to-openai.md).
 
 Once a knowledge base is created, add question and answer (QnA) pairs with metadata to filter the answer. The questions in the following table are about Azure service limits, but each has to do with a different Azure search service.
 

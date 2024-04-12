@@ -17,7 +17,7 @@ The following sections identify the requirements to use Nutanix Clusters on Azur
 ## Azure account requirements
 
 * An Azure account with a new subscription  
-* An Azure Active Directory
+* A Microsoft Entra directory
 
 ## My Nutanix account requirements
 

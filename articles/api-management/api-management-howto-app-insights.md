@@ -8,10 +8,12 @@ ms.service: api-management
 ms.topic: how-to
 ms.date: 08/25/2023
 ms.author: danlep
-ms.custom: engagement-fy23
+ms.custom: engagement-fy23, devx-track-arm-template, devx-track-bicep
 ---
 
 # How to integrate Azure API Management with Azure Application Insights
+
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
 You can easily integrate Azure Application Insights with Azure API Management. Azure Application Insights is an extensible service for web developers building and managing apps on multiple platforms. In this guide, you will:
 * Walk through Application Insights integration into API Management.

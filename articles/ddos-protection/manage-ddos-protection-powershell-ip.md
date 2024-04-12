@@ -1,13 +1,12 @@
 ---
-title: 'Quickstart: Create and configure Azure DDoS IP Protection Preview - PowerShell'
-description: Learn how to create Azure DDoS IP Protection Preview using PowerShell
+title: 'Quickstart: Create and configure Azure DDoS IP Protection - PowerShell'
+description: Learn how to create Azure DDoS IP Protection using PowerShell
 author: AbdullahBell
 ms.author: abell
 ms.service: ddos-protection
-ms.topic: quickstart 
-ms.date: 04/04/2023
-ms.workload: infrastructure-services
-ms.custom: template-quickstart, ignite-2022, devx-track-azurepowershell
+ms.topic: quickstart
+ms.date: 03/18/2024
+ms.custom: template-quickstart, devx-track-azurepowershell
 ---
 
 # QuickStart: Create and configure Azure DDoS IP Protection using Azure PowerShell
@@ -69,7 +68,7 @@ $publicIp = Get-AzPublicIpAddress -Name myStandardPublicIP -ResourceGroupName My
 #Checks the status of the public IP address
 $protectionMode = $publicIp.DdosSettings.ProtectionMode
 
-#Returns the status of the pubic IP address
+#Returns the status of the public IP address
 $protectionMode
 
 ```

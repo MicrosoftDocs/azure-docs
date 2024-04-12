@@ -6,7 +6,7 @@ author: probableprime
 manager: mikben
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
-ms.date: 06/30/2021
+ms.date: 09/13/2023
 ms.topic: include
 ms.custom: include file
 ms.author: rifox
@@ -14,11 +14,11 @@ ms.author: rifox
 
 The Azure Communication Services **Group Calling Hero Sample** demonstrates how the Communication Services Calling Web SDK can be used to build a group calling experience.
 
-In this Sample quickstart, we'll learn how the sample works before we run the sample on your local machine. We'll then deploy the sample to Azure using your own Azure Communication Services resources.
+In this Sample quickstart, we learn how the sample works before we run the sample on your local machine and then deploy the sample to Azure using your own Azure Communication Services resources.
 
 ## Download code
 
-Find the project for this sample on [GitHub](https://github.com/Azure-Samples/communication-services-web-calling-hero). A version of the sample which includes features currently in public preview such as [Teams Interop](../../concepts/teams-interop.md) and [Call Recording](../../concepts/voice-video-calling/call-recording.md) can be found on a separate [branch](https://github.com/Azure-Samples/communication-services-web-calling-hero/tree/public-preview).
+Find the project for this sample on [GitHub](https://github.com/Azure-Samples/communication-services-web-calling-hero). A version of the sample that includes features currently in public preview such as [Teams Interop](../../concepts/teams-interop.md) and [Call Recording](../../concepts/voice-video-calling/call-recording.md) can be found on a separate [branch](https://github.com/Azure-Samples/communication-services-web-calling-hero/tree/public-preview).
 
 [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fcommunication-services-web-calling-hero%2Fmain%2Fdeploy%2Fazuredeploy.json)
 
@@ -30,11 +30,11 @@ Here's what the sample looks like:
 
 :::image type="content" source="../media/calling/landing-page.png" alt-text="Screenshot showing the landing page of the sample application.":::
 
-When you press the "Start a call" button, the web application fetches a user access token from the server-side application. This token is then used to connect the client app to Azure Communication Services. Once the token is retrieved, you'll be prompted to specify the camera and microphone that you want to use. You'll be able to disable/enable your devices with toggle controls:
+When you press the "Start a call" button, the web application fetches a user access token from the server-side application. This token is then used to connect the client app to Azure Communication Services. Once the token is retrieved, you are prompted to specify the camera and microphone that you want to use. You are able to disable/enable your devices with toggle controls:
 
 :::image type="content" source="../media/calling/pre-call.png" alt-text="Screenshot showing the pre-call screen of the sample application.":::
 
-Once you configure your display name and devices, you can join the call session. You'll then see the main call canvas where the core calling experience lives.
+Once you configure your display name and devices, you can join the call session. You will see the main call canvas where the core calling experience lives.
 
 :::image type="content" source="../media/calling/main-app.png" alt-text="Screenshot showing the main screen of the sample application.":::
 
@@ -42,19 +42,16 @@ Components of the main calling screen:
 
 - **Media Gallery**: The main stage where participants are shown. If a participant has their camera enabled, their video feed is shown here. Each participant has an individual tile which shows their display name and video stream (when there is one)
 - **Header**: This is where the primary call controls are located to toggle settings and participant side bar, turn video and mix on/off, share screen and leave the call.
-- **Side Bar**: This is where participants and settings information are shown when toggled using the controls on the header. The component can be dismissed using the 'X' on the top right corner. Participants side bar will show a list of participants and a link to invite more users to chat. Settings side bar allows you to configure microphone and camera settings.
+- **Side Bar**: This is where participants and settings information are shown when toggled using the controls on the header. The component can be dismissed using the 'X' on the top right corner. Participants side bar shows a list of participants and a link to invite more users to chat. Settings side bar allows you to configure microphone and camera settings.
 
-> [!NOTE]
-> Based on limitations on the Web Calling SDK, only 4 video streams and 1 screen sharing stream is rendered. For more information see, [Calling SDK Stream Support](../../concepts/voice-video-calling/calling-sdk-features.md#calling-sdk-streaming-support).
-
-Below you'll find more information on prerequisites and steps to set up the sample.
+Below you can find more information on prerequisites and steps to set up the sample.
 
 ## Prerequisites
 
 - An Azure account with an active subscription. For details, see [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 - [Node.js (12.18.4 and above)](https://nodejs.org/en/download/)
 - [Visual Studio Code (Stable Build)](https://code.visualstudio.com/Download)
-- An Azure Communication Services resource. For details, see [Create an Azure Communication Services resource](../../quickstarts/create-communication-resource.md). You'll need to record your resource **connection string** for this quickstart.
+- An Azure Communication Services resource. For details, see [Create an Azure Communication Services resource](../../quickstarts/create-communication-resource.md). You need to record your resource **connection string** for this quickstart.
 
 ## Before running the sample for the first time
 
@@ -95,7 +92,7 @@ Below you'll find more information on prerequisites and steps to set up the samp
     npm run start
     ```
 
-    This will open a client server on port 3000 that serves the website files, and an api server on port 8080 that performs functionality like minting tokens for call participants.
+    This opens a client server on port 3000 that serves the website files, and an api server on port 8080 that performs functionality like minting tokens for call participants.
 
 ### Troubleshooting
 

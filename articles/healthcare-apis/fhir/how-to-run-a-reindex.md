@@ -105,7 +105,7 @@ content-type: application/fhir+json
 "parameter": [
     {
       "name": "targetSearchParameterTypes",
-      "valueString": "{url of custom search parameter. In case of multiple custom search parameters, url list can be comma seperated.}"
+      "valueString": "{url of custom search parameter. In case of multiple custom search parameters, url list can be comma separated.}"
     }
 ] 
 
