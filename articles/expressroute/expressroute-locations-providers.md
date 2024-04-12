@@ -5,7 +5,7 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 02/16/2024
+ms.date: 04/05/2024
 ms.author: duau
 ms.custom: references_regions, template-concept, engagement-fy23
 ---
@@ -94,7 +94,7 @@ The following table shows connectivity locations and the service providers for e
 | **Milan** | [IRIDEOS](https://irideos.it/en/data-centers/) | 1 | Italy North | Supported | Colt<br/>Equinix<br/>Fastweb<br/>IRIDEOS<br/>Retelit<br/>Vodafone |
 | **Milan2** | [DATA4](https://www.data4group.com/it/data-center-a-milano-italia/) | 1 | Italy North | Supported | |
 | **Minneapolis** | [Cologix MIN1](https://www.cologix.com/data-centers/minneapolis/min1/) and [Cologix MIN3](https://www.cologix.com/data-centers/minneapolis/min3/) | 1 | n/a | Supported | Cologix<br/>Megaport |
-| **Montreal** | [Cologix MTL3](https://www.cologix.com/data-centers/montreal/mtl3/) | 1 | n/a | Supported | Bell Canada<br/>CenturyLink Cloud Connect<br/>Cologix<br/>Fibrenoire<br/>Megaport<br/>RISQ<br/>Telus<br/>Zayo |
+| **Montreal** | [Cologix MTL3](https://www.cologix.com/data-centers/montreal/mtl3/)<br/>[Cologix MTL7](https://cologix.com/data-centers/montreal/mtl7/) | 1 | n/a | Supported | Bell Canada<br/>CenturyLink Cloud Connect<br/>Cologix<br/>Fibrenoire<br/>Megaport<br/>RISQ<br/>Telus<br/>Zayo |
 | **Mumbai** | Tata Communications | 2 | West India | Supported | BSNL<br/>British Telecom<br/>DE-CIX<br/>Global CloudXchange (GCX)<br/>InterCloud<br/>Reliance Jio<br/>Sify<br/>Tata Communications<br/>Verizon |
 | **Mumbai2** | Airtel | 2 | West India | Supported | Airtel<br/>Sify<br/>Orange<br/>Vodafone Idea |
 | **Munich** | [EdgeConneX](https://www.edgeconnex.com/locations/europe/munich/) | 1 | n/a | Supported | Colt<br/>DE-CIX<br/>Megaport |
@@ -117,7 +117,7 @@ The following table shows connectivity locations and the service providers for e
 | **Santiago** | [EdgeConnex SCL](https://www.edgeconnex.com/locations/south-america/santiago/) | 3 | n/a | Supported | PitChile |
 | **Sao Paulo** | [Equinix SP2](https://www.equinix.com/locations/americas-colocation/brazil-colocation/sao-paulo-data-centers/sp2/) | 3 | Brazil South | Supported | Aryaka Networks<br/>Ascenty Data Centers<br/>British Telecom<br/>Equinix<br/>InterCloud<br/>Level 3 Communications<br/>Neutrona Networks<br/>Orange<br/>RedCLARA<br/>Tata Communications<br/>Telefonica<br/>UOLDIVEO |
 | **Sao Paulo2** | [TIVIT TSM](https://www.tivit.com/en/tivit/) | 3 | Brazil South | Supported | Ascenty Data Centers<br/>Tivit |
-| **Seattle** | [Equinix SE2](https://www.equinix.com/locations/americas-colocation/united-states-colocation/seattle-data-centers/se2/) | 1 | West US 2 | Supported | Aryaka Networks<br/>CenturyLink Cloud Connect<br/>DE-CIX<br/>Equinix<br/>Level 3 Communications<br/>Megaport<br/>PacketFabric<br/>Telus<br/>Zayo |
+| **Seattle** | [Equinix SE2](https://www.equinix.com/locations/americas-colocation/united-states-colocation/seattle-data-centers/se2/) | 1 | West US 2 | Supported | Aryaka Networks<br/>CenturyLink Cloud Connect<br/>DE-CIX<br/>Equinix<br/>Level 3 Communications<br/>Megaport<br/>Pacific Northwest Gigapop<br/>PacketFabric<br/>Telus<br/>Zayo |
 | **Seoul** | [KINX Gasan IDC](https://www.kinx.net/?lang=en) | 2 | Korea Central | Supported | KINX<br/>KT<br/>LG CNS<br/>LGUplus<br/>Equinix<br/>Sejong Telecom<br/>SK Telecom |
 | **Seoul2** | [KT IDC](https://www.kt-idc.com/eng/introduce/sub1_4_10.jsp#tab) | 2 | Korea Central | n/a | KT |
 | **Silicon Valley** | [Equinix SV1](https://www.equinix.com/locations/americas-colocation/united-states-colocation/silicon-valley-data-centers/sv1/) | 1 | West US | Supported | Aryaka Networks<br/>AT&T Dynamic Exchange<br/>AT&T NetBond<br/>British Telecom<br/>CenturyLink Cloud Connect<br/>Colt<br/>Comcast<br/>Coresite<br/>Cox Business Cloud Port<br/>Equinix<br/>InterCloud<br/>Internet2<br/>IX Reach<br/>Packet<br/>PacketFabric<br/>Level 3 Communications<br/>Megaport<br/>Momentum Telecom<br/>Orange<br/>Sprint<br/>Tata Communications<br/>Telia Carrier<br/>Verizon<br/>Vodafone<br/>Zayo |
@@ -199,6 +199,8 @@ If you're remote and don't have fiber connectivity or want to explore other conn
 * Intelsat
 * [SES](https://www.ses.com/networks/signature-solutions/signature-cloud/ses-and-azure-expressroute)
 * [Viasat](https://news.viasat.com/newsroom/press-releases/viasat-introduces-direct-cloud-connect-a-new-service-providing-fast-secure-private-connections-to-business-critical-cloud-services)
+
+## Connectivity through additional service providers
 
 | Location | Exchange | Connectivity providers |
 |--|--|--|

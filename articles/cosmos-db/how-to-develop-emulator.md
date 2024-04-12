@@ -351,9 +351,9 @@ The Docker (Windows) container image doesn't support the API for MongoDB.
 
 ::: zone-end
 
-## Export the emulator's TLS/SSL certificate
+## Import the emulator's TLS/SSL certificate
 
-Export the certificate for the emulator to use the emulator with your preferred developer SDK without disable TLS/SSL on the client.
+Import the emulator's TLS/SSL certificate to use the emulator with your preferred developer SDK without disabling TLS/SSL on the client.
 
 ::: zone pivot="api-apache-cassandra,api-apache-gremlin,api-table"
 
@@ -371,7 +371,7 @@ The Windows local installation of the emulator automatically imports the TLS/SSL
 
 ### [Docker (Linux container)](#tab/docker-linux)
 
-The certificate for the emulator is available in the `_explorer/emulator.pem` path on the running container. Use `curl` to download the certificate from the running container to your local machine.
+The certificate for the emulator is available at the path `_explorer/emulator.pem` on the running container. Use `curl` to download the certificate from the running container to your local machine.
 
 ```bash
 curl -k https://localhost:8081/_explorer/emulator.pem > ~/emulatorcert.crt
@@ -391,7 +391,7 @@ The Windows local installation of the emulator automatically imports the TLS/SSL
 
 ### [Docker (Linux container) / Docker (Windows container)](#tab/docker-linux+docker-windows)
 
-The certificate for the emulator is available in the `_explorer/emulator.pem` path on the running container.
+The certificate for the emulator is available at the path `_explorer/emulator.pem` on the running container.
 
 1. Use `curl` to download the certificate from the running container to your local machine.
 
@@ -407,6 +407,20 @@ The certificate for the emulator is available in the `_explorer/emulator.pem` pa
     ```bash
     cp ~/emulatorcert.crt /usr/local/share/ca-certificates/
     ```
+1. Update CA certificates and regenerate the certificate bundle by using the appropriate command for your Linux distribution.
+    
+    For **Debian-based** systems (e.g., Ubuntu), use:
+
+    ```bash
+    sudo update-ca-certificates
+    ```
+
+    For **Red Hat-based** systems (e.g., CentOS, Fedora), use:
+    ```bash
+    sudo update-ca-trust
+    ```
+
+    For more detailed instructions, consult the documentation specific to your Linux distribution.
 
 ### [Windows (local)](#tab/windows)
 
@@ -418,7 +432,7 @@ The Windows local installation of the emulator automatically imports the TLS/SSL
 
 ## Connect to the emulator from the SDK
 
-Each SDK includes a client class typically used to connect the SDK to your Azure Cosmos DB account. Using the [emulator's credentials](emulator.md#authentication), you can connect the SDK to the emulator instance instead.
+Each SDK includes a client class typically used to connect the SDK to your Azure Cosmos DB account. By using the [emulator's credentials](emulator.md#authentication), you can connect the SDK to the emulator instance instead.
 
 ::: zone pivot="api-nosql"  
 
@@ -467,7 +481,7 @@ Use the [Azure Cosmos DB API for NoSQL .NET SDK](nosql/quickstart-dotnet.md) to 
     ```
 
     > [!WARNING]
-    > If you get a SSL error, you may need to disable TLS/SSL for your application. This commonly occurs if you are developing on your local machine, using the Azure Cosmos DB emulator in a container, and have not [imported the container's SSL certificate](#export-the-emulators-tlsssl-certificate). To resolve this, configure the client's options to disable TLS/SSL validation before creating the client:
+    > If you get a SSL error, you may need to disable TLS/SSL for your application. This commonly occurs if you are developing on your local machine, using the Azure Cosmos DB emulator in a container, and have not [imported the container's SSL certificate](#import-the-emulators-tlsssl-certificate). To resolve this, configure the client's options to disable TLS/SSL validation before creating the client:
     >
     > ```csharp
     > CosmosClientOptions options = new ()
@@ -527,7 +541,7 @@ Use the [Azure Cosmos DB API for NoSQL Python SDK](nosql/quickstart-python.md) t
     ```
 
     > [!WARNING]
-    > If you get a SSL error, you may need to disable TLS/SSL for your application. This commonly occurs if you are developing on your local machine, using the Azure Cosmos DB emulator in a container, and have not [imported the container's SSL certificate](#export-the-emulators-tlsssl-certificate). To resolve this, configure the application to disable TLS/SSL validation before creating the client:
+    > If you get a SSL error, you may need to disable TLS/SSL for your application. This commonly occurs if you are developing on your local machine, using the Azure Cosmos DB emulator in a container, and have not [imported the container's SSL certificate](#import-the-emulators-tlsssl-certificate). To resolve this, configure the application to disable TLS/SSL validation before creating the client:
     >
     > ```python
     > import urllib3
@@ -535,6 +549,41 @@ Use the [Azure Cosmos DB API for NoSQL Python SDK](nosql/quickstart-python.md) t
     > urllib3.disable_warnings()
     > ```
     >
+
+    If you are still facing SSL errors, it is possible that Python is retrieving the certificates from a different certificate store. To determine the path where Python is looking for the certificates, follow these steps:
+    >[!IMPORTANT]
+    >If you are using a Python **virtual environment** (venv) ensure it is **activated** before running the commands!
+    1. Open a terminal
+    1. Start the Python interpreter by typing python or python3, depending on your Python version.
+    1. In the Python interpreter, run the following commands:
+        ```python
+        from requests.utils import DEFAULT_CA_BUNDLE_PATH
+        print(DEFAULT_CA_BUNDLE_PATH)
+        ```
+
+        **Inside a virtual environment**, the path may be (at least in Ubuntu):
+        ```bash
+        path/to/venv/lib/pythonX.XX/site-packages/certifi/cacert.pem
+        ```
+
+        **Outside of a virtual environment**, the path may be (at least in Ubuntu):
+        ```bash
+        /etc/ssl/certs/ca-certificates.crt
+        ```
+
+    1. Once you have identified the DEFAULT_CA_BUNDLE_PATH, open a **new terminal** and run the following commands to append the emulator certificate to the certificate bundle:
+        > [!IMPORTANT]
+        > If DEFAULT_CA_BUNDLE_PATH variable points to a **system directory**, you might encounter a **"Permission denied"** error. In this case, you will need to run the commands with elevated privileges (as root). Also, you will need to [update and regenerate the certificate bundle](#import-the-emulators-tlsssl-certificate) after executing the provided commands.
+
+        ```bash
+        # Add a new line to the certificate bundle
+        echo >> /path/to/ca_bundle
+        ```
+
+        ```bash
+        # Append the emulator certificate to the certificate bundle
+        cat /path/to/emulatorcert.crt >> /path/to/ca_bundle
+        ```
 
 ### [JavaScript / Node.js](#tab/javascript+nodejs)
 
@@ -579,7 +628,7 @@ Use the [Azure Cosmos DB API for NoSQL Node.js SDK](nosql/quickstart-nodejs.md) 
     ```
 
     > [!WARNING]
-    > If you get a SSL error, you may need to disable TLS/SSL for your application. This commonly occurs if you are developing on your local machine, using the Azure Cosmos DB emulator in a container, and have not [imported the container's SSL certificate](#export-the-emulators-tlsssl-certificate). To resolve this, configure the application to disable TLS/SSL validation before creating the client:
+    > If you get a SSL error, you may need to disable TLS/SSL for your application. This commonly occurs if you are developing on your local machine, using the Azure Cosmos DB emulator in a container, and have not [imported the container's SSL certificate](#import-the-emulators-tlsssl-certificate). To resolve this, configure the application to disable TLS/SSL validation before creating the client:
     >
     > ```javascript
     > process.env.NODE_TLS_REJECT_UNAUTHORIZED = 0
@@ -715,7 +764,7 @@ Use the [MongoDB Node.js driver](mongodb/quickstart-nodejs.md) to connect to the
     ```
 
     > [!WARNING]
-    > If you get a SSL error, you may need to disable TLS/SSL for your application. This commonly occurs if you are developing on your local machine, using the Azure Cosmos DB emulator in a container, and have not [imported the container's SSL certificate](#export-the-emulators-tlsssl-certificate). To resolve this, configure the application to disable TLS/SSL validation before creating the client:
+    > If you get a SSL error, you may need to disable TLS/SSL for your application. This commonly occurs if you are developing on your local machine, using the Azure Cosmos DB emulator in a container, and have not [imported the container's SSL certificate](#import-the-emulators-tlsssl-certificate). To resolve this, configure the application to disable TLS/SSL validation before creating the client:
     >
     > ```javascript
     > const client = new MongoClient(
@@ -858,7 +907,7 @@ Use the [Apache Cassandra Node.js driver](cassandra/manage-data-nodejs.md) to us
     ```
 
     > [!WARNING]
-    > If you get a SSL error, you may need to disable TLS/SSL for your application. This commonly occurs if you are developing on your local machine, using the Azure Cosmos DB emulator in a container, and have not [imported the container's SSL certificate](#export-the-emulators-tlsssl-certificate). To resolve this, configure the client to disable TLS/SSL validation:
+    > If you get a SSL error, you may need to disable TLS/SSL for your application. This commonly occurs if you are developing on your local machine, using the Azure Cosmos DB emulator in a container, and have not [imported the container's SSL certificate](#import-the-emulators-tlsssl-certificate). To resolve this, configure the client to disable TLS/SSL validation:
     >
     > ```javascript
     > const client = new Client({
@@ -1136,7 +1185,7 @@ Use the [Azure Tables JavaScript SDK](cassandra/manage-data-nodejs.md) to use th
     ```
 
     > [!WARNING]
-    > If you get a SSL error, you may need to disable TLS/SSL for your application. This commonly occurs if you are developing on your local machine, using the Azure Cosmos DB emulator in a container, and have not [imported the container's SSL certificate](#export-the-emulators-tlsssl-certificate). To resolve this, configure the client to disable TLS/SSL validation:
+    > If you get a SSL error, you may need to disable TLS/SSL for your application. This commonly occurs if you are developing on your local machine, using the Azure Cosmos DB emulator in a container, and have not [imported the container's SSL certificate](#import-the-emulators-tlsssl-certificate). To resolve this, configure the client to disable TLS/SSL validation:
     >
     > ```javascript
     > const client = TableClient.fromConnectionString(

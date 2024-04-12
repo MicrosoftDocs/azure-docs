@@ -53,6 +53,8 @@ items:
           href: how-to-define-test-criteria.md
         - name: Parameterize load tests
           href: how-to-parameterize-load-tests.md
+        - name: Test App Service web apps
+          href: how-to-create-load-test-app-service.md
         - name: Test private endpoints
           displayName: virtual network, vnet, hybrid, on-premises, onprem, private link, subnet
           href: how-to-test-private-endpoint.md

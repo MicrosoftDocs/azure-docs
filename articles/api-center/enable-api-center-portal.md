@@ -4,7 +4,7 @@ description: Enable the API Center portal, an automatically generated website th
 author: dlepow
 ms.service: api-center
 ms.topic: how-to
-ms.date: 01/26/2024
+ms.date: 03/18/2024
 ms.author: danlep 
 ms.custom: 
 # Customer intent: As an API program manager, I want to enable a portal for developers and other API stakeholders in my organization to discover the APIs in my organization's API center.
@@ -14,7 +14,8 @@ ms.custom:
 
 This article shows how to enable your *API Center portal*, an automatically generated website that developers and other stakeholders in your organization can use to discover the APIs in your [API center](overview.md). The portal is hosted by Azure at a unique URL and restricts user access based on Azure role-based access control.
 
-> [!VIDEO https://www.youtube.com/embed/7Z45FdCLFbA]
+> [!IMPORTANT]
+> The Azure-hosted API Center portal is experimental and will be removed from API Center in an upcoming release. You will have an option to self-host an API Center portal for API discovery in an upcoming release.
 
 [!INCLUDE [api-center-preview-feedback](includes/api-center-preview-feedback.md)]
 
@@ -130,6 +131,15 @@ If the user is assigned the role, there might be a problem with the registration
 ```azurecli
 az provider register --namespace Microsoft.ApiCenter
 ```
+
+### Unable to sign in to portal
+
+If users who have been assigned the **Azure API Center Data Reader** role can't complete the sign-in flow after selecting **Sign in** in the API Center portal, there might be a problem with the configuration of the Microsoft Entra ID identity provider.
+
+In the Microsoft Entra app registration, review and, if needed, update the **Redirect URI** settings:
+
+* Platform: **Single-page application (SPA)**
+* URI: `https://<api-center-name>.portal.<region>.azure-apicenter.ms`. This value must be the URI shown for the Microsoft Entra ID provider for your API Center portal.
 
 ### Unable to select Azure API Center permissions in Microsoft Entra app registration
 

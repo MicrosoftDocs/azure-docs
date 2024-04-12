@@ -41,6 +41,8 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
+          - text: Use Azure OpenAI Assistants in the playground
+            url: quickstarts/assistants.md
           - text: Hear and speak with chat in the playground
             url: quickstarts/hear-speak-playground.md
           - text: Moderate text and images

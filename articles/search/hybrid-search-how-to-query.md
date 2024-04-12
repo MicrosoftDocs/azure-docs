@@ -42,7 +42,7 @@ A hybrid query combines full text search and vector search, where the `"search"`
 
 Hybrid queries are useful because they add support for all query capabilities, including orderby and [semantic ranking](semantic-how-to-query-request.md). For example, in addition to the vector query, you could search over people or product names or titles, scenarios for which similarity search isn't a good fit.
 
-The following example is from the [Postman collection of REST APIs](https://github.com/Azure/azure-search-vector-samples/tree/main/demo-python) that demonstrate hybrid query configurations.
+The following example shows a hybrid query configurations.
 
 ```http
 POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/docs/search?api-version=2023-11-01

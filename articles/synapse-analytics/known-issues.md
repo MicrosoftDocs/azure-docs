@@ -5,7 +5,7 @@ description: Learn about the currently known issues with Azure Synapse Analytics
 author: charithdilshan
 ms.author: ccaldera
 ms.reviewer: wiassaf, joanpo
-ms.date: 02/20/2024
+ms.date: 03/14/2024
 ms.service: synapse-analytics
 ms.subservice: overview
 ms.topic: conceptual
@@ -21,6 +21,7 @@ To learn more about Azure Synapse Analytics, see the [Azure Synapse Analytics Ov
 
 |Azure Synapse Component|Status|Issue|
 |:---------|:---------|:---------|
+|Azure Synapse dedicated SQL pool|[Customers are unable to monitor their usage of Dedicated SQL Pool by using metrics](#customers-are-unable-to-monitor-their-usage-of-dedicated-sql-pool-by-using-metrics)|Has Workaround|
 |Azure Synapse dedicated SQL pool|[Query failure when ingesting a parquet file into a table with AUTO_CREATE_TABLE='ON'](#query-failure-when-ingesting-a-parquet-file-into-a-table-with-auto_create_tableon)|Has Workaround|
 |Azure Synapse dedicated SQL pool|[Queries failing with Data Exfiltration Error](#queries-failing-with-data-exfiltration-error)|Has Workaround|
 |Azure Synapse dedicated SQL pool|[UPDATE STATISTICS statement fails with error: "The provided statistics stream is corrupt."](#update-statistics-failure)|Has Workaround|
@@ -35,6 +36,12 @@ To learn more about Azure Synapse Analytics, see the [Azure Synapse Analytics Ov
 
 
 ## Azure Synapse Analytics dedicated SQL pool active known issues summary
+
+### Customers are unable to monitor their usage of Dedicated SQL Pool by using metrics
+
+An internal upgrade of our telemetry emission logic, which was meant to enhance the performance and reliability of our telemetry data, caused an unexpected issue that affected some customers' ability to monitor their Dedicated SQL Pool, `tempdb`, and DW Data IO metrics.
+
+**Workaround**: Upon identifying the issue, our team took action to identify the root cause and update the configuration in our system. Customers can fix the issue by pausing and resuming their instance, which will restore the normal state of the instance and the telemetry data flow.
 
 ### Query failure when ingesting a parquet file into a table with AUTO_CREATE_TABLE='ON'
 

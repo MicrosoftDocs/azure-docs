@@ -45,7 +45,7 @@ When you assign a role to specific environment types, the user can perform the a
     | **Assign access to** | Select **User, group, or service principal**. |
     | **Members** | Select the users or groups you want to have access to the project. |
 
-    :::image type="content" source="media/quickstart-create-configure-projects/add-role-assignment.png" alt-text="Screenshot that shows the Add role assignment pane." lightbox="media/quickstart-create-configure-projects/add-role-assignment.png":::
+    :::image type="content" source="media/configure-deployment-environments-user/add-role-assignment.png" alt-text="Screenshot that shows the Add role assignment pane." lightbox="media/configure-deployment-environments-user/add-role-assignment.png":::
 
 The users can now view the project and all the environment types enabled within it. Users who have the Deployment Environments User role can [create environments in the developer portal](./quickstart-create-access-environments.md).
 
@@ -71,7 +71,7 @@ The users can now view the project and all the environment types enabled within 
     | **Assign access to** | Select **User, group, or service principal**. |
     | **Members** | Select the users or groups you want to have access to the project. |
 
-    :::image type="content" source="media/quickstart-create-configure-projects/add-role-assignment.png" alt-text="Screenshot that shows the Add role assignment pane for environment type." lightbox="media/quickstart-create-configure-projects/add-role-assignment.png":::
+    :::image type="content" source="media/configure-deployment-environments-user/add-role-assignment.png" alt-text="Screenshot that shows the Add role assignment pane for environment type." lightbox="media/configure-deployment-environments-user/add-role-assignment.png":::
 
 The users can now view the project and the specific environment type that you granted them access to. Users who have the Deployment Environments User role can also [create environments in the developer portal](./quickstart-create-access-environments.md).
 
@@ -79,5 +79,4 @@ The users can now view the project and the specific environment type that you gr
 
 ## Related content
 
-* [Create and configure an Azure Deployment Environments project](./quickstart-create-and-configure-projects.md)
 * [Provide access for dev team leads to Deployment Environments projects](./how-to-configure-project-admin.md)

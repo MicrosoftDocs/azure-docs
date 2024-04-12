@@ -5,7 +5,7 @@
  author: duongau
  ms.service: expressroute
  ms.topic: include
- ms.date: 01/25/2024
+ ms.date: 02/26/2024
  ms.author: duau
  ms.custom: include file
 ---
@@ -41,4 +41,4 @@ This table applies to both the Azure Resource Manager and classic deployment mod
 > * Application performance depends on multiple factors, such as end-to-end latency, and the number of traffic flows the application opens. The numbers in the table represent the upper limit that the application can theoretically achieve in an ideal environment. Additionally, Microsoft performs routine host and OS maintenance on the ExpressRoute Virtual Network Gateway, to maintain reliability of the service. During a maintenance period, the control plane and data path capacity of the gateway is reduced.
 > * During a maintenance period, you may experience intermittent connectivity issues to private endpoint resources.
 > * ExpressRoute supports a maximum TCP and UDP packet size of 1400 bytes. Packet size larger than 1400 bytes will get fragmented.
-> * The number of virtual machines the virtual network isn't a limiting factor when an Azure Route Server or a virtual router is connected to the virtual network gateway.
+> * Azure Route Server can support up to 4000 VMs. This limit includes VMs in virtual networks that are peered. For more information, see [Azure Route Server limitations](../articles/route-server/overview.md#route-server-limits).

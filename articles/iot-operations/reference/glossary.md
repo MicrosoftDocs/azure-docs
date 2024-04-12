@@ -13,6 +13,8 @@ ms.date: 01/10/2024
 
 # Glossary for Azure IoT Operations Preview - enabled by Azure Arc
 
+[!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
+
 This article lists and defines some of the key terms associated with Azure IoT Operations. The article includes usage guidance to help you use the terms correctly if you're talking or writing about Azure IoT Operations.
 
 ## Service and component names
@@ -61,14 +63,20 @@ This component manages the deployment, configuration, and update of the Azure Io
 
 On first mention in an article, use _Azure IoT Orchestrator Preview_. On subsequent mentions, you can use _Orchestrator_. Never use an acronym.
 
-### Azure IoT Operations Experience Preview
+### Azure IoT Operations (preview) portal
 
 This web UI provides a unified experience for operational technologists to manage assets and Data Processor pipelines in an Azure IoT Operations deployment.
 
-On first mention in an article, use _Azure IoT Operations Experience Preview_. On subsequent mentions, you can use _Operations Experience_. Never use an acronym.
+On first mention in an article, use _Azure IoT Operations (preview) portal_. On subsequent mentions, you can use _Operations portal_. Never use an acronym.
+
+### Azure Device Registry Preview
+
+This component provides a single centralized registry for devices and assets that are projected as Azure resources.
+
+On first mention in an article, use _Azure Device Registry Preview_. On subsequent mentions, you can use _Device Registry_. Never use an acronym.
 
 ## Related content
 
-- [What is Azure IoT Operations?](../get-started/overview-iot-operations.md)
-- [Connect industrial assets using Azure IoT OPC UA Broker](../manage-devices-assets/overview-opcua-broker.md)
-- [Publish and subscribe MQTT messages using Azure IoT MQ](../manage-mqtt-connectivity/overview-iot-mq.md)
+- [What is Azure IoT Operations Preview?](../get-started/overview-iot-operations.md)
+- [Connect industrial assets using Azure IoT OPC UA Broker Preview](../manage-devices-assets/overview-opcua-broker.md)
+- [Publish and subscribe MQTT messages using Azure IoT MQ Preview](../manage-mqtt-connectivity/overview-iot-mq.md)

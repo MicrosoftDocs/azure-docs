@@ -22,6 +22,111 @@ Azure IoT Hub emits the following event types:
 
 ## Example event
 
+
+# [Cloud event schema](#tab/cloud-event-schema)
+
+The schemas for DeviceConnected and DeviceDisconnected events have the same structure. This sample event shows the schema of an event raised when a device is connected to an IoT hub:
+
+```json
+[{
+  "id": "f6bbf8f4-d365-520d-a878-17bf7238abd8", 
+  "source": "/SUBSCRIPTIONS/<subscription ID>/RESOURCEGROUPS/<resource group name>/PROVIDERS/MICROSOFT.DEVICES/IOTHUBS/<hub name>", 
+  "subject": "devices/LogicAppTestDevice", 
+  "type": "Microsoft.Devices.DeviceConnected", 
+  "time": "2018-06-02T19:17:44.4383997Z", 
+  "data": {
+    "deviceConnectionStateEventInfo": {
+      "sequenceNumber":
+        "000000000000000001D4132452F67CE200000002000000000000000000000001"
+    },
+    "hubName": "egtesthub1",
+    "deviceId": "LogicAppTestDevice",
+    "moduleId" : "DeviceModuleID"
+  }, 
+  "specversion": "1.0"
+}]
+```
+
+The DeviceTelemetry event is raised when a telemetry event is sent to an IoT Hub. A sample schema for this event is shown below.
+
+```json
+[{
+  "id": "9af86784-8d40-fe2g-8b2a-bab65e106785",
+  "source": "/SUBSCRIPTIONS/<subscription ID>/RESOURCEGROUPS/<resource group name>/PROVIDERS/MICROSOFT.DEVICES/IOTHUBS/<hub name>", 
+  "subject": "devices/LogicAppTestDevice", 
+  "type": "Microsoft.Devices.DeviceTelemetry",
+  "time": "2019-01-07T20:58:30.48Z",
+  "data": {        
+      "body": {            
+          "Weather": {                
+              "Temperature": 900            
+          },
+          "Location": "USA"        
+      },
+        "properties": {            
+          "Status": "Active"        
+        },
+        "systemProperties": {            
+            "iothub-content-type": "application/json",
+            "iothub-content-encoding": "utf-8",
+            "iothub-connection-device-id": "d1",
+            "iothub-connection-auth-method": "{\"scope\":\"device\",\"type\":\"sas\",\"issuer\":\"iothub\",\"acceptingIpFilterRule\":null}",
+            "iothub-connection-auth-generation-id": "123455432199234570",
+            "iothub-enqueuedtime": "2019-01-07T20:58:30.48Z",
+            "iothub-message-source": "Telemetry"        
+        }    
+    },
+  "specversion": "1.0"
+}]
+```
+
+The schemas for DeviceCreated and DeviceDeleted events have the same structure. This sample event shows the schema of an event raised when a device is registered to an IoT hub:
+
+```json
+[{
+  "id": "56afc886-767b-d359-d59e-0da7877166b2",
+  "source": "/SUBSCRIPTIONS/<subscription ID>/RESOURCEGROUPS/<resource group name>/PROVIDERS/MICROSOFT.DEVICES/IOTHUBS/<hub name>",
+  "subject": "devices/LogicAppTestDevice",
+  "type": "Microsoft.Devices.DeviceCreated",
+  "time": "2018-01-02T19:17:44.4383997Z",
+  "data": {
+    "twin": {
+      "deviceId": "LogicAppTestDevice",
+      "etag": "AAAAAAAAAAE=",
+      "deviceEtag": "null",
+      "status": "enabled",
+      "statusUpdateTime": "0001-01-01T00:00:00",
+      "connectionState": "Disconnected",
+      "lastActivityTime": "0001-01-01T00:00:00",
+      "cloudToDeviceMessageCount": 0,
+      "authenticationType": "sas",
+      "x509Thumbprint": {
+        "primaryThumbprint": null,
+        "secondaryThumbprint": null
+      },
+      "version": 2,
+      "properties": {
+        "desired": {
+          "$metadata": {
+            "$lastUpdated": "2018-01-02T19:17:44.4383997Z"
+          },
+          "$version": 1
+        },
+        "reported": {
+          "$metadata": {
+            "$lastUpdated": "2018-01-02T19:17:44.4383997Z"
+          },
+          "$version": 1
+        }
+      }
+    },
+    "hubName": "egtesthub1",
+    "deviceId": "LogicAppTestDevice"
+  },
+  "specversion": "1.0"
+}]
+```
+
 # [Event Grid event schema](#tab/event-grid-event-schema)
 
 The schemas for DeviceConnected and DeviceDisconnected events have the same structure. This sample event shows the schema of an event raised when a device is connected to an IoT hub:
@@ -129,114 +234,25 @@ The schemas for DeviceCreated and DeviceDeleted events have the same structure. 
 }]
 ```
 
-# [Cloud event schema](#tab/cloud-event-schema)
-
-The schemas for DeviceConnected and DeviceDisconnected events have the same structure. This sample event shows the schema of an event raised when a device is connected to an IoT hub:
-
-```json
-[{
-  "id": "f6bbf8f4-d365-520d-a878-17bf7238abd8", 
-  "source": "/SUBSCRIPTIONS/<subscription ID>/RESOURCEGROUPS/<resource group name>/PROVIDERS/MICROSOFT.DEVICES/IOTHUBS/<hub name>", 
-  "subject": "devices/LogicAppTestDevice", 
-  "type": "Microsoft.Devices.DeviceConnected", 
-  "time": "2018-06-02T19:17:44.4383997Z", 
-  "data": {
-    "deviceConnectionStateEventInfo": {
-      "sequenceNumber":
-        "000000000000000001D4132452F67CE200000002000000000000000000000001"
-    },
-    "hubName": "egtesthub1",
-    "deviceId": "LogicAppTestDevice",
-    "moduleId" : "DeviceModuleID"
-  }, 
-  "specversion": "1.0"
-}]
-```
-
-The DeviceTelemetry event is raised when a telemetry event is sent to an IoT Hub. A sample schema for this event is shown below.
-
-```json
-[{
-  "id": "9af86784-8d40-fe2g-8b2a-bab65e106785",
-  "source": "/SUBSCRIPTIONS/<subscription ID>/RESOURCEGROUPS/<resource group name>/PROVIDERS/MICROSOFT.DEVICES/IOTHUBS/<hub name>", 
-  "subject": "devices/LogicAppTestDevice", 
-  "type": "Microsoft.Devices.DeviceTelemetry",
-  "time": "2019-01-07T20:58:30.48Z",
-  "data": {        
-      "body": {            
-          "Weather": {                
-              "Temperature": 900            
-          },
-          "Location": "USA"        
-      },
-        "properties": {            
-          "Status": "Active"        
-        },
-        "systemProperties": {            
-            "iothub-content-type": "application/json",
-            "iothub-content-encoding": "utf-8",
-            "iothub-connection-device-id": "d1",
-            "iothub-connection-auth-method": "{\"scope\":\"device\",\"type\":\"sas\",\"issuer\":\"iothub\",\"acceptingIpFilterRule\":null}",
-            "iothub-connection-auth-generation-id": "123455432199234570",
-            "iothub-enqueuedtime": "2019-01-07T20:58:30.48Z",
-            "iothub-message-source": "Telemetry"        
-        }    
-    },
-  "specversion": "1.0"
-}]
-```
-
-The schemas for DeviceCreated and DeviceDeleted events have the same structure. This sample event shows the schema of an event raised when a device is registered to an IoT hub:
-
-```json
-[{
-  "id": "56afc886-767b-d359-d59e-0da7877166b2",
-  "source": "/SUBSCRIPTIONS/<subscription ID>/RESOURCEGROUPS/<resource group name>/PROVIDERS/MICROSOFT.DEVICES/IOTHUBS/<hub name>",
-  "subject": "devices/LogicAppTestDevice",
-  "type": "Microsoft.Devices.DeviceCreated",
-  "time": "2018-01-02T19:17:44.4383997Z",
-  "data": {
-    "twin": {
-      "deviceId": "LogicAppTestDevice",
-      "etag": "AAAAAAAAAAE=",
-      "deviceEtag": "null",
-      "status": "enabled",
-      "statusUpdateTime": "0001-01-01T00:00:00",
-      "connectionState": "Disconnected",
-      "lastActivityTime": "0001-01-01T00:00:00",
-      "cloudToDeviceMessageCount": 0,
-      "authenticationType": "sas",
-      "x509Thumbprint": {
-        "primaryThumbprint": null,
-        "secondaryThumbprint": null
-      },
-      "version": 2,
-      "properties": {
-        "desired": {
-          "$metadata": {
-            "$lastUpdated": "2018-01-02T19:17:44.4383997Z"
-          },
-          "$version": 1
-        },
-        "reported": {
-          "$metadata": {
-            "$lastUpdated": "2018-01-02T19:17:44.4383997Z"
-          },
-          "$version": 1
-        }
-      }
-    },
-    "hubName": "egtesthub1",
-    "deviceId": "LogicAppTestDevice"
-  },
-  "specversion": "1.0"
-}]
-```
-
 ---
 
 
 ### Event properties
+
+# [Cloud event schema](#tab/cloud-event-schema)
+
+All events contain the same top-level data: 
+
+
+| Property | Type | Description |
+| -------- | ---- | ----------- |
+| `id` | string | Unique identifier for the event. |
+| `source` | string | Full resource path to the event source. This field isn't writeable. Event Grid provides this value. |
+| `subject` | string | Publisher-defined path to the event subject. |
+| `type` | string | One of the registered event types for this event source. |
+| `time` | string | The time the event is generated based on the provider's UTC time. |
+| `data` | object | IoT Hub event data.  |
+| `specversion` | string | CloudEvents schema specification version. |
 
 # [Event Grid event schema](#tab/event-grid-event-schema)
 
@@ -253,20 +269,6 @@ All events contain the same top-level data:
 | `dataVersion` | string | The schema version of the data object. The publisher defines the schema version. |
 | `metadataVersion` | string | The schema version of the event metadata. Event Grid defines the schema of the top-level properties. Event Grid provides this value. |
 
-# [Cloud event schema](#tab/cloud-event-schema)
-
-All events contain the same top-level data: 
-
-
-| Property | Type | Description |
-| -------- | ---- | ----------- |
-| `id` | string | Unique identifier for the event. |
-| `source` | string | Full resource path to the event source. This field isn't writeable. Event Grid provides this value. |
-| `subject` | string | Publisher-defined path to the event subject. |
-| `type` | string | One of the registered event types for this event source. |
-| `time` | string | The time the event is generated based on the provider's UTC time. |
-| `data` | object | IoT Hub event data.  |
-| `specversion` | string | CloudEvents schema specification version. |
 
 ---
 

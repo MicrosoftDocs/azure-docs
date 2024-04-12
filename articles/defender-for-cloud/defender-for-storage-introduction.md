@@ -41,7 +41,7 @@ With a simple agentless setup at scale, you can [enable Defender for Storage](tu
 |Pricing:|**Microsoft Defender for Storage** pricing applies to commercial clouds. Learn more about [pricing and availability per region.](https://azure.microsoft.com/pricing/details/defender-for-cloud/)<br>|
 |<br><br> Supported storage types:|[Blob Storage](https://azure.microsoft.com/products/storage/blobs/) (Standard/Premium StorageV2, including Data Lake Gen2): Activity monitoring, Malware Scanning, Sensitive Data Discovery<br>Azure Files (over REST API and SMB): Activity monitoring |
 |Required roles and permissions:|For Malware Scanning and sensitive data threat detection at subscription and storage account levels, you need Owner roles (subscription owner/storage account owner) or specific roles with corresponding data actions. To enable Activity Monitoring, you need 'Security Admin' permissions. Read more about the required permissions.|
-|Clouds:|:::image type="icon" source="../defender-for-cloud/media/icons/yes-icon.png"::: Commercial clouds\*<br>:::image type="icon" source="../defender-for-cloud/media/icons/no-icon.png"::: Azure Government (only activity monitoring support on the [classic plan](/azure/defender-for-cloud/defender-for-storage-classic))<br>:::image type="icon" source="../defender-for-cloud/media/icons/no-icon.png"::: Microsoft Azure operated by 21Vianet<br>:::image type="icon" source="../defender-for-cloud/media/icons/no-icon.png"::: Connected AWS accounts|
+|Clouds:|:::image type="icon" source="../defender-for-cloud/media/icons/yes-icon.png"::: Commercial clouds\*<br>:::image type="icon" source="../defender-for-cloud/media/icons/no-icon.png"::: Azure Government (only activity monitoring support on the [classic plan](defender-for-storage-classic.md))<br>:::image type="icon" source="../defender-for-cloud/media/icons/no-icon.png"::: Microsoft Azure operated by 21Vianet<br>:::image type="icon" source="../defender-for-cloud/media/icons/no-icon.png"::: Connected AWS accounts|
 
 \* Azure DNS Zone isn't supported for Malware Scanning and sensitive data threat detection.
 
@@ -108,6 +108,10 @@ By default, the limit is set to 5,000 GB per month per storage account. Once thi
 
 Microsoft Defender for Storage enables you to secure your data at scale with granular controls. You can apply consistent security policies across all your storage accounts within a subscription or customize them for specific accounts to suit your business needs. You can also control your costs by choosing the level of protection you need for each resource. To get started, visit [enable Defender for Storage](../storage/common/azure-defender-storage-configure.md).
 
+### Monitoring your malware scanning cap
+
+To ensure uninterrupted protection while effectively managing costs, there are two informational security alerts related to malware scanning cap usage. The first alert, `Malware Scanning will stop soon: 75% of monthly gigabytes scan cap reached (Preview)`, is triggered as your usage approaches 75% of the set monthly cap, offering a heads-up to adjust your cap if needed. The second alert, `Malware Scanning stopped: monthly gigabytes scan cap reached (Preview)`, notifies you when the cap has been reached and scanning is paused for the month, potentially leaving new uploads unscanned. Both alerts come with details on affected storage accounts to facilitate prompt and informed action, ensuring you can maintain your desired level of security without unexpected expenses.
+
 ## Understanding the differences between Malware Scanning and hash reputation analysis  
 
 Defender for Storage offers two capabilities to detect malicious content uploaded to storage accounts: **Malware Scanning** (paid add-on feature available only on the new plan) and **hash reputation analysis** (available in all plans).
@@ -128,8 +132,3 @@ In this article, you learned about Microsoft Defender for Storage.
 
 - [Enable Defender for Storage](tutorial-enable-storage-plan.md)
 - Check out [common questions](faq-defender-for-storage.yml) about Defender for Storage.
-
-
-
-
-

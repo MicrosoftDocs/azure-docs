@@ -62,6 +62,7 @@ This example uses `train.yml` [in the directory](https://github.com/Azure/azurem
 >[!Note]
 > When register components in UI, `code` defined in the component YAML file can only point to the current folder where YAML file locates or the subfolders, which means you cannot specify `../` for `code` as UI cannot recognize the parent directory.
 > `additional_includes` can only point to the current or sub folder.
+> Currently, UI only supports registering components with `command` type.
 
 2. Select Upload from **Folder**, and select the `1b_e2e_registered_components` folder to upload. Select `train.yml` from the drop-down list.
 

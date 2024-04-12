@@ -5,7 +5,7 @@ author: MaryMichael-MS
 ms.author: v-michaelar
 ms.manager: abhemraj
 ms.topic: conceptual
-ms.date: 02/14/2024
+ms.date: 03/06/2024
 ms.custom: engagement-fy24
 ---
 
@@ -43,7 +43,7 @@ Migration and modernization | N/A | Migrate [VMware VMs](tutorial-migrate-vmware
 [DMA](/sql/dma/dma-overview) | Assess SQL Server databases. | N/A
 [DMS](../dms/dms-overview.md) | N/A | Migrate SQL Server, Oracle, MySQL, PostgreSQL, MongoDB.
 [Lakeside](https://go.microsoft.com/fwlink/?linkid=2104908) | Assess virtual desktop infrastructure (VDI) | N/A
-[Movere](https://www.movere.io/) | Assess VMware VMs, Hyper-V VMs, Xen VMs, physical servers, workstations (including VDI) and other cloud workloads. | N/A
+[Movere](/movere/overview) | Assess VMware VMs, Hyper-V VMs, Xen VMs, physical servers, workstations (including VDI) and other cloud workloads. | N/A
 [RackWare](https://go.microsoft.com/fwlink/?linkid=2102735) | N/A | Migrate VMware VMs, Hyper-V VMs, Xen VMs, KVM VMs, physical servers, and other cloud workloads
 [Turbonomic](https://go.microsoft.com/fwlink/?linkid=2094295)  | Assess VMware VMs, Hyper-V VMs, physical servers, and other cloud workloads. | N/A
 [UnifyCloud](https://go.microsoft.com/fwlink/?linkid=2097195) | Assess VMware VMs, Hyper-V VMs, physical servers and other cloud workloads, and SQL Server databases. | N/A
@@ -72,6 +72,8 @@ Register the Azure Migrate appliance| Azure Migrate uses a lightweight [Azure Mi
 Create a key vault for VMware agentless migration | To migrate VMware VMs with agentless Migration and modernization, Azure Migrate creates a Key Vault to manage access keys to the replication storage account in your subscription. To create the vault, you set permissions (Owner, or Contributor and User Access Administrator) on the resource group where the project resides. | [Set up](./tutorial-discover-vmware.md#prepare-an-azure-user-account) permissions.
 
 ## Supported geographies 
+
+#### [Azure Public cloud](#tab/public)
 
 ### Public cloud
 
@@ -106,6 +108,8 @@ United States | Central US or West US 2
 > [!NOTE]
 > For Switzerland geography, Switzerland West is only available for REST API users and need an approved subscription.
 
+#### [Azure for US Government](#tab/gov)
+
 ### Azure Government
 
 **Task** | **Geography** | **Details**
@@ -114,11 +118,13 @@ Create project | United States | Metadata is stored in US Gov Arizona, US Gov Vi
 Target assessment | United States | Target regions: US Gov Arizona, US Gov Virginia, US Gov Texas
 Target replication | United States | Target regions: US DoD Central, US DoD East, US Gov Arizona, US Gov Iowa, US Gov Texas, US Gov Virginia
 
-### Azure operated by 21Vianet (Microsoft Azure operated by 21Vianet)
+#### [Azure operated by 21Vianet](#tab/21via)
 
 **Geography** | **Metadata storage location**
 --- | ---
 Microsoft Azure operated by 21Vianet | China North 2
+
+---
 
 ## VMware assessment and migration
 

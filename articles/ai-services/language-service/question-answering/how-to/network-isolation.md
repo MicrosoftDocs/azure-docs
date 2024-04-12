@@ -1,6 +1,6 @@
 ---
-title: Network isolation and Private Link -question answering
-description: Users can restrict public access to question answering resources.
+title: Network isolation and Private Link - custom question answering
+description: Users can restrict public access to custom question answering resources.
 ms.service: azure-ai-language
 ms.topic: how-to
 author: jboback
@@ -11,11 +11,11 @@ ms.custom: language-service-question-answering
 
 #  Network isolation and private endpoints
 
-The steps below describe how to restrict public access to question answering resources as well as how to enable Azure Private Link. Protect an Azure AI services resource from public access by [configuring the virtual network](../../../cognitive-services-virtual-networks.md?tabs=portal).
+The steps below describe how to restrict public access to custom question answering resources as well as how to enable Azure Private Link. Protect an Azure AI services resource from public access by [configuring the virtual network](../../../cognitive-services-virtual-networks.md?tabs=portal).
 
 ## Private Endpoints
 
-Azure Private Endpoint is a network interface that connects you privately and securely to a service powered by Azure Private Link.  Question answering provides you support to create private endpoints to the Azure Search Service.
+Azure Private Endpoint is a network interface that connects you privately and securely to a service powered by Azure Private Link. Custom question answering provides you support to create private endpoints to the Azure Search Service.
 
 Private endpoints are provided by [Azure Private Link](../../../../private-link/private-link-overview.md), as a separate service. For more information about costs, see the [pricing page.](https://azure.microsoft.com/pricing/details/private-link/)
 
@@ -54,7 +54,7 @@ This will establish a private endpoint connection between language resource and 
 
 ## Restrict access to Azure AI Search resource
 
-Follow the steps below to restrict public access to question answering language resources. Protect an Azure AI services resource from public access by [configuring the virtual network](../../../cognitive-services-virtual-networks.md?tabs=portal).
+Follow the steps below to restrict public access to custom question answering language resources. Protect an Azure AI services resource from public access by [configuring the virtual network](../../../cognitive-services-virtual-networks.md?tabs=portal).
 
 After restricting access to an Azure AI services resource based on VNet, To browse projects on Language Studio from your on-premises network or your local browser.
 - Grant access to [on-premises network](../../../cognitive-services-virtual-networks.md?tabs=portal#configure-access-from-on-premises-networks).

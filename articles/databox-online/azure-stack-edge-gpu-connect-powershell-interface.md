@@ -96,7 +96,7 @@ If the compute role is configured on your device, you can also get the compute l
 
 After you have formed and configured a cluster and you have created new virtual switches, you can add or delete virtual networks associated with your virtual switches. For detailed steps, see [Configure virtual switches](azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md?pivots=two-node#configure-virtual-switches-1).
 
-After virtual switches are created, you can enable the switches for Kubernetes compute traffic to specify a Kubernets workload profile. To do so using the local UI, use the steps in [Configure compute IPS](azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md?pivots=two-node#configure-compute-ips-1). To do so using PowerShell, use the following steps:
+After virtual switches are created, you can enable the switches for Kubernetes compute traffic to specify a Kubernetes workload profile. To do so using the local UI, use the steps in [Configure compute IPS](azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md?pivots=two-node#configure-compute-ips-1). To do so using PowerShell, use the following steps:
 
 1. [Connect to the PowerShell interface](#connect-to-the-powershell-interface).
 2. Use the `Get-HcsApplianceInfo` cmdlet to get current `KubernetesPlatform` and `KubernetesWorkloadProfile` settings for your device.
@@ -129,7 +129,7 @@ After virtual switches are created, you can enable the switches for Kubernetes c
 
 ## Change Kubernetes pod and service subnets
 
-By default, Kubernetes on your Azure Stack Edge device uses subnets 172.27.0.0/16 and 172.28.0.0/16 for pod and service respectively. If these subnets are already in use in your network, then you can run the `Set-HcsKubeClusterNetworkInfo` cmdlet to change these subnets.
+If you're running the **other workloads** option in your environment, by default, Kubernetes on your Azure Stack Edge device uses subnets 172.27.0.0/16 and 172.28.0.0/16 for pod and service respectively. If these subnets are already in use in your network, then you can run the `Set-HcsKubeClusterNetworkInfo` cmdlet to change these subnets.
 
 You want to perform this configuration before you configure compute from the Azure portal as the Kubernetes cluster is created in this step.
 

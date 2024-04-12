@@ -5,7 +5,7 @@ author: bandersmsft
 ms.service: cost-management-billing
 ms.subservice: microsoft-customer-agreement
 ms.topic: conceptual
-ms.date: 05/26/2023
+ms.date: 03/21/2024
 ms.author: banders
 ms.reviewer: sgautam
 ---

@@ -16,7 +16,7 @@ ms.date: 06/17/2022
 This article provides background about virtual network scenarios, limitations, and resources. For deployment examples using the Azure CLI, see [Deploy container instances into an Azure virtual network](container-instances-vnet.md).
 
 > [!IMPORTANT]
-> Container group deployment to a virtual network is generally available for Linux and Windows containers, in most regions where Azure Container Instances is available. For details, see [Regions and resource availability](container-instances-region-availability.md). 
+> Container group deployment to a virtual network is generally available for Linux and Windows containers, in most regions where Azure Container Instances is available. For details, see [Resource availability and quota limits](container-instances-resource-and-quota-limits.md). 
 
 ## Scenarios
 

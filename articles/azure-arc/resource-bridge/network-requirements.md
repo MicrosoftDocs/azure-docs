@@ -2,7 +2,7 @@
 title: Azure Arc resource bridge network requirements
 description: Learn about network requirements for Azure Arc resource bridge including URLs that must be allowlisted.
 ms.topic: conceptual
-ms.date: 02/15/2024
+ms.date: 03/19/2024
 ---
 
 # Azure Arc resource bridge network requirements

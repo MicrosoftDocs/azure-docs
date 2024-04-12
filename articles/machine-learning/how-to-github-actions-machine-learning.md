@@ -42,11 +42,11 @@ You'll need to first define how to authenticate with Azure. You can use a [servi
 
 ### Generate deployment credentials
 
-[!INCLUDE [include](~/articles/reusable-content/github-actions/generate-deployment-credentials.md)]
+[!INCLUDE [include](~/reusable-content/github-actions/generate-deployment-credentials.md)]
 
 ### Create secrets
 
-[!INCLUDE [include](~/articles/reusable-content/github-actions/create-secrets-with-openid.md)]
+[!INCLUDE [include](~/reusable-content/github-actions/create-secrets-with-openid.md)]
 
 ## Step 3: Update `setup.sh` to connect to your Azure Machine Learning workspace
 

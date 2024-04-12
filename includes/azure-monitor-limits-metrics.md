@@ -12,6 +12,8 @@ ms.custom: "include file"
 
 ### Ingestion
 
+Azure managed Prometheus is a case insensitive system. It treats strings, such as metric names, label names, or label values, as the same time series if they differ from another time series only by the case of the string. For more information, see [Prometheus metrics overview](/azure/azure-monitor/essentials/prometheus-metrics-overview#case-sensitivity). 
+ 
 The following limits apply to the Azure Monitor workspace ingesting your Prometheus metrics.
 
 | Limit | Value |

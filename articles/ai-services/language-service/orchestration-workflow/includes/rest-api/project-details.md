@@ -1,12 +1,12 @@
 ---
 titleSuffix: Azure AI services
 #services: cognitive-services
-author: aahill
+author: jboback
 manager: nitinme
 ms.service: azure-ai-language
 ms.topic: include
 ms.date: 12/19/2023
-ms.author: aahi
+ms.author: jboback
 ---
 
 To get an orchestration workflow project's details, submit a **GET** request using the following URL and headers. Replace the placeholder values with your own values.   

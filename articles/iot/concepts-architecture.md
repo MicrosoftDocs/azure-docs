@@ -25,11 +25,9 @@ The following diagram shows the key elements of an IoT Plug and Play solution:
 
 ## Model repository
 
-The [model repository](./concepts-model-repository.md) is a store for model and interface definitions. You define models and interfaces using the [Digital Twins Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/README.md).
+The [model repository](./concepts-model-discovery.md) is a store for curated model and interface definitions. Models and interfaces are defined using the [Digital Twins Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/README.md).
 
-The web UI lets you manage the models and interfaces.
-
-The model repository has built-in role-based access controls that let you manage access to interface definitions.
+The web UI lets you search for and retrieve the models and interfaces.
 
 ## Devices
 
@@ -89,6 +87,5 @@ The backend solution can use the information from the interface definitions to:
 
 Now that you have an overview of the architecture of an IoT Plug and Play solution, the next steps are to learn more about:
 
-- [The model repository](./concepts-model-repository.md)
 - [Digital twin model integration](./concepts-model-discovery.md)
 - [Developing for IoT Plug and Play](./concepts-developer-guide-device.md)

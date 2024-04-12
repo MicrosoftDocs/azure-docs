@@ -30,7 +30,7 @@ productDirectory:
     - title: Ask an Azure Engineer
       imageSrc: ./media/interact.png
       summary: Get your technical questions answered directly from an Azure engineer
-      url: https://learn.microsoft.com/answers/tags/351/azure-fasttrack
+      url: https://learn.microsoft.com/answers/questions/ask/
       
 # conceptualContent section
 conceptualContent:

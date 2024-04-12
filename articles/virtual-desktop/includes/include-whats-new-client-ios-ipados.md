@@ -2,7 +2,7 @@
 author: dknappettmsft
 ms.author: daknappe
 ms.topic: include
-ms.date: 01/19/2024
+ms.date: 03/19/2024
 ---
 
 ## Latest client versions
@@ -11,8 +11,18 @@ The following table lists the current versions available for the public and beta
 
 | Release | Latest version | Download |
 |---------|----------------|----------|
-| Public  | 10.5.4         | [App Store](https://apps.apple.com/app/microsoft-remote-desktop/id714464092) |
-| Beta    | 10.5.4         | [TestFlight](https://testflight.apple.com/join/vkLIflUJ) |
+| Public  | 10.5.5         | [App Store](https://apps.apple.com/app/microsoft-remote-desktop/id714464092) |
+| Beta    | 10.5.5         | [TestFlight](https://testflight.apple.com/join/vkLIflUJ) |
+
+## Updates for version 10.5.5
+
+*Published: February 24, 2024*
+
+In this release, we made the following changes:
+
+- Fixed accessibility issues.
+- Fixed bugs reported by users and internal telemetry.
+- As of this release, the iOS client only supports iOS 16 and later.
 
 ## Updates for version 10.5.4
 
@@ -21,7 +31,7 @@ The following table lists the current versions available for the public and beta
 >[!NOTE]
 > There is no version 10.5.3.
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
 - Fixed theming update issues on iOS 17.
 - Addressed pop-up sheet layout bugs on iOS 17.
@@ -36,7 +46,7 @@ In this release, we've made the following changes:
 
 *Published: October 24, 2023*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
 - Added support for dual monitors when using iPads with Stage Manager.
 - Addressed reported accessibility bugs.
@@ -46,7 +56,7 @@ In this release, we've made the following changes:
 
 *Published: September 5th, 2023*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
 - Added support for displaying sessions on an external monitor. You can use this new feature with iPad and iPhone using AirPlay or a physical cable.
 - Added support for location redirection. To use this feature, you need access to your device location, and your session hosts must be running Windows 11 or later.
@@ -55,7 +65,7 @@ In this release, we've made the following changes:
 
 *Published: July 10, 2023*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
 - Fixed an issue with IPv6 address resolution that was blocking connectivity.
 - Addressed a deadlock that could occur in server redirection scenarios.
@@ -64,9 +74,9 @@ In this release, we've made the following changes:
 
 *Published: June 20, 2023*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
-- We've changed the connection bar to always start expanded by default. You can minimize the connection bar by dragging it to a corner of the screen. To return the connection bar to its regular size, drag it to the center of the screen. 
+- We changed the connection bar to always start expanded by default. You can minimize the connection bar by dragging it to a corner of the screen. To return the connection bar to its regular size, drag it to the center of the screen. 
 - You can now dismiss all in-app messages by swiping downwards.
 - Fixed an issue that caused graphics to look distorted in Lock to Landscape mode.
 
@@ -74,15 +84,15 @@ In this release, we've made the following changes:
 
 *Published: May 17, 2023*
 
-In this release we've made some tweaks around the behavior of the connection bar on iPads and fixed some bugs to keep things running smoothly.
+In this release we made some tweaks around the behavior of the connection bar on iPads and fixed some bugs to keep things running smoothly.
 
-We've made the following changes to the iPad connection bar:
+We made the following changes to the iPad connection bar:
 
 - We fixed an issue that caused the connection bar to get stuck under the Stage Manager ellipsis menu.
 - The connection bar will now be docked on the right side of the screen when you turn your iPad on. The iOS client will also save the position you dock your screen in across all your iPad and iPhone devices.
 - We moved the Add a PC or Workspace button to the center of the toolbar at the bottom of the screen.
 
-We've also made the following other changes:
+We also made the following other changes:
 
 - Fixed an issue where session rotation wasn't working on iOS 16.
 - Resolved an issue where the search box in the Connection Center went out of focus when the user tried entering characters.
@@ -92,7 +102,7 @@ We've also made the following other changes:
 
 *Published: March 7, 2023*
 
-In this release, we've removed the global prompt for camera and microphone access when you first open and run the iOS client. Instead, whenever a connection bookmark or published resource requests access, you'll receive a prompt asking whether you want to give permission.
+In this release, we removed the global prompt for camera and microphone access when you first open and run the iOS client. Instead, whenever a connection bookmark or published resource requests access, you'll receive a prompt asking whether you want to give permission.
 
 We also fixed some bugs and added some small additional features:
 
@@ -108,7 +118,7 @@ We also fixed some bugs and added some small additional features:
 
 *Published: November 2, 2022*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
 - Fixed a WebSocket transport bug that affected some Azure Virtual Desktop deployments
 - Addressed accessibility compliance issues.
@@ -117,14 +127,14 @@ In this release, we've made the following changes:
 
 *Published: October 4, 2022*
 
-In this release, we've made targeted bug fixes and performance improvements, and also added new features. Here's what we've included:
+In this release, we made targeted bug fixes and performance improvements, and also added new features. Here's what we included:
 
 - You can now use Apple Pencil to draw, write, and interact with remote sessions.
 - You can now see a live preview of the current active session when switching to the Connection Center from a remote session.
 - Gather logs for troubleshooting by going to **Settings** > **Troubleshooting**.
 - Review app highlights from previous versions by going to **Settings** > **About** > **Version Highlights**.
-- We've made some small appearance changes to the connection bar user interface.
-- We've fixed issues that affected locking to landscape or portrait on iOS 16.
+- We made some small appearance changes to the connection bar user interface.
+- We fixed issues that affected locking to landscape or portrait on iOS 16.
 
 ## Updates for version 10.4.3
 
@@ -152,7 +162,7 @@ This is a significant update with some new feature additions and lots of bug fix
 
 The biggest change in this release is that you can now dynamically change the orientation of the remote session to either landscape or portrait mode while connected to a machine running Windows 8.1, Windows Server 2012 R2 or later. You can set your orientation preferences in **Settings** > **Display**.
 
-To work seamlessly with dynamic orientation, we've made updates to the following experiences:
+To work seamlessly with dynamic orientation, we made updates to the following experiences:
 
 - The in-session immersive switcher has a revamped look and feel, and can accommodate both landscape and portrait orientation.
 - The on-screen keyboard has been redesigned to support portrait orientation.
@@ -170,7 +180,7 @@ In addition, we’ve made the following improvements:
 - Updated the in-session connection bar to fade back after three seconds if you minimize it.
 - Added support for smooth scrolling in the connection center on ProMotion-compatible iPhones and iPads.
 
-We've also made some updates to enhance Azure Virtual Desktop scenarios:
+We also made some updates to enhance Azure Virtual Desktop scenarios:
 
 - Integrated the Microsoft Authentication Library (MSAL) or OneAuth component to improve current and future authentication scenarios.
 - Added eTag support to speed up Azure Virtual Desktop workspace refresh.
@@ -188,7 +198,7 @@ In this release we added support for the iPad Mini 6 and addressed an issue with
 
 *Published: October 28, 2021*
 
-In this release, we've added support for time zone redirection. This new feature fixes an issue in Windows 11 remote sessions that caused the screen to flicker, making the session unusable.
+In this release, we added support for time zone redirection. This new feature fixes an issue in Windows 11 remote sessions that caused the screen to flicker, making the session unusable.
 
 ## Updates for version 10.3.1
 
@@ -200,7 +210,7 @@ In this release, we worked around a 0x907 (mismatched certificate) error code th
 
 Published: May 27, 2021*
 
-In this release, we've made some significant updates to the shared underlying code that powers the Remote Desktop experience across all our clients. We've also added some new features and addressed bugs and crashes that were showing up in error reporting.
+In this release, we made some significant updates to the shared underlying code that powers the Remote Desktop experience across all our clients. We also added some new features and addressed bugs and crashes that were showing up in error reporting.
 
 - You can now drag IME candidate window in the client.
 - Integrated Kerberos support in the CredSSP security protocol sequence.
@@ -224,7 +234,7 @@ In this release, we made the following updates:
 
 *Published: 02/01/2021*
 
-In this release, we've made the following changes to the connection bar and in-session user experience:
+In this release, we made the following changes to the connection bar and in-session user experience:
 
 - You can now collapse the connection bar by moving it into one of the four corners of the screen.
 - On iPads and large iPhones you can dock the connection bar to the left or right edge of the screen.
@@ -239,13 +249,13 @@ We also addressed some accessibility bugs and the following two issues:
 
 *Published: 12/15/2020*
 
-In this release, we've fixed issues that caused crashes and interfered with the "Display Zoom View" setting. We've also tweaked the "Use Full Display" setting to only appear on applicable iPads and adjusted the available resolutions for iPhones and iPads.
+In this release, we fixed issues that caused crashes and interfered with the "Display Zoom View" setting. We also tweaked the "Use Full Display" setting to only appear on applicable iPads and adjusted the available resolutions for iPhones and iPads.
 
 ## Updates for version 10.2.2
 
 *Published: 11/23/2020*
 
-In this release, we've addressed some bugs affecting users running iOS 14 and iPadOS 14.
+In this release, we addressed some bugs affecting users running iOS 14 and iPadOS 14.
 
 ## Updates for version 10.2.1
 
@@ -274,7 +284,7 @@ In this release, we addressed some compatibility issues with iOS and iPadOS 14. 
 
 *Published: 11/06/2020*
 
-We've put together some bug fixes and small feature updates for this release. Here's what's new:
+We put together some bug fixes and small feature updates for this release. Here's what's new:
 
 - Addressed an issue where the client would report a 0x5000007 error message when trying to connect to an RD Gateway server.
 - User account passwords updated in the credential UI are now saved after successfully signing in.
@@ -288,7 +298,7 @@ We've put together some bug fixes and small feature updates for this release. He
 
 *Published: 11/06/2020*
 
-We've put together some bug fixes and feature updates for this release. Here's what's new:
+We put together some bug fixes and feature updates for this release. Here's what's new:
 
 - The input mode (Mouse Pointer or Touch mode) is now global across all active PC and RemoteApp connections.
 - Fixed an issue that prevented microphone redirection from working consistently.
@@ -304,7 +314,7 @@ We've put together some bug fixes and feature updates for this release. Here's w
 
 *Published 8/17/2020*
 
-In this update, we've addressed issues that were reported in this release.
+In this update, we addressed issues that were reported in this release.
 
 - Fixed a crash that occurred for some users when subscribing to an Azure Virtual Desktop feed using non-brokered authentication.
 - Fixed the layout of workspace icons on the iPhone X, iPhone XS, and iPhone 11 Pro.
@@ -313,7 +323,7 @@ In this update, we've addressed issues that were reported in this release.
 
 *Published: 11/06/2020*
 
-Here’s what we've included in this release:
+Here’s what we included in this release:
 
 - Fixed a bug that prevented typing in Korean.
 - Added support for F1 through F12, Home, End, PgUp and PgDn keys on hardware keyboards.
@@ -325,20 +335,20 @@ Here’s what we've included in this release:
 - Resized the RD client mouse cursor to be consistent with the current client scale factor.
 - The client now checks for network connectivity before launching a workspace resource or PC connection.
 - Hitting the remapped Escape button or Cmd+. now cancels out of any credential prompt.
-- We've added some animations and polish that appear when you move the mouse cursor around on iPads running iPadOS 13.4 or later.
+- We added some animations and polish that appear when you move the mouse cursor around on iPads running iPadOS 13.4 or later.
 
 ## Updates for version 10.1.0
 
 *Published: 11/06/2020*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
 - If you're using iPadOS 13.4 or later, can now control the remote session with a mouse or trackpad.
 - The client now supports the following Apple Magic Mouse 2 and Apple Magic Trackpad 2 gestures: left-click, left-drag, right-click, right-drag, horizontal and vertical scrolling, and local zooming.
 - For external mice, the client now supports left-click, left-drag, right-click, right-drag, middle-click, and vertical scrolling.
 - The client now supports keyboard shortcuts that use Ctrl, Alt, or Shift keys with the mouse or trackpad, including multi-select and range-select.
 - The client now supports the "Tap-to-Click" feature for the trackpad.
-- We've updated the Mouse Pointer mode's right-click gesture to press-and-hold (not press-and-hold-and-release). On the iPhone client we've thrown in some taptic feedback when we detect the right-click gesture.
+- We updated the Mouse Pointer mode's right-click gesture to press-and-hold (not press-and-hold-and-release). On the iPhone client we thrown in some taptic feedback when we detect the right-click gesture.
 - Added an option to disable NLA enforcement under **iOS Settings** > **RD Client**.
 - Mapped Control+Shift+Escape to Ctrl+Shift+Esc, where Escape is generated using a remapped key on iPadOS or Command+.
 - Mapped Command+F to Ctrl+F.
@@ -351,13 +361,13 @@ In this release, we've made the following changes:
 
 *Published: 4/29/2020*
 
-In this update we've added the ability to sort the PC list view (available on iPhone) by name or time last connected.
+In this update we added the ability to sort the PC list view (available on iPhone) by name or time last connected.
 
 ## Updates for version 10.0.6
 
 *Published: 3/31/2020*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
 - Fixed a number of VoiceOver accessibility issues.
 - Fixed an issue where users couldn't connect with Turkish credentials.
@@ -371,7 +381,7 @@ In this release, we've made the following changes:
 
 *Published: 03/09/20*
 
-We've put together some bug fixes and feature updates for this release. Here's what's new:
+We put together some bug fixes and feature updates for this release. Here's what's new:
 
 - Launched RDP files are now automatically imported (look for the toggle in General settings).
 - You can now launch iCloud-based RDP files that haven't been downloaded in the Files app yet.
@@ -396,7 +406,7 @@ We've put together some bug fixes and feature updates for this release. Here's w
 
 *Published: 02/03/20*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
 - Confirmation UI is now shown when deleting user accounts and gateways.
 - The search UI in the Connection Center has been slightly reworked.
@@ -412,7 +422,7 @@ In this release, we've made the following changes:
 
 *Published: 01/16/20*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
 - Support for launching connections from RDP files and RDP URIs.
 - Workspace headers are now collapsible.
@@ -431,7 +441,7 @@ In this release, we've made the following changes:
 
 *Published: 12/20/19*
 
-We've been working hard to fix bugs and add useful features. Here's what's new in this release:
+We been working hard to fix bugs and add useful features. Here's what's new in this release:
 
 - Support for Japanese and Chinese input on hardware keyboards.
 - The PC list view now shows the friendly name of the associated user account, if one exists.
@@ -454,7 +464,7 @@ Here's what new in this release:
 
 *Published: 12/13/19*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
 - Support for the Azure Virtual Desktop service.
 - A new Connection Center UI.
@@ -474,7 +484,7 @@ In this release, we've made the following changes:
 
 *Published: 06/20/2018*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
 - Bug fixes and performance improvements.
 
@@ -482,6 +492,6 @@ In this release, we've made the following changes:
 
 *Published: 03/28/2018*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
 - Updates to address CredSSP encryption oracle remediation described in CVE-2018-0886.

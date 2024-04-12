@@ -232,6 +232,9 @@ transformations:
       # alternative:
       # version_as_of: 1   
 ```
+> [!IMPORTANT]
+> **Limitation**: `mltable` doesn't support extracting partition keys when reading data from Delta Lake.
+> The `mltable` transformation `extract_columns_from_partition_format` won't work when you are reading Delta Lake data via `mltable`.
 
 ### JSON
 ```yaml

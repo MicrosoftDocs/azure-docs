@@ -22,7 +22,7 @@ Data stored in your Azure Cosmos DB account is automatically and seamlessly encr
 You must store customer-managed keys in [Azure Key Vault](../key-vault/general/overview.md) and provide a key for each Azure Cosmos DB account that is enabled with customer-managed keys. This key is used to encrypt all the data stored in that account.
 
 > [!NOTE]
-> Currently, customer-managed keys are available only for new Azure Cosmos DB accounts. You should configure them during account creation. Enabling customer-managed keys on your existing accounts is available for preview. You can refer to the link [here](how-to-setup-customer-managed-keys-existing-accounts.md) for more details
+> If you wish to enable customer-managed keys on your existing Azure Cosmos DB accounts then you can refer to the link [here](how-to-setup-customer-managed-keys-existing-accounts.md) for more details
 
 > [!WARNING]
 > The following field names are reserved on Cassandra API tables in accounts using Customer-managed Keys:
@@ -399,7 +399,8 @@ You can also follow similar steps with a user-assigned managed identity.
       },
       // ...
       "properties": {
-        "defaultIdentity": "UserAssignedIdentity=<identity-resource-id>""keyVaultKeyUri": "<key-vault-key-uri>"
+        "defaultIdentity": "UserAssignedIdentity=<identity-resource-id>",
+        "keyVaultKeyUri": "<key-vault-key-uri>"
         // ...
       }
     }

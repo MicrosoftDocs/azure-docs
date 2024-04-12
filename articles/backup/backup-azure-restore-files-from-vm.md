@@ -3,7 +3,7 @@ title: Recover files and folders from Azure VM backup
 description: In this article, learn how to recover files and folders from an Azure virtual machine recovery point.
 ms.topic: how-to
 ms.date: 06/30/2023
-ms.custom: references_regions, linux-related-content
+ms.custom: references_regions
 ms.service: backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
@@ -11,7 +11,7 @@ ms.author: v-abhmallick
 # Recover files from Azure virtual machine backup
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 Azure Backup provides the capability to restore [Azure virtual machines (VMs) and disks](./backup-azure-arm-restore-vms.md) from Azure VM backups, also known as recovery points. This article explains how to recover files and folders from an Azure VM backup. Restoring files and folders is available only for Azure VMs deployed using the Resource Manager model and protected to a Recovery Services vault.
 
@@ -148,7 +148,7 @@ If you run the script on a computer with restricted access, ensure there's acces
 > [!NOTE]
 >
 > In case, the backed up VM is Windows, then the geo-name will be mentioned in the password generated.<br><br>
-> For eg, if the generated password is *ContosoVM_wcus_GUID*, then geo-name is wcus and the URL would be: <`https://pod01-rec2.wcus.backup.windowsazure.com`><br><br>
+> For example, if the generated password is *ContosoVM_wcus_GUID*, then geo-name is wcus and the URL would be: <`https://pod01-rec2.wcus.backup.windowsazure.com`><br><br>
 >
 >
 > If the backed up VM is Linux, then the script file you downloaded in step 1 [above](#step-1-generate-and-download-script-to-browse-and-recover-files) will have the **geo-name** in the name of the file. Use that **geo-name** to fill in the URL. The downloaded script name will begin with: \'VMname\'\_\'geoname\'_\'GUID\'.<br><br>

@@ -133,7 +133,7 @@ az iot dps enrollment-group show -g {resource_group_name} --dps-name {dps_name} 
 
 ### Derive a device key
 
-When using symmetric key attestation with group enrollments, you don't use the enrollment group keys directly. Instead, you derive a unique key for each device from the enrollment group key. For more information, see [Group Enrollments with symmetric keys](concepts-symmetric-key-attestation.md#group-enrollments).
+When using symmetric key attestation with group enrollments, you don't use the enrollment group keys directly. Instead, you derive a unique key for each device from the enrollment group key. For more information, see [Group Enrollments with symmetric keys](concepts-symmetric-key-attestation.md#group-enrollments-with-symmetric-keys).
 
 In this section, you'll generate a device key from the enrollment group primary key to compute an [HMAC-SHA256](https://wikipedia.org/wiki/HMAC) of the unique registration ID for the device. The result will then be converted into Base64 format.
 

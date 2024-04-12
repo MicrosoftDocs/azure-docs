@@ -1,18 +1,18 @@
 ---
-title: Observability and analytics in Azure Operator 5G Core
-description: Learn how observability and analytics are used in Azure Operator 5G Core
+title: Observability and analytics in Azure Operator 5G Core Preview
+description: Learn how observability and analytics are used in Azure Operator 5G Core Preview
 author: SarahBoris
 ms.author: sboris
 ms.service: azure-operator-5g-core
 ms.topic: concept-article #required; leave this attribute/value as-is.
-ms.date: 02/21/2024
+ms.date: 03/29/2024
 
 
 ---
 
-# Observability and analytics in Azure Operator 5G Core
+# Observability and analytics in Azure Operator 5G Core Preview
 
-Observability has three pillars: metrics, tracing, and logs. AO5GC bundles these observability tools to help you identify, investigate, and resolve problems. In addition, AO5GC alerts provide notifications based on metrics and logs.
+Observability has three pillars: metrics, tracing, and logs. Azure Operator 5G Core Preview bundles these observability tools to help you identify, investigate, and resolve problems. In addition, Azure Operator 5G Core alerts provide notifications based on metrics and logs.
 
 ## Observability overview
 
@@ -30,7 +30,7 @@ Azure Operator 5G Core uses the following open source components for observabili
 |Logs    |Elasticsearch, Fluentd, and Kibana (EFK);  Elastalert |
 |Tracing  |Jaeger, OpenTelemetry Collector |
 
-## EFK logging framework
+## Logging framework
 Elasticsearch, Fluentd, and Kibana (EFK) provide a distributed logging system used for collecting and visualizing the logs to troubleshoot microservices.
 
 ### Architecture
@@ -39,11 +39,12 @@ The following diagram shows EFK architecture:
  [:::image type="content" source="media/concept-observability-analytics/elasticsearch-fluentd-kibana-architecture.png" alt-text="Diagram of text boxes showing the Elasticsearch, Fluentd, and Kibana (EFK) distributed logging system used to troubleshoot microservices in  Azure Operator 5G Core.":::](media/concept-observability-analytics/elasticsearch-fluentd-kibana-architecture-expanded.png#lightbox)
 
 > [!NOTE]
-> The linked content is available only to customers with a current Affirmed Networks support agreement. To access the content, you must have  Affirmed Networks login credentials. If you need assistance, please speak to the Affirmed Networks Support Team.
+> Sections of the following linked content is available only to customers with a current Affirmed Networks support agreement. To access the content, you must have  Affirmed Networks login credentials. If you need assistance, please speak to the Affirmed Networks Support Team.
 
-The EFK logging framework includes the following components:
+The logging framework includes the following components:
 
 - **Fluentd** - Fluentd is an open-source log collector. Fluentd allows you to unify data collection and consumption for better use and understanding of the data. Fluentd is deployed as a DaemonSet in the Kubernetes cluster. It collects the logs in each K8s node and streams the logs to Elasticsearch. See [Logs supported by Fluentd](https://manuals.metaswitch.com/UC/4.3.0/UnityCloud_Overview/Content/PaaS_Components/EFK_logging_FrameWork/Fluentd-logs-supported.htm).
+
 - **Elasticsearch** - Elasticsearch is an open source, distributed, real-time search back-end. Elasticsearch stores the logs securely and offers an HTTP web interface for log analysis.
 
 - **Kibana** - Kibana is used to visualize the logs stored in Elasticsearch. Kibana pulls the logs from Elasticsearch.
@@ -56,7 +57,7 @@ The EFK logging framework includes the following components:
 
 ### Features
 
-The EFK logging framework provides the following features:
+The logging framework provides the following features:
 
 - **Log collection and streaming** - Fluentd collects and streams the logs to Elasticsearch. 
 
@@ -80,7 +81,7 @@ This section describes the observability features (dashboards, statistics, logs,
 
 #### Dashboards
 
-EFK supports various dashboard options, including:
+Various dashboards are supported, including:
 
 - Grafana dashboards (see [Logging framework dashboards](https://manuals.metaswitch.com/UC/4.3.0/UnityCloud_Overview/Content/PaaS_Components/EFK_logging_FrameWork/EFK_Dashboards.htm))
 - Kibana dashboards (see [Kibana dashboard overview](https://manuals.metaswitch.com/UC/4.3.0/UnityCloud_Overview/Content/PaaS_Components/EFK_logging_FrameWork/Kibana_Dashboards.htm))
@@ -107,7 +108,7 @@ For information about Elastic events, see [Elastic events](https://manuals.metas
 
 #### Log visualization
 
-The EFK framework aggregates logs from nodes and applications running inside your Azure Operator 5G Core installation. When logging is enabled, the EFK framework uses Fluentd to aggregate event logs from all applications and nodes into Elasticsearch. The EFK framework also provides a centralized Kibana web UI where users can view the logs or create rich visualizations and dashboards with the aggregated data. 
+The framework aggregates logs from nodes and applications running inside your Azure Operator 5G Core installation. When logging is enabled, the EFK framework uses Fluentd to aggregate event logs from all applications and nodes into Elasticsearch. The EFK framework also provides a centralized Kibana web UI where users can view the logs or create rich visualizations and dashboards with the aggregated data. 
 
 ## Metrics framework
 
@@ -127,7 +128,7 @@ The core components of the metrics framework are:
 
 - **Prometheus server** - The Prometheus server collects metrics from configured targets at given intervals, evaluates rule expressions, displays the results, and triggers alerts if certain conditions are true. Azure Operator 5G Core supports integration with the Prometheus server out of the box, with minimal required configuration.
 - **Client libraries** - Client libraries instrument the application code. 
-- **Alertmanager** - Alertmanager handles alerts sent by client applications such as the Prometheus server. It handles deduplicating, grouping, and routing alerts to the correct receiver integrations (email, slack, etc.). Alertmanager  also supports silencing and inhibition of alerts. 
+- **AlertManager** - AlertManager handles alerts sent by client applications such as the Prometheus server. It handles deduplicating, grouping, and routing alerts to the correct receiver integrations (email, slack, etc.). AlertManager  also supports silencing and inhibition of alerts. 
 - **Grafana** - Grafana provides an out of the box set of dashboards rich with 3GPP and other KPIs to query, visualize, and understand the collected data. 
 The Grafana audit feature provides a mechanism to restore or recreate dashboards in the Grafana server when Grafana server pod restarts. The audit feature also helps to delete any stale dashboards from the Grafana server. 
 
@@ -143,7 +144,7 @@ The metrics framework supports the following features:
 - Multiple modes of graphing and dashboarding support. 
 
 For more information about Prometheus, see [Prometheus documentation](https://prometheus.io/docs/introduction/overview/).
-For more information about Grafana, see [Grafana open source documentation](https://grafana.com/docs/grafana/latest/)
+For more information about Grafana, see [Grafana open source documentation](https://grafana.com/docs/grafana/latest/).
 
 ### Observability
 
@@ -191,6 +192,8 @@ IstioHTTPRequestLatencyTooHigh: Requests are taking more than the &lt;configured
 - **HTTPClientRespRcvd5xxPercentageTooHigh** - HTTP client response received with 5xx error and the received error percentage is more than the &lt;configured_value&gt; %. 
 - **HTTPClientRespRcvd4xxPercentageTooHigh** - HTTP client response received with 4xx error and the received error percentage is more than the &lt;configured_value&gt; %. 
 
+## Tracing framework
+
 #### Jaeger tracing with OpenTelemetry Protocol
 
 Azure Operator 5G Core uses the OpenTelemetry Protocol (OTLP) in Jaeger tracing. OTLP replaces the Jaeger agent in fed-paas-helpers. Azure Operator 5G Core deploys the fed-otel_collector federation. The OpenTelemetry (OTEL) Collector runs as part of the fed-otel_collector namespace:
@@ -205,5 +208,5 @@ Jaeger tracing uses the following workflow:
 1. The Jaeger collector stores the traces in Elastic backend storage (fed-elastic). 
 
 ## Related content
-- [What is Azure Operator 5G Core?](overview-product.md)
-- [Quickstart: Deploy Azure Operator 5G Core observability on Azure Kubernetes Services (AKS)](quickstart-deploy-observability.md)
+- [What is Azure Operator 5G Core Preview?](overview-product.md)
+- [Quickstart: Deploy Azure Operator 5G Core observability (preview) on Azure Kubernetes Services (AKS)](how-to-deploy-observability.md)
