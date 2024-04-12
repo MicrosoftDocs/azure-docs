@@ -26,10 +26,11 @@ Normally, when a WAF rule is triggered, the WAF logs the details of the request 
 The following fields can be scrubbed from the logs:
 
 -   Request Header Names
--	Request Cookie Names
--	Request Body Post Arg Names
--	Request Body Json Arg Names
--	Request IP Address
+-   Request Cookie Names
+-   Request Body Post Arg Names
+-   Request Body Json Arg Names
+-   Query String Arg Names
+-   Request URI
 -	Request URI
 
 ## Next steps
