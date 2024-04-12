@@ -113,7 +113,7 @@ Symptoms: No files are uploaded to AOI. The agent log file, */var/log/az-aoi-ing
 
 ### No files are uploaded to Azure Operator Insights
 
-Symptoms: No data appears in Azure Data Explorer. The AOI *Data Ingested* metric for the relevant data type in the diagnostics package is zero. 
+Symptoms: No data appears in Azure Data Explorer. Logs of category `Ingestion` don't appear in [Azure Operator Insights monitoring data](monitor-operator-insights-data-reference,md#resource-logs) or they contain errors. The [Number of ingested rows](concept-data-quality-monitoring#metrics) data quality metric for the relevant data type is zero.
 
 - Check that the agent is running on all VMs and isn't reporting errors in logs.
 - Check that files exist in the correct location on the SFTP server, and that they aren't being excluded due to file source config (see [Files are missing](#files-are-missing)).
@@ -121,7 +121,8 @@ Symptoms: No data appears in Azure Data Explorer. The AOI *Data Ingested* metric
 
 ### Files are missing
 
-Symptoms: Data is missing from Azure Data Explorer. The AOI *Data Ingested* and *Processed File Count* metrics for the relevant data type in the diagnostics package are lower than expected. 
+Symptoms: Data is missing from Azure Data Explorer. Logs of category `Ingestion` in [Azure Operator Insights monitoring data](monitor-operator-insights-data-reference,md#resource-logs) are lower than expected or they contain errors. The [Number of ingested rows](concept-data-quality-monitoring#metrics) data quality metric for the relevant data type is lower than expoected.
+
 
 - Check that the agent is running on all VMs and isn't reporting errors in logs. Search in the diagnostics package logs for the name of the missing file to find errors related to that file.
 - Check that the files exist on the SFTP server and that they aren't being excluded due to file source config. Check the file source config and confirm that:
