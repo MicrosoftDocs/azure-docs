@@ -20,7 +20,14 @@ ms.custom:
 
 [!INCLUDE [dev v2](includes/machine-learning-dev-v2.md)]
 
-Azure Machine Learning provides support for managed virtual network (managed VNet) isolation. Managed VNet isolation streamlines and automates your network isolation configuration with a built-in, workspace-level Azure Machine Learning managed VNet.
+Azure Machine Learning provides support for managed virtual network (managed VNet) isolation. Managed VNet isolation streamlines and automates your network isolation configuration with a built-in, workspace-level Azure Machine Learning managed VNet. The managed VNet secures your managed Azure Machine Learning resources, such as compute instances, compute clusters, serverless compute, and managed online endpoints. 
+
+Securing your workspace with a managed virtual network differs from using an Azure Virtual Network in the following ways:
+
+- Reduces the complexity of managing network isolation for managed resources. You don't have to configure IP address ranges, firewalls, or network security groups.
+- Only secures managed Azure Machine Learning resources used by the workspace. It doesn't secure unmanaged resources, such as Azure Storage Accounts, Azure Key Vaults, and Azure Container Registries. However, you can secure communications with unmanaged resources by using private endpoint connections to those resources.
+- Is a feature of Azure Machine Learning, not a separate Azure service. You can't manage the managed VNet as a separate Azure service in the Azure portal. Instead, you manage it through the Azure Machine Learning API (Workspace properties in the portal, CLI, or SDK).
+- You can't use a VPN or ExpressRoute to connect to the managed VNet. Instead, you use an Azure Virtual Network with a VPN or ExpressRoute, and add a private endpoint for your workspace to the Azure Virtual Network.
 
 ## Managed Virtual Network Architecture
 
