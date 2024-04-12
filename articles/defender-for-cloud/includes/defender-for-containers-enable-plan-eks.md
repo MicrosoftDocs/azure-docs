@@ -53,7 +53,7 @@ To protect your EKS clusters, enable the Containers plan on the relevant account
 
         For more information, see [Enabling IAM principal access to your cluster](https://docs.aws.amazon.com/eks/latest/userguide/add-user-role.html).
 
-1. Azure Arc-enabled Kubernetes, the Defender agent, and Azure Policy for Kubernetes should be installed and running on your EKS clusters. There is a dedicated Defender for Cloud recommendations to install these extensions (and Azure Arc if necessary):
+1. Azure Arc-enabled Kubernetes, the Defender sensor, and Azure Policy for Kubernetes should be installed and running on your EKS clusters. There is a dedicated Defender for Cloud recommendations to install these extensions (and Azure Arc if necessary):
     - `EKS clusters should have Microsoft Defender's extension for Azure Arc installed`
 
     For each of the recommendations, follow the steps below to install the required extensions.

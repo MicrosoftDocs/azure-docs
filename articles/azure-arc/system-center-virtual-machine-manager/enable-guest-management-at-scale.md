@@ -7,7 +7,7 @@ author: Farha-Bano
 ms.author: v-farhabano
 manager: jsuri
 ms.topic: how-to 
-ms.date: 03/12/2024
+ms.date: 03/27/2024
 keywords: "VMM, Arc, Azure"
 
 #Customer intent: As an IT infrastructure admin, I want to install arc agents to use Azure management services for SCVMM VMs.
@@ -47,7 +47,12 @@ An admin can install agents for multiple machines from the Azure portal if the m
 2. Select all the machines and choose the **Enable in Azure** option.
 3. Select **Enable guest management** checkbox to install Arc agents on the selected machine.
 4. If you want to connect the Arc agent via proxy, provide the proxy server details.
-5. Provide the administrator username and password for the machine.
+5. If you want to connect Arc agent via private endpoint, follow these [steps](../servers/private-link-security.md) to set up Azure private link. 
+
+      >[!Note]
+      > Private endpoint connectivity is only available for Arc agent to Azure communications. For Arc resource bridge to Azure connectivity, Azure Private link isn't supported.
+
+6. Provide the administrator username and password for the machine.
 
     >[!Note]
     > For Windows VMs, the account must be part of the local administrator group; and for Linux VM, it must be a root account.

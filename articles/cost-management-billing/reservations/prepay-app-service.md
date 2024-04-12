@@ -132,7 +132,7 @@ You can buy Isolated Stamp reserved capacity in the [Azure portal](https://porta
     - **Management group** - Applies the reservation discount to the matching resource in the list of subscriptions that are a part of both the management group and billing scope.
 1. Select a **Region** to choose an Azure region that's covered by the reserved capacity and add the reservation to the cart.
 1. Select an Isolated Plan type and then select **Select**.  
-    ![Example](./media/prepay-app-service/app-service-isolated-stamp-select.png)
+    :::image type="content" border="true" source="./media/prepay-app-service/app-service-isolated-stamp-select.png" alt-text="Screenshot showing select an isolated plan.":::
 1. Enter the quantity of App Service Isolated stamps to reserve. For example, a quantity of three would give you three reserved stamps a region. Select **Next: Review + Buy**.
 1. Review and select **Buy now**.
 

@@ -6,7 +6,7 @@ ms.subservice: single-server
 ms.topic: how-to
 author: SudheeshGH
 ms.author: sunaray
-ms.custom: devx-track-csharp, devx-track-azurecli, linux-related-content
+ms.custom: devx-track-csharp, devx-track-azurecli
 ms.date: 05/03/2023
 ---
 

@@ -5,7 +5,7 @@ keywords: azure app service, web app, windows, oss, java, tomcat, jboss
 ms.devlang: java
 ms.topic: article
 ms.date: 04/12/2019
-ms.custom: devx-track-java, devx-track-azurecli, devx-track-extended-java
+ms.custom: devx-track-java, devx-track-azurecli, devx-track-extended-java, linux-related-content
 zone_pivot_groups: app-service-platform-windows-linux
 adobe-target: true
 author: cephalin
@@ -717,7 +717,7 @@ This example transform adds a new connector node to `server.xml`. Note the *Iden
       <!-- This is the new connector -->
       <Connector port="8443" protocol="HTTP/1.1" SSLEnabled="true" 
                  maxThreads="150" scheme="https" secure="true" 
-                 keystroreFile="${{user.home}}/.keystore" keystorePass="changeit"
+                 keystoreFile="${{user.home}}/.keystore" keystorePass="changeit"
                  clientAuth="false" sslProtocol="TLS" />
     </xsl:template>
 
@@ -981,7 +981,7 @@ An example xsl file is provided below. The example xsl file adds a new connector
     <!-- This is the new connector -->
     <Connector port="8443" protocol="HTTP/1.1" SSLEnabled="true" 
                maxThreads="150" scheme="https" secure="true" 
-               keystroreFile="${{user.home}}/.keystore" keystorePass="changeit"
+               keystoreFile="${{user.home}}/.keystore" keystorePass="changeit"
                clientAuth="false" sslProtocol="TLS" />
   </xsl:template>
   

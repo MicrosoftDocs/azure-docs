@@ -63,11 +63,11 @@ This component manages the deployment, configuration, and update of the Azure Io
 
 On first mention in an article, use _Azure IoT Orchestrator Preview_. On subsequent mentions, you can use _Orchestrator_. Never use an acronym.
 
-### Azure IoT Operations Experience Preview
+### Azure IoT Operations (preview) portal
 
 This web UI provides a unified experience for operational technologists to manage assets and Data Processor pipelines in an Azure IoT Operations deployment.
 
-On first mention in an article, use _Azure IoT Operations Experience Preview_. On subsequent mentions, you can use _Operations Experience_. Never use an acronym.
+On first mention in an article, use _Azure IoT Operations (preview) portal_. On subsequent mentions, you can use _Operations portal_. Never use an acronym.
 
 ### Azure Device Registry Preview
 

@@ -9,7 +9,9 @@ ms.date: 06/11/2021
 ms.author: danlep
 ---
 
-# Deploy to Azure Kubernetes Service
+# Deploy an Azure API Management self-hosted gateway to Azure Kubernetes Service
+
+[!INCLUDE [api-management-availability-premium-dev](../../includes/api-management-availability-premium-dev.md)]
 
 This article provides the steps for deploying self-hosted gateway component of Azure API Management to [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service/). For deploying self-hosted gateway to a Kubernetes cluster, see the how-to article for deployment by using a [deployment YAML file](how-to-deploy-self-hosted-gateway-kubernetes.md) or [with Helm](how-to-deploy-self-hosted-gateway-kubernetes-helm.md).
 
@@ -17,8 +19,6 @@ This article provides the steps for deploying self-hosted gateway component of A
 
 > [!NOTE]
 > You can also deploy self-hosted gateway to an [Azure Arc-enabled Kubernetes cluster](how-to-deploy-self-hosted-gateway-azure-arc.md) as a [cluster extension](../azure-arc/kubernetes/extensions.md).
-
-[!INCLUDE [api-management-availability-premium-dev](../../includes/api-management-availability-premium-dev.md)]
 
 ## Prerequisites
 
@@ -35,7 +35,7 @@ This article provides the steps for deploying self-hosted gateway component of A
 5. Make sure **Kubernetes** is selected under **Deployment scripts**.
 6. Select **\<gateway-name\>.yml** file link next to **Deployment** to download the file.
 7. Adjust the `config.service.endpoint`, port mappings, and container name in the .yml file as needed.
-8. Depending on your scenario, you might need to change the [service type](../aks/concepts-network.md#services). 
+8. Depending on your scenario, you might need to change the [service type](../aks/concepts-network-services.md). 
     * The default value is `LoadBalancer`, which is the external load balancer. 
     * You can use the [internal load balancer](../aks/internal-lb.md) to restrict the access to the self-hosted gateway to only internal users. 
     * The sample below uses `NodePort`.

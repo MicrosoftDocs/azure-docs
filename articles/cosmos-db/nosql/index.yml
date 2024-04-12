@@ -56,6 +56,16 @@ landingContent:
             url: how-to-dotnet-get-started.md
           - text: Develop Python applications
             url: how-to-python-get-started.md
+  - title: Integrate
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Deploy app on Azure Kubernetes Service (AKS) cluster using Bicep
+            url: tutorial-deploy-app-bicep-aks.md
+          - text: Connect using Apache Spark
+            url: tutorial-spark-connector.md
+          - text: Mirror database to Microsoft Fabric
+            url: /fabric/database/mirrored-database/azure-cosmos-db-tutorial?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
   - title: Query items from a container
     linkLists:
       - linkListType: concept

@@ -2,7 +2,7 @@
 title: Azure Arc resource bridge network requirements
 description: Learn about network requirements for Azure Arc resource bridge including URLs that must be allowlisted.
 ms.topic: conceptual
-ms.date: 02/15/2024
+ms.date: 03/19/2024
 ---
 
 # Azure Arc resource bridge network requirements
@@ -16,10 +16,6 @@ Arc resource bridge communicates outbound securely to Azure Arc over TCP port 44
 [!INCLUDE [network-requirement-principles](../includes/network-requirement-principles.md)]
 
 [!INCLUDE [network-requirements](includes/network-requirements.md)]
-
-In addition, Arc resource bridge requires connectivity to the Arc-enabled Kubernetes endpoints shown here.
-
-[!INCLUDE [network-requirements-azure-cloud](../kubernetes/includes/network-requirements-azure-cloud.md)]
 
 > [!NOTE]
 > The URLs listed here are required for Arc resource bridge only. Other Arc products (such as Arc-enabled VMware vSphere) may have additional required URLs. For details, see [Azure Arc network requirements](../network-requirements-consolidated.md).

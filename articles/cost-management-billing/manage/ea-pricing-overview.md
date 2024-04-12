@@ -24,13 +24,18 @@ As a customer or a channel partner, you're guaranteed to receive prices at or be
 The price is referred to as the baseline price. Here are more details about the coverage start date:
 
   - The coverage start date is based on the usage date for the purchase order. If the usage date is the first day of the month, the coverage start date is the first day of that month. If the usage date is the second day of the month or later, the coverage start date is the first day of the *following month*. If you need to backdate the coverage date, contact your partner or Software Advisor.
+
+  - The price guarantee start date is set in the month of the coverage start date if you purchased Azure Prepayment more than 30 days from the agreement start date.  
+
+    For example, assume you purchased prepayment with a coverage start date of April 1, 2023. Your agreement start date is March 1, 2023. The gap between the coverage start date and the agreement start date is **more than 30 days**. So, your price guarantee start date is set to April 1, 2023.
+
   - The price guarantee start date is set in the month before the coverage start date if you purchased Monetary commitment within the first 30 days of the agreement start date.
 
     For example, assume you purchased prepayment with a coverage start date of April 1, 2023. Your agreement start date is March 27, 2023. The gap between the coverage start date and the agreement start date is less than 30 days. So, your price guarantee start date is set to March 1, 2023.  
 
     If you have questions about price protection, contact your partner or Software Advisor.
 
-For services introduced after your Azure purchase, you're charged the price that's in effect at the applicable level discount when the service is first introduced. The price protection applies during your Prepayment term - one or three years depending upon your Enterprise Agreement.
+For services introduced after your Azure purchase, you're charged the price that's in effect at the applicable level discount when the service is first introduced. The price protection applies during your Prepayment term - one or three years depending upon your Enterprise Agreement. For more information about prepayment provisioning, see [Azure EA agreements and amendments](ea-portal-agreements.md#enrollment-provisioning-status).
 
 ## Price changes
 
@@ -63,7 +68,7 @@ Enterprise administrators can create subscriptions. They can also enable account
 ## Credit process
 
 - EA customers are eligible to receive service credit when they experience an SLA breach or a system issue that affects their Azure services.
-- Service credit isn’t refund issued as cash. Instead, service credit is issued in the form of a credit that can be applied to future Azure usage.
+- Service credit isn’t a refund issued as cash. Instead, service credit is issued in the form of a credit that can be applied to future Azure usage.
 - To request a service credit, indirect EA customers must contact their partner administrator, who is the authorized representative of the EA enrollment.
 
 

@@ -48,7 +48,9 @@ After discounts are applied, cost details then flow into Cost Management, where:
 
 - The [anomaly detection](./understand/analyze-unexpected-charges.md) model identifies anomalies daily based on normalized usage (not rated usage).
 - The cost allocation engine applies tag inheritance and [splits shared costs](./costs/allocate-costs.md).
-- AWS cost and usage reports are pulled based on any [connectors for AWS](./costs/aws-integration-manage.md) you may have configured.
+- AWS cost and usage reports are pulled based on any [connectors for AWS](./costs/aws-integration-manage.md) you may have configured.  
+    > [!NOTE]
+    > The Connector for AWS in the Cost Management service retires on March 31, 2025. Users should consider alternative solutions for AWS cost management reporting. On March 31, 2024, Azure will disable the ability to add new Connectors for AWS for all customers. For more information, see [Retire your Amazon Web Services (AWS) connector](./costs/retire-aws-connector.md).
 - Azure Advisor cost recommendations are pulled in to enable cost savings insights for subscriptions and resource groups.
 - Cost alerts are sent out for [budgets](./costs/tutorial-acm-create-budgets.md), [anomalies](./understand/analyze-unexpected-charges.md#create-an-anomaly-alert), [scheduled alerts](./costs/save-share-views.md#subscribe-to-scheduled-alerts), and more based on the configured settings.
 

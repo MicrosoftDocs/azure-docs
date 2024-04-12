@@ -11,7 +11,9 @@ ms.reviewer: mmcc
 
 # Enable Azure Monitor OpenTelemetry for .NET, Node.js, Python, and Java applications
 
-This article describes how to enable and configure OpenTelemetry-based data collection to power the experiences within [Azure Monitor Application Insights](app-insights-overview.md#application-insights-overview). We walk through how to install the "Azure Monitor OpenTelemetry Distro." The Distro [automatically collects](opentelemetry-add-modify.md#automatic-data-collection) traces, metrics, logs, and exceptions across your application and its dependencies. To learn more about collecting data using OpenTelemetry, see [Data Collection Basics](opentelemetry-overview.md) or [OpenTelemetry FAQ](#frequently-asked-questions).
+This article describes how to enable and configure OpenTelemetry-based data collection to power the experiences within [Azure Monitor Application Insights](app-insights-overview.md#application-insights-overview). We walk through how to install the *Azure Monitor OpenTelemetry Distro*. The Azure Monitor OpenTelemetry Distro provides an [OpenTelemetry distribution](https://opentelemetry.io/docs/concepts/distributions/#what-is-a-distribution) that includes support for features specific to Azure Monitor. The Distro enables [automatic](opentelemetry-add-modify.md#automatic-data-collection) telemetry by including OpenTelemetry instrumentation libraries for collecting traces, metrics, logs, and exceptions, and allows collecting [custom](opentelemetry-add-modify.md#collect-custom-telemetry) telemetry. You can also use the [Live Metrics](live-stream.md) feature included in the Distro to monitor and collect more telemetry from live, in-production web applications. For more information about the advantages of using the Azure Monitor OpenTelemetry Distro, see [Why should I use the "Azure Monitor OpenTelemetry Distro"?](#why-should-i-use-the-azure-monitor-opentelemetry-distro) in [OpenTelemetry FAQ](#frequently-asked-questions).
+ 
+To learn more about collecting data using OpenTelemetry, see [Data Collection Basics](opentelemetry-overview.md) or [OpenTelemetry FAQ](#frequently-asked-questions).
 
 ## OpenTelemetry Release Status
 
@@ -287,6 +289,32 @@ Application Insights is now enabled for your application. All the following step
 > If you have two or more services that emit telemetry to the same Application Insights resource, you're required to [set Cloud Role Names](opentelemetry-configuration.md#set-the-cloud-role-name-and-the-cloud-role-instance) to represent them properly on the Application Map.
 
 As part of using Application Insights instrumentation, we collect and send diagnostic data to Microsoft. This data helps us run and improve Application Insights. To learn more, see [Statsbeat in Azure Application Insights](./statsbeat.md).
+
+## Samples
+
+Azure Monitor OpenTelemetry sample applications are available for all supported languages.
+
+#### [ASP.NET Core](#tab/aspnetcore)
+
+- [ASP.NET Core sample app](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/monitor/Azure.Monitor.OpenTelemetry.AspNetCore/tests/Azure.Monitor.OpenTelemetry.AspNetCore.Demo)
+
+##### [.NET](#tab/net)
+
+- [NET sample app](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/monitor/Azure.Monitor.OpenTelemetry.Exporter/tests/Azure.Monitor.OpenTelemetry.Exporter.Demo)
+
+##### [Java](#tab/java)
+
+- [Java sample apps](https://github.com/Azure-Samples/ApplicationInsights-Java-Samples)
+
+##### [Node.js](#tab/nodejs)
+
+- [Node.js sample app](https://github.com/Azure-Samples/azure-monitor-opentelemetry-node.js)
+
+##### [Python](#tab/python)
+
+- [Python sample apps](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/monitor/azure-monitor-opentelemetry/samples)
+
+---
 
 ## Next steps
 

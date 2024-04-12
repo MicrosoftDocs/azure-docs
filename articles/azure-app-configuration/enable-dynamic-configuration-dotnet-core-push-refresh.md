@@ -233,7 +233,7 @@ The `ProcessPushNotification` method takes in a `PushNotification` object contai
     |---|---|
     | TestApp:Settings:Message | Data from Azure App Configuration - Updated |
 
-1. Wait for 30 seconds to allow the event to be processed and configuration to be updated.
+1. Wait for a few moments to allow the event to be processed. You will see the updated configuration.
 
     ![Push refresh run after updated](./media/dotnet-core-app-pushrefresh-final.png)
 

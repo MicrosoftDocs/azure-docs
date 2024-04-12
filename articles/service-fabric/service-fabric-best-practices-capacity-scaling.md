@@ -31,7 +31,7 @@ Using automatic scaling through virtual machine scale sets will make your versio
    The minimum capacity for autoscaling rules must be equal to or greater than five virtual machine instances. It must also be equal to or greater than your Reliability Tier minimum for your primary node type.
 
 > [!NOTE]
-> The Service Fabric stateful service fabric:/System/InfastructureService/<NODE_TYPE_NAME> runs on every node type that has Silver or higher durability. It's the only system service that is supported to run in Azure on any of your clusters node types.
+> The Service Fabric stateful service fabric:/System/InfrastructureService/<NODE_TYPE_NAME> runs on every node type that has Silver or higher durability. It's the only system service that is supported to run in Azure on any of your clusters node types.
 
 > [!IMPORTANT]
 > Service Fabric autoscaling supports `Default` and `NewestVM` virtual machine scale set [scale-in configurations](../virtual-machine-scale-sets/virtual-machine-scale-sets-scale-in-policy.md).

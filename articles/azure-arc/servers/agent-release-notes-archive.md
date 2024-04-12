@@ -9,7 +9,7 @@ ms.custom: references_regions
 # Archive for What's new with Azure Connected Machine agent
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 The primary [What's new in Azure Connected Machine agent?](agent-release-notes.md) article contains updates for the last six months, while this article contains all the older information.
 
@@ -18,6 +18,24 @@ The Azure Connected Machine agent receives improvements on an ongoing basis. Thi
 - Previous releases
 - Known issues
 - Bug fixes
+
+## Version 1.34 - September 2023
+
+Download for [Windows](https://download.microsoft.com/download/b/3/2/b3220316-13db-4f1f-babf-b1aab33b364f/AzureConnectedMachineAgent.msi) or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
+
+### New features
+
+- [Extended Security Updates for Windows Server 2012 and 2012 R2](prepare-extended-security-updates.md) can be purchased and enabled through Azure Arc. If your server is already running the Azure Connected Machine agent, [upgrade to agent version 1.34](manage-agent.md#upgrade-the-agent) or later to take advantage of this new capability.
+- New system metadata is collected to enhance your device inventory in Azure:
+  - Total physical memory
+  - More processor information
+  - Serial number
+  - SMBIOS asset tag
+- Network requests to Microsoft Entra ID (formerly Azure Active Directory) now use `login.microsoftonline.com` instead of `login.windows.net`
+
+### Fixed
+
+- Better handling of disconnected agent scenarios in the extension manager and policy engine.
 
 ## Version 1.33 - August 2023
 

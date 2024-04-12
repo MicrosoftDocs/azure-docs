@@ -135,24 +135,25 @@ The following JSON shows the schema for the Application Health extension. The ex
 
 ```json
 {
-  "type": "extensions",
-  "name": "HealthExtension",
-  "apiVersion": "2018-10-01",
-  "location": "<location>",  
-  "properties": {
-    "publisher": "Microsoft.ManagedServices",
-    "type": "<ApplicationHealthLinux or ApplicationHealthWindows>",
-    "autoUpgradeMinorVersion": true,
-    "typeHandlerVersion": "1.0",
-    "settings": {
-      "protocol": "<protocol>",
-      "port": <port>,
-      "requestPath": "</requestPath>",
-      "intervalInSeconds": 5,
-      "numberOfProbes": 1
-    }
+  "extensionProfile" : {
+     "extensions" : [
+        "name": "HealthExtension",
+        "properties": {
+          "publisher": "Microsoft.ManagedServices",
+          "type": "<ApplicationHealthLinux or ApplicationHealthWindows>",
+          "autoUpgradeMinorVersion": true,
+          "typeHandlerVersion": "1.0",
+          "settings": {
+            "protocol": "<protocol>",
+            "port": <port>,
+            "requestPath": "</requestPath>",
+            "intervalInSeconds": 5,
+            "numberOfProbes": 1
+          }
+        }
+     ]
   }
-}  
+} 
 ```
 
 ### Property values
@@ -180,25 +181,26 @@ The following JSON shows the schema for the Rich Health States extension. The ex
 
 ```json
 {
-  "type": "extensions",
-  "name": "HealthExtension",
-  "apiVersion": "2018-10-01",
-  "location": "<location>",  
-  "properties": {
-    "publisher": "Microsoft.ManagedServices",
-    "type": "<ApplicationHealthLinux or ApplicationHealthWindows>",
-    "autoUpgradeMinorVersion": true,
-    "typeHandlerVersion": "2.0",
-    "settings": {
-      "protocol": "<protocol>",
-      "port": <port>,
-      "requestPath": "</requestPath>",
-      "intervalInSeconds": 5,
-      "numberOfProbes": 1,
-      "gracePeriod": 600
-    }
+  "extensionProfile" : {
+     "extensions" : [
+        "name": "HealthExtension",
+        "properties": {
+          "publisher": "Microsoft.ManagedServices",
+          "type": "<ApplicationHealthLinux or ApplicationHealthWindows>",
+          "autoUpgradeMinorVersion": true,
+          "typeHandlerVersion": "2.0",
+          "settings": {
+            "protocol": "<protocol>",
+            "port": <port>,
+            "requestPath": "</requestPath>",
+            "intervalInSeconds": 5,
+            "numberOfProbes": 1,
+            "gracePeriod": 600
+          }
+        }
+     ]
   }
-}  
+} 
 ```
 
 ### Property values

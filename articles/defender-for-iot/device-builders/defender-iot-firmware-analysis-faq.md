@@ -1,16 +1,14 @@
 ---
 title: Frequently asked questions about Defender for IoT Firmware analysis
-description: Find answers to some of the common questions about Defender for IoT Firmware Analysis.
+description: Find answers to some of the common questions about Defender for IoT Firmware Analysis. This article includes the file systems that are supported by Defender for IoT Firmware Analysis, and links to the Azure CLI and Azure PowerShell commands.
 ms.topic: conceptual
 ms.date: 01/10/2024
 ---
 
 # Frequently asked questions about Defender for IoT Firmware Analysis
-
 This article addresses frequent questions about Defender for IoT Firmware Analysis.
 
-## What is FirmwareAnalysisRG?
-**FirmwareAnalysisRG** is the resource group that stores your firmware images. We automatically create **FirmwareAnalysisRG** for you when you register your subscription to the resource provider. To learn more about the **FirmwareAnalysisRG** and how it fits into your resource hierarchy, refer to [Defender for IoT Firmware Analysis RBAC](defender-iot-firmware-analysis-rbac.md#understanding-the-representation-of-firmware-images-in-the-azure-resource-hierarchy).
+[Defender for IoT Firmware Analysis](/azure/defender-for-iot/device-builders/overview-firmware-analysis) is a tool that analyzes firmware images and provides an understanding of security vulnerabilities in the firmware images.
 
 ## What types of firmware images does Defender for IoT Firmware Analysis support?
 Defender for IoT Firmware Analysis supports unencrypted images that contain file systems with embedded Linux operating systems. Defender for IoT Firmware Analysis supports the following file system formats:
@@ -44,3 +42,5 @@ Defender for IoT Firmware Analysis supports unencrypted images that contain file
 * ZStandard compressed data
 * Zip archive
 
+## Where are the Defender for IoT Firmware Analysis Azure CLI/PowerShell docs?
+You can find the documentation for our Azure CLI commands [here](/cli/azure/firmwareanalysis/firmware) and the documentation for our Azure PowerShell commands [here](/powershell/module/az.firmwareanalysis/?#firmwareanalysis).

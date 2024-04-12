@@ -5,7 +5,7 @@ author: yangyizhe90
 ms.author: yangtony
 ms.topic: conceptual
 ms.service: azure-migrate
-ms.date: 09/05/2023
+ms.date: 04/01/2024
 ms.custom: engagement-fy23
 ---
 
@@ -24,7 +24,7 @@ The Azure Migrate: Discovery and assessment tool supports the following four typ
 --- | ---
 **Azure VM** | Assessments to migrate your on-premises servers to Azure virtual machines. <br/><br/> You can assess your on-premises servers in [VMware environment](how-to-set-up-appliance-vmware.md), [Hyper-V environment](how-to-set-up-appliance-hyper-v.md), and [physical servers](how-to-set-up-appliance-physical.md) for migration to Azure VMs using this assessment type.
 **Azure SQL** | Assessments to migrate your on-premises SQL servers from your VMware environment to Azure SQL Database or Azure SQL Managed Instance.
-**Web apps on Azure** | Assessments to migrate your on-premises Spring Boot apps to Azure Spring Apps or ASP.NET web apps to Azure App Service.
+**Web apps on Azure** | Assessments to migrate your on-premises Spring Boot apps to Azure Spring Apps or ASP.NET/Java web apps to Azure App Service.
 **Azure VMware Solution (AVS)** | Assessments to migrate your on-premises [VMware VMs](how-to-set-up-appliance-vmware.md) to [Azure VMware Solution (AVS)](../azure-vmware/introduction.md). [Learn more](concepts-azure-vmware-solution-assessment-calculation.md).
 
 An Azure Spring Apps assessment provides the following sizing criteria:

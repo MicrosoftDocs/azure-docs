@@ -254,7 +254,7 @@ After the virtual switches are created, you can enable the switches for Kubernet
 
 You'll configure network as well as network topology on both the nodes. These steps can be done in parallel. The cabling on both nodes should be identical and should conform with the network topology you choose.
 
-For more information about selecting a network topology, see [Supported networking topologies](azure-stack-edge-gpu-clustering-overview.md?tabs=1#supported-networking-topologies).
+For more information about selecting a network topology, see [Supported networking topologies](azure-stack-edge-gpu-clustering-overview.md?tabs=1#supported-network-topologies).
 
 ### Configure network on first node
 

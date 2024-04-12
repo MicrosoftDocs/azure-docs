@@ -6,7 +6,7 @@ ms.author: hangwan
 ms.service: spring-apps
 ms.topic: conceptual
 ms.custom: devx-track-java
-ms.date: 05/23/2023
+ms.date: 10/10/2023
 ---
 
 # What's new in Azure Spring Apps?
@@ -129,7 +129,7 @@ The following updates are now available in both the Basic/Standard and Enterpris
 
 - **Remote debugging**: Now, you can remotely debug your apps in Azure Spring Apps using IntelliJ or VS Code. For security reasons, by default, Azure Spring Apps disables remote debugging. You can enable remote debugging for your apps using Azure portal or Azure CLI and start debugging. For more information, see [Debug your apps remotely in Azure Spring Apps](how-to-remote-debugging-app-instance.md).
 
-- **Connect to app instance shell environment for troubleshooting**: Azure Spring Apps offers many ways to troubleshoot your applications. For developers who like to inspect an app instance running environment, you can connect to the app instance’s shell environment and troubleshoot it. For more information, see [Connect to an app instance for troubleshooting](how-to-connect-to-app-instance-for-troubleshooting.md).
+- **Connect to app instance shell environment for troubleshooting**: Azure Spring Apps offers many ways to troubleshoot your applications. For developers who like to inspect an app instance running environment, you can connect to the app instance's shell environment and troubleshoot it. For more information, see [Connect to an app instance for troubleshooting](how-to-connect-to-app-instance-for-troubleshooting.md).
 
 The following updates are now available in the Enterprise plan:
 

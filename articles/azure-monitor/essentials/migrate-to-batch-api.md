@@ -635,7 +635,7 @@ The individual metrics API requires a user have the [Monitoring Reader](/azure/r
 While the data plane batch API is designed to help mitigate throttling problems, 529 error codes can still occur which indicates that the metrics backend is currently throttling some customers. The recommended action is to implement an exponential backoff retry scheme.
 
 ## Paging 
-Paging isn't supported by the metrics: getBatch API. The most common use-case for this API is frequently calling every few minutes for the same metrics and resources for the latest timeframe. Low latency is an important consideration so many customers parallelize their queries as much as possible. Paging forces customers into a sequential calling pattern that introduces additional query latency. In scenarios where requests return volumes of metric data where paging would be beneficial, it's recommended to split the query into multiple parallel queries.
+Paging isn't supported by the metrics:getBatch API. The most common use-case for this API is frequently calling every few minutes for the same metrics and resources for the latest timeframe. Low latency is an important consideration so many customers parallelize their queries as much as possible. Paging forces customers into a sequential calling pattern that introduces additional query latency. In scenarios where requests return volumes of metric data where paging would be beneficial, it's recommended to split the query into multiple parallel queries.
 
 ## Billing
 Yes all metrics data plane and batching calls are billed. For more information, see the **Azure Monitor native metrics** section in [Basic Log Search Queries](https://azure.microsoft.com/pricing/details/monitor/#pricing).

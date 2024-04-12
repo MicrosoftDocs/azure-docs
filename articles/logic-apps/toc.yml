@@ -433,22 +433,24 @@ items:
       href: logic-apps-deploy-azure-resource-manager-templates.md
   - name: Monitor
     items:
+      - name: Overview
+        href: monitor-logic-apps-overview.md
       - name: Monitor workflows
         href: monitor-logic-apps.md
       - name: View health and performance metrics
         href: view-workflow-metrics.md
+      - name: Enable and view enhanced telemetry for Standard workflows
+        href: enable-enhanced-telemetry-standard-workflows.md
       - name: Monitor and collect diagnostic data for workflows
         href: monitor-workflows-collect-diagnostic-data.md
       - name: Monitor workflows in Microsoft Defender for Cloud
         href: healthy-unhealthy-resource.md
       - name: Monitor B2B messages with Azure Monitor logs
         href: monitor-b2b-messages-log-analytics.md
-      - name: Create monitoring and tracking queries
-        href: create-monitoring-tracking-queries.md
-      - name: Enable and view enhanced telemetry for Standard workflows
-        href: enable-enhanced-telemetry-standard-workflows.md
       - name: Tracking schemas for monitoring messages
         href: tracking-schemas-as2-x12-custom.md
+      - name: Create monitoring and tracking queries
+        href: create-monitoring-tracking-queries.md
   - name: Business continuity and disaster recovery
     items:
     - name: Set up zone redundant logic apps
@@ -482,6 +484,8 @@ items:
     href: /connectors/connector-reference/connector-reference-logicapps-connectors
   - name: Built-in service provider connector reference - Standard
     href: /azure/logic-apps/connectors/built-in/reference
+  - name: Monitoring data reference
+    href: monitor-logic-apps-reference.md
   - name: Service limits and configuration
     href: logic-apps-limits-and-config.md
   - name: Azure CLI - Consumption

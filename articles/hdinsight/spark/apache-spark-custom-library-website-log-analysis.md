@@ -4,7 +4,7 @@ description: This notebook demonstrates how to analyze log data using a custom l
 ms.service: hdinsight
 ms.custom: hdinsightactive, devx-track-python
 ms.topic: how-to
-ms.date: 06/07/2023
+ms.date: 03/23/2024
 ---
 
 # Analyze website logs using a custom Python library with Apache Spark cluster on HDInsight

@@ -385,7 +385,7 @@ Support for certain Operating System versions has been deprecated by VMware and 
 
 ## Common web apps discovery errors
 
-Azure Migrate provides options to assess discovered ASP.NET web apps for migration to Azure App Service by using the Azure Migrate: Discovery and assessment tool. Refer to the [assessment](tutorial-assess-webapps.md) tutorial to get started.
+Azure Migrate provides options to assess discovered ASP.NET/Java web apps for migration to Azure App Service and Azure KubernetesService (AKS) by using the Azure Migrate: Discovery and assessment tool. Refer to the [assessment](tutorial-assess-webapps.md) tutorial to get started.
 
 Here, typical App Service assessment errors are summarized.
 

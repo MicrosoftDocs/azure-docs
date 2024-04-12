@@ -41,7 +41,7 @@ items:
 - name: Reference
   items:
      - name: REST API
-       href: /rest/api/cognitiveservices/healthinsights/radiology-insights
+       href: /java/api/com.azure.health.insights.radiologyinsights
      - name: SDKs
        items:
          - name: .NET

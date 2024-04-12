@@ -29,7 +29,7 @@ The Microsoft Purview account and collection is populated with catalog details o
 
 You can access your Purview account through the Azure portal by going to `https://web.purview.azure.com` and selecting your Microsoft Entra ID and account name. Or by going to `https://web.purview.azure.com/resource/<yourpurviewaccountname>`.
 
-To begin to catalog a data product in this account, [create a collection](../purview/how-to-create-and-manage-collections.md) to hold the Data Product.
+To begin to catalog a Data Product in this account, [create a collection](../purview/how-to-create-and-manage-collections.md) to hold the Data Product.
 
 Provide the user-assigned managed identity (UAMI) for your Azure Operator Insights Data Product with necessary roles in the Microsoft Purview compliance portal. This UAMI was set up when the Data Product was created. For information on how to set up this UAMI, see [Set up a user-assigned managed identity](data-product-create.md#set-up-a-user-assigned-managed-identity). At the desired collection, assign this UAMI to the **Collection admin**, **Data source admin**, and **Data curator** roles. Alternately, you can apply the UAMI at the root collection/account level. All collections would inherit these role assignments by default.
 
@@ -43,9 +43,9 @@ Assign roles to your users using effective role-based access control (RBAC). The
 
 When creating an Azure Operator Insights Data Product, select the **Advanced** tab and enable Purview.
 
-:::image type="content" source="media/purview-setup/data-product-purview.png" alt-text="A screenshot of the Advanced tab on Create a data product page in Azure Operator Insights.":::
+:::image type="content" source="media/purview-setup/data-product-purview.png" alt-text="A screenshot of the Advanced tab on Create a Data Product page in Azure Operator Insights.":::
 
-Select **Select Purview Account** to provide the required values to populate a Purview collection with data product details.
+Select **Select Purview Account** to provide the required values to populate a Purview collection with Data Product details.
 - **Purview account name** - When you select your subscription, all Purview accounts in that subscription are available. Select the account you created.
 - **Purview collection ID** - The five-character ID visible in the URL of the Purview collection. To find the ID, select your collection and the collection ID is the five characters following `?collection=` in the URL. In the following example, the Investment collection has the collection ID *50h55*.
 
@@ -122,11 +122,11 @@ When the Data Product creation process is complete, you can see the catalog deta
 > [!NOTE]
 > The Microsoft Purview integration with Azure Operator Insights Data Products only features the Data catalog and Data map of the Microsoft Purview compliance portal.
 
-Select **Assets** to view the data product catalog and to list all assets of your data product.
+Select **Assets** to view the Data Product catalog and to list all assets of your Data Product.
 
 :::image type="content" source="media/purview-setup/data-product-assets.png" alt-text="A screenshot of Data Product assets in Purview":::
 
-Select **Assets** to view the asset catalog of your data product. You can filter by the data source type for the asset type. For each asset, you can display properties, a list of owners (if applicable), and the related assets.
+Select **Assets** to view the asset catalog of your Data Product. You can filter by the data source type for the asset type. For each asset, you can display properties, a list of owners (if applicable), and the related assets.
 
 :::image type="content" source="media/purview-setup/data-product-assets-collection.png" alt-text="A screenshot of Data Product assets in Purview collection.":::
 
