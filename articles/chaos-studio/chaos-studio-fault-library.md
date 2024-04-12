@@ -15,96 +15,404 @@ ms.custom: linux-related-content
 
 The faults listed in this article are currently available for use. To understand which resource types are supported, see [Supported resource types and role assignments for Azure Chaos Studio](./chaos-studio-fault-providers.md).
 
-## Overview: fault list
+## Agent-based faults
 
-### Agent-based faults
+Agent-based faults are injected into **Azure Virtual Machines** or **Virtual Machine Scale Set** instances by installing the Chaos Studio Agent.
 
-Agent-based faults are injected into Azure Virtual Machines or Virtual Machine Scale Set instances by installing the Chaos Studio Agent.
-
-| Applicable OS types | Fault name                                                                  | Fault URN                                                   |
+| Applicable OS types | Fault name                                                                  | Applicable scenarios                                        |
 |---------------------|-----------------------------------------------------------------------------|-------------------------------------------------------------|
-| Windows, Linux      | [CPU Pressure](#cpu-pressure)                                               | `urn:csci:microsoft:agent:cpuPressure/1.0`                  |
-| Windows, Linux      | [Kill Process](#kill-process)                                               | `urn:csci:microsoft:agent:killProcess/1.0`                  |
-| Windows, Linux      | [Network Disconnect](#network-disconnect)                                   | `urn:csci:microsoft:agent:networkDisconnect/1.1`            |
-| Windows, Linux      | [Network Latency](#network-latency)                                         | `urn:csci:microsoft:agent:networkLatency/1.1`               |
-| Windows, Linux      | [Network Packet Loss](#network-packet-loss)                                 | `urn:csci:microsoft:agent:networkPacketLoss/1.0`            |
-| Windows, Linux      | [Physical Memory Pressure](#physical-memory-pressure)                       | `urn:csci:microsoft:agent:physicalMemoryPressure/1.0`       |
-| Windows, Linux      | [Stop Service](#stop-service)                                               | `urn:csci:microsoft:agent:stopService/1.0`                  |
-| Windows, Linux      | [Time Change](#time-change)                                                 | `urn:csci:microsoft:agent:timeChange/1.0`                   |
-| Windows, Linux      | [Virtual Memory Pressure](#virtual-memory-pressure)                         | `urn:csci:microsoft:agent:virtualMemoryPressure/1.0`        |
-| Linux               | [Arbitrary Stress-ng Stressor](#arbitrary-stress-ng-stress)                 | `urn:csci:microsoft:agent:stressNg/1.0`                     |
-| Linux               | [Linux DiskIO Pressure](#disk-io-pressure-linux)                            | `urn:csci:microsoft:agent:linuxDiskIOPressure/1.1`          |
-| Windows             | [DiskIO Pressure](#disk-io-pressure-windows)                                | `urn:csci:microsoft:agent:diskIOPressure/1.1`               |
-| Windows             | [DNS Failure](#dns-failure)                                                 | `urn:csci:microsoft:agent:dnsFailure/1.0`                   |
-| Windows             | [Network Disconnect (Via Firewall)](#network-disconnect-with-firewall-rule) | `urn:csci:microsoft:agent:networkDisconnectViaFirewall/1.0` |
+| Windows, Linux      | [CPU Pressure](#cpu-pressure)                                               | Compute capacity loss, resource pressure                    |
+| Windows, Linux      | [Kill Process](#kill-process)                                               | Dependency disruption                                       |
+| Windows, Linux      | [Network Disconnect](#network-disconnect)                                   | Network disruption                                          |
+| Windows, Linux      | [Network Latency](#network-latency)                                         | Network performance degradation                             |
+| Windows, Linux      | [Network Packet Loss](#network-packet-loss)                                 | Network reliability issues                                  |
+| Windows, Linux      | [Physical Memory Pressure](#physical-memory-pressure)                       | Memory capacity loss, resource pressure                     |
+| Windows, Linux      | [Stop Service](#stop-service)                                               | Service disruption/restart                                  |
+| Windows, Linux      | [Time Change](#time-change)                                                 | Time synchronization issues                                 |
+| Windows, Linux      | [Virtual Memory Pressure](#virtual-memory-pressure)                         | Memory capacity loss, resource pressure                     |
+| Linux               | [Arbitrary Stress-ng Stressor](#arbitrary-stress-ng-stress)                 | General system stress testing                               |
+| Linux               | [Linux DiskIO Pressure](#disk-io-pressure-linux)                            | Disk I/O performance degradation                            |
+| Windows             | [DiskIO Pressure](#disk-io-pressure-windows)                                | Disk I/O performance degradation                            |
+| Windows             | [DNS Failure](#dns-failure)                                                 | DNS resolution issues                                       |
+| Windows             | [Network Disconnect (Via Firewall)](#network-disconnect-with-firewall-rule) | Network disruption                                          |
 
-### Service-direct faults
+## App Service
 
-| Azure resource type              | Fault name                                                                          | Fault URN                                                             |
-|----------------------------------|-------------------------------------------------------------------------------------|-----------------------------------------------------------------------|
-| App Service                      | [Stop App Service](#stop-app-service)                                               | `urn:csci:microsoft:appService:stop/1.0`                              |
-| Autoscale Settings               | [Disable Autoscale](#disable-autoscale)                                             | `urn:csci:microsoft:autoscalesettings:disableAutoscale/1.0`           |
-| Azure Kubernetes Service         | [AKS Chaos Mesh DNS Chaos](#aks-chaos-mesh-dns-faults)                              | `urn:csci:microsoft:azureKubernetesServiceChaosMesh:dnsChaos/2.1`     |
-| Azure Kubernetes Service         | [AKS Chaos Mesh HTTP Chaos](#aks-chaos-mesh-http-faults)                            | `urn:csci:microsoft:azureKubernetesServiceChaosMesh:httpChaos/2.1`    |
-| Azure Kubernetes Service         | [AKS Chaos Mesh IO Chaos](#aks-chaos-mesh-io-faults)                                | `urn:csci:microsoft:azureKubernetesServiceChaosMesh:IOChaos/2.1`      |
-| Azure Kubernetes Service         | [AKS Chaos Mesh Kernel Chaos](#aks-chaos-mesh-kernel-faults)                        | `urn:csci:microsoft:azureKubernetesServiceChaosMesh:kernelChaos/2.1`  |
-| Azure Kubernetes Service         | [AKS Chaos Mesh Network Chaos](#aks-chaos-mesh-network-faults)                      | `urn:csci:microsoft:azureKubernetesServiceChaosMesh:networkChaos/2.1` |
-| Azure Kubernetes Service         | [AKS Chaos Mesh Pod Chaos](#aks-chaos-mesh-pod-faults)                              | `urn:csci:microsoft:azureKubernetesServiceChaosMesh:podChaos/2.1`     |
-| Azure Kubernetes Service         | [AKS Chaos Mesh Stress Chaos](#aks-chaos-mesh-stress-faults)                        | `urn:csci:microsoft:azureKubernetesServiceChaosMesh:stressChaos/2.1`  |
-| Azure Kubernetes Service         | [AKS Chaos Mesh Time Chaos](#aks-chaos-mesh-time-faults)                            | `urn:csci:microsoft:azureKubernetesServiceChaosMesh:timeChaos/2.1`    |
-| Cloud Services (Classic)         | [Cloud Service Shutdown](#cloud-services-classic-shutdown)                          | `urn:csci:microsoft:domainName:shutdown/1.0`                          |
-| Clustered Cache for Redis        | [Azure Cache for Redis (Reboot)](#azure-cache-for-redis-reboot)                     | `urn:csci:microsoft:azureClusteredCacheForRedis:reboot/1.0`           |
-| Cosmos DB                        | [Cosmos DB Failover](#azure-cosmos-db-failover)                                     | `urn:csci:microsoft:cosmosDB:failover/1.0`                            |
-| Event Hubs                       | [Change Event Hub State](#change-event-hub-state)                                   | `urn:csci:microsoft:eventHub:changeEventHubState/1.0`                 |
-| Key Vault                        | [Key Vault Deny Access](#key-vault-deny-access)                                     | `urn:csci:microsoft:keyVault:denyAccess/1.0`                          |
-| Key Vault                        | [Key Vault Disable Certificate](#key-vault-disable-certificate)                     | `urn:csci:microsoft:keyvault:disableCertificate/1.0`                  |
-| Key Vault                        | [Key Vault Increment Certificate Version](#key-vault-increment-certificate-version) | `urn:csci:microsoft:keyvault:incrementCertificateVersion/1.0`         |
-| Key Vault                        | [Key Vault Update Certificate Policy](#key-vault-update-certificate-version)        | `urn:csci:microsoft:keyvault:updateCertificatePolicy/1.0`             |
-| Network Security Group           | [NSG Security Rule](#rule)                                                          | `urn:csci:microsoft:networkSecurityGroup:securityRule/1.0`            |
-| Service Bus                      | [Change Queue State](#service-bus-change-queue-state)                               | `urn:csci:microsoft:serviceBus:changeQueueState/1.0`                  |
-| Service Bus                      | [Change Subscription State](#service-bus-change-subscription-state)                 | `urn:csci:microsoft:serviceBus:changeSubscriptionState/1.0`           |
-| Service Bus                      | [Change Topic State](#service-bus-change-topic-state)                               | `urn:csci:microsoft:serviceBus:changeTopicState/1.0`                  |
-| Virtual Machine (service-direct) | [VM Redeploy](#virtual-machine-redeploy)                                            | `urn:csci:microsoft:virtualMachine:redeploy/1.0`                      |
-| Virtual Machine (service-direct) | [VM Shutdown](#virtual-machine-shutdown)                                            | `urn:csci:microsoft:virtualMachine:shutdown/1.0`                      |
-| Virtual Machine Scale Set        | [VMSS Shutdown](#virtual-machine-scale-set-instance-shutdown)                       | `urn:csci:microsoft:virtualMachineScaleSet:shutdown/1.0`              |
-| Virtual Machine Scale Set        | [VMSS Shutdown (2.0)](#virtual-machine-scale-set-instance-shutdown)                 | `urn:csci:microsoft:virtualMachineScaleSet:shutdown/2.0`              |
+| Fault name | Applicable scenarios |
+|------------|----------------------|
+| [Stop App Service](#stop-app-service) | Service disruption |
 
-### Orchestration actions
+## Autoscale Settings
 
-| Action category | Fault name                                                                  | Fault URN                                       |
-|-----------------|-----------------------------------------------------------------------------|-------------------------------------------------|
-| Load            | [Start load test (Azure Load Testing)](#azure-load-testing-start-load-test) | `urn:csci:microsoft:azureLoadTest:start/1.0`    |
-| Load            | [Stop load test (Azure Load Testing)](#azure-load-testing-stop-load-test)   | `urn:csci:microsoft:azureLoadTest:stop/1.0`     |
-| Time delay      | [Delay](#time-delay)                                                        | `urn:csci:microsoft:chaosStudio:timedDelay/1.0` |
+| Fault name | Applicable scenarios |
+|------------|----------------------|
+| [Disable Autoscale](#disable-autoscale) | Compute capacity loss (when used with VMSS Shutdown) |
 
+## Azure Kubernetes Service
 
-## Time delay
+| Fault name | Applicable scenarios |
+|------------|----------------------|
+| [AKS Chaos Mesh DNS Chaos](#aks-chaos-mesh-dns-faults) | DNS resolution issues |
+| [AKS Chaos Mesh HTTP Chaos](#aks-chaos-mesh-http-faults) | Network disruption |
+| [AKS Chaos Mesh IO Chaos](#aks-chaos-mesh-io-faults) | Disk degradation/pressure |
+| [AKS Chaos Mesh Kernel Chaos](#aks-chaos-mesh-kernel-faults) | Kernel disruption |
+| [AKS Chaos Mesh Network Chaos](#aks-chaos-mesh-network-faults) | Network disruption |
+| [AKS Chaos Mesh Pod Chaos](#aks-chaos-mesh-pod-faults) | Container disruption |
+| [AKS Chaos Mesh Stress Chaos](#aks-chaos-mesh-stress-faults) | System stress testing |
+| [AKS Chaos Mesh Time Chaos](#aks-chaos-mesh-time-faults) | Time synchronization issues |
+
+## Cloud Services (Classic)
+
+| Fault name | Applicable scenarios |
+|------------|----------------------|
+| [Cloud Service Shutdown](#cloud-services-classic-shutdown) | Compute loss |
+
+## Clustered Cache for Redis
+
+| Fault name | Applicable scenarios |
+|------------|----------------------|
+| [Azure Cache for Redis (Reboot)](#azure-cache-for-redis-reboot) | Dependency disruption (caches) |
+
+## Cosmos DB
+
+| Fault name | Applicable scenarios |
+|------------|----------------------|
+| [Cosmos DB Failover](#azure-cosmos-db-failover) | Database failover |
+
+## Event Hubs
+
+| Fault name | Applicable scenarios |
+|------------|----------------------|
+| [Change Event Hub State](#change-event-hub-state) | Messaging infrastructure misconfiguration/disruption |
+
+## Key Vault
+
+| Fault name | Applicable scenarios |
+|------------|----------------------|
+| [Key Vault Deny Access](#key-vault-deny-access) | Certificate denial |
+| [Key Vault Disable Certificate](#key-vault-disable-certificate) | Certificate disruption |
+| [Key Vault Increment Certificate Version](#key-vault-increment-certificate-version) | Certificate version increment |
+| [Key Vault Update Certificate Policy](#key-vault-update-certificate-version) | Certificate policy update |
+
+## Network Security Group
+
+| Fault name | Applicable scenarios |
+|------------|----------------------|
+| [NSG Security Rule](#nsg-security-rule) | Network disruption |
+
+## Service Bus
+
+| Fault name | Applicable scenarios |
+|------------|----------------------|
+| [Change Queue State](#service-bus-change-queue-state) | Messaging infrastructure misconfiguration/disruption |
+| [Change Subscription State](#service-bus-change-subscription-state) | Messaging infrastructure misconfiguration/disruption |
+| [Change Topic State](#service-bus-change-topic-state) | Messaging infrastructure misconfiguration/disruption |
+
+## Virtual Machines (service-direct)
+
+| Fault name | Applicable scenarios |
+|------------|----------------------|
+| [VM Redeploy](#virtual-machine-redeploy) | Compute disruption, maintenance events |
+| [VM Shutdown](#virtual-machine-shutdown) | Compute loss/disruption |
+
+## Virtual Machine Scale Set
+
+| Fault name | Applicable scenarios |
+|------------|----------------------|
+| [VMSS Shutdown](#virtual-machine-scale-set-instance-shutdown) | Compute loss/disruption |
+| [VMSS Shutdown (2.0)](#virtual-machine-scale-set-instance-shutdown) | Compute loss/disruption |
+
+## Orchestration actions
+
+| Action category | Fault name |
+|-----------------|------------|
+| Load | [Start load test (Azure Load Testing)](#azure-load-testing-start-load-test) |
+| Load | [Stop load test (Azure Load Testing)](#azure-load-testing-stop-load-test) |
+| Time delay | [Delay](#time-delay) |
+
+## Agent-based fault details
+
+### Network Disconnect
 
 | Property | Value |
 |-|-|
-| Fault provider | N/A |
-| Supported OS types | N/A |
-| Description | Adds a time delay before, between, or after other experiment actions. This action isn't a fault and is used to synchronize actions within an experiment. Use this action to wait for the impact of a fault to appear in a service, or wait for an activity outside of the experiment to complete. For example, your experiment could wait for autohealing to occur before injecting another fault. |
-| Prerequisites | N/A |
-| Urn | urn:csci:microsoft:chaosStudio:timedDelay/1.0 |
-| Duration | The duration of the delay in ISO 8601 format (for example, PT10M). |
+| Capability name | NetworkDisconnect-1.1 |
+| Target type | Microsoft-Agent |
+| Supported OS types | Windows, Linux. |
+| Description | Blocks outbound network traffic for specified port range and network block. At least one destinationFilter or inboundDestinationFilter array must be provided. |
+| Prerequisites | **Windows:** The agent must run as administrator, which happens by default if installed as a VM extension. |
+| | **Linux:** The `tc` (Traffic Control) package is used for network faults. If it isn't already installed, the agent automatically attempts to install it from the default package manager. |
+| Urn | urn:csci:microsoft:agent:networkDisconnect/1.1 |
+| Parameters (key, value) |  |
+| destinationFilters | Delimited JSON array of packet filters defining which outbound packets to target. Maximum of 16.|
+| inboundDestinationFilters | Delimited JSON array of packet filters defining which inbound packets to target. Maximum of 16. |
+| virtualMachineScaleSetInstances | An array of instance IDs when you apply this fault to a virtual machine scale set. Required for virtual machine scale sets in uniform orchestration mode. [Learn more about instance IDs](../virtual-machine-scale-sets/virtual-machine-scale-sets-instance-ids.md#scale-set-instance-id-for-uniform-orchestration-mode). |
 
-### Sample JSON
+The parameters **destinationFilters** and **inboundDestinationFilters** use the following array of packet filters.
+
+| Property | Value |
+|-|-|
+| address | IP address that indicates the start of the IP range. |
+| subnetMask | Subnet mask for the IP address range. |
+| portLow | (Optional) Port number of the start of the port range. |
+| portHigh | (Optional) Port number of the end of the port range. |
+
+#### Sample JSON
 
 ```json
 {
   "name": "branchOne",
-  "actions": [ 
+  "actions": [
     {
-      "type": "delay",
-      "name": "urn:csci:microsoft:chaosStudio:timedDelay/1.0",
-      "duration": "PT10M"
+      "type": "continuous",
+      "name": "urn:csci:microsoft:agent:networkDisconnect/1.1",
+      "parameters": [
+        {
+          "key": "destinationFilters",
+          "value": "[ { \"address\": \"23.45.229.97\", \"subnetMask\": \"255.255.255.224\", \"portLow\": \"5000\", \"portHigh\": \"5200\" } ]"
+        },
+        {
+          "key": "inboundDestinationFilters",
+          "value": "[ { \"address\": \"23.45.229.97\", \"subnetMask\": \"255.255.255.224\", \"portLow\": \"5000\", \"portHigh\": \"5200\" } ]"
+        },
+        {
+          "key": "virtualMachineScaleSetInstances",
+          "value": "[0,1,2]"
+        }
+      ],
+      "duration": "PT10M",
+      "selectorid": "myResources"
     }
-  ] 
+  ]
 }
 ```
 
-## CPU pressure
+#### Limitations
+
+* The agent-based network faults currently only support IPv4 addresses.
+* The network disconnect fault only affects new connections. Existing active connections continue to persist. You can restart the service or process to force connections to break.
+* When running on Windows, the network disconnect fault currently only works with TCP or UDP packets.
+
+### Network Disconnect (Via Firewall)
+
+| Property | Value |
+|-|-|
+| Capability name | NetworkDisconnectViaFirewall-1.0 |
+| Target type | Microsoft-Agent |
+| Supported OS types | Windows |
+| Description | Applies a Windows firewall rule to block outbound traffic for specified port range and network block. |
+| Prerequisites | Agent must run as administrator. If the agent is installed as a VM extension, it runs as administrator by default. |
+| Urn | urn:csci:microsoft:agent:networkDisconnectViaFirewall/1.0 |
+| Parameters (key, value) |  |
+| destinationFilters | Delimited JSON array of packet filters that define which outbound packets to target for fault injection. |
+| address | IP address that indicates the start of the IP range. |
+| subnetMask | Subnet mask for the IP address range. |
+| portLow | (Optional) Port number of the start of the port range. |
+| portHigh | (Optional) Port number of the end of the port range. |
+| virtualMachineScaleSetInstances | An array of instance IDs when you apply this fault to a virtual machine scale set. Required for virtual machine scale sets in uniform orchestration mode. [Learn more about instance IDs](../virtual-machine-scale-sets/virtual-machine-scale-sets-instance-ids.md#scale-set-instance-id-for-uniform-orchestration-mode). |
+
+#### Sample JSON
+
+```json
+{
+  "name": "branchOne",
+  "actions": [
+    {
+      "type": "continuous",
+      "name": "urn:csci:microsoft:agent:networkDisconnectViaFirewall/1.0",
+      "parameters": [
+        {
+          "key": "destinationFilters",
+          "value": "[ { \"Address\": \"23.45.229.97\", \"SubnetMask\": \"255.255.255.224\", \"PortLow\": \"5000\", \"PortHigh\": \"5200\" } ]"
+        },
+        {
+          "key": "virtualMachineScaleSetInstances",
+          "value": "[0,1,2]"
+        }
+      ],
+      "duration": "PT10M",
+      "selectorid": "myResources"
+    }
+  ]
+}
+```
+
+#### Limitations
+
+* The agent-based network faults currently only support IPv4 addresses.
+
+### Network Latency
+
+| Property | Value |
+|-|-|
+| Capability name | NetworkLatency-1.1 |
+| Target type | Microsoft-Agent |
+| Supported OS types | Windows, Linux (outbound traffic only) |
+| Description | Increases network latency for a specified port range and network block. At least one destinationFilter or inboundDestinationFilter array must be provided. |
+| Prerequisites | **Windows:** The agent must run as administrator, which happens by default if installed as a VM extension. |
+| | **Linux:** The `tc` (Traffic Control) package is used for network faults. If it isn't already installed, the agent automatically attempts to install it from the default package manager. |
+| Urn | urn:csci:microsoft:agent:networkLatency/1.1 |
+| Parameters (key, value) |  |
+| latencyInMilliseconds | Amount of latency to be applied in milliseconds. |
+| destinationFilters | Delimited JSON array of packet filters defining which outbound packets to target. Maximum of 16.|
+| inboundDestinationFilters | Delimited JSON array of packet filters defining which inbound packets to target. Maximum of 16. |
+| virtualMachineScaleSetInstances | An array of instance IDs when you apply this fault to a virtual machine scale set. Required for virtual machine scale sets in uniform orchestration mode. [Learn more about instance IDs](../virtual-machine-scale-sets/virtual-machine-scale-sets-instance-ids.md#scale-set-instance-id-for-uniform-orchestration-mode). |
+
+The parameters **destinationFilters** and **inboundDestinationFilters** use the following array of packet filters.
+
+| Property | Value |
+|-|-|
+| address | IP address that indicates the start of the IP range. |
+| subnetMask | Subnet mask for the IP address range. |
+| portLow | (Optional) Port number of the start of the port range. |
+| portHigh | (Optional) Port number of the end of the port range. |
+
+#### Sample JSON
+
+```json
+{
+  "name": "branchOne",
+  "actions": [
+    {
+      "type": "continuous",
+      "name": "urn:csci:microsoft:agent:networkLatency/1.1",
+      "parameters": [
+        {
+          "key": "destinationFilters",
+          "value": "[ { \"address\": \"23.45.229.97\", \"subnetMask\": \"255.255.255.224\", \"portLow\": \"5000\", \"portHigh\": \"5200\" } ]"
+        },
+        {
+          "key": "inboundDestinationFilters",
+          "value": "[ { \"address\": \"23.45.229.97\", \"subnetMask\": \"255.255.255.224\", \"portLow\": \"5000\", \"portHigh\": \"5200\" } ]"
+        },
+        {
+          "key": "latencyInMilliseconds",
+          "value": "100",
+        },
+        {
+          "key": "virtualMachineScaleSetInstances",
+          "value": "[0,1,2]"
+        }
+      ],
+      "duration": "PT10M",
+      "selectorid": "myResources"
+    }
+  ]
+}
+```
+
+#### Limitations
+
+* The agent-based network faults currently only support IPv4 addresses.
+* When running on Linux, the network latency fault can only affect **outbound** traffic, not inbound traffic. The fault can affect **both inbound and outbound** traffic on Windows environments (via the `inboundDestinationFilters` and `destinationFilters` parameters).
+* When running on Windows, the network latency fault currently only works with TCP or UDP packets.
+
+### Network Packet Loss
+
+| Property | Value |
+|-|-|
+| Capability name | NetworkPacketLoss-1.0 |
+| Target type | Microsoft-Agent |
+| Supported OS types | Windows, Linux |
+| Description | Introduces packet loss for outbound traffic at a specified rate, between 0.0 (no packets lost) and 1.0 (all packets lost). This action can help simulate scenarios like network congestion or network hardware issues. |
+| Prerequisites | **Windows:** The agent must run as administrator, which happens by default if installed as a VM extension. |
+| | **Linux:** The `tc` (Traffic Control) package is used for network faults. If it isn't already installed, the agent automatically attempts to install it from the default package manager. |
+| Urn | urn:csci:microsoft:agent:networkPacketLoss/1.0 |
+| Parameters (key, value) |  |
+| packetLossRate | The rate at which packets matching the destination filters will be lost, ranging from 0.0 to 1.0. |
+| virtualMachineScaleSetInstances | An array of instance IDs when you apply this fault to a virtual machine scale set. Required for virtual machine scale sets in uniform orchestration mode. [Learn more about instance IDs](../virtual-machine-scale-sets/virtual-machine-scale-sets-instance-ids.md#scale-set-instance-id-for-uniform-orchestration-mode). |
+| destinationFilters | Delimited JSON array of packet filters (parameters below) that define which outbound packets to target for fault injection. Maximum of three.|
+| address | IP address that indicates the start of the IP range. |
+| subnetMask | Subnet mask for the IP address range. |
+| portLow | (Optional) Port number of the start of the port range. |
+| portHigh | (Optional) Port number of the end of the port range. |
+
+#### Sample JSON
+
+```json
+{
+  "name": "branchOne",
+  "actions": [
+    {
+      "type": "continuous",
+      "name": "urn:csci:microsoft:agent:networkPacketLoss/1.0",
+      "parameters": [
+            {
+                "key": "destinationFilters",
+                "value": "[{\"address\":\"23.45.229.97\",\"subnetMask\":\"255.255.255.224\",\"portLow\":5000,\"portHigh\":5200}]"
+            },
+            {
+                "key": "packetLossRate",
+                "value": "0.5"
+            },
+            {
+                "key": "virtualMachineScaleSetInstances",
+                "value": "[0,1,2]"
+            }
+        ],
+      "duration": "PT10M",
+      "selectorid": "myResources"
+    }
+  ]
+}
+```
+
+#### Limitations
+
+* The agent-based network faults currently only support IPv4 addresses.
+* When running on Windows, the network packet loss fault currently only works with TCP or UDP packets.
+
+### DNS Failure
+
+| Property | Value |
+|-|-|
+| Capability name | DnsFailure-1.0 |
+| Target type | Microsoft-Agent |
+| Supported OS types | Windows |
+| Description | Substitutes DNS lookup request responses with a specified error code. DNS lookup requests that are substituted must:<ul><li>Originate from the VM.</li><li>Match the defined fault parameters.</li></ul>DNS lookups that aren't made by the Windows DNS client aren't affected by this fault. |
+| Prerequisites | None. |
+| Urn | urn:csci:microsoft:agent:dnsFailure/1.0 |
+| Parameters (key, value) |  |
+| hosts | Delimited JSON array of host names to fail DNS lookup request for.<br><br>This property accepts wildcards (`*`), but only for the first subdomain in an address and only applies to the subdomain for which they're specified. For example:<ul><li>\*.microsoft.com is supported.</li><li>subdomain.\*.microsoft isn't supported.</li><li>\*.microsoft.com doesn't work for multiple subdomains in an address, such as subdomain1.subdomain2.microsoft.com.</li></ul>   |
+| dnsFailureReturnCode | DNS error code to be returned to the client for the lookup failure (FormErr, ServFail, NXDomain, NotImp, Refused, XDomain, YXRRSet, NXRRSet, NotAuth, NotZone). For more information on DNS return codes, see the [IANA website](https://www.iana.org/assignments/dns-parameters/dns-parameters.xml#dns-parameters-6). |
+| virtualMachineScaleSetInstances | An array of instance IDs when you apply this fault to a virtual machine scale set. Required for virtual machine scale sets in uniform orchestration mode. [Learn more about instance IDs](../virtual-machine-scale-sets/virtual-machine-scale-sets-instance-ids.md#scale-set-instance-id-for-uniform-orchestration-mode). |
+
+#### Sample JSON
+
+```json
+{
+  "name": "branchOne",
+  "actions": [
+    {
+      "type": "continuous",
+      "name": "urn:csci:microsoft:agent:dnsFailure/1.0",
+      "parameters": [
+        {
+          "key": "hosts",
+          "value": "[ \"www.bing.com\", \"msdn.microsoft.com\" ]"
+        },
+        {
+          "key": "dnsFailureReturnCode",
+          "value": "ServFail"
+        },
+        {
+          "key": "virtualMachineScaleSetInstances",
+          "value": "[0,1,2]"
+        }
+      ],
+      "duration": "PT10M",
+      "selectorid": "myResources"
+    }
+  ]
+}
+```
+
+#### Limitations
+
+* The DNS Failure fault requires Windows 2019 RS5 or newer.
+* DNS Cache is ignored during the duration of the fault for the host names defined in the fault.
+
+### CPU Pressure
 
 | Property | Value |
 |-|-|
@@ -119,7 +427,7 @@ Agent-based faults are injected into Azure Virtual Machines or Virtual Machine S
 | pressureLevel | An integer between 1 and 99 that indicates how much CPU pressure (%) is applied to the VM. |
 | virtualMachineScaleSetInstances | An array of instance IDs when you apply this fault to a virtual machine scale set. Required for virtual machine scale sets in uniform orchestration mode. [Learn more about instance IDs](../virtual-machine-scale-sets/virtual-machine-scale-sets-instance-ids.md#scale-set-instance-id-for-uniform-orchestration-mode). |
 
-### Sample JSON
+#### Sample JSON
 ```json
 {
   "name": "branchOne",
@@ -144,11 +452,11 @@ Agent-based faults are injected into Azure Virtual Machines or Virtual Machine S
 }
 ```
 
-### Limitations
+#### Limitations
 Known issues on Linux:
 * The stress effect might not be terminated correctly if `AzureChaosAgent` is unexpectedly killed.
 
-## Physical memory pressure
+### Physical Memory Pressure
 
 | Property | Value |
 |-|-|
@@ -163,7 +471,7 @@ Known issues on Linux:
 | pressureLevel | An integer between 1 and 99 that indicates how much physical memory pressure (%) is applied to the VM. |
 | virtualMachineScaleSetInstances | An array of instance IDs when you apply this fault to a virtual machine scale set. Required for virtual machine scale sets in uniform orchestration mode. [Learn more about instance IDs](../virtual-machine-scale-sets/virtual-machine-scale-sets-instance-ids.md#scale-set-instance-id-for-uniform-orchestration-mode). |
 
-### Sample JSON
+#### Sample JSON
 
 ```json
 {
@@ -189,10 +497,10 @@ Known issues on Linux:
 }
 ```
 
-### Limitations
+#### Limitations
 Currently, the Windows agent doesn't reduce memory pressure when other applications increase their memory usage. If the overall memory usage exceeds 100%, the Windows agent might crash.
 
-## Virtual memory pressure
+### Virtual Memory Pressure
 
 | Property | Value |
 |-|-|
@@ -206,7 +514,7 @@ Currently, the Windows agent doesn't reduce memory pressure when other applicati
 | pressureLevel | An integer between 1 and 99 that indicates how much physical memory pressure (%) is applied to the VM. |
 | virtualMachineScaleSetInstances | An array of instance IDs when you apply this fault to a virtual machine scale set. Required for virtual machine scale sets in uniform orchestration mode. [Learn more about instance IDs](../virtual-machine-scale-sets/virtual-machine-scale-sets-instance-ids.md#scale-set-instance-id-for-uniform-orchestration-mode). |
 
-### Sample JSON
+#### Sample JSON
 
 ```json
 {
@@ -232,7 +540,7 @@ Currently, the Windows agent doesn't reduce memory pressure when other applicati
 }
 ```
 
-## Disk I/O pressure (Windows)
+### Disk IO Pressure
 
 | Property | Value |
 |-|-|
@@ -247,7 +555,7 @@ Currently, the Windows agent doesn't reduce memory pressure when other applicati
 | targetTempDirectory | (Optional) The directory to use for applying disk pressure. For example, `D:/Temp`. If the parameter is not included, pressure is added to the primary disk. |
 | virtualMachineScaleSetInstances | An array of instance IDs when you apply this fault to a virtual machine scale set. Required for virtual machine scale sets in uniform orchestration mode. [Learn more about instance IDs](../virtual-machine-scale-sets/virtual-machine-scale-sets-instance-ids.md#scale-set-instance-id-for-uniform-orchestration-mode). |
 
-### Pressure modes
+#### Pressure modes
 
 | PressureMode | Description |
 | -- | -- |
@@ -257,7 +565,7 @@ Currently, the Windows agent doesn't reduce memory pressure when other applicati
 | PremiumStorageP50Throttling | numberOfThreads = 2<br/>randomBlockSizeInKB = 1024<br/>randomSeed = 10<br/>numberOfIOperThread = 2<br/>sizeOfBlocksInKB = 1024<br/>sizeOfWriteBufferInKB = 1024<br/>fileSizeInGB = 20<br/>percentOfWriteActions = 50|
 | Default | numberOfThreads = 2<br/>randomBlockSizeInKB = 64<br/>randomSeed = 10<br/>numberOfIOperThread = 2<br/>sizeOfBlocksInKB = 64<br/>sizeOfWriteBufferInKB = 64<br/>fileSizeInGB = 1<br/>percentOfWriteActions = 50 |
 
-### Sample JSON
+#### Sample JSON
 
 ```json
 {
@@ -287,7 +595,7 @@ Currently, the Windows agent doesn't reduce memory pressure when other applicati
 }
 ```
 
-## Disk I/O pressure (Linux)
+### Linux Disk IO Pressure
 
 | Property | Value |
 |-|-|
@@ -304,7 +612,7 @@ Currently, the Windows agent doesn't reduce memory pressure when other applicati
 | targetTempDirectory | (Optional) The directory to use for applying disk pressure. For example, "/tmp/". If the parameter is not included, pressure is added to the primary disk. |
 | virtualMachineScaleSetInstances | An array of instance IDs when you apply this fault to a virtual machine scale set. Required for virtual machine scale sets in uniform orchestration mode. [Learn more about instance IDs](../virtual-machine-scale-sets/virtual-machine-scale-sets-instance-ids.md#scale-set-instance-id-for-uniform-orchestration-mode). |
 
-### Sample JSON
+#### Sample JSON
 
 ```json
 {
@@ -342,46 +650,7 @@ Currently, the Windows agent doesn't reduce memory pressure when other applicati
 }
 ```
 
-## Arbitrary stress-ng stress
-
-| Property | Value |
-|-|-|
-| Capability name | StressNg-1.0 |
-| Target type | Microsoft-Agent |
-| Supported OS types | Linux |
-| Description | Runs any stress-ng command by passing arguments directly to stress-ng. Useful when one of the predefined faults for stress-ng doesn't meet your needs. |
-| Prerequisites | **Linux**: The **stress-ng** utility needs to be installed. Installation happens automatically as part of agent installation, using the default package manager, on several operating systems including Debian-based (like Ubuntu), Red Hat Enterprise Linux, and OpenSUSE. For other distributions, including Azure Linux, you must install **stress-ng** manually. For more information, see the [upstream project repository](https://github.com/ColinIanKing/stress-ng). |
-| Urn | urn:csci:microsoft:agent:stressNg/1.0 |
-| Parameters (key, value) |  |
-| stressNgArguments | One or more arguments to pass to the stress-ng process. For information on possible stress-ng arguments, see the [stress-ng](https://wiki.ubuntu.com/Kernel/Reference/stress-ng) article. |
-
-### Sample JSON
-
-```json
-{
-  "name": "branchOne",
-  "actions": [
-    {
-      "type": "continuous",
-      "name": "urn:csci:microsoft:agent:stressNg/1.0",
-      "parameters": [
-        {
-          "key": "stressNgArguments",
-          "value": "--random 64"
-        },
-        {
-          "key": "virtualMachineScaleSetInstances",
-          "value": "[0,1,2]"
-        }
-      ],
-      "duration": "PT10M",
-      "selectorid": "myResources"
-    }
-  ]
-}
-```
-
-## Stop service
+### Stop service
 
 | Property | Value |
 |-|-|
@@ -395,7 +664,7 @@ Currently, the Windows agent doesn't reduce memory pressure when other applicati
 | serviceName | Name of the Windows service or Linux systemd service you want to stop. |
 | virtualMachineScaleSetInstances | An array of instance IDs when you apply this fault to a virtual machine scale set. Required for virtual machine scale sets in uniform orchestration mode. [Learn more about instance IDs](../virtual-machine-scale-sets/virtual-machine-scale-sets-instance-ids.md#scale-set-instance-id-for-uniform-orchestration-mode). |
 
-### Sample JSON
+#### Sample JSON
 
 ```json
 {
@@ -421,51 +690,12 @@ Currently, the Windows agent doesn't reduce memory pressure when other applicati
 }
 ```
 
-### Limitations
+#### Limitations
 * **Windows**: Display names for services aren't supported. Use `sc.exe query` in the command prompt to explore service names.
 * **Linux**: Other service types besides systemd, like sysvinit, aren't supported.
 
-## Time change
 
-| Property | Value |
-|-|-|
-| Capability name | TimeChange-1.0 |
-| Target type | Microsoft-Agent |
-| Supported OS types | Windows |
-| Description | Changes the system time of the virtual machine and resets the time at the end of the experiment or if the experiment is canceled. |
-| Prerequisites | None. |
-| Urn | urn:csci:microsoft:agent:timeChange/1.0 |
-| Parameters (key, value) |  |
-| dateTime | A DateTime string in [ISO8601 format](https://www.cryptosys.net/pki/manpki/pki_iso8601datetime.html). If `YYYY-MM-DD` values are missing, they're defaulted to the current day when the experiment runs. If Thh:mm:ss values are missing, the default value is 12:00:00 AM. If a 2-digit year is provided (`YY`), it's converted to a 4-digit year (`YYYY`) based on the current century. If the timezone `<Z>` is missing, the default offset is the local timezone. `<Z>` must always include a sign symbol (negative or positive). |
-| virtualMachineScaleSetInstances | An array of instance IDs when you apply this fault to a virtual machine scale set. Required for virtual machine scale sets in uniform orchestration mode. [Learn more about instance IDs](../virtual-machine-scale-sets/virtual-machine-scale-sets-instance-ids.md#scale-set-instance-id-for-uniform-orchestration-mode). |
-
-### Sample JSON
-
-```json
-{
-  "name": "branchOne",
-  "actions": [
-    {
-      "type": "continuous",
-      "name": "urn:csci:microsoft:agent:timeChange/1.0",
-      "parameters": [
-        {
-          "key": "dateTime",
-          "value": "2038-01-01T03:14:07"
-        },
-        {
-          "key": "virtualMachineScaleSetInstances",
-          "value": "[0,1,2]"
-        }
-      ],
-      "duration": "PT10M",
-      "selectorid": "myResources"
-    }
-  ]
-}
-```
-
-## Kill process
+### Kill Process
 
 | Property | Value |
 |-|-|
@@ -480,7 +710,7 @@ Currently, the Windows agent doesn't reduce memory pressure when other applicati
 | killIntervalInMilliseconds | Amount of time the fault waits in between successive kill attempts in milliseconds. |
 | virtualMachineScaleSetInstances | An array of instance IDs when you apply this fault to a virtual machine scale set. Required for virtual machine scale sets in uniform orchestration mode. [Learn more about instance IDs](../virtual-machine-scale-sets/virtual-machine-scale-sets-instance-ids.md#scale-set-instance-id-for-uniform-orchestration-mode). |
 
-### Sample JSON
+#### Sample JSON
 
 ```json
 {
@@ -510,22 +740,22 @@ Currently, the Windows agent doesn't reduce memory pressure when other applicati
 }
 ```
 
-## DNS failure
+
+### Time Change
 
 | Property | Value |
 |-|-|
-| Capability name | DnsFailure-1.0 |
+| Capability name | TimeChange-1.0 |
 | Target type | Microsoft-Agent |
 | Supported OS types | Windows |
-| Description | Substitutes DNS lookup request responses with a specified error code. DNS lookup requests that are substituted must:<ul><li>Originate from the VM.</li><li>Match the defined fault parameters.</li></ul>DNS lookups that aren't made by the Windows DNS client aren't affected by this fault. |
+| Description | Changes the system time of the virtual machine and resets the time at the end of the experiment or if the experiment is canceled. |
 | Prerequisites | None. |
-| Urn | urn:csci:microsoft:agent:dnsFailure/1.0 |
+| Urn | urn:csci:microsoft:agent:timeChange/1.0 |
 | Parameters (key, value) |  |
-| hosts | Delimited JSON array of host names to fail DNS lookup request for.<br><br>This property accepts wildcards (`*`), but only for the first subdomain in an address and only applies to the subdomain for which they're specified. For example:<ul><li>\*.microsoft.com is supported.</li><li>subdomain.\*.microsoft isn't supported.</li><li>\*.microsoft.com doesn't work for multiple subdomains in an address, such as subdomain1.subdomain2.microsoft.com.</li></ul>   |
-| dnsFailureReturnCode | DNS error code to be returned to the client for the lookup failure (FormErr, ServFail, NXDomain, NotImp, Refused, XDomain, YXRRSet, NXRRSet, NotAuth, NotZone). For more information on DNS return codes, see the [IANA website](https://www.iana.org/assignments/dns-parameters/dns-parameters.xml#dns-parameters-6). |
+| dateTime | A DateTime string in [ISO8601 format](https://www.cryptosys.net/pki/manpki/pki_iso8601datetime.html). If `YYYY-MM-DD` values are missing, they're defaulted to the current day when the experiment runs. If Thh:mm:ss values are missing, the default value is 12:00:00 AM. If a 2-digit year is provided (`YY`), it's converted to a 4-digit year (`YYYY`) based on the current century. If the timezone `<Z>` is missing, the default offset is the local timezone. `<Z>` must always include a sign symbol (negative or positive). |
 | virtualMachineScaleSetInstances | An array of instance IDs when you apply this fault to a virtual machine scale set. Required for virtual machine scale sets in uniform orchestration mode. [Learn more about instance IDs](../virtual-machine-scale-sets/virtual-machine-scale-sets-instance-ids.md#scale-set-instance-id-for-uniform-orchestration-mode). |
 
-### Sample JSON
+#### Sample JSON
 
 ```json
 {
@@ -533,15 +763,11 @@ Currently, the Windows agent doesn't reduce memory pressure when other applicati
   "actions": [
     {
       "type": "continuous",
-      "name": "urn:csci:microsoft:agent:dnsFailure/1.0",
+      "name": "urn:csci:microsoft:agent:timeChange/1.0",
       "parameters": [
         {
-          "key": "hosts",
-          "value": "[ \"www.bing.com\", \"msdn.microsoft.com\" ]"
-        },
-        {
-          "key": "dnsFailureReturnCode",
-          "value": "ServFail"
+          "key": "dateTime",
+          "value": "2038-01-01T03:14:07"
         },
         {
           "key": "virtualMachineScaleSetInstances",
@@ -555,38 +781,20 @@ Currently, the Windows agent doesn't reduce memory pressure when other applicati
 }
 ```
 
-### Limitations
-
-* The DNS Failure fault requires Windows 2019 RS5 or newer.
-* DNS Cache is ignored during the duration of the fault for the host names defined in the fault.
-
-## Network latency
+### Arbitrary Stress-ng Stressor
 
 | Property | Value |
 |-|-|
-| Capability name | NetworkLatency-1.1 |
+| Capability name | StressNg-1.0 |
 | Target type | Microsoft-Agent |
-| Supported OS types | Windows, Linux (outbound traffic only) |
-| Description | Increases network latency for a specified port range and network block. At least one destinationFilter or inboundDestinationFilter array must be provided. |
-| Prerequisites | **Windows:** The agent must run as administrator, which happens by default if installed as a VM extension. |
-| | **Linux:** The `tc` (Traffic Control) package is used for network faults. If it isn't already installed, the agent automatically attempts to install it from the default package manager. |
-| Urn | urn:csci:microsoft:agent:networkLatency/1.1 |
+| Supported OS types | Linux |
+| Description | Runs any stress-ng command by passing arguments directly to stress-ng. Useful when one of the predefined faults for stress-ng doesn't meet your needs. |
+| Prerequisites | **Linux**: The **stress-ng** utility needs to be installed. Installation happens automatically as part of agent installation, using the default package manager, on several operating systems including Debian-based (like Ubuntu), Red Hat Enterprise Linux, and OpenSUSE. For other distributions, including Azure Linux, you must install **stress-ng** manually. For more information, see the [upstream project repository](https://github.com/ColinIanKing/stress-ng). |
+| Urn | urn:csci:microsoft:agent:stressNg/1.0 |
 | Parameters (key, value) |  |
-| latencyInMilliseconds | Amount of latency to be applied in milliseconds. |
-| destinationFilters | Delimited JSON array of packet filters defining which outbound packets to target. Maximum of 16.|
-| inboundDestinationFilters | Delimited JSON array of packet filters defining which inbound packets to target. Maximum of 16. |
-| virtualMachineScaleSetInstances | An array of instance IDs when you apply this fault to a virtual machine scale set. Required for virtual machine scale sets in uniform orchestration mode. [Learn more about instance IDs](../virtual-machine-scale-sets/virtual-machine-scale-sets-instance-ids.md#scale-set-instance-id-for-uniform-orchestration-mode). |
+| stressNgArguments | One or more arguments to pass to the stress-ng process. For information on possible stress-ng arguments, see the [stress-ng](https://wiki.ubuntu.com/Kernel/Reference/stress-ng) article. |
 
-The parameters **destinationFilters** and **inboundDestinationFilters** use the following array of packet filters.
-
-| Property | Value |
-|-|-|
-| address | IP address that indicates the start of the IP range. |
-| subnetMask | Subnet mask for the IP address range. |
-| portLow | (Optional) Port number of the start of the port range. |
-| portHigh | (Optional) Port number of the end of the port range. |
-
-### Sample JSON
+#### Sample JSON
 
 ```json
 {
@@ -594,19 +802,11 @@ The parameters **destinationFilters** and **inboundDestinationFilters** use the 
   "actions": [
     {
       "type": "continuous",
-      "name": "urn:csci:microsoft:agent:networkLatency/1.1",
+      "name": "urn:csci:microsoft:agent:stressNg/1.0",
       "parameters": [
         {
-          "key": "destinationFilters",
-          "value": "[ { \"address\": \"23.45.229.97\", \"subnetMask\": \"255.255.255.224\", \"portLow\": \"5000\", \"portHigh\": \"5200\" } ]"
-        },
-        {
-          "key": "inboundDestinationFilters",
-          "value": "[ { \"address\": \"23.45.229.97\", \"subnetMask\": \"255.255.255.224\", \"portLow\": \"5000\", \"portHigh\": \"5200\" } ]"
-        },
-        {
-          "key": "latencyInMilliseconds",
-          "value": "100",
+          "key": "stressNgArguments",
+          "value": "--random 64"
         },
         {
           "key": "virtualMachineScaleSetInstances",
@@ -620,343 +820,32 @@ The parameters **destinationFilters** and **inboundDestinationFilters** use the 
 }
 ```
 
-### Limitations
 
-* The agent-based network faults currently only support IPv4 addresses.
-* When running on Linux, the network latency fault can only affect **outbound** traffic, not inbound traffic. The fault can affect **both inbound and outbound** traffic on Windows environments (via the `inboundDestinationFilters` and `destinationFilters` parameters).
-* When running on Windows, the network latency fault currently only works with TCP or UDP packets.
+## Service-direct fault details
 
 
-## Network disconnect
-
-| Property | Value |
-|-|-|
-| Capability name | NetworkDisconnect-1.1 |
-| Target type | Microsoft-Agent |
-| Supported OS types | Windows, Linux. |
-| Description | Blocks outbound network traffic for specified port range and network block. At least one destinationFilter or inboundDestinationFilter array must be provided. |
-| Prerequisites | **Windows:** The agent must run as administrator, which happens by default if installed as a VM extension. |
-| | **Linux:** The `tc` (Traffic Control) package is used for network faults. If it isn't already installed, the agent automatically attempts to install it from the default package manager. |
-| Urn | urn:csci:microsoft:agent:networkDisconnect/1.1 |
-| Parameters (key, value) |  |
-| destinationFilters | Delimited JSON array of packet filters defining which outbound packets to target. Maximum of 16.|
-| inboundDestinationFilters | Delimited JSON array of packet filters defining which inbound packets to target. Maximum of 16. |
-| virtualMachineScaleSetInstances | An array of instance IDs when you apply this fault to a virtual machine scale set. Required for virtual machine scale sets in uniform orchestration mode. [Learn more about instance IDs](../virtual-machine-scale-sets/virtual-machine-scale-sets-instance-ids.md#scale-set-instance-id-for-uniform-orchestration-mode). |
-
-The parameters **destinationFilters** and **inboundDestinationFilters** use the following array of packet filters.
-
-| Property | Value |
-|-|-|
-| address | IP address that indicates the start of the IP range. |
-| subnetMask | Subnet mask for the IP address range. |
-| portLow | (Optional) Port number of the start of the port range. |
-| portHigh | (Optional) Port number of the end of the port range. |
-
-### Sample JSON
-
-```json
-{
-  "name": "branchOne",
-  "actions": [
-    {
-      "type": "continuous",
-      "name": "urn:csci:microsoft:agent:networkDisconnect/1.1",
-      "parameters": [
-        {
-          "key": "destinationFilters",
-          "value": "[ { \"address\": \"23.45.229.97\", \"subnetMask\": \"255.255.255.224\", \"portLow\": \"5000\", \"portHigh\": \"5200\" } ]"
-        },
-        {
-          "key": "inboundDestinationFilters",
-          "value": "[ { \"address\": \"23.45.229.97\", \"subnetMask\": \"255.255.255.224\", \"portLow\": \"5000\", \"portHigh\": \"5200\" } ]"
-        },
-        {
-          "key": "virtualMachineScaleSetInstances",
-          "value": "[0,1,2]"
-        }
-      ],
-      "duration": "PT10M",
-      "selectorid": "myResources"
-    }
-  ]
-}
-```
-
-### Limitations
-
-* The agent-based network faults currently only support IPv4 addresses.
-* The network disconnect fault only affects new connections. Existing active connections continue to persist. You can restart the service or process to force connections to break.
-* When running on Windows, the network disconnect fault currently only works with TCP or UDP packets.
-
-## Network disconnect with firewall rule
-
-| Property | Value |
-|-|-|
-| Capability name | NetworkDisconnectViaFirewall-1.0 |
-| Target type | Microsoft-Agent |
-| Supported OS types | Windows |
-| Description | Applies a Windows firewall rule to block outbound traffic for specified port range and network block. |
-| Prerequisites | Agent must run as administrator. If the agent is installed as a VM extension, it runs as administrator by default. |
-| Urn | urn:csci:microsoft:agent:networkDisconnectViaFirewall/1.0 |
-| Parameters (key, value) |  |
-| destinationFilters | Delimited JSON array of packet filters that define which outbound packets to target for fault injection. |
-| address | IP address that indicates the start of the IP range. |
-| subnetMask | Subnet mask for the IP address range. |
-| portLow | (Optional) Port number of the start of the port range. |
-| portHigh | (Optional) Port number of the end of the port range. |
-| virtualMachineScaleSetInstances | An array of instance IDs when you apply this fault to a virtual machine scale set. Required for virtual machine scale sets in uniform orchestration mode. [Learn more about instance IDs](../virtual-machine-scale-sets/virtual-machine-scale-sets-instance-ids.md#scale-set-instance-id-for-uniform-orchestration-mode). |
-
-### Sample JSON
-
-```json
-{
-  "name": "branchOne",
-  "actions": [
-    {
-      "type": "continuous",
-      "name": "urn:csci:microsoft:agent:networkDisconnectViaFirewall/1.0",
-      "parameters": [
-        {
-          "key": "destinationFilters",
-          "value": "[ { \"Address\": \"23.45.229.97\", \"SubnetMask\": \"255.255.255.224\", \"PortLow\": \"5000\", \"PortHigh\": \"5200\" } ]"
-        },
-        {
-          "key": "virtualMachineScaleSetInstances",
-          "value": "[0,1,2]"
-        }
-      ],
-      "duration": "PT10M",
-      "selectorid": "myResources"
-    }
-  ]
-}
-```
-
-### Limitations
-
-* The agent-based network faults currently only support IPv4 addresses.
-
-## Network packet loss
-
-| Property | Value |
-|-|-|
-| Capability name | NetworkPacketLoss-1.0 |
-| Target type | Microsoft-Agent |
-| Supported OS types | Windows, Linux |
-| Description | Introduces packet loss for outbound traffic at a specified rate, between 0.0 (no packets lost) and 1.0 (all packets lost). This action can help simulate scenarios like network congestion or network hardware issues. |
-| Prerequisites | **Windows:** The agent must run as administrator, which happens by default if installed as a VM extension. |
-| | **Linux:** The `tc` (Traffic Control) package is used for network faults. If it isn't already installed, the agent automatically attempts to install it from the default package manager. |
-| Urn | urn:csci:microsoft:agent:networkPacketLoss/1.0 |
-| Parameters (key, value) |  |
-| packetLossRate | The rate at which packets matching the destination filters will be lost, ranging from 0.0 to 1.0. |
-| virtualMachineScaleSetInstances | An array of instance IDs when you apply this fault to a virtual machine scale set. Required for virtual machine scale sets in uniform orchestration mode. [Learn more about instance IDs](../virtual-machine-scale-sets/virtual-machine-scale-sets-instance-ids.md#scale-set-instance-id-for-uniform-orchestration-mode). |
-| destinationFilters | Delimited JSON array of packet filters (parameters below) that define which outbound packets to target for fault injection. Maximum of three.|
-| address | IP address that indicates the start of the IP range. |
-| subnetMask | Subnet mask for the IP address range. |
-| portLow | (Optional) Port number of the start of the port range. |
-| portHigh | (Optional) Port number of the end of the port range. |
-
-### Sample JSON
-
-```json
-{
-  "name": "branchOne",
-  "actions": [
-    {
-      "type": "continuous",
-      "name": "urn:csci:microsoft:agent:networkPacketLoss/1.0",
-      "parameters": [
-            {
-                "key": "destinationFilters",
-                "value": "[{\"address\":\"23.45.229.97\",\"subnetMask\":\"255.255.255.224\",\"portLow\":5000,\"portHigh\":5200}]"
-            },
-            {
-                "key": "packetLossRate",
-                "value": "0.5"
-            },
-            {
-                "key": "virtualMachineScaleSetInstances",
-                "value": "[0,1,2]"
-            }
-        ],
-      "duration": "PT10M",
-      "selectorid": "myResources"
-    }
-  ]
-}
-```
-
-### Limitations
-
-* The agent-based network faults currently only support IPv4 addresses.
-* When running on Windows, the network packet loss fault currently only works with TCP or UDP packets.
-
-
-## Virtual Machine shutdown
-| Property | Value |
-|-|-|
-| Capability name | Shutdown-1.0 |
-| Target type | Microsoft-VirtualMachine |
-| Supported OS types | Windows, Linux. |
-| Description | Shuts down a VM for the duration of the fault. Restarts it at the end of the experiment or if the experiment is canceled. Only Azure Resource Manager VMs are supported. |
-| Prerequisites | None. |
-| Urn | urn:csci:microsoft:virtualMachine:shutdown/1.0 |
-| Parameters (key, value) |  |
-| abruptShutdown | (Optional) Boolean that indicates if the VM should be shut down gracefully or abruptly (destructive). |
-
-### Sample JSON
-
-```json
-{
-  "name": "branchOne",
-  "actions": [
-    {
-      "type": "continuous",
-      "name": "urn:csci:microsoft:virtualMachine:shutdown/1.0",
-      "parameters": [
-        {
-          "key": "abruptShutdown",
-          "value": "false"
-        }
-      ],
-      "duration": "PT10M",
-      "selectorid": "myResources"
-    }
-  ]
-}
-```
-
-## Virtual Machine Scale Set instance shutdown
-
-This fault has two available versions that you can use, Version 1.0 and Version 2.0. The main difference is that Version 2.0 allows you to filter by availability zones, only shutting down instances within a specified zone or zones.
-
-### Version 1.0
-
-| Property | Value |
-|-|-|
-| Capability name | Version 1.0 |
-| Target type | Microsoft-VirtualMachineScaleSet |
-| Supported OS types | Windows, Linux. |
-| Description | Shuts down or kills a virtual machine scale set instance during the fault and restarts the VM at the end of the fault duration or if the experiment is canceled. |
-| Prerequisites | None. |
-| Urn | urn:csci:microsoft:virtualMachineScaleSet:shutdown/1.0 |
-| Parameters (key, value) |  |
-| abruptShutdown | (Optional) Boolean that indicates if the virtual machine scale set instance should be shut down gracefully or abruptly (destructive). |
-| instances | A string that's a delimited array of virtual machine scale set instance IDs to which the fault is applied. |
-
-#### Version 1.0 sample JSON
-
-```json
-{
-  "name": "branchOne",
-  "actions": [
-    {
-      "type": "continuous",
-      "name": "urn:csci:microsoft:virtualMachineScaleSet:shutdown/1.0",
-      "parameters": [
-        {
-          "key": "abruptShutdown",
-          "value": "true"
-        },
-        {
-          "key": "instances",
-          "value": "[\"1\",\"3\"]"
-        }
-      ],
-      "duration": "PT10M",
-      "selectorid": "myResources"
-    }
-  ]
-}
-```
-
-### Version 2.0
-
-| Property | Value |
-|-|-|
-| Capability name | Shutdown-2.0 |
-| Target type | Microsoft-VirtualMachineScaleSet |
-| Supported OS types | Windows, Linux. |
-| Description | Shuts down or kills a virtual machine scale set instance during the fault. Restarts the VM at the end of the fault duration or if the experiment is canceled. Supports [dynamic targeting](chaos-studio-tutorial-dynamic-target-cli.md). |
-| Prerequisites | None. |
-| Urn | urn:csci:microsoft:virtualMachineScaleSet:shutdown/2.0 |
-| [filter](/azure/templates/microsoft.chaos/experiments?pivots=deployment-language-arm-template#filter-objects-1) | (Optional) Available starting with Version 2.0. Used to filter the list of targets in a selector. Currently supports filtering on a list of zones. The filter is only applied to virtual machine scale set resources within a zone:<ul><li>If no filter is specified, this fault shuts down all instances in the virtual machine scale set.</li><li>The experiment targets all virtual machine scale set instances in the specified zones.</li><li>If a filter results in no targets, the experiment fails.</li></ul> |
-| Parameters (key, value) |  |
-| abruptShutdown | (Optional) Boolean that indicates if the virtual machine scale set instance should be shut down gracefully or abruptly (destructive). |
-
-#### Version 2.0 sample JSON snippets
-
-The following snippets show how to configure both [dynamic filtering](chaos-studio-tutorial-dynamic-target-cli.md) and the shutdown 2.0 fault.
-
-Configure a filter for dynamic targeting:
-
-```json
-{
-  "type": "List",
-  "id": "myResources",
-  "targets": [
-    {
-      "id": "<targetResourceId>",
-      "type": "ChaosTarget"
-    }
-  ],
-  "filter": {
-    "type": "Simple",
-    "parameters": {
-      "zones": [
-        "1"
-      ]
-    }
-  }
-}
-```
-
-Configure the shutdown fault:
-
-```json
-{
-  "name": "branchOne",
-  "actions": [
-    {
-      "name": "urn:csci:microsoft:virtualMachineScaleSet:shutdown/2.0",
-      "type": "continuous",
-      "selectorId": "myResources",
-      "duration": "PT10M",
-      "parameters": [
-        {
-          "key": "abruptShutdown",
-          "value": "false"
-        }
-      ]
-    }
-  ]
-}
-```
-
-### Limitations
-Currently, only virtual machine scale sets configured with the **Uniform** orchestration mode are supported. If your virtual machine scale set uses **Flexible** orchestration, you can use the Azure Resource Manager virtual machine shutdown fault to shut down selected instances.
-
-## Virtual Machine redeploy
+### Stop App Service
 	
 | Property  | Value |
 | ---- | --- |
-| Capability name | Redeploy-1.0 |
-| Target type | Microsoft-VirtualMachine |
-| Description | Redeploys a VM by shutting it down, moving it to a new node in the Azure infrastructure, and powering it back on. This helps validate your workload's resilience to maintenance events. |
+| Capability name | Stop-1.0 |
+| Target type | Microsoft-AppService |
+| Description | Stops the targeted App Service applications, then restarts them at the end of the fault duration. This action applies to resources of the "Microsoft.Web/sites" type, including App Service, API Apps, Mobile Apps, and Azure Functions. |
 | Prerequisites | None. |
-| Urn | urn:csci:microsoft:virtualMachine:redeploy/1.0 |
-| Fault type | Discrete. |
+| Urn | urn:csci:microsoft:appService:stop/1.0 |
+| Fault type | Continuous. |
 | Parameters (key, value) | None. |
 
-### Sample JSON
+#### Sample JSON
 
 ```json
 {
   "name": "branchOne",
   "actions": [
     {
-      "type": "discrete",
-      "name": "urn:csci:microsoft:virtualMachine:redeploy/1.0",
+      "type": "continuous",
+      "name": "urn:csci:microsoft:appService:stop/1.0",
+      "duration": "PT10M",
       "parameters":[],
       "selectorid": "myResources"
     }
@@ -964,46 +853,43 @@ Currently, only virtual machine scale sets configured with the **Uniform** orche
 }
 ```
 
-### Limitations
 
-* The Virtual Machine Redeploy operation is throttled within an interval of 10 hours. If your experiment fails with a "Too many redeploy requests" error, wait for 10 hours to retry the experiment.
-
-
-## Azure Cosmos DB failover
+### Disable Autoscale
 
 | Property | Value |
-|-|-|
-| Capability name | Failover-1.0 |
-| Target type | Microsoft-CosmosDB |
-| Description | Causes an Azure Cosmos DB account with a single write region to fail over to a specified read region to simulate a [write region outage](../cosmos-db/high-availability.md). |
-| Prerequisites | None. |
-| Urn | `urn:csci:microsoft:cosmosDB:failover/1.0` |
-| Parameters (key, value) |  |
-| readRegion | The read region that should be promoted to write region during the failover, for example, `East US 2`. |
+| --- | --- |
+| Capability name | DisaleAutoscale |
+| Target type | Microsoft-AutoscaleSettings |
+| Description | Disables the [autoscale service](/azure/azure-monitor/autoscale/autoscale-overview). When autoscale is disabled, resources such as virtual machine scale sets, web apps, service bus, and [more](/azure/azure-monitor/autoscale/autoscale-overview#supported-services-for-autoscale) aren't automatically added or removed based on the load of the application. |
+| Prerequisites | The autoScalesetting resource that's enabled on the resource must be onboarded to Chaos Studio. |
+| Urn | urn:csci:microsoft:autoscalesettings:disableAutoscale/1.0 |
+| Fault type | Continuous. |
+| Parameters (key, value) |   |
+| enableOnComplete | Boolean. Configures whether autoscaling is reenabled after the action is done. Default is `true`. |
 
-### Sample JSON
-
+#### Sample JSON
 ```json
 {
-  "name": "branchOne",
-  "actions": [
-    {
-      "type": "continuous",
-      "name": "urn:csci:microsoft:cosmosDB:failover/1.0",
-      "parameters": [
-        {
-          "key": "readRegion",
-          "value": "West US 2"
-        }
-      ],
-      "duration": "PT10M",
-      "selectorid": "myResources"
-    }
-  ]
-}
+  "name": "BranchOne", 
+  "actions": [ 
+    { 
+    "type": "continuous", 
+    "name": "urn:csci:microsoft:autoscaleSetting:disableAutoscale/1.0", 
+    "parameters": [ 
+     { 
+      "key": "enableOnComplete", 
+      "value": "true" 
+      }                 
+  ],                                 
+   "duration": "PT2M", 
+   "selectorId": "Selector1",           
+  } 
+ ] 
+} 
 ```
 
-## AKS Chaos Mesh network faults
+
+### AKS Chaos Mesh Network Chaos
 
 | Property | Value |
 |-|-|
@@ -1016,7 +902,7 @@ Currently, only virtual machine scale sets configured with the **Uniform** orche
 | Parameters (key, value) |  |
 | jsonSpec | A JSON-formatted Chaos Mesh spec that uses the [NetworkChaos kind](https://chaos-mesh.org/docs/simulate-network-chaos-on-kubernetes/#create-experiments-using-the-yaml-files). You can use a YAML-to-JSON converter like [Convert YAML To JSON](https://www.convertjson.com/yaml-to-json.htm) to convert the Chaos Mesh YAML to JSON and minify it. Use single-quotes within the JSON or escape the quotes with a backslash character. Only include the YAML under the `jsonSpec` property. Don't include information like metadata and kind. Specifying duration within the `jsonSpec` isn't necessary, but it's used if available. |
 
-### Sample JSON
+#### Sample JSON
 
 ```json
 {
@@ -1037,7 +923,7 @@ Currently, only virtual machine scale sets configured with the **Uniform** orche
 }
 ```
 
-## AKS Chaos Mesh pod faults
+### AKS Chaos Mesh Pod Chaos
 
 | Property | Value |
 |-|-|
@@ -1050,7 +936,7 @@ Currently, only virtual machine scale sets configured with the **Uniform** orche
 | Parameters (key, value) |  |
 | jsonSpec | A JSON-formatted Chaos Mesh spec that uses the [PodChaos kind](https://chaos-mesh.org/docs/simulate-pod-chaos-on-kubernetes/#create-experiments-using-yaml-configuration-files). You can use a YAML-to-JSON converter like [Convert YAML To JSON](https://www.convertjson.com/yaml-to-json.htm) to convert the Chaos Mesh YAML to JSON and minify it. Use single-quotes within the JSON or escape the quotes with a backslash character. Only include the YAML under the `jsonSpec` property. Don't include information like metadata and kind. Specifying duration within the `jsonSpec` isn't necessary, but it's used if available. |
 
-### Sample JSON
+#### Sample JSON
 
 ```json
 {
@@ -1071,7 +957,7 @@ Currently, only virtual machine scale sets configured with the **Uniform** orche
 }
 ```
 
-## AKS Chaos Mesh stress faults
+### AKS Chaos Mesh Stress Chaos
 
 | Property | Value |
 |-|-|
@@ -1084,7 +970,7 @@ Currently, only virtual machine scale sets configured with the **Uniform** orche
 | Parameters (key, value) |  |
 | jsonSpec | A JSON-formatted Chaos Mesh spec that uses the [StressChaos kind](https://chaos-mesh.org/docs/simulate-heavy-stress-on-kubernetes/#create-experiments-using-the-yaml-file). You can use a YAML-to-JSON converter like [Convert YAML To JSON](https://www.convertjson.com/yaml-to-json.htm) to convert the Chaos Mesh YAML to JSON and minify it. Use single-quotes within the JSON or escape the quotes with a backslash character. Only include the YAML under the `jsonSpec` property. Don't include information like metadata and kind. Specifying duration within the `jsonSpec` isn't necessary, but it's used if available. |
 
-### Sample JSON
+#### Sample JSON
 
 ```json
 {
@@ -1105,7 +991,7 @@ Currently, only virtual machine scale sets configured with the **Uniform** orche
 }
 ```
 
-## AKS Chaos Mesh IO faults
+### AKS Chaos Mesh IO Chaos
 
 | Property | Value |
 |-|-|
@@ -1118,7 +1004,7 @@ Currently, only virtual machine scale sets configured with the **Uniform** orche
 | Parameters (key, value) |  |
 | jsonSpec | A JSON-formatted Chaos Mesh spec that uses the [IOChaos kind](https://chaos-mesh.org/docs/simulate-io-chaos-on-kubernetes/#create-experiments-using-the-yaml-files). You can use a YAML-to-JSON converter like [Convert YAML To JSON](https://www.convertjson.com/yaml-to-json.htm) to convert the Chaos Mesh YAML to JSON and minify it. Use single-quotes within the JSON or escape the quotes with a backslash character. Only include the YAML under the `jsonSpec` property. Don't include information like metadata and kind. Specifying duration within the `jsonSpec` isn't necessary, but it's used if available. |
 
-### Sample JSON
+#### Sample JSON
 
 ```json
 {
@@ -1139,7 +1025,7 @@ Currently, only virtual machine scale sets configured with the **Uniform** orche
 }
 ```
 
-## AKS Chaos Mesh time faults
+### AKS Chaos Mesh Time Chaos
 
 | Property | Value |
 |-|-|
@@ -1152,7 +1038,7 @@ Currently, only virtual machine scale sets configured with the **Uniform** orche
 | Parameters (key, value) |  |
 | jsonSpec | A JSON-formatted Chaos Mesh spec that uses the [TimeChaos kind](https://chaos-mesh.org/docs/simulate-time-chaos-on-kubernetes/#create-experiments-using-the-yaml-file). You can use a YAML-to-JSON converter like [Convert YAML To JSON](https://www.convertjson.com/yaml-to-json.htm) to convert the Chaos Mesh YAML to JSON and minify it. Use single-quotes within the JSON or escape the quotes with a backslash character. Only include the YAML under the `jsonSpec` property. Don't include information like metadata and kind. Specifying duration within the `jsonSpec` isn't necessary, but it's used if available. |
 
-### Sample JSON
+#### Sample JSON
 
 ```json
 {
@@ -1173,7 +1059,7 @@ Currently, only virtual machine scale sets configured with the **Uniform** orche
 }
 ```
 
-## AKS Chaos Mesh kernel faults
+### AKS Chaos Mesh Kernel Chaos
 
 | Property | Value |
 |-|-|
@@ -1186,7 +1072,7 @@ Currently, only virtual machine scale sets configured with the **Uniform** orche
 | Parameters (key, value) |  |
 | jsonSpec | A JSON-formatted Chaos Mesh spec that uses the [KernelChaos kind](https://chaos-mesh.org/docs/simulate-kernel-chaos-on-kubernetes/#configuration-file). You can use a YAML-to-JSON converter like [Convert YAML To JSON](https://www.convertjson.com/yaml-to-json.htm) to convert the Chaos Mesh YAML to JSON and minify it. Use single-quotes within the JSON or escape the quotes with a backslash character. Only include the YAML under the `jsonSpec` property. Don't include information like metadata and kind. Specifying duration within the `jsonSpec` isn't necessary, but it's used if available. |
 
-### Sample JSON
+#### Sample JSON
 
 ```json
 {
@@ -1207,7 +1093,7 @@ Currently, only virtual machine scale sets configured with the **Uniform** orche
 }
 ```
 
-## AKS Chaos Mesh HTTP faults
+### AKS Chaos Mesh HTTP Chaos
 
 | Property | Value |
 |-|-|
@@ -1220,7 +1106,7 @@ Currently, only virtual machine scale sets configured with the **Uniform** orche
 | Parameters (key, value) |  |
 | jsonSpec | A JSON-formatted Chaos Mesh spec that uses the [HTTPChaos kind](https://chaos-mesh.org/docs/simulate-http-chaos-on-kubernetes/#create-experiments). You can use a YAML-to-JSON converter like [Convert YAML To JSON](https://www.convertjson.com/yaml-to-json.htm) to convert the Chaos Mesh YAML to JSON and minify it. Use single-quotes within the JSON or escape the quotes with a backslash character. Only include the YAML under the `jsonSpec` property. Don't include information like metadata and kind. Specifying duration within the `jsonSpec` isn't necessary, but it's used if available. |
 
-### Sample JSON
+#### Sample JSON
 
 ```json
 {
@@ -1241,7 +1127,7 @@ Currently, only virtual machine scale sets configured with the **Uniform** orche
 }
 ```
 
-## AKS Chaos Mesh DNS faults
+### AKS Chaos Mesh DNS Chaos
 
 | Property | Value |
 |-|-|
@@ -1254,7 +1140,7 @@ Currently, only virtual machine scale sets configured with the **Uniform** orche
 | Parameters (key, value) |  |
 | jsonSpec | A JSON-formatted Chaos Mesh spec that uses the [DNSChaos kind](https://chaos-mesh.org/docs/simulate-dns-chaos-on-kubernetes/#create-experiments-using-the-yaml-file). You can use a YAML-to-JSON converter like [Convert YAML To JSON](https://www.convertjson.com/yaml-to-json.htm) to convert the Chaos Mesh YAML to JSON and minify it. Use single-quotes within the JSON or escape the quotes with a backslash character. Only include the YAML under the `jsonSpec` property. Don't include information like metadata and kind. Specifying duration within the `jsonSpec` isn't necessary, but it's used if available. |
 
-### Sample JSON
+#### Sample JSON
 
 ```json
 {
@@ -1275,90 +1161,36 @@ Currently, only virtual machine scale sets configured with the **Uniform** orche
 }
 ```
 
-## Network security group (set rules)
+### Cloud Services (Classic) Shutdown
 
 | Property | Value |
 |-|-|
-| Capability name | SecurityRule-1.0 |
-| Target type | Microsoft-NetworkSecurityGroup |
-| Description | Enables manipulation or rule creation in an existing Azure network security group (NSG) or set of Azure NSGs, assuming the rule definition is applicable across security groups. Useful for: <ul><li>Simulating an outage of a downstream or cross-region dependency/nondependency.<li>Simulating an event that's expected to trigger a logic to force a service failover.<li>Simulating an event that's expected to trigger an action from a monitoring or state management service.<li>Using as an alternative for blocking or allowing network traffic where Chaos Agent can't be deployed. |
+| Capability name | Shutdown-1.0 |
+| Target type | Microsoft-DomainName |
+| Description | Stops a deployment during the fault. Restarts the deployment at the end of the fault duration or if the experiment is canceled. |
 | Prerequisites | None. |
-| Urn | urn:csci:microsoft:networkSecurityGroup:securityRule/1.0 |
-| Parameters (key, value) |  |
-| name | A unique name for the security rule that's created. The fault fails if another rule already exists on the NSG with the same name. Must begin with a letter or number. Must end with a letter, number, or underscore. May contain only letters, numbers, underscores, periods, or hyphens. |
-| protocol | Protocol for the security rule. Must be Any, TCP, UDP, or ICMP. |
-| sourceAddresses | A string that represents a JSON-delimited array of CIDR-formatted IP addresses. Can also be a [service tag name](../virtual-network/service-tags-overview.md) for an inbound rule, for example, `AppService`. An asterisk `*` can also be used to match all source IPs. |
-| destinationAddresses | A string that represents a JSON-delimited array of CIDR-formatted IP addresses. Can also be a [service tag name](../virtual-network/service-tags-overview.md) for an outbound rule, for example, `AppService`. An asterisk `*` can also be used to match all destination IPs. |
-| action | Security group access type. Must be either Allow or Deny. |
-| destinationPortRanges | A string that represents a JSON-delimited array of single ports and/or port ranges, such as 80 or 1024-65535. |
-| sourcePortRanges | A string that represents a JSON-delimited array of single ports and/or port ranges, such as 80 or 1024-65535. |
-| priority | A value between 100 and 4096 that's unique for all security rules within the NSG. The fault fails if another rule already exists on the NSG with the same priority. |
-| direction | Direction of the traffic affected by the security rule. Must be either Inbound or Outbound. |
+| Urn | urn:csci:microsoft:domainName:shutdown/1.0 |
+| Fault type | Continuous. |
+| Parameters | None.  |
 
-### Sample JSON
+#### Sample JSON
 
 ```json
-{ 
-  "name": "branchOne", 
-  "actions": [ 
-    { 
-      "type": "continuous", 
-      "name": "urn:csci:microsoft:networkSecurityGroup:securityRule/1.0", 
-      "parameters": [ 
-          { 
-              "key": "name", 
-              "value": "Block_SingleHost_to_Networks" 
-
-          }, 
-          { 
-              "key": "protocol", 
-              "value": "Any" 
-          }, 
-          { 
-              "key": "sourceAddresses", 
-              "value": "[\"10.1.1.128/32\"]"
-          }, 
-          { 
-              "key": "destinationAddresses", 
-              "value": "[\"10.20.0.0/16\",\"10.30.0.0/16\"]"
-          }, 
-          { 
-              "key": "access", 
-              "value": "Deny" 
-          }, 
-          { 
-              "key": "destinationPortRanges", 
-              "value": "[\"80-8080\"]"
-          }, 
-          { 
-              "key": "sourcePortRanges", 
-              "value": "[\"*\"]"
-          }, 
-          { 
-              "key": "priority", 
-              "value": "100" 
-          }, 
-          { 
-              "key": "direction", 
-              "value": "Outbound" 
-          } 
-      ], 
-      "duration": "PT10M", 
-      "selectorid": "myResources" 
-    } 
-  ] 
-} 
+{
+  "name": "branchOne",
+  "actions": [
+    {
+      "type": "continuous",
+      "name": "urn:csci:microsoft:domainName:shutdown/1.0",
+      "parameters": [],
+      "duration": "PT10M",
+      "selectorid": "myResources"
+    }
+  ]
+}
 ```
 
-### Limitations
-
-* The fault can only be applied to an existing NSG.
-* When an NSG rule that's intended to deny traffic is applied, existing connections won't be broken until they've been **idle** for 4 minutes. One workaround is to add another branch in the same step that uses a fault that would cause existing connections to break when the NSG fault is applied. For example, killing the process, temporarily stopping the service, or restarting the VM would cause connections to reset.
-* Rules are applied at the start of the action. Any external changes to the rule during the duration of the action cause the experiment to fail.
-* Creating or modifying Application Security Group rules isn't supported.
-* Priority values must be unique on each NSG targeted. Attempting to create a new rule that has the same priority value as another causes the experiment to fail.
-
-## Azure Cache for Redis reboot
+### Azure Cache for Redis (Reboot)
 
 | Property | Value |
 |-|-|
@@ -1372,7 +1204,7 @@ Currently, only virtual machine scale sets configured with the **Uniform** orche
 | rebootType | The node types where the reboot action is to be performed, which can be specified as PrimaryNode, SecondaryNode, or AllNodes.  |
 | shardId | The ID of the shard to be rebooted. Only relevant for Premium tier caches. |
 
-### Sample JSON
+#### Sample JSON
 
 ```json
 {
@@ -1397,24 +1229,25 @@ Currently, only virtual machine scale sets configured with the **Uniform** orche
 }
 ```
 
-### Limitations
+#### Limitations
 
 * The reboot fault causes a forced reboot to better simulate an outage event, which means there's the potential for data loss to occur.
 * The reboot fault is a **discrete** fault type. Unlike continuous faults, it's a one-time action and has no duration.
 
-## Cloud Services (classic) shutdown
+
+### Cosmos DB Failover
 
 | Property | Value |
 |-|-|
-| Capability name | Shutdown-1.0 |
-| Target type | Microsoft-DomainName |
-| Description | Stops a deployment during the fault. Restarts the deployment at the end of the fault duration or if the experiment is canceled. |
+| Capability name | Failover-1.0 |
+| Target type | Microsoft-CosmosDB |
+| Description | Causes an Azure Cosmos DB account with a single write region to fail over to a specified read region to simulate a [write region outage](../cosmos-db/high-availability.md). |
 | Prerequisites | None. |
-| Urn | urn:csci:microsoft:domainName:shutdown/1.0 |
-| Fault type | Continuous. |
-| Parameters | None.  |
+| Urn | `urn:csci:microsoft:cosmosDB:failover/1.0` |
+| Parameters (key, value) |  |
+| readRegion | The read region that should be promoted to write region during the failover, for example, `East US 2`. |
 
-### Sample JSON
+#### Sample JSON
 
 ```json
 {
@@ -1422,8 +1255,13 @@ Currently, only virtual machine scale sets configured with the **Uniform** orche
   "actions": [
     {
       "type": "continuous",
-      "name": "urn:csci:microsoft:domainName:shutdown/1.0",
-      "parameters": [],
+      "name": "urn:csci:microsoft:cosmosDB:failover/1.0",
+      "parameters": [
+        {
+          "key": "readRegion",
+          "value": "West US 2"
+        }
+      ],
       "duration": "PT10M",
       "selectorid": "myResources"
     }
@@ -1431,40 +1269,47 @@ Currently, only virtual machine scale sets configured with the **Uniform** orche
 }
 ```
 
-## Disable autoscale
+### Change Event Hub State
+	
+| Property  | Value |
+| ---- | --- |
+| Capability name | ChangeEventHubState-1.0 |
+| Target type | Microsoft-EventHub |
+| Description | Sets individual event hubs to the desired state within an Azure Event Hubs namespace. You can affect specific event hub names or use “*” to affect all within the namespace. This action can help test your messaging infrastructure for maintenance or failure scenarios. This is a discrete fault, so the entity will not be returned to the starting state automatically. |
+| Prerequisites | An Azure Event Hubs namespace with at least one [event hub entity](../event-hubs/event-hubs-create.md). |
+| Urn | urn:csci:microsoft:eventHub:changeEventHubState/1.0 |
+| Fault type | Discrete. |
+| Parameters (key, value) | |
+| desiredState | The desired state for the targeted event hubs. The possible states are Active, Disabled, and SendDisabled. |
+| eventHubs | A comma-separated list of the event hub names within the targeted namespace. Use "*" to affect all entities within the namespace. |
 
-| Property | Value |
-| --- | --- |
-| Capability name | DisaleAutoscale |
-| Target type | Microsoft-AutoscaleSettings |
-| Description | Disables the [autoscale service](/azure/azure-monitor/autoscale/autoscale-overview). When autoscale is disabled, resources such as virtual machine scale sets, web apps, service bus, and [more](/azure/azure-monitor/autoscale/autoscale-overview#supported-services-for-autoscale) aren't automatically added or removed based on the load of the application.
-| Prerequisites | The autoScalesetting resource that's enabled on the resource must be onboarded to Chaos Studio.
-| Urn | urn:csci:microsoft:autoscalesettings:disableAutoscale/1.0 |
-| Fault type | Continuous. |
-| Parameters (key, value) |   |
-| enableOnComplete | Boolean. Configures whether autoscaling is reenabled after the action is done. Default is `true`. |
+#### Sample JSON
 
 ```json
 {
-  "name": "BranchOne", 
-  "actions": [ 
-    { 
-    "type": "continuous", 
-    "name": "urn:csci:microsoft:autoscaleSetting:disableAutoscale/1.0", 
-    "parameters": [ 
-     { 
-      "key": "enableOnComplete", 
-      "value": "true" 
-      }                 
-  ],                                 
-   "duration": "PT2M", 
-   "selectorId": "Selector1",           
-  } 
- ] 
-} 
+  "name": "Branch1",
+    "actions": [
+        {
+            "selectorId": "Selector1",
+            "type": "discrete",
+            "parameters": [
+                {
+                    "key": "eventhubs",
+                    "value": "[\"*\"]"
+                },
+                {
+                    "key": "desiredState",
+                    "value": "Disabled"
+                }
+            ],
+            "name": "urn:csci:microsoft:eventHub:changeEventHubState/1.0"
+        }
+    ]
+}
 ```
 
-## Key Vault: Deny Access
+
+### Key Vault: Deny Access
 
 | Property | Value |
 |-|-|
@@ -1476,7 +1321,7 @@ Currently, only virtual machine scale sets configured with the **Uniform** orche
 | Fault type | Continuous. |
 | Parameters (key, value) | None. |
 
-### Sample JSON
+#### Sample JSON
 
 ```json
 {
@@ -1493,7 +1338,7 @@ Currently, only virtual machine scale sets configured with the **Uniform** orche
 }
 ```
 
-## Key Vault: Disable Certificate
+### Key Vault: Disable Certificate
 
 | Property  | Value |
 | ---- | --- |
@@ -1507,7 +1352,7 @@ Currently, only virtual machine scale sets configured with the **Uniform** orche
 | certificateName | Name of Azure Key Vault certificate on which the fault is executed. |
 | version | Certificate version that should be disabled. If not specified, the latest version is disabled. |
 
-### Sample JSON
+#### Sample JSON
 
 ```json
 {
@@ -1534,7 +1379,7 @@ Currently, only virtual machine scale sets configured with the **Uniform** orche
 }
 ```
 
-## Key Vault: Increment Certificate Version
+### Key Vault: Increment Certificate Version
 	
 | Property  | Value |
 | ---- | --- |
@@ -1547,7 +1392,7 @@ Currently, only virtual machine scale sets configured with the **Uniform** orche
 | Parameters (key, value) | |
 | certificateName | Name of Azure Key Vault certificate on which the fault is executed. |
 
-### Sample JSON
+#### Sample JSON
 
 ```json
 {
@@ -1569,7 +1414,7 @@ Currently, only virtual machine scale sets configured with the **Uniform** orche
 }
 ```
 
-## Key Vault: Update Certificate Policy
+### Key Vault: Update Certificate Policy
 
 | Property  | Value |        
 | ---- | --- |  
@@ -1592,7 +1437,7 @@ Currently, only virtual machine scale sets configured with the **Uniform** orche
 | reuseKey | Boolean. Value that indicates if the certificate key should be reused when the certificate is rotated.|
 | keyType | Type of backing key generated when new certificates are issued, such as RSA or EC. |
 
-### Sample JSON
+#### Sample JSON
 
 ```json
 {
@@ -1655,104 +1500,92 @@ Currently, only virtual machine scale sets configured with the **Uniform** orche
 }
 ```
 
-## App Service: Stop
-	
-| Property  | Value |
-| ---- | --- |
-| Capability name | Stop-1.0 |
-| Target type | Microsoft-AppService |
-| Description | Stops the targeted App Service applications, then restarts them at the end of the fault duration. This action applies to resources of the "Microsoft.Web/sites" type, including App Service, API Apps, Mobile Apps, and Azure Functions. |
+
+### NSG Security Rule
+
+| Property | Value |
+|-|-|
+| Capability name | SecurityRule-1.0 |
+| Target type | Microsoft-NetworkSecurityGroup |
+| Description | Enables manipulation or rule creation in an existing Azure network security group (NSG) or set of Azure NSGs, assuming the rule definition is applicable across security groups. Useful for: <ul><li>Simulating an outage of a downstream or cross-region dependency/nondependency.<li>Simulating an event that's expected to trigger a logic to force a service failover.<li>Simulating an event that's expected to trigger an action from a monitoring or state management service.<li>Using as an alternative for blocking or allowing network traffic where Chaos Agent can't be deployed. |
 | Prerequisites | None. |
-| Urn | urn:csci:microsoft:appService:stop/1.0 |
-| Fault type | Continuous. |
-| Parameters (key, value) | None. |
+| Urn | urn:csci:microsoft:networkSecurityGroup:securityRule/1.0 |
+| Parameters (key, value) |  |
+| name | A unique name for the security rule that's created. The fault fails if another rule already exists on the NSG with the same name. Must begin with a letter or number. Must end with a letter, number, or underscore. May contain only letters, numbers, underscores, periods, or hyphens. |
+| protocol | Protocol for the security rule. Must be Any, TCP, UDP, or ICMP. |
+| sourceAddresses | A string that represents a JSON-delimited array of CIDR-formatted IP addresses. Can also be a [service tag name](../virtual-network/service-tags-overview.md) for an inbound rule, for example, `AppService`. An asterisk `*` can also be used to match all source IPs. |
+| destinationAddresses | A string that represents a JSON-delimited array of CIDR-formatted IP addresses. Can also be a [service tag name](../virtual-network/service-tags-overview.md) for an outbound rule, for example, `AppService`. An asterisk `*` can also be used to match all destination IPs. |
+| action | Security group access type. Must be either Allow or Deny. |
+| destinationPortRanges | A string that represents a JSON-delimited array of single ports and/or port ranges, such as 80 or 1024-65535. |
+| sourcePortRanges | A string that represents a JSON-delimited array of single ports and/or port ranges, such as 80 or 1024-65535. |
+| priority | A value between 100 and 4096 that's unique for all security rules within the NSG. The fault fails if another rule already exists on the NSG with the same priority. |
+| direction | Direction of the traffic affected by the security rule. Must be either Inbound or Outbound. |
 
-### Sample JSON
-
-```json
-{
-  "name": "branchOne",
-  "actions": [
-    {
-      "type": "continuous",
-      "name": "urn:csci:microsoft:appService:stop/1.0",
-      "duration": "PT10M",
-      "parameters":[],
-      "selectorid": "myResources"
-    }
-  ]
-}
-```
-
-## Azure Load Testing: Start load test
-	
-| Property  | Value |
-| ---- | --- |
-| Capability name | Start-1.0 |
-| Target type | Microsoft-AzureLoadTest |
-| Description | Starts a load test (from Azure Load Testing) based on the provided load test ID. |
-| Prerequisites | A load test with a valid load test ID must be created in the [Azure Load Testing service](../load-testing/quickstart-create-and-run-load-test.md). |
-| Urn | urn:csci:microsoft:azureLoadTest:start/1.0 |
-| Fault type | Discrete. |
-| Parameters (key, value) |     |    
-| testID | The ID of a specific load test created in the Azure Load Testing service. |
-
-### Sample JSON
+#### Sample JSON
 
 ```json
-{
-  "name": "branchOne",
-  "actions": [
-    {
-      "type": "discrete",
-      "name": "urn:csci:microsoft:azureLoadTest:start/1.0",
-      "parameters": [
-        {
-            "key": "testID",
-            "value": "0"
-        }
-    ],
-      "selectorid": "myResources"
-    }
-  ]
-}
+{ 
+  "name": "branchOne", 
+  "actions": [ 
+    { 
+      "type": "continuous", 
+      "name": "urn:csci:microsoft:networkSecurityGroup:securityRule/1.0", 
+      "parameters": [ 
+          { 
+              "key": "name", 
+              "value": "Block_SingleHost_to_Networks" 
+
+          }, 
+          { 
+              "key": "protocol", 
+              "value": "Any" 
+          }, 
+          { 
+              "key": "sourceAddresses", 
+              "value": "[\"10.1.1.128/32\"]"
+          }, 
+          { 
+              "key": "destinationAddresses", 
+              "value": "[\"10.20.0.0/16\",\"10.30.0.0/16\"]"
+          }, 
+          { 
+              "key": "access", 
+              "value": "Deny" 
+          }, 
+          { 
+              "key": "destinationPortRanges", 
+              "value": "[\"80-8080\"]"
+          }, 
+          { 
+              "key": "sourcePortRanges", 
+              "value": "[\"*\"]"
+          }, 
+          { 
+              "key": "priority", 
+              "value": "100" 
+          }, 
+          { 
+              "key": "direction", 
+              "value": "Outbound" 
+          } 
+      ], 
+      "duration": "PT10M", 
+      "selectorid": "myResources" 
+    } 
+  ] 
+} 
 ```
 
-## Azure Load Testing: Stop load test
-	
-| Property  | Value |
-| ---- | --- |
-| Capability name | Stop-1.0 |
-| Target type | Microsoft-AzureLoadTest |
-| Description | Stops a load test (from Azure Load Testing) based on the provided load test ID. |
-| Prerequisites | A load test with a valid load test ID must be created in the [Azure Load Testing service](../load-testing/quickstart-create-and-run-load-test.md). |
-| Urn | urn:csci:microsoft:azureLoadTest:stop/1.0 |
-| Fault type | Discrete. |
-| Parameters (key, value) |     |    
-| testID | The ID of a specific load test created in the Azure Load Testing service. |
+#### Limitations
 
-### Sample JSON
+* The fault can only be applied to an existing NSG.
+* When an NSG rule that's intended to deny traffic is applied, existing connections won't be broken until they've been **idle** for 4 minutes. One workaround is to add another branch in the same step that uses a fault that would cause existing connections to break when the NSG fault is applied. For example, killing the process, temporarily stopping the service, or restarting the VM would cause connections to reset.
+* Rules are applied at the start of the action. Any external changes to the rule during the duration of the action cause the experiment to fail.
+* Creating or modifying Application Security Group rules isn't supported.
+* Priority values must be unique on each NSG targeted. Attempting to create a new rule that has the same priority value as another causes the experiment to fail.
 
-```json
-{
-  "name": "branchOne",
-  "actions": [
-    {
-      "type": "discrete",
-      "name": "urn:csci:microsoft:azureLoadTest:stop/1.0",
-      "parameters": [
-        {
-            "key": "testID",
-            "value": "0"
-        }
-    ],
-      "selectorid": "myResources"
-    }
-  ]
-}
-```
 
-## Service Bus: Change Queue State
+### Service Bus: Change Queue State
 	
 | Property  | Value |
 | ---- | --- |
@@ -1766,7 +1599,7 @@ Currently, only virtual machine scale sets configured with the **Uniform** orche
 | desiredState | The desired state for the targeted queues. The possible states are Active, Disabled, SendDisabled, and ReceiveDisabled. |
 | queues | A comma-separated list of the queue names within the targeted namespace. Use "*" to affect all queues within the namespace. |
 
-### Sample JSON
+#### Sample JSON
 
 ```json
 {
@@ -1791,11 +1624,11 @@ Currently, only virtual machine scale sets configured with the **Uniform** orche
 }
 ```
 
-### Limitations
+#### Limitations
 
 * A maximum of 1000 queue entities can be passed to this fault.
 
-## Service Bus: Change Subscription State
+### Service Bus: Change Subscription State
 	
 | Property  | Value |
 | ---- | --- |
@@ -1810,7 +1643,7 @@ Currently, only virtual machine scale sets configured with the **Uniform** orche
 | topic | The parent topic containing one or more subscriptions to affect. |
 | subscriptions | A comma-separated list of the subscription names within the targeted namespace. Use "*" to affect all subscriptions within the namespace. |
 
-### Sample JSON
+#### Sample JSON
 
 ```json
 {
@@ -1839,11 +1672,11 @@ Currently, only virtual machine scale sets configured with the **Uniform** orche
 }
 ```
 
-### Limitations
+#### Limitations
 
 * A maximum of 1000 subscription entities can be passed to this fault.
 
-## Service Bus: Change Topic State
+### Service Bus: Change Topic State
 	
 | Property  | Value |
 | ---- | --- |
@@ -1857,7 +1690,7 @@ Currently, only virtual machine scale sets configured with the **Uniform** orche
 | desiredState | The desired state for the targeted topics. The possible states are Active and Disabled. |
 | topics | A comma-separated list of the topic names within the targeted namespace. Use "*" to affect all topics within the namespace. |
 
-### Sample JSON
+#### Sample JSON
 
 ```json
 {
@@ -1882,45 +1715,294 @@ Currently, only virtual machine scale sets configured with the **Uniform** orche
 }
 ```
 
-### Limitations
+#### Limitations
 
 * A maximum of 1000 topic entities can be passed to this fault.
 
-## Change Event Hub State
+### VM Redeploy
 	
 | Property  | Value |
 | ---- | --- |
-| Capability name | ChangeEventHubState-1.0 |
-| Target type | Microsoft-EventHub |
-| Description | Sets individual event hubs to the desired state within an Azure Event Hubs namespace. You can affect specific event hub names or use “*” to affect all within the namespace. This action can help test your messaging infrastructure for maintenance or failure scenarios. This is a discrete fault, so the entity will not be returned to the starting state automatically. |
-| Prerequisites | An Azure Event Hubs namespace with at least one [event hub entity](../event-hubs/event-hubs-create.md). |
-| Urn | urn:csci:microsoft:eventHub:changeEventHubState/1.0 |
+| Capability name | Redeploy-1.0 |
+| Target type | Microsoft-VirtualMachine |
+| Description | Redeploys a VM by shutting it down, moving it to a new node in the Azure infrastructure, and powering it back on. This helps validate your workload's resilience to maintenance events. |
+| Prerequisites | None. |
+| Urn | urn:csci:microsoft:virtualMachine:redeploy/1.0 |
 | Fault type | Discrete. |
-| Parameters (key, value) | |
-| desiredState | The desired state for the targeted event hubs. The possible states are Active, Disabled, and SendDisabled. |
-| eventHubs | A comma-separated list of the event hub names within the targeted namespace. Use "*" to affect all entities within the namespace. |
+| Parameters (key, value) | None. |
 
-### Sample JSON
+#### Sample JSON
 
 ```json
 {
-  "name": "Branch1",
-    "actions": [
-        {
-            "selectorId": "Selector1",
-            "type": "discrete",
-            "parameters": [
-                {
-                    "key": "eventhubs",
-                    "value": "[\"*\"]"
-                },
-                {
-                    "key": "desiredState",
-                    "value": "Disabled"
-                }
-            ],
-            "name": "urn:csci:microsoft:eventHub:changeEventHubState/1.0"
-        }
-    ]
+  "name": "branchOne",
+  "actions": [
+    {
+      "type": "discrete",
+      "name": "urn:csci:microsoft:virtualMachine:redeploy/1.0",
+      "parameters":[],
+      "selectorid": "myResources"
+    }
+  ]
 }
 ```
+
+#### Limitations
+
+* The Virtual Machine Redeploy operation is throttled within an interval of 10 hours. If your experiment fails with a "Too many redeploy requests" error, wait for 10 hours to retry the experiment.
+
+
+### VM Shutdown
+| Property | Value |
+|-|-|
+| Capability name | Shutdown-1.0 |
+| Target type | Microsoft-VirtualMachine |
+| Supported OS types | Windows, Linux. |
+| Description | Shuts down a VM for the duration of the fault. Restarts it at the end of the experiment or if the experiment is canceled. Only Azure Resource Manager VMs are supported. |
+| Prerequisites | None. |
+| Urn | urn:csci:microsoft:virtualMachine:shutdown/1.0 |
+| Parameters (key, value) |  |
+| abruptShutdown | (Optional) Boolean that indicates if the VM should be shut down gracefully or abruptly (destructive). |
+
+#### Sample JSON
+
+```json
+{
+  "name": "branchOne",
+  "actions": [
+    {
+      "type": "continuous",
+      "name": "urn:csci:microsoft:virtualMachine:shutdown/1.0",
+      "parameters": [
+        {
+          "key": "abruptShutdown",
+          "value": "false"
+        }
+      ],
+      "duration": "PT10M",
+      "selectorid": "myResources"
+    }
+  ]
+}
+```
+
+
+### VMSS Shutdown
+
+This fault has two available versions that you can use, Version 1.0 and Version 2.0. The main difference is that Version 2.0 allows you to filter by availability zones, only shutting down instances within a specified zone or zones.
+
+#### Version 1.0
+
+| Property | Value |
+|-|-|
+| Capability name | Version 1.0 |
+| Target type | Microsoft-VirtualMachineScaleSet |
+| Supported OS types | Windows, Linux. |
+| Description | Shuts down or kills a virtual machine scale set instance during the fault and restarts the VM at the end of the fault duration or if the experiment is canceled. |
+| Prerequisites | None. |
+| Urn | urn:csci:microsoft:virtualMachineScaleSet:shutdown/1.0 |
+| Parameters (key, value) |  |
+| abruptShutdown | (Optional) Boolean that indicates if the virtual machine scale set instance should be shut down gracefully or abruptly (destructive). |
+| instances | A string that's a delimited array of virtual machine scale set instance IDs to which the fault is applied. |
+
+##### Version 1.0 sample JSON
+
+```json
+{
+  "name": "branchOne",
+  "actions": [
+    {
+      "type": "continuous",
+      "name": "urn:csci:microsoft:virtualMachineScaleSet:shutdown/1.0",
+      "parameters": [
+        {
+          "key": "abruptShutdown",
+          "value": "true"
+        },
+        {
+          "key": "instances",
+          "value": "[\"1\",\"3\"]"
+        }
+      ],
+      "duration": "PT10M",
+      "selectorid": "myResources"
+    }
+  ]
+}
+```
+
+#### Version 2.0
+
+| Property | Value |
+|-|-|
+| Capability name | Shutdown-2.0 |
+| Target type | Microsoft-VirtualMachineScaleSet |
+| Supported OS types | Windows, Linux. |
+| Description | Shuts down or kills a virtual machine scale set instance during the fault. Restarts the VM at the end of the fault duration or if the experiment is canceled. Supports [dynamic targeting](chaos-studio-tutorial-dynamic-target-cli.md). |
+| Prerequisites | None. |
+| Urn | urn:csci:microsoft:virtualMachineScaleSet:shutdown/2.0 |
+| [filter](/azure/templates/microsoft.chaos/experiments?pivots=deployment-language-arm-template#filter-objects-1) | (Optional) Available starting with Version 2.0. Used to filter the list of targets in a selector. Currently supports filtering on a list of zones. The filter is only applied to virtual machine scale set resources within a zone:<ul><li>If no filter is specified, this fault shuts down all instances in the virtual machine scale set.</li><li>The experiment targets all virtual machine scale set instances in the specified zones.</li><li>If a filter results in no targets, the experiment fails.</li></ul> |
+| Parameters (key, value) |  |
+| abruptShutdown | (Optional) Boolean that indicates if the virtual machine scale set instance should be shut down gracefully or abruptly (destructive). |
+
+##### Version 2.0 sample JSON snippets
+
+The following snippets show how to configure both [dynamic filtering](chaos-studio-tutorial-dynamic-target-cli.md) and the shutdown 2.0 fault.
+
+Configure a filter for dynamic targeting:
+
+```json
+{
+  "type": "List",
+  "id": "myResources",
+  "targets": [
+    {
+      "id": "<targetResourceId>",
+      "type": "ChaosTarget"
+    }
+  ],
+  "filter": {
+    "type": "Simple",
+    "parameters": {
+      "zones": [
+        "1"
+      ]
+    }
+  }
+}
+```
+
+Configure the shutdown fault:
+
+```json
+{
+  "name": "branchOne",
+  "actions": [
+    {
+      "name": "urn:csci:microsoft:virtualMachineScaleSet:shutdown/2.0",
+      "type": "continuous",
+      "selectorId": "myResources",
+      "duration": "PT10M",
+      "parameters": [
+        {
+          "key": "abruptShutdown",
+          "value": "false"
+        }
+      ]
+    }
+  ]
+}
+```
+
+#### Limitations
+Currently, only virtual machine scale sets configured with the **Uniform** orchestration mode are supported. If your virtual machine scale set uses **Flexible** orchestration, you can use the Azure Resource Manager virtual machine shutdown fault to shut down selected instances.
+
+
+
+
+## Orchestration action details
+
+### Delay
+
+| Property | Value |
+|-|-|
+| Fault provider | N/A |
+| Supported OS types | N/A |
+| Description | Adds a time delay before, between, or after other experiment actions. This action isn't a fault and is used to synchronize actions within an experiment. Use this action to wait for the impact of a fault to appear in a service, or wait for an activity outside of the experiment to complete. For example, your experiment could wait for autohealing to occur before injecting another fault. |
+| Prerequisites | N/A |
+| Urn | urn:csci:microsoft:chaosStudio:timedDelay/1.0 |
+| Duration | The duration of the delay in ISO 8601 format (for example, PT10M). |
+
+#### Sample JSON
+
+```json
+{
+  "name": "branchOne",
+  "actions": [ 
+    {
+      "type": "delay",
+      "name": "urn:csci:microsoft:chaosStudio:timedDelay/1.0",
+      "duration": "PT10M"
+    }
+  ] 
+}
+```
+
+### Start load test (Azure Load Testing)
+	
+| Property  | Value |
+| ---- | --- |
+| Capability name | Start-1.0 |
+| Target type | Microsoft-AzureLoadTest |
+| Description | Starts a load test (from Azure Load Testing) based on the provided load test ID. |
+| Prerequisites | A load test with a valid load test ID must be created in the [Azure Load Testing service](../load-testing/quickstart-create-and-run-load-test.md). |
+| Urn | urn:csci:microsoft:azureLoadTest:start/1.0 |
+| Fault type | Discrete. |
+| Parameters (key, value) |     |    
+| testID | The ID of a specific load test created in the Azure Load Testing service. |
+
+#### Sample JSON
+
+```json
+{
+  "name": "branchOne",
+  "actions": [
+    {
+      "type": "discrete",
+      "name": "urn:csci:microsoft:azureLoadTest:start/1.0",
+      "parameters": [
+        {
+            "key": "testID",
+            "value": "0"
+        }
+    ],
+      "selectorid": "myResources"
+    }
+  ]
+}
+```
+
+### Stop load test (Azure Load Testing)
+	
+| Property  | Value |
+| ---- | --- |
+| Capability name | Stop-1.0 |
+| Target type | Microsoft-AzureLoadTest |
+| Description | Stops a load test (from Azure Load Testing) based on the provided load test ID. |
+| Prerequisites | A load test with a valid load test ID must be created in the [Azure Load Testing service](../load-testing/quickstart-create-and-run-load-test.md). |
+| Urn | urn:csci:microsoft:azureLoadTest:stop/1.0 |
+| Fault type | Discrete. |
+| Parameters (key, value) |     |    
+| testID | The ID of a specific load test created in the Azure Load Testing service. |
+
+#### Sample JSON
+
+```json
+{
+  "name": "branchOne",
+  "actions": [
+    {
+      "type": "discrete",
+      "name": "urn:csci:microsoft:azureLoadTest:stop/1.0",
+      "parameters": [
+        {
+            "key": "testID",
+            "value": "0"
+        }
+    ],
+      "selectorid": "myResources"
+    }
+  ]
+}
+```
+
+
+
+## Old (remove)
+
+
+
+
+
+
+
