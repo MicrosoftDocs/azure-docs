@@ -50,7 +50,6 @@ The resources must be created in Azure regions where Trusted Signing is currentl
 8. In the **Account Name** field, enter a unique account name. (See the below Certificate Profile naming constraints for naming requirements.)
 9. In the **Region** pull-down menu, select a region.
 10. In the **Pricing** tier pull-down menu, select a pricing tier.
-•   Learn more about selecting and changing SKU here: [How to Change SKU](how-to-change-sku.md)
 11. Select the **Review + Create** button.
 
 :::image type="content" source="media/trusted-signing-account-creation.png" alt-text="Screenshot of trusted-signing-account-creation." lightbox="media/trusted-signing-account-creation.png":::
@@ -115,9 +114,6 @@ Or
 ```
 trustedsigning create -n MyAccount -l eastus -g MyResourceGroup --sku Premium
 ```
-
-- Refer to [How to change SKU](how-to-change-sku.md)
-
 8. Verify your Trusted Signing account using the `trustedsigning show -g MyResourceGroup -n MyAccount` command.
 
 **Trusted Signing account naming constraints**:
@@ -300,5 +296,5 @@ trustedsigning certificate-profile delete -g MyResourceGroup --account-name MyAc
 In this Quickstart, you created a Trusted Signing account, an Identity Validation and a Certificate Profile. To delve deeper into Trusted Signing and kickstart your signing journey, explore the following articles:
 
 - [Learn more about the signing integrations.](how-to-signing-integrations.md)
-- [Learn more about different Trust Models supported in Trusted Signing](#concept-trusted-signing-trust-models.md)
-- [Learn more about Certificate management](#concept-trusted-signing-cert-management.md)
+- [Learn more about different Trust Models supported in Trusted Signing](concept-trusted-signing-trust-models.md)
+- [Learn more about Certificate management](concept-trusted-signing-cert-management.md)
