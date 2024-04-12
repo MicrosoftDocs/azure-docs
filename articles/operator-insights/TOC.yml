@@ -21,8 +21,6 @@
     href: concept-data-quality-monitoring.md
   - name: Data types
     href: concept-data-types.md
-  - name: Data visualization
-    href: concept-data-visualization.md
   - name: Managed identity
     href: managed-identity.md
 - name: Deployment
@@ -37,6 +35,8 @@
     href: set-up-ingestion-agent.md
 - name: Data analysis
   items:
+  - name: Data visualization overview
+    href: concept-data-visualization.md
   - name: Visualize data in dashboards
     href: dashboards-use.md
   - name: Query data in a Data Product
