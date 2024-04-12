@@ -14,6 +14,18 @@ ms.reviewer: sngun, wiassaf
 
 This trouble-shooting guide provides instruction on what information to provide when opening a support ticket on network connectivity issues. With the proper information, we can possibly resolve the issue more quickly.
 
+## Publish fails when session remains idle
+
+### Symptom
+ 
+If your Synapse Studio session becomes idle for a large period of time (>30m) the publish operation may fail throwing this error message:
+
+`ERROR: Unauthorized Inner error code: ExpiredAuthenticationToken Message: Token Authentication failed with SecurityTokenExpiredException - MISE12034: AuthenticationTicketProvider Name:AuthenticationTicketProvider, GetVersion:1.9.2.0.;`
+
+### Root Cause and mitigation:
+
+You should avoid long periods of inactivity in Synapse Studio, specially in scenarios where your network conditions are restricting the usage of the http2 protocol.  
+
 ## Serverless SQL pool service connectivity issue
 
 ### Symptom 1
