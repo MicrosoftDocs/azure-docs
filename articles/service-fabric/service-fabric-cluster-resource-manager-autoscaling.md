@@ -183,9 +183,9 @@ $scalingpolicies.Add($scalingpolicy)
 New-ServiceFabricService -ApplicationName $applicationName -ServiceName $serviceName -ServiceTypeName $serviceTypeName –Stateful -TargetReplicaSetSize 3 -MinReplicaSetSize 2 -HasPersistedState true -PartitionNames @("0","1") -ServicePackageActivationMode ExclusiveProcess -ScalingPolicies $scalingpolicies
 ```
 
-## Auto scaling based on resources
+## Auto-scaling Based on Resources
 
-In order to enable the resource monitor service to scale based on actual resources, one could add the feature `ResourceMonitorService`.
+To enable the resource monitor service to scale based on actual resources, you can add the `ResourceMonitorService` feature as follows:
 
 ``` json
 "fabricSettings": [
@@ -195,8 +195,13 @@ In order to enable the resource monitor service to scale based on actual resourc
     "ResourceMonitorService"
 ],
 ```
-There are two metrics that represent actual physical resources. One of them is servicefabric:/_CpuCores which represent the actual cpu usage (so 0.5 represents half a core) and the other being servicefabric:/_MemoryInMB which represents the memory usage in MBs.
-ResourceMonitorService is responsible for tracking cpu and memory usage of user services. This service will apply weighted moving average in order to account for potential short-lived spikes. Resource monitoring is supported for both containerized and non-containerized applications on Windows and for containerized ones on Linux. Auto scaling on resources is only enabled for services activated in [exclusive process model](service-fabric-hosting-model.md#exclusive-process-model).
+Service Fabric supports CPU and memory governance using two built-in metrics: `servicefabric:/_CpuCores` for CPU and `servicefabric:/_MemoryInMB` for memory. The Resource Monitor Service is responsible for tracking CPU and memory usage and updating the Cluster Resource Manager with the current resource usage. This service applies a weighted moving average to account for potential short-lived spikes. Resource monitoring is supported for both containerized and non-containerized applications on Windows and for containerized applications on Linux.
+
+> [!NOTE]
+> CPU and memory consumption monitored in the Resource Monitor Service and updated to the Cluster Resource Manager do not impact any decision-making process outside of auto-scaling. If [resource governance](service-fabric-resource-governance.md#resource-governance-metrics) is needed, it can be configured without interfering with auto-scaling functionalities, and vice versa.
+
+> [!IMPORTANT]
+> Resource-based auto-scaling is supported only for services activated in the [exclusive process model](service-fabric-hosting-model.md#exclusive-process-model).
 
 ## Next steps
 Learn more about [application scalability](service-fabric-concepts-scalability.md).
