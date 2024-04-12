@@ -10,8 +10,6 @@
     items:
     - name: Signing Integrations with Trusted Signing
       href: how-to-signing-integrations.md
-  - name: How-To
-    items:
     - name: Sign CI Policies with Trusted Signing
       href: how-to-sign-ci-policy.md
   - name: Quickstart
@@ -28,5 +26,5 @@
       href: faq.yml
   - name: Concept
     items:
-    - name: Signing concepts
-      href: concept.md
+    - name: Trusted Signing trust models
+      href: concept-trusted-signing-trust-models.md

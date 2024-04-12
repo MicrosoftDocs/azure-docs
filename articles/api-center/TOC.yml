@@ -5,13 +5,13 @@
   items:
     - name: Overview
       items:
-      - name: What is API Center?
+      - name: What is Azure API Center?
         displayName: Overview
         href: overview.md
       - name: Key concepts
         href: key-concepts.md  
       - name: Service limits
-        href: ../azure-resource-manager/management/azure-subscription-service-limits.md#api-center-preview-limits
+        href: ../azure-resource-manager/management/azure-subscription-service-limits.md#api-center-limits
     - name: Quickstarts
       items:
           - name: Create an API center
@@ -36,7 +36,7 @@
         href: enable-api-analysis-linting.md
 - name: API discovery and consumption
   items:
-      - name: Enable API Center portal
+      - name: Enable Azure API Center portal
         href: enable-api-center-portal.md
       - name: Use VS Code extension
         href: use-vscode-extension.md

@@ -170,7 +170,7 @@ GPT-3.5 Turbo version 0301 is the first version of the model released.  Version 
 See [model versions](../concepts/model-versions.md) to learn about how Azure OpenAI Service handles model version upgrades, and [working with models](../how-to/working-with-models.md) to learn how to view and configure the model version settings of your GPT-3.5 Turbo deployments.
 
 > [!NOTE]
-> Version `0613` of `gpt-35-turbo` and `gpt-35-turbo-16k` will be retired no earlier than June 13, 2024. Version `0301` of `gpt-35-turbo` will be retired no earlier than July 5, 2024.  See [model updates](../how-to/working-with-models.md#model-updates) for model upgrade behavior.
+> Version `0613` of `gpt-35-turbo` and `gpt-35-turbo-16k` will be retired no earlier than July 13, 2024. Version `0301` of `gpt-35-turbo` will be retired no earlier than June 13, 2024.  See [model updates](../how-to/working-with-models.md#model-updates) for model upgrade behavior.
 
 |  Model ID   | Max Request (tokens) | Training Data (up to) |
 |  --------- |:------:|:----:|

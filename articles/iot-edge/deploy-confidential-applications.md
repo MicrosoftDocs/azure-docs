@@ -5,7 +5,7 @@ author: PatAltimore
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 01/27/2021
+ms.date: 04/08/2024
 ms.author: patricka
 ---
 
@@ -15,7 +15,7 @@ ms.author: patricka
 
 Azure IoT Edge supports confidential applications that run within secure enclaves on the device. Encryption provides security for data while in transit or at rest, but enclaves provide security for data and workloads while in use. IoT Edge supports Open Enclave as a standard for developing confidential applications.
 
-Security has always been an important focus of the Internet of Things (IoT) because often IoT devices are often out in the world rather than secured inside a private facility. This exposure puts devices at risk for tampering and forgery because they are physically accessible to bad actors. IoT Edge devices have even more need for trust and integrity because they allow for sensitive workloads to be run at the edge. Unlike common sensors and actuators, these intelligent edge devices are potentially exposing sensitive workloads that were formerly only run within protected cloud or on-premises environments.
+Security is an important focus of the Internet of Things (IoT) because often IoT devices are often out in the world rather than secured inside a private facility. This exposure puts devices at risk for tampering and forgery because they are physically accessible to bad actors. IoT Edge devices have even more need for trust and integrity because they allow for sensitive workloads to be run at the edge. Unlike common sensors and actuators, these intelligent edge devices are potentially exposing sensitive workloads that were formerly only run within protected cloud or on-premises environments.
 
 The [IoT Edge security manager](iot-edge-security-manager.md) addresses one piece of the confidential computing challenge. The security manager uses a hardware security module (HSM) to protect the identity workloads and ongoing processes of an IoT Edge device.
 
@@ -27,7 +27,7 @@ Confidential applications are encrypted in transit and at rest, and only decrypt
 
 The developer creates the confidential application and packages it as an IoT Edge module. The application is encrypted before being pushed to the container registry. The application remains encrypted throughout the IoT Edge deployment process until the module is started on the IoT Edge device. Once the confidential application is within the device's TEE, it is decrypted and can begin executing.
 
-:::image type="content" source="./media/deploy-confidential-applications/confidential-applications-encrypted.png" alt-text="Diagram that show confidential applications are encrypted within IoT Edge modules until deployed into the secure enclave.":::
+:::image type="content" source="./media/deploy-confidential-applications/confidential-applications-encrypted.png" alt-text="Diagram that shows confidential applications are encrypted within IoT Edge modules until deployed into the secure enclave.":::
 
 Confidential applications on IoT Edge are a logical extension of [Azure confidential computing](../confidential-computing/overview.md). Workloads that run within secure enclaves in the cloud can also be deployed to run within secure enclaves at the edge.
 
@@ -44,7 +44,7 @@ The Open Enclave repository also includes samples to help developers get started
 
 ## Hardware
 
-Currently, [TrustBox by Scalys](https://scalys.com/) is the only device supported with manufacturer service agreements for deploying confidential applications as IoT Edge modules. The TrustBox is built on  The TrustBox Edge and TrustBox EdgeXL devices both come pre-loaded with the Open Enclave SDK and Azure IoT Edge.
+Currently, [TrustBox by Scalys](https://scalys.com/) is the only device supported with manufacturer service agreements for deploying confidential applications as IoT Edge modules. The TrustBox is built on  The TrustBox Edge and TrustBox EdgeXL devices both come preloaded with the Open Enclave SDK and Azure IoT Edge.
 
 For more information, see [Getting started with Open Enclave for the Scalys TrustBox](https://aka.ms/scalys-trustbox-edge-get-started).
 
@@ -54,4 +54,4 @@ When you're ready to develop and deploy your confidential application, the [Micr
 
 ## Next steps
 
-Learn how to start developing confidential applications as IoT Edge modules with the [Open Enclave extension for Visual Studio Code](https://github.com/openenclave/openenclave/tree/master/devex/vscode-extension)
+Learn how to start developing confidential applications as IoT Edge modules with the [Open Enclave extension for Visual Studio Code](https://github.com/openenclave/openenclave/tree/master/devex/vscode-extension).

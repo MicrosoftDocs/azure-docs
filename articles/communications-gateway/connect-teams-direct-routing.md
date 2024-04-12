@@ -119,7 +119,7 @@ Follow the instructions [to add a domain to your tenant](/microsoftteams/direct-
 
 Microsoft 365 should automatically verify these domain names, because you verified the base domain name.
 
-## Active the per-region domain names in your tenant
+## Activate the per-region domain names in your tenant
 
 To activate the per-region domain names in Microsoft 365, set up at least one user or resource account licensed for Microsoft Teams for each per-region domain name. For information on the licenses you can use and instructions, see [Activate the domain name](/microsoftteams/direct-routing-sbc-multiple-tenants#activate-the-domain-name).
 

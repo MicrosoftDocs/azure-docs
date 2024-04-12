@@ -90,6 +90,20 @@ The role assignment for each AI project's service principal has a condition that
 
 For more information on Azure access-based control, see [What is Azure attribute-based access control](/azure/role-based-access-control/conditions-overview).
 
+## Containers in the storage account
+
+The default storage account for an AI hub has the following containers. These containers are created for each AI project, and the `{workspace-id}` prefix matches the unique ID for the AI project. The container is accessed by the AI project using a [connection](connections.md).
+
+> [!TIP]
+> To find the ID for your AI project, go to the AI project in the [Azure portal](https://portal.azure.com/). Expand **Settings** and then select **Properties**. The **Workspace ID** is displayed.
+
+| Container name | Connection name | Description |
+| --- | --- | --- |
+| {workspace-ID}-azureml | workspaceartifactstore | Storage for assets such as metrics, models, and components. |
+| {workspace-ID}-blobstore| workspaceblobstore | Storage for data upload, job code snapshots, and pipeline data cache. |
+| {workspace-ID}-code | NA | Storage for notebooks, compute instances, and prompt flow. |
+| {workspace-ID}-file | NA | Alternative container for data upload. |
+
 ## Encryption
 
 Azure AI Studio uses encryption to protect data at rest and in transit. By default, Microsoft-managed keys are used for encryption. However you can use your own encryption keys. For more information, see [Customer-managed keys](../../ai-services/encryption/cognitive-services-encryption-keys-portal.md?context=/azure/ai-studio/context/context).

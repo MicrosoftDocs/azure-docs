@@ -1,5 +1,5 @@
 ---
-title: Azure API Center (preview) - Overview
+title: Azure API Center - Overview
 description: Introduction to key scenarios and capabilities of Azure API Center. API Center inventories an organization's APIs for discovery, reuse, and governance at scale.
 author: dlepow
  
@@ -10,16 +10,14 @@ ms.author: danlep
 ms.custom: references_regions
 ---
 
-# What is Azure API Center (preview)?
+# What is Azure API Center?
 
-API Center enables tracking all of your APIs in a centralized location for discovery, reuse, and governance. Use API Center to develop and maintain a structured and organized inventory of your organization's APIs - regardless of their type, lifecycle stage, or deployment location - along with related information such as version details, API definition files, and common metadata. 
+Azure API Center enables tracking all of your APIs in a centralized location for discovery, reuse, and governance. Use an API center to develop and maintain a structured and organized inventory of your organization's APIs - regardless of their type, lifecycle stage, or deployment location - along with related information such as version details, API definition files, and common metadata. 
 
-With API Center, stakeholders throughout your organization - including API program managers, IT administrators, application developers, and API developers - can discover, reuse, and govern APIs.  
-
-[!INCLUDE [api-center-preview-feedback](includes/api-center-preview-feedback.md)]
+With an API center, stakeholders throughout your organization - including API program managers, IT administrators, application developers, and API developers - can discover, reuse, and govern APIs.  
 
 > [!NOTE]
-> API Center is a solution for organizations to catalog and manage their API inventory. Azure also offers the API Management service, a solution to manage, secure, and publish your organization's API backends through an API gateway. [Learn more](#q-whats-the-difference-between-azure-api-management-and-azure-api-center) about the difference.
+> Azure API Center is a solution for organizations to catalog and manage their API inventory. Azure also offers the API Management service, a solution to manage, secure, and publish your organization's API backends through an API gateway. [Learn more](#q-whats-the-difference-between-azure-api-management-and-azure-api-center) about the difference.
 
 ## Benefits
 
@@ -27,7 +25,7 @@ With API Center, stakeholders throughout your organization - including API progr
 
 *  **Govern your organization's APIs** - With more complete visibility into the APIs being produced and used within an organization, API program managers and IT administrators can govern this inventory to ensure it meets organizational standards by **defining custom metadata** and **analyzing API definitions** to enforce conformance to API style guidelines.​
 
-* **Easy API discovery** - Organizations want to promote API reuse to maximize developer productivity and ensure developers are using the right APIs. API Center helps program managers and developers  discover the API inventory and filter using built-in and custom metadata properties. ​
+* **Easy API discovery** - Organizations want to promote API reuse to maximize developer productivity and ensure developers are using the right APIs. Azure API Center helps program managers and developers discover the API inventory and filter using built-in and custom metadata properties. ​
 
 * **Accelerate API consumption** - Maximize developer productivity when consuming APIs and ensure they are consumed in a secure manner consistent with organizational standards. 
 
@@ -43,7 +41,7 @@ In preview, create and use an API center in the Azure portal for the following:
 
 * **API discovery and reuse** - Enable developers and API program managers to discover APIs via the Azure portal, an API Center portal, and developer tools including a [Visual Studio Code extension](use-vscode-extension.md) integrated with GitHub Copilot​.
 
-For more about the entities you can manage and the capabilities in API Center, see [Key concepts](key-concepts.md).
+For more about the entities you can manage and the capabilities in Azure API Center, see [Key concepts](key-concepts.md).
 
 ## Available regions
 

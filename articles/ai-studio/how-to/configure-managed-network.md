@@ -332,3 +332,4 @@ The Azure AI hub managed VNet feature is free. However, you're charged for the f
 * The managed VNet is deleted when the Azure AI is deleted. 
 * Data exfiltration protection is automatically enabled for the only approved outbound mode. If you add other outbound rules, such as to FQDNs, Microsoft can't guarantee that you're protected from data exfiltration to those outbound destinations.
 * Using FQDN outbound rules increases the cost of the managed VNet because FQDN rules use Azure Firewall. For more information, see [Pricing](#pricing).
+* When using a compute instance with a managed network, you can't connect to the compute instance using SSH.

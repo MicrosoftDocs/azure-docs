@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: azure-ai-services
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.topic: how-to
-ms.date: 03/25/2024
+ms.date: 04/05/2024
 ms.author: aahi
 ---
 
@@ -60,6 +60,8 @@ Virtual networks are supported in [regions where Azure AI services are available
 > - `CognitiveServicesManagement`
 > - `CognitiveServicesFrontEnd`
 > - `Storage` (Speech Studio only)
+> 
+> For information on configuring Azure AI Studio, see the [Azure AI Studio documentation](../ai-studio/how-to/configure-private-link.md).
 
 ## Change the default network access rule
 

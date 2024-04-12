@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Start your API inventory in Azure API Center (preview) | Microsoft Docs
+title: Tutorial - Start your API inventory in Azure API Center | Microsoft Docs
 description: In this tutorial, start your API inventory by registering APIs in your API center.
 author: dlepow
 ms.service: api-center
@@ -12,14 +12,12 @@ ms.author: danlep
 
 In this tutorial, start the API inventory in your organization's [API center](overview.md) by registering APIs and assigning metadata properties. 
 
-For background information about APIs, API versions, definitions, and other entities that you can inventory in API Center, see [Key concepts](key-concepts.md).
+For background information about APIs, API versions, definitions, and other entities that you can inventory in Azure API Center, see [Key concepts](key-concepts.md).
 
 In this tutorial, you learn how to use the portal to:
 > [!div class="checklist"]
 > * Register one or more APIs
 > * Add an API version with an API definition
-
-[!INCLUDE [api-center-preview-feedback](includes/api-center-preview-feedback.md)]
 
 ## Prerequisites
 
@@ -51,13 +49,13 @@ The following steps register two sample APIs: Swagger Petstore API and Demo Conf
     |Setting|Value|Description|
     |-------|-----|-----------|
     |**API title**| Enter *Swagger Petstore API*.| Name you choose for the API.  |
-    |**Identification**|After you enter the preceding title, API Center generates this identifier, which you can override.| Azure resource name for the API.|
+    |**Identification**|After you enter the preceding title, Azure API Center generates this identifier, which you can override.| Azure resource name for the API.|
     |**API type**| Select **REST** from the dropdown.| Type of API.|
     | **Summary** | Optionally enter a summary. | Summary description of the API.  |
     | **Description** | Optionally enter a description. | Description of the API. |
     | **Version** | | |
     |**Version title**| Enter a version title of your choice, such as *v1*.|Name you choose for the API version.|
-    |**Version identification**|After you enter the preceding title, API Center generates this identifier, which you can override.| Azure resource name for the version.|
+    |**Version identification**|After you enter the preceding title, Azure API Center generates this identifier, which you can override.| Azure resource name for the version.|
     |**Version lifecycle**  | Make a selection from the dropdown, for example, **Testing** or **Production**. | Lifecycle stage of the API version. |
     |**External documentation**     | Optionally add one or more links to external documentation.       | Name, description, and URL of documentation for the API.      |  
     |**Contact information**         |  Optionally add information for one or more contacts.       | Name, email, and URL of a contact for the API.      |  
@@ -96,14 +94,14 @@ Here you add a version to one of your APIs:
         |Setting|Value|Description|
         |-------|-----|-----------|
         |**Version title**| Enter a version title of your choice, such as *v2*.|Name you choose for the API version.|
-        |**Version identification**|After you enter the preceding title, API Center generates this identifier, which you can override.| Azure resource name for the version.|
+        |**Version identification**|After you enter the preceding title, Azure API Center generates this identifier, which you can override.| Azure resource name for the version.|
         |**Version lifecycle**  | Make a selection from the dropdown, such as **Production**. | Lifecycle stage of the API version. |
     
     1. Select **Create**. The version is added.
     
 ## Add a definition to your version
 
-Usually you'll want to add an API definition to your API version. API Center supports definitions in common text specification formats, such as OpenAPI 2 and 3 for REST APIs.
+Usually you'll want to add an API definition to your API version. Azure API Center supports definitions in common text specification formats, such as OpenAPI 2 and 3 for REST APIs.
 
 To add an API definition to your version:
 
@@ -116,7 +114,7 @@ To add an API definition to your version:
         |Setting|Value|Description|
         |-------|-----|-----------|
         |**Title**| Enter a title of your choice, such as *OpenAPI 2*.|Name you choose for the API definition.|
-        |**Identification**|After you enter the preceding title, API Center generates this identifier, which you can override.| Azure resource name for the definition.|
+        |**Identification**|After you enter the preceding title, Azure API Center generates this identifier, which you can override.| Azure resource name for the definition.|
         | **Description** | Optionally enter a description. | Description of the API definition. |
         | **Specification name** | For the Demo Conference API, select **OpenAPI**. | Specification format for the API.|
         | **Specification version** | Enter a version identifier of your choice, such as *2.0*. | Specification version. |

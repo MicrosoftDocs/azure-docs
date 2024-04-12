@@ -93,7 +93,7 @@ az eventgrid namespace topic-space create -g {Resource Group} --namespace-name {
 
 ## Create permission bindings
 
-Use the `az resource` command to create the first permission binding for publisher permission. Update the command with your resource group, namespace name, and permission binding name.
+Use the `az eventgrid` command to create the first permission binding for publisher permission. Update the command with your resource group, namespace name, and permission binding name.
 
 ```azurecli-interactive
 az eventgrid namespace permission-binding create -g {Resource Group} --namespace-name {Namespace Name} -n {Permission Binding Name} --client-group-name '$all' --permission publisher --topic-space-name {Topicspace Name}
