@@ -64,7 +64,7 @@ Dashboards provide a focused view of the resources in your subscription that mat
 
 You can create other dashboards for your own use, or publish customized dashboards and share them with other users in your organization. For more information, see [Create and share dashboards in the Azure portal](../azure-portal/azure-portal-dashboards.md).
 
-As noted earlier, you can [set your startup page to Dashboard](set-preferences.md#startup-page) if you want to see your most recently used dashboard when you sign in to the Azure portal.
+As noted earlier, you can [set your startup page to Dashboard](set-preferences.md#choose-a-startup-page) if you want to see your most recently used dashboard when you sign in to the Azure portal.
 
 ## Get started
 
