@@ -55,7 +55,7 @@ If **myLoadBalancer** is an _Internal_ Load Balancer:
 | Availability zone | Select *zone-redundant* for resilient applications. You can also select a specific zone. |
 
     
-8. Select **Save**.
+7. Select **Save**.
 
 Next you must associate the frontend IP configuration you have created with an appropriate load balancing rule. Refer to [Manage rules for Azure Load Balancer](manage-rules-how-to.md#load-balancing-rules) for more information on how to do this.
 
