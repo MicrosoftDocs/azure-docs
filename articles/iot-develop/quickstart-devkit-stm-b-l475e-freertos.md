@@ -148,7 +148,7 @@ You can use the **Termite** app to monitor communication and confirm that your d
 
 1. Start **Termite**.
     > [!TIP]
-    > If you are unable to connect Termite to your devkit, install the [ST-LINK driver](https://www.st.com/en/development-tools/stsw-link009.html) and try again. See  [Troubleshooting](troubleshoot-embedded-device-quickstarts.md) for additional steps.
+    > If you are unable to connect Termite to your devkit, install the [ST-LINK driver](https://www.st.com/en/development-tools/stsw-link009.html) and try again. See  [Troubleshooting](../iot/troubleshoot-embedded-device-tutorials.md) for additional steps.
 1. Select **Settings**.
 1. In the **Serial port settings** dialog, check the following settings and update if needed:
     * **Baud rate**: 115,200
@@ -234,7 +234,7 @@ Select **About** tab from the device page.
 
 ## Troubleshoot and debug
 
-If you experience issues when you build the device code, flash the device, or connect, see [Troubleshooting](troubleshoot-embedded-device-quickstarts.md).
+If you experience issues when you build the device code, flash the device, or connect, see [Troubleshooting](../iot/troubleshoot-embedded-device-tutorials.md).
 
 To debug the application, see [Debugging with Visual Studio Code](https://github.com/azure-rtos/getting-started/blob/master/docs/debugging.md).
 
