@@ -179,7 +179,7 @@ resources:
 
 In the above YAML specification file:
 - the `code` property defines relative path of the folder containing parameterized `titanic.py` file.
-- the `resource` property defines the `instance_type` and the Apache Spark `runtime_version` that serverless Spark compute uses. These instance type values are currently supported:
+- the `resource` property defines the `instance_type` and the Apache Spark `runtime_version` values that serverless Spark compute uses. These instance type values are currently supported:
     - `standard_e4s_v3`
     - `standard_e8s_v3`
     - `standard_e16s_v3`
@@ -314,7 +314,7 @@ First, upload the parameterized Python code `titanic.py` to the Azure Blob stora
     1. Select **Create** to submit the standalone Spark job.
 
 > [!NOTE]
-> A standalone job submitted from the Studio UI, using an Azure Machine Learning serverless Spark compute, defaults to user identity passthrough for data access.
+> A standalone job submitted from the Studio UI, using an Azure Machine Learning serverless Spark compute, defaults to the user identity passthrough for data access.
 
 ---
 
