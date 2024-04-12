@@ -20,10 +20,13 @@ ms.reviewer: azfuncdf
 
 ### The storage providers packages
 
-By default, Durable Functions uses Azure Storage as it's backing store. However, alternative [storage providers](./durable-functions-storage-providers.md) are available as well. To use them, you need to reference them _in addition to_ the WebJobs extension in your `.csproj`. Those packages are:
+By default, Durable Functions uses Azure Storage as it's backing store. However, alternative [storage providers](./durable-functions-storage-providers.md) are available as well. To use them, you need to reference their packages _in addition to_ the WebJobs extension in your `.csproj`. Those packages are:
 
 * The Netherite storage provider: [Microsoft.Azure.DurableTask.Netherite.AzureFunctions](https://www.nuget.org/packages/Microsoft.Azure.DurableTask.Netherite.AzureFunctions).
 * The MSSQL storage provider: [Microsoft.DurableTask.SqlServer.AzureFunctions](https://www.nuget.org/packages/Microsoft.DurableTask.SqlServer.AzureFunctions)
+
+> [!TIP]
+> See the [storage providers guide](./durable-functions-storage-providers.md) for complete the instructions on how to configure each backend.
 
 > [!NOTE]
 > These are the same packages that non-.NET customers [manually upgrading their extensions](./durable-functions-extension-upgrade.md#manually-upgrade-the-durable-functions-extension) need to manage in their `.csproj`.
@@ -34,10 +37,13 @@ By default, Durable Functions uses Azure Storage as it's backing store. However,
 
 ### The storage providers packages
 
-In .NET isolated, the alternative [storage providers](./durable-functions-storage-providers.md) are available as well under "worker extension" packages of their own. You need to reference them _in addition to_ the worker extension in your `.csproj`. Those packages are:
+In .NET isolated, the alternative [storage providers](./durable-functions-storage-providers.md) are available as well under "worker extension" packages of their own. You need to reference their packages _in addition to_ the worker extension in your `.csproj`. Those packages are:
 
 * The Netherite storage provider: [Microsoft.Azure.Functions.Worker.Extensions.DurableTask.Netherite](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.DurableTask.Netherite).
 * The MSSQL storage provider: [Microsoft.Azure.Functions.Worker.Extensions.DurableTask.SqlServer](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.DurableTask.SqlServer)
+
+> [!TIP]
+> See the [storage providers guide](./durable-functions-storage-providers.md) for complete the instructions on how to configure each backend.
 
 ## Extension Bundles users
 
