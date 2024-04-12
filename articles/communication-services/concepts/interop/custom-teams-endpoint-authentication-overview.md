@@ -85,7 +85,7 @@ Artifacts:
 - Artifact `A2`
   - Type: Object ID of a Microsoft Entra user
   - Source: Fabrikam's Microsoft Entra tenant
-  - Authority: `https://login.microsoftonline.com/<tenant>/` or `https://login.microsoftonline.com/organizations/` (based on your [scenario](/entra/identity-platform/msal-client-application-configuration#authority)
+  - Authority: `https://login.microsoftonline.com/<tenant>/` or `https://login.microsoftonline.com/organizations/` (based on your [scenario](/entra/identity-platform/msal-client-application-configuration#authority) )
 - Artifact `A3`
   - Type: Microsoft Entra application ID
   - Source: Contoso application registration's Microsoft Entra tenant
