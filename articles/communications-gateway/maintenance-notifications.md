@@ -24,7 +24,7 @@ To view information about upcoming upgrades, sign in to the [Azure portal](https
 
 :::image type="content" source="media/maintenance-notifications/planned-maintenance-list.png" alt-text="Screenshot of a list of planned maintenance notifications in the Azure portal." lightbox="media/maintenance-notifications/planned-maintenance-list.png":::
 
-To view more information about a notification, select it. A notification provides more details about the upgrade, including any expected impact.
+To view more information about a notification, select it. Each notification provides more details about the upgrade, including any expected impact.
 
 :::image type="content" source="media/maintenance-notifications/maintenance-notification.png" alt-text="Screenshot of an upgrade notification in the Azure portal." lightbox="media/maintenance-notifications/maintenance-notification.png":::
 
@@ -34,7 +34,7 @@ For more on viewing notifications, see [View service health notifications by usi
 
 Alerts allow you to send your operations team proactive notifications of upcoming maintenance activities. For example, you can configure emails and/or SMS notifications. For an overview of alerts, see [What are Azure Monitor alerts?](/azure/azure-monitor/alerts/alerts-overview).
 
-You can configure alerts for planned maintenance notifications  by selecting **Create service health alert** from the **Planned maintenance** pane for Service Health or by following [Set up alerts for service health notifications](/azure/service-health/alerts-activity-log-service-notifications-portal).
+You can configure alerts for planned maintenance notifications by selecting **Create service health alert** from the **Planned maintenance** pane for Service Health or by following [Set up alerts for service health notifications](/azure/service-health/alerts-activity-log-service-notifications-portal).
 
 ## Next step
 
