@@ -4,7 +4,7 @@ description: Overview of Azure managed disks, which handle the storage accounts 
 author: roygara
 ms.service: azure-disk-storage
 ms.topic: conceptual
-ms.date: 10/12/2023
+ms.date: 04/12/2024
 ms.author: rogarana
 ---
 # Introduction to Azure managed disks
@@ -102,7 +102,7 @@ Generally, you should use the data disk to store your applications and data, ins
 - Easier maintenance
 - Improved security and access control
 
-For more details on these benefits, see 
+For more details on these benefits, see [Why should I use the data disk to store applications and data instead of the OS disk?](faq-for-disks.yml#why-should-i-use-the-data-disk-to-store-applications-and-data-instead-of-the-OS-disk-).
 
 ### Temporary disk
 
