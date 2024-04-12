@@ -206,7 +206,7 @@ The string is in the **ADO.NET (SQL authentication)** area.
 You need to manually enter the password for your SQL database connection string, because the password isn't pasted automatically.
 
 > [!IMPORTANT]
-> This example is simplified for the tutorial. For production use, we recommend that you use [Azure Key Vault](azure/service-connector/tutorial-portal-key-vault.md) to store connection string information or [use Azure EntraID for SQL authentication](azure/azure-sql/database/authentication-aad-configure.md).
+> This example is simplified for the tutorial. For production use, we recommend that you use [Azure Key Vault](/azure/service-connector/tutorial-portal-key-vault) to store connection string information or [use Azure EntraID for SQL authentication](/azure/azure-sql/database/authentication-aad-configure).
 >
 
 ## Build and run the project
