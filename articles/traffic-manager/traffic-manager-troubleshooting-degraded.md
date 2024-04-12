@@ -6,7 +6,6 @@ author: greg-lindsay
 manager: kumudD
 ms.service: traffic-manager
 ms.topic: troubleshooting
-ms.workload: infrastructure-services
 ms.date: 05/03/2017
 ms.author: greglin
 ---

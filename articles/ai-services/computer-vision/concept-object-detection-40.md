@@ -10,7 +10,6 @@ ms.service: azure-ai-vision
 ms.topic: conceptual
 ms.date: 01/19/2024
 ms.author: pafarley
-ms.custom: seodec18, ignite-2022
 ---
 
 # Object detection (version 4.0)
@@ -86,4 +85,3 @@ The object detection feature is part of the [Analyze Image](https://aka.ms/visio
 ## Next steps
 
 * [Call the Analyze Image API](./how-to/call-analyze-image-40.md)
-

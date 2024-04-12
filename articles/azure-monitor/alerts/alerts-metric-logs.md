@@ -1,6 +1,7 @@
 ---
 title: Creating Metric Alerts in Azure Monitor Logs
 description: Tutorial on creating near-real time metric alerts on popular log analytics data.
+ms.author: abbyweisberg
 ms.topic: conceptual
 ms.date: 11/16/2023
 ms.reviewer: harelbr
@@ -20,10 +21,10 @@ The supported Log Analytics logs are the following:
 - [Update management](../../automation/update-management/overview.md) records
 - [Event data](./../agents/data-sources-windows-events.md) logs
 
-There are many benefits for using **Metric Alerts for Logs** over query based [Log Alerts](./alerts-log.md) in Azure; some of them are listed below:
+There are many benefits for using **Metric Alerts for Logs** over query based [log search alerts](./alerts-log.md) in Azure; some of them are listed below:
 
 - Metric Alerts offer near-real time monitoring capability and Metric Alerts for Logs forks data from the log source to ensure the same.
-- Metric Alerts are stateful - only notifying once when alert is fired and once when alert is resolved; as opposed to Log alerts, which are stateless and keep firing at every interval if the alert condition is met.
+- Metric Alerts are stateful - only notifying once when alert is fired and once when alert is resolved; as opposed to log search alerts, which are stateless and keep firing at every interval if the alert condition is met.
 - Metric Alerts for Log provide multiple dimensions, allowing filtering to specific values like Computers, OS Type, etc. simpler; without the need for defining a complex query in Log Analytics.
 
 > [!NOTE]
@@ -672,5 +673,5 @@ az deployment group create --resource-group myRG --template-file metricfromLogsA
 ## Next steps
 
 - Learn more about the [metric alerts](../alerts/alerts-metric.md).
-- Learn about [log alerts in Azure](./alerts-unified-log.md).
+- Learn about [log search alerts in Azure](./alerts-types.md#log-alerts).
 - Learn about [alerts in Azure](./alerts-overview.md).

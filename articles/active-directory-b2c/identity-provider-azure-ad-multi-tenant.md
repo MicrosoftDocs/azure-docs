@@ -12,7 +12,8 @@ ms.author: godonnell
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
 
-#Customer intent: As a developer, I want to enable sign-in for users using the multitenant endpoint for Microsoft Entra ID. Allowing users from multiple Microsoft Entra tenants to sign in using Azure AD B2C, without me having to configure an identity provider for each tenant. 
+#Customer Intent: As a developer using Azure Active Directory B2C, I want to set up sign-in for multi-tenant Microsoft Entra ID, so that users from multiple Entra tenants can sign in without configuring an identity provider for each tenant.
+
 
 ---
 
@@ -35,7 +36,7 @@ This article shows you how to enable sign-in for users using the multitenant end
 [!INCLUDE [active-directory-b2c-customization-prerequisites](../../includes/active-directory-b2c-customization-prerequisites.md)]
 
 > [!NOTE]
-> In this article, it assumed that **SocialAndLocalAccounts** starter pack is used in the previous steps mentioned in pre-requisite.  
+> In this article, it is assumed that the **SocialAndLocalAccounts** starter pack is used in the previous steps mentioned in the pre-requisite.  
 
 ## Register a Microsoft Entra app
 

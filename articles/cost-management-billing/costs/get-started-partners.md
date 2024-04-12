@@ -4,7 +4,7 @@ titleSuffix: Microsoft Cost Management
 description: This article explains how partners use Cost Management features and how they enable access for their customers.
 author: bandersmsft
 ms.author: banders
-ms.date: 04/05/2023
+ms.date: 03/21/2024
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -33,11 +33,11 @@ CSP partners use Cost Management to:
 
 Here's an example showing costs for all customers.
 
-[![Example showing costs for all customers](./media/get-started-partners/customer-costs1.png)](./media/get-started-partners/customer-costs1.png#lightbox)
+:::image type="content" border="true" source="./media/get-started-partners/customer-costs1.png" lightbox="./media/get-started-partners/customer-costs1.png" alt-text="Screenshot showing costs for all customers.":::
 
 Here's an example showing costs for a single customer.
 
-[![Example showing costs for a single customer](./media/get-started-partners/customer-costs2.png)](./media/get-started-partners/customer-costs2.png#lightbox)
+:::image type="content" border="true" source="./media/get-started-partners/customer-costs2.png" lightbox="./media/get-started-partners/customer-costs2.png" alt-text="Screenshot showing costs for a single customer.":::
 
 All functionality available in Cost Management is also available with REST APIs. Use the APIs to automate cost management tasks.
 
@@ -73,7 +73,7 @@ Regardless of different billed currencies, partners use Billing account scope to
 
 Partners also filter costs in a specific billing currency across customers in the cost analysis view. Select the **Actual cost** list to view costs in supported billing currencies.
 
-![Example showing Actual cost selection for currencies](./media/get-started-partners/actual-cost-selector.png)
+:::image type="content" border="true" source="./media/get-started-partners/actual-cost-selector.png" alt-text="Screenshot showing Actual cost selection for currencies.":::
 
 Use the [amortized cost view](customize-cost-analysis-views.md#switch-between-actual-and-amortized-cost) in billing scopes to view reserved instance amortized costs across a reservation term.
 
@@ -134,12 +134,12 @@ In the Azure portal, sign in to the *partner tenant* and select **Cost Managemen
 
 In the list of customers, select the customer that you want to allow to view costs.
 
-[![Select customers in Cost Management](./media/get-started-partners/customer-list.png)](./media/get-started-partners/customer-list.png#lightbox)
+:::image type="content" border="true" source="./media/get-started-partners/customer-list.png" lightbox="./media/get-started-partners/customer-list.png" alt-text="Screenshot showing select Customers in Cost Management.":::
 
 Under **Settings**, select **Policies**.
 
 The current cost visibility policy is shown for **Azure Usage** charges associated to the subscriptions for the selected customer.
-![Policy to allow customers to view pay-as-you-go charges](./media/get-started-partners/cost-management-billing-policies.png)
+:::image type="content" border="true" source="./media/get-started-partners/cost-management-billing-policies.png" alt-text="Screenshot showing the policy to allow customers to view pay-as-you-go charges.":::
 
 When the policy is set to **No**, Cost Management isn't available for subscription users associated to the customer. Unless enabled by a partner, the cost visibility policy is disabled by default for all subscription users.
 
@@ -151,7 +151,7 @@ When the cost visibility policy is enabled, all services that have subscription 
 
 To view costs for a subscription, open **Cost Management** in the customer's Azure tenant. Select **Cost analysis** and then the required subscription to start reviewing costs. You can view consumption costs for each subscription individually in the customer tenant.
 
-[![View cost analysis as a customer ](./media/get-started-partners/subscription-costs.png)](./media/get-started-partners/subscription-costs.png#lightbox)
+:::image type="content" border="true" source="./media/get-started-partners/subscription-costs.png" lightbox="./media/get-started-partners/subscription-costs.png" alt-text="Screenshot showing view cost analysis as a customer.":::
 
 Cost analysis, budgets, and alerts are available for the subscription and resource group Azure RBAC scopes at pay-as-you-go rate-based costs.
 
@@ -207,7 +207,7 @@ The following data fields are found in usage detail files and Cost Management AP
 | subscription ID | Unique Microsoft generated identifier for the Azure subscription. | EntitlementID |
 | subscriptionName | Name of the Azure subscription. | N/A |
 | Term | Displays the term for the validity of the offer. For example, reserved instances show 12 months of a yearly term of the reserved instance. For one-time purchases or recurring purchases, the term displays one month for SaaS, Azure Marketplace, and support. Not applicable for Azure consumption. | N/A |
-| provider | Identifier for product and line of business. Break down costs by the provider type: Azure, Microsoft 365, Dynamics 365, AWS, and so on.  | N/A |
+| provider | Identifier for product and line of business. Break down costs by the provider type: Azure, Microsoft 365, Dynamics 365, AWS¹, and so on.  | N/A |
 | publisherType (firstParty, thirdPartyReseller, thirdPartyAgency) | Type of publisher that identifies the publisher as first party, third-party reseller, or third-party agency. | N/A |
 | partNumber | Part number for the unused reserved instance and Azure Marketplace services. | N/A |
 | publisherName | Name of the publisher of the service including Microsoft or third-party publishers. | The name of the product's publisher.|
@@ -240,6 +240,8 @@ The following data fields are found in usage detail files and Cost Management AP
 | **partnerEarnedCreditRate** | Rate of discount applied if there is a partner earned credit (PEC) based on partner admin link access. | The rate of partner earned credit (PEC). For example, 0% or 15%. |
 | **partnerEarnedCreditApplied** | Indicates whether the partner earned credit has been applied. | N/A |
 
+¹ The Connector for AWS in the Cost Management service retires on March 31, 2025. Users should consider alternative solutions for AWS cost management reporting. On March 31, 2024, Azure will disable the ability to add new Connectors for AWS for all customers. For more information, see [Retire your Amazon Web Services (AWS) connector](retire-aws-connector.md).
+
 ## View Partner Earned Credit (PEC) resource costs
 
 In Cost Management, partners can use cost analysis to view costs that received the PEC benefits.
@@ -250,7 +252,7 @@ The Cost analysis view shows costs of the billing account for the partner. Selec
 
 In a donut chart, select the drop-down list and select **PartnerEarnedCreditApplied** to drill into PEC costs.
 
-![Example showing how to view partner-earned credit](./media/get-started-partners/cost-analysis-pec1.png)
+:::image type="content" border="true" source="./media/get-started-partners/cost-analysis-pec1.png" alt-text="Screenshot showing how to view partner-earned credit.":::
 
 When the **PartnerEarnedCreditApplied** property is _True_, the associated cost has the benefit of the partner earned admin access.
 
@@ -261,7 +263,7 @@ Service usage data normally takes 8-24 hours to appear in Cost Management. For m
 
 You can also group and filter by the **PartnerEarnedCreditApplied** property using the **Group by** options. Use the options to examine costs that do and don't have PEC.
 
-![Group or filter by partner-earned credit](./media/get-started-partners/cost-analysis-pec2.png)
+:::image type="content" border="true" source="./media/get-started-partners/cost-analysis-pec2.png" alt-text="Screenshot showing where to group or filter by partner-earned credit.":::
 
 ## Export cost data to Azure Storage
 
@@ -273,11 +275,11 @@ Users with Azure RBAC access to the subscription can also export the cost data t
 
 In the Azure portal, sign in to the partner tenant or customer tenant and select **Cost Management + Billing**. Select an appropriate scope, for example a Microsoft Partner Agreement billing account, and then select **Cost Analysis**. When the page loads, select **Export**. Select **View all exports** under Schedule Export.
 
-![Select Export and View all exports](./media/get-started-partners/export01.png)
+:::image type="content" border="true" source="./media/get-started-partners/export01.png" alt-text="Screenshot showing select Export and View all exports.":::
 
 Next, select  **Add** and type the name and select an export type. Select the **Storage** tab and enter required information.
 
-![Add new export and select Storage tab](./media/get-started-partners/export02.png)
+:::image type="content" border="true" source="./media/get-started-partners/export02.png" alt-text="Screenshot showing add new export and select Storage tab.":::
 
 When you create an export in the partner tenant, select the pay-as-you-go subscription in the partner tenant. Create an Azure Storage account using that subscription.
 
@@ -287,7 +289,7 @@ Review the content and then select **Create** to schedule an export.
 
 To verify data in the export list, select the storage account name. On the storage account page, select **Containers** and then select the container. Navigate to the corresponding folder and select the CSV file. Select **Download** to get the CSV file and open it. The exported data exported resembles cost data similar to usage details from the Azure portal.
 
-![Example of exported data](./media/get-started-partners/example-export-data.png)
+:::image type="content" border="true" source="./media/get-started-partners/example-export-data.png" alt-text="Screenshot showing an example of exported data in a CSV file.":::
 
 ## Cost Management REST APIs
 

@@ -5,7 +5,7 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 11/28/2023
+ms.date: 04/09/2024
 ms.author: duau
 
 ---
@@ -448,6 +448,10 @@ See the recommendation for [High availability and failover with Azure ExpressRou
 
 Yes. Office 365 GCC service endpoints are reachable through the Azure US Government ExpressRoute. However, you first need to open a support ticket on the Azure portal to provide the prefixes you intend to advertise to Microsoft. Your connectivity to Office 365 GCC services will be established after the support ticket is resolved. 
 
+### Can I have ExpressRoute Private Peering in an Azure Goverment environment with Virtual Network Gateways in Azure commercial cloud? 
+
+No, it's not possible to establish ExpressRoute Private peering in an Azure Goverment environment with a virtual network gateway in Azure commercial cloud environments. Furthermore, the scope of the ExpressRoute Government Microsoft Peering is limited to only public IPs within Azure government regions and doesn't extend to the broader ranges of commercial public IPs. 
+
 ## Route filters for Microsoft peering
 
 ### Are Azure service routes advertised when I first configure Microsoft peering?
@@ -482,9 +486,9 @@ VNet-to-VNet connectivity over ExpressRoute isn't recommended. Instead, configur
 
 ## ExpressRoute Traffic Collector
 
-### Where does ExpressRoute Traffic Collector store your data?
+### Does ExpressRoute Traffic Collector store customer data?
 
-All flow logs are ingested into your Log Analytics workspace by the ExpressRoute Traffic Collector. ExpressRoute Traffic Collector itself, doesn't store any of your data.
+All flow logs are ingested into your Log Analytics workspace by the ExpressRoute Traffic Collector. ExpressRoute Traffic Collector doesn't store any customer data.
 
 ### What is the sampling rate used by ExpressRoute Traffic Collector?
 

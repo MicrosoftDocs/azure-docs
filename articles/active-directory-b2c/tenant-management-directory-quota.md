@@ -14,6 +14,9 @@ ms.custom: b2c-docs-improvements
 ms.reviewer: kengaderdus
 ms.author: falves
 ms.subservice: B2C
+
+#Customer intent: As an Azure AD B2C tenant administrator, I want to monitor and manage the directory size quota, so that I can ensure that I don't exceed the maximum number of objects allowed in the directory and take necessary actions such as removing inactive users or requesting a quota increase.
+
 ---
 
 # Manage directory size quota of your Azure Active Directory B2C tenant

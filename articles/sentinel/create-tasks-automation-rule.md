@@ -1,10 +1,15 @@
 ---
 title: Create incident tasks in Microsoft Sentinel using automation rules
 description: This article explains how to use automation rules to create lists of incident tasks, in order to standardize analyst workflow processes in Microsoft Sentinel.
-author: yelevin
-ms.author: yelevin
 ms.topic: how-to
-ms.date: 11/24/2022
+author: batamig
+ms.author: bagol
+ms.date: 03/14/2024
+appliesto:
+    - Microsoft Sentinel in the Azure portal
+    - Microsoft Sentinel in the Microsoft Defender portal
+ms.collection: usx-security
+
 ---
 
 # Create incident tasks in Microsoft Sentinel using automation rules
@@ -12,10 +17,6 @@ ms.date: 11/24/2022
 This article explains how to use automation rules to create lists of incident tasks, in order to standardize analyst workflow processes in Microsoft Sentinel.
 
 [Incident tasks](incident-tasks.md) can be created automatically not only by automation rules, but also by playbooks, and also manually, ad-hoc, from within an incident.
-
-> [!IMPORTANT]
->
-> The **Incident tasks** feature is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Use cases for different roles
 
@@ -33,6 +34,8 @@ Another article, at the following links, addresses scenarios that apply more to 
 - [View and follow incident tasks](work-with-tasks.md#view-and-follow-incident-tasks)
 - [Manually add an ad-hoc task to an incident](work-with-tasks.md#manually-add-an-ad-hoc-task-to-an-incident)
 
+[!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]
+
 ## Prerequisites
 
 The **Microsoft Sentinel Responder** role is required to create automation rules and to view and edit incidents, both of which are necessary to add, view, and edit tasks.
@@ -48,7 +51,7 @@ In the **Automation** page, you can filter the view of automation rules to see o
 
 1. Unmark the **Select all** checkbox.
 
-1. Scroll down and mark the **Add task (Preview)** checkbox.
+1. Scroll down and mark the **Add task** checkbox.
 
 1. Select **OK** and see the results.
 
@@ -72,9 +75,9 @@ Give your automation rule a name that describes what it does.
 
     For example, filter by **Analytics rule name**:
 
-    - You may want to add tasks to incidents based on the types of threats detected by an analytics rule or a group of analytics rules, that need to be handled according to a certain workflow. Search for and select the relevant analytics rules from the drop-down list.
+    - You might want to add tasks to incidents based on the types of threats detected by an analytics rule or a group of analytics rules that need to be handled according to a certain workflow. Search for and select the relevant analytics rules from the drop-down list.
 
-    - Or, you may want to add tasks that are relevant for incidents across all types of threats (in this case, leave the default selection of **All** as is).
+    - Or, you might want to add tasks that are relevant for incidents across all types of threats (in this case, leave the default selection of **All** as is).
 
     In either case, you can add more conditions to narrow the scope of incidents to which your automation rule will apply. Learn more about [adding advanced conditions to automation rules](add-advanced-conditions-to-automation-rules.md).
 
@@ -82,7 +85,7 @@ Give your automation rule a name that describes what it does.
 
     :::image type="content" source="media/create-tasks-automation-rule/create-new-automation-rule.png" alt-text="Screenshot of first part of automation rule wizard.":::
 
-1. Under **Actions**, select **Add task (preview)**.
+1. Under **Actions**, select **Add task**.
 
     :::image type="content" source="media/create-tasks-automation-rule/add-task-action.png" alt-text="Screenshot of choosing the Add Task action in an automation rule.":::
 

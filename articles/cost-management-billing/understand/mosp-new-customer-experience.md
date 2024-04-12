@@ -6,7 +6,7 @@ ms.reviewer: amberb
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 04/05/2023
+ms.date: 03/21/2024
 ms.author: banders
 ---
 
@@ -59,7 +59,7 @@ Your new experience includes the following cost management and billing capabilit
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Search for **Cost Management + Billing**.  
-   ![Screenshot that shows search in the Azure portal for Cost Management + Billing.](./media/mosp-new-customer-experience/billing-search-cost-management-billing.png)
+   :::image type="content" border="true" source="./media/mosp-new-customer-experience/billing-search-cost-management-billing.png" alt-text="Screenshot that shows search in the Azure portal for Cost Management + Billing.":::
 3. Select **Azure subscriptions** from the left-side of the screen. 
 4. The table lists Azure subscriptions that you're paying for. In the billing profile column, you would find the billing profile that is billed for the subscription. The subscription charges are displayed on the invoice for the billing profile. To consolidate the charges for all your subscriptions on a single invoice, you need to link all your subscriptions to a single billing profile.  
     :::image type="content" source="./media/mosp-new-customer-experience/list-azure-subscriptions.png" alt-text="Screenshot that shows the list of Azure subscriptions." lightbox="./media/mosp-new-customer-experience/list-azure-subscriptions.png" :::
@@ -212,11 +212,11 @@ After your Azure billing account is updated, you'll get an email from Microsoft 
 
     2. Select **Switch directory**.
 
-        ![Screenshot that shows selecting switch directory in the portal](./media/mosp-new-customer-experience/select-switch-directory.png)
+        :::image type="content" border="true" source="./media/mosp-new-customer-experience/select-switch-directory.png" alt-text="Screenshot that shows selecting switch directory in the portal.":::
 
     3. Select **Switch** for a directory from the **All directories** section.
 
-        ![Screenshot that shows selecting a directory in the portal](./media/mosp-new-customer-experience/select-directory.png)
+        :::image type="content" border="true" source="./media/mosp-new-customer-experience/select-directory.png" alt-text="Screenshot that shows selecting a directory in the Azure portal.":::
 
 ## Need help? Contact support.
 

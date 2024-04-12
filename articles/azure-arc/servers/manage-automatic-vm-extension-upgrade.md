@@ -61,7 +61,7 @@ Automatic extension upgrade supports the following extensions:
 - Key Vault Extension - Linux only
 - Azure Update Manager - Linux and Windows
 - Azure Automation Hybrid Runbook Worker - Linux and Windows
-- Azure Arc-enabled SQL Server agent - Linux and Windows
+- Azure extension for SQL Server - Linux and Windows
 
 More extensions will be added over time. Extensions that do not support automatic extension upgrade today are still configured to enable automatic upgrades by default. This setting will have no effect until the extension publisher chooses to support automatic upgrades.
 

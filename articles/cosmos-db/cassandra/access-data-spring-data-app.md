@@ -6,7 +6,6 @@ author: TheovanKraay
 ms.author: thvankra
 ms.subservice: apache-cassandra
 ms.devlang: java
-ms.custom: ignite-2022
 ms.topic: how-to
 ms.date: 07/17/2021
 ---

@@ -14,7 +14,6 @@ metadata:
   ms.topic: landing-page
 
   ms.date: 02/28/2023
-  ms.custom: ignite-2022
 landingContent:
   - title: About Azure Cosmos DB for PostgreSQL
     linkLists:
@@ -114,4 +113,3 @@ landingContent:
             url: howto-ssl-connection-security.md
           - text: Enable encryption with customer managed keys
             url: how-to-customer-managed-keys.md
-

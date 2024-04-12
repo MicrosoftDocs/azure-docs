@@ -3,12 +3,11 @@ title: Azure Managed HSM logging
 description: Use this tutorial to help you get started with Managed HSM logging.
 services: key-vault
 author: msmbaldwin
-tags: azure-resource-manager
 
 ms.service: key-vault
 ms.subservice: managed-hsm
 ms.topic: tutorial
-ms.date: 03/16/2023
+ms.date: 01/30/2024
 ms.author: mbaldwin
 #Customer intent: As a Managed HSM administrator, I want to enable logging so I can monitor how my HSM is accessed.
 ---
@@ -79,6 +78,7 @@ What's logged:
   * Creating, modifying, or deleting the keys.
   * Signing, verifying, encrypting, decrypting, wrapping and unwrapping keys, listing keys.
   * Key backup, restore, purge
+  * Key release
 * Invalid paths that result in a 404 response. 
 
 ## Access your logs
@@ -118,14 +118,6 @@ Individual blobs are stored as text, formatted as a JSON. Let's look at an examp
   }
 ]
 ```
-
-
-
-## Use Azure Monitor logs
-
-You can use the Key Vault solution in Azure Monitor logs to review Managed HSM **AuditEvent** logs. In Azure Monitor logs, you use log queries to analyze data and get the information you need.
-
-For more information, including how to set this up, see [Azure Key Vault in Azure Monitor](../key-vault-insights-overview.md).
 
 ## Next steps
 

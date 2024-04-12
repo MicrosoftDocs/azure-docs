@@ -6,7 +6,7 @@ ms.author: dobett
 ms.service: iot
 services: iot
 ms.topic: conceptual
-ms.date: 02/20/2023
+ms.date: 02/28/2024
 
 ---
 
@@ -20,7 +20,7 @@ The following tables list the various SDKs you can use to build IoT solutions.
 
 Use the device SDKs to develop code to run on IoT devices that connect to IoT Hub or IoT Central.
 
-To learn more about how to use the device SDKs, see [What is Azure IoT device and application development?](../iot-develop/about-iot-develop.md).
+To learn more about how to use the device SDKs, see [What is Azure IoT device and application development?](./concepts-iot-device-development.md).  
 
 ### Embedded device SDKs
 
@@ -28,13 +28,35 @@ To learn more about how to use the device SDKs, see [What is Azure IoT device an
 
 Use the embedded device SDKs to develop code to run on IoT devices that connect to IoT Hub or IoT Central.
 
-To learn more about when to use the embedded device SDKs, see [C SDK and Embedded C SDK usage scenarios](../iot-develop/concepts-using-c-sdk-and-embedded-c-sdk.md).
+To learn more about when to use the embedded device SDKs, see [C SDK and Embedded C SDK usage scenarios](./concepts-using-c-sdk-and-embedded-c-sdk.md).
+
+### Device SDK lifecycle and support
+
+This section summarizes the Azure IoT Device SDK lifecycle and support policy. For more information, see [Azure SDK Lifecycle and support policy](https://azure.github.io/azure-sdk/policies_support.html).
+
+#### Package lifecycle
+
+Packages are released in the following categories. Each category has a defined support structure.
+
+1. **Beta** - Also known as Preview or Release Candidate. Available for early access and feedback purposes and **is not recommended** for use in production. The preview version support is limited to GitHub issues. Preview releases typically live for less than six months, after which they're either deprecated or released as active.
+
+1. **Active** - Generally available and fully supported, receives new feature updates, as well as bug and security fixes. We recommend that customers use the **latest version** because that version receives fixes and updates.
+
+1. **Deprecated** - Superseded by a more recent release. Deprecation occurs at the same time the new release becomes active. Deprecated releases address the most critical bug fixes and security fixes for another **12 months**.
+
+#### Get support
+
+If you experience problems while using the Azure IoT SDKs, there are several ways to seek support:
+
+* **Reporting bugs** - All customers can report bugs on the issues page for the GitHub repository associated with the relevant SDK. 
+
+* **Microsoft Customer Support team** - Users who have a [support plan](https://azure.microsoft.com/support/plans/) can engage the Microsoft Customer Support team by creating a support ticket directly from the [Azure portal](https://portal.azure.com/signin/index/?feature.settingsportalinstance=mpac).
 
 ## IoT Hub service SDKs
 
 [!INCLUDE [iot-hub-sdks-service](../../includes/iot-hub-sdks-service.md)]
 
-To learn more about using the service SDKs to interact with devices through an IoT hub, see [IoT Plug and Play service developer guide](../iot-develop/concepts-developer-guide-service.md).
+To learn more about using the service SDKs to interact with devices through an IoT hub, see [IoT Plug and Play service developer guide](../iot/concepts-developer-guide-service.md).
 
 ## IoT Hub management SDKs
 
@@ -70,5 +92,5 @@ Alternatives to the management SDKs include the [Azure CLI](../iot-hub/iot-hub-c
 
 Suggested next steps include:
 
-- [Device developer guide](../iot-develop/concepts-developer-guide-device.md)
-- [Service developer guide](../iot-develop/concepts-developer-guide-service.md)
+- [Device developer guide](../iot/concepts-developer-guide-device.md)
+- [Service developer guide](../iot/concepts-developer-guide-service.md)

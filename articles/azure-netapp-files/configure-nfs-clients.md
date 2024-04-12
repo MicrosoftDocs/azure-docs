@@ -1,10 +1,9 @@
 ---
 title: Configure an NFS client for Azure NetApp Files | Microsoft Docs
-description: Describes how to configure NFS clients to use with Azure NetApp Files. 
+description: Describes how to configure NFS clients to use with Azure NetApp Files.
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
-ms.workload: storage
 ms.topic: how-to
 ms.date: 05/27/2022
 ms.author: anfdocs

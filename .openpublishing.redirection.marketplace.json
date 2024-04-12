@@ -3459,6 +3459,66 @@
             "source_path_from_root": "/articles/marketplace/context/context.yml",
             "redirect_url": "/partner-center/marketplace/",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace-publishing/marketplace-publishing-csp-incentive.md",
+            "redirect_url": "https://cloudpartner.azure.com",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace-publishing/marketplace-publishing-data-service-creation.md",
+            "redirect_url": "https://cloudpartner.azure.com",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace-publishing/marketplace-publishing-data-service-creation-odata-mapping.md",
+            "redirect_url": "https://cloudpartner.azure.com",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace-publishing/marketplace-publishing-data-service-creation-odata-mapping-examples.md",
+            "redirect_url": "https://cloudpartner.azure.com",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace-publishing/marketplace-publishing-data-service-creation-odata-mapping-nodes.md",
+            "redirect_url": "https://cloudpartner.azure.com",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace-publishing/marketplace-publishing-data-service-creation-prerequisites.md",
+            "redirect_url": "https://cloudpartner.azure.com",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace-publishing/marketplace-publishing-data-service-test-in-staging.md",
+            "redirect_url": "https://cloudpartner.azure.com",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace-publishing/marketplace-publishing-get-publisher-support.md",
+            "redirect_url": "https://cloudpartner.azure.com",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace-publishing/marketplace-publishing-report-payout.md",
+            "redirect_url": "https://cloudpartner.azure.com",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace-publishing/marketplace-publishing-report-seller-insights.md",
+            "redirect_url": "https://cloudpartner.azure.com",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace-publishing/marketplace-publishing-report-seller-insights-user-guide.md",
+            "redirect_url": "https://cloudpartner.azure.com",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace-publishing/marketplace-publishing-support-common-issues.md",
+            "redirect_url": "https://cloudpartner.azure.com",
+            "redirect_document_id": false
         }
     ]
 }

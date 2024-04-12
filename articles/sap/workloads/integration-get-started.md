@@ -24,7 +24,7 @@ We have over thirty years of partnership between SAP and Microsoft, which is a f
 - [SAP Partners with Microsoft for First-in-Market Cloud Migration Offerings](https://news.microsoft.com/2019/10/20/sap-partners-with-microsoft-for-first-in-market-cloud-migration-offerings/)
 - [SAP and Microsoft Expand Partnership and Integrate Microsoft Teams Across Solutions](https://news.sap.com/2021/01/sap-and-microsoft-expand-partnership-integrate-teams/)
 - [Come Explore the Future](https://news.sap.com/2021/01/sap-and-microsoft-expand-partnership-integrate-teams/), showing how Microsoft and SAP are partnering to meet the needs of every business.
-- [Collaborating for Success: How SAP and Microsoft are working together to accelerate customer innovation and transformation](https://www.sap.com/documents/2021/01/ca0f4c25-c87d-0010-87a3-c30de2ffd8ff.html)
+- [Collaborating for Success: How SAP and Microsoft are working together to accelerate customer innovation and transformation](https://discover.sap.com/microsoft/en-us/index.html)
 
 ## Integration resources
 
@@ -119,27 +119,28 @@ Also see the following SAP resources:
 
 ### Microsoft Entra ID (formerly Azure AD)
 
-For more information about integration with Microsoft Entra ID, see the following Azure documentation:
+For more information about integrations with Microsoft Entra ID and Microsoft Entra ID Governance, see the following Microsoft Entra documentation:
 
-- [Secure access with SAP Cloud Identity Services and Microsoft Entra ID](../../active-directory/fundamentals/scenario-azure-first-sap-identity-integration.md)
+- [Manage access to your SAP applications](/entra/id-governance/sap)
+- [Secure access with SAP Cloud Identity Services and Microsoft Entra ID](/entra/fundamentals/scenario-azure-first-sap-identity-integration)
 - [SAP workload security - Microsoft Azure Well-Architected Framework](/azure/architecture/framework/sap/security)
-- [Provision users from SAP SuccessFactors to Active Directory](../../active-directory/saas-apps/sap-successfactors-inbound-provisioning-tutorial.md)
-- [Provision users from SAP SuccessFactors to Microsoft Entra ID](../../active-directory/saas-apps/sap-successfactors-inbound-provisioning-cloud-only-tutorial.md)
-- [Write-back users from Microsoft Entra ID to SAP SuccessFactors](../../active-directory/saas-apps/sap-successfactors-writeback-tutorial.md)
-- [Provision users to SAP Cloud Identity Services - Identity Authentication](../../active-directory/saas-apps/sap-cloud-platform-identity-authentication-provisioning-tutorial.md)
+- [Provision users from SAP SuccessFactors to Active Directory](/entra/identity/saas-apps/sap-successfactors-inbound-provisioning-tutorial)
+- [Provision users from SAP SuccessFactors to Microsoft Entra ID](/entra/identity/saas-apps/sap-successfactors-inbound-provisioning-cloud-only-tutorial)
+- [Write-back users from Microsoft Entra ID to SAP SuccessFactors](/entra/identity/saas-apps/sap-successfactors-writeback-tutorial)
+- [Provision users to SAP Cloud Identity Services - Identity Authentication](/entra/identity/saas-apps/sap-cloud-platform-identity-authentication-provisioning-tutorial)
 
-For how to configure single sign-on, see the following Azure documentation and tutorials:
-- [SAP Cloud Identity Services - Identity Authentication](../../active-directory/saas-apps/sap-hana-cloud-platform-identity-authentication-tutorial.md)
-- [SAP SuccessFactors](../../active-directory/saas-apps/successfactors-tutorial.md)
-- [SAP Analytics Cloud](../../active-directory/saas-apps/sapboc-tutorial.md)
-- [SAP Fiori](../../active-directory/saas-apps/sap-fiori-tutorial.md)
-- [SAP Qualtrics](../../active-directory/saas-apps/qualtrics-tutorial.md)
-- [SAP Ariba](../../active-directory/saas-apps/ariba-tutorial.md)
-- [SAP Concur Travel and Expense](../../active-directory/saas-apps/concur-travel-and-expense-tutorial.md)
-- [SAP Business Technology Platform](../../active-directory/saas-apps/sap-hana-cloud-platform-tutorial.md)
-- [SAP Business ByDesign](../../active-directory/saas-apps/sapbusinessbydesign-tutorial.md)
-- [SAP HANA](../../active-directory/saas-apps/saphana-tutorial.md)
-- [SAP Cloud for Customer](../../active-directory/saas-apps/sap-customer-cloud-tutorial.md)
+For how to configure single sign-on, see the following Microsoft Entra documentation and tutorials:
+- [SAP Cloud Identity Services - Identity Authentication](/entra/identity/saas-apps/sap-hana-cloud-platform-identity-authentication-tutorial)
+- [SAP SuccessFactors](/entra/identity/saas-apps/successfactors-tutorial)
+- [SAP Analytics Cloud](/entra/identity/saas-apps/sapboc-tutorial)
+- [SAP Fiori](/entra/identity/saas-apps/sap-fiori-tutorial)
+- [SAP Qualtrics](/entra/identity/saas-apps/qualtrics-tutorial)
+- [SAP Ariba](/entra/identity/saas-apps/ariba-tutorial)
+- [SAP Concur Travel and Expense](/entra/identity/saas-apps/concur-travel-and-expense-tutorial)
+- [SAP Business Technology Platform](/entra/identity/saas-apps/sap-hana-cloud-platform-tutorial)
+- [SAP Business ByDesign](/entra/identity/saas-apps/sapbusinessbydesign-tutorial)
+- [SAP HANA](/entra/identity/saas-apps/saphana-tutorial)
+- [SAP Cloud for Customer](/entra/identity/saas-apps/sap-customer-cloud-tutorial)
 
 Also see the following SAP resources:
 - [Azure Application Gateway Setup for Public and Internal SAP URLs](https://blogs.sap.com/2020/12/10/sap-on-azure-single-sign-on-configuration-using-saml-and-azure-active-directory-for-public-and-internal-urls/)
@@ -257,7 +258,7 @@ For more information about using Microsoft Defender for Endpoint (MDE) via Micro
 
 - [SAP Applications and Microsoft Defender for Linux | Microsoft TechCommunity](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/sap-applications-and-microsoft-defender-for-linux/ba-p/3675480)
 - [SAP Applications and Microsoft Defender for Windows Server | Microsoft TechCommunity](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/microsoft-defender-endpoint-mde-for-sap-applications-on-windows/ba-p/3912268)
-- [Enable the Microsoft Defender for Endpoint integration](../../defender-for-cloud/enable-defender-for-endpoint.md#enable-the-microsoft-defender-for-endpoint-integration)
+- [Enable the Microsoft Defender for Endpoint integration](../../defender-for-cloud/enable-defender-for-endpoint.md)
 - [Common mistakes to avoid when defining exclusions](/microsoft-365/security/defender-endpoint/common-exclusion-mistakes-microsoft-defender-antivirus)
 
 Also see the following SAP resources:

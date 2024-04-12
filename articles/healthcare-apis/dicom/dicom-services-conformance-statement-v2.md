@@ -58,12 +58,14 @@ The [Studies Service](https://dicom.nema.org/medical/dicom/current/output/html/p
 
 ### Store (STOW-RS)
 
-This transaction uses the POST method to store representations of studies, series, and instances contained in the request payload.
+This transaction uses the POST or PUT method to store representations of studies, series, and instances contained in the request payload.
 
 | Method | Path               | Description |
 | :----- | :----------------- | :---------- |
 | POST   | ../studies         | Store instances. |
 | POST   | ../studies/{study} | Store instances for a specific study. |
+| PUT    | ../studies         | Upsert instances. |
+| PUT    | ../studies/{study} | Upsert instances for a specific study. |
 
 Parameter `study` corresponds to the DICOM attribute StudyInstanceUID. If specified, any instance that doesn't belong to the provided study is rejected with a `43265` warning code.
 
@@ -77,7 +79,7 @@ The following `Content-Type` header(s) are supported:
 * `application/dicom`
 
 > [!NOTE]
-> The Server **will not** coerce or replace attributes that conflict with existing data. All data will be stored as provided.
+> The server won't coerce or replace attributes that conflict with existing data for POST requests. All data is stored as provided. For upsert (PUT) requests, the existing data is replaced by the new data received. 
 
 #### Store required attributes
 The following DICOM elements are required to be present in every DICOM file attempting to be stored:
@@ -96,7 +98,7 @@ Each file stored must have a unique combination of `StudyInstanceUID`, `SeriesIn
 Only transfer syntaxes with explicit Value Representations are accepted.
 
 > [!NOTE]
-> Requests are limited to 2GB. No single DICOM file or combination of files might exceed this limit.
+> Requests are limited to 4GB. No single DICOM file or combination of files might exceed this limit.
 
 #### Store changes from v1
 In previous versions, a Store request would fail if any of the [required](#store-required-attributes) or [searchable attributes](#searchable-attributes) failed validation. Beginning with V2, the request fails only if **required attributes** fail validation.
@@ -312,7 +314,7 @@ The following `Accept` header(s) are supported for retrieving instances within a
 * `multipart/related; type="application/dicom";` (when transfer-syntax isn't specified, 1.2.840.10008.1.2.1 is used as default)
 * `multipart/related; type="application/dicom"; transfer-syntax=1.2.840.10008.1.2.1`
 * `multipart/related; type="application/dicom"; transfer-syntax=1.2.840.10008.1.2.4.90`
-- `*/*` (when transfer-syntax isn't specified, `1.2.840.10008.1.2.1` is used as default and mediaType defaults to `application/dicom`)
+- `*/*` (when transfer-syntax isn't specified, `*` is used as default and mediaType defaults to `application/dicom`)
 
 #### Retrieve an Instance
 
@@ -326,7 +328,7 @@ The following `Accept` header(s) are supported for retrieving a specific instanc
 * `multipart/related; type="application/dicom"; transfer-syntax=1.2.840.10008.1.2.1`
 * `application/dicom; transfer-syntax=1.2.840.10008.1.2.4.90`
 * `multipart/related; type="application/dicom"; transfer-syntax=1.2.840.10008.1.2.4.90`
-- `*/*` (when transfer-syntax isn't specified, `1.2.840.10008.1.2.1` is used as default and mediaType defaults to `application/dicom`)
+- `*/*` (when transfer-syntax isn't specified, `*` is used as default and mediaType defaults to `application/dicom`)
 
 #### Retrieve Frames
 
@@ -337,7 +339,7 @@ The following `Accept` headers are supported for retrieving frames:
 * `multipart/related; type="image/jp2";` (when transfer-syntax isn't specified, `1.2.840.10008.1.2.4.90` is used as default)
 * `multipart/related; type="image/jp2";transfer-syntax=1.2.840.10008.1.2.4.90`
 * `application/octet-stream; transfer-syntax=*` for single frame retrieval
-- `*/*` (when transfer-syntax isn't specified, `1.2.840.10008.1.2.1` is used as default and mediaType defaults to `application/octet-stream`)
+- `*/*` (when transfer-syntax isn't specified, `*` is used as default and mediaType defaults to `application/octet-stream`)
 
 #### Retrieve transfer syntax
 

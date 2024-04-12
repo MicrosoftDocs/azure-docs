@@ -134,4 +134,4 @@ After initial replication finishes, replication moves on to the differential-syn
 
 ## Next steps
 
-Learn about [running a test failover](site-recovery-test-failover-to-azure.md).
+- Learn about [running a test failover](site-recovery-test-failover-to-azure.md).

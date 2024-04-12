@@ -10,7 +10,7 @@ ms.service: azure-ai-vision
 ms.topic: conceptual
 ms.date: 01/19/2024
 ms.author: pafarley
-ms.custom: seodec18, ignite-2022, references_regions
+ms.custom: references_regions
 ---
 
 # Image captions (version 4.0)
@@ -122,7 +122,7 @@ The following JSON response illustrates what the Analysis 4.0 API returns when g
       }
     ]
   },
-  "modelVersion": "2023-10-01",
+  "modelVersion": "2024-02-01",
   "metadata": {
     "width": 850,
     "height": 567

@@ -5,11 +5,14 @@ author: ajetasin
 ms.author: ajetasi
 ms.service: stream-analytics
 ms.topic: tutorial
-ms.date: 03/29/2023
-ms.custom: "seodec18, devx-track-csharp"
+ms.date: 02/26/2024
+ms.custom: devx-track-csharp
 ---
 
 # Tutorial: Write a C# user-defined function for Azure Stream Analytics job (Preview)
+
+> [!IMPORTANT]
+> .Net Standard user-defined functions for Azure Stream Analytics will be retired on 30th September 2024. After that date, it will not be possible to use the feature. Please transition to [JavaScript user-defined functions](./stream-analytics-javascript-user-defined-functions.md) for Azure Stream Analytics.
 
 C# user-defined functions (UDFs) created in Visual Studio allow you to extend the Azure Stream Analytics query language with your own functions. You can reuse existing code (including DLLs) and use mathematical or complex logic with C#. There are three ways to implement UDFs: 
 

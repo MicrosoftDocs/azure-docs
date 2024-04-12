@@ -6,7 +6,7 @@ ms.subservice: flexible-server
 ms.topic: conceptual
 author: varun-dhawan
 ms.author: varundhawan
-ms.date: 4/1/2023
+ms.date: 1/25/2024
 ---
 
 # Query Performance Insight for Azure Database for PostgreSQL - Flexible Server

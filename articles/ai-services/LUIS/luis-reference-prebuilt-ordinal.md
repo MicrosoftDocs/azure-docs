@@ -6,7 +6,6 @@ description: This article contains ordinal prebuilt entity information in Langua
 ms.author: aahi
 author: aahill
 manager: nitinme
-ms.custom: seodec18
 ms.service: azure-ai-language
 ms.subservice: azure-ai-luis
 ms.topic: reference
@@ -86,6 +85,6 @@ The following example shows the resolution of the **builtin.ordinal** entity.
 
 ## Next steps
 
-Learn more about the [V3 prediction endpoint](luis-migration-api-v3.md).
+
 
 Learn about the [OrdinalV2](luis-reference-prebuilt-ordinal-v2.md), [phone number](luis-reference-prebuilt-phonenumber.md), and [temperature](luis-reference-prebuilt-temperature.md) entities.

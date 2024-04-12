@@ -28,7 +28,7 @@ You can use the Azure portal or the Azure CLI to retrieve past key-values.
    :::image type="content" source="media/restore-key-value-portal.png" alt-text="Screenshot of the Azure portal, selecting restore":::
 
 3. Select **Date: Select date** to select a date and time you want to revert to.
-4. Click outside of the date and time fields or press **Tab** to validate your choice. You can now see which key values have changed between your selected date and time and the current time. This step helps you understand what keys and values you're preparing to revert to. 
+4. Click outside of the date and time fields or press **Tab** to validate your choice. You can now see which key-values have changed between your selected date and time and the current time. This step helps you understand what keys and values you're preparing to revert to. 
 
    :::image type="content" source="media/restore-key-value-past-values.png" alt-text="Screenshot of the Azure portal with saved key-values":::
 

@@ -5,7 +5,6 @@ author: Heidilohr
 ms.topic: release-notes
 ms.date: 01/23/2024
 ms.author: helohr
-manager: femila
 ---
 
 # What's new in multimedia redirection?

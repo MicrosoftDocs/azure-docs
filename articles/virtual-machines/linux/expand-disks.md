@@ -5,16 +5,19 @@ author: pagienge
 ms.service: azure-disk-storage
 ms.collection: linux
 ms.topic: how-to
-ms.date: 07/12/2023
+ms.date: 01/25/2024
 ms.author: pagienge
-ms.custom: references_regions, ignite-fall-2021, devx-track-azurecli, linux-related-content
+ms.custom: references_regions, devx-track-azurecli, linux-related-content
 ---
 
 # Expand virtual hard disks on a Linux VM
 
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
+
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets
 
-This article describes how to expand managed disks for a Linux virtual machine (VM). You can [add data disks](add-disk.md) to provide for additional storage space, and you can also expand an existing data disk. The default virtual hard disk size for the operating system (OS) is typically 30 GB on a Linux VM in Azure. This article covers expanding either OS disks or data disks.
+This article describes how to expand managed disks for a Linux virtual machine (VM). You can [add data disks](add-disk.md) to provide for additional storage space, and you can also expand an existing data disk. The default virtual hard disk size for the operating system (OS) is typically 30 GB on a Linux VM in Azure. This article covers expanding either OS disks or data disks. You can't expand the size of striped volumes.
 
 An OS disk has a maximum capacity of 4,095 GiB. However, many operating systems are partitioned with [master boot record (MBR)](https://wikipedia.org/wiki/Master_boot_record) by default. MBR limits the usable size to 2 TiB. If you need more than 2 TiB, create and attach data disks and use them for data storage. If you need to store data on the OS disk and require the additional space, convert it to GUID Partition Table (GPT).
 
@@ -23,7 +26,7 @@ An OS disk has a maximum capacity of 4,095 GiB. However, many operating systems 
 
 ## <a id="identifyDisk"></a>Identify Azure data disk object within the operating system ##
 
-In the case of expanding a data disk when there are several data disks present on the VM, it may be difficult to relate the Azure LUNs to the Linux devices.  If the OS disk needs expansion, it will be clearly labeled in the Azure portal as the OS disk.
+In the case of expanding a data disk when there are several data disks present on the VM, it may be difficult to relate the Azure LUNs to the Linux devices.  If the OS disk needs expansion, it is clearly labeled in the Azure portal as the OS disk.
 
 Start by identifying the relationship between disk utilization, mount point, and device, with the ```df``` command.
 
@@ -39,9 +42,9 @@ Filesystem                Type      Size  Used Avail Use% Mounted on
 /dev/sde1                 ext4       32G   49M   30G   1% /opt/db/log
 ```
 
-Here we can see, for example, the `/opt/db/data` filesystem is nearly full, and is located on the `/dev/sdd1` partition.  The output of `df` will show the device path regardless of whether the disk is mounted by device path or the (preferred) UUID in the fstab.  Also take note of the Type column, indicating the format of the filesystem.  This will be important later.
+Here we can see, for example, the `/opt/db/data` filesystem is nearly full, and is located on the `/dev/sdd1` partition.  The output of `df` shows the device path regardless of whether the disk is mounted by device path or the (preferred) UUID in the fstab.  Also take note of the Type column, indicating the format of the filesystem.  This is important later.
 
-Now locate the LUN which correlates to `/dev/sdd` by examining the contents of `/dev/disk/azure/scsi1`.  The output of the following `ls` command will show that the device known as `/dev/sdd` within the Linux OS is located at LUN1 when looking in the Azure portal.
+Now locate the LUN that correlates to `/dev/sdd` by examining the contents of `/dev/disk/azure/scsi1`.  The output of the following `ls` command shows that the device known as `/dev/sdd` within the Linux OS is located at LUN1 when looking in the Azure portal.
 
 ```bash
 sudo ls -alF /dev/disk/azure/scsi1/
@@ -121,7 +124,7 @@ In the following samples, replace example parameter names such as *myResourceGro
 
 ### Detecting a changed disk size
 
-If a data disk was expanded without downtime using the procedure mentioned previously, the disk size won't be changed until the device is rescanned, which normally only happens during the boot process. This rescan can be called on-demand with the following procedure.  In this example we have detected using the methods in this document that the data disk is currently `/dev/sda` and has been resized from 256GB to 512GB.
+If a data disk was expanded without downtime using the procedure mentioned previously, the disk size won't be changed until the device is rescanned, which normally only happens during the boot process. This rescan can be called on-demand with the following procedure.  In this example we have detected using the methods in this document that the data disk is currently `/dev/sda` and has been resized from 256 GiB to 512 GiB.
 
 1. Identify the currently recognized size on the first line of output from `fdisk -l /dev/sda`
 
@@ -439,7 +442,7 @@ To increase the OS disk size in SUSE 12 SP4, SUSE SLES 12 for SAP, SUSE SLES 15,
    └─rootvg-rootlv 253:6    0   2G  0 lvm  /
    ```
 
-1. Expand the partition containing this PV using *growpart*, the device name, and partition number. Doing so will expand the specified partition to use all the free contiguous space on the device.
+1. Expand the partition containing this PV using *growpart*, the device name, and partition number. Doing so expands the specified partition to use all the free contiguous space on the device.
 
    ```bash
    growpart /dev/sda 4

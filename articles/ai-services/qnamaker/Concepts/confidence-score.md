@@ -10,7 +10,6 @@ ms.service: azure-ai-language
 ms.subservice: azure-ai-qna-maker
 ms.topic: conceptual
 ms.date: 01/19/2024
-ms.custom: seodec18
 ---
 
 # The confidence score of an answer

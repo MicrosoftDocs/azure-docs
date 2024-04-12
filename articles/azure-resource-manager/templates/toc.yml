@@ -377,7 +377,7 @@
       - name: Deploy - PowerShell
         displayName: deployment
         href: deploy-powershell.md
-      - name: Python
+      - name: Deploy - Python
         displayName: deployment
         href: deploy-python.md
       - name: Deploy - REST API

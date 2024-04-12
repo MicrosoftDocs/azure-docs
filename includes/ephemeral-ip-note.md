@@ -6,11 +6,11 @@ ms.date: 10/26/2022
 ms.author: allensu
 ---
 > [!NOTE]
-> Azure provides a default outbound access IP for VMs that either aren't assigned a public IP address or are in the back-end pool of an internal basic Azure load balancer. The default outbound access IP mechanism provides an outbound IP address that isn't configurable.
+> Azure provides a default outbound access IP for VMs that either aren't assigned a public IP address or are in the backend pool of an internal basic Azure load balancer. The default outbound access IP mechanism provides an outbound IP address that isn't configurable.
 >
 > The default outbound access IP is disabled when one of the following events happens:
 > - A public IP address is assigned to the VM.
-> - The VM is placed in the back-end pool of a standard load balancer, with or without outbound rules.
+> - The VM is placed in the backend pool of a standard load balancer, with or without outbound rules.
 > - An [Azure Virtual Network NAT gateway](../articles/virtual-network/nat-gateway/nat-overview.md) resource is assigned to the subnet of the VM.
 >
 > VMs that you create by using virtual machine scale sets in flexible orchestration mode don't have default outbound access.

@@ -8,12 +8,15 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 01/19/2024
+ms.date: 02/09/2024
 ---
 
 # Azure AI Search performance benchmarks
 
-Azure AI Search's performance depends on a [variety of factors](search-performance-tips.md) including the size of your search service and the types of queries you're sending. To help estimate the size of search service needed for your workload, we've run several benchmarks to document the performance for different search services and configurations. *These benchmarks in no way guarantee a certain level of performance from your service but can give you an idea of the performance you can expect*.
+> [!IMPORTANT]
+> These benchmarks in no way guarantee a certain level of performance from your service, however, they can serve as a useful guide for estimating potential performance under similar configurations.
+> 
+Azure AI Search's performance depends on a [variety of factors](search-performance-tips.md) including the size of your search service and the types of queries you're sending. To help estimate the size of search service needed for your workload, we've run several benchmarks to document the performance for different search services and configurations. 
 
 To cover a range of different use cases, we ran benchmarks for two main scenarios:
 

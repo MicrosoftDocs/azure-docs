@@ -1,6 +1,5 @@
 ---
 title: Configure Azure IoT MQ authentication
-titleSuffix: Azure IoT MQ
 description: Configure Azure IoT MQ authentication.
 author: PatAltimore
 ms.author: patricka
@@ -13,15 +12,15 @@ ms.date: 11/15/2023
 #CustomerIntent: As an operator, I want to configure authentication so that I have secure MQTT broker communications.
 ---
 
-# Configure Azure IoT MQ authentication
+# Configure Azure IoT MQ Preview authentication
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-Azure IoT MQ supports multiple authentication methods for clients, and you can configure each listener to have its own authentication system with *BrokerAuthentication* resources.
+Azure IoT MQ Preview supports multiple authentication methods for clients, and you can configure each listener to have its own authentication system with *BrokerAuthentication* resources.
 
 ## Default BrokerAuthentication resource
 
-Azure IoT Operations deploys a default BrokerAuthentication resource named `authn` linked with the default listener named `listener` in the `azure-iot-operations` namespace. It's configured to only use Kubernetes Service Account Tokens (SATs) for authentication. To inspect it, run:
+Azure IoT Operations Preview deploys a default BrokerAuthentication resource named `authn` linked with the default listener named `listener` in the `azure-iot-operations` namespace. It's configured to only use Kubernetes Service Account Tokens (SATs) for authentication. To inspect it, run:
 
 ```bash
 kubectl get brokerauthentication authn -n azure-iot-operations -o yaml
@@ -199,7 +198,7 @@ kubectl create configmap client-ca --from-file=client_ca.pem -n azure-iot-operat
 To check the root CA certificate is properly imported, run `kubectl describe configmap`. The result shows the same base64 encoding of the PEM certificate file.
 
 ```console
-$ kubectl describe configmap client-ca
+$ kubectl describe configmap client-ca -n azure-iot-operations
 Name:         client-ca
 Namespace:    azure-iot-operations
 
@@ -243,7 +242,7 @@ spec:
           secretName: x509-attributes
 ```
 
-### Connect mosquitto client to Azure IoT MQ with X.509 client certificate
+### Connect mosquitto client to Azure IoT MQ Preview with X.509 client certificate
 
 A client like mosquitto needs three files to be able to connect to Azure IoT MQ with TLS and X.509 client authentication. For example:
 
@@ -263,7 +262,7 @@ In the example:
   - When mosquitto client connects to Azure IoT MQ over TLS, it validates the server certificate. It searches for root certificates in the database to create a trusted chain to the server certificate. Because of this, the server root certificate needs to be copied into this file.
   - When the Azure IoT MQ requests a client certificate from mosquitto client, it also requires a valid certificate chain to send to the server. The `--cert` parameter tells mosquitto which certificate to send, but it's not enough. Azure IoT MQ can't verify this certificate alone because it also needs the intermediate certificate. Mosquitto uses the database file to build the necessary certificate chain. To support this, the `cafile` must contain both the intermediate and root certificates.
 
-### Understand Azure IoT MQ X.509 client authentication flow
+### Understand Azure IoT MQ Preview X.509 client authentication flow
 
 ![Diagram of the X.509 client authentication flow.](./media/howto-configure-authentication/x509-client-auth-flow.svg)
 
@@ -387,7 +386,7 @@ A sample custom authentication server and instructions are available on [GitHub]
 
 #### API
 
-The API between Azure IoT MQ and the custom authentication server follow the API specification for custom authentication. The OpenAPI specification is available on [GitHub](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/auth-server-template/api.yaml).
+The API between Azure IoT MQ and the custom authentication server follow the API specification for custom authentication. The OpenAPI specification is available on [GitHub](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/auth-server-template/api/0.5.0.yaml).
 
 #### HTTPS with TLS encryption is required
 

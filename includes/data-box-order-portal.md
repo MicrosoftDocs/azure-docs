@@ -1,11 +1,10 @@
 ---
 author: stevenmatthew
 ms.service: databox
-ms.subservice: databox   
+ms.subservice: databox
 ms.topic: include
 ms.date: 06/06/2022
 ms.author: shaas
-ms.custom: contperf-fy22q3
 ---
 
 Do the following steps in the Azure portal to order a device:
@@ -192,7 +191,7 @@ Do the following steps in the Azure portal to order a device:
     > If you use a customer-managed key, you must enable the `Get`, `UnwrapKey`, and `WrapKey` permissions on the key. Without these permissions, order creation will fail. They're also needed during data copy. To set the permissions in Azure CLI, see [az keyvault set-policy](/cli/azure/keyvault#az-keyvault-set-policy).
 
 
-16. If you don't want to use the system-generated passwords that Azure Data Box uses by default, expand **Bring your own password** on the **Security** screen.
+15. If you don't want to use the system-generated passwords that Azure Data Box uses by default, expand **Bring your own password** on the **Security** screen.
 
     The system-generated passwords are secure, and are recommended unless your organization requires otherwise.
 
@@ -228,7 +227,7 @@ Do the following steps in the Azure portal to order a device:
 
     On the **Security** screen, you can use **View or change passwords** to change the passwords.
 
-17. In **Security**, if you want to enable software-based double encryption, expand **Double-encryption (for highly secure environments)**, and select **Enable double encryption for the order**.
+16. In **Security**, if you want to enable software-based double encryption, expand **Double-encryption (for highly secure environments)**, and select **Enable double encryption for the order**.
 
     ![Screenshot of Double Encryption options on the Security tab for a Data Box order. The Enable Double Encryption For The Order option and the Next: Contact Details button are highlighted.](media/data-box-order-portal/double-encryption-01.png)
 
@@ -239,19 +238,19 @@ Do the following steps in the Azure portal to order a device:
 
     Select **Next: Contact details>** to continue.
 
-18. In **Contact details**, select **+ Add Address**.
+17. In **Contact details**, select **+ Add Address**.
 
     ![Screenshot of Contact Details tab for a Data Box order. The Contact Details tab and the Plus Add Address option are highlighted.](media/data-box-order-portal/contact-details-01.png)
 
-19. On the **Add address** screen, provide your first and last name, the name and postal address of the company, and a valid phone number. Select **Validate address**. The service validates the address for service availability and notifies you if service is available for that address.
+18. On the **Add address** screen, provide your first and last name, the name and postal address of the company, and a valid phone number. Select **Validate address**. The service validates the address for service availability and notifies you if service is available for that address.
 
     ![Screenshot of the Add Address screen for a Data Box order. The Ship using options and the Add shipping address option called out.](media/data-box-order-portal/contact-details-02.png)
 
     If you selected self-managed shipping, you will receive an email notification after the order is placed successfully. For more information about self-managed shipping, see [Use self-managed shipping](../articles/databox/data-box-portal-customer-managed-shipping.md).
 
-20. Select **Add shipping address** once the shipping details have been validated successfully. You will return to the **Contact details** tab.
+19. Select **Add shipping address** once the shipping details have been validated successfully. You will return to the **Contact details** tab.
 
-21. Beside **Email**, add one or more email addresses. The service sends email notifications regarding any updates to the order status to the specified email addresses.
+20. Beside **Email**, add one or more email addresses. The service sends email notifications regarding any updates to the order status to the specified email addresses.
 
     We recommend that you use a group email so that you continue to receive notifications if an admin in the group leaves.
 
@@ -273,4 +272,3 @@ Do the following steps in the Azure portal to order a device:
     The order takes a few minutes to be created. Your completed order will look similar to this one. You can select **Go to resource** to open the order.
 
     ![Screenshot of a completed deployment for a Data Box order. The Go To Resource button is highlighted.](media/data-box-order-portal/data-box-import-11.png)
-

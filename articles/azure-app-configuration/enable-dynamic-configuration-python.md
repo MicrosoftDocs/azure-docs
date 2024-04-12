@@ -1,5 +1,5 @@
 ---
-title: Use dynamic configuration in Python (preview)
+title: Use dynamic configuration in Python
 titleSuffix: Azure App Configuration
 description: Learn how to dynamically update configuration data for Python
 services: azure-app-configuration
@@ -7,17 +7,14 @@ author: mrm9084
 ms.service: azure-app-configuration
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 10/05/2023
+ms.date: 01/29/2024
 ms.custom: devx-track-python, devx-track-extended-python
 ms.author: mametcal
 #Customer intent: As a Python developer, I want to dynamically update my app to use the latest configuration data in Azure App Configuration.
 ---
-# Tutorial: Use dynamic configuration in Python (preview)
+# Tutorial: Use dynamic configuration in Python
 
 The Azure App Configuration Python provider includes built-in caching and refreshing capabilities. This tutorial shows how to enable dynamic configuration in Python applications.
-
-> [!NOTE]
-> Requires [azure-appconfiguration-provider](https://pypi.org/project/azure-appconfiguration-provider/1.1.0b3/) package version 1.1.0b3 or later.
 
 ## Prerequisites
 

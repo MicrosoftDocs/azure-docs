@@ -6,6 +6,7 @@ author: seesharprun
 ms.author: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
+ms.custom: devx-track-python
 ms.topic: tutorial
 ms.date: 01/17/2024
 zone_pivot_groups: programming-languages-spark-all-minus-sql-r-csharp

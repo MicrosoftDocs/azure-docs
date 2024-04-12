@@ -67,8 +67,8 @@ items:
         href: ../common/lock-account-resource.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
       - name: Get account configuration properties
         href: ../common/storage-account-get-info.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-      - name: Move across regions
-        href: ../common/storage-account-move.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+      - name: Relocate a storage account to another region
+        href: ../../operational-excellence/relocation-storage-account.md?toc=/azure/storage/blobs/toc.json
     - name: Classic storage account retirement
       href: ../common/classic-account-migration-overview.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
       items:
@@ -368,7 +368,7 @@ items:
         - name: Configure anonymous access
           href: anonymous-read-access-configure.md
     - name: Microsoft Defender for Storage
-      href: ../common/azure-defender-storage-configure.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+      href: ../../defender-for-cloud/defender-for-storage-introduction.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
   - name: Data protection
     items:
     - name: Data protection
@@ -400,14 +400,14 @@ items:
     - name: Immutable storage
       href: immutable-storage-overview.md
       items:
-      - name: Time-based retention policies
-        href: immutable-time-based-retention-policy-overview.md
-      - name: Legal holds
-        href: immutable-legal-hold-overview.md
-      - name: Configure version-level immutability policies
-        href: immutable-policy-configure-version-scope.md
-      - name: Configure container-level immutability policies
+      - name: Container-level policies
+        href: immutable-container-level-worm-policies.md
+      - name: Version-level policies
+        href: immutable-version-level-worm-policies.md
+      - name: Configure container-level policies
         href: immutable-policy-configure-container-scope.md
+      - name: Configure version-level policies
+        href: immutable-policy-configure-version-scope.md
   - name: Availability and disaster recovery
     items:
     - name: Design highly available applications
@@ -495,12 +495,11 @@ items:
           href: lifecycle-management-policy-configure.md
       - name: Archive and rehydrate
         items:
-        - name: Rehydrate blobs
+        - name: Blob rehydration overview
           href: archive-rehydrate-overview.md
         - name: Archive blobs
           href: archive-blob.md
-        - name: Blob rehydration from archive tier
-        - name: Rehydrate an archived blob
+        - name: Rehydrate blobs
           href: archive-rehydrate-to-online-tier.md
         - name: Handle an event on blob rehydration
           href: archive-rehydrate-handle-event.md
@@ -1135,7 +1134,7 @@ items:
       - name: Download Storage Explorer
         href: https://azure.microsoft.com/features/storage-explorer/
       - name: Get started with Storage Explorer
-        href: ../../vs-azure-tools-storage-manage-with-storage-explorer.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+        href: ../storage-explorer/vs-azure-tools-storage-manage-with-storage-explorer.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
       - name: Sign in to Storage Explorer
         href: ../common/storage-explorer-sign-in.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
       - name: Storage Explorer networking
@@ -1157,13 +1156,13 @@ items:
       - name: Storage Explorer blob versioning
         href: ../common/storage-explorer-blob-versioning.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
       - name: Storage Explorer manage Azure Blob storage
-        href: ../../vs-azure-tools-storage-explorer-blobs.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+        href: ../storage-explorer/vs-azure-tools-storage-explorer-blobs.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
       - name: Storage Explorer create file shares
-        href: ../../vs-azure-tools-storage-explorer-files.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+        href: ../storage-explorer/vs-azure-tools-storage-explorer-files.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
       - name: Storage Explorer support policy and lifecycle
         href: ../common/storage-explorer-support-policy-lifecycle.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
       - name: Storage Explorer accessibility
-        href: ../../vs-azure-tools-storage-explorer-accessibility.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+        href: ../storage-explorer/vs-azure-tools-storage-explorer-accessibility.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
     - name: Blob storage on Microsoft Q&A
       href: /answers/topics/azure-blob-storage.html
     - name: Blob storage on Stack Overflow
@@ -1244,8 +1243,6 @@ items:
       href: ../common/storage-compliance-offerings.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
 - name: Data Lake Storage Gen2
   items:
-  - name: Switch to Data Lake Storage Gen1 documentation
-    href: ../../data-lake-store/index.yml
   - name: Overview
     items:
     - name: Introduction to Data Lake Storage
@@ -1334,18 +1331,18 @@ items:
       href: create-data-lake-storage-account.md
     - name: Migrate accounts and data stores
       items:
-      - name: Migrate from Data Lake Storage Gen1
-        items:
-        - name: Migrate using Azure portal
-          href: data-lake-storage-migrate-gen1-to-gen2-azure-portal.md
-        - name: Migration guidelines and patterns
-          href: data-lake-storage-migrate-gen1-to-gen2.md
       - name: Migrate HDFS stores
         items:
         - name: Migrate an HDFS store offline
           href: data-lake-storage-migrate-on-premises-HDFS-cluster.md
         - name: Migrate an HDFS store online
           href: migrate-gen2-wandisco-live-data-platform.md
+      - name: Migrate from Data Lake Storage Gen1
+        items:
+        - name: Migrate using the Azure portal
+          href: data-lake-storage-migrate-gen1-to-gen2-azure-portal.md
+        - name: Migration guidelines and patterns
+          href: data-lake-storage-migrate-gen1-to-gen2.md
     - name: Transfer data
       items:
       - name: AzCopy
@@ -1457,7 +1454,7 @@ items:
       - name: Download Storage Explorer
         href: https://azure.microsoft.com/features/storage-explorer/
       - name: Get started with Storage Explorer
-        href: ../../vs-azure-tools-storage-manage-with-storage-explorer.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+        href: ../storage-explorer/vs-azure-tools-storage-manage-with-storage-explorer.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
       - name: Storage Explorer release notes
         href: https://github.com/microsoft/AzureStorageExplorer/releases
       - name: Troubleshoot Storage Explorer
@@ -1467,13 +1464,13 @@ items:
       - name: Storage Explorer blob versioning
         href: ../common/storage-explorer-blob-versioning.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
       - name: Storage Explorer manage Azure Blob storage
-        href: ../../vs-azure-tools-storage-explorer-blobs.md
+        href: ../storage-explorer/vs-azure-tools-storage-explorer-blobs.md
       - name: Storage Explorer create file shares
-        href: ../../vs-azure-tools-storage-explorer-files.md
+        href: ../storage-explorer/vs-azure-tools-storage-explorer-files.md
       - name: Storage Explorer support policy and lifecycle
         href: ../common/storage-explorer-support-policy-lifecycle.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
       - name: Storage Explorer accessibility
-        href: ../../vs-azure-tools-storage-explorer-accessibility.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+        href: ../storage-explorer/vs-azure-tools-storage-explorer-accessibility.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
     - name: Microsoft Q&A question page
       href: /answers/topics/azure-blob-storage.html
     - name: Azure Storage on Stack Overflow

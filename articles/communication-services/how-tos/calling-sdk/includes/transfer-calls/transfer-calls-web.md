@@ -2,13 +2,11 @@
 author: probableprime
 ms.service: azure-communication-services
 ms.topic: include
-ms.date: 11/04/2021
-ms.author: rifox
+ms.date: 2/13/2024
+ms.author: cnwankwo
 ---
 [!INCLUDE [Install SDK](../install-sdk/install-sdk-web.md)]
 
-> [!NOTE]
-> This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment. To use this api please use 'beta' release of Azure Communication Services Calling Web SDK
 
 Call transfer is an extended feature of the core `Call` API. You first need to import calling Features from the Calling SDK:
 
@@ -32,7 +30,6 @@ Call transfers involve three parties:
 
 1. There's already a connected call between the *transferor* and the *transferee*. The *transferor* decides to transfer the call from the *transferee* to the *transfer target*.
 1. The *transferor* calls the `transfer` API.
-1. The *transferee* decides whether to `accept` or `reject` the transfer request to the *transfer target* by using a `transferRequested` event.
 1. The *transfer target* receives an incoming call only if the *transferee* accepts the transfer request.
 
 To transfer a current call, you can use the `transfer` API. `transfer` takes the optional `transferCallOptions`, which allows you to set a `disableForwardingAndUnanswered` flag:
@@ -56,7 +53,6 @@ const transfer = callTransferApi.transfer({targetParticipant: id});
 2. There's already a connected call between the *transferor* and the *transfer target*.
 3. The *transferor* decides to transfer the call with the *transferee* to the call with *transfer target*.
 4. The *transferor* calls the `transfer` API.
-5. The *transferee* decides whether to `accept` or `reject` the transfer request to the *transfer target* by using a `transferRequested` event.
 6. The *transfer target* receives an incoming call only if the *transferee* accepts the transfer request.
 
 To transfer a current call, you can use the `transfer` API.
@@ -71,7 +67,7 @@ const id = { targetCallId: <CALL_ID> };
 const transfer = callTransferApi.transfer({ targetCallId: <CALL_ID> });
 ```
 
-The `transfer` API allows you to subscribe to `transferStateChanged` and `transferRequested` events. A `transferRequested` event comes from a `call` instance; a `transferStateChanged` event and transfer `state` and `error` come from a `transfer` instance.
+The `transfer` API allows you to subscribe to `stateChanged`. It also comes with a  transfer `state` and `error` properties
 
 ```js
 // transfer state
@@ -81,17 +77,13 @@ const transferState = transfer.state; // None | Transferring | Transferred | Fai
 const transferError = transfer.error; // transfer error code that describes the failure if a transfer request failed
 ```
 
-The *transferee* can accept or reject the transfer request initiated by the *transferor* in the `transferRequested` event by using `accept()` or `reject()` in `transferRequestedEventArgs`. You can access `targetParticipant` information and `accept` or `reject` methods in `transferRequestedEventArgs`.
+The *transferee* can listen to a `transferAccepted` event. The listener for this event has a `TransferEventArgs` which contains the call object of the new transfer call
+between the  *transferee* and the *transfer target*. 
 
 ```js
-// Transferee to accept the transfer request
-callTransferApi.on('transferRequested', args => {
-    args.accept();
-});
-
-// Transferee to reject the transfer request
-callTransferApi.on('transferRequested', args => {
-    args.reject();
+// Transferee can subscribe to the transferAccepted event
+callTransferApi.on('transferAccepted', args => {
+    const newTransferCall =  args.targetCall;
 });
 ```
 

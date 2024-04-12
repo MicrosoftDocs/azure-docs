@@ -7,7 +7,6 @@ ms.topic: how-to
 ms.date: 08/26/2021
 author: gahl-levy
 ms.author: gahllevy
-ms.custom: seodec18, ignite-2022
 ---
 # Connect to an Azure Cosmos DB account using Studio 3T
 [!INCLUDE[MongoDB](../includes/appliesto-mongodb.md)]

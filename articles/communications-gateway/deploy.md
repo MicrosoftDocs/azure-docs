@@ -5,7 +5,7 @@ author: rcdun
 ms.author: rdunstan
 ms.service: communications-gateway
 ms.topic: how-to 
-ms.date: 10/09/2023
+ms.date: 01/08/2024
 ---
 
 # Deploy Azure Communications Gateway
@@ -29,7 +29,8 @@ You must have completed [Prepare to deploy Azure Communications Gateway](prepare
  |The name of the Azure subscription to use to create an Azure Communications Gateway resource. You must use the same subscription for all resources in your Azure Communications Gateway deployment. |**Project details: Subscription**|
  |The Azure resource group in which to create the Azure Communications Gateway resource. |**Project details: Resource group**|
  |The name for the deployment. This name can contain alphanumeric characters and `-`. It must be 3-24 characters long. |**Instance details: Name**|
- |The management Azure region: the region in which your monitoring and billing data is processed. We recommend that you select a region near or colocated with the two regions for handling call traffic. |**Instance details: Region**
+ |The management Azure region: the region in which your monitoring and billing data is processed. We recommend that you select a region near or colocated with the two regions for handling call traffic. |**Instance details: Region** |
+ |The type of deployment. Choose from **Standard** (for production) or **Lab**. |**Instance details: SKU** |
  |The voice codecs to use between Azure Communications Gateway and your network. We recommend that you only specify any codecs if you have a strong reason to restrict codecs (for example, licensing of specific codecs) and you can't configure your network or endpoints not to offer specific codecs. Restricting codecs can reduce the overall voice quality due to lower-fidelity codecs being selected. |**Call Handling: Supported codecs**|
  |Whether your Azure Communications Gateway resource should handle emergency calls as standard calls or directly route them to the Emergency Routing Service Provider (US only; only for Operator Connect or Teams Phone Mobile). |**Call Handling: Emergency call handling**|
  |A comma-separated list of dial strings used for emergency calls. For Microsoft Teams, specify dial strings as the standard emergency number (for example `999`). For Zoom, specify dial strings in the format `+<country-code><emergency-number>` (for example `+44999`).|**Call Handling: Emergency dial strings**|
@@ -41,10 +42,13 @@ You must have completed [Prepare to deploy Azure Communications Gateway](prepare
 
 Collect all of the values in the following table for both service regions in which you want to deploy Azure Communications Gateway.
 
+> [!NOTE]
+> Lab deployments have one Azure region and connect to one site in your network.
+
  |**Value**|**Field name(s) in Azure portal**|
  |---------|---------|
- |The Azure regions to use for call traffic. |**Service Region One/Two: Region**|
- |The IPv4 address used by Azure Communications Gateway to contact your network from this region. |**Service Region One/Two: Operator IP address**|
+ |The Azure region to use for call traffic. |**Service Region One/Two: Region**|
+ |The IPv4 address belonging to your network that Azure Communications Gateway should use to contact your network from this region. |**Service Region One/Two: Operator IP address**|
  |The set of IP addresses/ranges that are permitted as sources for signaling traffic from your network. Provide an IPv4 address range using CIDR notation (for example, 192.0.2.0/24) or an IPv4 address (for example, 192.0.2.0). You can also provide a comma-separated list of IPv4 addresses and/or address ranges.|**Service Region One/Two: Allowed Signaling Source IP Addresses/CIDR Ranges**|
  |The set of IP addresses/ranges that are permitted as sources for media traffic from your network. Provide an IPv4 address range using CIDR notation (for example, 192.0.2.0/24) or an IPv4 address (for example, 192.0.2.0). You can also provide a comma-separated list of IPv4 addresses and/or address ranges.|**Service Region One/Two: Allowed Media Source IP Address/CIDR Ranges**|
 
@@ -164,18 +168,22 @@ When your resource has been provisioned, you can connect Azure Communications Ga
     1. Azure Communications Gateway is preconfigured to support the DigiCert Global Root G2 certificate and the Baltimore CyberTrust Root certificate as root certificate authority (CA) certificates. If the certificate that your network presents to Azure Communications Gateway uses a different root CA certificate, provide your onboarding team with this root CA certificate.
     1. The root CA certificate for Azure Communications Gateway's certificate is the DigiCert Global Root G2 certificate. If your network doesn't have this root certificate, download it from https://www.digicert.com/kb/digicert-root-certificates.htm and install it in your network.
 1. Configure your infrastructure to meet the call routing requirements described in [Reliability in Azure Communications Gateway](reliability-communications-gateway.md).
-    * Depending on your network, you might need to configure SBCs, softswitches and access control lists (ACLs).
+    * Depending on your network, you might need to configure SBCs, softswitches, and access control lists (ACLs).
+
+    > [!IMPORTANT]
+    > When configuring SBCs, firewalls and ACLs ensure that your network can receive traffic from both of the /28 IP ranges provided to you by your onboarding team because the IP addresses used by Azure Communications Gateway can change as a result of maintenance, scaling or disaster scenarios.
+
     * Your network needs to send SIP traffic to per-region FQDNs for Azure Communications Gateway. To find these FQDNs:
         1. Sign in to the [Azure portal](https://azure.microsoft.com/).
         1. In the search bar at the top of the page, search for your Communications Gateway resource.
         1. Go to the **Overview** page for your Azure Communications Gateway resource.
         1. In each **Service Location** section, find the **Hostname** field. You need to validate TLS connections against this hostname to ensure secure connections.
-    * We recommend configuring an SRV lookup for each region, using `_sip._tls.<regional-FQDN-from-portal>`. Replace *`<regional-FQDN-from-portal>`* with the per-region FQDNs that you found in the **Overview** page for your resource.
+    * We recommend configuring an SRV lookup for each region, using `_sip._tls.<regional-FQDN-from-portal>`. Replace *`<regional-FQDN-from-portal>`* with the per-region FQDNs from the **Hostname** fields on the **Overview** page for your resource.
 1. If your Azure Communications Gateway includes integrated MCP, configure the connection to MCP:
     1. Go to the **Overview** page for your Azure Communications Gateway resource.
     1. In each **Service Location** section, find the **MCP hostname** field.
     1. Configure your test numbers with an iFC of the following form, replacing *`<mcp-hostname>`* with the MCP hostname for the preferred region for that subscriber.
-       ```xml
+        ```xml
         <InitialFilterCriteria>
             <Priority>0</Priority>
             <TriggerPoint>
@@ -197,7 +205,7 @@ When your resource has been provisioned, you can connect Azure Communications Ga
             </ApplicationServer>
         </InitialFilterCriteria>
         ```
-1. Configure your routers and peering connection to ensure all traffic to Azure Communications Gateway is through Azure Internet Peering for Communications Services (also known as Microsoft Azure Peering Service for Voice and MAPS Voice) or ExpressRoute Microsoft Peering.
+1. Configure your routers and peering connection to ensure all traffic to Azure Communications Gateway is through Microsoft Azure Peering Service Voice (also known as MAPS Voice) or ExpressRoute Microsoft Peering.
 1. Enable Bidirectional Forwarding Detection (BFD) on your on-premises edge routers to speed up link failure detection.
     - The interval must be 150 ms (or 300 ms if you can't use 150 ms).
     - With MAPS Voice, BFD must bring up the BGP peer for each Private Network Interface (PNI).

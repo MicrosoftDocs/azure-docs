@@ -10,7 +10,6 @@ ms.subservice: sql-dw
 ms.topic: conceptual
 ms.custom:
   - azure-synapse
-  - seo-lt-2019
   - devx-track-csharp
 ---
 

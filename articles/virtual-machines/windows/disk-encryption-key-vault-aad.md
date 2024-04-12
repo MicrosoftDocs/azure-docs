@@ -3,11 +3,11 @@ title: Create and configure a key vault for Azure Disk Encryption with Microsoft
 description: In this article, learn how to create and configure a key vault for Azure Disk Encryption with Microsoft Entra ID.
 author: msmbaldwin
 ms.service: virtual-machines
-ms.subservice: disks
+ms.subservice: security
 ms.topic: how-to
 ms.author: mbaldwin
-ms.date: 01/04/2023
-ms.custom: seodec18, devx-track-azurecli, devx-track-azurepowershell, has-azure-ad-ps-ref
+ms.date: 02/20/2024
+ms.custom: devx-track-azurecli, devx-track-azurepowershell, has-azure-ad-ps-ref
 ---
 # Creating and configuring a key vault for Azure Disk Encryption with Microsoft Entra ID (previous release)
 
@@ -95,7 +95,7 @@ When you need encryption to be enabled on a running VM in Azure, Azure Disk Encr
 <a name='set-up-an-azure-ad-app-and-service-principal-with-azure-powershell'></a>
 
 ### Set up a Microsoft Entra app and service principal with Azure PowerShell
-To execute the following commands, get and use the [Azure AD PowerShell module](/powershell/azure/active-directory/install-adv2).
+To execute the following commands, get and use the [Azure PowerShell module](/powershell/azure/what-is-azure-powershell).
 
 1. Use the [New-AzADApplication](/powershell/module/az.resources/new-azadapplication) PowerShell cmdlet to create a Microsoft Entra application. MyApplicationHomePage and the MyApplicationUri can be any values you wish.
 

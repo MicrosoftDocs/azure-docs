@@ -5,7 +5,7 @@ description: Learn how to connect classic VNets to Resource Manager VNets using 
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 04/25/2022
+ms.date: 03/12/2024
 ms.author: cherylmc 
 ms.custom: devx-track-azurepowershell, devx-track-arm-template
 ---
@@ -32,12 +32,12 @@ The following table shows an example of how the example VNets and local sites ar
 
 These steps assume that both VNets have already been created. If you're using this article as an exercise and don't have VNets, there are links in the steps to help you create them.
 
-* Verify that the address ranges for the VNets don't overlap with each other, or overlap with any of the ranges for other connections that the gateways may be connected to.
+* Verify that the address ranges for the VNets don't overlap with each other, or overlap with any of the ranges for other connections that the gateways might be connected to.
 * In this article, we use both the Azure portal and PowerShell. PowerShell is required to create the connection from the classic VNet to the Resource Manager VNet. Install the latest PowerShell cmdlets for **both** Resource Manager and Service Management.
 
   While it's possible to perform a few of the PowerShell commands using the Azure Cloud Shell environment, you need to install both versions of the cmdlets to create the connections properly.
 
-  * [Service Management (classic) PowerShell cmdlets](/powershell/azure/servicemanagement/install-azure-ps?). When you install the Service Management cmdlets, you may need to modify the [Execution policy](/powershell/module/microsoft.powershell.core/about/about_execution_policies?) in order to install the classic version of the Azure module.
+  * [Service Management (classic) PowerShell cmdlets](/powershell/azure/servicemanagement/install-azure-ps?). When you install the Service Management cmdlets, you might need to modify the [Execution policy](/powershell/module/microsoft.powershell.core/about/about_execution_policies?) in order to install the classic version of the Azure module.
 
   * [AZ PowerShell cmdlets for Resource Manager](/powershell/azure/install-az-ps?)
 
@@ -320,7 +320,7 @@ If you get an error, verify the site and the VNet names are correct. Also, make 
 
 ## <a name="verify"></a>Verify your connections
 
-You can verify your connections by using the Azure portal or PowerShell. When verifying, you may need to wait a minute or two as the connection is being created. When a connection is successful, the connectivity state changes from 'Connecting' to 'Connected'.
+You can verify your connections by using the Azure portal or PowerShell. When verifying, you might need to wait a minute or two as the connection is being created. When a connection is successful, the connectivity state changes from 'Connecting' to 'Connected'.
 
 ### Verify the classic VNet to RM connection
 

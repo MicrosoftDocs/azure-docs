@@ -5,7 +5,6 @@ author: srijang
 ms.service: virtual-machines
 ms.subservice: redhat
 ms.collection: linux
-ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.custom: linux-related-content
 ms.topic: how-to

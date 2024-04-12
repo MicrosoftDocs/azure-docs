@@ -6,6 +6,7 @@ ms.date: 04/24/2023
 ms.custom: devx-track-azurecli, devx-track-azurepowershell, devx-track-arm-template, devx-track-python
 content_well_notification: 
   - AI-contribution
+ai-usage: ai-assisted
 ---
 
 # Move Azure resources to a new resource group or subscription

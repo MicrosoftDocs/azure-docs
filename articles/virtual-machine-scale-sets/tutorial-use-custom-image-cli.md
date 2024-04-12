@@ -8,7 +8,7 @@ ms.topic: tutorial
 ms.date: 12/16/2022
 ms.reviewer: mimckitt
 ms.author: jushiman
-ms.custom: mvc, devx-track-azurecli, linux-related-content
+ms.custom: mvc, devx-track-azurecli
 ---
 
 # Tutorial: Create and use a custom image for Virtual Machine Scale Sets with the Azure CLI
@@ -23,7 +23,7 @@ When you create a scale set, you specify an image to be used when the VM instanc
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 - This article requires version 2.4.0 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 

@@ -59,7 +59,7 @@ If you run into issues, see [Unable to mount Azure file shares with AD credentia
 
 ## Mount the file share from a non-domain-joined VM or a VM joined to a different AD domain
 
-Non-domain-joined VMs or VMs that are joined to a different AD domain than the storage account can access Azure file shares if they have unimpeded network connectivity to the domain controllers and provide explicit credentials. The user accessing the file share must have an identity and credentials in the AD domain that the storage account is joined to.
+Non-domain-joined VMs or VMs that are joined to a different AD domain than the storage account can access Azure file shares if they have unimpeded network connectivity to the domain controllers and provide explicit credentials (username and password). The user accessing the file share must have an identity and credentials in the AD domain that the storage account is joined to.
 
 To mount a file share from a non-domain-joined VM, use the notation **username@domainFQDN**, where **domainFQDN** is the fully qualified domain name. This will allow the client to contact the domain controller to request and receive Kerberos tickets. You can get the value of **domainFQDN** by running `(Get-ADDomain).Dnsroot` in Active Directory PowerShell.
 

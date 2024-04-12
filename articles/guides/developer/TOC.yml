@@ -23,7 +23,7 @@
     - name: Container Service
       href: /previous-versions/azure/container-service/dcos-swarm/container-service-intro
     - name: Azure Spring Apps
-      href: ../../spring-apps/quickstart.md
+      href: ../../spring-apps/enterprise/quickstart.md
 - name: Tutorials
   items:
   - name: Create and deploy a web app

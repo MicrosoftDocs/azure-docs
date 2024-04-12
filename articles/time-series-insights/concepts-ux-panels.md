@@ -8,7 +8,6 @@ ms.reviewer: orspodek
 ms.service: time-series-insights
 ms.topic: conceptual
 ms.date: 01/22/2021
-ms.custom: seodec18
 ---
 
 # Azure Time Series Insights Explorer

@@ -3,11 +3,10 @@ title: Troubleshoot Azure payment issues
 description: Resolving an issue when updating payment information account in the Azure portal.
 author: bandersmsft
 ms.reviewer: lishepar
-tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: troubleshooting
-ms.date: 04/26/2023
+ms.date: 03/21/2024
 ms.author: banders
 ---
 

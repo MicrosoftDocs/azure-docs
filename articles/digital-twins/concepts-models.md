@@ -29,7 +29,7 @@ Models for Azure Digital Twins are defined using the Digital Twins Definition La
 
 You can view the full language description for DTDL v3 in GitHub: [DTDL Version 3 Language Description](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v3/DTDL.v3.md). This page includes DTDL reference details and examples to help you get started writing your own DTDL models.
 
-DTDL is based on JSON-LD and is programming-language independent. DTDL isn't exclusive to Azure Digital Twins. It is also used to represent device data in other IoT services such as [IoT Plug and Play](../iot-develop/overview-iot-plug-and-play.md).
+DTDL is based on JSON-LD and is programming-language independent. DTDL isn't exclusive to Azure Digital Twins. It is also used to represent device data in other IoT services such as [IoT Plug and Play](../iot/overview-iot-plug-and-play.md).
 
 The rest of this article summarizes how the language is used in Azure Digital Twins.
 
