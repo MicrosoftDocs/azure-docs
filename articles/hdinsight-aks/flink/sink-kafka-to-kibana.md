@@ -43,78 +43,79 @@ For more information, see:
 
 ### Install Elasticsearch on Ubuntu 20.04
 
-- Use APT to update and install OpenJDK.
-- Add an Elasticsearch GPG key and repository.
+1. Use APT to update and install OpenJDK.
+1. Add an Elasticsearch GPG key and repository.
 
-    - Add the GPG key:
-    ```
-    sudo apt-get install apt-transport-https
-    wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo gpg --dearmor -o /usr/share/keyrings/elasticsearch-keyring.gpg
-    ```
+    1. Add the GPG key.
+        ```
+        sudo apt-get install apt-transport-https
+        wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo gpg --dearmor -o /usr/share/keyrings/elasticsearch-keyring.gpg
+        ```
 
-    - Add the repository:
-    ```
-    echo "deb [signed-by=/usr/share/keyrings/elasticsearch-keyring.gpg] https://artifacts.elastic.co/packages/7.x/apt stable main" | sudo tee -a /etc/apt/sources.list.d/elastic-7.x.list
-    ```
+    1. Add the repository.
+    
+        ```
+        echo "deb [signed-by=/usr/share/keyrings/elasticsearch-keyring.gpg] https://artifacts.elastic.co/packages/7.x/apt stable main" | sudo tee -a /etc/apt/sources.list.d/elastic-7.x.list
+        ```
 
-- Run a system update:
+1. Run a system update.
     ```
     sudo apt update
     ```
 
-- Install Elasticsearch on Ubuntu 20.04 Linux:
+1. Install Elasticsearch on Ubuntu 20.04 Linux.
     ```
     sudo apt install elasticsearch
     ```
 
--  Start Elasticsearch services:
+1.  Start Elasticsearch services.
  
-    - Reload the daemon:
+    1. Reload the daemon:
     ```
     sudo systemctl daemon-reload
     ```
     
-    - Enable:
-    ```
-    sudo systemctl enable elasticsearch
-    ```
+    1. Enable:
+        ```
+        sudo systemctl enable elasticsearch
+        ```
 
-    - Start:
-    ```
-    sudo systemctl start elasticsearch
-    ```
+    1. Start:
+        ```
+        sudo systemctl start elasticsearch
+        ```
 
-    - Check the status:
-    ```
-    sudo systemctl status elasticsearch
-    ```
+    1. Check the status:
+        ```
+        sudo systemctl status elasticsearch
+        ```
 
-    - Stop:
-    ```
-    sudo systemctl stop elasticsearch
-    ```
+    1. Stop:
+        ```
+        sudo systemctl stop elasticsearch
+        ```
 
 ### Install Kibana on Ubuntu 20.04
 
 To install and configure the Kibana dashboard, you don't need to add any other repository. The packages are available through Elasticsearch, which you already added.
 
-- Install Kibana:
+1. Install Kibana.
     ```
     sudo apt install kibana
     ```
 
-- Reload the daemon:
+1. Reload the daemon.
     ```
     sudo systemctl daemon-reload
     ```
 
-  - Start and enable:
+1. Start and enable.
     ```
     sudo systemctl enable kibana
     sudo systemctl start kibana
     ```
 
-  - Check the status:
+1. Check the status.
     ```
     sudo systemctl status kibana
     ```
@@ -312,28 +313,28 @@ Job has been submitted with JobID e043a0723960fd23f9420f73d3c4f14f
 
 Start up Elasticsearch and Kibana on the Ubuntu VM and use Kibana to visualize the results.
 
-- Access Kibana at IP, which you set earlier.
-- Configure an index pattern by selecting **Stack Management** in the leftmost pane and finding **Index Patterns**. Then select **Create Index Pattern**. Enter the full index name **kafka_user_clicks** to create the index pattern.
+1. Access Kibana at the IP, which you set earlier.
+1. Configure an index pattern by selecting **Stack Management** in the leftmost pane and finding **Index Patterns**. Then select **Create Index Pattern**. Enter the full index name **kafka_user_clicks** to create the index pattern.
 
    :::image type="content" source="./media/sink-kafka-to-kibana/kibana-index-pattern-setup.png" alt-text="Screenshot that shows the Kibana index pattern after it's set up." lightbox="./media/sink-kafka-to-kibana/kibana-index-pattern-setup.png":::
 
-- After the index pattern is set up, you can explore the data in Kibana.
-    - Select **Discover** in the leftmost pane.
+   After the index pattern is set up, you can explore the data in Kibana.
+1. Select **Discover** in the leftmost pane.
       
       :::image type="content" source="./media/sink-kafka-to-kibana/kibana-discover.png" alt-text="Screenshot that shows the Discover button." lightbox="./media/sink-kafka-to-kibana/kibana-discover.png":::
           
-    - Kibana lists the content of the created index with **kafka-click-events**.
+    Kibana lists the content of the created index with **kafka-click-events**.
       
       :::image type="content" source="./media/sink-kafka-to-kibana/elastic-discover-kafka-click-events.png" alt-text="Screenshot that shows Elastic with the created index with the kafka-click-events." lightbox="./media/sink-kafka-to-kibana/elastic-discover-kafka-click-events.png" :::
         
-- Create a dashboard to display various views.
+1. Create a dashboard to display various views.
   
    :::image type="content" source="./media/sink-kafka-to-kibana/elastic-dashboard-selection.png" alt-text="Screenshot that shows Elastic to select dashboard and start creating views." lightbox="./media/sink-kafka-to-kibana/elastic-dashboard-selection.png" :::
-- Select **Area** to use the area graph. Then select the **kafka_click_events** index and edit the horizontal axis and vertical axis to illustrate the events.
+1. Select **Area** to use the area graph. Then select the **kafka_click_events** index and edit the horizontal axis and vertical axis to illustrate the events.
   
    :::image type="content" source="./media/sink-kafka-to-kibana/elastic-dashboard.png" alt-text="Screenshot that shows the Elastic plot with the Kafka click event." lightbox="./media/sink-kafka-to-kibana/elastic-dashboard.png" :::
 
-- If you set autorefresh or select **Refresh**, the plot updates in real time as if you created a Flink streaming job.
+1. If you set autorefresh or select **Refresh**, the plot updates in real time as if you created a Flink streaming job.
 
    :::image type="content" source="./media/sink-kafka-to-kibana/elastic-dashboard-2.png" alt-text="Screenshot that shows the Elastic plot with the Kafka click event after a refresh." lightbox="./media/sink-kafka-to-kibana/elastic-dashboard-2.png" :::
 
