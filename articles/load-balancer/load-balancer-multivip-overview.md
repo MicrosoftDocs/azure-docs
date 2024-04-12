@@ -21,6 +21,10 @@ When you define an Azure Load Balancer, a frontend and a backend pool configurat
 
 You can use multiple frontends (and the associated load balacing rules) to load balance to the same backend port or a different backend port. If you want to load balance to the same backend port, you must enable [Azure Load Balancer Floating IP configuration](load-balancer-floating-ip.md).
 
+## Add Load Balancer frontend 
+In this example, you will add a another frontend to your Load Balancer.
+
+
 
 ## Limitations
 
