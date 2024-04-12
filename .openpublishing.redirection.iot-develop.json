@@ -706,7 +706,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/iot-develop/",
+      "source_path_from_root": "/articles/iot-develop/quickstart-devkit-stm-b-u585i-iot-hub.md",
       "redirect_url": "/azure/iot/iot-overview-device-development",
       "redirect_document_id": false
     },
