@@ -24,7 +24,9 @@ Services where Azure NetApp Files are used:
 
 The diagram shows a connection through Azure ExpressRoute to an Azure VMware Solution private cloud. The Azure VMware Solution environment accesses the Azure NetApp Files share mounted on Azure VMware Solution VMs.
 
-:::image type="content" source="media/netapp-files/netapp-files-topology.png" alt-text="Diagram showing NetApp Files for Azure VMware Solution with Virtual Machines architecture." border="false":::
+:::image type="content" source="media/netapp-files/netapp-files-topology.png" alt-text="Diagram showing NetApp Files for Azure VMware Solution with Virtual Machines architecture." border="false" lightbox="media/netapp-files/netapp-files-topology.png":::
+
+border="false" lightbox="":::
 
 
 ## Prerequisites 
@@ -57,13 +59,13 @@ Verify the preconfigured Azure NetApp Files created in Azure on Azure NetApp Fil
 
 1. In the Azure portal, under **STORAGE**, select **Azure NetApp Files**. A list of your configured Azure NetApp Files appears. 
 
-   :::image type="content" source="media/netapp-files/azure-netapp-files-list.png" alt-text="Screenshot showing list of preconfigured Azure NetApp Files."::: 
+   :::image type="content" source="media/netapp-files/azure-netapp-files-list.png" alt-text="Screenshot showing list of preconfigured Azure NetApp Files." border="false" lightbox="media/netapp-files/azure-netapp-files-list.png":::
 
 2. Select a configured NetApp Files account to view its settings. For example, select **Contoso-anf2**. 
 
 3. Select **Capacity pools** to verify the configured pool. 
 
-   :::image type="content" source="media/netapp-files/netapp-settings.png" alt-text="Screenshot showing options to view capacity pools and volumes of a configured NetApp Files account.":::
+   :::image type="content" source="media/netapp-files/netapp-settings.png" alt-text="Screenshot showing options to view capacity pools and volumes of a configured NetApp Files account." border="false" lightbox=""media/netapp-files/netapp-settings.png":::
 
    The Capacity pools page opens showing the capacity and service level. In this example, the storage pool is configured as 4 TiB with a Premium service level.
 
@@ -71,11 +73,11 @@ Verify the preconfigured Azure NetApp Files created in Azure on Azure NetApp Fil
 
 5. Select a volume to view its configuration.  
 
-   :::image type="content" source="media/netapp-files/azure-netapp-volumes.png" alt-text="Screenshot showing volumes created under the capacity pool.":::
+   :::image type="content" source="media/netapp-files/azure-netapp-volumes.png" alt-text="Screenshot showing volumes created under the capacity pool." border="false" lightbox="media/netapp-files/azure-netapp-volumes.png":::
 
    A window opens showing the configuration details of the volume.
 
-   :::image type="content" source="media/netapp-files/configuration-of-volume.png" alt-text="Screenshot showing configuration details of a volume.":::
+   :::image type="content" source="media/netapp-files/configuration-of-volume.png" alt-text="Screenshot showing configuration details of a volume." border="false" lightbox="media/netapp-files/configuration-of-volume.png":::
 
    You can see that anfvolume has a size of 200 GiB and is in capacity pool anfpool1. It gets exported as an NFS file share via 10.22.3.4:/ANFVOLUME. One private IP from the Azure virtual network was created for Azure NetApp Files and the NFS path to mount on the VM.
 
