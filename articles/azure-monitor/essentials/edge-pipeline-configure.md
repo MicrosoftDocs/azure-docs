@@ -37,10 +37,29 @@ The following components are required to enable and configure the Azure Monitor 
 
 - [Arc-enabled Kubernetes cluster](../../azure-arc/kubernetes/overview.md ) in your own environment with an external IP address. See [Connect an existing Kubernetes cluster to Azure Arc](../../azure-arc/kubernetes/quickstart-connect-cluster.md) for details on enabling Arc for a cluster.
 - Log Analytics workspace in Azure Monitor to receive the data from the edge pipeline. See [Create a Log Analytics workspace in the Azure portal](../../azure-monitor/logs/quick-create-workspace.md) for details on creating a workspace.
+- Table in the Log Analytics workspace to receive data from each client log. See [Add or delete tables and columns in Azure Monitor Logs](../logs/create-custom-table.md) for details on creating a table. For both Syslog and OTLP data flows, the table should have the columns in the following table. You can use a different schema for these tables using a [transformation](./data-collection-transformations.md) in your DCR.
+
+  | Column Name | Type |
+  |:---|:---|
+  | Body | string |
+  | TimeGenerated | datetime |
+  | SeverityText | string |
+
 - A data collection process that sends one of the following types data to a Log Analytics workspace using a [data collection rule (DCR)](./data-collection-rule-overview.md).
   - Syslog
   - OLTP
 
+
+## Enable cache
+Edge devices in some environments may experience intermittent connectivity due to various factors such as network congestion, signal interference, power outage, or mobility. In these environments, you can configure the edge pipeline to cache data by creating a [persistent volume](https://kubernetes.io) in your cluster. The process for this will vary based on your particular environment, but the configuration must meet the following requirements:
+
+   - Metadata namespace must be the same as the specified instance of Azure Monitor Pipeline.
+   - Access mode must support `ReadWriteMany`.
+
+Once the volume is created in the appropriate namespace, configure it using parameters in the pipeline configuration file below.
+
+> [!CAUTION]
+> Each replica of the edge pipeline stores data in a location in the persistent volume specific to that replica. Decreasing the number of replicas while the cluster is disconnected from the cloud will prevent that data from being backfilled when connectivity is restored.
 
 ## Enable and configure pipeline
 The current options for enabling and configuration are detailed in the tabs below.
@@ -78,7 +97,7 @@ The settings in this tab are described in the following table.
 | Port | Port that the pipeline listens on for incoming data. If two dataflows use the same port, they will both receive and process the data. |
 | Destination Type | Destination for the data. Currently, only Log Analytics workspace is supported. |
 | Log Analytics Workspace | Log Analytics workspace to send the data to. |
-| Table Name | The name of the table in the Log Analytics workspace to send the data to. If the table doesn't exist then it will be created  |
+| Table Name | The name of the table in the Log Analytics workspace to send the data to.   |
 
 
 ### [ARM](#tab/ARM)
@@ -132,7 +151,7 @@ The following ARM template creates the custom location for to your Arc-enabled K
 | `location` | Location of the custom location. |
 | `hostResourceId` | Resource ID of the Arc-enabled Kubernetes cluster. |
 | `namespace` | Namespace for the custom location. Can use the custom location name. |
-| `clusterExtensionIds` | Array of cluster extension IDs. |
+| `clusterExtensionIds` | Resource ID of the edge pipeline extension created in the previous step. |
 
 
 ```json
@@ -145,7 +164,7 @@ The following ARM template creates the custom location for to your Arc-enabled K
     "properties": {
         "hostResourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/my-resource-group/providers/Microsoft.Kubernetes/connectedClusters/my-arc-cluster",
         "namespace": "custom-location-name",
-        "clusterExtensionIds": "",
+        "clusterExtensionIds": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/my-resource-group/providers/Microsoft.KubernetesConfiguration/extensions/my-pipeline-extension",
         "hostType": "Kubernetes"
     }
 }
@@ -197,7 +216,7 @@ Replace the properties in the following table before deploying the template. See
 | - `streams` | One or more streams (defined in `streamDeclarations`). You can include multiple stream if they're being sent to the same destination. |
 | - `destinations` | One or more destinations (defined in `destinations`). You can include multiple destinations if they're being sent to the same destination. |
 | - `transformKql` | Transformation to apply to the data before sending it to the destination. Use `source` to send the data without any changes. The output of the transformation must match the schema of the destination table. See [Data collection transformations in Azure Monitor](./data-collection-transformations.md) for details on transformations. |
-| - `outputStream` | Specifies the destination table in the Log Analytics workspace. The table must already exist in the workspace. For custom tables, prefix the table name with *Custom-*. For built-in tables, prefix the table name with *Microsoft-*. |
+| - `outputStream` | Specifies the destination table in the Log Analytics workspace. The table must already exist in the workspace. For custom tables, prefix the table name with *Custom-*. Built-in tables are not currently supported with edge pipeline. |
 
 
 ```json
@@ -301,6 +320,8 @@ Replace the properties in the following table before deploying the template.
 | - `dataCollectionEndpointUrl` |  URL of your DCE. You can locate this in the Azure portal by navigating to the DCE and copying the Logs Ingestion value. |
 | - `dataCollectionRule` | Immutable ID of the DCR. From the JSON view of your DCR, copy the value of the **immutable ID** in the **General** section. |
 | - `stream` | Name of the stream in your DCR that will accept the data. |
+| - `maxStorageUsage` | Capacity of the cache. When 80% of this capacity is reached, the oldest data is pruned to make room for more data.  |
+| - `retentionPeriod` | Retention period in minutes. Data is pruned after this amount of time. |
 | - `schema` | Schema of the data being sent to the cloud pipeline. This must match the schema defined in the stream in the DCR. The schema used in the example is valid for both Syslog and OTLP. |
 | `service` | One entry for each pipeline instance. Only one instance for each pipeline extension is recommended. |
 | - `pipelines` | One entry for each data flow. Each entry matches a `receiver` with an `exporter`. |
@@ -308,6 +329,7 @@ Replace the properties in the following table before deploying the template.
 | - - `receivers` | One or more receivers to listen for data to receive. |
 | - - `processors` | Reserved for future use. |
 | - - `exporters` | One or more exporters to send the data to the cloud pipeline. |
+| - `persistence` | Name of the persistent volume used for the cache. Remove this parameter if you don't want to enable the cache. |
 
 
 ```json
@@ -346,8 +368,12 @@ Replace the properties in the following table before deploying the template.
                 "azureMonitorWorkspaceLogs": {
                     "api": {
                         "dataCollectionEndpointUrl": "https://my-dce-4agr.eastus-1.ingest.monitor.azure.com",
-                        "stream": "Custom-OTLP",
                         "dataCollectionRule": "dcr-00000000000000000000000000000000",
+                        "stream": "Custom-OTLP",
+                        "cache": {
+                            "maxStorageUsage": "10000",
+                            "retentionPeriod": "60"
+                        },
                         "schema": {
                             "recordMap": [
                                 {
@@ -390,7 +416,10 @@ Replace the properties in the following table before deploying the template.
                         "exporter-log-analytics-workspace"
                     ]
                 }
-            ]
+            ],
+            "persistence": {
+                "persistentVolume": "my-persistent-volume"
+            }
         }
     }
 }
@@ -432,6 +461,15 @@ You can deploy all of the required components for the Azure Monitor edge pipelin
         },
         "customLocationName": {
             "type": "string"
+        },
+        "cachePersistentVolume": {
+            "type": "string"
+        },
+        "cacheMaxStorageUsage": {
+            "type": "int"
+        },
+        "cacheRetentionPeriod": {
+            "type": "int"
         },
         "dceName": {
             "type": "string"
@@ -641,6 +679,10 @@ You can deploy all of the required components for the Azure Monitor edge pipelin
                                 "dataCollectionEndpointUrl": "[reference(resourceId('Microsoft.Insights/dataCollectionEndpoints','Aep-mytestpl-ZZPXiU05tJ')).logsIngestion.endpoint]",
                                 "stream": "Custom-DefaultAEPOTelLogs_CL-FqXSu6GfRF",
                                 "dataCollectionRule": "[reference(resourceId('Microsoft.Insights/dataCollectionRules', 'Aep-mytestpl-ZZPXiU05tJ')).immutableId]",
+                                "cache": {
+                                    "maxStorageUsage": "[parameters('cacheMaxStorageUsage')]",
+                                    "retentionPeriod": "[parameters('cacheRetentionPeriod')]"
+                                },
                                 "schema": {
                                     "recordMap": [
                                         {
@@ -673,7 +715,10 @@ You can deploy all of the required components for the Azure Monitor edge pipelin
                                 "exporter-lu7mbr90"
                             ]
                         }
-                    ]
+                    ],
+                    "persistence": {
+                        "persistentVolume": "[parameters('cachePersistentVolume')]"
+                    }
                 }
             }
         }
@@ -687,42 +732,40 @@ You can deploy all of the required components for the Azure Monitor edge pipelin
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "location": {
-      "value": "eastus"
-    },
-    "clusterId": {
-      "value": ""
-    },
-    "clusterExtensionIds": {
-      "value": [
-        "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.KubernetesConfiguration/extensions/<extensionName>"
-      ]
-    },
-    "customLocationName": {
-      "value": "my-custom-location"
-    },
-    "dceName": {
-      "value": "my-dce"
-    },
-    "dcrName": {
-      "value": "my-dcr"
-    },
-    "logAnalyticsWorkspaceName": {
-      "value": "my-workspace"
-    },
-    "pipelineExtensionName": {
-      "value": "my-pipeline-extension"
-    },
-    "pipelineGroupName": {
-      "value": "my-pipeline-group"
-    },
-    "tagsByResource": {
-      "value": {}
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "location": {
+        "value": "eastus"
+        },
+        "clusterId": {
+            "value": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/my-resource-group/providers/Microsoft.Kubernetes/connectedClusters/my-arc-cluster"
+        },
+        "clusterExtensionIds": {
+            "value": ["/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/my-resource-group/providers/Microsoft.KubernetesConfiguration/extensions/my-pipeline-extension"]
+        },
+        "customLocationName": {
+            "value": "my-custom-location"
+        },
+        "dceName": {
+            "value": "my-dce"
+        },
+        "dcrName": {
+            "value": "my-dcr"
+        },
+        "logAnalyticsWorkspaceName": {
+            "value": "my-workspace"
+        },
+        "pipelineExtensionName": {
+            "value": "my-pipeline-extension"
+        },
+        "pipelineGroupName": {
+            "value": "my-pipeline-group"
+        },
+        "tagsByResource": {
+            "value": {}
+        }   
     }
-  }
 }
 ```
 
@@ -752,7 +795,9 @@ If the application producing logs is external to the cluster, copy the *external
 
 
 ## Cache configuration
-Edge devices in some environments may experience intermittent connectivity due to various factors such as network congestion, signal interference, power outage, or mobility. In these environments, you can configure the Azure Monitor edge pipeline to cache data to persistent disk and configure the queue to backfill cached data using a strategy most applicable to your environment.
+
+
+
 
 During disconnected periods, the edge pipeline will write collected data as files in the persistent volume.
 
