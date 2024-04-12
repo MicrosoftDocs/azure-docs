@@ -137,7 +137,7 @@ The following platform SKUs are currently supported (and more are added periodic
 
 ## Requirements for configuring automatic OS image upgrade
 
-- The *version* property of the image must be set to **.
+- The *version* property of the image must be set to latest.
 - Must use application health probes or [Application Health extension](virtual-machine-scale-sets-health-extension.md) for non-Service Fabric scale sets. For Service Fabric requirements, see [Service Fabric requirement](#service-fabric-requirements).
 - Use Compute API version 2018-10-01 or higher.
 - Ensure that external resources specified in the scale set model are available and updated. Examples include SAS URI for bootstrapping payload in VM extension properties, payload in storage account, reference to secrets in the model, and more.
