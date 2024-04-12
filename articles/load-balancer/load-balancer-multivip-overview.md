@@ -19,7 +19,7 @@ This article describes the fundamentals of load balancing across multiple fronte
 
 When you define an Azure Load Balancer, a frontend and a backend pool configuration are connected with a load balancing rule. The health probe referenced by the load balancing rule is used to determine the health of a VM on a certain port and protocol. Based on the health probe results, new flows are sent to VMs in the backend pool. The frontend is defined using a three-tuple comprised of a frontend IP address (public or internal), a protocol, and a port number from the load balancing rule. The backend pool is a collection of Virtual Machine IP configurations. Load balancing rules can deliver traffic to the same backend pool instance on different ports. This is done by varying the destination port on the load balancing rule.
 
-You can use multiple frontends (and the associated load balacing rules) to load balance to the same backend port or a different backend port. If you want to load balance to the same backend port, you must enable [Azure Load Balancer Floating IP configuration](load-balancer-floating-ip.md) as part of the load balancing rules for each frontend.
+You can use multiple frontends (and the associated load balancing rules) to load balance to the same backend port or a different backend port. If you want to load balance to the same backend port, you must enable [Azure Load Balancer Floating IP configuration](load-balancer-floating-ip.md) as part of the load balancing rules for each frontend.
 
 ## Add Load Balancer frontend 
 In this example, add a another frontend to your Load Balancer.
