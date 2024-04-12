@@ -19,7 +19,7 @@ Observability has three pillars: metrics, tracing, and logs. Azure Operator 5G C
 The following components provide observability for Azure Operator 5G Core:
 
 
- [:::image type="content" source="media/concept-observability-analytics/observability-overview.png" alt-text="Diagram of text boxes showing the components that support observability functions for Azure Operator 5G Core.":::](media/concept-observability-analytics/observability-overview.png#lightbox)
+ [:::image type="content" source="media/concept-observability-analytics/observability-overview.png" alt-text="Diagram of text boxes showing the components that support observability functions for Azure Operator 5G Core.":::](media/concept-observability-analytics/observability-overview-expanded.png#lightbox)
 
 ### Observability open source components
 
@@ -37,7 +37,7 @@ Elasticsearch, Fluentd, and Kibana (EFK) provide a distributed logging system us
 ### Architecture
 The following diagram shows EFK architecture:
 
- [:::image type="content" source="media/concept-observability-analytics/elasticsearch-fluentd-kibana-architecture.png" alt-text="Diagram of text boxes showing the Elasticsearch, Fluentd, and Kibana (EFK) distributed logging system used to troubleshoot microservices in  Azure Operator 5G Core.":::](media/concept-observability-analytics/elasticsearch-fluentd-kibana-architecture.png#lightbox)
+ [:::image type="content" source="media/concept-observability-analytics/elasticsearch-fluentd-kibana-architecture.png" alt-text="Diagram of text boxes showing the Elasticsearch, Fluentd, and Kibana (EFK) distributed logging system used to troubleshoot microservices in  Azure Operator 5G Core.":::](media/concept-observability-analytics/elasticsearch-fluentd-kibana-architecture-expanded.png#lightbox)
 
 > [!NOTE]
 > Sections of the following linked content is available only to customers with a current Affirmed Networks support agreement. To access the content, you must have  Affirmed Networks login credentials. If you need assistance, please speak to the Affirmed Networks Support Team.
@@ -123,7 +123,7 @@ Grafana provides dashboards to visualize the collected data.
 
 The following diagram shows how the different components of the metrics framework interact with each other. 
 
- [:::image type="content" source="media/concept-observability-analytics/network-functions.png" alt-text="Diagram of text boxes showing interaction between metrics frameworks components in  Azure Operator 5G Core.":::](media/concept-observability-analytics/network-functions.png#lightbox)
+ [:::image type="content" source="media/concept-observability-analytics/network-functions.png" alt-text="Diagram of text boxes showing interaction between metrics frameworks components in  Azure Operator 5G Core.":::](media/concept-observability-analytics/network-functions-expanded.png#lightbox)
 
 The core components of the metrics framework are: 
 
@@ -199,7 +199,7 @@ IstioHTTPRequestLatencyTooHigh: Requests are taking more than the &lt;configured
 
 Azure Operator 5G Core uses the OpenTelemetry Protocol (OTLP) in Jaeger tracing. OTLP replaces the Jaeger agent in fed-paas-helpers. Azure Operator 5G Core deploys the fed-otel_collector federation. The OpenTelemetry (OTEL) Collector runs as part of the fed-otel_collector namespace:
 
- [:::image type="content" source="media/concept-observability-analytics/jaeger-components.png" alt-text="Diagram of text boxes showing Jaeger tracing and OpenTelemetry Protocol components in  Azure Operator 5G Core.":::](media/concept-observability-analytics/jaeger-components.png#lightbox)
+ [:::image type="content" source="media/concept-observability-analytics/jaeger-components.png" alt-text="Diagram of text boxes showing Jaeger tracing and OpenTelemetry Protocol components in  Azure Operator 5G Core.":::](media/concept-observability-analytics/jaeger-components-expanded.png#lightbox)
 
 Jaeger tracing uses the following workflow:
 
