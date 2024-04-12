@@ -6,9 +6,6 @@ items:
   items:
   - name: What is Azure AI Studio?
     href: what-is-ai-studio.md
-  - name: What are AI services?
-    href: ../ai-services/what-are-ai-services.md?context=/azure/ai-studio/context/context
-    displayName: applied, cognitive, form recognizer
   - name: Azure AI Studio architecture
     href: concepts/architecture.md
   - name: Region support
@@ -40,6 +37,36 @@ items:
 - name: How-to
   expanded: true
   items:
+  - name: Explore the model catalog
+    items:
+    - name: Model catalog
+      href: how-to/model-catalog.md
+    - name: Cohere models
+      items:
+      - name: Deploy Cohere Command models
+        href: how-to/deploy-models-cohere-command.md
+      - name: Deploy Cohere Embed models
+        href: how-to/deploy-models-cohere-embed.md
+    - name: Llama 2 family models
+      items:
+      - name: Deploy Llama 2 family models
+        href: how-to/deploy-models-llama.md
+      - name: Fine-tune Llama 2 family models
+        href: how-to/fine-tune-model-llama.md
+        displayName: maas
+    - name: Deploy Mistral family models
+      href: how-to/deploy-models-mistral.md
+      displayName: maas
+    - name: Deploy open models
+      href: how-to/deploy-models-open.md
+      displayName: oss, open source
+  - name: AI Services
+    items:
+    - name: What are AI services?
+      href: ../ai-services/what-are-ai-services.md?context=/azure/ai-studio/context/context
+      displayName: applied, cognitive, form recognizer
+    - name: Try out Azure AI services
+      href: how-to/models-foundation-azure-ai.md
   - name: Create Azure AI projects and resources
     items:
     - name: Azure AI hub resources overview
@@ -160,31 +187,6 @@ items:
       href: how-to/monitor-quality-safety.md
     - name: Troubleshoot deployments and monitoring
       href: how-to/troubleshoot-deploy-and-monitor.md
-  - name: Work with foundation models
-    items:
-    - name: Azure AI capabilities
-      href: how-to/models-foundation-azure-ai.md
-    - name: Model catalog
-      href: how-to/model-catalog.md
-    - name: Cohere models
-      items:
-      - name: Deploy Cohere Command models
-        href: how-to/deploy-models-cohere-command.md
-      - name: Deploy Cohere Embed models
-        href: how-to/deploy-models-cohere-embed.md
-    - name: Llama 2 family models
-      items:
-      - name: Deploy Llama 2 family models
-        href: how-to/deploy-models-llama.md
-      - name: Fine-tune Llama 2 family models
-        href: how-to/fine-tune-model-llama.md
-        displayName: maas
-    - name: Deploy Mistral family models
-      href: how-to/deploy-models-mistral.md
-      displayName: maas
-    - name: Deploy open models
-      href: how-to/deploy-models-open.md
-      displayName: oss, open source
   - name: Costs and quotas
     items:
     - name: Plan and manage costs
@@ -218,16 +220,12 @@ items:
         href: ../ai-services/encryption/cognitive-services-encryption-keys-portal.md?context=/azure/ai-studio/context/context
     - name: Vulnerability management
       href: concepts/vulnerability-management.md
-  - name: SDK and CLI
+  - name: Azure AI Generative SDK
     items:
-    - name: Azure AI Generative SDK
-      items:
-      - name: Overview
-        href: how-to/sdk-generative-overview.md
-      - name: Get started with the Azure AI SDK
-        href: how-to/sdk-install.md
-    - name: Get started with the Azure AI CLI
-      href: how-to/cli-install.md
+    - name: Overview
+      href: how-to/sdk-generative-overview.md
+    - name: Get started with the Azure AI SDK
+      href: how-to/sdk-install.md
     - name: Work with Azure AI projects in VS Code
       href: how-to/develop-in-vscode.md
 - name: Responsible AI

@@ -43,13 +43,7 @@ Use one of the following methods to create an Azure AI hub resource with a priva
 
 # [Azure CLI](#tab/cli)
 
-Create your Azure AI hub resource with the Azure AI CLI. Run the following command and follow the prompts. For more information, see [Get started with Azure AI CLI](cli-install.md).
-
-```azurecli-interactive
-ai init
-```
-
-After creating the Azure AI, use the [Azure networking CLI commands](/cli/azure/network/private-endpoint#az-network-private-endpoint-create) to create a private link endpoint for the Azure AI.
+After creating the Azure AI studio hub, use the [Azure networking CLI commands](/cli/azure/network/private-endpoint#az-network-private-endpoint-create) to create a private link endpoint for the Azure AI.
 
 ```azurecli-interactive
 az network private-endpoint create \
@@ -222,7 +216,7 @@ To enable public access, use the following steps:
 
 # [Azure CLI](#tab/cli)
 
-Not available in AI CLI, but you can use [Azure Machine Learning CLI](../../machine-learning/how-to-configure-private-link.md#enable-public-access). Use your Azure AI name as workspace name in Azure Machine Learning CLI.
+You can use [Azure Machine Learning CLI](../../machine-learning/how-to-configure-private-link.md#enable-public-access). Use your Azure AI name as workspace name in Azure Machine Learning CLI.
 
 # [Azure portal](#tab/azure-portal)
 
