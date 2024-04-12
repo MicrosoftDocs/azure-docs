@@ -13,7 +13,7 @@ ms.custom: mode-other, devx-track-js
 
 # Quickstart: Place interop group calls between Azure Communication Services and Microsoft Teams
 
-In this quickstart you are going to learn how to start a group call from Azure Communication Services user to Teams users. You are going to achieve it with the following steps:
+In this quickstart, you're going to learn how to start a group call from Azure Communication Services user to Teams users. You're going to achieve it with the following steps:
 
 1. Enable federation of Azure Communication Services resource with Teams Tenant.
 2. Get identifiers of the Teams users.
@@ -34,8 +34,8 @@ Find the finalized code for this quickstart on [GitHub](https://github.com/Azure
 ## Add the Call UI controls
 
 Replace code in index.html with following snippet.
-PLace a group call to the Teams users by specifying their ids.
-The text boxes are used to enter the Teams user ids planning to call and add in a group:
+Place a group call to the Teams users by specifying their IDs.
+The text boxes are used to enter the Teams user IDs planning to call and add in a group:
 
 ```html
 <!DOCTYPE html>
@@ -46,7 +46,7 @@ The text boxes are used to enter the Teams user ids planning to call and add in 
 <body>
     <h4>Azure Communication Services</h4>
     <h1>Teams interop group call quickstart</h1>
-    <input id="teams-ids-input" type="text" placeholder="Teams ids split by comma"
+    <input id="teams-ids-input" type="text" placeholder="Teams IDs split by comma"
            style="margin-bottom:1em; width: 300px;" />
     <p>Call state <span style="font-weight: bold" id="call-state">-</span></p>
     <p><span style="font-weight: bold" id="recording-state"></span></p>
@@ -125,15 +125,15 @@ placeInteropGroupCallButton.addEventListener("click", () => {
 });
 ```
 
-## Get the Teams user ids
+## Get the Teams user IDs
 
-The Teams user ids can be retrieved using Graph APIs, which is detailed in [Graph documentation](https://learn.microsoft.com/graph/api/user-get?view=graph-rest-1.0&tabs=http).
+The Teams user IDs can be retrieved using Graph APIs, which is detailed in [Graph documentation](https://learn.microsoft.com/graph/api/user-get?view=graph-rest-1.0&tabs=http).
 
 ```console
 https://graph.microsoft.com/v1.0/me
 ```
 
-In results get the "id" field
+In results get the "id" field.
 
 ```json
     "userPrincipalName": "lab-test2-cq@contoso.com",
@@ -148,11 +148,11 @@ Run the following command to bundle your application host on a local webserver:
 npx webpack-dev-server --entry ./client.js --output bundle.js --debug --devtool inline-source-map
 ```
 
-Open your browser and navigate to http://localhost:8080/. You should see the following:
+Open your browser and navigate to http://localhost:8080/. You should see the following screen:
 
 :::image type="content" source="./media/javascript/acs-group-teams-calls-quickstart.png" alt-text="Screenshot of the completed JavaScript Application.":::
 
-Insert the Teams ids into the text box split by comma and press *Place Group Call* to start the group call from within your Communication Services application.
+Insert the Teams IDs into the text box split by comma and press *Place Group Call* to start the group call from within your Communication Services application.
 
 ## Clean up resources
 
