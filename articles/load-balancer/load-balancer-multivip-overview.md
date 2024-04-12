@@ -17,12 +17,12 @@ Azure Load Balancer allows you to load balance services on multiple frontend IPs
 
 This article describes the fundamentals of load balancing across multiple frontned IP addresses. If you only intend to expose services on one IP address, you can find simplified instructions for [public](./quickstart-load-balancer-standard-public-portal.md) or [internal](./quickstart-load-balancer-standard-internal-portal.md) load balancer configurations. Adding multiple frontends is incremental to a single frontend configuration. Using the concepts in this article, you can expand a simplified configuration at any time.
 
-When you define an Azure Load Balancer, a frontend and a backend pool configuration are connected with a load balancing rule. The health probe referenced by the load balancing rule is used to determine the health of a VM on a certain port and protocol. Based on the health probe results, new flows are sent to VMs in the backend pool. The frontend is defined using a three-tuple comprised of a frontend IP address (public or internal), a protocol, and a port number from the load balancing rule. The backend pool is a collection of Virtual Machine IP configurations. Multiple load balancing rules can deliver flows to the same backend pool instance on different ports by varying the destination port on the load balancing rule.
+When you define an Azure Load Balancer, a frontend and a backend pool configuration are connected with a load balancing rule. The health probe referenced by the load balancing rule is used to determine the health of a VM on a certain port and protocol. Based on the health probe results, new flows are sent to VMs in the backend pool. The frontend is defined using a three-tuple comprised of a frontend IP address (public or internal), a protocol, and a port number from the load balancing rule. The backend pool is a collection of Virtual Machine IP configurations. Load balancing rules can deliver traffic to the same backend pool instance on different ports. This is done by varying the destination port on the load balancing rule.
 
 You can use multiple frontends (and the associated load balacing rules) to load balance to the same backend port or a different backend port. If you want to load balance to the same backend port, you must enable [Azure Load Balancer Floating IP configuration](load-balancer-floating-ip.md) as part of the load balancing rules for each frontend.
 
 ## Add Load Balancer frontend 
-In this example, you will add a another frontend to your Load Balancer.
+In this example, add a another frontend to your Load Balancer.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -56,7 +56,7 @@ Next you must associate the frontend IP configuration you have created with an a
 
 ## Remove a frontend
 
-In this example, you'll remove a frontend IP configuration.
+In this example, you remove a frontend from your Load Balancer.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
