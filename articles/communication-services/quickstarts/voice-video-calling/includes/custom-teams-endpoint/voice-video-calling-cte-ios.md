@@ -289,88 +289,6 @@ AVAudioSession.sharedInstance().requestRecordPermission { (granted) in
 }
 ```
 
-## Display local video
-
-Before starting a call, you can manage settings related to video. In this quickstart, we introduce the implementation of toggling local video before or during a call.
-
-First we need to access local cameras with `deviceManager`. Once the desired camera is selected, we can construct `LocalVideoStream` and create a `VideoStreamRenderer`, and then attach it to `previewView`. During the call, we can use `startVideo` or `stopVideo` to start or stop sending `LocalVideoStream` to remote participants. This function also works with handling incoming calls.
-
-```Swift
-func toggleLocalVideo() {
-    // toggling video before call starts
-    if (call == nil)
-    {
-        if(!sendingVideo)
-        {
-            self.callClient = CallClient()
-            self.callClient.getDeviceManager { (deviceManager, error) in
-                if (error == nil) {
-                    print("Got device manager instance")
-                    self.deviceManager = deviceManager
-                } else {
-                    print("Failed to get device manager instance")
-                }
-            }
-            guard let deviceManager = deviceManager else {
-                return
-            }
-            let camera = deviceManager.cameras.first
-            let scalingMode = ScalingMode.fit
-            if (self.localVideoStream == nil) {
-                self.localVideoStream = [LocalVideoStream]()
-            }
-            localVideoStream!.append(LocalVideoStream(camera: camera!))
-            previewRenderer = try! VideoStreamRenderer(localVideoStream: localVideoStream!.first!)
-            previewView = try! previewRenderer!.createView(withOptions: CreateViewOptions(scalingMode:scalingMode))
-            self.sendingVideo = true
-        }
-        else{
-            self.sendingVideo = false
-            self.previewView = nil
-            self.previewRenderer!.dispose()
-            self.previewRenderer = nil
-        }
-    }
-    // toggle local video during the call
-    else{
-        if (sendingVideo) {
-            teamsCall!.stopVideo(stream: localVideoStream!.first!) { (error) in
-                if (error != nil) {
-                    print("cannot stop video")
-                }
-                else {
-                    self.sendingVideo = false
-                    self.previewView = nil
-                    self.previewRenderer!.dispose()
-                    self.previewRenderer = nil
-                }
-            }
-        }
-        else {
-            guard let deviceManager = deviceManager else {
-                return
-            }
-            let camera = deviceManager.cameras.first
-            let scalingMode = ScalingMode.fit
-            if (self.localVideoStream == nil) {
-                self.localVideoStream = [LocalVideoStream]()
-            }
-            localVideoStream!.append(LocalVideoStream(camera: camera!))
-            previewRenderer = try! VideoStreamRenderer(localVideoStream: localVideoStream!.first!)
-            previewView = try! previewRenderer!.createView(withOptions: CreateViewOptions(scalingMode:scalingMode))
-            teamsCall!.startVideo(stream:(localVideoStream?.first)!) { (error) in
-                if (error != nil) {
-                    print("cannot start video")
-                }
-                else {
-                    self.sendingVideo = true
-                }
-            }
-        }
-    }
-}
-```
-
 ## Place an outgoing call
 
 The `startCall` method is set as the action that is performed when the Start Call button is tapped. In this quickstart, outgoing calls are audio only by default. To start a call with video, we need to set `VideoOptions` with `LocalVideoStream` and pass it with `startCallOptions` to set initial options for the call.
@@ -428,6 +346,7 @@ func setTeamsCallAndObserver(call:TeamsCall, error:Error?) {
         self.teamsCall = call
         self.teamsCallObserver = TeamsCallObserver(self)
         self.teamsCall!.delegate = self.teamsCallObserver
+        // Attach a RemoteParticipant observer
         self.remoteParticipantObserver = RemoteParticipantObserver(self)
     } else {
         print("Failed to get teams call object")
@@ -472,11 +391,6 @@ final class TeamsIncomingCallHandler: NSObject, TeamsCallAgentDelegate, TeamsInc
 
 We need to create an instance of `TeamsIncomingCallHandler` by adding the following code to the `onAppear` callback in `ContentView.swift`:
 
-```Swift
-let teamsIncomingCallHandler = TeamsIncomingCallHandler.getOrCreateInstance()
-teamsIncomingCallHandler.contentView = self
-```
-
 Set a delegate to the `TeamsCallAgent` after the `TeamsCallAgent` being successfully created:
 
 ```Swift
@@ -487,7 +401,6 @@ Once there's an incoming call, the `TeamsIncomingCallHandler` calls the function
 
 ```Swift
 func showIncomingCallBanner(_ incomingCall: TeamsIncomingCall) {
-    isIncomingCall = true
     self.teamsIncomingCall = incomingCall
 }
 ```
@@ -496,64 +409,36 @@ The actions attached to `answer` and `decline` are implemented as the following 
 
 ```Swift
 func answerIncomingCall() {
-    isIncomingCall = false
     let options = AcceptTeamsCallOptions()
-    if (self.incomingCall != nil) {
-        guard let deviceManager = deviceManager else {
-            return
-        }        
-        if (self.localVideoStream == nil) {
-            self.localVideoStream = [LocalVideoStream]()
-        }
-        if(sendingVideo)
-        {
-            let camera = deviceManager.cameras.first
-            localVideoStream!.append(LocalVideoStream(camera: camera!))
-            let videoOptions = VideoOptions(localVideoStreams: localVideoStream!)
-            options.videoOptions = videoOptions
-        }
-        self.incomingCall!.accept(options: options) { (call, error) in
-            setCallAndObersever(call: call, error: error)
-        }
+    guard let teamsIncomingCall = self.teamsIncomingCall else {
+      print("No active incoming call")
+      return
+    }
+
+    guard let deviceManager = deviceManager else {
+      print("No device manager instance")
+      return
+    }
+
+    if localVideoStream == nil {
+        localVideoStream = [LocalVideoStream]()
+    }
+
+    if sendingVideo
+    {
+        let camera = deviceManager.cameras.first
+        localVideoStream!.append(LocalVideoStream(camera: camera!))
+        let videoOptions = VideoOptions(localVideoStreams: localVideoStream!)
+        options.videoOptions = videoOptions
+    }
+
+    teamsIncomingCall.accept(options: options) { (call, error) in
+        setTeamsCallAndObserver(call: call, error: error)
     }
 }
 
 func declineIncomingCall(){
-    self.incomingCall!.reject { (error) in }
-    isIncomingCall = false
-}
-```
-
-## Remote participant video streams
-
-We can create a `RemoteVideoStreamData` class to handle rendering video streams of remote participant.
-
-```Swift
-public class RemoteVideoStreamData : NSObject, RendererDelegate {
-    public func videoStreamRenderer(didFailToStart renderer: VideoStreamRenderer) {
-        owner.errorMessage = "Renderer failed to start"
-    }
-    
-    private var owner:ContentView
-    let stream:RemoteVideoStream
-    var renderer:VideoStreamRenderer? {
-        didSet {
-            if renderer != nil {
-                renderer!.delegate = self
-            }
-        }
-    }
-    
-    var views:[RendererView] = []
-    init(view:ContentView, stream:RemoteVideoStream) {
-        owner = view
-        self.stream = stream
-    }
-    
-    public func videoStreamRenderer(didRenderFirstFrame renderer: VideoStreamRenderer) {
-        let size:StreamSize = renderer.size
-        owner.remoteVideoSize = String(size.width) + " X " + String(size.height)
-    }
+    self.teamsIncomingCall?.reject { (error) in }
 }
 ```
 
@@ -577,81 +462,18 @@ public class TeamsCallObserver: NSObject, TeamsCallDelegate, TeamsIncomingCallDe
     // render remote video streams when remote participant changes
     public func teamsCall(_ teamsCall: TeamsCall, didUpdateRemoteParticipant args: ParticipantsUpdatedEventArgs) {
         for participant in args.addedParticipants {
-            participant.delegate = owner.remoteParticipantObserver
-            for stream in participant.videoStreams {
-                if !owner.remoteVideoStreamData.isEmpty {
-                    return
-                }
-                let data:RemoteVideoStreamData = RemoteVideoStreamData(view: owner, stream: stream)
-                let scalingMode = ScalingMode.fit
-                data.renderer = try! VideoStreamRenderer(remoteVideoStream: stream)
-                let view:RendererView = try! data.renderer!.createView(withOptions: CreateViewOptions(scalingMode:scalingMode))
-                data.views.append(view)
-                self.owner.remoteViews.append(view)
-                owner.remoteVideoStreamData[stream.id] = data
-            }
-            owner.remoteParticipant = participant
+            participant.delegate = self.remoteParticipantObserver
         }
     }
 
     // Handle remote video streams when the call is connected
     public func initialCallParticipant() {
         for participant in owner.teamsCall.remoteParticipants {
-            participant.delegate = owner.remoteParticipantObserver
+            participant.delegate = self.remoteParticipantObserver
             for stream in participant.videoStreams {
                 renderRemoteStream(stream)
             }
             owner.remoteParticipant = participant
-        }
-    }
-    
-    //create render for RemoteVideoStream and attach it to view
-    public func renderRemoteStream(_ stream: RemoteVideoStream!) {
-        if !owner.remoteVideoStreamData.isEmpty {
-            return
-        }
-        let data:RemoteVideoStreamData = RemoteVideoStreamData(view: owner, stream: stream)
-        let scalingMode = ScalingMode.fit
-        data.renderer = try! VideoStreamRenderer(remoteVideoStream: stream)
-        let view:RendererView = try! data.renderer!.createView(withOptions: CreateViewOptions(scalingMode:scalingMode))
-        self.owner.remoteViews.append(view)
-        owner.remoteVideoStreamData[stream.id] = data
-    }
-}
-```
-
-## Remote participant Management
-
-All remote participants are represented with the `RemoteParticipant` type and are available through the `remoteParticipants` collection on a call instance.
-
-We can implement a `RemoteParticipantObserver` class to subscribe to the updates on remote video streams of remote participants.
-
-```Swift
-public class RemoteParticipantObserver : NSObject, RemoteParticipantDelegate {
-    private var owner:ContentView
-    init(_ view:ContentView) {
-        owner = view
-    }
-
-    public func renderRemoteStream(_ stream: RemoteVideoStream!) {
-        let data:RemoteVideoStreamData = RemoteVideoStreamData(view: owner, stream: stream)
-        let scalingMode = ScalingMode.fit
-        data.renderer = try! VideoStreamRenderer(remoteVideoStream: stream)
-        let view:RendererView = try! data.renderer!.createView(withOptions: CreateViewOptions(scalingMode:scalingMode))
-        self.owner.remoteViews.append(view)
-        owner.remoteVideoStreamData[stream.id] = data
-    }
-    
-    // render RemoteVideoStream when remote participant turns on the video, dispose the renderer when remote video is off
-    public func remoteParticipant(_ remoteParticipant: RemoteParticipant, didUpdateVideoStreams args: RemoteVideoStreamsEventArgs) {
-        for stream in args.addedRemoteVideoStreams {
-            renderRemoteStream(stream)
-        }
-        for stream in args.removedRemoteVideoStreams {
-            for data in owner.remoteVideoStreamData.values {
-                data.renderer?.dispose()
-            }
-            owner.remoteViews.removeAll()
         }
     }
 }
