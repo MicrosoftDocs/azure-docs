@@ -43,7 +43,7 @@ Logs can help you diagnose errors and warnings, or track performance metrics lik
     ```
 
     > [!NOTE]
-    > For asynchronous logging, you need to have `MLflow` version 2.8.0+ and `azureml-mlflow` version 1.55+.
+    > For asynchronous logging of metrics, you need to have `MLflow` version 2.8.0+ and `azureml-mlflow` version 1.55+.
 
 * If you're doing remote tracking (tracking experiments that run outside Azure Machine Learning), configure MLflow to track experiments. For more information, see [Configure MLflow for Azure Machine Learning](how-to-use-mlflow-configure-tracking.md).
 
@@ -176,7 +176,7 @@ client.log_batch(mlflow.active_run().info.run_id,
 
 ## Log metrics asynchronously
 
-MLflow also allows logging of metrics in an asynchronous way. Asynchronous metric logging is particularly useful in cases with high throughput where large training jobs with hundreds of compute nodes might be running and try to log metrics concurrently.
+MLflow also allows logging of metrics in an asynchronous way. Asynchronous metric logging is particularly useful in cases with high throughput where large training jobs with hundreds of compute nodes might be running and trying to log metrics concurrently.
 
 Asynchronous metric logging allows you to log metrics and wait for them to be ingested before trying to read them back. This approach scales to large training routines that log hundreds of thousands of metric values.
 
@@ -209,7 +209,7 @@ with mlflow.start_run():
     # (...)
 ```
 
-You can asynchronously log one metric at a time or log a batch of metrics:
+You can asynchronously log one metric at a time or log a batch of metrics, as shown in the following example:
 
 ```python
 import mlflow
@@ -236,7 +236,7 @@ The `wait()` operation is also available when logging a batch of metrics:
 run_operation.wait()
 ```
 
-You don't have to call `wait()` on your routines if you don't need immediate access to the metric values. Azure Machine Learning will wait automatically when the job is about to finish if there is any pending metric to be persisted. By the time a job is completed in Azure Machine Learning, all metrics are guaranteed to be persisted.
+You don't have to call `wait()` on your routines if you don't need immediate access to the metric values. Azure Machine Learning automatically waits when the job is about to finish, to see if there is any pending metric to be persisted. By the time a job is completed in Azure Machine Learning, all metrics are guaranteed to be persisted.
 
 ### Changing the default logging behavior
 
