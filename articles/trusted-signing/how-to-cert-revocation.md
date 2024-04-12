@@ -3,11 +3,10 @@ title: Revoke a certificate profile in Trusted Signing
 description: how-to revoke a Trusted Signing certificate from Azure portal. 
 author: mehasharma 
 ms.author: mesharm 
-ms.service: azure-code-signing 
+ms.service: trusted-signing 
 ms.topic: how-to 
-ms.date: 03/31/2024 
+ms.date: 04/12/2024 
 ---
-
 
 
 # Revoke a certificate profile in Trusted Signing
