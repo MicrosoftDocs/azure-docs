@@ -89,7 +89,7 @@ az rest --method get --uri "${ASE_ID}/configurations/networking?api-version=2021
 ```
 
 > [!NOTE]
-> Due to a known bug, for ELB App Service Environment migrations, the inbound IP address may change again once the [migration step](#migrate-to-app-service-environment-v3) is complete. Be prepared to update your dependent resources again with the new inbound IP address after the migration step is complete. This bug is being addressed and will be fixed as soon as possible. Open a support case if you have any questions or concerns about this issue or need help with the migration process.
+> Due to a known bug, for ELB App Service Environment migrations, the inbound IP address may change again once the [migration step](#8-migrate-to-app-service-environment-v3-and-check-status) is complete. Be prepared to update your dependent resources again with the new inbound IP address after the migration step is complete. This bug is being addressed and will be fixed as soon as possible. Open a support case if you have any questions or concerns about this issue or need help with the migration process.
 >
 
 ## 4. Update dependent resources with new IPs
@@ -228,7 +228,7 @@ az appservice ase show --name $ASE_NAME --resource-group $ASE_RG
 ```
 
 > [!NOTE]
-> Due to a known bug, for ELB App Service Environment migrations, the inbound IP address may change once the [migration step](#migrate-to-app-service-environment-v3) is complete. Check your App Service Environment v3's IP addresses and make any needed updates if there have been changes since the IP generation step. Open a support case if you have any questions or concerns about this issue or need help with the confirming the new IPs.
+> Due to a known bug, for ELB App Service Environment migrations, the inbound IP address may change once the [migration step](#8-migrate-to-app-service-environment-v3) is complete. Check your App Service Environment v3's IP addresses and make any needed updates if there have been changes since the IP generation step. Open a support case if you have any questions or concerns about this issue or need help with the confirming the new IPs.
 >
 
 ::: zone-end
@@ -330,7 +330,7 @@ At this time, detailed migration statuses are available only when you're using t
 When migration is complete, you have an App Service Environment v3 resource, and all of your apps are running in your new environment. You can confirm the environment's version by checking the **Configuration** page for your App Service Environment.
 
 > [!NOTE]
-> Due to a known bug, for ELB App Service Environment migrations, the inbound IP address may change once the [migration step](#migrate-to-app-service-environment-v3) is complete. Check your App Service Environment v3's IP addresses and make any needed updates if there have been changes since the IP generation step. Open a support case if you have any questions or concerns about this issue or need help with the confirming the new IPs.
+> Due to a known bug, for ELB App Service Environment migrations, the inbound IP address may change once the migration step is complete. Check your App Service Environment v3's IP addresses and make any needed updates if there have been changes since the IP generation step. Open a support case if you have any questions or concerns about this issue or need help with the confirming the new IPs.
 >
 
 If your migration includes a custom domain suffix, the domain appeared in the **Essentials** section of the **Overview** page of the portal for App Service Environment v1/v2, but it no longer appears there in App Service Environment v3. Instead, for App Service Environment v3, go to the **Custom domain suffix** page to confirm that your custom domain suffix is configured correctly. You can also remove the configuration if you no longer need it or configure one if you didn't have one previously.
