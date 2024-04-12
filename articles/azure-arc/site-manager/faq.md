@@ -7,6 +7,7 @@ ms.service: azure-arc
 #ms.subservice: site-manager
 ms.topic: faq #Don't change
 ms.date: 02/16/2024
+ms.custom: references_regions
 
 #customer intent: As a customer, I want answers to questions so that I can answer my own questions.
 
