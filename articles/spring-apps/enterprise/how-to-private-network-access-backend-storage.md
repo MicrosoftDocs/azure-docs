@@ -70,7 +70,7 @@ To enable private access to underlying storage within your virtual network, the 
 
 ### Is This Feature Billable?
 
-The Azure Spring Apps instance does not incur charges for this feature. However, you will be billed for the private link resources hosted in your subscription that support this feature. For more details, refer to the [Azure Private Link Pricing](https://azure.microsoft.com/en-us/pricing/details/private-link/).
+The Azure Spring Apps instance does not incur charges for this feature. However, you will be billed for the private link resources hosted in your subscription that support this feature. For more details, refer to the [Azure Private Link Pricing](https://azure.microsoft.com/pricing/details/private-link/).
 
 ### Using Custom DNS Servers
 
