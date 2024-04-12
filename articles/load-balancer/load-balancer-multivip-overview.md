@@ -6,7 +6,7 @@ services: load-balancer
 author: mbender-ms
 ms.service: load-balancer
 ms.topic: conceptual
-ms.date: 12/04/2023
+ms.date: 04/12/2024
 ms.author: mbender
 ms.custom: template-concept
 ---
@@ -73,9 +73,7 @@ Azure Load Balancer provides the flexibility to reuse the frontend port across m
 
 If you want to reuse the backend port across multiple rules, you must enable Floating IP in the load balancing rule definition. 
 
-*Floating IP* is Azure's terminology for a portion of what is known as Direct Server Return (DSR). DSR consists of two parts: a flow topology and an IP address mapping scheme. At a platform level, Azure Load Balancer always operates in a DSR flow topology regardless of whether Floating IP is enabled or not. This means that the outbound part of a flow is always correctly rewritten to flow directly back to the origin. 
-
-With the default rule type, Azure exposes a traditional load balancing IP address mapping scheme for ease of use. Enabling Floating IP changes the IP address mapping scheme to allow for more flexibility. 
+*Floating IP* is Azure's terminology for a portion of what is also known as Direct Server Return (DSR). DSR consists of two parts: a flow topology and an IP address mapping scheme. Enabling Floating IP changes the IP address mapping scheme to allow for more flexibility. With the default rule type, Azure exposes a traditional load balancing IP address mapping scheme for ease of use. 
 
 :::image type="content" source="media/load-balancer-multivip-overview/load-balancer-multivip-dsr.png" alt-text="Diagram of load balancer traffic for multiple frontend IPs with floating IP.":::
 
