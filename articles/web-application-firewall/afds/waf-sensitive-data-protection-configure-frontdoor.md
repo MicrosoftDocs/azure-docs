@@ -26,7 +26,7 @@ The following table shows examples of log scrubbing rules that can be used to pr
 | Request Header Names | Equals | keytoblock | {"matchVariableName":"HeaderValue:keytoblock","matchVariableValue":"****"} |
 | Request Cookie Names | Equals | cookietoblock | {"matchVariableName":"CookieValue:cookietoblock","matchVariableValue":"****"} |
 | Request Post Arg Names | Equals | var | {"matchVariableName":"PostParamValue:var","matchVariableValue":"****"} |
-| Request Body JSON Arg Names | Equals | Jsonarg | "data":"Matched Data: ****** found within ARGS:jsonarg: ******" |
+| Request Body JSON Arg Names | Equals | JsonValue | {"matchVariableName":"JsonValue:key","matchVariableValue":"****"} |
 | Request IP Address* | Equals Any | NULL | "clientIp":"******" |
 |Request URI|EqualAny|||
 
