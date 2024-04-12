@@ -16,8 +16,6 @@ This article shows how to use [`az apic api`](/cli/azure/apic/api) commands in t
 
 > [!VIDEO https://www.youtube.com/embed/Dvar8Dg25s0]
 
-[!INCLUDE [api-center-preview-feedback](includes/api-center-preview-feedback.md)]
-
 ## Prerequisites
 
 * An API center in your Azure subscription. If you haven't created one already, see [Quickstart: Create your API center](set-up-api-center.md).
@@ -30,7 +28,7 @@ This article shows how to use [`az apic api`](/cli/azure/apic/api) commands in t
 
 ## Register API, API version, and definition
 
-The following steps show how to create an API and associate a single API version and API definition. For background about the data model in API Center, see [Key concepts](key-concepts.md).
+The following steps show how to create an API and associate a single API version and API definition. For background about the data model in Azure API Center, see [Key concepts](key-concepts.md).
 
 ### Create an API
 
@@ -140,6 +138,6 @@ To delete individual API versions and definitions, use [az apic api version dele
 
 ## Related content
 
-* See the [Azure CLI reference for API Center](/cli/azure/apic) for a complete command list, including commands to manage [environments](/cli/azure/apic/environment), [deployments](/cli/azure/apic/api/deployment), [metadata schemas](/cli/azure/apic/metadata-schema), and [API Center services](/cli/azure/apic/service).
+* See the [Azure CLI reference for Azure API Center](/cli/azure/apic) for a complete command list, including commands to manage [environments](/cli/azure/apic/environment), [deployments](/cli/azure/apic/api/deployment), [metadata schemas](/cli/azure/apic/metadata-schema), and [services](/cli/azure/apic/service).
 * [Import APIs to your API center from API Management](import-api-management-apis.md)
 * [Use the Visual Studio extension for API Center](use-vscode-extension.md) to build and register APIs from Visual Studio Code.

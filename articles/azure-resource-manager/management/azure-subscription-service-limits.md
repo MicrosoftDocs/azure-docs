@@ -61,7 +61,7 @@ The following limits apply when you use Azure Resource Manager and Azure resourc
 
 [!INCLUDE [entra-service-limits](../../../includes/entra-service-limits-include.md)]
 
-## API Center (preview) limits
+## API Center limits
 
 [!INCLUDE [api-center-service-limits](../../api-center/includes/api-center-service-limits.md)]
 

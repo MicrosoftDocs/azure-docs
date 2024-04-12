@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Add environments and deployments in Azure API Center (preview) | Microsoft Docs
+title: Tutorial - Add environments and deployments in Azure API Center | Microsoft Docs
 description: In this tutorial, augment the API inventory in your API center by adding information about API environments and deployments.
 author: dlepow
 ms.service: api-center
@@ -18,14 +18,12 @@ Augment the inventory in your API center by adding information about API environ
 
 * A *deployment* is a location (an address) where users can access an API.
 
-For background information about APIs, deployments, and other entities that you can inventory in API Center, see [Key concepts](key-concepts.md).
+For background information about APIs, deployments, and other entities that you can inventory in Azure API Center, see [Key concepts](key-concepts.md).
 
 In this tutorial, you learn how to use the portal to:
 > [!div class="checklist"]
 > * Add information about API environments 
 > * Add information about API deployments
-
-[!INCLUDE [api-center-preview-feedback](includes/api-center-preview-feedback.md)]
 
 
 ## Prerequisites
@@ -49,7 +47,7 @@ Here you add information about a fictitious Azure API Management environment to 
     |Setting|Value|Description|
     |-------|-----|-----------|
     |**Title**| Enter *My Testing*.| Name you choose for the environment.  |
-    |**Identification**|After you enter the preceding title, API Center generates this identifier, which you can override.| Azure resource name for the environment.|
+    |**Identification**|After you enter the preceding title, Azure API Center generates this identifier, which you can override.| Azure resource name for the environment.|
     |**Environment type**| Select **Testing** from the dropdown.| Type of environment for APIs.|
     | **Description** | Optionally enter a description. | Description of the environment. |
     | **Server** | | |
@@ -81,7 +79,7 @@ Here you add a deployment by associating one of your APIs with the environment y
     |Setting|Value|Description|
     |-------|-----|-----------|
     |**Title**| Enter *v1 Deployment*.| Name you choose for the deployment.  |
-    |**Identification**|After you enter the preceding title, API Center generates this identifier, which you can override.| Azure resource name for the deployment.|
+    |**Identification**|After you enter the preceding title, Azure API Center generates this identifier, which you can override.| Azure resource name for the deployment.|
     | **Description** | Optionally enter a description. | Description of the deployment. |
     | **Environment** | Make a selection from the dropdown, such as *My Testing*, or optionally select **Create new**.| New or existing environment where the API version is deployed. |
     | **Definition** | Select or add a definition file for a version of the Demo Conference API. | API definition file. |
@@ -99,5 +97,5 @@ In this tutorial, you learned how to use the portal to:
 
 ## Related content
 
- * [Learn more about API Center](key-concepts.md)
+ * [Learn more about Azure API Center](key-concepts.md)
 

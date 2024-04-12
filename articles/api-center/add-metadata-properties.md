@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Customize metadata properties in Azure API Center (preview) | Microsoft Docs
+title: Tutorial - Customize metadata properties in Azure API Center | Microsoft Docs
 description: In this tutorial, define custom metadata properties in your API center. Use custom and built-in properties to organize your APIs.
 author: dlepow
 ms.service: api-center
@@ -12,14 +12,12 @@ ms.author: danlep
 
 In this tutorial, define custom properties to help you organize your APIs and other information in your API center. Use custom metadata properties and several built-in properties for search and filtering and to enforce governance standards in your organization. 
 
-For background information about the metadata schema in API Center, see [Key concepts](key-concepts.md).
+For background information about the metadata schema in Azure API Center, see [Key concepts](key-concepts.md).
 
 In this tutorial, you learn how to use the portal to:
 > [!div class="checklist"]
 > * Define custom metadata properties in your API center
 > * View the metadata schema
-
-[!INCLUDE [api-center-preview-feedback](includes/api-center-preview-feedback.md)]
 
 ## Prerequisites
 

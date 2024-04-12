@@ -16,8 +16,6 @@ This article shows how to enable linting to analyze API definitions in your orga
 
 > [!VIDEO https://www.youtube.com/embed/m0XATQaVhxA]
 
-[!INCLUDE [api-center-preview-feedback](includes/api-center-preview-feedback.md)]
-
 ## Scenario overview
 
 In this scenario, you analyze API definitions in your API center by using the [Spectral](https://github.com/stoplightio/spectral) open source linting engine. An Azure Functions app runs the linting engine in response to events in your API center. Spectral checks that the APIs defined in a JSON or YAML specification document conform to the rules in a customizable API style guide. A report of API compliance is generated that you can view in your API center.
@@ -291,4 +289,4 @@ Learn more about Event Grid:
 
 * [System topics in Azure Event Grid](../event-grid/system-topics.md)
 * [Event Grid push delivery - concepts](../event-grid/concepts.md)
-* [Event Grid schema for API Center](../event-grid/event-schema-api-center.md)
+* [Event Grid schema for Azure API Center](../event-grid/event-schema-api-center.md)

@@ -28,8 +28,6 @@ After importing API definitions or APIs from API Management, you can add metadat
 
 > [!VIDEO https://www.youtube.com/embed/SuGkhuBUV5k]
 
-[!INCLUDE [api-center-preview-feedback](includes/api-center-preview-feedback.md)]
-
 ## Prerequisites
 
 * An API center in your Azure subscription. If you haven't created one, see [Quickstart: Create your API center](set-up-api-center.md).
@@ -344,7 +342,7 @@ After importing APIs from API Management, you can view and manage the imported A
 
 ## Related content
 
-* [Azure CLI reference for API Center](/cli/azure/apic) 
+* [Azure CLI reference for Azure API Center](/cli/azure/apic) 
 * [Azure CLI reference for API Management](/cli/azure/apim) 
 * [Manage API inventory with Azure CLI commands](manage-apis-azure-cli.md)
 * [Assign Azure roles to a managed identity](../role-based-access-control/role-assignments-portal-managed-identity.md)

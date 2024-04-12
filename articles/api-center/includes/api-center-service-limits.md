@@ -20,4 +20,4 @@ ms.custom: Include file
 | Maximum number of custom metadata properties | 100 |
 | Maximum number of child properties in custom metadata property of type "object" | 100 |
 
-<sup>1</sup> To increase an API Center limit, contact [support](https://azure.microsoft.com/support/options/).<br/>
+<sup>1</sup> To increase an Azure API Center limit, contact [support](https://azure.microsoft.com/support/options/).<br/>

@@ -1,5 +1,5 @@
 ---
-title: Quickstart - Create your Azure API center (preview) | Microsoft Docs
+title: Quickstart - Create your Azure API center | Microsoft Docs
 description: In this quickstart, use the Azure portal to set up an API center for API discovery, reuse, and governance. 
 author: dlepow
 ms.service: api-center
@@ -10,12 +10,9 @@ ms.author: danlep
 
 # Quickstart: Create your API center
 
-Create your [API center](overview.md) to start an inventory of your organization's APIs. The API Center service enables tracking APIs in a centralized location for discovery, reuse, and governance.
+Create your [API center](overview.md) to start an inventory of your organization's APIs. Azure API Center enables tracking APIs in a centralized location for discovery, reuse, and governance.
 
 After creating your API center, follow the steps in the tutorials to add custom metadata, APIs, versions, definitions, and other information.
-
-[!INCLUDE [api-center-preview-feedback](includes/api-center-preview-feedback.md)]
-
 
 ## Prerequisites
 
@@ -44,7 +41,7 @@ If you haven't already, you need to register the **Microsoft.ApiCenter** resourc
 
     1. Enter a **Name** for your API center. It must be unique in the region where you're creating your API center. 
 
-    1. In **Region**, select one of the [available regions](overview.md#available-regions) for API Center preview. 
+    1. In **Region**, select one of the [available regions](overview.md#available-regions) for Azure API Center. 
 
 1. Optionally, on the **Tags** tab, add one or more name/value pairs to help you categorize your Azure resources.
 
