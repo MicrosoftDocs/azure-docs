@@ -75,6 +75,9 @@ Machine workload | Site Recovery supports replication of any workload running on
 Machine name | Ensure that the display name of machine doesn't fall into [Azure reserved resource names](../azure-resource-manager/templates/error-reserved-resource-name.md).<br/><br/> Logical volume names aren't case-sensitive. Ensure that no two volumes on a device have same name. For example, Volumes with names "voLUME1", "volume1" can't be protected through Azure Site Recovery.
 Azure Virtual Machines as Physical | Failover of virtual machines with Marketplace image disks is currently not supported.
 
+>[!NOTE]
+> Different machine with same BIOS ID are not supported. 
+
 ### For Windows
 
 > [!NOTE]
