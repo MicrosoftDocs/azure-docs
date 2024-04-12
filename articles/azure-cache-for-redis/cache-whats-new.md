@@ -17,7 +17,7 @@ ms.date: 04/12/2024
 
 Support for a built-in _flush_ operation that can be started at the control plane level for caches in the Basic, Standard, and Premium tier has now reached General Availability (GA).
 
-For more information, see [flush data operation](cache-administration.md#flush-data-preview).
+For more information, see [flush data operation](cache-administration.md#flush-data).
 
 ## February 2024
 
@@ -37,7 +37,7 @@ For more information, see [What are the configuration settings for the TLS proto
 
 Basic, Standard, and Premium tier caches now support a built-in _flush_ operation that can be started at the control plane level. Use the _flush_ operation with your cache executing the `FLUSH ALL` command through Portal Console or _redis-cli_.
 
-For more information, see [flush data operation](cache-administration.md#flush-data-preview).
+For more information, see [flush data operation](cache-administration.md#flush-data).
 
 ### Update channel for Basic, Standard, and Premium Caches (preview)
 
