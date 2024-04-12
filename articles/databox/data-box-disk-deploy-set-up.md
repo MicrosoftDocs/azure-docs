@@ -394,7 +394,7 @@ Perform the following steps to connect and unlock software encrypted Data Box di
 
     The following sample output confirms that the volume was successfully unlocked. The mount point is also displayed for the volume in which your data can be copied.
 
-    :::image type="content" source="media/data-box-disk-deploy-setup/bitlocker-unlock-linux.png" alt-text="Screenshot of output showing successfully unlocked Data Box disks.":::
+    :::image type="content" source="media/data-box-disk-deploy-set-up/bitlocker-unlock-linux.png" alt-text="Screenshot of output showing successfully unlocked Data Box disks.":::
 
 1. Repeat the unlock steps for any future disk reinserts. Use the `help` command for additional assistance with the Data Box Disk unlock tool.
 
@@ -406,7 +406,8 @@ Perform the following steps to connect and unlock software encrypted Data Box di
     [user@localhost Downloads]$ DataBoxDiskUnlock /Help   
 
     START: Wed Apr 10 12:35:21 2024
-    DataBoxDiskUnlock is an utility managed by Microsoft which provides a convenient way to unlock BitLocker and self-encrypted Data Box disks ordered through Azure portal. 
+    DataBoxDiskUnlock is an utility managed by Microsoft which provides a convenient way to unlock BitLocker 
+    and self-encrypted Data Box disks ordered through Azure portal. 
 
     More details available at https://learn.microsoft.com/en-us/azure/databox/data-box-disk-deploy-set-up
     -----------------------------------------------------
@@ -421,8 +422,7 @@ Perform the following steps to connect and unlock software encrypted Data Box di
     Example: sudo DataBoxDiskUnlock /Unmount 
     Example: sudo DataBoxDiskUnlock /Rescan  /Volumes:'/dev/sdb;/dev/sdc'
 
-    /PassKey       : This option takes a passkey as input and unlocks all of your disks. 
-
+    /PassKey       : This option takes a passkey as input and unlocks all of your disks.
                     Get the passkey from your Data Box Disk order in Azure portal.
     /Volumes       : This option is used to input a list of volumes.
     /SerialNumbers : This option is used to input a list of serial numbers.
@@ -431,8 +431,7 @@ Perform the following steps to connect and unlock software encrypted Data Box di
     /Help          : This option provides help on the tool usage and examples. 
     /Unmount       : This option unmounts all the volumes mounted by this tool. 
     /Rescan        : Perform SATA controller reset to repair the SATA link speed for specific volumes. 
------------------------------------------------------ 
-
+    ----------------------------------------------------- 
     ```
 
 1. After the disk is unlocked, you can go to the mount point and view the contents of the disk. You are now ready to copy the data to *BlockBlob* or *PageBlob* folders.
@@ -451,6 +450,7 @@ Perform the following steps to connect and unlock software encrypted Data Box di
     The following example output confirms that the volume unmounted successfully.
 
     :::image type="content" source="media/data-box-disk-deploy-set-up/bitlocker-unmount-linux.png" alt-text="Screenshot of example results indicating successful Data Box Disk unmounting.":::
+
 ---
 
 ::: zone-end
