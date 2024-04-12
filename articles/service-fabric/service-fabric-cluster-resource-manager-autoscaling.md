@@ -38,7 +38,7 @@ The first type of trigger is based on the load of instances in a stateless servi
 
 * _Lower load threshold_ is a value that determines when the service is **scaled in**. If the average load of all instances of the partitions is lower than this value, then the service is scaled in.
 * _Upper load threshold_ is a value that determines when the service is **scaled out**. If the average load of all instances of the partition is higher than this value, then the service is scaled out.
-* _Scaling interval_ determines how often the trigger is checked. Once the trigger is checked, if scaling is needed the mechanism is applied. If scaling is not needed, then no action is taken. In both cases, trigger isn't checked again before scaling interval expires again.
+* _Scaling interval_ determines how often the trigger is checked. Once the trigger is checked, if scaling is needed the mechanism is applied. If scaling isn't needed, then no action is taken. In both cases, trigger isn't checked again before scaling interval expires again.
 
 This trigger can be used only with stateless services (either stateless containers or Service Fabric services). In case when a service has multiple partitions, the trigger is evaluated for each partition separately, and each partition has the specified mechanism applied to it independently. Hence, the scaling behaviors of service partitions could vary based on their load. It's possible that some partitions of the service are scaled out, while some others are scaled in. Some partitions might not be scaled at all at the same time.
 
