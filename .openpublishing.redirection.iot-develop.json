@@ -629,6 +629,91 @@
       "source_path_from_root": "/articles/iot-develop/iot-device-selection.md",
       "redirect_url": "/azure/iot/concepts-iot-device-selection",
       "redirect_document_id": true      
+    },
+    {
+      "source_path_from_root": "/articles/iot-develop/about-getting-started-device-development.md",
+      "redirect_url": "/azure/iot/iot-overview-device-development",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-develop/about-iot-develop.md",
+      "redirect_url": "/azure/iot/iot-overview-device-development",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-develop/about-iot-sdks.md",
+      "redirect_url": "/azure/iot/iot-overview-device-development",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-develop/quickstart-devkit-espressif-esp32-freertos.md",
+      "redirect_url": "/azure/iot/iot-overview-device-development",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-develop/quickstart-devkit-microchip-atsame54-xpro.md",
+      "redirect_url": "/azure/iot/iot-overview-device-development",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-develop/quickstart-devkit-microchip-atsame54-xpro-iot-hub.md",
+      "redirect_url": "/azure/iot/iot-overview-device-development",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-develop/quickstart-devkit-mxchip-az3166.md",
+      "redirect_url": "/azure/iot/iot-overview-device-development",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-develop/quickstart-devkit-nxp-mimxrt1060-evk.md",
+      "redirect_url": "/azure/iot/iot-overview-device-development",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-develop/quickstart-devkit-nxp-mimxrt1060-evk-iot-hub.md",
+      "redirect_url": "/azure/iot/iot-overview-device-development",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-develop/quickstart-devkit-renesas-rx65n-cloud-kit.md",
+      "redirect_url": "/azure/iot/iot-overview-device-development",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-develop/quickstart-devkit-renesas-rx65n-cloud-kit-iot-hub.md",
+      "redirect_url": "/azure/iot/iot-overview-device-development",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-develop/quickstart-devkit-stm-b-l4s5i.md",
+      "redirect_url": "/azure/iot/iot-overview-device-development",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-develop/quickstart-devkit-stm-b-l4s5i-iot-hub.md",
+      "redirect_url": "/azure/iot/iot-overview-device-development",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-develop/quickstart-devkit-stm-b-l475e.md",
+      "redirect_url": "/azure/iot/iot-overview-device-development",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-develop/quickstart-devkit-stm-b-l475e-freertos.md",
+      "redirect_url": "/azure/iot/iot-overview-device-development",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-develop/",
+      "redirect_url": "/azure/iot/iot-overview-device-development",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-develop/index.yml",
+      "redirect_url": "/azure/iot/iot-overview-device-development",
+      "redirect_document_id": false
     }
   ]
 }
