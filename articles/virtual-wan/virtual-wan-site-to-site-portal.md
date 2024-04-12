@@ -106,7 +106,7 @@ The device configuration file contains the settings to use when configuring your
         ```
         "AddressSpace":"10.1.0.0/24"
         ```
-    * **Address space** of the virutal networks that are connected to the virtual hub.<br>Example:
+    * **Address space** of the virtual networks that are connected to the virtual hub.<br>Example:
 
          ```
         "ConnectedSubnets":["10.2.0.0/16","10.3.0.0/16"]
