@@ -16,7 +16,7 @@ author: lgayhardt
 # Vector index lookup tool for flows in Azure AI Studio
 
 > [!IMPORTANT]
-> Vector, Vector DB and Faiss Index Lookup tools are deprecated and will be retired soon. [Migrated to the new Index Lookup tool (preview).](index-lookup-tool.md#how-to-migrate-from-legacy-tools-to-the-index-lookup-tool)
+> Vector, Vector DB, and Faiss Index Lookup tools are deprecated and will be retired soon. [Migrated to the new Index Lookup tool (preview).](index-lookup-tool.md#migrate-from-legacy-tools-to-the-index-lookup-tool)
 
 The prompt flow *Vector index lookup* tool is tailored for querying within vector index such as Azure AI Search. You can extract contextually relevant information from a domain knowledge base.
 
@@ -93,4 +93,3 @@ The following JSON format response is an example returned by the tool that inclu
 ## Next steps
 
 - [Learn more about how to create a flow](../flow-develop.md)
-
