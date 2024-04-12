@@ -8,9 +8,9 @@ ms.author: rifox
 [!INCLUDE [Install SDK](../install-sdk/install-sdk-web.md)]
 
 ## Device management
-To begin using video with Calling, you need to know how to manage devices. Devices allow you to control what transmits Audio and Video to the call.
+To begin using video with Calling, you need to be able to manage devices. Devices allow you to control what transmits Audio and Video to the call.
 
-In `deviceManager`, you can enumerate local devices that can transmit your audio and video streams in a call. You can also use it to request permission to access the local device's microphones and cameras.
+With the `deviceManager`, you can enumerate local devices that can transmit your audio and video streams in a call. You can also use the `deviceManager` to request permission to access the local device's microphones and cameras.
 
 You can access `deviceManager` by calling the `callClient.getDeviceManager()` method:
 
@@ -20,7 +20,7 @@ const deviceManager = await callClient.getDeviceManager();
 
 ### Get local devices
 
-To access local devices, you can use enumeration methods on `deviceManager`. Enumeration is an asynchronous action.
+To access local devices, you can use the `deviceManager` enumeration methods `getCameras()` and `getMicrophones`. Those methods are asynchronous actions.
 
 ```js
 //  Get a list of available video devices for use.
