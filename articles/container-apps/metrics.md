@@ -17,30 +17,33 @@ The metrics explorer in the Azure portal allows you to visualize the data. You c
 
 ## Available metrics
 
-Container Apps provides these metrics.
+Container Apps provides these common metrics.
 
-|Title  | Description | Metric ID |Unit  |
-|---------|---------|---------|---------|
-| CPU Usage | CPU consumed by the container app, in nano cores (1,000,000,000 nanocores = 1 core)  | UsageNanoCores| nanocores|
-|Memory Working Set Bytes |Container app working set memory used in bytes|WorkingSetBytes|bytes|
-|Network In Bytes|Network received bytes|RxBytes|bytes|
-|Network Out Bytes|Network transmitted bytes|TxBytes|bytes|
-|Replica count|Number of active replicas| Replicas | n/a |
-|Replica Restart Count|Restarts count of container app replicas| RestartCount | n/a |
-|Requests|Requests processed|Requests|n/a|
-|Reserved Cores|Number of reserved cores for container app revisions |CoresQuotaUsed|n/a|
-|Resiliency Connection Timeouts |Total connection timeouts |ResiliencyConnectTimeouts |n/a|
-|Resiliency Ejected Hosts |Number of currently ejected hosts|ResiliencyEjectedHosts |n/a|
-|Resiliency Ejections Aborted |Number of ejections aborted due to the max ejection % |ResiliencyEjectionsAborted |n/a|
-|Resiliency Request Retries |Total request retries|ResiliencyRequestRetries|n/a|
-|Resiliency Request Timeouts |Total requests that timed out waiting for a response |ResiliencyRequestTimeouts|n/a|
-|Resiliency Requests Pending Connection Pool |Total requests pending a connection pool connection |ResiliencyRequestsPendingConnectionPool |n/a|
-|Total Reserved Cores |Total cores reserved for the container app |TotalCoresQuotaUsed|n/a|
+|Category|Title  | Description | Metric ID |Unit  |
+|---------|---------|---------|---------|---------|
+| Common | CPU Usage | CPU consumed by the container app, in nano cores (1,000,000,000 nanocores = 1 core)  | UsageNanoCores| nanocores|
+| Common |Memory Working Set Bytes |Container app working set memory used in bytes|WorkingSetBytes|bytes|
+| Common |Network In Bytes|Network received bytes|RxBytes|bytes|
+| Common |Network Out Bytes|Network transmitted bytes|TxBytes|bytes|
+| Common |Replica count|Number of active replicas| Replicas | n/a |
+| Common |Replica Restart Count|Restarts count of container app replicas| RestartCount | n/a |
+| Common |Requests|Requests processed|Requests|n/a|
+| Common |Reserved Cores|Number of reserved cores for container app revisions |CoresQuotaUsed|n/a|
+| Common |Resiliency Connection Timeouts |Total connection timeouts |ResiliencyConnectTimeouts |n/a|
+| Common |Resiliency Ejected Hosts |Number of currently ejected hosts|ResiliencyEjectedHosts |n/a|
+| Common |Resiliency Ejections Aborted |Number of ejections aborted due to the max ejection % |ResiliencyEjectionsAborted |n/a|
+| Common |Resiliency Request Retries |Total request retries|ResiliencyRequestRetries|n/a|
+| Common |Resiliency Request Timeouts |Total requests that timed out waiting for a response |ResiliencyRequestTimeouts|n/a|
+| Common |Resiliency Requests Pending Connection Pool |Total requests pending a connection pool connection |ResiliencyRequestsPendingConnectionPool |n/a|
+| Common |Total Reserved Cores |Total cores reserved for the container app |TotalCoresQuotaUsed|n/a|
 
 The metrics namespace is `microsoft.app/containerapps`.
 
 > [!NOTE]
 > Replica Restart Count is the aggregate restart count over the specified time range, not the number of restarts that occurred at a point in time.
+
+More runtime specific metrics please refer to
+* [Java Metrics](./java-metrics.md)
 
 ## Metrics snapshots
 
