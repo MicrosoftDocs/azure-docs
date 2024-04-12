@@ -15,14 +15,14 @@ This article shows the steps to access the FHIR&reg; service in Azure Health Dat
 
 ## Prerequisites
 
-* FHIR service deployed in Azure. For more information, see [Deploy a FHIR service](fhir-portal-quickstart.md).
-* A registered client application to access the FHIR service. For more information, see [Register a service client application in Microsoft Entra ID](./../register-application.md). 
-* **FHIR Data Contributor** permissions granted to the client application and your user account. 
-* Postman installed locally. For more information, see [Get Started with Postman](https://www.getpostman.com/).
+- **FHIR service deployed in Azure**. For more information, see [Deploy a FHIR service](fhir-portal-quickstart.md).
+- **A registered client application to access the FHIR service**. For more information, see [Register a service client application in Microsoft Entra ID](./../register-application.md). 
+- **FHIR Data Contributor** permissions granted to the client application and your user account. 
+- **Postman installed locally**. For more information, see [Get Started with Postman](https://www.getpostman.com/).
 
 ## Create a workspace, collection, and environment
 
-If you're new to Postman, follow these steps to create a workspace, collection, and environment. Otherwise, you can skip this step.
+If you're new to Postman, follow these steps to create a workspace, collection, and environment. 
  
 Postman introduces the workspace concept to enable you and your team to share APIs, collections, environments, and other components. You can use the default **My workspace** or **Team workspace** or create a new workspace for you or your team.
 
@@ -42,12 +42,15 @@ Although you can use the full URL in the request, we recommend that you store th
 
 To access the FHIR service, you need to create or update these variables:
 
-* **tenantid** – Azure tenant where the FHIR service is deployed. Locate it on the **Application registration overview** menu.
-* **subid** – Azure subscription where the FHIR service is deployed in. locate it on the **FHIR service overview** menu.
-* **clientid** – Application client registration ID.
-* **clientsecret** – Application client registration secret.
-* **fhirurl** – The FHIR service full URL. For example, `https://xxx.azurehealthcareapis.com`. Locate it on the **FHIR service overview** menu.
-* **bearerToken** – The variable to store the Microsoft Entra access token in the script. Leave it blank.
+
+| **Variable** | **Description** | **Notes** |
+|--------------|-----------------|----------|
+| **tenantid** | Azure tenant where the FHIR service is deployed | Located on the Application registration overview |
+| **subid** | Azure subscription where the FHIR service is deployed | Located on the FHIR service overview |
+| **clientid** | Application client registration ID | - |
+| **clientsecret** | Application client registration secret | - |
+| **fhirurl** | The FHIR service full URL (for example, `https://xxx.azurehealthcareapis.com`) | Located on the FHIR service overview |
+| **bearerToken** | Stores the Microsoft Entra access token in the script | Leave blank |
 
 > [!NOTE]
 > Ensure that you configured the redirect URL `https://www.getpostman.com/oauth2/callback` in the client application registration.
@@ -80,7 +83,7 @@ Create a new `POST` request:
     - **resource**: `{{fhirurl}}`
     
 > [!NOTE]
-> In the scenarios where the FHIR service audience parameter is not mapped to the FHIR service endpoint url. The resource parameter value should be mapped to Audience value under FHIR Service Authentication blade.
+> In scenarios where the FHIR service audience parameter is not mapped to the FHIR service endpoint url. The resource parameter value should be mapped to Audience value under FHIR Service Authentication blade.
 
 3. Select the **Test** tab and enter in the text section: `pm.environment.set("bearerToken", pm.response.json().access_token);` To make the value available to the collection, use the pm.collectionVariables.set method. For more information on the set method and its scope level, see [Using variables in scripts](https://learning.postman.com/docs/sending-requests/variables/#defining-variables-in-scripts).
 4. Select **Save** to save the settings.
@@ -94,11 +97,11 @@ You can examine the access token using online tools such as [https://jwt.ms](htt
 
 ## Get Microsoft Entra access token using user account with Authorization Code grant type
 
-You can get the Microsoft Entra access token using your Entra account credentials by following the listed steps.
+You can get the Microsoft Entra access token by using your Entra account credentials and following the listed steps.
 
-1. As mentioned in the prerequisites section, you must be a member of Microsoft Entra Tenant with the required access permissions.
+1. Verify that you're a member of Microsoft Entra tenant with the required access permissions.
 
-1. Ensure that you configured the redirect URL `https://oauth.pstmn.io/v1/callback` for web platform in the client application registration.
+1. Ensure that you configured the redirect URL `https://oauth.pstmn.io/v1/callback` for the web platform in the client application registration.
 
 :::image type="content" source="media/postman/callback-url.png" alt-text="Screenshot showing callback URL." lightbox="media/postman/callback-url.png":::
 
