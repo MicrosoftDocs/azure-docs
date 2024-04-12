@@ -35,7 +35,7 @@ Start with this list:
 * Review the [performance tips](performance-tips-python-sdk.md) for Azure Cosmos DB Python SDK, and follow the suggested practices.
 * Read the rest of this article, if you didn't find a solution. Then file a [GitHub issue](https://github.com/Azure/azure-sdk-for-python/issues). If there's an option to add tags to your GitHub issue, add a `*Cosmos*` tag.
 
-## Logging and Capturing the diagnostics
+## Logging and capturing the diagnostics
 
 > [!IMPORTANT]
 > We recommend using the latest version of python SDK. You can check the release history [here](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/cosmos/azure-cosmos/CHANGELOG.md#release-history) 
@@ -70,7 +70,7 @@ database = client.create_database(DATABASE_NAME, logging_enable=True)
 ```
 
 Alternatively, you can log using the `CosmosHttpLoggingPolicy`, which extends from the azure core `HttpLoggingPolicy`, by passing in your logger to the `logger` argument.
-By default, it will use the behaviour from `HttpLoggingPolicy`. Passing in the `enable_diagnostics_logging` argument will enable the
+By default, it will use the behavior from `HttpLoggingPolicy`. Passing in the `enable_diagnostics_logging` argument will enable the
 `CosmosHttpLoggingPolicy`, and will have additional information in the response relevant to debugging Cosmos issues.
 
 ```python
@@ -136,10 +136,10 @@ If your app is deployed on Azure Virtual Machines without a public IP address, b
     When the service endpoint is enabled, the requests are no longer sent from a public IP to Azure Cosmos DB. Instead, the virtual network and subnet identity are sent. This change might result in firewall drops if only public IPs are allowed. If you use a firewall, when you enable the service endpoint, add a subnet to the firewall by using [Virtual Network ACLs](/previous-versions/azure/virtual-network/virtual-networks-acl).
 * Assign a public IP to your Azure VM.
 
-#### Can't reach the Service - firewall
+#### Can't reach the service - firewall
 ``azure.core.exceptions.ServiceRequestError:`` indicates that the SDK can't reach the service. Follow the [Connection limit on a host machine](#connection-limit-on-a-host-machine).
 
-### Failure connecting to Azure Cosmos DB Emulator
+### Failure connecting to Azure Cosmos DB emulator
 
 The Azure Cosmos DB Emulator HTTPS certificate is self-signed. For the Python SDK to work with the emulator, import the emulator certificate. For more information, see [Export Azure Cosmos DB Emulator certificates](../emulator.md).
 
