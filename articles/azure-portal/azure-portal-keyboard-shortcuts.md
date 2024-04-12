@@ -35,7 +35,7 @@ The letters that appear below represent letter keys on your keyboard. For exampl
 | --- | --- |
 |Go to **Dashboard** |G+D |
 |Go to **All resources**|G+A |
-|Open **All services**|G+B|
+|Go to **All services**|G+B|
 |Go to **Resource groups**|G+R |
 |Open the left sidebar item at this position |G+number|
 
