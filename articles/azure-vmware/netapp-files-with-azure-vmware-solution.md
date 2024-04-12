@@ -3,7 +3,7 @@ title: Attach Azure NetApp Files to Azure VMware Solution VMs
 description: Use Azure NetApp Files with Azure VMware Solution VMs to migrate and sync data across on-premises servers, Azure VMware Solution VMs, and cloud infrastructures. 
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 12/19/2023
+ms.date: 4/12/2024
 ms.custom: engagement-fy23
 ---
 
@@ -24,7 +24,7 @@ Services where Azure NetApp Files are used:
 
 The diagram shows a connection through Azure ExpressRoute to an Azure VMware Solution private cloud. The Azure VMware Solution environment accesses the Azure NetApp Files share mounted on Azure VMware Solution VMs.
 
-:::image type="content" source="media/netapp-files/netapp-files-topology.png" alt-text="Diagram showing NetApp Files for Azure VMware Solution architecture." border="false":::
+:::image type="content" source="media/netapp-files/netapp-files-topology.png" alt-text="Diagram showing NetApp Files for Azure VMware Solution with Virtual Machines architecture." border="false":::
 
 
 ## Prerequisites 
