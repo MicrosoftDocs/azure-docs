@@ -130,7 +130,7 @@ Agent-based faults are injected into **Azure Virtual Machines** or **Virtual Mac
 | Load | [Stop load test (Azure Load Testing)](#azure-load-testing-stop-load-test) |
 | Time delay | [Delay](#time-delay) |
 
-## Agent-based fault details
+## Details: Agent-based faults
 
 ### Network Disconnect
 
@@ -821,7 +821,7 @@ Currently, the Windows agent doesn't reduce memory pressure when other applicati
 ```
 
 
-## Service-direct fault details
+## Details: Service-direct faults
 
 
 ### Stop App Service
@@ -1900,7 +1900,7 @@ Currently, only virtual machine scale sets configured with the **Uniform** orche
 
 
 
-## Orchestration action details
+## Details: Orchestration actions
 
 ### Delay
 
@@ -1995,14 +1995,3 @@ Currently, only virtual machine scale sets configured with the **Uniform** orche
   ]
 }
 ```
-
-
-
-## Old (remove)
-
-
-
-
-
-
-
