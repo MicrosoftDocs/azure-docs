@@ -83,7 +83,7 @@ To see what patch you're on, run the `az aks show --resource-group myResourceGro
   "autoScalerProfile": null,
   "autoUpgradeProfile": null,
   "azurePortalFqdn": "myaksclust-myresourcegroup.portal.hcp.eastus.azmk8s.io",
-  "currentKubernetesVersion": "1.21.7",
+  "currentKubernetesVersion": "1.29.2",
 }
 ```
 
@@ -106,7 +106,7 @@ The supported window of Kubernetes minor versions on AKS is known as "N-2", wher
 
 For example, on the day that AKS introduces version 1.29, support is provided for the following versions:
 
-New minor version    |    Supported Version List
+New minor version    |    Supported Minor Version List
 -----------------    |    ----------------------
 1.29                 |    1.29, 1.28, 1.27
 
@@ -118,7 +118,7 @@ When a new minor version is introduced, the oldest minor version is deprecated a
 1.27
 ```
 
-When AKS releases 1.30.\*, all the 1.27.\* versions go out of support 30 days later.
+When AKS releases 1.30, all the 1.27 versions go out of support 30 days later.
 
 AKS also supports a maximum of two **patch** releases of a given minor version. For example, given the following supported versions:
 
