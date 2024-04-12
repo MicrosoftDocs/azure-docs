@@ -52,7 +52,7 @@ In this example, you will add a another frontend to your Load Balancer.
 
 7. Select **Save**.
 
-Next you must associate the frontend IP configuration you have created with an appropriate load balancing rule. Refer to [Manage rules for Azure Load Balancer](manage-rules-how-to/md#load-balancing-rules) for more information on how to do this.
+Next you must associate the frontend IP configuration you have created with an appropriate load balancing rule. Refer to [Manage rules for Azure Load Balancer](manage-rules-how-to.md#load-balancing-rules) for more information on how to do this.
 
 ## Remove a frontend
 
