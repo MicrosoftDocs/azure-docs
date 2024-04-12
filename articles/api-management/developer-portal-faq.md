@@ -33,7 +33,7 @@ Learn more about [customizing and extending](developer-portal-extend-custom-func
 
 ## Can I have multiple developer portals in one API Management service?
 
-You can have one managed portal and multiple self-hosted portals. The content of all portals is stored in the same API Management service, so they will be identical. If you want to differentiate portals' appearance and functionality, you can self-host them with your own custom widgets that dynamically customize pages on runtime, for example based on the URL.
+You can have one managed portal and multiple self-hosted portals. The content of all portals is stored in the same API Management service, so they'll be identical. If you want to differentiate portals' appearance and functionality, you can self-host them with your own custom widgets that dynamically customize pages on runtime, for example based on the URL.
 
 ## Does the portal support Azure Resource Manager templates and/or is it compatible with API Management DevOps Resource Kit?
 
@@ -47,7 +47,7 @@ No.
 
 In most cases - no.
 
-If your API Management service is in an internal VNet, your developer portal is only accessible from within the network. The management endpoint's host name must resolve to the internal VIP of the service from the machine you use to access the portal's administrative interface. Make sure the management endpoint is registered in the DNS. In case of misconfiguration, you will see an error: `Unable to start the portal. See if settings are specified correctly in the configuration (...)`.
+If your API Management service is in an internal VNet, your developer portal is only accessible from within the network. The management endpoint's host name must resolve to the internal VIP of the service from the machine you use to access the portal's administrative interface. Make sure the management endpoint is registered in the DNS. In case of misconfiguration, you'll see an error: `Unable to start the portal. See if settings are specified correctly in the configuration (...)`.
 
 If your API Management service is in an internal VNet and you're accessing it through Application Gateway from the internet, make sure to enable connectivity to the developer portal and the management endpoints of API Management. You may need to disable Web Application Firewall rules. See [this documentation article](api-management-howto-integrate-internal-vnet-appgateway.md) for more details.
 
@@ -113,7 +113,7 @@ This error is shown when a `GET` call to `https://<management-endpoint-hostname>
 
 If your API Management service is in a VNet, refer to the [VNet connectivity question](#do-i-need-to-enable-additional-vnet-connectivity-for-the-managed-portal-dependencies).
 
-The call failure may also be caused by an TLS/SSL certificate, which is assigned to a custom domain and is not trusted by the browser. As a mitigation, you can remove the management endpoint custom domain. API Management will fall back to the default endpoint with a trusted certificate.
+The call failure may also be caused by an TLS/SSL certificate, which is assigned to a custom domain and isn't trusted by the browser. As a mitigation, you can remove the management endpoint custom domain. API Management will fall back to the default endpoint with a trusted certificate.
 
 ## What's the browser support for the portal?
 
@@ -129,7 +129,7 @@ The call failure may also be caused by an TLS/SSL certificate, which is assigned
 
 ## Local development of my self-hosted portal is no longer working
 
-If your local version of the developer portal cannot save or retrieve information from the storage account or API Management instance, the SAS tokens may have expired. You can fix that by generating new tokens. For instructions, refer to the tutorial to [self-host the developer portal](developer-portal-self-host.md#step-2-configure-json-files-static-website-and-cors-settings).
+If your local version of the developer portal can't save or retrieve information from the storage account or API Management instance, the SAS tokens may have expired. You can fix that by generating new tokens. For instructions, refer to the tutorial to [self-host the developer portal](developer-portal-self-host.md#step-2-configure-json-files-static-website-and-cors-settings).
 
 ## How do I disable sign-up in the developer portal?
 
