@@ -37,22 +37,21 @@ In this example, add another frontend to your Load Balancer.
 6. Enter or select the following information in **Add frontend IP configuration**.
 If **myLoadBalancer** is a _Public_ Load Balancer:
 
-| Setting           | Value                                                     |
-|-------------------|-----------------------------------------------------------|
-| Name              | **myFrontend2**                                           |
-| IP Version        | Select **IPv4** or **IPv6**.                              |
-| IP type           | Select **IP address** or **IP prefix**.                   |
-| Public IP address | Select an existing Public IP address or create a new one. |
-
+    | Setting           | Value                                                     |
+    |-------------------|-----------------------------------------------------------|
+    | Name              | **myFrontend2**                                           |
+    | IP Version        | Select **IPv4** or **IPv6**.                              |
+    | IP type           | Select **IP address** or **IP prefix**.                   |
+    | Public IP address | Select an existing Public IP address or create a new one. |
    
-If **myLoadBalancer** is an _Internal_ Load Balancer:
+    If **myLoadBalancer** is an _Internal_ Load Balancer:
 
-| Setting           | Value                                                                                    |
-|-------------------|------------------------------------------------------------------------------------------|
-| Name              | **myFrontend2**                                                                          |
-| IP Version        | Select **IPv4** or **IPv6**.                                                             |
-| Subnet            | Select an existing subnet.                                                               |
-| Availability zone | Select *zone-redundant* for resilient applications. You can also select a specific zone. |
+    | Setting           | Value                                                                                    |
+    |-------------------|------------------------------------------------------------------------------------------|
+    | Name              | **myFrontend2**                                                                          |
+    | IP Version        | Select **IPv4** or **IPv6**.                                                             |
+    | Subnet            | Select an existing subnet.                                                               |
+    | Availability zone | Select *zone-redundant* for resilient applications. You can also select a specific zone. |
 
     
 7. Select **Save**.
