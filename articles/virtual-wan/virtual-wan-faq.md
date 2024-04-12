@@ -345,7 +345,7 @@ For new deployments, this connectivity is blocked by default. To allow this conn
 
 In the diagram below, both toggles need to be enabled to allow connectivity between the standalone VNet 4 and the VNets directly connected to hub 2 (VNet 2 and VNet 3): **Allow traffic from remote Virtual WAN networks** for the virtual network gateway and **Allow traffic from non Virtual WAN networks** for the virtual hub's ExpressRoute gateway. If an Azure Route Server is deployed in standalone VNet 4, and the Route Server has [branch-to-branch](../route-server/quickstart-configure-route-server-portal.md#configure-route-exchange) enabled, then connectivity will be blocked between VNet 1 and standalone VNet 4. 
 
-Enabling or disabling the toggle will only affect the following traffic flow: traffic flowing between the Virtual WAN hub and standalone VNet(s) via the ExpressRoute circuit. Enabling or disabling the toggle will **not** incur downtime for all other traffic flows (Ex: on-premises site to spoke VNet 2 won't be impacted, VNet 2 to VNet 3 won't be impacted, etc). 
+Enabling or disabling the toggle will only affect the following traffic flow: traffic flowing between the Virtual WAN hub and standalone VNet(s) via the ExpressRoute circuit. Enabling or disabling the toggle will **not** incur downtime for all other traffic flows (Ex: on-premises site to spoke VNet 2 won't be impacted, VNet 2 to VNet 3 won't be impacted, etc.). 
 
 :::image type="content" source="./media/virtual-wan-expressroute-portal/expressroute-bowtie-virtual-network-virtual-wan.png" alt-text="Diagram of a standalone virtual network connecting to a virtual hub via ExpressRoute circuit." lightbox="./media/virtual-wan-expressroute-portal/expressroute-bowtie-virtual-network-virtual-wan.png":::
 
