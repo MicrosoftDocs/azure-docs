@@ -6,7 +6,7 @@ author: flang-msft
 ms.author: franlanglois
 ms.service: cache
 ms.topic: tutorial
-ms.date: 08/24/2023
+ms.date: 04/12/2024
 #CustomerIntent: As a developer, I want a introductory example of using Azure Cache for Redis triggers with Azure Functions so that I can understand how to use the functions with a Redis cache.
 
 ---
@@ -41,13 +41,13 @@ Creating the cache can take a few minutes. You can move to the next section whil
 
 ## Set up Visual Studio Code
 
-1. If you haven't installed the Azure Functions extension for VS Code, search for **Azure Functions** on the **EXTENSIONS** menu, and then select **Install**. If you don't have the C# extension installed, install it, too.
+1. If you didn't install the Azure Functions extension for VS Code yet, search for **Azure Functions** on the **EXTENSIONS** menu, and then select **Install**. If you don't have the C# extension installed, install it, too.
 
    :::image type="content" source="media/cache-tutorial-functions-getting-started/cache-code-editor.png" alt-text="Screenshot of the required extensions installed in VS Code.":::
 
 1. Go to the **Azure** tab. Sign in to your Azure account.
 
-1. Create a new local folder on your computer to hold the project that you're building. This tutorial uses _RedisAzureFunctionDemo_ as an example.
+1. To store the project that you're building, create a new local folder on your computer. This tutorial uses _RedisAzureFunctionDemo_ as an example.
 
 1. On the **Azure** tab, create a new function app by selecting the lightning bolt icon in the upper right of the **Workspace** tab.
 
@@ -64,8 +64,8 @@ Creating the cache can take a few minutes. You can move to the next section whil
    If you don't have the .NET Core SDK installed, you're prompted to do so.
 
 > [!IMPORTANT]
-> For .NET functions, using the _isolated worker model_ is recommended over the _in-process_ model. For a comparsion of the in-process and isolated worker models, see [differences between the isolated worker model and the in-process model for .NET on Azure Functions](../azure-functions/dotnet-isolated-in-process-differences.md). This sample will use the _isolated worker model_. 
-> 
+> For .NET functions, using the _isolated worker model_ is recommended over the _in-process_ model. For a comparison of the in-process and isolated worker models, see [differences between the isolated worker model and the in-process model for .NET on Azure Functions](../azure-functions/dotnet-isolated-in-process-differences.md). This sample uses the _isolated worker model_.
+>
 
 1. Confirm that the new project appears on the **EXPLORER** pane.
 
@@ -107,7 +107,7 @@ dotnet add package Microsoft.Azure.Functions.Worker.Extensions.Redis --prereleas
 
 ## Set up the example code for Redis triggers
 
-1. Go back to VS Code and add a file calle _Common.cs_ to the project. This class will be used to help parse the JSON serialized response for the PubSubTrigger.
+1. In VS Code, add a file called _Common.cs_ to the project. This class is used to help parse the JSON serialized response for the PubSubTrigger.
 
 1. Copy and paste the following code into the _Common.cs_ file:
 
@@ -247,7 +247,8 @@ public class RedisTriggers
    :::image type="content" source="media/cache-tutorial-functions-getting-started/cache-triggers-working-lightbox.png" alt-text="Screenshot of the VS Code editor with code running." lightbox="media/cache-tutorial-functions-getting-started/cache-triggers-working.png":::
 
 ## Add Redis bindings
-Bindings add a streamlined way to read or write data stored on your Redis instance. To demonstrate the benefit of bindings, we'll add two additional functions. One (called `SetGetter`) will trigger each time a key is set and return the new value of the key using an _input binding_. The other (called `StreamSetter`) will trigger when a new item is added to to the stream `myStream` and use an _output binding_ to write the value `true` to the key `newStreamEntry`. 
+
+Bindings add a streamlined way to read or write data stored on your Redis instance. To demonstrate the benefit of bindings, we add two other functions. One is called `SetGetter`, which triggers each time a key is set and returns the new value of the key using an _input binding_. The other is called `StreamSetter`, which triggers when a new item is added to to the stream `myStream` and uses an _output binding_ to write the value `true` to the key `newStreamEntry`.
 
 1. Add a file called _RedisBindings.cs_ to the project.
 
@@ -287,11 +288,12 @@ public class RedisBindings
     }
 }
 ```
-1. Switch to the **Run and debug** tab in VS Code and select the green arrow to debug the code locally. The code should build successfully. You can track its progress in the terminal output. 
 
-1. To test the input binding functionality, try setting a new value for any key, for instance using the command `SET hello world` You will see that the `SetGetter` function triggers and returns the updated value. 
+1. Switch to the **Run and debug** tab in VS Code and select the green arrow to debug the code locally. The code should build successfully. You can track its progress in the terminal output.
 
-1. 1. To test the output binding functionality, try adding a new item to the stream `myStream` using the command `XADD myStream * item Order1`. You'll notice that the `StreamSetter` function triggered on the new stream entry and set the value `true` to another key called `newStreamEntry`. This set command also triggers the `SetGetter` function as well!
+1. To test the input binding functionality, try setting a new value for any key, for instance using the command `SET hello world` You should see that the `SetGetter` function triggers and returns the updated value.
+
+1. To test the output binding functionality, try adding a new item to the stream `myStream` using the command `XADD myStream * item Order1`. Notice that the `StreamSetter` function triggered on the new stream entry and set the value `true` to another key called `newStreamEntry`. This `set` command also triggers the `SetGetter` function.
 
 ## Deploy code to an Azure function
 
@@ -337,7 +339,7 @@ public class RedisBindings
 
 1. Select **Apply** on the page to confirm.
 
-1. Navigate to the **Overview** pane and select **Restart** to reboot the functions app with the connection string information. 
+1. Navigate to the **Overview** pane and select **Restart** to reboot the functions app with the connection string information.
 
 ## Test your triggers and bindings
 

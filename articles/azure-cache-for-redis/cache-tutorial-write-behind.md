@@ -6,7 +6,7 @@ author: flang-msft
 ms.author: franlanglois
 ms.service: cache
 ms.topic: tutorial
-ms.date: 08/24/2023
+ms.date: 04/12/2024
 #CustomerIntent: As a developer, I want a practical example of using Azure Cache for Redis triggers with Azure Functions so that I can write applications that tie together a Redis cache and a database like Azure SQL.
 
 ---
@@ -76,9 +76,9 @@ This example uses the portal:
 
 ## Configure the Redis trigger
 
-First, make a copy of the same VS Code project that you used in the previous tutorial. Copy the folder from the previous tutorial under a new name, such as _RedisWriteBehindTrigger_, and open it in VS Code.
+First, make a copy of the same VS Code project that you used in the previous [tutorial](cache-tutorial-functions-getting-started.md). Copy the folder from the previous tutorial under a new name, such as _RedisWriteBehindTrigger_, and open it in VS Code.
 
-Second, delete the _RedisBindings.cs_ and _RedisTriggers.cs_ files. 
+Second, delete the _RedisBindings.cs_ and _RedisTriggers.cs_ files.
 
 In this example, you use the [pub/sub trigger](cache-how-to-functions.md#redispubsubtrigger) to trigger on `keyevent` notifications. The goals of the example are:
 
@@ -96,8 +96,8 @@ To configure the trigger:
      dotnet add package System.Data.SqlClient
    ```
 
-1. Create a new file called _RedisFunction.cs_. Make sure you've deleted the _RedisBindings.cs_ and _RedisTriggers.cs_ files. 
-   
+1. Create a new file called _RedisFunction.cs_. Make sure you've deleted the _RedisBindings.cs_ and _RedisTriggers.cs_ files.
+
 1. Copy and paste the following code in _RedisFunction.cs_ to replace the existing code:
 
 ```csharp
@@ -206,7 +206,7 @@ The string is in the **ADO.NET (SQL authentication)** area.
 You need to manually enter the password for your SQL database connection string, because the password isn't pasted automatically.
 
 > [!IMPORTANT]
-> This example is simplified for the tutorial. For production use, we recommend that you use [Azure Key Vault](../service-connector/tutorial-portal-key-vault.md) to store connection string information or [use Azure EntraID for SQL authentication](../azure-sql/database/authentication-aad-configure.md). 
+> This example is simplified for the tutorial. For production use, we recommend that you use [Azure Key Vault](azure/service-connector/tutorial-portal-key-vault.md) to store connection string information or [use Azure EntraID for SQL authentication](azure/azure-sql/database/authentication-aad-configure.md).
 >
 
 ## Build and run the project
