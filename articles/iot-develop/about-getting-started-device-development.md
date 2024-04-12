@@ -36,9 +36,9 @@ Each quickstart shows how to set up a code sample and tools, flash the device, a
 |-|-|-|
 |[Quickstart: Connect a Microchip ATSAME54-XPro Evaluation kit to IoT Hub](quickstart-devkit-microchip-atsame54-xpro-iot-hub.md)|Microchip ATSAME54-XPro|Azure RTOS middleware|
 |[Quickstart: Connect an ESPRESSIF ESP32-Azure IoT Kit to IoT Hub](../iot/tutorial-devkit-espressif-esp32-freertos-iot-hub.md)|ESPRESSIF ESP32|FreeRTOS middleware|
-|[Quickstart: Connect an STMicroelectronics B-L475E-IOT01A Discovery kit to IoT Hub](quickstart-devkit-stm-b-l475e-iot-hub.md)|STMicroelectronics L475E-IOT01A|Azure RTOS middleware|
+|[Quickstart: Connect an STMicroelectronics B-U585I-IOT02A kit to IoT Hub](quickstart-devkit-stm-b-u585i-iot-hub.md)|STMicroelectronics L475E-IOT01A|Azure RTOS middleware|
 |[Quickstart: Connect an NXP MIMXRT1060-EVK Evaluation kit to IoT Hub](quickstart-devkit-nxp-mimxrt1060-evk-iot-hub.md)|NXP MIMXRT1060-EVK|Azure RTOS middleware|
-|[Connect an MXCHIP AZ3166 devkit to IoT Hub](quickstart-devkit-mxchip-az3166-iot-hub.md)|MXCHIP AZ3166|Azure RTOS middleware|
+
 
 ## Next steps
 To learn more about working with the IoT device SDKs and developing for general devices, see the following tutorial.

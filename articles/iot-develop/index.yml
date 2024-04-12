@@ -27,8 +27,8 @@ landingContent:
     linkLists:
     - linkListType: quickstart
       links:
-        - text: Connect an STMicroelectronics B-L475E-IOT01A to IoT Hub
-          url: quickstart-devkit-stm-b-l475e-iot-hub.md
+        - text: Connect an STMicroelectronics B-U585I-IOT02A to IoT Hub
+          url: quickstart-devkit-stm-b-u585i-iot-hub.md
         - text: Connect a Microchip ATSAME54-XPro to IoT Hub
           url: quickstart-devkit-microchip-atsame54-xpro-iot-hub.md
         - text: Connect a Renesas RX65N Cloud Kit to IoT Hub
