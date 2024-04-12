@@ -19,7 +19,7 @@ Observability has three pillars: metrics, tracing, and logs. Azure Operator 5G C
 The following components provide observability for Azure Operator 5G Core:
 
 
- [:::image type="content" source="media/concept-observability-analytics/observability-overview.png" alt-text="Diagram of text boxes showing the components that support observability functions for Azure Operator 5G Core." lightbox="media/concept-observability-analytics/observability-overview.png":::](media/concept-observability-analytics/observability-overview.png#lightbox)
+ [:::image type="content" source="media/concept-observability-analytics/observability-overview.png" alt-text="Diagram of text boxes showing the components that support observability functions for Azure Operator 5G Core.":::](media/concept-observability-analytics/observability-overview.png#lightbox)
 
 ### Observability open source components
 
