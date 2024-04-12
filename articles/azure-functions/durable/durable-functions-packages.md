@@ -26,7 +26,7 @@ By default, Durable Functions uses Azure Storage as it's backing store. However,
 * The MSSQL storage provider: [Microsoft.DurableTask.SqlServer.AzureFunctions](https://www.nuget.org/packages/Microsoft.DurableTask.SqlServer.AzureFunctions)
 
 > [!TIP]
-> See the [storage providers guide](./durable-functions-storage-providers.md) for complete the instructions on how to configure each backend.
+> See the [storage providers guide](./durable-functions-storage-providers.md) for complete instructions on how to configure each backend.
 
 > [!NOTE]
 > These are the same packages that non-.NET customers [manually upgrading their extensions](./durable-functions-extension-upgrade.md#manually-upgrade-the-durable-functions-extension) need to manage in their `.csproj`.
@@ -55,4 +55,4 @@ Users of [Extension Bundles](../functions-bindings-register.md#extension-bundles
 * PowerShell: The current GA SDK is built-in to Azure Functions PowerShell language worker, so no installation is needed. See the following _note_ for details.
 
 > [!NOTE]
-> For PowerShell users: we have a _preview_ SDK standalone package under [AzureFunctions.PowerShell.Durable.SDK](https://www.powershellgallery.com/packages/AzureFunctions.PowerShell.Durable.SDK) in the PowerShell gallery. The latter will be preferred in the future.
+> For PowerShell users: we have a [_preview_ SDK standalone package](./durable-functions-powershell-v2-sdk-migration-guide.md) under [AzureFunctions.PowerShell.Durable.SDK](https://www.powershellgallery.com/packages/AzureFunctions.PowerShell.Durable.SDK) in the PowerShell gallery. The latter will be preferred in the future.
