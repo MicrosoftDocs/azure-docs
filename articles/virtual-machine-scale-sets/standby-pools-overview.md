@@ -47,12 +47,12 @@ The virtual machines in the standby pool can be created in a running State or a 
 
 **Deallocated virtual machine State:** Deallocated virtual machines are shut down and keep any associated data disks, NICs, and any static IPs remain unchanged. 
 
-:::image type="content" source="media/standby-pools/deallocated-vm-pool.png" alt-text="A screenshot showing the workflow when using deallocated vm pools.":::
+:::image type="content" source="media/standby-pools/deallocated-vm-pool.png" alt-text="A screenshot showing the workflow when using deallocated VM pools.":::
 
 **Running virtual machine State:** Using virtual machines in a running state is recommended when latency and reliability 
 requirements are strict.
 
-:::image type="content" source="media/standby-pools/running-vm-pool.png" alt-text="A screenshot showing the workflow when using running vm pools.":::
+:::image type="content" source="media/standby-pools/running-vm-pool.png" alt-text="A screenshot showing the workflow when using running VM pools.":::
 
 ## Pricing
 
