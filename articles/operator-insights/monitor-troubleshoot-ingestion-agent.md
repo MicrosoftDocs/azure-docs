@@ -121,7 +121,7 @@ Symptoms: No data appears in Azure Data Explorer. Logs of category `Ingestion` d
 
 ### Files are missing
 
-Symptoms: Data is missing from Azure Data Explorer. Logs of category `Ingestion` in [Azure Operator Insights monitoring data](monitor-operator-insights-data-reference,md#resource-logs) are lower than expected or they contain errors. The [Number of ingested rows](concept-data-quality-monitoring#metrics) data quality metric for the relevant data type is lower than expoected.
+Symptoms: Data is missing from Azure Data Explorer. Logs of category `Ingestion` in [Azure Operator Insights monitoring data](monitor-operator-insights-data-reference,md#resource-logs) are lower than expected or they contain errors. The [Number of ingested rows](concept-data-quality-monitoring#metrics) data quality metric for the relevant data type is lower than expected.
 
 
 - Check that the agent is running on all VMs and isn't reporting errors in logs. Search in the diagnostics package logs for the name of the missing file to find errors related to that file.
