@@ -14,7 +14,7 @@ ms.date: 04/12/2024
 
 Azure Operator 5G Core Preview is a carrier-grade, Any-G, hybrid mobile packet core with fully integrated network functions that run both on-premises and in-cloud. Service providers can deploy resilient networks with high performance and at high capacity while maintaining low latency. Azure Operator 5G Core is ideal for Tier 1 consumer networks, mobile network operators (MNO), virtual network operators (MVNOs), enterprises, IoT, fixed wireless access (FWA), and satellite network operators (SNOs). 
 
- [:::image type="content" source="media/overview-product/architecture-5g-core.png" alt-text="Diagram of text boxes showing the components that comprise Azure Operator 5G Core.":::](media/overview-product/architecture-5g-core.png#lightbox)
+ [:::image type="content" source="media/overview-product/architecture-5g-core.png" alt-text="Diagram of text boxes showing the components that comprise Azure Operator 5G Core.":::](media/overview-product/architecture-5g-core-expanded.png#lightbox)
 
 The power of Azure's global footprint ensures global coverage and operating infrastructure at scale, coupled with Microsoft's Zero Trust security framework to provide secure and reliable connectivity to cloud applications.  
   
