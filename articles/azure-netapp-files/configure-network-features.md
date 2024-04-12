@@ -119,9 +119,6 @@ The edit network features option is available in [all regions that support Stand
 1. Select **Change network features**. 
 1. The **Edit network features** window displays the volumes that are in the same network sibling set. Confirm whether you want to modify the network features option. 
 
-    >[!IMPORTANT]
-    >The impact of editing network features depends on the region you are using. In some regions, editing network features is a disruptive option that can last up to approximately five minutes. In other regions, its a nondisruptive operation that can last up to approximately 25 minutes. If you are in a nondisruptive region, you cannot create volumes or application volume groups in the network sibling set until the upgrade completes successfully. 
-
     :::image type="content" source="./media/configure-network-features/edit-network-features.png" alt-text="Screenshot showing the Edit Network Features window." lightbox="./media/configure-network-features/edit-network-features.png":::
 
 ### Update Terraform-managed Azure NetApp Files volume from Basic to Standard 
