@@ -31,6 +31,7 @@ The following are frequently asked questions and answers for Azure Arc site mana
 **Question:** What regions are currently supported via site manager? What regions of these supported regions aren't fully supported?
 
 **Answer:** Regions supported can be found [here](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=azure-arc&regions=all). Currently, all supported regions have full support for resources except for the following:
+
 | Region | Support limitation |
 |--|--|
 | Brazil South | Connectivity and updates status aren't supported for Arc-enabled machines or Arc-enabled Kubernetes clusters |
