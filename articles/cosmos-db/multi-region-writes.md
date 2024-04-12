@@ -13,7 +13,10 @@ ms.reviewer: thvankra
 
 [!INCLUDE[NoSQL, MongoDB, Cassandra, Gremlin, Table](includes/appliesto-nosql-mongodb-cassandra-gremlin-table.md)]
 
-In a multi-region-write database account with two or more regions, the first region in which your account was created is called the “hub” region. All other regions that are subsequently added to the account are called "satellite" regions. If the hub region is removed from the account, the next region, in the order they were added, is automatically chosen as the hub region.  
+The best way to achieve near-zero downtime in either a partial or total outage scenario where consistency of reads does not need to be guaranteed, is to configure your account for multi-region writes. This article covers the key concepts to be aware of when configuring a multi-region write account. 
+
+## Hub region
+In a multi-region-write database account with two or more regions, the first region in which your account was created is called the "hub" region. All other regions that are subsequently added to the account are called "satellite" regions. If the hub region is removed from the account, the next region, in the order they were added, is automatically chosen as the hub region.  
 
 Any writes arriving in satellite regions are quorum committed in the local region and then later sent to the Hub region for [conflict resolution](conflict-resolution-policies.md), asynchronously. Once a write goes to the hub region and gets conflict resolved, it becomes a "confirmed" write. Until then, it's called a "tentative" write or an "unconfirmed" write. Any write served from the hub region immediately becomes a confirmed write. 
 
