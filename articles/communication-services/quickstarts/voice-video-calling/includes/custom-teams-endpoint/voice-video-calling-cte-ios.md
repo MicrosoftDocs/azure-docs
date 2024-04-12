@@ -295,17 +295,16 @@ The `startCall` method is set as the action that is performed when the Start Cal
 
 ```Swift
 let startTeamsCallOptions = StartTeamsCallOptions()
-if(sendingVideo)
-{
-    if (self.localVideoStream == nil) {
+if sendingVideo  {
+    if self.localVideoStream == nil  {
         self.localVideoStream = [LocalVideoStream]()
     }
     let videoOptions = VideoOptions(localVideoStreams: localVideoStream!)
     startTeamsCallOptions.videoOptions = videoOptions
 }
-let callees:[CommunicationIdentifier] = [CommunicationUserIdentifier(self.callee)]
+let callees: [CommunicationIdentifier] = [CommunicationUserIdentifier(self.callee)]
 self.teamsCallAgent?.startCall(participants: callees, options: startTeamsCallOptions) { (call, error) in
-    setTeamsCallAndObserver(teamsCall: call, error: error)
+    // Handle call object if successful or an error.
 }
 ```
 ## Join a Teams meeting
@@ -316,7 +315,7 @@ The `join` method allows user to join a teams meeting.
 let joinTeamsCallOptions = JoinTeamsCallOptions()
 if sendingVideo
 {
-    if (self.localVideoStream == nil) {
+    if self.localVideoStream == nil {
         self.localVideoStream = [LocalVideoStream]()
     }
     let videoOptions = VideoOptions(localVideoStreams: localVideoStream!)
@@ -334,7 +333,7 @@ if isMuted
 let teamsMeetingLinkLocator = TeamsMeetingLinkLocator(meetingLink: "https://meeting_link")
 
 self.teamsCallAgent?.join(with: teamsMeetingLinkLocator, options: joinTeamsCallOptions) { (call, error) in
-    setTeamsCallAndObserver(teamsCall: call, error: error)
+    // Handle call object if successful or an error.
 }
 ```
 
@@ -420,25 +419,30 @@ func answerIncomingCall() {
       return
     }
 
-    if localVideoStream == nil {
-        localVideoStream = [LocalVideoStream]()
+    if self.localVideoStreams == nil {
+        self.localVideoStreams = [LocalVideoStream]()
     }
 
     if sendingVideo
     {
-        let camera = deviceManager.cameras.first
-        localVideoStream!.append(LocalVideoStream(camera: camera!))
-        let videoOptions = VideoOptions(localVideoStreams: localVideoStream!)
+        guard let camera = deviceManager.cameras.first else {
+            // Handle failure
+            return
+        }
+        self.localVideoStreams?.append( LocalVideoStream(camera: camera))
+        let videoOptions = VideoOptions(localVideoStreams: localVideosStreams!)
         options.videoOptions = videoOptions
     }
 
     teamsIncomingCall.accept(options: options) { (call, error) in
-        setTeamsCallAndObserver(call: call, error: error)
+        // Handle call object if successful or an error.
     }
 }
 
-func declineIncomingCall(){
-    self.teamsIncomingCall?.reject { (error) in }
+func declineIncomingCall() {
+    self.teamsIncomingCall?.reject { (error) in 
+        // Handle if rejection was successfully or not.
+    }
 }
 ```
 
