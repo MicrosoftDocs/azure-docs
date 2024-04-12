@@ -1,7 +1,7 @@
 ---
 title: Attach and manage a Synapse Spark pool in Azure Machine Learning
 titleSuffix: Azure Machine Learning
-description: Learn how to attach and manage Spark pools with Azure Synapse 
+description: Learn how to attach and manage Spark pools with Azure Synapse.
 author: ynpandey
 ms.author: yogipandey
 ms.reviewer: franksolomon
@@ -63,7 +63,7 @@ To attach a Synapse Spark Pool with the Studio Compute tab:
 1. On the **Attached computes** screen, select **New**, to see the options for attaching different types of computes.
 1. Select **Synapse Spark pool**.
 
-The **Attach Synapse Spark pool** panel will open on the right side of the screen. In this panel:
+The **Attach Synapse Spark pool** panel opens on the right side of the screen. In this panel:
 
 1. Enter a **Name**, which refers to the attached Synapse Spark Pool inside the Azure Machine Learning resource.
 
@@ -125,7 +125,7 @@ To define an attached Synapse Spark pool using YAML syntax, the YAML file should
         type: system_assigned
         ```
 
-- For the `identity` type `user_assigned`, you should also provide a list of `user_assigned_identities` values. Each user-assigned identity should be declared as an element of the list, by using the `resource_id` value of the user-assigned identity. The first user-assigned identity in the list will be used to submit a job by default.
+- For the `identity` type `user_assigned`, you should also provide a list of `user_assigned_identities` values. Each user-assigned identity should be declared as an element of the list, by using the `resource_id` value of the user-assigned identity. The first user-assigned identity in the list is used to submit a job by default.
 
     ```YAML
     name: <ATTACHED_SPARK_POOL_NAME>
@@ -423,7 +423,7 @@ To update managed identity for the attached Synapse Spark pool:
 
 # [CLI](#tab/cli)
 [!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
-Execute the `az ml compute update` command, with appropriate parameters, to update the identity associated with an attached Synapse Spark pool. To assign a system-assigned identity, set the `--identity` parameter in the command to `SystemAssigned`, as shown:
+To update the identity associated with an attached Synapse Spark pool, execute the `az ml compute update` command with appropriate parameters. To assign a system-assigned identity, set the `--identity` parameter in the command to `SystemAssigned`, as shown:
 
 ```azurecli
 az ml compute update --identity SystemAssigned --subscription <SUBSCRIPTION_ID> --resource-group <RESOURCE_GROUP> --workspace-name <AML_WORKSPACE_NAME> --name <ATTACHED_SPARK_POOL_NAME>
@@ -586,7 +586,7 @@ We might want to detach an attached Synapse Spark pool, to clean up a workspace.
 
 # [Studio UI](#tab/studio-ui)
 
-The Azure Machine Learning studio UI also provides a way to detach an attached Synapse Spark pool. Follow these steps to do this:
+The Azure Machine Learning studio UI also provides a way to detach an attached Synapse Spark pool. To do this, follow these steps:
 
 1. Open the **Details** page for the Synapse Spark pool, in the Azure Machine Learning studio.
 
@@ -635,7 +635,7 @@ ml_client.compute.begin_delete(name=synapse_name, action="Detach")
 
 ## Serverless Spark compute in Azure Machine Learning
 
-Some user scenarios may require access to a serverless Spark compute resource, during an Azure Machine Learning job submission, without a need to attach a Spark pool. The Azure Synapse Analytics integration with Azure Machine Learning also provides a serverless Spark compute experience. This allows access to a Spark compute in a job, without a need to attach the compute to a workspace first. [Learn more about the serverless Spark compute experience](interactive-data-wrangling-with-apache-spark-azure-ml.md).
+Some user scenarios might require access to a serverless Spark compute resource, during an Azure Machine Learning job submission, without a need to attach a Spark pool. The Azure Synapse Analytics integration with Azure Machine Learning also provides a serverless Spark compute experience. This allows access to a Spark compute in a job, without a need to attach the compute to a workspace first. [Learn more about the serverless Spark compute experience](interactive-data-wrangling-with-apache-spark-azure-ml.md).
 
 ## Next steps
 
