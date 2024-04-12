@@ -19,7 +19,7 @@ This article describes the fundamentals of load balancing across multiple frontn
 
 When you define an Azure Load Balancer, a frontend and a backend pool configuration are connected with a load balancing rule. The health probe referenced by the load balancing rule is used to determine the health of a VM on a certain port and protocol. Based on the health probe results, new flows are sent to VMs in the backend pool. The frontend is defined using a three-tuple comprised of a frontend IP address (public or internal), a protocol (UDP or TCP), and a port number from the load balancing rule. The backend pool is a collection of Virtual Machine IP configurations. Multiple load balancing rules can deliver flows to the same backend pool instance on different ports by varying the destination port on the load balancing rule.
 
-You can use multiple frontends (and the associated load balacing rules) to load balance to the same backend port or a different backend port. If you want to load balance to the same backend port, you must enable [Azure Load Balancer Floating IP configuration](load-balancer-floating-ip.md).
+You can use multiple frontends (and the associated load balacing rules) to load balance to the same backend port or a different backend port. If you want to load balance to the same backend port, you must enable [Azure Load Balancer Floating IP configuration](load-balancer-floating-ip.md) as part of the load balancing rules for each frontend.
 
 ## Add Load Balancer frontend 
 In this example, you will add a another frontend to your Load Balancer.
@@ -52,7 +52,6 @@ In this example, you will add a another frontend to your Load Balancer.
 
 7. Select **Save**.
 
-
 ### Remove a frontend
 
 In this example, you'll remove a frontend IP configuration.
@@ -72,7 +71,6 @@ In this example, you'll remove a frontend IP configuration.
 7. Select **Delete**.
 
     :::image type="content" source="./media/manage-rules-how-to/remove-load-balancing-rule.png" alt-text="Screenshot of removing a load-balancing rule." border="true":::
-
 
 ## Limitations
 
