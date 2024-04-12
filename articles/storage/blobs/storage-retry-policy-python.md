@@ -6,7 +6,7 @@ author: pauljewellmsft
 ms.author: pauljewell
 ms.service: azure-blob-storage
 ms.topic: how-to
-ms.date: 04/10/2024
+ms.date: 04/12/2024
 ms.custom: devx-track-python, devguide-python
 ---
 
@@ -30,10 +30,10 @@ The following table shows all the properties you can use to configure a retry po
 
 | Property | Type | Description | Default value | ExponentialRetry | LinearRetry |
 | --- | --- | --- | --- | --- | --- |
-| `retry_total` | int | The maximum number of retries. | 10 | Yes | Yes |
-| `connect_retries` | int | The maximum number of connect retries | 3 | Yes | Yes |
-| `read_retries` | int | The maximum number of read retries | 3 | Yes | Yes |
-| `status_retries` | int | The maximum number of status retries | 3 | Yes | Yes |
+| `retry_total` | int | The maximum number of retries. | 3 | Yes | Yes |
+| `retry_connect` | int | The maximum number of connect retries | 3 | Yes | Yes |
+| `retry_read` | int | The maximum number of read retries | 3 | Yes | Yes |
+| `retry_status` | int | The maximum number of status retries | 3 | Yes | Yes |
 | `retry_to_secondary` | bool | Whether the request should be retried to the secondary endpoint, if able. Only use this option for storage accounts with geo-redundant replication enabled, such as RA-GRS or RA-GZRS. You should also ensure your app can handle potentially stale data. | `False` | Yes | Yes |
 | `initial_backoff` | int | The initial backoff interval (in seconds) for the first retry. Only applies to exponential backoff strategy. | 15 seconds | Yes | No |
 | `increment_base` | int | The base (in seconds) to increment the initial_backoff by after the first retry. Only applies to exponential backoff strategy. | 3 seconds | Yes | No |
@@ -41,7 +41,7 @@ The following table shows all the properties you can use to configure a retry po
 | `random_jitter_range` | int | A number (in seconds) which indicates a range to jitter/randomize for the backoff interval. For example, setting `random_jitter_range` to 3 means that a backoff interval of x can vary between x+3 and x-3. | 3 seconds | Yes | Yes |
 
 > [!NOTE]
-> The properties `connect_retries`, `read_retries`, and `status_retries` are used to count different types of errors. The remaining retry count is calculated as the *minimum* of the following values: `retry_total`, `connect_retries`, `read_retries`, and `status_retries`. Because of this, setting only `retry_total` might not have an effect unless you also set the other properties. In most cases, you can set all four properties to the same value to enforce a maximum number of retries. However, you should tune these properties based on the specific needs of your app.
+> The properties `retry_connect`, `retry_read`, and `retry_status` are used to count different types of errors. The remaining retry count is calculated as the *minimum* of the following values: `retry_total`, `retry_connect`, `retry_read`, and `retry_status`. Because of this, setting only `retry_total` might not have an effect unless you also set the other properties. In most cases, you can set all four properties to the same value to enforce a maximum number of retries. However, you should tune these properties based on the specific needs of your app.
 
 The following sections show how to configure a retry policy using different approaches:
 
