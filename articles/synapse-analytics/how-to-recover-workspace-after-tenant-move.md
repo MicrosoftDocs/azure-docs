@@ -151,6 +151,7 @@ $workspaceName="Provide the name of your workspace"
 
 $token = (Get-AzAccessToken -ResourceUrl "https://management.azure.com/").Token
 $header = @{Authorization="Bearer $token"}
+$contentType = "application/json"
 
 $url = "https://management.azure.com/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Synapse/workspaces/$workspaceName\?api-version=2021-06-01" 
 ```
