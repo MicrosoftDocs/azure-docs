@@ -298,7 +298,7 @@ sections:
 
       - question: How do I clear iSCSI session and it's processes after running the Python script for Linux ILR?
         answer: |
-          After you unmount disks from the Azure portal, run the Python script `<python file name>`  with `clean` parameter to clear the session and remove the mount paths of the recovery point from the machine.     
+          After you unmount disks from the Azure portal, run the Python script with `clean` parameter (`python scriptName.py clean`) to clear the session and remove the mount paths of the recovery point from the machine.     
 
   - name: Manage VM backups
     questions:

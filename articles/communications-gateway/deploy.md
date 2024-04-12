@@ -224,6 +224,20 @@ If you chose to delegate a subdomain when you created Azure Communications Gatew
 1. Note down the names of these name servers, including the trailing `.` at the end of the address.
 1. Follow [Delegate the domain](../dns/dns-delegate-domain-azure-dns.md#delegate-the-domain) and [Verify the delegation](../dns/dns-delegate-domain-azure-dns.md#verify-the-delegation) to configure all four name servers in your NS records. We recommend configuring a time-to-live (TTL) of two days.
 
+## Configure alerts for upgrades, maintenance and resource health
+
+Azure Communications Gateway is integrated with Azure Service Health and Azure Resource Health.
+
+- We use Azure Service Health's service health notifications to inform you of upcoming upgrades and scheduled maintenance activities.
+- Azure Resource Health gives you a personalized dashboard of the health of your resources, so you can see the current and historical health status of your resources.
+
+You must set up the following alerts for your operations team.
+
+- [Alerts for service health notifications](/azure/service-health/alerts-activity-log-service-notifications-portal), for upgrades and maintenance activities.
+- [Alerts for resource health](/azure/service-health/resource-health-alert-monitor-guide), for changes in the health of Azure Communications Gateway.
+
+Alerts allow you to send your operations team proactive notifications of changes. For example, you can configure emails and/or SMS notifications. For an overview of alerts, see [What are Azure Monitor alerts?](/azure/azure-monitor/alerts/alerts-overview). For more information on Azure Service Health and Azure Resource Health, see [What is Azure Service Health?](/azure/service-health/overview) and [Resource Health overview](/azure/service-health/resource-health-overview).
+
 ## Next steps
 
 > [!div class="nextstepaction"]
