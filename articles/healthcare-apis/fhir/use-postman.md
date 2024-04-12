@@ -67,7 +67,11 @@ Enter `{{fhirurl}}/metadata` in the `GET`request, and then choose `Send`. You sh
 
 <a name='get-azure-ad-access-token'></a>
 
-## Get Microsoft Entra access token using Client Credential grant type
+## Get a Microsoft Entra access token
+
+You can get the Microsoft Entra access token by using either the Client Credential grant type, or a user account with the Authorization Code grant type. Choose one of the two methods.
+
+### Get a Microsoft Entra access token by using Client Credential grant type
 
 The FHIR service is secured by Microsoft Entra ID. The default authentication can't be disabled. To access the FHIR service, you need to get a Microsoft Entra access token first. For more information, see [Microsoft identity platform access tokens](../../active-directory/develop/access-tokens.md).
 
@@ -95,7 +99,7 @@ You can examine the access token using online tools such as [https://jwt.ms](htt
 
 :::image type="content" source="media/postman/postman-access-token-claims.png" alt-text="Screenshot showing access token claims." lightbox="media/postman/postman-access-token-claims.png":::
 
-## Get Microsoft Entra access token using user account with Authorization Code grant type
+## Get a Microsoft Entra access token by using a user account with Authorization Code grant type
 
 You can get the Microsoft Entra access token by using your Entra account credentials and following the listed steps.
 
@@ -150,7 +154,7 @@ To perform health check on FHIR service, enter `{{fhirurl}}/health/check` in the
 
 After you obtain a Microsoft Entra access token, you can access the FHIR data. In a new `GET` request, enter `{{fhirurl}}/Patient`.
 
-Select **Bearer Token** as authorization type.  Enter `{{bearerToken}}` in the **Token** section. Select **Send**. As a response, you should see a list of patients in your FHIR resource.
+Select **Bearer Token** as authorization type. Enter `{{bearerToken}}` in the **Token** section. Select **Send**. As a response, you should see a list of patients in your FHIR resource.
 
 :::image type="content" source="media/postman/postman-select-bearer-token.png" alt-text="Screenshot showing selection of bearer token." lightbox="media/postman/postman-select-bearer-token.png":::
 
@@ -162,7 +166,7 @@ Create a new request, change the method to **Post**, and then enter the value in
 
 `{{fhirurl}}/Patient`
 
-Select **Bearer Token** as the authorization type.  Enter `{{bearerToken}}` in the **Token** section. Select the **Body** tab. Select the **raw** option and **JSON** as body text format. Copy and paste the text to the body section. 
+Select **Bearer Token** as the authorization type. Enter `{{bearerToken}}` in the **Token** section. Select the **Body** tab. Select the **raw** option and **JSON** as body text format. Copy and paste the text to the body section. 
 
 
 ```
@@ -199,7 +203,7 @@ After you obtain a Microsoft Entra access token, you can export FHIR data to an 
 
 Create a new `GET` request: `{{fhirurl}}/$export?_container=export`
 
-Select **Bearer Token** as authorization type.  Enter `{{bearerToken}}` in the **Token** section. Select **Headers** to add two new headers:
+Select **Bearer Token** as authorization type. Enter `{{bearerToken}}` in the **Token** section. Select **Headers** to add two new headers:
 
 - **Accept**: `application/fhir+json`
 
