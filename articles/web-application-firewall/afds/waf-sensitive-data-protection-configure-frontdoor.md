@@ -27,7 +27,8 @@ The following table shows examples of log scrubbing rules that can be used to pr
 | Request Cookie Names | Equals | cookietoblock | {"matchVariableName":"CookieValue:cookietoblock","matchVariableValue":"****"} |
 | Request Post Arg Names | Equals | var | {"matchVariableName":"PostParamValue:var","matchVariableValue":"****"} |
 | Request Body JSON Arg Names | Equals | JsonValue | {"matchVariableName":"JsonValue:key","matchVariableValue":"****"} |
-| Request IP Address* | Equals Any | NULL | "clientIp":"******" |
+| Query String Arg Names | Equals | foo | {"matchVariableName":"QueryParamValue:foo","matchVariableValue":"****"} |
+| Request IP Address* | Equals Any | NULL | {"matchVariableName":"ClientIP","matchVariableValue":"****"} |
 |Request URI|EqualAny|||
 
 \* Request IP Address and Request URI rules only support the *equals any* operator and scrubs all instances of the requestor's IP address that appears in the WAF logs.
