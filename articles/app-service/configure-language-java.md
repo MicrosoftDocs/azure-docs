@@ -450,7 +450,7 @@ To inject these secrets in your Spring or Tomcat configuration file, use environ
 
 ### Use the Java Key Store
 
-By default, any public or private certificates [uploaded to App Service Linux](configure-ssl-certificate.md) is loaded into the respective Java Key Stores as the container starts. After uploading your certificate, you'll need to restart your App Service for it to be loaded into the Java Key Store. Public certificates are loaded into the Key Store at `$JRE_HOME/lib/security/cacerts`, and private certificates are stored in `$JRE_HOME/lib/security/client.jks`.
+By default, any public or private certificates [uploaded to App Service Linux](configure-ssl-certificate.md) are loaded into the respective Java Key Stores as the container starts. After uploading your certificate, you'll need to restart your App Service for it to be loaded into the Java Key Store. Public certificates are loaded into the Key Store at `$JRE_HOME/lib/security/cacerts`, and private certificates are stored in `$JRE_HOME/lib/security/client.jks`.
 
 More configuration might be necessary for encrypting your JDBC connection with certificates in the Java Key Store. Refer to the documentation for your chosen JDBC driver.
 
@@ -1121,7 +1121,7 @@ If you choose to pin the minor version, you need to periodically update the JVM 
 
 ### Clustering in JBoss EAP
 
-App Service supports clustering for JBoss EAP versions 7.4.1 and greater. To enable clustering, your web app must be [integrated with a virtual network](overview-vnet-integration.md). When the web app is integrated with a virtual network, the web app restarts and JBoss EAP automatically starts up with a clustered configuration. The JBoss EAP instances communicate over the subnet specified in the virtual network integration, using the ports shown in the `WEBSITES_PRIVATE_PORTS` environment variable at runtime. You can disable clustering by creating an app setting named `WEBSITE_DISABLE_CLUSTERING` with any value.
+App Service supports clustering for JBoss EAP versions 7.4.1 and greater. To enable clustering, your web app must be [integrated with a virtual network](overview-vnet-integration.md). When the web app is integrated with a virtual network, it restarts, and the JBoss EAP installation automatically starts up with a clustered configuration. The JBoss EAP instances communicate over the subnet specified in the virtual network integration, using the ports shown in the `WEBSITES_PRIVATE_PORTS` environment variable at runtime. You can disable clustering by creating an app setting named `WEBSITE_DISABLE_CLUSTERING` with any value.
 
 > [!NOTE]
 > If you're enabling your virtual network integration with an ARM template, you need to manually set the property `vnetPrivatePorts` to a value of `2`. If you enable virtual network integration from the CLI or Portal, this property is set for you automatically.  
@@ -1150,7 +1150,7 @@ JBoss EAP is only available on the Premium v3 and Isolated v2 App Service Plan t
 
 Java developers can customize the server settings, troubleshoot issues, and deploy applications to Tomcat with confidence if they know about the server.xml file and configuration details of Tomcat. Possible customizations include:
 
-* Customizing Tomcat configuration: By understanding the server.xml file and Tomcat's configuration details, developers can fine-tune the server settings to match the needs of their applications.
+* Customizing Tomcat configuration: By understanding the server.xml file and Tomcat's configuration details, you can fine-tune the server settings to match the needs of their applications.
 * Debugging: When an application is deployed on a Tomcat server, developers need to know the server configuration to debug any issues that might arise. This includes checking the server logs, examining the configuration files, and identifying any errors that might be occurring.
 * Troubleshooting Tomcat issues: Inevitably, Java developers encounter issues with their Tomcat server, such as performance problems or configuration errors. By understanding the server.xml file and Tomcat's configuration details, developers can quickly diagnose and troubleshoot these issues, which can save time and effort.
 * Deploying applications to Tomcat: To deploy a Java web application to Tomcat, developers need to know how to configure the server.xml file and other Tomcat settings. Understanding these details is essential for deploying applications successfully and ensuring that they run smoothly on the server.
@@ -1159,7 +1159,7 @@ When you create an app with built-in Tomcat to host your Java workload (a WAR fi
 
 Additionally, there are certain transformations that are further applied on top of the server.xml for Tomcat distribution upon start. These are transformations to the Connector, Host, and Valve settings.
 
-Note that the latest versions of Tomcat have these server.xml (8.5.58 and 9.0.38 onward). Older versions of Tomcat don't use transforms and might have different behavior as a result.
+Note that the latest versions of Tomcat have server.xml (8.5.58 and 9.0.38 onward). Older versions of Tomcat don't use transforms and might have different behavior as a result.
 
 ### Connector
 
@@ -1198,7 +1198,7 @@ az webapp config appsettings set --resource-group myResourceGroup --name myApp -
 * `xmlBase` is set to `AZURE_SITE_HOME`, which defaults to `/site/wwwroot`
 * `unpackWARs` is set to `AZURE_UNPACK_WARS`, which defaults to `true`
 * `workDir` is set to `JAVA_TMP_DIR`, which defaults `TMP`
-* errorReportValveClass uses our custom error report valve
+* `errorReportValveClass` uses our custom error report valve
  
 ### Valve
 
