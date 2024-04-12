@@ -165,7 +165,53 @@ jobs:
 
 # [TomCat](#tab/tomcat)
 
-TODO
+```yaml
+name: Build and deploy WAR app to Azure Web App using OpenID Connect
+
+env:
+  JAVA_VERSION: '11'                  # set this to the Java version to use
+  DISTRIBUTION: microsoft             # set this to the Java distribution
+  AZURE_WEBAPP_NAME: sampleapp        # set this to the name of your web app
+
+on: [push]
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Java version
+        uses: actions/setup-java@v3.0.0
+        with:
+          java-version: ${{ env.JAVA_VERSION }}
+          distribution: ${{ env.DISTRIBUTION }}
+          cache: 'maven'
+
+      - name: Build with Maven
+        run: mvn clean install
+
+      - name: Login to Azure
+        uses: azure/login@v2
+        with:
+          client-id: ${{ secrets.AZURE_CLIENT_ID }}
+          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+
+      - name: Deploy to Azure Web App
+        id: deploy-to-webapp
+        uses: azure/webapps-deploy@v3
+        with:
+          app-name: ${{ env.AZURE_WEBAPP_NAME }}
+          package: '*.war'
+```
+
+You can find this full example using multiple jobs for build and deploy [here](https://github.com/Azure-Samples/onlinebookstore/blob/master/.github/workflows/azure-webapps-java-war-oidc.yml) as well.
 
 # [Node.js](#tab/nodejs)
 

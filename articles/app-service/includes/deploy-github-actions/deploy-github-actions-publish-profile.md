@@ -137,7 +137,49 @@ To deploy a `war` instead of a `jar`, change the `package` value.
 
 # [TomCat](#tab/tomcat)
 
-TODO
+Build and deploy a TomCat app to Azure using an Azure publish profile. The `publish-profile` input references the `AZURE_WEBAPP_PUBLISH_PROFILE` secret that you created earlier.
+
+```yaml
+name: Build and deploy WAR app to Azure Web App using publish profile
+
+env:
+  JAVA_VERSION: '11'                  # set this to the Java version to use
+  DISTRIBUTION: microsoft             # set this to the Java distribution
+  AZURE_WEBAPP_NAME: sampleapp        # set this to the name of your web app
+
+on: [push]
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Java version
+        uses: actions/setup-java@v3.0.0
+        with:
+          java-version: ${{ env.JAVA_VERSION }}
+          distribution: ${{ env.DISTRIBUTION }}
+          cache: 'maven'
+
+      - name: Build with Maven
+        run: mvn clean install
+
+      - name: Deploy to Azure Web App
+        id: deploy-to-webapp
+        uses: azure/webapps-deploy@v3
+        with:
+          app-name: ${{ env.AZURE_WEBAPP_NAME }}
+          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
+          package: '*.war'
+```
+
+You can find this full example using multiple jobs for build and deploy [here](https://github.com/Azure-Samples/onlinebookstore/blob/master/.github/workflows/azure-webapps-java-war-publish-profile.yml) as well.
 
 # [Node.js](#tab/nodejs)
 
