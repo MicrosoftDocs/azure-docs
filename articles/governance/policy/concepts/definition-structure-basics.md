@@ -16,6 +16,7 @@ You use JSON to create a policy definition that contains elements for:
 - `displayName`
 - `description`
 - `mode`
+- `version`
 - `metadata`
 - `parameters`
 - `policyRule`
@@ -120,6 +121,23 @@ The following Resource Provider modes are currently supported as a [preview](htt
 > [!NOTE]
 >Unless explicitly stated, Resource Provider modes only support built-in policy definitions, and exemptions are not supported at the component-level.
 
+## Version
+Built-in policy definitions and initiatives can host multiple versions with the same `definitionID`. If no version number is specified, all experiences will show the latest version of the definition. To see a specific version of a built-in, it must be specified in API, SDK or UI. To reference a specific version of a definition within an assignment, see [definition version within assignment](../concepts/assignment-structure.md#policy-definition-id-and-version) 
+
+The Azure Policy service uses `version`, `preview`, and `deprecated` properties to convey level of
+> change to a built-in policy definition or initiative and state. The format of `version` is:
+> `{Major}.{Minor}.{Patch}`. Specific states, such as _deprecated_ or _preview_, are appended to the
+> `version` property or in another property as a **boolean**. 
+
+- Major Version (ex. 2.0.0): introduce breaking changes such as major rule logic changes, removing parameters, adding an enforcement effect by default. 
+- Minor Version (ex. 2.1.0): introduce changes such as minor rule logic changes, adding new parameter allowed values, change to role definitionIds, adding ore moveing definitions within an initiative. 
+- Patch Version (ex.2.1.4): introduce string or metadata changes as well as breaking glass security scenarios (rare).
+
+For more information about the way
+> Azure Policy versions built-ins, see
+> [Built-in versioning](https://github.com/Azure/azure-policy/blob/master/built-in-policies/README.md).
+> To learn more about what it means for a policy to be _deprecated_ or in _preview_, see [Preview and deprecated policies](https://github.com/Azure/azure-policy/blob/master/built-in-policies/README.md#preview-and-deprecated-policies).
+
 ## Metadata
 
 The optional `metadata` property stores information about the policy definition. Customers can define any properties and values useful to their organization in `metadata`. However, there are some _common_ properties used by Azure Policy and in built-ins. Each `metadata` property has a limit of 1,024 characters.
@@ -131,15 +149,6 @@ The optional `metadata` property stores information about the policy definition.
 - `preview` (boolean): True or false flag for if the policy definition is _preview_.
 - `deprecated` (boolean): True or false flag for if the policy definition is marked as  _deprecated_.
 - `portalReview` (string): Determines whether parameters should be reviewed in the portal, regardless of the required input.
-
-> [!NOTE]
-> The Azure Policy service uses `version`, `preview`, and `deprecated` properties to convey level of
-> change to a built-in policy definition or initiative and state. The format of `version` is:
-> `{Major}.{Minor}.{Patch}`. Specific states, such as _deprecated_ or _preview_, are appended to the
-> `version` property or in another property as a **boolean**. For more information about the way
-> Azure Policy versions built-ins, see
-> [Built-in versioning](https://github.com/Azure/azure-policy/blob/master/built-in-policies/README.md).
-> To learn more about what it means for a policy to be _deprecated_ or in _preview_, see [Preview and deprecated policies](https://github.com/Azure/azure-policy/blob/master/built-in-policies/README.md#preview-and-deprecated-policies).
 
 ## Definition location
 
