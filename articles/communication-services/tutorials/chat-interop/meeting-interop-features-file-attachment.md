@@ -14,8 +14,7 @@ zone_pivot_groups: acs-interop-chat-tutorial-js-csharp
 
 # Tutorial: Enable file attachment support in your Chat app
 
-The Chat SDK is designed to work with Microsoft Teams seamlessly. Specifically, Chat SDK provides a solution to receive file attachments sent by users from Microsoft Teams. Currently this feature is only available in the Chat SDK for JavaScript and C#. Note that sending file attachments from Azure Communication Services user to Teams user isn't currently supported, see the current capabilities of [Teams Interop Chat](../../concepts/interop/guest/capabilities.md) for details.
-
+The Chat SDK is designed to work with Microsoft Teams seamlessly in the context of a meeting. File attachments can only be sent by a Teams user to an ACS user. Note that sending file attachments from Azure Communication Services user to Teams user isn't currently supported, see the current capabilities of [Teams Interop Chat](../../concepts/interop/guest/capabilities.md) for details.
 
 ## Add file attachment support
 
