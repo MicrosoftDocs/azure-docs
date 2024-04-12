@@ -15,13 +15,8 @@ ms.reviewer: mjbrown
 
 To build a solution with high availability, you have to evaluate the reliability characteristics of all its components. Azure Cosmos DB provides features and configuration options to help you achieve high availability for your solution.
 
-This article uses the following terms:
-
-* **Recovery time objective (RTO)**: The time between the beginning of an outage that affects Azure Cosmos DB and the recovery to full availability.
-* **Recovery point objective (RPO)**: The time between the last write that was correctly restored and the time of the beginning of the outage that affects Azure Cosmos DB.
-
 > [!NOTE]
-> Expected and maximum RPOs and RTOs depend on the kind of outage that Azure Cosmos DB is experiencing. For instance, an outage of a single node has different expected RTO and RPO than the outage of a whole region.
+> Expected and maximum RPOs and RTOs depend on the kind of outage that Azure Cosmos DB is experiencing. For instance, an outage of a single node has different expected RTO and RPO than the outage of a whole region. For information on RTO and RPO, see [Recovery objectives](disaster-recovery-overview#recovery-objectives). 
 
 This article details the events that can affect Azure Cosmos DB availability and the corresponding Azure Cosmos DB configuration options.
 
