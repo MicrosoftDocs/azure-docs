@@ -27,7 +27,7 @@ The firewall and proxy URLs below must be allowlisted in order to enable communi
 |Microsoft open source packages manager| 443 | `packages.microsoft.com`| Appliance VM IPs need outbound connection. | Download Linux installation package.|
 |Custom Locations| 443 | `sts.windows.net`| Appliance VM IPs need outbound connection. | Required for use by the Custom Locations cluster extension.|
 |Diagnostic data | 443 | `gcs.prod.monitoring.core.windows.net`	|	Appliance VM IPs need outbound connection. | Periodically sends Microsoft required diagnostic data. |
-|Azure CLI & Extension | 443 | `*.blob.core.windows.net`| Management machine needs outbound connection. | Downlod Azure CLI Installer and extension. |
+|Azure CLI & Extension | 443 | `*.blob.core.windows.net`| Management machine needs outbound connection. | Download Azure CLI Installer and extension. |
 |Azure Resource Manager | 443 | `login.microsoftonline.com`| Management machine needs outbound connection. | Required to update ARM tokens.|
 |Azure Resource Manager| 443 | `management.azure.com`| Management machine needs outbound connection. | Manage resources in Azure. |
 |Azure Arc Agent| 443 | `*.dp.kubernetesconfiguration.azure.com`| Management machine needs outbound connection. | Dataplane used for Arc agent.|
