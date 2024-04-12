@@ -5,7 +5,7 @@ author: flang-msft
 
 ms.service: cache
 ms.topic: conceptual
-ms.date: 04/11/2024
+ms.date: 04/12/2024
 ms.author: franlanglois 
 ---
 # How to administer Azure Cache for Redis
@@ -136,7 +136,7 @@ Yes, you can manage your scheduled updates using the following PowerShell cmdlet
 
 Yes. In general, updates aren't applied outside the configured Scheduled Updates window. Rare critical security updates can be applied outside the patching schedule as part of our security policy.
 
-## Next steps
+## Related content
 
 Learn more about Azure Cache for Redis features.
 

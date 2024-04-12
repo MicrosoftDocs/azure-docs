@@ -7,7 +7,7 @@ ms.custom: references_regions
 ms.author: franlanglois
 ms.service: cache
 ms.topic: conceptual
-ms.date: 02/28/2024
+ms.date: 04/12/2024
 
 ---
 
@@ -283,6 +283,6 @@ Microsoft is updating Azure services to use TLS certificates from a different se
 
 For more information on the effect to Azure Cache for Redis, see [Azure TLS Certificate Change](cache-best-practices-development.md#azure-tls-certificate-change).
 
-## Next steps
+## Related content
 
 If you have more questions, contact us through [support](https://azure.microsoft.com/support/options/).
