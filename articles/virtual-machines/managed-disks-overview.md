@@ -102,7 +102,7 @@ Generally, you should use the data disk to store your applications and data, ins
 - Easier maintenance
 - Improved security and access control
 
-For more details on these benefits, see [Should I use the data disk to store applications and data instead of the OS disk?](faq-for-disks.yml#should-i-use-the-data-disk-to-store-applications-and-data-instead-of-the-os-disk-).
+For more details on these benefits, see [Why should I use the data disk to store applications and data instead of the OS disk?](faq-for-disks.yml#why-should-i-use-the-data-disk-to-store-applications-and-data-instead-of-the-os-disk-).
 
 ### Temporary disk
 
