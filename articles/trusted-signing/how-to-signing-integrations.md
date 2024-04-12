@@ -18,7 +18,7 @@ Trusted Signing currently supports the following signing integrations:
 * PowerShell for Authenticode
 * Azure PowerShell - App Control for Business CI Policy
 
-We constantly work to support more signing integrations and update the above when more become available. 
+We constantly work to support more signing integrations and update the supported integration list when more become available. 
 
 This article explains how to set up each of the above Trusted Signing signing integrations.
 
