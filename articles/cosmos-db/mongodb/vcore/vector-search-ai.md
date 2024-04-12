@@ -52,9 +52,11 @@ Choosing the best open-source vector database requires considering several facto
 >[!NOTE]
 >The most popular option may not be the best option for you. To find the best fit for your needs, you should compare different options based on features, supported data types, compatibility with existing tools and frameworks you use. Ease of installation, configuration, and maintenance should also be considered to ensure smooth integration into your workflow. 
 
-## Challenges with open-source vector databases
+## Challenges of open-source vector databases
 
-Open-source vector databases pose challenges that are typical of open-source software:
+Open-source vector databases pose challenges that are typical of open-source software as well as ones that are unique to many vector databases.
+
+Challenges with open source: 
 
 - Setup: Users need in-depth knowledge to install, configure, and operate, especially for complex deployments. Optimizing resources and configuration while scaling up operation requires close monitoring and adjustments.
 - Maintenance: Users must manage their own updates, patches, and maintenance. Thus, ML expertise wouldn't suffice; users must also have extensive experience in database administration.
@@ -62,9 +64,17 @@ Open-source vector databases pose challenges that are typical of open-source sof
 
 Therefore, while free initially, open-source vector databases incur significant costs when scaling up. Expanding operations necessitates more hardware, skilled IT staff, and advanced infrastructure management, leading to higher expenses in hardware, personnel, and operational costs. Scaling open-source vector databases can be financially demanding despite the lack of licensing fees.
 
-## Addressing the challenges
+Challenges that are unique to vector databases:
 
-A fully managed database service helps developers avoid the hassles from setting up, maintaining, and relying on community assistance for an open-source vector database; moreover, some managed vector database services offer a life-time free tier. An example is the Integrated Vector Database in Azure Cosmos DB for MongoDB. It allows developers to enjoy the same financial benefit associated with open-source vector databases, while the service provider handles maintenance, updates, and scalability. When it’s time to scale up operations, upgrading is quick and easy while keeping a low [total cost of ownership (TCO)](introduction.md#low-total-cost-of-ownership-tco).
+Most open-source vector databases nowadays are pure vector databases. In other words, they are designed to store and manage vector embeddings, along with a small amount of metadata; it is separate from the data source from which the embeddings are derived. Thus, using pure vector databases requires sending your data between service integrations, which adds additional cost, complexity, and bottlenecks for your production workloads.
+
+## Addressing the challenges of open-source vector databases
+
+A fully managed database service helps developers avoid the hassles from setting up, maintaining, and relying on community assistance for an open-source vector database; moreover, some managed vector database services offer a life-time free tier.
+
+The additional cost and complexity of pure vector databases can be avoided by using a vector database that is integrated in a highly performant NoSQL or relational database, which stores, indexes, and queries embeddings alongside the corresponding original data. This approach eliminates the extra cost of replicating data in a separate pure vector database. Moreover, keeping the vector embeddings and original data together better facilitates multi-modal data operations, and enables greater data consistency, scale, and performance.
+
+An example is the Integrated Vector Database in Azure Cosmos DB for MongoDB. It allows developers to enjoy the same financial benefit associated with open-source vector databases, while the service provider handles maintenance, updates, and scalability. When it’s time to scale up operations, upgrading is quick and easy while keeping a low [total cost of ownership (TCO)](introduction.md#low-total-cost-of-ownership-tco).
 
 ## Next steps
 > [!div class="nextstepaction"]
