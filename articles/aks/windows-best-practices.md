@@ -63,7 +63,7 @@ To help you decide which networking mode to use, see [Choosing a network model][
 
 When managing traffic between pods, you should apply the principle of least privilege. The Network Policy feature in Kubernetes allows you to define and enforce ingress and egress traffic rules between the pods in your cluster. For more information, see [Secure traffic between pods using network policies in AKS][network-policies-aks].
 
-Windows pods on AKS clusters that use the Calico Network Policy enable [Floating IP][dsr] by default.
+Windows pods on AKS clusters that use the Calico Network Policy enable Floating IP by default.
 
 ## Upgrades and updates
 
