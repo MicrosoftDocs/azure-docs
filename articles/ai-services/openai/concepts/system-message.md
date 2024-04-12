@@ -88,7 +88,7 @@ Here are some examples of lines you can include to potentially mitigate differen
 
 - You must not generate content that is hateful, racist, sexist, lewd or violent. 
 
-## To Avoid Fabrication or Ungrounded Content 
+## To Avoid Fabrication or Ungrounded Content in a Q&A scenario 
 
 - Your answer must not include any speculation or inference about the background of the document or the user’s gender, ancestry, roles, positions, etc.   
 
