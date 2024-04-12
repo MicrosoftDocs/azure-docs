@@ -538,6 +538,11 @@ Use the [examples in the earlier section of this page](#configuring-adaptive-sam
 
 * Configuring too high a sampling percentage (not aggressive enough) results in an insufficient reduction in the volume of the collected telemetry. You can still experience telemetry data loss related to throttling, and the cost of using Application Insights might be higher than you planned due to overage charges.
 
+*What happens if I configure both IncludedTypes and ExcludedTypes settings?*
+
+* It's best not to set both `ExcludedTypes` and `IncludedTypes` in your configuration to prevent any conflicts and ensure clear telemetry collection settings.
+* Telemetry types that are listed in `ExcludedTypes` are excluded even if they are also set in `IncludedTypes` settings. ExcludedTypes will take precedence over IncludedTypes.
+
 *On what platforms can I use sampling?*
 
 * Ingestion sampling can occur automatically for any telemetry above a certain volume, if the SDK isn't performing sampling. This configuration would work, for example, if you're using an older version of the ASP.NET SDK or Java SDK.

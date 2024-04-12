@@ -89,4 +89,12 @@ landingContent:
           - text: Data types
             url: concept-data-types.md
           - text: Data visualization
-            url: concept-data-visualization.md 
+            url: concept-data-visualization.md
+
+  # Card
+  - title: Develop Data Products
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Azure Operator Insights data product factory (preview)
+            url: data-product-factory.md

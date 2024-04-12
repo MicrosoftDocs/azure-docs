@@ -6,7 +6,7 @@ ms.service: virtual-machines
 ms.subservice: scheduled-events
 ms.collection: linux
 ms.topic: how-to
-ms.custom: devx-track-python
+ms.custom: devx-track-python, linux-related-content
 ms.date: 01/25/2023
 ms.author: ericrad
 ms.reviewer: mimckitt

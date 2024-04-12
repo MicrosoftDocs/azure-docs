@@ -4,7 +4,7 @@ description: Provides an overview of Azure Database for PostgreSQL - Flexible Se
 author: sunilagarwal
 ms.author: sunila
 ms.reviewer: maghan
-ms.date: 01/18/2024
+ms.date: 04/05/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: overview
@@ -88,7 +88,7 @@ One advantage of running your workload in Azure is global reach. Azure Database 
 | Australia Central | :heavy_check_mark: (v3/v4 only) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Australia Central 2 *| :heavy_check_mark: (v3/v4 only) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Australia East | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| Australia Southeast | (v3/v4/v5 only) | :x: | :heavy_check_mark: | :heavy_check_mark: |
+| Australia Southeast | :heavy_check_mark: (v3/v4/v5 only) | :x: | :heavy_check_mark: | :heavy_check_mark: |
 | Brazil South | :heavy_check_mark: (v3 only) | :x: $ | :heavy_check_mark: | :x: |
 | Brazil Southeast * | :heavy_check_mark: (v3 only) | :x: $ | :heavy_check_mark: | :x: |
 | Canada Central | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
@@ -129,7 +129,7 @@ One advantage of running your workload in Azure is global reach. Azure Database 
 | UAE Central* | :heavy_check_mark: (v3/v4 only) | :x: | :heavy_check_mark: | :heavy_check_mark: |
 | UAE North | :heavy_check_mark: (v3/v4/v5 only) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | US Gov Arizona | :heavy_check_mark: (v3/v4 only) | :x: | :heavy_check_mark: | :x: |
-| US Gov Texas | :heavy_check_mark: (v3/v4 only) | :x: | :heavy_check_mark: | :heavy_check_mark: |
+| US Gov Texas | :heavy_check_mark: (v3/v4 only) | :x: | :heavy_check_mark: | :x: |
 | US Gov Virginia | :heavy_check_mark: (v3/v4 only) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:|
 | UK South | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | UK West | :heavy_check_mark: | :x: | :heavy_check_mark: | :heavy_check_mark: |
@@ -155,7 +155,7 @@ $$ New server deployments are temporarily blocked in these regions. Already prov
 
 Azure Database for PostgreSQL flexible server runs the community version of PostgreSQL. This allows full application compatibility and requires a minimal refactoring cost to migrate an existing application developed on the PostgreSQL engine to Azure Database for PostgreSQL flexible server.
 
-- **Azure Database for PostgreSQL singler server to Azure Database for PostgreSQL flexible server Migration tool (Preview)** - [This tool](../migrate/concepts-single-to-flexible.md) provides an easier migration capability from Azure Database for PostgreSQL single server to Azure Database for PostgreSQL flexible server.
+- **Azure Database for PostgreSQL single server to Azure Database for PostgreSQL flexible server Migration tool (Preview)** - [This tool](../migrate/concepts-single-to-flexible.md) provides an easier migration capability from Azure Database for PostgreSQL single server to Azure Database for PostgreSQL flexible server.
 - **Dump and Restore** – For offline migrations, where users can afford some downtime, dump and restore using community tools like pg_dump and pg_restore can provide the fastest way to migrate. See [Migrate using dump and restore](../howto-migrate-using-dump-and-restore.md) for details.
 - **Azure Database Migration Service** – For seamless and simplified migrations to Azure Database for PostgreSQL flexible server with minimal downtime, Azure Database Migration Service can be used. See [DMS via portal](../../dms/tutorial-postgresql-azure-postgresql-online-portal.md) and [DMS via CLI](../../dms/tutorial-postgresql-azure-postgresql-online.md). You can migrate from your Azure Database for PostgreSQL single server instance to Azure Database for PostgreSQL flexible server. See this [DMS article](../../dms/tutorial-azure-postgresql-to-azure-postgresql-online-portal.md) for details.
 
@@ -167,7 +167,7 @@ We continue to support Azure Database for PostgreSQL single server and encourage
 
 ### What is Microsoft's policy to address PostgreSQL engine defects?
 
-Refer to  Microsoft's current policy [here](../../postgresql/flexible-server/concepts-supported-versions.md#managing-postgresql-engine-defects).
+Refer to Microsoft's current policy [here](../../postgresql/flexible-server/concepts-supported-versions.md#managing-postgresql-engine-defects).
 
 ## Contacts
 

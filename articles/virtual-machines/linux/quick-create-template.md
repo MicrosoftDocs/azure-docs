@@ -7,7 +7,7 @@ ms.collection: linux
 ms.topic: quickstart
 ms.date: 04/13/2023
 ms.author: jushiman
-ms.custom: subject-armqs, mode-arm, devx-track-arm-template
+ms.custom: subject-armqs, mode-arm, devx-track-arm-template, linux-related-content
 ---
 
 # Quickstart: Create an Ubuntu Linux virtual machine by using an ARM template

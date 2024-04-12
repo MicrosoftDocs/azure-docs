@@ -16,6 +16,12 @@
   - name: Enable Microsoft Defender for IoT on Azure IoT Hub
     displayName: IoT Hub, existing, enable, enable, onboard
     href: quickstart-onboard-iot-hub.md
+  - name: Upload Firmware using Azure CLI
+    displayName: Azure CLI, upload, firmware
+    href: quickstart-upload-firmware-using-azure-command-line-interface.md
+  - name: Upload Firmware using Azure PowerShell
+    displayName: Azure PowerShell, upload, firmware
+    href: quickstart-upload-firmware-using-powershell.md
 - name: Tutorials
   items:
   - name: Add a resource group to your IoT solution
@@ -65,6 +71,9 @@
   - name: Firmware analysis (preview)
     displayName: IoT, OT, firmware, analysis
     href: overview-firmware-analysis.md
+  - name: Azure role-based access control for Defender for IoT Firmware analysis
+    displayName: RBAC, role, access, control, firmware, analysis
+    href: defender-iot-firmware-analysis-rbac.md
 - name: How-to guides
   items:
   - name: Install Defender for IoT micro agent for Edge

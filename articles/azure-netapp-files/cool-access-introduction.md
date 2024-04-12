@@ -12,11 +12,11 @@ ms.custom: references_regions
 
 # Standard storage with cool access in Azure NetApp Files 
 
-Using Azure NetApp Files standard storage with cool access, you can configure inactive data to move from Azure NetApp Files Standard service-level storage (the *hot tier*) to an Azure storage account (the *cool tier*). In doing so, data blocks that haven't been accessed for some time will be kept and stored in the cool tier, resulting in cost savings.
+Using Azure NetApp Files standard storage with cool access, you can configure inactive data to move from Azure NetApp Files Standard service-level storage (the *hot tier*) to an Azure storage account (the *cool tier*). Enabling cool access moves inactive data blocks from the volume and the volume's snapshots to the cool tier, resulting in cost savings.
 
 Most cold data is associated with unstructured data. It can account for more than 50% of the total storage capacity in many storage environments. Infrequently accessed data associated with productivity software, completed projects, and old datasets are an inefficient use of a high-performance storage. 
 
-Azure NetApp Files supports three [service levels](azure-netapp-files-service-levels.md) that can be configured at capacity pool level (Standard, Premium and Ultra). Cool access is an additional service only on the Standard service level. Standard storage with cool access is supported only on capacity pools of the **auto** QoS type.  
+Azure NetApp Files supports three [service levels](azure-netapp-files-service-levels.md) that can be configured at capacity pool level (Standard, Premium and Ultra). Cool access is an additional service only on the Standard service level.
 
 The following diagram illustrates an application with a volume enabled for cool access.
 
@@ -53,6 +53,8 @@ Standard storage with cool access is supported for the following regions:
 * Norway East
 * Norway West
 * Qatar Central
+* South Central US
+* South India
 * Southeast Asia
 * Switzerland North 
 * Switzerland West 
@@ -64,6 +66,7 @@ Standard storage with cool access is supported for the following regions:
 * US Gov Arizona
 * US Gov Texas
 * US Gov Virginia 
+* West Europe
 * West US
 * West US 2
 * West US 3

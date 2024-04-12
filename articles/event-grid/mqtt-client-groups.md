@@ -77,17 +77,17 @@ Use the following commands to create/show/delete a client group
 
 **Create client group**
 ```azurecli-interactive
-az resource create --resource-type Microsoft.EventGrid/namespaces/clientGroups --id /subscriptions/`Subscription ID`/resourceGroups/`Resource Group`/providers/Microsoft.EventGrid/namespaces/`Namespace Name`/clientGroups/`Client Group Name` --api-version 2023-06-01-preview --properties @./resources/CG.json
+az eventgrid namespace client-group create -g myRG --namespace-name myNS -n myCG 
 ```
 
 **Get client group**
 ```azurecli-interactive
-az resource show --id /subscriptions/`Subscription ID`/resourceGroups/`Resource Group`/providers/Microsoft.EventGrid/namespaces/`Namespace Name`/clientGroups/`Client group name` |
+az eventgrid namespace client-group show -g myRG --namespace-name myNS -n myCG
 ```
 
 **Delete client group**
 ```azurecli-interactive
-az resource delete --id /subscriptions/`Subscription ID`/resourceGroups/`Resource Group`/providers/Microsoft.EventGrid/namespaces/`Namespace Name`/clientGroups/`Client group name` |
+az eventgrid namespace client-group delete -g myRG --namespace-name myNS -n myCG
 ```
 
 ## Next steps

@@ -13,6 +13,8 @@ ms.custom: fasttrack-edit
 
 # IP addresses of Azure API Management
 
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
+
 In this article we describe how to retrieve the IP addresses of Azure API Management service. IP addresses can be public or private if the service is in a virtual network. You can use IP addresses to create firewall rules, filter the incoming traffic to the backend services, or restrict the outbound traffic.
 
 ## IP addresses of API Management service
@@ -89,13 +91,13 @@ API Management uses a public IP address for a connection outside the VNet or a p
 
 * When API management is deployed in an external or internal virtual network and API management connects to private (intranet-facing) backends, internal IP addresses (dynamic IP, or DIP addresses) from the subnet are used for the runtime API traffic. When a request is sent from API Management to a private backend, a private IP address will be visible as the origin of the request. 
 
-    Therefore, if IP restriction lists secure resources within the VNet or a peered VNet, it is recommended to use the whole API Management [subnet range](virtual-network-concepts.md#subnet-size) with an IP rule - and (in internal mode) not just the private IP address associated with the API Management resource.
+    Therefore, if IP restriction lists secure resources within the VNet or a peered VNet, it is recommended to use the whole API Management [subnet range](virtual-network-injection-resources.md#subnet-size) with an IP rule - and (in internal mode) not just the private IP address associated with the API Management resource.
 
 * When a request is sent from API Management to a public (internet-facing) backend, a public IP address will always be visible as the origin of the request.
 
 ## IP addresses of Consumption, Basic v2, and Standard v2 tier API Management service
 
-If your API Management instance is created in a service tier that runs on a shared infrastructure, it doesn't have a dedicated IP address. Currently, instances in the following service tiers run on a shared infrastructure and without a deterministic IP address: Consumption, Basic v2 (preview), Standard v2 (preview).
+If your API Management instance is created in a service tier that runs on a shared infrastructure, it doesn't have a dedicated IP address. Currently, instances in the following service tiers run on a shared infrastructure and without a deterministic IP address: Consumption, Basic v2, Standard v2.
 
 If you need to add the outbound IP addresses used by your Consumption, Basic v2, or Standard v2 tier instance to an allowlist, you can add the instance's data center (Azure region) to an allowlist. You can [download a JSON file that lists IP addresses for all Azure data centers](https://www.microsoft.com/download/details.aspx?id=56519). Then find the JSON fragment that applies to the region that your instance runs in.
 

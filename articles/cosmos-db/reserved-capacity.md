@@ -20,7 +20,8 @@ The size of the reserved capacity purchase should be based on the total amount o
 
 In this example, any provisioned throughput above 10,000 RU/s is billed with your pay-as-you-go rate. If the provisioned throughput is below 10,000 RU/s in an hour, then the extra reserved capacity for that hour is wasted.
 
-Please note that:
+Note that:
+
  * There is no limit to the number of reservations.
  * It's possible to buy more reservations at any moment.
  * It's possible to buy different reservations in the same purchase.
@@ -42,28 +43,10 @@ The required permissions to purchase reserved capacity for Azure Cosmos DB are:
 
 As soon as you buy a reservation, the throughput charges that match the reservation attributes are no longer charged at the pay-as-you go rates. For more information on reservations, see the [Azure reservations](../cost-management-billing/reservations/save-compute-costs-reservations.md) article.
 
-### Autoscale provisioned throughput
+Azure Cosmos DB consumes reservations in two different ways:
 
-Autoscale database operations consume reserved capacity at a rate of 100 RU/s x 1.5 x N regions. For the usable net RU/s per region of a reservation, the formula is inverted. Examples:
-
-| Scenario | Autoscale Rate | Regions |Formula | Net RU/s per region|
-|----------|---------|----------|---------|---------|
-| 10,000 RU/s | 1.5 | 1 | (10,000 / 1.5) / 1 | 6,666.66 |
-| 10,000 RU/s | 1.5 | 2 | (10,000 / 1.5) / 2 | 3,333.33 |
-| 15,000 RU/s | 1.5 | 1 | (15,000 / 1.5) / 1 | 10,000 |
-| 30,000 RU/s | 1.5 | 2 | (30,000 / 1.5) / 2 | 10,000 |
-
-
-### Standard provisioned throughput
-
-Standard database operations consume reserved capacity at a rate of 100 RU/s x N regions. For the usable net RU/s per region of a reservation, the formula is inverted. Examples:
-
-| Scenario |  Regions |Formula | Net RU/s per region|
-|----------|----------|---------|---------|
-| 10,000 RU/s | 1 | 10,000 / 1 | 10,000 |
-| 10,000 RU/s | 2 | 10,000 / 2 | 5,000 |
-| 15,000 RU/s | 1 | 15,000 / 1 | 15,000 |
-| 30,000 RU/s | 2 | 30,000 / 2 | 15,000 |
+ * Autoscale database operations consume reserved capacity at a rate of 100 RU/s x 1.5 x N regions. So, if you need 10,000 RU/s for all your regions, purchase 15,000 RU/s.
+ * Standard database operations consume reserved capacity at a rate of 100 RU/s x N regions. So, if you need 10,000 RU/s for all your regions, purchase 10,0000 RU/s.
 
 
 ## Discounts

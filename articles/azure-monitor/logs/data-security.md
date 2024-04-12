@@ -184,7 +184,7 @@ Azure Monitor Logs relies on Azure Storage in specific scenarios. Use [private/c
 
 ## Customer Lockbox for Microsoft Azure
 
-[Customer Lockbox for Microsoft Azure](../../security/fundamentals/customer-lockbox-overview.md) provides an interface for customers to review and approve or reject customer data access requests. It's used in cases where a Microsoft engineer needs to access customer data during a support request.
+[Customer Lockbox for Microsoft Azure](../../security/fundamentals/customer-lockbox-overview.md) provides you with an interface to review and approve or reject customer data access requests. It's used when a Microsoft engineer needs to access customer data, whether in response to a customer-initiated support ticket or a problem identified by Microsoft. To enable Customer Lockbox, you need a [dedicated cluster](../logs/logs-dedicated-clusters.md).
 
 ## Tamper-proofing and immutability 
 

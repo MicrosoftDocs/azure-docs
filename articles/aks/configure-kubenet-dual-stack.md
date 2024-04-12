@@ -539,3 +539,4 @@ Once the cluster has been created, you can deploy your workloads. This article w
 [az-group-create]: /cli/azure/group#az_group_create
 [az-aks-create]: /cli/azure/aks#az_aks_create
 [az-aks-get-credentials]: /cli/azure/aks#az_aks_get_credentials
+

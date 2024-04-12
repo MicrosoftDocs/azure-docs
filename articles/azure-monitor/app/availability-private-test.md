@@ -15,7 +15,7 @@ If you want to use availability tests on internal servers that run behind a fire
 > [!NOTE]
 > If you don't want to allow any ingress to your environment, use the method in the [Disconnected or no ingress scenarios](#disconnected-or-no-ingress-scenarios) section.
 
- Ensure you have a public DNS record for your internal website. The test will fail if the DNS can't be resolved. For more information, see [Create a custom domain name for internal application](../../cloud-services/cloud-services-custom-domain-name-portal.md#add-an-a-record-for-your-custom-domain).
+ Ensure you have a public DNS record for your internal website. The test will fail if the target url hostname cannot be resolved by public clients using public DNS. For more information, see [Create a custom domain name for internal application](../../cloud-services/cloud-services-custom-domain-name-portal.md#add-an-a-record-for-your-custom-domain).
 
 Configure your firewall to permit incoming requests from our service.
 

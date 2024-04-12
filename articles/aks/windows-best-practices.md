@@ -2,6 +2,7 @@
 title: Best practices for Windows containers on Azure Kubernetes Service (AKS)
 description: Learn about best practices for running Windows containers in Azure Kubernetes Service (AKS).
 ms.service: azure-kubernetes-service
+ms.custom: linux-related-content
 ms.author: schaffererin
 ms.topic: article
 ms.date: 10/27/2023

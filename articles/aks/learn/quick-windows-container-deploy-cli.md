@@ -4,6 +4,9 @@ description: Learn how to quickly deploy a Kubernetes cluster and deploy an appl
 ms.topic: article
 ms.custom: devx-track-azurecli
 ms.date: 01/11/2024
+author: tamram
+ms.author: tamram
+
 #Customer intent: As a developer or cluster operator, I want to quickly deploy an AKS cluster and deploy a Windows Server container so that I can see how to run applications running on a Windows Server container using the managed Kubernetes service in Azure.
 ---
 
@@ -334,7 +337,8 @@ To learn more about AKS, and to walk through a complete code-to-deployment examp
 [az-group-create]: /cli/azure/group#az_group_create
 [aks-solution-guidance]: /azure/architecture/reference-architectures/containers/aks-start-here?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
 [kubernetes-deployment]: ../concepts-clusters-workloads.md#deployments-and-yaml-manifests
-[kubernetes-service]: ../concepts-network.md#services
+[kubernetes-service]: ../concepts-network-services.md
 [windows-server-password]: /windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements#reference
 [win-faq-change-admin-creds]: ../windows-faq.md#how-do-i-change-the-administrator-password-for-windows-server-nodes-on-my-cluster
 [baseline-reference-architecture]: /azure/architecture/reference-architectures/containers/aks/baseline-aks?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
+

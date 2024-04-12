@@ -4,6 +4,7 @@ description: Learn how to connect a Spring Cloud Config Server to your container
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps
+ms.custom: devx-track-azurecli, devx-track-extended-java
 ms.topic: tutorial
 ms.date: 03/13/2024
 ms.author: cshoe

@@ -7,7 +7,7 @@ ms.service: app-service
 ms.topic: "include"
 ms.date: 08/20/2018
 ms.author: cephalin
-ms.custom: "include file"
+ms.custom: include file, linux-related-content
 ---
 
 ## Create a resource group

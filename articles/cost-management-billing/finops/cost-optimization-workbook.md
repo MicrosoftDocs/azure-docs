@@ -3,10 +3,9 @@ title: Use and customize the Cost optimization workbook
 description: This article explains how to install and edit the Cost Optimization workbook.
 author: bandersmsft
 ms.author: banders
-ms.date: 11/02/2023
+ms.date: 03/21/2024
 ms.topic: how-to
-ms.service: cost-management-billing
-ms.subservice: finops
+ms.service: finops
 ms.reviewer: arclares
 ---
 
