@@ -223,7 +223,7 @@ The following code retrieves the connection string for the storage account from 
 
 Add this code inside a `try/catch` block:
 
-:::code language="typescript" source="~/azure_storage-snippets/blobs/quickstarts/TypeScript/V12/nodejs/src/index-index-with-connection-string.ts" id="snippet_StorageAcctInfo__with_secrets":::
+:::code language="typescript" source="~/azure_storage-snippets/blobs/quickstarts/TypeScript/V12/nodejs/src/index-with-connection-string.ts" id="snippet_StorageAcctInfo__with_secrets":::
 
 > [!IMPORTANT]
 > The account access key should be used with caution. If your account access key is lost or accidentally placed in an insecure location, your service may become vulnerable. Anyone who has the access key is able to authorize requests against the storage account, and effectively has access to all the data. `DefaultAzureCredential` provides enhanced security features and benefits and is the recommended approach for managing authorization to Azure services.
