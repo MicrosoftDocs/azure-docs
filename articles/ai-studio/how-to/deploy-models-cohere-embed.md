@@ -119,7 +119,7 @@ These models can be consumed using the embed API.
     Content-type: application/json
 ```
 
-#### v1/emebeddings request schema
+#### v1/embeddings request schema
 
 Cohere Embed v3 - English and Embed v3 - Multilingual accept the following parameters for a `v1/embeddings` API call:
 
@@ -127,7 +127,7 @@ Cohere Embed v3 - English and Embed v3 - Multilingual accept the following param
 | --- | --- | --- | --- |
 |`input` |`array of strings` |Required |An array of strings for the model to embed. Maximum number of texts per call is 96. We recommend reducing the length of each text to be under 512 tokens for optimal quality. |
 
-#### v1/emebeddings response schema
+#### v1/embeddings response schema
 
 The response payload is a dictionary with the following fields:
 
