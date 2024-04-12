@@ -14,7 +14,7 @@ ms.date: 04/12/2024
 
 Azure Operator 5G Core Preview is a carrier-grade, Any-G, hybrid mobile packet core with fully integrated network functions that run both on-premises and in-cloud. Service providers can deploy resilient networks with high performance and at high capacity while maintaining low latency. Azure Operator 5G Core is ideal for Tier 1 consumer networks, mobile network operators (MNO), virtual network operators (MVNOs), enterprises, IoT, fixed wireless access (FWA), and satellite network operators (SNOs). 
 
- [:::image type="content" source="media/overview-product/architecture-5g-core.png" alt-text="Diagram of text boxes showing the components that comprise Azure Operator 5G Core.":::](media/overview-product/architecture-5g-core-expanded.png#lightbox)
+ [:::image type="content" source="media/overview-product/architecture-5g-core.png" alt-text="Diagram of text boxes showing the components that comprise Azure Operator 5G Core.":::](media/overview-product/architecture-5g-core.png#lightbox)
 
 The power of Azure's global footprint ensures global coverage and operating infrastructure at scale, coupled with Microsoft's Zero Trust security framework to provide secure and reliable connectivity to cloud applications.  
   
@@ -68,7 +68,7 @@ Azure Operator 5G Core offers the following network functions: 
 
 Any-G is built on top of Azure Operator Nexus and Azure – with flexible Network Function (NF) placement based on the operator use case. Different use cases drive  NF deployment topologies. Network Functions can be placed geographically closer to the users for scenarios such as consumer, low latency, and MEC or centralized for machine to machine (Internet of Things) and enterprise scenarios. Deployment is API driven regardless of the placement of the network functions.  
 
- [:::image type="content" source="media/overview-product/deployment-models.png" alt-text="Diagram describing supported deployment models for Azure Operator 5G Core.":::](media/overview-product/deployment-models-expanded.png#lightbox)
+ [:::image type="content" source="media/overview-product/deployment-models.png" alt-text="Diagram describing supported deployment models for Azure Operator 5G Core.":::](media/overview-product/deployment-models.png#lightbox)
   
 
 ### Resiliency  
