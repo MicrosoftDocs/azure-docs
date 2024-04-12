@@ -38,19 +38,6 @@ You can authenticate local users connecting from SFTP clients by using a passwor
 > [!IMPORTANT]
 > While you can enable both forms of authentication, SFTP clients can connect by using only one of them. Multifactor authentication, whereby both a valid password and a valid public and private key pair are required for successful authentication is not supported.
 
-If you want to use an SSH key, you can must provide a public key of the public / private key pair. You can use either of these types of keys.
-
-- Public key that is stored in Azure
-  
-  To find existing keys in Azure, see [List keys](../../virtual-machines/ssh-keys-portal.md#list-keys). When SFTP clients connect to Azure Blob Storage, those clients need to provide the private key associated with this public key.
-
-- Public key that is outside of Azure
-
-  If you don't yet have a public key, then see [Generate keys with ssh-keygen](../../virtual-machines/linux/create-ssh-keys-detailed.md#generate-keys-with-ssh-keygen) for guidance about how to create one. Only OpenSSH formatted public keys are supported. The key that you provide must use this format: `<key type> <key data>`. For example, RSA keys would look similar to this: `ssh-rsa AAAAB3N...`. If your key is in another format then a tool such as `ssh-keygen` can be used to convert it to OpenSSH format.
-
-> [!TIP]
-> If you configure authentication settings by using the Azure portal, you can also choose an option to generate a new key pair.
-
 #### [Portal](#tab/azure-portal)
 
 1. In the [Azure portal](https://portal.azure.com/), navigate to your storage account.
@@ -81,48 +68,102 @@ If you want to use an SSH key, you can must provide a public key of the public /
 
 #### [PowerShell](#tab/powershell)
 
-If you want to use a password to authenticate the local user, you can generate one after the local user is created.
+##### Authenticate by using an SSH key (PowerShell)
 
-Show a password example here.
+1. Choose the type of public key that you want to use.
 
-If you want to use an SSH key, create a public key object by using the **New-AzStorageLocalUserSshPublicKey** command. Set the `-Key` parameter to a string that contains the key type and public key. In the following example, the key type is `ssh-rsa` and the key is `ssh-rsa a2V5...`.
+   | Option | Guidance |
+   |----|----|
+   | Use existing key stored in Azure | Use this option if you want to use a public key that is already stored in Azure. To find existing keys in Azure, see [List keys](../../virtual-machines/ssh-keys-portal.md#list-keys). When SFTP clients connect to Azure Blob Storage, those clients need to provide the private key associated with this public key. |
+   | Use existing public key | Use this option if you want to upload a public key that is stored outside of Azure.  If you don't yet have a public key, then see [Generate keys with ssh-keygen](../../virtual-machines/linux/create-ssh-keys-detailed.md#generate-keys-with-ssh-keygen) for guidance about how to create one. Only OpenSSH formatted public keys are supported. The key that you provide must use this format: `<key type> <key data>`. For example, RSA keys would look similar to this: `ssh-rsa AAAAB3N...`. If your key is in another format then a tool such as `ssh-keygen` can be used to convert it to OpenSSH format.|
+
+2. Create a public key object by using the [New-AzStorageLocalUserSshPublicKey](/powershell/module/az.storage/new-azstoragelocalusersshpublickey) command. Set the `-Key` parameter to a string that contains the key type and public key. In the following example, the key type is `ssh-rsa` and the key is `ssh-rsa a2V5...`.
 
    ```powershell
    $sshkey = "ssh-rsa a2V5..."
    $sshkey = New-AzStorageLocalUserSshPublicKey -Key $sshkey -Description "description for ssh public key"
    ```
 
+3. Create a local user by using the [Set-AzStorageLocalUser](powershell/module/az.storage/set-azstoragelocaluser) command. If you're using an SSH key, then set the `SshAuthorization` parameter to the public key object that you created in the previous step.
+
+   The following example creates a local user and then prints the key to the console.
+
+   ```powershell
+   $UserName = "mylocalusername"
+   $localuser = Set-AzStorageLocalUser -ResourceGroupName $resourceGroupName -StorageAccountName $storageAccountName -UserName $UserName -SshAuthorizedKey $sshkey -HasSharedKey $true -HasSshKey $true
+
+   $localuser
+   $localuser.SshAuthorizedKeys | ft
+   ```
+
+   > [!NOTE]
+   > Local users also have a `sharedKey` property that is used for SMB authentication only.
+
+##### Authenticate by using a password (PowerShell)
+
+1. Create a local user by using the [Set-AzStorageLocalUser](powershell/module/az.storage/set-azstoragelocaluser) command, and set the `-HasSshPassword` parameter to `$true`.
+
+   The following example creates a local user that uses password authentication.
+
+   ```powershell
+   $UserName = "mylocalusername"
+   $localuser = Set-AzStorageLocalUser -ResourceGroupName $resourceGroupName -StorageAccountName $storageAccountName -UserName $UserName -HasSshPassword $true
+   ```
+
+2. You can create a password by using the **New-AzStorageLocalUserSshPassword** command. Set the `-UserName` parameter to the user name.
+
+   The following example generates a password for the user.
+
+   ```powershell
+   $password = New-AzStorageLocalUserSshPassword -ResourceGroupName $resourceGroupName -StorageAccountName $storageAccountName -UserName $UserName
+   $password 
+   ```
+
+   > [!IMPORTANT]
+   > You can't retrieve this password later, so make sure to copy the password, and then store it in a place where you can find it. If you lose this password, you'll have to generate a new one. Note that SSH passwords are generated by Azure and are minimum 32 characters in length.
+
 #### [Azure CLI](#tab/azure-cli)
 
-To create a local user that is authenticated by using an SSH key, use the [az storage account local-user create](/cli/azure/storage/account/local-user#az-storage-account-local-user-create) command, and then set the `--has-ssh-key` parameter to a string that contains the key type and public key.
+##### Authenticate by using an SSH key (Azure CLI)
 
-The following example creates a local user named `contosouser`, and uses an ssh-rsa key with a key value of `ssh-rsa a2V5...` for authentication.
-  
-```azurecli
-az storage account local-user create --account-name contosoaccount -g contoso-resource-group -n contosouser --ssh-authorized-key key="ssh-rsa a2V5..." --has-ssh-key true --has-ssh-password true
-```
+1. Choose the type of public key that you want to use.
 
-> [!NOTE]
-> Local users also have a `sharedKey` property that is used for SMB authentication only.
+   | Option | Guidance |
+   |----|----|
+   | Use existing key stored in Azure | Use this option if you want to use a public key that is already stored in Azure. To find existing keys in Azure, see [List keys](../../virtual-machines/ssh-keys-portal.md#list-keys). When SFTP clients connect to Azure Blob Storage, those clients need to provide the private key associated with this public key. |
+   | Use existing public key | Use this option if you want to upload a public key that is stored outside of Azure.  If you don't yet have a public key, then see [Generate keys with ssh-keygen](../../virtual-machines/linux/create-ssh-keys-detailed.md#generate-keys-with-ssh-keygen) for guidance about how to create one. Only OpenSSH formatted public keys are supported. The key that you provide must use this format: `<key type> <key data>`. For example, RSA keys would look similar to this: `ssh-rsa AAAAB3N...`. If your key is in another format then a tool such as `ssh-keygen` can be used to convert it to OpenSSH format.|
 
-To create a local user that is authenticated by using a password, use the [az storage account local-user create](/cli/azure/storage/account/local-user#az-storage-account-local-user-create) command, and then set the `--has-ssh-password` parameter to `true`.
+2. To create a local user that is authenticated by using an SSH key, use the [az storage account local-user create](/cli/azure/storage/account/local-user#az-storage-account-local-user-create) command, and then set the `--has-ssh-key` parameter to a string that contains the key type and public key.
 
-The following example creates a local user named `contosouser`, and sets the `--has-ssh-password` parameter to `true`.
+   The following example creates a local user named `contosouser`, and uses an ssh-rsa key with a key value of `ssh-rsa a2V5...` for authentication.
 
-```azurecli
-az storage account local-user create --account-name contosoaccount -g contoso-resource-group -n contosouser --has-ssh-password true
-```
+   ```azurecli
+   az storage account local-user create --account-name contosoaccount -g contoso-resource-group -n contosouser --ssh-authorized-key key="ssh-rsa a2V5..." --has-ssh-key true --has-ssh-password true
+   ```
 
-You can create a password by using the [az storage account local-user regenerate-password](/cli/azure/storage/account/local-user#az-storage-account-local-user-regenerate-password) command. Set the `-n` parameter to the local user name.
+   > [!NOTE]
+   > Local users also have a `sharedKey` property that is used for SMB authentication only.
 
-The following example generates a password for the user.
+##### Authenticate by using a password (Azure CLI)
 
-```azurecli
-az storage account local-user regenerate-password --account-name contosoaccount -g contoso-resource-group -n contosouser  
-```
+1. To create a local user that is authenticated by using a password, use the [az storage account local-user create](/cli/azure/storage/account/local-user#az-storage-account-local-user-create) command, and then set the `--has-ssh-password` parameter to `true`.
 
-> [!IMPORTANT]
-> You can't retrieve this password later, so make sure to copy the password, and then store it in a place where you can find it. If you lose this password, you'll have to generate a new one. Note that SSH passwords are generated by Azure and are minimum 32 characters in length.
+   The following example creates a local user named `contosouser`, and sets the `--has-ssh-password` parameter to `true`.
+
+   ```azurecli
+   az storage account local-user create --account-name contosoaccount -g contoso-resource-group -n contosouser --has-ssh-password true
+   ```
+
+1. Create a password by using the [az storage account local-user regenerate-password](/cli/azure/storage/account/local-user#az-storage-account-local-user-regenerate-password) command. Set the `-n` parameter to the local user name.
+
+   The following example generates a password for the user.
+
+   ```azurecli
+   az storage account local-user regenerate-password --account-name contosoaccount -g contoso-resource-group -n contosouser  
+   ```
+
+   > [!IMPORTANT]
+   > You can't retrieve this password later, so make sure to copy the password, and then store it in a place where you can find it. If you lose this password, you'll have to generate a new one. Note that SSH passwords are generated by Azure and are minimum 32 characters in length.
 
 ---
 
@@ -176,47 +217,27 @@ If you want to authorize access at the file and directory level, you can enable 
    > [!IMPORTANT]
    > The local user must have at least one container permission for the container it is connecting to otherwise the connection attempt will fail.
 
-2. Create a local user by using the **Set-AzStorageLocalUser** command. Set the `-PermissionScope` parameter to the permission scope object that you created earlier. If you're using an SSH key, then set the `SshAuthorization` parameter to the public key object that you created in the previous step. If you want to use a password to authenticate this local user, then set the `-HasSshPassword` parameter to `$true`.
+2. Update the local user by using the [Set-AzStorageLocalUser](powershell/module/az.storage/set-azstoragelocaluser) command. Set the `-PermissionScope` parameter to the permission scope object that you created earlier.
 
-   The following example creates a local user and then prints the key and permission scopes to the console.
+   The following example updates a local user with container permissions and then prints the permission scopes to the console.
   
    ```powershell
    $UserName = "mylocalusername"
-   $localuser = Set-AzStorageLocalUser -ResourceGroupName $resourceGroupName -StorageAccountName $storageAccountName -UserName $UserName -HomeDirectory "mycontainer" -SshAuthorizedKey $sshkey -PermissionScope $permissionScope -HasSharedKey $true -HasSshKey $true -HasSshPassword $true
+   $localuser = Set-AzStorageLocalUser -ResourceGroupName $resourceGroupName -StorageAccountName $storageAccountName -UserName $UserName -HomeDirectory "mycontainer" -PermissionScope $permissionScope
 
    $localuser
-   $localuser.SshAuthorizedKeys | ft
    $localuser.PermissionScopes | ft
    ```
 
-   > [!NOTE]
-   > Local users also have a `sharedKey` property that is used for SMB authentication only.
-
-3. If you want to use a password to authenticate the user, you can create a password by using the **New-AzStorageLocalUserSshPassword** command. Set the `-UserName` parameter to the user name.
-
-   The following example generates a password for the user.
-
-   ```powershell
-   $password = New-AzStorageLocalUserSshPassword -ResourceGroupName $resourceGroupName -StorageAccountName $storageAccountName -UserName $UserName
-   $password 
-   ```
-
-   > [!IMPORTANT]
-   > You can't retrieve this password later, so make sure to copy the password, and then store it in a place where you can find it. If you lose this password, you'll have to generate a new one. Note that SSH passwords are generated by Azure and are minimum 32 characters in length.
-
 #### [Azure CLI](#tab/azure-cli)
 
-To update a local user with permission to a container, use the [az storage account local-user update](/cli/azure/storage/account/local-user#az-storage-account-local-user-create) command, and then set the `--has-ssh-key` parameter to a string that contains the key type and public key.
+To update a local user with permission to a container, use the [az storage account local-user update](/cli/azure/storage/account/local-user#az-storage-account-local-user-create) command, and then set the `permission-scope` parameter of that command to one or more letters that correspond to access permission levels. Possible values are Read(r), Write (w), Delete (d), List (l), and Create (c).
 
-The following example creates a local user named `contosouser`, and uses an ssh-rsa key with a key value of `ssh-rsa a2V5...` for authentication.
-
-1. Create a local user by using the [az storage account local-user create](/cli/azure/storage/account/local-user#az-storage-account-local-user-update) command. Use the parameters of this command to specify the container and permission level. 
-
-   The following example gives a local user name `contosouser` read and write access to a container named `contosocontainer`. 
+The following example gives a local user name `contosouser` read and write access to a container named `contosocontainer`.
   
-   ```azurecli
-   az storage account local-user update --account-name contosoaccount -g contoso-resource-group -n contosouser --home-directory contosocontainer --permission-scope permissions=rw service=blob resource-name=contosocontainer
-   ```
+```azurecli
+az storage account local-user update --account-name contosoaccount -g contoso-resource-group -n contosouser --home-directory contosocontainer --permission-scope permissions=rw service=blob resource-name=contosocontainer
+```
 
 ---
 
