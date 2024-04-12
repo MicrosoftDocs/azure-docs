@@ -794,19 +794,6 @@ If the application producing logs is external to the cluster, copy the *external
 | OTLP | The Azure Monitor edge pipeline exposes a gRPC-based OTLP endpoint on port 4317. Configuring your instrumentation to send to this OTLP endpoint will depend on the instrumentation library itself. See [OTLP endpoint or Collector](https://opentelemetry.io/docs/instrumentation/python/exporters/#otlp-endpoint-or-collector) for OpenTelemetry documentation. The environment variable method is documented at [OTLP Exporter Configuration](https://opentelemetry.io/docs/concepts/sdk-configuration/otlp-exporter-configuration/). |
 
 
-## Cache configuration
-
-
-
-
-During disconnected periods, the edge pipeline will write collected data as files in the persistent volume.
-
-| Setting | Description |
-|:---|:---|
-| Expiration | Defines the amount of time the data can remain in the cache before it's discarded. |
-| Persistent volume limit | Memory limit for the cache. When the limit is reached, data is removed according to the data sync type. |
-
-
 ## Next steps
 
 - [Read more about Azure Monitor pipeline](./pipeline-overview.md).
