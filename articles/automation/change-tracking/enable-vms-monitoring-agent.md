@@ -76,12 +76,12 @@ Follow these steps to associate the data collection rule to the Arc-enabled VMs:
       
    :::image type="content" source="media/enable-vms-monitoring-agent/monitor-menu-data-collection-rules.png" alt-text="Screenshot showing the menu option to access data collection rules from Azure Monitor." lightbox="media/enable-vms-monitoring-agent/monitor-menu-data-collection-rules.png":::
 
-1. Select the data collection rule from the listing page.
+1. Select the data collection rule that you have created in Step 1 from the listing page.
 1. In the data collection rule page, under **Configurations**, select **Resources** and then select **Add**.
     
    :::image type="content" source="media/enable-vms-monitoring-agent/select-resources.png" alt-text="Screenshot showing the menu option to select resources from the data collection rule page." lightbox="media/enable-vms-monitoring-agent/select-resources.png":::
     
-1. In the **Select a scope**, from **Resource types**, select *Machines-Azure Arc* that is connected to the subscription and then select **Apply** to associate the *ctdcr* to the Arc-enabled machine and it will also install the Azure Monitoring Agent extension.
+1. In the **Select a scope**, from **Resource types**, select *Machines-Azure Arc* that is connected to the subscription and then select **Apply** to associate the *ctdcr* created in Step 1 to the Arc-enabled machine and it will also install the Azure Monitoring Agent extension.
     
    :::image type="content" source="media/enable-vms-monitoring-agent/scope-select-arc-machines.png" alt-text="Screenshot showing the selection of Arc-enabled machines from the scope." lightbox="media/enable-vms-monitoring-agent/scope-select-arc-machines.png":::
     
@@ -96,7 +96,7 @@ Follow these steps to associate the data collection rule to the Arc-enabled VMs:
    **Windows**
 
    ```azurecli
-   az connectedmachine extension create  --name ChangeTracking-Linux  --publisher Microsoft.Azure.ChangeTrackingAndInventory --type-handler-version 2.20  --type ChangeTracking-Windows  --machine-name XYZ --resource-group XYZ-RG  --location X --enable-auto-upgrade
+   az connectedmachine extension create  --name ChangeTracking-windows  --publisher Microsoft.Azure.ChangeTrackingAndInventory --type-handler-version 2.20  --type ChangeTracking-Windows  --machine-name XYZ --resource-group XYZ-RG  --location X --enable-auto-upgrade
    ```   
 --- 
 
