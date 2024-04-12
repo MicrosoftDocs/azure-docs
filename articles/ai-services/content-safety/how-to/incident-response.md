@@ -22,7 +22,7 @@ The incident response API lets you quickly respond to emerging harmful content i
 
 
 > [!IMPORTANT]
-> This new feature is only available in **East US** and **Sweden Central**. 
+> This new feature is only available in the **East US** and **Sweden Central** Azure regions. 
 
 ## Prerequisites
 
