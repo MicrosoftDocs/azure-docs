@@ -533,24 +533,27 @@ Perform the following steps to connect and unlock software encrypted Data Box di
 
    Type the following command.
 
-   ```bash
-   sudo ./DataBoxDiskUnlock /PassKey:'<Your passkey from Azure portal>'
-   ```
+    ```bash
+    sudo ./DataBoxDiskUnlock /PassKey:'<Passkey from Azure portal>' 
+        /SerialNumbers: '22183820683A;221838206839'
+    ```
 
    The sample output is shown below.
 
-   ```output
-   [user@localhost Downloads]$ sudo ./DataBoxDiskUnlock /Passkey:'qwerqwerqwer'
+    :::image type="content" source="/media/data-box-disk-deploy-setup/bitlocker-unlock-linux.png" alt-text="Screenshot of output showing successfully unlocked Data Box disks.":::
+   
+    ```output
+    [user@localhost Downloads]$ sudo ./DataBoxDiskUnlock /Passkey:'qwerqwerqwer'
 
-   START: Mon Aug 13 14:25:49 2018
-   Volumes: /dev/sdbl
-   Passkey: qwerqwerqwer
+    START: Mon Aug 13 14:25:49 2018
+    Volumes: /dev/sdbl
+    Passkey: qwerqwerqwer
 
-   Volumes for data copy :
-   /dev/sdbl: /mnt/DataBoxDisk/mountVoll/
-   END: Mon Aug 13 14:26:02 2018
-   ```
-   The mount point for the volume that you can copy your data to is displayed.
+    Volumes for data copy :
+    /dev/sdbl: /mnt/DataBoxDisk/mountVoll/
+    END: Mon Aug 13 14:26:02 2018
+    ```
+    The mount point for the volume that you can copy your data to is displayed.
 
 1. Repeat unlock steps for any future disk reinserts. Use the `help` command if you need help with the Data Box Disk unlock tool.
 
