@@ -39,11 +39,11 @@ az standby-vm-pool update \
 Update an existing standby pool using [Update-AzStandbyPool](/cli/azure/standby-pool).
 
 ```azurepowershell-interactive
-Update-AzStandbyPool `
+Update-AzStandbyVMPool `
    -ResourceGroup myResourceGroup 
    -Name myStandbyPool `
    -MaxReadyCapcity 20 `
-   -VirtualMachineState "Deallocated" `
+   -VMState "Deallocated" `
 ```
 
 ### [ARM template](#tab/template)
@@ -127,7 +127,7 @@ az standby-vm-pool delete --resource-group myResourceGroup --name myStandbyPool
 Delete an existing standby pool using [Delete-AzStandbyPool]().
 
 ```azurepowershell-interactive
-Delete-AzStandbyPool -ResourceGroup myResourceGroup -Name myStandbyPool 
+Remove-AzStandbyVMPool -ResourceGroup myResourceGroup -Name myStandbyPool -Nowait
 ```
 
 ### [REST](#tab/rest1)

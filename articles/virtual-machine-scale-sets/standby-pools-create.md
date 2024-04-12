@@ -72,12 +72,12 @@ az standby-vm-pool create \
 Create a standby pool and associate it with an existing scale set using [Create-AzStandbyPool](/cli/azure/standby-pool).
 
 ```azurepowershell-interactive
-Create-AzStandbyPool `
+New-AzStandbyVMPool `
    -ResourceGroup myResourceGroup 
    -Name myStandbyPool `
    -MaxReadyCapacity 20 `
-   -VirtualMachineState "Deallocated" `
-   -AttachedScaleSet "/subscriptions/{subscriptionID}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet"
+   -VMState "Deallocated" `
+   -VMSSId "/subscriptions/{subscriptionID}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet"
 ```
 
 ### [ARM template](#tab/template)
