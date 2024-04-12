@@ -24,6 +24,53 @@ You can use multiple frontends (and the associated load balacing rules) to load 
 ## Add Load Balancer frontend 
 In this example, you will add a another frontend to your Load Balancer.
 
+1. Sign in to the [Azure portal](https://portal.azure.com).
+
+2. In the search box at the top of the portal, enter **Load balancer**. Select **Load balancers** in the search results.
+
+3. Select **myLoadBalancer** or your load balancer.
+
+4. In the load balancer page, select **Frontend IP configuration** in **Settings**.
+
+5. Select **+ Add** in **Frontend IP configuration** to add a frontend.
+
+6. Enter or select the following information in **Add frontend IP configuration**.
+If **myLoadBalancer** is a Public Load Balancer:
+    | Setting | Value |
+    | ------- | ----- |
+    | Name | **myFrontend2** |
+    | IP Version | Select **IPv4** or **IPv6**. |
+    | IP type | Select **IP address** or **IP prefix**. |
+    | Public IP address | Select an existing Public IP address or create a new one. |
+
+If **myLoadBalancer** is in Internal Load Balancer:
+    | Setting | Value |
+    | ------- | ----- |
+    | Name | **myFrontend2** |
+    | IP Version | Select **IPv4** or **IPv6**. |
+    | Subnet | Select an existing subnet. |
+    | Availability zone | Select *zone-redundant* for resilient applications. You can also select a specific zone.
+
+7. Select **Save**.
+
+
+### Remove a frontend
+
+In this example, you'll remove a frontend IP configuration.
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+
+2. In the search box at the top of the portal, enter **Load balancer**. Select **Load balancers** in the search results.
+
+3. Select **myLoadBalancer** or your load balancer.
+
+4. In the load balancer page, select **Load balancing rules** in **Settings**.
+
+5. Select the three dots next to the rule you want to remove.
+
+6. Select **Delete**.
+
+    :::image type="content" source="./media/manage-rules-how-to/remove-load-balancing-rule.png" alt-text="Screenshot of removing a load-balancing rule." border="true":::
 
 
 ## Limitations
