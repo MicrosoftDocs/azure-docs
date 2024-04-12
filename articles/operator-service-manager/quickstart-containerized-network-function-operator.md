@@ -33,7 +33,7 @@ $env:ARC_RG="<my rg>"
 To use an environment variable, you would reference it as `$env:ARC_RG`.
 
 ```bash
-export resourceGroup=<replace with resourcegroup name>
+export resourceGroup=operator-rg
 export location=<region>
 export clusterName=<replace with clustername>
 export customlocationId=${clusterName}-custom-location
@@ -42,7 +42,7 @@ export extensionId=${clusterName}-extension
 
 ## Create Resource Group
 
-Create a Resource Group to host your Azure Kubernetes Service (AKS) cluster.
+Create a Resource Group to host your Azure Kubernetes Service (AKS) cluster. This will also be where your Operator resources are created in later guides.
 
 ```azurecli
 az account set --subscription <subscription>
@@ -50,8 +50,6 @@ az group create -n ${resourceGroup} -l ${location}
 ```
 
 ## Provision Azure Kubernetes Service (AKS) cluster
-
-Follow the instructions here [Quickstart: Deploy an Azure Kubernetes Service (AKS) cluster using Azure CLI](../aks/learn/quick-kubernetes-deploy-cli.md) to create the Azure Kubernetes Service (AKS) cluster within the previously created Resource Group.
 
 > [!NOTE]
 > Ensure that `agentCount` is set to 1. Only one node is required at this time.
@@ -175,6 +173,26 @@ In prior steps, you created a Managed Identity labeled identity-for-nginx-sns in
 ### Grant Contributor role over publisher Resource Group to Managed Identity
 
 1. Access the Azure portal and open the Publisher Resource Group created when publishing the Network Function Definition.
+
+1. In the side menu of the Resource Group, select **Access Control (IAM)**.
+
+1. Choose Add **Role Assignment**.
+
+   :::image type="content" source="media/add-role-assignment-publisher-resource-group-containerized.png" alt-text="Screenshot showing the publisher resource group add role assignment.":::
+
+1. Under the **Privileged administrator roles**, category pick _Contributor_ then proceed with **Next**.
+
+   :::image type="content" source="media/privileged-admin-roles-contributor-resource-group.png" alt-text="Screenshot showing the privileged administrator role with contributor selected.":::
+
+1. Select **Managed identity**.
+
+1. Choose **+ Select members** then find and choose the user-assigned managed identity **identity-for-nginx-sns**.
+
+   :::image type="content" source="media/how-to-create-user-assigned-managed-identity-select-members.png" alt-text="Screenshot showing the select managed identities with user assigned managed identity.":::
+
+### Grant Contributor role over Custom Location to Managed Identity
+
+1. Access the Azure portal and open the Operator Resource Group, **operator-rg**.
 
 1. In the side menu of the Resource Group, select **Access Control (IAM)**.
 

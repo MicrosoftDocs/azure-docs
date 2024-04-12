@@ -31,7 +31,7 @@ ms.service: azure-operator-service-manager
     |Setting  |Value  |
     |---------|---------|
     |Subscription     |   Select your subscription.      |
-    |Resource group     |     Select resource group **operator-rg** you created when creating the *Site*.   |
+    |Resource group     |     Select resource group **operator-rg**.   |
     |Name     |  Enter **nginx-sns**.       |
     |Region     |  Select the location you used for your prerequisite resources.       |
     |Site    |  Enter **nginx-site**.       |
