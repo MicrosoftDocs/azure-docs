@@ -36,7 +36,13 @@ tbd env vars?
 
 ## Prepare your training data
 
-To train a custom category, you need example text data that represents the category you want to detect. Ideally, you should have about 50 examples to train a new category.
+To train a custom category, you need example text data that represents the category you want to detect.
+
+1. Collect or write sample data
+    - The quality of your sample data is important for training an effective model. Aim to collect at least 50 positive samples that accurately represent the content you want to identify. These samples should be clear, varied, and directly related to the category definition.
+    - Negative samples are not required, but they can significantly improve the model's ability to distinguish relevant content from irrelevant content. 
+        To improve performance, aim for 50 samples that are not related to the positive case definition. These should be varied but still within the context of the content your model will encounter. Choose negative samples carefully to ensure they don't inadvertently overlap with the positive category. 
+    - Strive for a balance between the number of positive and negative samples. An uneven dataset can bias the model, causing it to favor one type of classification over another, which may lead to a higher rate of false positives or negatives.
 
 1. Use a text editor to format your data in a *.jsonl* file. Here is an example of _.jsonl_ file content. Category examples should set `isPositive` to `true`. Negative examples are optional but can improve performance:
     ```jsonl
@@ -50,13 +56,19 @@ To train a custom category, you need example text data that represents the categ
 1. In your Azure Storage account's page in the Azure portal, go to **Access Control** and select **Add Role Assignment**. Assign the role of **Storage Blob Data Contributor/Owner** to the Managed identity you enabled in the prerequisite steps.
 ![image](https://hackmd.io/_uploads/BJQPW6mgR.png)
 
-
 ## Create and train a custom category
+
+> [!IMPORTANT]
+> **Allow enough time for model training**
+>
+> The end-to-end execution of custom category training can take from around five hours to ten hours. Plan your moderation pipeline accordingly and allocate time for:
+> * Collecting and preparing your sample data
+> * The training process
+> * Model evaluation and adjustments
 
 #### [cURL](#tab/curl)
 
 Replace `<your_api_key>`, `<your_endpoint>`, and other necessary parameters with your own values.
-
 
 ### Create new category version
 
@@ -288,27 +300,3 @@ print(result)
 
 Remember to replace the placeholders with your actual values for the API key, endpoint, and specific content (category name, definition .etc). These examples should help you get started with using the Azure AI Content Safety API to analyze your text and work with customized categories.
 
-## Best practices
-When you use the custom category feature, follow these best practices to ensure the effectiveness and efficiency of your models.
-
-### Allow enough time for model training
- 
-The end-to-end execution of custom category training can take from around five hours to ten hours. Plan your moderation pipeline accordingly and allocate time for:
-* Collecting and preparing your sample data
-* The training process
-* Model evaluation and adjustments
-
-
-### Provide quality sample data
- 
-The quality of your sample data is critical to training an effective model. Aim to provide at least 50 positive samples that accurately represent the content you want to identify. These samples should be clear, varied, and directly related to the category definition.
-
-### Include negative samples if possible
- 
-While negative samples are not required, they can significantly improve the model's ability to distinguish relevant content from irrelevant content. 
-
-To make a significant difference, aim for 50 samples that are not related to the positive case definition. These should be varied but still within the context of the content your model will encounter. Choose negative samples carefully to ensure they don't inadvertently overlap with the positive category. 
-
-### Balance your datasets
- 
-Strive for a balance between the number of positive and negative samples. An uneven dataset can bias the model, causing it to favor one type of classification over another, which may lead to a higher rate of false positives or negatives.
