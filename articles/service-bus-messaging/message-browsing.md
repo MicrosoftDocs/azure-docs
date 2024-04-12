@@ -1,8 +1,9 @@
 ---
 title: Azure Service Bus - Browse or peek messages
 description: Browse and peek Service Bus messages enables an Azure Service Bus client to enumerate all messages in a queue or subscription.
-ms.topic: article
+ms.topic: concept-article
 ms.date: 06/08/2023
+#customer intent: As a developer, I want to know how to browse or peek messages in a queue or a subscription, for diagnostic and debugging purposes. 
 ---
 
 # Browse or peek messages
@@ -15,6 +16,7 @@ The Peek operation on a queue or a subscription returns at most the requested nu
 | Active messages | Yes |
 | Dead-lettered messages | No | 
 | Locked messages | Yes |
+| Deferred messages | Yes | 
 | Expired messages |  Might be (before they're dead-lettered) |
 | Scheduled messages | Yes for queues. No for subscriptions |
 
@@ -29,6 +31,11 @@ An expired message is no longer eligible for regular retrieval by any other mean
 ## Locked messages
 Peek also returns messages that were **locked** and are currently being processed by other receivers. However, because Peek returns a disconnected snapshot, the lock state of a message can't be observed on peeked messages.
 
+## Deferred messages
+Deferred messages remain in the main queue along with all other active messages (unlike dead-letter messages that live in a subqueue), but they can no longer be received using the regular receive operations. Deferred messages can be discovered via [message browsing](message-browsing.md) if an application loses track of them.
+
+To retrieve a deferred message, its owner is responsible for remembering the **sequence number** as it defers it. Any receiver that knows the sequence number of a deferred message can later receive the message by using receive methods that take the sequence number as a parameter. For more information about sequence numbers, see [Message sequencing and timestamps](message-sequencing.md).
+
 ## Peek APIs
 Peek works on queues, subscriptions, and their dead-letter queues. 
 
@@ -41,6 +48,70 @@ You can also pass a SequenceNumber to a peek operation. It's used to determine w
 You can specify the maximum number of messages that you want the peek operation to return. But, there's no way to guarantee a minimum size for the batch. The number of returned messages depends on several factors of which the most impactful is how quickly the network can stream messages to the client. 
 
 Here's an example snippet for peeking all messages with the Python Service Bus SDK. The `sequence_number​` can be used to track the last peeked message and start browsing at the next message.
+
+### [C#](#tab/csharp)
+
+```csharp
+using Azure.Messaging.ServiceBus;
+
+// Create a Service Bus client for your namespace
+ServiceBusClient client = new ServiceBusClient("NAMESPACECONNECTIONSTRING");
+
+// Create Service Bus receiver for your queue in the namespace
+ServiceBusReceiver receiver = client.CreateReceiver("QUEUENAME");
+
+// Peek operation with max count set to 5
+var peekedMessages = await receiver.PeekMessagesAsync(maxMessages: 5);
+
+// Keep receiving while there are messages in the queue
+while (peekedMessages.Count > 0)
+{
+    int counter = 0; // To get the sequence number of the last peeked message
+    int countPeekedMessages = peekedMessages.Count;
+
+    if (countPeekedMessages > 0)
+    { 
+        // For each peeked message, print the message body
+        foreach (ServiceBusReceivedMessage msg in peekedMessages)
+        {
+            Console.WriteLine(msg.Body);
+            counter++;
+        }
+        Console.WriteLine("Peek round complete");
+        Console.WriteLine("");
+    }
+
+    // Start receiving from the message after the last one
+    var fromSeqNum = peekedMessages[counter-1].SequenceNumber + 1;
+    peekedMessages = await receiver.PeekMessagesAsync(maxMessages: 5, fromSequenceNumber: fromSeqNum);
+}
+```
+
+The following sample output is from peeking a queue with 13 messages in it. 
+
+```bash
+Message 1
+Message 2
+Message 3
+Message 4
+Message 5
+Peek round complete
+
+Message 6
+Message 7
+Message 8
+Message 9
+Message 10
+Peek round complete
+
+Message 11
+Message 12
+Message 13
+Peek round complete
+```
+
+
+### [Python](#tab/python)
 
 ```python
 import os
@@ -66,7 +137,9 @@ with servicebus_client:
 print("Receive is done.")
 ```
 
-## Next steps
+---
+
+## Related content
 Try the samples in the language of your choice to explore Azure Service Bus features. 
 
 - [Azure Service Bus client library samples for .NET (latest)](/samples/azure/azure-sdk-for-net/azuremessagingservicebus-samples/) - - **Sending and receiving messages** sample.

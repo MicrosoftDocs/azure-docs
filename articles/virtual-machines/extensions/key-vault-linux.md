@@ -7,7 +7,7 @@ ms.service: virtual-machines
 ms.subservice: extensions
 ms.collection: linux
 ms.topic: article
-ms.date: 12/02/2019
+ms.date: 02/20/2024
 ms.author: mbaldwin
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, linux-related-content
 ---
@@ -179,7 +179,8 @@ To turn on extension dependency, set the following:
     ...
 }
 ```
-> [Note] Using this feature is not compatible with an ARM template that creates a system assigned identity and updates a Key Vault access policy with that identity. Doing so will result in a deadlock as the vault access policy cannot be updated until all extensions have started. You should instead use a *single user assigned MSI identity* and pre-ACL your vaults with that identity before deploying.
+> [!NOTE]
+> Using this feature is not compatible with an ARM template that creates a system assigned identity and updates a Key Vault access policy with that identity. Doing so will result in a deadlock as the vault access policy cannot be updated until all extensions have started. You should instead use a *single user assigned MSI identity* and pre-ACL your vaults with that identity before deploying.
 
 ## Azure PowerShell deployment
 > [!WARNING]

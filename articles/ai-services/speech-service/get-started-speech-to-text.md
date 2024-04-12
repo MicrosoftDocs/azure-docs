@@ -8,8 +8,6 @@ ms.service: azure-ai-speech
 ms.topic: quickstart
 ms.date: 01/30/2024
 ms.author: eur
-ms.devlang: cpp
-# ms.devlang: cpp, csharp, golang, java, javascript, objective-c, python
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp, mode-other, devx-track-extended-java, devx-track-go
 zone_pivot_groups: programming-languages-speech-services
 keywords: speech to text, speech to text software

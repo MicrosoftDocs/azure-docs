@@ -25,6 +25,8 @@ In Azure Front Door Standard/Premium tier, you can configure URL redirect using 
 
 ::: zone pivot="front-door-classic"
 
+[!INCLUDE [Azure Front Door (classic) retirement notice](../../includes/front-door-classic-retirement.md)]
+
 :::image type="content" source="./media/front-door-url-redirect/front-door-url-redirect.png" alt-text="Azure Front Door URL Redirect":::
 
 ::: zone-end

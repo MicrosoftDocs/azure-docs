@@ -7,7 +7,7 @@ ms.author: malev
 ms.service: azure-app-configuration
 ms.custom: devx-track-csharp, fasttrack-edit, subject-rbac-steps, devdivchpfy22
 ms.topic: conceptual
-ms.date: 02/06/2024
+ms.date: 02/20/2024
 zone_pivot_groups: appconfig-provider
 ---
 # Use managed identities to access App Configuration
@@ -45,14 +45,16 @@ To complete this tutorial, you must have:
 
 :::zone target="docs" pivot="framework-dotnet"
 
-* [.NET SDK](https://dotnet.microsoft.com/download).
-* [Azure Cloud Shell configured](../cloud-shell/quickstart.md).
+* An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
+* An Azure App Configuration store. [Create a store](./quickstart-azure-app-configuration-create.md).
+* [.NET SDK 6.0 or later](https://dotnet.microsoft.com/download).
 
 :::zone-end
 
 :::zone target="docs" pivot="framework-spring"
 
-* Azure subscription - [create one for free](https://azure.microsoft.com/free/)
+* An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
+* An Azure App Configuration store. [Create a store](./quickstart-azure-app-configuration-create.md).
 * A supported [Java Development Kit (JDK)](/java/azure/jdk) with version 11.
 * [Apache Maven](https://maven.apache.org/download.cgi) version 3.0 or above.
 
@@ -78,7 +80,7 @@ To set up a managed identity in the portal, you first create an application and 
 
 The following steps describe how to assign the App Configuration Data Reader role to App Service. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
 
-1. In the [Azure portal](https://portal.azure.com), select the App Configuration store that you created in the [quickstart](../azure-app-configuration/quickstart-azure-functions-csharp.md).
+1. In the [Azure portal](https://portal.azure.com), select your App Configuration store.
 
 1. Select **Access control (IAM)**.
 
@@ -130,8 +132,6 @@ The following steps describe how to assign the App Configuration Data Reader rol
 
 1. To access values stored in App Configuration, update the `Builder` configuration to use the `AddAzureAppConfiguration()` method.
 
-    ### [.NET 6.0+](#tab/core6x)
-
     ```csharp
     var builder = WebApplication.CreateBuilder(args);
 
@@ -140,23 +140,6 @@ The following steps describe how to assign the App Configuration Data Reader rol
             new Uri(builder.Configuration["AppConfig:Endpoint"]),
             new ManagedIdentityCredential()));
     ```
-
-    ### [.NET Core 3.x](#tab/core3x)
-
-    ```csharp
-    public static IHostBuilder CreateHostBuilder(string[] args) =>
-        Host.CreateDefaultBuilder(args)
-            .ConfigureWebHostDefaults(webBuilder =>
-                webBuilder.ConfigureAppConfiguration((hostingContext, config) =>
-                {
-                    var settings = config.Build();
-                    config.AddAzureAppConfiguration(options =>
-                        options.Connect(new Uri(settings["AppConfig:Endpoint"]), new ManagedIdentityCredential()));
-                })
-                .UseStartup<Startup>());
-    ```
-
-    ---
 
     > [!NOTE]
     > If you want to use a **user-assigned managed identity**, be sure to specify the `clientId` when creating the [ManagedIdentityCredential](/dotnet/api/azure.identity.managedidentitycredential).

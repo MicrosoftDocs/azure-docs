@@ -5,6 +5,7 @@ author: cwatson-cat
 ms.topic: how-to
 ms.date: 02/23/2023
 ms.service: microsoft-sentinel
+ms.custom: linux-related-content
 ms.author: cwatson
 ---
 

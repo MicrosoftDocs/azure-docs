@@ -13,7 +13,7 @@ This article contains the command line parameters and syntax you can use with th
 
 ## Prerequisites
 
-Before you can follow the instructions in this article, you need:
+To use the MSIXMGR tool, you need:
 
 - [Download the MSIXMGR tool](https://aka.ms/msixmgr).
 - Get an MSIX-packaged application (`.msix` file).

@@ -7,7 +7,7 @@ ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 01/15/2024
+ms.date: 4/5/2024
 ms.reviewer: eur
 ms.author: eur
 author: eric-urban
@@ -25,7 +25,7 @@ You must have:
 - An Azure AI project
 - An Azure AI Search resource
 
-## Create an index
+## Create an index from the Indexes tab
 
 1. Sign in to [Azure AI Studio](https://ai.azure.com).
 1. Go to your project or [create a new project](../how-to/create-projects.md) in Azure AI Studio.
@@ -34,7 +34,7 @@ You must have:
     :::image type="content" source="../media/index-retrieve/project-left-menu.png" alt-text="Screenshot of Project Left Menu." lightbox="../media/index-retrieve/project-left-menu.png":::
 
 1. Select **+ New index**
-1. Choose your **Source data**. You can choose source data from a list of your recent data sources, a storage URL on the cloud or even upload files and folders from the local machine. You can also add a connection to another data source such as Azure Blob Storage.
+1. Choose your **Source data**. You can choose source data from a list of your recent data sources, a storage URL on the cloud, or upload files and folders from the local machine. You can also add a connection to another data source such as Azure Blob Storage.
 
     :::image type="content" source="../media/index-retrieve/select-source-data.png" alt-text="Screenshot of select source data." lightbox="../media/index-retrieve/select-source-data.png":::
 
@@ -51,16 +51,26 @@ You must have:
 
 1. Select **Next** after choosing index storage
 1. Configure your **Search Settings**
-    1. The search type defaults to **Hybrid + Semantic**, which is a combination of keyword search, vector search and semantic search to give the best possible search results.
-    1. For the hybrid option to work, you need an embedding model. Choose the Azure OpenAI resource, which has the embedding model
+    1. The ***Vector settings*** defaults to true for Add vector search to this search resource. As noted, this enables Hybrid and Hybrid + Semantic search options. Disabling this limits vector search options to Keyword and Semantic.
+    1. For the hybrid option to work, you need an embedding model. Choose an embedding model from the dropdown.
     1. Select the acknowledgment to deploy an embedding model if it doesn't already exist in your resource
-    
-    :::image type="content" source="../media/index-retrieve/search-settings.png" alt-text="Screenshot of configure search settings." lightbox="../media/index-retrieve/search-settings.png":::
 
-1. Use the prefilled name or type your own name for New Vector index name
+    :::image type="content" source="../media/index-retrieve/search-settings.png" alt-text="Screenshot of configure search settings." lightbox="../media/index-retrieve/search-settings.png":::
+    
+    If a non-Azure OpenAI model isn't appearing in the dropdown follow these steps:
+    1. Navigate to the Project settings in [Azure AI Studio](https://ai.azure.com).
+    1. Navigate to connections section in the settings tab and select New connection.
+    1. Select **Serverless Model**.
+    1. Type in the name of your embedding model deployment and select Add connection. If the model doesn't appear in the dropdown, select the **Enter manually** option.
+    1. Enter the deployment API endpoint, model name, and API key in the corresponding fields. Then add connection.
+    1. The embedding model should now appear in the dropdown.
+    
+    :::image type="content" source="../media/index-retrieve/serverless-connection.png" alt-text="Screenshot of connect a serverless model." lightbox="../media/index-retrieve/serverless-connection.png":::
+
 1. Select **Next** after configuring search settings
 1. In the **Index settings**
     1. Enter a name for your index or use the autopopulated name
+    1. Schedule updates. You can choose to update the index hourly or daily.
     1. Choose the compute where you want to run the jobs to create the index. You can
         - Auto select to allow Azure AI to choose an appropriate VM size that is available
         - Choose a VM size from a list of recommended options
@@ -70,54 +80,42 @@ You must have:
 
 1. Select **Next** after configuring index settings
 1. Review the details you entered and select **Create**
-    
-    > [!NOTE]
-    > If you see a **DeploymentNotFound** error, you need to assign more permissions. See [mitigate DeploymentNotFound error](#mitigate-deploymentnotfound-error) for more details.
-
 1. You're taken to the index details page where you can see the status of your index creation.
 
+## Create an index from the Playground
+1. Open your AI Studio project.
+1. Navigate to the Playground tab.
+1. The Select available project index is displayed for existing indexes in the project. If an existing index isn't being used, continue to the next steps.
+1. Select the Add your data dropdown.
+    
+    :::image type="content" source="../media/index-retrieve/add-data-dropdown.png" alt-text="Screenshot of the playground add your data dropdown." lightbox="../media/index-retrieve/add-data-dropdown.png":::
 
-### Mitigate DeploymentNotFound error
+1. If a new index is being created, select the ***Add your data*** option. Then follow the steps from ***Create an index from the Indexes tab*** to navigate through the wizard to create an index.
+    1. If there's an external index that is being used, select the ***Connect external index*** option.
+    1. In the **Index Source**
+        1. Select your data source
+        1. Select your AI Search Service
+        1. Select the index to be used.
 
-When you try to create a vector index, you might see the following error at the **Review + Finish** step:
-
-**Failed to create vector index. DeploymentNotFound: A valid deployment for the model=text-embedding-ada-002 was not found in the workspace connection=Default_AzureOpenAI provided.**
-
-This can happen if you are trying to create an index using an **Owner**, **Contributor**, or **Azure AI Developer** role at the project level. To mitigate this error, you might need to assign more permissions using either of the following methods. 
-
-> [!NOTE]
-> You need to be assigned the **Owner** role of the resource group or higher scope (like Subscription) to perform the operation in the next steps. This is because only the Owner role can assign roles to others. See details [here](/azure/role-based-access-control/built-in-roles).
-
-#### Method 1: Assign more permissions to the user on the Azure AI hub resource
-
-If the Azure AI hub resource the project uses was created through Azure AI Studio:
-1. Sign in to [Azure AI Studio](https://aka.ms/azureaistudio) and select your project via **Build** > **Projects**. 
-1. Select **Settings** from the collapsible left menu.
-1. From the **Resource Configuration** section, select the link for your resource group name that takes you to the Azure portal.
-1. In the Azure portal under **Overview** > **Resources** select the Azure AI service type. It's named similar to "YourAzureAIResourceName-aiservices."
-
-    :::image type="content" source="../media/roles-access/resource-group-azure-ai-service.png" alt-text="Screenshot of Azure AI service in a resource group." lightbox="../media/roles-access/resource-group-azure-ai-service.png":::
-
-1. Select **Access control (IAM)** > **+ Add** to add a role assignment.
-1. Add the **Cognitive Services OpenAI User** role to the user who wants to make an index. `Cognitive Services OpenAI Contributor` and `Cognitive Services Contributor` also work, but they assign more permissions than needed for creating an index in Azure AI Studio.
-
-> [!NOTE]
-> You can also opt to assign more permissions [on the resource group](#method-2-assign-more-permissions-on-the-resource-group). However, that method assigns more permissions than needed to mitigate the **DeploymentNotFound** error.
-
-#### Method 2: Assign more permissions on the resource group
-
-If the Azure AI hub resource the project uses was created through Azure portal:
-1. Sign in to [Azure AI Studio](https://aka.ms/azureaistudio) and select your project via **Build** > **Projects**. 
-1. Select **Settings** from the collapsible left menu.
-1. From the **Resource Configuration** section, select the link for your resource group name that takes you to the Azure portal.
-1. Select **Access control (IAM)** > **+ Add** to add a role assignment.
-1. Add the **Cognitive Services OpenAI User** role to the user who wants to make an index. `Cognitive Services OpenAI Contributor` and `Cognitive Services Contributor` also work, but they assign more permissions than needed for creating an index in Azure AI Studio.
+        :::image type="content" source="../media/index-retrieve/connect-external-index.png" alt-text="Screenshot of the page where you select an index." lightbox="../media/index-retrieve/connect-external-index.png":::
+        
+    1. Select **Next** after configuring search settings.
+    1. In the **Index settings**
+        1. Enter a name for your index or use the autopopulated name
+        1. Schedule updates. You can choose to update the index hourly or daily.
+        1. Choose the compute where you want to run the jobs to create the index. You can
+            - Auto select to allow Azure AI to choose an appropriate VM size that is available
+            - Choose a VM size from a list of recommended options
+            - Choose a VM size from a list of all possible options
+    1. Review the details you entered and select **Create.**
+    1. The index is now ready to be used in the Playground.
 
 
 ## Use an index in prompt flow
 
-1. Open your AI Studio project.
-1. In **Flows**, create a new flow or open an existing flow.
+1. Sign in to [Azure AI Studio](https://ai.azure.com) and select your project from the **Build** page. 
+1. From the collapsible left menu, select **Prompt flow**.
+1. Open an existing prompt flow or select **+ Create** to create a new flow.
 1. On the top menu of the flow designer, select **More tools**, and then select ***Index Lookup***.
 
     :::image type="content" source="../media/index-retrieve/index-lookup-tool.png" alt-text="Screenshot of Vector index Lookup from More Tools." lightbox="../media/index-retrieve/index-lookup-tool.png":::
@@ -125,7 +123,8 @@ If the Azure AI hub resource the project uses was created through Azure portal:
 1. Provide a name for your Index Lookup Tool and select **Add**.
 1. Select the **mlindex_content** value box, and select your index. After completing this step, enter the queries and **query_types** to be performed against the index.
 
-    :::image type="content" source="../media/index-retrieve/configure-index-lookup-tool.png" alt-text="Screenshot of Configure Index Lookup." lightbox="../media/index-retrieve/configure-index-lookup-tool.png":::
+    :::image type="content" source="../media/index-retrieve/configure-index-lookup-tool.png" alt-text="Screenshot of the prompt flow node to configure index lookup." lightbox="../media/index-retrieve/configure-index-lookup-tool.png":::
+
 
 ## Next steps
 

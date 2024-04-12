@@ -198,7 +198,7 @@ You've now deployed a VM with a premium SSD v2.
 
 ## Adjust disk performance
 
-Unlike other managed disks, the performance of Premium SSD v2 disks can be configured independently of its size by using the Azure CLI and PowerShell. Making adjustments to disk performance by using the Azure portal is not currently supported. 
+Unlike other managed disks, the performance of Premium SSD v2 disks can be configured independently of its size by using the Azure CLI and PowerShell. Making adjustments to disk performance by using the Azure portal is not currently supported. You can adjust the performance of a Premium SSD v2 disk four times within a 24 hour period.
 
 For conceptual information on adjusting disk performance, see [Premium SSD v2 performance](disks-types.md#premium-ssd-v2-performance).
 

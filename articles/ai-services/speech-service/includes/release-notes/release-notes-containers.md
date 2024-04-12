@@ -11,6 +11,11 @@ ms.author: eur
 Add support for the latest model versions:
 - Custom speech to text 4.6.0
 - Speech to text 4.6.0
+- Neural text to speech 3.1.0
+
+Upgrade speech to text components to the latest.
+Upgrade all `es` locales models to the latest.
+Increase media transforming buffer for speech to text use cases.
 
 ### 2023-November release
 

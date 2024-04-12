@@ -120,7 +120,8 @@ Restore is subject to the following limitations.
 
 You can: 
 
-- Restore data for a minimum of two days.
+- Restore data from a period of at least two days.
+
 - Restore up to 60 TB.
 - Run up to two restore processes in a workspace concurrently.
 - Run only one active restore on a specific table at a given time. Executing a second restore on a table that already has an active restore will fail. 

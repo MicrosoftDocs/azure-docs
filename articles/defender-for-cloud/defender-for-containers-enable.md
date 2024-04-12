@@ -72,7 +72,7 @@ You can also learn more by watching these videos from the Defender for Cloud in 
 
 ## Simulate security alerts from Microsoft Defender for Containers
 
-A full list of supported alerts is available in the [reference table of all Defender for Cloud security alerts](alerts-reference.md#alerts-k8scluster).
+A full list of supported alerts is available in the [reference table of all Defender for Cloud security alerts](alerts-reference.md#alerts-for-containers---kubernetes-clusters).
 
 1. To simulate a security alert, run the following command from the cluster:
 
@@ -91,7 +91,7 @@ A full list of supported alerts is available in the [reference table of all Defe
     :::image type="content" source="media/defender-for-kubernetes-azure-arc/sample-kubernetes-security-alert.png" alt-text="Sample alert from Microsoft Defender for Kubernetes." lightbox="media/defender-for-kubernetes-azure-arc/sample-kubernetes-security-alert.png":::
 
 ::: zone pivot="defender-for-container-arc,defender-for-container-eks,defender-for-container-gke"
-[!INCLUDE [Remove the agent](./includes/defender-for-containers-remove-extension.md)]
+[!INCLUDE [Remove the sensor](./includes/defender-for-containers-remove-extension.md)]
 ::: zone-end
 
 ::: zone pivot="defender-for-container-aks"
@@ -103,7 +103,7 @@ A full list of supported alerts is available in the [reference table of all Defe
 ::: zone-end
 
 ::: zone pivot="defender-for-container-aks"
-[!INCLUDE [Remove the agent](./includes/defender-for-containers-remove-profile.md)]
+[!INCLUDE [Remove the sensor](./includes/defender-for-containers-remove-profile.md)]
 ::: zone-end
 
 ## Learn more
@@ -118,7 +118,7 @@ You can check out the following blogs:
 
 Now that you enabled Defender for Containers, you can:
 
-- [Scan your ACR images for vulnerabilities](defender-for-containers-vulnerability-assessment-azure.md)
+- [Scan your ACR images for vulnerabilities](agentless-vulnerability-assessment-aws.md)
 - [Scan your AWS images for vulnerabilities with Microsoft Defender Vulnerability Management](agentless-vulnerability-assessment-aws.md)
 - [Scan your GGP images for vulnerabilities with Microsoft Defender Vulnerability Management](agentless-vulnerability-assessment-gcp.md)
 - Check out [common questions](faq-defender-for-containers.yml) about Defender for Containers.

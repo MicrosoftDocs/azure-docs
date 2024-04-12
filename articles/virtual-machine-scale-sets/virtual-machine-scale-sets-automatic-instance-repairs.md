@@ -8,7 +8,7 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: instance-protection
 ms.date: 07/25/2023
 ms.reviewer: mimckitt
-ms.custom: devx-track-azurecli, devx-track-azurepowershell, linux-related-content
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
 
 # Automatic instance repairs for Azure Virtual Machine Scale Sets

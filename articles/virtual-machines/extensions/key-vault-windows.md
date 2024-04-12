@@ -7,7 +7,7 @@ ms.service: virtual-machines
 ms.subservice: extensions
 ms.collection: windows
 ms.topic: article
-ms.date: 04/11/2023
+ms.date: 02/20/2024
 ms.author: mbaldwin 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---

@@ -74,7 +74,7 @@ The experience of using Log Analytics to work with Azure Monitor queries in the 
 
 ## Relationship to Azure Sentinel and Microsoft Defender for Cloud
 
-[Security monitoring](../best-practices-plan.md#security-monitoring) in Azure is performed by [Microsoft Sentinel](../../sentinel/overview.md) and [Microsoft Defender for Cloud](../../defender-for-cloud/defender-for-cloud-introduction.md).
+[Security monitoring](../best-practices-plan.md#security-monitoring-solutions) in Azure is performed by [Microsoft Sentinel](../../sentinel/overview.md) and [Microsoft Defender for Cloud](../../defender-for-cloud/defender-for-cloud-introduction.md).
 
 These services store their data in Azure Monitor Logs so that it can be analyzed with other log data collected by Azure Monitor.
 

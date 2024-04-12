@@ -4,7 +4,7 @@ description: Learn how to set up remote write in Azure Monitor managed service f
 author: EdB-MSFT
 ms.topic: conceptual
 ms.custom: devx-track-azurecli
-ms.date: 11/01/2022
+ms.date: 2/28/2024
 ---
 
 # Send Prometheus data to Azure Monitor by using Microsoft Entra authentication

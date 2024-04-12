@@ -686,11 +686,13 @@ Sets the version of Node.js to use when running your function app on Windows. Yo
 
 ## WEBSITE\_OVERRIDE\_STICKY\_DIAGNOSTICS\_SETTINGS
 
-When performing [a slot swap](functions-deployment-slots.md#swap-slots) on Premium Functions it can fail to swap if the storage account associated with the Function App is network restricted. This is due to a legacy [application logging feature](../app-service/troubleshoot-diagnostic-logs.md#enable-application-logging-windows) that Functions and App Service share. This setting overrides that legacy logging feature and allows the swap to occur. Set to `0` in the production slot and mark it as a Deployment Slot setting (also known as sticky), or add to all slots to make sure that all version settings are also swapped.
+When performing [a slot swap](functions-deployment-slots.md#swap-slots) on a function app running on a Premium plan, the swap can fail when the dedicated storage account used by the app is network restricted. This failure is caused by a legacy [application logging feature](../app-service/troubleshoot-diagnostic-logs.md#enable-application-logging-windows), which is shared by both Functions and App Service. This setting overrides that legacy logging feature and allows the swap to occur.
 
 |Key|Sample value|
 |---|------------|
 |WEBSITE\_OVERRIDE\_STICKY\_DIAGNOSTICS\_SETTINGS|`0`| 
+
+Add `WEBSITE_OVERRIDE_STICKY_DIAGNOSTICS_SETTINGS` with a value of `0` to all slots to make sure that legacy diagnostic settings don't block your swaps. You can also add this setting and value to just the production slot as a [deployment slot (_sticky_) setting](functions-deployment-slots.md#create-a-deployment-setting). 
 
 ## WEBSITE\_OVERRIDE\_STICKY\_EXTENSION\_VERSIONS
 
@@ -702,13 +704,15 @@ By default, the version settings for function apps are specific to each slot. Th
 
 ## WEBSITE\_RUN\_FROM\_PACKAGE
 
-Enables your function app to run from a mounted package file.
+Enables your function app to run from a package file, which can be locally mounted or deployed to an external URL. 
 
 |Key|Sample value|
 |---|------------|
 |WEBSITE\_RUN\_FROM\_PACKAGE|`1`|
 
-Valid values are either a URL that resolves to the location of a deployment package file, or `1`. When set to `1`, the package must be in the `d:\home\data\SitePackages` folder. When you use zip deployment with `WEBSITE_RUN_FROM_PACKAGE` enabled, the package is automatically uploaded to this location. In preview, this setting was named `WEBSITE_RUN_FROM_ZIP`. For more information, see [Run your functions from a package file](run-functions-from-deployment-package.md).
+Valid values are either a URL that resolves to the location of an external deployment package file, or `1`. When set to `1`, the package must be in the `d:\home\data\SitePackages` folder. When you use zip deployment with `WEBSITE_RUN_FROM_PACKAGE` enabled, the package is automatically uploaded to this location. In preview, this setting was named `WEBSITE_RUN_FROM_ZIP`. For more information, see [Run your functions from a package file](run-functions-from-deployment-package.md).
+
+When you deploy from an external package URL, you must also manually sync triggers. For more information, see [Trigger syncing](functions-deployment-technologies.md#trigger-syncing).
 
 ## WEBSITE\_SKIP\_CONTENTSHARE\_VALIDATION
 

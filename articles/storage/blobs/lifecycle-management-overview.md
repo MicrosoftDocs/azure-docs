@@ -1,7 +1,7 @@
 ---
 title: Optimize costs by automatically managing the data lifecycle
-titleSuffix: Azure Storage
-description: Use Azure Storage lifecycle management policies to create automated rules for moving data between hot, cool, cold, and archive tiers.
+titleSuffix: Azure Blob Storage
+description: Use Azure Blob Storage lifecycle management policies to create automated rules for moving data between hot, cool, cold, and archive tiers.
 author: normesta
 
 ms.author: normesta
@@ -14,7 +14,7 @@ ms.custom: references_regions, engagement-fy23
 
 # Optimize costs by automatically managing the data lifecycle
 
-Data sets have unique lifecycles. Early in the lifecycle, people access some data often. But the need for access often drops drastically as the data ages. Some data remains idle in the cloud and is rarely accessed once stored. Some data sets expire days or months after creation, while other data sets are actively read and modified throughout their lifetimes. Azure Storage lifecycle management offers a rule-based policy that you can use to transition blob data to the appropriate access tiers or to expire data at the end of the data lifecycle.
+Data sets have unique lifecycles. Early in the lifecycle, people access some data often. But the need for access often drops drastically as the data ages. Some data remains idle in the cloud and is rarely accessed once stored. Some data sets expire days or months after creation, while other data sets are actively read and modified throughout their lifetimes. Azure Blob Storage lifecycle management offers a rule-based policy that you can use to transition blob data to the appropriate access tiers or to expire data at the end of the data lifecycle.
 
 > [!NOTE]
 > Each last access time update is charged as an "other transaction" at most once every 24 hours per object even if it's accessed 1000s of times in a day. This is separate from read transactions charges.
@@ -22,10 +22,9 @@ Data sets have unique lifecycles. Early in the lifecycle, people access some dat
 With the lifecycle management policy, you can:
 
 - Transition blobs from cool to hot immediately when they're accessed, to optimize for performance.
-- Transition current versions of a blob, previous versions of a blob, or blob snapshots to a cooler storage tier if these objects haven't been accessed or modified for a period of time, to optimize for cost. 
+- Transition current versions of a blob, previous versions of a blob, or blob snapshots to a cooler storage tier if these objects haven't been accessed or modified for a period of time, to optimize for cost.
 - Delete current versions of a blob, previous versions of a blob, or blob snapshots at the end of their lifecycles.
-- Define rules to be run once per day at the storage account level.
-- Apply rules to containers or to a subset of blobs, using name prefixes or [blob index tags](storage-manage-find-blobs.md) as filters.
+- Apply rules to an entire storage account, to select containers, or to a subset of blobs using name prefixes or [blob index tags](storage-manage-find-blobs.md) as filters.
 
 Consider a scenario where data is frequently accessed during the early stages of the lifecycle, but only occasionally after two weeks. Beyond the first month, the data set is rarely accessed. In this scenario, hot storage is best during the early stages. Cool storage is most appropriate for occasional access. Archive storage is the best tier option after the data ages over a month. By moving data to the appropriate storage tier based on its age with lifecycle management policy rules, you can design the least expensive solution for your needs.
 
@@ -130,14 +129,14 @@ The following sample rule filters the account to run the actions on objects that
 
 ### Rule filters
 
-Filters limit rule actions to a subset of blobs within the storage account. If more than one filter is defined, a logical `AND` runs on all filters. You can use a filter to specify which blobs to include. A filter provides no means to specify which blobs to exclude. 
+Filters limit rule actions to a subset of blobs within the storage account. If more than one filter is defined, a logical `AND` runs on all filters. You can use a filter to specify which blobs to include. A filter provides no means to specify which blobs to exclude.
 
 Filters include:
 
 | Filter name | Filter type | Notes | Is Required |
 |-------------|-------------|-------|-------------|
-| blobTypes   | An array of predefined enum values. | The current release supports `blockBlob` and `appendBlob`. Only delete is supported for `appendBlob`, set tier isn't supported. | Yes |
-| prefixMatch | An array of strings for prefixes to be matched. Each rule can define up to 10 case-sensitive prefixes. A prefix string must start with a container name. For example, if you want to match all blobs under `https://myaccount.blob.core.windows.net/sample-container/blob1/...` for a rule, the prefixMatch is `sample-container/blob1`.<br /><br />To match the container or blob name exactly, include the trailing forward slash ('/'), *e.g.*, `sample-container/` or `sample-container/blob1/`. To match the container or blob name pattern, omit the trailing forward slash, *e.g.*, `sample-container` or `sample-container/blob1`. | If you don't define prefixMatch, the rule applies to all blobs within the storage account. Prefix strings don't support wildcard matching. Characters such as `*` and `?` are treated as string literals. | No |
+| blobTypes   | An array of predefined enum values. | The current release supports `blockBlob` and `appendBlob`. Only the Delete action is supported for `appendBlob`; Set Tier isn't supported. | Yes |
+| prefixMatch | An array of strings for prefixes to be matched. Each rule can define up to 10 case-sensitive prefixes. A prefix string must start with a container name. For example, if you want to match all blobs under `https://myaccount.blob.core.windows.net/sample-container/blob1/...`, specify the **prefixMatch** as `sample-container/blob1`. This filter will match all blobs in *sample-container* whose names begin with *blob1*.<br /><br />. | If you don't define **prefixMatch**, the rule applies to all blobs within the storage account. Prefix strings don't support wildcard matching. Characters such as `*` and `?` are treated as string literals. | No |
 | blobIndexMatch | An array of dictionary values consisting of blob index tag key and value conditions to be matched. Each rule can define up to 10 blob index tag condition. For example, if you want to match all blobs with `Project = Contoso` under `https://myaccount.blob.core.windows.net/` for a rule, the blobIndexMatch is `{"name": "Project","op": "==","value": "Contoso"}`. | If you don't define blobIndexMatch, the rule applies to all blobs within the storage account. | No |
 
 To learn more about the blob index feature together with known issues and limitations, see [Manage and find data on Azure Blob Storage with blob index](storage-manage-find-blobs.md).

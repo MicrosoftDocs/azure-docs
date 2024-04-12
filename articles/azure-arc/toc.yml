@@ -4,6 +4,8 @@
   items:
   - name: About Azure Arc
     href: overview.md
+  - name: Choosing the right Azure Arc service
+    href: choose-service.md
 - name: Concepts
   items:
   - name: Custom locations

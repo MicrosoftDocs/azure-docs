@@ -3,12 +3,12 @@ title: How to label your data for custom Text Analytics for health
 titleSuffix: Azure AI services
 description: Learn how to label your data for use with custom Text Analytics for health.
 #services: cognitive-services
-author: aahill
+author: jboback
 manager: nitinme
 ms.service: azure-ai-language
 ms.topic: how-to
 ms.date: 12/19/2023
-ms.author: aahi
+ms.author: jboback
 ms.custom: language-service-custom-ner
 ---
 

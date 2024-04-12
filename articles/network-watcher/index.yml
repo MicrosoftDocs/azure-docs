@@ -9,7 +9,7 @@ metadata:
   ms.topic: landing-page
   author: halkazwini
   ms.author: halkazwini
-  ms.date: 02/15/2024
+  ms.date: 04/03/2024
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
 landingContent:
@@ -81,7 +81,7 @@ landingContent:
       - linkListType: concept
         links:
           - text: NSG flow logs overview
-            url: network-watcher-nsg-flow-logging-overview.md
+            url: nsg-flow-logs-overview.md
           - text: VNet flow logs overview
             url: vnet-flow-logs-overview.md
       - linkListType: tutorial  
@@ -91,9 +91,9 @@ landingContent:
       - linkListType: how-to-guide  
         links:
           - text: Manage NSG flow logs
-            url: nsg-flow-logging.md
+            url: nsg-flow-logs-portal.md
           - text: Manage VNet flow logs
-            url: vnet-flow-logs-powershell.md
+            url: vnet-flow-logs-portal.md
 
   # Card (optional)
   - title: Traffic analytics

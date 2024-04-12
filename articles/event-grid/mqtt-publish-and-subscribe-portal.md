@@ -193,5 +193,6 @@ After a successful installation of Step, you should open a command prompt in you
     :::image type="content" source="./media/mqtt-publish-and-subscribe-portal/mqttx-app-subscribe-message.png" alt-text="Screenshot showing the message received by the subscribing client on MQTTX app." lightbox="./media/mqtt-publish-and-subscribe-portal/mqttx-app-subscribe-message.png":::
 
 ## Next steps
-- See [Route MQTT messages to Event Hubs](mqtt-routing-to-event-hubs-portal.md)
+- [Tutorial: Route MQTT messages to Azure Event Hubs using namespace topics](mqtt-routing-to-event-hubs-portal-namespace-topics.md)
+- [Tutorial: Route MQTT messages to Azure Functions using custom topics](mqtt-routing-to-azure-functions-portal.md)
 - For code samples, go to [this repository.](https://github.com/Azure-Samples/MqttApplicationSamples/tree/main)

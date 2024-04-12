@@ -27,19 +27,20 @@ The following list shows the QPS usage limits for each Azure Maps service by Pri
 | Copyright service | 10 | 10 | 10 |
 | Creator - Alias, TilesetDetails | 10 | Not Available | Not Available |
 | Creator - Conversion, Dataset, Feature State, Features, Map Configuration, Style, Routeset, Wayfinding | 50 | Not Available | Not Available |
-| Data service (Deprecated<sup>1</sup>) | 50 | 50 |  Not Available  |
-| Data registry service | 50 | 50 |  Not Available  |
+| Data registry service | 50 | 50 |  Not Available  |
+| Data service (Deprecated<sup>1</sup>) | 50 | 50 |  Not Available  |
 | Geolocation service | 50 | 50 | 50 |
-| Render service - Traffic tiles and Static maps | 50 | 50 | 50 |
 | Render service - Road tiles | 500 | 500 | 50 |
 | Render service - Satellite tiles | 250 | 250 | Not Available |
+| Render service - Static maps | 50 | 50 | 50 |
+| Render service - Traffic tiles | 50 | 50 | 50 |
 | Render service - Weather tiles | 100 | 100 | 50 |
 | Route service - Batch | 10 | 10 | Not Available |
 | Route service - Non-Batch | 50 | 50 | 50 |
 | Search service - Batch | 10 | 10 | Not Available |
 | Search service - Non-Batch | 500 | 500 | 50 |
 | Search service - Non-Batch Reverse | 250 | 250 | 50 |
-| Spatial service | 50 | 50 |  Not Available  |
+| Spatial service | 50 | 50 |  Not Available  |
 | Timezone service | 50 | 50 | 50 |
 | Traffic service | 50 | 50 | 50 |
 | Weather service | 50 | 50 | 50 |

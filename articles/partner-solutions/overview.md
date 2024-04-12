@@ -4,7 +4,7 @@ description: Introduction to the Azure Native ISV Services.
 author: flang-msft
 
 ms.topic: conceptual
-ms.date: 10/25/2023
+ms.date: 02/14/2024
 ms.author: franlanglois
 ---
 

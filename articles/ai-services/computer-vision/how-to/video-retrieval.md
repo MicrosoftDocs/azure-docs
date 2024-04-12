@@ -338,4 +338,4 @@ Connection: close
 
 ## Next steps
 
-[Multi-modal embeddings concepts](../concept-image-retrieval.md)
+[Multimodal embeddings concepts](../concept-image-retrieval.md)

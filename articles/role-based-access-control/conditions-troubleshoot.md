@@ -1,14 +1,13 @@
 ---
 title: Troubleshoot Azure role assignment conditions - Azure ABAC
 description: Troubleshoot Azure role assignment conditions
-services: active-directory
 author: rolyon
 manager: amycolannino
 ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: troubleshooting
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.date: 11/15/2023
+ms.date: 02/27/2024
 ms.author: rolyon
 ---
 
@@ -28,7 +27,7 @@ Ensure that the security principals don't have multiple role assignments (with o
 
 **Cause 2**
 
-Your role assignment has multiple actions that grant a permission and your condition does not target all the actions. For example, you can create a blob if you have either `/blobs/write` or `/blobs/add/action` data actions. If your role assignment has both data actions and you target only one of them in a condition, the role assignment will grant the permission to create blobs and bypass the condition.
+Your role assignment has multiple actions that grant a permission and your condition doesn't target all the actions. For example, you can create a blob if you have either `/blobs/write` or `/blobs/add/action` data actions. If your role assignment has both data actions and you target only one of them in a condition, the role assignment will grant the permission to create blobs and bypass the condition.
 
 **Solution 2**
 
@@ -58,7 +57,7 @@ Set `conditionVersion` property to "2.0".
 
 **Cause 2**
 
-Your condition is not formatted correctly. 
+Your condition isn't formatted correctly. 
 
 **Solution 2**
 
@@ -68,7 +67,7 @@ Fix any [condition format or syntax](conditions-format.md) issues. Alternatively
 
 ### Symptom - Principal does not appear in Attribute source
 
-When you try to add a role assignment with a condition, **Principal** does not appear in the **Attribute source** list.
+When you try to add a role assignment with a condition, **Principal** doesn't appear in the **Attribute source** list.
 
 ![Screenshot showing Principal in Attribute source list when adding a condition.](./media/conditions-troubleshoot/condition-principal-attribute-source.png)
 
@@ -183,7 +182,7 @@ When you make edits in the code editor and then switch to the visual editor, you
 
 **Cause**
 
-The specified attribute is not available in the current scope, such as using `Version ID` in a storage account with hierarchical namespace enabled.
+The specified attribute isn't available in the current scope, such as using `Version ID` in a storage account with hierarchical namespace enabled.
 
 **Solution**
 
@@ -197,7 +196,7 @@ When you make edits in the code editor and then switch to the visual editor, you
 
 **Cause**
 
-The specified attribute is not recognized, possibly because of a typo.
+The specified attribute isn't recognized, possibly because of a typo.
 
 **Solution**
 
@@ -211,7 +210,7 @@ When you make edits in the code editor and then switch to the visual editor, you
 
 **Cause**
 
-The right side of the expression contains an attribute or value that is not valid.
+The right side of the expression contains an attribute or value that isn't valid.
 
 **Solution**
 
@@ -225,7 +224,7 @@ When you remove all of the actions in the visual editor, you get the following m
 
 **Cause**
 
-There is an existing expression, but no actions have been selected as a target.
+There's an existing expression, but no actions have been selected as a target.
 
 **Solution**
 
@@ -253,7 +252,7 @@ When you attempt to add an expression, you get the following message:
 
 **Cause**
 
-One or more role definition IDs that you attempted to add for the [Role definition ID](conditions-authorization-actions-attributes.md#role-definition-id) attribute was not found or does not have the correct GUID format: `00000000-0000-0000-0000-000000000000`.
+One or more role definition IDs that you attempted to add for the [Role definition ID](conditions-authorization-actions-attributes.md#role-definition-id) attribute wasn't found or doesn't have the correct GUID format: `00000000-0000-0000-0000-000000000000`.
 
 **Solution**
 
@@ -267,7 +266,7 @@ When you attempt to add an expression, you get the following message:
 
 **Cause**
 
-One or more principal IDs that you attempted to add for the [Principal ID](conditions-authorization-actions-attributes.md#principal-id) attribute was not found or does not have the correct GUID format: `00000000-0000-0000-0000-000000000000`.
+One or more principal IDs that you attempted to add for the [Principal ID](conditions-authorization-actions-attributes.md#principal-id) attribute wasn't found or doesn't have the correct GUID format: `00000000-0000-0000-0000-000000000000`.
 
 **Solution**
 
@@ -300,13 +299,13 @@ $condition = "((!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/
 
 **Cause**
 
-If you use PowerShell and copy a condition from a document, it might include special characters that cause the following error. Some editors (such as Microsoft Word) add control characters when formatting text that does not appear.
+If you use PowerShell and copy a condition from a document, it might include special characters that cause the following error. Some editors (such as Microsoft Word) add control characters when formatting text that doesn't appear.
 
 `The given role assignment condition is invalid.`
 
 **Solution**
 
-If you copied a condition from a rich text editor and you are certain the condition is correct, delete all spaces and returns and then add back the relevant spaces. Alternatively, use a plain text editor or a code editor, such as Visual Studio Code.
+If you copied a condition from a rich text editor and you're certain the condition is correct, delete all spaces and returns and then add back the relevant spaces. Alternatively, use a plain text editor or a code editor, such as Visual Studio Code.
 
 ## Error messages in Azure CLI
 
@@ -338,7 +337,7 @@ When you try to add a role assignment with a condition using Azure CLI, you get 
 
 **Cause**
 
-You are likely using an earlier version of Azure CLI that does not support role assignment condition parameters.
+You're likely using an earlier version of Azure CLI that doesn't support role assignment condition parameters.
 
 **Solution**
 

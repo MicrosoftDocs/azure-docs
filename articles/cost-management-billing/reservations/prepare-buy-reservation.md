@@ -8,7 +8,7 @@ ms.subservice: reservations
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 02/14/2024
+ms.date: 02/22/2024
 ms.author: banders
 ---
 
@@ -55,7 +55,7 @@ While Azure applies reservation discounts on your usage, it processes the reserv
 
 You can always update the scope after you buy a reservation. To do so, go to the reservation, select **Configuration**, and rescope the reservation. Rescoping a reservation isn't a commercial transaction. Your reservation term isn't changed. For more information about updating the scope, see [Update the scope after you purchase a reservation](manage-reserved-vm-instance.md#change-the-reservation-scope).
 
-:::image type="content" source="./media/prepare-buy-reservation/rescope-reservation-management-group.png" alt-text="Example showing a reservation scope change" lightbox="./media/prepare-buy-reservation/rescope-reservation-management-group.png" :::
+:::image type="content" source="./media/prepare-buy-reservation/rescope-reservation-management-group.png" alt-text="Screenshot showing a reservation scope change." lightbox="./media/prepare-buy-reservation/rescope-reservation-management-group.png" :::
 
 ## Discounted subscription and offer types
 
@@ -112,7 +112,7 @@ You can view payments that were made using APIs, usage data, and in cost analysi
 
 Cost analysis shows monthly purchases in the default view. Apply the **purchase** filter to **Charge type** and **recurring** for **Frequency** to see all purchases. To view only reservations, apply a filter for **Reservation**.
 
-![Example showing reservation purchase costs in cost analysis](./media/prepare-buy-reservation/cost-analysis.png)
+:::image type="content" border="true" source="./media/prepare-buy-reservation/cost-analysis.png" alt-text="Screenshot showing reservation purchase costs in cost analysis.":::
 
 ### Exchange and refunds
 
@@ -142,7 +142,7 @@ Notifications are sent to the following users:
 - Customers with Microsoft Customer Agreement (Azure Plan)
     - Notifications are sent to the reservation owners and the reservation administrator.
 - Cloud Solution Provider and new commerce partners
-    - Partner Center Action Center emails are sent to partners. For more information about how partners can update their transactional notifications, see [Action Center preferences](/partner-center/action-center-overview#preferences).
+    - Notifications are sent to the primary contact partner identified by the partner legal information account settings. For more information about how to update the primary contact email address for partner account settings, see [Verify or update your company profile information](/partner-center/update-your-partner-profile#update-your-legal-business-profile).
 - Individual subscription customers with pay-as-you-go rates
     - Emails are sent to users who are set up as account administrators, reservation owners, and the reservation administrator.
 

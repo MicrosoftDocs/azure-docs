@@ -3,8 +3,9 @@ title: Share an Azure managed disk across VMs
 description: Learn about sharing Azure managed disks across multiple Linux VMs.
 author: roygara
 ms.service: azure-disk-storage
+ms.custom: linux-related-content
 ms.topic: conceptual
-ms.date: 07/12/2023
+ms.date: 02/20/2024
 ms.author: rogarana
 ---
 
@@ -68,7 +69,7 @@ Azure shared disks are supported on:
 - [Ubuntu 18.04 and above](https://discourse.ubuntu.com/t/ubuntu-high-availability-corosync-pacemaker-shared-disk-environments/14874)
 - Red Hat Enterprise Linux (RHEL) ([support policy](https://access.redhat.com/articles/3444601))
     - [RHEL 7.9](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/deploying_red_hat_enterprise_linux_7_on_public_cloud_platforms/configuring-rhel-high-availability-on-azure_cloud-content)
-    - [RHEL 8.3 and above](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/deploying_red_hat_enterprise_linux_8_on_public_cloud_platforms/configuring-rhel-high-availability-on-azure_cloud-content)
+    - [RHEL 8.3 and above](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/deploying_rhel_8_on_microsoft_azure/configuring-rhel-high-availability-on-azure_cloud-content-azure)
 - [Oracle Enterprise Linux](https://docs.oracle.com/en/operating-systems/oracle-linux/8/availability/)
 
 Linux clusters can use cluster managers such as [Pacemaker](https://wiki.clusterlabs.org/wiki/Pacemaker). Pacemaker builds on [Corosync](http://corosync.github.io/corosync/), enabling cluster communications for applications deployed in highly available environments. Some common clustered filesystems include [ocfs2](https://oss.oracle.com/projects/ocfs2/) and [gfs2](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/global_file_system_2/ch-overview-gfs2). You can use SCSI Persistent Reservation (SCSI PR) and/or STONITH Block Device (SBD) based clustering models for arbitrating access to the disk. When using SCSI PR, you can manipulate reservations and registrations using utilities such as [fence_scsi](https://manpages.ubuntu.com/manpages/kinetic/man8/fence_scsi.8.html) and [sg_persist](https://linux.die.net/man/8/sg_persist).
@@ -130,16 +131,16 @@ The following formulas explain how the performance attributes can be set, since 
 - DiskIOPSReadWrite (Read/write disk IOPS):
     - Has a baseline minimum IOPS of 100, for disks 100 GiB and smaller.
         - For disks larger than 100 GiB, the baseline minimum IOPS you can set increases by 1 per GiB. So the lowest you can set DiskIOPSReadWrite for a 101 GiB disk is 101 IOPS.
-    - The maximum you can set this attribute is determined by the size of your disk, the formula is 300 * GiB, up to a maximum of 160,000.
+    - The maximum you can set this attribute is determined by the size of your disk, the formula is 300 * GiB, up to a maximum of 400,000.
 - DiskMB/sReadWrite (Read/write disk throughput)
     - The minimum throughput (MB/s) of this attribute is determined by your IOPS, the formula is 4 KiB per second per IOPS. So if you had 101 IOPS, the minimum MB/s you can set is 1.
-    - The maximum you can set this attribute is determined by the amount of IOPS you set, the formula is 256 KiB per second per IOPS, up to a maximum of 4,000 MB/s.
+    - The maximum you can set this attribute is determined by the amount of IOPS you set, the formula is 256 KiB per second per IOPS, up to a maximum of 10,000 MB/s.
 - DiskIOPSReadOnly (Read-only disk IOPS)
     - The minimum baseline IOPS for this attribute is 100. For DiskIOPSReadOnly, the baseline doesn't increase with disk size.
-    - The maximum you can set this attribute is determined by the size of your disk, the formula is 300 * GiB, up to a maximum of 160,000.
+    - The maximum you can set this attribute is determined by the size of your disk, the formula is 300 * GiB, up to a maximum of 400,000.
 - DiskMB/sReadOnly (Read-only disk throughput)
     - The minimum throughput (MB/s) for this attribute is 1. For DiskMB/sReadOnly, the baseline doesn't increase with IOPS.
-    - The maximum you can set this attribute is determined by the amount of IOPS you set, the formula is 256 KiB per second per IOPS, up to a maximum of 4,000 MB/s.
+    - The maximum you can set this attribute is determined by the amount of IOPS you set, the formula is 256 KiB per second per IOPS, up to a maximum of 10,000 MB/s.
 
 #### Examples
 

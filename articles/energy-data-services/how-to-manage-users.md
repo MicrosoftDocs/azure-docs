@@ -11,7 +11,7 @@ ms.custom: template-how-to
 
 # Manage users in Azure Data Manager for Energy
 
-In this article, you learn how to manage users and their memberships in OSDU groups in Azure Data Manager for Energy. [Entitlements APIs](https://community.opengroup.org/osdu/platform/security-and-compliance/entitlements/-/tree/master/) are used to add or remove users to OSDU groups and to check the entitlements when the user tries to access the OSDU services or data. For more information about OSDU groups, see [Entitlement services](concepts-entitlements.md).
+In this article, you learn how to manage users and their memberships in OSDU groups in Azure Data Manager for Energy. [Entitlements APIs](https://community.opengroup.org/osdu/platform/security-and-compliance/entitlements/-/blob/release/0.15/docs/tutorial/Entitlements-Service.md#entitlement-service-api) are used to add or remove users to OSDU groups and to check the entitlements when the user tries to access the OSDU services or data. For more information about OSDU group concepts, see [Entitlements](concepts-entitlements.md).
 
 ## Prerequisites
 

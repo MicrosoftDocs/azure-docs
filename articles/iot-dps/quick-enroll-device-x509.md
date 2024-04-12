@@ -60,7 +60,7 @@ For this article, you need either a root CA certificate file, an intermediate CA
 
 If you already have a root CA file and/or an intermediate CA file, you can continue to [Add and verify your root or intermediate CA certificate](#add-and-verify-your-root-or-intermediate-ca-certificate).
 
-If you don't have a root CA file and/or an intermediate CA file, follow the steps in [Create an X.509 certificate chain](tutorial-custom-hsm-enrollment-group-x509.md?tabs=windows#create-an-x509-certificate-chain) to create them. You can stop after you complete the steps in [Create the intermediate CA certificate](tutorial-custom-hsm-enrollment-group-x509.md?tabs=windows#create-the-intermediate-ca-certificate) as you don't need device certificates to complete the steps in this article. When you're finished, you have two X.509 certificate files: *./certs/azure-iot-test-only.root.ca.cert.pem* and *./certs/azure-iot-test-only.intermediate.cert.pem*.
+If you don't have a root CA file and/or an intermediate CA file, follow the steps in [Create an X.509 certificate chain](tutorial-custom-hsm-enrollment-group-x509.md?tabs=windows#create-an-x509-certificate-chain) to create them. You can stop after you complete the steps in [Create the intermediate CA certificate](tutorial-custom-hsm-enrollment-group-x509.md?tabs=windows#create-an-intermediate-ca-certificate) as you don't need device certificates to complete the steps in this article. When you're finished, you have two X.509 certificate files: *./certs/azure-iot-test-only.root.ca.cert.pem* and *./certs/azure-iot-test-only.intermediate.cert.pem*.
 
 ## Add and verify your root or intermediate CA certificate
 

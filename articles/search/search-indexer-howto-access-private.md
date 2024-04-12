@@ -10,7 +10,7 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 02/13/2024
+ms.date: 04/03/2024
 ---
 
 # Make outbound connections through a shared private link
@@ -28,12 +28,15 @@ Shared private link is a premium feature that's billed by usage. When you set up
 
 Azure AI Search makes outbound calls to other Azure PaaS resources in the following scenarios:
 
-+ Indexer connection requests to supported data sources
-+ Indexer (skillset) connections to Azure Storage for caching enrichments or writing to a knowledge store
++ Indexer or search engine connects to Azure OpenAI for text-to-vector embeddings
++ Indexer connects to supported data sources
++ Indexer (skillset) connections to Azure Storage for caching enrichments, debug session sate, or writing to a knowledge store
 + Encryption key requests to Azure Key Vault
 + Custom skill requests to Azure Functions or similar resource
 
-In service-to-service communications, Azure AI Search typically sends a request over a public internet connection. However, if your data, key vault, or function should be accessed through a [private endpoint](../private-link/private-endpoint-overview.md), you must create a *shared private link*.
+Shared private links only work for Azure-to-Azure connections. If you're connecting to OpenAI or another external model, the connection must be over the public internet.
+
+Shared private links are for operations and data accessed through a [private endpoint](../private-link/private-endpoint-overview.md) for Azure resources or clients that run in an Azure virtual network.
 
 A shared private link is:
 
@@ -45,14 +48,21 @@ Only your search service can use the private links that it creates, and there ca
 
 Once you set up the private link, it's used automatically whenever the search service connects to that PaaS resource. You don't need to modify the connection string or alter the client you're using to issue the requests, although the device used for the connection must connect using an authorized IP in the Azure PaaS resource's firewall.
 
-> [!NOTE]
-> There are two scenarios for using [Azure Private Link](../private-link/private-link-overview.md) and Azure AI Search together. Creating a shared private link is one scenario, relevant when an *outbound* connection to Azure PaaS requires a private connection. The second scenario is [configure search for a private *inbound* connection](service-create-private-endpoint.md) from clients that run in a virtual network. While both scenarios have a dependency on Azure Private Link, they are independent. You can create a shared private link without having to configure your own search service for a private endpoint.
+There are two scenarios for using [Azure Private Link](../private-link/private-link-overview.md) and Azure AI Search together.
+
++ Scenario one: create a shared private link when an *outbound* (indexer) connection to Azure PaaS requires a private connection.
+
++ Scenario two: [configure search for a private *inbound* connection](service-create-private-endpoint.md) from clients that run in a virtual network. 
+
+Scenario one is covered in this article.
+
+While both scenarios have a dependency on Azure Private Link, they are independent. You can create a shared private link without having to configure your own search service for a private endpoint.
 
 ### Limitations
 
 When evaluating shared private links for your scenario, remember these constraints.
 
-+ Several of the resource types used in a shared private link are in preview. If you're connecting to a preview resource (Azure Database for MySQL, Azure Functions, or Azure SQL Managed Instance), use a preview version of the Management REST API to create the shared private link. These versions include `2020-08-01-preview` or `2021-04-01-preview`.
++ Several of the resource types used in a shared private link are in preview. If you're connecting to a preview resource (Azure Database for MySQL, Azure Functions, or Azure SQL Managed Instance), use a preview version of the Management REST API to create the shared private link. These versions include `2020-08-01-preview`, `2021-04-01-preview`, and `2024-03-01-preview`.
 
 + Indexer execution must use the private execution environment that's specific to your search service. Private endpoint connections aren't supported from the multitenant environment. The configuration setting for this requirement is covered in this article.
 
@@ -60,7 +70,8 @@ When evaluating shared private links for your scenario, remember these constrain
 
 + An Azure AI Search at the Basic tier or higher. If you're using [AI enrichment](cognitive-search-concept-intro.md) and skillsets, the tier must be Standard 2 (S2) or higher. See [Service limits](search-limits-quotas-capacity.md#shared-private-link-resource-limits) for details.
 
-+ An Azure PaaS resource from the following list of supported resource types, configured to run in a virtual network.
++ An Azure PaaS resource from the following list of [supported resource types](#supported-resource-types), configured to run in a virtual network.
+
 
 + Permissions on both Azure AI Search and the data source:
 
@@ -116,7 +127,7 @@ When you complete the steps in this section, you have a shared private link that
 
 1. On the **Shared Private Access** page, select **+ Add Shared Private Access**.
 
-1. Select either **Connect to an Azure resource in my directory** or **Connect to an Azure resource by resource ID or alias**.
+1. Select either **Connect to an Azure resource in my directory** or **Connect to an Azure resource by resource ID**.
 
 1. If you select the first option (recommended), the portal helps you pick the appropriate Azure resource and fills in other properties, such as the group ID of the resource and the resource type.
 
@@ -139,7 +150,7 @@ When you complete the steps in this section, you have a shared private link that
 > [!NOTE]
 > Preview API versions, either `2020-08-01-preview` or `2021-04-01-preview`, are required for group IDs that are in preview. The following resource types are in preview: `managedInstance`, `mySqlServer`, `sites`. 
 
-While tools like Azure portal, Azure PowerShell, or the Azure CLI have built-in mechanisms for account sign-in, a REST client like Postman needs to provide a bearer token that allows your request to go through. 
+While tools like Azure portal, Azure PowerShell, or the Azure CLI have built-in mechanisms for account sign-in, a REST client  needs to provide a bearer token that allows your request to go through. 
 
 Because it's easy and quick, this section uses Azure CLI steps for getting a bearer token. For more durable approaches, see [Manage with REST](search-manage-rest.md).
 
@@ -163,22 +174,28 @@ Because it's easy and quick, this section uses Azure CLI steps for getting a bea
    az account get-access-token
    ```
 
-1. Switch to a REST client and set up a [GET Shared Private Link Resource](/rest/api/searchmanagement/shared-private-link-resources/get). This step allows you to review existing shared private links to ensure you're not duplicating a link. There can be only one shared private link for each resource and subresource combination.
+1. Switch to a REST client and set up a [GET Shared Private Link Resource](/rest/api/searchmanagement/shared-private-link-resources/get). Review existing shared private links to ensure you're not duplicating a link. There can be only one shared private link for each resource and subresource combination.
 
     ```http
-    GET https://https://management.azure.com/subscriptions/{{subscriptionId}}/resourceGroups/{{rg-name}}/providers/Microsoft.Search/searchServices/{{service-name}}/sharedPrivateLinkResources?api-version={{api-version}}
+    @subscriptionId = PASTE-HERE
+    @rg-name = PASTE-HERE
+    @service-name = PASTE-HERE
+    @token = PASTE-TOKEN-HERE
+
+    GET https://https://management.azure.com/subscriptions/{{subscriptionId}}/resourceGroups/{{rg-name}}/providers/Microsoft.Search/searchServices/{{service-name}}/sharedPrivateLinkResources?api-version=2023-11-01 HTTP/1.1
+      Content-type: application/json
+      Authorization: Bearer {{token}}
     ```
-
-1. On the **Authorization** page, select **Bearer Token** and then paste in the token.
-
-1. Set the content type to JSON.
 
 1. Send the request. You should get a list of all shared private link resources that exist for your search service. Make sure there's no existing shared private link for the resource and subresource combination.
 
-1. Formulate a PUT request to [Create or Update Shared Private Link](/rest/api/searchmanagement/shared-private-link-resources/create-or-update) for the Azure PaaS resource. Provide a URI and request body similar to the following example:
+1. Formulate a PUT request to [Create or Update Shared Private Link](/rest/api/searchmanagement/shared-private-link-resources/create-or-update) for the Azure PaaS resource. 
 
     ```http
-    PUT https://https://management.azure.com/subscriptions/{{subscriptionId}}/resourceGroups/{{rg-name}}/providers/Microsoft.Search/searchServices/{{service-name}}/sharedPrivateLinkResources/{{shared-private-link-name}}?api-version={{api-version}}
+    PUT https://https://management.azure.com/subscriptions/{{subscriptionId}}/resourceGroups/{{rg-name}}/providers/Microsoft.Search/searchServices/{{service-name}}/sharedPrivateLinkResources/{{shared-private-link-name}}?api-version=2023-11-01 HTTP/1.1
+      Content-type: application/json
+      Authorization: Bearer {{token}}
+
     {
         "properties":
          {
@@ -191,8 +208,6 @@ Because it's easy and quick, this section uses Azure CLI steps for getting a bea
          }
     }
     ```
-
-1. As before, provide the bearer token and make sure the content type is JSON. 
 
    If the Azure PaaS resource is in a different subscription, use the Azure CLI to change the subscription, and then get a bearer token that is valid for that subscription:
 
@@ -266,11 +281,14 @@ A `202 Accepted` response is returned on success. The process of creating an out
 
 ## 2 - Approve the private endpoint connection
 
-Approval of the private endpoint connection is granted on the Azure PaaS side. It might be automatic if the service consumer has Azure role-based access control (RBAC) permissions on the service provider resource. Otherwise, manual approval is required. For details, see [Manage Azure private endpoints](/azure/private-link/manage-private-endpoint).
+Approval of the private endpoint connection is granted on the Azure PaaS side. Explicit approval by the resource owner is required. The following steps cover approval using the Azure portal, but here are some links to approve the connection programmatically from the Azure PaaS side:
 
-This section assumes manual approval and the portal for this step, but you can also use the REST APIs of the Azure PaaS resource. [Private Endpoint Connections (Storage Resource Provider)](/rest/api/storagerp/privateendpointconnections) and [Private Endpoint Connections (Cosmos DB Resource Provider)](/rest/api/cosmos-db-resource-provider/2023-03-15/private-endpoint-connections) are two examples.
++ On Azure Storage, use [Private Endpoint Connections - Put](/rest/api/storagerp/private-endpoint-connections/put)
++ On Azure Cosmos DB, use [Private Endpoint Connections - Create Or Update](/rest/api/cosmos-db-resource-provider/private-endpoint-connections/create-or-update)
 
-1. In the Azure portal, open the **Networking** page of the Azure PaaS resource.[text](https://ms.portal.azure.com/#blade%2FHubsExtension%2FResourceMenuBlade%2Fid%2F%2Fsubscriptions%2Fa5b1ca8b-bab3-4c26-aebe-4cf7ec4791a0%2FresourceGroups%2Ftest-private-endpoint%2Fproviders%2FMicrosoft.Network%2FprivateEndpoints%2Ftest-private-endpoint)
+Using the Azure portal, perform the following steps:
+
+1. Open the **Networking** page of the Azure PaaS resource.[text](https://ms.portal.azure.com/#blade%2FHubsExtension%2FResourceMenuBlade%2Fid%2F%2Fsubscriptions%2Fa5b1ca8b-bab3-4c26-aebe-4cf7ec4791a0%2FresourceGroups%2Ftest-private-endpoint%2Fproviders%2FMicrosoft.Network%2FprivateEndpoints%2Ftest-private-endpoint)
 
 1. Find the section that lists the private endpoint connections. The following example is for a storage account. 
 
@@ -349,10 +367,6 @@ This step shows you how to configure the indexer to run in the private environme
     }
     ```
 
-    Following is an example of the request in Postman.
-
-    ![Screenshot showing the creation of an indexer on the Postman user interface.](media\search-indexer-howto-secure-access\create-indexer.png)
-
 After the indexer is created successfully, it should connect to the Azure resource over the private endpoint connection. You can monitor the status of the indexer by using the [Indexer Status API](/rest/api/searchservice/get-indexer-status).
 
 > [!NOTE]
@@ -362,7 +376,7 @@ After the indexer is created successfully, it should connect to the Azure resour
 
 1. If you haven't done so already, verify that your Azure PaaS resource refuses connections from the public internet. If connections are accepted, review the DNS settings in the **Networking** page of your Azure PaaS resource.
 
-1. Choose a tool that can invoke an outbound request scenario, such as an indexer connection to a private endpoint. An easy choice is using the **Import data** wizard, but you can also try the Postman app and REST APIs for more precision. Assuming that your search service isn't also configured for a private connection, the REST client connection to Search can be over the public internet.
+1. Choose a tool that can invoke an outbound request scenario, such as an indexer connection to a private endpoint. An easy choice is using the **Import data** wizard, but you can also try a REST client and REST APIs for more precision. Assuming that your search service isn't also configured for a private connection, the REST client connection to search can be over the public internet.
 
 1. Set the connection string to the private Azure PaaS resource. The format of the connection string doesn't change for shared private link. The search service invokes the shared private link internally.
 

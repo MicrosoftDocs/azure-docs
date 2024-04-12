@@ -9,12 +9,13 @@ manager: CelesteDG
 ms.service: active-directory
 
 ms.topic: reference
-ms.date: 01/11/2024
+ms.date: 01/17/2024
+
 ms.author: kengaderdus
 ms.subservice: B2C
 
 
-#Customer intent: As a developer using Azure Active Directory B2C, I want to define a self-asserted technical profile with display claims and output claims, so that I can collect and validate user input and return the claims to the next orchestration step.
+#Customer intent: As a developer using Azure Active Directory B2C, I want to define a self-asserted technical profile with display, so that I can collect and validate user input.
 
 ---
 
@@ -67,13 +68,15 @@ In the display claims collection, you can include a reference to a [DisplayContr
 The following example `TechnicalProfile` illustrates the use of display claims with display controls.
 
 * The first display claim makes a reference to the `emailVerificationControl` display control, which collects and verifies the email address.
-* The fifth display claim makes a reference to the `phoneVerificationControl` display control, which collects and verifies a phone number.
+* The second display claim makes a reference to the `captchaChallengeControl` display control, which generates and verifies CAPTCHA code.
+* The sixth display claim makes a reference to the `phoneVerificationControl` display control, which collects and verifies a phone number.
 * The other display claims are ClaimTypes to be collected from the user.
 
 ```xml
 <TechnicalProfile Id="Id">
   <DisplayClaims>
     <DisplayClaim DisplayControlReferenceId="emailVerificationControl" />
+    <DisplayClaim DisplayControlReferenceId="captchaChallengeControl" />
     <DisplayClaim ClaimTypeReferenceId="displayName" Required="true" />
     <DisplayClaim ClaimTypeReferenceId="givenName" Required="true" />
     <DisplayClaim ClaimTypeReferenceId="surName" Required="true" />
@@ -205,7 +208,7 @@ You can also call a REST API technical profile with your business logic, overwri
 | AllowGenerationOfClaimsWithNullValues| No| Allow to generate a claim with null value. For example, in a case user doesn't select a checkbox.|
 | ContentDefinitionReferenceId | Yes | The identifier of the [content definition](contentdefinitions.md) associated with this technical profile. |
 | EnforceEmailVerification | No | For sign-up or profile edit, enforces email verification. Possible values: `true` (default), or `false`. |
-| setting.retryLimit | No | Controls the number of times a user can try to provide the data that is checked against a validation technical profile. For example, a user tries to sign-up with an account that already exists and keeps trying until the limit reached. Check out the [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/technical-profiles/self-asserted#retry-limit) of this metadata.|
+| setting.retryLimit | No | Controls the number of times a user can try to provide the data that is checked against a validation technical profile. For example, a user tries to sign up with an account that already exists and keeps trying until the limit reached. Check out the [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/technical-profiles/self-asserted#retry-limit) of this metadata.|
 | SignUpTarget <sup>1</sup>| No | The sign-up target exchange identifier. When the user clicks the sign-up button, Azure AD B2C executes the specified exchange identifier. |
 | setting.showCancelButton | No | Displays the cancel button. Possible values: `true` (default), or `false`. Check out the [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/technical-profiles/self-asserted#show-the-cancel-button) of this metadata.|
 | setting.showContinueButton | No | Displays the continue button. Possible values: `true` (default), or `false`. Check out the [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/technical-profiles/self-asserted#show-the-continue-button) of this metadata. |
@@ -215,6 +218,7 @@ You can also call a REST API technical profile with your business logic, overwri
 | setting.inputVerificationDelayTimeInMilliseconds <sup>3</sup>| No| Improves user experience, by waiting for the user to stop typing, and then validate the value. Default value 2000 milliseconds. Check out the [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/technical-profiles/self-asserted#input-verification-delay-time-in-milliseconds) of this metadata. |
 | IncludeClaimResolvingInClaimsHandling  | No | For input and output claims, specifies whether [claims resolution](claim-resolver-overview.md) is included in the technical profile. Possible values: `true`, or `false` (default). If you want to use a claims resolver in the technical profile, set this to `true`. |
 |setting.forgotPasswordLinkOverride <sup>4</sup>| No | A password reset claims exchange to be executed. For more information, see [Self-service password reset](add-password-reset-policy.md). |
+| setting.enableCaptchaChallenge | No | Specifies whether CAPTCHA challenge code should be displayed. Possible values: `true` , or `false` (default). For this setting to work, the [CAPTCHA display control]() must be referenced in the [display claims](#display-claims) of the self-asserted technical profile. CAPTCHA feature is in **public preview**.|
 
 Notes:
 
