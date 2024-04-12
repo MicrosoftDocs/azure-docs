@@ -12,9 +12,11 @@ ms.author:
 
 # Java metrics for Java apps in Azure Container Apps
 
+<TODOL Some words about java metric>
+
 Azure Container Apps collect list of Java metrics
 
-|Category|Title  | Description | Metric ID |Unit  |
+| Category| Title  | Description | Metric ID |Unit  |
 |---------|---------|---------|---------|---------|
 | Java | jvm.memory.total.used | Total amount of memory used by heap or non-heap (in bytes) | JvmMemoryTotalUsed | bytes |
 | Java | jvm.memory.total.committed |  |  | bytes |
@@ -29,17 +31,25 @@ Azure Container Apps collect list of Java metrics
 | Java | jvm.gc.duration |  |  | seconds |
 | Java | jvm.thread.count |  |  | n/a |
 
+## Configure java metrics
 
+### Portal
 
-## Disable memory fitting
+<TODO: screenshots here>
 
-Automatic memory fitting is helpful in most scenarios, but it might not be ideal for all situations. You can disable memory fitting manually or automatically.
+### CLI
 
-### Manual disable
+There are two CLI options related to Development Stack and java metrics:
 
-To disable memory fitting when you create your container app, set the environment variable `BP_JVM_FIT` to `false`.
+| Option | Description |
+|---------|---------|
+| --runtime | The runtime of the container app. Supported values are "generic" and "java" |
+| --enable-java-metrics | Boolean indicating whether to enable Java metrics for the app. Only applicable for Java runtime. |
 
-The following examples show you how to use disable memory fitting with the `create`, `up`, and `update` commands.
+> [!NOTE]
+> --enable-java-metrics=<true|false> implicitly means --runtime=java.
+
+Enable Java metrics:
 
 # [create](#tab/create)
 
@@ -48,32 +58,42 @@ az containerapp create \
   --name <CONTAINER_APP_NAME> \
   --resource-group <RESOURCE_GROUP> \
   --image <CONTAINER_IMAGE_LOCATION> \
-  --enable-java-metrics
-```
-
-# [up](#tab/up)
-
-```azurecli-interactive
-az containerapp up \ 
-  --name <CONTAINER_APP_NAME> \
-  --resource-group <RESOURCE_GROUP> \
-  --image <CONTAINER_IMAGE_LOCATION> \
-  --environment <ENVIRONMENT_NAME> \
-  --env-vars BP_JVM_FIT="false" 
+  --enable-java-metrics=true
 ```
 
 # [update](#tab/update)
 
 ```azurecli-interactive
-az containerapp update \
+az containerapp update \ 
   --name <CONTAINER_APP_NAME> \
   --resource-group <RESOURCE_GROUP> \
-  --image <CONTAINER_IMAGE_LOCATION>  \
-  --set-env-vars BP_JVM_FIT="false" 
+  --enable-java-metrics=true
+```
+
+Disable Java metrics:
+
+```azurecli-interactive
+az containerapp up \ 
+  --name <CONTAINER_APP_NAME> \
+  --resource-group <RESOURCE_GROUP> \
+  --runtime=generic
+```
+
+Unset Development stack also disable java metrics
+
+```azurecli-interactive
+az containerapp update \ 
+  --name <CONTAINER_APP_NAME> \
+  --resource-group <RESOURCE_GROUP> \
+  --runtime=generic
 ```
 
 > [!NOTE]
-> The container app restarts when you run the `update` command.
+> The container app restarts when you update java metrics flag.
+
+## View Java Metrics
+
+<TODO: some sample screenshots for java metrics>
 
 ## Next steps
 
