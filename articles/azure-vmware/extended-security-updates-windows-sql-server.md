@@ -1,18 +1,18 @@
 ---
 title: Extended Security Updates (ESU) for SQL Server and Windows Server
-description: Customers get free Extended Security Updates (ESUs) for older Windows Server and SQL Server versions. This article is to raise awareness of ESU support in Azure and AVS and tells them how they can configure it for this software running in Azure VMware Solution virtual machines.
+description: Customers get free Extended Security Updates (ESUs) for older SQL Server and Windows Server versions. This article is to raise awareness of ESU support in Azure and Azure VMware Solution and shows customer how they can configure it for this software running in virtual machines on the platform.
 author: MikeWeiner-Microsoft
 ms.author: michwe
 ms.service: azure-vmware
 ms.topic: how-to  
-ms.date: 03/18/2024
+ms.date: 04/04/2024
 ---
 
 # ESUs for SQL Server and Windows Server in Azure VMware Solution VMs
 
 Extended Security Updates (ESUs) provide a way for customers to continue to run software that has reached its end-of-support lifecycle. ESUs are the mechanism, which allows these older versions of software to continue to be run in a supported manner and still receive security updates and critical patches.
 
-Only in Azure, which includes Azure VMware Solution, are ESUs free of charge for additional years past their end-of-support. For more information on timelines, see [Extended Security updates for SQL Server and Windows Server]. 
+Only in Azures, which includes Azure VMware Solution, are ESUs free of charge for additional years past their end-of-support. For more information on timelines, see [Extended Security updates for SQL Server and Windows Server]. 
 
 The way to configure SQL Server and Windows Server virtual machines for no-cost ESUs in Azure VMware Solution is provided in the following sections. The process is distinct to the Azure VMware Solution private cloud architecture.  
 
@@ -27,27 +27,27 @@ In this section, we show how to configure the virtual machines running SQL Serve
 ### SQL Server
 For SQL Server environments running in a VM in Azure VMware Solution, you can use Extended Security Updates enabled by Azure Arc to configure ESUs and automate patching. 
 
-First you will need to Arc-enable VMware vShpere for Azure VMware Solution and have the Azure Extension for SQL Server is installed onto the VM. The steps are: 
+First you'll need to Arc-enable VMware vShpere for Azure VMware Solution and have the Azure Extension for SQL Server installed onto the VM. The steps are: 
 
-1.	To Arc-enable the VMware vSphere in Azure VMware Solution use this document [Deploy Arc-enabled VMware vSphere for Azure VMware Solution private cloud](https://learn.microsoft.com/azure/azure-vmware/deploy-arc-for-azure-vmware-solution?tabs=windows).  
+1.	To Arc-enable the VMware vSphere in Azure VMware Solution, use this document [Deploy Arc-enabled VMware vSphere for Azure VMware Solution private cloud](https://learn.microsoft.com/azure/azure-vmware/deploy-arc-for-azure-vmware-solution?tabs=windows).  
 
-2.	You will also need to enable guest management for the individual VMs running SQL Server and make sure the Azure Extension for SQL Server is installed. Steps to validate the extension is installed are provided in the section *View ESU subscription status*
+2.	You'll also need to enable guest management for the individual VMs running SQL Server and make sure the Azure Extension for SQL Server is installed. To validate the extension is installed see the section *View ESU subscription status*
 
 > [!WARNING]
-> If you register SQL Server instances in a different manner than documented in this step it will not be integrated into AVS and result in you being billed for ESUs.
+> If you register SQL Server instances in a different manner than documented in the steps provided above the VM will not be registered as part of Azure VMware Solution and result in you being billed for ESUs. 
 
-Next, once VMware vSphere for Azure VMware Solution is Arc-enabled and Azure Extension for SQL Server is installed the VM you can subscribe to Extended Security Updates by updating the SQL Server Configuration on the Arc-enabled VM. To find the SQL Server Configuration from the Azure portal:
+Next, once these steps are complete you can subscribe to Extended Security Updates by updating the SQL Server Configuration on the Azure Arc-enabled VM. To find the SQL Server Configuration from the Azure portal:
 
 - Go to vCenter Server Inventory and Virtual Machines clicking through one of the Arc-enabled VMs. Here you see the Machine-Azure Arc (AVS) page.
-- In the left pane expand operations and you should see the SQL Server Configuration
-- You should then follow the steps discussed in the section: [Subscribe to Extended Security Updates enabled by Azure Arc](https://learn.microsoft.com/sql/sql-server/end-of-support/sql-server-extended-security-updates?#subscribe-to-extended-security-updates-enabled-by-azure-arc) which also provides syntax to configure via Azure Powershell or Azure CLI.
+- In the left pane, expand Operations and you should see the SQL Server Configuration
+- You should then follow the steps discussed in the section: [Subscribe to Extended Security Updates enabled by Azure Arc](https://learn.microsoft.com/sql/sql-server/end-of-support/sql-server-extended-security-updates?#subscribe-to-extended-security-updates-enabled-by-azure-arc), which also provides syntax to configure via Azure PowerShell or Azure CLI.
 
 #### View ESU subscription status
-For machines running SQL Server where **Guest Management** is enabled the Azure Extension for SQL Server should be registered. You can validate the extension is installed through these steps.
+For machines running SQL Server where guest management is enabled the Azure Extension for SQL Server should be registered. You can validate the extension is installed through these steps.
 
 -	From the Azure portal 
-    - Go to **vCenter Server Inventory** and **Virtual Machines** clicking through one of the Arc-enabled VMs. Here you see the *Machine-Azure Arc (AVS)* page. 
-    - Within the **Overview** section of the menu, located in the upper left, there's a **Properties/Extensions** view that lists the WindowsAgent.SqlServer (Microsoft.HybridCompute/machines/extensions) if installed.
+    1. Go to **vCenter Server Inventory** and **Virtual Machines** clicking through one of the Arc-enabled VMs. Here you see the *Machine-Azure Arc (AVS)* page. 
+    2. As part of the **Overview** section of the left pane, there's a **Properties/Extensions** view that will list the WindowsAgent.SqlServer (Microsoft.HybridCompute/machines/extensions) if installed. Alternatively, you can expand **Settings** from the left pane and choose **Extensions** which should display the WindowsAgent.SqlServer name and type if configured.
     
 -	Through Azure Resource Graph (ARG) queries
     - You can use the following query [VM ESU subscription status](https://learn.microsoft.com/sql/sql-server/end-of-support/sql-server-extended-security-updates?#view-esu-subscriptions)  as an example to show you can view eligible SQL Server ESU instances and their ESU subscription status. 
