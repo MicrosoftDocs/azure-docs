@@ -76,13 +76,10 @@ In this example, you remove a frontend from your Load Balancer.
 
 7. Select **Delete**.
 
-
 ## Limitations
 
-* With the Floating IP rule, your application must use the primary IP configuration of the network interface of your virtual machine for outbound flows. If your application binds to the frontend IP address configured on the loopback interface in the guest OS, Azure's outbound won't rewrite the outbound flow, and the flow fails. Review [outbound scenarios](load-balancer-outbound-connections.md).
-* Floating IP isn't currently supported on secondary IP configurations.
-* Public IP addresses have an effect on billing. For more information, see [IP Address pricing](https://azure.microsoft.com/pricing/details/ip-addresses/)
-* Subscription limits apply. For more information, see [Service limits](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits) for details.
+* There is a limit on the number of frontends you can add to a Load Balancer. For more information, review the Load Balancer section of the [Service limits](../azure-resource-manager/management/azure-subscription-service-limits.md##load-balancer) document for details.
+* Public IP addresses have a charge associated with them. For more information, see [IP Address pricing](https://azure.microsoft.com/pricing/details/ip-addresses/)
 
 ## Next steps
 
