@@ -61,11 +61,19 @@ The following limits apply when you use Azure Resource Manager and Azure resourc
 
 [!INCLUDE [entra-service-limits](../../../includes/entra-service-limits-include.md)]
 
-## API Center limits
+## App Service limits
+
+[!INCLUDE [azure-websites-limits](../../../includes/azure-websites-limits.md)]
+
+## Automation limits
+
+[!INCLUDE [automation-limits](../../../includes/azure-automation-service-limits.md)]
+
+## Azure API Center limits
 
 [!INCLUDE [api-center-service-limits](../../api-center/includes/api-center-service-limits.md)]
 
-## API Management limits
+## Azure API Management limits
 
 This section provides information about limits that apply to Azure API Management instances in different [service tiers](../../api-management/api-management-features.md), including the following:
 
@@ -84,15 +92,6 @@ This section provides information about limits that apply to Azure API Managemen
 ### Limits - Developer portal in API Management v2 tiers
 
 [!INCLUDE [api-management-developer-portal-limits-v2](../../../includes/api-management-developer-portal-limits-v2.md)]
-
-
-## App Service limits
-
-[!INCLUDE [azure-websites-limits](../../../includes/azure-websites-limits.md)]
-
-## Automation limits
-
-[!INCLUDE [automation-limits](../../../includes/azure-automation-service-limits.md)]
 
 ## Azure App Configuration
 
