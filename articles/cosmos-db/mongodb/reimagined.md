@@ -17,7 +17,7 @@ You have launched an app. Word of mouth spreads slowly, and a small but loyal us
 
 But, timeouts become increasingly frequent, especially when traffic spikes. The rapid growth and unpredictable demand push your infrastructure to its limits, making scalability a pressing issue. Yet overhauling your data pipeline is out of the question given your resource and time constraints.
 
-You chose MongoDB for its flexibility. Now, when you need to manage cost while satisfying demanding requirements for scalability, availability, and continuity, Azure Cosmos DB for MongoDB comes to the rescue.
+You chose MongoDB for its flexibility. Now, when you face demanding requirements on scalability, availability, continuity, and cost, Azure Cosmos DB for MongoDB comes to the rescue.
 
 You point your app to the connection string of this fully managed database, which offers single-digit millisecond response times, automatic and instant scalability, and guaranteed speed at any scale. Even OpenAI chose the underlying service to [dynamically scale their ChatGPT service](../introduction.md) – one of the fastest-growing consumer apps ever – enabling high reliability and low maintenance. While you continue to use your existing MongoDB skills and your favorite MongoDB drivers, SDKs, and tools, you also reap the following benefits from choosing either of the two available architectures:
 
@@ -27,7 +27,7 @@ You point your app to the connection string of this fully managed database, whic
 
 [A fully managed MongoDB-compatible service](./vcore/introduction.md) with dedicated instances for new and existing MongoDB apps. This architecture offers a familiar vCore architecture for MongoDB users, efficient scaling, and seamless integration with Azure services.
 
-- **Integrated Vector Database: Seamlessly integrate your AI-based applications using the integrated vector database. This integration offers an all-in-one solution, allowing you to store your operational/transactional data and vector data together. Unlike other vector database solutions that involve sending your data between service integrations, this approach saves on cost and complexity.
+- **Integrated Vector Database**: Seamlessly integrate your AI-based applications using the integrated vector database. This integration offers an all-in-one solution, allowing you to store your operational/transactional data and vector data together. Unlike other vector database solutions that involve sending your data between service integrations, this approach saves on cost and complexity.
 
 - **Flat pricing with Low total cost of ownership**: Enjoy a familiar pricing model, based on compute (vCores & RAM) and storage (disks).
 
