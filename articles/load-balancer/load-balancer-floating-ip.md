@@ -23,7 +23,7 @@ Some application scenarios prefer or require the use of the same port by multipl
 | Floating IP enabled | Azure changes the IP address mapping to the Frontend IP address of the Load Balancer | 
 | Floating IP disabled |  Azure exposes the VM instances' IP address |
 
-If you want to reuse the backend port across multiple rules, you must enable Floating IP in the rule definition. Enabling Floating IP allows for more flexibility. Learn more [here](load-balancer-multivip-overview.md).
+If you want to reuse the backend port across multiple rules, you must enable Floating IP in the rule definition. Enabling Floating IP allows for more flexibility. 
 
 In the diagrams, you see how IP address mapping works before and after enabling Floating IP:
 :::image type="content" source="media/load-balancer-floating-ip/load-balancer-floating-ip-before.png" alt-text="This diagram shows network traffic through a load balancer before enabling Floating IP.":::
