@@ -61,21 +61,26 @@ You can authenticate local users connecting from SFTP clients by using a passwor
    | Option | Guidance |
    |----|----|
    | Generate a new key pair | Use this option to create a new public / private key pair. The public key is stored in Azure with the key name that you provide. The private key can be downloaded after the local user has been successfully added. |
-   | Use existing key stored in Azure | Use this option if you want to use a public key that is already stored in Azure.  |
-   | Use existing public key | Use this option if you want to upload a public key that is stored outside of Azure.  |
+   | Use existing key stored in Azure | Use this option if you want to use a public key that is already stored in Azure. To find existing keys in Azure, see [List keys](../../virtual-machines/ssh-keys-portal.md#list-keys). When SFTP clients connect to Azure Blob Storage, those clients need to provide the private key associated with this public key. |
+   | Use existing public key | Use this option if you want to upload a public key that is stored outside of Azure. If you don't have a public key, but would like to generate one outside of Azure, see [Generate keys with ssh-keygen](../../virtual-machines/linux/create-ssh-keys-detailed.md#generate-keys-with-ssh-keygen). |
 
 4. Select **Next** to open the **Container permissions** tab of the configuration pane.
 
 #### [PowerShell](#tab/powershell)
 
+This section shows you how to authenticate by using either an SSH key or a password.
+
 ##### Authenticate by using an SSH key (PowerShell)
 
 1. Choose the type of public key that you want to use.
 
-   | Option | Guidance |
-   |----|----|
-   | Use existing key stored in Azure | Use this option if you want to use a public key that is already stored in Azure. To find existing keys in Azure, see [List keys](../../virtual-machines/ssh-keys-portal.md#list-keys). When SFTP clients connect to Azure Blob Storage, those clients need to provide the private key associated with this public key. |
-   | Use existing public key | Use this option if you want to upload a public key that is stored outside of Azure.  If you don't yet have a public key, then see [Generate keys with ssh-keygen](../../virtual-machines/linux/create-ssh-keys-detailed.md#generate-keys-with-ssh-keygen) for guidance about how to create one. Only OpenSSH formatted public keys are supported. The key that you provide must use this format: `<key type> <key data>`. For example, RSA keys would look similar to this: `ssh-rsa AAAAB3N...`. If your key is in another format then a tool such as `ssh-keygen` can be used to convert it to OpenSSH format.|
+   - Use existing key stored in Azure
+
+     Use this option if you want to use a public key that is already stored in Azure. To find existing keys in Azure, see [List keys](../../virtual-machines/ssh-keys-portal.md#list-keys). When SFTP clients connect to Azure Blob Storage, those clients need to provide the private key associated with this public key.
+
+   - Use existing public key that is stored outside of Azure.
+
+      If you don't yet have a public key, then see [Generate keys with ssh-keygen](../../virtual-machines/linux/create-ssh-keys-detailed.md#generate-keys-with-ssh-keygen) for guidance about how to create one. Only OpenSSH formatted public keys are supported. The key that you provide must use this format: `<key type> <key data>`. For example, RSA keys would look similar to this: `ssh-rsa AAAAB3N...`. If your key is in another format then a tool such as `ssh-keygen` can be used to convert it to OpenSSH format
 
 2. Create a public key object by using the [New-AzStorageLocalUserSshPublicKey](/powershell/module/az.storage/new-azstoragelocalusersshpublickey) command. Set the `-Key` parameter to a string that contains the key type and public key. In the following example, the key type is `ssh-rsa` and the key is `ssh-rsa a2V5...`.
 
@@ -124,14 +129,19 @@ You can authenticate local users connecting from SFTP clients by using a passwor
 
 #### [Azure CLI](#tab/azure-cli)
 
+This section shows you how to authenticate by using either an SSH key or a password.
+
 ##### Authenticate by using an SSH key (Azure CLI)
 
 1. Choose the type of public key that you want to use.
 
-   | Option | Guidance |
-   |----|----|
-   | Use existing key stored in Azure | Use this option if you want to use a public key that is already stored in Azure. To find existing keys in Azure, see [List keys](../../virtual-machines/ssh-keys-portal.md#list-keys). When SFTP clients connect to Azure Blob Storage, those clients need to provide the private key associated with this public key. |
-   | Use existing public key | Use this option if you want to upload a public key that is stored outside of Azure.  If you don't yet have a public key, then see [Generate keys with ssh-keygen](../../virtual-machines/linux/create-ssh-keys-detailed.md#generate-keys-with-ssh-keygen) for guidance about how to create one. Only OpenSSH formatted public keys are supported. The key that you provide must use this format: `<key type> <key data>`. For example, RSA keys would look similar to this: `ssh-rsa AAAAB3N...`. If your key is in another format then a tool such as `ssh-keygen` can be used to convert it to OpenSSH format.|
+   - Use existing key stored in Azure
+
+     Use this option if you want to use a public key that is already stored in Azure. To find existing keys in Azure, see [List keys](../../virtual-machines/ssh-keys-portal.md#list-keys). When SFTP clients connect to Azure Blob Storage, those clients need to provide the private key associated with this public key.
+
+   - Use existing public key that is stored outside of Azure.
+
+      If you don't yet have a public key, then see [Generate keys with ssh-keygen](../../virtual-machines/linux/create-ssh-keys-detailed.md#generate-keys-with-ssh-keygen) for guidance about how to create one. Only OpenSSH formatted public keys are supported. The key that you provide must use this format: `<key type> <key data>`. For example, RSA keys would look similar to this: `ssh-rsa AAAAB3N...`. If your key is in another format then a tool such as `ssh-keygen` can be used to convert it to OpenSSH format
 
 2. To create a local user that is authenticated by using an SSH key, use the [az storage account local-user create](/cli/azure/storage/account/local-user#az-storage-account-local-user-create) command, and then set the `--has-ssh-key` parameter to a string that contains the key type and public key.
 
@@ -169,7 +179,7 @@ You can authenticate local users connecting from SFTP clients by using a passwor
 
 ### Give permission to containers
 
-Choose which containers you want to grant access to and what level of access you want to provide. Those permissions apply to all directories and subdirectories in the container. You can set ACLs only in the Azure portal. See [Container permissions](secure-file-transfer-protocol-support#container-permissions).
+Choose which containers you want to grant access to and what level of access you want to provide. Those permissions apply to all directories and subdirectories in the container. You can set ACLs only in the Azure portal. To learn more about each container permission, see [Container permissions](secure-file-transfer-protocol-support#container-permissions).
 
 If you want to authorize access at the file and directory level, you can enable ACL authorization. This capability is in preview and can be enabled only by using the Azure portal.
 
@@ -183,7 +193,9 @@ If you want to authorize access at the file and directory level, you can enable 
    > [!IMPORTANT]
    > The local user must have at least one container permission for the container it is connecting to otherwise the connection attempt will fail.
 
-2. If you want to authorize access by using the access control lists (acls) associated with files and directories in this container, then select the **Allow ACL authorization** checkbox. You can also add this local user to a group by assigning that user to a group ID. That ID can be any number or number scheme that you want. Grouping users allow you to add and remove users without the need to reapply ACLs to an entire directory structure. Instead, you can just add or remove users from the group. To learn more about using ACLS to authorize SFTP clients, see [ACLs](secure-file-transfer-protocol-support.md#acls).
+2. If you want to authorize access by using the access control lists (acls) associated with files and directories in this container, then select the **Allow ACL authorization** checkbox. To learn more about using ACLS to authorize SFTP clients, see [ACLs](secure-file-transfer-protocol-support.md#acls).
+
+   You can also add this local user to a group by assigning that user to a group ID. That ID can be any number or number scheme that you want. Grouping users allow you to add and remove users without the need to reapply ACLs to an entire directory structure. Instead, you can just add or remove users from the group.
 
    > [!div class="mx-imgBorder"]
    > ![Screenshot of the group ID and ACL authorization checkbox.](./media/secure-file-transfer-protocol-support-authorize-access/container-perm-tab-acl-authorization.png)
