@@ -103,6 +103,9 @@ conceptualContent:
         - url: ./site-manager/overview.md
           itemType: get-started
           text: Get started
+        - url: ./site-manager/quickstart.md
+          itemType: quickstart
+          text: Quickstart
       # footerLink (optional)
       footerLink:
         url: ./site-manager/index.yml

@@ -21,26 +21,9 @@ Azure Arc site manager allows you to manage and monitor your on-premises environ
 > Azure Arc site manager is currently in PREVIEW.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-## Setting an Arc site scope
-
-Arc sites currently have a 1:1 relationship with resource groups and subscriptions. Any given Arc site can only be associated to one resource group or subscription, and vice versa. You can create a hierarchy of sites by creating one site for a subscription and more sites for the resource groups within the subscription.
-
-An example of a hierarchy is shown with **London** and **California** sites within the site **World**.
-
-:::image type="content" source="./media/overview/site-nested-world.jpeg" alt-text="Screenshot that shows Site manager with a nested site.":::
-
 ## Supported resource types
 
-Site manager provides alerts and status details for resources in an Arc site. Currently, site manager supports the following Azure resources:
-
-* Azure Stack HCI
-* Arc-enabled Servers
-* Arc-enabled VMs
-* Arc-enabled Kubernetes
-* Azure Kubernetes Service (AKS) hybrid
-* Assets
-
-The following table describes which details are available through site manager for each resource type:
+Site manager provides alerts and status details for resources in an Arc site. Currently, site manager supports the following Azure resources with the following capabilities:
 
 | Resource | Inventory | Connectivity status | Updates | Alerts |
 | -------- | --------- | ------------------- | ------- | ------ |
@@ -52,6 +35,14 @@ The following table describes which details are available through site manager f
 | Assets | ![Checkmark icon - Inventory status supported for Assets.](./media/overview/yes-icon.svg) |  |  |  |
 
 Site manager only provides health status aggregation for the supported resource types. Site manager doesn't manage resources of other types that exist in the resource group or subscription, but those resources continue to function normally otherwise.
+
+## Setting an Arc site scope
+
+Arc sites currently have a 1:1 relationship with resource groups and subscriptions. Any given Arc site can only be associated to one resource group or subscription, and vice versa. You can create a hierarchy of sites by creating one site for a subscription and more sites for the resource groups within the subscription.
+
+An example of a hierarchy is shown with **London** and **California** sites within the site **World**.
+
+:::image type="content" source="./media/overview/site-nested-world.jpeg" alt-text="Screenshot that shows Site manager with a nested site.":::
 
 ## Supported regions
 

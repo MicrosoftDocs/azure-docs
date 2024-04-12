@@ -22,7 +22,7 @@ The following are frequently asked questions and answers for Azure Arc site mana
 
 **Question:** Can I update a site after it has been created?
 
-**Answer:** Site properties and details can't be updated.
+**Answer:** After creation, site properties and details can't be updated aside from site name and site address. The best way to update the site properties is to delete the site and create a new site.
 
 **Question:** Does site manager have a subscription or fee for usage?
 

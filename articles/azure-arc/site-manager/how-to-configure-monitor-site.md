@@ -43,6 +43,8 @@ To configure monitoring and alerts for sites in Azure Arc, follow the below step
 
    :::image type="content" source="./media/how-to-configure-monitor-site/create-alert-monitor.png" alt-text="Screenshot that shows the Create and Alert rules actions on the Alerts page.":::
 
+By having either existing alert rules or creating a new alert rule, once the rule is in place for resources supported by Azure Arc site monitor, any alerts that are trigger on that resource will be visible on the sites overview tab.
+
 ## Next steps
 
 To learn how to view alerts triggered from Azure Monitor for supported resources within site manager, see [How to view alerts in site manager](./how-to-view-alerts.md).

@@ -33,6 +33,8 @@ In the Azure portal, status is indicated using color.
 * Yellow: **Update In Progress**
 * Green: **Up to Date**
 
+This update status comes from the resources within each site and is provided by Azure Update Manager.
+
 ## View update status
 
 You can view update status for an Arc site as a whole from the main page of Azure Arc site manager (preview).
