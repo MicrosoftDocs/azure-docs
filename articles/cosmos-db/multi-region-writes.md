@@ -32,6 +32,8 @@ One of the primary differences in a multi-region-write account is the presence o
 
 Next, you can read the following articles:
 
+* [Conflict types and resolution policies when using multiple write regions](conflict-resolution-policies.md)
+
 * [Configure multi-region writes in your applications that use Azure Cosmos DB](how-to-multi-master.md)
 
 * [Consistency levels in Azure Cosmos DB](./consistency-levels.md)
