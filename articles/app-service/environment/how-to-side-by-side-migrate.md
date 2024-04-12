@@ -4,7 +4,7 @@ description: Learn how to migrate your App Service Environment v2 to App Service
 author: seligj95
 ms.topic: tutorial
 ms.custom: devx-track-azurecli
-ms.date: 4/9/2024
+ms.date: 4/12/2024
 ms.author: jordanselig
 ---
 # Use the side-by-side migration feature to migrate App Service Environment v2 to App Service Environment v3
@@ -256,7 +256,7 @@ az rest --method get --uri "${ASE_ID}?api-version=2022-03-01" --query properties
 
 ## 11. Redirect customer traffic, validate your App Service Environment v3, and complete migration
 
-This step is your opportunity to test and validate your new App Service Environment v3. Your App Service Environment v2 front ends are still running, but the backing compute is an App Service Environment v3. If you're able to access your apps without issues that means you're ready to complete the migration. If you want to test your App Service Environment v3 front ends, you can do so by using the inbound IP address you got in the previous step.
+This step is your opportunity to test and validate your new App Service Environment v3. Your App Service Environment v2 front ends are still running, but the backing compute is an App Service Environment v3. TODO: If you're able to access your apps without issues that means you're ready to complete the migration. If you want to test your App Service Environment v3 front ends, you can do so by using the inbound IP address you got in the previous step.
 
 Once you confirm your apps are working as expected, you can redirect customer traffic to your new App Service Environment v3 by running the following command. This command also deletes your old environment.
 
