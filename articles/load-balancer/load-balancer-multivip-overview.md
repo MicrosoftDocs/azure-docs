@@ -52,7 +52,7 @@ In this example, you will add a another frontend to your Load Balancer.
 
 7. Select **Save**.
 
-### Remove a frontend
+## Remove a frontend
 
 In this example, you'll remove a frontend IP configuration.
 
@@ -70,7 +70,6 @@ In this example, you'll remove a frontend IP configuration.
 
 7. Select **Delete**.
 
-    :::image type="content" source="./media/manage-rules-how-to/remove-load-balancing-rule.png" alt-text="Screenshot of removing a load-balancing rule." border="true":::
 
 ## Limitations
 
