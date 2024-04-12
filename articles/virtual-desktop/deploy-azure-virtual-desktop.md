@@ -135,7 +135,7 @@ Here's how to create a host pool using the Azure portal.
    > [!TIP]
    > Once you've completed this tab, you can continue to optionally create session hosts, a workspace, register the default desktop application group from this host pool, and enable diagnostics settings by selecting **Next: Virtual Machines**. Alternatively, if you want to create and configure these separately, select **Next: Review + create** and go to step 9.
 
-1. *Optional*: On the **Virtual machines** tab, if you want to add session hosts, complete the following information, depending on if you want to create session hosts on Azure or Azure Stack HCI:<br /><br />
+1. *Optional*: On the **Virtual machines** tab, if you want to add session hosts, complete the following information, depending on whether you want to create session hosts on Azure or Azure Stack HCI:<br /><br />
 
    <details>
        <summary>To add session hosts on <b>Azure</b>, select to expand this section.</summary>

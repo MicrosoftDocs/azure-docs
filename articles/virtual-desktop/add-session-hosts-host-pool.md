@@ -157,7 +157,7 @@ Here's how to create session hosts and register them to a host pool using the Az
 
 1. The **Basics** tab will be greyed out because you're using the existing host pool. Select **Next: Virtual Machines**.
 
-1. On the **Virtual machines** tab, complete the following information, depending on if you want to create session hosts on Azure or Azure Stack HCI:
+1. On the **Virtual machines** tab, complete the following information, depending on whether you want to create session hosts on Azure or Azure Stack HCI:<br /><br />
 
    <details>
        <summary>To add session hosts on <b>Azure</b>, select to expand this section.</summary>
