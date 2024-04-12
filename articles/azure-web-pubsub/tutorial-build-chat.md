@@ -424,6 +424,7 @@ import com.azure.messaging.webpubsub.models.GetClientAccessTokenOptions;
 import com.azure.messaging.webpubsub.models.WebPubSubClientAccessToken;
 import com.azure.messaging.webpubsub.models.WebPubSubContentType;
 import com.google.gson.Gson;
+import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import io.javalin.Javalin;
 
@@ -696,7 +697,12 @@ For now, you need to implement the event handler by your own in Java. The steps 
         } else if ("azure.webpubsub.user.message".equals(event)) {
             String id = ctx.header("ce-userId");
             String message = ctx.body();
-            service.sendToAll(String.format("{\"from\":\"%s\",\"message\":\"%s\"}", id, message), WebPubSubContentType.APPLICATION_JSON);
+            Gson gson = new Gson();
+            JsonObject jsonObject = new JsonObject();
+            jsonObject.addProperty("from", id);
+            jsonObject.addProperty("message", message);
+            String messageToSend = gson.toJson(jsonObject);
+            service.sendToAll(messageToSend, WebPubSubContentType.APPLICATION_JSON);
         }
         ctx.status(200);
     });
@@ -896,9 +902,9 @@ Open `http://localhost:8080/index.html`. You can input your user name and start 
 
 ## Lazy Auth with `connect` event handler
 
-In previous sections, we demonstrate how to use [negotiate](#add-negotiate-endpoint) endpoint to return the Web PubSub service URL and the JWT access token for the clients to connect to Web PubSub service. In some cases, for example, edge devices that have limited resources, clients might prefer direct connect to Web PubSub resources. In such cases, you can configure `connect` event handler to lazy auth the clients, assign user ID to the clients, specify the groups the clients join once they connect, configure the permissions the clients have and WebSocket subprotocol as the WebSocket response to the client, etc. Details please refer to [connect event handler spec](./reference-client-events.md#connect). 
+In previous sections, we demonstrate how to use [negotiate](#add-negotiate-endpoint) endpoint to return the Web PubSub service URL and the JWT access token for the clients to connect to Web PubSub service. In some cases, for example, edge devices that have limited resources, clients might prefer direct connect to Web PubSub resources. In such cases, you can configure `connect` event handler to lazy auth the clients, assign user ID to the clients, specify the groups the clients join once they connect, configure the permissions the clients have and WebSocket subprotocol as the WebSocket response to the client, etc. Details please refer to [connect event handler spec](./reference-cloud-events.md#connect). 
 
-Now let's use `connect` event handler to acheive the similar as what the [negotiate](#negotiate) section does.
+Now let's use `connect` event handler to acheive the similar as what the [negotiate](#add-negotiate-endpoint) section does.
 
 ### Update hub settings
 
@@ -1007,10 +1013,8 @@ app.listen(8080, () => console.log("server started"));
 
 # [Java](#tab/java)
 Now let's add the logic to handle the connect event `azure.webpubsub.sys.connect`:
+
 ```java
-import com.google.gson.Gson;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
 
 // validation: https://learn.microsoft.com/azure/azure-web-pubsub/reference-cloud-events#protection
 app.options("/eventhandler", ctx -> {
@@ -1021,22 +1025,30 @@ app.options("/eventhandler", ctx -> {
 app.post("/eventhandler", ctx -> {
     String event = ctx.header("ce-type");
     if ("azure.webpubsub.sys.connect".equals(event)) {
-        System.out.println("Connecting.");
+        String body = ctx.body();
+        System.out.println("Reading from request body...");
         Gson gson = new Gson();
-        JsonObject requestBody = gson.fromJson(ctx.body(), JsonObject.class); // Parse JSON request body
-        if (requestBody.has("query")) {
-            JsonElement queryElement = requestBody.get("query");
-            if (queryObject.has("id")) {
-                ctx.status(200);
-                String id = queryObject.get("id").getAsString();
-
+        JsonObject requestBody = gson.fromJson(body, JsonObject.class); // Parse JSON request body
+        JsonObject query = requestBody.getAsJsonObject("query");
+        if (query != null) {
+            System.out.println("Reading from request body query:" + query.toString());
+            JsonElement idElement = query.get("id");
+            if (idElement != null) {
+                JsonArray idInQuery = query.get("id").getAsJsonArray();
+                if (idInQuery != null && idInQuery.size() > 0) {
+                    String id = idInQuery.get(0).getAsString();
+                    ctx.contentType("application/json");
+                    Gson response = new Gson();
+                    JsonObject jsonObject = new JsonObject();
+                    jsonObject.addProperty("userId", id);
+                    ctx.result(response.toJson(jsonObject));
+                    return;
+                }
             }
-
-            return;
         } else {
-            ctx.status(401).text("missing user id");
-
+            System.out.println("No query found from request body.");
         }
+        ctx.status(401).result("missing user id");
     } else if ("azure.webpubsub.sys.connected".equals(event)) {
         String id = ctx.header("ce-userId");
         System.out.println(id + " connected.");
@@ -1057,7 +1069,7 @@ Now let's handle the system `connect` event, which should contain the header `ce
 ```python
 @app.route('/eventhandler', methods=['POST', 'OPTIONS'])
 def handle_event():
-    if request.method == 'OPTIONS':
+    if request.method == 'OPTIONS' or request.method == 'GET':
         if request.headers.get('WebHook-Request-Origin'):
             res = Response()
             res.headers['WebHook-Allowed-Origin'] = '*'
@@ -1066,25 +1078,29 @@ def handle_event():
     elif request.method == 'POST':
         user_id = request.headers.get('ce-userid')
         type = request.headers.get('ce-type')
+        print("Received event of type:", type)
+        # Sample connect logic if connect event handler is configured
         if type == 'azure.webpubsub.sys.connect':
-            print(f"{user_id} connected")
-            return '', 204
+            body = request.data.decode('utf-8')
+            print("Reading from connect request body...")
+            query = json.loads(body)['query']
+            print("Reading from request body query:", query)
+            id_element = query.get('id')
+            user_id = id_element[0] if id_element else None
+            if user_id:
+                return {'userId': user_id}, 200
+            return 'missing user id', 401
         elif type == 'azure.webpubsub.sys.connected':
-            print(f"{user_id} connected")
-            return '', 204
+            return user_id + ' connected', 200
         elif type == 'azure.webpubsub.user.message':
-            # default uses JSON
-            service.send_to_all(message={
+            service.send_to_all(content_type="application/json", message={
                 'from': user_id,
                 'message': request.data.decode('UTF-8')
             })
-            # returned message is also received by the client
-            return {
-                'from': "system",
-                'message': "message handled by server"
-            }, 200
+            return Response(status=204, content_type='text/plain')
         else:
             return 'Bad Request', 400
+
 ```
 
 ---
@@ -1101,6 +1117,7 @@ Now let's update the web page to direct connect to Web PubSub service. One thing
     <div id="messages"></div>
     <script>
       (async function () {
+        // sample host: mock.webpubsub.azure.com
         let hostname = "<the host name of your service>";
         let id = prompt('Please input your user name');
         let ws = new WebSocket(`wss://${hostname}/client/hubs/Sample_ChatApp?id=${id}`);
