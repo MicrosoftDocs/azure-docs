@@ -513,13 +513,13 @@ __Keys__ are returned in the `primaryKey` and `secondaryKey` fields. The followi
 export DATA_PLANE_TOKEN=$(az ml online-endpoint get-credentials -n $ENDPOINT_NAME -g $RESOURCE_GROUP -w $WORKSPACE_NAME -o tsv --query primaryKey)
 ```
 
-__Azure Machine Learning tokens__ are returned in the `accessToken` field, and __Microsoft Entra tokens__ are returned in the `token` field:
+__Azure Machine Learning tokens__ and __Microsoft Entra tokens__ are returned in the `accessToken` field:
 
 ```bash
 export DATA_PLANE_TOKEN=$(az ml online-endpoint get-credentials -n $ENDPOINT_NAME -g $RESOURCE_GROUP -w $WORKSPACE_NAME -o tsv --query accessToken)
 ```
 
-Also, the `expiryTimeUtc` and `refreshAfterTimeUtc` fields contain the token expiration and refresh times.
+Also, the `expiryTimeUtc` field contains the token expiration time.
 
 
 > [!NOTE]
@@ -577,20 +577,13 @@ __Keys__ are returned in the `primary_key` and `secondary_key` fields:
 DATA_PLANE_TOKEN = ml_client.online_endpoints.get_keys(name=endpoint_name).primary_key
 ```
 
-__Azure Machine Learning tokens__ are returned in the `accessToken` field:
+__Azure Machine Learning tokens__ and __Microsoft Entra tokens__ are returned in the `accessToken` field:
 
 ```Python
 DATA_PLANE_TOKEN = ml_client.online_endpoints.get_keys(name=endpoint_name).access_token
 ```
 
-__Microsoft Entra tokens__ are returned in the `token` field:
-
-
-```Python
-DATA_PLANE_TOKEN = ml_client.online_endpoints.get_keys(name=endpoint_name).token
-```
-
-Also, the `expiry_time_utc` and `refresh_after_time_utc` fields contain the token expiration and refresh times.
+Also, the `expiry_time_utc` field contains the token expiration time.
 
 For example, to get the `expiry_time_utc`:
 
