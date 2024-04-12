@@ -50,7 +50,7 @@ Review the [Prerequisites for Azure Virtual Desktop](prerequisites.md) for a gen
 
    - If you create VMs on Azure Stack HCI outside of the Azure Virtual Desktop service, such as with an automated pipeline, then add them as session hosts to a host pool, you need to install the [Azure Connected Machine agent](../azure-arc/servers/agent-overview.md) on the virtual machines so they can communicate with [Azure Instance Metadata Service](../virtual-machines/instance-metadata-service.md), which is a [required endpoint for Azure Virtual Desktop](../virtual-desktop/required-fqdn-endpoint.md).
 
-   - A logical network that you created on your Azure Stack HCI cluster. Both DHCP logical networks or static logical networks (automatic IP allocation) are supported. For more information, see [Create logical networks](/azure-stack/hci/manage/create-logical-networks?tabs=azurecli).
+   - A logical network that you created on your Azure Stack HCI cluster. DHCP logical networks or static logical networks with automatic IP allocation are supported. For more information, see [Create logical networks for Azure Stack HCI](/azure-stack/hci/manage/create-logical-networks).
 
 - If you want to use Azure CLI or Azure PowerShell locally, see [Use Azure CLI and Azure PowerShell with Azure Virtual Desktop](cli-powershell.md) to make sure you have the [desktopvirtualization](/cli/azure/desktopvirtualization) Azure CLI extension or the [Az.DesktopVirtualization](/powershell/module/az.desktopvirtualization) PowerShell module installed. Alternatively, use the [Azure Cloud Shell](../cloud-shell/overview.md).
 
@@ -78,7 +78,6 @@ Here's how to generate a registration key using the Azure portal.
 1. Select **Generate new key**, then enter an expiration date and time and select **OK**. The registration key will be created.
 
 1. Select **Download** to download a text file containing the registration key, or copy the registration key to your clipboard to use later. You can also retrieve the registration key later by returning to the host pool overview.
-
 
 # [Azure PowerShell](#tab/powershell)
 
@@ -158,9 +157,10 @@ Here's how to create session hosts and register them to a host pool using the Az
 
 1. The **Basics** tab will be greyed out because you're using the existing host pool. Select **Next: Virtual Machines**.
 
-1. On the **Virtual machines** tab, complete the following information, depending on if you want to create session hosts on Azure or Azure Stack HCI:
+1. On the **Virtual machines** tab, complete the following information, depending on whether you want to create session hosts on Azure or Azure Stack HCI:<br /><br />
 
-   1. To add session hosts on Azure:
+   <details>
+       <summary>To add session hosts on <b>Azure</b>, select to expand this section.</summary>
 
       | Parameter | Value/Description |
       |--|--|
@@ -190,8 +190,10 @@ Here's how to create session hosts and register them to a host pool using the Az
       | Confirm password | Reenter the password. |
       | **Custom configuration** |  |
       | Custom configuration script URL | If you want to run a PowerShell script during deployment you can enter the URL here. |
+   </details>
 
-   1. To add session hosts on Azure Stack HCI:
+   <details>
+       <summary>To add session hosts on <b>Azure Stack HCI</b>, select to expand this section.</summary>
 
       | Parameter | Value/Description |
       |--|--|
@@ -215,6 +217,7 @@ Here's how to create session hosts and register them to a host pool using the Az
       | Username | Enter a name to use as the local administrator account for the new session hosts. |
       | Password | Enter a password for the local administrator account. |
       | Confirm password | Reenter the password. |
+   </details>
 
    Once you've completed this tab, select **Next: Tags**.
 
