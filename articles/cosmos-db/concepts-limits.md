@@ -142,7 +142,7 @@ The following table lists resource limits per subscription or account.
 | Maximum number of databases & containers per account | 500 ² |
 | Maximum throughput supported by an account for metadata operations | 240 RU/s |
 
-¹ Internal and external default limits differ. You can increase these limits by creating an [Azure Support request](create-support-request-quota-increase.md) up to 1,000 max. Cosmos DB reserves the right to delete any empty database accounts i.e. no databases/collections.
+¹ Default limits differ for Microsoft internal customers. You can increase these limits by creating an [Azure Support request](create-support-request-quota-increase.md) up to 1,000 max. Cosmos DB reserves the right to delete any empty database accounts i.e. no databases/collections.
 ² This limit cannot be increased. Total count of both with an account. (1 database and 499 containers, 250 databases and 250 containers, etc.)
 
 ### Request limits
