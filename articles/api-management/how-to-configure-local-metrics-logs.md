@@ -22,7 +22,7 @@ The self-hosted gateway supports [StatsD](https://github.com/statsd/statsd), whi
 
 ### Deploy StatsD and Prometheus to the cluster
 
-Below is a sample YAML configuration for deploying StatsD and Prometheus to the Kubernetes cluster where a self-hosted gateway is deployed. It also creates a [Service](https://kubernetes.io/docs/concepts/services-networking/service/) for each. The self-hosted gateway then publishes metrics to the StatsD Service. We'll access the Prometheus dashboard via its Service.
+The following sample YAML configuration deploys StatsD and Prometheus to the Kubernetes cluster where a self-hosted gateway is deployed. It also creates a [Service](https://kubernetes.io/docs/concepts/services-networking/service/) for each. The self-hosted gateway then publishes metrics to the StatsD Service. We'll access the Prometheus dashboard via its Service.
 
 > [!NOTE]
 > The following example pulls public container images from Docker Hub. We recommend that you set up a pull secret to authenticate using a Docker Hub account instead of making an anonymous pull request. To improve reliability when working with public content, import and manage the images in a private Azure container registry. [Learn more about working with public images.](../container-registry/buffer-gate-public-content.md)
@@ -203,14 +203,14 @@ kubectl logs <pod-name>
 
 If your self-hosted gateway is deployed in Azure Kubernetes Service, you can enable [Azure Monitor for containers](../azure-monitor/containers/container-insights-overview.md) to collect `stdout` and `stderr` from your workloads and view the logs in Log Analytics.
 
-The self-hosted gateway also supports many protocols including `localsyslog`, `rfc5424`, and `journal`. The below table summarizes all the options supported.
+The self-hosted gateway also supports many protocols including `localsyslog`, `rfc5424`, and `journal`. The following table summarizes all the options supported.
 
 | Field  | Default | Description |
 | ------------- | ------------- | ------------- |
 | telemetry.logs.std  | `text` | Enables logging to standard streams. Value can be `none`, `text`, `json` |
 | telemetry.logs.local  | `auto` | Enables local logging. Value can be `none`, `auto`, `localsyslog`, `rfc5424`, `journal`, `json`  |
-| telemetry.logs.local.localsyslog.endpoint  | n/a | Specifies localsyslog endpoint. See [using local syslog logs](#using-local-syslog-logs) for more details.  |
-| telemetry.logs.local.localsyslog.facility  | n/a | Specifies localsyslog [facility code](https://en.wikipedia.org/wiki/Syslog#Facility). Example: `7`
+| telemetry.logs.local.localsyslog.endpoint  | n/a | Specifies local syslog endpoint. For details, see [using local syslog logs](#using-local-syslog-logs).  |
+| telemetry.logs.local.localsyslog.facility  | n/a | Specifies local syslog [facility code](https://en.wikipedia.org/wiki/Syslog#Facility). Example: `7`
 | telemetry.logs.local.rfc5424.endpoint  | n/a | Specifies rfc5424 endpoint.  |
 | telemetry.logs.local.rfc5424.facility  | n/a | Specifies facility code per [rfc5424](https://tools.ietf.org/html/rfc5424). Example: `7`  |
 | telemetry.logs.local.journal.endpoint  | n/a | Specifies journal endpoint.  |
@@ -312,6 +312,6 @@ May 15 05:54:21 aks-agentpool-43853532-vmss000000 apimuser[8]: Timestamp=2023-05
 
 ## Next steps
 
-* To learn more about the [observability capabilities of the Azure API Management gateways](observability.md).
-* To learn more about the self-hosted gateway, see [Azure API Management self-hosted gateway overview](self-hosted-gateway-overview.md)
-* Learn about [configuring and persisting logs in the cloud](how-to-configure-cloud-metrics-logs.md)
+* Learn about the [observability capabilities of the Azure API Management gateways](observability.md).
+* Learn more about the [Azure API Management self-hosted gateway](self-hosted-gateway-overview.md).
+* Learn about [configuring and persisting logs in the cloud](how-to-configure-cloud-metrics-logs.md).
