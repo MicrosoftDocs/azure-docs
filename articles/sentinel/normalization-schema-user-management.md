@@ -35,6 +35,59 @@ Some activities, such as **UserCreated**, **GroupCreated**, **UserModified**, an
 - [PreviousPropertyValue](#previouspropertyvalue) - the previous value of the property.
 - [NewPropertyValue](#newpropertyvalue) - the updated value of the property.
 
+## Parsers
+
+For more information about ASIM parsers, see the [ASIM parsers overview](normalization-parsers-overview.md).
+
+### Unifying parsers
+
+To use parsers that unify all ASIM out-of-the-box parsers, and ensure that your analysis runs across all the configured sources, use the `_Im_UserManagement` filtering parser or the `_ASim_UserManagement` parameter-less parser.
+
+You can also use workspace-deployed `imUserManagement` and `ASimUserManagement` parsers by deploying them from the [Microsoft Sentinel GitHub repository](https://aka.ms/DeployASIM).
+
+For more information, see [built-in ASIM parsers and workspace-deployed parsers](normalization-parsers-overview.md#built-in-asim-parsers-and-workspace-deployed-parsers).
+
+### Out-of-the-box, source-specific parsers
+
+For the list of the UserManagement Event parsers Microsoft Sentinel provides out-of-the-box refer to the [ASIM parsers list](normalization-parsers-list.md#usermanagement-parsers) 
+
+### Add your own normalized parsers
+
+When [developing custom parsers](normalization-develop-parsers.md) for the Network Session information model, name your KQL functions using the following syntax:
+
+- `vimUserManagement<vendor><Product>` for parametrized parsers
+- `ASimUserManagement<vendor><Product>` for regular parsers
+
+Refer to the article [Managing ASIM parsers](normalization-manage-parsers.md) to learn how to add your custom parsers to the network session unifying parsers.
+
+### Filtering parser parameters
+
+The UserManagement event parsers support [filtering parameters](normalization-about-parsers.md#optimizing-parsing-using-parameters). While these parameters are optional, they can improve your query performance.
+
+The following filtering parameters are available:
+
+| Name     | Type      | Description |
+|----------|-----------|-------------|
+| **starttime** | datetime | Filter only UserManagement events that *started* at or after this time. |
+| **endtime** | datetime | Filter only UserManagement events that *started* running at or before this time. |
+| **srcipaddr_has_any_prefix** | dynamic | Filter only UserManagement events for which the [source IP address field](#srcipaddr) prefix is in one of the listed values. Prefixes should end with a `.`, for example: `10.0.`. The length of the list is limited to 10,000 items.|
+| **actorusername_has_any** | dynamic/string | Filter only events in which the [ActorUsername](#actorusername) includes any of the terms provided. |
+| **targetusername_has_any** | dynamic/string | Filter only events in which the [TargetUsername](#targetusername) includes any of the terms provided. |
+| **eventtype_in** | dynamic/string | Filter only events in which the event type, as represented in the [EventType](#eventtype) field is any of the terms provided. |
+
+Some parameter can accept both list of values of type `dynamic` or a single string value. To pass a literal list to parameters that expect a dynamic value, explicitly use a [dynamic literal](/azure/data-explorer/kusto/query/scalar-data-types/dynamic#dynamic-literals.md). For example: `dynamic(['192.168.','10.'])`
+
+For example, to filter only UserManagement events from the last day with 'TargetUsername' containing 'Albert.Einstein', use:
+
+```kql
+_Im_Dns (targetusername_has_any = dynamic(['Albert.Einstein']), starttime = ago(1d), endtime=now())
+```
+
+> [!TIP]
+> To pass a literal list to parameters that expect a dynamic value, explicitly use a [dynamic literal](/azure/data-explorer/kusto/query/scalar-data-types/dynamic#dynamic-literals.md). For example: `dynamic(['192.168.','10.'])`.
+>
+
+
 ## Schema details
 
 ### Common ASIM fields
