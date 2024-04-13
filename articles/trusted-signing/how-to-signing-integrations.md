@@ -1,12 +1,12 @@
 ---
-title: Implement signing integrations with Trusted Signing #Required; page title is displayed in search results. Include the brand.
-description: Learn how to set up signing integrations with Trusted Signing. #Required; article description that is displayed in search results. 
-author: microsoftshawarma #Required; your GitHub user alias, with correct capitalization.
-ms.author: rakiasegev #Required; microsoft alias of author; optional team alias.
-ms.service: azure-code-signing #Required; service per approved list. slug assigned by ACOM.
-ms.topic: how-to #Required; leave this attribute/value as-is.
-ms.date: 04/04/2024 #Required; mm/dd/yyyy format.
-ms.custom: template-how-to-pattern #Required; leave this attribute/value as-is.
+title: Implement signing integrations with Trusted Signing 
+description: Learn how to set up signing integrations with Trusted Signing.  
+author: microsoftshawarma 
+ms.author: rakiasegev 
+ms.service: azure-code-signing 
+ms.topic: how-to
+ms.date: 04/04/2024 
+ms.custom: template-how-to-pattern 
 ---
 
 # Implement Signing Integrations with Trusted Signing
@@ -46,15 +46,15 @@ To download and install SignTool:
 1.	Download the latest version of SignTool + Windows Build Tools NuGet at: [Microsft.Windows.SDK.BuildTools](https://www.nuget.org/packages/Microsoft.Windows.SDK.BuildTools/)
 2.	Install SignTool from Windows SDK (min version: 10.0.2261.755)
 
- Another option is to use the latest nuget.exe to download and extract the latest SDK Build Tools NuGet package by completing the following steps (PowerShell):
+ Another option is to use the latest `nuget.exe` to download and extract the latest SDK Build Tools NuGet package by completing the following steps (PowerShell):
 
-1.	Download nuget.exe by running the following download command:  
+1.	Download `nuget.exe` by running the following download command:  
 
 ```
 Invoke-WebRequest -Uri https://dist.nuget.org/win-x86-commandline/latest/nuget.exe -OutFile .\nuget.exe  
 ```
 
-2.	Install nuget.exe by running the following install command:
+2.	Install `nuget.exe` by running the following install command:
 ```
 .\nuget.exe install Microsoft.Windows.SDK.BuildTools -Version 10.0.20348.19 
 ```
@@ -123,3 +123,4 @@ This section explains how to set up other not [SignTool](#set-up-signtool-with-t
 * Azure PowerShell: App Control for Business CI Policy – To use Trusted Signing for CI policy signing follow the instructions at [Signing a New CI policy](./how-to-sign-ci-policy.md) and visit the [Az.CodeSigning PowerShell Module](/powershell/azure/install-azps-windows).
 
 * Trusted Signing SDK – To create your own signing integration our [Trusted Signing SDK](https://www.nuget.org/packages/Azure.CodeSigning.Sdk) is publicly available.
+
