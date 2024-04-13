@@ -1,12 +1,12 @@
 ---
 title: Configure local metrics and logs for Azure API Management self-hosted gateway | Microsoft Docs
-description: Learn how to configure local metrics and logs for Azure API Management self-hosted gateway on a Kubernetes cluster
+description: Learn how to configure local metrics and logs for Azure API Management self-hosted gateway on a Kubernetes cluster.
 services: api-management
 author: dlepow
 manager: gwallace
 ms.service: api-management
 ms.topic: article
-ms.date: 05/11/2021
+ms.date: 04/12/2024
 ms.author: danlep
 ---
 
@@ -22,7 +22,7 @@ The self-hosted gateway supports [StatsD](https://github.com/statsd/statsd), whi
 
 ### Deploy StatsD and Prometheus to the cluster
 
-Below is a sample YAML configuration for deploying StatsD and Prometheus to the Kubernetes cluster where a self-hosted gateway is deployed. It also creates a [Service](https://kubernetes.io/docs/concepts/services-networking/service/) for each. The self-hosted gateway will publish metrics to the StatsD Service. We'll access the Prometheus dashboard via its Service.
+Below is a sample YAML configuration for deploying StatsD and Prometheus to the Kubernetes cluster where a self-hosted gateway is deployed. It also creates a [Service](https://kubernetes.io/docs/concepts/services-networking/service/) for each. The self-hosted gateway then publishes metrics to the StatsD Service. We'll access the Prometheus dashboard via its Service.
 
 > [!NOTE]
 > The following example pulls public container images from Docker Hub. We recommend that you set up a pull secret to authenticate using a Docker Hub account instead of making an anonymous pull request. To improve reliability when working with public content, import and manage the images in a private Azure container registry. [Learn more about working with public images.](../container-registry/buffer-gate-public-content.md)
@@ -119,13 +119,13 @@ spec:
     app: sputnik-metrics
 ```
 
-Save the configurations to a file named `metrics.yaml` and use the below command to deploy everything to the cluster:
+Save the configurations to a file named `metrics.yaml`. Use the following command to deploy everything to the cluster:
 
 ```console
 kubectl apply -f metrics.yaml
 ```
 
-Once the deployment finishes, run the below command to check the Pods are running. Your pod name will be different.
+Once the deployment finishes, run the following command to check the Pods are running. Your pod name will be different.
 
 ```console
 kubectl get pods
@@ -133,7 +133,7 @@ NAME                                   READY   STATUS    RESTARTS   AGE
 sputnik-metrics-f6d97548f-4xnb7        2/2     Running   0          1m
 ```
 
-Run the below command to check the Services are running. Take a note of the `CLUSTER-IP` and `PORT` of the StatsD Service, we would need it later. You can visit the Prometheus dashboard using its `EXTERNAL-IP` and `PORT`.
+Run the below command to check the `services` are running. Take a note of the `CLUSTER-IP` and `PORT` of the StatsD Service, which we use later. You can visit the Prometheus dashboard using its `EXTERNAL-IP` and `PORT`.
 
 ```console
 kubectl get services
@@ -144,13 +144,13 @@ sputnik-metrics-statsd       NodePort       10.0.41.179   <none>          8125:3
 
 ### Configure the self-hosted gateway to emit metrics
 
-Now that both StatsD and Prometheus are deployed, we can update the configurations of the self-hosted gateway to start emitting  metrics through StatsD. The feature can be enabled or disabled using the `telemetry.metrics.local` key in the ConfigMap of the self-hosted gateway Deployment with additional options. Below is a breakdown of the available options:
+Now that both StatsD and Prometheus are deployed, we can update the configurations of the self-hosted gateway to start emitting  metrics through StatsD. The feature can be enabled or disabled using the `telemetry.metrics.local` key in the ConfigMap of the self-hosted gateway Deployment with additional options. The following are the available options:
 
 | Field  | Default | Description |
 | ------------- | ------------- | ------------- |
 | telemetry.metrics.local  | `none` | Enables logging through StatsD. Value can be `none`, `statsd`. |
 | telemetry.metrics.local.statsd.endpoint  | n/a | Specifies StatsD endpoint. |
-| telemetry.metrics.local.statsd.sampling  | n/a | Specifies metrics sampling rate. Value can be between 0 and 1. e.g., `0.5`|
+| telemetry.metrics.local.statsd.sampling  | n/a | Specifies metrics sampling rate. Value can be between 0 and 1. Example: `0.5`|
 | telemetry.metrics.local.statsd.tag-format  | n/a | StatsD exporter [tagging format](https://github.com/prometheus/statsd_exporter#tagging-extensions). Value can be `none`, `librato`, `dogStatsD`, `influxDB`. |
 
 Here's a sample configuration:
@@ -182,7 +182,7 @@ kubectl rollout restart deployment/<deployment-name>
 
 ### View the metrics
 
-Now we have everything deployed and configured, the self-hosted gateway should report metrics via StatsD. Prometheus will pick up the metrics from StatsD. Go to the Prometheus dashboard using the `EXTERNAL-IP` and `PORT` of the Prometheus Service.
+Now we have everything deployed and configured, the self-hosted gateway should report metrics via StatsD. Prometheus then picks up the metrics from StatsD. Go to the Prometheus dashboard using the `EXTERNAL-IP` and `PORT` of the Prometheus Service.
 
 Make some API calls through the self-hosted gateway, if everything is configured correctly, you should be able to view below metrics:
 
@@ -209,10 +209,10 @@ The self-hosted gateway also supports many protocols including `localsyslog`, `r
 | ------------- | ------------- | ------------- |
 | telemetry.logs.std  | `text` | Enables logging to standard streams. Value can be `none`, `text`, `json` |
 | telemetry.logs.local  | `auto` | Enables local logging. Value can be `none`, `auto`, `localsyslog`, `rfc5424`, `journal`, `json`  |
-| telemetry.logs.local.localsyslog.endpoint  | n/a | Specifies localsyslog endpoint. See [below](#using-local-syslog-logs) for more details.  |
-| telemetry.logs.local.localsyslog.facility  | n/a | Specifies localsyslog [facility code](https://en.wikipedia.org/wiki/Syslog#Facility). e.g., `7`
+| telemetry.logs.local.localsyslog.endpoint  | n/a | Specifies localsyslog endpoint. See [using local syslog logs](#using-local-syslog-logs) for more details.  |
+| telemetry.logs.local.localsyslog.facility  | n/a | Specifies localsyslog [facility code](https://en.wikipedia.org/wiki/Syslog#Facility). Example: `7`
 | telemetry.logs.local.rfc5424.endpoint  | n/a | Specifies rfc5424 endpoint.  |
-| telemetry.logs.local.rfc5424.facility  | n/a | Specifies facility code per [rfc5424](https://tools.ietf.org/html/rfc5424). e.g., `7`  |
+| telemetry.logs.local.rfc5424.facility  | n/a | Specifies facility code per [rfc5424](https://tools.ietf.org/html/rfc5424). Example: `7`  |
 | telemetry.logs.local.journal.endpoint  | n/a | Specifies journal endpoint.  |
 | telemetry.logs.local.json.endpoint | 127.0.0.1:8888 | Specifies UDP endpoint that accepts JSON data: file path, IP:port, or hostname:port.
 
@@ -234,7 +234,7 @@ Here's a sample configuration of local logging:
 
 #### Configuring gateway to stream logs
 
-When using local syslog as a destination for logs, the runtime needs to allow streaming logs to the destination. For Kubernetes, this means that a volume needs to be mounted which that matches the destination.
+When using local syslog as a destination for logs, the runtime needs to allow streaming logs to the destination. For Kubernetes, a volume needs to be mounted which that matches the destination.
 
 Given the following configuration:
 
@@ -288,7 +288,7 @@ spec:
 
 #### Consuming local syslog logs on Azure Kubernetes Service (AKS)
 
-When configuring to use localsyslog on Azure Kubernetes Service, you can choose two ways to explore the logs:
+When configuring to use local syslog on Azure Kubernetes Service, you can choose two ways to explore the logs:
 
 - Use [Syslog collection with Container Insights](./../azure-monitor/containers/container-insights-syslog.md)
 - Connect & explore logs on the worker nodes
