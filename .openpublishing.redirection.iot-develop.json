@@ -308,27 +308,27 @@
     {
       "source_path_from_root": "/articles/iot-pnp/concepts-architecture.md",
       "redirect_url": "/azure/iot/concepts-architecture",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-pnp/concepts-convention.md",
       "redirect_url": "/azure/iot/concepts-convention",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-pnp/concepts-developer-guide-device.md",
-      "redirect_url": "/azure/iot/concepts-developer-guide-device/",
-      "redirect_document_id": true
+      "redirect_url": "/azure/iot/concepts-developer-guide-device",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-pnp/concepts-developer-guide-service.md",
       "redirect_url": "/azure/iot/concepts-developer-guide-service",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-pnp/concepts-digital-twin.md",
       "redirect_url": "/azure/iot/concepts-digital-twin",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-pnp/concepts-iot-pnp-bridge.md",
@@ -363,17 +363,17 @@
     {
       "source_path_from_root": "/articles/iot-pnp/concepts-modeling-guide.md",
       "redirect_url": "/azure/iot/concepts-modeling-guide",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-pnp/howto-manage-digital-twin.md",
       "redirect_url": "/azure/iot/howto-manage-digital-twin",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-pnp/howto-convert-to-pnp.md",
       "redirect_url": "/azure/iot/howto-convert-to-pnp",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-pnp/libraries-sdks.md",
@@ -388,22 +388,22 @@
     {
       "source_path_from_root": "/articles/iot-pnp/overview-iot-plug-and-play.md",
       "redirect_url": "/azure/iot/overview-iot-plug-and-play",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-pnp/quickstart-connect-device.md",
       "redirect_url": "/azure/iot/tutorial-connect-device",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-pnp/quickstart-service.md",
       "redirect_url": "/azure/iot/tutorial-service",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-pnp/set-up-environment.md",
       "redirect_url": "/azure/iot/set-up-environment",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-develop/tutorial-configure-tsi.md",
@@ -413,17 +413,17 @@
     {
       "source_path_from_root": "/articles/iot-pnp/tutorial-migrate-device-to-module.md",
       "redirect_url": "/azure/iot/tutorial-migrate-device-to-module",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-pnp/tutorial-multiple-components.md",
       "redirect_url": "/azure/iot/tutorial-multiple-components",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-pnp/tutorial-use-mqtt.md",
       "redirect_url": "/azure/iot/tutorial-use-mqtt",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-pnp/howto-use-iot-explorer.md",
@@ -468,12 +468,12 @@
     {
       "source_path_from_root": "/articles/iot-develop/quickstart-devkit-nxp-mimxrt1050-evkb.md",
       "redirect_url": "/azure/iot/tutorial-devkit-mxchip-az3166-iot-hub",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-develop/quickstart-devkit-renesas-rx65n-2mb.md",
       "redirect_url": "/azure/iot/tutorial-devkit-mxchip-az3166-iot-hub",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-develop/quickstart-send-telemetry-python.md",
