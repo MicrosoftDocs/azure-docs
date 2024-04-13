@@ -78,7 +78,7 @@ In this example, you remove a frontend from your Load Balancer.
 
 ## Limitations
 
-* There is a limit on the number of frontends you can add to a Load Balancer. For more information, review the Load Balancer section of the [Service limits](../azure-resource-manager/management/azure-subscription-service-limits.md##load-balancer) document for details.
+* There is a limit on the number of frontends you can add to a Load Balancer. For more information, review the Load Balancer section of the [Service limits](../azure-resource-manager/management/azure-subscription-service-limits.md#load-balancer) document for details.
 * Public IP addresses have a charge associated with them. For more information, see [IP Address pricing](https://azure.microsoft.com/pricing/details/ip-addresses/)
 
 ## Next steps
