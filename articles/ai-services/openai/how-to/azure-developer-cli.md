@@ -77,7 +77,7 @@ Use this article to learn how to automate resource deployment for Azure OpenAI O
 1. On the left navigation, select **Storage browser**.
 1. Select **Blob containers** and then navigate into the **File uploads** container.
 1. Click the **Upload** button at the top of the screen. 
-1. In the flyout menu that opens, upload _contoso_benefits_document_example.pdf_ file in the root `documents` folder of the example repo.
+1. In the flyout menu that opens, upload your data.
  
 > [!NOTE]
 > The search indexer is set to run every 5 minutes to index the data in the storage account. You can either wait a few minutes for the uploaded data to be indexed, or you can manually run the indexer from the search service page.

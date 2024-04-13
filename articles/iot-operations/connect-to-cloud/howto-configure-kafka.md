@@ -141,7 +141,7 @@ spec:
       authType:
         systemAssignedManagedIdentity:
           # plugin in your Event Hubs namespace name
-          audience: "https://<EVENTHUBS_NAMESPACE>.servicebus.windows.net" 
+          audience: "https://<NAMESPACE>.servicebus.windows.net" 
   localBrokerConnection:
     endpoint: "aio-mq-dmqtt-frontend:8883"
     tls:
