@@ -3,12 +3,12 @@ title: Manage an Informatica serverless runtime environment through the Azure po
 description: This article describes the management functions for Informatica serverless runtime environment on the Azure portal. 
 
 ms.topic: how-to
-ms.date: 04/04/2024
+ms.date: 04/12/2024
 ---
 
 # Manage your Informatica serverless runtime environments from Azure portal
 
-In this article, you learn various actions available for each of the serverless runtime environments in an IDMC organization
+In this article, you learn various actions available for each of the serverless runtime environments in an IDMC organization.
 
 ## Actions
 
@@ -21,7 +21,7 @@ In this article, you learn various actions available for each of the serverless 
     | **View properties**  | Display the properties of the serverless runtime environment |
     | **Edit properties**     |Edit the properties of the serverless runtime environment. If the environment is up and running, you can edit only certain properties. If the environment failed, you can edit all the properties. |
     | **Delete environment**  | Delete the serverless runtime environment if there are no dependencies. |
-    | **Start environment** | Start a serverless runtime environment that wasn't running because it had failed. Use this action after you update the properties of the serverless runtime environment. |
+    | **Start environment** | Start a serverless runtime environment that wasn't running because it failed. Use this action after you update the properties of the serverless runtime environment. |
     | **Clone environment** | Copy the selected environment to quickly create a new serverless runtime environment. Cloning an environment can save you time if the properties are mostly similar. |
 
 ## Next steps
