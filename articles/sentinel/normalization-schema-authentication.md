@@ -44,7 +44,7 @@ For information on adding your custom parsers to the unifying parser, refer to [
 
 ### Filtering parser parameters
 
-The `im` and `vim*` parsers support [filtering parameters](normalization-about-parsers.md#optimizing-parsing-using-parameters). While these parsers are optional, they can improve your query performance.
+The `_Im*` and `vim*` parsers support [filtering parameters](normalization-about-parsers.md#optimizing-parsing-using-parameters). While these parsers are optional, they can improve your query performance.
 
 The following filtering parameters are available:
 
@@ -52,13 +52,19 @@ The following filtering parameters are available:
 |----------|-----------|-------------|
 | **starttime** | datetime | Filter only authentication events that ran at or after this time. |
 | **endtime** | datetime | Filter only authentication events that finished running at or before this time. |
-| **targetusername_has** | string | Filter only authentication events that have any of the listed user names. |
+| **username_has_any** | dynamic/string | Filter only authentication events for which the [TargetUsername](targetusername) or [ActorUsername](actorusername) has any of the listed values.<br><br>The field [ASimMatchingUsername](normalization-common-fields.md#asimmatchingusername) is set with the one of the values `TargetUsername`, `ActorUsername`, or `Both` to reflect the matching fields or fields. |
+| **targetappname_has_any** | dynamic/string | Filter only authentication events for which the [TargetAppName](targetappname) field has any of the listed values. The length of the list is limited to 10,000 items. |
+| **srcipaddr_has_any_prefix** | dynamic/string | Filter only authentication events for which the source IP address field prefix is in one of the listed values. Prefixes should end with a ., for example: 10.0.. The length of the list is limited to 10,000 items.|
+| **srchostname_has_any** | dynamic/string | Filter only authentication events for which the [SrcHostname](srchostname) field has any of the listed values. The length of the list is limited to 10,000 items. |
+| **eventtype_in** | dynamic/string | Filter only authentication events for which the [EventType](eventtype) field exactly matches any of the listed values. |
+| **eventresultdetails_in** | dynamic/string | Filter only authentication events for which the [EventResultDetails](eventresultdetails) field exactly matches any of the listed values. |
+| **eventresult** | String | Filter only authentication events with a specific [EventType](eventtype) value. |
 
 
 For example, to filter only authentication events from the last day to a specific user, use:
 
 ```kql
-imAuthentication (targetusername_has = 'johndoe', starttime = ago(1d), endtime=now())
+_Im_Authentication (username_has_any = 'johndoe', starttime = ago(1d), endtime=now())
 ```
 
 
