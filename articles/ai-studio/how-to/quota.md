@@ -22,7 +22,7 @@ Azure uses limits and quotas to prevent budget overruns due to fraud, and to hon
 In this article, you learn about: 
 
 - Default limits on Azure resources  
-- Creating Azure AI hub resource-level quotas. 
+- Creating Azure AI Studio hub-level quotas. 
 - Viewing your quotas and limits 
 - Requesting quota and limit increases 
 
@@ -88,9 +88,9 @@ Azure Storage has a limit of 250 storage accounts per region, per subscription. 
 
 ## View and request quotas in Azure AI Studio
 
-Use quotas to manage compute target allocation between multiple Azure AI hub resources in the same subscription. 
+Use quotas to manage compute target allocation between multiple Azure AI Studio hubs in the same subscription. 
 
-By default, all Azure AI hub resources share the same quota as the subscription-level quota for VM families. However, you can set a maximum quota for individual VM families for more granular cost control and governance on Azure AI hub resources in a subscription. Quotas for individual VM families let you share capacity and avoid resource contention issues. 
+By default, all hubs share the same quota as the subscription-level quota for VM families. However, you can set a maximum quota for individual VM families for more granular cost control and governance on hubs in a subscription. Quotas for individual VM families let you share capacity and avoid resource contention issues. 
 
 In Azure AI Studio, select **Manage** from the top menu. Select **Quota** to view your quota at the subscription level in a region for both Azure Machine Learning virtual machine families and for your Azure OpenAI resources. 
 

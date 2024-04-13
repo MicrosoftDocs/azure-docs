@@ -1,7 +1,7 @@
 ---
-title: How to add and manage data in your Azure AI project
+title: How to add and manage data in your Azure AI Studio project
 titleSuffix: Azure AI Studio
-description: Learn how to add and manage data in your Azure AI project
+description: Learn how to add and manage data in your Azure AI Studio project
 manager: nitinme
 ms.service: azure-ai-studio
 ms.custom:
@@ -13,7 +13,7 @@ ms.author: eur
 author: eric-urban
 ---
 
-# How to add and manage data in your Azure AI project
+# How to add and manage data in your Azure AI Studio project
 
 This article shows how to create and manage data in Azure AI Studio. Data can be used as a source for indexing in Azure AI Studio.
 
@@ -33,7 +33,7 @@ To create and work with data, you need:
 
 * An Azure subscription. If you don't have one, create a free account before you begin.
 
-* An [Azure AI project](../how-to/create-projects.md) in Azure AI Studio.
+* An [AI Studio project](../how-to/create-projects.md).
 
 ## Create data
 
@@ -42,7 +42,7 @@ When you create your data, you need to set the data type. AI Studio supports thr
 |Type  |**Canonical Scenarios**|
 |---------|---------|
 |**`file`**<br>Reference a single file | Read a single file on Azure Storage (the file can have any format). |
-|**`folder`**<br> Reference a folder |      Read a folder of parquet/CSV files into Pandas/Spark.<br><br>Read unstructured data (images, text, audio, etc.) located in a folder. |
+|**`folder`**<br> Reference a folder |      Read a folder of parquet/CSV files into Pandas/Spark.<br><br>Read unstructured data (such as images, text, and audio) located in a folder. |
 
 
 # [Studio](#tab/azure-studio)

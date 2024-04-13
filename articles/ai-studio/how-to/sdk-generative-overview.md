@@ -27,7 +27,7 @@ For a more complete set of Azure libraries, see [https://aka.ms/azsdk/python/all
 
 - Python 3.7 or later is required to use this package.
 - You must have an [Azure subscription](https://portal.azure.com).
-- An [Azure AI project](./create-projects.md) in your Azure subscription. 
+- An [Azure AI Studio project](./create-projects.md) in your Azure subscription. 
 
 
 ### Install the package
@@ -45,7 +45,7 @@ The `[index,evaluate,promptflow]` syntax specifies extra packages that you can o
 
 - `[index]` adds the ability to build indexes on your local development environment.
 - `[evaluate]` adds the ability to run evaluation and calculate metrics in your local development environment.
-- `[promptflow]` adds the ability to develop with prompt flow connected to your Azure AI project.
+- `[promptflow]` adds the ability to develop with prompt flow connected to your project.
 
 
 ## Usage

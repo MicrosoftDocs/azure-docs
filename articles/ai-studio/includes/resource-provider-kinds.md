@@ -12,5 +12,6 @@ ms.custom: include
 
 |Resource type|Resource provider|Kind|
 |---|---|---|
-|Azure AI hub resource and</br>Azure AI project|`Microsoft.MachineLearningServices/workspace`|`hub`</br>`project`|
+|Azure AI Studio hub|`Microsoft.MachineLearningServices/workspace`|`hub`|
+|Azure AI Studio project|`Microsoft.MachineLearningServices/workspace`|`project`|
 |Azure AI services *or*</br>Azure AI OpenAI Service|`Microsoft.CognitiveServices/account`|`AIServices`</br>`OpenAI`|
