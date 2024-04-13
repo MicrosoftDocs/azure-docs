@@ -90,27 +90,15 @@ The service scans the repository to find new environment definitions. After you 
 
 ### Specify a runner for a Terraform custom image
 
-The ADE extensibility model enables you to use your own custom container image. The ADE team provides a sample Terraform template accessible through the Microsoft Artifact Registry (also known as the Microsoft Container Registry) to help you get started. You can also create and store custom images in other registries. 
-
-You can use the following links to access the Terraform template in the Microsoft Artifact registry:
-- [Microsoft Artifact Registry - Terraform](https://mcr.microsoft.com/en-us/product/deployment-environments/runners/terraform)
-
-<!-- For more information how to build and utilize custom images within environment definitions, see [Custom image support in Azure Deployment Environments](how-to-configure-custom-runner.md). -->
+The ADE extensibility model enables you to use your own custom container image. You can create and store custom Terraform images in public registries. 
 
 When creating environment definitions that use a custom image in their deployment, the runner property provides a link to a container registry where this container image is stored. 
 
-You can edit the runner property to specify that you're using the Terraform image from the Microsoft Artifact Registry, as shown in the following example:
-
-```yaml
-runner: Terraform
-```
-
-If you created your own Terraform image and are storing it in a different registry, you can edit the runner property to specify the location that image, as shown in the following example:
+The runner property specifies the location of the image you want top use. When you're using a Terraform image and storing it in a private registry, edit the runner property to specify the location that image, as shown in the following example:
 
 ```yaml
 runner: "{YOUR_REGISTRY}.azurecr.io/{YOUR_REPOSITORY}:{YOUR_TAG}"
 ```
-
 
 ### Specify parameters for an environment definition
 
