@@ -16,7 +16,7 @@ ms.devlang: azurecli
 
 Data stored in your Azure Cosmos DB account is automatically and seamlessly encrypted with keys that the customer manages as a second layer of encryption. When the Azure Cosmos DB account can no longer access the Azure Key Vault key per the Azure Cosmos DB account setting (see _KeyVaultKeyUri_), the account goes into revoke state. In this state, the only operations allowed are account updates that refresh the current assigned default identity or account deletion. Data plane operations like reading or writing documents are restricted. 
 
-This troubleshooting guide shows you how to restore access when running into the most common errors with Customer managed keys. Check either the error message received each time a restricted operation is performed or by reading the _CmkError_ property on your Azure Cosmos DB account. 
+This troubleshooting guide shows you how to restore access when running into the most common errors with Customer managed keys. Check either the error message received each time a restricted operation is performed or by reading the _customerManagedKeyStatus_ property on your Azure Cosmos DB account. 
 
 ## Default Identity is unauthorized to access the Azure Key Vault key 
 

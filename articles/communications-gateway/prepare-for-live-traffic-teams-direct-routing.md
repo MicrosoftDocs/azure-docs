@@ -44,11 +44,12 @@ You must test typical call flows for your network. Your onboarding team will pro
 
 You must test that you can raise tickets in the Azure portal to report problems with Azure Communications Gateway. See [Get support or request changes for Azure Communications Gateway](request-changes.md).
 
-## Learn about monitoring Azure Communications Gateway
+## Learn about monitoring and maintenance
 
-Your staff can use a selection of key metrics to monitor Azure Communications Gateway. These metrics are available to anyone with the Reader role on the subscription for Azure Communications Gateway. See [Monitoring Azure Communications Gateway](monitor-azure-communications-gateway.md).
+[!INCLUDE [monitoring and service health notifications](includes/communications-gateway-monitoring-maintenance.md)]
 
 ## Next steps
 
 - Learn about [getting support and requesting changes for Azure Communications Gateway](request-changes.md).
 - Learn about [monitoring Azure Communications Gateway](monitor-azure-communications-gateway.md).
+- Learn about [maintenance notifications](maintenance-notifications.md).

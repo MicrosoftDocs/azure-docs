@@ -11,7 +11,7 @@ ms.author: danlep
 
 # Workspaces - breaking changes (June 2024)
 
-[!INCLUDE [api-management-availability-premium](../../../includes/api-management-availability-premium.md)]
+[!INCLUDE [api-management-availability-premium-dev-standard](../../../includes/api-management-availability-premium-dev-standard.md)]
 
 On 14 June 2024, as part of our development of [workspaces](../workspaces-overview.md) (preview) in Azure API Management, we're introducing several breaking changes. 
 

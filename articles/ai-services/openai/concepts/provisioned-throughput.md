@@ -55,7 +55,7 @@ az cognitiveservices account deployment create \
 --name <myResourceName> \
 --resource-group  <myResourceGroupName> \
 --deployment-name MyDeployment \
---model-name GPT-4 \
+--model-name gpt-4 \
 --model-version 0613  \
 --model-format OpenAI \
 --sku-capacity 100 \
