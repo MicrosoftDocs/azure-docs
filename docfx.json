@@ -16,7 +16,8 @@
           "**/includes/**",
           "**/obj/**",
           "**/*.graffle",
-          "machine-learning/**"
+          "machine-learning/**",
+          "machine-learning/v1/**"
         ]
       },
       {
@@ -121,7 +122,8 @@
           "ai-services/document-intelligence/**",
           "**/_themes/**",
           "**/obj/**",
-          "machine-learning/**"
+          "machine-learning/**",
+          "machine-learning/v1/**"
         ]
       },
       {
@@ -646,6 +648,7 @@
         "articles/sentinel/**/*.md": "https://feedback.azure.com/d365community/forum/79b1327d-d925-ec11-b6e6-000d3a4f06a4",
         "articles/service-bus/**/*.md": "https://feedback.azure.com/d365community/forum/7c0a897d-2125-ec11-b6e6-000d3a4f0f84",
         "articles/service-bus-messaging/**/*.md": "https://feedback.azure.com/d365community/forum/7c0a897d-2125-ec11-b6e6-000d3a4f0f84",
+        "articles/service-connector/**/*.md": "https://github.com/Azure/ServiceConnector/issues",
         "articles/service-fabric/**/*.md": "https://feedback.azure.com/d365community/forum/e622b37a-2225-ec11-b6e6-000d3a4f0f84",
         "articles/service-health/**/*.md": "https://feedback.azure.com/d365community/forum/f36c61ce-0625-ec11-b6e6-000d3a4f07b8",
         "articles/site-recovery/**/*.md": "https://feedback.azure.com/d365community/forum/3ccca344-2d25-ec11-b6e6-000d3a4f0f84",

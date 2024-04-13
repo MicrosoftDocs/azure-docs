@@ -41,17 +41,6 @@ This section includes charges for the ingestion and query of Prometheus metrics 
 | Metric Sample Ingestion | Number and frequency of the Prometheus metrics collected by your AKS nodes. See [Default Prometheus metrics configuration in Azure Monitor](containers/prometheus-metrics-scrape-default.md).  |
 | Query Samples Processed | Number of query samples can be estimated from the dashboards and alerting rules that use them.   |
 
-
-## Application Insights
-This section includes charges from [classic Application Insights resources](app/convert-classic-resource.md). Workspace-based Application Insights resources are included in the Log Data Ingestion category.
-
-| Category | Description |
-|:---|:---|
-| Data ingestion | Volume of data that you expect from your classic Application Insights resources. This can be difficult to estimate so you should enable monitoring for a small group of resources and use the observed data volumes to extrapolate for a full environment. |
-| Data Retention | [Data retention setting](logs/data-retention-archive.md#set-data-retention-for-classic-application-insights-resources) for your classic Application Insights resources. |
-| Multi-step Web Test | Number of legacy [multi-step web tests](/previous-versions/azure/azure-monitor/app/availability-multistep) that you expect to run. |
-
-
 ## Alert rules 
 This section includes charges for alert rules.
 
