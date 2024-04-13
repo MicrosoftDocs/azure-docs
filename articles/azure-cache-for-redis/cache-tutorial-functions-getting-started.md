@@ -63,9 +63,9 @@ Creating the cache can take a few minutes. You can move to the next section whil
 
    If you don't have the .NET Core SDK installed, you're prompted to do so.
 
-> [!IMPORTANT]
-> For .NET functions, using the _isolated worker model_ is recommended over the _in-process_ model. For a comparison of the in-process and isolated worker models, see [differences between the isolated worker model and the in-process model for .NET on Azure Functions](../azure-functions/dotnet-isolated-in-process-differences.md). This sample uses the _isolated worker model_.
->
+    > [!IMPORTANT]
+    > For .NET functions, using the _isolated worker model_ is recommended over the _in-process_ model. For a comparison of the in-process and isolated worker models, see [differences between the isolated worker model and the in-process model for .NET on Azure Functions](../azure-functions/dotnet-isolated-in-process-differences.md). This sample uses the _isolated worker model_.
+    >
 
 1. Confirm that the new project appears on the **EXPLORER** pane.
 
@@ -110,81 +110,81 @@ dotnet add package Microsoft.Azure.Functions.Worker.Extensions.Redis --prereleas
 1. In VS Code, add a file called _Common.cs_ to the project. This class is used to help parse the JSON serialized response for the PubSubTrigger.
 
 1. Copy and paste the following code into the _Common.cs_ file:
-
-```csharp
-public class Common
-{
-    public const string connectionString = "redisConnectionString";
-
-    public class ChannelMessage
+  
+    ```csharp
+    public class Common
     {
-        public string SubscriptionChannel { get; set; }
-        public string Channel { get; set; }
-        public string Message { get; set; }
+        public const string connectionString = "redisConnectionString";
+    
+        public class ChannelMessage
+        {
+            public string SubscriptionChannel { get; set; }
+            public string Channel { get; set; }
+            public string Message { get; set; }
+        }
     }
-}
-```
+    ```
 
 1. Add a file called _RedisTriggers.cs_ to the project.
 
 1. Copy and paste the following code sample into the new file:
 
-```csharp
-using Microsoft.Extensions.Logging;
-using Microsoft.Azure.Functions.Worker;
-using Microsoft.Azure.Functions.Worker.Extensions.Redis;
-
-public class RedisTriggers
-{
-    private readonly ILogger<RedisTriggers> logger;
-
-    public RedisTriggers(ILogger<RedisTriggers> logger)
+    ```csharp
+    using Microsoft.Extensions.Logging;
+    using Microsoft.Azure.Functions.Worker;
+    using Microsoft.Azure.Functions.Worker.Extensions.Redis;
+    
+    public class RedisTriggers
     {
-        this.logger = logger;
+        private readonly ILogger<RedisTriggers> logger;
+    
+        public RedisTriggers(ILogger<RedisTriggers> logger)
+        {
+            this.logger = logger;
+        }
+    
+        // PubSubTrigger function listens to messages from the 'pubsubTest' channel.
+        [Function("PubSubTrigger")]
+        public void PubSub(
+        [RedisPubSubTrigger(Common.connectionString, "pubsubTest")] Common.ChannelMessage channelMessage)
+        {
+        logger.LogInformation($"Function triggered on pub/sub message '{channelMessage.Message}' from channel '{channelMessage.Channel}'.");
+        }
+    
+        // KeyeventTrigger function listens to key events from the 'del' operation.
+        [Function("KeyeventTrigger")]
+        public void Keyevent(
+            [RedisPubSubTrigger(Common.connectionString, "__keyevent@0__:del")] Common.ChannelMessage channelMessage)
+        {
+            logger.LogInformation($"Key '{channelMessage.Message}' deleted.");
+        }
+    
+        // KeyspaceTrigger function listens to key events on the 'keyspaceTest' key.
+        [Function("KeyspaceTrigger")]
+        public void Keyspace(
+            [RedisPubSubTrigger(Common.connectionString, "__keyspace@0__:keyspaceTest")] Common.ChannelMessage channelMessage)
+        {
+            logger.LogInformation($"Key 'keyspaceTest' was updated with operation '{channelMessage.Message}'");
+        }
+    
+        // ListTrigger function listens to changes to the 'listTest' list.
+        [Function("ListTrigger")]
+        public void List(
+            [RedisListTrigger(Common.connectionString, "listTest")] string response)
+        {
+            logger.LogInformation(response);
+        }
+    
+        // StreamTrigger function listens to changes to the 'streamTest' stream.
+        [Function("StreamTrigger")]
+        public void Stream(
+            [RedisStreamTrigger(Common.connectionString, "streamTest")] string response)
+        {
+            logger.LogInformation(response);
+        }
     }
-
-    // PubSubTrigger function listens to messages from the 'pubsubTest' channel.
-    [Function("PubSubTrigger")]
-    public void PubSub(
-    [RedisPubSubTrigger(Common.connectionString, "pubsubTest")] Common.ChannelMessage channelMessage)
-    {
-    logger.LogInformation($"Function triggered on pub/sub message '{channelMessage.Message}' from channel '{channelMessage.Channel}'.");
-    }
-
-    // KeyeventTrigger function listens to key events from the 'del' operation.
-    [Function("KeyeventTrigger")]
-    public void Keyevent(
-        [RedisPubSubTrigger(Common.connectionString, "__keyevent@0__:del")] Common.ChannelMessage channelMessage)
-    {
-        logger.LogInformation($"Key '{channelMessage.Message}' deleted.");
-    }
-
-    // KeyspaceTrigger function listens to key events on the 'keyspaceTest' key.
-    [Function("KeyspaceTrigger")]
-    public void Keyspace(
-        [RedisPubSubTrigger(Common.connectionString, "__keyspace@0__:keyspaceTest")] Common.ChannelMessage channelMessage)
-    {
-        logger.LogInformation($"Key 'keyspaceTest' was updated with operation '{channelMessage.Message}'");
-    }
-
-    // ListTrigger function listens to changes to the 'listTest' list.
-    [Function("ListTrigger")]
-    public void List(
-        [RedisListTrigger(Common.connectionString, "listTest")] string response)
-    {
-        logger.LogInformation(response);
-    }
-
-    // StreamTrigger function listens to changes to the 'streamTest' stream.
-    [Function("StreamTrigger")]
-    public void Stream(
-        [RedisStreamTrigger(Common.connectionString, "streamTest")] string response)
-    {
-        logger.LogInformation(response);
-    }
-}
-```
-
+    ```
+  
 1. This tutorial shows multiple ways to trigger on Redis activity:
 
     - `PubSubTrigger`, which is triggered when an activity is published to the Pub/Sub channel named `pubsubTest`.
@@ -254,41 +254,41 @@ Bindings add a streamlined way to read or write data stored on your Redis instan
 
 1. Copy and paste the following code sample into the new file:
 
-```csharp
-using Microsoft.Extensions.Logging;
-using Microsoft.Azure.Functions.Worker;
-using Microsoft.Azure.Functions.Worker.Extensions.Redis;
-
-public class RedisBindings
-{
-    private readonly ILogger<RedisBindings> logger;
-
-    public RedisBindings(ILogger<RedisBindings> logger)
-    {
-        this.logger = logger;
-    }
+    ```csharp
+    using Microsoft.Extensions.Logging;
+    using Microsoft.Azure.Functions.Worker;
+    using Microsoft.Azure.Functions.Worker.Extensions.Redis;
     
-    //This example uses the PubSub trigger to listen to key events on the 'set' operation. A Redis Input binding is used to get the value of the key being set.
-    [Function("SetGetter")]
-    public void SetGetter(
-        [RedisPubSubTrigger(Common.connectionString, "__keyevent@0__:set")] Common.ChannelMessage channelMessage,
-        [RedisInput(Common.connectionString, "GET {Message}")] string value)
+    public class RedisBindings
     {
-        logger.LogInformation($"Key '{channelMessage.Message}' was set to value '{value}'");
+        private readonly ILogger<RedisBindings> logger;
+    
+        public RedisBindings(ILogger<RedisBindings> logger)
+        {
+            this.logger = logger;
+        }
+        
+        //This example uses the PubSub trigger to listen to key events on the 'set' operation. A Redis Input binding is used to get the value of the key being set.
+        [Function("SetGetter")]
+        public void SetGetter(
+            [RedisPubSubTrigger(Common.connectionString, "__keyevent@0__:set")] Common.ChannelMessage channelMessage,
+            [RedisInput(Common.connectionString, "GET {Message}")] string value)
+        {
+            logger.LogInformation($"Key '{channelMessage.Message}' was set to value '{value}'");
+        }
+    
+        //This example uses the PubSub trigger to listen to key events to the key 'key1'. When key1 is modified, a Redis Output binding is used to set the value of the 'key1modified' key to 'true'.
+        [Function("SetSetter")]
+        [RedisOutput(Common.connectionString, "SET")]
+        public string SetSetter(
+            [RedisPubSubTrigger(Common.connectionString, "__keyspace@0__:key1")] Common.ChannelMessage channelMessage)
+        {
+            logger.LogInformation($"Key '{channelMessage.Message}' was updated. Setting the value of 'key1modified' to 'true'");
+            return $"key1modified true";
+        }
     }
-
-    //This example uses the PubSub trigger to listen to key events to the key 'key1'. When key1 is modified, a Redis Output binding is used to set the value of the 'key1modified' key to 'true'.
-    [Function("SetSetter")]
-    [RedisOutput(Common.connectionString, "SET")]
-    public string SetSetter(
-        [RedisPubSubTrigger(Common.connectionString, "__keyspace@0__:key1")] Common.ChannelMessage channelMessage)
-    {
-        logger.LogInformation($"Key '{channelMessage.Message}' was updated. Setting the value of 'key1modified' to 'true'");
-        return $"key1modified true";
-    }
-}
-```
-
+    ```
+  
 1. Switch to the **Run and debug** tab in VS Code and select the green arrow to debug the code locally. The code should build successfully. You can track its progress in the terminal output.
 
 1. To test the input binding functionality, try setting a new value for any key, for instance using the command `SET hello world` You should see that the `SetGetter` function triggers and returns the updated value.
