@@ -75,7 +75,7 @@ To save and use a summary view:
 
 In the summary view, you can select an item to view details filtered to that item. Using the previous example, you can select a bar in the chart under **Type summary** to view a list filtered down to one type of resource.
 
-:::image type="content" source="media/manage-filter-resource-views/all-resources-filtered-type.png" alt-text="All resources filtered by type":::
+:::image type="content" source="media/manage-filter-resource-views/all-resources-filtered-type.png" alt-text="Screenshot of all resources filtered by type":::
 
 ## Run queries in Azure Resource Graph
 
