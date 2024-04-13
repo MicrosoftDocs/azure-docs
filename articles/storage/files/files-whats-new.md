@@ -4,7 +4,7 @@ description: Learn about new features and enhancements in Azure Files and Azure 
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: conceptual
-ms.date: 03/29/2024
+ms.date: 04/12/2024
 ms.author: kendownie
 ---
 
@@ -14,12 +14,17 @@ Azure Files and Azure File Sync are updated regularly to offer new features and 
 
 ## What's new in 2024
 
+### 2024 quarter 2 (April, May, June)
+
+#### Azure Files vaulted backup is now in public preview
+
+Azure Backup now enables you to perform a vaulted backup of Azure Files to protect data from ransomware attacks or source data loss due to a malicious actor or rogue admin. You can define the schedule and retention of backups by using a backup policy. Azure Backup creates and manages the recovery points as per the schedule and retention defined in the backup policy. For more information, see [Azure Files vaulted backup (preview)](../../backup/whats-new.md#azure-files-vaulted-backup-preview).
+
 ### 2024 quarter 1 (January, February, March)
 
 #### Azure Files geo-redundancy for standard large file shares is generally available
 
 Standard SMB file shares that are geo-redundant (GRS and GZRS) can now scale up to 100TiB capacity with significantly improved IOPS and throughput limits. For more information, see [blog post](https://techcommunity.microsoft.com/t5/azure-storage-blog/general-availability-azure-files-geo-redundancy-for-standard/ba-p/4097935) and [documentation](geo-redundant-storage-for-large-file-shares.md).
-
 
 #### Metadata caching for premium SMB file shares is in public preview
 
