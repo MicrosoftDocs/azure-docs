@@ -13,9 +13,15 @@ In this quickstart, you use the Azure portal to create advanced serverless runti
 
 ## Prerequisites
 
-- An Informatica Organization. If you don't have an Informatica Organization. Please refer to [Get started with Informatica – An Azure Native ISV Service](informatica-create.md)
+- An Informatica Organization. If you don't have an Informatica Organization. Refer to [Get started with Informatica – An Azure Native ISV Service](informatica-create.md)
 
-- A NAT gateway is enabled for the subnet used for creation of serverless runtime environment. Please refer to [Quickstart: Create a NAT gateway using the Azure portal](/azure/nat-gateway/quickstart-create-nat-gateway-portal).
+- After an Organization is created, make sure to sign in to the Informatica Portal from Overview tab of the Organization. Creating a serverless runtime environment fails if you don't first sign in to Informatica portal at least once.
+
+- A NAT gateway is enabled for the subnet used for creation of serverless runtime environment. Refer to [Quickstart: Create a NAT gateway using the Azure portal](/azure/nat-gateway/quickstart-create-nat-gateway-portal).
+
+- A subnet used in serverless runtime environment must be delegated to _Informatica.DataManagement/organizations_.
+
+ :::image type="content" source="media/informatica-create-advanced-serverless/informatica-subnet-delegation.png" alt-text="Screenshot showing how to delegate a subnet to the Informatica resource provider.":::
 
 ## Create an advanced serverless deployment
 
@@ -80,7 +86,7 @@ You can specify custom tags for the new Informatica organization by adding custo
 
 1. Select  **Next: Review + Create** to navigate to the final step for serverless creation. When you get to the **Review + Create** pane, validations are run. Review all the selections made in the _Basics_, and optionally the _Tags_ panes..Review the Informatica and Azure Marketplace terms and conditions.  
 
-    :::image type="content" source="media/informatica-create-advanced-serverless/informatica-serverless-review-create.png" alt-text="Screenshot of review and create informatica resource.":::
+    :::image type="content" source="media/informatica-create-advanced-serverless/informatica-serverless-review-create.png" alt-text="Screenshot of the review and create Informatica resource tab.":::
 
 1. After you review all the information, select **Create**. Azure now deploys the Informatica resource.
 
