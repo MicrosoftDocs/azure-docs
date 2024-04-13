@@ -45,12 +45,14 @@ The following table lists the available unifying parsers:
 | Schema | Unifying parser | 
 | ------ | ------------------------- |
 | Audit Event | _Im_AuditEvent |
-| Authentication | imAuthentication | 
+| Authentication | _Im_Authentication |
+| Dhcp Event | _Im_DhcpEvent |
 | Dns | _Im_Dns |
-| File Event | imFileEvent |
+| File Event | _Im_FileEvent |
 | Network Session | _Im_NetworkSession | 
-| Process Event | - imProcessCreate<br> - imProcessTerminate |
-| Registry Event |  imRegistry |
+| Process Event | - _Im_ProcessEvent<br> - _Im_ProcessCreate<br> - _Im_ProcessTerminate |
+| Registry Event |  _Im_Registry |
+| UserManagement | _Im_UserManagement |
 | Web Session | _Im_WebSession |  
 
 
@@ -63,8 +65,13 @@ When invoking the parser, always use available filtering parameters by adding on
 Each schema has a standard set of filtering parameters documented in the relevant schema documentation. Filtering parameters are entirely optional. The following schemas support filtering parameters:
 - [Audit Event](normalization-schema-audit.md)
 - [Authentication](normalization-schema-authentication.md)
+- [Dhcp Event](normalization-schema-dhcp.md)
 - [DNS](normalization-schema-dns.md#filtering-parser-parameters)
+- [File Event](normalization-schema-file-event.md)
 - [Network Session](normalization-schema-network.md#filtering-parser-parameters)
+- [Process Event](normalization-schema-process-event.md)
+- [Registry Event](normalization-schema-registry-event.md)
+- [UserManagement](normalization-schema-user-management.md)
 - [Web Session](normalization-schema-web.md#filtering-parser-parameters)
 
 Every schema that supports filtering parameters supports at least the `starttime` and `endtime` parameters and using them is often critical for optimizing performance.
