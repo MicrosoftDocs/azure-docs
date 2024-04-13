@@ -36,11 +36,11 @@ tbd limited access alert.
 
 ### Language availability
 
-Currently this API is only available in English. While users can try guidelines in other languages, we don't commit the output (like the languages of reasoning). We output the reasoning in the language of provided guidelines by default.
+Currently this API is only available in English. While users can try guidelines in other languages, we don't guarantee the output. We output the reasoning in the language of provided guidelines by default.
 
 ### Response sub-category in output
 
-We only support outputting a single sub-category but not multiple sub-categories. If you want to define the final sub-category out of multiple, please note in the emphases, like "If the text hits multiple sub-categories, output the maximum sub-category".
+We support outputting a single sub-category but not multiple sub-categories. If you want to define the final sub-category out of multiple, please note in the emphases, like "If the text hits multiple sub-categories, output the maximum sub-category".
 
 ## Concepts
 
@@ -54,48 +54,35 @@ A category refers to a specific type of prohibited content or behavior that is o
 
 ## QuickStart
 
-Before you can begin to test, you need to [create an Azure AI Content Safety resource]((https://aka.ms/acs-create)) and get the subscription keys to access the resource.
+
+## Prerequisites
+
+* An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/) 
+* Get access: The custom categories API is a gated feature. Apply for access by submitting this form with your Azure subscription ID: [Microsoft Forms](https://aka.ms/content-safety-gate). The request will take up to 48 hours to approve. Once you receive an approval notification from Microsoft, you can go to the next step.
+* Once you have your Azure subscription, <a href="https://aka.ms/acs-create"  title="Create a Content Safety resource"  target="_blank">create a Content Safety resource </a> in the Azure portal to get your key and endpoint. Enter a unique name for your resource, select your subscription, and select a resource group, supported region (East US or Sweden Central), and supported pricing tier. Then select **Create**.
+  * The resource takes a few minutes to deploy. After it finishes, Select **go to resource**. In the left pane, under **Resource Management**, select **Subscription Key and Endpoint**. The endpoint and either of the keys are used to call APIs.
+* One of the following installed:
+  * [cURL](https://curl.haxx.se/) for REST API calls.
+  * [Python 3.x](https://www.python.org/) installed
 
 
-### Allowlist your subscription ID
+## Bring your own Azure OpenAI resource
 
-1. Submit this form by filling in your subscription ID to allow this feature: [Microsoft Forms](https://forms.office.com/r/38GYZwLC0u).
-2. Approval will take up to 48 hours. Once you receive a notification from Microsoft, you can go to the next step.
+You need to bring your own Azure OpenAI resource to perform the adaptive annotation task. 
 
-### Create an Azure AI Content Safety resource
+Go to your Azure OpenAI resource and open **Keys and endpoint** page. Copy the key and endpoint to a temporary location.
 
-1. Sign in to the [Azure Portal](https://portal.azure.com/).
-1. [Create Content Safety Resource](https://aka.ms/acs-create). Enter a unique name for your resource, select the **whitelisted subscription**, resource group, and your preferred region in one of the **East US, West Europe** and pricing tier. Select **Create**.
-1. **The resource will take a few minutes to deploy.** After it does, go to the new resource. To access your Content Safety resource, you'll need a subscription key; In the left pane, under **Resource Management**, select **API Keys and Endpoints**. Copy one of the subscription key values and endpoint for later use.
+Please make sure your deployment is built on GPT-4. For other model versions, the annotation quality is not guaranteed.
 
-### Bring your own Azure OpenAI resource
+### Grant your Azure Content Safety resource access to your Azure OpenAI resource
 
-You need to bring your own Azure OpenAI resource to perform the adaptive annotation task. Please make sure your deployment is built on GPT-4. For other model versions, the annotation quality is not guaranteed.
+[!INCLUDE [openai-account-access](../includes/openai-account-access.md)]
 
-#### Grant your Azure Content Safety resource access to your Azure OpenAI resource
+### Get your GPT-4 deployment name
 
-tbd use an include here.
+Go to your Azure OpenAI resource and open **Model deployments**. Select **Manage Deployments**, and get the name of the GPT-4 deployment that you'd like to use for the annotation task.
 
-1. Go to your Azure OpenAI resource and open 'Access control'. Click 'Add role assignment'.
-![Role assignment](images/role-assignment.png)
-
-1. Search for role 'Cognitive Services User', click, and select 'Next'. 
-![Congnitive Services User](images/cognitive-services-user.png)
-
-1. Choose 'Managed Identity' for 'assign access to' option, and choose the Azure Content Safety resource that you've created in 'Members'.
-![Select identity](images/select-identity.png)
-
-1. Finally select 'Review + assign'. After it is completed, your Azure Content Safety resource has been assigned permission to use your Azure OpenAI resource for annotation. 
-
-#### Get your Azure OpenAI resource endpoint
-
-Go to your Azure OpenAI resource and open 'Keys and endpoint' to copy the key and endpoint. 
-
-#### Get your GPT-4 deployment name
-
-Go to your Azure OpenAI resource and open **Model deployments**. Select **Manage Deployments**, and get the deployment name of GPT-4 that you'd like to use for annotation task.
-
-#### Modify the content filtering setting to enable annotation mode
+## Modify the content filtering setting to enable annotation mode
 
 The adaptive annotation API needs to leverage the extended language understanding capability of GPT-4 for the content annotation task. To complete the task without filtering the input/output, the content filtering configuration in your GPT-4 deployment needs to be updated to 'annotation' mode. 
 
@@ -103,11 +90,11 @@ You need to apply for modified content filtering by filling out [this form](http
 ![Modify content filtering](images/modify-content-filtering.png)
 
 
-### Test with sample request
+## Test with sample request
 
 Now that you have a resource available in Azure for Content Safety and you have a subscription key for that resource, let's run some tests by using the Adaptive Annotation API.
 
-#### Create a customized category according to specific community guideline
+### Create a customized category according to specific community guideline
 
 The initial step is to convert your customized community guideline/content policy to one or multiple customized categories in Azure AI Content Safety. Then get it ready to be used for the following annotation task.
 
@@ -117,7 +104,7 @@ The initial step is to convert your customized community guideline/content polic
 | **SubCategories** | (Required) To define the sub-categories within each category as the minimum annotation granularity. The max sub-categories count is 10, minimum sub-categories count is 2. Within each sub-category, you need to specify an ID (integer), a name (string) and a list of statements (list) to better describe the scope of the sub-category. When you annotate, if your input does not belong to any defined sub-categories, the model will output a predefined sub-category with id=-1 and name="Undefined". | List  |
 | **ExampleBlobUrl**   | (Optional) The file should  be ".jsonl" format, where each line is an example in json format, the maximum file size is 1MB. | String    |
 
-##### Request payload reference
+#### Request payload reference
 
 ```json
 {
@@ -144,7 +131,7 @@ The initial step is to convert your customized community guideline/content polic
 }
 ```
 
-##### Format requirement for examples
+#### Format requirement for examples
 
 The examples that are provided for each sub-category in the Blob URL need to follow below format requirements:
 
@@ -161,7 +148,7 @@ The examples that are provided for each sub-category in the Blob URL need to fol
 }
 ```
 
-##### Sample Code
+#### Sample Code
 
 create a custom category
 
@@ -230,7 +217,7 @@ print(response.status_code)
 print(response.text)
 ```
 
-#### Perform annotation on input text
+### Perform annotation on input text
 
 After the customized category is created successfully, you can provide the text to be annotated according to the guideline of the newly created category. The input is very simple of 'text' and 'category'.
 
@@ -239,7 +226,7 @@ After the customized category is created successfully, you can provide the text 
 | **Category** | (Required) Name of the newly created category. | String  |
 | **Text** | (Required) String of the text to be annotated. The maximum length is 1000 Unicode characters. | String |
 
-##### Request payload reference
+#### Request payload reference
 
 ```
 {
@@ -249,7 +236,7 @@ After the customized category is created successfully, you can provide the text 
 
 ```
 
-##### Sample Code
+#### Sample Code
 
 ```bash
 curl --location '<endpoint>/contentsafety/text:adaptiveAnnotate?api-version=2023-10-30-preview' \
@@ -287,8 +274,6 @@ print(response.text)
 
 ### Get Category
 
-#### Sample Code
-
 ```bash
 curl --location '<endpoint>/contentsafety/text/categories/Customized_Test?api-version=2023-10-30-preview' \
 --header 'Ocp-Apim-Subscription-Key: <api_key>'
@@ -313,8 +298,6 @@ print(response.text)
 ```
 
 ### List Categories
-
-#### Sample Code
 
 ```bash
 curl --location '<endpoint>/contentsafety/text/categories?api-version=2023-10-30-preview' \
@@ -341,8 +324,6 @@ print(response.text)
 ```
 
 ### Delete Category
-
-#### Sample Code
 
 
 ```bash
