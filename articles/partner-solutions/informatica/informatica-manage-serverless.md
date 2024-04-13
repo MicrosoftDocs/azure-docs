@@ -11,7 +11,8 @@ ms.date: 04/04/2024
 In this article, you learn various actions available for each of the serverless runtime environments in an IDMC organization
 
 ## Actions
-1. Use actions from serverless runtime environments context menu to manage your serverless runtime Environments in **Serverless Runtime Environment** pane.
+
+1. Select **Serverless Runtime Environment** from the Resource menu. Use actions from the context menu to manage your serverless runtime environments in **Serverless Runtime Environment** pane.
 
     :::image type="content" source="media/informatica-manage-serverless/informatica-manage-options.png" alt-text="Screenshot of actions to manage serverless runtime environments.":::
 
