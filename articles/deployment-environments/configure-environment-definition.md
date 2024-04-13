@@ -94,7 +94,7 @@ The ADE extensibility model enables you to use your own custom container image. 
 
 When creating environment definitions that use a custom image in their deployment, the runner property provides a link to a container registry where this container image is stored. 
 
-The runner property specifies the location of the image you want top use. When you're using a Terraform image and storing it in a private registry, edit the runner property to specify the location that image, as shown in the following example:
+The runner property specifies the location of the image you want top use. When you're using a Terraform image and storing it in a public registry, edit the runner property to specify the location that image, as shown in the following example:
 
 ```yaml
 runner: "{YOUR_REGISTRY}.azurecr.io/{YOUR_REPOSITORY}:{YOUR_TAG}"
