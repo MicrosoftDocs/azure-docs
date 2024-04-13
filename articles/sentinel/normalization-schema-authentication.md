@@ -64,7 +64,7 @@ The following filtering parameters are available:
 For example, to filter only authentication events from the last day to a specific user, use:
 
 ```kql
-_Im_Authentication (username_has_any = 'johndoe', starttime = ago(1d), endtime=now())
+_Im_Authentication (username_has_any = dynamic(['johndoe']), starttime = ago(1d), endtime=now())
 ```
 
 
