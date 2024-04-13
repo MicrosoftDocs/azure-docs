@@ -170,7 +170,7 @@ You can set an alert to notify you about certificates which are about to expire.
    AzureDiagnostics
    | where OperationName =~ 'CertificateNearExpiryEventGridNotification'
    | extend CertExpire = unixtime_seconds_todatetime(eventGridEventProperties_data_EXP_d)
-   | extend DaysTillExpire = datetime_diff("Day", now(), CertExpire)
+   | extend DaysTillExpire = datetime_diff("Day", CertExpire, now())
    | project ResourceId, CertName = eventGridEventProperties_subject_s, DaysTillExpire, CertExpire
 
 1. Select **New alert rule**
