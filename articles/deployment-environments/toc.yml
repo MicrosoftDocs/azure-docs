@@ -93,7 +93,9 @@ items:
   expanded: false
   items:
     - name: Install Azure CLI extension
-      href: how-to-install-devcenter-cli-extension.md  
+      href: how-to-install-devcenter-cli-extension.md
+    - name: ADE CLI reference
+      href: reference-deployment-environment-cli.md  
     - name: Azure CLI - devcenter
       href: https://aka.ms/CLI-reference
     - name: REST API
