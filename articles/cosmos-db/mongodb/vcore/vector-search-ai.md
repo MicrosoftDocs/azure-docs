@@ -63,7 +63,7 @@ However, the most popular option may not be the best option for you. Thus, you s
 
 Most open-source vector databases, including the ones listed above, are pure vector databases. In other words, they are designed to store and manage vector embeddings only, along with a small amount of metadata. Since they are independent of the data source from which the embeddings are derived, using them requires sending your data between service integrations, which adds extra cost, complexity, and bottlenecks for your production workloads.
 
-They also poses the challenges that are typical of open-source databases:
+They also pose the challenges that are typical of open-source databases:
 
 - Setup: Users need in-depth knowledge to install, configure, and operate, especially for complex deployments. Optimizing resources and configuration while scaling up operation requires close monitoring and adjustments.
 - Maintenance: Users must manage their own updates, patches, and maintenance. Thus, ML expertise wouldn't suffice; users must also have extensive experience in database administration.
