@@ -12,7 +12,7 @@ ms.subservice: calling
 ms.custom: mode-other
 ---
 # Add audio quality enhancements to your audio calling experience
-The Azure Communication Services audio effects **noise suppression** abilities can improve your audio calls by filtering out unwanted background noises. **Noise suppression** is a technology that removes background noises from audio calls. It makes audio calls clearer and better by eliminating background noise, making it easier to talk and listen. Noise suppression can also reduce distractions and tiredness caused by noisy places. For example, if you're taking an Azure Communication Services WebJS call in a coffee shop with considerable noise, turning on noise suppression can make the call experience signifcantly better.
+The Azure Communication Services audio effects **noise suppression** abilities can improve your audio calls by filtering out unwanted background noises. **Noise suppression** is a technology that removes background noises from audio calls. It makes audio calls clearer and better by eliminating background noise, making it easier to talk and listen. Noise suppression can also reduce distractions and tiredness caused by noisy places. For example, if you're taking an Azure Communication Services WebJS call in a coffee shop with considerable noise, turning on noise suppression can make the call experience significantly better.
 
 [!INCLUDE [Public Preview](../includes/public-preview-include-document.md)]
 
@@ -104,7 +104,7 @@ await call.startCall({
 ### Turn off browser based noise suppression
 Current [desktop browsers]( https://developer.mozilla.org/en-US/docs/Web/API/MediaTrackSettings/noiseSuppression) have some noise suppression capabilities. The **noise suppression** capability in Azure Communication Services WebJS SDK is more optimized and gives better quality results to end users.
 
-To turn off browser based noise suppression you can do the following:
+To turn off browser based noise suppression, you can do the following:
 ```js
 // Switch to browser based noise suppression
 await audioEffectsFeatureApi.startEffects({
