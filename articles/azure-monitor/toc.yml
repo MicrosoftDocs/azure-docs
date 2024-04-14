@@ -931,9 +931,9 @@ items:
         - name: Private link data query of Prometheus metrics
         displayName: Private link data query
         href: ../managed-grafana/how-to-connect-to-data-source-privately.md?toc=/azure/azure-monitor/toc.json
-      - name: Prometheus Remote-Write to Azure Monitor Workspace
+      - name: Self-managed Prometheus remote-write to Azure Monitor workspace
         displayName: Prometheus
-        href: essentials/remote-write-prometheus.md
+        href: essentials/self-managed-prometheus-remote-write.md
       - name: Alerting and rule groups
         displayName: Prometheus
         href: essentials/prometheus-rule-groups.md
