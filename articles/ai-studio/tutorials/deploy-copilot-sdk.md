@@ -19,7 +19,7 @@ In this [Azure AI Studio](https://ai.azure.com) tutorial, you use the Azure AI C
 
 In this tutorial, you learn how to:
 
-- [Create an Azure AI project in Azure AI Studio](#create-an-azure-ai-project-in-azure-ai-studio)
+- [Create a project in Azure AI Studio](#create-a-project-in-azure-ai-studio)
 - [Launch VS Code from Azure AI Studio](#launch-vs-code-from-azure-ai-studio)
 - [Clone the sample app in Visual Studio Code (Web)](#clone-the-sample-app)
 - [Set up your project with the Azure AI CLI](#set-up-your-project-with-the-azure-ai-cli)
@@ -40,17 +40,17 @@ You can also learn how to create a retail copilot using your data with Azure AI 
 
     Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI by completing the form at <a href="https://aka.ms/oai/access" target="_blank">https://aka.ms/oai/access</a>. Open an issue on this repo to contact us if you have an issue.
 
-- You need an Azure AI hub resource and your user role must be **Azure AI Developer**, **Contributor**, or **Owner** on the Azure AI hub resource. For more information, see [Azure AI hub resources](../concepts/ai-resources.md) and [Azure AI roles](../concepts/rbac-ai-studio.md).
-    - If your role is **Contributor** or **Owner**, you can [create an Azure AI hub resource in this tutorial](#create-an-azure-ai-project-in-azure-ai-studio). 
-    - If your role is **Azure AI Developer**, the Azure AI hub resource must already be created. 
+- You need a hub and your user role must be **Azure AI Developer**, **Contributor**, or **Owner** on the hub. For more information, see [hubs](../concepts/ai-resources.md) and [Azure AI roles](../concepts/rbac-ai-studio.md).
+    - If your role is **Contributor** or **Owner**, you can [create a hub in this tutorial](#create-a-project-in-azure-ai-studio). 
+    - If your role is **Azure AI Developer**, the hub must already be created. 
 
 - Your subscription needs to be below your [quota limit](../how-to/quota.md) to [deploy a new model in this tutorial](#deploy-the-chat-function-to-an-api). Otherwise you already need to have a [deployed chat model](../how-to/deploy-models-openai.md).
 
-## Create an Azure AI project in Azure AI Studio
+## Create a project in Azure AI Studio
 
-Your Azure AI project is used to organize your work and save state while building your copilot. During this tutorial, your project contains your data, prompt flow runtime, evaluations, and other resources. For more information about the Azure AI projects and resources model, see [Azure AI hub resources](../concepts/ai-resources.md).
+Your project is used to organize your work and save state while building your copilot. During this tutorial, your project contains your data, prompt flow runtime, evaluations, and other resources. For more information about the projects and resources model, see [hubs](../concepts/ai-resources.md).
 
-[!INCLUDE [Create AI project](../includes/create-projects.md)]
+[!INCLUDE [Create project](../includes/create-projects.md)]
 
 ## Launch VS Code from Azure AI Studio
 
@@ -82,9 +82,9 @@ In this tutorial, you use a prebuilt custom container via [Visual Studio Code (W
 
     :::image type="content" source="../media/tutorials/copilot-sdk/vs-code-readme.png" alt-text="Screenshot of the welcome page in Visual Studio Code web." lightbox="../media/tutorials/copilot-sdk/vs-code-readme.png":::
 
-In the left pane of Visual Studio Code, you see the `code` folder for personal work such as cloning git repos. There's also a `shared` folder that has files that everyone that is connected to this project can see. For more information about the directory structure, see [Get started with Azure AI projects in VS Code](../how-to/develop-in-vscode.md#the-custom-container-folder-structure).
+In the left pane of Visual Studio Code, you see the `code` folder for personal work such as cloning git repos. There's also a `shared` folder that has files that everyone that is connected to this project can see. For more information about the directory structure, see [Get started with projects in VS Code](../how-to/develop-in-vscode.md#the-custom-container-folder-structure).
 
-You can still use the Azure AI Studio (that's still open in another browser tab) while working in VS Code Web. You can see the compute is running via **Build** > **AI project settings** > **Compute instances**. You can pause or stop the compute from here.
+You can still use the Azure AI Studio (that's still open in another browser tab) while working in VS Code Web. You can see the compute is running via **Build** > **Project settings** > **Compute instances**. You can pause or stop the compute from here.
 
 :::image type="content" source="../media/tutorials/copilot-sdk/compute-running.png" alt-text="Screenshot of the compute instance running in Azure AI Studio." lightbox="../media/tutorials/copilot-sdk/compute-running.png":::
 
@@ -135,12 +135,12 @@ The [aistudio-copilot-sample repo](https://github.com/azure/aistudio-copilot-sam
 ## Set up your project with the Azure AI CLI
 
 In this section, you use the [Azure AI CLI](../how-to/cli-install.md) to configure resources needed for your copilot:
-- Azure AI hub resource. 
-- Azure AI project. 
+- Azure AI Studio hub. 
+- Azure AI Studio project. 
 - Azure OpenAI Service model deployments for chat, embeddings, and evaluation.
 - Azure AI Search resource.
 
-The Azure AI hub, AI project, and Azure OpenAI Service resources were created when you [created an Azure AI project in Azure AI Studio](#create-an-azure-ai-project-in-azure-ai-studio). Now you use the Azure AI CLI to set up the chat, embeddings, and evaluation model deployments, and create the Azure AI Search resource. The settings for all of these resources are stored in the local datastore and used by the Azure AI SDK to authenticate to Azure AI services.
+The hub, project, and Azure OpenAI Service resources were created when you [created a project in Azure AI Studio](#create-a-project-in-azure-ai-studio). Now you use the Azure AI CLI to set up the chat, embeddings, and evaluation model deployments, and create the Azure AI Search resource. The settings for all of these resources are stored in the local datastore and used by the Azure AI SDK to authenticate to Azure AI services.
 
 The `ai init` command is an interactive workflow with a series of prompts to help you set up your project resources.
 
@@ -150,7 +150,7 @@ The `ai init` command is an interactive workflow with a series of prompts to hel
     ai init
     ```
 
-1. Select **Existing AI Project** and then press **Enter**. 
+1. Select **Existing AI project** and then press **Enter**. 
 
     :::image type="content" source="../media/tutorials/copilot-sdk/ai-init-existing-project.png" alt-text="Screenshot of the command prompt to select an existing project." lightbox="../media/tutorials/copilot-sdk/ai-init-existing-project.png":::
 
@@ -159,7 +159,7 @@ The `ai init` command is an interactive workflow with a series of prompts to hel
     :::image type="content" source="../media/tutorials/copilot-sdk/ai-init-az-login.png" alt-text="Screenshot of the command prompt to sign in interactively." lightbox="../media/tutorials/copilot-sdk/ai-init-az-login.png":::
 
 1. Select your Azure subscription from the **Subscription** prompt. 
-1. At the **AZURE AI PROJECT** > **Name** prompt, select the project that you [created earlier in Azure AI Studio](#create-an-azure-ai-project-in-azure-ai-studio).
+1. At the **AI project** > **Name** prompt, select the project that you [created earlier in Azure AI Studio](#create-a-project-in-azure-ai-studio).
 1. At the **AZURE OPENAI DEPLOYMENT (CHAT)** > **Name** prompt, select **Create new** and then press **Enter**. 
 
     :::image type="content" source="../media/tutorials/copilot-sdk/ai-init-new-openai-deployment-chat.png" alt-text="Screenshot of the command prompt to create a new Azure OpenAI deployment." lightbox="../media/tutorials/copilot-sdk/ai-init-new-openai-deployment-chat.png":::
@@ -221,8 +221,8 @@ CONFIG AI SERVICES
 Next, you create an Azure AI Search resource to store a vector index. Continue from the previous instructions where the `ai init` workflow is still in progress.
 
 1. At the **AI SEARCH RESOURCE** > **Name** prompt, select **Create new** and then press **Enter**. 
-1. At the **AI SEARCH RESOURCE** > **Region** prompt, select the location for the Azure AI Search resource. We want that in the same place as our [Azure AI project](#create-an-azure-ai-project-in-azure-ai-studio), so select **East US 2**.
-1. At the **CREATE SEARCH RESOURCE** > **Group** prompt, select the resource group for the Azure AI Search resource. Go ahead and use the same resource group (`rg-contosoairesource`) as our [Azure AI project](#create-an-azure-ai-project-in-azure-ai-studio).
+1. At the **AI SEARCH RESOURCE** > **Region** prompt, select the location for the Azure AI Search resource. We want that in the same place as our [project](#create-a-project-in-azure-ai-studio), so select **East US 2**.
+1. At the **CREATE SEARCH RESOURCE** > **Group** prompt, select the resource group for the Azure AI Search resource. Go ahead and use the same resource group (`rg-contosoairesource`) as our [project](#create-a-project-in-azure-ai-studio).
 1. Select one of the names that the Azure AI CLI suggested (such as `contoso-outdoor-proj-search`) and then press **Enter** to create a new Azure AI Search resource. 
 
     :::image type="content" source="../media/tutorials/copilot-sdk/ai-init-search-name.png" alt-text="Screenshot of the command prompt to select a name for the Azure AI Search resource." lightbox="../media/tutorials/copilot-sdk/ai-init-search-name.png":::
@@ -248,7 +248,7 @@ CONFIG AI SEARCH RESOURCE
   *** SET ***   Endpoint (search): https://contoso-outdoor-proj-search.search.windows.net
   *** SET ***        Key (search): Zsq2****************************
                                                          
-AZURE AI PROJECT CONNECTIONS                             
+PROJECT CONNECTIONS                             
                                          
 Connection: Default_AzureOpenAI          
 *** MATCHED: Default_AzureOpenAI ***     
@@ -256,7 +256,7 @@ Connection: Default_AzureOpenAI
 Connection: AzureAISearch
 *** CREATED ***  
 
-AZURE AI PROJECT CONFIG
+PROJECT CONFIG
 
   *** SET ***   Subscription: Your-Subscription-Id
   *** SET ***          Group: rg-contosoairesource
@@ -769,7 +769,7 @@ def deploy_flow(deployment_name, deployment_folder, chat_module):
     client.deployments.begin_create_or_update(deployment)
 ```
 
-The `deploy_flow` function uses the Azure AI Generative SDK to deploy the code in this folder to an endpoint in our Azure AI Studio project. 
+The `deploy_flow` function uses the Azure AI Generative SDK to deploy the code in this folder to an endpoint in our project. 
 
 - It uses the `src/copilot_aisdk/conda.yaml` file to deploy the required packages.
 - It also uses the `environment_variables` to include the environment variables and secrets from our project.

@@ -56,20 +56,20 @@ items:
         href: how-to/sdk-install.md
     - name: Get started with the Azure AI CLI
       href: how-to/cli-install.md
-    - name: Work with Azure AI projects in VS Code
+    - name: Work with projects in VS Code
       href: how-to/develop-in-vscode.md
-  - name: Create Azure AI projects and resources
+  - name: Create projects and resources
     items:
-    - name: Azure AI hub resources overview
+    - name: AI Studio hubs and projects overview
       href: concepts/ai-resources.md
-    - name: Create and manage an Azure AI hub resource
-      href: how-to/create-azure-ai-resource.md
-    - name: Create a secure Azure AI hub resource
-      href: how-to/create-secure-ai-hub.md
-    - name: Create an Azure AI hub resource from template
-      href: how-to/create-azure-ai-hub-template.md
-    - name: Create an Azure AI project
+    - name: Create a project
       href: how-to/create-projects.md
+    - name: Create and manage a hub
+      href: how-to/create-azure-ai-resource.md
+    - name: Create a secure hub
+      href: how-to/create-secure-ai-hub.md
+    - name: Create a hub from template
+      href: how-to/create-azure-ai-hub-template.md
     - name: Create and manage compute
       href: how-to/create-manage-compute.md
   - name: Data and connections

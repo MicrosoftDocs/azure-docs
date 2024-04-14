@@ -64,7 +64,7 @@ Automatic is the default option for a runtime. You can start an automatic runtim
 
 1. Sign in to [Azure AI Studio](https://ai.azure.com) and select your project from the **Build** page. If you don't have a project, create one.
 
-1. On the collapsible left menu, select **AI project settings**.
+1. On the collapsible left menu, select **Project settings**.
 
 1. In the **Compute instances** section, select **View all**.
 

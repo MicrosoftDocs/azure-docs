@@ -144,7 +144,7 @@ If you have a flow that contains one of these tools, follow the next steps to up
 
 ### Upgrade your tools
 
-1. To update your runtime, go to the AI project **Settings** tab on the left pane in AI Studio. In the list of prompt flow runtimes that appears, select the name of the runtime you want to update. Then select **Update**. Wait for the runtime to update itself.
+1. To update your runtime, go to the project **Settings** tab on the left pane in AI Studio. In the list of prompt flow runtimes that appears, select the name of the runtime you want to update. Then select **Update**. Wait for the runtime to update itself.
 1. To go to your flow, select the **Prompt flow** tab on the left pane in AI Studio. Select the **Flows** tab, and then select the name of your flow.
 
 1. Inside the flow, select **+ More tools**. In the dropdown list, select **Index Lookup** [Preview] to add an instance of the Index Lookup tool.

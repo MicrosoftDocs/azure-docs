@@ -33,9 +33,9 @@ We need to connect to Azure OpenAI so that we can access the LLM to generate dat
 from azure.ai.resources.client import AIClient 
 from azure.identity import DefaultAzureCredential
 
-subscription = "<subscription-id>" # Subscription of your AI Studio project
-resource_group = "<resource-group>" # Resource Group of your AI Studio project
-project = "<project-name>" #Name of your Ai Studio Project
+subscription = "<subscription-id>" # Subscription of your Azure AI Studio project
+resource_group = "<resource-group>" # Resource Group of your Azure AI Studio project
+project = "<project-name>" #Name of your Azure AI Studio project
 
 ai_client = AIClient(
     subscription_id=subscription, 

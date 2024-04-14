@@ -15,7 +15,7 @@ author: eric-urban
 
 # Connections in Azure AI Studio
 
-Connections in Azure AI Studio are a way to authenticate and consume both Microsoft and non-Microsoft resources within your Azure AI projects. For example, connections can be used for prompt flow, training data, and deployments. [Connections can be created](../how-to/connections-add.md) exclusively for one project or shared with all projects in the same Azure AI hub resource. 
+Connections in Azure AI Studio are a way to authenticate and consume both Microsoft and non-Microsoft resources within your AI Studio projects. For example, connections can be used for prompt flow, training data, and deployments. [Connections can be created](../how-to/connections-add.md) exclusively for one project or shared with all projects in the same hub. 
 
 ## Connections to Azure AI services
 
@@ -35,7 +35,7 @@ Azure AI Studio supports connections to non-Microsoft services, including the fo
 
 ## Connections to datastores
 
-Creating a data connection allows you to access external data without copying it to your Azure AI Studio project. Instead, the connection provides a reference to the data source.
+Creating a data connection allows you to access external data without copying it to your project. Instead, the connection provides a reference to the data source.
 
 A data connection offers these benefits:
 
@@ -71,9 +71,9 @@ A Uniform Resource Identifier (URI) represents a storage location on your local 
 
 ## Key vaults and secrets
 
-Connections allow you to securely store credentials, authenticate access, and consume data and information.  Secrets associated with connections are securely persisted in the corresponding Azure Key Vault, adhering to robust security and compliance standards. As an administrator, you can audit both shared and project-scoped connections on an Azure AI hub resource level (link to connection rbac). 
+Connections allow you to securely store credentials, authenticate access, and consume data and information.  Secrets associated with connections are securely persisted in the corresponding Azure Key Vault, adhering to robust security and compliance standards. As an administrator, you can audit both shared and project-scoped connections on a hub level (link to connection rbac). 
 
-Azure connections serve as key vault proxies, and interactions with connections are direct interactions with an Azure key vault. Azure AI Studio connections store API keys securely, as secrets, in a key vault. The key vault [Azure role-based access control (Azure RBAC)](./rbac-ai-studio.md) controls access to these connection resources. A connection references the credentials from the key vault storage location for further use. You won't need to directly deal with the credentials after they're stored in the Azure AI hub resource's key vault. You have the option to store the credentials in the YAML file. A CLI command or SDK can override them. We recommend that you avoid credential storage in a YAML file, because a security breach could lead to a credential leak.  
+Azure connections serve as key vault proxies, and interactions with connections are direct interactions with an Azure key vault. Azure AI Studio connections store API keys securely, as secrets, in a key vault. The key vault [Azure role-based access control (Azure RBAC)](./rbac-ai-studio.md) controls access to these connection resources. A connection references the credentials from the key vault storage location for further use. You won't need to directly deal with the credentials after they're stored in the hub's key vault. You have the option to store the credentials in the YAML file. A CLI command or SDK can override them. We recommend that you avoid credential storage in a YAML file, because a security breach could lead to a credential leak.  
 
 
 ## Next steps
