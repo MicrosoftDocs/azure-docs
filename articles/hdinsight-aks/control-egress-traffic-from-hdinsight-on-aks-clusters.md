@@ -188,7 +188,7 @@ Here is an example of how to configure firewall rules, and check your outbound c
     1. In the firewall policy page, from the left navigation, add network and application rules. For example, select **Network Rules > Add a rule collection**.  
     
     1. In **Rules**, add a network rule with the subnet as the source address, and specify an FQDN destination. Similarly, add the application rules.
-       1. You need to add the [outbound traffic rules given here](./azure/hdinsight-aks/required-outbound-traffic). Refer [this doc for adding application and network rules](./secure-traffic-by-firewall-azure-portal.md#add-network-and-application-rules-to-the-firewall) for allowing traffic for the cluster to function. (AKS ApiServer need to be added after the clusterPool is created because you only can get the AKS ApiServer after creating the clusterPool).
+       1. You need to add the [outbound traffic rules given here](./required-outbound-traffic). Refer [this doc for adding application and network rules](./secure-traffic-by-firewall-azure-portal.md#add-network-and-application-rules-to-the-firewall) for allowing traffic for the cluster to function. (AKS ApiServer need to be added after the clusterPool is created because you only can get the AKS ApiServer after creating the clusterPool).
        1. You can also add the [private endpoints](/azure/hdinsight-aks/secure-traffic-by-firewall-azure-portal#add-network-and-application-rules-to-the-firewall) for any dependent resources in the same subnet for cluster to access them (example – storage). 
     
     1. Select **Add**.    
