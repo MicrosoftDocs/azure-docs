@@ -194,7 +194,7 @@ You can use the following built-in connectors to access specific services and sy
         [![Azure AI Search icon][azure-ai-search-icon]][azure-ai-search-doc]
         \
         \
-        [**Azure API Search**][azure-ai-search-doc]<br>(*Standard workflow only*)
+        [**Azure AI Search**][azure-ai-search-doc]<br>(*Standard workflow only*)
         \
         \
         Connect to AI Search so that you can perform document indexing and search operations in your workflow.

@@ -510,16 +510,16 @@ items:
           href: containers/prometheus-metrics-scrape-scale.md
       - name: Integrations
         items:
-        - name: Argo CD
+        - name: Monitor Argo CD
           displayName: Prometheus
           href: containers/prometheus-argo-cd-integration.md
-        - name: Elastic Search
+        - name: Monitor Elastic Search
           displayName: Prometheus
           href: containers/prometheus-elasticsearch-integration.md
-        - name: Apache Kafka
+        - name: Monitor Apache Kafka
           displayName: Prometheus
           href: containers/prometheus-kafka-integration.md
-        - name: KEDA integration
+        - name: Scale using KEDA based on Prometheus metrics
           displayName: Prometheus
           href: containers/integrate-keda.md
       - name: Send to multiple metric workspaces

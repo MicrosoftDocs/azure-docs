@@ -98,7 +98,7 @@ If you don't have access to install the extension, you must request access from 
     steps:
     - task: MicrosoftSecurityDevOps@1
       displayName: 'Microsoft Security DevOps'
-      inputs:    
+      #inputs:    
       # command: 'run' | 'pre-job' | 'post-job'. Optional. The command to run. Default: run
       # config: string. Optional. A file path to an MSDO configuration file ('*.gdnconfig').
       # policy: 'azuredevops' | 'microsoft' | 'none'. Optional. The name of a well-known Microsoft policy. If no configuration file or list of tools is provided, the policy may instruct MSDO which tools to run. Default: azuredevops.

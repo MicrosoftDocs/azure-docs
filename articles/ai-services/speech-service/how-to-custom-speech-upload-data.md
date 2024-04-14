@@ -6,7 +6,7 @@ author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech
 ms.topic: how-to
-ms.date: 1/19/2024
+ms.date: 4/15/2024
 ms.author: eur
 zone_pivot_groups: speech-studio-cli-rest
 ---
@@ -102,9 +102,9 @@ spx help csr dataset
 
 [!INCLUDE [Map CLI and API kind to Speech Studio options](includes/how-to/custom-speech/cli-api-kind.md)]
 
-To create a dataset and connect it to an existing project, use the [Datasets_Create](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Datasets_Create) operation of the [Speech to text REST API](rest-speech-to-text.md). Construct the request body according to the following instructions:
+To create a dataset and connect it to an existing project, use the [Datasets_Create](/rest/api/speechtotext/datasets/create) operation of the [Speech to text REST API](rest-speech-to-text.md). Construct the request body according to the following instructions:
 
-- Set the `project` property to the URI of an existing project. This property is recommended so that you can also view and manage the dataset in Speech Studio. You can make a [Projects_List](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Projects_List) request to get available projects.
+- Set the `project` property to the URI of an existing project. This property is recommended so that you can also view and manage the dataset in Speech Studio. You can make a [Projects_List](/rest/api/speechtotext/projects/list) request to get available projects.
 - Set the required `kind` property. The possible set of values for dataset kind are: Language, Acoustic, Pronunciation, and AudioFiles.
 - Set the required `contentUrl` property. This property is the location of the dataset. If you don't use trusted Azure services security mechanism (see next Note), then the `contentUrl` parameter should be a URL that can be retrieved with a simple anonymous GET request. For example, a [SAS URL](/azure/storage/common/storage-sas-overview) or a publicly accessible URL. URLs that require extra authorization, or expect user interaction aren't supported. 
 
@@ -155,7 +155,7 @@ You should receive a response body in the following format:
 }
 ```
 
-The top-level `self` property in the response body is the dataset's URI. Use this URI to [get](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Datasets_Get) details about the dataset's project and files. You also use this URI to [update](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Datasets_Update) or [delete](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Datasets_Delete) the dataset.
+The top-level `self` property in the response body is the dataset's URI. Use this URI to [get](/rest/api/speechtotext/datasets/get) details about the dataset's project and files. You also use this URI to [update](/rest/api/speechtotext/datasets/update) or [delete](/rest/api/speechtotext/datasets/delete) the dataset.
 
 ::: zone-end
 
