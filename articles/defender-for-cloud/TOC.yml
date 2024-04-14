@@ -891,9 +891,6 @@
         href: faq-defender-for-devops.yml
   - name: AI security
     items:
-      - name: Overview
-        displayName: AI, machine learning, Defender for AI
-        href: defender-for-ai-introduction.md
       - name: AI security posture management
         displayName: AI, posture, management
         href: ai-security-posture.md
