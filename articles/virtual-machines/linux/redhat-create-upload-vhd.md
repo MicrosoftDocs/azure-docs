@@ -377,7 +377,7 @@ EOF
 
 16. Click **Action** > **Shut Down** in Hyper-V Manager. Your Linux VHD is now ready to be [**uploaded to Azure**](./upload-vhd.md#option-1-upload-a-vhd).
 
-### RHEL 8 using Hyper-V Manager
+### RHEL 8+ using Hyper-V Manager
 
 1. In Hyper-V Manager, select the virtual machine.
 
@@ -415,7 +415,12 @@ EOF
     GRUB_CMDLINE_LINUX="console=tty1 console=ttyS0,115200n8 earlyprintk=ttyS0,115200 earlyprintk=ttyS0 net.ifnames=0"
     GRUB_TERMINAL_OUTPUT="serial console"
     GRUB_SERIAL_COMMAND="serial --speed=115200 --unit=0 --word=8 --parity=no --stop=1"
+    ENABLE_BLSCFG=true
     ```
+
+> [!NOTE]
+> If [**ENABLE_BLSCFG=false**](https://access.redhat.com/solutions/6929571) is  present in `/etc/default/grub` instead of 'ENABLE_BLSCFG=true` tools such as ___grubedit___ or ___gubby___, which rely on the Boot Loader Specification (BLS) for managing boot entries and configurations, may not function correctly in RHEL 8 and 9.  Be advised, if ENABLE_BLSCFG is not present, the default behavior is "false".
+
 
    This will also ensure that all console messages are sent to the first serial port and enable interaction with the serial console, which can assist Azure support with debugging issues. This configuration also turns off the new naming conventions for NICs.
 
