@@ -529,9 +529,6 @@ items:
         href: containers/container-insights-prometheus-logs.md
     - name: Remote-write with Prometheus
       items:
-      - name: Overview
-        displayName: Prometheus,remote-write
-        href: essentials/remote-write-prometheus.md
       - name: Remote-write using Azure Monitor sidecar
         displayName: Prometheus,remote-write
         href: containers/prometheus-remote-write.md
@@ -934,7 +931,7 @@ items:
         - name: Private link data query of Prometheus metrics
         displayName: Private link data query
         href: ../managed-grafana/how-to-connect-to-data-source-privately.md?toc=/azure/azure-monitor/toc.json
-      - name: Remote-write from self-managed Prometheus
+      - name: Prometheus Remote-Write to Azure Monitor Workspace
         displayName: Prometheus
         href: essentials/remote-write-prometheus.md
       - name: Alerting and rule groups
