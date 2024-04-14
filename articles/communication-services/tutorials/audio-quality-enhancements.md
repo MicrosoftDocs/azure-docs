@@ -12,7 +12,7 @@ ms.subservice: calling
 ms.custom: mode-other
 ---
 # Add audio quality enhancements to your audio calling experience
-The Azure Communication Services audio effects **noise suppression** abilties can improve your audio calls by filtering out unwanted background noises. **Noise suppression** is a technology that removes background noises from audio calls. It makes audio calls clearer and better by eliminating background noise, making it easier to talk and listen. Noise suppression can also reduce distractions and tiredness caused by noisy places. For example, if you are taking an Azure Communication Services WebJS call in a coffee shop with a lot of noise, turning on noise suppression can make the call experience much better.
+The Azure Communication Services audio effects **noise suppression** abilities can improve your audio calls by filtering out unwanted background noises. **Noise suppression** is a technology that removes background noises from audio calls. It makes audio calls clearer and better by eliminating background noise, making it easier to talk and listen. Noise suppression can also reduce distractions and tiredness caused by noisy places. For example, if you're taking an Azure Communication Services WebJS call in a coffee shop with considerable noise, turning on noise suppression can make the call experience signifcantly better.
 
 [!INCLUDE [Public Preview](../includes/public-preview-include-document.md)]
 
@@ -34,7 +34,7 @@ You can find more [details ](https://www.npmjs.com/package/@azure/communication-
 
 > You can learn about the specifics of the [calling API](/javascript/api/azure-communication-services/@azure/communication-calling/?view=azure-communication-services-js&preserve-view=true).
 
-To use `noise suppression` audio effects within the Azure Communication Calling SDK, you need the `LocalAudioStream` that is currently in the call. You'll also need access to the `AudioEffects` API of the `LocalAudioStream` to start and stop audio effects.
+To use `noise suppression` audio effects within the Azure Communication Calling SDK, you need the `LocalAudioStream` that is currently in the call. You need access to the `AudioEffects` API of the `LocalAudioStream` to start and stop audio effects.
 ```js
 import * as AzureCommunicationCallingSDK from '@azure/communication-calling'; 
 import { DeepNoiseSuppressionEffect } from '@azure/communication-calling-effects'; 
@@ -61,7 +61,7 @@ audioEffectsFeatureApi.on('effectsError', (error: AudioEffectErrorPayload) => {
 ```
 
 ### How to turn on Noise Suppression in an ongoing call
-There are situations where are user might start a call and not wanto to have **noise suppression** turned on, but their current environment might get noisy resulting in them needing to turn on **noise suppression**. To turn on **noise suppression** after a call has started you can do the following.
+There are situations where are user might start a call and not have **noise suppression** turned on, but their current environment might get noisy resulting in them needing to turn on **noise suppression**. To turn on **noise suppression** you can use the `audioEffectsFeatureApi.startEffects` API.
 ```js
 // Create the effect instance 
 const deepNoiseSuppression = new DeepNoiseSuppressionEffect();
@@ -102,7 +102,7 @@ await call.startCall({
 // And similarly pass it in CallAcceptOptions.audioOptions in case of accept().
 ```
 ### Turn off browser based noise suppression
-Current [desktop browsers]( https://developer.mozilla.org/en-US/docs/Web/API/MediaTrackSettings/noiseSuppression) have some noise suppression capabilities. The **noise suppression** capabilities in Azure Communication Services WebJS SDK is more optimized and gives better qualtiy results to end users.
+Current [desktop browsers]( https://developer.mozilla.org/en-US/docs/Web/API/MediaTrackSettings/noiseSuppression) have some noise suppression capabilities. The **noise suppression** capability in Azure Communication Services WebJS SDK is more optimized and gives better quality results to end users.
 
 To turn off browser based noise suppression you can do the following:
 ```js
