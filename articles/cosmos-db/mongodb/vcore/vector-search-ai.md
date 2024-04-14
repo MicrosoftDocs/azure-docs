@@ -80,4 +80,4 @@ An example is the Integrated Vector Database in Azure Cosmos DB for MongoDB. It 
 
 ## Next steps
 > [!div class="nextstepaction"]
-> [Create a lifetime free-tier vCore cluster for Azure Cosmos DB for MongoDB](free-tier.md)
+> [Use lifetime free tier of Integrated Vector Database in Azure Cosmos DB for MongoDB](free-tier.md)
