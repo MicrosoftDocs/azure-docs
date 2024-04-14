@@ -57,7 +57,7 @@ Choosing the best open-source vector database requires considering several facto
 - Qdrant
 - Weaviate
 
-However, the most popular option may not be the best option for you. To find the best fit for your needs, you should compare different options based on features, supported data types, compatibility with existing tools and frameworks you use. Ease of installation, configuration, and maintenance should also be considered to ensure smooth integration into your workflow. 
+However, the most popular option may not be the best option for you. Thus, you should compare different options based on features, supported data types, compatibility with existing tools and frameworks you use. You should also keep in mind the challenges of open-source vector databases (below).
 
 ## Challenges of open-source vector databases
 
