@@ -1,16 +1,16 @@
 ---
-title: Migrating Azure Monitor Application Insights Node.js from Application Insights 2.X SDK to OpenTelemetry
-description: This article provides guidance on how to migrate from the Azure Monitor Application Insights Node.js 2.X SDK to OpenTelemetry.
+title: Migrating Azure Monitor Application Insights Node.js from Application Insights SDK 2.X to OpenTelemetry
+description: This article provides guidance on how to migrate from the Azure Monitor Application Insights Node.js SDK 2.X to OpenTelemetry.
 ms.topic: conceptual
-ms.date: 04/15/2024
+ms.date: 04/16/2024
 ms.devlang: javascript
 ms.custom: devx-track-js
 ms.reviewer: mmcc
 ---
 
-# Migrating from ApplicationInsights Version 2.X to Azure Monitor OpenTelemetry-based Node.js
+# Migrate from the Node.js Application Insights SDK 2.X to Azure Monitor OpenTelemetry
 
-This guide provides two options to upgrade from the Azure Monitor Application Insights Node.js 2.X SDK to OpenTelemetry.
+This guide provides two options to upgrade from the Azure Monitor Application Insights Node.js SDK 2.X to OpenTelemetry.
 
 * **Clean install** the [Node.js Azure Monitor OpenTelemetry Distro](https://github.com/microsoft/opentelemetry-azure-monitor-js).
     * Remove dependencies on the Application Insights classic API.
@@ -35,7 +35,7 @@ This guide provides two options to upgrade from the Azure Monitor Application In
     npm uninstall applicationinsights
     ```
 
-3. Remove 2.X SDK implementation from your code.
+3. Remove SDK 2.X implementation from your code.
 
     Remove all Application Insights instrumentation from your code. Delete any sections where the Application Insights client is initialized, modified, or called.
 
@@ -45,7 +45,7 @@ This guide provides two options to upgrade from the Azure Monitor Application In
 
 #### Azure Monitor OpenTelemetry Distro changes and limitations
 
-The APIs from the Application Insights 2.X SDK aren't available in the Azure Monitor OpenTelemetry Distro. You can access these APIs through a nonbreaking upgrade path in the Application Insights 3.X SDK.
+The APIs from the Application Insights SDK 2.X aren't available in the Azure Monitor OpenTelemetry Distro. You can access these APIs through a nonbreaking upgrade path in the Application Insights SDK 3.X.
 
 ## [Upgrade](#tab/upgrade)
 
@@ -59,9 +59,9 @@ The APIs from the Application Insights 2.X SDK aren't available in the Azure Mon
 
 3. Test your application.
 
-    To avoid using unsupported configuration options in the Application Insights 3.X SDK, see [Unsupported Properties](https://github.com/microsoft/ApplicationInsights-node.js/tree/beta?tab=readme-ov-file#applicationinsights-shim-unsupported-properties).
+    To avoid using unsupported configuration options in the Application Insights SDK 3.X, see [Unsupported Properties](https://github.com/microsoft/ApplicationInsights-node.js/tree/beta?tab=readme-ov-file#applicationinsights-shim-unsupported-properties).
 
-    If the SDK logs warnings about unsupported API usage after a major version bump, and you need the related functionality, continue using the Application Insights 2.X SDK.
+    If the SDK logs warnings about unsupported API usage after a major version bump, and you need the related functionality, continue using the Application Insights SDK 2.X.
 
 ---
 
@@ -75,17 +75,17 @@ OpenTelemetry JavaScript's monitoring solutions officially support only Node ver
 
 ##### Configuration options
 
-The ApplicationInsights SDK version 2.X offers configuration options that aren't available in the Azure Monitor OpenTelemetry Distro or in the major version upgrade to Application Insights 3.X SDK. To find these changes, along with the options we still support, see [SDK configuration documentation](https://github.com/microsoft/ApplicationInsights-node.js/tree/beta?tab=readme-ov-file#applicationinsights-shim-unsupported-properties).
+The Application Insights SDK version 2.X offers configuration options that aren't available in the Azure Monitor OpenTelemetry Distro or in the major version upgrade to Application Insights SDK 3.X. To find these changes, along with the options we still support, see [SDK configuration documentation](https://github.com/microsoft/ApplicationInsights-node.js/tree/beta?tab=readme-ov-file#applicationinsights-shim-unsupported-properties).
 
 ##### Extended metrics
 
-Extended metrics are supported in the Application Insights 2.X SDK; however, support for these metrics ends in both version 3.X of the ApplicationInsights SDK and the Azure Monitor OpenTelemetry Distro.
+Extended metrics are supported in the Application Insights SDK 2.X; however, support for these metrics ends in both version 3.X of the ApplicationInsights SDK and the Azure Monitor OpenTelemetry Distro.
 
 ##### Telemetry Processors
 
-While the Azure Monitor OpenTelemetry Distro and Application Insights 3.X SDK don't support TelemetryProcessors, they do allow you to pass span and log record processors. For more information on how, see [Azure Monitor OpenTelemetry Distro project](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/monitor/monitor-opentelemetry#modify-telemetry).
+While the Azure Monitor OpenTelemetry Distro and Application Insights SDK 3.X don't support TelemetryProcessors, they do allow you to pass span and log record processors. For more information on how, see [Azure Monitor OpenTelemetry Distro project](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/monitor/monitor-opentelemetry#modify-telemetry).
 
-This example shows the equivalent of creating and applying a telemetry processor that attaches a custom property in the Application Insights 2.X SDK.
+This example shows the equivalent of creating and applying a telemetry processor that attaches a custom property in the Application Insights SDK 2.X.
 
 ```typescript
 const applicationInsights = require("applicationinsights");
