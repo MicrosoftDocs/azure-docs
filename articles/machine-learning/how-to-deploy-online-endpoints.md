@@ -386,105 +386,6 @@ To define the endpoint and deployment, this article uses the Azure Resource Mana
 
 ---
 
-### Register your model and environment separately
-
-Before you deploy your model to Azure, as a best practice for production, you should register the model and environment and specify their registered names and versions during deployment.
-
-> [!NOTE]
-> Unlike deployment to Azure, local deployment doesn't support using registered models and environments. Rather, local deployment uses local model files and environments with local files only.
-
-# [Azure CLI](#tab/cli)
-
-For local deployment, we specify the `path` (where to upload files from) inline. The CLI automatically uploads the files from the path and registers the model and environment. 
-
-However, when you deploy to Azure, we recommend that you register the model and environment and specify the registered name and version in the YAML. Use the form `model: azureml:my-model:1` or `environment: azureml:my-env:1`.
-For registration, you can extract the YAML definitions of `model` and `environment` into separate YAML files and use the commands `az ml model create` and `az ml environment create`. To learn more about these commands, run `az ml model create -h` and `az ml environment create -h`.
-
-1. Create a YAML definition for the model:
-
-    ```yml
-    $schema: https://azuremlschemas.azureedge.net/latest/model.schema.json
-    name: my-model
-    path: ../../model-1/model/
-    ```
-
-1. Register the model:
-
-    ```azurecli
-    az ml model create -n my-model -v 1 -f ./model.yaml
-    ```
-
-1. Create a YAML definition for the environment:
-
-    ```yml
-    $schema: https://azuremlschemas.azureedge.net/latest/environment.schema.json
-    name: my-env
-    image: mcr.microsoft.com/azureml/openmpi4.1.0-ubuntu20.04:latest
-    conda_file: ../../model-1/environment/conda.yaml
-    ```
-
-1. Register the environment:
-
-    ```azurecli
-    az ml environment create -n my-env -v 1 -f ./environment.yaml
-    ```
-
-For more information on registering your model as an asset, see [Register your model as an asset in Machine Learning by using the CLI](how-to-manage-models.md#register-your-model-as-an-asset-in-machine-learning-by-using-the-cli). For more information on creating an environment, see [Manage Azure Machine Learning environments with the CLI & SDK (v2)](how-to-manage-environments-v2.md#create-a-custom-environment).
-
-# [Python SDK](#tab/python)
-
-In this example, we specify the `path` (where to upload files from) inline. The SDK automatically uploads the files from the path and registers the model and environment. As a best practice for production, you should register the model and environment and specify the registered name and version separately in the codes.
-
-For more information on registering your model as an asset so that you can specify its registered name and version during deployment, see [Register your model as an asset in Machine Learning by using the SDK](how-to-manage-models.md#register-your-model-as-an-asset-in-machine-learning-by-using-the-sdk).
-
-For more information on creating an environment, see [Manage Azure Machine Learning environments with the CLI & SDK (v2)](how-to-manage-environments-v2.md#create-a-custom-environment).
-
-
-# [Studio](#tab/azure-studio)
-
-### Register the model
-
-A model registration is a logical entity in the workspace that can contain a single model file or a directory of multiple files. As a best practice for production, you should register the model and environment. When creating the endpoint and deployment in this article, we'll assume that you've registered the [model folder](https://github.com/Azure/azureml-examples/tree/main/cli/endpoints/online/model-1/model) that contains the model.
-
-To register the example model, follow these steps:
-
-1. Go to the [Azure Machine Learning studio](https://ml.azure.com).
-1. In the left navigation bar, select the **Models** page.
-1. Select **Register**, and then choose **From local files**.
-1. Select __Unspecified type__ for the __Model type__.
-1. Select __Browse__, and choose __Browse folder__.
-
-    :::image type="content" source="media/how-to-deploy-online-endpoints/register-model-folder.png" alt-text="A screenshot of the browse folder option." lightbox="media/how-to-deploy-online-endpoints/register-model-folder.png":::
-
-1. Select the `\azureml-examples\cli\endpoints\online\model-1\model` folder from the local copy of the repo you cloned or downloaded earlier. When prompted, select __Upload__ and wait for the upload to complete.
-1. Select __Next__ after the folder upload is completed.
-1. Enter a friendly __Name__ for the model. The steps in this article assume the model is named `model-1`.
-1. Select __Next__, and then __Register__ to complete registration.
-
-For more information on working with registered models, see [Register and work with models](how-to-manage-models.md).
-
-For information on creating an environment in the studio, see [Create an environment](how-to-manage-environments-in-studio.md#create-an-environment).
-
-# [ARM template](#tab/arm)
-
-1. To register the model using a template, you must first upload the model file to an Azure Blob store. The following example uses the `az storage blob upload-batch` command to upload a file to the default storage for your workspace:
-
-    :::code language="{language}" source="~/azureml-examples-main/deploy-arm-templates-az-cli.sh" id="upload_model":::
-
-1. After uploading the file, use the template to create a model registration. In the following example, the `modelUri` parameter contains the path to the model:
-
-    :::code language="azurecli" source="~/azureml-examples-main/deploy-arm-templates-az-cli.sh" id="create_model":::
-
-1. Part of the environment is a conda file that specifies the model dependencies needed to host the model. The following example demonstrates how to read the contents of the conda file into environment variables:
-
-    :::code language="azurecli" source="~/azureml-examples-main/deploy-arm-templates-az-cli.sh" id="read_condafile":::
-
-1. The following example demonstrates how to use the template to register the environment. The contents of the conda file from the previous step are passed to the template using the `condaFile` parameter:
-
-    :::code language="azurecli" source="~/azureml-examples-main/deploy-arm-templates-az-cli.sh" id="create_environment":::
-
----
-
 ### Use different CPU and GPU instance types and images
 
 # [Azure CLI](#tab/cli)
@@ -748,17 +649,110 @@ The template doesn't support local endpoints. See the Azure CLI or Python tabs f
 
 ## Deploy your online endpoint to Azure
 
-As mentioned earlier, we recommend that you specify a registered model and environment when you deploy to Azure.
+Next, deploy your online endpoint to Azure. As a best practice for production, we recommend that you register the model and environment that you'll use in your deployment.
 
-### Configure a deployment that uses registered assets
+### Register your model and environment
 
-Your deployment configuration uses the location of the model that you wish to deploy.
+Before you deploy your model to Azure, you should register the model and environment so that you can specify their registered names and versions during deployment.
+
+> [!NOTE]
+> Unlike deployment to Azure, local deployment doesn't support using registered models and environments. Rather, local deployment uses local model files and environments with local files only. For an example of a deployment configuration that uploads local files to use for local deployment, see [Configure a deployment](#configure-a-deployment).
 
 # [Azure CLI](#tab/cli)
 
-Earlier, you [registered your model and environment](#register-your-model-and-environment-separately). Now you'll use these registered asset in your deployment definition to deploy to Azure.
+To register the model and environment, use the form `model: azureml:my-model:1` or `environment: azureml:my-env:1`.
+For registration, you can extract the YAML definitions of `model` and `environment` into separate YAML files and use the commands `az ml model create` and `az ml environment create`. To learn more about these commands, run `az ml model create -h` and `az ml environment create -h`.
 
-The following snippet shows the `endpoints/online/managed/sample/blue-deployment-with-registered-assets.yml` file, with all the required inputs to configure a deployment:
+1. Create a YAML definition for the model:
+
+    ```yml
+    $schema: https://azuremlschemas.azureedge.net/latest/model.schema.json
+    name: my-model
+    path: ../../model-1/model/
+    ```
+
+1. Register the model:
+
+    ```azurecli
+    az ml model create -n my-model -v 1 -f ./model.yaml
+    ```
+
+1. Create a YAML definition for the environment:
+
+    ```yml
+    $schema: https://azuremlschemas.azureedge.net/latest/environment.schema.json
+    name: my-env
+    image: mcr.microsoft.com/azureml/openmpi4.1.0-ubuntu20.04:latest
+    conda_file: ../../model-1/environment/conda.yaml
+    ```
+
+1. Register the environment:
+
+    ```azurecli
+    az ml environment create -n my-env -v 1 -f ./environment.yaml
+    ```
+
+For more information on registering your model as an asset, see [Register your model as an asset in Machine Learning by using the CLI](how-to-manage-models.md#register-your-model-as-an-asset-in-machine-learning-by-using-the-cli). For more information on creating an environment, see [Manage Azure Machine Learning environments with the CLI & SDK (v2)](how-to-manage-environments-v2.md#create-a-custom-environment).
+
+# [Python SDK](#tab/python)
+
+To learn how to register your model as an asset so that you can specify its registered name and version during deployment, see [Register your model as an asset in Machine Learning by using the SDK](how-to-manage-models.md#register-your-model-as-an-asset-in-machine-learning-by-using-the-sdk).
+
+For more information on creating an environment, see [Manage Azure Machine Learning environments with the CLI & SDK (v2)](how-to-manage-environments-v2.md#create-a-custom-environment).
+
+
+# [Studio](#tab/azure-studio)
+
+### Register the model
+
+A model registration is a logical entity in the workspace that can contain a single model file or a directory of multiple files. As a best practice for production, you should register the model and environment. Before creating the endpoint and deployment in this article, you should register the [model folder](https://github.com/Azure/azureml-examples/tree/main/cli/endpoints/online/model-1/model) that contains the model.
+
+To register the example model, follow these steps:
+
+1. Go to the [Azure Machine Learning studio](https://ml.azure.com).
+1. In the left navigation bar, select the **Models** page.
+1. Select **Register**, and then choose **From local files**.
+1. Select __Unspecified type__ for the __Model type__.
+1. Select __Browse__, and choose __Browse folder__.
+
+    :::image type="content" source="media/how-to-deploy-online-endpoints/register-model-folder.png" alt-text="A screenshot of the browse folder option." lightbox="media/how-to-deploy-online-endpoints/register-model-folder.png":::
+
+1. Select the `\azureml-examples\cli\endpoints\online\model-1\model` folder from the local copy of the repo you cloned or downloaded earlier. When prompted, select __Upload__ and wait for the upload to complete.
+1. Select __Next__ after the folder upload is completed.
+1. Enter a friendly __Name__ for the model. The steps in this article assume the model is named `model-1`.
+1. Select __Next__, and then __Register__ to complete registration.
+
+For more information on working with registered models, see [Register and work with models](how-to-manage-models.md).
+
+For information on creating an environment in the studio, see [Create an environment](how-to-manage-environments-in-studio.md#create-an-environment).
+
+# [ARM template](#tab/arm)
+
+1. To register the model using a template, you must first upload the model file to an Azure Blob store. The following example uses the `az storage blob upload-batch` command to upload a file to the default storage for your workspace:
+
+    :::code language="{language}" source="~/azureml-examples-main/deploy-arm-templates-az-cli.sh" id="upload_model":::
+
+1. After uploading the file, use the template to create a model registration. In the following example, the `modelUri` parameter contains the path to the model:
+
+    :::code language="azurecli" source="~/azureml-examples-main/deploy-arm-templates-az-cli.sh" id="create_model":::
+
+1. Part of the environment is a conda file that specifies the model dependencies needed to host the model. The following example demonstrates how to read the contents of the conda file into environment variables:
+
+    :::code language="azurecli" source="~/azureml-examples-main/deploy-arm-templates-az-cli.sh" id="read_condafile":::
+
+1. The following example demonstrates how to use the template to register the environment. The contents of the conda file from the previous step are passed to the template using the `condaFile` parameter:
+
+    :::code language="azurecli" source="~/azureml-examples-main/deploy-arm-templates-az-cli.sh" id="create_environment":::
+
+---
+
+### Configure a deployment that uses registered assets
+
+Your deployment configuration uses the registered model that you wish to deploy and your registered environment..
+
+# [Azure CLI](#tab/cli)
+
+Use the registered assets (model and environment) in your deployment definition. The following snippet shows the `endpoints/online/managed/sample/blue-deployment-with-registered-assets.yml` file, with all the required inputs to configure a deployment:
 
 __blue-deployment-with-registered-assets.yml__
 
@@ -766,7 +760,7 @@ __blue-deployment-with-registered-assets.yml__
 
 # [Python SDK](#tab/python)
 
-To configure a deployment:
+To configure a deployment, use the registered model and environment:
 
 ```python
 model = "azureml:my-model:1"
@@ -787,9 +781,11 @@ blue_deployment = ManagedOnlineDeployment(
 
 # [Studio](#tab/azure-studio)
 
+When you deploy from the studio, you'll create an endpoint and a deployment to add to it. At that time, you'll be prompted to provide names for the endpoint and deployment.
 
 # [ARM template](#tab/arm)
 
+To define the endpoint and deployment, this article uses the Azure Resource Manager templates [online-endpoint.json](https://github.com/Azure/azureml-examples/tree/main/arm-templates/online-endpoint.json) and [online-endpoint-deployment.json](https://github.com/Azure/azureml-examples/tree/main/arm-templates/online-endpoint-deployment.json). To use the templates for defining an online endpoint and deployment, see the [Deploy to Azure](#deploy-to-azure) section.
 
 ---
 
@@ -797,7 +793,7 @@ blue_deployment = ManagedOnlineDeployment(
 
 # [Azure CLI](#tab/cli)
 
-Earlier in the section where you [configured a deployment](#configure-a-deployment), the deployment definition in the _blue-deployment.yml_ file used a general-purpose type `Standard_DS3_v2` instance and a non-GPU Docker image `mcr.microsoft.com/azureml/openmpi4.1.0-ubuntu20.04:latest`. For GPU compute, choose a GPU compute type SKU and a GPU Docker image.
+Your deployment definition in the _blue-deployment-with-registered-assets.yml_ file used a general-purpose type `Standard_DS3_v2` instance and a non-GPU Docker image `mcr.microsoft.com/azureml/openmpi4.1.0-ubuntu20.04:latest`. For GPU compute, choose a GPU compute type SKU and a GPU Docker image.
 
 For supported general-purpose and GPU instance types, see [Managed online endpoints supported VM SKUs](reference-managed-online-endpoints-vm-sku-list.md). For a list of Azure Machine Learning CPU and GPU base images, see [Azure Machine Learning base images](https://github.com/Azure/AzureML-Containers).
 
@@ -806,7 +802,7 @@ For supported general-purpose and GPU instance types, see [Managed online endpoi
 
 # [Python SDK](#tab/python)
 
-Earlier in the section where you [configured a deployment](#configure-a-deployment), the deployment definition of the `blue_deployment` used a general-purpose type `Standard_DS3_v2` instance and a non-GPU Docker image `mcr.microsoft.com/azureml/openmpi4.1.0-ubuntu20.04:latest`. For GPU compute, choose a GPU compute type SKU and a GPU Docker image.
+Earlier, you configured a deployment that used a general-purpose type `Standard_DS3_v2` instance and a non-GPU Docker image `mcr.microsoft.com/azureml/openmpi4.1.0-ubuntu20.04:latest`. For GPU compute, choose a GPU compute type SKU and a GPU Docker image.
 
 For supported general-purpose and GPU instance types, see [Managed online endpoints supported VM SKUs](reference-managed-online-endpoints-vm-sku-list.md). For a list of Azure Machine Learning CPU and GPU base images, see [Azure Machine Learning base images](https://github.com/Azure/AzureML-Containers).
 
@@ -1256,7 +1252,7 @@ Delete the endpoint and all its underlying deployments:
 
 ## Related content
 
-- [Safe rollout for online endpoints](how-to-safely-rollout-online-endpoints.md)
+- [Perform safe rollout for online endpoints](how-to-safely-rollout-online-endpoints.md)
 - [Deploy models with REST](how-to-deploy-with-rest.md)
 - [How to autoscale managed online endpoints](how-to-autoscale-endpoints.md)
 - [How to monitor managed online endpoints](how-to-monitor-online-endpoints.md)
