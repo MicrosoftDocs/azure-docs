@@ -1,12 +1,12 @@
 ---
 title: Tutorial - Create workflows with multiple Azure services
-description: This tutorial shows how to create automated workflows in Azure Logic Apps using Azure Storage and Azure Functions.
+description: Learn how to create automated workflows using Azure Logic Apps, Azure Functions, and Azure Storage.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: tutorial
 ms.custom: "mvc, devx-track-csharp"
-ms.date: 01/04/2024
+ms.date: 04/16/2024
 ---
 
 # Tutorial: Create workflows that process emails using Azure Logic Apps, Azure Functions, and Azure Storage
