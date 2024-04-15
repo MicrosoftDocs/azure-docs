@@ -11,11 +11,11 @@ ms.topic: how-to
 #customer intent: As a developer, I want to learn how to build and utilize custom images within my environment definitions for deployment environments.
 ---
 
-# Custom image support in Azure Deployment Environments
+# Configure container image to execute deployments with ARM and Bicep
 
 In this article, you learn how to build and utilize custom images within your environment definitions for deployments in Azure Deployment Environments (ADE).
 
-ADE uses an extensibility model to enable you to create custom images to use in your environment definitions. By using the extensibility model, you can create your own custom images, and store them in a container registry like the [Microsoft Artifact Registry](https://mcr.microsoft.com/)(also known as the Microsoft Container Registry). You can then reference these images in your environment definitions to deploy your environments.
+ADE supports an extensibility model that enables you to create custom images that you can use in your environment definitions. To leverage this extensibility model, you can create your own custom images, and store them in a container registry like the [Microsoft Artifact Registry](https://mcr.microsoft.com/)(also known as the Microsoft Container Registry). You can then reference these images in your environment definitions to deploy your environments.
 
 The ADE team provides a selection of images to get you started, including a core image, and an Azure Resource Manager (ARM)/Bicep image. You can access these sample images in the [Runner-Images](https://github.com/Azure/deployment-environments/tree/custom-runner-private-preview/Runner-Images) folder.
 
@@ -211,6 +211,35 @@ When authoring environment definitions to use your custom image in their deploym
 
 ```yaml
 runner: "{YOUR_REGISTRY}.azurecr.io/{YOUR_REPOSITORY}:{YOUR_TAG}"
+```
+
+## Access operation logs and error details
+
+ADE stores error details for a failed deployment the *$ADE_ERROR_LOG* file. 
+
+To troubleshoot a failed deployment:
+
+1. Sign in to the [Developer Portal](https://devportal.microsoft.com/).
+1. Identify the environment that failed to deploy, and select **See details**.
+
+    :::image type="content" source="media/how-to-configure-extensibility-bicep-container-image/failed-deployment-card.png" alt-text="Screenshot showing failed deployment error details, specifically an invalid name for a storage account." lightbox="media/how-to-configure-extensibility-bicep-container-image/failed-deployment-card.png":::
+
+1. Review the error details in the **Error Details** section.
+
+    :::image type="content" source="media/how-to-configure-extensibility-bicep-container-image/deployment-error-details.png" alt-text="Screenshot showing a failed deployment of an environment with the See Details button displayed." lightbox="media/how-to-configure-extensibility-bicep-container-image/deployment-error-details.png":::
+
+Additionally, you can use the Azure CLI to view an environment's error details using the following command:
+```bash
+az devcenter dev environment show --environment-name {YOUR_ENVIRONMENT_NAME} --project {YOUR_PROJECT_NAME}
+```
+
+To view the operation logs for an environment deployment or deletion, use the Azure CLI to retrieve the latest operation for your environment, and then view the logs for that operation ID.
+
+```bash
+# Get list of operations on the environment, choose the latest operation
+az devcenter dev environment list-operation --environment-name {YOUR_ENVIRONMENT_NAME} --project {YOUR_PROJECT_NAME}
+# Using the latest operation ID, view the operation logs
+az devcenter dev environment show-logs-by-operation --environment-name {YOUR_ENVIRONMENT_NAME} --project {YOUR_PROJECT_NAME} --operation-id {LATEST_OPERATION_ID}
 ```
 
 ## Related content
