@@ -738,6 +738,8 @@ items:
         href: concepts/voice-video-calling/closed-captions.md      
       - name: Pricing
         href: concepts/pricing/teams-interop-pricing.md
+      - name: Enable interoperability with Teams
+        href: concepts/interop/enable-interoperability-teams.md
     - name: Advanced audio and video
       items:    
       - name: Rooms API for structured meetings 
