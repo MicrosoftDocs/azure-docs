@@ -20,9 +20,32 @@ This quickstart assumes a basic understanding of Defender for IoT Firmware Analy
 
 ### Prepare your environment
 
-* Ensure that your client has the necessary permissions to upload firmware images to Defender for IoT Firmware Analysis. You must be an Owner, Contributor, Security Admin, or Firmware Analysis Admin at the Subscription or Resource Group level to upload firmware images. For more information, visit [Defender for IoT Firmware Analysis Roles, Scopes, and Capabilities](/azure/defender-for-iot/device-builders/defender-iot-firmware-analysis-rbac#defender-for-iot-firmware-analysis-roles-scopes-and-capabilities).
-* Make note of your subscription ID, the name of your Resource Group where you'd like to upload your images, your workspace name, and the name of the firmware image that you'd like to upload.
+* Python version 3.8+ is required to use this package. Run the command `python --version` to check your Python version. If's not the latest, please update to the latest Python version
+* Make note of your Azure subscription ID, the name of your Resource Group where you'd like to upload your images, your workspace name, and the name of the firmware image that you'd like to upload
+* Ensure that your Azure account has the necessary permissions to upload firmware images to Defender for IoT Firmware Analysis for your Azure subscription. You must be an Owner, Contributor, Security Admin, or Firmware Analysis Admin at the Subscription or Resource Group level to upload firmware images. For more information, visit [Defender for IoT Firmware Analysis Roles, Scopes, and Capabilities](/azure/defender-for-iot/device-builders/defender-iot-firmware-analysis-rbac#defender-for-iot-firmware-analysis-roles-scopes-and-capabilities)
 * Ensure that your firmware image is stored in the same directory as the following code
+* Install the packages needed to run this script:
+    ```python
+    pip install azure-mgmt-iotfirmwaredefense
+    pip install azure-identity
+    ```
+* [Configure](/azure/azure-web-pubsub/howto-authorize-from-application) the following environment variables:
+    * `AZURE_CLIENT_ID` for Azure client ID
+    * `AZURE_TENANT_ID` for Azure tenant ID
+    * `AZURE_CLIENT_SECRET` for Azure client secret
+
+    In addition, the Azure subscription ID can be configured with the environment variable `AZURE_SUBSCRIPTION_ID`.
+
+Once you've configured your environment variables, the client can be authenticated by the following code:
+
+```python
+from azure.identity import DefaultAzureCredential
+from azure.mgmt.iotfirmwaredefense import IoTFirmwareDefenseMgmtClient
+import os
+
+sub_id = os.getenv("AZURE_SUBSCRIPTION_ID")
+client = IoTFirmwareDefenseMgmtClient(credential=DefaultAzureCredential(), subscription_id=sub_id)
+```
 
 ## Run the following Python script
 
@@ -39,18 +62,15 @@ from time import sleep
 from halo import Halo
 from tabulate import tabulate
 
-
 subscription_id = "subscription-id"
 resource_group_name = "resource-group-name"
 workspace_name = "default"
 firmware_file = "firmware-image-name"
 
-
 def main():
     firmware_id = str(uuid.uuid4())
-
     fw_client = init_connections(firmware_id)
-    upload_firmware(fw_client, firmware_id)
+    # upload_firmware(fw_client, firmware_id)
     get_results(fw_client, firmware_id)
 
 def init_connections(firmware_id):
