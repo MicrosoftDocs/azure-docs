@@ -54,7 +54,7 @@ client = IoTFirmwareDefenseMgmtClient(credential=DefaultAzureCredential(), subsc
 
 ## Run the following Python script
 
-Copy the following Python script into a `.py` file and save it to the same directory as your firmware image. Replace the `subscription_id` variable with your Azure subscription ID, `resource_group_name` with the name of your Resource Group where you'd like to upload your firmware image, and `firmware_file` with the name of your firmware image.
+Copy the following Python script into a `.py` file and save it to the same directory as your firmware image. Replace the `subscription_id` variable with your Azure subscription ID, `resource_group_name` with the name of your Resource Group where you'd like to upload your firmware image, and `firmware_file` with the name of your firmware image, which is saved in the same directory as the Python script.
 
 ```python
 from azure.identity import DefaultAzureCredential
