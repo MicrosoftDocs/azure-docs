@@ -71,9 +71,9 @@ For more information, see:
 1.  Start Elasticsearch services.
  
     1. Reload the daemon:
-    ```
-    sudo systemctl daemon-reload
-    ```
+       ```
+       sudo systemctl daemon-reload
+       ```
     
     1. Enable:
         ```
