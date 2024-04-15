@@ -83,6 +83,21 @@ kubectl patch AssetEndpointProfile $ENDPOINT_NAME \
 done
 ```
 
+Update the opc-ua-broker cluster extension as well by running:
+
+```bash
+az k8s-extension update \
+    --version 0.3.0-preview \
+    --name opc-ua-broker \
+    --release-train preview \
+    --cluster-name <cluster-name> \
+    --resource-group <azure-resource-group> \
+    --cluster-type connectedClusters \
+    --auto-upgrade-minor-version false \
+    --config opcPlcSimulation.deploy=true \
+    --config opcPlcSimulation.autoAcceptUntrustedCertificates=true
+```
+
 > [!WARNING]
 > Don't use untrusted certificates in production environments.
 
