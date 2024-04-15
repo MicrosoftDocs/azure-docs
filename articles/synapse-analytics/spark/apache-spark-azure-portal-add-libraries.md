@@ -110,7 +110,11 @@ Session-scoped packages allow users to define package dependencies at the start 
 
 To learn more about how to manage session-scoped packages, see the following articles:
 
-- [Python session packages](./apache-spark-manage-session-packages.md#session-scoped-python-packages): At the start of a session, provide a Conda *environment.yml* file to install more Python packages from popular repositories. Or you can use %pip and %conda commands to manage libraries in the Notebook code cells.
+- [Python session packages](./apache-spark-manage-session-packages.md#session-scoped-python-packages): At the start of a session, provide a Conda *environment.yml* file to install more Python packages from popular repositories. Or you can use `%pip` and `%conda` commands to manage libraries in the Notebook code cells.
+  
+  > [!IMPORTANT]
+  >
+  > - Do not use `%%sh pip ... or conda ...`. The behavior is **not the same** as %pip or %conda.
 
 - [Scala/Java session packages](./apache-spark-manage-session-packages.md#session-scoped-java-or-scala-packages): At the start of your session, provide a list of *.jar* files to install by using `%%configure`.
 
