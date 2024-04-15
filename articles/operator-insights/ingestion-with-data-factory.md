@@ -71,6 +71,8 @@ To use the Data Product as the sink for a [Pipeline](/azure/data-factory/concept
     - Select your output type.
     - Set the linked service to the Data Product ingestion linked service created in [Create a blob storage linked service](#create-a-blob-storage-linked-service).
     - Set the container name to the name of the data type the dataset is associated with.
+        - This information can be found in the **Required ingestion configuration** section of the Data Product article.
+        - For example, see [Required ingestion configuration](concept-monitoring-mcc-data-product.md#required-ingestion-configuration) for the Monitoring - MCC Data Product.
     - Ensure the folder path includes at least one directory; files copied into the root of the container will not be correctly ingested.
     - Set the other fields as appropriate for your data.
 5. Follow the Azure Data Factory documentation (for example [Creating a pipeline with the UI](/azure/data-factory/concepts-pipelines-activities?tabs=data-factory#creating-a-pipeline-with-ui)) to create a pipeline with this new dataset as the sink.
@@ -78,7 +80,7 @@ To use the Data Product as the sink for a [Pipeline](/azure/data-factory/concept
 Repeat this step for all required datasets.
 
 > [!IMPORTANT]
-> The Data Product may use the folder prefix or the file name prefix (this can be set as part of the pipeline, for example in the [Copy Activity](/azure/data-factory/connector-azure-blob-storage?tabs=data-factory#blob-storage-as-a-sink-type)) to determine how to process an ingested file. See [reference file] for information on how these should be set for each Data Product.
+> The Data Product may use the folder prefix or the file name prefix (this can be set as part of the pipeline, for example in the [Copy Activity](/azure/data-factory/connector-azure-blob-storage?tabs=data-factory#blob-storage-as-a-sink-type)) to determine how to process an ingested file. See the **Required ingestion configuration** section of the Data Product article for information on how these should be set. For example, see [Required ingestion configuration](concept-monitoring-mcc-data-product.md#required-ingestion-configuration) for the Monitoring - MCC Data Product.
 
 ## Create Data Pipelines
 

@@ -50,7 +50,7 @@ Use the information in this section to configure your ingestion method. Refer to
 
 | Data type | Required container name | Requirements for data |
 |---------|---------|---------|
-|`pmstats` | `pmstats` | Performance data from MCC nodes |
+| `pmstats` | `pmstats` | Performance data from MCC nodes. File names must start with the dataset name. For example, `WORKFLOWPERFSTATSSLOT` data must be ingested in files whose names start with `WORKFLOWPERFSTATSSLOT`. |
 
 If you're using the Azure Operator Insights ingestion agent:
 - Configure it to use SFTP pull.
