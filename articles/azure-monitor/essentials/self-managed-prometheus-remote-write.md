@@ -1,42 +1,56 @@
 ---
 title: Self-managed Prometheus remote-write to an Azure Monitor workspace
-description: How to configure remote-write to send data from self-managed Prometheus running in Azure to an Azure Monitor managed service for Prometheus
+description: How to configure remote-write to send data from self-managed Prometheus to an Azure Monitor managed service for Prometheus
 author: bwren 
 ms.topic: conceptual
 ms.date: 04/15/2024
 ---
 
-# Self-managed Prometheus remote-write to an Azure Monitor workspace
 
-Use prometheus to monitor your applications and services running in Azure on Kubenetes clusters, Virtual Machines, and Virtual Machine Scale Sets. Prometheus collects metrics from monitored targets by scraping metrics HTTP endpoints on these targets. Azure Monitor Managed Service for Prometheus is a fully managed service that provides a Prometheus-compatible interface for storing and retrieving metric data. For self-managed implementations, Prometheus supports remote-write, to send metrics to an Azure Monitor workspace. Set up Prometheus on your server or cluster and configure remote-write to send data to Azure Monitor workspace.
+We already have articvles for AKS and non aks k8s remote write. This article is for self-managed prometheus running on VMs, VMSS, and on-premises servers.
 
-This article explains how to configure remote-write to send data from self-managed Prometheus running in Azure to an Azure Monitor workspace
+# Send Prometheus metrics for Virtual Machines to an Azure Monitor workspace
+
+Prometheus isn't limited to monitoring Kubernetes clusters. Use Prometheus to monitor applications and services running on your servers, wherever they are running.  For example, you can monitor applications running on Virtual Machines, Virtual Machine Scale Sets, or even on-premises servers. Install prometheus on your servers and configure remote-write to send metrics to an Azure Monitor workspace.
+
+This article explains how to configure remote-write to send data from a self-managed Prometheus instance to an Azure Monitor workspace.
 
 
-## Remote write autentication options.
+## Remote write options.
 
-Self-managed Prometheus can be running in Azure and non-Azure environments. The following are the authentication options for remote-write to Azure Monitor workspace based on the environment where Prometheus is running.
+Self-managed Prometheus can run on Azure and non-Azure environments. The following are authentication options for remote-write to Azure Monitor workspace based on the environment where Prometheus is running.
 
-#### Azure managed services
+#### Azure managed Virtual Machines and Virtual Machine Scale Sets
 
-Use user-assigned managed identity authentication for services running self managed Prometheus in Azure. Services include the following:
-- Azure Kubernetes Services (AKS)
-- Azure Virtual Machine 
-- Azure Virtual Machine Scale Set
-- Azure Arc-enabled Kubernetes
+Use user-assigned managed identity authentication for services running self managed Prometheus in an Azure environment. Services include the following:
+
+- Azure Virtual Machines
+- Azure Virtual Machine Scale Sets
 - Azure Arc-enabled Virtual Machines
 
-For more information on user-assigned managed identity authentication, see [User-assigned managed identity authentication](#user-assigned-managed-identity)
+To set up remote write for Azure managed resources, see [Remote-write with user-assigned managed identity](#remote-write-with-user-assigned-managed-identity).
 
-#### Onboard Kubernetes and Virtual Machines to Azure Arc.
 
-Onboarding to Azure Arc-enabled services, allows you to manage and configure Kubernetes and Virtual Machines in Azure. Once onboarded to Azure Arc, configure remote-write using user-assigned managed identity authentication. For more information see [User-assigned managed identity](#user-assigned-managed-identity)
+#### Virtual machines running on non-Azure environments.
 
-For more information Onboard supported Kubernetes clusters to Azure Arc-enabled Kubernetes, see [Azure Arc-enabled Kubernetes](../../azure-arc/kubernetes/overview.md). For more Information on onboarding Virtual Machines to Azure Arc-enabled servers, see [Azure Arc-enabled servers](../../azure-arc/servers/overview.md). 
-     
-    
-#### Kubernetes and Virtual Machines running on non Azure environments.
-If you have Kubernetes and Virtual Machines running self-managed Prometheus on non-Azure environments, and you don't want to onboard to Azure Arc, configure remote-write in Prometheus using Azure Entra application authentication. For more information see [Azure Entra application](#azure-entra-application).
+Onboarding to Azure Arc-enabled services, allows you to manage and configure non-Azure virtual machines in Azure. Once onboarded, configure [remote-write using user-assigned managed identity](#remote-write-with-user-assigned-managed-identity) authentication. For more Information on onboarding Virtual Machines to Azure Arc-enabled servers, see [Azure Arc-enabled servers](/azure/azure-arc/servers/overview). 
+
+If you have virtual machines in non-Azure environments, and you don't want to onboard to Azure Arc, install self-managed Prometheus and configure remote-write in Prometheus using Azure Entra application authentication. For more information see [Azure Entra application](#azure-entra-application).
+ 
+
+#### Kubernetets services
+
+Azure Kubernetes Services (AKS) and Azure Arc-enabled Kubernetes support Azure Monitor managed service for Prometheus. If you prefer self-managed Prometheus see the following article for more information on remote-write to Azure Monitor workspaces.
+-  [Send Prometheus data to Azure Monitor by using managed identity authentication](/azure/azure-monitor/containers/prometheus-remote-write-managed-identity)
+
+- [Remote-write using Azure Monitor sidecar](/azure/azure-monitor/containers/prometheus-remote-write)
+-[Microsoft Entra authorization proxy](/azure/azure-monitor/containers/prometheus-authorization-proxy?tabs=remote-write-example)
+- [Send Prometheus data from AKS to Azure Monitor by using managed identity authentication](/azure/azure-monitor/containers/prometheus-remote-write-managed-identity)
+- [Send Prometheus data from AKS to Azure Monitor by using Microsoft Entra authentication](/azure/azure-monitor/containers/prometheus-remote-write-active-directory)
+- [Send Prometheus data to Azure Monitor by using Microsoft Entra pod-managed identity (preview) authentication](/azure/azure-monitor/containers/prometheus-remote-write-azure-ad-pod-identity)]
+- [Send Prometheus data to Azure Monitor by using Microsoft Entra Workload ID (preview) authentication](/azure/azure-monitor/containers/prometheus-remote-write-azure-workload-identity)
+
+
    
 ???? WHat other autentication mehtods ????
 If you're using other authentication methods and running self-managed Prometheus on Kubernetes, Azure Monitor provides a reverse proxy container that provides an abstraction for ingestion and authentication for Prometheus remote-write metrics. For more information, see [remote-write from Kubernetes to Azure Monitor Managed Service for Prometheus](../containers/prometheus-remote-write.md).
@@ -45,8 +59,8 @@ If you're using other authentication methods and running self-managed Prometheus
 
 ### Supported versions
 
-- Prometheus versions greater than v2.45 are required for managed identity autentication.
-- Prometheus versions greater than v2.48 are required for Azure Entra application autentication. 
+- Prometheus versions greater than v2.45 are required for managed identity authentication.
+- Prometheus versions greater than v2.48 are required for Azure Entra application authentication. 
 
 ### Azure Monitor workspace
 This article covers sending Prometheus metrics to an Azure Monitor workspace. To create an Azure monitor workspace, see [Manage an Azure Monitor workspace](./azure-monitor-workspace-manage.md#create-an-azure-monitor-workspace#create-an-azure-monitor-workspace).
@@ -58,7 +72,7 @@ Administrator permissions for the cluster or resource are required to complete t
 
 Depending on the environment where Prometheus is running, you can use one of the following authentication methods to configure remote-write to send data to Azure Monitor workspace.
 
-### [User-assigned managed identity](#tab/managed-identity)
+### [Remote-write with user-assigned managed identity](#tab/managed-identity)
 
 To configure a user-assigned managed identity for remote-write to Azure Monitor workspace, complete the following steps.
 
@@ -87,10 +101,6 @@ To configure a user-assigned managed identity for remote-write to Azure Monitor 
 
 1. Assign the managed identity to a Virtual Machine or Virtual Machine Scale Set.
 
-    ??????
-    This step isn't required if you're using an AKS agentpool user assigned managed identity or VM system assigned identity. An AKS agentpool user assigned managed identity or VM identity already has access to the cluster/VM. ???????
-
-
     > [!IMPORTANT]
     > To complete the steps in this section, you must have owner or user access administrator permissions for the cluster/resource.
 
@@ -111,16 +121,6 @@ To configure a user-assigned managed identity for remote-write to Azure Monitor 
     Virtual machine scale sets:
     ```azurecli
     az vmss identity assign -g <resource group name> -n <VSS name> --identities <user assigned identity resource ID>
-    ```
-1. If you are using an Azure Kubernetes Service cluster, assign the managed identity to cluster's virtual machine scale sets.
-    Assign the cluster access to the managed identity by identifying the virtual machine scale sets in the node resource group for your AKS cluster. The resource group has the following naming format:  `MC_<aks-resource-group_clustername_region>`. For example, `MC_myResourceGroup_myAKSCluster_eastus`.
-
-    :::image type="content" source="../containers/media/prometheus-remote-write-managed-identity/resource-group-details-virtual-machine-scale-sets.png" alt-text="Screenshot that shows virtual machine scale sets in the node resource group." lightbox="../containers/media/prometheus-remote-write-managed-identity/resource-group-details-virtual-machine-scale-sets.png":::
-
-    For each virtual machine scale set, run the following command in the Azure CLI:
-
-    ```azurecli
-    az vmss identity assign -g <aks node resource group name> -n <VSS name> --identities <user assigned identity resource ID>
     ```
 
 
