@@ -54,7 +54,7 @@ Data Products expose a Blob Storage endpoint for ingesting data. Use the newly c
     - Select the Azure Blob Storage type.
     - Set the authentication type to 'SAS URI'.
     - Choose 'Azure Key Vault' as the source.
-    - Select the Key Vault linked service created in [the previous step](#create-a-key-vault-linked-service).
+    - Select the Key Vault linked service created in [Create a key vault linked service](#create-a-key-vault-linked-service).
     - Set the secret name to `input-storage-sas`.
     - Leave the secret version as the default value ('Latest version').
 
@@ -69,7 +69,7 @@ To use the Data Product as the sink for a [Pipeline](/azure/data-factory/concept
 3. Go to the **Author** view -> Add resource -> Dataset.
 4. Create a new Azure Blob Storage dataset.
     - Select your output type.
-    - Set the linked service to the Data Product ingestion linked service created in [the previous step](#create-a-blob-storage-linked-service).
+    - Set the linked service to the Data Product ingestion linked service created in [Create a blob storage linked service](#create-a-blob-storage-linked-service).
     - Set the container name to the name of the data type the dataset is associated with.
     - Ensure the folder path includes at least one directory; files copied into the root of the container will not be correctly ingested.
     - Set the other fields as appropriate for your data.
