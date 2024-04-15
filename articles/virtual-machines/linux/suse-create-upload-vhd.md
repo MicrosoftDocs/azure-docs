@@ -221,31 +221,34 @@ As an alternative to building your own VHD, SUSE also publishes BYOS (bring your
     sudo rm -f ~/.bash_history
     ```
 
-## Prepare openSUSE 15.2+
+## Prepare openSUSE 15.4+
 
 1. On the center pane of Hyper-V Manager, select the virtual machine.
 2. Select **Connect** to open the window for the virtual machine.
 3. In a terminal, run the command `zypper lr`. If this command returns output similar to the following example, the repositories are configured as expected and no adjustments are necessary. (Version numbers might vary.)
 
-   | # | Alias                 | Name                  | Enabled | Refresh
-   | - | :-------------------- | :-------------------- | :------ | :------
-   | 1 | Cloud:Tools_15.2      | Cloud:Tools_15.2      | Yes     | Yes
-   | 2 | openSUSE_15.2_OSS     | openSUSE_15.2_OSS     | Yes     | Yes
-   | 3 | openSUSE_15.2_Updates | openSUSE_15.2_Updates | Yes     | Yes
+```
+   | # | Alias                 | Name                  | Enabled | GPG Check | Refresh
+   | --+-----------------------+-----------------------+---------+-----------+--------
+   | 1 | Cloud:Tools_15.4      | Cloud:Tools_15.4      | Yes     | (r ) Yes  | Yes
+   | 2 | openSUSE_15.4_OSS     | openSUSE_15.4_OSS     | Yes     | (r ) Yes  | Yes
+   | 3 | openSUSE_15.4_Updates | openSUSE_15.4_Updates | Yes     | ( p) Yes  | Yes
+   
+```
+If you receive the message "___No repositories defined___" from the `zypper lr`  it means that repositories must be added manually.
+Below are examples of commands for adding these repositories (versions and links may vary):
 
-    If the command returns "No repositories defined," use the following commands to add these repos:
-
-    ```bash
-    sudo zypper ar -f http://download.opensuse.org/repositories/Cloud:Tools/openSUSE_15.2 Cloud:Tools_15.2
-    sudo zypper ar -f https://download.opensuse.org/distribution/15.2/repo/oss openSUSE_15.2_OSS
-    sudo zypper ar -f http://download.opensuse.org/update/15.2 openSUSE_15.2_Updates
-    ```
+```
+sudo zypper ar -f https://download.opensuse.org/repositories/Cloud:/Tools/15.4 Cloud:Tools_15.4
+sudo zypper ar -f https://download.opensuse.org/distribution/leap/15.4/repo/oss openSUSE_15.4_OSS
+sudo zypper ar -f https://download.opensuse.org/update/leap/15.4 openSUSE_15.4_Updates
+```
 
     You can then verify that the repositories have been added by running the command `zypper lr` again. If one of the relevant update repositories isn't enabled, enable it by using the following command:
 
-    ```bash
+```
     sudo zypper mr -e [NUMBER OF REPOSITORY]
-    ```
+```
 
 4. Update the kernel to the latest available version:
 
