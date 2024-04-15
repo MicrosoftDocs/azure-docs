@@ -1,6 +1,6 @@
 ---
 title: Review alerts for AI applications
-description: Learn how to review alerts for GenAI applications in Microsoft Defender for Cloud.
+description: Learn how to review and respond to security alerts for GenAI applications in Microsoft Defender for Cloud.
 ms.topic: how-to
 ms.date: 04/08/2024
 #customer intent: As a user, I want to learn how to review alerts for GenAI applications in Microsoft Defender for Cloud so that I can improve the security of my GenAI applications.
@@ -8,19 +8,11 @@ ms.date: 04/08/2024
 
 # Review alerts for AI applications
 
-Generative Artificial Intelligence (GenAI) based applications introduce various new risks and threats to organizations including Disruption of Service (DOS) attacks and User Prompt Injection Attacks (UPIA). These risks can generate the following alerts in Microsoft Defender for Cloud:
+Reviewing security alerts is a crucial aspect of maintaining the security of AI applications. With the increasing adoption of AI technologies, organizations face unique threats and vulnerabilities. Microsoft Defender for Cloud provides powerful security alert capabilities specifically designed to detect and respond to AI-related threats.
 
-- **Jailbreak** - UPIA - an intentional attempt by a user to exploit the vulnerabilities of an LLM-powered system, bypass its safety mechanisms, and provoke restricted behaviors.
+By reviewing security alerts for AI applications, organizations can proactively identify and mitigate potential security risks. This allows them to protect sensitive data, prevent unauthorized access, and ensure the integrity of their AI models and deployments. Additionally, reviewing security alerts helps organizations comply with regulatory requirements and maintain trust with their customers.
 
-- **Credential threat** - UPIA - an attempt by a user to get privileged information such as usernames and passwords from the AI.
-
-- **Sensitive data leak** - UPIA - an attempt by a user to bypass the model and application guardrails and obtain unauthorized sensitive data.
-
-- **Wallet / DOS** - an attempt by a user to disrupt the service by sending a large number of requests to the AI model.
-
-Organizations need to identify, catalog, monitor, and govern the utilization of GenAI applications against potential risks such as sensitive information disclosure and insecure response handling.
-
-To combat these risks, Microsoft Defender for Cloud provides alerts that help you identify and respond to security issues in your GenAI applications.
+Microsoft Defender for Cloud's security alert capabilities offer several benefits. Firstly, it provides real-time visibility into potential security incidents, allowing organizations to take immediate action. Secondly, it offers advanced threat intelligence and analytics, enabling organizations to understand the nature and severity of AI-related threats. Lastly, it provides automated response and remediation options, streamlining the incident response process and minimizing the impact of security incidents.
 
 ## Prerequisites
 
