@@ -162,12 +162,14 @@
   items:
   - name: Overview
     href: certificates-overview.md
-  - name: Set up custom domain with a free certificate
+  - name: Manage Key Vault certificates
+    href: key-vault-certificates-manage.md
+  - name: Custom domain with a free certificate
     href: custom-domains-managed-certificates.md
-    displayName: Set up custom domain with a managed certificate
-  - name: Set up custom domain with existing certificate
+    displayName: managed certificate
+  - name: Custom domain with an existing certificate
     href: custom-domains-certificates.md        
-  - name: Set up environment custom DNS suffix
+  - name: Custom DNS suffix for your environment
     href: environment-custom-dns-suffix.md
 
 - name: Authentication
