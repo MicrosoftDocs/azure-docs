@@ -16,7 +16,7 @@ The Azure Monitor edge pipeline is a containerized solution that is deployed on 
 
 The following diagram shows the components of the edge pipeline. One or more data flows listens for incoming data from clients, and the pipeline extension forwards the data to the cloud, using the local cache if necessary.
 
-The pipeline configuration file consists of the data flows and cache properties for the edge pipeline. Part of each data flow definition is the DCR and stream that will process that data in the cloud pipeline {**What does this mean?**}. The [DCR](./pipeline-overview.md#data-collection-rules) defines the schema of the incoming data, a transformation to filter or modify the data, and the destination where the data should be sent.
+The pipeline configuration file defines the data flows and cache properties for the edge pipeline. The [DCR](./pipeline-overview.md#data-collection-rules) defines the schema of the data being sent sent to the cloud pipeline, a transformation to filter or modify the data, and the destination where the data should be sent. Each data flow definition for the pipeline configuration specifies the DCR and stream within that DCR that will process that data in the cloud pipeline.
 
 :::image type="content" source="media/edge-pipeline/edge-pipeline-configuration.png" lightbox="media/edge-pipeline/edge-pipeline-configuration.png" alt-text="Overview diagram of the dataflow for Azure Monitor edge pipeline." border="false"::: 
 
@@ -26,7 +26,7 @@ The following components are required to enable and configure the Azure Monitor 
 
 | Component | Description |
 |:---|:---|
-| Edge pipeline controller extension | Extension added to your Arc-enabled Kubernetes cluster to support pipeline functionality {**Need to mention the extension name- microsoft.monitor.pipelinecontroller**}. |
+| Edge pipeline controller extension | Extension added to your Arc-enabled Kubernetes cluster to support pipeline functionality - `microsoft.monitor.pipelinecontroller`. |
 | Edge pipeline controller instance | Instance of the edge pipeline running on your Arc-enabled Kubernetes cluster with a set of receivers to accept client data and exporters to deliver that data to Azure Monitor. |
 | Pipeline configuration | Configuration file that defines the data flows for the pipeline instance. Each data flow includes a receiver and an exporter. The receiver listens for incoming data, and the exporter sends the data to the destination. |
 | Data collection endpoint (DCE) | Endpoint where the data is sent to the Azure Monitor pipeline. The pipeline configuration includes a property for the URL of the DCE so the pipeline instance knows where to send the data. |
@@ -45,9 +45,6 @@ The following components are required to enable and configure the Azure Monitor 
   | TimeGenerated | datetime |
   | SeverityText | string |
 
-- A data collection process that sends one of the following types data to a Log Analytics workspace using a [data collection rule (DCR)](./data-collection-rule-overview.md). {**What is this pre-req?**}
-  - Syslog
-  - OLTP
 
 
 ## Enable cache
@@ -298,6 +295,26 @@ Replace the properties in the following table before deploying the template. See
 }
 ```
 
+### DCR access
+The Arc-enabled Kubernetes cluster must have access to the DCR to send data to the cloud pipeline. You can use commands in the Azure CLI to grant the necessary permissions.
+
+Use the following command to retrieve the object id of the System Assigned Identity for your cluster.
+
+```azurecli
+az k8s-extension show --name <extension-name> --cluster-name <cluster-name> --resource-group <resource-group> --cluster-type connectedClusters --query "identity.principalId" -o tsv 
+
+## Example:
+az k8s-extension show --name microsoft.monitor.pipelinecontroller --cluster-name my-cluster --resource-group my-resource-group --cluster-type connectedClusters --query "identity.principalId" -o tsv 
+```
+
+Use the output from this command as input to the following command to give Azure Monitor pipeline the authority to send its telemetry to the DCR.
+
+```azurecli
+az role assignment create --assignee "<extension principal ID>" --role "Monitoring Metrics Publisher" --scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.Insights/dataCollectionRules/<dcr-name>" 
+
+## Example:
+az role assignment create --assignee "00000000-0000-0000-0000-000000000000" --role "Monitoring Metrics Publisher" --scope "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/my-resource-group/providers/Microsoft.Insights/dataCollectionRules/my-dcr" 
+```
 
 ### Edge pipeline configuration
 The edge pipeline configuration defines the details of the edge pipeline instance and deploy the data flows necessary to receive and send telemetry to the cloud.

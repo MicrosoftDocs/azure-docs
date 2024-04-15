@@ -1,6 +1,6 @@
 ---
-title: Overview of Azure Monitor pipeline for edge and multicloud
-description: Overview of Azure Monitor pipeline for edge and multicloud
+title: Overview of Azure Monitor pipeline
+description: Description of the Azure Monitor pipeline which provides data ingestion for Azure Monitor.
 ms.topic: conceptual
 ms.date: 11/14/2023
 ms.author: bwren
