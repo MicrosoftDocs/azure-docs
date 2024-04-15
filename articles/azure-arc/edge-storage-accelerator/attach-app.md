@@ -1,14 +1,14 @@
 ---
-title: Attach your application using the Azure IoT Operations data processor or Kubernetes native application
-description: Learn how to attach your app using the Azure IoT Operations data processor or Kubernetes native application.
+title: Attach your application using the Azure IoT Operations data processor or Kubernetes native application (preview)
+description: Learn how to attach your app using the Azure IoT Operations data processor or Kubernetes native application in Edge Storage Accelerator.
 author: sethmanheim
 ms.author: sethm
 ms.topic: how-to
-ms.date: 03/12/2024
+ms.date: 04/08/2024
 zone_pivot_groups: attach-app
 ---
 
-# Attach your application
+# Attach your application (preview)
 
 This article assumes you created a Persistent Volume (PV) and a Persistent Volume Claim (PVC). For information about creating a PV, see [Create a persistent volume](create-pv.md). For information about creating a PVC, see [Create a Persistent Volume Claim](create-pvc.md).
 
@@ -107,7 +107,7 @@ These pods are part of a **statefulSet**. You can't edit the statefulSet in plac
      name: example-static
      labels:
        app: example-static
-     ### Uncomment the next line and add your namespace only if you are not using the default namespace (if you are using azure-iot-operations) as specified from Line 6 of your pvc.yaml
+     ### Uncomment the next line and add your namespace only if you are not using the default namespace (if you are using azure-iot-operations) as specified from Line 6 of your pvc.yaml. If you are not using the default namespace, all future kubectl commands require "-n YOUR_NAMESPACE" to be added to the end of your command.
      # namespace: YOUR_NAMESPACE
    spec:
      replicas: 1
@@ -137,6 +137,9 @@ These pods are part of a **statefulSet**. You can't edit the statefulSet in plac
                ### This claimName must refer to the PVC resource 'name' as defined in the PVC config. This name must match what your PVC resource was actually named. ###
                claimName: YOUR_CLAIM_NAME_FROM_YOUR_PVC
    ```
+
+   > [!NOTE]
+   > If you are using your own namespace, all future `kubectl` commands require `-n YOUR_NAMESPACE` to be appended to the command. For example, you must use `kubectl get pods -n YOUR_NAMESPACE` instead of the standard `kubectl get pods`.
 
 1. To apply this .yaml file, run the following command:
 

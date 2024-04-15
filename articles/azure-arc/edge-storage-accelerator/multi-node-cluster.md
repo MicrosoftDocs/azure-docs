@@ -1,15 +1,15 @@
 ---
-title: Prepare Linux using a multi-node cluster
-description: Learn how to prepare Linux with a multi-node cluster using AKS enabled by Azure Arc, Edge Essentials, or Ubuntu.
+title: Prepare Linux using a multi-node cluster (preview)
+description: Learn how to prepare Linux with a multi-node cluster in Edge Storage Accelerator using AKS enabled by Azure Arc, Edge Essentials, or Ubuntu.
 author: sethmanheim
 ms.author: sethm
 ms.topic: how-to
-ms.date: 03/12/2024
+ms.date: 04/08/2024
 zone_pivot_groups: platform-select
 
 ---
 
-# Prepare Linux using a multi-node cluster
+# Prepare Linux using a multi-node cluster (preview)
 
 This article describes how to prepare Linux using a multi-node cluster, and assumes you [fulfilled the prerequisites](prepare-linux.md#prerequisites).
 
@@ -56,7 +56,7 @@ This section describes how to prepare Linux with AKS Edge Essentials if you run 
 
    ```bash
    az k8s-extension create --resource-group "YOUR_RESOURCE_GROUP_NAME" --cluster-name "YOUR_CLUSTER_NAME" --cluster-type connectedClusters --extension-type Microsoft.openservicemesh --scope cluster --name osm
-   kubectl patch meshconfig osm-mesh-config -n "arc-osm-system" -p '{"spec":{"featureFlags":{"enableWASMStats": false }, "traffic":{"outboundPortEx
+   kubectl patch meshconfig osm-mesh-config -n "arc-osm-system" -p '{"spec":{"featureFlags":{"enableWASMStats": false }, "traffic":{"outboundPortExclusionList":[443,2379,2380], "inboundPortExclusionList":[443,2379,2380]}}}' --type=merge
    ```
 
 1. Create a file named **config.json** with the following contents:

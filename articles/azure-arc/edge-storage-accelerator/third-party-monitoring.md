@@ -1,14 +1,14 @@
 ---
-title: Third-party monitoring with Prometheus and Grafana
-description: Learn how to monitor your deployment using third-party monitoring with Prometheus and Grafana.
+title: Third-party monitoring with Prometheus and Grafana (preview)
+description: Learn how to monitor your Edge Storage Accelerator deployment using third-party monitoring with Prometheus and Grafana.
 author: sethmanheim
 ms.author: sethm
 ms.topic: how-to
-ms.date: 03/12/2024
+ms.date: 04/08/2024
 
 ---
 
-# Third-party monitoring with Prometheus and Grafana
+# Third-party monitoring with Prometheus and Grafana (preview)
 
 This article describes how to monitor your deployment using third-party monitoring with Prometheus and Grafana.
 
