@@ -228,45 +228,36 @@ After you confirm that your function works, create your logic app resource and w
 
 1. Confirm the information that you provided, and select **Create**. After Azure deploys your app, select **Go to resource**.
 
-   The designer opens and shows a page with an introduction video and templates for common logic app workflow patterns.
-
-1. Under **Templates**, select **Blank Logic App**.
-
-   ![Screenshot showing Azure portal, Consumption workflow designer, and blank logic app template selected.](./media/tutorial-process-email-attachments-workflow/choose-logic-app-template.png)
-
-Next, add a [trigger](logic-apps-overview.md#logic-app-concepts) that listens for incoming emails that have attachments. Every workflow must start with a trigger, which fires when the trigger condition is met, for example, a specific event happens or when new data exists. For more information, see [Quickstart: Create an example Consumption logic app workflow in multitenant Azure Logic Apps](quickstart-create-example-consumption-workflow.md).
+1. On the logic app resource menu, select **Logic app designer** to open the workflow designer.
 
 ## Add a trigger to check incoming email
 
-1. On the designer, under the search box, select **Standard**. In the search box, enter **office 365 when new email arrives**.
+Now, add a [trigger](logic-apps-overview.md#logic-app-concepts) that checks for incoming emails that have attachments. Every workflow must start with a trigger, which fires when the trigger condition is met, for example, a specific event happens or when new data exists. For more information, see [Quickstart: Create an example Consumption logic app workflow in multitenant Azure Logic Apps](quickstart-create-example-consumption-workflow.md).
 
-   This example uses the Office 365 Outlook connector, which requires that you sign in with a Microsoft work or school account. If you're using a personal Microsoft account, use the Outlook.com connector.
+This example uses the Office 365 Outlook connector, which requires that you sign in with a Microsoft work or school account. If you're using a personal Microsoft account, use the Outlook.com connector.
 
-1. From the triggers list, select the trigger named **When a new email arrives** for your email provider.
+1. On the workflow designer, select **Add a trigger**.
 
-   ![Screenshot showing Consumption workflow designer with email trigger for "When a new email arrives" selected.](./media/tutorial-process-email-attachments-workflow/add-trigger-when-email-arrives.png)
+1. After the **Add a trigger** pane opens, in the search box, enter **office 365 outlook**. From the trigger results list, under **Office 365 Outlook**, select **When a new email arrives (V3)**.
 
-1. If you're asked for credentials, sign in to your email account so that your workflow can connect to your email account.
+1. If you're asked for credentials, sign in to your email account, which creates a connection between your workflow and your email account.
 
 1. Now provide the trigger criteria for checking new email and running your workflow.
 
    | Property | Value | Description |
    |----------|-------|-------------|
-   | **Folder** | **Inbox** | The email folder to check |
+   | **Importance** | **Any** | Specifies the importance level of the email that you want. |
    | **Only with Attachments** | **Yes** | Get only emails with attachments. <br><br>**Note:** The trigger doesn't remove any emails from your account, checking only new messages and processing only emails that match the subject filter. |
    | **Include Attachments** | **Yes** | Get the attachments as input for your workflow, rather than just check for attachments. |
+   | **Folder** | **Inbox** | The email folder to check |
 
-1. From the **Add new parameter** list, select **Subject Filter**.
+1. From the **Advanced parameters** list, select **Subject Filter**.
 
 1. After the **Subject Filter** box appears in the action, specify the subject as described here:
 
    | Property | Value | Description |
    |----------|-------|-------------|
    | **Subject Filter** | **Business Analyst 2 #423501** | The text to find in the email subject |
-
-1. To hide the trigger's details for now, collapse the action by clicking inside the trigger's title bar.
-
-   ![Screenshot that shows collapsed trigger to hide details.](./media/tutorial-process-email-attachments-workflow/collapse-trigger-shape.png)
 
 1. Save your workflow. On the designer toolbar, select **Save**.
 
@@ -276,19 +267,15 @@ Next, add a [trigger](logic-apps-overview.md#logic-app-concepts) that listens fo
 
 Now add a condition that selects only emails that have attachments.
 
-1. On the designer, under the trigger, select **New step**.
+1. Under the trigger, select the plus sign (**+**), and then select **Add an action**.
 
-1. Under the **Choose an operation** search box, select **Built-in**. In the search box, enter **condition**.
+1. On the **Add an action** pane, in the search box, enter **condition**.
 
-1. From the actions list, select the action named **Condition**.
+1. From the action results list, select the action named **Condition**.
 
 1. Rename the condition using a better description.
 
-   1. On the condition's title bar, select the ellipses (**...**) button > **Rename**.
-
-      ![Screenshot showing the Condition action with the ellipses button and Rename button selected.](./media/tutorial-process-email-attachments-workflow/condition-rename.png)
-
-   1. Replace the default name with the following description: **If email has attachments and key subject phrase**
+   1. On the **Condition** information pane, replace the condition's default name with the following description: **If email has attachments and key subject phrase**
 
 1. Create a condition that checks for emails that have attachments.
 
