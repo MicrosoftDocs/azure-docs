@@ -1,7 +1,7 @@
 ---
-title: Get started with Azure Communication Services closed caption on Android
+title: Get started with Azure Communication Services closed caption on iOS
 titleSuffix: An Azure Communication Services quickstart document
-description: Learn about the Azure Communication Services Closed Captions in Android apps
+description: Learn about the Azure Communication Services Closed Captions in iOS apps
 author: Kunaal
 services: azure-communication-services
 ms.subservice: calling
