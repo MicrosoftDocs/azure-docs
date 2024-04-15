@@ -28,7 +28,7 @@ VMware Cloud Director supports multi-tenancy by using organizations. A single or
 
 To provide access to VNet based Azure resources, each tenant can have their own dedicated Azure VNet with Azure VPN gateway. A site-to-site VPN between customer organization VDC and Azure VNet is established. To achieve this connectivity, the tenant provides public IP to the organization VDC. The organization VDC administrator can configure IPSEC VPN connectivity from the Cloud Director service portal. 
 
-:::image type="content" source="media/vmware-cds/site-to-site-vpn-diagram.png" alt-text="Diagram shows site to site VPN connection and how VMware Cloud Director service is connected with Azure VMware Solution." border="false" lightbox="media/vmware-cds/site-to-site-vpn-diagram-expanded.png":::
+:::image type="content" source="media/vmware-cds/site-to-site-vpn-diagram.png" alt-text="Diagram shows site to site VPN connection and how VMware Cloud Director service is connected with Azure VMware Solution." border="false" lightbox="media/vmware-cds/site-to-site-vpn-diagram.png":::
 
 As shown in the previous diagram, organization 01 has two organization virtual datacenters: VDC1 and VDC2. The virtual datacenter of each organization has its own Azure VNets connected with their respective organization VDC Edge gateway through IPSEC VPN.
 Providers provide public IP addresses to the organization VDC Edge gateway for IPSEC VPN configuration. An ORG VDC Edge gateway firewall blocks all traffic by default, specific allow rules needs to be added on organization Edge gateway firewall.
