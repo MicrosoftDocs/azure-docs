@@ -5,7 +5,7 @@ ms.service: azure-update-manager
 ms.topic: overview
 author: SnehaSudhirG
 ms.author: sudhirsneha
-ms.date: 04/03/2024
+ms.date: 04/15/2024
 ---
 
 # What's new in Azure Update Manager
@@ -16,7 +16,7 @@ ms.date: 04/03/2024
 
 ### New region support
 
-Azure Update Manager is now supported in US Government and Microsoft Azure operated by 21Vianet. [Learn more](support-matrix.md#supported-regions)
+Azure Update Manager (preview) is now supported in US Government and Microsoft Azure operated by 21Vianet. [Learn more](support-matrix.md#supported-regions)
 
 
 ## February 2024
