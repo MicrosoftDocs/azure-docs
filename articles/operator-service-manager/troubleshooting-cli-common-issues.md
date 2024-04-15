@@ -189,4 +189,5 @@ Message: Operation registries-cd9ad97d-f3a3-11ee-a728-6b163569f55a failed. Resou
 There are multiple solutions available.
 
 - Edit your helm chart, or pass in the image paths in values.yaml, and set the image paths to match the repository structure in your source registry.
-- Upload the images to your source registry such that the concatenation of "image_sources" in the `cnf-input.jsonc` file and the image path from the helm chart matches the uploaded location in the source registry
+- Upload the images to your source registry such that the concatenation of "image_sources" in the `cnf-input.jsonc` file and the image path from the helm chart matches the uploaded location in the source registry.
+- The AOSM CLI stores metadata for the images it has discovered in `cnf-cli-output/artifacts/artifacts.json`. The path the AOSM CLI searches in the source registry is `<registry_name>/<registry_namespace>/<artifact_name>/<artifact_version>`. You can manually edit this file so that the values match the image's location in your source ACR.
