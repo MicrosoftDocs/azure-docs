@@ -10,7 +10,7 @@ ms.date: 04/10/2024
 
 # Quickstart: Upload firmware images to Defender for IoT Firmware Analysis using Python
 
-This article explains how to use Python to upload firmware images to Defender for IoT Firmware Analysis.
+This article explains how to use a Python script to upload firmware images to Defender for IoT Firmware Analysis.
 
 [Defender for IoT Firmware Analysis](/azure/defender-for-iot/device-builders/overview-firmware-analysis) is a tool that analyzes firmware images and provides an understanding of security vulnerabilities in the firmware images.
 
