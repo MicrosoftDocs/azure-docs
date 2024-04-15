@@ -424,7 +424,7 @@ The parameters **destinationFilters** and **inboundDestinationFilters** use the 
 | | **Windows**: None. |
 | Urn | urn:csci:microsoft:agent:cpuPressure/1.0 |
 | Parameters (key, value)  | |
-| pressureLevel | An integer between 1 and 99 that indicates how much CPU pressure (%) is applied to the VM. |
+| pressureLevel | An integer between 1 and 99 that indicates how much CPU pressure (%) is applied to the VM in terms of **% CPU Usage** |
 | virtualMachineScaleSetInstances | An array of instance IDs when you apply this fault to a virtual machine scale set. Required for virtual machine scale sets in uniform orchestration mode. [Learn more about instance IDs](../virtual-machine-scale-sets/virtual-machine-scale-sets-instance-ids.md#scale-set-instance-id-for-uniform-orchestration-mode). |
 
 #### Sample JSON
