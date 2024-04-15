@@ -39,15 +39,15 @@ If you have built a custom neural voice (CNV) and would like to use it together 
 
 1. Ensure that the CNV endpoint is created in the same Speech resource as the custom avatar endpoint.
 1. If the CNV model is deployed in the same region as the custom avatar, you can see the CNV voice selection in the voices list of the avatar content generation page and live chat voice settings.
-1. If you are using the API to generate content, add the "customVoices" property to assign the deployment ID of the CNV model in the request batch synthesis properties. For more information, refer to the [Text to speech properties](https://docs.microsoft.com/learn/modules/speech-service-azure-ai-services/).
+1. If you are using the API to generate content, add the "customVoices" property to assign the deployment ID of the CNV model in the request batch synthesis properties. For more information, refer to the [Text to speech properties](batch-synthesis-avatar-properties.md#text-to-speech-properties).
 1. If you are using real-time mode, refer to our sample code on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/js/browser/avatar) to set the custom voice.
 
 ### Sample code of calling both CNV and custom avatar
 
 If your custom neural voice endpoint is in a different Speech Service or service region from the custom avatar endpoint:
 
-- Refer to [Deploy your professional voice model as an endpoint](./professional-voice-deploy-endpoint.md) to learn how to create a custom neural voice endpoint and check the region in the Application settings.
-- If your trained CNV models and custom avatars are in different regions, refer to [Train your professional voice model](./professional-voice-train-voice.md#copy-your-voice-model-to-another-project) to copy the CNV model to another project and region.
+- Refer to [Deploy your professional voice model as an endpoint](../professional-voice-deploy-endpoint.md) to learn how to create a custom neural voice endpoint and check the region in the Application settings.
+- If your trained CNV models and custom avatars are in different regions, refer to [Train your professional voice model](../professional-voice-train-voice.md#copy-your-voice-model-to-another-project) to copy the CNV model to another project and region.
 
 ## Remove a deployment endpoint
 
