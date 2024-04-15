@@ -141,203 +141,307 @@ Terminal Server has been deployed and configured as follows:
   - Terminal Server interface is connected to the operators on-premises Provider Edge routers (PEs) and configured with the IP addresses and credentials
   - Terminal Server is accessible from the management VPN
 
-1. Setup hostname:
-   [CLI Reference](https://opengear.zendesk.com/hc/articles/360044253292-Using-the-configuration-CLI-ogcli-)
+### Step 1: Setting Up Hostname
 
-   ```bash
-   sudo ogcli update system/hostname hostname=\"$TS_HOSTNAME\"
-   ```
+To set up the hostname for your terminal server, follow these steps:
 
-   | Parameter name | Description                  |
-   | -------------- | ---------------------------- |
-   | TS_HOSTNAME    | The terminal server hostname |
+Use the following command in the CLI:
 
-2. Setup network:
+```bash
+sudo ogcli update system/hostname hostname=\"$TS_HOSTNAME\"
+```
 
-   ```bash
-   sudo ogcli create conn << 'END'
-     description="PE1 to TS NET1"
-     mode="static"
-     ipv4_static_settings.address="$TS_NET1_IP"
-     ipv4_static_settings.netmask="$TS_NET1_NETMASK"
-     ipv4_static_settings.gateway="$TS_NET1_GW"
-     physif="net1"
-     END
+**Parameters:**
 
-   sudo ogcli create conn << 'END'
-     description="PE2 to TS NET2"
-     mode="static"
-     ipv4_static_settings.address="$TS_NET2_IP"
-     ipv4_static_settings.netmask="$TS_NET2_NETMASK"
-     ipv4_static_settings.gateway="$TS_NET2_GW"
-     physif="net2"
-     END
-   ```
+| Parameter Name | Description               |
+| -------------- | ------------------------- |
+| TS_HOSTNAME    | Terminal server hostname  |
 
-   | Parameter name  | Description                                |
-   | --------------- | ------------------------------------------ |
-   | TS_NET1_IP      | The terminal server PE1 to TS NET1 IP      |
-   | TS_NET1_NETMASK | The terminal server PE1 to TS NET1 netmask |
-   | TS_NET1_GW      | The terminal server PE1 to TS NET1 gateway |
-   | TS_NET2_IP      | The terminal server PE2 to TS NET2 IP      |
-   | TS_NET2_NETMASK | The terminal server PE2 to TS NET2 netmask |
-   | TS_NET2_GW      | The terminal server PE2 to TS NET2 gateway |
+[Refer to CLI Reference](https://opengear.zendesk.com/hc/articles/360044253292-Using-the-configuration-CLI-ogcli-) for more details.
 
-3. Clear net3 interface if existing:
+### Step 2: Setting Up Network
 
-   Check for any interface configured on physical interface net3 and "Default IPv4 Static Address":
-   ```bash
-   ogcli get conns 
-   **description="Default IPv4 Static Address"**
-   **name="$TS_NET3_CONN_NAME"**
-   **physif="net3"**
-   ```
-   
-   Remove if existing:
-   ```bash
-   ogcli delete conn "$TS_NET3_CONN_NAME"
-   ```
+To configure network settings, follow these steps:
 
-   | Parameter name    | Description                                |
-   | ----------------- | ------------------------------------------ |
-   | TS_NET3_CONN_NAME | The terminal server NET3 Connection name   |
+Execute the following commands in the CLI:
 
-4. Setup support admin user:
+```bash
+sudo ogcli create conn << 'END'
+  description="PE1 to TS NET1"
+  mode="static"
+  ipv4_static_settings.address="$TS_NET1_IP"
+  ipv4_static_settings.netmask="$TS_NET1_NETMASK"
+  ipv4_static_settings.gateway="$TS_NET1_GW"
+  physif="net1"
+  END
 
-   For each user
-   ```bash
-   ogcli create user << 'END'
-   description="Support Admin User"
-   enabled=true
-   groups[0]="admin"
-   groups[1]="netgrp"
-   hashed_password="$HASHED_SUPPORT_PWD"
-   username="$SUPPORT_USER"
-   END
-   ```
+sudo ogcli create conn << 'END'
+  description="PE2 to TS NET2"
+  mode="static"
+  ipv4_static_settings.address="$TS_NET2_IP"
+  ipv4_static_settings.netmask="$TS_NET2_NETMASK"
+  ipv4_static_settings.gateway="$TS_NET2_GW"
+  physif="net2"
+  END
+```
 
-   | Parameter name     | Description                         |
-   | ------------------ | ----------------------------------- |
-   | SUPPORT_USER       | Support admin user                  |
-   | HASHED_SUPPORT_PWD | Encoded support admin user password |
+**Parameters:**
 
-5. Add sudo support for admin users (added at admin group level):
+| Parameter Name  | Description                                     |
+| --------------- | ----------------------------------------------- |
+| TS_NET1_IP      | Terminal server PE1 to TS NET1 IP               |
+| TS_NET1_NETMASK | Terminal server PE1 to TS NET1 netmask          |
+| TS_NET1_GW      | Terminal server PE1 to TS NET1 gateway          |
+| TS_NET2_IP      | Terminal server PE2 to TS NET2 IP               |
+| TS_NET2_NETMASK | Terminal server PE2 to TS NET2 netmask          |
+| TS_NET2_GW      | Terminal server PE2 to TS NET2 gateway          |
 
-   ```bash
-   sudo vi /etc/sudoers.d/opengear
-   %netgrp ALL=(ALL) ALL
-   %admin ALL=(ALL) NOPASSWD: ALL
-   ```
-   
-6. Start/Enable the LLDP service if it isn't running:
-   
-   Check if LLDP service is running on TS:
-   ```bash
-   sudo systemctl status lldpd
-   lldpd.service - LLDP daemon
-       Loaded: loaded (/lib/systemd/system/lldpd.service; enabled; vendor preset: disabled)
-       Active: active (running) since Thu 2023-09-14 19:10:40 UTC; 3 months 25 days ago
-         Docs: man:lldpd(8)
-     Main PID: 926 (lldpd)
-        Tasks: 2 (limit: 9495)
-       Memory: 1.2M
-       CGroup: /system.slice/lldpd.service
-               ├─926 lldpd: monitor.
-               └─992 lldpd: 3 neighbors.
+**Note:** Make sure to replace these parameters with appropriate values.
 
-   Notice: journal has been rotated since unit was started, output may be incomplete.
-   ```
+### Step 3: Clearing net3 Interface (if Existing)
 
-   If the service isn't active (running), start the service:
-   ```bash
-   sudo systemctl start lldpd
-   ```
+To clear the net3 interface, follow these steps:
 
-   Enable the service on reboot:
-   ```bash
-   sudo systemctl enable lldpd
-   ```
-7. Check system date/time:
+1. Check for any interface configured on the physical interface net3 and "Default IPv4 Static Address" using the following command:
 
-   ```bash
-   date
-   ```
+```bash
+ogcli get conns 
+**description="Default IPv4 Static Address"**
+**name="$TS_NET3_CONN_NAME"**
+**physif="net3"**
+```
 
-   To fix date if incorrect:
-   ```bash
-   ogcli replace system/time
-   Reading information from stdin. Press Ctrl-D to submit and Ctrl-C to cancel.
-   time="$CURRENT_DATE_TIME"
-   ```
+**Parameters:**
 
-   | Parameter name     | Description                                   |
-   | ------------------ | --------------------------------------------- |
-   | CURRENT_DATE_TIME  | Current date time in format hh:mm MMM DD, YYY |
+| Parameter Name    | Description                              |
+| ----------------- | ---------------------------------------- |
+| TS_NET3_CONN_NAME | Terminal server NET3 Connection name     |
 
-8. Label TS Ports (if missing/incorrect):
+2. Remove the interface if it exists:
 
-   ```bash
-   ogcli update port "port-<PORT_#>"  label=\"<NEW_NAME>\"	<PORT_#>
-   ```
+```bash
+ogcli delete conn "$TS_NET3_CONN_NAME"
+```
+**Note:** Make sure to replace these parameters with appropriate values.
 
-   | Parameter name  | Description                 |
-   | ----------------| --------------------------- |
-   | NEW_NAME        | Port label name             |
-   | PORT_#          | Terminal Server port number |
+### Step 4: Setting Up Support Admin User
 
-9. Settings required for PURE Array serial connections:
+To set up the support admin user, follow these steps:
 
-   ```bash
-   ogcli update port ports-<PORT_#> 'baudrate="115200"'	<PORT_#>	Pure Storage Controller console
-   ogcli update port ports-<PORT_#> 'pinout="X1"'	<PORT_#>	Pure Storage Controller console
-   ```
+1. For each user, execute the following command in the CLI:
 
-   | Parameter name  | Description                 |
-   | ----------------| --------------------------- |
-   | PORT_#          | Terminal Server port number |
+```bash
+ogcli create user << 'END'
+description="Support Admin User"
+enabled=true
+groups[0]="admin"
+groups[1]="netgrp"
+hashed_password="$HASHED_SUPPORT_PWD"
+username="$SUPPORT_USER"
+END
+```
 
-10. Verify Settings
+**Parameters:**
 
-   ```bash
-   ping $PE1_IP -c 3  # ping test to PE1 //TS subnet +2
-   ping $PE2_IP -c 3 # ping test to PE2 //TS subnet +2
-   ogcli get conns # verify NET1, NET2, NET3 Removed
-   ogcli get users # verify support admin user
-   ogcli get static_routes # there should be no static routes
-   ip r # verify only interface routes
-   ip a # verify loopback, NET1, NET2
-   date # check current date/time
-   pmshell # Check ports labelled
-   
-   sudo lldpctl
-   sudo lldpcli show neighbors # to check the LLDP neighbors - should show date from NET1 and NET2
-   # Should include 
-   -------------------------------------------------------------------------------
-   LLDP neighbors:
-   -------------------------------------------------------------------------------
-   Interface:    net2, via: LLDP, RID: 2, Time: 0 day, 20:28:36
-    Chassis:     
-      ChassisID:    mac 12:00:00:00:00:85
-      SysName:      austx502xh1.els-an.att.net
-      SysDescr:      7.7.2, S9700-53DX-R8
-      Capability:   Router, on
-    Port:         
-      PortID:       ifname TenGigE0/0/0/0/3
-      PortDescr:     GE10_Bundle-Ether83_austx4511ts1_net2_net2_CircuitID__austxm1-AUSTX45_[CBB][MCGW][AODS]
-      TTL:          120
-   -------------------------------------------------------------------------------
-   Interface:    net1, via: LLDP, RID: 1, Time: 0 day, 20:28:36
-   Chassis:     
-       ChassisID:    mac 12:00:00:00:00:05
-      SysName:      austx501xh1.els-an.att.net
-      SysDescr:      7.7.2, S9700-53DX-R8
-      Capability:   Router, on
-    Port:         
-      PortID:       ifname TenGigE0/0/0/0/3
-      PortDescr:     GE10_Bundle-Ether83_austx4511ts1_net1_net1_CircuitID__austxm1-AUSTX45_[CBB][MCGW][AODS]
-      TTL:          120
-   -------------------------------------------------------------------------------
-   ```
+| Parameter Name     | Description                            |
+| ------------------ | -------------------------------------- |
+| SUPPORT_USER       | Support admin user                     |
+| HASHED_SUPPORT_PWD | Encoded support admin user password    |
+
+>Note: Make sure to replace these parameters with appropriate values.
+
+### Step 5: Adding sudo Support for Admin Users
+
+To add sudo support for admin users, follow these steps:
+
+1. Open the sudoers configuration file:
+
+```bash
+sudo vi /etc/sudoers.d/opengear
+```
+
+2. Add the following lines to grant sudo access:
+
+```bash
+%netgrp ALL=(ALL) ALL
+%admin ALL=(ALL) NOPASSWD: ALL
+```
+
+**Note:** Make sure to save the changes after editing the file.
+
+This configuration allows members of the "netgrp" group to execute any command as any user and members of the "admin" group to execute any command as any user without requiring a password.
+
+### Step 6: Ensuring LLDP Service Availability
+
+To ensure the LLDP service is available on your terminal server, follow these steps:
+
+1. Check if the LLDP service is running:
+
+```bash
+sudo systemctl status lldpd
+```
+
+You should see output similar to the following if the service is running:
+
+```Output
+lldpd.service - LLDP daemon
+   Loaded: loaded (/lib/systemd/system/lldpd.service; enabled; vendor preset: disabled)
+   Active: active (running) since Thu 2023-09-14 19:10:40 UTC; 3 months 25 days ago
+     Docs: man:lldpd(8)
+ Main PID: 926 (lldpd)
+    Tasks: 2 (limit: 9495)
+   Memory: 1.2M
+   CGroup: /system.slice/lldpd.service
+           ├─926 lldpd: monitor.
+           └─992 lldpd: 3 neighbors.
+
+Notice: journal has been rotated since unit was started, output may be incomplete.
+```
+
+2. If the service isn't active (running), start the service:
+
+```bash
+sudo systemctl start lldpd
+```
+
+3. Enable the service to start on reboot:
+
+```bash
+sudo systemctl enable lldpd
+```
+
+>Note: Make sure to perform these steps to ensure the LLDP service is always available and starts automatically upon reboot.
+
+### Step 7: Checking System Date/Time
+
+Ensure that the system date/time is correctly set, and the timezone for the terminal server is in UTC.
+
+#### Check Timezone Setting:
+
+1. To check the current timezone setting:
+
+```bash
+ogcli get system/timezone
+```
+
+#### Set Timezone to UTC:
+
+2. If the timezone is not set to UTC, you can set it using:
+
+```bash
+ogcli update system/timezone timezone=\"UTC\"
+```
+
+#### Check Current Date/Time:
+
+3. Check the current date and time:
+
+```bash
+date
+```
+
+#### Fix Date/Time if Incorrect:
+
+4. If the date/time is incorrect, you can fix it using:
+
+```bash
+ogcli replace system/time
+Reading information from stdin. Press Ctrl-D to submit and Ctrl-C to cancel.
+time="$CURRENT_DATE_TIME"
+```
+
+**Parameters:**
+
+| Parameter Name     | Description                                   |
+| ------------------ | --------------------------------------------- |
+| CURRENT_DATE_TIME  | Current date time in format hh:mm MMM DD, YYYY |
+
+Ensure the system date/time is accurate to prevent any issues with applications or services relying on it.
+
+### Step 8: Labeling TS Ports (if Missing/Incorrect)
+
+To label terminal server ports, use the following command:
+
+```bash
+ogcli update port "port-<PORT_#>"  label=\"<NEW_NAME>\"	<PORT_#>
+```
+
+**Parameters:**
+
+| Parameter Name  | Description                 |
+| ----------------| --------------------------- |
+| NEW_NAME        | Port label name             |
+| PORT_#          | Terminal Server port number |
+
+### Step 9: Settings Required for PURE Array Serial Connections
+
+For configuring PURE Array serial connections, use the following commands:
+
+```bash
+ogcli update port ports-<PORT_#> 'baudrate="115200"' <PORT_#> Pure Storage Controller console
+ogcli update port ports-<PORT_#> 'pinout="X1"' <PORT_#>	Pure Storage Controller console
+```
+
+**Parameters:**
+
+| Parameter Name  | Description                 |
+| ----------------| --------------------------- |
+| PORT_#          | Terminal Server port number |
+
+These commands set the baudrate and pinout for connecting to the Pure Storage Controller console.
+
+### Step 10: Verifying Settings
+
+To verify the configuration settings, execute the following commands:
+
+```bash
+ping $PE1_IP -c 3  # Ping test to PE1 //TS subnet +2
+ping $PE2_IP -c 3  # Ping test to PE2 //TS subnet +2
+ogcli get conns     # Verify NET1, NET2, NET3 Removed
+ogcli get users     # Verify support admin user
+ogcli get static_routes  # Ensure there are no static routes
+ip r                # Verify only interface routes
+ip a                # Verify loopback, NET1, NET2
+date                # Check current date/time
+pmshell             # Check ports labelled
+
+sudo lldpctl
+sudo lldpcli show neighbors  # Check LLDP neighbors - should show data from NET1 and NET2
+```
+
+**Note:** Ensure that the LLDP neighbors are as expected, indicating successful connections to PE1 and PE2.
+
+Example LLDP neighbors output:
+
+```
+-------------------------------------------------------------------------------
+LLDP neighbors:
+-------------------------------------------------------------------------------
+Interface:    net2, via: LLDP, RID: 2, Time: 0 day, 20:28:36
+  Chassis:     
+    ChassisID:    mac 12:00:00:00:00:85
+    SysName:      austx502xh1.els-an.att.net
+    SysDescr:     7.7.2, S9700-53DX-R8
+    Capability:   Router, on
+  Port:         
+    PortID:       ifname TenGigE0/0/0/0/3
+    PortDescr:    GE10_Bundle-Ether83_austx4511ts1_net2_net2_CircuitID__austxm1-AUSTX45_[CBB][MCGW][AODS]
+    TTL:          120
+-------------------------------------------------------------------------------
+Interface:    net1, via: LLDP, RID: 1, Time: 0 day, 20:28:36
+  Chassis:     
+    ChassisID:    mac 12:00:00:00:00:05
+    SysName:      austx501xh1.els-an.att.net
+    SysDescr:     7.7.2, S9700-53DX-R8
+    Capability:   Router, on
+  Port:         
+    PortID:       ifname TenGigE0/0/0/0/3
+    PortDescr:    GE10_Bundle-Ether83_austx4511ts1_net1_net1_CircuitID__austxm1-AUSTX45_[CBB][MCGW][AODS]
+    TTL:          120
+-------------------------------------------------------------------------------
+```
+
+Verify that the output matches your expectations and that all configurations are correct.
 
 ## Set up storage array
 
