@@ -78,7 +78,7 @@ It is important to note that if the former primary server enters an irrecoverabl
 
 ### Multiple replicas visibility during promotion in nonpaired regions
 
-When dealing with multiple replicas and if the primary region lacks a [paired region](concepts-read-replicas-geo.md#use-paired-regions-for-disaster-recovery-purposes), a special consideration must be considered. In the event of a regional outage affecting the primary, any additional replicas won't be automatically recognized by the newly promoted replica. While applications can still be directed to the promoted replica for continued operation, the unrecognized replicas remain disconnected during the outage. These additional replicas will only reassociate and resume their roles once the original primary region has been restored.
+When dealing with multiple replicas and if the primary region lacks a [paired region](concepts-read-replicas-geo.md# paired-regions-for-disaster-recovery-purposes), a special consideration must be considered. In the event of a regional outage affecting the primary, any additional replicas won't be automatically recognized by the newly promoted replica. While applications can still be directed to the promoted replica for continued operation, the unrecognized replicas remain disconnected during the outage. These additional replicas will only reassociate and resume their roles once the original primary region has been restored.
 
 
 

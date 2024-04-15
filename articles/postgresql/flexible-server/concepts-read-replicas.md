@@ -166,7 +166,7 @@ Users can create read replicas in a different resource group than the primary. H
 
 ### Back up and Restore
 
-When managing backups and restores for your Azure Database for PostgreSQL flexible server instance, it's essential to keep in mind the current and previous role of the server in different [promotion scenarios](#promote-replicas). Here are the key points to remember:
+When managing backups and restores for your Azure Database for PostgreSQL flexible server instance, it's essential to keep in mind the current and previous role of the server in different [promotion scenarios](concepts-read-replicas-promote.md). Here are the key points to remember:
 
 **Promote to primary server**
 
