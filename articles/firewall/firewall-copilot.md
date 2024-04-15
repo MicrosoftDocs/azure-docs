@@ -4,7 +4,7 @@ description: Learn about using Microsoft Copilot for Security to investigate tra
 keywords: security copilot, copilot for security, threat intelligence, IDPS, intrusion detection and prevention system, plugin, integration, azure firewall, firewall copilot, open ai, openai co-pilot
 author: abhinavsriram
 ms.author: victorh
-ms.date: 04/11/2024
+ms.date: 04/15/2024
 ms.topic: conceptual
 ms.service: firewall
 ms.localizationpriority: high
@@ -51,8 +51,8 @@ For more information about writing effective Copilot for Security prompts, see [
 ## Using the Azure Firewall integration in the Copilot for Security standalone portal
 
 1.  Ensure your Azure Firewall is configured correctly:
-- [Azure Structured Firewall Logs](firewall-structured-logs.md#resource-specific-mode) – the Azure Firewalls to be used with Copilot for Security must be configured with resource specific structured logs for IDPS and Threat Intelligence and these logs must be sent to a Log Analytics workspace.
-- [Role Based Access Control for Azure Firewall](https://techcommunity.microsoft.com/t5/azure-network-security-blog/role-based-access-control-for-azure-firewall/ba-p/2245598) – the users using the Azure Firewall plugin in Copilot for Security must have the appropriate Azure RBAC roles to access the Firewall and associated Log Analytics workspace(s).
+    - [Azure Structured Firewall Logs](firewall-structured-logs.md#resource-specific-mode) – the Azure Firewalls to be used with Copilot for Security must be configured with resource specific structured logs for IDPS and Threat Intelligence and these logs must be sent to a Log Analytics workspace.
+    - [Role Based Access Control for Azure Firewall](https://techcommunity.microsoft.com/t5/azure-network-security-blog/role-based-access-control-for-azure-firewall/ba-p/2245598) – the users using the Azure Firewall plugin in Copilot for Security must have the appropriate Azure RBAC roles to access the Firewall and associated Log Analytics workspace(s).
 2.	Go to [Microsoft Copilot for Security](https://go.microsoft.com/fwlink/?linkid=2247989) and sign in with your credentials.
 3.	Ensure that the Azure Firewall plugin is turned on. In the prompt bar, select the **Sources** icon.
 
@@ -93,7 +93,7 @@ To view these promptbooks, in the prompt bar, select the **Prompts** icon then s
 There are many prompts you can use to get information from Azure Firewall. This section lists the ones that work best today. They will be continuously updated as new capabilities are launched.
 
 
-### Retrieve the top IDPS signature hits for an Azure Firewall.
+### Retrieve the top IDPS signature hits for an Azure Firewall
 
 Get **log information** about the traffic intercepted by the IDPS feature instead of constructing KQL queries manually.
 
@@ -104,7 +104,7 @@ Get **log information** about the traffic intercepted by the IDPS feature instea
 - Show me the top 10 malicious sources that attacked Firewall _\<Firewall name\>_ in subscription _\<subscription name\>_.
 
 
-### Expand on the description of an IDPS signature in the Azure Firewall logs.
+### Expand on the description of an IDPS signature in the Azure Firewall logs
 
 Get **additional details** to enrich the threat information/profile of an IDPS signature instead of compiling it yourself manually.
 
@@ -115,7 +115,7 @@ Get **additional details** to enrich the threat information/profile of an IDPS s
 - I see that the third signature ID is associated with CVE _\<CVE number\>_, tell me more about this CVE and other similar CVEs that I should be aware of.
 
 
-### Look for a given IDPS signature across your tenant, subscription, or resource group.
+### Look for a given IDPS signature across your tenant, subscription, or resource group
 
 Perform a **fleet-wide search** (over any scope) for a threat across all your Firewalls instead of searching for the threat manually.
 
@@ -126,7 +126,7 @@ Perform a **fleet-wide search** (over any scope) for a threat across all your Fi
 - Over the past week did any Firewall in resource group _\<resource group name\>_ see signature ID _\<ID number\>_?
 
 
-### Generate recommendations to secure your environment using Azure Firewall's IDPS feature.
+### Generate recommendations to secure your environment using Azure Firewall's IDPS feature
 
 Get **information from documentation** about using Azure Firewall's IDPS feature to secure your environment instead of having to look up this information manually.
 
@@ -139,7 +139,7 @@ Get **information from documentation** about using Azure Firewall's IDPS feature
 > [!NOTE]
 > The following sections on threat intelligence related queries are not available today but will be available later.
 
-### Retrieve the top threat intelligence-flagged traffic hits for an Azure Firewall.
+### Retrieve the top threat intelligence-flagged traffic hits for an Azure Firewall
 
 Get **log information** about the traffic intercepted by the threat intelligence feature instead of constructing KQL queries manually.
 
@@ -150,7 +150,7 @@ Get **log information** about the traffic intercepted by the threat intelligence
 - Show me the top 10 malicious IPs that attacked Firewall _\<Firewall name\>_ in subscription _\<subscription name\>_.
 
 
-### Explain the malicious IP addresses, FQDNs, and URLs flagged by Azure Firewall.
+### Explain the malicious IP addresses, FQDNs, and URLs flagged by Azure Firewall
 
 Get **additional details** to enrich the threat information/profile of malicious entities instead of compiling it yourself manually.
 
@@ -161,7 +161,7 @@ Get **additional details** to enrich the threat information/profile of malicious
 - Was the top URL this Firewall flagged associated with an active CVE? If so, tell me more about it.
 
 
-### Look for threat intelligence flagged-traffic across your tenant, subscription, or resource group.
+### Look for threat intelligence flagged-traffic across your tenant, subscription, or resource group
 
 Perform a **fleet-wide search** (over any scope) for a threat across all your Firewalls instead of searching for the threat manually.
 
@@ -172,7 +172,7 @@ Perform a **fleet-wide search** (over any scope) for a threat across all your Fi
 - Over the past week did any Firewall in resource group _\<resource group name\>_ see the malicious IP _\<IP address\>_?
 
 
-### Generate recommendations to secure your environment using Azure Firewall's threat intelligence feature.
+### Generate recommendations to secure your environment using Azure Firewall's threat intelligence feature
 
 Get **information from documentation** about using Azure Firewall's threat intelligence feature to secure your environment instead of having to look up this information manually.
 
