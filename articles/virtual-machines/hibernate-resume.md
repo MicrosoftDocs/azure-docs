@@ -33,7 +33,7 @@ When hibernating a VM:
 Hibernation support is limited to certain VM sizes and OS versions. Make sure you have a supported configuration before using hibernation.
 
 ### Supported operating systems
-Supported operating systems, OS specific limitations, and configuration procedures are listed the OS' documentation section.
+Supported operating systems, OS specific limitations, and configuration procedures are listed in the OS's documentation section.
 
 [Windows VM hibernation documentation](./windows/hibernate-resume-windows.md#supported-configurations)
 
