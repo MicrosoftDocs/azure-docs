@@ -261,8 +261,8 @@
   - name: Evaluate the impact of a new policy
     displayName: audit, enforcementmode, compliance
     href: ./concepts/evaluate-impact.md
-  - name: Recommended policies
-    displayName: VMs, virtual machines
+  - name: Virtual machine recommended policies
+    displayName: VM, virtual machine
     href: ./concepts/recommended-policies.md
   - name: Regulatory Compliance
     displayName: standards, domains, controls
