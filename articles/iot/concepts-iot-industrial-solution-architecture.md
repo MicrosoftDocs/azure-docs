@@ -63,7 +63,8 @@ Here are the components involved in this solution:
 | [UA Cloud Library](https://github.com/opcfoundation/UA-CloudLibrary) | The UA Cloud Library is an online store of OPC UA Information Models, hosted by the OPC Foundation [here](https://uacloudlibrary.opcfoundation.org/). |
 | [UA Edge Translator](https://github.com/opcfoundation/ua-edgetranslator) | This open-source industrial connectivity reference application translates from proprietary asset interfaces to OPC UA using W3C Web of Things (WoT) Thing Descriptions as the schema to describe the industrial asset interface. |
 
-:exclamation: In a real-world deployment, something as critical as opening a pressure relief valve would be done on-premises. This is just a simple example of how to achieve the digital feedback loop.
+> [!NOTE]
+> In a real-world deployment, something as critical as opening a pressure relief valve would be done on-premises. This is just a simple example of how to achieve the digital feedback loop.
 
 
 ## A Cloud-based OPC UA Certificate Store and Persisted Storage
@@ -190,7 +191,7 @@ Note: To save cost, the deployment deploys just a single Windows 11 Enterprise V
 
 Once the deployment completes, connect to the deployed Windows VM with an RDP (remote desktop) connection. You can download the RDP file in the [Azure portal](https://portal.azure.com) page for the VM, under the **Connect** options. Sign in using the credentials you provided during deployment, open an **Administrator Powershell window**, navigate to the `C:\ManufacturingOntologies-main\Deployment` directory, and run:
 
-```     
+```azurepowershell
 New-AksEdgeDeployment -JsonConfigFilePath .\aksedge-config.json
 ```
 
@@ -207,7 +208,7 @@ From the deployed VM, open a **Windows command prompt**. Navigate to the `C:\Man
 
 Syntax:
 
-```
+```console
     StartSimulation <EventHubsCS> <StorageAccountCS> <AzureSubscriptionID> <AzureTenantID>
 ```
 
@@ -276,11 +277,12 @@ Make sure you have successfully deployed Azure IoT Operations and all Kubernetes
 
 ## Use Cases Condition Monitoring, Calculating OEE, Detecting Anomalies, and Making Predictions in Azure Data Explorer
 
-You can also visit the [Azure Data Explorer documentation](/azure/synapse-analytics/data-explorer/data-explorer-overview) to learn how to create no-code dashboards for condition monitoring, yield or maintenance predictions, or anomaly detection. We have provided a sample dashboard [here](snippets/concepts-iot-industrial-solution-architecture/dashboard-ontologies.json) for you to deploy to the ADX Dashboard by following the steps outlined [here](/azure/data-explorer/azure-data-explorer-dashboards#to-create-new-dashboard-from-a-file). After import, you need to update the dashboard's data source by specifying the HTTPS endpoint of your ADX server cluster instance in the format `https://ADXInstanceName.AzureRegion.kusto.windows.net/` in the top-right-hand corner of the dashboard. 
+You can also visit the [Azure Data Explorer documentation](/azure/synapse-analytics/data-explorer/data-explorer-overview) to learn how to create no-code dashboards for condition monitoring, yield or maintenance predictions, or anomaly detection. We have provided a sample dashboard [here](https://github.com/digitaltwinconsortium/ManufacturingOntologies/blob/main/Tools/ADXQueries/dashboard-ontologies.json) for you to deploy to the ADX Dashboard by following the steps outlined [here](/azure/data-explorer/azure-data-explorer-dashboards#to-create-new-dashboard-from-a-file). After import, you need to update the dashboard's data source by specifying the HTTPS endpoint of your ADX server cluster instance in the format `https://ADXInstanceName.AzureRegion.kusto.windows.net/` in the top-right-hand corner of the dashboard. 
 
 :::image type="content" source="media/concepts-iot-industrial-solution-architecture/dashboard.png" alt-text="Screenshot of an Azure Data Explorer dashboard." lightbox="media/concepts-iot-industrial-solution-architecture/dashboard.png" border="false" :::
 
-Note: If you want to display the OEE for a specific shift, select `Custom Time Range` in the `Time Range` drop-down in the top-left hand corner of the ADX Dashboard and enter the date and time from start to end of the shift you're interested in. 
+> [!NOTE]
+> If you want to display the OEE for a specific shift, select `Custom Time Range` in the `Time Range` drop-down in the top-left hand corner of the ADX Dashboard and enter the date and time from start to end of the shift you're interested in. 
 
 
 ## Rendering the Built-In Unified NameSpace (UNS) and ISA-95 Model Graph in Kusto Explorer
@@ -350,7 +352,7 @@ Save and test your connection on the bottom of the page.
 
 ### Import a Sample Dashboard
 
-Now we can import the provided sample dashboard. You can download it here: [Sample Grafana Manufacturing Dashboard](snippets/concepts-iot-industrial-solution-architecture/sample-grafana-dashboard.json)
+Now we can import the provided sample dashboard. You can download it here: [Sample Grafana Manufacturing Dashboard](https://github.com/digitaltwinconsortium/ManufacturingOntologies/blob/main/Tools/GrafanaDashboard/samplegrafanadashboard.json).
 
 Then go to 'Dashboard' and select 'Import'.
 
@@ -382,7 +384,7 @@ In this example, we create a low OEE alert for one of the production lines. Firs
 
 :::image type="content" source="media/concepts-iot-industrial-solution-architecture/navigate-to-alerts.png" alt-text="Screenshot of navigating to alerts." lightbox="media/concepts-iot-industrial-solution-architecture/navigate-to-alerts.png" border="false" :::
 
-Then select on 'Create Rule'.
+Then select on 'Create alert rule'.
 
 :::image type="content" source="media/concepts-iot-industrial-solution-architecture/create-rule.png" alt-text="Screenshot of creating an alert rule." lightbox="media/concepts-iot-industrial-solution-architecture/create-rule.png" border="false" :::
 
@@ -423,19 +425,19 @@ You can integrate this with, for example, Microsoft Dynamics Field Services.
 1. From Power BI, create a new report and select Azure Data Explorer time-series data as a data source via `Get data` -> `Azure` -> `Azure Data Explorer (Kusto)`.
 1. In the popup window, enter the Azure Data Explorer endpoint of your instance (for example `https://erichbtest3adx.eastus2.kusto.windows.net`), the database name (`ontologies`) and the following query:
 
-```
-let _startTime = ago(1h);
-let _endTime = now();
-opcua_metadata_lkv
-| where Name contains "assembly"
-| where Name contains "munich"
-| join kind=inner (opcua_telemetry
-    | where Name == "ActualCycleTime"
-    | where Timestamp > _startTime and Timestamp < _endTime
-) on DataSetWriterID
-| extend NodeValue = todouble(Value)
-| project Timestamp, NodeValue
-```
+    ```
+    let _startTime = ago(1h);
+    let _endTime = now();
+    opcua_metadata_lkv
+    | where Name contains "assembly"
+    | where Name contains "munich"
+    | join kind=inner (opcua_telemetry
+        | where Name == "ActualCycleTime"
+        | where Timestamp > _startTime and Timestamp < _endTime
+    ) on DataSetWriterID
+    | extend NodeValue = todouble(Value)
+    | project Timestamp, NodeValue
+    ```
 
 1. Select `Load`. This imports the actual cycle time of the Assembly station of the Munich production line for the last hour.
 1. When prompted, log into Azure Data Explorer using the Azure Active Directory user you gave permission to access the Azure Data Explorer database earlier.
@@ -446,9 +448,10 @@ opcua_metadata_lkv
 1. Under `Visualizations`, move the `NodeValue` from the `Data` source to the `Y-axis`, select on it and select `Median`.
 1. Save your new report.
 
-Note: You can add other data from Azure Data Explorer to your report similarly.
+    > [!NOTE]
+    > You can add other data from Azure Data Explorer to your report similarly.
 
-:::image type="content" source="media/concepts-iot-industrial-solution-architecture/power-bi.png" alt-text="Screenshot of a Power BI view." lightbox="media/concepts-iot-industrial-solution-architecture/power-bi.png" border="false" :::
+    :::image type="content" source="media/concepts-iot-industrial-solution-architecture/power-bi.png" alt-text="Screenshot of a Power BI view." lightbox="media/concepts-iot-industrial-solution-architecture/power-bi.png" border="false" :::
 
 
 ## Connecting the Reference Solution to Microsoft Dynamics 365 Field Service
@@ -554,7 +557,7 @@ In the simulated production also the energy usage of every machine is collected.
 
 :::image type="content" source="media/concepts-iot-industrial-solution-architecture/overview-solution.png" alt-text="Diagram of a solution overview." lightbox="media/concepts-iot-industrial-solution-architecture/overview-solution.png" border="false" :::
 
-### Setup Trial account
+### Set up trial account
 When you want to use the Microsoft Sustainability Manager (MSM), you can start with a 30 day trial. 
 
 1. For that you need to go to [this](https://www.microsoft.com/en-us/sustainability/cloud) trial page. Enter there your e-mailadres, agree with the term and select on 'Start your free trial'
@@ -577,7 +580,7 @@ When you want to use the Microsoft Sustainability Manager (MSM), you can start w
 
 :::image type="content" source="media/concepts-iot-industrial-solution-architecture/add-new-facility.png" alt-text="Screenshot of adding a new facility." lightbox="media/concepts-iot-industrial-solution-architecture/add-new-facility.png" border="false" :::
 
-6. Then you have to connect your Facility also to the MSM calculation models. Therefore navigate to the Data page (menu left bottom). 
+6. Then you have to connect your Facility also to the MSM calculation models. Navigate to the Data page (menu left bottom). 
 
 :::image type="content" source="media/concepts-iot-industrial-solution-architecture/factor-libraries.png" alt-text="Screenshot of factor libraries." lightbox="media/concepts-iot-industrial-solution-architecture/factor-libraries.png" border="false" :::
 
@@ -593,7 +596,9 @@ When you want to use the Microsoft Sustainability Manager (MSM), you can start w
 Now we can import the energy data (scope 2) from Azure Data Explorer. In the current setup of this solution not all the needed fields for MSM are in the solution.
 
 ### Different tenants (Azure and MSM)
-9. If you're importing from a different Azure tenant the data from Azure Data Explorer, you need to add the Fully Qualified DNS Name (FQDN). Run the following script on your Azure Data Explorer when needed: 
+If you're importing from a different Azure tenant the data from Azure Data Explorer, you need to add the Fully Qualified DNS Name (FQDN). 
+
+1. Run the following script on your Azure Data Explorer when needed: 
 
 ```
 .add database ['ADXDATABASE'] users ('aaduser=YOURFULLFQDN') 'Test MSM (AAD)'
@@ -613,22 +618,22 @@ print dtId
 }
 ```
 
-10. Navigate to the setting menu and select 'Data'. On the top select the Data Connections and create a new 'Connect to data'. 
+2. Navigate to the setting menu and select 'Data'. On the top select the Data Connections and create a new 'Connect to data'. 
 
 :::image type="content" source="media/concepts-iot-industrial-solution-architecture/connect-data.png" alt-text="Screenshot of connecting data." lightbox="media/concepts-iot-industrial-solution-architecture/connect-data.png" border="false" :::
 
-11. Select Activity data and select 'Scope 2 - Purchased Electricity'. We're importing kWh usage, if you have other data select then the right Activity data.  
+3. Select Activity data and select 'Scope 2 - Purchased Electricity'. We're importing kWh usage, if you have other data select then the right Activity data.  
 
 :::image type="content" source="media/concepts-iot-industrial-solution-architecture/create-connection.png" alt-text="Screenshot of creating a new connection." lightbox="media/concepts-iot-industrial-solution-architecture/create-connection.png" border="false" :::
 
-12. Select the Azure Data Explorer (KUSTO) connector, if you don't see it in the list, select 'browse all'.
+4. Select the Azure Data Explorer (KUSTO) connector, if you don't see it in the list, select 'browse all'.
 
 :::image type="content" source="media/concepts-iot-industrial-solution-architecture/select-adx.png" alt-text="Screenshot of selecting the ADX connector." lightbox="media/concepts-iot-industrial-solution-architecture/select-adx.png" border="false" :::
 
-13. Add your URL of your:
-- Cluster - full URL name
-- Database name
-- In the table name, the following query
+5. Add your URL of your:
+  - Cluster - full URL name
+  - Database name
+  - In the table name, the following query
 
 ### Query
 
@@ -644,35 +649,35 @@ msmTable
 
 Because the solution doesn't yet have all the context needed for MSM in the query certain fields are hard coded (Capital Letters). Change them accordingly. 
 
-And select on 'Sign in'. You get a pop-up to sign in with your account. If that isn't working, you need to add your account to the ADX explorer (step 9 in this manual).
+1. Select 'Sign in'. You get a pop-up to sign in with your account. If that isn't working, you need to add your account to the ADX explorer, as in a previous step. 
 
-:::image type="content" source="media/concepts-iot-industrial-solution-architecture/connection-settings.png" alt-text="Screenshot of settings for connecting to a data source." lightbox="media/concepts-iot-industrial-solution-architecture/connection-settings.png" border="false" :::
+    :::image type="content" source="media/concepts-iot-industrial-solution-architecture/connection-settings.png" alt-text="Screenshot of settings for connecting to a data source." lightbox="media/concepts-iot-industrial-solution-architecture/connection-settings.png" border="false" :::
 
-14. Now you should see your data loading in the screen. Select the 'Map to Entity' button. 
+2. Now you should see your data loading in the screen. Select the 'Map to Entity' button. 
 
-:::image type="content" source="media/concepts-iot-industrial-solution-architecture/power-query-overview.png" alt-text="Screenshot of a Power Query overview." lightbox="media/concepts-iot-industrial-solution-architecture/power-query-overview.png" border="false" :::
+    :::image type="content" source="media/concepts-iot-industrial-solution-architecture/power-query-overview.png" alt-text="Screenshot of a Power Query overview." lightbox="media/concepts-iot-industrial-solution-architecture/power-query-overview.png" border="false" :::
 
-15. Select Energy and select on Auto map. For the ones that can't be mapped, map them manually. Select on 'Ok' when you're finished. Hit then the 'Create' button and your connection has been created.
+3. Select Energy and select on Auto map. For the ones that can't be mapped, map them manually. Select on 'Ok' when you're finished. Hit then the 'Create' button and your connection has been created.
 
-:::image type="content" source="media/concepts-iot-industrial-solution-architecture/mapping-CDM.png" alt-text="Screenshot of mapping to a Common Data Model (CDM)." lightbox="media/concepts-iot-industrial-solution-architecture/mapping-CDM.png" border="false" :::
+    :::image type="content" source="media/concepts-iot-industrial-solution-architecture/mapping-CDM.png" alt-text="Screenshot of mapping to a Common Data Model (CDM)." lightbox="media/concepts-iot-industrial-solution-architecture/mapping-CDM.png" border="false" :::
+    
+4. If you want to import it automatically you can select that, in this case we just do it once. When you select daily, adjust your query to only get the day - one day. Otherwise, you get double records. 
 
-16. If you want to import it automatically you can select that, in this case we just do it once. When you select daily, adjust your query to only get the day - one day. Otherwise, you get double records. 
+    :::image type="content" source="media/concepts-iot-industrial-solution-architecture/finished-import.png" alt-text="Screenshot of a finished import process." lightbox="media/concepts-iot-industrial-solution-architecture/finished-import.png" border="false" :::
 
-:::image type="content" source="media/concepts-iot-industrial-solution-architecture/finished-import.png" alt-text="Screenshot of a finished import process." lightbox="media/concepts-iot-industrial-solution-architecture/finished-import.png" border="false" :::
+5. Give your connection and name and save. Give it some minutes to import your data into MSM. 
 
-17. Give your connection and name and save. Give it some minutes to import your data into MSM. 
+    :::image type="content" source="media/concepts-iot-industrial-solution-architecture/import-name.png" alt-text="Screenshot of importing a name." lightbox="media/concepts-iot-industrial-solution-architecture/import-name.png" border="false" :::
 
-:::image type="content" source="media/concepts-iot-industrial-solution-architecture/import-name.png" alt-text="Screenshot of importing a name." lightbox="media/concepts-iot-industrial-solution-architecture/import-name.png" border="false" :::
+    If it's completed, you see this screen. 
 
-If it's completed, you see this screen. 
+    :::image type="content" source="media/concepts-iot-industrial-solution-architecture/import-completed.png" alt-text="Screenshot of a completed import." lightbox="media/concepts-iot-industrial-solution-architecture/import-completed.png" border="false" :::
 
-:::image type="content" source="media/concepts-iot-industrial-solution-architecture/import-completed.png" alt-text="Screenshot of a completed import." lightbox="media/concepts-iot-industrial-solution-architecture/import-completed.png" border="false" :::
+6. Now you run the calculation. Depending on your settings in MSM, this is automatically done, but if not, go to the 'Calculation profiles'. Select the Purchased Electricity profile (that is connected to your factory) and Run the calculation.
 
-18. Now you run the calculation. Depending on your settings in MSM, this is automatically done, but if not, go to the 'Calculation profiles'. Select the Purchased Electricity profile (that is connected to your factory) and Run the calculation.
+    :::image type="content" source="media/concepts-iot-industrial-solution-architecture/run-calculation.png" alt-text="Screenshot of running a calculation." lightbox="media/concepts-iot-industrial-solution-architecture/run-calculation.png" border="false" :::
 
-:::image type="content" source="media/concepts-iot-industrial-solution-architecture/run-calculation.png" alt-text="Screenshot of running a calculation." lightbox="media/concepts-iot-industrial-solution-architecture/run-calculation.png" border="false" :::
-
-Within some minutes your dashboard should be updated with the new emissions that are coming from the solution!
+    Within some minutes your dashboard should be updated with the new emissions that are coming from the solution. 
 
 
 ## Related content
