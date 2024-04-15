@@ -59,7 +59,7 @@ To add a metric with the builder:
 
  For more information on the selecting scope, metrics, and aggregation, see [Analyze metrics](/azure/azure-monitor/essentials/analyze-metrics#set-the-resource-scope).
 
-:::image type="content" source="./media/metrics-explorer/add-metric-with-builder.png" lightbox="./media/metrics-explorer/add-metric-with-builder.png"  alt-text="A screenshot showing adding a metric using the editor." :::
+:::image type="content" source="./media/metrics-explorer/add-metric-with-builder.png" lightbox="./media/metrics-explorer/add-metric-with-builder.png"  alt-text="A screenshot showing adding a metric using the builder in the metrics explorer." :::
 
 Metrics are displayed by default as a line chart. Select your preferred chart type from the dropdown list in the toolbar. Customize the chart by selecting the gear-wheel icon. You can change the chart title, add annotations, and set the time range for the chart.
 
@@ -71,7 +71,7 @@ Each workspace can host multiple charts. Each chart can contain multiple metrics
 Add multiple metrics to the chart by selecting **Add metric**. Use either the builder or the editor to add metrics to the chart. 
 
 > [!NOTE]
-> Running both the code editor and query builder on the same chart is not supported in the Preview release of Metrics explorer and may result in unexpected behavior.
+> Using both the code editor and query builder on the same chart is not supported in the Preview release of Metrics explorer and may result in unexpected behavior.
 
 
 ### Add a new chart
