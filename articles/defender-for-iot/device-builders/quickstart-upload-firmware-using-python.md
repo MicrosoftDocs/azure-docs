@@ -75,7 +75,7 @@ firmware_file = "firmware-image-name"
 def main():
     firmware_id = str(uuid.uuid4())
     fw_client = init_connections(firmware_id)
-    # upload_firmware(fw_client, firmware_id)
+    upload_firmware(fw_client, firmware_id)
     get_results(fw_client, firmware_id)
 
 def init_connections(firmware_id):
