@@ -35,16 +35,16 @@ This article explains the  Fabric cable validation, where the primary function o
 
     ``` 
 
-3. You can programmatically check the status of the operation by running the following command:
+1. You can programmatically check the status of the operation by running the following command:
     ```azurecli
     az rest -m get -u "<Azure-AsyncOperation-endpoint url>" 
     ```
     The operation status indicates if the API succeeded or failed. 
 
-> [!NOTE]
-> The operation takes roughly 20~40 minutes to complete based on the number of racks.  
+   > [!NOTE]
+   > The operation takes roughly 20~40 minutes to complete based on the number of racks.  
 
-4. Download and read the validated results from the storage URL.
+1. Download and read the validated results from the storage URL.
 
 Example output is shown in the following sections.
 

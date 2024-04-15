@@ -3,7 +3,7 @@ title: Create and assign an autoscale scaling plan for Azure Virtual Desktop
 description: How to create and assign an autoscale scaling plan to optimize deployment costs.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 02/28/2024
+ms.date: 04/11/2024
 ms.author: helohr
 manager: femila
 ms.custom: references_regions, devx-track-azurepowershell
@@ -16,9 +16,9 @@ To learn more about autoscale, see [Autoscale scaling plans and example scenario
 
 >[!NOTE]
 > - Azure Virtual Desktop (classic) doesn't support autoscale. 
-> - Autoscale doesn't support Azure Virtual Desktop for Azure Stack HCI.
 > - You can't use autoscale and [scale session hosts using Azure Automation and Azure Logic Apps](scaling-automation-logic-apps.md) on the same host pool. You must use one or the other.
 > - Autoscale is available in Azure and Azure Government.
+> - Autoscale support for Azure Stack HCI with Azure Virtual Desktop is currently in PREVIEW. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 For best results, we recommend using autoscale with VMs you deployed with Azure Virtual Desktop Azure Resource Manager templates or first-party tools from Microsoft.
 

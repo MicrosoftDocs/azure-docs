@@ -104,7 +104,7 @@ Automatic is the default option for a runtime. You can start an automatic runtim
     - If you choose compute instance, you can only set idle shutdown time. 
         - As it is running on an existing compute instance the VM size is fixed and cannot change in runtime side.
         - Identity used for this runtime also is defined in compute instance, by default it uses the user identity. [Learn more about how to assign identity to compute instance](../how-to-create-compute-instance.md#assign-managed-identity)
-        - For the idle shutdown time it is used to define life cycle of the runtime, if the runtime is idle for the time you set, it will be deleted automatically. And of you have idle shut down enabled on compute instance, then it will continue 
+        - For the idle shutdown time it is used to define life cycle of the runtime, if the runtime is idle for the time you set, it will be deleted automatically. And if you have idle shut down enabled on compute instance, then it will continue 
 
             :::image type="content" source="./media/how-to-create-manage-runtime/runtime-creation-automatic-compute-instance-settings.png" alt-text="Screenshot of prompt flow with advanced settings using compute instance for starting an automatic runtime on a flow page." lightbox = "./media/how-to-create-manage-runtime/runtime-creation-automatic-compute-instance-settings.png":::
 
