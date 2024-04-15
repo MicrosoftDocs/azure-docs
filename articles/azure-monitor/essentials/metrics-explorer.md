@@ -1,6 +1,6 @@
 ---
-title: Metrics explorer with PromQL (Preview)
-description: Learn about Metrics Explorer with Prometheus query language support.
+title: Azure Monitor metrics explorer with PromQL (Preview)
+description: Learn about Azure Monitor metrics explorer with Prometheus query language support.
 author: EdB-MSFT
 ms.service: azure-monitor
 ms-author: edbaynash
@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 04/01/2024
 ms.reviewer: priyamishra
 
-# Customer intent: As an Azure Monitor user, I want to learn how to use Metrics Explorer with PromQL.
+# Customer intent: As an Azure Monitor user, I want to learn how to use Azure Monitor metrics explorer with PromQL.
 
 ---
 
-# Metrics explorer with PromQL (Preview) 
+# Azure Monitor metrics explorer with PromQL (Preview) 
 
-Metrics Explorer with PromQL (Preview) allows you to analyze metrics using Prometheus query language (PromQL) for metrics stored in an Azure Monitor workspace. 
+Azure Monitor metrics explorer with PromQL (Preview) allows you to analyze metrics using Prometheus query language (PromQL) for metrics stored in an Azure Monitor workspace. 
 
-Metrics explorer with PromQL (Preview) is available from the **Metrics** menu item of any Azure Monitor workspace. You can query metrics from form Azure Monitor workspaces using PromQL or any other Azure resource using the query builder.
+Azure Monitor metrics explorer with PromQL (Preview) is available from the **Metrics** menu item of any Azure Monitor workspace. You can query metrics from form Azure Monitor workspaces using PromQL or any other Azure resource using the query builder.
 
 > [!NOTE]
 > You must have the *Monitoring Reader* role at the subscription level to visualize metrics across multiple resources, resource groups, or a subscription. For more information, see [Assign Azure roles in the Azure portal](/azure/role-based-access-control/role-assignments-portal).
@@ -71,7 +71,7 @@ Each workspace can host multiple charts. Each chart can contain multiple metrics
 Add multiple metrics to the chart by selecting **Add metric**. Use either the builder or the editor to add metrics to the chart. 
 
 > [!NOTE]
-> Using both the code editor and query builder on the same chart is not supported in the Preview release of Metrics explorer and may result in unexpected behavior.
+> Using both the code editor and query builder on the same chart is not supported in the Preview release of Azure Monitor metrics explorer and may result in unexpected behavior.
 
 
 ### Add a new chart
@@ -93,7 +93,7 @@ Configure the time range and granularity for your metric chart to view data that
 Set the time range for the chart by selecting the time picker in the toolbar. Select a predefined time range, or set a custom time range.
 
 
-Time grain is the frequency of sampling and display of the data points on the chart. Select the time granularity by using the time picker in metrics explorer. If the data is stored at a lower or more frequent granularity than selected, the metric values displayed are aggregated to the level of granularity selected. The time grain is set to automatic by default. The automatic setting selects the best time grain based on the time range selected.
+Time grain is the frequency of sampling and display of the data points on the chart. Select the time granularity by using the time picker in the metrics explorer. If the data is stored at a lower or more frequent granularity than selected, the metric values displayed are aggregated to the level of granularity selected. The time grain is set to automatic by default. The automatic setting selects the best time grain based on the time range selected.
 
 For more information on configuring time range and granularity, see [Analyze metrics](/azure/azure-monitor/essentials/analyze-metrics#configure-the-time-range).
 
@@ -109,10 +109,10 @@ Interactive features include the following:
 - Change chart settings such as chart type, Y-axis range, and legends.
 - Save and share charts
 
-For more information on chart features, see [Interactive chart features](/azure/azure-monitor/essentials/analyze-metrics#interactive-chart-features) .
+For more information on chart features, see [Interactive chart features](/azure/azure-monitor/essentials/analyze-metrics#interactive-chart-features).
 
 
-## Next Steps
+## Next steps
 
 - [Azure Monitor managed service for Prometheus](/azure/azure-monitor/essentials/prometheus-metrics-overview)
 - [Azure Monitor workspace overview](/azure/azure-monitor/essentials/azure-monitor-workspace-overview)

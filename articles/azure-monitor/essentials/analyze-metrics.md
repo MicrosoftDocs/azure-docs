@@ -120,7 +120,7 @@ Use the time picker to change the **Time range** for your data, such as the last
 
 In addition to changing the time range with the time picker, you can pan and zoom by using the controls in the chart area.
 
-## Interactive Chart features
+## Interactive chart features
 
 ### Pan across metrics data
 
