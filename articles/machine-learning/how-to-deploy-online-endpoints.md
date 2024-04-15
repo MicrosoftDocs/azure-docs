@@ -766,6 +766,24 @@ __blue-deployment-with-registered-assets.yml__
 
 # [Python SDK](#tab/python)
 
+To configure a deployment:
+
+```python
+model = "azureml:my-model:1"
+env = "azureml:my-env:1"
+ 
+blue_deployment = ManagedOnlineDeployment(
+    name="blue",
+    endpoint_name=endpoint_name,
+    model=model,
+    environment=env,
+    code_configuration=CodeConfiguration(
+        code="../model-1/onlinescoring", scoring_script="score.py"
+    ),
+    instance_type="Standard_DS3_v2",
+    instance_count=1,
+)
+```
 
 # [Studio](#tab/azure-studio)
 
