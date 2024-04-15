@@ -105,7 +105,7 @@ Now, connect Storage Explorer to your storage account so you can confirm that yo
 
 1. In the **Select Azure Environment** window, select your Azure environment, and then select **Next**.
 
-   This example continues by selecting global, multi-tenant **Azure**.
+   This example continues by selecting global, multitenant **Azure**.
 
 1. In the browser window that appears, sign in with your Azure account.
 
@@ -234,7 +234,7 @@ After you confirm that your function works, create your logic app resource and w
 
    ![Screenshot showing Azure portal, Consumption workflow designer, and blank logic app template selected.](./media/tutorial-process-email-attachments-workflow/choose-logic-app-template.png)
 
-Next, add a [trigger](logic-apps-overview.md#logic-app-concepts) that listens for incoming emails that have attachments. Every workflow must start with a trigger, which fires when the trigger condition is met, for example, a specific event happens or when new data exists. For more information, see [Quickstart: Create an example Consumption logic app workflow in multi-tenant Azure Logic Apps](quickstart-create-example-consumption-workflow.md).
+Next, add a [trigger](logic-apps-overview.md#logic-app-concepts) that listens for incoming emails that have attachments. Every workflow must start with a trigger, which fires when the trigger condition is met, for example, a specific event happens or when new data exists. For more information, see [Quickstart: Create an example Consumption logic app workflow in multitenant Azure Logic Apps](quickstart-create-example-consumption-workflow.md).
 
 ## Add a trigger to check incoming email
 
@@ -403,7 +403,7 @@ Next, add an action that creates a blob in your storage container so you can sav
    | Property | Value | Description |
    |----------|-------|-------------|
    | **Connection name** | **AttachmentStorageConnection** | A descriptive name for the connection |
-   | **Authentication type** | **Access Key** | The authenticate type to use for the connection |
+   | **Authentication type** | **Access Key** | The authentication type to use for the connection |
    | **Azure Storage account name or endpoint** | <*storage-account-name*> | The name for your previously created storage account, which is **attachmentstorageacct** for this example |
    | **Azure Storage Account Access Key** | <*storage-account-access-key*> | The access key for your previously created storage account |
 
