@@ -27,13 +27,13 @@ Sign into the OT sensors to [define sensor users](manage-users-sensor.md), and s
 
 For more information, see [On-premises users and roles for OT monitoring with Defender for IoT](roles-on-premises.md).
 
-### Active Directory support on sensors and on-premises management consoles
+### Entra ID support on sensors and on-premises management consoles
 
-You might want to configure an integration between your sensor and Active Directory to allow Active Directory users to sign in to your sensor, or to use Active Directory groups, with collective permissions assigned to all users in the group.
+You might want to configure an integration between your sensor and Entra ID to allow Entra ID users to sign in to your sensor, or to use Entra ID groups, with collective permissions assigned to all users in the group.
 
-For example, use Active Directory when you have a large number of users that you want to assign **Read Only** access to, and you want to manage those permissions at the group level.
+For example, use Entra ID when you have a large number of users that you want to assign **Read Only** access to, and you want to manage those permissions at the group level.
 
-Defender for IoT's integration with Active Directory supports LDAP v3 and the following types of LDAP-based authentication:
+Defender for IoT's integration with Entra ID supports LDAP v3 and the following types of LDAP-based authentication:
 
 - **Full authentication**: User details are retrieved from the LDAP server. Examples are the first name, last name, email, and user permissions.
 
@@ -43,6 +43,10 @@ For more information, see:
 
 - [Configure an Active Directory connection](manage-users-sensor.md#configure-an-active-directory-connection)
 - [Other firewall rules for external services (optional)](networking-requirements.md#other-firewall-rules-for-external-services-optional).
+
+### Single sign-on support
+
+You can set up single sign-on (SSO) for Defender for IoT in the Azure portal, to allow simple sign in for your organization's users. With SSO, your users don't need multiple login credentials across different sensors and sites. For more information, see [Set up Single sign-on](set-up-sso.md).
 
 ### On-premises global access groups
 

@@ -20,7 +20,17 @@ Features released earlier than nine months ago are described in the [What's new 
 
 |Service area  |Updates  |
 |---------|---------|
-| **OT networks** | [Sensor time drift detection](#sensor-time-drift-detection) |
+| **OT networks** | - [Single sign-on support](#single-sign-on-support)<br>- [Sensor time drift detection](#sensor-time-drift-detection) |
+
+#### Single sign-on support
+
+You can now use single sign-on (SSO) for Defender for IoT in the Azure portal, to allow simple sign in for your organization's users, meet regulation standards, and increase security posture. With SSO, your users don't need multiple login credentials across different sensors and sites. 
+
+This process uses Entra ID, which simplifies the onboarding and offboarding processes, reduces administrative overhead, and ensures consistent access controls across the organization.
+
+TBD - SCREENSHOT
+
+For more information, see [Set up single sign-on on the Azure portal](set-up-sso.md).
 
 ### Sensor time drift detection
 
