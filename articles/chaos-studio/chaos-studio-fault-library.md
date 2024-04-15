@@ -13,11 +13,11 @@ ms.custom: linux-related-content
 
 # Azure Chaos Studio fault and action library
 
-The faults listed in this article are currently available for use. To understand which resource types are supported, see [Supported resource types and role assignments for Azure Chaos Studio](./chaos-studio-fault-providers.md).
+This article lists the faults you can use in Chaos Studio, organized by the applicable resource type. To understand which role assignments are recommended for each resource type, see [Supported resource types and role assignments for Azure Chaos Studio](./chaos-studio-fault-providers.md).
 
 ## Agent-based faults
 
-Agent-based faults are injected into **Azure Virtual Machines** or **Virtual Machine Scale Set** instances by installing the Chaos Studio Agent. 
+Agent-based faults are injected into **Azure Virtual Machines** or **Virtual Machine Scale Set** instances by installing the Chaos Studio Agent. Find the service-direct fault options for these resources below in the [Virtual Machine](#virtual-machines-service-direct) and [Virtual Machine Scale Set](#virtual-machine-scale-set) tables.
 
 | Applicable OS types | Fault name                                                                  | Applicable scenarios                                        |
 |---------------------|-----------------------------------------------------------------------------|-------------------------------------------------------------|
@@ -30,13 +30,15 @@ Agent-based faults are injected into **Azure Virtual Machines** or **Virtual Mac
 | Windows, Linux      | [Stop Service](#stop-service)                                               | Service disruption/restart                                  |
 | Windows, Linux      | [Time Change](#time-change)                                                 | Time synchronization issues                                 |
 | Windows, Linux      | [Virtual Memory Pressure](#virtual-memory-pressure)                         | Memory capacity loss, resource pressure                     |
-| Linux               | [Arbitrary Stress-ng Stressor](#arbitrary-stress-ng-stressor)                 | General system stress testing                               |
+| Linux               | [Arbitrary Stress-ng Stressor](#arbitrary-stress-ng-stressor)               | General system stress testing                               |
 | Linux               | [Linux DiskIO Pressure](#linux-disk-io-pressure)                            | Disk I/O performance degradation                            |
-| Windows             | [DiskIO Pressure](#disk-io-pressure)                                | Disk I/O performance degradation                            |
+| Windows             | [DiskIO Pressure](#disk-io-pressure)                                        | Disk I/O performance degradation                            |
 | Windows             | [DNS Failure](#dns-failure)                                                 | DNS resolution issues                                       |
-| Windows             | [Network Disconnect (Via Firewall)](#network-disconnect-via-firewall) | Network disruption                                          |
+| Windows             | [Network Disconnect (Via Firewall)](#network-disconnect-via-firewall)       | Network disruption                                          |
 
 ## App Service
+
+This section applies to the `Microsoft.Web/sites` resource type. [Learn more about App Service](../app-service/overview.md).
 
 | Fault name | Applicable scenarios |
 |------------|----------------------|
@@ -44,11 +46,15 @@ Agent-based faults are injected into **Azure Virtual Machines** or **Virtual Mac
 
 ## Autoscale Settings
 
+This section applies to the `Microsoft.Insights/autoscaleSettings` resource type. [Learn more about Autoscale Settings](../azure-monitor/autoscale/autoscale-overview.md).
+
 | Fault name | Applicable scenarios |
 |------------|----------------------|
 | [Disable Autoscale](#disable-autoscale) | Compute capacity loss (when used with VMSS Shutdown) |
 
 ## Azure Kubernetes Service
+
+This section applies to the `Microsoft.ContainerService/managedClusters` resource type. [Learn more about Azure Kubernetes Service](../aks/intro-kubernetes.md).
 
 | Fault name | Applicable scenarios |
 |------------|----------------------|
@@ -63,11 +69,15 @@ Agent-based faults are injected into **Azure Virtual Machines** or **Virtual Mac
 
 ## Cloud Services (Classic)
 
+This section applies to the `Microsoft.ClassicCompute/domainNames` resource type. [Learn more about Cloud Services (Classic)](../cloud-services/cloud-services-choose-me.md).
+
 | Fault name | Applicable scenarios |
 |------------|----------------------|
 | [Cloud Service Shutdown](#cloud-services-classic-shutdown) | Compute loss |
 
 ## Clustered Cache for Redis
+
+This section applies to the `Microsoft.Cache/redis` resource type. [Learn more about Clustered Cache for Redis](../azure-cache-for-redis/cache-overview.md).
 
 | Fault name | Applicable scenarios |
 |------------|----------------------|
@@ -75,17 +85,23 @@ Agent-based faults are injected into **Azure Virtual Machines** or **Virtual Mac
 
 ## Cosmos DB
 
+This section applies to the `Microsoft.DocumentDB/databaseAccounts` resource type. [Learn more about Cosmos DB](../cosmos-db/introduction.md).
+
 | Fault name | Applicable scenarios |
 |------------|----------------------|
 | [Cosmos DB Failover](#cosmos-db-failover) | Database failover |
 
 ## Event Hubs
 
+This section applies to the `Microsoft.EventHub/namespaces` resource type. [Learn more about Event Hubs](../event-hubs/event-hubs-about.md).
+
 | Fault name | Applicable scenarios |
 |------------|----------------------|
 | [Change Event Hub State](#change-event-hub-state) | Messaging infrastructure misconfiguration/disruption |
 
 ## Key Vault
+
+This section applies to the `Microsoft.KeyVault/vaults` resource type. [Learn more about Key Vault](../key-vault/key-vault-insights-overview.md).
 
 | Fault name | Applicable scenarios |
 |------------|----------------------|
@@ -96,11 +112,15 @@ Agent-based faults are injected into **Azure Virtual Machines** or **Virtual Mac
 
 ## Network Security Groups
 
+This section applies to the `Microsoft.Network/networkSecurityGroups` resource type. [Learn more about network security groups](../virtual-network/network-security-groups-overview.md).
+
 | Fault name | Applicable scenarios |
 |------------|----------------------|
 | [NSG Security Rule](#nsg-security-rule) | Network disruption (for many Azure services) |
 
 ## Service Bus
+
+This section applies to the `Microsoft.ServiceBus/namespaces` resource type. [Learn more about Service Bus](../service-bus-messaging/service-bus-messaging-overview.md).
 
 | Fault name | Applicable scenarios |
 |------------|----------------------|
@@ -110,6 +130,8 @@ Agent-based faults are injected into **Azure Virtual Machines** or **Virtual Mac
 
 ## Virtual Machines (service-direct)
 
+This section applies to the `Microsoft.Compute/virtualMachines` resource type. [Learn more about Virtual Machines](../virtual-machines/overview.md).
+
 | Fault name | Applicable scenarios |
 |------------|----------------------|
 | [VM Redeploy](#vm-redeploy) | Compute disruption, maintenance events |
@@ -117,12 +139,16 @@ Agent-based faults are injected into **Azure Virtual Machines** or **Virtual Mac
 
 ## Virtual Machine Scale Set
 
+This section applies to the `Microsoft.Compute/virtualMachineScaleSets` resource type. [Learn more about Virtual Machine Scale Sets](../virtual-machine-scale-sets/overview.md).
+
 | Fault name | Applicable scenarios |
 |------------|----------------------|
 | [VMSS Shutdown](#vmss-shutdown-version-10) | Compute loss/disruption |
 | [VMSS Shutdown (2.0)](#vmss-shutdown-version-20) | Compute loss/disruption (by Availability Zone) |
 
 ## Orchestration actions
+
+These actions are building blocks for constructing effective experiments. Use them in combination with other faults, such as running a load test while in parallel shutting down compute instances in a zone.
 
 | Action category | Fault name |
 |-----------------|------------|
