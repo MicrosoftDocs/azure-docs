@@ -81,7 +81,11 @@ It's important to note that if the former primary server enters an irrecoverable
 
 When dealing with multiple replicas and if the primary region lacks a [paired region](concepts-read-replicas-geo.md# paired-regions-for-disaster-recovery-purposes), a special consideration must be considered. In the event of a regional outage affecting the primary, any other replicas won't be automatically recognized by the newly promoted replica. While applications can still be directed to the promoted replica for continued operation, the unrecognized replicas remain disconnected during the outage. These extra replicas will only reassociate and resume their roles once the original primary region has been restored.
 
+## Frequently asked questions
 
+* **If I have an HA-enabled primary and a read replica, and I promote the replica, then switch back to the original primary, will the server still be in HA?**
+ 
+    No, we disable HA during the initial promotion since we do not support HA-enabled read replicas. Promoting a read replica to a primary means that the original primary is changing its role to a replica. If you are switching back, you will need to enable HA on your original primary server.
 
 ## Related content
 
