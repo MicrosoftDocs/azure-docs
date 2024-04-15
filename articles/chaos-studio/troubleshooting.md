@@ -137,3 +137,11 @@ To resolve this problem, go to the VM or virtual machine scale set in the Azure 
 ### When I try to add a system-assigned/user-assigned managed identity to my existing experiment, it fails to save. 
 
 If you are trying to add a user-assigned or system-assigned managed identity to an experiment that **already** has a managed identity assigned to it, the experiment fails to deploy. You need to delete the existing user-assigned or system-assigned managed identity on the desired experiment **first** before adding your desired managed identity. 
+
+### When I run an experiment configured to automatically create and assign a custom role, I get the error "The target resource(s) could not be resolved. ErrorCode: AccessDenied. Target Resource(s):"
+
+When the "Custom role permissions" checkbox is selected for an experiment, Chaos Studio creates and assigns a custom role with the necessary permissions to the experiment's identity. However, this is subject to the following role assignment and role definition limits:
+* Each Azure subscription has a limit of 4000 role assignments.
+* Each Microsoft Entra tenant has a limit of 5000 role definitions (or 2000 role definitions for Azure in China).
+
+When one of these limits has been reached, this error will occur. To work around this, grant permissions to the experiment identity manually instead.
