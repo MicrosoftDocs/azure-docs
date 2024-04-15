@@ -24,7 +24,7 @@ If you're looking for items older than six months, you can find them in the [Arc
 
 |Date | Update |
 |--|--|
-| April 9 | [Runtime threat detection and agentless discovery for AWS and GCP in Defender for Containers now Generally Available (GA)](#runtime-threat-detection-and-agentless-discovery-for-aws-and-gcp-in-defender-for-containers-now-generally-available-ga) |
+| April 9 | [Defender for Containers is now generally available (GA) for AWS and GCP](#defender-for-containers-is-now-generally-available-ga-for-aws-and-gcp) |
 | April 3 | [Risk prioritization is now the default experience in Defender for Cloud](#risk-prioritization-is-now-the-default-experience-in-defender-for-cloud) |
 | April 3 | [New container vulnerability assessment recommendations](#new-container-vulnerability-assessment-recommendations) |
 | April 3 | [Defender for open-source relational databases updates](#defender-for-open-source-relational-databases-updates) |
@@ -32,9 +32,9 @@ If you're looking for items older than six months, you can find them in the [Arc
 | April 2 | [Deprecation of Cognitive Services recommendation](#deprecation-of-cognitive-services-recommendation) |
 | April 2 | [Containers multicloud recommendations (GA)](#containers-multicloud-recommendations-ga) |
 
-### Runtime threat detection and agentless discovery for AWS and GCP in Defender for Containers now Generally Available (GA)
+### Defender for Containers is now generally available (GA) for AWS and GCP
 
-April 9, 2024
+April 15, 2024
 
 Runtime threat detection and agentless discovery for AWS and GCP in Defender for Containers are now Generally Available (GA). For more information, see [Containers support matrix in Defender for Cloud](support-matrix-defender-for-containers.md).
 
