@@ -65,7 +65,7 @@ Here's a sample **input-cnf-nsd.jsonc**:
         // The resource group that the publisher is hosted in.
         "publisher_resource_group": "nginx-publisher-rg",
         // The name of the existing Network Function Definition Group to deploy using this NSD.
-        "name": "nginx-nfdg",
+        "name": "nginx",
         // The version of the existing Network Function Definition to base this NSD on.
         // This NSD will be able to deploy any NFDV with deployment parameters compatible with this version.
         "version": "1.0.0",
@@ -109,21 +109,21 @@ The build process generates a folder called `nsd-cli-output`. After the build pr
 
 These files are created:
 
-| Directory/File             | Description                                                                                                                                    |
-| -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
-| nsdDefinition/config-group-schema.json  | Defines the schema for the deployment parameters required to create a Site Network Service (SNS) from this NSDV.                  |
-| nsdDefinition/nginx-nsd-mappings.json   | Maps the parameters for the NSDV to the values required for the NF ARM template.                                                  |
-| nsdDefinition/deploy.bicep              | Bicep template for creating the NSDV itself.                                                                                      |
-| artifacts                               | Contains a bicep template for the NF ARM template, as well as a list of artifacts to be included in the artifact manifest.        |
-| artifactManifest/deploy.bicep           | Bicep template for creating the artifact manifest.                                                                                |
-| base/deploy.bicep                       | Bicep template for creating the publisher, network service design group, and artifact store resources                             |
+| Directory/File                         | Description                                                                                                                |
+| -------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
+| nsdDefinition/config-group-schema.json | Defines the schema for the deployment parameters required to create a Site Network Service (SNS) from this NSDV.           |
+| nsdDefinition/nginx-nsd-mappings.json  | Maps the parameters for the NSDV to the values required for the NF ARM template.                                           |
+| nsdDefinition/deploy.bicep             | Bicep template for creating the NSDV itself.                                                                               |
+| artifacts                              | Contains a bicep template for the NF ARM template, as well as a list of artifacts to be included in the artifact manifest. |
+| artifactManifest/deploy.bicep          | Bicep template for creating the artifact manifest.                                                                         |
+| base/deploy.bicep                      | Bicep template for creating the publisher, network service design group, and artifact store resources                      |
 
 ## Publish the Network Service Design Version (NSDV)
 
 To publish the NSDV and its associated artifacts, issue the following command:
 
 ```azurecli
-az aosm nsd publish -f input-cnf-nsd.jsonc
+az aosm nsd publish --build-output-folder nsd-cli-output
 ```
 
 When the Publish process is complete, navigate to your Publisher Resource Group to observe and review the resources and artifacts that were produced.

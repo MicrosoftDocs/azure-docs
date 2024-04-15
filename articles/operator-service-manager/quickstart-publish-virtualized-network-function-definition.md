@@ -52,6 +52,9 @@ Here is a sample input-vnf-nfd.jsonc file:
   "nf_name": "ubuntu-vm",
   // Version of the network function definition in 1.1.1 format (three integers separated by dots).
   "version": "1.0.0",
+  // If set to true, all NFD configuration parameters are made available to the designer, including optional parameters and those with defaults.
+  // If not set or set to false, only required parameters without defaults will be exposed.
+  "expose_all_parameters": false,
   // Optional. Name of the storage account Artifact Store resource.
   // Will be created if it does not exist (with a default name if none is supplied).
   "blob_artifact_store_name": "ubuntu-blob-store",
@@ -99,6 +102,7 @@ Here is a sample input-vnf-nfd.jsonc file:
 | **nf_name**                       | Name of NF definition.                                                                                                                                                                                                           |
 | **version**                       | Version of the NF definition in A.B.C format.                                                                                                                                                                                    |
 | **blob_artifact_store_name**      | Name of the storage account Artifact Store resource. Created if it doesn't exist.                                                                                                                                                |
+| **expose_all_parameters**         | Whether or not to make all NFD configuration parameters available to the designer.                                                                                                                                               |
 | **arm_template**                  | artifact_name: Name of the artifact.                                                                                                                                                                                             |
 |                                   | _file_path_: Optional. File path of the artifact you wish to upload from your local disk. Delete if not required. Relative paths are relative to the configuration file. On Windows escape any backslash with another backslash. |
 |                                   | _version_: Version of the artifact. For ARM templates version must be in format A.B.C.                                                                                                                                           |
@@ -120,7 +124,7 @@ Here is a sample input-vnf-nfd.jsonc file:
 To construct the Network Function Definition (NFD), initiate the build process.
 
 ```azurecli
-az aosm nfd build --config-file vnf-input.jsonc --definition-type vnf
+az aosm nfd build --config-file input-vnf-nfd.jsonc --definition-type vnf
 ```
 
 Once the build is complete, examine the generated files to better understand the Network Function Definition (NFD) structure.
@@ -137,7 +141,7 @@ These files are created in a subdirectory called **vnf-cli-output**:
 | deploy.bicep                                 | Bicep template to create underlying AOSM resources needed to spin up an NF (publisher, acr, nfdg)                                                                                                                                                                                                                                 |
 | **vnf-cli-output/nfDefinition**              |                                                                                                                                                                                                                                                                                                                                   |
 | deploy.bicep                                 | Bicep to create the Network Function Definition Version (NFDV), with network function application information from the arm template provided in input file                                                                                                                                                                        |
-| deploymentParameters.json                    | Schema defining deployment parameters required to create a Network Function (NF) from this Network Function Definition Version (NFDV)                                                                                                                                                                                             |
+| deployParameters.json                    | Schema defining deployment parameters required to create a Network Function (NF) from this Network Function Definition Version (NFDV)                                                                                                                                                                                             |
 | \<arm-template-name>-templateParameters.json | File contains the deployment parameters provided to the Network Function Definition Version (NFDV) mapped to the parameters required for the Virtual Machine (VM) ARM template. These VM ARM template parameters are sourced from the ARM templates provided in the input file                                                    |
 | vhdParameters.json                           | File contains the deployment parameters provided to the Network Function Definition Version (NFDV) mapped to the parameters required for the VHD image. The VHD configuration parameters are sourced from the VHD section of the input file                                                                                       |
 | **vnf-cli-output**                           |                                                                                                                                                                                                                                                                                                                                   |

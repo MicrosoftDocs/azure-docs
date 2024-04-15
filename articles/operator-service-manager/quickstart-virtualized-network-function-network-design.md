@@ -33,69 +33,66 @@ Once you execute this command an nsd-input.jsonc file is generated.
 
 ```json
 {
-    // Azure location to use when creating resources e.g uksouth
-    "location": "uksouth",
-    // Name of the Publisher resource you want your definition published to.
-    // Will be created if it does not exist.
-    "publisher_name": "ubuntu-publisher",
-    // Resource group for the Publisher resource.
-    // You should create this before running the publish command.
-    "publisher_resource_group_name": "ubuntu-publisher-rg",
-    // Name of the ACR Artifact Store resource.
-    // Will be created if it does not exist.
-    "acr_artifact_store_name": "ubuntu-acr",
-    // Network Service Design (NSD) name. This is the collection of Network Service Design Versions. Will be created if it does not exist.
-    "nsd_name": "ubuntu-nsd",
-    // Version of the NSD to be created. This should be in the format A.B.C
-    "nsd_version": "1.0.0",
-    // Optional. Description of the Network Service Design Version (NSDV).
-    "nsdv_description": "Plain ubuntu VM",
-    // Type of NFVI (for nfvisFromSite). Defaults to 'AzureCore'.
-    // Valid values are 'AzureCore', 'AzureOperatorNexus' or 'AzureArcKubernetes.
-    "nfvi_type": "AzureCore",
-    // List of Resource Element Templates.
-    "resource_element_templates": [
-        {
-            // Type of Resource Element. Either NF or ArmTemplate
-            "resource_element_type": "NF",
-            "properties": {
-                // The name of the existing publisher for the NSD.
-                "publisher": "ubuntu-publisher",
-                // The resource group that the publisher is hosted in.
-                "publisher_resource_group": "ubuntu-publisher-rg",
-                // The name of the existing Network Function Definition Group to deploy using this NSD.
-                "name": "ubuntu-vm",
-                // The version of the existing Network Function Definition to base this NSD on.
-                // This NSD will be able to deploy any NFDV with deployment parameters compatible with this version.
-                "version": "1.0.0",
-                // The region that the NFDV is published to.
-                "publisher_offering_location": "uksouth",
-                // Type of Network Function. Valid values are 'cnf' or 'vnf'.
-                "type": "vnf",
-                // Set to true or false. Whether the NSD should allow arbitrary numbers of this type of NF. If false only a single instance will be allowed. Only supported on VNFs, must be set to false on CNFs.
-                "multiple_instances": "false"
-            }
-        }
-    ]
+  // Azure location to use when creating resources e.g uksouth
+  "location": "uksouth",
+  // Name of the Publisher resource you want your definition published to.
+  // Will be created if it does not exist.
+  "publisher_name": "ubuntu-publisher",
+  // Resource group for the Publisher resource.
+  // You should create this before running the publish command.
+  "publisher_resource_group_name": "ubuntu-publisher-rg",
+  // Name of the ACR Artifact Store resource.
+  // Will be created if it does not exist.
+  "acr_artifact_store_name": "ubuntu-acr",
+  // Network Service Design (NSD) name. This is the collection of Network Service Design Versions. Will be created if it does not exist.
+  "nsd_name": "ubuntu-nsd",
+  // Version of the NSD to be created. This should be in the format A.B.C
+  "nsd_version": "1.0.0",
+  // Optional. Description of the Network Service Design Version (NSDV).
+  "nsdv_description": "Plain ubuntu VM",
+  // Type of NFVI (for nfvisFromSite). Defaults to 'AzureCore'.
+  // Valid values are 'AzureCore', 'AzureOperatorNexus' or 'AzureArcKubernetes.
+  "nfvi_type": "AzureCore",
+  // List of Resource Element Templates.
+  "resource_element_templates": [
+    {
+      // Type of Resource Element. Either NF or ArmTemplate
+      "resource_element_type": "NF",
+      "properties": {
+        // The name of the existing publisher for the NSD.
+        "publisher": "ubuntu-publisher",
+        // The resource group that the publisher is hosted in.
+        "publisher_resource_group": "ubuntu-publisher-rg",
+        // The name of the existing Network Function Definition Group to deploy using this NSD.
+        "name": "ubuntu-vm",
+        // The version of the existing Network Function Definition to base this NSD on.
+        // This NSD will be able to deploy any NFDV with deployment parameters compatible with this version.
+        "version": "1.0.0",
+        // The region that the NFDV is published to.
+        "publisher_offering_location": "uksouth",
+        // Type of Network Function. Valid values are 'cnf' or 'vnf'.
+        "type": "vnf"
+      }
+    }
+  ]
 }
 ```
 
-|Variable  |Description  |
-|---------|---------|
-|**publisher_name**     |  Name of the Publisher resource you want your definition published to. Created if it doesn't exist.       |
-|**publisher_resource_group_name**     |  Resource group for the Publisher resource. Created if it doesn't exist.       |
-|**acr_artifact_store_name**     |    Name of the ACR Artifact Store resource. Created if it doesn't exist.     |
-|**location**      |      Azure location to use when creating resources.   |
-|**network-functions**   |  *publisher*:   The name of the publisher that this NFDV is published under.     |
-|   |      *publisher_resource_group*: The resource group that the publisher is hosted in.   |
-|    |   *name*:   The name of the existing Network Function Definition Group to deploy using this NSD.    |
-|    |    *version*:   The version of the existing Network Function Definition to base this NSD on. This NSD is able to deploy any NFDV with deployment parameters compatible with this version.   |
-|     |     *publisher_offering_location*:  The region that the NFDV is published to.  |
-|    |  *type*:   Type of Network Function. Valid values are cnf or vnf.     |
-|    |    *multiple_instances*: Valid values are true or false.  WhetherControls if the NSD should allow arbitrary numbers of this type of NF.  If set to false only a single instance is allowed. Only supported on VNFs. For CNFs, set to false.     |
-|**nsd_name**     |    Network Service Design Group Name. The collection of Network Service Design Versions. Created if it doesn't exist.     |
-|**nsd_version**    |   Version of the NSD to be created. The format should be A.B.C.      |
-|**nsdv_description**     |  Description of the NSDV.       |
+| Variable                          | Description                                                                                                                                                                          |
+| --------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **publisher_name**                | Name of the Publisher resource you want your definition published to. Created if it doesn't exist.                                                                                   |
+| **publisher_resource_group_name** | Resource group for the Publisher resource. Created if it doesn't exist.                                                                                                              |
+| **acr_artifact_store_name**       | Name of the ACR Artifact Store resource. Created if it doesn't exist.                                                                                                                |
+| **location**                      | Azure location to use when creating resources.                                                                                                                                       |
+| **network-functions**             | _publisher_: The name of the publisher that this NFDV is published under.                                                                                                            |
+|                                   | _publisher_resource_group_: The resource group that the publisher is hosted in.                                                                                                      |
+|                                   | _name_: The name of the existing Network Function Definition Group to deploy using this NSD.                                                                                         |
+|                                   | _version_: The version of the existing Network Function Definition to base this NSD on. This NSD is able to deploy any NFDV with deployment parameters compatible with this version. |
+|                                   | _publisher_offering_location_: The region that the NFDV is published to.                                                                                                             |
+|                                   | _type_: Type of Network Function. Valid values are cnf or vnf.                                                                                                                       |
+| **nsd_name**                      | Network Service Design Group Name. The collection of Network Service Design Versions. Created if it doesn't exist.                                                                   |
+| **nsd_version**                   | Version of the NSD to be created. The format should be A.B.C.                                                                                                                        |
+| **nsdv_description**              | Description of the NSDV.                                                                                                                                                             |
 
 ## Build the Network Service Design (NSD)
 
@@ -109,22 +106,22 @@ After the build process completes, review the following generated files to gain 
 
 These files are created in a subdirectory called **nsd-cli-output**:
 
-| Directory / File       | Description  |
-|----------------|----------|
-| **nsd-cli-output/artifactManifest** ||
-| deploy.bicep| Bicep template to create artifact manifest, with artifacts populated from input file |
-| **nsd-cli-output/artifacts** ||
-| artifacts.json | List of artifacts (images and ARM templates) to be uploaded on publish. Correlates with the artifact manifest  |
-| \<nf-name>.bicep | Bicep template per NF RET provided in the input file, for deploying the NF. This is converted to an ARM template and uploaded to the artifact store when you run the publish command |
-| **nsd-cli-output/base** ||
-| deploy.bicep | Bicep template to create the publisher, storage accounts and network service design group shared by all NSDVs of this NSD group |
-| **nsd-cli-output/nsdDefinition** ||
-| deploy.bicep | Bicep template to create the Network Service Design Version (NSDV). In this template are child resource element templates, which are taken from the published NFs or ARM templates (for infrastructure) defined in the nsd-input.jsonc file |
-| config-group-schema.json |  Combined configuration group schema for all NFs in this NSDV. This schema defines the inputs the operator will need to supply in the config group values when deploying the NSDV as part of a site network service (SNS). |
-|\<nf-name>-mappings.json | File that maps the config group values provided by the operator to the deploy parameters defined in the NSDV. There will be one per NF in your NSDV |
-| **nsd-cli-output** | |
-| all_deploy.parameters.json | Superset of all NF's deploy parameters, providing a single file to customise resource names. The values output to this file by the build command are taken from the nsd-input.jsonc file, but may be edited in this file before running publish, for example to publish to a different location or use a different publisher name |
-| index.json | File used internally when publishing resources. Do not edit |
+| Directory / File                    | Description                                                                                                                                                                                                                                                                                                                       |
+| ----------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **nsd-cli-output/artifactManifest** |                                                                                                                                                                                                                                                                                                                                   |
+| deploy.bicep                        | Bicep template to create artifact manifest, with artifacts populated from input file                                                                                                                                                                                                                                              |
+| **nsd-cli-output/artifacts**        |                                                                                                                                                                                                                                                                                                                                   |
+| artifacts.json                      | List of artifacts (images and ARM templates) to be uploaded on publish. Correlates with the artifact manifest                                                                                                                                                                                                                     |
+| \<nf-name>.bicep                    | Bicep template per NF RET provided in the input file, for deploying the NF. This is converted to an ARM template and uploaded to the artifact store when you run the publish command                                                                                                                                              |
+| **nsd-cli-output/base**             |                                                                                                                                                                                                                                                                                                                                   |
+| deploy.bicep                        | Bicep template to create the publisher, storage accounts and network service design group shared by all NSDVs of this NSD group                                                                                                                                                                                                   |
+| **nsd-cli-output/nsdDefinition**    |                                                                                                                                                                                                                                                                                                                                   |
+| deploy.bicep                        | Bicep template to create the Network Service Design Version (NSDV). In this template are child resource element templates, which are taken from the published NFs or ARM templates (for infrastructure) defined in the nsd-input.jsonc file                                                                                       |
+| config-group-schema.json            | Combined configuration group schema for all NFs in this NSDV. This schema defines the inputs the operator will need to supply in the config group values when deploying the NSDV as part of a site network service (SNS).                                                                                                         |
+| \<nf-name>-mappings.json            | File that maps the config group values provided by the operator to the deploy parameters defined in the NSDV. There will be one per NF in your NSDV                                                                                                                                                                               |
+| **nsd-cli-output**                  |                                                                                                                                                                                                                                                                                                                                   |
+| all_deploy.parameters.json          | Superset of all NF's deploy parameters, providing a single file to customise resource names. The values output to this file by the build command are taken from the nsd-input.jsonc file, but may be edited in this file before running publish, for example to publish to a different location or use a different publisher name |
+| index.json                          | File used internally when publishing resources. Do not edit                                                                                                                                                                                                                                                                       |
 
 ## Publish the Network Service Design (NSD)
 
@@ -138,12 +135,12 @@ When the Publish process is complete navigate to your Publisher Resource Group t
 
 These resources are created:
 
-|Resource Name  |Resource Type  |
-|---------|---------|
-|**ubuntu-nsd**    |    The Network Service Design.     |
-|**1.0.0 (ubuntu-nsd/1.0.0)**     |   The   Network Service Design Version.    |
-|**ubuntu-nsd-nsd-manifest-1-0-0** |Publisher Artifact Manifest.|
-|**ConfigGroupSchema**     |    The Configuration Group Schema.     |
+| Resource Name                     | Resource Type                       |
+| --------------------------------- | ----------------------------------- |
+| **ubuntu-nsd**                    | The Network Service Design.         |
+| **1.0.0 (ubuntu-nsd/1.0.0)**      | The Network Service Design Version. |
+| **ubuntu-nsd-nsd-manifest-1-0-0** | Publisher Artifact Manifest.        |
+| **ConfigGroupSchema**             | The Configuration Group Schema.     |
 
 ## Next steps
 

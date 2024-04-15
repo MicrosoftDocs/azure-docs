@@ -196,6 +196,9 @@ This step creates the AOSM resources that define the Network Function Definition
 
 1. Execute the following command to publish the Network Function Definition Group and Version. If you don't have subscription scope `Contributor` and `AcrPush` roles, include `--no-subscription-permissions` in the command.
 
+> [!NOTE]
+> If you are using Windows, you must have Docker Desktop running during the publish step.
+
 ```azurecli
 az aosm nfd publish --build-output-folder cnf-cli-output --definition-type cnf
 ```
