@@ -1,6 +1,6 @@
 ---
-title: Custom domain names and certificates in Azure Container Apps.
-description: Learn to manage custom domain names and certificates in Azure Container Apps.
+title: Custom domain names and certificates in Azure Container Apps
+description: Learn to manage custom domain names and certificates in Azure Container Apps
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps
@@ -22,7 +22,7 @@ Azure Container Apps allows you to bind one or more custom domains to a containe
 > [!NOTE]
 > If you configure a [custom environment DNS (Domain Name System) suffix](environment-custom-dns-suffix.md), you cannot add a custom domain that contains this suffix to your Container App.
 
-## Adding a custom domain and certificate
+## Add a custom domain and certificate
 
 > [!IMPORTANT]
 > If you are using a new certificate, you must have an existing [SNI domain certificate](https://wikipedia.org/wiki/Server_Name_Indication) file available to upload to Azure.  
