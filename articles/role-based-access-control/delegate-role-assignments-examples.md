@@ -7,7 +7,7 @@ ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.date: 01/30/2024
+ms.date: 04/15/2024
 ms.author: rolyon
 #Customer intent: As a dev, devops, or it admin, I want to learn about the conditions so that I write more complex conditions.
 ---
