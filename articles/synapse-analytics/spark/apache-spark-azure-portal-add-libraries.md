@@ -114,7 +114,7 @@ To learn more about how to manage session-scoped packages, see the following art
   
   > [!IMPORTANT]
   >
-  > - **Do not use** `%%sh` to try an install libraries with pip or conda. The behavior is **not the same** as %pip or %conda.
+  > **Do not use** `%%sh` to try and install libraries with pip or conda. The behavior is **not the same** as %pip or %conda.
 
 - [Scala/Java session packages](./apache-spark-manage-session-packages.md#session-scoped-java-or-scala-packages): At the start of your session, provide a list of *.jar* files to install by using `%%configure`.
 
