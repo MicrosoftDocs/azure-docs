@@ -207,11 +207,11 @@ Update the `AzureAppConfigurationProvider` resource of your Azure App Configurat
 apiVersion: azconfig.io/v1
 kind: AzureAppConfigurationProvider
 metadata:
-    name: appconfigurationprovider-sample
+  name: appconfigurationprovider-sample
 spec:
-    endpoint: <your-app-configuration-store-endpoint>
-    replicaDiscoveryEnabled: false
-    target:
+  endpoint: <your-app-configuration-store-endpoint>
+  replicaDiscoveryEnabled: false
+  target:
     configMapName: configmap-created-by-appconfig-provider
 ```
 
