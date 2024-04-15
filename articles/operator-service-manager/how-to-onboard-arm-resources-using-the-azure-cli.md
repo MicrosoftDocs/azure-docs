@@ -120,9 +120,7 @@ az extension add --name aosm
                 // The region that the NFDV is published to.
                 "publisher_offering_location": "eastus",
                 // Type of Network Function. Valid values are 'cnf' or 'vnf'.
-                "type": "cnf",
-                // Set to true or false. Whether the NSD should allow arbitrary numbers of this type of NF. If false only a single instance will be allowed. Only supported on VNFs, must be set to false on CNFs.
-                "multiple_instances": "false"
+                "type": "cnf"
             }
         },
         {

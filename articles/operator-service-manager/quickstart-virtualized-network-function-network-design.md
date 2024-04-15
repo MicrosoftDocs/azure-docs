@@ -71,9 +71,7 @@ Once you execute this command an nsd-input.jsonc file is generated.
                 // The region that the NFDV is published to.
                 "publisher_offering_location": "uksouth",
                 // Type of Network Function. Valid values are 'cnf' or 'vnf'.
-                "type": "vnf",
-                // Set to true or false. Whether the NSD should allow arbitrary numbers of this type of NF. If false only a single instance will be allowed. Only supported on VNFs, must be set to false on CNFs.
-                "multiple_instances": "false"
+                "type": "vnf"
             }
         }
     ]
@@ -92,7 +90,6 @@ Once you execute this command an nsd-input.jsonc file is generated.
 |    |    *version*:   The version of the existing Network Function Definition to base this NSD on. This NSD is able to deploy any NFDV with deployment parameters compatible with this version.   |
 |     |     *publisher_offering_location*:  The region that the NFDV is published to.  |
 |    |  *type*:   Type of Network Function. Valid values are cnf or vnf.     |
-|    |    *multiple_instances*: Valid values are true or false.  WhetherControls if the NSD should allow arbitrary numbers of this type of NF.  If set to false only a single instance is allowed. Only supported on VNFs. For CNFs, set to false.     |
 |**nsd_name**     |    Network Service Design Group Name. The collection of Network Service Design Versions. Created if it doesn't exist.     |
 |**nsd_version**    |   Version of the NSD to be created. The format should be A.B.C.      |
 |**nsdv_description**     |  Description of the NSDV.       |

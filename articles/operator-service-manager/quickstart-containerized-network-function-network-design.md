@@ -72,9 +72,7 @@ Here's a sample **input-cnf-nsd.jsonc**:
         // The region that the NFDV is published to.
         "publisher_offering_location": "uksouth",
         // Type of Network Function. Valid values are 'cnf' or 'vnf'.
-        "type": "cnf",
-        // Set to true or false. Whether the NSD should allow arbitrary numbers of this type of NF. If false only a single instance will be allowed. Only supported on VNFs, must be set to false on CNFs.
-        "multiple_instances": "false"
+        "type": "cnf"
       }
     }
   ]
@@ -95,7 +93,6 @@ Here's a sample **input-cnf-nsd.jsonc**:
   - _version_ - The version of the existing Network Function Definition to base this NSD on. This NSD is able to deploy any NFDV with deployment parameters compatible with this version.
   - _publisher_offering_location_ - The region that the NFDV is published to.
   - _type_ - Type of Network Function. Valid values are cnf or vnf.
-  - _multiple_instances_ - Valid values are true or false. Controls whether the NSD should allow arbitrary numbers of this type of NF. If set to false only a single instance is allowed. Only supported on VNFs. For CNFs this value must be set to false.
 
 ## Build the Network Service Design Version (NSDV)
 
