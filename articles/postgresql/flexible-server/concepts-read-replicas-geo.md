@@ -32,7 +32,7 @@ You can have a primary server in any [Azure Database for PostgreSQL flexible ser
 > [!NOTE]
 > Virtual endpoints and promote to primary server features - are not currently supported in the special regions listed above.
 
-## Use paired regions for disaster recovery purposes
+## Paired regions for disaster recovery purposes
 
 While creating replicas in any supported region is possible, there are notable benefits when opting for replicas in paired regions, especially when architecting for disaster recovery purposes:
 
@@ -62,7 +62,7 @@ Being prepared for potential regional disasters is critical to ensure the uninte
      * No need to modify application connection strings if you use [virtual endpoints](concepts-read-replicas-virtual-endpoints.md).
      * It provides a seamless recovery process where, once the affected region is back online, the original primary server automatically resumes its function, but in a new replica role.
 3.  **Set up virtual endpoints**: Virtual endpoints allow for a smooth transition of your application to another region if there is an outage. They eliminate the need for any changes in the connection strings of your application.
-4.  **Configure the read replica**: Not all settings from the primary server are replicated over to the read replica. It's crucial to ensure that all necessary configurations and features (for example, PgBouncer) are appropriately set up on your read replica. For more information, see the [Configuration management](concepts-read-replicas.md#configuration-management-1) section.
+4.  **Configure the read replica**: Not all settings from the primary server are replicated over to the read replica. It's crucial to ensure that all necessary configurations and features (for example, PgBouncer) are appropriately set up on your read replica. For more information, see the [Configuration management](concepts-read-replicas-promote.md#configuration-management) section.
 5.  **Prepare for High Availability (HA)**: If your setup requires high availability, it won't be automatically enabled on a promoted replica. Be ready to activate it post-promotion. Consider automating this step to minimize downtime.
 6.  **Regular testing**: Regularly simulate regional disaster scenarios to validate existing thresholds, targets, and configurations. Ensure that your application responds as expected during these test scenarios.
 7.  **Follow Azure's general guidance**: Azure provides comprehensive guidance on [reliability and disaster preparedness](../../reliability/overview.md). It's highly beneficial to consult these resources and integrate best practices into your preparedness plan.
@@ -84,5 +84,8 @@ Suppose your server doesn't meet the [server symmetry](concepts-read-replicas.md
 
 ## Related content
 
-- [create and manage read replicas in the Azure portal](how-to-read-replicas-portal.md)
+- [Read replicas - overview](concepts-read-replicas.md)
+- [Promote read replicas](concepts-read-replicas-promote.md)
+- [Virtual endpoints](concepts-read-replicas-virtual-endpoints.md)
+- [Create and manage read replicas in the Azure portal](how-to-read-replicas-portal.md)
 - [Cross-region replication with virtual network](concepts-networking.md#replication-across-azure-regions-and-virtual-networks-with-private-networking)

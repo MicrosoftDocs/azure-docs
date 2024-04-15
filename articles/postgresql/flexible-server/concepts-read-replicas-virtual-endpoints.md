@@ -59,5 +59,8 @@ Learn how to [create virtual endpoints](how-to-read-replicas-portal.md#create-vi
 
 ## Related content
 
-- [create and manage read replicas in the Azure portal](how-to-read-replicas-portal.md)
+- [Read replicas - overview](concepts-read-replicas.md)
+- [Geo-replication](concepts-read-replicas-geo.md)
+- [Promote read replicas](concepts-read-replicas-promote.md)
+- [Create and manage read replicas in the Azure portal](how-to-read-replicas-portal.md)
 - [Cross-region replication with virtual network](concepts-networking.md#replication-across-azure-regions-and-virtual-networks-with-private-networking)
