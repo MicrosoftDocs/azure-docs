@@ -341,9 +341,9 @@ az group delete --name "ResourceGroup"
 
 Upload data to your data product:
 
-- Using the Azure Operator Insights ingestion agent
+- To use the Azure Operator Insights ingestion agent:
   - Read the documentation for your data product to determine the requirements.
   - [Install the Azure Operator Insights ingestion agent and configure it to upload data](set-up-ingestion-agent.md).
-- Using [Azure Data Factory](/azure/data-factory/)
-  - [Use Azure Data Factory to ingest data into an Azure Operator Insights Data Product](ingestion-with-data-factory.md)
+- To use [Azure Data Factory](/azure/data-factory/):
+  - [Use Azure Data Factory to ingest data into an Azure Operator Insights Data Product](ingestion-with-data-factory.md).
 
