@@ -5,7 +5,7 @@ author: mbender-ms
 ms.author: mbender
 ms.service: virtual-network-manager
 ms.topic: conceptual
-ms.date: 04/01/2024
+ms.date: 04/15/2024
 ms.custom: template-concept, engagement-fy23, references_regions
 #customer intent: As a network administrator, I want to deploy security admin rules in Azure Virtual Network Manager. When creating security admin rules, I want to define network groups as the source and destination of traffic.
 ---
@@ -24,7 +24,9 @@ For example, you need to ensure traffic is denied between your production and no
 
 ## How do I deploy a security admin rule using network groups?
 
-Once you have access to the public preview, you can deploy a security admin rule using network groups in the Azure portal. To create a security admin role, create a security admin configuration and add a security admin rule. Finally, deploy the security admin configuration. For more information, see [Create a security admin rule using network groups](./how-to-create-security-admin-rule-network-groups.md).
+From the Azure portal, you can [deploy a security admin rule using network groups](./how-to-create-security-admin-rule-network-groups.md) in the Azure portal. To create a security admin rule, create a security admin configuration and add a security admin rule that utilizes network groups as source and destination. Finally, deploy the security admin configuration and the rules apply to the network group resources. 
+
+If you change the resources in your network group or a network group's CIDR range changes, you need to redeploy the configuration after the changes are made. After deployment, the new CIDR ranges will be applied across your network to all new and existing network group resources.
 
 ## Supported regions
 
@@ -57,12 +59,12 @@ The following limitations apply when using network groups with security admin ru
 - Supports 100 networking resources (virtual networks or subnets) in any one network group referenced in the security admin rule.
 
 - Only supports IPv4 address prefixes in the network group members.
+  
+- Dual-stack network groups aren't supported. If both IPv4 and IPv6 ranges are present, Azure Virtual Network Manager (AVNM) only uses the IPv4 ranges.
 
 - Role-based access control ownership is inferred from the `Microsoft.Network/networkManagers/securityAdminConfigurations/rulecollections/rules/write` permission only.
 
 - Network groups must have the same member-types. Virtual networks and subnets are supported but must be in separate network groups.
-
-- Only supports aggregating members in the same tenant as the network manager.
 
 - Force-delete of any network group used as the source and/or destination in a security admin rule isn't currently supported. Usage causes an error.
 
