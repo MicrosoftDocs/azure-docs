@@ -112,7 +112,7 @@ United States | Central US </br> East US </br> East US 2</br> North Central US <
 
 **Geography** | **Supported regions** | **Details** 
 --- | --- | ---
-United States | USGovVirginia </br>  USGovArizona </br> USGovTexas | For both Azure and Arc VMs </br> For both Azure and Arc VMs </br> For Azure VMs only
+United States | USGovVirginia </br>  USGovArizona </br> USGovTexas | For both Azure VMs and Azure Arc-enabled servers </br> For both Azure VMs and Azure Arc-enabled servers </br> For Azure VMs only
 
 #### [Azure operated by 21Vianet](#tab/21via)
 
