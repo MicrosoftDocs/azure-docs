@@ -215,7 +215,7 @@
     href: files-disaster-recovery.md
   - name: Geo-redundancy for large file shares
     href: geo-redundant-storage-for-large-file-shares.md
-  - name: Change how data is replicated
+  - name: Change the redundancy configuration
     href: ../common/redundancy-migration.md?toc=/azure/storage/files/toc.json
   - name: Check the Last Sync Time property
     href: ../common/last-sync-time-get.md?toc=/azure/storage/files/toc.json
