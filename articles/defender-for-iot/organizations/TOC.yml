@@ -249,6 +249,8 @@
         displayName: users, user
       - name: Audit user activity
         href: track-user-activity.md
+      - name: Single sign-on
+        href: set-up-sso.md
     - name: Maintain OT on-premises resources
       items:
       - name: Enhance device data and detection
