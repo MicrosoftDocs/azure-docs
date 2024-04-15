@@ -3163,10 +3163,10 @@ groups:
   title: Attach method
   prompt: Choose an attach method
   pivots:
-  - id: attach-iot-op
-    title: Azure IoT Operations
   - id: attach-kubernetes
     title: Kubernetes native
+  - id: attach-iot-op
+    title: Azure IoT Operations
 # Owner: schaffererin
 - id: aks-azure-developer-cli
   title: Azure command line interfaces

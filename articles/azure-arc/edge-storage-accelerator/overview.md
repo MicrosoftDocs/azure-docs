@@ -17,8 +17,8 @@ Edge Storage Accelerator (ESA) is a first-party storage system designed for Arc-
 > [!IMPORTANT]
 > Edge Storage Accelerator is currently in PREVIEW.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
-For access to the preview, you can [complete this questionnaire](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR19S7i8RsvNAg8hqZuHbEyxUNTEzN1lDT0s3SElLTDc5NlEzQTE2VVdKNi4u) with details about your environment and use case. Once you submit your responses, one of the ESA team members will get back to you with an update on your request.
+>
+> For access to the preview, you can [complete this questionnaire](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR19S7i8RsvNAg8hqZuHbEyxUNTEzN1lDT0s3SElLTDc5NlEzQTE2VVdKNi4u) with details about your environment and use case. Once you submit your responses, one of the ESA team members will get back to you with an update on your request.
 
 ## What does Edge Storage Accelerator do?
 
