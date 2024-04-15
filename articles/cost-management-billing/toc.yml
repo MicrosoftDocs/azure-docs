@@ -2,8 +2,8 @@
   href: manage/index.yml
 - name: Overview
   items:
-  - name: What is Cost Management and Billing?
-    displayName: azure cost management, cost management azure, azure cost management and billing
+  - name: What is Billing?
+    displayName: azure billing, billing
     href: cost-management-billing-overview.md
   - name: What's new?
     href: https://azure.microsoft.com/blog/tag/cost-management/
