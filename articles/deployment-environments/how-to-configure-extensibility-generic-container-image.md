@@ -143,7 +143,7 @@ Additionally, if you would like to push to a specific repository and tag name, y
 
 ## Access operation logs and error details
 
-ADE stores error details for a failed deployment the *$ADE_ERROR_LOG* file. 
+ADE stores error details for a failed deployment in the *$ADE_ERROR_LOG* file within the container. 
 
 To troubleshoot a failed deployment:
 
