@@ -234,7 +234,9 @@ az aosm nsd generate-config --output-file <nsd-output-filename.jsonc>
     // Type of NFVI (for nfvisFromSite). Defaults to 'AzureCore'.
     // Valid values are 'AzureCore', 'AzureOperatorNexus' or 'AzureArcKubernetes.
     "nfvi_type": "AzureOperatorNexus",
-    // List of Resource Element Templates.
+    // List of Resource Element Templates (RETs).
+    // There must be at least one NF RET.
+    // ArmTemplate RETs are optional. Delete if not required.
     "resource_element_templates": [
         {
             // Type of Resource Element. Either NF or ArmTemplate
@@ -245,6 +247,7 @@ az aosm nsd generate-config --output-file <nsd-output-filename.jsonc>
                 // The resource group that the publisher is hosted in.
                 "publisher_resource_group": "contoso",
                 // The name of the existing Network Function Definition Group to deploy using this NSD.
+                // This will be the same as the NF name if you published your NFDV using the CLI.
                 "name": "contoso-cnf-nfd",
                 // The version of the existing Network Function Definition to base this NSD on.
                 // This NSD will be able to deploy any NFDV with deployment parameters compatible with this version.

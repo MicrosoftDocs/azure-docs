@@ -53,7 +53,9 @@ Once you execute this command an nsd-input.jsonc file is generated.
     // Type of NFVI (for nfvisFromSite). Defaults to 'AzureCore'.
     // Valid values are 'AzureCore', 'AzureOperatorNexus' or 'AzureArcKubernetes.
     "nfvi_type": "AzureCore",
-    // List of Resource Element Templates.
+    // List of Resource Element Templates (RETs).
+    // There must be at least one NF RET.
+    // ArmTemplate RETs are optional. Delete if not required.
     "resource_element_templates": [
         {
             // Type of Resource Element. Either NF or ArmTemplate
@@ -64,6 +66,7 @@ Once you execute this command an nsd-input.jsonc file is generated.
                 // The resource group that the publisher is hosted in.
                 "publisher_resource_group": "ubuntu-publisher-rg",
                 // The name of the existing Network Function Definition Group to deploy using this NSD.
+                // This will be the same as the NF name if you published your NFDV using the CLI.
                 "name": "ubuntu-vm",
                 // The version of the existing Network Function Definition to base this NSD on.
                 // This NSD will be able to deploy any NFDV with deployment parameters compatible with this version.
@@ -86,7 +89,7 @@ Once you execute this command an nsd-input.jsonc file is generated.
 |**location**      |      Azure location to use when creating resources.   |
 |**network-functions**   |  *publisher*:   The name of the publisher that this NFDV is published under.     |
 |   |      *publisher_resource_group*: The resource group that the publisher is hosted in.   |
-|    |   *name*:   The name of the existing Network Function Definition Group to deploy using this NSD.    |
+|    |   *name*:   The name of the existing Network Function Definition Group to deploy using this NSD. This will be the same as the NF name if you published your NFDV using the CLI.    |
 |    |    *version*:   The version of the existing Network Function Definition to base this NSD on. This NSD is able to deploy any NFDV with deployment parameters compatible with this version.   |
 |     |     *publisher_offering_location*:  The region that the NFDV is published to.  |
 |    |  *type*:   Type of Network Function. Valid values are cnf or vnf.     |
