@@ -64,7 +64,6 @@ In this section, you learn how to use the script file that you downloaded in the
 1. Enter **1** for **Run analysis** option.
 
     ```powershell
-    # Run the script file and select to run the analysis.
     .\MigrationFromNsgToAzureFlowLogging.ps1
     
     Select one of the following options for flowlog migration:

@@ -189,6 +189,8 @@
         href: nsg-flow-logs-azure-resource-manager.md
       - name: Built-in Policy
         href: nsg-flow-logs-policy-portal.md
+    - name: Migrate NSG flow logs
+      href: nsg-flow-logs-migrate.md
     - name: Manage VNet flow logs
       items:
       - name: Azure portal
