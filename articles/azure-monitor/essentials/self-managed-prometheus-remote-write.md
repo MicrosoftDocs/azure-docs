@@ -60,8 +60,10 @@ Depending on the environment where Prometheus is running, you can use one of the
 
 ### [User-assigned managed identity](#tab/managed-identity)
 
+To configure a user-assigned managed identity for remote-write to Azure Monitor workspace, complete the following steps.
 
-1. Create a user-managed identity to use in your remote-write configuration. For more information, see [Manage user-assigned managed identities](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities#create-a-user-assigned-managed-identity).
+1. Create a user-managed identity to use in your remote-write configuration. For more information, see [Manage user-assigned managed identities](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities#create-a-user-assigned-managed-identity). 
+1. Note the value of the **Client ID** of the user-assigned managed identity that you created. It is used in the Prometheus remote write configuration. 
 
 
 1. Assign the `Monitoring Metrics Publisher` role on the workspace's data collection rule to the managed identity. 
@@ -124,9 +126,16 @@ Depending on the environment where Prometheus is running, you can use one of the
 
 ### [Azure Entra application](#tab/entra-application)
 
-The process to set up Prometheus remote write for an application by using Microsoft Entra authentication involves completing the following tasks:
+To configure an Azure Entra ID application for remote-write to Azure Monitor workspace, complete the following steps.
 
-1. Complete the steps to [register an application with Microsoft Entra ID](../../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal) and create a service principal.
+Create an Entra application to use in your remote-write configuration. For more information, see  [Create a Microsoft Entra application and service principal that can access resources](/entra/identity-platform/howto-create-service-principal-portal#register-an-application-with-microsoft-entra-id-and-create-a-service-principal) and create a service principal.
+
+To create an Azure Entra application using CLI, run the following command:
+
+```azurecli
+az ad sp create-for-rbac --name myServicePrincipalName --role reader --scopes /subscriptions/mySubscriptionId/resourceGroups/myResourceGroupName
+```
+
 
 1. Get the client ID and secret ID of the Microsoft Entra application. In the Azure portal, go to the **Microsoft Entra ID** menu and select **App registrations**.
 1. In the list of applications, copy the value for **Application (client) ID** for the registered application.
@@ -166,7 +175,7 @@ The process to set up Prometheus remote write for an application by using Micros
 The `remote_write` section in the Prometheus configuration file defines one or more remote-write configurations. A remote-write configuration has a mandatory url parameter and several optional parameters. The url parameter specifies the HTTP URL of the remote endpoint that implements the Prometheus remote-write protocol. In this case, the URL is the metrics ingestion endpoint for your Azure Monitor Workspace. The optional parameters can be used to customize the behavior of the remote-write client, such as authentication, compression, retry, queue, or relabeling settings. For a full list of the available parameters and their meanings, see the Prometheus documentation: [https://prometheus.io/docs/prometheus/latest/configuration/configuration/#remote_write](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#remote_write).
 
 
-
+In the Azure portal, go to the **Identity** menu of the managed identity and copy the value of the **Client ID**
 
 
 {{{You can enable remote-write by configuring one or more remote-write sections in the Prometheus configuration file. Details about the Prometheus remote write setting can be found [here](https://prometheus.io/docs/practices/remote_write/).}}}
