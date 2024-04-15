@@ -18,7 +18,7 @@ In this article, learn how to enable VMware Cloud Director service with Azure VM
 ## Reference architecture
 The following diagram shows typical architecture for Cloud Director services with Azure VMware Solution and how they're connected. An SSL reverse proxy supports communication to Azure VMware Solution endpoints from Cloud Director service. 
 
-:::image type="content" source="media/vmware-cds/reference-architecture-diagram.png" alt-text="Diagram showing typical architecture and how VMware Cloud Director service is connected with Azure VMware Solution." border="false" lightbox="media/vmware-cds/reference-architecture-diagram-expanded.png":::
+:::image type="content" source="media/vmware-cds/reference-architecture-diagram.png" alt-text="Diagram showing typical architecture and how VMware Cloud Director service is connected with Azure VMware Solution." border="false" lightbox="media/vmware-cds/reference-architecture-diagram.png":::
 
 VMware Cloud Director supports multi-tenancy by using organizations. A single organization can have multiple organization virtual data centers (VDC). Each Organization’s VDC can have their own dedicated Tier-1 router (Edge Gateway) which is further connected with the provider managed shared Tier-0 router.
 
