@@ -1,8 +1,8 @@
 ---
 title: Stream data from Azure Stream Analytics into Kafka
 description: Learn about setting up Azure Stream Analytics as a producer to kafka
-author: enkrumah
-ms.author: ebnkruma
+author: AliciaLiMicrosoft 
+ms.author: ali 
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 02/20/2024

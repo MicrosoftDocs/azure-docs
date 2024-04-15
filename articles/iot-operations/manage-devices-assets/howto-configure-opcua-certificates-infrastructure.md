@@ -4,6 +4,7 @@ description:  How to configure and manage the OPC UA certificates trust relation
 author: cristipogacean
 ms.author: crpogace
 ms.subservice: opcua-broker
+ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.date: 03/01/2024
 

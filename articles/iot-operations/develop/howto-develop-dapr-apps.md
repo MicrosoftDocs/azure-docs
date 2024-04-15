@@ -1,6 +1,5 @@
 ---
 title: Use Dapr to develop distributed applications
-titleSuffix: Azure IoT MQ
 description: Develop distributed applications that talk with Azure IoT MQ using Dapr.
 author: timlt
 ms.author: timlt
@@ -13,11 +12,11 @@ ms.date: 11/14/2023
 # CustomerIntent: As a developer, I want to understand how to use Dapr to develop distributed apps that talk with Azure IoT MQ.
 ---
 
-# Use Dapr to develop distributed application workloads
+# Use Dapr to develop distributed application workloads that talk with Azure IoT MQ Preview
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-To use the IoT MQ Dapr pluggable components, deploy both the pub/sub and state store components in your application deployment along with your Dapr application. This guide shows you how to deploy an application using the Dapr SDK and IoT MQ pluggable components.
+To use the Azure IoT MQ Preview Dapr pluggable components, deploy both the pub/sub and state store components in your application deployment along with your Dapr application. This guide shows you how to deploy an application using the Dapr SDK and IoT MQ pluggable components.
 
 ## Prerequisites
 

@@ -22,7 +22,7 @@ In the following scenario, you have an example flow log that is stored in a stor
 
 ## Setup
 
-Before you begin, you must have Network Security Group Flow Logging enabled on one or many Network Security Groups in your account. For instructions on enabling Network Security flow logs, refer to the following article: [Introduction to flow logging for Network Security Groups](network-watcher-nsg-flow-logging-overview.md).
+Before you begin, you must have Network Security Group Flow Logging enabled on one or many Network Security Groups in your account. For instructions on enabling Network Security flow logs, refer to the following article: [Introduction to flow logging for Network Security Groups](nsg-flow-logs-overview.md).
 
 ## Retrieve the block list
 

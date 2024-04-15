@@ -44,7 +44,7 @@ You need to speak with your Microsoft sales/account team to acquire provisioned 
 
 ### Provisioned throughput units
 
-Provisioned throughput units (PTU) are units of model processing capacity that customers you can reserve and deploy for processing prompts and generating completions. The minimum PTU deployment, increments, and processing capacity associated with each unit varies by model type & version.
+Provisioned throughput units (PTU) are units of model processing capacity that you can reserve and deploy for processing prompts and generating completions. The minimum PTU deployment, increments, and processing capacity associated with each unit varies by model type & version.
 
 ### Deployment types
 
@@ -55,7 +55,7 @@ az cognitiveservices account deployment create \
 --name <myResourceName> \
 --resource-group  <myResourceGroupName> \
 --deployment-name MyDeployment \
---model-name GPT-4 \
+--model-name gpt-4 \
 --model-version 0613  \
 --model-format OpenAI \
 --sku-capacity 100 \

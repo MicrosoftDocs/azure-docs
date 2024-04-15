@@ -1,5 +1,7 @@
 - name: What is Azure Cosmos DB for MongoDB?
   href: introduction.md
+- name: Your MongoDB app reimagined
+  href: reimagined.md
 - name: Choose your model
   href: choose-model.md
 - name: Comparing MongoDB Atlas
@@ -185,6 +187,10 @@
                   href: ../burst-capacity.md
                 - name: Burst capacity FAQ
                   href: ../burst-capacity-faq.yml
+            - name: Distribute throughput across partitions (preview) - container
+              items:
+                - name: Distribute throughput across partitions
+                  href: distribute-throughput-across-partitions.md
         - name: Analytics with Azure Synapse Link
           items:
             - name: Azure Synapse Link for Azure Cosmos DB
@@ -503,7 +509,7 @@
               href: ../how-to-setup-managed-identity.md
         - name: Monitor
           items:
-            - name: Monitor Azure Cosmos DB
+            - name: Monitor
               href: ../monitor.md
             - name: Use Azure monitor metrics
               items:

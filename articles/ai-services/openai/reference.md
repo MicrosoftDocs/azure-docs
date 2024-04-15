@@ -5,7 +5,7 @@ description: Learn how to use Azure OpenAI's REST API. In this article, you lear
 manager: nitinme
 ms.service: azure-ai-openai
 ms.topic: conceptual
-ms.date: 03/07/2024
+ms.date: 03/12/2024
 author: mrbullwinkle
 ms.author: mbullwin
 recommendations: false
@@ -30,7 +30,7 @@ Azure OpenAI provides two methods for authentication. You can use  either API Ke
 The service APIs are versioned using the ```api-version``` query parameter. All versions follow the YYYY-MM-DD date structure. For example:
 
 ```http
-POST https://YOUR_RESOURCE_NAME.openai.azure.com/openai/deployments/YOUR_DEPLOYMENT_NAME/completions?api-version=2023-05-15
+POST https://YOUR_RESOURCE_NAME.openai.azure.com/openai/deployments/YOUR_DEPLOYMENT_NAME/completions?api-version=2024-02-01
 ```
 
 ## Completions
@@ -54,15 +54,17 @@ POST https://{your-resource-name}.openai.azure.com/openai/deployments/{deploymen
 **Supported versions**
 
 - `2022-12-01` [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/stable/2022-12-01/inference.json)
-- `2023-03-15-preview` (retiring April 2, 2024) [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-03-15-preview/inference.json)
+- `2023-03-15-preview` (retiring July 1, 2024) [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-03-15-preview/inference.json)
 - `2023-05-15` [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/stable/2023-05-15/inference.json)
 - `2023-06-01-preview` [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-06-01-preview/inference.json)
-- `2023-07-01-preview` (retiring April 2, 2024) [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-07-01-preview/inference.json)
-- `2023-08-01-preview` (retiring April 2, 2024) [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-08-01-preview/inference.json)
-- `2023-09-01-preview` (retiring April 2, 2024) [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-09-01-preview/inference.json)
-- `2023-12-01-preview` (retiring April 2, 2024) [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-12-01-preview/inference.json)
+- `2023-07-01-preview` (retiring July 1, 2024) [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-07-01-preview/inference.json)
+- `2023-08-01-preview` (retiring July 1, 2024) [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-08-01-preview/inference.json)
+- `2023-09-01-preview` (retiring July 1, 2024) [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-09-01-preview/inference.json)
+- `2023-10-01-preview` [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-10-01-preview/inference.json)
+- `2023-12-01-preview` (retiring July 1, 2024) [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-12-01-preview/inference.json)
 - `2024-02-15-preview`[Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2024-02-15-preview/inference.json)
 - `2024-03-01-preview` [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2024-03-01-preview/inference.json)
+- `2024-02-01` [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/stable/2024-02-01/inference.json)
 
 **Request body**
 
@@ -87,7 +89,7 @@ POST https://{your-resource-name}.openai.azure.com/openai/deployments/{deploymen
 #### Example request
 
 ```console
-curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/deployments/YOUR_DEPLOYMENT_NAME/completions?api-version=2023-05-15\
+curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/deployments/YOUR_DEPLOYMENT_NAME/completions?api-version=2024-02-01\
   -H "Content-Type: application/json" \
   -H "api-key: YOUR_API_KEY" \
   -d "{
@@ -139,15 +141,17 @@ POST https://{your-resource-name}.openai.azure.com/openai/deployments/{deploymen
 
 **Supported versions**
 
-- `2023-03-15-preview` (retiring April 2, 2024) [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-03-15-preview/inference.json)
+- `2023-03-15-preview` (retiring July 1, 2024) [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-03-15-preview/inference.json)
 - `2023-05-15` [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/stable/2023-05-15/inference.json)
 - `2023-06-01-preview` [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-06-01-preview/inference.json)
-- `2023-07-01-preview` (retiring April 2, 2024) [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-07-01-preview/inference.json)
-- `2023-08-01-preview` (retiring April 2, 2024) [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-08-01-preview/inference.json)
-- `2023-09-01-preview` (retiring April 2, 2024) [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-09-01-preview/inference.json)
-- `2023-12-01-preview` (retiring April 2, 2024) [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-12-01-preview/inference.json)
+- `2023-07-01-preview` (retiring July 1, 2024) [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-07-01-preview/inference.json)
+- `2023-08-01-preview` (retiring July 1, 2024) [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-08-01-preview/inference.json)
+- `2023-09-01-preview` (retiring July 1, 2024) [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-09-01-preview/inference.json)
+- `2023-10-01-preview` [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-10-01-preview/inference.json)
+- `2023-12-01-preview` (retiring July 1, 2024) [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-12-01-preview/inference.json)
 - `2024-02-15-preview`[Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2024-02-15-preview/inference.json)
 - `2024-03-01-preview` [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2024-03-01-preview/inference.json)
+- `2024-02-01` [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/stable/2024-02-01/inference.json)
 
 **Request body**
 
@@ -161,7 +165,7 @@ POST https://{your-resource-name}.openai.azure.com/openai/deployments/{deploymen
 #### Example request
 
 ```console
-curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/deployments/YOUR_DEPLOYMENT_NAME/embeddings?api-version=2023-05-15 \
+curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/deployments/YOUR_DEPLOYMENT_NAME/embeddings?api-version=2024-02-01 \
   -H "Content-Type: application/json" \
   -H "api-key: YOUR_API_KEY" \
   -d "{\"input\": \"The food was delicious and the waiter...\"}"
@@ -208,15 +212,17 @@ POST https://{your-resource-name}.openai.azure.com/openai/deployments/{deploymen
 
 **Supported versions**
 
-- `2023-03-15-preview` (retiring April 2, 2024) [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-03-15-preview/inference.json)
+- `2023-03-15-preview` (retiring July 1, 2024) [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-03-15-preview/inference.json)
 - `2023-05-15` [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/stable/2023-05-15/inference.json)
 - `2023-06-01-preview` [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-06-01-preview/inference.json)
-- `2023-07-01-preview` (retiring April 2, 2024) [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-07-01-preview/inference.json)
-- `2023-08-01-preview` (retiring April 2, 2024) [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-08-01-preview/inference.json)
-- `2023-09-01-preview` (retiring April 2, 2024) [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-09-01-preview/inference.json)
-- `2023-12-01-preview` (retiring April 2, 2024) (This version or greater required for Vision scenarios) [Swagger spec](https://github.com/Azure/azure-rest-api-specs/tree/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-12-01-preview)
+- `2023-07-01-preview` (retiring July 1, 2024) [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-07-01-preview/inference.json)
+- `2023-08-01-preview` (retiring July 1, 2024) [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-08-01-preview/inference.json)
+- `2023-09-01-preview` (retiring July 1, 2024) [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-09-01-preview/inference.json)
+- `2023-10-01-preview` [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-10-01-preview/inference.json)
+- `2023-12-01-preview` (retiring July 1, 2024) (This version or greater required for Vision scenarios) [Swagger spec](https://github.com/Azure/azure-rest-api-specs/tree/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-12-01-preview)
 - `2024-02-15-preview`[Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2024-02-15-preview/inference.json)
 - `2024-03-01-preview` [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2024-03-01-preview/inference.json)
+- `2024-02-01` [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/stable/2024-02-01/inference.json)
 
 
 
@@ -231,14 +237,14 @@ The request body consists of a series of messages. The model will generate a res
 | `content` | string or array | Yes | N/A | The content of the message. It must be a string, unless in a Vision-enabled scenario. If it's part of the `user` message, using the GPT-4 Turbo with Vision model, with the latest API version, then `content` must be an array of structures, where each item represents either text or an image: <ul><li> `text`: input text is represented as a structure with the following properties: </li> <ul> <li> `type` = "text" </li> <li> `text` = the input text </li> </ul> <li> `images`: an input image is represented as a structure with the following properties: </li><ul> <li> `type` = "image_url" </li> <li> `image_url` = a structure with the following properties: </li> <ul> <li> `url` = the image URL </li> <li>(optional) `detail` = `high`, `low`, or `auto` </li> </ul> </ul> </ul>|
 | `contentPart` | object | No | N/A | Part of a user's multi-modal message. It can be either text type or image type. If text, it will be a text string. If image, it will be a `contentPartImage` object. |
 | `contentPartImage` | object | No | N/A | Represents a user-uploaded image. It has a `url` property, which is either a URL of the image or the base 64 encoded image data. It also has a `detail` property which can be `auto`, `low`, or `high`.|
-| `enhancements` | object | No | N/A | Represents the Vision enhancement features requested for the chat. It has `grounding` and `ocr` properties, each has a boolean `enabled` property. Use these to request the OCR service and/or the object detection/grounding service.|
+| `enhancements` | object | No | N/A | Represents the Vision enhancement features requested for the chat. It has `grounding` and `ocr` properties, each has a boolean `enabled` property. Use these to request the OCR service and/or the object detection/grounding service [This preview parameter is not available in the `2024-02-01` GA API].|
 | `dataSources` | object | No | N/A | Represents additional resource data. Computer Vision resource data is needed for Vision enhancement. It has a `type` property, which should be `"AzureComputerVision"` and a `parameters` property, which has an `endpoint` and `key` property. These strings should be set to the endpoint URL and access key of your Computer Vision resource.|
 
 #### Example request
 
 **Text-only chat**
 ```console
-curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/deployments/YOUR_DEPLOYMENT_NAME/chat/completions?api-version=2023-05-15 \
+curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/deployments/YOUR_DEPLOYMENT_NAME/chat/completions?api-version=2024-02-01 \
   -H "Content-Type: application/json" \
   -H "api-key: YOUR_API_KEY" \
   -d '{"messages":[{"role": "system", "content": "You are a helpful assistant."},{"role": "user", "content": "Does Azure OpenAI support customer managed keys?"},{"role": "assistant", "content": "Yes, customer managed keys are supported by Azure OpenAI."},{"role": "user", "content": "Do other Azure AI services support this too?"}]}'
@@ -390,10 +396,11 @@ POST {your-resource-name}/openai/deployments/{deployment-id}/extensions/chat/com
 
 **Supported versions**
 - `2023-06-01-preview` [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-06-01-preview/inference.json)
-- `2023-07-01-preview` (retiring April 2, 2024) [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-07-01-preview/inference.json)
-- `2023-08-01-preview` (retiring April 2, 2024) [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-08-01-preview/inference.json)
-- `2023-09-01-preview` (retiring April 2, 2024) [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-09-01-preview/inference.json)
-- `2023-12-01-preview` (retiring April 2, 2024) [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-12-01-preview/inference.json)
+- `2023-07-01-preview` (retiring July 1, 2024) [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-07-01-preview/inference.json)
+- `2023-08-01-preview` (retiring July 1, 2024) [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-08-01-preview/inference.json)
+- `2023-09-01-preview` (retiring July 1, 2024) [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-09-01-preview/inference.json)
+- `2023-10-01-preview` [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-10-01-preview/inference.json)
+- `2023-12-01-preview` (retiring July 1, 2024) [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-12-01-preview/inference.json)
 
 
 #### Example request
@@ -992,9 +999,9 @@ POST https://{your-resource-name}.openai.azure.com/openai/deployments/{deploymen
 
 **Supported versions**
 
-- `2023-12-01-preview (retiring April 2, 2024)` [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-12-01-preview/inference.json)
+- `2023-12-01-preview (retiring July 1, 2024)` [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-12-01-preview/inference.json)
 - `2024-02-15-preview`[Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2024-02-15-preview/inference.json)
-
+- `2024-02-01` [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/stable/2024-02-01/inference.json)
 
 **Request body**
 
@@ -1006,6 +1013,7 @@ POST https://{your-resource-name}.openai.azure.com/openai/deployments/{deploymen
 | `quality` | string | Optional | `standard` | The quality of the generated images. Must be `hd` or `standard`. |
 | `response_format` | string | Optional | `url` | The format in which the generated images are returned Must be `url` (a URL pointing to the image) or `b64_json` (the base 64-byte code in JSON format). |
 | `style` | string | Optional | `vivid` | The style of the generated images. Must be `natural` or `vivid` (for hyper-realistic / dramatic images). |
+| `user` | string | Optional || A unique identifier representing your end-user, which can help to monitor and detect abuse. |
 
 
 #### Example request
@@ -1044,7 +1052,7 @@ The operation returns a `202` status code and an `GenerateImagesResponse` JSON o
 } 
 ```
 
-### Request a generated image (DALL-E 2)
+### Request a generated image (DALL-E 2 preview)
 
 Generate a batch of images from a text caption.
 
@@ -1096,7 +1104,7 @@ The operation returns a `202` status code and an `GenerateImagesResponse` JSON o
 }
 ```
 
-### Get a generated image result (DALL-E 2)
+### Get a generated image result (DALL-E 2 preview)
 
 
 Use this API to retrieve the results of an image generation operation. Image generation is currently only available with `api-version=2023-06-01-preview`.
@@ -1149,7 +1157,7 @@ Upon success the operation returns a `200` status code and an `OperationResponse
 }
 ```
 
-### Delete a generated image from the server (DALL-E 2)
+### Delete a generated image from the server (DALL-E 2 preview)
 
 You can use the operation ID returned by the request to delete the corresponding image from the Azure server. Generated images are automatically deleted after 24 hours by default, but you can trigger the deletion earlier if you want to.
 
@@ -1183,6 +1191,8 @@ The operation returns a `204` status code if successful. This API only succeeds 
 
 ## Speech to text
 
+You can use a Whisper model in Azure OpenAI Service for speech to text transcription or speech translation. For more information about using a Whisper model, see the [quickstart](./whisper-quickstart.md) and [the Whisper model overview](../speech-service/whisper-overview.md). 
+
 ### Request a speech to text transcription
 
 Transcribes an audio file.
@@ -1201,17 +1211,18 @@ POST https://{your-resource-name}.openai.azure.com/openai/deployments/{deploymen
 
 **Supported versions**
 
-- `2023-09-01-preview` (retiring April 2, 2024) [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-09-01-preview/inference.json)
-- `2023-12-01-preview` (retiring April 2, 2024) [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-12-01-preview/inference.json)
+- `2023-09-01-preview` (retiring July 1, 2024) [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-09-01-preview/inference.json)
+- `2023-10-01-preview` [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-10-01-preview/inference.json)
+- `2023-12-01-preview` (retiring July 1, 2024) [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-12-01-preview/inference.json)
 - `2024-02-15-preview`[Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2024-02-15-preview/inference.json)
 - `2024-03-01-preview` [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2024-03-01-preview/inference.json)
-
+- `2024-02-01` [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/stable/2024-02-01/inference.json)
 
 **Request body**
 
 | Parameter | Type | Required? | Default | Description |
 |--|--|--|--|--|
-| ```file```| file | Yes | N/A | The audio file object (not file name) to transcribe, in one of these formats: `flac`, `mp3`, `mp4`, `mpeg`, `mpga`, `m4a`, `ogg`, `wav`, or `webm`.<br/><br/>The file size limit for the Azure OpenAI Whisper model is 25 MB. If you need to transcribe a file larger than 25 MB, break it into chunks. Alternatively you can use the Azure AI Speech [batch transcription](../speech-service/batch-transcription-create.md#use-a-whisper-model) API.<br/><br/>You can get sample audio files from the [Azure AI Speech SDK repository at GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/sampledata/audiofiles). |
+| ```file```| file | Yes | N/A | The audio file object (not file name) to transcribe, in one of these formats: `flac`, `mp3`, `mp4`, `mpeg`, `mpga`, `m4a`, `ogg`, `wav`, or `webm`.<br/><br/>The file size limit for the Whisper model in Azure OpenAI Service is 25 MB. If you need to transcribe a file larger than 25 MB, break it into chunks. Alternatively you can use the Azure AI Speech [batch transcription](../speech-service/batch-transcription-create.md#use-a-whisper-model) API.<br/><br/>You can get sample audio files from the [Azure AI Speech SDK repository at GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/sampledata/audiofiles). |
 | ```language``` | string | No | Null | The language of the input audio such as `fr`. Supplying the input language in [ISO-639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) format improves accuracy and latency.<br/><br/>For the list of supported languages, see the [OpenAI documentation](https://platform.openai.com/docs/guides/speech-to-text/supported-languages). |
 | ```prompt``` | string | No | Null | An optional text to guide the model's style or continue a previous audio segment. The prompt should match the audio language.<br/><br/>For more information about prompts including example use cases, see the [OpenAI documentation](https://platform.openai.com/docs/guides/speech-to-text/supported-languages). |
 | ```response_format``` | string | No | json | The format of the transcript output, in one of these options: json, text, srt, verbose_json, or vtt.<br/><br/>The default value is *json*. |
@@ -1288,11 +1299,12 @@ POST https://{your-resource-name}.openai.azure.com/openai/deployments/{deploymen
 
 **Supported versions**
 
-- `2023-09-01-preview` (retiring April 2, 2024) [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-09-01-preview/inference.json)
-- `2023-12-01-preview` (retiring April 2, 2024) [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-12-01-preview/inference.json)
+- `2023-09-01-preview` (retiring July 1, 2024) [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-09-01-preview/inference.json)
+- `2023-10-01-preview` [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-10-01-preview/inference.json)
+- `2023-12-01-preview` (retiring July 1, 2024) [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-12-01-preview/inference.json)
 - `2024-02-15-preview`[Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2024-02-15-preview/inference.json)
 - `2024-03-01-preview` [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2024-03-01-preview/inference.json)
-
+- `2024-02-01` [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/stable/2024-02-01/inference.json)
 
 **Request body**
 
@@ -1371,9 +1383,9 @@ The speech is returned as an audio file from the previous request.
 
 ## Management APIs
 
-Azure OpenAI is deployed as a part of the Azure AI services. All Azure AI services rely on the same set of management APIs for creation, update, and delete operations. The management APIs are also used for deploying models within an OpenAI resource.
+Azure OpenAI is deployed as a part of the Azure AI services. All Azure AI services rely on the same set of management APIs for creation, update, and delete operations. The management APIs are also used for deploying models within an Azure OpenAI resource.
 
-[**Management APIs reference documentation**](/rest/api/cognitiveservices/)
+[**Management APIs reference documentation**](/rest/api/aiservices/)
 
 ## Next steps
 

@@ -10,7 +10,7 @@ ms.author: mmitrik
 ms.custom: mode-api, devx-track-arm-template
 ---
 
-# Deploy the DICOM service with Data Lake Storage (Preview)
+# Deploy the DICOM service with Azure Data Lake Storage
 
 Deploying the [DICOM&reg; service with Azure Data Lake Storage](dicom-data-lake.md) enables organizations to store and process imaging data in a standardized, secure, and scalable way.
 
@@ -25,7 +25,7 @@ After deployment completes, you can use the Azure portal to see the details abou
 > [!NOTE]
 > The Azure Data Lake Storage option is only available for new instances of the DICOM service. After the option becomes generally available, we plan to offer a migration path for existing DICOM service instances.
 
-## Deploy the DICOM service with Data Lake Storage using the Azure portal
+## Deploy the DICOM service with Azure Data Lake Storage by using the Azure portal
 
 1. On the **Resource group** page of the Azure portal, select the name of the **Azure Health Data Services workspace**.
 
@@ -41,9 +41,9 @@ After deployment completes, you can use the Azure portal to see the details abou
 
 1. Enter a name for the DICOM service.
 
-1. Select **External (preview)** for the Storage Location.  
+1. Select **Data Lake Storage (default)** for the storage location.  
 
-    :::image type="content" source="media/deploy-data-lake/dicom-deploy-options.png" alt-text="Screenshot showing the options in the Create DICOM service view." lightbox="media/deploy-data-lake/dicom-deploy-options.png":::
+    :::image type="content" source="media/deploy-data-lake/create-dicom-service-data-lake-sml.png" alt-text="Screenshot showing the storage location option." lightbox="media/deploy-data-lake/create-dicom-service-data-lake-lrg.png":::
 
 1. Select the **subscription** and **resource group** that contains the storage account.
 

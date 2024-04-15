@@ -25,7 +25,7 @@ In this article, you'll learn how to upgrade a static Basic SKU public IP addres
 * An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * A **static** basic SKU public IP address in your subscription. For more information, see [Create a basic public IP address using the Azure CLI](./create-public-ip-cli.md?tabs=create-public-ip-basic%2Ccreate-public-ip-zonal%2Crouting-preference#create-public-ip).
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 - This tutorial requires version 2.0.28 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 

@@ -7,7 +7,7 @@ ms.service: ddos-protection
 ms.topic: quickstart
 ms.custom: mode-arm, devx-track-arm-template
 ms.author: abell
-ms.date: 03/08/2023
+ms.date: 03/18/2024
 ---
 
 # Quickstart: Create and configure Azure DDoS IP Protection using ARM template
@@ -18,7 +18,7 @@ This quickstart describes how to use an Azure Resource Manager template (ARM tem
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
 
-:::image type="content" source="~/articles/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Resource Manager template to Azure." border="false" link="https://ms.portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.network%2Fpip-with-ddos-ip-protection%2Fazuredeploy.json":::
+:::image type="content" source="~/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Resource Manager template to Azure." border="false" link="https://ms.portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.network%2Fpip-with-ddos-ip-protection%2Fazuredeploy.json":::
 
 
 ## Prerequisites
@@ -42,7 +42,7 @@ In this example, the template creates a new resource group, a DDoS protection pl
 
 1. To sign in to Azure and open the template, select the **Deploy to Azure** button.
 
-    :::image type="content" source="~/articles/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Resource Manager template to Azure." border="false" link="https://ms.portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.network%2Fpip-with-ddos-ip-protection%2Fazuredeploy.json":::
+    :::image type="content" source="~/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Resource Manager template to Azure." border="false" link="https://ms.portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.network%2Fpip-with-ddos-ip-protection%2Fazuredeploy.json":::
 
 1. Enter the values to create a new resource group, Public IP address, and enable DDoS IP Protection.
 

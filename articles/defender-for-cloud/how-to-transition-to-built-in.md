@@ -10,7 +10,7 @@ ms.date: 01/09/2024
 # Transition to Microsoft Defender Vulnerability Management for servers
 
 > [!IMPORTANT]
-> Defender for Server's vulnerability assessment solution powered by Qualys, is on a retirement path that is set to complete on **May 1st, 2024**. If you are a currently using the built-in vulnerability assessment powered by Qualys, you should plan to transition to the Microsoft Defender Vulnerability Management vulnerability scanning using the steps on this page. 
+> Defender for Server's vulnerability assessment solution powered by Qualys, is on a retirement path that is set to complete on **May 1st, 2024**. If you are a currently using the built-in vulnerability assessment powered by Qualys, you should plan to transition to the Microsoft Defender Vulnerability Management vulnerability scanning using the steps on this page.
 >
 > For more information about our decision to unify our vulnerability assessment offering with Microsoft Defender Vulnerability Management, see [this blog post](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/defender-for-cloud-unified-vulnerability-assessment-powered-by/ba-p/3990112).
 >
@@ -26,13 +26,13 @@ To transition to the integrated Defender Vulnerability Management solution, you 
 - [Transition with Defender for Cloud’s portal](#transition-with-defender-for-clouds-portal)
 - [Transition with REST API](#transition-with-rest-api)
 
-## Transition with Azure policy (for Azure VMs) 
+## Transition with Azure policy (for Azure VMs)
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
 1. Navigate to **Policy** > **Definitions**.
 
-1. Search for `Setup subscriptions to transition to an alternative vulnerability assessment solution`. 
+1. Search for `Setup subscriptions to transition to an alternative vulnerability assessment solution`.
 
 1. Select **Assign**.
 
@@ -41,18 +41,18 @@ To transition to the integrated Defender Vulnerability Management solution, you 
 1. Select **Review + create**.
 
 1. Review the information you entered and select **Create**.
- 
+
 This policy ensures that all Virtual Machines (VM) within a selected subscription are safeguarded with the built-in Defender Vulnerability Management solution.
 
 Once you complete the transition to the Defender Vulnerability Management solution, you need to [Remove the old vulnerability assessment solution](#remove-the-old-vulnerability-assessment-solution)
 
-## Transition with Defender for Cloud’s portal 
+## Transition with Defender for Cloud’s portal
 
-In the Defender for Cloud portal, you have the ability to change the vulnerability assessment solution to the built-in Defender Vulnerability Management solution. 
+In the Defender for Cloud portal, you have the ability to change the vulnerability assessment solution to the built-in Defender Vulnerability Management solution.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
-1. Navigate to **Microsoft Defender for Cloud** > **Environment settings** 
+1. Navigate to **Microsoft Defender for Cloud** > **Environment settings**
 
 1. Select the relevant subscription.
 
@@ -68,7 +68,7 @@ In the Defender for Cloud portal, you have the ability to change the vulnerabili
 
 1. Select **Microsoft Defender Vulnerability Management**.
 
-1. Select **Apply**. 
+1. Select **Apply**.
 
 1. Ensure that `Endpoint protection` or `Agentless scanning for machines` are toggled to **On**.
 

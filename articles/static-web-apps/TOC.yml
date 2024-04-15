@@ -93,10 +93,14 @@
     items:
       - name: Integration options
         href: apis-functions.md
-      - name: Add an API
-        href: add-api.md
-      - name: Bring your own functions
-        href: functions-bring-your-own.md
+      - name: Distributed functions
+        href: distributed-functions.md
+      - name: Tutorials
+        items:
+        - name: Add an API
+          href: add-api.md
+        - name: Bring your own functions
+          href: functions-bring-your-own.md
   - name: Azure API Management
     href: apis-api-management.md
   - name: Azure App Service

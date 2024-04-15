@@ -3,7 +3,7 @@ title: Use template deployment scripts | Microsoft Docs
 description: Learn how to use deployment scripts in Azure Resource Manager templates (ARM templates).
 ms.custom: devx-track-azurepowershell, devx-track-arm-template
 ms.topic: tutorial
-ms.date: 09/28/2022
+ms.date: 03/20/2024
 ---
 
 # Tutorial: Use deployment scripts to create a self-signed certificate

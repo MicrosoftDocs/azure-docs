@@ -808,7 +808,7 @@
         {
             "redirect_document_id": false,
             "source_path_from_root": "/articles/virtual-network/nat-gateway/tutorial-protect-nat-gateway.md",
-            "redirect_URL": "/azure/virtual-network/nat-gateway/tutorial-protect-nat-gateway-ddos"
+            "redirect_url": "/azure/virtual-network/nat-gateway/tutorial-protect-nat-gateway-ddos"
         },
         {
             "source_path_from_root": "/articles/virtual-network/nat-gateway/faq.yml",
@@ -1043,6 +1043,7 @@
         {
             "source_path_from_root": "/articles/virtual-network/move-across-regions-publicip-portal.md",
             "redirect_url": "/azure/resource-mover/move-region-within-resource-group",
+            "redirect_document_id": false  
         },
         {
             "source_path_from_root": "/articles/virtual-network/move-across-regions-publicip-powershell.md",

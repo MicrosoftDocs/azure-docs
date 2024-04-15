@@ -30,7 +30,7 @@ Search-AzGraph -Query "AppServiceResources | where type =~ 'microsoft.web/sites/
 
 # [Portal](#tab/azure-portal)
 
-:::image type="icon" source="../../../resource-graph/media/resource-graph-small.png"::: Try this query in Azure Resource Graph Explorer:
+
 
 - Azure portal: <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/AppServiceResources%0D%0A%7C%20where%20type%20%3D~%20%27microsoft.web%2Fsites%2Fconfig%27%0D%0A%7C%20project%20id%2C%20name%2C%20properties.MinTlsVersion" target="_blank">portal.azure.com</a>
 - Azure Government portal: <a href="https://portal.azure.us/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/AppServiceResources%0D%0A%7C%20where%20type%20%3D~%20%27microsoft.web%2Fsites%2Fconfig%27%0D%0A%7C%20project%20id%2C%20name%2C%20properties.MinTlsVersion" target="_blank">portal.azure.us</a>
