@@ -8,7 +8,7 @@ ms.date: 04/08/2024
 
 # Identify vulnerabilities in AI code repositories
 
-Defender for Cloud provides a comprehensive view of your cloud environment, including the generative artificial intelligence (Gen-AI) code repositories within your environment that contain known Gen-AI vulnerabilities and set up Azure OpenAI. By using the cloud security explorer, you can all of these repositories that exist in your environment and assess their security posture.
+Defender for Cloud provides a comprehensive view of your cloud environment, including the generative artificial intelligence (GenAI) code repositories within your environment that contain known GenAI vulnerabilities and set up Azure OpenAI. By using the cloud security explorer, you can all of these repositories that exist in your environment and assess their security posture.
 
 ## Prerequisites
 
@@ -22,15 +22,15 @@ Defender for Cloud provides a comprehensive view of your cloud environment, incl
 
 ## Identify code repositories with vulnerabilities
 
-If you have multiple Gen-AI code repositories within your environment, you can use the cloud security explorer to identify them.
+If you have multiple GenAI code repositories within your environment, you can use the cloud security explorer to identify them.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
 1. Search for and select **Microsoft Defender for Cloud** > **Cloud Security Explorer**.
 
-1. Select the **Gen-AI vulnerable code repositories that provision Azure OpenAI** query template.
+1. Select the **GenAI vulnerable code repositories that provision Azure OpenAI** query template.
 
-    :::image type="content" source="media/identify-ai-vulnerable-code/gen-ai-vulnerable-code-query.png" alt-text="Screenshot that shows where to locate the Gen-AI vulnerable code repositories query." lightbox="media/identify-ai-vulnerable-code/gen-ai-vulnerable-code-query.png":::
+    :::image type="content" source="media/identify-ai-vulnerable-code/GenAI-vulnerable-code-query.png" alt-text="Screenshot that shows where to locate the GenAI vulnerable code repositories query." lightbox="media/identify-ai-vulnerable-code/GenAI-vulnerable-code-query.png":::
 
 1. Select **Search**.
 
@@ -51,4 +51,4 @@ If you have multiple Gen-AI code repositories within your environment, you can u
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Identify Gen-AI vulnerable container images](identify-ai-conatiner-image.md)
+> [Identify GenAI vulnerable container images](identify-ai-conatiner-image.md)

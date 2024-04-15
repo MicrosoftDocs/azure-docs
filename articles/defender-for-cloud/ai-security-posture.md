@@ -5,34 +5,26 @@ ms.date: 04/15/2024
 ms.topic: overview
 ms.author: elkrieger
 author: Elazark
-#customer intent: As a cloud security professional, I want to understand how to secure my Gen-AI resources using Defender for Cloud's AI security posture management capabilities.
+#customer intent: As a cloud security professional, I want to understand how to secure my GenAI resources using Defender for Cloud's AI security posture management capabilities.
 ---
 
 # AI security posture management
 
-Microsoft Defender for Cloud provides multicloud Artificial Intelligence (AI) security posture management capabilities that that enhances the security of your artificial intelligence (AI) pipelines and services. As more organizations implement generative AI (Gen-AI) applications using Azure based AIs and non-microsoft AI services, its important to ensure that these Gen-AI resources are secure.
+Microsoft Defender for Cloud provides multicloud Artificial Intelligence (AI) security posture management capabilities that that enhances the security of your artificial intelligence (AI) pipelines and services. As more organizations implement generative AI (GenAI) applications using Azure based AIs and non-microsoft AI services, its important to ensure that these GenAI resources are secure.
 
-Gen-AI based applications are at risk to a variety of threats that are exclusive to AI models. These threats include jailbreaks, prompt and plugin injections, disclosure of sensitive data, evasion, and data poisoning.
-
-Defender for Cloud's Cloud Native Application Protection Platform (CNAPP) provides security alerts and recommendations designed to provide your organization with AI security posture management capabilities that secure your Gen-AI resources.
-
-## AI security posture management in Defender for Cloud
+GenAI based applications are at risk to a variety of threats that are exclusive to AI models. These threats include jailbreaks, prompt and plugin injections, disclosure of sensitive data, evasion, and data poisoning. Defender for Cloud's Cloud Native Application Protection Platform (CNAPP) provides security alerts and recommendations designed to provide your organization with AI security posture management capabilities that secure your GenAI resources.
 
 Defender for Cloud's AI security posture management capabilities provide security throughout the development lifecycle, starting with Defender for DevOps, and continuing through Defender for Cloud's runtime protection.
 
 :::image type="content" source="media/ai-security-posture/ai-lifecycle.png" alt-text="An image of the development lifecycle that is covered by Defender for Cloud's AI security posture management.":::
 
-AI security posture management in Defender for Cloud is made up of the following components:
-
 ### Full-Stack Visibility for AI Pipelines
 
-It is important to identify vulnerable Gen-AI library dependencies in source code and container images to maintain the security and integrity of AI applications. Libraries such as TensorFlow, PyTorch, and Langchain are utilized in GenAI projects for  machine learning, data processing, and neural network implementation. These libraries, which can be part of the codebase or embedded in container images, can contain vulnerabilities that may be exploited by malicious actors. 
+It is important to identify vulnerable GenAI library dependencies in source code and container images to maintain the security and integrity of AI applications. Libraries such as TensorFlow, PyTorch, and Langchain are utilized in GenAI projects for  machine learning, data processing, and neural network implementation. These libraries, which can be part of the codebase or embedded in container images, can contain vulnerabilities that may be exploited by malicious actors. 
 
 As a result, threat actors can breach data, compromise system integrity, or cause other security incidents. Developers must keep track of these vulnerabilities and update or patch their dependencies accordingly to ensure the trustworthiness and reliability of the systems they are developing.
 
 Defender for Cloud's AI security posture management provides comprehensive visibility into your AI pipelines, allowing you to understand the entire stack. It covers everything from data preparation and model training to deployment and inference. Defender for Cloud identifies AI services, technologies, and software development kits (SDKs) without any agents including managed services such as AWS SageMaker and well-known AI technologies such as TensorFlow Hub.
-
-Learn how to [detect and remediate vulnerabilities in your AI pipelines with Defender for Cloud's cloud security explorer](identify-ai-vulnerable-code.md).
 
 ### AI data security with attack path analysis
 
@@ -44,8 +36,11 @@ Defender for Cloud's DSPM for AI capabilities go beyond traditional security mea
 
 ### Detecting Misconfigurations
 
-AI-SPM scans your AI pipelines to detect misconfigurations. It enforces secure configuration baselines for your AI services.
-For example, it can identify misconfigured OpenAI services or Amazon Bedrock instances. By adhering to best practices, you can minimize security risks.
+Identifying misconfigurations in Infrastructure as Code (IaC) is crucial for services such as AWS SageMaker and Azure AI Services. Misconfigurations can expose your GenAI applications to security vulnerabilities and weaknesses such as over-exposed access controls or inadvertently publicly exposed services. These misconfigurations could lead to data breaches or unauthorized access to sensitive data, including proprietary models and datasets. Misconfigurations can also result in compliance issues, especially when handling strict data privacy regulations.
+
+To address these issues effectively, it is important to shift left and fix IaC problems at the source. Defender for Cloud can detect and remediate misconfigurations early in the development cycle allowing organizations to prevent them from becoming more complex problems later on. 
+
+Early detection allows for tighter security measures and better compliance with regulatory standards. Defender for Cloud provides visibility into misconfigurations in IaC templates, but also identifies the source code responsible for provisioning the runtime resources, enabling quick and simple remediation process.
 
 ### Secure AI pipelines
 
@@ -55,10 +50,13 @@ Defender for Cloud's comprehensive view of the security status of AI pipelines w
 
 Defender for Cloud facilitates collaboration between AI developers, data scientists, and security teams by allowing them to work together in a project-based environment, leveraging RBAC to segment the security graph. This ensures that alerts and recommendations are directed to the right team, streamlining the response process and maximizing efficiency in addressing AI-related security risks.
 
+## Related content
 
-## Summary
+AI-SPM ensures the security of AI pipelines, addresses misconfigurations, and eliminates attack paths. It empowers AI developers and data scientists to proactively fix issues with the AI Security Dashboard, providing an overview of AI security posture and a prioritized queue of risks. Project-based workflows and role-based access control (RBAC) enable efficient collaboration and response. With Defender for Cloud, organizations can embrace AI innovation while maintaining robust security practices.
 
-In summary, AI-SPM ensures that your AI pipelines are secure, misconfigurations are addressed, and attack paths are eliminated. It’s a valuable tool for organizations embracing AI innovation while maintaining robust security practices.
-Empower AI developers and data scientists to proactively fix issues with the new AI Security Dashboard that provides an AI security posture overview with a prioritized queue of risks so they can quickly focus on the most critical ones. Project-based workflows and role-based access control (RBAC) allow you to segment the Defender for Cloud Security Graph and ensure alerts go to the right team.
-
-
+- [Identify GenAI attack paths](Identify-ai-attack-paths.md)
+- [Identify vulnerabilities on AI container images](identify-ai-container-image.md)
+- [Identify vulnerabilities in AI code repositories](identify-ai-vulnerable-code.md)
+- [Identify AI workloads and models in use](identify-ai-workload-model.md)
+- [Review alerts for AI applications](review-alerts-for-ai.md)
+- [Review recommendations for AI applications](review-recommendations-for-ai.md)

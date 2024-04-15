@@ -8,7 +8,7 @@ ms.date: 04/08/2024
 
 # Identify AI workloads and models in use
 
-Defender for Cloud provides a comprehensive view of your cloud environment, including the generative artificial intelligence (Gen-AI) workloads and models running in your environment. By using the cloud security explorer, you can identify the AI workloads and models that are running in your environment and assess their security posture.
+Defender for Cloud provides a comprehensive view of your cloud environment, including the generative artificial intelligence (GenAI) workloads and models running in your environment. By using the cloud security explorer, you can identify the AI workloads and models that are running in your environment and assess their security posture.
 
 ## Prerequisites
 
@@ -20,11 +20,11 @@ Defender for Cloud provides a comprehensive view of your cloud environment, incl
 
 - Have at least one [Azure OpenAI resource](../ai-studio/how-to/create-azure-ai-resource.md), with at least one [model deployment](../ai-studio/how-to/deploy-models-openai.md) connected to it via Azure AI Studio.
 
-## Identify Gen-AI workloads and models with cloud security explorer
+## Identify GenAI workloads and models with cloud security explorer
 
-If you have multiple Gen-AI workloads and models running in your environment, you can use the cloud security explorer to identify them. 
+If you have multiple GenAI workloads and models running in your environment, you can use the cloud security explorer to identify them. 
 
-**To identify Gen-AI workloads and models in your environment**:
+**To identify GenAI workloads and models in your environment**:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
@@ -49,4 +49,4 @@ With the information provided in the results, you can determine deployed models 
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Identify Gen-AI vulnerable code repositories](identify-ai-vulnerable-code.md)
+> [Identify GenAI vulnerable code repositories](identify-ai-vulnerable-code.md)

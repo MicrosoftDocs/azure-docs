@@ -1,14 +1,14 @@
 ---
 title: Review alerts for AI applications
-description: Learn how to review alerts for Gen-AI applications in Microsoft Defender for Cloud.
+description: Learn how to review alerts for GenAI applications in Microsoft Defender for Cloud.
 ms.topic: how-to
 ms.date: 04/08/2024
-#customer intent: As a user, I want to learn how to review alerts for Gen-AI applications in Microsoft Defender for Cloud so that I can improve the security of my Gen-AI applications.
+#customer intent: As a user, I want to learn how to review alerts for GenAI applications in Microsoft Defender for Cloud so that I can improve the security of my GenAI applications.
 ---
 
 # Review alerts for AI applications
 
-Generative Artificial Intelligence (Gen-AI) based applications introduce various new risks and threats to organizations including Disruption of Service (DOS) attacks and User Prompt Injection Attacks (UPIA). These risks can generate the following alerts in Microsoft Defender for Cloud:
+Generative Artificial Intelligence (GenAI) based applications introduce various new risks and threats to organizations including Disruption of Service (DOS) attacks and User Prompt Injection Attacks (UPIA). These risks can generate the following alerts in Microsoft Defender for Cloud:
 
 - **Jailbreak** - UPIA - an intentional attempt by a user to exploit the vulnerabilities of an LLM-powered system, bypass its safety mechanisms, and provoke restricted behaviors.
 
@@ -18,13 +18,13 @@ Generative Artificial Intelligence (Gen-AI) based applications introduce various
 
 - **Wallet / DOS** - an attempt by a user to disrupt the service by sending a large number of requests to the AI model.
 
-Organizations need to identify, catalog, monitor, and govern the utilization of Gen-AI applications against potential risks such as sensitive information disclosure and insecure response handling.
+Organizations need to identify, catalog, monitor, and govern the utilization of GenAI applications against potential risks such as sensitive information disclosure and insecure response handling.
 
-To combat these risks, Microsoft Defender for Cloud provides alerts that help you identify and respond to security issues in your Gen-AI applications.
+To combat these risks, Microsoft Defender for Cloud provides alerts that help you identify and respond to security issues in your GenAI applications.
 
 ## Prerequisites
 
-To view alerts for Gen-AI applications, you need:
+To view alerts for GenAI applications, you need:
 
 - You need a Microsoft Azure subscription. If you don't have an Azure subscription, you can [sign up for a free subscription](https://azure.microsoft.com/pricing/free-trial/).
 
@@ -34,9 +34,9 @@ To view alerts for Gen-AI applications, you need:
 
 - Have at least one [Azure OpenAI resource](../ai-studio/how-to/create-azure-ai-resource.md), with at least one [model deployment](../ai-studio/how-to/deploy-models-openai.md) connected to it via Azure AI Studio.
 
-## Review Gen-AI alerts in Defender for Cloud
+## Review GenAI alerts in Defender for Cloud
 
-Alerts in Defender for Cloud help you identify and respond to security issues in your Gen-AI applications.
+Alerts in Defender for Cloud help you identify and respond to security issues in your GenAI applications.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
@@ -54,9 +54,9 @@ Alerts in Defender for Cloud help you identify and respond to security issues in
 
 1. Select **Ok**.
 
-A list of alerts for your Gen-AI applications appears. With this list, you should [review the alerts](managing-and-responding-alerts.md#investigate-a-security-alert) and [remediate the alerts](managing-and-responding-alerts.md#respond-to-a-security-alert).
+A list of alerts for your GenAI applications appears. With this list, you should [review the alerts](managing-and-responding-alerts.md#investigate-a-security-alert) and [remediate the alerts](managing-and-responding-alerts.md#respond-to-a-security-alert).
 
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Identify Gen-AI workloads and models](identify-ai-workload-model.md)
+> [Identify GenAI workloads and models](identify-ai-workload-model.md)

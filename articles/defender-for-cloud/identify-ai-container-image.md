@@ -8,7 +8,7 @@ ms.date: 04/08/2024
 
 # Identify vulnerabilities on AI container images
 
-Defender for Cloud provides a comprehensive view of your cloud environment, including the generative artificial intelligence (Gen-AI) container images within your environment that contain known Gen-AI vulnerabilities and provision Azure OpenAI. By using the cloud security explorer, you can all of these repositories that exist in your environment and assess their security posture.
+Defender for Cloud provides a comprehensive view of your cloud environment, including the generative artificial intelligence (GenAI) container images within your environment that contain known GenAI vulnerabilities and provision Azure OpenAI. By using the cloud security explorer, you can all of these repositories that exist in your environment and assess their security posture.
 
 ## Prerequisites
 
@@ -22,7 +22,7 @@ Defender for Cloud provides a comprehensive view of your cloud environment, incl
 
 ## Identify container images with vulnerabilities
 
-If you have multiple Gen-AI container images within your environment, you can use the cloud security explorer to identify them.
+If you have multiple GenAI container images within your environment, you can use the cloud security explorer to identify them.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
@@ -30,7 +30,7 @@ If you have multiple Gen-AI container images within your environment, you can us
 
 1. Select the **Container running container images with known Generative AI vulnerabilities** query template.
 
-    :::image type="content" source="media/identify-ai-container-image/gen-ai-vulnerable-images-query.png" alt-text="Screenshot that shows where to locate the Gen-AI vulnerable container images query." lightbox="media/identify-ai-container-image/gen-ai-vulnerable-images-query.png":::
+    :::image type="content" source="media/identify-ai-container-image/GenAI-vulnerable-images-query.png" alt-text="Screenshot that shows where to locate the GenAI vulnerable container images query." lightbox="media/identify-ai-container-image/GenAI-vulnerable-images-query.png":::
 
 1. Select **Search**.
 
