@@ -217,8 +217,6 @@
     href: geo-redundant-storage-for-large-file-shares.md
   - name: Change the redundancy configuration
     href: ../common/redundancy-migration.md?toc=/azure/storage/files/toc.json
-  - name: Check the Last Sync Time property
-    href: ../common/last-sync-time-get.md?toc=/azure/storage/files/toc.json
   - name: Initiate storage account failover
     href: ../common/storage-initiate-account-failover.md?toc=/azure/storage/files/toc.json
   - name: Premium file shares ZRS support
