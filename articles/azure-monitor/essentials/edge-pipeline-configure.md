@@ -9,14 +9,14 @@ author: bwren
 
 # Configuration of Azure Monitor edge pipeline
 
-[Azure Monitor pipeline](./pipeline-overview.md) is a data ingestion pipeline providing consistent and centralized data collection for Azure Monitor. The [edge pipeline](./pipeline-overview.md#edge-pipeline) enables at-scale collection, transformation, and routing of telemetry data before it's sent to the cloud. It can cache data locally and sync with the cloud when connectivity is restored and can also act as a proxy connection to Azure Monitor in cases where the network is segmented and data cannot be sent directly to the cloud. This article describes how to enable and configure the edge pipeline in your environment. 
+[Azure Monitor pipeline](./pipeline-overview.md) is a data ingestion pipeline providing consistent and centralized data collection for Azure Monitor. The [edge pipeline](./pipeline-overview.md#edge-pipeline) enables at-scale collection, and routing of telemetry data before it's sent to the cloud. It can cache data locally and sync with the cloud when connectivity is restored and route telemetry to Azure Monitor in cases where the network is segmented and data cannot be sent directly to the cloud. This article describes how to enable and configure the edge pipeline in your environment. 
 
 ## Overview
-The Azure Monitor edge pipeline is a containerized solution that is deployed on an [Arc-enabled Kubernetes cluster](../../azure-arc/kubernetes/overview.md). It leverages OpenTelemetry Collector as a foundation that enables an extensibility model to support collection from a wide range of data sources.
+The Azure Monitor edge pipeline is a containerized solution that is deployed on an [Arc-enabled Kubernetes cluster](../../azure-arc/kubernetes/overview.md). It leverages OpenTelemetry Collector as a foundation.
 
 The following diagram shows the components of the edge pipeline. One or more data flows listens for incoming data from clients, and the pipeline extension forwards the data to the cloud, using the local cache if necessary.
 
-The pipeline configuration file the data flows and cache properties for the edge pipeline. Part of each data flow definition is the DCR and stream that will process that data in the cloud pipeline. The [DCR](./pipeline-overview.md#data-collection-rules) defines the schema of the incoming data, a transformation to filter or modify the data, and the destination where the data should be sent.
+The pipeline configuration file consists of the data flows and cache properties for the edge pipeline. Part of each data flow definition is the DCR and stream that will process that data in the cloud pipeline {**What does this mean?**}. The [DCR](./pipeline-overview.md#data-collection-rules) defines the schema of the incoming data, a transformation to filter or modify the data, and the destination where the data should be sent.
 
 :::image type="content" source="media/edge-pipeline/edge-pipeline-configuration.png" lightbox="media/edge-pipeline/edge-pipeline-configuration.png" alt-text="Overview diagram of the dataflow for Azure Monitor edge pipeline." border="false"::: 
 
@@ -26,8 +26,8 @@ The following components are required to enable and configure the Azure Monitor 
 
 | Component | Description |
 |:---|:---|
-| Edge pipeline controller extension | Extension added to your Arc-enabled Kubernetes cluster to support pipeline functionality. |
-| Edge pipeline controller instance | Instance of the edge pipeline running on your Arc-enabled Kubernetes cluster with a set of listeners to accept client data and exporters to deliver that data to Azure Monitor. |
+| Edge pipeline controller extension | Extension added to your Arc-enabled Kubernetes cluster to support pipeline functionality {**Need to mention the extension name- microsoft.monitor.pipelinecontroller**}. |
+| Edge pipeline controller instance | Instance of the edge pipeline running on your Arc-enabled Kubernetes cluster with a set of receivers to accept client data and exporters to deliver that data to Azure Monitor. |
 | Pipeline configuration | Configuration file that defines the data flows for the pipeline instance. Each data flow includes a receiver and an exporter. The receiver listens for incoming data, and the exporter sends the data to the destination. |
 | Data collection endpoint (DCE) | Endpoint where the data is sent to the Azure Monitor pipeline. The pipeline configuration includes a property for the URL of the DCE so the pipeline instance knows where to send the data. |
 | Data collection rule (DCR) | Configuration file that defines how the data is received in the cloud pipeline and where it's sent. The DCR can also include a transformation to filter or modify the data before it's sent to the destination. |
@@ -45,7 +45,7 @@ The following components are required to enable and configure the Azure Monitor 
   | TimeGenerated | datetime |
   | SeverityText | string |
 
-- A data collection process that sends one of the following types data to a Log Analytics workspace using a [data collection rule (DCR)](./data-collection-rule-overview.md).
+- A data collection process that sends one of the following types data to a Log Analytics workspace using a [data collection rule (DCR)](./data-collection-rule-overview.md). {**What is this pre-req?**}
   - Syslog
   - OLTP
 
@@ -323,7 +323,7 @@ Replace the properties in the following table before deploying the template.
 | - `maxStorageUsage` | Capacity of the cache. When 80% of this capacity is reached, the oldest data is pruned to make room for more data.  |
 | - `retentionPeriod` | Retention period in minutes. Data is pruned after this amount of time. |
 | - `schema` | Schema of the data being sent to the cloud pipeline. This must match the schema defined in the stream in the DCR. The schema used in the example is valid for both Syslog and OTLP. |
-| `service` | One entry for each pipeline instance. Only one instance for each pipeline extension is recommended. |
+| `service` | One entry for each pipeline instance. Only one instance for each pipeline extension is recommended. {**What does this mean**?} |
 | - `pipelines` | One entry for each data flow. Each entry matches a `receiver` with an `exporter`. |
 | - - `name` | Unique name of the pipeline. |
 | - - `receivers` | One or more receivers to listen for data to receive. |
