@@ -71,6 +71,7 @@ Change feed items come in the order of their modification time. This sort order 
 > For [multi-region write](multi-region-writes.md) accounts, there are two timestamps:
 > - The server epoch time at which the record was written in the local region. This is recorded as `_ts`.
 > - The epoch time at which the absence of a conflict was confirmed, or the conflict was resolved in the [hub region](multi-region-writes.md#hub-region) for that record. This is recorded as `crts`. 
+> 
 > Change feed items come in the order recorded by `crts`.
 
 
