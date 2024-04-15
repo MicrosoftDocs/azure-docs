@@ -22,10 +22,10 @@
   - name: Azure Operator Service Manager CLI Extension
     expanded: false
     items:
-      - name: Learn how the Azure Operator Service Manager (AOSM) CLI extension discovers container images in source ACRs based on helm chart configuration
-        href: concepts-cli-cnf-image-upload.md
       - name: About the Azure Operator Service Manager CLI extension
         href: concepts-about-aosm-cli-extension.md
+      - name: CLI container image onboarding
+        href: concepts-cli-cnf-image-upload.md
 - name: Quickstarts
   expanded: false
   items:
@@ -65,16 +65,16 @@
 - name: How-to guides
   expanded: false
   items:
-  - name: Onboard Network Functions and Azure Resource Manager (ARM) resources to Azure Operator Service Manager (AOSM)
+  - name: Onboard network functions and Azure resources
     expanded: false
     items:
-      - name: Onboard a Containerized Network Function (CNF) using the Azure Operator Service Manager (AOSM) CLI Extension
+      - name: Onboard a containerized network function (CNF) - CLI
         href: how-to-onboard-a-cnf-using-the-azure-cli.md
-      - name: Onboard a Virtualized Network Function (VNF) using the Azure Operator Service Manager (AOSM) CLI Extension
+      - name: Onboard a virtualized network function (VNF) - CLI
         href: how-to-onboard-a-vnf-using-the-azure-cli.md
       - name: Use Helm option parameters to prevent Containerized Network Function (CNF) deletion on install failure
         href: how-to-use-helm-option-parameters.md
-      - name: Onboard Azure Resource Manager (ARM) resources using the Azure Operator Service Manager (AOSM) CLI Extension
+      - name: Onboard Azure resources - CLI
         href: how-to-onboard-arm-resources-using-the-azure-cli.md
   - name: Create a custom role
     href: how-to-create-custom-role.md
@@ -88,19 +88,16 @@
     href: how-to-delete-operator-resources.md
   - name: Create site network service
     href: how-to-create-site-network-service.md
-  - name: Push and pull artifacts for Containerized Network Functions (CNF) and Azure Operator Nexus
+  - name: Push and pull artifacts for network functions on Azure Operator Nexus
     href: how-to-pull-and-push-artifacts-manually-aon.md
-  - name: Push and pull artifacts for Virtualized Network Functions (VNF) on Azure Core
+  - name: Push and pull artifacts for virtualized network functions (VNF) on Azure
     href: how-to-pull-and-push-artifacts-manually-vnf-core.md
 - name: Troubleshooting
   expanded: false
   items:
-    - name: Azure CLI Extension
-      expanded: true
-      items:
-        - name: Common Issues
-          href: troubleshooting-cli-common-issues.md
-    - name: Helm Install Failures
+    - name: CLI extension common issues
+      href: troubleshooting-cli-common-issues.md
+    - name: Helm install failures
       href: troubleshooting-helm-install-failures.md
 - name: Resources
   expanded: false
