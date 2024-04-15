@@ -24,9 +24,9 @@ For example, you need to ensure traffic is denied between your production and no
 
 ## How do I deploy a security admin rule using network groups?
 
-From the Azure portal, you can [deploy a security admin rule using network groups](./how-to-create-security-admin-rule-network-groups.md) in the Azure portal. To create a security admin rule, create a security admin configuration and add a security admin rule that utilizes network groups as source and destination. Finally, deploy the security admin configuration and the rules apply to the network group resources. 
+From the Azure portal, you can [deploy a security admin rule using network groups](./how-to-create-security-admin-rule-network-groups.md) in the Azure portal. To create a security admin rule, create a security admin configuration and add a security admin rule that utilizes network groups as source and destination. Finally, deploy the security admin configuration and the rules apply to the network group resources.
 
-If you change the resources in your network group or a network group's CIDR range changes, you need to redeploy the configuration after the changes are made. After deployment, the new CIDR ranges will be applied across your network to all new and existing network group resources.
+If you change the resources in your network group or a network group's CIDR range changes, you need to redeploy the security configuration after the changes are made. After deployment, the new CIDR ranges will be applied across your network to all new and existing network group resources.
 
 ## Supported regions
 
