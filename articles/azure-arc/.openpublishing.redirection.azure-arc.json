@@ -92,7 +92,7 @@
         },
         {
             "source_path_from_root": "/articles/azure-arc/system-center-virtual-machine-manager/switch-to-the-new-preview-version.md",
-            "redirect_URL": "/azure/azure-arc/system-center-virtual-machine-manager/switch-to-the-new-preview-version-scvmm",
+            "redirect_url": "/azure/azure-arc/system-center-virtual-machine-manager/switch-to-the-new-preview-version-scvmm",
             "redirect_document_id": false
         },
         {

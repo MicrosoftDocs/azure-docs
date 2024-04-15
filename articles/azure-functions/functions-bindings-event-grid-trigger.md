@@ -48,6 +48,8 @@ The type of the input parameter used with an Event Grid trigger depends on these
 
 [!INCLUDE [functions-bindings-csharp-intro](../../includes/functions-bindings-csharp-intro.md)]
 
+[!INCLUDE [functions-in-process-model-retirement-note](../../includes/functions-in-process-model-retirement-note.md)]
+
 # [Isolated worker model](#tab/isolated-process)
 
 When running your C# function in an isolated worker process, you need to define a custom type for event properties. The following example defines a `MyEventType` class.

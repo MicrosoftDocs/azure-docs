@@ -4,9 +4,10 @@ description: Learn about frequently asked questions for Azure Bastion.
 author: cherylmc
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 02/27/2024
+ms.date: 04/01/2024
 ms.author: cherylmc
 ---
+
 # Azure Bastion FAQ
 
 ## <a name="host"></a>Bastion service and deployment FAQs
@@ -26,6 +27,13 @@ At this time, IPv6 isn't supported. Azure Bastion supports IPv4 only. This means
 ### <a name="data"></a>Where does Azure Bastion store customer data?
 
 Azure Bastion doesn't move or store customer data out of the region it's deployed in.
+
+### <a name="az"></a>Does Azure Bastion support availability zones?
+
+Some regions support the ability to deploy Azure Bastion in an availability zone (or multiple, for zone redundancy).
+To deploy zonally, you can select the availability zones you want to deploy under instance details when you deploy Bastion using manually specified settings. You can't change zonal availability after Bastion is deployed.
+If you aren't able to select a zone, you might have selected an Azure region that doesn't yet support availability zones.
+For more information about availability zones, see [Availability Zones](../reliability/availability-zones-overview.md?tabs=azure-cli).
 
 ### <a name="vwan"></a>Does Azure Bastion support Virtual WAN?
 
@@ -96,7 +104,7 @@ Review any error messages and [raise a support request in the Azure portal](../a
 
 ### <a name="dr"></a>How do I incorporate Azure Bastion in my Disaster Recovery plan?
 
-Azure Bastion is deployed within virtual networks or peered virtual networks, and is associated to an Azure region. You're responsible for deploying Azure Bastion to a Disaster Recovery (DR) site virtual network. If there is an Azure region failure, perform a failover operation for your VMs to the DR region. Then, use the Azure Bastion host that's deployed in the DR region to connect to the VMs that are now deployed there.
+Azure Bastion is deployed within virtual networks or peered virtual networks, and is associated to an Azure region. You're responsible for deploying Azure Bastion to a Disaster Recovery (DR) site virtual network. If there's an Azure region failure, perform a failover operation for your VMs to the DR region. Then, use the Azure Bastion host that's deployed in the DR region to connect to the VMs that are now deployed there.
 
 ### <a name="move-virtual-network"></a>Does Bastion support moving a VNet to another resource group?
 
@@ -157,7 +165,7 @@ See [About VM connections and features](vm-about.md) for supported features.
 
 ### <a name="shareable-links-passwords"></a>Is Reset Password available for local users connecting via shareable link?
 
-No. Some organizations have company policies that require a password reset when a user logs into a local account for the first time. When using shareable links, the user can't change the password, even though a "Reset Password" button may appear.
+No. Some organizations have company policies that require a password reset when a user logs into a local account for the first time. When using shareable links, the user can't change the password, even though a "Reset Password" button might appear.
 
 ### <a name="audio"></a>Is remote audio available for VMs?
 
@@ -203,7 +211,7 @@ To set your target language as your keyboard layout on a Windows workstation, na
 
 Users can use "Ctrl+Shift+Alt" to effectively switch focus between the VM and the browser.
 
-### <a name="keyboard-focus"></a>How do I take keyboard or mouse focus back from an instance?
+### <a name="keyboard-focus"></a>How do I take back keyboard or mouse focus from an instance?
 
 Click the Windows key twice in a row to take back focus within the Bastion window.
 

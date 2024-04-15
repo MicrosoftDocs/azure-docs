@@ -67,6 +67,8 @@ items:
             href: app/azure-web-apps-java.md
           - name: Node.js
             href: app/azure-web-apps-nodejs.md
+          - name: Python
+            href: app/azure-web-apps-python.md
         - name: Azure Functions
           displayName: functions, monitor functions, automation
           href: app/monitor-functions.md
@@ -506,9 +508,20 @@ items:
         - name: High scale
           displayName: Prometheus
           href: containers/prometheus-metrics-scrape-scale.md
-      - name: KEDA integration
-        displayName: Prometheus
-        href: containers/integrate-keda.md
+      - name: Integrations
+        items:
+        - name: Monitor Argo CD
+          displayName: Prometheus
+          href: containers/prometheus-argo-cd-integration.md
+        - name: Monitor Elastic Search
+          displayName: Prometheus
+          href: containers/prometheus-elasticsearch-integration.md
+        - name: Monitor Apache Kafka
+          displayName: Prometheus
+          href: containers/prometheus-kafka-integration.md
+        - name: Scale using KEDA based on Prometheus metrics
+          displayName: Prometheus
+          href: containers/integrate-keda.md
       - name: Send to multiple metric workspaces
         displayName: Prometheus
         href: containers/prometheus-metrics-multiple-workspaces.md
@@ -583,9 +596,9 @@ items:
         href: containers/container-insights-livedata-metrics.md
     - name: Alerting
       items:
-      - name: Prometheus alert rules
-        href: containers/container-insights-metric-alerts.md
-      - name: Log search alert rules
+      - name: Metric alert rules
+        href: containers/kubernetes-metric-alerts.md
+      - name: Log alert rules
         displayName: Container insights
         href: containers/container-insights-log-alerts.md
     - name: Manage cost and usage
@@ -714,8 +727,8 @@ items:
           href: agents/data-collection-syslog.md
         - name: Configure a syslog forwarder
           href: ../sentinel/forward-syslog-monitor-agent.md?bc=%2fazure%2fazure-monitor%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fazure-monitor%2ftoc.json
-        - name: Send data to Event Hubs and Storage
-          href: agents/azure-monitor-agent-send-data-to-event-hubs-and-storage.md
+        - name: Log Analytics gateway
+          href: agents/gateway.md
       - name: Define network settings
         href: agents/azure-monitor-agent-data-collection-endpoint.md
       - name: Configure Private Link for Azure Monitor Agent
@@ -750,8 +763,6 @@ items:
             href: ../virtual-machines/extensions/oms-windows.md?toc=/azure/azure-monitor/toc.json
           - name: VM Extension for Linux
             href: ../virtual-machines/extensions/oms-linux.md?toc=/azure/azure-monitor/toc.json
-          - name: Log Analytics gateway
-            href: agents/gateway.md
           - name: LA Agent Management
             href: agents/agent-manage.md
           - name: LA Agent Health
@@ -786,6 +797,8 @@ items:
           items:
           - name: Overview
             href: agents/diagnostics-extension-overview.md
+          - name: Send data to Event Hubs and Storage
+            href: agents/azure-monitor-agent-send-data-to-event-hubs-and-storage.md
           - name: Windows
             displayName: diagnostics extension
             items:
@@ -1158,6 +1171,9 @@ items:
     items:
       - name: Analyze metrics
         href: essentials/analyze-metrics.md
+      - name: Metrics explorer with PromQL
+        displayName: Prometheus, metrics explorer
+        href: essentials/metrics-explorer.md  
       - name: Understanding metrics aggregation
         href: essentials/metrics-aggregation-explained.md
       - name: Examples of metric charts
@@ -1383,22 +1399,6 @@ items:
         href: alerts/test-action-group-errors.md
     - name: Legacy alerts
       items:
-      - name: About classic alerts
-        href: alerts/alerts-classic.overview.md
-      - name: Prepare for migration
-        href: alerts/alerts-prepare-migration.md
-      - name: Understand the migration tool
-        href: alerts/alerts-understand-migration.md
-      - name: Automatic migration process
-        href: alerts/alerts-automatic-migration.md
-      - name: Manage classic metric alerts
-        href: alerts/alerts-classic-portal.md
-      - name: Classic metric alert using a Resource Manager template
-        href: alerts/alerts-enable-template.md
-      - name: Classic metric alert calling a webhook
-        href: alerts/alerts-webhooks.md
-      - name: Legacy Log Analytics alerts API
-        href: alerts/api-alerts.md
       - name: Upgrade from the legacy Log Analytics alerts API
         href: alerts/alerts-log-api-switch.md
       - name: Edit log search alerts created in previous versions
@@ -1502,7 +1502,7 @@ items:
   - name: Logs Tables reference
     href: /azure/azure-monitor/reference/
   - name: Self-monitoring data reference
-    href: azure-monitor-monitoring-reference.md
+    href: monitor-azure-monitor-reference.md
   - name: Supported metrics
     items:
     - name: Resource metrics

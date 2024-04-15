@@ -2,15 +2,15 @@
 title: How to view evaluation results in Azure AI Studio
 titleSuffix: Azure AI Studio
 description: This article provides instructions on how to view evaluation results in Azure AI Studio.
-manager: nitinme
+manager: scottpolly
 ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
 ms.topic: how-to
 ms.date: 3/28/2024
 ms.reviewer: eur
-ms.author: eur
-author: eric-urban
+ms.author: lagayhar
+author: lgayhardt
 ---
 
 # How to view evaluation results in Azure AI Studio

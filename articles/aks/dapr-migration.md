@@ -100,3 +100,4 @@ Learn more about [Dapr][dapr-overview] and [how to use it][dapr-howto].
 
 <!-- LINKS EXTERNAL -->
 [dapr-prod-guidelines]: https://docs.dapr.io/operations/hosting/kubernetes/kubernetes-production/#enabling-high-availability-in-an-existing-dapr-deployment
+

@@ -109,7 +109,7 @@ Since MO is a tenant level resource, the scope of the permission would be higher
 
 ### Using REST APIs
 
-#### 1. Assign the Monitored Object Contributor role to the operator
+#### 1. Assign the Monitored Objects Contributor role to the operator
 
 This step grants the ability to create and link a monitored object to a user or group.
 
