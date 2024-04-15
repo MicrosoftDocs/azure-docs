@@ -6,7 +6,7 @@ author: pauljewellmsft
 ms.author: pauljewell
 ms.service: azure-blob-storage
 ms.topic: how-to
-ms.date: 04/12/2024
+ms.date: 04/15/2024
 ms.custom: devx-track-python, devguide-python
 ---
 
