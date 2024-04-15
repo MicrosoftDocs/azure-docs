@@ -5,7 +5,7 @@ author: HollyCl
 ms.author: HollyCl
 ms.service: azure-operator-nexus
 ms.topic: concept-article #Required; leave this attribute/value as-is.
-ms.date: 04/10/2024
+ms.date: 04/15/2024
 
 #CustomerIntent: As a <type of user>, I want <what?> so that <why?>.
 ---
@@ -33,6 +33,8 @@ The read-only diagnostic API enables users to execute `show` commands on network
 By using the read-only diagnostic API, network administrators can efficiently troubleshoot issues, verify configurations, and monitor device health across their Azure Operator Nexus devices. 
 
 ## Prerequisites
+
+To use Network Fabric read-only commands, ensure the following steps have been completed:
 
 - Provision the Nexus Network Fabric successfully. 
 - Generate the storage URL.
@@ -70,8 +72,10 @@ To ensure security and compliance, RO commands must adhere to the following spec
 
 ## Troubleshoot using read-only commands
 
+To troubleshoot using read-only commands, follow these steps:
+
 1. Open a Microsoft support ticket. The support engineer makes the necessary updates.
-1. Execute the following Azure CLI commands:
+1. Execute the following Azure CLI command:
 
     ```azurecli
     az networkfabric device run-ro --resource-name "<NFResourceName>" --resource-group "<NFResourceGroupName>" --ro-command "show version"
@@ -79,30 +83,24 @@ To ensure security and compliance, RO commands must adhere to the following spec
     
      Expected output: 
     
+   `{ }`
+
+1. Enter the following command: 
+
     ```azurecli
     az networkfabric device run-ro --resource-group Fab3LabNF-6-0-A --resource-name nffab3-6-0-A-AggrRack-CE1 --ro-command "show version" --no-wait --debug
-
-    cli.knack.cli: Command arguments: ['networkfabric', 'device', 'run-ro', '--resource-group', 'ResourceGroupName', '--resource-name', 'ResourceName', '--ro-command', 'show version', '--no-wait', '--debug']
-    cli.knack.cli: __init__ debug log:
-    Enable color in terminal.
-    Enable VT mode.
-    cli.knack.cli: Event: Cli.PreExecute []
-    cli.knack.cli: Event: CommandParser.OnGlobalArgumentsCreate [<function CLILogging.on_global_arguments at 0x0198A418>, <function OutputProducer.on_global_arguments at 0x01A8D658>, <function CLIQuery.on_global_arguments at 0x01BA82B0>]
-    cli.knack.cli: Event: CommandInvoker.OnPreCommandTableCreate []
-    cli.azure.cli.core: Modules found from index for 'networkfabric': ['azext_managednetworkfabric']
-    cli.azure.cli.core: Loading command modules:
-    cli.azure.cli.core: Name                  Load Time    Groups  Commands
-    cli.azure.cli.core: Total (0)                 0.000         0         0
-    cli.azure.cli.core: These extensions are not installed and will be skipped: ['azext_ai_examples', 'azext_next']
-    cli.azure.cli.core: Loading extensions:
-    cli.azure.cli.core: Name                  Load Time    Groups  Commands  Directory
-    cli.azure.cli.core: managednetworkfabric      0.604        22        26  \XXXXX\XXXXX\.azure\cliextensions\managednetworkfabric
-    cli.azure.cli.core: Total (1)                 0.604        22        26
     ```
+
+    The following (truncated) output appears. Copy the URl through **private preview**. This portion of the URL is used in the follow step to check the status of the operation.
+
+    ```azurecli
+    ***https://management.azure.com/subscriptions/9531faa8-8c39-4165-b033-48697fe943db/providers/Microsoft.ManagedNetworkFabric/locations/EASTUS2EUAP/operationStatuses/59fdc0c8-eeb1-4258-9163-3cf096490148*A9E6DB3DF5C58D67BD395F7A608C056BC8219C392CC1CE0AD22E4C36D70CEE5C?api-version=2022-01-15-privatepreview***&t=638485032018035520&c=MIIHHjCCBgagAwIBAgITfwKWMg6goKCq4WwU2AAEApYyDjANBgkqhkiG9w0BAQsFADBEMRMwEQYKCZImiZPyLGQBGRYDR0JMMRMwEQYKCZImiZPyLGQBGRYDQU1FMRgwFgYDVQQDEw9BTUUgSW5mcmEgQ0EgMDIwHhcNMjQwMTMwMTAzMDI3WhcNMjUwMTI0MTAzMDI3WjBAMT4wPAYDVQQDEzVhc3luY29wZXJhdGlvbnNpZ25pbmdjZXJ0aWZpY2F0ZS5tYW5hZ2VtZW50LmF6dXJlLmNvbTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBALMk1pBZQQoNY8tos8XBaEjHjcdWubRHrQk5CqKcX3tpFfukMI0_PVZK-Kr7xkZFQTYp_ItaM2RPRDXx-0W9-mmrUBKvdcQ0rdjcSXDek7GvWS29F5sDHojD1v3e9k2jJa4cVSWwdIguvXmdUa57t1EHxqtDzTL4WmjXitzY8QOIHLMRLyXUNg3Gqfxch40cmQeBoN4rVMlP31LizDfdwRyT1qghK7vgvworA3D9rE00aM0n7TcBH9I0mu-96JE0gSX1FWXctlEcmdwQmXj_U0sZCu11_Yr6Oa34bmUQHGc3hDvO226L1Au-QsLuRWFLbKJ-0wmSV5b3CbU1kweD5LUCAwEAAaOCBAswggQHMCcGCSsGAQQBgjcVCgQaMBgwCgYIKwYBBQUHAwEwCgYIKwYBBQUHAwIwPQYJKwYBBAGCNxUHBDAwLgYmKwYBBAGCNxUIhpDjDYTVtHiE8Ys-
+    ```
+
 3. Check the status of the operation programmatically using the following Azure CLI command:
 
     ```azurecli
-    az rest -m get -u "<Azure-operationsstatus-endpoint url>"
+    az rest -m get -u "<Azure-AsyncOperation-endpoint url>"
     ```
 
     The operation status indicates if the API succeeded or failed, and appears similar to the following output: 
