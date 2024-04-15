@@ -10,7 +10,7 @@ manager: nitinme
 author: mrbullwinkle #ChrisHMSFT
 ms.author: mbullwin #chrhoder
 recommendations: false
----0
+---
 
 # Azure OpenAI Service models
 
