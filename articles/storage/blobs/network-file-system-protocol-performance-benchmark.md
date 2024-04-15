@@ -21,13 +21,13 @@ Storage performance testing is done to evaluate and compare different storage se
 1. using performance benchmark tools like fio, vdbench, ior, etc.,
 1. using real-world application that is used in production.
 
-No matter which method is used, it's always important to understand other potential bottlenecks in the environment, and make sure they aren't affecting the results. As an example, when measuring write performance, we need to make sure that source disk can read data as fast as the expected write performance. Ideally, in these tests we can use a RAM disk. Same applies for network throughput, CPU utilization, etc.
+No matter which method is used, it's always important to understand other potential bottlenecks in the environment, and make sure they aren't affecting the results. As an example, when measuring write performance, we need to make sure that source disk can read data as fast as the expected write performance. Same principle applies for read performance. Ideally, in these tests we can use a RAM disk. We need to make similar considerations for network throughput, CPU utilization, etc.
 
 **Using standard Linux commands** is the simplest method for performance benchmark testing, but also least recommended. Method is simple as tools exist on every Linux environment and users are familiar with them. Results must be carefully analyzed since many aspects have impact on them, not only storage performance. Two commands that are typically used:
 - testing with `cp` command copies one or more files from source to the destination storage service and measuring the time it takes to fully finish the operation. This command performs buffered, not direct IO and depends on buffer sizes, operating system, threading model, etc. On the other hand, some real-world applications behave in similar way and sometimes represent a good use case.
 - second often used command is `dd`. Command is single threaded and in large scale bandwidth testing, results are limited by the speed of a single CPU core. It's possible to run multiple commands at the same time and assign them to different cores, but that complicates the testing and aggregating results. It's also much simpler to run than some of the performance benchmarking tools.
 
-**Using performance benchmark tools** represents synthetic performance testing that is common in comparing different storage services. Tools are properly designed to utilize available client resources to maximize the storage throughput. Most of the tools are configurable and allow mimicking real-world applications, at least the simpler ones. 
+**Using performance benchmark tools** represents synthetic performance testing that is common in comparing different storage services. Tools are properly designed to utilize available client resources to maximize the storage throughput. Most of the tools are configurable and allow mimicking real-world applications, at least the simpler ones. Mimicking real-world applications requires detail information on application behavior. 
 
 **Using real-world application** is always the best method as it measures performance for real-world workloads that users are running on top of storage service. However, this method is often not practical as it requires replica of the production environment and end-users to generate proper load on the system. Some applications do have a load generation capability and should be used for performance benchmarking.
 
@@ -37,7 +37,10 @@ No matter which method is used, it's always important to understand other potent
 | Performance benchmark tools | - Optimized for performance testing <br> - Very configurable <br> - Simple multi node testing | - Complex to set up a real-world test |
 | Real-world application      | - Provides accurate end-user experience | - Often end-users run tests <br> - Requires replica of the production environment <br> - Can be subjective|
 
-Even though using real-world applications for performance testing is the best option, due to simplicity of testing setup, the most common method is using performance benchmarking tools. We show the recommended setup for running performance tests on Azure Blob Storage with NFS 3.0.
+Even though using real-world applications for performance testing is the best option, due to simplicity of testing setup, the most common method is using performance benchmarking tools. We show the recommended setup for running performance tests on Azure Blob Storage with NFS 3.0. 
+
+> [!TIP]
+> Most performance testing methods are focused on single client performance. To do a scale-out testing, use a performance benchmark tool that can orchestrate multi-client testing (like fio, vdbench, etc.), or build a custom orchestration layer.
 
 ## Selecting virtual machine size
 To properly execute performance testing, the first step is to correctly size a virtual machine used in testing. Virtual machine acts as a client that runs performance benchmarking tool. Most important aspect when selecting the virtual machine size for this test is available network bandwidth. The bigger virtual machine we select, better results we can achieve. If we run the test in Azure, we recommend using one of the [general purpose](/azure/virtual-machines/sizes-general) virtual machines.
