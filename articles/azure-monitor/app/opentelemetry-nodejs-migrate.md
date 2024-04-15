@@ -18,7 +18,7 @@ This guide provides two options to upgrade from the Azure Monitor Application In
     * Position yourself to use all that OpenTelemetry offers now and in the future.
 * **Upgrade** to Node.js SDK 3.X.
     * Postpone code changes while preserving compatibility with existing custom events and metrics.
-    * Access to richer OpenTelemetry instrumentation libraries.
+    * Access richer OpenTelemetry instrumentation libraries.
     * Maintain eligibility for the latest bug and security fixes.
 
 ## [Clean install](#tab/cleaninstall)
