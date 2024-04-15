@@ -18,9 +18,9 @@ After you buy an Azure savings plan, with sufficient permissions, you can make t
 - Change who has access to, and manage, a savings plan
 - Update savings plan name
 - Update savings plan scope
-- Change auto-renewal settings
+- Change autorenewal settings
 
-Except for auto-renewal, none of the changes cause a new commercial transaction or change the end date of the savings plan.
+Except for autorenewal, none of the changes cause a new commercial transaction or change the end date of the savings plan.
 You can't make the following types of changes after purchase:
 - Hourly commitment
 - Term length
@@ -34,7 +34,7 @@ By default, the following users can view and manage savings plans:
 - A Savings plan administrator for savings plans in their Microsoft Entra tenant (directory)
 - A Savings plan reader has read-only access to savings plans in their Microsoft Entra tenant (directory)
 
-The savings plan lifecycle is independent of an Azure subscription, so the savings plan isn't a resource under the Azure subscription. Instead, it's a tenant-level resource with its own Azure RBAC permission separate from subscriptions. Savings plans don't inherit permissions from subscriptions after the purchase.
+The savings plan lifecycle is independent of an Azure subscription, so the savings plan isn't a resource under the Azure subscription. Instead, it's a tenant-level resource with its own Azure role-based access control (RBAC_ permission separate from subscriptions. Savings plans don't inherit permissions from subscriptions after the purchase.
 
 
 ## View and manage savings plans as a billing administrator
