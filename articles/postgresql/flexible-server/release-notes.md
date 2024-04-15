@@ -21,6 +21,7 @@ This page provides latest news and updates regarding feature additions, engine v
 * Public preview of [real-time machine learning predictions](generative-ai-azure-machine-learning.md) with azure_ai extension on Azure Database for PostgreSQL flexible server.
 * General availability of version 0.6.0 of [vector](how-to-use-pgvector.md) extension on Azure Database for PostgreSQL flexible server.
 * General availability of [Migration service](../../postgresql/migrate/migration-service/concepts-migration-service-postgresql.md) in Azure Database for PostgreSQL flexible server.
+* Support for PostgreSQL 16 changes with [BYPASSRLS](../flexible-server/concepts-security#bypassing-row-level-security)
 
 ## Release: February 2024
 * Support for new [minor versions](./concepts-supported-versions.md) 16.1, 15.5, 14.10, 13.13, 12.17, 11.22 <sup>$</sup>
