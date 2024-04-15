@@ -11,7 +11,7 @@ description: Steps on how to integrate TelecomManager with Azure Communication S
 
  # Integrate with TelecomManager
 
-  In this document, we'll go through how to integrate TelecomManager with your Android application. 
+  This document describes how to integrate TelecomManager with your Android application. 
   
   ## Prerequisites
 
@@ -27,7 +27,7 @@ description: Steps on how to integrate TelecomManager with Azure Communication S
  `TelecomManager` Integration in the Azure Communication Services Android SDK handles interaction with other VoIP and PSTN calling Apps that also integrated with `TelecomManager`.
 
   ### Configure `TelecomConnectionService`
-  Add `TelecomConnectionService` to your App AndroidManifest.xml
+  Add `TelecomConnectionService` to your App `AndroidManifest.xml`
   ```
   <application>
     ...
