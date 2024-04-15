@@ -262,7 +262,8 @@ trustedsigning certificate-profile show -g myRG --account-name MyAccount -n  MyP
 4. On the Trusted Signing account section, select the Trusted Signing account to be deleted.
 5. Select **Delete**.
 
-**Note**: This action removes all certificate profiles linked to this account, effectively halting the signing process associated with those specific certificate profiles.
+>[!Note]
+>This action removes all certificate profiles linked to this account, effectively halting the signing process associated with those specific certificate profiles.
 
 - Delete the Certificate Profile:
 
@@ -271,7 +272,8 @@ trustedsigning certificate-profile show -g myRG --account-name MyAccount -n  MyP
 3. On the **Certificate Profiles**, choose the certificate profile to be deleted.
 4. Select **Delete**.
 
-**Note**: This action halts any signing associated with the corresponding certificate profiles.
+>[!Note]
+> This action halts any signing associated with the corresponding certificate profiles.
 
 # [Azure CLI](#tab/adeleteresources-cli)
 
@@ -281,7 +283,8 @@ trustedsigning certificate-profile show -g myRG --account-name MyAccount -n  MyP
 trustedsigning delete -n MyAccount -g MyResourceGroup
 ```
 
-**Note**: This action removes all certificate profiles linked to this account, effectively halting the signing process associated with those specific certificate profiles.
+>[!Note]
+>This action removes all certificate profiles linked to this account, effectively halting the signing process associated with those specific certificate profiles.
 
 - Delete the certificate profile:
 
@@ -289,7 +292,8 @@ trustedsigning delete -n MyAccount -g MyResourceGroup
 trustedsigning certificate-profile delete -g MyResourceGroup --account-name MyAccount -n MyProfile
 ```
 
-**Note**: This action halts any signing associated with the corresponding certificate profiles.
+>[!Note]
+>This action halts any signing associated with the corresponding certificate profiles.
 
 ---
 
