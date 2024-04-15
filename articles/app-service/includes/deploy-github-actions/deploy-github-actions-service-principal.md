@@ -189,7 +189,7 @@ jobs:
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v3
         with:
-          app-name: ${{ vars.AZURE_WEBAPP_NAME }}
+          app-name: ${{ env.AZURE_WEBAPP_NAME }}
           package: '*.war'
 ```
 
