@@ -84,5 +84,8 @@ When dealing with multiple replicas and if the primary region lacks a [paired re
 
 ## Related content
 
-- [create and manage read replicas in the Azure portal](how-to-read-replicas-portal.md)
+- [Read replicas - overview](concepts-read-replicas.md)
+- [Geo-replication](concepts-read-replicas-geo.md)
+- [Virtual endpoints](concepts-read-replicas-virtual-endpoints.md)
+- [Create and manage read replicas in the Azure portal](how-to-read-replicas-portal.md)
 - [Cross-region replication with virtual network](concepts-networking.md#replication-across-azure-regions-and-virtual-networks-with-private-networking)
