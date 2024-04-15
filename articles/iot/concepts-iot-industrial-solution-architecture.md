@@ -448,10 +448,10 @@ You can integrate this with, for example, Microsoft Dynamics Field Services.
 1. Under `Visualizations`, move the `NodeValue` from the `Data` source to the `Y-axis`, select on it and select `Median`.
 1. Save your new report.
 
-    > [!NOTE]
-    > You can add other data from Azure Data Explorer to your report similarly.
+  > [!NOTE]
+  > You can add other data from Azure Data Explorer to your report similarly.
 
-    :::image type="content" source="media/concepts-iot-industrial-solution-architecture/power-bi.png" alt-text="Screenshot of a Power BI view." lightbox="media/concepts-iot-industrial-solution-architecture/power-bi.png" border="false" :::
+  :::image type="content" source="media/concepts-iot-industrial-solution-architecture/power-bi.png" alt-text="Screenshot of a Power BI view." lightbox="media/concepts-iot-industrial-solution-architecture/power-bi.png" border="false" :::
 
 
 ## Connecting the Reference Solution to Microsoft Dynamics 365 Field Service
@@ -562,35 +562,35 @@ When you want to use the Microsoft Sustainability Manager (MSM), you can start w
 
 1. For that you need to go to [this](https://www.microsoft.com/en-us/sustainability/cloud) trial page. Enter there your e-mailadres, agree with the term and select on 'Start your free trial'
 
-:::image type="content" source="media/concepts-iot-industrial-solution-architecture/trial-page.png" alt-text="Screenshot of the MSM trial page." lightbox="media/concepts-iot-industrial-solution-architecture/trial-page.png" border="false" :::
+  :::image type="content" source="media/concepts-iot-industrial-solution-architecture/trial-page.png" alt-text="Screenshot of the MSM trial page." lightbox="media/concepts-iot-industrial-solution-architecture/trial-page.png" border="false" :::
 
 2. After that select your country and add your phone number. 
 
-:::image type="content" source="media/concepts-iot-industrial-solution-architecture/welcome-page.png" alt-text="Screenshot of the welcome page MSM." lightbox="media/concepts-iot-industrial-solution-architecture/welcome-page.png" border="false" :::
+  :::image type="content" source="media/concepts-iot-industrial-solution-architecture/welcome-page.png" alt-text="Screenshot of the welcome page MSM." lightbox="media/concepts-iot-industrial-solution-architecture/welcome-page.png" border="false" :::
 
 3. Your MSM environment is ready to go. 
 
-:::image type="content" source="media/concepts-iot-industrial-solution-architecture/start-page-msm.png" alt-text="Screenshot of the start page of MSM." lightbox="media/concepts-iot-industrial-solution-architecture/start-page-msm.png" border="false" :::
+  :::image type="content" source="media/concepts-iot-industrial-solution-architecture/start-page-msm.png" alt-text="Screenshot of the start page of MSM." lightbox="media/concepts-iot-industrial-solution-architecture/start-page-msm.png" border="false" :::
 
 4. We need to create a new facility in MSM to connect the production lines of this example to the right facility. Navigate to the left bottom menu and select 'Settings'.
 
-:::image type="content" source="media/concepts-iot-industrial-solution-architecture/settings.png" alt-text="Screenshot of the Settings in MSM." lightbox="media/concepts-iot-industrial-solution-architecture/settings.png" border="false" :::
+  :::image type="content" source="media/concepts-iot-industrial-solution-architecture/settings.png" alt-text="Screenshot of the Settings in MSM." lightbox="media/concepts-iot-industrial-solution-architecture/settings.png" border="false" :::
 
 5. Select on 'Add new facility' and create your own facility name that you want to create, for example "Seattle'. Important to add the address of the facility.
 
-:::image type="content" source="media/concepts-iot-industrial-solution-architecture/add-new-facility.png" alt-text="Screenshot of adding a new facility." lightbox="media/concepts-iot-industrial-solution-architecture/add-new-facility.png" border="false" :::
+  :::image type="content" source="media/concepts-iot-industrial-solution-architecture/add-new-facility.png" alt-text="Screenshot of adding a new facility." lightbox="media/concepts-iot-industrial-solution-architecture/add-new-facility.png" border="false" :::
 
 6. Then you have to connect your Facility also to the MSM calculation models. Navigate to the Data page (menu left bottom). 
 
-:::image type="content" source="media/concepts-iot-industrial-solution-architecture/factor-libraries.png" alt-text="Screenshot of factor libraries." lightbox="media/concepts-iot-industrial-solution-architecture/factor-libraries.png" border="false" :::
+  :::image type="content" source="media/concepts-iot-industrial-solution-architecture/factor-libraries.png" alt-text="Screenshot of factor libraries." lightbox="media/concepts-iot-industrial-solution-architecture/factor-libraries.png" border="false" :::
 
 7. Select on 'New factory mapping' where we can connect the Facility to the right library.
 
-:::image type="content" source="media/concepts-iot-industrial-solution-architecture/factor-mapping.png" alt-text="Screenshot of creating a factor mapping." lightbox="media/concepts-iot-industrial-solution-architecture/factor-mapping.png" border="false" :::
+  :::image type="content" source="media/concepts-iot-industrial-solution-architecture/factor-mapping.png" alt-text="Screenshot of creating a factor mapping." lightbox="media/concepts-iot-industrial-solution-architecture/factor-mapping.png" border="false" :::
 
 8. Give your factor mapping a name, for example Seattle Facility. Select in the reference data the name of your facility, in our case 'Seattle' and connect the factor to it. Because this factory is based in Seattle, I'll connect the America library to it.
 
-:::image type="content" source="media/concepts-iot-industrial-solution-architecture/new-factor-mapping.png" alt-text="Screenshot of creating a new factor mapping." lightbox="media/concepts-iot-industrial-solution-architecture/new-factor-mapping.png" border="false" :::
+  :::image type="content" source="media/concepts-iot-industrial-solution-architecture/new-factor-mapping.png" alt-text="Screenshot of creating a new factor mapping." lightbox="media/concepts-iot-industrial-solution-architecture/new-factor-mapping.png" border="false" :::
 
 ### Import data from Azure Data Explorer
 Now we can import the energy data (scope 2) from Azure Data Explorer. In the current setup of this solution not all the needed fields for MSM are in the solution.
@@ -620,7 +620,7 @@ print dtId
 
 2. Navigate to the setting menu and select 'Data'. On the top select the Data Connections and create a new 'Connect to data'. 
 
-:::image type="content" source="media/concepts-iot-industrial-solution-architecture/connect-data.png" alt-text="Screenshot of connecting data." lightbox="media/concepts-iot-industrial-solution-architecture/connect-data.png" border="false" :::
+  :::image type="content" source="media/concepts-iot-industrial-solution-architecture/connect-data.png" alt-text="Screenshot of connecting data." lightbox="media/concepts-iot-industrial-solution-architecture/connect-data.png" border="false" :::
 
 3. Select Activity data and select 'Scope 2 - Purchased Electricity'. We're importing kWh usage, if you have other data select then the right Activity data.  
 
@@ -651,33 +651,33 @@ Because the solution doesn't yet have all the context needed for MSM in the quer
 
 1. Select 'Sign in'. You get a pop-up to sign in with your account. If that isn't working, you need to add your account to the ADX explorer, as in a previous step. 
 
-    :::image type="content" source="media/concepts-iot-industrial-solution-architecture/connection-settings.png" alt-text="Screenshot of settings for connecting to a data source." lightbox="media/concepts-iot-industrial-solution-architecture/connection-settings.png" border="false" :::
+  :::image type="content" source="media/concepts-iot-industrial-solution-architecture/connection-settings.png" alt-text="Screenshot of settings for connecting to a data source." lightbox="media/concepts-iot-industrial-solution-architecture/connection-settings.png" border="false" :::
 
 2. Now you should see your data loading in the screen. Select the 'Map to Entity' button. 
 
-    :::image type="content" source="media/concepts-iot-industrial-solution-architecture/power-query-overview.png" alt-text="Screenshot of a Power Query overview." lightbox="media/concepts-iot-industrial-solution-architecture/power-query-overview.png" border="false" :::
+  :::image type="content" source="media/concepts-iot-industrial-solution-architecture/power-query-overview.png" alt-text="Screenshot of a Power Query overview." lightbox="media/concepts-iot-industrial-solution-architecture/power-query-overview.png" border="false" :::
 
 3. Select Energy and select on Auto map. For the ones that can't be mapped, map them manually. Select on 'Ok' when you're finished. Hit then the 'Create' button and your connection has been created.
 
-    :::image type="content" source="media/concepts-iot-industrial-solution-architecture/mapping-CDM.png" alt-text="Screenshot of mapping to a Common Data Model (CDM)." lightbox="media/concepts-iot-industrial-solution-architecture/mapping-CDM.png" border="false" :::
+  :::image type="content" source="media/concepts-iot-industrial-solution-architecture/mapping-CDM.png" alt-text="Screenshot of mapping to a Common Data Model (CDM)." lightbox="media/concepts-iot-industrial-solution-architecture/mapping-CDM.png" border="false" :::
     
 4. If you want to import it automatically you can select that, in this case we just do it once. When you select daily, adjust your query to only get the day - one day. Otherwise, you get double records. 
 
-    :::image type="content" source="media/concepts-iot-industrial-solution-architecture/finished-import.png" alt-text="Screenshot of a finished import process." lightbox="media/concepts-iot-industrial-solution-architecture/finished-import.png" border="false" :::
+  :::image type="content" source="media/concepts-iot-industrial-solution-architecture/finished-import.png" alt-text="Screenshot of a finished import process." lightbox="media/concepts-iot-industrial-solution-architecture/finished-import.png" border="false" :::
 
 5. Give your connection and name and save. Give it some minutes to import your data into MSM. 
 
-    :::image type="content" source="media/concepts-iot-industrial-solution-architecture/import-name.png" alt-text="Screenshot of importing a name." lightbox="media/concepts-iot-industrial-solution-architecture/import-name.png" border="false" :::
+  :::image type="content" source="media/concepts-iot-industrial-solution-architecture/import-name.png" alt-text="Screenshot of importing a name." lightbox="media/concepts-iot-industrial-solution-architecture/import-name.png" border="false" :::
 
-    If it's completed, you see this screen. 
+  If it's completed, you see this screen. 
 
-    :::image type="content" source="media/concepts-iot-industrial-solution-architecture/import-completed.png" alt-text="Screenshot of a completed import." lightbox="media/concepts-iot-industrial-solution-architecture/import-completed.png" border="false" :::
+  :::image type="content" source="media/concepts-iot-industrial-solution-architecture/import-completed.png" alt-text="Screenshot of a completed import." lightbox="media/concepts-iot-industrial-solution-architecture/import-completed.png" border="false" :::
 
 6. Now you run the calculation. Depending on your settings in MSM, this is automatically done, but if not, go to the 'Calculation profiles'. Select the Purchased Electricity profile (that is connected to your factory) and Run the calculation.
 
-    :::image type="content" source="media/concepts-iot-industrial-solution-architecture/run-calculation.png" alt-text="Screenshot of running a calculation." lightbox="media/concepts-iot-industrial-solution-architecture/run-calculation.png" border="false" :::
+  :::image type="content" source="media/concepts-iot-industrial-solution-architecture/run-calculation.png" alt-text="Screenshot of running a calculation." lightbox="media/concepts-iot-industrial-solution-architecture/run-calculation.png" border="false" :::
 
-    Within some minutes your dashboard should be updated with the new emissions that are coming from the solution. 
+  Within some minutes your dashboard should be updated with the new emissions that are coming from the solution. 
 
 
 ## Related content
