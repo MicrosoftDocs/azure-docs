@@ -10,17 +10,16 @@ ms.reviewer: mmcc
 
 # Migrating from ApplicationInsights Version 2.X to Azure Monitor OpenTelemetry-based Node.js
 
-This article details two options to upgrade from the Azure Monitor Application Insights Node.js 2.X SDK to OpenTelemetry.
+This guide provides two options to upgrade from the Azure Monitor Application Insights Node.js 2.X SDK to OpenTelemetry.
 
-* [Clean install](opentelemetry-nodejs-migrate.md?tabs=clean-install) the [Node.js Azure Monitor OpenTelemetry Distro](https://github.com/microsoft/opentelemetry-azure-monitor-js).
-* [Upgrade](opentelemetry-nodejs-migrate.md?tabs=upgrade) to Node.js SDK 3.X.
-
-Upgrading to OpenTelemetry:
-
-> [!div class="checklist"]
-> - Maintains compatibility with existing custom events and metrics
-> - Provides richer OpenTelemetry instrumentation libraries
-> - Ensures eligibility for the latest bug and security fixes
+* **Clean install** the [Node.js Azure Monitor OpenTelemetry Distro](https://github.com/microsoft/opentelemetry-azure-monitor-js).
+    * Remove dependencies on the Application Insights classic API.
+    * Familiarize yourself with OpenTelemetry APIs and terms.
+    * Position yourself to use all that OpenTelemetry offers now and in the future.
+* **Upgrade** to Node.js SDK 3.X.
+    * Postpone code changes while preserving compatibility with existing custom events and metrics.
+    * Access to richer OpenTelemetry instrumentation libraries.
+    * Maintain eligibility for the latest bug and security fixes.
 
 ## [Clean install](#tab/cleaninstall)
 
@@ -38,7 +37,7 @@ Upgrading to OpenTelemetry:
 
 3. Remove 2.X SDK implementation from your code.
 
-    Remove all Application Insights instrumentation from your code. You must delete any sections where the Application Insights client initializes, modifies, or calls.
+    Remove all Application Insights instrumentation from your code. Delete any sections where the Application Insights client is initialized, modified, or called.
 
 4. Enable Application Insights with the Azure Monitor OpenTelemetry Distro.
 
@@ -90,7 +89,7 @@ This example shows the equivalent of creating and applying a telemetry processor
 
 ```typescript
 const applicationInsights = require("applicationinsights");
-applicationInsights.setup("YOUR_CONNECTION_STRING"
+applicationInsights.setup("YOUR_CONNECTION_STRING");
 applicationInsights.defaultClient.addTelemetryProcessor(addCustomProperty);
 applicationInsights.start();
 
@@ -108,7 +107,7 @@ This example shows how to modify an Azure Monitor OpenTelemetry Distro implement
 ```typescript
 import { Context, Span} from "@opentelemetry/api";
 import { ReadableSpan, SpanProcessor } from "@opentelemetry/sdk-trace-base";
-const { useAzureMonitor, } = require("@azure/monitor-opentelemetry");
+const { useAzureMonitor } = require("@azure/monitor-opentelemetry");
 
 class SpanEnrichingProcessor implements SpanProcessor {
     forceFlush(): Promise<void> {
