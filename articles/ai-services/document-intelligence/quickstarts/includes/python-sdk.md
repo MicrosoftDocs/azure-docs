@@ -171,6 +171,10 @@ def analyze_layout():
         "prebuilt-layout", formUrl
     )
 
+    analyze_request = AnalyzeDocumentRequest(
+        url_source=formUrl
+    )
+
     result: AnalyzeResult = poller.result()
 
     if result.styles and any([style.is_handwritten for style in result.styles]):
