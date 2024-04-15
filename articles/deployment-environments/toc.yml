@@ -55,13 +55,17 @@ items:
       href: how-to-create-configure-projects.md
     - name: Configure AZD-compatible templates
       href: how-to-configure-azure-developer-cli-deployment-environments.md  
+- name: Configure the ADE extensibility model
+  expanded: false
+  items:
+    - name: Configure ARM/Bicep container image to execute deployments
+      href: how-to-configure-extensibility-bicep-container-image.md
+      displayName: custom image, custom runner, extensibility 
 - name: Create and manage environments
   expanded: false
   items: 
     - name: Create environments with Azure Developer CLI (AZD)
       href: how-to-create-environment-with-azure-developer.md
-    - name: ADE extensibility model for ARM/Bicep images
-      href: how-to-configure-extensibility-custom-runner-bicep.md
       displayName: custom image, custom runner, extensibility  
     - name: Manage environments in the developer portal
       href: how-to-manage-environments.md
