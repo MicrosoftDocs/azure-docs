@@ -263,7 +263,7 @@
       href: troubleshoot-subscription/create-subscriptions-deploy-resources.md
     - name: Not available due to conflict error
       href: troubleshoot-subscription/troubleshoot-not-available-conflict.md
-    - name: Can't sign up for a Azure subscription
+    - name: Can't sign up for an Azure subscription
       href: troubleshoot-subscription/cannot-sign-up-subscription.md
 - name: Reference
   items:
