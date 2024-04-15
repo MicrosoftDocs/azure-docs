@@ -146,7 +146,7 @@ Extract text, selection marks, text styles, table structures, and bounding regio
 :::moniker range="doc-intel-4.0.0"
 
 ```javascript
-    const { AzureKeyCredential, DocumentAnalysisClient } = require("@azure-rest/ai-document-intelligence");
+    const { AzureKeyCredential, DocumentIntelligenceClient } = require("@azure-rest/ai-document-intelligence");
 
     // set `<your-key>` and `<your-endpoint>` variables with the values from the Azure portal.
     const key = "<your-key>";
@@ -156,7 +156,7 @@ Extract text, selection marks, text styles, table structures, and bounding regio
   const formUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf"
 
 async function main() {
-    const client = DocumentAnalysisClient(endpoint, new AzureKeyCredential(key));
+    const client = DocumentIntelligenceClient(endpoint, new AzureKeyCredential(key));
 
     const poller = await client.beginAnalyzeDocument("prebuilt-layout", formUrl);
 
@@ -311,7 +311,7 @@ In this example, we analyze an invoice using the **prebuilt-invoice** model.
 
 ```javascript
 
-const { AzureKeyCredential, DocumentAnalysisClient } = require("@azure-rest/ai-document-intelligence");
+const { AzureKeyCredential, DocumentIntelligenceClient } = require("@azure-rest/ai-document-intelligence");
 
     // set `<your-key>` and `<your-endpoint>` variables with the values from the Azure portal.
     const key = "<your-key>";
@@ -321,7 +321,7 @@ const { AzureKeyCredential, DocumentAnalysisClient } = require("@azure-rest/ai-d
     invoiceUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-invoice.pdf"
 
 async function main() {
-    const client = DocumentAnalysisClient(endpoint, new AzureKeyCredential(key));
+    const client = DocumentIntelligenceClient(endpoint, new AzureKeyCredential(key));
 
     const poller = await client.beginAnalyzeDocument("prebuilt-invoice", invoiceUrl);
 if (pages.length <= 0) {
