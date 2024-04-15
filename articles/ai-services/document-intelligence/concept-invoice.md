@@ -302,7 +302,7 @@ The following are the line items extracted from an invoice in the JSON output re
 | Date | date| Date corresponding to each line item. Often it's a date the line item was shipped | 3/4/2021| 2021-03-04 |
 | Tax | number | Tax associated with each line item. Possible values include tax amount, tax %, and tax Y/N | 10% | |
 
-The following are complex fields Extracted from an invoice in the JSON output response:
+The following are complex fields extracted from an invoice in the JSON output response:
 
 ### TaxDetails
 Tax details aims at breaking down the different taxes applied to the invoice total.
