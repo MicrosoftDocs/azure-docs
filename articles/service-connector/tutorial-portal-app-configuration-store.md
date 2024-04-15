@@ -60,7 +60,7 @@ To store your connection configuration in App Configuration, start by connecting
 
 1. Then select **Next: Review + Create**  to review the provided information. Select **Create** to create the service connection. It can take one minute to complete the operation.
 
-## Create a Blob Storage connection in App Service and store configuration into App Configuration
+## Create a Blob Storage connection in App Service and store configuration in App Configuration
 
 Now you can create a service connection to another target service and store configuration into a connected App Configuration instead of app settings. We'll use Blob Storage as an example below. Follow the same process for other target services.
 
