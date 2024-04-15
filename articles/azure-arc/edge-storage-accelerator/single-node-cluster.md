@@ -27,10 +27,10 @@ This section describes how to prepare Linux with AKS enabled by Azure Arc if you
 1. Disable **ACStor** by creating a file named **config.json** with the following contents:
 
    ```json
-   {
-     "hydra.highAvailability.disk.storageClass": "default",
-     "hydra.acstorController.enabled": false
-   }
+    {
+      "feature.diskStorageClass": "default",
+      "acstorController.enabled": false
+    }
    ```
 
 ::: zone-end
@@ -132,10 +132,10 @@ This section describes how to prepare Linux with AKS Edge Essentials if you run 
 1. If you run a single-node cluster, disable **ACStor** by creating a file named **config.json** with the following contents:
 
    ```json
-   {
-     "hydra.acstorController.enabled": false,
-     "hydra.highAvailability.disk.storageClass": "local-path"
-   }
+    {
+      "acstorController.enabled": false,
+      "feature.diskStorageClass": "local-path"
+    }
    ```
 
 ::: zone-end
@@ -167,10 +167,10 @@ This section describes how to prepare Linux with Ubuntu if you run a single-node
 1. Disable **ACStor** by creating a file named **config.json** with the following contents:
 
    ```json
-   {
-     "hydra.acstorController.enabled": false,
-     "hydra.highAvailability.disk.storageClass": "local-path"
-   }
+    {
+      "acstorController.enabled": false,
+      "feature.diskStorageClass": "local-path"
+    }
    ```
 
 ::: zone-end
