@@ -50,7 +50,7 @@ All types of redundancy are supported for reservations. For more information abo
 
 To purchase reserved capacity:
 
-- You must be in the **Owner** role for at least one Enterprise or individual subscription with pay-as-you-go rates.
+- To buy a reservation, you must have owner role or reservation purchaser role on an Azure subscription.
 - For Enterprise subscriptions, **Add Reserved Instances** must be enabled in the EA portal. Or, if that setting is disabled, you must be an EA Admin on the subscription.
 - For the Cloud Solution Provider (CSP) program, only admin agents or sales agents can buy Azure Blob Storage reserved capacity.
 
