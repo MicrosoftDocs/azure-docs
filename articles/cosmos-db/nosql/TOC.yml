@@ -353,7 +353,7 @@
               items:
                 - name: Understanding multi-region writes
                   href: ../multi-region-writes.md
-                - name: Conflict types and resolution policies
+                - name: Conflict resolution
                   displayName: last write wins, custom, multi-region writes, multi-master
                   href: ../conflict-resolution-policies.md
         - name: Global distribution - under the hood
