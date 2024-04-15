@@ -6,7 +6,7 @@ manager: amycolannino
 ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: conceptual
-ms.date: 01/30/2024
+ms.date: 04/15/2024
 ms.author: rolyon
 #Customer intent: As a dev, devops, or it admin, I want to
 ---
