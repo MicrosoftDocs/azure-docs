@@ -41,7 +41,7 @@ To use the Monitoring - Affirmed MCC Data Product:
 1. Deploy the Data Product by following [Create an Azure Operator Insights Data Product](data-product-create.md).
 1. Configure your MCCs to produce performance management data.
 1. Set up ingestion (data upload) from your network. For example, you could use the [Azure Operator Insights ingestion agent](ingestion-agent-overview.md) or [connect Azure Data Factory](ingestion-with-data-factory.md) to your Data Product.
-    - Use the information in [Required ingestion configuration for the Data Product](#required-ingestion-configuration-for-the-data-product) when you're setting up ingestion.
+    - Use the information in [Required ingestion configuration](#required-ingestion-configuration) when you're setting up ingestion.
     - If you're using the Azure Operator Insights ingestion agent, also meet the requirements in [Requirements for the Azure Operator Insights ingestion agent](#requirements-for-the-azure-operator-insights-ingestion-agent).
 
 ### Required ingestion configuration
