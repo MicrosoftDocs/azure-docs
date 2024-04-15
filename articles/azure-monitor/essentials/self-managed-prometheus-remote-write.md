@@ -130,13 +130,33 @@ To configure an Azure Entra ID application for remote-write to Azure Monitor wor
 
 Create an Entra application to use in your remote-write configuration. For more information, see  [Create a Microsoft Entra application and service principal that can access resources](/entra/identity-platform/howto-create-service-principal-portal#register-an-application-with-microsoft-entra-id-and-create-a-service-principal) and create a service principal.
 
+#### [CLI](#tab/entra-application-cli)
 To create an Azure Entra application using CLI, run the following command:
 
 ```azurecli
-az ad sp create-for-rbac --name myServicePrincipalName --role reader --scopes /subscriptions/mySubscriptionId/resourceGroups/myResourceGroupName
+az ad sp create-for-rbac --name myServicePrincipalName \
+--role "Monitoring Metrics Publisher" \
+--scopes <azure monitor workspace data collection rule Id>
+```
+For example,
+```azurecli
+az ad sp create-for-rbac --name PromRemoteWriteApp \
+--role "Monitoring Metrics Publisher" \
+--scopes /subscriptions/abcdef00-1234-5678-abcd-1234567890ab/resourceGroups/MA_amw-001_eastus_managed/providers/Microsoft.Insights/dataCollectionRules/amw-001
 ```
 
+The output contain the `appId` and `password` values. Save these values to use in the Prometheus remote write configuration.
+```azurecli
+{
+  "appId": "01234567-abcd-ef01-2345-67890abcdef0",
+  "displayName": "PromRemoteWriteApp",
+  "password": "AbCDefgh1234578~zxcv.09875dslkhjKLHJHLKJ",
+  "tenant": "abcdef00-1234-5687-abcd-1234567890ab"
+}
+```
+ ---
 
+#### [Portal](#tab/entra-application-portal)
 1. Get the client ID and secret ID of the Microsoft Entra application. In the Azure portal, go to the **Microsoft Entra ID** menu and select **App registrations**.
 1. In the list of applications, copy the value for **Application (client) ID** for the registered application.
 
@@ -167,6 +187,8 @@ az ad sp create-for-rbac --name myServicePrincipalName --role reader --scopes /s
     :::image type="content" source="../containers/media/prometheus-remote-write-active-directory/select-application.png" alt-text="Screenshot that shows selecting the application." lightbox="../containers/media/prometheus-remote-write-active-directory/select-application.png":::
 
 1. To complete the role assignment, select **Review + assign**.
+---
+Something in between
 ---
 
 ## Configure Remote-Write to send data to Azure Monitor Workspace
