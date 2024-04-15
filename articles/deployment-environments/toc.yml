@@ -60,14 +60,12 @@ items:
   items:
     - name: Configure container image to execute deployments
       href: how-to-configure-extensibility-generic-container-image.md
+      displayName: custom image, custom runner, extensibility 
 - name: Create and manage environments
   expanded: false
   items: 
     - name: Create environments with Azure Developer CLI (AZD)
-      href: how-to-create-environment-with-azure-developer.md
-    - name: ADE extensibility model for ARM/Bicep images
-      href: how-to-configure-extensibility-custom-runner-bicep.md
-      displayName: custom image, custom runner, extensibility  
+      href: how-to-create-environment-with-azure-developer.md    
     - name: Manage environments in the developer portal
       href: how-to-manage-environments.md
     - name: Create environments with Azure CLI
