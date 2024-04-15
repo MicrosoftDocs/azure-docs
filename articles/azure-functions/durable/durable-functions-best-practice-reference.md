@@ -75,11 +75,14 @@ A single worker instance can execute multiple work items concurrently to increas
 
 As with anything performance related, the ideal concurrency settings and architechture of your app ultimately depends on your application's workload. Therefore, it's recommended that users to invest in a performance testing harness that simulates their expected workload and to use it to run performance and reliability experiments for their app.
 
-### Avoid passing secrets through inputs, outputs, or exceptions
+### Avoid sensitive data in inputs, outputs, and exceptions
 
-Inputs and outputs (including exceptions) to and from Durable Functions APIs are durably stored in your [storage provider of choice](./durable-functions-storage-providers.md). Depending on how you've configured permissions to those storage resources, that could mean anyone with read access to those storage resources would be able to obtain those secrets. Therefore, if you need to use a secret in your application's logic, we recommend you materialize it through something like the KeyVault SDK instead of communicating it directly through the Durable Functions APIs.
+Inputs and outputs (including exceptions) to and from Durable Functions APIs are [durably persisted](./durable-functions-serialization-and-persistence.md) in your [storage provider of choice](./durable-functions-storage-providers.md). If those inpusts, outputs, or exceptions contain sensitive data (such as secrets, connection strings, personally identifiable information, etc.) then anyone with read access to those resources would be able to obtain them. To safely deal with sensitive data, we recommend that users fetch them directly from Azure Key Vault or environment variables _inside of activity functions_ and to never communicate that data to orchestrators or entities. That should help prevent this data from leaking into your storage resources.
 
 > [!NOTE]
+> This guidance also applies to the `CallHttp` orchestrator API, which persists its request and response payloads. If your target HTTP endpoints require authentication, then we recommend users to implement the HTTP Call themselves inside of an activity, or to use the built-in managed identity support offered by `CallHTTP`, which does not persist any credentials to storage.
+
+> [!TIP]
 > We also recommend against logging data containing secrets as anyone with read access to your logs (for example in Application Insights), would be able to obtain those secrets.
 
 ## Diagnostic tools
