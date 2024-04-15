@@ -5,7 +5,7 @@ author: shuaijunye
 ms.service: synapse-analytics
 ms.reviewer: wiassaf, sngun, eskot
 ms.topic: how-to
-ms.date: 02/20/2023
+ms.date: 04/15/2023
 ms.author: shuaijunye
 ms.subservice: spark
 ms.custom: kr2b-contr-experiment, devx-track-azurepowershell
