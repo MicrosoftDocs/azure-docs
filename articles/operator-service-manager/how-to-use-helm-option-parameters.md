@@ -19,7 +19,7 @@ Site Network Service (SNS) deployments might fail because an underlying Network 
 - Helm install failures can be complex. Debugging requires technical knowledge of several technologies in addition to domain knowledge of your NF
   - Working knowledge of [Helm](https://helm.sh/docs/)
   - Working knowledge of [Kubernetes](https://kubernetes.io/docs/home/) and [kubectl](https://kubernetes.io/docs/reference/kubectl/) commands
-  - Working knowledge of pulling and pushing artifacts to [Azure Container Registry](https://learn.microsoft.com/en-us/azure/container-registry/container-registry-get-started-docker-cli?tabs=azure-cli)
+  - Working knowledge of pulling and pushing artifacts to [Azure Container Registry](/azure/container-registry/container-registry-get-started-docker-cli?tabs=azure-cli)
 - You require the `Contributor` role assignments on the resource group that contains the AOSM managed Artifact Store
 - A suitable IDE, such as [Visual Studio Code](https://code.visualstudio.com/)
 - The [ORAS CLI](https://oras.land/docs/installation/)
@@ -205,4 +205,4 @@ resource nfResource 'Microsoft.HybridNetwork/networkFunctions@2023-09-01' = [for
 
 ## Next steps
 
-You can now retry the SNS deployment. You can submit the deployment again through ARM, BICEP, or the AOSM REST API. You can also delete the failed SNS through the Azure portal SNS overview and redeploy following [the operator quickstart](/quickstart-containerized-network-function-operator.md), replacing the quickstart NF parameters with the parameters for your network function. The helm releases deployed to the Kubernetes cluster won't be removed on failure. [How to debug SNS deployment failures](/how-to-debug-sns-deployment-failures.md) describes a toolkit for debugging common SNS deployment failures.
+You can now retry the SNS deployment. You can submit the deployment again through ARM, BICEP, or the AOSM REST API. You can also delete the failed SNS through the Azure portal SNS overview and redeploy following [the operator quickstart](quickstart-containerized-network-function-operator.md), replacing the quickstart NF parameters with the parameters for your network function. The helm releases deployed to the Kubernetes cluster won't be removed on failure. [How to debug SNS deployment failures](troubleshooting-helm-install-failures.md) describes a toolkit for debugging common helm install failures.
