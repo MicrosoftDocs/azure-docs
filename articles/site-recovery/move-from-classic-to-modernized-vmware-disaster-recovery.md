@@ -194,7 +194,7 @@ All replicated items that are part of a replication group are migrated together.
 ### Can I migrate my classic setup with public endpoint to modernized setup with private endpoint?
 
 No, you can only move classic disaster recovery setup with public endpoint to modernized public endpoint setup. 
-Note that, classic disaster recovery setup with private endpoint can't be migrated to modernized disaster recovery setup with private endpoint.
+Note that, non-private endpoint to private endpoint migration is not supported, but private endpoint to private endpoint migration is supported.
 
 ## Next steps
 
