@@ -11,7 +11,7 @@ ms.topic: how-to
 #customer intent: As a developer, I want to learn how to build and utilize custom images with my environment definitions for deployment environments.
 ---
 
-# Custom image support in Azure Deployment Environments
+# Configure a container image to execute deployments
 
 In this article, you learn how to build and utilize custom images within your environment definitions for deployments in Azure Deployment Environments (ADE).
 
