@@ -2,7 +2,7 @@
 title: Identify AI workloads and models in use
 description: Learn how to use the cloud security explorer to determine which AI workloads and models are running in your environment.
 ms.topic: how-to
-ms.date: 04/08/2024
+ms.date: 04/15/2024
 # customer intent: As a user, I want to learn how to identify AI workloads and models in my environment so that I can assess their security posture.
 ---
 

@@ -2,7 +2,7 @@
 title: Identify GenAI attack paths
 description: Learn how to identify attack paths for your GenAI applications in Microsoft Defender for Cloud and enhance their security.
 ms.topic: how-to
-ms.date: 04/04/2024
+ms.date: 04/15/2024
 #customer intent: As a user, I want to learn how to identify attack paths for my GenAI applications in Microsoft Defender for Cloud so that I can enhance their security.
 ---
 

@@ -2,7 +2,7 @@
 title: Identify vulnerabilities on AI container images
 description: Learn how to use the cloud security explorer to determine all container images within your environment, that contain known generative AI vulnerabilities.
 ms.topic: how-to
-ms.date: 04/08/2024
+ms.date: 04/15/2024
 # customer intent: As a user, I want to learn how to identify all container images within my environment, that contain known Generative AI vulnerabilities and provision Azure OpenAI so that I can assess their security posture.
 ---
 
@@ -30,7 +30,7 @@ If you have multiple GenAI container images within your environment, you can use
 
 1. Select the **Container running container images with known Generative AI vulnerabilities** query template.
 
-    :::image type="content" source="media/identify-ai-container-image/GenAI-vulnerable-images-query.png" alt-text="Screenshot that shows where to locate the GenAI vulnerable container images query." lightbox="media/identify-ai-container-image/GenAI-vulnerable-images-query.png":::
+    :::image type="content" source="media/identify-ai-container-image/gen-ai-vulnerable-images-query.png" alt-text="Screenshot that shows where to locate the GenAI vulnerable container images query." lightbox="media/identify-ai-container-image/gen-ai-vulnerable-images-query.png":::
 
 1. Select **Search**.
 
