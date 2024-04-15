@@ -41,7 +41,7 @@ Follow these steps to connect an app to Apache Kafka & Apache Flink on Confluent
 
      :::image type="content" source="./media/connect/confluent-source.png" alt-text="Screenshot from the Azure portal showing the Source options.":::
 
-1. Refer to the two tabs below for instructions to connect to a Confluent resource deployed via Azure Marketplace or deployed directy on the Confluent user interface.
+1. Refer to the two tabs below for instructions to connect to a Confluent resource deployed via Azure Marketplace or deployed directly on the Confluent user interface.
 
     > [!IMPORTANT]
     > Service Connector for Azure Marketplace Confluent resources is currently in PREVIEW.
