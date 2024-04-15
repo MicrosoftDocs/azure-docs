@@ -8,7 +8,6 @@ ms.service: azure-ai-speech
 ms.topic: how-to
 ms.date: 4/15/2024
 ms.author: v-baolianzou
-zone_pivot_groups: speech-studio-rest
 ---
 
 # Deploy your custom text to speech avatar model as an endpoint
