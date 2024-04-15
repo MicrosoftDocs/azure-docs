@@ -1,6 +1,6 @@
 ---
-title: Can't sign up for a Azure subscription
-description: Discusses that you receive an error message when signing up for a Microsoft Azure subscription.
+title: Can't sign up for an Azure subscription
+description: Discusses that you receive an error message when signing up for an Azure subscription.
 ms.topic: troubleshooting
 ms.date: 04/15/2024
 ms.author: banders
