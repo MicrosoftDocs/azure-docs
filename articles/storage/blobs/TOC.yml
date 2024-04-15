@@ -925,6 +925,8 @@ items:
         items:
         - name: Performance tuning for uploads and downloads
           href: storage-blobs-tune-upload-download-python.md
+        - name: Implement a retry policy
+          href: storage-retry-policy-python.md
         - name: Configure logging
           href: /azure/developer/python/sdk/azure-sdk-logging?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
     - name: Test with a storage emulator
