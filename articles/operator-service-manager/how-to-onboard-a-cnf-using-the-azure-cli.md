@@ -35,7 +35,7 @@ Onboarding is a multi-step process. Once you meet the prerequisites, you'll use 
 - You require the `Contributor` and `AcrPush` role assignments on the subscription that will contain the AOSM managed Artifact Store. These permissions allow the Azure CLI AOSM Extension to do a direct ACR-to-ACR copy. Direct copy is the fastest method of transferring images from one ACR to another.
   - Your company policy may prevent you from having subscription-scoped permissions. The `--no-subscription-permissions` parameter, available on the `az aosm nfd publish` and `az aosm nsd publish` commands, uses tightly scoped permissions derived from the AOSM service to orchestrate a two-step copy to and from your local machine. This two-step copy is slower, but doesn't require subscription scoped permissions.
 
-### Helm packages and container images
+### Helm packages
 
 - The Helm packages you intend to onboard must be present on the local storage of the machine from which you're executing the CLI.
   - The Azure CLI AOSM extension will use the `values.yaml` file in the helm package by default. The CLI supports overriding this with an alternative `values.yaml`. This alternative file must exist on the local storage of the machine from which you're executing the CLI.
@@ -43,12 +43,10 @@ Onboarding is a multi-step process. Once you meet the prerequisites, you'll use 
 > [!NOTE]
 > It is strongly recommended that the Helm package contains a schema for the helm values and that the helm package templates as you expect when `helm template` is run using the values.yaml you intend to use when onboarding to AOSM.
 
-- Your container images must be present in either:
-  - A reference to existing Azure Container Registries that contain the images for your CNF.
-  - A reference to other Container Registries that contain the images for your CNF.
+### Container images
 
-> [!IMPORTANT]
-> Use the `docker login` command to sign in to a non-Azure container registry hosting your container images before you run any `az aosm` commands.
+- Your container images are present in either an existing ACR or an alternative container registry that supports the Docker API. Container images must be stored in your source registry in a structure that matches the image location defined in your helm charts. This requirement is explained in [CLI CNF image discovery and upload](concepts-cli-cnf-image-upload.md).
+- Use the `docker login` command to sign in to a non-Azure container registry hosting your container images before you run any `az aosm` commands. This step isn't required if you're using an ACR: the Azure CLI AOSM extension will automatically sign in.
 
 ### Helm and Docker engine
 
@@ -215,7 +213,7 @@ This section creates a folder in the working directory called `nsd-cli-output`. 
 az aosm nsd generate-config --output-file <nsd-output-filename.jsonc>
 ```
 
-1. Open the input file you generated in the previous step and use the inline comments to enter the required values. This example shows the Az CLI AOSM extension input file for a fictional Contoso NSD that can be used to deploy a fictional Contoso CNF onto an Arc-connected Nexus Kubernetes cluster.
+1. Open the input file you generated in the previous step and use the inline comments to enter the required values. The generated input file contains an additional `resource_element_type` of type `ArmTemplate`. This is unnecessary when onboarding a CNF; you can delete it. The result should look like this example. The example shows the Az CLI AOSM extension input file for a fictional Contoso NSD that can be used to deploy a fictional Contoso CNF onto an Arc-connected Nexus Kubernetes cluster.
 
 ```json
 {
