@@ -49,7 +49,7 @@ The following sections show how to configure a retry policy using different appr
 - [Create an ExponentialRetry policy](#create-an-exponentialretry-policy)
 - [Create a LinearRetry policy](#create-a-linearretry-policy)
 
-#### Use the default retry policy
+### Use the default retry policy
 
 The default retry policy for the Azure Storage client library for Python is an instance of [ExponentialRetry](/python/api/azure-storage-blob/azure.storage.blob.exponentialretry) with the default values. If you don't specify a retry policy, the default retry policy is used. You can also pass any configuration properties as keyword arguments when you create a client object for the service.
 
@@ -57,7 +57,7 @@ The following code example shows how to pass a value for the `retry_total` prope
 
 :::code language="python" source="~/azure-storage-snippets/blobs\howto\python\blob-devguide-py\blob_devguide_retry.py" id="Snippet_retry_default":::
 
-#### Create an ExponentialRetry policy
+### Create an ExponentialRetry policy
 
 You can configure a retry policy by creating an instance of [ExponentialRetry](/python/api/azure-storage-blob/azure.storage.blob.exponentialretry), and passing the instance to the client constructor using the `retry_policy` keyword argument. This approach can be useful if you need to configure multiple properties or multiple policies for different clients.
 
@@ -65,7 +65,7 @@ The following code example shows how to configure the retry options using an ins
 
 :::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob_devguide_retry.py" id="Snippet_retry_exponential":::
 
-#### Create a LinearRetry policy
+### Create a LinearRetry policy
 
 You can configure a retry policy by creating an instance of [LinearRetry](/python/api/azure-storage-blob/azure.storage.blob.linearretry), and passing the instance to the client constructor using the `retry_policy` keyword argument. This approach can be useful if you need to configure multiple properties or multiple policies for different clients.
 
