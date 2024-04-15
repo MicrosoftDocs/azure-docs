@@ -18,13 +18,21 @@ This trouble-shooting guide provides instruction on what information to provide 
 
 ### Symptom
  
-If your Synapse Studio session becomes idle for a large period of time (>30m) the publish operation may fail throwing this error message:
+In some cases, if your browser session has been inactive for an extended period, your attempt to publish may result in a failure due to a message about token expiration:
 
 `ERROR: Unauthorized Inner error code: ExpiredAuthenticationToken Message: Token Authentication failed with SecurityTokenExpiredException - MISE12034: AuthenticationTicketProvider Name:AuthenticationTicketProvider, GetVersion:1.9.2.0.;`
 
 ### Root Cause and mitigation:
 
-You should avoid long periods of inactivity in Synapse Studio, specially in scenarios where your network conditions are restricting the usage of the http2 protocol.  
+Handling token expiration in Synapse Studio requires careful consideration, especially when working in a live workspace without Git integration. Here’s how to manage your session to avoid losing work:
+1. **With Git Integration:**
+   - Regularly commit your changes. This ensures that even if you need to refresh your browser to renew your session, your work is safely stored.
+   - After committing, you can refresh your browser to reset the session and then continue to publish your changes.
+2. **Without Git Integration:**
+   - Before taking breaks or periods of inactivity, attempt to publish your changes. It is critical to remember that if your session has been idle for a long time, you might encounter a token expiration error when you try to publish upon returning.
+   - If you are concerned about the risk of losing unsaved changes due to a required refresh, consider structuring your work periods to include frequent save and publish actions, avoiding leaving the session idle for extended periods.
+
+**Important Note:** In a live workspace without Git, if you find your session has been idle and you face a token expiration, you are indeed faced with a dilemma: refresh the page and risk losing unsaved changes, or attempt to publish the token has not yet expired. To minimize this risk, try to keep active sessions or save frequently, depending on the nature of your work and the environment setup.
 
 ## Serverless SQL pool service connectivity issue
 
