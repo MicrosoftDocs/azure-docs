@@ -74,7 +74,7 @@ Now you can create a service connection to another target service and store conf
     | **Connection name** | Unique name | The connection name that identifies the connection between your App Service and target service. |
     | **Subscription** | One of your subscriptions | The subscription in which your target service is deployed. The target service is the service you want to connect to. The default value is the subscription listed for the App Service. |
     | **Storage account** | Your storage account | The target storage account you want to connect to. If you choose a different service type, select the corresponding target service instance. |
-    | **Client type** | The same app stack on this App Service | Your application stack that works with the target service you selected. The default value comes from the App Service runtime stack. |
+    | **Client type** | The same app stack on this App Service | The application stack that works with the target service you selected. The default value comes from the App Service runtime stack. |
 
     :::image type="content" source="./media/app-configuration-store-tutorial/storage_create.png" alt-text="Screenshot of the Azure portal, creating Blob Storage connection."  lightbox="./media/app-configuration-store-tutorial/storage_create.png":::
 
