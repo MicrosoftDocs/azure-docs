@@ -10,15 +10,13 @@ ms.date: 04/08/2024
 
 # What is Edge Storage Accelerator? (preview)
 
-Edge Storage Accelerator (ESA) is a first-party storage system designed for Arc-connected Kubernetes clusters. ESA can be deployed to write files to a "ReadWriteMany" persistent volume claim (PVC) where they are then transferred to Azure Blob Storage. ESA offers a range of features to support Azure IoT Operations and other Arc Services. ESA with high availability and fault-tolerance will be fully supported and generally available (GA) in the second half of 2024.
-
-## Edge Storage Accelerator preview
-
 > [!IMPORTANT]
 > Edge Storage Accelerator is currently in PREVIEW.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
 > For access to the preview, you can [complete this questionnaire](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR19S7i8RsvNAg8hqZuHbEyxUNTEzN1lDT0s3SElLTDc5NlEzQTE2VVdKNi4u) with details about your environment and use case. Once you submit your responses, one of the ESA team members will get back to you with an update on your request.
+
+Edge Storage Accelerator (ESA) is a first-party storage system designed for Arc-connected Kubernetes clusters. ESA can be deployed to write files to a "ReadWriteMany" persistent volume claim (PVC) where they are then transferred to Azure Blob Storage. ESA offers a range of features to support Azure IoT Operations and other Arc Services. ESA with high availability and fault-tolerance will be fully supported and generally available (GA) in the second half of 2024.
 
 ## What does Edge Storage Accelerator do?
 
