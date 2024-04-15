@@ -54,7 +54,7 @@ When you create a new deployment, you receive prompts for a scoring script and d
 
 :::image type="content" source="./media/how-to-batch-scoring-script/configure-scoring-script.png" alt-text="Screenshot of the step where you can configure the scoring script in a new deployment.":::
 
-For MLflow models, scoring scripts are automatically generated but you can indicate one by checking this option:
+For MLflow models, scoring scripts are automatically generated but you can indicate one by selecting this option:
 
 :::image type="content" source="./media/how-to-batch-scoring-script/configure-scoring-script-mlflow.png" alt-text="Screenshot of the step where you can configure the scoring script in a new deployment when the model has MLflow format.":::
 
@@ -64,7 +64,7 @@ The scoring script must contain two methods:
 
 #### The `init` method
 
-Use the `init()` method for any costly or common preparation. For example, use it to load the model into memory. The start of the entire batch job calls this function one time. The files of your model are available in a path determined by the environment variable `AZUREML_MODEL_DIR`. Depending on how your model was registered, its files might be contained in a folder. In the next example, the model has several files in a folder named `model`. For more information, visit [how you can find out what's the folder that your model uses](#using-models-that-are-folders).
+Use the `init()` method for any costly or common preparation. For example, use it to load the model into memory. The start of the entire batch job calls this function one time. The files of your model are available in a path determined by the environment variable `AZUREML_MODEL_DIR`. Depending on how your model was registered, its files might be contained in a folder. In the next example, the model has several files in a folder named `model`. For more information, visit [how you can determine the folder that your model uses](#using-models-that-are-folders).
 
 ```python
 def init():
@@ -126,7 +126,7 @@ __mnist/environment/conda.yaml__
         
 :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/mnist-classifier/deployment-torch/environment/conda.yaml":::
 
-Visit [Create a batch deployment](how-to-use-batch-endpoint.md#create-a-batch-deployment) for more information about how to indicate the environment for your model.
+Visit [Create a batch deployment](how-to-use-batch-model-deployments.md#create-a-batch-deployment) for more information about how to indicate the environment for your model.
 
 ## Writing predictions in a different way
 
@@ -219,6 +219,6 @@ def init():
 
 ## Next steps
 
-* [Troubleshooting batch endpoints](how-to-troubleshoot-batch-endpoints.md).
-* [Use MLflow models in batch deployments](how-to-mlflow-batch.md).
-* [Image processing with batch deployments](how-to-image-processing-batch.md).
+* [Troubleshooting batch endpoints](how-to-troubleshoot-batch-endpoints.md)
+* [Use MLflow models in batch deployments](how-to-mlflow-batch.md)
+* [Image processing with batch deployments](how-to-image-processing-batch.md)
