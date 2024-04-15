@@ -62,20 +62,27 @@ The following data types are provided for all Quality of Experience - Affirmed M
 
 To use the Quality of Experience - Affirmed MCC Data Product:
 
-1. Deploy the Data Product by following [Create an Azure Operator Insights Data Product](data-product-create.md).
-1. Configure your network to provide data by setting up an Azure Operator Insights ingestion agent on a virtual machine (VM).
+- Deploy the Data Product by following [Create an Azure Operator Insights Data Product](data-product-create.md).
+- Configure your network to provide data either using your own ingestion method, or by setting up the [Azure Operator Insights ingestion agent](ingestion-agent-overview.md).
+    - Use the information in [Required ingestion configuration](#required-ingestion-configuration) when you're setting up ingestion.
+    - If you're using the Azure Operator Insights ingestion agent, also meet the requirements in [Requirements for the Azure Operator Insights ingestion agent](#requirements-for-the-azure-operator-insights-ingestion-agent).
+- Configure your Affirmed MCCs to send EDRs to the ingestion agent. See [Configuration for Affirmed MCCs](#configuration-for-affirmed-mccs).
 
-    1. Read [Requirements for the Azure Operator Insights ingestion agent](#requirements-for-the-azure-operator-insights-ingestion-agent).
-    1. [Install the Azure Operator Insights ingestion agent and configure it to upload data](set-up-ingestion-agent.md).
+### Required ingestion configuration
 
-    Alternatively, you can provide your own ingestion agent.
-1. Configure your Affirmed MCCs to send EDRs to the ingestion agent. See [Configuration for Affirmed MCCs](#configuration-for-affirmed-mccs).
+Use the information in this section to configure your ingestion method. Refer to the documentation for your chosen method to determine how to supply these values.
 
-## Requirements for the Azure Operator Insights ingestion agent
+| Data type | Required container name | Requirements for data |
+|---------|---------|---------|
+| `edrs` | `edrs` | MCC EDR data. |
+| `device` | `device` | Device reference data. |
+| `edr-validation` | `edr-validation` | PM Stat data for `EDR_HTTP_STATS`, `EDR_FLOW_STATS`, and `EDR_SESSION_STATS` datasets. File name prefixes must match the name of the dataset. |
+
+### Requirements for the Azure Operator Insights ingestion agent
 
 Use the VM requirements to set up a suitable VM for the ingestion agent. Use the example configuration to configure the ingestion agent to upload data to the Data Product, as part of following [Install the Azure Operator Insights ingestion agent and configure it to upload data](set-up-ingestion-agent.md).
 
-### VM requirements
+#### VM requirements
 
 Each agent instance must run on its own Linux VM. The number of VMs needed depends on the scale and redundancy characteristics of your deployment. This recommended specification can achieve 1.5-Gbps throughput on a standard D4s_v3 Azure VM. For any other VM spec, we recommend that you measure throughput at the network design stage.
 
@@ -96,7 +103,7 @@ Each VM running the agent must meet the following minimum specifications.
 | Other    | SSH or alternative access to run shell commands                     |
 | DNS      | (Preferable) Ability to resolve Microsoft hostnames. If not, you need to perform extra configuration when you set up the agent (described in [Map Microsoft hostnames to IP addresses for ingestion agents that can't resolve public hostnames](map-hostnames-ip-addresses.md).) |
 
-#### Deploying multiple VMs for fault tolerance
+##### Deploying multiple VMs for fault tolerance
 
 The ingestion agent is designed to be highly reliable and resilient to low levels of network disruption. If an unexpected error occurs, the agent restarts and provides service again as soon as it's running.
 
@@ -104,22 +111,7 @@ The agent doesn't buffer data, so if a persistent error or extended connectivity
 
 For extra fault tolerance, you can deploy multiple instances of the ingestion agent and configure the MCC to switch to a different instance if the original instance becomes unresponsive, or to share EDR traffic across a pool of agents. For more information, see the [Affirmed Networks Active Intelligent vProbe System Administration Guide](https://manuals.metaswitch.com/vProbe/latest/vProbe_System_Admin/Content/02%20AI-vProbe%20Configuration/Generating_SESSION__BEARER__FLOW__and_HTTP_Transac.htm) (only available to customers with Affirmed support) or speak to the Affirmed Networks Support Team.
 
-### Required agent configuration
-
-Use the information in this section when [setting up the agent and configuring the agent software](set-up-ingestion-agent.md#configure-the-agent-software).
-
-The ingestion agent must use MCC EDRs as a data source.
-
-|Information | Configuration setting for Azure Operator Ingestion agent  | Value  |
-|---------|---------|---------|
-|Container in the Data Product input storage account |`sink.container_name` | `edr` |
-
-> [!IMPORTANT]
-> `sink.container_name` must be set exactly as specified here. You can change other configuration to meet your requirements.
-
-For more information about all the configuration options, see [Configuration reference for Azure Operator Insights ingestion agent](ingestion-agent-configuration-reference.md).
-
-## Configuration for Affirmed MCCs
+### Configuration for Affirmed MCCs
 
 When you have installed and configured your ingestion agents, configure the MCCs to send EDRs to them.
 

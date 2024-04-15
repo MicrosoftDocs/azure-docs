@@ -242,7 +242,7 @@ Repeat these steps for each VM onto which you want to install the agent:
 ## Configure the agent software
 
 The configuration you need is specific to the type of source and your Data Product. Ensure you have access to your Data Product's documentation to see the required values. For example:
-- [Quality of Experience - Affirmed MCC Data Product - ingestion configuration](concept-mcc-data-product.md#required-agent-configuration)
+- [Quality of Experience - Affirmed MCC Data Product - ingestion configuration](concept-mcc-data-product.md#required-ingestion-configuration)
 - [Monitoring - Affirmed MCC Data Product - ingestion configuration](concept-monitoring-mcc-data-product.md#required-ingestion-configuration)
 
 1. Connect to the VM over SSH.
