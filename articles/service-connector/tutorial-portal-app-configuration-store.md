@@ -83,7 +83,7 @@ Now you can create a service connection to another target service and store conf
 
     :::image type="content" source="./media/app-configuration-store-tutorial/storage_auth.png" alt-text="Screenshot of the Azure portal, selecting Blob Storage connection auth.":::
 
-1. Select **Next: Network** and **Configure firewall rules** to update the firewall allowlist in Storage Account so that your App Service can reach the Storage Account.
+1. Select **Next: Networking** and **Configure firewall rules** to update the firewall allowlist in Storage Account so that your App Service can reach the Storage Account.
 
     :::image type="content" source="./media/app-configuration-store-tutorial/storage_network.png" alt-text="Screenshot of the Azure portal, selecting Blob Storage connection network.":::
 
