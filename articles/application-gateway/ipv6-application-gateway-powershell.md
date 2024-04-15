@@ -47,12 +47,10 @@ The IPv6 Application Gateway is available to all public cloud regions where Appl
 * IPv6 backends are currently not supported
 * IPv6 private Link is currently not supported
 * IPv6-only Application Gateway is currently not supported. Application Gateway must be dual stack (IPv6 and IPv4)
-* Deletion of frontend IP addresses isn't supported
 * Application Gateway Ingress Controller (AGIC) doesn't support IPv6 configuration
 * Existing IPv4 Application Gateways can't be upgraded to dual stack Application Gateways
+* WAF custom rules with an IPv6 match condition are not currently supported
 
-> [!NOTE]
-> If you use WAF v2 SKU for a frontend with both IPv4 and IPv6 addresses, WAF rules only apply to IPv4 traffic. IPv6 traffic bypasses WAF and may get blocked by some custom rule.
 
 
 

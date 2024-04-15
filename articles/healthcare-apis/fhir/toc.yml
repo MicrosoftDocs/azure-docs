@@ -111,9 +111,9 @@ items:
       href: tutorial-member-match.md
     - name: Patient/$everything
       href: patient-everything.md
-    - name: $purge-history operation
+    - name: $purge-history
       href: purge-history.md
-    - name: $bulk-delete operation
+    - name: $bulk-delete
       href: fhir-bulk-delete.md
     - name: $validate
       items: 

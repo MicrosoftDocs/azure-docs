@@ -86,6 +86,16 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/storage/blobs/immutable-time-based-retention-policy-overview.md",
+            "redirect_url": "/azure/storage/blobs/immutable-storage-overview#time-based-retention-policies",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/immutable-legal-hold-overview.md",
+            "redirect_url": "/azure/storage/blobs/immutable-storage-overview#legal-holds",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/storage/blobs/data-lake-storage-handle-data-using-databricks.md",
             "redirect_url": "/azure/azure-databricks/databricks-extract-load-sql-data-warehouse",
             "redirect_document_id": false

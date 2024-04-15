@@ -18,7 +18,7 @@ The [NXLog FIM](https://docs.nxlog.co/refman/current/im/fim.html) module allows 
 | --- | --- |
 | **Log Analytics table(s)** | NXLogFIM_CL<br/> |
 | **Data collection rules support** | Not currently supported |
-| **Supported by** | [NXLog](https://nxlog.co/support-tickets/add/support-ticket) |
+| **Supported by** | [NXLog](https://nxlog.co/getting-started-with-nxlog-support-service-desk) |
 
 ## Query samples
 

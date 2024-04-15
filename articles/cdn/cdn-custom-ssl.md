@@ -13,11 +13,11 @@ ms.custom: mvc
 
 # Tutorial: Configure HTTPS on an Azure CDN custom domain
 
-This tutorial shows how to enable the HTTPS protocol for a custom domain that's associated with an Azure CDN endpoint.
+This tutorial shows how to enable the HTTPS protocol for a custom domain associated with an Azure CDN endpoint.
 
-The HTTPS protocol on your custom domain (for example, HTTPS:\//www.contoso.com), ensures your sensitive data is delivered securely via TLS/SSL. When your web browser is connected via HTTPS, the browser validates the web site's certificate. The browser verifies it's issued by a legitimate certificate authority. This process provides security and protects your web applications from attacks.
+The HTTPS protocol on your custom domain (for example, `https://www.contoso.com`), ensures your sensitive data is delivered securely via TLS/SSL. When your web browser is connected via HTTPS, the browser validates the web site's certificate. The browser verifies it's issued by a legitimate certificate authority. This process provides security and protects your web applications from attacks.
 
-Azure CDN supports HTTPS on a CDN endpoint hostname, by default. For example, if you create a CDN endpoint (such as HTTPS:\//Contoso.azureedge.net), HTTPS is automatically enabled.
+Azure CDN supports HTTPS on a CDN endpoint hostname, by default. For example, if you create a CDN endpoint (such as `https://contoso.azureedge.net`), HTTPS is automatically enabled.
 
 Some of the key attributes of the custom HTTPS feature are:
 
@@ -59,7 +59,7 @@ To enable HTTPS on an Azure CDN custom domain, you use a TLS/SSL certificate. Yo
 
 Azure CDN handles certificate management tasks such as procurement and renewal. After you enable the feature, the process starts immediately.
 
-If the custom domain is already mapped to the CDN endpoint, no further action is needed. Azure CDN will process the steps and complete your request automatically.
+If the custom domain is already mapped to the CDN endpoint, no further action is needed. Azure CDN processes the steps and completes your request automatically.
 
 If your custom domain is mapped elsewhere, use email to validate your domain ownership.
 
@@ -98,7 +98,7 @@ To enable HTTPS on a custom domain, follow these steps:
 > This option is available only with **Azure CDN from Microsoft** and **Azure CDN from Edgio** profiles.
 >
 
-You can use your own certificate to enable the HTTPS feature. This process is done through an integration with Azure Key Vault, which allows you to store your certificates securely. Azure CDN uses this secure mechanism to get your certificate and it requires a few extra steps. When you create your TLS/SSL certificate, you must create a complete certificate chain with an allowed certificate authority (CA) that is part of the [Microsoft Trusted CA List](https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT). If you use a non-allowed CA, your request will be rejected. If a certificate without complete chain is presented, the requests which involve that certificate are not guaranteed to work as expected. For Azure CDN from Edgio, any valid CA will be accepted.
+You can use your own certificate to enable the HTTPS feature. This process is done through an integration with Azure Key Vault, which allows you to store your certificates securely. Azure CDN uses this secure mechanism to get your certificate and it requires a few extra steps. When you create your TLS/SSL certificate, you must create a complete certificate chain with an allowed certificate authority (CA) that is part of the [Microsoft Trusted CA List](https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT). If you use a nonallowed CA, your request is rejected. If a certificate without complete chain is presented, requests, which involve that certificate aren't guaranteed to work as expected. For Azure CDN from Edgio, any valid CA is accepted.
 
 ### Prepare your Azure Key Vault account and certificate
 
@@ -229,7 +229,7 @@ Your CNAME record should be in the following format:
 
 For more information about CNAME records, see [Create the CNAME DNS record](./cdn-map-content-to-custom-domain.md).
 
-If your CNAME record is in the correct format, DigiCert automatically verifies your custom domain name and creates a certificate for your domain. DigitCert won't send you a verification email and you won't need to approve your request. The certificate is valid for one year and will be autorenewed before it expires. Continue to [Wait for propagation](#wait-for-propagation).
+If your CNAME record is in the correct format, DigiCert automatically verifies your custom domain name and creates a certificate for your domain. DigitCert doesn't send you a verification email and you don't need to approve your request. The certificate is valid for one year and will be autorenewed before it expires. Continue to [Wait for propagation](#wait-for-propagation).
 
 Automatic validation typically takes a few hours. If you don't see your domain validated in 24 hours, open a support ticket.
 
@@ -272,14 +272,14 @@ After the domain name is validated, it can take up to 6-8 hours for the custom d
 
 ### Operation progress
 
-The following table shows the operation progress that occurs when you enable HTTPS. After you enable HTTPS, four operation steps appear in the custom domain dialog. As each step becomes active, other substep details appear under the step as it progresses. Not all of these substeps will occur. After a step successfully completes, a green check mark appears next to it.
+The following table shows the operation progress that occurs when you enable HTTPS. After you enable HTTPS, four operation steps appear in the custom domain dialog. As each step becomes active, other substep details appear under the step as it progresses. Not all of these substeps occur. After a step successfully completes, a green check mark appears next to it.
 
 | Operation step | Operation substep details |
 | --- | --- |
 | 1 Submitting request | Submitting request |
 | | Your HTTPS request is being submitted. |
 | | Your HTTPS request has been submitted successfully. |
-| 2 Domain validation | Domain is automatically validated if it's CNAME mapped to the CDN Endpoint. Otherwise, a verification request will be sent to the email listed in your domain's registration record (WHOIS registrant).|
+| 2 Domain validation | Domain is automatically validated if it's CNAME mapped to the CDN Endpoint. Otherwise, a verification request is sent to the email listed in your domain's registration record (WHOIS registrant).|
 | | Your domain ownership has been successfully validated. |
 | | Domain ownership validation request expired (customer likely didn't respond within 6 days). HTTPS won't be enabled on your domain. * |
 | | Domain ownership validation request was rejected by the customer. HTTPS won't be enabled on your domain. * |
@@ -332,6 +332,20 @@ The following table shows the operation progress that occurs when you disable HT
 | 2 Certificate deprovisioning | Deleting certificate |
 | 3 Complete | Certificate deleted |
 
+#### Certificate auto rotation with Azure CDN from Edgio
+
+Managed certificates from Azure Key Vault can utilize the certificate autorotate feature, allowing Azure CDN from Edgio to automatically retrieve updated certificates and propagate them to the Edgio CDN platform. To enable this feature:
+
+1. Register Azure CDN as an application within your Microsoft Entra ID.
+
+1. Authorize the Azure CDN service to access the secrets in your Key Vault. Navigate to "Access policies" within your Key Vault to add a new policy, then grant the **Microsoft.AzureFrontDoor-Cdn** service principal a **Get secrets** permission.
+
+1. Set the certificate version to **Latest** under the **Certificate management type** within the **Custom domain** menu. If a specific version of the certificate is selected, manual updates are required.
+
+> [!NOTE] 
+> * Be aware that it can take up to 24 hours for the certificate auto-rotate to fully complete the propagation of the new certificate.
+> * If a certificate is utilized to cover multiple custom domains, it is imperative to enable certificate auto-rotate on all the custom domains sharing this certificate to ensure correct operation. Failure to do so may result in the Edgio platform serving an incorrect version of the certificate for the custom domain that does not have this feature enabled."
+
 ## Frequently asked questions
 
 1. *Who is the certificate provider and what type of certificate is used?*
@@ -361,7 +375,7 @@ The following table shows the operation progress that occurs when you disable HT
 
 6. *On June 20, 2018, Azure CDN from Edgio started using a dedicated certificate with SNI TLS/SSL by default. What happens to my existing custom domains using Subject Alternative Names (SAN) certificate and IP-based TLS/SSL?*
 
-    Your existing domains will be gradually migrated to single certificate in the upcoming months if Microsoft analyzes that only SNI client requests are made to your application.
+    Your existing domains are gradually migrated to single certificate in the upcoming months if Microsoft analyzes that only SNI client requests are made to your application.
 
     If non-SNI clients are detected, your domains stay in the SAN certificate with IP-based TLS/SSL. Requests to your service or clients that are non-SNI, are unaffected.
 

@@ -9,7 +9,7 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 12/02/2023
+ms.date: 03/28/2024
 ---
 
 # Configure a vectorizer in a search index
@@ -17,38 +17,90 @@ ms.date: 12/02/2023
 > [!IMPORTANT] 
 > This feature is in public preview under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). The [2023-10-01-Preview REST API](/rest/api/searchservice/operation-groups?view=rest-searchservice-2023-10-01-preview&preserve-view=true) supports this feature.
 
-A *vectorizer* is a component of a [search index](search-what-is-an-index.md) that specifies a vectorization agent, such as a deployed embedding model on Azure OpenAI that converts text to vectors. You can define a vectorizer once, and then reference it in the vector profile assigned to a vector field.
+In Azure AI Search a *vectorizer* is software that performs vectorization, such as a deployed embedding model on Azure OpenAI, that converts text to vectors during query execution.
 
-A vectorizer is used for queries. It allows the search service to vectorize a text query on your behalf.
+It's defined in a [search index](search-what-is-an-index.md), it applies to searchable vector fields, and it's used at query time to generate an embedding for a text query input. If instead you need to vectorize text as part of the indexing process, refer to [Integrated Vectorization (Preview)](vector-search-integrated-vectorization.md). For built-in vectorization during indexing, you can configure an indexer and skillset that calls an Azure OpenAI embedding model for your raw text content.
 
-If you need to vectorize data as part of the indexing process refer to [Integrated Vectorization (Preview)](vector-search-integrated-vectorization.md).
-
-You can use the [**Import and vectorize data wizard**](search-get-started-portal-import-vectors.md), the [2023-10-01-Preview](/rest/api/searchservice/indexes/create-or-update?view=rest-searchservice-2023-10-01-preview&preserve-view=true) REST APIs, or any Azure beta SDK package that's been updated to provide this feature.
+To add a vectorizer to search index, you can use the index designer in Azure portal, or call the [Create or Update Index 2023-10-01-preview](/rest/api/searchservice/indexes/create-or-update?view=rest-searchservice-2023-10-01-preview&preserve-view=true) REST API, or use any Azure beta SDK package that's updated to provide this feature.
 
 ## Prerequisites
 
-+ A deployed embedding model on Azure OpenAI, or a custom skill that wraps an embedding model.
++ [An index with searchable vector fields](vector-search-how-to-create-index.md) on Azure AI Search.
 
-+ Permissions to upload a payload to the embedding model. The connection to a vectorizer is specified in the skillset. If you're using Azure OpenAI, the caller must have [Cognitive Services OpenAI User](/azure/ai-services/openai/how-to/role-based-access-control#azure-openai-roles) permissions.
++ A deployed embedding model, such as **text-embedding-ada-002** on Azure OpenAI. It's used to vectorize a query. It must be identical to the model used to generate the embeddings in your index.
 
-+ A [supported data source](search-indexer-overview.md#supported-data-sources) and a [data source definition](search-howto-create-indexers.md#prepare-a-data-source) for your indexer.
++ Permissions to use the embedding model. If you're using Azure OpenAI, the caller must have [Cognitive Services OpenAI User](/azure/ai-services/openai/how-to/role-based-access-control#azure-openai-roles) permissions. Or, you can provide an API key.
 
-+ A skillset that performs data chunking and vectorization of those chunks. You can omit a skillset if you only want integrated vectorization at query time, or if you don't need chunking or [index projections](index-projections-concept-intro.md) during indexing. This article assumes you already know how to [create a skillset](cognitive-search-defining-skillset.md).
++ [Visual Studio Code](https://code.visualstudio.com/download) with a [REST client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) to send the query and accept a response.
 
-+ An index that specifies vector and non-vector fields. This article assumes you already know how to [create a vector store](vector-search-how-to-create-index.md) and covers just the steps for adding vectorizers and field assignments.
+We recommend that you enable diagnostic logging on your search service to confirm vector query execution.
 
-+ An [indexer](search-howto-create-indexers.md) that drives the pipeline.
+## Try a vectorizer with sample data
 
-## Define a vectorizer
+The [Import and vectorize data wizard](search-get-started-portal-import-vectors.md) reads files from Azure Blob storage, creates an index with chunked and vectorized fields, and adds a vectorizer. By design, the vectorizer that's created by the wizard is set to the same embedding model used to index the blob content.
 
-1. Use [Create or Update Index (preview)](/rest/api/searchservice/indexes/create-or-update?view=rest-searchservice-2023-10-01-preview&preserve-view=true) to add a vectorizer.
+1. [Upload sample data files](/azure/storage/blobs/storage-quickstart-blobs-portal) to a container on Azure Storage. We used some [small text files from NASA's earth book](https://github.com/Azure-Samples/azure-search-sample-data/tree/main/nasa-e-book/earth-txt-10) to test these instructions on a free search service.
+  
+1. Run the [Import and vectorize data wizard](search-get-started-portal-import-vectors.md), choosing the blob container for the data source.
 
-1. Add the following JSON to your index definition. Provide valid values and remove any properties you don't need:
+   :::image type="content" source="media/vector-search-how-to-configure-vectorizer/connect-to-data.png" lightbox="media/vector-search-how-to-configure-vectorizer/connect-to-data.png" alt-text="Screenshot of the connect to your data page.":::
+
+1. Choose an existing deployment of **text-embedding-ada-002**. This model generates embeddings during indexing and is also used to configure the vectorizer used during queries.
+
+   :::image type="content" source="media/vector-search-how-to-configure-vectorizer/vectorize-enrich-data.png" lightbox="media/vector-search-how-to-configure-vectorizer/vectorize-enrich-data.png" alt-text="Screenshot of the vectorize and enrich data page.":::
+
+1. After the wizard is finished and all indexer processing is complete, you should have an index with a searchable vector field. The field's JSON definition looks like this:
+
+   ```json
+    {
+        "name": "vector",
+        "type": "Collection(Edm.Single)",
+        "searchable": true,
+        "retrievable": true,
+        "dimensions": 1536,
+        "vectorSearchProfile": "vector-nasa-ebook-text-profile"
+    }
+   ```
+
+1. You should also have a vector profile and a vectorizer, similar to the following example:
+
+   ```json
+   "profiles": [
+      {
+        "name": "vector-nasa-ebook-text-profile",
+        "algorithm": "vector-nasa-ebook-text-algorithm",
+        "vectorizer": "vector-nasa-ebook-text-vectorizer"
+      }
+    ],
+    "vectorizers": [
+      {
+        "name": "vector-nasa-ebook-text-vectorizer",
+        "kind": "azureOpenAI",
+        "azureOpenAIParameters": {
+          "resourceUri": "https://my-fake-azure-openai-resource.openai.azure.com",
+          "deploymentId": "text-embedding-ada-002",
+          "apiKey": "0000000000000000000000000000000000000",
+          "authIdentity": null
+        },
+        "customWebApiParameters": null
+      }
+    ]
+    ```
+
+1. Skip ahead to [test your vectorizer](#test-a-vectorizer) for text-to-vector conversion during query execution.
+
+## Define a vectorizer and vector profile
+
+This section explains the modifications to an index schema for defining a vectorizer manually.
+
+1. Use [Create or Update Index (preview)](/rest/api/searchservice/indexes/create-or-update?view=rest-searchservice-2023-10-01-preview&preserve-view=true) to add `vectorizers` to a search index.
+
+1. Add the following JSON to your index definition. The vectorizers section provides connection information to a deployed embedding model. This step shows two vectorizer examples so that you can compare an Azure OpenAI embedding model and a custom web API side by side.
 
     ```json
       "vectorizers": [
         {
-          "name": "my_open_ai_vectorizer",
+          "name": "my_azure_open_ai_vectorizer",
           "kind": "azureOpenAI",
           "azureOpenAIParameters": {
             "resourceUri": "https://url.openai.azure.com",
@@ -68,32 +120,19 @@ You can use the [**Import and vectorize data wizard**](search-get-started-portal
       ]
     ```
 
-## Define a profile that includes a vectorizer
-
-1. Use [Create or Update Index (preview)](/rest/api/searchservice/indexes/create-or-update?view=rest-searchservice-2023-10-01-preview&preserve-view=true) to add a profile.
-
-1. Add a profiles section that specifies combinations of algorithms and vectorizers.
+1. In the same index, add a vector profiles section that specifies one of your vectorizers. Vector profiles also require a [vector search algorithm](vector-search-ranking.md) used to create navigation structures.
 
     ```json
     "profiles": [ 
         { 
-            "name": "my_open_ai_profile", 
+            "name": "my_vector_profile", 
             "algorithm": "my_hnsw_algorithm", 
-            "vectorizer":"my_open_ai_vectorizer" 
-        }, 
-        { 
-            "name": "my_custom_profile", 
-            "algorithm": "my_hnsw_algorithm", 
-            "vectorizer":"my_custom_vectorizer" 
+            "vectorizer":"my_azure_open_ai_vectorizer" 
         }
     ]
     ```
 
-## Assign a vector profile to a field
-
-1. Use [Create or Update Index (preview)](/rest/api/searchservice/indexes/create-or-update?view=rest-searchservice-2023-10-01-preview&preserve-view=true) to add field attributes.
-
-1. For each vector field in the fields collection, assign a profile.
+1. Assign a vector profile to a vector field. The following example shows a fields collection with the required key field, a title string field, and two vector fields with a vector profile assignment.
 
     ```json
     "fields": [ 
@@ -109,58 +148,83 @@ You can use the [**Import and vectorize data wizard**](search-get-started-portal
                 "type": "Edm.String"
             }, 
             { 
-                "name": "synopsis", 
+                "name": "vector", 
                 "type": "Collection(Edm.Single)", 
                 "dimensions": 1536, 
-                "vectorSearchProfile": "my_open_ai_profile", 
+                "vectorSearchProfile": "my_vector_profile", 
                 "searchable": true, 
-                "retrievable": true, 
-                "filterable": false, 
-                "sortable": false, 
-                "facetable": false 
+                "retrievable": true
             }, 
             { 
-                "name": "reviews", 
+                "name": "my-second-vector", 
                 "type": "Collection(Edm.Single)", 
                 "dimensions": 1024, 
-                "vectorSearchProfile": "my_custom_profile", 
+                "vectorSearchProfile": "my_vector_profile", 
                 "searchable": true, 
-                "retrievable": true, 
-                "filterable": false, 
-                "sortable": false, 
-                "facetable": false 
-            } 
+                "retrievable": true
+            }
     ]
     ```
 
 ## Test a vectorizer
 
-1. [Run the indexer](search-howto-run-reset-indexers.md). When you run the indexer, the following operations occur:
+Use a search client to send a query through a vectorizer. This example assumes Visual Studio Code with a REST client and a [sample index](#try-a-vectorizer-with-sample-data).
 
-    + Data retrieval from the supported data source
-    + Document cracking
-    + Skills processing for data chunking and vectorization
-    + Indexing to one or more indexes
+1. In Visual Studio Code, provide a search endpoint and [search query API key](search-security-api-keys.md#find-existing-keys):
 
-1. [Query the vector field](vector-search-how-to-query.md) once the indexer is finished. In a query that uses integrated vectorization:
+   ```http
+    @baseUrl: 
+    @queryApiKey: 00000000000000000000000
+   ```
 
-    + Set `"kind"` to `"text"`.
-    + Set `"text"` to the string to be vectorized.
+1. Paste in a [vector query request](vector-search-how-to-query.md). Be sure to use a preview REST API version.
 
-    ```json
-    "count": true,
-    "select": "title",
-    "vectorQueries": [ 
-       { 
-          "kind": "text",
-          "text": "story about horses set in Australia",
-          "fields": "synopsis",
-          "k": 5
-       }
-    ]
-    ```
+   ```http
+    ### Run a query
+    POST {{baseUrl}}/indexes/vector-nasa-ebook-txt/docs/search?api-version=2023-10-01-preview  HTTP/1.1
+        Content-Type: application/json
+        api-key: {{queryApiKey}}
+    
+        {
+            "count": true,
+            "select": "title,chunk",
+            "vectorQueries": [
+                {
+                    "kind": "text",
+                    "text": "what cloud formations exists in the troposphere",
+                    "fields": "vector",
+                    "k": 3,
+                    "exhaustive": true
+                }
+            ]
+        }
+   ```
 
-There are no vectorizer properties to set at query time. The query uses the algorithm and vectorizer provided through the profile assignment in the index.
+   Key points about the query include:
+
+   + `"kind": "text"` tells the search engine that the input is a text string, and to use the vectorizer associated with the search field.
+
+   + `"text": "what cloud formations exists in the troposphere"` is the text string to vectorize.
+
+   + `"fields": "vector"` is the name of the field to query over. If you use the sample index produced by the wizard, the generated vector field is named `vector`.
+
+1. Send the request. You should get three `k` results, where the first result is the most relevant.
+
+Notice that there are no vectorizer properties to set at query time. The query reads the vectorizer properties, as per the vector profile field assignment in the index.
+
+## Check logs
+
+If you enabled diagnostic logging for your search service, run a Kusto query to confirm query execution on your vector field:
+
+```kusto
+OperationEvent
+| where TIMESTAMP > ago(30m)
+| where Name == "Query.Search" and AdditionalInfo["QueryMetadata"]["Vectors"] has "TextLength"
+```
+
+## Best practices
+
+If you are setting up an Azure OpenAI vectorizer, consider the same [best practices](cognitive-search-skill-azure-openai-embedding.md#best-practices) that we recommend for the Azure OpenAI embedding skill.
 
 ## See also
 

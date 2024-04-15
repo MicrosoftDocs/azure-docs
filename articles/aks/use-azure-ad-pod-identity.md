@@ -5,6 +5,9 @@ ms.topic: article
 ms.subservice: aks-security
 ms.custom: devx-track-azurecli
 ms.date: 08/15/2023
+author: schaffererin
+ms.author: schaffererin
+
 ---
 
 # Use Microsoft Entra pod-managed identities in Azure Kubernetes Service (Preview)
@@ -358,3 +361,4 @@ For more information on managed identities, see [Managed identities for Azure re
 <!-- LINKS - external -->
 [RFC 1123]: https://tools.ietf.org/html/rfc1123
 [DNS subdomain name]: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#dns-subdomain-names
+

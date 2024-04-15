@@ -4,6 +4,9 @@ description: Learn how to enable the AI toolchain operator add-on on Azure Kuber
 ms.topic: article
 ms.custom: azure-kubernetes-service, devx-track-azurecli
 ms.date: 02/28/2024
+author: schaffererin
+ms.author: schaffererin
+
 ---
 
 # Deploy an AI model on Azure Kubernetes Service (AKS) with the AI toolchain operator (preview)
@@ -245,3 +248,4 @@ For more inference model options, see the [KAITO GitHub repository](https://gith
 [az-feature-register]: /cli/azure/feature#az_feature_register
 [az-feature-show]: /cli/azure/feature#az_feature_show
 [az-provider-register]: /cli/azure/provider#az_provider_register
+
