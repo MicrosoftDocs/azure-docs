@@ -9,7 +9,8 @@ ms.date: 07/25/2023
 ms.author: sanathr
 ---
 
-# Connect Calling Native Push Notification with Azure Event Grid
+# Integrate push notifications using Azure Event Grid in your Android, iOS and Windows applications.
+
 With Azure Communication Services, you can receive real-time event notifications in a dependable, expandable, and safe way by integrating it with [Azure Event Grid](https://azure.microsoft.com/services/event-grid/). This integration can be used to build a notification system that sends push notifications to your users on mobile devices. To achieve it, create an Event Grid subscription that triggers an [Azure Function](../../azure-functions/functions-overview.md) or webhook.
 
 :::image type="content" source="../concepts/media/notifications/acs-events-int.png" alt-text="Diagram showing how Communication Services integrates with Event Grid.":::
