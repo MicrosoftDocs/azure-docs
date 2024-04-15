@@ -37,8 +37,6 @@ const localSpeakers = await deviceManager.getSpeakers(); // [AudioDeviceInfo, Au
 
 Once you know what devices are available to use you can set default devices for microphone, speaker, and camera. If client defaults aren't set, the Communication Services SDK uses operating system defaults.
 
-<!-- In `deviceManager`, you can set a default device to start a call via the `selectMicrophone()` and `selectSpeaker()` methods. -->
-
 #### Microphone
 
 **Access the device used**
