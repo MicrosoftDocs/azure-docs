@@ -315,7 +315,7 @@ private void startCall() {
 
 ## Answer a Call
 
-Accepting a call can be done using the teams call agent using only a reference to the current context
+Accepting a call can be done using the teams call agent using only a reference to the current context.
 
 ```java
 public void acceptACall(TeamsIncomingCall teamsIncomingCall){
@@ -325,7 +325,7 @@ public void acceptACall(TeamsIncomingCall teamsIncomingCall){
 
 ## Join a Teams Call
 
-A user can join an existing call by passing a link
+A user can join an existing call by passing a link.
 
 ```java
 /**
@@ -339,7 +339,7 @@ public TeamsCall joinTeamsCall(TeamsCallAgent teamsCallAgent){
 
 ## Join a Teams Call with options
 
-We can also join an existing call with preset options, such as being muted
+We can also join an existing call with preset options, such as being muted.
 
 ```java
 /**
@@ -355,7 +355,7 @@ public TeamsCall joinTeamsCall(TeamsCallAgent teamsCallAgent){
 
 ## Setup Incoming Call Listener
 
-To be able to detect incoming calls and other actions not done by this user, listeners must be setup
+To be able to detect incoming calls and other actions not done by this user, listeners must be setup.
 
 ```java
 private TeamsIncomingCall teamsincomingCall;
