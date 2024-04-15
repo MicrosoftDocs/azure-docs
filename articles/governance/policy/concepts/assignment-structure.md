@@ -14,7 +14,7 @@ resources at assignment time, making it possible to reuse policy definitions tha
 You use JavaScript Object Notation (JSON) to create a policy assignment. The policy assignment contains elements for:
 
 - [scope](#scope)
-- [policy definition ID and version](#policy-definition-ID-and-version)
+- [policy definition ID and version](#policy-definition-id-and-version)
 - [display name](#display-name-and-description)
 - [description](#display-name-and-description)
 - [metadata](#metadata)
