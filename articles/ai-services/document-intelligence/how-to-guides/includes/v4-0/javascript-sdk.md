@@ -79,7 +79,7 @@ Create a Node.js Express application.
 1. Install the `ai-document-intelligence` client library and `azure/identity` npm packages:
 
     ```console
-    npm i @azure/ai-document-intelligence@1.0.0-beta.2 @azure/identity
+    npm i @azure-rest/ai-document-intelligence@1.0.0-beta.2 @azure/identity
     ```
 
   Your app's *package.json* file is updated with the dependencies.
@@ -106,7 +106,7 @@ Open the `index.js` file in Visual Studio Code or your favorite IDE and select o
 ## Use the Read model
 
 ```javascript
-const { AzureKeyCredential, DocumentIntelligence } = require("@azure/ai-document-intelligence");
+const { AzureKeyCredential, DocumentIntelligence } = require("@azure-rest/ai-document-intelligence");
 
 //use your `key` and `endpoint` environment variables
 const key = process.env['DI_KEY'];
@@ -202,7 +202,7 @@ Visit the Azure samples repository on GitHub and view the [`read` model output](
 ## Use the Layout model
 
 ```javascript
-const { AzureKeyCredential, DocumentIntelligence } = require("@azure/ai-document-intelligence");
+const { AzureKeyCredential, DocumentIntelligence } = require("@azure-rest/ai-document-intelligence");
 
 //use your `key` and `endpoint` environment variables
 const key = process.env['DI_KEY'];
@@ -272,7 +272,7 @@ Visit the Azure samples repository on GitHub and view the [layout model output](
 ## Use the General document model
 
 ```javascript
-const { AzureKeyCredential, DocumentIntelligence } = require("@azure/ai-document-intelligence");
+const { AzureKeyCredential, DocumentIntelligence } = require("@azure-rest/ai-document-intelligence");
 
 //use your `key` and `endpoint` environment variables
 const key = process.env['DI_KEY'];
@@ -318,7 +318,7 @@ Visit the Azure samples repository on GitHub and view the [general document mode
 ## Use the W-2 tax model
 
 ```javascript
-const { AzureKeyCredential, DocumentIntelligence } = require("@azure/ai-document-intelligence");
+const { AzureKeyCredential, DocumentIntelligence } = require("@azure-rest/ai-document-intelligence");
 
 //use your `key` and `endpoint` environment variables
 const key = process.env['DI_KEY'];
@@ -397,7 +397,7 @@ Visit the Azure samples repository on GitHub and view the [W-2 tax model output]
 ## Use the Invoice model
 
 ```javascript
-const { AzureKeyCredential, DocumentIntelligence } = require("@azure/ai-document-intelligence");
+const { AzureKeyCredential, DocumentIntelligence } = require("@azure-rest/ai-document-intelligence");
 
 //use your `key` and `endpoint` environment variables
 const key = process.env['DI_KEY'];
@@ -459,7 +459,7 @@ Visit the Azure samples repository on GitHub and view the [invoice model output]
 ## Use the Receipt model
 
 ```javascript
-const { AzureKeyCredential, DocumentIntelligence } = require("@azure/ai-document-intelligence");
+const { AzureKeyCredential, DocumentIntelligence } = require("@azure-rest/ai-document-intelligence");
 
 //use your `key` and `endpoint` environment variables
 const key = process.env['DI_KEY'];
@@ -518,7 +518,7 @@ Visit the Azure samples repository on GitHub and view the [receipt model output]
 ## Use the ID document model
 
 ```javascript
-const { AzureKeyCredential, DocumentIntelligence } = require("@azure/ai-document-intelligence");
+const { AzureKeyCredential, DocumentIntelligence } = require("@azure-rest/ai-document-intelligence");
 
 //use your `key` and `endpoint` environment variables
 const key = process.env['DI_KEY'];
