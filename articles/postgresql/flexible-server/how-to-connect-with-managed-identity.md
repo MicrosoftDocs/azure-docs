@@ -69,6 +69,9 @@ The managed identity now has access when authenticating with the identity name a
 
 > [!Note]
 > If the managed identity is not valid, an error is returned: `ERROR:   Could not validate AAD user <ObjectId> because its name is not found in the tenant. [...]`.
+> 
+> [!Note]
+> If you see an error like "No function matches...", make sure you're connecting to the `postgres` database, not a different database that you also created.
 
 ## Retrieve the access token from the Azure Instance Metadata service
 
