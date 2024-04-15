@@ -17,7 +17,7 @@ ms.topic: troubleshooting
 
 If you have errors that occur while creating a data labeling project try the following troubleshooting steps.
 
-## Add Storage Blob Data Contributor access to the workspace identity
+## <a name="add-blob-access"> Add Storage Blob Data Contributor access 
 
 In many cases, an error creating the project could be due to access issues. To resolve access problems, add the Storage Blob Data Contributor role to the workspace identity with these steps:
 
@@ -57,7 +57,7 @@ In many cases, an error creating the project could be due to access issues. To r
         :::image type="content" source="media/how-to-troubleshoot-data-labeling/select-members.png" alt-text="Screenshot shows selecting members.":::
 
 1. Review and assign the role.
-    
+
     1. Select **Review + assign** to review the entry.
     1. Select **Review + assign** again and wait for the assignment to complete.
 
@@ -77,6 +77,33 @@ When your workspace is secured with a virtual network, use these steps to set th
 1. Select the datastore you're using to access data in your labeling project.
 1. On the top toolbar, select **Update authentication**.
 1. Toggle on the entry for "Use workspace managed identity for data preview and profiling in Azure Machine Learning studio."
+
+## When data preprocessing fails
+
+Another possible issue with creating a data labeling project is when data preprocessing fails. This can occur when you use a v1 tabular dataset as your data source.  The project first converts this data.  Data access errors can cause this conversion to fail.  The following sections can help you troubleshoot these errors.
+
+1. In the left menu of your workspace, select **Data**.
+1. On the top tab, select **Datastores**.
+1. Select the datastore where your v1 tabular data is stored.
+1. On the top toolbar, select **Update authentication**.
+1. If the toggle for **Save credentials with the datastore for data access** is **On**, verify that the Authentication type and values are correct.
+1. If the toggle for **Save credentials with the datastore for data access** is **Off**, follow steps in the next section to insure that the compute cluster can access the data.
+
+### Find the compute cluster that runs the conversion job
+
+When your datastore is identity-based, the compute cluster that runs the conversion job must have access to the datastore.  To find the compute cluster that runs the conversion job:
+
+1. In the left menu, select **Jobs**.
+1. Select experiment which includes the name **Labeling ConvertTabularDataset**.
+1. If you see a failed job, select the job. (If you see a successful job, the conversion was successful.)
+1. In the Overview section, at the bottom of the page is the **Compute** section.  Select the **Target** compute cluster.
+1. On the details page for the compute cluster, at the bottom of the page is the **Managed identity** section.  Use the **Edit** tool to assign a System-assigned managed identity.
+
+### Add the compute cluster identity to the compute cluster
+
+Follow the previous steps to [Add Storage Blob Data Contributor access](#add-blob-access).  But this time, assign the compute name in the **Select members** section, so that the compute cluster has access to the datastore.
+
+To find the compute name, type the workspace name, followed by **/computes/** followed by the compute name.  For example, if the workspace name is **myworkspace** and the compute name is **mycompute**, search for **myworkspace/computes/mycompute**.
 
 ## Related resources
 
