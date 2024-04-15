@@ -11,7 +11,7 @@ ms.localizationpriority: high
 ms.collection: Tier1
 ---
 
-# Azure Web Application Firewall integration in Copilot for Security (Preview)
+# Azure Web Application Firewall integration in Copilot for Security (preview)
 
 > [!IMPORTANT]
 > Azure Web Application Firewall integration in Microsoft Copilot for Security is currently in PREVIEW.
