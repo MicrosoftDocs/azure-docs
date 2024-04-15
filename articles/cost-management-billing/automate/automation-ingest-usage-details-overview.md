@@ -98,7 +98,7 @@ Sample amortized cost report:
 >    - For EA customers `PayGPrice` isn't populated when `PricingModel` = `Reservations` or `Marketplace`.
 >    - For MCA customers, `PayGPrice` isn't populated when `PricingModel` = `Reservations` or `Marketplace`.
 >- Limitations on `UnitPrice`
->    - For EA customers, `UnitPrice` isn't populated when `PricingModel` = `MarketPlace`. If the cost allocation rule is enabled, the UnitPrice will be 0 where `PricingModel` = `Reservations`. For more information, see [Current limitations](../costs/allocate-costs.md#current-limitations).
+>    - For EA customers, `UnitPrice` isn't populated when `PricingModel` = `MarketPlace`. If the cost allocation rule is enabled, the `UnitPrice` will be 0 where `PricingModel` = `Reservations`. For more information, see [Current limitations](../costs/allocate-costs.md#current-limitations).
 >    - For MCA customers, `UnitPrice` isn't populated when `PricingModel` = `Reservations`.
 
 ## Unexpected charges
