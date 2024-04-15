@@ -1,6 +1,6 @@
 ---
 title: Authentication and authorization in Azure Container Apps
-description: Use built-in authentication in Azure Container Apps.
+description: Use built-in authentication in Azure Container Apps
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps
@@ -26,7 +26,7 @@ For details surrounding authentication and authorization, refer to the following
 
 You're not required to use this feature for authentication and authorization. You can use the bundled security features in your web framework of choice, or you can write your own utilities. However, implementing a secure solution for authentication (signing-in users) and authorization (providing access to secure data) can take significant effort. You must make sure to follow industry best practices and standards and keep your implementation up to date.
 
-With the built-in authentication feature for Container Apps, you can save you time and effort by providing out-of-the-box authentication with federated identity providers, allowing you to focus on the rest of your application. 
+The built-in authentication feature for Container Apps saves you time and effort by providing out-of-the-box authentication with federated identity providers. These features allow you to focus more time developing your application, and less time on building security systems. 
 
 The benefits include:
 
@@ -112,7 +112,7 @@ In the [Azure portal](https://portal.azure.com), you can edit your container app
 
 ## Customize sign-in and sign out
 
-Container Apps Authentication provides built-in endpoints for sign in and signs out. When the feature is enabled, these endpoints are available under the `/.auth` route prefix on your container app.
+Container Apps Authentication provides built-in endpoints for sign in and sign out. When the feature is enabled, these endpoints are available under the `/.auth` route prefix on your container app.
 
 ### Use multiple sign-in providers
 
@@ -201,7 +201,7 @@ By default, a successful sign out redirects the client to the URL `/.auth/logout
 GET /.auth/logout?post_logout_redirect_uri=/index.html
 ```
 
-It recommends that you [encode](https://wikipedia.org/wiki/Percent-encoding) the value of `post_logout_redirect_uri`.
+Make sure to [encode](https://wikipedia.org/wiki/Percent-encoding) the value of `post_logout_redirect_uri`.
 
 URL must be hosted in the same domain when using fully qualified URLs.
 
