@@ -139,46 +139,38 @@ Next, create an [Azure function](../azure-functions/functions-overview.md) that 
 
 Now, use the code snippet provided by these steps to create an Azure function that removes HTML from each incoming email. That way, the email content is cleaner and easier to process. You can then call this function from your workflow.
 
-1. Before you can create a function, [create a function app](../azure-functions/functions-create-function-app-portal.md) following these steps:
+1. Before you can create a function, [create a function app](../azure-functions/functions-create-function-app-portal.md) by following these steps:
 
-   1. On the **Basics** tab, provide the following information, and then select **Next: Hosting**:
+   1. On the **Basics** tab, provide the following information:
 
       | Property | Value | Description |
       |----------|-------|-------------|
       | **Subscription** | <*your-Azure-subscription-name*> | The same Azure subscription that you previously used |
       | **Resource Group** | **LA-Tutorial-RG** | The same Azure resource group that you previously used |
       | **Function App name** | <*function-app-name*> | Your function app's name, which must be globally unique across Azure. This example already uses **CleanTextFunctionApp**, so provide a different name, such as **MyCleanTextFunctionApp-<*your-name*>** |
-      | **Publish** | Code | Publish code files |
+      | **Do you want to deploy code or container image?** | Code | Publish code files. |
       | **Runtime stack** | <*preferred-language*> | Select a runtime that supports your favorite function programming language. In-portal editing is only available for JavaScript, PowerShell, TypeScript, and C# script. C# class library, Java, and Python functions must be [developed locally](../azure-functions/functions-develop-local.md#local-development-environments). For C# and F# functions, select **.NET**. |
-      |**Version**| <*version-number*> | Select the version for your installed runtime. |
-      |**Region**| <*Azure-region*> | The same region that you previously used. This example uses **West US**. |
-      |**Operating system**| <*your-operating-system*> | An operating system is preselected for you based on your runtime stack selection, but you can select the operating system that supports your favorite function programming language. In-portal editing is only supported on Windows. This example selects **Windows**. |
-      | [**Plan type**](../azure-functions/functions-scale.md) | **Consumption (Serverless)** | Select the hosting plan that defines how resources are allocated to your function app. In the default **Consumption** plan, resources are added dynamically as required by your functions. In this [serverless](https://azure.microsoft.com/overview/serverless-computing/) hosting, you pay only for the time your functions run. When you run in an App Service plan, you must manage the [scaling of your function app](../azure-functions/functions-scale.md). |
+      | **Version** | <*version-number*> | Select the version for your installed runtime. |
+      | **Region** | <*Azure-region*> | The same region that you previously used. This example uses **West US**. |
+      | **Operating System** | <*your-operating-system*> | An operating system is preselected for you based on your runtime stack selection, but you can select the operating system that supports your favorite function programming language. In-portal editing is only supported on Windows. This example selects **Windows**. |
+      | [**Hosting options and plans**](../azure-functions/functions-scale.md) | **Consumption (Serverless)** | Select the hosting plan that defines how resources are allocated to your function app. In the default **Consumption** plan, resources are added dynamically as required by your functions. In this [serverless](https://azure.microsoft.com/overview/serverless-computing/) hosting, you pay only for the time your functions run. When you run in an App Service plan, you must manage the [scaling of your function app](../azure-functions/functions-scale.md). |
 
-   1. On the **Hosting** tab, provide the following information, and then select **Review + create**.
+   1. Select **Next: Storage**. On the **Storage** tab, provide the following information:
 
       | Property | Value | Description |
       |----------|-------|-------------|
       | [**Storage account**](../storage/common/storage-account-create.md) | **cleantextfunctionstorageacct** | Create a storage account used by your function app. Storage account names must be between 3 and 24 characters in length and can contain only lowercase letters and numbers. <br><br>**Note:** This storage account contains your function apps and differs from your previously created storage account for email attachments. You can also use an existing account, which must meet the [storage account requirements](../azure-functions/storage-considerations.md#storage-account-requirements). |
 
-      Azure automatically opens your function app after creation and deployment.
+   1. When you're done, select **Review + create**. Confirm your information, and select **Create**.
 
-1. If your function app doesn't automatically open after deployment, in the Azure portal search box, find and select **Function App**. From the **Function App** list, select your function app.
+   1. After Azure creates and deploys the function app resource, select **Go to resource**.
 
-1. On the function app resource menu, under **Functions**, select **Functions**. On the **Functions** toolbar, select **Create**.
+1. Now [create your function locally](../azure-functions/functions-create-function-app-portal.md?pivots=programming-language-csharp#create-your-functions-locally) as function creation in the Azure portal is limited. Make sure to use the **HTTP trigger** template, provide the following information for your function, and use the included sample code, which removes HTML and returns the results to the caller:
 
-1. On the **Create function** pane, select the **HTTP trigger** template, provide the following information, and select **Create**.
-
-  | Property | Value |
-  |----------|-------|
-  | **New Function** | **RemoveHTMLFunction** |
-  | **Authorization level** | **Function** |
-
-   Azure creates a function using a language-specific template for an HTTP triggered function and then opens the function's **Overview** page.
-
-1. On the function menu, under **Developer**, select **Code + Test**.
-
-1. After the editor opens, replace the template code with the following sample code, which removes the HTML and returns results to the caller:
+   | Property | Value |
+   |----------|-------|
+   | **Function name** | **RemoveHTMLFunction** |
+   | **Authorization level** | **Function** |
 
    ```csharp
    #r "Newtonsoft.Json"
@@ -206,21 +198,17 @@ Now, use the code snippet provided by these steps to create an Azure function th
    }
    ```
 
-1. When you're done, on the toolbar, select **Save**.
-
-1. To test your function, on the toolbar, select **Test/Run**.
-
-1. In the pane that opens, on the **Input** tab, in the **Body** box, enter the following line, and select **Run**.
+1. To test your function, you can use the following sample input:
 
    `{"name": "<p><p>Testing my function</br></p></p>"}`
 
-   The **Output** tab shows the function's result:
+   Your function's output looks like the following result:
 
    ```json
    {"updatedBody":"{\"name\": \"Testing my function\"}"}
    ```
 
-After checking that your function works, create your logic app resource and workflow. Although this tutorial shows how to create a function that removes HTML from emails, Azure Logic Apps also provides an **HTML to Text** connector.
+After you confirm that your function works, create your logic app resource and workflow. Although this tutorial shows how to create a function that removes HTML from emails, Azure Logic Apps also provides an **HTML to Text** connector.
 
 ## Create your logic app workflow
 
