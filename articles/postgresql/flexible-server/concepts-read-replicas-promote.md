@@ -54,7 +54,7 @@ For both promotion methods, there are more options to consider:
 
 Learn how to [promote replica to primary](how-to-read-replicas-portal.md#promote-replicas) and [promote to independent server and remove from replication](how-to-read-replicas-portal.md#promote-replica-to-independent-server).
 
-### Configuration management
+## Configuration management
 
 Read replicas are treated as separate servers in terms of control plane configurations. This provides flexibility for read scale scenarios. However, when using replicas for disaster recovery purposes, users must ensure the configuration is as desired.
 
@@ -65,6 +65,22 @@ The promote operation won't carry over specific configurations and parameters. H
 - **Server Parameters**: If their values differ on the primary and read replica, they won't be changed during promotion. It's essential to note that parameters influencing shared memory size must have the same values on both the primary and replicas. This requirement is detailed in the [Server parameters](concepts-read-replicas.md#server-parameters) section.
 - **Microsoft Entra authentication**: If the primary had [Microsoft Entra authentication](concepts-azure-ad-authentication.md) configured, but the replica was set up with PostgreSQL authentication, then after promotion, the replica won't automatically switch to Microsoft Entra authentication. It retains the PostgreSQL authentication. Users need to manually configure Microsoft Entra authentication on the promoted replica either before or after the promotion process.
 - **High Availability (HA)**: Should you require [HA](concepts-high-availability.md) after the promotion, it must be configured on the freshly promoted primary server, following the role reversal.
+
+
+## Considerations
+### Server states during promotion
+
+In both the Planned and Forced promotion scenarios, it is generally required that servers (both primary and replica) be in an "Available" state. If a server's status is anything other than "Available" (such as "Updating" or "Restarting"), the promotion typically cannot proceed without issues. However, an exception is made in the case of regional outages.
+
+During such regional outages, the Forced promotion method can be implemented regardless of the server's current status. This approach allows for swift action in response to potential regional disasters, bypassing normal checks on server availability. 
+
+It is important to note that if the former primary server enters an irrecoverable state during promotion of its replica, the only solution is to delete the former primary server and recreate the replica server. 
+
+### Multiple replicas visibility during promotion in nonpaired regions
+
+When dealing with multiple replicas and if the primary region lacks a [paired region](concepts-read-replicas-geo.md#use-paired-regions-for-disaster-recovery-purposes), a special consideration must be considered. In the event of a regional outage affecting the primary, any additional replicas won't be automatically recognized by the newly promoted replica. While applications can still be directed to the promoted replica for continued operation, the unrecognized replicas remain disconnected during the outage. These additional replicas will only reassociate and resume their roles once the original primary region has been restored.
+
+
 
 ## Related content
 

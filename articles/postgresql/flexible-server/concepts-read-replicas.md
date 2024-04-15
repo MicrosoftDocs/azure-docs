@@ -32,7 +32,7 @@ Because replicas are read-only, they don't directly reduce write-capacity burden
 
 ### Considerations
 
-Read replicas are primarily designed for scenarios where offloading queries is beneficial, and a slight lag is manageable. They are optimized to provide near real time updates from the primary for most workloads, making them an excellent solution for read-heavy scenarios. However, it's important to note that they are not intended for synchronous replication scenarios requiring up-to-the-minute data accuracy. While the data on the replica eventually becomes consistent with the primary, there may be a delay, which typically ranges from a few seconds to minutes, and in some heavy workload or high-latency scenarios, this could extend to hours. Typically, read replicas in the same region as the primary has less lag than geo-replicas, as the latter often deals with geographical distance-induced latency. For more insights into the performance implications of geo-replication, refer to [Geo-replication](#geo-replication) section. The data on the replica eventually becomes consistent with the data on the primary. Use this feature for workloads that can accommodate this delay.
+Read replicas are primarily designed for scenarios where offloading queries is beneficial, and a slight lag is manageable. They are optimized to provide near real time updates from the primary for most workloads, making them an excellent solution for read-heavy scenarios. However, it's important to note that they are not intended for synchronous replication scenarios requiring up-to-the-minute data accuracy. While the data on the replica eventually becomes consistent with the primary, there may be a delay, which typically ranges from a few seconds to minutes, and in some heavy workload or high-latency scenarios, this could extend to hours. Typically, read replicas in the same region as the primary has less lag than geo-replicas, as the latter often deals with geographical distance-induced latency. For more insights into the performance implications of geo-replication, refer to [Geo-replication](concepts-read-replicas-geo.md) article. The data on the replica eventually becomes consistent with the data on the primary. Use this feature for workloads that can accommodate this delay.
 
 > [!NOTE]  
 > For most workloads, read replicas offer near-real-time updates from the primary. However, with persistent heavy write-intensive primary workloads, the replication lag could continue to grow and might only be able to catch up with the primary. This might also increase storage usage at the primary as the WAL files are only deleted once received at the replica. If this situation persists, deleting and recreating the read replica after the write-intensive workloads are completed, you can bring the replica back to a good state for lag.
@@ -40,7 +40,7 @@ Read replicas are primarily designed for scenarios where offloading queries is b
 
 ## Create a replica
 
-A primary server for Azure Database for PostgreSQL flexible server can be deployed in [any region that supports the service](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=postgresql&regions=all). You can create replicas of the primary server within the same region or across different global Azure regions where Azure Database for PostgreSQL flexible server is available. The capability to create replicas now extends to some special Azure regions. See the [Geo-replication section](#geo-replication) for a list of special regions where you can create replicas.
+A primary server for Azure Database for PostgreSQL flexible server can be deployed in [any region that supports the service](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=postgresql&regions=all). You can create replicas of the primary server within the same region or across different global Azure regions where Azure Database for PostgreSQL flexible server is available. The capability to create replicas now extends to some special Azure regions. See the [Geo-replication](concepts-read-replicas-geo.md) article for a list of special regions where you can create replicas.
 
 When you start the create replica workflow, a blank Azure Database for PostgreSQL flexible server instance is created. The new server is filled with the data on the primary server. For the creation of replicas in the same region, a snapshot approach is used. Therefore, the time of creation is independent of the size of the data. Geo-replicas are created using the base backup of the primary instance, which is then transmitted over the network; therefore, the creation time might range from minutes to several hours, depending on the primary size.
 
@@ -105,7 +105,7 @@ At the prompt, enter the password for the user account.
 
 Furthermore, to ease the connection process, the Azure portal provides ready-to-use connection strings. These can be found in the **Connect** page. They encompass both `libpq` variables as well as connection strings tailored for bash consoles.
 
-* **Via Virtual Endpoints**: There's an alternative connection method using virtual endpoints, as detailed in [Virtual endpoints](#virtual-endpoints) section. By using virtual endpoints, you can configure the read-only endpoint to consistently point to the replica, regardless of which server currently holds the replica role.
+* **Via Virtual Endpoints**: There's an alternative connection method using virtual endpoints, as detailed in [Virtual endpoints](concepts-read-replicas-virtual-endpoints.md) article. By using virtual endpoints, you can configure the read-only endpoint to consistently point to the replica, regardless of which server currently holds the replica role.
 
 
 ## Monitor replication
@@ -164,18 +164,6 @@ A read replica is created as a new Azure Database for PostgreSQL flexible server
 
 Users can create read replicas in a different resource group than the primary. However, moving read replicas to another resource group after their creation is unsupported. Additionally, moving replica(s) to a different subscription, and moving the primary that has read replica(s) to another resource group or subscription, it's not supported.
 
-### Promote
-
-Unavailable server states during promotion are described in the [Promote](#promote) section.
-
-#### Unavailable server states during promotion
-
-In the Planned promotion scenario, if the primary or replica server status is anything other than "Available" (for example, "Updating" or "Restarting"), an error is presented. However, using the Forced method, the promotion is designed to proceed, regardless of the primary server's current status, to address potential regional disasters quickly. It's essential to note that if the former primary server transitions to an irrecoverable state during this process, the only recourse will be to recreate the replica.
-
-#### Multiple replicas visibility during promotion in nonpaired regions
-
-When dealing with multiple replicas and if the primary region lacks a [paired region](#use-paired-regions-for-disaster-recovery-purposes), a special consideration must be considered. In the event of a regional outage affecting the primary, any additional replicas won't be automatically recognized by the newly promoted replica. While applications can still be directed to the promoted replica for continued operation, the unrecognized replicas remain disconnected during the outage. These additional replicas will only reassociate and resume their roles once the original primary region has been restored.
-
 ### Back up and Restore
 
 When managing backups and restores for your Azure Database for PostgreSQL flexible server instance, it's essential to keep in mind the current and previous role of the server in different [promotion scenarios](#promote-replicas). Here are the key points to remember:
@@ -207,7 +195,7 @@ Read replicas support both, private access via virtual network integration and p
 > [!IMPORTANT]  
 > Bi-directional communication between the primary server and read replicas is crucial for the Azure Database for PostgreSQL flexible server setup. There must be a provision to send and receive traffic on destination port 5432 within the Azure virtual network subnet.
 
-The above requirement not only facilitates the synchronization process but also ensures proper functioning of the promote mechanism where replicas might need to communicate in reverse order—from replica to primary—especially during promote to primary operations. Moreover, connections to the Azure storage account that stores Write-Ahead Logging (WAL) archives must be permitted to uphold data durability and enable efficient recovery processes.
+The above requirement not only facilitates the synchronization process but also ensures proper functioning of the promote mechanism where replicas might need to communicate in reverse order - from replica to primary - especially during promote to primary operations. Moreover, connections to the Azure storage account that stores Write-Ahead Logging (WAL) archives must be permitted to uphold data durability and enable efficient recovery processes.
 
 For more information about how to configure private access (virtual network integration) for your read replicas and understand the implications for replication across Azure regions and virtual networks within a private networking context, see the [Replication across Azure regions and virtual networks with private networking](concepts-networking-private.md#replication-across-azure-regions-and-virtual-networks-with-private-networking) page.
 
@@ -247,5 +235,6 @@ For storage scaling:
 
 ## Related content
 
-- [create and manage read replicas in the Azure portal](how-to-read-replicas-portal.md)
+- []
+- [Create and manage read replicas in the Azure portal](how-to-read-replicas-portal.md)
 - [Cross-region replication with virtual network](concepts-networking.md#replication-across-azure-regions-and-virtual-networks-with-private-networking)
