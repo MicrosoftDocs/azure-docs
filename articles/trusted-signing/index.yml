@@ -30,6 +30,12 @@ landingContent:
         links:
           - text: Sign CI Policies with Trusted Signing
             url: how-to-sign-ci-policy.md
+          - text: Signing Integrations with Trusted Signing
+            url: how-to-signing-integrations.md
+          - text: Access signed transactions in Trusted Signing 
+            url: how-to-sign-history.md
+          - text: Revoke a certificate profile in Trusted Signing
+            url: how-to-cert-revocation.md
   - title: Overview
     linkLists:
         - linkListType: overview
@@ -46,5 +52,9 @@ landingContent:
     linkLists:
       - linkListType: concept
         links:
-          - text: What is Signing?
-            url: concept.md
+          - text: Trusted Signing trust models
+            url: concept-trusted-signing-trust-models.md
+          - text: Trusted Signing resources and roles
+            url: concept-trusted-signing-resources-roles.md
+          - text: Trusted Signing certificate management
+            url: concept-trusted-signing-cert-management.md
