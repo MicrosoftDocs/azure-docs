@@ -128,7 +128,7 @@ Agent-based faults are injected into **Azure Virtual Machines** or **Virtual Mac
 |-----------------|------------|
 | Load | [Start load test (Azure Load Testing)](#start-load-test-azure-load-testing) |
 | Load | [Stop load test (Azure Load Testing)](#stop-load-test-azure-load-testing) |
-| Time delay | [Delay](#time-delay) |
+| Time delay | [Delay](#delay) |
 
 ## Details: Agent-based faults
 
@@ -606,13 +606,15 @@ Currently, the Windows agent doesn't reduce memory pressure when other applicati
 | Prerequisites | **Linux**: The **stress-ng** utility needs to be installed. Installation happens automatically as part of agent installation, using the default package manager, on several operating systems including Debian-based (like Ubuntu), Red Hat Enterprise Linux, and OpenSUSE. For other distributions, including Azure Linux, you must install **stress-ng** manually. For more information, see the [upstream project repository](https://github.com/ColinIanKing/stress-ng). |
 | Urn | urn:csci:microsoft:agent:linuxDiskIOPressure/1.1 |
 | Parameters (key, value) |  |
-| workerCount | Number of worker processes to run. Setting `workerCount` to 0 generated as many worker processes as there are number of processors. |
-| fileSizePerWorker | Size of the temporary file that a worker performs I/O operations against. Integer plus a unit in bytes (b), kilobytes (k), megabytes (m), or gigabytes (g) (for example, 4 m for 4 megabytes and 256 g for 256 gigabytes). |
-| blockSize | Block size to be used for disk I/O operations, capped at 4 megabytes. Integer plus a unit in bytes, kilobytes, or megabytes (for example, 512 k for 512 kilobytes). |
-| targetTempDirectory | (Optional) The directory to use for applying disk pressure. For example, "/tmp/". If the parameter is not included, pressure is added to the primary disk. |
+| workerCount | Number of worker processes to run. Setting `workerCount` to 0 generates as many worker processes as there are number of processors. |
+| fileSizePerWorker | Size of the temporary file that a worker performs I/O operations against. Integer plus a unit in bytes (b), kilobytes (k), megabytes (m), or gigabytes (g) (for example, `4m` for 4 megabytes and `256g` for 256 gigabytes). |
+| blockSize | Block size to be used for disk I/O operations, greater than 1 byte and less than 4 megabytes (maximum value is `4095k`). Integer plus a unit in bytes, kilobytes, or megabytes (for example, `512k` for 512 kilobytes). |
+| targetTempDirectory | (Optional) The directory to use for applying disk pressure. For example, `/tmp/`. If the parameter is not included, pressure is added to the primary disk. |
 | virtualMachineScaleSetInstances | An array of instance IDs when you apply this fault to a virtual machine scale set. Required for virtual machine scale sets in uniform orchestration mode. [Learn more about instance IDs](../virtual-machine-scale-sets/virtual-machine-scale-sets-instance-ids.md#scale-set-instance-id-for-uniform-orchestration-mode). |
 
 #### Sample JSON
+
+These sample values produced ~100% disk pressure when tested on a `Standard_D2s_v3` virtual machine with Premium SSD LRS. A large fileSizePerWorker and smaller blockSize help stress the disk fully.
 
 ```json
 {
@@ -624,23 +626,19 @@ Currently, the Windows agent doesn't reduce memory pressure when other applicati
       "parameters": [
         {
           "key": "workerCount",
-          "value": "0"
+          "value": "4"
         },
         {
           "key": "fileSizePerWorker",
-          "value": "512m"
+          "value": "2g"
         },
         {
           "key": "blockSize",
-          "value": "256k"
+          "value": "64k"
         },
         {
           "key": "targetTempDirectory",
           "value": "/tmp/"
-        },
-        {
-          "key": "virtualMachineScaleSetInstances",
-          "value": "[0,1,2]"
         }
       ],
       "duration": "PT10M",
@@ -649,6 +647,7 @@ Currently, the Windows agent doesn't reduce memory pressure when other applicati
   ]
 }
 ```
+
 
 ### Stop Service
 
