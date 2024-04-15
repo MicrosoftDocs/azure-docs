@@ -51,6 +51,8 @@ az ad sp list --display-name vm-name --query [*].appId --out tsv
 
 Now, connect as the Microsoft Entra administrator user to your Azure Database for PostgreSQL flexible server database, and run the following SQL statements, replacing `<identity_name>` with the name of the resources for which you created a system-assigned managed identity:
 
+Please note **pgaadauth_create_principal** must be run  on the Postgres database.
+
 ```sql
 select * from pgaadauth_create_principal('<identity_name>', false, false);
 ```
