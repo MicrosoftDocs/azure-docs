@@ -19,7 +19,7 @@ In this article, you learn how to migrate your existing NSG flow logs to VNet fl
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-- PowerShell 7 installed on your local machine. For more information, see [Install PowerShell on Windows, Linux, and macOS](/powershell/scripting/install/installing-powershell). This article requires the Az PowerShell module. For more information, see [How to install Azure PowerShell](/powershell/azure/install-azure-powershell). To find the installed version, run `Get-Module -ListAvailable Az`. 
+- PowerShell 7. For more information, see [Install PowerShell on Windows, Linux, and macOS](/powershell/scripting/install/installing-powershell). This article requires the Az PowerShell module. For more information, see [How to install Azure PowerShell](/powershell/azure/install-azure-powershell). To find the installed version, run `Get-Module -ListAvailable Az`. 
 
 - Necessary RBAC permissions for subscriptions of the flow logs and Log Analytics workspaces if traffic analytics is enabled for any of the NSG flow logs. For more information, see [Network Watcher RBAC permissions](required-rbac-permissions.md).
 
@@ -49,21 +49,22 @@ In this section, you learn how to generate and download the migration files for 
     - a script file: `MigrationFromNsgToAzureFlowLogging.ps1`
     - a JSON file: `RegionSubscriptionConfig.json`.
 
-## Execute migration script
+## Run migration script
 
 In this section, you learn how to use the script file that you downloaded in the previous section to migrate your NSG flow logs.
 
 1. Use [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) to sign in to Azure with the subscription that contains the NSG flow logs that you want to migrate.
 
-```powershell
-Connect-AzAccount -Subscription 'mySubscription'
-```
+    ```powershell
+    Connect-AzAccount -Subscription 'mySubscription'
+    ```
 
 1. Run the script file `MigrationFromNsgToAzureFlowLogging.ps1`.
 
 1. Enter **1** for **Run analysis** option.
 
     ```powershell
+    # Run the script file and select to run the analysis.
     .\MigrationFromNsgToAzureFlowLogging.ps1
     
     Select one of the following options for flowlog migration:
@@ -81,10 +82,10 @@ Connect-AzAccount -Subscription 'mySubscription'
 1. Enter **16** for the number of threads or press enter.
 
     ```powershell
-    Please enter the number of threads you would like to use, press enter for using default value of 16: 16
+    Please enter the number of threads you would like to use, press enter for using default value of 16: 16  
     ```
 
-    After the analysis is complete, you see the analysis report on screen and in an html file that's created in the same directory of the migration files. The report lists the number of NSG flow logs that will be disabled and the number of VNet flow logs that are created to replace them. The number of VNet flow logs that will be created depends on the type of migration that you choose. For example, if the NSG flow log that you're migrating is for a network security group that's associated with 3 network interfaces in the same virtual network, then you can choose migration with aggregation to have a one VNet flow log resource applied to the virtual network. You can also choose migration without aggregation to have 3 VNet flow logs (one VNet flow log resource per network interface).
+    After the analysis is complete, you'll see the analysis report on screen and in an html file in the same directory of the migration files. The report lists the number of NSG flow logs that will be disabled and the number of VNet flow logs that are created to replace them. The number of VNet flow logs that will be created depends on the type of migration that you choose. For example, if the network security group that you're migrating its flow log is associated with three network interfaces in the same virtual network, then you can choose *migration with aggregation* to have a single VNet flow log resource applied to the virtual network. You can also choose *migration without aggregation* to have three VNet flow logs (one VNet flow log resource per network interface).
 
 1. Enter **2** or **3** to choose the type of migration that you want to perform.
 
@@ -97,7 +98,7 @@ Connect-AzAccount -Subscription 'mySubscription'
     ```
 
 > [!NOTE]
-> The report of the migration that you performed is available in `AnalysisReport-<subscriptionId>-<region>-<time>.html` which is created in the same directory of the migration files.
+> See `AnalysisReport-<subscriptionId>-<region>-<time>.html` file for a full report of the migration that you performed. The file is available in the same directory of the script.
 
 ## Related content
 
