@@ -9,13 +9,9 @@ ms.author: schaffererin
 ms.custom: fasttrack-edit
 ---
 
-# IP Address Planning in Azure Kubernetes Service (AKS)
+# IP Address Planning for your clusters
 
 This article provides guidance on IP address planning for Azure Kubernetes Service (AKS) clusters.
-
-## Plan IP addressing for your cluster
-
-Aside from the prerequisites, there are several considerations to keep in mind for your IP address planning depending on your CNI plugin choice.
 
 For specific guidance on IP address planning for individual CNI options, see the [Next Steps](#next-steps) section for links to the appropriate CNI plugin documentation.
 
@@ -43,13 +39,49 @@ If you expect your nodes to run the maximum number of pods, and regularly destro
 
 The IP address plan for an AKS cluster consists of a virtual network, at least one subnet for nodes and pods, and a Kubernetes service address range.
 
-| Address range / Azure resource | Limits and sizing |
-| --------- | ------------- |
-| Virtual network | The Azure virtual network can be as large as /8, but is limited to 65,536 configured IP addresses. Consider all your networking needs, including communicating with services in other virtual networks, before configuring your address space. For example, if you configure too large of an address space, you might run into issues with overlapping other address spaces within your network.|
-| Subnet | Must be large enough to accommodate the nodes, pods, and all Kubernetes and Azure resources that might be provisioned in your cluster. For example, if you deploy an internal Azure Load Balancer, its front-end IPs are allocated from the cluster subnet, not public IPs. The subnet size should also take into account upgrade operations or future scaling needs.<p/> Use the following equation to calculate the *minimum* subnet size including an extra node for upgrade operations: `(number of nodes + 1) + ((number of nodes + 1) * maximum pods per node that you configure)`<p/> Example for a 50 node cluster: `(51) + (51  * 30 (default)) = 1,581` (/21 or larger)<p/>Example for a 50 node cluster that also includes preparation to scale up an extra 10 nodes: `(61) + (61 * 30 (default)) = 1,891` (/21 or larger)<p>If you don't specify a maximum number of pods per node when you create your cluster, the maximum number of pods per node is set to *30*. The minimum number of IP addresses required is based on that value. If you calculate your minimum IP address requirements on a different maximum value, see [Maximum pods per node](#maximum-pods-per-node) to set this value when you deploy your cluster. |
-| Kubernetes service address range | Any network element on or connected to this virtual network must not use this range. Service address CIDR must be smaller than /12. You can reuse this range across different AKS clusters. |
-| Kubernetes DNS service IP address | IP address within the Kubernetes service address range that is used by cluster service discovery. Don't use the first IP address in your address range. The first address in your subnet range is used for the *kubernetes.default.svc.cluster.local* address. |
+** TODO: Update Table to reflect all CNI's**
 
+| Address range | Azure resource | Limits and sizing |
+| ------------- | -------------- | ----------------- |
+| Virtual network | The Azure virtual network can be as large as /8, but is limited to 65,536 configured IP addresses. Consider all your networking needs, including communicating with services in other virtual networks, before configuring your address space. For example, if you configure too large of an address space, you might run into issues with overlapping other address spaces within your network.|
+| Subnet | Must be large enough to accommodate the nodes, pods, and all Kubernetes and Azure resources that might be provisioned in your cluster. For example, if you deploy an internal Azure Load Balancer, its front-end IPs are allocated from the cluster subnet, not public IPs. The subnet size should also take into account upgrade operations or future scaling needs.<p/> Use the following equation to calculate the _minimum_ subnet size including an extra node for upgrade operations: `(number of nodes + 1) + ((number of nodes + 1) * maximum pods per node that you configure)`<p/> Example for a 50 node cluster: `(51) + (51  * 30 (default)) = 1,581` (/21 or larger)<p/>Example for a 50 node cluster that also includes preparation to scale up an extra 10 nodes: `(61) + (61 * 30 (default)) = 1,891` (/21 or larger)<p>If you don't specify a maximum number of pods per node when you create your cluster, the maximum number of pods per node is set to _30_. The minimum number of IP addresses required is based on that value. If you calculate your minimum IP address requirements on a different maximum value, see [Maximum pods per node](#maximum-pods-per-node) to set this value when you deploy your cluster. |
+| Kubernetes service address range | Any network element on or connected to this virtual network must not use this range. Service address CIDR must be smaller than /12. You can reuse this range across different AKS clusters. |
+| Kubernetes DNS service IP address | IP address within the Kubernetes service address range that is used by cluster service discovery. Don't use the first IP address in your address range. The first address in your subnet range is used for the _kubernetes.default.svc.cluster.local_ address. |
+
+## Maximum pods per node
+
+The maximum number of pods per node in an AKS cluster is 250. The _default_ maximum number of pods per node varies between _kubenet_ and _Azure CNI_ networking, and the method of cluster deployment.
+
+| CNI                 | Default max pods | Configurable at deployment |
+|---------------------|------------------|----------------------------|
+| Azure CNI Overlay   | 250              | Yes (up to 250)            |
+| Azure CNI Podsubnet | 110              | Yes (up to 250)            |
+| Azure CNI (Legacy)  | 110              | Yes (up to 250)            |
+| Kubenet             | 30               | Yes (up to 250)            |
+
+### Configure maximum pods per node for new clusters
+
+You can configure the maximum number of pods per node either at cluster deployment time or as you add new node pools. You can set the maximum pods per node value as high as 250.
+
+If you don't specify _maxPods_ when creating new node pools, you receive a default value of 30 for Azure CNI.
+
+A minimum value for maximum pods per node is enforced to guarantee space for system pods critical to cluster health. The minimum value that can be set for maximum pods per node is 10 if and only if the configuration of each node pool has space for a minimum of 30 pods. For example, setting the maximum pods per node to the minimum of 10 requires each individual node pool to have a minimum of three nodes. This requirement applies for each new node pool created as well, so if 10 is defined as maximum pods per node each subsequent node pool added must have at least three nodes.
+
+| Networking | Minimum | Maximum |
+|------------|---------|---------|
+| Azure CNI  | 10      | 250     |
+| Kubenet    | 10      | 250     |
+
+> [!NOTE]
+> The minimum value in the previous table is strictly enforced by the AKS service. You can not set a value for _maxPods_ that is lower than the minimum shown, as doing so can prevent the cluster from starting.
+
+- **Azure CLI**: Specify the `--max-pods` argument when you deploy a cluster with the [az aks create][az-aks-create] command. The maximum value is 250.
+- **Resource Manager template**: Specify the `maxPods` property in the [ManagedClusterAgentPoolProfile] object when you deploy a cluster with a Resource Manager template. The maximum value is 250.
+- **Azure portal**: Change the `Max pods per node` field in the node pool settings when creating a cluster or adding a new node pool.
+
+### Configure maximum pods per node for existing clusters
+
+The _maxPods_ per node setting can be defined when you create a new node pool. If you need to increase the _maxPods_ setting on an existing cluster, add a new node pool with the new desired _maxPods_ count. After migrating your pods to the new pool, delete the older pool. To delete any older pool in a cluster, ensure you're setting node pool modes as defined in the [system node pools document][system-node-pools].
 
 <!-- LINKS - Internal -->
 [nodepool-upgrade]: upgrade.md

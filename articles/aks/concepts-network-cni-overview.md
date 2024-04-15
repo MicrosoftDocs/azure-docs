@@ -40,16 +40,60 @@ Unlike an overlay network, a flat network model in AKS assigns IP addresses to p
 
 :::image type="content" source="media/networking-overview/advanced-networking-diagram-01.png" alt-text="{A diagram showing two nodes with three pods each running in a flat network model}":::
 
-> [!NOTE]
-> This article is only introduces the CNI plugin options. For [Azure CNI Overlay][azure-cni-overlay], [Azure CNI VNet for dynamic IP allocation][configure-azure-cni-dynamic-ip-allocation], and [Azure CNI VNet - Static Block Allocation (Preview)][configure-azure-cni-static-block-allocation]. Please refer to their documentation instead.
-
-Azure Kubernetes Service provides the following CNI plugins for flat networking:
+Azure Kubernetes Service provides two CNI plugins for flat networking. This article does not go into depth for each plug in option. For more information, see the linked documentation:
 - [Azure CNI Podsubnet][azure-cni-podsubnet], the recommended CNI plugin for flat networking scenarios.
 - [Azure CNI Nodesubnet][azure-cni-nodesubnet], a legacy flat network model CNI.
 
-### CNI Options in AKS
+## Choosing a CNI
 
-**TODO: Move CNI Comparison table to this doc from CNI OVerlay How-to guide.**
+When choosing a CNI, there are several factors to consider. Each networking model has its own advantages and disadvantages, and the best choice for your cluster will depend on your specific requirements.
+
+### Choosing a networking model
+
+Choosing a networking model is the first step in selecting a CNI plugin. The two main networking models in AKS are overlay and flat networks.
+
+- **Overlay Networking Model**
+
+  - Conserves VNet IP address space.
+  - Large cluster scale support.
+  - Simpler IP address management.
+  - Extra hop required.
+  
+- **Flat Networking Model**
+
+  - Pods get full VNet connectivity and can be directly reached via their private IP address from connected networks.
+  - Requires large VNet IP address space.
+
+
+When choosing a networking model, consider the following:
+
+Your might have specific use cases that make one CNI plugin more suitable for your cluster than another. The following table provides a high-level comparison of the use case highlights for each CNI plugin and the type of network model it uses:
+
+| CNI Plugin (Network Model)               | Use Case Highlights                                                                                                                      |
+|------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------|
+| **Azure CNI Overlay** (Overlay)          | - Ideal for VNET IP conservation<br/>- Supports up to 1,000 nodes/250 pods per node<br/>- Simpler configuration<br/>- Extra hop required |
+| **Azure CNI Podsubnet** (Flat)           | - Direct external pod access<br/>- Modes for efficient VNet IP usage _or_ large cluster scale support                                    |
+| **Kubenet (Legacy)** (Overlay)           | - Prioritizes IP conservation<br/>- Limited scale<br/>- Manual route management                                                          |
+| **Azure CNI Nodesubnet (Legacy)** (Flat) | - Direct external pod access<br/>- Limited scale                                                                                         |
+
+### Feature Comparison
+
+Besides having to consider specific use cases, you might also want to compare the features of each CNI plugin. The following table provides a high-level comparison of the features supported by each CNI plugin:
+
+| Capability                               | Azure CNI Overlay | Azure CNI Podsubnet | Azure CNI Nodesubnet (Legacy) | Kubenet                 |
+|------------------------------------------|-------------------|---------------------|-------------------------------|-------------------------|
+| Deploy cluster in existing or new VNet   | Supported         | Supported           | Supported                     | Supported - manual UDRs |
+| Pod-pod connectivity                     | Supported         | Supported           | Supported                     | Supported               |
+| Pod-VM connectivity; VM in same VNet     | Pod initiated     | Both ways           | Both ways                     | Pod initiated           |
+| Pod-VM connectivity; VM in peered VNet   | Pod initiated     | Both ways           | Both ways                     | Pod initiated           |
+| On-premises access via VPN/Express Route | Pod initiated     | Both ways           | Both ways                     | Pod initiated           |
+| Access to service endpoints              | Supported         | Supported           | Supported                     | Supported               |
+| Expose services using load balancer      | Supported         | Supported           | Supported                     | Supported               |
+| Expose services using App Gateway        | Planned           | Supported           | Supported                     | Supported               |
+| Expose services using ingress controller | Supported         | Supported           | Supported                     | Supported               |
+| Support for Windows node pools           | Supported         | Supported           | Supported                     | Not Supported           |
+| Default Azure DNS and Private Zones      | Supported         | Supported           | Supported                     | Supported               |
+
 
 ## Prerequisites
 
@@ -66,9 +110,11 @@ There are several requirements and considerations to keep in mind when planning 
 
 ## Next Steps
 
-CNI plugin documentation:
+### CNI plugin documentation:
 - [Azure CNI Overlay][azure-cni-overlay]
 - [Azure CNI Podsubnet][azure-cni-podsubnet]
+- [Legacy CNI Options][legacy-cni-options]
+- [IP Address Planning for your clusters][ip-address-planning]
 
 
 <!-- LINKS - External -->
@@ -79,7 +125,7 @@ CNI plugin documentation:
 [azure-cni-nodesubnet]: concepts-network-legacy-cni.md#azure-cni-nodesubnet
 [azure-cni-overlay]: concepts-network-azure-cni-overlay.md
 [azure-cni-podsubnet]: concepts-network-azure-cni-podsubnet.md
-[configure-azure-cni-dynamic-ip-allocation]: configure-azure-cni-dynamic-ip-allocation.md
-[configure-azure-cni-static-block-allocation]: configure-azure-cni-static-block-allocation.md
 [delegated-subnet]: ../virtual-network/subnet-delegation-overview.md
+[ip-address-planning]: concepts-network-ip-address-planning.md]
 [kubenet]: concepts-network-legacy-cni.md#kubenet
+[legacy-cni-options]: concepts-network-legacy-cni.md
