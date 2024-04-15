@@ -25,9 +25,9 @@ In this article, you will learn which capabilities are supported for Teams exter
 |                   | Prevent joining locked meeting                                                                                      | ✔️        |
 |                   | Honor assigned Teams meeting role                                                                                   |   ✔️      |
 | Chat              | Send and receive chat messages                                                                                      | ✔️ |
-|                   | [Receive inline images](../../../tutorials/chat-interop/meeting-interop-features-inline-image.md)                                                                    | ✔️ |
+|                   | [Receive inline images](../../../tutorials/chat-interop/meeting-interop-features-inline-image.md)                                                                    | ✔️** |
 |                   | Send inline images                                                                                                        | ❌ |
-|                   | [Receive file attachments](../../../tutorials/chat-interop/meeting-interop-features-file-attachment.md)                                                                                                           | ✔️ |
+|                   | [Receive file attachments](../../../tutorials/chat-interop/meeting-interop-features-file-attachment.md)                                                                                                           | ✔️** |
 |                   | Send file attachments                                                                                                        | ❌ |
 |                   | Send and receive Giphy                                                                                              | ❌ |
 |                   | Send messages with high priority                                                                                    | ❌ |
@@ -173,6 +173,8 @@ In this article, you will learn which capabilities are supported for Teams exter
 When Teams external users leave the meeting, or the meeting ends, they can no longer send or receive new chat messages and no longer have access to messages sent and received during the meeting. 
 
 *Azure Communication Services provides developers tools to integrate Microsoft Teams Data Loss Prevention that is compatible with Microsoft Teams. For more information, go to [how to implement Data Loss Prevention (DLP)](../../../how-tos/chat-sdk/data-loss-prevention.md)
+
+**Inline image and file attachment support are available in the Chat SDK for JavaScript and C# only.
 
 ## Server capabilities
 
