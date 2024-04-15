@@ -40,6 +40,9 @@ Azure Router Server needs to ensure connectivity to the backend service that man
 
 No. We'll add IPv6 support in the future. If you have deployed an ExpressRoute virtual network gateway in a virtual network with an IPv6 address space and later deploy an Azure Route Server in the same virtual network, this will break ExpressRoute connectivity for IPv6 traffic.
 
+> [!WARNING]
+> When you deploy an Azure Route Server in a virtual network with an IPv6 address space, this will also break IPv4 connectivity for existing ExpressRoute traffic. This issue will be fixed in our next release. 
+
 ## Routing
 
 ### Does Azure Route Server route data traffic between my NVA and my VMs?

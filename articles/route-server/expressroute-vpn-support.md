@@ -38,6 +38,8 @@ If you enable BGP on the VPN gateway, the gateway learns *On-premises 1* routes 
 
 > [!IMPORTANT] 
 > Azure VPN gateway must be configured in [**active-active**](../vpn-gateway/vpn-gateway-activeactive-rm-powershell.md) mode and have the ASN set to 65515. It's not a requirement to have BGP enabled on the VPN gateway to communicate with the Route Server.
+>
+> In addition, the VPN gateway must be deployed in the same virtual network as Route Server in order for BGP peering to be successfully established. 
 
 :::image type="content" source="./media/expressroute-vpn-support/expressroute-and-vpn-with-route-server.png" alt-text="Diagram showing ExpressRoute and VPN gateways exchanging routes through Azure Route Server.":::
 
