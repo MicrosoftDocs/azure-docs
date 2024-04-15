@@ -5,19 +5,19 @@ description: Learn how to use the ADE extensibility model to build and utilize c
 ms.service: deployment-environments
 author: RoseHJM
 ms.author: rosemalcolm
-ms.date: 03/27/2024
+ms.date: 04/15/2024
 ms.topic: how-to
 
 #customer intent: As a developer, I want to learn how to build and utilize custom images within my environment definitions for deployment environments.
 ---
 
-# Custom image support with Terraform in Azure Deployment Environments
+# Configure a container image to execute deployments with Terraform
 
 In this article, you learn how to build and utilize a custom image within your environment definitions for deployments in Azure Deployment Environments (ADE). You learn how to configure a custom image to provision infrastructure using the Terraform Infrastructure-as-Code (IaC) framework.
 
-ADE uses an extensibility model to enable you to create custom images to use in your environment definitions. By using the extensibility model, you can create your own custom images, and store them in a public container registry. You can then reference these images in your environment definitions to deploy your environments.
+ADE supports an extensibility model that enables you to create custom images that you can use in your environment definitions. To leverage this extensibility model, you can create your own custom images, and store them in a public container registry. You can then reference these images in your environment definitions to deploy your environments.
 
-The ADE team provides a selection of images to get you started, including a core image, and an Azure Resource Manager (ARM)/Bicep image. You can access these sample images in the [Runner-Images](https://github.com/Azure/deployment-environments/tree/custom-runner-private-preview/Runner-Images) folder.
+The ADE team provides a selection of images to get you started, which you can see in the [Runner-Images](https://github.com/Azure/deployment-environments/tree/custom-runner-private-preview/Runner-Images) folder.
 
 The ADE CLI is a tool that allows you to build custom images by using ADE base images. You can use the ADE CLI to customize your deployments and deletions to fit your workflow. The ADE CLI is preinstalled on the sample images. To learn more about the ADE CLI, see the [CLI Custom Runner Image reference](https://aka.ms/deployment-environments/ade-cli-reference).
 
@@ -183,6 +183,36 @@ When authoring environment definitions to use your custom image in their deploym
 ```yaml
 runner: "{YOUR_REGISTRY}.azurecr.io/{YOUR_REPOSITORY}:{YOUR_TAG}"
 ```
+
+## Access operation logs and error details
+
+ADE stores error details for a failed deployment the *$ADE_ERROR_LOG* file. 
+
+To troubleshoot a failed deployment:
+
+1. Sign in to the [Developer Portal](https://devportal.microsoft.com/).
+1. Identify the environment that failed to deploy, and select **See details**.
+
+    :::image type="content" source="media/how-to-configure-extensibility-terraform-container-image/failed-deployment-card.png" alt-text="Screenshot showing failed deployment error details, specifically an invalid name for a storage account." lightbox="media/how-to-configure-extensibility-terraform-container-image/failed-deployment-card.png":::
+
+1. Review the error details in the **Error Details** section.
+
+    :::image type="content" source="media/how-to-configure-extensibility-terraform-container-image/deployment-error-details.png" alt-text="Screenshot showing a failed deployment of an environment with the See Details button displayed." lightbox="media/how-to-configure-extensibility-terraform-container-image/deployment-error-details.png":::
+
+Additionally, you can use the Azure CLI to view an environment's error details using the following command:
+```bash
+az devcenter dev environment show --environment-name {YOUR_ENVIRONMENT_NAME} --project {YOUR_PROJECT_NAME}
+```
+
+To view the operation logs for an environment deployment or deletion, use the Azure CLI to retrieve the latest operation for your environment, and then view the logs for that operation ID.
+
+```bash
+# Get list of operations on the environment, choose the latest operation
+az devcenter dev environment list-operation --environment-name {YOUR_ENVIRONMENT_NAME} --project {YOUR_PROJECT_NAME}
+# Using the latest operation ID, view the operation logs
+az devcenter dev environment show-logs-by-operation --environment-name {YOUR_ENVIRONMENT_NAME} --project {YOUR_PROJECT_NAME} --operation-id {LATEST_OPERATION_ID}
+```
+
 
 ## Related content
 
