@@ -114,6 +114,8 @@ When you deploy a pod with this toleration and node affinity, Kubernetes success
 * The node *must* have a label with the key `kubernetes.azure.com/scalesetpriority`, and the value of that label *must* be `spot`.
 * The node *preferably* has a label with the key `another-node-label-key`, and the value of that label *must* be `another-node-label-value`.
 
+For more information, see [Assigning pods to nodes](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#affinity-and-anti-affinity).
+
 ## Upgrade a Spot node pool
 
 When you upgrade a Spot node pool, AKS internally issues a cordon and an eviction notice, but no drain is applied. There are no surge nodes available for Spot node pool upgrades. Outside of these changes, the behavior when upgrading Spot node pools is consistent with that of other node pool types.
