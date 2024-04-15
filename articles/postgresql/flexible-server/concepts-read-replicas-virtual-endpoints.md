@@ -52,8 +52,6 @@ The sections below delve into how these endpoints react to both [Promote to prim
   * **If Read-Only Endpoint Points to Replica**: The Read-Only endpoint is redirected from the promoted replica to point to the primary server.
   * **If Read-Only Endpoint Points to Primary**: The Read-Only endpoint remains unchanged, continuing to point to the same server.
 
-> [!NOTE]  
-> Resetting the admin password on the replica server is currently not supported. Additionally, updating the admin password along with promoting replica operation in the same request is also not supported. If you wish to do this you must first promote the replica server and then update the password on the newly promoted server separately.
 
 Learn how to [create virtual endpoints](how-to-read-replicas-portal.md#create-virtual-endpoints).
 
