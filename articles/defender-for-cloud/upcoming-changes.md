@@ -51,7 +51,7 @@ If you're looking for the latest release notes, you can find them in the [What's
 
 **Estimated date for change: May 2024**
 
-the recommendation ### [Virtual machines should encrypt temp disks, caches, and data flows between Compute and Storage resources](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/d57a4221-a804-52ca-3dea-768284f06bb7) is set to be deprecated.
+The recommendation [Virtual machines should encrypt temp disks, caches, and data flows between Compute and Storage resources](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/d57a4221-a804-52ca-3dea-768284f06bb7) is set to be deprecated.
 
 ## Deprecating of virtual machine recommendation
 
