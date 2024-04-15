@@ -33,7 +33,7 @@ Azure Files supports account failover for standard storage accounts configured w
 GRS and GZRS still carry a [risk of data loss](#anticipate-data-loss) because data is copied to the secondary region asynchronously, meaning there's a delay before a write to the primary region is copied to the secondary region. In the event of an outage, write operations to the primary endpoint that haven't yet been copied to the secondary endpoint will be lost. This means a failure that affects the primary region might result in data loss if the primary region can't be recovered. The interval between the most recent writes to the primary region and the last write to the secondary region is the RPO. Azure Files typically has an RPO of 15 minutes or less, although there's currently no SLA on how long it takes to replicate data to the secondary region.
 
 > [!IMPORTANT]
-> GRS/GZRS aren't supported for premium Azure file shares. However, you can [sync between two Azure file shares](/Azure-Samples/azure-files-samples/tree/master/SyncBetweenTwoAzureFileSharesForDR) to achieve geographic redundancy.
+> GRS/GZRS aren't supported for premium Azure file shares. However, you can [sync between two Azure file shares](https://github.com/Azure-Samples/azure-files-samples/tree/master/SyncBetweenTwoAzureFileSharesForDR) to achieve geographic redundancy.
 
 ## Design for high availability
 
