@@ -59,7 +59,7 @@ Create a JavaScript application named *blob-quickstart*.
     code .
     ```
 
-1. Edit the *package.json* file to add the following properties:
+1. Edit the *package.json* file to add the following properties to support ESM with TypeScript:
 
     ```json
     "main": "dist/index.js",
