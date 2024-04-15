@@ -49,6 +49,31 @@ The gateway router must support Bidirectional Forwarding Detection (BFD) and Mel
 
 You must design your network to tolerate failure of a gateway router in the access network or in a data network. AP5GC only supports a single gateway router IP address per network. Therefore, only a network design where there is either a single gateway router per network or where the gateway routers are deployed in redundant pairs in an active / standby configuration with a floating gateway IP address is supported.  The gateway routers in each redundant pair should monitor each other using VRRP (Virtual Router Redundancy Protocol) to provide detection of partner failure.
 
+### Cluster network topologies
+
+AP5GC HA is built on a platform comprising a 2-node cluster of ASE devices.  The ASEs are connected to a common L2 broadcast domain and IP subnet in the access network (or else two common L2 domains, one for N2 and one for N3, using VLANs) and in each of the core networks.  They also share an L2 broadcast domain and IP subnet on the management network.
+
+:::zone pivot="ase-pro-2"
+
+See [Supported network topologies](/azure/databox-online/azure-stack-edge-gpu-clustering-overview?tabs=2). We recommend using **Option 1** - Port 1 and Port 2 are in different subnets. Separate virtual switches are created. Port 3 and Port 4 connect to an external virtual switch.
+
+:::zone-end
+
+:::zone pivot="ase-pro-gpu"
+
+See [Supported network topologies](/azure/databox-online/azure-stack-edge-gpu-clustering-overview?tabs=1). We recommend using **Option 2 - Use switches and NIC teaming** for maximum protection from failures. It is also acceptable to use one switch if preferred (Option 3), but this will lead to a higher risk of downtime in the event of a switch failure.  Using the switchless topology (Option 1) is possible but is not recommended because of the even higher risk of downtime. Option 3 causes each ASE to automatically create a Hyper-V virtual switch (vswitch) and add the ports to it.
+
+:::zone-end
+
+#### Cluster quorum and witness
+
+A 2-node ASE cluster requires a cluster witness, so that if one of the ASE nodes fails, the cluster witness accounts for the third vote, and the cluster stays online. The cluster witness runs in the Azure cloud.
+
+To configure an Azure cloud witness, see [https://learn.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness](/windows-server/failover-clustering/deploy-cloud-witness). Note the following:
+
+-	The Replication field must be set to locally redundant storage (LRS)
+-	Firewalls between the ASE cluster and the Azure storage account must allow outbound traffic to https://*.core.windows.net/* on port 443 (HTTPS).
+
 ## Allocate subnets and IP addresses
 
 Azure Private 5G Core requires a management network, access network, and up to ten data networks. These networks can all be part of the same, larger network, or they can be separate. The approach you use depends on your traffic separation requirements.
@@ -394,7 +419,7 @@ Do the following for each site you want to add to your private mobile network. D
 | 2. | Order and prepare your Azure Stack Edge Pro GPU device. | [Tutorial: Prepare to deploy Azure Stack Edge Pro with GPU](../databox-online/azure-stack-edge-gpu-deploy-prep.md) |
 | 3. | Rack and cable your Azure Stack Edge Pro GPU device. </br></br>When carrying out this procedure, you must ensure that the device has its ports connected as follows:</br></br>- Port 5 - access network (and optionally, data networks)</br>- Port 6 - data networks</br></br>Additionally, you must have a port connected to your management network. You can choose any port from 2 to 4. | [Tutorial: Install Azure Stack Edge Pro with GPU](/azure/databox-online/azure-stack-edge-gpu-deploy-install?pivots=single-node.md) |
 | 4. | Connect to your Azure Stack Edge Pro GPU device using the local web UI. | [Tutorial: Connect to Azure Stack Edge Pro with GPU](/azure/databox-online/azure-stack-edge-gpu-deploy-connect?pivots=single-node.md) |
-| 5. | Configure the network for your Azure Stack Edge Pro GPU device.</br> </br> **Note:** When an ASE is used in an Azure Private 5G Core service, Port 2 is used for management rather than data. The tutorial linked assumes a generic ASE that uses Port 2 for data. </br></br> If the RAN and Packet Core are on the same subnet, you do not need to configure a gateway for Port 5 or Port 6. </br></br> In addition, you can optionally configure your Azure Stack Edge Pro GPU device to run behind a web proxy. </br></br> Verify the outbound connections from Azure Stack Edge Pro GPU device to the Azure Arc endpoints are opened.  </br></br>**Do not** configure virtual switches, virtual networks or compute IPs. | [Tutorial: Configure network for Azure Stack Edge Pro with GPU](/azure/databox-online/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy?pivots=single-node.md)</br></br>[(Optionally) Configure web proxy for Azure Stack Edge Pro](/azure/databox-online/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy?pivots=single-node#configure-web-proxy)</br></br>[Azure Arc Network Requirements](/azure/azure-arc/kubernetes/quickstart-connect-cluster?tabs=azure-cli%2Cazure-cloud)</br></br>[Azure Arc Agent Network Requirements](/azure/architecture/hybrid/arc-hybrid-kubernetes)|
+| 5. | Configure the network for your Azure Stack Edge Pro GPU device. Follow the instructions for a **Single node device** for a standard deployment or a **Two node cluster** for an HA deployment. </br> </br> **Note:** When an ASE is used in an Azure Private 5G Core service, Port 2 is used for management rather than data. The tutorial linked assumes a generic ASE that uses Port 2 for data. </br></br> If the RAN and Packet Core are on the same subnet, you do not need to configure a gateway for Port 5 or Port 6. </br></br> In addition, you can optionally configure your Azure Stack Edge Pro GPU device to run behind a web proxy. </br></br> Verify the outbound connections from Azure Stack Edge Pro GPU device to the Azure Arc endpoints are opened.  </br></br>**Do not** configure virtual switches, virtual networks or compute IPs. | [Tutorial: Configure network for Azure Stack Edge Pro with GPU](/azure/databox-online/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy?pivots=single-node.md)</br></br>[(Optionally) Configure web proxy for Azure Stack Edge Pro](/azure/databox-online/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy?pivots=single-node#configure-web-proxy)</br></br>[Azure Arc Network Requirements](/azure/azure-arc/kubernetes/quickstart-connect-cluster?tabs=azure-cli%2Cazure-cloud)</br></br>[Azure Arc Agent Network Requirements](/azure/architecture/hybrid/arc-hybrid-kubernetes)|
 | 6. | Configure a name, DNS name, and (optionally) time settings. </br></br>**Do not** configure an update. | [Tutorial: Configure the device settings for Azure Stack Edge Pro with GPU](../databox-online/azure-stack-edge-gpu-deploy-set-up-device-update-time.md) |
 | 7. | Configure certificates for your Azure Stack Edge Pro GPU device. After changing the certificates, you might have to reopen the local UI in a new browser window to prevent the old cached certificates from causing problems.| [Tutorial: Configure certificates for your Azure Stack Edge Pro with GPU](/azure/databox-online/azure-stack-edge-gpu-deploy-configure-certificates?pivots=single-node) |
 | 8. | Activate your Azure Stack Edge Pro GPU device. </br></br>**Do not** follow the section to *Deploy Workloads*. | [Tutorial: Activate Azure Stack Edge Pro with GPU](../databox-online/azure-stack-edge-gpu-deploy-activate.md) |
