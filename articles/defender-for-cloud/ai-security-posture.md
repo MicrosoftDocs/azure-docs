@@ -1,5 +1,5 @@
 ---
-title: AI security posture management
+title: AI security posture management (AI-SPM)
 description: Learn about AI security posture management in Microsoft Defender for Cloud and how it protects your resources from AI threats.
 ms.date: 04/15/2024
 ms.topic: overview
@@ -8,13 +8,13 @@ author: Elazark
 #customer intent: As a cloud security professional, I want to understand how to secure my GenAI resources using Defender for Cloud's AI security posture management capabilities.
 ---
 
-# AI security posture management
+# AI security posture management (AI-SPM)
 
-Microsoft Defender for Cloud provides multicloud Artificial Intelligence (AI) security posture management capabilities that that enhances the security of your artificial intelligence (AI) pipelines and services. As more organizations implement generative AI (GenAI) applications using Azure based AIs and non-microsoft AI services, its important to ensure that these GenAI resources are secure.
+Microsoft Defender for Cloud provides multicloud Artificial Intelligence (AI) security posture management (SPM) capabilities that that enhances the security of your artificial intelligence (AI) pipelines and services. As more organizations implement generative AI (GenAI) applications using Azure based AIs and non-microsoft AI services, its important to ensure that these GenAI resources are secure.
 
-GenAI based applications are at risk to a variety of threats that are exclusive to AI models. These threats include jailbreaks, prompt and plugin injections, disclosure of sensitive data, evasion, and data poisoning. Defender for Cloud's Cloud Native Application Protection Platform (CNAPP) provides security alerts and recommendations designed to provide your organization with AI security posture management capabilities that secure your GenAI resources.
+GenAI based applications are at risk to a variety of threats that are exclusive to AI models. These threats include jailbreaks, prompt and plugin injections, disclosure of sensitive data, evasion, and data poisoning. Defender for Cloud's Cloud Native Application Protection Platform (CNAPP) provides security alerts and recommendations designed to provide your organization with AI-SPM capabilities that secure your GenAI resources.
 
-Defender for Cloud's AI security posture management capabilities provide security throughout the development lifecycle, starting with Defender for DevOps, and continuing through Defender for Cloud's runtime protection.
+Defender for Cloud's AI-SPM capabilities provide security throughout the development lifecycle, starting with Defender for DevOps, and continuing through Defender for Cloud's runtime protection.
 
 :::image type="content" source="media/ai-security-posture/ai-lifecycle.png" alt-text="An image of the development lifecycle that is covered by Defender for Cloud's AI security posture management.":::
 
@@ -24,7 +24,7 @@ It is important to identify vulnerable GenAI library dependencies in source code
 
 As a result, threat actors can breach data, compromise system integrity, or cause other security incidents. Developers must keep track of these vulnerabilities and update or patch their dependencies accordingly to ensure the trustworthiness and reliability of the systems they are developing.
 
-Defender for Cloud's AI security posture management provides comprehensive visibility into your AI pipelines, allowing you to understand the entire stack. It covers everything from data preparation and model training to deployment and inference. Defender for Cloud identifies AI services, technologies, and software development kits (SDKs) without any agents including managed services such as AWS SageMaker and well-known AI technologies such as TensorFlow Hub.
+Defender for Cloud's AI-SPM provides comprehensive visibility into your AI pipelines, allowing you to understand the entire stack. It covers everything from data preparation and model training to deployment and inference. Defender for Cloud identifies AI services, technologies, and software development kits (SDKs) without any agents including managed services such as AWS SageMaker and well-known AI technologies such as TensorFlow Hub.
 
 ### AI data security with attack path analysis
 
@@ -58,5 +58,4 @@ AI-SPM ensures the security of AI pipelines, addresses misconfigurations, and el
 - [Identify vulnerabilities on AI container images](identify-ai-container-image.md)
 - [Identify vulnerabilities in AI code repositories](identify-ai-vulnerable-code.md)
 - [Identify AI workloads and models in use](identify-ai-workload-model.md)
-- [Review alerts for AI applications](review-alerts-for-ai.md)
 - [Review recommendations for AI applications](review-recommendations-for-ai.md)
