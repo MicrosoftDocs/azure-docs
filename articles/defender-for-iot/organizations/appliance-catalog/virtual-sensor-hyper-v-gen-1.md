@@ -1,11 +1,11 @@
 ---
-title: OT sensor VM (Microsoft Hyper-V) Gen 2 - Microsoft Defender for IoT
-description: Learn about deploying a Microsoft Defender for IoT OT sensor as a virtual appliance using Microsoft Hyper-V 2nd generation.
+title: OT sensor VM (Microsoft Hyper-V) Gen 1- Microsoft Defender for IoT
+description: Learn about deploying a Microsoft Defender for IoT OT sensor as a virtual appliance using Microsoft Hyper-V.
 ms.date: 03/27/2024
 ms.topic: reference
 ---
 
-# OT network sensor VM (Microsoft Hyper-V) Gen 2
+# OT network sensor VM (Microsoft Hyper-V) Gen 1
 
 This article describes an OT sensor deployment on a virtual appliance using Microsoft Hyper-V.
 
@@ -15,6 +15,11 @@ This article describes an OT sensor deployment on a virtual appliance using Micr
 |**Performance** |  As required for your organization. For more information, see [Which appliances do I need?](../ot-appliance-sizing.md) |
 |**Physical specifications** | Virtual Machine |
 |**Status** | Supported |
+
+> [!NOTE]
+> We recommend using the 2nd Generation configuration, which offers better performance and increased security, for configuration see [Microsoft Hyper-V Gen 2](virtual-sensor-hyper-v.md).
+> [!IMPORTANT]
+> Versions 22.2.x of the sensor are incompatible with Hyper-V, and are no longer supported. We recommend using the latest version.
 
 ## Prerequisites
 
@@ -51,7 +56,7 @@ This procedure describes how to create a virtual machine by using Hyper-V.
 
 1. Enter a name for the virtual machine.
 
-1. Select **Generation** and set it to **Generation 2**, and then select **Next**.
+1. Select **Generation** and set it to **Generation 1**, and then select **Next**.
 
 1. Specify the memory allocation [according to your organization's needs](../ot-appliance-sizing.md), in standard RAM denomination (for example, 8192, 16384, 32768). Don't enable **Dynamic Memory**.
 
@@ -69,7 +74,7 @@ This procedure describes how to create a virtual machine by using Hyper-V.
 
 1. Allocate CPU resources [according to your organization's needs](../ot-appliance-sizing.md).
 
-1. Select **Firmware**, in **Boot order** move **DVD Drive** to the top of the list, select **Apply** and then select **OK**.
+1. Select **BIOS**, in **Startup order** move **IDE** to the top of the list, select **Apply** and then select **OK**.
 
 1. Connect the management console's ISO image to a virtual DVD drive.
 
@@ -84,9 +89,6 @@ This procedure describes how to create a virtual machine by using Hyper-V.
     The VM starts from the ISO image, and the language selection screen will appear.
 
 1. Continue with the [generic procedure for installing sensor software](../how-to-install-software.md).
-
-> [!NOTE]
-> We recommend using the 2nd Generation configuration, which offers better performance and increased security, however to use the 1st Generation configuration, see [Microsoft Hyper-V Gen 1](virtual-sensor-hyper-v-gen-1.md).
 
 ## Next steps
 
