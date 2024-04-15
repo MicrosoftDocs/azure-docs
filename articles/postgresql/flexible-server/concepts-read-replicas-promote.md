@@ -23,17 +23,17 @@ Promotion of replicas can be done in two distinct manners:
 
 **Promote to primary server**
 
-This action elevates a replica to the role of the primary server. In the process, the current primary server is demoted to a replica role, swapping their roles. For a successful promotion, it's necessary to have a [virtual endpoint](concepts-read-replicas-promote.md) configured for both the current primary as the writer endpoint, and the replica intended for promotion as the reader endpoint. The promotion will only be successful if the targeted replica is included in the reader endpoint configuration.
+This action elevates a replica to the role of the primary server. In the process, the current primary server is demoted to a replica role, swapping their roles. For a successful promotion, it's necessary to have a [virtual endpoint](concepts-read-replicas-promote.md) configured for both the current primary as the writer endpoint, and the replica intended for promotion as the reader endpoint. The promotion is successful only if the targeted replica is included in the reader endpoint configuration.
 
-The diagram below illustrates the configuration of the servers prior to the promotion and the resulting state after the promotion operation has been successfully completed.
+The diagram illustrates the configuration of the servers before the promotion and the resulting state after the promotion operation is successfully completed.
 
 :::image type="content" source="./media/concepts-read-replica/promote-to-primary-server.png" alt-text="Diagram that shows promote to primary server operation." lightbox="./media/concepts-read-replica/promote-to-primary-server.png":::
 
 **Promote to independent server and remove from replication**
 
-By opting for this, the replica becomes an independent server and is removed from the replication process. As a result, both the primary and the promoted server will function as two independent read-write servers. It should be noted that while virtual endpoints can be configured, they aren't a necessity for this operation. The newly promoted server will no longer be part of any existing virtual endpoints, even if the reader endpoint was previously pointing to it. Thus, it's essential to update your application's connection string to direct to the newly promoted replica if the application should connect to it.
+When you choose this option, the replica is promoted to become an independent server and is removed from the replication process. As a result, both the primary and the promoted server function as two independent read-write servers. It should be noted that while virtual endpoints can be configured, they aren't a necessity for this operation. The newly promoted server is no longer part of any existing virtual endpoints, even if the reader endpoint was previously pointing to it. Thus, it's essential to update your application's connection string to direct to the newly promoted replica if the application should connect to it.
 
-The diagram below illustrates the configuration of the servers before the promotion and the resulting state after the promotion to independent server operation has been successfully completed.
+The diagram illustrates the configuration of the servers before the promotion and the resulting state after the promotion to independent server operation is successfully completed.
 
 :::image type="content" source="./media/concepts-read-replica/promote-to-independent-server.png" alt-text="Diagram that shows promote to independent server and remove from replication operation." lightbox="./media/concepts-read-replica/promote-to-independent-server.png":::
 
@@ -47,7 +47,7 @@ For both promotion methods, there are more options to consider:
 
 - **Planned**: This option ensures that data is synchronized before promoting. It applies all the pending logs to ensure data consistency before accepting client connections.
 
-- **Forced**: This option is designed for rapid recovery in scenarios such as regional outages. Instead of waiting to synchronize all the data from the primary, the server becomes operational once it processes WAL files needed to achieve the nearest consistent state. If you promote the replica using this option, the lag at the time you delink the replica from the primary will indicate how much data is lost.
+- **Forced**: This option is designed for rapid recovery in scenarios such as regional outages. Instead of waiting to synchronize all the data from the primary, the server becomes operational once it processes WAL files needed to achieve the nearest consistent state. If you promote the replica using this option, the lag at the time you delink the replica from the primary indicates how much data is lost.
 
 > [!IMPORTANT]
 > The **Forced** option skips all the checks, for instance, the server symmetry requirement, and proceeds with promotion because it is designed for unexpected scenarios. If you use the "Forced" option without fulfilling the requirements for read replica specified in this documentation, you might experience issues such as broken replication. It is crucial to understand that this option prioritizes immediate availability over data consistency and should be used with caution.
@@ -56,7 +56,7 @@ Learn how to [promote replica to primary](how-to-read-replicas-portal.md#promote
 
 ## Configuration management
 
-Read replicas are treated as separate servers in terms of control plane configurations. This provides flexibility for read scale scenarios. However, when using replicas for disaster recovery purposes, users must ensure the configuration is as desired.
+Read replicas are treated as separate servers in terms of control plane configurations. This approach provides flexibility for read scale scenarios. However, when using replicas for disaster recovery purposes, users must ensure the configuration is as desired.
 
 The promote operation won't carry over specific configurations and parameters. Here are some of the notable ones:
 
