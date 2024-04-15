@@ -149,7 +149,9 @@ sudo ufw allow 80/tcp
 
 ## <a name = "limitations"></a>Limitations
 
-- You can't use Floating IP on secondary IP configurations for Load Balancing scenarios.  This limitation doesn't apply to Public load balancers with dual-stack configurations or to architectures that utilize a NAT Gateway for outbound connectivity.
+-  With Floating IP enabled on a load balancing rule, your application must use the primary IP configuration of the network interface for outbound.
+-  You can't use Floating IP on secondary IPv4 configurations for Load Balancing scenarios.  This limitation doesn't apply to Public load balancers with dual-stack (IPv4 and IPv6) configurations or to architectures that utilize a NAT Gateway for outbound connectivity.
+-  If your application binds to the frontend IP address configured on the loopback interface in the guest OS, Azure's outbound won't rewrite the outbound flow, and the flow fails. Review [outbound scenarios](load-balancer-outbound-connections.md).
 
 ## Next steps
 
