@@ -21,8 +21,8 @@ An `AzureAppConfigurationProvider` resource has the following top-level child pr
 |Name|Description|Required|Type|
 |---|---|---|---|
 |endpoint|The endpoint of Azure App Configuration, which you would like to retrieve the key-values from.|alternative|string|
-|replicaDiscoveryEnabled|The settings for replica discovery. When App Configuration stores with geo-replication enabled, the Kubernetes provider will automatically discover replicas and attempt to connect to them when it fails to connect to user-provided endpoint. If the property is absent, a default value of `true` is used.|false|bool|
 |connectionStringReference|The name of the Kubernetes Secret that contains Azure App Configuration connection string.|alternative|string|
+|replicaDiscoveryEnabled|The setting that determines whether replicas of Azure App Configuration are automatically discovered and used for failover. If the property is absent, a default value of `true` is used.|false|bool|
 |target|The destination of the retrieved key-values in Kubernetes.|true|object|
 |auth|The authentication method to access Azure App Configuration.|false|object|
 |configuration|The settings for querying and processing key-values in Azure App Configuration.|false|object|
@@ -74,13 +74,13 @@ The `spec.configuration` has the following child properties.
 |trimKeyPrefixes|The list of key prefixes to be trimmed.|false|string array|
 |refresh|The settings for refreshing key-values from Azure App Configuration. If the property is absent, key-values from Azure App Configuration are not refreshed.|false|object|
 
-If the `spec.configuration.selectors` property isn't set, all key-values with no label are downloaded. It contains an array of *selector* objects, which have the following child properties.
+If the `spec.configuration.selectors` property isn't set, all key-values with no label are downloaded. It contains an array of *selector* objects, which have the following child properties. Note that the key-values of the last selector take precedence and override any overlapping keys from the previous selectors.
 
 |Name|Description|Required|Type|
 |---|---|---|---|
-|keyFilter|The key filter for querying key-values.|alternative|string|
-|labelFilter|The label filter for querying key-values.|false|string|
-|snapshotName|The snapshot for querying its contained key-values.|alternative|string|
+|keyFilter|The key filter for querying key-values. This property and the `snapshotName` property should not be set at the same time.|alternative|string|
+|labelFilter|The label filter for querying key-values. This property and the `snapshotName` property should not be set at the same time.|false|string|
+|snapshotName|The name of a snapshot from which key-values are loaded. This property should not be used in conjunction with other properties.|alternative|string|
 
 The `spec.configuration.refresh` property has the following child properties.
 
@@ -97,7 +97,7 @@ The `spec.configuration.refresh.monitoring.keyValues` is an array of objects, wh
 |key|The key of a key-value.|true|string|
 |label|The label of a key-value.|false|string|
 
-The `spec.secret` property has the following child properties. It is required if any Key Vault references are expected to be downloaded. All selected secrets would be sourced into one `Opaque` type Secret by default. For generating other types of Secret, see [Key Vault references](#key-vault-references) for more details.
+The `spec.secret` property has the following child properties. It is required if any Key Vault references are expected to be downloaded. To learn more about the support for Kubernetes built-in types of Secrets, see [Types of Secret](#types-of-secret).
 
 |Name|Description|Required|Type|
 |---|---|---|---|
@@ -143,13 +143,13 @@ The `spec.featureFlag` property has the following child properties. It is requir
 |selectors|The list of selectors for feature flag filtering.|false|object array|
 |refresh|The settings for refreshing feature flags from Azure App Configuration. If the property is absent, feature flags from Azure App Configuration are not refreshed.|false|object|
 
-If the `spec.featureFlag.selectors` property isn't set, feature flags are not downloaded. It contains an array of *selector* objects, which have the following child properties.
+If the `spec.featureFlag.selectors` property isn't set, feature flags are not downloaded. It contains an array of *selector* objects, which have the following child properties. Note that the feature flags of the last selector take precedence and override any overlapping keys from the previous selectors.
 
 |Name|Description|Required|Type|
 |---|---|---|---|
-|keyFilter|The key filter for querying feature flags.|alternative|string|
-|labelFilter|The label filter for querying feature flags.|false|string|
-|snapshotName|The snapshot for querying its contained feature flags.|alternative|string|
+|keyFilter|The key filter for querying feature flags. This property and the `snapshotName` property should not be set at the same time.|alternative|string|
+|labelFilter|The label filter for querying feature flags. This property and the `snapshotName` property should not be set at the same time.|false|string|
+|snapshotName|The name of a snapshot from which feature flags are loaded. This property should not be used in conjunction with other properties.|alternative|string|
 
 The `spec.featureFlag.refresh` property has the following child properties.
 
@@ -327,13 +327,7 @@ spec:
         labelFilter: development
 ```
 
-### Snapshot
-
-Use the `configuration.selectors.snapshotName` property to specify a snapshot and its contained key-values will be downloaded.
-
-#### [snapshot only](#tab/snapshotOnly)
-
-The following example downloads key-values from specified snapshot.
+A snapshot can be used alone or together with other key-value selectors. In the following sample, you load key-values of common configuration from a snapshot and then override some of them with key-values for development.
 
 ``` yaml
 apiVersion: azconfig.io/v1
@@ -346,30 +340,10 @@ spec:
     configMapName: configmap-created-by-appconfig-provider
   configuration:
     selectors:
-      - snapshotName: snapshot_app1
-```
-
-#### [snapshot with key/label filters](#tab/withfilters)
-
-In following example, snapshot and key/label filters are used to retrieve key-values. It's important to note that the values of the last selector take precedence and override any overlapping keys from the previous selectors.
-
-``` yaml
-apiVersion: azconfig.io/v1
-kind: AzureAppConfigurationProvider
-metadata:
-  name: appconfigurationprovider-sample
-spec:
-  endpoint: <your-app-configuration-store-endpoint>
-  target:
-    configMapName: configmap-created-by-appconfig-provider
-  configuration:
-    selectors:
+      - snapshotName: app1_common_configuration
       - keyFilter: app1*
-        labelFilter: common
-      - snapshotName: snapshot_app1
+        labelFilter: development
 ```
-
----
 
 ### Key prefix trimming
 
@@ -418,6 +392,8 @@ spec:
 
 ### Key Vault references
 
+#### Authentication
+
 In the following sample, one Key Vault is authenticated with a service principal, while all other Key Vaults are authenticated with a user-assigned managed identity.
 
 ``` yaml
@@ -442,21 +418,13 @@ spec:
           servicePrincipalReference: <name-of-secret-containing-service-principal-credentials>
 ```
 
-By default, all key vault reference items will be projected as key-value pairs into the specified target Secret, and the type of that target secret is `Opaque`, which cannot be customized. Given that Kubernetes has [various types](https://kubernetes.io/docs/concepts/configuration/secret/#secret-types) of Secret besides `Opaque`, Azure App Configuration Kubernetes Provider currently give compatibility for `kubernetes.io/tls` type. If you want a key vault reference item to be projected as a secret of  `kubernetes.io/tls`  type, you need to tag that key vault reference item with a special label `".kubernetes.secret.type": "kubernetes.io/tls"` in Azure App Configuration, like this:
- 
-```
-{
-	"key": "mycertificate",
-	"label": null,
-	"value": "{\"uri\":\"https://<your-key-valut-endpoint>/secrets/mycertificate\"}",
-	"content_type": "application/vnd.microsoft.appconfig.keyvaultref+json;charset=utf-8",
-	"tags": {
-		".kubernetes.secret.type": "kubernetes.io/tls"
-	}
-}
-```
- 
-Then this key vault reference item will be generated as a `kubernetes.io/tls` type Secret naming with the key of it.
+#### Types of Secret
+
+Two Kubernetes built-in [types of Secrets](https://kubernetes.io/docs/concepts/configuration/secret/#secret-types), Opaque and TLS, are currently supported. Secrets resolved from Key Vault references are saved as the [Opaque Secret](https://kubernetes.io/docs/concepts/configuration/secret/#opaque-secrets) type by default. If you have a Key Vault reference to a certificate and want to save it as the [TLS Secret](https://kubernetes.io/docs/concepts/configuration/secret/#tls-secrets) type, you can add a **tag** with the following name and value to the Key Vault reference in Azure App Configuration. By doing so, a Secret with the `kubernetes.io/tls` type will be generated and named after the key of the Key Vault reference.
+
+|Name|Value|
+|---|---|
+|.kubernetes.secret.type|kubernetes.io/tls|
 
 ### Refresh of secrets from Key Vault
 

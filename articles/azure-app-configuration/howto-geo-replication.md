@@ -96,7 +96,7 @@ When geo-replication is enabled, and if one replica isn't accessible, you can le
 
 Assuming you have an application using Azure App Configuration, you can update it as the following sample code to take advantage of the failover feature. You can either provide a list of endpoints for Microsoft Entra authentication or a list of connection strings for access key-based authentication.
 
-### [.NET](#tab/net)
+### [.NET](#tab/dotnet)
 
 Edit the call to the `AddAzureAppConfiguration` method, which is often found in the `program.cs` file of your application.
 
@@ -179,7 +179,7 @@ You can specify one or more endpoints of a geo-replication-enabled App Configura
 
 The automatically discovered replicas will be selected and used randomly. If you have a preference for specific replicas, you can explicitly specify their endpoints. This feature is enabled by default, but you can refer to the following sample code to disable it.
 
-### [.NET](#tab/dotnet)
+### [.NET](#tab/Dotnet)
 
 Edit the call to the `AddAzureAppConfiguration` method, which is often found in the `program.cs` file of your application.
 
@@ -201,7 +201,7 @@ configurationBuilder.AddAzureAppConfiguration(options =>
 
 ### [Kubernetes](#tab/kubernetes)
 
-Replica auto-discovery is enabled by default and can be disabled by setting `replicaDiscoveryEnabled` to `false`.
+Update the `AzureAppConfigurationProvider` resource of your Azure App Configuration Kubernetes Provider. Add a `replicaDiscoveryEnabled` property and set it to `false`.
 
 ``` yaml
 apiVersion: azconfig.io/v1
@@ -216,7 +216,7 @@ spec:
 ```
 
 > [!NOTE]
-> The failover support is available if you use version **1.3.0** or later of Azure App Configuration Kubernetes Provider.
+> The automatic replica discovery and failover support is available if you use version **1.3.0** or later of [Azure App Configuration Kubernetes Provider](https://mcr.microsoft.com/product/azure-app-configuration/kubernetes-provider/about).
 
 ---
 
