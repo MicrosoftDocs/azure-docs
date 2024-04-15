@@ -291,6 +291,8 @@ trustedsigning certificate-profile delete -g MyResourceGroup --account-name MyAc
 
 **Note**: This action halts any signing associated with the corresponding certificate profiles.
 
+---
+
 ## Next steps
 
 In this Quickstart, you created a Trusted Signing account, an Identity Validation and a Certificate Profile. To delve deeper into Trusted Signing and kickstart your signing journey, explore the following articles:
