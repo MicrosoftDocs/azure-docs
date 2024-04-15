@@ -290,6 +290,16 @@ az storage account update \
     --allow-shared-key-access false
 ```
 
+# [Template](#tab/template)
+
+To disallow Shared Key authorization for a storage account with an Azure Resource Manager template or Bicep file, you can modify the following property:
+
+```json
+"allowSharedKeyAccess": false
+```
+
+To learn more, see the [storageAccounts specification](/azure/templates/microsoft.storage/storageaccounts).
+
 ---
 
 After you disallow Shared Key authorization, making a request to the storage account with Shared Key authorization will fail with error code 403 (Forbidden). Azure Storage returns an error indicating that key-based authorization is not permitted on the storage account.
