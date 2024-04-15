@@ -58,9 +58,7 @@ The following limitations apply when using network groups with security admin ru
 
 - Supports 100 networking resources (virtual networks or subnets) in any one network group referenced in the security admin rule.
 
-- Only supports IPv4 address prefixes in the network group members.
-  
-- Dual-stack network groups aren't supported. If both IPv4 and IPv6 ranges are present, Azure Virtual Network Manager (AVNM) only uses the IPv4 ranges.
+- CIDR ranges for network groups members can be either Ipv4 or Ipv6 CIDRs, but not both in the same group. If Ipv4 and Ipv6 ranges are present in the same group, your virtual network manager only uses the IPv4 ranges.
 
 - Role-based access control ownership is inferred from the `Microsoft.Network/networkManagers/securityAdminConfigurations/rulecollections/rules/write` permission only.
 
