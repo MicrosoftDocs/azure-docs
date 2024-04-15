@@ -136,6 +136,8 @@
           href: concepts-network.md
         - name: CNI networking
           href: azure-cni-overview.md
+        - name: Services
+          href: concepts-network-services.md
     - name: Storage
       href: concepts-storage.md
     - name: Scaling

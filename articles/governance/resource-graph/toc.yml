@@ -74,6 +74,9 @@
   - name: Explore your Azure resources with Resource Graph
     displayName: vms, public ip
     href: ./concepts/explore-resources.md
+  - name: Analyze changes to your resources with Change Analysis
+    displayName: vms, public ip
+    href: ./changes/resource-graph-changes.md
   - name: Work with large data sets
     displayName: page, first, skip, token
     href: ./concepts/work-with-data.md
@@ -88,7 +91,10 @@
   items:
   - name: Get resource changes
     displayName: resource, change, history, snapshot, details
-    href: ./how-to/get-resource-changes.md
+    href: ./changes/get-resource-changes.md
+  - name: View resource changes in the portal
+    displayName: resource, change, history, snapshot, details
+    href: ./changes/view-resource-changes.md
 - name: Troubleshoot
   items:
   - name: Alerts
