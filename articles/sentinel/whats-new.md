@@ -50,7 +50,7 @@ For the complete list of anomaly detections, see the [anomalies reference page](
 
 ### Microsoft Sentinel is now available in Italy North region
 
-Microsoft Sentinel is now available in Italy North Azure region with the feature feature set as all other Azure Commercial regions as listed on [Microsoft Sentinel feature support for Azure commercial/other clouds](feature-availability.md).
+Microsoft Sentinel is now available in Italy North Azure region with the same feature set as all other Azure Commercial regions as listed on [Microsoft Sentinel feature support for Azure commercial/other clouds](feature-availability.md).
 
 For more information, see also [Geographical availability and data residency in Microsoft Sentinel](geographical-availability-data-residency.md).
 
