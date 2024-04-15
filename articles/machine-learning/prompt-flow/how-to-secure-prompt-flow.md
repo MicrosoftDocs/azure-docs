@@ -103,7 +103,7 @@ Workspace managed virtual network is the recommended way to support network isol
 - To set up Azure Machine Learning related resources as private, see [Secure workspace resources](../how-to-secure-workspace-vnet.md).
 - If you have strict outbound rule, make sure you have open the [Required public internet access](../how-to-secure-workspace-vnet.md#required-public-internet-access).
 - Add workspace MSI as `Storage File Data Privileged Contributor` to storage account linked with workspace. Please follow step 2 in [Secure prompt flow with workspace managed virtual network](#secure-prompt-flow-with-workspace-managed-virtual-network).
-- If you are using serverless compute type in flow authoring, you need set specify the custom virtual network in workspace level. Learn more about [Secure an Azure Machine Learning training environment with virtual networks](../how-to-secure-training-vnet.md)
+- If you are using serverless compute type in flow authoring, you need set the custom virtual network in workspace level. Learn more about [Secure an Azure Machine Learning training environment with virtual networks](../how-to-secure-training-vnet.md)
 
     ```yaml
     serverless_compute:
