@@ -20,7 +20,7 @@ All operations involving virtual endpoints, whether adding, editing, or removing
 
 Virtual Endpoints offer two distinct types of connection points:
 
-**Writer Endpoint (Read/Write)**: This endpoint always points to the current primary server. It ensures that write operations are directed to the correct server, irrespective of any promote operations users trigger. This endpoint can't be changed to point to a replica.
+**Writer Endpoint (Read/Write)**: This endpoint always points to the current primary server. It ensures that write operations are directed to the correct server, irrespective of any promote operations users trigger. This endpoint can't be changed to point to a [replica](concepts-read-replicas.md).
 
 
 **Read-Only Endpoint**: This endpoint can be configured by users to point either to a read replica or the primary server. However, it can only target one server at a time. Load balancing between multiple servers isn't supported. You can adjust the target server for this endpoint anytime, whether before or after promotion.
@@ -31,7 +31,7 @@ Virtual Endpoints offer two distinct types of connection points:
 ### Virtual Endpoints and Promote Behavior
 
 In the event of a promote action, the behavior of these endpoints remains predictable.
-The sections below delve into how these endpoints react to both "Promote to primary server" and "Promote to independent server" scenarios.
+The sections below delve into how these endpoints react to both [Promote to primary server](concepts-read-replicas-promote.md) and **Promote to independent server** scenarios.
 
 | **Virtual endpoint** | **Original target** | **Behavior when "Promote to primary server" is triggered** | **Behavior when "Promote to independent server" is triggered** |
 | --- | --- | --- | --- |

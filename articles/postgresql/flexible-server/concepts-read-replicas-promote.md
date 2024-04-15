@@ -50,7 +50,8 @@ For both promotion methods, there are more options to consider:
 - **Forced**: This option is designed for rapid recovery in scenarios such as regional outages. Instead of waiting to synchronize all the data from the primary, the server becomes operational once it processes WAL files needed to achieve the nearest consistent state. If you promote the replica using this option, the lag at the time you delink the replica from the primary indicates how much data is lost.
 
 > [!IMPORTANT]
-> The **Forced** option skips all the checks, for instance, the server symmetry requirement, and proceeds with promotion because it is designed for unexpected scenarios. If you use the "Forced" option without fulfilling the requirements for read replica specified in this documentation, you might experience issues such as broken replication. It is crucial to understand that this option prioritizes immediate availability over data consistency and should be used with caution.
+> The **Forced** promotion option is specifically designed to address regional outages and, in such cases, it skips all checks - including the server symmetry requirement - and proceeds with promotion. This is because it prioritizes immediate server availability to handle disaster scenarios. However, using the Forced option outside of region down scenarios is not allowed if the requirements for read replicas specified in the documentation, especially server symmetry requirement, are not met, as it could lead to issues such as broken replication.
+ 
 
 Learn how to [promote replica to primary](how-to-read-replicas-portal.md#promote-replicas) and [promote to independent server and remove from replication](how-to-read-replicas-portal.md#promote-replica-to-independent-server).
 
