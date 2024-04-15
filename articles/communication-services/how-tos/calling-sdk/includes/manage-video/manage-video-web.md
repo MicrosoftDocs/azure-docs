@@ -8,7 +8,7 @@ ms.author: rifox
 [!INCLUDE [Install SDK](../install-sdk/install-sdk-web.md)]
 
 ## Device management
-To begin using video with Calling, you need to be able to manage devices. Devices allow you to control what transmits Audio and Video to the call.
+To begin using video with the Calling SDK, you need to be able to manage devices. Devices allow you to control what transmits Audio and Video to the call.
 
 With the `deviceManager`, you can enumerate local devices that can transmit your audio and video streams in a call. You can also use the `deviceManager` to request permission to access the local device's microphones and cameras.
 
@@ -33,27 +33,65 @@ const localMicrophones = await deviceManager.getMicrophones(); // [AudioDeviceIn
 const localSpeakers = await deviceManager.getSpeakers(); // [AudioDeviceInfo, AudioDeviceInfo...]
 ```
 
-### Set the default microphone and speaker
+### Set the default devices
 
-In `deviceManager`, you can set a default device that you use to start a call. If client defaults aren't set, Communication Services uses operating system defaults.
+Once you know what devices are available to use you can set default devices for microphone, speaker, and camera. If client defaults aren't set, the Communication Services SDK uses operating system defaults.
+
+<!-- In `deviceManager`, you can set a default device to start a call via the `selectMicrophone()` and `selectSpeaker()` methods. -->
+
+#### Microphone
+
+**Access the device used**
 
 ```js
 // Get the microphone device that is being used.
 const defaultMicrophone = deviceManager.selectedMicrophone;
+```
+**Setting the device to use**
 
+```js
 // Set the microphone device to use.
 await deviceManager.selectMicrophone(localMicrophones[0]);
+```
+#### Speaker
 
+**Access the device used**
+```js
 // Get the speaker device that is being used.
 const defaultSpeaker = deviceManager.selectedSpeaker;
+```
 
+**Setting the device to use**
+```js
 // Set the speaker device to use.
 await deviceManager.selectSpeaker(localSpeakers[0]);
 ```
 
-Each `CallAgent` can choose its own microphone and speakers on its associated `DeviceManager`. It is recommended that different `CallAgents` use different microphones and speakers. They should not share the same microphones nor speakers. In case of sharing them, Microphone UFDs may be triggered and the microphone stops working depending on the browser / os.
+#### Camera
 
-### Local video stream properties
+**Access the device used**
+```js
+// Get the camera device that is being used.
+const defaultSpeaker = deviceManager.selectedSpeaker;
+```
+
+**Setting the device to use**
+```js
+// Set the speaker device to use.
+await deviceManager.selectSpeaker(localCameras[0]);
+```
+
+Each `CallAgent` can choose its own microphone and speakers on its associated `DeviceManager`. It is recommended that different `CallAgents` use different microphones and speakers. They should not share the same microphones nor speakers. If sharing happens, then Microphone User Facing Diagnostics may be triggered and the microphone stops working depending on the browser / os.
+
+### Local video stream
+
+To be able to send video in a call you need to create a `LocalVideoStream`object.
+
+```js
+const localVideoStream = new LocalVideoStream(camera);
+```
+
+The camera passed as parameter is one of the `VideoDeviceInfo` object returned by the `deviceManager.getCameras()`method.
 
 A `LocalVideoStream` has the following properties:
 
@@ -71,7 +109,11 @@ const type: MediaStreamType = localVideoStream.mediaStreamType;
 
 ### Local camera preview
 
-You can use `deviceManager` and `VideoStreamRenderer` to begin rendering streams from your local camera. This stream is not sent to other participants; it's a local preview feed.
+You can use `deviceManager` and `VideoStreamRenderer` to begin rendering streams from your local camera.
+Once a `LocalVideoStream` is created use it to set up`VideoStreamRenderer`. Once the `VideoStreamRenderer`is
+created call its `createView() method to get a view that you can add as a child to your page.
+
+Please not that this stream is not sent to other participants; it's a local preview feed.
 
 ```js
 // To start viewing local camera preview
@@ -81,7 +123,15 @@ const localVideoStream = new LocalVideoStream(camera);
 const videoStreamRenderer = new VideoStreamRenderer(localVideoStream);
 const view = await videoStreamRenderer.createView();
 htmlElement.appendChild(view.target);
+```
 
+**Stop the local preview**
+
+To stop the local preview call dispose on the view derived from the `VideoStreamRenderer`. 
+Once the VideoStreamRenderer is disposed, remove the view from the html tree by calling 
+the `removeChild()` method from the DOM Node containing your preview.
+
+```js
 // To stop viewing local camera preview
 view.dispose();
 htmlElement.removeChild(view.target);
@@ -89,18 +139,21 @@ htmlElement.removeChild(view.target);
 
 ### Request permission to camera and microphone
 
-Prompt a user to grant camera and/or microphone permissions:
+An application can not use the camera or microphone without permissions. 
+You can use the deviceManager to prompt a user to grant camera and/or microphone permissions:
 
 ```js
 const result = await deviceManager.askDevicePermission({audio: true, video: true});
 ```
 
-The output returns with an object that indicates whether `audio` and `video` permissions were granted:
+Once the promise is resolved, the method returns with a [`DeviceAccess`](https://learn.microsoft.com/en-us/javascript/api/azure-communication-services/%40azure/communication-calling/deviceaccess?view=azure-communication-services-js) 
+object that indicates whether `audio` and `video` permissions were granted:
 
 ```js
 console.log(result.audio);
 console.log(result.video);
 ```
+
 #### Notes
 - `videoDevicesUpdated` event fires when video devices are plugging-in/unplugged.
 - `audioDevicesUpdated` event fires when audio devices are plugged.
