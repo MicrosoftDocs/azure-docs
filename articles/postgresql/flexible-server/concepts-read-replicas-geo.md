@@ -30,7 +30,7 @@ You can have a primary server in any [Azure Database for PostgreSQL flexible ser
   - China East 3
 
 > [!NOTE]
-> Virtual endpoints and promote to primary server features - are not currently supported in the special regions listed above.
+> [Virtual endpoints](concepts-read-replicas-virtual-endpoints.md) and [promote to primary server features](concepts-read-replicas-promote.md) - are not currently supported in the special regions listed above.
 
 ## Paired regions for disaster recovery purposes
 
@@ -71,15 +71,15 @@ Being proactive and preparing in advance for regional disasters ensure the resil
 
 ### When outages impact your SLA
 
-In the event of a prolonged outage with Azure Database for PostgreSQL flexible server in a specific region that threatens your application's service-level agreement (SLA), be aware that both the actions discussed below aren't service-driven. User intervention is required for both. It's a best practice to automate the entire process as much as possible and to have robust monitoring in place. For more information about what information is provided during an outage, see the [Service outage](concepts-business-continuity.md#service-outage) page. Only a forced promote is possible in a region down scenario, meaning the amount of data loss is roughly equal to the current lag between the replica and primary. Hence, it's crucial to [monitor the lag](concepts-read-replicas.md#monitor-replication). Consider the following steps:
+In the event of a prolonged outage with Azure Database for PostgreSQL flexible server in a specific region that threatens your application's service-level agreement (SLA), be aware that both the actions discussed below aren't service-driven. User intervention is required for both. It's a best practice to automate the entire process as much as possible and to have robust monitoring in place. For more information about what information is provided during an outage, see the [Service outage](concepts-business-continuity.md#service-outage) page. Only a **forced** promote is possible in a region down scenario, meaning the amount of data loss is roughly equal to the current lag between the replica and primary. Hence, it's crucial to [monitor the lag](concepts-read-replicas.md#monitor-replication). Consider the following steps:
 
 **Promote to primary server**
 
-Use this action if your server fulfills the server symmetry criteria. This option won't require updating the connection strings in your application, provided virtual endpoints are configured. Once activated, the writer endpoint will repoint to the new primary in a different region and the [replication state](concepts-read-replicas.md#monitor-replication) column in the Azure portal will display "Reconfiguring". Once the affected region is restored, the former primary server will automatically resume, but now in a replica role.
+This option won't require updating the connection strings in your application, provided virtual endpoints are configured. Once activated, the writer endpoint will repoint to the new primary in a different region and the [replication state](concepts-read-replicas.md#monitor-replication) column in the Azure portal will display "Reconfiguring". Once the affected region is restored, the former primary server will automatically resume, but now in a replica role.
 
 **Promote to independent server and remove from replication**
 
-Suppose your server doesn't meet the [server symmetry](concepts-read-replicas.md#configuration-management) requirement (for example, the geo-replica has a higher tier or more storage than the primary). In that case, this is the only viable option. After promoting the server, you'll need to update your application's connection strings. Once the original region is restored, the old primary might become active again. Ensure to remove it to avoid incurring unnecessary costs. If you wish to maintain the previous topology, recreate the read replica.
+In that case, this is the only viable option. After promoting the server, you'll need to update your application's connection strings. Once the original region is restored, the old primary might become active again. Ensure to remove it to avoid incurring unnecessary costs. If you wish to maintain the previous topology, recreate the read replica.
 
 
 ## Related content
