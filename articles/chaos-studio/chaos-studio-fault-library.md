@@ -17,7 +17,7 @@ The faults listed in this article are currently available for use. To understand
 
 ## Agent-based faults
 
-Agent-based faults are injected into **Azure Virtual Machines** or **Virtual Machine Scale Set** instances by installing the Chaos Studio Agent.
+Agent-based faults are injected into **Azure Virtual Machines** or **Virtual Machine Scale Set** instances by installing the Chaos Studio Agent. 
 
 | Applicable OS types | Fault name                                                                  | Applicable scenarios                                        |
 |---------------------|-----------------------------------------------------------------------------|-------------------------------------------------------------|
@@ -30,11 +30,11 @@ Agent-based faults are injected into **Azure Virtual Machines** or **Virtual Mac
 | Windows, Linux      | [Stop Service](#stop-service)                                               | Service disruption/restart                                  |
 | Windows, Linux      | [Time Change](#time-change)                                                 | Time synchronization issues                                 |
 | Windows, Linux      | [Virtual Memory Pressure](#virtual-memory-pressure)                         | Memory capacity loss, resource pressure                     |
-| Linux               | [Arbitrary Stress-ng Stressor](#arbitrary-stress-ng-stress)                 | General system stress testing                               |
-| Linux               | [Linux DiskIO Pressure](#disk-io-pressure-linux)                            | Disk I/O performance degradation                            |
-| Windows             | [DiskIO Pressure](#disk-io-pressure-windows)                                | Disk I/O performance degradation                            |
+| Linux               | [Arbitrary Stress-ng Stressor](#arbitrary-stress-ng-stressor)                 | General system stress testing                               |
+| Linux               | [Linux DiskIO Pressure](#linux-disk-io-pressure)                            | Disk I/O performance degradation                            |
+| Windows             | [DiskIO Pressure](#disk-io-pressure)                                | Disk I/O performance degradation                            |
 | Windows             | [DNS Failure](#dns-failure)                                                 | DNS resolution issues                                       |
-| Windows             | [Network Disconnect (Via Firewall)](#network-disconnect-with-firewall-rule) | Network disruption                                          |
+| Windows             | [Network Disconnect (Via Firewall)](#network-disconnect-via-firewall) | Network disruption                                          |
 
 ## App Service
 
@@ -52,14 +52,14 @@ Agent-based faults are injected into **Azure Virtual Machines** or **Virtual Mac
 
 | Fault name | Applicable scenarios |
 |------------|----------------------|
-| [AKS Chaos Mesh DNS Chaos](#aks-chaos-mesh-dns-faults) | DNS resolution issues |
-| [AKS Chaos Mesh HTTP Chaos](#aks-chaos-mesh-http-faults) | Network disruption |
-| [AKS Chaos Mesh IO Chaos](#aks-chaos-mesh-io-faults) | Disk degradation/pressure |
-| [AKS Chaos Mesh Kernel Chaos](#aks-chaos-mesh-kernel-faults) | Kernel disruption |
-| [AKS Chaos Mesh Network Chaos](#aks-chaos-mesh-network-faults) | Network disruption |
-| [AKS Chaos Mesh Pod Chaos](#aks-chaos-mesh-pod-faults) | Container disruption |
-| [AKS Chaos Mesh Stress Chaos](#aks-chaos-mesh-stress-faults) | System stress testing |
-| [AKS Chaos Mesh Time Chaos](#aks-chaos-mesh-time-faults) | Time synchronization issues |
+| [AKS Chaos Mesh DNS Chaos](#aks-chaos-mesh-dns-chaos) | DNS resolution issues |
+| [AKS Chaos Mesh HTTP Chaos](#aks-chaos-mesh-http-chaos) | Network disruption |
+| [AKS Chaos Mesh IO Chaos](#aks-chaos-mesh-io-chaos) | Disk degradation/pressure |
+| [AKS Chaos Mesh Kernel Chaos](#aks-chaos-mesh-kernel-chaos) | Kernel disruption |
+| [AKS Chaos Mesh Network Chaos](#aks-chaos-mesh-network-chaos) | Network disruption |
+| [AKS Chaos Mesh Pod Chaos](#aks-chaos-mesh-pod-chaos) | Container disruption |
+| [AKS Chaos Mesh Stress Chaos](#aks-chaos-mesh-stress-chaos) | System stress testing |
+| [AKS Chaos Mesh Time Chaos](#aks-chaos-mesh-time-chaos) | Time synchronization issues |
 
 ## Cloud Services (Classic)
 
@@ -77,7 +77,7 @@ Agent-based faults are injected into **Azure Virtual Machines** or **Virtual Mac
 
 | Fault name | Applicable scenarios |
 |------------|----------------------|
-| [Cosmos DB Failover](#azure-cosmos-db-failover) | Database failover |
+| [Cosmos DB Failover](#cosmos-db-failover) | Database failover |
 
 ## Event Hubs
 
@@ -89,16 +89,16 @@ Agent-based faults are injected into **Azure Virtual Machines** or **Virtual Mac
 
 | Fault name | Applicable scenarios |
 |------------|----------------------|
-| [Key Vault Deny Access](#key-vault-deny-access) | Certificate denial |
-| [Key Vault Disable Certificate](#key-vault-disable-certificate) | Certificate disruption |
-| [Key Vault Increment Certificate Version](#key-vault-increment-certificate-version) | Certificate version increment |
-| [Key Vault Update Certificate Policy](#key-vault-update-certificate-version) | Certificate policy update |
+| [Key Vault: Deny Access](#key-vault-deny-access) | Certificate denial |
+| [Key Vault: Disable Certificate](#key-vault-disable-certificate) | Certificate disruption |
+| [Key Vault: Increment Certificate Version](#key-vault-increment-certificate-version) | Certificate version increment |
+| [Key Vault: Update Certificate Policy](#key-vault-update-certificate-policy) | Certificate policy changes/misconfigurations |
 
-## Network Security Group
+## Network Security Groups
 
 | Fault name | Applicable scenarios |
 |------------|----------------------|
-| [NSG Security Rule](#nsg-security-rule) | Network disruption |
+| [NSG Security Rule](#nsg-security-rule) | Network disruption (for many Azure services) |
 
 ## Service Bus
 
@@ -112,22 +112,22 @@ Agent-based faults are injected into **Azure Virtual Machines** or **Virtual Mac
 
 | Fault name | Applicable scenarios |
 |------------|----------------------|
-| [VM Redeploy](#virtual-machine-redeploy) | Compute disruption, maintenance events |
-| [VM Shutdown](#virtual-machine-shutdown) | Compute loss/disruption |
+| [VM Redeploy](#vm-redeploy) | Compute disruption, maintenance events |
+| [VM Shutdown](#vm-shutdown) | Compute loss/disruption |
 
 ## Virtual Machine Scale Set
 
 | Fault name | Applicable scenarios |
 |------------|----------------------|
-| [VMSS Shutdown](#virtual-machine-scale-set-instance-shutdown) | Compute loss/disruption |
-| [VMSS Shutdown (2.0)](#virtual-machine-scale-set-instance-shutdown) | Compute loss/disruption |
+| [VMSS Shutdown](#vmss-shutdown-version-10) | Compute loss/disruption |
+| [VMSS Shutdown (2.0)](#vmss-shutdown-version-20) | Compute loss/disruption (by Availability Zone) |
 
 ## Orchestration actions
 
 | Action category | Fault name |
 |-----------------|------------|
-| Load | [Start load test (Azure Load Testing)](#azure-load-testing-start-load-test) |
-| Load | [Stop load test (Azure Load Testing)](#azure-load-testing-stop-load-test) |
+| Load | [Start load test (Azure Load Testing)](#start-load-test-azure-load-testing) |
+| Load | [Stop load test (Azure Load Testing)](#stop-load-test-azure-load-testing) |
 | Time delay | [Delay](#time-delay) |
 
 ## Details: Agent-based faults
@@ -650,7 +650,7 @@ Currently, the Windows agent doesn't reduce memory pressure when other applicati
 }
 ```
 
-### Stop service
+### Stop Service
 
 | Property | Value |
 |-|-|
@@ -1791,7 +1791,7 @@ Currently, the Windows agent doesn't reduce memory pressure when other applicati
 
 This fault has two available versions that you can use, Version 1.0 and Version 2.0. The main difference is that Version 2.0 allows you to filter by availability zones, only shutting down instances within a specified zone or zones.
 
-#### Version 1.0
+#### VMSS Shutdown Version 1.0
 
 | Property | Value |
 |-|-|
@@ -1831,7 +1831,7 @@ This fault has two available versions that you can use, Version 1.0 and Version 
 }
 ```
 
-#### Version 2.0
+#### VMSS Shutdown Version 2.0
 
 | Property | Value |
 |-|-|
@@ -1928,7 +1928,7 @@ Currently, only virtual machine scale sets configured with the **Uniform** orche
 }
 ```
 
-### Start load test (Azure Load Testing)
+### Start Load Test (Azure Load Testing)
 	
 | Property  | Value |
 | ---- | --- |
@@ -1962,7 +1962,7 @@ Currently, only virtual machine scale sets configured with the **Uniform** orche
 }
 ```
 
-### Stop load test (Azure Load Testing)
+### Stop Load Test (Azure Load Testing)
 	
 | Property  | Value |
 | ---- | --- |
