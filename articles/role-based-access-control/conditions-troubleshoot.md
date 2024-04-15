@@ -65,6 +65,35 @@ Fix any [condition format or syntax](conditions-format.md) issues. Alternatively
 
 ## Issues in the visual editor
 
+### Symptom - Condition editor appears when editing a condition
+
+You created a condition using a template described in [Delegate Azure role assignment management to others with conditions](./delegate-role-assignments-portal.md). When you try to edit the condition, you see the advanced condition editor.
+
+:::image type="content" source="./media/conditions-troubleshoot/condition-editor.png" alt-text="Screenshot of condition editor that shows options to edit a condition." lightbox="./media/conditions-troubleshoot/condition-editor.png":::
+
+When you previously edited the condition, you edited using the condition template.
+
+:::image type="content" source="./media/shared/condition-templates-edit.png" alt-text="Screenshot of condition templates with matching template enabled." lightbox="./media/shared/condition-templates-edit.png":::
+
+**Cause**
+
+The condition doesn't match the pattern for the template.
+
+**Solution 1**
+
+Edit the condition to match one of the following template patterns.
+
+| Template | Condition |
+| --- | --- |
+| Constrain roles | [Example: Constrain roles](delegate-role-assignments-examples.md#example-constrain-roles) |
+| Constrain roles and principal types | [Example: Constrain roles and principal types](delegate-role-assignments-examples.md#example-constrain-roles-and-principal-types) |
+| Constrain roles and principals | [Example: Constrain roles and specific groups](delegate-role-assignments-examples.md#example-constrain-roles-and-specific-groups) |
+| Allow all except specific roles | [Example: Allow most roles, but don't allow others to assign roles](delegate-role-assignments-examples.md#example-allow-most-roles-but-dont-allow-others-to-assign-roles) |
+
+**Solution 2**
+
+Delete the condition and recreate it using the steps at [Delegate Azure role assignment management to others with conditions](./delegate-role-assignments-portal.md).
+
 ### Symptom - Principal does not appear in Attribute source
 
 When you try to add a role assignment with a condition, **Principal** doesn't appear in the **Attribute source** list.

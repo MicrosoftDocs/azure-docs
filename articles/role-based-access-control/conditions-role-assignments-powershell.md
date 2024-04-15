@@ -162,6 +162,27 @@ ConditionVersion   : 2.0
 Condition          : ((!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'})) OR (@Resource[Microsoft.Storage/storageAccounts/blobServices/containers:name] StringEquals 'blobs-example-container' OR @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:name] StringEquals 'blobs-example-container2'))
 ```
 
+### Edit conditions in multiple role assignments
+
+If you need to make the same update to multiple role assignments, you can use a loop. The following PowerShell commands perform the following tasks:
+
+- Finds role assignments in a subscription with `<find-condition-string-1>` and `<find-condition-string-2>` strings in the condition.
+- In the condition of the found role assignments, replaces `<condition-string>` with `<replace-condition-string>`.
+- Updates the role assignments with the changes.
+
+```azurepowershell
+$tenantId = "<your-tenant-id>"
+$subscriptionId = "<your-subscription-id>";
+$scope = "/subscriptions/$subscriptionId"
+Connect-AzAccount -TenantId $tenantId -SubscriptionId $subscriptionId
+$roleAssignments = Get-AzRoleAssignment -Scope $scope
+$foundRoleAssignments = $roleAssignments | Where-Object { ($_.Condition -Match "<find-condition-string-1>") -And ($_.Condition -Match "<find-condition-string-2>") }
+$updatedRoleAssignments = $foundRoleAssignments | ForEach-Object { $_.Condition = $_.Condition -replace "<condition-string>", "<replace-condition-string>"; $_ }
+$updatedRoleAssignments | ForEach-Object { Set-AzRoleAssignment -InputObject $_ -PassThru }
+```
+
+If strings include special characters, such as square brackets ([ ]), you'll need to escape these characters with a backslash (\\).
+
 ## List a condition
 
 To list a role assignment condition, use [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment). For more information, see [List Azure role assignments using Azure PowerShell](role-assignments-list-powershell.md).

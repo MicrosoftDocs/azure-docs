@@ -694,7 +694,13 @@ You must add this condition to any role assignments for the delegate that includ
 
 # [Template](#tab/template)
 
-None
+Here are the settings to add this condition using the Azure portal and a condition template.
+
+> [!div class="mx-tableFixed"]
+> | Condition | Setting |
+> | --- | --- |
+> | Template | Allow all except specific roles |
+> | Exclude roles | [Owner](built-in-roles.md#owner)<br/>[Role Based Access Control Administrator](built-in-roles.md#role-based-access-control-administrator)<br/>[User Access Administrator](built-in-roles.md#user-access-administrator) |
 
 # [Condition editor](#tab/condition-editor)
 
