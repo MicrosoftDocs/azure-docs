@@ -21,11 +21,11 @@ This process uses Entra ID, which simplifies the onboarding and offboarding proc
 ## Prerequisites
 
 Before you begin:
-- [Synchronize on-premises active directory with Entra ID](../architecture/reference-architectures/identity/azure-ad).
-- Add outbound allow rules to your firewall, proxy server, and so on. You can access the list of required endpoints from the [Sites and sensors page](how-to-manage-sensors-on-the-cloud.md#sensor-management-options-from-the-azure-portal).
-- For users that need SSO login access to the sensor work with the team that manages roles and permissions in your organization to:
+- [Synchronize on-premises active directory with Entra ID](../../architecture/reference-architectures/identity/azure-ad).
+- Add outbound allow rules to your firewall, proxy server, and so on. You can access the list of required endpoints from the [Sites and sensors page](how-to-manage-sensors-on-the-cloud.md#sensor-deployment-and-access).
+- For users that need SSO login access to the sensor, work with the team that manages roles and permissions in your organization to:
     - Create relevant user groups in Entra ID. If you want to use existing groups, no action is required.
-    - Ensure that each user has a **First name**, **Last name**, and **User principal name**.- 
+    - Ensure that each user has a **First name**, **Last name**, and **User principal name**.
 - Verify that you have permission to view the new user groups in Entra ID from your Defender for IoT subscription account.
 - If needed, set up [Multifactor authentication (MFA)](/entra/identity/authentication/tutorial-enable-azure-mfa).
 
@@ -59,7 +59,7 @@ Before you begin:
 
 ## Grant access to application​
 
-1. In your new application, from the left menu bar, select **API permissions​**.
+1. In your new application, select **API permissions​**.
 1. Next to **Add a permission**, select **Grant admin consent for \<Directory name\>**.
 
     :::image type="content" source="media/set-up-sso/api-permissions.png" alt-text="Screenshot of setting up API permissions in Entra ID." lightbox="media/set-up-sso/api-permissions.png":::
@@ -83,7 +83,7 @@ Before you begin:
     1. Select **Next**. 
     
     > [!NOTE]
-    > Make sure you've added allow rules on your firewall/proxy for the specified endpoints. You can access the list of required endpoints from the [Sites and sensors page](how-to-manage-sensors-on-the-cloud.md#sensor-management-options-from-the-azure-portal).
+    > Make sure you've added allow rules on your firewall/proxy for the specified endpoints. You can access the list of required endpoints from the [Sites and sensors page](how-to-manage-sensors-on-the-cloud.md#sensor-deployment-and-access).
 
 1. In the **Apply** tab, select the relevant sites. Toggle on **Add selection by specific zone/sensor** to also apply your setting to specific zones and sensors.​
 

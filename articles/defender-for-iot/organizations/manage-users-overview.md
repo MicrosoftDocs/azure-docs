@@ -46,7 +46,7 @@ For more information, see:
 
 ### Single sign-on support
 
-You can set up single sign-on (SSO) for Defender for IoT in the Azure portal, to allow simple sign in for your organization's users. With SSO, your users don't need multiple login credentials across different sensors and sites. For more information, see [Set up Single sign-on](set-up-sso.md).
+You can set up single sign-on (SSO) for Defender for IoT in the Azure portal, to allow simple sign in for your organization's users. With SSO, your users don't need multiple login credentials across different sensors and sites. For more information, see [Set up single sign-on on the Azure portal](set-up-sso.md).
 
 ### On-premises global access groups
 
