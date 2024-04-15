@@ -98,16 +98,6 @@ conceptualContent:
         url: ./data/index.yml
         text: See more
     # Card
-    - title: Azure Arc site manager
-      links:
-        - url: ./site-manager/overview.md
-          itemType: get-started
-          text: Get started
-      # footerLink (optional)
-      footerLink:
-        url: ./site-manager/index.yml
-        text: See more
-    # Card
     - title: SQL Server enabled by Azure Arc
       links:
         - url: /sql/sql-server/azure-arc/connect
@@ -179,3 +169,7 @@ additionalContent:
         - title: Azure IoT Operations Preview – enabled by Azure Arc
           summary: Azure IoT Operations is a unified data plane for the edge that helps organizations deploy the industrial metaverse.
           url: /azure/iot-operations/
+        # Card
+        - title: Azure Arc site manager
+          summary: Use Arc sites to represent your on-premises environments and see centralized monitoring information across your edge infrastructure.
+          url: /azure/azure-arc/site-manager/

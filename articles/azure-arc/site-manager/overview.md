@@ -21,26 +21,9 @@ Azure Arc site manager allows you to manage and monitor your on-premises environ
 > Azure Arc site manager is currently in PREVIEW.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-## Setting an Arc site scope
-
-Arc sites currently have a 1:1 relationship with resource groups and subscriptions. Any given Arc site can only be associated to one resource group or subscription, and vice versa. You can create a hierarchy of sites by creating one site for a subscription and more sites for the resource groups within the subscription.
-
-An example of a hierarchy is shown with **London** and **California** sites within the site **World**.
-
-:::image type="content" source="./media/overview/site-nested-world.jpeg" alt-text="Screenshot that shows Site manager with a nested site.":::
-
 ## Supported resource types
 
-Site manager provides alerts and status details for resources in an Arc site. Currently, site manager supports the following Azure resources:
-
-* Azure Stack HCI
-* Arc-enabled Servers
-* Arc-enabled VMs
-* Arc-enabled Kubernetes
-* Azure Kubernetes Service (AKS) hybrid
-* Assets
-
-The following table describes which details are available through site manager for each resource type:
+Site manager provides alerts and status details for resources in an Arc site. Currently, site manager supports the following Azure resources with the following capabilities:
 
 | Resource | Inventory | Connectivity status | Updates | Alerts |
 | -------- | --------- | ------------------- | ------- | ------ |
@@ -53,9 +36,23 @@ The following table describes which details are available through site manager f
 
 Site manager only provides health status aggregation for the supported resource types. Site manager doesn't manage resources of other types that exist in the resource group or subscription, but those resources continue to function normally otherwise.
 
+## Setting an Arc site scope
+
+Arc sites currently have a 1:1 relationship with resource groups and subscriptions. Any given Arc site can only be associated to one resource group or subscription, and vice versa. You can create a hierarchy of sites by creating one site for a subscription and more sites for the resource groups within the subscription.
+
+An example of a hierarchy is shown with **London** and **California** sites within the site **World**.
+
+:::image type="content" source="./media/overview/site-nested-world.jpeg" alt-text="Screenshot that shows Site manager with a nested site.":::
+
 ## Supported regions
 
-Site manager supports resources that are deployed in any of the Azure regions in Azure Global.
+Regions supported can be found [here](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=azure-arc&regions=all). Currently, all supported regions have full support for resources except for the following:
+
+| Region | Support limitation |
+|--|--|
+| Brazil South | Connectivity and updates status aren't supported for Arc-enabled machines or Arc-enabled Kubernetes clusters |
+| UAE North | Connectivity and updates status aren't supported for Arc-enabled machines or Arc-enabled Kubernetes clusters |
+| South Africa North | Connectivity and updates status aren't supported for Arc-enabled machines or Arc-enabled Kubernetes clusters |
 
 ## Arc site suggested state
 

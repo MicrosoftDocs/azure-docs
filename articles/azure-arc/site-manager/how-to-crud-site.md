@@ -57,6 +57,8 @@ Create a site to manage geographically related resources.
 
    :::image type="content" source="./media/how-to-crud-site/final-create-screen-arc-site.png" alt-text="Screenshot that shows the validation and review page for a new site and then select create.":::
 
+If a site is created from a resource group or subscription that contains resources that are supported by site, these resources will automatically be visible within the created site. 
+
 ## View and modify a site
 
 Once you create a site, you can access it and its managed resources through site manager.
@@ -79,8 +81,9 @@ Once you create a site, you can access it and its managed resources through site
    * Add new resources (currently only resources supporting creation from the site view)
 
 Additionally, currently only some aspects of a site can be modified. These are as follows:
-| Site Attribute  | Modification that can be done |
-|---------|---------|
+
+| Site Attribute | Modification that can be done |
+|--|--|
 | Site name | Site name can be modified to a new unique name |
 | Address | Address can be modified to a pre-existing or new address |
 
