@@ -13,7 +13,7 @@
     href: search-faq-frequently-asked-questions.yml
 - name: Quickstarts
   items:
-  - name: Vector store
+  - name: Vector search
     href: search-get-started-vector.md
   - name: Full text search
     href: search-get-started-text.md

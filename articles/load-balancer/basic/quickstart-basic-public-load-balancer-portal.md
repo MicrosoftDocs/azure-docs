@@ -6,7 +6,7 @@ author: mbender-ms
 ms.author: mbender
 ms.service: load-balancer
 ms.topic: quickstart
-mms.date: 03/12/2024
+ms.date: 03/12/2024
 ROBOTS: NOINDEX, NOFOLLOW
 ms.custom: template-quickstart
 ---
