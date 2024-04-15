@@ -5,7 +5,7 @@ services: ddos-protection
 author: AbdullahBell
 ms.service: ddos-protection
 ms.topic: tutorial
-ms.date: 11/07/2023
+ms.date: 04/11/2024
 ms.author: abell
 ---
 
@@ -22,9 +22,11 @@ Simulations help you:
 ## Azure DDoS simulation testing policy
 
 You can only simulate attacks using our approved testing partners:
-- [BreakingPoint Cloud](https://www.ixiacom.com/products/breakingpoint-cloud): a self-service traffic generator where your customers can generate traffic against DDoS Protection-enabled public endpoints for simulations. 
+- [BreakingPoint Cloud](https://www.ixiacom.com/products/breakingpoint-cloud): a self-service traffic generator where your customers can generate traffic against DDoS Protection-enabled public endpoints for simulations.
+- [MazeBolt](https://mazebolt.com):The RADAR™ platform continuously identifies and enables the elimination of DDoS vulnerabilities – proactively and with zero disruption to business operations.
 - [Red Button](https://www.red-button.net/): work with a dedicated team of experts to simulate real-world DDoS attack scenarios in a controlled environment.
-- [RedWolf](https://www.redwolfsecurity.com/services/#cloud-ddos) a self-service or guided DDoS testing provider with real-time control.
+- [RedWolf](https://www.redwolfsecurity.com/services/#cloud-ddos): a self-service or guided DDoS testing provider with real-time control.
+
 
 Our testing partners' simulation environments are built within Azure. You can only simulate against Azure-hosted public IP addresses that belong to an Azure subscription of your own, which will be validated by our partners before testing. Additionally, these target public IP addresses must be protected under Azure DDoS Protection. Simulation testing allows you to assess your current state of readiness, identify gaps in your incident response procedures, and guide you in developing a proper [DDoS response strategy](ddos-response-strategy.md). 
 
@@ -220,6 +222,9 @@ RedWolf's [DDoS Testing](https://www.redwolfsecurity.com/services/) service suit
    - **Guided Service**: Leverage RedWolf's team to run tests. For more information about RedWolf's guided service, see [Guided Service](https://www.redwolfsecurity.com/managed-testing-explained/).
    - **Self Service**: Leverage RedWol to run tests yourself. For more information about RedWolf's self-service, see [Self Service](https://www.redwolfsecurity.com/self-serve-testing/).
 
+## MazeBolt
+
+The RADAR™ platform continuously identifies and enables the elimination of DDoS vulnerabilities – proactively and with zero disruption to business operations.
 
 ## Next steps
 
