@@ -63,10 +63,12 @@ The following data types are provided for all Quality of Experience - Affirmed M
 To use the Quality of Experience - Affirmed MCC Data Product:
 
 - Deploy the Data Product by following [Create an Azure Operator Insights Data Product](data-product-create.md).
-- Configure your network to provide data either using your own ingestion method, or by setting up the [Azure Operator Insights ingestion agent](ingestion-agent-overview.md).
+- Configure your network to provide data either using your own ingestion method, or by setting up the [Azure Operator Insights ingestion agent](ingestion-agent-overview.md). 
     - Use the information in [Required ingestion configuration](#required-ingestion-configuration) when you're setting up ingestion.
+    - The Azure Operator Insights ingestion agent is the recommended ingestion method for the `edr` data type. For ingestion of the `device` and `edr-validation` data types you can use a separate instance of the ingestion agent, or set up your own ingestion method.
     - If you're using the Azure Operator Insights ingestion agent, also meet the requirements in [Requirements for the Azure Operator Insights ingestion agent](#requirements-for-the-azure-operator-insights-ingestion-agent).
 - Configure your Affirmed MCCs to send EDRs to the ingestion agent. See [Configuration for Affirmed MCCs](#configuration-for-affirmed-mccs).
+- If you're using the `edr-validation` data type, configure your Affirmed EMS to export performance management stats to a remote server. See [Configuration for Affirmed EMS](#configuration-for-affirmed-ems).
 
 ### Required ingestion configuration
 
@@ -74,14 +76,15 @@ Use the information in this section to configure your ingestion method. Refer to
 
 | Data type | Required container name | Requirements for data |
 |---------|---------|---------|
-| `edrs` | `edrs` | MCC EDR data. |
+| `edr` | `edr` | MCC EDR data. |
 | `device` | `device` | Device reference data. |
 | `edr-validation` | `edr-validation` | PM Stat data for `EDR_HTTP_STATS`, `EDR_FLOW_STATS`, and `EDR_SESSION_STATS` datasets. File name prefixes must match the name of the dataset. |
 
 ### Requirements for the Azure Operator Insights ingestion agent
 
-Use the VM requirements to set up a suitable VM for the ingestion agent. Use the example configuration to configure the ingestion agent to upload data to the Data Product, as part of following [Install the Azure Operator Insights ingestion agent and configure it to upload data](set-up-ingestion-agent.md).
+Use the VM requirements to set up one or more VMs for the ingestion agent. Use the example configuration to configure the ingestion agent to upload data to the Data Product, as part of following [Install the Azure Operator Insights ingestion agent and configure it to upload data](set-up-ingestion-agent.md).
 
+# [EDR ingestion](#tab/edr-ingestion)
 #### VM requirements
 
 Each agent instance must run on its own Linux VM. The number of VMs needed depends on the scale and redundancy characteristics of your deployment. This recommended specification can achieve 1.5-Gbps throughput on a standard D4s_v3 Azure VM. For any other VM spec, we recommend that you measure throughput at the network design stage.
@@ -90,7 +93,7 @@ Latency on the MCC to agent connection can negatively affect throughput. Latency
 
 Talk to the Affirmed Support Team to determine your requirements.
 
-Each VM running the agent must meet the following minimum specifications.
+Each VM running the agent must meet the following minimum specifications for EDR ingestion.
 
 | Resource | Requirements                                                        |
 |----------|---------------------------------------------------------------------|
@@ -111,9 +114,55 @@ The agent doesn't buffer data, so if a persistent error or extended connectivity
 
 For extra fault tolerance, you can deploy multiple instances of the ingestion agent and configure the MCC to switch to a different instance if the original instance becomes unresponsive, or to share EDR traffic across a pool of agents. For more information, see the [Affirmed Networks Active Intelligent vProbe System Administration Guide](https://manuals.metaswitch.com/vProbe/latest/vProbe_System_Admin/Content/02%20AI-vProbe%20Configuration/Generating_SESSION__BEARER__FLOW__and_HTTP_Transac.htm) (only available to customers with Affirmed support) or speak to the Affirmed Networks Support Team.
 
+# [PM stat or device data ingestion](#tab/pm-stat-or-device-data-ingestion)
+
+#### PM stat ingestion via an SFTP server
+If you're using the Azure Operator Insights ingestion agent to ingest performance management stats files for the `edr-validation` data type:
+- Configure the EMS to export performance management stats to an SFTP server.
+- Configure the ingestion agent to use SFTP pull from the SFTP server.
+- We recommend the following configuration settings in addition to the (required) settings in the previous table.
+
+|Information | Configuration setting for Azure Operator Ingestion agent  | Recommended value  |
+| --------- | --------- | --------- |
+| [Settling time](ingestion-agent-overview.md#processing-files) | `source.sftp_pull.filtering.settling_time` | `60s` (upload files that haven't been modified in the last 60 seconds) |
+| Schedule for checking for new files | `source.sftp_pull.scheduling.cron` | `0 */5 * * * * *` (every 5 minutes) |
+
+#### Device data ingestion via an SFTP server
+If the device data is stored on an SFTP server, you can ingest device data by configuring an extra `sftp_pull` ingestion pipeline on the same ingestion agent instance that you are using for PM stat ingestion. You can choose your own value for `source.sftp_pull.scheduling.cron` for the device data pipeline, depending on how frequently you want the ingestion pipeline to check for new device data files.
+
+> [!TIP]
+> For more information about all the configuration options for the ingestion agent, see [Configuration reference for Azure Operator Insights ingestion agent](ingestion-agent-configuration-reference.md).
+
+#### VM requirements
+
+Each agent instance running SFTP pull pipelines must run on a separate Linux VM to any agent instance used for EDR ingestion. The number of VMs needed depends on the scale and redundancy characteristics of your deployment. 
+
+As a guide, this table documents the throughput that the recommended specification on a standard D4s_v3 Azure VM can achieve.
+
+| File count | File size (KiB) | Time (seconds) | Throughput (Mbps) |
+|------------|-----------------|----------------|-------------------|
+| 64         | 16,384          | 6              | 1,350             |
+| 1,024      | 1,024           | 10             | 910               |
+| 16,384     | 64              | 80             | 100               |
+| 65,536     | 16              | 300            | 25                |
+
+Each Linux VM running the agent must meet the following minimum specifications for SFTP pull ingestion.
+
+| Resource | Requirements                                                        |
+|----------|---------------------------------------------------------------------|
+| OS       | Red Hat Enterprise Linux 8.6 or later, or Oracle Linux 8.8 or later |
+| vCPUs    | Minimum 4, recommended 8                                            |
+| Memory   | Minimum 32 GB                                                       |
+| Disk     | 30 GB                                                               |
+| Network  | Connectivity to the SFTP server and to Azure                        |
+| Software | systemd, logrotate, and zip installed                                |
+| Other    | SSH or alternative access to run shell commands                     |
+| DNS      | (Preferable) Ability to resolve Microsoft hostnames. If not, you need to perform extra configuration when you set up the agent (described in [Map Microsoft hostnames to IP addresses for ingestion agents that can't resolve public hostnames](map-hostnames-ip-addresses.md).) |
+
+
 ### Configuration for Affirmed MCCs
 
-When you have installed and configured your ingestion agents, configure the MCCs to send EDRs to them.
+After installing and configuring your ingestion agents, configure the MCCs to send EDRs to them.
 
 Follow the steps in "Generating SESSION, BEARER, FLOW, and HTTP Transaction EDRs" in the [Affirmed Networks Active Intelligent vProbe System Administration Guide](https://manuals.metaswitch.com/vProbe/latest) (only available to customers with Affirmed support), making the following changes:
 
@@ -123,6 +172,20 @@ Follow the steps in "Generating SESSION, BEARER, FLOW, and HTTP Transaction EDRs
     - `port`: 36001
     - `encoding`: protobuf
     - `keep-alive`: 2 seconds
+
+### Configuration for Affirmed EMS
+
+If you're using the `edr-validation` data type, configure the EMS to export the relevant performance management statistics to a remote server. If you're using the Azure Operator Insights ingestion agent to ingest performance management statistics, the remote server must be an [SFTP server](set-up-ingestion-agent.md#prepare-the-sftp-server), otherwise the remote server just needs to be accessible by your ingestion method.
+
+- IP address, user, and password of the remote server are required for this step.
+- Configure the transfer of EMS stats to the remote server by following the instructions in [Copying Performance Management Statistics Files to Destination Server](https://manuals.metaswitch.com/MCC/13.1/Acuitas_Users_RevB/Content/Appendix%20Interfacing%20with%20Northbound%20Interfaces/Exported_Performance_Management_Data.htm#northbound_2817469247_308739).
+- For `edr-validation`, you only need to export three CSV files. List these file names in the `opt/Affirmed/NMS/conf/pm/mcc.files.txt` file on the EMS:
+  - `EDR_HTTP_STATS`
+  - `EDR_FLOW_STATS`
+  - `EDR_SESSION_STATS`
+
+> [!IMPORTANT]
+> Increase the frequency of the cron job by reducing the `timeInterval` argument from `15` (default) to `5` minutes.
 
 ## Related content
 

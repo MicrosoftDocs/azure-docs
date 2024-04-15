@@ -53,7 +53,8 @@ Use the information in this section to configure your ingestion method. Refer to
 | `pmstats` | `pmstats` | Performance data from MCC nodes. File names must start with the dataset name. For example, `WORKFLOWPERFSTATSSLOT` data must be ingested in files whose names start with `WORKFLOWPERFSTATSSLOT`. |
 
 If you're using the Azure Operator Insights ingestion agent:
-- Configure it to use SFTP pull.
+- Configure the EMS to export performance management stats to an SFTP server.
+- Configure the ingestion agent to use SFTP pull from the SFTP server.
 - We recommend the following configuration settings in addition to the (required) settings in the previous table.
 
 |Information | Configuration setting for Azure Operator Ingestion agent  | Recommended value  |
