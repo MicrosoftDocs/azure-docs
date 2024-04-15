@@ -46,7 +46,7 @@ Follow the steps to access and send signing transactions to your storage account
 4. Select Diagnostics Settings on the left-side blade and click **+ Add diagnostic setting** link on the left side.
 5. From **Diagnostics setting** page, select **Sign Transactions** category and choose ‘Archive to a storage account’ option and select the subscription and Storage account that you newly created or already have.
 
-:::image type="content" source="media/trusted-signing-select-storage-account-subscription.png" alt-text="Screenshot of media/trusted-signing-select-storage-account-subscription." lightbox="media/trusted-signing-select-storage-account-subscription.png":::
+:::image type="content" source="media/trusted-signing-select-storage-account-subscription.png" alt-text="Screenshot of trusted-signing-select-storage-account-subscription." lightbox="media/trusted-signing-select-storage-account-subscription.png":::
 
 
 6. After selecting subscription & storage account, click **Save**. This action brings you to previous page where it displays list of all diagnostics settings created for this code sign account.  
