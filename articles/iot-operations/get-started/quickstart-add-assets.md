@@ -85,6 +85,26 @@ To add an asset endpoint:
     > [!CAUTION]
     > Don't use this configuration in production or pre-production environments. Exposing your cluster to the internet without proper authentication might lead to unauthorized access and even DDOS attacks.
 
+1. Run the following code to update the OPC UA Broker deployment and apply the new settings:
+
+    ```bash
+    az k8s-extension update \
+        --version 0.3.0-preview \
+        --name opc-ua-broker \
+        --release-train preview \
+        --cluster-name <cluster-name> \
+        --resource-group <azure-resource-group> \
+        --cluster-type connectedClusters \
+        --auto-upgrade-minor-version false \
+        --config opcPlcSimulation.deploy=true \
+        --config opcPlcSimulation.autoAcceptUntrustedCertificates=true
+    ```
+    
+    > [!IMPORTANT]
+    > Don't use the following example in production, use it for simulation and test purposes only.
+
+    For further details you can refer to [Deploy the OPC PLC simulator](../manage-devices-assets/howto-configure-opc-plc-simulator.md) section.
+
 1. To enable the configuration changes to take effect immediately, first find the name of your `aio-opc-supervisor` pod by using the following command:
 
     ```console
