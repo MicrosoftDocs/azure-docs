@@ -140,7 +140,7 @@ The tables below provide a comparison of Azure Monitor Agent with the legacy the
 |		|	File based logs	| ✓ |		|
 |	**Data sent to**	|		|		|		|
 |		|	Azure Monitor Logs	| ✓ | ✓ |
-|	**Services and features supported**	|		|		|		|		|
+|	**Services and features supported**	|		|		|		|
 |		|	Microsoft Sentinel 	|	✓ ([View scope](./azure-monitor-agent-migration.md#migrate-additional-services-and-features))	| ✓ |
 |		|	VM Insights	| ✓ |	✓ |
 |		|	Microsoft Defender for Cloud - Only use MDE agent	| | |
