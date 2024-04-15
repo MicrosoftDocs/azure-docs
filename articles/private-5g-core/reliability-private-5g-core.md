@@ -13,6 +13,8 @@ ms.date: 01/31/2022
 
 This article describes reliability support in Azure Private 5G Core. It covers both regional resiliency with [availability zones](#availability-zone-support) and [cross-region disaster recovery and business continuity](#cross-region-disaster-recovery-and-business-continuity).  For an overview of reliability in Azure, see [Azure reliability](/azure/architecture/framework/resiliency/overview).
 
+You can also deploy Azure Private 5G Core as a Highly Available (HA) service on a pair of Azure Stack Edge (ASE) devices. For more information, see [Complete the prerequisite tasks for deploying a private mobile network](complete-private-mobile-network-prerequisites.md).
+
 ## Availability zone support
 
 [!INCLUDE [Availability zone description](../reliability/includes/reliability-availability-zone-description-include.md)]

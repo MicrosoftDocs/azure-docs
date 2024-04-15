@@ -339,6 +339,6 @@ Your packet core should now be in service with the updated ASE configuration. To
 
 ## Next steps
 
-Your Azure Stack Edge device is now ready for Azure Private 5G Core. The next step is to collect the information you'll need to deploy your private network.
+Your Azure Stack Edge device is now ready for Azure Private 5G Core. For an HA deployment, you will also need to configure your routers. Otherwise, the next step is to collect the information you'll need to deploy your private network.
 
 - [Collect the required information to deploy a private mobile network](./collect-required-information-for-private-mobile-network.md)

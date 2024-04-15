@@ -36,6 +36,19 @@ Contact your trials engineer and ask them to register your Azure subscription fo
 
 Choose whether each site in the private mobile network should provide coverage for 5G, 4G, or combined 4G and 5G user equipment (UEs). If you're deploying multiple sites, they can each support different core technology types.
 
+## Choose a standard or Highly Available deployment
+
+Azure Private 5G Core is deployed as an Azure Kubernetes Service (AKS) cluster. This cluster can run on a single Azure Stack Edge (ASE) device, or on a pair of ASE devices for a Highly Available (HA) service. An HA deployment allows the service to be maintained in the event of an ASE hardware failure.
+
+For an HA deployment, you will need to deploy a gateway router (strictly, a Layer 3 capable device – either a router or an L3 switch (router/switch hybrid)) between the ASE cluster and:
+
+- the RAN equipment in the access network
+- the data network(s).
+ 
+The gateway router must support Bidirectional Forwarding Detection (BFD) and Mellanox-compatible SFPs (small form factor pluggable modules).
+
+You must design your network to tolerate failure of a gateway router in the access network or in a data network. AP5GC only supports a single gateway router IP address per network. Therefore, only a network design where there is either a single gateway router per network or where the gateway routers are deployed in redundant pairs in an active / standby configuration with a floating gateway IP address is supported.  The gateway routers in each redundant pair should monitor each other using VRRP (Virtual Router Redundancy Protocol) to provide detection of partner failure.
+
 ## Allocate subnets and IP addresses
 
 Azure Private 5G Core requires a management network, access network, and up to ten data networks. These networks can all be part of the same, larger network, or they can be separate. The approach you use depends on your traffic separation requirements.
@@ -44,6 +57,9 @@ For each of these networks, allocate a subnet and then identify the listed IP ad
 
 Depending on your networking requirements (for example, if a limited set of subnets is available), you might choose to allocate a single subnet for all of the Azure Stack Edge interfaces, marked with an asterisk (*) in the following list.
 
+> [!NOTE]
+> Additional requirements for a highly available (HA) deployment are listed in-line.
+
 ### Management network
 
 :::zone pivot="ase-pro-2"
@@ -51,8 +67,15 @@ Depending on your networking requirements (for example, if a limited set of subn
 - Network address in Classless Inter-Domain Routing (CIDR) notation.
 - Default gateway.
 - One IP address for the management port (port 2) on the Azure Stack Edge Pro 2 device.
+  - HA: four IP addresses (two for each Azure Stack Edge device).
 - Six sequential IP addresses for the Azure Kubernetes Service on Azure Stack HCI (AKS-HCI) cluster nodes.
+  - HA: seven sequential IP addresses.
 - One service IP address for accessing local monitoring tools for the packet core instance.
+
+Additional IP addresses for the 2-node Azure Stack Edge cluster in an HA deployment:
+
+- One virtual IP address for ACS (Azure Consistency Services).
+- One virtual IP address for NFS (Network File Services).
 
 :::zone-end
 :::zone pivot="ase-pro-gpu"
@@ -61,12 +84,21 @@ Depending on your networking requirements (for example, if a limited set of subn
 - Default gateway.
 - One IP address for the management port
   - Choose a port between 2 and 4 to use as the Azure Stack Edge Pro GPU device's management port as part of [setting up your Azure Stack Edge Pro device](#order-and-set-up-your-azure-stack-edge-pro-devices).*
+  - HA: two IP addresses (one for each Azure Stack Edge device)
 - Six sequential IP addresses for the Azure Kubernetes Service on Azure Stack HCI (AKS-HCI) cluster nodes.
+  - HA: seven sequential IP addresses.
 - One service IP address for accessing local monitoring tools for the packet core instance.
+
+Additional IP addresses for the 2-node Azure Stack Edge cluster in an HA deployment:
+
+- One virtual IP address for ACS (Azure Consistency Services).
+- One virtual IP address for NFS (Network File Services).
 
 :::zone-end
 
 ### Access network
+
+You will need an IP subnet for control plane traffic and an IP subnet for user plane traffic.  If control plane and user plane are on the same VLAN (or are not VLAN-tagged) then you can use a single IP subnet for both.
 
 :::zone pivot="ase-pro-2"
 
@@ -81,6 +113,12 @@ Depending on your networking requirements (for example, if a limited set of subn
   - For 4G, this is the S1-U interface.
   - For combined 4G and 5G, this is the N3/S1-U interface.
 - One IP address for port 3 on the Azure Stack Edge Pro 2 device.
+- HA control plane:
+  - gateway router IP address.
+  - two IP addresses (one per ASE) for use as vNIC addresses on the AMFs.
+- HA user plane:
+  - gateway router IP address.
+  - two IP addresses (one per ASE) for use as vNIC addresses on the UPFs’ interfaces to the local access subnet.
 
 :::zone-end
 
@@ -97,6 +135,12 @@ Depending on your networking requirements (for example, if a limited set of subn
   - For 4G, this is the S1-U interface.
   - For combined 4G and 5G, this is the N3/S1-U interface.
 - One IP address for port 5 on the Azure Stack Edge Pro GPU device.
+- HA control plane:
+  - gateway router IP address.
+  - two IP addresses (one per ASE) for use as vNIC addresses on the AMFs.
+- HA user plane:
+  - gateway router IP address.
+  - two IP addresses (one per ASE) for use as vNIC addresses on the UPFs’ interfaces to the local access subnet.
 
 :::zone-end
 
@@ -112,22 +156,39 @@ Allocate the following IP addresses for each data network in the site:
   - For combined 4G and 5G, this is the N6/SGi interface.
 
 The following IP addresses must be used by all the data networks in the site:
+
 :::zone pivot="ase-pro-2"
 
 - One IP address for all data networks on port 3 on the Azure Stack Edge Pro 2 device.
 - One IP address for all data networks on port 4 on the Azure Stack Edge Pro 2 device.
+- HA: gateway router IP address.
+- HA: Two IP addresses (one per ASE) for use as vNIC addresses on the UPFs’ interfaces to the DN.
+
 :::zone-end
+
 :::zone pivot="ase-pro-gpu"
 
 - One IP address for all data networks on port 5 on the Azure Stack Edge Pro GPU device.
 - One IP address for all data networks on port 6 on the Azure Stack Edge Pro GPU device.
+- HA: gateway router IP address.
+- HA: Two IP addresses (one per ASE) for use as vNIC addresses on the UPFs’ interfaces to the DN.
+
 :::zone-end
 
+### Additional virtual IP addresses (HA only)
+
+The following virtual IP addresses are required for an HA deployment. These IP addresses MUST NOT be in any of the control plane or user plane subnets; they are used as destinations of static routes in the access network gateway routers. That is, they can be any valid IP address that is not included in any of the subnets configured in the access network.
+
+-	One virtual address to use as a virtual N2 address.  The RAN equipment is configured to use this address.
+-	One virtual address to use as a virtual tunnel endpoint on the N3 reference point.
+ 
 ### VLANs
 
-You can optionally configure your Azure Stack Edge Pro device with virtual local area network (VLAN) tags. You can use this configuration to enable layer 2 traffic separation on the N2, N3 and N6 interfaces, or their 4G equivalents. For example, you might want to separate N2 and N3 traffic (which share a port on the ASE device) or separate traffic for each connected data network.
+You can optionally configure your Azure Stack Edge Pro device with virtual local area network (VLAN) tags. You can use this configuration to enable layer 2 traffic separation on the N2, N3 and N6 interfaces, or their 4G equivalents. For example, the ASE device has a single port for N2 and N3 traffic and a single port for all data network traffic. You can use VLAN tags to separate N2 and N3 traffic, or separate traffic for each connected data network.
 
 Allocate VLAN IDs for each network as required.
+
+If you are using VLANs to separate traffic for each data network, a local subnet is required for the data network-facing ports covering the default VLAN (VLAN 0). For HA, you must assign the gateway router IP address within this subnet.
 
 ## Allocate user equipment (UE) IP address pools
 
@@ -157,6 +218,8 @@ DNS allows the translation between human-readable domain names and their associa
 
 - If you need the UEs connected to this data network to resolve domain names, you must configure one or more DNS servers. You must use a private DNS server if you need DNS resolution of internal hostnames. If you're only providing internet access to public DNS names, you can use a public or private DNS server.
 - If you don't need the UEs to perform DNS resolution, or if all UEs in the network will use their own locally configured DNS servers (instead of the DNS servers signaled to them by the packet core), you can omit this configuration.
+
+## Configure
 
 ## Prepare your networks
 
