@@ -75,6 +75,13 @@ A single worker instance can execute multiple work items concurrently to increas
 
 As with anything performance related, the ideal concurrency settings and architechture of your app ultimately depends on your application's workload. Therefore, it's recommended that users to invest in a performance testing harness that simulates their expected workload and to use it to run performance and reliability experiments for their app.
 
+### Avoid communicating secrets through inputs, outputs, or exceptions
+
+Inputs and outputs (including exceptions) to and from Durable Functions APIs are durably stored in your [storage provider of choice](./durable-functions-storage-providers.md). Depending on how you've configured permissions to those storage resources, that could mean anyone with read access to those storage resources may be able to obtain those secrets. Therefore, if you need to obtain some secret, we recommend you materialize through something like the KeyVault SDK instead of directly passing through the Durable Functions APIs.
+
+> [!NOTE]
+> We also recommend against logging data containing secrets as anyone with read access to your logs, like in Application Insights, would be able to obtain that data.
+
 ## Diagnostic tools
 
 There are several tools available to help you diagnose problems.
