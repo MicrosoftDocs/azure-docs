@@ -1,5 +1,5 @@
 ---
-title: Virtual endpoint
+title: Virtual endpoints
 description: This article describes the virtual endpoints for read replica feature in Azure Database for PostgreSQL - Flexible Server.
 author: AlicjaKucharczyk
 ms.author: alkuchar
