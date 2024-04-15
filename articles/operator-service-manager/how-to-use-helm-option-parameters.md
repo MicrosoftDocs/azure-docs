@@ -50,7 +50,7 @@ var identityObject = (configObject.managedIdentityId == '')  ? {
   }
 }
 
-var nfdvSymbolicName = '${configObject.publisherName}/${configObject.nfdgName}/${configObject.nfdvName}'
+var nfdvSymbolicName = '${configObject.publisherName}/${configObject.nfdgName}/${configObject.nfdv}'
 
 resource nfdv 'Microsoft.Hybridnetwork/publishers/networkfunctiondefinitiongroups/networkfunctiondefinitionversions@2023-09-01' existing = {
   name: nfdvSymbolicName

@@ -81,7 +81,7 @@ This quickstart assumes you followed the prerequisites in these quickstarts:
                     "sshPublicKeyAdmin": "<Your public ssh key>",
             }
             }],
-            "nfdvName": "1.0.0"
+            "nfdv": "1.0.0"
         },
         "managedIdentityId": "<managed-identity-resource-id>"
     }
