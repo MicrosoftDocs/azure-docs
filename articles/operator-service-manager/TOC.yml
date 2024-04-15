@@ -22,10 +22,10 @@
   - name: Azure Operator Service Manager CLI Extension
     expanded: false
     items:
-      - name: Learn how the Azure Operator Service Manager (AOSM) CLI extension discovers container images in source ACRs based on helm chart configuration
-        href: concepts-cli-cnf-image-upload.md
       - name: About the Azure Operator Service Manager CLI extension
         href: concepts-about-aosm-cli-extension.md
+      - name: CLI container image onboarding
+        href: concepts-cli-cnf-image-upload.md
 - name: Quickstarts
   expanded: false
   items:
