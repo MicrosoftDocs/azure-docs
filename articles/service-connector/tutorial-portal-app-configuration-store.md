@@ -43,7 +43,7 @@ To store your connection configuration in App Configuration, start by connecting
     | **Connection name** | Unique name | The connection name that identifies the connection between your App Service and target service.  |
     | **Subscription** | Subscription of the Azure App Configuration store. | The subscription in which your App Configuration store is created. The default value is the subscription listed for the App Service. |
     | **App Configuration** | Your App Configuration name | The target App Configuration you want to connect to. |
-    | **Client type** | The same app stack on this App Service | Your application stack that works with the target service you selected. The default value comes from the App Service runtime stack. |
+    | **Client type** | The same app stack on this App Service | The application stack that works with the target service you selected. The default value comes from the App Service runtime stack. |
 
     :::image type="content" source="./media/app-configuration-store-tutorial/appconfig_create.png" alt-text="Screenshot of the Azure portal, creating App Configuration connection." lightbox="./media/app-configuration-store-tutorial/appconfig_create.png":::
 
