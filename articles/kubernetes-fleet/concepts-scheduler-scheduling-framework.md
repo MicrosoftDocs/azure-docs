@@ -29,7 +29,7 @@ For more information, see [the upstream Fleet Scheduler documentation](https://g
 
 ## What is the scheduling framework?
 
-The fleet scheduling framework closely aligns with the native Kubernetes scheduling framework, incorporating several modifications and tailored functionalities to support the fleet workload.
+The fleet scheduling framework closely aligns with the native [Kubernetes scheduling framework](https://kubernetes.io/docs/concepts/scheduling-eviction/scheduling-framework/), incorporating several modifications and tailored functionalities to support the fleet workload.
 
 :::image type="content" source="./media/concepts-scheduler-scheduling-framework/scheduling-framework.png" alt-text="This screenshot shows an overview diagram of the fleet scheduling framework.":::
 
