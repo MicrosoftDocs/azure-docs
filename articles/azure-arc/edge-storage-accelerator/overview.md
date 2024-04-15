@@ -38,10 +38,6 @@ Edge Storage Accelerator (ESA) serves as a native persistent storage system for 
 - **Write** - Your file is processed locally and saved in the cache. When the file doesn't change within 3 seconds, ESA automatically uploads it to your chosen blob destination.
 - **Read** - If the file is already in the cache, the file is served from the cache memory. If it isn't available in the cache, the file is pulled from your chosen blob storage target.
 
-The following diagram shows the end-to-end flow of the Edge Storage Accelerator configuration and installation experience.
-
-:::image type="content" source="media/arc-connected-aks-on-azure.png" alt-text="Diagram showing the flow of Edge Storage Accelerator." lightbox="media/arc-connected-aks-on-azure.png":::
-
 ## Supported Azure Regions
 
 Edge Storage Accelerator is only available in the following Azure regions:

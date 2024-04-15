@@ -10,12 +10,12 @@ zone_pivot_groups: attach-app
 
 # Attach your application (preview)
 
-This article assumes you created a Persistent Volume (PV) and a Persistent Volume Claim (PVC). For information about creating a PV, see [Create a persistent volume](create-pv.md). For information about PVCs, see [Create a Persistent Volume Claim](create-pvc.md).
+This article assumes you created a Persistent Volume (PV) and a Persistent Volume Claim (PVC). For information about creating a PV, see [Create a persistent volume](create-pv.md). For information about creating a PVC, see [Create a Persistent Volume Claim](create-pvc.md).
 
 ::: zone pivot="attach-iot-op"
 ## Configure the Azure IoT Operations data processor
 
-When you use Azure IoT Operations (AIO), the data processor is spawned without any mounts for Edge Storage Accelerator. You can perform the following tasks:
+When you use Azure IoT Operations (AIO), the Data Processor is spawned without any mounts for Edge Storage Accelerator. You can perform the following tasks:
 
 - Add a mount for the Edge Storage Accelerator PVC you created previously.
 - Reconfigure all pipelines' output stage to output to the Edge Storage Accelerator mount you just created.  
@@ -152,7 +152,7 @@ These pods are part of a **statefulSet**. You can't edit the statefulSet in plac
 1. Run the following command and replace `POD_NAME_HERE` with your copied value from the previous step:
 
    ```bash
-   kubectl exec -it POD_NAME_HERE bash
+   kubectl exec -it POD_NAME_HERE -- bash
    ```
 
 1. Change directories into the `/mnt/blob` mount path as specified from your `configPod.yaml`.
