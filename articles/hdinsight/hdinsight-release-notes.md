@@ -4,7 +4,7 @@ description: Latest release notes for Azure HDInsight. Get development tips and 
 ms.custom: references_regions
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 02/19/2024
+ms.date: 04/16/2024
 ---
 
 # Azure HDInsight release notes
@@ -21,16 +21,14 @@ To subscribe, click the “watch” button in the banner and watch out for [HDIn
 
 ## Release Information
 
-### Release date:  February  15, 2024
+### Release date:  February  16, 2024
 
-This release applies to HDInsight 4.x and 5.x versions. HDInsight release will be available to all regions over several days. This release is applicable for image number **2401250802**. [How to check the image number?](./view-hindsight-cluster-image-version.md)
+This release applies to HDInsight 5.1 version. HDInsight release will be available to all regions over several days. This release is applicable for image number **2403290825**. [How to check the image number?](./view-hindsight-cluster-image-version.md)
 
 HDInsight uses safe deployment practices, which involve gradual region deployment. It might take up to 10 business days for a new release or a new version to be available in all regions.
 
 **OS versions**
 
-* HDInsight 4.0: Ubuntu 18.04.5 LTS Linux Kernel 5.4
-* HDInsight 5.0: Ubuntu 18.04.5 LTS Linux Kernel 5.4
 * HDInsight 5.1: Ubuntu 18.04.5 LTS Linux Kernel 5.4
 
 > [!NOTE]
@@ -39,15 +37,12 @@ HDInsight uses safe deployment practices, which involve gradual region deploymen
 For workload specific versions, see 
 
 * [HDInsight 5.x component versions](./hdinsight-5x-component-versioning.md)
-* [HDInsight 4.x component versions](./hdinsight-40-component-versioning.md)
 
-## New features
-
-- Apache Ranger support for Spark SQL in Spark 3.3.0 (HDInsight version 5.1) with Enterprise security package. Learn more about it [here](./spark/ranger-policies-for-spark.md).
-  
 ## Fixed issues
 
-- Security fixes from Ambari and Oozie components
+* Bug fixes for Ambari DB, Hive Warehouse Controller (HWC), Spark, HDFS 
+* Bug fixes for Log analytics module for HDInsightSparkLogs 
+* CVE Fixes for [HDInsight RP](./hdinsight-overview-versioning.md#hdinsight-resource-provider).
 
 
 ## :::image type="icon" border="false" source="./media/hdinsight-release-notes/clock.svg"::: Coming soon
