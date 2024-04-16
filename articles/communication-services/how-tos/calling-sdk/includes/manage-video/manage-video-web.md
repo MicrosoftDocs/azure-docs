@@ -491,25 +491,23 @@ const isAvailable: boolean = remoteVideoStream.isAvailable;
 ```
 
 - `isReceiving`:
-  - Informs the application if remote video stream data is being received or not. All scenarios listed assumes the remote partipant is 
-sharing its video
-  
-    - The flag moves to `false` in the following scenarios:
-      - A remote participant who is on mobile browser brings the browser app to the background. 
-      - A remote participant or the user receiving the video has network issue that affects video quality drastically.
-      - A remote participant who is On macOS/iOS Safari clicks on "Pause" from their address bar.
-      - A remote participant has a network disconnection. 
-      - A remote particpant on mobile kills or terminate the browser. 
-      - A remote particpant on mobile or desktop locks his device. This scenario applies also if the remote particpant is on a desktop computer and it goes to sleep.
- 
-    - The flag moves to `true` in the following scenarios:
-      - A remote participant whos is on mobile browser and has his browser backgrounded brings it back to foreground.
-      - A remote participant who is On macOS/iOS Safari clicks on "Resume" from their address bar after having paused its video.
-      - A remote participant has a reconnects to the network after a temporary disconnection.
-      - A remote participant on mobile unlock his device and return to the call on his mobile browser.
+  - Informs the application if remote video stream data is being received or not.
+  - The flag moves to `false` in the following scenarios:
+    - A remote participant who is on mobile browser brings the browser app to the background. 
+    - A remote participant or the user receiving the video has network issue that affects video quality drastically.
+    - A remote participant who is On macOS/iOS Safari clicks on "Pause" from their address bar.
+    - A remote participant has a network disconnection. 
+    - A remote particpant on mobile kills or terminate the browser. 
+    - A remote particpant on mobile or desktop locks his device. This scenario applies also if the remote particpant is on a desktop computer and it goes to sleep.
+
+  - The flag moves to `true` in the following scenarios:
+    - A remote participant whos is on mobile browser and has his browser backgrounded brings it back to foreground.
+    - A remote participant who is On macOS/iOS Safari clicks on "Resume" from their address bar after having paused its video.
+    - A remote participant has a reconnects to the network after a temporary disconnection.
+    - A remote participant on mobile unlock his device and return to the call on his mobile browser.
         
-    - This feature improves the user experience for rendering remote video streams.
-    - You can display a loading spinner over the remote video stream when isReceiving flag changes to false. You don't have to do a loading spinner, you can do anything you desire, but a loading spinner is the most common usage for better user experience.
+  - This feature improves the user experience for rendering remote video streams.
+  - You can display a loading spinner over the remote video stream when isReceiving flag changes to false. You don't have to do a loading spinner, you can do anything you desire, but a loading spinner is the most common usage for better user experience.
 ```js
 const isReceiving: boolean = remoteVideoStream.isReceiving;
 ```
