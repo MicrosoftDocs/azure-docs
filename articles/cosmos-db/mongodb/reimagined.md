@@ -13,7 +13,7 @@ ms.date: 04/10/2024
 
 [!INCLUDE[MongoDB](../includes/appliesto-mongodb.md)]
 
-You have launched an app. Word of mouth spreads slowly, and a small but loyal user base forms. They diligently give you feedback, helping you improve it. As you continue to fix issues and add features, more and more users fall in love with your app, and your users grows like a snowball rolling down a hill. Celebrities and influencers endorse it; teenagers use its name as an everyday verb. Suddenly, your app's usage skyrockets, and you watch in awe as the user count soars, anticipating your creation to become a staple on devices worldwide.
+You have launched an app using [MongoDB](https://www.mongodb.com/) as its database. Word of mouth spreads slowly, and a small but loyal user base forms. They diligently give you feedback, helping you improve it. As you continue to fix issues and add features, more and more users fall in love with your app, and your users grows like a snowball rolling down a hill. Celebrities and influencers endorse it; teenagers use its name as an everyday verb. Suddenly, your app's usage skyrockets, and you watch in awe as the user count soars, anticipating your creation to become a staple on devices worldwide.
 
 But, timeouts become increasingly frequent, especially when traffic spikes. The rapid growth and unpredictable demand push your infrastructure to its limits, making scalability a pressing issue. Yet overhauling your data pipeline is out of the question given your resource and time constraints.
 
