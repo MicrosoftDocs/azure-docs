@@ -3,7 +3,7 @@ title: Enable automatic certificate rotation in a Batch pool
 description: You can create a Batch pool with a managed identity and a certificate that can automatically be renewed.
 ms.topic: conceptual
 ms.custom:
-ms.date: 12/05/2023
+ms.date: 16/04/2024
 ---
 
 # Enable automatic certificate rotation in a Batch pool
@@ -143,7 +143,7 @@ Request Body for Windows node
                                 "requireInitialSync": true,
                                 "observedCertificates": [
                                     {
-                                        "https://testkvwestus2s.vault.azure.net/secrets/authcertforumatesting/8f5f3f491afd48cb99286ba2aacd39af",
+                                        "url": "https://testkvwestus2s.vault.azure.net/secrets/authcertforumatesting/8f5f3f491afd48cb99286ba2aacd39af",
                                         "certificateStoreLocation": "LocalMachine",
                                         "keyExportable": true
                                     }
