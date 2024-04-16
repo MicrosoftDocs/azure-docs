@@ -4,12 +4,11 @@ description: Learn how to trigger custom partitioning from Azure Synapse Spark n
 author: Rodrigossz
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/29/2022
+ms.date: 10/24/2023
 ms.author: rosouz
-ms.custom: ignite-fall-2021, ignite-2022
 ---
 
-# Configure custom partitioning to partition analytical store data (Preview)
+# Configure custom partitioning to partition analytical store data
 [!INCLUDE[NoSQL, MongoDB, Gremlin](includes/appliesto-nosql-mongodb-gremlin.md)]
 
 Custom partitioning enables you to partition analytical store data, on fields that are commonly used as filters in analytical queries, resulting in improved query performance.
@@ -17,12 +16,8 @@ To learn more about custom partitioning, see [what is custom partitioning](custo
 
 To use custom partitioning, you must enable Azure Synapse Link on your Azure Cosmos DB account. To learn more, see [how to configure Azure Synapse Link](configure-synapse-link.md). Custom partitioning execution can be triggered from Azure Synapse Spark notebook using Azure Synapse Link for Azure Cosmos DB.
 
-> [!IMPORTANT]
-> Custom partitioning feature is currently in public preview. This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 > [!NOTE]
 > Azure Cosmos DB accounts should have Azure Synapse Link enabled to take advantage of custom partitioning. Custom partitioning is currently supported for Azure Synapse Spark 2.0 only.
-
 
 > [!NOTE]
 > Synapse Link for Gremlin API is now in preview. You can enable Synapse Link in your new or existing graphs using Azure CLI. For more information on how to configure it, click [here](configure-synapse-link.md).
@@ -51,7 +46,7 @@ The following are optional configuration options that you can use when triggerin
 
   When you set maxRecordsPerFile but don't configure `spark.cosmos.asns.merge.partitioned.files`, the records could split across files before reaching the maxRecordsPerFile. The file split also depends on the available parallelism on the pool.
 
-* `spark.cosmos.asns.partitioning.shuffle.partitions` - It controls parallelism during partitioned writes to the partitioned store. This config is needed only for initial partitioning for larger collections. It's set to the number of available cores on the Spark pool. The default value is 200. lower value could waste resources if the pool is not being used for other workloads. Higher value typically doesn't cause issues, because some tasks complete early and can start more tasks while the slow ones are executing. If you want partitioning job to complete faster, it is a good practice to increase the pool size.
+* `spark.cosmos.asns.partitioning.shuffle.partitions` - It controls parallelism during partitioned writes to the partitioned store. This config is needed only for initial partitioning for larger collections. It's set to the number of available cores on the Spark pool. The default value is 200. Lower values could waste resources if the pool is not being used for other workloads. Higher value typically doesn't cause issues, because some tasks complete early and can start more tasks while the slow ones are executing. If you want partitioning job to complete faster, it is a good practice to increase the pool size.
 
 # [Python](#tab/python)
 

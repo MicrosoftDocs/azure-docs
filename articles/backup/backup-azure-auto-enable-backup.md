@@ -3,9 +3,9 @@ title: Auto-Enable Backup on VM Creation using Azure Policy
 description: 'An article describing how to use Azure Policy to auto-enable backup for all VMs created in a given scope'
 ms.topic: how-to
 ms.date: 10/17/2022
-author: v-amallick
 ms.service: backup
-ms.author: v-amallick
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Auto-Enable Backup on VM Creation using Azure Policy

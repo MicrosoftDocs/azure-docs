@@ -6,12 +6,12 @@ author: jonels-msft
 recommendations: false
 ms.service: cosmos-db
 ms.subservice: postgresql
-ms.custom: mvc, mode-ui, ignite-2022
+ms.custom: mvc, mode-ui
 ms.topic: quickstart
-ms.date: 08/11/2022
+ms.date: 01/30/2023
 ---
 
-# Run queries
+# Run queries in Azure Cosmos DB for PostgreSQL
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 

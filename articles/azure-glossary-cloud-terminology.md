@@ -1,23 +1,17 @@
 ---
-title: Azure glossary - Azure dictionary | Microsoft Docs
+title: Azure glossary - Azure dictionary
 description: Use the Azure glossary to understand cloud terminology on the Azure platform. This short Azure dictionary provides definitions for common cloud terms for Azure.
 keywords: Azure dictionary, cloud terminology, Azure glossary, terminology definitions, cloud terms
-services: na
-documentationcenter: na
 author: MonicaRush
-manager: jhubbard
-editor: ''
-
 ms.assetid: d7ac12f7-24b5-4bcd-9e4d-3d76fbd8d297
 ms.service: architecture-center
 ms.subservice: cloud-fundamentals
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-arm-template
 ms.topic: article
 ms.date: 09/17/2021
 ms.author: monicar
-
 ---
+
 # Microsoft Azure glossary: A dictionary of cloud terminology on the Azure platform
 
 The Microsoft Azure glossary is a short dictionary of cloud terminology for the Azure platform. See also:
@@ -58,7 +52,7 @@ The collection of virtual machines in an availability set that can possibly fail
 See [Manage the availability of Windows virtual machines](./virtual-machines/availability.md?toc=/azure/virtual-machines/windows/toc.json) or [Manage the availability of Linux virtual machines](./virtual-machines/availability.md?toc=/azure/virtual-machines/linux/toc.json)  
 
 ## geo
-A defined boundary for data residency that typically contains two or more regions. The boundaries may be within or beyond national borders and are influenced by tax regulation. Every geo has at least one region. Examples of geos are Asia Pacific and Japan. Also called *geography*.  
+A defined boundary for data residency that typically contains two or more regions. The boundaries may be within or beyond national/regional borders and are influenced by tax regulation. Every geo has at least one region. Examples of geos are Asia Pacific and Japan. Also called *geography*.  
 See [Azure Regions](./availability-zones/cross-region-replication-azure.md)
 
 ## geo-replication
@@ -88,7 +82,7 @@ See the [Azure offer details page](https://azure.microsoft.com/support/legal/off
 The secure web portal used to deploy and manage Azure services.
 
 ## region
-An area within a geo that does not cross national borders and contains one or more datacenters. Pricing, regional services, and offer types are exposed at the region level. A region is typically paired with another region, which can be up to several hundred miles away. Regional pairs can be used as a mechanism for disaster recovery and high availability scenarios. Also referred to as *location*.  
+An area within a geo that does not cross national/regional borders and contains one or more datacenters. Pricing, regional services, and offer types are exposed at the region level. A region is typically paired with another region, which can be up to several hundred miles away. Regional pairs can be used as a mechanism for disaster recovery and high availability scenarios. Also referred to as *location*.  
 See [Azure Regions](./availability-zones/cross-region-replication-azure.md)
 
 ## resource
@@ -124,14 +118,14 @@ See [About Azure storage accounts](./storage/common/storage-account-create.md)
 
 ## subscription
 A customer's agreement with Microsoft that enables them to obtain Azure services. The subscription pricing and related terms are governed by the offer chosen for the subscription.
-See [Microsoft Online Subscription Agreement](https://azure.microsoft.com/support/legal/subscription-agreement/) and [How Azure subscriptions are associated with Azure Active Directory](active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
+See [Microsoft Online Subscription Agreement](https://azure.microsoft.com/support/legal/subscription-agreement/) and [How Azure subscriptions are associated with Microsoft Entra ID](active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
 
 ## tag
 An indexing term that enables you to categorize resources according to your requirements for managing or billing. When you have a complex collection of resources, you can use tags to visualize those assets in the way that makes the most sense. For example, you could tag resources that serve a similar role in your organization or belong to the same department.  
 See [Using tags to organize your Azure resources](./azure-resource-manager/management/tag-resources.md)
 
-## Tenant
-A tenant is a group of users or an organization that share access with specific privileges to an instance of a product, service, or application. In Azure Active Directory a tenant is an instance of Azure Active Directory that an organization receives when it signs up for a cloud application like Microsoft 365. Each Azure AD tenant is distinct and separate from other Azure AD tenants. Multitenancy refers to an instance of an application shared by multiple organizations, each with separate access to the instance.
+## tenant
+A tenant is a group of users or an organization that share access with specific privileges to an instance of a product, service, or application. In Microsoft Entra ID a tenant is an instance of Microsoft Entra ID that an organization receives when it signs up for a cloud application like Microsoft 365. Each Microsoft Entra tenant is distinct and separate from other Microsoft Entra tenants. Multitenancy refers to an instance of an application shared by multiple organizations, each with separate access to the instance.
 
 ## update domain
 The collection of virtual machines in an availability set that are updated at the same time. Virtual machines in the same update domain are restarted together during planned maintenance. Azure never restarts more than one update domain at a time. Also referred to as an upgrade domain.  

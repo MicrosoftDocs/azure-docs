@@ -97,7 +97,7 @@ Make sure the services are listed as subject alternative names (SANs) and the ce
    - `certificate.pem` containing the base64 encoded certificate
    - `privatekey.pem` containing the private key
 
-## Next steps
+## Related content
 - Try [Upload metrics and logs to Azure Monitor](upload-metrics-and-logs-to-azure-monitor.md)
 - Read about Grafana:
    - [Getting started](https://grafana.com/docs/grafana/latest/getting-started/getting-started)

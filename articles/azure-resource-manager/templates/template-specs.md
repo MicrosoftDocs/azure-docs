@@ -2,8 +2,8 @@
 title: Create & deploy template specs
 description: Describes how to create template specs and share them with other users in your organization.
 ms.topic: conceptual
-ms.date: 01/12/2022
-ms.custom: devx-track-azurepowershell, devx-track-azurecli, ignite-2022
+ms.date: 03/20/2024
+ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-arm-template
 ---
 
 # Azure Resource Manager template specs
@@ -15,9 +15,9 @@ A template spec is a resource type for storing an Azure Resource Manager templat
 To deploy the template spec, you use standard Azure tools like PowerShell, Azure CLI, Azure portal, REST, and other supported SDKs and clients. You use the same commands as you would for the template.
 
 > [!NOTE]
-> To use template spec with Azure PowerShell, you must install [version 5.0.0 or later](/powershell/azure/install-az-ps). To use it with Azure CLI, use [version 2.14.2 or later](/cli/azure/install-azure-cli).
+> To use template spec with Azure PowerShell, you must install [version 5.0.0 or later](/powershell/azure/install-azure-powershell). To use it with Azure CLI, use [version 2.14.2 or later](/cli/azure/install-azure-cli).
 
-When designing your deployment, always consider the lifecycle of the resources and group the resources that share similar lifecycle into a single template spec. For example, your deployments include multiple instances of Azure Cosmos DB, with each instance containing its own databases and containers. Given the databases and the containers don't change much, you want to create one template spec to include a Cosmo DB instance and its underlying databases and containers. You can then use conditional statements in your templates along with copy loops to create multiple instances of these resources.
+When designing your deployment, always consider the lifecycle of the resources and group the resources that share similar lifecycle into a single template spec. For example, your deployments include multiple instances of Azure Cosmos DB, with each instance containing its own databases and containers. Given the databases and the containers don't change much, you want to create one template spec to include a Cosmos DB instance and its underlying databases and containers. You can then use conditional statements in your templates along with copy loops to create multiple instances of these resources.
 
 ### Training resources
 
@@ -40,6 +40,15 @@ Template specs enable you to create canonical templates and share them with team
 If you currently have your templates in a GitHub repo or storage account, you run into several challenges when trying to share and use the templates. To deploy the template, you need to either make the template publicly accessible or manage access with SAS tokens. To get around this limitation, users might create local copies, which eventually diverge from your original template. Template specs simplify sharing templates.
 
 The templates you include in a template spec should be verified by administrators in your organization to follow the organization's requirements and guidance.
+
+## Required permissions
+
+There are two Azure build-in roles defined for template spec:
+
+- [Template Spec Reader](../../role-based-access-control//built-in-roles.md#template-spec-reader)
+- [Template Spec Contributor](../../role-based-access-control//built-in-roles.md#template-spec-contributor)
+
+In addition, you also need the permissions for deploying a Bicep file. See [Deploy - CLI](./deploy-cli.md#required-permissions) or [Deploy - PowerShell](./deploy-powershell.md#required-permissions).
 
 ## Create template spec
 
@@ -162,7 +171,7 @@ You can also create template specs by using ARM templates. The following templat
               "location": "[resourceGroup().location]",
               "kind": "StorageV2",
               "sku": {
-                "name": "[[parameters('storageAccountType')]"
+                "name": "[parameters('storageAccountType')]"
               }
             }
           ]
@@ -216,7 +225,7 @@ az ts show \
 
 ## Deploy template spec
 
-After you've created the template spec, users with **read** access to the template spec can deploy it. For information about granting access, see [Tutorial: Grant a group access to Azure resources using Azure PowerShell](../../role-based-access-control/tutorial-role-assignments-group-powershell.md).
+After you've created the template spec, users with the [template spec reader](#required-permissions) role can deploy it. In addition, you also need the permissions for deploying an ARM template. See [Deploy - CLI](./deploy-cli.md#required-permissions) or [Deploy - PowerShell](./deploy-powershell.md#required-permissions).
 
 Template specs can be deployed through the portal, PowerShell, Azure CLI, or as a linked template in a larger template deployment. Users in an organization can deploy a template spec to any scope in Azure (resource group, subscription, management group, or tenant).
 
@@ -344,7 +353,7 @@ az deployment group create \
 
 ## Versioning
 
-When you create a template spec, you provide a version name for it. As you iterate on the template code, you can either update an existing version (for hotfixes) or publish a new version. The version is a text string. You can choose to follow any versioning system, including semantic versioning. Users of the template spec can provide the version name they want to use when deploying it.
+When you create a template spec, you provide a version name for it. As you iterate on the template code, you can either update an existing version (for hotfixes) or publish a new version. The version is a text string. You can choose to follow any versioning system, including semantic versioning. Users of the template spec can provide the version name they want to use when deploying it.  You can have an unlimit number of versions. 
 
 ## Use tags
 

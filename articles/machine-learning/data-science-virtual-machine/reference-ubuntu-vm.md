@@ -1,22 +1,20 @@
 ---
 title: 'Reference: Ubuntu Data Science Virtual Machine'
-titleSuffix: Azure Data Science Virtual Machine 
+titleSuffix: Azure Data Science Virtual Machine
 description: Details on tools included in the Ubuntu Data Science Virtual Machine
 author: jesscioffi
 services: machine-learning
 ms.service: data-science-vm
-ms.custom: devx-track-python
-
+ms.custom: devx-track-python, linux-related-content
 ms.author: jcioffi
-ms.date: 06/23/2022
+ms.reviewer: mattmcinnes
+ms.date: 04/18/2023
 ms.topic: reference
-
-
 ---
 
 # Reference: Ubuntu (Linux) Data Science Virtual Machine
 
-See below for a list of available tools on your Ubuntu Data Science Virtual Machine. 
+See below for a list of available tools on your Ubuntu Data Science Virtual Machine.
 
 ## Deep learning libraries
 
@@ -28,7 +26,7 @@ available in the `py38_pytorch` environment.
 
 ### H2O
 
-H2O is a fast, in-memory, distributed machine learning and predictive analytics platform. A Python package is installed in both the root and py35 Anaconda environments. An R package is also installed. 
+H2O is a fast, in-memory, distributed machine learning and predictive analytics platform. A Python package is installed in both the root and py35 Anaconda environments. An R package is also installed.
 
 To open H2O from the command line, run `java -jar /dsvm/tools/h2o/current/h2o.jar`. There are various [command-line options](http://docs.h2o.ai/h2o/latest-stable/h2o-docs/starting-h2o.html#from-the-command-line) that you might want to configure. You can access the Flow web UI by browsing to `http://localhost:54321` to get started. Sample notebooks are also available in JupyterHub.
 
@@ -71,11 +69,11 @@ username and password.
 ## Apache Spark standalone
 
 A standalone instance of Apache Spark is preinstalled on the Linux DSVM to help you develop Spark applications locally
-before you test and deploy them on large clusters. 
+before you test and deploy them on large clusters.
 
 You can run PySpark programs through the Jupyter kernel. When you open Jupyter, select the **New** button and you should
 see a list of available kernels. **Spark - Python** is the PySpark kernel that lets you build Spark applications by
-using the Python language. You can also use a Python IDE like VS.Code or PyCharm to build your Spark program. 
+using the Python language. You can also use a Python IDE like VS.Code or PyCharm to build your Spark program.
 
 In this standalone instance, the Spark stack runs within the calling client program. This feature makes it faster and
 easier to troubleshoot issues, compared to developing on a Spark cluster.
@@ -83,7 +81,7 @@ easier to troubleshoot issues, compared to developing on a Spark cluster.
 
 ## IDEs and editors
 
-You have a choice of several code editors, including VS.Code, PyCharm, IntelliJ, vi/Vim, Emacs. 
+You have a choice of several code editors, including VS.Code, PyCharm, IntelliJ, vi/Vim, Emacs.
 
 VS.Code, PyCharm, and IntelliJ are graphical editors. To use them, you need to be signed in to a graphical
 desktop. You open them by using desktop and application menu shortcuts.
@@ -124,7 +122,7 @@ For more information, see [Connecting with bcp](/sql/connect/odbc/linux-mac/conn
 Libraries are available in R and Python for database access:
 
 * In R, you can use the RODBC package or dplyr package to query or run SQL statements on the database server.
-* In Python, the pyodbc library provides database access with ODBC as the underlying layer.  
+* In Python, the pyodbc library provides database access with ODBC as the underlying layer.
 
 ## Azure tools
 
@@ -133,16 +131,16 @@ The following Azure tools are installed on the VM:
 * **Azure CLI**: You can use the command-line interface in Azure to create and manage Azure resources through shell commands. To open the Azure tools, enter **azure help**. For more information, see the [Azure CLI documentation page](/cli/azure/get-started-with-az-cli2).
 * **Azure Storage Explorer**: Azure Storage Explorer is a graphical tool that you can use to browse through the objects that you have stored in your Azure storage account, and to upload and download data to and from Azure blobs. You can access Storage Explorer from the desktop shortcut icon. You can also open it from a shell prompt by entering **StorageExplorer**. You must be signed in from an X2Go client, or have X11 forwarding set up.
 * **Azure libraries**: The following are some of the pre-installed libraries.
-  
+
   * **Python**: The Azure-related libraries in Python are *azure*, *azureml*, *pydocumentdb*, and *pyodbc*. With the first three libraries, you can access Azure storage services, Azure Machine Learning, and Azure Cosmos DB (a NoSQL database on Azure). The fourth library, pyodbc (along with the Microsoft ODBC driver for SQL Server), enables access to SQL Server, Azure SQL Database, and Azure Synapse Analytics from Python by using an ODBC interface. Enter **pip list** to see all the listed libraries. Be sure to run this command in both the Python 2.7 and 3.5 environments.
-  * **R**: The Azure-related libraries in R are AzureML and RODBC.
-  * **Java**: The list of Azure Java libraries can be found in the directory /dsvm/sdk/AzureSDKJava on the VM. The key libraries are Azure storage and management APIs, Azure Cosmos DB, and JDBC drivers for SQL Server.  
+  * **R**: The Azure-related libraries in R are Azure Machine Learning and RODBC.
+  * **Java**: The list of Azure Java libraries can be found in the directory /dsvm/sdk/AzureSDKJava on the VM. The key libraries are Azure storage and management APIs, Azure Cosmos DB, and JDBC drivers for SQL Server.
 
 ## Azure Machine Learning
 
-Azure Machine Learning is a fully managed cloud service that enables you to build, deploy, and share predictive analytics solutions. You can build your experiments and models in Azure Machine Learning studio (preview). You can access it from a web browser on the Data Science Virtual Machine by visiting [Microsoft Azure Machine Learning](https://ml.azure.com).
+Azure Machine Learning is a fully managed cloud service that enables you to build, deploy, and share predictive analytics solutions. You can build your experiments and models in Azure Machine Learning studio. You can access it from a web browser on the Data Science Virtual Machine by visiting [Microsoft Azure Machine Learning](https://ml.azure.com).
 
-After you sign in to Azure Machine Learning studio, you can use an experimentation canvas to build a logical flow for the machine learning algorithms. You also have access to a Jupyter notebook that is hosted on Azure Machine Learning and can work seamlessly with the experiments in Azure Machine Learning studio. 
+After you sign in to Azure Machine Learning studio, you can use an experimentation canvas to build a logical flow for the machine learning algorithms. You also have access to a Jupyter notebook that is hosted on Azure Machine Learning and can work seamlessly with the experiments in Azure Machine Learning studio.
 
 Operationalize the machine learning models that you have built by wrapping them in a web service interface. Operationalizing machine learning models enables clients written in any language to invoke predictions from those models. For more information, see the [Machine Learning documentation](../index.yml).
 
@@ -209,8 +207,6 @@ cp -r /dsvm/tools/xgboost/demo/binary_classification/ xgboostdemo
 cd xgboostdemo
 xgboost mushroom.conf
 ```
-
-A .model file is written to the specified directory. You can find information about this demo example [on GitHub](https://github.com/dmlc/xgboost/tree/master/demo/CLI/binary_classification).
 
 For more information about xgboost, see the [xgboost documentation page](https://xgboost.readthedocs.org/en/latest/) and its [GitHub repository](https://github.com/dmlc/xgboost).
 

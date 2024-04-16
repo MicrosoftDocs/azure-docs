@@ -1,16 +1,15 @@
 ---
 title: Real-time data ingestion with Azure Stream Analytics - Azure Cosmos DB for PostgreSQL
 description: See how to transform and ingest streaming data from Azure Cosmos DB for PostgreSQL by using Azure Stream Analytics.
-ms.author: sasriram
-author: saimicrosoft
+ms.author: jonels
+author: jonels-msft
 ms.service: cosmos-db
 ms.subservice: postgresql
-ms.custom: ignite-2022
 ms.topic: how-to
-ms.date: 09/21/2022
+ms.date: 01/30/2023
 ---
 
-# How to ingest data by using Azure Stream Analytics
+# How to ingest data by using Azure Stream Analytics in Azure Cosmos DB for PostgreSQL
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 

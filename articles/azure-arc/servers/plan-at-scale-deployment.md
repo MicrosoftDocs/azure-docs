@@ -1,7 +1,7 @@
 ---
 title: Plan and deploy Azure Arc-enabled servers
 description: Learn how to enable a large number of machines to Azure Arc-enabled servers to simplify configuration of essential security, management, and monitoring capabilities in Azure.
-ms.date: 04/27/2022
+ms.date: 02/26/2024
 ms.topic: how-to
 ---
 
@@ -74,7 +74,7 @@ Next, we add to the foundation laid in Phase 1 by preparing for and [deploying t
 
 |Task |Detail |Estimated duration |
 |-----|-------|---------|
-| Download the pre-defined installation script | Review and customize the pre-defined installation script for at-scale deployment of the Connected Machine agent to support your automated deployment requirements.<br><br> Sample at-scale onboarding resources:<br><br> <ul><li> [At-scale basic deployment script](onboard-service-principal.md)</ul></li> <ul><li>[At-scale onboarding VMware vSphere Windows Server VMs](https://github.com/microsoft/azure_arc/blob/main/docs/azure_arc_jumpstart/azure_arc_servers/scaled_deployment/vmware_scaled_powercli_win/_index.md)</ul></li> <ul><li>[At-scale onboarding VMware vSphere Linux VMs](https://github.com/microsoft/azure_arc/blob/main/docs/azure_arc_jumpstart/azure_arc_servers/scaled_deployment/vmware_scaled_powercli_linux/_index.md)</ul></li> <ul><li>[At-scale onboarding AWS EC2 instances using Ansible](https://github.com/microsoft/azure_arc/blob/main/docs/azure_arc_jumpstart/azure_arc_servers/scaled_deployment/aws_scaled_ansible/_index.md)</ul></li> | One or more days depending on requirements, organizational processes (for example, Change and Release Management), and automation method used. |
+| Download the pre-defined installation script | Review and customize the pre-defined installation script for at-scale deployment of the Connected Machine agent to support your automated deployment requirements.<br><br> Sample at-scale onboarding resources:<br><br> <ul><li> [At-scale basic deployment script](onboard-service-principal.md)</ul></li> <ul><li>At-scale onboarding VMware vSphere Windows Server VMs</ul></li> <ul><li>At-scale onboarding VMware vSphere Linux VMs</ul></li> <ul><li>At-scale onboarding AWS EC2 instances using Ansible</ul></li> | One or more days depending on requirements, organizational processes (for example, Change and Release Management), and automation method used. |
 | [Create service principal](onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale) |Create a service principal to connect machines non-interactively using Azure PowerShell or from the portal.| One hour |
 | Deploy the Connected Machine agent to your target servers and machines |Use your automation tool to deploy the scripts to your servers and connect them to Azure.| One or more days depending on your release plan and if following a phased rollout. |
 
@@ -87,10 +87,11 @@ Phase 3 is when administrators or system engineers can enable automation of manu
 |Create a Resource Health alert |If a server stops sending heartbeats to Azure for longer than 15 minutes, it can mean that it is offline, the network connection has been blocked, or the agent is not running. Develop a plan for how you’ll respond and investigate these incidents and use [Resource Health alerts](../..//service-health/resource-health-alert-monitor-guide.md) to get notified when they start.<br><br> Specify the following when configuring the alert:<br> **Resource type** = **Azure Arc-enabled servers**<br> **Current resource status** = **Unavailable**<br> **Previous resource status** = **Available** | One hour |
 |Create an Azure Advisor alert | For the best experience and most recent security and bug fixes, we recommend keeping the Azure Connected Machine agent up to date. Out-of-date agents will be identified with an [Azure Advisor alert](../../advisor/advisor-alerts-portal.md).<br><br> Specify the following when configuring the alert:<br> **Recommendation type** = **Upgrade to the latest version of the Azure Connected Machine agent** | One hour |
 |[Assign Azure policies](../../governance/policy/assign-policy-portal.md) to your subscription or resource group scope |Assign the **Enable Azure Monitor for VMs** [policy](../../azure-monitor/vm/vminsights-enable-policy.md) (and others that meet your needs) to the subscription or resource group scope. Azure Policy allows you to assign policy definitions that install the required agents for VM insights across your environment.| Varies |
-|[Enable Update Management for your Azure Arc-enabled servers](../../automation/update-management/enable-from-automation-account.md) |Configure Update Management in Azure Automation to manage operating system updates for your Windows and Linux virtual machines registered with Azure Arc-enabled servers. | 15 minutes |
+|Enable [Azure Update Manager](/azure/update-manager/) for your Azure Arc-enabled servers. |Configure Azure Update Manager on your Arc-enabled servers to manage system updates for your Windows and Linux virtual machines. You can choose to [deploy updates on-demand](/azure/update-manager/deploy-updates?tabs=install-single-overview%2Cinstall-scale-overview) or [apply updates using custom schedule](/azure/update-manager/scheduled-patching?tabs=schedule-updates-single-machine%2Cschedule-updates-scale-overview%2Cwindows-maintenance). | 5 minutes |
 
 ## Next steps
 
+* Learn about best practices and design patterns through the [Azure Arc landing zone accelerator for hybrid and multicloud](/azure/cloud-adoption-framework/scenarios/hybrid/arc-enabled-servers/eslz-identity-and-access-management).
 * Learn about [reconfiguring, upgrading, and removing the Connected Machine agent](manage-agent.md).
 * Review troubleshooting information in the [agent connection issues troubleshooting guide](troubleshoot-agent-onboard.md).
 * Learn how to simplify deployment with other Azure services like Azure Automation [State Configuration](../../automation/automation-dsc-overview.md) and other supported [Azure VM extensions](manage-vm-extensions.md).

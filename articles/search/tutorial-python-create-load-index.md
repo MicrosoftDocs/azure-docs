@@ -1,58 +1,34 @@
 ---
-title: "Python tutorial: Add search to web apps" 
-titleSuffix: Azure Cognitive Search
+title: "Load an index (Python tutorial)"
+titleSuffix: Azure AI Search
 description: Create index and import CSV data into Search index with Python using the PYPI package SDK azure-search-documents.
 manager: nitinme
 author: diberry
 ms.author: diberry
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 11/02/2022
-ms.custom: devx-track-python
+ms.date: 07/18/2023
+ms.custom:
+  - devx-track-python
+  - devx-track-azurecli
+  - ignite-2023
 ms.devlang: python
 ---
 
 # 2 - Create and load Search Index with Python
 
-Continue to build your Search-enabled website by:
-* Create a Search resource with the VS Code extension
+Continue to build your search-enabled website by following these steps:
+* Create a search resource
 * Create a new index
 * Import data with Python using the [sample script](https://github.com/Azure-Samples/azure-search-python-samples/blob/main/search-website-functions-v4/bulk-upload/bulk-upload.py) and Azure SDK [azure-search-documents](https://pypi.org/project/azure-search-documents/).
 
-## Create an Azure Cognitive Search resource 
+## Create an Azure AI Search resource
 
-Create a new Search resource with the [Azure Cognitive Search](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurecognitivesearch) extension for Visual Studio Code.
-
-1. In Visual Studio Code, open the [Activity bar](https://code.visualstudio.com/docs/getstarted/userinterface), and select the Azure icon. 
-
-1. In the Side bar, **right-click on your Azure subscription** under the `Azure: Cognitive Search` area and select **Create new search service**.
-
-    :::image type="content" source="./media/tutorial-javascript-create-load-index/visual-studio-code-create-search-resource.png" alt-text="Screenshot of Visual Studio Code showing the Azure explorer, right-click on your Azure subscription under the Azure: Cognitive Search area and select Create new search service.":::
-
-1. Follow the prompts to provide the following information:
-
-    |Prompt|Enter|
-    |--|--|
-    |Enter a globally unique name for the new Search Service.|**Remember this name**. This resource name becomes part of your resource endpoint.|
-    |Select a resource group for new resources|Use the resource group you created for this tutorial.|
-    |Select the SKU for your Search service.|Select **Free** for this tutorial. You can't change a pricing tier after the service is created.|
-    |Select a location for new resources.|Select a region close to you.|
-
-1. After you complete the prompts, your new Search resource is created. 
-
-## Get your Search resource admin key
-
-Get your Search resource admin key with the Visual Studio Code extension. 
-
-1. In Visual Studio Code, in the Side bar, right-click on your Search resource and select **Copy Admin Key**.
-
-    :::image type="content" source="./media/tutorial-javascript-create-load-index/visual-studio-code-copy-admin-key.png" alt-text="Screenshot of Visual Studio Code showing the Azure explorer, right-click on your Search resource and select Copy Admin Key.":::
-
-1. Keep this admin key, you'll need to use it to create objects in [a later section](#prepare-the-bulk-import-script-for-search). 
+[!INCLUDE [tutorial-create-search-resource](includes/tutorial-add-search-website-create-search-resource.md)]
 
 ## Prepare the bulk import script for Search
 
-The script uses the Azure SDK for Cognitive Search:
+The script uses the Azure SDK for Azure AI Search:
 
 * [PYPI package azure-search-documents](https://pypi.org/project/azure-search-documents/)
 * [Reference Documentation](/python/api/azure-search-documents)
@@ -62,7 +38,7 @@ The script uses the Azure SDK for Cognitive Search:
     * YOUR-SEARCH-SERVICE-NAME
     * YOUR-SEARCH-SERVICE-ADMIN-API-KEY
 
-    :::code language="python" source="~/azure-search-python-samples/search-website-functions-v4/bulk-upload/bulk-upload.py" highlight="20-22,46-48,53-54,75-80,83,69,83,135,142" :::
+    :::code language="python" source="~/azure-search-python-samples/search-website-functions-v4/bulk-upload/bulk-upload.py" :::
 
 1. Open an integrated terminal in Visual Studio for the project directory's subdirectory, `search-website-functions-v4/bulk-upload`, and run the following command to install the dependencies. 
 

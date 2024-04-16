@@ -5,12 +5,11 @@ ms.author: jonels
 author: jonels-msft
 ms.service: cosmos-db
 ms.subservice: postgresql
-ms.custom: ignite-2022
 ms.topic: how-to
-ms.date: 09/20/2022
+ms.date: 01/30/2023
 ---
 
-# Change compute quotas from the Azure portal
+# Change compute quotas in Azure Cosmos DB for PostgreSQL
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 

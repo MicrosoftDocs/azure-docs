@@ -5,7 +5,7 @@ author: petrsvihlik
 manager: soricos
 services: azure-communication-services
 
-ms.author: petrsvihlik
+ms.author: soricos
 ms.date: 01/30/2022
 ms.topic: conceptual
 ms.service: azure-communication-services
@@ -23,12 +23,12 @@ Communication Token Credential (Credential) is an authentication primitive that 
 ## Choosing the session lifetime
 
 Depending on your scenario, you may want to adjust the lifespan of tokens issued for your application. The following best practices or their combination can help you achieve the optimal solution for your scenario:
-- [Customize the token expiration time](#set-a-custom-token-expiration-time) to your specific needs.
+- [Customize the token expiration time](#setting-a-custom-token-expiration-time) to your specific needs.
 - Initialize the Credential with a [static token](#static-token) for one-off Chat messages or time-limited Calling sessions.
 - Use a [callback function](#callback-function) for agents using the application for longer periods of time.
 
-### Set a custom token expiration time
-When requesting a new token, we recommend using short lifetime tokens for one-off Chat messages or time-limited Calling sessions and longer lifetime tokens for agents using the application for longer periods of time. The default token expiration time is 24 hours but you can customize it by providing a value between an hour and 24 hours to the optional parameter as follow:
+### Setting a custom token expiration time
+When requesting a new token, we recommend using short lifetime tokens for one-off Chat messages or time-limited Calling sessions and longer lifetime tokens for agents using the application for longer periods of time. The default token expiration time is 24 hours but you can customize it by providing a value between an hour and 24 hours to the optional parameter as follows:
 
 ```javascript
 const tokenOptions = { tokenExpiresInMinutes: 60 };
@@ -60,7 +60,7 @@ const tokenCredential = new AzureCommunicationTokenCredential({
 
 To correctly implement the token refresher callback, the code must return a string with a valid JSON Web Token (JWT). It's necessary that the returned token is valid (its expiration date is set in the future) at all times. Some platforms, such as JavaScript and .NET, offer a way to abort the refresh operation, and pass `AbortSignal` or `CancellationToken` to your function. It's recommended to accept these objects, utilize them or pass them further.
 
-### Example 1: Refresh token for a Communication User
+### Example 1: Refreshing a token for a Communication User
 
 Let's assume we have a Node.js application built on Express with the `/getToken` endpoint allowing to fetch a new valid token for a user specified by name.
 
@@ -94,22 +94,22 @@ const fetchTokenFromMyServerForUser = async function (abortSignal, username) {
 };
 ```
 
-### Example 2: Refresh token for a Teams User
+### Example 2: Refreshing a token for a Teams User
 
-Let's assume we have a Node.js application built on Express with the `/getTokenForTeamsUser` endpoint allowing to exchange an Azure Active Directory (Azure AD) access token of a Teams user for a new Communication Identity access token with a matching expiration time.
+Let's assume we have a Node.js application built on Express with the `/getTokenForTeamsUser` endpoint allowing to exchange a Microsoft Entra access token of a Teams user for a new Communication Identity access token with a matching expiration time.
 
 ```javascript
 app.post('/getTokenForTeamsUser', async (req, res) => {
     const identityClient = new CommunicationIdentityClient("<COMMUNICATION_SERVICES_CONNECTION_STRING>");
-    let communicationIdentityToken = await identityClient.getTokenForTeamsUser(req.body.teamsToken);
+    let communicationIdentityToken = await identityClient.getTokenForTeamsUser(req.body.teamsToken, '<AAD_CLIENT_ID>', '<TEAMS_USER_OBJECT_ID>');
     res.json({ communicationIdentityToken: communicationIdentityToken.token });
 });
 ```
 
 Next, we need to implement a token refresher callback in the client application, whose responsibility will be to:
 
-1. Refresh the Azure AD access token of the Teams User
-1. Exchange the Azure AD access token of the Teams User for a Communication Identity access token
+1. Refresh the Microsoft Entra access token of the Teams User
+2. Exchange the Microsoft Entra access token of the Teams User for a Communication Identity access token
 
 ```javascript
 const fetchTokenFromMyServerForUser = async function (abortSignal, username) {
@@ -132,7 +132,7 @@ const fetchTokenFromMyServerForUser = async function (abortSignal, username) {
 }
 ```
 
-In this example, we use the Microsoft Authentication Library (MSAL) to refresh the Azure AD access token. Following the guide to [acquire an Azure AD token to call an API](../../active-directory/develop/scenario-spa-acquire-token.md), we first try to obtain the token without the user's interaction. If that's not possible, we trigger one of the interactive flows.
+In this example, we use the Microsoft Authentication Library (MSAL) to refresh the Microsoft Entra access token. Following the guide to [acquire a Microsoft Entra token to call an API](/entra/identity-platform/scenario-spa-acquire-token), we first try to obtain the token without the user's interaction. If that's not possible, we trigger one of the interactive flows.
 
 ```javascript
 const refreshAadToken = async function (abortSignal, username) {
@@ -169,7 +169,7 @@ const refreshAadToken = async function (abortSignal, username) {
 }
 ```
 
-## Initial token
+## Providing an initial token
 
 To further optimize your code, you can fetch the token at the application's startup and pass it to the Credential directly. Providing an initial token will skip the first call to the refresher callback function while preserving all subsequent calls to it.
 
@@ -191,18 +191,18 @@ const tokenCredential = new AzureCommunicationTokenCredential({
         });
 ```
 
-If you want to cancel scheduled refresh tasks, [dispose](#clean-up-resources) of the Credential object.
+If you want to cancel scheduled refresh tasks, [dispose](#cleaning-up-resources) of the Credential object.
 
-### Proactively refresh token for a Teams User
+### Proactively refreshing a token for a Teams User
 
-To minimize the number of roundtrips to the Azure Communication Identity API, make sure the Azure AD token you're passing for an [exchange](../quickstarts/manage-teams-identity.md#step-3-exchange-the-azure-ad-access-token-of-the-teams-user-for-a-communication-identity-access-token) has long enough validity (> 10 minutes). In case that MSAL returns a cached token with a shorter validity, you have the following options to bypass the cache:
+To minimize the number of roundtrips to the Azure Communication Identity API, make sure the Microsoft Entra token you're passing for an [exchange](../quickstarts/manage-teams-identity.md#step-3-exchange-the-azure-ad-access-token-of-the-teams-user-for-a-communication-identity-access-token) has long enough validity (> 10 minutes). In case that MSAL returns a cached token with a shorter validity, you have the following options to bypass the cache:
 
 1. Refresh the token forcibly
-1. Increase the MSAL's token renewal window to more than 10 minutes
+2. Increase the MSAL's token renewal window to more than 10 minutes
 
 # [JavaScript](#tab/javascript)
 
-Option 1: Trigger the token acquisition flow with [`AuthenticationParameters.forceRefresh`](../../active-directory/develop/msal-js-pass-custom-state-authentication-request.md) set to `true`.
+Option 1: Trigger the token acquisition flow with [`AuthenticationParameters.forceRefresh`](/entra/identity-platform/msal-js-pass-custom-state-authentication-request) set to `true`.
 
 ```javascript
 // Extend the `refreshAadToken` function 
@@ -239,7 +239,7 @@ const publicClientApplication = new PublicClientApplication({
 
 ---
 
-## Cancel refreshing
+## Canceling refreshing
 
 For the Communication clients to be able to cancel ongoing refresh tasks, it's necessary to pass a cancellation object to the refresher callback.
 *Note that this pattern applies only to JavaScript and .NET.*
@@ -282,9 +282,9 @@ leaveChatBtn.addEventListener('click', function() {
 });
 ```
 
-If you want to cancel subsequent refresh tasks, [dispose](#clean-up-resources) of the Credential object.
+If you want to cancel subsequent refresh tasks, [dispose](#cleaning-up-resources) of the Credential object.
 
-### Clean up resources
+### Cleaning up resources
 
 Since the Credential object can be passed to multiple Chat or Calling client instances, the SDK will make no assumptions about its lifetime and leaves the responsibility of its disposal to the developer. It's up to the Communication Services applications to dispose the Credential instance when it's no longer needed. Disposing the credential will also cancel scheduled refresh actions when the proactive refreshing is enabled.
 
@@ -298,12 +298,12 @@ const chatClient = new ChatClient("<endpoint-url>", tokenCredential);
 tokenCredential.dispose()
 ```
 
-## Handle a sign-out
+## Handling a sign-out
 
 Depending on your scenario, you may want to sign a user out from one or more services:
 
-- To sign a user out from a single service, [dispose](#clean-up-resources) of the Credential object.
-- To sign a user out from multiple services, implement a signaling mechanism to notify all services to [dispose](#clean-up-resources) of the Credential object, and additionally, [revoke all access tokens](../quickstarts/access-tokens.md?tabs=windows&pivots=programming-language-javascript#revoke-access-tokens) for a given identity.
+- To sign a user out from a single service, [dispose](#cleaning-up-resources) of the Credential object.
+- To sign a user out from multiple services, implement a signaling mechanism to notify all services to [dispose](#cleaning-up-resources) of the Credential object, and additionally, [revoke all access tokens](../quickstarts/identity/access-tokens.md?tabs=windows&pivots=programming-language-javascript#revoke-access-tokens) for a given identity.
 
 ---
 
@@ -318,5 +318,5 @@ In this article, you learned how to:
 
 To learn more, you may want to explore the following quickstart guides:
 
-* [Create and manage access tokens](../quickstarts/access-tokens.md)
+* [Create and manage access tokens](../quickstarts/identity/access-tokens.md)
 * [Manage access tokens for Teams users](../quickstarts/manage-teams-identity.md)

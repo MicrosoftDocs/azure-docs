@@ -5,10 +5,10 @@ author: EdB-MSFT
 ms.author: edbaynash
 ms.service: azure-monitor
 ms.subservice: autoscale
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.topic: conceptual
-ms.date: 09/30/2022
+ms.date: 06/20/2023
 ms.reviewer: akkumari
-
 
 # Customer intent: As a user or dev ops administrator, I want to understand how set up autoscale with more than one profile so I can scale my resources with more flexibility.
 ---
@@ -39,9 +39,18 @@ If a profile's date and time settings match the current time, autoscale will app
 
 The example below shows an autoscale setting with a default profile and recurring profile.
 
-:::image type="content" source="./media/autoscale-multiple-profiles/autoscale-default-recurring-profiles.png" alt-text="A screenshot showing an autoscale setting with default and recurring profile or scale condition":::
+:::image type="content" source="./media/autoscale-multiple-profiles/autoscale-default-recurring-profiles.png" lightbox="./media/autoscale-multiple-profiles/autoscale-default-recurring-profiles.png" alt-text="A screenshot showing an autoscale setting with default and recurring profile or scale condition.":::
 
-In the above example, on Monday after 6 AM, the recurring profile will be used. If the instance count is less than 3, autoscale scales to the new minimum of three. Autoscale continues to use this profile and scales based on CPU% until Monday at 6 PM. At all other times scaling will be done according to the default profile, based on the number of requests. After 6 PM on Monday, autoscale switches to the default profile. If for example, the number of instances at the time is 12, autoscale scales in to 10, which the maximum allowed for the default profile.
+In the above example, on Monday after 3 AM, the recurring profile will cease to be used. If the instance count is less than 3, autoscale scales to the new minimum of three. Autoscale continues to use this profile and scales based on CPU% until Monday at 8 PM. At all other times scaling will be done according to the default profile, based on the number of requests. After 8 PM on Monday, autoscale switches to the default profile. If for example, the number of instances at the time is 12, autoscale scales in to 10, which the maximum allowed for the default profile.
+
+## Multiple contiguous profiles
+Autoscale transitions between profiles based on their start times. The end time for a given profile is determined by the start time of the following profile.
+
+In the portal, the end time field becomes the next start time for the default profile. You can't specify the same time for the end of one profile and the start of the next. The portal will force the end time to be one minute before the start time of the following profile. During this minute, the default profile will become active. If you don't want the default profile to become active between recurring profiles, leave the end time field empty.
+
+> [!TIP]
+> To set up multiple contiguous profiles using the portal, leave the end time empty. The current profile will stop being used when the next profile becomes active. Only specify an end time when you want to revert to the default profile. 
+> Creating a recurring profile with no end time is only supported via the portal and ARM templates.
 
 ## Multiple profiles using templates, CLI, and PowerShell
 
@@ -49,22 +58,18 @@ When creating multiple profiles using templates, the CLI, and PowerShell, follow
 
 ## [ARM templates](#tab/templates)
 
-Follow the rules below when using ARM templates to create autoscale settings with multiple profiles:
+See the autoscale section of the [ARM template resource definition](/azure/templates/microsoft.insights/autoscalesettings) for a full template reference.
 
-See the autoscale section of the [ARM template resource definition](https://learn.microsoft.com/azure/templates/microsoft.insights/autoscalesettings) for a full template reference.
+There is no specification in the template for end time. A profile will remain active until the next profile's start time.  
 
-* Create a default profile for each recurring profile. If you have two recurring profiles, create two matching default profiles.
-* The default profile must contain a `recurrence` section that is the same as the recurring profile, with the `hours` and `minutes` elements set for the end time of the recurring profile. If you don't specify a recurrence with a start time for the default profile, the last recurrence rule will remain in effect.
-* The `name` element for the default profile is an object with the following format: `"name": "{\"name\":\"Auto created default scale condition\",\"for\":\"Recurring profile name\"}"` where the recurring profile name is the value of the `name` element for the recurring profile. If the name isn't specified correctly, the default profile will appear as another recurring profile.
- *The rules above don't apply for non-recurring scheduled profiles.
 
-## Add a recurring profile using AIM templates
+## Add a recurring profile using ARM templates
 
-The example below shows how to create two recurring profiles. One profile for weekends between 06:00 and 19:00, Saturday and Sunday, and a second for Mondays between 04:00 and 15:00. Note the two default profiles, one for each recurring profile.
+The example below shows how to create two recurring profiles. One profile for weekends from 00:01 on Saturday morning and a second Weekday profile starting on Mondays at 04:00. That means that the weekend profile will start on Saturday morning at one minute passed midnight and end on Monday morning at 04:00. The Weekday profile will start at 4am on Monday and end just after midnight on Saturday morning.
 
 Use the following command to deploy the template:
-` az deployment group create --name VMSS1-Autoscale-607 --resource-group rg-vmss1 --template-file VMSS1-autoscale.json`
-where *VMSS1-autoscale.json* is the the file containing the JSON object below.
+`az deployment group create --name VMSS1-Autoscale-607 --resource-group rg-vmss1 --template-file VMSS1-autoscale.json`
+where *VMSS1-autoscale.json* is the file containing the JSON object below.
 
 ``` JSON
 {
@@ -83,7 +88,7 @@ where *VMSS1-autoscale.json* is the the file containing the JSON object below.
                 "targetResourceUri": "/subscriptions/abc123456-987-f6e5-d43c-9a8d8e7f6541/resourceGroups/rg-vmss1/providers/Microsoft.Compute/virtualMachineScaleSets/VMSS1",
                 "profiles": [
                     {
-                        "name": "Monday profile",
+                        "name": "Weekday profile",
                         "capacity": {
                             "minimum": "3",
                             "maximum": "20",
@@ -162,152 +167,16 @@ where *VMSS1-autoscale.json* is the the file containing the JSON object below.
                             "schedule": {
                                 "timeZone": "E. Europe Standard Time",
                                 "days": [
-                                    "Saturday",
-                                    "Sunday"
+                                    "Saturday"                                    
                                 ],
                                 "hours": [
-                                    6
+                                    0
                                 ],
                                 "minutes": [
-                                    0
+                                    1
                                 ]
                             }
                         }
-                    },
-                    {
-                        "name": "{\"name\":\"Auto created default scale condition\",\"for\":\"Weekend profile\"}",
-                        "capacity": {
-                            "minimum": "2",
-                            "maximum": "10",
-                            "default": "2"
-                        },
-                        "recurrence": {
-                            "frequency": "Week",
-                            "schedule": {
-                                "timeZone": "E. Europe Standard Time",
-                                "days": [
-                                    "Saturday",
-                                    "Sunday"
-                                ],
-                                "hours": [
-                                    19
-                                ],
-                                "minutes": [
-                                    0
-                                ]
-                            }
-                        },
-                        "rules": [
-                            {
-                                "scaleAction": {
-                                    "direction": "Increase",
-                                    "type": "ChangeCount",
-                                    "value": "1",
-                                    "cooldown": "PT3M"
-                                },
-                                "metricTrigger": {
-                                    "metricName": "Percentage CPU",
-                                    "metricNamespace": "microsoft.compute/virtualmachinescalesets",
-                                    "metricResourceUri": "/subscriptions/abc123456-987-f6e5-d43c-9a8d8e7f6541/resourceGroups/rg-vmss1/providers/Microsoft.Compute/virtualMachineScaleSets/VMSS1",
-                                    "operator": "GreaterThan",
-                                    "statistic": "Average",
-                                    "threshold": 50,
-                                    "timeAggregation": "Average",
-                                    "timeGrain": "PT1M",
-                                    "timeWindow": "PT1M",
-                                    "Dimensions": [],
-                                    "dividePerInstance": false
-                                }
-                            },
-                            {
-                                "scaleAction": {
-                                    "direction": "Decrease",
-                                    "type": "ChangeCount",
-                                    "value": "1",
-                                    "cooldown": "PT3M"
-                                },
-                                "metricTrigger": {
-                                    "metricName": "Percentage CPU",
-                                    "metricNamespace": "microsoft.compute/virtualmachinescalesets",
-                                    "metricResourceUri": "/subscriptions/abc123456-987-f6e5-d43c-9a8d8e7f6541/resourceGroups/rg-vmss1/providers/Microsoft.Compute/virtualMachineScaleSets/VMSS1",
-                                    "operator": "LessThan",
-                                    "statistic": "Average",
-                                    "threshold": 39,
-                                    "timeAggregation": "Average",
-                                    "timeGrain": "PT1M",
-                                    "timeWindow": "PT3M",
-                                    "Dimensions": [],
-                                    "dividePerInstance": false
-                                }
-                            }
-                        ]
-                    },
-                    {
-                        "name": "{\"name\":\"Auto created default scale condition\",\"for\":\"Monday profile\"}",
-                        "capacity": {
-                            "minimum": "2",
-                            "maximum": "10",
-                            "default": "2"
-                        },
-                        "recurrence": {
-                            "frequency": "Week",
-                            "schedule": {
-                                "timeZone": "E. Europe Standard Time",
-                                "days": [
-                                    "Monday"
-                                ],
-                                "hours": [
-                                    15
-                                ],
-                                "minutes": [
-                                    0
-                                ]
-                            }
-                        },
-                        "rules": [
-                            {
-                                "scaleAction": {
-                                    "direction": "Increase",
-                                    "type": "ChangeCount",
-                                    "value": "1",
-                                    "cooldown": "PT3M"
-                                },
-                                "metricTrigger": {
-                                    "metricName": "Percentage CPU",
-                                    "metricNamespace": "microsoft.compute/virtualmachinescalesets",
-                                    "metricResourceUri": "/subscriptions/abc123456-987-f6e5-d43c-9a8d8e7f6541/resourceGroups/rg-vmss1/providers/Microsoft.Compute/virtualMachineScaleSets/VMSS1",
-                                    "operator": "GreaterThan",
-                                    "statistic": "Average",
-                                    "threshold": 50,
-                                    "timeAggregation": "Average",
-                                    "timeGrain": "PT1M",
-                                    "timeWindow": "PT1M",
-                                    "Dimensions": [],
-                                    "dividePerInstance": false
-                                }
-                            },
-                            {
-                                "scaleAction": {
-                                    "direction": "Decrease",
-                                    "type": "ChangeCount",
-                                    "value": "1",
-                                    "cooldown": "PT3M"
-                                },
-                                "metricTrigger": {
-                                    "metricName": "Percentage CPU",
-                                    "metricNamespace": "microsoft.compute/virtualmachinescalesets",
-                                    "metricResourceUri": "/subscriptions/abc123456-987-f6e5-d43c-9a8d8e7f6541/resourceGroups/rg-vmss1/providers/Microsoft.Compute/virtualMachineScaleSets/VMSS1",
-                                    "operator": "LessThan",
-                                    "statistic": "Average",
-                                    "threshold": 39,
-                                    "timeAggregation": "Average",
-                                    "timeGrain": "PT1M",
-                                    "timeWindow": "PT3M",
-                                    "Dimensions": [],
-                                    "dividePerInstance": false
-                                }
-                            }
-                        ]
                     }
                 ],
                 "notifications": [],
@@ -316,15 +185,14 @@ where *VMSS1-autoscale.json* is the the file containing the JSON object below.
 
         }
     ]
-}
-    
+}    
 ```
 
 ## [CLI](#tab/cli)
 
 The CLI can be used to create multiple profiles in your autoscale settings.
 
-See the [Autoscale CLI reference](https://learn.microsoft.com/cli/azure/monitor/autoscale?view=azure-cli-latest) for the full set of autoscale CLI commands.
+See the [Autoscale CLI reference](/cli/azure/monitor/autoscale) for the full set of autoscale CLI commands.
 
 The following steps show how to create a recurring autoscale profile using the CLI.
 
@@ -338,18 +206,50 @@ The example below shows how to add a recurring autoscale profile, recurring on T
 
 ``` azurecli
 
-az monitor autoscale profile create --autoscale-name VMSS1-Autoscale-607 --count 2 --max-count 10 --min-count 1 --name Thursdays --recurrence week thu --resource-group rg-vmss1 --start 06:00 --end 22:50 --timezone "Pacific Standard Time" 
+export autoscaleName=vmss-autoscalesetting=002
+export resourceGroupName=rg-vmss-001
 
-az monitor autoscale rule create -g rg-vmss1 --autoscale-name VMSS1-Autoscale-607 --scale in 1 --condition "Percentage CPU < 25 avg 5m" --profile-name Thursdays
 
-az monitor autoscale rule create -g rg-vmss1 --autoscale-name VMSS1-Autoscale-607 --scale out 2 --condition "Percentage CPU > 50 avg 5m"  --profile-name Thursdays
+az monitor autoscale profile create \
+--autoscale-name $autoscaleName \
+--count 2 \
+--name Thursdays \
+--resource-group $resourceGroupName \
+--max-count 10 \
+--min-count 1 \
+--recurrence week thu \
+--start 06:00 \
+--end 22:50 \
+--timezone "Pacific Standard Time" 
+
+
+az monitor autoscale rule create \
+--autoscale-name $autoscaleName \
+-g $resourceGroupName  \
+--scale in 1 \
+--condition "Percentage CPU < 25 avg 5m" \
+--profile-name Thursdays
+
+az monitor autoscale rule create \
+--autoscale-name $autoscaleName \
+-g $resourceGroupName   \
+--scale out 2 \
+--condition "Percentage CPU > 50 avg 5m"  \
+--profile-name Thursdays
+
+
+az monitor autoscale profile list \
+--autoscale-name $autoscaleName \
+--resource-group $resourceGroupName
+                                  
 ```
 
 > [!NOTE]  
-> The JSON for your autoscale default profile is modified by adding a recurring profile.  
-> The `name` element of the default profile is changed to an object in the format: `"name": "{\"name\":\"Auto created default scale condition\",\"for\":\"recurring profile\"}"` where *recurring profile* is the profile name of your recurring profile.
+> * The JSON for your autoscale default profile is modified by adding a recurring profile.  
+> The `name` element of the default profile is changed to an object in the format: `"name": "{\"name\":\"Auto created default scale condition\",\"for\":\"recurring profile name\"}"` where *recurring profile* is the profile name of your recurring profile.
 > The default profile also has a recurrence clause added to it that starts at the end time specified for the new recurring profile.
-> A new default profile is created for each recurring profile.  
+> * A new default profile is created for each recurring profile.  
+> * If the end time is not specified in the CLI command, the end time will be defaulted to 23:59.
 
 ## Updating the default profile when you have recurring profiles
 
@@ -367,7 +267,7 @@ az monitor autoscale rule create -g rg-vmss1--autoscale-name VMSS1-Autoscale-607
 
 PowerShell can be used to create multiple profiles in your autoscale settings.
 
-See the [PowerShell Az.Monitor Reference ](https://learn.microsoft.com/powershell/module/az.monitor/#monitor) for the full set of autoscale PowerShell commands.
+See the [PowerShell Az.Monitor Reference](/powershell/module/az.monitor/#monitor) for the full set of autoscale PowerShell commands.
 
 The following steps show how to create an autoscale profile using PowerShell.
 
@@ -377,35 +277,124 @@ The following steps show how to create an autoscale profile using PowerShell.
 
 ## Add a recurring profile using PowerShell
 
-The example below shows how to create default profile and a recurring autoscale profile, recurring on Wednesdays and Fridays between 07:00 and 19:00.
-The default profile uses the  `CpuIn` and `CpuOut` Rules. The recurring profile uses the `HTTPRuleIn` and `HTTPRuleOut` rules
+The example below shows how to create default profile and a recurring autoscale profile, recurring on Wednesdays and Fridays between 09:00 and 23:00.
+The default profile uses the  `CpuIn` and `CpuOut` Rules. The recurring profile uses the `BandwidthIn` and `BandwidthOut` rules.
 
 ```azurepowershell
-$ResourceGroup="rg-001"
-$TargetResourceId="/subscriptions/abc123456-987-f6e5-d43c-9a8d8e7f6541/resourcegroups/rg-001/providers/Microsoft.Web/serverFarms/ScaleableAppServicePlan"
 
-$ScaleSettingName="MultipleProfiles-001"
+$ResourceGroupName="rg-vmss-001"
+$TargetResourceId="/subscriptions/abc123456-987-f6e5-d43c-9a8d8e7f6541/resourceGroups/rg-vmss-001/providers/Microsoft.Compute/virtualMachineScaleSets/vmss-001"
+$ScaleSettingName="vmss-autoscalesetting=001"
 
-$CpuOut = New-AzAutoscaleRule -MetricName "CpuPercentage" -MetricResourceId $TargetResourceId -Operator GreaterThan -MetricStatistic Average -Threshold 50 -TimeGrain 00:01:00 -ScaleActionCooldown 00:05:00 -ScaleActionDirection Increase -ScaleActionScaleType ChangeCount -ScaleActionValue "1"
+$CpuOut=New-AzAutoscaleScaleRuleObject `
+    -MetricTriggerMetricName "Percentage CPU" `
+    -MetricTriggerMetricResourceUri "$TargetResourceId"  `
+    -MetricTriggerTimeGrain ([System.TimeSpan]::New(0,1,0)) `
+    -MetricTriggerStatistic "Average" `
+    -MetricTriggerTimeWindow ([System.TimeSpan]::New(0,5,0)) `
+    -MetricTriggerTimeAggregation "Average" `
+    -MetricTriggerOperator "GreaterThan" `
+    -MetricTriggerThreshold 50 `
+    -MetricTriggerDividePerInstance $false `
+    -ScaleActionDirection "Increase" `
+    -ScaleActionType "ChangeCount" `
+    -ScaleActionValue 1 `
+    -ScaleActionCooldown ([System.TimeSpan]::New(0,5,0))
 
-$CpuIn = New-AzAutoscaleRule -MetricName "CpuPercentage" -MetricResourceId $TargetResourceId -Operator GreaterThan -MetricStatistic Average -Threshold 30 -TimeGrain 00:01:00 -ScaleActionCooldown 00:05:00 -ScaleActionDirection Decrease -ScaleActionScaleType ChangeCount -ScaleActionValue "1"
 
-$DefaultProfile = New-AzAutoscaleProfile -DefaultCapacity "1" -MaximumCapacity "10" -MinimumCapacity "1" -Rule $CpuOut,$CpuIn -Name '{"name":"Default scale condition","for":"WednesdaysFridays"}' -RecurrenceFrequency week  -ScheduleDay "Wednesday","Friday" -ScheduleHour 19 -ScheduleMinute 00   -ScheduleTimeZone "Pacific Standard Time"`
+$CpuIn=New-AzAutoscaleScaleRuleObject `
+    -MetricTriggerMetricName "Percentage CPU" `
+    -MetricTriggerMetricResourceUri "$TargetResourceId"  `
+    -MetricTriggerTimeGrain ([System.TimeSpan]::New(0,1,0)) `
+    -MetricTriggerStatistic "Average" `
+    -MetricTriggerTimeWindow ([System.TimeSpan]::New(0,5,0)) `
+    -MetricTriggerTimeAggregation "Average" `
+    -MetricTriggerOperator "LessThan" `
+    -MetricTriggerThreshold 30 `
+    -MetricTriggerDividePerInstance $false `
+    -ScaleActionDirection "Decrease" `
+    -ScaleActionType "ChangeCount" `
+    -ScaleActionValue 1 `
+    -ScaleActionCooldown ([System.TimeSpan]::New(0,5,0))
 
-$HTTPRuleIn = New-AzAutoscaleRule -MetricName "HttpQueueLength" -MetricResourceId $TargetResourceId -Operator GreaterThan -MetricStatistic Average -Threshold 3 -TimeGrain 00:01:00 -ScaleActionCooldown 00:05:00 -ScaleActionDirection Decrease -ScaleActionScaleType ChangeCount -ScaleActionValue "1"
 
-$HTTPRuleOut = New-AzAutoscaleRule -MetricName "HttpQueueLength" -MetricResourceId $TargetResourceId -Operator GreaterThan -MetricStatistic Average -Threshold 10 -TimeGrain 00:01:00 -ScaleActionCooldown 00:05:00 -ScaleActionDirection Increase -ScaleActionScaleType ChangeCount -ScaleActionValue "1"   
+$defaultProfile=New-AzAutoscaleProfileObject `
+    -Name "Default" `
+    -CapacityDefault 1 `
+    -CapacityMaximum 5 `
+    -CapacityMinimum 1 `
+    -Rule $CpuOut, $CpuIn
 
-$RecurringProfile=New-AzAutoscaleProfile -Name WednesdaysFridays  -DefaultCapacity 2  -MaximumCapacity 12   -MinimumCapacity 2   -RecurrenceFrequency week  -ScheduleDay "Wednesday","Friday"   -ScheduleHour 7   -ScheduleMinute 00   -ScheduleTimeZone  "Pacific Standard Time"   -Rule $HTTPRuleOut, $HTTPRuleIn
 
-Add-AzAutoscaleSetting  -Location "West Central US" -name $ScaleSettingName -ResourceGroup $ResourceGroup -TargetResourceId $TargetResourceId -AutoscaleProfile $DefaultProfile, $RecurringProfile
+$BandwidthIn=New-AzAutoscaleScaleRuleObject `
+    -MetricTriggerMetricName "VM Cached Bandwidth Consumed Percentage" `
+    -MetricTriggerMetricResourceUri "$TargetResourceId"  `
+    -MetricTriggerTimeGrain ([System.TimeSpan]::New(0,1,0)) `
+    -MetricTriggerStatistic "Average" `
+    -MetricTriggerTimeWindow ([System.TimeSpan]::New(0,5,0)) `
+    -MetricTriggerTimeAggregation "Average" `
+    -MetricTriggerOperator "LessThan" `
+    -MetricTriggerThreshold 30 `
+    -MetricTriggerDividePerInstance $false `
+    -ScaleActionDirection "Decrease" `
+    -ScaleActionType "ChangeCount" `
+    -ScaleActionValue 1 `
+    -ScaleActionCooldown ([System.TimeSpan]::New(0,5,0))
+
+
+$BandwidthOut=New-AzAutoscaleScaleRuleObject `
+    -MetricTriggerMetricName "VM Cached Bandwidth Consumed Percentage" `
+    -MetricTriggerMetricResourceUri "$TargetResourceId"  `
+    -MetricTriggerTimeGrain ([System.TimeSpan]::New(0,1,0)) `
+    -MetricTriggerStatistic "Average" `
+    -MetricTriggerTimeWindow ([System.TimeSpan]::New(0,5,0)) `
+    -MetricTriggerTimeAggregation "Average" `
+    -MetricTriggerOperator "GreaterThan" `
+    -MetricTriggerThreshold 60 `
+    -MetricTriggerDividePerInstance $false `
+    -ScaleActionDirection "Increase" `
+    -ScaleActionType "ChangeCount" `
+    -ScaleActionValue 1 `
+    -ScaleActionCooldown ([System.TimeSpan]::New(0,5,0))
+
+$RecurringProfile=New-AzAutoscaleProfileObject `
+    -Name "Wednesdays and Fridays" `
+    -CapacityDefault 1 `
+    -CapacityMaximum 10 `
+    -CapacityMinimum 1 `
+    -RecurrenceFrequency week `
+    -ScheduleDay "Wednesday","Friday" `
+    -ScheduleHour 09 `
+    -ScheduleMinute 00  `
+    -ScheduleTimeZone "Pacific Standard Time" `
+    -Rule $BandwidthIn, $BandwidthOut
+
+
+
+$DefaultProfile2=New-AzAutoscaleProfileObject `
+    -Name "Back to default after Wednesday and Friday" `
+    -CapacityDefault 1 `
+    -CapacityMaximum 5 `
+    -CapacityMinimum 1 `
+    -RecurrenceFrequency week `
+    -ScheduleDay "Wednesday","Friday" `
+    -ScheduleHour 23 `
+    -ScheduleMinute 00 `
+    -ScheduleTimeZone "Pacific Standard Time" `
+    -Rule $CpuOut, $CpuIn
+
+
+Update-AzAutoscaleSetting  `
+-name $ScaleSettingName `
+-ResourceGroup $ResourceGroupName `
+-Enabled $true `
+-TargetResourceUri $TargetResourceId `
+-Profile $DefaultProfile, $RecurringProfile, $DefaultProfile2
+
 ```
 
-> [!NOTE]  
-> Each recurring profile must have a corresponding default profile. 
-> The `-Name` parameter of the default profile is an object in the format: `'{"name":"Default scale condition","for":"recurring profile"}'` where *recurring profile* is the profile name of the recurring profile.  
-> The default profile also has a recurrence parameters which match the recurring profile but it starts at the time you want the recurring profile to end.
-> Create a distinct default profile for each recurring profile.  
+> [!NOTE] 
+> You can't specify an end date for recurring profiles in PowerShell. To end a recurring profile, create a copy of default profile with the same recurrence parameters as the recurring profile. Set the start time to be the time you want the recurring profile to end. Each recurring profile requires its own copy of the default profile to specify an end time. 
 
 ## Updating the default profile when you have recurring profiles
 
@@ -416,20 +405,20 @@ For example, if you have two recurring profiles called *SundayProfile* and *Thur
 ```azurepowershell
 
 
-$DefaultProfileSundayProfile = New-AzAutoscaleProfile -DefaultCapacity "1" -MaximumCapacity "10" -MinimumCapacity "1" -Rule $CpuOut,$CpuIn -Name '{"name":"Default scale condition","for":"SundayProfile"}' -RecurrenceFrequency week  -ScheduleDay "Sunday" -ScheduleHour 19 -ScheduleMinute 00   -ScheduleTimeZone "Pacific Standard Time"`
+$DefaultProfileSundayProfile = New-AzAutoscaleProfile -DefaultCapacity "1" -MaximumCapacity "10" -MinimumCapacity "1" -Rule $CpuOut,$CpuIn -Name "Defalut for Sunday" -RecurrenceFrequency week  -ScheduleDay "Sunday" -ScheduleHour 19 -ScheduleMinute 00   -ScheduleTimeZone "Pacific Standard Time"`
 
 
-$DefaultProfileThursdayProfile = New-AzAutoscaleProfile -DefaultCapacity "1" -MaximumCapacity "10" -MinimumCapacity "1" -Rule $CpuOut,$CpuIn -Name '{"name":"Default scale condition","for":"ThursdayProfile"}' -RecurrenceFrequency week  -ScheduleDay "Thursday" -ScheduleHour 19 -ScheduleMinute 00   -ScheduleTimeZone "Pacific Standard Time"`
+$DefaultProfileThursdayProfile = New-AzAutoscaleProfile -DefaultCapacity "1" -MaximumCapacity "10" -MinimumCapacity "1" -Rule $CpuOut,$CpuIn -Name "Default for Thursday" -RecurrenceFrequency week  -ScheduleDay "Thursday" -ScheduleHour 19 -ScheduleMinute 00   -ScheduleTimeZone "Pacific Standard Time"`
 ```
 
 ---
 
 ## Next steps
 
-* [Autoscale CLI reference](https://learn.microsoft.com/cli/azure/monitor/autoscale?view=azure-cli-latest)
-* [ARM template resource definition](https://learn.microsoft.com/azure/templates/microsoft.insights/autoscalesettings)
-* [PowerShell Az.Monitor Reference](https://learn.microsoft.com/powershell/module/az.monitor/#monitor)
-* [REST API reference. Autoscale Settings](https://learn.microsoft.com/rest/api/monitor/autoscale-settings).
-* [Tutorial: Automatically scale a virtual machine scale set with an Azure template](https://learn.microsoft.com/azure/virtual-machine-scale-sets/tutorial-autoscale-template)
-* [Tutorial: Automatically scale a virtual machine scale set with the Azure CLI](https://learn.microsoft.com/azure/virtual-machine-scale-sets/tutorial-autoscale-cli)
-* [Tutorial: Automatically scale a virtual machine scale set with an Azure template](https://learn.microsoft.com/azure/virtual-machine-scale-sets/tutorial-autoscale-powershell)
+* [Autoscale CLI reference](/cli/azure/monitor/autoscale)
+* [ARM template resource definition](/azure/templates/microsoft.insights/autoscalesettings)
+* [PowerShell Az PowerShell module.Monitor Reference](/powershell/module/az.monitor/#monitor)
+* [REST API reference. Autoscale Settings](/rest/api/monitor/autoscale-settings).
+* [Tutorial: Automatically scale a Virtual Machine Scale Set with an Azure template](/azure/virtual-machine-scale-sets/tutorial-autoscale-template)
+* [Tutorial: Automatically scale a Virtual Machine Scale Set with the Azure CLI](/azure/virtual-machine-scale-sets/tutorial-autoscale-cli)
+* [Tutorial: Automatically scale a Virtual Machine Scale Set with an Azure template](/azure/virtual-machine-scale-sets/tutorial-autoscale-powershell)

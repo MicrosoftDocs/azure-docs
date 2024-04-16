@@ -1,9 +1,9 @@
 ---
-title: Azure IoT Edge and Azure IoT Central | Microsoft Docs
-description: Understand how to use Azure IoT Edge with an IoT Central application.
+title: Azure IoT Edge and Azure IoT Central
+description: Understand how to use Azure IoT Edge with an IoT Central application including the different gateway patterns and IoT Edge management capabilities.
 author: dominicbetts
 ms.author: dobett
-ms.date: 10/11/2022
+ms.date: 03/04/2024
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
@@ -52,7 +52,7 @@ IoT Central enables the following capabilities to for IoT Edge devices:
 An IoT Edge device can be:
 
 * A standalone device composed of custom modules.
-* A *gateway device*, with downstream devices connecting to it. A gateway device may include custom modules.
+* A *gateway device*, with downstream devices connecting to it. A gateway device can include custom modules.
 
 ## IoT Edge devices and IoT Central
 
@@ -217,8 +217,6 @@ Downstream devices connect to a module in the gateway that provides IoT Central 
 ![IoT Edge as identity translation gateway](./media/concepts-iot-edge/edgewithoutdownstreamdeviceidentity.png)
 
 The IoT Edge device is provisioned in IoT Central along with the downstream devices connected to the IoT Edge device. Currently, IoT Central doesn't have runtime support for a gateway to provide an identity and to provision downstream devices. If you bring your own identity translation module, IoT Central can support this pattern.
-
-The [Azure IoT Central gateway module for Azure Video Analyzer](https://github.com/iot-for-all/iotc-ava-gateway/blob/main/README.md) on GitHub uses this pattern.
 
 ### Downstream device relationships with a gateway and modules
 

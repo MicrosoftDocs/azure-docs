@@ -1,166 +1,196 @@
 ---
 title: 'Configure BGP for VPN Gateway: Portal'
 titleSuffix: Azure VPN Gateway
-description: Learn how to configure BGP for Azure VPN Gateway.
-services: vpn-gateway
+description: Learn how to configure BGP for Azure VPN Gateway using the Azure portal.
 author: cherylmc
-
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 07/26/2021
+ms.date: 04/20/2023
 ms.author: cherylmc 
 
-
 ---
-# How to configure BGP on Azure VPN Gateways
+# How to configure BGP for Azure VPN Gateway
 
-This article walks you through the steps to enable BGP on a cross-premises Site-to-Site (S2S) VPN connection and a VNet-to-VNet connection using the Azure portal.
+This article helps you enable BGP on cross-premises site-to-site (S2S) VPN connections and VNet-to-VNet connections using the Azure portal. You can also create this configuration using the [Azure CLI](bgp-how-to-cli.md) or [PowerShell](vpn-gateway-bgp-resource-manager-ps.md) steps.
 
-## <a name="about"></a>About BGP
+BGP is the standard routing protocol commonly used in the Internet to exchange routing and reachability information between two or more networks. BGP enables the VPN gateways and your on-premises VPN devices, called BGP peers or neighbors, to exchange "routes" that will inform both gateways on the availability and reachability for those prefixes to go through the gateways or routers involved. BGP can also enable transit routing among multiple networks by propagating routes a BGP gateway learns from one BGP peer to all other BGP peers.
 
-BGP is the standard routing protocol commonly used in the Internet to exchange routing and reachability information between two or more networks. BGP enables the Azure VPN gateways and your on-premises VPN devices, called BGP peers or neighbors, to exchange "routes" that will inform both gateways on the availability and reachability for those prefixes to go through the gateways or routers involved. BGP can also enable transit routing among multiple networks by propagating routes a BGP gateway learns from one BGP peer to all other BGP peers.
-
-For more information about the benefits of BGP and to understand the technical requirements and considerations of using BGP, see [Overview of BGP with Azure VPN Gateways](vpn-gateway-bgp-overview.md).
+For more information about the benefits of BGP and to understand the technical requirements and considerations of using BGP, see [About BGP and Azure VPN Gateway](vpn-gateway-bgp-overview.md).
 
 ## Getting started
 
-Each part of this article helps you form a basic building block for enabling BGP in your network connectivity. If you complete all three parts, you build the topology as shown in Diagram 1.
+Each part of this article helps you form a basic building block for enabling BGP in your network connectivity. If you complete all three parts (configure BGP on the gateway, S2S connection, and VNet-to-VNet connection) you build the topology as shown in **Diagram 1**. You can combine parts together to build a more complex, multi-hop, transit network that meets your needs.
 
 **Diagram 1**
 
-:::image type="content" source="./media/bgp-howto/bgp-crosspremises-v2v.png" alt-text="Diagram showing network architecture and settings" border="false":::
+:::image type="content" source="./media/bgp-howto/vnet-to-vnet.png" alt-text="Diagram showing network architecture and settings." border="false":::
 
-You can combine parts together to build a more complex, multi-hop, transit network that meets your needs.
+For context, referring to Diagram 1, if BGP were to be disabled between TestVNet2 and TestVNet1, TestVNet2 wouldn't learn the routes for the on-premises network, Site5, and therefore couldn't communicate with Site 5. Once you enable BGP, all three networks will be able to communicate over the S2S IPsec and VNet-to-VNet connections.
 
 ### Prerequisites
 
 Verify that you have an Azure subscription. If you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free account](https://azure.microsoft.com/pricing/free-trial/).
 
-## <a name ="config"></a>Part 1: Configure BGP on the virtual network gateway
+## <a name ="config"></a>Enable BGP for the VPN gateway
 
-In this section, you create and configure a virtual network, create and configure a virtual network gateway with BGP parameters, and obtain the Azure BGP Peer IP address. Diagram 2 shows the configuration settings to use when working with the steps in this section.
+This section is required before you perform any of the steps in the other two configuration sections. The following configuration steps set up the BGP parameters of the VPN gateway as shown in Diagram 2.
 
 **Diagram 2**
 
-:::image type="content" source="./media/bgp-howto/bgp-gateway.png" alt-text="Diagram showing settings for virtual network gateway" border="false":::
+:::image type="content" source="./media/bgp-howto/gateway.png" alt-text="Diagram showing settings for the virtual network gateway." border="false":::
 
-### 1. Create and configure TestVNet1
+### 1. Create TestVNet1
 
-In this step, you create and configure TestVNet1. Use the steps in the [Create a gateway tutorial](./tutorial-create-gateway-portal.md) to create and configure your Azure virtual network and VPN gateway. Use the reference settings in the screenshots below.
+In this step, you create and configure TestVNet1. Use the steps in the [Create a gateway tutorial](./tutorial-create-gateway-portal.md) to create and configure your Azure virtual network and VPN gateway.
 
-* Virtual network:
+Virtual network example values:
 
-   :::image type="content" source="./media/bgp-howto/testvnet-1.png" alt-text="TestVNet1 with corresponding address prefixes":::
-
+* Resource Group: TestRG1
+* VNet: TestVNet1
+* Location/Region: EastUS
+* Address space: 10.11.0.0/16, 10.12.0.0/16
 * Subnets:
+  * FrontEnd: 10.11.0.0/24
+  * BackEnd: 10.12.0.0/24
+  * GatewaySubnet: 10.12.255.0/27
 
-   :::image type="content" source="./media/bgp-howto/testvnet-1-subnets.png" alt-text="TestVNet1 subnets":::
-
-### 2. Create the VPN gateway for TestVNet1 with BGP parameters
+### 2. Create TestVNet1 gateway with BGP
 
 In this step, you create a VPN gateway with the corresponding BGP parameters.
 
-1. In the Azure portal, navigate to the **Virtual Network Gateway** resource from the Marketplace, and select **Create**.
+1. Use the steps in [Create and manage a VPN gateway](tutorial-create-gateway-portal.md) to create a gateway with the following parameters:
 
-1. Fill in the parameters as shown below:
+   * Instance Details:
+     * Name: VNet1GW
+     * Region: EastUS
+     * Gateway type: VPN
+     * VPN type: Route-based
+     * SKU: VpnGW1 or higher
+     * Generation: select a generation
+     * Virtual network: TestVNet1
 
-   :::image type="content" source="./media/bgp-howto/create-gateway-1.png" alt-text="Create VNG1":::
+   * Public IP address
+     * Public IP address Type: Basic or Standard
+     * Public IP address: Create new
+     * Public IP address name: VNet1GWIP
+     * Enable active-active: Disabled
+     * Configure BGP: Enabled
 
 1. In the highlighted **Configure BGP** section of the page, configure the following settings:
 
-   :::image type="content" source="./media/bgp-howto/create-gateway-1-bgp.png" alt-text="Configure BGP":::
-
    * Select **Configure BGP** - **Enabled** to show the BGP configuration section.
-
    * Fill in your ASN (Autonomous System Number).
+   * The **Azure APIPA BGP IP address** field is optional. If your on-premises VPN devices use APIPA address for BGP, you must select an address from the Azure-reserved APIPA address range for VPN, which is from **169.254.21.0** to **169.254.22.255**.
+   * If you're creating an active-active VPN gateway, the BGP section will show an additional **Second Custom Azure APIPA BGP IP address**. Each address you select must be unique and be in the allowed APIPA range (**169.254.21.0** to **169.254.22.255**). Active-active gateways also support multiple addresses for both **Azure APIPA BGP IP address** and **Second Custom Azure APIPA BGP IP address**. Additional inputs will only appear after you enter your first APIPA BGP IP address.
 
-   * The **Azure APIPA BGP IP address** field is optional. If your on-premises VPN devices use APIPA address for BGP, you must select an address from the Azure-reserved APIPA address range for VPN, which is from **169.254.21.0** to **169.254.22.255**. This example uses 169.254.21.11.
-
-   * If you are creating an active-active VPN gateway, the BGP section will show an additional **Second Custom Azure APIPA BGP IP address**. Each address you select must be unique and be in the allowed APIPA range (**169.254.21.0** to **169.254.22.255**). Active-active gateways also support multiple addresses for both **Azure APIPA BGP IP address** and **Second Custom Azure APIPA BGP IP address**. Additional inputs will only appear after you enter your first APIPA BGP IP address.
-
-   > [!IMPORTANT]
-   >
-   > * By default, Azure assigns a private IP address from the GatewaySubnet prefix range automatically as the Azure BGP IP address on the Azure VPN gateway. The custom Azure APIPA BGP address is needed when your on premises VPN devices use an APIPA address (169.254.0.1 to 169.254.255.254) as the BGP IP. Azure VPN Gateway will choose the custom APIPA address if the corresponding local network gateway resource (on-premises network) has an APIPA address as the BGP peer IP. If the local network gateway uses a regular IP address (not APIPA), Azure VPN Gateway will revert to the private IP address from the GatewaySubnet range.
-   >
-   > * The APIPA BGP addresses must not overlap between the on-premises VPN devices and all connected Azure VPN gateways.
-   >
-   > * When APIPA addresses are used on Azure VPN gateways, the gateways do not initiate BGP peering sessions with APIPA source IP addresses. The on-premises VPN device must initiate BGP peering connections.
-   >
+     > [!IMPORTANT]
+     >
+     > * By default, Azure assigns a private IP address from the GatewaySubnet prefix range automatically as the Azure BGP IP address on the VPN gateway. The custom Azure APIPA BGP address is needed when your on premises VPN devices use an APIPA address (169.254.0.1 to 169.254.255.254) as the BGP IP. VPN Gateway will choose the custom APIPA address if the corresponding local network gateway resource (on-premises network) has an APIPA address as the BGP peer IP. If the local network gateway uses a regular IP address (not APIPA), VPN Gateway will revert to the private IP address from the GatewaySubnet range.
+     >
+     > * The APIPA BGP addresses must not overlap between the on-premises VPN devices and all connected VPN gateways.
+     >
+     > * When APIPA addresses are used on VPN gateways, the gateways do not initiate BGP peering sessions with APIPA source IP addresses. The on-premises VPN device must initiate BGP peering connections.
+     >
 
 1. Select **Review + create** to run validation. Once validation passes, select **Create** to deploy the VPN gateway. Creating a gateway can often take 45 minutes or more, depending on the selected gateway SKU. You can see the deployment status on the Overview page for your gateway.
 
-### 3. Obtain the Azure BGP Peer IP addresses
+### 3. Get the Azure BGP Peer IP addresses
 
-Once the gateway is created, you can obtain the BGP Peer IP addresses on the Azure VPN gateway. These addresses are needed to configure your on-premises VPN devices to establish BGP sessions with the Azure VPN gateway.
+Once the gateway is created, you can obtain the BGP Peer IP addresses on the VPN gateway. These addresses are needed to configure your on-premises VPN devices to establish BGP sessions with the VPN gateway.
 
-1. Navigate to the Virtual network gateway resource and select the **Configuration** page to see the BGP configuration information as shown in the following screenshot. On this page, you can view all BGP configuration information on your Azure VPN gateway: ASN, Public IP address, and the corresponding BGP peer IP addresses on the Azure side (default and APIPA).
+On the virtual network gateway **Configuration** page, you can view the BGP configuration information on your VPN gateway: ASN, Public IP address, and the corresponding BGP peer IP addresses on the Azure side (default and APIPA). You can also make the following configuration changes:
 
-   :::image type="content" source="./media/bgp-howto/vnet-1-gw-bgp.png" alt-text="BGP gateway":::
+* You can update the ASN or the APIPA BGP IP address if needed.
+* If you have an active-active VPN gateway, this page will show the Public IP address, default, and APIPA BGP IP addresses of the second VPN gateway instance.
 
-1. On the **Configuration** page you can make the following configuration changes:
+To get the Azure BGP Peer IP address:
 
-   * You can update the ASN or the APIPA BGP IP address if needed.
-   * If you have an active-active VPN gateway, this page will show the Public IP address, default, and APIPA BGP IP addresses of the second Azure VPN gateway instance.
+1. Go to the virtual network gateway resource and select the **Configuration** page to see the BGP configuration information.
+1. Make a note of the BGP Peer IP address.
 
-1. If you made any changes, select **Save** to commit the changes to your Azure VPN gateway.
+## <a name ="crosspremises"></a>To configure BGP on cross-premises S2S connections
 
-## <a name ="crosspremises"></a>Part 2: Configure BGP on cross-premises S2S connections
+The instructions in this section apply to cross-premises site-to-site configurations. 
 
-To establish a cross-premises connection, you need to create a *local network gateway* to represent your on-premises VPN device, and a *connection* to connect the VPN gateway with the local network gateway as explained in [Create site-to-site connection](./tutorial-site-to-site-portal.md). This article contains the additional properties required to specify the BGP configuration parameters.
+To establish a cross-premises connection, you need to create a *local network gateway* to represent your on-premises VPN device, and a *connection* to connect the VPN gateway with the local network gateway as explained in [Create site-to-site connection](tutorial-site-to-site-portal.md). The following sections contain the additional properties required to specify the BGP configuration parameters, as shown in Diagram 3.
 
 **Diagram 3**
 
-:::image type="content" source="./media/bgp-howto/bgp-crosspremises.png" alt-text="Diagram showing IPsec" border="false":::
+:::image type="content" source="./media/bgp-howto/cross-premises.png" alt-text="Diagram showing IPsec configuration." border="false":::
 
-### 1. Configure BGP on the local network gateway
+Before proceeding, make sure you have enabled BGP for the VPN gateway.
 
-In this step, you configure BGP on the local network gateway. Use the following screenshot as an example. The screenshot shows local network gateway (Site5) with the parameters specified in Diagram 3.
+### 1. Create a local network gateway
 
-:::image type="content" source="./media/bgp-howto/create-local-bgp.png" alt-text="Configure BGP for the local network gateway":::
+Configure a local network gateway with BGP settings.
+
+* For information and steps, see the [local network gateway](tutorial-site-to-site-portal.md#LocalNetworkGateway) section in the site-to-site connection article.
+* If you already have a local network gateway, you can modify it.To modify a local network gateway, go to the local network gateway resource **Configuration** page and make any necessary changes.
+
+1. When you create the local network gateway, for this exercise, use the following values:
+
+   * Name: Site5
+   * IP address: The IP address of the gateway endpoint you want to connect to. Example: 128.9.9.9
+   * Address spaces: If BGP is enabled, no address space is required.
+
+1. To configure BGP settings, go to the **Advanced** page. Use the following example values (shown in Diagram 3). Modify any values necessary to match your environment.
+
+   * Configure BGP settings: Yes
+   * Autonomous system number (ASN): 65050
+   * BGP peer IP address: The address of the on-premise VPN Device. Example: 10.51.255.254
+
+1. Click **Review + create** to create the local network gateway.
 
 #### Important configuration considerations
 
 * The ASN and the BGP peer IP address must match your on-premises VPN router configuration.
-* You can leave the **Address space** empty only if you are using BGP to connect to this network. Azure VPN gateway will internally add a route of your BGP peer IP address to the corresponding IPsec tunnel. If you are **NOT** using BGP between the Azure VPN gateway and this particular network, you **must** provide a list of valid address prefixes for the **Address space**.
-* You can optionally use an **APIPA IP address** (169.254.x.x) as your on-premises BGP peer IP if needed. But you will also need to specify an APIPA IP address as described earlier in this article for your Azure VPN gateway, otherwise the BGP session cannot establish for this connection.
+* You can leave the **Address space** empty only if you're using BGP to connect to this network. Azure VPN gateway will internally add a route of your BGP peer IP address to the corresponding IPsec tunnel. If you're **NOT** using BGP between the VPN gateway and this particular network, you **must** provide a list of valid address prefixes for the **Address space**.
+* You can optionally use an **APIPA IP address** (169.254.x.x) as your on-premises BGP peer IP if needed. But you'll also need to specify an APIPA IP address as described earlier in this article for your VPN gateway, otherwise the BGP session can't establish for this connection.
 * You can enter the BGP configuration information during the creation of the local network gateway, or you can add or change BGP configuration from the **Configuration** page of the local network gateway resource.
 
-**Example**
+### 2. Configure an S2S connection with BGP enabled
 
-This example uses an APIPA address (169.254.100.1) as the on-premises BGP peer IP address:
+In this step, you create a new connection that has BGP enabled. If you already have a connection and you want to enable BGP on it, you can update it.
 
-:::image type="content" source="./media/bgp-howto/local-apipa.png" alt-text="Local network gateway APIPA and BGP":::
+#### To create a connection
 
-### 2. Configure a S2S connection with BGP enabled
+1. To create a new connection, go to your virtual network gateway **Connections** page.
+1. Select **+Add** to open the **Add a connection page**.
+1. Fill in the necessary values.
+1. Select **Enable BGP** to enable BGP on this connection.
+1. Select **OK** to save changes.
 
-In this step, you create a new connection that has BGP enabled. If you already have a connection and you want to enable BGP on it, you can [update an existing connection](#update).
+#### To update an existing connection
 
-#### To create a connection with BGP enabled
+1. Go to your virtual network gateway **Connections** page.
+1. Select the connection you want to modify.
+1. Go to the **Configuration** page for the connection.
+1. Change the **BGP** setting to **Enabled**.
+1. **Save** your changes.
 
-To create a new connection with BGP enabled, on the **Add connection** page, fill in the values, then check the **Enable BGP** option to enable BGP on this connection. Select **OK** to create the connection.
+#### On-premises device configuration
 
-:::image type="content" source="./media/bgp-howto/ipsec-connection-bgp.png" alt-text="IPsec cross-premises connection with BGP":::
+The following example lists the parameters you enter into the BGP configuration section on your on-premises VPN device for this exercise:
 
-#### <a name ="update"></a>To update an existing connection
+```
+- Site5 ASN            : 65050
+- Site5 BGP IP         : 10.51.255.254
+- Prefixes to announce : (for example) 10.51.0.0/16
+- Azure VNet ASN       : 65010
+- Azure VNet BGP IP    : 10.12.255.30
+- Static route         : Add a route for 10.12.255.30/32, with nexthop being the VPN tunnel interface on your device
+- eBGP Multihop        : Ensure the "multihop" option for eBGP is enabled on your device if needed
+```
 
-If you want to change the BGP option on a connection, navigate to the **Configuration** page of the connection resource, then toggle the **BGP** option as highlighted in the following example. Select **Save** to save any changes.
+## To enable BGP on VNet-to-VNet connections
 
-:::image type="content" source="./media/bgp-howto/update-bgp.png" alt-text="Update BGP for a connection":::
+The steps in this section apply to VNet-to-VNet connections.
 
-## <a name ="v2v"></a>Part 3: Configure BGP on VNet-to-VNet connections
+To enable or disable BGP on a VNet-to-VNet connection, you use the same steps as the [S2S cross-premises steps](#crosspremises) in the previous section. You can enable BGP when creating the connection, or update the configuration on an existing VNet-to-VNet connection.
 
-The steps to enable or disable BGP on a VNet-to-VNet connection are the same as the S2S steps in [Part 2](#crosspremises). You can enable BGP when creating the connection, or update the configuration on an existing VNet-to-VNet connection.
-
->[!NOTE] 
->A VNet-to-VNet connection without BGP will limit the communication to the two connected VNets only. Enable BGP to allow transit routing capability to other S2S or VNet-to-VNet connections of these two VNets.
->
-
-For context, referring to **Diagram 4**, if BGP were to be disabled between TestVNet2 and TestVNet1, TestVNet2 would not learn the routes for the on-premises network, Site5, and therefore could not communicate with Site 5. Once you enable BGP, as shown in the Diagram 4, all three networks will be able to communicate over the IPsec and VNet-to-VNet connections.
-
-**Diagram 4**
-
-:::image type="content" source="./media/bgp-howto/bgp-crosspremises-v2v.png" alt-text="Diagram showing full network" border="false":::
+> [!NOTE]
+> A VNet-to-VNet connection without BGP will limit the communication to the two connected VNets only. Enable BGP to allow transit routing capability to other S2S or VNet-to-VNet connections of these two VNets.
 
 ## Next steps
 
-Once your connection is complete, you can add virtual machines to your virtual networks. See [Create a Virtual Machine](../virtual-machines/windows/quick-create-portal.md) for steps.
+For more information about BGP, see [About BGP and VPN Gateway](vpn-gateway-bgp-overview.md).

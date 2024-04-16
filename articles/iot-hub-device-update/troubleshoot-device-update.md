@@ -1,8 +1,8 @@
 ---
 title: Troubleshoot common Device Update for Azure IoT Hub issues | Microsoft Docs
 description: This document provides a list of tips and tricks to help remedy many possible issues you may be having with Device Update for IoT Hub.
-author: chrisjlin
-ms.author: lichris
+author: vimeht
+ms.author: vimeht
 ms.date: 9/13/2022
 ms.topic: troubleshooting
 ms.service: iot-hub-device-update
@@ -149,7 +149,7 @@ You can use [getDevice](/dotnet/api/azure.iot.deviceupdate.devicemanagementclien
 
 In addition, the following information can be useful for narrowing down the root cause of your issue:
 
-- What type of device you are attempting to update (Azure Percept, IoT Edge Gateway, other)
+- What type of device you are attempting to update (IoT Edge Gateway, other)
 - What Device Update client type you are using (Image-based, Package-based, Simulator)
 - What OS your device is running
 - Details regarding your device's architecture

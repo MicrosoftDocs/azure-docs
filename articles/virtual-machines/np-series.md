@@ -1,15 +1,18 @@
 ---
 title: NP-series - Azure Virtual Machines
 description: Specifications for the NP-series VMs.
-author: luismcMSFT
+author: charest
 ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
-ms.date: 02/09/2021
-ms.author: luismc
+ms.date: 03/07/2023
+ms.author: marccharest
 ---
 
 # NP-series 
+
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
@@ -40,7 +43,7 @@ VM Generation Support: Generation 1<br>
 
 **Q:** How to request quota for NP VMs?
 
-**A:** Follow this page [Increase VM-family vCPU quotas](../azure-portal/supportability/per-vm-quota-requests.md). NP VMs are available in East US, West US2, West Europe, SouthEast Asia, and SouthCentral US.
+**A:** Follow this page [Increase VM-family vCPU quotas](../azure-portal/supportability/per-vm-quota-requests.md). NP VMs are available in East US, West US2, SouthCentral US, West Europe, SouthEast Asia, Japan East, and Canada Central.
 
 **Q:** What version of Vitis should I use? 
 
@@ -176,7 +179,9 @@ This feature isn't supported in Azure NP VMs.
 
 **A:** Need to run xbutil query and look at the lower portion. 
 
+**Q:** Do Azure NP VMs support FPGA bitstreams with Networking GT Kernel connections?
 
+**A:** No. The FPGA Attestation service performs a series of validations on a design checkpoint file and will generate an error if the user's application contains connections to the FPGA card's QSFP networking ports.
 
 ## Other sizes and information
 

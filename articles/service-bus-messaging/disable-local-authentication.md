@@ -6,9 +6,9 @@ ms.date: 02/01/2022
 ---
 
 # Disable local or shared access key authentication with Azure Service Bus
-There are two ways to authenticate to Azure Service Bus resources: Azure Active Directory (Azure AD) and Shared Access Signatures (SAS). Azure AD provides superior security and ease of use over shared access signatures (SAS). With Azure AD, there’s no need to store the tokens in your code and risk potential security vulnerabilities. We recommend that you use Azure AD with your Azure Service Bus applications when possible.
+There are two ways to authenticate to Azure Service Bus resources: Microsoft Entra ID and Shared Access Signatures (SAS). Microsoft Entra ID provides superior security and ease of use over shared access signatures (SAS). With Microsoft Entra ID, there’s no need to store the tokens in your code and risk potential security vulnerabilities. We recommend that you use Microsoft Entra ID with your Azure Service Bus applications when possible.
 
-This article explains how to disable SAS key authentication and use only Azure AD for authentication. 
+This article explains how to disable SAS key authentication and use only Microsoft Entra ID for authentication. 
 
 ## Use portal to disable local auth
 In this section, you learn how to use the Azure portal to disable local authentication. 
@@ -74,9 +74,9 @@ You can assign the [disable local auth](https://portal.azure.com/#blade/Microsof
 :::image type="content" source="./media/disable-local-authentication/azure-policy.png" alt-text="Azure policy to disable location authentication.":::
 
 ## Next steps
-See the following to learn about Azure AD and SAS authentication. 
+See the following to learn about Microsoft Entra ID and SAS authentication. 
 
 - [Authentication with SAS](service-bus-sas.md) 
-- Authentication with Azure AD
+- Authentication with Microsoft Entra ID
     - [Authenticate with managed identities](service-bus-managed-service-identity.md)
     - [Authenticate from an application](authenticate-application.md)

@@ -139,7 +139,7 @@ Parameters work the same way when building policy initiatives. By including para
 initiative definition, you can reuse that parameter in the included policies.
 
 > [!NOTE]
-> Once an initiative is assigned, initative level parameters can't be altered. Due to this, the
+> Once an initiative is assigned, initiative level parameters can't be altered. Due to this, the
 > recommendation is to set a **defaultValue** when defining the parameter.
 
 ### Parameter properties
@@ -153,7 +153,7 @@ A parameter has the following properties that are used in the policy initiative 
   **integer**, **float**, or **datetime**.
 - `metadata`: Defines subproperties primarily used by the Azure portal to display user-friendly
   information:
-  - `description`: The explanation of what the parameter is used for. Can be used to provide
+  - `description`: (Optional) The explanation of what the parameter is used for. Can be used to provide
     examples of acceptable values.
   - `displayName`: The friendly name shown in the portal for the parameter.
   - `strongType`: (Optional) Used when assigning the policy definition through the portal. Provides

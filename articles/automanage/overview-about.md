@@ -3,7 +3,6 @@ title: About Azure Automanage Machine Best Practices
 description: Learn about Azure Automanage machine best practices.
 author: mmccrory
 ms.service: automanage
-ms.workload: infrastructure
 ms.topic: overview
 ms.date: 9/07/2022
 ms.author: memccror
@@ -46,7 +45,7 @@ There are several prerequisites to consider before trying to enable Azure Automa
 Please visit [this page](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?regions=all&products=all) to view which regions Automanage supports.
 
 > [!NOTE]
-> If the machine is connected to a log analytics workspace, the log analytics workspace must be located in one of the supported regions listed above.
+> If the machine is connected to a Log Analytics workspace, the Log Analytics workspace must be located in one of the supported regions listed above.
 
 ### Required RBAC permissions
 To onboard, Automanage requires slightly different RBAC roles depending on whether you are enabling Automanage for the first time in a subscription.

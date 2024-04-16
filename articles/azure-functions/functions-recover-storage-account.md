@@ -1,9 +1,9 @@
 ---
 title: 'Troubleshoot error: Azure Functions Runtime is unreachable'
 description: Learn how to troubleshoot an invalid storage account.
-
 ms.topic: article
-ms.date: 09/05/2018
+ms.custom: linux-related-content
+ms.date: 12/15/2022
 ---
 
 # Troubleshoot error: "Azure Functions Runtime is unreachable"
@@ -32,7 +32,7 @@ In the preceding step, if you can't find a storage account connection string, it
 
 * Required:
   * [`AzureWebJobsStorage`](./functions-app-settings.md#azurewebjobsstorage)
-* Required for Premium plan functions:
+* Required for Elastic Premium and Consumption plan functions:
   * [`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](./functions-app-settings.md)
   * [`WEBSITE_CONTENTSHARE`](./functions-app-settings.md)
 
@@ -97,15 +97,15 @@ For function apps that run on Linux in a container, the `Azure Functions runtime
 
 1. Check for any logged errors that indicate that the container is unable to start successfully.
 
-### Container image unavailable
+## Container image unavailable
 
 Errors can occur when the container image being referenced is unavailable or fails to start correctly. Check for any logged errors that indicate that the container is unable to start successfully.
 
 You need to correct any errors that prevent the container from starting for the function app run correctly.
 
-When the container image can't be found, you'll see a `manifest unknown` error in the Docker logs. In this case, you can use the Azure CLI commands documented at [How to target Azure Functions runtime versions](set-runtime-version.md?tabs=azurecli#manual-version-updates-on-linux) to change the container image being referenced. If you've deployed a [custom container image](functions-create-function-linux-custom-image.md), you need to fix the image and redeploy the updated version to the referenced registry.
+When the container image can't be found, you see a `manifest unknown` error in the Docker logs. In this case, you can use the Azure CLI commands documented at [How to target Azure Functions runtime versions](set-runtime-version.md?tabs=azurecli#manual-version-updates-on-linux) to change the container image being referenced. If you've deployed a [custom container image](./functions-how-to-custom-container.md), you need to fix the image and redeploy the updated version to the referenced registry.
 
-### App container has conflicting ports
+## App container has conflicting ports
 
 Your function app might be in an unresponsive state due to conflicting port assignment upon startup. This can happen in the following cases:
 
@@ -118,9 +118,17 @@ By default, the container in which your function app runs uses port `:80`. When 
 
 Starting with version 3.x of the Functions runtime, [host ID collision](storage-considerations.md#host-id-considerations) are detected and logged as a warning. In version 4.x, an error is logged and the host is stopped. If the runtime can't start for your function app, [review the logs](analyze-telemetry-data.md). If there's a warning or an error about host ID collisions, follow the mitigation steps in [Host ID considerations](storage-considerations.md#host-id-considerations).  
 
+## Read-only app settings
+
+Changing any _read-only_ [App Service application settings](../app-service/reference-app-settings.md#app-environment) can put your function app into an unreachable state.
+
+## ASP.NET authentication overrides
+_Applies only to C# apps running [in-process with the Functions host](./functions-dotnet-class-library.md)._
+
+Configuring ASP.NET authentication in a Functions startup class can override services that are required for the Azure portal to communicate with the host. This includes, but isn't limited to, any calls to `AddAuthentication()`. If the host's authentication services are overridden and the portal can't communicate with the host, it considers the app unreachable. This issue may result in errors such as: `No authentication handler is registered for the scheme 'ArmToken'.`.
+
 ## Next steps
 
 Learn about monitoring your function apps:
 > [!div class="nextstepaction"]
 > [Monitor Azure Functions](functions-monitoring.md)
-

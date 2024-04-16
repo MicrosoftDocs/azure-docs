@@ -3,14 +3,12 @@ title: Performance tuning with ordered clustered columnstore index
 description: Recommendations and considerations you should know as you use ordered clustered columnstore index to improve your query performance in dedicated SQL pools.
 author: XiaoyuMSFT
 ms.author: xiaoyul
-manager: craigg
 ms.reviewer: nibruno; wiassaf
-ms.date: 10/17/2022
+ms.date: 02/13/2023
 ms.service: synapse-analytics
 ms.subservice: sql-dw
 ms.topic: conceptual
 ms.custom:
-  - seo-lt-2019
   - azure-synapse
 ---
 
@@ -18,13 +16,13 @@ ms.custom:
 
 **Applies to:** Azure Synapse Analytics dedicated SQL pools, SQL Server 2022 (16.x) and later
 
-When users query a columnstore table in dedicated SQL pool, the optimizer checks the minimum and maximum values stored in each segment. Segments that are outside the bounds of the query predicate aren't read from disk to memory. A query can  finish faster if the number of segments to read and their total size are small.
+When users query a columnstore table in dedicated SQL pool, the optimizer checks the minimum and maximum values stored in each segment. Segments that are outside the bounds of the query predicate aren't read from disk to memory. A query can finish faster if the number of segments to read and their total size are small.
 
 ## Ordered vs. non-ordered clustered columnstore index
 
 By default, for each table created without an index option, an internal component (index builder) creates a non-ordered clustered columnstore index (CCI) on it.  Data in each column is compressed into a separate CCI rowgroup segment.  There's metadata on each segment's value range, so segments that are outside the bounds of the query predicate aren't read from disk during query execution.  CCI offers the highest level of data compression and reduces the size of segments to read so queries can run faster. However, because the index builder doesn't sort data before compressing them into segments, segments with overlapping value ranges could occur, causing queries to read more segments from disk and take longer to finish.
 
-When creating an ordered CCI, the dedicated SQL pool engine sorts the existing data in memory by the order key(s) before the index builder compresses them into index segments.  With sorted data, segment overlapping is reduced allowing queries to have a more efficient segment elimination and thus faster performance because the number of segments to read from disk is smaller.  If all data can be sorted in memory at once, then segment overlapping can be avoided.  Due to large tables in data warehouses, this scenario doesn't happen often.
+Ordered clustered columnstore indexes by enabling efficient segment elimination, resulting in much faster performance by skipping large amounts of ordered data that don't match the query predicate. When creating an ordered CCI, the dedicated SQL pool engine sorts the existing data in memory by the order key(s) before the index builder compresses them into index segments. With sorted data, segment overlapping is reduced allowing queries to have a more efficient segment elimination and thus faster performance because the number of segments to read from disk is smaller. If all data can be sorted in memory at once, then segment overlapping can be avoided. Due to large tables in data warehouses, this scenario doesn't happen often. 
 
 To check the segment ranges for a column, run the following command with your table name and column name:
 
@@ -83,7 +81,7 @@ SELECT * FROM T1 WHERE Col_A = 'a' AND Col_C = 'c';
 
 ## Data loading performance
 
-The performance of data loading into an ordered CCI table is similar to a partitioned table.  Loading data into an ordered CCI table can take longer than a non-ordered CCI table because of the data sorting operation, however queries can run faster afterwards with ordered CCI.
+The performance of data loading into an ordered CCI table is similar to a partitioned table. Loading data into an ordered CCI table can take longer than a non-ordered CCI table because of the data sorting operation, however queries can run faster afterwards with ordered CCI.
 
 Here's an example performance comparison of loading data into tables with different schemas.
 
@@ -95,7 +93,7 @@ Here's an example query performance comparison between CCI and ordered CCI.
 
 ## Reduce segment overlapping
 
-The number of overlapping segments depends on the size of data to sort, the available memory, and the maximum degree of parallelism (MAXDOP) setting during ordered CCI creation. Below are options to reduce segment overlapping when creating ordered CCI.
+The number of overlapping segments depends on the size of data to sort, the available memory, and the maximum degree of parallelism (MAXDOP) setting during ordered CCI creation. The following strategies reduce segment overlapping when creating ordered CCI.
 
 - Use `xlargerc` resource class on a higher DWU to allow more memory for data sorting before the index builder compresses the data into segments.  Once in an index segment, the physical location of the data cannot be changed.  There's no data sorting within a segment or across segments.
 
@@ -112,7 +110,7 @@ OPTION (MAXDOP 1);
 
 - Pre-sort the data by the sort key(s) before loading them into tables.
 
-Here's an example of an ordered CCI table distribution that has zero segment overlapping following above recommendations. The ordered CCI table is created in a DWU1000c database via CTAS from a 20-GB heap table using MAXDOP 1 and `xlargerc`.  The CCI is ordered on a BIGINT column with no duplicates.
+Here's an example of an ordered CCI table distribution that has zero segment overlapping following above recommendations. The ordered CCI table is created in a DWU1000c database via [CTAS](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?view=azure-sqldw-latest&preserve-view=true) from a 20-GB heap table using MAXDOP 1 and `xlargerc`.  The CCI is ordered on a BIGINT column with no duplicates.
 
 :::image type="content" source="./media/performance-tuning-ordered-cci/perfect-sorting-example.png" alt-text="A screenshot of text data showing no segment overlapping.":::
 

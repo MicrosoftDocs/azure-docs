@@ -1,8 +1,6 @@
 ---
 title: Customer-managed keys for Azure Fluid Relay encryption
 description: Better understand the data encryption with CMK
-author: hickeys
-ms.author: hickeys
 ms.date: 10/08/2021
 ms.service: app-service
 ms.topic: reference
@@ -32,7 +30,7 @@ Before configuring CMK on your Azure Fluid Relay resource, the following prerequ
 - Keys must be stored in an Azure Key Vault.
 - Keys must be RSA key and not EC key since EC key doesn’t support WRAP and UNWRAP.
 - A user assigned managed identity must be created with necessary permission (GET, WRAP and UNWRAP) to the key vault in step 1. More information [here](../../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-nonaad.md). Please grant GET, WRAP and UNWRAP under Key Permissions in AKV.
-- Azure Key Vault, user assigned identity, and the Fluid Relay resource must be in the same region and in the same Azure Active Directory (Azure AD) tenant. 
+- Azure Key Vault, user assigned identity, and the Fluid Relay resource must be in the same region and in the same Microsoft Entra tenant. 
 
 ## Create a Fluid Relay resource with CMK
 
@@ -68,7 +66,7 @@ Request payload format:
 Example userAssignedIdentities and userAssignedIdentityResourceId: 
 /subscriptions/ xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/testGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/testUserAssignedIdentity 
 
-Example keyEncryptionKeyUrl: https://test-key-vault.vault.azure.net/keys/testKey/testKeyVersionGuid 
+Example keyEncryptionKeyUrl: `https://test-key-vault.vault.azure.net/keys/testKey/testKeyVersionGuid`
 
 Notes:
 - Identity.type must be UserAssigned. It is the identity type of the managed identity that is assigned to the Fluid Relay resource.

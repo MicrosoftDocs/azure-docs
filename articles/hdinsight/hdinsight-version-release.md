@@ -3,7 +3,7 @@ title: HDInsight 4.0 overview - Azure
 description: Compare HDInsight 3.6 to HDInsight 4.0 features, limitations, and upgrade recommendations.
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 10/25/2022
+ms.date: 12/05/2023
 ---
 
 # Azure HDInsight 4.0 overview
@@ -35,7 +35,7 @@ HDI 4.0 includes Apache Hive 3. Hive 3 requires atomicity, consistency, isolatio
 > [!Note]
 > ACID/transactional support only works for managed tables and not external tables. Hive external tables are designed so that external parties can read and write table data, without Hive perfoming any alteration of the underlying data. For ACID tables, Hive may alter the underlying data with compactions and transactions.
 
-Some benefits of ACID tables are the following:
+Some benefits of ACID tables are
 
 * ACID v2 has performance improvements in both storage format and the execution engine.
 
@@ -49,7 +49,6 @@ Some benefits of ACID tables are the following:
 
 * Spark can read and write to Hive ACID tables via Hive Warehouse Connector.
 
-Learn more about [Apache Hive 3](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.0/hive-overview/content/hive_whats_new_in_this_release_hive.html).
 
 ### Apache Spark
 
@@ -60,13 +59,11 @@ Spark executors can connect directly to Hive LLAP daemons to retrieve and update
 Apache Spark on HDInsight 4.0 supports the following scenarios:
 
 * Run machine learning model training over the same transactional table used for reporting.
-* Use ACID transactions to safely add columns from Spark ML to a Hive table.
 * Run a Spark streaming job on the change feed from a Hive streaming table.
 * Create ORC files directly from a Spark Structured Streaming job.
 
 You no longer have to worry about accidentally trying to access Hive transactional tables directly from Spark. Resulting in inconsistent results, duplicate data, or data corruption. In HDInsight 4.0, Spark tables and Hive tables are kept in separate Metastores. Use Hive Data Warehouse Connector to explicitly register Hive transactional tables as Spark external tables.
 
-Learn more about [Apache Spark](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.0/spark-overview/content/analyzing_data_with_apache_spark.html).
 
 ### Apache Oozie
 
@@ -75,8 +72,6 @@ Apache Oozie 4.3.1 is included in HDI 4.0 with the following changes:
 * Oozie no longer runs Hive actions. Hive CLI has been removed and replaced with BeeLine.
 
 * You can exclude unwanted dependencies from share lib by including an exclude pattern in your **job.properties** file.
-
-Learn more about [Apache Oozie](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.0/release-notes/content/patch_oozie.html).
 
 ## How to upgrade to HDInsight 4.0
 
@@ -88,8 +83,8 @@ There's no supported upgrade path from previous versions of HDInsight to HDInsig
 
 * HDInsight 4.0 doesn't support Apache Storm.
 * HDInsight 4.0 doesn't support the ML Services cluster type.
-* Shell interpretr in Apache Zeppelin isn't supported in Spark and Interactive Query clusters.
-* Apache Pig runs on Tez by default. However, you can change it to Mapreduce.
+* Shell interpreter in Apache Zeppelin isn't supported in Spark and Interactive Query clusters.
+* Apache Pig runs on Tez by default. However, you can change it to MapReduce.
 * Spark SQL Ranger integration for row and column security is deprecated.
 
 ## Next steps

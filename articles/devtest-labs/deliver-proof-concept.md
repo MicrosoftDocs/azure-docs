@@ -4,10 +4,13 @@ description: Use a proof of concept or pilot deployment to investigate incorpora
 ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 03/22/2022
+ms.date: 09/30/2023
+ms.custom: UpdateFrequency2
 ---
 
 # Deliver a proof of concept for Azure DevTest Labs enterprise deployment
+
+Enterprises are rapidly adopting the cloud because of [benefits](/azure/architecture/cloud-adoption/business-strategy/cloud-migration-business-case) that include agility, flexibility, and economics. The first steps are often development and test workloads. Azure DevTest Labs provides [features](devtest-lab-concepts.md) that benefit the enterprise and support [key dev/test scenarios](devtest-lab-guidance-get-started.md).
 
 This article describes how an enterprise can deliver a successful proof of concept or pilot for an Azure DevTest Labs deployment. Proof of concept uses a concentrated effort from a single team to establish organizational value.
 
@@ -40,9 +43,19 @@ Learn about Azure and DevTest Labs by using the following resources:
 - [Understand the Azure portal](https://azure.microsoft.com/features/azure-portal)
 - [DevTest Labs overview](devtest-lab-overview.md)
 - [DevTest Labs scenarios](devtest-lab-guidance-get-started.md)
-- [DevTest Labs in the enterprise](devtest-lab-guidance-prescriptive-adoption.md)
 - [DevTest Labs enterprise reference architecture](devtest-lab-reference-architecture.md)
 
+### Understand enterprise focus areas
+
+Common concerns for enterprises that migrate workloads to the cloud include:
+
+- [Securing development/testing resources](devtest-lab-guidance-governance-policy-compliance.md)
+- [Managing and understanding costs](devtest-lab-guidance-governance-cost-ownership.md)
+- Enabling self-service for developers without compromising enterprise security and compliance
+- Automating and extending DevTest Labs to cover additional scenarios
+- [Scaling a DevTest Labs-based solution to thousands of resources](devtest-lab-guidance-scale.md)
+- [Large-scale deployments of DevTest Labs](devtest-lab-guidance-orchestrate-implementation.md)
+- [Getting started with a proof of concept](devtest-lab-guidance-orchestrate-implementation.md)
 ### Get an Azure subscription
 
 - Enterprises with an existing [Enterprise Agreement](https://azure.microsoft.com/pricing/purchase-options/enterprise-agreement) that enables access to Azure can use an existing or new subscription for DevTest Labs. If there's an Enterprise Agreement in place, an [Enterprise Dev/Test subscription](https://azure.microsoft.com/offers/ms-azr-0148p/) gives you access to Windows 10/Windows 8.1 client operating systems, and discounted rates for development and testing workloads.
@@ -50,10 +63,19 @@ Learn about Azure and DevTest Labs by using the following resources:
 - Alternatively, you can use a [Visual Studio subscription](https://azure.microsoft.com/pricing/member-offers/visual-studio-subscriptions) for the pilot deployment, and take advantage of free Azure credits.
 
 - You can also create and use a [free Azure account](https://azure.microsoft.com/free/search/?&OCID=AID719825_SEM_g4lyBqgB&lnkd=Bing_Azure_Brand&msclkid=ecc4275a31b61375749e7a5322c20de8&dclid=CMGW5-m78-ICFaLt4QodmUwGtQ) for the pilot.
+ 
+-  To use Windows client OS images (Windows 7 or a later version) for your development or testing in Azure, take one of the following steps:
+    - [Buy an MSDN subscription](https://www.visualstudio.com/products/how-to-buy-vs).
+    - If you have an Enterprise Agreement, create an Azure subscription with the [Enterprise Dev/Test offer](https://azure.microsoft.com/offers/ms-azr-0148p).
+     
+    For more information about the Azure credits for each MSDN offering, see [Monthly Azure credit for Visual Studio subscribers](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
+          
 
-### Enroll all users in Azure AD
+<a name='enroll-all-users-in-azure-ad'></a>
 
-For management, such as adding users or adding lab owners, all lab users must belong to the [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory) tenant for the Azure subscription the pilot uses. Many enterprises set up [hybrid identity](../active-directory/hybrid/whatis-hybrid-identity.md) to enable users to use their on-premises identities in the cloud. You don't need a hybrid identity for a DevTest Labs proof of concept.
+### Enroll all users in Microsoft Entra ID
+
+For management, such as adding users or adding lab owners, all lab users must belong to the [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory) tenant for the Azure subscription the pilot uses. Many enterprises set up [hybrid identity](../active-directory/hybrid/whatis-hybrid-identity.md) to enable users to use their on-premises identities in the cloud. You don't need a hybrid identity for a DevTest Labs proof of concept.
 
 ## Scope the proof of concept
 
@@ -127,7 +149,7 @@ An enterprise plans to develop a new Azure DevTest Labs environment for vendors 
 
 The proof of concept has the following goals:
 
-- A working end-to-end solution for vendors using Azure AD guest accounts to access an isolated Azure environment.
+- A working end-to-end solution for vendors using Microsoft Entra guest accounts to access an isolated Azure environment.
 - A DevTest Labs environment with all the necessary resources for vendors to be productive.
 - Identification and understanding of any potential blocking issues that affect broader use and adoption.
 - Good understanding of all code and collateral by the individuals developing the solution.
@@ -138,7 +160,7 @@ The proof of concept has the following goals:
 The solution has the following requirements:
 
 - Vendor teams can use a set of labs in Azure DevTest Labs.
-- The vendors have access to the labs via Azure AD and role assignments.
+- The vendors have access to the labs via Microsoft Entra ID and role assignments.
 - Vendors have a way to successfully connect to their resources, such as a site-to-site VPN that enables accessing VMs without using public IP addresses.
 - The labs connect to a network infrastructure that supports the requirements.
 - DevTest Labs installs the set of software artifacts that vendors need on the VMs.
@@ -146,7 +168,7 @@ The solution has the following requirements:
 ### Prerequisites 
 
 - A subscription to use for the project
-- An Azure AD tenant, and an Azure AD global administrator who can provide Azure AD help and guidance
+- A Microsoft Entra tenant, and a Microsoft Entra Global Administrator who can provide Microsoft Entra ID help and guidance
 - Ways for project members to collaborate, such as:
   - Azure Repos for source code and scripts
   - Microsoft Teams or SharePoint for documents
@@ -156,7 +178,7 @@ The solution has the following requirements:
 ### Setup tasks
 
 - Decide what Azure region to use for the proof of concept.
-- Decide whether to join lab VMs to the Azure AD domain, and whether to use Azure Active Directory Domain Services (Azure AD DS) or another method.
+- Decide whether to join lab VMs to the Microsoft Entra domain, and whether to use Microsoft Entra Domain Services or another method.
 - Identify the vendors who will use the proof of concept environment.
 - Determine the required resources for the vendors, such as software available on the VMs.
 - Decide on the Azure services, other than VMs, that the vendors can use in DevTest Labs.

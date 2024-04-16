@@ -1,21 +1,21 @@
 ---
 title: Rebalance shards - Azure Cosmos DB for PostgreSQL
 description: Learn how to use the Azure portal to rebalance data in a cluster using the Shard rebalancer.
-ms.custom: kr2b-contr-experiment, ignite-2022
+ms.custom: kr2b-contr-experiment
 ms.author: jonels
 author: jonels-msft
 ms.service: cosmos-db
 ms.subservice: postgresql
 ms.topic: how-to
-ms.date: 07/20/2021
+ms.date: 01/30/2023
 ---
 
-# Rebalance shards in cluster
+# Rebalance shards in cluster in Azure Cosmos DB for PostgreSQL
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
 To take advantage of newly added nodes, rebalance distributed table
-[shards](concepts-distributed-data.md#shards). Rebalancing moves shards from existing nodes to the new ones. Azure Cosmos DB for PostgreSQL offers
+[shards](concepts-nodes.md#shards). Rebalancing moves shards from existing nodes to the new ones. Azure Cosmos DB for PostgreSQL offers
 zero-downtime rebalancing, meaning queries continue without interruption during
 shard rebalancing.
 

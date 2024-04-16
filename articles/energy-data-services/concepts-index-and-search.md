@@ -1,20 +1,18 @@
 ---
-title: Microsoft Energy Data Services Preview - index and search workflow concepts #Required; page title is displayed in search results. Include the brand.
-description: Learn how to use indexing and search workflows #Required; article description that is displayed in search results. 
-author: vivekkalra #Required; your GitHub user alias, with correct capitalization.
-ms.author: vivekkalra #Required; microsoft alias of author; optional team alias.
-ms.service: energy-data-services #Required; service per approved list. slug assigned by ACOM.
-ms.topic: conceptual #Required; leave this attribute/value as-is.
-ms.date: 08/23/2022
-ms.custom: template-concept #Required; leave this attribute/value as-is.
+title: Microsoft Azure Data Manager for Energy - index and search workflow concepts
+description: Learn how to use indexing and search workflows
+author: vivekkalra
+ms.author: vivekkalra
+ms.service: energy-data-services
+ms.topic: conceptual
+ms.date: 02/10/2023
+ms.custom: template-concept
 
 #Customer intent: As a developer, I want to understand indexing and search workflows so that I could search for ingested data in the platform.
 ---
-# Microsoft Energy Data Services Preview indexing and search workflows
+# Azure Data Manager for Energy indexing and search workflows
 
 All data and associated metadata ingested into the platform are indexed to enable search. The metadata is accessible to ensure awareness even when the data isn't available.
-
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 ## Indexer Service
 
@@ -42,6 +40,8 @@ For more information, see [Indexer service OSDU&trade; documentation](https://co
 ## Search workflow
     
 `Search service` provides a mechanism for discovering indexed metadata documents. The Search API supports full-text search on string fields, range queries on date, numeric, or string field, etc. along with geo-spatial searches.
+
+When metadata records are loaded onto the Platform using `Storage service`, we can configure permissions for viewers and owners of the metadata records under the *acl* field. The viewers and owners are assigned via groups as defined in the `Entitlement service`. When performing a search as a user, the matched metadata records will only show up for users who are assigned to the Group. 
 
 For a detailed tutorial on `Search service`, refer [Search service OSDU&trade; documentation](https://community.opengroup.org/osdu/platform/system/search-service/-/blob/release/0.15/docs/tutorial/SearchService.md)
     

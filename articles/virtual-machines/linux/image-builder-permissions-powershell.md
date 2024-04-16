@@ -8,7 +8,7 @@ ms.date: 03/05/2021
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: image-builder
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, linux-related-content
 ---
 
 # Configure Azure VM Image Builder permissions by using PowerShell
@@ -76,7 +76,7 @@ For VM Image Builder to build images from source custom images, the service must
 Here's how you build from an existing custom image:
 
 ```Actions
-Microsoft.Compute/galleries/read
+Microsoft.Compute/images/read
 ```
 
 Here's how you build from an existing Azure Compute Gallery version:

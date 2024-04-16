@@ -1,16 +1,20 @@
 ---
 title: Configure authentication in an Azure Web App configuration file by using Azure Active Directory B2C
 description:  This article discusses how to use Azure Active Directory B2C to sign in and sign up users in an Azure Web App using configuration file.
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: reference
-ms.date: 06/28/2022
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: "b2c-support"
+
+
+#Customer intent: As a web app developer, I want to configure Azure AD B2C authentication in my Azure Web App, so that users can securely sign in to the app using their Azure AD B2C credentials.
+
 ---
 
 # Configure authentication in an Azure Web App configuration file by using Azure AD B2C
@@ -48,8 +52,7 @@ During app registration, you'll specify the *redirect URI*. The redirect URI is 
 To register your application, follow these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
-1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
 1. In the Azure portal, search for and select **Azure AD B2C**.
 1. Select **App registrations**, and then select **New registration**.
 1. Under **Name**, enter a name for the application (for example, *My Azure web app*).
@@ -118,7 +121,7 @@ Once you've the added the app ID and secret, use the following steps to add the 
    }
    ```
 
-1. Replace `<TENANT_NAME>` with the first part of your Azure AD B2C [tenant name](tenant-management.md#get-your-tenant-name) (for example, `https://contoso.b2clogin.com/contoso.onmicrosoft.com`).
+1. Replace `<TENANT_NAME>` with the first part of your Azure AD B2C [tenant name]( tenant-management-read-tenant-name.md#get-your-tenant-name) (for example, `https://contoso.b2clogin.com/contoso.onmicrosoft.com`).
 1. Replace `<POLICY_NAME>` with the user flows or custom policy you created in [step 1](#step-1-configure-your-user-flow).
 
 ## Step 4: Check the Azure Web app

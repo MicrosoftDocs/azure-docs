@@ -1,10 +1,12 @@
 ---
-title: Defender for Cloud Planning multicloud security compliance requirements guidance AWS standards GCP standards
+title: Planning multicloud security compliance requirements guidance AWS standards GCP standards
 description: Learn about determining compliance requirements in multicloud environment with Microsoft Defender for Cloud.
 ms.topic: how-to
-ms.custom: ignite-2022
+author: dcurwin
+ms.author: dacurwin
 ms.date: 10/03/2022
 ---
+
 # Determine compliance requirements
 
 This article is part of a series to provide guidance as you design a cloud security posture management (CSPM) and cloud workload protection (CWP) solution across multicloud resources with Microsoft Defender for Cloud.

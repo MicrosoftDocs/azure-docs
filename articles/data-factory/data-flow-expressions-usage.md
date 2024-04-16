@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 10/19/2022
+ms.date: 10/20/2023
 ---
 
 # Data transformation expression usage in mapping data flow
@@ -1775,16 +1775,6 @@ Comparison not equals operator. Same as != operator.
 ___
 
 
-<a name="notNull" ></a>
-
-### <code>notNull</code>
-<code><b>notNull(<i>&lt;value1&gt;</i> : any) => boolean</b></code><br/><br/>
-Checks if the value isn't NULL.  
-* ``notNull(NULL()) -> false``  
-* ``notNull('') -> true``  
-___
-
-
 <a name="nTile" ></a>
 
 ### <code>nTile</code>
@@ -1925,7 +1915,7 @@ ___
 
 ### <code>regexExtract</code>
 <code><b>regexExtract(<i>&lt;string&gt;</i> : string, <i>&lt;regex to find&gt;</i> : string, [<i>&lt;match group 1-based index&gt;</i> : integral]) => string</b></code><br/><br/>
-Extract a matching substring for a given regex pattern. The last parameter identifies the match group and is defaulted to 1 if omitted. Use `<regex>`(back quote) to match a string without escaping.  
+Extract a matching substring for a given regex pattern. The last parameter identifies the match group and is defaulted to 1 if omitted. Use `<regex>`(back quote) to match a string without escaping. Index 0  returns all matches. Without match groups, index 1 and above won’t return any result. 
 * ``regexExtract('Cost is between 600 and 800 dollars', '(\\d+) and (\\d+)', 2) -> '800'``  
 * ``regexExtract('Cost is between 600 and 800 dollars', `(\d+) and (\d+)`, 2) -> '800'``  
 ___
@@ -2008,14 +1998,16 @@ ___
 ### <code>round</code>
 <code><b>round(<i>&lt;number&gt;</i> : number, [<i>&lt;scale to round&gt;</i> : number], [<i>&lt;rounding option&gt;</i> : integral]) => double</b></code><br/><br/>
 Rounds a number given an optional scale and an optional rounding mode. If the scale is omitted, it's defaulted to 0. If the mode is omitted, it's defaulted to ROUND_HALF_UP(5). The values for rounding include
-1 - ROUND_UP
-2 - ROUND_DOWN
-3 - ROUND_CEILING
-4 - ROUND_FLOOR
-5 - ROUND_HALF_UP
-6 - ROUND_HALF_DOWN
-7 - ROUND_HALF_EVEN
-8 - ROUND_UNNECESSARY.  
+ 
+1. ROUND_UP - Rounding mode to round away from zero.
+1. ROUND_DOWN - Rounding mode to round towards zero.
+1. ROUND_CEILING - Rounding mode to round towards positive infinity. [Same as ROUND_UP if input is positive. If negative, behaves as ROUND_DOWN. Ex =  -1.1 would be -1.0 with ROUND_CEILING and -2 with ROUND_UP]
+1. ROUND_FLOOR - Rounding mode to round towards negative infinity. [Same as ROUND_DOWN if input is positive. If negative, behaves as ROUND_UP]
+1. ROUND_HALF_UP - Rounding mode to round towards “nearest neighbor” unless both neighbors are equidistant, in which case ROUND_UP. [Most common + default for Dataflow].
+1. ROUND_HALF_DOWN - Rounding mode to round towards “nearest neighbor” unless both neighbors are equidistant, in which case ROUND_DOWN.
+1. ROUND_HALF_EVEN - Rounding mode to round towards the “nearest neighbor” unless both neighbors are equidistant, in which case, round towards the even neighbor.
+1. ROUND_UNNECESSARY - Rounding mode to assert that the round operation has an exact result, hence no rounding is necessary.   
+      
 * ``round(100.123) -> 100.0``  
 * ``round(2.5, 0) -> 3.0``  
 * ``round(5.3999999999999995, 2, 7) -> 5.40``  
@@ -2547,7 +2539,7 @@ ___
 <code><b>trim(<i>&lt;string to trim&gt;</i> : string, [<i>&lt;trim characters&gt;</i> : string]) => string</b></code><br/><br/>
 Trims a string of leading and trailing characters. If second parameter is unspecified, it trims whitespace. Else it trims any character specified in the second parameter.  
 * ``trim('  dumbo  ') -> 'dumbo'``  
-* ``trim('!--!du!mbo!', '-!') -> 'du!mbo'``  
+* ``trim('!--!du!mbo!', '-!') -> 'dumbo'``  
 ___
 
 
@@ -2724,7 +2716,7 @@ ___
 Gets the year value of a date.  
 * ``year(toDate('2012-8-8')) -> 2012``  
 
-## Next steps
+## Related content
 
 - List of all [aggregate functions](data-flow-aggregate-functions.md).
 - List of all [array functions](data-flow-array-functions.md).

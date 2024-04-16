@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 09/01/2022
+ms.date: 01/04/2024
 ---
 
 # Run actions based on group status by using scopes in Azure Logic Apps
@@ -55,7 +55,7 @@ the general flow stays the same, but your UI appears different.
 * A Bing Maps key. To get this key, see 
 <a href="/bingmaps/getting-started/bing-maps-dev-center-help/getting-a-bing-maps-key" target="_blank">Get a Bing Maps key</a>.
 
-* Basic knowledge about [how to create logic apps](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+* Basic knowledge about [logic apps](../logic-apps/logic-apps-overview.md)
 
 ## Create sample logic app
 

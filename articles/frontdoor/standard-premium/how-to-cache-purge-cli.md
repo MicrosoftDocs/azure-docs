@@ -6,7 +6,7 @@ author: duongau
 manager: KumudD
 ms.service: frontdoor
 ms.topic: how-to
-ms.workload: infrastructure-services
+ms.custom: devx-track-azurecli
 ms.date: 09/20/2022
 ms.author: duau
 ---
@@ -18,7 +18,7 @@ Azure Front Door caches assets until the asset's time-to-live (TTL) expires. Whe
 Best practice is to make sure your users always obtain the latest copy of your assets. The way to do that is to version your assets for each update and publish them as new URLs. Azure Front Door Standard/Premium will immediately retrieve the new assets for the next client requests. Sometimes you may wish to purge cached contents from all edge nodes and force them all to retrieve new updated assets. The reason you want to purge cached contents is because you've made new updates to your application, or you want to update assets that contain incorrect information.
 
 
-[!INCLUDE [azure-cli-prepare-your-environment](../../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 * Review [Caching with Azure Front Door](../front-door-caching.md) to understand how caching works.
 * Have a functioning Azure Front Door profile. Refer to [Create a Front Door - CLI](../create-front-door-cli.md) to learn how to create one.
@@ -48,6 +48,9 @@ az afd endpoint purge \
    --content-paths '/scripts/*'
 ```
 Cache purges on the Azure Front Door profile are case-insensitive. Additionally, they're query string agnostic, which means to purge a URL will purge all query-string variations of it. 
+
+> [!NOTE]
+> Cache purging can takes up to 10 mins to propagate throughout the network and across all edge locations.
 
 ## Next steps
 

@@ -8,7 +8,7 @@ ms.subservice: table
 ms.devlang: csharp
 ms.topic: how-to
 ms.date: 07/06/2022
-ms.custom: devx-track-csharp, ignite-2022
+ms.custom: devx-track-csharp, devguide-csharp, cosmos-db-dev-journey, devx-track-dotnet
 ---
 
 # Create an item in Azure Cosmos DB for Table using .NET
@@ -29,8 +29,8 @@ The [``TableEntity``](/dotnet/api/azure.data.tables.tableentity) class is a gene
 
 Use one of the following strategies to model items that you wish to create in a table:
 
-* [Create an instance of the ``TableEntity`` class](#use-a-built-in-class)
-* [Implement the ``ITableEntity`` interface](#implement-interface)
+- [Create an instance of the ``TableEntity`` class](#use-a-built-in-class)
+- [Implement the ``ITableEntity`` interface](#implement-interface)
 
 ### Use a built-in class
 

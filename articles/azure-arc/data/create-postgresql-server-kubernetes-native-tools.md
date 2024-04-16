@@ -25,7 +25,7 @@ To create a PostgreSQL server using Kubernetes tools, you will need to have the 
 
 ## Overview
 
-To create a PostgreSQL server, you need to create a Kubernetes secret to store your postgres administrator login and password securely and a PostgreSQL server custom resource based on the _postgresqls_ custom resource definitions.
+To create a PostgreSQL server, you need to create a Kubernetes secret to store your postgres administrator login and password securely and a PostgreSQL server custom resource based on the `postgresqls` custom resource definitions.
 
 ## Create a yaml file
 
@@ -36,13 +36,14 @@ You can use the [template yaml](https://raw.githubusercontent.com/microsoft/azur
 ```yaml
 apiVersion: v1
 data:
+  username: <your base64 encoded username>
   password: <your base64 encoded password>
 kind: Secret
 metadata:
   name: pg1-login-secret
 type: Opaque
 ---
-apiVersion: arcdata.microsoft.com/v1beta1
+apiVersion: arcdata.microsoft.com/v1beta3
 kind: postgresql
 metadata:
   name: pg1
@@ -78,10 +79,10 @@ You can use an online tool to base64 encode your desired username and password o
 PowerShell
 
 ```console
-[Convert]::ToBase64String([System.Text.Encoding]::Unicode.GetBytes('<your string to encode here>'))
+[Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes('<your string to encode here>'))
 
 #Example
-#[Convert]::ToBase64String([System.Text.Encoding]::Unicode.GetBytes('example'))
+#[Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes('example'))
 
 ```
 

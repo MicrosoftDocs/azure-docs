@@ -1,14 +1,15 @@
 ---
 title: ISO 27001 Shared Services blueprint sample controls
 description: Control mapping of the ISO 27001 Shared Services blueprint sample. Each control is mapped to one or more Azure Policy definitions that assist with assessment.
-ms.date: 09/08/2021
+ms.date: 09/07/2023
 ms.topic: sample
 ---
 # Control mapping of the ISO 27001 Shared Services blueprint sample
 
+[!INCLUDE [Blueprints deprecation note](../../../../../includes/blueprints-deprecation-note.md)]
+
 The following article details how the Azure Blueprints ISO 27001 Shared Services blueprint sample
-maps to the ISO 27001 controls. For more information about the controls, see
-[ISO 27001](https://www.iso.org/isoiec-27001-information-security.html).
+maps to the ISO 27001 controls.
 
 The following mappings are to the **ISO 27001:2013** controls. Use the navigation on the right to
 jump directly to a specific control mapping. Many of the mapped controls are implemented with an
@@ -45,7 +46,7 @@ appropriate separation of duties.
 ## A.8.2.1 Classification of information
 
 Azure's
-[SQL Vulnerability Assessment service](/azure/azure-sql/database/sql-vulnerability-assessment)
+[SQL Vulnerability Assessment service](../../../../defender-for-cloud/sql-azure-vulnerability-assessment-overview.md)
 can help you discover sensitive data stored in your databases and includes recommendations to
 classify that data. This blueprint assigns an [Azure Policy](../../../policy/overview.md) definition
 to audit that vulnerabilities identified during SQL Vulnerability Assessment scan are remediated.

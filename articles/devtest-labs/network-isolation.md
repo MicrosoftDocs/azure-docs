@@ -4,7 +4,8 @@ description: Learn how to enable and configure network isolation for labs in Azu
 ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 03/21/2022
+ms.custom: UpdateFrequency2
+ms.date: 09/30/2023
 ---
 
 # Network isolation in Azure DevTest Labs
@@ -31,7 +32,7 @@ To enable network isolation for the **Default** virtual network and subnet that 
 1. Next to **Isolate lab resources**, select **Yes**.
 1. Finish creating the lab.
 
-![Screenshot that shows enabling network isolation for the default network.](./media/network-isolation/isolate-lab-resources.png)
+   :::image type="content" source="./media/network-isolation/isolate-lab-resources.png" alt-text="Screenshot that shows enabling network isolation for the default network.":::
 
 After you create the lab, no further action is needed. The lab handles isolating resources from now on.
 
@@ -41,15 +42,15 @@ To use a different, existing virtual network for the lab, and enable network iso
 
 1. During [lab creation](devtest-lab-create-lab.md), on the **Networking** tab of the **Create DevTest Lab** screen, select a network from the dropdown list. The list only shows networks in the same region and subscription as the lab.
 
-   ![Screenshot that shows selecting a virtual network.](./media/network-isolation/create-lab.png)
+   :::image type="content" source="./media/network-isolation/create-lab.png" alt-text="Screenshot that shows selecting a virtual network.":::   
 
 1. Select a subnet.
 
-   ![Screenshot that shows selecting a subnet.](./media/network-isolation/create-lab-subnet.png)
+   :::image type="content" source="./media/network-isolation/create-lab-subnet.png" alt-text="Screenshot that shows selecting a subnet.":::
 
 1. Next to **Isolate lab resources**, select **Yes**.
 
-   ![Screenshot that shows enabling network isolation for a selected network.](./media/network-isolation/isolate-my-vnet.png)
+   :::image type="content" source="./media/network-isolation/isolate-my-vnet.png" alt-text="Screenshot that shows enabling network isolation for a selected network.":::
 
 1. Finish creating the lab.
 
@@ -69,22 +70,21 @@ If you enabled network isolation for a virtual network other than the default, c
    ![Screenshot that shows selecting the lab storage account.](./media/network-isolation/contoso-test.png)
 
 1. On the storage account page, select **Networking** from the left navigation. On the **Firewalls and virtual networks** tab, ensure that **Allow Azure services on the trusted services list to access this storage account.** is selected.
+ 
+     :::image type="content" source="./media/network-isolation/allow-trusted-services.png" alt-text="Screenshot that shows allowing trusted services access to a resource group.":::
 
    DevTest Labs is a [trusted Microsoft service](../storage/common/storage-network-security.md#trusted-microsoft-services), so selecting this option lets the lab operate normally in a network isolated mode.
 
 1. Select **Add existing virtual network**.
 
-   ![Screenshot that shows allowing trusted Azure services on the Firewalls and virtual networks tab.](./media/network-isolation/contoso-lab-firewalls-vnets.png)
+     :::image type="content" source="./media/network-isolation/add-existing-virtual-network.png" alt-text="Screenshot that shows the resource group networking pane with add existing virtual network highlighted.":::
 
-1. On the **Add networks** pane, select the virtual network and subnet you chose when you created the lab, and then select **Enable**.
+1. On the **Add networks** pane, select the virtual network and subnet you chose when you created the lab, and then select **Add**.
 
-   ![Screenshot that shows adding the lab virtual network and subnet to the storage account.](./media/network-isolation/contoso-lab-my-vnet.png)
-
-1. Once the service endpoint is successfully enabled, select **Add**.
+      :::image type="content" source="./media/network-isolation/add-network-pane.png" alt-text="Screenshot that shows the add network pane with virtual networks, subnets, and Add highlighted.":::
 
 1. On the **Networking** page, select **Save**.
-
-   ![Screenshot that shows selecting Add and Save after the service endpoint is enabled.](./media/network-isolation/contoso-firewall-add.png)
+ 
 
 Azure Storage now allows inbound connections from the added virtual network, which enables the lab to operate successfully in a network isolated mode.
 
@@ -96,18 +96,23 @@ You can automate these steps with PowerShell or Azure CLI to configure network i
 
 1. On the resource group **Overview** page, select the lab's key vault.
 
-   ![Screenshot that shows selecting the lab's key vault.](./media/network-isolation/key-vault.png)
+   :::image type="content" source="./media/network-isolation/key-vault.png" alt-text="Screenshot that shows selecting the lab's key vault.":::
 
-1. On the key vault page, select **Networking** from the left navigation. On the **Firewalls and virtual networks** tab, ensure that **Allow trusted Microsoft services to bypass this firewall** is set to **Yes**.
+1. On the key vault page, select **Networking** from the left navigation. On the **Firewalls and virtual networks** tab, ensure that **Allow trusted Microsoft services to bypass this firewall** is selected.
+
+   :::image type="content" source="./media/network-isolation/key-vault-allow-access.png" alt-text="Screenshot that shows allowing trusted services access to a key vault.":::
 
 1. Select **Add existing virtual networks**.
-
-   ![Screenshot that shows allowing trusted Microsoft services on the Firewalls and virtual networks tab.](./media/network-isolation/networking-key-vault.png)
+ 
+    :::image type="content" source="./media/network-isolation/networking-key-vault.png" alt-text="Screenshot that shows the key vault networking pane with add existing virtual network highlighted.":::
 
 1. On the **Add networks** pane, select the virtual network and subnet you chose when you created the lab, and then select **Enable**.
+ 
+    :::image type="content" source="./media/network-isolation/key-vault-enable-network.png" alt-text="Screenshot that shows enabling a virtual network and subnet in a key vault.":::
 
 1. Once the service endpoint is successfully enabled, select **Add**.
-
+ 
+    :::image type="content" source="./media/network-isolation/key-vault-add-network.png" alt-text="Screenshot that shows adding a virtual network and subnet in a key vault.":::
 1. On the **Networking** page, select **Save**.
 
 ## Considerations

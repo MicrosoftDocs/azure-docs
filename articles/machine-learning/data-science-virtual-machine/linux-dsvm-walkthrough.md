@@ -4,12 +4,12 @@ titleSuffix: Azure Data Science Virtual Machine
 description: Learn how to complete several common data science tasks by using the Linux Data Science Virtual Machine.
 services: machine-learning
 ms.service: data-science-vm
+ms.custom: linux-related-content
 
 author: jesscioffi
 ms.author: jcioffi
 ms.topic: conceptual
 ms.date: 06/23/2022
-
 ---
 
 # Data science with an Ubuntu Data Science Virtual Machine in Azure
@@ -24,7 +24,7 @@ Before you can use a Linux DSVM, you must have the following prerequisites:
 
 * **Azure subscription**. To get an Azure subscription, see [Create your free Azure account today](https://azure.microsoft.com/free/).
 
-* [**Ubuntu Data Science Virtual Machine**](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804). For information about provisioning the virtual machine, see [Provision the Ubuntu Data Science Virtual Machine](./release-notes.md).
+* [**Ubuntu Data Science Virtual Machine**](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-2004). For information about provisioning the virtual machine, see [Provision the Ubuntu Data Science Virtual Machine](./release-notes.md).
 * [**X2Go**](https://wiki.x2go.org/doku.php) installed on your computer with an open XFCE session. For more information, see [Install and configure the X2Go client](dsvm-ubuntu-intro.md#x2go).
 
 ## Download the spambase dataset

@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 11/07/2021
+ms.date: 04/01/2024
 ms.author: alkohli
 ---
 
@@ -57,8 +57,8 @@ The Kubernetes master and the worker nodes are virtual machines that consume CPU
 
 |Kubernetes VM type|CPU and memory requirement|
 |---------|---------|
-|Master VM|4 cores, 4-GB RAM|
-|Worker VM|12 cores, 32-GB RAM|
+|Master VM|CPU: 4 cores, RAM: 4-GB|
+|Worker VM|CPU: 30% of available physical cores, RAM: 25% of device specification|
 
 <!--The Kubernetes cluster control plane components make global decisions about the cluster. The control plane has:
 
@@ -109,16 +109,6 @@ These methods are explained in the following sections.
 Once the Kubernetes cluster is deployed, then you can manage the applications deployed on the cluster locally from a client machine. You use a native tool such as *kubectl* via the command line to interact with the applications. 
 
 For more information on deploying Kubernetes cluster, go to [Deploy a Kubernetes cluster on your Azure Stack Edge device](azure-stack-edge-gpu-create-kubernetes-cluster.md). For information on management, go to [Use kubectl to manage Kubernetes cluster on your Azure Stack Edge device](azure-stack-edge-gpu-create-kubernetes-cluster.md).
-
-
-### Kubernetes and IoT Edge
-
-Kubernetes can also be integrated with IoT Edge workloads on Azure Stack Edge device where Kubernetes provides scale and the ecosystem and IoT provides the IoT centric ecosystem. The Kubernetes layer is used as an infrastructure layer to deploy Azure IoT Edge workloads. The module lifetime and network load balancing are managed by Kubernetes whereas the edge application platform is managed by IoT Edge.
-
-For more information on deploying applications on your Kubernetes cluster via IoT Edge, go to: 
-
-- [Expose stateless applications on Azure Stack Edge device via IoT Edge](azure-stack-edge-gpu-deploy-stateless-application-iot-edge-module.md).
-
 
 ### Kubernetes and Azure Arc
 

@@ -5,15 +5,12 @@ summary: Learn how to use Event Hubs to ingest millions of events per second fro
 
 metadata:
   title: Azure Event Hubs documentation
-  description: Learn how to use Event Hubs to ingest millions of events per second from connected devices and applications. # Required; article description that is displayed in search results. < 160 chars.
-  services: event-hubs
-  ms.service: event-hubs #Required; service per approved list. service slug assigned to your service by ACOM.
-  ms.subservice: 
-  ms.topic: landing-page # Required
-  ms.collection: collection
-  author: spelluru #Required; your GitHub user alias, with correct capitalization.
-  ms.author: spelluru #Required; microsoft alias of author; optional team alias.
-  ms.date: 01/11/2022 #Required; mm/dd/yyyy format.
+  description: Learn how to use Event Hubs to ingest millions of events per second from connected devices and applications.
+  ms.service: event-hubs
+  ms.topic: landing-page
+  author: spelluru
+  ms.author: spelluru
+  ms.date: 02/15/2024
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -27,13 +24,15 @@ landingContent:
         links:
           - text: What is Event Hubs?
             url: event-hubs-about.md
-          - text: What is Event Hubs for Apache Kafka?
-            url: event-hubs-for-kafka-ecosystem-overview.md
-          - text: What is Event Hubs Capture?
+          - text: Event Hubs for Apache Kafka
+            url: azure-event-hubs-kafka-overview.md
+          - text: Schema Registry
+            url: schema-registry-overview.md
+          - text: Event Hubs Capture
             url: event-hubs-capture-overview.md            
-          - text: What is Event Hubs Premium?            
+          - text: Event Hubs Premium            
             url: event-hubs-premium-overview.md
-          - text: What is Event Hubs Dedicated?
+          - text: Event Hubs Dedicated
             url: event-hubs-dedicated-overview.md
 
   # Card
@@ -49,60 +48,10 @@ landingContent:
             url: event-hubs-quickstart-powershell.md
           - text: Azure Resource Manager template
             url: event-hubs-resource-manager-namespace-event-hub.md
-
-  # Card
-  - title: Learn modules
-    linkLists:
-      - linkListType: learn
-        links:
-          - text: Explore Azure Event Hubs
-            url: /training/modules/azure-event-hubs/
-          - text: Enable reliable messaging for Big Data applications using Azure Event Hubs
-            url: /training/modules/enable-reliable-messaging-for-big-data-apps-using-event-hubs/
-          - text: Choose a messaging model in Azure to loosely connect your services
-            url: /training/modules/choose-a-messaging-model-in-azure-to-connect-your-services/
-
-  # Card
-  - title: Create a dedicated cluster
-    linkLists:
-      - linkListType: overview      
-        links:
-          - text: What is Event Hubs Dedicated?
-            url: event-hubs-dedicated-overview.md    
-      - linkListType: quickstart
-        links:
-          - text: Create a dedicated Event Hubs cluster
-            url: event-hubs-dedicated-cluster-create-portal.md
-
-  # Card
-  - title: Integrate with Apache Kafka
-    linkLists:
-      - linkListType: overview      
-        links:
-          - text: What is Event Hubs for Apache Kafka?
-            url: event-hubs-for-kafka-ecosystem-overview.md    
-      - linkListType: quickstart
-        links:
-          - text: Stream into Event Hubs for Apache Kafka
-            url: event-hubs-quickstart-kafka-enabled-event-hubs.md
-          - text: Use Spring Kafka with Azure Event Hubs
-            url: /azure/developer/java/spring-framework/configure-spring-cloud-stream-binder-java-app-kafka-azure-event-hub
-      - linkListType: tutorial
-        links:
-          - text: Process events using Stream Analytics
-            url: event-hubs-kafka-stream-analytics.md      
-      - linkListType: how-to-guide
-        links:
-          - text: Mirror a Kafka broker in an event hub
-            url: event-hubs-kafka-mirror-maker-tutorial.md                          
-          - text: Connect Apache Spark to an event hub
-            url: event-hubs-kafka-spark-tutorial.md
-          - text: Connect Apache Flink to an event hub
-            url: event-hubs-kafka-flink-tutorial.md
-          - text: Integrate Apache Kafka Connect with an event hub
-            url: event-hubs-kafka-connect-tutorial.md
-          - text: Connect Akka streams to an event hub
-            url: event-hubs-kafka-akka-streams-tutorial.md
+          - text: Bicep
+            url: event-hubs-bicep-namespace-event-hub.md
+          - text: Azure Resource Manager template
+            url: event-hubs-resource-manager-namespace-event-hub.md
 
     # Card
   - title: Send and receive events
@@ -126,29 +75,35 @@ landingContent:
           - text: Go
             url: event-hubs-go-get-started-send.md
 
-# Card
-  - title: Event Hubs on Azure Stack Hub preview
+  # Card
+  - title: Integrate with Apache Kafka
     linkLists:
-      - linkListType: overview
+      - linkListType: overview      
         links:
-          - text: Overview
-            url: /azure-stack/user/event-hubs-overview
-          - text: Common feature set
-            url: /azure-stack/user/event-hubs-overview#features
-      - linkListType: how-to-guide
-        links:
-          - text: Capacity planning
-            url: /azure-stack/operator/event-hubs-rp-capacity-planning
-          - text: Installation prerequisites (operator)
-            url: /azure-stack/operator/event-hubs-rp-prerequisites
-          - text: Installation (operator)
-            url: /azure-stack/operator/event-hubs-rp-install            
-          - text: Use Blob Storage as checkpoint store
-            url: use-blob-storage-checkpoint-store-azure-stack-hub.md
+          - text: What is Event Hubs for Apache Kafka?
+            url: azure-event-hubs-kafka-overview.md    
       - linkListType: quickstart
         links:
-          - text: Create Event Hubs cluster
-            url: /azure-stack/user/event-hubs-quickstart-cluster-portal
+          - text: Stream into Event Hubs for Apache Kafka
+            url: event-hubs-quickstart-kafka-enabled-event-hubs.md
+          - text: Use Spring Kafka with Azure Event Hubs
+            url: /azure/developer/java/spring-framework/configure-spring-cloud-stream-binder-java-app-kafka-azure-event-hub
+      - linkListType: tutorial
+        links:
+          - text: Process events using Stream Analytics
+            url: event-hubs-kafka-stream-analytics.md      
+      - linkListType: how-to-guide
+        links:
+          - text: Migrate existing Kafka workloads to Event Hubs
+            url: event-hubs-kafka-mirrormaker-2-tutorial.md                          
+          - text: Connect Apache Spark to an event hub
+            url: event-hubs-kafka-spark-tutorial.md
+          - text: Connect Apache Flink to an event hub
+            url: event-hubs-kafka-flink-tutorial.md
+          - text: Integrate Apache Kafka Connect with an event hub
+            url: event-hubs-kafka-connect-tutorial.md
+          - text: Connect Akka streams to an event hub
+            url: event-hubs-kafka-akka-streams-tutorial.md
 
   # Card
   - title: Capture events
@@ -171,8 +126,6 @@ landingContent:
     linkLists:
       - linkListType: tutorial      
         links:
-          - text: Visualize data anomalies on Event Hubs data streams
-            url: event-hubs-tutorial-visualize-anomalies.md
           - text: Process Event Hubs for Apache Kafka events using Stream Analytics
             url: event-hubs-kafka-stream-analytics.md
           - text: Stream data into Azure Databricks using Event Hubs
@@ -206,3 +159,54 @@ landingContent:
             url: configure-customer-managed-key.md     
           - text: Enforce minimum required TLS version
             url: transport-layer-security-enforce-minimum-version.md    
+
+  # Card
+  - title: Create a dedicated cluster
+    linkLists:
+      - linkListType: overview      
+        links:
+          - text: What is Event Hubs Dedicated?
+            url: event-hubs-dedicated-overview.md    
+      - linkListType: quickstart
+        links:
+          - text: Create a dedicated Event Hubs cluster
+            url: event-hubs-dedicated-cluster-create-portal.md
+
+
+  # Card
+  - title: Learn modules
+    linkLists:
+      - linkListType: learn
+        links:
+          - text: Explore Azure Event Hubs
+            url: /training/modules/azure-event-hubs/
+          - text: Enable reliable messaging for Big Data applications using Azure Event Hubs
+            url: /training/modules/enable-reliable-messaging-for-big-data-apps-using-event-hubs/
+          - text: Choose a messaging model in Azure to loosely connect your services
+            url: /training/modules/choose-a-messaging-model-in-azure-to-connect-your-services/
+
+
+# Card
+  - title: Event Hubs on Azure Stack Hub preview
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Overview
+            url: /azure-stack/user/event-hubs-overview
+          - text: Common feature set
+            url: /azure-stack/user/event-hubs-overview#features
+      - linkListType: how-to-guide
+        links:
+          - text: Capacity planning
+            url: /azure-stack/operator/event-hubs-rp-capacity-planning
+          - text: Installation prerequisites (operator)
+            url: /azure-stack/operator/event-hubs-rp-prerequisites
+          - text: Installation (operator)
+            url: /azure-stack/operator/event-hubs-rp-install            
+          - text: Use Blob Storage as checkpoint store
+            url: troubleshoot-checkpoint-store-issues.md
+      - linkListType: quickstart
+        links:
+          - text: Create Event Hubs cluster
+            url: /azure-stack/user/event-hubs-quickstart-cluster-portal
+

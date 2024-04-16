@@ -3,8 +3,8 @@ title: Use empty edge nodes on Apache Hadoop clusters in Azure HDInsight
 description: How to add an empty edge node to an HDInsight cluster. Used as a client, and then test, or host your HDInsight applications.
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: hdinsightactive,hdiseo17may2017
-ms.date: 04/27/2022
+ms.custom: hdinsightactive
+ms.date: 05/26/2023
 ---
 
 # Use empty edge nodes on Apache Hadoop clusters in HDInsight

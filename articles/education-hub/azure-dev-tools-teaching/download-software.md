@@ -6,7 +6,6 @@ ms.author: rymend
 ms.topic: how-to
 ms.date: 06/30/2020
 ms.service: azure-education
-ms.subservice: education-hub
 ---
 
 # Help students download software developer tools from the Azure Education Hub

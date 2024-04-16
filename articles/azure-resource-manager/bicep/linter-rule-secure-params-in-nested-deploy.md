@@ -2,7 +2,8 @@
 title: Linter rule - secure params in nested deploy
 description: Linter rule - secure params in nested deploy
 ms.topic: conceptual
-ms.date: 09/22/2022
+ms.custom: devx-track-bicep
+ms.date: 03/20/2024
 ---
 
 # Linter rule - secure params in nested deploy

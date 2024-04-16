@@ -2,16 +2,20 @@
 title: JSON claims transformation examples for custom policies
 titleSuffix: Azure AD B2C
 description: JSON claims transformation examples for the Identity Experience Framework (IEF) schema of Azure Active Directory B2C.
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: reference
-ms.date: 09/07/2022
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
+
+
+#Customer intent: As a developer working with Azure AD B2C, I want to understand how to use JSON claims transformations, so that I can manipulate and generate JSON data for my authentication and authorization processes.
+
 ---
 
 # JSON claims transformations
@@ -408,6 +412,104 @@ In the following example, the claims transformation extracts the following claim
   - **membershipID**: 6353399
   - **active**: true
   - **birthDate**: 2005-09-23T00:00:00Z
+
+
+## GetClaimsFromJsonArrayV2
+
+Get a list of specified elements from a string collection JSON elements. Check out the [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/claims-transformation/json#getclaimsfromjsonarrayv2) of this claims transformation.
+
+| Element | TransformationClaimType | Data Type | Notes |
+| ---- | ----------------------- | --------- | ----- |
+| InputClaim | jsonSourceClaim | stringCollection | The string collection claim with the JSON payloads. This claim is used by the claims transformation to get the claims. |
+| InputParameter | errorOnMissingClaims | boolean | Specifies whether to throw an error if one of the claims is missing. |
+| InputParameter | includeEmptyClaims | string | Specify whether to include empty claims. |
+| InputParameter | jsonSourceKeyName | string | Element key name |
+| InputParameter | jsonSourceValueName | string | Element value name |
+| OutputClaim | Collection | string, int, boolean, and datetime |List of claims to extract. The name of the claim should be equal to the one specified in _jsonSourceClaim_ input claim. |
+
+### Example of GetClaimsFromJsonArrayV2
+
+In the following example, the claims transformation extracts the following claims: email (string), displayName (string), membershipNum (int), active (boolean) and  birthDate (datetime) from the JSON data.
+
+```xml
+<ClaimsTransformation Id="GetClaimsFromJson" TransformationMethod="GetClaimsFromJsonArrayV2">
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="jsonSourceClaim" TransformationClaimType="jsonSource" />
+  </InputClaims>
+  <InputParameters>
+    <InputParameter Id="errorOnMissingClaims" DataType="boolean" Value="false" />
+    <InputParameter Id="includeEmptyClaims" DataType="boolean" Value="false" />
+    <InputParameter Id="jsonSourceKeyName" DataType="string" Value="key" />
+    <InputParameter Id="jsonSourceValueName" DataType="string" Value="value" />
+  </InputParameters>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="email" />
+    <OutputClaim ClaimTypeReferenceId="displayName" />
+    <OutputClaim ClaimTypeReferenceId="membershipID" />
+    <OutputClaim ClaimTypeReferenceId="active" />
+    <OutputClaim ClaimTypeReferenceId="birthDate" />
+  </OutputClaims>
+</ClaimsTransformation>
+```
+
+- Input claims:
+  - **jsonSourceClaim[0]** (string collection first element):
+      
+      ```json
+        {
+          "key": "email",
+          "value": "someone@example.com"
+        }
+      ```
+
+  - **jsonSourceClaim[1]** (string collection second element):
+
+      ```json
+        {
+          "key": "displayName",
+          "value": "Someone"
+        }
+      ```
+
+  - **jsonSourceClaim[2]** (string collection third element):
+  
+      ```json
+        {
+          "key": "membershipID",
+          "value": 6353399
+        }
+      ```
+
+  - **jsonSourceClaim[3]** (string collection fourth element):
+
+      ```json
+        {
+          "key": "active",
+          "value": true
+        }
+      ```
+
+  - **jsonSourceClaim[4]** (string collection fifth element):
+    
+      ```json
+        {
+          "key": "birthDate",
+          "value": "2005-09-23T00:00:00Z"
+        }
+      ```
+
+- Input parameters:
+  - **errorOnMissingClaims**: false
+  - **includeEmptyClaims**: false
+  - **jsonSourceKeyName**: key
+  - **jsonSourceValueName**: value
+- Output claims:
+  - **email**: "someone@example.com"
+  - **displayName**: "Someone"
+  - **membershipID**: 6353399
+  - **active**: true
+  - **birthDate**: 2005-09-23T00:00:00Z
+
 
 ## GetNumericClaimFromJson
 

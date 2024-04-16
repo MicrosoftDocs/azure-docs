@@ -4,7 +4,8 @@ description: Learn how to use the Azure portal to add a virtual machine (VM) to 
 ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 03/03/2022
+ms.date: 09/30/2023
+ms.custom: UpdateFrequency2
 ---
 
 # Create lab virtual machines in Azure DevTest Labs
@@ -81,6 +82,16 @@ When the deployment is complete, if you kept yourself as VM owner, the VM appear
 Or, if you chose **Make this machine claimable** during VM creation, select **Claimable virtual machines** in the left navigation to see the VM listed on the **Claimable virtual machines** page. Select **Refresh** if your VM doesn't appear. To take ownership of a VM in the claimable list, see [Use a claimable VM](devtest-lab-add-claimable-vm.md#use-a-claimable-vm).
 
 :::image type="content" source="./media/devtest-lab-add-vm/portal-lab-vm-creation-status.png" alt-text="Lab VM creation status page.":::
+
+When you create a VM in DevTest Labs, you're given permission to access that VM. You can view the VM both on the labs page and on the **Virtual Machines** page. Users assigned to the **DevTest Labs Owner** role can see all VMs that were created in the lab on the lab's **All Virtual Machines** page. However, users who have the **DevTest Labs User** role are not automatically granted read access to VM resources that other users have created. So, those VMs are not displayed on the **Virtual Machines** page.
+
+## Move existing Azure VMs into a DevTest Labs lab
+To copy your existing VMs to DevTest Labs:
+          
+   1.	Copy the VHD file of your existing VM by using a [Windows PowerShell script](https://github.com/Azure/azure-devtestlab/blob/master/samples/DevTestLabs/Scripts/CopyVirtualMachines/CopyAzVHDFromVMToLab.ps1).
+   2.	Create the [custom image](devtest-lab-create-template.md) inside your DevTest Labs lab.
+   3.	Create a VM in the lab from your custom image.
+          
 
 <a name="add-artifacts-after-installation"></a>
 ## Next steps

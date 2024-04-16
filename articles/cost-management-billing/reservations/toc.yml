@@ -8,7 +8,7 @@
 - name: Concepts
   items:
   - name: VM instance size flexibility
-    href: ../../virtual-machines/reserved-vm-instance-size-flexibility.md?toc=/azure/cost-management-billing/reservations/toc.json
+    href: ../../virtual-machines/reserved-vm-instance-size-flexibility.md
   - name: Reservation recommendations
     href: reserved-instance-purchase-recommendations.md
   - name: How discount is applied
@@ -29,14 +29,14 @@
       href: understand-cosmosdb-reservation-charges.md
     - name: Azure Cosmos DB for PostgreSQL
       href: ../../cosmos-db/postgresql/resources-pricing.md?toc=/azure/cost-management-billing/reservations/toc.json
+    - name: Azure Database for PostgreSQL
+      href: ../../postgresql/single-server/concept-reserved-pricing.md?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Azure SQL Edge
       href: discount-sql-edge.md
     - name: Database for MariaDB
       href: understand-reservation-charges-mariadb.md
     - name: Database for MySQL
       href: understand-reservation-charges-mysql.md
-    - name: Database for PostgreSQL - Single Server
-      href: understand-reservation-charges-postgresql.md
     - name: Databricks
       href: reservation-discount-databricks.md
     - name: Data Explorer
@@ -72,6 +72,16 @@
     items:
     - name: Choose reservation to purchase
       href: determine-reservation-purchase.md
+  - name: Limited-time offers
+    items:
+    - name: US West Dv3 VMs
+      href: limited-time-us-west.md
+    - name: Sweden Central select Linux VMs
+      href: limited-time-central-sweden.md
+    - name: Poland Central VMs
+      href: limited-time-central-poland.md
+    - name: Poland Central SQL services
+      href: poland-limited-time-sql-services-reservations.md
   - name: Buy reservations
     items:
     - name: Buy an Azure reservation
@@ -105,17 +115,19 @@
     - name: Databricks
       href: prepay-databricks-reserved-capacity.md
     - name: Data Explorer
-      href: /azure/data-explorer/pricing-reserved-capacity?toc=/azure/cost-management-billing/reservations/toc.json
+      href: /azure/data-explorer/pricing-reserved-capacity
     - name: Dedicated Host
       href: ../../virtual-machines/prepay-dedicated-hosts-reserved-instances.md?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Disk Storage
       href: ../../virtual-machines/disks-reserved-capacity.md?toc=/azure/cost-management-billing/reservations/toc.json
+    - name: Microsoft Fabric
+      href: fabric-capacity.md
     - name: SAP HANA Large Instances
       href: prepay-hana-large-instances-reserved-capacity.md
     - name: Software plans
       href: ../../virtual-machines/linux/prepay-suse-software-charges.md?toc=/azure/cost-management-billing/reservations/toc.json
     - name: SQL Database
-      href: /azure/azure-sql/database/reserved-capacity-overview?toc=/azure/cost-management-billing/reservations/toc.json
+      href: /azure/azure-sql/database/reserved-capacity-overview
     - name: Synapse Analytics - data warehouse
       href: prepay-sql-data-warehouse-charges.md
     - name: Synapse Analytics - Pre-Purchase
@@ -140,8 +152,8 @@
       href: reservation-utilization.md
     - name: View reservation transactions
       href: view-purchase-refunds.md
-    - name: View amortized reservation costs
-      href: reservation-amortization.md
+    - name: View amortized costs
+      href: view-amortized-costs.md
     - name: Charge back reservation costs
       href: charge-back-usage.md
     - name: Calculate EA cost savings
@@ -150,6 +162,8 @@
     items:
     - name: Exchange and refund reservations
       href: exchange-and-refund-azure-reservations.md
+    - name: Changes to the reservation exchange policy
+      href: reservation-exchange-policy-changes.md
   - name: Renew reservations
     items:
     - name: Renew a reservation

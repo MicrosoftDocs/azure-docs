@@ -1,255 +1,356 @@
 ---
-title: Materialized Views for Azure Cosmos DB for Apache Cassandra. (Preview)
-description: This documentation is provided as a resource for participants in the preview of Azure Cosmos DB for Apache Cassandra Materialized View.
+title: Materialized views (preview)
+titleSuffix: Azure Cosmos DB for Apache Cassandra
+description: This documentation is provided as a resource for participants in the preview of Azure Cosmos DB Cassandra API Materialized View.
 author: dileepraotv-github
+ms.author: turao
 ms.service: cosmos-db
 ms.subservice: apache-cassandra
-ms.custom: ignite-2022
 ms.topic: how-to
-ms.date: 01/06/2022
-ms.author: turao
+ms.date: 11/17/2022
+ms.custom: devx-track-azurecli
 ---
 
-# Enable materialized views for Azure Cosmos DB for Apache Cassandra operations (Preview)
+# Materialized views in Azure Cosmos DB for Apache Cassandra (preview)
+
 [!INCLUDE[Cassandra](../includes/appliesto-cassandra.md)]
 
 > [!IMPORTANT]
-> Materialized Views for Azure Cosmos DB for Apache Cassandra is currently in gated preview. Please send an email to mv-preview@microsoft.com to try this feature.
-> Materialized View preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Materialized views in Azure Cosmos DB for Cassandra is currently in preview. You can enable this feature using the Azure portal. This preview of materialized views is provided without a service-level agreement. At this time, materialized views are not recommended for production workloads. Certain features of this preview may not be supported or may have constrained capabilities. For more information, see [supplemental terms of use for Microsoft Azure previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## Feature overview
+Materialized views, when defined, help provide a means to efficiently query a base table (or container in Azure Cosmos DB) with filters that aren't primary keys. When users write to the base table, the materialized view is built automatically in the background. This view can have a different primary key for efficient lookups. The view will also only contain columns explicitly projected from the base table. This view will be a read-only table.
 
-Materialized Views when defined will help provide a means to efficiently query a base table (container on Azure Cosmos DB) with non-primary key filters. When users write to the base table, the Materialized view is built automatically in the background. This view can have a different primary key for lookups. The view will also contain only the projected columns from the base table. It will be a read-only table.
+You can query a column store without specifying a partition key by using secondary indexes. However, the query won't be effective for columns with high or low cardinality. The query could scan through all data for a small result set. Such queries end up being expensive as they end up inadvertently executing as a cross-partition query.
 
-You can query a column store without specifying a partition key by using Secondary Indexes. However, the query won't be effective for columns with high cardinality (scanning through all data for a small result set) or columns with low cardinality. Such queries end up being expensive as they end up being a cross partition query.
+With a materialized view, you can:
 
-With Materialized view, you can
-- Use as Global Secondary Indexes and save cross partition scans that reduce expensive queries 
-- Provide SQL based conditional predicate to populate only certain columns and certain data that meet the pre-condition 
-- Real time MVs that simplify real time event based scenarios where customers today use Change feed trigger for precondition checks to populate new collections"
+- Use as lookup or mapping table to persist cross partition scans that would otherwise be expensive queries.
+- Provide a SQL-based conditional predicate to populate only certain columns and data that meet the pre-condition.
+- Create real-time views that simplify event-based scenarios that are commonly stored as separate collections using change feed triggers.
 
-## Main benefits
+## Benefits of materialized views
 
-- With Materialized View (Server side denormalization), you can avoid multiple independent tables and client side denormalization. 
-- Materialized view feature takes on the responsibility of updating views in order to keep them consistent with the base table. With this feature, you can avoid dual writes to the base table and the view.
-- Materialized Views helps optimize read performance
-- Ability to specify throughput for the materialized view independently
-- Based on the requirements to hydrate the view, you can configure the MV builder layer appropriately.
-- Speeding up write operations as it only needs to be written to the base table.
-- Additionally, This implementation on Azure Cosmos DB is based on a pull model, which doesn't affect the writer performance.
+Materialized views have many benefits that include, but aren't limited to:
 
+- You can implement server-side denormalization using materialized views. With server-side denormalization, you can avoid multiple independent tables and computationally complex denormalization in client applications.
+- Materialized views automatically updating views to keep them consistent with the base table. This automatic update abstracts the responsibilities of your client applications with would typically implement custom logic to perform dual writes to the base table and the view.
+- Materialized views optimize read performance by reading from a single view.
+- You can specify throughput for the materialized view independently.
+- You can configure a materialized view builder layer to map to your requirements to hydrate a view.
+- Materialized views improve write performance as write operations only need to be written to the base table.
+- Additionally, the Azure Cosmos DB implementation of materialized views is based on a pull model. This implementation doesn't affect write performance.
 
+## Get started with materialized views
 
-## How to get started?
+Create new API for Cassandra accounts by using the Azure CLI to enable the materialized views feature either with a native command or a REST API operation.
 
-New API for Cassandra accounts with Materialized Views enabled can be provisioned on your subscription by using REST API calls from az CLI. 
+### [Azure portal](#tab/azure-portal)
 
-### Log in to the Azure command line interface
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 
-Install Azure CLI as mentioned at [How to install the Azure CLI | Microsoft Docs](/cli/azure/install-azure-cli) and log on using the below:
-   ```azurecli-interactive
-   az login
-   ```
+1. Navigate to your API for Cassandra account.
 
-### Create an account
+1. In the resource menu, select **Settings**.
 
-To create account with support for customer managed keys and materialized views skip to **this** section
+1. In the **Settings** section, select **Materialized View for Cassandra API (Preview)**.
 
-To create an account, use the following command after creating body.txt with the below content, replacing {{subscriptionId}} with your subscription ID, {{resourceGroup}} with a resource group name that you should have created in advance, and {{accountName}} with a name for your API for Cassandra account. 
+1. In the new dialog, select **Enable** to enable this feature for this account.
 
-   ```azurecli-interactive
-   az rest --method PUT --uri https://management.azure.com/subscriptions/{{subscriptionId}}/resourcegroups/{{resourceGroup}}/providers/Microsoft.DocumentDb/databaseAccounts/{{accountName}}?api-version=2021-11-15-preview --body @body.txt
-    body.txt content:
+    :::image type="content" source="media/materialized-views/enable-in-portal.png" lightbox="media/materialized-views/enable-in-portal.png" alt-text="Screenshot of the Materialized Views feature being enabled in the Azure portal.":::
+
+### [Azure CLI](#tab/azure-cli)
+
+1. Sign-in to the Azure CLI.
+
+    ```azurecli
+    az login
+    ```
+
+    > [!NOTE]
+    > If you do not have the Azure CLI installed, see [how to install the Azure CLI](/cli/azure/install-azure-cli).
+
+1. Install the [`cosmosdb-preview`](https://github.com/azure/azure-cli-extensions/tree/main/src/cosmosdb-preview) extension.
+
+    ```azurecli
+    az extension add \
+        --name cosmosdb-preview
+    ```
+
+1. Create shell variables for `accountName` and `resourceGroupName`.
+
+    ```azurecli
+    # Variable for resource group name
+    resourceGroupName="<resource-group-name>"
+    
+    # Variable for account name
+    accountName="<account-name>"
+    ```
+
+1. Enable the preview materialized views feature for the account using [`az cosmosdb update`](/cli/azure/cosmosdb#az-cosmosdb-update).
+
+    ```azurecli
+    az cosmosdb update \
+        --resource-group $resourceGroupName \
+        --name $accountName \
+        --enable-materialized-views true \
+        --capabilities CassandraEnableMaterializedViews
+    ```
+
+### [REST API](#tab/rest-api)
+
+1. Sign-in to the Azure CLI.
+
+    ```azurecli
+    az login
+    ```
+
+    > [!NOTE]
+    > If you do not have the Azure CLI installed, see [how to install the Azure CLI](/cli/azure/install-azure-cli).
+
+1. Create shell variables for `accountName` and `resourceGroupName`.
+
+    ```azurecli
+    # Variable for resource group name
+    resourceGroupName="<resource-group-name>"
+    
+    # Variable for account name
+    accountName="<account-name>"
+    ```
+
+1. Create a new JSON file with the capabilities manifest.
+
+    ```json
     {
-    "location": "East US",
-    "properties":
-    {
-        "databaseAccountOfferType": "Standard",
-        "locations": [ { "locationName": "East US" } ],
-        "capabilities": [ { "name": "EnableCassandra" }, { "name": "CassandraEnableMaterializedViews" }],
+      "properties": {
+        "capabilities": [
+          {
+            "name": "CassandraEnableMaterializedViews"
+          }
+        ],
         "enableMaterializedViews": true
+      }
     }
-    }
-   ```
+    ```
 
-   Wait for a few minutes and check the completion using the below, the provisioningState in the output should have become Succeeded:
-   ```
-    az rest --method GET --uri https://management.azure.com/subscriptions/{{subscriptionId}}/resourcegroups/{{resourceGroup}}/providers/Microsoft.DocumentDb/databaseAccounts/{{accountName}}?api-version=2021-11-15-preview
-   ```
-### Create an account with support for customer managed keys and materialized views
+    > [!NOTE]
+    > In this example, we named the JSON file **capabilities.json**.
 
-This step is optional – you can skip this step if you don't want to use Customer Managed Keys for your Azure Cosmos DB account.
+1. Get the unique identifier for your existing account using [`az cosmosdb show`](/cli/azure/cosmosdb#az-cosmosdb-show).
 
-To use Customer Managed Keys feature and Materialized views together on Azure Cosmos DB account, you must first configure managed identities with Azure Active Directory for your account and then enable support for materialized views.
+    ```azurecli
+    az cosmosdb show \
+        --resource-group $resourceGroupName \
+        --name $accountName \
+        --query id
+    ```
 
-You can use the documentation [here](../how-to-setup-cmk.md) to configure your Azure Cosmos DB Cassandra account with customer managed keys and setup managed identity access to the key Vault. Make sure you follow all the steps in [Using a managed identity in Azure key vault access policy](../how-to-setup-managed-identity.md). The next step to enable materializedViews on the account.
+    Store the unique identifier in a shell variable named `$uri`.
 
-Once your account is set up with CMK and managed identity, you can enable materialized views on the account by enabling “enableMaterializedViews” property in the request body.
+    ```azurecli
+    uri=$(
+        az cosmosdb show \
+            --resource-group $resourceGroupName \
+            --name $accountName \
+            --query id \
+            --output tsv
+    )
+    ```
 
-   ```azurecli-interactive
-  az rest --method PATCH --uri https://management.azure.com/subscriptions/{{subscriptionId}}/resourcegroups/{{resourceGroup}}/providers/Microsoft.DocumentDb/databaseAccounts/{{accountName}}?api-version=2021-07-01-preview --body @body.txt
+1. Enable the preview materialized views feature for the account using the REST API and [`az rest`](/cli/azure/reference-index#az-rest) with an HTTP `PATCH` verb.
 
+    ```azurecli
+    az rest \
+        --method PATCH \
+        --uri "https://management.azure.com/$uri/?api-version=2021-11-15-preview" \
+        --body @capabilities.json 
+    ```
 
-body.txt content:
-{
-  "properties":
-  {
-    "enableMaterializedViews": true
-  }
-}
-   ```
-
-
- Wait for a few minutes and check the completion using the below, the provisioningState in the output should have become Succeeded:
- ```
-az rest --method GET --uri https://management.azure.com/subscriptions/{{subscriptionId}}/resourcegroups/{{resourceGroup}}/providers/Microsoft.DocumentDb/databaseAccounts/{{accountName}}?api-version=2021-07-01-preview
-```
-
-Perform another patch to set “CassandraEnableMaterializedViews” capability and wait for it to succeed
-
-```
-az rest --method PATCH --uri https://management.azure.com/subscriptions/{{subscriptionId}}/resourcegroups/{{resourceGroup}}/providers/Microsoft.DocumentDb/databaseAccounts/{{accountName}}?api-version=2021-07-01-preview --body @body.txt
-
-body.txt content:
-{
-  "properties":
-  {
-    	"capabilities":
-[{"name":"EnableCassandra"},
- {"name":"CassandraEnableMaterializedViews"}]
-  }
-}
-```
-
-### Create materialized view builder
-
-Following this step, you'll also need to provision a Materialized View Builder:
-
-```
-az rest --method PUT --uri https://management.azure.com/subscriptions/{{subscriptionId}}/resourcegroups/{{resourceGroup}}/providers/Microsoft.DocumentDb/databaseAccounts/{{accountName}}/services/materializedViewsBuilder?api-version=2021-07-01-preview --body @body.txt
-
-body.txt content:
-{
-  "properties":
-  {
-    "serviceType": "materializedViewsBuilder",
-    "instanceCount": 1,
-    "instanceSize": "Cosmos.D4s"
-  }
-}
-```
-
-Wait for a couple of minutes and check the status using the below, the status in the output should have become Running:
-
-```
-az rest --method GET --uri https://management.azure.com/subscriptions/{{subscriptionId}}/resourcegroups/{{resourceGroup}}/providers/Microsoft.DocumentDb/databaseAccounts/{{accountName}}/services/materializedViewsBuilder?api-version=2021-07-01-preview
-```
-
-## Caveats and current limitations
-
-Once your account and Materialized View Builder is set up, you should be able to create Materialized views per the documentation [here](https://cassandra.apache.org/doc/latest/cql/mvs.html) : 
-
-However, there are a few caveats with Azure Cosmos DB for Apache Cassandra’s preview implementation of Materialized Views:
-- Materialized Views can't be created on a table that existed before the account was onboarded to support materialized views. Create new table after account is onboarded on which materialized views can be defined.
-- For the MV definition’s WHERE clause, only “IS NOT NULL” filters are currently allowed.
-- After a Materialized View is created against a base table, ALTER TABLE ADD operations aren't allowed on the base table’s schema - they're allowed only if none of the MVs have select * in their definition.
-
-In addition to the above, note the following limitations 
-
-### Availability zones limitations
-
-- Materialized views can't be enabled on an account that has Availability zone enabled regions. 
-- Adding a new region with Availability zone is not supported once “enableMaterializedViews” is set to true on the account.
-
-### Periodic backup and restore limitations
-
-Materialized views aren't automatically restored with the restore process. Customer needs to re-create the materialized views after the restore process is complete. Customer needs to enableMaterializedViews on their restored account before creating the materialized views and provision the builders for the materialized views to be built.
-
-Other limitations similar to **Open Source Apache Cassandra** behavior
-
-- Defining Conflict resolution policy on Materialized Views is not allowed.
-- Write operations from customer aren't allowed on Materialized views.
-- Cross document queries and use of aggregate functions aren't supported on Materialized views.
-- Modifying MaterializedViewDefinitionString after MV creation is not supported.
-- Deleting base table is not allowed if at least one MV is defined on it. All the MVs must first be deleted and then the base table can be deleted.
-- Defining materialized views on containers with Static columns is not allowed
+---
 
 ## Under the hood
 
-Azure Cosmos DB for Apache Cassandra uses a MV builder compute layer to maintain Materialized views. Customer gets flexibility to configure the MV builder compute instances depending on the latency and lag requirements to hydrate the views. The compute containers are shared among all MVs within the database account. Each provisioned compute container spawns off multiple tasks that read change feed from base table partitions and write data to MV (which is also another table) after transforming them as per MV definition for every MV in the database account.
+The API for Cassandra uses a materialized view builder compute layer to maintain the views.
 
-## Frequently asked questions (FAQs) …
+You get the flexibility to configure the view builder's compute instances based on your latency and lag requirements to hydrate the views. From a technical stand point, this compute layer helps manage connections between partitions in a more efficient manner even when the data size is large and the number of partitions is high.
 
+The compute containers are shared among all materialized views within an Azure Cosmos DB account. Each provisioned compute container spawns off multiple tasks that read the change feed from base table partitions and writes data to the target materialized view\[s\]. The compute container transforms the data per the materialized view definition for each materialized view in the account.
 
-### What transformations/actions are supported?
+## Create a materialized view builder
 
-- Specifying a partition key that is different from base table partition key.
-- Support for projecting selected subset of columns from base table.
-- Determine if row from base table can be part of materialized view based on conditions evaluated on primary key columns of base table row. Filters supported - equalities, inequalities, contains. (Planned for GA)
+Create a materialized view builder to automatically transform data and write to a materialized view.
 
-### What consistency levels will be supported?
+### [Azure portal](#tab/azure-portal)
 
-Data in materialized view is eventually consistent. User might read stale rows when compared to data on base table due to redo of some operations on MVs. This behavior is acceptable since we guarantee only eventual consistency on the MV. Customers can configure (scale up and scale down) the MV builder layer depending on the latency requirement for the view to be consistent with base table.
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 
-### Will there be an autoscale layer for the MV builder instances?
+1. Navigate to your API for Cassandra account.
 
-Autoscaling for MV builder is not available right now. The MV builder instances can be manually scaled by modifying the instance count(scale out) or instance size(scale up).
+1. In the resource menu, select **Materialized Views Builder**.
 
-### Details on the billing model
+1. On the **Materialized Views Builder** page, configure the SKU and number of instances for the builder.
 
-The proposed billing model will be to charge the customers for:
+    > [!NOTE]
+    > This resource menu option and page will only appear when the Materialized Views feature is enabled for the account.
 
-**MV Builder compute nodes**	MV Builder Compute – Single tenant layer
+1. Select **Save**.
 
-**Storage**	The OLTP storage of the base table and MV based on existing storage meter for Containers. LogStore won't be charged.
+### [Azure CLI](#tab/azure-cli)
 
-**Request Units**	The provisioned RUs for base container and Materialized View.
+1. Enable the materialized views builder for the account using [`az cosmosdb service create`](/cli/azure/cosmosdb/service#az-cosmosdb-service-create).
 
-### What are the different SKUs that will be available?
-Refer to Pricing - [Azure Cosmos DB | Microsoft Azure](https://azure.microsoft.com/pricing/details/cosmos-db/) and check instances under Dedicated Gateway
+    ```azurecli
+    az cosmosdb service create \
+        --resource-group $resourceGroupName \
+        --name materialized-views-builder \
+        --account-name $accountName \
+        --count 1 \
+        --kind MaterializedViewsBuilder \
+        --size Cosmos.D4s
+    ```
 
-### What type of TTL support do we have?
+### [REST API](#tab/rest-api)
 
-Setting table level TTL on MV is not allowed. TTL from base table rows will be applied on MV as well.
+1. Create a new JSON file with the builder manifest.
 
+    ```json
+    {
+      "properties": {
+        "serviceType": "materializedViewsBuilder",
+        "instanceCount": 1,
+        "instanceSize": "Cosmos.D4s"
+      }
+    }
+    ```
 
-### Initial troubleshooting if MVs aren't up to date: 
-- Check if MV builder instances are provisioned
-- Check if enough RUs are provisioned on the base table
-- Check for unavailability on Base table or MV
+    > [!NOTE]
+    > In this example, we named the JSON file **builder.json**.
 
-### What type of monitoring is available in addition to the existing monitoring for API for Cassandra?
+1. Enable the materialized views builder for the account using the REST API and `az rest` with an HTTP `PUT` verb.
 
-- Max Materialized View Catchup Gap in Minutes – Value(t) indicates rows written to base table in last ‘t’ minutes is yet to be propagated to MV. 
-- Metrics related to RUs consumed on base table for MV build (read change feed cost)
-- Metrics related to RUs consumed on MV for MV build (write cost)
-- Metrics related to resource consumption on MV builders (CPU, memory usage metrics)
+    ```azurecli
+    az rest \
+        --method PUT \
+        --uri "https://management.azure.com/$uri/services/materializedViewsBuilder?api-version=2021-11-15-preview" \
+        --body @builder.json 
+    ```
 
+1. Wait a couple of minutes and check the status using `az rest` again with the HTTP `GET` verb. The status in the output should now be `Running`:
 
-### What are the restore options available for MVs?
-MVs can't be restored. Hence, MVs will need to be recreated once the base table is restored.
+    ```azurecli
+        az rest \
+            --method GET \
+            --uri "https://management.azure.com/$uri/services/materializedViewsBuilder?api-version=2021-11-15-preview"
+    ```
 
-### Can you create more than one view on a base table?
+---
 
-Multiple views can be created on the same base table. Limit of five views is enforced. 
+## Create a materialized view
 
-### How is uniqueness enforced on the materialized view? How will the mapping between the records in base table to the records in materialized view look like?
+Once your account and Materialized View Builder is set up, you should be able to create Materialized views using CQLSH.
 
-The partition and clustering key of the base table are always part of primary key of any materialized view defined on it and enforce uniqueness of primary key after data repartitioning.
+> [!NOTE]
+> If you do not already have the standalone CQLSH tool installed, see [install the CQLSH Tool](support.md#cql-shell). You should also [update your connection string](manage-data-cqlsh.md#update-your-connection-string) in the tool.
 
-### Can we add or remove columns on the base table once materialized view is defined?
+Here are a few sample commands to create a materialized view:
 
-You'll be able to add a column to the base table, but you won't be able to remove a column. After a MV is created against a base table, ALTER TABLE ADD operations aren't allowed on the base table - they're allowed only if none of the MVs have select * in their definition. Cassandra doesn't support dropping columns on the base table if it has a materialized view defined on it.
+1. First, create a **keyspace** name `uprofile`.
 
-### Can we create MV on existing base table?
+    ```sql
+    CREATE KEYSPACE IF NOT EXISTS uprofile WITH REPLICATION = { 'class' : 'NetworkTopologyStrategy', 'datacenter1' : 1 };
+    ```
 
-No. Materialized Views can't be created on a table that existed before the account was onboarded to support materialized views. You would need to create a new table with materialized views defined and move the existing data using [container copy jobs](../intra-account-container-copy.md). MV on existing table is planned for the future.
+1. Next, create a table named `user` within the keyspace.
 
-### What are the conditions on which records won't make it to MV and how to identify such records?
+    ```sql
+    CREATE TABLE IF NOT EXISTS uprofile.USER (user_id INT PRIMARY KEY, user_name text, user_bcity text);
+    ```
 
-Below are some of the identified cases where data from base table can't be written to MV as they violate some constraints on MV table-
-- Rows that don’t satisfy partition key size limit in the materialized views
-- Rows that don't satisfy clustering key size limit in materialized views
-       
-Currently we drop these rows but plan to expose details related to dropped rows in future so that the user can reconcile the missing data.
+1. Now, create a materialized view named `user_by_bcity` within the same keyspace. Specify, using a query, how data is projected into the view from the base table.
+
+    ```sql
+    CREATE MATERIALIZED VIEW uprofile.user_by_bcity AS 
+    SELECT
+        user_id,
+        user_name,
+        user_bcity 
+    FROM
+        uprofile.USER 
+    WHERE
+        user_id IS NOT NULL 
+        AND user_bcity IS NOT NULL PRIMARY KEY (user_bcity, user_id);
+    ```
+
+1. Insert rows into the base table.
+
+    ```sql
+    INSERT INTO
+        uprofile.USER (user_id, user_name, user_bcity) 
+    VALUES
+        (
+            101, 'johnjoe', 'New York' 
+        );
+    
+    INSERT INTO
+        uprofile.USER (user_id, user_name, user_bcity) 
+    VALUES
+        (
+            102, 'james', 'New York' 
+        );
+    ```
+
+1. Query the materialized view.
+
+    ```sql
+    SELECT * FROM user_by_bcity; 
+    ```
+
+1. Observe the output from the materialized view.
+
+    ```output
+     user_bcity | user_id | user_name 
+    ------------+---------+----------- 
+       New York |     101 |   johnjoe 
+       New York |     102 |     james 
+    
+    (2 rows) 
+    ```
+
+Optionally, you can also use the resource provider to create or update a materialized view.
+
+- [Create or Update a view in API for Cassandra](/rest/api/cosmos-db-resource-provider/2021-11-15-preview/cassandra-resources/create-update-cassandra-view)
+- [Get a view in API for Cassandra](/rest/api/cosmos-db-resource-provider/2021-11-15-preview/cassandra-resources/get-cassandra-view)
+- [List views in API for Cassandra](/rest/api/cosmos-db-resource-provider/2021-11-15-preview/cassandra-resources/list-cassandra-views)
+- [Delete a view in API for Cassandra](/rest/api/cosmos-db-resource-provider/2021-11-15-preview/cassandra-resources/delete-cassandra-view)
+- [Update the throughput of a view in API for Cassandra](/rest/api/cosmos-db-resource-provider/2021-11-15-preview/cassandra-resources/update-cassandra-view-throughput)
+
+## Current limitations
+
+There are a few limitations with the API for Cassandra's preview implementation of materialized views:
+
+- Materialized views can't be created on a table that existed before support for materialized views was enabled on the account. To use materialized views, create a new table after the feature is enabled.
+- For the materialized view definition’s `WHERE` clause, only `IS NOT NULL` filters are currently allowed.
+- After a materialized view is created against a base table, `ALTER TABLE ADD` operations aren't allowed on the base table’s schema. `ALTER TABLE APP` is allowed only if none of the materialized views have selected `*` in their definition.
+- There are limits on partition key size (**2 Kb**) and total length of clustering key size (**1 Kb**). If this size limit is exceeded, the responsible message will end up in poison message queue.
+- If a base table has user-defined types (UDTs) and materialized view definition has either `SELECT * FROM` or has the UDT in one of projected columns, UDT updates aren't permitted on the account.
+- Materialized views may become inconsistent with the base table for a few rows after automatic regional failover. To avoid this inconsistency, rebuild the materialized view after the failover.
+- Creating materialized view builder instances with **32 cores** isn't supported. If needed, you can create multiple builder instances with a smaller number of cores.
+
+In addition to the above limitations, consider the following extra limitations:
+
+- Availability zones
+  - Materialized views can't be enabled on an account that has availability zone enabled regions.
+  - Adding a new region with an availability zone isn't supported once `enableMaterializedViews` is set to true on the account.
+- Periodic backup and restore
+  - Materialized views aren't automatically restored with the restore process. You'll need to re-create the materialized views after the restore process is complete. Then, you should configure `enableMaterializedViews` on their restored account before creating the materialized views and builders again.
+- Apache Cassandra
+  - Defining conflict resolution policy on materialized views isn't allowed.
+  - Write operations aren't allowed on materialized views.
+  - Cross document queries and use of aggregate functions aren't supported on materialized views.
+  - A materialized view's schema can't be modified after creation.
+  - Deleting the base table isn't allowed if at least one materialized view is defined on it. All the views must first be deleted and then the base table can be deleted.
+  - Defining materialized views on containers with static columns isn't allowed.
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Review frequently asked questions (FAQ) about materialized views in API for Cassandra](materialized-views-faq.yml)

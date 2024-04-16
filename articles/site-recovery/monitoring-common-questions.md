@@ -3,7 +3,7 @@ title: Common questions about Azure Site Recovery monitoring
 description: Get answers to common questions about Azure Site Recovery monitoring, using inbuilt monitoring and Azure Monitor (Log Analytics)
 ms.service: site-recovery
 services: site-recovery
-ms.date: 07/31/2019
+ms.date: 10/13/2023
 ms.topic: conceptual
 ms.author: ankitadutta
 author: ankitaduttaMSFT
@@ -60,6 +60,28 @@ By default, retention is for 31 days. You can increase the period in the **Usage
 ### What's the size of the resource logs? 
 
 Typically the size of a log is 15-20 KB. 
+
+## Built-in Azure Monitor alerts for Azure Site Recovery
+
+### Is there any cost for using built-in Azure Monitor alerts for Azure Site Recovery? 
+
+With built-in Azure Monitor alerts, alerts for critical operations/failures generate by default (that you can view in the portal or via non-portal interfaces) at no additional cost. However, to route these alerts to a notification channel (such as email), it incurs a minor cost for notifications beyond the free tier (of 1000 emails per month). [Learn more about Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
+
+### Will the current email notification solution for Azure Site Recovery in Recovery Services vault continue to work? 
+
+As of today, the current email notification solution co-exists in parallel with the new built-in Azure Monitor alerts solution. we recommend you to try out the Azure Monitor based alerting to familiarize yourself with the new experience and leverage its capabilities.
+
+### What is the difference between alert rule, alert processing rule and action group?
+
+- Alert rule: Refers to a user-created rule that specifies the condition on which an alert should be fired.
+- Alert processing rule (earlier called Action rule): Refers to a user-created rule that specifies the notification channels a particular fired alert should be routed to. You can also use alert processing rules to suppress notifications for a period of time. 
+- Action group: Refers to the notification channel (such as email, ITSM endpoint, logic app, webhook, and so on) that a fired alert can be routed to.
+
+In the case of built-in Azure Monitor alerts, as alerts already generate by default, you don't need to create an alert rule. To route these alerts to a notification channel, you should create an alert processing rule and an action group for these alerts. [Learn more](site-recovery-monitor-and-troubleshoot.md#configure-email-notifications-for-alerts)
+
+
+
+
 
 
 ## Next steps

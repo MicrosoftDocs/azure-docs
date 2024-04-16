@@ -9,7 +9,9 @@ ms.date: 12/21/2021
 ms.author: tomkerkhove
 ---
 
-# Deploy to Kubernetes with Helm
+# Deploy self-hosted gateway to Kubernetes with Helm
+
+[!INCLUDE [api-management-availability-premium-dev](../../includes/api-management-availability-premium-dev.md)]
 
 [Helm][helm] is an open-source packaging tool that helps you install and manage the lifecycle of Kubernetes applications. It allows you to manage Kubernetes charts, which are packages of pre-configured Kubernetes resources.
 

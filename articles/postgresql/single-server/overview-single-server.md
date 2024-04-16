@@ -6,13 +6,15 @@ ms.subservice: single-server
 ms.topic: overview
 ms.author: sunila
 author: sunilagarwal
-ms.custom: mvc, ignite-2022
+ms.custom: mvc
 ms.date: 06/24/2022
 ---
 
 # Azure Database for PostgreSQL Single Server
 
 [!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
+
+[!INCLUDE [azure-database-for-postgresql-single-server-deprecation](../includes/azure-database-for-postgresql-single-server-deprecation.md)]
 
 [Azure Database for PostgreSQL](./overview.md) powered by the PostgreSQL community edition is available in two deployment modes:
 
@@ -62,7 +64,7 @@ The single server service uses the FIPS 140-2 validated cryptographic module for
 
 The service allows private access to the servers using private link and provides Advanced threat protection feature. Advanced threat protection detects anomalous activities indicating unusual and potentially harmful attempts to access or exploit databases.
 
-In addition to native authentication, the single server service supports Azure Active Directory authentication. Azure AD authentication is a mechanism of connecting to the PostgreSQL servers using identities defined and managed in Azure AD. With Azure AD authentication, you can manage database user identities and other Azure services in a central location, which simplifies and centralizes access control.
+In addition to native authentication, the single server service supports Microsoft Entra authentication. Microsoft Entra authentication is a mechanism of connecting to the PostgreSQL servers using identities defined and managed in Microsoft Entra ID. With Microsoft Entra authentication, you can manage database user identities and other Azure services in a central location, which simplifies and centralizes access control.
 
 [Audit logging]() (in preview) is available to track all database level activity.
 
@@ -83,7 +85,7 @@ The service runs community version of PostgreSQL. This allows full application c
 
 ## Frequently Asked Questions
 
-Will Flexible Server replace Single Server or Will Single Server be retired soon?
+Will Flexible Server replace Single Server or will Single Server be retired soon?
 
 We continue to support Single Server and encourage you to adopt Flexible Server which has richer capabilities such as zone resilient HA, predictable performance, maximum control, custom maintenance window, cost optimization controls and simplified developer experience suitable for your enterprise workloads. If we decide to retire any service, feature, API or SKU, you will receive advance notice including a migration or transition path. Learn more about Microsoft Lifecycle policies [here](/lifecycle/faq/general-lifecycle).
 

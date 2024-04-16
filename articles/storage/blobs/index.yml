@@ -4,17 +4,16 @@ title: Azure Blob Storage documentation # < 60 chars
 summary: Azure Blob Storage is Microsoft's object storage solution for the cloud. Blob storage is optimized for storing massive amounts of unstructured data.  # < 160 chars
 
 metadata:
-  title: Azure Blob Storage documentation # Required; page title displayed in search results. Include the brand. < 60 chars.
-  description: Azure Blob Storage is Microsoft's object storage solution for the cloud. Blob storage is optimized for storing massive amounts of unstructured data. # Required; article description that is displayed in search results. < 160 chars.
-  services: storage
-  ms.service: storage #Required; service per approved list. Service slug assigned to your service by ACOM.
+  title: Azure Blob Storage documentation
+  description: Azure Blob Storage is Microsoft's object storage solution for the cloud. Blob storage is optimized for storing massive amounts of unstructured data.
+  ms.service: azure-storage
   ms.subservice: blobs
-  ms.topic: landing-page # Required
-  ms.collection: collection
-  author: normesta #Required; your GitHub user alias, with correct capitalization.
-  ms.author: normesta #Required; microsoft alias of author; optional team alias.
+  ms.custom:
+    - ignite-2023
+  ms.topic: landing-page
+  author: normesta
+  ms.author: normesta
   ms.date: 08/05/2022
-
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
 landingContent:
@@ -134,12 +133,10 @@ landingContent:
             url: data-lake-storage-access-control.md
       - linkListType: how-to-guide
         links:
-          - text: Access blob data with an Azure AD account
+          - text: Access blob data with Microsoft Entra account
             url: authorize-data-operations-portal.md
           - text: Manage access rights with Azure RBAC
             url: assign-azure-role-data-access.md
-          - text: Use a managed identity to authorize access to Blob Storage
-            url: authorize-managed-identity.md
   # Card
   - title: Transfer data
     linkLists:

@@ -4,7 +4,6 @@ description: Learn how to view customized performance, cost, security, and other
 author: seesharprun
 ms.author: sidandrews
 ms.service: cosmos-db
-ms.custom: ignite-2022
 ms.topic: conceptual
 ms.date: 08/26/2021
 ms.reviewer: mjbrown
@@ -48,9 +47,8 @@ In this category, the advisor detects the indexing mode, indexing policy, indexe
 |Name  |Description  |
 |---------|---------|
 | Lazy indexing | Detects usage of lazy indexing mode and recommends using consistent indexing mode instead. The purpose of Azure Cosmos DB’s lazy indexing mode is limited and can impact the freshness of query results in some situations so consistent indexing mode is recommended. |
-| Composite indexing| Detects the accounts where queries could benefit from composite indexes and recommend using them. Composite indexes can dramatically improve the performance and throughput consumption of some queries.|
 | Default indexing policy with many indexed paths | Detects containers running on default indexing with many indexed paths and recommends customizing the indexing policy.|
-| ORDER BY queries with high RU/s charge| Detects containers issuing ORDER BY queries with high RU/s charge and recommends exploring composite indexes.|
+| ORDER BY queries with high RU/s charge| Detects containers issuing ORDER BY queries with high RU/s charge and recommends exploring composite indexes for one container per account that issues the highest number of these queries in a 24 hour period.|
 | MongoDB 3.6 accounts with no index and high RU/s consumption| Detects Azure Cosmos DB’s API for MongoDB with 3.6 version of containers issuing queries with high RU/s charge and recommends adding indexes.|
 
 ## Cost optimization recommendations

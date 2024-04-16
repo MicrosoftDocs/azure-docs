@@ -5,9 +5,8 @@ ms.author: jonels
 author: jonels-msft
 ms.service: cosmos-db
 ms.subservice: postgresql
-ms.custom: ignite-2022
 ms.topic: conceptual
-ms.date: 09/27/2022
+ms.date: 01/18/2023
 ---
 
 # Monitor and tune Azure Cosmos DB for PostgreSQL
@@ -56,6 +55,8 @@ These metrics are available for nodes:
 |---|---|---|---|
 |active_connections|Active Connections|Count|The number of active connections to the server.|
 |apps_reserved_memory_percent|Reserved Memory Percent|Percent|Calculated from the ratio of Committed_AS/CommitLimit as shown in /proc/meminfo.|
+|cpu_credits_consumed|CPU credits consumed|Credits|Total number of credits consumed by the node. (Only available when burstable compute is provisioned on the node.)|
+|cpu_credits_remaining|CPU credits remaining|Credits|Total number of credits available to burst. (Only available when burstable compute is provisioned on the node.)|
 |cpu_percent|CPU percent|Percent|The percentage of CPU in use.|
 |iops|IOPS|Count|See the [IOPS definition](../../virtual-machines/premium-storage-performance.md#iops) and [Azure Cosmos DB for PostgreSQL throughput](resources-compute.md)|
 |memory_percent|Memory percent|Percent|The percentage of memory in use.|

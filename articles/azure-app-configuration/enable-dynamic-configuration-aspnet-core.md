@@ -2,13 +2,11 @@
 title: "Tutorial: Use dynamic configuration in an ASP.NET Core app"
 titleSuffix: Azure App Configuration
 description: In this tutorial, you learn how to dynamically update the configuration data for ASP.NET Core apps.
-services: azure-app-configuration
-documentationcenter: ""
 author: zhenlan
 ms.service: azure-app-configuration
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 09/30/2022
+ms.date: 02/20/2024
 ms.author: zhenlwa
 ms.custom: devx-track-csharp
 ---
@@ -39,7 +37,6 @@ A *sentinel key* is a key that you update after you complete the change of all o
 
 1. Open *Program.cs*, and update the `AddAzureAppConfiguration` method you added previously during the quickstart.
 
-    #### [.NET 6.x](#tab/core6x)
     ```csharp
     // Load configuration from Azure App Configuration
     builder.Configuration.AddAzureAppConfiguration(options =>
@@ -53,35 +50,6 @@ A *sentinel key* is a key that you update after you complete the change of all o
     });
     ```
 
-    #### [.NET Core 3.x](#tab/core3x)
-    ```csharp
-    public static IHostBuilder CreateHostBuilder(string[] args) =>
-        Host.CreateDefaultBuilder(args)
-            .ConfigureWebHostDefaults(webBuilder =>
-            {
-                webBuilder.ConfigureAppConfiguration(config =>
-                {
-                    //Retrieve the Connection String from the secrets manager
-                    IConfiguration settings = config.Build();
-                    string connectionString = settings.GetConnectionString("AppConfig");
-
-                    // Load configuration from Azure App Configuration
-                    config.AddAzureAppConfiguration(options =>
-                    {
-                        options.Connect(connectionString)
-                               // Load all keys that start with `TestApp:` and have no label
-                               .Select("TestApp:*", LabelFilter.Null)
-                               // Configure to reload configuration if the registered sentinel key is modified
-                               .ConfigureRefresh(refreshOptions =>
-                                    refreshOptions.Register("TestApp:Settings:Sentinel", refreshAll: true));
-                    });
-                });
-
-                webBuilder.UseStartup<Startup>();
-            });
-    ```
-    ---
-
     The `Select` method is used to load all key-values whose key name starts with *TestApp:* and that have *no label*. You can call the `Select` method more than once to load configurations with different prefixes or labels. If you share one App Configuration store with multiple apps, this approach helps load configuration only relevant to your current app instead of loading everything from your store.
 
     In the `ConfigureRefresh` method, you register keys you want to monitor for changes in your App Configuration store. The `refreshAll` parameter to the `Register` method indicates that all configurations you specified by the `Select` method will be reloaded if the registered key changes.
@@ -91,7 +59,6 @@ A *sentinel key* is a key that you update after you complete the change of all o
 
 1. Add Azure App Configuration middleware to the service collection of your app.
 
-    #### [.NET 6.x](#tab/core6x)
     Update *Program.cs* with the following code. 
 
     ```csharp
@@ -112,26 +79,8 @@ A *sentinel key* is a key that you update after you complete the change of all o
     // ... ...
     ```
 
-    #### [.NET Core 3.x](#tab/core3x)
-    Open *Startup.cs*, and update the `ConfigureServices` method.
-
-    ```csharp
-    public void ConfigureServices(IServiceCollection services)
-    {
-        services.AddRazorPages();
-
-        // Add Azure App Configuration middleware to the container of services.
-        services.AddAzureAppConfiguration();
-
-        // Bind configuration "TestApp:Settings" section to the Settings object
-        services.Configure<Settings>(Configuration.GetSection("TestApp:Settings"));
-    }   
-    ```
-    ---
-
 1. Call the `UseAzureAppConfiguration` method. It enables your app to use the App Configuration middleware to update the configuration for you automatically.
 
-    #### [.NET 6.x](#tab/core6x)
     Update *Program.cs* withe the following code. 
 
     ```csharp
@@ -153,41 +102,7 @@ A *sentinel key* is a key that you update after you complete the change of all o
     // ... ...
     ```
 
-    #### [.NET Core 3.x](#tab/core3x)
-    Update the `Configure` method in *Startup.cs*.
-
-    ```csharp
-    public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
-    {
-        if (env.IsDevelopment())
-        {
-            app.UseDeveloperExceptionPage();
-        }
-        else
-        {
-            app.UseExceptionHandler("/Error");
-            app.UseHsts();
-        }
-
-        // Use Azure App Configuration middleware for dynamic configuration refresh.
-        app.UseAzureAppConfiguration();
-
-        app.UseHttpsRedirection();
-        app.UseStaticFiles();
-
-        app.UseRouting();
-
-        app.UseAuthorization();
-
-        app.UseEndpoints(endpoints =>
-        {
-            endpoints.MapRazorPages();
-        });
-    }
-    ```
-    ---
-
-You've set up your app to use the [options pattern in ASP.NET Core](/aspnet/core/fundamentals/configuration/options) during the quickstart. When the underlying configuration of your app is updated from App Configuration, your strongly typed `Settings` object obtained via `IOptionsSnapshot<T>` is updated automatically.
+You've set up your app to use the [options pattern in ASP.NET Core](/aspnet/core/fundamentals/configuration/options) during the quickstart. When the underlying configuration of your app is updated from App Configuration, your strongly typed `Settings` object obtained via `IOptionsSnapshot<T>` is updated automatically. Note that you shouldn't use the `IOptions<T>` if dynamic configuration update is desired because it doesn't read configuration data after the app has started.
     
 ## Request-driven configuration refresh
 
@@ -199,7 +114,7 @@ The configuration refresh is triggered by the incoming requests to your web app.
 
 ## Build and run the app locally
 
-1. To build the app by using the .NET Core CLI, run the following command in the command shell:
+1. To build the app by using the .NET CLI, run the following command in the command shell:
 
     ```console
         dotnet build
@@ -229,6 +144,48 @@ The configuration refresh is triggered by the incoming requests to your web app.
 1. Refresh the browser a few times. When the cache expires after 30 seconds, the page shows with updated content.
 
     ![Launching updated quickstart app locally](./media/quickstarts/aspnet-core-app-launch-local-after.png)
+
+## Logging and monitoring
+
+Logs are output upon configuration refresh and contain detailed information on key-values retrieved from your App Configuration store and configuration changes made to your application.
+
+- A default `ILoggerFactory` is added automatically when `services.AddAzureAppConfiguration()` is invoked. The App Configuration provider uses this `ILoggerFactory` to create an instance of `ILogger`, which outputs these logs. ASP.NET Core uses `ILogger` for logging by default, so you don't need to make additional code changes to enable logging for the App Configuration provider.
+- Logs are output at different log levels. The default level is `Information`.
+
+    | Log Level | Description |
+    |---|---|
+    | Debug | Logs include the key and label of key-values your application monitors for changes from your App Configuration store. The information also includes whether the key-value has changed compared with what your application has already loaded. Enable logs at this level to troubleshoot your application if a configuration change didn't happen as expected. |
+    | Information | Logs include the keys of configuration settings updated during a configuration refresh. Values of configuration settings are omitted from the log to avoid leaking sensitive data. You can monitor logs at this level to ensure your application picks up expected configuration changes. |
+    | Warning | Logs include failures and exceptions that occurred during configuration refresh. Occasional occurrences can be ignored because the configuration provider will continue using the cached data and attempt to refresh the configuration next time. You can monitor logs at this level for repetitive warnings that may indicate potential issues. For example, you rotated the connection string but forgot to update your application. |
+
+    You can enable logging at the `Debug` log level by adding the following example to your `appsettings.json` file. This example applies to all other log levels as well.
+    ```json
+    "Logging": {
+        "LogLevel": {
+            "Microsoft.Extensions.Configuration.AzureAppConfiguration": "Debug"
+        }
+    }
+    ```
+- The logging category is `Microsoft.Extensions.Configuration.AzureAppConfiguration.Refresh`, which appears before each log. Here are some example logs at each log level:
+    ```console
+    dbug: Microsoft.Extensions.Configuration.AzureAppConfiguration.Refresh[0]
+        Key-value read from App Configuration. Change:'Modified' Key:'ExampleKey' Label:'ExampleLabel' Endpoint:'https://examplestore.azconfig.io'
+
+    info: Microsoft.Extensions.Configuration.AzureAppConfiguration.Refresh[0]
+        Setting updated. Key:'ExampleKey'
+
+    warn: Microsoft.Extensions.Configuration.AzureAppConfiguration.Refresh[0]
+        A refresh operation failed while resolving a Key Vault reference.
+    Key vault error. ErrorCode:'SecretNotFound' Key:'ExampleKey' Label:'ExampleLabel' Etag:'6LaqgBQM9C_Do2XyZa2gAIfj_ArpT52-xWwDSLb2hDo' SecretIdentifier:'https://examplevault.vault.azure.net/secrets/ExampleSecret'
+    ```
+
+Using `ILogger` is the preferred method in ASP.NET applications and is prioritized as the logging source if an instance of `ILoggerFactory` is present. However, if `ILoggerFactory` is not available, logs can alternatively be enabled and configured through the [instructions for .NET Core apps](./enable-dynamic-configuration-dotnet-core.md#logging-and-monitoring). For more information, see [logging in .NET Core and ASP.NET Core](/aspnet/core/fundamentals/logging).
+
+> [!NOTE]
+> Logging is available if you use version **6.0.0** or later of any of the following packages.
+> - `Microsoft.Extensions.Configuration.AzureAppConfiguration`
+> - `Microsoft.Azure.AppConfiguration.AspNetCore`
+> - `Microsoft.Azure.AppConfiguration.Functions.Worker`
 
 ## Clean up resources
 

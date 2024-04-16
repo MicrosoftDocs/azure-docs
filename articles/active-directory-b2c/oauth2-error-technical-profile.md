@@ -2,16 +2,20 @@
 title: Define an OAuth2 custom error technical profile in a custom policy
 titleSuffix: Azure AD B2C
 description: Define an OAuth2 custom error technical profile in a custom policy in Azure Active Directory B2C.
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: reference
-ms.date: 02/25/2022
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
+
+
+#Customer intent: As a developer using Azure Active Directory B2C, I want to define an OAuth2 custom error technical profile, so that I can handle and return custom error messages to my OAuth2 or OpenId Connect relying party application when something goes wrong within my policy.
+
 ---
 
 # Define an OAuth2 custom error technical profile in an Azure Active Directory B2C custom policy

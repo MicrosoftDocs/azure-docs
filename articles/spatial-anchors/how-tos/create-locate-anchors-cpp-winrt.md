@@ -83,14 +83,14 @@ Learn more about the [TokenRequiredDelegate](/cpp/api/spatial-anchors/winrt/toke
     });
 ```
 
-[!INCLUDE [Azure AD Tokens](../../../includes/spatial-anchors-create-locate-anchors-aad-tokens.md)]
+[!INCLUDE [Azure AD Tokens](../../../includes/spatial-anchors-create-locate-anchors-tokens.md)]
 
 ```cpp
     auto configuration = m_cloudSession.Configuration();
     configuration.AuthenticationToken(LR"(MyAuthenticationToken)");
 ```
 
-[!INCLUDE [Azure AD Tokens Event](../../../includes/spatial-anchors-create-locate-anchors-aad-tokens-event.md)]
+[!INCLUDE [Azure AD Tokens Event](../../../includes/spatial-anchors-create-locate-anchors-tokens-event.md)]
 
 ```cpp
     m_accessTokenRequiredToken = m_cloudSession.TokenRequired(winrt::auto_revoke, [](auto&&, auto&& args) {

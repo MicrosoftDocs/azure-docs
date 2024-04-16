@@ -11,13 +11,13 @@ ms.date: 10/11/2022
 ms.topic: how-to
 ---
 
-# Azure Arc-enabled SQL Managed Instance with Active Directory authentication 
+# SQL Managed Instance enabled by Azure Arc with Active Directory authentication 
 
-Azure Arc-enabled data services support Active Directory (AD) for Identity and Access Management (IAM). The Arc-enabled SQL Managed Instance uses an existing on-premises Active Directory (AD) domain for authentication. 
+Azure Arc-enabled data services support Active Directory (AD) for Identity and Access Management (IAM). SQL Managed Instance enabled by Azure Arc uses an existing on-premises Active Directory (AD) domain for authentication. 
 
-This article describes how to enable Azure Arc-enabled SQL Managed Instance with Active Directory (AD) Authentication. The article demonstrates two possible AD integration modes: 
+This article describes how to enable SQL Managed Instance enabled by Azure Arc with Active Directory (AD) Authentication. The article demonstrates two possible AD integration modes: 
 -  Customer-managed keytab (CMK) 
--  System-managed keytab (SMK)  
+-  Service-managed keytab (SMK)  
 
 The notion of Active Directory(AD) integration mode describes the process for keytab management including: 
 - Creating AD account used by SQL Managed Instance
@@ -28,10 +28,10 @@ The notion of Active Directory(AD) integration mode describes the process for ke
 To enable Active Directory authentication for SQL Server on Linux and Linux containers, use a [keytab file](/sql/linux/sql-server-linux-ad-auth-understanding#what-is-a-keytab-file). The keytab file is a cryptographic file containing service principal names (SPNs), account names and hostnames. SQL Server uses the keytab file for authenticating itself to the Active Directory (AD) domain and authenticating its clients using Active Directory (AD). Do the following steps to enable Active Directory authentication for Arc-enabled SQL Managed Instance: 
 
 - [Deploy data controller](create-data-controller-indirect-cli.md) 
-- [Deploy a customer-managed keytab AD connector](deploy-customer-managed-keytab-active-directory-connector.md) or [Deploy a system-managed keytab AD connector](deploy-system-managed-keytab-active-directory-connector.md)
+- [Deploy a customer-managed keytab AD connector](deploy-customer-managed-keytab-active-directory-connector.md) or [Deploy a service-managed keytab AD connector](deploy-system-managed-keytab-active-directory-connector.md)
 - [Deploy SQL managed instances](deploy-active-directory-sql-managed-instance.md)
 
-The following diagram shows how to enable Active Directory authentication for Azure Arc-enabled SQL Managed Instance:
+The following diagram shows how to enable Active Directory authentication for SQL Managed Instance enabled by Azure Arc:
 
 ![Actice Directory Deployment User journey](media/active-directory-deployment/active-directory-user-journey.png)
 
@@ -40,16 +40,16 @@ The following diagram shows how to enable Active Directory authentication for Az
 
 In order to enable Active Directory authentication for SQL Managed Instance, the instance must be deployed in an environment that allows it to communicate with the Active Directory domain. 
 
-To facilitate this, Azure Arc-enabled data services introduces a new Kubernetes-native [Custom Resource Definition (CRD)](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/) called `Active Directory Connector`. It provides Azure Arc-enabled SQL managed instances running on the same data controller the ability to perform Active Directory authentication.
+To facilitate this, Azure Arc-enabled data services introduces a new Kubernetes-native [Custom Resource Definition (CRD)](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/) called `Active Directory Connector`. It provides instances running on the same data controller the ability to perform Active Directory authentication.
 
 ## Compare AD integration modes
 
 What is the difference between the two Active Directory integration modes?
 
-To enable Active Directory authentication for Arc-enabled SQL Managed Instance, you need an Active Directory connector where you specify the Active Directory integration deployment mode. The two Active Directory integration modes are:
+To enable Active Directory authentication for SQL Managed Instance enabled by Azure Arc, you need an Active Directory connector where you specify the Active Directory integration deployment mode. The two Active Directory integration modes are:
 
 - Customer-managed keytab
-- System-managed keytab 
+- Service-managed keytab 
 
 The following section compares these modes.
 
@@ -64,13 +64,13 @@ The following section compares these modes.
 
 For either mode, you need a specific Active Directory account, keytab, and Kubernetes secret for each SQL managed instance.
 
-## Enable Active Directory authentication in Arc-enabled SQL Managed Instance
+## Enable Active Directory authentication 
 
-When you deploy SQL Managed Instance with the intention to enable Active Directory authentication, the deployment needs to reference an Active Directory connector instance to use. Referencing the Active Directory connector in managed instance specification automatically sets up the needed environment in the SQL Managed Instance container for the managed instance to authenticate with Active Directory.
+When you deploy an instance with the intention to enable Active Directory authentication, the deployment needs to reference an Active Directory connector instance to use. Referencing the Active Directory connector in managed instance specification automatically sets up the needed environment in instance container to authenticate with Active Directory.
 
-## Next steps
+## Related content
 
 * [Deploy a customer-managed keytab Active Directory (AD) connector](deploy-customer-managed-keytab-active-directory-connector.md)
 * [Deploy a system-managed keytab Active Directory (AD) connector](deploy-system-managed-keytab-active-directory-connector.md)
-* [Deploy an Azure Arc-enabled SQL Managed Instance in Active Directory (AD)](deploy-active-directory-sql-managed-instance.md)
-* [Connect to Azure Arc-enabled SQL Managed Instance using Active Directory authentication](connect-active-directory-sql-managed-instance.md)
+* [Deploy SQL Managed Instance enabled by Azure Arc in Active Directory (AD)](deploy-active-directory-sql-managed-instance.md)
+* [Connect to SQL Managed Instance enabled by Azure Arc using Active Directory authentication](connect-active-directory-sql-managed-instance.md)

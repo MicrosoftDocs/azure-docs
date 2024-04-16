@@ -1,11 +1,10 @@
 ---
 title: Use a managed identity to access Azure Key Vault from Azure Cosmos DB
-description: Use managed identity in Azure Cosmos DB to access Azure Key Vault. 
+description: Use managed identity in Azure Cosmos DB to access Azure Key Vault.
 author: seesharprun
 ms.author: sidandrews
 ms.service: cosmos-db
 ms.devlang: csharp
-ms.custom: ignite-2022
 ms.topic: how-to
 ms.date: 06/01/2022
 ms.reviewer: thweiss
@@ -90,4 +89,4 @@ In this step, create an access policy in Azure Key Vault using the previously ma
 ## Next steps
 
 * To use customer-managed keys in Azure Key Vault with your Azure Cosmos DB account, see [configure customer-managed keys](how-to-setup-cmk.md#using-managed-identity)
-* To use Azure Key Vault to manage secrets, see [secure credentials](access-secrets-from-keyvault.md).
+* To use Azure Key Vault to manage secrets, see [secure credentials](store-credentials-key-vault.md).

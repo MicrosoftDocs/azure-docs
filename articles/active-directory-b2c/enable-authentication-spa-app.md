@@ -1,16 +1,20 @@
 ---
 title: Enable authentication in a SPA application by using Azure Active Directory B2C building blocks
 description:  This article discusses the building blocks of Azure Active Directory B2C for signing in and signing up users in a SPA application.
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 ms.service: active-directory
-ms.workload: identity
-ms.topic: reference
-ms.date: 06/25/2021
+
+ms.topic: how-to
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: "b2c-support"
+
+
+#Customer intent: As a developer building a single-page application, I want to enable authentication using Azure AD B2C, so that I can securely authenticate users accessing my application and protect sensitive data.
+
 ---
 
 # Enable authentication in your own single-page application by using Azure AD B2C
@@ -93,7 +97,7 @@ app.listen(port, () => {
 
 ## Step 4: Create the SPA user interface
 
-Add the SAP app `index.html` file. This file implements a user interface that's built with a Bootstrap framework, and it imports script files for configuration, authentication, and web API calls.
+Add the SPA app `index.html` file. This file implements a user interface that's built with a Bootstrap framework, and it imports script files for configuration, authentication, and web API calls.
 
 The resources referenced by the *index.html* file are detailed in the following table: 
 
@@ -215,13 +219,13 @@ To specify your Azure AD B2C user flows, do the following:
 
 1. Replace `B2C_1_SUSI` with your sign-in Azure AD B2C Policy name.
 1. Replace `B2C_1_EditProfile` with your edit profile Azure AD B2C policy name.
-1. Replace all instances of `contoso` with your [Azure AD B2C tenant name](./tenant-management.md#get-your-tenant-name).
+1. Replace all instances of `contoso` with your [Azure AD B2C tenant name](./tenant-management-read-tenant-name.md#get-your-tenant-name).
 
 ## Step 7: Use the MSAL to sign in the user
 
 In this step, implement the methods to initialize the sign-in flow, API access token acquisition, and the sign-out methods. 
 
-For more information, see the [MSAL PublicClientApplication class reference](https://azuread.github.io/microsoft-authentication-library-for-js/ref/classes/_azure_msal_browser.publicclientapplication.html), and [Use the Microsoft Authentication Library (MSAL) to sign in the user](../active-directory/develop/tutorial-v2-javascript-spa.md#use-the-msal-to-sign-in-the-user) articles.
+For more information, see the [Use the Microsoft Authentication Library (MSAL) to sign in the user](../active-directory/develop/tutorial-v2-javascript-spa.md#use-the-msal-to-sign-in-the-user) article.
 
 To sign in the user, do the following:
 

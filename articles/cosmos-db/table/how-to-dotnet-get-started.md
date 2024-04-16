@@ -1,5 +1,5 @@
 ---
-title: Get started with Azure Cosmos DB for Table and .NET
+title: Get started with Azure Cosmos DB for Table using .NET
 description: Get started developing a .NET application that works with Azure Cosmos DB for Table. This article helps you learn how to set up a project and configure access to an Azure Cosmos DB for Table endpoint.
 author: seesharprun
 ms.author: sidandrews
@@ -8,10 +8,10 @@ ms.subservice: table
 ms.devlang: csharp
 ms.topic: how-to
 ms.date: 07/06/2022
-ms.custom: devx-track-csharp, ignite-2022
+ms.custom: devx-track-csharp, devguide-csharp, cosmos-db-dev-journey, devx-track-dotnet
 ---
 
-# Get started with Azure Cosmos DB for Table and .NET
+# Get started with Azure Cosmos DB for Table using .NET
 
 [!INCLUDE[Table](../includes/appliesto-table.md)]
 
@@ -21,10 +21,10 @@ This article shows you how to connect to Azure Cosmos DB for Table using the .NE
 
 ## Prerequisites
 
-* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
-* Azure Cosmos DB for Table account. [Create a API for Table account](how-to-create-account.md).
-* [.NET 6.0 or later](https://dotnet.microsoft.com/download)
-* [Azure Command-Line Interface (CLI)](/cli/azure/) or [Azure PowerShell](/powershell/azure/)
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
+- Azure Cosmos DB for Table account. [Create a API for Table account](how-to-create-account.md).
+- [.NET 6.0 or later](https://dotnet.microsoft.com/download)
+- [Azure Command-Line Interface (CLI)](/cli/azure/) or [Azure PowerShell](/powershell/azure/)
 
 ## Set up your project
 
@@ -52,7 +52,7 @@ dotnet build
 
 To connect to the API for Table of Azure Cosmos DB, create an instance of the [``TableServiceClient``](/dotnet/api/azure.data.tables.tableserviceclient) class. This class is the starting point to perform all operations against tables. There are two primary ways to connect to an API for Table account using the **TableServiceClient** class:
 
-* [Connect with a API for Table connection string](#connect-with-a-connection-string)
+- [Connect with a API for Table connection string](#connect-with-a-connection-string)
 
 ### Connect with a connection string
 
@@ -143,11 +143,11 @@ Create a new instance of the **TableServiceClient** class with the ``COSMOS_CONN
 
 As you build your application, your code will primarily interact with four types of resources:
 
-* The API for Table account, which is the unique top-level namespace for your Azure Cosmos DB data.
+- The API for Table account, which is the unique top-level namespace for your Azure Cosmos DB data.
 
-* Tables, which contain a set of individual items in your account.
+- Tables, which contain a set of individual items in your account.
 
-* Items, which represent an individual item in your table.
+- Items, which represent an individual item in your table.
 
 The following diagram shows the relationship between these resources.
 
@@ -174,11 +174,11 @@ The following guides show you how to use each of these classes to build your app
 
 ## See also
 
-* [Package (NuGet)](https://www.nuget.org/packages/Azure.Data.Tables/)
-* [Samples](samples-dotnet.md)
-* [API reference](/dotnet/api/azure.data.tables)
-* [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/tables/Azure.Data.Tables)
-* [Give Feedback](https://github.com/Azure/azure-sdk-for-net/issues)
+- [Package (NuGet)](https://www.nuget.org/packages/Azure.Data.Tables/)
+- [Samples](samples-dotnet.md)
+- [API reference](/dotnet/api/azure.data.tables)
+- [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/tables/Azure.Data.Tables)
+- [Give Feedback](https://github.com/Azure/azure-sdk-for-net/issues)
 
 ## Next steps
 

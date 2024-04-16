@@ -5,6 +5,7 @@ description: Learn how to connect your Azure Front Door Premium to a webapp priv
 services: frontdoor
 author: duongau
 ms.service: frontdoor
+ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.date: 10/04/2022
 ms.author: duau
@@ -15,7 +16,7 @@ ms.author: duau
 This article will guide you through how to configure Azure Front Door Premium tier to connect to your App service privately using the Azure Private Link service with Azure CLI.
 
 
-[!INCLUDE [azure-cli-prepare-your-environment](../../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Have a functioning Azure Front Door Premium profile, an endpoint and an origin group. For more information on how to create an Azure Front Door profile, see [Create a Front Door - CLI](../create-front-door-cli.md).

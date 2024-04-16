@@ -5,10 +5,9 @@ description: Learn how to view Azure saving plan costs for chargeback.
 author: bandersmsft
 ms.reviewer: onwokolo
 ms.service: cost-management-billing
-ms.subservice: reservations
-ms.custom: ignite-2022
+ms.subservice: savings-plan
 ms.topic: how-to
-ms.date: 10/12/2022
+ms.date: 02/14/2024
 ms.author: banders
 ---
 
@@ -16,7 +15,7 @@ ms.author: banders
 
 Enterprise Agreement and Microsoft Customer Agreement billing readers can view amortized cost data for savings plans. They can use the cost data to charge back the monetary value for a subscription, resource group, resource, or a tag to their partners. In amortized data, the effective price is the prorated hourly savings plan cost. The cost is the total cost of savings plan usage by the resource on that day.
 
-Users with an individual subscription can get the amortized cost data from their usage file. When a resource gets a savings plan discount, the _AdditionalInfo_ section in the usage file contains the savings plan details. For more information, see [Download usage from the Azure portal](../understand/download-azure-daily-usage.md#download-usage-from-the-azure-portal-csv).
+Users with an individual subscription can get the amortized cost data from their usage file. When a resource gets a savings plan discount, the _AdditionalInfo_ section in the usage file contains the savings plan details. For more information, see [View and download your Azure usage and charges](../understand/download-azure-daily-usage.md).
 
 ## View savings plan usage data for show back and charge back
 
@@ -44,7 +43,7 @@ The *EffectivePrice* for the usage that gets savings plan discount is the prorat
 
 You can get the data using the API or download it from Azure portal.
 
-You call the [Usage Details API](/rest/api/consumption/usagedetails/list) to get the new data. For for information about terminology, see [Usage terms](../understand/understand-usage.md).
+You call the [Usage Details API](/rest/api/consumption/usagedetails/list) to get the new data. For more information about terminology, see [Usage terms](../understand/understand-usage.md).
 
 Here's an example call to the Usage Details API:
 
@@ -63,13 +62,13 @@ Information in the following table about metric and filter can help solve common
 | **Usage that got savings plan discount**  | Request for an ActualCost report. <br><br> Once you've ingested all of the usage, look for records with ChargeType = 'Usage' and PricingModel = 'SavingsPlan'. |
 | **Usage that didn't get savings plan discount**  | Request for an ActualCost report.<br><br> Once you've ingested all of the usage, filter for usage records with PricingModel = 'OnDemand'. |
 | **Amortized charges (usage and purchases)** | Request for an AmortizedCost report. |
-| **Unused savings plan report**  | Request for an AmortizedCost report.<br><br> Once you've ingested all of the usage, filter for usage records with ChargeType = 'UnusedBenefit' and PricingModel ='SavingsPlan'. |
+| **Unused savings plan report**  | Request for an AmortizedCost report.<br><br> Once you've ingested all of the usage, filter for usage records with ChargeType = 'UnusedSavingsPlan' and PricingModel ='SavingsPlan'. |
 | **Savings plan purchases**  | Request for an AmortizedCost report.<br><br> Once you've ingested all of the usage, filter for usage records with ChargeType = 'Purchase' and PricingModel = 'SavingsPlan'. |
 | **Refunds**  | Request for an AmortizedCost report.<br><br> Once you've ingested all of the usage, filter for usage records with ChargeType = 'Refund'. |
 
 ## Download the usage CSV file with new data
 
-If you're an EA admin, you can download the CSV file that contains new usage data from Azure portal. This data isn't available from the EA portal (ea.azure.com), you must download the usage file from Azure portal (portal.azure.com) to see the new data.
+If you're an EA admin, you can download the CSV file that contains new usage data from Azure portal.
 
 In the Azure portal, navigate to [Cost management + billing](https://portal.azure.com/#blade/Microsoft_Azure_Billing/ModernBillingMenuBlade/BillingAccounts).
 

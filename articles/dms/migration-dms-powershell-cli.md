@@ -1,21 +1,20 @@
 ---
 title: Migrate databases at scale using Azure PowerShell / CLI (Preview)
 description: Learn how to use Azure PowerShell or CLI to migrate databases at scale with the Azure SQL migration extension in Azure Data Studio
-services: database-migration
-author: croblesm
-ms.author: roblescarlos
-manager: 
+author: abhims14
+ms.author: abhishekum
 ms.reviewer: randolph.west
-ms.service: dms
-ms.workload: data-services
-ms.topic: conceptual
 ms.date: 04/26/2022
-ms.custom: 
+ms.service: dms
+ms.topic: conceptual
+ms.custom:
+  - devx-track-azurepowershell
+  - sql-migration-content
 ---
 
 # Migrate databases at scale using automation (Preview)
 
-The [Azure SQL Migration extension for Azure Data Studio](/sql/azure-data-studio/extensions/azure-sql-migration-extension) brings together a simplified assessment, recommendation, and migration experience that delivers the following capabilities:
+The [Azure SQL Migration extension for Azure Data Studio](/azure-data-studio/extensions/azure-sql-migration-extension) brings together a simplified assessment, recommendation, and migration experience that delivers the following capabilities:
 - An enhanced assessment mechanism can evaluate SQL Server instances, identifying databases ready for migration to the different Azure SQL targets.
 - An SKU recommendation engine (Preview) that collects performance data from the source SQL Server instance on-premises, generating right-sized SKU recommendations based on your Azure SQL target.
 - A reliable Azure service powered by Azure Database Migration Service that orchestrates data movement activities to deliver a seamless migration experience.
@@ -33,7 +32,7 @@ SQL Server to Azure SQL Managed Instance (using file share)|[PowerShell](https:/
 SQL Server to Azure SQL Managed Instance (using Azure storage)|[PowerShell](https://github.com/Azure-Samples/data-migration-sql/blob/main//PowerShell/sql-server-to-sql-mi-blob.md) / [Azure CLI](https://github.com/Azure-Samples/data-migration-sql/blob/main/CLI/sql-server-to-sql-mi-blob.md)
 SQL Server to SQL Server on Azure Virtual Machines (using file share)|[PowerShell](https://github.com/Azure-Samples/data-migration-sql/blob/main//PowerShell/sql-server-to-sql-vm-fileshare.md) / [Azure CLI](https://github.com/Azure-Samples/data-migration-sql/blob/main/CLI/sql-server-to-sql-vm-fileshare.md)
 SQL Server to SQL Server on Azure Virtual Machines (using Azure Storage)|[PowerShell](https://github.com/Azure-Samples/data-migration-sql/blob/main//PowerShell/sql-server-to-sql-vm-blob.md) / [Azure CLI](https://github.com/Azure-Samples/data-migration-sql/blob/main/CLI/sql-server-to-sql-vm-blob.md)
-SQL Server to Azure SQL Database (Preview)|[PowerShell](https://github.com/Azure-Samples/data-migration-sql/blob/main//PowerShell/sql-server-to-sql-db.md) / [Azure CLI](https://github.com/Azure-Samples/data-migration-sql/blob/main/CLI/sql-server-to-sql-db.md)
+SQL Server to Azure SQL Database |[PowerShell](https://github.com/Azure-Samples/data-migration-sql/blob/main//PowerShell/sql-server-to-sql-db.md) / [Azure CLI](https://github.com/Azure-Samples/data-migration-sql/blob/main/CLI/sql-server-to-sql-db.md)
 SKU recommendations (Preview)|[PowerShell](https://github.com/Azure-Samples/data-migration-sql/blob/main//PowerShell/sql-server-sku-recommendation.md) / [Azure CLI](https://github.com/Azure-Samples/data-migration-sql/blob/main/CLI/sql-server-sku-recommendation.md)
 End-to-End migration automation|[PowerShell](https://github.com/Azure-Samples/data-migration-sql/blob/main//PowerShell/scripts/) / [Azure CLI](https://github.com/Azure-Samples/data-migration-sql/blob/main/CLI/scripts/)
 End-to-End migration automation for multiple databases|[PowerShell](https://github.com/Azure-Samples/data-migration-sql/blob/main//PowerShell/scripts/multiple%20databases/) / [Azure CLI](https://github.com/Azure-Samples/data-migration-sql/blob/main/CLI/scripts/multiple%20databases/)
@@ -43,19 +42,19 @@ End-to-End migration automation for multiple databases|[PowerShell](https://gith
 Pre-requisites that are common across all supported migration scenarios using Azure PowerShell or Azure CLI are:
 
 * Have an Azure account that is assigned to one of the built-in roles listed below:
-    - Contributor for the target Azure SQL Managed Instance, SQL Server on Azure Virtual Machines or Azure SQL Database (Preview) and, Storage Account to upload your database backup files from SMB network share (*Not applicable for Azure SQL Database*).
-    - Reader role for the Azure Resource Groups containing the target Azure SQL Managed Instance, SQL Server on Azure Virtual Machines or Azure SQL Database (Preview).
+    - Contributor for the target Azure SQL Managed Instance, SQL Server on Azure Virtual Machines or Azure SQL Database and, Storage Account to upload your database backup files from SMB network share (*Not applicable for Azure SQL Database*).
+    - Reader role for the Azure Resource Groups containing the target Azure SQL Managed Instance, SQL Server on Azure Virtual Machines or Azure SQL Database.
     - Owner or Contributor role for the Azure subscription.
     > [!IMPORTANT]
     > Azure account is only required when running the migration steps and is not required for assessment or Azure recommendation steps process.
-* Create a target [Azure SQL Managed Instance](/azure/azure-sql/managed-instance/create-configure-managed-instance-powershell-quickstart), [SQL Server on Azure Virtual Machine](/azure/azure-sql/virtual-machines/windows/sql-vm-create-powershell-quickstart), or [Azure SQL Database (Preview)](/azure/azure-sql/database/single-database-create-quickstart)
+* Create a target [Azure SQL Managed Instance](/azure/azure-sql/managed-instance/create-configure-managed-instance-powershell-quickstart), [SQL Server on Azure Virtual Machine](/azure/azure-sql/virtual-machines/windows/sql-vm-create-powershell-quickstart), or [Azure SQL Database](/azure/azure-sql/database/single-database-create-quickstart)
     > [!IMPORTANT] 
-    > If your target is Azure SQL Database (Preview) you have to migrate database schema from source to target using [SQL Server dacpac extension](/sql/azure-data-studio/extensions/sql-server-dacpac-extension) or, [SQL Database Projects extension](/sql/azure-data-studio/extensions/sql-database-project-extension) for Azure Data Studio.
+    > If your target is Azure SQL Database you have to migrate database schema from source to target using [SQL Server dacpac extension](/azure-data-studio/extensions/sql-server-dacpac-extension) or, [SQL Database Projects extension](/azure-data-studio/extensions/sql-database-project-extension) for Azure Data Studio.
     > 
     > If you have an existing Azure Virtual Machine, it should be registered with [SQL IaaS Agent extension in Full management mode](/azure/azure-sql/virtual-machines/windows/sql-server-iaas-agent-extension-automate-management#management-modes).
 
 * If your target is **Azure SQL Managed Instance** or **SQL Server on Azure Virtual Machine** ensure that the logins used to connect the source SQL Server are members of the *sysadmin* server role or have `CONTROL SERVER` permission.
-* If your target is **Azure SQL Database (Preview)**, ensure that the login used to connect the source SQL Server is a member, and the `db_datareader` and login for the target SQL server is `db_owner`.
+* If your target is **Azure SQL Database**, ensure that the login used to connect the source SQL Server is a member, and the `db_datareader` and login for the target SQL server is `db_owner`.
 * Use one of the following storage options for the full database and transaction log backup files: 
     - SMB network share 
     - Azure storage account file share or blob container 
@@ -64,11 +63,10 @@ Pre-requisites that are common across all supported migration scenarios using Az
     > - If your database backup files are provided in an SMB network share, [Create an Azure storage account](../storage/common/storage-account-create.md) that allows the DMS service to upload the database backup files.  Make sure to create the Azure Storage Account in the same region as the Azure Database Migration Service instance is created.
     > - Make sure the Azure storage account blob container is used exclusively to store backup files only. Any other type of files (txt, png, jpg, etc.) will interfere with the restore process leading to a failure.
     > - Azure Database Migration Service does not initiate any backups, and instead uses existing backups, which you may already have as part of your disaster recovery plan, for the migration.
-    > - You should take [backups using the `WITH CHECKSUM` option](/sql/relational-databases/backup-restore/enable-or-disable-backup-checksums-during-backup-or-restore-sql-server). 
     > - Each backup can be written to either a separate backup file or multiple backup files. However, appending multiple backups (i.e. full and t-log) into a single backup media is not supported. 
     > - Use compressed backups to reduce the likelihood of experiencing potential issues associated with migrating large backups.
 * Ensure that the service account running the source SQL Server instance has read and write permissions on the SMB network share that contains database backup files.
-* The source SQL Server instance certificate from a database protected by Transparent Data Encryption (TDE) must be migrated to the target Azure SQL Managed Instance or SQL Server on Azure Virtual Machine before migrating data. To learn more, see [Migrate a certificate of a TDE-protected database to Azure SQL Managed Instance](/azure/azure-sql/managed-instance/tde-certificate-migrate) and [Move a TDE Protected Database to Another SQL Server](/sql/relational-databases/security/encryption/move-a-tde-protected-database-to-another-sql-server).
+* The source SQL Server instance certificate from a database protected by Transparent Data Encryption (TDE) must be migrated to the target Azure SQL Managed Instance or SQL Server on Azure Virtual Machine before migrating data. For more information about migrating TDE-enabled databases, see [Tutorial: Migrate TDE-enabled databases (preview) to Azure SQL in Azure Data Studio](./tutorial-transparent-data-encryption-migration-ads.md).
     > [!TIP]
     > If your database contains sensitive data that is protected by [Always Encrypted](/sql/relational-databases/security/encryption/configure-always-encrypted-using-sql-server-management-studio), migration process using Azure Data Studio with DMS will automatically migrate your Always Encrypted keys to your target Azure SQL Managed Instance or SQL Server on Azure Virtual Machine.
 
@@ -88,7 +86,7 @@ Pre-requisites that are common across all supported migration scenarios using Az
 * If you're using the Azure Database Migration Service for the first time, ensure that Microsoft.DataMigration resource provider is registered in your subscription. You can follow the steps to [register the resource provider](./quickstart-create-data-migration-service-portal.md#register-the-resource-provider)
 
     > [!IMPORTANT]
-    > If your migration target is Azure SQL Database (Preview), you don't need backups to perform this migration. The migration to Azure SQL Database is considered a logical migration involving the database's pre-creation and data movement (performed by DMS).
+    > If your migration target is Azure SQL Database, you don't need backups to perform this migration. The migration to Azure SQL Database is considered a logical migration involving the database's pre-creation and data movement (performed by DMS).
 
 ## Automate database migrations
 Using Azure PowerShell [Az.DataMigration](/powershell/module/az.datamigration) or Azure CLI [az datamigration](/cli/azure/datamigration), you can migrate databases by automating the creation of the Azure Database Migration Service, configuring database migrations for online migration, and performing a cutover. There are several more commands and functionality that are documented in [Azure Samples](https://github.com/Azure-Samples/data-migration-sql).

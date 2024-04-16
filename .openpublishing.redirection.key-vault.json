@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path_from_root": "/articles/key-vault/general/vs-key-vault-add-connected-service.md",
+      "redirect_url": "/visualstudio/azure/vs-key-vault-add-connected-service",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/key-vault/key-vault-versions.md",
       "redirect_url": "/azure/key-vault",
       "redirect_document_id": false
@@ -495,7 +500,6 @@
       "redirect_url": "/azure/aks/csi-secrets-store-driver",
       "redirect_document_id": false
     },
-
     {
       "source_path_from_root": "/articles/key-vault/general/assign-access-policy-portal.md",
       "redirect_url": "/azure/key-vault/general/assign-access-policy",
@@ -511,6 +515,5 @@
       "redirect_url": "/azure/key-vault/general/assign-access-policy",
       "redirect_document_id": false
     }
-
   ]
 }

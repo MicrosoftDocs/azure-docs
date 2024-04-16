@@ -1,9 +1,9 @@
 ---
-title: Customize the Azure IoT Central UI | Microsoft Docs
-description: How to customize the theme, text, and help links for your Azure IoT Central application
+title: Customize the Azure IoT Central UI
+description: How to customize the theme, text, and help links for your Azure IoT Central application to apply your branding to the application.
 author: dominicbetts
 ms.author: dobett
-ms.date: 04/01/2022
+ms.date: 05/22/2023
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
@@ -18,17 +18,20 @@ This article describes how you can customize the UI of your application by apply
 
 The following screenshot shows a page using the standard theme:
 
-![Standard IoT Central theme](./media/howto-customize-ui/standard-ui.png)
+:::image type="content" source="media/howto-customize-ui/standard-ui.png" alt-text="Screenshot that shows the default UI theme." lightbox="media/howto-customize-ui/standard-ui.png":::
 
 The following screenshot shows a page using a custom screenshot with the customized UI elements highlighted:
 
-![Custom IoT Central theme](./media/howto-customize-ui/themed-ui.png)
+:::image type="content" source="media/howto-customize-ui/themed-ui.png" alt-text="Screenshot that shows a custom UI theme." lightbox="media/howto-customize-ui/themed-ui.png":::
+
+> [!TIP]
+> You can also customize the image shown in browser's address bar and list of favorites.
 
 ## Create theme
 
 To create a custom theme, navigate to the **Appearance** section in the **Customization** page.
 
-![IoT Central themes](./media/howto-customize-ui/themes.png)
+:::image type="content" source="media/howto-customize-ui/themes.png" alt-text="Screenshot that shows the appearance customization page." lightbox="media/howto-customize-ui/themes.png":::
 
 On this page, you can customize the following aspects of your application:
 
@@ -59,11 +62,11 @@ To provide custom help information to your operators and other users, you can mo
 
 To modify the help links, navigate to the **Help links** section in the **Customization** page.
 
-![Customize IoT Central help links](./media/howto-customize-ui/help-links.png)
+:::image type="content" source="media/howto-customize-ui/help-links.png" alt-text="Screenshot that shows how to customize the help links." lightbox="media/howto-customize-ui/help-links.png":::
 
 You can also add new entries to the help menu and remove default entries:
 
-![Customized IoT Central help](./media/howto-customize-ui/custom-help.png)
+:::image type="content" source="media/howto-customize-ui/custom-help.png" alt-text="Screenshot that shows the list of help links." lightbox="media/howto-customize-ui/custom-help.png":::
 
 > [!NOTE]
 > You can always revert back to the default help links on the **Customization** page.
@@ -72,7 +75,7 @@ You can also add new entries to the help menu and remove default entries:
 
 To change text labels in the application, navigate to the **Text** section in the **Customization** page.
 
-On this page, you can customize the text of your application for all supported languages. You can change 'Device' related text to any word you prefer using the text customization file. After you upload the file, the application text automatically appears with the updated words. You can make further customizations by editing and overwriting the customization file. You can repeat the process for any language that the IoT Central UI supports.
+On this page, you can customize the text of your application for all supported languages. After you upload the custom text file, the application text automatically appears with the updated text. You can make further customizations by editing and overwriting the customization file. You can repeat the process for any language that the IoT Central UI supports.
 
 Following example shows how to change the word `Device` to `Asset` when you view the application in English:
 
@@ -177,11 +180,11 @@ Following example shows how to change the word `Device` to `Asset` when you view
 
 1. Upload your edited customization file and select **Save** to see your new text in the application:
 
-    :::image type="content" source="media/howto-customize-ui/upload-custom-text.png" alt-text="Screenshot showing how to upload custom text file.":::
+    :::image type="content" source="media/howto-customize-ui/upload-custom-text.png" alt-text="Screenshot showing how to upload a custom text file." lightbox="media/howto-customize-ui/upload-custom-text.png":::
 
     The UI now uses the new text values:
 
-    :::image type="content" source="media/howto-customize-ui/updated-ui-text.png" alt-text="Screenshot that shows updated text in the U I.":::
+    :::image type="content" source="media/howto-customize-ui/updated-ui-text.png" alt-text="Screenshot that shows updated text in the UI." lightbox="media/howto-customize-ui/updated-ui-text.png":::
 
 You can reupload the customization file with further changes by selecting the relevant language from the list on the **Text** section in the **Customization** page.
 

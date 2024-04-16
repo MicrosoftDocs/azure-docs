@@ -1,14 +1,14 @@
 ---
 title: Java app to connect and run SQL commands on Azure Cosmos DB for PostgreSQL
 description: See how to create a Java app that connects and runs SQL statements on Azure Cosmos DB for PostgreSQL.
-ms.author: sasriram
-author: saimicrosoft
+ms.author: nlarin
+author: niklarin
 ms.service: cosmos-db
 ms.subservice: postgresql
-ms.custom: ignite-2022
+ms.custom: devx-track-extended-java
 ms.topic: quickstart
 recommendations: false
-ms.date: 10/26/2022
+ms.date: 06/05/2023
 ---
 
 # Java app to connect and run SQL commands on Azure Cosmos DB for PostgreSQL
@@ -25,7 +25,7 @@ Create a new Java project and a configuration file to connect to Azure Cosmos DB
 
 ### Create a new Java project
 
-Using your favorite integrated development environment (IDE), create a new Java project with groupId `test` and artifactId `crud`. In the project's root directory, add a *pom.xml* file with the following contents. This file configures [Apache Maven](https://maven.apache.org) to use Java 18 and a recent PostgreSQL driver for Java.
+Using your favorite integrated development environment (IDE), create a new Java project with groupId `test` and artifactId `crud`. In the project's root directory, add a *pom.xml* file with the following contents. This file configures [Apache Maven](https://maven.apache.org) to use Java 8 and a recent PostgreSQL driver for Java.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -92,7 +92,7 @@ In *src/main/resources/*, create an *application.properties* file with the follo
 
 ```properties
 driver.class.name=org.postgresql.Driver
-db.url=jdbc:postgresql://c.<cluster>.postgres.database.azure.com:5432/citus?ssl=true&sslmode=require
+db.url=jdbc:postgresql://c-<cluster>.<uniqueID>.postgres.cosmos.azure.com:5432/citus?ssl=true&sslmode=require
 db.username=citus
 db.password=<password>
 ```
@@ -637,7 +637,7 @@ public class DemoApplication
     }
     private static final String DB_USERNAME = "citus";
     private static final String DB_PASSWORD = "<password>";
-    private static final String DB_URL = "jdbc:postgresql://c.<cluster>.postgres.database.azure.com:5432/citus?sslmode=require";
+    private static final String DB_URL = "jdbc:postgresql://c-<cluster>.<uniqueID>.postgres.cosmos.azure.com:5432/citus?sslmode=require";
     private static final String DB_DRIVER_CLASS = "org.postgresql.Driver";
     private static HikariDataSource datasource;
 

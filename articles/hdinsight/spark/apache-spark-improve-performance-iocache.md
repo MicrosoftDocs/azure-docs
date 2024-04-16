@@ -3,13 +3,13 @@ title: Apache Spark performance - Azure HDInsight IO Cache (Preview)
 description: Learn about Azure HDInsight IO Cache and how to use it to improve Apache Spark performance.
 ms.service: hdinsight
 ms.topic: how-to
-ms.date: 10/31/2022
+ms.date: 12/05/2023
 ---
 
 # Improve performance of Apache Spark workloads using Azure HDInsight IO Cache
 
-> [!NOTE]  
-> Spark 3.1.2 (HDI 5.0) doesn’t support IO Cache.
+> [!NOTE]
+> * IO Cache was supported till Spark 2.3 and will not be supported in Spark 2.4 (HDInsight 4.0) and Spark 3.1.2 (HDInsight 5.0)
 
 IO Cache is a data caching service for Azure HDInsight that improves the performance of Apache Spark jobs. IO Cache also works with [Apache TEZ](https://tez.apache.org/) and [Apache Hive](https://hive.apache.org/) workloads, which can be run on [Apache Spark](https://spark.apache.org/) clusters. IO Cache uses an open-source caching component called RubiX. RubiX is a local disk cache for use with big data analytics engines that access data from cloud storage systems. RubiX is unique among caching systems, because it uses Solid-State Drives (SSDs) rather than reserve operating memory for caching purposes. The IO Cache service launches and manages RubiX Metadata Servers on each worker node of the cluster. It also configures all services of the cluster for transparent use of RubiX cache.
 
@@ -35,7 +35,7 @@ Azure HDInsight IO Cache is deactivated by default in preview. IO Cache is avail
 
 1. Select **Actions** (**Service Actions** in HDI 3.6) and **Activate**.
 
-    :::image type="content" source="./media/apache-spark-improve-performance-iocache/ambariui-enable-iocache.png " alt-text="Enabling the IO Cache service in Ambari" border="true":::
+    :::image type="content" source="./media/apache-spark-improve-performance-iocache/ambariui-enable-iocache.png " alt-text="Enabling the IO Cache service in Ambari." border="true":::
 
 1. Confirm restart of all the affected services on the cluster.
 
@@ -50,7 +50,7 @@ You may get disk space errors running Spark jobs after enabling IO Cache. These 
 
 1. Select the **Configs** and **Advanced** tabs.
 
-    :::image type="content" source="./media/apache-spark-improve-performance-iocache/ambariui-hdfs-service-configs-advanced.png " alt-text="Edit HDFS Advanced Configuration" border="true":::
+    :::image type="content" source="./media/apache-spark-improve-performance-iocache/ambariui-hdfs-service-configs-advanced.png " alt-text="Edit HDFS Advanced Configuration." border="true":::
 
 1. Scroll down and expand the **Custom core-site** area.
 
@@ -58,13 +58,13 @@ You may get disk space errors running Spark jobs after enabling IO Cache. These 
 
 1. Change the value in the box.
 
-    :::image type="content" source="./media/apache-spark-improve-performance-iocache/ambariui-cache-data-fullness-percentage-property.png " alt-text="Edit IO Cache Fullness Percentage" border="true":::
+    :::image type="content" source="./media/apache-spark-improve-performance-iocache/ambariui-cache-data-fullness-percentage-property.png " alt-text="Edit IO Cache Fullness Percentage." border="true":::
 
 1. Select **Save** on the upper right.
 
 1. Select **Restart** > **Restart All Affected**.
 
-    :::image type="content" source="./media/apache-spark-improve-performance-iocache/ambariui-restart-all-affected.png " alt-text="Apache Ambari restarts all affected" border="true":::
+    :::image type="content" source="./media/apache-spark-improve-performance-iocache/ambariui-restart-all-affected.png " alt-text="Apache Ambari restarts all affected." border="true":::
 
 1. Select **Confirm Restart All**.
 

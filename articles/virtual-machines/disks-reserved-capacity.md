@@ -3,10 +3,9 @@ title: Optimize costs for Azure Disk Storage with reservations
 description: Learn about purchasing Azure Disk Storage reservations to save costs on premium SSD managed disks.
 author: roygara
 ms.author: rogarana
-ms.date: 06/29/2021
+ms.date: 01/25/2023
 ms.topic: how-to
-ms.service: storage
-ms.subservice: disks
+ms.service: azure-disk-storage
 ---
 
 # Reduce costs with Azure Disks Reservation
@@ -43,16 +42,19 @@ We recommend the following practices when considering disk reservation purchase:
 
 Reservation discounts are currently unavailable for the following:
 
-- Unmanaged disks or page blobs.
-- Standard SSDs or standard hard-disk drives (HDDs).
-- Premium SSD SKUs smaller than P30: P1, P2, P3, P4, P6, P10, P15, and P20 SSD SKUs.
-- Disks in Azure Government, Azure Germany, or Azure China regions.
+- Unmanaged disks or page blobs
+- Ultra Disks
+- Standard solid-state drives (SSDs) or standard hard-disk drives (HDDs)
+- Premium SSD SKUs smaller than P30: P1, P2, P3, P4, P6, P10, P15, and P20 SSD SKUs
+- Disks in Azure Government, Azure Germany, or Microsoft Azure operated by 21Vianet regions
 
 In rare circumstances, Azure limits the purchase of new reservations to a subset of disk SKUs because of low capacity in a region.
 
 ## Buy a disk reservation
 
 You can purchase Azure Disk Storage reservations through the [Azure portal](https://portal.azure.com/). You can pay for the reservation either up front or with monthly payments. For more information about purchasing with monthly payments, see [Purchase reservations with monthly payments](../cost-management-billing/reservations/prepare-buy-reservation.md#buy-reservations-with-monthly-payments).
+
+To buy a reservation, you must have owner role or reservation purchaser role on an Azure subscription.
 
 Follow these steps to purchase reserved capacity:
 
@@ -90,7 +92,7 @@ You can cancel, exchange, or refund reservations within certain limitations. For
 
 ## Expiration of a reservation
 
-When a reservation expires, any Azure Disk Storage capacity that you use under that reservation is billed at the pay-as-you-go rate. Reservations don't renew automatically.
+When a reservation expires, any Azure Disk Storage capacity that you use under that reservation is billed at the [pay-as-you-go rate](https://azure.microsoft.com/pricing/details/managed-disks/). Reservations don't renew automatically.
 
 You'll receive an email notification 30 days before the expiration of the reservation and again on the expiration date. To continue taking advantage of the cost savings that a reservation provides, renew it no later than the expiration date.
 

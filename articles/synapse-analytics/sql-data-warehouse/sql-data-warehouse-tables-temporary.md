@@ -1,14 +1,12 @@
 ---
 title: Temporary tables
-description: Essential guidance for using temporary tables in dedicated SQL pool, highlighting the principles of session level temporary tables. 
-manager: craigg
-ms.service: synapse-analytics
-ms.topic: conceptual
-ms.subservice: sql-dw 
-ms.date: 11/02/2021
+description: Essential guidance for using temporary tables in dedicated SQL pool, highlighting the principles of session level temporary tables.
 author: WilliamDAssafMSFT
 ms.author: wiassaf
-ms.reviewer: 
+ms.date: 11/02/2021
+ms.service: synapse-analytics
+ms.subservice: sql-dw
+ms.topic: conceptual
 ---
 
 # Temporary tables in dedicated SQL pool in Azure Synapse Analytics

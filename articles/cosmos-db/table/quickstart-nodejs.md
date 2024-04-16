@@ -8,7 +8,7 @@ ms.subservice: table
 ms.devlang: javascript
 ms.topic: quickstart
 ms.date: 05/28/2020
-ms.custom: devx-track-js, mode-api, ignite-2022
+ms.custom: devx-track-js, mode-api
 ---
 
 # Quickstart: Build a API for Table app with Node.js and Azure Cosmos DB
@@ -90,7 +90,7 @@ Azure Cosmos DB accounts are created using the [New-AzCosmosDBAccount](/powershe
 
 Azure Cosmos DB account names must be between 3 and 44 characters in length and may contain only lowercase letters, numbers, and the hyphen (-) character.  Azure Cosmos DB account names must also be unique across Azure.
 
-Azure PowerShell commands can be run in the [Azure Cloud Shell](https://shell.azure.com) or on a workstation with [Azure PowerShell installed](/powershell/azure/install-az-ps).
+Azure PowerShell commands can be run in the [Azure Cloud Shell](https://shell.azure.com) or on a workstation with [Azure PowerShell installed](/powershell/azure/install-azure-powershell).
 
 It typically takes several minutes for the Azure Cosmos DB account creation process to complete.
 
@@ -418,7 +418,7 @@ Remove-AzResourceGroup -Name $resourceGroupName
 
 ## Next steps
 
-In this quickstart, you learned how to create an Azure Cosmos DB account, create a table using the Data Explorer, and run a Node.js app to add table data.  Now you can query your data using the API for Table.  
+In this quickstart, you've learned how to create an Azure Cosmos DB account, create a table using the Data Explorer, and run an app. Now you can query your data using the API for Table.  
 
 > [!div class="nextstepaction"]
-> [Import table data to the API for Table](import.md)
+> [Query Azure Cosmos DB by using the API for Table](tutorial-query.md)

@@ -7,7 +7,6 @@ author: tomvcassidy
 ms.service: container-instances
 services: container-instances
 ms.date: 06/17/2022
-ms.custom: 
 ---
 
 # Security considerations for Azure Container Instances
@@ -27,7 +26,7 @@ For comprehensive recommendations that will help you improve the security postur
 
 Containers are built from images that are stored in one or more repositories. These repositories can belong to a public registry, like [Docker Hub](https://hub.docker.com), or to a private registry. An example of a private registry is the [Docker Trusted Registry](https://docs.docker.com/datacenter/dtr/), which can be installed on-premises or in a virtual private cloud. You can also use cloud-based private container registry services, including [Azure Container Registry](../container-registry/container-registry-intro.md). 
 
-A publicly available container image does not guarantee security. Container images consist of multiple software layers, and each software layer might have vulnerabilities. To help reduce the threat of attacks, you should store and retrieve images from a private registry, such as Azure Container Registry or Docker Trusted Registry. In addition to providing a managed private registry, Azure Container Registry supports [service principal-based authentication](../container-registry/container-registry-authentication.md) through Azure Active Directory for basic authentication flows. This authentication includes role-based access for read-only (pull), write (push), and other permissions.
+A publicly available container image does not guarantee security. Container images consist of multiple software layers, and each software layer might have vulnerabilities. To help reduce the threat of attacks, you should store and retrieve images from a private registry, such as Azure Container Registry or Docker Trusted Registry. In addition to providing a managed private registry, Azure Container Registry supports [service principal-based authentication](../container-registry/container-registry-authentication.md) through Microsoft Entra ID for basic authentication flows. This authentication includes role-based access for read-only (pull), write (push), and other permissions.
 
 ### Monitor and scan container images
 
@@ -116,7 +115,7 @@ As with any IT environment, you should consistently monitor activity and user ac
 
 * [Azure Monitor for containers](../azure-monitor/containers/container-insights-overview.md) monitors the performance of your workloads deployed to Kubernetes environments hosted on Azure Kubernetes Service (AKS). Azure Monitor for containers gives you performance visibility by collecting memory and processor metrics from controllers, nodes, and containers that are available in Kubernetes through the Metrics API. 
 
-* The [Azure Container Monitoring solution](../azure-monitor/containers/containers.md) helps you view and manage other Docker and Windows container hosts in a single location. For example:
+* The [Azure Container Monitoring solution](/previous-versions/azure/azure-monitor/containers/containers) helps you view and manage other Docker and Windows container hosts in a single location. For example:
 
   * View detailed audit information that shows commands used with containers. 
   * Troubleshoot containers by viewing and searching centralized logs without having to remotely view Docker or Windows hosts.  
@@ -138,7 +137,7 @@ Monitor your resource activity, like files, network, and other resources that yo
 Maintain an accurate audit trail of administrative access to your container ecosystem, including your Kubernetes cluster, container registry, and container images. These logs might be necessary for auditing purposes and will be useful as forensic evidence after any security incident. Azure solutions include:
 
 * [Integration of Azure Kubernetes Service with Microsoft Defender for Cloud](../security-center/defender-for-kubernetes-introduction.md) to monitor the security configuration of the cluster environment and generate security recommendations
-* [Azure Container Monitoring solution](../azure-monitor/containers/containers.md)
+* [Azure Container Monitoring solution](/previous-versions/azure/azure-monitor/containers/containers)
 * Resource logs for [Azure Container Instances](container-instances-log-analytics.md) and [Azure Container Registry](../container-registry/monitor-service.md)
 
 ## Next steps

@@ -2,8 +2,10 @@
 title: What is Azure Backup?
 description: Provides an overview of the Azure Backup service, and how it contributes to your business continuity and disaster recovery (BCDR) strategy.
 ms.topic: overview
-ms.date: 03/11/2022
-ms.custom: mvc
+ms.date: 01/30/2024
+ms.custom: mvc, engagement-fy24
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 # What is the Azure Backup service?
 
@@ -21,6 +23,9 @@ The Azure Backup service provides simple, secure, and cost-effective solutions t
 - **SAP HANA databases in Azure VMs** - [Backup SAP HANA databases running on Azure VMs](backup-azure-sap-hana-database.md)
 - **Azure Database for PostgreSQL servers** -  [Back up Azure PostgreSQL databases and retain the backups for up to 10 years](backup-azure-database-postgresql.md)
 - **Azure Blobs** - [Overview of operational backup for Azure Blobs](blob-backup-overview.md)
+- **Azure Database for PostgreSQL Flexible server** - [Overview of Azure Database for PostgreSQL Flexible server backup (preview)](backup-azure-database-postgresql-flex-overview.md)
+- **Azure Kubernetes service** - [Overview of AKS backup](azure-kubernetes-service-backup-overview.md)
+
 
 ![Azure Backup Overview](./media/backup-overview/azure-backup-overview.png)
 
@@ -44,9 +49,13 @@ Azure Backup delivers these key benefits:
   - [Geo-redundant storage (GRS)](../storage/common/storage-redundancy.md#geo-redundant-storage) is the default and recommended replication option. GRS replicates your data to a secondary region (hundreds of miles away from the primary location of the source data). GRS costs more than LRS, but GRS provides a higher level of durability for your data, even if there's a regional outage.
   - [Zone-redundant storage (ZRS)](../storage/common/storage-redundancy.md#zone-redundant-storage) replicates your data in [availability zones](../availability-zones/az-overview.md#availability-zones), guaranteeing data residency and resiliency in the same region. ZRS has no downtime. So your critical workloads that require [data residency](https://azure.microsoft.com/resources/achieving-compliant-data-residency-and-security-with-azure/), and must have no downtime, can be backed up in ZRS.
 
+    **Zone-redundancy** for Recovery Services vault and Backup vault, as well as optional zone-redundancy for backup data. Learn about [Reliability for Azure Backup](../reliability/reliability-backup.md).
+
 ## How Azure Backup protects from ransomware?
 
-Azure Backup helps protect your critical business systems and backup data against a ransomware attack by implementing preventive measures and providing tools that protect your organization from every step that attackers take to infiltrate your systems. It provides security to your backup environment, both when your data is in transit and at rest. [Learn more](../security/fundamentals/backup-plan-to-protect-against-ransomware.md)
+Azure Backup helps protect your critical business systems and backup data against a ransomware attack by implementing preventive measures and providing tools that protect your organization from every step that attackers take to infiltrate your systems. It provides security to your backup environment, both when your data is in transit and at rest. 
+
+In addition to various security features offered by default, you can also leverage several enhanced features that can provide you with highest levels of security for your backed-up data. Learn more about [security in Azure Backup](security-overview.md). Also, [learn](../security/fundamentals/backup-plan-to-protect-against-ransomware.md) about how backups can help you protect backups against ransomware better and how Azure helps you ensure rapid recovery.
 
 ## Next steps
 

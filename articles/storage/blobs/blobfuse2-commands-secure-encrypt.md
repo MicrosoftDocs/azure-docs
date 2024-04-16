@@ -1,21 +1,18 @@
 ---
-title: How to use the `blobfuse2 secure encrypt` command to encrypt a BlobFuse2 configuration file (preview) | Microsoft Docs
-titleSuffix: Azure Blob Storage
-description: Learn how to use the `blobfuse2 secure encrypt` command to encrypt a BlobFuse2 configuration file. (preview)
-author: jimmart-dev
-ms.service: storage
-ms.subservice: blobs
+title: How to use the `blobfuse2 secure encrypt` command to encrypt a BlobFuse2 configuration file
+titleSuffix: Azure Storage
+description: Learn how to use the `blobfuse2 secure encrypt` command to encrypt a BlobFuse2 configuration file.
+author: akashdubey-ms
+ms.service: azure-blob-storage
 ms.topic: how-to
-ms.date: 10/17/2022
-ms.author: jammart
+ms.date: 12/02/2022
+ms.author: akashdubey
 ms.reviewer: tamram
 ---
 
-# How to use the BlobFuse2 secure encrypt command to encrypt a BlobFuse2 configuration file (preview)
+# How to use the BlobFuse2 secure encrypt command to encrypt a BlobFuse2 configuration file
 
 Use the `blobfuse2 secure encrypt` command to encrypt a BlobFuse2 configuration file.
-
-[!INCLUDE [storage-blobfuse2-preview](../../../includes/storage-blobfuse2-preview.md)]
 
 ## Syntax
 
@@ -55,7 +52,7 @@ Encrypt a BlobFuse2 configuration file using a passphrase:
 
 ## See also
 
-- [The Blobfuse2 secure decrypt command (preview)](blobfuse2-commands-secure-decrypt.md)
-- [The Blobfuse2 secure get command (preview)](blobfuse2-commands-secure-get.md)
-- [The Blobfuse2 secure set command (preview)](blobfuse2-commands-secure-set.md)
-- [The Blobfuse2 secure command (preview)](blobfuse2-commands-secure.md)
+- [The Blobfuse2 secure decrypt command](blobfuse2-commands-secure-decrypt.md)
+- [The Blobfuse2 secure get command](blobfuse2-commands-secure-get.md)
+- [The Blobfuse2 secure set command](blobfuse2-commands-secure-set.md)
+- [The Blobfuse2 secure command](blobfuse2-commands-secure.md)

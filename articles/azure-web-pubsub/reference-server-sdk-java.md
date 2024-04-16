@@ -4,14 +4,18 @@ description: This reference describes the Java SDK for the Azure Web PubSub serv
 author: vicancy
 ms.author: lianwei
 ms.service: azure-web-pubsub
-ms.topic: conceptual 
-ms.date: 11/01/2021
+ms.custom: devx-track-extended-java
+ms.topic: conceptual
+ms.date: 01/31/2023
 ---
+
 # Azure Web PubSub service client library for Java
 
-[Azure Web PubSub service](./index.yml) is an Azure-managed service that helps developers easily build web applications with real-time features and publish-subscribe pattern. Any scenario that requires real-time publish-subscribe messaging between server and clients or among clients can use Azure Web PubSub service. Traditional real-time features that often require polling from server or submitting HTTP requests can also use Azure Web PubSub service.
+[Azure Web PubSub service](./index.yml) is an Azure-managed service that helps developers easily build web applications with real-time features and a publish-subscribe pattern. Any scenario that requires real-time publish-subscribe messaging between server and clients or among clients can use Azure Web PubSub service. Traditional real-time features that often require polling from the server or submitting HTTP requests can also use Azure Web PubSub service.
 
-You can use this library in your app server side to manage the WebSocket client connections, as shown in below diagram:
+This article describes the Azure Web PubSub service client library.
+
+You can use this library in your server-side app to manage the WebSocket client connections, as shown in this diagram:
 
 ![The overflow diagram shows the overflow of using the service client library.](media/sdk-reference/service-client-overflow.png)
 
@@ -23,18 +27,23 @@ Use this library to:
 - Close connections
 - Grant, revoke, and check permissions for an existing connection
 
-[Source code][source_code] | [API reference documentation][api] | [Product Documentation][product_documentation] | [Samples][samples_readme]
+For more information, see:
+
+- [Azure Web PubSub client library Java SDK][source_code]
+- [Azure Web PubSub client library reference documentation][api]
+- [Azure Web PubSub client library samples for Java][samples_readme]
+- [Azure Web PubSub service documentation][product_documentation]
 
 ## Getting started
 
 ### Prerequisites
 
+- An Azure account with an active subscription is required. If you don't already have one, you can [create an account for free][azure_subscription].
 - A [Java Development Kit (JDK)][jdk_link], version 8 or later.
-- [Azure Subscription][azure_subscription]
 
 ### Include the Package
 
-[//]: # ({x-version-update-start;com.azure:azure-messaging-webpubsub;current})
+[//]: # "{x-version-update-start;com.azure:azure-messaging-webpubsub;current}"
 
 ```xml
 <dependency>
@@ -44,11 +53,12 @@ Use this library to:
 </dependency>
 ```
 
-[//]: # ({x-version-update-end})
+[//]: # "{x-version-update-end}"
 
 ### Create a `WebPubSubServiceClient` using connection string
 
 <!-- embedme ./src/samples/java/com/azure/messaging/webpubsub/ReadmeSamples.java#L21-L24 -->
+
 ```java
 WebPubSubServiceClient webPubSubServiceClient = new WebPubSubServiceClientBuilder()
     .connectionString("{connection-string}")
@@ -59,6 +69,7 @@ WebPubSubServiceClient webPubSubServiceClient = new WebPubSubServiceClientBuilde
 ### Create a `WebPubSubServiceClient` using access key
 
 <!-- embedme ./src/samples/java/com/azure/messaging/webpubsub/ReadmeSamples.java#L31-L35 -->
+
 ```java
 WebPubSubServiceClient webPubSubServiceClient = new WebPubSubServiceClientBuilder()
     .credential(new AzureKeyCredential("{access-key}"))
@@ -79,6 +90,7 @@ WebPubSubServiceClient webPubSubServiceClient = new WebPubSubServiceClientBuilde
 ### Broadcast message to entire hub
 
 <!-- embedme ./src/samples/java/com/azure/messaging/webpubsub/ReadmeSamples.java#L47-L47 -->
+
 ```java
 webPubSubServiceClient.sendToAll("Hello world!", WebPubSubContentType.TEXT_PLAIN);
 ```
@@ -88,6 +100,7 @@ webPubSubServiceClient.sendToAll("Hello world!", WebPubSubContentType.TEXT_PLAIN
 ### Broadcast message to a group
 
 <!-- embedme ./src/samples/java/com/azure/messaging/webpubsub/ReadmeSamples.java#L59-L59 -->
+
 ```java
 webPubSubServiceClient.sendToGroup("java", "Hello Java!", WebPubSubContentType.TEXT_PLAIN);
 ```
@@ -97,6 +110,7 @@ webPubSubServiceClient.sendToGroup("java", "Hello Java!", WebPubSubContentType.T
 ### Send message to a connection
 
 <!-- embedme ./src/samples/java/com/azure/messaging/webpubsub/ReadmeSamples.java#L71-L71 -->
+
 ```java
 webPubSubServiceClient.sendToConnection("myconnectionid", "Hello connection!", WebPubSubContentType.TEXT_PLAIN);
 ```
@@ -104,7 +118,9 @@ webPubSubServiceClient.sendToConnection("myconnectionid", "Hello connection!", W
 <a name="send-to-user"></a>
 
 ### Send message to a user
+
 <!-- embedme ./src/samples/java/com/azure/messaging/webpubsub/ReadmeSamples.java#L83-L83 -->
+
 ```java
 webPubSubServiceClient.sendToUser("Andy", "Hello Andy!", WebPubSubContentType.TEXT_PLAIN);
 ```
@@ -119,16 +135,15 @@ be found here: [log levels][log_levels].
 
 ### Default HTTP Client
 
-All client libraries by default use the Netty HTTP client. Adding the above dependency will automatically configure
-the client library to use the Netty HTTP client. Configuring or changing the HTTP client is detailed in the
+All client libraries use the Netty HTTP client by default. Adding the above dependency will automatically configure
+the client library to use the Netty HTTP client. Configuring or changing the HTTP client is described in the
 [HTTP clients wiki](https://github.com/Azure/azure-sdk-for-java/wiki/HTTP-clients).
 
 ### Default SSL library
 
-All client libraries, by default, use the Tomcat-native Boring SSL library to enable native-level performance for SSL
+By default, all client libraries use the Tomcat-native Boring SSL library to enable native-level performance for SSL
 operations. The Boring SSL library is an uber jar containing native libraries for Linux / macOS / Windows, and provides
-better performance compared to the default SSL implementation within the JDK. For more information, including how to
-reduce the dependency size, refer to the [performance tuning][performance_tuning] section of the wiki.
+better performance compared to the default SSL implementation within the JDK. For more information, including how to reduce the dependency size, see [performance tuning][https://github.com/Azure/azure-sdk-for-java/wiki/Performance-Tuning].
 
 [!INCLUDE [next step](includes/include-next-step.md)]
 

@@ -1,22 +1,21 @@
 ---
-title: Create Connection Monitor - ARM template
+title: Create connection monitor - ARMClient
 titleSuffix: Azure Network Watcher
-description: Learn how to create Connection Monitor using the ARMClient.
+description: Learn how to create Azure Network Watcher connection monitor using the ARMClient.
 services: network-watcher
-documentationcenter: na
-author: vinigam
+author: halkazwini
 ms.service: network-watcher
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload:  infrastructure-services
-ms.date: 01/07/2021
-ms.author: vinigam
+ms.date: 02/08/2021
+ms.custom: engagement-fy23
+ms.author: halkazwini
 #Customer intent: I need to create a connection monitor to monitor communication between one VM and another.
 ---
-# Create a Connection Monitor using the ARM template
+
+# Create a connection monitor using the ARMClient
 
 > [!IMPORTANT]
-> Starting 1 July 2021, you will not be able to add new tests in an existing workspace or enable a new workspace in Network Performance Monitor. You will also not be able to add new connection monitors in Connection Monitor (classic). You can continue to use the tests and connection monitors created prior to 1 July 2021. To minimize service disruption to your current workloads, [migrate your tests from Network Performance Monitor ](migrate-to-connection-monitor-from-network-performance-monitor.md) or  [migrate from Connection Monitor (classic)](migrate-to-connection-monitor-from-connection-monitor-classic.md) to the new Connection Monitor in Azure Network Watcher before 29 February 2024.
+> Starting 1 July 2021, you'll not be able to add new tests in an existing workspace or enable a new workspace in Network Performance Monitor. You'll also not be able to add new connection monitors in Connection Monitor (classic). You can continue to use the tests and connection monitors created prior to 1 July 2021. To minimize service disruption to your current workloads, [migrate your tests from Network Performance Monitor ](migrate-to-connection-monitor-from-network-performance-monitor.md) or  [migrate from Connection Monitor (classic)](migrate-to-connection-monitor-from-connection-monitor-classic.md) to the new Connection Monitor in Azure Network Watcher before 29 February 2024.
 
 Learn how to create Connection Monitor to monitor communication between your resources using the ARMClient. It supports hybrid and Azure cloud deployments.
 
@@ -35,7 +34,7 @@ Connection Monitor includes the following entities:
 
 	![Diagram showing a connection monitor, defining the relationship between test groups and tests](./media/connection-monitor-2-preview/cm-tg-2.png)
 
-## Steps to create with sample ARM Template
+## Steps to create a connection monitor using ARMClient
 
 Use the following code to create a connection monitor by using ARMClient.
 
@@ -221,7 +220,7 @@ address: '<URL>'
     
      port: '<port of choice>'
   
-    preferHTTPS: true // If port chosen is not 80 or 443
+    preferHTTPS: true // If port chosen isn't 80 or 443
     
     method: 'GET', //Choose GET or POST
     
@@ -357,16 +356,16 @@ armclient PUT $ARM/$SUB/$NW/connectionMonitors/$connectionMonitorName/?api-versi
 
 * Endpoints
 	* name – Unique name for each endpoint
-	* resourceId – For Azure endpoints, resource ID refers to the Azure Resource Manager resource ID for virtual machines.For non-Azure endpoints, resource ID refers to the Azure Resource Manager resource ID for the Log Analytics workspace linked to non-Azure agents.
-	* address – Applicable only when either resource ID is not specified or if resource ID is Log Analytics workspace. If used with Log Analytics resource ID, this refers to the FQDN of the agent that can be used for monitoring. If used without resource ID, this can be the URL or IP of any public endpoint.
-	* filter – For non-Azure endpoints, use filter to select agents from Log Analytics workspace that will be used for monitoring in Connection monitor resource. If filters are not set, all agents belonging to the Log Analytics workspace can be used for monitoring
+	* resourceId – For Azure endpoints, resource ID refers to the Azure Resource Manager resource ID for virtual machines. For non-Azure endpoints, resource ID refers to the Azure Resource Manager resource ID for the Log Analytics workspace linked to non-Azure agents.
+	* address – Applicable only when either resource ID isn't specified or if resource ID is Log Analytics workspace. If used with Log Analytics resource ID, this refers to the FQDN of the agent that can be used for monitoring. If used without resource ID, this can be the URL or IP of any public endpoint.
+	* filter – For non-Azure endpoints, use filter to select agents from Log Analytics workspace that will be used for monitoring in Connection monitor resource. If filters aren't set, all agents belonging to the Log Analytics workspace can be used for monitoring
 		* type – Set type as “Agent Address”
 		* address – Set address as the FQDN of your on-premises agent
 
 * Test Groups
 	* name - Name your test group.
 	* testConfigurations - Test Configurations based on which source endpoints connect to destination endpoints
-	* sources - Choose from endpoints created above. Azure based source endpoints need to have Azure Network Watcher extension installed and nonAzure based source endpoints need to haveAzure Log Analytics agent installed. To install an agent for your source, see [Install monitoring agents](./connection-monitor-overview.md#install-monitoring-agents).
+	* sources - Choose from endpoints created above. Azure based source endpoints need to have Azure Network Watcher extension installed and non-Azure based source endpoints need to haveAzure Log Analytics agent installed. To install an agent for your source, see [Install monitoring agents](./connection-monitor-overview.md#install-monitoring-agents).
 	* destinations -  Choose from endpoints created above. You can monitor connectivity to Azure VMs or any endpoint (a public IP, URL, or FQDN) by specifying them as destinations. In a single test group, you can add Azure VMs, Office 365 URLs, Dynamics 365 URLs, and custom endpoints.
 	* disable - Use this field to disable monitoring for all sources and destinations that the test group specifies.
 
@@ -377,10 +376,10 @@ armclient PUT $ARM/$SUB/$NW/connectionMonitors/$connectionMonitorName/?api-versi
 	
 		* preferHTTPS - Specify whether to use HTTPS over HTTP, when port used is neither 80 nor 443
 		* port - Specify the destination port of your choice.
-		* disableTraceRoute - This applies to test configurations whose protocol is TCP or ICMP. It stop sources from discovering topology and hop-by-hop RTT.
+		* disableTraceRoute - This applies to test configurations whose protocol is TCP or ICMP. It stops sources from discovering topology and hop-by-hop RTT.
 		* method - This applied to test configurations whose protocol is HTTP. Select the HTTP request method--either GET or POST
 		* path - Specify path parameters to append to URL
-		* validStatusCodes - Choose applicable status codes. If response code does not match this list, you will get a diagnostic message
+		* validStatusCodes - Choose applicable status codes. If response code doesn't match this list, you'll get a diagnostic message
 		* requestHeaders - Specify custom request header strings that will make be passed to the destination
 		
 	* successThreshold - You can set thresholds on the following network parameters:

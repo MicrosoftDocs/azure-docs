@@ -290,7 +290,7 @@ az postgres server-arc show -n postgres01 --k8s-namespace arc --use-k8s
 
 Returns the information in a format and content similar to the one returned by kubectl. Use the tool of your choice to interact with the system.
 
-## Next steps
+## Related content
 
 - [Read about how to scale up/down (increase or reduce memory and/or vCores) a server group](scale-up-down-postgresql-server-using-cli.md)
 - [Read about storage configuration](storage-configuration.md)

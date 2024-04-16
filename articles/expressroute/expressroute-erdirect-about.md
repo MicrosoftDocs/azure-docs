@@ -4,9 +4,10 @@ description: Learn about key features of Azure ExpressRoute Direct and informati
 services: expressroute
 author: duongau
 ms.service: expressroute
-ms.custom: ignite-2022
+ms.custom:
+  - ignite-2023
 ms.topic: conceptual
-ms.date: 10/31/2022
+ms.date: 03/28/2024
 ms.author: duau
 ---
 
@@ -63,6 +64,8 @@ Each peering location has access to the Microsoft global network and can access 
 
 The functionality in most scenarios is equivalent to circuits that use an ExpressRoute service provider to operate. To support further granularity and new capabilities offered using ExpressRoute Direct, there are certain key capabilities that exist only with ExpressRoute Direct circuits.
 
+You can enable or disable rate limiting for ExpressRoute Direct circuits at the circuit level. For more information, see [Rate limiting for ExpressRoute Direct circuits](rate-limit.md).
+
 ## Circuit SKUs
 
 ExpressRoute Direct supports large data ingestion scenarios into services such as Azure storage. ExpressRoute circuits  with 100-Gbps ExpressRoute Direct also support **40 Gbps** and **100 Gbps** circuit bandwidth. The physical port pairs are **100 Gbps or 10 Gbps** only and can have multiple virtual circuits. 
@@ -75,13 +78,14 @@ ExpressRoute Direct supports large data ingestion scenarios into services such a
 | <ul><li>5 Gbps</li><li>10 Gbps</li><li>40 Gbps</li><li>100 Gbps</li></ul> | <ul><li>1 Gbps</li><li>2 Gbps</li><li>5 Gbps</li><li>10 Gbps</li></ul>
 
 > [!NOTE]
-> You can provision logical ExpressRoute circuits on top of your selected ExpressRoute Direct resource of 10-Gbps or 100-Gbps up to the subscribed Bandwidth of 20Gbps or 200Gbps. For example,you can provision two 10 Gbps ExpressRoute circuits within a single 10 Gbps ExpressRoute Direct resource (port pair). Configuring circuits that over-subscribe the ExpressRoute Direct resource is only avialable with Azure PowerShell and Azure CLI.
+> You can provision logical ExpressRoute circuits on top of your selected ExpressRoute Direct resource of 10-Gbps or 100-Gbps up to the subscribed Bandwidth of 20Gbps or 200Gbps. For example,you can provision two 10 Gbps ExpressRoute circuits within a single 10 Gbps ExpressRoute Direct resource (port pair). Configuring circuits that over-subscribe the ExpressRoute Direct resource is only available with Azure PowerShell and Azure CLI.
 
 ## Technical Requirements
 
 * Microsoft Enterprise Edge Router (MSEE) Interfaces:
     * Dual 10 Gigabit or 100-Gigabit Ethernet ports only across router pair
     * Single Mode LR Fiber connectivity
+      * MSEE supports QSFP-100G-LR-4 for 100Gbps (Use compatible optics on your devices) 
     * IPv4 and IPv6
     * IP MTU 1500 bytes
 
@@ -121,4 +125,5 @@ For details on how ExpressRoute Direct is billed, see [ExpressRoute FAQ](express
 
 ## Next steps
 
-Learn how to [configure ExpressRoute Direct](expressroute-howto-erdirect.md).
+- Learn how to [configure ExpressRoute Direct](expressroute-howto-erdirect.md).
+- Learn how to [Enable Rate limiting for ExpressRoute Direct circuits](rate-limit.md).

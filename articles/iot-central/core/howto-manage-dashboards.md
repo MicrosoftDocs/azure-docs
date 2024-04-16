@@ -1,9 +1,9 @@
 ---
-title: Create and manage Azure IoT Central dashboards | Microsoft Docs
-description: Learn how to create and manage application and personal dashboards in Azure IoT Central.
+title: Create and manage Azure IoT Central dashboards
+description: Learn how to create and manage application and personal dashboards in Azure IoT Central. Customize dashboards by using tiles.
 author: dominicbetts
 ms.author: dobett
-ms.date: 11/03/2022
+ms.date: 03/04/2024
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
@@ -87,7 +87,7 @@ This table describes the types of tiles you can add to a dashboard:
 | State chart      |  Plot changes for one or more devices over a time period. For example, you can use this tile to display properties like the temperature changes for a device. |
 | Property         |  Display the current values for properties and cloud properties for one or more devices. For example, you can use this tile to display device properties like the manufacturer or firmware version. |
 | Map (property)   | Display the location of one or more devices on a map.|
-| Map (telemetry)  | Display the location of one or more devices on a map. You can also display up to 100 points of a device's location history. For example, you can display a sampled route of where a device has been in the past week.|
+| Map (telemetry)  | Display the location of one or more devices on a map. You can also display up to 100 points of a device's location history. For example, you can display a sampled route of where a device went in the past week.|
 | Image (static)  | Display a custom image and can be clickable. The URL can be a relative link to another page in the application or an absolute link to an external site.|
 | Label            | Display custom text on a dashboard. You can choose the size of the text. Use a label tile to add relevant information to the dashboard, like descriptions, contact details, or Help.|
 | Markdown         | Clickable tiles that display a heading and description text formatted in Markdown. The URL can be a relative link to another page in the application or an absolute link to an external site.|
@@ -103,7 +103,7 @@ By default, line charts show data over a range of time. The selected time range 
 
 For tiles that display aggregate values, select the **gear** button next to the telemetry type in the **Configure chart** panel to choose the aggregation. You can choose average, sum, maximum, minimum, or count:
 
-:::image type="content" source="media/howto-manage-dashboards/aggregate-choice.png" alt-text="Select the aggregation to use." lightbox="media/howto-manage-dashboards/aggregate-choice.png":::
+:::image type="content" source="media/howto-manage-dashboards/aggregate-choice.png" alt-text="Screenshot that shows how to select the aggregation to use." lightbox="media/howto-manage-dashboards/aggregate-choice.png":::
 
 For line charts, bar charts, and pie charts, you can customize the colors of the various telemetry values. Select the **palette** button next to the telemetry you want to customize:
 
@@ -128,7 +128,7 @@ To continuously monitor the data explorer queries, you can pin a query to a dash
 1. Navigate to **Data explorer** in the left pane and select a query.
 1. Select a dashboard from the dropdown menu and select **Pin to dashboard**.
 
-:::image type="content" source="media/howto-manage-dashboards/pin-dashboard.png" alt-text="Select pin to dashboard" lightbox="media/howto-manage-dashboards/pin-dashboard.png":::
+:::image type="content" source="media/howto-manage-dashboards/pin-dashboard.png" alt-text="Screenshot that shows how to pin a query to the dashboard." lightbox="media/howto-manage-dashboards/pin-dashboard.png":::
 
 ## Next steps
 

@@ -1,25 +1,21 @@
 ---
-title: Troubleshoot issues in BlobFuse2 (preview)
-titleSuffix: Azure Blob Storage
-description: Learn how to troubleshoot issues in BlobFuse2 (preview).
-author: jimmart-dev
-ms.author: jammart
+title: Troubleshoot issues in BlobFuse2
+titleSuffix: Azure Storage
+description: Learn how to troubleshoot issues in BlobFuse2.
+author: akashdubey-ms
+ms.author: akashdubey
 ms.reviewer: tamram
-ms.service: storage
-ms.subservice: blobs
+ms.service: azure-blob-storage
 ms.topic: how-to
-ms.date: 10/17/2022
+ms.date: 12/02/2022
 ---
 
-# Troubleshoot issues in BlobFuse2 (preview)
+# How to troubleshoot issues in BlobFuse2
 
-This article provides references to help you troubleshoot BlobFuse2 issues during the preview.
-
-[!INCLUDE [storage-blobfuse2-preview](../../../includes/storage-blobfuse2-preview.md)]
-
+This article provides references to help you troubleshoot BlobFuse2 issues.
 ## BlobFuse2 troubleshooting guide
 
-For troubleshooting guidance during the preview of BlobFuse2, see the [BlobFuse2 troubleshooting guide on GitHub](https://github.com/Azure/azure-storage-fuse/blob/main/TSG.md).
+For troubleshooting guidance, see the [BlobFuse2 troubleshooting guide on GitHub](https://github.com/Azure/azure-storage-fuse/blob/main/TSG.md).
 
 ## See also
 

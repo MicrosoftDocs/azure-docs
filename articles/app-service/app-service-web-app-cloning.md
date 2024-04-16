@@ -5,8 +5,9 @@ description: Learn how to clone your App Service app to a new app using PowerShe
 ms.assetid: f9a5cfa1-fbb0-41e6-95d1-75d457347a35
 ms.topic: article
 ms.date: 01/14/2016
-ms.custom: seodec18, devx-track-azurepowershell
-
+ms.custom: devx-track-azurepowershell
+author: msangapu-msft
+ms.author: msangapu
 ---
 # Azure App Service App Cloning Using PowerShell
 
@@ -128,4 +129,3 @@ Here are the known restrictions of app cloning:
 * [Azure Resource Manager support for Azure Traffic Manager Preview](../traffic-manager/traffic-manager-powershell-arm.md)
 * [Introduction to App Service Environment](environment/intro.md)
 * [Using Azure PowerShell with Azure Resource Manager](../azure-resource-manager/management/manage-resources-powershell.md)
-

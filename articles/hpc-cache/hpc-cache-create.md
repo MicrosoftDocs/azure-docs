@@ -4,8 +4,8 @@ description: How to create an Azure HPC Cache instance
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 10/03/2022
-ms.author: v-erinkelly 
+ms.date: 2/15/2023
+ms.author: kianaharris
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 
 ms.devlang: azurecli
 ---
@@ -48,19 +48,28 @@ On the **Cache** page, specify the type and size of cache to create. These value
 * How many storage targets it can have
 * The cache's cost
 
-First, choose the type of cache you want. Options include:
+![Screenshot of the cache tab in the Azure portal create wizard. There are controls for selecting cache type, maximum throughput, and cache size.](media/create-cache-type-and-capacity.png)
 
-* **Read-write standard caching** - A flexible, general-purpose cache
-* **Read-only caching** - A high-throughput cache designed to minimize latency for file access
+Before you can choose throughput or storage capacity, you need to choose the cache type. Options include:
 
-Read more about these cache type options below in [Choose the cache type for your needs](#choose-the-cache-type-for-your-needs).
+* Read-write standard caching: A flexible general-purpose cache
+* Read-only caching: A high-throughput cache designed to minimize file access latency; modifications are handled with synchronous write-through operations
+* Read-write premium caching (Preview): An NVMe-optimized cache with the lowest latency and highest throughput
+<!-- * Read-only scalable standard caching (Preview): A general-purpose cache that can be made larger or smaller (at predefined sizes) to accommodate variable workloads -->
 
-Second, select the cache's capacity. Cache capacity is a combination of two values:
+![Screenshot of the cache tab in the Azure portal create wizard, with the Cache type selector open.](media/cache-type-dropdown-with-premium.png)
+
+Read more about these cache types below in [Choose the cache type for your needs](#choose-the-cache-type-for-your-needs).
+
+> [!TIP]
+> "Read-write" cache types can be configured with storage targets using either read caching or read-write caching usage models. "Read-only" cache types only support NFS and ADLS-NFS storage target types with read-caching usage models only. Learn more about caching modes in [Understand cache usage models](cache-usage-models.md).
+
+The "Standard" cache SKU lets you choose the cache's capacity for a given throughput selection, while the "Premium" and "read-only" caches have fixed capacities for each given throughput selection. The cache's capabilities are defined by two deployment choices:
 
 * **Maximum throughput** - The data transfer rate for the cache, in GB/second
 * **Cache size** - The amount of storage allocated for cached data, in TB
 
-![Screenshot of cache attributes page in the Azure portal. Fields for Cache type, Maximum throughput, and Cache size are filled in.](media/create-cache-type-and-capacity.png)
+![Screenshot of cache sizing page in the Azure portal.](media/cache-size-options.png)
 
 ### Understand throughput and cache size
 
@@ -74,39 +83,54 @@ Azure HPC Cache manages which files are cached and pre-loaded to maximize cache 
 
 Choose a cache storage size that can comfortably hold the active set of working files, plus additional space for metadata and other overhead.
 
-Throughput and cache size also affect how many storage targets are supported for a particular cache. If you want to use more than 10 storage targets with your cache, you must choose the highest available cache storage size value available for your throughput size, or choose the high-throughput read-only configuration. Learn more in [Add storage targets](hpc-cache-add-storage.md#size-your-cache-correctly-to-support-your-storage-targets).
-
 If you need help sizing your cache correctly, contact Microsoft Service and Support.
+
 
 ### Choose the cache type for your needs
 
-When you choose your cache capacity, you might notice that some cache types have one fixed cache size, and others let you select from multiple cache size options for each throughput value. This is because they use different styles of cache infrastructure.
+There are two basic cache types: "standard" and "premium".
 
-* Standard caches - Cache type **Read-write caching**
+**Standard** caches are general-use HPC Cache systems. You can select from multiple storage sizes after choosing your throughput value, and you can attach any of the HPC Cache supported storage target types.
 
-  With standard caches, you can choose from several cache size values. These caches can be configured for read-only or for read and write caching.
+**Premium** caches are designed for the highest-performance file service. They use high-throughput NVMe storage devices, which means that premium caches have a different pricing structure, static cache capacities, and cannot be temporarily stopped.
 
-* High-throughput caches - Cache type **Read-only caching**
+Cache options include:
 
-  The high-throughput read-only caches are preconfigured with only one cache size option per throughput value. They're designed to optimize file read access only.
+* **Read-write standard caching**
 
-![Screenshot of the Cache tab in the HPC Cache creation workflow. The Cache type field is filled with Read-write standard caching, and the Maximum throughput field is filled with Up to 4 GB/s. The Cache size menu is expanded and shows several selectable size options: 6 TB, 12 TB, and 24 TB.](media/cache-size-options.png)
+  With standard caches, you can choose from several cache size values. These caches can be configured with storage target usage models for both read (write-through) and  read-write caching.
 
-This table explains some important differences between the two options.
+* **Read-only caching**
 
-| Attribute | Standard cache | Read-only high-throughput cache |
-|--|--|--|
-| Cache type |"Read-write standard caching"| "Read-only caching"|
-| Throughput sizes | 2, 4, or 8 GB/sec | 4.5, 9, or 16 GB/sec |
-| Cache sizes | 3, 6, or 12 TB for 2 GB/sec<br/> 6, 12, or 24 TB for 4 GB/sec<br/> 12, 24, or 48 TB for 8 GB/sec| 21 TB for 4.5 GB/sec <br/> 42 TB for 9 GB/sec <br/> 84 TB for 16 GB/sec |
-| Maximum number of storage targets | [10 or 20](hpc-cache-add-storage.md#size-your-cache-correctly-to-support-your-storage-targets) depending on cache size selection | 20 |
-| Compatible storage target types | Azure Blob, on-premises NFS storage, NFS-enabled blob | on-premises NFS storage <br/>NFS-enabled blob storage is in preview for this combination |
-| Caching styles | Read caching or read-write caching | Read caching only |
-| Cache can be stopped to save cost when not needed | Yes | No |
+  This type of cache provides higher throughput and lower latency than a standard cache, but is designed to optimize file and directory read access only. You cannot configure a read-only cache to use read-write cache usage models, but a read-after-write workload will result in a cache-hit, as the writes are persisted synchronously to the storage target. This type of cache has only one cache size option for each throughput choice.
+
+* **Read-write premium caching (Preview)**
+  
+  A high-throughput cache that can be configured for either read-only or read-write caching. These caches have only one cache size option for each throughput option.
+
+<!-- * **Read-only scalable caching (Preview)**
+
+  A standard throughput cache that can be made larger or smaller to accommodate variable workflows. You can choose from a variety of storage sizes for each throughput size.
+
+  > [!NOTE]
+  > For a scalable cache, the values you choose at create time determine the size options you will have when scaling the cache up or down later. Choose the highest throughput and largest storage size if you want to be able to maximize these values later.
+
+  Read [Use scalable caches](scale-cache.md) to learn more about creating and using scalable caches. -->
+
+This table explains important differences among the three cache types.
+
+| Attribute | Read-Write Standard Caching | Read-Only Caching | Read-Write Premium Caching |
+|--|--|--|--|
+| Throughput sizes | 2, 4, or 8 GB/sec | 4.5, 9, or 16 GB/sec | 5, 10, or 20 GB/sec |
+| Cache sizes | 3, 6, or 12 TB for 2 GB/sec<br/> 6, 12, or 24 TB for 4 GB/sec<br/> 12, 24, or 48 TB for 8 GB/sec| 21 TB for 4.5 GB/sec <br/> 42 TB for 9 GB/sec <br/> 84 TB for 16 GB/sec | 21 TB for 5 GB/sec <br/> 42 TB for 10 GB/sec <br/> 84 TB for 20 GB/sec |
+| Compatible storage target types | Azure Blob <br/> NFS (on-premises)<br />ADLS-NFS (NFSv3-enabled Azure Blob) | NFS (on-premises)<br />ADLS-NFS (NFSv3-enabled Azure Blob) | Azure Blob <br/> NFS (on-premises)<br />ADLS-NFS (NFSv3-enabled Azure Blob) |
+| Caching styles | Read-write caching | Read caching only | Read-write caching |
+| Cache can be stopped to save cost when not needed | Yes | No | No |
+
+All three caching options have a maximum storage target count of 20.
 
 Learn more about these options:
 
-* [Maximum number of storage targets](hpc-cache-add-storage.md#size-your-cache-correctly-to-support-your-storage-targets)
 * [Read and write caching modes](cache-usage-models.md#basic-file-caching-concepts)
 
 ## Enable Azure Key Vault encryption (optional)
@@ -194,7 +218,7 @@ Supply these values:
   | 24576 GB   | no          | yes         | yes         |
   | 49152 GB   | no          | no          | yes         |
 
-  If you want to use more than 10 storage targets with your cache, choose the highest available cache size value for your SKU. These configurations support up to 20 storage targets.
+  <!-- If you want to use more than 10 storage targets with your cache, choose the highest available cache size value for your SKU. These configurations support up to 20 storage targets. -->
 
   Read the **Set cache capacity** section in the portal instructions tab for important information about pricing, throughput, and how to size your cache appropriately for your workflow.
 
@@ -261,7 +285,7 @@ If you choose to use PowerShell locally, this article requires that you install 
 module and connect to your Azure account using the
 [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet. For more information
 about installing the Az PowerShell module, see
-[Install Azure PowerShell](/powershell/azure/install-az-ps). If you choose to use Cloud Shell, see
+[Install Azure PowerShell](/powershell/azure/install-azure-powershell). If you choose to use Cloud Shell, see
 [Overview of Azure Cloud Shell](../cloud-shell/overview.md) for
 more information.
 

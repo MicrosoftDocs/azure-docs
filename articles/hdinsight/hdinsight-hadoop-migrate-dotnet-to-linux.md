@@ -3,10 +3,9 @@ title: Use .NET with Hadoop MapReduce on Linux-based HDInsight - Azure
 description: Learn how to use .NET applications for streaming MapReduce on Linux-based HDInsight.
 
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive, devx-track-dotnet, linux-related-content
 ms.topic: how-to
-ms.date: 08/05/2022
-
+ms.date: 09/14/2023
 ---
 # Migrate .NET solutions for Windows-based HDInsight to Linux-based HDInsight
 
@@ -26,7 +25,7 @@ The [.NET Portability Analyzer](https://marketplace.visualstudio.com/items?itemN
 
 2. From Visual Studio 2015, select __Analyze__ > __Portability Analyzer Settings__, and make sure that __4.5__ is checked in the __Mono__ section.
 
-    :::image type="content" source="./media/hdinsight-hadoop-migrate-dotnet-to-linux/portability-analyzer-settings.png" alt-text="4.5 checked in Mono section for the analyzer settings":::
+    :::image type="content" source="./media/hdinsight-hadoop-migrate-dotnet-to-linux/portability-analyzer-settings.png" alt-text="4.5 checked in Mono section for the analyzer settings.":::
 
     Select __OK__ to save the configuration.
 
@@ -34,7 +33,7 @@ The [.NET Portability Analyzer](https://marketplace.visualstudio.com/items?itemN
 
 4. Once analysis is complete, select __Analyze__ > __View analysis reports__. In __Portability Analysis Results__, select __Open report__ to open a report.
 
-    :::image type="content" source="./media/hdinsight-hadoop-migrate-dotnet-to-linux/portability-analyzer-results.png" alt-text="Portability analyzer results dialog":::
+    :::image type="content" source="./media/hdinsight-hadoop-migrate-dotnet-to-linux/portability-analyzer-results.png" alt-text="Portability analyzer results dialog.":::
 
 > [!IMPORTANT]  
 > The analyzer cannot catch every problem with your solution. For example, a file path of `c:\temp\file.txt` is considered OK if Mono is running on Windows. The same path is not valid on a Linux platform.

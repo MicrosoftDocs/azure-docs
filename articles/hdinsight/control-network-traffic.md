@@ -3,7 +3,7 @@ title: Control network traffic in Azure HDInsight
 description: Learn techniques for controlling inbound and outbound traffic to Azure HDInsight clusters.
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 04/11/2022
+ms.date: 05/23/2023
 ---
 
 # Control network traffic in Azure HDInsight
@@ -16,7 +16,7 @@ Network traffic in an Azure Virtual Networks can be controlled using the followi
 
 As a managed service, HDInsight requires unrestricted access to the HDInsight health and management services both for incoming and outgoing traffic from the VNET. When using NSGs, you must ensure that these services can still communicate with HDInsight cluster.
 
-:::image type="content" source="./media/control-network-traffic/hdinsight-vnet-diagram.png" alt-text="Diagram of HDInsight entities created in Azure custom VNET" border="false":::
+:::image type="content" source="./media/control-network-traffic/hdinsight-vnet-diagram.png" alt-text="Diagram of HDInsight entities created in Azure custom VNET." border="false":::
 
 ## HDInsight with network security groups
 

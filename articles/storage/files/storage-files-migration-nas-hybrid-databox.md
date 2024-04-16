@@ -2,11 +2,10 @@
 title: On-premises NAS migration to Azure File Sync via Data Box
 description: Learn how to migrate files from an on-premises Network Attached Storage (NAS) location to a hybrid cloud deployment by using Azure File Sync via Azure Data Box.
 author: khdownie
-ms.service: storage
+ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 03/5/2021
+ms.date: 11/21/2023
 ms.author: kendownie
-ms.subservice: files
 ---
 
 # Use Data Box to migrate from Network Attached Storage (NAS) to a hybrid cloud deployment by using Azure File Sync
@@ -98,7 +97,7 @@ The resource configuration (compute and RAM) of the Windows Server instance you 
 
 ## Phase 5: Copy files onto your Data Box
 
-When your Data Box arrives, you need to set it up in the line of sight to your NAS appliance. Follow the setup documentation for the type of Data Box you ordered:
+When your Data Box arrives, you need to set it up with unimpeded network connectivity to your NAS appliance. Follow the setup documentation for the type of Data Box you ordered:
 
 * [Set up Data Box](../../databox/data-box-quickstart-portal.md).
 * [Set up Data Box Disk](../../databox/data-box-disk-quickstart-portal.md).
@@ -247,4 +246,4 @@ There's more to discover about Azure file shares and Azure File Sync. The follow
 * [Migration overview](storage-files-migration-overview.md)
 * [Planning for an Azure File Sync deployment](../file-sync/file-sync-planning.md)
 * [Create a file share](storage-how-to-create-file-share.md)
-* [Troubleshoot Azure File Sync](../file-sync/file-sync-troubleshoot.md)
+* [Troubleshoot Azure File Sync](/troubleshoot/azure/azure-storage/file-sync-troubleshoot?toc=/azure/storage/file-sync/toc.json)

@@ -9,35 +9,73 @@ ms.author: ofshezaf
 
 # Advanced Security Information Model (ASIM) helper functions (Public preview)
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
+Advanced Security Information Model (ASIM) helper functions extend the KQL language providing functionality that helps interact with normalized data and in writing parsers.
 
-Advanced Security Information Model (ASIM) helper functions extend the KQL language providing functionality that helps interact with normalized data and in writing parsers. The following is a list of ASIM help functions:
+## Enrichment lookup functions
 
-## Scalar functions
+Enrichment lookup functions provide an easy method of looking up known values, based on their numerical representation. Such functions are useful as events often use the short form numeric code, while users prefer the textual form. Most of the functions have two forms:
 
-Scalar functions are used in expressions are typically invoked as part of an `extend` statement.
+The **lookup** version is a scalar function that accepts as input the numeric code and returns the textual form. Use the following KQL snippet with the **lookup** version:
 
-| Function | Input parameters | Output | Description |
+```KQL
+| extend ProtocolName = _ASIM_LookupNetworkProtocol (ProtocolNumber)
+``` 
+
+The **resolve** version is a tabular function that:
+
+- Is used a KQL pipeline operator. 
+- Accepts as input the name of the field holding the value to look up.
+- Sets the ASIM fields typically holding both the input value and the resulting lookup value. 
+
+Use the following KQL snippet with the **resolve** version:
+
+```KQL
+| invoke _ASIM_ResolveNetworkProtocol (`ProtocolNumber`)
+``` 
+
+Which will automatically populate the NetworkProtocol field with the result of the lookup.
+
+The **resolve** version is preferable for use in ASIM parsers, while the lookup version is useful in general purpose queries. When an enrichment lookup function has to return more than one value, it will always use the **resolve** format.
+
+### Lookup type functions
+
+| Function | Input* | Output | Description |
 | -------- | ---------------- | ------ | ----------- | 
-| _ASIM_GetSourceBySourceType | SourceType (String) | List of sources (dynamic) | Retrieve the list of sources associated with the input source type from the `SourceBySourceType` Watchlist. This function is intended for use by parsers writers. |
-| _ASIM_LookupDnsQueryType | QueryType (Integer) | Query Type Name | Translate a numeric DNS resource record (RR) type to its name, as defined by [IANA](https://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml#dns-parameters-4) |
-| _ASIM_LookupDnsResponseCode | ResponseCode (Integer) | Response Code Name | Translate a numeric DNS response code (RCODE) to its name, as defined by [IANA](https://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml#dns-parameters-6) |
+| **_ASIM_LookupDnsQueryType** | Numeric DNS query type code | Query type name | Translate a numeric DNS resource record (RR) type to its name, as defined by [IANA](https://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml#dns-parameters-4) |
+| **_ASIM_LookupDnsResponseCode** | Numeric DNS response code | Response code name | Translate a numeric DNS response code (RCODE) to its name, as defined by [IANA](https://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml#dns-parameters-6) |
+| **_ASIM_LookupICMPType** | Numeric ICMP type | ICMP type name | Translate a numeric ICMP type to its name, as defined by [IANA](https://www.iana.org/assignments/icmp-parameters/icmp-parameters.xhtml#icmp-parameters-types) |
+| **_ASIM_LookupNetworkProtocol** | IP protocol number | IP protocol name | Translate a numeric IP protocol code to its name, as defined by [IANA](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml) |
 
 
-## Tabular functions
+### Resolve type functions
 
-Tabular functions are invoked using the `invoke` operator and return value by adding fields to the data set, as if they perform `extend`.
+The resolve format functions perform the same action as their lookup counterpart, but accept a field name, provided as a string constant, as input and set up predefined fields as output. The input value is also assigned to a predefined field.  
 
-| Function | Input parameters | Extended fields | Description |
-| -------- | ---------------- | ------ | ----------- | 
-| _ASIM_ResolveDnsQueryType | field (String) | `DnsQueryTypeName`  | Translate a numeric DNS resource record (RR) type stored in the field specified to its name, as defined by [IANA](https://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml#dns-parameters-4), and assigns the result to the field `DnsQueryTypeName` |
-| _ASIM_LookupDnsResponseCode | field (String) | `DnsResponseCodeName` | Translate a numeric DNS response code (RCODE) stored in the field specified to its name, as defined by [IANA](https://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml#dns-parameters-6), and assigns the result to the field `DnsResponseCodeName` |
-| _ASIM_ResolveFQDN | field (String) | - `ExtractedHostname`<br> - `Domain`<br> - `DomainType` <br> - `FQDN` | Analyzes the value in the field specified and set the output fields accordingly. For more information, see [example](normalization-develop-parsers.md#resolvefqnd) in the article about developing parsers. | 
-| _ASIM_ResolveSrcFQDN | field (String) | - `SrcHostname`<br> - `SrcDomain`<br> - `SrcDomainType`<br> - `SrcFQDN` | Similar to _ASIM_ResolveFQDN, but sets the `Src` fields | 
-| _ASIM_ResolveDstFQDN | field (String) | - `DstHostname`<br> - `DstDomain`<br> - `DstDomainType`<br> - `SrcFQDN` | Similar to _ASIM_ResolveFQDN, but sets the `Dst` fields | 
-| _ASIM_ResolveDvcFQDN | field (String) | - `DvcHostname`<br> - `DvcDomain`<br> - `DvcDomainType`<br> - `DvcFQDN` | Similar to _ASIM_ResolveFQDN, but sets the `Dvc` fields | 
+| Function | Extended fields | 
+| -------- | ---------------- | 
+| **_ASIM_ResolveDnsQueryType** |  - `DnsQueryType` for the input value<br> - `DnsQueryTypeName` for the output value  |
+| **_ASIM_ResolveDnsResponseCode** | - `DnsResponseCode` for the input value<br> - `DnsResponseCodeName` for the output value | 
+| **_ASIM_ResolveICMPType** |  - `NetworkIcmpCode` for the input value<br> - `NetworkIcmpType` for the lookup value  |
+| **_ASIM_ResolveNetworkProtocol** | - `NetworkProtocolNumber` for the input value<br>- `NetworkProtocol` for the lookup value | 
 
+## Parser helper functions
 
+The following functions perform tasks which are common in parsers and useful to accelerate parser development.
+
+### Device resolution functions
+
+The device resolution functions analyze a hostname and determine whether it has domain information and the type of domain notation. The functions then populate the relevant ASIM fields representing a device. All the functions are resolve type functions and accept the name of the field containing the hostname, represented as a string, as input.
+
+| Function | Extended fields | Description |
+| -------- | ---------------- | ----------- |
+| **_ASIM_ResolveFQDN** | - `ExtractedHostname`<br> - `Domain`<br> - `DomainType` <br> - `FQDN` | Analyzes the value in the field specified and set the output fields accordingly. For more information, see [example](normalization-develop-parsers.md#resolvefqnd) in the article about developing parsers. | 
+| **_ASIM_ResolveSrcFQDN** | - `SrcHostname`<br> - `SrcDomain`<br> - `SrcDomainType`<br> - `SrcFQDN` | Similar to `_ASIM_ResolveFQDN`, but sets the `Src` fields | 
+| **_ASIM_ResolveDstFQDN** | - `DstHostname`<br> - `DstDomain`<br> - `DstDomainType`<br> - `SrcFQDN` | Similar to `_ASIM_ResolveFQDN`, but sets the `Dst` fields | 
+| **_ASIM_ResolveDvcFQDN** | - `DvcHostname`<br> - `DvcDomain`<br> - `DvcDomainType`<br> - `DvcFQDN` | Similar to `_ASIM_ResolveFQDN`, but sets the `Dvc` fields | 
+
+### Source identification functions
+
+The **_ASIM_GetSourceBySourceType** function retrieves the list of sources associated with a source type provided as input from the `SourceBySourceType` Watchlist. The function is intended for use by parsers writers. For more information, see [Filtering by source type using a Watchlist](normalization-develop-parsers.md#filtering-by-source-type-using-a-watchlist).
 
 ## <a name="next-steps"></a>Next steps
 

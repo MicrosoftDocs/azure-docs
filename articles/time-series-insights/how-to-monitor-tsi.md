@@ -5,9 +5,7 @@ author: tedvilutis
 ms.author: tvilutis
 manager: cnovak
 ms.reviewer: orspodek
-ms.workload: big-data
 ms.service: time-series-insights
-services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/10/2020
 ---
@@ -37,7 +35,7 @@ Start with the article [Monitoring Azure resources with Azure Monitor](../azure-
 The following sections build on this article by describing the specific data gathered for Azure Time Series Insights. These sections also provide examples for configuring data collection and analyzing this data with Azure tools.
 
 > [!TIP]
-> To understand costs associated with Azure Monitor, see [Usage and estimated costs](../azure-monitor//usage-estimated-costs.md). To understand the time it takes for your data to appear in Azure Monitor, see [Log data ingestion time](../azure-monitor/logs/data-ingestion-time.md).
+> To understand costs associated with Azure Monitor, see [Azure Monitor cost and usage](../azure-monitor/cost-usage.md). To understand the time it takes for your data to appear in Azure Monitor, see [Log data ingestion time](../azure-monitor/logs/data-ingestion-time.md).
 
 ## Monitoring data from Azure Time Series Insights
 
@@ -60,7 +58,7 @@ You can collect logs from the following categories for Azure Time Series Insight
 
 ## Analyzing metrics
 
-You can analyze metrics for Azure Time Series Insights, along with metrics from other Azure services, by opening Metrics from the Azure Monitor menu. See [Getting started with Azure Metrics Explorer](../azure-monitor/essentials/metrics-getting-started.md) for details on using this tool.
+You can analyze metrics for Azure Time Series Insights, along with metrics from other Azure services, by opening Metrics from the Azure Monitor menu. See [Analyze metrics with Azure Monitor metrics explorer](../azure-monitor/essentials/analyze-metrics.md) for details on using this tool.
 
 For a list of the platform metrics collected, see [Monitoring Azure Time Series Insights data reference](how-to-monitor-tsi-reference.md#metrics)
 

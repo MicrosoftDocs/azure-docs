@@ -3,6 +3,8 @@ title: Configure Vault Diagnostics settings at scale
 description: Configure Log Analytics Diagnostics settings for all vaults in a given scope using Azure Policy
 ms.topic: conceptual
 ms.date: 02/14/2020
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 # Configure Vault Diagnostics settings at scale
 

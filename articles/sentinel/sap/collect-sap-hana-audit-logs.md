@@ -1,10 +1,10 @@
 ---
 title: Collect SAP HANA audit logs in Microsoft Sentinel | Microsoft Docs
 description: This article explains how to collect audit logs from your SAP HANA database.
-author: msftandrelom
-ms.author: andrelom
+author: yelevin
+ms.author: yelevin
 ms.topic: how-to
-ms.date: 03/02/2022
+ms.date: 05/24/2023
 ---
 
 # Collect SAP HANA audit logs in Microsoft Sentinel
@@ -49,25 +49,25 @@ If you have SAP HANA database audit logs configured with Syslog, you'll also nee
 
 ## Next steps
 
-Learn more about the Microsoft Sentinel Solution for SAP:
+Learn more about the Microsoft Sentinel solution for SAP® applications:
 
-- [Deploy Microsoft Sentinel Solution for SAP](deployment-overview.md)
-- [Prerequisites for deploying Microsoft Sentinel Solution for SAP](prerequisites-for-deploying-sap-continuous-threat-monitoring.md)
+- [Deploy Microsoft Sentinel solution for SAP® applications](deployment-overview.md)
+- [Prerequisites for deploying Microsoft Sentinel solution for SAP® applications](prerequisites-for-deploying-sap-continuous-threat-monitoring.md)
 - [Deploy SAP Change Requests (CRs) and configure authorization](preparing-sap.md)
+- [Deploy the solution content from the content hub](deploy-sap-security-content.md)
 - [Deploy and configure the container hosting the SAP data connector agent](deploy-data-connector-agent-container.md)
-- [Deploy SAP security content](deploy-sap-security-content.md)
 - [Deploy the SAP data connector with SNC](configure-snc.md)
+- [Monitor the health of your SAP system](../monitor-sap-system-health.md)
 - [Enable and configure SAP auditing](configure-audit.md)
 
 Troubleshooting:
 
-- [Troubleshoot your Microsoft Sentinel Solution for SAP deployment](sap-deploy-troubleshoot.md)
-- [Configure SAP Transport Management System](configure-transport.md)
+- [Troubleshoot your Microsoft Sentinel solution for SAP® applications deployment](sap-deploy-troubleshoot.md)
 
 Reference files:
 
-- [Microsoft Sentinel Solution for SAP data reference](sap-solution-log-reference.md)
-- [Microsoft Sentinel Solution for SAP: security content reference](sap-solution-security-content.md)
+- [Microsoft Sentinel solution for SAP® applications data reference](sap-solution-log-reference.md)
+- [Microsoft Sentinel solution for SAP® applications: security content reference](sap-solution-security-content.md)
 - [Kickstart script reference](reference-kickstart.md)
 - [Update script reference](reference-update.md)
 - [Systemconfig.ini file reference](reference-systemconfig.md)

@@ -5,7 +5,7 @@ author: priyashan-19
 ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
-ms.date: 06/10/2021
+ms.date: 12/20/2022
 ms.author: priyashan
 ---
 

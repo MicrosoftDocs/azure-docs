@@ -4,7 +4,6 @@ description: Frequently asked questions about the Azure Cosmos DB integrated cac
 author: seesharprun
 ms.service: cosmos-db
 ms.subservice: nosql
-ms.custom: ignite-2022
 ms.topic: conceptual
 ms.date: 08/29/2022
 ms.author: sidandrews
@@ -20,11 +19,11 @@ The Azure Cosmos DB integrated cache is an in-memory cache that is built in to A
 
 ### Why does the integrated cache require a dedicated gateway?
 
-If you’ve connected to Azure Cosmos DB using gateway mode, you’ve used the standard gateway. While the Azure Cosmos DB backend (your provisioned throughput and storage) has dedicated capacity per container, the standard gateway is shared among many customers. It is practical for many customers to share a standard gateway since the compute resources consumed by each individual customer are minimal. Because the integrated cache is specific to your Azure Cosmos DB account and requires significant CPU and memory, it requires a dedicated gateway node.
+If you’ve connected to Azure Cosmos DB using gateway mode, you’ve used the standard gateway. While the Azure Cosmos DB backend (your provisioned throughput and storage) has dedicated capacity per container, the standard gateway is shared among many customers. It is practical for many customers to share a standard gateway since the compute resources consumed by each individual customer are minimal. Because the integrated cache is specific to your Azure Cosmos DB account and requires significant CPU and memory, it requires dedicated gateway nodes. 
 
 ### What is a dedicated gateway?
 
-A [dedicated gateway](dedicated-gateway.md) is server-side compute that is a front-end to data in an Azure Cosmos DB account. When you connect to your dedicated gateway endpoint, your application sends a request to the dedicated gateway, which then routes the request to different backend partitions.
+A [dedicated gateway](dedicated-gateway.md) is server-side compute that is a front-end to data in an Azure Cosmos DB account. When you connect to your dedicated gateway endpoint [using gateway mode](nosql/sdk-connection-modes.md), your application sends a request to the dedicated gateway, which then routes the request to different backend partitions. Using direct mode with the dedicated gateway is supported, but these requests will not use the integrated cache.
 
 ### Does using the dedicated gateway offer any other performance benefits over using the standard gateway?
 

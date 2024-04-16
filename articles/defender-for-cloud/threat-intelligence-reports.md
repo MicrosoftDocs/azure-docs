@@ -1,12 +1,13 @@
 ---
-title: Microsoft Defender for Cloud threat intelligence report
+title: Threat intelligence report
 description: This page helps you to use Microsoft Defender for Cloud threat intelligence reports during an investigation to find more information about security alerts
 ms.topic: how-to
-ms.date: 11/09/2021
+ms.date: 01/08/2023
 ---
+
 # Microsoft Defender for Cloud threat intelligence report
 
-This page explains how Microsoft Defender for Cloud's threat intelligence reports can help you learn more about a threat that triggered a security alert.
+Microsoft Defender for Cloud's threat intelligence reports can help you learn more about a threat that triggered a security alert.
 
 ## What is a threat intelligence report?
 
@@ -31,22 +32,22 @@ Defender for Cloud has three types of threat reports, which can vary according t
 * **Campaign Report**: focuses on details of specific attack campaigns.
 * **Threat Summary Report**: covers all of the items in the previous two reports.
 
-This type of information is useful during the incident response process, where there's an ongoing investigation to understand the source of the attack, the attacker’s motivations, and what to do to mitigate this issue in the future.
+This type of information is useful during the incident response process. Such as when there's an ongoing investigation to understand the source of the attack, the attacker’s motivations, and what to do to mitigate this issue in the future.
 
 ## How to access the threat intelligence report?
 
 1. From Defender for Cloud's menu, open the **Security alerts** page.
-1. Select an alert. 
+1. Select an alert.
 
-    The alerts details page opens with more details about the alert. Below is the **Ransomware indicators detected** alert details page.
+    The alerts details page opens with more details about the alert. For example, the **Ransomware indicators detected** alert details page:
 
-    [![Ransomware indicators detected alert details page.](media/threat-intelligence-reports/ransomware-indicators-detected-link-to-threat-intel-report.png)](media/threat-intelligence-reports/ransomware-indicators-detected-link-to-threat-intel-report.png#lightbox)
+    :::image type="content" source="media/threat-intelligence-reports/ransomware-indicators-detected-link-to-threat-intel-report.png" alt-text="Ransomware indicators detected alert details page." lightbox="media/threat-intelligence-reports/ransomware-indicators-detected-link-to-threat-intel-report.png":::
 
 1. Select the link to the report, and a PDF will open in your default browser.
 
-    [![Potentially Unsafe Action alert details page.](media/threat-intelligence-reports/threat-intelligence-report.png)](media/threat-intelligence-reports/threat-intelligence-report.png#lightbox)
+    :::image type="content" source="media/threat-intelligence-reports/threat-intelligence-report.png" alt-text="Potentially Unsafe Action alert details page." lightbox="media/threat-intelligence-reports/threat-intelligence-report.png":::
 
-    You can optionally download the PDF report. 
+    You can optionally download the PDF report.
 
     >[!TIP]
     > The amount of information available for each security alert will vary according to the type of alert.

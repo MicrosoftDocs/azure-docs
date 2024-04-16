@@ -5,13 +5,15 @@ services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic:  quickstart
-ms.date: 08/03/2022
+ms.date: 03/21/2024
 ms.author: cshoe
-ms.custom: mode-api, devx-track-azurecli 
+ms.custom: mode-api, devx-track-azurecli, innovation-engine, linux-related-content
 ms.devlang: azurecli
 ---
 
 # Quickstart: Building your first static site using the Azure CLI
+
+[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://go.microsoft.com/fwlink/?linkid=2262845)
 
 Azure Static Web Apps publishes websites to production by building apps from a code repository.
 
@@ -19,169 +21,145 @@ In this quickstart, you deploy a web application to Azure Static Web apps using 
 
 ## Prerequisites
 
-- [GitHub](https://github.com) account
+- [GitHub](https://github.com) account.
 - [Azure](https://portal.azure.com) account.
   - If you don't have an Azure subscription, you can [create a free trial account](https://azure.microsoft.com/free).
-- [Azure CLI](/cli/azure/install-azure-cli) installed (version 2.29.0 or higher)
+- [Azure CLI](/cli/azure/install-azure-cli) installed (version 2.29.0 or higher).
+- [A Git setup](https://www.git-scm.com/downloads). 
 
-[!INCLUDE [create repository from template](../../includes/static-web-apps-get-started-create-repo.md)]
+## Define environment variables
 
-## Deploy a static web app
+The first step in this quickstart is to define environment variables.
 
-Now that the repository is generated from the template, you can deploy the app as a static web app from the Azure CLI.
+```bash
+export RANDOM_ID="$(openssl rand -hex 3)"
+export MY_RESOURCE_GROUP_NAME="myStaticWebAppResourceGroup$RANDOM_ID"
+export REGION=EastUS2
+export MY_STATIC_WEB_APP_NAME="myStaticWebApp$RANDOM_ID"
+```
 
-1. Sign in to the Azure CLI by using the following command.
+## Create a repository (optional)
 
-    ```azurecli
-    az login
-    ```
+(Optional) This article uses a GitHub template repository as another way to make it easy for you to get started. The template features a starter app to deploy to Azure Static Web Apps.
+
+1. Navigate to the following location to create a new repository: https://github.com/staticwebdev/vanilla-basic/generate.
+2. Name your repository `my-first-static-web-app`.
+
+> [!NOTE]
+> Azure Static Web Apps requires at least one HTML file to create a web app. The repository you create in this step includes a single `index.html` file.
+
+3. Select **Create repository**.
+
+## Deploy a Static Web App
+
+Deploy the app as a static web app from the Azure CLI.
 
 1. Create a resource group.
 
-    ```azurecli
-    az group create \
-      --name my-swa-group \
-      --location "eastus2"
-    ```
+```bash
+az group create \
+  --name $MY_RESOURCE_GROUP_NAME \
+  --location $REGION
+```
 
-1. Create a variable to hold your GitHub user name.
+Results:
+<!-- expected_similarity=0.3 -->
+```json
+{
+  "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/my-swa-group",
+  "location": "eastus2",
+  "managedBy": null,
+  "name": "my-swa-group",
+  "properties": {
+    "provisioningState": "Succeeded"
+  },
+  "tags": null,
+  "type": "Microsoft.Resources/resourceGroups"
+}
+```
 
-    Before you execute the following command, replace the placeholder `<YOUR_GITHUB_USER_NAME>` with your GitHub user name.
+2. Deploy a new static web app from your repository.
 
-    ```bash
-    GITHUB_USER_NAME=<YOUR_GITHUB_USER_NAME>
-    ```
-
-1. Deploy a new static web app from your repository.
-
-    # [No Framework](#tab/vanilla-javascript)
-
-    ```azurecli
-    az staticwebapp create \
-        --name my-first-static-web-app \
-        --resource-group my-swa-group \
-        --source https://github.com/$GITHUB_USER_NAME/my-first-static-web-app \
-        --location "eastus2" \
-        --branch main \
-        --app-location "src" \
-        --login-with-github
-    ```
-
-    # [Angular](#tab/angular)
-
-    ```azurecli
-    az staticwebapp create \
-        --name my-first-static-web-app \
-        --resource-group my-swa-group \
-        --source https://github.com/$GITHUB_USER_NAME/my-first-static-web-app \
-        --location "eastus2" \
-        --branch main \
-        --app-location "/" \
-        --output-location "dist/angular-basic" \
-        --login-with-github
-    ```
-
-    # [Blazor](#tab/blazor)
-
-    ```azurecli
-    az staticwebapp create \
-        --name my-first-static-web-app \
-        --resource-group my-swa-group \
-        --source https://github.com/$GITHUB_USER_NAME/my-first-static-web-app \
-        --location "eastus2" \
-        --branch main \
-        --app-location "Client" \
-        --output-location "wwwroot"  \
-        --login-with-github
-    ```
-
-    # [React](#tab/react)
-
-    ```azurecli
-    az staticwebapp create \
-        --name my-first-static-web-app \
-        --resource-group my-swa-group \
-        --source https://github.com/$GITHUB_USER_NAME/my-first-static-web-app \
-        --location "eastus2" \
-        --branch main \
-        --app-location "/"  \
-        --output-location "build"  \
-        --login-with-github
-    ```
-
-    # [Vue](#tab/vue)
-
-    ```azurecli
-    az staticwebapp create \
-        --name my-first-static-web-app \
-        --resource-group my-swa-group \
-        --source https://github.com/$GITHUB_USER_NAME/my-first-static-web-app \
-        --location "eastus2" \
-        --branch main \
-        --app-location "/" \
-        --output-location "dist"  \
-        --login-with-github
-    ```
-
-    ---
-
-    > [!IMPORTANT]
-    > The URL passed to the `--source` parameter must not include the `.git` suffix.
-
-    As you execute this command, the CLI starts the GitHub interactive log in experience. Look for a line in your console that resembles the following message.
-
-    > Go to `https://github.com/login/device` and enter the user code 329B-3945 to activate and retrieve your GitHub personal access token.
-
-1. Go to **https://github.com/login/device**.
-
-1. Enter the user code as displayed your console's message.
-
-2. Select **Continue**.
-
-3. Select **Authorize AzureAppServiceCLI**.
-
-## View the website
+```bash
+az staticwebapp create \
+    --name $MY_STATIC_WEB_APP_NAME \
+    --resource-group $MY_RESOURCE_GROUP_NAME \
+    --location $REGION 
+```
 
 There are two aspects to deploying a static app. The first operation creates the underlying Azure resources that make up your app. The second is a workflow that builds and publishes your application.
 
 Before you can go to your new static site, the deployment build must first finish running.
 
-1. Return to your console window and run the following command to list the URLs associated with your app.
+3. Return to your console window and run the following command to list the website's URL.
 
-    ```azurecli
-    az staticwebapp show \
-      --name  my-first-static-web-app \
-      --query "repositoryUrl"
-    ```
-
-    The output of this command returns the URL to your GitHub repository.
-
-1. Copy the **repository URL** and paste it into your browser.
-
-1. Select the **Actions** tab.
-
-    At this point, Azure is creating the resources to support your static web app. Wait until the icon next to the running workflow turns into a check mark with green background (:::image type="icon" source="media/get-started-cli/checkmark-green-circle.png" border="false":::). This operation may take a few minutes to complete.
-
-    Once the success icon appears, the workflow is complete and you can return back to your console window.
-
-1. Run the following command to query for your website's URL.
-
-    ```azurecli
-    az staticwebapp show \
-      --name my-first-static-web-app \
-      --query "defaultHostname"
-    ```
-
-    Copy the URL into your browser to go to your website.
-
-## Clean up resources
-
-If you're not going to continue to use this application, you can delete the resource group and the static web app by running the following command:
-
-```azurecli
-az group delete \
-  --name my-swa-group
+```bash
+export MY_STATIC_WEB_APP_URL=$(az staticwebapp show --name  $MY_STATIC_WEB_APP_NAME --resource-group $MY_RESOURCE_GROUP_NAME --query "defaultHostname" -o tsv)
 ```
+
+```bash
+runtime="1 minute";
+endtime=$(date -ud "$runtime" +%s);
+while [[ $(date -u +%s) -le $endtime ]]; do
+    if curl -I -s $MY_STATIC_WEB_APP_URL > /dev/null ; then 
+        curl -L -s $MY_STATIC_WEB_APP_URL 2> /dev/null | head -n 9
+        break
+    else 
+        sleep 10
+    fi;
+done
+```
+
+Results:
+<!-- expected_similarity=0.3 -->
+```HTML
+<!DOCTYPE html>
+<html lang=en>
+<head>
+<meta charset=utf-8 />
+<meta name=viewport content="width=device-width, initial-scale=1.0" />
+<meta http-equiv=X-UA-Compatible content="IE=edge" />
+<title>Azure Static Web Apps - Welcome</title>
+<link rel="shortcut icon" href=https://appservice.azureedge.net/images/static-apps/v3/favicon.svg type=image/x-icon />
+<link rel=stylesheet href=https://ajax.aspnetcdn.com/ajax/bootstrap/4.1.1/css/bootstrap.min.css crossorigin=anonymous />
+```
+
+```bash
+echo "You can now visit your web server at https://$MY_STATIC_WEB_APP_URL"
+```
+
+## Use a GitHub template
+
+You've successfully deployed a static web app to Azure Static Web Apps using the Azure CLI. Now that you have a basic understanding of how to deploy a static web app, you can explore more advanced features and functionality of Azure Static Web Apps.
+
+In case you want to use the GitHub template repository, follow these steps:
+
+Go to https://github.com/login/device and enter the code you get from GitHub to activate and retrieve your GitHub personal access token.
+
+1. Go to https://github.com/login/device.
+2. Enter the user code as displayed your console's message.
+3. Select `Continue`.
+4. Select `Authorize AzureAppServiceCLI`.
+
+### View the Website via Git
+
+1. As you get the repository URL while running the script, copy the repository URL and paste it into your browser.
+2. Select the `Actions` tab.
+
+   At this point, Azure is creating the resources to support your static web app. Wait until the icon next to the running workflow turns into a check mark with green background. This operation might take a few minutes to execute.
+
+3. Once the success icon appears, the workflow is complete and you can return back to your console window.
+4. Run the following command to query for your website's URL.
+```bash
+   az staticwebapp show \
+     --name $MY_STATIC_WEB_APP_NAME \
+     --query "defaultHostname"
+```
+5. Copy the URL into your browser to go to your website.
+
+## Clean up resources (optional)
+
+If you're not going to continue to use this application, delete the resource group and the static web app using the [az group delete](/cli/azure/group#az-group-delete) command.
 
 ## Next steps
 

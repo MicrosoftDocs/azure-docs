@@ -9,10 +9,6 @@ ms.date: 03/28/2022
 
 Defender for IoT stores security alerts, recommendations, and raw security data (if you choose to save it) in your Log Analytics workspace.
 
-> [!NOTE]
-> The Microsoft Defender for IoT legacy experience under IoT Hub has been replaced by our new Defender for IoT standalone experience, in the Defender for IoT area of the Azure portal. The legacy experience under IoT Hub will not be supported after **March 31, 2023**.
->
-> For more information, see [Tutorial: Configure Microsoft Defender for IoT agent-based solution](tutorial-configure-agent-based-solution.md).
 ## Log Analytics
 
 To configure which Log Analytics workspace is used:
@@ -32,7 +28,7 @@ For details on querying data from Log Analytics, see [Get started with log queri
 
 Security alerts are stored in _AzureSecurityOfThings.SecurityAlert_ table in the Log Analytics workspace configured for the Defender for IoT solution.
 
-We've provided a number of useful queries to help you get started exploring security alerts.
+We provide many useful queries to help you get started exploring security alerts.
 
 ### Sample records
 
@@ -111,7 +107,7 @@ SecurityAlert
 
 Security recommendations are stored in _AzureSecurityOfThings.SecurityRecommendation_ table in the Log Analytics workspace configured for the Defender for IoT solution.
 
-We've provided a number of useful queries to help you get start exploring security recommendations.
+We provide many useful queries to help you get start exploring security recommendations.
 
 ### Sample records
 
@@ -135,15 +131,15 @@ SecurityRecommendation
 
 | TimeGenerated | IoTHubId | DeviceId | RecommendationSeverity | RecommendationState | RecommendationDisplayName | Description | RecommendationAdditionalData |
 |---------------|----------|----------|------------------------|---------------------|---------------------------|-------------|------------------------------|
-| 2019-03-22T10:21:06.060 |    /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | Medium | Active | Permissive firewall rule in the input chain was found | A rule in the firewall has been found that contains a permissive pattern for a wide range of IP addresses or Ports | {"Rules":"[{\"SourceAddress\":\"\",\"SourcePort\":\"\",\"DestinationAddress\":\"\",\"DestinationPort\":\"1337\"}]"} |
-| 2019-03-22T10:50:27.237 | /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | Medium | Active | Permissive firewall rule in the input chain was found | A rule in the firewall has been found that contains a permissive pattern for a wide range of IP addresses or Ports | {"Rules":"[{\"SourceAddress\":\"\",\"SourcePort\":\"\",\"DestinationAddress\":\"\",\"DestinationPort\":\"1337\"}]"} |
+| 2019-03-22T10:21:06.060 |    /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | Medium | Active | Permissive firewall rule in the input chain was found | A rule in the firewall was found that contains a permissive pattern for a wide range of IP addresses or Ports | {"Rules":"[{\"SourceAddress\":\"\",\"SourcePort\":\"\",\"DestinationAddress\":\"\",\"DestinationPort\":\"1337\"}]"} |
+| 2019-03-22T10:50:27.237 | /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | Medium | Active | Permissive firewall rule in the input chain was found | A rule in the firewall was found that contains a permissive pattern for a wide range of IP addresses or Ports | {"Rules":"[{\"SourceAddress\":\"\",\"SourcePort\":\"\",\"DestinationAddress\":\"\",\"DestinationPort\":\"1337\"}]"} |
 
 ### Device summary
 
 Get the number of distinct active security recommendations, grouped by IoT Hub, device, recommendation severity, and type.
 
 ```
-// Get the number of distinct active security recommendations, grouped by by
+// Get the number of distinct active security recommendations, grouped by
 //   IoT hub, device, recommendation severity and type
 //
 SecurityRecommendation

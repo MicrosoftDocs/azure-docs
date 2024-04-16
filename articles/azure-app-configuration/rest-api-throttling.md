@@ -10,7 +10,7 @@ ms.date: 08/17/2020
 
 # Throttling
 
-Configuration stores have limits on the requests that they may serve. Any requests that exceed an allotted quota for a configuration store will receive an HTTP 429 (Too Many Requests) response.
+Configuration stores have limits on the requests that they can serve. Any requests that exceed an allotted quota for a configuration store will receive an HTTP 429 (Too Many Requests) response.
 
 Throttling is divided into different quota policies:
 
@@ -41,9 +41,15 @@ In the above example, the client has exceeded its allowed quota and is advised t
 
 ## Other retry
 
-The service may identify situations other than throttling that need a client retry (ex: 503 Service Unavailable). In all such cases, the `retry-after-ms` response header will be provided. To increase robustness, the client is advised to follow the suggested interval and perform a retry.
+The service might identify situations other than throttling that need a client retry (ex: 503 Service Unavailable). In all such cases, the `retry-after-ms` response header will be provided. To increase robustness, the client is advised to follow the suggested interval and perform a retry.
 
 ```http
 HTTP/1.1 503 Service Unavailable
 retry-after-ms: 787
 ```
+
+## Monitoring
+
+To view the **Total Requests** quota usage, App Configuration provides a metric named **Request Quota Usage**. The request quota usage metric shows the current quota usage as a percentage.
+
+For more information on the request quota usage metric and other App Configuration metrics see [Monitoring App Configuration data reference](./monitor-app-configuration-reference.md).

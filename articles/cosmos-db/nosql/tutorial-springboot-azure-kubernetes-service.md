@@ -9,18 +9,21 @@ ms.topic: quickstart
 ms.date: 10/01/2021
 ms.author: sidandrews
 ms.reviewer: mjbrown
-ms.custom: mode-api, devx-track-azurecli
+ms.custom: mode-api, devx-track-azurecli, build-2023, build-2023-dataai
 ---
 
 # Tutorial - Spring Boot Application with Azure Cosmos DB for NoSQL and Azure Kubernetes Service
 [!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]
+
+> [!NOTE]
+> For Spring Boot applications, we recommend using Azure Spring Apps. However, you can still use Azure Kubernetes Service as a destination.
 
 In this tutorial, you will set up and deploy a Spring Boot application that exposes REST APIs to perform CRUD operations on data in Azure Cosmos DB (API for NoSQL account). You will package the application as Docker image, push it to Azure Container Registry, deploy to Azure Kubernetes Service and test the application.
 
 ## Pre-requisites
 
 - An Azure account with an active subscription. Create a [free account](https://azure.microsoft.com/free/) or [try Azure Cosmos DB for free](https://azure.microsoft.com/try/cosmosdb/) without an Azure subscription.
-- [Java Development Kit (JDK) 8](https://www.azul.com/downloads/azure-only/zulu/?&version=java-8-lts&architecture=x86-64-bit&package=jdk). Point your `JAVA_HOME` environment variable to the path where the JDK is installed.
+- [Java Development Kit (JDK) 8](/java/openjdk/download#openjdk-8). Point your `JAVA_HOME` environment variable to the path where the JDK is installed.
 - [Azure CLI](/cli/azure/install-azure-cli) to provision Azure services.
 - [Docker](https://docs.docker.com/engine/install/) to manage images and containers.
 - A recent version of [Maven](https://maven.apache.org/download.cgi) and [Git](https://www.git-scm.com/downloads).
@@ -335,7 +338,7 @@ Creating a Service of type `LoadBalancer` in Azure Kubernetes Service will resul
    ```
     
    > [!NOTE]
-   > Replace `20.81.108.180` with the the public IP address for your environment
+   > Replace `20.81.108.180` with the public IP address for your environment
 
 ## Kubernetes resources for the application
 
@@ -362,4 +365,4 @@ Here are some of the key points related to the Kubernetes resources for this app
 In this tutorial, you've learned how to deploy a Spring Boot application to Azure Kubernetes Service and use it to perform operations on data in an Azure Cosmos DB for NoSQL account.
 
 > [!div class="nextstepaction"]
-> [Spring Datan Azure Cosmos DB v3 for API for NoSQL](sdk-java-spring-data-v3.md)
+> [Spring Data Azure Cosmos DB v3 for API for NoSQL](sdk-java-spring-data-v3.md)

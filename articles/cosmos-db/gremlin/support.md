@@ -3,7 +3,6 @@ title: Azure Cosmos DB for Gremlin support and compatibility with TinkerPop feat
 description: Learn about the Gremlin language from Apache TinkerPop. Learn which features and steps are available in Azure Cosmos DB and the TinkerPop Graph engine compatibility differences.
 ms.service: cosmos-db
 ms.subservice: apache-gremlin
-ms.custom: ignite-2022
 ms.topic: overview
 ms.date: 07/06/2021
 author: manishmsfte
@@ -44,7 +43,7 @@ The following table lists the TinkerPop features that are implemented by Azure C
 | Category | Azure Cosmos DB implementation |  Notes | 
 | --- | --- | --- |
 | Graph features | Provides Persistence and ConcurrentAccess. Designed to support Transactions | Computer methods can be implemented via the Spark connector. |
-| Variable features | Supports Boolean, Integer, Byte, Double, Float, Integer, Long, String | Supports primitive types, is compatible with complex types via data model |
+| Variable features | Supports Boolean, Integer, Byte, Double, Float, Long, String | Supports primitive types, is compatible with complex types via data model |
 | Vertex features | Supports RemoveVertices, MetaProperties, AddVertices, MultiProperties, StringIds, UserSuppliedIds, AddProperty, RemoveProperty  | Supports creating, modifying, and deleting vertices |
 | Vertex property features | StringIds, UserSuppliedIds, AddProperty, RemoveProperty, BooleanValues, ByteValues, DoubleValues, FloatValues, IntegerValues, LongValues, StringValues | Supports creating, modifying, and deleting vertex properties |
 | Edge features | AddEdges, RemoveEdges, StringIds, UserSuppliedIds, AddProperty, RemoveProperty | Supports creating, modifying, and deleting edges |

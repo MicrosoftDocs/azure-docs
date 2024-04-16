@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.date: 05/11/2020
 ms.author: sidandrews
 ms.reviewer: mjbrown
-ms.custom: devx-track-java
+ms.custom: devx-track-java, devx-track-extended-java
 ---
 
 # Performance tips for Azure Cosmos DB Sync Java SDK v2
@@ -21,12 +21,13 @@ ms.custom: devx-track-java
 > * [Sync Java SDK v2](performance-tips-java.md)
 > * [.NET SDK v3](performance-tips-dotnet-sdk-v3.md)
 > * [.NET SDK v2](performance-tips.md)
+> * [Python SDK](performance-tips-python-sdk.md)
 > 
 
 > [!IMPORTANT]  
 > This is *not* the latest Java SDK for Azure Cosmos DB! You should upgrade your project to [Azure Cosmos DB Java SDK v4](sdk-java-v4.md) and then read the Azure Cosmos DB Java SDK v4 [performance tips guide](performance-tips-java-sdk-v4.md). Follow the instructions in the [Migrate to Azure Cosmos DB Java SDK v4](migrate-java-v4-sdk.md) guide and [Reactor vs RxJava](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/reactor-rxjava-guide.md) guide to upgrade. 
 > 
-> These performance tips are for Azure Cosmos DB Sync Java SDK v2 only. Please view the Azure Cosmos DB Sync Java SDK v2 [Release notes](sdk-java-v2.md) and [Maven repository](https://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb) for more information.
+> These performance tips are for Azure Cosmos DB Sync Java SDK v2 only. Please view the [Maven repository](https://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb) for more information.
 >
 
 > [!IMPORTANT]  
@@ -38,7 +39,7 @@ ms.custom: devx-track-java
 > Azure Cosmos DB Java SDK v4.
 >
 
-Azure Cosmos DB is a fast and flexible distributed database that scales seamlessly with guaranteed latency and throughput. You do not have to make major architecture changes or write complex code to scale your database with Azure Cosmos DB. Scaling up and down is as easy as making a single API call. To learn more, see [how to provision container throughput](how-to-provision-container-throughput.md) or [how to provision database throughput](how-to-provision-database-throughput.md). However, because Azure Cosmos DB is accessed via network calls there are client-side optimizations you can make to achieve peak performance when using [Azure Cosmos DB Sync Java SDK v2](./sdk-java-v2.md).
+Azure Cosmos DB is a fast and flexible distributed database that scales seamlessly with guaranteed latency and throughput. You do not have to make major architecture changes or write complex code to scale your database with Azure Cosmos DB. Scaling up and down is as easy as making a single API call. To learn more, see [how to provision container throughput](how-to-provision-container-throughput.md) or [how to provision database throughput](how-to-provision-database-throughput.md). However, because Azure Cosmos DB is accessed via network calls there are client-side optimizations you can make to achieve peak performance when using Azure Cosmos DB Sync Java SDK v2.
 
 So if you're asking "How can I improve my database performance?" consider the following options:
 
@@ -79,12 +80,12 @@ So if you're asking "How can I improve my database performance?" consider the fo
 
     When possible, place any applications calling Azure Cosmos DB in the same region as the Azure Cosmos DB database. For an approximate comparison, calls to Azure Cosmos DB within the same region complete within 1-2 ms, but the latency between the West and East coast of the US is >50 ms. This latency can likely vary from request to request depending on the route taken by the request as it passes from the client to the Azure datacenter boundary. The lowest possible latency is achieved by ensuring the calling application is located within the same Azure region as the provisioned Azure Cosmos DB endpoint. For a list of available regions, see [Azure Regions](https://azure.microsoft.com/regions/#services).
 
-    :::image type="content" source="./media/performance-tips/same-region.png" alt-text="Diagram shows requests and responses in two regions, where computers connect to an Azure Cosmos DB DB Account through mid-tier services." border="false":::
+    :::image type="content" source="./media/performance-tips/same-region.png" alt-text="Diagram shows requests and responses in two regions, where computers connect to an Azure Cosmos DB Account through mid-tier services." border="false":::
    
 ## SDK Usage
 1. **Install the most recent SDK**
 
-    The Azure Cosmos DB SDKs are constantly being improved to provide the best performance. See the [Azure Cosmos DB SDK](./sdk-java-v2.md) pages to determine the most recent SDK and review improvements.
+    The Azure Cosmos DB SDKs are constantly being improved to provide the best performance. To determine the most recent SDK improvements, visit the [Azure Cosmos DB SDK](/java/api/overview/azure/cosmos-readme).
 2. **Use a singleton Azure Cosmos DB client for the lifetime of your application**
 
     Each [DocumentClient](/java/api/com.microsoft.azure.documentdb.documentclient) instance is thread-safe and performs efficient connection management and address caching when operating in Direct Mode. To allow efficient connection management and better performance by DocumentClient, it is recommended to use a single instance of DocumentClient per AppDomain for the lifetime of the application.
@@ -101,16 +102,16 @@ So if you're asking "How can I improve my database performance?" consider the fo
     (a) ***Tuning setMaxDegreeOfParallelism\:***
     Parallel queries work by querying multiple partitions in parallel. However, data from an individual partitioned collection is fetched serially with respect to the query. So, use [setMaxDegreeOfParallelism](/java/api/com.microsoft.azure.documentdb.feedoptions.setmaxdegreeofparallelism) to set the number of partitions that has the maximum chance of achieving the most performant query, provided all other system conditions remain the same. If you don't know the number of partitions, you can use setMaxDegreeOfParallelism to set a high number, and the system chooses the minimum (number of partitions, user provided input) as the maximum degree of parallelism. 
 
-    It is important to note that parallel queries produce the best benefits if the data is evenly distributed across all partitions with respect to the query. If the partitioned collection is partitioned such a way that all or a majority of the data returned by a query is concentrated in a few partitions (one partition in worst case), then the performance of the query would be bottlenecked by those partitions.
+    It is important to note that parallel queries produce the best benefits if the data is evenly distributed across all partitions with respect to the query. If the partitioned collection is partitioned such a way that all or most of the data returned by a query is concentrated in a few partitions (one partition in worst case), then the performance of the query would be bottlenecked by those partitions.
 
     (b) ***Tuning setMaxBufferedItemCount\:***
-    Parallel query is designed to pre-fetch results while the current batch of results is being processed by the client. The pre-fetching helps in overall latency improvement of a query. setMaxBufferedItemCount limits the number of pre-fetched results. By setting [setMaxBufferedItemCount](/java/api/com.microsoft.azure.documentdb.feedoptions.setmaxbuffereditemcount) to the expected number of results returned (or a higher number), this enables the query to receive maximum benefit from pre-fetching.
+    Parallel query is designed to prefetch results while the current batch of results is being processed by the client. The prefetching helps in overall latency improvement of a query. setMaxBufferedItemCount limits the number of prefetched results. By setting [setMaxBufferedItemCount](/java/api/com.microsoft.azure.documentdb.feedoptions.setmaxbuffereditemcount) to the expected number of results returned (or a higher number), this enables the query to receive maximum benefit from prefetching.
 
-    Pre-fetching works the same way irrespective of the MaxDegreeOfParallelism, and there is a single buffer for the data from all partitions.  
+    Prefetching works the same way irrespective of the MaxDegreeOfParallelism, and there is a single buffer for the data from all partitions.  
 
 5. **Implement backoff at getRetryAfterInMilliseconds intervals**
 
-    During performance testing, you should increase load until a small rate of requests get throttled. If throttled, the client application should backoff on throttle for the server-specified retry interval. Respecting the backoff ensures that you spend minimal amount of time waiting between retries. Retry policy support is included in Version 1.8.0 and above of the [Azure Cosmos DB Sync Java SDK](./sdk-java-v2.md). For more information, see [getRetryAfterInMilliseconds](/java/api/com.microsoft.azure.documentdb.documentclientexception.getretryafterinmilliseconds).
+    During performance testing, you should increase load until a small rate of requests get throttled. If throttled, the client application should backoff on throttle for the server-specified retry interval. Respecting the backoff ensures that you spend minimal amount of time waiting between retries. Retry policy support is included in Version 1.8.0 and above of the [Azure Cosmos DB Sync Java SDK](/java/api/overview/azure/cosmos-readme). For more information, see [getRetryAfterInMilliseconds](/java/api/com.microsoft.azure.documentdb.documentclientexception.getretryafterinmilliseconds).
 
 6. **Scale out your client-workload**
 
@@ -133,7 +134,7 @@ So if you're asking "How can I improve my database performance?" consider the fo
  
 1. **Exclude unused paths from indexing for faster writes**
 
-    Azure Cosmos DB’s indexing policy allows you to specify which document paths to include or exclude from indexing by leveraging Indexing Paths ([setIncludedPaths](/java/api/com.microsoft.azure.documentdb.indexingpolicy.setincludedpaths) and [setExcludedPaths](/java/api/com.microsoft.azure.documentdb.indexingpolicy.setexcludedpaths)). The use of indexing paths can offer improved write performance and lower index storage for scenarios in which the query patterns are known beforehand, as indexing costs are directly correlated to the number of unique paths indexed.  For example, the following code shows how to exclude an entire section (subtree) of the documents from indexing using the "*" wildcard.
+    Azure Cosmos DB’s indexing policy allows you to specify which document paths to include or exclude from indexing by using Indexing Paths ([setIncludedPaths](/java/api/com.microsoft.azure.documentdb.indexingpolicy.setincludedpaths) and [setExcludedPaths](/java/api/com.microsoft.azure.documentdb.indexingpolicy.setexcludedpaths)). The use of indexing paths can offer improved write performance and lower index storage for scenarios in which the query patterns are known beforehand, as indexing costs are directly correlated to the number of unique paths indexed.  For example, the following code shows how to exclude an entire section (subtree) of the documents from indexing using the "*" wildcard.
 
 
     ### <a id="syncjava2-indexing"></a>Sync Java SDK V2 (Maven com.microsoft.azure::azure-documentdb)
@@ -172,7 +173,7 @@ So if you're asking "How can I improve my database performance?" consider the fo
     response.getRequestCharge();
     ```             
 
-    The request charge returned in this header is a fraction of your provisioned throughput. For example, if you have 2000 RU/s provisioned, and if the preceding query returns 1000 1KB-documents, the cost of the operation is 1000. As such, within one second, the server honors only two such requests before rate limiting subsequent requests. For more information, see [Request units](../request-units.md) and the [request unit calculator](https://www.documentdb.com/capacityplanner).
+    The request charge returned in this header is a fraction of your provisioned throughput. For example, if you have 2000 RU/s provisioned, and if the preceding query returns 1,000 1KB-documents, the cost of the operation is 1000. As such, within one second, the server honors only two such requests before rate limiting subsequent requests. For more information, see [Request units](../request-units.md) and the [request unit calculator](https://cosmos.azure.com/capacitycalculator).
    <a id="429"></a>
 1. **Handle rate limiting/request rate too large**
 

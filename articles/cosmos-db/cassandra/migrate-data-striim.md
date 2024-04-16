@@ -1,9 +1,8 @@
 ---
-title: Migrate data to Azure Cosmos DB for Apache Cassandra account using Striim 
-description: Learn how to use Striim to migrate data from an Oracle database to an Azure Cosmos DB for Apache Cassandra account. 
+title: Migrate data to Azure Cosmos DB for Apache Cassandra account using Striim
+description: Learn how to use Striim to migrate data from an Oracle database to an Azure Cosmos DB for Apache Cassandra account.
 ms.service: cosmos-db
 ms.subservice: apache-cassandra
-ms.custom: ignite-2022
 ms.topic: how-to
 ms.date: 12/09/2021
 author: TheovanKraay
@@ -26,7 +25,7 @@ This article shows how to use Striim to migrate data from an **Oracle database**
 
 ## Deploy the Striim marketplace solution
 
-1. Sign into the [Azure portal](https://portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Select **Create a resource** and search for **Striim** in the Azure marketplace. Select the first option and **Create**.
 
@@ -75,17 +74,17 @@ In this section, you will configure the Azure Cosmos DB for Apache Cassandra acc
 
    :::image type="content" source="media/migrate-data-striim/get-ssh-url.png" alt-text="Get the SSH URL":::
 
-1. Open a new terminal window and run the SSH command you copied from the Azure portal. This article uses terminal in a MacOS, you can follow the similar instructions using PuTTY or a different SSH client on a Windows machine. When prompted, type **yes** to continue and enter the **password** you have set for the virtual machine in the previous step.
+1. Open a new terminal window and run the SSH command you copied from the Azure portal. This article uses terminal in a macOS, you can follow the similar instructions using an SSH client on a Windows machine. When prompted, type **yes** to continue and enter the **password** you have set for the virtual machine in the previous step.
 
    :::image type="content" source="media/migrate-data-striim/striim-vm-connect.png" alt-text="Connect to Striim VM":::
 
 1. From the same terminal window, restart the Striim server by executing the following commands:
 
    ```bash
-   Systemctl stop striim-node
-   Systemctl stop striim-dbms
-   Systemctl start striim-dbms
-   Systemctl start striim-node
+   systemctl stop striim-node
+   systemctl stop striim-dbms
+   systemctl start striim-dbms
+   systemctl start striim-node
    ```
  
 1. Striim will take a minute to start up. If you’d like to see the status, run the following command: 

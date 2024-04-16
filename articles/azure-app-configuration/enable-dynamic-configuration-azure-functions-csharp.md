@@ -2,14 +2,9 @@
 title: Tutorial for using Azure App Configuration dynamic configuration in an Azure Functions app
 description: In this tutorial, you learn how to dynamically update the configuration data for Azure Functions apps
 services: azure-app-configuration
-documentationcenter: ''
 author: zhenlan
 manager: qingye
-editor: ''
-
-ms.assetid: 
 ms.service: azure-app-configuration
-ms.workload: tbd
 ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 09/14/2022

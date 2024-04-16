@@ -1,21 +1,19 @@
 ---
-title: Azure Front Door - routing architecture | Microsoft Docs
+title: Routing architecture
+titleSuffix: Azure Front Door
 description: This article helps you understand the global view aspect of Front Door's architecture.
 services: front-door
-documentationcenter: ''
 author: duongau
 ms.service: frontdoor
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 01/27/2022
+ms.topic: conceptual
+ms.date: 04/04/2023
 ms.author: duau
 zone_pivot_groups: front-door-tiers
 ---
 
 # Routing architecture overview
 
-Front Door traffic routing takes place over multiple stages. First, traffic is routed from the client to Front Door. Then, Front Door uses your configuration to determine the origin to send the traffic to. The Front Door web application firewall, routing rules, rules engine, and caching configuration all affect the routing process.
+Azure Front Door traffic routing takes place over multiple stages. First, traffic is routed from the client to the Front Door. Then, Front Door uses your configuration to determine the origin to send the traffic to. The Front Door web application firewall, routing rules, rules engine, and caching configuration can all affect the routing process.
 
 The following diagram illustrates the routing architecture:
 
@@ -27,6 +25,8 @@ The following diagram illustrates the routing architecture:
 
 ::: zone pivot="front-door-classic"
 
+[!INCLUDE [Azure Front Door (classic) retirement notice](../../includes/front-door-classic-retirement.md)]
+
 ![Diagram that shows the Front Door routing architecture, including each step and decision point.](media/front-door-routing-architecture/routing-process-classic.png)
 
 ::: zone-end
@@ -35,7 +35,7 @@ The rest of this article describes these steps in detail.
 
 ## Select and connect to the Front Door edge location
 
-The user or client application initiates a connection to Front Door. The connection terminates at an edge location close to the user. Front Door's edge location processes the request.
+The user or client application initiates a connection to the Front Door. The connection terminates at an edge location closest to the end user. Front Door's edge location processes the request.
 
 For more information about how requests are made to Front Door, see [Front Door traffic acceleration](front-door-traffic-acceleration.md).
 
@@ -169,6 +169,6 @@ Finally, the request is forwarded to the backend.
 
 ::: zone pivot="front-door-classic"
 
-- Learn how to [create a Front Door](quickstart-create-front-door.md).
+- Learn how to [create a Front Door profile](quickstart-create-front-door.md).
 
 ::: zone-end

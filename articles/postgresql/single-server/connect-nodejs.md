@@ -5,8 +5,7 @@ ms.service: postgresql
 ms.subservice: single-server
 ms.author: sunila
 author: sunilagarwal
-ms.reviewer: ""
-ms.custom: mvc, devcenter, seo-javascript-september2019, seo-javascript-october2019, devx-track-js, mode-api
+ms.custom: mvc, devcenter, devx-track-js, mode-api
 ms.devlang: javascript
 ms.topic: quickstart
 ms.date: 06/24/2022
@@ -15,6 +14,8 @@ ms.date: 06/24/2022
 # Quickstart: Use Node.js to connect and query data in Azure Database for PostgreSQL - Single Server
 
 [!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
+
+[!INCLUDE [azure-database-for-postgresql-single-server-deprecation](../includes/azure-database-for-postgresql-single-server-deprecation.md)]
 
 In this quickstart, you connect to an Azure Database for PostgreSQL using a Node.js application. It shows how to use SQL statements to query, insert, update, and delete data in the database. The steps in this article assume that you are familiar with developing using Node.js, and are new to working with Azure Database for PostgreSQL.
 

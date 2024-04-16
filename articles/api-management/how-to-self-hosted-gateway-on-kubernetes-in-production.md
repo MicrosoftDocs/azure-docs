@@ -4,13 +4,14 @@ description: Learn about guidance to run an API Management self-hosted gateway o
 author: tomkerkhove
 manager: mrcarlosdev
 ms.service: api-management
-ms.workload: mobile
 ms.topic: article
 ms.author: tomkerkhove
-ms.date: 12/17/2021
+ms.date: 01/17/2023
 ---
 
 # Guidance for running self-hosted gateway on Kubernetes in production
+
+[!INCLUDE [api-management-availability-premium-dev](../../includes/api-management-availability-premium-dev.md)]
 
 In order to run the self-hosted gateway in production, there are various aspects to take in to mind. For example, it should be deployed in a highly available manner, use configuration backups to handle temporary disconnects and many more.
 
@@ -22,6 +23,9 @@ This article provides guidance on how to run [self-hosted gateway](./self-hosted
 Without a valid access token, a self-hosted gateway can't access and download configuration data from the endpoint of the associated API Management service. The access token can be valid for a maximum of 30 days. It must be regenerated, and the cluster configured with a fresh token, either manually or via automation before it expires.
 
 When you're automating token refresh, use [this management API operation](/rest/api/apimanagement/current-ga/gateway/generate-token) to generate a new token. For information on managing Kubernetes secrets, see the [Kubernetes website](https://kubernetes.io/docs/concepts/configuration/secret).
+
+> [!TIP]
+> You can also deploy the self-hosted gateway to Kubernetes and enable authentication to the API Management instance by using [Microsoft Entra ID](self-hosted-gateway-enable-azure-ad.md).
 
 ## Autoscaling
 
@@ -93,12 +97,12 @@ We recommend setting resource requests to two cores and 2 GiB as a starting poin
 
 ## Custom domain names and SSL certificates
 
-If you use custom domain names for the API Management endpoints, especially if you use a custom domain name for the Management endpoint, you might need to update the value of `config.service.endpoint` in the **\<gateway-name\>.yaml** file to replace the default domain name with the custom domain name. Make sure that the Management endpoint can be accessed from the pod of the self-hosted gateway in the Kubernetes cluster.
+If you use custom domain names for the [API Management endpoints](self-hosted-gateway-overview.md#fqdn-dependencies), especially if you use a custom domain name for the Management endpoint, you might need to update the value of `config.service.endpoint` in the **\<gateway-name\>.yaml** file to replace the default domain name with the custom domain name. Make sure that the Management endpoint can be accessed from the pod of the self-hosted gateway in the Kubernetes cluster.
 
 In this scenario, if the SSL certificate that's used by the Management endpoint isn't signed by a well-known CA certificate, you must make sure that the CA certificate is trusted by the pod of the self-hosted gateway.
 
 > [!NOTE]
-> With the self-hosted gateway v2, API Management provides a new configuration endpoint: `<apim-service-name>.configuration.azure-api.net`. Currently, API Management doesn't enable configuring a custom domain name for the v2 configuration endpoint. If you need custom hostname mapping for this endpoint, you may be able to configure an override in the container's local hosts file, for example, using a [`hostAliases`](https://kubernetes.io/docs/tasks/network/customize-hosts-file-for-pods/#adding-additional-entries-with-hostaliases) element in a Kubernetes container spec. 
+> With the self-hosted gateway v2, API Management provides a new configuration endpoint: `<apim-service-name>.configuration.azure-api.net`. Custom hostnames are  supported for this endpoint and can be used instead of the default hostname. 
 
 ## DNS policy
 DNS name resolution plays a critical role in a self-hosted gateway's ability to connect to dependencies in Azure and dispatch API calls to backend services.
@@ -108,7 +112,7 @@ The YAML file provided in the Azure portal applies the default [ClusterFirst](ht
 To learn about name resolution in Kubernetes, see the [Kubernetes website](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service). Consider customizing [DNS policy](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-s-dns-policy) or [DNS configuration](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-s-dns-config) as appropriate for your setup.
 
 ## External traffic policy
-The YAML file provided in the Azure portal sets `externalTrafficPolicy` field on the [Service](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.19/#service-v1-core) object to `Local`. This preserves caller IP address (accessible in the [request context](api-management-policy-expressions.md#ContextVariables)) and disables cross node load balancing, eliminating network hops caused by it. Be aware, that this setting might cause asymmetric distribution of traffic in deployments with unequal number of gateway pods per node.
+The YAML file provided in the Azure portal sets `externalTrafficPolicy` field on the [Service](https://kubernetes.io/docs/reference/kubernetes-api/service-resources/service-v1/) object to `Local`. This preserves caller IP address (accessible in the [request context](api-management-policy-expressions.md#ContextVariables)) and disables cross node load balancing, eliminating network hops caused by it. Be aware, that this setting might cause asymmetric distribution of traffic in deployments with unequal number of gateway pods per node.
 
 ## High availability
 The self-hosted gateway is a crucial component in the infrastructure and has to be highly available. However, failure will and can happen.
@@ -147,14 +151,16 @@ Starting with version 2.1.5 or above, the self-hosted gateway provides observabi
 - [API Inspector](api-management-howto-api-inspector.md) will show additional steps when HTTP(S) proxy is being used and its related interactions.
 - Verbose logs are provided to provide indication of the request proxy behavior.
 
+> [!NOTE]
+> Due to a known issue with HTTP proxies using basic authentication, using certificate revocation list (CRL) validation is not supported. Learn more in our [Self-Hosted Gateway settings reference](self-hosted-gateway-settings-reference.md) how to configure it appropriately.
+
 > [!Warning]
 > Ensure that the [infrastructure requirements](self-hosted-gateway-overview.md#fqdn-dependencies) have been met and that the self-hosted gateway can still connect to them or certain functionality will not work properly.
 
 ## Local logs and metrics
-The self-hosted gateway sends telemetry to [Azure Monitor](api-management-howto-use-azure-monitor.md) and [Azure Application Insights](api-management-howto-app-insights.md) according to configuration settings in the associated API Management service.
-When [connectivity to Azure](self-hosted-gateway-overview.md#connectivity-to-azure) is temporarily lost, the flow of telemetry to Azure is interrupted and the data is lost for the duration of the outage.
+The self-hosted gateway sends telemetry to [Azure Monitor](api-management-howto-use-azure-monitor.md) and [Azure Application Insights](api-management-howto-app-insights.md) according to configuration settings in the associated API Management service. When [connectivity to Azure](self-hosted-gateway-overview.md#connectivity-to-azure) is temporarily lost, the flow of telemetry to Azure is interrupted and the data is lost for the duration of the outage.
 
-Consider [setting up local monitoring](how-to-configure-local-metrics-logs.md) to ensure the ability to observe API traffic and prevent telemetry loss during Azure connectivity outages.
+Consider using [Azure Monitor Container Insights](./../azure-monitor/containers/container-insights-overview.md) to monitor your containers or [setting up local monitoring](how-to-configure-local-metrics-logs.md) to ensure the ability to observe API traffic and prevent telemetry loss during Azure connectivity outages.
 
 ## Namespace
 Kubernetes [namespaces](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/) help with dividing a single cluster among multiple teams, projects, or applications. Namespaces provide a scope for resources and names. They can be associated with a resource quota and access control policies.
@@ -167,10 +173,24 @@ The minimum number of replicas suitable for production is three, preferably comb
 
 By default, a self-hosted gateway is deployed with a **RollingUpdate** deployment [strategy](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#strategy). Review the default values and consider explicitly setting the [maxUnavailable](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#max-unavailable) and [maxSurge](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#max-surge) fields, especially when you're using a high replica count.
 
+## Performance
+
+We recommend reducing container logs to warnings (`warn`) to improve for performance. Learn more in our [self-hosted gateway configuration reference](self-hosted-gateway-settings-reference.md).
+
+## Request throttling
+
+Request throttling in a self-hosted gateway can be enabled by using the API Management [rate-limit](rate-limit-policy.md) or [rate-limit-by-key](rate-limit-by-key-policy.md) policy. Configure rate limit counts to synchronize among gateway instances across cluster nodes by exposing the following ports in the Kubernetes deployment for instance discovery:
+
+* Port 4290 (UDP), for the rate limiting synchronization
+* Port 4291 (UDP), for sending heartbeats to other instances
+
+> [!NOTE]
+> [!INCLUDE [api-management-self-hosted-gateway-rate-limit](../../includes/api-management-self-hosted-gateway-rate-limit.md)]
+
 ## Security
 The self-hosted gateway is able to run as non-root in Kubernetes allowing customers to run the gateway securely.
 
-Here's an example of the security context for the self-hosted gateway:
+Here's an example of the security context for the self-hosted gateway container:
 ```yml
 securityContext:
   allowPrivilegeEscalation: false
@@ -188,6 +208,7 @@ securityContext:
 
 > [!WARNING]
 > When using local CA certificates, the self-hosted gateway must run with user ID (UID) `1001` in order to manage the CA certificates otherwise the gateway will not start up.
+
 
 ## Next steps
 

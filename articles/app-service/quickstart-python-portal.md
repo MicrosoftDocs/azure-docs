@@ -1,10 +1,12 @@
 ---
 title: 'Quickstart: Create a Python app in the Azure portal'
 description: Get started with Azure App Service by deploying your first Python app to a Linux container in App Service by using the Azure portal.
+ms.author: msangapu
+author: msangapu-msft
 ms.topic: quickstart
 ms.date: 04/01/2021
 ms.devlang: python
-ms.custom: devx-track-python, mode-ui
+ms.custom: devx-track-python, mode-ui, linux-related-content
 ROBOTS: noindex
 ---
 
@@ -159,3 +161,6 @@ Having issues? [Let us know](https://aka.ms/FlaskCLIQuickstartHelp).
 
 > [!div class="nextstepaction"]
 > [Tutorial: Run Python app in custom container](tutorial-custom-container.md)
+
+> [!div class="nextstepaction"]
+> [Secure with custom domain and certificate](tutorial-secure-domain-certificate.md)

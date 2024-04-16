@@ -1,23 +1,54 @@
 ---
-title: Azure Stream Analytics feature comparison
+title: Choose a developer tool for building Stream Analytic jobs
 description: This article compares the features supported for Azure Stream Analytics cloud and IoT Edge jobs in the Azure portal, Visual Studio, and Visual Studio Code.
-author: an-emma
-ms.author: raan
+author: alexlzx
+ms.author: zhenxilin
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 06/27/2019
+ms.date: 11/09/2022
 ---
 
-# Azure Stream Analytics feature comparison
+# Choose developer tool for building Stream Analytic jobs
 
-With Azure Stream Analytics, you can create streaming solutions in the cloud and at the IoT Edge using [Azure portal](stream-analytics-quick-create-portal.md), [Visual Studio](stream-analytics-quick-create-vs.md), and [Visual Studio Code](quick-create-visual-studio-code.md). The tables in this article show which features are supported by each platform for both job types.
+Beside building your Stream Analytic jobs in the Azure portal, you can use the [Azure Stream Analytics Tools extension for Visual Studio Code](quick-create-visual-studio-code.md) to write, debug and run your streaming query locally for better development experience. 
+
+This table shows what features are supported between Azure portal and Visual Studio Code. 
 
 > [!NOTE]
-> Visual Studio and Visual Studio Code tools don't support jobs in the China East, China North, Germany Central, and Germany NorthEast regions.
+> Visual Studio Code tools don't support jobs in the China East, China North, Germany Central, and Germany NorthEast regions.
 
 ## Cloud job features
 
+|Feature  |Portal  |Visual Studio Code  |
+|---------|---------|---------|
+|Cross platform     |Mac</br>Linux</br>Windows        |Mac</br>Linux</br>Windows          |
+|Script authoring     |Yes         |Yes         |
+|Script Intellisense     |Syntax highlighting         |Syntax highlighting</br>Code completion</br>Error marker         |
+|Define all types of inputs, outputs, and job configurations     |Yes         |Yes         |
+|Source control     |No          |Yes         |
+|CI/CD support     |Partial         |Yes         |
+|Share inputs and outputs across multiple queries     |No          |Yes         |
+|Query testing with a sample file     |Yes        |Yes         |
+|Live data local testing     |No        |Yes      |
+| Time policy support in query testing | No        |Yes      |
+|List jobs and view job entities     |Yes          |Yes         |
+|Export a job to a local project     |No        |Yes         |
+|Submit, start, and stop jobs     |Yes          |Yes         |
+|View job metrics and diagram     |Yes         |Yes         |
+|View job runtime errors     |Yes        |Yes         |
+|Resource logs     |Yes        |Yes         |
+|Custom message properties     |Yes        |Yes       |
+|C# custom code function and Deserializer|Read-only mode|Yes|
+|JavaScript UDF and UDA     |Yes        |Windows only         |
+|Azure Machine Learning      |Yes        |Yes         |
+|Compatibility level     |1.0</br>1.1</br>1.2  (default)         |1.0</br>1.1</br>1.2 (default)           |
+|Built-in ML-based Anomaly Detection functions     |Yes         |Yes         |
+|Built-in GeoSpatial functions     |Yes         |Yes         |
+| Power BI output | Yes | No |
+| Protobuf serialization | Yes | No |
+| Autogranting managed identity permissions for added endpoints | Yes | No | 
 
+<!-- 
 |Feature  |Portal  |Visual Studio  |Visual Studio Code  |
 |---------|---------|---------|---------|
 |Cross platform     |Mac</br>Linux</br>Windows         |Windows        |Mac</br>Linux</br>Windows          |
@@ -42,9 +73,9 @@ With Azure Stream Analytics, you can create streaming solutions in the cloud and
 |Compatibility level     |1.0</br>1.1</br>1.2  (default)         |1.0</br>1.1</br>1.2 (default)           |1.0</br>1.1</br>1.2 (default)           |
 |Built-in ML-based Anomaly Detection functions     |Yes         |Yes         |Yes         |
 |Built-in GeoSpatial functions     |Yes         |Yes         |Yes         |
+ -->
 
-
-
+<!-- 
 ## IoT Edge job features
 
 |Feature  |Portal  |Visual Studio  |Visual Studio Code  |
@@ -59,7 +90,7 @@ With Azure Stream Analytics, you can create streaming solutions in the cloud and
 |List jobs and view job entities     |Yes         |Yes         |No         |
 |View job metrics and diagram     |Yes         |Partial         |No         |
 |View job runtime errors     |Yes         |Partial         |No         |
-|CI/CD support     |No         |No         |No         |
+|CI/CD support     |No         |No         |No         | -->
 
 
 ## Next steps

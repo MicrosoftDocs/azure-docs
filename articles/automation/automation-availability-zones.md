@@ -4,18 +4,16 @@ description: This article provides an overview of Azure availability zones and r
 keywords: automation availability zones.
 services: automation
 ms.subservice: process-automation
-ms.date: 06/29/2022
+ms.date: 10/16/2023
 ms.topic: conceptual
 ms.custom: references_regions 
 ---
 
 # Availability zones support for Azure Automation
 
-Azure Automation uses [Azure availability zones](../availability-zones/az-overview.md#availability-zones) to provide improved resiliency and high availability to a service instance in a specific Azure region.
+[Azure availability zones](../reliability/availability-zones-overview.md) provides an improved resiliency and high availability to a service instance in a specific Azure region. Azure Automation now supports Availability zones to provide improved resiliency and reliability high availability to the service, runbooks, and other automation assets.
  
-[Azure availability zones](../availability-zones/az-overview.md#availability-zones) is a 
-high-availability offering that protects your applications and data from data center failures.
-Availability zones are unique physical locations within an Azure region and each region comprises of one or more data center(s) equipped with independent power, cooling, and networking. To ensure resiliency, there needs to be a minimum of three separate zones in all enabled regions.
+Azure availability zones is a high-availability offering that protects your applications and data from data center failures. Availability zones are unique physical locations within an Azure region and each region comprises of one or more data center(s) equipped with independent power, cooling, and networking. To ensure resiliency, there needs to be a minimum of three separate zones in all enabled regions.
 
 A zone redundant Automation account automatically distributes traffic to the Automation account through various management operations and runbook jobs amongst the availability zones in the supported region. The replication is handled at the service level to these physically separate zones, making the service resilient to a zone failure with no impact on the availability of the Automation accounts in the same region.
 
@@ -32,25 +30,38 @@ In the event when a zone is down, there's no action required by you to recover f
 
 ## Supported regions with availability zones
 
-See [Regions and Availability Zones in Azure](../availability-zones/az-overview.md) for the Azure regions that have availability zones. 
+See [Regions and Availability Zones in Azure](../reliability/availability-zones-service-support.md) for the Azure regions that have availability zones. 
 Automation accounts currently support the following regions: 
  
-- China North 3
-- Qatar Central
-- West US 2
-- East US 2
-- East US
-- North Europe
-- West Europe
-- France Central
-- Japan East
-- UK South
-- Southeast Asia
 - Australia East
-- Central US
 - Brazil South
+- Canada Central
+- Central India
+- Central US
+- China North 3
+- East Asia
+- East US
+- East US 2
+- France Central
 - Germany West Central
+- Israel Central
+- Italy North
+- Japan East
+- Korea Central
+- North Europe
+- Norway East
+- Poland Central
+- Qatar Central
+- South Africa North
+- South Central US
+- South East Asia
+- Sweden Central
+- USGov Virginia (Fairfax Private Cloud)
+- UK South
+- West Europe
+- West US 2
 - West US 3
+
 
 ## Create a zone redundant Automation account
 You can create a zone redundant Automation account using:
@@ -70,4 +81,4 @@ There is no change to the [Service Level Agreement](https://azure.microsoft.com/
 
 ## Next steps
 
-- Learn more about [regions that support availability zones](../availability-zones/az-overview.md).
+- Learn more about [regions that support availability zones](../reliability/availability-zones-service-support.md).

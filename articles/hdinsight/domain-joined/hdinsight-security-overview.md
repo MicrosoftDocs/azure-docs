@@ -3,8 +3,7 @@ title: Overview of enterprise security in Azure HDInsight
 description: Learn the various methods to ensure enterprise security in Azure HDInsight.
 ms.service: hdinsight
 ms.topic: overview
-ms.custom: seoapr2020, ignite-2022
-ms.date: 04/14/2022
+ms.date: 05/24/2023
 #Customer intent: As a user of Azure HDInsight, I want to learn the means that Azure HDInsight offers to ensure security for the enterprise.
 ---
 
@@ -28,7 +27,7 @@ All clusters deployed in a VNET will also have a private endpoint. The endpoint 
 
 ### Authentication
 
-[Enterprise Security Package](apache-domain-joined-architecture.md) from HDInsight provides Active Directory-based authentication, multi-user support, and role-based access control. The Active Directory integration is achieved through the use of [Azure Active Directory Domain Services](../../active-directory-domain-services/overview.md). With these capabilities, you can create an HDInsight cluster joined to an Active Directory domain. Then configure a list of employees from the enterprise who can authenticate to the cluster.
+[Enterprise Security Package](apache-domain-joined-architecture.md) from HDInsight provides Active Directory-based authentication, multi-user support, and role-based access control. The Active Directory integration is achieved through the use of [Microsoft Entra Domain Services](../../active-directory-domain-services/overview.md). With these capabilities, you can create an HDInsight cluster joined to an Active Directory domain. Then configure a list of employees from the enterprise who can authenticate to the cluster.
 
 With this setup, enterprise employees can sign in to the cluster nodes by using their domain credentials. They can also use their domain credentials to authenticate with other approved endpoints. Like Apache Ambari Views, ODBC, JDBC, PowerShell, and REST APIs to interact with the cluster.
 
@@ -56,13 +55,13 @@ HDInsight supports data encryption at rest with both platform managed and [custo
 
 ### Compliance
 
-Azure compliance offerings are based on various types of assurances, including formal certifications. Also, attestations, validations, and authorizations. Assessments produced by independent third-party auditing firms. Contractual amendments, self-assessments, and customer guidance documents produced by Microsoft. For HDInsight compliance information, see the [Microsoft Trust Center](https://www.microsoft.com/trust-center) and the [Overview of Microsoft Azure compliance](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942).
+Azure compliance offerings are based on various types of assurances, including formal certifications. Also, attestations, validations, and authorizations. Assessments produced by independent third-party auditing firms. Contractual amendments, self-assessments, and customer guidance documents produced by Microsoft. For HDInsight compliance information, see the [Microsoft Trust Center](https://www.microsoft.com/trust-center).
 
 ## Shared responsibility model
 
 The following image summarizes the major system security areas and the security solutions that are available to you in each. It also highlights which security areas are your responsibility as a customer. And which areas are the responsibility of HDInsight as the service provider.
 
-:::image type="content" source="./media/hdinsight-security-overview/hdinsight-shared-responsibility.png" alt-text="HDInsight shared responsibilities diagram" border="false":::
+:::image type="content" source="./media/hdinsight-security-overview/hdinsight-shared-responsibility.png" alt-text="HDInsight shared responsibilities diagram." border="false":::
 
 The following table provides links to resources for each type of security solution.
 
@@ -75,7 +74,7 @@ The following table provides links to resources for each type of security soluti
 |  | Ensure that the [Encryption in transit](./encryption-in-transit.md) feature is enabled to use TLS and IPSec for intra-cluster communication. | Customer |
 |  | Configure [customer-managed keys](../../storage/common/customer-managed-keys-configure-key-vault.md) for Azure Storage encryption | Customer |
 |  | Control access to your data by Azure support using [Customer lockbox](../../security/fundamentals/customer-lockbox-overview.md) | Customer |
-| Application and middleware security | Integrate with AAD-DS and [Configure ESP](apache-domain-joined-configure-using-azure-adds.md) or use [HIB for OAuth Authentication](identity-broker.md)| Customer |
+| Application and middleware security | Integrate with Microsoft Entra Domain Services and [Configure ESP](apache-domain-joined-configure-using-azure-adds.md) or use [HIB for OAuth Authentication](identity-broker.md)| Customer |
 |  | Configure [Apache Ranger Authorization](apache-domain-joined-run-hive.md) policies | Customer |
 |  | Use [Azure Monitor logs](../hdinsight-hadoop-oms-log-analytics-tutorial.md) | Customer |
 | Operating system security | Create clusters with most recent secure base image | Customer |

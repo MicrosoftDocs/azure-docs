@@ -8,7 +8,7 @@ ms.subservice: table
 ms.devlang: csharp
 ms.topic: how-to
 ms.date: 07/06/2022
-ms.custom: devx-track-csharp, ignite-2022
+ms.custom: devx-track-csharp, devguide-csharp, cosmos-db-dev-journey, devx-track-dotnet
 ---
 
 # Read an item in Azure Cosmos DB for Table using .NET
@@ -27,8 +27,8 @@ Azure Cosmos DB requires both the unique identifier and the partition key value 
 
 To perform a point read of an item, use one of the following strategies:
 
-* [Return a ``TableEntity`` object using ``GetEntityAsync<>``](#read-an-item-using-a-built-in-class)
-* [Return an object of your own type using ``GetEntityAsync<>``](#read-an-item-using-your-own-type)
+- [Return a ``TableEntity`` object using ``GetEntityAsync<>``](#read-an-item-using-a-built-in-class)
+- [Return an object of your own type using ``GetEntityAsync<>``](#read-an-item-using-your-own-type)
 
 ### Read an item using a built-in class
 

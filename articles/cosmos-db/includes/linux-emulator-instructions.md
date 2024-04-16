@@ -1,3 +1,6 @@
+---
+ms.custom: linux-related-content
+---
 1. Retrieve the IP address of your local machine. This step is required when Direct mode setting is configured using Azure Cosmos DB SDKs (.NET, Java).
 
     ```bash
@@ -18,7 +21,7 @@
     docker run \
         --publish 8081:8081 \
         --publish 10250-10255:10250-10255 \
-        --memory 3g --cpus=2.0 \
+        --memory 3g --cpus=4.0 \
         --name=test-linux-emulator \
         --env AZURE_COSMOS_EMULATOR_PARTITION_COUNT=10 \
         --env AZURE_COSMOS_EMULATOR_ENABLE_DATA_PERSISTENCE=true \

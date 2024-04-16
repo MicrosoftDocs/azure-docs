@@ -1,17 +1,17 @@
 ---
-title: Considerations for deployment in Azure public MEC Preview
+title: Considerations for deployment in Azure public MEC
 description: Learn about considerations for customers to plan for before they deploy applications in an Azure public multi-access edge compute (MEC) solution.
 author: m0nikama
 ms.author: monikama
 ms.service: public-multi-access-edge-compute-mec
 ms.topic: conceptual
-ms.date: 02/24/2022
+ms.date: 11/22/2022
 ms.custom: template-concept
 ---
 
-# Considerations for deployment in Azure public MEC Preview
+# Considerations for deployment in Azure public MEC
 
-Azure public multi-access edge compute (MEC) Preview sites are small-footprint extensions of Azure. They're placed in or near mobile operators' data centers in metro areas, and are designed to run workloads that require low latency while being attached to the mobile network. This article focuses on the considerations that customers should plan for before they deploy applications in the Azure public MEC.
+Azure public multi-access edge compute (MEC) sites are small-footprint extensions of Azure. They're placed in or near mobile operators' data centers in metro areas, and are designed to run workloads that require low latency while being attached to the mobile network. This article focuses on the considerations that customers should plan for before they deploy applications in the Azure public MEC.
 
 ## Prerequisites
 
@@ -56,7 +56,7 @@ The following sections show some examples.
 
 #### Identity services
 
-- Azure Active Directory
+- Microsoft Entra ID
 
 #### Secrets management
 
@@ -80,6 +80,12 @@ Applications you deploy in the Azure public MEC can be made available and resili
    > The Azure backup and disaster recovery solution for Azure public MEC supports only Azure Virtual Machines.
 
 A trade-off exists between availability and latency. Although failing over the application from the Azure public MEC to the Azure region ensures that the application is available, it might increase the latency to the application.
+
+Architect your edge applications by utilizing the Azure Region for the  components that are less latency sensitive, need to be persistent or need to be shared between public MEC sites. This will allow for the applications to be more resilient and cost effective. The public MEC can host the latency sensitive components.
+
+## Data residency
+> [!IMPORTANT]
+Azure public MEC doesn't store or process customer data outside the region you deploy the service instance in.
 
 ## Next steps
 

@@ -2,9 +2,9 @@
 title: Telemetry processors (preview) - Azure Monitor Application Insights for Java
 description: Learn to configure telemetry processors in Azure Monitor Application Insights for Java.
 ms.topic: conceptual
-ms.date: 10/29/2020
+ms.date: 11/15/2023
 ms.devlang: java
-ms.custom: devx-track-java
+ms.custom: devx-track-java, devx-track-extended-java
 ms.reviewer: mmcc
 ---
 
@@ -15,11 +15,11 @@ ms.reviewer: mmcc
 
 Application Insights Java 3.x can process telemetry data before the data is exported.
 
-Here are some use cases for telemetry processors:
+Some use cases:
  * Mask sensitive data.
  * Conditionally add custom dimensions.
  * Update the span name, which is used to aggregate similar telemetry in the Azure portal.
- * Drop specific span attribute(s) to control ingestion costs.
+ * Drop specific span attributes to control ingestion costs.
  * Filter out some metrics to control ingestion costs.
 
 > [!NOTE]
@@ -30,7 +30,7 @@ Here are some use cases for telemetry processors:
 
 Before you learn about telemetry processors, you should understand the terms *span* and *log*.
 
-A span is a type of telemetry that represent one of:
+A span is a type of telemetry that represents one of:
 
 * An incoming request.
 * An outgoing dependency (for example, a remote call to another service).
@@ -38,7 +38,7 @@ A span is a type of telemetry that represent one of:
 
 A log is a type of telemetry that represents:
 
-* log data captured from log4j, logback, and java.util.logging 
+* log data captured from Log4j, Logback, and java.util.logging 
 
 For telemetry processors, these span/log components are important:
 
@@ -48,11 +48,15 @@ For telemetry processors, these span/log components are important:
 
 The span name is the primary display for requests and dependencies in the Azure portal. Span attributes represent both standard and custom properties of a given request or dependency.
 
-The trace message or body is the primary display for logs in the Azure portal. Log attributes represent both standard and custom properties of a given log
+The trace message or body is the primary display for logs in the Azure portal. Log attributes represent both standard and custom properties of a given log.
 
 ## Telemetry processor types
 
-Currently, the four types of telemetry processors are attribute processors, span processors, log processors, and metric filters.
+Currently, the four types of telemetry processors are
+* Attribute processors
+* Span processors
+* Log processors
+* Metric filters
 
 An attribute processor can insert, update, delete, or hash attributes of a telemetry item (`span` or `log`).
 It can also use a regular expression to extract one or more new attributes from an existing attribute.
@@ -111,6 +115,7 @@ The attribute processor modifies attributes of a `span` or a `log`. It can suppo
 - `delete`
 - `hash`
 - `extract`
+- `mask`
 
 ### `insert`
 
@@ -206,7 +211,7 @@ The `hash` action requires the following settings:
 > [!NOTE]
 > The `extract` feature is available only in version 3.0.2 and later.
 
-The `extract` action extracts values by using a regular expression rule from the input key to target keys that the rule specifies. If a target key already exists, it's overridden. This action behaves like the [span processor](#extract-attributes-from-the-span-name) `toAttributes` setting, where the existing attribute is the source.
+The `extract` action extracts values by using a regular expression rule from the input key to target keys that the rule specifies. If a target key already exists, the `extract` action overrides the target key. This action behaves like the [span processor](#extract-attributes-from-the-span-name) `toAttributes` setting, where the existing attribute is the source.
 
 ```json
 "processors": [
@@ -227,21 +232,54 @@ The `extract` action requires the following settings:
 * `pattern`
 * `action`: `extract`
 
+### `mask`
+
+> [!NOTE]
+> The `mask` feature is available only in version 3.2.5 and later.
+
+The `mask` action masks attribute values by using a regular expression rule specified in the `pattern` and `replace`.
+
+```json
+"processors": [
+  {
+    "type": "attribute",
+    "actions": [
+      {
+        "key": "attributeName",
+        "pattern": "<regular expression pattern>",
+        "replace": "<replacement value>",
+        "action": "mask"
+      }
+    ]
+  }
+]
+```
+The `mask` action requires the following settings:
+* `key`
+* `pattern`
+* `replace`
+* `action`: `mask`
+
+`pattern` can contain a named group placed between `?<` and `>:`. Example: `(?<userGroupName>[a-zA-Z.:\/]+)\d+`? The group is `(?<userGroupName>[a-zA-Z.:\/]+)` and `userGroupName` is the name of the group. `pattern` can then contain the same named group placed between `${` and `}` followed by the mask. Example where the mask is **: `${userGroupName}**`.
+
+See  [Telemetry processor examples](./java-standalone-telemetry-processors-examples.md) for masking examples.
+
 ### Include criteria and exclude criteria
 
 Attribute processors support optional `include` and `exclude` criteria.
-A attribute processor is applied only to telemetry that match its `include` criteria (if it's provided)
-_and_ don't match its `exclude` criteria (if it's provided).
+An attribute processor is applied only to telemetry that matches its `include` criteria (if it's available)
+_and_ don't match its `exclude` criteria (if it's available).
 
 To configure this option, under `include` or `exclude` (or both), specify at least one `matchType` and either `spanNames` or `attributes`.
-The include-exclude configuration allows more than one specified condition.
+The `include` or `exclude` configuration allows more than one specified condition.
 All specified conditions must evaluate to true to result in a match. 
 
-* **Required field**: `matchType` controls how items in `spanNames` arrays and `attributes` arrays are interpreted.
-  Possible values are `regexp` and `strict`. Regular expression matches are performed against the entire attribute value,
-  so if you want to match a value that contains `abc` anywhere in it, then you need to use `.*abc.*`.
+* **Required fields**:
+
+    * `matchType` controls how items in `spanNames` arrays and `attributes` arrays are interpreted. Possible values are `regexp` and `strict`. Regular expression matches are performed against the entire attribute value, so if you want to match a value that contains `abc` anywhere in it, then you need to use `.*abc.*`.
 
 * **Optional fields**: 
+
     * `spanNames` must match at least one of the items. 
     * `attributes` specifies the list of attributes to match. All of these attributes must match exactly to result in a match.
     
@@ -294,9 +332,9 @@ The span processor modifies either the span name or attributes of a span based o
 
 ### Name a span
 
-The `name` section requires the `fromAttributes` setting. The values from these attributes are used to create a new name, concatenated in the order that the configuration specifies. The processor will change the span name only if all of these attributes are present on the span.
+The `name` section requires the `fromAttributes` setting. The values from these attributes are used to create a new name, concatenated in the order that the configuration specifies. The processor changes the span name only if all of these attributes are present on the span.
 
-The `separator` setting is optional. This setting is a string. It's specified to split values.
+The `separator` setting is optional. This setting is a string, and you can use split values.
 > [!NOTE]
 > If renaming relies on the attributes processor to modify attributes, ensure the span processor is specified after the attributes processor in the pipeline specification.
 
@@ -321,16 +359,16 @@ The `toAttributes` section lists the regular expressions to match the span name 
 
 The `rules` setting is required. This setting lists the rules that are used to extract attribute values from the span name. 
 
-The values in the span name are replaced by extracted attribute names. Each rule in the list is a regular expression (regex) pattern string. 
+Extracted attribute names replace the values in the span name. Each rule in the list is a regular expression (regex) pattern string. 
 
-Here's how values are replaced by extracted attribute names:
+Here's how extracted attribute names replace values:
 
 1. The span name is checked against the regex. 
-2. If the regex matches, all named subexpressions of the regex are extracted as attributes. 
+2. All named subexpressions of the regex are extracted as attributes if the regex matches. 
 3. The extracted attributes are added to the span. 
 4. Each subexpression name becomes an attribute name. 
 5. The subexpression matched portion becomes the attribute value. 
-6. The matched portion in the span name is replaced by the extracted attribute name. If the attributes already exist in the span, they're overwritten. 
+6. The extracted attribute name replaces the matched portion in the span name. If the attributes already exist in the span, they're overwritten. 
  
 This process is repeated for all rules in the order they're specified. Each subsequent rule works on the span name that's the output of the previous rule.
 
@@ -360,18 +398,20 @@ This section lists some common span attributes that telemetry processors can use
 
 | Attribute  | Type | Description | 
 |---|---|---|
-| `http.method` | string | HTTP request method.|
-| `http.url` | string | Full HTTP request URL in the form `scheme://host[:port]/path?query[#fragment]`. The fragment isn't usually transmitted over HTTP. But if the fragment is known, it should be included.|
-| `http.status_code` | number | [HTTP response status code](https://tools.ietf.org/html/rfc7231#section-6).|
-| `http.flavor` | string | Type of HTTP protocol. |
-| `http.user_agent` | string | Value of the [HTTP User-Agent](https://tools.ietf.org/html/rfc7231#section-5.5.3) header sent by the client. |
+| `http.request.method` (used to be `http.method`) | string | HTTP request method.|
+| `url.full` (client span) or `url.path` (server span) (used to be `http.url`) | string | Full HTTP request URL in the form `scheme://host[:port]/path?query[#fragment]`. The fragment typically isn't transmitted over HTTP. But if the fragment is known, it should be included.|
+| `http.response.status_code` (used to be `http.status_code`) | number | [HTTP response status code](https://tools.ietf.org/html/rfc7231#section-6).|
+| `network.protocol.version` (used to be `http.flavor`) | string | Type of HTTP protocol. |
+| `user_agent.original` (used to be `http.user_agent`) | string | Value of the [HTTP User-Agent](https://tools.ietf.org/html/rfc7231#section-5.5.3) header sent by the client. |
 
-### JDBC spans
+### Java Database Connectivity spans
+
+The following table describes attributes that you can use in Java Database Connectivity (JDBC) spans:
 
 | Attribute  | Type | Description  |
 |---|---|---|
-| `db.system` | string | Identifier for the database management system (DBMS) product being used. See [list of identifiers](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/trace/semantic_conventions/database.md#connection-level-attributes). |
-| `db.connection_string` | string | Connection string used to connect to the database. It's recommended to remove embedded credentials.|
+| `db.system` | string | Identifier for the database management system (DBMS) product being used. See [Semantic Conventions for database operations](https://github.com/open-telemetry/semantic-conventions/blob/main/docs/README.md). |
+| `db.connection_string` | string | Connection string used to connect to the database. We recommend that you remove embedded credentials.|
 | `db.user` | string | Username for accessing the database. |
 | `db.name` | string | String used to report the name of the database being accessed. For commands that switch the database, this string should be set to the target database, even if the command fails.|
 | `db.statement` | string | Database statement that's being run.|
@@ -379,16 +419,15 @@ This section lists some common span attributes that telemetry processors can use
 ### Include criteria and exclude criteria
 
 Span processors support optional `include` and `exclude` criteria.
-A span processor is applied only to telemetry that match its `include` criteria (if it's provided)
-_and_ don't match its `exclude` criteria (if it's provided).
+A span processor is applied only to telemetry that matches its `include` criteria (if it's available)
+_and_ don't match its `exclude` criteria (if it's available).
 
 To configure this option, under `include` or `exclude` (or both), specify at least one `matchType` and either `spanNames` or  span `attributes`.
-The include-exclude configuration allows more than one specified condition.
+The `include` or `exclude` configuration allows more than one specified condition.
 All specified conditions must evaluate to true to result in a match. 
 
-* **Required field**: `matchType` controls how items in `spanNames` arrays and `attributes` arrays are interpreted.
-  Possible values are `regexp` and `strict`. Regular expression matches are performed against the entire attribute value,
-  so if you want to match a value that contains `abc` anywhere in it, then you need to use `.*abc.*`.
+* **Required fields**:
+    * `matchType` controls how items in `spanNames` arrays and `attributes` arrays are interpreted. Possible values are `regexp` and `strict`. Regular expression matches are performed against the entire attribute value, so if you want to match a value that contains `abc` anywhere in it, then you need to use `.*abc.*`.
 
 * **Optional fields**: 
     * `spanNames` must match at least one of the items. 
@@ -442,9 +481,9 @@ The log processor modifies either the log message body or attributes of a log ba
 
 ### Update Log message body
 
-The `body` section requires the `fromAttributes` setting. The values from these attributes are used to create a new body, concatenated in the order that the configuration specifies. The processor will change the log body only if all of these attributes are present on the log.
+The `body` section requires the `fromAttributes` setting. The values from these attributes are used to create a new body, concatenated in the order that the configuration specifies. The processor changes the log body only if all of these attributes are present on the log.
 
-The `separator` setting is optional. This setting is a string. It's specified to split values.
+The `separator` setting is optional. This setting is a string. You can specify it to split values.
 > [!NOTE]
 > If renaming relies on the attributes processor to modify attributes, ensure the log processor is specified after the attributes processor in the pipeline specification.
 
@@ -469,16 +508,16 @@ The `toAttributes` section lists the regular expressions to match the log messag
 
 The `rules` setting is required. This setting lists the rules that are used to extract attribute values from the body. 
 
-The values in the log message body are replaced by extracted attribute names. Each rule in the list is a regular expression (regex) pattern string. 
+Extracted attribute names replace the values in the log message body. Each rule in the list is a regular expression (regex) pattern string. 
 
-Here's how values are replaced by extracted attribute names:
+Here's how extracted attribute names replace values:
 
 1. The log message body is checked against the regex. 
-2. If the regex matches, all named subexpressions of the regex are extracted as attributes. 
+2. All named subexpressions of the regex are extracted as attributes if the regex matches. 
 3. The extracted attributes are added to the log. 
 4. Each subexpression name becomes an attribute name. 
 5. The subexpression matched portion becomes the attribute value. 
-6. The matched portion in the log name is replaced by the extracted attribute name. If the attributes already exist in the log, they're overwritten. 
+6. The extracted attribute name replaces the matched portion in the log name. If the attributes already exist in the log, they're overwritten. 
  
 This process is repeated for all rules in the order they're specified. Each subsequent rule works on the log name that's the output of the previous rule.
 
@@ -503,11 +542,11 @@ This process is repeated for all rules in the order they're specified. Each subs
 ### Include criteria and exclude criteria
 
 Log processors support optional `include` and `exclude` criteria.
-A log processor is applied only to telemetry that match its `include` criteria (if it's provided)
-_and_ don't match its `exclude` criteria (if it's provided).
+A log processor is applied only to telemetry that matches its `include` criteria (if it's available)
+_and_ don't match its `exclude` criteria (if it's available).
 
 To configure this option, under `include` or `exclude` (or both), specify the `matchType` and `attributes`.
-The include-exclude configuration allows more than one specified condition.
+The `include` or `exclude` configuration allows more than one specified condition.
 All specified conditions must evaluate to true to result in a match. 
 
 * **Required field**: 
@@ -565,9 +604,9 @@ For more information, see [Telemetry processor examples](./java-standalone-telem
 > [!NOTE]
 > Metric filters are available starting from version 3.1.1.
 
-Metric filter are used to exclude some metrics in order to help control ingestion cost.
+Metric filters are used to exclude some metrics in order to help control ingestion cost.
 
-Metric filters only support `exclude` criteria. Metrics that match its `exclude` criteria will not be exported.
+Metric filters only support `exclude` criteria. Metrics that match its `exclude` criteria aren't exported.
 
 To configure this option, under `exclude`, specify the `matchType` one or more `metricNames`.
 
@@ -578,6 +617,8 @@ To configure this option, under `exclude`, specify the `matchType` one or more `
    * `metricNames` must match at least one of the items.
 
 ### Sample usage
+
+The following sample shows how to exclude metrics with names "metricA" and "metricB":
 
 ```json
 "processors": [
@@ -593,18 +634,41 @@ To configure this option, under `exclude`, specify the `matchType` one or more `
   }
 ]
 ```
+
+The following sample shows how to turn off all metrics including the default autocollected performance metrics like cpu and memory.
+
+```json
+"processors": [
+  {
+    "type": "metric-filter",
+    "exclude": {
+      "matchType": "regexp",
+      "metricNames": [
+        ".*"
+      ]
+    }
+  }
+]
+```
+
 ### Default metrics captured by Java agent
 
 | Metric name  | Metric type | Description  | Filterable |
 |---|---|---|---|
 | `Current Thread Count` | custom metrics | See [ThreadMXBean.getThreadCount()](https://docs.oracle.com/javase/8/docs/api/java/lang/management/ThreadMXBean.html#getThreadCount--). | yes |
 | `Loaded Class Count` | custom metrics | See [ClassLoadingMXBean.getLoadedClassCount()](https://docs.oracle.com/javase/8/docs/api/java/lang/management/ClassLoadingMXBean.html#getLoadedClassCount--). | yes |
-| `GC Total Count` | custom metrics | Sum of counts across all GC MXBeans (diff since last reported). See [GarbageCollectorMXBean.getCollectionCount()](https://docs.oracle.com/javase/7/docs/api/java/lang/management/GarbageCollectorMXBean.html). | yes |
-| `GC Total Time` | custom metrics | Sum of time across all GC MXBeans (diff since last reported). See [GarbageCollectorMXBean.getCollectionTime()](https://docs.oracle.com/javase/7/docs/api/java/lang/management/GarbageCollectorMXBean.html).| yes |
+| `GC Total Count` | custom metrics | Sum of counts across all GarbageCollectorMXBean instances (diff since last reported). See [GarbageCollectorMXBean.getCollectionCount()](https://docs.oracle.com/javase/7/docs/api/java/lang/management/GarbageCollectorMXBean.html). | yes |
+| `GC Total Time` | custom metrics | Sum of time across all GarbageCollectorMXBean instances (diff since last reported). See [GarbageCollectorMXBean.getCollectionTime()](https://docs.oracle.com/javase/7/docs/api/java/lang/management/GarbageCollectorMXBean.html).| yes |
 | `Heap Memory Used (MB)` | custom metrics | See [MemoryMXBean.getHeapMemoryUsage().getUsed()](https://docs.oracle.com/javase/8/docs/api/java/lang/management/MemoryMXBean.html#getHeapMemoryUsage--). | yes |
 | `% Of Max Heap Memory Used` | custom metrics | java.lang:type=Memory / maximum amount of memory in bytes. See [MemoryUsage](https://docs.oracle.com/javase/7/docs/api/java/lang/management/MemoryUsage.html)| yes |
-| `\Processor(_Total)\% Processor Time` | default metrics | Difference in [system wide CPU load tick counters](https://oshi.github.io/oshi/oshi-core/apidocs/oshi/hardware/CentralProcessor.html#getProcessorCpuLoadTicks())(Only User and System) divided by the number of [logical processors count](https://oshi.github.io/oshi/oshi-core/apidocs/oshi/hardware/CentralProcessor.html#getLogicalProcessors—) in a given interval of time | no |
+| `\Processor(_Total)\% Processor Time` | default metrics | Difference in [system wide CPU load tick counters](https://www.oshi.ooo/oshi-core/apidocs/oshi/hardware/CentralProcessor.html#getProcessorCpuLoadTicks()) (Only User and System) divided by the number of [logical processors count](https://www.oshi.ooo/oshi-core/apidocs/oshi/hardware/CentralProcessor.html#getLogicalProcessors()) in a given interval of time | no |
 | `\Process(??APP_WIN32_PROC??)\% Processor Time` | default metrics | See [OperatingSystemMXBean.getProcessCpuTime()](https://docs.oracle.com/javase/8/docs/jre/api/management/extension/com/sun/management/OperatingSystemMXBean.html#getProcessCpuTime--) (diff since last reported, normalized by time and number of CPUs). | no |
 | `\Process(??APP_WIN32_PROC??)\Private Bytes` | default metrics | Sum of [MemoryMXBean.getHeapMemoryUsage()](https://docs.oracle.com/javase/8/docs/api/java/lang/management/MemoryMXBean.html#getHeapMemoryUsage--) and [MemoryMXBean.getNonHeapMemoryUsage()](https://docs.oracle.com/javase/8/docs/api/java/lang/management/MemoryMXBean.html#getNonHeapMemoryUsage--). | no |
 | `\Process(??APP_WIN32_PROC??)\IO Data Bytes/sec` | default metrics | `/proc/[pid]/io` Sum of bytes read and written by the process (diff since last reported). See [proc(5)](https://man7.org/linux/man-pages/man5/proc.5.html). | no |
 | `\Memory\Available Bytes` | default metrics | See [OperatingSystemMXBean.getFreePhysicalMemorySize()](https://docs.oracle.com/javase/7/docs/jre/api/management/extension/com/sun/management/OperatingSystemMXBean.html#getFreePhysicalMemorySize()). | no |
+
+## Frequently asked questions
+
+### Why doesn't the log processor process log files using TelemetryClient.trackTrace()?
+
+TelemetryClient.trackTrace() is part of the Application Insights Classic SDK bridge, and the log processors only work with the new [OpenTelemetry-based instrumentation](opentelemetry-enable.md).

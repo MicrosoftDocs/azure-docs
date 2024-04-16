@@ -1,16 +1,16 @@
 ---
-title: Device Update for Azure RTOS | Microsoft Docs
-description: Get started with Device Update for Azure RTOS.
+title: Device Update for Eclipse ThreadX | Microsoft Docs
+description: Get started with Device Update for Eclipse ThreadX.
 author: kgremban
 ms.author: kgremban
 ms.date: 3/18/2021
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: iot-hub-device-update
 ---
 
-# Device Update for Azure IoT Hub using Azure RTOS
+# Device Update for Azure IoT Hub using Eclipse ThreadX
 
-This article shows you how to create the Device Update for Azure IoT Hub agent in Azure RTOS NetX Duo. It also provides simple APIs for developers to integrate the Device Update capability in their application. Explore [samples](https://github.com/azure-rtos/samples/tree/PublicPreview/ADU) of key semiconductors evaluation boards that include the get-started guides to learn how to configure, build, and deploy over-the-air updates to the devices.
+This article shows you how to create the Device Update for Azure IoT Hub agent in Eclipse ThreadX NetX Duo. It also provides simple APIs for developers to integrate the Device Update capability in their application. Explore [samples](https://github.com/eclipse-threadx/samples/tree/PublicPreview/ADU) of key semiconductors evaluation boards that include the get-started guides to learn how to configure, build, and deploy over-the-air updates to the devices.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -23,14 +23,14 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 Each board-specific sample Azure real-time operating system (RTOS) project contains code and documentation on how to use Device Update for IoT Hub on it. You will:
 
-1. Download the board-specific sample files from [Azure RTOS and Device Update samples](https://github.com/azure-rtos/samples/tree/PublicPreview/ADU).
+1. Download the board-specific sample files from [Eclipse ThreadX and Device Update samples](https://github.com/eclipse-threadx/samples/tree/PublicPreview/ADU).
 1. Find the docs folder from the downloaded sample.
 1. From the docs, follow the steps for how to prepare Azure resources and an account and register IoT devices to it.
 1. Follow the docs to build a new firmware image and import manifest for your board.
 1. Publish the firmware image and manifest to Device Update for IoT Hub.
 1. Download and run the project on your device.
 
-Learn more about [Azure RTOS](/azure/rtos/).
+Learn more about [Eclipse ThreadX](https://github.com/eclipse-threadx).
 
 ## Tag your device
 
@@ -46,27 +46,22 @@ Learn more about [Azure RTOS](/azure/rtos/).
                 }
     ```
 
-## Create an update group
+## View device groups
+
+Device Update uses groups to organize devices. Device Update automatically sorts devices into groups based on their assigned tags and compatibility properties. Each device belongs to only one group, but groups can have multiple subgroups to sort different device classes.
 
 1. Go to the **Groups and Deployments** tab at the top of the page.
 
    :::image type="content" source="media/create-update-group/ungrouped-devices.png" alt-text="Screenshot that shows ungrouped devices." lightbox="media/create-update-group/ungrouped-devices.png":::
 
-1. Select **Add group** to create a new group.
-
-   :::image type="content" source="media/create-update-group/add-group.png" alt-text="Screenshot that shows a device group addition." lightbox="media/create-update-group/add-group.png":::
-
-1. Select an **IoT Hub** tag and **Device class** from the list. Then select **Create group**.
-
-   :::image type="content" source="media/create-update-group/select-tag.png" alt-text="Screenshot that shows tag selection." lightbox="media/create-update-group/select-tag.png":::
-
-1. After the group is created, you see that the update compliance chart and groups list are updated. The update compliance chart shows the count of devices in various states of compliance: **On latest update**, **New updates available**, and **Updates in progress**. [Learn about update compliance](device-update-compliance.md).
+1. View the list of groups and the update compliance chart. The update compliance chart shows the count of devices in various states of compliance: **On latest update**, **New updates available**, and **Updates in progress**. [Learn about update compliance](device-update-compliance.md).
 
    :::image type="content" source="media/create-update-group/updated-view.png" alt-text="Screenshot that shows the update compliance view." lightbox="media/create-update-group/updated-view.png":::
 
-1. You should see your newly created group and any available updates for the devices in the new group. If there are devices that don't meet the device class requirements of the group, they show up in a corresponding invalid group. To deploy the best available update to the new user-defined group from this view, select **Deploy** next to the group.
+1. You should see a device group that contains the simulated device you set up in this tutorial along with any available updates for the devices in the new group. If there are devices that don't meet the device class requirements of the group, they'll show up in a corresponding invalid group. To deploy the best available update to the new user-defined group from this view, select **Deploy** next to the group.
 
-[Learn more](create-update-group.md) about how to add tags and create update groups.
+For more information about tags and groups, see [Manage device groups](create-update-group.md).
+
 
 ## Deploy new firmware
 
@@ -109,8 +104,8 @@ Learn more about [Azure RTOS](/azure/rtos/).
 
 1. Select **Refresh** to view the latest status details.
 
-You've now completed a successful end-to-end image update by using Device Update for IoT Hub on an Azure RTOS embedded device.
+You've now completed a successful end-to-end image update by using Device Update for IoT Hub on an Eclipse ThreadX embedded device.
 
 ## Next steps
 
-To learn more about Azure RTOS and how it works with IoT Hub, see the [Azure RTOS webpage](https://azure.com/rtos).
+To learn more about Eclipse ThreadX and how it works with IoT Hub, see [Eclipse ThreadX](https://github.com/eclipse-threadx).

@@ -1,21 +1,21 @@
 ---
-title: Manage Azure IoT Edge deployment manifests | Microsoft Docs
+title: Manage Azure IoT Edge deployment manifests
 description: This article describes how to the deployment manifests for the IT Edge devices that connect to your IoT Central application.
 services: iot-central
 ms.service: iot-central
 author: dominicbetts
 ms.author: dobett
-ms.date: 10/05/2022
+ms.date: 03/04/2024
 ms.topic: how-to
 ---
 
 # Manage IoT Edge deployment manifests in your IoT Central application
 
-A deployment manifest lets you specify the modules the IoT Edge runtime should download and configure. An IoT Edge device can download a deployment manifest when it first connects to your IoT Central application. This article describes how you manage these deployment manifests in your IoT Central application.
+A deployment manifest lets you specify the modules the IoT Edge runtime should download and configure. An IoT Edge device can download a deployment manifest when it first connects to your IoT Central application. This article describes how you manage deployment manifests in your IoT Central application.
 
 To learn more about IoT Edge and IoT Central, see [Connect Azure IoT Edge devices to an Azure IoT Central application](concepts-iot-edge.md).
 
-<!-- TODO: Link to REST API article -->
+To learn how to manage deployment manifests by using the IoT Central REST API, see [How to use the IoT Central REST API to manage deployment manifests](../core/howto-manage-deployment-manifests-with-rest-api.md).
 
 ## Manage deployment manifests
 
@@ -62,7 +62,7 @@ To completely replace the content of a deployment manifest:
 
 1. Navigate to the **Edge manifests** page.
 
-1. Click on the name of the deployment manifest you want to replace.
+1. Select the deployment manifest you want to replace.
 
 1. In the **Customize** dialog, browse for a new deployment manifest file to upload or choose an existing deployment manifest as a starting point. IoT Central validates any uploaded files.
 
@@ -108,7 +108,7 @@ You can manage the deployment manifest for an existing device:
 
 :::image type="content" source="media/howto-manage-deployment-manifests/manage-manifest.png" alt-text="Screenshot that shows the options to manage a deployment manifest on a device.":::
 
-Use **Assign edge manifest** to select a previously uploaded deployment manifest from the **Edge manifests** page. You can also use this option to manually notify a device if you've modified the deployment manifest on the **Edge manifests** page.
+Use **Assign edge manifest** to select a previously uploaded deployment manifest from the **Edge manifests** page. You can also use this option to manually notify a device if you modify the deployment manifest on the **Edge manifests** page.
 
 Use **Edit manifest** to modify the deployment manifest for this device. Changes you make here don't affect the deployment manifest on the **Edge manifests** page.
 
@@ -122,7 +122,7 @@ To assign or update the deployment manifest for multiple devices, use a [job](ho
 
 A deployment manifest defines the modules to run on the device and optionally [writable properties](../../iot-edge/module-composition.md?#define-or-update-desired-properties) that you can use to configure modules.
 
-If you're assigning a device template to an IoT Edge device, you may want to define the modules and writable properties in the device template. To add the modules and property definitions to a device template:
+If you're assigning a device template to an IoT Edge device, you might want to define the modules and writable properties in the device template. To add the modules and property definitions to a device template:
 
 1. Navigate to the **Modules Summary** page of the IoT Edge device template.
 1. Select **Import modules from manifest**.
@@ -130,7 +130,3 @@ If you're assigning a device template to an IoT Edge device, you may want to def
 1. Select **Import**. IoT Central adds the custom modules defined in the deployment manifest to the device template. The names of the modules in the device template match the names of the custom modules in the deployment manifest. The generated interface includes property definitions for the properties defined for the custom module in the deployment manifest:
 
 :::image type="content" source="media/howto-manage-deployment-manifests/import-modules.png" alt-text="Screenshot the shows importing module definitions to a device template.":::
-
-## Next steps
-
-Now that you've learned how to manage IoT Edge deployment manifests in your Azure IoT Central application, the suggested next step is to learn how to [How to connect devices through an IoT Edge transparent gateway](how-to-connect-iot-edge-transparent-gateway.md).

@@ -5,16 +5,18 @@ description: Learn how to view saving plan utilization in the Azure portal.
 author: bandersmsft
 ms.reviewer: onwokolo
 ms.service: cost-management-billing
-ms.subservice: reservations
-ms.custom: ignite-2022
+ms.subservice: savings-plan
 ms.topic: how-to
-ms.date: 10/12/2022
+ms.date: 11/17/2023
 ms.author: banders
 ---
 
 # View savings plan utilization after purchase
 
 You can view savings plan utilization percentage in the Azure portal.
+
+> [!NOTE]
+> It can take up to 48 hours for initial savings plan purchase utilization data to appear in utilization reports and to get shown in cost analysis. Afterward, you can expect usage data show to appear within 2 to 24 hours.
 
 ## View utilization in the Azure portal with Azure RBAC access
 

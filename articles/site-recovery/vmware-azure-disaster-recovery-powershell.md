@@ -1,19 +1,22 @@
 ---
-title: Set up VMware disaster recovery using PowerShell in Azure Site Revoery
+title: Set up VMware disaster recovery using PowerShell in Azure Site Recovery
 description: Learn how to set up replication and failover to Azure for disaster recovery of VMware VMs using PowerShell in Azure Site Recovery.
 author: ankitaduttaMSFT
 manager: gaggupta
 ms.service: site-recovery
 ms.topic: conceptual
 ms.author: ankitadutta
-ms.date: 05/27/2021 
+ms.date: 03/07/2024
 ms.custom: devx-track-azurepowershell
 
 
 ---
 # Set up disaster recovery of VMware VMs to Azure with PowerShell
 
-In this article, you see how to replicate and failover VMware virtual machines to Azure using Azure PowerShell.
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
+
+In this article, you see how to replicate and fail over VMware virtual machines to Azure using Azure PowerShell.
 
 You learn how to:
 
@@ -34,9 +37,9 @@ Before you start:
 
 - Make sure that you understand the [scenario architecture and components](vmware-azure-architecture.md).
 - Review the [support requirements](./vmware-physical-azure-support-matrix.md) for all components.
-- You have the Azure PowerShell `Az`  module. If you need to install or upgrade Azure PowerShell, follow this [Guide to install and configure Azure PowerShell](/powershell/azure/install-az-ps).
+- You have the Azure PowerShell `Az`  module. If you need to install or upgrade Azure PowerShell, follow this [Guide to install and configure Azure PowerShell](/powershell/azure/install-azure-powershell).
 
-## Log into Azure
+## Log in to Azure
 
 Log into your Azure subscription using the Connect-AzAccount cmdlet:
 
@@ -50,7 +53,7 @@ Select-AzSubscription -SubscriptionName "ASR Test Subscription"
 ```
 ## Set up a Recovery Services vault
 
-1. Create a resource group in which to create the Recovery Services vault. In the example below, the resource group is named VMwareDRtoAzurePS and is created in the East Asia region.
+1. Create a resource group in which to create the Recovery Services vault. In the following example, the resource group is named VMwareDRtoAzurePS and is created in the East Asia region.
 
    ```azurepowershell
    New-AzResourceGroup -Name "VMwareDRtoAzurePS" -Location "East Asia"
@@ -63,7 +66,7 @@ Select-AzSubscription -SubscriptionName "ASR Test Subscription"
    ResourceId        : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/VMwareDRtoAzurePS
    ```
 
-2. Create a Recovery services vault. In the example below, the Recovery services vault is named VMwareDRToAzurePs, and is created in the East Asia region and in the resource group created in the previous step.
+2. Create a Recovery services vault. In the following example, the Recovery services vault is named VMwareDRToAzurePs, and is created in the East Asia region and in the resource group created in the previous step.
 
    ```azurepowershell
    New-AzRecoveryServicesVault -Name "VMwareDRToAzurePs" -Location "East Asia" -ResourceGroupName "VMwareDRToAzurePs"
@@ -93,7 +96,7 @@ Select-AzSubscription -SubscriptionName "ASR Test Subscription"
    C:\Work\VMwareDRToAzurePs_2017-11-23T19-52-34.VaultCredentials
    ```
 
-4. Use the downloaded vault registration key and follow the steps in the articles given below to complete installation and registration of the Configuration Server.
+4. Use the downloaded vault registration key and follow the following steps in the articles to complete installation and registration of the Configuration Server.
    - [Choose your protection goals](vmware-azure-set-up-source.md#choose-your-protection-goals)
    - [Set up the source environment](vmware-azure-set-up-source.md#set-up-the-configuration-server)
 
@@ -104,7 +107,7 @@ Set the vault context using the Set-ASRVaultContext cmdlet. Once set, subsequent
 > [!TIP]
 > The Azure Site Recovery PowerShell module (Az.RecoveryServices module) comes with easy to use aliases for most cmdlets. The cmdlets in the module take the form *\<Operation>-**AzRecoveryServicesAsr**\<Object>* and have equivalent aliases that take the form *\<Operation>-**ASR**\<Object>*. You can replace the cmdlet aliases for ease of use.
 
-In the example below, the vault details from the $vault variable is used to specify the vault context for the PowerShell session.
+In the following example, the vault details from the $vault variable is used to specify the vault context for the PowerShell session.
 
    ```azurepowershell
    Set-ASRVaultContext -Vault $vault
@@ -125,10 +128,10 @@ Subsequent sections of this article assume that the vault context for Azure Site
 
 ## Validate vault registration
 
-For this example, we have the following:
+For this example, we have the following requirements:
 
 - A configuration server (**ConfigurationServer**) has been registered to this vault.
-- An additional process server (**ScaleOut-ProcessServer**) has been registered to *ConfigurationServer*
+- An extra process server (**ScaleOut-ProcessServer**) has been registered to *ConfigurationServer*
 - Accounts (**vCenter_account**, **WindowsAccount**, **LinuxAccount**) have been set up on the Configuration server. These accounts are used to add the vCenter server, to discover virtual machines, and to push-install the mobility service software on Windows and Linux servers that are to be replicated.
 
 1. Registered configuration servers are represented by a fabric object in Site Recovery. Get the list of fabric objects in the vault and identify the configuration server.
@@ -313,7 +316,7 @@ Errors           : {}
 
 ## Create storage accounts for replication
 
-**To write to managed disk, use [PowerShell Az.RecoveryServices module 2.0.0](https://www.powershellgallery.com/packages/Az.RecoveryServices/2.0.0-preview) onwards.** It only requires creation of a log storage account. It is recommended to use a standard account type and LRS redundancy since it is used to store only temporary logs. Ensure that the storage account is created in the same Azure region as the vault.
+**To write to managed disk, use [PowerShell Az.RecoveryServices module 2.0.0](https://www.powershellgallery.com/packages/Az.RecoveryServices/2.0.0-preview) onwards.** It only requires creation of a log storage account. It's recommended to use a standard account type and LRS redundancy since it's used to store only temporary logs. Ensure that the storage account is created in the same Azure region as the vault.
 
 If you are using a version of Az.RecoveryServices module older than 2.0.0, use the following steps to create storage accounts. These storage accounts are used later to replicate virtual machines. Ensure that the storage accounts are created in the same Azure region as the vault. You can skip this step if you plan to use an existing storage account for replication.
 
@@ -345,13 +348,13 @@ You will need the following details to protect a discovered virtual machine:
 * The resource group in which virtual machines must be created on failover.
 * Optionally, the Azure virtual network and subnet to which the failed over virtual machine should be connected.
 
-Now replicate the following virtual machines using the settings specified in this table
+Now replicate the following virtual machines using the settings specified in this table:
 
 
 |Virtual machine  |Process Server        |Storage Account              |Log Storage account  |Policy           |Account for Mobility service installation|Target resource group  | Target virtual network  |Target subnet  |
 |-----------------|----------------------|-----------------------------|---------------------|-----------------|-----------------------------------------|-----------------------|-------------------------|---------------|
 |CentOSVM1       |ConfigurationServer   |N/A| logstorageaccount1                 |ReplicationPolicy|LinuxAccount                             |VMwareDRToAzurePs      |ASR-vnet                 |Subnet-1       |
-|Win2K12VM1       |ScaleOut-ProcessServer|premiumstorageaccount1       |logstorageaccount1   |ReplicationPolicy|WindowsAccount                           |VMwareDRToAzurePs      |ASR-vnet                 |Subnet-1       |   
+|Win 2K12VM1       |ScaleOut-ProcessServer|premiumstorageaccount1       |logstorageaccount1   |ReplicationPolicy|WindowsAccount                           |VMwareDRToAzurePs      |ASR-vnet                 |Subnet-1       |   
 |CentOSVM2       |ConfigurationServer   |replicationstdstorageaccount1| N/A                 |ReplicationPolicy|LinuxAccount                             |VMwareDRToAzurePs      |ASR-vnet                 |Subnet-1       |   
 
 
@@ -445,7 +448,7 @@ Errors           : {}
 
 ## Run a test failover
 
-1. Run a DR drill (test failover) as follows:
+1. Run a disaster recovery drill (test failover) as follows:
 
    ```azurepowershell
    #Test failover of Win2K12VM1 to the test virtual network "V2TestNetwork"
@@ -456,7 +459,7 @@ Errors           : {}
    #Start the test failover operation
    $TFOJob = Start-AzRecoveryServicesAsrTestFailoverJob -ReplicationProtectedItem $ReplicatedVM1 -AzureVMNetworkId $TestFailovervnet.Id -Direction PrimaryToRecovery
    ```
-2. Once the test failover job completes successfully, you will notice that a virtual machine suffixed with *"-Test"* (Win2K12VM1-Test in this case) to its name is created in Azure.
+2. Once the test failover job completes successfully, you'll notice that a virtual machine suffixed with *"-Test"* (Win2K12VM1-Test in this case) to its name is created in Azure.
 3. You can now connect to the test failed over virtual machine, and validate the test failover.
 4. Clean up the test failover using the Start-ASRTestFailoverCleanupJob cmdlet. This operation deletes the virtual machine created as part of the test failover operation.
 

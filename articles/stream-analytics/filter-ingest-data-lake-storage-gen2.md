@@ -1,11 +1,11 @@
 ---
 title: Filter and ingest to Azure Data Lake Storage Gen2 using the Stream Analytics no code editor
 description: Learn how to use the no code editor to easily create a Stream Analytics job. It continuously reads from Event Hubs, filters the incoming data, and then writes the results continuously to Azure Data Lake Storage Gen2.
-author: sidramadoss
-ms.author: sidram
+author: xujxu
+ms.author: xujiang1
 ms.service: stream-analytics
 ms.topic: how-to
-ms.custom: mvc, event-tier1-build-2022, ignite-2022
+ms.custom: mvc
 ms.date: 10/12/2022
 ---
 

@@ -6,7 +6,7 @@ ms.author: sumuth
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 09/15/2021
+ms.date: 11/17/2023
 ---
 
 # How a reservation discount is applied to Azure Database for MySQL

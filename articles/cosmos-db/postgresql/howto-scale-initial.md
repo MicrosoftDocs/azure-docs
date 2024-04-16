@@ -5,12 +5,11 @@ ms.author: jonels
 author: jonels-msft
 ms.service: cosmos-db
 ms.subservice: postgresql
-ms.custom: ignite-2022
 ms.topic: how-to
-ms.date: 08/03/2021
+ms.date: 01/30/2023
 ---
 
-# Pick initial size for cluster
+# Pick initial size for cluster in Azure Cosmos DB for PostgreSQL
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 

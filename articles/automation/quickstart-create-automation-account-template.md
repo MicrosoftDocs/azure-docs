@@ -3,10 +3,9 @@ title: Create an Azure Automation account using a Resource Manager template
 titleSuffix: Azure Automation
 description: This article shows how to create an Automation account by using the Azure Resource Manager template.
 services: automation
-ms.date: 08/27/2021
+ms.date: 04/12/2023
 ms.topic: conceptual
-ms.workload: infrastructure-services
-ms.custom: mvc, subject-armqs, mode-arm
+ms.custom: mvc, subject-armqs, mode-arm, devx-track-arm-template
 ---
 
 # Create an Azure Automation account using a Resource Manager template
@@ -21,9 +20,6 @@ The sample template does the following steps:
 * Automates the creation of an Azure Automation account.
 * Links the Automation account to the Log Analytics workspace.
 * Adds sample Automation runbooks to the account.
-
-> [!NOTE]
-> Creation of the Automation Run As account is not supported when you're using an ARM template. To create a Run As account manually from the portal or with PowerShell, see [Create Run As account](create-run-as-account.md).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -53,7 +49,7 @@ The Azure resources defined in the template:
 
 1. Select the **Deploy to Azure** button below to sign in to Azure and open the ARM template.
 
-    [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.automation%2F101-automation%2Fazuredeploy.json)
+    :::image type="content" source="~/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Resource Manager template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.automation%2F101-automation%2Fazuredeploy.json":::
 
 1. Enter or select the following values:
 

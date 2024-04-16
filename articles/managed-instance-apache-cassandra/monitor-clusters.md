@@ -1,6 +1,6 @@
 ---
-title: Azure Monitor
-description: Azure Monitor
+title: Monitor Azure Managed Instance for Apache Cassandra by using Azure Monitor
+description: Learn how to use Azure Monitor to view metrics and diagnostic logs from Azure Managed Instance for Apache Cassandra.
 author: TheovanKraay
 ms.author: thvankra
 ms.service: managed-instance-apache-cassandra
@@ -10,87 +10,92 @@ ms.custom: references_regions, devx-track-azurecli
 
 ---
 
-# Monitor Azure Managed Instance for Apache Cassandra using Azure Monitor
+# Monitor Azure Managed Instance for Apache Cassandra by using Azure Monitor
 
-Azure Managed Instance for Apache Cassandra provides metrics and diagnostic logging using [Azure Monitor](../azure-monitor/overview.md). 
+Azure Managed Instance for Apache Cassandra provides metrics and diagnostic logging through [Azure Monitor](../azure-monitor/overview.md).
 
-## Azure Metrics
+## Azure Managed Instance for Apache Cassandra metrics
 
-You can visualize metrics for Azure Managed Instance for Apache Cassandra, by navigating to your cluster resource, and selecting the metrics tab. You can then choose from the available metrics and aggregations.
+You can visualize metrics for Azure Managed Instance for Apache Cassandra in the Azure portal by going to your cluster resource and selecting **Metrics**. You can then choose from the available metrics and aggregations.
 
-:::image type="content" source="./media/azure-monitor/metrics.png" alt-text="Visualize metrics":::
+:::image type="content" source="./media/azure-monitor/metrics.png" alt-text="Screenshot that shows the Metrics pane in the Azure portal.":::
 
 ## Diagnostic settings in Azure
 
-Diagnostic settings in Azure are used to collect resource logs. Azure resource Logs are emitted by a resource and provide rich, frequent data about the operation of that resource. These logs are captured per request and they are also referred to as "data plane logs". Some examples of the data plane operations include delete, insert, and readFeed. The content of these logs varies by resource type.
+Azure Monitor uses diagnostic settings to collect resource logs, which are also called *data plane logs*. An Azure resource emits resource logs to provide rich, frequent data about its operations. Azure Monitor captures these logs per request. Examples of data plane operations include delete, insert, and readFeed. The content of these logs varies by resource type.
 
-Platform metrics and the Activity logs are collected automatically, whereas you must create a diagnostic setting to collect resource logs or forward them outside of Azure Monitor. You can turn on diagnostic settings for Azure Managed Instance for Apache Cassandra cluster resources and send resource logs to the following sources:
-- Log Analytics workspaces
-  - Data sent to Log Analytics can be written into **Azure Diagnostics (legacy)** or **Resource-specific (preview)** tables 
-- Event Hub
-- Storage Account
+Platform metrics and activity logs are collected automatically, whereas you must create a diagnostic setting to collect resource logs or to forward them outside Azure Monitor. You can turn on diagnostic settings for Azure Managed Instance for Apache Cassandra cluster resources and send resource logs to the following sources:
+
+- Log Analytics workspace. Data sent to Log Analytics workspaces is written into **Azure Diagnostics (legacy)** or **Resource-specific (preview)** tables.
+- Event hub.
+- Storage account.
   
 > [!NOTE]
 > We recommend creating the diagnostic setting in resource-specific mode.
 
-## <a id="create-setting-portal"></a> Create diagnostic settings via the Azure portal
+### <a id="create-setting-portal"></a> Create diagnostic settings via the Azure portal
 
-1. Sign into the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. Navigate to your Azure Managed Instance for Apache Cassandra cluster resource. 
+1. Go to your Azure Managed Instance for Apache Cassandra cluster resource.
 
-    :::image type="content" source="./media/azure-monitor/cluster.png" alt-text="Select cluster":::
- 
-1. Open the **Diagnostic settings** pane under the **Monitoring section**, and then select **Add diagnostic setting** option.
+    :::image type="content" source="./media/azure-monitor/cluster.png" alt-text="Screenshot that shows selecting a cluster from a list of resources.":::
 
-    :::image type="content" source="./media/azure-monitor/settings.png" alt-text="Add diagnostic settings":::
+1. Select **Diagnostic settings** in the **Monitoring** section, and then select **Add diagnostic setting**.
 
+    :::image type="content" source="./media/azure-monitor/settings.png" alt-text="Screenshot that shows the pane for diagnostic settings and the button for adding a diagnostic setting.":::
 
-1. In the **Diagnostic settings** pane, choose a name for your setting, and select **Categories details**. The **CassandraAudit** category records audit and CQL operations. The **CassandraLogs** category records Cassandra server operations. Then send your Logs to your preferred destination. If you're sending Logs to a **Log Analytics Workspace**, make sure to select **Resource specific** as the Destination table. 
+1. On the **Diagnostic setting** pane, choose a name for your setting.
 
-    :::image type="content" source="./media/azure-monitor/preferred-categories.png" alt-text="Select category":::
+   Then, under **Category details**, select your categories. The **CassandraLogs** category records Cassandra server operations. The **CassandraAudit** category records audit and Cassandra Query Language (CQL) operations.
 
-   > [!WARNING]
-   > If you're sending Logs to a Log Analytics Workspace, it can take up to **20 minutes** for logs to first appear. Until then, the resource specific tables (shown below under Azure Managed Instance for Apache Cassandra) will not be visible.  
+   Under **Destination details**, choose your preferred destination for your logs. If you're sending logs to a Log Analytics workspace, be sure to select **Resource specific** as the destination table.
 
+    :::image type="content" source="./media/azure-monitor/preferred-categories.png" alt-text="Screenshot that shows selections for a diagnostic setting.":::
 
-1. Once diagnostic logging is set up and data is flowing, you can go to the **logs** tab and query the available diagnostic logs using Azure Data Explorer. Take a look at [this article](../azure-monitor/logs/log-query-overview.md) for more information on Azure Monitor and the Kusto query language. 
+   > [!NOTE]
+   > If you're sending logs to a Log Analytics workspace, they can take up to 20 minutes to appear. Until then, the resource-specific tables (shown under **Azure Managed Instance for Apache Cassandra**) aren't visible.  
 
-    :::image type="content" source="./media/azure-monitor/query.png" alt-text="Query logs":::
+1. After you set up diagnostic logging and data is flowing, you can select **Logs** and query the available diagnostic logs by using Azure Data Explorer. For more information on Azure Monitor and Kusto Query Language, see [Log queries in Azure Monitor](../azure-monitor/logs/log-query-overview.md).
 
-## <a id="create-setting-cli"></a> Create diagnostic setting via Azure CLI
-Use the [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) command to create a diagnostic setting with the Azure CLI. See the documentation for this command for descriptions of its parameters.
+    :::image type="content" source="./media/azure-monitor/query.png" alt-text="Screenshot that shows query logs.":::
+
+### <a id="create-setting-cli"></a> Create a diagnostic setting via the Azure CLI
+
+To create a diagnostic setting by using the Azure CLI, use the [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) command:
 
 ```azurecli-interactive
     logs='[{"category":"CassandraAudit","enabled":true,"retentionPolicy":{"enabled":true,"days":3}},{"category":"CassandraLogs","enabled":true,"retentionPolicy":{"enabled":true,"days":3}}]'
     resourceId='/subscriptions/{SUBSCRIPTION_ID}/resourceGroups/{RESOURCE_GROUP}/providers/Microsoft.DocumentDB/cassandraClusters/{CLUSTER_NAME}'
     workspace='/subscriptions/{SUBSCRIPTION_ID}/resourcegroups/{RESOURCE_GROUP}/providers/microsoft.operationalinsights/workspaces/{WORKSPACE_NAME}'
 
-    az monitor diagnostic-settings create  --name tvk-doagnostic-logs-cassandra --resource $resourceId --logs  $logs --workspace $workspace --export-to-resource-specific true
+    az monitor diagnostic-settings create  --name tvk-diagnostic-logs-cassandra --resource $resourceId --logs  $logs --workspace $workspace --export-to-resource-specific true
 ```
 
-## <a id="create-diagnostic-setting"></a> Create diagnostic setting via REST API
+### <a id="create-diagnostic-setting"></a> Create a diagnostic setting via the REST API
+
 Use the [Azure Monitor REST API](/rest/api/monitor/diagnosticsettings/createorupdate) for creating a diagnostic setting via the interactive console.
-> [!Note]
-> We recommend setting the **logAnalyticsDestinationType** property to **Dedicated** for enabling resource specific tables.
 
-### Request
+> [!NOTE]
+> We recommend setting the `logAnalyticsDestinationType` property to `Dedicated` for enabling resource-specific tables.
 
-   ```HTTP
-   PUT
-   https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnosticSettings/service?api-version={api-version}
-   ```
+#### Request
 
-### Headers
+```HTTP
+PUT
+https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnosticSettings/service?api-version={api-version}
+```
 
-   |Parameters/Headers  | Value/Description  |
-   |---------|---------|
-   |name     |  The name of your Diagnostic setting.      |
-   |resourceUri     |   subscriptions/{SUBSCRIPTION_ID}/resourceGroups/{RESOURCE_GROUP}/providers/Microsoft.DocumentDb/databaseAccounts/{ACCOUNT_NAME}/providers/microsoft.insights/diagnosticSettings/{DIAGNOSTIC_SETTING_NAME}      |
-   |api-version     |    2017-05-01-preview     |
-   |Content-Type     |    application/json     |
+#### Headers
 
-### Body
+|Parameters/Headers  | Value/Description  |
+|---------|---------|
+|`name`     |  The name of your diagnostic setting      |
+|`resourceUri`     |   `subscriptions/{SUBSCRIPTION_ID}/resourceGroups/{RESOURCE_GROUP}/providers/Microsoft.DocumentDb/databaseAccounts/{ACCOUNT_NAME}/providers/microsoft.insights/diagnosticSettings/{DIAGNOSTIC_SETTING_NAME}`      |
+|`api-version`     |    `2017-05-01-preview`     |
+|`Content-Type`     |    `application/json`     |
+
+#### Body
 
 ```json
 {
@@ -134,38 +139,68 @@ Use the [Azure Monitor REST API](/rest/api/monitor/diagnosticsettings/createorup
 
 ## Audit whitelist
 
-> ![NOTE]
-> This article contains references to the term *whitelist*, a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
+> [!NOTE]
+> This article contains references to the term *whitelist*, which Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
 
-By default, audit logging creates a record for every login attempt and CQL query. The result can be rather overwhelming and increase overhead. You can use the audit whitelist feature in Cassandra 3.11 to set what operations *don't* create an audit record. The audit whitelist feature is enabled by default in Cassandra 3.11. To learn how to configure your whitelist, see [Role-based whitelist management](https://github.com/Ericsson/ecaudit/blob/release/c2.2/doc/role_whitelist_management.md). 
+By default, audit logging creates a record for every login attempt and CQL query. The result can be overwhelming and increase overhead. To manage this situation, you can use a whitelist to selectively include or exclude specific audit records.
+
+### Cassandra 3.11
+
+In Cassandra 3.11, you can use the audit whitelist feature to set what operations *don't* create an audit record. The audit whitelist feature is enabled by default in Cassandra 3.11. To learn how to configure your whitelist, see [Role-based whitelist management](https://github.com/Ericsson/ecaudit/blob/release/c2.2/doc/role_whitelist_management.md).
 
 Examples:
 
-* To filter out all **select and modification** operations for the user **bob** from the audit log, execute the following statements:
+- To filter out all `SELECT` and `MODIFY` operations for the user `bob` from the audit log, execute the following statements:
 
   ```
   cassandra@cqlsh> ALTER ROLE bob WITH OPTIONS = { 'GRANT AUDIT WHITELIST FOR SELECT' : 'data' };
   cassandra@cqlsh> ALTER ROLE bob WITH OPTIONS = { 'GRANT AUDIT WHITELIST FOR MODIFY' : 'data' };
   ```
   
-* To filter out all **select** operations on the **decisions** table in the **design** keyspace for user **jim** from the audit log, execute the following statement:
+- To filter out all `SELECT` operations on the `decisions` table in the `design` keyspace for user `jim` from the audit log, execute the following statement:
 
   ```
   cassandra@cqlsh> ALTER ROLE jim WITH OPTIONS = { 'GRANT AUDIT WHITELIST FOR SELECT' : 'data/design/decisions' };
   ```
 
-* To revoke the whitelist for user **bob** on all the user's **select** operations, execute the following statement:
+- To revoke the whitelist for user `bob` on all the user's `SELECT` operations, execute the following statement:
 
   ```
   cassandra@cqlsh> ALTER ROLE bob WITH OPTIONS = { 'REVOKE AUDIT WHITELIST FOR SELECT' : 'data' };
   ```
 
-* To view current whitelists, execute the following statement:
+- To view current whitelists, execute the following statement:
 
   ```
   cassandra@cqlsh> LIST ROLES;
   ```
 
+### Cassandra 4 and later
+
+In Cassandra 4 and later, you can configure your whitelist in the Cassandra configuration. For detailed guidance, see [Update Cassandra configuration](create-cluster-portal.md#update-cassandra-configuration). The available options are as follows (reference: [Cassandra documentation for audit logging](https://cassandra.apache.org/doc/stable/cassandra/operating/audit_logging.html)):
+
+```
+audit_logging_options:
+    included_keyspaces: <Comma separated list of keyspaces to be included in audit log, default - includes all keyspaces>
+    excluded_keyspaces: <Comma separated list of keyspaces to be excluded from audit log, default - excludes no keyspace except system, system_schema and system_virtual_schema>
+    included_categories: <Comma separated list of Audit Log Categories to be included in audit log, default - includes all categories>
+    excluded_categories: <Comma separated list of Audit Log Categories to be excluded from audit log, default - excludes no category>
+    included_users: <Comma separated list of users to be included in audit log, default - includes all users>
+    excluded_users: <Comma separated list of users to be excluded from audit log, default - excludes no user>
+```
+
+The available categories are: `QUERY`, `DML`, `DDL`, `DCL`, `OTHER`, `AUTH`, `ERROR`, `PREPARE`.
+
+Here's an example configuration:
+
+```
+audit_logging_options:
+    included_keyspaces: keyspace1,keyspace2
+    included_categories: AUTH,ERROR,DCL,DDL
+```
+
+By default, the configuration sets `included_categories` to `AUTH,ERROR,DCL,DDL`.
+
 ## Next steps
 
-* For detailed information about how to create a diagnostic setting by using the Azure portal, CLI, or PowerShell, see [create diagnostic setting to collect platform logs and metrics in Azure](../azure-monitor/essentials/diagnostic-settings.md) article.
+- For detailed information about how to create a diagnostic setting by using the Azure portal, the Azure CLI, or PowerShell, see [Diagnostic settings in Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md).

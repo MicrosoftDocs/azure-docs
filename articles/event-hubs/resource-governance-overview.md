@@ -3,7 +3,6 @@ title: Resource governance with application groups
 description: This article describes how to enable resource governance using application groups.
 ms.topic: article
 ms.date: 10/12/2022
-ms.custom: ignite-2022
 ---
 
 # Resource governance with application groups 
@@ -15,9 +14,9 @@ Azure Event Hubs enables you to govern event streaming workloads of client appli
 
 ## Application groups
 
-An application group is a collection of one or more client applications that interact with the Event Hubs data plane. Each application group can be scoped to a single Event Hubs namespace or event hubs (entity) within a namespace and should use a uniquely identifying condition such as the security context - shared access signatures (SAS) or Azure Active Directory (Azure AD) application ID - of the client application. 
+An application group is a collection of one or more client applications that interact with the Event Hubs data plane. Each application group can be scoped to a single Event Hubs namespace or event hubs (entity) within a namespace and should use a uniquely identifying condition such as the security context - shared access signatures (SAS) or Microsoft Entra application ID - of the client application. 
 
-Event Hubs currently supports using security contexts for creating application groups. Therefore, each application group must have a unique SAS policy or Azure AD application ID associated with them. If preferred, you can use security context at event hub level to use an application group with a specific event hub within a namespace. 
+Event Hubs currently supports using security contexts for creating application groups. Therefore, each application group must have a unique SAS policy or Microsoft Entra application ID associated with them. If preferred, you can use security context at event hub level to use an application group with a specific event hub within a namespace. 
 
 Application groups are logical entities that are created at the namespace level. Therefore, client applications interacting with event hubs don't need to be aware of the existence of an application group. Event Hubs can associate any client application to an application group by using the identifying condition. 
 
@@ -33,7 +32,7 @@ These are the key attributes of an application group:
 | Parameter | Description | 
 | ---- | ----------- | 
 | name | Unique name of an application group. |
-| clientAppGroupIdentifier | Associate an application group with a uniquely identifying condition (i.e security context such as SAS policy or Azure AD application ID). |
+| clientAppGroupIdentifier | Associate an application group with a uniquely identifying condition (i.e security context such as SAS policy or Microsoft Entra application ID). |
 | policies | List of policies, such as throttling policies that control event streaming between client applications and the Event Hubs namespace|
 | isEnabled | Determine whether the client applications of an application group can access Event Hubs namespaces or not. |
 
@@ -66,15 +65,15 @@ The following table shows minimum threshold limits that you can set for differen
 
 > [!NOTE]
 > Limits set on the throttling policy's threshold value would take precedence over any value set for Kafka topic properties. For example, `IncomingBytes` would have higher priority over `message.max.bytes`.  
-
+> Application group throttling is expected to throttle consistent higher than permitted traffic scenarios (spanning across few minutes).Quick bursts in traffic for few seconds might not experience throttling via Application Groups. Looking at permitted throughput over the time horizon of few minutes is recommended approach to validate throttling.
 ### Protocol support and error codes 
  
 Application group supports throttling operations happening via following protocols – AMQP, Kafka and HTTP. The following table provides you the expected error codes returned by application groups: 
 
 | Protocol | Operation | Error code  | Error message |
 | -------- | --------- | ---------- | ------------- |
-| AMQP | Send | 50004 | Application group is throttled with application group ID & policy name |
-| HTTP | Send | 503 | Subcode: 50004. Application group is throttled with application group ID and policy name  |
+| AMQP | Send | 50004 |SubCode:50013, Application group is throttled with application group ID & policy name |
+| HTTP | Send | 503 | Subcode: 50013. Application group is throttled with application group ID and policy name  |
 | Kafka | Send | PolicyViolation | Broker: policy violation |
 
 Due to restrictions at protocol level, error messages aren't supported during receive operation. When application groups are throttling on receive operations, you would experience sluggish consumption of messages at consumer side.  

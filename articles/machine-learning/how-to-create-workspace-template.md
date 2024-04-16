@@ -4,13 +4,13 @@ titleSuffix: Azure Machine Learning
 description: Learn how to use an Azure Resource Manager template to create a new Azure Machine Learning workspace.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: enterprise-readiness
 ms.topic: how-to
-ms.custom: devx-track-azurecli, devx-track-azurepowershell, ignite-2022
-ms.author: deeikele
-author: deeikele
-ms.reviewer: larryfr
-ms.date: 08/12/2022
+ms.custom: devx-track-azurepowershell, devx-track-arm-template, devx-track-azurecli
+ms.author: larryfr
+author: Blackmist
+ms.reviewer: deeikele
+ms.date: 02/29/2024
 #Customer intent: As a DevOps person, I need to automate or customize the creation of Azure Machine Learning by using templates.
 ---
 
@@ -28,7 +28,19 @@ For more information, see [Deploy an application with Azure Resource Manager tem
 
 ## Limitations
 
-[!INCLUDE [register-namespace](../../includes/machine-learning-register-namespace.md)]
+[!INCLUDE [register-namespace](includes/machine-learning-register-namespace.md)]
+
+* The example template may not always use the latest API version for Azure Machine Learning. Before using the template, we recommend modifying it to use the latest API versions. For information on the latest API versions for Azure Machine Learning, see the [Azure Machine Learning REST API](/rest/api/azureml/).
+
+    > [!TIP]
+    > Each Azure service has its own set of API versions. For information on the API for a specific service, check the service information in the [Azure REST API reference](/rest/api/azure/).
+
+    To update the API version, find the `"apiVersion": "YYYY-MM-DD"` entry for the resource type and update it to the latest version. The following example is an entry for Azure Machine Learning:
+
+    ```json
+    "type": "Microsoft.MachineLearningServices/workspaces",
+    "apiVersion": "2023-10-01",
+    ```
 
 ### Multiple workspaces in the same VNet
 
@@ -68,7 +80,7 @@ The example template has two **required** parameters:
 >
 > You can also reference an existing container registry or storage account in the Azure Resource Manager template, instead of creating a new one. When doing so, you must either [use a managed identity](how-to-identity-based-service-authentication.md) (preview), or [enable the admin account](../container-registry/container-registry-authentication.md#admin-account) for the container registry.
 
-[!INCLUDE [machine-learning-delete-acr](../../includes/machine-learning-delete-acr.md)]
+[!INCLUDE [machine-learning-delete-acr](includes/machine-learning-delete-acr.md)]
 
 For more information on templates, see the following articles:
 
@@ -176,43 +188,43 @@ For more information, see [Customer-managed keys](concept-customer-managed-keys.
 > 
 > For steps on creating the vault and key, see [Configure customer-managed keys](how-to-setup-customer-managed-keys.md).
 
-__To get the values__ for the `cmk_keyvault` (ID of the Key Vault) and the `resource_cmk_uri` (key URI) parameters needed by this template, use the following steps:	
+__To get the values__ for the `cmk_keyvault` (ID of the Key Vault) and the `resource_cmk_uri` (key URI) parameters needed by this template, use the following steps:    
 
-1. To get the Key Vault ID, use the following command:	
+1. To get the Key Vault ID, use the following command:    
 
-    # [Azure CLI](#tab/azcli)	
+    # [Azure CLI](#tab/azcli)    
     
-    ```azurecli	
-    az keyvault show --name <keyvault-name> --query 'id' --output tsv	
-    ```	
+    ```azurecli    
+    az keyvault show --name <keyvault-name> --query 'id' --output tsv    
+    ```    
     
-    # [Azure PowerShell](#tab/azpowershell)	
+    # [Azure PowerShell](#tab/azpowershell)    
     
-    ```azurepowershell	
-    Get-AzureRMKeyVault -VaultName '<keyvault-name>'	
-    ```	
-    ---	
+    ```azurepowershell    
+    Get-AzureRMKeyVault -VaultName '<keyvault-name>'    
+    ```    
+    ---    
 
-    This command returns a value similar to `/subscriptions/{subscription-guid}/resourceGroups/<resource-group-name>/providers/Microsoft.KeyVault/vaults/<keyvault-name>`.	
+    This command returns a value similar to `/subscriptions/{subscription-guid}/resourceGroups/<resource-group-name>/providers/Microsoft.KeyVault/vaults/<keyvault-name>`.    
 
-1. To get the value for the URI for the customer managed key, use the following command:	
+1. To get the value for the URI for the customer managed key, use the following command:    
 
-    # [Azure CLI](#tab/azcli)	
+    # [Azure CLI](#tab/azcli)    
     
-    ```azurecli	
-    az keyvault key show --vault-name <keyvault-name> --name <key-name> --query 'key.kid' --output tsv	
-    ```	
+    ```azurecli    
+    az keyvault key show --vault-name <keyvault-name> --name <key-name> --query 'key.kid' --output tsv    
+    ```    
     
-    # [Azure PowerShell](#tab/azpowershell)	
+    # [Azure PowerShell](#tab/azpowershell)    
     
-    ```azurepowershell	
-    Get-AzureKeyVaultKey -VaultName '<keyvault-name>' -KeyName '<key-name>'	
-    ```	
-    ---	
+    ```azurepowershell    
+    Get-AzureKeyVaultKey -VaultName '<keyvault-name>' -KeyName '<key-name>'    
+    ```    
+    ---    
 
-  This command returns a value similar to `https://mykeyvault.vault.azure.net/keys/mykey/{guid}`.	
+  This command returns a value similar to `https://mykeyvault.vault.azure.net/keys/mykey/{guid}`.    
 
-> [!IMPORTANT]	
+> [!IMPORTANT]    
 > Once a workspace has been created, you cannot change the settings for confidential data, encryption, key vault ID, or key identifiers. To change these values, you must create a new workspace using the new values.
 
 To enable use of Customer Managed Keys, set the following parameters when deploying the template:
@@ -382,40 +394,6 @@ New-AzResourceGroupDeployment `
 
 ---
 
-<!-- Workspaces need a private endpoint when associated resources are behind a virtual network to work properly. To set up a private endpoint for the workspace with a new virtual network:
-
-> [!IMPORTANT]
-> The deployment is only valid in regions which support private endpoints.
-
-# [Azure CLI](#tab/azcli)
-
-```azurecli
-az deployment group create \
-    --name "exampledeployment" \
-    --resource-group "examplegroup" \
-    --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.machinelearningservices/machine-learning-workspace-vnet/azuredeploy.json" \
-    --parameters workspaceName="exampleworkspace" \
-      location="eastus" \
-      vnetOption="new" \
-      vnetName="examplevnet" \
-      privateEndpointType="AutoApproval"
-```
-
-# [Azure PowerShell](#tab/azpowershell)
-
-```azurepowershell
-New-AzResourceGroupDeployment `
-  -Name "exampledeployment" `
-  -ResourceGroupName "examplegroup" `
-  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.machinelearningservices/machine-learning-workspace-vnet/azuredeploy.json" `
-  -workspaceName "exampleworkspace" `
-  -location "eastus" `
-  -vnetOption "new" `
-  -vnetName "examplevnet" `
-  -privateEndpointType "AutoApproval"
-```
-
---- -->
 
 ### Use an existing virtual network & resources
 
@@ -494,47 +472,6 @@ To deploy a workspace with existing associated resources you have to set the **v
     ```
     ---
 
-<!-- Workspaces need a private endpoint when associated resources are behind a virtual network to work properly. To set up a private endpoint for the workspace with an existing virtual network:
-
-> [!IMPORTANT]
-> The deployment is only valid in regions which support private endpoints.
-
-# [Azure CLI](#tab/azcli)
-
-```azurecli
-az deployment group create \
-    --name "exampledeployment" \
-    --resource-group "examplegroup" \
-    --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.machinelearningservices/machine-learning-workspace-vnet/azuredeploy.json" \
-    --parameters workspaceName="exampleworkspace" \
-      location="eastus" \
-      vnetOption="existing" \
-      vnetName="examplevnet" \
-      vnetResourceGroupName="rg" \
-      privateEndpointType="AutoApproval" \
-      subnetName="subnet" \
-      subnetOption="existing"
-```
-
-# [Azure PowerShell](#tab/azpowershell)
-
-```azurepowershell
-New-AzResourceGroupDeployment `
-  -Name "exampledeployment" `
-  -ResourceGroupName "examplegroup" `
-  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.machinelearningservices/machine-learning-workspace-vnet/azuredeploy.json" `
-  -workspaceName "exampleworkspace" `
-  -location "eastus" `
-  -vnetOption "existing" `
-  -vnetName "examplevnet" `
-  -vnetResourceGroupName "rg"
-  -privateEndpointType "AutoApproval"
-  -subnetName "subnet"
-  -subnetOption "existing"
-```
-
---- -->
-
 ## Use the Azure portal
 
 1. Follow the steps in [Deploy resources from custom template](../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template). When you arrive at the __Select a template__ screen, choose the **quickstarts** entry. When it appears, select the link labeled "Click here to open template repository". This link takes you to the `quickstarts` directory in the Azure quickstart templates repository.
@@ -555,7 +492,7 @@ For more information, see [Deploy resources from custom template](../azure-resou
 
 ### Resource provider errors
 
-[!INCLUDE [machine-learning-resource-provider](../../includes/machine-learning-resource-provider.md)]
+[!INCLUDE [machine-learning-resource-provider](includes/machine-learning-resource-provider.md)]
 
 ### Azure Key Vault access policy and Azure Resource Manager templates
 

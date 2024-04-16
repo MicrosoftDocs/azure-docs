@@ -4,6 +4,7 @@ description: Learn how to set up disaster recovery for SAP NetWeaver with Azure 
 ms.author: ankitadutta
 author: ankitaduttaMSFT
 manager: rochakm
+ms.service: site-recovery
 ms.topic: how-to
 ms.date: 11/27/2018
 
@@ -46,7 +47,7 @@ In this article, we use an **Azure-to-Azure** disaster recovery scenario. The sc
 ### Required foundation services
 In the scenario we discuss in this article, the following foundation services are deployed:
 * Azure ExpressRoute or Azure VPN Gateway
-* At least one Azure Active Directory domain controller and DNS server, running in Azure
+* At least one Microsoft Entra domain controller and DNS server, running in Azure
 
 We recommend that you establish this infrastructure before you deploy Site Recovery.
 

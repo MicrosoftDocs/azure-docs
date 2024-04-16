@@ -2,11 +2,8 @@
 author: dlepow
 ms.service: api-management
 ms.topic: include
-ms.date: 11/27/2018
+ms.date: 03/06/2024
 ms.author: danlep
 ---
 
-## Availability
-
-> [!IMPORTANT]
-> This feature is available in the **Premium**, **Standard**, **Basic**, and **Developer** tiers of API Management.
+**APPLIES TO: Developer | Basic | Standard | Premium**

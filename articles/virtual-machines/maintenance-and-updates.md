@@ -1,10 +1,9 @@
 ---
-title: Maintenance and updates 
+title: Maintenance and updates
 description: Overview of maintenance and updates for virtual machines running in Azure.
 ms.service: virtual-machines
-ms.workload: infrastructure-services
 ms.topic: conceptual
-ms.date: 10/06/2021
+ms.date: 04/01/2024
 #pmcontact:shants
 ---
 # Maintenance for virtual machines in Azure
@@ -28,7 +27,7 @@ Within a VM, you can get notifications about upcoming maintenance by [using Sche
 
 Most platform updates don't affect customer VMs. When a no-impact update isn't possible, Azure chooses the update mechanism that's least impactful to customer VMs. 
 
-Most nonzero-impact maintenance pauses the VM for less than 10 seconds. In certain cases, Azure uses memory-preserving maintenance mechanisms. These mechanisms pause the VM, typically for about 30 seconds, and preserve the memory in RAM. The VM is then resumed, and its clock is automatically synchronized. 
+When VM impacting maintenance is required it will almost always be completed through a VM pause for less than 10 seconds. In rare circumstances, no more than once every 18 months for general purpose VM sizes, Azure uses a mechanism that will pause the VM for about 30 seconds. After any pause operation the VM clock is automatically synchronized upon resume. 
 
 Memory-preserving maintenance works for more than 90 percent of Azure VMs. It doesn't work for G, M, N, and H series. Azure increasingly uses live-migration technologies and improves memory-preserving maintenance mechanisms to reduce the pause durations.  
 
@@ -41,7 +40,7 @@ For greater control on all maintenance activities including zero-impact and rebo
 
 ### Live migration
 
-Live migration is an operation that doesn't require a reboot and that preserves memory for the VM. It causes a pause or freeze, typically lasting no more than 5 seconds. Except for G, L, M, N, and H series, all infrastructure as a service (IaaS) VMs, are eligible for live migration. Eligible VMs represent more than 90 percent of the IaaS VMs that are deployed to the Azure fleet. 
+Live migration is an operation that doesn't require a reboot and that preserves memory for the VM. It causes a pause or freeze, typically lasting no more than 5 seconds. Except for G, L, N, and H series, all infrastructure as a service (IaaS) VMs, are eligible for live migration. Live Migration is available on majority of M-Series SKUs. Eligible VMs represent more than 90 percent of the IaaS VMs that are deployed to the Azure fleet. 
 
 > [!NOTE]
 > You won't receive a notification in the Azure portal for live migration operations that don't require a reboot. To see a list of live migrations that don't require a reboot, [query for scheduled events](./windows/scheduled-events.md#query-for-events).
@@ -66,7 +65,7 @@ During the *self-service phase*, which typically lasts four weeks, you start the
 > [!NOTE]
 > For VM-series that do not support [Live Migration](#live-migration), local (ephemeral) disks data can be lost during the maintenance events. See each individual VM-series for information on if Live Migration is supported. 
 
-When you start self-service maintenance, your VM is redeployed to an already updated node. Because the VM is redeployed, the temporary disk is lost and dynamic IP addresses associated with the virtual network interface are updated.
+When you start self-service maintenance, your VM is redeployed to an already updated node. Because the VM is redeployed, the temporary disk is lost and public dynamic IP addresses associated with the virtual network interface are updated.
 
 If an error arises during self-service maintenance, the operation stops, the VM isn't updated, and you get the option to retry the self-service maintenance. 
 

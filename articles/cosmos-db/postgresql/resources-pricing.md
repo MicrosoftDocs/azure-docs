@@ -5,9 +5,8 @@ ms.author: jonels
 author: jonels-msft
 ms.service: cosmos-db
 ms.subservice: postgresql
-ms.custom: ignite-2022
 ms.topic: conceptual
-ms.date: 09/26/2022
+ms.date: 12/12/2023
 ---
 
 # Pricing for Azure Cosmos DB for PostgreSQL
@@ -15,9 +14,9 @@ ms.date: 09/26/2022
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
 For the most up-to-date general pricing information, see the service
-[pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/).
+[pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/postgresql/).
 To see the cost for the configuration you want, the
-[Azure portal](https://portal.azure.com/#create/Microsoft.PostgreSQLServer)
+[Azure portal](https://portal.azure.com/#create/Microsoft.DocumentDB)
 shows the monthly cost on the **Configure** tab based on the options you
 select. If you don't have an Azure subscription, you can use the Azure pricing
 calculator to get an estimated price. On the
@@ -28,11 +27,11 @@ options.
 
 ## Prepay for compute resources with reserved capacity
 
-Azure Cosmos DB for PostgreSQL now helps you save money by prepaying for compute resources compared to pay-as-you-go prices. With Azure Cosmos DB for PostgreSQL reserved capacity, you make an upfront commitment on cluster for a one- or three-year period to get a significant discount on the compute costs. To purchase Azure Cosmos DB for PostgreSQL reserved capacity, you need to specify the Azure region, reservation term, and billing frequency.
+Azure Cosmos DB for PostgreSQL helps you save money by prepaying for compute resources compared to pay-as-you-go prices. With Azure Cosmos DB for PostgreSQL reserved capacity, you make an upfront commitment on cluster for a one- or three-year period to get a significant discount on the compute costs. To purchase Azure Cosmos DB for PostgreSQL reserved capacity, you need to specify the Azure region, reservation term, and billing frequency.
 
 You don't need to assign the reservation to specific clusters. An already running cluster or ones that are newly deployed automatically get the benefit of reserved pricing. By purchasing a reservation, you're prepaying for the compute costs for one year or three years. As soon as you buy a reservation, the Azure Cosmos DB for PostgreSQL compute charges that match the reservation attributes are no longer charged at the pay-as-you-go rates. 
 
-A reservation doesn't cover software, networking, or storage charges associated with the clusters. At the end of the reservation term, the billing benefit expires, and the clusters are billed at the pay-as-you go price. Reservations don't autorenew. For pricing information, see the [Azure Cosmos DB for PostgreSQL reserved capacity offering](https://azure.microsoft.com/pricing/details/cosmos-db/).
+A reservation doesn't cover software, networking, or storage charges associated with the clusters. At the end of the reservation term, the billing benefit expires, and the clusters are billed at the pay-as-you go price. Reservations don't autorenew. For pricing information, see the [Azure Cosmos DB for PostgreSQL reserved capacity offering](https://azure.microsoft.com/pricing/details/cosmos-db/postgresql/).
 
 You can buy Azure Cosmos DB for PostgreSQL reserved capacity in the [Azure portal](https://portal.azure.com/). Pay for the reservation [up front or with monthly payments](../../cost-management-billing/reservations/prepare-buy-reservation.md). To buy the reserved capacity:
 
@@ -48,12 +47,24 @@ For information on how Enterprise Agreement customers and pay-as-you-go customer
 
 The size of reservation is based on the total amount of compute used by the existing or soon-to-be-deployed coordinator and worker nodes in clusters within a specific region.
 
-For example, let's suppose you're running one cluster with 16 vCore coordinator and three 8 vCore worker nodes. Further, let's assume you plan to deploy within the next month an additional cluster with a 32 vCore coordinator and two 4 vCore worker nodes. Let's also suppose  you need these resources for at least one year.
+For example, let's suppose you're running one cluster with 16 vCore coordinator and three 8 vCore worker nodes. Further, let's assume you plan to deploy within the next month an additional cluster with a 32 vCore coordinator and two 4 vCore worker nodes. Let's also suppose you need these resources for at least one year.
 
 In this case, purchase a one-year reservation for:
 
 * Total 16 vCores + 32 vCores = 48 vCores for coordinator nodes
 * Total 3 nodes x 8 vCores + 2 nodes x 4 vCores = 24 + 8 = 32 vCores for worker nodes
+
+If [high availability (HA)](./concepts-high-availability.md) is enabled on the cluster, number of vCores used by that cluster doubles. For instance, if HA is going to be enabled on a cluster with 16 vCores on coordinator and two 8 vCore worker nodes, calculation would be as follows:
+
+* Coordinator: 16 vCores x 2 (HA) = 32 vCores
+* Worker nodes: 8 vCores x 2 nodes x 2 (HA) = 32 vCores
+
+Calculation for each [cluster read replica](./concepts-read-replicas.md) needs to be done separately and purchased in the region where that replica is located. Each cluster read replica has compute that can be configured independently of its primary cluster and can be located in [any supported region](./resources-regions.md).
+
+If you need to purchase reserved capacity for Azure Cosmos DB for PostgreSQL single nodes, you would need to select coordinator vCores.
+
+> [!NOTE]
+> You can prepay for compute resources on Azure Cosmos DB for PostgreSQL single nodes with regular compute but reservations are not available for single nodes with burstable compute. 
 
 ### Buy Azure Cosmos DB for PostgreSQL reserved capacity
 

@@ -1,10 +1,9 @@
 ---
 title: Bicep functions - objects
 description: Describes the functions to use in a Bicep file for working with objects.
-author: mumian
-ms.author: jgao
 ms.topic: conceptual
-ms.date: 04/06/2022
+ms.custom: devx-track-bicep
+ms.date: 01/11/2024
 ---
 
 # Object functions for Bicep
@@ -37,9 +36,9 @@ The following example shows how to use contains with different types:
 ```bicep
 param stringToTest string = 'OneTwoThree'
 param objectToTest object = {
-  'one': 'a'
-  'two': 'b'
-  'three': 'c'
+  one: 'a'
+  two: 'b'
+  three: 'c'
 }
 param arrayToTest array = [
   'one'
@@ -132,14 +131,14 @@ The following example shows how to use intersection with arrays and objects:
 
 ```bicep
 param firstObject object = {
-  'one': 'a'
-  'two': 'b'
-  'three': 'c'
+  one: 'a'
+  two: 'b'
+  three: 'c'
 }
 param secondObject object = {
-  'one': 'a'
-  'two': 'z'
-  'three': 'c'
+  one: 'a'
+  two: 'z'
+  three: 'c'
 }
 param firstArray array = [
   'one'
@@ -166,7 +165,7 @@ The output from the preceding example with the default values is:
 
 `items(object)`
 
-Converts a dictionary object to an array.
+Converts a dictionary object to an array. See [toObject](bicep-functions-lambda.md#toobject) about converting an array to an object.
 
 Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 
@@ -364,10 +363,10 @@ param arrayToTest array = [
 ]
 param stringToTest string = 'One Two Three'
 param objectToTest object = {
-  'propA': 'one'
-  'propB': 'two'
-  'propC': 'three'
-  'propD': {
+  propA: 'one'
+  propB: 'two'
+  propC: 'three'
+  propD: {
       'propD-1': 'sub'
       'propD-2': 'sub'
   }
@@ -414,21 +413,23 @@ For arrays, the function iterates through each element in the first parameter an
 
 For objects, property names and values from the first parameter are added to the result. For later parameters, any new names are added to the result. If a later parameter has a property with the same name, that value overwrites the existing value. The order of the properties isn't guaranteed.
 
+The union function merges not only the top-level elements but also recursively merges any nested objects within them. Nested array values are not merged. See the second example in the following section.
+
 ### Example
 
 The following example shows how to use union with arrays and objects:
 
 ```bicep
 param firstObject object = {
-  'one': 'a'
-  'two': 'b'
-  'three': 'c1'
+  one: 'a'
+  two: 'b'
+  three: 'c1'
 }
 
 param secondObject object = {
-  'three': 'c2'
-  'four': 'd'
-  'five': 'e'
+  three: 'c2'
+  four: 'd'
+  five: 'e'
 }
 
 param firstArray array = [
@@ -453,6 +454,63 @@ The output from the preceding example with the default values is:
 | ---- | ---- | ----- |
 | objectOutput | Object | {"one": "a", "two": "b", "three": "c2", "four": "d", "five": "e"} |
 | arrayOutput | Array | ["one", "two", "three", "four"] |
+
+The following example shows the deep merge capability:
+
+```bicep
+var firstObject = {
+  property: {
+    one: 'a'
+    two: 'b'
+    three: 'c1'
+  }
+  nestedArray: [
+    1
+    2
+  ]
+}
+var secondObject = {
+  property: {
+    three: 'c2'
+    four: 'd'
+    five: 'e'
+  }
+  nestedArray: [
+    3
+    4
+  ]
+}
+var firstArray = [
+  [
+    'one'
+    'two'
+  ]
+  [
+    'three'
+  ]
+]
+var secondArray = [
+  [
+    'three'
+  ]
+  [
+    'four'
+    'two'
+  ]
+]
+
+output objectOutput object = union(firstObject, secondObject)
+output arrayOutput array = union(firstArray, secondArray)
+```
+
+The output from the preceding example is:
+
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| objectOutput | Object |{"property":{"one":"a","two":"b","three":"c2","four":"d","five":"e"},"nestedArray":[3,4]}|
+| arrayOutput | Array |[["one","two"],["three"],["four","two"]]|
+
+If nested arrays were merged, then the value of **objectOutput.nestedArray** would be [1, 2, 3, 4], and the value of **arrayOutput** would be [["one", "two", "three"], ["three", "four", "two"]].
 
 ## Next steps
 

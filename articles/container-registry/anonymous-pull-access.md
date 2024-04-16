@@ -4,7 +4,8 @@ description: Optionally enable anonymous pull access to make content in your Azu
 ms.topic: how-to
 author: tejaswikolli-web
 ms.author: tejaswikolli
-ms.date: 10/11/2022
+ms.service: container-registry
+ms.date: 10/31/2023
 ---
 
 # Make your container registry content publicly available

@@ -1,16 +1,12 @@
 ---
 title: Overview of Azure Blueprints
 description: Understand how the Azure Blueprints service enables you to create, define, and deploy artifacts in your Azure environment.
-ms.date: 03/08/2022
+ms.date: 09/07/2023
 ms.topic: overview
 ---
-# What is Azure Blueprints?
+# What is Azure Blueprints (Preview)?
 
-> [!IMPORTANT]
-> Azure Blueprints is currently in PREVIEW. The
-> [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
-> include additional legal terms that apply to Azure features that are in beta, preview, or
-> otherwise not yet released into general availability.
+[!INCLUDE [Blueprints deprecation note](../../../includes/blueprints-deprecation-note.md)]
 
 Just as a blueprint allows an engineer or an architect to sketch a project's design parameters,
 Azure Blueprints enables cloud architects and central information technology groups to define a

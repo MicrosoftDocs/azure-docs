@@ -7,22 +7,24 @@ author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 10/26/2022
+ms.date: 01/10/2024
 ms.author: cherylmc
 
 ---
 # How to configure virtual hub routing - Azure portal
 
-A virtual hub can contain multiple gateways such as a site-to-site VPN gateway, ExpressRoute gateway, point-to-site gateway, and Azure Firewall. The routing capabilities in the virtual hub are provided by a router that manages all routing, including transit routing, between the gateways using Border Gateway Protocol (BGP). The virtual hub router also provides transit connectivity between virtual networks that connect to a virtual hub and can support up to an aggregate throughput of 50 Gbps. These routing capabilities apply to customers using **Standard** Virtual WANs. For more information, see [About virtual hub routing](about-virtual-hub-routing.md).
-
 This article helps you configure virtual hub routing using Azure portal. You can also configure virtual hub routing using the [Azure PowerShell steps](how-to-virtual-hub-routing-powershell.md).
+
+A virtual hub can contain multiple gateways such as a site-to-site VPN gateway, ExpressRoute gateway, point-to-site gateway, and Azure Firewall. The routing capabilities in the virtual hub are provided by a router that manages all routing, including transit routing, between the gateways using Border Gateway Protocol (BGP). The virtual hub router also provides transit connectivity between virtual networks that connect to a virtual hub and can support up to an aggregate throughput of 50 Gbps. These routing capabilities apply to customers using **Standard** Virtual WANs. For more information, see [About virtual hub routing](about-virtual-hub-routing.md).
 
 ## Create a route table
 
-1. In the Azure portal, navigate to the **virtual hub**.
-1. On the **Virtual HUB** page, in the left pane, select **Route Tables**. The **Route Tables** page will populate the current route tables for this hub.
+The following steps help you create a route table and a route.
+
+1. In the Azure portal, go to the **virtual hub**.
+1. On the **Virtual HUB** page, in the left pane, select **Route Tables** to open the Route Tables page. Notice the route tables that are propagated to this virtual hub.
 1. Select **+ Create route table** to open the **Create Route Table** page.
-1. On the **Basics** page, complete the following fields, then click **Labels** to move to the Labels page.
+1. On the **Basics** tab, complete the following fields, then click **Labels** to move to the Labels page.
 
    :::image type="content" source="./media/how-to-virtual-hub-routing/basics.png" alt-text="Screenshot showing the Create Route Table page Basics tab." lightbox="./media/how-to-virtual-hub-routing/basics.png":::
 
@@ -47,11 +49,32 @@ This article helps you configure virtual hub routing using Azure portal. You can
 
 ## Edit a route table
 
-In the Azure portal, go to your **Virtual HUB -> Route Tables** page. To open the **Edit route table page**, click the name of the route table you want to edit. Edit the values you want to change, then click **Review + create** or **Create** (depending on the page that you are on) to save your settings.
+1. Go to the virtual hub and, in the left pane, click **Route Tables**. On the **Route Tables** page, click the name of the route table you want to edit.
+1. On the **Edit route table** page, on each tab, edit the values that you want to change.
+1. On the **Propagations** page, click **Create** to update the route table with new route information.
+
+## Edit a route
+
+1. Go to the virtual hub and, in the left pane, click **Route Tables**. On the **Route Tables** page, click the name of the route table that contains the route you want to edit.
+1. On the **Edit route table** page, locate the route from the list and make the applicable changes. Then, click **Review + create**.
+1. On the **Propagations** page, make any additional changes (if necessary), then click **Create** to update the route table with new route information.
+1. As long as no errors occur, the route is updated.
+
+## Delete a route
+
+1. Go to the virtual hub and, in the left pane, click **Route Tables**. On the **Route Tables** page, click the name of the route table that contains the route you want to edit.
+1. On the **Edit route table** page, locate the route from the list. Use the scroll bar to navigate to the right. You'll see an ellipsis (three dots) at the end of the line for the route. Click the ellipsis to reveal the **Remove** button. Click **Remove**.
+1. At the bottom of the page, click **Review + Create**, and then **Create**.
+1. As long as no errors occur, the route is removed.
 
 ## Delete a route table
 
-In the Azure portal, go to your **Virtual HUB -> Route Tables** page. Select the checkbox for route table that you want to delete. Click **"…"**, and then select **Delete**. You can't delete a Default or None route table. However, you can delete all custom route tables.
+You can't delete a **Default** or **None** route table. However, you can delete all custom route tables.
+
+1. Go to the virtual hub and, in the left pane, click **Route Tables**. On the **Route Tables** page, select the checkbox for the route table that you want to delete (don't click the name).
+1. On the right side of the line that the route table is on, you'll see an ellipsis (three dots). Click the ellipsis, then select **Delete** from the dropdown list.
+1. On the **Delete** page, confirm that you want to delete the route table, then click **Delete**.
+1. As long as no errors occur, the route table is deleted.
 
 ## View effective routes
 

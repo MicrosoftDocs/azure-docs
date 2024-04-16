@@ -1,14 +1,14 @@
 ---
-title: PowerShell scripts for throughput (RU/s) operations for for Azure Cosmos DB for Table
-description: PowerShell scripts for throughput (RU/s) operations for for Azure Cosmos DB for Table
+title: PowerShell scripts for throughput (RU/s) operations for Azure Cosmos DB for Table
+description: PowerShell scripts for throughput (RU/s) operations for Azure Cosmos DB for Table
 author: seesharprun
 ms.service: cosmos-db
 ms.subservice: table
+ms.custom: devx-track-azurepowershell
 ms.topic: sample
 ms.date: 10/07/2020
 ms.author: sidandrews
-ms.reviewer: mjbrown 
-ms.custom: devx-track-azurepowershell, ignite-2022
+ms.reviewer: mjbrown
 ---
 
 # Throughput (RU/s) operations with PowerShell for a table for Azure Cosmos DB - API for Table
@@ -17,7 +17,7 @@ ms.custom: devx-track-azurepowershell, ignite-2022
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
 This sample requires Azure PowerShell Az 5.4.0 or later. Run `Get-Module -ListAvailable Az` to see which versions are installed.
-If you need to install, see [Install Azure PowerShell module](/powershell/azure/install-az-ps).
+If you need to install, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell).
 
 Run [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) to sign in to Azure.
 

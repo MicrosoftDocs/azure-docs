@@ -1,10 +1,12 @@
 ---
-title: Defender for Cloud Planning multicloud security determine access control requirements guidance
+title: Planning multicloud security determine access control requirements guidance
 description: Learn about determining access control requirements to meet business goals in multicloud environment with Microsoft Defender for Cloud.
 ms.topic: how-to
-ms.custom: ignite-2022
+author: dcurwin
+ms.author: dacurwin
 ms.date: 10/03/2022
 ---
+
 # Determine access control requirements
 
 This article is part of a series to provide guidance as you design a cloud security posture management (CSPM) and cloud workload protection (CWP) solution across multicloud resources with Microsoft Defender for Cloud.

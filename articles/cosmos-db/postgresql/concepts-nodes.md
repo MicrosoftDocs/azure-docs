@@ -6,7 +6,7 @@ author: jonels-msft
 ms.service: cosmos-db
 ms.subservice: postgresql
 ms.topic: conceptual
-ms.date: 10/26/2022
+ms.date: 09/29/2023
 ---
 
 # Nodes and tables in Azure Cosmos DB for PostgreSQL
@@ -25,23 +25,22 @@ allows the database to scale by adding more nodes to the cluster.
 
 Every cluster has a coordinator node and multiple workers. Applications
 send their queries to the coordinator node, which relays it to the relevant
-workers and accumulates their results. Applications are not able to connect
-directly to workers.
+workers and accumulates their results.
 
-Azure Cosmos DB for PostgreSQL allows the database administrator to *distribute* tables,
-storing different rows on different worker nodes. Distributed tables are the
-key to Azure Cosmos DB for PostgreSQL performance. Failing to distribute tables leaves them entirely
-on the coordinator node and cannot take advantage of cross-machine parallelism.
+Azure Cosmos DB for PostgreSQL allows the database administrator to *distribute* tables and/or schemas,
+storing different rows on different worker nodes. Distributed tables and/or schemas are the
+key to Azure Cosmos DB for PostgreSQL performance. Failing to distribute tables and/or schemas leaves them entirely
+on the coordinator node and can't take advantage of cross-machine parallelism.
 
 For each query on distributed tables, the coordinator either routes it to a
 single worker node, or parallelizes it across several depending on whether the
-required data lives on a single node or multiple. The coordinator decides what
+required data lives on a single node or multiple. With [schema-based sharding](concepts-sharding-models.md#schema-based-sharding), the coordinator routes the queries directly to the node that hosts the schema. In both schema-based sharding and [row-based sharding](concepts-sharding-models.md#row-based-sharding), the coordinator decides what
 to do by consulting metadata tables. These tables track the DNS names and
 health of worker nodes, and the distribution of data across nodes.
 
 ## Table types
 
-There are three types of tables in a cluster, each
+There are five types of tables in a cluster, each
 stored differently on nodes and used for different purposes.
 
 ### Type 1: Distributed tables
@@ -77,7 +76,15 @@ values like order statuses or product categories.
 
 When you use Azure Cosmos DB for PostgreSQL, the coordinator node you connect to is a regular PostgreSQL database. You can create ordinary tables on the coordinator and choose not to shard them.
 
-A good candidate for local tables would be small administrative tables that don't participate in join queries. An example is a users table for application sign-in and authentication.
+A good candidate for local tables would be small administrative tables that don't participate in join queries. An example is a `users` table for application sign-in and authentication.
+
+### Type 4: Local managed tables
+
+Azure Cosmos DB for PostgreSQL might automatically add local tables to metadata if a foreign key reference exists between a local table and a reference table. Additionally locally managed tables can be manually created by executing [create_reference_table](reference-functions.md#citus_add_local_table_to_metadata) citus_add_local_table_to_metadata function on regular local tables. Tables present in metadata are considered managed tables and can be queried from any node, Citus knows to route to the coordinator to obtain data from the local managed table. Such tables are displayed as local in [citus_tables](reference-metadata.md#distributed-tables-view) view.
+
+### Type 5: Schema tables
+
+With [schema-based sharding](concepts-sharding-models.md#schema-based-sharding) introduced in Citus 12.0, distributed schemas are automatically associated with individual colocation groups. Tables created in those schemas are automatically converted to colocated distributed tables without a shard key. Such tables are considered schema tables and are displayed as schema in [citus_tables](reference-metadata.md#distributed-tables-view) view.
 
 ## Shards
 

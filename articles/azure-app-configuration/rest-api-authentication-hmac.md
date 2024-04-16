@@ -5,7 +5,8 @@ author: maud-lv
 ms.author: malev
 ms.service: azure-app-configuration
 ms.topic: reference
-ms.devlang: csharp, golang, java, javascript, powershell, python
+ms.devlang: csharp
+# ms.devlang: csharp, golang, java, javascript, powershell, python
 ms.date: 08/17/2020
 ---
 

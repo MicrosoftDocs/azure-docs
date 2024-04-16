@@ -2,22 +2,23 @@
 title: Azure Service Bus JMS 2.0 developer guide
 description: How to use the Java Message Service (JMS) 2.0 API to communicate with Azure Service Bus
 ms.topic: article
-ms.date: 02/12/2022
+ms.custom: devx-track-extended-java
+ms.date: 05/02/2023
 ---
 
 # Azure Service Bus JMS 2.0 developer guide
 
 This guide contains detailed information to help you succeed in communicating with Azure Service Bus using the Java Message Service (JMS) 2.0 API.
 
-As a Java developer, if you are new to Azure Service Bus, please consider reading the below articles.
+As a Java developer, if you're new to Azure Service Bus, consider reading the following articles.
 
 | Getting started | Concepts |
 |----------------|-------|
-| <ul> <li> [What is Azure Service Bus](service-bus-messaging-overview.md) </li> <li> [Queues, Topics and Subscriptions](service-bus-queues-topics-subscriptions.md) </li> </ul> | <ul> <li> [Azure Service Bus - Premium tier](service-bus-premium-messaging.md) </li> </ul> |
+| <ul> <li> [What is Azure Service Bus](service-bus-messaging-overview.md) </li> <li> [Queues, Topics, and Subscriptions](service-bus-queues-topics-subscriptions.md) </li> </ul> | <ul> <li> [Azure Service Bus - Premium tier](service-bus-premium-messaging.md) </li> </ul> |
 
 ## Java Message Service (JMS) Programming model
 
-The Java Message Service API programming model is as shown below - 
+The Java Message Service API programming model is as shown in the following sections:
 
 > [!NOTE]
 >
@@ -49,26 +50,104 @@ The below building blocks are available to communicate with the JMS application.
 ### Connection factory
 The connection factory object is used by the client to connect with the JMS provider. The connection factory encapsulates a set of connection configuration parameters that are defined by the administrator.
 
-Each connection factory is an instance of `ConnectionFactory`, `QueueConnectionFactory` or `TopicConnectionFactory` interface.
+Each connection factory is an instance of `ConnectionFactory`, `QueueConnectionFactory`, or `TopicConnectionFactory` interface.
 
-To simplify connecting with Azure Service Bus, these interfaces are implemented through `ServiceBusJmsConnectionFactory`, `ServiceBusJmsQueueConnectionFactory` and `ServiceBusJmsTopicConnectionFactory` respectively. The Connection factory can be instantiated with the below parameters - 
-   * Connection string - the connection string for the Azure Service Bus Premium tier namespace.
-   * ServiceBusJmsConnectionFactorySettings property bag which contains
+To simplify connecting with Azure Service Bus, these interfaces are implemented through `ServiceBusJmsConnectionFactory`, `ServiceBusJmsQueueConnectionFactory`, or `ServiceBusJmsTopicConnectionFactory` respectively.
+
+> [!IMPORTANT]
+> Java applications leveraging JMS 2.0 API can connect to Azure Service Bus using the connection string, or using a `TokenCredential` for leveraging Microsoft Entra backed authentication. When using Microsoft Entra backed authentication, ensure to [assign roles and permissions](service-bus-managed-service-identity.md#azure-built-in-roles-for-azure-service-bus) to the identity as needed.
+
+# [System Assigned Managed Identity](#tab/system-assigned-managed-identity-backed-authentication)
+
+Create a [system assigned managed identity](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md) on Azure, and use this identity to create a `TokenCredential`.
+
+```java
+TokenCredential tokenCredential = new DefaultAzureCredentialBuilder().build();
+```
+
+The Connection factory can then be instantiated with the below parameters.
+   * Token credential - Represents a credential capable of providing an OAuth token.
+   * Host - the hostname of the Azure Service Bus Premium tier namespace.
+   * ServiceBusJmsConnectionFactorySettings property bag, which contains
       * connectionIdleTimeoutMS - idle connection timeout in milliseconds.
       * traceFrames - boolean flag to collect AMQP trace frames for debugging.
       * *other configuration parameters*
 
-The factory can be created as below. The connection string is a required parameter, but the additional properties are optional.
+The factory can be created as shown here. The token credential and host are required parameters, but the other properties are optional.
+
+```java
+String host = "<YourNamespaceName>.servicebus.windows.net";
+ConnectionFactory factory = new ServiceBusJmsConnectionFactory(tokenCredential, host, null); 
+```
+
+# [User Assigned Managed Identity](#tab/user-assigned-managed-identity-backed-authentication)
+
+Create a [user assigned managed identity](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md?pivots=identity-mi-methods-azp#create-a-user-assigned-managed-identity) on Azure, and use this identity to create a `TokenCredential`.
+
+```java
+TokenCredential tokenCredential = new DefaultAzureCredentialBuilder()
+                                                .managedIdentityClientId("<clientIDOfUserAssignedIdentity>")
+                                                .build();
+```
+
+The Connection factory can then be instantiated with the below parameters.
+   * Token credential - Represents a credential capable of providing an OAuth token.
+   * Host - the hostname of the Azure Service Bus Premium tier namespace.
+   * ServiceBusJmsConnectionFactorySettings property bag, which contains
+      * connectionIdleTimeoutMS - idle connection timeout in milliseconds.
+      * traceFrames - boolean flag to collect AMQP trace frames for debugging.
+      * *other configuration parameters*
+
+The factory can be created as shown here. The token credential and host are required parameters, but the other properties are optional.
+
+```java
+String host = "<YourNamespaceName>.servicebus.windows.net";
+ConnectionFactory factory = new ServiceBusJmsConnectionFactory(tokenCredential, host, null); 
+```
+
+# [Service Principal](#tab/service-principal-backed-authentication)
+
+Create a [service principal](authenticate-application.md#register-your-application-with-a-microsoft-entra-tenant) on Azure, and use this identity to create a `TokenCredential`.
+
+```java
+TokenCredential tokenCredential = new ClientSecretCredentialBuilder()
+                .tenantId("")
+                .clientId("")
+                .clientSecret("")
+                .build();;
+```
+
+The Connection factory can then be instantiated with the below parameters.
+   * Token credential - Represents a credential capable of providing an OAuth token.
+   * Host - the hostname of the Azure Service Bus Premium tier namespace.
+   * ServiceBusJmsConnectionFactorySettings property bag, which contains
+      * connectionIdleTimeoutMS - idle connection timeout in milliseconds.
+      * traceFrames - boolean flag to collect AMQP trace frames for debugging.
+      * *other configuration parameters*
+
+The factory can be created as shown here. The token credential and host are required parameters, but the other properties are optional.
+
+```java
+String host = "<YourNamespaceName>.servicebus.windows.net";
+ConnectionFactory factory = new ServiceBusJmsConnectionFactory(tokenCredential, host, null); 
+```
+
+# [Connection string authentication](#tab/connection-string-authentication)
+
+The Connection factory can be instantiated with the below parameters.
+   * Connection string - the connection string for the Azure Service Bus Premium tier namespace.
+   * ServiceBusJmsConnectionFactorySettings property bag, which contains
+      * connectionIdleTimeoutMS - idle connection timeout in milliseconds.
+      * traceFrames - boolean flag to collect AMQP trace frames for debugging.
+      * *other configuration parameters*
+
+The factory can be created as shown here. The connection string is a required parameter, but the other properties are optional.
 
 ```java
 ConnectionFactory factory = new ServiceBusJmsConnectionFactory(SERVICE_BUS_CONNECTION_STRING, null);
 ```
 
-> [!IMPORTANT]
-> Java applications leveraging JMS 2.0 API must connect to Azure Service Bus using the connection string only. Currently, authentication for JMS clients is only supported using the Connection string.
->
-> Azure active directory (AAD) backed authentication is not currently supported.
->
+---
 
 ### JMS destination
 
@@ -78,9 +157,9 @@ Destinations map to entities in Azure Service Bus - queues (in point to point sc
 
 ### Connections
 
-A connection encapsulates a virtual connection with a JMS provider. With Azure Service Bus,this represents a stateful connection between the application and Azure Service Bus over AMQP.
+A connection encapsulates a virtual connection with a JMS provider. With Azure Service Bus, it represents a stateful connection between the application and Azure Service Bus over AMQP.
 
-A connection is created from the connection factory as shown below.
+A connection is created from the connection factory as shown in the following example:
 
 ```java
 Connection connection = factory.createConnection();
@@ -90,11 +169,14 @@ Connection connection = factory.createConnection();
 
 A session is a single-threaded context for producing and consuming messages. It can be utilized to create messages, message producers and consumers, but it also provides a transactional context to allow grouping of sends and receives into an atomic unit of work.
 
-A session can be created from the connection object as shown below.
+A session can be created from the connection object as shown in the following example:
 
 ```java
 Session session = connection.createSession(false, Session.CLIENT_ACKNOWLEDGE);
 ```
+
+> [!NOTE]
+> JMS API doesn't support receiving messages from service bus queues or topics with messaging sessions enabled. 
 
 #### Session modes
 
@@ -107,7 +189,7 @@ A session can be created with any of the below modes.
 |**Session.DUPS_OK_ACKNOWLEDGE**|This acknowledgment mode instructs the session to lazily acknowledge the delivery of messages.| 
 |**Session.SESSION_TRANSACTED**|This value may be passed as the argument to the method createSession(int sessionMode) on the Connection object to specify that the session should use a local transaction.| 
 
-When the session mode is not specified, the **Session.AUTO_ACKNOWLEDGE** is picked by default.
+When the session mode isn't specified, the **Session.AUTO_ACKNOWLEDGE** is picked by default.
 
 ### JMSContext
 
@@ -129,19 +211,19 @@ Just like the **Session** object, the JMSContext can be created with the same ac
 JMSContext context = connectionFactory.createContext(JMSContext.AUTO_ACKNOWLEDGE);
 ```
 
-When the mode is not specified, the **JMSContext.AUTO_ACKNOWLEDGE** is picked by default.
+When the mode isn't specified, the **JMSContext.AUTO_ACKNOWLEDGE** is picked by default.
 
 ### JMS message producers
 
 A message producer is an object that is created using a JMSContext or a Session and used for sending messages to a destination.
 
-It can be created either as a stand alone object as below - 
+It can be created either as a stand-alone object as shown in the following example: 
 
 ```java
 JMSProducer producer = context.createProducer();
 ```
 
-or created at runtime when a message is needed to be sent.
+Or created at runtime when a message is needed to be sent.
 
 ```java
 context.createProducer().send(destination, message);
@@ -149,7 +231,7 @@ context.createProducer().send(destination, message);
 
 ### JMS message consumers
 
-A message consumer is an object that is created by a JMSContext or a Session and used for receiving messages sent to a destination. It can be created as shown below -
+A message consumer is an object that is created by a JMSContext or a Session and used for receiving messages sent to a destination. It can be created as shown in this example:
 
 ```java
 JMSConsumer consumer = context.createConsumer(dest);
@@ -174,7 +256,7 @@ Message m = consumer.receive(1000); // time out after one second.
 
 #### Asynchronous receives with JMS message listeners
 
-A message listener is an object that is used for asynchronous handling of messages on a destination. It implements the `MessageListener` interface which contains the `onMessage` method where the specific business logic must live.
+A message listener is an object that is used for asynchronous handling of messages on a destination. It implements the `MessageListener` interface, which contains the `onMessage` method where the specific business logic must live.
 
 A message listener object must be instantiated and registered against a specific message consumer using the `setMessageListener` method.
 
@@ -185,7 +267,7 @@ consumer.setMessageListener(myListener);
 
 ### Consuming from topics
 
-[JMS Message Consumers](#jms-message-consumers) are created against a [destination](#jms-destination) which may be a queue or a topic.
+[JMS Message Consumers](#jms-message-consumers) are created against a [destination](#jms-destination), which can be a queue or a topic.
 
 Consumers on queues are simply client side objects that live in the context of the Session (and Connection) between the client application and Azure Service Bus.
 
@@ -193,7 +275,7 @@ Consumers on topics, however, have 2 parts -
    * A **client side object** that lives in the context of the Session(or JMSContext), and,
    * A **subscription** that is an entity on Azure Service Bus.
 
-The subscriptions are documented [here](java-message-service-20-entities.md#java-message-service-jms-subscriptions) and can be one of the below - 
+The subscriptions are documented [here](java-message-service-20-entities.md#java-message-service-jms-subscriptions) and can be one of the following ones:
    * Shared durable subscriptions
    * Shared non-durable subscriptions
    * Unshared durable subscriptions
@@ -203,7 +285,7 @@ The subscriptions are documented [here](java-message-service-20-entities.md#java
 
 The JMS API provides a `QueueBrowser` object that allows the application to browse the messages in the queue and display the header values for each message.
 
-A Queue Browser can be created using the JMSContext as below.
+A Queue Browser can be created using the JMSContext as in the following example:
 
 ```java
 QueueBrowser browser = context.createBrowser(queue);
@@ -244,7 +326,7 @@ This developer guide showcased how Java client applications using Java Message S
 
 ## Next steps
 
-For more information on Azure Service Bus and details about Java Message Service (JMS) entities, check out the links below - 
+For more information on Azure Service Bus and details about Java Message Service (JMS) entities, check out the following articles:
 * [Service Bus - Queues, Topics, and Subscriptions](service-bus-queues-topics-subscriptions.md)
 * [Service Bus - Java Message Service entities](service-bus-queues-topics-subscriptions.md#java-message-service-jms-20-entities)
 * [AMQP 1.0 support in Azure Service Bus](service-bus-amqp-overview.md)

@@ -2,16 +2,19 @@
 title: User migration approaches
 titleSuffix: Azure AD B2C
 description: Migrate user accounts from another identity provider to Azure AD B2C by using the pre migration or seamless migration methods.
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
-
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: how-to
-ms.date: 11/03/2022
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
+
+
+#Customer intent: As an IT admin migrating user accounts to Azure AD B2C, I want to understand the different migration methods (pre migration and seamless migration), so that I can choose the appropriate approach and write the necessary application or script using the Microsoft Graph API.
+
 ---
 # Migrate users to Azure AD B2C
 
@@ -20,6 +23,10 @@ Migrating from another identity provider to Azure Active Directory B2C (Azure AD
 Watch this video to learn about Azure AD B2C user migration strategies and steps to consider.
 
 >[!Video https://www.youtube.com/embed/lCWR6PGUgz0]
+
+
+> [!NOTE]
+> Before you start the migration, make sure your Azure AD B2C tenant's unused quota can accommodate all the users you expect to migrate. Learn how to [Get your tenant usage](microsoft-graph-operations.md#tenant-usage). If you need to increase your tenant's quota limit, contact [Microsoft Support](find-help-open-support-ticket.md).
 
 ## Pre migration
 
@@ -98,6 +105,6 @@ If the accounts you're migrating have weaker password strength than the [strong 
 
 ## Next steps
 
-The [azure-ad-b2c/user-migration](https://github.com/azure-ad-b2c/user-migration) repository on GitHub contains a seamless migration custom policy example and REST API code sample:
+The [`azure-ad-b2c/user-migration`](https://github.com/azure-ad-b2c/user-migration) repository on GitHub contains a seamless migration custom policy example and REST API code sample:
 
-[Seamless user migration custom policy & REST API code sample](https://aka.ms/b2c-account-seamless-migration)
+[Seamless user migration custom policy and REST API code sample](https://aka.ms/b2c-account-seamless-migration)

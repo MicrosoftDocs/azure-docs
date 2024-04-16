@@ -4,7 +4,7 @@ description: In this quickstart, you learn how to create an Apache Kafka cluster
 ms.service: hdinsight
 ms.custom: mvc, devx-track-azurepowershell, mode-api
 ms.topic: quickstart
-ms.date: 10/19/2022
+ms.date: 11/28/2023
 #Customer intent: I need to create a Kafka cluster so that I can use it to process streaming data
 ---
 
@@ -16,7 +16,7 @@ In this quickstart, you learn how to create an [Apache Kafka](https://kafka.apac
 
 [!INCLUDE [delete-cluster-warning](../includes/hdinsight-delete-cluster-warning.md)]
 
-The Kafka API can only be accessed by resources inside the same virtual network. In this quickstart, you access the cluster directly using SSH. To connect other services, networks, or virtual machines to Kafka, you must first create a virtual network and then create the resources within the network. For more information, see the [Connect to Apache Kafka using a virtual network](apache-kafka-connect-vpn-gateway.md) document.
+Only resources within the same virtual network have access to the Kafka API. In this quickstart, you access the cluster directly using SSH. To connect other services, networks, or virtual machines to Kafka, you must first create a virtual network and then create the resources within the network. For more information, see the [Connect to Apache Kafka using a virtual network](apache-kafka-connect-vpn-gateway.md) document.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -94,18 +94,18 @@ New-AzStorageContainer -Name $containerName -Context $storageContext
 Create an Apache Kafka on HDInsight cluster with [New-AzHDInsightCluster](/powershell/module/az.HDInsight/New-azHDInsightCluster).
 
 ```azurepowershell-interactive
-# Create a Kafka 2.4.0 cluster
+# Create a Kafka 2.4.1 cluster
 $clusterName = Read-Host -Prompt "Enter the name of the Kafka cluster"
 $httpCredential = Get-Credential -Message "Enter the cluster login credentials" -UserName "admin"
 $sshCredentials = Get-Credential -Message "Enter the SSH user credentials" -UserName "sshuser"
 
 $numberOfWorkerNodes = "4"
-$clusterVersion = "4.0"
+$clusterVersion = "5.0"
 $clusterType="Kafka"
 $disksPerNode=2
 
 $kafkaConfig = New-Object "System.Collections.Generic.Dictionary``2[System.String,System.String]"
-$kafkaConfig.Add("kafka", "2.4.0")
+$kafkaConfig.Add("kafka", "2.4.1")
 
 New-AzHDInsightCluster `
         -ResourceGroupName $resourceGroup `
@@ -187,7 +187,7 @@ In this section, you get the host information from the Apache Ambari REST API on
 
     When prompted, enter the name of the Kafka cluster.
 
-3. To set an environment variable with Zookeeper host information, use the command below. The command retrieves all Zookeeper hosts, then returns only the first two entries. This is because you want some redundancy in case one host is unreachable.
+3. To set an environment variable with Zookeeper host information, use the following command. The command retrieves all Zookeeper hosts, then returns only the first two entries. This is because you want some redundancy in case one host is unreachable.
 
     ```bash
     export KAFKAZKHOSTS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`

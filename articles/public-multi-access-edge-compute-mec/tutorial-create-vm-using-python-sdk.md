@@ -1,17 +1,17 @@
 ---
-title: 'Tutorial: Deploy a virtual machine in Azure public MEC Preview using the Python SDK'
+title: 'Tutorial: Deploy a virtual machine in Azure public MEC using the Python SDK'
 description: This tutorial demonstrates how to use Azure SDK management libraries in a Python script to create a resource group in Azure public multi-access edge compute (MEC) that contains a Linux virtual machine.
 author: moushumig
 ms.author: moghosal
 ms.service: public-multi-access-edge-compute-mec
 ms.topic: tutorial
-ms.date: 02/24/2022
-ms.custom: template-tutorial, devx-track-azurecli
+ms.date: 11/22/2022
+ms.custom: template-tutorial, devx-track-python, devx-track-azurecli, linux-related-content
 ---
 
-# Tutorial: Deploy a virtual machine in Azure public MEC Preview using the Python SDK
+# Tutorial: Deploy a virtual machine in Azure public MEC using the Python SDK
 
-In this tutorial, you use Python SDK to deploy resources in Azure public multi-access edge compute (MEC) Preview. The tutorial provides Python code to deploy a virtual machine (VM) and its dependencies in Azure public MEC.
+In this tutorial, you use Python SDK to deploy resources in Azure public multi-access edge compute (MEC). The tutorial provides Python code to deploy a virtual machine (VM) and its dependencies in Azure public MEC.
 
 For information about Python SDKs, see [Azure libraries for Python usage patterns](/azure/developer/python/sdk/azure-sdk-library-usage-patterns).
 
@@ -33,7 +33,7 @@ In this tutorial, you learn how to:
 
 - Set up Python in your local development environment by following the instructions at [Configure your local Python dev environment for Azure](/azure/developer/python/configure-local-development-environment?tabs=cmd). Ensure you create a service principal for local development, and create and activate a virtual environment for this tutorial project.
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 ## Install the required Azure library packages
 

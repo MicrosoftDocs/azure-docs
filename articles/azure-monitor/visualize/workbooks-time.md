@@ -2,12 +2,10 @@
 title: Azure Monitor workbook time parameters 
 description: Learn how to set time parameters to allow users to set the time context of analysis. The time parameters are used by almost all reports.
 services: azure-monitor
-manager: carmonm
 
-ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 07/05/2022
+ms.date: 06/21/2023
 ---
 
 # Workbook time parameters
@@ -47,8 +45,7 @@ You can reference time parameters with bindings, KQL, or text.
 ### Reference a time parameter with KQL
 
 1. Select **Add query** to add a query control, and then select an Application Insights resource.
-1. In the KQL, enter a time scope filter by using the parameter `| where timestamp {TimeRange}`:
-
+1. Open the **Time Range** dropdown list and select the `Set in query` in the **Time Range** group. In the KQL, enter a time scope filter by using the parameter `| where timestamp {TimeRange}`:
    * This parameter expands on the query evaluation time to `| where timestamp > ago(1d)`.
    * This option is the time range value of the parameter.
 

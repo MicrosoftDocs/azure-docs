@@ -5,11 +5,10 @@ author: sandeepraichura
 ms.author: saraic
 ms.service: virtual-machine-scale-sets
 ms.subservice: shared-image-gallery
-ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 11/01/2022
-ms.reviewer: cynthn 
-ms.custom: devx-track-azurecli
+ms.date: 11/22/2022
+ms.reviewer: cynthn
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
 
 # Create a scale set using a specialized image version with the Azure CLI

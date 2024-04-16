@@ -1,18 +1,17 @@
 ---
 ms.topic: include
 ms.date: 09/03/2021
-ms.author: lagayhar
-author: lgayhardt
 services: azure-monitor
 ms.subservice: application-insights
-ms.custom: "devx-track-azurepowershell"
+author: AaronMaxwell
+ms.author: aaronmax
 ---
 
 ### App Service application settings with Azure Resource Manager
 
 Application settings for Azure App Service can be managed and configured with [Azure Resource Manager templates](../articles/azure-resource-manager/templates/syntax.md). You can use this method when you deploy new App Service resources with Resource Manager automation or modify the settings of existing resources.
 
-The basic structure of the application settings JSON for an app service:
+The basic structure of the application settings JSON for an App Service resource:
 
 ```JSON
       "resources": [
@@ -34,23 +33,26 @@ The basic structure of the application settings JSON for an app service:
       ]
 ```
 
-For an example of a Resource Manager template with application settings configured for Application Insights, see this [template](https://github.com/Andrew-MSFT/BasicImageGallery) can be helpful. Specifically, see the section that starts on [line 238](https://github.com/Andrew-MSFT/BasicImageGallery/blob/c55ada54519e13ce2559823c16ca4f97ddc5c7a4/CoreImageGallery/Deploy/CoreImageGalleryARM/azuredeploy.json#L238).
+For an example of a Resource Manager template with application settings configured for Application Insights, this [template](https://github.com/Andrew-MSFT/BasicImageGallery) can be helpful. Specifically, see the section that starts on [line 238](https://github.com/Andrew-MSFT/BasicImageGallery/blob/c55ada54519e13ce2559823c16ca4f97ddc5c7a4/CoreImageGallery/Deploy/CoreImageGalleryARM/azuredeploy.json#L238).
 
-### Automate the creation of an Application Insights resource and link to your newly created App Service
+### Automate the creation of an Application Insights resource and link to your newly created App Service resource
 
-To create a Resource Manager template with all the default Application Insights settings configured, begin the process as if you were going to create a new web app with Application Insights enabled.
+To create a Resource Manager template with the default Application Insights settings, begin the process as if you were going to create a new web app with Application Insights enabled.
 
 1. Create a new App Service resource with your desired web app information. Enable Application Insights on the **Monitoring** tab.
 
 1. Select **Review + create**. Then select **Download a template for automation**.
 
-    :::image type="content" source="../articles/azure-monitor/app/media/azure-web-apps/create-web-app.png" alt-text="Screenshot that shows the App Service web app creation menu." :::
+    :::image type="content" source="../articles/azure-monitor/app/media/azure-web-apps/create-web-app.png" alt-text="Screenshot that shows the App Service web app creation menu." lightbox="../articles/azure-monitor/app/media/azure-web-apps/create-web-app.png":::
 
     This option generates the latest Resource Manager template with all required settings configured.
     
-    :::image type="content" source="../articles/azure-monitor/app/media/azure-web-apps/arm-template.png" alt-text="Screenshot that shows an App Service web app template." border="false":::
+    :::image type="content" source="../articles/azure-monitor/app/media/azure-web-apps/arm-template.png" alt-text="Screenshot that shows an App Service web app template." border="false" lightbox="../articles/azure-monitor/app/media/azure-web-apps/arm-template.png":::
 
 In the following sample, replace all instances of `AppMonitoredSite` with your site name:
+
+> [!NOTE]
+> If using Windows, set `ApplicationInsightsAgent_EXTENSION_VERSION` to `~2`. If using Linux, set `ApplicationInsightsAgent_EXTENSION_VERSION` to `~3`.
 
 ```json
 {
@@ -152,6 +154,9 @@ In the following sample, replace all instances of `AppMonitoredSite` with your s
 To enable the application monitoring through PowerShell, only the underlying application settings must be changed. The following sample enables application monitoring for a website called `AppMonitoredSite` in the resource group `AppMonitoredRG`. It configures data to be sent to the `012345678-abcd-ef01-2345-6789abcd` instrumentation key.
 
 [!INCLUDE [updated-for-az](updated-for-az.md)]
+
+> [!NOTE]
+> If using Windows, set ApplicationInsightsAgent_EXTENSION_VERSION to `~2`. If using Linux, set ApplicationInsightsAgent_EXTENSION_VERSION to `~3`.
 
 ```powershell
 $app = Get-AzWebApp -ResourceGroupName "AppMonitoredRG" -Name "AppMonitoredSite" -ErrorAction Stop

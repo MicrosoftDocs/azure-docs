@@ -20,7 +20,7 @@ API Management uses a policy-based model to let you control routing, security, a
 
 When moving from Functions Proxies to using API Management, you must integrate your function app with an API Management instance, and then configure the API Management instance to behave like the previous proxy. The following section provides links to the relevant articles that help you succeed in using API Management with Azure Functions. 
 
-If you have challenges moving from Proxies or if Azure API Management doesn't address your specific scenarios, create an issue in the [Azure Functions repository](https://github.com/Azure/Azure-Functions). Make sure to tag the issue with the label `proxy-deprecation`. 
+If you have challenges moving from proxies or if Azure API Management doesn't address your specific scenarios, post a request in the [API Management feedback forum](https://feedback.azure.com/d365community/forum/e808a70c-ff24-ec11-b6e6-000d3a4f0858). 
 
 ## API Management integration
 
@@ -40,7 +40,7 @@ After you have your function app endpoints exposed by using API Management, the 
 | [Edit an API](../api-management/edit-api.md) | Shows you how to work with an existing API hosted in API Management. | 
 | [Policies in Azure API Management](../api-management/api-management-howto-policies.md) | In API Management, publishers can change API behavior through configuration using policies. Policies are a collection of statements that are run sequentially on the request or response of an API. |
 | [API Management policy reference](../api-management/api-management-policies.md) | Reference that details all supported API Management policies. |
-| [API Management policy samples](../api-management/policies/index.md) | Helpful collection of samples using API Management policies in key scenarios. |
+| [API Management policy samples](https://github.com/Azure/api-management-policy-snippets) | Helpful collection of samples using API Management policies in key scenarios. |
 
 ## Legacy Functions Proxies
 

@@ -3,9 +3,8 @@ title: Azure Functions trigger for Azure Cosmos DB advanced configuration
 description: Learn how to configure logging and connection policy used by Azure Functions trigger for Azure Cosmos DB
 author: ealsur
 ms.service: cosmos-db
-ms.custom: ignite-2022
 ms.topic: how-to
-ms.date: 07/06/2022
+ms.date: 12/21/2022
 ms.author: maquaran
 ---
 
@@ -28,7 +27,7 @@ To enable logging when using Azure Functions trigger for Azure Cosmos DB, locate
 {
   "version": "2.0",
   "logging": {
-    "fileLoggingMode": "always",
+    "fileLoggingMode": "debugOnly",
     "logLevel": {
       "Host.Triggers.CosmosDB": "Warning"
     }
@@ -40,7 +39,7 @@ After the Azure Function is deployed with the updated configuration, you'll see 
 
 ### Which type of logs are emitted?
 
-Once enabled, there are three levels of log events that will be emitted:
+Once enabled, there are four levels of log events that will be emitted:
 
 * Error:
   * When there's an unknown or critical error on the Change Feed processing that is affecting the correct trigger functionality.
@@ -48,6 +47,9 @@ Once enabled, there are three levels of log events that will be emitted:
 * Warning:
   * When your Function user code had an unhandled exception - There's a gap in your Function code and the Function isn't [resilient to errors](../../azure-functions/performance-reliability.md#write-defensive-functions) or a serialization error (for C# Functions, the raw json can't be deserialized to the selected C# type).
   * When there are transient connectivity issues preventing the trigger from interacting with the Azure Cosmos DB account. The trigger will retry these [transient connectivity errors](troubleshoot-dotnet-sdk-request-timeout.md) but if they extend for a long period of time, there could be a network problem. You can enable Debug level traces to obtain the Diagnostics from the underlying Azure Cosmos DB SDK.
+
+* Information:
+  * When a lease is taken to another instance - During initialization and when the Function scales, the leases can be rebalanced to another instance. If you customized the acquire or expiration intervals, it can also indicate that the values might be inappropriate (the expiration interval is lower than renewal).
 
 * Debug:
   * When a lease is acquired by an instance - The current instance will start processing the Change Feed for the lease.

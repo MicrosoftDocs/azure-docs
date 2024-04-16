@@ -10,6 +10,8 @@ ms.date: 06/24/2022
 
 # Create and manage Private Link for Azure Database for MariaDB using Portal
 
+[!INCLUDE [azure-database-for-mariadb-deprecation](includes/azure-database-for-mariadb-deprecation.md)]
+
 A Private Endpoint is the fundamental building block for private link in Azure. It enables Azure resources, like Virtual Machines (VMs), to communicate privately with private link resources.  In this article, you will learn how to use the Azure portal to create a VM in an Azure Virtual Network and an Azure Database for MariaDB server with an Azure private endpoint.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.

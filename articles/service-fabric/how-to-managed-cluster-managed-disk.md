@@ -5,6 +5,7 @@ ms.topic: how-to
 ms.author: tomcassidy
 author: tomvcassidy
 ms.service: service-fabric
+ms.custom: devx-track-arm-template
 services: service-fabric
 ms.date: 07/11/2022
 ---
@@ -15,7 +16,7 @@ Azure Service Fabric managed clusters use managed disks for all storage needs, i
 ](../virtual-machines/managed-disks-overview.md).
 
 >[!NOTE] 
-> After node type deployment you cannot modify the managed disk type or size in place. Instead, you can easily deploy a new node type with with required configuration in your cluster and migrate your workloads. 
+> After node type deployment you cannot modify the managed disk type or size in place. Instead, you can easily deploy a new node type with the required configuration in your cluster and migrate your workloads. 
 
 ## Managed disk types
 

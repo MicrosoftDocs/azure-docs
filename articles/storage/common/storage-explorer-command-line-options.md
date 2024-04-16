@@ -1,9 +1,10 @@
 ---
-title: Azure Storage Explorer command-line options | Microsoft Docs
+title: Azure Storage Explorer command-line options
 description: Documentation of Azure Storage Explorer start-up command-line options
 services: storage
 author: JasonYeMSFT
-ms.service: storage
+ms.service: azure-storage
+ms.subservice: storage-common-concepts
 ms.topic: article
 ms.date: 02/24/2021
 ms.author: chuye
@@ -23,7 +24,7 @@ Option  | Description
 `--auto-open-dev-tools` | Let the application open the developer tools window as soon as the browser window shows. This option is useful when you want to hit a break point at a line in the start-up code of the browser window.
 `--verbosity` | Set the verbosity level of Storage Explorer logging. Supported verbosity levels include `debug`, `verbose`, `info`, `warn`, `error`, and `silent`. For example, `--verbosity=verbose`. When running in production mode, the default verbosity level is `info`. When running in debug mode, the log verbosity level will always be `debug`.
 `--log-dir` | Set the directory to save log files. For example, `--log-dir=path_to_a_directory`.
-`--ignore-certificate-errors` | Tell Storage Explorer to ignore certificate errors. This flag can be useful when you need to work in a trusted proxy environment with non-public Certificate Authority. We recommend you to [use system proxy (preview)](./storage-explorer-network.md#use-system-proxy-preview) in such proxy environments and only set this flag if the system proxy doesn't work.
+`--ignore-certificate-errors` | Tell Storage Explorer to ignore certificate errors. This flag can be useful when you need to work in a trusted proxy environment with non-public Certificate Authority. We recommend you to [use system proxy (preview)](./storage-explorer-network.md#use-system-proxy) in such proxy environments and only set this flag if the system proxy doesn't work.
 
 An example of starting Storage Explorer with custom command-line options
 

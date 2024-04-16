@@ -1,21 +1,25 @@
 ---
 title: Enable authentication in a web API by using Azure Active Directory B2C
 description:  This article discusses how to use Azure Active Directory B2C to protect a web API.
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 ms.service: active-directory
-ms.workload: identity
-ms.topic: reference
-ms.date: 10/26/2021
+
+ms.topic: how-to
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: "b2c-support"
+
+
+#Customer intent: As a developer building a web API, I want to enable authentication using Azure AD B2C, so that I can authorize access to my API endpoints and ensure that only users with valid access tokens can call them.
+
 ---
 
 # Enable authentication in your own web API by using Azure AD B2C
 
-To authorize access to a web API, serve only requests that include a valid Azure Active Directory B2C (Azure AD B2C)-issued access token. This article shows you how to enable Azure AD B2C authorization to your web API. After you complete the steps in this article, only users who obtain a valid access token will be authorized to call your web API endpoints.  
+To authorize access to a web API, you can serve only requests that include a valid access token that Azure Active Directory B2C (Azure AD B2C) issues. This article shows you how to enable Azure AD B2C authorization to your web API. After you complete the steps in this article, only users who obtain a valid access token will be authorized to call your web API endpoints.  
 
 ## Prerequisites
 
@@ -26,19 +30,19 @@ Before you begin, read one of the following articles, which discuss how to confi
 
 ## Overview
 
-Token-based authentication ensures that requests to a web API are accompanied by a valid access token. 
+Token-based authentication ensures that requests to a web API includes a valid access token. 
 
-The app does the following:
+The app completes the following steps:
 
 1. It authenticates users with Azure AD B2C.
 1. It acquires an access token with the required permissions (scopes) for the web API endpoint.
 1. It passes the access token as a bearer token in the authentication header of the HTTP request by using this format: 
 
     ```http
-    Authorization: Bearer <token>
+    Authorization: Bearer <access token>
     ```    
 
-The web API does the following:
+The web API completes the following steps:
 
 1. It reads the bearer token from the authorization header in the HTTP request.
 
@@ -49,7 +53,7 @@ The web API does the following:
 
 ### App registration overview
 
-To enable your app to sign in with Azure AD B2C and call a web API, you must register two applications in the Azure AD B2C directory.  
+To enable your app to sign in with Azure AD B2C and call a web API, you need to register two applications in the Azure AD B2C directory.  
 
 - The *web, mobile, or SPA application* registration enables your app to sign in with Azure AD B2C. The app registration process generates an *Application ID*, also known as the *client ID*, which uniquely identifies your application (for example, *App ID: 1*).
 
@@ -61,7 +65,7 @@ The application registrations and the application architecture are described in 
 
 ## Prepare your development environment  
 
-In the next sections, you'll create a new web API project. Select your programming language, ASP.NET Core or Node.js. Make sure you have a computer that's running either of the following: 
+In the next sections, you create a new web API project. Select your programming language, ASP.NET Core or Node.js. Make sure you have a computer that's running either of the following software: 
 
 # [ASP.NET Core](#tab/csharpclient)
 
@@ -262,7 +266,7 @@ Add two endpoints to your web API:
 
 # [ASP.NET Core](#tab/csharpclient)
 
-Under the */Controllers* folder, add a *PublicController.cs* file, and then add to it the following code snippet:
+Under the */Controllers* folder, add a *PublicController.cs* file, and then add it to the following code snippet:
 
 ```csharp
 using System;
@@ -307,7 +311,7 @@ app.get('/public', (req, res) => res.send( {'date': new Date() } ));
 
 # [ASP.NET Core](#tab/csharpclient)
 
-Under the */Controllers* folder, add a *HelloController.cs* file, and then add to it the following code:
+Under the */Controllers* folder, add a *HelloController.cs* file, and then add it to the following code:
 
 ```csharp
 using Microsoft.AspNetCore.Authorization;
@@ -393,7 +397,7 @@ Add the following JSON snippet to the *appsettings.json* file.
 
 # [Node.js](#tab/nodejsgeneric)
 
-Add the following JavaScript code to the *app.js* file. It is possible to [setup HTTP and HTTPS endpoints for the Node application](https://github.com/expressjs/express/wiki/Migrating-from-2.x-to-3.x#application-function). 
+Add the following JavaScript code to the *app.js* file. It's possible to [setup HTTP and HTTPS endpoints for the Node application](https://github.com/expressjs/express/wiki/Migrating-from-2.x-to-3.x#application-function). 
 
 ```javascript
 // Starts listening on port 6000
@@ -431,14 +435,14 @@ In the *appsettings.json* file, update the following properties:
 
 |Section  |Key  |Value  |
 |---------|---------|---------|
-|AzureAdB2C|Instance| The first part of your Azure AD B2C [tenant name](tenant-management.md#get-your-tenant-name) (for example, `https://contoso.b2clogin.com`).|
-|AzureAdB2C|Domain| Your Azure AD B2C tenant full [tenant name](tenant-management.md#get-your-tenant-name) (for example, `contoso.onmicrosoft.com`).|
+|AzureAdB2C|Instance| The first part of your Azure AD B2C [tenant name]( tenant-management-read-tenant-name.md#get-your-tenant-name) (for example, `https://contoso.b2clogin.com`).|
+|AzureAdB2C|Domain| Your Azure AD B2C tenant full [tenant name]( tenant-management-read-tenant-name.md#get-your-tenant-name) (for example, `contoso.onmicrosoft.com`).|
 |AzureAdB2C|ClientId| The web API application ID. In the [preceding diagram](#app-registration-overview), it's the application with *App ID: 2*. To learn how to get your web API application registration ID, see [Prerequisites](#prerequisites). |
 |AzureAdB2C|SignUpSignInPolicyId|The user flows, or custom policy. To learn how to get your user flow or policy, see [Prerequisites](#prerequisites).  |
 
 # [Node.js](#tab/nodejsgeneric)
 
-Under the project root folder, create a *config.json* file, and then add to it the following JSON snippet:  
+Under the project root folder, create a *config.json* file, and then add it to the following JSON snippet:  
 
 ```json
 {
@@ -470,9 +474,9 @@ In the *config.json* file, update the following properties:
 
 |Section  |Key  |Value  |
 |---------|---------|---------|
-| credentials | tenantName | Your Azure AD B2C [tenant name/domain name](tenant-management.md#get-your-tenant-name) (for example, `contoso.onmicrosoft.com`).|
+| credentials | tenantName | Your Azure AD B2C [tenant name/domain name]( tenant-management-read-tenant-name.md#get-your-tenant-name) (for example, `contoso.onmicrosoft.com`).|
 | credentials |clientID | The web API application ID. In the [preceding diagram](#app-registration-overview), it's the application with *App ID: 2*. To learn how to get your web API application registration ID, see [Prerequisites](#prerequisites). |
-| credentials | issuer| The token issuer `iss` claim value. By default, Azure AD B2C returns the token in the following format: `https://<your-tenant-name>.b2clogin.com/<your-tenant-ID>/v2.0/`. Replace `<your-tenant-name>` with the first part of your Azure AD B2C [tenant name](tenant-management.md#get-your-tenant-name). Replace `<your-tenant-ID>` with your [Azure AD B2C tenant ID](tenant-management.md#get-your-tenant-id). |
+| credentials | issuer| The token issuer `iss` claim value. By default, Azure AD B2C returns the token in the following format: `https://<your-tenant-name>.b2clogin.com/<your-tenant-ID>/v2.0/`. Replace `<your-tenant-name>` with the first part of your Azure AD B2C [tenant name]( tenant-management-read-tenant-name.md#get-your-tenant-name). Replace `<your-tenant-ID>` with your [Azure AD B2C tenant ID]( tenant-management-read-tenant-name.md#get-your-tenant-id). |
 | policies | policyName | The user flows, or custom policy. To learn how to get your user flow or policy, see [Prerequisites](#prerequisites).|
 | resource | scope | The scopes of your web API application registration. To learn how to get your web API scope, see [Prerequisites](#prerequisites).|
 

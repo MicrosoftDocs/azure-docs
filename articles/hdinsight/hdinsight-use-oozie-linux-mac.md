@@ -1,10 +1,10 @@
 ---
-title: Use Hadoop Oozie workflows in Linux-based Azure HDInsight 
+title: Use Hadoop Oozie workflows in Linux-based Azure HDInsight
 description: Use Hadoop Oozie in Linux-based HDInsight. Learn how to define an Oozie workflow and submit an Oozie job.
 ms.service: hdinsight
+ms.custom: linux-related-content
 ms.topic: how-to
-ms.custom: seoapr2020
-ms.date: 05/09/2022
+ms.date: 06/26/2023
 ---
 
 # Use Apache Oozie with Apache Hadoop to define and run a workflow on Linux-based Azure HDInsight
@@ -35,7 +35,7 @@ You can also use Oozie to schedule jobs that are specific to a system, like Java
 
 The workflow used in this document contains two actions. Actions are definitions for tasks, such as running Hive, Sqoop, MapReduce, or other processes:
 
-:::image type="content" source="./media/hdinsight-use-oozie-linux-mac/oozie-workflow-diagram.png" alt-text="HDInsight oozie workflow diagram" border="false":::
+:::image type="content" source="./media/hdinsight-use-oozie-linux-mac/oozie-workflow-diagram.png" alt-text="HDInsight oozie workflow diagram." border="false":::
 
 1. A Hive action runs an HiveQL script to extract records from the `hivesampletable` that's included with HDInsight. Each row of data describes a visit from a specific mobile device. The record format appears like the following text:
 
@@ -511,29 +511,29 @@ To access the Oozie web UI, complete the following steps:
 
 3. From the left side of the page, select **Oozie** > **Quick Links** > **Oozie Web UI**.
 
-    :::image type="content" source="./media/hdinsight-use-oozie-linux-mac/hdi-oozie-web-ui-steps.png" alt-text="Apache Ambari oozie web ui steps" border="true":::
+    :::image type="content" source="./media/hdinsight-use-oozie-linux-mac/hdi-oozie-web-ui-steps.png" alt-text="Apache Ambari oozie web ui steps." border="true":::
 
 4. The Oozie web UI defaults to display the running workflow jobs. To see all the workflow jobs, select **All Jobs**.
 
-    :::image type="content" source="./media/hdinsight-use-oozie-linux-mac/hdinsight-oozie-jobs.png" alt-text="Oozie web console workflow jobs" border="true":::
+    :::image type="content" source="./media/hdinsight-use-oozie-linux-mac/hdinsight-oozie-jobs.png" alt-text="Oozie web console workflow jobs." border="true":::
 
 5. To view more information about a job, select the job.
 
-    :::image type="content" source="./media/hdinsight-use-oozie-linux-mac/hdinsight-oozie-job-info.png" alt-text="HDInsight Apache Oozie job info" border="true":::
+    :::image type="content" source="./media/hdinsight-use-oozie-linux-mac/hdinsight-oozie-job-info.png" alt-text="HDInsight Apache Oozie job info." border="true":::
 
 6. From the **Job Info** tab, you can see the basic job information and the individual actions within the job. You can use the tabs at the top to view the **Job Definition**, **Job Configuration**, access the **Job Log**, or view a directed acyclic graph (DAG) of the job under **Job DAG**.
 
    * **Job Log**: Select the **Get Logs** button to get all logs for the job, or use the **Enter Search Filter** field to filter the logs.
 
-       :::image type="content" source="./media/hdinsight-use-oozie-linux-mac/hdinsight-oozie-job-log.png" alt-text="HDInsight Apache Oozie job log" border="true":::
+       :::image type="content" source="./media/hdinsight-use-oozie-linux-mac/hdinsight-oozie-job-log.png" alt-text="HDInsight Apache Oozie job log." border="true":::
 
    * **Job DAG**: The DAG is a graphical overview of the data paths taken through the workflow.
 
-       :::image type="content" source="./media/hdinsight-use-oozie-linux-mac/hdinsight-oozie-job-dag.png" alt-text="`HDInsight Apache Oozie job dag`" border="true":::
+       :::image type="content" source="./media/hdinsight-use-oozie-linux-mac/hdinsight-oozie-job-dag.png" alt-text="`HDInsight Apache Oozie job dag`." border="true":::
 
 7. If you select one of the actions from the **Job Info** tab, it brings up information for the action. For example, select the **RunSqoopExport** action.
 
-    :::image type="content" source="./media/hdinsight-use-oozie-linux-mac/oozie-job-action-info.png" alt-text="HDInsight oozie job action info" border="true":::
+    :::image type="content" source="./media/hdinsight-use-oozie-linux-mac/oozie-job-action-info.png" alt-text="HDInsight oozie job action info." border="true":::
 
 8. You can see details for the action, such as a link to the **Console URL**. Use this link to view job tracker information for the job.
 
@@ -633,18 +633,18 @@ You can use the coordinator to specify a start, an end, and the occurrence frequ
 
 7. If you go to the Oozie web UI and select the **Coordinator Jobs** tab, you see information like in the following image:
 
-    :::image type="content" source="./media/hdinsight-use-oozie-linux-mac/coordinator-jobs-tab.png" alt-text="Oozie web console coordinator jobs tab" border="true":::
+    :::image type="content" source="./media/hdinsight-use-oozie-linux-mac/coordinator-jobs-tab.png" alt-text="Oozie web console coordinator jobs tab." border="true":::
 
     The **Next Materialization** entry contains the next time that the job runs.
 
 8. Like the earlier workflow job, if you select the job entry in the web UI it displays information on the job:
 
-    :::image type="content" source="./media/hdinsight-use-oozie-linux-mac/coordinator-job-info.png" alt-text="Apache Oozie coordinator job info" border="true":::
+    :::image type="content" source="./media/hdinsight-use-oozie-linux-mac/coordinator-job-info.png" alt-text="Apache Oozie coordinator job info." border="true":::
 
     > [!NOTE]  
     > This image only shows successful runs of the job, not the individual actions within the scheduled workflow. To see the individual actions, select one of the **Action** entries.
 
-    :::image type="content" source="./media/hdinsight-use-oozie-linux-mac/coordinator-action-job.png" alt-text="OOzie web console job info tab" border="true":::
+    :::image type="content" source="./media/hdinsight-use-oozie-linux-mac/coordinator-action-job.png" alt-text="OOzie web console job info tab." border="true":::
 
 ## Next steps
 

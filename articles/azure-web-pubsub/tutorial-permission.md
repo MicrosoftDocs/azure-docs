@@ -5,12 +5,12 @@ author: vicancy
 ms.author: lianwei
 ms.service: azure-web-pubsub
 ms.topic: tutorial 
-ms.date: 11/01/2021
+ms.date: 12/07/2023
 ---
 
 # Tutorial: Add authentication and permissions to your application when using Azure Web PubSub
 
-In [Build a chat app](./tutorial-build-chat.md), you learned how to use WebSocket APIs to send and receive data with Azure Web PubSub. You might have noticed that, for simplicity, it doesn't require any authentication. Though Azure Web PubSub requires an access token to be connected, the `negotiate` API used in the tutorial to generate the access token doesn't need authentication. Anyone can call this API to get an access token.
+In [Build a chat app](./tutorial-build-chat.md), you learned how to use WebSocket APIs to send and receive data with Azure Web PubSub. You notice that, for simplicity, it doesn't require any authentication. Though Azure Web PubSub requires an access token to be connected, the `negotiate` API used in the tutorial to generate the access token doesn't need authentication. Anyone can call this API to get an access token.
 
 In a real-world application, you typically want the user to sign in first, before they can use your application. In this tutorial, you learn how to integrate Web PubSub with the authentication and authorization system of your application, to make it more secure.
 
@@ -40,7 +40,7 @@ First, add GitHub authentication to the chat room so the user can use a GitHub a
     npm install --save passport-github2
     ```
 
-1.  Enable GitHub authentication by adding the following code to `server.js`:
+1.  Find the `server.js` file in your directory and enable GitHub authentication by adding the following code to `server.js`:
 
     ```javascript
     const app = express();
@@ -81,7 +81,7 @@ First, add GitHub authentication to the chat room so the user can use a GitHub a
     The preceding code uses [Passport.js](http://www.passportjs.org/) to enable GitHub authentication. Here's a simple illustration of how it works:
 
     1. `/auth/github` redirects to github.com for sign-in.
-    1. After you sign in, GitHub redirects you to `/auth/github/callback` with a code for your application to complete the authentication. (To see how the profile returned from GitHub is verified and persisted in the server, see the verify callback in `passport.use()`.)
+    1. After you sign in, GitHub redirects you to `/auth/github/callback` with a code for your application to complete the authentication. (To see how the profile returned from GitHub is verified and persisted in the server, see the verified callback in `passport.use()`.)
     1. After authentication is completed, you're redirected to the homepage (`/`) of the site.
  
     For more details about GitHub OAuth and Passport.js, see the following articles:
@@ -142,11 +142,11 @@ First, add GitHub authentication to the chat room so the user can use a GitHub a
     });
     ```
 
-    Now rerun the server, and you'll see a "not authorized" message for the first time you open the chat room. Select the sign-in link to sign in, and then you'll see it works as before.
+    Now rerun the server, and you see a "not authorized" message for the first time you open the chat room. Select the sign-in link to sign in, and then you see it works as before.
 
 ## Work with permissions
 
-In the previous tutorials, you learned to use `WebSocket.send()` to directly publish messages to other clients by using subprotocol. In a real application, you might not want the client to be able to publish or subscribe to any group without permission control. In this section, you'll see how to control clients by using the permission system of Web PubSub.
+In the previous tutorials, you learned to use `WebSocket.send()` to directly publish messages to other clients by using subprotocol. In a real application, you might not want the client to be able to publish or subscribe to any group without permission control. In this section, you see how to control clients by using the permission system of Web PubSub.
 
 In Web PubSub, a client can perform the following types of operations with subprotocol:
 
@@ -161,7 +161,7 @@ Sending an event to the server is the default operation of the client. No protoc
 
 For permission to join a group, the client still needs to join the group by using the "join group" message after it gets the permission. Alternatively, the server can use an API to add the client to a group, even if it doesn't have the join permission.
 
-Now let's use this permission system to add a new feature to the chat room. You'll add a new type of user called *administrator* to the chat room. You'll allow the administrator to send system messages (messages that start with "[SYSTEM]") directly from the client.
+Now let's use this permission system to add a new feature to the chat room. You add a new type of user called *administrator* to the chat room. You allow the administrator to send system messages (messages that start with "[SYSTEM]") directly from the client.
 
 First, you need to separate system and user messages into two different groups so you can control their permissions separately.
 
@@ -264,9 +264,9 @@ app.get('/negotiate', async (req, res) => {
 });
 ```
 
-Now run `node server <admin-id>`. You'll see that you can send a system message to every client when you sign in as `<admin-id>`.
+Now run `node server <admin-id>`. You see that you can send a system message to every client when you sign in as `<admin-id>`.
 
-But if you sign in as a different user, when you select **system message**, nothing happens. You might expect the service to give you an error to let you know the operation isn't allowed. To provide this feedback, you can set `ackId` when you're publishing the message. Whenever `ackId` is specified, Web PubSub will return a message with a matching `ackId` to indicate whether the operation has succeeded or not.
+But if you sign in as a different user, when you select **system message**, nothing happens. You might expect the service to give you an error to let you know the operation isn't allowed. To provide this feedback, you can set `ackId` when you're publishing the message. Whenever `ackId` is specified, Web PubSub returns a message with a matching `ackId` to indicate whether the operation has succeeded or not.
 
 Change the code of sending a system message to the following code:
 
@@ -297,7 +297,7 @@ ws.onmessage = event => {
 };
 ```
 
-Now rerun the server, and sign in as a different user. You'll see an error message when you're trying to send a system message.
+Now rerun the server, and sign in as a different user. You see an error message when you're trying to send a system message.
 
 The complete code sample of this tutorial can be found on [GitHub][code].
 

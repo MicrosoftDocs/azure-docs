@@ -4,14 +4,13 @@ description: Learn how to troubleshoot problems in Azure Monitor's Change Analys
 ms.topic: conceptual
 ms.author: hannahhunter
 author: hhunter-ms
-ms.contributor: cawa
-ms.date: 09/21/2022 
+ms.date: 11/17/2023 
 ms.subservice: change-analysis
-ms.custom: devx-track-azurepowershell
-ms.reviewer: cawa
 ---
 
 # Troubleshoot Azure Monitor's Change Analysis
+
+[!INCLUDE [transition](../includes/change/change-analysis-is-moving.md)]
 
 ## Trouble registering Microsoft.ChangeAnalysis resource provider from Change history tab.
 
@@ -37,12 +36,15 @@ This error message is likely a temporary internet connectivity issue, since:
 * The UI sent the resource provider registration request.
 * You've resolved your [permissions issue](#you-dont-have-enough-permissions-to-register-microsoftchangeanalysis-resource-provider).
 
-Try refreshing the page and checking your internet connection. If the error persists, contact the [Change Analysis help team](mailto:changeanalysishelp@microsoft.com).
+Try refreshing the page and checking your internet connection. If the error persists, [submit an Azure support ticket](https://azure.microsoft.com/support/).
 
 ### This is taking longer than expected.
-You'll receive this error message when the registration takes longer than 2 minutes. While unusual, it doesn't mean something went wrong. Restart your web app to see your registration changes. Changes should show up within a few hours of app restart.
+You'll receive this error message when the registration takes longer than 2 minutes. While unusual, it doesn't mean something went wrong. 
 
-If your changes still don't show after 6 hours, contact the [Change Analysis help team](mailto:changeanalysishelp@microsoft.com). 
+1. Prepare for downtime.
+1. Restart your web app to see your registration changes. 
+
+Changes should show up within a few hours of app restart. If your changes still don't show after 6 hours, [submit an Azure support ticket](https://azure.microsoft.com/support/). 
 
 ## Azure Lighthouse subscription is not supported.
 
@@ -51,7 +53,7 @@ Often, this message includes: `Azure Lighthouse subscription is not supported, t
 
 Azure Lighthouse allows for cross-tenant resource administration. However, cross-tenant support needs to be built for each resource provider. Currently, Change Analysis has not built this support. If you're signed into one tenant, you can't query for resource or subscription changes whose home is in another tenant.
 
-If this is a blocking issue for you, we'd like to hear your feedback! [Contact the Change Analysis help team](mailto:changeanalysishelp@microsoft.com) to describe how you're trying to use Change Analysis.
+If this is a blocking issue for you, [submit an Azure support ticket](https://azure.microsoft.com/support/) to describe how you're trying to use Change Analysis.
 
 ## An error occurred while getting changes. Please refresh this page or come back later to view changes.
 
@@ -60,13 +62,14 @@ When changes can't be loaded, Azure Monitor's Change Analysis service presents t
 - Internet connectivity error from the client device.
 - Change Analysis service being temporarily unavailable.
 
-Refreshing the page after a few minutes usually fixes this issue. If the error persists, contact the [Change Analysis help team](mailto:changeanalysishelp@microsoft.com).
+Refreshing the page after a few minutes usually fixes this issue. If the error persists, [submit an Azure support ticket](https://azure.microsoft.com/support/).
 
 ## Only partial data loaded.
 
 This error message may occur in the Azure portal when loading change data via the Change Analysis home page. Typically, the Change Analysis service calculates and returns all change data. However, in a network failure or a temporary outage of service, you may receive an error message indicating only partial data was loaded.
 
-To load all change data, try waiting a few minutes and refreshing the page. If you are still only receiving partial data, contact the [Change Analysis help team](mailto:changeanalysishelp@microsoft.com).
+To load all change data, try waiting a few minutes and refreshing the page. If you are still only receiving partial data, [submit an Azure support ticket](https://azure.microsoft.com/support/).
+
 
 ## You don't have enough permissions to view some changes. Contact your Azure subscription administrator.
 
@@ -76,7 +79,12 @@ This general unauthorized error message occurs when the current user doesn't hav
 
 ## Cannot see in-guest changes for newly enabled Web App.
 
-You may not immediately see web app in-guest file changes and configuration changes. Restart your web app and you should be able to view changes within 30 minutes. If not, contact the [Change Analysis help team](mailto:changeanalysishelp@microsoft.com).
+You may not immediately see web app in-guest file changes and configuration changes. 
+
+1. Prepare for brief downtime.
+1. Restart your web app.
+
+You should be able to view changes within 30 minutes. If not, [submit an Azure support ticket](https://azure.microsoft.com/support/).
 
 ## Diagnose and solve problems tool for virtual machines
 
@@ -85,11 +93,22 @@ To troubleshoot virtual machine issues using the troubleshooting tool in the Azu
 1. Select **Diagnose and solve problems** from the side menu.
 1. Browse and select the troubleshooting tool that fits your issue.
 
-![Screenshot of the Diagnose and Solve Problems tool for a Virtual Machine with Troubleshooting tools selected.](./media/change-analysis/vm-dnsp-troubleshootingtools.png)
+:::image type="content" source="./media/change-analysis/vm-dnsp-troubleshootingtools.png" lightbox="./media/change-analysis/vm-dnsp-troubleshootingtools.png" alt-text="Screenshot of the Diagnose and Solve Problems tool for a Virtual Machine with Troubleshooting tools selected.":::
+<!-- convertborder later -->
+:::image type="content" source="./media/change-analysis/analyze-recent-changes.png" lightbox="./media/change-analysis/analyze-recent-changes.png" alt-text="Screenshot of the tile for the Analyze recent changes troubleshooting tool for a Virtual Machine." border="false":::
 
-![Screenshot of the tile for the Analyze recent changes troubleshooting tool for a Virtual Machine.](./media/change-analysis/analyze-recent-changes.png)
+## Can't filter to your resource to view changes
 
+When filtering down to a particular resource in the Change Analysis standalone page, you may encounter a known limitation that only returns 1,000 resource results. To filter through and pinpoint changes for one of your 1,000+ resources:
 
+1. In the Azure portal, select **All resources**.
+1. Select the actual resource you want to view.
+1. In that resource's left side menu, select **Diagnose and solve problems**.
+1. In the Change Analysis card, select **View change details**.
+
+   :::image type="content" source="./media/change-analysis/change-details-card.png" lightbox="./media/change-analysis/change-details-card.png" alt-text="Screenshot of viewing change details from the Change Analysis card in Diagnose and solve problems tool.":::
+
+From here, you'll be able to view all of the changes for that one resource.
 
 ## Next steps
 

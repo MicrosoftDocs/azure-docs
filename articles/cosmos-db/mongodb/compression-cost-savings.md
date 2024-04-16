@@ -3,10 +3,10 @@ title: Improve performance and optimize costs when upgrading to Azure Cosmos DB 
 description: Learn how upgrading your API for MongoDB account to versions 4.0+ saves you money on queries and storage.
 author: gahl-levy
 ms.service: cosmos-db
-ms.custom: ignite-2022
 ms.topic: how-to
 ms.date: 09/06/2022
 ms.author: gahllevy
+ms.subservice: mongodb
 ---
 
 # Improve performance and optimize costs when upgrading to Azure Cosmos DB API for MongoDB 4.0+

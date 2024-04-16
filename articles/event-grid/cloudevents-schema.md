@@ -1,13 +1,15 @@
 ---
 title: Use Azure Event Grid with events in CloudEvents schema
-description: Describes how to use the CloudEvents schema for events in Azure Event Grid. The service supports events in the JSON implementation of CloudEvents. 
+description: Describes how to use the CloudEvents schema for events in Azure Event Grid. The service supports events in the JSON implementation of CloudEvents.
 ms.topic: conceptual
-ms.date: 07/20/2022
-ms.devlang: csharp, javascript
-ms.custom: devx-track-js, devx-track-csharp, devx-track-azurecli, devx-track-azurepowershell, ignite-2022
+ms.date: 01/18/2024
+ms.devlang: csharp
+# ms.devlang: csharp, javascript
+ms.custom: devx-track-csharp, devx-track-azurecli, devx-track-azurepowershell
 ---
 
 # Use CloudEvents v1.0 schema with Event Grid
+
 In addition to its [default event schema](event-schema.md), Azure Event Grid natively supports events in the [JSON implementation of CloudEvents v1.0](https://github.com/cloudevents/spec/blob/v1.0/json-format.md) and [HTTP protocol binding](https://github.com/cloudevents/spec/blob/v1.0/http-protocol-binding.md). [CloudEvents](https://cloudevents.io/) is an [open specification](https://github.com/cloudevents/spec/blob/v1.0/spec.md) for describing event data.
 
 CloudEvents simplifies interoperability by providing a common event schema for publishing and consuming cloud-based events. This schema allows for uniform tooling, standard ways of routing and handling events, and universal ways of deserializing the outer event schema. With a common schema, you can more easily integrate work across platforms.
@@ -50,7 +52,7 @@ For a detailed description of the available fields, their types, and definitions
 
 The headers values for events delivered in the CloudEvents schema and the Event Grid schema are the same except for `content-type`. For the CloudEvents schema, that header value is `"content-type":"application/cloudevents+json; charset=utf-8"`. For the Event Grid schema, that header value is `"content-type":"application/json; charset=utf-8"`.
 
-## Configure Event Grid for CloudEvents
+## Configure for CloudEvents
 
 You can use Event Grid for both input and output of events in the CloudEvents schema. The following table describes the possible transformations:
 
@@ -73,21 +75,13 @@ You set the input schema for a custom topic when you create the custom topic.
 For the Azure CLI, use:
 
 ```azurecli-interactive
-az eventgrid topic create \
-  --name <topic_name> \
-  -l westcentralus \
-  -g gridResourceGroup \
-  --input-schema cloudeventschemav1_0
+az eventgrid topic create --name demotopic -l westcentralus -g gridResourceGroup --input-schema cloudeventschemav1_0
 ```
 
 For PowerShell, use:
 
 ```azurepowershell-interactive
-New-AzEventGridTopic `
-  -ResourceGroupName gridResourceGroup `
-  -Location westcentralus `
-  -Name <topic_name> `
-  -InputSchema CloudEventSchemaV1_0
+New-AzEventGridTopic -ResourceGroupName gridResourceGroup -Location westcentralus -Name demotopic -InputSchema CloudEventSchemaV1_0
 ```
 
 ### Output schema
@@ -97,24 +91,16 @@ You set the output schema when you create the event subscription.
 For the Azure CLI, use:
 
 ```azurecli-interactive
-topicID=$(az eventgrid topic show --name <topic-name> -g gridResourceGroup --query id --output tsv)
+topicID=$(az eventgrid topic show --name demotopic -g gridResourceGroup --query id --output tsv)
 
-az eventgrid event-subscription create \
-  --name <event_subscription_name> \
-  --source-resource-id $topicID \
-  --endpoint <endpoint_URL> \
-  --event-delivery-schema cloudeventschemav1_0
+az eventgrid event-subscription create --name demotopicsub --source-resource-id $topicID --endpoint <endpoint_URL> --event-delivery-schema cloudeventschemav1_0
 ```
 
 For PowerShell, use:
 ```azurepowershell-interactive
 $topicid = (Get-AzEventGridTopic -ResourceGroupName gridResourceGroup -Name <topic-name>).Id
 
-New-AzEventGridSubscription `
-  -ResourceId $topicid `
-  -EventSubscriptionName <event_subscription_name> `
-  -Endpoint <endpoint_URL> `
-  -DeliverySchema CloudEventSchemaV1_0
+New-AzEventGridSubscription -ResourceId $topicid -EventSubscriptionName <event_subscription_name> -Endpoint <endpoint_URL> -DeliverySchema CloudEventSchemaV1_0
 ```
 
  ## Endpoint validation with CloudEvents v1.0
@@ -124,7 +110,38 @@ If you're already familiar with Event Grid, you might be aware of the endpoint v
 <a name="azure-functions"></a>
 
 ## Use with Azure Functions
-The following example shows an Azure Functions version 3.x function that uses a `CloudEvent` binding parameter and `EventGridTrigger`.
+
+### Visual Studio or Visual Studio Code
+
+If you're using Visual Studio or Visual Studio Code, and C# programming language to develop functions, make sure that you're using the latest [Microsoft.Azure.WebJobs.Extensions.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventGrid/) NuGet package (version **3.3.1** or above).
+
+In Visual Studio, use the **Tools** -> **NuGet Package Manager** -> **Package Manager Console**, and run the `Install-Package` command (`Install-Package Microsoft.Azure.WebJobs.Extensions.EventGrid -Version 3.3.1`). Alternatively, right-click the project in the Solution Explorer window, and select **Manage NuGet Packages** menu to browse for the NuGet package, and install or update it to the latest version.
+
+In VS Code, update the version number for the **Microsoft.Azure.WebJobs.Extensions.EventGrid** package in the **csproj** file for your Azure Functions project. 
+
+```xml
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <AzureFunctionsVersion>v4</AzureFunctionsVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Azure.WebJobs.Extensions.EventGrid" Version="3.3.1" />
+    <PackageReference Include="Microsoft.NET.Sdk.Functions" Version="4.1.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="host.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="local.settings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToPublishDirectory>Never</CopyToPublishDirectory>
+    </None>
+  </ItemGroup>
+</Project>
+```
+
+The following example shows an Azure Functions version 3.x function that's developed in either Visual Studio or Visual Studio Code. It  uses a `CloudEvent` binding parameter and `EventGridTrigger`. 
 
 ```csharp
 using Azure.Messaging;
@@ -137,9 +154,7 @@ namespace Company.Function
     public static class CloudEventTriggerFunction
     {
         [FunctionName("CloudEventTriggerFunction")]
-        public static void Run(
-            ILogger logger,
-            [EventGridTrigger] CloudEvent e)
+        public static void Run(ILogger logger, [EventGridTrigger] CloudEvent e)
         {
             logger.LogInformation("Event received {type} {subject}", e.Type, e.Subject);
         }
@@ -147,8 +162,38 @@ namespace Company.Function
 }
 ```
 
-For more information, see [Azure Event Grid trigger for Azure Functions](../azure-functions/functions-bindings-event-grid-trigger.md?tabs=in-process%2Cextensionv3&pivots=programming-language-csharp). 
+### Azure portal development experience
 
+If you're using the Azure portal to develop an Azure function, follow these steps:
+
+1. Update the name of the parameter in `function.json` file to `cloudEvent`.
+
+    ```json
+    {
+      "bindings": [
+        {
+          "type": "eventGridTrigger",
+          "name": "cloudEvent",
+          "direction": "in"
+        }
+      ]
+    }    
+    ```
+1. Update the `run.csx` file as shown in the following sample code. 
+    
+    ```csharp
+    #r "Azure.Core"
+    
+    using Azure.Messaging;
+    
+    public static void Run(CloudEvent cloudEvent, ILogger logger)
+    {
+        logger.LogInformation("Event received {type} {subject}", cloudEvent.Type, cloudEvent.Subject);
+    }
+    ```
+
+> [!NOTE]
+> For more information, see [Azure Event Grid trigger for Azure Functions](../azure-functions/functions-bindings-event-grid-trigger.md?tabs=in-process%2Cextensionv3&pivots=programming-language-csharp). 
 
 
 ## Next steps

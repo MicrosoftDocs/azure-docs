@@ -16,18 +16,20 @@ ms.reviewer: dech
 
 [!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]
 
-> [!IMPORTANT]
-> The Jupyter Notebooks feature of Azure Cosmos DB is currently in a preview state and is progressively rolling out to all customers over time.
+> [!WARNING]
+> The Jupyter Notebooks feature of Azure Cosmos DB will be retired March 30, 2024; you will not be able to use built-in Jupyter notebooks from the Azure Cosmos DB account. We recommend using [Visual Studio Code's support for Jupyter notebooks](../nosql/tutorial-create-notebook-vscode.md) or your preferred notebooks client.
 
 This tutorial walks through how to import Jupyter notebooks from a GitHub repository and run them in an Azure Cosmos DB for NoSQL account. After importing the notebooks, you can run, edit them, and persist your changes back to the same GitHub repository.
 
 ## Prerequisites
 
-- [Azure Cosmos DB for NoSQL account](create-cosmosdb-resources-portal.md#create-an-azure-cosmos-db-account) (configured with serverless throughput).
+- An existing Azure Cosmos DB for NoSQL account.
+  - If you have an existing Azure subscription, [create a new account](how-to-create-account.md?tabs=azure-portal).
+  - No Azure subscription? You can [try Azure Cosmos DB free](../try-free.md) with no credit card required.
 
 ## Create a copy of a GitHub repository
 
-1. Navigate to the [azure-samples/cosmos-db-nosql-notebooks](https://github.com/azure-samples/cosmos-db-nosql-notebooks/generate) template repository.
+1. Navigate to the [azure-samples/cosmos-db-nosql-notebooks](https://github.com/azure-samples/cosmos-db-nosql-notebooks) template repository.
 
 1. Create a new copy of the template repository in your own GitHub account or organization.
 

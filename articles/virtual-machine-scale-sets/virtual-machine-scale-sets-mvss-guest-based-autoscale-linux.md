@@ -6,10 +6,9 @@ ms.author: jushiman
 ms.topic: how-to
 ms.service: virtual-machine-scale-sets
 ms.subservice: autoscale
-ms.date: 04/26/2019
-ms.reviewer: avverma
-ms.custom: avverma
-
+ms.date: 11/22/2022
+ms.reviewer: mimckitt
+ms.custom: avverma, linux-related-content
 ---
 
 # Autoscale using guest metrics in a Linux scale set template

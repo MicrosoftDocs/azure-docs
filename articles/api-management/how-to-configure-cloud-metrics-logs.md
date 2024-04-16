@@ -2,21 +2,17 @@
 title: Configure cloud metrics and logs for Azure API Management self-hosted gateway | Microsoft Docs
 description: Learn how to configure cloud metrics and logs for Azure API Management self-hosted gateway
 services: api-management
-documentationcenter: ''
 author: dlepow
 manager: gwallace
-editor: ''
-
 ms.service: api-management
-ms.workload: mobile
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 04/30/2020
 ms.author: danlep
-
 ---
 
 # Configure cloud metrics and logs for Azure API Management self-hosted gateway
+
+[!INCLUDE [api-management-availability-premium-dev](../../includes/api-management-availability-premium-dev.md)]
 
 This article provides details for configuring cloud metrics and logs for the [self-hosted gateway](./self-hosted-gateway-overview.md).
 

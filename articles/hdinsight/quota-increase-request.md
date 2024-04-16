@@ -4,7 +4,7 @@ description: Learn the process to request an increase for the CPU cores allocate
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 04/01/2022
+ms.date: 05/23/2023
 ---
 # Requesting quota increases for Azure HDInsight
 
@@ -28,7 +28,7 @@ To request a quota increase, do the following steps:
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. Select **Help + support** on the bottom-left side of the page.
 
-    :::image type="content" source="./media/quota-increase-request/help-support-button.png" alt-text="help and support button" border="true":::
+    :::image type="content" source="./media/quota-increase-request/help-support-button.png" alt-text="help and support button." border="true":::
 
 1. Select **New support request**.
 1. On the **New support request** page, under **Basics** tab, select the following options:
@@ -37,7 +37,7 @@ To request a quota increase, do the following steps:
    - **Subscription**: the subscription you want to modify
    - **Quota type**: **HDInsight**
 
-     :::image type="content" source="./media/quota-increase-request/hdinsight-quota-support-request.png" alt-text="Create a support request to increase HDInsight core quota" border="true":::
+     :::image type="content" source="./media/quota-increase-request/hdinsight-quota-support-request.png" alt-text="Create a support request to increase HDInsight core quota." border="true":::
 
 1. Select **Next: Solutions >>**.
 1. On the **Details** page, enter a description of the issue, select the severity of the issue, your preferred contact method, and other required fields. Use the template listed below, to ensure that you provide necessary information. Quota increase requests are evaluated by the Azure capacity team, and not by the HDInsight product team. The more complete information you provide, the more likely your request will be approved.
@@ -50,7 +50,7 @@ To request a quota increase, do the following steps:
    I would like to use the extra cores for [DETAIL REASON].
    ```
 
-   :::image type="content" source="./media/quota-increase-request/problem-details.png" alt-text="problem details" border="true":::
+   :::image type="content" source="./media/quota-increase-request/problem-details.png" alt-text="problem details." border="true":::
 
 1. Select **Next: Review + create >>**.
 1. On the **Review + create** tab, select **Create**.

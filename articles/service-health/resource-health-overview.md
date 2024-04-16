@@ -2,7 +2,7 @@
 title: Azure Resource Health overview
 description: Learn how Azure Resource Health helps you diagnose and get support for service problems that affect your Azure resources.
 ms.topic: conceptual
-ms.date: 05/10/2022
+ms.date: 02/14/2023
 
 ---
 # Resource Health overview
@@ -63,12 +63,32 @@ Different resources have their own criteria for when they report that they are d
 
 ![Status of *Degraded* for a virtual machine](./media/resource-health-overview/degraded.png)
 
-For virtual machine scale sets, visit [Resource health state is "Degraded" in Azure Virtual Machine Scale Set](/troubleshoot/azure/virtual-machine-scale-sets/resource-health-degraded-state) page for more information.
+For Virtual Machine Scale Sets, visit [Resource health state is "Degraded" in Azure Virtual Machine Scale Set](/troubleshoot/azure/virtual-machine-scale-sets/resource-health-degraded-state) page for more information.
+
+### Health not supported
+
+The message *Health not supported* or *RP has no information about the resource, or you don't have read/write access for that resource* means that your resource is not supported for the health metrics.
+
+To know which resources support health metrics, refer to [Supported Resource Types](resource-health-checks-resource-types.md) page.
+
+## Resource health events sent to the activity log
+
+A resource health event is recorded in the activity log when:
+- An annotation, for example "ResourceDegraded" or "AccountClientThrottling", is submitted for a resource.
+- A resource transitioned to or from Unhealthy.
+- A resource was Unhealthy for more than 15 minutes.
+
+The following resource health transitions aren't recorded in the activity log:
+- A transition to Unknown state.
+- A transition from Unknown state if:
+    - This is the first transition.
+    - If the state prior to Unknown is the same as the new state after. (For example, if the resource transitioned from Healthy to Unknown and back to Healthy).
+    - For compute resources: VMs that transition from Healthy to Unhealthy, and back to Healthy, when the Unhealthy time is less than 35 seconds.
 
 ## History information
 
 > [!NOTE]
-> You can list current service health events in subscription and query data up to 1 year using the QueryStartTime parameter of [Events - List By Subscription Id](/rest/api/resourcehealth/events/list-by-subscription-id) REST API but currently there is no QueryStartTime parameter under [Events - List By Single Resource](/rest/api/resourcehealth/events/list-by-single-resource) REST API so you cannot query data up to 1 year while listing current service health events for given resource.
+> You can list current service health events in subscription and query data up to 1 year using the QueryStartTime parameter of [Events - List By Subscription Id](/rest/api/resourcehealth/2022-05-01/events/list-by-subscription-id) REST API but currently there is no QueryStartTime parameter under [Events - List By Single Resource](/rest/api/resourcehealth/2022-05-01/events/list-by-single-resource) REST API so you cannot query data up to 1 year while listing current service health events for given resource.
  
 You can access up to 30 days of history in the **Health history** section of Resource Health from Azure portal.
 
@@ -85,8 +105,11 @@ To open Resource Health for one resource:
 1. Sign in to the Azure portal.
 2. Browse to your resource.
 3. On the resource menu in the left pane, select **Resource health**.
+4. From the health history grid, you can either download a PDF or click the "Share/Manage" RCA button.
 
 ![Opening Resource Health from the resource view](./media/resource-health-overview/from-resource-blade.png)
+
+:::image type="content" source="./media/resource-health-overview/resource-health-history-grid.png" lightbox="./media/resource-health-overview/resource-health-history-grid.png" alt-text="Screenshot of the Resource Health pane in the Azure portal. The Unavailable message and Download as PDF and Share/Manage RCA buttons are highlighted.":::
 
 You can also access Resource Health by selecting **All services** and typing **resource health** in the filter text box. In the **Help + support** pane, select [Resource health](https://portal.azure.com/#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/resourceHealth).
 

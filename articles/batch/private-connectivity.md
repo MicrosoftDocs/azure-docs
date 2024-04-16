@@ -2,7 +2,7 @@
 title: Use private endpoints with Azure Batch accounts
 description: Learn how to connect privately to an Azure Batch account by using private endpoints.
 ms.topic: how-to
-ms.date: 05/26/2022
+ms.date: 8/14/2023
 ms.custom: references_regions
 ---
 
@@ -22,13 +22,12 @@ Batch account resource has two endpoints supported to access with private endpoi
 
 - Account endpoint (sub-resource: **batchAccount**): this endpoint is used for accessing [Batch Service REST API](/rest/api/batchservice/) (data plane), for example managing pools, compute nodes, jobs, tasks, etc.
 
-- Node management endpoint (sub-resource: **nodeManagement**): used by Batch pool nodes to access Batch node management service. This endpoint is only applicable when using [simplified compute node communication](simplified-compute-node-communication.md). This feature is in preview.
-
-> [!IMPORTANT]
-> - This preview sub-resource is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> - For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+- Node management endpoint (sub-resource: **nodeManagement**): used by Batch pool nodes to access Batch node management service. This endpoint is only applicable when using [simplified compute node communication](simplified-compute-node-communication.md).
 
 :::image type="content" source="media/private-connectivity/private-endpoint-sub-resources.png" alt-text="Diagram that shows sub-resources for Batch private endpoints.":::
+
+> [!TIP]
+> You can create private endpoint for one of them or both within your virtual network, depending on the actual usage for your Batch account. For example, if you run Batch pool within the virtual network, but call Batch service REST API from somewhere else, you will only need to create the **nodeManagement** private endpoint in the virtual network.
 
 ## Azure portal
 
@@ -60,14 +59,17 @@ Use the following steps to create a private endpoint with your Batch account usi
 
 ## Use the private endpoint
 
-After the private endpoint is provisioned, you can access the Batch account from within the same virtual network using the private endpoint.
+After the private endpoint is provisioned, you can access the Batch account using the private IP address within the virtual network:
 
 - Private endpoint for **batchAccount**: can access Batch account data plane to manage pools/jobs/tasks.
 
 - Private endpoint for **nodeManagement**: Batch pool's compute nodes can connect to and be managed by Batch node management service.
 
+> [!TIP]
+> It's recommended to also disable the [public network access](public-network-access.md) with your Batch account when you're using private endpoints, which will restrict the access to private network only.
+
 > [!IMPORTANT]
-> If [public network access](public-network-access.md) is disabled with Batch account, performing account operations (for example pools, jobs) outside of the virtual network where the private endpoint is provisioned will result in an "AuthorizationFailure" message for Batch account in the Azure portal.
+> If public network access is disabled with Batch account, performing account operations (for example pools, jobs) outside of the virtual network where the private endpoint is provisioned will result in an "AuthorizationFailure" message for Batch account in the Azure portal.
 
 To view the IP addresses for the private endpoint from the Azure portal:
 
@@ -158,11 +160,12 @@ For details on costs related to private endpoints, see [Azure Private Link prici
 
 When creating a private endpoint with your Batch account, keep in mind the following:
 
-- Private endpoint resources with the sub-resource **batchAccount** must be created in the same subscription as the Batch account.
+- Private endpoint resources can be created in different subscription as the Batch account, but the subscription must be registered with [**Microsoft.Batch** resource provider](../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider).
 - Resource movement isn't supported for private endpoints with Batch accounts.
 - If a Batch account resource is moved to a different resource group or subscription, the private endpoints can still work, but the association to the Batch account breaks. If you delete the private endpoint resource, its associated private endpoint connection still exists in your Batch account. You can manually remove connection from your Batch account.
 - To delete the private connection, either delete the private endpoint resource, or delete the private connection in the Batch account (this action disconnects the related private endpoint resource).
 - DNS records in the private DNS zone aren't removed automatically when you delete a private endpoint connection from the Batch account. You must manually remove the DNS records before adding a new private endpoint linked to this private DNS zone. If you don't clean up the DNS records, unexpected access issues might happen.
+- When private endpoint is enabled for the Batch account, the [task authentication token](/rest/api/batchservice/task/add?tabs=HTTP#request-body) for Batch task is not supported. The workaround is to use [Batch pool with managed identities](managed-identity-pools.md).
 
 ## Next steps
 

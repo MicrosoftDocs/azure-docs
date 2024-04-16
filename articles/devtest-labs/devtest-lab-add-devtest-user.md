@@ -4,8 +4,8 @@ description: Learn about the Azure DevTest Labs Owner, Contributor, and DevTest 
 ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 01/26/2022
-ms.custom: devx-track-azurepowershell
+ms.date: 09/30/2023
+ms.custom: devx-track-azurepowershell, UpdateFrequency2
 ---
 
 # Add lab owners, contributors, and users in Azure DevTest Labs 
@@ -58,7 +58,7 @@ The DevTest Labs User role can take the following actions in DevTest Labs:
 
 ## Add Owners, Contributors, or DevTest Labs Users
 
-A lab owner can add members to lab roles by using the Azure portal or an Azure PowerShell script. The user to add can be an external user with a valid [Microsoft account (MSA)](./devtest-lab-faq.yml).
+A lab owner can add members to lab roles by using the Azure portal or an Azure PowerShell script. The user to add can be an external user with a valid [Microsoft account (MSA)](/windows-server/identity/ad-ds/manage/understand-microsoft-accounts).
 
 Azure permissions propagate from parent scope to child scope. Owners of an Azure subscription that contains labs are automatically owners of the subscription's DevTest Labs service, labs, and lab VMs and resources. Subscription owners can add Owners, Contributors, and DevTest Labs Users to labs in the subscription.
 
@@ -100,7 +100,7 @@ To add a member:
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-You can add a DevTest Labs User to a lab by using the following Azure PowerShell script. The script requires the user to be in the Azure Active Directory (Azure AD). For information about adding an external user to Azure AD as a guest, see [Add a new guest user](../active-directory/fundamentals/add-users-azure-active-directory.md#add-a-new-guest-user). If the user isn't in Azure AD, use the portal procedure instead.
+You can add a DevTest Labs User to a lab by using the following Azure PowerShell script. The script requires the user to be in the Microsoft Entra ID. For information about adding an external user to Microsoft Entra ID as a guest, see [Add a new guest user](../active-directory/fundamentals/add-users-azure-active-directory.md#add-a-new-guest-user). If the user isn't in Microsoft Entra ID, use the portal procedure instead.
 
 In the following script, update the parameter values under the `# Values to change` comment. You can get the `subscriptionId`, `labResourceGroup`, and `labName` values from the lab's main page in the Azure portal.
 

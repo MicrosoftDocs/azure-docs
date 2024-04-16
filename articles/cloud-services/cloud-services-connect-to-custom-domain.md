@@ -3,11 +3,11 @@ title: Connect a Cloud Service (classic) to a custom Domain Controller | Microso
 description: Learn how to connect your web/worker roles to a custom AD Domain using PowerShell and AD Domain Extension
 ms.topic: article
 ms.service: cloud-services
-ms.date: 10/14/2020
+ms.date: 02/21/2023
 author: hirenshah1
 ms.author: hirshah
 ms.reviewer: mimckitt
-ms.custom: 
+ms.custom: compute-evergreen
 ---
 
 # Connecting Azure Cloud Services (classic) Roles to a custom AD Domain Controller hosted in Azure

@@ -1,22 +1,21 @@
 ---
-title: Azure activity log
-description: View the Azure Monitor activity log and send it to Azure Monitor Logs, Azure Event Hubs, and Azure Storage.
+title: Send Azure activity log data
+description: Send Azure Monitor activity log data to Azure Monitor Logs, Azure Event Hubs, and Azure Storage.
 author: guywi-ms
 services: azure-monitor
 ms.topic: conceptual
-ms.custom: ignite-2022
-ms.date: 07/01/2022
+ms.date: 12/11/2023
 ms.author: guywild
 ms.reviewer: orens
 ---
 
-# Azure Monitor activity log
+# Send Azure Monitor activity log data
 
-The Azure Monitor activity log is a [platform log](./platform-logs-overview.md) in Azure that provides insight into subscription-level events. The activity log includes information like when a resource is modified or a virtual machine is started. You can view the activity log in the Azure portal or retrieve entries with PowerShell and the Azure CLI. This article provides information on how to view the activity log and send it to different destinations.
+The Azure Monitor activity log is a platform log that provides insight into subscription-level events. The activity log includes information like when a resource is modified or a virtual machine is started. You can view the activity log in the Azure portal or retrieve entries with PowerShell and the Azure CLI. This article provides information on how to view the activity log and send it to different destinations.
 
 For more functionality, create a diagnostic setting to send the activity log to one or more of these locations for the following reasons:
 
-- Send to [Azure Monitor Logs](../logs/data-platform-logs.md) for more complex querying and alerting and for longer retention, up to two years.
+- Send to [Azure Monitor Logs](../logs/data-platform-logs.md) for more complex querying and alerting and for [longer retention of up to twelve years](../logs/data-retention-archive.md).
 - Send to Azure Event Hubs to forward outside of Azure.
 - Send to Azure Storage for cheaper, long-term archiving.
 
@@ -24,43 +23,8 @@ For details on how to create a diagnostic setting, see [Create diagnostic settin
 
 > [!NOTE]
 > * Entries in the Activity Log are system generated and can't be changed or deleted.
-> * Entries in the Activity Log are representing control plane changes like a virtual machine restart, any non related entries should be written into [Azure Resource Logs](https://learn.microsoft.com/azure/azure-monitor/essentials/resource-logs)
-
-## Retention period
-
-Activity log events are retained in Azure for *90 days* and then deleted. There's no charge for entries during this time regardless of volume. For more functionality, such as longer retention, create a diagnostic setting and route the entries to another location based on your needs. See the criteria in the preceding section.
-
-## View the activity log
-
-You can access the activity log from most menus in the Azure portal. The menu that you open it from determines its initial filter. If you open it from the **Monitor** menu, the only filter is on the subscription. If you open it from a resource's menu, the filter is set to that resource. You can always change the filter to view all other entries. Select **Add Filter** to add more properties to the filter.
-
-![Screenshot that shows the activity log.](./media/activity-log/view-activity-log.png)
-
-For a description of activity log categories, see [Azure activity log event schema](activity-log-schema.md#categories).
-
-## Download the activity log
-
-Select **Download as CSV** to download the events in the current view.
-
-![Screenshot that shows downloading the activity log.](media/activity-log/download-activity-log.png)
-
-### View change history
-
-For some events, you can view the change history, which shows what changes happened during that event time. Select an event from the activity log you want to look at more deeply. Select the **Change history (Preview)** tab to view any associated changes with that event.
-
-![Screenshot that shows the Change history list for an event.](media/activity-log/change-history-event.png)
-
-If any changes are associated with the event, you'll see a list of changes that you can select. Selecting a change opens the **Change history (Preview)** page. This page displays the changes to the resource. In the following example, you can see that the VM changed sizes. The page displays the VM size before the change and after the change. To learn more about change history, see [Get resource changes](../../governance/resource-graph/how-to/get-resource-changes.md).
-
-![Screenshot that shows the Change history page showing differences.](media/activity-log/change-history-event-details.png)
-
-### Other methods to retrieve activity log events
-
-You can also access activity log events by using the following methods:
-
-- Use the [Get-AzLog](/powershell/module/az.monitor/get-azlog) cmdlet to retrieve the activity log from PowerShell. See [Azure Monitor PowerShell samples](../powershell-samples.md#retrieve-activity-log).
-- Use [az monitor activity-log](/cli/azure/monitor/activity-log) to retrieve the activity log from the CLI.  See [Azure Monitor CLI samples](../cli-samples.md#view-activity-log).
-- Use the [Azure Monitor REST API](/rest/api/monitor/) to retrieve the activity log from a REST client.
+> * Entries in the Activity Log are representing control plane changes like a virtual machine restart, any non related entries should be written into [Azure Resource Logs](resource-logs.md)
+> * Entries in the Activity Log are typically a result of changes (create, update or delete operations) or an action having been initiated.  Operations focused on reading details of a resource are not typically captured.
 
 ## Send to Log Analytics workspace
 
@@ -69,14 +33,14 @@ You can also access activity log events by using the following methods:
 - Correlate activity log data with other monitoring data collected by Azure Monitor.
 - Consolidate log entries from multiple Azure subscriptions and tenants into one location for analysis together.
 - Use log queries to perform complex analysis and gain deep insights on activity log entries.
-- Use log alerts with Activity entries for more complex alerting logic.
+- Use log search alerts with Activity entries for more complex alerting logic.
 - Store activity log entries for longer than the activity log retention period.
 - Incur no data ingestion or retention charges for activity log data stored in a Log Analytics workspace.
 - The default retention period in Log Analytics is 90 days
 
  Select **Export Activity Logs** to send the activity log to a Log Analytics workspace.
 
-   ![Screenshot that shows exporting activity logs.](media/activity-log/diagnostic-settings-export.png)
+   :::image type="content" source="media/activity-log/diagnostic-settings-export.png" lightbox="media/activity-log/diagnostic-settings-export.png" alt-text="Screenshot that shows exporting activity logs.":::
 
 You can send the activity log from any single subscription to up to five workspaces.
 
@@ -95,6 +59,9 @@ To retrieve all records in the administrative category, use the following query:
 AzureActivity
 | where CategoryValue == "Administrative"
 ```
+
+> [!Important]
+> In some scenarios, it's possible that values in fields of AzureActivity might have different casings from otherwise equivalent values. Take care when querying data in AzureActivity to use case-insensitive operators for string comparisons, or use a scalar function to force a field to a uniform casing before any comparisons. For example, use the [tolower()](/azure/kusto/query/tolowerfunction) function on a field to force it to always be lowercase or the [=~ operator](/azure/kusto/query/datatypes-string-operators) when performing a string comparison.
 
 ## Send to Azure Event Hubs
 
@@ -181,12 +148,23 @@ Each event is stored in the PT1H.json file with the following format. This forma
 ```json
 { "time": "2020-06-12T13:07:46.766Z", "resourceId": "/SUBSCRIPTIONS/00000000-0000-0000-0000-000000000000/RESOURCEGROUPS/MY-RESOURCE-GROUP/PROVIDERS/MICROSOFT.COMPUTE/VIRTUALMACHINES/MV-VM-01", "correlationId": "0f0cb6b4-804b-4129-b893-70aeeb63997e", "operationName": "Microsoft.Resourcehealth/healthevent/Updated/action", "level": "Information", "resultType": "Updated", "category": "ResourceHealth", "properties": {"eventCategory":"ResourceHealth","eventProperties":{"title":"This virtual machine is starting as requested by an authorized user or process. It will be online shortly.","details":"VirtualMachineStartInitiatedByControlPlane","currentHealthStatus":"Unknown","previousHealthStatus":"Unknown","type":"Downtime","cause":"UserInitiated"}}}
 ```
+### Other methods to retrieve activity log events
 
+You can also access activity log events by using the following methods:
+
+- Use the [Get-AzLog](/powershell/module/az.monitor/get-azlog) cmdlet to retrieve the activity log from PowerShell. See [Azure Monitor PowerShell samples](../powershell-samples.md#retrieve-activity-log).
+- Use [az monitor activity-log](/cli/azure/monitor/activity-log) to retrieve the activity log from the CLI.  See [Azure Monitor CLI samples](../cli-samples.md#view-activity-log).
+- Use the [Azure Monitor REST API](/rest/api/monitor/) to retrieve the activity log from a REST client.
+- 
+- 
 ## Legacy collection methods
+
+> [!NOTE]
+> * Azure Activity logs solution was used to forward Activity Logs to Azure Log Analytics. This solution is being retired on the 15th of Sept 2026 and will be automatically converted to Diagnostic settings.
 
 If you're collecting activity logs using the legacy collection method, we recommend you [export activity logs to your Log Analytics workspace](#send-to-log-analytics-workspace) and disable the legacy collection using the [Data Sources - Delete API](/rest/api/loganalytics/data-sources/delete?tabs=HTTP) as follows:
 
-1. List all data sources connected to the workspace using the [Data Sources - List By Workspace API](/rest/api/loganalytics/data-sources/list-by-workspace?tabs=HTTP#code-try-0) and filter for activity logs by setting `filter=kind='AzureActivityLog'`.
+1. List all data sources connected to the workspace using the [Data Sources - List By Workspace API](/rest/api/loganalytics/data-sources/list-by-workspace?tabs=HTTP#code-try-0) and filter for activity logs by setting `kind eq 'AzureActivityLog'`.
 
     :::image type="content" source="media/activity-log/data-sources-list-by-workspace-api.png" alt-text="Screenshot showing the configuration of the Data Sources - List By Workspace API." lightbox="media/activity-log/data-sources-list-by-workspace-api.png":::    
 
@@ -271,6 +249,7 @@ If a log profile already exists, you first must remove the existing log profile,
     |enabled | Yes |True or False. Used to enable or disable the retention policy. If True, then the `days` parameter must be a value greater than zero.
     | categories |Yes |Space-separated list of event categories that should be collected. Possible values are Write, Delete, and Action. |
 
+
 ---
 
 ### Data structure changes
@@ -288,7 +267,6 @@ The columns in the following table have been deprecated in the updated schema. T
 |resourceProviderName	| ResourceProvider 	| ResourceProviderValue	||
 
 > [!Important]
-
 > In some cases, the values in these columns might be all uppercase. If you have a query that includes these columns, use the [=~ operator](/azure/kusto/query/datatypes-string-operators) to do a case-insensitive comparison.
 
 The following columns have been added to `AzureActivity` in the updated schema:
@@ -297,63 +275,11 @@ The following columns have been added to `AzureActivity` in the updated schema:
 - Claims_d
 - Properties_d
 
-## Activity log insights
-
-Activity log insights let you view information about changes to resources and resource groups in a subscription. The dashboards also present data about which users or services performed activities in the subscription and the activities' status. This article explains how to view activity log insights in the Azure portal.
-
-Before you use activity log insights, you must [enable sending logs to your Log Analytics workspace](./diagnostic-settings.md).
-
-### How do activity log insights work?
-
-Activity logs you send to a [Log Analytics workspace](../logs/log-analytics-workspace-overview.md) are stored in a table called `AzureActivity`.
-
-Activity log insights are a curated [Log Analytics workbook](../visualize/workbooks-overview.md) with dashboards that visualize the data in the `AzureActivity` table. For example, data might include which administrators deleted, updated, or created resources and whether the activities failed or succeeded.
-
-:::image type="content" source="media/activity-log/activity-logs-insights-main-screen.png" lightbox= "media/activity-log/activity-logs-insights-main-screen.png" alt-text="Screenshot that shows activity log insights dashboards.":::
-
-### View activity log insights: Resource group or subscription level
-
-To view activity log insights on a resource group or a subscription level:
-
-1. In the Azure portal, select **Monitor** > **Workbooks**.
-1. In the **Insights** section, select **Activity Logs Insights**.
-
-    :::image type="content" source="media/activity-log/open-activity-log-insights-workbook.png" lightbox= "media/activity-log/open-activity-log-insights-workbook.png" alt-text="Screenshot that shows how to locate and open the Activity Logs Insights workbook on a scale level.":::
-
-1. At the top of the **Activity Logs Insights** page, select:
-
-    1. One or more subscriptions from the **Subscriptions** dropdown.
-    1. Resources and resource groups from the **CurrentResource** dropdown.
-    1. A time range for which to view data from the **TimeRange** dropdown.
-
-### View activity log insights on any Azure resource
-
->[!Note]
-> Currently, Application Insights resources aren't supported for this workbook.
-
-To view activity log insights on a resource level:
-
-1. In the Azure portal, go to your resource and select **Workbooks**.
-1. In the **Activity Logs Insights** section, select **Activity Logs Insights**.
-
-    :::image type="content" source="media/activity-log/activity-log-resource-level.png" lightbox= "media/activity-log/activity-log-resource-level.png" alt-text="Screenshot that shows how to locate and open the Activity Logs Insights workbook on a resource level.":::
-
-1. At the top of the **Activity Logs Insights** page, select a time range for which to view data from the **TimeRange** dropdown:
-   
-   * **Azure Activity Log Entries** shows the count of activity log records in each activity log category.
-     
-     :::image type="content" source="media/activity-log/activity-logs-insights-category-value.png" lightbox= "media/activity-log/activity-logs-insights-category-value.png" alt-text="Screenshot that shows Azure activity logs by category value.":::
-    
-   * **Activity Logs by Status** shows the count of activity log records in each status.
-    
-     :::image type="content" source="media/activity-log/activity-logs-insights-status.png" lightbox= "media/activity-log/activity-logs-insights-status.png" alt-text="Screenshot that shows Azure activity logs by status.":::
-    
-   * At the subscription and resource group level, **Activity Logs by Resource** and **Activity Logs by Resource Provider** show the count of activity log records for each resource and resource provider.
-    
-     :::image type="content" source="media/activity-log/activity-logs-insights-resource.png" lightbox= "media/activity-log/activity-logs-insights-resource.png" alt-text="Screenshot that shows Azure activity logs by resource.":::
-
 ## Next steps
 
-* [Read an overview of platform logs](./platform-logs-overview.md)
-* [Review activity log event schema](activity-log-schema.md)
-* [Create a diagnostic setting to send activity logs to other destinations](./diagnostic-settings.md)
+Learn more about:
+
+* [Platform logs](./platform-logs-overview.md)
+* [Activity log event schema](activity-log-schema.md)
+* [Activity log insights](activity-log-insights.md)
+

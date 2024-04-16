@@ -34,7 +34,7 @@ In this tutorial, you'll learn how to:
 * If you used the [Simulator agent tutorial](device-update-simulator.md) for prior testing, run the following command to invoke the APT handler and deploy over-the-air package updates in this tutorial:
 
   ```sh
-  sudo /usr/bin/AducIotAgent --register-content-handler /var/lib/adu/extensions/sources/libmicrosoft_apt_1.so --update-type 'microsoft/a pt:1'
+  sudo /usr/bin/AducIotAgent --register-content-handler /var/lib/adu/extensions/sources/libmicrosoft_apt_1.so --update-type 'microsoft/apt:1'
   ```
 
 ## Prepare a device
@@ -80,16 +80,16 @@ For convenience, this tutorial uses a [cloud-init](../virtual-machines/linux/usi
    > To SSH into this VM after setup, use the associated **DNS name** with the following command:
     `ssh <adminUsername>@<DNS_Name>`.
 
-1. Open the configuration details (See how to [set up configuration file here](device-update-configuration-file.md) with the command below. Set your connectionType as 'AIS' and connectionData as empty string.
+1. Open the configuration details (See how to [set up configuration file here](device-update-configuration-file.md) with the command below. Set your connectionType as 'AIS' and connectionData as empty string. Please note that all values with the 'Place value here' tag must be set. See [Configuring a DU agent](./device-update-configuration-file.md#example-du-configjson-file-contents).
 
    ```bash
-   /etc/adu/du-config.json
+   sudo nano /etc/adu/du-config.json
    ```
 
 1. Restart the Device Update agent.
 
    ```bash
-   sudo systemctl restart adu-agent
+   sudo systemctl restart deviceupdate-agent
    ```
 
 Device Update for Azure IoT Hub software packages are subject to the following license terms:
@@ -116,16 +116,16 @@ Similar to the steps automated by the [cloud-init script](https://github.com/Azu
    sudo apt-get install deviceupdate-agent 
    ```
 
-1. Enter your IoT device's module (or device, depending on how you [provisioned the device with Device Update](device-update-agent-provisioning.md)) primary connection string in the configuration file.
+1. Enter your IoT device's module (or device, depending on how you [provisioned the device with Device Update](device-update-agent-provisioning.md)) primary connection string in the configuration file. Please note that all values with the 'Place value here' tag must be set. See [Configuring a DU agent](./device-update-configuration-file.md#example-du-configjson-file-contents).
 
    ```bash
-   /etc/adu/du-config.json
+   sudo /etc/adu/du-config.json
    ```
 
 1. Restart the Device Update agent.
 
    ```bash
-   sudo systemctl restart adu-agent
+   sudo systemctl restart deviceupdate-agent
    ```
 
 Device Update for Azure IoT Hub software packages are subject to the following license terms:
@@ -147,6 +147,10 @@ Read the license terms before you use a package. Your installation and use of a 
            "ADUGroup": "<CustomTagValue>"
        },
    ```
+
+   :::image type="content" source="media/import-update/device-twin-ppr.png" alt-text="Screenshot that shows twin with tag information." lightbox="media/import-update/device-twin-ppr.png":::
+
+   _This screenshot shows the section where the tag needs to be added in the twin._
 
 ## Import the update
 

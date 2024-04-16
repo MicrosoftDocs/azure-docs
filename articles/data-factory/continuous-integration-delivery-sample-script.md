@@ -7,7 +7,7 @@ author: nabhishek
 ms.author: abnarain
 ms.reviewer: jburchel
 ms.topic: conceptual
-ms.date: 10/25/2022 
+ms.date: 10/20/2023 
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -19,12 +19,12 @@ The following sample demonstrates how to use a pre- and post-deployment script w
 
 ## Install Azure PowerShell
 
-Install the latest Azure PowerShell modules by following instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-Az-ps).
+Install the latest Azure PowerShell modules by following instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-azure-powershell).
 
 >[!WARNING]
 >Make sure to use **PowerShell Core** in ADO task to run the script
 
-## Pre- and post-deployment script
+## Pre- and post-deployment script 
 The sample scripts to stop/ start triggers and update global parameters during release process (CICD) are located in the [Azure Data Factory Official GitHub page](https://github.com/Azure/Azure-DataFactory/tree/main/SamplesV2/ContinuousIntegrationAndDelivery).
 
 > [!NOTE]
@@ -36,12 +36,12 @@ The sample scripts to stop/ start triggers and update global parameters during r
 The following sample script can be used to stop triggers before deployment and restart them afterward. The script also includes code to delete resources that have been removed. Save the script in an Azure DevOps  git repository and reference it via an Azure PowerShell task the latest Azure PowerShell version.
 
 
-When running a pre-deployment script, you will need to specify a variation of the following parameters in the **Script Arguments** field.
+When running a predeployment script, you need to specify a variation of the following parameters in the **Script Arguments** field.
 
 `-armTemplate "$(System.DefaultWorkingDirectory)/<your-arm-template-location>" -ResourceGroupName <your-resource-group-name> -DataFactoryName <your-data-factory-name>  -predeployment $true -deleteDeployment $false`
 
 
-When running a post-deployment script, you will need to specify a variation of the following parameters in the **Script Arguments** field.
+When running a postdeployment script, you need to specify a variation of the following parameters in the **Script Arguments** field.
 
 `-armTemplate "$(System.DefaultWorkingDirectory)/<your-arm-template-location>" -ResourceGroupName <your-resource-group-name> -DataFactoryName <your-data-factory-name>  -predeployment $false -deleteDeployment $true`
 
@@ -50,8 +50,42 @@ When running a post-deployment script, you will need to specify a variation of t
 
 :::image type="content" source="media/continuous-integration-delivery/continuous-integration-image11.png" alt-text="Azure PowerShell task":::
 
+## Script execution and parameters - YAML Pipelines
+The following YAML code executes a script that can be used to stop triggers before deployment and restart them afterward. The script also includes code to delete resources that have been removed. If you're following the steps outlined in [New CI/CD Flow](continuous-integration-delivery-improvements.md), this script is exported as part of artifact created via the npm publish package.
 
-## Next steps
+### Stop ADF Triggers
+```
+ - task: AzurePowerShell@5
+            displayName: Stop ADF Triggers
+            inputs:
+              scriptType: 'FilePath'
+              ConnectedServiceNameARM: AzureDevServiceConnection
+              scriptPath: ../ADFTemplates/PrePostDeploymentScript.ps1
+              ScriptArguments: -armTemplate "<your-arm-template-location>" -ResourceGroupName <your-resource-group-name> -DataFactoryName <your-data-factory-name> -predeployment $true -deleteDeployment $false
+              errorActionPreference: stop
+              FailOnStandardError: False
+              azurePowerShellVersion: 'LatestVersion'
+              pwsh: True
+              workingDirectory: ../
+```
+
+### Start ADF Triggers
+```
+          - task: AzurePowerShell@5
+            displayName: Start ADF Triggers
+            inputs:
+              scriptType: 'FilePath'
+              ConnectedServiceNameARM: AzureDevServiceConnection
+              scriptPath: ../ADFTemplates/PrePostDeploymentScript.ps1
+              ScriptArguments: -armTemplate "<your-arm-template-location>" -ResourceGroupName <your-resource-group-name> -DataFactoryName <your-data-factory-name>-predeployment $false -deleteDeployment $true
+              errorActionPreference: stop
+              FailOnStandardError: False
+              azurePowerShellVersion: 'LatestVersion'
+              pwsh: True
+              workingDirectory: ../
+```
+
+## Related content
 
 - [Continuous integration and delivery overview](continuous-integration-delivery.md)
 - [Automate continuous integration using Azure Pipelines releases](continuous-integration-delivery-automate-azure-pipelines.md)

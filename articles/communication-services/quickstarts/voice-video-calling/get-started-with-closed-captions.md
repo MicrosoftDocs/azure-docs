@@ -9,13 +9,13 @@ ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: calling
 zone_pivot_groups: acs-plat-web-ios-android
-ms.custom: mode-api
+ms.custom: mode-api, devx-track-js
 ---
 
 # QuickStart: Add closed captions to your calling app
 
 
-[!INCLUDE [Private Preview Disclaimer](../../includes/private-preview-include-section.md)]
+[!INCLUDE [Public Preview Disclaimer](../../includes/public-preview-include-document.md)]
 
 ::: zone pivot="platform-web"
 [!INCLUDE [Closed Captions for Web](./includes/closed-captions/closed-captions-javascript.md)]
@@ -36,6 +36,7 @@ If you want to clean up and remove a Communication Services subscription, you ca
 ## Next steps
 For more information, see the following articles:
 
+- Learn more about using closed captions in [Teams interop](../../concepts/interop/enable-closed-captions.md) scenarios. 
 - Check out our [web calling sample](../../samples/web-calling-sample.md)
 - Learn about [Calling SDK capabilities](./getting-started-with-calling.md?pivots=platform-web)
 - Learn more about [how calling works](../../concepts/voice-video-calling/about-call-types.md)

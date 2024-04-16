@@ -4,12 +4,12 @@ description: Learn how to create HDInsight clusters with secure transfer enabled
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 06/08/2022
+ms.date: 03/23/2024
 ---
 
 # Apache Hadoop clusters with secure transfer storage accounts in Azure HDInsight
 
-The [Secure transfer required](../storage/common/storage-require-secure-transfer.md) feature enhances the security of your Azure Storage account by enforcing all requests to your account through a secure connection. This feature and the wasbs scheme are only supported by HDInsight cluster version 3.6 or newer.
+The [Secure transfer required](../storage/common/storage-require-secure-transfer.md) feature enhances the security of your Azure Storage account by enforcing all requests to your account through a secure connection. This feature and the wasbs scheme supported by HDInsight cluster version 3.6 or newer.
 
 > [!IMPORTANT]
 > Enabling secure storage transfer after creating a cluster can result in errors using your storage account and is not recommended. It is better to create a new cluster using a storage account with secure transfer already enabled.
@@ -34,10 +34,10 @@ For the Azure CLI command [az storage account create](/cli/azure/storage/account
 
 To update an existing storage account with Azure CLI, see [Require secure transfer with Azure CLI](../storage/common/storage-require-secure-transfer.md#require-secure-transfer-with-azure-cli).
 
-### Secure transfer error(s)
+### Secure transfer errors
 
 
-If you accidentally enabled the 'Require secure transfer' option after creating the HDInsight cluster, you may be seeing error messages like the following:
+If you accidentally enabled the 'Require secure transfer' option after creating the HDInsight cluster, you may be seeing error messages as follow:
 
 `com.microsoft.azure.storage.StorageException: The account being accessed does not support http.`
 
@@ -46,16 +46,16 @@ For Hbase clusters only, you can try the following steps to restore the cluster 
 2. Stop HDFS from Ambari.
 3. In Ambari, navigate to HDFS --> Configs --> Advanced --> fs.defaultFS
 4. Change wasb to wasbs and save it.
-5. If you are using the Accelerated Writes feature, the 'hbase.rootDir' under the hbase configs also needs to be changed from wasb to wasbs.
+5. If you're using the Accelerated Writes feature, the 'hbase.rootDir' under the hbase configs also needs to be changed from wasb to wasbs.
 6. Restart all required services.
 
-## Add additional storage accounts
+## Add more storage accounts
 
-There are several options to add additional secure transfer enabled storage accounts:
+There are several options to add more secure transfer enabled storage accounts:
 
 * Modify the Azure Resource Manager template in the last section.
 * Create a cluster using the [Azure portal](https://portal.azure.com) and specify linked storage account.
-* Use script action to add additional secure transfer enabled storage accounts to an existing HDInsight cluster. For more information, see [Add additional storage accounts to HDInsight](hdinsight-hadoop-add-storage.md).
+* Use script action to add more secure transfer enabled storage accounts to an existing HDInsight cluster. For more information, see [Add more storage accounts to HDInsight](hdinsight-hadoop-add-storage.md).
 
 ## Next steps
 

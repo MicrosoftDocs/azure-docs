@@ -1,10 +1,12 @@
 ---
 title: Deploy Australian Government ISM PROTECTED blueprint sample
 description: Deploy steps for the Australian Government ISM PROTECTED blueprint sample including blueprint artifact parameter details.
-ms.date: 09/08/2021
+ms.date: 09/07/2023
 ms.topic: sample
 ---
 # Deploy the Australian Government ISM PROTECTED blueprint sample
+
+[!INCLUDE [Blueprints deprecation note](../../../../../includes/blueprints-deprecation-note.md)]
 
 To deploy the Azure Blueprints ISM PROTECTED blueprint sample, the following steps must be taken:
 
@@ -189,7 +191,7 @@ The following table provides a list of the blueprint artifact parameters:
 |\[Preview\]: Audit Australian Government ISM PROTECTED controls and deploy specific VM Extensions to support audit requirements|Policy assignment|MFA should be enabled accounts with write permissions on your subscription|Information about policy effects can be found at [Understand Azure Policy Effects](../../../policy/concepts/effects.md).|
 |\[Preview\]: Audit Australian Government ISM PROTECTED controls and deploy specific VM Extensions to support audit requirements|Policy assignment|Microsoft IaaSAntimalware extension should be deployed on Windows servers|Information about policy effects can be found at [Understand Azure Policy Effects](../../../policy/concepts/effects.md). |
 |\[Preview\]: Audit Australian Government ISM PROTECTED controls and deploy specific VM Extensions to support audit requirements|Policy assignment|Web Application should only be accessible over HTTPS v2  |Information about policy effects can be found at [Understand Azure Policy Effects](../../../policy/concepts/effects.md). |
-|\[Preview\]: Audit Australian Government ISM PROTECTED controls and deploy specific VM Extensions to support audit requirements|Policy assignment|DDoS Protection Standard should be enabled  |Information about policy effects can be found at [Understand Azure Policy Effects](../../../policy/concepts/effects.md). |
+|\[Preview\]: Audit Australian Government ISM PROTECTED controls and deploy specific VM Extensions to support audit requirements|Policy assignment|DDoS Protection should be enabled  |Information about policy effects can be found at [Understand Azure Policy Effects](../../../policy/concepts/effects.md). |
 |\[Preview\]: Audit Australian Government ISM PROTECTED controls and deploy specific VM Extensions to support audit requirements|Policy assignment|MFA should be enabled on accounts with owner permissions on your subscription |Information about policy effects can be found at [Understand Azure Policy Effects](../../../policy/concepts/effects.md).|
 |\[Preview\]: Audit Australian Government ISM PROTECTED controls and deploy specific VM Extensions to support audit requirements|Policy assignment|Advanced data security should be enabled on your SQL servers |Information about policy effects can be found at [Understand Azure Policy Effects](../../../policy/concepts/effects.md).|
 |\[Preview\]: Audit Australian Government ISM PROTECTED controls and deploy specific VM Extensions to support audit requirements|Policy assignment|Advanced data security should be enabled on your SQL managed instances |Information about policy effects can be found at [Understand Azure Policy Effects](../../../policy/concepts/effects.md).|

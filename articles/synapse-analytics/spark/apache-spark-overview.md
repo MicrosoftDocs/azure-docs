@@ -1,13 +1,12 @@
 ---
 title: Apache Spark in Azure Synapse Analytics overview
 description: This article provides an introduction to Apache Spark in Azure Synapse Analytics and the different scenarios in which you can use Spark.
-services: synapse-analytics 
 author: juluczni
 ms.author: juluczni
 ms.service: synapse-analytics 
 ms.topic: overview
 ms.subservice: spark
-ms.date: 05/23/2022
+ms.date: 12/06/2022
 ms.reviewer: euang
 ms.custom: kr2b-contr-experiment
 ---
@@ -20,7 +19,7 @@ Apache Spark is a parallel processing framework that supports in-memory processi
 
 ## What is Apache Spark
 
-Apache Spark provides primitives for in-memory cluster computing. A Spark job can load and cache data into memory and query it repeatedly. In-memory computing is much faster than disk-based applications. Spark also integrates with multiple programming languages to let you manipulate distributed data sets like local collections. There's no need to structure everything as map and reduce operations.
+Apache Spark provides primitives for in-memory cluster computing. A Spark job can load and cache data into memory and query it repeatedly. In-memory computing is much faster than disk-based applications. Spark also integrates with multiple programming languages to let you manipulate distributed data sets like local collections. There's no need to structure everything as map and reduce operations. You can learn more from the [Apache Spark for Synapse video](https://www.youtube.com/watch?v=bTdu3PjXN3o).
 
 ![Diagram shows Traditional MapReduce, with disk-based apps and Spark, with cache-based operations.](./media/apache-spark-overview/map-reduce-vs-spark.png)
 
@@ -60,11 +59,16 @@ Spark pools in Azure Synapse Analytics enable the following key scenarios:
 
 - Data Engineering/Data Preparation
 
-  Apache Spark includes language features to support preparation and processing of large volumes of data so that it can be made more valuable and then consumed by other services within Azure Synapse Analytics. This approach is enabled through multiple languages, including C#, Scala, PySpark, and Spark SQL, and supplied libraries for processing and connectivity.
+Apache Spark includes many language features to support preparation and processing of large volumes of data so that it can be made more valuable and then consumed by other services within Azure Synapse Analytics. This is enabled through multiple languages (C#, Scala, PySpark, Spark SQL) and supplied libraries for processing and connectivity.
 
 - Machine Learning
 
-  Apache Spark comes with [MLlib](https://spark.apache.org/mllib/), a machine learning library built on top of Spark that you can use from a Spark pool in Azure Synapse Analytics. Spark pools in Azure Synapse Analytics also include Anaconda, a Python distribution with various packages for data science including machine learning. When combined with built-in support for notebooks, you have an environment for creating machine learning applications.
+Apache Spark comes with [MLlib](https://spark.apache.org/mllib/), a machine learning library built on top of Spark that you can use from a Spark pool in Azure Synapse Analytics. Spark pools in Azure Synapse Analytics also include Anaconda, a Python distribution with a variety of packages for data science including machine learning. When combined with built-in support for notebooks, you have an environment for creating machine learning applications.
+
+- Streaming Data
+
+Synapse Spark supports Spark structured streaming as long as you are running supported version of Azure Synapse Spark runtime release. All jobs are supported to live for seven days. This applies to both batch and streaming jobs, and generally, customers automate restart process using Azure Functions.
+
 
 ## Where do I start
 
@@ -73,7 +77,6 @@ Use the following articles to learn more about Apache Spark in Azure Synapse Ana
 - [Quickstart: Create a Spark pool in Azure Synapse](../quickstart-create-apache-spark-pool-portal.md)
 - [Quickstart: Create an Apache Spark notebook](../quickstart-apache-spark-notebook.md)
 - [Tutorial: Machine learning using Apache Spark](./apache-spark-machine-learning-mllib-notebook.md)
-- [Apache Spark official documentation](https://spark.apache.org/docs/2.4.5/)
 
 > [!NOTE]
 > Some of the official Apache Spark documentation relies on using the Spark console, which is not available on Azure Synapse Spark. Use the notebook or IntelliJ experiences instead.

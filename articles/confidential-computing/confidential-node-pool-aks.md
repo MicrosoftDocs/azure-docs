@@ -1,13 +1,14 @@
 ---
 title: Confidential VM node pools support on AKS with AMD SEV-SNP confidential VMs
-description: Learn about confidential node pool support on AKS with AMD SEV-SNP confidential VMs 
+description: Learn about confidential node pool support on AKS with AMD SEV-SNP confidential VMs
 services: container-service
 author: ananyagarg
 ms.topic: article
 ms.date: 10/04/2022
 ms.author: ananyagarg
-ms.service: container-service
-ms.custom: inspire-fall-2022, ignite-2022
+ms.service: virtual-machines
+ms.subservice: confidential-computing
+ms.custom: inspire-fall-2022
 ---
 
 # Confidential VM node pool support on AKS with AMD SEV-SNP confidential VMs

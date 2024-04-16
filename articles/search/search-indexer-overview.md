@@ -1,25 +1,29 @@
 ---
 title: Indexer overview
-titleSuffix: Azure Cognitive Search
-description: Crawl Azure SQL Database, SQL Managed Instance, Azure Cosmos DB, or Azure storage to extract searchable data and populate an Azure Cognitive Search index.
+titleSuffix: Azure AI Search
+description: Crawl Azure SQL Database, SQL Managed Instance, Azure Cosmos DB, or Azure storage to extract searchable data and populate an Azure AI Search index.
 
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
-ms.custom: ignite-2022
+ms.custom:
+  - ignite-2023
 ms.topic: conceptual
-ms.date: 07/27/2022
+ms.date: 12/18/2023
 ---
 
-# Indexers in Azure Cognitive Search
+# Indexers in Azure AI Search
 
-An *indexer* in Azure Cognitive Search is a crawler that extracts searchable content from cloud data sources and populates a search index using field-to-field mappings between source data and a search index. This approach is sometimes referred to as a 'pull model' because the search service pulls data in without you having to write any code that adds data to an index. Indexers also drive the [AI enrichment](cognitive-search-concept-intro.md) capabilities of Cognitive Search, integrating external processing of content en route to an index.
+An *indexer* in Azure AI Search is a crawler that extracts textual data from cloud data sources and populates a search index using field-to-field mappings between source data and a search index. This approach is sometimes referred to as a 'pull model' because the search service pulls data in without you having to write any code that adds data to an index. 
 
-Indexers are cloud-only, with individual indexers for [supported data sources](#supported-data-sources). When configuring an indexer, you'll specify a data source (origin) and a search index (destination). Several sources, such as Azure Blob Storage, have more configuration properties specific to that content type.
+Indexers also drive [skillset execution and AI enrichment](cognitive-search-concept-intro.md), where you can configure skills to integrate extra processing of content en route to an index. A few examples are OCR over image files, text split skill for data chunking, text translation for multiple languages.
 
-You can run indexers on demand or on a recurring data refresh schedule that runs as often as every five minutes. More frequent updates require a ['push model'](search-what-is-data-import.md) that simultaneously updates data in both Azure Cognitive Search and your external data source.
+Indexers target [supported data sources](#supported-data-sources). An indexer configuration specifies a data source (origin) and a search index (destination). Several sources, such as Azure Blob Storage, have more configuration properties specific to that content type.
 
+You can run indexers on demand or on a recurring data refresh schedule that runs as often as every five minutes. More frequent updates require a ['push model'](search-what-is-data-import.md) that simultaneously updates data in both Azure AI Search and your external data source.
+
+A search service runs one indexer job per search unit. If you need concurrent processing, make sure you have [sufficient replicas](/azure/search/search-capacity-planning#add-or-reduce-replicas-and-partitions). Indexers don't run in the background, so you might detect more query throttling than usual if the service is under pressure.
 
 ## Indexer scenarios and use cases
 
@@ -29,8 +33,16 @@ You can use an indexer as the sole means for data ingestion, or in combination w
 |----------|---------|
 | Single data source | This pattern is the simplest: one data source is the sole content provider for a search index. Most supported data sources provide some form of change detection so that subsequent indexer runs pick up the difference when content is added or updated in the source. |
 | Multiple data sources | An indexer specification can have only one data source, but the search index itself can accept content from multiple sources, where each indexer run brings new content from a different data provider. Each source can contribute its share of full documents, or populate selected fields in each document. For a closer look at this scenario, see [Tutorial: Index from multiple data sources](tutorial-multiple-data-sources.md). |
-| Multiple indexers | Multiple data sources are typically paired with multiple indexers if you need to vary run time parameters, the schedule, or field mappings. </br></br>[Cross-region scale out of Cognitive Search](search-performance-optimization.md#data-sync) is another scenario. You might have copies of the same search index in different regions. To synchronize search index content, you could have multiple indexers pulling from the same data source, where each indexer targets a different search index in each region.</br></br>[Parallel indexing](search-howto-large-index.md#parallel-indexing) of very large data sets also requires a multi-indexer strategy, where each indexer targets a subset of the data. |
-| Content transformation | Indexers drive [AI enrichment](cognitive-search-concept-intro.md). Content transforms are defined in a [skillset](cognitive-search-working-with-skillsets.md) that you attach to the indexer.|
+| Multiple indexers | Multiple data sources are typically paired with multiple indexers if you need to vary run time parameters, the schedule, or field mappings. </br></br>[Cross-region scale out of Azure AI Search](search-reliability.md#data-sync) is another scenario. You might have copies of the same search index in different regions. To synchronize search index content, you could have multiple indexers pulling from the same data source, where each indexer targets a different search index in each region.</br></br>[Parallel indexing](search-howto-large-index.md#parallel-indexing) of very large data sets also requires a multi-indexer strategy, where each indexer targets a subset of the data. |
+| Content transformation | Indexers drive [skillset execution and AI enrichment](cognitive-search-concept-intro.md). Content transforms are defined in a [skillset](cognitive-search-working-with-skillsets.md) that you attach to the indexer. You can use skills to [incorporate data chunking and vectorization](vector-search-integrated-vectorization.md).|
+
+ You should plan on creating one indexer for every target index and data source combination. You can have multiple indexers writing into the same index, and you can reuse the same data source for multiple indexers. However, an indexer can only consume one data source at a time, and can only write to a single index. As the following graphic illustrates, one data source provides input to one indexer, which then populates a single index:  
+
+:::image type="content" source="media/search-indexer-overview/azsrch-ds-indxr-index.png" alt-text="Diagram of indexer workflow.":::
+
+ Although you can only use one indexer at a time, resources can be used in different combinations. The main takeaway of the next illustration is to notice is that a data source can be paired with more than one indexer, and multiple indexers can write to same index.  
+
+:::image type="content" source="media/search-indexer-overview/azsrch-ds2-indexer3-index2.png" alt-text="Diagram of multiple combinations of data sources, indexers, and indexes.":::
 
 <a name="supported-data-sources"></a>
 
@@ -51,9 +63,11 @@ Indexers crawl data stores on Azure and outside of Azure.
 + [Azure Cosmos DB for MongoDB](search-howto-index-cosmosdb-mongodb.md) (in preview)
 + [Azure Cosmos DB for Apache Gremlin](search-howto-index-cosmosdb-gremlin.md) (in preview)
 
+Azure Cosmos DB for Cassandra is not supported.
+
 Indexers accept flattened row sets, such as a table or view, or items in a container or folder. In most cases, it creates one search document per row, record, or item.
 
-Indexer connections to remote data sources can be made using standard Internet connections (public) or encrypted private connections when you use Azure virtual networks for client apps. You can also set up connections to authenticate using a managed identity. For more information about secure connections, see [Indexer access to content protected by Azure network security features](search-indexer-securing-resources.md) and [Connect to a data source using a managed identity](search-howto-managed-identities-data-sources.md).
+Indexer connections to remote data sources can be made using standard Internet connections (public) or encrypted private connections when you use a shared private link. You can also set up connections to authenticate using a managed identity. For more information about secure connections, see [Indexer access to content protected by Azure network security features](search-indexer-securing-resources.md) and [Connect to a data source using a managed identity](search-howto-managed-identities-data-sources.md).
 
 ## Stages of indexing
 
@@ -61,7 +75,7 @@ On an initial run, when the index is empty, an indexer will read in all of the d
 
 For each document it receives, an indexer implements or coordinates multiple steps, from document retrieval to a final search engine "handoff" for indexing. Optionally, an indexer also drives [skillset execution and outputs](cognitive-search-concept-intro.md), assuming a skillset is defined.
 
-:::image type="content" source="media/search-indexer-overview/indexer-stages.png" alt-text="Indexer Stages" border="false":::
+:::image type="content" source="media/search-indexer-overview/indexer-stages.png" alt-text="Diagram of indexer stages." border="false":::
 
 <a name="document-cracking"></a>
 
@@ -99,7 +113,7 @@ Despite the similarity in names, output field mappings and field mappings build 
 
 The next image shows a sample indexer [debug session](cognitive-search-debug-session.md) representation of the indexer stages: document cracking, field mappings, skillset execution, and output field mappings.
 
-:::image type="content" source="media/search-indexer-overview/sample-debug-session.png" alt-text="sample debug session" lightbox="media/search-indexer-overview/sample-debug-session.png":::
+:::image type="content" source="media/search-indexer-overview/sample-debug-session.png" alt-text="Screenshot of a sample debug session." lightbox="media/search-indexer-overview/sample-debug-session.png":::
 
 ## Basic workflow
 
@@ -107,24 +121,30 @@ Indexers can offer features that are unique to the data source. In this respect,
 
 ### Step 1: Create a data source
 
-Indexers require a *data source* object that provides a connection string and possibly credentials. Call the [Create Data Source (REST)](/rest/api/searchservice/create-data-source) or [SearchIndexerDataSourceConnection class](/dotnet/api/azure.search.documents.indexes.models.searchindexerdatasourceconnection) to create the resource.
+Indexers require a *data source* object that provides a connection string and possibly credentials. Data sources are independent objects. Multiple indexers can use the same data source object to load more than one index at a time.
 
-Data sources are independent objects. Multiple indexers can use the same data source object to load more than one index at a time.
+You can create a data source using any of these approaches:
+
++ Using the Azure portal, on the **Data sources** tab of your search service pages, select **Add data source** to specify the data source definition.
++ Using the Azure portal, the [Import data wizard](search-import-data-portal.md) outputs a data source.
++ Using the REST APIs, call [Create Data Source](/rest/api/searchservice/create-data-source).
++ Using the Azure SDK for .NET, call [SearchIndexerDataSourceConnection class](/dotnet/api/azure.search.documents.indexes.models.searchindexerdatasourceconnection)
 
 ### Step 2: Create an index
 
-An indexer will automate some tasks related to data ingestion, but creating an index is generally not one of them. As a prerequisite, you must have a predefined index that contains corresponding target fields for any source fields in your external data source. Fields need to match by name and data type. If not, you can [define field mappings](search-indexer-field-mappings.md) to establish the association. For more information about structuring an index, see [Create an Index (REST)](/rest/api/searchservice/Create-Index) or [SearchIndex class](/dotnet/api/azure.search.documents.indexes.models.searchindex).
+An indexer will automate some tasks related to data ingestion, but creating an index is generally not one of them. As a prerequisite, you must have a predefined index that contains corresponding target fields for any source fields in your external data source. Fields need to match by name and data type. If not, you can [define field mappings](search-indexer-field-mappings.md) to establish the association. 
 
-> [!Tip]
-> Although indexers cannot generate an index for you, the **Import data** wizard in the portal can help. In most cases, the wizard can infer an index schema from existing metadata in the source, presenting a preliminary index schema which you can edit in-line while the wizard is active. Once the index is created on the service, further edits in the portal are mostly limited to adding new fields. Consider the wizard for creating, but not revising, an index. For hands-on learning, step through the [portal walkthrough](search-get-started-portal.md).
+For more information, see [Create an index](search-how-to-create-search-index.md).
 
 ### Step 3: Create and run (or schedule) the indexer
 
-By default, the first indexer execution occurs when you [create an indexer](/rest/api/searchservice/Create-Indexer) on the search service. You can set the "disabled" property in an indexer to create it without running it.
+An indexer definition consists of properties that uniquely identify the indexer, specify which data source and index to use, and provide other configuration options that influence run time behaviors, including whether the indexer runs on demand or on a schedule.
 
-Any errors or warnings about data access or skillset validation will occur during indexer execution. Until indexer execution starts, dependent objects such as data sources and skillsets are passive on the search service. 
+Any errors or warnings about data access or skillset validation will occur during indexer execution. Until indexer execution starts, dependent objects such as data sources, indexes, and skillsets are passive on the search service. 
 
-After the first indexer run, you can rerun it on demand using [Run Indexer](/rest/api/searchservice/run-indexer), or you can [define a recurring schedule](search-howto-schedule-indexers.md). 
+For more information, see [Create an indexer](search-howto-create-indexers.md)
+
+After the first indexer run, you can [rerun it on demand](search-howto-run-reset-indexers.md) or [set up a schedule](search-howto-schedule-indexers.md).
 
 You can monitor [indexer status in the portal](search-howto-monitor-indexers.md) or through [Get Indexer Status API](/rest/api/searchservice/get-indexer-status). You should also [run queries on the index](search-query-create.md) to verify the result is what you expected.
 

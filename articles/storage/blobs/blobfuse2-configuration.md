@@ -1,17 +1,16 @@
 ---
-title: Configure settings for BlobFuse2 (preview)
-titleSuffix: Azure Blob Storage
-description: Learn about your options for setting and changing configuration settings for BlobFuse2 (preview).
-author: jimmart-dev
-ms.author: jammart
+title: How to configure settings for BlobFuse2
+titleSuffix: Azure Storage
+description: Learn how to configure settings for BlobFuse2.
+author: akashdubey-ms
+ms.author: akashdubey
 ms.reviewer: tamram
-ms.service: storage
-ms.subservice: blobs
+ms.service: azure-blob-storage
 ms.topic: how-to
-ms.date: 10/17/2022
+ms.date: 12/02/2022
 ---
 
-# Configure settings for BlobFuse2 (preview)
+# How to configure settings for BlobFuse2
 
 You can use configuration settings to manage BlobFuse2 in your deployment. Through configuration settings, you can set these aspects of how BlobFuse2 works in your environment:
 
@@ -23,15 +22,11 @@ You can use configuration settings to manage BlobFuse2 in your deployment. Throu
 
 For a list of all BlobFuse2 settings and their descriptions, see the [base configuration file on GitHub](https://github.com/Azure/azure-storage-fuse/blob/main/setup/baseConfig.yaml).
 
-[!INCLUDE [storage-blobfuse2-preview](../../../includes/storage-blobfuse2-preview.md)]
-
 To manage configuration settings for BlobFuse2, you have three options (in order of precedence):
 
-(1) [Configuration file](#configuration-file)
-
-(2) [Environment variables](#environment-variables)
-
-(3) [CLI parameters](#cli-parameters)
+- [Configuration file](#configuration-file)
+- [Environment variables](#environment-variables)
+- [CLI parameters](#cli-parameters)
 
 Using a configuration file is the preferred method, but the other methods might be useful in some circumstances.
 

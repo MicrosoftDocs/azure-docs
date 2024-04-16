@@ -1,10 +1,10 @@
 ---
 title: include file
-description: include file 
+description: include file
 services: cognitive-services
 author: aahill
 manager: nitinme
-ms.custom: seodec18, include file
+ms.custom: include file
 ms.service: cognitive-services
 ms.subservice: luis
 ms.topic: include

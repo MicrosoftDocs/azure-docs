@@ -6,7 +6,7 @@ ms.author: dech
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/04/2018
-ms.custom: devx-track-csharp, ignite-2022
+ms.custom: devx-track-csharp
 ---
 # Retiring the S1, S2, and S3 performance levels
 [!INCLUDE[NoSQL, MongoDB, Cassandra, Gremlin, Table](includes/appliesto-nosql-mongodb-cassandra-gremlin-table.md)]
@@ -74,10 +74,6 @@ Assuming you have 10 S1 collections, 1 GB of storage for each, in the US East re
 :::image type="content" source="./media/performance-levels/s1-vs-standard-pricing.png" alt-text="How S1 pricing for 10 collections compares to 10 collections using pricing for a single partition collection" border="false":::
 
 <a name="more-storage-needed"></a>
-
-## What if I need more than 20 GB of storage?
-
-Whether you have a collection with S1, S2, or S3 performance level, or have a single partition collection, all of which have 20 GB of storage available, you can use the Azure Cosmos DB Data Migration tool to migrate your data to a partitioned collection with virtually unlimited storage. For information about the benefits of a partitioned collection, see [Partitioning and scaling in Azure Cosmos DB](partitioning-overview.md). 
 
 <a name="change-before"></a>
 

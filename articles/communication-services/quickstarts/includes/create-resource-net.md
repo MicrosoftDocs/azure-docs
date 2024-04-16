@@ -41,9 +41,9 @@ To communicate with Azure Communication Services, you must first authenticate yo
 
 ### Option 1: Managed Identity
 
-If your code is running as a service in Azure, the easiest way to authenticate is to acquire a managed identity from Azure. Learn more about [managed identities](../../../active-directory/managed-identities-azure-resources/overview.md).
+If your code is running as a service in Azure, the easiest way to authenticate is to acquire a managed identity from Azure. Learn more about [managed identities](/entra/identity/managed-identities-azure-resources/overview).
 
-[Azure services that support Managed Identities](../../../active-directory/managed-identities-azure-resources/services-support-managed-identities.md)
+[Azure services that support Managed Identities](/entra/identity/managed-identities-azure-resources/managed-identities-status)
 
 [How to use managed identities for App Service and Azure Functions](../../../app-service/overview-managed-identity.md?tabs=dotnet)
 
@@ -76,7 +76,7 @@ var acsClient = new CommunicationManagementClient(subscriptionId, managedIdentit
 
 ### Option 2: Service Principal
 
-Instead of using a managed identity, you may want to authenticate to Azure using a service principal that you manage yourself. Learn more using documentation on [creating and managing a service principal in Azure Active Directory](../../../active-directory/develop/howto-create-service-principal-portal.md).
+Instead of using a managed identity, you may want to authenticate to Azure using a service principal that you manage yourself. Learn more using documentation on [creating and managing a service principal in Microsoft Entra ID](/entra/identity-platform/howto-create-service-principal-portal).
 
 After you've created your service principal, you'll need to collect the following information about it from the Azure portal:
 
@@ -98,7 +98,7 @@ var acsClient = new CommunicationManagementClient(subscriptionId, new Environmen
 
 ### Option 3: User Identity
 
-If you want to call Azure on behalf of an interactive user, rather than using a service identity, you can use the following code to create an Azure Communication Services Management client. This will open a browser window to prompt the user for their MSA or Azure AD credentials.
+If you want to call Azure on behalf of an interactive user, rather than using a service identity, you can use the following code to create an Azure Communication Services Management client. This will open a browser window to prompt the user for their MSA or Microsoft Entra credentials.
 
 ```csharp
 using Azure.Identity;

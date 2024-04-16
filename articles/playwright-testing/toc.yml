@@ -1,0 +1,81 @@
+items:
+- name: Microsoft Playwright Testing documentation
+  href: index.yml
+- name: Overview
+  expanded: true
+  items: 
+    - name: What is Microsoft Playwright Testing?
+      displayName: Playwright, MPT, overview, introduction
+      href: overview-what-is-microsoft-playwright-testing.md
+    - name: Try Microsoft Playwright Testing for free
+      displayName: free trial, free, trial, try
+      href: how-to-try-playwright-testing-free.md
+- name: Quickstarts
+  expanded: true
+  items: 
+    - name: Run end-to-end tests at scale
+      displayName: getting started, quickstart, cli, command-line, playwright
+      href: quickstart-run-end-to-end-tests.md
+    - name: Set up continuous end-to-end testing
+      displayName: getting started, quickstart, github actions, azure pipelines, azure devops, ci/cd, CICD, continuous integration, continuous delivery
+      href: quickstart-automate-end-to-end-testing.md
+- name: Concepts
+  expanded: true
+  items:
+    - name: Determine optimal test suite configuration
+      displayName: workers, concurrency, parallel, parallelism, parallelize, parallelization
+      href: concept-determine-optimal-configuration.md
+- name: How-to guides
+  expanded: true
+  items:
+    - name: Optimize regional latency
+      displayName: region, location, workspace, location preference, latency
+      href: how-to-optimize-regional-latency.md
+    - name: Manage workspaces
+      href: how-to-manage-playwright-workspace.md
+    - name: Manage access tokens
+      displayName: permissions, access, security, authentication, authorization, keys, secrets, revoke
+      href: how-to-manage-access-tokens.md
+    - name: Manage workspace access
+      displayName: RBAC, permissions, access, role-based access control, users, roles, security, authorization, authentication, grant, revoke
+      href: how-to-manage-workspace-access.md
+    - name: Run tests for local apps
+      displayName: local, localhost, internal app, private apps, private endpoint
+      href: how-to-test-local-applications.md
+    - name: Configure visual comparisons
+      href: how-to-configure-visual-comparisons.md   
+    - name: Monitor Microsoft Playwright Testing
+      href: monitor-playwright-testing.md
+
+- name: Samples
+  items:
+    - name: Contoso Traders cloud testing demo
+      href: https://github.com/microsoft/contosotraders-cloudtesting/
+    - name: Examples repository
+      href: https://github.com/microsoft/playwright-testing-service/
+
+- name: Troubleshoot & debug
+  expanded: true
+  items:
+    - name: Troubleshoot Playwright portal sign-in issues
+      href: troubleshoot-unable-sign-into-playwright-portal.md
+    - name: Troubleshoot test run failures
+      href: troubleshoot-test-run-failures.md
+- name: Resources
+  items: 
+    - name: Azure roadmap
+      href: https://azure.microsoft.com/roadmap/
+    - name: Playwright documentation
+      href: https://playwright.dev
+    - name: Pricing
+      href: https://aka.ms/mpt/pricing
+    - name: Regional availability
+      href: https://azure.microsoft.com/regions/services/
+    - name: Service limits
+      displayName: quotas, limits, capacity, supported browsers, supported platforms, supported operating systems, supported OS, supported OSes, supported OSs, supported devices, supported device, supported mobile devices, supported mobile device, supported mobile OS, supported mobile OSes, supported mobile operating systems, supported mobile operating system,
+      href: resource-limits-quotas-capacity.md
+- name: Reference
+  expanded: false
+  items: 
+    - name: Monitoring data reference
+      href: monitor-playwright-testing-reference.md

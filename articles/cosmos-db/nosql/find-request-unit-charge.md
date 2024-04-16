@@ -1,14 +1,15 @@
 ---
 title: Find request unit charge for a SQL query in Azure Cosmos DB
-description: Find the request unit charge for SQL queries against containers created with Azure Cosmos DB, using the Azure portal, .NET, Java, Python, or Node.js. 
+description: Find the request unit charge for SQL queries against containers created with Azure Cosmos DB, using the Azure portal, .NET, Java, Python, or Node.js.
 author: jcocchi
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: how-to
 ms.date: 06/02/2022
 ms.author: jucocchi
-ms.devlang: csharp, java, javascript, python
-ms.custom: devx-track-js, kr2b-contr-experiment, ignite-2022
+ms.devlang: csharp
+# ms.devlang: csharp, java, javascript, python
+ms.custom: devx-track-js, kr2b-contr-experiment, devx-track-dotnet, devx-track-extended-java, devx-track-python
 ---
 
 # Find the request unit charge for operations in Azure Cosmos DB for NoSQL
@@ -26,7 +27,7 @@ Currently, you can measure consumption only by using the Azure portal or by insp
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
-1. [Create a new Azure Cosmos DB account](quickstart-dotnet.md#create-account) and feed it with data, or select an existing Azure Cosmos DB account that already contains data.
+1. [Create a new Azure Cosmos DB account](how-to-create-account.md) and feed it with data, or select an existing Azure Cosmos DB account that already contains data.
 
 1. Go to the **Data Explorer** pane, and then select the container you want to work on.
 
@@ -152,16 +153,26 @@ For more information, see [Quickstart: Build a Node.js app by using an Azure Cos
 
 ## Use the Python SDK
 
-The `CosmosClient` object from the [Python SDK](https://pypi.org/project/azure-cosmos/) exposes a `last_response_headers` dictionary that maps all the headers returned by the underlying HTTP API for the last operation executed. The request charge is available under the `x-ms-request-charge` key:
+The `Container` object from the [Python SDK](https://pypi.org/project/azure-cosmos/) exposes a `last_response_headers` dictionary that maps all the headers returned by the underlying HTTP API for the last operation executed. The request charge is available under the `x-ms-request-charge` key:
 
 ```python
-response = client.ReadItem(
-    'dbs/database/colls/container/docs/itemId', {'partitionKey': 'partitionKey'})
-request_charge = client.last_response_headers['x-ms-request-charge']
+new_item = {
+    "id": "70b63682-b93a-4c77-aad2-65501347265f",
+    "partition_key": "61dba35b-4f02-45c5-b648-c6badc0cbd79",
+    "name": "Yamba Surfboard"
+}
+container.create_item(new_item)
 
-response = client.ExecuteStoredProcedure(
-    'dbs/database/colls/container/sprocs/storedProcedureId', None, {'partitionKey': 'partitionKey'})
-request_charge = client.last_response_headers['x-ms-request-charge']
+request_charge = container.client_connection.last_response_headers["x-ms-request-charge"]
+```
+
+```python
+existing_item = container.read_item(
+    item="70b63682-b93a-4c77-aad2-65501347265f"
+    partition_key="61dba35b-4f02-45c5-b648-c6badc0cbd79"
+)
+
+request_charge = container.client_connection.last_response_headers["x-ms-request-charge"]
 ```
 
 For more information, see [Quickstart: Build a Python app by using an Azure Cosmos DB for NoSQL account](quickstart-python.md). 

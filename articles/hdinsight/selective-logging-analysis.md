@@ -1,10 +1,10 @@
 ---
-title: Use selective logging with a script action in Azure HDInsight clusters 
+title: Use selective logging with a script action in Azure HDInsight clusters
 description: Learn how to use the selective logging feature with a script action to monitor logs.
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: seoapr2020, devx-track-azurepowershell, references-regions, devx-track-azurecli
-ms.date: 07/31/2022
+ms.custom: references-regions
+ms.date: 09/13/2023
 ---
 
 # Use selective logging with a script action in Azure HDInsight
@@ -41,7 +41,7 @@ For instructions on how to create an HDInsight cluster, see [Get started with Az
 
 ## Enable or disable logs by using a script action for multiple tables and log types
 
-1. Go to **Script actions** in your cluster and select **Submit now** to start the process of creating a script action. 
+1. Go to **Script actions** in your cluster and select **Submit new** to start the process of creating a script action. 
 
     :::image type="content" source="./media/hdinsight-hadoop-oms-selective-log-analytics-tutorial/select-submit-script-action.png" alt-text="Screenshot that shows the button for starting the process of creating a script action.":::
 

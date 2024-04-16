@@ -2,12 +2,12 @@
 title: Azure Data Box hardware additional terms 
 description: Describes additional terms for Azure Data Box hardware.
 services: databox
-author: alkohli
+author: stevenmatthew
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
 ms.date: 09/13/2022
-ms.author: alkohli
+ms.author: shaas
 ---
 # Azure Data Box Hardware Additional Terms
 
@@ -29,15 +29,15 @@ All right, title and interest in each Data Box Device is and shall remain the pr
 
 ### Fees
 
-Microsoft may charge Customer specified fees in connection with its use of the Data Box Device as part of the Service, as described at https://go.microsoft.com/fwlink/?linkid=2052173. For clarity, Azure Storage and Azure IoT Hub are separate Azure Services, and if used (even in connection with its use of the Service), separate Azure metered fees will apply. Additional Azure services Customer uses after completing a transfer of data using the Azure Data Box Service are also subject to separate usage fees.  For Data Box Devices, Microsoft may charge Customer a lost device fee, as provided in Table 1 below, if (i) the Data Box Device is lost or materially damaged while it is in Customer’s care; and/or (ii) Customer does not provide the Data Box Device to the Microsoft-designated carrier for return within the time period after the date it was delivered to Customer as provided in Table 1 below.  Microsoft reserves the right to change the fees charged for Data Box Device types, including charging different amounts for different device form factors.
+Microsoft may charge Customer specified fees in connection with its use of the Data Box Device as part of the Service, as described at https://go.microsoft.com/fwlink/?linkid=2052173. For clarity, Azure Storage and Azure IoT Hub are separate Azure Services, and if used (even in connection with its use of the Service), separate Azure metered fees will apply. Additional Azure services Customer uses after completing a transfer of data using the Azure Data Box Service are also subject to separate usage fees.  For Data Box Devices, Microsoft may charge Customer a lost device fee, as provided in Table 1 below, if the Data Box Device is lost or materially damaged while it is in Customer’s care. Microsoft reserves the right to change the fees charged for Data Box Device types, including charging different amounts for different device form factors.
 
 Table 1:
 
 |Data Box Device type | Lost or Materially Damaged Time Period and Amounts|
 |---------|---------|
-|Data Box           |   Period: After 90 days<br> Amount: $40,000.00 USD  |
-|Data Box Disk      |   Period: After 90 days<br> Amount: $2,500.00 USD      |
-|Data Box Heavy     |   Period: After 90 days<br> Amount: $250,000.00 USD      |
+|Data Box           |   Amount: $40,000.00 USD  |
+|Data Box Disk      |   Amount: $2,500.00 USD      |
+|Data Box Heavy     |   Amount: $250,000.00 USD      |
 |Data Box Gateway   |   N/A     |
 
 ### Shipment and Return of Data Box Device
@@ -55,7 +55,7 @@ Alternatively, Customer may elect to use Customer’s designated carrier or Cust
 ## Responsibilities if Customer Moves a Data Box Device between Locations
 
 While Customer is in possession of a Data Box Device, Customer may, at its sole risk and expense, transport the Data Box Device to its domestic locations, and international locations as permitted by Microsoft in writing, for use to upload its data in accordance with this section and the requirements of the Additional Terms.  
-If Customer wishes to move a Data Box Device to another country, then Customer must be the exporter of record from the country of export and importer of record into the country where the Data Box Device is being imported. Customer is responsible for obtaining, at its own risk and expense, any export license, import license and other official authorization for the exportation and importation of the Data Box Device and Customer’s data to any such different Customer location.  Customer shall also be responsible for customs clearance at any such different Customer location, and will bear all duties, taxes, fines, penalties (if applicable) and all charges payable for exporting and importing the Data Box Device, as well as any and all costs and risks of carrying out customs formalities in a timely manner.  Customer agrees to comply with and be responsible for all applicable import, export and general trade laws and regulations should Customer decide to transport the Data Box Device beyond the country border in which Customer receives the Data Box Device.  Additionally, if Customer transports the Data Box Device to a different country, prior to shipping the Data Box Device back to the original point of origin, whether a specified Microsoft entity or a Designated Azure Data Center, Customer agrees to return the Data Box Device to the country location where Customer initially received the Data Box Device.  If requested, Microsoft may provide Microsoft’s estimated value of the Data Box Device as supplied by Microsoft to Customer and share available product certifications for the Data Box Device. 
+If Customer wishes to move a Data Box Device to another country/region, then Customer must be the exporter of record from the country/region of export and importer of record into the country/region where the Data Box Device is being imported. Customer is responsible for obtaining, at its own risk and expense, any export license, import license and other official authorization for the exportation and importation of the Data Box Device and Customer’s data to any such different Customer location.  Customer shall also be responsible for customs clearance at any such different Customer location, and will bear all duties, taxes, fines, penalties (if applicable) and all charges payable for exporting and importing the Data Box Device, as well as any and all costs and risks of carrying out customs formalities in a timely manner.  Customer agrees to comply with and be responsible for all applicable import, export and general trade laws and regulations should Customer decide to transport the Data Box Device beyond the country/region border in which Customer receives the Data Box Device.  Additionally, if Customer transports the Data Box Device to a different country/region, prior to shipping the Data Box Device back to the original point of origin, whether a specified Microsoft entity or a Designated Azure Data Center, Customer agrees to return the Data Box Device to the country/region location where Customer initially received the Data Box Device.  If requested, Microsoft may provide Microsoft’s estimated value of the Data Box Device as supplied by Microsoft to Customer and share available product certifications for the Data Box Device. 
 
 
 ## Next steps

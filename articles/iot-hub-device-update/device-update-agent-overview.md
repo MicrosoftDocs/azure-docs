@@ -1,10 +1,10 @@
 ---
-title: Understand Device Update for Azure IoT Hub Agent| Microsoft Docs
+title: Understand Device Update for Azure IoT Hub Agent
 description: Understand Device Update for Azure IoT Hub Agent.
-author: EshaShah
+author: eshashah-msft
 ms.author: eshashah
 ms.date: 9/12/2022
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: iot-hub-device-update
 ---
 
@@ -12,7 +12,7 @@ ms.service: iot-hub-device-update
 
 The Device Update agent consists of two conceptual layers:
 
-* The *interface layer* builds on top of [Azure IoT Plug and Play](../iot-develop/overview-iot-plug-and-play.md), allowing for messaging to flow between the Device Update agent and Device Update service.
+* The *interface layer* builds on top of [Azure IoT Plug and Play](../iot/overview-iot-plug-and-play.md), allowing for messaging to flow between the Device Update agent and Device Update service.
 * The *platform layer* is responsible for the high-level update actions of download, install, and apply that may be platform- or device-specific.
 
 :::image type="content" source="media/understand-device-update/client-agent-reference-implementations.png" alt-text="Agent Implementations." lightbox="media/understand-device-update/client-agent-reference-implementations.png":::
@@ -48,7 +48,7 @@ If you choose to implement with your own downloader in place of Delivery Optimiz
 
 ## Update handlers
 
-Update handlers are used to invoke installers or commands to do an over-the-air update. You can either use [existing update content handlers](https://github.com/Azure/iot-hub-device-update/tree/main/src/content_handlers) or [implement a custom content handler](https://github.com/Azure/iot-hub-device-update/tree/main/docs/agent-reference/how-to-implement-custom-update-handler.md) that can invoke any installer and execute the over-the-air update needed for your use case.
+Update handlers are used to invoke installers or commands to do an over-the-air update. You can either use [existing update content handlers](https://github.com/Azure/iot-hub-device-update/blob/main/src/extensions/inc/aduc/content_handler.hpp) or [implement a custom content handler](https://github.com/Azure/iot-hub-device-update/tree/main/docs/agent-reference/how-to-implement-custom-update-handler.md) that can invoke any installer and execute the over-the-air update needed for your use case.
 
 ## Changes to Device Update agent at GA release
 

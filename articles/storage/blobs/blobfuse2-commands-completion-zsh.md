@@ -1,21 +1,18 @@
 ---
-title: How to use the 'blobfuse2 completion zsh' command to generate the autocompletion script for BlobFuse2 (preview) | Microsoft Docs
-titleSuffix: Azure Blob Storage
-description: Learn how to use the 'blobfuse2 completion zsh' command to generate the autocompletion script for BlobFuse2 (preview).
-author: jimmart-dev
-ms.service: storage
-ms.subservice: blobs
+title: How to use the 'blobfuse2 completion zsh' command to generate the autocompletion script for BlobFuse2
+titleSuffix: Azure Storage
+description: Learn how to use the 'blobfuse2 completion zsh' command to generate the autocompletion script for BlobFuse2.
+author: akashdubey-ms
+ms.service: azure-blob-storage
 ms.topic: how-to
-ms.date: 10/17/2022
-ms.author: jammart
+ms.date: 12/02/2022
+ms.author: akashdubey
 ms.reviewer: tamram
 ---
 
-# BlobFuse2 completion zsh command (preview)
+# BlobFuse2 completion zsh command
 
 Use the `blobfuse2 completion zsh` command to generate the autocompletion script for BlobFuse2 for the zsh shell.
-
-[!INCLUDE [storage-blobfuse2-preview](../../../includes/storage-blobfuse2-preview.md)]
 
 ## Syntax
 
@@ -68,7 +65,7 @@ To load completions for every new session, execute once:
 
 ## See also
 
-- [The Blobfuse2 completion command (preview)](blobfuse2-commands-completion.md)
-- [The Blobfuse2 completion bash command (preview)](blobfuse2-commands-completion-bash.md)
-- [The Blobfuse2 completion fish command (preview)](blobfuse2-commands-completion-fish.md)
-- [The Blobfuse2 completion PowerShell command (preview)](blobfuse2-commands-completion-powershell.md)
+- [The Blobfuse2 completion command](blobfuse2-commands-completion.md)
+- [The Blobfuse2 completion bash command](blobfuse2-commands-completion-bash.md)
+- [The Blobfuse2 completion fish command](blobfuse2-commands-completion-fish.md)
+- [The Blobfuse2 completion PowerShell command](blobfuse2-commands-completion-powershell.md)

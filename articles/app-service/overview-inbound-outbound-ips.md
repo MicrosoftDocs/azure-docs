@@ -1,10 +1,11 @@
 ---
 title: Inbound/Outbound IP addresses
 description: Learn how inbound and outbound IP addresses are used in Azure App Service, when they change, and how to find the addresses for your app.
+author: msangapu-msft
+ms.author: msangapu
 ms.topic: article
-ms.date: 08/25/2020
-ms.custom: seodec18, devx-track-azurepowershell
-
+ms.date: 04/05/2023
+ms.custom: UpdateFrequency3
 ---
 
 # Inbound and outbound IP addresses in Azure App Service
@@ -37,7 +38,7 @@ nslookup <app-name>.azurewebsites.net
 
 ## Get a static inbound IP
 
-Sometimes you might want a dedicated, static IP address for your app. To get a static inbound IP address, you need to [secure a custom domain](configure-ssl-bindings.md#secure-a-custom-domain). If you don't actually need TLS functionality to secure your app, you can even upload a self-signed certificate for this binding. In an IP-based TLS binding, the certificate is bound to the IP address itself, so App Service provisions a static IP address to make it happen. 
+Sometimes you might want a dedicated, static IP address for your app. To get a static inbound IP address, you need to [secure a custom DNS name with an IP-based certificate binding](configure-ssl-bindings.md). If you don't actually need TLS functionality to secure your app, you can even upload a self-signed certificate for this binding. In an IP-based TLS binding, the certificate is bound to the IP address itself, so App Service provisions a static IP address to make it happen. 
 
 ## When outbound IPs change
 
@@ -47,9 +48,11 @@ The set of outbound IP addresses for your app changes when you perform one of th
 
 - Delete an app and recreate it in a different resource group (deployment unit may change).
 - Delete the last app in a resource group _and_ region combination and recreate it (deployment unit may change).
-- Scale your app between the lower tiers (**Basic**, **Standard**, and **Premium**), the **PremiumV2**, and the **PremiumV3** tier (IP addresses may be added to or subtracted from the set).
+- Scale your app between the lower tiers (**Basic**, **Standard**, and **Premium**), the **PremiumV2** tier, the **PremiumV3** tier, and the **Pmv3** options within the **PremiumV3** tier (IP addresses may be added to or subtracted from the set).
 
 You can find the set of all possible outbound IP addresses your app can use, regardless of pricing tiers, by looking for the `possibleOutboundIpAddresses` property or in the **Additional Outbound IP Addresses** field in the **Properties** blade in the Azure portal. See [Find outbound IPs](#find-outbound-ips).
+
+Note that the set of all possible outbound IP addresses can increase over time if App Service adds new pricing tiers or options to existing App Service deployments. For example, if App Service adds the **PremiumV3** tier to an existing App Service deployment, then the set of all possible outbound IP addresses will increase. Similarly, if App Service adds new **Pmv3** options to a deployment that already supports the **PremiumV3** tier, then the set of all possible outbound IP addresses will also increase. This has no immediate effect since the outbound IP addresses for running applications do not change when a new pricing tier or option is added to an App Service deployment. However, if applications switch to a new pricing tier or option that wasn't previously available, then new outbound addresses will be used and customers will need to update downstream firewall rules and IP address restrictions.
 
 ## Find outbound IPs
 
@@ -78,7 +81,7 @@ az webapp show --resource-group <group_name> --name <app_name> --query possibleO
 ```
 
 ## Get a static outbound IP
-You can control the IP address of outbound traffic from your app by using regional VNet integration together with a virtual network NAT gateway to direct traffic through a static public IP address. [Regional VNet integration](./overview-vnet-integration.md) is available on **Standard**, **Premium**, **PremiumV2** and **PremiumV3** App Service plans. To learn more about this setup, see [NAT gateway integration](./networking/nat-gateway-integration.md).
+You can control the IP address of outbound traffic from your app by using regional VNet integration together with a virtual network NAT gateway to direct traffic through a static public IP address. [Regional VNet integration](./overview-vnet-integration.md) is available on **Basic**, **Standard**, **Premium**, **PremiumV2** and **PremiumV3** App Service plans. To learn more about this setup, see [NAT gateway integration](./networking/nat-gateway-integration.md).
 
 ## Next steps
 

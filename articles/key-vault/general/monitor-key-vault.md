@@ -3,12 +3,11 @@ title: Monitoring Azure Key Vault
 description: Start here to learn how to monitor Azure Key Vault
 services: key-vault
 author: msmbaldwin
-tags: azure-resource-manager
 
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.date: 09/21/2021
+ms.date: 01/30/2024
 ms.author: mbaldwin
 ms.custom: subject-monitoring
 # Customer intent: As a key vault administrator, I want to learn the options available to monitor the health of my vaults
@@ -60,7 +59,7 @@ To create a diagnostic setting for you key vault, see [Enable Key Vault logging]
 
 ## Analyzing metrics
 
-You can analyze metrics for Key Vault with metrics from other Azure services using metrics explorer by opening **Metrics** from the **Azure Monitor** menu. See [Getting started with Azure Metrics Explorer](../../azure-monitor/essentials/metrics-getting-started.md) for details on using this tool.
+You can analyze metrics for Key Vault with metrics from other Azure services using metrics explorer by opening **Metrics** from the **Azure Monitor** menu. See [Analyze metrics with Azure Monitor metrics explorer](../../azure-monitor/essentials/analyze-metrics.md) for details on using this tool.
 
 For a list of the platform metrics collected for Key Vault, see [Monitoring Key Vault data reference metrics](monitor-key-vault-reference.md#metrics)  
 
@@ -82,6 +81,17 @@ For a list of the tables used by Azure Monitor Logs and queryable by Log Analyti
 > When you select **Logs** from the Key Vault menu, Log Analytics is opened with the query scope set to the current key vault. This means that log queries will only include data from that resource. If you want to run a query that includes data from other key vaults, or data from other Azure services, select **Logs** from the **Azure Monitor** menu. See [Log query scope and time range in Azure Monitor Log Analytics](/azure/azure-monitor/log-query/scope/) for details.
 
 Here are some queries that you can enter into the **Log search** bar to help you monitor your Key Vault resources. These queries work with the [new language](../../azure-monitor/logs/log-query-overview.md).
+
+* Are there any clients using old TLS version (<1.2)?
+
+    ```kusto
+    AzureDiagnostics
+    | where TimeGenerated > ago(90d) 
+    | where ResourceProvider =="MICROSOFT.KEYVAULT" 
+    | where isnotempty(tlsVersion_s) and strcmp(tlsVersion_s,"TLS1_2") <0
+    | project TimeGenerated,Resource, OperationName, requestUri_s, CallerIPAddress, OperationVersion,clientInfo_s,tlsVersion_s,todouble(tlsVersion_s)
+    | sort by TimeGenerated desc
+    ```
 
 * Are there any slow requests?
 
@@ -177,7 +187,7 @@ Here are some queries that you can enter into the **Log search** bar to help you
 
 Azure Monitor alerts proactively notify you when important conditions are found in your monitoring data. They allow you to identify and address issues in your system preemptively. You can set alerts on [metrics](../../azure-monitor/alerts/alerts-metric-overview.md), [logs](../../azure-monitor/alerts/alerts-unified-log.md), and the [activity log](../../azure-monitor/alerts/activity-log-alerts.md).  
 
-If you are creating or running an application which runs on Azure Key Vault, [Azure Monitor Application Insights](../../azure-monitor/overview.md#application-insights) may offer additional types of alerts.
+If you are creating or running an application which runs on Azure Key Vault, [Azure Monitor Application Insights](../../azure-monitor/app/app-insights-overview.md) may offer additional types of alerts.
 
 Here are some common and recommended alert rules for Azure Key Vault -
 
@@ -193,4 +203,4 @@ See [Alerting for Azure Key Vault](alert.md) for more details.
 
 - See [Monitoring Azure Key Vault data reference](monitor-key-vault-reference.md) for a reference of the metrics, logs, and other important values created by Key Vault.
 - See [Monitoring Azure resources with Azure Monitor](../../azure-monitor/essentials/monitor-azure-resource.md) for details on monitoring Azure resources.
-- Seem [Alerting for Azure Key Vault](alert.md)
+- See [Alerting for Azure Key Vault](alert.md)

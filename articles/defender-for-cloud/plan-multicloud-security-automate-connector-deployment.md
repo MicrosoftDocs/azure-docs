@@ -1,10 +1,12 @@
 ---
-title: Defender for Cloud planning multicloud security automating connector deployment
+title: Planning multicloud security automating connector deployment
 description: Learn about automating connector deployment when planning multicloud deployment with Microsoft Defender for Cloud.
 ms.topic: how-to
-ms.custom: ignite-2022
+author: dcurwin
+ms.author: dacurwin
 ms.date: 10/03/2022
 ---
+
 # Automate connector deployment
 
 This article is part of a series to guide you in designing a solution for cloud security posture management (CSPM) and cloud workload protection (CWP) across multicloud resources with Microsoft Defender for Cloud.

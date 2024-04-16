@@ -4,7 +4,6 @@ description: This article will describe monitoring third-party tools helps monit
 author: manishmsfte
 ms.author: mansha
 ms.service: cosmos-db
-ms.custom: ignite-2022
 ms.topic: how-to
 ms.date: 07/28/2021
 ---
@@ -54,7 +53,7 @@ Using the API for MongoDB, Dynatrace collects and delivers CosmosDB metrics, whi
 ### Useful links
 
 - [Try Dynatrace with 15 days free trial](https://www.dynatrace.com/trial)
-- [Launch from Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/dynatrace.dynatrace-managed)
+- [Launch from Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/dynatrace.dynatrace_portal_integration)
 - [Documentation on how to use Azure Cosmos DB with Azure Monitor](https://www.dynatrace.com/support/help/setup-and-configuration/setup-on-cloud-platforms/microsoft-azure-services)
 - [Azure Cosmos DB - Dynatrace Integration details](https://www.dynatrace.com/news/blog/azure-services-explained-part-4-azure-cosmos-db/?_ga=2.185016301.559899881.1623174355-748416177.1603817475)
 - [Dynatrace Monitoring for Azure databases](https://www.dynatrace.com/technologies/azure-monitoring/azure-database-performance/)

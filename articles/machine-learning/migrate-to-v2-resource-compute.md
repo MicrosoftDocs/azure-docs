@@ -8,17 +8,17 @@ ms.subservice: mldata
 ms.topic: reference
 author: vijetajo
 ms.author: vijetaj
-ms.date: 09/28/2022
-ms.reviewer: sgilley
+ms.date: 04/15/2024
+ms.reviewer: franksolomon
 ms.custom: migration
+monikerRange: 'azureml-api-1 || azureml-api-2'
 ---
 
 # Upgrade compute management to v2
 
 The compute management functionally remains unchanged with the v2 development platform.
 
-This article gives a comparison of scenario(s) in SDK v1 and SDK v2.
-
+This article gives a comparison of scenarios in SDK v1 and SDK v2.
 
 ## Create compute instance
 
@@ -32,7 +32,7 @@ This article gives a comparison of scenario(s) in SDK v1 and SDK v2.
     from azureml.core.compute_target import ComputeTargetException
     
     # Compute Instances need to have a unique name across the region.
-    # Here we create a unique name with current datetime
+    # Here, we create a unique name with current datetime
     ci_basic_name = "basic-ci" + datetime.datetime.now().strftime("%Y%m%d%H%M")
     
     compute_config = ComputeInstance.provisioning_configuration(
@@ -46,12 +46,12 @@ This article gives a comparison of scenario(s) in SDK v1 and SDK v2.
 
     ```python
     # Compute Instances need to have a unique name across the region.
-    # Here we create a unique name with current datetime
+    # Here, we create a unique name with current datetime
     from azure.ai.ml.entities import ComputeInstance, AmlCompute
     import datetime
     
     ci_basic_name = "basic-ci" + datetime.datetime.now().strftime("%Y%m%d%H%M")
-    ci_basic = ComputeInstance(name=ci_basic_name, size="STANDARD_DS3_v2")
+    ci_basic = ComputeInstance(name=ci_basic_name, size="STANDARD_DS3_v2", idle_time_before_shutdown_minutes="30")
     ml_client.begin_create_or_update(ci_basic)
     ```
 
@@ -93,5 +93,5 @@ This article gives a comparison of scenario(s) in SDK v1 and SDK v2.
 
 ## Next steps
 
-* [Create and manage an Azure Machine Learning compute instance](how-to-create-manage-compute-instance.md)
+* [Create an Azure Machine Learning compute instance](how-to-create-compute-instance.md)
 * [Create an Azure Machine Learning compute cluster](how-to-create-attach-compute-cluster.md)

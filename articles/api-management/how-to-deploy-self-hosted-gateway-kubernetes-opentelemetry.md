@@ -4,13 +4,14 @@ description: Learn how to deploy a self-hosted gateway component of Azure API Ma
 author: tomkerkhove
 
 ms.service: api-management
-ms.workload: mobile
 ms.topic: article
 ms.author: tomkerkhove
 ms.date: 12/17/2021
 ---
 
 # Deploy self-hosted gateway to Kubernetes with OpenTelemetry integration
+
+[!INCLUDE [api-management-availability-premium-dev](../../includes/api-management-availability-premium-dev.md)]
 
 This article describes the steps for deploying the self-hosted gateway component of Azure API Management to a Kubernetes cluster and automatically send all metrics to an [OpenTelemetry Collector](https://opentelemetry.io/docs/collector/).
 
@@ -87,10 +88,7 @@ Now that we have the chart repository configured, we can deploy the OpenTelemetr
 1. Create a local configuration file called `opentelemetry-collector-config.yml` with the following configuration:
 
     ```yaml
-    agentCollector:
-      enabled: false
-    standaloneCollector:
-      enabled: true
+    mode: deployment
     config:
       exporters:
         prometheus:

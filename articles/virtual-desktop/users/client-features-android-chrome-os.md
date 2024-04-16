@@ -76,7 +76,7 @@ To remove an account you no longer want to use:
 
 ### Set orientation
 
-You can set the orientation of the Remote Desktop client to landscape, portrait, or auto-adjust, where it will match the orientation of your device. Auto-adjust is supported when your remote session is running Windows 10 and Windows Server 2012 R2 or later. The window will maintain the same scaling and update the resolution to match the new orientation. This setting applies to all workspaces.
+You can set the orientation of the Remote Desktop client to landscape, portrait, or auto-adjust, where it will match the orientation of your device. Auto-adjust is supported when your remote session is running Windows 10 or later. The window will maintain the same scaling and update the resolution to match the new orientation. This setting applies to all workspaces.
 
 To set the orientation:
 
@@ -130,7 +130,7 @@ You can use touch gestures to replicate mouse actions in your remote session. Tw
 - **Direct touch**: where you tap on the screen is the equivalent to clicking a mouse in that position. The mouse pointer isn't shown on screen.
 - **Mouse pointer**: The mouse pointer is shown on screen. When you tap the screen and move your finger, the mouse pointer will move. 
 
-If you use Windows 10 or later with Azure Virtual Desktop, native Windows touch gestures are supported in direct touch mode.
+If you connect to Windows 10 or later with Azure Virtual Desktop, native Windows touch and multi-touch gestures are supported in direct touch mode.
 
 The following table shows which mouse operations map to which gestures in specific mouse modes:
 
@@ -224,7 +224,7 @@ If you want to help us test new builds before they're released, you should downl
 > [!NOTE]
 > The beta client shouldn't be used in production environments.
 
-You can download the beta client for Android and Chrome OS from the [Google Play Store](https://play.google.com/apps/testing/com.microsoft.rdc.androidx). You'll need to give consent to access preview versions and download the client. You'll receive preview versions directly through the Google Play Store.
+You can download the beta client for Android and Chrome OS from [Google Play](https://play.google.com/apps/testing/com.microsoft.rdc.androidx). You'll need to give consent to access preview versions and download the client. You'll receive preview versions directly through the Google Play Store.
 
 ## Provide feedback
 
@@ -238,4 +238,4 @@ If you want to provide feedback to us on the Remote Desktop client for Android a
 
 ## Next steps
 
-If you're having trouble with the Remote Desktop client, see [Troubleshoot the Remote Desktop client](../troubleshoot-client.md).
+If you're having trouble with the Remote Desktop client, see [Troubleshoot the Remote Desktop client](../troubleshoot-client-android-chrome-os.md).

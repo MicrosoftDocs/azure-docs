@@ -1,0 +1,26 @@
+- name: Designer algorithms & components (v2)
+  href: component-reference-v2.md
+- name: Switch to Designer v1 documentation
+  href: ../component-reference/component-reference.md
+- name: AutoML
+  items:
+  - name: Classification
+    href: classification.md
+  - name: Forecasting
+    href: forecasting.md
+  - name: Regression
+    href: regression.md
+  - name: Image Classification
+    href: image-classification.md
+  - name: Image Classification Multilabel
+    href: image-classification-multilabel.md
+  - name: Image Instance Segmentation
+    href: image-instance-segmentation.md
+  - name: Image Object Detection
+    href: image-object-detection.md
+  - name: Text Classification Multilabel
+    href: text-classification-multilabel.md
+  - name: Text Classification
+    href: text-classification.md
+  - name: Text NER (Named Entity Recognition)
+    href: text-NER.md

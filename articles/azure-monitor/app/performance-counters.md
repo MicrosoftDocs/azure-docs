@@ -2,9 +2,9 @@
 title: Performance counters in Application Insights | Microsoft Docs
 description: Monitor system and custom .NET performance counters in Application Insights.
 ms.topic: conceptual
-ms.date: 06/30/2022
+ms.date: 01/31/2024
 ms.devlang: csharp
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, devx-track-dotnet
 ms.reviewer: rijolly
 ---
 
@@ -13,6 +13,8 @@ ms.reviewer: rijolly
 Windows provides a variety of [performance counters](/windows/desktop/perfctrs/about-performance-counters), such as those used to gather processor, memory, and disk usage statistics. You can also define your own performance counters. 
 
 Performance counters collection is supported if your application is running under IIS on an on-premises host or is a virtual machine to which you have administrative access. Although applications running as Azure Web Apps don't have direct access to performance counters, a subset of available counters is collected by Application Insights.
+
+[!INCLUDE [azure-monitor-app-insights-otel-available-notification](../includes/azure-monitor-app-insights-otel-available-notification.md)]
 
 ## Prerequisites
 
@@ -26,7 +28,7 @@ net localgroup "Performance Monitor Users" /add "IIS APPPOOL\NameOfYourPool"
 
 The **Metrics** pane shows the default set of performance counters.
 
-![Screenshot that shows performance counters reported in Application Insights.](./media/performance-counters/performance-counters.png)
+:::image type="content" source="./media/performance-counters/performance-counters.png" lightbox="./media/performance-counters/performance-counters.png" alt-text="Screenshot that shows performance counters reported in Application Insights.":::
 
 Current default counters for ASP.NET web applications:
 
@@ -112,41 +114,66 @@ Or you can do the same thing with custom metrics that you created:
 
 ### Collect performance counters in code for ASP.NET Core web applications
 
-Modify the `ConfigureServices` method in your `Startup.cs` class:
+### [ASP.NET Core 6 and later](#tab/net-core-new)
+
+Configure `PerformanceCollectorModule` after the `WebApplication.CreateBuilder()` method in `Program.cs`:
 
 ```csharp
 using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector;
 
-    public void ConfigureServices(IServiceCollection services)
-    {
-        services.AddApplicationInsightsTelemetry();
+var builder = WebApplication.CreateBuilder(args);
 
-        // The following configures PerformanceCollectorModule.
-  services.ConfigureTelemetryModule<PerformanceCollectorModule>((module, o) =>
-            {
-                // the application process name could be "dotnet" for ASP.NET Core self-hosted applications.
-                module.Counters.Add(new PerformanceCounterCollectionRequest(
-    @"\Process([replace-with-application-process-name])\Page Faults/sec", "DotnetPageFaultsPerfSec"));
-            });
-    }
+builder.Services.AddApplicationInsightsTelemetry();
+
+// The following configures PerformanceCollectorModule.
+
+builder.Services.ConfigureTelemetryModule<PerformanceCollectorModule>((module, o) =>
+    {
+        // The application process name could be "dotnet" for ASP.NET Core self-hosted applications.
+        module.Counters.Add(new PerformanceCounterCollectionRequest(@"\Process([replace-with-application-process-name])\Page Faults/sec", "DotnetPageFaultsPerfSec"));
+    });
+
+var app = builder.Build();
 ```
+
+### [ASP.NET Core 5 and earlier](#tab/net-core-old)
+
+Configure `PerformanceCollectorModule` in the `ConfigureServices()` method in `Startup.cs`:
+
+```csharp
+using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector;
+
+public void ConfigureServices(IServiceCollection services)
+{
+    services.AddApplicationInsightsTelemetry();
+
+    // The following configures PerformanceCollectorModule:
+    services.ConfigureTelemetryModule<PerformanceCollectorModule>((module, o) =>
+        {
+            // The application process name could be "dotnet" for ASP.NET Core self-hosted applications.
+            module.Counters.Add(new PerformanceCounterCollectionRequest(@"\Process([replace-with-application-process-name])\PageFaults/sec", "DotnetPageFaultsPerfSec"));
+        });
+}
+```
+
+---
 
 ## Performance counters in Log Analytics
 You can search and display performance counter reports in [Log Analytics](../logs/log-query-overview.md).
 
 The **performanceCounters** schema exposes the `category`, `counter` name, and `instance` name of each performance counter. In the telemetry for each application, you'll see only the counters for that application. For example, to see what counters are available:
 
-![Screenshot that shows performance counters in Application Insights analytics.](./media/performance-counters/analytics-performance-counters.png)
+:::image type="content" source="./media/performance-counters/analytics-performance-counters.png" lightbox="./media/performance-counters/analytics-performance-counters.png" alt-text="Screenshot that shows performance counters in Application Insights analytics.":::
 
 Here, `Instance` refers to the performance counter instance, not the role or server machine instance. The performance counter instance name typically segments counters, such as processor time, by the name of the process or application.
 
 To get a chart of available memory over the recent period:
 
-![Screenshot that shows a memory time chart in Application Insights analytics.](./media/performance-counters/analytics-available-memory.png)
+:::image type="content" source="./media/performance-counters/analytics-available-memory.png" lightbox="./media/performance-counters/analytics-available-memory.png" alt-text="Screenshot that shows a memory time chart in Application Insights analytics.":::
 
 Like other telemetry, **performanceCounters** also has a column `cloud_RoleInstance` that indicates the identity of the host server instance on which your app is running. For example, to compare the performance of your app on the different machines:
 
-![Screenshot that shows performance segmented by role instance in Application Insights analytics.](./media/performance-counters/analytics-metrics-role-instance.png)
+:::image type="content" source="./media/performance-counters/analytics-metrics-role-instance.png" lightbox="./media/performance-counters/analytics-metrics-role-instance.png" alt-text="Screenshot that shows performance segmented by role instance in Application Insights analytics.":::
 
 ## ASP.NET and Application Insights counts
 

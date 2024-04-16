@@ -40,6 +40,13 @@ kubectl delete crd dags.sql.arcdata.microsoft.com
 kubectl delete crd exporttasks.tasks.arcdata.microsoft.com
 kubectl delete crd monitors.arcdata.microsoft.com
 kubectl delete crd activedirectoryconnectors.arcdata.microsoft.com
+kubectl delete crd failovergroups.sql.arcdata.microsoft.com
+kubectl delete crd kafkas.arcdata.microsoft.com                                                
+kubectl delete crd postgresqlrestoretasks.tasks.postgresql.arcdata.microsoft.com               
+kubectl delete crd sqlmanagedinstancemonitoringprofiles.arcdata.microsoft.com                  
+kubectl delete crd sqlmanagedinstancereprovisionreplicatasks.tasks.sql.arcdata.microsoft.com   
+kubectl delete crd telemetrycollectors.arcdata.microsoft.com                                   
+kubectl delete crd telemetryrouters.arcdata.microsoft.com
 
 # Substitute the name of the namespace the data controller was deployed in into {namespace}.
 
@@ -75,8 +82,8 @@ kubectl delete apiservice v1.sql.arcdata.microsoft.com
 kubectl delete mutatingwebhookconfiguration arcdata.microsoft.com-webhook-{namespace}
 ```
 
-## Next steps
+## Related content
 
 [Start by creating a Data Controller](create-data-controller-indirect-cli.md)
 
-Already created a Data Controller? [Create an Azure Arc-enabled SQL Managed Instance](create-sql-managed-instance.md)
+Already created a Data Controller? [Create a SQL Managed Instance enabled by Azure Arc](create-sql-managed-instance.md)

@@ -32,11 +32,11 @@ This article explains how to understand Query Units and track Query Unit consump
 
 ## Find the Query Unit consumption in Azure Digital Twins
 
-When you run a query using the Azure Digital Twins [Query API](/rest/api/digital-twins/dataplane/query), you can examine the response header to track the number of QUs that the query consumed. Look for "query-charge" in the response sent back from Azure Digital Twins.
+When you run a query using the [Azure Digital Twins Query API](/rest/api/digital-twins/dataplane/query), you can examine the response header to track the number of QUs that the query consumed. Look for "query-charge" in the response sent back from Azure Digital Twins.
 
 The [Azure Digital Twins SDKs](concepts-apis-sdks.md) allow you to extract the query-charge header from the pageable response. This section shows how to query for digital twins and how to iterate over the pageable response to extract the query-charge header. 
 
-The following code snippet demonstrates how you can extract the query charges incurred when calling the query API. It iterates over the response pages first to access the query-charge header, and then iterates over the digital twin results within each page. 
+The following code snippet demonstrates how you can extract the query charges incurred when calling the Query API. It iterates over the response pages first to access the query-charge header, and then iterates over the digital twin results within each page. 
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/getQueryCharges.cs":::
 

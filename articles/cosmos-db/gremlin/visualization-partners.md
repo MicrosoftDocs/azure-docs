@@ -5,7 +5,6 @@ author: manishmsfte
 ms.author: mansha
 ms.service: cosmos-db
 ms.subservice: apache-gremlin
-ms.custom: ignite-2022
 ms.topic: how-to
 ms.date: 07/22/2021
 ---
@@ -32,7 +31,6 @@ The interactive interface of Linkurious Enterprise offers an easy way to investi
 * [Product details](https://linkurio.us/product/)
 * [Documentation](https://doc.linkurio.us/)
 * [Demo](https://linkurious.com/demo/)
-* [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/linkurious.lke_st?tab=Overview)
 
 ## Cambridge Intelligence
 

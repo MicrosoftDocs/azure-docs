@@ -3,7 +3,6 @@ title: Request access to Azure Cosmos DB previews
 description: Learn how to request access to Azure Cosmos DB previews
 author: gahl-levy
 ms.service: cosmos-db
-ms.custom: ignite-2022
 ms.topic: how-to
 ms.date: 04/13/2022
 ms.author: gahllevy
@@ -23,6 +22,9 @@ Azure Cosmos DB offers several preview features that you can request access to. 
 4. Click the **Register** button at the bottom of the page to join the preview.
 
 :::image type="content" source="./mongodb/media/indexing/unique-reindex-preview.png" alt-text="Screenshot of steps to enable preview feature" lightbox="./mongodb/media/indexing/unique-reindex-preview.png":::
+
+> [!TIP]
+> If your request is stuck in the **Pending** state for an abnormal amount of time, [create an Azure support request](../azure-portal/supportability/how-to-create-azure-support-request.md).
 
 ## Next steps
 

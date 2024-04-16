@@ -1,64 +1,72 @@
 ---
-title: Enable VM insights overview
-description: Learn how to deploy and configure VM insights and find out about the system requirements.
+title: Enable VM Insights overview
+description: Learn how to deploy and configure VM Insights and find out about the system requirements.
 ms.topic: conceptual
-author: bwren
-ms.author: bwren
-ms.date: 06/24/2022
+author: guywi-ms
+ms.author: guywild
+ms.reviewer: xpathak
+ms.date: 09/28/2023
 ms.custom: references_regions
 
 ---
 
-# Enable VM insights overview
+# Enable VM Insights overview
 
-This article provides an overview of the options available to enable VM insights to monitor the health and performance of:
+This article provides an overview of how to enable VM Insights to monitor the health and performance of:
 
 - Azure virtual machines.
-- Azure virtual machine scale sets.
+- Azure Virtual Machine Scale Sets.
 - Hybrid virtual machines connected with Azure Arc.
 - On-premises virtual machines.
 - Virtual machines hosted in another cloud environment.
 
+> [!NOTE]
+> Configuring a Log Analytics workspace for using VM Insights by using the Log Analytics agent is no longer supported.
+
 ## Installation options and supported machines
 
-The following table shows the installation methods available for enabling VM insights on supported machines.
+The following table shows the installation methods available for enabling VM Insights on supported machines.
 
 | Method | Scope |
 |:---|:---|
 | [Azure portal](vminsights-enable-portal.md) | Enable individual machines with the Azure portal. |
 | [Azure Policy](vminsights-enable-policy.md) | Create policy to automatically enable when a supported machine is created. |
 | [Azure Resource Manager templates](../vm/vminsights-enable-resource-manager.md) | Enable multiple machines by using any of the supported methods to deploy a Resource Manager template, such as the Azure CLI and PowerShell. |
-| [PowerShell](vminsights-enable-powershell.md) | Use a PowerShell script to enable multiple machines. Log Analytics agent only. |
-| [Manual install](vminsights-enable-hybrid.md) | Virtual machines or physical computers on-premises with other cloud environments. Log Analytics agent only. |
+| [PowerShell](vminsights-enable-powershell.md) | Use a PowerShell script to enable multiple machines. |
+| [Manual install](vminsights-enable-hybrid.md) | Virtual machines or physical computers on-premises with other cloud environments.|
 
-## Supported Azure Arc machines
+### Supported Azure Arc machines
 
-VM insights is available for Azure Arc-enabled servers in regions where the Arc extension service is available. You must be running version 0.9 or above of the Azure Arc agent.
+VM Insights is available for Azure Arc-enabled servers in regions where the Arc extension service is available. You must be running version 0.9 or above of the Azure Arc agent.
 
 ## Supported operating systems
 
-VM insights supports any operating system that supports the Dependency agent and either the Azure Monitor agent (preview) or Log Analytics agent. For a complete list, see [Azure Monitor agent overview](../agents/agents-overview.md#supported-operating-systems).
+VM Insights supports all operating systems supported by the Dependency agent and either Azure Monitor Agent or Log Analytics agent. For a complete list of operating systems supported by Azure Monitor Agent and Log Analytics agent, see [Azure Monitor agent overview](../agents/agents-overview.md#supported-operating-systems).
+
+Dependency Agent supports the same [Windows versions that Azure Monitor Agent supports](../agents/agents-overview.md#supported-operating-systems), except Windows Server 2008 SP2 and Azure Stack HCI.
+For Dependency Agent Linux support, see [Dependency Agent Linux support](../vm/vminsights-dependency-agent-maintenance.md#dependency-agent-linux-support).
 
 > [!IMPORTANT]
-> If the Ethernet device for your virtual machine has more than nine characters, it won't be recognized by VM insights and data won't be sent to the InsightsMetrics table. The agent will collect data from [other sources](../agents/agent-data-sources.md).
+> If the Ethernet device for your virtual machine has more than nine characters, it won't be recognized by VM Insights and data won't be sent to the InsightsMetrics table. The agent will collect data from [other sources](../agents/agent-data-sources.md).
 
 ### Linux considerations
 
-See the following list of considerations on Linux support of the Dependency agent that supports VM insights:
+Consider the following before you install Dependency agent for VM Insights on a Linux machine:
 
 - Only default and SMP Linux kernel releases are supported.
 - Nonstandard kernel releases, such as physical address extension (PAE) and Xen, aren't supported for any Linux distribution. For example, a system with the release string of *2.6.16.21-0.8-xen* isn't supported.
 - Custom kernels, including recompilations of standard kernels, aren't supported.
 - For Debian distros other than version 9.4, the Map feature isn't supported. The Performance feature is available only from the Azure Monitor menu. It isn't available directly from the left pane of the Azure VM.
 - CentOSPlus kernel is supported.
+- Installing Dependency agent taints the Linux kernel and you might lose support from your Linux distribution until the machine resets.
 
-The Linux kernel must be patched for the Spectre and Meltdown vulnerabilities. For more information, consult your Linux distribution vendor. Run the following command to check for availability if Spectre/Meltdown has been mitigated:
+The Linux kernel must be patched for the Spectre and Meltdown vulnerabilities. For more information, consult with your Linux distribution vendor. Run the following command to check for availability if Spectre/Meltdown has been mitigated:
 
 ```
 $ grep . /sys/devices/system/cpu/vulnerabilities/*
 ```
 
-Output for this command will look similar to the following and specify whether a machine is vulnerable to either issue. If these files are missing, the machine is unpatched.
+Output for this command looks similar to the following and specify whether a machine is vulnerable to either issue. If these files are missing, the machine is unpatched.
 
 ```
 /sys/devices/system/cpu/vulnerabilities/meltdown:Mitigation: PTI
@@ -66,83 +74,50 @@ Output for this command will look similar to the following and specify whether a
 /sys/devices/system/cpu/vulnerabilities/spectre_v2:Vulnerable: Minimal generic ASM retpoline
 ```
 
-## Log Analytics workspace
-
-VM insights requires a Log Analytics workspace. For requirements of this workspace, see [Configure Log Analytics workspace for VM insights](vminsights-configure-workspace.md).
-
-> [!NOTE]
-> VM Insights doesn't support sending data to more than one Log Analytics workspace (multi-homing).
->
-
-## Network requirements
-
-- For the network requirements for the Log Analytics agent, see [Network requirements](../agents/log-analytics-agent.md#network-requirements).
-- The Dependency agent requires a connection from the virtual machine to the address 169.254.169.254. This address identifies the Azure metadata service endpoint. Ensure that firewall settings allow connections to this endpoint.
-
 ## Agents
 
-When you enable VM insights for a machine, the following agents are installed. For the network requirements for these agents, see [Network requirements](../agents/log-analytics-agent.md#network-requirements).
+When you enable VM Insights for a machine, the following agents are installed. 
 
 > [!IMPORTANT]
-> VM insights support for the Azure Monitor agent is currently in public preview. The Azure Monitor agent has several advantages over the Log Analytics agent. It's the preferred agent for virtual machines and virtual machine scale sets. For a comparison of the agent and information on migrating, see [Migrate to Azure Monitor agent from Log Analytics agent](../agents/azure-monitor-agent-migration.md).
+> Azure Monitor Agent has several advantages over the legacy Log Analytics agent, which will be deprecated by August 2024. After this date, Microsoft will no longer provide any support for the Log Analytics agent. [Migrate to Azure Monitor agent](../agents/azure-monitor-agent-migration.md) before August 2024 to continue ingesting data.
 
-- **[Azure Monitor agent](../agents/azure-monitor-agent-overview.md) or [Log Analytics agent](../agents/log-analytics-agent.md):** Collects data from the virtual machine or virtual machine scale set and delivers it to the Log Analytics workspace.
-- **Dependency agent**: Collects discovered data about processes running on the virtual machine and external process dependencies, which are used by the [Map feature in VM insights](../vm/vminsights-maps.md). The Dependency agent relies on the Azure Monitor agent or Log Analytics agent to deliver its data to Azure Monitor.
 
-## Changes for the Azure Monitor agent
+- **[Azure Monitor agent](../agents/azure-monitor-agent-overview.md) or [Log Analytics agent](../agents/log-analytics-agent.md):** Collects data from the virtual machine or Virtual Machine Scale Set and delivers it to the Log Analytics workspace.
+- **Dependency agent**: Collects discovered data about processes running on the virtual machine and external process dependencies, which are used by the [Map feature in VM Insights](../vm/vminsights-maps.md). The Dependency agent relies on the Azure Monitor Agent or Log Analytics agent to deliver its data to Azure Monitor. If you use Azure Monitor Agent, the Dependency agent is required for the Map feature. If you don't need the map feature, you don't need to install the Dependency agent.
 
-There are several changes in the process for enabling VM insights when you use the Azure Monitor agent:
+### Network requirements
 
-- **Workspace configuration:** You no longer need to [enable VM insights on the Log Analytics workspace](vminsights-configure-workspace.md) because the Azure Monitor agent doesn't use the *VMInsights* management pack.
-- **Data collection rule (DCR):** The Azure Monitor agent uses [data collection rules](../essentials/data-collection-rule-overview.md) to configure its data collection. VM insights creates a DCR that's automatically deployed if you enable your machine by using the Azure portal. If you use other methods to onboard your machines, you might need to install the DCR first.
-- **Agent deployment:** There are minor changes to the process for onboarding virtual machines and virtual machine scale sets to VM insights in the Azure portal. You must now select which agent you want to use, and you must select a DCR for the Azure Monitor agent. For more information, see [Enable VM insights in the Azure portal](vminsights-enable-portal.md).
+- For Azure Monitor Agent, the machine must have access to the following HTTPS endpoints:
+	- global.handler.control.monitor.azure.com
+	- `<virtual-machine-region-name>`.handler.control.monitor.azure.com (example: westus.handler.control.azure.com)
+	- `<log-analytics-workspace-id>`.ods.opinsights.azure.com (example: 12345a01-b1cd-1234-e1f2-1234567g8h99.ods.opinsights.azure.com)
+    (If using private links on the agent, you must also add the [data collection endpoints](../essentials/data-collection-endpoint-overview.md#components-of-a-data-collection-endpoint))
 
-## Data collection rule (Azure Monitor agent)
+    For more information, see [Define Azure Monitor Agent network settings](../agents/azure-monitor-agent-data-collection-endpoint.md).
 
-When you enable VM insights on a machine with the Azure Monitor agent, you must specify a [data collection rule](../essentials/data-collection-rule-overview.md) to use. The DCR specifies the data to collect and the workspace to use. VM insights creates a default DCR if one doesn't already exist. For more information on how to create and edit the VM insights DCR, see [Enable VM insights for the Azure Monitor agent
-](vminsights-enable-portal.md#enable-vm-insights-for-azure-monitor-agent).
+- The Dependency agent requires a connection from the virtual machine to the address 169.254.169.254. This address identifies the Azure metadata service endpoint. Ensure that firewall settings allow connections to this endpoint.
 
-> [!IMPORTANT]
-> Don't create your own DCR to support VM insights. The DCR created by VM insights includes a special data stream required for its operation. You can edit this DCR to collect more data, such as Windows and Syslog events, but you should create more DCRs and associate them with the machine.
+## VM Insights data collection rule 
 
-The DCR is defined by the options in the following table.
+To enable VM Insights on a machine with Azure Monitor Agent, associate a VM insights [data collection rule (DCR)](../essentials/data-collection-rule-overview.md) with the agent. VM Insights creates a default data collection rule if one doesn't already exist.
+
+The data collection rule specifies the data to collect and the workspace to use:  
 
 | Option | Description |
 |:---|:---|
-| Guest performance | Specifies whether to collect performance data from the guest operating system. This option is required for all machines. |
-| Processes and dependencies | Collects information about processes running on the virtual machine and dependencies between machines. This information enables the [Map feature in VM insights](vminsights-maps.md). This is optional and enables the [VM insights Map feature](vminsights-maps.md) for the machine. |
-| Log Analytics workspace | Workspace to store the data. Only workspaces with VM insights are listed. |
+| Guest performance | Specifies whether to collect [performance data](/azure/azure-monitor/vm/vminsights-performance) from the guest operating system. This option is required for all machines. The collection interval for performance data is every 60 seconds.|
+| Processes and dependencies | Collects information about processes running on the virtual machine and dependencies between machines. This information enables the [Map feature in VM Insights](vminsights-maps.md). This is optional and enables the [VM Insights Map feature](vminsights-maps.md) for the machine. |
+| Log Analytics workspace | Workspace to store the data. Only workspaces with VM Insights are listed. |
 
-## Management packs (Log Analytics agent)
+> [!IMPORTANT]
+> VM Insights automatically creates a data collection rule that includes a special data stream required for its operation. Do not modify the VM Insights data collection rule or create your own data collection rule to support VM Insights. To collect additional data, such as Windows and Syslog events, create separate data collection rules and associate them with your machines.
 
-When a Log Analytics workspace is configured for VM insights, two management packs are forwarded to all the Windows computers connected to that workspace. The management packs are named *Microsoft.IntelligencePacks.ApplicationDependencyMonitor* and *Microsoft.IntelligencePacks.VMInsights*. They're written to *%Programfiles%\Microsoft Monitoring Agent\Agent\Health Service State\Management Packs*.
+If you associate a data collection rule with the Map feature enabled to a machine on which Dependency Agent isn't installed, the Map view won't be available. To enable the Map view, set `enableAMA property = true` in the Dependency Agent extension when you install Dependency Agent. We recommend following the procedure described in [Enable VM Insights for Azure Monitor Agent](vminsights-enable-portal.md#enable-vm-insights-for-azure-monitor-agent).
 
-The data source used by the *ApplicationDependencyMonitor* management pack is **%Program files%\Microsoft Monitoring Agent\Agent\Health Service State\Resources\<AutoGeneratedID>\Microsoft.EnterpriseManagement.Advisor.ApplicationDependencyMonitorDataSource.dll*. The data source used by the *VMInsights* management pack is *%Program files%\Microsoft Monitoring Agent\Agent\Health Service State\Resources\<AutoGeneratedID>\ Microsoft.VirtualMachineMonitoringModule.dll*.
+## Enable network isolation using Private Link
 
-## Migrate from Log Analytics agent
+By default, Azure Monitor Agent connects to a public endpoint to connect to your Azure Monitor environment. To enable network isolation for VM Insights, associate your VM Insights data collection rule to a data collection endpoint linked to an Azure Monitor Private Link Scope, as described in [Enable network isolation for Azure Monitor Agent by using Private Link](../agents/azure-monitor-agent-private-link.md).
 
-The Azure Monitor agent and the Log Analytics agent can both be installed on the same machine during migration. Running both agents might lead to duplication of data and increased cost. If a machine has both agents installed, you'll see a warning in the Azure portal that you might be collecting duplicate data.
-
-> [!WARNING]
-> Collecting duplicate data from a single machine with both the Azure Monitor agent and Log Analytics agent can result in the following consequences:
->
-> - Extra ingestion cost from sending duplicate data to the Log Analytics workspace.
-> - The Map feature of VM insights might be inaccurate because it doesn't check for duplicate data.
-
-:::image type="content" source="media/vminsights-enable-portal/both-agents-installed.png" lightbox="media/vminsights-enable-portal/both-agents-installed.png" alt-text="Screenshot that shows both agents installed.":::
-
-You must remove the Log Analytics agent yourself from any machines that are using it. Before you do this step, ensure that the machine isn't relying on any other solutions that require the Log Analytics agent. For more information, see [Migrate to Azure Monitor agent from Log Analytics agent](../agents/azure-monitor-agent-migration.md).
-
-After you verify that no Log Analytics agents are still connected to your Log Analytics workspace, you can [remove the *VMInsights* solution from the workspace](vminsights-configure-workspace.md#remove-vminsights-solution-from-workspace). It's no longer needed.
-
-> [!NOTE]
-> To check if you have any machines with both agents sending data to your Log Analytics workspace, run the following [log query](../logs/log-query-overview.md) in [Log Analytics](../logs/log-analytics-overview.md). This query will show the last heartbeat for each computer. If a computer has both agents, it will return two records, each with a different `category`. The Azure Monitor agent will have a `category` of *Azure Monitor Agent*. The Log Analytics agent will have a `category` of *Direct Agent*.
->
-> ```KQL
-> Heartbeat
-> | summarize max(TimeGenerated) by Computer, Category
-> | sort by Computer
-> ```
 
 ## Diagnostic and usage data
 
@@ -156,4 +131,4 @@ For more information about data collection and usage, see the [Microsoft Online 
 
 ## Next steps
 
-To learn how to use the Performance monitoring feature, see [View VM insights Performance](../vm/vminsights-performance.md). To view discovered application dependencies, see [View VM insights Map](../vm/vminsights-maps.md).
+To learn how to use the Performance monitoring feature, see [View VM Insights Performance](../vm/vminsights-performance.md). To view discovered application dependencies, see [View VM Insights Map](../vm/vminsights-maps.md).

@@ -1,12 +1,11 @@
 ---
 title: Configuration error codes - Azure Stream Analytics
-description: Troubleshoot Azure Stream Analytics issues with configuration error codes. 
-ms.author: sidram
-author: sidramadoss
+description: Troubleshoot Azure Stream Analytics issues with configuration error codes.
+author: ahartoon
+ms.author: anboisve
 ms.topic: troubleshooting
 ms.date: 05/07/2020
 ms.service: stream-analytics
-ms.custom: ignite-2022
 ---
 
 # Azure Stream Analytics configuration error codes
@@ -15,21 +14,21 @@ You can use activity logs and resource logs to help debug unexpected behaviors f
 
 ## EventHubUnauthorizedAccess
 
-* **Cause**: Event Hub threw an *Unauthorized Access* error.
+* **Cause**: Event Hubs threw an *Unauthorized Access* error.
 
 ## EventHubReceiverEpochConflict
 
-* **Cause**: There is more than one Event Hub receiver with different epoch values.
-* **Recommendation**: Ensure *Service Bus Explorer* or an *EventProcessorHost* application is not connected while your Stream Analytics job is running.
+* **Cause**: There's more than one Event Hubs receiver with different epoch values.
+* **Recommendation**: Ensure *Service Bus Explorer* or an *EventProcessorHost* application isn't connected while your Stream Analytics job is running.
 
 ## EventHubReceiverQuotaExceeded
 
 * **Cause**: Stream Analytics can't connect to a partition because the maximum number of allowed receivers per partition in a consumer group has been reached.
-* **Recommendation**: Ensure that other Stream Analytics jobs or Service Bus Explorer are not using the same consumer group.
+* **Recommendation**: Ensure that other Stream Analytics jobs or Service Bus Explorer aren't using the same consumer group.
 
 ## EventHubOutputThrottled
 
-* **Cause**: An error occurred while writing data to Event Hub due to throttling.
+* **Cause**: An error occurred while writing data to Event Hubs due to throttling.
 * **Recommendation**: If this happens consistently, upgrade the throughput.
 
 ## EventHubOutputInvalidConnectionConfig
@@ -39,18 +38,18 @@ You can use activity logs and resource logs to help debug unexpected behaviors f
 
 ## EventHubOutputInvalidHostname
 
-* **Cause**: The Event Hub host is unreachable.
+* **Cause**: The Event Hubs host is unreachable.
 * **Recommendation**: Ensure the supplied host name is correct.
 
 ## EventHubOutputUnexpectedPartitionCount
 
-* **Cause**: The EventHub sender encountered an unexpected EventHub partition count.
-* **Recommendation**: Restart your Stream Analytics job if the EventHub's partition count has changed.
+* **Cause**: The Event Hubs sender encountered an unexpected partition count.
+* **Recommendation**: Restart your Stream Analytics job if the event hub's partition count has changed.
 
 ## CosmosDBPartitionKeyNotFound
 
 * **Cause**: Stream Analytics couldn't find the partition key of a particular Azure Cosmos DB collection in the database.
-* **Recommendation**: Ensure there is a valid partition key specified for the collection in Azure Cosmos DB.
+* **Recommendation**: Ensure there's a valid partition key specified for the collection in Azure Cosmos DB.
 
 ## CosmosDBInvalidPartitionKeyColumn
 
@@ -58,7 +57,7 @@ You can use activity logs and resource logs to help debug unexpected behaviors f
 
 ## CosmosDBInvalidIdColumn
 
-* **Cause**: The query output can't contain the column \[id] if a different column is chosen as the primary key property.
+* **Cause**: The query output can't contain the column \[`id`] if a different column is chosen as the primary key property.
 
 ## CosmosDBDatabaseNotFound
 
@@ -89,7 +88,7 @@ You can use activity logs and resource logs to help debug unexpected behaviors f
 
 ## SQLDWOutputInvalidServiceEdition
 
-* **Cause**: SQL Database is not supported.
+* **Cause**: SQL Database isn't supported.
 * **Recommendation**: Use dedicated SQL pool.
 
 ## Next steps

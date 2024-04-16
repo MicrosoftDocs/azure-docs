@@ -4,10 +4,10 @@ description: In this article, learn how to configure, initiate, and manage backu
 ms.topic: conceptual
 ms.date: 10/31/2022
 ms.assetid: 7c244b94-d736-40a8-b94d-c72077080bbe
-author: v-amallick
 ms.service: backup
-ms.author: v-amallick
 ms.custom: engagement-fy23
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Back up blobs in a storage account using Azure Data Protection via REST API
@@ -345,8 +345,8 @@ It returns two responses: 201 (Created) when backup instance is created and the 
 
 Once you submit the *PUT* request to create a backup instance, the initial response is 201 (Created) with an Azure-asyncOperation header. 
 
->[Note]
->The request body contains all the backup instance properties.
+> [!NOTE]
+> The request body contains all the backup instance properties.
 
 ```http
 HTTP/1.1 201 Created

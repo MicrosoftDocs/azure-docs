@@ -2,19 +2,13 @@
 title: Configure and validate virtual network or VPN connections
 description: Step-by-step guidance to configure and validate various Azure VPN and virtual network deployments
 services: virtual-network
-documentationcenter: na
 author: asudbring
 manager: dcscontentpm
-editor: ''
-
 ms.assetid: 0433a4f4-b5a0-476d-b398-1506c57eafa2
 ms.service: virtual-network
 ms.topic: troubleshooting
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 08/28/2019
 ms.author: allensu
-
 ---
 
 # Configure and validate virtual network or VPN connections
@@ -160,7 +154,7 @@ You can add a site-to-site (*S2S* in the following diagram) connection to a virt
 
 Azure currently works with two deployment models: Resource Manager and classic. The two models aren't completely compatible with each other. To configure a multisite connection with different models, see the following articles:
 
-* [Add a site-to-site connection to a virtual network with an existing VPN gateway connection](../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
+* [Add a site-to-site connection to a virtual network with an existing VPN gateway connection](../vpn-gateway/add-remove-site-to-site-connections.md)
 * [Add a site-to-site connection to a virtual network with an existing VPN gateway connection (classic)](../vpn-gateway/vpn-gateway-multi-site.md)
 
 > [!Note]

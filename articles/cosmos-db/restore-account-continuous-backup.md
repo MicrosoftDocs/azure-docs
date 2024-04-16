@@ -4,10 +4,10 @@ description: Learn how to identify the restore time and restore a live or delete
 author: kanshiG
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 04/18/2022
+ms.date: 03/21/2024
 ms.author: govindk
 ms.reviewer: mjbrown
-ms.custom: devx-track-azurepowershell, devx-track-azurecli, ignite-2022
+ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-arm-template
 ---
 
 # Restore an Azure Cosmos DB account that uses continuous backup mode
@@ -15,10 +15,9 @@ ms.custom: devx-track-azurepowershell, devx-track-azurecli, ignite-2022
 
 Azure Cosmos DB's point-in-time restore feature helps you to recover from an accidental change within a container, to restore a deleted account, database, or a container or to restore into any region (where backups existed). The continuous backup mode allows you to do restore to any point of time within the last 30 days.
 
-This article describes how to identify the restore time and restore a live or deleted Azure Cosmos DB account. It shows restore the account using [Azure portal](#restore-account-portal), [PowerShell](#restore-account-powershell), [CLI](#restore-account-cli), or an [Azure Resource Manager template](#restore-arm-template).
+This article describes how to identify the restore time and restore a live or deleted Azure Cosmos DB account. It shows how to restore the account using the [Azure portal](#restore-account-portal), [PowerShell](#restore-account-powershell), [CLI](#restore-account-cli), or an [Azure Resource Manager template](#restore-arm-template).
 
-> [!NOTE]
-> Currently in preview, the restore action for API for Table and Gremlin is supported via PowerShell and the Azure CLI.
+
 
 ## <a id="restore-account-portal"></a>Restore an account using Azure portal
 
@@ -26,7 +25,7 @@ This article describes how to identify the restore time and restore a live or de
 
 You can use Azure portal to restore an entire live account or selected databases and containers under it. Use the following steps to restore your data:
 
-1. Sign into the [Azure portal](https://portal.azure.com/)
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Navigate to your Azure Cosmos DB account and open the **Point In Time Restore** blade.
 
    > [!NOTE]
@@ -69,7 +68,7 @@ For example, if you want to restore to the point before a certain container was 
 
 You can use Azure portal to completely restore a deleted account within 30 days of its deletion. Use the following steps to restore a deleted account:
 
-1. Sign into the [Azure portal](https://portal.azure.com/)
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Search for *Azure Cosmos DB* resources in the global search bar. It lists all your existing accounts.
 1. Next select the **Restore** button. The Restore blade displays a list of deleted accounts that can be restored within the retention period, which is 30 days from deletion time.
 1. Choose the account that you want to restore.
@@ -101,13 +100,13 @@ After the restore operation completes, you may want to know the source account d
 
 Use the following steps to get the restore details from Azure portal:
 
-1. Sign into the [Azure portal](https://portal.azure.com/) and navigate to the restored account.
+1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to the restored account.
 
 1. Navigate to the **Export template** pane. It opens a JSON template, corresponding to the restored account.
 
 ## <a id="restore-account-powershell"></a>Restore an account using Azure PowerShell
 
-Before restoring the account, install the [latest version of Azure PowerShell](/powershell/azure/install-az-ps?view=azps-6.2.1&preserve-view=true) or version higher than 6.2.0. Next connect to your Azure account and select the required subscription with the following commands:
+Before restoring the account, install the [latest version of Azure PowerShell](/powershell/azure/install-azure-powershell) or version higher than 9.6.0. Next connect to your Azure account and select the required subscription with the following commands:
 
 1. Sign into Azure using the following command:
 
@@ -119,10 +118,13 @@ Before restoring the account, install the [latest version of Azure PowerShell](/
 
    ```azurepowershell
    Select-AzSubscription -Subscription <SubscriptionName>
+   ```
 
 ### <a id="trigger-restore-ps"></a>Trigger a restore operation for API for NoSQL account
 
-The following cmdlet is an example to trigger a restore operation with the restore command by using the target account, source account, location, resource group, and timestamp:
+The following cmdlet is an example to trigger a restore operation with the restore command by using the target account, source account, location, resource group, PublicNetworkAccess, DisableTtl, and timestamp:
+
+
 
 ```azurepowershell
 
@@ -131,7 +133,9 @@ Restore-AzCosmosDBAccount `
   -TargetDatabaseAccountName "RestoredAccountName" `
   -SourceDatabaseAccountName "SourceDatabaseAccountName" `
   -RestoreTimestampInUtc "UTCTime" `
-  -Location "AzureRegionName"
+  -Location "AzureRegionName" ` 
+  -PublicNetworkAccess Disabled `
+  -DisableTtl $true
 
 ```
 
@@ -144,9 +148,16 @@ Restore-AzCosmosDBAccount `
   -TargetDatabaseAccountName "Pitracct" `
   -SourceDatabaseAccountName "source-sql" `
   -RestoreTimestampInUtc "2021-01-05T22:06:00" `
-  -Location "West US"
+  -Location "West US" `
+  -PublicNetworkAccess Disabled
+  -DisableTtl $false
+
 
 ```
+If `PublicNetworkAccess` is not set, restored account is accessible from public network, please ensure to pass `Disabled` to the `PublicNetworkAccess` option to disable public network access for restored account. Setting DisableTtl to $true ensures TTL is disabled on restored account, not providing parameter restores the account with TTL enabled if it was set earlier. 
+
+> [!NOTE]
+> For restoring with public network access disabled, the minimum stable version of Az.CosmosDB required is 1.12.0.
 
 **Example 2:** Restoring specific collections and databases. This example restores the collections *MyCol1*, *MyCol2* from *MyDB1* and the entire database *MyDB2*, which, includes all the containers under it.
 
@@ -189,13 +200,16 @@ Restore-AzCosmosDBAccount `
   -TargetDatabaseAccountName "Pitracct" `
   -SourceDatabaseAccountName "SourceTable" `
   -RestoreTimestampInUtc "2022-04-06T22:06:00" `
-  -TablesToRestore $tablesToRestore
+  -TablesToRestore $tablesToRestore ` 
   -Location "West US"
 ```
+### To restore a continuous account that is configured with managed identity using CLI
+
+To restore Customer Managed Key (CMK) continuous account, please refer to the steps provided [here](./how-to-setup-customer-managed-keys.md)
 
 ### <a id="get-the-restore-details-powershell"></a>Get the restore details from the restored account
 
-Import the `Az.CosmosDB` module and run the following command to get the restore details. The restoreTimestamp will be under the restoreParameters object:
+Import the `Az.CosmosDB` module version 1.12.0 and run the following command to get the restore details. The restoreTimestamp will be under the restoreParameters object:
 
 ```azurepowershell
 Get-AzCosmosDBAccount -ResourceGroupName MyResourceGroup -Name MyCosmosDBDatabaseAccount 
@@ -342,7 +356,6 @@ Get-AzCosmosdbGremlinRestorableGraph `
    -DatabaseRId "AoQ13r==" ` 
    -Location "West US" 
 ```
- 
 #### Find databases or graphs that can be restored at any given timestamp 
 
 Use the following command to get the list of databases or graphs that can be restored at any given timestamp. This command only works with live accounts. 
@@ -365,10 +378,9 @@ Use the following command to list all the versions of tables. This command only 
 
 ```azurepowershell
 Get-AzCosmosdbTableRestorableTable ` 
-   -DatabaseAccountInstanceId "d056a4f8-044a-436f-80c8-cd3edbc94c68"   
-   ` -Location "West US" 
+   -DatabaseAccountInstanceId "d056a4f8-044a-436f-80c8-cd3edbc94c68"   ` 
+   -Location "West US" 
 ```
- 
 #### Find tables that can be restored at any given timestamp 
 
 Use the following command to get the list of tables that can be restored at any given timestamp. This command only works with live accounts. 
@@ -382,14 +394,17 @@ Get-AzCosmosdbTableRestorableResource `
 ```
 
 
+
+
+
 ## <a id="restore-account-cli"></a>Restore an account using Azure CLI
 
 Before restoring the account, install Azure CLI with the following steps:
 
 1. Install the latest version of Azure CLI
 
-   * Install the latest version of [Azure CLI](/cli/azure/install-azure-cli) or version higher than 2.26.0.
-   * If you have already installed CLI, run `az upgrade` command to update to the latest version. This command will only work with CLI version higher than 2.11. If you have an earlier version, use the above link to install the latest version.
+   * Install the latest version of [Azure CLI](/cli/azure/install-azure-cli) or version higher than 2.52.0.
+   * If you have already installed CLI, run `az upgrade` command to update to the latest version. This command will only work with CLI version higher than 2.52.0. If you have an earlier version, use the above link to install the latest version.
 
 1. Sign in and select your subscription
 
@@ -402,57 +417,64 @@ The simplest way to trigger a restore is by issuing the restore command with nam
 
 #### Create a new Azure Cosmos DB account by restoring from an existing account
 
-   ```azurecli-interactive
+```azurecli-interactive
 
-   az cosmosdb restore \
-    --target-database-account-name MyRestoredCosmosDBDatabaseAccount \
-    --account-name MySourceAccount \
-    --restore-timestamp 2020-07-13T16:03:41+0000 \
-    --resource-group MyResourceGroup \
-    --location "West US"
+az cosmosdb restore \
+ --target-database-account-name <MyRestoredCosmosDBDatabaseAccount> \
+ --account-name <MySourceAccount> \
+ --restore-timestamp 2020-07-13T16:03:41+0000 \
+ --resource-group <MyResourceGroup> \
+ --location "West US" \
+ --public-network-access Disabled \
+ --disable-ttl True 
 
-   ```
+```
+
+If `--public-network-access` is not set, restored account is accessible from public network. Please ensure to pass `Disabled` to the `--public-network-access` option to prevent public network access for restored account. Setting disable-ttl to  to $true ensures TTL is disabled on restored account,  and not providing this parameter restores the account with TTL enabled if it was set earlier. 
+
+ > [!NOTE]
+ > For restoring with public network access disabled, the minimum stable version of azure-cli is 2.52.0.
 
 #### Create a new Azure Cosmos DB account by restoring only selected databases and containers from an existing database account
 
-   ```azurecli-interactive
+```azurecli-interactive
 
-   az cosmosdb restore \
-    --resource-group MyResourceGroup \
-    --target-database-account-name MyRestoredCosmosDBDatabaseAccount \
-    --account-name MySourceAccount \
-    --restore-timestamp 2020-07-13T16:03:41+0000 \
-    --location "West US" \
-    --databases-to-restore name=MyDB1 collections=Collection1 Collection2 \
-    --databases-to-restore name=MyDB2 collections=Collection3 Collection4
+az cosmosdb restore \
+ --resource-group MyResourceGroup \
+ --target-database-account-name MyRestoredCosmosDBDatabaseAccount \
+ --account-name MySourceAccount \
+ --restore-timestamp 2020-07-13T16:03:41+0000 \
+ --location "West US" \
+ --databases-to-restore name=MyDB1 collections=Collection1 Collection2 \
+ --databases-to-restore name=MyDB2 collections=Collection3 Collection4
 
-   ```
+```
 #### Create a new Azure Cosmos DB API for Gremlin account by restoring only selected databases and graphs from an existing API for Gremlin account
 
-   ```azurecli-interactive
+```azurecli-interactive
 
-   az cosmosdb restore \
-    --resource-group MyResourceGroup \
-    --target-database-account-name MyRestoredCosmosDBDatabaseAccount \
-    --account-name MySourceAccount \
-    --restore-timestamp 2022-04-13T16:03:41+0000 \
-    --location "West US" \
-    --gremlin-databases-to-restore name=MyDB1 graphs=graph1 graph2 \
-    --gremlin-databases-to-restore name=MyDB2 graphs =graph3 graph4 
-   ```
+az cosmosdb restore \
+ --resource-group MyResourceGroup \
+ --target-database-account-name MyRestoredCosmosDBDatabaseAccount \
+ --account-name MySourceAccount \
+ --restore-timestamp 2022-04-13T16:03:41+0000 \
+ --location "West US" \
+ --gremlin-databases-to-restore name=MyDB1 graphs=graph1 graph2 \
+ --gremlin-databases-to-restore name=MyDB2 graphs =graph3 graph4 
+```
 
  #### Create a new Azure Cosmos DB API for Table account by restoring only selected tables from an existing API for Table account
 
-   ```azurecli-interactive
+```azurecli-interactive
 
-   az cosmosdb restore \
-    --resource-group MyResourceGroup \
-    --target-database-account-name MyRestoredCosmosDBDatabaseAccount \
-    --account-name MySourceAccount \
-    --restore-timestamp 2022-04-14T06:03:41+0000 \
-    --location "West US" \
-    --tables-to-restore table1 table2 
-   ```
+az cosmosdb restore \
+ --resource-group MyResourceGroup \
+ --target-database-account-name MyRestoredCosmosDBDatabaseAccount \
+ --account-name MySourceAccount \
+ --restore-timestamp 2022-04-14T06:03:41+0000 \
+ --location "West US" \
+ --tables-to-restore table1 table2 
+```
 
 ### <a id="get-the-restore-details-cli"></a>Get the restore details from the restored account
 
@@ -519,8 +541,7 @@ This command output now shows when a database was created and deleted.
 [
   {
     "id": "/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.DocumentDB/locations/West US/restorableDatabaseAccounts/abcd1234-d1c0-4645-a699-abcd1234/restorableSqlDatabases/40e93dbd-2abe-4356-a31a-35567b777220",
-    ..
-    "name": "40e93dbd-2abe-4356-a31a-35567b777220",
+     "name": "40e93dbd-2abe-4356-a31a-35567b777220",
     "resource": {
       "database": {
         "id": "db1"
@@ -530,11 +551,10 @@ This command output now shows when a database was created and deleted.
       "ownerId": "db1",
       "ownerResourceId": "YuZAAA=="
     },
-    ..
+   
   },
   {
     "id": "/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.DocumentDB/locations/West US/restorableDatabaseAccounts/abcd1234-d1c0-4645-a699-abcd1234/restorableSqlDatabases/243c38cb-5c41-4931-8cfb-5948881a40ea",
-    ..
     "name": "243c38cb-5c41-4931-8cfb-5948881a40ea",
     "resource": {
       "database": {
@@ -545,7 +565,7 @@ This command output now shows when a database was created and deleted.
       "ownerId": "spdb1",
       "ownerResourceId": "OIQ1AA=="
     },
-   ..
+ 
   }
 ]
 ```
@@ -566,16 +586,12 @@ This command output shows includes list of operations performed on all the conta
 ```json
 [
   {
-    ...
-    
       "eventTimestamp": "2021-01-08T23:25:29Z",
       "operationType": "Replace",
       "ownerId": "procol3",
       "ownerResourceId": "OIQ1APZ7U18="
-...
   },
   {
-    ...
       "eventTimestamp": "2021-01-08T23:25:26Z",
       "operationType": "Create",
       "ownerId": "procol3",
@@ -648,8 +664,6 @@ az cosmosdb mongodb restorable-resource list \
     --restore-timestamp "2020-07-20T16:09:53+0000"
 ```
 
-
-
 #### List all the versions of databases in a live database account
 The enumeration commands described below help you discover the resources that are available for restore at various timestamps. Additionally, they also provide a feed of key events on the restorable account, database, and graph resources. These commands only work for live accounts.
 
@@ -675,7 +689,7 @@ This command output now shows when a database was created and deleted.
     
   } 
 ] 
-``` 
+```
 
 #### List all the versions of Gremlin graphs of a database in a live database account 
 
@@ -702,7 +716,7 @@ This command output shows includes list of operations performed on all the conta
     "type": "Microsoft.DocumentDB/locations/restorableDatabaseAccounts/restorableGraphs" 
   } 
 ] 
-``` 
+```
 
 #### Find databases or graphs that can be restored at any given timestamp 
 
@@ -714,14 +728,13 @@ az cosmosdb gremlin restorable-resource list \
    --restore-location "West US" \ 
    --restore-timestamp "2021-01-10T01:00:00+0000" 
 ```
+This command output shows the graphs which are restorable: 
+
 ```
-[   { 
-    "databaseName": "db1", 
-    "graphNames": [ 
-      "graph1", 
-      "graph3", 
-      "graph2" 
-    ] 
+[
+ { 
+"databaseName": "db1", 
+"graphNames": [ "graph1",   "graph3",   "graph2"  ] 
   } 
 ] 
 ```
@@ -737,29 +750,33 @@ az cosmosdb table restorable-table list \
    --instance-id "abcd1234-d1c0-4645-a699-abcd1234"  
    --location "West US" 
 ```
+
 ```
 [   { 
-    "id": "/subscriptions/23587e98-b6ac-4328-a753-03bcd3c8e744/providers/Microsoft.DocumentDB/locations/WestUS/restorableDatabaseAccounts/7e4d666a-c6ba-4e1f-a4b9-e92017c5e8df/restorableTables/59781d91-682b-4cc2-93a3-c25d03fab159", 
-    "name": "59781d91-682b-4cc2-93a3-c25d03fab159", 
-    "resource": { 
-      "eventTimestamp": "2022-02-09T17:09:54Z", 
-      "operationType": "Create", 
-      "ownerId": "table1", 
-      "ownerResourceId": "tOdDAKYiBhQ=", 
-      "rid": "9pvDGwAAAA==" 
-    }, 
-    "type": "Microsoft.DocumentDB/locations/restorableDatabaseAccounts/restorableTables" 
+
+"id": "/subscriptions/23587e98-b6ac-4328-a753-03bcd3c8e744/providers/Microsoft.DocumentDB/locations/WestUS/restorableDatabaseAccounts/7e4d666a-c6ba-4e1f-a4b9-e92017c5e8df/restorableTables/59781d91-682b-4cc2-93a3-c25d03fab159", 
+"name": "59781d91-682b-4cc2-93a3-c25d03fab159", 
+"resource": { 
+  "eventTimestamp": "2022-02-09T17:09:54Z", 
+  "operationType": "Create", 
+  "ownerId": "table1", 
+  "ownerResourceId": "tOdDAKYiBhQ=", 
+  "rid": "9pvDGwAAAA==" 
   }, 
-    {"id": "/subscriptions/23587e98-b6ac-4328-a753-03bcd3c8e744/providers/Microsoft.DocumentDB/locations/eastus2euap/restorableDatabaseAccounts/7e4d666a-c6ba-4e1f-a4b9-e92017c5e8df/restorableTables/2c9f35eb-a14c-4ab5-a7e0-6326c4f6b785", 
-    "name": "2c9f35eb-a14c-4ab5-a7e0-6326c4f6b785", 
-    "resource": { 
-      "eventTimestamp": "2022-02-09T20:47:53Z", 
-      "operationType": "Create", 
-      "ownerId": "table3", 
-      "ownerResourceId": "tOdDALBwexw=", 
-      "rid": "01DtkgAAAA==" 
-    }, 
-    "type": "Microsoft.DocumentDB/locations/restorableDatabaseAccounts/restorableTables" 
+"type": "Microsoft.DocumentDB/locations/restorableDatabaseAccounts/restorableTables" 
+   }, 
+
+{"id": "/subscriptions/23587e98-b6ac-4328-a753-03bcd3c8e744/providers/Microsoft.DocumentDB/locations/eastus2euap/restorableDatabaseAccounts/7e4d666a-c6ba-4e1f-a4b9-e92017c5e8df/restorableTables/2c9f35eb-a14c-4ab5-a7e0-6326c4f6b785", 
+"name": "2c9f35eb-a14c-4ab5-a7e0-6326c4f6b785", 
+"resource": { 
+  "eventTimestamp": "2022-02-09T20:47:53Z", 
+  "operationType": "Create", 
+  "ownerId": "table3", 
+  "ownerResourceId": "tOdDALBwexw=", 
+  "rid": "01DtkgAAAA==" 
+}, 
+"type": "Microsoft.DocumentDB/locations/restorableDatabaseAccounts/restorableTables" 
+
   }, 
 ] 
 ```
@@ -773,12 +790,16 @@ az cosmosdb table restorable-resource list \
    --restore-location "West US" \ 
    --restore-timestamp "2020-07-20T16:09:53+0000" 
 ```
+
+Following is the result of the command. 
+
 ```
 {   
   "tableNames": [ 
-    "table1", 
-    "table3", 
-    "table2" 
+"table1", 
+"table3", 
+"table2" 
+
   ] 
 } 
 ```
@@ -803,7 +824,7 @@ Use the following ARM template to restore an account for the Azure Cosmos DB API
     {
       "name": "vinhpitrarmrestore-kal3",
       "type": "Microsoft.DocumentDB/databaseAccounts",
-      "apiVersion": "2016-03-31",
+      "apiVersion": "2023-04-15",
       "location": "West US",
       "properties": {
         "locations": [
@@ -816,7 +837,8 @@ Use the following ARM template to restore an account for the Azure Cosmos DB API
         "restoreParameters": {
             "restoreSource": "/subscriptions/2296c272-5d55-40d9-bc05-4d56dc2d7588/providers/Microsoft.DocumentDB/locations/West US/restorableDatabaseAccounts/6a18ecb8-88c2-4005-8dce-07b44b9741df",
             "restoreMode": "PointInTime",
-            "restoreTimestampInUtc": "6/24/2020 4:01:48 AM"
+            "restoreTimestampInUtc": "6/24/2020 4:01:48 AM",
+            "restoreWithTtlDisabled": "true"
         }
       }
     }
@@ -834,7 +856,7 @@ Use the following ARM template to restore an account for the Azure Cosmos DB API
     {
       "name": "ademo-pitr1",
       "type": "Microsoft.DocumentDB/databaseAccounts",
-      "apiVersion": "2016-03-31",
+      "apiVersion": "2023-04-15",
       "location": "West US",
       "properties": {
         "locations": [
@@ -851,12 +873,12 @@ Use the following ARM template to restore an account for the Azure Cosmos DB API
             "restoreSource": "/subscriptions/2296c272-5d55-40d9-bc05-4d56dc2d7588/providers/Microsoft.DocumentDB/locations/West US/restorableDatabaseAccounts/5cb9d82e-ec71-430b-b977-cd6641db85bc",
             "restoreMode": "PointInTime",
             "restoreTimestampInUtc": "2021-10-27T23:20:46Z",
-            "gremlinDatabasesToRestore": { 
+            "gremlinDatabasesToRestore": [{ 
                 "databaseName": "db1", 
                 "graphNames": [ 
                     "graph1", "graph2" 
                 ] 
-            }
+            }]
         }
       }
     }
@@ -874,7 +896,7 @@ Use the following ARM template to restore an account for the Azure Cosmos DB API
     {
       "name": "ademo-pitr1",
       "type": "Microsoft.DocumentDB/databaseAccounts",
-      "apiVersion": "2016-03-31",
+      "apiVersion": "2023-04-15",
       "location": "West US",
       "properties": {
         "locations": [
@@ -909,7 +931,7 @@ az deployment group create -g <ResourceGroup> --template-file <RestoreTemplateFi
 
 ## Next steps
 
-* Provision continuous backup using [Azure portal](provision-account-continuous-backup.md#provision-portal), [PowerShell](provision-account-continuous-backup.md#provision-powershell), [CLI](provision-account-continuous-backup.md#provision-cli), or [Azure Resource Manager](provision-account-continuous-backup.md#provision-arm-template).
+* Provision continuous backup using the [Azure portal](provision-account-continuous-backup.md#provision-portal), [PowerShell](provision-account-continuous-backup.md#provision-powershell), [CLI](provision-account-continuous-backup.md#provision-cli), or [Azure Resource Manager](provision-account-continuous-backup.md#provision-arm-template).
 * [How to migrate to an account from periodic backup to continuous backup](migrate-continuous-backup.md).
 * [Continuous backup mode resource model.](continuous-backup-restore-resource-model.md)
 * [Manage permissions](continuous-backup-restore-permissions.md) required to restore data with continuous backup mode.

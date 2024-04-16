@@ -11,7 +11,11 @@ ms.author: danlep
 ---
 # Configure Front Door Standard/Premium in front of Azure API Management
 
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
+
 Azure Front Door is a modern application delivery network platform providing a secure, scalable content delivery network (CDN), dynamic site acceleration, and global HTTP(s) load balancing for your global web applications. When used in front of API Management, Front Door can provide TLS offloading, end-to-end TLS, load balancing, response caching of GET requests, and a web application firewall, among other capabilities. For a full list of supported features, see [What is Azure Front Door?](../frontdoor/front-door-overview.md) 
+
+[!INCLUDE [ddos-waf-recommendation](../../includes/ddos-waf-recommendation.md)]
 
 This article shows how to:
 
@@ -90,14 +94,14 @@ In the following example, the same operation in the Demo Conference API is calle
 
 ## Restrict incoming traffic to API Management instance
 
-Use API Management policies to ensure that your API Management instance accepts traffic only from Azure Front Door. You can accomplish this restriction using one or both of the [following methods](../frontdoor/front-door-faq.yml#how-do-i-lock-down-the-access-to-my-backend-to-only-azure-front-door-):
+Use API Management policies to ensure that your API Management instance accepts traffic only from Azure Front Door. You can accomplish this restriction using one or both of the [following methods](../frontdoor/front-door-faq.yml#what-are-the-steps-to-restrict-the-access-to-my-backend-to-only-azure-front-door-):
 
 1. Restrict incoming IP addresses to your API Management instances
 1. Restrict traffic based on the value of the `X-Azure-FDID` header
 
 ### Restrict incoming IP addresses
 
-You can configure an inbound [ip-filter](api-management-access-restriction-policies.md#RestrictCallerIPs) policy in API Management to allow only Front Door-related traffic, which includes:
+You can configure an inbound [ip-filter](ip-filter-policy.md) policy in API Management to allow only Front Door-related traffic, which includes:
 
 * **Front Door's backend IP address space** - Allow IP addresses corresponding to the *AzureFrontDoor.Backend* section in [Azure IP Ranges and Service Tags](https://www.microsoft.com/download/details.aspx?id=56519).
 
@@ -108,7 +112,7 @@ You can configure an inbound [ip-filter](api-management-access-restriction-polic
 
 ### Check Front Door header
 
-Requests routed through Front Door include headers specific to your Front Door configuration. You can configure the [check-header](api-management-access-restriction-policies.md#CheckHTTPHeader) policy to filter incoming requests based on the unique value of the `X-Azure-FDID` HTTP request header that is sent to API Management. This header value is the **Front Door ID**, which is shown in the portal on the **Overview** page of the Front Door profile.
+Requests routed through Front Door include headers specific to your Front Door configuration. You can configure the [check-header](check-header-policy.md) policy to filter incoming requests based on the unique value of the `X-Azure-FDID` HTTP request header that is sent to API Management. This header value is the **Front Door ID**, which is shown in the portal on the **Overview** page of the Front Door profile.
 
 In the following policy example, the Front Door ID is specified using a [named value](api-management-howto-properties.md) named `FrontDoorId`. 
 
@@ -136,7 +140,7 @@ The following are high level steps to add an endpoint for the developer portal t
 For more information and details about settings, see [How to configure an origin for Azure Front Door](../frontdoor/how-to-configure-origin.md#create-a-new-origin-group).
 
 > [!NOTE]
-> If you've configured an [Azure AD](api-management-howto-aad.md) or [Azure AD B2C](api-management-howto-aad-b2c.md) identity provider for the developer portal, you need to update the corresponding app registration with an additional redirect URL to Front Door. In the app registration, add the URL for the developer portal endpoint configured in your Front Door profile.
+> If you've configured an [Microsoft Entra ID](api-management-howto-aad.md) or [Azure AD B2C](api-management-howto-aad-b2c.md) identity provider for the developer portal, you need to update the corresponding app registration with an additional redirect URL to Front Door. In the app registration, add the URL for the developer portal endpoint configured in your Front Door profile.
 
 ## Next steps
 
