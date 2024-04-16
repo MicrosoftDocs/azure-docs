@@ -27,7 +27,7 @@ In this quickstart, you use the Azure IoT Operations (preview) portal to create 
 
 Complete [Quickstart: Deploy Azure IoT Operations Preview to an Arc-enabled Kubernetes cluster](quickstart-deploy.md) before you begin this quickstart.
 
-To sign in to the Azure IoT Operations portal, you need a work or school account in the tenant where you deployed Azure IoT Operations. If you're currently using a Microsoft account (MSA), you need to create a Microsoft Entra ID with at least contributor permissions for the resource group that contains your **Kubernetes - Azure Arc** instance. To learn more, see [Known Issues > Create Entra account](../troubleshoot/known-issues.md#azure-iot-operations-preview-portal).
+To sign in to the Azure IoT Operations (preview) portal, you need a work or school account in the tenant where you deployed Azure IoT Operations. If you're currently using a Microsoft account (MSA), you need to create a Microsoft Entra ID with at least contributor permissions for the resource group that contains your **Kubernetes - Azure Arc** instance. To learn more, see [Known Issues > Create Entra account](../troubleshoot/known-issues.md#azure-iot-operations-preview-portal).
 
 ## What problem will we solve?
 
@@ -38,7 +38,7 @@ The data that OPC UA servers expose can have a complex structure and can be diff
 To create asset endpoints, assets and subscribe to OPC UA tags and events, use the Azure IoT Operations (preview) portal. Navigate to the [Azure IoT Operations (preview)](https://iotoperations.azure.com) portal in your browser and sign in with your Microsoft Entra ID credentials.
 
 > [!IMPORTANT]
-> You must use a work or school account to sign in to the Azure IoT Operations portal. To learn more, see [Known Issues > Create Entra account](../troubleshoot/known-issues.md#azure-iot-operations-preview-portal).
+> You must use a work or school account to sign in to the Azure IoT Operations (preview) portal. To learn more, see [Known Issues > Create Entra account](../troubleshoot/known-issues.md#azure-iot-operations-preview-portal).
 
 ## Select your cluster
 
@@ -57,7 +57,7 @@ To add an asset endpoint:
 
 1. Select **Manage asset endpoints** and then **Create asset endpoint**:
 
-    :::image type="content" source="media/quickstart-add-assets/asset-endpoints.png" alt-text="Screenshot that shows the asset endpoints page in the Azure IoT Operations portal.":::
+    :::image type="content" source="media/quickstart-add-assets/asset-endpoints.png" alt-text="Screenshot that shows the asset endpoints page in the Azure IoT Operations (preview) portal.":::
 
 1. Enter the following endpoint information:
 
@@ -76,7 +76,18 @@ To add an asset endpoint:
     kubectl get assetendpointprofile -n azure-iot-operations
     ```
 
-1. To enable the quickstart scenario, configure your asset endpoint to connect without mutual trust established. Run the following command:
+These quickstarts use the **OPC PLC simulator** to generate sample data. To enable the quickstart scenario, you need to configure the OPC UA Broker to accept untrusted server certificates and your asset endpoint to connect without mutual trust established. This configuration is not recommended for production or pre-production environments. For more information, see [Deploy the OPC PLC simulator](../manage-devices-assets/howto-configure-opc-plc-simulator.md):
+
+1. To configure the simulator for the quickstart scenario, run the following command:
+
+   ```azurecli
+   az k8s-extension update --version 0.3.0-preview --name opc-ua-broker --release-train preview --cluster-name <CLUSTER_NAME> --resource-group <RESOURCE_GROUP> --cluster-type connectedClusters --auto-upgrade-minor-version false --config opcPlcSimulation.deploy=true --config opcPlcSimulation.autoAcceptUntrustedCertificates=true
+   ```
+
+   > [!CAUTION]
+   > Don't use this configuration in production or pre-production environments. The configuration lowers the security level for the OPC PLC so that it accepts connections from any client without an explicit peer certificate trust operation.
+
+1. To configure the asset endpoint for the quickstart scenario, run the following command:
 
     ```console
     kubectl patch AssetEndpointProfile opc-ua-connector-0 -n azure-iot-operations --type=merge -p '{"spec":{"additionalConfiguration":"{\"applicationName\":\"opc-ua-connector-0\",\"security\":{\"autoAcceptUntrustedServerCertificates\":true}}"}}'
@@ -84,6 +95,8 @@ To add an asset endpoint:
 
     > [!CAUTION]
     > Don't use this configuration in production or pre-production environments. Exposing your cluster to the internet without proper authentication might lead to unauthorized access and even DDOS attacks.
+
+    To learn more, see [Deploy the OPC PLC simulator](../manage-devices-assets/howto-configure-opc-plc-simulator.md) section.
 
 1. To enable the configuration changes to take effect immediately, first find the name of your `aio-opc-supervisor` pod by using the following command:
 
@@ -109,7 +122,7 @@ When the OPC PLC simulator is running, data flows from the simulator, to the con
 
 ## Manage your assets
 
-After you select your cluster in Azure IoT Operations portal, you see the available list of assets on the **Assets** page. If there are no assets yet, this list is empty:
+After you select your cluster in Azure IoT Operations (preview) portal, you see the available list of assets on the **Assets** page. If there are no assets yet, this list is empty:
 
 :::image type="content" source="media/quickstart-add-assets/create-asset-empty.png" alt-text="Screenshot of Azure IoT Operations empty asset list.":::
 

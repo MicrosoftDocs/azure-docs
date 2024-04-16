@@ -11,10 +11,13 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.reviewer: lagayhar
-ms.date: 11/02/2023
+ms.date: 03/21/2024
 ---
 
 # Faiss Index Lookup tool
+
+> [!IMPORTANT]
+> Vector, Vector DB and Faiss Index Lookup tools are deprecated and will be retired soon. [Migrated to the new Index Lookup tool (preview).](index-lookup-tool.md#how-to-migrate-from-legacy-tools-to-the-index-lookup-tool)
 
 Faiss Index Lookup is a tool tailored for querying within a user-provided Faiss-based vector store. In combination with our large language model (LLM) tool, it empowers you to extract contextually relevant information from a domain knowledge base.
 

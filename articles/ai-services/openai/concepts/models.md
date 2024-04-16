@@ -4,7 +4,7 @@ titleSuffix: Azure OpenAI
 description: Learn about the different model capabilities that are available with Azure OpenAI.
 ms.service: azure-ai-openai
 ms.topic: conceptual
-ms.date: 03/14/2024
+ms.date: 04/15/2024
 ms.custom: references_regions, build-2023, build-2023-dataai, refefences_regions
 manager: nitinme
 author: mrbullwinkle #ChrisHMSFT
@@ -73,7 +73,7 @@ The DALL-E models generate images from text prompts that the user provides. DALL
 
 ## Whisper
 
-The Whisper models, can be used for speech to text.
+The Whisper models can be used for speech to text.
 
 You can also use the Whisper model via Azure AI Speech [batch transcription](../../speech-service/batch-transcription-create.md) API. Check out [What is the Whisper model?](../../speech-service/whisper-overview.md) to learn more about when to use Azure AI Speech vs. Azure OpenAI Service.
 
@@ -170,7 +170,7 @@ GPT-3.5 Turbo version 0301 is the first version of the model released.  Version 
 See [model versions](../concepts/model-versions.md) to learn about how Azure OpenAI Service handles model version upgrades, and [working with models](../how-to/working-with-models.md) to learn how to view and configure the model version settings of your GPT-3.5 Turbo deployments.
 
 > [!NOTE]
-> Version `0613` of `gpt-35-turbo` and `gpt-35-turbo-16k` will be retired no earlier than June 13, 2024. Version `0301` of `gpt-35-turbo` will be retired no earlier than July 5, 2024.  See [model updates](../how-to/working-with-models.md#model-updates) for model upgrade behavior.
+> Version `0613` of `gpt-35-turbo` and `gpt-35-turbo-16k` will be retired no earlier than July 13, 2024. Version `0301` of `gpt-35-turbo` will be retired no earlier than June 13, 2024.  See [model updates](../how-to/working-with-models.md#model-updates) for model upgrade behavior.
 
 |  Model ID   | Max Request (tokens) | Training Data (up to) |
 |  --------- |:------:|:----:|
@@ -188,6 +188,14 @@ See [model versions](../concepts/model-versions.md) to learn about how Azure Ope
 [!INCLUDE [GPT-35-Turbo](../includes/model-matrix/standard-gpt-35-turbo.md)]
 
 **<sup>1</sup>** This model will accept requests > 4,096 tokens. It is not recommended to exceed the 4,096 input token limit as the newer version of the model are capped at 4,096 tokens. If you encounter issues when exceeding 4,096 input tokens with this model this configuration is not officially supported.
+
+#### Azure Government regions
+
+The following GPT-3.5 turbo models are available with [Azure Government](/azure/azure-government/documentation-government-welcome):
+
+|Model ID | Model Availability |
+|--|--|
+| `gpt-35-turbo` (1106-Preview) | US Gov Virginia |
 
 ### Embeddings models
 
@@ -235,9 +243,9 @@ The following Embeddings models are available with [Azure Government](/azure/azu
 |  --- | --- | :---: | :---: |
 | `babbage-002` | North Central US <br> Sweden Central | 16,384 | Sep 2021 |
 | `davinci-002` | North Central US <br> Sweden Central | 16,384 | Sep 2021 |
-| `gpt-35-turbo` (0613) | North Central US <br> Sweden Central | 4,096 | Sep 2021 |
-| `gpt-35-turbo` (1106) | North Central US <br> Sweden Central | Input: 16,385<br> Output: 4,096 |  Sep 2021|
-| `gpt-35-turbo` (0125)  | North Central US <br> Sweden Central  | 16,385 | Sep 2021 |
+| `gpt-35-turbo` (0613) | East US2 <br> North Central US <br> Sweden Central | 4,096 | Sep 2021 |
+| `gpt-35-turbo` (1106) | East US2 <br> North Central US <br> Sweden Central | Input: 16,385<br> Output: 4,096 |  Sep 2021|
+| `gpt-35-turbo` (0125)  | East US2 <br> North Central US <br> Sweden Central  | 16,385 | Sep 2021 |
 
 ### Whisper models
 
@@ -254,15 +262,20 @@ The following Embeddings models are available with [Azure Government](/azure/azu
 
 ### Assistants (Preview)
 
-For Assistants you need a combination of a supported model, and a supported region. Certain tools and capabilities require the latest models. For example [parallel function](../how-to/assistant-functions.md) calling requires the latest 1106 models.
+For Assistants you need a combination of a supported model, and a supported region. Certain tools and capabilities require the latest models. The following models are available in the Assistants API, SDK, Azure AI Studio and Azure OpenAI Studio. The following table is for pay-as-you-go. For information on Provisioned Throughput Unit (PTU) availability, see [provisioned throughput](./provisioned-throughput.md). 
 
 | Region | `gpt-35-turbo (0613)` | `gpt-35-turbo (1106)` | `gpt-4 (0613)` | `gpt-4 (1106)` | `gpt-4 (0125)` | 
 |-----|---|---|---|---|---|
 | Australia East | ✅ | ✅ | ✅ |✅ | |
-| East US 2 | ✅ | | ✅ |✅ | |
-| Sweden Central | ✅ |✅ |✅ |✅| |
+| East US  | ✅ | | | | ✅ |
+| East US 2 | ✅ |  | ✅ |✅ | |
+| France Central  | ✅ | ✅ |✅ |✅ |  |
+| Norway East | |  | | ✅ |  |
+| Sweden Central  | ✅ |✅ |✅ |✅| |
+| UK South  | ✅ |  ✅ | ✅ |✅ | |
 
-For information on Provisioned Throughput Unit (PTU) availability, see [provisioned throughput](./provisioned-throughput.md). 
+
+
 
 ## Next steps
 

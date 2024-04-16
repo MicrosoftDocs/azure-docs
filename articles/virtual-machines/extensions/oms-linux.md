@@ -4,7 +4,7 @@ description: Deploy the Log Analytics agent on Linux virtual machine using a vir
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: extensions
-ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.custom: devx-track-azurepowershell, devx-track-azurecli, linux-related-content
 ms.author: gabsta
 author: GabstaMSFT
 ms.collection: linux

@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 03/20/2024
+ms.date: 03/21/2024
 ms.author: alkohli
 ---
 
@@ -91,13 +91,13 @@ For more information, see how to [Choose a network topology for your device node
 
 On your Azure Stack Edge Pro 2 device node:
 
-- **Option 1** - Port 1 and Port 2 are in different subnets. Separate virtual switches will be created. Port 3 and Port 4 connect to an external virtual switch.
+- **Option 1** - Port 1 and Port 2 are in different subnets. Separate virtual switches are created. Port 3 and Port 4 connect to an external virtual switch.
  
-- **Option 2** - Port 1 and Port 2 are in the same subnet. A teamed virtual switch will be created. Port 3 and Port 4 connect to an external virtual switch.
+- **Option 2** - Port 1 and Port 2 are in the same subnet. A teamed virtual switch is created. Port 3 and Port 4 connect to an external virtual switch.
 
-- **Option 3** - Port 1 and Port 2 are in separate subnets. A teamed virtual switch will be created. Port 3 and Port 4 are connected back-to-back, switchless for Port 3 and Port 4.
+- **Option 3** - Port 1 and Port 2 are in separate subnets. Separate virtual switches are created on Port 1 and Port 2. Port 3 and Port 4 are connected back-to-back, switchless for Port 3 and Port 4.
 
-- **Option 4** - Port 1 and Port 2 are in the same subnet. A teamed virtual switch will be created. Port 3 and Port 4 are connected back-to-back, switchless for Port 3 and Port 4.
+- **Option 4** - Port 1 and Port 2 are in the same subnet. A teamed virtual switch is created. Port 3 and Port 4 are connected back-to-back, switchless for Port 3 and Port 4.
 
   > [!NOTE]
   > If you run PMEC workloads, use Option 1 or Option 2.
@@ -108,8 +108,8 @@ Usage considerations on your Azure Stack Edge Pro 2 device nodes:
   - **Port 1 and Port 2 in separate subnets** - This is the default option. In this case, Port 1 and Port 2 have separate virtual switches and are connected to separate subnets.
   - **Port 1 and Port 2 in the same subnet** - In this case, Port 1 and Port 2 have a teamed virtual switch and both ports are in the same subnet.
 - **Using external switches for Port 3 and Port 4** - Use this option when you have high speed switches (>=10 GbE bandwidth) available for use with your device nodes and you want to allow a VM network adapter to connect to the virtual network created on Port 3 or Port 4, like a PMEC use case.
-- **Port 1 and Port 2 in separate subnets** - This is the default option. In this case, Port 1 and Port 2 have separate virtual switches and are connected to separate subnets.
-- **Port 1 and Port 2 in the same subnet** - In this case, Port 1 and Port 2 have a teamed virtual switch and both ports are in the same subnet.
+  - **Port 1 and Port 2 in separate subnets** - This is the default option. In this case, Port 1 and Port 2 have separate virtual switches and are connected to separate subnets.
+  - **Port 1 and Port 2 in the same subnet** - In this case, Port 1 and Port 2 have a teamed virtual switch and both ports are in the same subnet.
 
 Additional considerations:
 
@@ -134,7 +134,7 @@ Pros and cons for supported topologies are summarized as follows:
 | Port 3 and Port 4 use an external switch with >=10Gbps link bandwidth, Port 1 and Port 2 in the same subnet, teamed virtual switch. | Load balancing. |   |
 |    | Higher fault tolerance. | Can't be deployed in an environment with different subnets. | 
 |    | Two independent, redundant paths between nodes. |   |
-|    | Clients do not need to reconnect. |  |
+|    | Clients don't need to reconnect. |  |
 
 ---
 
@@ -205,7 +205,7 @@ You can manage the Azure Stack Edge cluster via the PowerShell interface of the 
 
 A two-node clustered device upgrade will first apply the device updates followed by the Kubernetes cluster updates. Rolling updates to device nodes ensure minimal downtime of workloads. 
 
-When you apply these updates via the Azure portal, you only have to start the process on one node and both the nodes are updated.For step-by-step instructions, see [Apply updates to your two-node Azure Stack Edge device](azure-stack-edge-gpu-install-update.md).
+When you apply these updates via the Azure portal, you only have to start the process on one node and both the nodes are updated. For step-by-step instructions, see [Apply updates to your two-node Azure Stack Edge device](azure-stack-edge-gpu-install-update.md).
 
 ## Billing
 

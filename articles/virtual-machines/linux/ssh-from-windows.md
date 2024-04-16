@@ -7,7 +7,7 @@ ms.collection: linux
 ms.date: 12/13/2021
 ms.topic: how-to
 ms.author: mattmcinnes
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, linux-related-content
 ms.devlang: azurecli
 ms.reviewer: jamesser
 ---

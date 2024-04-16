@@ -43,6 +43,8 @@ Specifically, this SQL Server connector supports:
 
 [SQL Server Express LocalDB](/sql/database-engine/configure-windows/sql-server-express-localdb) is not supported.
 
+>[!IMPORTANT]
+> The data source must support the NVARCHAR data type since it affects the data encoding when a non-universal coding is being applied on the data.
 
 ## Prerequisites
 

@@ -4,7 +4,6 @@ description: Learn how to deploy and use an IoT Central connected logistics appl
 author: dominicbetts
 ms.author: dobett
 ms.service: iot-central
-ms.subservice: iot-central-retail
 ms.topic: tutorial
 ms.date: 06/12/2023
 

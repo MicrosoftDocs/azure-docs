@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: azure-ai-openai
 ms.topic: tutorial
 ms.date: 10/16/2023
-author: mrbullwinkle 
+author: mrbullwinkle
 ms.author: mbullwin
 recommendations: false
 ms.custom:
@@ -29,15 +29,15 @@ In this tutorial you learn how to:
 
 ## Prerequisites
 
-* An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services?azure-portal=true).
-- Access granted to Azure OpenAI in the desired Azure subscription Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI by completing the form at https://aka.ms/oai/access. 
+- An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services?azure-portal=true).
+- Access granted to Azure OpenAI in the desired Azure subscription Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI by completing the form at https://aka.ms/oai/access.
 - Python 3.8 or later version
-- The following Python libraries: `json`, `requests`, `os`, `tiktoken`, `time`, `openai`.
+- The following Python libraries: `json`, `requests`, `os`, `tiktoken`, `time`, `openai`, `numpy`.
 - The OpenAI Python library should be at least version: `0.28.1`.
 - [Jupyter Notebooks](https://jupyter.org/)
 - An Azure OpenAI resource in a [region where `gpt-35-turbo-0613` fine-tuning is available](../concepts/models.md). If you don't have a resource the process of creating one is documented in our resource [deployment guide](../how-to/create-resource.md).
 - Fine-tuning access requires **Cognitive Services OpenAI Contributor**.
-- If you do not already have access to view quota, and deploy models in Azure OpenAI Studio you will require [additional permissions](../how-to/role-based-access-control.md).  
+- If you do not already have access to view quota, and deploy models in Azure OpenAI Studio you will require [additional permissions](../how-to/role-based-access-control.md).
 
 
 > [!IMPORTANT]
@@ -50,7 +50,7 @@ In this tutorial you learn how to:
 # [OpenAI Python 1.x](#tab/python-new)
 
 ```cmd
-pip install openai requests tiktoken
+pip install openai requests tiktoken numpy
 ```
 
 # [OpenAI Python 0.28.1](#tab/python)
@@ -60,7 +60,7 @@ pip install openai requests tiktoken
 If you haven't already, you need to install the following libraries:
 
 ```cmd
-pip install "openai==0.28.1" requests tiktoken
+pip install "openai==0.28.1" requests tiktoken numpy
 ```
 
 ---
@@ -72,11 +72,11 @@ pip install "openai==0.28.1" requests tiktoken
 # [Command Line](#tab/command-line)
 
 ```CMD
-setx AZURE_OPENAI_API_KEY "REPLACE_WITH_YOUR_KEY_VALUE_HERE" 
+setx AZURE_OPENAI_API_KEY "REPLACE_WITH_YOUR_KEY_VALUE_HERE"
 ```
 
 ```CMD
-setx AZURE_OPENAI_ENDPOINT "REPLACE_WITH_YOUR_ENDPOINT_HERE" 
+setx AZURE_OPENAI_ENDPOINT "REPLACE_WITH_YOUR_ENDPOINT_HERE"
 ```
 
 # [PowerShell](#tab/powershell)
@@ -159,6 +159,8 @@ Create the files in the same directory that you're running the Jupyter Notebook,
 Now you need to run some preliminary checks on our training and validation files.
 
 ```python
+# Run preliminary checks
+
 import json
 
 # Load the training set
@@ -203,6 +205,8 @@ In this case we only have 10 training and 10 validation examples so while this w
 Now you can then run some additional code from OpenAI using the tiktoken library to validate the token counts. Individual examples need to remain under the `gpt-35-turbo-0613` model's input token limit of 4096 tokens.
 
 ```python
+# Validate token counts
+
 import json
 import tiktoken
 import numpy as np
@@ -248,7 +252,7 @@ for file in files:
         messages = ex.get("messages", {})
         total_tokens.append(num_tokens_from_messages(messages))
         assistant_tokens.append(num_assistant_tokens_from_messages(messages))
-    
+
     print_distribution(total_tokens, "total tokens")
     print_distribution(assistant_tokens, "assistant tokens")
     print('*' * 50)
@@ -294,9 +298,9 @@ import os
 from openai import AzureOpenAI
 
 client = AzureOpenAI(
-  azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT"), 
-  api_key=os.getenv("AZURE_OPENAI_API_KEY"),  
-  api_version="2023-12-01-preview"  # This API version or later is required to access fine-tuning for turbo/babbage-002/davinci-002
+  azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT"),
+  api_key = os.getenv("AZURE_OPENAI_API_KEY"),
+  api_version = "2024-02-01"  # This API version or later is required to access fine-tuning for turbo/babbage-002/davinci-002
 )
 
 training_file_name = 'training_set.jsonl'
@@ -305,12 +309,12 @@ validation_file_name = 'validation_set.jsonl'
 # Upload the training and validation dataset files to Azure OpenAI with the SDK.
 
 training_response = client.files.create(
-    file=open(training_file_name, "rb"), purpose="fine-tune"
+    file = open(training_file_name, "rb"), purpose="fine-tune"
 )
 training_file_id = training_response.id
 
 validation_response = client.files.create(
-    file=open(validation_file_name, "rb"), purpose="fine-tune"
+    file = open(validation_file_name, "rb"), purpose="fine-tune"
 )
 validation_file_id = validation_response.id
 
@@ -322,13 +326,14 @@ print("Validation file ID:", validation_file_id)
 
 ```Python
 # Upload fine-tuning files
+
 import openai
 import os
 
-openai.api_key = os.getenv("AZURE_OPENAI_API_KEY") 
+openai.api_key = os.getenv("AZURE_OPENAI_API_KEY")
 openai.api_base =  os.getenv("AZURE_OPENAI_ENDPOINT")
 openai.api_type = 'azure'
-openai.api_version = '2023-12-01-preview' # This API version or later is required to access fine-tuning for turbo/babbage-002/davinci-002
+openai.api_version = '2024-02-01' # This API version or later is required to access fine-tuning for turbo/babbage-002/davinci-002
 
 training_file_name = 'training_set.jsonl'
 validation_file_name = 'validation_set.jsonl'
@@ -336,12 +341,12 @@ validation_file_name = 'validation_set.jsonl'
 # Upload the training and validation dataset files to Azure OpenAI with the SDK.
 
 training_response = openai.File.create(
-    file=open(training_file_name, "rb"), purpose="fine-tune", user_provided_filename="training_set.jsonl"
+    file = open(training_file_name, "rb"), purpose="fine-tune", user_provided_filename="training_set.jsonl"
 )
 training_file_id = training_response["id"]
 
 validation_response = openai.File.create(
-    file=open(validation_file_name, "rb"), purpose="fine-tune", user_provided_filename="validation_set.jsonl"
+    file = open(validation_file_name, "rb"), purpose="fine-tune", user_provided_filename="validation_set.jsonl"
 )
 validation_file_id = validation_response["id"]
 
@@ -365,10 +370,12 @@ Now that the fine-tuning files have been successfully uploaded you can submit yo
 # [OpenAI Python 1.x](#tab/python-new)
 
 ```python
+# Submit fine-tuning training job
+
 response = client.fine_tuning.jobs.create(
-    training_file=training_file_id,
-    validation_file=validation_file_id,
-    model="gpt-35-turbo-0613", # Enter base model name. Note that in Azure OpenAI the model name contains dashes and cannot contain dot/period characters. 
+    training_file = training_file_id,
+    validation_file = validation_file_id,
+    model = "gpt-35-turbo-0613", # Enter base model name. Note that in Azure OpenAI the model name contains dashes and cannot contain dot/period characters.
 )
 
 job_id = response.id
@@ -385,10 +392,12 @@ print(response.model_dump_json(indent=2))
 # [OpenAI Python 0.28.1](#tab/python)
 
 ```python
+# Submit fine-tuning training job
+
 response = openai.FineTuningJob.create(
-    training_file=training_file_id,
-    validation_file=validation_file_id,
-    model="gpt-35-turbo-0613",
+    training_file = training_file_id,
+    validation_file = validation_file_id,
+    model = "gpt-35-turbo-0613",
 )
 
 job_id = response["id"]
@@ -446,7 +455,7 @@ status = response.status
 # If the job isn't done yet, poll it every 10 seconds.
 while status not in ["succeeded", "failed"]:
     time.sleep(10)
-    
+
     response = client.fine_tuning.jobs.retrieve(job_id)
     print(response.model_dump_json(indent=2))
     print("Elapsed time: {} minutes {} seconds".format(int((time.time() - start_time) // 60), int((time.time() - start_time) % 60)))
@@ -480,7 +489,7 @@ status = response["status"]
 # If the job isn't done yet, poll it every 10 seconds.
 while status not in ["succeeded", "failed"]:
     time.sleep(10)
-    
+
     response = openai.FineTuningJob.retrieve(job_id)
     print(response)
     print("Elapsed time: {} minutes {} seconds".format(int((time.time() - start_time) // 60), int((time.time() - start_time) % 60)))
@@ -531,7 +540,7 @@ To get the full results, run the following:
 # [OpenAI Python 1.x](#tab/python-new)
 
 ```python
-#Retrieve fine_tuned_model name
+# Retrieve fine_tuned_model name
 
 response = client.fine_tuning.jobs.retrieve(job_id)
 
@@ -542,7 +551,7 @@ fine_tuned_model = response.fine_tuned_model
 # [OpenAI Python 0.28.1](#tab/python)
 
 ```python
-#Retrieve fine_tuned_model name
+# Retrieve fine_tuned_model name
 
 response = openai.FineTuningJob.retrieve(job_id)
 
@@ -571,20 +580,22 @@ Alternatively, you can deploy your fine-tuned model using any of the other commo
 [!INCLUDE [Fine-tuning deletion](../includes/fine-tune.md)]
 
 ```python
+# Deploy fine-tuned model
+
 import json
 import requests
 
-token= os.getenv("TEMP_AUTH_TOKEN") 
-subscription = "<YOUR_SUBSCRIPTION_ID>"  
+token = os.getenv("TEMP_AUTH_TOKEN")
+subscription = "<YOUR_SUBSCRIPTION_ID>"
 resource_group = "<YOUR_RESOURCE_GROUP_NAME>"
 resource_name = "<YOUR_AZURE_OPENAI_RESOURCE_NAME>"
-model_deployment_name ="YOUR_CUSTOM_MODEL_DEPLOYMENT_NAME"
+model_deployment_name = "YOUR_CUSTOM_MODEL_DEPLOYMENT_NAME"
 
-deploy_params = {'api-version': "2023-05-01"} 
+deploy_params = {'api-version': "2023-05-01"}
 deploy_headers = {'Authorization': 'Bearer {}'.format(token), 'Content-Type': 'application/json'}
 
 deploy_data = {
-    "sku": {"name": "standard", "capacity": 1}, 
+    "sku": {"name": "standard", "capacity": 1},
     "properties": {
         "model": {
             "format": "OpenAI",
@@ -619,18 +630,20 @@ After your fine-tuned model is deployed, you can use it like any other deployed 
 # [OpenAI Python 1.x](#tab/python-new)
 
 ```python
+# Use the deployed customized model
+
 import os
 from openai import AzureOpenAI
 
 client = AzureOpenAI(
-  azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT"), 
-  api_key=os.getenv("AZURE_OPENAI_API_KEY"),  
-  api_version="2023-05-15"
+  azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT"),
+  api_key = os.getenv("AZURE_OPENAI_API_KEY"),
+  api_version = "2024-02-01"
 )
 
 response = client.chat.completions.create(
-    model="gpt-35-turbo-ft", # model = "Custom deployment name you chose for your fine-tuning model"
-    messages=[
+    model = "gpt-35-turbo-ft", # model = "Custom deployment name you chose for your fine-tuning model"
+    messages = [
         {"role": "system", "content": "You are a helpful assistant."},
         {"role": "user", "content": "Does Azure OpenAI support customer managed keys?"},
         {"role": "assistant", "content": "Yes, customer managed keys are supported by Azure OpenAI."},
@@ -644,16 +657,19 @@ print(response.choices[0].message.content)
 # [OpenAI Python 0.28.1](#tab/python)
 
 ```python
+# Use the deployed customized model
+
 import os
 import openai
+
 openai.api_type = "azure"
-openai.api_base = os.getenv("AZURE_OPENAI_ENDPOINT") 
-openai.api_version = "2023-05-15"
+openai.api_base = os.getenv("AZURE_OPENAI_ENDPOINT")
+openai.api_version = "2024-02-01"
 openai.api_key = os.getenv("AZURE_OPENAI_API_KEY")
 
 response = openai.ChatCompletion.create(
-    engine="gpt-35-turbo-ft", # engine = "Custom deployment name you chose for your fine-tuning model"
-    messages=[
+    engine = "gpt-35-turbo-ft", # engine = "Custom deployment name you chose for your fine-tuning model"
+    messages = [
         {"role": "system", "content": "You are a helpful assistant."},
         {"role": "user", "content": "Does Azure OpenAI support customer managed keys?"},
         {"role": "assistant", "content": "Yes, customer managed keys are supported by Azure OpenAI."},
@@ -673,14 +689,14 @@ Unlike other types of Azure OpenAI models, fine-tuned/customized models have [an
 
 Deleting the deployment won't affect the model itself, so you can re-deploy the fine-tuned model that you trained for this tutorial at any time.
 
-You can delete the deployment in [Azure OpenAI Studio](https://oai.azure.com/), via [REST API](/rest/api/aiservices/accountmanagement/deployments/delete?tabs=HTTP), [Azure CLI](/cli/azure/cognitiveservices/account/deployment#az-cognitiveservices-account-deployment-delete()), or other supported deployment methods.  
+You can delete the deployment in [Azure OpenAI Studio](https://oai.azure.com/), via [REST API](/rest/api/aiservices/accountmanagement/deployments/delete?tabs=HTTP), [Azure CLI](/cli/azure/cognitiveservices/account/deployment#az-cognitiveservices-account-deployment-delete()), or other supported deployment methods.
 
 ## Troubleshooting
 
 ### How do I enable fine-tuning? Create a custom model is greyed out in Azure OpenAI Studio?
 
 In order to successfully access fine-tuning you need **Cognitive Services OpenAI Contributor assigned**. Even someone with high-level Service Administrator permissions would still need this account explicitly set in order to access fine-tuning. For more information please review the [role-based access control guidance](/azure/ai-services/openai/how-to/role-based-access-control#cognitive-services-openai-contributor).
- 
+
 ## Next steps
 
 - Learn more about [fine-tuning in Azure OpenAI](../how-to/fine-tuning.md)

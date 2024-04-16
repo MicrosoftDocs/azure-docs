@@ -54,7 +54,7 @@ To start monitoring a Data Product with Azure Monitor Logs and Log Analytics:
 1. In the **Diagnostic setting** view of your Data Product, create a diagnostic setting that routes the logs that you want to collect to the Log Analytics workspace. To use the example query in this procedure, include **Database Query** (in addition to any other category of logs that you want to collect).
     - For instructions, see [Create diagnostic setting to collect platform logs and metrics in Azure](/azure/azure-monitor/platform/diagnostic-settings). You can use the Azure portal, CLI, or PowerShell.
     - The categories of logs for Azure Operator Insights are listed in [Azure Operator Insights monitoring data reference](monitor-operator-insights-data-reference.md#resource-logs).
-1. To use the example query in this procedure, run a query on the data in your Data Product by following [Query data in the Data Product](data-query.md). This step ensures that Azure Monitor Logs has some data for your data product.
+1. To use the example query in this procedure, run a query on the data in your Data Product by following [Query data in the Data Product](data-query.md). This step ensures that Azure Monitor Logs has some data for your Data Product.
 1. Return to your Data Product resource and select **Logs** from the Azure Operator Insights menu to access Log Analytics.
 1. Run the following query to view the log for the query that you ran on your Data Product, replacing _username@example.com_ with the email address you used when you ran the query. You can also adapt the sample queries in [Sample Kusto queries](#sample-kusto-queries).
     ```kusto

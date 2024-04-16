@@ -49,6 +49,8 @@ from azure.storage.filedatalake import (
 from azure.identity import DefaultAzureCredential
 ```
 
+[!INCLUDE [data-lake-storage-sdk-note](../../../includes/data-lake-storage-sdk-note.md)]
+
 ## Authorize access and connect to data resources
 
 To work with the code examples in this article, you need to create an authorized [DataLakeServiceClient](/python/api/azure-storage-file-datalake/azure.storage.filedatalake.datalakeserviceclient) instance that represents the storage account. You can authorize a `DataLakeServiceClient` object using Microsoft Entra ID, an account access key, or a shared access signature (SAS).

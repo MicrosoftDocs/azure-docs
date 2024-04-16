@@ -4,7 +4,7 @@ description: include file
 author: spelluru
 ms.service: stream-analytics
 ms.topic: include
-ms.date: 07/10/2023
+ms.date: 03/20/2024
 ms.author: spelluru
 ms.custom: "include file"
 
@@ -27,7 +27,7 @@ properties | Log entry-specific detail, serialized as a JSON string. For more in
 
 Execution logs have information about events that happened during Stream Analytics job execution. The schema of properties varies depending on whether the event is a data error or a generic event.
 
-### Data errors
+#### Data errors
 
 Any error that occurs while the job is processing data is in this category of logs. These logs most often are created during data read, serialization, and write operations. These logs don't include connectivity errors. Connectivity errors are treated as generic events. You can learn more about the cause of various different [input and output data errors](../data-errors.md).
 
@@ -48,7 +48,7 @@ Depending on the **operationName** value, data errors have the following schema:
 
 * **Send events** occur during write operations. They identify the streaming event that caused the error.
 
-### Generic events
+#### Generic events
 
 Generic events cover everything else.
 
@@ -59,8 +59,5 @@ Message| Log message.
 Type | Type of message. Maps to internal categorization of errors. For example, **JobValidationError** or **BlobOutputAdapterInitializationFailure**.
 Correlation ID | GUID that uniquely identifies the job execution. All execution log entries from the time the job starts until the job stops have the same **Correlation ID** value.
 
-For reference, see a list of [all resource logs category types supported in Azure Monitor](/azure/azure-monitor/platform/resource-logs-schema). Select the link in the following table to see all the resource log category types collected for Azure Stream Analytics.  
+For reference, see a list of [all resource logs category types supported in Azure Monitor](/azure/azure-monitor/platform/resource-logs-schema) or [all the resource log category types collected for Azure Stream Analytics](../monitor-azure-stream-analytics-reference.md#resource-logs).
 
-|Resource Log Type | Resource Provider / Type Namespace<br/> and link to individual metrics |
-|-------|-----|
-| Stream Analytics streaming jobs | [Microsoft.StreamAnalytics/streamingjobs](/azure/azure-monitor/platform/resource-logs-categories#microsoftstreamanalyticsstreamingjobs) |

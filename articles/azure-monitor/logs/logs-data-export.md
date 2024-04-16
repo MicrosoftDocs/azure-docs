@@ -652,9 +652,10 @@ If the data export rule includes an unsupported table, the configuration will su
 
 > [!NOTE]
 > We are in a process of adding support for more tables. Please check this article regularly. 
+> Data must be in one of these tables for it to appear in a Data Export Rule.
 
 | Table | Limitations |
-|:---|:---|
+|---|---|
 | AACAudit |  |
 | AACHttpRequest |  |
 | AADB2CRequestLogs |  |

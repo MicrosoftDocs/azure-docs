@@ -6,7 +6,7 @@ ms.author: msangapu
 ms.assetid: 582bb3c2-164b-42f5-b081-95bfcb7a502a
 ms.topic: quickstart
 ms.date: 02/06/2024
-ms.custom: subject-armqs, mode-arm, devdivchpfy22, devx-track-arm-template
+ms.custom: subject-armqs, mode-arm, devdivchpfy22, devx-track-arm-template, linux-related-content
 zone_pivot_groups: app-service-platform-windows-linux-windows-container
 adobe-target: true
 adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021

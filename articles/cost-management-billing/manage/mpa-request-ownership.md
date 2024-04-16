@@ -6,7 +6,7 @@ ms.reviewer: amberbhargava
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 11/10/2023
+ms.date: 03/26/2024
 ms.author: banders
 ---
 
@@ -37,6 +37,9 @@ There are three options to transfer products:
 [!INCLUDE [cost-management-billing-subscription-b2b-b2c-transfer-note](../../../includes/cost-management-billing-subscription-b2b-b2c-transfer-note.md)]
 
 ## Prerequisites
+
+>[!IMPORTANT]
+> When you transfer subscriptions, cost and usage data for your Azure products aren't accessible after the transfer. We recommend that you [download your cost and usage data](../understand/download-azure-daily-usage.md) and invoices before you transfer subscriptions.
 
 1. Establish [reseller relationship](/partner-center/request-a-relationship-with-a-customer) with the customer.
     1. Make sure that both the customer and Partner tenants are within the same authorized region. Check [CSP Regional Authorization Overview](/partner-center/regional-authorization-overview).

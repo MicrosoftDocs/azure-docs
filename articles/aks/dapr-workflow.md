@@ -7,6 +7,7 @@ ms.reviewer: nuversky
 ms.service: azure-kubernetes-service
 ms.topic: article
 ms.date: 04/05/2023
+ms.subservice: aks-developer
 ms.custom: devx-track-azurecli
 ---
 
@@ -202,3 +203,4 @@ Notice that the workflow status is marked as completed.
 [deployment-yaml]: https://github.com/Azure/dapr-workflows-aks-sample/blob/main/Deploy/deployment.yaml
 [docker]: https://docs.docker.com/get-docker/
 [helm]: https://helm.sh/docs/intro/install/
+

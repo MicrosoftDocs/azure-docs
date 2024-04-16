@@ -73,7 +73,7 @@ Sign in to the Azure portal with this [Preview link](https://aka.ms/expressroute
     | Provider (Provider port type)| Select the internet service provider who you are requesting your service from. |
     | ExpressRoute Direct resource (Direct port type) | Select the ExpressRoute Direct resource that you want to use. |
     | Bandwidth | Select the bandwidth for the ExpressRoute circuit. |
-    | SKU | Select the SKU for the ExpressRoute circuit. You can specify **Local** to get the local SKU, **Standard** to get the standard SKU or **Premium** for the premium add-on. You can change between Local, Standard and Premium. |
+    | SKU | Select the SKU for the ExpressRoute circuit. You can specify **Local** to get the local SKU, **Standard** to get the standard SKU or **Premium** for the premium add-on. You can change between Local, Standard, and Premium. |
     | Billing model | Select the billing type for egress data charge. You can specify **Metered** for a metered data plan and **Unlimited** for an unlimited data plan. You can change the billing type from **Metered** to **Unlimited**. |
 
     > [!IMPORTANT]
@@ -81,9 +81,13 @@ Sign in to the Azure portal with this [Preview link](https://aka.ms/expressroute
     > * You can't change the SKU from **Standard/Premium** to **Local** in Azure portal. To downgrade the SKU to **Local**, you can use [Azure PowerShell](expressroute-howto-circuit-arm.md) or [Azure CLI](howto-circuit-cli.md).
     > * You can't change the type from **Unlimited** to **Metered**.
 
-    Complete the same information for the second ExpressRoute circuit. When selecting an ExpressRoute location for the second circuit, you are provided with distances information from the first ExpressRoute location. This information can help you select the second ExpressRoute location.
+    Complete the same information for the second ExpressRoute circuit. When selecting an ExpressRoute location for the second circuit, you're provided with distances information from the first ExpressRoute location. This information can help you select the second ExpressRoute location.
 
     :::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/peering-location-distance.png" alt-text="Screenshot of distance information from first ExpressRoute circuit.":::
+
+    **High Resiliency**
+
+    For high resiliency, select one of the supported ExpressRoute Metro service providers and the corresponding **Peering location**. For example, **Megaport** as the *Provider* and **Amsterdam Metro** as the *Peering location*. For more information, see [ExpressRoute Metro](metro.md).
 
     **Standard Resiliency**
 
@@ -128,7 +132,7 @@ From a browser, sign in to the [Azure portal](https://portal.azure.com) and sign
     | Create new or import from classic | Select if you're creating a new circuit or if you're migrating a classic circuit to Azure Resource Manager. |
     | Provider | Select the internet service provider who you are requesting your service from. |
     | Peering Location | Select the physical location where you're peering with Microsoft. |
-    | SKU | Select the SKU for the ExpressRoute circuit. You can specify **Local** to get the local SKU, **Standard** to get the standard SKU or **Premium** for the premium add-on. You can change between Local, Standard and Premium. |
+    | SKU | Select the SKU for the ExpressRoute circuit. You can specify **Local** to get the local SKU, **Standard** to get the standard SKU or **Premium** for the premium add-on. You can change between Local, Standard, and Premium. |
     | Billing model | Select the billing type for egress data charge. You can specify **Metered** for a metered data plan and **Unlimited** for an unlimited data plan. You can change the billing type from **Metered** to **Unlimited**. |
     | Allow classic operations | Enable this option to allow classic virtual networks to link to the circuit. |
 

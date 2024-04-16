@@ -3,7 +3,7 @@ title: Configure VMware Aria Operations for Azure VMware Solution
 description: Learn how to set up VMware Aria Operations for your Azure VMware Solution private cloud.
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 3/18/2024
+ms.date: 3/22/2024
 ms.custom: engagement-fy23
 ---
 
@@ -41,7 +41,7 @@ VMware Aria Operations Cloud supports the Azure VMware Solution, including the v
 
 ## Known limitations
 
-- The **cloudadmin@vsphere.local** user in Azure VMware Solution has [limited privileges](concepts-identity.md). Virtual machines (VMs) on Azure VMware Solution doesn't support in-guest memory collection using VMware tools. Active and consumed memory utilization continues to work in this case.
+- The **cloudadmin@vsphere.local** user in Azure VMware Solution has [limited privileges](architecture-identity.md). Virtual machines (VMs) on Azure VMware Solution doesn't support in-guest memory collection using VMware tools. Active and consumed memory utilization continues to work in this case.
 - Workload optimization for host-based business intent doesn't work because Azure VMware Solutions manage cluster configurations, including DRS settings.
 - Workload optimization for the cross-cluster placement within the private cloud using the cluster-based business intent is fully supported with Aria Operations. However, workload optimization isn't aware of resource pools and places the VMs at the cluster level. A user can manually correct it in the Azure VMware Solution vCenter Server interface.
 - You can't sign into Aria Operations using your Azure VMware Solution vCenter Server credentials.

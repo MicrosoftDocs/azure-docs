@@ -11,7 +11,9 @@ ms.reviewer: mmcc
 
 # Enable Azure Monitor OpenTelemetry for .NET, Node.js, Python, and Java applications
 
-This article describes how to enable and configure OpenTelemetry-based data collection to power the experiences within [Azure Monitor Application Insights](app-insights-overview.md#application-insights-overview). We walk through how to install the "Azure Monitor OpenTelemetry Distro." The Distro [automatically collects](opentelemetry-add-modify.md#automatic-data-collection) traces, metrics, logs, and exceptions across your application and its dependencies. To learn more about collecting data using OpenTelemetry, see [Data Collection Basics](opentelemetry-overview.md) or [OpenTelemetry FAQ](#frequently-asked-questions).
+This article describes how to enable and configure OpenTelemetry-based data collection to power the experiences within [Azure Monitor Application Insights](app-insights-overview.md#application-insights-overview). We walk through how to install the *Azure Monitor OpenTelemetry Distro*. The Azure Monitor OpenTelemetry Distro provides an [OpenTelemetry distribution](https://opentelemetry.io/docs/concepts/distributions/#what-is-a-distribution) that includes support for features specific to Azure Monitor. The Distro enables [automatic](opentelemetry-add-modify.md#automatic-data-collection) telemetry by including OpenTelemetry instrumentation libraries for collecting traces, metrics, logs, and exceptions, and allows collecting [custom](opentelemetry-add-modify.md#collect-custom-telemetry) telemetry. You can also use the [Live Metrics](live-stream.md) feature included in the Distro to monitor and collect more telemetry from live, in-production web applications. For more information about the advantages of using the Azure Monitor OpenTelemetry Distro, see [Why should I use the "Azure Monitor OpenTelemetry Distro"?](#why-should-i-use-the-azure-monitor-opentelemetry-distro) in [OpenTelemetry FAQ](#frequently-asked-questions).
+ 
+To learn more about collecting data using OpenTelemetry, see [Data Collection Basics](opentelemetry-overview.md) or [OpenTelemetry FAQ](#frequently-asked-questions).
 
 ## OpenTelemetry Release Status
 
