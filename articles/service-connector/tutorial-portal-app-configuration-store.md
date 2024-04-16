@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Connect Azure services and store configuration in an App Configuration store
+title: Tutorial - Connect Azure services and store configuration in an Azure App Configuration store
 description: Tutorial showing how to store your connection configuration in Azure App Configuration using Service Connector
 author: chentanyi
 ms.author: tanchen
@@ -45,18 +45,18 @@ To store your connection configuration in App Configuration, start by connecting
     | **App Configuration** | Your App Configuration name | The target App Configuration you want to connect to. |
     | **Client type** | The same app stack on this App Service | The application stack that works with the target service you selected. The default value comes from the App Service runtime stack. |
 
-    :::image type="content" source="./media/app-configuration-store-tutorial/appconfig_create.png" alt-text="Screenshot of the Azure portal, creating App Configuration connection." lightbox="./media/app-configuration-store-tutorial/appconfig_create.png":::
+    :::image type="content" source="./media/tutorial-portal-app-configuration-store/app-configuration-create.png" alt-text="Screenshot of the Azure portal, creating App Configuration connection." lightbox="./media/tutorial-portal-app-configuration-store/app-configuration-create.png":::
 
 1. Select **Next: Authentication** to select the authentication type. Then select **System assigned managed identity** to connect your App Configuration.
 
-    :::image type="content" source="./media/app-configuration-store-tutorial/appconfig_auth.png" alt-text="Screenshot of the Azure portal, selecting App Configuration connection auth.":::
+    :::image type="content" source="./media/tutorial-portal-app-configuration-store/app-configuration-authentication.png" alt-text="Screenshot of the Azure portal, selecting App Configuration connection auth.":::
 
 1. Select **Next: Networking** to select the network configuration. Then select **Configure firewall rules to enable access to target service** when your App Configuration is opened to public network by default.
 
     > [!TIP]
     > Service Connector will write configuration to App Configuration directly, so you need to enable the App Configuration public access when using this feature.
 
-    :::image type="content" source="./media/app-configuration-store-tutorial/appconfig_network.png" alt-text="Screenshot of the Azure portal, selecting App Configuration connection network.":::
+    :::image type="content" source="./media/tutorial-portal-app-configuration-store/app-configuration-network.png" alt-text="Screenshot of the Azure portal, selecting App Configuration connection network.":::
 
 1. Then select **Next: Review + Create**  to review the provided information. Select **Create** to create the service connection. It can take one minute to complete the operation.
 
@@ -76,16 +76,16 @@ Now you can create a service connection to another target service and store conf
     | **Storage account** | Your storage account | The target storage account you want to connect to. If you choose a different service type, select the corresponding target service instance. |
     | **Client type** | The same app stack on this App Service | The application stack that works with the target service you selected. The default value comes from the App Service runtime stack. |
 
-    :::image type="content" source="./media/app-configuration-store-tutorial/storage_create.png" alt-text="Screenshot of the Azure portal, creating Blob Storage connection."  lightbox="./media/app-configuration-store-tutorial/storage_create.png":::
+    :::image type="content" source="./media/tutorial-portal-app-configuration-store/storage-create.png" alt-text="Screenshot of the Azure portal, creating Blob Storage connection."  lightbox="./media/tutorial-portal-app-configuration-store/storage-create.png":::
 
 1. Select **Next: Authentication** to select the authentication type and select **System assigned managed identity** to connect your storage account.
 1. Check **Store Configuration in App Configuration** to let Service Connector store the configuration info into your App Configuration store. Then select one of your App Configuration connections under **App Configuration connection**.
 
-    :::image type="content" source="./media/app-configuration-store-tutorial/storage_auth.png" alt-text="Screenshot of the Azure portal, selecting Blob Storage connection auth.":::
+    :::image type="content" source="./media/tutorial-portal-app-configuration-store/storage-authentication.png" alt-text="Screenshot of the Azure portal, selecting Blob Storage connection auth.":::
 
 1. Select **Next: Networking** and **Configure firewall rules** to update the firewall allowlist in Storage Account so that your App Service can reach the Storage Account.
 
-    :::image type="content" source="./media/app-configuration-store-tutorial/storage_network.png" alt-text="Screenshot of the Azure portal, selecting Blob Storage connection network.":::
+    :::image type="content" source="./media/tutorial-portal-app-configuration-store/storage-network.png" alt-text="Screenshot of the Azure portal, selecting Blob Storage connection network.":::
 
 1. Then select **Next: Review + Create**  to review the provided information.
 
@@ -101,7 +101,7 @@ Now you can create a service connection to another target service and store conf
 
 1. Click **Edit** to show the value of this blob storage connection.
 
-    :::image type="content" source="./media/app-configuration-store-tutorial/appconfig_detail.png" alt-text="Screenshot of the Azure portal, reviewing App Configuration Store content."  lightbox="./media/app-configuration-store-tutorial/appconfig_detail.png":::
+    :::image type="content" source="./media/tutorial-portal-app-configuration-store/app-configuration-store-detail.png" alt-text="Screenshot of the Azure portal, reviewing App Configuration Store content."  lightbox="./media/tutorial-portal-app-configuration-store/app-configuration-store-detail.png":::
 
 ## Use your connection with App Configuration providers
 
