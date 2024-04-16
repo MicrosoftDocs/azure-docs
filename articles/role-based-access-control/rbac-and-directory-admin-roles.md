@@ -6,7 +6,7 @@ manager: amycolannino
 ms.assetid: 174f1706-b959-4230-9a75-bf651227ebf6
 ms.service: role-based-access-control
 ms.topic: overview
-ms.date: 03/08/2024
+ms.date: 03/15/2024
 ms.author: rolyon
 ms.custom: it-pro;
 ---
@@ -107,10 +107,6 @@ Account Administrator, Service Administrator, and Co-Administrator are the three
 In the Azure portal, you can manage Co-Administrators or view the Service Administrator by using the **Classic administrators** tab.
 
 :::image type="content" source="./media/shared/classic-administrators.png" alt-text="Screenshot of Azure classic subscription administrators in the Azure portal." lightbox="./media/shared/classic-administrators.png":::
-
-In the Azure portal, you can view or change the Service Administrator or view the Account Administrator on the properties page of your subscription.
-
-:::image type="content" source="./media/rbac-and-directory-admin-roles/account-admin.png" alt-text="Screenshot of Account Administrator and Service Administrator in the Azure portal." lightbox="./media/rbac-and-directory-admin-roles/account-admin.png":::
 
 For more information, see [Azure classic subscription administrators](classic-administrators.md).
 

@@ -4,7 +4,8 @@ description: Learn how to configure the Dapr extension specifically for your Azu
 author: hhunter-ms
 ms.author: hannahhunter
 ms.topic: article
-ms.custom: build-2023, devx-track-azurecli
+ms.custom: build-2023, devx-track-azurecli, linux-related-content
+ms.subservice: aks-developer
 ms.date: 06/08/2023
 ---
 
@@ -277,3 +278,4 @@ Once you have successfully provisioned Dapr in your AKS cluster, try deploying a
 [dapr-troubleshooting]: https://docs.dapr.io/operations/troubleshooting/common_issues/
 [supported-cloud-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=azure-arc
 [dapr-mariner]: https://docs.dapr.io/operations/hosting/kubernetes/kubernetes-deploy/#using-mariner-based-images
+

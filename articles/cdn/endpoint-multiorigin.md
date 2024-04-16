@@ -1,18 +1,18 @@
 ---
-title: 'Azure CDN endpoint multi-origin' 
+title: Azure CDN endpoint multi-origin
 description: Get started with Azure CDN endpoint multiple origins.
 services: cdn
 author: duongau
 manager: KumudD
 ms.service: azure-cdn
 ms.topic: how-to
-ms.date: 02/27/2023
+ms.date: 03/20/2024
 ms.author: duau
 ---
 
 # Azure CDN endpoint multi-origin
 
-Multi-origin support eliminates downtime and establishes global redundancy. 
+Multi-origin support eliminates downtime and establishes global redundancy.
 
 When you choose multiple origins within an Azure CDN endpoint, the redundancy provided spreads the risk by probing the health of each origin and failing over if necessary.
 
@@ -21,7 +21,7 @@ Setup one or more origin groups and choose a default origin group. Each origin g
 The first origin group is set as the default origin group. Multi-origin feature is enabled when a default origin group for the CDN endpoint is selected. Once the multi-origin feature is enabled, it can't be disabled, and the default origin group can't be deleted. The default origin group is used for routing requests to the origin. You're allowed to update the origin group configuration and switch to a single origin configuration. You're also allowed to change the default origin group designation to another origin group.
 
 > [!NOTE]
-> Currently this feature is only available from Azure CDN from Microsoft. 
+> Currently this feature is only available from Azure Content Delivery Network from Microsoft.
 
 ## Create the origin group
 
@@ -48,7 +48,7 @@ The first origin group is set as the default origin group. Multi-origin feature 
    | Probe protocol    | Select **HTTP** or **HTTPS**.                                         |
    | Probe method      | Select **Head** or **Get**.                                           |
    | Default origin group | Select the box to set as default origin group.
-    
+
    :::image type="content" source="./media/endpoint-multiorigin/endpoint-multiorigin-3.png" alt-text="Add origin group" border="true":::
 
 6. Select **Add**.
@@ -65,7 +65,7 @@ The first origin group is set as the default origin group. Multi-origin feature 
    |-------------------|-----------------------------------------------------------------------|
    | Name        | Enter a name for the origin.        |
    | Origin Type | Select **Storage**, **Cloud Service**, **Web App**, or **Custom origin**.                                   |
-   | Origin hostname        | Select or enter your origin hostname.  The drop-down lists all available origins of the type you specified in the previous setting. If you selected **Custom origin** as your origin type, enter the domain of your customer origin server. |
+   | Origin hostname        | Select or enter your origin hostname. The dropdown lists all available origins of the type you specified in the previous setting. If you selected **Custom origin** as your origin type, enter the domain of your customer origin server. |
    | Origin host header    | Enter the host header you want Azure CDN to send with each request, or leave the default.                        |
    | HTTP port   | Enter the HTTP port.                                         |
    | HTTPS port     | Enter the HTTPS port.                                           |
@@ -73,7 +73,7 @@ The first origin group is set as the default origin group. Multi-origin feature 
    | Weight      | Enter a number between 1 and 1000.   |
 
     > [!NOTE]
-    > When an origin is created within an origin group, it must be accorded a priority and weight. If an origin group has only one origin, then the default priority and weight is set as 1. Traffic is routed to the highest priority origins if the origin is healthy. If an origin is determined to be unhealthy then the connections are diverted to another origin in the order of priority. If two origins have the same priority, then traffic is distributed as per weight specified for the origin 
+    > When an origin is created within an origin group, it must be accorded a priority and weight. If an origin group has only one origin, then the default priority and weight is set as 1. Traffic is routed to the highest priority origins if the origin is healthy. If an origin is determined to be unhealthy then the connections are diverted to another origin in the order of priority. If two origins have the same priority, then traffic is distributed as per weight specified for the origin.
 
     :::image type="content" source="./media/endpoint-multiorigin/endpoint-multiorigin-6.png" alt-text="Add additional origin" border="true":::
 
@@ -93,7 +93,7 @@ The first origin group is set as the default origin group. Multi-origin feature 
 
 ## Configure origins and origin group settings
 
-Once you have several origins and an origin group, you can add or remove the origins into different groups. Origins within the same group should serve similar workloads. Traffic is distributed into these origins based on their healthy status, priority, and weight value. 
+Once you have several origins and an origin group, you can add or remove the origins into different groups. Origins within the same group should serve similar workloads. Traffic is distributed into these origins based on their healthy status, priority, and weight value.
 
 1. In the origin settings of the Azure CDN endpoint, select the name of the origin group you wish to configure:
 
@@ -145,12 +145,13 @@ Distribute traffic to a different group based on the request URL.
 
 :::image type="content" source="./media/endpoint-multiorigin/endpoint-multiorigin-13.png" alt-text="Rules engine conditions" border="true":::
 
-For all incoming requests if the URL path contains **/images**, then the request is assigned to the origin group in the action section **(myorigingroup)**. 
+For all incoming requests if the URL path contains **/images**, then the request is assigned to the origin group in the action section **(myorigingroup)**.
 
 ## Next Steps
+
 In this article, you enabled Azure CDN endpoint multi-origin.
 
 For more information on Azure CDN and the other Azure services mentioned in this article, see:
 
-* [Azure CDN](./cdn-overview.md)
-* [Compare Azure CDN product feature](./cdn-features.md)
+- [Azure CDN](./cdn-overview.md)
+- [Compare Azure CDN product feature](./cdn-features.md)

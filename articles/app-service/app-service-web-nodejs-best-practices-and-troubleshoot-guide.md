@@ -125,7 +125,7 @@ let keepaliveAgent = new Agent({
     maxSockets: 32,
     maxFreeSockets: 10,
     timeout: 60000,
-    keepAliveTimeout: 300000
+    freeSocketTimeout: 300000
 });
 ```
 

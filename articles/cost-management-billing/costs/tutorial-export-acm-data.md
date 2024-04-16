@@ -77,7 +77,7 @@ To create or view a data export or to schedule an export, choose a scope in the 
 1. Select the storage account name or create a new one.
 1. Select the location (Azure region).
 1. Specify the storage container and the directory path that you'd like the export file to go to.
-    :::image type="content" source="./media/tutorial-export-acm-data/basics_exports.png" alt-text="New export example" lightbox="./media/tutorial-export-acm-data/basics_exports.png":::
+    :::image type="content" source="./media/tutorial-export-acm-data/basics_exports.png" alt-text="Screenshot showing the New export page where you configure an export." lightbox="./media/tutorial-export-acm-data/basics_exports.png":::
 1. Review your export details and select **Create**.
 
 Your new export appears in the list of exports. By default, new exports are enabled. If you want to disable or delete a scheduled export, select any item in the list, and then select either **Disable** or **Delete**.
@@ -90,7 +90,7 @@ When you create an export programmatically, you must manually register the `Micr
 
 Start by preparing your environment for the Azure CLI:
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 1. After you sign in, to see your current exports, use the [az costmanagement export list](/cli/azure/costmanagement/export#az-costmanagement-export-list) command:
 
@@ -289,9 +289,9 @@ Exports at the management group scope support only usage charges. Purchases, inc
 
 1. Create one management group and assign subscriptions to it, if you haven't already.
 1. In cost analysis, set the scope to your management group and select **Select this management group**.
-    :::image type="content" source="./media/tutorial-export-acm-data/management-group-scope.png" alt-text="Example showing the Select this management group option" lightbox="./media/tutorial-export-acm-data/management-group-scope.png":::
+    :::image type="content" source="./media/tutorial-export-acm-data/management-group-scope.png" alt-text="Screenshot showing the Select this management group option." lightbox="./media/tutorial-export-acm-data/management-group-scope.png":::
 1. Create an export at the scope to get cost management data for the subscriptions in the management group.
-    :::image type="content" source="./media/tutorial-export-acm-data/new-export-management-group-scope.png" alt-text="Example showing the Create new export option with a management group scope":::
+    :::image type="content" source="./media/tutorial-export-acm-data/new-export-management-group-scope.png" alt-text="Screenshot showing the Create new export option with a management group scope.":::
 
 ### File partitioning for large datasets
 
@@ -346,15 +346,15 @@ You can easily verify that your Cost Management data is being collected and view
 
 In the export list, select the storage account name. On the storage account page, select Open in Explorer. If you see a confirmation box, select **Yes** to open the file in Azure Storage Explorer.
 
-![Storage account page showing example information and link to Open in Explorer](./media/tutorial-export-acm-data/storage-account-page.png)
+:::image type="content" border="true" source="./media/tutorial-export-acm-data/storage-account-page.png" alt-text="Screenshot showing the Storage account page with example information and link to Open in Explorer.":::
 
 In Storage Explorer, navigate to the container that you want to open and select the folder corresponding to the current month. A list of CSV files is shown. Select one and then select **Open**.
 
-![Example information shown in Storage Explorer](./media/tutorial-export-acm-data/storage-explorer.png)
+:::image type="content" border="true" source="./media/tutorial-export-acm-data/storage-explorer.png" alt-text="Screenshot showing example information in Storage Explorer.":::
 
 The file opens with the program or application set to open CSV file extensions. Here's an example in Excel.
 
-![Example exported CSV data shown in Excel](./media/tutorial-export-acm-data/example-export-data.png)
+:::image type="content" border="true" source="./media/tutorial-export-acm-data/example-export-data.png" alt-text="Screenshot showing exported CSV data in Excel.":::
 
 ### Download an exported CSV data file
 

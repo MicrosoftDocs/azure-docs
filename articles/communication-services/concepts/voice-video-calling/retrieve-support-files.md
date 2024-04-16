@@ -54,7 +54,7 @@ Each application is free to implement user facing support in whatever way best f
 
 It's crucial to design these feedback mechanisms with clear prompts for user consent, ensuring users are fully informed about the data being shared and its purpose. This transparency builds trust and encourages more users to report issues.
 
-## Sending support and feedback to a server
+## Sending support information and feedback to a server
 
 ### Transmitting the support information
 

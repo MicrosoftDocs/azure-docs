@@ -29,16 +29,18 @@ ms.date: 11/15/2023
 
 Install the OpenAI Python client library with:
 
-# [OpenAI Python 0.28.1](#tab/python)
-
-```console
-pip install openai==0.28.1
-```
-
 # [OpenAI Python 1.x](#tab/python-new)
 
 ```console
 pip install openai
+```
+
+# [OpenAI Python 0.28.1](#tab/python)
+
+[!INCLUDE [Deprecation](../includes/deprecation.md)]
+
+```console
+pip install openai==0.28.1
 ```
 
 ---
@@ -58,32 +60,6 @@ pip install openai
 1. Create a new Python file called quickstart.py. Then open it up in your preferred editor or IDE.
 
 2. Replace the contents of quickstart.py with the following code.
-
-# [OpenAI Python 0.28.1](#tab/python)
-
-You need to set the `engine` variable to the deployment name you chose when you deployed the GPT-3.5-Turbo or GPT-4 models. Entering the model name will result in an error unless you chose a deployment name that is identical to the underlying model name.
-
-```python
-import os
-import openai
-openai.api_type = "azure"
-openai.api_base = os.getenv("AZURE_OPENAI_ENDPOINT") 
-openai.api_key = os.getenv("AZURE_OPENAI_API_KEY")
-openai.api_version = "2024-02-01"
-
-response = openai.ChatCompletion.create(
-    engine="gpt-35-turbo", # engine = "deployment_name".
-    messages=[
-        {"role": "system", "content": "You are a helpful assistant."},
-        {"role": "user", "content": "Does Azure OpenAI support customer managed keys?"},
-        {"role": "assistant", "content": "Yes, customer managed keys are supported by Azure OpenAI."},
-        {"role": "user", "content": "Do other Azure AI services support this too?"}
-    ]
-)
-
-print(response)
-print(response['choices'][0]['message']['content'])
-```
 
 # [OpenAI Python 1.x](#tab/python-new)
 
@@ -110,6 +86,32 @@ response = client.chat.completions.create(
 )
 
 print(response.choices[0].message.content)
+```
+
+# [OpenAI Python 0.28.1](#tab/python)
+
+You need to set the `engine` variable to the deployment name you chose when you deployed the GPT-3.5-Turbo or GPT-4 models. Entering the model name will result in an error unless you chose a deployment name that is identical to the underlying model name.
+
+```python
+import os
+import openai
+openai.api_type = "azure"
+openai.api_base = os.getenv("AZURE_OPENAI_ENDPOINT") 
+openai.api_key = os.getenv("AZURE_OPENAI_API_KEY")
+openai.api_version = "2024-02-01"
+
+response = openai.ChatCompletion.create(
+    engine="gpt-35-turbo", # engine = "deployment_name".
+    messages=[
+        {"role": "system", "content": "You are a helpful assistant."},
+        {"role": "user", "content": "Does Azure OpenAI support customer managed keys?"},
+        {"role": "assistant", "content": "Yes, customer managed keys are supported by Azure OpenAI."},
+        {"role": "user", "content": "Do other Azure AI services support this too?"}
+    ]
+)
+
+print(response)
+print(response['choices'][0]['message']['content'])
 ```
 
 ---
@@ -161,7 +163,7 @@ The [GPT-35-Turbo & GPT-4 how-to guide](../how-to/chatgpt.md) provides an in-dep
 
 ## Clean up resources
 
-If you want to clean up and remove an OpenAI resource, you can delete the resource. Before deleting the resource, you must first delete any deployed models.
+If you want to clean up and remove an Azure OpenAI resource, you can delete the resource. Before deleting the resource, you must first delete any deployed models.
 
 - [Portal](../../multi-service-resource.md?pivots=azportal#clean-up-resources)
 - [Azure CLI](../../multi-service-resource.md?pivots=azcli#clean-up-resources)

@@ -5,6 +5,8 @@ description: Learn how to manually create an Ubuntu Linux NFS Server persistent 
 author: ozboms
 ms.topic: article
 ms.date: 01/24/2024
+ms.subservice: aks-storage
+ms.custom: linux-related-content
 ms.author: obboms
 ---
 
@@ -169,3 +171,4 @@ ls -l
 [azure-linux-vm]: ../virtual-machines/linux/endorsed-distros.md
 [linux-create]: ../virtual-machines/linux/tutorial-manage-vm.md
 [azure-files-overview]: ../storage/files/storage-files-introduction.md
+

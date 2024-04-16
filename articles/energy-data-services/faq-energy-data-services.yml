@@ -24,6 +24,24 @@ sections:
           answer: >
             Azure Data Manager for Energy is available to all customers and partners who have a valid Azure subscription. You can create an instance by going to Azure Marketplace and searching for **Azure Data Manager for Energy**.
 
+    - name: External Data Sources
+      questions:
+        - question:  What is the impact of data sharing across tenancy boundaries on security, privacy, and compliance?
+          answer: >
+            Any data transferred across tenancy boundaries by the data provider and data consumer is the responsibility of the data provider and the data consumer. Microsoft will not store or process customer data outside the customer-specified Geo without your authorization. The data provider and consumer can use Customer Managed Encryption Keys (CMEK) and Private Links to secure data at rest and during transit.
+        - question: How are the network bandwidth/data transfer charges handled with EDS usage?
+          answer: >
+            The deployment topology decided by the data provider and data consumer will determine the network bandwidth/data transfer costs.
+        - question: Would data integrity be maintained when data provider deletes source data?
+          answer: > 
+            Currently, EDS does not support reconciling deleted data therefore deleting data at the data provider’s level may result in inconsistent records at the data consumer’s level.
+        - question: What is the impact of secret key rotation at the data consumer’s end?
+          answer: > 
+            Key rotation is fully supported therefore it will not have any impact on EDS functionality.
+        - question: When will EDS be generally available on Azure Data Manager for Energy?
+          answer: >
+            EDS is a preview feature in Azure Data Manager for Energy. We wish to learn from customer implementation of the EDS preview feature to ensure the functionality, performance, and scalability needs are met, before we make the feature generally available.
+
 
     - name: Data residency
       questions:

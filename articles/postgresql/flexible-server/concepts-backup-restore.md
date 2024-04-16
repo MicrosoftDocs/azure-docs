@@ -8,7 +8,7 @@ ms.custom:
 ms.topic: conceptual
 ms.author: alkuchar
 author: AwdotiaRomanowna
-ms.date: 01/16/2024
+ms.date: 02/28/2024
 ---
 
 # Backup and restore in Azure Database for PostgreSQL - Flexible Server

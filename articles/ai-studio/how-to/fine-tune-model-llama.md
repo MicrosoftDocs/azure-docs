@@ -2,13 +2,13 @@
 title: Fine-tune a Llama 2 model in Azure AI Studio
 titleSuffix: Azure AI Studio
 description: Learn how to fine-tune a Llama 2 model in Azure AI Studio.
-manager: nitinme
+manager: scottpolly
 ms.service: azure-ai-studio
 ms.topic: how-to
 ms.date: 12/11/2023
 ms.reviewer: eur
-ms.author: eur
-author: eric-urban
+ms.author: mopeakande
+author: msakande
 ms.custom: references_regions
 ---
 
@@ -85,7 +85,7 @@ To fine-tune a Llama 2 model in an existing Azure AI Studio project, follow thes
 
     :::image type="content" source="../media/how-to/fine-tune/llama/llama-pay-as-you-go-overview.png" alt-text="Screenshot of pay-as-you-go marketplace overview." lightbox="../media/how-to/fine-tune/llama/llama-pay-as-you-go-overview.png":::
 
-1. Choose a base model to fine-tune and select **Confirm**. Your choice influences both the performance and the cost of your model.
+1. Choose a base model to fine-tune and select **Confirm**. Your choice influences both the performance and [the cost of your model](./deploy-models-llama.md#cost-and-quotas).
 
     :::image type="content" source="../media/how-to/fine-tune/llama/fine-tune-select-model.png" alt-text="Screenshot of option to select a model to fine-tune." lightbox="../media/how-to/fine-tune/llama/fine-tune-select-model.png":::
 
@@ -114,4 +114,4 @@ You can delete a fine-tuned model from the fine-tuning model list in [Azure AI S
 
 ## Next steps
 
-- [Learn more about Azure AI Studio](../what-is-ai-studio.md)
+- [Learn more about deploying Llama 2 models](./deploy-models-llama.md)

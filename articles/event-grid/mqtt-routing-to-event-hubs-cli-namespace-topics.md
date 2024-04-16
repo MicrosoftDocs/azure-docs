@@ -5,9 +5,7 @@ ms.topic: tutorial
 ms.date: 02/28/2024
 author: george-guirguis
 ms.author: geguirgu
-ms.custom:
-  - build-2023
-  - ignite-2023
+ms.custom: build-2023, ignite-2023, devx-track-azurecli
 ms.subservice: mqtt
 ---
 
