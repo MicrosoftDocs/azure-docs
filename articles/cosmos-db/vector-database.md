@@ -14,9 +14,9 @@ ms.date: 03/30/2024
 
 [!INCLUDE[NoSQL, MongoDB vCore, PostgreSQL](includes/appliesto-nosql-mongodbvcore-postgresql.md)]
 
-Vector databases are used in numerous domains and situations across analytical and generative AI, including natural language processing, video and image recognition, recommendation system, search, etc.
+Vector databases are used in numerous domains and situations across analytical and generative AI, including natural language processing, video and image recognition, recommendation system, and search, among others.
 
-In 2023, a notable trend in software was the integration of AI enhancements, often achieved by incorporating specialized standalone vector databases into existing tech stacks. This article explains what vector databases are, as well as presents an alternative architecture that you might want to consider: using an integrated vector database in the NoSQL or relational database you already use, especially when working with multi-modal data. This approach not only allows you to reduce cost but also achieve greater data consistency, scalability, and performance.
+In 2023, a notable trend in software was the integration of AI enhancements, often achieved by incorporating specialized standalone vector databases into existing tech stacks. This article explains what vector databases are and presents an alternative architecture that you might want to consider: using an integrated vector database in the NoSQL or relational database you already use, especially when working with multi-modal data. This approach not only allows you to reduce cost but also achieve greater data consistency, scalability, and performance.
 
 > [!TIP]
 > Data consistency, scalability, and performance are critical for data-intensive applications, which is why OpenAI chose to build the ChatGPT service on top of Azure Cosmos DB. You, too, can take advantage of its integrated vector database, as well as its single-digit millisecond response times, automatic and instant scalability, and guaranteed speed at any scale. See [implementation samples](#how-to-implement-integrated-vector-database-functionalities) and [try](#next-step) it for free.
