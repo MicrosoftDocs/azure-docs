@@ -161,7 +161,7 @@ Run the maintenance procedure using pg_cron. To enable `pg_cron` on your server 
 
     :::image type="content" source="media/how-to-use-pg-partman/pg-partman-pgcron-prerequisites.png" alt-text="Screenshot of pgcron prerequisites.":::
 
-    :::image type="content" source="media/how-to-use-pg-partman/pg-partman-pgcron-prerequisites2.png" alt-text="Screenshot of pgcron prerequisites2.":::
+    :::image type="content" source="media/how-to-use-pg-partman/pg-partman-pgcron-prerequisites-2.png" alt-text="Screenshot of pgcron prerequisites2.":::
 
     :::image type="content" source="media/how-to-use-pg-partman/pg-partman-pgcron-database-name.png" alt-text="Screenshot of pgcron databasename.":::
 
