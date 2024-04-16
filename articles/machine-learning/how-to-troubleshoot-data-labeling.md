@@ -48,7 +48,7 @@ In many cases, an error creating the project could be due to access issues. To r
 1. Select members.
 
     1. In the Members page, select **+Select members**.
-    1. Search for your workspace identity.  
+    1. Search for your workspace identity. 
         1. By default, the workspace identity is the same as the workspace name.
         1. If the workspace was created with user assigned identity, search for the user identity name.
     1. Select the **Enterprise application** with the workspace identity name.
@@ -63,10 +63,10 @@ In many cases, an error creating the project could be due to access issues. To r
 
 ## Set access for external datastore
 
-If the data for your labeling project is accessed from an external datastore, set access for that datastore as well as the default datastore.  
+If the data for your labeling project is accessed from an external datastore, set access for that datastore and the default datastore. 
 
 1. Navigate to the external datastore in the [Azure portal](https://portal.azure.com).
-1. Follow steps above starting with [Add role assignment](#add) to add the Storage Blob Data Contributor role to the workspace identity.
+1. Follow the previous steps, starting with [Add role assignment](#add) to add the Storage Blob Data Contributor role to the workspace identity.
 
 ## Set datastore to use workspace managed identity
 
@@ -84,28 +84,28 @@ Another possible issue with creating a data labeling project is when data prepro
 
 :::image type="content" source="media/how-to-troubleshoot-data-labeling/data-error.png" alt-text="Screenshot shows a data preprocessing error.":::
 
-This can occur when you use a v1 tabular dataset as your data source.  The project first converts this data.  Data access errors can cause this conversion to fail.  To resolve this issue, check the way your datastore saves credentials for data access.
+This error can occur when you use a v1 tabular dataset as your data source. The project first converts this data. Data access errors can cause this conversion to fail. To resolve this issue, check the way your datastore saves credentials for data access.
 
 1. In the left menu of your workspace, select **Data**.
 1. On the top tab, select **Datastores**.
 1. Select the datastore where your v1 tabular data is stored.
 1. On the top toolbar, select **Update authentication**.
 1. If the toggle for **Save credentials with the datastore for data access** is **On**, verify that the Authentication type and values are correct.
-1. If the toggle for **Save credentials with the datastore for data access** is **Off**, follow the rest of these steps to insure that the compute cluster can access the data.
+1. If the toggle for **Save credentials with the datastore for data access** is **Off**, follow the rest of these steps to ensure that the compute cluster can access the data.
 
-When the **Save credentials with the datastore for data access** is **Off**, the compute cluster that runs the conversion job needs access to the datastore.  To insure that the compute cluster can access the data, find the compute cluster name and assign a managed identity, follow these steps: 
+When the **Save credentials with the datastore for data access** is **Off**, the compute cluster that runs the conversion job needs access to the datastore. To ensure that the compute cluster can access the data, find the compute cluster name and assign a managed identity, follow these steps: 
 
     1. In the left menu, select **Jobs**.
     1. Select experiment which includes the name **Labeling ConvertTabularDataset**.
     1. If you see a failed job, select the job. (If you see a successful job, the conversion was successful.)
-    1. In the Overview section, at the bottom of the page is the **Compute** section.  Select the **Target** compute cluster.
-    1. On the details page for the compute cluster, at the bottom of the page is the **Managed identity** section.  If the compute cluster doesn't have an identity, select the **Edit** tool to assign a system-assigned or managed identity.
+    1. In the Overview section, at the bottom of the page is the **Compute** section. Select the **Target** compute cluster.
+    1. On the details page for the compute cluster, at the bottom of the page is the **Managed identity** section. If the compute cluster doesn't have an identity, select the **Edit** tool to assign a system-assigned or managed identity.
 
 Once you have the compute cluster name with a managed identity, assign the Storage Blob Data Contributor role to the compute cluster. 
 
 Follow the previous steps to [Add Storage Blob Data Contributor access](#add-blob-access). But this time, use the compute name in the **Select members** section, so that the compute cluster has access to the datastore.
 
-To find the compute name, type the workspace name, followed by **/computes/** followed by the compute name.  For example, if the workspace name is **myworkspace** and the compute name is **mycompute**, search for **myworkspace/computes/mycompute**.
+To find the compute name, type the workspace name, followed by `/computes/` followed by the compute name. For example, if the workspace name is `myworkspace` and the compute name is `mycompute`, search for `myworkspace/computes/mycompute`.
 
 ## Related resources
 
