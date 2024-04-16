@@ -1,5 +1,5 @@
 ---
-title: AI threat protection
+title: Overview - AI threat protection
 description: Learn about AI threat protection in Microsoft Defender for Cloud and how it protects your resources from AI threats.
 ms.date: 04/15/2024
 ms.topic: overview
@@ -8,7 +8,7 @@ author: Elazark
 #customer intent: As a cloud security professional, I want to understand how to secure my GenAI resources using Defender for Cloud's AI security posture management capabilities.
 ---
 
-# AI threat protection
+# Overview - AI threat protection
 
 Generative Artificial Intelligence (GenAI) based applications introduce various new risks and threats to organizations including Disruption of Service (DOS) attacks and User Prompt Injection Attacks (UPIA). These risks can generate the following alerts in Microsoft Defender for Cloud:
 

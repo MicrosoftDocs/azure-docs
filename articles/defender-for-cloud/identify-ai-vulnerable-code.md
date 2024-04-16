@@ -1,12 +1,12 @@
 ---
-title: Identify vulnerabilities in AI code repositories
+title: Identify vulnerabilities on AI code repositories
 description: Learn how to use the cloud security explorer to identify code repositories with Generative AI vulnerabilities and set up Azure OpenAI.
 ms.topic: how-to
 ms.date: 04/15/2024
 # customer intent: As a user, I want to learn how to identify all code repositories within my environment, that contain known Generative AI vulnerabilities and set up Azure OpenAI so that I can assess their security posture.
 ---
 
-# Identify vulnerabilities in AI code repositories
+# Identify vulnerabilities on AI code repositories
 
 Defender for Cloud provides a comprehensive view of your cloud environment, including the generative artificial intelligence (GenAI) code repositories within your environment that contain known GenAI vulnerabilities and set up Azure OpenAI. By using the cloud security explorer, you can all of these repositories that exist in your environment and assess their security posture.
 
