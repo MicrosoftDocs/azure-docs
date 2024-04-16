@@ -30,7 +30,7 @@ This solution uses IEC 62541 Open Platform Communications (OPC) Unified Architec
 
 ## Reference Solution Architecture
 
-:::image type="content" source="media/howto-connect-onprem-sap-to-azure/architecture-iiot-sap.png" alt-text="Diagram of a simple IIoT architecture that shows all components." lightbox="media/howto-connect-onprem-sap-to-azure/architecture-iiot-sap.png" border="false" :::
+:::image type="content" source="media/howto-connect-on-premises-sap-to-azure/architecture-iiot-sap.png" alt-text="Diagram of a simple IIoT architecture that shows all components." lightbox="media/howto-connect-on-premises-sap-to-azure/architecture-iiot-sap.png" border="false" :::
 
 
 ## Components
@@ -64,24 +64,24 @@ Copy the `HTTP GET URL` from your HTTP trigger in your workflow. You'll need it 
 2.	Once at the Virtual Machine desktop, select on `SAP Logon` 
 3.	Select `Log On` in the top left corner of the app
 
-    :::image type="content" source="media/howto-connect-onprem-sap-to-azure/log-on.png" alt-text="Screenshot that shows an SAP sign-in form." lightbox="media/howto-connect-onprem-sap-to-azure/log-on.png" border="false" :::
+    :::image type="content" source="media/howto-connect-on-premises-sap-to-azure/log-on.png" alt-text="Screenshot that shows an SAP sign-in form." lightbox="media/howto-connect-on-premises-sap-to-azure/log-on.png" border="false" :::
 
 4.	Sign in with the `BPINST` user name, and `Welcome1` password
 5.	In the top right corner, search for `SM59`. This should bring up the `Configuration of RFC Connections` screen. 
 
-    :::image type="content" source="media/howto-connect-onprem-sap-to-azure/sm95-search.png" alt-text="Screenshot that shows configuration of RFC connections and search for SM95." lightbox="media/howto-connect-onprem-sap-to-azure/sm95-search.png" border="false" :::
+    :::image type="content" source="media/howto-connect-on-premises-sap-to-azure/sm95-search.png" alt-text="Screenshot that shows configuration of RFC connections and search for SM95." lightbox="media/howto-connect-on-premises-sap-to-azure/sm95-search.png" border="false" :::
 
 6.	Select on `Edit` and `Create` at the top of the app. 
 7.	Enter `LOGICAPP` in the `Destination` field
 8.	From the `Connection Type` dropdown, select `HTTP Connection to external server`
 9.	Select The green check at the bottom of the window. 
 
-    :::image type="content" source="media/howto-connect-onprem-sap-to-azure/connection-logic-app.png" alt-text="Screenshot that shows the details of a connection logic app." lightbox="media/howto-connect-onprem-sap-to-azure/connection-logic-app.png" border="false" :::
+    :::image type="content" source="media/howto-connect-on-premises-sap-to-azure/connection-logic-app.png" alt-text="Screenshot that shows the details of a connection logic app." lightbox="media/howto-connect-on-premises-sap-to-azure/connection-logic-app.png" border="false" :::
 
 10.	In the `Description 1` box, put `LOGICAPP`
 11.	Select the `Technical Settings` tab and fill in the `Host` field with the `HTTP GET URL` from the logic app you copied (for example prod-51.northeurope.logic.azure.com). In `Port` put `443`. And in `Path Prefix` enter the rest of the `HTTP GET URL` starting with `/workflows/...`
 
-    :::image type="content" source="media/howto-connect-onprem-sap-to-azure/add-get-url.png" alt-text="Screenshot that shows how to add a get url." lightbox="media/howto-connect-onprem-sap-to-azure/add-get-url.png" border="false" :::
+    :::image type="content" source="media/howto-connect-on-premises-sap-to-azure/add-get-url.png" alt-text="Screenshot that shows how to add a get url." lightbox="media/howto-connect-on-premises-sap-to-azure/add-get-url.png" border="false" :::
 
 12.	Select the `Login & Security` tab. 
 13.	Scroll down to `Security Options`  and set `SSL` to `Active`
@@ -92,18 +92,18 @@ Copy the `HTTP GET URL` from your HTTP trigger in your workflow. You'll need it 
 18.	In the `RFC destination`, select `LOGICAPP`. 
 19.	Select `Green Check` to `Save`
 
-    :::image type="content" source="media/howto-connect-onprem-sap-to-azure/port-select-logic-app.png" alt-text="Screenshot that shows port selection for a Logic App." lightbox="media/howto-connect-onprem-sap-to-azure/port-select-logic-app.png" border="false" :::
+    :::image type="content" source="media/howto-connect-on-premises-sap-to-azure/port-select-logic-app.png" alt-text="Screenshot that shows port selection for a Logic App." lightbox="media/howto-connect-on-premises-sap-to-azure/port-select-logic-app.png" border="false" :::
 
 20. Create a partner profile for your Azure Logic App in your SAP system by entering `WE20` from the SAP system's search box, which will bring up the `Partner profiles` screen. 
 21. Expand the `Partner Profiles` folder and select the `Partner Type LS` (Logical System) folder. 
 21. Select on the `S4HCLNT100` partner profile. 
 23. Select on the `Create Outbound Parameter` button below the `Outbound` table. 
 
-    :::image type="content" source="media/howto-connect-onprem-sap-to-azure/outbound.png" alt-text="Screenshot that shows creation of an outbound parameter." lightbox="media/howto-connect-onprem-sap-to-azure/outbound.png" border="false":::
+    :::image type="content" source="media/howto-connect-on-premises-sap-to-azure/outbound.png" alt-text="Screenshot that shows creation of an outbound parameter." lightbox="media/howto-connect-on-premises-sap-to-azure/outbound.png" border="false":::
 
 24. In the `Partner Profiles: Outbound Parameters` dialog, enter `INTERNAL_ORDER` for `Message Type`. In the `Outbound Options` tab, enter `LOGICAPP` for `Receiver port`. Select the `Pass IDoc Immediately` radio button. For `Basic type` enter `INTERNAL_ORDER01`. Select the `Save` button.
 
-    :::image type="content" source="media/howto-connect-onprem-sap-to-azure/outbound-parameters.png" alt-text="Screenshot that shows outbound parameters." lightbox="media/howto-connect-onprem-sap-to-azure/outbound-parameters.png" border="false" :::
+    :::image type="content" source="media/howto-connect-on-premises-sap-to-azure/outbound-parameters.png" alt-text="Screenshot that shows outbound parameters." lightbox="media/howto-connect-on-premises-sap-to-azure/outbound-parameters.png" border="false" :::
 
 ### Testing your SAP to Azure Logic App Workflow
 
@@ -118,7 +118,7 @@ To try out your SAP to Azure Logic App workflow, follow these steps:
 7.	In the `Sender` section: `PORT` enter `SAPS4H`, `Partner No.` enter `S4HCLNT100`, `Part. Type` enter `LS`
 8.	Select the green check at the bottom of the window. 
 
-    :::image type="content" source="media/howto-connect-onprem-sap-to-azure/test-tool-idoc-processing.png" alt-text="Screenshot that shows the test tool for IDoc processing." lightbox="media/howto-connect-onprem-sap-to-azure/test-tool-idoc-processing.png" border="false" :::
+    :::image type="content" source="media/howto-connect-on-premises-sap-to-azure/test-tool-idoc-processing.png" alt-text="Screenshot that shows the test tool for IDoc processing." lightbox="media/howto-connect-on-premises-sap-to-azure/test-tool-idoc-processing.png" border="false" :::
 
 9.	Select `Standard Outbound Processing` tab at the top of the screen. 
 10.	In the `Outbound Processing of IDoc` dialog, select the green check button to start the IDoc message processing.
@@ -143,7 +143,7 @@ To install the on-premises data gateway, complete the following steps:
 1. Restart the data gateway through the `On-premises data gateway` configuration tool that came with the on-premises data gateway installer package installed earlier.
 1. Create the on-premises data gateway Azure resource in the same Azure region as selected during the data gateway installation in the previous step and select the name of your data gateway under `Installation Name`.
 
-    :::image type="content" source="media/howto-connect-onprem-sap-to-azure/gateway.png" alt-text="Screenshot of an on-premises data gateway." lightbox="media/howto-connect-onprem-sap-to-azure/gateway.png" border="false" :::
+    :::image type="content" source="media/howto-connect-on-premises-sap-to-azure/gateway.png" alt-text="Screenshot of an on-premises data gateway." lightbox="media/howto-connect-on-premises-sap-to-azure/gateway.png" border="false" :::
 
     You can access more details about the configuration steps [here](/azure/logic-apps/logic-apps-using-sap-connector?tabs=consumption).
 

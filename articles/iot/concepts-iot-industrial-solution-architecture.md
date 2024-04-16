@@ -99,8 +99,8 @@ evaluate http_request(uri, headers, options)
 
 You need to provide two things in this query:
 
-1. The Information Model's unique ID from the UA Cloud Library and enter it into the \<insert information model identifier from cloud library here\> field of the ADX query.
-1. Your UA Cloud Library credentials (generated during registration) basic authorization header hash and insert it into the \<insert your cloud library credentials hash here\> field of the ADX query. Use tools like https://www.debugbear.com/basic-auth-header-generator to generate this.
+- The Information Model's unique ID from the UA Cloud Library and enter it into the \<insert information model identifier from cloud library here\> field of the ADX query.
+- Your UA Cloud Library credentials (generated during registration) basic authorization header hash and insert it into the \<insert your cloud library credentials hash here\> field of the ADX query. Use tools like https://www.debugbear.com/basic-auth-header-generator to generate this.
 
 For example, to render the production line simulation Station OPC UA Server's Information Model in the Kusto Explorer tool available for download [here](/azure/data-explorer/kusto/tools/kusto-explorer), run the following query:
 
@@ -156,7 +156,8 @@ The simulation is configured to include two production lines. The default config
 | Afternoon | 15:00 | 22:00 |
 | Night | 23:00 | 06:00 |
 
-Note: Shift times are in local time, specifically the time zone the Virtual Machine (VM) hosting the production line simulation is set to!
+> [!NOTE]
+> Shift times are in local time, specifically the time zone the Virtual Machine (VM) hosting the production line simulation is set to.
 
 
 ### OPC UA Node IDs of Station OPC UA Server
@@ -185,9 +186,10 @@ Clicking on the button deploys all required resources on Microsoft Azure:
 
 [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fdigitaltwinconsortium%2FManufacturingOntologies%2Fmain%2FDeployment%2Farm.json)
 
-Note: During deployment, you must provide a password for a VM used to host the production line simulation and for UA Cloud Twin. The password must have three of the following: One lower case character, one upper case character, one number, and one special character. The password must be between 12 and 72 characters long.
+During deployment, you must provide a password for a VM used to host the production line simulation and for UA Cloud Twin. The password must have three of the following: One lower case character, one upper case character, one number, and one special character. The password must be between 12 and 72 characters long.
 
-Note: To save cost, the deployment deploys just a single Windows 11 Enterprise VM for both the production line simulation and the base OS for the Azure Kubernetes Services Edge Essentials instance. In production scenarios, the production line simulation isn't required and for the base OS for the Azure Kubernetes Services Edge Essentials instance, we recommend Windows IoT Enterprise Long Term Servicing Channel (LTSC).
+> [!NOTE]
+> To save cost, the deployment deploys just a single Windows 11 Enterprise VM for both the production line simulation and the base OS for the Azure Kubernetes Services Edge Essentials instance. In production scenarios, the production line simulation isn't required and for the base OS for the Azure Kubernetes Services Edge Essentials instance, we recommend Windows IoT Enterprise Long Term Servicing Channel (LTSC).
 
 Once the deployment completes, connect to the deployed Windows VM with an RDP (remote desktop) connection. You can download the RDP file in the [Azure portal](https://portal.azure.com) page for the VM, under the **Connect** options. Sign in using the credentials you provided during deployment, open an **Administrator Powershell window**, navigate to the `C:\ManufacturingOntologies-main\Deployment` directory, and run:
 
@@ -195,18 +197,17 @@ Once the deployment completes, connect to the deployed Windows VM with an RDP (r
 New-AksEdgeDeployment -JsonConfigFilePath .\aksedge-config.json
 ```
 
-Once the command is finished, your Azure Kubernetes Services Edge Essentials installation is complete and you can run the production line simulation.
+After the command is finished, your Azure Kubernetes Services Edge Essentials installation is complete and you can run the production line simulation.
 
-Note: To get logs from all your Kubernetes workloads and services at any time, run `Get-AksEdgeLogs` from an **Administrator Powershell window**.
-
-Note: To check the memory utilization of your Kubernetes cluster, run `Invoke-AksEdgeNodeCommand -Command "sudo cat /proc/meminfo"` from an **Administrator Powershell window**.
+> [!TIP]
+> To get logs from all your Kubernetes workloads and services at any time, run `Get-AksEdgeLogs` from an **Administrator Powershell window**.
+> 
+> To check the memory utilization of your Kubernetes cluster, run `Invoke-AksEdgeNodeCommand -Command "sudo cat /proc/meminfo"` from an **Administrator Powershell window**.
 
 
 ## Running the Production Line Simulation
 
 From the deployed VM, open a **Windows command prompt**. Navigate to the `C:\ManufacturingOntologies-main\Tools\FactorySimulation` directory and run the **StartSimulation** command by supplying the following parameters:
-
-Syntax:
 
 ```console
     StartSimulation <EventHubsCS> <StorageAccountCS> <AzureSubscriptionID> <AzureTenantID>
@@ -214,18 +215,23 @@ Syntax:
 
 Parameters:
 
-| Parameter | Description |
-| --- | --- |
-| EventHubCS | Copy the Event Hubs namespace connection string as described [here](/azure/event-hubs/event-hubs-get-connection-string). |
-| StorageAccountCS | In the Azure portal, navigate to the Storage Account created by this solution. Select "Access keys" from the left-hand navigation menu. Then, copy the connection string for key1. |
+| Parameter          | Description                                                                                          |
+| ------------------ | ---------------------------------------------------------------------------------------------------- |
+| EventHubCS         | Copy the Event Hubs namespace connection string as described [here](/azure/event-hubs/event-hubs-get-connection-string). |
+| StorageAccountCS   | In the Azure portal, navigate to the Storage Account created by this solution. Select "Access keys" from the left-hand navigation menu. Then, copy the connection string for key1. |
 | AzureSubscriptionID | In Azure portal, browse your Subscriptions and copy the ID of the subscription used in this solution. |
-| AzureTenantID | In Azure portal, open the Microsoft Entry ID page and copy your Tenant ID. |
+| AzureTenantID      | In Azure portal, open the Microsoft Entry ID page and copy your Tenant ID.                           |
 
-Example: StartSimulation Endpoint=sb://ontologies.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=abcdefgh= DefaultEndpointsProtocol=https;AccountName=ontologiesstorage;AccountKey=abcdefgh==;EndpointSuffix=core.windows.net 9dd2eft0-3dad-4aeb-85d8-c3adssd8127a 6e660ce4-d51a-4585-80c6-58035e212354
+The following example shows the command with all parameters:
 
-Note: If you have access to several Azure subscriptions, it's worth first logging into the Azure portal from the VM through the web browser. You can also switch Active Directory tenants through the Azure portal UI (in the top-right-hand corner), to make sure you're logged in to the tenant used during deployment. Once logged in, leave the browser window open. This ensures that the StartSimulation script can more easily connect to the right subscription.
+```console
+    StartSimulation Endpoint=sb://ontologies.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=abcdefgh= DefaultEndpointsProtocol=https;AccountName=ontologiesstorage;AccountKey=abcdefgh==;EndpointSuffix=core.windows.net 9dd2eft0-3dad-4aeb-85d8-c3adssd8127a 6e660ce4-d51a-4585-80c6-58035e212354
+```
 
-Note: In this solution, the OPC UA application certificate store for UA Cloud Publisher, and the simulated production line's MES and individual machines' store, is located in the cloud in the deployed Azure Storage account.
+> [!NOTE]
+> If you have access to several Azure subscriptions, it's worth first logging into the Azure portal from the VM through the web browser. You can also switch Active Directory tenants through the Azure portal UI (in the top-right-hand corner), to make sure you're logged in to the tenant used during deployment. Once logged in, leave the browser window open. This ensures that the StartSimulation script can more easily connect to the right subscription.
+> 
+> In this solution, the OPC UA application certificate store for UA Cloud Publisher, and the simulated production line's MES and individual machines' store, is located in the cloud in the deployed Azure Storage account.
 
 
 ## Enabling the Kubernetes Cluster for Management via Azure Arc
@@ -312,108 +318,111 @@ For best results, change the `Layout` option to `Grouped`.
 :::image type="content" source="media/concepts-iot-industrial-solution-architecture/isa-95-graph.png" alt-text="Graph of an ISA-95 asset hierarchy." lightbox="media/concepts-iot-industrial-solution-architecture/isa-95-graph.png" border="false" :::
 
 
-## Using Azure Managed Grafana Service
+## Use Azure Managed Grafana Service
 
-You can also use Grafana to create a dashboard on Azure for this reference solution:
+You can also use Grafana to create a dashboard on Azure for this reference solution. Grafana is used within manufacturing to create dashboards that display real-time data. Azure offers a service named Azure Managed Grafana. With this, you can create cloud dashboards. In this configuration manual, you enable Grafana on Azure and you'll create a dashboard with data that is queried from Azure Data Explorer and Azure Digital Twins service, using the simulated production line data from this reference solution. 
+
+The following screenshot shows the dashboard: 
 
 :::image type="content" source="media/concepts-iot-industrial-solution-architecture/grafana.png" alt-text="Screenshot of Grafana." lightbox="media/concepts-iot-industrial-solution-architecture/grafana.png" border="false" :::
 
-### Grafana Introduction
-
-Grafana is used within manufacturing to create dashboards that display real-time data. Azure offers a service named Azure Managed Grafana. With this, you can create cloud dashboards. In this configuration manual, you enable Grafana on Azure and you'll create a dashboard with data that is queried from Azure Data Explorer and Azure Digital Twins service, using the simulated production line data from this reference solution. Below is a screenshot from the dashboard:
 
 ### Enable Azure Managed Grafana Service
 
-Go to the Microsoft Azure portal and search for the service 'Grafana' and select the 'Azure Managed Grafana' service.
+1. Go to the Azure portal and search for the service 'Grafana' and select the 'Azure Managed Grafana' service.
 
-:::image type="content" source="media/concepts-iot-industrial-solution-architecture/enable-grafana-service.png" alt-text="Screenshot of enabling Grafana in the Marketplace." lightbox="media/concepts-iot-industrial-solution-architecture/enable-grafana-service.png" border="false" :::
+  :::image type="content" source="media/concepts-iot-industrial-solution-architecture/enable-grafana-service.png" alt-text="Screenshot of enabling Grafana in the Marketplace." lightbox="media/concepts-iot-industrial-solution-architecture/enable-grafana-service.png" border="false" :::
 
-Give your instance a name and leave the standard options on - and create the service. 
+1. Give your instance a name and leave the standard options on - and create the service. 
 
-After the service is created, navigate to the URL where you can have access to your Grafana instance. You can find the URL in the homepage of the service. 
+1. After the service is created, navigate to the URL where you can have access to your Grafana instance. You can find the URL in the homepage of the service. 
 
-:::image type="content" source="media/concepts-iot-industrial-solution-architecture/url-to-grafana.png" alt-text="Screenshot of the url to Grafana." lightbox="media/concepts-iot-industrial-solution-architecture/url-to-grafana.png" border="false" :::
+  :::image type="content" source="media/concepts-iot-industrial-solution-architecture/url-to-grafana.png" alt-text="Screenshot of the url to Grafana." lightbox="media/concepts-iot-industrial-solution-architecture/url-to-grafana.png" border="false" :::
 
 ### Add a new Data Source in Grafana
 
-After your first sign in, you'll need to add a new data source to Azure Data Explorer. Navigate to 'Configuration' and add a new datasource.
+After your first sign in, you'll need to add a new data source to Azure Data Explorer. 
 
-:::image type="content" source="media/concepts-iot-industrial-solution-architecture/add-data-source-grafana.png" alt-text="Screenshot of adding a new service." lightbox="media/concepts-iot-industrial-solution-architecture/add-data-source-grafana.png" border="false" :::
+1. Navigate to 'Configuration' and add a new datasource.
 
-Search for Azure Data Explorer and select the service.
+    :::image type="content" source="media/concepts-iot-industrial-solution-architecture/add-data-source-grafana.png" alt-text="Screenshot of adding a new service." lightbox="media/concepts-iot-industrial-solution-architecture/add-data-source-grafana.png" border="false" :::
 
-:::image type="content" source="media/concepts-iot-industrial-solution-architecture/search-adx.png" alt-text="Screenshot of searching ADX." lightbox="media/concepts-iot-industrial-solution-architecture/search-adx.png" border="false" :::
+1. Search for Azure Data Explorer and select the service.
 
-Configure your connection and use the app registration (follow the manual that is provided on the top of this page).
+  :::image type="content" source="media/concepts-iot-industrial-solution-architecture/search-adx.png" alt-text="Screenshot of searching ADX." lightbox="media/concepts-iot-industrial-solution-architecture/search-adx.png" border="false" :::
 
-:::image type="content" source="media/concepts-iot-industrial-solution-architecture/app-registration.png" alt-text="Screenshot of creating an app registration." lightbox="media/concepts-iot-industrial-solution-architecture/app-registration.png" border="false" :::
+1. Configure your connection and use the app registration (follow the manual that is provided on the top of this page).
 
-Save and test your connection on the bottom of the page. 
+  :::image type="content" source="media/concepts-iot-industrial-solution-architecture/app-registration.png" alt-text="Screenshot of creating an app registration." lightbox="media/concepts-iot-industrial-solution-architecture/app-registration.png" border="false" :::
+
+1. Save and test your connection on the bottom of the page. 
 
 ### Import a Sample Dashboard
 
-Now we can import the provided sample dashboard. You can download it here: [Sample Grafana Manufacturing Dashboard](https://github.com/digitaltwinconsortium/ManufacturingOntologies/blob/main/Tools/GrafanaDashboard/samplegrafanadashboard.json).
+Now you are ready to import the provided sample dashboard. 
 
-Then go to 'Dashboard' and select 'Import'.
+1. Download the sample dashboard here: [Sample Grafana Manufacturing Dashboard](https://github.com/digitaltwinconsortium/ManufacturingOntologies/blob/main/Tools/GrafanaDashboard/samplegrafanadashboard.json).
 
-:::image type="content" source="media/concepts-iot-industrial-solution-architecture/import-file.png" alt-text="Screenshot of importing a file." lightbox="media/concepts-iot-industrial-solution-architecture/import-file.png" border="false" :::
+1. Go to 'Dashboard' and select 'Import'.
 
-Select the source that you have downloaded and select on 'Save'. You get an error on the page, because two variables aren't set yet. Go to the settings page of the dashboard.
+  :::image type="content" source="media/concepts-iot-industrial-solution-architecture/import-file.png" alt-text="Screenshot of importing a file." lightbox="media/concepts-iot-industrial-solution-architecture/import-file.png" border="false" :::
 
-:::image type="content" source="media/concepts-iot-industrial-solution-architecture/settings-dashboard.png" alt-text="Screenshot of the dashboard settings." lightbox="media/concepts-iot-industrial-solution-architecture/settings-dashboard.png" border="false" :::
+1. Select the source that you have downloaded and select on 'Save'. You get an error on the page, because two variables aren't set yet. Go to the settings page of the dashboard.
 
-Select on the left on 'Variables' and update the two URLs with the URL of your Azure Digital Twins Service. 
+  :::image type="content" source="media/concepts-iot-industrial-solution-architecture/settings-dashboard.png" alt-text="Screenshot of the dashboard settings." lightbox="media/concepts-iot-industrial-solution-architecture/settings-dashboard.png" border="false" :::
 
-:::image type="content" source="media/concepts-iot-industrial-solution-architecture/variable-setting.png" alt-text="Screenshot of the variable setting." lightbox="media/concepts-iot-industrial-solution-architecture/variable-setting.png" border="false" :::
+1. Select on the left on 'Variables' and update the two URLs with the URL of your Azure Digital Twins Service. 
 
-Then, navigate back to the dashboard and hit the refresh button. You should now see data (don't forget to hit the save button on the dashboard).
+  :::image type="content" source="media/concepts-iot-industrial-solution-architecture/variable-setting.png" alt-text="Screenshot of the variable setting." lightbox="media/concepts-iot-industrial-solution-architecture/variable-setting.png" border="false" :::
 
-:::image type="content" source="media/concepts-iot-industrial-solution-architecture/end-result.png" alt-text="Screenshot of the end result of the setup process." lightbox="media/concepts-iot-industrial-solution-architecture/end-result.png" border="false" :::
+1. Navigate back to the dashboard and hit the refresh button. You should now see data (don't forget to hit the save button on the dashboard).
+
+  :::image type="content" source="media/concepts-iot-industrial-solution-architecture/end-result.png" alt-text="Screenshot of the end result of the setup process." lightbox="media/concepts-iot-industrial-solution-architecture/end-result.png" border="false" :::
 
 The location variable on the top of the page is automatically filled with data from Azure Digital Twins (the area nodes from ISA95). Here you can select the different locations and see the different datapoints of every factory. 
 
-If data isn't showing up in your dashboard, navigate to the individual panels and see if the right data source is selected:
+1. If data isn't showing up in your dashboard, navigate to the individual panels and see if the right data source is selected:
 
-:::image type="content" source="media/concepts-iot-industrial-solution-architecture/data-source-selected.png" alt-text="Screenshot of a selected data source." lightbox="media/concepts-iot-industrial-solution-architecture/data-source-selected.png" border="false" :::
+  :::image type="content" source="media/concepts-iot-industrial-solution-architecture/data-source-selected.png" alt-text="Screenshot of a selected data source." lightbox="media/concepts-iot-industrial-solution-architecture/data-source-selected.png" border="false" :::
 
-### Configuring Alerts
+### Configure Alerts
 
-Within Grafana, it's also possible to create alerts. Follow manual to create an alert:
+Within Grafana, it's also possible to create alerts. In this example, we create a low OEE alert for one of the production lines. 
 
-In this example, we create a low OEE alert for one of the production lines. First, sign in to your Grafana service, and select Alert rules in the menu.
+1. Sign in to your Grafana service, and select Alert rules in the menu.
 
-:::image type="content" source="media/concepts-iot-industrial-solution-architecture/navigate-to-alerts.png" alt-text="Screenshot of navigating to alerts." lightbox="media/concepts-iot-industrial-solution-architecture/navigate-to-alerts.png" border="false" :::
+  :::image type="content" source="media/concepts-iot-industrial-solution-architecture/navigate-to-alerts.png" alt-text="Screenshot of navigating to alerts." lightbox="media/concepts-iot-industrial-solution-architecture/navigate-to-alerts.png" border="false" :::
 
-Then select on 'Create alert rule'.
+1. Select 'Create alert rule'.
 
-:::image type="content" source="media/concepts-iot-industrial-solution-architecture/create-rule.png" alt-text="Screenshot of creating an alert rule." lightbox="media/concepts-iot-industrial-solution-architecture/create-rule.png" border="false" :::
+  :::image type="content" source="media/concepts-iot-industrial-solution-architecture/create-rule.png" alt-text="Screenshot of creating an alert rule." lightbox="media/concepts-iot-industrial-solution-architecture/create-rule.png" border="false" :::
 
-Then give your alert a name and select 'Azure Data Explorer' as data source. Select on query on the left
+1. Give your alert a name and select 'Azure Data Explorer' as data source. Select query in the navigation pane. 
 
-:::image type="content" source="media/concepts-iot-industrial-solution-architecture/alert-query.png" alt-text="Screenshot of creating an alert query." lightbox="media/concepts-iot-industrial-solution-architecture/alert-query.png" border="false" :::
+  :::image type="content" source="media/concepts-iot-industrial-solution-architecture/alert-query.png" alt-text="Screenshot of creating an alert query." lightbox="media/concepts-iot-industrial-solution-architecture/alert-query.png" border="false" :::
 
-In the query field, enter the following query. In this example, we use the 'Seattle' production line. 
+1. In the query field, enter the following query. In this example, we use the 'Seattle' production line. 
 
-```
-let oee = CalculateOEEForStation("assembly", "seattle", 6, 6);
-print round(oee * 100, 2)
-```
+  ```
+  let oee = CalculateOEEForStation("assembly", "seattle", 6, 6);
+  print round(oee * 100, 2)
+  ```
 
-Select 'table' as output. 
+1. Select 'table' as output. 
 
-Scroll down to the next section. Here, you configure the alert threshold. In this example, we use 'below 10' as the threshold, but in production environments, this can be higher.
+1. Scroll down to the next section. Here, you configure the alert threshold. In this example, we use 'below 10' as the threshold, but in production environments, this value can be higher.
 
-:::image type="content" source="media/concepts-iot-industrial-solution-architecture/threshold-alert.png" alt-text="Screenshot of a threshold alert." lightbox="media/concepts-iot-industrial-solution-architecture/threshold-alert.png" border="false" :::
+  :::image type="content" source="media/concepts-iot-industrial-solution-architecture/threshold-alert.png" alt-text="Screenshot of a threshold alert." lightbox="media/concepts-iot-industrial-solution-architecture/threshold-alert.png" border="false" :::
 
-Select the folder where you want to save your alerts and configure the 'Alert Evaluation behavior' - here, select 'every 2 minutes'.
+1. Select the folder where you want to save your alerts and configure the 'Alert Evaluation behavior'. Select the option 'every 2 minutes'.
 
-Hit the 'Save and exit' button on the top. 
+1. Select the 'Save and exit' button. 
 
 In the overview of your alerts, you can now see an alert being triggered when your OEE is below '10'.
 
 :::image type="content" source="media/concepts-iot-industrial-solution-architecture/alert-overview.png" alt-text="Screenshot of an alert overview." lightbox="media/concepts-iot-industrial-solution-architecture/alert-overview.png" border="false" :::
 
-You can integrate this with, for example, Microsoft Dynamics Field Services.
+You can integrate this setup with, for example, Microsoft Dynamics Field Services.
 
 
 ## Connecting the Reference Solution to Microsoft Power BI
@@ -463,7 +472,7 @@ This integration showcases the following scenarios:
 
 The integration uses Azure Logics Apps. With Logic Apps bussiness-critcal apps and services can be connected via no-code workflows. We fetch information from Azure Data Explorer and trigger actions in Dynamics 365 Field Service.
 
-First, if you're not already a Dynamics 365 Field Service customer, activate a 30 day trial [here](https://dynamics.microsoft.com/en-us/field-service/field-service-management-software/free-trial). Remember to use the same Microsoft Entra ID (formerly Azure Active Directory) used while deploying the Manufacturing Ontologies reference solution. Otherwise, you would need to configure cross tenant authentication that isn't part of these instructions!
+First, if you're not already a Dynamics 365 Field Service customer, activate a 30 day trial [here](https://dynamics.microsoft.com/field-service/field-service-management-software/free-trial). Remember to use the same Microsoft Entra ID (formerly Azure Active Directory) used while deploying the Manufacturing Ontologies reference solution. Otherwise, you would need to configure cross tenant authentication that isn't part of these instructions!
 
 ### Create an Azure Logic App Workflow to create assets in Dynamics 365 Field Service
 
@@ -560,7 +569,7 @@ In the simulated production also the energy usage of every machine is collected.
 ### Set up trial account
 When you want to use the Microsoft Sustainability Manager (MSM), you can start with a 30 day trial. 
 
-1. For that you need to go to [this](https://www.microsoft.com/en-us/sustainability/cloud) trial page. Enter there your e-mailadres, agree with the term and select on 'Start your free trial'
+1. For that you need to go to [this](https://www.microsoft.com/sustainability/cloud) trial page. Enter there your e-mailadres, agree with the term and select on 'Start your free trial'
 
   :::image type="content" source="media/concepts-iot-industrial-solution-architecture/trial-page.png" alt-text="Screenshot of the MSM trial page." lightbox="media/concepts-iot-industrial-solution-architecture/trial-page.png" border="false" :::
 
@@ -682,5 +691,5 @@ Because the solution doesn't yet have all the context needed for MSM in the quer
 
 ## Related content
 
-- [Connect on-premises SAP systems to Azure](howto-connect-onprem-sap-to-azure.md)
+- [Connect on-premises SAP systems to Azure](howto-connect-on-premises-sap-to-azure.md)
 - [Connecting Azure IoT Operations to Microsoft Fabric](../iot-operations/connect-to-cloud/howto-configure-destination-fabric.md)

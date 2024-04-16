@@ -42,7 +42,7 @@ items:
         - name: Convert a device to IoT Plug and Play
           href: howto-convert-to-pnp.md
         - name: Connect an on-premise SAP system to Azure   
-          href: howto-connect-onprem-sap-to-azure.md   
+          href: howto-connect-on-premises-sap-to-azure.md   
 
   - name: Tutorials
     items:
