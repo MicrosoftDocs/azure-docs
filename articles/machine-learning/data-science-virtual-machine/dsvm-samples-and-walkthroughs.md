@@ -40,7 +40,7 @@ To run these samples, you must have a provisioned [Ubuntu Data Science Virtual M
 
 To access Jupyter, select the **Jupyter** icon on the desktop or application menu. You also can access Jupyter on a Linux edition of a DSVM. For remote access from a web browser, visit `https://<Full Domain Name or IP Address of the DSVM>:8000` on Ubuntu.
 
-To add exceptions, and make Jupyter access available over a browser, use this guidance:
+To add exceptions, and make Jupyter access available through a browser, use this guidance:
 
 ![Enable Jupyter exception](./media/ubuntu-jupyter-exception.png)
 
