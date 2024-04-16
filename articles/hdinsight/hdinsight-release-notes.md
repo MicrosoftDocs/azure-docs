@@ -21,9 +21,9 @@ To subscribe, click the **watch** button in the banner and watch out for [HDInsi
 
 ## Release Information
 
-### Release date:  February  15, 2024
+### Release date: April 15, 2024
 
-This release applies to HDInsight 5.1 version. HDInsight release will be available to all regions over several days. This release is applicable for image number **2403290825**. [How to check the image number?](./view-hindsight-cluster-image-version.md)
+This release note applies to HDInsight 5.1 version. HDInsight release will be available to all regions over several days. This release note is applicable for image number **2403290825**. [How to check the image number?](./view-hindsight-cluster-image-version.md)
 
 HDInsight uses safe deployment practices, which involve gradual region deployment. It might take up to 10 business days for a new release or a new version to be available in all regions.
 
@@ -48,7 +48,7 @@ For workload specific versions, see [HDInsight 5.x component versions](./hdinsig
 * [Basic and Standard A-series VMs Retirement](https://azure.microsoft.com/updates/basic-and-standard-aseries-vms-on-hdinsight-will-retire-on-31-august-2024/).
    * On August 31, 2024, we'll retire Basic and Standard A-series VMs. Before that date, you need to migrate your workloads to Av2-series VMs, which provide more memory per vCPU and faster storage on solid-state drives (SSDs).
    * To avoid service disruptions, [migrate your workloads](https://aka.ms/Av1retirement) from Basic and Standard A-series VMs to Av2-series VMs before August 31, 2024.
-* Retirement Notifications for [HDInsight 4.0](https://azure.microsoft.com/updates/basic-and-standard-aseries-vms-on-hdinsight-will-retire-on-31-august-2024/) and [HDInsight 5.0](https://azure.microsoft.com/updates/hdinsight5retire/).
+* Retirement Notifications for [HDInsight 4.0](https://azure.microsoft.com/updates/basic-and-standard-aseries-vms-on-hdinsight-will-retire-on-31-august-2024/) and  [HDInsight 5.0](https://azure.microsoft.com/updates/hdinsight5retire/).
  
 If you have any more questions, contact [Azure Support](https://ms.portal.azure.com/#view/Microsoft_Azure_Support/HelpAndSupportBlade/~/overview).
 
