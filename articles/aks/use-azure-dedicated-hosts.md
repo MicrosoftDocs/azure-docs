@@ -4,6 +4,9 @@ description: Learn how to create an Azure Dedicated Hosts Group and associate it
 ms.topic: article
 ms.custom: devx-track-azurecli
 ms.date: 03/10/2023
+author: tamram
+ms.author: tamram
+
 ---
 
 # Add Azure Dedicated Host to an Azure Kubernetes Service (AKS) cluster
@@ -150,3 +153,4 @@ In this article, you learned how to create an AKS cluster with a Dedicated host,
 [az-vm-host-group-create]: /cli/azure/vm/host/group#az_vm_host_group_create
 [determine-host-based-on-vm-utilization]: ../virtual-machines/dedicated-host-general-purpose-skus.md
 [host-utilization-evaluate]: ../virtual-machines/dedicated-hosts-how-to.md#check-the-status-of-the-host
+

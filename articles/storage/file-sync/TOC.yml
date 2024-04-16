@@ -147,7 +147,7 @@
   items:
   - name: Disaster recovery best practices
     href: file-sync-disaster-recovery-best-practices.md
-  - name: Change how data is replicated
+  - name: Change the redundancy configuration
     href: ../common/redundancy-migration.md?toc=/azure/storage/file-sync/toc.json
   - name: Initiate an account failover
     href: ../common/storage-initiate-account-failover.md?toc=/azure/storage/file-sync/toc.json

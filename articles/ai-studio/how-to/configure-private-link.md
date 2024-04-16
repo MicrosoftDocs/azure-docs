@@ -36,7 +36,7 @@ You get several hub default resources in your resource group. You need to config
 
 * Disable network policies for private endpoints before adding the private endpoint.
 
-## Create an Azure AI that uses a private endpoint
+## Create a hub that uses a private endpoint
 
 Use one of the following methods to create a hub with a private endpoint. Each of these methods __requires an existing virtual network__:
 
@@ -49,13 +49,7 @@ Use one of the following methods to create a hub with a private endpoint. Each o
 
 # [Azure CLI](#tab/cli)
 
-Create your hub with the Azure AI CLI. Run the following command and follow the prompts. For more information, see [Get started with Azure AI CLI](cli-install.md).
-
-```azurecli-interactive
-ai init
-```
-
-After creating the hub, use the [Azure networking CLI commands](/cli/azure/network/private-endpoint#az-network-private-endpoint-create) to create a private link endpoint for the Azure AI.
+After creating the hub, use the [Azure networking CLI commands](/cli/azure/network/private-endpoint#az-network-private-endpoint-create) to create a private link endpoint for the hub.
 
 ```azurecli-interactive
 az network private-endpoint create \
@@ -227,7 +221,7 @@ To enable public access, use the following steps:
 
 # [Azure CLI](#tab/cli)
 
-Not available in AI CLI, but you can use [Azure Machine Learning CLI](../../machine-learning/how-to-configure-private-link.md#enable-public-access). Use your hub name as workspace name in Azure Machine Learning CLI.
+You can use [Azure Machine Learning CLI](../../machine-learning/how-to-configure-private-link.md#enable-public-access). Use your hub name as workspace name in Azure Machine Learning CLI.
 
 ---
 
@@ -269,7 +263,7 @@ To check AI-PROJECT-GUID, go to the Azure portal, select your project, settings,
 
 ## Limitations
 
-* Private Azure AI services and Azure AI Search aren't supported.
+* Private Azure AI Services and Azure AI Search aren't supported.
 * The "Add your data" feature in the Azure AI Studio playground doesn't support private storage account.
 * You might encounter problems trying to access the private endpoint for your hub if you're using Mozilla Firefox. This problem might be related to DNS over HTTPS in Mozilla Firefox. We recommend using Microsoft Edge or Google Chrome.
 

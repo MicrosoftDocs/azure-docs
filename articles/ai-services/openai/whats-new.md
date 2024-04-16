@@ -28,6 +28,10 @@ Fine-tuning is now available in East US 2 with support for:
 
 Check the [models page](concepts/models.md#fine-tuning-models), for the latest information on model availability and fine-tuning support in each region.  
 
+### GPT-4 (0125) is available for Azure OpenAI On Your Data
+
+You can now use the GPT-4 (0125) model in [available regions](./concepts/models.md#public-cloud-regions) with Azure OpenAI On Your Data.
+
 ## March 2024
 
 ### Risks & Safety monitoring in Azure OpenAI Studio
@@ -430,7 +434,7 @@ New training course:
 }
 ```
 
-**Content filtering is temporarily off** by default. Azure content moderation works differently than OpenAI. Azure OpenAI runs content filters during the generation call to detect harmful or abusive content and filters them from the response. [Learn More​](./concepts/content-filter.md)
+**Content filtering is temporarily off** by default. Azure content moderation works differently than Azure OpenAI. Azure OpenAI runs content filters during the generation call to detect harmful or abusive content and filters them from the response. [Learn More​](./concepts/content-filter.md)
 
 ​These models will be re-enabled in Q1 2023 and be on by default. ​
 

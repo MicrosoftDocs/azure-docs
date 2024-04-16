@@ -23,7 +23,7 @@ In this quickstart, we use the Azure Communication Services Call Automation APIs
 ## Prerequisites
 
 - An Azure account with an active subscription.
-- A Microsoft Teams phone license and a Teams tenant with administrative privileges. Teams phone license is a must in order to use this feature, learn more about Teams licenses [here](https://www.microsoft.com/en-us/microsoft-teams/compare-microsoft-teams-bundle-options). Administrative privileges are required to authorize Communication Services resource to call Teams users, explained later in Step 1.  
+- A Microsoft Teams phone license and a Teams tenant with administrative privileges. Teams phone license is a must in order to use this feature, learn more about Teams licenses [here](https://www.microsoft.com/microsoft-teams/compare-microsoft-teams-bundle-options). Administrative privileges are required to authorize Communication Services resource to call Teams users, explained later in Step 1.  
 - A deployed [Communication Service resource](../../quickstarts/create-communication-resource.md) and valid connection string found by selecting Keys in left side menu on Azure portal.
 - [Acquire a PSTN phone number from the Communication Service resource](../../quickstarts/telephony/get-phone-number.md). Note the phone number you acquired to use in this quickstart. 
 - An Azure Event Grid subscription to receive the `IncomingCall` event.
@@ -222,4 +222,4 @@ If you want to clean up and remove a Communication Services subscription, you ca
 - Learn more about [Call Automation](../../concepts/call-automation/call-automation.md) and its features.
 - Learn more about capabilities of [Teams Interoperability support with Azure Communication Services Call Automation](../../concepts/call-automation/call-automation-teams-interop.md)
 - Learn about [Play action](../../concepts/call-automation/play-Action.md) to play audio in a call.
-- Learn how to build a [call workflow](../../quickstarts/call-automation/callflows-for-customer-interactions.md) for a customer support scenario. 
+- Learn how to build a [call workflow](../../quickstarts/call-automation/callflows-for-customer-interactions.md) for a customer support scenario.
