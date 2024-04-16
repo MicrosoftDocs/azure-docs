@@ -153,7 +153,7 @@ To create a deployment:
 
 ---
 
-To learn about billing for Llama models deployed with pay-as-you-go, see [Cost and quota considerations for Llama 3 models deployed as a service](#cost-and-quota-considerations-for-llama-3-models-deployed-as-a-service).
+To learn about billing for Llama models deployed with pay-as-you-go, see [Cost and quota considerations for Llama 3 models deployed as a service](#cost-and-quota-considerations-for-llama-models-deployed-as-a-service).
 
 ### Consume Llama models as a service
 
