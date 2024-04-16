@@ -1,5 +1,5 @@
 ---
-title: Commission an AKS cluster 
+title: Configure routers for a Highly Available (HA) deployment
 titleSuffix: Azure Private 5G Core
 description: This how-to guide shows how to configure your routers for a Highly Available (HA) Azure Private 5G Core deployment
 author: robswain
