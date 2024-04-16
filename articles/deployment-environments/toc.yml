@@ -61,9 +61,6 @@ items:
     - name: Configure container image to execute deployments
       href: how-to-configure-extensibility-generic-container-image.md
       displayName: custom image, custom runner, extensibility 
-- name: Configure the ADE extensibility model
-  expanded: false
-  items:
     - name: Configure ARM/Bicep container image to execute deployments
       href: how-to-configure-extensibility-bicep-container-image.md
       displayName: custom image, custom runner, extensibility 
