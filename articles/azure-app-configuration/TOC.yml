@@ -41,6 +41,8 @@
           href: quickstart-feature-flag-spring-boot.md
         - name: Azure Functions
           href: quickstart-feature-flag-azure-functions-csharp.md
+        - name: Azure Kubernetes Service
+          href: quickstart-feature-flag-azure-kubernetes-service.md
     - name: Service integration
       items:
         - name: Azure Kubernetes Service
@@ -51,6 +53,9 @@
           href: quickstart-container-apps.md
     - name: Deployment
       items:
+        - name: Overview
+          href: quickstart-deployment-overview.md
+          displayName: ARM, Resource Manager, Template
         - name: Bicep
           href: quickstart-bicep.md
           displayName: ARM, Resource Manager, Template

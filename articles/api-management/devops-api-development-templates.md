@@ -12,6 +12,8 @@ ms.author: danlep
 
 # Use DevOps and CI/CD to publish APIs
 
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
+
 With the strategic value of APIs in the enterprise, adopting DevOps continuous integration (CI) and deployment (CD) techniques has become an important aspect of API development.  This article discusses the decisions you'll need to make to adopt DevOps principles for the management of APIs.
 
 API DevOps consists of three parts:

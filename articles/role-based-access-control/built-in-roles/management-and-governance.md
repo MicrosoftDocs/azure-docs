@@ -1471,6 +1471,69 @@ Users with rights to create/modify resource policy, create support ticket and re
 }
 ```
 
+## Scheduled Patching Contributor
+
+Provides access to manage maintenance configurations with maintenance scope InGuestPatch and corresponding configuration assignments
+
+[Learn more](/azure/update-manager/scheduled-patching)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Maintenance](../permissions/management-and-governance.md#microsoftmaintenance)/maintenanceConfigurations/read | Read maintenance configuration. |
+> | [Microsoft.Maintenance](../permissions/management-and-governance.md#microsoftmaintenance)/maintenanceConfigurations/write | Create or update maintenance configuration. |
+> | [Microsoft.Maintenance](../permissions/management-and-governance.md#microsoftmaintenance)/maintenanceConfigurations/delete | Delete maintenance configuration. |
+> | [Microsoft.Maintenance](../permissions/management-and-governance.md#microsoftmaintenance)/configurationAssignments/read | Read maintenance configuration assignment. |
+> | [Microsoft.Maintenance](../permissions/management-and-governance.md#microsoftmaintenance)/configurationAssignments/write | Create or update maintenance configuration assignment. |
+> | [Microsoft.Maintenance](../permissions/management-and-governance.md#microsoftmaintenance)/configurationAssignments/delete | Delete maintenance configuration assignment. |
+> | [Microsoft.Maintenance](../permissions/management-and-governance.md#microsoftmaintenance)/configurationAssignments/maintenanceScope/InGuestPatch/read | Read maintenance configuration assignment for InGuestPatch maintenance scope. |
+> | [Microsoft.Maintenance](../permissions/management-and-governance.md#microsoftmaintenance)/configurationAssignments/maintenanceScope/InGuestPatch/write | Create or update a maintenance configuration assignment for InGuestPatch maintenance scope. |
+> | [Microsoft.Maintenance](../permissions/management-and-governance.md#microsoftmaintenance)/configurationAssignments/maintenanceScope/InGuestPatch/delete | Delete maintenance configuration assignment for InGuestPatch maintenance scope. |
+> | [Microsoft.Maintenance](../permissions/management-and-governance.md#microsoftmaintenance)/maintenanceConfigurations/maintenanceScope/InGuestPatch/read | Read maintenance configuration for InGuestPatch maintenance scope. |
+> | [Microsoft.Maintenance](../permissions/management-and-governance.md#microsoftmaintenance)/maintenanceConfigurations/maintenanceScope/InGuestPatch/write | Create or update a maintenance configuration for InGuestPatch maintenance scope. |
+> | [Microsoft.Maintenance](../permissions/management-and-governance.md#microsoftmaintenance)/maintenanceConfigurations/maintenanceScope/InGuestPatch/delete | Delete maintenance configuration for InGuestPatch maintenance scope. |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Provides access to manage maintenance configurations with maintenance scope InGuestPatch and corresponding configuration assignments",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/cd08ab90-6b14-449c-ad9a-8f8e549482c6",
+  "name": "cd08ab90-6b14-449c-ad9a-8f8e549482c6",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Maintenance/maintenanceConfigurations/read",
+        "Microsoft.Maintenance/maintenanceConfigurations/write",
+        "Microsoft.Maintenance/maintenanceConfigurations/delete",
+        "Microsoft.Maintenance/configurationAssignments/read",
+        "Microsoft.Maintenance/configurationAssignments/write",
+        "Microsoft.Maintenance/configurationAssignments/delete",
+        "Microsoft.Maintenance/configurationAssignments/maintenanceScope/InGuestPatch/read",
+        "Microsoft.Maintenance/configurationAssignments/maintenanceScope/InGuestPatch/write",
+        "Microsoft.Maintenance/configurationAssignments/maintenanceScope/InGuestPatch/delete",
+        "Microsoft.Maintenance/maintenanceConfigurations/maintenanceScope/InGuestPatch/read",
+        "Microsoft.Maintenance/maintenanceConfigurations/maintenanceScope/InGuestPatch/write",
+        "Microsoft.Maintenance/maintenanceConfigurations/maintenanceScope/InGuestPatch/delete"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Scheduled Patching Contributor",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
 ## Site Recovery Contributor
 
 Lets you manage Site Recovery service except vault creation and role assignment

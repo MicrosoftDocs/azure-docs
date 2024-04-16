@@ -12,6 +12,8 @@
       href: api-management-key-concepts.md
     - name: API Management features availability
       href: api-management-features.md
+    - name: API Management gateways
+      href: api-management-gateways-overview.md  
     - name: v2 service tiers
       href: v2-service-tiers-overview.md
     - name: Terminology
@@ -106,6 +108,8 @@
     items:
     - name: Networking options
       href: virtual-network-concepts.md
+    - name: VNet injection - network requirements
+      href: virtual-network-injection-resources.md
     - name: Deploy to a VNet - external
       href: api-management-using-with-vnet.md
     - name: Deploy to a VNet - internal
@@ -279,8 +283,6 @@
     href: configure-graphql-resolver.md
 - name: Manage APIs on-premises and in other clouds
   items:
-  - name: API Management gateway overview
-    href: api-management-gateways-overview.md
   - name: Self-hosted gateway overview
     href: self-hosted-gateway-overview.md
   - name: Deploy the gateway

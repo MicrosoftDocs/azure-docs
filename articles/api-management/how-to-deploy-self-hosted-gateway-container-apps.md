@@ -11,11 +11,11 @@ ms.author: danlep
 
 # Deploy an Azure API Management self-hosted gateway to Azure Container Apps
 
+[!INCLUDE [api-management-availability-premium-dev](../../includes/api-management-availability-premium-dev.md)]
+
 This article provides the steps to deploy the [self-hosted gateway](self-hosted-gateway-overview.md) component of Azure API Management to [Azure Container Apps](../container-apps/overview.md). 
 
 Deploy a self-hosted gateway to a container app to access APIs that are hosted in the same Azure Container Apps environment.
-
-[!INCLUDE [api-management-availability-premium-dev](../../includes/api-management-availability-premium-dev.md)]
 
 ## Prerequisites
 

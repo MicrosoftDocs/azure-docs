@@ -66,7 +66,7 @@ Following are the features for each of the domains in Defender for Containers:
 | Aspect | Details |
 |--|--|
 | Registries and images | **Supported**<br> • ACR registries <br> • [ACR registries protected with Azure Private Link](../container-registry/container-registry-private-link.md) (Private registries requires access to Trusted Services) <br> • Container images in Docker V2 format <br> • Images with [Open Container Initiative (OCI)](https://github.com/opencontainers/image-spec/blob/main/spec.md) image format specification <br> **Unsupported**<br>   • Super-minimalist images such as [Docker scratch](https://hub.docker.com/_/scratch/) images<br> is currently unsupported <br> |
-| Operating systems | **Supported** <br> • Alpine Linux 3.12-3.16 <br> • Red Hat Enterprise Linux 6-9 <br> • CentOS 6-9<br> • Oracle Linux 6-9 <br> • Amazon Linux 1, 2 <br> • openSUSE Leap, openSUSE Tumbleweed <br> • SUSE Enterprise Linux 11-15 <br> • Debian GNU/Linux 7-12 <br> • Google Distroless (based on Debian GNU/Linux 7-12) <br> • Ubuntu 12.04-22.04 <br>  • Fedora 31-37<br> • Mariner 1-2<br> • Windows Server 2016, 2019, 2022|
+| Operating systems | **Supported** <br> • Alpine Linux 3.12-3.19 <br> • Red Hat Enterprise Linux 6-9 <br> • CentOS 6-9<br> • Oracle Linux 6-9 <br> • Amazon Linux 1, 2 <br> • openSUSE Leap, openSUSE Tumbleweed <br> • SUSE Enterprise Linux 11-15 <br> • Debian GNU/Linux 7-12 <br> • Google Distroless (based on Debian GNU/Linux 7-12) <br> • Ubuntu 12.04-22.04 <br>  • Fedora 31-37<br> • Mariner 1-2<br> • Windows Server 2016, 2019, 2022|
 | Language specific packages <br><br>  | **Supported** <br> • Python <br> • Node.js <br> • .NET <br> • JAVA <br> • Go |
 
 ### Kubernetes distributions and configurations for Azure - Runtime threat protection
@@ -105,9 +105,9 @@ Learn how to [use Azure Private Link to connect networks to Azure Monitor](../az
 | Security posture management | Kubernetes data plane hardening | EKS | GA| - | Azure Policy for Kubernetes | Defender for Containers |
 | [Vulnerability assessment](agentless-vulnerability-assessment-aws.md) | Agentless registry scan (powered by Microsoft Defender Vulnerability Management) [supported packages](#registries-and-images-support-for-aws---vulnerability-assessment-powered-by-microsoft-defender-vulnerability-management)| ECR | Preview | Preview | Agentless | Defender for Containers or Defender CSPM |
 | [Vulnerability assessment](agentless-vulnerability-assessment-aws.md) | Agentless/sensor-based runtime (powered by Microsoft Defender Vulnerability Management) [supported packages](#registries-and-images-support-for-aws---vulnerability-assessment-powered-by-microsoft-defender-vulnerability-management)| EKS | Preview | Preview | Agentless **OR/AND** Defender sensor | Defender for Containers or Defender CSPM |
-| Runtime protection| Control plane | EKS | Preview | Preview | Agentless | Defender for Containers |
-| Runtime protection| Workload | EKS | Preview | - | Defender sensor | Defender for Containers |
-| Deployment & monitoring | Discovery of unprotected clusters | EKS | Preview | - | Agentless | Free |
+| Runtime protection| Control plane | EKS | GA | Preview | Agentless | Defender for Containers |
+| Runtime protection| Workload | EKS | GA | - | Defender sensor | Defender for Containers |
+| Deployment & monitoring | Discovery of unprotected clusters | EKS | GA | - | Agentless | Defender for Containers |
 | Deployment & monitoring | Auto provisioning of Defender sensor | - | - | - | - | - |
 | Deployment & monitoring | Auto provisioning of Azure Policy for Kubernetes | - | - | - | - | - |
 
@@ -149,9 +149,9 @@ Outbound proxy without authentication and outbound proxy with basic authenticati
 | Security posture management | Kubernetes data plane hardening | GKE | GA| - | Azure Policy for Kubernetes | Defender for Containers |
 | [Vulnerability assessment](agentless-vulnerability-assessment-gcp.md) | Agentless registry scan (powered by Microsoft Defender Vulnerability Management) [supported packages](#registries-and-images-support-for-gcp---vulnerability-assessment-powered-by-microsoft-defender-vulnerability-management)| GAR, GCR | Preview | Preview | Agentless | Defender for Containers or Defender CSPM |
 | [Vulnerability assessment](agentless-vulnerability-assessment-gcp.md) | Agentless/sensor-based runtime (powered by Microsoft Defender Vulnerability Management) [supported packages](#registries-and-images-support-for-gcp---vulnerability-assessment-powered-by-microsoft-defender-vulnerability-management)| GKE | Preview | Preview | Agentless **OR/AND** Defender sensor | Defender for Containers or Defender CSPM |
-| Runtime protection| Control plane | GKE | Preview | Preview | Agentless | Defender for Containers |
-| Runtime protection| Workload | GKE | Preview | - | Defender sensor | Defender for Containers |
-| Deployment & monitoring | Discovery of unprotected clusters | GKE | Preview | - | Agentless | Free |
+| Runtime protection| Control plane | GKE | GA | Preview | Agentless | Defender for Containers |
+| Runtime protection| Workload | GKE | GA | - | Defender sensor | Defender for Containers |
+| Deployment & monitoring | Discovery of unprotected clusters | GKE | GA | - | Agentless | Defender for Containers |
 | Deployment & monitoring | Auto provisioning of Defender sensor | GKE | Preview | - | Agentless | Defender for Containers |
 | Deployment & monitoring | Auto provisioning of Azure Policy for Kubernetes | GKE | Preview | - | Agentless | Defender for Containers |
 

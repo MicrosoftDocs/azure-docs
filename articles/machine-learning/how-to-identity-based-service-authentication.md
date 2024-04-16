@@ -37,9 +37,9 @@ Azure Machine Learning is composed of multiple Azure services. There are multipl
 
 ## Azure Container Registry and identity types
 
-The following table lists the support matrix when authenticating to __Azure Container Registry__, depending on the authentication method and the __public network access__ workspace flag.
+The following table lists the support matrix when authenticating to __Azure Container Registry__, depending on the authentication method and the __Azure Container Registry's__ [public network access configuration](/azure/container-registry/container-registry-access-selected-networks). 
 
-| Authentication method | Public network access</br>disabled | Public network access</br>enabled |
+| Authentication method | Public network access</br>disabled | Azure Container Registry</br>Public network access enabled |
 | ---- | :----: | :----: |
 | Admin user | ✓ | ✓ |
 | Workspace system-assigned managed identity | ✓ | ✓ |

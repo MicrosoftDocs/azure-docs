@@ -4,6 +4,9 @@ description: Learn how AKS applies the CIS benchmark to Windows Server 2022 imag
 ms.topic: article
 ms.subservice: aks-security
 ms.date: 09/27/2023
+author: tamram
+ms.author: tamram
+
 ---
 
 # Azure Kubernetes Service (AKS) Windows image alignment with Center for Internet Security (CIS) benchmark
