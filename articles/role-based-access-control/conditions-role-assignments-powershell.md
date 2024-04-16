@@ -164,20 +164,30 @@ Condition          : ((!(ActionMatches{'Microsoft.Storage/storageAccounts/blobSe
 
 ### Edit conditions in multiple role assignments
 
-If you need to make the same update to multiple role assignments, you can use a loop. The following PowerShell commands perform the following tasks:
+If you need to make the same update to multiple role assignments, you can use a loop. The following commands perform the following task:
 
-- Finds role assignments in a subscription with `<find-condition-string-1>` and `<find-condition-string-2>` strings in the condition.
-- In the condition of the found role assignments, replaces `<condition-string>` with `<replace-condition-string>`.
-- Updates the role assignments with the changes.
+- Finds role assignments in a subscription with `<find-condition-string-1>` or `<find-condition-string-2>` strings in the condition.
 
 ```azurepowershell
 $tenantId = "<your-tenant-id>"
 $subscriptionId = "<your-subscription-id>";
 $scope = "/subscriptions/$subscriptionId"
+$findConditionString1 = "<find-condition-string-1>"
+$findConditionString2 = "<find-condition-string-2>"
 Connect-AzAccount -TenantId $tenantId -SubscriptionId $subscriptionId
 $roleAssignments = Get-AzRoleAssignment -Scope $scope
-$foundRoleAssignments = $roleAssignments | Where-Object { ($_.Condition -Match "<find-condition-string-1>") -And ($_.Condition -Match "<find-condition-string-2>") }
-$updatedRoleAssignments = $foundRoleAssignments | ForEach-Object { $_.Condition = $_.Condition -replace "<condition-string>", "<replace-condition-string>"; $_ }
+$foundRoleAssignments = $roleAssignments | Where-Object { ($_.Condition -Match $findConditionString1) -Or ($_.Condition -Match $findConditionString2) }
+```
+
+The following commands perform the following tasks:
+
+- In the condition of the found role assignments, replaces `<condition-string>` with `<replace-condition-string>`.
+- Updates the role assignments with the changes.
+
+```azurepowershell
+$conditionString = "<condition-string>"
+$conditionStringReplacement = "<condition-string-replacement>"
+$updatedRoleAssignments = $foundRoleAssignments | ForEach-Object { $_.Condition = $_.Condition -replace $conditionString, $conditionStringReplacement; $_ }
 $updatedRoleAssignments | ForEach-Object { Set-AzRoleAssignment -InputObject $_ -PassThru }
 ```
 
