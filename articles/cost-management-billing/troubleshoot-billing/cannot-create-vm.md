@@ -22,7 +22,7 @@ When you create a VM as an EA user in the [Azure portal](https://portal.azure.co
 
 `Retail prices displayed here. Contact your reseller for accurate pricing.`
 
-:::image type="content" source="./media/cannot-create-vm-ea/price-error.png" alt-text="Screenshot of the price error message.":::
+:::image type="content" source="./media/cannot-create-vm/price-error.png" alt-text="Screenshot of the price error message.":::
 
 ## Cause
 

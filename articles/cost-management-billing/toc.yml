@@ -250,7 +250,7 @@
     - name: Create EA support request
       href: troubleshoot-billing/how-to-create-azure-support-request-ea.md
     - name: Can't create VM - Contact reseller
-      href: troubleshoot-billing/cannot-create-vm-ea.md
+      href: troubleshoot-billing/cannot-create-vm.md
   - name: Troubleshoot subscriptions
     items:
     - name: No subscriptions found
