@@ -8,7 +8,7 @@ ms.custom: devx-track-azurecli
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray
-ms.date: 11/03/2021
+ms.date: 04/16/2024
 ms.topic: how-to
 ---
 
