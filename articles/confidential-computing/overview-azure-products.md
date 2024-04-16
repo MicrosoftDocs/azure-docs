@@ -11,7 +11,7 @@ ms.author: jushiman
 
 # Confidential Computing on Azure
 
-Azure offers many tools to encrypt [**data at rest**](../security/fundamentals/encryption-atrest.md) through models such as client-side encryption and server-side encryption. Additionally, Azure offers mechanisms to encrypt [**data in transit**](../security/fundamentals/data-encryption-best-practices.md#protect-data-in-transit) through secure protocols like TLS and HTTPS. Confidential computing addresses the protection of **data in use**, helping you extend encryption protections further.
+Azure offers many tools to encrypt [**data at rest**](../security/fundamentals/encryption-atrest.md) through models such as client-side encryption and server-side encryption. Additionally, Azure offers mechanisms to encrypt [**data in transit**](../security/fundamentals/data-encryption-best-practices.md#protect-data-in-transit) through secure protocols like TLS and HTTPS. Confidential computing addresses the protection of **data in use**, helping you extend encryption protections.
 <br>
 > [!VIDEO https://www.youtube.com/embed/rT6zMOoLEqI]
 
