@@ -95,11 +95,11 @@ This error can occur when you use a v1 tabular dataset as your data source. The 
 
 When the **Save credentials with the datastore for data access** is **Off**, the compute cluster that runs the conversion job needs access to the datastore. To ensure that the compute cluster can access the data, find the compute cluster name and assign a managed identity, follow these steps: 
 
-    1. In the left menu, select **Jobs**.
-    1. Select experiment which includes the name **Labeling ConvertTabularDataset**.
-    1. If you see a failed job, select the job. (If you see a successful job, the conversion was successful.)
-    1. In the Overview section, at the bottom of the page is the **Compute** section. Select the **Target** compute cluster.
-    1. On the details page for the compute cluster, at the bottom of the page is the **Managed identity** section. If the compute cluster doesn't have an identity, select the **Edit** tool to assign a system-assigned or managed identity.
+1. In the left menu, select **Jobs**.
+1. Select experiment which includes the name **Labeling ConvertTabularDataset**.
+1. If you see a failed job, select the job. (If you see a successful job, the conversion was successful.)
+1. In the Overview section, at the bottom of the page is the **Compute** section. Select the **Target** compute cluster.
+1. On the details page for the compute cluster, at the bottom of the page is the **Managed identity** section. If the compute cluster doesn't have an identity, select the **Edit** tool to assign a system-assigned or managed identity.
 
 Once you have the compute cluster name with a managed identity, assign the Storage Blob Data Contributor role to the compute cluster. 
 
