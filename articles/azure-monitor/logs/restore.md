@@ -138,7 +138,7 @@ The charge for restored logs is based on the volume of data you restore, and the
 
 - For more information, see [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
 
-For example, if your table holds 500 GB a day and you restore 10 days data from thatt table, you'll be charged for 5 TB of restored data each day until you [dismiss the restored data](#dismiss-restored-data).
+For example, if your table holds 500 GB a day and you restore 10 days data from that table, you'll be charged for 5 TB of restored data each day until you [dismiss the restored data](#dismiss-restored-data).
 
 > [!NOTE]
 > There is no charge for querying restored logs since they are Analytics logs. 
