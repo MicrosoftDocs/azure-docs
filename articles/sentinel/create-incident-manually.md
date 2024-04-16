@@ -14,6 +14,8 @@ ms.date: 08/17/2022
 > Manual incident creation, using the portal or Logic Apps, is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
 > Manual incident creation is generally available using the API.
+>
+> [!INCLUDE [unified-soc-preview-without-alert](includes/unified-soc-preview-without-alert.md)]
 
 With Microsoft Sentinel as your SIEM, your SOC’s threat detection and response activities are centered on **incidents** that you investigate and remediate. These incidents have two main sources: 
 
@@ -46,6 +48,8 @@ There are three ways to create an incident manually:
 - [Create an incident using the Azure portal](#create-an-incident-using-the-azure-portal)
 - [Create an incident using Azure Logic Apps](#create-an-incident-using-azure-logic-apps), using the Microsoft Sentinel Incident trigger.
 - [Create an incident using the Microsoft Sentinel API](#create-an-incident-using-the-microsoft-sentinel-api), through the [Incidents](/rest/api/securityinsights/preview/incidents) operation group. It allows you to get, create, update, and delete incidents.
+
+After onboarding Microsoft Sentinel to the unified security operations platform in the Microsoft Defender portal, manually created incidents will not be synchronized with the unified platform, though they can still be viewed and managed in Microsoft Sentinel in the Azure portal, and through Logic Apps and  the API.
 
 ### Create an incident using the Azure portal
 
