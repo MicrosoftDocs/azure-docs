@@ -56,3 +56,16 @@ Users of [Extension Bundles](../functions-bindings-register.md#extension-bundles
 
 > [!NOTE]
 > For PowerShell users: we have a [_preview_ SDK standalone package](./durable-functions-powershell-v2-sdk-migration-guide.md) under [AzureFunctions.PowerShell.Durable.SDK](https://www.powershellgallery.com/packages/AzureFunctions.PowerShell.Durable.SDK) in the PowerShell gallery. The latter will be preferred in the future.
+
+## GitHub repositories
+
+Durable Functions is developed in the open as OSS. Users are welcome to contribute to it's development, request features, and to report issues in the appropiate repositories:
+
+* [azure-functions-durable-extension](https://github.com/Azure/azure-functions-durable-extension): For .NET in-process and the Azure Storage backend.
+* [durabletask-dotnet](https://github.com/microsoft/durabletask-dotnet): For .NET isolated.
+* [azure-functions-durable-js](https://github.com/Azure/azure-functions-durable-js): For the Node.js SDK.
+* [azure-functions-durable-python](https://github.com/Azure/azure-functions-durable-python): For the Python SDK.
+* [durabletask-java](https://github.com/Microsoft/durabletask-java): For the Java SDK.
+* [azure-functions-durable-powershel](https://github.com/Azure/azure-functions-durable-powershell): For the PowerShell SDK.
+* [durabletask-netherite](https://github.com/microsoft/durabletask-netherite): For the Netherite storage provider.
+* [durabletask-mssql](https://github.com/microsoft/durabletask-mssql): For the MSSQL storage provider.
