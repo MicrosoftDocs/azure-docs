@@ -134,7 +134,7 @@ Extract text, selection marks, text styles, table structures, and bounding regio
 import os
 from azure.core.credentials import AzureKeyCredential
 from azure.ai.documentintelligence import DocumentIntelligenceClient
-from azure.ai.documentintelligence.models import AnalyzeResult
+from azure.ai.documentintelligence.models import AnalyzeResult, AnalyzeDocumentRequest
 
 # set `<your-endpoint>` and `<your-key>` variables with the values from the Azure portal
 endpoint = "<your-endpoint>"
