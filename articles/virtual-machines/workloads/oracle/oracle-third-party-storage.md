@@ -12,11 +12,11 @@ ms.date: 03/26/2024
 
 # Third-party storage options for Oracle on Azure VMs
 
-This article describes third-party storage options for high performance (IOPS and throughput) Oracle workloads on Azure virtual machines (VMs). While Microsoft first-party storage offerings for migrating Oracle workloads to Azure VMs are effective, there are use cases that require performance beyond the capacity of the first-party storage offering for Oracle on Azure VMs. Use these trusted third-party storage solutions in these high performance use cases. 
+This article describes third-party storage options for high performance - input/output operations (IOPS) and throughput - Oracle workloads on Azure virtual machines (VMs). While Microsoft first-party storage offerings for migrating Oracle workloads to Azure VMs are effective, there are use cases that require performance beyond the capacity of the first-party storage offering for Oracle on Azure VMs. These trusted third-party storage solutions are ideal for high performance use cases. 
 
 ## Oracle as a DBaaS on Azure 
 
-Oracle migration to Azure IaaS involves more than the  traditional database administration responsibility. It requires Azure cloud skills that aren't part of database administration team or managing infrastructure can interfere with defined database operations. In such scenarios, a better option is to use the Oracle Database as a service on Azure (DBaaS). The DBaaS provide access to a database without a requirement to deploy and manage the underlying infrastructure. 
+Administering Oracle as a DBaaS on Azure requires Azure cloud skills outside the traditional database administration functions. Managing infrastructure as a service can interfere with defined database operations. In such scenarios, a better option is to use the Oracle Database as a service on Azure (DBaaS). The DBaaS provides access to a database without requirements to deploy and manage the underlying infrastructure. 
 
 DBaaS is delivered as a managed database service, which means that the provider takes care of patching, upgrading, and backing up the database.  [Tessell](https://www.tessell.com/) primarily provides Oracle database as service – PaaS, also called as 'DBaaS – Database as service on Azure. Tessell's DBaaS platform is available for [coselling with Microsoft](https://www.tessell.com/blogs/azure-tessell-ip-co-sell), delivering the full power of Tessell on Azure. Joint Tessell-Microsoft customers can apply Tessell's advanced cloud-based database-as-a-service (DBaaS) platform with the expertise and support of Microsoft's sales and technical teams. Tessell’s DBaaS is Azure-native service with the following benefits: 
 
@@ -63,7 +63,7 @@ The following table provides other inputs to help you to determine the appropria
 
 ## Silk: Performance best practices for Oracle on Azure VMs  
 
-[Silk](https://silk.us/about-us/) as a company rewriting the rules of the cloud to make businesses smarter, faster, and fully prepared for whatever the world has in store for them next. Majorly focusing on providing [performance](https://silk.us/performance/) (IOPS & throughput) 50 times more than Azure Native storage recommended for Oracle on Azure IaaS. With the storage 1Gib-128TiB per volume, you can get IOPS & Throughput respectively 2,000,000 & 20,000 MB/sec.  
+[Silk](https://silk.us/about-us/)  focuses on providing [performance](https://silk.us/performance/) (IOPS & throughput) 50 times more than Azure Native storage recommended for Oracle on Azure IaaS. With the storage 1Gib-128TiB per volume, you can get IOPS & Throughput respectively 2,000,000 & 20,000 MB/sec.  
 
 
 The following table provides other inputs to help you to determine the appropriate disk type.
@@ -73,6 +73,6 @@ The following table provides other inputs to help you to determine the appropria
 | Provisioning Model       | Per GB granularity, online resize & scale-up or out, thin provisioned, compressed, optional deduped |
 | BCDR                     | One-to-Many Multi-Zone and Multi-Region Replication, Instant zero footprint Snapshot, Clone, Revert, and Extract for AI / BI, Testing, or Back up |
 | Redundancy & Scale Targets | One-to-Many Multi-Zone and Multi-Region Replication                                                  |
-| Encryption               | Azure Key Vault based & bring your own encryption                                                    |
+| Encryption   | Azure Key Vault based & bring your own encryption                          |
 
 
