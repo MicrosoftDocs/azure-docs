@@ -69,7 +69,7 @@ Once you create a site, you can access it and its managed resources through site
 
 1. On the **Sites** page, you can view all existing sites. Select the name of the site that you want to delete.
 
-   :::image type="content" source="./media/how-to-crud-site/los-angeles-siteselect.png" alt-text="Screenshot that shows selecting a site to manage from the list of sites.":::
+   :::image type="content" source="./media/how-to-crud-site/los-angeles-site-select.png" alt-text="Screenshot that shows selecting a site to manage from the list of sites.":::
 
 1. On a specific site's resource page, you can:
 
