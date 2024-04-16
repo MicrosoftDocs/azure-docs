@@ -53,7 +53,7 @@ The following models are available in Azure Marketplace for Llama 3 when deploye
   
 ---
 
-If you need to deploy a different model, [deploy it to real-time endpoints](#deploy-llama-2-models-to-real-time-endpoints) instead.
+If you need to deploy a different model, [deploy it to real-time endpoints](#deploy-llama-models-to-real-time-endpoints) instead.
 
 ### Prerequisites
 
@@ -449,9 +449,9 @@ The following is an example response:
 }
 ```
     
-## Deploy Llama 3 models to real-time endpoints
+## Deploy Llama models to real-time endpoints
 
-Apart from deploying with the pay-as-you-go managed service, you can also deploy Llama 3 models to real-time endpoints in AI Studio. When deployed to real-time endpoints, you can select all the details about the infrastructure running the model, including the virtual machines to use and the number of instances to handle the load you're expecting. Models deployed to real-time endpoints consume quota from your subscription. All the models in the Llama family can be deployed to real-time endpoints.
+Apart from deploying with the pay-as-you-go managed service, you can also deploy Llama models to real-time endpoints in AI Studio. When deployed to real-time endpoints, you can select all the details about the infrastructure running the model, including the virtual machines to use and the number of instances to handle the load you're expecting. Models deployed to real-time endpoints consume quota from your subscription. All the models in the Llama family can be deployed to real-time endpoints.
 
 Users can create a new deployment in [Azure Studio](#create-a-new-deployment-in-azure-studio) and in the [Python SDK.](#create-a-new-deployment-in-python-sdk)
 
