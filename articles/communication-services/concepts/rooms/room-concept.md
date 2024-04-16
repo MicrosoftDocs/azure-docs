@@ -77,9 +77,9 @@ Rooms are created and managed via rooms APIs or SDKs. Use the rooms API/SDKs in 
 |Virtual Rooms SDK | Version | State|
 |-------------------| :------------------------------: | :-----------------------------: |
 | Virtual Rooms SDKs | 2024-04-15 | Generally Available - Fully supported |
+| Virtual Rooms SDKs | 2023-10-30 | Public Preview - Fully supported  |
 | Virtual Rooms SDKs | 2023-06-14 | Generally Available - Fully supported |
-| Virtual Rooms SDKs | 2023-10-30-preview | Public Preview - Fully supported |
-| Virtual Rooms SDKs | 2023-03-31-preview | Will be retired on April 30, 2024 |
+| Virtual Rooms SDKs | 2023-03-31 | Will be retired on April 30, 2024 |
 | Virtual Rooms SDKs | 2022-02-01 | Will be retired on April 30, 2024 |
 | Virtual Rooms SDKs | 2021-04-07 | Will be retired on April 30, 2024 |
 
@@ -132,7 +132,7 @@ The tables below provide detailed capabilities mapped to the roles. At a high le
 | - Render a video in multiple places (local camera or remote stream) | ✔️ | ✔️ | ✔️ <br>(Only Remote)</br> |
 | - Set/Update video scaling mode | ✔️ | ✔️ | ✔️ <br>(Only Remote)</br> |
 | - Render remote video stream | ✔️ | ✔️ | ✔️ |
-| **Add PSTN participants** **| | |
+| **Add PSTN participants** | | |
 | - Call participants using phone calls | ✔️ | ❌ | ❌ |
 
 \* Only available on the web calling SDK. Not available on iOS and Android calling SDKs
