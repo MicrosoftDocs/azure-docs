@@ -186,7 +186,7 @@ You can get hands-on experience creating an index using almost any sample or wal
 But you'll also want to become familiar with methodologies for loading an index with data. Index definition and data import strategies are defined in tandem. The following articles provide more information about creating and loading an index.
 
 + [Create a search index](search-how-to-create-search-index.md)
-+ [Create a vector store](vector-search-how-to-create-index.md)
++ [Create a vector index](vector-search-how-to-create-index.md)
 + [Create an index alias](search-how-to-alias.md)
 + [Data import overview](search-what-is-data-import.md)
 + [Load an index](search-how-to-load-search-index.md)
