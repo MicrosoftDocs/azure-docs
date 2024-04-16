@@ -41,6 +41,7 @@ Once a service connection is created, developers can validate and check the heal
 * Azure Functions
 * Azure Spring Apps
 * Azure Container Apps
+* Azure Kubernetes Service (AKS)
 
 **Target Services:**
 
