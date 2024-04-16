@@ -179,14 +179,15 @@ Follow the steps in "Generating SESSION, BEARER, FLOW, and HTTP Transaction EDRs
 
 ### Configuration for Affirmed EMS
 
-If you're using the `edr-validation` data type, configure the EMS to export the relevant performance management statistics to a remote server. If you're using the Azure Operator Insights ingestion agent to ingest performance management statistics, the remote server must be an [SFTP server](set-up-ingestion-agent.md#prepare-the-sftp-server), otherwise the remote server just needs to be accessible by your ingestion method.
+If you're using the `edr-validation` data type, configure the EMS to export the relevant performance management statistics to a remote server. If you're using the Azure Operator Insights ingestion agent to ingest performance management statistics, the remote server must be an [SFTP server](set-up-ingestion-agent.md#prepare-the-sftp-server), otherwise the remote server needs to be accessible by your ingestion method.
 
-- IP address, user, and password of the remote server are required for this step.
-- Configure the transfer of EMS stats to the remote server by following the instructions in [Copying Performance Management Statistics Files to Destination Server](https://manuals.metaswitch.com/MCC/13.1/Acuitas_Users_RevB/Content/Appendix%20Interfacing%20with%20Northbound%20Interfaces/Exported_Performance_Management_Data.htm#northbound_2817469247_308739).
-- For `edr-validation`, you only need to export three CSV files. List these file names in the `opt/Affirmed/NMS/conf/pm/mcc.files.txt` file on the EMS:
-  - `EDR_HTTP_STATS`
-  - `EDR_FLOW_STATS`
-  - `EDR_SESSION_STATS`
+1. Obtain the IP address, user, and password of the remote server.
+1. Configure the transfer of EMS statistics to a remote server
+    - Use the instructions in [Copying Performance Management Statistics Files to Destination Server](https://manuals.metaswitch.com/MCC/13.1/Acuitas_Users_RevB/Content/Appendix%20Interfacing%20with%20Northbound%20Interfaces/Exported_Performance_Management_Data.htm#northbound_2817469247_308739) in the _Acuitas User's Guide_.
+    - For `edr-validation`, you only need to export three CSV files. List these file names in the `opt/Affirmed/NMS/conf/pm/mcc.files.txt` file on the EMS:
+      - `EDR_HTTP_STATS`
+      - `EDR_FLOW_STATS`
+      - `EDR_SESSION_STATS`
 
 > [!IMPORTANT]
 > Increase the frequency of the cron job by reducing the `timeInterval` argument from `15` (default) to `5` minutes.

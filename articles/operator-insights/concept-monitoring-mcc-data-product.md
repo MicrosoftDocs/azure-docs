@@ -46,10 +46,10 @@ To use the Monitoring - Affirmed MCC Data Product:
 
 ### Required network configuration
 
-1. Configure the EMS server to export performance management data to a remote server. If you're using the Azure Operator Insights ingestion agent, the remote server must be an [SFTP server](set-up-ingestion-agent.md#prepare-the-sftp-server). If you're providing your own ingestion agent, the remote server needs to be accessible by your ingestion agent.
+Configure the EMS server to export performance management data to a remote server. If you're using the Azure Operator Insights ingestion agent, the remote server must be an [SFTP server](set-up-ingestion-agent.md#prepare-the-sftp-server). If you're providing your own ingestion agent, the remote server needs to be accessible by your ingestion agent.
    
-    1. Obtain the IP address, user, and password of the remote server.
-    1. Configure the transfer of EMS statistics to a remote server by following [Copying Performance Management Statistics Files to Destination Server](https://manuals.metaswitch.com/MCC/13.1/Acuitas_Users_RevB/Content/Appendix%20Interfacing%20with%20Northbound%20Interfaces/Exported_Performance_Management_Data.htm#northbound_2817469247_308739) in the _Acuitas User's Guide.
+1. Obtain the IP address, user, and password of the remote server.
+1. Configure the transfer of EMS statistics to a remote server by following [Copying Performance Management Statistics Files to Destination Server](https://manuals.metaswitch.com/MCC/13.1/Acuitas_Users_RevB/Content/Appendix%20Interfacing%20with%20Northbound%20Interfaces/Exported_Performance_Management_Data.htm#northbound_2817469247_308739) in the _Acuitas User's Guide_.
 
 > [!IMPORTANT]
 > Increase the frequency of the cron job by reducing the `timeInterval` argument from `15` (default) to `5` minutes.
