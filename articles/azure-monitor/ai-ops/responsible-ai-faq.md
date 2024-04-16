@@ -15,7 +15,7 @@ ms.reviewer: yalavi
 
 ## What is Azure Monitor Investigator (preview)?
 
-Azure Monitor Investigator is an advanced AIOps solution that helps IT operations teams efficiently find, troubleshoot, and resolve incidents. It uses AI and machine learning to automate the investigation process, offering insights and recommendations for issue mitigation based on data such as platform metrics, custom metrics, and Azure Monitor Workspace Prometheus metrics. For an overview of how Azure Monitor Investigator works and a summary of its capabilities, see the [Azure Monitor Investigator (preview) overview](investigator-overview.md).
+Azure Monitor Investigator is an advanced AIOps solution that helps IT operations teams efficiently find, troubleshoot, and resolve incidents. It uses AI and machine learning to automate the investigation process, offering insights and recommendations for issue mitigation based on data such as platform metrics and custom metrics. For an overview of how Azure Monitor Investigator works and a summary of its capabilities, see the [Azure Monitor Investigator (preview) overview](investigator-overview.md).
 
 ## Are Azure Monitor Investigator's (preview) results reliable?
 

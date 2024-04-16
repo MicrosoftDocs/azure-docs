@@ -18,7 +18,7 @@ Azure Monitor Investigator (preview) is an AIOps solution designed to improve th
 These are the ways you can trigger an investigation:
 
 - When an Azure Monitor alert is triggered, you can start an investigation with a single click from the alert instance.
-- You can start an investigation from the email notification that you receive when an alert is triggered.
+- You can start an investigation from the notification that you receive when an alert is triggered, for all action types other than phone or SMS.
 - Using Azure Copilot, you can ask about resource issues, and trigger an investigation.
 
 The system presents a summary of the issue and outlines what we know, a possible explanation, and what can be done next.
@@ -27,7 +27,7 @@ The system presents a summary of the issue and outlines what we know, a possible
 Azure Monitor Investigator (preview) automates analysis to simplify the identification of anomalies across Azure resources and provides recommended next steps with the following capabilities:
 
 ### Metric analysis
-- Scans the Azure resources in the investigation target and scope for anomalies in platform metrics, custom metrics, and Azure Monitor Workspace Prometheus metrics.
+- •	Scans the Azure resources in the investigation target and scope for anomalies in platform metrics and custom metrics.
 - Assigns scores to metrics that show a correlation with the incident start time.
 - Generates explanations for the incident by conducting sub-pattern analysis to explain anomalies based on metric dimensions or labels that generate the most impact. 
 - Groups and ranks explanations to present the most likely causes.
@@ -36,7 +36,7 @@ Azure Monitor Investigator (preview) automates analysis to simplify the identifi
 - Provides an issue summary with insights into what happened, the potential causes, and how to further investigate the issue.
 
 ### Configurable scope
-Azure Monitor Investigator makes suggestions for which resources to analyze based on the scope of the investigation. The default scope of investigations is the target resource. You can change the scope to include up to 5 resources.
+Azure Monitor Investigator makes suggestions for which resources to analyze based on the scope of the investigation. The default scope of an investigation includes all metrics of the target resource. You can change the scope to include up to 5 resources.
 
 ## Join the preview
 To enable access to Azure Monitor Investigator for your organization, and to take part in shaping its development, there's a one-time setup process per subscription.

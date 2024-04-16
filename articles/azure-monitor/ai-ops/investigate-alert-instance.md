@@ -38,8 +38,8 @@ This article describes how to use Azure Monitor Investigator to trigger an inves
 1. In **Copilot**, ask about resource issues to get more insight into the issue. Here are some examples of questions you can ask:
     - "Is there any anomaly in my edge resource?"
     - "Run anomaly detection for the last two days."
-    - "Any anomaly in my Arc K8s this week?"
-    - "Had an alert in my HCI at 8 am this morning, run anomaly investigation for me"
+    - "Any anomaly on my AKS resource?"
+    - "Had an alert in my HCI at 8 am this morning, run an anomaly investigation for me"
     - "Run anomaly detection at 2023-10-27T20:48:53Z."
     - "Run anomaly detection at 10/27/2023, 8:48:53 PM"
  
