@@ -11,7 +11,7 @@ ms.custom: references_regions, subject-reliability
 
 # Migrate Azure CosmosDB for NoSQL to availability zone support
  
-This guide describes how to migrate [Azure CosmosDB for NoSQL](/azure/cosmosdb/)  from non-availability zone support to availability support.
+This guide describes how to migrate Azure CosmosDB for NoSQL from non-availability zone support to availability support.
 
 Using availability zones in Azure Cosmos DB has no discernible impact on performance or latency. It doesn't require any adjustments to the selected consistency mode, and also doesn't require any modification to application code.
 
