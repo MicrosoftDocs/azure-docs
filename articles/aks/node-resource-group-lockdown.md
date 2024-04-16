@@ -3,7 +3,7 @@ title: Deploy a fully managed resource group with node resource group lockdown (
 description: Learn how to deploy a fully managed resource group using node resource group lockdown (preview) in Azure Kubernetes Service (AKS).
 ms.topic: article
 ms.custom: azure-kubernetes-service
-ms.date: 01/23/2024
+ms.date: 04/16/2024
 ms.author: schaffererin
 author: schaffererin
 ---
@@ -26,15 +26,15 @@ Before you begin, you need the following resources installed and configured:
 
 ### Install the `aks-preview` CLI extension
 
-* Install or update the the `aks-preview` extension using the [`az extension add`][az-extension-add] or the [`az extension update`][az-extension-update] command.
+Install or update the the `aks-preview` extension using the [`az extension add`][az-extension-add] or the [`az extension update`][az-extension-update] command.
 
-    ```azurecli-interactive
-    # Install the aks-preview extension
-    az extension add --name aks-preview
+```azurecli-interactive
+# Install the aks-preview extension
+az extension add --name aks-preview
 
-    # Update to the latest version of the aks-preview extension
-    az extension update --name aks-preview
-    ```
+# Update to the latest version of the aks-preview extension
+az extension update --name aks-preview
+```
 
 ### Register the `NRGLockdownPreview` feature flag
 
@@ -60,27 +60,27 @@ Before you begin, you need the following resources installed and configured:
 
 ## Create an AKS cluster with node resource group lockdown
 
-* Create a cluster with node resource group lockdown using the [`az aks create`][az-aks-create] command with the `--nrg-lockdown-restriction-level` flag set to `ReadOnly`. This configuration allows you to view the resources but not modify them.
+  Create a cluster with node resource group lockdown using the [`az aks create`][az-aks-create] command with the `--nrg-lockdown-restriction-level` flag set to `ReadOnly`. This configuration allows you to view the resources but not modify them.
 
-    ```azurecli-interactive
-    az aks create --name <cluster-name> --resource-group <resource-group-name> --nrg-lockdown-restriction-level ReadOnly
-    ```
+```azurecli-interactive
+az aks create --name $CLUSTER_NAME --resource-group $RESOURCE_GROUP_NAME --nrg-lockdown-restriction-level ReadOnly
+```
 
 ## Update an existing cluster with node resource group lockdown
 
-* Update an existing cluster with node resource group lockdown using the [`az aks update`][az-aks-update] command with the `--nrg-lockdown-restriction-level` flag set to `ReadOnly`. This configuration allows you to view the resources but not modify them.
+Update an existing cluster with node resource group lockdown using the [`az aks update`][az-aks-update] command with the `--nrg-lockdown-restriction-level` flag set to `ReadOnly`. This configuration allows you to view the resources but not modify them.
 
-    ```azurecli-interactive
-    az aks update --name <cluster-name> --resource-group <resource-group-name> --nrg-lockdown-restriction-level ReadOnly
-    ```
+```azurecli-interactive
+az aks update --name $CLUSTER_NAME --resource-group $RESOURCE_GROUP_NAME --nrg-lockdown-restriction-level ReadOnly
+```
 
 ## Remove node resource group lockdown from a cluster
 
-* Remove node resource group lockdown from an existing cluster using the [`az aks update`][az-aks-update] command with the `--nrg-restriction-level` flag set to `Unrestricted`. This configuration allows you to view and modify the resources.
+  Remove node resource group lockdown from an existing cluster using the [`az aks update`][az-aks-update] command with the `--nrg-restriction-level` flag set to `Unrestricted`. This configuration allows you to view and modify the resources.
 
-    ```azurecli-interactive
-    az aks update --name <cluster-name> --resource-group <resource-group-name> --nrg-lockdown-restriction-level Unrestricted
-    ```
+```azurecli-interactive
+az aks update --name $CLUSTER_NAME --resource-group $RESOURCE_GROUP_NAME --nrg-lockdown-restriction-level Unrestricted
+```
 
 ## Next steps
 

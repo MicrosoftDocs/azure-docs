@@ -1,30 +1,14 @@
 ---
-title: Azure Kubernetes Services (AKS) Core Basic Concepts
-description: Learn about the core components that make up workloads and clusters in Kubernetes and their counterparts on Azure Kubernetes Services (AKS).
+title: Azure Kubernetes Services (AKS) core concepts
+description: Learn about the core components that make up workloads and clusters in Azure Kubernetes Service (AKS).
 ms.topic: conceptual
 ms.custom: build-2023
-ms.date: 01/16/2024
+ms.date: 04/16/2024
 ---
 
-# Core Kubernetes concepts for Azure Kubernetes Service
+# Core Kubernetes concepts for Azure Kubernetes Service (aks)
 
-Application development continues to move toward a container-based approach, increasing our need to orchestrate and manage resources. As the leading platform, Kubernetes provides reliable scheduling of fault-tolerant application workloads. Azure Kubernetes Service (AKS), a managed Kubernetes offering, further simplifies container-based application deployment and management.
-
-This article introduces core concepts:
-
-* Kubernetes infrastructure components:
-
-  * *control plane*
-  * *nodes*
-  * *node pools*
-
-* Workload resources:
-
-  * *pods*
-  * *deployments*
-  * *sets*
-
-* Group resources using *namespaces*.
+This article describes core concepts of Azure Kubernetes Service (AKS), a managed Kubernetes service that you can use to deploy and operate containerized applications at scale on Azure. It helps you learn about the infrastructure components of Kubernetes and obtain a deeper understanding of how Kubernetes works in AKS.
 
 ## What is Kubernetes?
 
