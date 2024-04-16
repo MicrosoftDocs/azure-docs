@@ -115,6 +115,11 @@ For more information about integration with [Microsoft Universal Print](/univers
 - [Universal Print for SAP frontend scenarios](universal-print-sap-frontend.md)
 - [Universal Print for SAP backend scenarios](https://github.com/Azure/universal-print-for-sap-starter-pack)
 
+Also see the following SAP resources:
+
+- [It has never been easier to print from SAP with Microsoft Universal Print](https://community.sap.com/t5/technology-blogs-by-members/it-has-never-been-easier-to-print-from-sap-with-microsoft-universal-print/ba-p/13672206)
+- [Integrating SAP S/4HANA and Local Printers](https://help.sap.com/docs/SAP_S4HANA_CLOUD/0f69f8fb28ac4bf48d2b57b9637e81fa/1e39bb68bbda4c48af4a79d35f5837e0.html)
+
 ### SAP Fiori
 
 For more information about integration with SAP Fiori, see the following resources:
