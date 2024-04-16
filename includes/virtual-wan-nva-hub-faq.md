@@ -66,5 +66,5 @@ The same series of steps can be executed from Azure CLI.
    ```
 2. Delete the NVA
    ```azurecli-interactive
-    az network virtual-appliance delete --subscription <subscription name> --resource-group <resource group name> --name <Network Virtual Appliance name>
+    az network virtual-appliance delete --subscription <subscription name> --resource-group <resource group name> --name <NVA name>
    ```
