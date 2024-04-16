@@ -146,7 +146,9 @@ Unpacking your disks should take approximately 5 minutes.
 
 Data Box Disks are mailed in a UPS Express Box. Inspect the box for any evidence of tampering or obvious damage.
 
-After opening, check that the box contains 1 to 5 bubble-wrapped disks. Orders containing hardware encrytped disks might not contain connecting cables since the disks can be connected directly to your host's SATA port. Orders containing software encrypted disks have one connecting cable for each disk. Finally, verify that the box contains a shipping label for returning your order.
+After opening, check that the box contains 1 to 5 bubble-wrapped disks. Because hardware encrypted disks can be connected directly to your host's SATA port, orders containing these disks might not contain connecting cables. Orders containing software encrypted disks have one connecting cable for each disk.
+
+Finally, verify that the box contains a shipping label for returning your order.
 
 ## Connect and unlock
 

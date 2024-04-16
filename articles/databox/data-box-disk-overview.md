@@ -82,7 +82,7 @@ Data Box Disk is designed to move large amounts of data to Azure with no impact 
 - **Security** - Data Box Disk has built-in security protections for the disks, data, and the service.
   - The disks are tamper-resistant and support secure update capability.
   - The data on software encrypted disks is secured with an AES 128-bit encryption at all times.
-  - The data on hardware encrypted disks is secured at rest by the Advanced Encryption Standard (AES) 256-bit hardware encryption engine with no loss of performance.
+  - The data on hardware encrypted disks is secured at rest by the AES 256-bit hardware encryption engine with no loss of performance.
   - The disks can only be unlocked with a key provided in the Azure portal.
   - The service is protected by the Azure security features.
   - Once your data is uploaded to Azure, the disks are wiped clean, in accordance with NIST 800-88r1 standards.  
@@ -99,7 +99,7 @@ For more information, go to [Azure Data Box Disk security and data protection](d
 | Storage capacity per order                              | 40 TB (usable ~ 35 TB)|
 | Disk storage capacity                                   | 8 TB (usable ~ 7 TB)|
 | Data interface                                          | Software encryption: USB<br>Hardware encryption: SATA 3 |
-| Security                                                | Hardware encrypted disks: (AES) 256-bit hardware encryption engine<br>Software encrypted disks: Pre-encrypted using BitLocker AES 128-bit encryption and secure update <br> Passkey protected disks <br> Data encrypted at all times  |
+| Security                                                | Hardware encrypted disks: AES 256-bit hardware encryption engine<br>Software encrypted disks: Pre-encrypted using BitLocker AES 128-bit encryption and secure update <br> Passkey protected disks <br> Data encrypted at all times  |
 | Data transfer rate                                      | up to 430 MBps depending on the file size      |
 |Management                                               | Azure portal |
 
