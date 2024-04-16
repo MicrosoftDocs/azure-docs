@@ -63,7 +63,7 @@ In this section, you learn how to use the script file that you downloaded in the
 
 1. Enter **1** for **Run analysis** option.
 
-    ```powershell
+    ```
     .\MigrationFromNsgToAzureFlowLogging.ps1
     
     Select one of the following options for flowlog migration:
@@ -74,13 +74,13 @@ In this section, you learn how to use the script file that you downloaded in the
 
 1. Enter the JSON file name.
 
-    ```powershell
+    ```
     Please enter the path to scope selecting config file: .\RegionSubscriptionConfig.json
     ```
 
 1. Enter the number of threads or leave blank to use the default value of 16.
 
-    ```powershell
+    ```
     Please enter the number of threads you would like to use, press enter for using default value of 16:    
     ```
 
@@ -91,7 +91,7 @@ In this section, you learn how to use the script file that you downloaded in the
 
 1. Enter **2** or **3** to choose the type of migration that you want to perform.
 
-    ```powershell
+    ```
     Select one of the following options for flowlog migration:
     1. Re-Run analysis
     2. Proceed with migration with aggregation
@@ -101,7 +101,7 @@ In this section, you learn how to use the script file that you downloaded in the
 
 1. After the migration is completed successfully, you can cancel the migration and revert changes. To accept the migration enter **n**, otherwise enter **y**. Once you accept the changes you can't revert them.
 
-    ```powershell
+    ```
     Do you want to rollback? You won't get the option to revert the actions done now again (y/n): n
     ```
 
