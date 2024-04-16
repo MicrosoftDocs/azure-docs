@@ -35,7 +35,7 @@ const localSpeakers = await deviceManager.getSpeakers(); // [AudioDeviceInfo, Au
 
 ### Set the default devices
 
-Once you know what devices are available to use you can set default devices for microphone, speaker, and camera. If client defaults aren't set, the Communication Services SDK uses operating system defaults.
+Once you know what devices are available to use, you can set default devices for microphone, speaker, and camera. If client defaults aren't set, the Communication Services SDK uses operating system defaults.
 
 #### Microphone
 
@@ -79,11 +79,11 @@ const defaultSpeaker = deviceManager.selectedSpeaker;
 await deviceManager.selectSpeaker(localCameras[0]);
 ```
 
-Each `CallAgent` can choose its own microphone and speakers on its associated `DeviceManager`. It is recommended that different `CallAgents` use different microphones and speakers. They should not share the same microphones nor speakers. If sharing happens, then Microphone User Facing Diagnostics may be triggered and the microphone stops working depending on the browser / os.
+Each `CallAgent` can choose its own microphone and speakers on its associated `DeviceManager`. It's recommended that different `CallAgents` use different microphones and speakers. They shouldn't share the same microphones nor speakers. If sharing happens, then Microphone User Facing Diagnostics might be triggered and the microphone stops working depending on the browser / os.
 
 ### Local video stream
 
-To be able to send video in a call you need to create a `LocalVideoStream`object.
+To be able to send video in a call, you need to create a `LocalVideoStream`object.
 
 ```js
 const localVideoStream = new LocalVideoStream(camera);
@@ -108,10 +108,10 @@ const type: MediaStreamType = localVideoStream.mediaStreamType;
 ### Local camera preview
 
 You can use `deviceManager` and `VideoStreamRenderer` to begin rendering streams from your local camera.
-Once a `LocalVideoStream` is created use it to set up`VideoStreamRenderer`. Once the `VideoStreamRenderer`is
+Once a `LocalVideoStream` is created, use it to set up`VideoStreamRenderer`. Once the `VideoStreamRenderer`is
 created call its `createView() method to get a view that you can add as a child to your page.
 
-Please not that this stream is not sent to other participants; it's a local preview feed.
+Note that this stream isn't sent to other participants; it's a local preview feed.
 
 ```js
 // To start viewing local camera preview
@@ -125,7 +125,7 @@ htmlElement.appendChild(view.target);
 
 **Stop the local preview**
 
-To stop the local preview call dispose on the view derived from the `VideoStreamRenderer`. 
+To stop the local preview call, dispose on the view derived from the `VideoStreamRenderer`. 
 Once the VideoStreamRenderer is disposed, remove the view from the html tree by calling 
 the `removeChild()` method from the DOM Node containing your preview.
 
@@ -137,7 +137,7 @@ htmlElement.removeChild(view.target);
 
 ### Request permission to camera and microphone
 
-An application can not use the camera or microphone without permissions. 
+An application can’t use the camera or microphone without permissions.
 You can use the deviceManager to prompt a user to grant camera and/or microphone permissions:
 
 ```js
@@ -155,7 +155,7 @@ console.log(result.video);
 #### Notes
 - `videoDevicesUpdated` event fires when video devices are plugging-in/unplugged.
 - `audioDevicesUpdated` event fires when audio devices are plugged.
-- When the DeviceManager is created, at first it doesn't know about any devices if permissions are not granted yet, so initially its device list is empty. If we then call the DeviceManager.askPermission() API, the user is prompted for device access. When the user clicks on 'allow' to grant the access the device manager learns about the devices on the system, update it's device lists and emit the 'audioDevicesUpdated' and 'videoDevicesUpdated' events. If a user refreshes the page and creates a device manager, the device manager is able to learn about devices because user has already previously granted access. It will initially it will have its device lists filled and it will not emit 'audioDevicesUpdated' nor 'videoDevicesUpdated' events.
+- When the DeviceManager is created, at first it doesn't know about any devices if permissions aren't granted yet, so initially its device list is empty. If we then call the DeviceManager.askPermission() API, the user is prompted for device access. When the user selects on 'allow' to grant the access the device manager learns about the devices on the system, update it's device lists and emit the 'audioDevicesUpdated' and 'videoDevicesUpdated' events. If a user refreshes the page and creates a device manager, the device manager is able to learn about devices because user granted access previously. It has its device lists filled initially and it doesn't emit 'audioDevicesUpdated' nor 'videoDevicesUpdated' events.
 - Speaker enumeration/selection isn't supported on Android Chrome, iOS Safari, nor macOS Safari.
 
 ## Place a call with video camera
@@ -320,10 +320,8 @@ call.on('isScreenSharingOnChanged', () => {
 
 ## Render remote participant video/screensharing streams
 
-<!-- To list the video streams and screen sharing streams of remote participants, inspect the `videoStreams` collections:
- -->
-The to render a remote participant video or screensharing, the first step is to get a reference on the RemoteVideoStream you want to render.
-This can be done by going through the array or video stream (`videoStreams`) of the `RemoteParticipant`. The remote particpant collection 
+To render a remote participant video or screen sharing, the first step is to get a reference on the RemoteVideoStream you want to render.
+This can be done by going through the array or video stream (`videoStreams`) of the `RemoteParticipant`. The remote participants collection 
 is accessed via the `Call` object.
 
 ```js
@@ -338,7 +336,7 @@ instance by using the asynchronous `createView` method.
 You can then attach `view.target` to any UI element.
 
 Whenever the availability of a remote stream changes, you can destroy the whole `VideoStreamRenderer` or 
-a specific `VideoStreamRendererView`. If you do decided to keep them, then the view displays a blank video frame.
+a specific `VideoStreamRendererView`. If you decide to keep them, then the view displays a blank video frame.
 
 ```js
 // Reference to the html's div where we would display a grid of all remote video stream from all participants.
@@ -449,7 +447,7 @@ application should render at a given moment. Applications should handle these ch
 accordingly to the recommendation. There's a debounce period (around 10 s) between each update.
 
 **Usage**
-The `optimalVideoCount` feature is a call feature
+The `optimalVideoCount` feature is a call feature.
 
 <!-- TODO KLG convert this to Javascript -->
 ```typescript
@@ -497,19 +495,19 @@ const isReceiving: boolean = remoteVideoStream.isReceiving;
   - The flag moves to `false` in the following scenarios:
     - A remote participant who is on mobile browser brings the browser app to the background. 
     - A remote participant or the user receiving the video has network issue that affects video quality drastically.
-    - A remote participant who is On macOS/iOS Safari clicks on "Pause" from their address bar.
+    - A remote participant who is On macOS/iOS Safari selects  "Pause" from their address bar.
     - A remote participant has a network disconnection. 
-    - A remote particpant on mobile kills or terminate the browser. 
-    - A remote particpant on mobile or desktop locks his device. This scenario applies also if the remote particpant is on a desktop computer and it goes to sleep.
+    - A remote participant on mobile kills or terminate the browser. 
+    - A remote participant on mobile or desktop locks its device. This scenario applies also if the remote participant is on a desktop computer and it goes to sleep.
 
   - The flag moves to `true` in the following scenarios:
-    - A remote participant whos is on mobile browser and has his browser backgrounded brings it back to foreground.
-    - A remote participant who is On macOS/iOS Safari clicks on "Resume" from their address bar after having paused its video.
-    - A remote participant has a reconnects to the network after a temporary disconnection.
-    - A remote participant on mobile unlock his device and return to the call on his mobile browser.
+    - A remote participant who is on mobile browser and has its browser backgrounded brings it back to foreground.
+    - A remote participant who is On macOS/iOS Safari selects on "Resume" from their address bar after having paused its video.
+    - A remote participant reconnects to the network after a temporary disconnection.
+    - A remote participant on mobile unlock its device and return to the call on its mobile browser.
         
   - This feature improves the user experience for rendering remote video streams.
-  - You can display a loading spinner over the remote video stream when isReceiving flag changes to false. You don't have to do a loading spinner, you can do anything you desire, but a loading spinner is the most common usage for better user experience.
+  - You can display a loading spinner over the remote video stream when isReceiving flag changes to false. You don't have to implement loading spinner, but a loading spinner is the most common usage for better user experience.
 
 ```js
 const size: StreamSize = remoteVideoStream.size;
@@ -525,12 +523,12 @@ await videoStreamRenderer.createView();
 
 Create a `VideoStreamRendererView` instance that can be attached in the application UI to render the remote video stream,
 use asynchronous `createView()` method, it resolves when stream is ready to render and returns an object with `target`
-property that represents `video` element that can be inserted anywhere in the DOM tree
+property that represents `video` element that can be inserted anywhere in the DOM tree.
 
 ```js
 videoStreamRenderer.dispose();
 ```
-Dispose of `videoStreamRenderer` and all associated `VideoStreamRendererView` instances
+Dispose of `videoStreamRenderer` and all associated `VideoStreamRendererView` instances.
 
 ## VideoStreamRendererView methods and properties
 
@@ -579,7 +577,7 @@ await callObj2.muteIncomingAudio();
 await callObj2.mute();
 ```
 Limitations:
-- This must be done with two different `CallAgent` instances using different identities, hence the code snippet shows two call agents being used, each with its own Call object.
+- This must be done with two different `CallAgent` instances using different identities. The code snippet shows two call agents being used, each with its own Call object.
 - In the code example, both CallAgents are joining the same call (same call Ids). You can also join different calls with each agent and send one video on one call and a different video on the other call. 
 - Sending the same camera in both CallAgent, isn't supported. They must be two different cameras.
 - Sending two different cameras with one CallAgent is currently not supported.
