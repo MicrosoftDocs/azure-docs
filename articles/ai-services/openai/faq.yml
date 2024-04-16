@@ -234,6 +234,10 @@ sections:
           Is there any additional pricing or quota for using Assistants? 
         answer:
           No. All quotas apply to using models with Assistants.
+      - question: |
+          Is it possible to use a customer managed private storage account? 
+        answer:
+          Currently you can't use a customer managed storage account? 
   - name: Web app
     questions:
       - question: |
