@@ -1821,11 +1821,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/virtual-machines/linux/tutorial-lemp-stack.md",
-            "redirect_url": "/azure/virtual-machines/linux/tutorial-lamp-stack",
-            "redirect_document_id": false
-        },
-        {
             "source_path_from_root": "/articles/virtual-machines/linux/tutorial-mean-stack.md",
             "redirect_url": "/azure/virtual-machines/linux/tutorial-lamp-stack",
             "redirect_document_id": false
@@ -5127,7 +5122,7 @@
         },
         {
             "source_path_from_root": "/articles/virtual-machines/workloads/sap/index.md",
-            "redirect_URL": "/azure/sap/workloads/get-started",
+            "redirect_url": "/azure/sap/workloads/get-started",
             "redirect_document_id": false
         },
         {
@@ -5238,6 +5233,11 @@
         {
             "source_path_from_root": "/articles/virtual-machines/nv-series-retirement.md",
             "redirect_url": "/azure/virtual-machines/sizes/migration-guides/nv-series-retirement",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/plan-to-manage-costs.md",
+            "redirect_url": "/azure/virtual-machines/cost-optimization-plan-to-manage-costs",
             "redirect_document_id": false
         }
     ]

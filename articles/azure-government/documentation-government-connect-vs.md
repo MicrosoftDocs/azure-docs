@@ -5,7 +5,6 @@ services: azure-government
 cloud: gov
 ms.service: azure-government
 ms.topic: quickstart
-ms.workload: azure-government
 ms.date: 03/09/2021
 ms.custom: mode-ui
 ---

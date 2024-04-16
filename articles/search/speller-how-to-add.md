@@ -28,7 +28,7 @@ You can improve recall by spell-correcting words in a query before they reach th
 
 + [A query request](/rest/api/searchservice/preview-api/search-documents) that has `speller=lexicon` and `queryLanguage` set to a [supported language](#supported-languages). Spell check works on strings passed in the `search` parameter. It's not supported for filters, fuzzy search, wildcard search, regular expressions, or vector queries.
 
-Use a search client that supports preview APIs on the query request. For REST, you can use [Postman](search-get-started-rest.md), another web client, or code that you've modified to make REST calls to the preview APIs. You can also use beta releases of the Azure SDKs.
+Use a search client that supports preview APIs on the query request. You can use a [REST client](search-get-started-rest.md) or code that you've modified to make REST calls to the preview APIs. You can also use beta releases of the Azure SDKs.
 
 | Client library | Versions |
 |----------|----------|

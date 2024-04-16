@@ -17,7 +17,7 @@ The [Illumio Core](https://www.illumio.com/products/) data connector provides th
 | Connector attribute | Description |
 | --- | --- |
 | **Log Analytics table(s)** | CommonSecurityLog (IllumioCore)<br/> |
-| **Data collection rules support** | [Workspace transform DCR](/azure/azure-monitor/logs/tutorial-workspace-transformations-portal) |
+| **Data collection rules support** | [Azure Monitor Agent DCR](/azure/azure-monitor/agents/data-collection-rule-azure-monitor-agent) |
 | **Supported by** | [Microsoft](https://support.microsoft.com) |
 
 ## Query samples

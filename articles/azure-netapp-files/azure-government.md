@@ -4,7 +4,6 @@ description: Learn how to connect to Azure Government to use Azure NetApp Files 
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
-ms.workload: storage
 ms.custom: devx-track-azurecli, has-azure-ad-ps-ref
 ms.topic: conceptual
 ms.date: 11/02/2023
@@ -67,6 +66,8 @@ Endpoints for Azure Government are different from commercial Azure endpoints. Fo
 ## PowerShell access
 
 When you connect to Azure Government through PowerShell, you must specify an environmental parameter to ensure that you connect to the correct endpoints. From there, you can proceed to use Azure NetApp Files as you normally would with PowerShell.
+
+[!INCLUDE [Azure AD PowerShell deprecation note](~/reusable-content/msgraph-powershell/includes/aad-powershell-deprecation-note.md)]
 
 | Connection type | Command | 
 | --- | --- | 

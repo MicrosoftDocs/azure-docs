@@ -231,9 +231,6 @@ items:
     tocHref: /azure/iot/
     topicHref: /azure/iot/
     items:
-      - name: Device Development
-        tocHref: /azure/iot-develop/
-        topicHref: /azure/iot-develop/
       - name: Device Update for IoT Hub
         tocHref: /azure/iot-hub-device-update/
         topicHref: /azure/iot-hub-device-update/            
@@ -258,12 +255,9 @@ items:
       - name: Azure Maps
         tocHref: /azure/azure-maps/
         topicHref: /azure/azure-maps/
-      - name: Azure Certified Device
+      - name: Edge Secured-core 
         tocHref: /azure/certification/
         topicHref: /azure/certification/
-      - name: Industrial IoT
-        tocHref: /azure/industrial-iot/
-        topicHref: /azure/industrial-iot/index
       - name: IoT Operations
         tocHref: /azure/iot-operations/
         topicHref: /azure/iot-operations/index
@@ -293,7 +287,7 @@ items:
     tocHref: /azure/partner-solutions/
     topicHref: /azure/partner-solutions/
     items:
-      - name: Apache Kafka for Confluent Cloud
+      - name: Apache Kafka & Apache Flink on Confluent Cloud
         tocHref: /azure/partner-solutions/apache-kafka-confluent-cloud/
         topicHref: /azure/partner-solutions/apache-kafka-confluent-cloud/overview
       - name: Datadog
@@ -1166,3 +1160,6 @@ items:
   - name: Microsoft Copilot for Azure
     tocHref: /azure/copilot/
     topicHref: /azure/copilot/
+  - name: Operator Call Protection
+    tocHref: /azure/operator-call-protection/
+    topicHref: /azure/operator-call-protection/

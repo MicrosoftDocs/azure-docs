@@ -6,8 +6,8 @@ author: rdeltcheva
 manager: juergent
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
+ms.custom: linux-related-content
 ms.topic: article
-ms.workload: infrastructure-services
 ms.date: 01/17/2024
 ms.author: radeltch
 ---

@@ -120,7 +120,8 @@ Restore is subject to the following limitations.
 
 You can: 
 
-- Restore data for a minimum of two days.
+- Restore data from a period of at least two days.
+
 - Restore up to 60 TB.
 - Run up to two restore processes in a workspace concurrently.
 - Run only one active restore on a specific table at a given time. Executing a second restore on a table that already has an active restore will fail. 
@@ -128,13 +129,16 @@ You can:
 
 ## Pricing model
 
-The charge for restored logs is based on the volume of data you restore, and the duration for which you keep each restore.
+The charge for restored logs is based on the volume of data you restore, and the duration for which the restore is active. Data restores are billed on each UTC-day that the restore is active. 
 
-- Charges are subject to a minimum restored data volume of 2 TB per restore. If you restore less data, you will be charged for the 2 TB minimum.
-- Charges are prorated based on the duration of the restore. The minimum charge will be for a 12-hour restore duration, even if the restore is dismissed earlier.
+- Charges are subject to a minimum restored data volume of 2 TB per restore. If you restore less data, you will be charged for the 2 TB minimum each day until the [restore is dismissed](#dismiss-restored-data).
+- On the first and last days that the restore is active, charges are prorated based on the period that the restore is active. 
+
+- The minimum charge will be for a 12-hour restore duration, even if the restore is active for less than 12-hours.
+
 - For more information, see [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
 
-For example, if your table holds 500 GB a day and you restore 10 days of data, you'll be charged for 5000 GB a day until you [dismiss the restored data](#dismiss-restored-data).
+For example, if your table holds 500 GB a day and you restore 10 days data from that table, you'll be charged for 5 TB of restored data each day until you [dismiss the restored data](#dismiss-restored-data).
 
 > [!NOTE]
 > There is no charge for querying restored logs since they are Analytics logs. 

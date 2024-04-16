@@ -70,5 +70,4 @@ The users can now view the project and manage only the specific environment type
 
 ## Related content
 
-* [Create and configure projects](./quickstart-create-and-configure-projects.md)
 * [Provide access for developers to projects](./how-to-configure-deployment-environments-user.md)

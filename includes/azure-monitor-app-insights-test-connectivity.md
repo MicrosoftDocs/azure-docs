@@ -2,10 +2,11 @@
 title: "Include file to reference troubleshooting article to test connectivity between your application host and the ingestion service"
 description: "include file"
 services: azure-monitor
-tags: application-insights
 ms.topic: "include"
 ms.date: 10/04/2022
 ms.custom: "include file"
+author: AaronMaxwell
+ms.author: aaronmax
 ---
 
 ### Test connectivity between your application host and the ingestion service

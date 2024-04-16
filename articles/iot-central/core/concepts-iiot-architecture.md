@@ -1,15 +1,15 @@
 ---
-title: Industrial IoT patterns with Azure IoT Central
-description: This article introduces common Industrial IoT patterns that you can implement using Azure IoT Central
+title: Industrial IoT solutions with Azure IoT Central
+description: This article introduces common Industrial IoT solutions that you can implement using Azure IoT Central
 author: dominicbetts
 ms.author: dobett
-ms.date: 11/28/2022
+ms.date: 03/29/2024
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 ---
 
-# Industrial IoT (IIoT) architecture patterns with Azure IoT Central
+# Industrial IoT (IIoT) solutions with Azure IoT Central
 
 :::image type="content" source="media/concepts-iiot-architecture/industrial-iot-architecture.svg" alt-text="Diagram of high-level industrial IoT architecture." border="false":::
 
@@ -21,7 +21,10 @@ IoT Central lets you evaluate your IIoT scenario by using the following built-in
 - Model and organize the data from your industrial assets and use the built-in analytics and monitoring capabilities
 - Integrate and extend your solution by connecting to first and third party applications and services
 
-By using the Azure IoT platform, IoT Central lets you evaluate solutions that are scalable and secure.
+By using the Azure IoT platform, IoT Central lets you evaluate solutions that are scalable and secure. To set up a sample to evaluate a solution, see the [Ingest Industrial Data with Azure IoT Central and Calculate OEE](https://github.com/Azure-Samples/iotc-solution-builder) sample.
+
+> [!TIP]
+> Azure IoT Operations Preview is a new collection of services that includes native support for OPC UA, MQTT, and other industrial protocols. You can use Azure IoT Operations to connect and manage your industrial assets. To learn more, see [Azure IoT Operations Preview](../../iot-operations/get-started/overview-iot-operations.md).
 
 ## Connect your industrial assets
 
@@ -48,11 +51,11 @@ Manage industrial assets and perform software updates to OT using features such 
 
 View the health of your industrial assets in real-time with customizable dashboards:
 
-:::image type="content" source="media/concepts-iiot-architecture/iiot-dashboard.png" alt-text="Screenshot of an I I O T dashboard in I O T Central.":::
+:::image type="content" source="media/concepts-iiot-architecture/iiot-dashboard.png" alt-text="Screenshot of an IIoT dashboard in IoT Central.":::
 
 Drill in telemetry using queries in the IoT Central **Data Explorer**:
 
-:::image type="content" source="media/concepts-iiot-architecture/iiot-analytics.png" alt-text="Screenshot of an I I O T data explorer query in I O T Central.":::
+:::image type="content" source="media/concepts-iiot-architecture/iiot-analytics.png" alt-text="Screenshot of an IIoT data explorer query in IoT Central.":::
 
 ## Integrate data into applications
 
@@ -64,7 +67,7 @@ Extend your IIoT solution by using the following IoT Central features:
 
 - Use data export to stream data from your industrial assets to other services. Data export can enrich messages, use filters, and transform the data. These capabilities can deliver business insights to industrial operators.
 
-:::image type="content" source="media/concepts-iiot-architecture/iiot-export.png" alt-text="Diagram that shows the I O T Central data export process." border="false":::
+:::image type="content" source="media/concepts-iiot-architecture/iiot-export.png" alt-text="Diagram that shows the IoT Central data export process." border="false":::
 
 ## Secure your solution
 
@@ -118,13 +121,13 @@ Alternate versions include:
 
 Connectivity partner third-party IoT Edge modules help connect to PLCs and publish JSON data to Azure IoT Central:
 
-:::image type="content" source="media/concepts-iiot-architecture/third-party-connectivity-modules.svg" alt-text="Diagram that shows the third-party I O T Edge module connectivity option." border="false":::
+:::image type="content" source="media/concepts-iiot-architecture/third-party-connectivity-modules.svg" alt-text="Diagram that shows the third-party IoT Edge module connectivity option." border="false":::
 
 ### Connectivity partner OT solutions that connect to Azure IoT Central through an Azure IoT Edge device
 
 Connectivity partner third-party solutions help connect to PLCs and publish JSON data through IoT Edge to Azure IoT Central:
 
-:::image type="content" source="media/concepts-iiot-architecture/third-party-connectivity-iot-edge.svg" alt-text="Diagram that shows the third-party I O T Edge connectivity option." border="false":::
+:::image type="content" source="media/concepts-iiot-architecture/third-party-connectivity-iot-edge.svg" alt-text="Diagram that shows the third-party IoT Edge connectivity option." border="false":::
 
 ## Industrial network protocols
 
@@ -136,4 +139,4 @@ Industrial networks are crucial to the working of a manufacturing facility. With
 
 ## Next steps
 
-Now that you've learned about IIoT architecture patterns with Azure IoT Central, the suggested next step is to learn about [device connectivity](overview-iot-central-developer.md) in Azure IoT Central.
+Now that you've learned about IIoT solutions with Azure IoT Central, the suggested next step is to learn about [Azure IoT Operations](../../iot-operations/get-started/overview-iot-operations.md).

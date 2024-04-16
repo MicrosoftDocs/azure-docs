@@ -4,7 +4,6 @@ description: Describes how to dynamically change the service level of a volume.
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
-ms.workload: storage
 ms.topic: how-to
 ms.date: 05/11/2023
 ms.author: anfdocs

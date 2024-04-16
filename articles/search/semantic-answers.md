@@ -10,7 +10,7 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 10/04/2023
+ms.date: 02/08/2024
 ---
 
 # Return a semantic answer in Azure AI Search
@@ -29,7 +29,7 @@ All prerequisites that apply to [semantic queries](semantic-how-to-query-request
 
 + Query strings entered by the user must be recognizable as a question (what, where, when, how).
 
-+ Search documents in the index must contain text having the characteristics of an answer, and that text must exist in one of the fields listed in the [semantic configuration](semantic-how-to-query-request.md#2---create-a-semantic-configuration). For example, given a query "what is a hash table", if none of the fields in the semantic configuration contain passages that include "A hash table is ...", then it's unlikely an answer is returned.
++ Search documents in the index must contain text having the characteristics of an answer, and that text must exist in one of the fields listed in the [semantic configuration](semantic-how-to-configure.md). For example, given a query "what is a hash table", if none of the fields in the semantic configuration contain passages that include "A hash table is ...", then it's unlikely an answer is returned.
 
 > [!NOTE]
 > Starting in 2021-04-30-Preview, in [Create or Update Index (Preview)](/rest/api/searchservice/preview-api/create-or-update-index) requests, a `"semanticConfiguration"` is required for specifying input fields for semantic ranking.
@@ -67,7 +67,7 @@ To return a semantic answer, the query must have the semantic `"queryType"`, `"q
 
 + `"queryLanguage"` must be one of the values from the [supported languages list (REST API)](/rest/api/searchservice/preview-api/search-documents#queryLanguage).
 
-+ A `"semanticConfiguration"` determines which string fields provide tokens to the extraction model. The same fields that produce captions also produce answers. See [Create a semantic configuration](semantic-how-to-query-request.md#2---create-a-semantic-configuration) for details.
++ A `"semanticConfiguration"` determines which string fields provide tokens to the extraction model. The same fields that produce captions also produce answers. See [Create a semantic configuration](semantic-how-to-configure.md) for details.
 
 + For `"answers"`, parameter construction is `"answers": "extractive"`, where the default number of answers returned is one. You can increase the number of answers by adding a `count` as shown in the above example, up to a maximum of 10.  Whether you need more than one answer depends on the user experience of your app, and how you want to render results.
 
@@ -128,7 +128,7 @@ Within @search.answers:
 
 + **"score"** is a confidence score that reflects the strength of the answer. If there are multiple answers in the response, this score is used to determine the order. Top answers and top captions can be derived from different search documents, where the top answer originates from one document, and the top caption from another, but in general the same documents appear in the top positions within each array.
 
-Answers are followed by the **"value"** array, which always includes scores, captions, and any fields that are retrievable by default. If you specified the select parameter, the "value" array is limited to the fields that you specified. See [Configure semantic ranking](semantic-how-to-query-request.md) for details.
+Answers are followed by the **"value"** array, which always includes scores, captions, and any fields that are retrievable by default. If you specified the select parameter, the "value" array is limited to the fields that you specified. See [Configure semantic ranking](semantic-how-to-configure.md) for details.
 
 ## Tips for producing high-quality answers
 
@@ -144,4 +144,4 @@ For best results, return semantic answers on a document corpus having the follow
 
 + [Semantic ranking overview](semantic-search-overview.md)
 + [Configure BM25 ranking](index-ranking-similarity.md)
-+ [Configure semantic ranking](semantic-how-to-query-request.md)
++ [Configure semantic ranking](semantic-how-to-configure.md)

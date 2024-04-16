@@ -15,6 +15,8 @@ author: Blackmist
 
 # Plan and manage costs for Azure AI Studio
 
+[!INCLUDE [Azure AI Studio preview](../includes/preview-ai-studio.md)]
+
 This article describes how you plan for and manage costs for Azure AI Studio. First, you use the Azure pricing calculator to help plan for Azure AI Studio costs before you add any resources for the service to estimate costs. Next, as you add Azure resources, review the estimated costs. 
 
 You use Azure AI services in Azure AI Studio. Costs for Azure AI services are only a portion of the monthly costs in your Azure bill. You're billed for all Azure services and resources used in your Azure subscription, including the third-party services.
@@ -63,12 +65,15 @@ Before you delete an Azure AI hub resource in the Azure portal or with Azure CLI
 - Azure AI Search (for the data)
 - Virtual machines
 - Load Balancer
-- Virtual Network
+- Azure Virtual Network
 - Bandwidth
 
 Each VM is billed per hour it's running. Cost depends on VM specifications. VMs that are running but not actively working on a dataset will still be charged via the load balancer. For each compute instance, one load balancer is billed per day. Every 50 nodes of a compute cluster have one standard load balancer billed. Each load balancer is billed around $0.33/day. To avoid load balancer costs on stopped compute instances and compute clusters, delete the compute resource.
 
-Compute instances also incur P10 disk costs even in stopped state. This is because any user content saved there's persisted across the stopped state similar to Azure VMs. We're working on making the OS disk size/ type configurable to better control costs. For virtual networks, one virtual network is billed per subscription and per region. Virtual networks can't span regions or subscriptions. Setting up private endpoints in virtual network setups might also incur charges. Bandwidth is charged by usage; the more data transferred, the more you're charged.
+Compute instances also incur P10 disk costs even in stopped state. This is because any user content saved there's persisted across the stopped state similar to Azure VMs. We're working on making the OS disk size/ type configurable to better control costs. For Azure Virtual Networks, one virtual network is billed per subscription and per region. Virtual networks can't span regions or subscriptions. Setting up private endpoints in virtual network setups might also incur charges. If your virtual network uses an Azure Firewall, this might also incur charges. Bandwidth is charged by usage; the more data transferred, the more you're charged. 
+
+> [!TIP]
+> Using an managed virtual network is free. However some features of the managed network rely on Azure Private Link (for private endpoints) and Azure Firewall (for FQDN rules) and will incur charges. For more information, see [Managed virtual network isolation](configure-managed-network.md#pricing).
 
 ### Costs might accrue after resource deletion
 
@@ -87,7 +92,7 @@ When you use cost analysis, you view Azure AI hub resource costs in graphs and t
 
 ### Monitor Azure AI Studio project costs
 
-You can get to cost analysis from the [Azure portal](https://portal.azure.com). You can also get to cost analysis from the [Azure AI Studio portal](https://ai.azure.com).
+You can get to cost analysis from the [Azure portal](https://portal.azure.com). You can also get to cost analysis from the [Azure AI Studio](https://ai.azure.com).
 
 > [!IMPORTANT]
 > Your Azure AI project costs are only a subset of your overall application or solution costs. You need to monitor costs for all Azure resources used in your application or solution. See [Azure AI hub resources](../concepts/ai-resources.md) for more information.
@@ -96,14 +101,14 @@ For the examples in this section, assume that all Azure AI Studio resources are 
 
 Here's an example of how to monitor costs for an Azure AI Studio project. The costs are used as an example only. Your costs will vary depending on the services that you use and the amount of usage.
 
-1. Sign in to [Azure AI Studio portal](https://ai.azure.com).
-1. Select your project and then select **Settings** from the left navigation menu.
+1. Sign in to [Azure AI Studio](https://ai.azure.com).
+1. Select your project and then select **AI project settings** from the left navigation menu.
 
     :::image type="content" source="../media/cost-management/project-costs/project-settings-go-view-costs.png" alt-text="Screenshot of the Azure AI Studio portal showing how to see project settings." lightbox="../media/cost-management/project-costs/project-settings-go-view-costs.png":::
 
-1. Select **See project cost on Azure portal**. The Azure portal opens to the cost analysis page for your project. 
+1. Select **View cost for resources**. The [Azure portal](https://portal.azure.com) opens to the cost analysis page for your project. 
 
-1. Expand the **Resource** column to see the costs for each service that's underlying your [Azure AI project](../concepts/ai-resources.md#organize-work-in-projects-for-customization). But this view doesn't include costs for all resources that you use in an Azure AI Studio project.
+1. Expand the **Resource** column to see the costs for each service that's underlying your [Azure AI project](../concepts/ai-resources.md#organize-work-in-projects-for-customization). But this view doesn't include costs for all resources that you use in an Azure AI project.
 
     :::image type="content" source="../media/cost-management/project-costs/costs-per-project-resource.png" alt-text="Screenshot of the Azure portal cost analysis with the Azure AI project and associated resources." lightbox="../media/cost-management/project-costs/costs-per-project-resource.png":::
 
@@ -125,7 +130,7 @@ Here's an example of how to monitor costs for an Azure AI Studio project. The co
 
     :::image type="content" source="../media/cost-management/project-costs/costs-per-project-resource-details.png" alt-text="Screenshot of the Azure portal cost analysis with Azure AI project expanded." lightbox="../media/cost-management/project-costs/costs-per-project-resource-details.png":::
 
-1. Expand **contoso_ai_resource** to see the costs for services underlying the [Azure AI](../concepts/ai-resources.md#azure-ai-hub-resources) resource. You can also apply a filter to focus on other costs in your resource group. 
+1. Expand **contoso_ai_resource** to see the costs for services underlying the [Azure AI hub](../concepts/ai-resources.md#azure-ai-hub-resources) resource. You can also apply a filter to focus on other costs in your resource group. 
 
 You can also view resource group costs directly from the Azure portal. To do so:
 1. Sign in to [Azure portal](https://portal.azure.com).

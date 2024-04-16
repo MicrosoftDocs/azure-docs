@@ -181,6 +181,21 @@ Follow these steps to find Python packages installed in compute instance runtime
 
   :::image type="content" source="../media/faq/list-packages.png" alt-text="Screenshot that shows finding Python packages installed in runtime." lightbox = "../media/faq/list-packages.png":::
 
+### Runtime start failures using custom environment
+
+#### CI (Compute instance) runtime start failure using custom environment
+
+To use promptflow as runtime on CI, you need use the base image provide by promptflow. If you want to add extra packages to the base image, you need follow the [Customize environment with Docker context for runtime](../how-to-customize-environment-runtime.md) to create a new environment. Then use it to create CI runtime.
+
+If you got `UserError: FlowRuntime on compute instance is not ready`, you need login into to terminal of CI and run `journalctl -u c3-progenitor.serivice` to check the logs.
+
+#### Automatic runtime start failure with requirements.txt or custom base image
+
+Automatic runtime support to use `requirements.txt` or custom base image in `flow.dag.yaml` to customize the image. We would recommend you to use `requirements.txt` for common case, which will use `pip install -r requirements.txt` to install the packages. If you have dependency more then python packages, you need follow the [Customize environment with Docker context for runtime](../how-to-customize-environment-runtime.md) to create build a new image base on top of promptflow base image. Then use it in `flow.dag.yaml`. Learn more about [Customize environment with Docker context for runtime](../how-to-create-manage-runtime.md#update-an-automatic-runtime-preview-on-a-flow-page).
+
+- You can not use arbitrary base image to create runtime, you need use the base image provide by promptflow.
+- Don't pin the version of `promptflow` and `promptflow-tools` in `requirements.txt`, because we already include them in the runtime base image. Using old version of `promptflow` and `promptflow-tools` may cause unexpected behavior.
+=======
 ## Flow run related issues
 
 ### How to find the raw inputs and outputs of in LLM tool for further investigation?

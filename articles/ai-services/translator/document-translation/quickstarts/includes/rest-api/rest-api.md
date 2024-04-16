@@ -5,7 +5,7 @@ author: laujan
 manager: nitinme
 ms.service: azure-ai-translator
 ms.topic: include
-ms.date: 01/17/2024
+ms.date: 02/14/2024
 ms.author: lajanuar
 recommendations: false
 ---
@@ -35,7 +35,7 @@ If cURL isn't installed, here are links for your platform:
 
 1. Copy and paste the document translation **request sample** into your `document-translation.json` file. Replace **`{your-source-container-SAS-URL}`** and **`{your-target-container-SAS-URL}`** with values from your Azure portal Storage account containers instance.
 
-    `**Request sample**`
+    ***Request sample:***
 
     ```json
     {
@@ -60,7 +60,7 @@ If cURL isn't installed, here are links for your platform:
 Before you run the **POST** request, replace `{your-document-translator-endpoint}` and `{your-key}` with the values from your Azure portal Translator instance.
 
 > [!IMPORTANT]
-> Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../../../key-vault/general/overview.md). For more information, *see* Azure AI services [security](../../../../../../ai-services/security-features.md).
+> Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../../../key-vault/general/overview.md). For more information, *see* Azure AI services [security](../../../../../security-features.md).
 
 ***PowerShell***
 

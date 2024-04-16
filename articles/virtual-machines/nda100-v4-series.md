@@ -11,7 +11,7 @@ ms.date: 03/13/2023
 
 # ND A100 v4-series
 
-**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets.
 
 The ND A100 v4 series virtual machine(VM) is a new flagship addition to the Azure GPU family. It's designed for high-end Deep Learning training and tightly coupled scale-up and scale-out HPC workloads. 
 
@@ -41,15 +41,10 @@ These instances provide excellent performance for many AI, ML, and analytics too
 NVIDIA NVLink Interconnect: Supported<br>
 [Nested Virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization): Not Supported <br>
 <br>
-The ND A100 v4 series supports the following kernel versions: <br>
-CentOS 7.9 HPC: 3.10.0-1160.24.1.el7.x86_64 <br>
-Ubuntu 18.04: 5.4.0-1043-azure <br>
-Ubuntu 20.04: 5.4.0-1046-azure <br>
-<br>
 
 | Size | vCPU | Memory: GiB | Temp Storage (SSD): GiB | GPU | GPU Memory: GiB | Max data disks | Max uncached disk throughput: IOPS / MBps | Max network bandwidth | Max NICs |
 |---|---|---|---|---|---|---|---|---|---|
-| Standard_ND96asr_v4 | 96 | 900 | 6000 | 8 A100 40 GB GPUs (NVLink 3.0) | 320 | 32 | 80,000 / 800 | 24,000 Mbps | 8 |
+| Standard_ND96asr_A100_v4 | 96 | 900 | 6000 | 8 A100 40-GB GPUs (NVLink 3.0) | 320 | 32 | 80,000 / 800 | 24,000 Mbps | 8 |
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 

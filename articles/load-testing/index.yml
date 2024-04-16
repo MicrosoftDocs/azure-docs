@@ -8,8 +8,8 @@ metadata:
   description: Learn how to generate high-scale loads, identify app performance bottlenecks, and automate regression testing with Azure Load Testing service. Tutorials, code examples, GitHub Actions, Azure Pipelines, and more. 
   ms.service: load-testing
   ms.topic: landing-page
-  ms.author: nicktrog
-  author: ntrogh
+  ms.author: ninallam
+  author: ninallam
   ms.date: 03/24/2023
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
@@ -90,6 +90,8 @@ landingContent:
             url: quickstart-add-load-test-cicd.md
           - text: Manually add load tests to CI/CD
             url: how-to-configure-load-test-cicd.md
+          - text: Test App Service web apps
+            url: how-to-create-load-test-app-service.md
 
   # Card
   - title: Analyze test results

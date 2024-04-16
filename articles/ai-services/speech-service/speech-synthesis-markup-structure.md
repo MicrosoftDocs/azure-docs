@@ -6,7 +6,7 @@ author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech
 ms.topic: how-to
-ms.date: 1/22/2024
+ms.date: 3/14/2024
 ms.author: eur
 ---
 
@@ -83,7 +83,7 @@ For example, specify `green &amp; yellow` instead of `green & yellow`. The follo
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-JennyNeural">
+    <voice name="en-US-AvaNeural">
         My favorite colors are green &amp; yellow.
     </voice>
 </speak>
@@ -117,11 +117,11 @@ The supported values for attributes of the `speak` element were [described previ
 
 #### Single voice example
 
-This example uses the `en-US-JennyNeural` voice. For more examples, see [voice examples](speech-synthesis-markup-voice.md#voice-examples).
+This example uses the `en-US-AvaNeural` voice. For more examples, see [voice examples](speech-synthesis-markup-voice.md#voice-examples).
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-JennyNeural">
+    <voice name="en-US-AvaNeural">
         This is the text that is spoken.
     </voice>
 </speak>
@@ -154,7 +154,7 @@ The supported values for attributes of the `break` element were [described previ
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-JennyNeural">
+    <voice name="en-US-AvaNeural">
         Welcome <break /> to text to speech.
         Welcome <break strength="medium" /> to text to speech.
         Welcome <break time="750ms" /> to text to speech.
@@ -185,7 +185,7 @@ In this example, `mstts:silence` is used to add 200 ms of silence between two se
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="http://www.w3.org/2001/mstts" xml:lang="en-US">
-<voice name="en-US-JennyNeural">
+<voice name="en-US-AvaNeural">
 <mstts:silence  type="Sentenceboundary" value="200ms"/>
 If we're home schooling, the best we can do is roll with what each day brings and try to have fun along the way.
 A good place to start is by trying out the slew of educational apps that are helping children stay happy and smash their schooling at the same time.
@@ -213,7 +213,7 @@ The following example defines two paragraphs that each contain sentences. In the
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-JennyNeural">
+    <voice name="en-US-AvaNeural">
         <p>
             <s>Introducing the sentence element.</s>
             <s>Used to mark individual sentences.</s>
@@ -244,7 +244,7 @@ As an example, you might want to know the time offset of each flower word in the
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-AriaNeural">
+    <voice name="en-US-AvaNeural">
         We are selling <bookmark mark='flower_1'/>roses and <bookmark mark='flower_2'/>daisies.
     </voice>
 </speak>
@@ -273,7 +273,7 @@ This SSML snippet illustrates how to request blend shapes with your synthesized 
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="http://www.w3.org/2001/mstts" xml:lang="en-US">
-  <voice name="en-US-JennyNeural">
+  <voice name="en-US-AvaNeural">
     <mstts:viseme type="FacialExpression"/>
     Rainbow has seven colors: Red, orange, yellow, green, blue, indigo, and violet.
   </voice>

@@ -28,20 +28,16 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Windows Desktop client
+          - text: Windows
             url: connect-windows.md
-          - text: Azure Virtual Desktop Store app for Windows
-            url: connect-windows-azure-virtual-desktop-app.md
-          - text: Web client
+          - text: Web browser
             url: connect-web.md
-          - text: macOS client
+          - text: macOS
             url: connect-macos.md
-          - text: iOS/iPadOS client
+          - text: iOS/iPadOS
             url: connect-ios-ipados.md
-          - text: Android/Chrome OS client
+          - text: Android/Chrome OS
             url: connect-android-chrome-os.md
-          - text: Remote Desktop app for Windows
-            url: connect-microsoft-store.md
           - text: Thin clients
             url: connect-thin-clients.md
 
@@ -50,17 +46,13 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Windows Desktop client
+          - text: Windows
             url: client-features-windows.md
-          - text: Azure Virtual Desktop Store app for Windows
-            url: client-features-windows-azure-virtual-desktop-app.md
-          - text: Web client
+          - text: Web browser
             url: client-features-web.md
-          - text: macOS client
+          - text: macOS
             url: client-features-macos.md
-          - text: iOS/iPadOS client
+          - text: iOS/iPadOS
             url: client-features-ios-ipados.md
-          - text: Android client
+          - text: Android
             url: client-features-android-chrome-os.md
-          - text: Remote Desktop app for Windows
-            url: client-features-microsoft-store.md

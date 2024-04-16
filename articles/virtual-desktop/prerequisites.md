@@ -92,14 +92,14 @@ To access desktops and applications from your session hosts, your users need to 
 
 You need to join session hosts that provide desktops and applications to the same Microsoft Entra tenant as your users, or an Active Directory domain (either AD DS or Microsoft Entra Domain Services).
 
+> [!NOTE]
+> For Azure Stack HCI, you can only join session hosts to an Active Directory Domain Services domain.
+
 To join session hosts to Microsoft Entra ID or an Active Directory domain, you need the following permissions:
 
 - For Microsoft Entra ID, you need an account that can join computers to your tenant. For more information, see [Manage device identities](../active-directory/devices/manage-device-identities.md#configure-device-settings). To learn more about joining session hosts to Microsoft Entra ID, see [Microsoft Entra joined session hosts](azure-ad-joined-session-hosts.md).
 
 - For an Active Directory domain, you need a domain account that can join computers to your domain. For Microsoft Entra Domain Services, you would need to be a member of the [*AAD DC Administrators* group](../active-directory-domain-services/tutorial-create-instance-advanced.md#configure-an-administrative-group).
-
-> [!NOTE]
-> Adding session hosts on Azure Stack HCI only supports using Active Directory Domain Services.
 
 ### Users
 
@@ -149,11 +149,11 @@ You need to enter the following identity parameters when deploying session hosts
 
 ## Operating systems and licenses
 
-You have a choice of operating systems (OS) that you can use for session hosts to provide desktops and applications. You can use different operating systems with different host pools to provide flexibility to your users. We support the following 64-bit versions of these operating systems, where supported versions and dates are inline with the [Microsoft Lifecycle Policy](/lifecycle/).
+You have a choice of operating systems (OS) that you can use for session hosts to provide desktops and applications. You can use different operating systems with different host pools to provide flexibility to your users. We support the 64-bit operating systems and SKUs in the following table lists (where supported versions and dates are inline with the [Microsoft Lifecycle Policy](/lifecycle/)), along with the licensing methods applicable for each commercial purpose:
 
 [!INCLUDE [Operating systems and user access rights](includes/include-operating-systems-user-access-rights.md)]
 
-To learn more, see about licenses you can use, including per-user access pricing, see [Licensing Azure Virtual Desktop](licensing.md).
+To learn more about licenses you can use, including per-user access pricing, see [Licensing Azure Virtual Desktop](licensing.md).
 
 > [!IMPORTANT]
 > - The following items are not supported:
@@ -234,7 +234,7 @@ Consider the following points when managing session hosts:
 
 ## Azure regions
 
-You can deploy session hosts in any Azure region to use with Azure Virtual Desktop. For host pools, workspaces, and application groups, you can deploy them in the following Azure regions:
+You can deploy host pools, workspaces, and application groups in the following Azure regions. This list of regions is where the *metadata* for the host pool can be stored. However, session hosts for the user sessions can be located in any Azure region, and on-premises when using [Azure Virtual Desktop on Azure Stack HCI](azure-stack-hci-overview.md), enabling you to deploy compute resources close to your users. For more information about the types of data and locations, see [Data locations for Azure Virtual Desktop](data-locations.md).
 
 :::row:::
     :::column:::
@@ -261,9 +261,7 @@ You can deploy session hosts in any Azure region to use with Azure Virtual Deskt
     :::column-end:::
 :::row-end:::
 
-This list of regions is where the *metadata* for the host pool can be stored. However, session hosts can be located in any Azure region, and on-premises when using [Azure Virtual Desktop on Azure Stack HCI](azure-stack-hci-overview.md). For more information about the types of data and locations, see [Data locations for Azure Virtual Desktop](data-locations.md). Azure Virtual Desktop is also available in sovereign clouds, such as [Azure for US Government](https://azure.microsoft.com/explore/global-infrastructure/government/) and [Azure operated by 21Vianet](https://docs.azure.cn/virtual-desktop/) in China.
-
-
+Azure Virtual Desktop is also available in sovereign clouds, such as [Azure for US Government](https://azure.microsoft.com/explore/global-infrastructure/government/) and [Azure operated by 21Vianet](https://docs.azure.cn/virtual-desktop/) in China.
 
 To learn more about the architecture and resilience of the Azure Virtual Desktop service, see [Azure Virtual Desktop service architecture and resilience](service-architecture-resilience.md).
 

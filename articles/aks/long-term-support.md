@@ -2,6 +2,7 @@
 title: Long-term support for Azure Kubernetes Service (AKS)
 description: Learn about Azure Kubernetes Service (AKS) long-term support for Kubernetes
 ms.topic: article
+ms.custom: devx-track-azurecli
 ms.date: 01/24/2024
 ms.author: juda
 author: justindavies
@@ -124,3 +125,4 @@ az aks upgrade --resource-group myResourceGroup --name myAKSCluster --kubernetes
 
 > [!NOTE]
 > Kubernetes 1.30.2 is used as an example version in this article. Check the [AKS release tracker](release-tracker.md) for available Kubernetes releases.
+

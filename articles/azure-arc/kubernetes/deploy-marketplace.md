@@ -1,7 +1,7 @@
 ---
 title: "Deploy and manage applications from Azure Marketplace on Azure Arc-enabled Kubernetes clusters"
 ms.date: 01/26/2024
-ms.custom: references-regions
+ms.custom: references-regions, devx-track-azurecli
 ms.topic: how-to
 description: "Learn how to discover Kubernetes applications in Azure Marketplace and deploy them to your Arc-enabled Kubernetes clusters."
 ---

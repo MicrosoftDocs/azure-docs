@@ -39,12 +39,8 @@ For a list of Communication Services events, see [Communication Services Events]
 To list all the existing event subscriptions set up for an Azure Communication Services resource, by using [the Azure CLI](/cli/azure/get-started-with-azure-cli), use the [`az eventgrid event-subscription list`](/cli/azure/eventgrid/event-subscription#az-eventgrid-event-subscription-list) command. 
 
 ```azurecli-interactive
-az eventgrid event-subscription update 
-    --name EventsWebhookSubscription
-    --source-resource-id /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Communication/CommunicationServices/<acsResourceName>
-    --included-event-types Microsoft.Communication.SMSReceived Microsoft.Communication.SMSDeliveryReportReceived Microsoft.Communication.ChatMessageReceived
-    --endpoint-type webhook 
-    --endpoint https://azureeventgridviewer.azurewebsites.net/api/updates
+az eventgrid event-subscription list 
+    --source-resource-id /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Communication/CommunicationServices/<acsResourceName>    
 ```
 
 ## Update event subscription
@@ -52,8 +48,12 @@ az eventgrid event-subscription update
 To update an existing event subscription by using [the Azure CLI](/cli/azure/get-started-with-azure-cli), use the [`az eventgrid event-subscription update`](/cli/azure/eventgrid/event-subscription#az-eventgrid-event-subscription-update) command. 
 
 ```azurecli-interactive
-az eventgrid event-subscription list 
-    --source-resource-id /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Communication/CommunicationServices/<acsResourceName>    
+az eventgrid event-subscription update 
+    --name EventsWebhookSubscription
+    --source-resource-id /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Communication/CommunicationServices/<acsResourceName>
+    --included-event-types Microsoft.Communication.SMSReceived Microsoft.Communication.SMSDeliveryReportReceived Microsoft.Communication.ChatMessageReceived
+    --endpoint-type webhook 
+    --endpoint https://azureeventgridviewer.azurewebsites.net/api/updates
 ```
 
 ## Delete event subscription

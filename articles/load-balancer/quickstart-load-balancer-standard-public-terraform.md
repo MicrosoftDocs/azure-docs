@@ -7,7 +7,6 @@ author: hisriram96
 manager: vikasbagde
 ms.service: load-balancer
 ms.topic: quickstart
-ms.workload: infrastructure-services
 ms.date: 01/02/2024
 ms.author: sriramiyer
 ms.custom: devx-track-terraform

@@ -17,7 +17,7 @@ This article builds on [push delivery with HTTP for Event Grid basic](push-deliv
 
 ## Namespace topics and subscriptions
 
-Events published to Event Grid namespaces land on a topic, which is a namespace subresource that logically contains all events. Namespace topics allows you to create subscriptions with flexible consumption modes to push events to a particular destination or [pull events](pull-delivery-overview.md) at yourself pace.
+Events published to Event Grid namespaces land on a topic, which is a namespace subresource that logically contains all events. Namespace topics allows you to create subscriptions with flexible consumption modes to push events to a particular destination or [pull events](pull-delivery-overview.md) at your pace.
 
 :::image type="content" source="media/namespace-push-delivery-overview/topic-event-subscriptions-namespace.png" alt-text="Diagram showing a topic and associated event subscriptions." lightbox="media/namespace-push-delivery-overview/topic-event-subscriptions-namespace.png" border="false":::
 

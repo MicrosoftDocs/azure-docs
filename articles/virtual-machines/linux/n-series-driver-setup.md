@@ -7,7 +7,6 @@ ms.service: virtual-machines
 ms.subservice: sizes
 ms.collection: linux
 ms.topic: how-to
-ms.workload: infrastructure-services
 ms.custom: linux-related-content
 ms.date: 04/06/2023
 ms.author: vikancha
@@ -15,6 +14,9 @@ ms.reviewer: padmalathas, mattmcinnes
 ---
 
 # Install NVIDIA GPU drivers on N-series VMs running Linux
+
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 **Applies to:** :heavy_check_mark: Linux VMs
 

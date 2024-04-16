@@ -95,7 +95,7 @@ The following screenshot highlights where **Add index** and **Import data** appe
 
 ### [**REST**](#tab/index-rest)
 
-[**Create Index (REST API)**](/rest/api/searchservice/create-index) is used to create an index. The Postman app can function as a search index client to connect to your search service and send requests. See [Create a search index using REST and Postman](search-get-started-rest.md) to get started.
+[**Create Index (REST API)**](/rest/api/searchservice/create-index) is used to create an index. You need a REST client to connect to your search service and send requests. See [Quickstart: Text search using REST](search-get-started-rest.md) to get started.
 
 The REST API provides defaults for field attribution. For example, all `Edm.String` fields are searchable by default. Attributes are shown in full below for illustrative purposes, but you can omit attribution in cases where the default values apply.
 
@@ -208,7 +208,7 @@ To minimize churn in the design process, the following table describes which ele
 | [Analyzer](search-analyzers.md) | You can add and modify custom analyzers in the index. Regarding analyzer assignments on string fields, you can only modify `searchAnalyzer`. All other assignments and modifications require a rebuild. |
 | [Scoring profiles](index-add-scoring-profiles.md) | Yes |
 | [Suggesters](index-add-suggesters.md) | No |
-| [cross-origin remote scripting (CORS)](#corsoptions) | Yes |
+| [cross-origin resource sharing (CORS)](#corsoptions) | Yes |
 | [Encryption](search-security-manage-encryption-keys.md) | Yes |
 
 ## Next steps

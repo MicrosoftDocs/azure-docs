@@ -19,7 +19,7 @@
 | Middle East | Tel Aviv, Israel<br />Doha, Qatar (2)<br />Istanbul, Turkey<br />Dubai, United Arab Emirates |
 | India | Chennai, India (4)<br />Hyderabad, India<br />Mumbai, India (2)<br />New Delhi, India |
 | Asia | Chai Wan, Hong Kong SAR<br />Hong Kong (2)<br />Jakarta, Indonesia<br />Inzai, Japan<br />Osaka, Japan(2)<br />Osaka-shi, Japan (2)<br />Tokyo, Japan (3)<br />Seoul, South Korea<br />Kuala Lumpur, Malaysia<br />Manila, Philippines<br />Singapore (6)<br />Taipei, Taiwan<br />Taipei City, Taiwan<br />Bangkok, Thailand<br />Ho Chi Minh City, Vietnam |
-| Australia and New Zealand | Brisbane, Australia<br />Derrimut, Australia<br />Macquarie Park, Australia<br />Melbourne, Australia<br />Perth, Australia (3)<br />Sydney, Australia<br />Auckland, New Zealand |
+| Australia and New Zealand | Brisbane, Australia<br />Melbourne, Australia (2)<br />Perth, Australia (3)<br />Sydney, Australia (2)<br />Auckland, New Zealand |
 
 ## Azure Government edge locations
 

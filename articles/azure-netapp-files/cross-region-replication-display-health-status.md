@@ -4,7 +4,6 @@ description: Describes how to view replication status on the source volume or th
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
-ms.workload: storage
 ms.topic: how-to
 ms.date: 05/16/2022
 ms.author: anfdocs
@@ -68,4 +67,3 @@ Create [alert rules in Azure Monitor](../azure-monitor/alerts/alerts-overview.md
 * [Volume replication metrics](azure-netapp-files-metrics.md#replication)
 * [Delete volume replications or volumes](cross-region-replication-delete.md)
 * [Troubleshoot cross-region replication](troubleshoot-cross-region-replication.md)
-

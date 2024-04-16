@@ -16,9 +16,9 @@ ms.custom:
 ---
 # What's Azure AI Search?
 
-Azure AI Search ([formerly known as "Azure Cognitive Search"](whats-new.md#new-service-name)) provides secure information retrieval at scale over user-owned content in traditional and conversational search applications.
+Azure AI Search ([formerly known as "Azure Cognitive Search"](whats-new.md#new-service-name)) provides secure information retrieval at scale over user-owned content in traditional and generative AI search applications.
 
-Information retrieval is foundational to any app that surfaces text and vectors. Common scenarios include catalog or document search, data exploration, and increasingly chat-style copilot apps over proprietary grounding data. When you create a search service, you work with the following capabilities:
+Information retrieval is foundational to any app that surfaces text and vectors. Common scenarios include catalog or document search, data exploration, and increasingly chat-style apps over proprietary grounding data. When you create a search service, you work with the following capabilities:
 
 + A search engine for [vector search](vector-search-overview.md) and [full text](search-lucene-query-architecture.md) and [hybrid search](hybrid-search-overview.md) over a search index 
 + Rich indexing with [integrated data chunking and vectorization (preview)](vector-search-integrated-vectorization.md), [lexical analysis](search-analyzers.md) for text, and [optional AI enrichment](cognitive-search-concept-intro.md) for content extraction and transformation

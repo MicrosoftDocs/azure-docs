@@ -7,7 +7,6 @@ ms.author: mbender
 ms.date: 08/24/2023
 ms.service: virtual-network
 ms.topic: conceptual
-ms.workload: infrastructure-services
 ---
 
 # What is IPv6 for Azure Virtual Network?

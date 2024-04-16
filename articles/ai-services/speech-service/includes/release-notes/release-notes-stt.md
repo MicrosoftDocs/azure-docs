@@ -2,9 +2,66 @@
 author: eric-urban
 ms.service: azure-ai-speech
 ms.topic: include
-ms.date: 09/29/2023
+ms.date: 3/13/2024
 ms.author: eur
 ---
+
+### April 2024 release
+
+#### Real-time speech to text with diariazation (GA)
+
+Real-time speech to text with diariazation is now generally available.
+
+Check out [Real-time diarization quickstart](../../get-started-stt-diarization.md) to learn more about how to create speech to text applications that use diarization to distinguish between the different speakers who participate in the conversation.
+
+### March 2024 release
+
+#### Whisper general availability (GA)
+
+The Whisper speech to text model with Azure AI Speech is now generally available.
+
+Check out [What is the Whisper model?](../../whisper-overview.md) to learn more about when to use Azure AI Speech vs. Azure OpenAI Service. 
+
+### February 2024 release
+
+#### Pronunciation Assessment
+
+- Speech [Pronunciation Assessment](../../how-to-pronunciation-assessment.md) now supports 23 languages generally available (with 5 new languages added), with 3 more languages available in public preview. For more information, see the full [language list for Pronunciation Assessment](../../language-support.md?tabs=pronunciation-assessment).
+
+| Language | Locale (BCP-47) | 
+|--|--|
+|Arabic (Egypt)|`ar-EG`<sup>1</sup> |
+|Arabic (Saudi Arabia)|`ar-SA` |
+|Chinese (Cantonese, Traditional)|`zh-HK`<sup>1</sup>|
+|Chinese (Mandarin, Simplified)|`zh-CN`|
+|Dutch (Netherlands)|`nl-NL`<sup>1</sup>|
+|English (Australia)|`en-AU`|
+|English (Canada)|`en-CA` |
+|English (India)|`en-IN` |
+|English (United Kingdom)|`en-GB`|
+|English (United States)|`en-US`|  
+|French (Canada)|`fr-CA`| 
+|French (France)|`fr-FR`|  
+|German (Germany)|`de-DE`|
+|Hindi (India)|`hi-IN`|
+|Italian (Italy)|`it-IT`|
+|Japanese (Japan)|`ja-JP`|
+|Korean (Korea)|`ko-KR`|
+|Malay (Malaysia)|`ms-MY`|
+|Norwegian Bokmål (Norway)|`nb-NO`|
+|Portuguese (Brazil)|`pt-BR`|
+|Russian (Russia)|`ru-RU`|
+|Spanish (Mexico)|`es-MX` | 
+|Spanish (Spain)|`es-ES` | 
+|Swedish (Sweden)|`sv-SE`|
+|Tamil (India)|`ta-IN` | 
+|Vietnamese (Vietnam)|`vi-VN` |
+
+<sup>1</sup> The language is in public preview for pronunciation assessment.
+
+#### Phrase list
+
+Added phrase list support for the following locales: ar-SA, de-CH, en-IE, en-ZA, es-US, id-ID, nl-NL, pl-PL, pt-PT, ru-RU, sv-SE, th-TH, vi-VN, zh-HK, zh-TW.
 
 ### November 2023 release
 
@@ -44,36 +101,7 @@ We encourage you to explore these improvements and consider potential issues for
 
 - Speech [Pronunciation Assessment](../../how-to-pronunciation-assessment.md) now supports 18 languages generally available, with six more languages available in public preview. For more information, see the full [language list for Pronunciation Assessment](../../language-support.md?tabs=pronunciation-assessment).
 
-  | Language | Locale (BCP-47) | 
-  |--|--|
-  |Arabic (Saudi Arabia)|`ar-SA` |
-  |Chinese (Cantonese, Traditional)|`zh-HK`<sup>1</sup>|
-  |Chinese (Mandarin, Simplified)|`zh-CN`|
-  |English (Australia)|`en-AU`|
-  |English (Canada)|`en-CA` |
-  |English (India)|`en-IN` |
-  |English (United Kingdom)|`en-GB`|
-  |English (United States)|`en-US`|  
-  |French (Canada)|`fr-CA`| 
-  |French (France)|`fr-FR`|  
-  |German (Germany)|`de-DE`|
-  |Hindi (India)|`hi-IN`<sup>1</sup>|
-  |Italian (Italy)|`it-IT`|
-  |Japanese (Japan)|`ja-JP`|
-  |Korean (Korea)|`ko-KR`|
-  |Malay (Malaysia)|`ms-MY`|
-  |Norwegian Bokmål (Norway)|`nb-NO`|
-  |Portuguese (Brazil)|`pt-BR`|
-  |Russian (Russia)|`ru-RU`<sup>1</sup>|
-  |Spanish (Mexico)|`es-MX` | 
-  |Spanish (Spain)|`es-ES` | 
-  |Swedish (Sweden)|`sv-SE`<sup>1</sup>|
-  |Tamil (India)|`ta-IN`<sup>1</sup> | 
-  |Vietnamese (Vietnam)|`vi-VN`<sup>1</sup> |
-
-  <sup>1</sup> The language is in public preview for pronunciation assessment.
-
-- We're excited to announce that Pronunciation Assessment is introducing new features starting November 1, 2023: Prosody, Grammar, Vocabulary, and Topic. These enhancements aim to provide an even more comprehensive language learning experience for both reading and speaking assessments. Explore further details in the [How to use pronunciation assessment](../../how-to-pronunciation-assessment.md) and [Pronunciation assessment in Speech Studio](../../pronunciation-assessment-tool.md).
+- We're excited to announce that Pronunciation Assessment is introducing new features starting November 1, 2023: Prosody, Grammar, Vocabulary, and Topic. These enhancements aim to provide an even more comprehensive language learning experience for both reading and speaking assessments. Upgrade to SDK version 1.35.0 or later to explore further details in the [How to use pronunciation assessment](../../how-to-pronunciation-assessment.md) and [Pronunciation assessment in Speech Studio](../../pronunciation-assessment-tool.md).
 
 ### September 2023 release
 
@@ -104,8 +132,6 @@ Speech to text supports two new locales as shown in the following table. Refer t
 #### Pronunciation Assessment
 
 - Speech [Pronunciation Assessment](../../how-to-pronunciation-assessment.md) now supports 3 additional languages generally available in English (Canada), English (India), and French (Canada), with 3 additional languages available in preview. For more information, see the full [language list for Pronunciation Assessment](../../language-support.md?tabs=pronunciation-assessment).
-
- 
 
 ### May 2023 release
 

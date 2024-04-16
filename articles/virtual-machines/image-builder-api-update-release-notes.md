@@ -1,16 +1,13 @@
 ---
-title: What's new in Azure VM Image Builder 
+title: What's new in Azure VM Image Builder
 description: This article offers the latest release notes, known issues, bug fixes, deprecated functionality, and upcoming changes.
 author: kof-f
 ms.service: virtual-machines
 ms.topic: conceptual
-ms.workload: infrastructure
-ms.date: 11/10/2023
-ms.reviewer: erd
+ms.date: 02/13/2024
+ms.reviewer: mattmcinnes
 ms.subservice: image-builder
 ms.custom: references_regions
-
-
 ---
 
 # What's new in Azure VM Image Builder
@@ -27,7 +24,7 @@ Azure Image Builder is enabling Isolated Image Builds using Azure Container Inst
 You might observe a different set of transient Azure resources appear temporarily in the staging resource group but that does not impact your actual builds or the way you interact with Azure Image Builder. For more information, please see [Isolated Image Builds](./security-isolated-image-builds-image-builder.md).
 
 > [!IMPORTANT]
-> Make sure your subscription is registered for the `Microsoft.ContainerInstance` provider.
+>Make sure your subscription is registered for the `Microsoft.ContainerInstance` provider and there are no policies blocking deployment of Azure Container Instances resources. Also ensure that quota is available for Azure Container Instances resources.
 
 ### April 2023
 New portal functionality has been added for Azure Image Builder. Search “Image Templates” in Azure portal, then click “Create”. You can also [get started here](https://ms.portal.azure.com/#create/Microsoft.ImageTemplate) with building and validating custom images inside the portal.

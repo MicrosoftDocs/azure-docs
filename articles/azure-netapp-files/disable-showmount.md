@@ -4,7 +4,6 @@ description: Showmount on NFS clients has historically been how users can see ex
 services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
-ms.workload: storage
 ms.topic: how-to
 ms.date: 03/16/2023
 ms.author: anfdocs

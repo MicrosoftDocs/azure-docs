@@ -22,6 +22,87 @@ Azure Event Grid namespace (Preview) emits the following event types:
 
 ## Example event
 
+
+# [Cloud event schema](#tab/cloud-event-schema)
+
+This sample event shows the schema of an event raised when an MQTT client's session is connected to an Event Grid:
+
+```json
+[{
+  "specversion": "1.0",
+  "id": "5249c38a-a048-46dd-8f60-df34fcdab06c",
+  "time": "2023-07-29T01:23:49.6454046Z",
+  "type": "Microsoft.EventGrid.MQTTClientSessionConnected",
+  "source": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myrg/providers/Microsoft.EventGrid/namespaces/myns",
+  "subject": "clients/client1/sessions/session1",
+  "data": {
+    "namespaceName": "myns",
+    "clientAuthenticationName": "client1",
+    "clientSessionName": "session1",
+    "sequenceNumber": 1
+  }
+}]
+```
+This sample event shows the schema of an event raised when an MQTT client’s session is disconnected to Event Grid:
+
+```json
+[{
+  "specversion": "1.0",
+  "id": "e30e5174-787d-4e19-8812-580148bfcf7b",
+  "time": "2023-07-29T01:27:40.2446871Z",
+  "type": "Microsoft.EventGrid.MQTTClientSessionDisconnected",
+  "source": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myrg/providers/Microsoft.EventGrid/namespaces/myns",
+  "subject": "clients/client1/sessions/session1",
+  "data": {
+    "namespaceName": "myns",
+    "clientAuthenticationName": "client1",
+    "clientSessionName": "session1",
+    "sequenceNumber": 1,
+    "disconnectionReason": "ClientInitiatedDisconnect"
+  }
+}]
+```
+This sample event shows the schema of an event raised when an MQTT client is created or updated in the Event Grid Namespace:
+
+```json
+[{
+  "specversion": "1.0",
+  "id": "383d1562-c95f-4095-936c-688e72c6b2bb",
+  "time": "2023-07-29T01:14:35.8928724Z",
+  "type": "Microsoft.EventGrid.MQTTClientCreatedOrUpdated",
+  "source": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myrg/providers/Microsoft.EventGrid/namespaces/myns",
+  "subject": "clients/client1",
+  "data": {
+    "createdOn": "2023-07-29T01:14:34.2048108Z",
+    "updatedOn": "2023-07-29T01:14:34.2048108Z",
+    "namespaceName": "myns",
+    "clientName": "client1",
+    "clientAuthenticationName": "client1",
+    "state": "Enabled",
+    "attributes": {
+      "attribute1": "value1"
+    }
+  }
+}]
+```
+This sample event shows the schema of an event raised when an MQTT client is deleted from the Event Grid Namespace:
+
+```json
+[{
+  "specversion": "1.0",
+  "id": "2a93aaf9-66c2-4f8e-9ba3-8d899c10bf17",
+  "time": "2023-07-29T01:30:52.5620566Z",
+  "type": "Microsoft.EventGrid.MQTTClientDeleted",
+  "source": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myrg/providers/Microsoft.EventGrid/namespaces/myns",
+  "subject": "clients/client1",
+  "data": {
+    "namespaceName": "myns",
+    "clientName": "client1",
+    "clientAuthenticationName": "client1"
+  }
+}]
+```
+
 # [Event Grid event schema](#tab/event-grid-event-schema)
 
 This sample event shows the schema of an event raised when an MQTT client’s session is connected to Event Grid:
@@ -106,105 +187,12 @@ This sample event shows the schema of an event raised when an MQTT client is del
 }]
 ```
 
-# [Cloud event schema](#tab/cloud-event-schema)
 
-This sample event shows the schema of an event raised when an MQTT client's session is connected to an Event Grid:
-
-```json
-[{
-  "specversion": "1.0",
-  "id": "5249c38a-a048-46dd-8f60-df34fcdab06c",
-  "time": "2023-07-29T01:23:49.6454046Z",
-  "type": "Microsoft.EventGrid.MQTTClientSessionConnected",
-  "source": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myrg/providers/Microsoft.EventGrid/namespaces/myns",
-  "subject": "clients/client1/sessions/session1",
-  "data": {
-    "namespaceName": "myns",
-    "clientAuthenticationName": "client1",
-    "clientSessionName": "session1",
-    "sequenceNumber": 1
-  }
-}]
-```
-This sample event shows the schema of an event raised when an MQTT client’s session is disconnected to Event Grid:
-
-```json
-[{
-  "specversion": "1.0",
-  "id": "e30e5174-787d-4e19-8812-580148bfcf7b",
-  "time": "2023-07-29T01:27:40.2446871Z",
-  "type": "Microsoft.EventGrid.MQTTClientSessionDisconnected",
-  "source": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myrg/providers/Microsoft.EventGrid/namespaces/myns",
-  "subject": "clients/client1/sessions/session1",
-  "data": {
-    "namespaceName": "myns",
-    "clientAuthenticationName": "client1",
-    "clientSessionName": "session1",
-    "sequenceNumber": 1,
-    "disconnectionReason": "ClientInitiatedDisconnect"
-  }
-}]
-```
-This sample event shows the schema of an event raised when an MQTT client is created or updated in the Event Grid Namespace:
-
-```json
-[{
-  "specversion": "1.0",
-  "id": "383d1562-c95f-4095-936c-688e72c6b2bb",
-  "time": "2023-07-29T01:14:35.8928724Z",
-  "type": "Microsoft.EventGrid.MQTTClientCreatedOrUpdated",
-  "source": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myrg/providers/Microsoft.EventGrid/namespaces/myns",
-  "subject": "clients/client1",
-  "data": {
-    "createdOn": "2023-07-29T01:14:34.2048108Z",
-    "updatedOn": "2023-07-29T01:14:34.2048108Z",
-    "namespaceName": "myns",
-    "clientName": "client1",
-    "clientAuthenticationName": "client1",
-    "state": "Enabled",
-    "attributes": {
-      "attribute1": "value1"
-    }
-  }
-}]
-```
-This sample event shows the schema of an event raised when an MQTT client is deleted from the Event Grid Namespace:
-
-```json
-[{
-  "specversion": "1.0",
-  "id": "2a93aaf9-66c2-4f8e-9ba3-8d899c10bf17",
-  "time": "2023-07-29T01:30:52.5620566Z",
-  "type": "Microsoft.EventGrid.MQTTClientDeleted",
-  "source": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myrg/providers/Microsoft.EventGrid/namespaces/myns",
-  "subject": "clients/client1",
-  "data": {
-    "namespaceName": "myns",
-    "clientName": "client1",
-    "clientAuthenticationName": "client1"
-  }
-}]
-```
 ---
 
 
 
 ### Event properties
-
-# [Event Grid event schema](#tab/event-grid-event-schema)
-
-All events contain the same top-level data: 
-
-| Property | Type | Description |
-| -------- | ---- | ----------- |
-| `id` | string | Unique identifier for the event. |
-| `topic` | string | Full resource path to the event source. This field isn't writeable. Event Grid provides this value. |
-| `subject` | string | Publisher-defined path to the event subject. |
-| `eventType` | string | One of the registered event types for this event source. |
-| `eventTime` | string | The time the event is generated based on the provider's UTC time. |
-| `data` | object | Event Grid namespace event data.  |
-| `dataVersion` | string | The schema version of the data object. The publisher defines the schema version. |
-| `metadataVersion` | string | The schema version of the event metadata. Event Grid defines the schema of the top-level properties. Event Grid provides this value. |
 
 # [Cloud event schema](#tab/cloud-event-schema)
 
@@ -220,6 +208,21 @@ All events contain the same top-level data:
 | `time` | string | The time the event is generated based on the provider's UTC time. |
 | `data` | object | Event Grid namespace event data.  |
 | `specversion` | string | CloudEvents schema specification version. |
+
+# [Event Grid event schema](#tab/event-grid-event-schema)
+
+All events contain the same top-level data: 
+
+| Property | Type | Description |
+| -------- | ---- | ----------- |
+| `id` | string | Unique identifier for the event. |
+| `topic` | string | Full resource path to the event source. This field isn't writeable. Event Grid provides this value. |
+| `subject` | string | Publisher-defined path to the event subject. |
+| `eventType` | string | One of the registered event types for this event source. |
+| `eventTime` | string | The time the event is generated based on the provider's UTC time. |
+| `data` | object | Event Grid namespace event data.  |
+| `dataVersion` | string | The schema version of the data object. The publisher defines the schema version. |
+| `metadataVersion` | string | The schema version of the event metadata. Event Grid defines the schema of the top-level properties. Event Grid provides this value. |
 
 ---
 

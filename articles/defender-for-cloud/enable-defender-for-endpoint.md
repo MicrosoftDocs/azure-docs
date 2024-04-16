@@ -1,13 +1,14 @@
 ---
-title: Enable the Microsoft Defender for Endpoint integration
+title: Enable the Defender for Endpoint integration
 description: Learn how to deploy the Microsoft Defender for Endpoint integration in Defender for Cloud to protect Azure, hybrid, and multicloud machines.
 author: dcurwin
 ms.author: dacurwin
 ms.topic: how-to
-ms.date: 01/22/2024
+ms.date: 03/13/2024
+#customer intent: As a user, I want to learn how to enable the Defender for Endpoint integration in Defender for Cloud so that I can protect my Azure, hybrid, and multicloud machines.
 ---
 
-# Enable the Microsoft Defender for Endpoint integration
+# Enable the Defender for Endpoint integration
 
 Microsoft Defender for Cloud's integration with Microsoft Defender for Endpoint, provides a cloud-based endpoint security solution that offers a wide range of features. The integration provides risk-based vulnerability management and assessment, which helps identify and prioritize vulnerabilities that need to be addressed. The solution also includes attack surface reduction, which helps minimize the attack surface of endpoints, as well as behavioral-based and cloud-powered protection to detect and respond to threats. Additionally, Microsoft Defender for Endpoint offers endpoint detection and response (EDR), automatic investigation and remediation, and managed hunting services to help organizations quickly detect, investigate, and respond to security incidents.
 
@@ -197,7 +198,7 @@ After you select **Enable** in the insight panel, Defender for Cloud:
 - Automatically onboards your Linux machines to Defender for Endpoint in the selected subscriptions.
 - Detects any previous installations of Defender for Endpoint and reconfigure them to integrate with Defender for Cloud.
 
-Use the [Defender for Endpoint status workbook](https://aka.ms/MDEStatus) to verify installation and deployment status of Defender for Endpoint on a Linux machine.
+Use the [Defender for Endpoint status workbook](https://github.com/Azure/Microsoft-Defender-for-Cloud/tree/main/Workbooks/Defender%20for%20Servers%20Deployment%20Status) to verify installation and deployment status of Defender for Endpoint on a Linux machine.
 
 #### Enable on multiple subscriptions with a PowerShell script
 
@@ -233,7 +234,7 @@ URI: `https://management.azure.com/subscriptions/<subscriptionId>/providers/Micr
 
 ## Track MDE deployment status
 
-You can use the [Defender for Endpoint deployment status workbook](https://github.com/Azure/Microsoft-Defender-for-Cloud/tree/main/Workbooks/Defender%20for%20Endpoint%20Deployment%20Status) to track the Defender for Endpoint deployment status on your Azure VMs and non-Azure machines that are connected via Azure Arc. The interactive workbook provides an overview of machines in your environment showing their Microsoft Defender for Endpoint extension deployment status.
+You can use the [Defender for Endpoint deployment status workbook](https://github.com/Azure/Microsoft-Defender-for-Cloud/tree/main/Workbooks/Defender%20for%20Servers%20Deployment%20Status) to track the Defender for Endpoint deployment status on your Azure VMs and non-Azure machines that are connected via Azure Arc. The interactive workbook provides an overview of machines in your environment showing their Microsoft Defender for Endpoint extension deployment status.
 
 ## Access the Microsoft Defender for Endpoint portal
 
@@ -304,10 +305,8 @@ To remove the Defender for Endpoint solution from your machines:
 
 1. Follow the steps in [Offboard devices from the Microsoft Defender for Endpoint service](/microsoft-365/security/defender-endpoint/offboard-machines) from the Defender for Endpoint documentation.
 
-## Next steps
+## Related content
 
 - [Platforms and features supported by Microsoft Defender for Cloud](security-center-os-coverage.md)
 - [Learn how recommendations help you protect your Azure resources](review-security-recommendations.md)
 - View common question about the [Defender for Cloud integration with Microsoft Defender for Endpoint](faq-defender-for-servers.yml)
-
-

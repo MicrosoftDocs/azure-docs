@@ -4,7 +4,6 @@ description: Describes the services provided through the storage service add-ons
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
-ms.workload: storage
 ms.topic: conceptual
 ms.date: 06/15/2021
 ms.author: anfdocs

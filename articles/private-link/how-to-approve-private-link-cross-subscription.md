@@ -2,8 +2,8 @@
 title: Approve private endpoint connections across subscriptions
 titleSuffix: Azure Private Link
 description: Get started learning how to approve and manage private endpoint connections across subscriptions by using Azure Private Link.
-author: asudbring
-ms.author: allensu
+author: abell
+ms.author: abell
 ms.service: private-link
 ms.topic: how-to 
 ms.date: 01/11/2024

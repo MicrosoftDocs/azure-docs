@@ -1,6 +1,5 @@
 ---
 title: MQTT feature support in Azure IoT MQ
-titleSuffix: Azure IoT MQ
 description: MQTT feature and control support in Azure IoT MQ.
 author: PatAltimore
 ms.author: patricka
@@ -11,11 +10,11 @@ ms.date: 12/12/2023
 # CustomerIntent: As an operator, I want to understand what MQTT specifications are supported by Azure IoT MQ so that I can configure my MQTT client to connect to Azure IoT MQ.
 ---
 
-# MQTT feature support in Azure IoT MQ
+# MQTT feature support in Azure IoT MQ Preview
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-Azure IoT MQ currently supports the following MQTT features and control packets.
+Azure IoT MQ Preview currently supports the following MQTT features and control packets.
 
 | Feature or control packet | MQTT v3.1.1 | MQTT v5 |
 |---|:---:|:---:|
