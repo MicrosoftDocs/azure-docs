@@ -227,7 +227,6 @@
     "groups": {
       "grp-iot-edge": {
         "dest": "destiotedge",
-        "moniker_range": ">=iotedge-1.4"
       },
       "grp-document-intelligence": {
         "dest": "destdocumentintelligence",
@@ -235,11 +234,9 @@
       },
       "grp-machine-learning": {
         "dest": "destmachinelearning",
-        "moniker_range": "azureml-api-2 || azureml-api-1"
       },
       "grp-machine-learningv1": {
         "dest": "destmachinelearningv1",
-        "moniker_range": "azureml-api-1"
       }
     },
     "overwrite": [],
