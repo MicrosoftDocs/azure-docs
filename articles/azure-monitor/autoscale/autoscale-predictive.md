@@ -5,9 +5,12 @@ ms.topic: conceptual
 author: EdB-MSFT
 ms.author: edbaynash
 ms.subservice: autoscale
-ms.date: 10/12/2022
+ms.date: 04/15/2024
 ms.custom: references_regions, devx-track-arm-template
 ms.reviewer: akkumari
+
+# customer intent: As an azure andministarttor I want to learn how to use predictive autoscale to scale out before load demands in virtual machine scale sets.
+
 ---
 # Use predictive autoscale to scale out before load demands in virtual machine scale sets
 
@@ -32,11 +35,11 @@ Predictive autoscale adheres to the scaling boundaries you've set for your virtu
 
 1. Go to the **Virtual machine scale set** screen and select **Scaling**.
 
-   :::image type="content" source="media/autoscale-predictive/main-scaling-screen-1.png" alt-text="Screenshot that shows selecting Scaling on the left menu in the Azure portal.":::
+   :::image type="content" source="media/autoscale-predictive/main-scaling-screen-1.png" lightbox="media/autoscale-predictive/main-scaling-screen-1.png" alt-text="Screenshot that shows selecting Scaling on the left menu in the Azure portal.":::
 
 1. Under the **Custom autoscale** section, **Predictive autoscale** appears.
   
-    :::image type="content" source="media/autoscale-predictive/custom-autoscale-2.png" alt-text="Screenshot that shows selecting Custom autoscale and the Predictive autoscale option in the Azure portal.":::
+    :::image type="content"source="media/autoscale-predictive/custom-autoscale-2.png" lightbox="media/autoscale-predictive/custom-autoscale-2.png" alt-text="Screenshot that shows selecting Custom autoscale and the Predictive autoscale option in the Azure portal.":::
 
     By using the dropdown selection, you can:
     - Disable predictive autoscale. Disable is the default selection when you first land on the page for predictive autoscale.
