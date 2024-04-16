@@ -1189,6 +1189,12 @@
       "url": "https://github.com/Azure-Samples/explore-iot-operations",
       "branch": "main",
       "branch_mapping": {}
+    },
+    {
+      "path_to_root": "SupportArticles-docs",
+      "url": "https://github.com/MicrosoftDocs/SupportArticles-docs",
+      "branch": "main",
+      "branch_mapping": {}
     }
   ],
   "branch_target_mapping": {
