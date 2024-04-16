@@ -135,7 +135,7 @@ You can also perform autoscale based on common web server metrics such as the HT
 
 ### Web Apps metrics
 
-for Web Apps, you can alert on or scale by these metrics.
+For Web Apps, you can alert on or scale by these metrics.
 
 | Metric name | Unit |
 | --- | --- |
