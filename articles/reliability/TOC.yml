@@ -41,7 +41,7 @@
       - name: Azure Container Registry
         href: /azure/container-registry/zone-redundancy?toc=/azure/reliability
       - name: Azure Cosmos DB for NoSQL
-        href: reliability-cosmos-nosql.md
+        href: migrate-cosmos-nosql.md
       - name: Azure Database for MySQL - Flexible Server
         href: migrate-database-mysql-flex.md
       - name: Azure Database for PostgreSQL

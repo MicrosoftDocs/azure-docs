@@ -79,11 +79,7 @@ With multi-region write capability, you can design a multi-region application th
 Within a [globally distributed database environment](/azure/cosmos-db/distribute-data-globally), there is a direct relationship between the consistency level and data durability in the presence of a region-wide outage. As you develop your business continuity plan, you need to understand the maximum period of recent data updates the application can tolerate losing when recovering after a disruptive event. We recommend using Session consistency unless you have established that stronger consistency mode is needed, you are willing to tolerate higher write latencies, and understand that outages on read-only regions can affect the ability of write region to accept writes.
 
 
-# [Azure Resource Graph](#tab/graph)
 
-:::code language="kusto" source="~/azure-proactive-resiliency-library/docs/content/services/database/cosmosdb/code/cosmos-4/cosmos-4.kql":::
-
-----
 
 #### :::image type="icon" source="media/icon-recommendation-high.svg"::: **Configure continuous backup mode** 
 
@@ -101,22 +97,13 @@ Cosmos DB automatically [backs up your data](/azure/cosmos-db/continuous-backup-
 
 Cosmos DB limits single response to 4 MB. If your query requests a large amount of data or data from multiple backend partitions, the results will span multiple pages for which separate requests must be issued. Each result page will indicate whether more results are available and provide a continuation token to access the next page. You must include a while loop in your code and traverse the pages until no more results are available. For more information, see [Pagination in Azure Cosmos DB for No SQL](/azure/cosmos-db/nosql/query/pagination#handling-multiple-pages-of-results).
 
-# [Azure Resource Graph](#tab/graph)
 
-:::code language="kusto" source="~/azure-proactive-resiliency-library/docs/content/services/database/cosmosdb/code/cosmos-6/cosmos-6.kql":::
-
-----
 
 #### :::image type="icon" source="media/icon-recommendation-medium.svg"::: **Maintain singleton pattern in your client** 
 
 
 Not only is establishing a new database connection expensive, so is maintaining it. As such, it is critical to maintain only one instance, a so-called “singleton”, of the SDK client per account per application. Connections, both HTTP and TCP, are scoped to the client instance. Most compute environments have limitations in terms of the number of connections that can be open at the same time and when these limits are reached, connectivity will be affected. For more information, see [Designing resilient applications with Azure Cosmos DB SDKs](/azure/cosmos-db/nosql/conceptual-resilient-sdk-applications).
 
-# [Azure Resource Graph](#tab/graph)
-
-:::code language="kusto" source="~/azure-proactive-resiliency-library/docs/content/services/database/cosmosdb/code/cosmos-7/cosmos-7.kql":::
-
-----
 
 ### Application resilience
 
@@ -126,11 +113,6 @@ Not only is establishing a new database connection expensive, so is maintaining 
 Cosmos DB SDKs by default handle large number of transient errors and automatically retry operations, where possible. That said, your application should add retry policies for certain well-defined cases that cannot be generically handled by the SDKs.For more information, see [Designing resilient applications with Azure Cosmos DB SDKs](/azure/cosmos-db/nosql/conceptual-resilient-sdk-applications).
 
 
-# [Azure Resource Graph](#tab/graph)
-
-:::code language="kusto" source="~/azure-proactive-resiliency-library/docs/content/services/database/cosmosdb/code/cosmos-8/cosmos-8.kql":::
-
-----
 
 
 
@@ -140,11 +122,6 @@ Cosmos DB SDKs by default handle large number of transient errors and automatica
 
 It is good practice to monitor the availability and responsiveness of your Azure Cosmos DB resources and [have alerts in place](/azure/cosmos-db/create-alerts) for your workload to stay proactive in case an unforeseen event occurs.
 
-# [Azure Resource Graph](#tab/graph)
-
-:::code language="kusto" source="~/azure-proactive-resiliency-library/docs/content/services/database/cosmosdb/code/cosmos-8/cosmos-8.kql":::
-
-----
 
 
 ## Availability zone support
@@ -170,11 +147,12 @@ Your replicas must be deployed in an Azure region that supports availability zon
 
 ### SLA improvements
 
-Because availability zones are physically separate and provide distinct power source, network, and cooling, SLAs (Service-level agreements) increase. For more information, see the [Service Level Agreements (SLA) for Online Services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services).
+Because availability zones are physically separate and provide distinct power source, network, and cooling, SLAs (Service-level agreements) increase.  Regions where availability zones are enabled are charged at 25% premium, while those without those without availability zones don't incur the premium. Moreover, the premium pricing for availability zones is waived for accounts configured with multi-region writes and/or for collections configured with autoscale mode.
 
+Adding an additional region to Cosmos DB account typically increases existing bill by 100% (additively not multiplicatively) though small variations in cost across regions exist. For more details, see [pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/autoscale-provisioned/).
 
+Enabling AZs, adding additional region(s), or turning on multi-region writes can be thought as a layering approach that increases resiliency and availability of a given Cosmos DB account at each step of the way - from 4 9's availability for single region no-AZ configuration, through 4 and half 9's for single region with AZs, all the way to 5 9's of availability for multi-region configuration with the multi-region write option enabled. Please refer the following table for a summary of SLAs for each configuration.
 
-The following table summarizes the high-availability capabilities of various account configurations.
 
 |KPI|Single-region writes without availability zones|Single-region writes with availability zones|Multiple-region, single-region writes without availability zones|Multiple-region, single-region writes with availability zones|Multiple-region, multiple-region writes with or without availability zones|
 |---------|---------|---------|---------|---------|---------|
@@ -193,7 +171,7 @@ The following table summarizes the high-availability capabilities of various acc
 
 ### Create a resource with availability zones enabled
 
-You can configure availability zones only when you add a new region to an Azure Cosmos DB NoSQL account. To migrate an existing region to availability zone support, see [Migrate to availability zone support](#migrate-to-availability-zone-support).
+You can configure availability zones only when you add a new region to an Azure Cosmos DB NoSQL account. 
 
 To enable availability zone support you can use:
 
@@ -207,8 +185,7 @@ To enable availability zone support you can use:
 
 ### Migrate to availability zone support
 
-For existing regions, you can enable availability zones by removing the region and then adding it back with the availability zones enabled. For a single-region account, this approach requires you to add a region to temporarily fail over to, and then remove and add the desired region with availability zones enabled.
-
+To learn how to migrate your CosmosDB account to availability zone support, see [](./migrate-cosmos-nosql.md).
 
 
 ## Cross-region disaster recovery and business continuity
@@ -277,7 +254,7 @@ When an Azure Cosmos DB account is configured with multiple-region writes, one o
 
 Here are some best practices to consider when you're writing to multiple regions.
 
-- **Keep local traffic local**
+##### Keep local traffic local
 
 When you use multiple-region writes, the application should issue read and write traffic that originates in the local region strictly to the local Cosmos DB region. For optimal performance, avoid cross-region calls.
 
@@ -287,17 +264,17 @@ It's important for the application to minimize conflicts by avoiding the followi
 
 * Randomly determining the target region for a read or write operation on a per-request basis
 
-* Using a round-robin policy to determine the target region for a read or write operation on a per-request basis
+* Using a round-robin policy to determine the target region for a read or write operation on a per-request basis.
 
-- **Avoid dependency on replication lag**
+##### Avoid dependency on replication lag
 
 You can't configure multiple-region write accounts for strong consistency. The region that's being written to responds immediately after Azure Cosmos DB replicates the data locally while asynchronously replicating the data globally.  
 
 Though it's infrequent, a replication lag might occur on one or a few partitions when you're geo-replicating data. Replication lag can occur because of a rare blip in network traffic or higher-than-usual rates of conflict resolution.
 
 For instance, an architecture in which the application writes to Region A but reads from Region B introduces a dependency on replication lag between the two regions. However, if the application reads and writes to the same region, performance remains constant even in the presence of replication lag.
-
-- **Evaluate session consistency usage for write operations**
+    
+##### Evaluate session consistency usage for write operations
 
 In session consistency, you use the session token for both read and write operations.  
 
@@ -307,12 +284,12 @@ For write operations, Azure Cosmos DB sends the session token to the database wi
 
 It's best to use session tokens only for read operations and not for write operations when you're passing session tokens between client instances.
 
-- **Mitigate rapid updates to the same document**
+##### Mitigate rapid updates to the same document
 
 The server's updates to resolve or confirm the absence of conflicts can collide with writes triggered by the application when the same document is repeatedly updated. Repeated updates in rapid succession to the same document experience higher latencies during conflict resolution.
 
 Although occasional bursts in repeated updates to the same document are inevitable, you might consider exploring an architecture where new documents are created instead if steady-state traffic sees rapid updates to the same document over an extended period.
-
+    
 
 ### Read and write outages
 
