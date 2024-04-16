@@ -12,6 +12,8 @@
         href: key-concepts.md  
       - name: Service limits
         href: ../azure-resource-manager/management/azure-subscription-service-limits.md#api-center-limits
+      - name: Frequently asked questions
+        href: frequently-asked-questions.yml  
     - name: Quickstarts
       items:
           - name: Create an API center
