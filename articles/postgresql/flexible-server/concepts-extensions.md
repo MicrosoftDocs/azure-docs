@@ -120,6 +120,9 @@ Azure Database for PostgreSQL flexible server instance supports a subset of key 
 ## Extension versions
 
 The following extensions are available in Azure Database for PostgreSQL flexible server:
+> [!NOTE]  
+> Extensions in the following table with the :heavy_check_mark: mark, require their corresponding libraries to be enabled in the shared_preload_libraries server parameter.
+
 [!INCLUDE [extensions-table](./includes/extensions-table.md)]
 
 ## dblink and postgres_fdw
