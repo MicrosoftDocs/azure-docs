@@ -32,7 +32,7 @@ A reservation doesn't cover software, networking, or storage charges associated 
 
 You can buy Azure Database for PostgreSQL flexible server reserved capacity in the [Azure portal](https://portal.azure.com/). Pay for the reservation [up front or with monthly payments](../../cost-management-billing/reservations/prepare-buy-reservation.md). To buy the reserved capacity:
 
-* You must be in the owner role for at least one Enterprise Agreement (EA) or individual subscription with pay-as-you-go rates.
+* To buy a reservation, you must have owner role or reservation purchaser role on an Azure subscription.
 * For EA subscriptions, **Add Reserved Instances** must be turned on in the [EA portal](https://ea.azure.com/). Or, if that setting is off, you must be an EA admin on the subscription.
 * For the Cloud Solution Provider (CSP) program, only the admin agents or sales agents can purchase Azure Database for PostgreSQL flexible server reserved capacity.
 
