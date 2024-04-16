@@ -27,7 +27,7 @@ You point your app to the connection string of this fully managed database, whic
 
 [A fully managed MongoDB-compatible service](./vcore/introduction.md) with dedicated instances for new and existing MongoDB apps. This architecture offers a familiar vCore architecture for MongoDB users, efficient scaling, and seamless integration with Azure services.
 
-- **Integrated Vector Database: Seamlessly integrate your AI-based applications using the integrated vector database. This integration offers an all-in-one solution, allowing you to store your operational/transactional data and vector data together. Unlike other vector database solutions that involve sending your data between service integrations, this approach saves on cost and complexity.
+- **Integrated Vector Database**: Seamlessly integrate your AI-based applications using the integrated vector database. This integration offers an all-in-one solution, allowing you to store your operational/transactional data and vector data together. Unlike other vector database solutions that involve sending your data between service integrations, this approach saves on cost and complexity.
 
 - **Flat pricing with Low total cost of ownership**: Enjoy a familiar pricing model, based on compute (vCores & RAM) and storage (disks).
 

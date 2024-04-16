@@ -62,7 +62,7 @@ In addition, you need:
 
    - At least one Windows OS image available on the cluster. For more information, see how to [create VM images using Azure Marketplace images](/azure-stack/hci/manage/virtual-machine-image-azure-marketplace), [use images in Azure Storage account](/azure-stack/hci/manage/virtual-machine-image-storage-account), and [use images in local share](/azure-stack/hci/manage/virtual-machine-image-local-share).
    
-   - A logical network that you created on your Azure Stack HCI cluster. Both DHCP logical networks or static logical networks (automatic IP allocation) are supported. For more information, see [Create logical networks](/azure-stack/hci/manage/create-logical-networks?tabs=azurecli).
+   - A logical network that you created on your Azure Stack HCI cluster. DHCP logical networks or static logical networks with automatic IP allocation are supported. For more information, see [Create logical networks for Azure Stack HCI](/azure-stack/hci/manage/create-logical-networks).
 
 # [Azure PowerShell](#tab/powershell)
 
@@ -135,9 +135,10 @@ Here's how to create a host pool using the Azure portal.
    > [!TIP]
    > Once you've completed this tab, you can continue to optionally create session hosts, a workspace, register the default desktop application group from this host pool, and enable diagnostics settings by selecting **Next: Virtual Machines**. Alternatively, if you want to create and configure these separately, select **Next: Review + create** and go to step 9.
 
-1. *Optional*: On the **Virtual machines** tab, if you want to add session hosts, complete the following information, depending on if you want to create session hosts on Azure or Azure Stack HCI:
+1. *Optional*: On the **Virtual machines** tab, if you want to add session hosts, complete the following information, depending on whether you want to create session hosts on Azure or Azure Stack HCI:<br /><br />
 
-   1. To add session hosts on Azure:
+   <details>
+       <summary>To add session hosts on <b>Azure</b>, select to expand this section.</summary>
 
       | Parameter | Value/Description |
       |--|--|
@@ -169,8 +170,10 @@ Here's how to create a host pool using the Azure portal.
       | Confirm password | Reenter the password. |
       | **Custom configuration** |  |
       | Custom configuration script URL | If you want to run a PowerShell script during deployment you can enter the URL here. |
+   </details>
 
-   1. To add session hosts on Azure Stack HCI:
+   <details>
+       <summary>To add session hosts on <b>Azure Stack HCI</b>, select to expand this section.</summary>
 
       | Parameter | Value/Description |
       |--|--|
@@ -197,6 +200,7 @@ Here's how to create a host pool using the Azure portal.
       | Username | Enter a name to use as the local administrator account for the new session hosts. |
       | Password | Enter a password for the local administrator account. |
       | Confirm password | Reenter the password. |
+   </details>
 
    Once you've completed this tab, select **Next: Workspace**.
 
