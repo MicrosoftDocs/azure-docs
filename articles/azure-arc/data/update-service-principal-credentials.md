@@ -17,8 +17,8 @@ This article explains how to update the secrets in the data controller.
 
 For example, if you:
 
-1. Deployed the data controller using a specific set of values for service principal tenant ID, client ID, and client secret
-1. Change one or more of these values
+- Deployed the data controller using a specific set of values for service principal tenant ID, client ID, and client secret
+- Change one or more of these values
 
 You need to update the secrets in the data controller. 
 
