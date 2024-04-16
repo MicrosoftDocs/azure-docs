@@ -17,15 +17,15 @@ ms.date: 08/17/2022
 >
 > [!INCLUDE [unified-soc-preview-without-alert](includes/unified-soc-preview-without-alert.md)]
 
-With Microsoft Sentinel as your SIEM, your SOC’s threat detection and response activities are centered on **incidents** that you investigate and remediate. These incidents have two main sources: 
+With Microsoft Sentinel as your security information and event management (SIEM) solution, your security operations' threat detection and response activities are centered on **incidents** that you investigate and remediate. These incidents have two main sources: 
 
 - They are generated automatically by detection mechanisms that operate on the logs and alerts that Sentinel ingests from its connected data sources.
 
 - They are ingested directly from other connected Microsoft security services (such as [Microsoft Defender XDR](microsoft-365-defender-sentinel-integration.md)) that created them.
 
-There can, however, be data from other sources *not ingested into Microsoft Sentinel*, or events not recorded in any log, that justify opening an investigation. For example, an employee might witness an unrecognized person engaging in suspicious activity related to your organization’s information assets, and this employee might call or email the SOC to report the activity.
+However, threat data can also come from other sources *not ingested into Microsoft Sentinel*, or events not recorded in any log, and yet can justify opening an investigation. For example, an employee might witness an unrecognized person engaging in suspicious activity related to your organization’s information assets, and this employee might call or email the security operations center (SOC) to report the activity.
 
-For this reason, Microsoft Sentinel allows your security analysts to manually create incidents for any type of event, regardless of its source or associated data, for the purpose of managing and documenting these investigations.
+Microsoft Sentinel allows your security analysts to manually create incidents for any type of event, regardless of its source or data, so you don't miss out on investigating these unusual types of threats.
 
 ## Common use cases
 
@@ -35,7 +35,7 @@ This is the scenario described in the introduction above.
 
 ### Create incidents out of events from external systems
 
-Create incidents based on events from systems whose logs are not ingested into Microsoft Sentinel. For example, an SMS-based phishing campaign might use your organization's corporate branding and themes to target employees' personal mobile devices. You may want to investigate such an attack, and creating an incident in Microsoft Sentinel gives you a platform to collect and log evidence and record your response and mitigating actions.
+Create incidents based on events from systems whose logs are not ingested into Microsoft Sentinel. For example, an SMS-based phishing campaign might use your organization's corporate branding and themes to target employees' personal mobile devices. You may want to investigate such an attack, and you can create an incident in Microsoft Sentinel so that you have a platform to manage your investigation, to collect and log evidence, and to record your response and mitigation actions.
 
 ### Create incidents based on hunting results
 
