@@ -3,10 +3,10 @@ ms.date: 03/20/2024
 ms.topic: how-to
 author: pavelprystinka
 ms.author: pprystinka
-title: TelecomManager integration in Azure Communication Services Calling SDK
+title: TelecomManager integration in Azure Communication Services calling SDK
 ms.service: azure-communication-services
 ms.subservice: calling
-description: Steps on how to integrate TelecomManager with Azure Communication Services Calling SDK
+description: Steps on how to integrate TelecomManager with Azure Communication Services calling SDK
 ---
 
  # Integrate with TelecomManager
@@ -20,7 +20,7 @@ description: Steps on how to integrate TelecomManager with Azure Communication S
   - A user access token to enable the calling client. For more information, see [Create and manage access tokens](../../quickstarts/identity/access-tokens.md).
   - Optional: Complete the quickstart to [add voice calling to your application](../../quickstarts/voice-video-calling/getting-started-with-calling.md)
 
-  ## TelecomManager Integration
+  ## TelecomManager integration
 
   [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
@@ -44,7 +44,7 @@ description: Steps on how to integrate TelecomManager with Azure Communication S
 
   ### Initialize call agent with TelecomManagerOptions
 
-  With configured instance of `TelecomManagerOptions`, we can create the `CallAgent` with `TelecomManager` eanbled.  
+  With configured instance of `TelecomManagerOptions`, we can create the `CallAgent` with `TelecomManager` enabled.  
 
   ```Java
   CallAgentOptions options = new CallAgentOptions();
@@ -64,9 +64,9 @@ description: Steps on how to integrate TelecomManager with Azure Communication S
   call.setAudioRoute(android.telecom.CallAudioState.ROUTE_SPEAKER);
   ```
 
-  ### Configure call resume behaviour
+  ### Configure call resume behavior
 
-  When call is interupted with other call, for instance incoming PSTN call, ACS call is placed `OnHold`. You can configure what happens once PSTN call is over resume call automatically, or wait for user to request call resume.
+  When call is interrupted with other call, for instance incoming PSTN call, ACS call is placed `OnHold`. You can configure what happens once PSTN call is over resume call automatically, or wait for user to request call resume.
 
 
   ```Java
