@@ -6,17 +6,15 @@ ms.topic: conceptual
 ---
 # Azure Policy assignment structure
 
-Policy assignments are used by Azure Policy to define which resources are assigned which policies or
-initiatives. The policy assignment can determine the values of parameters for that group of
-resources at assignment time, making it possible to reuse policy definitions that address the same
-resource properties with different needs for compliance.
+Policy assignments define which resources are to be evaluated by a 
+policy definition or initaitve.  Further, the policy assignment can determine the values of parameters for that group of
+resources at assignment time, making it possible to reuse policy definitions that address the same resource properties with different needs for compliance. 
 
-> [!NOTE]
-> For more information on Azure Policy scope, see
-> [Understand scope in Azure Policy](./scope.md).
 
 You use JavaScript Object Notation (JSON) to create a policy assignment. The policy assignment contains elements for:
 
+- [scope](#scope)
+- [policy definition ID and version](#policy-definition-id-and-version)
 - [display name](#display-name-and-description)
 - [description](#display-name-and-description)
 - [metadata](#metadata)
@@ -24,19 +22,18 @@ You use JavaScript Object Notation (JSON) to create a policy assignment. The pol
 - [overrides](#overrides)
 - [enforcement mode](#enforcement-mode)
 - [excluded scopes](#excluded-scopes)
-- [policy definition](#policy-definition-id)
 - [non-compliance messages](#non-compliance-messages)
 - [parameters](#parameters)
 - [identity](#identity)
 
-For example, the following JSON shows a policy assignment in _DoNotEnforce_ mode with dynamic
-parameters:
+For example, the following JSON shows a sample policy assignment request in _DoNotEnforce_ mode with parameters:
 
 ```json
 {
     "properties": {
         "displayName": "Enforce resource naming rules",
         "description": "Force resource names to begin with DeptA and end with -LC",
+        "definitionVersion": "1.*.*",
         "metadata": {
             "assignedBy": "Cloud Center of Excellence"
         },
@@ -64,8 +61,22 @@ parameters:
     }
 }
 ```
+## Scope 
+The scope used for assignment resource creation time is the primary driver of resource applicability. For more information on assignment scope, see
+> [Understand scope in Azure Policy](./scope.md#assignment-scopes).
 
-All Azure Policy samples are at [Azure Policy samples](../samples/index.md).
+## Policy definition ID and version
+This field must be the full path name of either a policy definition or an initiative definition.
+`policyDefinitionId` is a string and not an array. The latest content of the assigned policy
+definition or initiative is retrieved each time the policy assignment is evaluated. It's
+recommended that if multiple policies are often assigned together, to use an
+[initiative](./initiative-definition-structure.md) instead.
+
+For built-in definitions and initiaitive, you can use specific the `definitionVersion` of which to assess on. By default, the version will set to the newest major version and auto-ingeest minor and patch changes. 
+
+To auto-ingest any minor changes of the definition, the version number would be "#.*". Wildcard represents auto-ingesting updates. 
+To pin to a minor version path, the version format would be "#.#"
+All patch changes must be auto-injested for security purposes. Patch changes are limited to text changes and break glass scenarios. 
 
 ## Display name and description
 
@@ -84,6 +95,12 @@ _common_ properties used by Azure Policy. Each `metadata` property has a limit o
 - `assignedBy` (string): The friendly name of the security principal that created the assignment.
 - `createdBy` (string): The GUID of the security principal that created the assignment.
 - `createdOn` (string): The Universal ISO 8601 DateTime format of the assignment creation time.
+- `updatedBy` (string): The friendly name of the security principal that updated the assignment, if
+  any.
+- `updatedOn` (string): The Universal ISO 8601 DateTime format of the assignment update time, if
+  any.
+
+### Scenario specific metadata properties
 - `parameterScopes` (object): A collection of key-value pairs where the key matches a
   [strongType](./definition-structure.md#strongtype) configured parameter name and the value defines
   the resource scope used in Portal to provide the list of available resources by matching
@@ -102,11 +119,6 @@ _common_ properties used by Azure Policy. Each `metadata` property has a limit o
       }
   }
   ```
-
-- `updatedBy` (string): The friendly name of the security principal that updated the assignment, if
-  any.
-- `updatedOn` (string): The Universal ISO 8601 DateTime format of the assignment update time, if
-  any.
 - `evidenceStorages` (object): The recommended default storage account that should be used to hold evidence for attestations to policy assignments with a `manual` effect. The `displayName` property is the name of the storage account. The `evidenceStorageAccountID` property is the resource ID of the storage account. The  `evidenceBlobContainer` property is the blob container name in which you plan to store the evidence.
 
     ```json
@@ -142,7 +154,7 @@ In the following example scenario, the new policy assignment is evaluated only i
 {
     "properties": {
         "policyDefinitionId": "/subscriptions/{subId}/providers/Microsoft.Authorization/policyDefinitions/ResourceLimit",
-        "definitionVersion": "1.1",
+        "definitionVersion": "1.1.*",
         "resourceSelectors": [
             {
                 "name": "SDPRegions",
@@ -162,13 +174,13 @@ In the following example scenario, the new policy assignment is evaluated only i
 }
 ```
 
-When you're ready to expand the evaluation scope for your policy, you just have to modify the assignment. The following example shows our policy assignment with two more Azure regions added to the **SDPRegions** selector. Note, in this example, _SDP_ means to _Safe Deployment Practice_:
+When you're ready to expand the evaluation scope for your policy, you just have to update the assignment. The following example shows our policy assignment with two more Azure regions added to the **SDPRegions** selector. Note, in this example, _SDP_ means to _Safe Deployment Practice_:
 
 ```json
 {
     "properties": {
         "policyDefinitionId": "/subscriptions/{subId}/providers/Microsoft.Authorization/policyDefinitions/ResourceLimit",
-        "definitionVersion": "1.1",
+        "definitionVersion": "1.1.*",
         "resourceSelectors": [
             {
                 "name": "SDPRegions",
@@ -209,7 +221,7 @@ A **resource selector** can contain multiple **selectors**. To be applicable to 
 
 ## Overrides
 
-The optional `overrides` property allows you to change the effect of a policy definition without modifying the underlying policy definition or using a parameterized effect in the policy definition.
+The optional `overrides` property allows you to change the effect of a policy definition without changing the underlying policy definition or using a parameterized effect in the policy definition.
 
 The most common use case for overrides is policy initiatives with a large number of associated policy definitions. In this situation, managing multiple policy effects can consume significant administrative effort, especially when the effect needs to be updated from time to time. Overrides can be used to simultaneously update the effects of multiple policy definitions within an initiative.
 
@@ -240,7 +252,7 @@ Let's take a look at an example. Imagine you have a policy initiative named _Cos
 ```
 
 Overrides have the following properties:
-- `kind`: The property the assignment will override. The supported kind is `policyEffect`.
+- `kind`: The property the assignment will override. The supported kind is `policyEffect` and `policyVersion`.
 
 - `value`: The new value that overrides the existing value. The supported values are [effects](effects.md).
 
@@ -290,14 +302,6 @@ after creation of the initial assignment.
 > [!NOTE]
 > An _excluded_ resource is different from an _exempted_ resource. For more information, see
 > [Understand scope in Azure Policy](./scope.md).
-
-## Policy definition ID
-
-This field must be the full path name of either a policy definition or an initiative definition.
-`policyDefinitionId` is a string and not an array. The latest content of the assigned policy
-definition or initiative is retrieved each time the policy assignment is evaluated. It's
-recommended that if multiple policies are often assigned together, to use an
-[initiative](./initiative-definition-structure.md) instead.
 
 ## Non-compliance messages
 
