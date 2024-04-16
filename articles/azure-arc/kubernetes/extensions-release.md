@@ -1,6 +1,6 @@
 ---
 title: "Available extensions for Azure Arc-enabled Kubernetes clusters"
-ms.date: 03/12/2024
+ms.date: 03/22/2024
 ms.topic: how-to
 description: "See which extensions are currently available for Azure Arc-enabled Kubernetes clusters and view release notes."
 ---
@@ -121,6 +121,21 @@ The most recent version of the Flux v2 extension and the two previous versions (
 > [!NOTE]
 > When a new version of the `microsoft.flux` extension is released, it may take several days for the new version to become available in all regions.
 
+### 1.8.3 (March 2024)
+
+Flux version: [Release v2.1.2](https://github.com/fluxcd/flux2/releases/tag/v2.1.2)
+
+- source-controller: v1.1.2
+- kustomize-controller: v1.1.1
+- helm-controller: v0.36.2
+- notification-controller: v1.1.0
+- image-automation-controller: v0.36.1
+- image-reflector-controller: v0.30.0
+
+Changes made for this version:
+
+- The log-level parameters for controllers are now customizable. For more information, see [Configurable log-level parameters](tutorial-use-gitops-flux2.md#configurable-log-level-parameters).
+
 ### 1.8.2 (February 2024)
 
 Flux version: [Release v2.1.2](https://github.com/fluxcd/flux2/releases/tag/v2.1.2)
@@ -152,22 +167,6 @@ Changes made for this version:
 - Upgrades Flux to [v2.1.2](https://github.com/fluxcd/flux2/releases/tag/v2.1.2)
 - Updates to each `fluxConfiguration` status are now relayed back to Azure once every minute, provided there are any changes to report
 
-### 1.8.0 (October 2023)
-
-Flux version: [Release v2.1.1](https://github.com/fluxcd/flux2/releases/tag/v2.1.1)
-
-- source-controller: v1.1.1
-- kustomize-controller: v1.1.0
-- helm-controller: v0.36.1
-- notification-controller: v1.1.0
-- image-automation-controller: v0.36.1
-- image-reflector-controller: v0.30.0
-
-Changes made for this version:
-
-- Upgrades Flux to [v2.1.1](https://github.com/fluxcd/flux2/releases/tag/v2.1.1)
-- Adds support for [AKS clusters with workload identity](tutorial-use-gitops-flux2.md#workload-identity-in-aks-clusters)
-
 ## Dapr extension for Azure Kubernetes Service (AKS) and Arc-enabled Kubernetes
 
 [Dapr](https://dapr.io/) is a portable, event-driven runtime that simplifies building resilient, stateless, and stateful applications that run on the cloud and edge and embrace the diversity of languages and developer frameworks. The Dapr extension eliminates the overhead of downloading Dapr tooling and manually installing and managing the runtime on your clusters.
@@ -176,7 +175,7 @@ For more information, see [Dapr extension for AKS and Arc-enabled Kubernetes](..
 
 ## Azure AI Video Indexer
 
-- **Supported distributions**: AKS enabled by Azure Arc
+- **Supported distributions**: All Cloud Native Computing Foundation (CNCF) certified Kubernetes clusters
 
 Azure AI Video Indexer enabled by Arc runs video and audio analysis on edge devices. The solution is designed to run on Azure Stack Edge Profile, a heavy edge device, and supports many video formats, including MP4 and other common formats. It supports several languages in all basic audio-related models.
 

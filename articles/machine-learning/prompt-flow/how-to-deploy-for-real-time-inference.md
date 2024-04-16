@@ -99,7 +99,7 @@ This step allows you to configure the basic settings of the deployment.
 |Deployment name| - Within the same endpoint, deployment name should be unique. <br> - If you select an existing endpoint, and input an existing deployment name, then that deployment will be overwritten with the new configurations. |
 |Virtual machine| The VM size to use for the deployment. For the list of supported sizes, see [Managed online endpoints SKU list](../reference-managed-online-endpoints-vm-sku-list.md).|
 |Instance count| The number of instances to use for the deployment. Specify the value on the workload you expect. For high availability, we recommend that you set the value to at least 3. We reserve an extra 20% for performing upgrades. For more information, see [managed online endpoints quotas](../how-to-manage-quotas.md#azure-machine-learning-online-endpoints-and-batch-endpoints)|
-|Inference data collection (preview)| If you enable this, the flow inputs and outputs will be auto collected in an Azure Machine Learning data asset, and can be used for later monitoring. To learn more, see [how to monitor generative ai applications.](how-to-monitor-generative-ai-applications.md)|
+|Inference data collection| If you enable this, the flow inputs and outputs will be auto collected in an Azure Machine Learning data asset, and can be used for later monitoring. To learn more, see [how to monitor generative ai applications.](how-to-monitor-generative-ai-applications.md)|
 |Application Insights diagnostics| If you enable this, system metrics during inference time (such as token count, flow latency, flow request, and etc.) will be collected into workspace default Application Insights. To learn more, see [prompt flow serving metrics](#view-prompt-flow-endpoints-specific-metrics-optional).|
 
 
@@ -315,6 +315,12 @@ Select **Metrics** tab in the left navigation. Select **promptflow standard metr
 
 ## Troubleshoot endpoints deployed from prompt flow
 
+### Lack authorization to perform action "Microsoft.MachineLearningService/workspaces/datastores/read"
+
+If your flow contains Index Look Up tool, after deploying the flow, the endpoint needs to access workspace datastore to read MLIndex yaml file or FAISS folder containing chunks and embeddings. Hence, you need to manually grant the endpoint identity permission to do so.
+
+You can either grant the endpoint identity **AzureML Data Scientist** on workspace scope, or a custom role which contains "MachineLearningService/workspace/datastore/reader" action.
+
 ### MissingDriverProgram Error
 
 If you deploy your flow with custom environment and encounter the following error, it might be because you didn't specify the `inference_config` in your custom environment definition.
@@ -335,7 +341,14 @@ If you deploy your flow with custom environment and encounter the following erro
 
 There are 2 ways to fix this error.
 
-1. You can fix this error by adding `inference_config` in your custom environment definition. Learn more about [how to use customized environment](#use-customized-environment).
+- (Recommended) You can find the container image uri in your custom environment detail page, and set it as the flow base image in the flow.dag.yaml file. When you deploy the flow in UI, you just select **Use environment of current flow definition**, and the backend service will create the customized environment based on this base image and `requirement.txt` for your deployment. Learn more about [the environment specified in the flow definition](#use-environment-of-current-flow-definition). 
+
+    :::image type="content" source="./media/how-to-deploy-for-real-time-inference/custom-environment-image-uri.png" alt-text="Screenshot of custom environment detail page. " lightbox = "./media/how-to-deploy-for-real-time-inference/custom-environment-image-uri.png":::
+
+    :::image type="content" source="./media/how-to-deploy-for-real-time-inference/flow-environment-image.png" alt-text="Screenshot of specifying base image in raw yaml file of the flow. " lightbox = "./media/how-to-deploy-for-real-time-inference/flow-environment-image.png":::
+
+
+- You can fix this error by adding `inference_config` in your custom environment definition. Learn more about [how to use customized environment](#use-customized-environment).
 
     Following is an example of customized environment definition.
 
@@ -357,12 +370,6 @@ inference_config:
     port: 8080
     path: /score
 ```
-
-2. You can find the container image uri in your custom environment detail page, and set it as the flow base image in the flow.dag.yaml file. When you deploy the flow in UI, you just select **Use environment of current flow definition**, and the backend service will create the customized environment based on this base image and `requirement.txt` for your deployment. Learn more about [the environment specified in the flow definition](#use-environment-of-current-flow-definition). 
-
-    :::image type="content" source="./media/how-to-deploy-for-real-time-inference/custom-environment-image-uri.png" alt-text="Screenshot of custom environment detail page. " lightbox = "./media/how-to-deploy-for-real-time-inference/custom-environment-image-uri.png":::
-
-    :::image type="content" source="./media/how-to-deploy-for-real-time-inference/flow-environment-image.png" alt-text="Screenshot of specifying base image in raw yaml file of the flow. " lightbox = "./media/how-to-deploy-for-real-time-inference/flow-environment-image.png":::
 
 ### Model response taking too long
 
@@ -398,3 +405,4 @@ If you aren't going use the endpoint after completing this tutorial, you should 
 
 - [Iterate and optimize your flow by tuning prompts using variants](how-to-tune-prompts-using-variants.md)
 - [View costs for an Azure Machine Learning managed online endpoint](../how-to-view-online-endpoints-costs.md)
+- [Troubleshoot prompt flow deployments.](how-to-troubleshoot-prompt-flow-deployment.md)

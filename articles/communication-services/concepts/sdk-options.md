@@ -50,7 +50,7 @@ Publishing locations for individual SDK packages are detailed below.
 | Chat | [npm](https://www.npmjs.com/package/@azure/communication-chat)| [NuGet](https://www.NuGet.org/packages/Azure.Communication.Chat) | [PyPi](https://pypi.org/project/azure-communication-chat/) | [Maven](https://search.maven.org/search?q=a:azure-communication-chat) | [GitHub](https://github.com/Azure/azure-sdk-for-ios/releases)| [Maven](https://search.maven.org/search?q=a:azure-communication-chat) | -|
 | SMS| [npm](https://www.npmjs.com/package/@azure/communication-sms) | [NuGet](https://www.NuGet.org/packages/Azure.Communication.Sms)| [PyPi](https://pypi.org/project/azure-communication-sms/) | [Maven](https://search.maven.org/artifact/com.azure/azure-communication-sms) | -| -| -|
 | Email| [npm](https://www.npmjs.com/package/@azure/communication-email) | [NuGet](https://www.NuGet.org/packages/Azure.Communication.Email)| [PyPi](https://pypi.org/project/azure-communication-email/) | [Maven](https://search.maven.org/artifact/com.azure/azure-communication-email) | -| -| -|
-| Calling| [npm](https://www.npmjs.com/package/@azure/communication-calling) | [NuGet](https://www.nuget.org/packages/Azure.Communication.Calling.WindowsClient) | -| - | [GitHub](https://github.com/Azure/Communication/releases) | [Maven](https://search.maven.org/artifact/com.azure.android/azure-communication-calling/)| -|
+| Calling| [npm](https://www.npmjs.com/package/@azure/communication-calling) | [NuGet](https://github.com/Azure/Communication/blob/master/releasenotes/acs-calling-windowsclient-sdk-release-notes.md) | -| - | [CocoaPods](https://github.com/Azure/Communication/releases) | [Maven](https://github.com/Azure/Communication/blob/master/releasenotes/acs-calling-android-sdk-release-notes.md)| -|
 |Call Automation|[npm](https://www.npmjs.com/package/@azure/communication-call-automation)|[NuGet](https://www.NuGet.org/packages/Azure.Communication.CallAutomation/)|[PyPi](https://pypi.org/project/azure-communication-callautomation/)|[Maven](https://search.maven.org/artifact/com.azure/azure-communication-callautomation)
 |Job Router|[npm](https://www.npmjs.com/package/@azure-rest/communication-job-router)|[NuGet](https://www.NuGet.org/packages/Azure.Communication.JobRouter/)|[PyPi](https://pypi.org/project/azure-communication-jobrouter/)|[Maven](https://search.maven.org/artifact/com.azure/azure-communication-jobrouter)
 |Network Traversal| [npm](https://www.npmjs.com/package/@azure/communication-network-traversal)|[NuGet](https://www.NuGet.org/packages/Azure.Communication.NetworkTraversal/) | [PyPi](https://pypi.org/project/azure-communication-networktraversal/) | [Maven](https://search.maven.org/search?q=a:azure-communication-networktraversal) | -|- | - |
@@ -61,10 +61,18 @@ Publishing locations for individual SDK packages are detailed below.
 
 ### SDK platform support details
 
-#### iOS and Android
+#### Android Calling SDK support
 
-- Communication Services iOS SDKs target iOS version 13+, and Xcode 11+.
-- Android Java SDKs target Android API level 21+ and Android Studio 4.0+
+- Support for Android API Level 21 or Higher
+- Support for Java 7 or higher
+- Support for Android Studio 2.0
+- **Android Auto (AAOS)** and **IoT devices running Android** are currently not supported
+
+#### iOS Calling SDK support
+
+- Support for iOS 10.0+ at build time, and iOS 12.0+ at run time
+- Xcode 12.0+
+- Support for **iPadOS** 13.0+
 
 #### .NET
 

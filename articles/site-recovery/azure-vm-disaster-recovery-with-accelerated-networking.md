@@ -8,13 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/07/2024
 ms.author: ankitadutta
-ms.custom: engagement-fy23
-
+ms.custom: engagement-fy23, linux-related-content
 ---
 # Accelerated Networking with Azure virtual machine disaster recovery
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 Accelerated Networking enables single root I/O virtualization (SR-IOV) to a VM, greatly improving its networking performance. This high-performance path bypasses the host from the datapath, reducing latency, jitter, and CPU utilization, for use with the most demanding network workloads on supported VM types. The following picture shows communication between two VMs with and without accelerated networking:
 
@@ -87,6 +86,7 @@ If you have enabled Accelerated Networking on the source virtual machine after e
 The above process should also be followed for existing replicated virtual machines that didn't previously have Accelerated Networking enabled automatically by Site Recovery.
 
 ## Next steps
+
 - Learn more about [benefits of Accelerated Networking](../virtual-network/accelerated-networking-overview.md#benefits).
 - Learn more about limitations and constraints of Accelerated Networking for [Windows virtual machines](../virtual-network/accelerated-networking-overview.md#limitations-and-constraints) and [Linux virtual machines](../virtual-network/accelerated-networking-overview.md#limitations-and-constraints).
 - Learn more about [recovery plans](site-recovery-create-recovery-plans.md) to automate application failover.

@@ -19,9 +19,9 @@ You can learn more about Defender for Container's pricing on the [pricing page](
 
 - You must [enable Microsoft Defender for Cloud](get-started.md#enable-defender-for-cloud-on-your-azure-subscription) on your Azure subscription.
 
-- Ensure the [required Fully Qualified Domain Names (FQDN)/application](../aks/limit-egress-traffic.md) endpoints are configured for outbound access so the Defender agent can connect to Microsoft Defender for Cloud to send security data and events.
+- Ensure the [required Fully Qualified Domain Names (FQDN)/application](../aks/limit-egress-traffic.md) endpoints are configured for outbound access so the Defender sensor can connect to Microsoft Defender for Cloud to send security data and events.
 
-    > [!Note]
+    > [!NOTE]
     > By default, AKS clusters have unrestricted outbound (egress) internet access.
 
 ## Enable the Defender for Containers plan
@@ -46,14 +46,14 @@ If you would prefer to [assign a custom workspace](defender-for-containers-enabl
 
 1. Select **Save**.
 
-## Deploy the Defender agent in Azure
+## Deploy the Defender sensor in Azure
 
 > [!NOTE]
 > To enable or disable individual Defender for Containers capabilities, either globally or for specific resources, see [How to enable Microsoft Defender for Containers components](defender-for-containers-enable.md).
 
-You can enable the Defender for Containers plan and deploy all of the relevant components in different ways. We walk you through the steps to accomplish this using the Azure portal. Learn how to [deploy the Defender agent](defender-for-containers-enable.md#deploy-the-defender-agent) with REST API, Azure CLI or with a Resource Manager template.
+You can enable the Defender for Containers plan and deploy all of the relevant components in different ways. We walk you through the steps to accomplish this using the Azure portal. Learn how to [deploy the Defender sensor](defender-for-containers-enable.md#deploy-the-defender-sensor) with REST API, Azure CLI or with a Resource Manager template.
 
-**To deploy the Defender agent in Azure:**
+**To deploy the Defender sensor in Azure:**
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 

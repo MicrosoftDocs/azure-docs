@@ -6,6 +6,7 @@ author: MSSedusch
 manager: juergent
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
+ms.custom: linux-related-content
 ms.topic: article
 ms.date: 06/14/2023
 ms.author: sedusch

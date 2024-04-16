@@ -78,7 +78,7 @@ For information about the availability of free tier services after you upgrade t
 
 If you're unable to view data for a particular subscription, you can verify whether this subscription is included in the list of supported offers. To validate an Azure subscription is supported, sign in to the Azure portal. Then select **All Services** in the left menu pane. In the list of services, select **Subscriptions**. In the subscription list menu, select the subscription that you want to verify. Your subscription is shown on the Overview tab and you can see the **Offer** and **Offer ID**. The following image shows an example.
 
-![Example of the Subscription Overview tab showing Offer and Offer ID](./media/understand-cost-mgt-data/offer-and-offer-id.png)
+:::image type="content" border="true" source="./media/understand-cost-mgt-data/offer-and-offer-id.png" alt-text="Screenshot showing the Subscription Overview tab with Offer and Offer ID.":::
 
 ## Costs included in Cost Management
 

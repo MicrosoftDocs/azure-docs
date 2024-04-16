@@ -79,7 +79,9 @@ sections:
           In the Azure portal, navigate to **Cost Management + Billing** > Overview. Select the **Breakdown** link.
       - question: How can I view my Amazon Web Services (AWS) cost in Cost Management?
         answer: |
-          See [Set up and configure AWS Cost and Usage report integration](costs/aws-integration-set-up-configure.md).
+          See [Set up and configure AWS Cost and Usage report integration](costs/aws-integration-set-up-configure.md).  
+          >[!NOTE]
+          > The Connector for AWS in the Cost Management service retires on March 31, 2025. Users should consider alternative solutions for AWS cost management reporting. On March 31, 2024, Azure will disable the ability to add new Connectors for AWS for all customers. For more information, see [Retire your Amazon Web Services (AWS) connector](costs/retire-aws-connector.md).
       - question: How do I create a budget?
         answer: |
           See the [Create and manage budgets](costs/tutorial-acm-create-budgets.md) tutorial.

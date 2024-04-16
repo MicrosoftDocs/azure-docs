@@ -30,7 +30,7 @@ Synchronously translate a single document.
 `POST`:
 
 ```bash
-{your-document-translation-endpoint}/translator/document:translate?sourceLanguage=en&targetLanguage=hi&api-version=2023-11-01-preview
+curl -i -X POST "{your-document-translation-endpoint}/translator/document:translate?sourceLanguage=en&targetLanguage=hi&api-version=2023-11-01-preview" -H "Ocp-Apim-Subscription-Key:{your-key}"  -F "document={path-to-your-document-with-file-extension};type={ContentType}/{file-extension}" -F "glossary={path-to-your-glossary-with-file-extension};type={ContentType}/{file-extension}" -o "{path-to-output-file}"
 
 ```
 

@@ -110,7 +110,7 @@ Use Defender for Cloud's [continuous export](continuous-export.md) feature to co
 
 Learn more in [Stream alerts to monitoring solutions](export-to-siem.md).
 
-This can also be done at the Management Group level using Azure Policy, see [Create continuous export automation configurations at scale](continuous-export.md#configure-continuous-export-from-the-defender-for-cloud-pages-in-azure-portal).
+This can also be done at the Management Group level using Azure Policy, see [Create continuous export automation configurations at scale](continuous-export.md).
 
 > [!TIP]
 > To view the event schemas of the exported data types, visit the [Event Hub event schemas](https://aka.ms/ASCAutomationSchemas).

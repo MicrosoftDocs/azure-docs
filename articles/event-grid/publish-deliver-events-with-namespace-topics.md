@@ -1,5 +1,5 @@
 ---
-title: Publish and deliver events using namespace topics
+title: Deliver events to Azure Event Hubs using push model (CLI)
 description: This article provides step-by-step instructions to publish to Azure Event Grid in the CloudEvents JSON format and deliver those events by using the push delivery model.
 ms.topic: quickstart
 ms.custom: ignite-2023, devx-track-azurecli
@@ -8,7 +8,7 @@ author: robece
 ms.date: 02/20/2024
 ---
 
-# Publish and deliver events using namespace topics (preview)
+# Deliver events to Azure Event Hubs using namespace topics - Azure CLI (preview)
 
 The article provides step-by-step instructions to publish events to Azure Event Grid in the [CloudEvents JSON format](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/formats/json-format.md) and deliver those events by using the push delivery model. To be specific, you use Azure CLI and Curl to publish events to a namespace topic in Event Grid and push those events from an event subscription to an Event Hubs handler destination. For more information about the push delivery model, see [Push delivery overview](push-delivery-overview.md).
 
@@ -23,7 +23,7 @@ The article provides step-by-step instructions to publish events to Azure Event 
 
 - Use the Bash environment in [Azure Cloud Shell](/azure/cloud-shell/overview). For more information, see [Quickstart for Bash in Azure Cloud Shell](/azure/cloud-shell/quickstart).
 
-   [:::image type="icon" source="~/articles/reusable-content/ce-skilling/azure/media/cloud-shell/launch-cloud-shell-button.png" alt-text="Launch Azure Cloud Shell" :::](https://shell.azure.com)
+   [:::image type="icon" source="~/reusable-content/ce-skilling/azure/media/cloud-shell/launch-cloud-shell-button.png" alt-text="Launch Azure Cloud Shell" :::](https://shell.azure.com)
 
 - If you prefer to run CLI reference commands locally, [install](/cli/azure/install-azure-cli) the Azure CLI. If you're running on Windows or macOS, consider running Azure CLI in a Docker container. For more information, see [How to run the Azure CLI in a Docker container](/cli/azure/run-azure-cli-docker).
 
@@ -133,6 +133,9 @@ To deliver events to event hubs in your Event Hubs namespace using managed ident
 1. [Add the identity to the **Azure Event Hubs Data Sender** role  on the Event Hubs namespace](../event-hubs/authenticate-managed-identity.md#to-assign-azure-roles-using-the-azure-portal), continue reading to the next section to find how to add the role assignment.
 1. [Enable the **Allow trusted Microsoft services to bypass this firewall** setting on your Event Hubs namespace](../event-hubs/event-hubs-service-endpoints.md#trusted-microsoft-services).
 1. Configure the event subscription that uses an event hub as an endpoint to use the system-assigned or user-assigned managed identity.
+
+> [!NOTE]
+> Delivering events to Azure Event Hubs is currently in preview. 
 
 ## Enable managed identity in the Event Grid namespace
 

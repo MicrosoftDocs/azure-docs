@@ -1,11 +1,13 @@
 ---
 title: Create Azure Monitor log search alert rules
-description: This article shows you how to create a new log search alert rule.
+description: This article explains how to create a new Azure Monitor log search alert rule or edit an existing rule.
 author: AbbyMSFT
 ms.author: abbyweisberg
 ms.topic: how-to
 ms.date: 02/28/2024
 ms.reviewer: nolavime
+
+#Customer intent: As a customer, I want to create a new log search alert rule or edit an existing rule so that I can monitor my resources and receive alerts when certain conditions are met.
 ---
 
 # Create or edit a log search alert rule
@@ -18,28 +20,36 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
 
 [!INCLUDE [alerts-wizard-access](../includes/alerts-wizard-access.md)]
 
+### Edit an existing alert rule
+
+1. In the [portal](https://portal.azure.com/), either from the home page or from a specific resource, select **Alerts** from the left pane.
+1. Select **Alert rules**.
+1. Select the alert rule you want to edit, and then select **Edit**.
+
+    :::image type="content" source="media/alerts-create-log-alert-rule/alerts-edit-log-search-alert-rule.png" alt-text="Screenshot that shows steps to edit an existing log search alert rule.":::
+1. Select any of the tabs for the alert rule to edit the settings.
+
 [!INCLUDE [alerts-wizard-scope](../includes/alerts-wizard-scope.md)]
 
 ## Configure the alert rule conditions
 
-1. On the **Condition** tab, when you select the **Signal name** field, the most commonly used signals are displayed in the drop-down list. Select one of these popular signals, or select **See all signals** if you want to choose a different signal for the condition.
-
-    :::image type="content" source="media/alerts-create-new-alert-rule/alerts-popular-signals.png" alt-text="Screenshot that shows popular signals when creating an alert rule.":::
+1. On the **Condition** tab, when you select the **Signal name** field, select **Custom log search**, or select **See all signals** if you want to choose a different signal for the condition.
 
 1. (Optional) If you chose to **See all signals** in the previous step, use the **Select a signal** pane to search for the signal name or filter the list of signals. Filter by:
-    - **Signal type**: The [type of alert rule](alerts-overview.md#types-of-alerts) you're creating.
+    - **Signal type**: Select **Log search**.
     - **Signal source**: The service that sends the "Custom log search" and "Log (saved query)" signals.
     Select the **Signal name** and **Apply**.
 
 1.  On the **Logs** pane, write a query that returns the log events for which you want to create an alert. To use one of the predefined alert rule queries, expand the **Schema and filter** pane on the left of the **Logs** pane. Then select the **Queries** tab, and select one of the queries.
 
-    > [!NOTE]
-    > * Log search alert rule queries do not support the 'bag_unpack()', 'pivot()' and 'narrow()' plugins.
-    > * The word "AggregatedValue" is a reserved word, it cannot be used in the query on Log search Alerts rules.
+Limitations for log search alert rule queries:
+ - Log search alert rule queries do not support the 'bag_unpack()', 'pivot()' and 'narrow()' plugins.
+ - The word "AggregatedValue" is a reserved word, it cannot be used in the query on Log search Alerts rules.
+ - The combined size of all data in the log alert rule properties cannot exceed 64KB.
 
     :::image type="content" source="media/alerts-create-new-alert-rule/alerts-log-rule-query-pane.png" alt-text="Screenshot that shows the Query pane when creating a new log search alert rule.":::
       
-1. (Optional) If you're querying an ADX or ARG cluster, Log Analytics can't automatically identify the column with the event timestamp, so we recommend that you add a time range filter to the query. For example:
+1. (Optional) If you're querying an ADX or ARG cluster, Log Analytics can't automatically identify the column with the event timestamp. We recommend that you add a time range filter to the query. For example:
 
     ```KQL
         adx('https://help.kusto.windows.net/Samples').table    
@@ -54,9 +64,9 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
 
     :::image type="content" source="media/alerts-create-new-alert-rule/alerts-logs-conditions-tab.png" alt-text="Screenshot that shows the Condition tab when creating a new log search alert rule.":::
 
-    For sample log search alert queries that query ARG or ADX, see [Log search alert query samples](./alerts-log-alert-query-samples.md)
+    For sample log search alert queries that query ARG or ADX, see [Log search alert query samples](./alerts-log-alert-query-samples.md).
 
-   For limitations:
+   These are the limitations for using cross queries:
    * [Cross-service query limitations](../logs/azure-monitor-data-explorer-proxy.md#limitations)
    * [Combine Azure Resource Graph tables with a Log Analytics workspace](../logs/azure-monitor-data-explorer-proxy.md#combine-azure-resource-graph-tables-with-a-log-analytics-workspace)
    * Not supported in government clouds
@@ -126,13 +136,13 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
 
     Select values for these fields under **Number of violations to trigger the alert**:
 
-    |Field  |Description  |
-    |---------|---------|
-    |Number of violations|The number of violations that trigger the alert.|
-    |Evaluation period|The time period within which the number of violations occur. |
-    |Override query time range| If you want the alert evaluation period to be different than the query time range, enter a time range here.<br> The alert time range is limited to a maximum of two days. Even if the query contains an **ago** command with a time range of longer than two days, the two-day maximum time range is applied. For example, even if the query text contains **ago(7d)**, the query only scans up to two days of data. If the query requires more data than the alert evaluation you can change the time range manually. If the query contains **ago** command, it will be changed automatically to 2 days (48 hours).|
-
-    > [!NOTE]
+   |Field  |Description  |
+   |---------|---------|
+   |Number of violations|The number of violations that trigger the alert.|
+   |Evaluation period|The time period within which the number of violations occur. |
+   |Override query time range| If you want the alert evaluation period to be different than the query time range, enter a time range here.<br> The alert time range is limited to a maximum of two days. Even if the query contains an **ago** command with a time range of longer than two days, the two-day maximum time range is applied. For example, even if the query text contains **ago(7d)**, the query only scans up to two days of data. If the query requires more data than the alert evaluation, you can change the time range manually. If the query contains an **ago** command, it will be changed automatically to 2 days (48 hours).|
+   
+   > [!NOTE]
     > If you or your administrator assigned the Azure Policy **Azure Log Search Alerts over Log Analytics workspaces should use customer-managed keys**, you must select **Check workspace linked storage**. If you don't, the rule creation will fail because it won't meet the policy requirements.
 
 1. The **Preview** chart shows query evaluations results over time. You can change the chart period or select different time series that resulted from a unique alert splitting by dimensions.
@@ -156,6 +166,8 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
 
     1. Select the **Severity**.
     1. Enter values for the **Alert rule name** and the **Alert rule description**.
+       > [!NOTE]
+       > Notice that rule that uses **Identity** cannot have the character ";" in the **Alert rule name**
     1. Select the **Region**.
     1. <a name="managed-id"></a>In the **Identity** section, select which identity is used by the log search alert rule to send the log query. This identity is used for authentication when the alert rule executes the log query.
 

@@ -70,7 +70,7 @@ With the introduction of [**custom classification models**](./concept-custom-cla
 
 * With models composed using v2.1 of the API continues to be supported, requiring no updates.
 
-* For custom models, the maximum number that can be composed is 100.
+* For custom models, the maximum number that can be composed is 200.
 
 ::: moniker-end
 

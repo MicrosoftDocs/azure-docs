@@ -6,7 +6,7 @@ ms.reviewer: adwise
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.topic: how-to
-ms.date: 12/06/2022
+ms.date: 03/21/2024
 ms.author: banders
 ---
 
@@ -52,7 +52,7 @@ Using an [Azure Automation runbook](../../automation/automation-runbook-types.md
 1. Locate and select the [Stop Azure V2 VMs](https://github.com/azureautomation/stop-azure-v2-vms) gallery item within the Azure portal.
 1. Select **Import** to display the **Import** area and select **OK**. The runbook overview area will be displayed.
 1. Once the runbook has completed the import process, select **Edit** to display the graphical runbook editor and publishing option.  
-    ![Azure - Edit graphical runbook](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-01.png)
+    :::image type="content" border="true" source="./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-01.png" alt-text="Screenshot showing Edit graphical runbook.":::
 1. Select **Publish** to publish the runbook and then select **Yes** when prompted. When you publish a runbook, you override any existing published version with the draft version. In this case, you've no published version because you've created the runbook.
     For more information about publishing a runbook, see [Create a graphical runbook](../../automation/learn/powershell-runbook-managed-identity.md).
 
@@ -79,7 +79,7 @@ Using the [Stop Azure V2 VMs](https://github.com/azureautomation/stop-azure-v2-v
 
 You should now have two configured webhooks that are each available using the URLs that you saved.
 
-![Webhooks - Optional and Complete](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-02.png)
+:::image type="content" border="true" source="./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-02.png" alt-text="Screenshot showing Webhooks.":::
 
 You're now done with the Azure Automation setup. You can test the webhooks with a simple Postman test to validate that the webhook works. Next, you must create the Logic App for orchestration.
 
@@ -105,9 +105,9 @@ The logic app will perform several actions. The following list provides a high-l
 The following steps are needed to create the logic app that will perform the above steps:
 
 1. In the [Azure portal](https://portal.azure.com/), select **Create a resource** > **Integration** > **Logic App**.  
-    ![Azure - Select the Logic App resource](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-03.png)
+    :::image type="content" border="true" source="./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-03.png" alt-text="Screenshot showing Select the Logic App resource.":::
 1. In the **Create logic app** area, provide the details need to create your logic app, select **Pin to dashboard**, and select **Create**.  
-    ![Azure - Create a Logic App](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-03a.png)
+    :::image type="content" border="true" source="./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-03a.png" alt-text="Screenshot showing Create a Logic App.":::
 
 After Azure deploys your logic app, the **Logic Apps Designer** opens and shows an area with an introduction video and commonly used triggers.
 
@@ -117,18 +117,18 @@ Every logic app must start with a trigger, which fires when a specific event hap
 
 1. Under **Templates** of the **Logic Apps Designer** area, choose **Blank Logic App**.
 1. Add a [trigger](../../logic-apps/logic-apps-overview.md#logic-app-concepts) by entering "http request" in the **Logic Apps Designer** search box to find and select the trigger named **Request – When an HTTP request is received**.  
-    ![Azure - Logic app - Http trigger](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-04.png)
+    :::image type="content" border="true" source="./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-04.png" alt-text="Screenshot showing the When an HTTP request is received trigger.":::
 1. Select **New step** > **Add an action**.  
-    ![Azure - New step - Add an action](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-05.png)
+    :::image type="content" border="true" source="./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-05.png" alt-text="Screenshot showing New step - Add an action.":::
 1. Search for "parse JSON" in the **Logic Apps Designer** search box to find and select the **Data Operations - Parse JSON** [action](../../logic-apps/logic-apps-overview.md#logic-app-concepts).  
-    ![Azure - Logic app - Add parse JSON action](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-06.png)
+    :::image type="content" border="true" source="./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-06.png" alt-text="Screenshot showing data operations - parse JSON.":::
 1. Enter "Payload" as the **Content** name for the Parse JSON payload or use the "Body" tag from dynamic content.
 1. Select the **Use sample payload to generate schema** option in the **Parse JSON** box.  
-    ![Azure - Logic app - Use sample JSON data to generate schema](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-07.png)
+    :::image type="content" border="true" source="./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-07.png" alt-text="Screenshot showing Use sample JSON data to generate schema payload.":::
 1. Paste the following JSON sample payload into the textbox:
     `{"schemaId":"AIP Budget Notification","data":{"SubscriptionName":"CCM - Microsoft Azure Enterprise - 1","SubscriptionId":"<GUID>","SpendingAmount":"100","BudgetStartDate":"6/1/2018","Budget":"50","Unit":"USD","BudgetCreator":"email@contoso.com","BudgetName":"BudgetName","BudgetType":"Cost","ResourceGroup":"","NotificationThresholdAmount":"0.8"}}`
     The textbox will appear as:  
-    ![Azure - Logic app - The sample JSON payload](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-08.png)
+    :::image type="content" border="true" source="./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-08.png" alt-text="Screenshot showing sample JSON payload.":::
 1. Select **Done**.
 
 ### Add the first conditional action
@@ -136,19 +136,19 @@ Every logic app must start with a trigger, which fires when a specific event hap
 Use a conditional statement to check whether the threshold amount has reached 80% or more of the budget range, but not greater than or equal to 100%. If this threshold amount has been reached, send an HTTP POST using the webhook named **Optional**. This action will shut down the VMs in the **Optional** group.
 
 1. Select **New step** > **Add a condition**.  
-    ![Azure - Logic app - Add a condition](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-09.png)
+    :::image type="content" border="true" source="./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-09.png" alt-text="Screenshot showing Add a condition.":::
 1. In the **Condition** box, select the textbox containing `Choose a value` to display a list of available values.  
-    ![Azure - Logic app - Condition box](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-10.png)
+    :::image type="content" border="true" source="./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-10.png" alt-text="Screenshot showing Choose a value condition.":::
 1. Select **Expression** at the top of the list and enter the following expression in the expression editor:
     `float()`  
-    ![Azure - Logic app - Float expression](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-11.png)
+    :::image type="content" border="true" source="./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-11.png" alt-text="Screenshot showing the Float expression.":::
 1. Select **Dynamic content**, place the cursor inside the parenthesis (), and select **NotificationThresholdAmount** from the list to populate the complete expression.
     The expression will be:<br>
     `float(body('Parse_JSON')?['data']?['NotificationThresholdAmount'])`
 1. Select **OK** to set the expression.
 1. Select **is greater than or equal to** in the dropdown box of the **Condition**.
 1. In the **Choose a value** box of the condition, enter `.8`.  
-    ![Screenshot shows the Condition dialog box with values selected.](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-12.png)
+    :::image type="content" border="true" source="./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-12.png" alt-text="Screenshot showing the Condition dialog box with values selected.":::
 1. Select **Add** > **Add row** within the Condition box to add another part of the condition.
 1. In the **Condition** box, select the textbox containing `Choose a value`.
 1. Select **Expression** at the top of the list and enter the following expression in the expression editor:
@@ -157,30 +157,30 @@ Use a conditional statement to check whether the threshold amount has reached 80
 1. Select **OK** to set the expression.
 1. Select **is less than** in the dropdown box of the **Condition**.
 1. In the **Choose a value** box of the condition, enter `1`.  
-    ![Screenshot shows the Condition dialog box with two conditions.](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-13.png)
+    :::image type="content" border="true" source="./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-13.png" alt-text="Screenshot showing the Condition dialog box with two conditions.":::
 1. In the **If true** box, select **Add an action**. You'll add an HTTP POST action that will shut down optional VMs.  
-    ![Azure - Logic app - Add an action](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-14.png)
+    :::image type="content" border="true" source="./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-14.png" alt-text="Screenshot showing Add an action.":::
 1. Enter **HTTP** to search for the HTTP action and select the **HTTP – HTTP** action.  
-    ![Azure - Logic app - Add HTTP action](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-15.png)
+    :::image type="content" border="true" source="./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-15.png" alt-text="Screenshot showing Add HTTP action.":::
 1. Select **Post** for the **Method** value.
 1. Enter the URL for the webhook named **Optional** that you created earlier in this tutorial as the **Uri** value.  
-    ![Azure - Logic app - HTTP action URI](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-16.png)
+    :::image type="content" border="true" source="./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-16.png" alt-text="Screenshot showing the HTTP action URI.":::
 1. Select **Add an action** in the **If true** box. You'll add an email action that will send an email notifying the recipient that the optional VMs have been shut down.
 1. Search for "send email" and select a *send email* action based on the email service you use.  
-    ![Azure - Logic app - Send email action](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-17.png)
+    :::image type="content" border="true" source="./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-17.png" alt-text="Screenshot showing the Send email action.":::
 
     For personal Microsoft accounts, select **Outlook.com**. For Azure work or school accounts, select **Office 365 Outlook**. If you don't already have a connection, you're asked to sign in to your email account. Logic Apps creates a connection to your email account.
     You'll need to allow the Logic App to access your email information.  
-    ![Azure - Logic app - Access notice](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-18.png)
+    :::image type="content" border="true" source="./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-18.png" alt-text="Screenshot showing the access notice.":::
 1. Add the **To**, **Subject**, and **Body** text for the email that notifies the recipient that the optional VMs have been shut down. Use the **BudgetName** and the **NotificationThresholdAmount** dynamic content to populate the subject and body fields. 
-    ![Azure - Logic app - Email details](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-19.png)
+    :::image type="content" border="true" source="./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-19.png" alt-text="Screenshot showing Email details.":::
 
 ### Add the second conditional action
 
 Use a conditional statement to check whether the threshold amount has reached or exceeded 100% of the budget value. If the threshold amount has been reached, send an HTTP POST using the webhook named **Complete**. This action will shut down all remaining VMs.
 
 1. Select **New step** > **Add a Condition**.  
-    ![Screenshot shows the If true dialog box with Add an action called out.](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-20.png)
+    :::image type="content" border="true" source="./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-20.png" alt-text="Screenshot showing the If true dialog box with Add an action called out.":::
 1. In the **Condition** box, select the textbox containing `Choose a value` to display a list of available values.
 1. Select **Expression** at the top of the list and enter the following expression in the expression editor:
     `float()`
@@ -190,24 +190,24 @@ Use a conditional statement to check whether the threshold amount has reached or
 1. Select **OK** to set the expression.
 1. Select **is greater than or equal to** in the dropdown box of the **Condition**.
 1. In the **Choose a value box** for the condition, enter `1`.  
-    ![Azure - Logic app - Set condition value](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-21.png)
+    :::image type="content" border="true" source="./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-21.png" alt-text="Screenshot showing the Set condition value.":::
 1. In the **If true** box, select **Add an action**. You'll add an HTTP POST action that will shut down all the remaining VMs.  
-    ![Screenshot shows the If true dialog box with where you can add an H T T P POST action.](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-22.png)
+    :::image type="content" border="true" source="./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-22.png" alt-text="Screenshot showing the If true dialog box with where you can add an H T T P POST action.":::
 1. Enter **HTTP** to search for the HTTP action and select the **HTTP – HTTP** action.
 1. Select **Post** as the **Method** value.
 1. Enter the URL for the webhook named **Complete** that you created earlier in this tutorial as the **Uri** value.  
-    ![Screenshot shows the H T T P dialog box where you can enter the U R L value.](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-23.png)
+    :::image type="content" border="true" source="./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-23.png" alt-text="Screenshot showing the H T T P dialog box where you can enter the U R L value.":::
 1. Select **Add an action** in the **If true** box. You'll add an email action that will send an email notifying the recipient that the remaining VMs have been shut down.
 1. Search for "send email" and select a *send email* action based on the email service you use.
 1. Add the **To**, **Subject**, and **Body** text for the email that notifies the recipient that the optional VMs have been shut down. Use the **BudgetName** and the **NotificationThresholdAmount** dynamic content to populate the subject and body fields.  
-    ![Azure - Logic app - Send email details](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-24.png)
+    :::image type="content" border="true" source="./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-24.png" alt-text="Screenshot showing the email details that you configured.":::
 1. Select **Save** at the top of the **Logic App Designer** area.
 
 ### Logic App summary
 
 Here's what your Logic App looks like once you're done. In the most basic of scenarios where you don't need any threshold-based orchestration, you could directly call the automation script from **Monitor** and skip the **Logic App** step.
 
-![Azure - Logic app - Complete view](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-25.png)
+:::image type="content" border="true" source="./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-25.png" alt-text="Screenshot showing the Logic app - complete view.":::
 
 When you saved your logic app, a URL was generated that you'll be able to call. You'll use this URL in the next section of this tutorial.
 
@@ -229,7 +229,7 @@ When you create the action group, you'll point to the Logic App that you created
     - Short name
     - Subscription
     - Resource group  
-    ![Azure - Logic app - Add an action group](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-26.png)
+    :::image type="content" border="true" source="./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-26.png" alt-text="Screenshot showing Add an action group.":::
 1. Within the **Add action group** pane, add a LogicApp action. Name the action **Budget-BudgetLA**. In the **Logic App** pane, select the **Subscription** and the **Resource group**. Then, select the **Logic app** that you created earlier in this tutorial.
 1. Select **OK** to set the Logic App. Then, select **OK** in the **Add action group** pane to create the action group.
 
@@ -262,9 +262,9 @@ Next, you'll configure **Postman** to create a budget by calling the Azure Consu
 
 1. Download and open the [Postman REST client](https://www.getpostman.com/) to execute the REST APIs.
 1. In Postman, create a new request.  
-    ![Postman - Create a new request](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-27.png)
+    :::image type="content" border="true" source="./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-27.png" alt-text="Screenshot showing create a new request in Postman.":::
 1. Save the new request as a collection, so that the new request has nothing on it.  
-    ![Postman - Save the new request](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-28.png)
+    :::image type="content" border="true" source="./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-28.png" alt-text="Screenshot showing save the new request in Postman.":::
 1. Change the request from a `Get` to a `Put` action.
 1. Modify the following URL by replacing `{subscriptionId}` with the **Subscription ID** that you used in the previous section of this tutorial. Also, modify the URL to include "SampleBudget" as the value for `{budgetName}`:
     `https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Consumption/budgets/{budgetName}?api-version=2018-03-31`
