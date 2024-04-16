@@ -19,7 +19,7 @@ You must purchase a license for the NVA from the NVA vendor. Bring-your-own lice
 
 ### Can I deploy an NVA to a Basic hub?
 
-No. You must use a Standard hub if you want to deploy an NVA.
+No, you must use a Standard hub if you want to deploy an NVA.
 
 ### Can I deploy an NVA into a Secure hub?
 
@@ -27,7 +27,7 @@ Yes. Partner NVAs can be deployed into a hub with Azure Firewall.
 
 ### Can I connect any device in my branch office to my NVA in the hub?
 
-No. Barracuda CloudGen WAN is only compatible with Barracuda edge devices. To learn more about CloudGen WAN requirements, see [Barracuda's CloudGen WAN page](https://www.barracuda.com/products/cloudgenwan). For Cisco, there are several SD-WAN devices that are compatible. See [Cisco Cloud OnRamp for Multi-Cloud](https://www.cisco.com/c/en/us/td/docs/routers/sdwan/configuration/cloudonramp/ios-xe-17/cloud-onramp-book-xe/cloud-onramp-multi-cloud.html#Cisco_Concept.dita_c61e0e7a-fff8-4080-afee-47b81e8df701) documentation for compatible devices. Reach out to your provider with any questions.
+No,  Barracuda CloudGen WAN is only compatible with Barracuda edge devices. To learn more about CloudGen WAN requirements, see [Barracuda's CloudGen WAN page](https://www.barracuda.com/products/cloudgenwan). For Cisco, there are several SD-WAN devices that are compatible. See [Cisco Cloud OnRamp for Multi-Cloud](https://www.cisco.com/c/en/us/td/docs/routers/sdwan/configuration/cloudonramp/ios-xe-17/cloud-onramp-book-xe/cloud-onramp-multi-cloud.html#Cisco_Concept.dita_c61e0e7a-fff8-4080-afee-47b81e8df701) documentation for compatible devices. Reach out to your provider with any questions.
 
 ### What routing scenarios are supported with NVA in the hub?
 
@@ -41,7 +41,7 @@ For supported regions, see [NVA supported regions](../articles/virtual-wan/about
 
 If the Network Virtual Appliance resource was deployed via a Managed Application, delete the Managed Application. Deleting the Managed Application automatically deletes the Managed Resource Group and associated Network Virtual Appliance resource.
 
-You can't delete a NVA that is the next hop resource for a Routing Policy. To delete the NVA, first delete the Routing Policy.
+You can't delete an NVA that is the next hop resource for a Routing Policy. To delete the NVA, first delete the Routing Policy.
 
 If the Network Virtual Appliance resource was deployed via partner orchestration software, reference partner documentation to delete the Network Virtual Appliance.
 
