@@ -26,11 +26,11 @@ To create a custom avatar endpoint, follow these steps:
 
 1. Sign in to [Speech Studio](https://speech.microsoft.com/portal).
 1. Navigate to **Custom Avatar** > Your project name > **Train model**.
-1. All available models are listed on the **Train model** page. Click on a model link to view more information, such as the created date and a preview image of the custom avatar.
-1. Select a model that you would like to deploy, then click the **Deploy model** button above the list.
+1. All available models are listed on the **Train model** page. Select a model link to view more information, such as the created date and a preview image of the custom avatar.
+1. Select a model that you would like to deploy, then select the **Deploy model** button above the list.
 1. Confirm the deployment to create your endpoint.
 
-Once your model is successfully deployed as an endpoint, you can click the endpoint link on the **Deploy model** page. There, you'll find a link to the text to speech avatar portal on Speech Studio, where you can try and create videos with your custom avatar using text input.
+Once your model is successfully deployed as an endpoint, you can select the endpoint link on the **Deploy model** page. There, you'll find a link to the text to speech avatar portal on Speech Studio, where you can try and create videos with your custom avatar using text input.
 
 ## Remove a deployment endpoint
 
@@ -38,8 +38,8 @@ To remove a deployment endpoint, follow these steps:
 
 1. Sign in to [Speech Studio](https://speech.microsoft.com/portal).
 1. Navigate to **Custom Avatar** > Your project name > **Train model**.
-1. All available models are listed on the **Train model** page. Click on a model link to view more information, such as the created date and a preview image of the custom avatar.
-1. Select a model on the **Train model** page. If it's in "Succeeded" status, it means it's in hosting status. You can click the **Delete** button and confirm the deletion to remove the hosting.
+1. All available models are listed on the **Train model** page. Select a model link to view more information, such as the created date and a preview image of the custom avatar.
+1. Select a model on the **Train model** page. If it's in "Succeeded" status, it means it's in hosting status. You can select the **Delete** button and confirm the deletion to remove the hosting.
 
 ## Use your custom neural voice
 
