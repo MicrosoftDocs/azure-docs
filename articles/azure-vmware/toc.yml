@@ -378,4 +378,4 @@ items:
   - name: FAQ
     href: ./faq.yml
   - name: Azure VMware Solution Master Diagrams File
-    href: https://learn.microsoft.com/en-us/azure/azure-vmware/media/azure-vmware-master-diagrams.pptx
+    href: https://learn.microsoft.com/azure/azure-vmware/media/azure-vmware-master-diagrams.pptx
