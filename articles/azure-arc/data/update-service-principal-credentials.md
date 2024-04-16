@@ -13,10 +13,14 @@ ms.topic: how-to
 
 # Update service principal credentials
 
-When the service principal credentials change, you need to update the secrets in the data controller.
+This article explains how to update the secrets in the data controller.
 
-For example, if you deployed the data controller using a specific set of values for service principal tenant ID, client ID, and client secret, and then change one or more of these values, you need to update the secrets in the data controller.  Following are the instructions to update Tenant ID, Client ID or the Client secret. 
+For example, if you:
 
+1. Deployed the data controller using a specific set of values for service principal tenant ID, client ID, and client secret
+1. Change one or more of these values
+
+You need to update the secrets in the data controller. 
 
 ## Background
 
@@ -73,14 +77,12 @@ The service principal was created at [Create service principal](upload-metrics-a
 >The values need to be base64 encoded. 
 Do not edit any other properties.
 
-If an incorrect value is provided for `clientId`, `clientSecret` or `tenantID` then you will see an error message as follows in the `control-xxxx` pod/controller container logs:
+If an incorrect value is provided for `clientId`, `clientSecret`, or `tenantID` the command returns an error message as follows in the `control-xxxx` pod/controller container logs:
 
 ```output
-YYYY-MM-DD HH:MM:SS.mmmm | ERROR | [AzureUpload] Upload task exception: A configuration issue is preventing authentication - check the error message from the server for details.You can modify the configuration in the application registration portal. See https://aka.ms/msal-net-invalid-client for details.  Original exception: AADSTS7000215: Invalid client secret is provided.
+YYYY-MM-DD HH:MM:SS.mmmm | ERROR | [AzureUpload] Upload task exception: A configuration issue is preventing authentication - check the error message from the server for details.You can modify the configuration in the application registration portal. See https://aka.ms/msal-net-invalid-client for details. Original exception: AADSTS7000215: Invalid client secret is provided.
 ```
-
-
 
 ## Related content
 
-[Create service principal](upload-metrics-and-logs-to-azure-monitor.md#create-service-principal)
+- [Create service principal](upload-metrics-and-logs-to-azure-monitor.md#create-service-principal)
