@@ -27,7 +27,7 @@ Sign in to the Azure portal at [https://portal.azure.com/](https://portal.azure.
 
 1. Select the AKS cluster you want to connect to a target resource.
 1. Select **Service Connector** from the left table of contents. Then select **Create**.
-   :::image type="content" source="./media/aks-quickstart/select-service-connector.png" alt-text="Screenshot of the Azure portal, selecting Service Connector and creating new connection.":::
+   :::image type="content" source="./media/aks-quickstart/create.png" alt-text="Screenshot of the Azure portal, creating new connection.":::
 
 1. Select or enter the following settings.
 
