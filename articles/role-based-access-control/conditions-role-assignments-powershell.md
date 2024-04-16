@@ -7,7 +7,7 @@ ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
-ms.date: 10/24/2022
+ms.date: 04/15/2024
 ms.author: rolyon
 ---
 
@@ -161,6 +161,37 @@ Description        : Read access if container name equals blobs-example-containe
 ConditionVersion   : 2.0
 Condition          : ((!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'})) OR (@Resource[Microsoft.Storage/storageAccounts/blobServices/containers:name] StringEquals 'blobs-example-container' OR @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:name] StringEquals 'blobs-example-container2'))
 ```
+
+### Edit conditions in multiple role assignments
+
+If you need to make the same update to multiple role assignments, you can use a loop. The following commands perform the following task:
+
+- Finds role assignments in a subscription with `<find-condition-string-1>` or `<find-condition-string-2>` strings in the condition.
+
+    ```azurepowershell
+    $tenantId = "<your-tenant-id>"
+    $subscriptionId = "<your-subscription-id>";
+    $scope = "/subscriptions/$subscriptionId"
+    $findConditionString1 = "<find-condition-string-1>"
+    $findConditionString2 = "<find-condition-string-2>"
+    Connect-AzAccount -TenantId $tenantId -SubscriptionId $subscriptionId
+    $roleAssignments = Get-AzRoleAssignment -Scope $scope
+    $foundRoleAssignments = $roleAssignments | Where-Object { ($_.Condition -Match $findConditionString1) -Or ($_.Condition -Match $findConditionString2) }
+    ```
+
+The following commands perform the following tasks:
+
+- In the condition of the found role assignments, replaces `<condition-string>` with `<replace-condition-string>`.
+- Updates the role assignments with the changes.
+
+    ```azurepowershell
+    $conditionString = "<condition-string>"
+    $conditionStringReplacement = "<condition-string-replacement>"
+    $updatedRoleAssignments = $foundRoleAssignments | ForEach-Object { $_.Condition = $_.Condition -replace $conditionString, $conditionStringReplacement; $_ }
+    $updatedRoleAssignments | ForEach-Object { Set-AzRoleAssignment -InputObject $_ -PassThru }
+    ```
+
+If strings include special characters, such as square brackets ([ ]), you'll need to escape these characters with a backslash (\\).
 
 ## List a condition
 
