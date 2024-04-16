@@ -7,7 +7,7 @@ author: RoseHJM
 ms.author: rosemalcolm
 ms.service: deployment-environments
 ms.topic: how-to
-ms.date: 12/05/2023
+ms.date: 03/29/2024
 ms.custom: devdivchpfy22, build-2023
 ---
 
@@ -43,11 +43,11 @@ In this article, you learn how to:
 
 ## Add an environment definition
 
-To add an environment definition to a catalog in Azure Deployment Environments, you first add the files to the repository. You then synchronize the dev center catalog with the updated repository.
+To add an environment definition to a catalog in Azure Deployment Environments (ADE), you first add the files to the repository. You then synchronize the dev center catalog with the updated repository.
 
 To add an environment definition:
 
-1. In your repository that's hosted in [GitHub](https://github.com) or [Azure DevOps](https://dev.azure.com), create a subfolder in the repository folder path.
+1. In your [GitHub](https://github.com) or [Azure DevOps](https://dev.azure.com) repository, create a subfolder in the repository folder path.
 
 1. Add two files to the new repository subfolder:
 
@@ -78,8 +78,6 @@ To add an environment definition:
        > [!NOTE]
        > The `version` field is optional. Later, the field will be used to support multiple versions of environment definitions.
 
-      :::image type="content" source="../deployment-environments/media/configure-environment-definition/create-subfolder-path.png" alt-text="Screenshot that shows a folder path with a subfolder that contains an ARM template and an environment file." lightbox="../deployment-environments/media/configure-environment-definition/create-subfolder-path.png":::
-
       To learn more about the options and data types you can use in *environment.yaml*, see [Parameters and data types in environment.yaml](concept-environment-yaml.md#what-is-environmentyaml).
 
 1. In your dev center, go to **Catalogs**, select the repository, and then select **Sync**.
@@ -87,6 +85,23 @@ To add an environment definition:
     :::image type="content" source="../deployment-environments/media/configure-environment-definition/sync-catalog-list.png" alt-text="Screenshot that shows how to sync the catalog." lightbox="../deployment-environments/media/configure-environment-definition/sync-catalog-list.png":::
 
 The service scans the repository to find new environment definitions. After you sync the repository, new environment definitions are available to all projects in the dev center.
+
+### Specify an ARM or Bicep runner for a custom image
+
+The ADE extensibility model enables you to reference your own container image and execute deployments. You can store your container image in a container repository and directly reference it by providing the URI. 
+
+The following example shows how to reference a custom image in an environment definition:
+
+```yaml
+runner: "{YOUR_REGISTRY}.azurecr.io/{YOUR_REPOSITORY}:{YOUR_TAG}"
+```
+
+The ADE team provides sample ARM and Bicep templates accessible through the Microsoft Artifact registry (also known as the Microsoft Container Registry) to help you get started. When you perform deployments by using ARM or Bicep, you can use the standard image that is published on [Microsoft Artifact Registry](https://mcr.microsoft.com/) (previously known as the Microsoft Container Registry).
+
+To use the sample image published on the Microsoft Artifact Registry, use the respective identifiers `runner: ARM` for ARM and `runner:Bicep` for Bicep deployments.
+
+For more information how to build and utilize ARM or Bicep container images within environment definitions, see [Configure container image to execute deployments with ARM and Bicep](https://aka.ms/deployment-environments/container-image-bicep).
+
 
 ### Specify parameters for an environment definition
 
@@ -121,7 +136,7 @@ To learn more about the parameters and their data types that you can use in *env
 
 Developers can supply values for specific parameters for their environments through the [developer portal](https://devportal.microsoft.com).
 
-:::image type="content" source="media/configure-environment-definition/parameters.png" alt-text="Screenshot showing the parameters pane." lightbox="media/configure-environment-definition/parameters.png":::
+:::image type="content" source="media/configure-environment-definition/parameters.png" alt-text="Screenshot of the developer portal showing the parameters pane." lightbox="media/configure-environment-definition/parameters.png":::
 
 Developers can also supply values for specific parameters for their environments through the CLI.
 
