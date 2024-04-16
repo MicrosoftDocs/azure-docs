@@ -5,7 +5,7 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 04/01/2024
+ms.date: 04/15/2024
 ms.author: duau
 ms.custom: ai-usage
 ---
@@ -104,6 +104,10 @@ The [guided gateway migration](gateway-migration.md) experience facilitates your
 #### Use VPN Gateway as a backup for ExpressRoute
 
 Microsoft recommends the use of site-to-site VPN as a failover when an ExpressRoute circuit becomes unavailable. ExpressRoute is designed for high availability and there's no single point of failure within the Microsoft network. However, there can be instances where an ExpressRoute circuit becomes unavailable due to various reasons such as regional service degradation or natural disasters. A site-to-site VPN can be configured as a secure failover path for ExpressRoute. If the ExpressRoute circuit becomes unavailable, the traffic is automatically route through the site-to-site VPN, ensuring that your connection to the Azure network remains. For more information, see [using site-to-site VPN as a backup for Azure ExpressRoute](use-s2s-vpn-as-backup-for-expressroute-privatepeering.md).
+
+> [!NOTE] 
+> Using site-to-site VPN as a backup solution for ExpressRoute connectivity is not recommended when dealing with latency-sensitive, mission-critical, or bandwidth-intensive workloads. In such cases, it's advisable to design for disaster recovery with ExpressRoute multi-site resiliency to ensure maximum availability.
+>
 
 #### Enable high availability and disaster recovery
 
