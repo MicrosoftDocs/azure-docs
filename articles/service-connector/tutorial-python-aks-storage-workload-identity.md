@@ -33,11 +33,11 @@ Learn how to create a pod in an AKS cluster, which talks to an Azure storage acc
 
 1. Create a resource group for this tutorial.
 
-```azurecli
-az group create \
-    --name MyResourceGroup \
-    --location eastus
-```
+    ```azurecli
+    az group create \
+        --name MyResourceGroup \
+        --location eastus
+    ```
 
 1. Create an AKS cluster with the following command, or referring to the [tutorial](../aks/learn/quick-kubernetes-deploy-cli.md). We create the service connection, pod definition and deploy the sample application to this cluster.
 
@@ -49,7 +49,7 @@ az group create \
         --node-count 1
     ```
 
-1. connect to the cluster with the following command.
+1. Connect to the cluster with the following command.
 
     ```azurecli
     az aks get-credentials \
@@ -59,39 +59,38 @@ az group create \
 
 1. Create an Azure storage account with the following command, or referring to the [tutorial](../storage/common/storage-account-create.md). This is the target service that is connected to the AKS cluster and sample application interacts with.
 
-```azurecli
-az storage account create \
-    --resource-group MyResourceGroup \
-    --name MyStorageAccount \
-    --location eastus \
-    --sku Standard_LRS
-```
+    ```azurecli
+    az storage account create \
+        --resource-group MyResourceGroup \
+        --name MyStorageAccount \
+        --location eastus \
+        --sku Standard_LRS
+    ```
 
 1. Create an Azure container registry with the following command, or referring to the [tutorial](../container-registry/container-registry-get-started-portal.md). The registry hosts the container image of the sample application, which will be consumed by the AKS pod definition.
 
-```azurecli
-az acr create \
-    --resource-group MyResourceGroup \
-    --name MyRegistry \
-    --sku Standard
-```
+    ```azurecli
+    az acr create \
+        --resource-group MyResourceGroup \
+        --name MyRegistry \
+        --sku Standard
+    ```
+   And enable anonymous pull so that AKS cluster can consume the images in the registry.
 
-And enable anonymous pull so that AKS cluster can consume the images in the registry.
-
-```azurecli
-az acr update \
-    --resource-group MyResourceGroup \
-    --name MyRegistry \
-    --anonymous-pull-enabled
-```
+    ```azurecli
+    az acr update \
+        --resource-group MyResourceGroup \
+        --name MyRegistry \
+        --anonymous-pull-enabled
+    ```
 
 1. Create a user-assigned managed identity with the following command, or referring to the [tutorial](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities). The user-assigned managed identity is used in service connection creation to enable workload identity for AKS workloads.
 
-```azurecli
-az identity create \
-    --resource-group MyResourceGroup \
-    --name MyIdentity
-```
+    ```azurecli
+    az identity create \
+        --resource-group MyResourceGroup \
+        --name MyIdentity
+    ```
 
 ## Create service connection with Service Connector
 
@@ -140,8 +139,7 @@ Provide the following information as prompted:
 * **AKS cluster name:** the name of your AKS cluster that connects to the target service.
 * **Target service resource group name:** the resource group name of the Azure storage account.
 * **Storage account name:** the Azure storage account that is connected.
-* **User-assigned identity subscription ID:** the subscription ID of the user-assigned identity used to create workload identity.
-* **User-assigned identity client ID:** the client ID of the user-assigned identity used to create workload identity.
+* **User-assigned identity resource ID:** the resource ID of the user-assigned identity used to create workload identity.
 
 ---
 
@@ -163,15 +161,15 @@ Provide the following information as prompted:
 
 1. Build and push the images to your container registry using the Azure CLI [`az acr build`](/cli/azure/acr#az_acr_build) command.
 
-```azurecli
-az acr build --registry <MyRegistry> --image sc-demo-storage-identity:latest ./
-```
+    ```azurecli
+    az acr build --registry <MyRegistry> --image sc-demo-storage-identity:latest ./
+    ```
 
 1. View the images in your container registry using the [`az acr repository list`](/cli/azure/acr/repository#az_acr_repository_list) command.
 
-```azurecli
-az acr repository list --name <MyRegistry> --output table
-```
+    ```azurecli
+    az acr repository list --name <MyRegistry> --output table
+    ```
 
 ## Run application and test connection
 

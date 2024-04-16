@@ -5,6 +5,9 @@ ms.topic: article
 ms.custom: devx-track-azurecli
 ms.subservice: aks-storage
 ms.date: 02/01/2024
+author: tamram
+ms.author: tamram
+
 ---
 
 # Bring your own keys (BYOK) with Azure managed disks in Azure Kubernetes Service (AKS)
@@ -163,3 +166,4 @@ Review [best practices for AKS cluster security][best-practices-security]
 [customer-managed-keys-windows]: ../virtual-machines/disk-encryption.md#customer-managed-keys
 [customer-managed-keys-linux]: ../virtual-machines/disk-encryption.md#customer-managed-keys
 [key-vault-generate]: ../key-vault/general/manage-with-cli2.md
+

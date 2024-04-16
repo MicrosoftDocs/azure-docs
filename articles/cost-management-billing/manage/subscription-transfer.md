@@ -6,7 +6,7 @@ ms.reviewer: sgautam
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 03/26/2024
+ms.date: 04/03/2024
 ms.author: banders
 ---
 
@@ -85,6 +85,7 @@ Dev/Test products aren't shown in the following table. Transfers for Dev/Test pr
 | MCA - individual | MCA - individual | • For details, see [Transfer Azure subscription billing ownership for a Microsoft Customer Agreement](mca-request-billing-ownership.md).<br><br> •  Self-service reservation and savings plan transfers are supported. |
 | MCA - individual | EA | •  The transfer isn’t supported by Microsoft, so you must move resources yourself. For more information, see [Move resources to a new resource group or subscription](../../azure-resource-manager/management/move-resource-group-and-subscription.md).<br><br> •  Reservations and savings plans don't automatically transfer and transferring them isn't supported. |
 | MCA - individual | MCA - Enterprise | •  For details, see [Transfer Azure subscription billing ownership for a Microsoft Customer Agreement](mca-request-billing-ownership.md).<br><br>•  Self-service reservation and savings plan transfers are supported. |
+| MCA - Enterprise | EA | •  The transfer isn’t supported by Microsoft, so you must move resources yourself. For more information, see [Move resources to a new resource group or subscription](../../azure-resource-manager/management/move-resource-group-and-subscription.md).<br><br> •  Reservations and savings plans don't automatically transfer and transferring them isn't supported.  |
 | MCA - Enterprise | MOSP | •  Requires a [billing support ticket](https://azure.microsoft.com/support/create-ticket/).<br><br> •  Reservations and savings plans don't automatically transfer and transferring them isn't supported. |
 | MCA - Enterprise | MCA - individual | •  For details, see [Transfer Azure subscription billing ownership for a Microsoft Customer Agreement](mca-request-billing-ownership.md).<br><br> •  Self-service reservation and savings plan transfers are supported. |
 | MCA - Enterprise | MCA - Enterprise | •  For details, see [Transfer Azure subscription billing ownership for a Microsoft Customer Agreement](mca-request-billing-ownership.md).<br><br> •  Self-service reservation and savings plan transfers are supported.  |

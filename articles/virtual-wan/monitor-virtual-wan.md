@@ -40,7 +40,7 @@ The following steps help you locate and view metrics:
 
 1. Select **VPN (Site to site)** to locate a site-to-site gateway, **ExpressRoute** to locate an ExpressRoute gateway, or **User VPN (Point to site)** to locate a point-to-site gateway.
 
-1. Select **Metrics**.
+1. Select **Monitor Gateway** and then **Metrics**.
 
    :::image type="content" source="./media/monitor-virtual-wan-reference/view-metrics.png" alt-text="Screenshot shows a site to site VPN pane with View in Azure Monitor selected." lightbox="./media/monitor-virtual-wan-reference/view-metrics.png":::
 
@@ -69,7 +69,7 @@ The following steps help you create, edit, and view diagnostic settings:
 
    :::image type="content" source="./media/monitor-virtual-wan-reference/select-hub-gateway.png" alt-text="Screenshot that shows the Connectivity section for the hub." lightbox="./media/monitor-virtual-wan-reference/select-hub-gateway.png":::
 
-1. On the right part of the page, click on the **View in Azure Monitor** link to the right of **Logs**.
+1. On the right part of the page, click on **Monitor Gateway** and then **Logs**.
 
    :::image type="content" source="./media/monitor-virtual-wan-reference/view-hub-gateway-logs.png" alt-text="Screenshot for Select View in Azure Monitor for Logs." lightbox="./media/monitor-virtual-wan-reference/view-hub-gateway-logs.png":::
 

@@ -4,6 +4,9 @@ description: Learn about the add-ons, extensions, and open-source integrations y
 ms.topic: overview
 ms.subservice: aks-integration
 ms.date: 05/22/2023
+author: nickomang
+ms.author: nickoman
+
 ---
 
 # Add-ons, extensions, and other integrations with Azure Kubernetes Service (AKS)
@@ -125,3 +128,4 @@ For more information, see [Windows AKS partner solutions][windows-aks-partner-so
 [github-actions-aks]: kubernetes-action.md
 [az-aks-enable-addons]: /cli/azure/aks#az-aks-enable-addons
 [windows-aks-partner-solutions]: windows-aks-partner-solutions.md
+

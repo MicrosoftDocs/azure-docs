@@ -11,6 +11,8 @@ ms.custom: template-how-to
 
 # Import a WebSocket API
 
+[!INCLUDE [api-management-availability-premium-dev-standard-basic-standardv2-basicv2](../../includes/api-management-availability-premium-dev-standard-basic-standardv2-basicv2.md)]
+
 With API Management’s WebSocket API solution, API publishers can quickly add a WebSocket API in API Management via the Azure portal, Azure CLI, Azure PowerShell, and other Azure tools. 
 
 You can secure WebSocket APIs by applying existing access control policies, like [JWT validation](validate-jwt-policy.md). You can also test WebSocket APIs using the API test consoles in both Azure portal and developer portal. Building on existing observability capabilities, API Management provides metrics and logs for monitoring and troubleshooting WebSocket APIs. 

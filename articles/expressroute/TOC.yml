@@ -4,6 +4,8 @@
   items:
   - name: What is ExpressRoute?
     href: expressroute-introduction.md
+  - name: Well-Architected for ExpressRoute
+    href: /azure/well-architected/service-guides/azure-expressroute
 - name: Quickstarts
   items:
   - name: Create an ExpressRoute circuit - Portal
