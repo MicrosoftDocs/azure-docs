@@ -81,19 +81,22 @@ deploymentParameters=$(echo "$ADE_OPERATION_PARAMETERS" | jq --compact-output '{
 
 Next, to resolve any linked templates used within an ARM JSON-based template, you can decompile the main template file, which resolves all the local infrastructure files used into many Bicep modules. Then, rebuild those modules back into a single ARM template with the linked templates embedded into the main ARM template as nested templates. This step is only necessary during the deployment operation. The main template file can be specified using the `$ADE_TEMPLATE_FILE` set during the core image's entrypoint, and you should reset this variable with the recompiled template file. See the following example:
 ```bash
-hasRelativePath=$( cat $ADE_TEMPLATE_FILE | jq '[.. | objects | select(has("templateLink") and (.templateLink | has("relativePath")))] | any' )
+if [[ $ADE_TEMPLATE_FILE == *.json ]]; then
 
-if [ "$hasRelativePath" = "true" ]; then
-    echo "Resolving linked ARM templates"
+    hasRelativePath=$( cat $ADE_TEMPLATE_FILE | jq '[.. | objects | select(has("templateLink") and (.templateLink | has("relativePath")))] | any' )
 
-    bicepTemplate="${ADE_TEMPLATE_FILE/.json/.bicep}"
-    generatedTemplate="${ADE_TEMPLATE_FILE/.json/.generated.json}"
+    if [ "$hasRelativePath" = "true" ]; then
+        echo "Resolving linked ARM templates"
 
-    az bicep decompile --file "$ADE_TEMPLATE_FILE"
-    az bicep build --file "$bicepTemplate" --outfile "$generatedTemplate"
+        bicepTemplate="${ADE_TEMPLATE_FILE/.json/.bicep}"
+        generatedTemplate="${ADE_TEMPLATE_FILE/.json/.generated.json}"
 
-    # Correctly reassign ADE_TEMPLATE_FILE without the $ prefix during assignment
-    ADE_TEMPLATE_FILE="$generatedTemplate"
+        az bicep decompile --file "$ADE_TEMPLATE_FILE"
+        az bicep build --file "$bicepTemplate" --outfile "$generatedTemplate"
+
+        # Correctly reassign ADE_TEMPLATE_FILE without the $ prefix during assignment
+        ADE_TEMPLATE_FILE="$generatedTemplate"
+    fi
 fi
 ```
 To provide the permissions a deployment requires to execute the deployment and deletion of resources within the subscription, use the privileged managed identity associated with the ADE project environment type. If your deployment needs special permissions to complete, such as particular roles, assign those roles to the project environment type's identity. Sometimes, the managed identity isn't immediately available when entering the container; you can retry until the login is successful. 
