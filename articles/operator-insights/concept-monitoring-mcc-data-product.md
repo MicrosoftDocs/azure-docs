@@ -39,10 +39,20 @@ The following data type is provided as part of the Monitoring - Affirmed MCC Dat
 To use the Monitoring - Affirmed MCC Data Product:
 
 1. Deploy the Data Product by following [Create an Azure Operator Insights Data Product](data-product-create.md).
-1. Configure your MCCs to produce performance management data.
+1. Configure your network to produce performance management data.
 1. Set up ingestion (data upload) from your network. For example, you could use the [Azure Operator Insights ingestion agent](ingestion-agent-overview.md) or [connect Azure Data Factory](ingestion-with-data-factory.md) to your Data Product.
     - Use the information in [Required ingestion configuration](#required-ingestion-configuration) when you're setting up ingestion.
     - If you're using the Azure Operator Insights ingestion agent, also meet the requirements in [Requirements for the Azure Operator Insights ingestion agent](#requirements-for-the-azure-operator-insights-ingestion-agent).
+
+### Required network configuration
+
+1. Configure the EMS server to export PMStats to a remote server. If you are using the Azure Operator Insights ingestion agent, the remote server must be an [SFTP server](set-up-ingestion-agent.md#prepare-the-sftp-server). If you are providing your own ingestion agent, the remote server just needs to be accessible by your ingestion agent.
+   
+    1. IP address, user, and password of the remote server are required for this step.
+    1. Follow the instructions in the section [Copying Performance Management Statistics Files to Destination Server](https://manuals.metaswitch.com/MCC/13.1/Acuitas_Users_RevB/Content/Appendix%20Interfacing%20with%20Northbound%20Interfaces/Exported_Performance_Management_Data.htm#northbound_2817469247_308739) to configure the transfer of EMS stats to the remote server.
+
+> [!IMPORTANT]
+> Increase the frequency of the cron job by reducing the `timeInterval` argument from `15` (default) to `5` minutes.
 
 ### Required ingestion configuration
 
@@ -53,7 +63,6 @@ Use the information in this section to configure your ingestion method. Refer to
 | `pmstats` | `pmstats` | Performance data from MCC nodes. File names must start with the dataset name. For example, `WORKFLOWPERFSTATSSLOT` data must be ingested in files whose names start with `WORKFLOWPERFSTATSSLOT`. |
 
 If you're using the Azure Operator Insights ingestion agent:
-- Configure the EMS to export performance management stats to an SFTP server.
 - Configure the ingestion agent to use SFTP pull from the SFTP server.
 - We recommend the following configuration settings in addition to the (required) settings in the previous table.
 
