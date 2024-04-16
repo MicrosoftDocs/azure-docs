@@ -1,5 +1,5 @@
 ---
-title: Vector store database
+title: Vector store
 titleSuffix: Azure AI Search
 description: Describes concepts behind vector storage in Azure AI Search.
 
@@ -219,4 +219,4 @@ Azure provides a [monitoring platform](monitor-azure-cognitive-search.md) that i
 
 + [Create a vector store using REST APIs (Quickstart)](search-get-started-vector.md)
 + [Create a vector store](vector-search-how-to-create-index.md)
-+ [Query a vector store](vector-search-how-to-query.md)
++ [Query a vector index](vector-search-how-to-query.md)

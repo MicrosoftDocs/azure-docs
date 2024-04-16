@@ -814,6 +814,11 @@
       "source_path_from_root": "/articles/governance/policy/concepts/definition-structure.md",
       "redirect_url": "/azure/governance/policy/concepts/definition-structure-basics",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/governance/policy/concepts/effects.md",
+      "redirect_url": "/azure/governance/policy/concepts/effect-basics",
+      "redirect_document_id": false
     }
   ]
 }

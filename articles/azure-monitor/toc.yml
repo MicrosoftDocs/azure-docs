@@ -108,6 +108,10 @@ items:
                   href: app/java-standalone-telemetry-processors-examples.md
           - name: Upgrade from 2.x
             href: app/java-standalone-upgrade-from-2x.md
+        - name: Node.js (supplemental)
+          items:
+          - name: Upgrade from SDK 2.X
+            href: app/opentelemetry-nodejs-migrate.md
         - name: Python (supplemental)
           items:
           - name: Migrate from Opencensus
@@ -727,8 +731,8 @@ items:
           href: agents/data-collection-syslog.md
         - name: Configure a syslog forwarder
           href: ../sentinel/forward-syslog-monitor-agent.md?bc=%2fazure%2fazure-monitor%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fazure-monitor%2ftoc.json
-        - name: Send data to Event Hubs and Storage
-          href: agents/azure-monitor-agent-send-data-to-event-hubs-and-storage.md
+        - name: Log Analytics gateway
+          href: agents/gateway.md
       - name: Define network settings
         href: agents/azure-monitor-agent-data-collection-endpoint.md
       - name: Configure Private Link for Azure Monitor Agent
@@ -763,8 +767,6 @@ items:
             href: ../virtual-machines/extensions/oms-windows.md?toc=/azure/azure-monitor/toc.json
           - name: VM Extension for Linux
             href: ../virtual-machines/extensions/oms-linux.md?toc=/azure/azure-monitor/toc.json
-          - name: Log Analytics gateway
-            href: agents/gateway.md
           - name: LA Agent Management
             href: agents/agent-manage.md
           - name: LA Agent Health
@@ -799,6 +801,8 @@ items:
           items:
           - name: Overview
             href: agents/diagnostics-extension-overview.md
+          - name: Send data to Event Hubs and Storage
+            href: agents/azure-monitor-agent-send-data-to-event-hubs-and-storage.md
           - name: Windows
             displayName: diagnostics extension
             items:
@@ -1171,6 +1175,9 @@ items:
     items:
       - name: Analyze metrics
         href: essentials/analyze-metrics.md
+      - name: Metrics explorer with PromQL
+        displayName: Prometheus, metrics explorer
+        href: essentials/metrics-explorer.md  
       - name: Understanding metrics aggregation
         href: essentials/metrics-aggregation-explained.md
       - name: Examples of metric charts

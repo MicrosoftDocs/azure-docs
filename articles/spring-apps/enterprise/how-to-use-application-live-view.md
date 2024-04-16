@@ -224,7 +224,7 @@ Use the following steps to manage Application Live View using the Azure portal:
 1. Navigate to your service resource, and then select **Developer Tools**.
 1. Select **Manage tools**.
 
-   :::image type="content" source="media/how-to-use-application-live-view/manage.png" alt-text="Screenshot of the Developer Tools page." lightbox="media/how-to-use-application-live-view/manage.png":::
+   :::image type="content" source="media/how-to-use-application-live-view/manage.png" alt-text="Screenshot of the Azure portal that shows the Developer Tools page." lightbox="media/how-to-use-application-live-view/manage.png":::
 
 1. Select the **Enable App Live View** checkbox, and then select **Save**.
 
