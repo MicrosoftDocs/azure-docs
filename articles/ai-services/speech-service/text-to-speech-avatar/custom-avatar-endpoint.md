@@ -12,7 +12,7 @@ ms.author: v-baolianzou
 
 # Deploy your custom text to speech avatar model as an endpoint
 
-Once your custom text to speech avatar model is successfully trained through our manual process, we will notify you, and you can self-deploy it to a custom avatar endpoint. You can create up to 10 endpoints with a standard (S0) Speech resource, each with its own custom avatar.
+You must deploy the custom avatar to an endpoint before you can use it. Once your custom text to speech avatar model is successfully trained through our manual process, we will notify you. Then you can deploy it to a custom avatar endpoint. You can create up to 10 custom avatar endpoints for each standard (S0) Speech resource.
 
 After you deploy your custom avatar, it's available to use in Speech Studio or through API:
 
