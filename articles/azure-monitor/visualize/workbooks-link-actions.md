@@ -81,7 +81,7 @@ This section defines the ARM action API.
 |Headers| Headers grid with the key and value.|
 |Body| Editor for the request payload in JSON.|
 
-:::image type="content" source="media/workbooks-link-actions/ARMActionSettings.png" alt-text="Screenshot that shows Azure Workbooks ARM action settings.":::
+:::image type="content" source="media/workbooks-link-actions/arm-action-settings.png" alt-text="Screenshot that shows Azure Workbooks ARM action settings.":::
 
 ### ARM Action UX Settings
 
@@ -94,15 +94,15 @@ This section configures what the users will see before they run the ARM action.
 |Description of ARM Action| The markdown text used to provide a helpful description to users when they want to run the ARM action. |
 |Run button text from| Label used on the run (execute) button to trigger the ARM action.|
 
-:::image type="content" source="media/workbooks-link-actions/ARMActionUXSettings.png" alt-text="Screenshot that shows Azure Workbooks ARM action UX settings.":::
+:::image type="content" source="media/workbooks-link-actions/arm-action-ux-settings.png" alt-text="Screenshot that shows Azure Workbooks ARM action UX settings.":::
 
 After these configurations are set, when the user clicks on the link, the view opens with the UX described here. If the user selects the button specified by **Run button text from**, it runs the ARM action using the configured values. On the bottom of the context pane, you can select **View Request Details** to inspect the HTTP method and the ARM API endpoint used for the ARM action.
 
-:::image type="content" source="media/workbooks-link-actions/ARMActionBlade.png" alt-text="Screenshot that shows Azure Workbooks ARM action blade.":::
+:::image type="content" source="media/workbooks-link-actions/arm-action-blade.png" alt-text="Screenshot that shows Azure Workbooks ARM action blade.":::
 
 The progress and result of the ARM Action is shown as an Azure Portal notification.
 
-:::image type="content" source="media/workbooks-link-actions/ARMActionCustomNotification.png" alt-text="Screenshot that shows Azure ARM custom notifications.":::
+:::image type="content" source="media/workbooks-link-actions/arm-action-custom-notification.png" alt-text="Screenshot that shows Azure ARM custom notifications.":::
 
 
 ## Azure Resource Manager deployment link settings
