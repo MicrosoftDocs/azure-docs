@@ -105,7 +105,7 @@ Once you have the compute cluster name with a managed identity, assign the Stora
 
 Follow the previous steps to [Add Storage Blob Data Contributor access](#add-blob-access). But this time, use the compute name in the **Select members** section, so that the compute cluster has access to the datastore.
 
-To find the compute name, type the workspace name, followed by `/computes/` followed by the compute name. For example, if the workspace name is `myworkspace` and the compute name is `mycompute`, search for `myworkspace/computes/mycompute`.
+When you select the member, search for the compute name by using the workspace name, followed by `/computes/` followed by the compute name. For example, if the workspace name is `myworkspace` and the compute name is `mycompute`, search for `myworkspace/computes/mycompute` to select the member.
 
 ## Related resources
 
