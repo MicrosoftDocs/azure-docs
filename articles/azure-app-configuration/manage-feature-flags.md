@@ -65,7 +65,7 @@ Add a new variant feature flag by opening your Azure App Configuration store in 
 
 :::image type="content" source="media\manage-feature-flags\variant-feature-flags-menu.png" alt-text="Screenshot of the Azure platform. Create a variant feature flag.":::
 
-### Configure variant feature flag basic settings
+### Configure basics
 
 In the **Details** tabs, select or enter the following information:
 
@@ -81,7 +81,7 @@ In the **Details** tabs, select or enter the following information:
 
 Select **Next >** to add **Variants**.
 
-### Add feature flag variants
+### Add variants
 
 In the **Variants** tab, select or enter the following information.
 
@@ -95,7 +95,7 @@ In the **Variants** tab, select or enter the following information.
 
 Select **Next >** to access **Allocation** settings.
 
-### Configure the variant feature flag audience
+### Allocate traffic
 
 In the **Allocation** tab, select or enter the following information:
 
@@ -103,9 +103,9 @@ In the **Allocation** tab, select or enter the following information:
 
 1. Distribute traffic across each variant, adding up to exactly 100%.
 
-1. Optionally select the options **Override by Groups** and **Override by Users** to enable variants for select groups or users. These options are disabled by default.
+1. Optionally select the options **Override by Groups** and **Override by Users** to assign variants for select groups or users. These options are disabled by default.
 
-1. Under **Distribution**, Optionally select **Use custom seed** to provide seed value that sets a deterministic distribution across flags.
+1. Under **Distribution**, Optionally select **Use custom seed** and provide a nonempty string as a new seed value. Using a common seed across multiple feature flags allows the same user to be allocated to the same percentile. It is useful when you roll out multiple feature flags at the same time and you want to ensure consistent experience for each segment of your audience. If no custom seed is specified, a default seed is used based on the feature name.
 
 1. Select **Review + create** to see a summary of your new variant feature flag, and then select **Create** to finalize your operation. A notification indicates that the new feature flag was created successfully.
 
