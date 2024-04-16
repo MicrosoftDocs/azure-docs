@@ -107,30 +107,30 @@ You can get the Microsoft Entra access token by using your Entra account credent
 
 1. Ensure that you configured the redirect URL `https://oauth.pstmn.io/v1/callback` for the web platform in the client application registration.
 
-:::image type="content" source="media/postman/callback-url.png" alt-text="Screenshot showing callback URL." lightbox="media/postman/callback-url.png":::
+   :::image type="content" source="media/postman/callback-url.png" alt-text="Screenshot showing callback URL." lightbox="media/postman/callback-url.png":::
 
 1. In the client application registration under **API Permissions**, add the **User_Impersonation** delegated permission for **Azure Healthcare APIS** from **APIs my organization uses**.
 
-:::image type="content" source="media/postman/app-reg-permissions.png" alt-text="Screenshot showing application registration permissions." lightbox="media/postman/app-reg-permissions.png":::
+   :::image type="content" source="media/postman/app-registration-permissions.png" alt-text="Screenshot showing application registration permissions." lightbox="media/postman/app-registration-permissions.png":::
 
-:::image type="content" source="media/postman/app-reg-permissions-2.png" alt-text="Screenshot showing application registration permissions screen." lightbox="media/postman/app-reg-permissions-2.png":::
+   :::image type="content" source="media/postman/app-registration-permissions-2.png" alt-text="Screenshot showing application registration permissions screen." lightbox="media/postman/app-registration-permissions-2.png":::
 
-1. In the postman, select the **Authorization** tab of either a collection or a specific REST Call, select **Type** as OAuth 2.0 and under **Configure New Token** section, set below values 
-  - **Callback URL**: `https://oauth.pstmn.io/v1/callback`
+1. In the Postman, select the **Authorization** tab of either a collection or a specific REST Call, select **Type** as OAuth 2.0 and under **Configure New Token** section, set these values: 
+    - **Callback URL**: `https://oauth.pstmn.io/v1/callback`
     
-  - **Auth URL**: `https://login.microsoftonline.com/{{tenantid}}/oauth2/v2.0/authorize`
+    - **Auth URL**: `https://login.microsoftonline.com/{{tenantid}}/oauth2/v2.0/authorize`
     
-  - **Access Token URL**: `https://login.microsoftonline.com/{{tenantid}}/oauth2/v2.0/token`
+    - **Access Token URL**: `https://login.microsoftonline.com/{{tenantid}}/oauth2/v2.0/token`
     
-  - **Client ID**: Application client registration ID  
+    - **Client ID**: Application client registration ID  
     
-  - **Client Secret**: Application client registration secret 
+    - **Client Secret**: Application client registration secret 
     
-  - **Scope**: `{{fhirurl}}/.default`
+    - **Scope**: `{{fhirurl}}/.default`
     
-  - **Client Authentication**: Send client credentials in body
+    - **Client Authentication**: Send client credentials in body
     
-   :::image type="content" source="media/postman/postman-configuration.png" alt-text="Screenshot showing configuration screen." lightbox="media/postman/postman-configuration.png":::
+    :::image type="content" source="media/postman/postman-configuration.png" alt-text="Screenshot showing configuration screen." lightbox="media/postman/postman-configuration.png":::
 
 1. Choose **Get New Access Token** at the bottom of the page.
 
