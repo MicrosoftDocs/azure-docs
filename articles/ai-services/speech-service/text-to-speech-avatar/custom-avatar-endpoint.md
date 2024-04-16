@@ -52,7 +52,7 @@ If you've built a custom neural voice (CNV) and would like to use it together wi
 - Ensure that the CNV endpoint is created in the same Speech resource as the custom avatar endpoint. You can see the CNV voice option in the voices list of the [avatar content generation page](https://speech.microsoft.com/portal/talkingavatar) and [live chat voice settings](https://speech.microsoft.com/portal/livechat).
 - If you're using the batch synthesis for avatar API, add the "customVoices" property to associate the deployment ID of the CNV model with the voice name in the request. For more information, refer to the [Text to speech properties](batch-synthesis-avatar-properties.md#text-to-speech-properties).
 - If you're using real-time synthesis for avatar API, refer to our sample code on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/js/browser/avatar) to set the custom neural voice.
-- If your custom neural voice endpoint is in a different Speech resource from the custom avatar endpoint, refer to [Train your professional voice model](../professional-voice-train-voice.md#copy-your-voice-model-to-another-project) to copy the CNV model to another Speech resource. 
+- If your custom neural voice endpoint is in a different Speech resource from the custom avatar endpoint, refer to [Train your professional voice model](../professional-voice-train-voice.md#copy-your-voice-model-to-another-project) to copy the CNV model to the same Speech resource as the custom avatar endpoint. 
 
 ## Next steps
 
