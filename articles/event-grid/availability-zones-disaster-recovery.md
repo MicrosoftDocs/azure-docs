@@ -60,7 +60,7 @@ Event Grid’s automatic failover has different RPOs and RTOs for your metadata 
 
 > [!IMPORTANT]
 > - In case of server-side disaster recovery, if the paired region has no extra capacity to take on the additional traffic, Event Grid cannot initiate failover. The recovery is done on a best-effort basis.
-> - The cost for using this feature  is: $0.
+> - There is not charge for using this feature.
 > - Geo-disaster recovery is not supported for partner namespaces and partner topics. 
 
 ## Next steps

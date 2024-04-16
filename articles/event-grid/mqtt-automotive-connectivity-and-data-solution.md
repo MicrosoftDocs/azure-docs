@@ -53,7 +53,7 @@ The *vehicle to cloud* dataflow is used to process telemetry data from the vehic
 1. The **Event Grid** routes messages to different subscribers based on the topic and message attributes.
     1. Low priority messages that don't require immediate processing (for example, analytics messages) are routed directly to storage using an Event Hubs instance for buffering.
     1. High priority messages that require immediate processing (for example, status changes that must be visualized in a user-facing application) are routed to an Azure Function using an Event Hubs instance for buffering.
-1. Low priority messages are stored directly in the **data lake** using [event capture](/azure/stream-analytics/event-hubs-parquet-capture-tutorial). These messages can use [batch decoding and processing](#data-analytics) for optimum costs.
+1. Low priority messages are stored directly in the **data lake** using [event capture](../stream-analytics/event-hubs-parquet-capture-tutorial.md). These messages can use [batch decoding and processing](#data-analytics) for optimum costs.
 1. High priority messages are processed with an **Azure function**. The function reads the vehicle, device and user consent settings from the **Device Registry** and performs the following steps:
     1. Verifies that the vehicle and device are registered and active.
     2. Verifies that the user has given consent for the message topic.
@@ -157,26 +157,26 @@ Each *vehicle messaging scale unit* supports a defined vehicle population (for e
 
 #### Connectivity
 
-* [Azure Event Grid](/azure/event-grid/) allows for device onboarding, AuthN/Z and pub-sub via MQTT v5.
-* [Azure Functions](/azure/azure-functions/) processes the vehicle messages. It can also be used to implement management APIs that require short-lived execution.
-* [Azure Kubernetes Service (AKS)](/azure/aks/) is an alternative when the functionality behind the Managed APIs consists of complex workloads deployed as containerized applications.
-* [Azure Cosmos DB](/azure/cosmos-db) stores the vehicle, device and user consent settings.
-* [Azure API Management](/azure/api-management/) provides a managed API gateway to existing back-end services such as vehicle lifecycle management (including OTA) and user consent management.
-* [Azure Batch](/azure/batch/) runs large compute-intensive tasks efficiently, such as vehicle communication trace ingestion.
+* [Azure Event Grid](overview.md) allows for device onboarding, AuthN/Z and pub-sub via MQTT v5.
+* [Azure Functions](../azure-functions/functions-overview.md) processes the vehicle messages. It can also be used to implement management APIs that require short-lived execution.
+* [Azure Kubernetes Service (AKS)](../aks/intro-kubernetes.md) is an alternative when the functionality behind the Managed APIs consists of complex workloads deployed as containerized applications.
+* [Azure Cosmos DB](../cosmos-db/introduction.md) stores the vehicle, device and user consent settings.
+* [Azure API Management](../azure/api-management/api-management-key-concepts.md) provides a managed API gateway to existing back-end services such as vehicle lifecycle management (including OTA) and user consent management.
+* [Azure Batch](../batch/batch-technical-overview.md) runs large compute-intensive tasks efficiently, such as vehicle communication trace ingestion.
 
 #### Data and Analytics
 
-* [Azure Event Hubs](/azure/event-hubs/) enables processing and ingesting massive amounts of telemetry data.
+* [Azure Event Hubs](../event-hubs/event-hubs-about.md) enables processing and ingesting massive amounts of telemetry data.
 * [Azure Data Explorer](/azure/data-explorer/data-explorer-overview) provides exploration, curation and analytics of time-series based vehicle telemetry data.
-* [Azure Blob Storage](/azure/storage/blobs) stores large documents (such as videos and can traces) and curated vehicle data.
+* [Azure Blob Storage](../storage/blobs/storage-blobs-overview.md) stores large documents (such as videos and can traces) and curated vehicle data.
 * [Azure Databricks](/azure/databricks/) provides a set of tool to maintain enterprise-grade data solutions at scale. Required for long-running operations on large amounts of vehicle data.
 
 #### Backend Integration
 
-* [Azure Logic Apps](/azure/logic-apps/) runs automated workflows for business integration based on vehicle data.
-* [Azure App Service](/azure/app-service/) provides user-facing web apps and mobile back ends, such as the companion app.
-* [Azure Cache for Redis](/azure/azure-cache-for-redis/) provides in-memory caching of data often used by user-facing applications.
-* [Azure Service Bus](/azure/service-bus-messaging/) provides brokering that decouples vehicle connectivity from digital services and business integration.
+* [Azure Logic Apps](../logic-apps/logic-apps-overview.md) runs automated workflows for business integration based on vehicle data.
+* [Azure App Service](../app-service/overview.md) provides user-facing web apps and mobile back ends, such as the companion app.
+* [Azure Cache for Redis](../azure-cache-for-redis/cache-overview.md) provides in-memory caching of data often used by user-facing applications.
+* [Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) provides brokering that decouples vehicle connectivity from digital services and business integration.
 
 ### Alternatives
 
@@ -188,7 +188,7 @@ Examples:
 * **Azure Batch** for High-Performance Computing tasks such as decoding large CAN Trace / Video Files
 * **Azure Kubernetes Service** for managed, full fledge orchestration of complex logic such as command & control workflow management.
 
-As an alternative to event-based data sharing, it's also possible to use [Azure Data Share](/azure/data-share/) if the objective is to perform batch synchronization at the data lake level.
+As an alternative to event-based data sharing, it's also possible to use [Azure Data Share](../data-share/overview.md) if the objective is to perform batch synchronization at the data lake level.
 
 ## Scenario details
 
@@ -238,7 +238,7 @@ Reliability ensures your application can meet the commitments you make to your c
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
-* Securing vehicle connection: See the section on [certificate management](/azure/event-grid/) to understand how to use X.509 certificates to establish secure vehicle communications.
+* Securing vehicle connection: See the section on [certificate management](../event-grid/overview.md) to understand how to use X.509 certificates to establish secure vehicle communications.
 
 ### Cost optimization
 
@@ -309,4 +309,4 @@ The following articles cover some of the concepts used in the architecture:
 The following articles describe interactions between components in the architecture:
 
 * [Configure streaming ingestion on your Azure Data Explorer cluster](/azure/data-explorer/ingest-data-streaming)
-* [Capture Event Hubs data in parquet format and analyze with Azure Synapse Analytics](/azure/stream-analytics/event-hubs-parquet-capture-tutorial)
+* [Capture Event Hubs data in parquet format and analyze with Azure Synapse Analytics](../stream-analytics/event-hubs-parquet-capture-tutorial.md)

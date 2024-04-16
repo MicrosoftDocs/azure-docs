@@ -344,7 +344,7 @@ The JavaScript UDA initializes all accumulators in the `init` function, computes
 - Sell stock when a sell signal is received and there is stock holding.
 - Short if there is no stock holding. 
 
-If there's a short position, and a buy signal is received, we buy to cover. We hold or short 10 shares of a stock in this simulation. The transaction cost is a flat $8.
+If there's a short position, and a buy signal is received, we buy to cover. We hold or short 10 shares of a stock in this simulation. The transaction cost is a flat `$8`.
 
 ```javascript
 function main() {

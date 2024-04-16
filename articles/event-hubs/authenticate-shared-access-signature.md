@@ -218,9 +218,9 @@ $SASToken
 
 ```bash
 get_sas_token() {
-    local EVENTHUB_URI=$1
-    local SHARED_ACCESS_KEY_NAME=$2
-    local SHARED_ACCESS_KEY=$3
+    local EVENTHUB_URI='EVENTHUBURI'
+    local SHARED_ACCESS_KEY_NAME='SHAREDACCESSKEYNAME'
+    local SHARED_ACCESS_KEY='SHAREDACCESSKEYVALUE'
     local EXPIRY=${EXPIRY:=$((60 * 60 * 24))} # Default token expiry is 1 day
 
     local ENCODED_URI=$(echo -n $EVENTHUB_URI | jq -s -R -r @uri)
