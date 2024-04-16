@@ -1,14 +1,14 @@
 ---
-title: Identify vulnerabilities on AI workloads and models in use
+title: Discover generative AI applications
 description: Learn how to use the cloud security explorer to determine which AI workloads and models are running in your environment.
 ms.topic: how-to
 ms.date: 04/15/2024
 # customer intent: As a user, I want to learn how to identify AI workloads and models in my environment so that I can assess their security posture.
 ---
 
-# Identify vulnerabilities on AI workloads and models in use
+# Discover generative AI applications
 
-Defender for Cloud provides a comprehensive view of your cloud environment, including the generative artificial intelligence (GenAI) workloads and models running in your environment. By using the cloud security explorer, you can identify the AI workloads and models that are running in your environment and assess their security posture.
+Defender for Cloud provides a comprehensive view of your cloud environment, including the generative Artificial Intelligence (AI) workloads and models running in your environment. By using the cloud security explorer, you can identify the AI workloads and models that are running in your environment and assess their security posture.
 
 ## Prerequisites
 
@@ -20,11 +20,9 @@ Defender for Cloud provides a comprehensive view of your cloud environment, incl
 
 - Have at least one [Azure OpenAI resource](../ai-studio/how-to/create-azure-ai-resource.md), with at least one [model deployment](../ai-studio/how-to/deploy-models-openai.md) connected to it via Azure AI Studio.
 
-## Identify GenAI workloads and models with cloud security explorer
+## Discover generative AI applications with cloud security explorer
 
-If you have multiple GenAI workloads and models running in your environment, you can use the cloud security explorer to identify them. 
-
-**To identify GenAI workloads and models in your environment**:
+If you have multiple generative AI workloads and models running in your environment, you can use the cloud security explorer to identify them. 
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
@@ -49,4 +47,4 @@ With the information provided in the results, you can determine deployed models 
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Identify GenAI vulnerable code repositories](identify-ai-vulnerable-code.md)
+> [Explore risks to generative AI applications](explore-ai-risk.md)

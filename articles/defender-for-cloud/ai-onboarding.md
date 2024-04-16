@@ -33,6 +33,8 @@ You can enable the Defender for AI workload plan on an Azure subscription and AW
 
     :::image type="content" source="media/ai-onboarding/enable-ai-workloads-plan.png" alt-text="Screenshot that shows you how to toggle the Defender for AI workloads plan to on." lightbox="media/ai-onboarding/enable-ai-workloads-plan.png":::
 
+After you have onboarded the Defender for AI workloads plan, you can should [manage and respond to the security alerts](managing-and-responding-alerts.md) that generate for your AI applications and remediate them.
+
 ## Next step
 
 > [!div class="nextstepaction"]

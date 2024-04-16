@@ -213,7 +213,7 @@
         href: critical-assets-protection.md
       - name: Agentless machine scanning
         href: concept-agentless-data-collection.md
-      - name: Protect your AI security posture
+      - name: Overview - AI security posture management
         displayName: AI, security, posture, management
         href: ai-security-posture.md
       - name: Integrations
@@ -310,18 +310,12 @@
           href: partner-integration.md
         - name: AI security posture
           items:
-          - name: Review recommendations for AI applications
-            displayName: AI, recommendations
-            href: review-recommendations-for-ai.md
-          - name: Identify vulnerabilities on AI container images
-            displayName: AI, vulnerabilities, container images
-            href: identify-ai-container-image.md
-          - name: Identify vulnerabilities on AI code repositories
-            displayName: AI, vulnerabilities, code repositories
-            href: identify-ai-vulnerable-code.md
-          - name: Identify vulnerabilities on AI workloads and models in use
-            displayName: AI, workloads, models
+          - name: Discover generative AI applications
+            displayName: AI, workloads, models, applications, apps
             href: identify-ai-workload-model.md
+          - name: Explore risks to generative AI applications
+            displayName: AI, risks, generative, applications, apps
+            href: explore-ai-risk.md
     - name: Data-aware security posture
       items:
         - name: Enable data-aware security posture
@@ -914,9 +908,6 @@
       - name: Onboard Defender for AI Workloads
         displayName: AI, Defender for AI
         href: ai-onboarding.md
-      - name: Review AI alerts
-        displayName: AI, alerts
-        href: review-alerts-for-ai.md
 - name: Reference
   items:
     - name: Archived release notes (older than six months)

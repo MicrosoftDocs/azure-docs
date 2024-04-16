@@ -5,12 +5,12 @@ ms.date: 04/15/2024
 ms.topic: overview
 ms.author: elkrieger
 author: Elazark
-#customer intent: As a cloud security professional, I want to understand how to secure my GenAI resources using Defender for Cloud's AI security posture management capabilities.
+#customer intent: As a cloud security professional, I want to understand how to secure my generative AI resources using Defender for Cloud's AI security posture management capabilities.
 ---
 
 # Overview - AI threat protection
 
-Generative Artificial Intelligence (GenAI) based applications introduce various new risks and threats to organizations including Disruption of Service (DOS) attacks and User Prompt Injection Attacks (UPIA). These risks can generate the following alerts in Microsoft Defender for Cloud:
+Generative Artificial Intelligence (AI) based applications introduce various new risks and threats to organizations including Disruption of Service (DOS) attacks and User Prompt Injection Attacks (UPIA). These risks can generate the following alerts in Microsoft Defender for Cloud:
 
 - **Jailbreak** - UPIA - an intentional attempt by a user to exploit the vulnerabilities of an LLM-powered system, bypass its safety mechanisms, and provoke restricted behaviors.
 
@@ -20,6 +20,6 @@ Generative Artificial Intelligence (GenAI) based applications introduce various 
 
 - **Wallet / DOS** - an attempt by a user to disrupt the service by sending a large number of requests to the AI model.
 
-Organizations need to identify, catalog, monitor, and govern the utilization of GenAI applications against potential risks such as sensitive information disclosure and insecure response handling.
+Organizations need to identify, catalog, monitor, and govern the utilization of generative AI applications against potential risks such as sensitive information disclosure and insecure response handling.
 
-To combat these risks, Microsoft Defender for Cloud provides alerts that help you identify and respond to security issues in your GenAI applications.
+To combat these risks, Microsoft Defender for Cloud provides alerts that help you identify and respond to security issues in your generative AI applications.
