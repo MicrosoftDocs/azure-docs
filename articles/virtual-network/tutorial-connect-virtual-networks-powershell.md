@@ -51,7 +51,7 @@ $vnet1 = @{
     ResourceGroupName = "test-rg"
     Location = "EastUS"
     Name = "vnet-1"
-    AddressPrefix = "10.0.0.0/16'
+    AddressPrefix = "10.0.0.0/16"
 }
 $virtualNetwork1 = New-AzVirtualNetwork @vnet1
 ```
