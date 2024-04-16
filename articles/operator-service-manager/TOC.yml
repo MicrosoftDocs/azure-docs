@@ -26,6 +26,8 @@
         href: concepts-about-aosm-cli-extension.md
       - name: CLI container image onboarding
         href: concepts-cli-cnf-image-upload.md
+      - name: Exposing parameters in a configuration group schema
+        href: concepts-expose-parameters-in-a-cgs.md
 - name: Quickstarts
   expanded: false
   items:
@@ -72,7 +74,7 @@
         href: how-to-onboard-a-cnf-using-the-azure-cli.md
       - name: Onboard a virtualized network function (VNF) - CLI
         href: how-to-onboard-a-vnf-using-the-azure-cli.md
-      - name: Use Helm option parameters to prevent Containerized Network Function (CNF) deletion on install failure
+      - name: Use Helm option parameters to prevent containerized network function (CNF) deletion on install failure
         href: how-to-use-helm-option-parameters.md
       - name: Onboard Azure resources - CLI
         href: how-to-onboard-arm-resources-using-the-azure-cli.md
