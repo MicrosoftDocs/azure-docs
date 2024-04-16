@@ -217,10 +217,8 @@ A [Deployment manifest](module-composition.md) declares which modules the IoT Ed
    | ----- | ----- |
    | Select deployment template file | The command palette highlights the **deployment.template.json** file in your current solution folder. Select that file.  |
    | Select module template | Select **Existing Module (Enter Full Image URL)**. |
-
-3. In the *Provide a Module Name*, enter **sql**. This name matches the container name declared in the connection string in the sqlFunction.cs file.
-
-4. In the *Provide Docker Image for the Module*, enter the following URI to pull the SQL Server container image from the Microsoft Artifact Registry. For Ubuntu based images, use `mcr.microsoft.com/mssql/server:latest`. For Red Hat Enterprise Linux (RHEL) based images, use `mcr.microsoft.com/mssql/rhel/server:latest`.
+   | Provide a Module Name | Enter **sql**. This name matches the container name declared in the connection string in the sqlFunction.cs file. |
+   | Provide Docker Image for the Module | Enter the following URI to pull the SQL Server container image from the Microsoft Artifact Registry. For Ubuntu based images, use `mcr.microsoft.com/mssql/server:latest`. For Red Hat Enterprise Linux (RHEL) based images, use `mcr.microsoft.com/mssql/rhel/server:latest`. |
 
    The Azure SQL Edge container image is a lightweight, containerized version of SQL Server that can run on IoT Edge devices. It's optimized for edge scenarios and can run on ARM and AMD64 devices.
 
