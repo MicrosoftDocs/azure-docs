@@ -621,6 +621,7 @@ You can use Azure OpenAI On Your Data with an Azure OpenAI resource in the follo
 
 * `gpt-4` (0314)
 * `gpt-4` (0613)
+* `gpt-4` (0125)
 * `gpt-4-32k` (0314)
 * `gpt-4-32k` (0613)
 * `gpt-4` (1106-preview)
