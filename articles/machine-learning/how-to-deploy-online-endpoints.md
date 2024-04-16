@@ -386,39 +386,6 @@ To define the endpoint and deployment, this article uses the Azure Resource Mana
 
 ---
 
-### Use different CPU and GPU instance types and images
-
-# [Azure CLI](#tab/cli)
-
-The preceding definition in the _blue-deployment.yml_ file uses a general-purpose type `Standard_DS3_v2` instance and a non-GPU Docker image `mcr.microsoft.com/azureml/openmpi4.1.0-ubuntu20.04:latest`. For GPU compute, choose a GPU compute type SKU and a GPU Docker image.
-
-For supported general-purpose and GPU instance types, see [Managed online endpoints supported VM SKUs](reference-managed-online-endpoints-vm-sku-list.md). For a list of Azure Machine Learning CPU and GPU base images, see [Azure Machine Learning base images](https://github.com/Azure/AzureML-Containers).
-
-> [!NOTE]
-> To use Kubernetes instead of managed endpoints as a compute target, see [Introduction to Kubernetes compute target](./how-to-attach-kubernetes-anywhere.md).
-
-# [Python SDK](#tab/python)
-
-The preceding definition of the `blue_deployment` uses a general-purpose type `Standard_DS3_v2` instance and a non-GPU Docker image `mcr.microsoft.com/azureml/openmpi4.1.0-ubuntu20.04:latest`. For GPU compute, choose a GPU compute type SKU and a GPU Docker image.
-
-For supported general-purpose and GPU instance types, see [Managed online endpoints supported VM SKUs](reference-managed-online-endpoints-vm-sku-list.md). For a list of Azure Machine Learning CPU and GPU base images, see [Azure Machine Learning base images](https://github.com/Azure/AzureML-Containers).
-
-> [!NOTE]
-> To use Kubernetes instead of managed endpoints as a compute target, see [Introduction to Kubernetes compute target](./how-to-attach-kubernetes-anywhere.md).
-
-
-# [Studio](#tab/azure-studio)
-
-
-When you deploy to Azure from the studio, you'll create an endpoint and a deployment to add to it. At that time, you'll be prompted to provide names for the endpoint and deployment.
-
-# [ARM template](#tab/arm)
-
-To define the endpoint and deployment, this article uses the Azure Resource Manager templates [online-endpoint.json](https://github.com/Azure/azureml-examples/tree/main/arm-templates/online-endpoint.json) and [online-endpoint-deployment.json](https://github.com/Azure/azureml-examples/tree/main/arm-templates/online-endpoint-deployment.json). To use the templates for defining an online endpoint and deployment, see the [Deploy to Azure](#deploy-to-azure) section.
-
----
-
-
 ## Understand the scoring script
 
 > [!TIP]
@@ -793,6 +760,8 @@ To define the endpoint and deployment, this article uses the Azure Resource Mana
 
 # [Azure CLI](#tab/cli)
 
+You can specify the CPU or GPU instance types and images in your deployment definition for both local deployment and deployment to Azure.
+
 Your deployment definition in the _blue-deployment-with-registered-assets.yml_ file used a general-purpose type `Standard_DS3_v2` instance and a non-GPU Docker image `mcr.microsoft.com/azureml/openmpi4.1.0-ubuntu20.04:latest`. For GPU compute, choose a GPU compute type SKU and a GPU Docker image.
 
 For supported general-purpose and GPU instance types, see [Managed online endpoints supported VM SKUs](reference-managed-online-endpoints-vm-sku-list.md). For a list of Azure Machine Learning CPU and GPU base images, see [Azure Machine Learning base images](https://github.com/Azure/AzureML-Containers).
@@ -801,6 +770,8 @@ For supported general-purpose and GPU instance types, see [Managed online endpoi
 > To use Kubernetes, instead of managed endpoints, as a compute target, see [Introduction to Kubernetes compute target](./how-to-attach-kubernetes-anywhere.md).
 
 # [Python SDK](#tab/python)
+
+You can specify the CPU or GPU instance types and images in your deployment configuration for both local deployment and deployment to Azure.
 
 Earlier, you configured a deployment that used a general-purpose type `Standard_DS3_v2` instance and a non-GPU Docker image `mcr.microsoft.com/azureml/openmpi4.1.0-ubuntu20.04:latest`. For GPU compute, choose a GPU compute type SKU and a GPU Docker image.
 
@@ -880,7 +851,7 @@ Next, deploy your online endpoint to Azure.
 
 Use the studio to create a managed online endpoint directly in your browser. When you create a managed online endpoint in the studio, you must define an initial deployment. You can't create an empty managed online endpoint.
 
-One way to create a managed online endpoint in the studio is from the **Models** page. This method also provides an easy way to add a model to an existing managed online deployment. To deploy the model named `model-1` that you registered previously in the [Register your model and environment](#register-your-model-and-environment-separately) section:
+One way to create a managed online endpoint in the studio is from the **Models** page. This method also provides an easy way to add a model to an existing managed online deployment. To deploy the model named `model-1` that you registered previously in the [Register your model and environment](#register-your-model-and-environment) section:
 
 1. Go to the [Azure Machine Learning studio](https://ml.azure.com).
 1. In the left navigation bar, select the **Models** page.
@@ -1132,7 +1103,7 @@ To understand how `update` works:
 1. Run this command:
 
     ```azurecli
-    az ml online-deployment update -n blue --endpoint $ENDPOINT_NAME -f endpoints/online/managed/sample/blue-deployment.yml
+    az ml online-deployment update -n blue --endpoint $ENDPOINT_NAME -f endpoints/online/managed/sample/blue-deployment-with-registered-assets.yml
     ```
 
     > [!Note]
