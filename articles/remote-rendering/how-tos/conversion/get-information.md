@@ -106,7 +106,7 @@ Here's an example *info* file produced by converting a file called `buggy.gltf`:
 This section contains the provided filenames.
 
 * `input`: The name of the source file.
-* `output`: The name of the output file, when the user specifies a non/default name.
+* `output`: The name of the output file, when the user specifies a non-default name.
 
 ### The *conversionSettings* section
 
