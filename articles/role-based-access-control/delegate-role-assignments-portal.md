@@ -199,9 +199,9 @@ There are two ways that you can edit a condition. You can use the condition temp
 
 1. If the condition doesn't match an existing template, use the advanced condition editor to edit the condition.
 
-    For example, to edit the operator or roles for a condition, scroll down to the expression section and update **Operator** or list of roles.
+    For example, to edit a condition, scroll down to the build expression section and update the attributes, operator, or values.
 
-    :::image type="content" source="./media/delegate-role-assignments-portal/condition-editor-build-expression.png" alt-text="Screenshot of condition editor that shows options to build expression." lightbox="./media/delegate-role-assignments-portal/condition-editor-build-expression.png":::
+    :::image type="content" source="./media/delegate-role-assignments-portal/condition-editor-build-expression.png" alt-text="Screenshot of condition editor that shows options to edit build expression." lightbox="./media/delegate-role-assignments-portal/condition-editor-build-expression.png":::
 
     To edit the condition directly, select the **Code** editor type and then edit the code for the condition.
 
