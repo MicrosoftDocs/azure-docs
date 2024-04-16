@@ -110,6 +110,7 @@ To receive the messages, get the Go packages for Event Hubs as shown in the foll
 
 ```bash
 go get github.com/Azure/azure-sdk-for-go/sdk/messaging/azeventhubs
+go get github.com/Azure/azure-sdk-for-go/sdk/storage/azblob
 ```
 
 ### Code to receive events from an event hub
@@ -140,6 +141,7 @@ import (
 
     "github.com/Azure/azure-sdk-for-go/sdk/messaging/azeventhubs"
     "github.com/Azure/azure-sdk-for-go/sdk/messaging/azeventhubs/checkpoints"
+    "github.com/Azure/azure-sdk-for-go/sdk/storage/azblob/container"
 )
 
 func main() {
