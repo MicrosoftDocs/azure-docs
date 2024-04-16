@@ -3,16 +3,16 @@ title: Converter redirect statement
 author: msjasteppe
 ms.service: healthcare-apis
 ms.topic: include
-ms.date: 04/03/2024
+ms.date: 05/06/2024
 ms.author: jasteppe
 ---
 
 > [!NOTE]
-> In May 2024 we released FHIR Converter APIs packaged as a container (docker) image. Converter gen 2 enables:
-> - Bi-directional data that can be converted data from FHIR R4 back to HL7v2 (source of record).
-> - The ability to interface with the source of record.
-> - ADF templates provided that utilize Convert Gen2 endpoint to automate conversion in customer’s workflows.
-> - Template Mmnagement: Removed ACR dependency.
-> - Easier template store integration with storage accounts and GitHub repos.
+> In May 2024 we released a FHIR converter API packaged as a container (Docker) image. The containerized FHIR converter offers:
+> - Bi-directional data conversion between two formats in both directions. For example, the FHIR converter can convert data from FHIR R4 format back to HL7v2 format.
+> - Smooth data flow between different applications and systems, including those that rely on the source of record.
+> - [Azure Data Factory templates](../../data-factory/solution-templates-introduction.md) that use FHIR converter endpoints to help you optimize data workflows.
+> - No dependency on [Azure Container Registry](../../container-registry/index.yml). 
+> - Easier integraton with storage accounts and GitHub repos.
 > 
-> The Converter container image is hosted in a [github project](https://github.com/Azure-Samples/azure-health-data-services-samples).
+> To implement the FHIR converter container image, see the [FHIR converter Github project](https://github.com/Azure-Samples/azure-health-data-services-samples).
