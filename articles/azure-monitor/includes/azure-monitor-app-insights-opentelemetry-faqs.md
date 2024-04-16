@@ -134,7 +134,7 @@ See the [OpenTelemetry Overview](../app/opentelemetry-overview.md#instrumentatio
 
 ### Can I use the OpenTelemetry Collector?
 
-Some customers use the [OpenTelemetry Collector](https://github.com/open-telemetry/opentelemetry-collector/blob/main/docs/design.md) as an agent alternative, even though Microsoft doesn't officially support an agent-based approach for application monitoring yet. In the meantime, the open-source community contributed an [OpenTelemetry Collector Azure Monitor Exporter](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/exporter/azuremonitorexporter) that some customers are using to send data to Azure Monitor Application Insights. **This is not supported by Microsoft.**
+Some customers use the OpenTelemetry Collector as an agent alternative, even though Microsoft doesn't officially support an agent-based approach for application monitoring yet. In the meantime, the open-source community contributed an [OpenTelemetry Collector Azure Monitor Exporter](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/exporter/azuremonitorexporter) that some customers are using to send data to Azure Monitor Application Insights. **This is not supported by Microsoft.**
 
 ### What's the difference between OpenCensus and OpenTelemetry?
 

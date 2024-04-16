@@ -54,21 +54,31 @@ items:
         href: tutorial-connect-device.md
       - name: Interact with a device from your solution
         href: tutorial-service.md
-    - name: Connect an ESPRESSIF ESP32 Kit to IoT Hub
-      href: tutorial-devkit-espressif-esp32-freertos-iot-hub.md
+    - name: Embedded device development
+      items:
+        - name: Connect an MXCHIP AZ3166 to IoT Hub
+          href: tutorial-devkit-mxchip-az3166-iot-hub.md
+        - name: Connect an STMicroelectronics B-L475E to IoT Hub
+          href: tutorial-devkit-stm-b-l475e-iot-hub.md
+        - name: Connect an ESPRESSIF ESP32 Kit to IoT Hub
+          href: tutorial-devkit-espressif-esp32-freertos-iot-hub.md
+        - name: Troubleshoot embedded device tutorials
+          href: troubleshoot-embedded-device-tutorials.md
     - name: Connect a multiple component device
       href: tutorial-multiple-components.md
     - name: Connect a device module
       href: tutorial-migrate-device-to-module.md
-    - name: Use MQTT to connect aMobile device
+    - name: Use MQTT to connect a Mobile device
       href: tutorial-use-mqtt.md
 
   - name: Concepts
     items:
       - name: Security architecture
         href: iot-security-architecture.md    
-      - name: IoT Devices
+      - name: IoT device development
         items:
+        - name: What is IoT device development
+          href: concepts-iot-device-development.md
         - name: IoT device types
           href: concepts-iot-device-types.md
         - name: C SDK and Embedded C SDK usage scenarios
@@ -77,6 +87,8 @@ items:
           href: concepts-manage-device-reconnections.md 
         - name: IoT device selection
           href: concepts-iot-device-selection.md
+        - name: Guide for Eclipse ThreadX security practices
+          href: concepts-eclipse-threadx-security-practices.md
       - name: IoT Plug and Play
         items:
         - name: What is IoT Plug and Play?
@@ -134,8 +146,6 @@ items:
         href: ../azure-maps/index.yml
       - name: Time Series Insights
         href: ../time-series-insights/index.yml
-    - name: IoT device developer
-      href: ../iot-develop/index.yml
     - name: Azure IoT SDKs
       items:
       - name: Device and Service SDKs
