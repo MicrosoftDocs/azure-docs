@@ -48,9 +48,9 @@ For the resource logs schema and properties for data errors and events, see [Res
 ### Stream Analytics jobs
 microsoft.streamanalytics/streamingjobs
 
-- [AzureActivity](../azure-monitor/reference/tables/AzureActivity.md)
-- [AzureMetrics](../azure-monitor/reference/tables/AzureMetrics.md)
-- [AzureDiagnostics](../azure-monitor/reference/tables/AzureDiagnostics.md)
+- [AzureActivity](/azure/azure-monitor/reference/tables/AzureActivity)
+- [AzureMetrics](/azure/azure-monitor/reference/tables/AzureMetrics)
+- [AzureDiagnostics](/azure/azure-monitor/reference/tables/AzureDiagnostics)
 
 [!INCLUDE [horz-monitor-ref-activity-log](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-activity-log.md)]
 - [Microsoft.StreamAnalytics resource provider operations](../role-based-access-control/permissions/internet-of-things.md#microsoftstreamanalytics)

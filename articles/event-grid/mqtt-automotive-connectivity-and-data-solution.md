@@ -81,7 +81,7 @@ Direct messages are executed with the minimum amount of hops for the best possib
 1. **Event Grid** checks for authorization for the Companion app Service to determine if it can send messages to the provided topics.
 1. Companion app subscribes to responses from the specific vehicle / command combination.
 
-In the case of vehicle state-dependent commands that require user consent **(B)**:
+When vehicle state-dependent commands require user consent **(B)**:
 
 1. The vehicle owner / user provides consent for the execution of command and control functions to a **digital service** (in this example a companion app). This is normally done when the user downloads/activate the app and the OEM activates their account. This triggers a configuration change on the vehicle to subscribe to the associated command topic in the MQTT broker.
 2. The **companion app** uses the command and control managed API to request execution of a remote command.
@@ -102,7 +102,7 @@ This dataflow covers the process to register and provision vehicles and devices 
 
 :::image type="content" source="media/mqtt-automotive-connectivity-and-data-solution/provisioning-dataflow.png" alt-text="Diagram of the provisioning dataflow." border="false" lightbox="media/mqtt-automotive-connectivity-and-data-solution/provisioning-dataflow.png":::
 
-1. The **Factory System** commissions the vehicle device to the desired construction state. This may include firmware & software initial installation and configuration. As part of this process, the factory system will obtain and write the device *certificate*, created from the **Public Key Infrastructure** provider.
+1. The **Factory System** commissions the vehicle device to the desired construction state. This can include firmware & software initial installation and configuration. As part of this process, the factory system will obtain and write the device *certificate*, created from the **Public Key Infrastructure** provider.
 1. The **Factory System** registers the vehicle & device using the *Vehicle & Device Provisioning API*.
 1. The factory system triggers the **device provisioning client** to connect to the *device registration*  and provision the device. The device retrieves connection information to the *MQTT broker*.
 1. The *device registration* application creates the device identity with MQTT broker.
@@ -161,7 +161,7 @@ Each *vehicle messaging scale unit* supports a defined vehicle population (for e
 * [Azure Functions](../azure-functions/functions-overview.md) processes the vehicle messages. It can also be used to implement management APIs that require short-lived execution.
 * [Azure Kubernetes Service (AKS)](../aks/intro-kubernetes.md) is an alternative when the functionality behind the Managed APIs consists of complex workloads deployed as containerized applications.
 * [Azure Cosmos DB](../cosmos-db/introduction.md) stores the vehicle, device and user consent settings.
-* [Azure API Management](../azure/api-management/api-management-key-concepts.md) provides a managed API gateway to existing back-end services such as vehicle lifecycle management (including OTA) and user consent management.
+* [Azure API Management](../api-management/api-management-key-concepts.md) provides a managed API gateway to existing back-end services such as vehicle lifecycle management (including OTA) and user consent management.
 * [Azure Batch](../batch/batch-technical-overview.md) runs large compute-intensive tasks efficiently, such as vehicle communication trace ingestion.
 
 #### Data and Analytics
