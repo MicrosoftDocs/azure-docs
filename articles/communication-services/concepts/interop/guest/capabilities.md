@@ -140,7 +140,7 @@ This article describes which capabilities Azure Communication Services SDKs supp
 |                   | Honor setting "Mode for IP video"                                                                                   | ❌ |
 |                   | Honor setting "IP video"                                                                                            | ❌ |
 |                   | Honor setting "Local broadcasting"                                                                                  | ❌ |
-|                   | Honor setting "Media bit rate (Kbs)"                                                                                | ❌ |
+|                   | Honor setting "Media bit rate (Kbps)"                                                                                | ❌ |
 |                   | Honor setting "Network configuration lookup"                                                                        | ❌ |
 |                   | Honor setting "Transcription"                                                                                       | No API available |
 |                   | Honor setting "Cloud recording"                                                                                     | No API available |
@@ -172,7 +172,7 @@ This article describes which capabilities Azure Communication Services SDKs supp
 
 When Teams external users leave the meeting, or the meeting ends, they can no longer exchange new chat messages nor access messages sent and received during the meeting. 
 
-\* Azure Communication Services provides developer tools to integrate Microsoft Teams Data Loss Prevention compatible with Microsoft Teams. For more information, see [how to implement Data Loss Prevention (DLP)](../../../how-tos/chat-sdk/data-loss-prevention.md)
+\* Azure Communication Services provides developer tools to integrate Microsoft Teams Data Loss Prevention compatible with Microsoft Teams. For more information, see [how to implement Data Loss Prevention (DLP)](../../../how-tos/chat-sdk/data-loss-prevention.md).
 
 \*\* Inline image and file attachment support are available in the Chat SDK for JavaScript and C# only.
 
@@ -205,4 +205,4 @@ The following table shows supported Teams capabilities:
 - [Join Teams meeting audio and video as Teams external user](../../../quickstarts/voice-video-calling/get-started-teams-interop.md)
 - [Join Teams meeting chat as Teams external user](../../../quickstarts/chat/meeting-interop.md)
 - [Join meeting options](../../../how-tos/calling-sdk/teams-interoperability.md)
-- [Communicate as Teams user](../../teams-endpoint.md).
+- [Communicate as Teams user](../../teams-endpoint.md)
