@@ -61,4 +61,4 @@ You can view update status for an Arc site as a whole from the main page of Azur
 
 1. On the site's resource page, you can view the update status for each resource within the site, including the resource responsible for the top-level most important status.
 
-   :::image type="content" source="./media/how-to-view-update-status/london-resource-status-updates.png" alt-text="Screenshot that shows using the site details page to identify resources with pending or in progress updates.":::
+   :::image type="content" source="./media/how-to-view-update-status/los-angeles-resource-status-updates.png" alt-text="Screenshot that shows using the site details page to identify resources with pending or in progress updates.":::
