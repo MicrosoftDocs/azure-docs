@@ -7,7 +7,7 @@ ms.topic: include
 ms.service: azure-communication-services
 ---
 
-In this tutorial, you learn how to enable file attachment support using the Azure Communication Services Chat SDK for C#.
+This tutorial describes how to enable file attachment support using the Azure Communication Services Chat SDK for C#.
 
 ## Sample code
 Find the finalized code of this tutorial on [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/ChatTeamsInteropQuickStart).
@@ -37,7 +37,7 @@ public readonly partial struct ChatAttachmentType : IEquatable<ChatAttachmentTyp
 
 ```
 
-As an example, the following JSON is an example of what `ChatAttachment` might look like for an image attachment and a file attachment when receiving requests from the server side:
+For example, the following JSON shows what `ChatAttachment` might look like for an image attachment and a file attachment when receiving requests from the server side:
 
 ```json
 "attachments": [
@@ -89,14 +89,12 @@ await foreach (ChatMessage message in allMessages)
 
 Specifically, for each file attachment, we get the `previewUrl` and construct a list of URLs in the `for loop`. Then we embed the string along with the chat message content.
 
-Now you know how you can handle file attachments.
-
 
 ## Handle image attachments
 
-Image attachments need to be treated differently to standard `file` attachments. Image attachments have the `ChatAttachmentType` of `image`, which requires the communication token to retrieve either the preview or full-size images.
+You need to handle image attachments differently than standard `file` attachments. Image attachments have the `ChatAttachmentType` of `image`, which requires the communication token to retrieve either the preview or full-size images.
 
-Make sure you went through this tutorial [Enabling inline image support](../meeting-interop-features-inline-image.md) first. To identity image attachments, we need to check if message content contains the same image ID from the attachments.
+Before continuing, complete the [Enabling inline image support](../meeting-interop-features-inline-image.md) tutorial. To identity image attachments, we need to find out if the message content contains the same image ID from the attachments.
 
 ```csharp
 bool isImageAttachment = message.Content.Message.Contains(x.Id);
@@ -123,6 +121,5 @@ foreach (ChatAttachment imageAttachment in imageAttachments)
 }
 ```
 
-
-That's it! Now we have support for image attachments as well.
+Now your support image attachments.
 

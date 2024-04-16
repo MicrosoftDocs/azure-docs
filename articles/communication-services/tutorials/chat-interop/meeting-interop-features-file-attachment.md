@@ -30,7 +30,7 @@ You should be aware of couple constraints that come with this feature:
    The Teams user should be made aware of that all other permissions (such as "People in your organization") aren't supported. The Teams user should double check if the default permission is supported after uploading the file on their Teams client. 
 3. The direct download URL (`url`) isn't supported.
 
-In addition to regular files (with `AttachmentType` of `file`), the Chat SDK also provides the `AttachmentType` of `image`. Use it for image attachments that mirror the behavior of how Microsoft Teams client converts image attachment to inline images at the UI layer. For more informtaion, see [Handle image attachments](#handle-image-attachments). 
+In addition to regular files (with `AttachmentType` of `file`), the Chat SDK also provides the `AttachmentType` of `image`. Use it for image attachments that mirror the behavior of how Microsoft Teams client converts image attachment to inline images at the UI layer. For more information, see [Handle image attachments](#handle-image-attachments). 
 
 Images added via "Upload from this device" renders on Teams side, and Chat SDK returns such attachments as `image`. For images uploaded via "Attach cloud files" however, images are treated as regular files on the Teams side, so Chat SDK returns such attachments as `file`.
 
