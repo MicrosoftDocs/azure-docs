@@ -17,7 +17,7 @@ This integration gives Microsoft 365 security incidents the visibility to be man
 - **Microsoft Defender for Identity**
 - **Microsoft Defender for Office 365**
 - **Microsoft Defender for Cloud Apps**
-- **Microsoft Defender for Cloud** (Preview)
+- **Microsoft Defender for Cloud**
 
 Other services whose alerts are collected by Microsoft Defender XDR include:
 
@@ -27,6 +27,8 @@ Other services whose alerts are collected by Microsoft Defender XDR include:
 In addition to collecting alerts from these components and other services, Microsoft Defender XDR generates alerts of its own. It creates incidents from all of these alerts and sends them to Microsoft Sentinel.
 
 ## Common use cases and scenarios
+
+- Onboarding of Microsoft Sentinel to the unified security operations platform in the Microsoft Defender portal, of which enabling the Microsoft Defender XDR integration is a required early step.
 
 - One-click connect of Microsoft Defender XDR incidents, including all alerts and entities from Microsoft Defender XDR components, into Microsoft Sentinel.
 
@@ -44,9 +46,11 @@ Install the Microsoft Defender XDR solution for Microsoft Sentinel and enable th
 
 - It can take up to 10 minutes from the time an incident is generated in Microsoft Defender XDR to the time it appears in Microsoft Sentinel.
 
-- Alerts and incidents from Microsoft Defender XDR (those items which populate the *SecurityAlert* and *SecurityIncident* tables) are ingested into and synchronized with Microsoft Sentinel at no charge. For all other data types from individual Defender components (such as DeviceInfo, DeviceFileEvents, EmailEvents, and so on), ingestion will be charged.
+- Alerts and incidents from Microsoft Defender XDR (those items which populate the *SecurityAlert* and *SecurityIncident* tables) are ingested into and synchronized with Microsoft Sentinel at no charge. For all other data types from individual Defender components (such as the *Advanced hunting* tables *DeviceInfo*, *DeviceFileEvents*, *EmailEvents*, and so on), ingestion will be charged.
 
-- When the Microsoft Defender XDR connector is enabled, alerts created by its component services (Defender for Endpoint, Defender for Identity, Defender for Office 365, Defender for Cloud Apps, Microsoft Entra ID Protection) will be sent to Microsoft Defender XDR and grouped into incidents. Both the alerts and the incidents will flow to Microsoft Sentinel through the Microsoft Defender XDR connector with no additional configuration. The connectors for its individual component services will appear to remain connected, though no alerts will flow through them, to avoid duplication of alerts.
+- When the Microsoft Defender XDR connector is enabled, alerts created by its component services (Defender for Endpoint, Defender for Identity, Defender for Office 365, Defender for Cloud Apps, Microsoft Entra ID Protection) will be sent to Microsoft Defender XDR and grouped into incidents. Both the alerts and the incidents will flow to Microsoft Sentinel through the Microsoft Defender XDR connector. If you had enabled any of the individual component connectors beforehand, they will appear to remain connected, though no data will be flowing through them.
+
+    The exception to this process is Microsoft Defender for Cloud. Although its [integration with Microsoft Defender XDR](/microsoft-365/security/defender/microsoft-365-security-center-defender-cloud) means that you receive Defender for Cloud *incidents* through Defender XDR, you need to also have a Microsoft Defender for Cloud connector enabled in order to receive Defender for Cloud *alerts*. For the available options and more information, see [Ingest Microsoft Defender for Cloud incidents with Microsoft Defender XDR integration](ingest-defender-for-cloud-incidents.md).
 
 - Similarly, to avoid creating *duplicate incidents for the same alerts*, **Microsoft incident creation rules** will be turned off for Microsoft Defender XDR-integrated products (Defender for Endpoint, Defender for Identity, Defender for Office 365, Defender for Cloud Apps, and Microsoft Entra ID Protection) when connecting Microsoft Defender XDR. This is because Defender XDR has its own incident creation rules. This change has the following potential impacts:
 
