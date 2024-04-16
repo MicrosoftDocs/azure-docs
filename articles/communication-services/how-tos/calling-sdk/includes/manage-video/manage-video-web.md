@@ -472,22 +472,24 @@ by either creating new renderer (`createView` method) or dispose views (`dispose
 
 Remote video streams have the following properties:
 
-- `id`: The ID of a remote video stream.
-
 ```js
 const id: number = remoteVideoStream.id;
 ```
-
-- `mediaStreamType`: Can be `Video` or `ScreenSharing`.
+- `id`: The ID of a remote video stream.
 
 ```js
 const type: MediaStreamType = remoteVideoStream.mediaStreamType;
+```
+- `mediaStreamType`: Can be `Video` or `ScreenSharing`.
+
+```js
+const isAvailable: boolean = remoteVideoStream.isAvailable;
 ```
 
 - `isAvailable`: Defines whether a remote participant endpoint is actively sending a stream.
 
 ```js
-const isAvailable: boolean = remoteVideoStream.isAvailable;
+const isReceiving: boolean = remoteVideoStream.isReceiving;
 ```
 
 - `isReceiving`:
@@ -508,27 +510,27 @@ const isAvailable: boolean = remoteVideoStream.isAvailable;
         
   - This feature improves the user experience for rendering remote video streams.
   - You can display a loading spinner over the remote video stream when isReceiving flag changes to false. You don't have to do a loading spinner, you can do anything you desire, but a loading spinner is the most common usage for better user experience.
-```js
-const isReceiving: boolean = remoteVideoStream.isReceiving;
-```
-
-- `size`: The stream size. The higher the stream size, the better the video quality.
 
 ```js
 const size: StreamSize = remoteVideoStream.size;
 ```
 
+- `size`: The stream size. The higher the stream size, the better the video quality.
+
 ## VideoStreamRenderer methods and properties
-Create a `VideoStreamRendererView` instance that can be attached in the application UI to render the remote video stream, use asynchronous `createView()` method, it resolves when stream is ready to render and returns an object with `target` property that represents `video` element that can be appended anywhere in the DOM tree
 
 ```js
 await videoStreamRenderer.createView();
 ```
 
-Dispose of `videoStreamRenderer` and all associated `VideoStreamRendererView` instances:
+Create a `VideoStreamRendererView` instance that can be attached in the application UI to render the remote video stream,
+use asynchronous `createView()` method, it resolves when stream is ready to render and returns an object with `target`
+property that represents `video` element that can be inserted anywhere in the DOM tree
+
 ```js
 videoStreamRenderer.dispose();
 ```
+Dispose of `videoStreamRenderer` and all associated `VideoStreamRendererView` instances
 
 ## VideoStreamRendererView methods and properties
 
@@ -551,7 +553,7 @@ view.updateScalingMode('Crop');
 
 ## Send video streams from two different cameras, in the same call from the same desktop device.
 [!INCLUDE [Public Preview Disclaimer](../../../../includes/public-preview-include.md)]
-This is supported as part of version 1.17.1-beta.1+ on desktop supported browsers.
+Send video streams from two different cameras in the same call is supported as part of version 1.17.1-beta.1+ on desktop supported browsers.
 - You can send video streams from two different cameras from a single desktop browser tab/app, in the same call, with the following code snippet:
 ```js
 // Create your first CallAgent with identity A
@@ -577,7 +579,7 @@ await callObj2.muteIncomingAudio();
 await callObj2.mute();
 ```
 Limitations:
-- This must be done with two different call agents with different identities, hence the code snippet shows two call agents being used, each with its own Call object.
+- This must be done with two different `CallAgent` instances using different identities, hence the code snippet shows two call agents being used, each with its own Call object.
 - In the code example, both CallAgents are joining the same call (same call Ids). You can also join different calls with each agent and send one video on one call and a different video on the other call. 
 - Sending the same camera in both CallAgent, isn't supported. They must be two different cameras.
 - Sending two different cameras with one CallAgent is currently not supported.
