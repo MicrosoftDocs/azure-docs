@@ -17,7 +17,7 @@ Azure API Center enables tracking all of your APIs in a centralized location for
 With an API center, stakeholders throughout your organization - including API program managers, IT administrators, application developers, and API developers - can discover, reuse, and govern APIs.  
 
 > [!NOTE]
-> Azure API Center is a solution for design-time API governance and centralized API discovery. Azure also offers the API Management service, a solution for runtime API governance and observability. [Learn more](frequently-asked-questions.yml#whats-the-difference-between-azure-api-management-and-azure-api-center) about the difference.
+> Azure API Center is a solution for design-time API governance and centralized API discovery. Azure also offers the API Management service, a solution for runtime API governance and observability using an API gateway. [Learn more](frequently-asked-questions.yml#what-s-the-difference-between-azure-api-management-and-azure-api-center) about the difference.
 
 ## Benefits
 
