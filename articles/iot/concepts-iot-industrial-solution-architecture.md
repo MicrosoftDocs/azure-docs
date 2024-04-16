@@ -335,9 +335,8 @@ The following screenshot shows the dashboard:
 
 1. Give your instance a name and leave the standard options on - and create the service. 
 
-1. After the service is created, navigate to the URL where you can have access to your Grafana instance. You can find the URL in the homepage of the service. 
+1. After the service is created, navigate to the URL where you access your Grafana instance. You can find the URL in the homepage of the service. 
 
-  :::image type="content" source="media/concepts-iot-industrial-solution-architecture/url-to-grafana.png" alt-text="Screenshot of the url to Grafana." lightbox="media/concepts-iot-industrial-solution-architecture/url-to-grafana.png" border="false" :::
 
 ### Add a new Data Source in Grafana
 
@@ -345,15 +344,9 @@ After your first sign in, you'll need to add a new data source to Azure Data Exp
 
 1. Navigate to 'Configuration' and add a new datasource.
 
-    :::image type="content" source="media/concepts-iot-industrial-solution-architecture/add-data-source-grafana.png" alt-text="Screenshot of adding a new service." lightbox="media/concepts-iot-industrial-solution-architecture/add-data-source-grafana.png" border="false" :::
-
 1. Search for Azure Data Explorer and select the service.
 
-  :::image type="content" source="media/concepts-iot-industrial-solution-architecture/search-adx.png" alt-text="Screenshot of searching ADX." lightbox="media/concepts-iot-industrial-solution-architecture/search-adx.png" border="false" :::
-
 1. Configure your connection and use the app registration (follow the manual that is provided on the top of this page).
-
-  :::image type="content" source="media/concepts-iot-industrial-solution-architecture/app-registration.png" alt-text="Screenshot of creating an app registration." lightbox="media/concepts-iot-industrial-solution-architecture/app-registration.png" border="false" :::
 
 1. Save and test your connection on the bottom of the page. 
 
@@ -365,25 +358,15 @@ Now you are ready to import the provided sample dashboard.
 
 1. Go to 'Dashboard' and select 'Import'.
 
-  :::image type="content" source="media/concepts-iot-industrial-solution-architecture/import-file.png" alt-text="Screenshot of importing a file." lightbox="media/concepts-iot-industrial-solution-architecture/import-file.png" border="false" :::
-
 1. Select the source that you have downloaded and select on 'Save'. You get an error on the page, because two variables aren't set yet. Go to the settings page of the dashboard.
-
-  :::image type="content" source="media/concepts-iot-industrial-solution-architecture/settings-dashboard.png" alt-text="Screenshot of the dashboard settings." lightbox="media/concepts-iot-industrial-solution-architecture/settings-dashboard.png" border="false" :::
 
 1. Select on the left on 'Variables' and update the two URLs with the URL of your Azure Digital Twins Service. 
 
-  :::image type="content" source="media/concepts-iot-industrial-solution-architecture/variable-setting.png" alt-text="Screenshot of the variable setting." lightbox="media/concepts-iot-industrial-solution-architecture/variable-setting.png" border="false" :::
-
 1. Navigate back to the dashboard and hit the refresh button. You should now see data (don't forget to hit the save button on the dashboard).
-
-  :::image type="content" source="media/concepts-iot-industrial-solution-architecture/end-result.png" alt-text="Screenshot of the end result of the setup process." lightbox="media/concepts-iot-industrial-solution-architecture/end-result.png" border="false" :::
 
 The location variable on the top of the page is automatically filled with data from Azure Digital Twins (the area nodes from ISA95). Here you can select the different locations and see the different datapoints of every factory. 
 
 1. If data isn't showing up in your dashboard, navigate to the individual panels and see if the right data source is selected:
-
-  :::image type="content" source="media/concepts-iot-industrial-solution-architecture/data-source-selected.png" alt-text="Screenshot of a selected data source." lightbox="media/concepts-iot-industrial-solution-architecture/data-source-selected.png" border="false" :::
 
 ### Configure Alerts
 
@@ -478,25 +461,15 @@ First, if you're not already a Dynamics 365 Field Service customer, activate a 3
 
 Let's start with uploading assets from the Manufacturing Ontologies into Dynamics 365 Field Service:
 
-1. Go to the Azure portal and create a new Logic App as shown below:
-
-  :::image type="content" source="media/concepts-iot-industrial-solution-architecture/create-logic-app.png" alt-text="Screenshot of creating a logic app in the Marketplace." lightbox="media/concepts-iot-industrial-solution-architecture/create-logic-app.png" border="false" :::
+1. Go to the Azure portal and create a new Logic App.
 
 2. Give the Azure Logic App a name, place it in the same resource group as the Manufacturing Ontologies reference solution.
 
-  :::image type="content" source="media/concepts-iot-industrial-solution-architecture/configure-logic-app.png" alt-text="Screenshot of configuring a Logic App." lightbox="media/concepts-iot-industrial-solution-architecture/configure-logic-app.png" border="false" :::
-
-3. Select on 'Workflows':
-
-  :::image type="content" source="media/concepts-iot-industrial-solution-architecture/create-logic-app-flow.png" alt-text="Screenshot of navigating to a Logic App flow." lightbox="media/concepts-iot-industrial-solution-architecture/create-logic-app-flow.png" border="false" :::
+3. Select on 'Workflows'.
 
 4. Give your workflow a name - for this scenario we use the stateful state type, because assets aren't flows of data.
 
-  :::image type="content" source="media/concepts-iot-industrial-solution-architecture/create-logic-app-flow-name.png" alt-text="Screenshot of creating a name for a Logic App flow." lightbox="media/concepts-iot-industrial-solution-architecture/create-logic-app-flow-name.png" border="false" :::
-
 5. Create a new trigger. We start with creating a 'Recurrence' trigger. This checks the database every day if new assets are created. You can change this to happen more often.
-
-  :::image type="content" source="media/concepts-iot-industrial-solution-architecture/flow-to-scheduler.png" alt-text="Screenshot of creating a recurrence." lightbox="media/concepts-iot-industrial-solution-architecture/flow-to-scheduler.png" border="false" :::
 
 6. In actions, search for `Azure Data Explorer` and select the `Run KQL query` command. Within this query, we check what kind of assets we have. Use the following query to get assets and paste it in the query field:
 
@@ -504,18 +477,12 @@ Let's start with uploading assets from the Manufacturing Ontologies into Dynamic
   let ADTInstance =  "PLACE YOUR ADT URL";let ADTQuery = "SELECT T.OPCUAApplicationURI as AssetName, T.$metadata.OPCUAApplicationURI.lastUpdateTime as UpdateTime FROM DIGITALTWINS T WHERE IS_OF_MODEL(T , 'dtmi:digitaltwins:opcua:nodeset;1') AND T.$metadata.OPCUAApplicationURI.lastUpdateTime > 'PLACE DATE'";evaluate azure_digital_twins_query_request(ADTInstance, ADTQuery)
   ```
 
-  :::image type="content" source="media/concepts-iot-industrial-solution-architecture/designer-kql-query-parameters.png" alt-text="Screenshot of designer query parameters to connect Kusto." lightbox="media/concepts-iot-industrial-solution-architecture/designer-kql-query-parameters.png" border="false" :::
-
 7. To get your asset data into Dynamics 365 Field Service, you need to connect to Microsoft Dataverse. Connect to your Dynamics 365 Field Service instance and use the following configuration:
 
   - Use the 'Customer Assets' Table Name
   - Put the 'AssetName' into the Name field
 
-  :::image type="content" source="media/concepts-iot-industrial-solution-architecture/designer-kql-parameters-dataverse.png" alt-text="Screenshot of designer query parameters to configure Dataverse." lightbox="media/concepts-iot-industrial-solution-architecture/designer-kql-parameters-dataverse.png" border="false" :::
-
 8. Save your workflow and run it. You see in a few seconds later that new assets are created in Dynamics 365 Field Service.
-
-  :::image type="content" source="media/concepts-iot-industrial-solution-architecture/run-flow.png" alt-text="Screenshot of running a flow." lightbox="media/concepts-iot-industrial-solution-architecture/run-flow.png" border="false" :::
 
 ### Create an Azure Logic App Workflow to create Alerts in Dynamics 365 Field Service
 
@@ -542,151 +509,13 @@ This workflow creates alerts in Dynamics 365 Field Service, specifically when a 
 
 2. Create a new workflow in Azure Logic App. Create a 'Recurrence' trigger to start - every 3 minutes. Create as action 'Azure Data Explorer' and select the Run KQL Query.
 
-  :::image type="content" source="media/concepts-iot-industrial-solution-architecture/flow-to-kql-query.png" alt-text="Screenshot of running a kql query." lightbox="media/concepts-iot-industrial-solution-architecture/flow-to-kql-query.png" border="false" :::
-
 3. Enter your Azure Data Explorer Cluster URL, then select your database and use the function name created in step 1 as the query.
 
-  :::image type="content" source="media/concepts-iot-industrial-solution-architecture/flow-to-adx.png" alt-text="Screenshot of a flow to ADX." lightbox="media/concepts-iot-industrial-solution-architecture/flow-to-adx.png" border="false" :::
-
-4. Select Microsoft Dataverse as action and put the below configuration in the fields:
-
-  :::image type="content" source="media/concepts-iot-industrial-solution-architecture/flow-to-field-services.png" alt-text="Screenshot of configuring a flow to field service." lightbox="media/concepts-iot-industrial-solution-architecture/flow-to-field-services.png" border="false" :::
+4. Select Microsoft Dataverse as action.
 
 5. Run the workflow and to see new alerts being generated in your Dynamics 365 Field Service dashboard:
 
   :::image type="content" source="media/concepts-iot-industrial-solution-architecture/dynamics-iot-alerts.png" alt-text="Screenshot of alerts in Dynamics 365 FS." lightbox="media/concepts-iot-industrial-solution-architecture/dynamics-iot-alerts.png" border="false" :::
-
-
-## Connect the Solution to Microsoft Sustainability Manager
-
-### Introduction
-Microsoft Sustainability Manager (MSM) is an extensible solution that unifies data intelligence and provides comprehensive, integrated, and automated sustainability management for organizations at any stage of their sustainability journey. It automates manual processes, enabling organizations to more efficiently record, report, and reduce their emissions.
-
-In the simulated production also the energy usage of every machine is collected. This data can be loaded into MSM for reporting on scope 2 emissions. Below the global steps how this works. This is more complicated, but it gives a high level understanding what is happening.
-
-:::image type="content" source="media/concepts-iot-industrial-solution-architecture/overview-solution.png" alt-text="Diagram of a solution overview." lightbox="media/concepts-iot-industrial-solution-architecture/overview-solution.png" border="false" :::
-
-### Set up trial account
-When you want to use the Microsoft Sustainability Manager (MSM), you can start with a 30 day trial. 
-
-1. For that you need to go to [this](https://www.microsoft.com/sustainability/cloud) trial page. Enter there your e-mailadres, agree with the term and select on 'Start your free trial'
-
-  :::image type="content" source="media/concepts-iot-industrial-solution-architecture/trial-page.png" alt-text="Screenshot of the MSM trial page." lightbox="media/concepts-iot-industrial-solution-architecture/trial-page.png" border="false" :::
-
-2. After that select your country and add your phone number. 
-
-  :::image type="content" source="media/concepts-iot-industrial-solution-architecture/welcome-page.png" alt-text="Screenshot of the welcome page MSM." lightbox="media/concepts-iot-industrial-solution-architecture/welcome-page.png" border="false" :::
-
-3. Your MSM environment is ready to go. 
-
-  :::image type="content" source="media/concepts-iot-industrial-solution-architecture/start-page-msm.png" alt-text="Screenshot of the start page of MSM." lightbox="media/concepts-iot-industrial-solution-architecture/start-page-msm.png" border="false" :::
-
-4. We need to create a new facility in MSM to connect the production lines of this example to the right facility. Navigate to the left bottom menu and select 'Settings'.
-
-  :::image type="content" source="media/concepts-iot-industrial-solution-architecture/settings.png" alt-text="Screenshot of the Settings in MSM." lightbox="media/concepts-iot-industrial-solution-architecture/settings.png" border="false" :::
-
-5. Select on 'Add new facility' and create your own facility name that you want to create, for example "Seattle'. Important to add the address of the facility.
-
-  :::image type="content" source="media/concepts-iot-industrial-solution-architecture/add-new-facility.png" alt-text="Screenshot of adding a new facility." lightbox="media/concepts-iot-industrial-solution-architecture/add-new-facility.png" border="false" :::
-
-6. Then you have to connect your Facility also to the MSM calculation models. Navigate to the Data page (menu left bottom). 
-
-  :::image type="content" source="media/concepts-iot-industrial-solution-architecture/factor-libraries.png" alt-text="Screenshot of factor libraries." lightbox="media/concepts-iot-industrial-solution-architecture/factor-libraries.png" border="false" :::
-
-7. Select on 'New factory mapping' where we can connect the Facility to the right library.
-
-  :::image type="content" source="media/concepts-iot-industrial-solution-architecture/factor-mapping.png" alt-text="Screenshot of creating a factor mapping." lightbox="media/concepts-iot-industrial-solution-architecture/factor-mapping.png" border="false" :::
-
-8. Give your factor mapping a name, for example Seattle Facility. Select in the reference data the name of your facility, in our case 'Seattle' and connect the factor to it. Because this factory is based in Seattle, I'll connect the America library to it.
-
-  :::image type="content" source="media/concepts-iot-industrial-solution-architecture/new-factor-mapping.png" alt-text="Screenshot of creating a new factor mapping." lightbox="media/concepts-iot-industrial-solution-architecture/new-factor-mapping.png" border="false" :::
-
-### Import data from Azure Data Explorer
-Now we can import the energy data (scope 2) from Azure Data Explorer. In the current setup of this solution not all the needed fields for MSM are in the solution.
-
-### Different tenants (Azure and MSM)
-If you're importing from a different Azure tenant the data from Azure Data Explorer, you need to add the Fully Qualified DNS Name (FQDN). 
-
-1. Run the following script on your Azure Data Explorer when needed: 
-
-```
-.add database ['ADXDATABASE'] users ('aaduser=YOURFULLFQDN') 'Test MSM (AAD)'
-```
-
-For this demo, a separate ADX Function has been created without the location name to make it easier. Add this function to ADX. 
-
-```
-.create-or-alter function  GetDigitalTwinIdForUANodeTest(stationName:string,displayName:string) {
-let dataHistoryTable = adt_dh_mtcamsafactory_ADT_westeurope; // set to the name of your data history table
-let dtId = toscalar(dataHistoryTable
-| where Key == 'equipmentID'
-| where Value has stationName
-| where Value has displayName
-| project Id);
-print dtId
-}
-```
-
-2. Navigate to the setting menu and select 'Data'. On the top select the Data Connections and create a new 'Connect to data'. 
-
-  :::image type="content" source="media/concepts-iot-industrial-solution-architecture/connect-data.png" alt-text="Screenshot of connecting data." lightbox="media/concepts-iot-industrial-solution-architecture/connect-data.png" border="false" :::
-
-3. Select Activity data and select 'Scope 2 - Purchased Electricity'. We're importing kWh usage, if you have other data select then the right Activity data.  
-
-:::image type="content" source="media/concepts-iot-industrial-solution-architecture/create-connection.png" alt-text="Screenshot of creating a new connection." lightbox="media/concepts-iot-industrial-solution-architecture/create-connection.png" border="false" :::
-
-4. Select the Azure Data Explorer (KUSTO) connector, if you don't see it in the list, select 'browse all'.
-
-:::image type="content" source="media/concepts-iot-industrial-solution-architecture/select-adx.png" alt-text="Screenshot of selecting the ADX connector." lightbox="media/concepts-iot-industrial-solution-architecture/select-adx.png" border="false" :::
-
-5. Add your URL of your:
-  - Cluster - full URL name
-  - Database name
-  - In the table name, the following query
-
-### Query
-
-```
-let msmTable = adt_dh_mtcamsafactory_ADT_westeurope
-| where Id == toscalar(GetDigitalTwinIdForUANodeTest("assembly", "EnergyConsumption"));
-msmTable
-| where isnotnull(SourceTimeStamp)
-| extend energy = todouble(Value)
-| summarize sum(energy) by bin(SourceTimeStamp, 1d)
-| project name="EnergyConsumption Factory", OrganizationalUnit="NAME OF YOUR COMPANY", energytype="Electricity", facility="Seattle", energyprovider="YOUR ENERGY PROVIDER", isrenewable="No", dataquality="Metered", consumptionstartdate=SourceTimeStamp, consumptionenddate=SourceTimeStamp, quantity=sum_energy, quantityunit="kWh";
-```
-
-Because the solution doesn't yet have all the context needed for MSM in the query certain fields are hard coded (Capital Letters). Change them accordingly. 
-
-1. Select 'Sign in'. You get a pop-up to sign in with your account. If that isn't working, you need to add your account to the ADX explorer, as in a previous step. 
-
-  :::image type="content" source="media/concepts-iot-industrial-solution-architecture/connection-settings.png" alt-text="Screenshot of settings for connecting to a data source." lightbox="media/concepts-iot-industrial-solution-architecture/connection-settings.png" border="false" :::
-
-2. Now you should see your data loading in the screen. Select the 'Map to Entity' button. 
-
-  :::image type="content" source="media/concepts-iot-industrial-solution-architecture/power-query-overview.png" alt-text="Screenshot of a Power Query overview." lightbox="media/concepts-iot-industrial-solution-architecture/power-query-overview.png" border="false" :::
-
-3. Select Energy and select on Auto map. For the ones that can't be mapped, map them manually. Select on 'Ok' when you're finished. Hit then the 'Create' button and your connection has been created.
-
-  :::image type="content" source="media/concepts-iot-industrial-solution-architecture/mapping-CDM.png" alt-text="Screenshot of mapping to a Common Data Model (CDM)." lightbox="media/concepts-iot-industrial-solution-architecture/mapping-CDM.png" border="false" :::
-    
-4. If you want to import it automatically you can select that, in this case we just do it once. When you select daily, adjust your query to only get the day - one day. Otherwise, you get double records. 
-
-  :::image type="content" source="media/concepts-iot-industrial-solution-architecture/finished-import.png" alt-text="Screenshot of a finished import process." lightbox="media/concepts-iot-industrial-solution-architecture/finished-import.png" border="false" :::
-
-5. Give your connection and name and save. Give it some minutes to import your data into MSM. 
-
-  :::image type="content" source="media/concepts-iot-industrial-solution-architecture/import-name.png" alt-text="Screenshot of importing a name." lightbox="media/concepts-iot-industrial-solution-architecture/import-name.png" border="false" :::
-
-  If it's completed, you see this screen. 
-
-  :::image type="content" source="media/concepts-iot-industrial-solution-architecture/import-completed.png" alt-text="Screenshot of a completed import." lightbox="media/concepts-iot-industrial-solution-architecture/import-completed.png" border="false" :::
-
-6. Now you run the calculation. Depending on your settings in MSM, this is automatically done, but if not, go to the 'Calculation profiles'. Select the Purchased Electricity profile (that is connected to your factory) and Run the calculation.
-
-  :::image type="content" source="media/concepts-iot-industrial-solution-architecture/run-calculation.png" alt-text="Screenshot of running a calculation." lightbox="media/concepts-iot-industrial-solution-architecture/run-calculation.png" border="false" :::
-
-  Within some minutes your dashboard should be updated with the new emissions that are coming from the solution. 
 
 
 ## Related content
