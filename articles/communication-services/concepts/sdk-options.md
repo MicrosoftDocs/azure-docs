@@ -13,9 +13,9 @@ ms.service: azure-communication-services
 ---
 # SDKs and REST APIs
 
-Azure Communication Services capabilities are conceptually organized into discrete areas based on their functional area. Most areas have fully open-sourced SDKs programmed against published REST APIs that you can use directly over the Internet. The Calling SDK uses proprietary network interfaces and is closed-source.
+Azure Communication Services capabilities are conceptually organized into discrete areas based on their functional area. Most areas have fully open-source SDKs programmed against published REST APIs that you can use directly over the Internet. The Calling SDK uses proprietary network interfaces and is closed-source.
 
-In the tables below we summarize these areas and availability of REST APIs and SDK libraries. We note if APIs and SDKs are intended for end-user clients or trusted service environments. APIs such as SMS should not be directly accessed by end-user devices in low trust environments.
+In the tables below we summarize these areas and availability of REST APIs and SDK libraries. We note if APIs and SDKs are intended for end-user clients or trusted service environments. APIs such as SMS shouldn't be directly accessed by end-user devices in low trust environments.
 
 Development of Calling and Chat applications can be accelerated by the  [Azure Communication Services UI library](./ui-library/ui-library-overview.md). The customizable UI library provides open-source UI components for Web and mobile apps, and a Microsoft Teams theme.
 
@@ -40,7 +40,7 @@ Development of Calling and Chat applications can be accelerated by the  [Azure C
 
 ### Languages and publishing locations
 
-Publishing locations for individual SDK packages are detailed below.
+Publishing locations for individual SDK packages:
 
 | Area | JavaScript | .NET | Python | Java SE | iOS | Android | Other|
 | -------------- | ---------- | ---- | ------ | ---- | -------------- | -------------- | ------------------------------ |
@@ -77,7 +77,7 @@ Publishing locations for individual SDK packages are detailed below.
 
 #### .NET
 
-Calling supports the platforms listed below.
+Calling supports the following platforms:
 
 - UWP with .NET Native or C++/WinRT
   - Windows 10/11 10.0.17763 - 10.0.22621.0
@@ -86,7 +86,7 @@ Calling supports the platforms listed below.
   - Windows 10/11 10.0.17763.0 - net6.0-windows10.0.22621.0
   - Windows Server 2019/2022 10.0.17763.0 - net6.0-windows10.0.22621.0
   
-All other Communication Services packages target .NET Standard 2.0, which supports the platforms listed below.
+All other Communication Services packages target .NET Standard 2.0, which supports the following platforms:
 
 - Support via .NET Framework 4.6.1
   - Windows 10, 8.1, 8 and 7
@@ -104,14 +104,14 @@ All other Communication Services packages target .NET Standard 2.0, which suppor
 
 ## REST APIs
 
-Communication Services APIs are documented alongside other [Azure REST APIs](/rest/api/azure/). This documentation will tell you how to structure your HTTP messages and offers guidance for using [Postman](../tutorials/postman-tutorial.md). REST interface documentation is also published in Swagger format on [GitHub](https://github.com/Azure/azure-rest-api-specs). You can find throttling limits for individual APIs on [service limits page](./service-limits.md).
+Communication Services APIs are documented alongside other [Azure REST APIs](/rest/api/azure/). This documentation tells you how to structure your HTTP messages and offers guidance for using [Postman](../tutorials/postman-tutorial.md). REST interface documentation is also published in Swagger format on [GitHub](https://github.com/Azure/azure-rest-api-specs). You can find throttling limits for individual APIs on [service limits page](./service-limits.md).
 
 ## API stability expectations
 
 > [!IMPORTANT]
 > This section provides guidance on REST APIs and SDKs marked **stable**. APIs marked pre-release, preview, or beta may be changed or deprecated **without notice**.
 
-In the future we may retire versions of the Communication Services SDKs, and we may introduce breaking changes to our REST APIs and released SDKs. Azure Communication Services will *generally* follow two supportability policies for retiring service versions:
+In the future we may retire versions of the Communication Services SDKs, and we may introduce breaking changes to our REST APIs and released SDKs. Azure Communication Services *generally* follows two supportability policies for retiring service versions:
 
 - You'll be notified at least three years before being required to change code due to a Communication Services interface change. All documented REST APIs and SDK APIs generally enjoy at least three years warning before interfaces are decommissioned.
 - You'll be notified at least one year before having to update SDK assemblies to the latest minor version. These required updates shouldn't require any code changes because they're in the same major version. Using the latest SDK is especially important for the Calling and Chat libraries that real-time components that often require security and performance updates. We strongly encourage you to keep all your Communication Services SDKs updated.
@@ -124,7 +124,7 @@ You'll get three years warning before these APIs stop working and are forced to 
 
 **You've integrated the v2.02 version of the Calling SDK into your application. Azure Communication releases v2.05.**
 
-You may be required to update to the v2.05 version of the Calling SDK within 12 months of the release of v2.05. This should be a simple replacement of the artifact without requiring a code change because v2.05 is in the v2 major version and has no breaking changes.
+You may be required to update to the v2.05 version of the Calling SDK within 12 months of the release of v2.05. The update should be a simple replacement of the artifact without requiring a code change because v2.05 is in the v2 major version and has no breaking changes.
 
 ## Next steps
 
