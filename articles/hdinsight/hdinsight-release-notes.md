@@ -17,11 +17,11 @@ Azure HDInsight is one of the most popular services among enterprise customers f
 Subscribe to the [HDInsight Release Notes](./subscribe-to-hdi-release-notes-repo.md) for up-to-date information on HDInsight and all HDInsight versions.
 
 
-To subscribe, click the “watch” button in the banner and watch out for [HDInsight Releases](https://github.com/Azure/HDInsight/releases).
+To subscribe, click the **watch** button in the banner and watch out for [HDInsight Releases](https://github.com/Azure/HDInsight/releases).
 
 ## Release Information
 
-### Release date:  February  16, 2024
+### Release date:  February  15, 2024
 
 This release applies to HDInsight 5.1 version. HDInsight release will be available to all regions over several days. This release is applicable for image number **2403290825**. [How to check the image number?](./view-hindsight-cluster-image-version.md)
 
@@ -34,15 +34,13 @@ HDInsight uses safe deployment practices, which involve gradual region deploymen
 > [!NOTE]
 > Ubuntu 18.04 is supported under [Extended Security Maintenance(ESM)](https://techcommunity.microsoft.com/t5/linux-and-open-source-blog/canonical-ubuntu-18-04-lts-reaching-end-of-standard-support/ba-p/3822623) by the Azure Linux team for [Azure HDInsight July 2023](/azure/hdinsight/hdinsight-release-notes-archive#release-date-july-25-2023), release onwards. 
 
-For workload specific versions, see 
-
-* [HDInsight 5.x component versions](./hdinsight-5x-component-versioning.md)
+For workload specific versions, see [HDInsight 5.x component versions](./hdinsight-5x-component-versioning.md).
 
 ## Fixed issues
 
 * Bug fixes for Ambari DB, Hive Warehouse Controller (HWC), Spark, HDFS 
 * Bug fixes for Log analytics module for HDInsightSparkLogs 
-* CVE Fixes for [HDInsight RP](./hdinsight-overview-versioning.md#hdinsight-resource-provider).
+* CVE Fixes for [HDInsight Resource Provider](./hdinsight-overview-versioning.md#hdinsight-resource-provider).
 
 
 ## :::image type="icon" border="false" source="./media/hdinsight-release-notes/clock.svg"::: Coming soon
@@ -55,7 +53,7 @@ If you have any more questions, contact [Azure Support](https://ms.portal.azure.
 
 You can always ask us about HDInsight on [Azure HDInsight - Microsoft Q&A](/answers/tags/168/azure-hdinsight)
 
-We are listening: You’re welcome to add more ideas and other topics here and vote for them - [HDInsight Ideas](https://feedback.azure.com/d365community/search/?q=HDInsight) and follow us for more updates on [AzureHDInsight Community](https://www.linkedin.com/groups/14313521/)
+We're listening: You’re welcome to add more ideas and other topics here and vote for them - [HDInsight Ideas](https://feedback.azure.com/d365community/search/?q=HDInsight) and follow us for more updates on [AzureHDInsight Community](https://www.linkedin.com/groups/14313521/).
 
 > [!NOTE]
 > We advise customers to use to latest versions of HDInsight [Images](./view-hindsight-cluster-image-version.md) as they bring in the best of open source updates,  Azure updates and security fixes. For more information, see [Best practices](./hdinsight-overview-before-you-start.md).
