@@ -36,7 +36,7 @@ When using an Azure VM:
 
 - Give the VM a private IP address.
 - Configure a Network Security Group (NSG) to only allow network traffic on the ports that are required to run the agent and maintain the VM.
-- Beyond this, network configuration depends on whether restricted access is set up on the data product (whether you're using service endpoints to access the Data product's input storage account). Some networking configuration might incur extra cost, such as an Azure virtual network between the VM and the Data Product's input storage account.
+- Beyond this, network configuration depends on whether restricted access is set up on the Data Product (whether you're using service endpoints to access the Data product's input storage account). Some networking configuration might incur extra cost, such as an Azure virtual network between the VM and the Data Product's input storage account.
  
 When using an on-premises VM:
 
