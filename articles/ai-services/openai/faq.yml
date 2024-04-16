@@ -216,7 +216,24 @@ sections:
           What are the known limitations of GPT-4 Turbo with Vision?
         answer: |
           See the [limitations](./concepts/gpt-with-vision.md#limitations) section of the GPT-4 Turbo with Vision concepts guide.
-
+  - name: Assistants
+    questions:
+      - question: |
+          Where is data stored?
+        answer:
+          In the Microsoft tenant.
+      - question: |
+          When I use Assistants, Is my data used Microsoft for training models?
+        answer:
+          No. Data is not used for Microsoft not used for training models. 
+      - question: |
+          Where is data stored geographically?
+        answer:
+          Azure OpenAI Assistants endpoints are regional, and data is stored in the same region as the endpoint. Under no condition can data leave the region its in.
+      - question: |
+          Is there any additional pricing or quota for using Assistants? 
+        answer:
+          No. All quotas apply to using models with Assistants.
   - name: Web app
     questions:
       - question: |
