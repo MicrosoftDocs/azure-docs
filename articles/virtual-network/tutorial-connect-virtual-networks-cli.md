@@ -41,7 +41,7 @@ az group create \
     --location eastus
 ```
 
-Create a virtual network with [az network vnet create](/cli/azure/network/vnet). The following example creates a virtual network named **vnet-1** with the address prefix **10.0.0.0/16**.
+Create a virtual network with [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create). The following example creates a virtual network named **vnet-1** with the address prefix **10.0.0.0/16**.
 
 ```azurecli-interactive 
 az network vnet create \
@@ -65,7 +65,7 @@ az network vnet create \
 
 ## Peer virtual networks
 
-Peerings are established between virtual network IDs, so you must first get the ID of each virtual network with [az network vnet show](/cli/azure/network/vnet) and store the ID in a variable.
+Peerings are established between virtual network IDs, so you must first get the ID of each virtual network with [az network vnet show](/cli/azure/network/vnet#az-network-vnet-show) and store the ID in a variable.
 
 ```azurecli-interactive
 # Get the id for vnet-1.
@@ -74,7 +74,7 @@ vNet1Id=$(az network vnet show \
   --name vnet-1 \
   --query id --out tsv)
 
-# Get the id for myVirtualNetwork2.
+# Get the id for vnet-2.
 vNet2Id=$(az network vnet show \
   --resource-group test-rg \
   --name vnet-2 \
@@ -82,7 +82,7 @@ vNet2Id=$(az network vnet show \
   --out tsv)
 ```
 
-Create a peering from **vnet-1** to **vnet-2**with [az network vnet peering create](/cli/azure/network/vnet/peering). If the `--allow-vnet-access` parameter is not specified, a peering is established, but no communication can flow through it.
+Create a peering from **vnet-1** to **vnet-2** with [az network vnet peering create](/cli/azure/network/vnet/peering#az-network-vnet-peering-create). If the `--allow-vnet-access` parameter is not specified, a peering is established, but no communication can flow through it.
 
 ```azurecli-interactive
 az network vnet peering create \
@@ -93,7 +93,7 @@ az network vnet peering create \
   --allow-vnet-access
 ```
 
-In the output returned after the previous command executes, you see that the **peeringState** is **Initiated**. The peering remains in the **Initiated** state until you create the peering from **vnet-2** to **vnet-1**. Create a peering from **vnet-2**to **vnet-1**. 
+In the output returned after the previous command executes, you see that the **peeringState** is **Initiated**. The peering remains in the **Initiated** state until you create the peering from **vnet-2** to **vnet-1**. Create a peering from **vnet-2** to **vnet-1**. 
 
 ```azurecli-interactive
 az network vnet peering create \
@@ -104,7 +104,7 @@ az network vnet peering create \
   --allow-vnet-access
 ```
 
-In the output returned after the previous command executes, you see that the **peeringState** is **Connected**. Azure also changed the peering state of the **vnet-1-to-vnet-2** peering to **Connected**. Confirm that the peering state for the **vnet-1-to-vnet-2** peering changed to **Connected** with [az network vnet peering show](/cli/azure/network/vnet/peering).
+In the output returned after the previous command executes, you see that the **peeringState** is **Connected**. Azure also changed the peering state of the **vnet-1-to-vnet-2** peering to **Connected**. Confirm that the peering state for the **vnet-1-to-vnet-2** peering changed to **Connected** with [az network vnet peering show](/cli/azure/network/vnet/peering#az-network-vnet-show).
 
 ```azurecli-interactive
 az network vnet peering show \
@@ -122,7 +122,7 @@ Create a VM in each virtual network so that you can communicate between them in 
 
 ### Create the first VM
 
-Create a VM with [az vm create](/cli/azure/vm). The following example creates a VM named **vm-1** in the **vnet-1** virtual network. If SSH keys do not already exist in a default key location, the command creates them. To use a specific set of keys, use the `--ssh-key-value` option. The `--no-wait` option creates the VM in the background, so you can continue to the next step.
+Create a VM with [az vm create](/cli/azure/vm#az-vm-create). The following example creates a VM named **vm-1** in the **vnet-1** virtual network. If SSH keys do not already exist in a default key location, the command creates them. To use a specific set of keys, use the `--ssh-key-value` option. The `--no-wait` option creates the VM in the background, so you can continue to the next step.
 
 ```azurecli-interactive
 az vm create \
@@ -188,7 +188,7 @@ Close the SSH session to the **vm-2** VM.
 
 ## Clean up resources
 
-When no longer needed, use [az group delete](/cli/azure/group) to remove the resource group and all of the resources it contains.
+When no longer needed, use [az group delete](/cli/azure/group#az-group-delete) to remove the resource group and all of the resources it contains.
 
 ```azurecli-interactive
 az group delete \
