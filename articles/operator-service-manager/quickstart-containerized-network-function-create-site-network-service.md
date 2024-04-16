@@ -31,7 +31,7 @@ ms.service: azure-operator-service-manager
     |Setting  |Value  |
     |---------|---------|
     |Subscription     |   Select your subscription.      |
-    |Resource group     |     Select resource group **operator-rg** you created when creating the *Site*.   |
+    |Resource group     |     Select resource group **operator-rg**.   |
     |Name     |  Enter **nginx-sns**.       |
     |Region     |  Select the location you used for your prerequisite resources.       |
     |Site    |  Enter **nginx-site**.       |
@@ -58,7 +58,7 @@ ms.service: azure-operator-service-manager
     ```json
     { 
     "nginx-nsdg": { 
-        "deploymentParameters": [{}], 
+        "deployParameters": [{}], 
         "customLocationId": "<resource id of your custom location>", 
         "nfdv": "1.0.0", 
         "managedIdentity": "<managed-identity-resource-id>"
