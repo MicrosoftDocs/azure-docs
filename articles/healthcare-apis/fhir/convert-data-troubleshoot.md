@@ -11,6 +11,8 @@ ms.author: jasteppe
 
 # Troubleshoot $convert-data
 
+[!INCLUDE [Converter redirect statement](../includes/converter-redirect-statement.md)]
+
 In this article, learn how to troubleshoot `$convert-data`.
 
 ## Performance
@@ -34,19 +36,10 @@ Default template implementations for many common scenarios can be found on the [
 In addition to testing templates on an instance of the service, a [Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-health-fhir-converter) is available. The extension can be used to modify templates and test them with sample data payloads.  There are also several existing test scenarios in the [FHIR Converter GitHub repository](https://github.com/microsoft/FHIR-Converter/tree/main/src/Microsoft.Health.Fhir.Liquid.Converter.FunctionalTests) that can be used as a reference.
  
 ## Next steps
-In this article, you learned how to troubleshoot `$convert-data`.
+[Overview of $convert-data](convert-data-overview.md)
 
-For an overview of `$convert-data`, see 
+[Configure settings for $convert-data by using the Azure portal](convert-data-configuration.md)
 
-> [!div class="nextstepaction"]  
-> [Overview of $convert-data](overview-of-convert-data.md)
+[$convert-data-faq](convert-data-faq.md).
 
-To learn how to configure settings for `$convert-data` using the Azure portal, see
- 
-> [!div class="nextstepaction"]
-> [Configure settings for $convert-data using the Azure portal](configure-settings-convert-data.md)
-
-To learn about the frequently asked questions (FAQs) for `$convert-data`, see
- 
-> [!div class="nextstepaction"]
-> [Frequently asked questions about $convert-data](frequently-asked-questions-convert-data.md).
+[!INCLUDE [FHIR trademark statement](../includes/healthcare-apis-fhir-trademark.md)]

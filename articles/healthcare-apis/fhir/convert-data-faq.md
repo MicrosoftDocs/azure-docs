@@ -5,20 +5,19 @@ services: healthcare-apis
 author: msjasteppe
 ms.service: healthcare-apis
 ms.topic: faq
-ms.date: 08/28/2023
+ms.date: 05/06/2024
 ms.author: jasteppe
 ---
 
 # Frequently asked questions about $convert-data
 
-> [!NOTE]
-> [Fast Healthcare Interoperability Resources (FHIR&#174;)](https://www.hl7.org/fhir/) is an open healthcare specification.
+[!INCLUDE [Converter redirect statement](../includes/converter-redirect-statement.md)]
 
 ## $convert-data: The basics
 
 ## Does your service create/manage the entire ETL pipeline for me?
 
-You can use the `$convert-data` endpoint as a component within an ETL (extract, transform, and load) pipeline for the conversion of health data from various formats (for example: HL7v2, CCDA, JSON, and FHIR STU3) into the [FHIR format](https://www.hl7.org/fhir/R4/). You can create an ETL pipeline for a complete workflow as you convert your health data. We recommend that you use an ETL engine that's based on [Azure Logic Apps](../../logic-apps/logic-apps-overview.md) or [Azure Data Factory](../../data-factory/introduction.md). As an example, a workflow might include: data ingestion, performing `$convert-data` operations, validation, data pre/post processing, data enrichment, data deduplication, and loading the data for persistence in the [FHIR service](overview.md). 
+You can use the `$convert-data` endpoint as a component within an ETL (extract, transform, and load) pipeline for the conversion of health data from various formats (for example: HL7v2, CCDA, JSON, and FHIR&reg; STU3) into the [FHIR format](https://www.hl7.org/fhir/R4/). You can create an ETL pipeline for a complete workflow as you convert your health data. We recommend that you use an ETL engine based on [Azure Logic Apps](../../logic-apps/logic-apps-overview.md) or [Azure Data Factory](../../data-factory/introduction.md). As an example, a workflow might include: data ingestion, performing `$convert-data` operations, validation, data pre/post processing, data enrichment, data deduplication, and loading the data for persistence in the [FHIR service](overview.md). 
 
 However, the `$convert-data` operation itself isn't an ETL pipeline.
 
@@ -49,7 +48,7 @@ The experience and core `$convert-data` operation functionality is similar for b
 
 ## I'm not familiar with Liquid templates. Where do I start?
 
-[Liquid](https://shopify.github.io/liquid/) is a template language/engine that allows displaying data in a template. Liquid has constructs such as output, logic, loops and deals with variables. Liquid files are a mixture of HTML and Liquid code, and have the `.liquid` file extension. The open source FHIR Converter comes with a few ready to use [Liquid templates and custom filters](https://github.com/microsoft/FHIR-Converter/tree/main/data/Templates) for the supported conversion formats to help you get started.
+[Liquid](https://shopify.github.io/liquid/) is a template language/engine that allows displaying data in a template. Liquid has constructs such as output, logic, loops, and deals with variables. Liquid files are a mixture of HTML and Liquid code, and have the `.liquid` file extension. The open source FHIR Converter comes with a few ready to use [Liquid templates and custom filters](https://github.com/microsoft/FHIR-Converter/tree/main/data/Templates) for the supported conversion formats to help you get started.
 
 ## The conversion succeeded, does this mean I have a valid FHIR bundle?
 
@@ -65,7 +64,7 @@ Yes. You can use the [FHIR Converter Visual Studio Code extension](https://mar
 
 Yes. It’s possible to store and reference custom templates. See [Configure settings for $convert-data using the Azure portal](configure-settings-convert-data.md) for instructions to reference and store various versions of custom templates.
 
-## If I need support troubleshooting issues, where can I go?
+## If I need support with troubleshooting issues, where can I go?
 
 Depending on the version of `$convert-data` you’re using, you can:
 
@@ -77,22 +76,11 @@ Depending on the version of `$convert-data` you’re using, you can:
 
 ## Next steps
 
-In this article, you learned about the frequently asked questions (FAQs) about the `$convert-data` operation and endpoint for converting health data into FHIR by using the FHIR service in Azure Health Data Services. 
+[Overview of $convert-data](convert-data-overview.md)
 
-For an overview of `$convert-data`, see
- 
-> [!div class="nextstepaction"]
-> [Overview of $convert-data](overview-of-convert-data.md)
+[Configure settings for $convert-data using the Azure portal](configure-settings-convert-data.md)
 
-To learn how to configure settings for `$convert-data` using the Azure portal, see
- 
-> [!div class="nextstepaction"]
-> [Configure settings for $convert-data using the Azure portal](configure-settings-convert-data.md)
+[Troubleshoot $convert-data](troubleshoot-convert-data.md)
 
-To learn how to troubleshoot `$convert-data`, see
- 
-> [!div class="nextstepaction"]
-> [Troubleshoot $convert-data](troubleshoot-convert-data.md)
-
-FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.
+[!INCLUDE [FHIR trademark statement](../includes/fhir-trademark-statement.md)]
  
