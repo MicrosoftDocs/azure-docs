@@ -20,6 +20,27 @@ To learn about *planned* changes that are coming soon to Defender for Cloud, see
 
 If you're looking for items older than six months, you can find them in the [Archive for What's new in Microsoft Defender for Cloud](release-notes-archive.md).
 
+## May 2024
+
+| Date  | Update                                                            |
+| ----- | ----------------------------------------------------------------- |
+| May 9 | [AI security posture management](#ai-security-posture-management) |
+| May 9 | [Limited public preview of Defender for AI Workloads](#limited-public-preview-of-defender-for-ai-workloads) |
+
+### AI security posture management
+
+May 9, 2024
+
+We are announcing the inclusion of AI security posture management in Defender for Cloud. This feature provides multicloud AI security posture management capabilities that enhance the security of your AI pipelines and services.
+
+Learn more about [AI security posture management](ai-security-posture.md).
+
+### Limited public preview of Defender for AI Workloads
+
+We are announcing the Limited public preview of Defender for AI Workloads. Defender for AI Workloads provides security threat protection for AI workloads. This plan helps you identify and remediate security risks in your AI workloads.
+
+Learn more about [Defender for AI Workloads](ai-threat-protection.md).
+
 ## April 2024
 
 |Date | Update |

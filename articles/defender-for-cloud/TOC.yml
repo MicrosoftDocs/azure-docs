@@ -213,7 +213,7 @@
         href: critical-assets-protection.md
       - name: Agentless machine scanning
         href: concept-agentless-data-collection.md
-      - name: Overview - AI security posture management
+      - name: AI security posture management
         displayName: AI, security, posture, management
         href: ai-security-posture.md
       - name: Integrations
