@@ -22,7 +22,7 @@ You don't need to assign the reservation to specific Azure Database for MySQL fl
 
 You can buy Azure Database for MySQL flexible server reserved capacity in the [Azure portal](https://portal.azure.com/). Pay for the reservation [up front or with monthly payments](../../cost-management-billing/reservations/prepare-buy-reservation.md). To buy the reserved capacity:
 
-* You must be in the owner role for at least one Enterprise or individual subscription with pay-as-you-go rates.
+* To buy a reservation, you must have owner role or reservation purchaser role on an Azure subscription.
 * For Enterprise subscriptions, **Add Reserved Instances** must be enabled in the [EA portal](https://ea.azure.com/). Or, if that setting is disabled, you must be an EA Admin on the subscription.
 * For Cloud Solution Provider (CSP) program, only the admin agents or sales agents can purchase Azure Database for MySQL flexible server reserved capacity. </br>
 
