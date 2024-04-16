@@ -12,7 +12,7 @@ ms.subservice: mqtt
 
 # Automotive messaging, data & analytics reference architecture
 
-This reference architecture is designed to support automotive OEMs and Mobility Providers in the development of advanced connected vehicle applications and digital services. Its goal is to provide reliable and efficient messaging, data and analytics infrastructure. The architecture includes message processing, command processing, and state storage capabilities to facilitate the integration of various services through managed APIs. It also describes a data and analytics solution that ensures the storage and accessibility of data in a scalable and secure manner for digital engineering and data sharing with the wider mobility ecosystem.
+This reference architecture is designed to support automotive OEMs and Mobility Providers in the development of advanced connected vehicle applications and digital services. Its goal is to provide reliable and efficient messaging, data, and analytics infrastructure. The architecture includes message processing, command processing, and state storage capabilities to facilitate the integration of various services through managed APIs. It also describes a data and analytics solution that ensures the storage and accessibility of data in a scalable and secure manner for digital engineering and data sharing with the wider mobility ecosystem.
 
 
 
@@ -23,7 +23,7 @@ This reference architecture is designed to support automotive OEMs and Mobility 
 The high level architecture diagram shows the main logical blocks and services of an automotive messaging, data & analytics solution. Further details can be found in the following sections.
 
 * The **vehicle** contains a collection of devices. Some of these devices are *Software Defined*, and can execute software workloads managed from the cloud. The vehicle collects and processes a wide variety of data, from sensor information from electro-mechanical devices such as the battery management system to software log files.
-* The **vehicle messaging services** manages the communication to and from the vehicle. It is in charge of processing messages, executing commands using workflows and  mediating the vehicle, user and device management backend. It also keeps track of vehicle, device and certificate registration and provisioning.
+* The **vehicle messaging services** manages the communication to and from the vehicle. It is in charge of processing messages, executing commands using workflows and  mediating the vehicle, user and device management backend. It also keeps track of vehicle, device, and certificate registration and provisioning.
 * The **vehicle and device management backend** are the OEM systems that keep track of vehicle configuration from factory to repair and maintenance.
 * The operator has **IT & operations** to ensure availability and performance of both vehicles and backend.  
 * The **data & analytics services** provides data storage and enables processing and analytics for all data users. It turns data into insights that drive better business decisions.
@@ -49,12 +49,12 @@ The *vehicle to cloud* dataflow is used to process telemetry data from the vehic
     1. **Provisioning** information for vehicles and devices.
     1. Initial vehicle **data collection** configuration based on market and business considerations.
     1. Storage of initial **user consent** settings based on vehicle options and user acceptance.
-1. The vehicle publishes telemetry and events messages through an MQTT client with defined topics to the **Azure Event Grid’s MQTT broker feature** in the *vehicle messaging services*.
+1. The vehicle publishes telemetry and events messages through a Message Queuing Telemetry Transport (MQTT) client with defined topics to the **Azure Event Grid’s MQTT broker feature** in the *vehicle messaging services*.
 1. The **Event Grid** routes messages to different subscribers based on the topic and message attributes.
     1. Low priority messages that don't require immediate processing (for example, analytics messages) are routed directly to storage using an Event Hubs instance for buffering.
     1. High priority messages that require immediate processing (for example, status changes that must be visualized in a user-facing application) are routed to an Azure Function using an Event Hubs instance for buffering.
 1. Low priority messages are stored directly in the **data lake** using [event capture](../stream-analytics/event-hubs-parquet-capture-tutorial.md). These messages can use [batch decoding and processing](#data-analytics) for optimum costs.
-1. High priority messages are processed with an **Azure function**. The function reads the vehicle, device and user consent settings from the **Device Registry** and performs the following steps:
+1. High priority messages are processed with an **Azure function**. The function reads the vehicle, device, and user consent settings from the **Device Registry** and performs the following steps:
     1. Verifies that the vehicle and device are registered and active.
     2. Verifies that the user has given consent for the message topic.
     3. Decodes and enriches the payload.
@@ -66,7 +66,7 @@ The *vehicle to cloud* dataflow is used to process telemetry data from the vehic
 
 The *cloud to vehicle* dataflow is often used to execute remote commands in the vehicle from a digital service. These commands include use cases such as lock/unlock door, climate control (set preferred cabin temperature) or configuration changes. The successful execution depends on vehicle state and might require some time to complete.
 
-Depending on the vehicle capabilities and type of action, there are multiple possible approaches for command execution. We'll cover two variations:
+Depending on the vehicle capabilities and type of action, there are multiple possible approaches for command execution. We cover two variations:
 
 * Direct cloud to device messages **(A)** that don't require a user consent check and with a predictable response time. This covers messages to both individual and multiple vehicles. An example includes weather notifications.
 * Vehicle commands **(B)** that use vehicle state to determine success and require user consent. The messaging solution must have a command workflow logic that checks user consent, keeps track of the command execution state and notifies the digital service when done.
@@ -83,7 +83,7 @@ Direct messages are executed with the minimum amount of hops for the best possib
 
 When vehicle state-dependent commands require user consent **(B)**:
 
-1. The vehicle owner / user provides consent for the execution of command and control functions to a **digital service** (in this example a companion app). This is normally done when the user downloads/activate the app and the OEM activates their account. This triggers a configuration change on the vehicle to subscribe to the associated command topic in the MQTT broker.
+1. The vehicle owner / user provides consent for the execution of command and control functions to a **digital service** (in this example a companion app). It's normally done when the user downloads/activate the app and the OEM activates their account. It triggers a configuration change on the vehicle to subscribe to the associated command topic in the MQTT broker.
 2. The **companion app** uses the command and control managed API to request execution of a remote command.
     1. The command execution might have more parameters to configure options such as timeout, store and forward options, etc.
     1. The command logic decides how to process the command based on the topic and other properties.
@@ -102,14 +102,14 @@ This dataflow covers the process to register and provision vehicles and devices 
 
 :::image type="content" source="media/mqtt-automotive-connectivity-and-data-solution/provisioning-dataflow.png" alt-text="Diagram of the provisioning dataflow." border="false" lightbox="media/mqtt-automotive-connectivity-and-data-solution/provisioning-dataflow.png":::
 
-1. The **Factory System** commissions the vehicle device to the desired construction state. This can include firmware & software initial installation and configuration. As part of this process, the factory system will obtain and write the device *certificate*, created from the **Public Key Infrastructure** provider.
+1. The **Factory System** commissions the vehicle device to the desired construction state. It can include firmware & software initial installation and configuration. As part of this process, the factory system will obtain and write the device *certificate*, created from the **Public Key Infrastructure** provider.
 1. The **Factory System** registers the vehicle & device using the *Vehicle & Device Provisioning API*.
 1. The factory system triggers the **device provisioning client** to connect to the *device registration*  and provision the device. The device retrieves connection information to the *MQTT broker*.
 1. The *device registration* application creates the device identity with MQTT broker.
 1. The factory system triggers the device to establish a connection to the *MQTT broker* for the first time.
     1. The MQTT broker authenticates the device using the *CA Root Certificate* and extracts the client information.
 1. The *MQTT broker* manages authorization for allowed topics using the local registry.
-1. In case of part replacement, the OEM **Dealer System** can trigger the registration of a new device.
+1. For the part replacement, the OEM **Dealer System** can trigger the registration of a new device.
 
 > [!NOTE]
 > Factory systems are usually on-premises and have no direct connection to the cloud.
@@ -120,7 +120,7 @@ This dataflow covers analytics for vehicle data. You can use other data sources 
 
 :::image type="content" source="media/mqtt-automotive-connectivity-and-data-solution/data-analytics.png" alt-text="Diagram of the data analytics." border="false"lightbox="media/mqtt-automotive-connectivity-and-data-solution/data-analytics.png":::
 
-1. The *vehicle messaging services* layer provides telemetry, events, commands and configuration messages from the bidirectional communication to the vehicle.
+1. The *vehicle messaging services* layer provides telemetry, events, commands, and configuration messages from the bidirectional communication to the vehicle.
 1. The *IT & Operations* layer provides information about the software running on the vehicle and the associated cloud services.
 1. Several pipelines provide processing of the data into a more refined state
     * Processing from raw data to enriched and deduplicated vehicle data.
@@ -157,17 +157,17 @@ Each *vehicle messaging scale unit* supports a defined vehicle population (for e
 
 #### Connectivity
 
-* [Azure Event Grid](overview.md) allows for device onboarding, AuthN/Z and pub-sub via MQTT v5.
+* [Azure Event Grid](overview.md) allows for device onboarding, AuthN/Z, and pub-sub via MQTT v5.
 * [Azure Functions](../azure-functions/functions-overview.md) processes the vehicle messages. It can also be used to implement management APIs that require short-lived execution.
 * [Azure Kubernetes Service (AKS)](../aks/intro-kubernetes.md) is an alternative when the functionality behind the Managed APIs consists of complex workloads deployed as containerized applications.
-* [Azure Cosmos DB](../cosmos-db/introduction.md) stores the vehicle, device and user consent settings.
+* [Azure Cosmos DB](../cosmos-db/introduction.md) stores the vehicle, device, and user consent settings.
 * [Azure API Management](../api-management/api-management-key-concepts.md) provides a managed API gateway to existing back-end services such as vehicle lifecycle management (including OTA) and user consent management.
 * [Azure Batch](../batch/batch-technical-overview.md) runs large compute-intensive tasks efficiently, such as vehicle communication trace ingestion.
 
 #### Data and Analytics
 
 * [Azure Event Hubs](../event-hubs/event-hubs-about.md) enables processing and ingesting massive amounts of telemetry data.
-* [Azure Data Explorer](/azure/data-explorer/data-explorer-overview) provides exploration, curation and analytics of time-series based vehicle telemetry data.
+* [Azure Data Explorer](/azure/data-explorer/data-explorer-overview) provides exploration, curation, and analytics of time-series based vehicle telemetry data.
 * [Azure Blob Storage](../storage/blobs/storage-blobs-overview.md) stores large documents (such as videos and can traces) and curated vehicle data.
 * [Azure Databricks](/azure/databricks/) provides a set of tool to maintain enterprise-grade data solutions at scale. Required for long-running operations on large amounts of vehicle data.
 
@@ -207,14 +207,14 @@ This reference architecture allows automotive manufacturers and mobility provide
 
 ### Potential use cases
 
-*OEM Automotive use cases* are about enhancing vehicle performance, safety, and user experience
+*OEM Automotive use cases* are about enhancing vehicle performance, safety, and user experience.
 
 * **Continuous product improvement**: Enhancing vehicle performance by analyzing real-time data and applying updates remotely.
 * **Engineering Test Fleet Validation**: Ensuring vehicle safety and reliability by collecting and analyzing data from test fleets.
 * **Companion App & User Portal**: Enabling remote vehicle access and control through a personalized app and web portal.
 * **Proactive Repair & Maintenance**: Predicting and scheduling vehicle maintenance based on data-driven insights.
 
-*Broader ecosystem use cases* expand connected vehicle applications to improve fleet operations, insurance, marketing, and roadside assistance across the entire transportation landscape
+*Broader ecosystem use cases* expand connected vehicle applications to improve fleet operations, insurance, marketing, and roadside assistance across the entire transportation landscape.
 
 * **Connected commercial fleet operations**: Optimizing fleet management through real-time monitoring and data-driven decision-making.
 * **Digital Vehicle Insurance**: Customizing insurance premiums based on driving behavior and providing immediate accident reporting.
@@ -231,7 +231,7 @@ Reliability ensures your application can meet the commitments you make to your c
 
 * Consider horizontal scaling to add reliability.
 * Use scale units to isolate geographical regions with different regulations.
-* Auto scale and reserved instances: manage compute resources by dynamically scaling based on demand and optimizing costs with pre-allocated instances.
+* Auto scale and reserved instances: manage compute resources by dynamically scaling based on demand and optimizing costs with preallocated instances.
 * Geo redundancy: replicate data across multiple geographic locations for fault tolerance and disaster recovery.
 
 ### Security
@@ -251,7 +251,7 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
   * Use an efficient method to encode and compress payload messages.
 * Traffic handling
   * Message priority: vehicles tend to have repeating usage patterns that create daily / weekly demand peaks. Use message properties to delay processing of non-critical or analytic messages to smooth the load and optimize resource usage.
-  * Auto-scale based on demand.
+  * Autoscale based on demand.
 * Consider how long the data should be stored hot/warm/cold.
 * Consider the use of reserved instances to optimize costs.
 
@@ -269,30 +269,6 @@ Performance efficiency is the ability of your workload to scale to meet the dema
 * Carefully consider the best way to ingest data (messaging, streaming or batched).
 * Consider the best way to analyze the data based on use case.
 
-## Contributors
-
-*This article is maintained by Microsoft. It was originally written by the following contributors.*
-
-Principal authors:
-
-* [Peter Miller](https://www.linkedin.com/in/peter-miller-ba642776/) | Principal Engineering Manager, Mobility CVP
-* [Mario Ortegon-Cabrera](http://www.linkedin.com/in/marioortegon) | Principal Program Manager, MCIGET SDV & Mobility
-* [David Peterson](https://www.linkedin.com/in/david-peterson-64456021/) | Chief Architect, Mobility Service Line, Microsoft Industry Solutions
-* [David Sauntry](https://www.linkedin.com/in/david-sauntry-603424a4/) | Principal Software Engineering Manager, Mobility CVP
-* [Max Zilberman](https://www.linkedin.com/in/maxzilberman/) | Principal Software Engineering Manager
-
-Other contributors:
-
-* [Jeff Beman](https://www.linkedin.com/in/jeff-beman-4730726/) | Principal Program Manager, Mobility CVP
-* [Frederick Chong](https://www.linkedin.com/in/frederick-chong-5a00224) | Principal PM Manager, MCIGET SDV & Mobility
-* [Felipe Prezado](https://www.linkedin.com/in/filipe-prezado-9606bb14) | Principal Program Manager, MCIGET SDV & Mobility
-* Ashita Rastogi | Lead Principal Program Manager, Azure Messaging
-* [Henning Rauch](https://www.linkedin.com/in/henning-rauch-adx) | Principal Program Manager, Azure Data Explorer (Kusto)
-* [Rajagopal Ravipati](https://www.linkedin.com/in/rajagopal-ravipati-79020a4/) | Partner Software Engineering Manager, Azure Messaging
-* [Larry Sullivan](https://www.linkedin.com/in/larry-sullivan-1972654/) | Partner Group Software Engineering Manager, Energy & CVP
-* [Venkata Yaddanapudi](https://www.linkedin.com/in/venkata-yaddanapudi-5769338/) | Senior Program Manager, Azure Messaging
-
-*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
