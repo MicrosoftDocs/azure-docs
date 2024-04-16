@@ -93,7 +93,7 @@ This can occur when you use a v1 tabular dataset as your data source.  The proje
 1. If the toggle for **Save credentials with the datastore for data access** is **On**, verify that the Authentication type and values are correct.
 1. If the toggle for **Save credentials with the datastore for data access** is **Off**, follow the rest of these steps to insure that the compute cluster can access the data.
 
-When the **Save credentials with the datastore for data access** is **Off**, the compute cluster that runs the conversion job needs access to the datastore.  To insure that the compute cluster can access the data, you need the name of the compute cluster that runs the conversion job.  You also need to insure it has a managed identity.  To find the compute cluster name and assign a managed identity, follow these steps: 
+When the **Save credentials with the datastore for data access** is **Off**, the compute cluster that runs the conversion job needs access to the datastore.  To insure that the compute cluster can access the data, find the compute cluster name and assign a managed identity, follow these steps: 
 
     1. In the left menu, select **Jobs**.
     1. Select experiment which includes the name **Labeling ConvertTabularDataset**.
@@ -101,7 +101,9 @@ When the **Save credentials with the datastore for data access** is **Off**, the
     1. In the Overview section, at the bottom of the page is the **Compute** section.  Select the **Target** compute cluster.
     1. On the details page for the compute cluster, at the bottom of the page is the **Managed identity** section.  If the compute cluster doesn't have an identity, select the **Edit** tool to assign a system-assigned or managed identity.
 
-Once you have the compute cluster name, you can assign the Storage Blob Data Contributor role to the compute cluster. Follow the previous steps to [Add Storage Blob Data Contributor access](#add-blob-access). But this time, assign the compute name in the **Select members** section, so that the compute cluster has access to the datastore.
+Once you have the compute cluster name with a managed identity, assign the Storage Blob Data Contributor role to the compute cluster. 
+
+Follow the previous steps to [Add Storage Blob Data Contributor access](#add-blob-access). But this time, use the compute name in the **Select members** section, so that the compute cluster has access to the datastore.
 
 To find the compute name, type the workspace name, followed by **/computes/** followed by the compute name.  For example, if the workspace name is **myworkspace** and the compute name is **mycompute**, search for **myworkspace/computes/mycompute**.
 
