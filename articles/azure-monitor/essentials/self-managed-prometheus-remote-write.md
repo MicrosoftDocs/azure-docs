@@ -126,12 +126,13 @@ To configure a user-assigned managed identity for remote-write to Azure Monitor 
 
 ### [Azure Entra application](#tab/entra-application)
 
-To configure an Azure Entra ID application for remote-write to Azure Monitor workspace, complete the following steps.
+To configure an Azure Entra ID application for remote-write to Azure Monitor workspace, you must create an Entra application to use in your remote-write configuration. You can create an Azure Entra application using CLI or the portal.
 
-Create an Entra application to use in your remote-write configuration. For more information, see  [Create a Microsoft Entra application and service principal that can access resources](/entra/identity-platform/howto-create-service-principal-portal#register-an-application-with-microsoft-entra-id-and-create-a-service-principal) and create a service principal.
+> [!NOTE]
+> Your Azure Entra application uses a client secret or password.  Client secrets have an expiration date. Make sure to create a new client secret before it expires so you don't lose authenticated access.
 
-#### [CLI](#tab/entra-application-cli)
-To create an Azure Entra application using CLI, run the following command:
+#### Create an Azure Entra application using CLI
+To create an Azure Entra application using CLI, and assign the `Monitoring Metrics Publisher` role, run the following command:
 
 ```azurecli
 az ad sp create-for-rbac --name myServicePrincipalName \
@@ -145,7 +146,8 @@ az ad sp create-for-rbac --name PromRemoteWriteApp \
 --scopes /subscriptions/abcdef00-1234-5678-abcd-1234567890ab/resourceGroups/MA_amw-001_eastus_managed/providers/Microsoft.Insights/dataCollectionRules/amw-001
 ```
 
-The output contain the `appId` and `password` values. Save these values to use in the Prometheus remote write configuration.
+The output contains the `appId` and `password` values. Save these values to use in the Prometheus remote write configuration as values for `client_id` and `client_secret` The password or client secret value is only visible when created and can't be retrieved later. If lost, you must create a new client secret.
+
 ```azurecli
 {
   "appId": "01234567-abcd-ef01-2345-67890abcdef0",
@@ -154,41 +156,49 @@ The output contain the `appId` and `password` values. Save these values to use i
   "tenant": "abcdef00-1234-5687-abcd-1234567890ab"
 }
 ```
- ---
 
-#### [Portal](#tab/entra-application-portal)
-1. Get the client ID and secret ID of the Microsoft Entra application. In the Azure portal, go to the **Microsoft Entra ID** menu and select **App registrations**.
-1. In the list of applications, copy the value for **Application (client) ID** for the registered application.
+#### Create an Azure Entra application using the Azure portal
 
-:::image type="content" source="../containers/media/prometheus-remote-write-active-directory/application-client-id.png" alt-text="Screenshot that shows the application or client ID of a Microsoft Entra application." lightbox="../containers/media/prometheus-remote-write-active-directory/application-client-id.png":::
+To create an Azure Entra application using the portal, see  [Create a Microsoft Entra application and service principal that can access resources](/entra/identity-platform/howto-create-service-principal-portal#register-an-application-with-microsoft-entra-id-and-create-a-service-principal).
 
-1. Open the **Certificates and Secrets** page of the application, and click on **+ New client secret** to create a new Secret. Copy the value of the secret securely.
+Once you have created your Entra application,get the client ID and generate a client secret. 
 
-> [!WARNING]
-> Client secrets have an expiration date. It's the responsibility of the user to keep them valid.
+1. In the list of applications, copy the value for **Application (client) ID** for the registered application. This value is used in the Prometheus remote write configuration as the value for `client_id`. 
 
-1. Assign the **Monitoring Metrics Publisher** role on the workspace data collection rule to the application. The application must be assigned the Monitoring Metrics Publisher role on the data collection rule that is associated with your Azure Monitor workspace.
-1. On the resource menu for your Azure Monitor workspace, select **Overview**. For **Data collection rule**, select the link.
+    :::image type="content" source="media/self-managed-prometheus-remote-write/find-clinet-id.png" alt-text="A screenshot showing the application or client ID of a Microsoft Entra application." lightbox="media/self-managed-prometheus-remote-write/find-clinet-id.png":::
 
-    :::image type="content" source="../containers/media/prometheus-remote-write-managed-identity/azure-monitor-account-data-collection-rule.png" alt-text="Screenshot that shows the data collection rule that's used by Azure Monitor workspace." lightbox="../containers/media/prometheus-remote-write-managed-identity/azure-monitor-account-data-collection-rule.png":::
+1. Select **Certificates and Secrets**
+1. Select **Client secrets**, them select **New client secret** to create a new Secret
+1. Enter a description,  set the expiration date and select **Add**.
+    :::image type="content" source="media/self-managed-prometheus-remote-write/create-client-secret.png" alt-text="A screenshot showing the add secret page." lightbox="media/self-managed-prometheus-remote-write/create-client-secret.png":::
+1. Copy the value of the secret securely. The value is used in the Prometheus remote write configuration as the value for `client_secret`.  The client secret value is only visible when created and can't be retrieved later. If lost, you must create a new client secret.
 
-1. On the resource menu for the data collection rule, select **Access control (IAM)**.
+    :::image type="content" source="media/self-managed-prometheus-remote-write/copy-client-secret.png" alt-text="A screenshot showing the client secret value." lightbox="media/self-managed-prometheus-remote-write/copy-client-secret.png":::
+ 
+#### Assign the Monitoring Metrics Publisher role to the application
+
+Assign the `Monitoring Metrics Publisher` role on the workspace's data collection rule to the application. 
+
+1. On the Azure Monitor workspace, overview page, select the **Data collection rule** link.
+
+    :::image type="content" source="media/self-managed-prometheus-remote-write/select-data-collection-rule.png" alt-text="A screenshot showing the data collection rule link on the Azure Monitor workspace page." lightbox="media/self-managed-prometheus-remote-write/select-data-collection-rule.png":::
+
+1. On the data collection rule overview page, select **Access control (IAM)**.
 
 1. Select **Add**, and then select **Add role assignment**.
 
-    :::image type="content" source="../containers/media/prometheus-remote-write-managed-identity/data-collection-rule-add-role-assignment.png" alt-text="Screenshot that shows adding a role assignment on Access control pages." lightbox="../containers/media/prometheus-remote-write-managed-identity/data-collection-rule-add-role-assignment.png":::
+    :::image type="content" source="media/self-managed-prometheus-remote-write/data-collection-rule-access-control.png" alt-text="A screenshot showing adding the role add assignment pages." lightbox="media/self-managed-prometheus-remote-write/data-collection-rule-access-control.png":::
 
 1. Select the **Monitoring Metrics Publisher** role, and then select **Next**.
 
-    :::image type="content" source="../containers/media/prometheus-remote-write-managed-identity/add-role-assignment.png" alt-text="Screenshot that shows a list of role assignments." lightbox="../containers/media/prometheus-remote-write-managed-identity/add-role-assignment.png":::
+    :::image type="content" source="media/self-managed-prometheus-remote-write/add-role-assignment.png" lightbox="media/self-managed-prometheus-remote-write/add-role-assignment.png" alt-text="A screenshot showing the role assignement menu for a data collection rule.":::
 
 1. Select **User, group, or service principal**, and then choose **Select members**. Select the application that you created, and then choose **Select**.
 
     :::image type="content" source="../containers/media/prometheus-remote-write-active-directory/select-application.png" alt-text="Screenshot that shows selecting the application." lightbox="../containers/media/prometheus-remote-write-active-directory/select-application.png":::
 
 1. To complete the role assignment, select **Review + assign**.
----
-Something in between
+
 ---
 
 ## Configure Remote-Write to send data to Azure Monitor Workspace
@@ -212,42 +222,53 @@ To send data to your Azure Monitor Workspace, you'll need the following informat
 
 ## Configure remote-write
 
-Now, that you have the required information, configure the following section in the Prometheus.yml config file of your self-managed Prometheus instance to send data to your Azure Monitor Workspace.
+Remote-write is configured in the Promtheus configuration file `prometheus.yml`. Add the following section to the configuration file of your self-managed Prometheus instance to send data to your Azure Monitor Workspace.
 
 ```yaml
 remote_write:   
-  url: "<<Metrics Ingestion Endpoint for your Azure Monitor Workspace>>"
+  - url: "<metrics ingestion endpoint for your Azure Monitor workspace>"
 # AzureAD configuration.
 # The Azure Cloud. Options are 'AzurePublic', 'AzureChina', or 'AzureGovernment'.
   azuread:
     cloud: 'AzurePublic'
     managed_identity:
-      client_id: "<<client-id of the managed identity>>"
+      client_id: "<client-id of the managed identity>"
     oauth:
-      client_id: "<<client-id of the app>>"
-      client_secret: "<<client secret>>"
-      tenant_id: "<<tenant id of Azure subscription>>"
+      client_id: "<client-id from the Entra app>"
+      client_secret: "<client secret from the Entra app>"
+      tenant_id: "<Azure subscription tenant Id>"
 ```
 
-Replace the values in the YAML with the values that you copied in the previous steps. If you're using Managed Identity authentication, then you can skip the **"oauth"** section of the yaml. And similarly, if you're using Azure Entra as the authentication method, you can skip the **"managed_identity"** section of the yaml.
+The `url` parameter specifies the metrics ingestion endpoint of the Azure Monitor workspace. It can be found on the Overview page of your Azure Monitor workspace in the Azure portal.
+
+:::image type="content" source="media/self-managed-prometheus-remote-write/metrics-ingestion-endpoint.png" lightbox="media/self-managed-prometheus-remote-write/metrics-ingestion-endpoint.png" alt-text="A screenshot showing the metrics ingestion endpoint for an Azure Monitor workspace.":::
+
+For managed identity authorization use the  `managed_identity` object, or `oauth` for Azure Entra application autentication. Remove the object that you're not using.
 
 After editing the configuration file, restart Prometheus to apply the changes.
-
 
 
 ## Verify if the remote-write is setup correctly
 
 Use the following methods to verify that Prometheus data is being sent into your Azure Monitor workspace.
 
+### Azure Monitor metrics explorer with PromQL
+
+To check if the metrics are being sent to the Azure Monitor workspace, from your Azure Monitor workspace in the Azure portal, select **Metrics**.  Use the metrics explorer to query the metrics that you're expecting from the self-managed Prometheus environment.
+
+### Prometheus explorer in Azure Monitor Workspace
+
+To use the Prometheus explorer, from to your Azure Monitor workspace in the Azure portal and select **Prometheus Explorer** to query the metrics that you're expecting from the self-managed Prometheus environment.
+
 ### PromQL queries
 
 Use PromQL queries in Grafana and verify that the results return expected data. See [getting Grafana setup with Managed Prometheus](../essentials/prometheus-grafana.md) to configure Grafana.
 
-### Prometheus explorer in Azure Monitor Workspace
-
-Go to your Azure Monitor workspace in the Azure portal and click on Prometheus Explorer to query the metrics that you're expecting from the self-managed Prometheus environment.
 
 ## Troubleshoot remote write
+
+It takes about 30 minutes for the assignment of the role to take effect. 
+During this time you may see an HTTP 403 error in the Prometheus log. Check that you have configured the managed identity or Azure Entra application correctly, and if so, wait 30 minutes for the role assignment to take effect.
 
 You can look at few remote write metrics that can help understand possible issues. A list of these metrics can be found [here](https://github.com/prometheus/prometheus/blob/v2.26.0/storage/remote/queue_manager.go#L76-L223) and [here](https://github.com/prometheus/prometheus/blob/v2.26.0/tsdb/wal/watcher.go#L88-L136).
 
@@ -274,3 +295,6 @@ az monitor data-collection rule show --name "myCollectionRule" --resource-group 
 
 - [Learn more about Azure Monitor managed service for Prometheus](./prometheus-metrics-overview.md).
 - [Learn more about Azure Monitor reverse proxy side car for remote-write from self-managed Prometheus running on Kubernetes](../containers/prometheus-remote-write.md)
+
+
+https://edamw-001-ci0b.eastus-1.metrics.ingest.monitor.azure.com/dataCollectionRules/dcr-3ff856c920bd45b08e8c11526c753824/streams/Microsoft-PrometheusMetrics/api/v1/write?api-version=2023-04-24
