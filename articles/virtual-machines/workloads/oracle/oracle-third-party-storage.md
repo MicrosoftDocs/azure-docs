@@ -43,7 +43,7 @@ The following table provides other inputs to help you to determine the appropria
 | Encryption                  | Encryption at rest is supported. |
 ## Tessel: Performance best practices for Oracle on Azure VMs  
 
-[Tessell](https://www.tessell.com/) primarily provides Oracle database as service – PaaS, which is also called as “DBaaS’ – Database as service. Tessell's DBaaS platform is available for [coselling with Microsoft](https://www.tessell.com/blogs/azure-tessell-ip-co-sell), delivering the full power of Tessell on Azure. Joint Tessell-Microsoft customers can use Tessell's advanced cloud-based database-as-a-service (DBaaS) platform and the extensive expertise and support of Microsoft's sales and technical teams. Tessell’s DBaaS as Azure-native database-as-a-service (DBaaS), provides the following benefits: 
+[Tessell](https://www.tessell.com/) primarily provides Oracle database as service – PaaS, which is also called as “DBaaS’ – Database as service. Tessell's DBaaS platform is available for [coselling with Microsoft](https://www.tessell.com/blogs/azure-tessell-ip-co-sell), delivering the full power of Tessell on Azure. Joint Tessell-Microsoft customers can use Tessell's advanced cloud-based database-as-a-service (DBaaS) platform and the extensive expertise and support of Microsoft's sales and technical teams. Tessell’s DBaaS as Azure-native solution provides the following benefits: 
 
 - Oracle self-service, DevOps integration, and production operations without having to deploy and manage the underlying infrastructure.  
 - Run on Azure high-performance-compute (HPC, LSV3 series), the most demanding production Oracle workloads can be brought to Azure.  
