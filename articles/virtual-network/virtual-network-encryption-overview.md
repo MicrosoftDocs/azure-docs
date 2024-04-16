@@ -6,7 +6,7 @@ ms.service: virtual-network
 author: asudbring
 ms.author: allensu
 ms.topic: overview
-ms.date: 02/27/2024
+ms.date: 04/15/2024
 ms.custom: template-overview, references_regions
 # Customer intent: As a network administrator, I want to learn about encryption in Azure Virtual Network so that I can secure my network traffic.
 
@@ -37,45 +37,13 @@ Virtual network encryption has the following requirements:
 
 - Encryption is only applied to traffic between virtual machines in a virtual network. Traffic is encrypted from a private IP address to a private IP address.
 
-- Global Peering is supported in regions where virtual network encryption is supported.
-
 - Traffic to unsupported Virtual Machines is unencrypted. Use Virtual Network Flow Logs to confirm flow encryption between virtual machines. For more information, see [Virtual network flow logs](../network-watcher/vnet-flow-logs-overview.md).
 
 - The start/stop of existing virtual machines is required after enabling encryption in a virtual network.
 
 ## Availability
 
-General Availability (GA) of Azure Virtual Network encryption is available in the following regions:
-
-- East Asia
-
-- East US
-
-- East US 2
-
-- Europe North
-
-- Europe West
-
-- France Central
-
-- India Central
-
-- Japan East
-
-- Japan West
-
-- UAE North
-
-- UK South
-
-- Swiss North
-
-- West Central US
-
-- West US
-
-- West US 2
+Azure Virtual Network encryption is generally available in all Azure regions.
 
 ## Limitations
 

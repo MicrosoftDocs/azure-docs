@@ -69,9 +69,14 @@ Run the following curl command in Azure Cloud Shell to get all the groups that a
         --header 'Authorization: Bearer <access_token>' \
         --header 'Content-Type: application/json' \
         --data-raw '{
-                        "email": "<Object_ID>",
+                        "email": "<Object_ID_1>",
                         "role": "MEMBER"
-                    }'
+                    },
+                   {
+                        "email": "<Object_ID_2>",
+                        "role": "MEMBER"
+                    }
+                   '
     ```
 
     **Sample request for users OSDU group**
