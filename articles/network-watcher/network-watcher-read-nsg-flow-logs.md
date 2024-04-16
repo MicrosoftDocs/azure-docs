@@ -336,8 +336,8 @@ A","1497646742,10.0.0.4,168.62.32.14,44942,443,T,O,A","1497646742,10.0.0.4,52.24
 ---
 
 
-## Next step
+## Related content
 
-You can use [Traffic analytics](./traffic-analytics.md) to get insights on your traffic flows. Traffic Analytics uses [Log Analytics](../azure-monitor/logs/log-analytics-tutorial.md) to make your traffic flow queryable.
-
-To learn more about storage blobs visit: [Azure Functions Blob storage bindings](../azure-functions/functions-bindings-storage-blob.md)
+- [Traffic analytics overview](./traffic-analytics.md)
+- [Log Analytics tutorial](../azure-monitor/logs/log-analytics-tutorial.md?toc=/azure/network-watcher/toc.json&bc=/azure/network-watcher/breadcrumb/toc.json)
+- [Azure Blob storage bindings for Azure Functions overview](../azure-functions/functions-bindings-storage-blob.md?toc=/azure/network-watcher/toc.json&bc=/azure/network-watcher/breadcrumb/toc.json)
