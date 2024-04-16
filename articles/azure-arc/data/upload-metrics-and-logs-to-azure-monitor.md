@@ -148,11 +148,11 @@ Example output:
 ```output
 {
   "canDelegate": null,
-  "id": "/subscriptions/<Subscription ID>/providers/Microsoft.Authorization/roleAssignments/f82b7dc6-17bd-4e78-93a1-3fb733b912d",
-  "name": "f82b7dc6-17bd-4e78-93a1-3fb733b9d123",
-  "principalId": "5901025f-0353-4e33-aeb1-d814dbc5d123",
+  "id": "/subscriptions/<Subscription ID>/providers/Microsoft.Authorization/roleAssignments/<globally unique identifier>",
+  "name": "<globally unique identifier>",
+  "principalId": "<principal id>",
   "principalType": "ServicePrincipal",
-  "roleDefinitionId": "/subscriptions/<Subscription ID>/providers/Microsoft.Authorization/roleDefinitions/3913510d-42f4-4e42-8a64-420c39005123",
+  "roleDefinitionId": "/subscriptions/<Subscription ID>/providers/Microsoft.Authorization/roleDefinitions/<globally unique identifier>",
   "scope": "/subscriptions/<Subscription ID>",
   "type": "Microsoft.Authorization/roleAssignments"
 }
