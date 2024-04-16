@@ -36,7 +36,7 @@ The service principal was created at [Create service principal](upload-metrics-a
    kubectl edit secret/upload-service-principal-secret -n arc
    ```
 
-   The `kubecl edit` command opens the credentials .yml file in the default editor. 
+   The `kubectl edit` command opens the credentials .yml file in the default editor. 
 
 
 1. Edit the service principal secret. 
@@ -52,10 +52,10 @@ The service principal was created at [Create service principal](upload-metrics-a
    #
    apiVersion: v1
    data:
-     authority: aHR0cHM6Ly9sb2dpbi5taWNyb3NvZnRvbmxpbmUuY29t
-     clientId: NDNiNDcwYrFTGWYzOC00ODhkLTk0ZDYtNTc0MTdkN2YxM2Uw
-     clientSecret: VFA2RH125XU2MF9+VVhXenZTZVdLdECXFlNKZi00Lm9NSw==
-     tenantId: NzJmOTg4YmYtODZmMRFVBGTJLSATkxYWItMmQ3Y2QwMTFkYjQ3
+     authority: <authority id>
+     clientId: <client id>
+     clientSecret: <client secret>==
+     tenantId: <tenant id>
    kind: Secret
    metadata:
      creationTimestamp: "2020-12-02T05:02:04Z"
@@ -63,7 +63,7 @@ The service principal was created at [Create service principal](upload-metrics-a
      namespace: arc
      resourceVersion: "7235659"
      selfLink: /api/v1/namespaces/arc/secrets/upload-service-principal-secret
-     uid: 7fb693ff-6caa-4a31-b83e-9bf22be4c112
+     uid: <globally unique identifier>
    type: Opaque
    ```
 
