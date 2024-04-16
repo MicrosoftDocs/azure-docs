@@ -1,5 +1,6 @@
 ---
 title: Read flow logs
+titleSuffix: Azure Network Watcher
 description: Learn how to use a PowerShell script to parse flow logs that are created hourly and updated every few minutes in Azure Network Watcher.
 author: halkazwini
 ms.author: halkazwini
