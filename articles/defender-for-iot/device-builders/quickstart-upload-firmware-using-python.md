@@ -57,7 +57,7 @@ client = IoTFirmwareDefenseMgmtClient(credential=DefaultAzureCredential(), subsc
 Copy the following Python script into a `.py` file and save it to the same directory as your firmware image. Replace the `subscription_id` variable with your Azure subscription ID, `resource_group_name` with the name of your Resource Group where you'd like to upload your firmware image, and `firmware_file` with the name of your firmware image, which is saved in the same directory as the Python script.
 
 ```python
-from azure.identity import DefaultAzureCredential
+from azure.identity import AzureCliCredential
 from azure.mgmt.iotfirmwaredefense import *
 from azure.mgmt.iotfirmwaredefense.models import *
 from azure.core.exceptions import *
@@ -80,8 +80,8 @@ def main():
 
 def init_connections(firmware_id):
     spinner = Halo(text=f"Creating client for firmware {firmware_id}")
-    default_credential = DefaultAzureCredential()
-    client = IoTFirmwareDefenseMgmtClient(default_credential, subscription_id, 'https://management.azure.com')
+    cli_credential = AzureCliCredential()
+    client = IoTFirmwareDefenseMgmtClient(cli_credential, subscription_id, 'https://management.azure.com')
     spinner.succeed()
     return client
 
