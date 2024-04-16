@@ -29,6 +29,8 @@ items:
         href: oracle-migration.md
       - name: Storage options for oracle on Azure VMs
         href: oracle-storage.md
+      - name: Third-party storage options Oracle on Azure VMs
+        href: oracle-third-party-storage.md
   - name: Backup and disaster recovery
     items:  
       - name: Oracle Database in Azure Linux VM backup strategies

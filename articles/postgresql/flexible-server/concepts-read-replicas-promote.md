@@ -73,13 +73,13 @@ The promote operation won't carry over specific configurations and parameters. H
 
 In both the Planned and Forced promotion scenarios, it's required that servers (both primary and replica) be in an "Available" state. If a server's status is anything other than "Available" (such as "Updating" or "Restarting"), the promotion typically can't proceed without issues. However, an exception is made in the case of regional outages.
 
-During such regional outages, the Forced promotion method can be implemented regardless of the server's current status. This approach allows for swift action in response to potential regional disasters, bypassing normal checks on server availability. 
+During such regional outages, the Forced promotion method can be implemented regardless of the primary server's current status. This approach allows for swift action in response to potential regional disasters, bypassing normal checks on server availability. 
 
 It's important to note that if the former primary server enters an irrecoverable state during promotion of its replica, the only solution is to delete the former primary server and recreate the replica server. 
 
 ### Multiple replicas visibility during promotion in nonpaired regions
 
-When dealing with multiple replicas and if the primary region lacks a [paired region](concepts-read-replicas-geo.md# paired-regions-for-disaster-recovery-purposes), a special consideration must be considered. In the event of a regional outage affecting the primary, any other replicas won't be automatically recognized by the newly promoted replica. While applications can still be directed to the promoted replica for continued operation, the unrecognized replicas remain disconnected during the outage. These extra replicas will only reassociate and resume their roles once the original primary region has been restored.
+When dealing with multiple replicas and if the primary region lacks a [paired region](concepts-read-replicas-geo.md#paired-regions-for-disaster-recovery-purposes), a special consideration must be considered. In the event of a regional outage affecting the primary, any other replicas won't be automatically recognized by the newly promoted replica. While applications can still be directed to the promoted replica for continued operation, the unrecognized replicas remain disconnected during the outage. These extra replicas will only reassociate and resume their roles once the original primary region has been restored.
 
 ## Frequently asked questions
 
