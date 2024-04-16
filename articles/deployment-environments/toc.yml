@@ -98,6 +98,8 @@ items:
 - name: Reference
   expanded: false
   items:
+    - name: ADE CLI variables
+      href: reference-deployment-environment-variables.md
     - name: Install Azure CLI extension
       href: how-to-install-devcenter-cli-extension.md  
     - name: Azure CLI - devcenter
