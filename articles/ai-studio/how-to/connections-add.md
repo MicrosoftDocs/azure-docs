@@ -127,16 +127,14 @@ If your hub is configured for [network isolation](configure-managed-network.md),
 To create an outbound private endpoint rule to the data source, use the following steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com), and select the Azure AI hub.
-1. Select **Networking**.
-
-    * To *add* an *outbound rule*, select **Add user-defined outbound rules** from the **Networking** tab. From the **Workspace outbound rules** sidebar, provide the following information:
+1. Select **Networking**. To *add* an *outbound rule*, select **Add user-defined outbound rules** from the **Networking** tab. From the **Workspace outbound rules** sidebar, provide the following information:
     
-        - **Rule name**: A name for the rule. The name must be unique for the AI hub.
-        - **Destination type**: Private Endpoint.
-        - **Subscription**: The subscription that contains the Azure resource you want to connect to.
-        - **Resource type**: The type of the Azure resource. For example, Azure Storage.
-        - **Resource name**: The name of the Azure resource.
-        - **Sub Resource**: The sub-resource of the Azure resource. For example, Blob in the case of Azure Blob storage.
+    - **Rule name**: A name for the rule. The name must be unique for the AI hub.
+    - **Destination type**: Private Endpoint.
+    - **Subscription**: The subscription that contains the Azure resource you want to connect to.
+    - **Resource type**: The type of the Azure resource. For example, Azure Storage.
+    - **Resource name**: The name of the Azure resource.
+    - **Sub Resource**: The sub-resource of the Azure resource. For example, Blob in the case of Azure Blob storage.
 
 1. Select **Save** at the top of the page to save the changes to the managed VNet.
 
