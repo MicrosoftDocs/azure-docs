@@ -594,8 +594,6 @@
       href: how-to-use-foundation-models.md
     - name: Hugging Face Hub community partner models
       href: how-to-deploy-models-from-huggingface.md
-    - name: How to deploy Llama 2 family models
-      href: how-to-deploy-models-llama.md
     - name: How to deploy Mistral family models
       href: how-to-deploy-models-mistral.md
     - name: Deploy Cohere models
@@ -604,6 +602,10 @@
           href: how-to-deploy-models-cohere-command.md
         - name: How to deploy Cohere Embed models
           href: how-to-deploy-models-cohere-embed.md
+    - name: Deploy Llama models
+      items:
+        - name: How to deploy Llama family models
+          href: how-to-deploy-models-llama.md
     - name: Regulate deployments using policy
       href: how-to-regulate-registry-deployments.md
     - name: Use Model Catalog collections with virtual network
