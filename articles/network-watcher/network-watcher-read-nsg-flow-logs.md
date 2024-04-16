@@ -1,32 +1,33 @@
 ---
-title: Read NSG flow logs
-description: Learn how to use Azure PowerShell to parse network security group flow logs, which are created hourly and updated every few minutes in Azure Network Watcher.
-services: network-watcher
+title: Read flow logs
+description: Learn how to use Azure PowerShell to parse flow logs that are created hourly and updated every few minutes in Azure Network Watcher.
 author: halkazwini
+ms.author: halkazwini
 ms.service: network-watcher
 ms.topic: how-to
-ms.date: 02/09/2021
-ms.author: halkazwini
-ms.custom: devx-track-azurepowershell, engagement-fy23
+ms.date: 04/17/2024
+ms.custom: devx-track-azurepowershell
 ---
 
-# Read NSG flow logs
+# Read flow logs
 
-Learn how to read NSG flow logs entries with PowerShell.
+In this article, you learn how to read portions of Azure Network Watcher flow logs using PowerShell without having to parse the entire log. Flow logs are stored in a storage account in block blobs. Each log is a separate block blob that is generated every hour and updated with the latest data every few minutes. You'll use PowerShell to selectively read the latest events in flow logs that are stored in a storage account. The concepts discussed in this article aren't limited to the PowerShell and are applicable to all languages supported by the Azure Storage APIs.
 
-NSG flow logs are stored in a storage account in [block blobs](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs). Block blobs are made up of smaller blocks. Each log is a separate block blob that is generated every hour. New logs are generated every hour, the logs are updated with new entries every few minutes with the latest data. In this article you learn how to read portions of the flow logs.
+## Prerequisites
 
-## Scenario
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-In the following scenario, you have an example flow log that is stored in a storage account. You learn how to selectively read the latest events in NSG flow logs. In this article you use PowerShell, however, the concepts discussed in the article aren't limited to the programming language, and are applicable to all languages supported by the Azure Storage APIs.
+- PowerShell. For more information, see [Install PowerShell on Windows, Linux, and macOS](/powershell/scripting/install/installing-powershell). This article requires the Az PowerShell module. For more information, see [How to install Azure PowerShell](/powershell/azure/install-azure-powershell). To find the installed version, run `Get-Module -ListAvailable Az`. 
 
-## Setup
+- NSG flow logs in a region or more. For more information, see [Create NSG flow logs](nsg-flow-logs-portal.md#create-a-flow-log).
 
-Before you begin, you must have Network Security Group Flow Logging enabled on one or many Network Security Groups in your account. For instructions on enabling Network Security flow logs, refer to the following article: [Introduction to flow logging for Network Security Groups](nsg-flow-logs-overview.md).
+- Necessary RBAC permissions for the subscriptions of flow logs and storage account. For more information, see [Network Watcher RBAC permissions](required-rbac-permissions.md).
 
 ## Retrieve the block list
 
-The following PowerShell sets up the variables needed to query the NSG flow log blob and list the blocks within the [CloudBlockBlob](/dotnet/api/microsoft.azure.storage.blob.cloudblockblob) block blob. Update the script to contain valid values for your environment.
+# [**NSG flow logs**](#tab/nsg)
+
+The following PowerShell script sets up the variables needed to query the NSG flow log blob and list the blocks within the [CloudBlockBlob](/dotnet/api/microsoft.azure.storage.blob.cloudblockblob) block blob. Update the script to contain valid values for your environment.
 
 ```powershell
 function Get-NSGFlowLogCloudBlockBlob {
@@ -85,7 +86,69 @@ $CloudBlockBlob = Get-NSGFlowLogCloudBlockBlob -subscriptionId "yourSubscription
 $blockList = Get-NSGFlowLogBlockList -CloudBlockBlob $CloudBlockBlob
 ```
 
-The `$blockList` variable returns a list of the blocks in the blob. Each block blob contains at least two blocks.  The first block has a length of `12` bytes, this block contains the opening brackets of the json log. The other block is the closing brackets and has a length of `2` bytes.  As you can see the following example log has seven entries in it, each being an individual entry. All new entries in the log are added to the end right before the final block.
+# [**VNet flow logs (preview)**](#tab/vnet)
+
+The following PowerShell script sets up the variables needed to query the VNet flow log blob and list the blocks within the [CloudBlockBlob](/dotnet/api/microsoft.azure.storage.blob.cloudblockblob) block blob. Update the script to contain valid values for your environment.
+
+```powershell
+function Get-VNetFlowLogCloudBlockBlob {
+    [CmdletBinding()]
+    param (
+        [string] [Parameter(Mandatory=$true)] $subscriptionId,
+        [string] [Parameter(Mandatory=$true)] $region,
+        [string] [Parameter(Mandatory=$true)] $VNetFlowLogName,
+        [string] [Parameter(Mandatory=$true)] $storageAccountName,
+        [string] [Parameter(Mandatory=$true)] $storageAccountResourceGroup,
+        [string] [Parameter(Mandatory=$true)] $macAddress,
+        [datetime] [Parameter(Mandatory=$true)] $logTime
+    )
+
+    process {
+        # Retrieve the primary storage account key to access the VNet flow logs
+        $StorageAccountKey = (Get-AzStorageAccountKey -ResourceGroupName $storageAccountResourceGroup -Name $storageAccountName).Value[0]
+
+        # Setup a new storage context to be used to query the logs
+        $ctx = New-AzStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $StorageAccountKey
+
+        # Container name used by VNet flow logs
+        $ContainerName = "insights-logs-flowlogflowevent"
+
+        # Name of the blob that contains the VNet flow log
+        $BlobName = "flowLogResourceID=/$($subscriptionId.ToUpper())_NETWORKWATCHERRG/NETWORKWATCHER_$($region.ToUpper())_$($VNetFlowLogName.ToUpper())/y=$($logTime.Year)/m=$(($logTime).ToString("MM"))/d=$(($logTime).ToString("dd"))/h=$(($logTime).ToString("HH"))/m=00/macAddress=$($macAddress)/PT1H.json"
+
+        # Gets the storage blog
+        $Blob = Get-AzStorageBlob -Context $ctx -Container $ContainerName -Blob $BlobName
+
+        # Gets the block blog of type 'Microsoft.Azure.Storage.Blob.CloudBlob' from the storage blob
+        $CloudBlockBlob = [Microsoft.Azure.Storage.Blob.CloudBlockBlob] $Blob.ICloudBlob
+
+        #Return the Cloud Block Blob
+        $CloudBlockBlob
+    }
+}
+
+function Get-VNetFlowLogBlockList  {
+    [CmdletBinding()]
+    param (
+        [Microsoft.Azure.Storage.Blob.CloudBlockBlob] [Parameter(Mandatory=$true)] $CloudBlockBlob
+    )
+    process {
+        # Stores the block list in a variable from the block blob.
+        $blockList = $CloudBlockBlob.DownloadBlockListAsync()
+
+        # Return the Block List
+        $blockList
+    }
+}
+
+$CloudBlockBlob = Get-VNetFlowLogCloudBlockBlob -subscriptionId "yourSubscriptionId" -region "yourVNetFlowLogRegion" -VNetFlowLogName "yourVNetFlowLogName" -storageAccountName "yourStorageAccountName" -storageAccountResourceGroup "yourStorageAccountRG" -macAddress "0022485D8CF8" -logTime "07/09/2023 03:00" 
+
+$blockList = Get-VNetFlowLogBlockList -CloudBlockBlob $CloudBlockBlob
+```
+
+---
+
+The `$blockList` variable returns a list of the blocks in the blob. Each block blob contains at least two blocks.  The first block has a length of 12 bytes, this block contains the opening brackets of the JSON log. The other block is the closing brackets and has a length of 2 bytes.  The following example log has seven individual entries in it. All new entries in the log are added to the end right before the final block.
 
 ```
 Name                                         Length Committed
@@ -101,9 +164,12 @@ Mzk1YzQwM2U0ZWY1ZDRhOWFlMTNhYjQ3OGVhYmUzNjk=   2675      True
 ZjAyZTliYWE3OTI1YWZmYjFmMWI0MjJhNzMxZTI4MDM=      2      True
 ```
 
+
 ## Read the block blob
 
-Next you need to read the `$blocklist` variable to retrieve the data. In this example we iterate through the blocklist, read the bytes from each block and story them in an array. Use the [DownloadRangeToByteArray](/dotnet/api/microsoft.azure.storage.blob.cloudblob.downloadrangetobytearray) method to retrieve the data.
+Next, you read the `$blocklist` variable to retrieve the data. In this example we iterate through the blocklist, read the bytes from each block and story them in an array. Use the [DownloadRangeToByteArray](/dotnet/api/microsoft.azure.storage.blob.cloudblob.downloadrangetobytearray) method to retrieve the data.
+
+# [**NSG flow logs**](#tab/nsg)
 
 ```powershell
 function Get-NSGFlowLogReadBlock  {
@@ -147,9 +213,61 @@ function Get-NSGFlowLogReadBlock  {
 $valuearray = Get-NSGFlowLogReadBlock -blockList $blockList -CloudBlockBlob $CloudBlockBlob
 ```
 
-Now the `$valuearray` array contains the string value of each block. To verify the entry, get the second to the last value from the array by running `$valuearray[$valuearray.Length-2]`. You don't want the last value, because it's the closing bracket.
+# [**VNet flow logs (preview)**](#tab/vnet)
+
+```powershell
+function Get-VNetFlowLogReadBlock  {
+    [CmdletBinding()]
+    param (
+        [System.Array] [Parameter(Mandatory=$true)] $blockList,
+        [Microsoft.Azure.Storage.Blob.CloudBlockBlob] [Parameter(Mandatory=$true)] $CloudBlockBlob
+
+    )
+    $blocklistResult = $blockList.Result
+    
+    # Set the size of the byte array to the largest block
+    $maxvalue = ($blocklistResult | Measure-Object Length -Maximum).Maximum
+    Write-Host "Max value is ${maxvalue}"
+
+    # Create an array to store values in
+    $valuearray = @()
+
+    # Define the starting index to track the current block being read
+    $index = 0
+
+    # Loop through each block in the block list
+    for($i=0; $i -lt $blocklistResult.count; $i++)
+    {
+        # Create a byte array object to story the bytes from the block
+        $downloadArray = New-Object -TypeName byte[] -ArgumentList $maxvalue
+
+        # Download the data into the ByteArray, starting with the current index, for the number of bytes in the current block. Index is increased by 3 when reading to remove preceding comma.
+        $CloudBlockBlob.DownloadRangeToByteArray($downloadArray,0,$index, $($blockListResult[$i].Length)) | Out-Null
+
+        # Increment the index by adding the current block length to the previous index
+        $index = $index + $blockListResult[$i].Length
+
+        # Retrieve the string from the byte array
+
+        $value = [System.Text.Encoding]::ASCII.GetString($downloadArray)
+
+        # Add the log entry to the value array
+        $valuearray += $value
+    }
+    #Return the Array
+    $valuearray
+}
+
+$valuearray = Get-VNetFlowLogReadBlock -blockList $blockList -CloudBlockBlob $CloudBlockBlob
+```
+
+---
+
+The `$valuearray` array contains now the string value of each block. To verify the entry, get the second to the last value from the array by running `$valuearray[$valuearray.Length-2]`. You don't need the last value because it's the closing bracket.
 
 The results of this value are shown in the following example:
+
+# [**NSG flow logs**](#tab/nsg)
 
 ```json
 		{
@@ -171,13 +289,55 @@ A","1497646742,10.0.0.4,168.62.32.14,44942,443,T,O,A","1497646742,10.0.0.4,52.24
 		}
 ```
 
-This scenario is an example of how to read entries in NSG flow logs without having to parse the entire log. You can read new entries in the log as they're written by using the block ID or by tracking the length of blocks stored in the block blob. This allows you to read only the new entries.
+# [**VNet flow logs (preview)**](#tab/vnet)
 
-## Next steps
+```json
+{
+    "time": "2023-07-09T03:59:30.2837112Z",
+    "flowLogVersion": 4,
+    "flowLogGUID": "c4de7bdb-291a-4315-84c2-ba1ecd0296dd",
+    "macAddress": "0022485D8CF8",
+    "category": "FlowLogFlowEvent",
+    "flowLogResourceID": "/SUBSCRIPTIONS/00000000-0000-0000-0000-000000000000/RESOURCEGROUPS/NETWORKWATCHERRG/PROVIDERS/MICROSOFT.NETWORK/NETWORKWATCHERS/NETWORKWATCHER_WESTCENTRALUS/FLOWLOGS/CONTOSOVNETWCUSFLOWLOG",
+    "targetResourceID": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/Contoso-westcentralus-RG/providers/Microsoft.Network/virtualNetworks/ContosoVnetWcus",
+    "operationName": "FlowLogFlowEvent",
+    "flowRecords": {
+        "flows": [
+            {
+                "aclID": "db903ae8-908e-491b-b12b-afaafab9d9ed",
+                "flowGroups": [
+                    {
+                        "rule": "BlockHighRiskTCPPortsFromInternet_456b4993-6e57-4e46-aa4d-81767afff09c",
+                        "flowTuples": [
+                            "1688875131557,45.119.212.87,192.168.0.4,53018,3389,6,I,D,NX,0,0,0,0"
+                        ]
+                    },
+                    {
+                        "rule": "Internet_4b9ac3d8-dc7b-4b9e-8702-9e9c25b52451",
+                        "flowTuples": [
+                            "1688875103311,35.203.210.145,192.168.0.4,56688,52113,6,I,D,NX,0,0,0,0",
+                            "1688875119073,162.216.150.87,192.168.0.4,50111,9920,6,I,D,NX,0,0,0,0",
+                            "1688875119910,205.210.31.253,192.168.0.4,54699,1801,6,I,D,NX,0,0,0,0",
+                            "1688875121510,35.203.210.49,192.168.0.4,49250,33013,6,I,D,NX,0,0,0,0",
+                            "1688875121684,162.216.149.206,192.168.0.4,49776,1290,6,I,D,NX,0,0,0,0",
+                            "1688875124012,91.148.190.134,192.168.0.4,57963,40544,6,I,D,NX,0,0,0,0",
+                            "1688875138568,35.203.211.204,192.168.0.4,51309,46956,6,I,D,NX,0,0,0,0",
+                            "1688875142490,205.210.31.18,192.168.0.4,54140,30303,6,I,D,NX,0,0,0,0",
+                            "1688875147864,194.26.135.247,192.168.0.4,53583,20232,6,I,D,NX,0,0,0,0"
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}
+```
+
+---
 
 
-Visit [Use Elastic Stack](network-watcher-visualize-nsg-flow-logs-open-source-tools.md), [Use Grafana](network-watcher-nsg-grafana.md), and [Use Graylog](network-watcher-analyze-nsg-flow-logs-graylog.md) to learn more about ways to view NSG flow logs. An Open Source Azure Function approach to consuming the blobs directly and emitting to various log analytics consumers may be found here: [Azure Network Watcher NSG Flow Logs Connector](https://github.com/Microsoft/AzureNetworkWatcherNSGFlowLogsConnector).
+## Next step
 
-You can use [Azure Traffic Analytics](./traffic-analytics.md) to get insights on your traffic flows. Traffic Analytics uses [Log Analytics](../azure-monitor/logs/log-analytics-tutorial.md) to make your traffic flow queryable.
+You can use [Traffic analytics](./traffic-analytics.md) to get insights on your traffic flows. Traffic Analytics uses [Log Analytics](../azure-monitor/logs/log-analytics-tutorial.md) to make your traffic flow queryable.
 
 To learn more about storage blobs visit: [Azure Functions Blob storage bindings](../azure-functions/functions-bindings-storage-blob.md)
