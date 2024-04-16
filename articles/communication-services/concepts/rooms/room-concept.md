@@ -53,7 +53,7 @@ Use rooms when you need any of the following capabilities:
 |----------------------------------------------|--------|--------|
 | Join a room call with voice and video        | ✔️ | ❌ |
 | List participants that joined the rooms call | ✔️ | ❌ |
-| Allow/disallow dial-out to a PSTN user at virtual Rooms level            | Virtual Rooms SDK|
+| Allow/disallow dial-out to a PSTN user at virtual Rooms level            | ❌ | ✔️ |
 | Create room                                  | ❌ | ✔️ |
 | List all participants that are invited to the room | ❌ | ✔️ |
 | Start, pause, stop call recording | ✔️ | ❌|
