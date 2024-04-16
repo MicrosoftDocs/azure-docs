@@ -6,7 +6,7 @@ ms.date: 04/16/2024
 ---
 
 
-# Remediate cloud deployment secrets issues
+# Remediate issues with cloud deployment secrets 
 
 Microsoft Defender for Cloud Defender for Cloud provides secrets scanning for virtual machines, and for cloud deployments, to reduce lateral movement risk.
 
