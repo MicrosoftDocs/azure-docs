@@ -17,7 +17,7 @@ ms.topic: troubleshooting
 
 If you have errors that occur while creating a data labeling project try the following troubleshooting steps.
 
-## <a name="add-blob-access"> Add Storage Blob Data Contributor access 
+## <a name="add-blob-access"></a> Add Storage Blob Data Contributor access 
 
 In many cases, an error creating the project could be due to access issues. To resolve access problems, add the Storage Blob Data Contributor role to the workspace identity with these steps:
 
