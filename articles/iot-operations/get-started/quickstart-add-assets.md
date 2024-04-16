@@ -76,7 +76,18 @@ To add an asset endpoint:
     kubectl get assetendpointprofile -n azure-iot-operations
     ```
 
-1. To enable the quickstart scenario, configure your asset endpoint to connect without mutual trust established. Run the following command:
+These quickstarts use the **OPC PLC simulator** to generate sample data. To enable the quickstart scenario, you need to configure the OPC UA Broker to accept untrusted server certificates and your asset endpoint to connect without mutual trust established. This configuration is not recommended for production or pre-production environments. For more information, see [Deploy the OPC PLC simulator](../manage-devices-assets/howto-configure-opc-plc-simulator.md):
+
+1. To configure the simulator for the quickstart scenario, run the following command:
+
+   ```azurecli
+   az k8s-extension update --version 0.3.0-preview --name opc-ua-broker --release-train preview --cluster-name <CLUSTER_NAME> --resource-group <RESOURCE_GROUP> --cluster-type connectedClusters --auto-upgrade-minor-version false --config opcPlcSimulation.deploy=true --config opcPlcSimulation.autoAcceptUntrustedCertificates=true
+   ```
+
+   > [!CAUTION]
+   > Don't use this configuration in production or pre-production environments. The configuration lowers the security level for the OPC PLC so that it accepts connections from any client without an explicit peer certificate trust operation.
+
+1. To configure the asset endpoint for the quickstart scenario, run the following command:
 
     ```console
     kubectl patch AssetEndpointProfile opc-ua-connector-0 -n azure-iot-operations --type=merge -p '{"spec":{"additionalConfiguration":"{\"applicationName\":\"opc-ua-connector-0\",\"security\":{\"autoAcceptUntrustedServerCertificates\":true}}"}}'
@@ -84,6 +95,8 @@ To add an asset endpoint:
 
     > [!CAUTION]
     > Don't use this configuration in production or pre-production environments. Exposing your cluster to the internet without proper authentication might lead to unauthorized access and even DDOS attacks.
+
+    To learn more, see [Deploy the OPC PLC simulator](../manage-devices-assets/howto-configure-opc-plc-simulator.md) section.
 
 1. To enable the configuration changes to take effect immediately, first find the name of your `aio-opc-supervisor` pod by using the following command:
 
