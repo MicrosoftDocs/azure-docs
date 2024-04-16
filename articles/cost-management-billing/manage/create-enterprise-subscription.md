@@ -89,7 +89,7 @@ After the request is created, it's visible in the Azure portal at **Subscription
 
 The subscription owner in the request who resides in the target tenant doesn't see this subscription creation request on the View requests page. Instead, they receive an email with the link to accept ownership of the subscription in the target tenant.
 
-:::image type="content" source="./media/create-subscription/view-requests.png" alt-text="Screenshot showing View Requests page that lists all subscription creation requests." lightbox="./media/create-subscription/view-requests.png" :::
+:::image type="content" source="./media/create-enterprise-subscription/view-requests.png" alt-text="Screenshot showing View Requests page that lists all subscription creation requests." lightbox="./media/create-enterprise-subscription/view-requests.png" :::
 
 Anyone with access to view the request can view its details. In the request details, the **Accept ownership URL** is visible. You can copy it to manually share it with the subscription owner in the target tenant for subscription ownership acceptance.
 
