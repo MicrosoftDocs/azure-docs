@@ -141,7 +141,7 @@ Terminal Server has been deployed and configured as follows:
   - Terminal Server interface is connected to the operators on-premises Provider Edge routers (PEs) and configured with the IP addresses and credentials
   - Terminal Server is accessible from the management VPN
 
-### Step 1: Setting Up Hostname
+### Step 1: Setting up hostname
 
 To set up the hostname for your terminal server, follow these steps:
 
@@ -159,7 +159,7 @@ sudo ogcli update system/hostname hostname=\"$TS_HOSTNAME\"
 
 [Refer to CLI Reference](https://opengear.zendesk.com/hc/articles/360044253292-Using-the-configuration-CLI-ogcli-) for more details.
 
-### Step 2: Setting Up Network
+### Step 2: Setting up network
 
 To configure network settings, follow these steps:
 
@@ -183,7 +183,9 @@ sudo ogcli create conn << 'END'
   physif="net2"
   END
 ```
+
 **Parameters:**
+
 | Parameter Name  | Description                                     |
 | --------------- | ----------------------------------------------- |
 | TS_NET1_IP      | Terminal server PE1 to TS NET1 IP               |
@@ -192,28 +194,44 @@ sudo ogcli create conn << 'END'
 | TS_NET2_IP      | Terminal server PE2 to TS NET2 IP               |
 | TS_NET2_NETMASK | Terminal server PE2 to TS NET2 netmask          |
 | TS_NET2_GW      | Terminal server PE2 to TS NET2 gateway          |
-**Note:** Make sure to replace these parameters with appropriate values.
-### Step 3: Clearing net3 Interface (if Existing)
+
+>[!NOTE]
+>Make sure to replace these parameters with appropriate values.
+
+### Step 3: Clearing net3 interface (if existing)
+
 To clear the net3 interface, follow these steps:
+
 1. Check for any interface configured on the physical interface net3 and "Default IPv4 Static Address" using the following command:
+   
 ```bash
 ogcli get conns 
 **description="Default IPv4 Static Address"**
 **name="$TS_NET3_CONN_NAME"**
 **physif="net3"**
 ```
+
 **Parameters:**
+
 | Parameter Name    | Description                              |
 | ----------------- | ---------------------------------------- |
 | TS_NET3_CONN_NAME | Terminal server NET3 Connection name     |
+
 2. Remove the interface if it exists:
+   
 ```bash
 ogcli delete conn "$TS_NET3_CONN_NAME"
 ```
-**Note:** Make sure to replace these parameters with appropriate values.
-### Step 4: Setting Up Support Admin User
+
+>[!NOTE]
+>Make sure to replace these parameters with appropriate values.
+
+### Step 4: Setting up support admin user
+
 To set up the support admin user, follow these steps:
+
 1. For each user, execute the following command in the CLI:
+   
 ```bash
 ogcli create user << 'END'
 description="Support Admin User"
@@ -232,8 +250,10 @@ END
 | SUPPORT_USER       | Support admin user                     |
 | HASHED_SUPPORT_PWD | Encoded support admin user password    |
 
->Note: Make sure to replace these parameters with appropriate values.
-### Step 5: Adding sudo Support for Admin Users
+>[!NOTE]
+>Make sure to replace these parameters with appropriate values.
+
+### Step 5: Adding sudo support for admin users
 
 To add sudo support for admin users, follow these steps:
 
@@ -250,15 +270,16 @@ sudo vi /etc/sudoers.d/opengear
 %admin ALL=(ALL) NOPASSWD: ALL
 ```
 
-**Note:** Make sure to save the changes after editing the file.
+>[!NOTE]
+>Make sure to save the changes after editing the file.
 
 This configuration allows members of the "netgrp" group to execute any command as any user and members of the "admin" group to execute any command as any user without requiring a password.
 
-### Step 6: Ensuring LLDP Service Availability
+### Step 6: Ensuring LLDP service availability
 
 To ensure the LLDP service is available on your terminal server, follow these steps:
 
-1. Check if the LLDP service is running:
+Check if the LLDP service is running:
 
 ```bash
 sudo systemctl status lldpd
@@ -280,24 +301,26 @@ lldpd.service - LLDP daemon
 Notice: journal has been rotated since unit was started, output may be incomplete.
 ```
 
-2. If the service isn't active (running), start the service:
+If the service isn't active (running), start the service:
 
 ```bash
 sudo systemctl start lldpd
 ```
 
-3. Enable the service to start on reboot:
+Enable the service to start on reboot:
 
 ```bash
 sudo systemctl enable lldpd
 ```
 
->Note: Make sure to perform these steps to ensure the LLDP service is always available and starts automatically upon reboot.
-### Step 7: Checking System Date/Time
+>[!NOTE]
+>Make sure to perform these steps to ensure the LLDP service is always available and starts automatically upon reboot.
+
+### Step 7: Checking system date/time
 
 Ensure that the system date/time is correctly set, and the timezone for the terminal server is in UTC.
 
-#### Check Timezone Setting:
+#### Check timezone setting:
 
 1. To check the current timezone setting:
 
@@ -305,7 +328,7 @@ Ensure that the system date/time is correctly set, and the timezone for the term
 ogcli get system/timezone
 ```
 
-#### Set Timezone to UTC:
+#### Set timezone to UTC:
 
 2. If the timezone is not set to UTC, you can set it using:
 
@@ -313,7 +336,7 @@ ogcli get system/timezone
 ogcli update system/timezone timezone=\"UTC\"
 ```
 
-#### Check Current Date/Time:
+#### Check current date/time:
 
 3. Check the current date and time:
 
@@ -321,7 +344,7 @@ ogcli update system/timezone timezone=\"UTC\"
 date
 ```
 
-#### Fix Date/Time if Incorrect:
+#### Fix date/time if incorrect:
 
 4. If the date/time is incorrect, you can fix it using:
 
@@ -337,11 +360,12 @@ time="$CURRENT_DATE_TIME"
 | ------------------ | --------------------------------------------- |
 | CURRENT_DATE_TIME  | Current date time in format hh:mm MMM DD, YYYY |
 
-Ensure the system date/time is accurate to prevent any issues with applications or services relying on it.
+>[!NOTE]
+>Ensure the system date/time is accurate to prevent any issues with applications or services relying on it.
 
-### Step 8: Labeling TS Ports (if Missing/Incorrect)
+### Step 8: Labeling Terminal Server ports (if missing/incorrect)
 
-To label terminal server ports, use the following command:
+To label Terminal Server ports, use the following command:
 
 ```bash
 ogcli update port "port-<PORT_#>"  label=\"<NEW_NAME>\"	<PORT_#>
@@ -354,7 +378,7 @@ ogcli update port "port-<PORT_#>"  label=\"<NEW_NAME>\"	<PORT_#>
 | NEW_NAME        | Port label name             |
 | PORT_#          | Terminal Server port number |
 
-### Step 9: Settings Required for PURE Array Serial Connections
+### Step 9: Settings required for PURE Array serial connections
 
 For configuring PURE Array serial connections, use the following commands:
 
@@ -371,7 +395,7 @@ ogcli update port ports-<PORT_#> 'pinout="X1"' <PORT_#>	Pure Storage Controller 
 
 These commands set the baudrate and pinout for connecting to the Pure Storage Controller console.
 
-### Step 10: Verifying Settings
+### Step 10: Verifying settings
 
 To verify the configuration settings, execute the following commands:
 
@@ -390,11 +414,12 @@ sudo lldpctl
 sudo lldpcli show neighbors  # Check LLDP neighbors - should show data from NET1 and NET2
 ```
 
-**Note:** Ensure that the LLDP neighbors are as expected, indicating successful connections to PE1 and PE2.
+>[!NOTE]
+>Ensure that the LLDP neighbors are as expected, indicating successful connections to PE1 and PE2.
 
 Example LLDP neighbors output:
 
-```
+```Output
 -------------------------------------------------------------------------------
 LLDP neighbors:
 -------------------------------------------------------------------------------
@@ -422,8 +447,8 @@ Interface:    net1, via: LLDP, RID: 1, Time: 0 day, 20:28:36
 -------------------------------------------------------------------------------
 ```
 
-Verify that the output matches your expectations and that all configurations are correct.
-   ```
+>[!NOTE]
+>Verify that the output matches your expectations and that all configurations are correct.
 
 ## Set up storage array
 
