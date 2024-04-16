@@ -249,6 +249,8 @@
       href: ../azure-portal/supportability/how-to-create-azure-support-request.md
     - name: Create EA support request
       href: troubleshoot-billing/how-to-create-azure-support-request-ea.md
+    - name: Can't create VM - Contact reseller
+      href: troubleshoot-billing/cannot-create-vm.md
   - name: Troubleshoot subscriptions
     items:
     - name: No subscriptions found
@@ -261,6 +263,8 @@
       href: troubleshoot-subscription/create-subscriptions-deploy-resources.md
     - name: Not available due to conflict error
       href: troubleshoot-subscription/troubleshoot-not-available-conflict.md
+    - name: Can't sign up for an Azure subscription
+      href: troubleshoot-subscription/cannot-sign-up-subscription.md
 - name: Reference
   items:
   - name: Billing Automation Scenarios
