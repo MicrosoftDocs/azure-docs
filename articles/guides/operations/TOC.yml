@@ -1,7 +1,5 @@
 - name: Azure for IT Operators
   items:
-  - name: Get started with Azure
-    href: azure-operations-guide.md
   - name: Quickstarts
     items:
     - name: Virtual Machines
