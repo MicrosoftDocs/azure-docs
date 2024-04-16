@@ -117,6 +117,30 @@ When you [create a new connection](#create-a-new-connection), you enter the foll
 
 ---
 
+## Network isolation
+
+If your hub is configured for [network isolation](configure-managed-network.md), you might need to create an outbound private endpoint rule to connect to **Azure Blob Storage**, **Azure Data Lake Storage Gen2**, or **Microsoft OneLake**. A private endpoint rule is needed if one or both of the following are true:
+
+- The managed network for the hub is configured to [allow only approved outbound traffic](configure-managed-network.md#configure-a-managed-virtual-network-to-allow-only-approved-outbound). In this configuration, you must explicitly create outbound rules to allow traffic to other Azure resources.
+- The data source is configured to disallow public access. In this configuration, the data source can only be reached through secure methods, such as a private endpoint.
+
+To create an outbound private endpoint rule to the data source, use the following steps:
+
+1. Sign in to the [Azure portal](https://portal.azure.com), and select the Azure AI hub.
+1. Select **Networking**.
+
+    * To *add* an *outbound rule*, select **Add user-defined outbound rules** from the **Networking** tab. From the **Workspace outbound rules** sidebar, provide the following information:
+    
+        - **Rule name**: A name for the rule. The name must be unique for the AI hub.
+        - **Destination type**: Private Endpoint.
+        - **Subscription**: The subscription that contains the Azure resource you want to connect to.
+        - **Resource type**: The type of the Azure resource. For example, Azure Storage.
+        - **Resource name**: The name of the Azure resource.
+        - **Sub Resource**: The sub-resource of the Azure resource. For example, Blob in the case of Azure Blob storage.
+
+1. Select __Save__ at the top of the page to save the changes to the managed VNet.
+
+
 ## Next steps
 
 - [Connections in Azure AI Studio](../concepts/connections.md)
