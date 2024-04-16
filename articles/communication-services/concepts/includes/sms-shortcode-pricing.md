@@ -20,6 +20,24 @@ The Short Code service requires provisioning a short code through the Azure port
 ## Short Codes Pricing
 
 ### Setup Fee
+When applying for a short code, there are two potential charges to consider:
+
+- Pre-paid Monthly Fee: This fee covers the period from the day of application until the short code is delivered. Currently, this fee is temporarily waived and will not be charged.
+- Setup Fee: This is a one-time charge applied at the time the short code is delivered.
+
+#### Pre-paid fee
+
+|Country|Fee type   | Description |Fee|
+|---------|-----------|-------------|---|
+|Canada| Short Code Fee |Charged before short code delivery.|$1000/mo|
+|United Kingdom| Short Code Fee |Charged before short code delivery.|$1600/mo|
+|United States|Random Short Code Fee |Charged before short code delivery.|$1000/mo*|
+
+*Extra $500/mo would be charged for Vanity short codes"
+>[!Note] 
+>The pre-paid monthly fee is currently waived and will not be charged. Please be aware that this is a temporary measure and subject to change.
+
+#### Setup fee
 
 |Country|Fee type   | Description |Fee|
 |---------|-----------|-------------|---|
