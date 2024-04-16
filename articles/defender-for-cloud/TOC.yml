@@ -220,7 +220,7 @@
         - name: Protecting VM secrets
           href: secrets-scanning-servers.md
         - name: Protecting cloud deployment secrets
-          href: secret-scanning-cloud-deployment.md
+          href: secrets-scanning-cloud-deployment.md
           
       - name: Integrations
         items:  
