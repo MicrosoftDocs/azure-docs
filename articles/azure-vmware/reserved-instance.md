@@ -31,7 +31,7 @@ You can pay for the reservation [up front or with monthly payments](../cost-mana
 
 These requirements apply to buying a reserved dedicated host instance:
 
--   You must be in an *Owner* role for at least one EA subscription or a subscription with a pay-as-you-go rate.
+-   To buy a reservation, you must have owner role or reservation purchaser role on an Azure subscription.
 
 -   For EA subscriptions, you must enable the **Add Reserved Instances** option in the [EA portal](https://ea.azure.com/). If disabled, you must be an EA Admin for the subscription to enable it.
 
