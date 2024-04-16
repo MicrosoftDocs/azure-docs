@@ -45,7 +45,7 @@ You can't delete an NVA that is the next hop resource for a Routing Policy. To d
 
 If the Network Virtual Appliance resource was deployed via partner orchestration software, reference partner documentation to delete the Network Virtual Appliance.
 
-Alternatively, you can run the following Powershell command to delete your Network Virtual Appliance.
+Alternatively, you can run the following PowerShell command to delete your Network Virtual Appliance.
 
 1. Find the Azure resource group of the NVA you want to delete. The Azure resource group is usually **different** than the resource group  the Virtual WAN hub is deployed in. Ensure the  Virtual Hub property of the NVA resource corresponds to the NVA you want to delete. The following example assumes that all NVAs in your subscription have distinct names. If there are multiple NVAs with the same name, make sure you collect the information associated with the NVA you want to delete.  
 
