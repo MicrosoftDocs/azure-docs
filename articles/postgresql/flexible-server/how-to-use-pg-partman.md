@@ -36,7 +36,7 @@ PG_partman uses a template to control whether the table is UNLOGGED or not. This
 
 There's another extension related to PG_partman called pg_partman_bgw, which must be included in Shared_Preload_Libraries. It offers a scheduled function run_maintenance(). It takes care of the partition sets that have automatic_maintenance turned ON in `part_config`. 
 
-:::image type="content" source="media/how-to-use-pg-partman/pg-partman-prerequisites-highlighted.png" alt-text="Screenshot of prerequisites highlighted.":::
+:::image type="content" source="media/how-to-use-pg-partman/pg-partman-prerequisites-outlined.png" alt-text="Screenshot of prerequisites highlighted.":::
 
 You can use server parameters in the Azure portal to change the following configuration options that affect the BGW process: 
 
@@ -139,11 +139,11 @@ Run the command below to see the partitions created. 
 Postgres=> \d+ partman.partition_test;
 ```
 
-:::image type="content" source="media/how-to-use-pg-partman/pg-partman-table-output-partitions.png" alt-text="Screenshot of table out with partitions.":::
+:::image type="content" source="media/how-to-use-pg-partman/pg-partman-table-output-partitions.png" alt-text="Screenshot of table out with partitions." lightbox="media/how-to-use-pg-partman/pg-partman-table-output-partitions.png":::
 
 Here's the output of the select statement executed. 
 
-:::image type="content" source="media/how-to-use-pg-partman/pg-partman-explain-plan-output.png" alt-text="Screenshot of explain plan output.":::
+:::image type="content" source="media/how-to-use-pg-partman/pg-partman-explain-plan-output.png" alt-text="Screenshot of explain plan output." lightbox="media/how-to-use-pg-partman/pg-partman-explain-plan-output.png":::
 
 ## How to manually run the run_maintenance procedure 
 
@@ -151,7 +151,8 @@ Here's the output of the select statement executed.
 select partman.run_maintenance(p_parent_table:='partman.partition_test'); 
 ```
 
-Warning: If you insert data before creating partitions, the data goes to the default partition. If the default partition has data that belongs to a new partition that you want to be created later, then you get a default partition violation error and the procedure won't work. Therefore, change the premake value as recommended above and then run the procedure. 
+> [!WARNING] 
+> If you insert data before creating partitions, the data goes to the default partition. If the default partition has data that belongs to a new partition that you want to be created later, then you get a default partition violation error and the procedure won't work. Therefore, change the premake value as recommended above and then run the procedure. 
 
 ## How to schedule maintenance procedure using pg_cron 
 
