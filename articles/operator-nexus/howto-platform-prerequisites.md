@@ -322,7 +322,7 @@ Ensure that the system date/time is correctly set, and the timezone for the term
 
 #### Check timezone setting:
 
-1. To check the current timezone setting:
+To check the current timezone setting:
 
 ```bash
 ogcli get system/timezone
@@ -330,7 +330,7 @@ ogcli get system/timezone
 
 #### Set timezone to UTC:
 
-2. If the timezone is not set to UTC, you can set it using:
+If the timezone is not set to UTC, you can set it using:
 
 ```bash
 ogcli update system/timezone timezone=\"UTC\"
@@ -338,7 +338,7 @@ ogcli update system/timezone timezone=\"UTC\"
 
 #### Check current date/time:
 
-3. Check the current date and time:
+Check the current date and time:
 
 ```bash
 date
@@ -346,7 +346,7 @@ date
 
 #### Fix date/time if incorrect:
 
-4. If the date/time is incorrect, you can fix it using:
+If the date/time is incorrect, you can fix it using:
 
 ```bash
 ogcli replace system/time
