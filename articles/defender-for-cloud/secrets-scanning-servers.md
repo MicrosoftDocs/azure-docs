@@ -80,6 +80,6 @@ It’s important to be able to prioritize secrets and identify which ones need i
 - Combining secrets metadata with cloud assets context. This helps you to start with assets that are exposed to the internet, or contain secrets that might compromise other sensitive assets. Secrets scanning findings are incorporated into risk-based recommendation prioritization.
 - Providing multiple views to help you pinpoint the mostly commonly found secrets, or assets containing secrets.
 
-## More resources
+## Related content
 
-Learn about [protecting cloud deployment secrets](secrets-scanning-cloud-deployment.md)
+[Cloud deployment secrets scanning](secrets-scanning-cloud-deployment.md)
