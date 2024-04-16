@@ -86,51 +86,49 @@ The following sections describe where to find Microsoft Sentinel features in the
 
 The following table lists the changes in navigation between the Azure and Defender portals for the **General** section in the Azure portal.
 
-|Azure portal  |Defender portal  |
-|---------|---------|
-|Overview    |  Overview        |
-|Logs     |     Investigation & response > Hunting > Advanced hunting    |
-|News & guides     |  Not available      |
-|Search     | Microsoft Sentinel > Search        |
-
+| Azure portal  | Defender portal                                       |
+|---------------|-------------------------------------------------------|
+| Overview      | Overview                                              |
+| Logs          | Investigation & response > Hunting > Advanced hunting |
+| News & guides | Not available                                         |
+| Search        | Microsoft Sentinel > Search                           |
 
 ### Threat management
 
 The following table lists the changes in navigation between the Azure and Defender portals for the **Threat management**  section in the Azure portal.
 
-|Azure portal  |Defender portal  |
-|---------|---------|
-|Incidents    |   Investigation & response > Incidents & alerts > Incidents      |
-|Workbooks     | Microsoft Sentinel > Threat management> Workbooks      |
-|Hunting     | Microsoft Sentinel > Threat management >  Hunting      |
-|Notebooks     | Microsoft Sentinel > Threat management >  Notebooks         |
-|Entity behavior     | *User entity page:* Assets > Identities > *{user}* > Sentinel events<br>*Device entity page:* Assets > Devices > *{device}* > Sentinel events<br><br>Also, find the entity pages for the user, device, IP, and Azure resource entity types from incidents and alerts as they appear.       |
-|Threat intelligence    | Microsoft Sentinel > Threat management > Threat intelligence        |
-|MITRE ATT&CK|Microsoft Sentinel > Threat management > MITRE ATT&CK  |
-
+| Azure portal        | Defender portal                                              |
+| ------------------- | ------------------------------------------------------------ |
+| Incidents           | Investigation & response > Incidents & alerts > Incidents    |
+| Workbooks           | Microsoft Sentinel > Threat management> Workbooks            |
+| Hunting             | Microsoft Sentinel > Threat management >  Hunting            |
+| Notebooks           | Microsoft Sentinel > Threat management >  Notebooks          |
+| Entity behavior     | *User entity page:* Assets > Identities > *{user}* > Sentinel events<br>*Device entity page:* Assets > Devices > *{device}* > Sentinel events<br><br>Also, find the entity pages for the user, device, IP, and Azure resource entity types from incidents and alerts as they appear.                               |
+| Threat intelligence | Microsoft Sentinel > Threat management > Threat intelligence |
+| MITRE ATT&CK        | Microsoft Sentinel > Threat management > MITRE ATT&CK        |
 
 ### Content management
 
 The following table lists the changes in navigation between the Azure and Defender portals for the **Content management** section in the Azure portal.
 
-|Azure portal  |Defender portal  |
-|---------|---------|
-|Content hub    |  Microsoft Sentinel > Content management > Content hub      |
-|Repositories     |    Microsoft Sentinel > Content management > Repositories     |
-|Community   |   Not available      |
+| Azure portal | Defender portal                                        |
+|--------------|--------------------------------------------------------|
+| Content hub  | Microsoft Sentinel > Content management > Content hub  |
+| Repositories | Microsoft Sentinel > Content management > Repositories |
+| Community    | Not available                                          |
 
 ### Configuration
 
 The following table lists the changes in navigation between the Azure and Defender portals for the **Configuration** section in the Azure portal.
 
-|Azure portal  |Defender portal  |
-|---------|---------|
-|Workspace manager  |  Not available       |
-|Data connectors     | Microsoft Sentinel > Configuration > Data connectors        |
-|Analytics     |  Microsoft Sentinel > Configuration > Analytics       |
-|Watchlists    |      Microsoft Sentinel > Configuration > Watchlists    |
-|Automation   |   Microsoft Sentinel > Configuration > Automation       |
-|Settings   | System > Settings > Microsoft Sentinel       |
+| Azure portal      | Defender portal                                      |
+|-------------------|------------------------------------------------------|
+| Workspace manager | Not available                                        |
+| Data connectors   | Microsoft Sentinel > Configuration > Data connectors |
+| Analytics         | Microsoft Sentinel > Configuration > Analytics       |
+| Watchlists        | Microsoft Sentinel > Configuration > Watchlists      |
+| Automation        | Microsoft Sentinel > Configuration > Automation      |
+| Settings          | System > Settings > Microsoft Sentinel               |
 
 ## Related content
 
