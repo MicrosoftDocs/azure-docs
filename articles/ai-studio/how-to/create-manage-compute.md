@@ -86,10 +86,10 @@ To configure idle shutdown for existing compute instances follow these steps:
 
 1. From the left menu, select **Settings**.
 1. Under **Computes**, select **View all** to see the list of available compute instances.
+1. Select **Schedule and idle shutdown**.
 
     :::image type="content" source="../media/compute/compute-schedule-update.png" alt-text="Screenshot of the option to change the idle shutdown schedule for a compute instance." lightbox="../media/compute/compute-schedule-update.png":::
 
-1. Select **Schedule and idle shutdown**.
 1. Update or add to the schedule. You can have a total of four schedules per compute instance. Then select **Update** to save your changes.
 
 ## Start or stop a compute instance
