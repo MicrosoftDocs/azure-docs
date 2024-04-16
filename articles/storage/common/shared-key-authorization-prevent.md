@@ -8,7 +8,7 @@ ms.author: pauljewell
 ms.service: azure-storage
 ms.subservice: storage-common-concepts
 ms.topic: how-to
-ms.date: 12/05/2023
+ms.date: 04/16/2024
 ms.reviewer: nachakra
 ms.custom: devx-track-azurecli, engagement-fy23
 ms.devlang: azurecli
