@@ -45,14 +45,26 @@ Note that you cannot delete a NVA that is the next hop resource for a Routing Po
 
 If the Network Virtual Appliance resource was deployed via partner orchestration software, please reference partner documentation to delete the Network Virtual Appliance.
 
-Alternatively, you can run the following Powershell command to delete your Network Virtual Appliance. 
+Alternatively, you can run the following Powershell command to delete your Network Virtual Appliance.
 
+1. Find the Azure resource group of the NVA you want to delete. The Azure resource group is usually **different** than the resource group  the Virtual WAN hub is deployed in. Ensure the  Virtual Hub property of the NVA resource corresponds to the NVA you want to delete. The following example assumes that all NVAs in your subscription have distinct names. If there are multiple NVAs with the same name, make sure you collect the information associated with the NVA you want to delete.  
+
+    ```azurepowershell-interactive
+    $nva = Get-AzNetworkVirtualAppliance -Name <NVA name>
+    $nva.VirtualHub
+    ```  
+2. Delete the NVA.
    ```azurepowershell-interactive
-   Remove-AzNetworkVirtualAppliance -Name <NVA name> -ResourceGroupName <resource group name>
+   Remove-AzNetworkVirtualAppliance -Name $nva.Name -ResourceGroupName $nva.ResourceGroupName
    ```
 
-The same command can also be run from CLI. 
+The same series of steps can be executed from Azure CLI.
 
+1. Find the Azure resource group of the NVA you wante to delete.  The Azure resource group is usually **different** than the resource group  the Virtual WAN hub is deployed in. Ensure the  Virtual Hub property of the NVA resource corresponds to the NVA you want to delete. 
    ```azurecli-interactive
-az network virtual-appliance delete --subscription <subscription name> --resource-group <resource group name> --name <Network Virtual Appliance name>
+    az network virtual-appliance list
+   ```
+2. Delete the NVA
+   ```azurecli-interactive
+    az network virtual-appliance delete --subscription <subscription name> --resource-group <resource group name> --name <Network Virtual Appliance name>
    ```
