@@ -175,6 +175,12 @@ Open the IIS log file on the agent machine to verify that logs are in W3C format
 :::image type="content" source="media/data-collection-text-log/iis-log-format.png" lightbox="media/data-collection-text-log/iis-log-format.png" alt-text="Screenshot of an IIS log, showing the header, which specifies that the file is in W3C format." border="false":::
 
 
+## Frequently asked questions
+This section provides answers to common questions.
+
+### Can I collect the X-Forwarded-For custom field?
+This is not supported at this time. If this is a critical field, you can collect the IIS logs as a custom text log. 
+
 ## Next steps
 
 Learn more about: 
