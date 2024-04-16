@@ -51,7 +51,7 @@ Create a site to manage geographically related resources.
 
 1. Once these details are provided, select **Review + create**.
 
-   :::image type="content" source="./media/how-to-crud-site/create-a-site-page-california.png" alt-text="Screenshot that shows all the site details filled in to create a site and then select review + create.":::
+   :::image type="content" source="./media/how-to-crud-site/create-a-site-page-los-angeles.png" alt-text="Screenshot that shows all the site details filled in to create a site and then select review + create.":::
 
 1. On the summary page, review and confirm the site details then select **Create** to create your site.
 
@@ -69,7 +69,7 @@ Once you create a site, you can access it and its managed resources through site
 
 1. On the **Sites** page, you can view all existing sites. Select the name of the site that you want to delete.
 
-   :::image type="content" source="./media/how-to-crud-site/california-site-select.png" alt-text="Screenshot that shows selecting a site to manage from the list of sites.":::
+   :::image type="content" source="./media/how-to-crud-site/los-angeles-siteselect.png" alt-text="Screenshot that shows selecting a site to manage from the list of sites.":::
 
 1. On a specific site's resource page, you can:
 
@@ -99,4 +99,4 @@ Deleting a site doesn't affect the resources, resource group, or subscription in
 
 1. On the site's resource page, select **Delete**.
 
-   :::image type="content" source="./media/how-to-crud-site/california-site-main-page-delete.png" alt-text="Screenshot that shows selecting Delete on the details page of a site.":::
+   :::image type="content" source="./media/how-to-crud-site/los-angeles-site-main-page-delete.png" alt-text="Screenshot that shows selecting Delete on the details page of a site.":::

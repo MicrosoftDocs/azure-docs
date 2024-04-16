@@ -23,7 +23,7 @@ In this quickstart, you'll get started with Azure Arc site manager by creating a
 * Internet connectivity
 * Resource group or subscription with at least one resource for a site
 
-  It's beneficial to name the resource group a similar name to the real site function. For the example in this article, the resource group is named **California**.
+  It's beneficial to name the resource group a similar name to the real site function. For the example in this article, the resource group is named **LA_10001**.
 
 ## Open Azure Arc site manager
 
@@ -53,7 +53,7 @@ Create a site to manage geographically related resources.
 
 1. Once these details are provided, select **Review + create**.
 
-   :::image type="content" source="./media/quickstart/create-a-site-page-california.png" alt-text="Screenshot that shows all the site details filled in to create a site and then select review + create.":::
+   :::image type="content" source="./media/quickstart/create-a-site-page-los-angeles.png" alt-text="Screenshot that shows all the site details filled in to create a site and then select review + create.":::
 
 1. On the summary page, review and confirm the site details then select **Create** to create your site.
 
@@ -69,7 +69,7 @@ Once you create a site, you can access it and its managed resources through site
 
 1. On the **Sites** page, you can view all existing sites. Select the name of the site that you created.
 
-   :::image type="content" source="./media/quickstart/california-site-select.png" alt-text="Screenshot that shows selecting a site to manage from the list of sites.":::
+   :::image type="content" source="./media/quickstart/los-angeles-siteselect.png" alt-text="Screenshot that shows selecting a site to manage from the list of sites.":::
 
 1. On a specific site's resource page, you can:
 
@@ -84,7 +84,7 @@ Once you create a site, you can access it and its managed resources through site
 
 You can delete a site from within the site's resource details page.
 
-:::image type="content" source="./media/quickstart/california-site-main-page-delete.png" alt-text="Screenshot that shows deleting a site from its resource page.":::
+:::image type="content" source="./media/quickstart/los-angeles-site-main-page-delete.png" alt-text="Screenshot that shows deleting a site from its resource page.":::
 
 Deleting a site doesn't affect the resources or the resource group and subscription in its scope. After a site is deleted, the resources of that site can't be viewed or managed from site manager.
 
