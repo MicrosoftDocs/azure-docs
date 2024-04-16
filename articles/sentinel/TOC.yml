@@ -370,7 +370,7 @@
       href: data-connectors/alicloud-using-azure-functions.md
     - name: Amazon Web Services
       href: data-connectors/amazon-web-services.md
-    - name: Amazon Web Services S3 (preview)
+    - name: Amazon Web Services S3
       href: data-connectors/amazon-web-services-s3.md
     - name: Apache HTTP Server
       href: data-connectors/apache-http-server.md
@@ -784,7 +784,7 @@
       href: data-connectors/vmware-vcenter.md
     - name: WatchGuard Firebox
       href: data-connectors/watchguard-firebox.md
-    - name: Windows DNS Events via AMA (Preview)
+    - name: Windows DNS Events via AMA
       href: data-connectors/windows-dns-events-via-ama.md
     - name: Windows Firewall
       href: data-connectors/windows-firewall.md

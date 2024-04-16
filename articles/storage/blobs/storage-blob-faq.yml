@@ -51,6 +51,7 @@ sections:
           - The asterisk character `*` is a valid character in a blob name. If the asterisk character is used in a prefix, then the prefix will match blobs with an asterisk in their names. The asterisk doesn't function as a wildcard character.
           - The question mark character `?` is a valid character in a blob name. If the question mark character is used in a prefix, then the prefix will match blobs with a question mark in their names. The question mark doesn't function as a wildcard character.
           - The prefix match considers only positive (=) logical comparisons. Negative (!=) logical comparisons are ignored.
+          - The prefix matching operates in a case-sensitive manner.
       - question: |
           Is there a way to identify the time at which the policy will be executing?
         answer: |

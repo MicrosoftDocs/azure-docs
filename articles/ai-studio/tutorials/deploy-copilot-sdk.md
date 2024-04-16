@@ -126,7 +126,7 @@ The [aistudio-copilot-sample repo](https://github.com/azure/aistudio-copilot-sam
     pip install -r requirements.txt
     ```
 
-1. Install the [Azure AI CLI](../how-to/cli-install.md). The Azure AI CLI is a command-line interface for managing Azure AI resources. It's used to configure resources needed for your copilot.
+1. Install the Azure AI CLI. The Azure AI CLI is a command-line interface for managing Azure AI resources. It's used to configure resources needed for your copilot.
 
     ```bash
     curl -sL https://aka.ms/InstallAzureAICLIDeb | bash

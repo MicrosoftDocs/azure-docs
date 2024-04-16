@@ -42,7 +42,7 @@ sections:
       - question: |
           Can I delete the default workspaces created by Defender for Cloud? 
         answer: |
-          We don't recommend deleting the default workspace. Defender for Containers uses the default workspaces to collect security data from your clusters. Defender for Containers will be unable to collect data, and some security recommendations and alerts, will become unavailable if you delete the default workspace. 
+          We don't recommend deleting the default workspace. Defender for Containers uses the default workspaces to collect security data from your clusters. Defender for Containers will be unable to collect data, and some security recommendations and alerts, will become unavailable if you delete the default workspace.
 
       - question: |
           I deleted my default workspace, how can I get it back?

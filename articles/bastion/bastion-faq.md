@@ -33,7 +33,7 @@ Azure Bastion doesn't move or store customer data out of the region it's deploye
 Some regions support the ability to deploy Azure Bastion in an availability zone (or multiple, for zone redundancy).
 To deploy zonally, you can select the availability zones you want to deploy under instance details when you deploy Bastion using manually specified settings. You can't change zonal availability after Bastion is deployed.
 If you aren't able to select a zone, you might have selected an Azure region that doesn't yet support availability zones.
-For more information about availability zones, see [Availability Zones](https://learn.microsoft.com/azure/reliability/availability-zones-overview?tabs=azure-cli).
+For more information about availability zones, see [Availability Zones](../reliability/availability-zones-overview.md?tabs=azure-cli).
 
 ### <a name="vwan"></a>Does Azure Bastion support Virtual WAN?
 
@@ -67,6 +67,10 @@ No, Azure Bastion doesn't currently support Azure Private Link.
 ### Why do I get a "Failed to add subnet" error when using "Deploy Bastion" in the portal?
 
 At this time, for most address spaces, you must add a subnet named **AzureBastionSubnet** to your virtual network before you select **Deploy Bastion**.
+
+### <a name="write-permissions"></a>Are special permissions required to deploy Bastion to the AzureBastionSubnet?
+
+To deploy Bastion to the AzureBastionSubnet, write permissions are required. Example: **Microsoft.Network/virtualNetworks/write**.
 
 ### <a name="subnet"></a>Can I have an Azure Bastion subnet of size /27 or smaller (/28, /29, etc.)?
 

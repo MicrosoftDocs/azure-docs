@@ -12,7 +12,7 @@ ms.custom: engagement-fy23, linux-related-content
 # Support matrix for disaster recovery  of VMware VMs and physical servers to Azure
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 This article summarizes supported components and settings for disaster recovery of VMware VMs and physical servers to Azure using [Azure Site Recovery](site-recovery-overview.md).
 
@@ -74,6 +74,9 @@ Machine settings | Machines that replicate to Azure must meet [Azure requirement
 Machine workload | Site Recovery supports replication of any workload running on a supported machine. [Learn more](./site-recovery-workload.md).
 Machine name | Ensure that the display name of machine doesn't fall into [Azure reserved resource names](../azure-resource-manager/templates/error-reserved-resource-name.md).<br/><br/> Logical volume names aren't case-sensitive. Ensure that no two volumes on a device have same name. For example, Volumes with names "voLUME1", "volume1" can't be protected through Azure Site Recovery.
 Azure Virtual Machines as Physical | Failover of virtual machines with Marketplace image disks is currently not supported.
+
+>[!NOTE]
+> Different machine with same BIOS ID are not supported. 
 
 ### For Windows
 
