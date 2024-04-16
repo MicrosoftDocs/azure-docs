@@ -88,19 +88,20 @@ The service scans the repository to find new environment definitions. After you 
 
 ### Specify an ARM or Bicep runner for a custom image
 
-The ADE extensibility model enables you to use your own custom container image. The ADE team provides sample ARM and Bicep templates accessible through the Microsoft Artifact registry (also known as the Microsoft Container Registry) to help you get started. You can also create and store custom images in other registries. 
+The ADE extensibility model enables you to reference your own container image and execute deployments. You can store your container image in a container repository and directly reference it by providing the URI. 
 
-You can use the following links to access the sample core, ARM and Bicep templates in the Microsoft Artifact registry:
-- [Microsoft Artifact Registry - Core](https://mcr.microsoft.com/en-us/product/deployment-environments/runners/core)
-- [Microsoft Artifact Registry - ARM/Bicep](https://mcr.microsoft.com/en-us/product/deployment-environments/runners/arm)
-
-<!-- For more information how to build and utilize custom images within environment definitions, see [Custom image support in Azure Deployment Environments](how-to-configure-custom-runner.md). -->
-
-When creating environment definitions that use a custom image in their deployment, the runner property provides a link to a container registry where this container image is stored. You can edit the runner property to specify the location of your custom image, as shown in the following example:
+The following example shows how to reference a custom image in an environment definition:
 
 ```yaml
 runner: "{YOUR_REGISTRY}.azurecr.io/{YOUR_REPOSITORY}:{YOUR_TAG}"
 ```
+
+The ADE team provides sample ARM and Bicep templates accessible through the Microsoft Artifact registry (also known as the Microsoft Container Registry) to help you get started. When you perform deployments by using ARM or Bicep, you can use the standard image that is published on [Microsoft Artifact Registry](https://mcr.microsoft.com/) (previously known as the Microsoft Container Registry).
+
+To use the sample image published on the Microsoft Artifact Registry, use the respective identifiers `runner: ARM` for ARM and `runner:Bicep` for Bicep deployments.
+
+For more information how to build and utilize ARM or Bicep container images within environment definitions, see [Configure container image to execute deployments with ARM and Bicep](https://aka.ms/deployment-environments/container-image-bicep).
+
 
 ### Specify parameters for an environment definition
 
