@@ -38,11 +38,11 @@ If you have multiple generative AI container images within your environment, you
 
 1. Select a result to review its details.
 
-    :::image type="content" source="media/explore-ai-risk/vulnerable-images-results.png" alt-text="Screenshot that shows a sample of results for the query." lightbox="media/explore-ai-risk/vulnerable-images-results.png":::
+    :::image type="content" source="media/explore-ai-risk/vulnerable-images-results.png" alt-text="Screenshot that shows a sample of results for the vulnerable image query." lightbox="media/explore-ai-risk/vulnerable-images-results.png":::
 
 1. Select a node to review the findings.
 
-    :::image type="content" source="media/explore-ai-risk/vulnerable-images-results-details.png" alt-text="Screenshot that shows the details of the selected node." lightbox="media/explore-ai-risk/vulnerable-images-results-details.png":::
+    :::image type="content" source="media/explore-ai-risk/vulnerable-images-results-details.png" alt-text="Screenshot that shows the details of the selected containers node." lightbox="media/explore-ai-risk/vulnerable-images-results-details.png":::
 
 1. In the insights section, select a CVE ID from the drop down menu.
 
@@ -66,11 +66,11 @@ If you have multiple generative AI code repositories within your environment, yo
 
 1. Select a result to review its details.
 
-    :::image type="content" source="media/explore-ai-risk/vulnerable-results.png" alt-text="Screenshot that shows a sample of results for the query." lightbox="media/explore-ai-risk/vulnerable-results.png":::
+    :::image type="content" source="media/explore-ai-risk/vulnerable-results.png" alt-text="Screenshot that shows a sample of results for the vulnerable code query." lightbox="media/explore-ai-risk/vulnerable-results.png":::
 
 1. Select a node to review the findings.
 
-    :::image type="content" source="media/explore-ai-risk/vulnerable-results-details.png" alt-text="Screenshot that shows the details of the selected node." lightbox="media/explore-ai-risk/vulnerable-results-details.png":::
+    :::image type="content" source="media/explore-ai-risk/vulnerable-results-details.png" alt-text="Screenshot that shows the details of the selected vulnerable code node." lightbox="media/explore-ai-risk/vulnerable-results-details.png":::
 
 1. In the insights section, select a CVE ID from the drop-down menu.
 
@@ -114,7 +114,7 @@ If you have one or multiple generative AI attack paths within your environment, 
 
 1. Select **Azure AI services**.
 
-    :::image type="content" source="media/explore-ai-risk/target-azure-ai.png" alt-text="Screenshot that shows the resource type filter value being set to Azure AI services." lightbox="media/explore-ai-risk/target-azure-ai.png":::
+    :::image type="content" source="media/explore-ai-risk/target-azure-ai.png" alt-text="Screenshot that shows the filter value being set to Azure AI services." lightbox="media/explore-ai-risk/target-azure-ai.png":::
 
 1. Select **Apply**.
 

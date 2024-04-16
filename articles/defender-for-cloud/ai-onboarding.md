@@ -1,8 +1,8 @@
 ---
 title: Onboard Defender for AI Workloads (Preview)
-description: Learn how to enable the Defender for Servers on your Azure subscription for Microsoft Defender for Cloud.
+description: Learn how to enable the Defender for AI Workloads plan on your Azure subscription for Microsoft Defender for Cloud.
 ms.topic: install-set-up-deploy
-ms.date: 02/05/2024
+ms.date: 04/16/2024
 ---
 
 # Onboard Defender for AI Workloads (Preview)
@@ -38,4 +38,4 @@ After you have onboarded the Defender for AI workloads plan, you can should [man
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Security alerts and incidents](alerts-overview.md)
+> [Manage and respond to the security alerts](managing-and-responding-alerts.md)
