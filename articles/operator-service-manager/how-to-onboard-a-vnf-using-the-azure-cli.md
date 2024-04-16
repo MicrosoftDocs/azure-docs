@@ -152,7 +152,7 @@ This section creates a folder in the working directory called `nsd-cli-output`. 
 az aosm nsd generate-config --output-file <nsd-output-filename.jsonc>
 ```
 
-1. Open the input file you generated in the previous step and use the inline comments to enter the required values. The generated input file contains an additional `resource_element_type` of type `ArmTemplate`. This is unnecessary when onboarding a VNF; you can delete it. This example shows the Az CLI AOSM extension input file for a fictional Contoso NSD that can be used to deploy a fictional Contoso VNF onto an Azure Operator Nexus instance. The `nfvi_type` parameter must be set to `AzureOperatorNexus`.
+1. Open the input file you generated in the previous step and use the inline comments to enter the required values. The generated input file contains an additional `resource_element_type` of type `ArmTemplate`. This is unnecessary when onboarding a VNF; you can delete it. This example shows the Az CLI AOSM extension input file for a fictional Contoso NSD that can be used to deploy a fictional Contoso VNF onto an Azure Operator Nexus instance.
 
 ```json
 {
@@ -173,9 +173,6 @@ az aosm nsd generate-config --output-file <nsd-output-filename.jsonc>
     "nsd_version": "1.0.0",
     // Optional. Description of the Network Service Design Version (NSDV).
     "nsdv_description": "An NSD that deploys the onboarded contoso-vnf NFD",
-    // Type of NFVI (for nfvisFromSite). Defaults to 'AzureCore'.
-    // Valid values are 'AzureCore', 'AzureOperatorNexus' or 'AzureArcKubernetes.
-    "nfvi_type": "AzureOperatorNexus",
     // List of Resource Element Templates (RETs).
     // There must be at least one NF RET.
     // ArmTemplate RETs are optional. Delete if not required.

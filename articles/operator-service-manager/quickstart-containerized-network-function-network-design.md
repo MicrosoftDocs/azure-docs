@@ -51,12 +51,9 @@ Here's a sample **input-cnf-nsd.jsonc**:
   "nsd_version": "1.0.0",
   // Optional. Description of the Network Service Design Version (NSDV).
   "nsdv_description": "Deploys a basic NGINX CNF",
-  // Type of NFVI (for nfvisFromSite). Defaults to 'AzureCore'.
-  // Valid values are 'AzureCore', 'AzureOperatorNexus' or 'AzureArcKubernetes.
-  "nfvi_type": "AzureCore",
-    // List of Resource Element Templates (RETs).
-    // There must be at least one NF RET.
-    // ArmTemplate RETs are optional. Delete if not required.
+  // List of Resource Element Templates (RETs).
+  // There must be at least one NF RET.
+  // ArmTemplate RETs are optional. Delete if not required.
   "resource_element_templates": [
     {
       // Type of Resource Element. Either NF or ArmTemplate

@@ -234,9 +234,6 @@ az aosm nsd generate-config --output-file <nsd-output-filename.jsonc>
     "nsd_version": "1.0.0",
     // Optional. Description of the Network Service Design Version (NSDV).
     "nsdv_description": "An NSD that deploys the onboarded contoso-cnf NFD",
-    // Type of NFVI (for nfvisFromSite). Defaults to 'AzureCore'.
-    // Valid values are 'AzureCore', 'AzureOperatorNexus' or 'AzureArcKubernetes.
-    "nfvi_type": "AzureOperatorNexus",
     // List of Resource Element Templates (RETs).
     // There must be at least one NF RET.
     // ArmTemplate RETs are optional. Delete if not required.

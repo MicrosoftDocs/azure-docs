@@ -86,7 +86,7 @@ In this example, the NSDV nfvisFromSite property contains:
 ```json
     nfvisFromSite: {
       nfvi1: {
-        name: 'nsd-contoso_NFVI'
+        name: 'nsd-contoso_NFVI1'
         type: 'AzureArcKubernetes'
       }
 ```
@@ -100,7 +100,7 @@ resource site 'Microsoft.HybridNetwork/sites@2023-09-01' = {
   properties: {
     nfvis : [
       {
-        name: 'nsd-contoso_NFVI'
+        name: 'nsd-contoso_NFVI1'
         nfviType: 'AzureArcKubernetes'
         customLocationReference: {
           id: '<custom-location-arm-id>'

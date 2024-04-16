@@ -50,9 +50,6 @@ Once you execute this command an nsd-input.jsonc file is generated.
   "nsd_version": "1.0.0",
   // Optional. Description of the Network Service Design Version (NSDV).
   "nsdv_description": "Plain ubuntu VM",
-  // Type of NFVI (for nfvisFromSite). Defaults to 'AzureCore'.
-  // Valid values are 'AzureCore', 'AzureOperatorNexus' or 'AzureArcKubernetes.
-  "nfvi_type": "AzureCore",
   // List of Resource Element Templates (RETs).
   // There must be at least one NF RET.
   // ArmTemplate RETs are optional. Delete if not required.
