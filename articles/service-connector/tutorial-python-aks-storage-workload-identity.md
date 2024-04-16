@@ -94,9 +94,7 @@ Learn how to create a pod in an AKS cluster, which talks to an Azure storage acc
 
 ## Create service connection with Service Connector
 
-Create a service connection between an AKS cluster and an Azure storage account using the Azure portal or the Azure CLI.
-
-### [Portal](#tab/azure-portal)
+Create a service connection between an AKS cluster and an Azure storage account using the Azure portal.
 
 1. Open your **Kubernetes service** in the Azure portal and select **Service Connector** from the left menu.
 

@@ -1,8 +1,8 @@
 ---
 title: Quickstart - Create a service connection in Azure Kubernetes Service (AKS) with the Azure CLI
 description: Quickstart showing how to create a service connection in Azure Kubernetes Service (AKS) with the Azure CLI
-author: houk-ms
-ms.author: honc
+author: wchigit
+ms.author: wchi
 ms.service: service-connector
 ms.topic: quickstart
 ms.date: 03/01/2024
