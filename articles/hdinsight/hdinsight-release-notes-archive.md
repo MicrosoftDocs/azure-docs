@@ -42,12 +42,12 @@ For workload specific versions, see
 
 - Apache Ranger support for Spark SQL in Spark 3.3.0 (HDInsight version 5.1) with Enterprise security package. Learn more about it [here](./spark/ranger-policies-for-spark.md).
   
-## Fixed issues
+### Fixed issues
 
 - Security fixes from Ambari and Oozie components
 
 
-## :::image type="icon" border="false" source="./media/hdinsight-release-notes/clock.svg"::: Coming soon
+### :::image type="icon" border="false" source="./media/hdinsight-release-notes/clock.svg"::: Coming soon
 
 * Basic and Standard A-series VMs Retirement.
    * On August 31, 2024, we'll retire Basic and Standard A-series VMs. Before that date, you need to migrate your workloads to Av2-series VMs, which provide more memory per vCPU and faster storage on solid-state drives (SSDs).
@@ -91,7 +91,7 @@ For workload specific versions, see
 * [HDInsight 5.x component versions](./hdinsight-5x-component-versioning.md)
 * [HDInsight 4.x component versions](./hdinsight-40-component-versioning.md)
 
-## Fixed issues
+### Fixed issues
 
 - Security fixes from Ambari and Oozie components
 
@@ -116,7 +116,7 @@ We are listening: You’re welcome to add more ideas and other topics here and v
 
 This release applies to HDInsight 4.x and 5.x HDInsight release will be available to all regions over several days. This release is applicable for image number **2310140056**. [How to check the image number?](./view-hindsight-cluster-image-version.md)
 
-HDInsight uses safe deployment practices, which involve gradual region deployment. it might take up to 10 business days for a new release or a new version to be available in all regions.
+HDInsight uses safe deployment practices, which involve gradual region deployment. It might take up to 10 business days for a new release or a new version to be available in all regions.
 
 **OS versions**
 
@@ -148,7 +148,7 @@ For workload specific versions, see
 * In-line quota update.
    * Now you can request quota increase directly from the My Quota page, with the direct API call it is much faster. In case the API call fails, you can create a new support request for quota increase.
 
-## :::image type="icon" border="false" source="./media/hdinsight-release-notes/clock.svg"::: Coming soon
+### :::image type="icon" border="false" source="./media/hdinsight-release-notes/clock.svg"::: Coming soon
 
 * The max length of cluster name will be changed to 45 from 59 characters, to improve the security posture of clusters. This change will be rolled out to all regions starting upcoming release.
 
@@ -225,7 +225,7 @@ You’re welcome to add more proposals and ideas and other topics here and vote 
 
 This release applies to HDInsight 4.x and 5.x HDInsight release will be available to all regions over several days. This release is applicable for image number **2307201242**. [How to check the image number?](./view-hindsight-cluster-image-version.md)
 
-HDInsight uses safe deployment practices, which involve gradual region deployment. it might take up to 10 business days for a new release or a new version to be available in all regions.
+HDInsight uses safe deployment practices, which involve gradual region deployment. It might take up to 10 business days for a new release or a new version to be available in all regions.
 
 **OS versions**
 
@@ -284,7 +284,7 @@ You’re welcome to add more proposals and ideas and other topics here and vote 
 
 This release applies to HDInsight 4.x and 5.x HDInsight release is available to all regions over several days. This release is applicable for image number **2304280205**. [How to check the image number?](./view-hindsight-cluster-image-version.md)
 
-HDInsight uses safe deployment practices, which involve gradual region deployment. it might take up to 10 business days for a new release or a new version to be available in all regions.
+HDInsight uses safe deployment practices, which involve gradual region deployment. It might take up to 10 business days for a new release or a new version to be available in all regions.
 
 **OS versions**
 
@@ -353,7 +353,7 @@ For workload specific versions, see
 
 This release applies to HDInsight 4.0. and 5.0, 5.1. HDInsight release is available to all regions over several days. This release is applicable for image number **2302250400**. [How to check the image number?](./view-hindsight-cluster-image-version.md)
 
-HDInsight uses safe deployment practices, which involve gradual region deployment. it might take up to 10 business days for a new release or a new version to be available in all regions.
+HDInsight uses safe deployment practices, which involve gradual region deployment. It might take up to 10 business days for a new release or a new version to be available in all regions.
 
 **OS versions**
 
