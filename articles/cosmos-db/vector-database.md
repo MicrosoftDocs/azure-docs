@@ -105,6 +105,9 @@ Here are multiple ways to implement RAG on your data by using our integrated vec
 
 You can implement integrated vector database functionalities for the following [Azure Cosmos DB APIs](choose-api.md):
 
+> [!NOTE]
+> For our NoSQL API, the native integration of a state-of-the-art vector indexing algorithm will be announced during Build in May 2024. Please stay tuned.
+
 ### API for MongoDB
 
 Use the natively [integrated vector database in Azure Cosmos DB for MongoDB](mongodb/vcore/vector-search.md), which offers an efficient way to store, index, and search high-dimensional vector data directly alongside other application data. This approach removes the necessity of migrating your data to costlier alternative vector databases and provides a seamless integration of your AI-driven applications.
@@ -130,7 +133,7 @@ Use the natively integrated vector database in [Azure Cosmos DB for PostgreSQL](
 
 ### NoSQL API
 
-The natively integrated vector database in our NoSQL API will become available in mid-2024. In the meantime, you may implement RAG patterns with Azure Cosmos DB for NoSQL and [Azure AI Search](../search/vector-search-overview.md). This approach enables powerful integration of your data residing in the NoSQL API into your AI-oriented applications.
+The natively integrated vector database with state-of-the-art vector indexing in our NoSQL API will be announced during Build in May 2024. In the meantime, you may implement RAG patterns with Azure Cosmos DB for NoSQL and [Azure AI Search](../search/vector-search-overview.md). This approach enables powerful integration of your data residing in the NoSQL API into your AI-oriented applications.
 
 #### Code samples
 
