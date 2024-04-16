@@ -63,7 +63,10 @@ items:
       displayName: custom image, custom runner, extensibility 
     - name: Configure ARM/Bicep container image to execute deployments
       href: how-to-configure-extensibility-bicep-container-image.md
-      displayName: custom image, custom runner, extensibility 
+      displayName: custom image, custom runner, extensibility
+    - name: Configure Terraform container image to execute deployments
+      href: how-to-configure-extensibility-terraform-container-image.md
+      displayName: custom image, custom runner, extensibility  
 - name: Create and manage environments
   expanded: false
   items: 
@@ -73,6 +76,8 @@ items:
       href: how-to-manage-environments.md
     - name: Create environments with Azure CLI
       href: how-to-create-access-environments.md
+    - name: Custom image support with Terraform
+      href: how-to-configure-extensibility-terraform-container-image.md
 - name: Manage costs
   expanded: false
   items:
