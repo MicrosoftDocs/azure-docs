@@ -218,7 +218,7 @@
         - name: Overview
           href: secrets-scanning.md
         - name: Protecting VM secrets
-          href: secret-scanning-servers.md
+          href: secrets-scanning-servers.md
         - name: Protecting cloud deployment secrets
           href: secret-scanning-cloud-deployment.md
           
