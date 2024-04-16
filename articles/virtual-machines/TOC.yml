@@ -914,10 +914,20 @@
     href: auto-shutdown-vm.md
   - name: Hibernating Virtual Machines
     items:
-      - name: Hibernate a VM
+      - name: Overview
         href: hibernate-resume.md
+      - name: Hibernate Linux VMs
+        href: ./linux/hibernate-resume-linux.md
+      - name: Hibernate Windows VMs
+        href: ./windows/hibernate-resume-windows.md          
       - name: Troubleshoot VM hibernation
-        href: hibernate-resume-troubleshooting.md
+        items:
+          - name: General hibernation troubleshooting
+            href: hibernate-resume-troubleshooting.md
+          - name: Linux VM hibernation troubleshooting
+            href: ./linux/hibernate-resume-troubleshooting-linux.md
+          - name: Windows VM hibernation troubleshooting
+            href: ./windows/hibernate-resume-troubleshooting-windows.md   
   - name: Delete a VM and its resources
     href: delete.md
   - name: Connect to Virtual Machines
