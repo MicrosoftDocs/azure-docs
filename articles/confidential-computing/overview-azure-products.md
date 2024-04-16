@@ -15,7 +15,7 @@ Azure offers many tools to encrypt [**data at rest**](../security/fundamentals/e
 <br>
 > [!VIDEO https://www.youtube.com/embed/rT6zMOoLEqI]
 
-Using confidential computing technologies, you can harden your virtualized environment from the host, the hypervisor, the host admin, and even your own VM admin. This helps organization to:
+Using confidential computing technologies, you can harden your virtualized environment from the host, the hypervisor, the host admin, and even your own VM admin. This helps organizations to:
 
 - **Prevent unauthorized access**: Run sensitive data in the cloud. Trust that Azure provides the best data protection possible, with little to no change from what gets done today.
 
