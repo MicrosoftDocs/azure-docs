@@ -116,6 +116,8 @@ items:
       href: how-to-provide-correct-parameters.md
     - name: Store secrets in Key Vault
       href: tutorial-portal-key-vault.md
+    - name: Store configuration in App Configuration
+      href: tutorial-portal-app-configuration-store.md
     - name: Connect a container app to Blob Storage
       href: ../container-apps/service-connector.md?bc=%2fazure%2fservice-connector%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fservice-connector%2fTOC.json
     - name: Create passwordless connection to database
