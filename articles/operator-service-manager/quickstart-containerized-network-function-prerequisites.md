@@ -64,7 +64,7 @@ For deployments of Containerized Network Functions (CNFs), it's crucial to have 
 
 ### Download sample Helm chart
 
-Download the sample Helm chart from here [Sample Helm chart](https://download.microsoft.com/download/8/3/d/83dd3dd3-7208-41c1-bd46-f616fb712084/nginxdemo-0.1.0.tgz) for use with this quickstart.
+Download the sample Helm chart from here [Sample Helm chart](https://download.microsoft.com/download/c/5/1/c512cc48-ad99-4a69-afdc-db2bda449914/nginxdemo-0.3.0.tgz) for use with this quickstart.
 
 ## Dive into Helm charts
 
@@ -79,133 +79,135 @@ This section introduces you to a basic Helm chart that sets up nginx and configu
   "$schema": "http://json-schema.org/draft-07/schema",
   "additionalProperties": true,
   "properties": {
-    "affinity": {
-      "additionalProperties": false,
-      "properties": {},
-      "type": "object"
-    },
-    "fullnameOverride": {
-      "type": "string"
-    },
-    "image": {
-      "additionalProperties": false,
-      "properties": {
-        "pullPolicy": {
-          "type": "string"
-        },
-        "repository": {
-          "type": "string"
-        },
-        "tag": {
-          "type": "string"
-        }
-      },
-      "type": "object"
-    },
-    "imagePullSecrets": {
-      "items": {
-        "anyOf": []
-      },
-      "type": "array"
-    },
-    "ingress": {
-      "additionalProperties": false,
-      "properties": {
-        "annotations": {
+      "affinity": {
           "additionalProperties": false,
           "properties": {},
           "type": "object"
-        },
-        "enabled": {
-          "type": "boolean"
-        },
-        "hosts": {
-          "items": {
-            "anyOf": [
-              {
-                "additionalProperties": false,
-                "properties": {
-                  "host": {
-                    "type": "string"
-                  },
-                  "paths": {
-                    "items": {
-                      "anyOf": []
-                    },
-                    "type": "array"
-                  }
-                },
-                "type": "object"
-              }
-            ]
-          },
-          "type": "array"
-        },
-        "tls": {
-          "items": {
-            "anyOf": []
-          },
-          "type": "array"
-        }
       },
-      "type": "object"
-    },
-    "nameOverride": {
-      "type": "string"
-    },
-    "nodeSelector": {
-      "additionalProperties": false,
-      "properties": {},
-      "type": "object"
-    },
-    "podSecurityContext": {
-      "additionalProperties": false,
-      "properties": {},
-      "type": "object"
-    },
-    "replicaCount": {
-      "type": "integer"
-    },
-    "resources": {
-      "additionalProperties": false,
-      "properties": {},
-      "type": "object"
-    },
-    "securityContext": {
-      "additionalProperties": false,
-      "properties": {},
-      "type": "object"
-    },
-    "service": {
-      "additionalProperties": false,
-      "properties": {
-        "port": {
-          "type": "integer"
-        },
-        "type": {
+      "fullnameOverride": {
           "type": "string"
-        }
       },
-      "type": "object"
-    },
-    "serviceAccount": {
-      "additionalProperties": false,
-      "properties": {
-        "create": {
-          "type": "boolean"
-        },
-        "name": {
-          "type": "null"
-        }
+      "image": {
+          "additionalProperties": false,
+          "properties": {
+              "pullPolicy": {
+                  "type": "string"
+              },
+              "repository": {
+                  "type": "string"
+              },
+              "tag": {
+                  "type": "string"
+              }
+          },
+          "type": "object"
       },
-      "type": "object"
-    },
-    "tolerations": {
-      "items": {
-        "anyOf": []
+      "imagePullSecrets": {
+          "items": {
+              "anyOf": []
+          },
+          "type": "array"
       },
-      "type": "array"
-    }
+      "ingress": {
+          "additionalProperties": false,
+          "properties": {
+              "annotations": {
+                  "additionalProperties": false,
+                  "properties": {},
+                  "type": "object"
+              },
+              "enabled": {
+                  "type": "boolean"
+              },
+              "hosts": {
+                  "items": {
+                      "anyOf": [
+                          {
+                              "additionalProperties": false,
+                              "properties": {
+                                  "host": {
+                                      "type": "string"
+                                  },
+                                  "paths": {
+                                      "items": {
+                                          "anyOf": []
+                                      },
+                                      "type": "array"
+                                  }
+                              },
+                              "type": "object"
+                          }
+                      ]
+                  },
+                  "type": "array"
+              },
+              "tls": {
+                  "items": {
+                      "anyOf": []
+                  },
+                  "type": "array"
+              }
+          },
+          "type": "object"
+      },
+      "nameOverride": {
+          "type": "string"
+      },
+      "nodeSelector": {
+          "additionalProperties": false,
+          "properties": {},
+          "type": "object"
+      },
+      "podSecurityContext": {
+          "additionalProperties": false,
+          "properties": {},
+          "type": "object"
+      },
+      "replicaCount": {
+          "type": "integer"
+      },
+      "resources": {
+          "additionalProperties": false,
+          "properties": {},
+          "type": "object"
+      },
+      "securityContext": {
+          "additionalProperties": false,
+          "properties": {},
+          "type": "object"
+      },
+      "service": {
+          "additionalProperties": false,
+          "required": ["port"],
+          "properties": {
+              "port": {
+                  "type": "integer"
+              },
+              "type": {
+                  "type": "string"
+              }
+          },
+          "type": "object"
+      },
+      "serviceAccount": {
+          "additionalProperties": false,
+          "required": ["create"],
+          "properties": {
+              "create": {
+                  "type": "boolean"
+              },
+              "name": {
+                  "type": "null"
+              }
+          },
+          "type": "object"
+      },
+      "tolerations": {
+          "items": {
+              "anyOf": []
+          },
+          "type": "array"
+      }
   },
   "type": "object"
 }
@@ -213,7 +215,7 @@ This section introduces you to a basic Helm chart that sets up nginx and configu
 
 Although this article doesn't delve into the intricacies of Helm, a few elements worth highlighting include:
 
-- **Service Port Configuration:** The `values.yaml` has a preset with a service port of 80.
+- **Service Port Configuration:** The `values.yaml` has a preset with a service port of 5222.
 
 ### Sample values.yaml file
 
@@ -226,7 +228,6 @@ replicaCount: 1
 
 image:
   # Repository gets overwritten by AOSM to the Artifact Store ACR, however we've hard-coded the image name and tag in deployment.yaml
-
   repository: overwriteme
   tag: stable
   pullPolicy: IfNotPresent
@@ -237,17 +238,13 @@ fullnameOverride: ""
 
 serviceAccount:
   # Specifies whether a service account should be created
-
   create: false
-
   # The name of the service account to use.
   # If not set and create is true, a name is generated using the fullname template
-
   name:
 
 podSecurityContext:
   {}
-
   # fsGroup: 2000
 
 securityContext:
@@ -261,29 +258,25 @@ securityContext:
 
 service:
   type: ClusterIP
-  port: 80
+  port: 5222
 
 ingress:
   enabled: false
   annotations:
     {}
-
     # kubernetes.io/ingress.class: nginx
     # kubernetes.io/tls-acme: "true"
-
   hosts:
     - host: chart-example.local
       paths: []
 
   tls: []
-
   #  - secretName: chart-example-tls
   #    hosts:
   #      - chart-example.local
 
 resources:
   {}
-
   # We usually recommend not to specify default resources and to leave this as a conscious
   # choice for the user. This also increases chances charts run on environments with little
   # resources, such as Minikube. If you do want to specify resources, uncomment the following
