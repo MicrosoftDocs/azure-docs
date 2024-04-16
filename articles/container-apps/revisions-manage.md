@@ -1,6 +1,6 @@
 ---
 title: Manage revisions in Azure Container Apps
-description: Manage revisions in Azure Container Apps.
+description: Manage revisions in Azure Container Apps
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps
@@ -12,19 +12,17 @@ ms.author: cshoe
 
 # Manage revisions in Azure Container Apps
 
-Azure Container Apps allows you to manage the versioning of your container app, which supports multiple revisions. With this feature, you can activate and deactivate revisions, and control the amount of [traffic sent to each revision](#traffic-splitting). To learn more about revisions, see [Revisions in Azure Container Apps](revisions.md).
+Azure Container Apps allows your container app to support multiple revisions. With this feature, you can activate and deactivate revisions, and control the amount of [traffic sent to each revision](#traffic-splitting). To learn more about revisions, see [Revisions in Azure Container Apps](revisions.md).
 
 A revision is created when you first deploy your application. New revisions are created when you [update](#updating-your-container-app) your application with [revision-scope changes](revisions.md#revision-scope-changes). You can also update your container app based on a specific revision.  
 
-This article described the commands to manage your container app's revisions. For more information about Container Apps commands, see [`az containerapp`](/cli/azure/containerapp). For more information about commands to manage revisions, see [`az containerapp revision`](/cli/azure/containerapp/revision).
+This article describes the commands to manage your container app's revisions. For more information about Container Apps commands, see [`az containerapp`](/cli/azure/containerapp). For more information about commands to manage revisions, see [`az containerapp revision`](/cli/azure/containerapp/revision).
 
 ## Updating your container app
 
-To update a container app, use the `az containerapp update` command. With this command you can modify environment variables, compute resources, scale parameters, and deploy a different image. If your container app update includes [revision-scope changes](revisions.md#revision-scope-changes), a new revision is generated.
+To update a container app, use the [`az containerapp update`](/cli/azure/containerapp#az-containerapp-update) command. With this command you can modify environment variables, compute resources, scale parameters, and deploy a different image. If your container app update includes [revision-scope changes](revisions.md#revision-scope-changes), a new revision is generated.
 
 # [Bash](#tab/bash)
-
-You can also use a YAML file to define these and other configuration options and parameters. For more information regarding this command, see [`az containerapp revision copy`](/cli/azure/containerapp#az-containerapp-update).  
 
 This example updates the container image. Replace the \<PLACEHOLDERS\> with your values.
 
@@ -37,7 +35,7 @@ az containerapp update \
 
 # [PowerShell](#tab/powershell)
 
-Replace the \<Placeholders\> with your values.
+Replace the \<PLACEHOLDERS\> with your values.
 
 ```azurepowershell
 $ImageParams = @{
@@ -75,12 +73,12 @@ az containerapp revision list \
 
 # [PowerShell](#tab/powershell)
 
-Replace the \<Placeholders\> with your values.
+Replace the \<PLACEHOLDERS\> with your values.
 
 ```azurecli
 $CmdArgs = @{
-  ContainerAppName = '<ContainerAppName>'
-  ResourceGroupName = '<ResourceGroupName>'
+  ContainerAppName = '<CONTAINER_APP_NAME>'
+  ResourceGroupName = '<RESOURCE_GROUP_NAME>'
 }
 
 Get-AzContainerAppRevision @CmdArgs
@@ -90,7 +88,7 @@ Get-AzContainerAppRevision @CmdArgs
 
 ## Revision show
 
-Show details about a specific revision by using `az containerapp revision show`. For more information about this command, see [`az containerapp revision show`](/cli/azure/containerapp/revision#az-containerapp-revision-show).
+Show details about a specific revision by using the [`az containerapp revision show`](/cli/azure/containerapp/revision#az-containerapp-revision-show) command.
 
 # [Bash](#tab/bash)
 
@@ -105,13 +103,13 @@ az containerapp revision show \
 
 # [PowerShell](#tab/powershell)
 
-Replace the \<Placeholders\> with your values.
+Replace the \<PLACEHOLDERS\> with your values.
 
 ```azurecli
 $CmdArgs = @{
-  ContainerAppName = '<ContainerAppName>'
-  ResourceGroupName = '<ResourceGroupName>'
-  RevisionName = '<RevisionName>'
+  ContainerAppName = '<CONTAINER_APP_NAME>'
+  ResourceGroupName = '<RESOURCE_GROUP_NAME>'
+  RevisionName = '<REVISION_NAME>'
 }
 
 $RevisionObject = (Get-AzContainerAppRevision @CmdArgs) | Select-Object -Property *
@@ -154,7 +152,7 @@ az containerapp revision copy `
 
 ## Revision activate
 
-Activate a revision by using `az containerapp revision activate`. For more information about this command, see [`az containerapp revision activate`](/cli/azure/containerapp/revision#az-containerapp-revision-activate).
+Activate a revision by using the [`az containerapp revision activate`](/cli/azure/containerapp/revision#az-containerapp-revision-activate) command.
 
 # [Bash](#tab/bash)
 
@@ -168,13 +166,13 @@ az containerapp revision activate \
 
 # [PowerShell](#tab/powershell)
 
-Example: (Replace the \<Placeholders\> with your values.)
+Example: (Replace the \<PLACEHOLDERS\> with your values.)
 
 ```azurepowershell
 $CmdArgs = @{
-  ContainerAppName = '<ContainerAppName>'
-  ResourceGroupName = '<ResourceGroupName>'
-  RevisionName = '<RevisionName>'
+  ContainerAppName = '<CONTAINER_APP_NAME>'
+  ResourceGroupName = '<RESOURCE_GROUP_NAME>'
+  RevisionName = '<REVISION_NAME>'
 }
 
 Enable-AzContainerAppRevision @CmdArgs
@@ -184,7 +182,7 @@ Enable-AzContainerAppRevision @CmdArgs
 
 ## Revision deactivate
 
-Deactivate revisions that are no longer in use with `az containerapp revision deactivate`. Deactivation stops all running replicas of a revision. For more information, see [`az containerapp revision deactivate`](/cli/azure/containerapp/revision#az-containerapp-revision-deactivate).
+Deactivate revisions that are no longer in use with the [`az containerapp revision deactivate`](/cli/azure/containerapp/revision#az-containerapp-revision-deactivate) command. Deactivation stops all running replicas of a revision.
 
 # [Bash](#tab/bash)
 
@@ -198,13 +196,13 @@ az containerapp revision deactivate \
 
 # [PowerShell](#tab/powershell)
 
-Example: (Replace the \<Placeholders\> with your values.)
+Example: (Replace the \<PLACEHOLDERS\> with your values.)
 
 ```azurepowershell
 $CmdArgs = @{
-  ContainerAppName = '<ContainerAppName>'
-  ResourceGroupName = '<ResourceGroupName>'
-  RevisionName = '<RevisionName>'
+  ContainerAppName = '<CONTAINER_APP_NAME>'
+  ResourceGroupName = '<RESOURCE_GROUP_NAME>'
+  RevisionName = '<REVISION_NAME>'
 }
 
 Disable-AzContainerAppRevision @CmdArgs
@@ -214,7 +212,7 @@ Disable-AzContainerAppRevision @CmdArgs
 
 ## Revision restart
 
-This command restarts a revision. For more information about this command, see [`az containerapp revision restart`](/cli/azure/containerapp/revision#az-containerapp-revision-restart).
+The [`az containerapp revision restart`](/cli/azure/containerapp/revision#az-containerapp-revision-restart) command restarts a revision.
 
 When you modify secrets in your container app, you need to restart the active revisions so they can access the secrets.  
 
@@ -230,13 +228,13 @@ az containerapp revision restart \
 
 # [PowerShell](#tab/powershell)
 
-Example: (Replace the \<Placeholders\> with your values.)
+Example: (Replace the \<PLACEHOLDERS\> with your values.)
 
 ```azurepowershell
 $CmdArgs = @{
-  ContainerAppName = '<ContainerAppName>'
-  ResourceGroupName = '<ResourceGroupName>'
-  RevisionName = '<RevisionName>'
+  ContainerAppName = '<CONTAINER_APP_NAME>'
+  ResourceGroupName = '<RESOURCE_GROUP_NAME>'
+  RevisionName = '<REVISION_NAME>'
 }
 
 Restart-AzContainerAppRevision @CmdArgs
@@ -252,7 +250,7 @@ The default setting is *single revision mode*. For more information about this c
 
 The mode values are `single` or `multiple`. Changing the revision mode doesn't create a new revision.
 
-Example: (Replace the \<placeholders\> with your values.)
+Example: (Replace the \<PLACEHOLDERS\> with your values.)
 
 # [Bash](#tab/bash)
 
@@ -267,14 +265,14 @@ az containerapp revision set-mode \
 
 # [PowerShell](#tab/powershell)
 
-Example: (Replace the \<Placeholders\> with your values.)
+Example: (Replace the \<PLACEHOLDERS\> with your values.)
 
 ```azurecli
 $CmdArgs = @{
-  Name = '<ContainerAppName>'
-  ResourceGroupName = '<ResourceGroupName>'
-  Location = '<Location>'
-  ConfigurationActiveRevisionMode = '<RevisionMode>'
+  Name = '<CONTAINER_APP_NAME>'
+  ResourceGroupName = '<RESOURCE_GROUP_NAME>'
+  Location = '<LOCATION>'
+  ConfigurationActiveRevisionMode = '<REVISION_MODE>'
 }
 
 Update-AzContainerApp @CmdArgs
