@@ -227,6 +227,7 @@
     "groups": {
       "grp-iot-edge": {
         "dest": "destiotedge",
+        "moniker_range": ">=iotedge-1.4"
       },
       "grp-document-intelligence": {
         "dest": "destdocumentintelligence",
