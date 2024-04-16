@@ -143,8 +143,6 @@ To install the on-premises data gateway, complete the following steps:
 1. Restart the data gateway through the `On-premises data gateway` configuration tool that came with the on-premises data gateway installer package installed earlier.
 1. Create the on-premises data gateway Azure resource in the same Azure region as selected during the data gateway installation in the previous step and select the name of your data gateway under `Installation Name`.
 
-    :::image type="content" source="media/howto-connect-on-premises-sap-to-azure/gateway.png" alt-text="Screenshot of an on-premises data gateway." lightbox="media/howto-connect-on-premises-sap-to-azure/gateway.png" border="false" :::
-
     You can access more details about the configuration steps [here](/azure/logic-apps/logic-apps-using-sap-connector?tabs=consumption).
 
     > [!NOTE]
