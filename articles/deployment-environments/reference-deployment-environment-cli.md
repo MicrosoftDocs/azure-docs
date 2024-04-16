@@ -354,4 +354,4 @@ az devcenter dev environment show-outputs --dev-center-name DEV_CENTER_NAME --pr
 [Documentation about ADE](/azure/deployment-environments/)
 
 ## Related content
-- [ADE Custom Image Support](./how-to-configure-custom-runner.md)
+- [Configure a container image to execute deployments](https://aka.ms/deployment-environments/container-image-generic)
