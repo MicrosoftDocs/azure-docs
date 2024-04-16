@@ -14,8 +14,6 @@ ms.custom: [references_regions]
 
 # How to deploy Cohere Command models with Azure AI Studio
 
-[!INCLUDE [Azure AI Studio preview](../includes/preview-ai-studio.md)]
-
 In this article, you learn how to use Azure AI Studio to deploy the Cohere Command models as a service with pay-as you go billing.
 
 Cohere offers two Command models in [Azure AI Studio](https://ai.azure.com). These models are available with pay-as-you-go token based billing with Models as a Service. 

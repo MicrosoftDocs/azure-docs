@@ -36,7 +36,7 @@ You get several hub default resources in your resource group. You need to config
 
 * Disable network policies for private endpoints before adding the private endpoint.
 
-## Create an Azure AI that uses a private endpoint
+## Create a hub that uses a private endpoint
 
 Use one of the following methods to create a hub with a private endpoint. Each of these methods __requires an existing virtual network__:
 
@@ -47,20 +47,7 @@ Use one of the following methods to create a hub with a private endpoint. Each o
 1. Scroll down to __Workspace Inbound access__ and choose __+ Add__.
 1. Input required fields. When selecting the __Region__, select the same region as your virtual network.
 
-# [Azure portal](#tab/azure-portal)
-
-1. From the [Azure portal](https://portal.azure.com), go to Azure AI Studio and choose __+ New Azure AI__.
-1. Choose network isolation mode in __Networking__ tab.
-1. Scroll down to __Workspace Inbound access__ and choose __+ Add__.
-1. Input required fields. When selecting the __Region__, select the same region as your virtual network.
-
 # [Azure CLI](#tab/cli)
-
-Create your hub with the Azure AI CLI. Run the following command and follow the prompts. For more information, see [Get started with Azure AI CLI](cli-install.md).
-
-```azurecli-interactive
-ai init
-```
 
 After creating the hub, use the [Azure networking CLI commands](/cli/azure/network/private-endpoint#az-network-private-endpoint-create) to create a private link endpoint for the hub.
 
