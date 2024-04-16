@@ -1,12 +1,14 @@
 ---
 title: Read flow logs
-description: Learn how to use Azure PowerShell to parse flow logs that are created hourly and updated every few minutes in Azure Network Watcher.
+description: Learn how to use a PowerShell script to parse flow logs that are created hourly and updated every few minutes in Azure Network Watcher.
 author: halkazwini
 ms.author: halkazwini
 ms.service: network-watcher
 ms.topic: how-to
 ms.date: 04/17/2024
 ms.custom: devx-track-azurepowershell
+
+#CustomerIntent: As an Azure administrator, I want to read my flow logs using a PowerShell script so I can see the latest data.
 ---
 
 # Read flow logs
@@ -23,7 +25,7 @@ In this article, you learn how to read portions of Azure Network Watcher flow lo
 
 - Necessary RBAC permissions for the subscriptions of flow logs and storage account. For more information, see [Network Watcher RBAC permissions](required-rbac-permissions.md).
 
-## Retrieve the block list
+## Retrieve the blocklist
 
 # [**NSG flow logs**](#tab/nsg)
 
@@ -148,7 +150,7 @@ $blockList = Get-VNetFlowLogBlockList -CloudBlockBlob $CloudBlockBlob
 
 ---
 
-The `$blockList` variable returns a list of the blocks in the blob. Each block blob contains at least two blocks.  The first block has a length of 12 bytes, this block contains the opening brackets of the JSON log. The other block is the closing brackets and has a length of 2 bytes.  The following example log has seven individual entries in it. All new entries in the log are added to the end right before the final block.
+The `$blockList` variable returns a list of the blocks in the blob. Each block blob contains at least two blocks. The first block has a length of 12 bytes and contains the opening brackets of the JSON log. The other block is the closing brackets and has a length of 2 bytes. The following example log has seven individual entries in it. All new entries in the log are added to the end right before the final block.
 
 ```
 Name                                         Length Committed
@@ -334,7 +336,6 @@ A","1497646742,10.0.0.4,168.62.32.14,44942,443,T,O,A","1497646742,10.0.0.4,52.24
 ```
 
 ---
-
 
 ## Related content
 
