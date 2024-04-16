@@ -7,7 +7,7 @@ manager: chpalm
 services: azure-communication-services
 
 ms.author: chpalm
-ms.date: 10/10/2022
+ms.date: 04/16/2024
 ms.topic: conceptual
 ms.service: azure-communication-services
 ---
@@ -36,6 +36,7 @@ Development of Calling and Chat applications can be accelerated by the  [Azure C
 | Network Traversal | [REST](./network-traversal.md)| Service| Access TURN servers for low-level data transport |
 | Rooms | [REST](/rest/api/communication/rooms/operation-groups)| Service| Create and manage structured communication rooms  |
 | UI Library | N/A | Client | Production-ready UI components for chat and calling apps |
+| Advanced Messaging | [REST](/rest/api/communication/advancedmessaging/operation-groups) | Service | Send and receive WhatsApp Business messages |
 
 ### Languages and publishing locations
 
@@ -48,15 +49,15 @@ Publishing locations for individual SDK packages are detailed below.
 | Identity | [npm](https://www.npmjs.com/package/@azure/communication-identity) | [NuGet](https://www.NuGet.org/packages/Azure.Communication.Identity)| [PyPi](https://pypi.org/project/azure-communication-identity/)| [Maven](https://search.maven.org/search?q=a:azure-communication-identity) | -| -| -|
 | Phone Numbers | [npm](https://www.npmjs.com/package/@azure/communication-phone-numbers) | [NuGet](https://www.NuGet.org/packages/Azure.Communication.PhoneNumbers)| [PyPi](https://pypi.org/project/azure-communication-phonenumbers/)| [Maven](https://search.maven.org/search?q=a:azure-communication-phonenumbers) | -| -| -|
 | Chat | [npm](https://www.npmjs.com/package/@azure/communication-chat)| [NuGet](https://www.NuGet.org/packages/Azure.Communication.Chat) | [PyPi](https://pypi.org/project/azure-communication-chat/) | [Maven](https://search.maven.org/search?q=a:azure-communication-chat) | [GitHub](https://github.com/Azure/azure-sdk-for-ios/releases)| [Maven](https://search.maven.org/search?q=a:azure-communication-chat) | -|
-| SMS| [npm](https://www.npmjs.com/package/@azure/communication-sms) | [NuGet](https://www.NuGet.org/packages/Azure.Communication.Sms)| [PyPi](https://pypi.org/project/azure-communication-sms/) | [Maven](https://search.maven.org/artifact/com.azure/azure-communication-sms) | -| -| -|
-| Email| [npm](https://www.npmjs.com/package/@azure/communication-email) | [NuGet](https://www.NuGet.org/packages/Azure.Communication.Email)| [PyPi](https://pypi.org/project/azure-communication-email/) | [Maven](https://search.maven.org/artifact/com.azure/azure-communication-email) | -| -| -|
-| Calling| [npm](https://www.npmjs.com/package/@azure/communication-calling) | [NuGet](https://github.com/Azure/Communication/blob/master/releasenotes/acs-calling-windowsclient-sdk-release-notes.md) | -| - | [CocoaPods](https://github.com/Azure/Communication/releases) | [Maven](https://github.com/Azure/Communication/blob/master/releasenotes/acs-calling-android-sdk-release-notes.md)| -|
-|Call Automation|[npm](https://www.npmjs.com/package/@azure/communication-call-automation)|[NuGet](https://www.NuGet.org/packages/Azure.Communication.CallAutomation/)|[PyPi](https://pypi.org/project/azure-communication-callautomation/)|[Maven](https://search.maven.org/artifact/com.azure/azure-communication-callautomation)
-|Job Router|[npm](https://www.npmjs.com/package/@azure-rest/communication-job-router)|[NuGet](https://www.NuGet.org/packages/Azure.Communication.JobRouter/)|[PyPi](https://pypi.org/project/azure-communication-jobrouter/)|[Maven](https://search.maven.org/artifact/com.azure/azure-communication-jobrouter)
-|Network Traversal| [npm](https://www.npmjs.com/package/@azure/communication-network-traversal)|[NuGet](https://www.NuGet.org/packages/Azure.Communication.NetworkTraversal/) | [PyPi](https://pypi.org/project/azure-communication-networktraversal/) | [Maven](https://search.maven.org/search?q=a:azure-communication-networktraversal) | -|- | - |
+| SMS  [npm](https://www.npmjs.com/package/@azure/communication-sms) | [NuGet](https://www.NuGet.org/packages/Azure.Communication.Sms)| [PyPi](https://pypi.org/project/azure-communication-sms/) | [Maven](https://search.maven.org/artifact/com.azure/azure-communication-sms) | -| -| -|
+| Email | [npm](https://www.npmjs.com/package/@azure/communication-email) | [NuGet](https://www.NuGet.org/packages/Azure.Communication.Email)| [PyPi](https://pypi.org/project/azure-communication-email/) | [Maven](https://search.maven.org/artifact/com.azure/azure-communication-email) | -| -| -|
+| Calling | [npm](https://www.npmjs.com/package/@azure/communication-calling) | [NuGet](https://github.com/Azure/Communication/blob/master/releasenotes/acs-calling-windowsclient-sdk-release-notes.md) | -| - | [CocoaPods](https://github.com/Azure/Communication/releases) | [Maven](https://github.com/Azure/Communication/blob/master/releasenotes/acs-calling-android-sdk-release-notes.md)| -|
+| Call Automation |[npm](https://www.npmjs.com/package/@azure/communication-call-automation)|[NuGet](https://www.NuGet.org/packages/Azure.Communication.CallAutomation/)|[PyPi](https://pypi.org/project/azure-communication-callautomation/)|[Maven](https://search.maven.org/artifact/com.azure/azure-communication-callautomation)
+| Job Router |[npm](https://www.npmjs.com/package/@azure-rest/communication-job-router)|[NuGet](https://www.NuGet.org/packages/Azure.Communication.JobRouter/)|[PyPi](https://pypi.org/project/azure-communication-jobrouter/)|[Maven](https://search.maven.org/artifact/com.azure/azure-communication-jobrouter)
+| Network Traversal | [npm](https://www.npmjs.com/package/@azure/communication-network-traversal)|[NuGet](https://www.NuGet.org/packages/Azure.Communication.NetworkTraversal/) | [PyPi](https://pypi.org/project/azure-communication-networktraversal/) | [Maven](https://search.maven.org/search?q=a:azure-communication-networktraversal) | -|- | - |
 | Rooms          | [npm](https://www.npmjs.com/package/@azure/communication-rooms)     | [NuGet](https://www.nuget.org/packages/Azure.Communication.Rooms)     | [PyPi](https://pypi.org/project/azure-communication-rooms/)    | [Maven](https://search.maven.org/search?q=a:azure-communication-rooms) | - | - | - |
-| UI Library| [npm](https://www.npmjs.com/package/@azure/communication-react) | - | - | - | [GitHub](https://github.com/Azure/communication-ui-library-ios) | [GitHub](https://github.com/Azure/communication-ui-library-android) | [GitHub](https://github.com/Azure/communication-ui-library), [Storybook](https://azure.github.io/communication-ui-library/?path=/story/overview--page) |
-| Advanced Messaging | - | [NuGet](https://www.nuget.org/packages/Azure.Communication.Messages) | - | - | - | - | - |
+| UI Library | [npm](https://www.npmjs.com/package/@azure/communication-react) | - | - | - | [GitHub](https://github.com/Azure/communication-ui-library-ios) | [GitHub](https://github.com/Azure/communication-ui-library-android) | [GitHub](https://github.com/Azure/communication-ui-library), [Storybook](https://azure.github.io/communication-ui-library/?path=/story/overview--page) |
+| Advanced Messaging | [npm](https://www.npmjs.com/package/@azure-rest/communication-messages) | [NuGet](https://www.nuget.org/packages/Azure.Communication.Messages) | [PyPi](https://pypi.org/project/azure-communication-messages/) | [Maven](https://central.sonatype.com/artifact/com.azure/azure-communication-messages) | - | - | - |
 | Reference Documentation | [docs](/javascript/api/overview/azure/communication) | [docs](/dotnet/api/overview/azure/communication)| [docs](/python/api/overview/azure/communication) | [docs](/java/api/overview/azure/communication) | [docs](/objectivec/communication-services/calling/)| [docs](/java/api/com.azure.android.communication.calling)| - |
 
 ### SDK platform support details
@@ -135,6 +136,7 @@ For more information, see the following SDK overviews:
 - [Chat SDK Overview](../concepts/chat/sdk-features.md)
 - [SMS SDK Overview](../concepts/sms/sdk-features.md)
 - [Email SDK Overview](../concepts/email/sdk-features.md)
+- [Advanced Messaging SDK Overview](../concepts/advanced-messaging/whatsapp/whatsapp-overview.md)
 
 To get started with Azure Communication Services:
 
