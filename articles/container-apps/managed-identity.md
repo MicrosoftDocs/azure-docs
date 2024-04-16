@@ -108,7 +108,7 @@ Adding the system-assigned type tells Azure to create and manage the identity fo
 
 # [Bicep](#tab/bicep)
 
-An Bicep template can be used to automate deployment of your container app and resources. To add a system-assigned identity, add an `identity` section to your Bicep template.
+A Bicep template can be used to automate deployment of your container app and resources. To add a system-assigned identity, add an `identity` section to your Bicep template.
 
 ```bicep
 identity: {
@@ -408,6 +408,16 @@ To remove all identities, set the `type` of the container app's identity to `Non
 ```yaml
 identity:
     type: None
+```
+
+# [Bicep](#tab/bicep)
+
+To remove all identities, set the `type` of the container app's identity to `None` in the Bicep template:
+
+```bicep
+identity: {
+  type: 'None'
+}
 ```
 
 ---
