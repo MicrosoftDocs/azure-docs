@@ -17,7 +17,7 @@ Once your custom text to speech avatar model is successfully trained through our
 Here's how you can use your custom text to speech avatar:
 
 - The avatar appears in the avatar list of text to speech avatar on [Speech Studio](https://speech.microsoft.com/portal/talkingavatar).
-- The avatar appears in the avatar list of live Chat Avatar on [Speech Studio](https://speech.microsoft.com/portal/livechat).
+- The avatar appears in the avatar list of live chat avatar on [Speech Studio](https://speech.microsoft.com/portal/livechat).
 - You can call the avatar from the API by specifying the avatar model name.
 
 ## Add a deployment endpoint
@@ -53,7 +53,7 @@ If your custom neural voice endpoint is in a different Speech Service or service
 To remove a deployment endpoint, follow these steps:
 
 1. Sign in to [Speech Studio](https://speech.microsoft.com/portal/talkingavatar).
-1. Navigate to **Custom Avatar** > Your project name > **Train model**.
+1. Navigate to **Custom avatar** > Your project name > **Train model**.
 1. All available models are listed on the **Train model** page. Click on a model link to view more information, such as the created date and a preview image of the custom avatar.
 1. Select a model on the **Train model** page. If it's in "Succeeded" status, it means it's in hosting status. You can click the **Delete** button and confirm the deletion to remove the hosting.
 
