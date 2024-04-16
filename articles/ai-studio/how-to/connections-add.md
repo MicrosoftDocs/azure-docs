@@ -138,8 +138,7 @@ To create an outbound private endpoint rule to the data source, use the followin
         - **Resource name**: The name of the Azure resource.
         - **Sub Resource**: The sub-resource of the Azure resource. For example, Blob in the case of Azure Blob storage.
 
-1. Select __Save__ at the top of the page to save the changes to the managed VNet.
-
+1. Select **Save** at the top of the page to save the changes to the managed VNet.
 
 ## Next steps
 
