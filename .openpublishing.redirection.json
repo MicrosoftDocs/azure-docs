@@ -1,15 +1,15 @@
 {
     "redirections": [
-    {
-      "source_path": "articles/guides/developer/azure-developer-guide.md",
-      "redirect_url": "/previous-versions/azure/guides/developer/azure-developer-guide",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/guides/operations/azure-operations-guide.md",
-      "redirect_url": "/previous-versions/azure/guides/operations/azure-operations-guide",
-      "redirect_document_id": false
-    },
+        {
+           "source_path": "articles/guides/developer/azure-developer-guide.md",
+           "redirect_url": "/previous-versions/azure/guides/developer/azure-developer-guide",
+           "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/guides/operations/azure-operations-guide.md",
+            "redirect_url": "/previous-versions/azure/guides/operations/azure-operations-guide",
+            "redirect_document_id": false
+        },
         {
             "source_path_from_root": "/articles/internet-analyzer/internet-analyzer-cli.md",
             "redirect_url": "/previous-versions/azure/internet-analyzer/internet-analyzer-cli",
