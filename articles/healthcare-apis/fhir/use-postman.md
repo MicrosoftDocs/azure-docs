@@ -5,7 +5,7 @@ services: healthcare-apis
 author: expekesheth
 ms.service: healthcare-apis
 ms.topic: tutorial
-ms.date: 04/10/2024
+ms.date: 04/16/2024
 ms.author: kesheth
 ---
 
@@ -17,7 +17,7 @@ This article shows the steps to access the FHIR&reg; service in Azure Health Dat
 
 - **FHIR service deployed in Azure**. For more information, see [Deploy a FHIR service](fhir-portal-quickstart.md).
 - **A registered client application to access the FHIR service**. For more information, see [Register a service client application in Microsoft Entra ID](./../register-application.md). 
-- **FHIR Data Contributor** permissions granted to the client application and your user account. 
+- **FHIR Data Contributor permissions** granted to the client application and your user account. 
 - **Postman installed locally**. For more information, see [Get Started with Postman](https://www.getpostman.com/).
 
 ## Create a workspace, collection, and environment
@@ -38,7 +38,7 @@ You can also import and export Postman collections. For more information, see [t
 
 ## Create or update environment variables
 
-Although you can use the full URL in the request, we recommend that you store the URL and other data in variables and use them.
+Although you can use the full URL in the request, we recommend that you store the URL and other data in variables.
 
 To access the FHIR service, you need to create or update these variables:
 
@@ -57,7 +57,7 @@ To access the FHIR service, you need to create or update these variables:
 
 :::image type="content" source="media/postman/postman-environments-variable.png" alt-text="Screenshot showing environments variable." lightbox="media/postman/postman-environments-variable.png":::
 
-## Get capability statement
+## Get the capability statement
 
 Enter `{{fhirurl}}/metadata` in the `GET`request, and then choose `Send`. You should see the capability statement of the FHIR service.
 
@@ -69,9 +69,9 @@ Enter `{{fhirurl}}/metadata` in the `GET`request, and then choose `Send`. You sh
 
 ## Get a Microsoft Entra access token
 
-You can get the Microsoft Entra access token by using either the Client Credential grant type, or a user account with the Authorization Code grant type. Choose one of the two methods.
+Get a Microsoft Entra access token by using a service principal or a Microsoft Entra user account. Choose one of the two methods.
 
-### Get a Microsoft Entra access token by using Client Credential grant type
+### Use a service principal with a client credential grant type
 
 The FHIR service is secured by Microsoft Entra ID. The default authentication can't be disabled. To access the FHIR service, you need to get a Microsoft Entra access token first. For more information, see [Microsoft identity platform access tokens](../../active-directory/develop/access-tokens.md).
 
@@ -87,7 +87,7 @@ Create a new `POST` request:
     - **resource**: `{{fhirurl}}`
     
 > [!NOTE]
-> In scenarios where the FHIR service audience parameter is not mapped to the FHIR service endpoint url. The resource parameter value should be mapped to Audience value under FHIR Service Authentication blade.
+> In scenarios where the FHIR service audience parameter isn't mapped to the FHIR service endpoint URL, the resource parameter value should be mapped to the audience value on the FHIR service **Authentication** pane.
 
 3. Select the **Test** tab and enter in the text section: `pm.environment.set("bearerToken", pm.response.json().access_token);` To make the value available to the collection, use the pm.collectionVariables.set method. For more information on the set method and its scope level, see [Using variables in scripts](https://learning.postman.com/docs/sending-requests/variables/#defining-variables-in-scripts).
 4. Select **Save** to save the settings.
@@ -99,7 +99,7 @@ You can examine the access token using online tools such as [https://jwt.ms](htt
 
 :::image type="content" source="media/postman/postman-access-token-claims.png" alt-text="Screenshot showing access token claims." lightbox="media/postman/postman-access-token-claims.png":::
 
-## Get a Microsoft Entra access token by using a user account with Authorization Code grant type
+## Use a user account with the client credential grant type
 
 You can get the Microsoft Entra access token by using your Entra account credentials and following the listed steps.
 
