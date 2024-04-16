@@ -38,4 +38,4 @@ After you have onboarded the Defender for AI workloads plan, you can should [man
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Review alerts for AI applications](review-alerts-for-ai.md)
+> [Security alerts and incidents](alerts-overview.md)
