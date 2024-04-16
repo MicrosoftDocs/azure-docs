@@ -425,6 +425,12 @@
       - name: Optimize performance when using pgvector
         href: flexible-server/how-to-optimize-performance-pgvector.md
         displayName: vector databases
+    - name: Partitioning
+      items:
+      - name: Partitioning using pg_partman
+        href: flexible-server/how-to-use-pg-partman.md
+        displayName: pg_partman
+- name: Migration
 - name: Migration Service
   items:
   - name: Overview
