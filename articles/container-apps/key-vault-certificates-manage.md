@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: container-apps
 ms.topic: how-to
-ms.date: 04/15/2024
+ms.date: 04/16/2024
 ms.author: cshoe
 ---
 
@@ -43,19 +43,19 @@ By default, your container app doesn't have access to your vault. To use a key v
 
 You need the [Azure CLI](/cli/azure/install-azure-cli) with the Azure Container Apps extension version `0.3.49` or higher. Use the `list-available` command to view your extension's version number.
 
-    ```azurecli
-    az extension list-available --output table | findstr containerapp
-    ```
+```azurecli
+az extension list-available --output table | findstr containerapp
+```
 
 If you need to upgrade your extension, then use the `upgrade` parameter with the `add` command:
 
-    ```azurecli
-    az extension add --name containerapp --upgrade`
-    ```
+```azurecli
+az extension add --name containerapp --upgrade`
+```
 
 ## Add a certificate
 
-Once you authorize your container app to read the vault, you can use the `certificate upload` command to associate your vault with your Container Apps environment.
+Once you authorize your container app to read the vault, you can use the `az containerapp env certificate upload` command to associate your vault with your Container Apps environment.
 
 Before you run the following command, replace the placeholder tokens surrounded by `<>` brackets with your own values.
 
