@@ -168,8 +168,10 @@ This section records information calculated from the converted asset. Again, the
 
 # [Triangular meshes](#tab/TriangularMeshes)
 
+* `numPrimitives`: The overall number of triangles/lines in the converted model. This number contributes to the primitive limit in the [standard rendering server size](../../reference/vm-sizes.
 * `numMeshPartsCreated`: The number of meshes in the arrAsset. It can differ from `numMeshes` in the `inputStatistics` section, because instancing is affected by the conversion process.
 * `numMeshPartsInstanced`: The number of meshes that are reused in the arrAsset.
+* `numMaterials`: The overall number of unique materials in the model, after [material de-duplication](../../concepts/materials.md#material-de-duplication).
 * `recenteringOffset`: When the `recenterToOrigin` option in the [ConversionSettings](configure-model-conversion.md) is enabled, this value is the translation that would move the converted model back to its original position.
 * `boundingBox`: The bounds of the model.
 
