@@ -179,7 +179,7 @@ If the condition templates don't work for your scenario or if you want more cont
 
 ## Edit a condition
 
-There are two ways that you can edit a condition. You can use the condition template or you can use a condition editor.
+There are two ways that you can edit a condition. You can use the condition template or you can use the condition editor.
 
 1. In the Azure portal, open **Access control (IAM)** page for the role assignment that has a condition that you want to view, edit, or delete.
 
@@ -191,7 +191,7 @@ There are two ways that you can edit a condition. You can use the condition temp
 
     :::image type="content" source="./media/shared/condition-role-assignments-list-edit.png" alt-text="Screenshot of role assignment list with View/Edit link for condition." lightbox="./media/shared/condition-role-assignments-list-edit.png":::
 
-    The **Add role assignment condition** page appears. This page will look different depending on whether the condition matches an existing condition.
+    The **Add role assignment condition** page appears. This page will look different depending on whether the condition matches an existing template.
 
 1. If the condition matches an existing template, select **Configure** to edit the condition.
     
