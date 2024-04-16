@@ -16,7 +16,7 @@ ms.reviewer: akkumari
 
 Autoscale ensures that you have the right amount of resources running to handle the fluctuating load of your application. You can configure autoscale using the Azure portal, Azure CLI, PowerShell or ARM or Bicep templates.  
 
-This article shows you how to configure autoscale for a Virtual Machine Scale Set with PowerShell. The configurations uses the following steps:
+This article shows you how to configure autoscale for a Virtual Machine Scale Set with PowerShell. The configurations use the following steps:
 
 + Create a scale set that you can autoscale
 + Create rules to scale in and scale out
