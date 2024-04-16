@@ -6,11 +6,13 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: article
-ms.date: 12/08/2022
+ms.date: 03/18/2024
 ms.author: danlep
 ---
 
 # Mock response
+
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
 The `mock-response` policy, as the name implies, is used to mock APIs and operations. It cancels normal pipeline execution and returns a mocked response to the caller. The policy always tries to return responses of highest fidelity. It prefers response content examples, when available. It generates sample responses from schemas, when schemas are provided and examples aren't. If neither examples or schemas are found, responses with no content are returned.
 
@@ -34,7 +36,7 @@ The `mock-response` policy, as the name implies, is used to mock APIs and operat
 
 - [**Policy sections:**](./api-management-howto-policies.md#sections) inbound, outbound, on-error
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, workspace, product, API, operation
--  [**Gateways:**](api-management-gateways-overview.md) dedicated, consumption, self-hosted
+-  [**Gateways:**](api-management-gateways-overview.md) classic, v2, consumption, self-hosted
 
 ### Usage notes
 
@@ -52,6 +54,6 @@ The `mock-response` policy, as the name implies, is used to mock APIs and operat
 
 ## Related policies
 
-* [API Management advanced policies](api-management-advanced-policies.md)
+* [Transformation](api-management-policies.md#transformation)
 
 [!INCLUDE [api-management-policy-ref-next-steps](../../includes/api-management-policy-ref-next-steps.md)]

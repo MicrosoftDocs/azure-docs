@@ -41,6 +41,6 @@ Microsoft Defender for Resource Manager automatically monitors the resource mana
 
 1. Select **Save**.
 
-## Next steps
+## Next step
 
 [Overview of Microsoft Defender for Resource Manager](defender-for-resource-manager-introduction.md)

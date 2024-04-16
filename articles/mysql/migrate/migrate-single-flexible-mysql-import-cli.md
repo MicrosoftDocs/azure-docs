@@ -26,6 +26,10 @@ Azure Database for MySQL Import CLI supports a near-zero downtime migration by f
 
 This tutorial shows how to use the Azure Database for MySQL Import CLI command to migrate your Azure Database for MySQL Single Server to Flexible Server.
 
+## What's new?
+
+- Azure Database for MySQL Import operation for Single Servers with Legacy Storage architecture (General Purpose storage V1) is now supported. You need to set the parameter log_bin=ON for your Single Server instance with Legacy Storage before initiating the import operation. In order to do so, create a read replica for your Single Server instance and then delete it. This operation will set the parameter log_bin to ON and you can then trigger an import operation to migrate to Flexible Server. (Feb 2024)
+
 ## Launch Azure Cloud Shell
 
 The [Azure Cloud Shell](../../cloud-shell/overview.md) is a free interactive shell that you can use to run the steps in this article. It has common Azure tools preinstalled and configured to use with your account.
@@ -54,11 +58,12 @@ az account set --subscription <subscription id>
 - The source Azure Database for MySQL - Single Server and the target Azure Database for MySQL - Flexible Server must be in the same subscription, resource group, region, and on the same MySQL version. Import across subscriptions, resource groups, regions, and versions isn't possible.
 - MySQL versions supported by Azure Database for MySQL Import CLI are 5.7 and 8.0. If you are on a different major MySQL version on Single Server, make sure to upgrade your version on your Single Server instance before triggering the import command.
 - If the Azure Database for MySQL - Single Server instance has server parameter 'lower_case_table_names' set to 2 and your application used partition tables, Import operation will result in corrupted partition tables. The recommendation is to set 'lower_case_table_names' to 1 for your Azure Database for MySQL - Single Server instance in order to proceed with corruption-free MySQL Import operation.
-- Import operation for Single Servers with Legacy Storage architecture (General Purpose storage V1) isn't supported. You must upgrade your storage to the latest storage architecture (General Purpose storage V2) to trigger an Import operation. Find your storage type and upgrade steps by following directions [here](../single-server/concepts-pricing-tiers.md#how-can-i-determine-which-storage-type-my-server-is-running-on).
 - Import to an existing Azure MySQL Flexible Server isn't supported. The CLI command initiates the import of a new Azure MySQL Flexible Server.
 - If the flexible target server is provisioned as non-HA (High Availability disabled) when updating the CLI command parameters, it can later be switched to Same-Zone HA but not Zone-Redundant HA.
 - For CMK enabled Single Server instances, Azure Database for MySQL Import command requires you to provide mandatory input parameters for enabling CMK on target Flexible Server.
 - If the Single Server instance has ' Infrastructure Double Encryption' enabled, enabling Customer Managed Key (CMK) on target Flexible Server instance is recommended to support similar functionality. You can choose to enable CMK on target server with Azure Database for MySQL Import CLI input parameters or post migration as well.
+- If the Single Server instance has 'Query Store' enabled, enabling slow query logs on target Flexible Server instance is recommended to support similar functionality. You can configure slow query logs on the target flexible server by following steps [here](/azure/mysql/flexible-server/tutorial-query-performance-insights#configure-slow-query-logs-by-using-the-azure-portal). You can then view query insights by using [workbooks template](/azure/mysql/flexible-server/tutorial-query-performance-insights#view-query-insights-by-using-workbooks).
+- If your Single Server instance has Legacy Storage architecture (General Purpose storage V1), you need to set the parameter log_bin=ON for your Single Server instance before initiating the import operation. In order to do so, create a read replica for your Single Server instance and then delete it. This operation will set the parameter log_bin to ON and you can then trigger an import operation to migrate to Flexible Server.
 - Only instance-level import is supported. No option to import selected databases within an instance is provided.
 - Below items should be copied from source to target by the user post the Import operation:
   - Read-Replicas
@@ -104,7 +109,7 @@ az mysql flexible-server import create --data-source-type
                                 [--zone]
 ```
 
-The following example takes in the data source information for Single Server named 'test-single-server' and target Flexible Server information, creates a target Flexible Server named `test-flexible-server` in the `westus` location (same location as that of the source Single Server) and performs an import from source to target. Azure Database MySQL Import command maps over the corresponding tier, version, sku-name, storage-size, location, geo-redundant-backup, public-access, tags, auto grow, backup-retention-days, admin-user and admin-password  properties from Single Server to Flexible Server as smart defaults if no inputs are provided to the CLI command. You can chose to override the smart defaults by providing inputs for these optional parameters.
+The following example takes in the data source information for Single Server named 'test-single-server' and target Flexible Server information, creates a target Flexible Server named `test-flexible-server` in the `westus` location (same location as that of the source Single Server) and performs an import from source to target. Azure Database MySQL Import command maps over the corresponding tier, version, sku-name, storage-size, location, geo-redundant-backup, public-access, tags, auto grow, backup-retention-days, admin-user and admin-password  properties from Single Server to Flexible Server as smart defaults if no inputs are provided to the CLI command. You can choose to override the smart defaults by providing inputs for these optional parameters.
 
 ```azurecli-interactive
 az mysql flexible-server import create --data-source-type "mysql_single" --data-source "test-single-server" --resource-group "test-rg"  --name "test-flexible-server"
@@ -166,7 +171,7 @@ tier | Burstable | Compute tier of the target Azure Database for MySQL Flexible 
 public-access | 0.0.0.0 | Determines the public access for the target Azure Database for MySQL Flexible Server. Enter single or range of IP addresses to be included in the allowed list of IPs. IP address ranges must be dash-separated and not contain any spaces. Specifying 0.0.0.0 allows public access from any resources deployed within Azure to access your server. Setting it to "None" sets the server in public access mode but doesn't create a firewall rule.
 vnet | myVnet | Name or ID of a new or existing virtual network. If you want to use a vnet from different resource group or subscription, please provide a resource ID. The name must be between 2 to 64 characters. The name must begin with a letter or number, end with a letter, number or underscore, and may contain only letters, numbers, underscores, periods, or hyphens.
 subnet | mySubnet | Name or resource ID of a new or existing subnet. If you want to use a subnet from different resource group or subscription, please provide resource ID instead of name. Please note that the subnet will be delegated to flexibleServers. After delegation, this subnet cannot be used for any other type of Azure resources.
-private-dns-zone | myserver.private.contoso.com | The name or id of new or existing private dns zone. You can use the private dns zone from same resource group, different resource group, or different subscription. If you want to use a zone from different resource group or subscription, please provide resource Id. CLI creates a new private dns zone within the same resource group as virtual network if not provided by users.
+private-dns-zone | myserver.private.contoso.com | The name or ID of new or existing private dns zone. You can use the private dns zone from same resource group, different resource group, or different subscription. If you want to use a zone from different resource group or subscription, please provide resource ID. CLI creates a new private dns zone within the same resource group as virtual network if not provided by users.
 key | key identifier of testKey | The resource ID of the primary keyvault key for data encryption.
 identity | testIdentity | The name or resource ID of the user assigned identity for data encryption.
 storage-size | 32 | The storage capacity of the target Azure Database for MySQL Flexible Server. The minimum is 20 GiB, and max is 16 TiB.
@@ -180,7 +185,7 @@ iops | 500 | Number of IOPS to be allocated for the target Azure Database for My
 
 ## Steps for online migration
 
-After completing the above-stated Azure Database for MySQL Import operation :
+After completing the above-stated Azure Database for MySQL Import operation:
 
 - Log in to the target Azure Database for MySQL Flexible Server and run the following command to get the bin-log filename and position corresponding to the backup snapshot used by Azure Database for MySQL Import CLI to restore to the target server.
 

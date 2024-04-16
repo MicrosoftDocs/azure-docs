@@ -9,6 +9,7 @@ ms.author: tarcher
 ms.date: 09/25/2023
 content_well_notification: 
   - AI-contribution
+ai-usage: ai-assisted
 ---
 
 # Quickstart: Create an Azure Attestation provider by using Terraform

@@ -139,7 +139,7 @@ You'll also need to [create a policy for SAP HANA database backup](backup-azure-
 To discover the database instance where the snapshot is present, see the [Back up SAP HANA databases in Azure VMs](backup-azure-sap-hana-database.md#discover-the-databases).
 
 
-[!INCLUDE [How to configure backup for SAP HANA instance snapshot, run an on-demand backup, and monitor the backup job.](../../includes/backup-azure-configure-sap-hana-database-instance-backup.md)]
+[!INCLUDE [How to configure backup for SAP HANA instance snapshot, run an on-demand backup, and monitor the backup job](../../includes/backup-azure-configure-sap-hana-database-instance-backup.md)]
 
 ## Next steps
 

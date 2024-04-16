@@ -108,15 +108,14 @@
 
 - name: Logs and monitoring
   items:
-  - name: Monitor in Azure portal
+  - name: Monitor
+    href: monitor-cache.md
+  - name: Monitor Azure Cache for Redis
     href: cache-how-to-monitor.md
-  - name: Set alerts for exceptions
-    href: cache-how-to-monitor.md#create-alerts
+  - name: Use insights to understand performance and utilization
+    href: cache-insights-overview.md
   - name: Monitor with diagnostic logs
     href: cache-monitor-diagnostic-settings.md
-  - name: Use Insights to understand performance and utilization
-    href: cache-insights-overview.md
-
 - name: Scaling and performance
   items:
   - name: Change the size and tier of a cache
@@ -127,14 +126,16 @@
     href: cache-best-practices-scale.md
   - name: Server load management best practice
     href: cache-best-practices-server-load.md
+  - name: Performance testing
+    href: cache-best-practices-performance.md
 
 
 - name: Authentication and authorization
   items:
-  - name: Role-based access control
-    href: cache-configure-role-based-access-control.md
   - name: Microsoft Entra ID for authentication
     href: cache-azure-active-directory-for-authentication.md
+  - name: Role-based access control
+    href: cache-configure-role-based-access-control.md
   - name: Managed identity for storage accounts
     href: cache-managed-identity.md
 
@@ -236,11 +237,11 @@
       href: cache-best-practices-kubernetes.md
   - name: Artificial Intelligence
     items:
-      - name: Vector Search
+      - name: Vector search concepts
         href: cache-overview-vector-similarity.md
       - name: Vector similarity search
         href: cache-tutorial-vector-similarity.md
-      - name: Semantic caching search
+      - name: Semantic caching
         href: cache-tutorial-semantic-cache.md
   - name: ASP.NET
     items:
@@ -294,6 +295,8 @@
     href: ./policy-reference.md
   - name: Redis commands
     href: https://redis.io/commands#
+  - name: Monitoring data reference
+    href: monitor-cache-reference.md
 
 - name:  Resources
   items:

@@ -4,7 +4,7 @@ description: Learn about ultra disks for Azure VMs
 author: roygara
 ms.service: azure-disk-storage
 ms.topic: how-to
-ms.date: 12/05/2023
+ms.date: 03/05/2024
 ms.author: rogarana
 ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell, devx-track-arm-template
 ---
@@ -445,7 +445,7 @@ Update-AzVM -VM $vm -ResourceGroupName $resourceGroup
 
 # [Portal](#tab/azure-portal)
 
-Ultra disks offer a unique capability that allows you to adjust their performance. You can make these adjustments from the Azure portal, on the disks themselves.
+Ultra disks offer a unique capability that allows you to adjust their performance. You can adjust the performance of an Ultra Disk four times within a 24 hour period.
 
 1. Navigate to your VM and select **Disks**.
 1. Select the ultra disk you'd like to modify the performance of.
@@ -459,7 +459,7 @@ Ultra disks offer a unique capability that allows you to adjust their performanc
 
 # [Azure CLI](#tab/azure-cli)
 
-Ultra disks offer a unique capability that allows you to adjust their performance, the following command depicts how to use this feature:
+Ultra disks offer a unique capability that allows you to adjust their performance. You can adjust the performance of an Ultra Disk four times within a 24 hour period. The following command depicts how to use this feature:
 
 ```azurecli-interactive
 az disk update --subscription $subscription --resource-group $rgname --name $diskName --disk-iops-read-write=5000 --disk-mbps-read-write=200
@@ -469,7 +469,7 @@ az disk update --subscription $subscription --resource-group $rgname --name $dis
 
 ## Adjust the performance of an ultra disk using PowerShell
 
-Ultra disks have a unique capability that allows you to adjust their performance, the following command is an example that adjusts the performance without having to detach the disk:
+Ultra disks have a unique capability that allows you to adjust their performance. You can adjust the performance of an Ultra Disk four times within a 24 hour period. The following command is an example that adjusts the performance without having to detach the disk:
 
 ```powershell
 $diskupdateconfig = New-AzDiskUpdateConfig -DiskMBpsReadWrite 2000

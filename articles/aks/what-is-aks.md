@@ -4,20 +4,20 @@ description: Learn about the features of Azure Kubernetes Service (AKS) and how 
 ms.topic: overview
 ms.author: schaffererin
 author: schaffererin
-ms.date: 02/08/2024
+ms.date: 04/16/2024
 ---
 
-# What is Azure Kubernetes Service?
+# What is Azure Kubernetes Service (AKS)?
 
-Azure Kubernetes Service (AKS) is a managed Kubernetes service hosted on Azure that you can use to deploy and manage containerized applications without container orchestration expertise. AKS is an ideal platform for deploying and managing containerized applications that require high availability, scalability, and portability, and for deploying applications to multiple regions, using open-source tools, and integrating with existing DevOps tools. This article is intended for platform administrators or developers who are looking for a scalable, automated, managed Kubernetes solution.
+Azure Kubernetes Service (AKS) is a managed Kubernetes service that you can use to deploy and manage containerized applications. You don't need container orchestration expertise to use AKS. AKS reduces the complexity and operational overhead of managing Kubernetes by offloading much of that responsibility to Azure. AKS is an ideal platform for deploying and managing containerized applications that require high availability, scalability, and portability, and for deploying applications to multiple regions, using open-source tools, and integrating with existing DevOps tools.
+
+This article is intended for platform administrators or developers who are looking for a scalable, automated, managed Kubernetes solution.
 
 ## Overview of AKS
 
-AKS reduces the complexity and operational overhead of managing Kubernetes by shifting that responsibility to Azure. The Azure platform manages the AKS control plane, which is responsible for the Kubernetes objects and worker nodes that you deploy to run your applications. Azure takes care of critical operations like health monitoring and maintenance, and you only pay for the AKS nodes that run your applications.
+AKS reduces the complexity and operational overhead of managing Kubernetes by shifting that responsibility to Azure. When you create an AKS cluster, Azure automatically creates and configures a control plane for you at no cost. The Azure platform manages the AKS control plane, which is responsible for the Kubernetes objects and worker nodes that you deploy to run your applications. Azure takes care of critical operations like health monitoring and maintenance, and you only pay for the AKS nodes that run your applications.
 
 ![AKS overview graphic](./media/what-is-aks/what-is-aks.png)
-
-When you create an AKS cluster, Azure automatically creates and configures a control plane for you at no cost.
 
 > [!NOTE]
 > AKS is [CNCF-certified](https://www.cncf.io/training/certification/software-conformance/) and is compliant with SOC, ISO, PCI DSS, and HIPAA. For more information, see the [Microsoft Azure compliance overview](https://azure.microsoft.com/explore/trusted-cloud/compliance/).
@@ -49,6 +49,7 @@ The following list describes some of the common use cases for AKS, but by no mea
 * **[Bursting from AKS with ACI](/azure/architecture/reference-architectures/containers/aks-start-here)**: Use virtual nodes to provision pods inside ACI that start in seconds and scale to meet demand.
 * **[Machine learning model training with AKS](/azure/architecture/ai-ml/idea/machine-learning-model-deployment-aks)**: Train models using large datasets with familiar tools, such as TensorFlow and Kubeflow.
 * **[Data streaming with AKS](/azure/architecture/solution-ideas/articles/data-streaming-scenario)**: Ingest and process real-time data streams with millions of data points collected via sensors, and perform fast analyses and computations to develop insights into complex scenarios.
+* **[Using Windows containers on AKS](./windows-aks-customer-stories.md)**: Run Windows Server containers on AKS to modernize your Windows applications and infrastructure.
 
 ## Features of AKS
 

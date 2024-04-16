@@ -13,14 +13,15 @@ This article describes known issues and limitations for Teams on Azure Virtual D
 
 ## Known issues and limitations
 
-Using Teams in a virtualized environment is different from using Teams in a non-virtualized environment. For more information about the limitations of Teams in virtualized environments, check out [Teams for Virtualized Desktop Infrastructure](/microsoftteams/teams-for-vdi#known-issues-and-limitations).
+Using Teams in a virtualized environment is different from using Teams in a nonvirtualized environment. For more information about the limitations of Teams in virtualized environments, check out [Teams for Virtualized Desktop Infrastructure](/microsoftteams/teams-for-vdi#known-issues-and-limitations).
 
-### Client deployment, installation, and setup
+### Client deployment, installation, and set up
 
 - With per-machine installation, Teams on VDI isn't automatically updated the same way non-VDI Teams clients are. To update the client, you'll need to update the VM image by installing a new MSI.
 - Media optimization for Teams is only supported for the Remote Desktop client on machines running Windows 10 or later or macOS 10.14 or later.
 - Use of explicit HTTP proxies defined on the client endpoint device should work, but isn't supported.
 - Zoom in/zoom out of chat windows isn't supported.
+- Media optimizations isn't supported for Teams running as a RemoteApp on macOS endpoints.
 
 ### Calls and meetings
 
@@ -34,6 +35,7 @@ Using Teams in a virtualized environment is different from using Teams in a non-
   - If you've opened a window overlapping the window you're currently sharing during a meeting, the contents of the shared window that are covered by the overlapping window won't update for meeting users.
   - If you're sharing admin windows for programs like Windows Task Manager, meeting participants may see a black area where the presenter toolbar or call monitor is located.
 - Switching tenants can result in call-related issues such as screen sharing not rendering correctly. You can mitigate these issues by restarting your Teams client. 
+- Teams doesn't support the ability to be on a native Teams call and a Teams call in the Azure Virtual Desktop session simultaneously while connected to a HID device.
 
 For Teams known issues that aren't related to virtualized environments, see [Support Teams in your organization](/microsoftteams/known-issues).
 

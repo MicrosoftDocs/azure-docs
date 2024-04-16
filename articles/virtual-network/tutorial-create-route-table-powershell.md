@@ -4,7 +4,6 @@ description: In this article, learn how to route network traffic with a route ta
 services: virtual-network
 author: asudbring
 manager: mtillman
-tags: azure-resource-manager
 ms.service: virtual-network
 ms.topic: how-to
 ms.tgt_pltfrm: virtual-network

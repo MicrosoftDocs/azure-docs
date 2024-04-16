@@ -2,10 +2,10 @@
 title: Understand inputs for Azure Stream Analytics
 description: This article describes the concept of inputs in an Azure Stream Analytics job, comparing streaming input to reference data input.
 ms.service: stream-analytics
-author: enkrumah
-ms.author: ebnkruma
+author: AliciaLiMicrosoft 
+ms.author: ali 
 ms.topic: conceptual
-ms.date: 02/28/2023
+ms.date: 02/26/2024
 ---
 # Understand inputs for Azure Stream Analytics
 
@@ -31,14 +31,14 @@ As data is pushed to a data source, it's consumed by the Stream Analytics job an
 - Reference data inputs.
 
 ### Data stream input
-A data stream is an unbounded sequence of events over time. Stream Analytics jobs must include at least one data stream input. Event Hubs, IoT Hub, Azure Data Lake Storage Gen2 and Blob storage are supported as data stream input sources. Event Hubs is used to collect event streams from multiple devices and services. These streams might include social media activity feeds, stock trade information, or data from sensors. IoT Hubs are optimized to collect data from connected devices in Internet of Things (IoT) scenarios.  Blob storage can be used as an input source for ingesting bulk data as a stream, such as log files.  
+A data stream is an unbounded sequence of events over time. Stream Analytics jobs must include at least one data stream input. Event Hubs, IoT Hub, Azure Data Lake Storage Gen2, and Blob storage are supported as data stream input sources. Event Hubs is used to collect event streams from multiple devices and services. These streams might include social media activity feeds, stock trade information, or data from sensors. IoT Hubs are optimized to collect data from connected devices in Internet of Things (IoT) scenarios  Blob storage can be used as an input source for ingesting bulk data as a stream, such as log files.  
 
-For more information about streaming data inputs, see [Stream data as input into Stream Analytics](stream-analytics-define-inputs.md)
+For more information about streaming data inputs, see [Stream data as input into Stream Analytics](stream-analytics-define-inputs.md).
 
 ### Reference data input
 Stream Analytics also supports input known as *reference data*. Reference data is either completely static or changes slowly. It's typically used to perform correlation and lookups. For example, you might join data in the data stream input to data in the reference data, much as you would perform a SQL join to look up static values. Azure Blob storage, Azure Data Lake Storage Gen2, and Azure SQL Database are currently supported as input sources for reference data. Reference data source blobs have a limit of up to 300 MB in size, depending on the query complexity and allocated Streaming Units. For more information, see the [Size limitation](stream-analytics-use-reference-data.md#size-limitation) section of the reference data documentation.
 
-For more information about reference data inputs, see [Using reference data for lookups in Stream Analytics](stream-analytics-use-reference-data.md)
+For more information about reference data inputs, see [Using reference data for lookups in Stream Analytics](stream-analytics-use-reference-data.md).
 
 ## Next steps
 > [!div class="nextstepaction"]

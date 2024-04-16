@@ -2,8 +2,6 @@
 title: Resource naming restrictions
 description: Shows the rules and restrictions for naming Azure resources.
 ms.topic: conceptual
-author: tfitzmac
-ms.author: tomfitz
 ms.date: 01/19/2024
 ---
 
@@ -89,7 +87,10 @@ In the following tables, the term alphanumeric refers to:
 > [!div class="mx-tableFixed"]
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
-> | configurationStores | resource group | 5-50 | Alphanumerics, underscores, and hyphens. |
+> | configurationStores* | global | 5-50 | Alphanumerics and hyphens.<br><br>Can’t contain a sequence of more than 2 hyphens.<br><br>Can’t start with or end with an hyphen. |
+> | configurationStores / replicas | configurationStore | 1-50<br><br>The combined length of the configurationStore name and the replica name can’t exceed 60 characters.|Alphanumerics only. |
+
+\* {storeName}-{replicaName} needs to be globally unique.
 
 ## Microsoft.AppPlatform
 

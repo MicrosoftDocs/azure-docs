@@ -2,7 +2,7 @@
 title: Manage protection policy for resources
 description: In this article, you learn how to manage backup and replication policies to protect your resources.
 ms.topic: how-to
-ms.date: 11/15/2023
+ms.date: 03/29/2024
 ms.service: azure-business-continuity-center
 ms.custom:
   - ignite-2023
@@ -50,7 +50,13 @@ Follow these steps:
         - **Non-Azure resources**: resources not managed by Azure
 9.	You can use **Select columns** to add or remove columns. 
     :::image type="content" source="./media/manage-protection-policy/select-column.png" alt-text="Screenshot showing *select columns* option." lightbox="./media/manage-protection-policy/select-column.png":::
+
+   You can also query information for your backup and replication policies at no additional cost using Azure Resource Graph (ARG). ARG is an Azure service designed to extend Azure Resource Management. It aims to provide efficient resource exploration with the ability to query at scale across a given set of subscriptions. 
  
+   To get started with querying information for your backup and replication policies using ARG, you can use the sample query provided by selecting **Open query**.
+
+   :::image type="content" source="./media/manage-protection-policy/query-for-backup-and-replication-policies.png" alt-text="Screenshot shows how to check for queries to view backup and replication policies." lightbox="./media/manage-protection-policy/query-for-backup-and-replication-policies.png":::
+
 ## Next steps
 
 - [Configure protection](./tutorial-configure-protection-datasource.md)

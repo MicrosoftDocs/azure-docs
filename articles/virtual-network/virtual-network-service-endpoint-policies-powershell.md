@@ -4,7 +4,6 @@ description: In this article, you learn how to limit and restrict virtual networ
 services: virtual-network
 author: asudbring
 manager: narayan
-tags: azure-resource-manager
 ms.service: virtual-network
 ms.topic: how-to
 ms.date: 02/03/2020

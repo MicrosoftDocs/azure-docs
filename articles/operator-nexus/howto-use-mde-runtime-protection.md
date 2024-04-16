@@ -5,8 +5,8 @@ author: sshiba
 ms.author: sidneyshiba
 ms.service: azure-operator-nexus
 ms.topic: how-to
-ms.date: 02/05/2024
-ms.custom: template-how-to, devx-track-azurecli
+ms.date: 02/15/2024
+ms.custom: template-how-to
 ---
 
 # Introduction to the Microsoft Defender for Endpoint runtime protection service
@@ -43,8 +43,8 @@ export CLUSTER_NAME="contoso-cluster"
 
 ## Defaults for MDE Runtime Protection
 The runtime protection sets to following default values when you deploy a cluster
-- Enforcement Level: `OnDemand` if not specified when creating the cluster
-- MDE Service: `Enabled`
+- Enforcement Level: `Disabled` if not specified when creating the cluster
+- MDE Service: `Disabled`
 
 > [!NOTE]
 >The argument `--runtime-protection enforcement-level="<enforcement level>"` serves two purposes: enabling/disabling MDE service and updating the enforcement level.

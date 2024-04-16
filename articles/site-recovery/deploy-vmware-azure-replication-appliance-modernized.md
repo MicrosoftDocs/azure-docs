@@ -3,7 +3,7 @@ title: Deploy Azure Site Recovery replication appliance - Modernized
 description: This article describes how to replicate appliance for VMware disaster recovery to Azure with Azure Site Recovery - Modernized
 ms.service: site-recovery
 ms.topic: how-to
-ms.date: 12/04/2023
+ms.date: 04/04/2024
 ms.author: ankitadutta
 author: ankitaduttaMSFT
 ---
@@ -109,7 +109,7 @@ If there are any organizational restrictions, you can manually set up the Site R
 
   - CheckRegistryAccessPolicy - Prevents access to registry editing tools.
       - Key: HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System
-      - DisableRegistryTools value shouldn't be equal 0.
+      - DisableRegistryTools value should be equal 0.
 
   - CheckCommandPromptPolicy - Prevents access to the command prompt.
 

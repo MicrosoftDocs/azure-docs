@@ -107,4 +107,4 @@ Navigate to Alerts > Alert processing rules (preview) > filter by the containing
 
 ## Next steps
 
-Learn about fixing other problems with [alert notifications](alerts-troubleshoot.md), [metric alerts](alerts-troubleshoot-metric.md), and [log alerts](alerts-troubleshoot-log.md).
+Learn about fixing other problems with [alert notifications](alerts-troubleshoot.md), [metric alerts](alerts-troubleshoot-metric.md), and [log search alerts](alerts-troubleshoot-log.md).

@@ -3,7 +3,7 @@ title: Create SQL Server license assignments for Azure Hybrid Benefit
 description: This article explains how to create SQL Server license assignments for Azure Hybrid Benefit.
 author: bandersmsft
 ms.author: banders
-ms.date: 04/23/2023
+ms.date: 02/13/2024
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: ahb
@@ -35,7 +35,7 @@ The prerequisite roles differ depending on the agreement type.
 
 | Agreement type | Required role | Supported offers |
 | --- | --- | --- |
-| Enterprise Agreement | _Enterprise Administrator_<p> If you're an Enterprise admin with read-only access, you need your organization to give you **full** access to assign licenses using centrally managed Azure Hybrid Benefit. <p>If you're not an Enterprise admin, you must get assigned that role by your organization (with full access). For more information about how to become a member of the role, see [Add another enterprise administrator](../manage/ea-portal-administration.md#create-another-enterprise-administrator). | - MS-AZR-0017P (Microsoft Azure Enterprise)<br>- MS-AZR-USGOV-0017P (Azure Government Enterprise) |
+| Enterprise Agreement | _Enterprise Administrator_<p> If you're an Enterprise admin with read-only access, you need your organization to give you **full** access to assign licenses using centrally managed Azure Hybrid Benefit. <p>If you're not an Enterprise admin, you must get assigned that role by your organization (with full access). For more information about how to become a member of the role, see [Add another enterprise administrator](../manage/direct-ea-administration.md#add-another-enterprise-administrator). | - MS-AZR-0017P (Microsoft Azure Enterprise)<br>- MS-AZR-USGOV-0017P (Azure Government Enterprise) |
 | Microsoft Customer Agreement | *Billing account owner*<br> *Billing account contributor* <br> *Billing profile owner*<br> *Billing profile contributor*<br> If you don't have one of the preceding roles, your organization must assign one to you. For more information about how to become a member of the roles, see [Manage billing roles](../manage/understand-mca-roles.md#manage-billing-roles-in-the-azure-portal). | MS-AZR-0017G (Microsoft Azure Plan)|
 | WebDirect / Pay-as-you-go | Not available | None |
 | CSP / Partner led customers | Not available | None |

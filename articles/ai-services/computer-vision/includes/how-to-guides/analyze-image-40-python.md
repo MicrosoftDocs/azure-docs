@@ -43,7 +43,7 @@ You can use the following sample image URL.
 
 ### Image buffer
 
-Alternatively, you can pass in the image as a data array. For example, read from a local image file you want to analyze.
+Alternatively, you can pass in the image as [bytes](https://docs.python.org/3/library/stdtypes.html#bytes-objects) object. For example, read from a local image file you want to analyze.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/4-0/how-to.py?name=snippet_file)]
 
@@ -63,9 +63,9 @@ To use a custom model, create the [ImageAnalysisOptions](/python/api/azure-ai-vi
 [!code-python[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/python/image-analysis/custom-model/main.py?name=model_name)]
 -->
 
-## Call the Analyze API with options
+## Call the analyze_from_url method with options
 
-The following code calls the [Analyze API](/python/api/azure-ai-vision-imageanalysis/azure.ai.vision.imageanalysis.imageanalysisclient#azure-ai-vision-imageanalysis-imageanalysisclient-analyze) with the features you selected above and additional options, defined below. To analyze from an image buffer instead of URL, replace `image_url=image_url` in the method call with `image_data=image_data`.
+The following code calls the [analyze_from_url](/python/api/azure-ai-vision-imageanalysis/azure.ai.vision.imageanalysis.imageanalysisclient#azure-ai-vision-imageanalysis-imageanalysisclient-analyzefromurl) method on the client with the features you selected above and additional options, defined below. To analyze from an image buffer instead of URL, call the method [analyze](/python/api/azure-ai-vision-imageanalysis/azure.ai.vision.imageanalysis.imageanalysisclient#azure-ai-vision-imageanalysis-imageanalysisclient-analyze) instead, with `image_data=image_data` as the first argument.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/4-0/how-to.py?name=snippet_call)]
 
@@ -85,7 +85,7 @@ You can specify the language of the returned data. The language is optional, wit
 
 ## Get results from the service
 
-The following code shows you how to parse the results of the various **analyze** operations.
+The following code shows you how to parse the results from the **analyze_from_url** or **analyze** operations.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/4-0/how-to.py?name=snippet_result)]
 
