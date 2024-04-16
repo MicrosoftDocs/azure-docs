@@ -1726,7 +1726,7 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "articles/guides/operations/azure-operations-guide.md",
+            "source_path_from_root": "/articles/guides/operations/azure-operations-guide.md",
             "redirect_url": "/azure/developer/intro/azure-developer-key-concepts",
             "redirect_document_id": false
         },
