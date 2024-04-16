@@ -65,7 +65,7 @@ To use the Quality of Experience - Affirmed MCC Data Product:
 - Deploy the Data Product by following [Create an Azure Operator Insights Data Product](data-product-create.md).
 - Configure your network to provide data either using your own ingestion method, or by setting up the [Azure Operator Insights ingestion agent](ingestion-agent-overview.md). 
     - Use the information in [Required ingestion configuration](#required-ingestion-configuration) when you're setting up ingestion.
-    - The Azure Operator Insights ingestion agent is the recommended ingestion method for the `edr` data type. For ingestion of the `device` and `edr-validation` data types you can use a separate instance of the ingestion agent, or set up your own ingestion method.
+    - We recommend the Azure Operator Insights ingestion agent for the `edr` data type. To ingest the `device` and `edr-validation` data types, you can use a separate instance of the ingestion agent, or set up your own ingestion method.
     - If you're using the Azure Operator Insights ingestion agent, also meet the requirements in [Requirements for the Azure Operator Insights ingestion agent](#requirements-for-the-azure-operator-insights-ingestion-agent).
 - Configure your Affirmed MCCs to send EDRs to the ingestion agent. See [Configuration for Affirmed MCCs](#configuration-for-affirmed-mccs).
 - If you're using the `edr-validation` data type, configure your Affirmed EMS to export performance management stats to a remote server. See [Configuration for Affirmed EMS](#configuration-for-affirmed-ems).
@@ -85,6 +85,7 @@ Use the information in this section to configure your ingestion method. Refer to
 Use the VM requirements to set up one or more VMs for the ingestion agent. Use the example configuration to configure the ingestion agent to upload data to the Data Product, as part of following [Install the Azure Operator Insights ingestion agent and configure it to upload data](set-up-ingestion-agent.md).
 
 # [EDR ingestion](#tab/edr-ingestion)
+
 #### VM requirements
 
 Each agent instance must run on its own Linux VM. The number of VMs needed depends on the scale and redundancy characteristics of your deployment. This recommended specification can achieve 1.5-Gbps throughput on a standard D4s_v3 Azure VM. For any other VM spec, we recommend that you measure throughput at the network design stage.
@@ -106,7 +107,7 @@ Each VM running the agent must meet the following minimum specifications for EDR
 | Other    | SSH or alternative access to run shell commands                     |
 | DNS      | (Preferable) Ability to resolve Microsoft hostnames. If not, you need to perform extra configuration when you set up the agent (described in [Map Microsoft hostnames to IP addresses for ingestion agents that can't resolve public hostnames](map-hostnames-ip-addresses.md).) |
 
-##### Deploying multiple VMs for fault tolerance
+#### Deploying multiple VMs for fault tolerance
 
 The ingestion agent is designed to be highly reliable and resilient to low levels of network disruption. If an unexpected error occurs, the agent restarts and provides service again as soon as it's running.
 
@@ -114,9 +115,10 @@ The agent doesn't buffer data, so if a persistent error or extended connectivity
 
 For extra fault tolerance, you can deploy multiple instances of the ingestion agent and configure the MCC to switch to a different instance if the original instance becomes unresponsive, or to share EDR traffic across a pool of agents. For more information, see the [Affirmed Networks Active Intelligent vProbe System Administration Guide](https://manuals.metaswitch.com/vProbe/latest/vProbe_System_Admin/Content/02%20AI-vProbe%20Configuration/Generating_SESSION__BEARER__FLOW__and_HTTP_Transac.htm) (only available to customers with Affirmed support) or speak to the Affirmed Networks Support Team.
 
-# [PM stat or device data ingestion](#tab/pm-stat-or-device-data-ingestion)
+# [Performance management and device data ingestion](#tab/pm-stat-or-device-data-ingestion)
 
-#### PM stat ingestion via an SFTP server
+#### Performance management ingestion via an SFTP server
+
 If you're using the Azure Operator Insights ingestion agent to ingest performance management stats files for the `edr-validation` data type:
 - Configure the EMS to export performance management stats to an SFTP server.
 - Configure the ingestion agent to use SFTP pull from the SFTP server.
@@ -128,7 +130,8 @@ If you're using the Azure Operator Insights ingestion agent to ingest performanc
 | Schedule for checking for new files | `source.sftp_pull.scheduling.cron` | `0 */5 * * * * *` (every 5 minutes) |
 
 #### Device data ingestion via an SFTP server
-If the device data is stored on an SFTP server, you can ingest device data by configuring an extra `sftp_pull` ingestion pipeline on the same ingestion agent instance that you are using for PM stat ingestion. You can choose your own value for `source.sftp_pull.scheduling.cron` for the device data pipeline, depending on how frequently you want the ingestion pipeline to check for new device data files.
+
+If the device data is stored on an SFTP server, you can ingest device data by configuring an extra `sftp_pull` ingestion pipeline on the same ingestion agent instance that you're using for PM stat ingestion. You can choose your own value for `source.sftp_pull.scheduling.cron` for the device data pipeline, depending on how frequently you want the ingestion pipeline to check for new device data files.
 
 > [!TIP]
 > For more information about all the configuration options for the ingestion agent, see [Configuration reference for Azure Operator Insights ingestion agent](ingestion-agent-configuration-reference.md).
@@ -159,6 +162,7 @@ Each Linux VM running the agent must meet the following minimum specifications f
 | Other    | SSH or alternative access to run shell commands                     |
 | DNS      | (Preferable) Ability to resolve Microsoft hostnames. If not, you need to perform extra configuration when you set up the agent (described in [Map Microsoft hostnames to IP addresses for ingestion agents that can't resolve public hostnames](map-hostnames-ip-addresses.md).) |
 
+---
 
 ### Configuration for Affirmed MCCs
 
