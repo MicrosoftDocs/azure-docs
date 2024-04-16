@@ -29,28 +29,7 @@ This quickstart assumes a basic understanding of Defender for IoT Firmware Analy
     pip install azure-mgmt-iotfirmwaredefense
     pip install azure-identity
     ```
-* Visit [Authorize your application](/azure/azure-web-pubsub/howto-authorize-from-application) to create an application.
-    * Once you've created your application, save your Azure client ID and Azure tenant ID from the **Overview** page:
-    :::image type="content" source="media/quickstart-upload-firmware-using-python/overview-client-id-tenant-id.png" alt-text="Screenshot that shows the Overview page of the application." lightbox="media/quickstart-upload-firmware-using-python/overview-client-id-tenant-id.png":::
-    * Save your Azure client secret from the **Certificates & secrets** page. Be sure to copy the value right away because the Azure client secret will only be shown once.
-    :::image type="content" source="media/quickstart-upload-firmware-using-python/certs-secrets.png" alt-text="Screenshot that shows the Certificates & secrets page of the application." lightbox="media/quickstart-upload-firmware-using-python/certs-secrets.png":::
-    * Configure the following environment variables with the three values that you've saved:
-        * `AZURE_CLIENT_ID` for Azure client ID
-        * `AZURE_TENANT_ID` for Azure tenant ID
-        * `AZURE_CLIENT_SECRET` for Azure client secret
-
-    In addition, the Azure subscription ID can be configured with the environment variable `AZURE_SUBSCRIPTION_ID`.
-
-Once you've configured your environment variables, the client can be authenticated by the following code:
-
-```python
-from azure.identity import DefaultAzureCredential
-from azure.mgmt.iotfirmwaredefense import IoTFirmwareDefenseMgmtClient
-import os
-
-sub_id = os.getenv("AZURE_SUBSCRIPTION_ID")
-client = IoTFirmwareDefenseMgmtClient(credential=DefaultAzureCredential(), subscription_id=sub_id)
-```
+* Log in to your Azure account by running the command [`az login`](/cli/azure/reference-index?#az-login).
 
 ## Run the following Python script
 
