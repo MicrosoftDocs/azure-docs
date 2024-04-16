@@ -79,18 +79,25 @@ Before you begin, make sure that:
 
 Use the included USB cable to connect the disk to a Windows or Linux machine running a supported version. For more information on supported OS versions, go to [Azure Data Box Disk system requirements](data-box-disk-system-requirements.md). 
 
-![Data Box Disk connect](media/data-box-disk-deploy-set-up/data-box-disk-connect-unlock.png)
+:::image type="content" source="media/data-box-disk-deploy-set-up/data-box-disk-connect-unlock.png" alt-text="Screenshot showing the data box disk connector for software encrypted drives.":::
 
 ### [Hardware encryption](#tab/sed)
 
 Only use the included SATA 3 cable to connect the disk to a Linux machine running a supported version. For more information on supported OS versions, go to [Azure Data Box Disk system requirements](data-box-disk-system-requirements.md). 
 
-Insert image of disk and cable here.
+:::image type="content" source="media/data-box-disk-deploy-set-up/data-box-disk-connect-unlock-sata.png" alt-text="Screenshot showing the data box disk connector for hardware encrypted drives.":::
 
 ---
 
 ## Retrieve your passkey
 
+In the Azure portal, navigate to your Data Box Disk Order. Search for it by navigating to **General > All resources**, then select your Data Box Disk Order. Use the copy icon to copy the passkey. This passkey will be used to unlock the disks.
+
+[Data Box Disk unlock passkey](media/data-box-disk-deploy-set-up/data-box-disk-get-passkey.png)
+
+Depending on whether you are connected to a Windows or Linux client, the steps to unlock the disks are different.
+
+<!--
 ### [Azure Portal](#tab/portal)
 
 In the Azure portal, navigate to your Data Box Disk Order. Search for it by navigating to **General > All resources**, then select your Data Box Disk Order. Use the copy icon to copy the passkey. This passkey will be used to unlock the disks.
@@ -104,6 +111,7 @@ Depending on whether you are connected to a Windows or Linux client, the steps t
 Azure CLI instructions to retrieve your passkey
 
 ---
+-->
 
 ## Unlock disks
 
@@ -209,19 +217,55 @@ If you run into any issues while unlocking the disks, see how to [troubleshoot u
 
 Perform the following steps to connect and unlock hardware encrypted Data Box disks on a Linux-based machine.
 
-> [!WARNING]
-> Enabling the TPM on a device might require a reboot.
->
-> The following example contains the `reboot` command. Ensure that no data will be lost before running the script.
 
-1.	The Trusted Platofrm Module (TPM) must be enabled on Linux systems for SATA-based drives. To enable TPM, set `libata.allow_tpm` to `1` by editing the GRUB config as shown in the following example. More details can be found on the Drive-Trust-Alliance public Wiki located at [https://github.com/Drive-Trust-Alliance/sedutil/wiki](https://github.com/Drive-Trust-Alliance/sedutil/wiki).
+
+1.	The Trusted Platofrm Module (TPM) must be enabled on Linux systems for SATA-based drives. To enable TPM, set `libata.allow_tpm` to `1` by editing the GRUB config as shown in the following distro-specific examples. More details can be found on the Drive-Trust-Alliance public Wiki located at [https://github.com/Drive-Trust-Alliance/sedutil/wiki](https://github.com/Drive-Trust-Alliance/sedutil/wiki).
+
+    > [!WARNING]
+    > Enabling the TPM on a device might require a reboot.
+    >
+    > The following example contains the `reboot` command. Ensure that no data will be lost before running the script.
+
+    ### [CentOS](#tab/centos)
+
+    Use the following sample script to enable the TPM for CentOS.
 
     ```bash
     sudo nano /etc/default/grub
-    GRUB_CMDLINE_LINUX_DEFAULT="quiet splash libata.allow_tpm=1"
-    sudo update-grub
-    reboot
+
+    #Manually add \"libata.allow_tpm=1\" to the grub command line argument
+    GRUB_CMDLINE_LINUX_DEFAULT=\"quiet splash libata.allow_tpm=1\" 
+
+    #BIOS based systems: 
+    grub2-mkconfig -o /boot/grub2/grub.cfg 
+
+    #UEFI based systems: 
+    grub2-mkconfig -o /boot/efi/EFI/centos/grub.cfg
+
+    reboot 
+
+    #Validate that the TPM setting is set properly by checking the boot image
+    cat /proc/cmdline
     ```
+
+    ### [Ubuntu/Debian](#tab/debian)
+
+    Use the following sample script to enable the TPM for Ubuntu/Debian.
+
+    ```bash
+    sudo nano /etc/default/grub
+
+    #Manually add \"libata.allow_tpm=1\" to the grub command line argument
+    GRUB_CMDLINE_LINUX_DEFAULT=\"quiet splash libata.allow_tpm=1\" 
+
+    sudo update-grub
+    reboot 
+
+    #Validate that the TPM setting is properly configured by checking the boot image
+    cat /proc/cmdline
+    ```
+
+    ---
 
 1.  Download the [Data Box Disk toolset](https://aka.ms/databoxdisktoolslinux). Extract and copy the **Data Box Disk Unlock Utility** to a local path on your machine. 
 1.	Download the [SEDUtil](https://github.com/Drive-Trust-Alliance/sedutil/wiki/Executable-Distributions). For more information, visit the [Drive-Trust-Alliance public Wiki](https://github.com/Drive-Trust-Alliance/sedutil/wiki).
@@ -230,28 +274,6 @@ Perform the following steps to connect and unlock hardware encrypted Data Box di
     > SEDUtil is an external utility for Self-Encrypting Drives. This is not managed by Microsoft. More information, including license information for this utility, can be found at [https://sedutil.com/](https://sedutil.com/).
 
 1.	Extract `SEDUtil` to a local path on the machine and add the extracted tool path to the `PATH` environment variable. This is required in a later step when the utility utilizes `SEDUtil` to unlock the disk.
-
-    ### [CentOS](#tab/centos)
-
-    CentOS steps
-
-    ### [Debian](#tab/debian)
-
-    Debian steps
-
-    ### [Red Hat Enterprise Linux](#tab/rhel)
-
-    RHEL steps
-
-    ### [Ubuntu](#tab/ubuntu)
-
-    Ubuntu steps
-
-    ### [Another distro](#tab/another)
-
-    Steps for another distro go here.
-
-    ---
 
 1. Validate that `SEDUtil` has been extracted to a local path and that the `PATH` environment variable contains the it's path. Use the following command to perform the Validation.
 
@@ -398,7 +420,7 @@ Perform the following steps to connect and unlock software encrypted Data Box di
 
 1. Repeat the unlock steps for any future disk reinserts. Use the `help` command for additional assistance with the Data Box Disk unlock tool.
 
-    `sudo ./DataBoxDiskUnlock /Help`
+    `sudo //ataBoxDiskUnlock /Help`
 
     Sample output is shown below.
 
