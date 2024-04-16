@@ -22,11 +22,11 @@ This troubleshooting guide shows you how to restore access when running into the
 
 ### Reason for error
 
-You see the error when the default identity associated with the Azure Cosmos DB account is no longer authorized to perform either a get, a wrap or unwrap call to the Key Vault. 
+You see the error when the default identity associated with the Azure Cosmos DB account is no longer authorized to perform either a get, a wrap or unwrap call to the Key Vault or your key is disabled or expired. 
 
 ### Troubleshooting 
 
-When using access policies, verify that the get, wrap, and unwrap permissions on your Key Vault are assigned to the identity set as the default identity for the respective Azure Cosmos DB account. 
+Please verify that your key is neither disabled or expired. In the contrary, when using access policies, verify that the get, wrap, and unwrap permissions on your Key Vault are assigned to the identity set as the default identity for the respective Azure Cosmos DB account. 
 
 In case you're using RBAC, verify that the "Key Vault Crypto Service Encryption User" role to the default identity is assigned. 
 

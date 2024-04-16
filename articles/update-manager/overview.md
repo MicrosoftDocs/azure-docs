@@ -62,6 +62,9 @@ All assessment information and update installation results are reported to Updat
 
 The machines assigned to Update Manager report how up to date they are based on what source they're configured to synchronize with. You can configure [Windows Update Agent (WUA)](/windows/win32/wua_sdk/updating-the-windows-update-agent) on Windows machines to report to [Windows Server Update Services](/windows-server/administration/windows-server-update-services/get-started/windows-server-update-services-wsus) or Microsoft Update, which is by default. You can configure Linux machines to report to a local or public YUM or APT package repository. If the Windows Update Agent is configured to report to WSUS, depending on when WSUS last synchronized with Microsoft Update, the results in Update Manager might differ from what Microsoft Update shows. This behavior is the same for Linux machines that are configured to report to a local repository instead of a public package repository.
 
+> [!NOTE]
+> WSUS isn't available in Azure China operated by 21 Vianet.
+
 You can manage your Azure VMs or Azure Arc-enabled servers directly or at scale with Update Manager.
 
 ## Prerequisites

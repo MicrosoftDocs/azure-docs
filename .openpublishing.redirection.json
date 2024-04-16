@@ -1712,12 +1712,22 @@
         },
         {
             "source_path_from_root": "/articles/guides/developer/index.md",
-            "redirect_url": "/azure/guides/developer/azure-developer-guide",
+            "redirect_url": "/azure/developer/",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/guides/developer/azure-developer-guide.md",
+            "redirect_url": "/azure/developer/",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/guides/operations/index.md",
-            "redirect_url": "/azure/guides/operations/azure-operations-guide",
+            "redirect_url": "/azure/developer/intro/azure-developer-key-concepts",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/guides/operations/azure-operations-guide.md",
+            "redirect_url": "/azure/developer/intro/azure-developer-key-concepts",
             "redirect_document_id": false
         },
         {
@@ -3917,11 +3927,6 @@
         {
             "source_path_from_root": "/articles/batch/batch-diagnostics.md",
             "redirect_url": "/azure/batch/monitor-batch",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/container-registry/container-registry-auth-aci.md",
-            "redirect_url": "/azure/container-registry/container-registry-authentication",
             "redirect_document_id": false
         },
         {
