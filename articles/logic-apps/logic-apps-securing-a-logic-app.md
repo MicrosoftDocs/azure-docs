@@ -1567,23 +1567,24 @@ You can use Azure Logic Apps in [Azure Government](../azure-government/documenta
   * Consumption logic app workflows can run in an [integration service environment (ISE)](connect-virtual-network-vnet-isolated-environment-overview.md) where they can use dedicated resources and access resources protected by an Azure virtual network. However, the ISE resource retires on August 31, 2024, due to its dependency on Azure Cloud Services (classic), which retires at the same time.
 
     > [!IMPORTANT]
+    >
     > Some Azure virtual networks use private endpoints ([Azure Private Link](../private-link/private-link-overview.md)) 
     > for providing access to Azure PaaS services, such as Azure Storage, Azure Cosmos DB, or Azure SQL Database, 
     > partner services, or customer services that are hosted on Azure.
     >
-    > If you want to create Consumption logic app workflows that need access to virtual networks with private endpoints, 
-  > you *must create and run your Consumption workflows in an ISE*. Or, you can create Standard workflows instead, 
-  > which don't need an ISE. Instead, your workflows can communicate privately and securely with virtual networks 
-  > by using private endpoints for inbound traffic and virtual network integration for outbound traffic. For more information, see 
-  > [Secure traffic between virtual networks and single-tenant Azure Logic Apps using private endpoints](secure-single-tenant-workflow-virtual-network-private-endpoint.md).
+    > To create Consumption logic app workflows that need access to virtual networks with private endpoints, 
+    > you *must create and run your Consumption workflows in an ISE*. Or, you can create Standard workflows instead, 
+    > which don't need an ISE. Instead, your workflows can communicate privately and securely with virtual networks 
+    > by using private endpoints for inbound traffic and virtual network integration for outbound traffic. For more information, see 
+    > [Secure traffic between virtual networks and single-tenant Azure Logic Apps using private endpoints](secure-single-tenant-workflow-virtual-network-private-endpoint.md).
 
-For more information about isolation, review the following documentation:
+For more information about isolation, see the following documentation:
 
 * [Isolation in the Azure Public Cloud](../security/fundamentals/isolation-choices.md)
 * [Security for highly sensitive IaaS apps in Azure](/azure/architecture/reference-architectures/n-tier/high-security-iaas)
 
 ## Next steps
 
-* [Azure security baseline for Azure Logic Apps](../logic-apps/security-baseline.md)
-* [Automate deployment for Azure Logic Apps](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)
+* [Azure security baseline for Azure Logic Apps](security-baseline.md)
+* [Automate deployment for Azure Logic Apps](logic-apps-azure-resource-manager-templates-overview.md)
 * [Monitor logic apps](monitor-workflows-collect-diagnostic-data.md)
