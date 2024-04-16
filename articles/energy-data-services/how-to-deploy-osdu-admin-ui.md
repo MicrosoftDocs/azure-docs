@@ -24,7 +24,7 @@ The OSDU Admin UI enables platform administrators to manage the Azure Data Manag
   > The following API permissions are required on the App Registration for the Admin UI to function properly.
   >   - [Application.Read.All](/graph/permissions-reference#applicationreadall)
   >   - [User.Read](/graph/permissions-reference#applicationreadall)
-  >   - [User.Read.All](/graph/permissions-reference#userreadall)
+  >   - [User.ReadBasic.All](/graph/permissions-reference#userreadbasicall)
   > 
   > Upon first login to the Admin UI it will request the necessary permissions. You can also grant the required permissions in advance, see [App Registration API Permission documentation](/entra/identity-platform/quickstart-configure-app-access-web-apis#application-permission-to-microsoft-graph).
 

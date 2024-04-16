@@ -7,7 +7,7 @@ author: RoseHJM
 ms.author: rosemalcolm
 ms.service: deployment-environments
 ms.topic: how-to
-ms.date: 03/27/2024
+ms.date: 03/29/2024
 ms.custom: devdivchpfy22, build-2023
 ---
 
@@ -76,10 +76,8 @@ To add an environment definition:
       | version | The version of the environment definition. This field is optional. |
       | summary | A brief description of the environment definition. |
       | description | A detailed description of the environment definition. |
-      | runner | The IaC framework that the template uses. The value can be `ARM` or `Bicep`. You can also specify a path to a template stored in a a container registry. |
+      | runner | The IaC framework that the template uses. The value can be `ARM` or `Bicep`. You can also specify a path to a template stored in a container registry. |
       | templatePath | The path to the IaC template file. |
-
-      :::image type="content" source="../deployment-environments/media/configure-environment-definition/create-subfolder-path.png" alt-text="Screenshot that shows a folder path with a subfolder that contains an ARM template and an environment file." lightbox="../deployment-environments/media/configure-environment-definition/create-subfolder-path.png":::
 
       To learn more about the options and data types you can use in *environment.yaml*, see [Parameters and data types in environment.yaml](concept-environment-yaml.md#what-is-environmentyaml).
 
@@ -89,9 +87,9 @@ To add an environment definition:
 
 The service scans the repository to find new environment definitions. After you sync the repository, new environment definitions are available to all projects in the dev center.
 
-### Specify a Terraform custom image
+### Specify a Terraform image
 
-The ADE's extensibility model enables you to use your own custom container image to deploy your preferred choice of IaC framework. You can even build and leverage your own container image to execute deployments using Terraform. Learn how to [Configure a container image to execute deployments with Terraform](https://aka.ms/deployment-environments/container-image-terraform).
+The ADE extensibility model enables you to use your own custom container image to deploy your preferred choice of IaC framework. You can build and use your own container image to execute deployments using Terraform. Learn how to [Configure a container image to execute deployments with Terraform](https://aka.ms/deployment-environments/container-image-terraform).
 
 When creating environment definitions that use a custom image in their deployment, the runner property provides a link to a container registry where this container image is stored.
 
@@ -100,6 +98,15 @@ The runner property specifies the location of the image you want to use. When yo
 ```yaml
 runner: "{YOUR_REGISTRY}.azurecr.io/{YOUR_REPOSITORY}:{YOUR_TAG}"
 ```
+
+### Specify an ARM or Bicep image
+
+The ADE team provides sample ARM and Bicep templates accessible through the Microsoft Artifact registry (also known as the Microsoft Container Registry) to help you get started. When you perform deployments by using ARM or Bicep, you can use the standard image that is published on [Microsoft Artifact Registry](https://mcr.microsoft.com/) (previously known as the Microsoft Container Registry).
+
+To use the sample image published on the Microsoft Artifact Registry, use the respective identifiers `runner: ARM` for ARM and `runner:Bicep` for Bicep deployments.
+
+For more information how to build and utilize ARM or Bicep container images within environment definitions, see [Configure container image to execute deployments with ARM and Bicep](https://aka.ms/deployment-environments/container-image-bicep).
+
 
 ### Specify parameters for an environment definition
 
@@ -134,7 +141,7 @@ To learn more about the parameters and their data types that you can use in *env
 
 Developers can supply values for specific parameters for their environments through the [developer portal](https://devportal.microsoft.com).
 
-:::image type="content" source="media/configure-environment-definition/parameters.png" alt-text="Screenshot of the developer portal showing the parameters pane." lightbox="media/configure-environment-definition/parameters.png":::
+:::image type="content" source="media/configure-environment-definition/parameters.png" alt-text="Screenshot of the developer portal of the developer portal showing the parameters pane." lightbox="media/configure-environment-definition/parameters.png":::
 
 Developers can also supply values for specific parameters for their environments through the CLI.
 
