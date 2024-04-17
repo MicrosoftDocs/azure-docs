@@ -222,7 +222,7 @@ const camera = cameras[1];
 localVideoStream.switchSource(camera);
 ```
 
-If the specified video device is being used by another process, or if it is not enabled in the system:
+If the specified video device is being used by another process, or if it isn't enabled in the system:
 - While in a call, if your video is off and you start video using `call.startVideo()`, this method throws a `SourceUnavailableError` and `cameraStartFailed` user facing diagnostic is set to true.
 - A call to the `localVideoStream.switchSource()` method causes `cameraStartFailed` to be set to true.
 Our Call Diagnostics guide provides additional information on how to diagnose call related issues.
