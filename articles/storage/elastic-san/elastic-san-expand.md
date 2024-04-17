@@ -9,11 +9,11 @@ ms.author: rogarana
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
 
-# Increase the size of an Azure Elastic SAN
+# Resize an Azure Elastic SAN
 
 This article covers increasing or decreasing the size of an Elastic storage area network (SAN) and an individual volume.
 
-## Resize SAN size
+## Resize your SAN
 
 To increase the size of your volumes, increase the size of your Elastic SAN first. To decrease the size of your SAN, make sure your volumes aren't using the extra size, or decrease the size of your volumes first.
 
@@ -39,7 +39,7 @@ az elastic-san update -e $sanName -g $resourceGroupName --base-size-tib $newBase
 
 ---
 
-## Expand volume size
+## Resize a volume
 
 Once you've expanded the size of your SAN, you can either create an additional volume, or expand the size of an existing volume. To decrease the size of your SAN, make sure the extra size is unallocated, or decrease the size of your existing volumes first.
 
