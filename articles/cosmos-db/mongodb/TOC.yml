@@ -8,11 +8,11 @@
   href: cosmos-db-vs-mongodb-atlas.md
 - name: RU
   items:
-    - name: MongoDB RU documentation
+    - name: MongoDB (RU) documentation
       href: index.yml
     - name: Overview
       items:
-        - name: What is Azure Cosmos DB for MongoDB RU?
+        - name: What is Azure Cosmos DB for MongoDB (RU)?
           href: ru/introduction.md
         - name: API versions
           items:
