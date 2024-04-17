@@ -1,5 +1,25 @@
 {
-    "redirections": [          
+    "redirections": [  
+        {
+            "source_path_from_root": "/articles/defender-for-iot/device-builders/azure-rtos-security-module-api.md",
+            "redirect_url": "/azure/defender-for-iot/device-builders/threadx-security-module-api.md",
+            "redirect_document_id": false
+        }, 
+        {
+            "source_path_from_root": "/articles/defender-for-iot/device-builders/concept-rtos-security-alerts-recommendations.md",
+            "redirect_url": "/azure/defender-for-iot/device-builders/concept-threadx-security-alerts-recommendations.md",
+            "redirect_document_id": false
+        }, 
+        {
+            "source_path_from_root": "/articles/defender-for-iot/device-builders/concept-rtos-security-module.md",
+            "redirect_url": "/azure/defender-for-iot/device-builders/concept-threadx-security-module.md",
+            "redirect_document_id": false
+        },         
+        {
+            "source_path_from_root": "/articles/defender-for-iot/device-builders/how-to-rtos-security-module.md",
+            "redirect_url": "/azure/defender-for-iot/device-builders/how-to-threadx-security-module.md",
+            "redirect_document_id": false
+        },         
         {
             "source_path_from_root": "/articles/defender-for-iot/organizations/resources-manage-proprietary-protocols.md",
             "redirect_url": "/azure/defender-for-iot/organizations/how-to-manage-individual-sensors#manage-custom-plugins-legacy",
