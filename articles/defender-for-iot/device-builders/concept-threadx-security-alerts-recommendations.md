@@ -2,7 +2,7 @@
 title: Defender-IoT-micro-agent for Eclipse ThreadX built-in & customizable alerts and recommendations 
 description: Learn about security alerts and recommended remediation using the Azure IoT Defender-IoT-micro-agent - Eclipse ThreadX.
 ms.topic: conceptual
-ms.date: 17/04/2024
+ms.date: 04/17/2024
 ---
 
 # Defender-IoT-micro-agent for Eclipse ThreadX security alerts and recommendations (preview)
