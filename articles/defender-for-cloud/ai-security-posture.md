@@ -45,3 +45,5 @@ Early detection allows for tighter security measures and better compliance with 
 ## Related content
 
 - [Explore risks to generative AI applications](explore-ai-risk.md)
+- [Review security recommendations](review-security-recommendations.md)
+- [Identify and remediate attack paths](how-to-manage-attack-path.md)

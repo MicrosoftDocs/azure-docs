@@ -213,9 +213,6 @@
         href: critical-assets-protection.md
       - name: Agentless machine scanning
         href: concept-agentless-data-collection.md
-      - name: AI security posture management
-        displayName: AI, security, posture, management
-        href: ai-security-posture.md
       - name: Integrations
         items:  
         - name: ServiceNow
@@ -249,6 +246,11 @@
       items:
         - name: Agentless container posture in Defender CSPM
           href: concept-agentless-containers.md
+    - name: Improve your AI security posture management
+      items:
+      - name: AI security posture management
+        displayName: AI, security, posture, management
+        href: ai-security-posture.md
     - name: Security recommendations
       items:
         - name: Reference list of Azure recommendations
@@ -308,14 +310,14 @@
         - name: Integrate security solutions
           displayName: security, solutions, integrate, integrated, data sources
           href: partner-integration.md
-        - name: AI security posture
-          items:
-          - name: Discover generative AI applications
-            displayName: AI, workloads, models, applications, apps
-            href: identify-ai-workload-model.md
-          - name: Explore risks to generative AI applications
-            displayName: AI, risks, generative, applications, apps
-            href: explore-ai-risk.md
+    - name: AI security posture
+      items:
+        - name: Discover generative AI applications
+          displayName: AI, workloads, models, applications, apps
+          href: identify-ai-workload-model.md
+        - name: Explore risks to generative AI applications
+          displayName: AI, risks, generative, applications, apps
+          href: explore-ai-risk.md
     - name: Data-aware security posture
       items:
         - name: Enable data-aware security posture

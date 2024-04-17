@@ -2,15 +2,13 @@
 title: Explore risks to generative AI applications
 description: Learn how to discover potential security risks for your generative AI applications in Microsoft Defender for Cloud.
 ms.topic: how-to
-ms.date: 04/16/2024
+ms.date: 04/17/2024
 # customer intent: As a user, I want to learn how to identify potential security risks for my generative AI applications in Microsoft Defender for Cloud so that I can enhance their security.
 ---
 
 # Explore risks to generative AI applications
 
-Microsoft Defender for Cloud provides a comprehensive view of your cloud environment, including the generative artificial intelligence applications within your environment. By using the cloud security explorer, and the recommendations page, you can identify the generative AI applications that exist in your environment and assess their security posture.
-
-Defender for Cloud's AI security posture management capabilities allows you to identify vulnerabilities on your AI container images, Ai code repositories and provides Ai related recommendations.
+The Defender CSPM plan in Microsoft Defender for cloud helps you to improve the security posture of generative AI apps. This article explains how to explore, identify, and remediate security risk for those apps.
 
 ## Prerequisites
 
@@ -24,7 +22,7 @@ Defender for Cloud's AI security posture management capabilities allows you to i
 
 ## Identify container images with vulnerabilities
 
-If you have multiple generative AI container images within your environment, you can use the cloud security explorer to identify them.
+The cloud security explorer can be used to identify containers that are running generative AI container images with known vulnerabilities.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
@@ -52,7 +50,7 @@ If you have multiple generative AI container images within your environment, you
 
 ## Identify code repositories with vulnerabilities
 
-If you have multiple generative AI code repositories within your environment, you can use the cloud security explorer to identify them.
+The cloud security explorer can be used to identify generative AI code repositories, that provision Azure OpenAI, with known vulnerabilities. 
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
@@ -78,51 +76,8 @@ If you have multiple generative AI code repositories within your environment, yo
 
 1. [Remediate the recommendation](implement-security-recommendations.md#remediate-recommendations).
 
-## Identify generative AI recommendations
+## Related content
 
-Recommendations in Defender for Cloud help you identify and respond to security issues in your generative AI applications.
-
-1. Sign in to the [Azure portal](https://portal.azure.com/).
-
-1. Search for and select **Microsoft Defender for Cloud**.
-
-1. Select **Recommendations**.
-
-1. Select **Add filter**
-
-1. Select **Azure AI services**.
-
-    :::image type="content" source="media/explore-ai-risk/ai-service-filter.png" alt-text="Screenshot that shows the resource type filter value being set to Azure AI services." lightbox="media/explore-ai-risk/ai-service-filter.png":::
-
-1. Select **Apply**.
-
-1. [Remediate the recommendations](implement-security-recommendations.md).
-
-If no recommendations appear, it means that your generative AI applications are secure and no security issues are detected.
-
-## Identify generative AI attack paths
-
-If you have one or multiple generative AI attack paths within your environment, you can use the attack path analysis to identify them.
-
-1. Sign in to the [Azure portal](https://portal.azure.com/).
-
-1. Search for and select **Microsoft Defender for Cloud** > **Attack path analysis**.
-
-1. Select **Add filter**.
-
-1. Select **Target**.
-
-1. Select **Azure AI services**.
-
-    :::image type="content" source="media/explore-ai-risk/target-azure-ai.png" alt-text="Screenshot that shows the filter value being set to Azure AI services." lightbox="media/explore-ai-risk/target-azure-ai.png":::
-
-1. Select **Apply**.
-
-1. Select a result.
-
-1. [Remediate the attack path](how-to-manage-attack-path.md#remediate-attack-paths).
-
-## Next step
-
-> [!div class="nextstepaction"]
-> [Overview - AI threat protection](ai-threat-protection.md)
+- [Overview - AI threat protection](ai-threat-protection.md)
+- [Review security recommendations](review-security-recommendations.md)
+- [Identify and remediate attack paths](how-to-manage-attack-path.md)

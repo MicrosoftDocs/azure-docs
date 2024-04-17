@@ -35,3 +35,5 @@ Once you have filled out the registration form and been accepted into the previe
 ## Related content
 
 - [Onboard Defender for AI Workloads (Preview)](ai-onboarding.md)
+- [Security alerts and incidents](alerts-overview.md)
+- [Manage and respond to security alerts](managing-and-responding-alerts.md)
