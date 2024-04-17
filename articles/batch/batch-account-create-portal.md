@@ -150,10 +150,10 @@ To create a Batch account with authentication mode settings:
 1. Leave the remaining settings at default values, select **Review + create**, and then select **Create**.
 
 > [!TIP]
-> For enhanced security, it is advised to confine the authentication mode of the Batch account solely to Microsoft Entra ID. This measure mitigates the risk of shared key exposure and introduces additional RBAC controls. For more details, see [Batch security best practices](./security-best-practices.md#batch-account-authentication).
+> For enhanced security, it is advised to confine the authentication mode of the Batch account solely to **Microsoft Entra ID**. This measure mitigates the risk of shared key exposure and introduces additional RBAC controls. For more details, see [Batch security best practices](./security-best-practices.md#batch-account-authentication).
 
 > [!WARNING]
-> The Task Authentication Token will retire on September 30, 2024. Should you require this feature, it is recommended to use [User-assigned managed identity](./managed-identity-pools.md) in the Batch pool as an alternative. 
+> The **Task Authentication Token** will retire on September 30, 2024. Should you require this feature, it is recommended to use [User assigned managed identity](./managed-identity-pools.md) in the Batch pool as an alternative. 
 
 ### Grant access to the key vault manually
 
