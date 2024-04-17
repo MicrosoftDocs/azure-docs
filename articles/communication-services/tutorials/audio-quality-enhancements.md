@@ -5,7 +5,7 @@ description: Learn how to add audio effects in your calls using Azure Communicat
 author: sloanster
 
 ms.author: micahvivion
-ms.date: 04/15/2024
+ms.date: 04/16/2024
 ms.topic: tutorial
 ms.service: azure-communication-services
 ms.subservice: calling
@@ -16,7 +16,7 @@ The Azure Communication Services audio effects **noise suppression** abilities c
 
 [!INCLUDE [Public Preview](../includes/public-preview-include-document.md)]
 
-## Using audio effects packages **noise suppression**
+## Using audio effects - **noise suppression**
 ### Install the npm package
 Use the `npm install` command to install the Azure Communication Services Audio Effects SDK for JavaScript.
 > [!IMPORTANT]
@@ -69,8 +69,8 @@ The `activeEffects` property returns an object with the names of the current act
 const currentActiveEffects = audioEffectsFeatureApi.activeEffects;
 ```
 
-### How to turn on Noise Suppression on during an ongoing call
-There are situations where are user might start a call and not have **noise suppression** turned on, but their current environment might get noisy resulting in them needing to turn on **noise suppression**. To turn on **noise suppression**, you can use the `audioEffectsFeatureApi.startEffects` API.
+### How to turn on Noise Suppression during an ongoing call
+There are situations where a user might start a call and not have **noise suppression** turned on, but their current environment might get noisy resulting in them needing to turn on **noise suppression**. To turn on **noise suppression**, you can use the `audioEffectsFeatureApi.startEffects` API.
 ```js
 // Create the noise supression instance 
 const deepNoiseSuppression = new DeepNoiseSuppressionEffect();
