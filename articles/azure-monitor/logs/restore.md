@@ -129,16 +129,22 @@ You can:
 
 ## Pricing model
 
-The charge for restored logs is based on the volume of data you restore, and the duration for which the restore is active. Data restores are billed on each UTC-day that the restore is active. 
+The charge for restored logs is based on the volume of data you restore, and the duration for which the restore is active. Thus, the units of price are *per GB per day*. Data restores are billed on each UTC-day that the restore is active. 
 
 - Charges are subject to a minimum restored data volume of 2 TB per restore. If you restore less data, you will be charged for the 2 TB minimum each day until the [restore is dismissed](#dismiss-restored-data).
-- On the first and last days that the restore is active, charges are prorated based on the period that the restore is active. 
+- On the first and last days that the restore is active, you are only billed for the part of the day the restore was active. 
 
 - The minimum charge will be for a 12-hour restore duration, even if the restore is active for less than 12-hours.
 
-- For more information, see [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
+- For more information on your data restore price, see [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
 
-For example, if your table holds 500 GB a day and you restore 10 days data from that table, you'll be charged for 5 TB of restored data each day until you [dismiss the restored data](#dismiss-restored-data).
+Here are some examples:
+
+1. If your table holds 500 GB a day and you restore 10 days data from that table, your total restore size is 5 TB and you will be charged for this 5 TB of restored data each day until you [dismiss the restored data](#dismiss-restored-data). Your daily cost will be 5000 GB multiplied by your data restore price (see [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).) 
+
+1. If instead, only 700 GB of data is restored, each day that the restore is active will be billed for the 2 TB minimum restore level.  Your daily cost will be 2000 GB multiplied by your data restore price.
+
+1. If a data restore is only kept active for 1 hour, it will be billed for 12-hour minimum. The cost for this data restore will be 2000 GB multiplied by your data restore price multiplied by 0.5 days. 
 
 > [!NOTE]
 > There is no charge for querying restored logs since they are Analytics logs. 
@@ -146,5 +152,6 @@ For example, if your table holds 500 GB a day and you restore 10 days data from 
 ## Next steps
 
 - [Learn more about data retention and archiving data.](data-retention-archive.md)
+
 - [Learn about Search jobs, which is another method for retrieving archived data.](search-jobs.md)
 
