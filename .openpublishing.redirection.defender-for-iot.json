@@ -1,6 +1,11 @@
 {
     "redirections": [  
         {
+            "source_path_from_root": "/articles/defender-for-iot/device-builders/iot-security-azure-rtos.md",
+            "redirect_url": "/azure/defender-for-iot/device-builders/iot-security-threadx.md",
+            "redirect_document_id": false
+        }, 
+        {
             "source_path_from_root": "/articles/defender-for-iot/device-builders/azure-rtos-security-module-api.md",
             "redirect_url": "/azure/defender-for-iot/device-builders/threadx-security-module-api.md",
             "redirect_document_id": false
