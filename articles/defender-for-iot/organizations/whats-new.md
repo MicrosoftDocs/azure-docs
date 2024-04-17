@@ -28,7 +28,7 @@ You can set up single sign-on (SSO) for the Defender for IoT sensor console usin
 
 Using Entra ID simplifies the onboarding and offboarding processes, reduces administrative overhead, and ensures consistent access controls across the organization.
 
-:::image type="content" source="media/set-up-sso/ss-sign-in.png" alt-text="Screenshot of the sensor console login screen with SSO":::
+:::image type="content" source="media/set-up-sso/sso-sign-in.png" alt-text="Screenshot of the sensor console login screen with SSO":::
 
 For more information, see [Set up single sign-on on for the sensor console](set-up-sso.md).
 

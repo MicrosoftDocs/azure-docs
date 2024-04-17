@@ -103,7 +103,7 @@ To test signing in with SSO:
 ​
 1. Open [Defender for IoT](https://portal.azure.com/#view/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/%7E/Getting_started) on the Azure portal, and select **SSO Sign-in**.
 
-    :::image type="content" source="media/set-up-sso/ss-sign-in.png" alt-text="Screenshot of the sensor console login screen with SSO":::
+    :::image type="content" source="media/set-up-sso/sso-sign-in.png" alt-text="Screenshot of the sensor console login screen with SSO":::
 
 1. For the first sign in, in the **Sign in** page, type your personal credentials (your work email and password). 
 
