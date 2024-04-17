@@ -27,13 +27,13 @@ Sign into the OT sensors to [define sensor users](manage-users-sensor.md), and s
 
 For more information, see [On-premises users and roles for OT monitoring with Defender for IoT](roles-on-premises.md).
 
-### Entra ID support on sensors and on-premises management consoles
+### Microsoft Entra ID support on sensors and on-premises management consoles
 
-You might want to configure an integration between your sensor and Entra ID to allow Entra ID users to sign in to your sensor, or to use Entra ID groups, with collective permissions assigned to all users in the group.
+You might want to configure an integration between your sensor and Microsoft Entra ID to allow Microsoft Entra ID users to sign in to your sensor, or to use Microsoft Entra ID groups, with collective permissions assigned to all users in the group.
 
-For example, use Entra ID when you have a large number of users that you want to assign **Read Only** access to, and you want to manage those permissions at the group level.
+For example, use Microsoft Entra ID when you have a large number of users that you want to assign **Read Only** access to, and you want to manage those permissions at the group level.
 
-Defender for IoT's integration with Entra ID supports LDAP v3 and the following types of LDAP-based authentication:
+Defender for IoT's integration with Microsoft Entra ID supports LDAP v3 and the following types of LDAP-based authentication:
 
 - **Full authentication**: User details are retrieved from the LDAP server. Examples are the first name, last name, email, and user permissions.
 
@@ -46,7 +46,7 @@ For more information, see:
 
 ### Single sign-on for login to the sensor console
 
-You can set up single sign-on (SSO) for the Defender for IoT sensor console using Entra ID. With SSO, your organization's users can simply sign into the sensor console, and don't need multiple login credentials across different sensors and sites. For more information, see [Set up single sign-on for the sensor console](set-up-sso.md).
+You can set up single sign-on (SSO) for the Defender for IoT sensor console using Microsoft Entra ID. With SSO, your organization's users can simply sign into the sensor console, and don't need multiple login credentials across different sensors and sites. For more information, see [Set up single sign-on for the sensor console](set-up-sso.md).
 
 ### On-premises global access groups
 
