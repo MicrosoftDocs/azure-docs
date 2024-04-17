@@ -2,7 +2,7 @@
 title: Create a Batch account in the Azure portal
 description: Learn how to use the Azure portal to create and manage an Azure Batch account for running large-scale parallel workloads in the cloud.
 ms.topic: how-to
-ms.date: 04/04/2024
+ms.date: 04/16/2024
 ms.custom: subject-rbac-steps, linux-related-content
 ---
 
@@ -137,6 +137,20 @@ To create a Batch account in user subscription mode:
 1. You must then select **Select a key vault** to select an existing key vault or create a new one.
 1. After you select the key vault, select the checkbox next to **I agree to grant Azure Batch access to this key vault**.
 1. Select **Review + create**, and then select **Create** to create the Batch account.
+
+### Create a Batch account with Authentication Mode
+
+To create a Batch account with authentication mode settings:
+
+1. Follow the preceding instructions to [create a Batch account](#create-a-batch-account), but select **Batch Service** for **Authentication mode** on the **Advanced** tab of the **New Batch account** page.
+1. You must then select **Authentication mode** to define which authentication mode that a Batch account can use by authentication mode property key.
+1. You can select either of the 3 **"Microsoft Entra ID**, **Shared Key**, **Task Authentication Token** authentication mode for the Batch account to support or leave the settings at default values. 
+
+   :::image type="content" source="media/batch-account-create-portal/authentication_mode_property.png" alt-text="Screenshot of the Authentication Mode options when creating a Batch account.":::
+1. Leave the remaining settings at default values, select **Review + create**, and then select **Create**.
+
+> [!TIP]
+> Batch support multiple authentication modes, and offers the built-in policies wherein users can enforce AAD authentication for Batch accounts when being created or update **AuthenticationMode** after a Batch account is created.    
 
 ### Grant access to the key vault manually
 
