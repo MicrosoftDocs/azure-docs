@@ -11,8 +11,6 @@ ms.custom: template-concept
 
 # Access Control List in Azure Operator Nexus Network Fabric
 
-## Overview
-
 Access Control Lists (ACLs) are a set of rules that regulate inbound and outbound packet flow within a network. Azure's Nexus Network Fabric service offers an API-based mechanism to configure ACLs for network-to-network interconnects and layer 3 isolation domain external networks. These APIs enable the specification of traffic classes and performance actions based on defined rules and actions within the ACLs. ACL rules define the data against which packet contents are compared for filtering purposes.
 
 ## Objective
