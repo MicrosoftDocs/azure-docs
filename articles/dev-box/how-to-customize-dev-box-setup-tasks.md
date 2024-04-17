@@ -27,7 +27,8 @@ You can implement customizations in stages, building from a simple but functiona
 1. [Create a customized dev box by using an example configuration file](#create-a-customized-dev-box-by-using-an-example-configuration-file)
 1. [Write a configuration file](#write-a-configuration-file) 
 1. [Share a configuration file from a code repository](#share-a-configuration-file-from-a-code-repository) 
-1. [Define new tasks in a catalog](#define-new-tasks-in-a-catalog) 
+1. [Define new tasks in a catalog](#define-new-tasks-in-a-catalog)
+1. [Use secrets from an Azure Key Vault](#use-secrets-from-an-azure-key-vault) 
 
 > [!IMPORTANT]
 > Customizations in Microsoft Dev Box are currently in PREVIEW.
@@ -204,16 +205,32 @@ To configure your Key Vault secrets for use in your yaml configurations, follow 
 
 You can reference the secret in your yaml configuration in this format, using the git-clone task as an example:
 
-:::image type="content" source="media/how-to-customize-dev-box-setup-tasks/customizations-reference-pat-in-yaml.png" alt-text="screenshot":::
+```yml
+$schema: "1.0"
+tasks:
+   name: git-clone
+   description: Clone this repository into C:\Workspaces
+      parameters:
+         repositoryUrl: https://myazdo.visualstudio.com/MyProject/_git/myrepo
+         directory: C:\Workspaces
+         pat: '{{KEY_VAULT_SECRET_URI}}'
+```
 
 If you wish to clone a private Azure Repos repository, you don’t need to configure a secret in Key Vault. Instead, you can use `{{ado}}`, or `{{ado://your-ado-organization-name}}` as a parameter. This fetches an access token on your behalf when creating a dev box, which has read-only permission to your Azure Repos repository. The git-clone task in the quickstart catalog uses the access token to clone your repository. Here's an example:
 
-:::image type="content" source="media/how-to-customize-dev-box-setup-tasks/customizations-reference-private-repo-in-yaml.png" alt-text="screenshot":::
+```yml
+tasks:
+   name: git-clone
+   description: Clone this repository into C:\Workspaces
+      parameters:
+         repositoryUrl: https://myazdo.visualstudio.com/MyProject/_git/myrepo
+         directory: C:\Workspaces
+         pat: '{{ado://YOUR_ADO_ORG}}'
+```
 
 If your organization's policies require you to keep your Key Vault private from the internet, you can set your Key Vault to allow trusted Microsoft services to bypass your firewall rule. 
 
-:::image type="content" source="media/how-to-customize-dev-box-setup-tasks/customizations-configure-firewall.png" alt-text="screenshot":::
-
+:::image type="content" source="media/how-to-customize-dev-box-setup-tasks/customizations-configure-firewall.png" alt-text="Screenshot showing Azure firewall configuration with Allow trusted Microsoft services to bypass this firewall selected." lightbox="media/how-to-customize-dev-box-setup-tasks/customizations-configure-firewall.png":::
 
 ## Related content
 
