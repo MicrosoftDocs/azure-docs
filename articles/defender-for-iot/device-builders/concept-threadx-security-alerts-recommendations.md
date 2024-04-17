@@ -11,7 +11,7 @@ Defender-IoT-micro-agent for Eclipse ThreadX continuously analyzes your IoT solu
 
 A Defender-IoT-micro-agent for Eclipse ThreadX alert acts as an indicator of potential compromise, and should be investigated and remediated. A Defender-IoT-micro-agent for Eclipse ThreadX recommendation identifies weak security posture to be remediated and updated. 
 
-In this article, you'll find a list of built-in alerts and recommendations that are triggered based on the default ranges, and customizable with your own values, based on expected or baseline behavior. 
+In this article, you find a list of built-in alerts and recommendations that are triggered based on the default ranges, and customizable with your own values, based on expected or baseline behavior. 
 
 For more information on how alert customization works in the Defender for IoT service, see [customizable alerts](concept-customizable-security-alerts.md). The specific alerts and recommendations available for customization when using the Defender-IoT-micro-agent for Eclipse ThreadX are detailed in the following tables. 
 
@@ -44,8 +44,8 @@ For more information on how alert customization works in the Defender for IoT se
 
 |Device related activity |Alert name  |
 |---------|---------|
-|Active connections|Number of active connections is not in the allowed range|
-|Cloud to device messages in **MQTT** protocol|Number of cloud to device messages in **MQTT** protocol is not in the allowed range|
+|Active connections|Number of active connections isn't in the allowed range|
+|Cloud to device messages in **MQTT** protocol|Number of cloud to device messages in **MQTT** protocol isn't in the allowed range|
 |Outbound connection| Outbound connection to an IP that isn't allowed|
 
 ### Hub related customizable alerts 
