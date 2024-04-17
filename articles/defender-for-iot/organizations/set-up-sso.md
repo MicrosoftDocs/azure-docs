@@ -38,7 +38,7 @@ Before you begin:
 1. In the **Register an application** page: 
     - Under **Name**, type a name for your application.
     - Under **Supported account types**, select **Accounts in this organizational directory only (Microsoft only - single tenant)**.
-    - Under **Redirect URI**, add an IP or hostname for the first sensor on which you want to enable SSO. You continue to add URIs for the other sensors in the next step, [Add your sensor URIs](#add-your-sensor-uris​​). 
+    - Under **Redirect URI**, add an IP or hostname for the first sensor on which you want to enable SSO. You continue to add URIs for the other sensors in the next step, [Add your sensor URIs](#add-your-sensor-uris).
     
     > [!NOTE]
     > Adding the URI at this stage is required for SSO to work. 
@@ -48,7 +48,7 @@ Before you begin:
 1. Select **Register**.
     Entra ID displays your newly registered application.
 
-## Add your sensor URIs​
+## Add your sensor URIs
 ​
 1. In your new application, select **Authentication​**.
 1. Under **Redirect URIs**, the URI for the first sensor, added in the [previous step](#create-application-id-on-entra-id), is displayed under **Redirect URIs**. To add the rest of the URIs: 
@@ -79,7 +79,7 @@ Before you begin:
         :::image type="content" source="media/set-up-sso/sensor-setting-sso.png" alt-text="Screenshot of creating a new Single sign-on sensor setting in Defender for IoT.":::
 
 1. In the **Settings** tab:
-    1. Next to **Application name**, select the ID of the [application you created in Entra ID](#create-application-id-on-azure-active-directory).
+    1. Next to **Application name**, select the ID of the [application you created in Entra ID](#create-application-id-on-entra-id).
     1. Under **Permissions management**, assign the **Admin**, **Security analyst**, and **Read only​** permissions to relevant user groups. You can select multiple user groups​.
     
         :::image type="content" source="media/set-up-sso/permissions-management.png" alt-text="Screenshot of setting up permissions in the Defender for IoT sensor settings.":::    
@@ -103,7 +103,7 @@ To test signing in with SSO:
 ​
 1. Open [Defender for IoT](https://portal.azure.com/#view/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/%7E/Getting_started) on the Azure portal, and select **SSO Sign-in**.
 
-    TBD - SCREENSHOT
+    :::image type="content" source="media/set-up-sso/ss-sign-in.png" alt-text="Screenshot of the sensor console login screen with SSO":::
 
 1. For the first sign in, in the **Sign in** page, type your personal credentials (your work email and password). 
 
