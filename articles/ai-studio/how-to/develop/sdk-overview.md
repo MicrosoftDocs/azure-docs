@@ -19,13 +19,13 @@ Microsoft offers a family of packages that you can use for generative AI applica
 
 This table provides an overview of the Azure AI SDKs and REST APIs. The table also includes some packages other than Azure AI SDKs that you can use to build AI applications.
 
-| SDK name | Description | Package name |
-|------|-----------|-------------|--------------|
-| [Azure Machine Learning Python SDK](/python/api/overview/azure/ai-ml-readme) | Use the Azure Machine Learning Python SDK to create, manage, and deploy machine learning models. | azureml-sdk |
-| [Azure Machine Learning REST API](/rest/api/azureml) | Use the Azure Machine Learning REST API to create, manage, and deploy machine learning models. | azureml-rest-api |
-| [Azure AI services SDKs](../../../ai-services/reference/sdk-package-resources.md?context=/azure/ai-studio/context/context) | Use the Azure AI services SDKs to create, manage, and deploy AI models. | azure-ai-services |
-| [Azure AI services REST APIs](../../../ai-services/reference/rest-api-resources.md?context=/azure/ai-studio/context/context) | Use the Azure AI services REST APIs to create, manage, and deploy AI models. | azure-ai-services-rest-api |
-| [Prompt flow Python SDK](https://microsoft.github.io/promptflow/reference/index.html#) | Use the Prompt flow Python SDK to create, manage, and deploy prompt flows. | promptflow-sdk |
+| SDK name | Description | 
+|------|-----------|-------------|
+| [Azure Machine Learning Python SDK](/python/api/overview/azure/ai-ml-readme) | Use the Azure Machine Learning Python SDK to create, manage, and deploy machine learning models. | 
+| [Azure Machine Learning REST API](/rest/api/azureml) | Use the Azure Machine Learning REST API to create, manage, and deploy machine learning models. | 
+| [Azure AI services SDKs](../../../ai-services/reference/sdk-package-resources.md?context=/azure/ai-studio/context/context) | Use the Azure AI services SDKs to create, manage, and deploy AI models. | 
+| [Azure AI services REST APIs](../../../ai-services/reference/rest-api-resources.md?context=/azure/ai-studio/context/context) | Use the Azure AI services REST APIs to create, manage, and deploy AI models. | 
+| [Prompt flow Python SDK](https://microsoft.github.io/promptflow/reference/index.html#) | Use the Prompt flow Python SDK to create, manage, and deploy prompt flows. | 
 
 ## Next steps
 
