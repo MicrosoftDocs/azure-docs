@@ -3,7 +3,7 @@ title: Hive dialect in Apache Flink® clusters on HDInsight on AKS
 description: how to use Hive dialect in Apache Flink® clusters on HDInsight on AKS
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 10/27/2023
+ms.date: 04/17/2024
 ---
 
 # Hive dialect in Apache Flink® clusters on HDInsight on AKS
@@ -31,15 +31,15 @@ The reason for this issue arises due to an open [Hive Jira](https://issues.apach
      ```command
      rm /opt/flink-webssh/lib/flink-sql-connector-hive*jar
      ```
-  1. Download the below jar in `webssh` pod and add it under the /opt/flink-webssh/lib wget https://aka.ms/hdiflinkhivejdk11jar.
+  1. Download the following jar in `webssh` pod and add it under the /opt/flink-webssh/lib wget https://aka.ms/hdiflinkhivejdk11jar.
     (The above hive jar has the fix [https://issues.apache.org/jira/browse/HIVE-27508](https://issues.apache.org/jira/browse/HIVE-27508))
 
-  1. ```
-     mv $FLINK_HOME/opt/flink-table-planner_2.12-1.16.0-0.0.18.jar $FLINK_HOME/lib/flink-table-planner_2.12-1.16.0-0.0.18.jar
+ 1. ```
+     mv /opt/flink-webssh/lib/flink-table-planner-loader-1.17.0-*.*.*.*.jar /opt/flink-webssh/opt/
      ```
 
   1. ```
-     mv $FLINK_HOME/lib/flink-table-planner-loader-1.16.0-0.0.18.jar $FLINK_HOME/opt/flink-table-planner-loader-1.16.0-0.0.18.jar
+     mv /opt/flink-webssh/opt/flink-table-planner_2.12-1.17.0-*.*.*.*.jar /opt/flink-webssh/lib/
      ```
 
   1. Add the following keys in the `flink` configuration management under core-site.xml section:
