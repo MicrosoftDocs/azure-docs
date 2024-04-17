@@ -138,7 +138,7 @@ To create a Batch account in user subscription mode:
 1. After you select the key vault, select the checkbox next to **I agree to grant Azure Batch access to this key vault**.
 1. Select **Review + create**, and then select **Create** to create the Batch account.
 
-### Create a Batch account with Authentication Mode
+### Create a Batch account with authentication mode
 
 To create a Batch account with authentication mode settings:
 
@@ -150,7 +150,7 @@ To create a Batch account with authentication mode settings:
 1. Leave the remaining settings at default values, select **Review + create**, and then select **Create**.
 
 > [!TIP]
-> Batch support multiple authentication modes, and offers the built-in policies wherein users can enforce AAD authentication for Batch accounts when being created or update **Authentication mode** property after a Batch account is created.    
+> Batch support multiple authentication modes, and offers the built-in policies wherein users can enforce Microoft Entra ID authentication for Batch accounts when being created or update **Authentication mode** property after a Batch account is created.    
 
 ### Grant access to the key vault manually
 
