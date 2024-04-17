@@ -116,7 +116,7 @@ To update the application image that appears on the application tile on the **My
 
 ### Create the device templates
 
-Device templates let you configure and manage devices. You can build a custom template, import an existing template file, or import a template from the device catalog. After you create and customize a device template, use it to connect real devices to your application.
+Device templates let you configure and manage devices. You can build a custom template, import an existing template file, or import a template from the list of featured device templates. After you create and customize a device template, use it to connect real devices to your application.
 
 Optionally, you can use a device template to generate simulated devices for testing.
 
@@ -128,7 +128,7 @@ In this section, you add a device template for RuuviTag sensors to your applicat
 
 1. Select **New** to create a new device template.
 
-1. Search for and then select the **RuuviTag Multisensor** device template in the device catalog.
+1. Search for and then select the **RuuviTag Multisensor** device template in the list of featured device templates.
 
 1. Select **Next: Review**.
 
