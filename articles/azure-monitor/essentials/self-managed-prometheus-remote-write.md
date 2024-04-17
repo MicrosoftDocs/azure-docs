@@ -70,16 +70,18 @@ Administrator permissions for the cluster or resource are required to complete t
 
 ## Set up authentication for remote-write
 
-Depending on the environment where Prometheus is running, you can use one of the following authentication methods to configure remote-write to send data to Azure Monitor workspace.
+Depending on the environment where Prometheus is running, you can configure remote-write to use user-assigned managed identity or Microsoft Entra ID application authentication to send data to Azure Monitor workspace.
 
-### [Remote-write with user-assigned managed identity](#tab/managed-identity)
+Use the Azure portal or CLI to create a user-assigned managed identity or Microsoft Entra ID application.
+
+### [Remote-write using user-assigned managed identity](#tab/managed-identity)
+#### Remote-write using user-assigned managed identity authentication
 
 To configure a user-assigned managed identity for remote-write to Azure Monitor workspace, complete the following steps.
 
 #### Create a user-assigned managed identity
 
-Create a user-managed identity to use in your remote-write configuration
-Use the following CLI, or to use the portal, see [Manage user-assigned managed identities](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities#create-a-user-assigned-managed-identity). 
+To create a user-managed identity to use in your remote-write configuration, see [Manage user-assigned managed identities](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities#create-a-user-assigned-managed-identity). 
 
 Note the value of the `clientId` of the managed identity that you created. This ID is used in the Prometheus remote write configuration. 
 
@@ -122,13 +124,14 @@ Assign the `Monitoring Metrics Publisher` role on the workspace's data collectio
 
 
 ### [Microsoft Entra ID application](#tab/entra-application)
+#### Remote-write using Microsoft Entra ID application authentication.
 
 To configure remote-write to Azure Monitor workspace using a Microsoft Entra ID application, create an Entra application and assign it the `Monitoring Metrics Publisher` role on the workspace's data collection rule to the application. 
 
 > [!NOTE]
 > Your Azure Entra application uses a client secret or password.  Client secrets have an expiration date. Make sure to create a new client secret before it expires so you don't lose authenticated access
 
-#### Create a Microsoft Entra ID application using the Azure portal
+#### Create a Microsoft Entra ID application
 
 To create a Microsoft Entra ID application using the portal, see  [Create a Microsoft Entra ID application and service principal that can access resources](/entra/identity-platform/howto-create-service-principal-portal#register-an-application-with-microsoft-entra-id-and-create-a-service-principal).
 
@@ -185,15 +188,18 @@ Note the value of the `clientId` of the managed identity that you created. This 
 1. Create a user-assigned managed identity using the following CLI command:
 
     ```azurecli
-    az account set --subscription <subscription id>
-    az identity create --name <idnetity name> --resource-group <resource group name>
+    az account set \
+--subscription <subscription id>
+    az identity create \
+--name <idnetity name> \
+--resource-group <resource group name>
     ```
   
     The following is an example of the output displayed:
 
     ```azurecli
     {
-      "clientId": "abcdef01-a123-b456-d789-0123abc345de","
+      "clientId": "abcdef01-a123-b456-d789-0123abc345de",
       "id": "/subscriptions/12345678-abcd-1234-abcd-1234567890ab/resourcegroups/rg-001/providers/Microsoft.  ManagedIdentity/userAssignedIdentities/PromRemoteWriteIdentity",
       "location": "eastus",
       "name": "PromRemoteWriteIdentity",
@@ -217,7 +223,10 @@ Note the value of the `clientId` of the managed identity that you created. This 
     For example, 
     
     ```azurecli
-      az role assignment create --role "Monitoring Metrics Publisher" --assignee abcdef01-a123-b456-d789-0123abc345de --scope /subscriptions/12345678-abcd-1234-abcd-1234567890ab/resourceGroups/MA_amw-001_eastus_managed/providers/Microsoft.Insights/dataCollectionRules/amw-001
+    az role assignment create \
+    --role "Monitoring Metrics Publisher" \
+    --assignee abcdef01-a123-b456-d789-0123abc345de \
+    --scope /subscriptions/12345678-abcd-1234-abcd-1234567890ab/resourceGroups/MA_amw-001_eastus_managed/providers/Microsoft.Insights/dataCollectionRules/amw-001
     ```
 
 1. Assign the managed identity to a Virtual Machine or Virtual Machine Scale Set.
@@ -237,11 +246,15 @@ Note the value of the `clientId` of the managed identity that you created. This 
     -g <resource group name> \
     -n <VSS name> \
     --identities <user assigned identity resource ID>
-    ``
+    ```
 
-    For example:
+    For example, for a Virtual Machine Scale Set:
+
     ```azurecli
-       az vm identity assign -g rg-prom-on-vm -n win-for-prom --identities /subscriptions/12345678-abcd-1234-abcd-1234567890ab/resourcegroups/rg-001/providers/Microsoft.  ManagedIdentity/userAssignedIdentities/PromRemoteWriteIdentity
+    az vm identity assign \
+    -g rg-prom-on-vm \
+    -n win-vm-prom \
+    --identities /subscriptions/12345678-abcd-1234-abcd-1234567890ab/resourcegroups/rg-001/providers/Microsoft.  ManagedIdentity/userAssignedIdentities/PromRemoteWriteIdentity
     ```
 
 #### Create a Microsoft Entra ID application
@@ -254,7 +267,10 @@ az ad sp create-for-rbac --name <application name> \
 ```    
 For example,
 ```azurecli
-az ad sp create-for-rbac --name PromRemoteWriteApp --role "Monitoring Metrics Publisher" --scopes /ubscriptions/    abcdef00-1234-5678-abcd-1234567890ab/resourceGroups/MA_amw-001_eastus_managed/providers/Microsoft.nsights/    dataCollectionRules/amw-001
+az ad sp create-for-rbac \
+--name PromRemoteWriteApp \
+--role "Monitoring Metrics Publisher" \
+--scopes /ubscriptions/abcdef00-1234-5678-abcd-1234567890ab/resourceGroups/MA_amw-001_eastus_managed/providers/Microsoft.nsights/dataCollectionRules/amw-001
 ```    
 The following is an example of the output displayed:    
 ```azurecli
@@ -313,12 +329,13 @@ To find your client for managed identity authentication in the portal, go to the
 To find the client ID for the Microsoft Entra ID application, use the following CLI or see the first step in the [Create an Microsoft Entra ID application using the Azure portal](#create-an-microsoft-entra-id-application-using-the-azure-portal) section.
 
 ```azurecli
-$ az ad app list --display-name < application name.>
+$ az ad app list --display-name < application name>
 ```
 For more information, see [az ad app list](/cli/azure/ad/app?view=azure-cli-latest#az-ad-app-list).
 
 
-After editing the configuration file, restart Prometheus to apply the changes.
+>[!NOTE]
+> After editing the configuration file, restart Prometheus for the changes to apply.
 
 
 ## Verify if the remote-write data is flowing
@@ -338,7 +355,9 @@ To use the Prometheus explorer, from to your Azure Monitor workspace in the Azur
 Use PromQL queries in Grafana and verify that the results return expected data. See [getting Grafana setup with Managed Prometheus](../essentials/prometheus-grafana.md) to configure Grafana.
 
 
-## Troubleshoot remote write
+
+
+## Troubleshoot remote write <<<< Move to separate article and link from all related articles>>>>
 
 It takes about 30 minutes for the assignment of the role to take effect. 
 During this time you may see an HTTP 403 error in the Prometheus log. Check that you have configured the managed identity or Microsoft Entra ID application correctly, and if so, wait 30 minutes for the role assignment to take effect.
