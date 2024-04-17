@@ -51,7 +51,7 @@ Before you begin, make sure that:
 
 ## Order Data Box Disk
 
-You can order Data Box Disks using either the Azure Portal or Azure CLI.
+You can order Data Box Disks using either the Azure portal or Azure CLI.
 
 ### [Portal](#tab/azure-portal)
 
