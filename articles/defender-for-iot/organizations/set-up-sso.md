@@ -37,7 +37,9 @@ Before you begin:
 1. In the **Register an application** page: 
     - Under **Name**, type a name for your application.
     - Under **Supported account types**, select **Accounts in this organizational directory only (Microsoft only - single tenant)**.
-    - Under **Redirect URI (optional)**, select **Single-page application (SPA)** and type the IP or hostname address used to connect to the sensor.
+    
+    > [!TIP]
+    > You don't need to add a URI under **Redirect URI (optional)**. Add the full list of IPs or addresses when you [add the sensor URIs](#add-your-sensors-uris​).
 
     :::image type="content" source="media/set-up-sso/register-application.png" alt-text="Screenshot of registering an application on Entra ID." lightbox="media/set-up-sso/register-application.png":::
 
