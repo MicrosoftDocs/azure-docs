@@ -362,7 +362,7 @@ If you select **Use customized environment**, you first need to rebuild the envi
 
 ## Relationship between runtime, compute resource, flow and user
 
-- One single user can have multiple compute resources (serverless or compute instance). Base on customer different need, we allow single user to have multiple compute resources. For example, one user can have multiple compute resources with different VM size. You can find 
+- One single user can have multiple compute resources (serverless or compute instance). Base on customer different need, we allow single user to have multiple compute resources. For example, one user can have multiple compute resources with different VM size. 
 - One compute resource can only be used by single user. Compute resource is model as private dev box of single user, so we didn't allow multiple user share same compute resources. In AI studio case, different user can join different project and data and other asset need to be isolated, so we didn't allow multiple user share same compute resources.
 - One compute resource can host multiple runtimes. Runtime is container running on underlying compute resource, as in common case, prompt flow authoring didn't need too many compute resources, we allow single compute resource to host multiple runtimes from same user. 
 - One runtime only belongs to single compute resource in same time. But you can delete or stop runtime and reallocate it to other compute resource.
