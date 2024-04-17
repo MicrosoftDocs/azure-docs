@@ -27,7 +27,7 @@ The Advisor **Overview** page opens.
 > [!NOTE]
 > Different types of cost savings recommendations are generated using overlapping datasets (for example, VM rightsizing/shutdown, VM reservations and savings plan recommendations all consider on-demand VM usage). As a result, resource changes (e.g., VM shutdowns) or reservation/savings plan purchases will impact on-demand usage, and the resulting recommendations and associated savings forecast. 
 
-## Understanding cost savings
+## Understand cost savings
 
 Azure Advisor provides recommendations for resizing/shutting down underutilized resources, purchasing compute reserved instances, and savings plans for compute.
 
