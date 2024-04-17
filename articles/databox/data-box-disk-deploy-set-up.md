@@ -73,7 +73,7 @@ Before you begin, make sure that:
 ## Connect disks
 
 > [!IMPORTANT]
-> Azure Data Box disk with hardware encryption is only supported and tested for Linux-based operating systems. To access disks using a Windows OS-based device, download the [Data Box Disk toolset](https://aka.ms/databoxdisktoolswin) and run the **Data Box Disk Unlock tool**.
+> Azure Data Box disk with hardware encryption is only supported and tested for Linux-based operating systems. To access disks using a Windows OS-based device, download the [Data Box Disk toolset](https://aka.ms/databoxdisktoolswin) and run the **Data Box Disk SED Unlock tool**.
 
 ### [Software encryption](#tab/bitlocker)
 
@@ -83,7 +83,7 @@ Use the included USB cable to connect the disk to a Windows or Linux machine run
 
 ### [Hardware encryption](#tab/sed)
 
-Only use the included SATA 3 cable to connect the disk to a Linux machine running a supported version. For more information on supported OS versions, go to [Azure Data Box Disk system requirements](data-box-disk-system-requirements.md). 
+Connect the disks to an available SATA port on a Linux-based host running a supported version. For more information on supported OS versions, go to [Azure Data Box Disk system requirements](data-box-disk-system-requirements.md). 
 
 :::image type="content" source="media/data-box-disk-deploy-set-up/data-box-disk-connect-unlock-sata.png" alt-text="Screenshot showing the data box disk connector for hardware encrypted drives.":::
 
@@ -172,7 +172,7 @@ If you run into any issues while unlocking the disks, see how to [troubleshoot u
 
 Perform the following steps to connect and unlock hardware encrypted Data Box disks on a Linux-based machine.
 
-1.	The Trusted Platofrm Module (TPM) must be enabled on Linux systems for SATA-based drives. To enable TPM, set `libata.allow_tpm` to `1` by editing the GRUB config as shown in the following distro-specific examples. More details can be found on the Drive-Trust-Alliance public Wiki located at [https://github.com/Drive-Trust-Alliance/sedutil/wiki](https://github.com/Drive-Trust-Alliance/sedutil/wiki).
+1.	The Trusted Platform Module (TPM) must be enabled on Linux systems for SATA-based drives. To enable TPM, set `libata.allow_tpm` to `1` by editing the GRUB config as shown in the following distro-specific examples. More details can be found on the Drive-Trust-Alliance public Wiki located at [https://github.com/Drive-Trust-Alliance/sedutil/wiki](https://github.com/Drive-Trust-Alliance/sedutil/wiki).
 
     > [!WARNING]
     > Enabling the TPM on a device might require a reboot.
@@ -181,41 +181,44 @@ Perform the following steps to connect and unlock hardware encrypted Data Box di
 
     ### [CentOS](#tab/centos)
 
-    Use the following sample script to enable the TPM for CentOS.
+    Use the following commands to enable the TPM for CentOS.
 
-    ```bash
-    sudo nano /etc/default/grub
+    `sudo nano /etc/default/grub`
 
-    #Manually add "libata.allow_tpm=1" to the grub command line argument
-    GRUB_CMDLINE_LINUX_DEFAULT="quiet splash libata.allow_tpm=1" 
+    Next. manually add "libata.allow_tpm=1" to the grub command line argument.
 
-    #BIOS based systems: 
-    grub2-mkconfig -o /boot/grub2/grub.cfg 
+    `GRUB_CMDLINE_LINUX_DEFAULT="quiet splash libata.allow_tpm=1"` 
 
-    #UEFI based systems: 
-    grub2-mkconfig -o /boot/efi/EFI/centos/grub.cfg
+    For BIOS-based systems: 
+    `grub2-mkconfig -o /boot/grub2/grub.cfg`
 
-    reboot 
+    For UEFI-based systems: 
+    `grub2-mkconfig -o /boot/efi/EFI/centos/grub.cfg`
 
-    #Validate that the TPM setting is set properly by checking the boot image
-    cat /proc/cmdline
-    ```
+    `reboot`
+
+    Finally, validate that the TPM setting is set properly by checking the boot image.
+    `cat /proc/cmdline`
 
     ### [Ubuntu/Debian](#tab/debian)
 
-    Use the following sample script to enable the TPM for Ubuntu/Debian.
+    Use the following commands to enable the TPM for Ubuntu/Debian.
 
-    ```bash
-    sudo nano /etc/default/grub
+    `sudo nano /etc/default/grub`
 
-    #Manually add "libata.allow_tpm=1" to the grub command line argument
-    GRUB_CMDLINE_LINUX_DEFAULT="quiet splash libata.allow_tpm=1" 
+    Next, manually add "libata.allow_tpm=1" to the grub command line argument.
 
-    sudo update-grub
-    reboot 
+    `GRUB_CMDLINE_LINUX_DEFAULT="quiet splash libata.allow_tpm=1"`
 
-    #Validate that the TPM setting is properly configured by checking the boot image
-    cat /proc/cmdline
+    Update GRUB and reboot.
+
+    `sudo update-grub`
+    `reboot`
+
+    Finally, validate that the TPM setting is properly configured by checking the boot image.
+
+    `cat /proc/cmdline`
+
     ```
 
     ---
@@ -226,7 +229,7 @@ Perform the following steps to connect and unlock hardware encrypted Data Box di
     > [!IMPORTANT]
     > SEDUtil is an external utility for Self-Encrypting Drives. This is not managed by Microsoft. More information, including license information for this utility, can be found at [https://sedutil.com/](https://sedutil.com/).
 
-1.	Extract `SEDUtil` to a local path on the machine and add the extracted tool path to the `PATH` environment variable using the distro-agnotic example. This is required in a later step when the utility utilizes `SEDUtil` to unlock the disk.
+1.	Extract `SEDUtil` to a local path on the machine and create a symbolic link to the utility path using the following example. Alternatively, you can add the utility paht to the `PATH` environment variable.
 
     ```bash
     chmod +x /path/to/sedutil-cli
@@ -285,7 +288,8 @@ Perform the following steps to connect and unlock hardware encrypted Data Box di
 1. After you've finished copying your data to the disk, make sure to unmount and remove the disk safely using the following command.
 
     ```bash
-    sudo ./DataBoxDiskUnlock /Unmount  /SED
+    sudo ./DataBoxDiskUnlock /SerialNumbers:<'serialNumber1,serialNumber2'> 
+          /Unmount  /SED
     ```
 
     The following example output confirms that the volume unmounted successfully.
@@ -296,7 +300,7 @@ Perform the following steps to connect and unlock hardware encrypted Data Box di
 
     Perform the following steps to unlock self-encrypting disks using Windows-based machines.
 
-    - Download the [Data Box Disk toolset](https://aka.ms/databoxdisktoolswin) for Windows clients. This toolset contains four tools: the Data Box Disk Unlock tool, the Data Box SED Unlock tool, the Data Box Disk Validation tool, and the Data Box Disk Split Copy tool. Extract the toolset on the same computer that you will use to validate your data.
+    - Download the [Data Box Disk toolset](https://aka.ms/databoxdisktoolswin) for Windows clients and extract it to the same computer. Although the toolset contains four tools, only the **Data Box SED Unlock tool** is used for hardware-encrypted disks.
     - Connect your Data Box Disk to an available SATA 3 connection on your Windows-based machine.
     - Using a command prompt or PowerShell, run the following command to unlock self-encrypting disks.
     
@@ -392,7 +396,7 @@ Perform the following steps to connect and unlock software encrypted Data Box di
      OpenSSL is already installed.
      ```
 
-1. Run the Data Box Disk Unlock tool, supplying the passkey retrieved from the Azure portal. Optionally, specify a list of BitLocker encrypted volumes to unlock. The passkey and volume list should be contained within single quotes as shown.
+1. Run the Data Box Disk Unlock tool, supplying the passkey retrieved from the Azure portal. Optionally, specify a list of BitLocker encrypted serial numbers to unlock. The passkey and serial numbers should be contained within single quotes as shown.
 
     ```bash
     sudo ./DataBoxDiskUnlock /PassKey:'<Passkey from Azure portal>' 
@@ -405,7 +409,7 @@ Perform the following steps to connect and unlock software encrypted Data Box di
 
 1. Repeat the unlock steps for any future disk reinserts. Use the `help` command for additional assistance with the Data Box Disk unlock tool.
 
-    `sudo //ataBoxDiskUnlock /Help`
+    `sudo //DataBoxDiskUnlock /Help`
 
     Sample output is shown below.
 

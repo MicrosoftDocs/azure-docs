@@ -48,7 +48,7 @@ You have used the password in the BitLocker dialog and trying to unlock the disk
 
 **Resolution**
 
-To unlock the Data Box Disks, you need to use the Data Box Disk Unlock tool and provide the password from the Azure portal. For more information, go to [Tutorial: Unpack, connect, and unlock Azure Data Box Disk](data-box-disk-deploy-set-up.md#connect-to-disks-and-get-the-passkey).
+To unlock the Data Box Disks, you need to use the Data Box Disk Unlock tool and provide the password from the Azure portal. For more information, go to [Tutorial: Unpack, connect, and unlock Azure Data Box Disk](data-box-disk-deploy-set-up.md#retrieve-your-passkey).
  
 ### Issue: Could not unlock or verify some volumes. Contact Microsoft Support.
  
