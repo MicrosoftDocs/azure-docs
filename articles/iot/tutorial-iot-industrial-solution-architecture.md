@@ -69,7 +69,7 @@ Here are the components involved in this solution:
 
 ## A cloud-based OPC UA certificate store and persisted storage
 
-When manufacturers run OPC UA applications, their OPC UA configuration files, keys, and certificates must be persisted. While Kubernetes has the ability to persist these files in volumes, a safer place for them is the cloud, especially on single-node clusters where the volume would be lost when the node fails. This scenario regarding safety, is why the OPC UA applications used in this solution store their configuration files, keys, and certificates in the cloud. This approach also has the advantage of providing a single location for mutually trusted certificates for all OPC UA applications.
+When manufacturers run OPC UA applications, their OPC UA configuration files, keys, and certificates must be persisted. While Kubernetes has the ability to persist these files in volumes, a safer place for them is the cloud, especially on single-node clusters where the volume would be lost when the node fails. This scenario is why the OPC UA applications used in this solution store their configuration files, keys, and certificates in the cloud. This approach also has the advantage of providing a single location for mutually trusted certificates for all OPC UA applications.
 
 
 ## UA Cloud Library
