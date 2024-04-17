@@ -4,25 +4,25 @@ description: How to configure remote-write to send data from self-managed Promet
 author: bwren 
 ms.topic: conceptual
 ms.date: 04/15/2024
+
+#customer intent: As an azure administrator, I want to send Prometheus metrics from my self-managed Prometheus instance to an Azure Monitor workspace.
+
 ---
-
-
-We already have articvles for AKS and non aks k8s remote write. This article is for self-managed prometheus running on VMs, VMSS, and on-premises servers.
 
 # Send Prometheus metrics for Virtual Machines to an Azure Monitor workspace
 
-Prometheus isn't limited to monitoring Kubernetes clusters. Use Prometheus to monitor applications and services running on your servers, wherever they are running.  For example, you can monitor applications running on Virtual Machines, Virtual Machine Scale Sets, or even on-premises servers. Install prometheus on your servers and configure remote-write to send metrics to an Azure Monitor workspace.
+Prometheus isn't limited to monitoring Kubernetes clusters. Use Prometheus to monitor applications and services running on your servers, wherever they're running. For example, you can monitor applications running on Virtual Machines, Virtual Machine Scale Sets, or even on-premises servers. Install prometheus on your servers and configure remote-write to send metrics to an Azure Monitor workspace.
 
 This article explains how to configure remote-write to send data from a self-managed Prometheus instance to an Azure Monitor workspace.
 
 
-## Remote write options.
+## Remote write options
 
 Self-managed Prometheus can run on Azure and non-Azure environments. The following are authentication options for remote-write to Azure Monitor workspace based on the environment where Prometheus is running.
 
 #### Azure managed Virtual Machines and Virtual Machine Scale Sets
 
-Use user-assigned managed identity authentication for services running self managed Prometheus in an Azure environment. Services include the following:
+Use user-assigned managed identity authentication for services running self managed Prometheus in an Azure environment. Azure managed services include the following:
 
 - Azure Virtual Machines
 - Azure Virtual Machine Scale Sets
@@ -35,24 +35,24 @@ To set up remote write for Azure managed resources, see [Remote-write with user-
 
 Onboarding to Azure Arc-enabled services, allows you to manage and configure non-Azure virtual machines in Azure. Once onboarded, configure [remote-write using user-assigned managed identity](#remote-write-with-user-assigned-managed-identity) authentication. For more Information on onboarding Virtual Machines to Azure Arc-enabled servers, see [Azure Arc-enabled servers](/azure/azure-arc/servers/overview). 
 
-If you have virtual machines in non-Azure environments, and you don't want to onboard to Azure Arc, install self-managed Prometheus and configure remote-write in Prometheus using Azure Entra application authentication. For more information see [Azure Entra application](#azure-entra-application).
+If you have virtual machines in non-Azure environments, and you don't want to onboard to Azure Arc, install self-managed Prometheus and configure remote-write using Microsoft Entra ID application authentication. For more information, see [Microsoft Entra ID application](#azure-entra-application).
  
 
-#### Kubernetets services
+#### Kubernetes services
 
-Azure Kubernetes Services (AKS) and Azure Arc-enabled Kubernetes support Azure Monitor managed service for Prometheus. If you prefer self-managed Prometheus see the following article for more information on remote-write to Azure Monitor workspaces.
+Azure Kubernetes Services (AKS) and Azure Arc-enabled Kubernetes support Azure Monitor managed service for Prometheus. If you prefer self-managed Prometheus, see the following article for more information on remote-write to Azure Monitor workspaces.
 -  [Send Prometheus data to Azure Monitor by using managed identity authentication](/azure/azure-monitor/containers/prometheus-remote-write-managed-identity)
 
 - [Remote-write using Azure Monitor sidecar](/azure/azure-monitor/containers/prometheus-remote-write)
--[Microsoft Entra authorization proxy](/azure/azure-monitor/containers/prometheus-authorization-proxy?tabs=remote-write-example)
+-[Microsoft Entra ID authorization proxy](/azure/azure-monitor/containers/prometheus-authorization-proxy?tabs=remote-write-example)
 - [Send Prometheus data from AKS to Azure Monitor by using managed identity authentication](/azure/azure-monitor/containers/prometheus-remote-write-managed-identity)
-- [Send Prometheus data from AKS to Azure Monitor by using Microsoft Entra authentication](/azure/azure-monitor/containers/prometheus-remote-write-active-directory)
-- [Send Prometheus data to Azure Monitor by using Microsoft Entra pod-managed identity (preview) authentication](/azure/azure-monitor/containers/prometheus-remote-write-azure-ad-pod-identity)]
-- [Send Prometheus data to Azure Monitor by using Microsoft Entra Workload ID (preview) authentication](/azure/azure-monitor/containers/prometheus-remote-write-azure-workload-identity)
+- [Send Prometheus data from AKS to Azure Monitor by using Microsoft Entra ID authentication](/azure/azure-monitor/containers/prometheus-remote-write-active-directory)
+- [Send Prometheus data to Azure Monitor by using Microsoft Entra ID pod-managed identity (preview) authentication](/azure/azure-monitor/containers/prometheus-remote-write-azure-ad-pod-identity)
+- [Send Prometheus data to Azure Monitor by using Microsoft Entra ID Workload ID (preview) authentication](/azure/azure-monitor/containers/prometheus-remote-write-azure-workload-identity)
 
 
    
-???? WHat other autentication mehtods ????
+???? What other authentication methods????
 If you're using other authentication methods and running self-managed Prometheus on Kubernetes, Azure Monitor provides a reverse proxy container that provides an abstraction for ingestion and authentication for Prometheus remote-write metrics. For more information, see [remote-write from Kubernetes to Azure Monitor Managed Service for Prometheus](../containers/prometheus-remote-write.md).
 
 ## Prerequisites
@@ -60,7 +60,7 @@ If you're using other authentication methods and running self-managed Prometheus
 ### Supported versions
 
 - Prometheus versions greater than v2.45 are required for managed identity authentication.
-- Prometheus versions greater than v2.48 are required for Azure Entra application authentication. 
+- Prometheus versions greater than v2.48 are required for Microsoft Entra ID application authentication. 
 
 ### Azure Monitor workspace
 This article covers sending Prometheus metrics to an Azure Monitor workspace. To create an Azure monitor workspace, see [Manage an Azure Monitor workspace](./azure-monitor-workspace-manage.md#create-an-azure-monitor-workspace#create-an-azure-monitor-workspace).
@@ -68,7 +68,7 @@ This article covers sending Prometheus metrics to an Azure Monitor workspace. To
 Administrator permissions for the cluster or resource are required to complete the steps in this article.
 
 
-## Setup authentication for remote-write
+## Set up authentication for remote-write
 
 Depending on the environment where Prometheus is running, you can use one of the following authentication methods to configure remote-write to send data to Azure Monitor workspace.
 
@@ -77,7 +77,7 @@ Depending on the environment where Prometheus is running, you can use one of the
 To configure a user-assigned managed identity for remote-write to Azure Monitor workspace, complete the following steps.
 
 1. Create a user-managed identity to use in your remote-write configuration. For more information, see [Manage user-assigned managed identities](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities#create-a-user-assigned-managed-identity). 
-1. Note the value of the **Client ID** of the user-assigned managed identity that you created. It is used in the Prometheus remote write configuration. 
+1. Note the value of the **Client ID** of the user-assigned managed identity that you created. This ID is used in the Prometheus remote write configuration. 
 
 
 1. Assign the `Monitoring Metrics Publisher` role on the workspace's data collection rule to the managed identity. 
@@ -90,7 +90,7 @@ To configure a user-assigned managed identity for remote-write to Azure Monitor 
     1. Select **Add**, and **Add role assignment**.
       :::image type="content" source="media/self-managed-prometheus-remote-write/data-collection-rule-access-control.png" lightbox="media/self-managed-prometheus-remote-write/data-collection-rule-access-control.png" alt-text="A screenshot showing the data collection rule.":::
     1. Select for *Monitoring Metrics Publisher*, and then select **Next**.
-        :::image type="content" source="media/self-managed-prometheus-remote-write/add-role-assignment.png" lightbox="media/self-managed-prometheus-remote-write/add-role-assignment.png" alt-text="A screenshot showing the role assignement menu for a data collection rule.":::
+        :::image type="content" source="media/self-managed-prometheus-remote-write/add-role-assignment.png" lightbox="media/self-managed-prometheus-remote-write/add-role-assignment.png" alt-text="A screenshot showing the role assignment menu for a data collection rule.":::
     1. Select **Managed Identity**.
     1. Select **Select members**. 
     1. In the **Managed Entity** dropdown, *User-assigned managed identity*. 
@@ -110,9 +110,9 @@ To configure a user-assigned managed identity for remote-write to Azure Monitor 
     1. Select **Add**.
     1. Select the user assigned managed identity that you created, then select **Add**.
 
-        :::image type="content" source="media/self-managed-prometheus-remote-write/assign-user-identity.png" lightbox="media/self-managed-prometheus-remote-write/assign-user-identity.png" alt-text="A screenshot showing the add user assign managed identity page.":::
+        :::image type="content" source="media/self-managed-prometheus-remote-write/assign-user-identity.png" lightbox="media/self-managed-prometheus-remote-write/assign-user-identity.png" alt-text="A screenshot showing the add user assigned managed identity page.":::
 
-    1. You can use the following CLI commands to assign the managed identity to Virtual Machine, or Virtual Machine Scale Set instead of using the protal.
+    1. You can use the following CLI commands to assign the managed identity to Virtual Machine, or Virtual Machine Scale Set instead of using the portal.
     
     Virtual machines:
     ```azurecli
@@ -124,15 +124,15 @@ To configure a user-assigned managed identity for remote-write to Azure Monitor 
     ```
 
 
-### [Azure Entra application](#tab/entra-application)
+### [Microsoft Entra ID application](#tab/entra-application)
 
-To configure an Azure Entra ID application for remote-write to Azure Monitor workspace, you must create an Entra application to use in your remote-write configuration. You can create an Azure Entra application using CLI or the portal.
+To configure an Microsoft Entra ID application for remote-write to Azure Monitor workspace, you must create an Entra application to use in your remote-write configuration. You can create an Microsoft Entra ID application using CLI or the portal.
 
 > [!NOTE]
 > Your Azure Entra application uses a client secret or password.  Client secrets have an expiration date. Make sure to create a new client secret before it expires so you don't lose authenticated access.
 
-#### Create an Azure Entra application using CLI
-To create an Azure Entra application using CLI, and assign the `Monitoring Metrics Publisher` role, run the following command:
+#### Create an Microsoft Entra ID application using CLI
+To create an Microsoft Entra ID application using CLI, and assign the `Monitoring Metrics Publisher` role, run the following command:
 
 ```azurecli
 az ad sp create-for-rbac --name myServicePrincipalName \
@@ -157,15 +157,15 @@ The output contains the `appId` and `password` values. Save these values to use 
 }
 ```
 
-#### Create an Azure Entra application using the Azure portal
+#### Create an Microsoft Entra ID application using the Azure portal
 
-To create an Azure Entra application using the portal, see  [Create a Microsoft Entra application and service principal that can access resources](/entra/identity-platform/howto-create-service-principal-portal#register-an-application-with-microsoft-entra-id-and-create-a-service-principal).
+To create an Microsoft Entra ID application using the portal, see  [Create a Microsoft Entra ID application and service principal that can access resources](/entra/identity-platform/howto-create-service-principal-portal#register-an-application-with-microsoft-entra-id-and-create-a-service-principal).
 
-Once you have created your Entra application,get the client ID and generate a client secret. 
+Once you have created your Entra application, get the client ID and generate a client secret. 
 
 1. In the list of applications, copy the value for **Application (client) ID** for the registered application. This value is used in the Prometheus remote write configuration as the value for `client_id`. 
 
-    :::image type="content" source="media/self-managed-prometheus-remote-write/find-clinet-id.png" alt-text="A screenshot showing the application or client ID of a Microsoft Entra application." lightbox="media/self-managed-prometheus-remote-write/find-clinet-id.png":::
+    :::image type="content" source="media/self-managed-prometheus-remote-write/find-clinet-id.png" alt-text="A screenshot showing the application or client ID of a Microsoft Entra ID application." lightbox="media/self-managed-prometheus-remote-write/find-clinet-id.png":::
 
 1. Select **Certificates and Secrets**
 1. Select **Client secrets**, them select **New client secret** to create a new Secret
@@ -191,7 +191,7 @@ Assign the `Monitoring Metrics Publisher` role on the workspace's data collectio
 
 1. Select the **Monitoring Metrics Publisher** role, and then select **Next**.
 
-    :::image type="content" source="media/self-managed-prometheus-remote-write/add-role-assignment.png" lightbox="media/self-managed-prometheus-remote-write/add-role-assignment.png" alt-text="A screenshot showing the role assignement menu for a data collection rule.":::
+    :::image type="content" source="media/self-managed-prometheus-remote-write/add-role-assignment.png" lightbox="media/self-managed-prometheus-remote-write/add-role-assignment.png" alt-text="A screenshot showing the role assignment menu for a data collection rule.":::
 
 1. Select **User, group, or service principal**, and then choose **Select members**. Select the application that you created, and then choose **Select**.
 
@@ -201,28 +201,13 @@ Assign the `Monitoring Metrics Publisher` role on the workspace's data collectio
 
 ---
 
-## Configure Remote-Write to send data to Azure Monitor Workspace
-
-
-The `remote_write` section in the Prometheus configuration file defines one or more remote-write configurations. A remote-write configuration has a mandatory url parameter and several optional parameters. The url parameter specifies the HTTP URL of the remote endpoint that implements the Prometheus remote-write protocol. In this case, the URL is the metrics ingestion endpoint for your Azure Monitor Workspace. The optional parameters can be used to customize the behavior of the remote-write client, such as authentication, compression, retry, queue, or relabeling settings. For a full list of the available parameters and their meanings, see the Prometheus documentation: [https://prometheus.io/docs/prometheus/latest/configuration/configuration/#remote_write](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#remote_write).
-
-
-In the Azure portal, go to the **Identity** menu of the managed identity and copy the value of the **Client ID**
-
-
-{{{You can enable remote-write by configuring one or more remote-write sections in the Prometheus configuration file. Details about the Prometheus remote write setting can be found [here](https://prometheus.io/docs/practices/remote_write/).}}}
-
-To send data to your Azure Monitor Workspace, you'll need the following information:
-
-- **Remote-write URL**: This is the metrics ingestion endpoint of the Azure Monitor workspace. To find this, go to the Overview page of your Azure Monitor Workspace instance in Azure portal, and look for the Metrics ingestion endpoint property.
-
-    :::image type="content" source="media/azure-monitor-workspace-overview/remote-write-ingestion-endpoint.png" lightbox="media/azure-monitor-workspace-overview/remote-write-ingestion-endpoint.png" alt-text="Screenshot of Azure Monitor workspaces menu and ingestion endpoint.":::
-
-- **Authentication settings**: Currently **User-assigned managed identity** and **Azure Entra application** are the authentication methods supported for remote-writing to Azure Monitor Workspace. Note that for Azure Entra application, client secrets have an expiration date and it's the responsibility of the user to keep secrets valid.
-
 ## Configure remote-write
 
-Remote-write is configured in the Promtheus configuration file `prometheus.yml`. Add the following section to the configuration file of your self-managed Prometheus instance to send data to your Azure Monitor Workspace.
+Remote-write is configured in the Prometheus configuration file `prometheus.yml`.
+
+For more information on configuring remote-write, see the Prometeus.io article: [Configuration](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#remote_write).  For more on tuning the remote write configuration, see [Remote write tuning](https://prometheus.io/docs/practices/remote_write/#remote-write-tuning).
+
+To send data to your Azure Monitor Workspace, add the following section to the configuration file of your self-managed Prometheus instance.
 
 ```yaml
 remote_write:   
@@ -243,18 +228,37 @@ The `url` parameter specifies the metrics ingestion endpoint of the Azure Monito
 
 :::image type="content" source="media/self-managed-prometheus-remote-write/metrics-ingestion-endpoint.png" lightbox="media/self-managed-prometheus-remote-write/metrics-ingestion-endpoint.png" alt-text="A screenshot showing the metrics ingestion endpoint for an Azure Monitor workspace.":::
 
-For managed identity authorization use the  `managed_identity` object, or `oauth` for Azure Entra application autentication. Remove the object that you're not using.
+Use either the  `managed_identity`, or `oauth` for Microsoft Entra ID application authentication, depending on your implementation. Remove the object that you're not using.
+
+Find your client ID for the managed identity using the following Azure CLI command:
+
+```azurecli
+az identity list --resource-group <resource group name>
+```
+For more information, see [az identity list](/cli/azure/identity?view=azure-cli-latest#az-identity-list).
+
+To find your client for managed identity authentication in the portal, go to the **Managed Identities** page in the Azure portal and select the relevant identity name. Copy the value of the **Client ID** from the **Identity overview** page.
+
+:::image type="content" source="media/self-managed-prometheus-remote-write/find-clinet-id.png" lightbox="media/self-managed-prometheus-remote-write/find-clinet-id.png" alt-text="A screenshot showing the client ID on the Identity overview page."::: 
+
+To find the client ID for the Microsoft Entra ID application, use the following CLI or see the first step in the [Create an Microsoft Entra ID application using the Azure portal](#create-an-microsoft-entra-id-application-using-the-azure-portal) section.
+
+```azurecli
+$ az ad app list --display-name < application name.>
+```
+For more information, see [az ad app list](/cli/azure/ad/app?view=azure-cli-latest#az-ad-app-list).
+
 
 After editing the configuration file, restart Prometheus to apply the changes.
 
 
-## Verify if the remote-write is setup correctly
+## Verify if the remote-write data is flowing
 
 Use the following methods to verify that Prometheus data is being sent into your Azure Monitor workspace.
 
 ### Azure Monitor metrics explorer with PromQL
 
-To check if the metrics are being sent to the Azure Monitor workspace, from your Azure Monitor workspace in the Azure portal, select **Metrics**.  Use the metrics explorer to query the metrics that you're expecting from the self-managed Prometheus environment.
+To check if the metrics are flowing to the Azure Monitor workspace, from your Azure Monitor workspace in the Azure portal, select **Metrics**.  Use the metrics explorer to query the metrics that you're expecting from the self-managed Prometheus environment.
 
 ### Prometheus explorer in Azure Monitor Workspace
 
@@ -268,7 +272,7 @@ Use PromQL queries in Grafana and verify that the results return expected data. 
 ## Troubleshoot remote write
 
 It takes about 30 minutes for the assignment of the role to take effect. 
-During this time you may see an HTTP 403 error in the Prometheus log. Check that you have configured the managed identity or Azure Entra application correctly, and if so, wait 30 minutes for the role assignment to take effect.
+During this time you may see an HTTP 403 error in the Prometheus log. Check that you have configured the managed identity or Microsoft Entra ID application correctly, and if so, wait 30 minutes for the role assignment to take effect.
 
 You can look at few remote write metrics that can help understand possible issues. A list of these metrics can be found [here](https://github.com/prometheus/prometheus/blob/v2.26.0/storage/remote/queue_manager.go#L76-L223) and [here](https://github.com/prometheus/prometheus/blob/v2.26.0/tsdb/wal/watcher.go#L88-L136).
 
