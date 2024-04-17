@@ -82,5 +82,5 @@ Depending on the version of `$convert-data` you’re using, you can:
 
 [Troubleshoot $convert-data](troubleshoot-convert-data.md)
 
-[!INCLUDE [FHIR trademark statement](../includes/fhir-trademark-statement.md)]
+[!INCLUDE [FHIR trademark statement](../includes/healthcare-apis-fhir-trademark.md)]
  

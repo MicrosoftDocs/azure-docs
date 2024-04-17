@@ -207,4 +207,4 @@ You should receive a `bundle` response that contains the health data converted i
 
 > [Frequently asked questions about $convert-data](frequently-asked-questions-convert-data.md)
 
-[!INCLUDE [FHIR trademark statement](../includes/fhir-trademark-statement.md)]
+[!INCLUDE [FHIR trademark statement](../includes/healthcare-apis-fhir-trademark.md)]
