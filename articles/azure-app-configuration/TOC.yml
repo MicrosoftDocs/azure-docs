@@ -217,6 +217,8 @@
       href: howto-disable-public-access.md
     - name: Set up private access
       href: howto-set-up-private-access.md
+    - name: Set up experiments
+      href: howto-setup-experiments.md
 - name: Reference
   items:
     - name: REST API

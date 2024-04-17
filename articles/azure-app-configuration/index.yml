@@ -157,6 +157,13 @@ landingContent:
         - text: Java Spring Library
           url: https://azure.github.io/azure-sdk-for-java/springboot.html
 
+  - title: Create an experiment
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+        - text: Set up experiments
+          url: howto-setup-experiments.md
+
   - title: Configuration SDKs and samples
     linkLists:
       - linkListType: sample
