@@ -51,7 +51,7 @@ Azure AI Studio preview is currently not available in Azure Government regions o
 
 Azure OpenAI model availability and quota limits vary by region. 
 
-[!INCLUDE [Quota](../../ai-services/includes/model-matrix/quota.md)]
+[!INCLUDE [OpenAI Quotas](../../ai-services/openai/includes/model-matrix/quota.md)]
 
 For more information, see [Azure OpenAI quotas and limits](/azure/ai-services/openai/quotas-limits).
 
