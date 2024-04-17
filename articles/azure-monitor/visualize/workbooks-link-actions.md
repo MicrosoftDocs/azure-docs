@@ -81,7 +81,7 @@ This section defines the ARM action API.
 |Headers| Headers grid with the key and value.|
 |Body| Editor for the request payload in JSON.|
 
-:::image type="content" source="media/workbooks-link-actions/arm-action-settings.png" alt-text="Screenshot that shows Azure Workbooks ARM action settings.":::
+:::image type="content" source="media/workbooks-link-actions/azure-resource-manager-action-settings.png" alt-text="Screenshot that shows Azure Workbooks ARM action settings.":::
 
 ### ARM Action UX Settings
 
@@ -94,15 +94,15 @@ This section configures what the users see before they run the ARM action.
 |Description of ARM Action| The markdown text used to provide a helpful description to users when they want to run the ARM action. |
 |Run button text from| Label used on the run (execute) button to trigger the ARM action.|
 
-:::image type="content" source="media/workbooks-link-actions/arm-action-ux-settings.png" alt-text="Screenshot that shows Azure Workbooks ARM action UX settings.":::
+:::image type="content" source="media/workbooks-link-actions/azure-resource-manager-action-interface-settings.png" alt-text="Screenshot that shows Azure Workbooks ARM action UX settings.":::
 
 After these configurations are set, when the user selects the link, the view opens with the UX described here. If the user selects the button specified by **Run button text from**, it runs the ARM action using the configured values. On the bottom of the context pane, you can select **View Request Details** to inspect the HTTP method and the ARM API endpoint used for the ARM action.
 
-:::image type="content" source="media/workbooks-link-actions/arm-action-blade.png" alt-text="Screenshot that shows Azure Workbooks ARM action blade.":::
+:::image type="content" source="media/workbooks-link-actions/azure-resource-manager-action-blade.png" alt-text="Screenshot that shows Azure Workbooks ARM action blade.":::
 
 The progress and result of the ARM Action is shown as an Azure portal notification.
 
-:::image type="content" source="media/workbooks-link-actions/arm-action-custom-notification.png" alt-text="Screenshot that shows Azure ARM custom notifications.":::
+:::image type="content" source="media/workbooks-link-actions/azure-resource-manager-action-custom-notification.png" alt-text="Screenshot that shows Azure ARM custom notifications.":::
 
 
 ## Azure Resource Manager deployment link settings
@@ -185,7 +185,7 @@ If the selected link type is **Workbook (Template)**, you must specify more sett
 |Workbook resources come from| An array of Azure Resource IDs that specify the default resource used in the workbook. For example, if the template being opened shows virtual machine metrics, the values here would be virtual machine resource IDs. Many times, the owner and resources are set to the same settings. |
 |Template ID comes from| Specify the ID of the template to be opened. A community template from the gallery is the most common case. Prefix the path to the template with `Community-`, like `Community-Workbooks/Performance/Apdex` for the `Workbooks/Performance/Apdex` template. If it's a link to a saved workbook or template, use the full path to the Azure resource ID of that item, for example, "/subscriptions/12345678-a1b2-1234-a1b2-c3d4e5f6/resourceGroups/rgname/providers/microsoft.insights/workbooks/1a2b3c4d-5678-abcd-xyza-1a2b3c4d5e6f. |
 |Workbook Type comes from| Specify the kind of workbook template to open. The most common cases use the default or workbook option to use the value in the current workbook. |
-|Gallery Type comes from| This value specifies the gallery type displayed in the **Gallery** view of the template that opens. The most common cases use the default or workbook option to use the value in the current workbook. |
+|Gallery Type comes from| This value specifies the gallery type that's displayed in the **Gallery** view of the template that opens. The most common cases use the default or workbook option to use the value in the current workbook. |
 |Location comes from| The location field should be specified if you're opening a specific workbook resource. If location isn't specified, finding the workbook content is slower. If you know the location, specify it. If you don't know the location or are opening a template with no specific location, leave this field as `Default`.|
 |Pass specific parameters to template| Select to pass specific parameters to the template. If selected, only the specified parameters are passed to the template or else all the parameters in the current workbook are passed to the template. In that case, the parameter *names* must be the same in both workbooks for this parameter value to work.|
 |Workbook Template Parameters| This section defines the parameters that are passed to the target template. The name should match with the name of the parameter in the target template. Select from **Cell**, **Column**, **Parameter**, and **Static Value**. The name and value must not be empty to pass that parameter to the target template.|
