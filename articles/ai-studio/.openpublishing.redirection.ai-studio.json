@@ -38,7 +38,7 @@
         {
             "source_path_from_root": "/articles/ai-studio/how-to/sdk-install.md",
             "redirect_url": "/azure/ai-studio/how-to/develop/sdk-overview",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/ai-studio/how-to/sdk-generative-overview.md",
