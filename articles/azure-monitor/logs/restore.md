@@ -144,7 +144,9 @@ Here are some examples to illustrate data restore cost calculations:
 
 1. If instead, only 700 GB of data is restored, each day that the restore is active will be billed for the 2 TB minimum restore level.  Your daily cost will be 2000 GB multiplied by your data restore price.
 
-1. If a data restore is only kept active for 1 hour, it will be billed for 12-hour minimum. The cost for this data restore will be 2000 GB multiplied by your data restore price multiplied by 0.5 days. 
+1. If a 5 TB data restore is only kept active for 1 hour, it will be billed for 12-hour minimum. The cost for this data restore will be 5000 GB multiplied by your data restore price multiplied by 0.5 days (the 12-hour minimum). 
+
+1. If a 700 GB data restore is only kept active for 1 hour, it will be billed for 12-hour minimum. The cost for this data restore will be 2000 GB (the minimum billed restore size) multiplied by your data restore price multiplied by 0.5 days (the 12-hour minimum). 
 
 > [!NOTE]
 > There is no charge for querying restored logs since they are Analytics logs. 
