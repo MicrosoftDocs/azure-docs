@@ -36,13 +36,13 @@ An evaluation run allows you to generate metric outputs for each data row in you
 
 From the collapsible left menu, select **Evaluation** > **+ New evaluation**.
 
-:::image type="content" source="../../../media/evaluations/evaluate/new-evaluation-evaluate-page.png" alt-text="Screenshot of the button to create a new evaluation." lightbox="../../../media/evaluations/evaluate/new-evaluation-evaluate-page.png":::
+:::image type="content" source="../media/evaluations/evaluate/new-evaluation-evaluate-page.png" alt-text="Screenshot of the button to create a new evaluation." lightbox="../media/evaluations/evaluate/new-evaluation-evaluate-page.png":::
 
 ### From the flow page
 
 From the collapsible left menu, select **Prompt flow** > **Evaluate** > **Built-in evaluation**.
 
-:::image type="content" source="../../../media/evaluations/evaluate/new-evaluation-flow-page.png" alt-text="Screenshot of how to select builtin evaluation." lightbox="../../../media/evaluations/evaluate/new-evaluation-flow-page.png":::
+:::image type="content" source="../media/evaluations/evaluate/new-evaluation-flow-page.png" alt-text="Screenshot of how to select builtin evaluation." lightbox="../media/evaluations/evaluate/new-evaluation-flow-page.png":::
 
 #### Basic information
 
@@ -52,7 +52,7 @@ When you enter the evaluation creation wizard, you can provide an optional name 
 + **Question and answer without context**: This scenario is designed for applications that involve answering user queries and providing responses without context.
 + **Conversation with context**: This scenario is suitable for applications where the model engages in single-turn or multi-turn conversation with context to extract information from your provided documents and generate detailed responses. We require you to follow a specific data format to run the evaluation. Download the data template to understand how to format your dataset correctly.
 
-:::image type="content" source="../../../media/evaluations/evaluate/basic-information.png" alt-text="Screenshot of the basic information page when creating a new evaluation." lightbox="../../../media/evaluations/evaluate/basic-information.png":::
+:::image type="content" source="../media/evaluations/evaluate/basic-information.png" alt-text="Screenshot of the basic information page when creating a new evaluation." lightbox="../media/evaluations/evaluate/basic-information.png":::
 
 
 By specifying the appropriate scenario, we can tailor the evaluation to the specific nature of your application, ensuring accurate and relevant metrics. 
@@ -60,7 +60,7 @@ By specifying the appropriate scenario, we can tailor the evaluation to the spec
 + **Evaluate from data**: If you already have your model generated outputs in a test dataset, skip the “Select a flow to evaluate” step and directly go to the next step to select metrics.  
 + **Evaluate from flow**: If you initiate the evaluation from the Flow page, we'll automatically select your flow to evaluate. If you intend to evaluate another flow, you can select a different one. It's important to note that within a flow, you might have multiple nodes, each of which could have its own set of variants. In such cases, you must specify the node and the variants you wish to assess during the evaluation process.
 
-:::image type="content" source="../../../media/evaluations/evaluate/select-flow.png" alt-text="Screenshot of the select a flow to evaluate page when creating a new evaluation." lightbox="../../../media/evaluations/evaluate/select-flow.png":::
+:::image type="content" source="../media/evaluations/evaluate/select-flow.png" alt-text="Screenshot of the select a flow to evaluate page when creating a new evaluation." lightbox="../media/evaluations/evaluate/select-flow.png":::
 
 #### Select metrics
 
@@ -69,7 +69,7 @@ We support two types of metrics curated by Microsoft to facilitate a comprehensi
 + Performance and quality metrics: These metrics evaluate the overall quality and coherence of the generated content.
 + Risk and safety metrics: These metrics focus on identifying potential content risks and ensuring the safety of the generated content.
 
-You can refer to the table below for the complete list of metrics we offer support for in each scenario. For more in-depth information on each metric definition and how it's calculated, see [Evaluation and monitoring metrics](../../../concepts/evaluation-metrics-built-in.md).
+You can refer to the table below for the complete list of metrics we offer support for in each scenario. For more in-depth information on each metric definition and how it's calculated, see [Evaluation and monitoring metrics](../concepts/evaluation-metrics-built-in.md).
 
 | Scenario | Performance and quality metrics | Risk and safety metrics |
 |--|--|--|
@@ -79,13 +79,13 @@ You can refer to the table below for the complete list of metrics we offer suppo
 
 When using AI-assisted metrics for performance and quality evaluation, you must specify a GPT model for the calculation process. Choose an Azure OpenAI connection and a deployment with either GPT-3.5, GPT-4, or the Davinci model for our calculations.
 
-:::image type="content" source="../../../media/evaluations/evaluate/quality-metrics.png" alt-text="Screenshot of the select metrics page with quality metrics selected when creating a new evaluation." lightbox="../../../media/evaluations/evaluate/quality-metrics.png":::
+:::image type="content" source="../media/evaluations/evaluate/quality-metrics.png" alt-text="Screenshot of the select metrics page with quality metrics selected when creating a new evaluation." lightbox="../media/evaluations/evaluate/quality-metrics.png":::
 
 For risk and safety metrics, you don't need to provide a connection and deployment. The Azure AI Studio safety evaluations back-end service provisions a GPT-4 model that can generate content risk severity scores and reasoning to enable you to evaluate your application for content harms.  
 
 You can set the threshold to calculate the defect rate for the risk and safety metrics. The defect rate is calculated by taking a percentage of instances with severity levels (Very low, Low, Medium, High) above a threshold. By default, we set the threshold as “Medium”.
 
-:::image type="content" source="../../../media/evaluations/evaluate/safety-metrics.png" alt-text="Screenshot of the select metrics page with safety metrics selected when creating a new evaluation." lightbox="../../../media/evaluations/evaluate/safety-metrics.png":::
+:::image type="content" source="../media/evaluations/evaluate/safety-metrics.png" alt-text="Screenshot of the select metrics page with safety metrics selected when creating a new evaluation." lightbox="../media/evaluations/evaluate/safety-metrics.png":::
 
 > [!NOTE]
 > AI-assisted risk and safety metrics are hosted by Azure AI Studio safety evaluations back-end service and is only available in the following regions: East US 2, France Central, UK South, Sweden Central
@@ -94,24 +94,24 @@ You can set the threshold to calculate the defect rate for the risk and safety m
 
 You can select from pre-existing datasets or upload a new dataset specifically to evaluate. The test dataset needs to have the model generated outputs to be used for evaluation if there's no flow selected in the previous step.
 
-:::image type="content" source="../../../media/evaluations/evaluate/configure-test-data.png" alt-text="Screenshot of selecting test data when creating a new evaluation." lightbox="../../../media/evaluations/evaluate/configure-test-data.png":::
+:::image type="content" source="../media/evaluations/evaluate/configure-test-data.png" alt-text="Screenshot of selecting test data when creating a new evaluation." lightbox="../media/evaluations/evaluate/configure-test-data.png":::
 
 + **Choose existing dataset**: You can choose the test dataset from your established dataset collection.  
 
-    :::image type="content" source="../../../media/evaluations/evaluate/choose-existing-dataset.png" alt-text="Screenshot of the option to choose test data when creating a new evaluation." lightbox="../../../media/evaluations/evaluate/choose-existing-dataset.png":::
+    :::image type="content" source="../media/evaluations/evaluate/choose-existing-dataset.png" alt-text="Screenshot of the option to choose test data when creating a new evaluation." lightbox="../media/evaluations/evaluate/choose-existing-dataset.png":::
 
 + **Add new dataset**: You can either upload files from your local storage or manually enter the dataset.
     - For the 'Upload file' option, we only support `.csv` and `.jsonl` file formats.
 
-        :::image type="content" source="../../../media/evaluations/evaluate/upload-file.png" alt-text="Screenshot of the upload file option when creating a new evaluation." lightbox="../../../media/evaluations/evaluate/upload-file.png":::
+        :::image type="content" source="../media/evaluations/evaluate/upload-file.png" alt-text="Screenshot of the upload file option when creating a new evaluation." lightbox="../media/evaluations/evaluate/upload-file.png":::
 
     - Manual input is only supported for Question Answering scenario.
     
-        :::image type="content" source="../../../media/evaluations/evaluate/input-manually.png" alt-text="Screenshot of the manual data input option when creating a new evaluation." lightbox="../../../media/evaluations/evaluate/input-manually.png":::
+        :::image type="content" source="../media/evaluations/evaluate/input-manually.png" alt-text="Screenshot of the manual data input option when creating a new evaluation." lightbox="../media/evaluations/evaluate/input-manually.png":::
 
 + **Data mapping**: You must specify which data columns in your dataset correspond with inputs needed in the evaluation. Different evaluation metrics demand distinct types of data inputs for accurate calculations. For guidance on the specific data mapping requirements for each metric, refer to the following information:
 
-    :::image type="content" source="../../../media/evaluations/evaluate/data-mapping.png" alt-text="Screenshot of the dataset mapping when creating a new evaluation." lightbox="../../../media/evaluations/evaluate/data-mapping.png":::
+    :::image type="content" source="../media/evaluations/evaluate/data-mapping.png" alt-text="Screenshot of the dataset mapping when creating a new evaluation." lightbox="../media/evaluations/evaluate/data-mapping.png":::
 
 > [!NOTE]
 >  If you select a flow to evaluate, ensure that your data columns are configured to align with the required inputs for the flow to execute a batch run, generating output for assessment. The evaluation will then be conducted using the output from the flow. Subsequently, configure the data mapping for evaluation inputs.
@@ -150,13 +150,13 @@ For guidance on the specific data mapping requirements for each metric, refer to
 | Violent content            | Required: list |
 | Sexual content             | Required: list |
 
-Messages: message key that follows the chat protocol format defined by Azure Open AI for [conversations](../../../concepts/evaluation-metrics-built-in.md#conversation-single-turn-and-multi-turn). For Groundedness, Relevance and Retrieval score, the citations key is required within your messages list.
+Messages: message key that follows the chat protocol format defined by Azure Open AI for [conversations](../concepts/evaluation-metrics-built-in.md#conversation-single-turn-and-multi-turn). For Groundedness, Relevance and Retrieval score, the citations key is required within your messages list.
 
 #### Review and finish
 
 After completing all the necessary configurations, you can review and proceed to select 'Create' to submit the evaluation run.
 
-:::image type="content" source="../../../media/evaluations/evaluate/review-and-finish.png" alt-text="Screenshot of the review and finish page to create a new evaluation." lightbox="../../../media/evaluations/evaluate/review-and-finish.png":::
+:::image type="content" source="../media/evaluations/evaluate/review-and-finish.png" alt-text="Screenshot of the review and finish page to create a new evaluation." lightbox="../media/evaluations/evaluate/review-and-finish.png":::
 
 ## Create an evaluation with custom evaluation flow 
 
