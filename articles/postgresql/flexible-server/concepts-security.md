@@ -191,6 +191,18 @@ CREATE POLICY account_managers ON accounts TO managers
 ```
 
 The USING clause implicitly adds a `WITH CHECK` clause, ensuring that members of the manager role can't perform `SELECT`, `DELETE`, or `UPDATE` operations on rows that belong to other managers, and can't `INSERT` new rows belonging to another manager.
+You can drop a row security policy by using DROP POLICY command , as in his example:
+```sql
+
+
+DROP POLICY account_managers ON accounts;
+```
+Although you may have have dropped the policy, role manager is still not able to view any data that belong to any other manager. This is because the row-level security policy is still enabled on the accounts table. If row-level security is enabled by default, PostgreSQL uses a default-deny policy. You can disable row level security, as in example below:
+
+```sql
+ALTER TABLE accounts DISABLE ROW LEVEL SECURITY;
+```
+
 
 ## Bypassing Row Level Security
 
