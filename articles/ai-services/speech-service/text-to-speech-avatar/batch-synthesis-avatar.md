@@ -141,8 +141,8 @@ You should receive a response body in the following format:
         "customized": false
     },
     "outputs": {
-        "result": "https://stttssvcprodusw2.blob.core.windows.net/batchsynthesis-output/244a87c294b94ddeb3dbaccee8ffa7eb/5a25b929-1358-4e81-a036-33000e788c46/0001.mp4?SAS_Token",
-        "summary": "https://stttssvcprodusw2.blob.core.windows.net/batchsynthesis-output/244a87c294b94ddeb3dbaccee8ffa7eb/5a25b929-1358-4e81-a036-33000e788c46/summary.json?SAS_Token"
+        "result": "https://stttssvcprodusw2.blob.core.windows.net/batchsynthesis-output/xxxxx/xxxxx/0001.mp4?SAS_Token",
+        "summary": "https://stttssvcprodusw2.blob.core.windows.net/batchsynthesis-output/xxxxx/xxxxx/summary.json?SAS_Token"
     }
 }
 ```
@@ -194,8 +194,8 @@ You receive a response body in the following format:
                 "customized": false
             },
             "outputs": {
-                "result": "https://stttssvcprodusw2.blob.core.windows.net/batchsynthesis-output/244a87c294b94ddeb3dbaccee8ffa7eb/14c25fcf-3cb6-4f46-8810-ecad06d956df/0001.mp4?SAS_Token",
-                "summary": "https://stttssvcprodusw2.blob.core.windows.net/batchsynthesis-output/244a87c294b94ddeb3dbaccee8ffa7eb/14c25fcf-3cb6-4f46-8810-ecad06d956df/summary.json?SAS_Token"
+                "result": "https://stttssvcprodusw2.blob.core.windows.net/batchsynthesis-output/xxxxx/xxxxx/0001.mp4?SAS_Token",
+                "summary": "https://stttssvcprodusw2.blob.core.windows.net/batchsynthesis-output/xxxxx/xxxxx/summary.json?SAS_Token"
             }
         },
         {
@@ -227,8 +227,8 @@ You receive a response body in the following format:
                 "customized": false
             },
             "outputs": {
-                "result": "https://stttssvcprodusw2.blob.core.windows.net/batchsynthesis-output/244a87c294b94ddeb3dbaccee8ffa7eb/5a25b929-1358-4e81-a036-33000e788c46/0001.mp4?SAS_Token",
-                "summary": "https://stttssvcprodusw2.blob.core.windows.net/batchsynthesis-output/244a87c294b94ddeb3dbaccee8ffa7eb/5a25b929-1358-4e81-a036-33000e788c46/summary.json?SAS_Token"
+                "result": "https://stttssvcprodusw2.blob.core.windows.net/batchsynthesis-output/xxxxx/xxxxx/0001.mp4?SAS_Token",
+                "summary": "https://stttssvcprodusw2.blob.core.windows.net/batchsynthesis-output/xxxxx/xxxxx/summary.json?SAS_Token"
             }
         }
     ],
