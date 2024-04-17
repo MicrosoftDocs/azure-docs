@@ -230,7 +230,7 @@ In the *aks* directory, there are five deployment files:
 * *db-secret.xml*: Use this file to create [Kubernetes Secrets](https://kubernetes.io/docs/concepts/configuration/secret/) with database connection credentials.
 * *openlibertyapplication-agic.yaml*: Use this file to deploy the Open Liberty application with AGIC. This article assumes that you use this file.
 * *openlibertyapplication.yaml*: Use this file if you want to deploy the Open Liberty application without AGIC.
-* *webspherelibertyapplication-agic.yaml*: Use this file to deploy the WebSphere Liberty application with AGIC if you deployed WebSphere Liberty Operator [earlier in this article](#create-a-deployment-of-liberty-on-aks-by-using-the-portal).
+* *webspherelibertyapplication-agic.yaml*: Use this file to deploy the WebSphere Liberty application with AGIC if you deployed WebSphere Liberty Operator [earlier in this article](#create-a-liberty-on-aks-deployment-using-the-portal).
 * *webspherelibertyapplication.yaml*: Use this file to deploy the WebSphere Liberty application without AGIC if you deployed WebSphere Liberty Operator earlier in this article.
 
 In the *docker* directory, there are two files to create the application image:
