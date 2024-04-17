@@ -31,7 +31,7 @@ The 'DC' sub-family of VM size series are one of Azure's security focused genera
 ### DCsv2-series
 [!INCLUDE [dcsv2-series-summary](./includes/dcsv2-series-summary.md)]
 
-[View the full DCsv2-series page](../../dcsv2-series.md).
+[View the full DCsv2-series page](../../dcv2-series.md).
 
 [!INCLUDE [dcsv2-series-specs](./includes/dcsv2-series-specs.md)]
 
@@ -39,7 +39,7 @@ The 'DC' sub-family of VM size series are one of Azure's security focused genera
 ### DCsv3 and DCdsv3-series
 [!INCLUDE [dcsv3-dcdsv3-series-summary](./includes/dcsv3-dcdsv3-series-summary.md)]
 
-[View the full DCsv3 and DCdsv3-series page](../../dcsv3-dcdsv3-series.md).
+[View the full DCsv3 and DCdsv3-series page](../../dcv3-series.md).
 
 [!INCLUDE [dcsv3-dcdsv3-series-specs](./includes/dcsv3-dcdsv3-series-specs.md)]
 
