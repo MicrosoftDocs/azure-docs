@@ -7,7 +7,7 @@ description: Export cost savings in Azure Advisor and calculate the aggregated p
 
 # Calculate cost savings
 
-This article provides guidance on how to calculate cost savings in Azure Advisor. 
+This article provides guidance on how to calculate total cost savings in Azure Advisor. 
 
 ## Export cost savings for recommendations
 
