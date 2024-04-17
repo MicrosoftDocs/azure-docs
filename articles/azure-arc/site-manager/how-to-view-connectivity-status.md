@@ -57,4 +57,4 @@ You can view connectivity status for an Arc site as a whole from the main page o
 
 1. On the site's resource page, you can view the connectivity status for each resource within the site, including the resource responsible for the top-level most important status.
 
-   :::image type="content" source="./media/how-to-view-connectivity-status/los-angeles-resource-status-connectivity.png" alt-text="Screenshot that shows using the site details page to identify resources with connectivity issues.":::
+   :::image type="content" source="./media/how-to-view-connectivity-status/los-angeles-resource-status-connectivity.png" alt-text="Screenshot that shows using the site details page to identify resources with connectivity issues." lightbox="./media/how-to-view-connectivity-status/los-angeles-resource-status-connectivity.png":::
