@@ -2,7 +2,7 @@
 title: Onboard Defender for AI Workloads (Preview)
 description: Learn how to enable the Defender for AI Workloads plan on your Azure subscription for Microsoft Defender for Cloud.
 ms.topic: install-set-up-deploy
-ms.date: 04/16/2024
+ms.date: 04/17/2024
 ---
 
 # Onboard Defender for AI Workloads (Preview)
