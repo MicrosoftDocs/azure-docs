@@ -125,7 +125,7 @@ When you back up a SQL Server database on an Azure VM, the backup extension on t
 -	Changing the casing of an SQL database isn't supported after configuring protection.
 
 >[!NOTE]
->The **Configure Protection** operation for databases with special characters, such as `{`, `'}`, `[`, `]`, `,`, `=`, `-`, `(`, `)`, `.`, `+`, `;`, `'`, or `/`, in their name isn't supported. You can change the database name or enable **Auto Protection**, which can successfully protect these databases.
+>The **Configure Protection** operation for databases with special characters, such as `{`, `'}`, `[`, `]`, `,`, `=`, `-`, `(`, `)`, `.`, `+`, `&`, `;`, `'`, or `/`, in their name isn't supported. You can change the database name or enable **Auto Protection**, which can successfully protect these databases.
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
