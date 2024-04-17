@@ -43,7 +43,7 @@ Option 2: View logs in studio
 To get the link to the run in studio, run: 
 
 ```azurecli
-az ml job show --name $JOB_NAME --query services.Studio.endpoint -o tsv
+az ml job show --name <job_name> --query services.Studio.endpoint -o tsv
 ```
 
 1. Open the job in studio using the value returned by the above command. 
