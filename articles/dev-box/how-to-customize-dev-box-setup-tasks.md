@@ -35,18 +35,18 @@ You can implement customizations in stages, building from a simple but functiona
 
 ### Team-specific customization scenarios 
 
-Customizations are useful wherever you need to configure settings, install software, add extensions, or set common OS settings like enabling Windows Features on your dev boxes during the final stage of creation. Development team leads can use customizations to preconfigure the software required for their specific development team. Developer team leads can author configuration files that apply only the setup tasks relevant for their teams. This method lets developers make their own dev boxes that best fit their work, without needing to ask IT for changes or wait for the engineering team to create a custom VM image.  
+Customizations are useful wherever you need to configure settings, install software, add extensions, or set common OS settings, like enabling Windows Features, on your dev boxes during the final stage of creation. Development team leads can use customizations to preconfigure the software required for their specific development team. Developer team leads can author configuration files that apply only the setup tasks relevant for their teams. This method lets developers make their own dev boxes that best fit their work, without needing to ask IT for changes or wait for the engineering team to create a custom VM image.  
 
 ### What are tasks? 
 
-A task performs a specific action, like installing software. Each task consists of one or more PowerShell scripts, along with a *task.yaml* file that provides parameters and defines how the scripts run. You can also include a PowerShell command in the task.yaml file. You can store a collection of curated setup tasks in a catalog attached to your dev center, with each task in a separate folder. Dev Box supports using a GitHub repository or an Azure DevOps repository as a catalog, and scans a specified folder of the catalog recursively to find task definitions. 
+A task performs a specific action, like installing software. Each task consists of one or more PowerShell scripts, along with a *task.yaml* file that provides parameters and defines how the scripts run. You can also include a PowerShell command in the task.yaml file. You can store a collection of curated setup tasks in a catalog attached to your dev center, with each task in a separate folder. Dev Box supports using a GitHub repository or an Azure Repos repository as a catalog, and scans a specified folder of the catalog recursively to find task definitions. 
 
 Microsoft provides a quick start catalog to help you get started with customizations. It includes a default set of tasks that define common setup tasks: 
 
-- Installing software with the WinGet or Chocolatey package managers
-- Cloning a repository by using git-clone 
-- Configuring applications like installing Visual Studio extensions 
-- Running PowerShell scripts 
+- Install software with the WinGet or Chocolatey package managers
+- Clone a repository by using git-clone 
+- Configure applications like installing Visual Studio extensions 
+- Run PowerShell scripts 
 
 The following example shows a catalog with choco, git-clone, install-vs-extension, and PowerShell tasks defined. Notice that each folder contains a task.yaml file and at least one PowerShell script. Task.yaml files cache scripts and the input parameters needed to reference them from configuration files. 
 
@@ -54,7 +54,7 @@ The following example shows a catalog with choco, git-clone, install-vs-extensio
 
 ### What is a configuration file?
 
-Dev Box customizations use a yaml formatted file to specify a list of tasks to apply from the catalog when creating a new dev box. These configuration files include one or more 'tasks', which identify the catalog task and provide parameters like the name of the software to install. The configuration file is then made available to the developers creating new dev boxes. The following example uses a winget task to install Visual Studio Code, and a `git clone` task to clone a repository. 
+Dev Box customizations use a yaml formatted file to specify a list of tasks to apply from the catalog when creating a new dev box. These configuration files include one or more *tasks*, which identify the catalog task and provide parameters like the name of the software to install. The configuration file is then made available to the developers creating new dev boxes. The following example uses a winget task to install Visual Studio Code, and a `git clone` task to clone a repository. 
 
 ```yaml
 # From https://github.com/microsoft/devcenter-examples
@@ -107,7 +107,7 @@ To attach the quick start catalog to the dev center:
 
 ### Create your customized dev box
 
-Now you have a catalog that defines the tasks your developers can use, you can reference those tasks from a configuration file and create a customized dev box. 
+Now you have a catalog that defines the tasks your developers can use. You can reference those tasks from a configuration file and create a customized dev box. 
 
 1. Download an [example yaml configuration from the samples repository](https://aka.ms/devbox/customizations/samplefile). This example configuration installs Visual Studio Code, and clones the OrchardCore .NET web app repo to your dev box.
 1. Sign in to the [Microsoft Dev Box developer portal](https://aka.ms/devbox-portal).
@@ -159,7 +159,7 @@ Before you can create and test your own configuration file, there must be a cata
 Make your configuration file seamlessly available to your developers by naming it *workload.yaml* and uploading it to a repository accessible to the developers, usually their coding repository. When you create a dev box, you specify the repository URL and the configuration file is cloned along with the rest of the repository. Dev box searches the repository for a file named workload.yaml and, if one is located, performs the tasks listed. This configuration provides a seamless way to perform customizations on a dev box.
 
 1.	Create a configuration file named *workload.yaml*.
-1.	Add the configuration file to the root of a private Azure DevOps repository with your code and commit it.
+1.	Add the configuration file to the root of a private Azure Repos repository with your code and commit it.
 1.	Sign in to the [Microsoft Dev Box developer portal](https://aka.ms/devbox-portal).
 1. Select **New** > **Dev Box**.
 1. In **Add a dev box**, enter the following values:
@@ -192,6 +192,23 @@ Creating new tasks in a catalog allows you to create customizations tailored to 
 1.	[Attach your repository to your dev center as a catalog](/azure/deployment-environments/how-to-configure-catalog?tabs=DevOpsRepoMSI).
 
 1.	Create a configuration file for those tasks by following the steps in [Write a configuration file](#write-a-configuration-file). 
+
+## Use secrets from Azure Key Vault in your configuration
+
+But that’s not all. You can also use secrets, such as personal access tokens, from Azure Key Vault in your yaml configurations to clone private repositories (with the git-clone task), or with any custom task you author that requires an access token. 
+
+First, make sure to give your dev center project’s managed identity the Key Vault Reader role and Key Vault Secrets User role on your key vault, and any user (or group) who should be able to consume that secret when creating a customized Dev Box the Key Vault Secrets User role on that key vault. Be sure to also grant the Secrets User role to each user or user group who should be able to consume this secret during the customization of a dev box. You can now reference this secret in your yaml configuration in this format, using the git-clone task as an example:
+
+:::image type="content" source="media/how-to-customize-dev-box-setup-tasks/customizations-reference-pat-in-yaml.png" alt-text="screenshot":::
+
+If you wish to clone a private AzDO repository, you don’t need to configure a secret in Key Vault. Instead, you can use "{{ado}}", or "{{ado://your-ado-organization-name}}" as a parameter, and this will fetch an access token on your behalf when creating a Dev Box. The access token fetched has read-only permission to your AzDO repository, and the git-clone task in Quickstart catalog can use this access token to clone your repository. Here is an example:
+
+:::image type="content" source="media/how-to-customize-dev-box-setup-tasks/customizations-reference-private-repo-in-yaml.png" alt-text="screenshot":::
+
+If your organization's policies require you to keep your Key Vault private from the internet, you can set your Key Vault to allow trusted Microsoft services to bypass your firewall rule. 
+
+:::image type="content" source="media/how-to-customize-dev-box-setup-tasks/customizations-configure-firewall.png" alt-text="screenshot":::
+
 
 ## Related content
 
