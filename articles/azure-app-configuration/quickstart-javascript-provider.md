@@ -103,50 +103,11 @@ async function run() {
 run().catch(console.error);
 ```
 
-### Sample 2: Load key-values and trim prefix from keys
-
-In this sample, you load key-values with an option `trimKeyPrefixes`.
-After key-values are loaded, the prefix "app." is trimmed from all keys.
-This can be convenient especially when the keys share a long prefix.
-
-```javascript
-const { load } = require("@azure/app-configuration-provider");
-const connectionString = process.env.AZURE_APPCONFIG_CONNECTION_STRING;
-
-async function run() {
-    console.log("Sample 2: Load key-values and trim prefix from keys");
-
-    // Load all key-values with no label, and trim "app." prefix from all keys.
-    const settings = await load(connectionString, {
-        trimKeyPrefixes: ["app."]
-    });
-
-    console.log("---Consume configuration as a Map---");
-    // Find the key "message" and print its value. The key is not trimmed as it does not start with "app."
-    console.log('settings.get("message"):', settings.get("message"));   // settings.get("message"): Message from Azure App Configuration
-    // The original key "app.greeting" is trimmed as "greeting".
-    console.log('settings.get("greeting"):', settings.get("greeting")); // settings.get("greeting"): Hello World
-    // The original key "app.json" is trimmed as "json".
-    console.log('settings.get("json"):', settings.get("json"));         // settings.get("json"): { myKey: 'myValue' }
-
-    console.log("---Consume configuration as an object---");
-    // Construct configuration object from loaded key-values with trimmed keys.
-    const config = settings.constructConfigurationObject();
-    // Use dot-notation to access configuration
-    console.log("config.message:", config.message);     // config.message: Message from Azure App Configuration
-    console.log("config.greeting:", config.greeting);   // config.greeting: Hello World
-    console.log("config.json:", config.json);           // config.json: { myKey: 'myValue' }
-}
-
-run().catch(console.error);
-```
-
-### Sample 3: Load specific key-values using selectors
+### Sample 2: Load specific key-values using selectors
 
 In this sample, you load a subset of key-values by specifying the `selectors` option.
 Only keys starting with "app." are loaded.
 Note that you can specify multiple selectors based on your needs, each with `keyFilter` and `labelFilter` properties.
-
 
 ```javascript
 const { load } = require("@azure/app-configuration-provider");
@@ -177,6 +138,44 @@ async function run() {
     console.log("config.message:", config.message);         // config.message: undefined
     console.log("config.app.greeting:", config.greeting);   // config.app.greeting: Hello World
     console.log("config.app.json:", config.json);           // config.app.json: { myKey: 'myValue' }
+}
+
+run().catch(console.error);
+```
+
+### Sample 3: Load key-values and trim prefix from keys
+
+In this sample, you load key-values with an option `trimKeyPrefixes`.
+After key-values are loaded, the prefix "app." is trimmed from all keys.
+This is useful when you want to load configurations that are specific to your application by filtering to a certain key prefix, but you don't want your code to carry the prefix every time it accesses the configuration.
+
+```javascript
+const { load } = require("@azure/app-configuration-provider");
+const connectionString = process.env.AZURE_APPCONFIG_CONNECTION_STRING;
+
+async function run() {
+    console.log("Sample 2: Load key-values and trim prefix from keys");
+
+    // Load all key-values with no label, and trim "app." prefix from all keys.
+    const settings = await load(connectionString, {
+        selectors: [{
+            keyFilter: "app.*"
+        }],
+        trimKeyPrefixes: ["app."]
+    });
+
+    console.log("---Consume configuration as a Map---");
+    // The original key "app.greeting" is trimmed as "greeting".
+    console.log('settings.get("greeting"):', settings.get("greeting")); // settings.get("greeting"): Hello World
+    // The original key "app.json" is trimmed as "json".
+    console.log('settings.get("json"):', settings.get("json"));         // settings.get("json"): { myKey: 'myValue' }
+
+    console.log("---Consume configuration as an object---");
+    // Construct configuration object from loaded key-values with trimmed keys.
+    const config = settings.constructConfigurationObject();
+    // Use dot-notation to access configuration
+    console.log("config.greeting:", config.greeting);   // config.greeting: Hello World
+    console.log("config.json:", config.json);           // config.json: { myKey: 'myValue' }
 }
 
 run().catch(console.error);
@@ -281,20 +280,6 @@ run().catch(console.error);
     **Sample 2**
 
     ```Output
-    Sample 2: Load key-values and trim prefix from keys
-    ---Consume configuration as a Map---
-    settings.get("message"): Message from Azure App Configuration
-    settings.get("greeting"): Hello World
-    settings.get("json"): { myKey: 'myValue' }
-    ---Consume configuration as an object---
-    config.message: Message from Azure App Configuration
-    config.greeting: Hello World
-    config.json: { myKey: 'myValue' }
-    ```
-
-    **Sample 3**
-
-    ```Output
     Sample 3: Load specific key-values using selectors
     ---Consume configuration as a Map---
     settings.has("message"): false
@@ -304,6 +289,18 @@ run().catch(console.error);
     config.message: undefined
     config.app.greeting: Hello World
     config.app.json: { myKey: 'myValue' }
+    ```
+
+    **Sample 3**
+
+    ```Output
+    Sample 2: Load key-values and trim prefix from keys
+    ---Consume configuration as a Map---
+    settings.get("greeting"): Hello World
+    settings.get("json"): { myKey: 'myValue' }
+    ---Consume configuration as an object---
+    config.greeting: Hello World
+    config.json: { myKey: 'myValue' }
     ```
 
 ## Clean up resources
