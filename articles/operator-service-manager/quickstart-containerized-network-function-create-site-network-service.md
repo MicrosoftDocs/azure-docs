@@ -60,7 +60,7 @@ ms.service: azure-operator-service-manager
     "nginx-nsdg": { 
         "deployParameters": [{}], 
         "customLocationId": "<resource id of your custom location>", 
-        "nfdvName": "1.0.0", 
+        "nfdv": "1.0.0", 
         "managedIdentity": "<managed-identity-resource-id>"
     }, 
 

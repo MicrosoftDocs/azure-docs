@@ -99,10 +99,9 @@ az extension add --name aosm
     "nsd_version": "1.0.0",
     // Optional. Description of the Network Service Design Version (NSDV).
     "nsdv_description": "An NSD that deploys the onboarded contoso-cnf NFD and an Azure Key Vault",
-    // Type of NFVI (for nfvisFromSite). Defaults to 'AzureCore'.
-    // Valid values are 'AzureCore', 'AzureOperatorNexus' or 'AzureArcKubernetes.
-    "nfvi_type": "AzureOperatorNexus",
-    // List of Resource Element Templates.
+    // List of Resource Element Templates (RETs).
+    // There must be at least one NF RET.
+    // ArmTemplate RETs are optional. Delete if not required.
     "resource_element_templates": [
         {
             // Type of Resource Element. Either NF or ArmTemplate
@@ -113,6 +112,7 @@ az extension add --name aosm
                 // The resource group that the publisher is hosted in.
                 "publisher_resource_group": "contoso",
                 // The name of the existing Network Function Definition Group to deploy using this NSD.
+                // This will be the same as the NF name if you published your NFDV using the CLI.
                 "name": "contoso-cnf-nfd",
                 // The version of the existing Network Function Definition to base this NSD on.
                 // This NSD will be able to deploy any NFDV with deployment parameters compatible with this version.
@@ -120,9 +120,7 @@ az extension add --name aosm
                 // The region that the NFDV is published to.
                 "publisher_offering_location": "eastus",
                 // Type of Network Function. Valid values are 'cnf' or 'vnf'.
-                "type": "cnf",
-                // Set to true or false. Whether the NSD should allow arbitrary numbers of this type of NF. If false only a single instance will be allowed. Only supported on VNFs, must be set to false on CNFs.
-                "multiple_instances": "false"
+                "type": "cnf"
             }
         },
         {
@@ -142,9 +140,6 @@ az extension add --name aosm
     ]
 }
 ```
-
-> [!NOTE]
-> The `nfvi_type` field only affects the resource elements of the `NF` type. The Azure resource region is controlled by the `location` field in the ARM template.
 > [!NOTE]
 > The resource element template section defines which NFD is included in the NSD. The properties must match those used in the input file passed to the `az aosm nfd build` command. This is because the Azure CLI AOSM Extension validates that the NFD has been correctly onboarded when building the NSD.
 

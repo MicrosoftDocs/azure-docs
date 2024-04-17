@@ -51,10 +51,9 @@ Here's a sample **input-cnf-nsd.jsonc**:
   "nsd_version": "1.0.0",
   // Optional. Description of the Network Service Design Version (NSDV).
   "nsdv_description": "Deploys a basic NGINX CNF",
-  // Type of NFVI (for nfvisFromSite). Defaults to 'AzureCore'.
-  // Valid values are 'AzureCore', 'AzureOperatorNexus' or 'AzureArcKubernetes.
-  "nfvi_type": "AzureCore",
-  // List of Resource Element Templates.
+  // List of Resource Element Templates (RETs).
+  // There must be at least one NF RET.
+  // ArmTemplate RETs are optional. Delete if not required.
   "resource_element_templates": [
     {
       // Type of Resource Element. Either NF or ArmTemplate
@@ -65,6 +64,7 @@ Here's a sample **input-cnf-nsd.jsonc**:
         // The resource group that the publisher is hosted in.
         "publisher_resource_group": "nginx-publisher-rg",
         // The name of the existing Network Function Definition Group to deploy using this NSD.
+        // This will be the same as the NF name if you published your NFDV using the CLI.
         "name": "nginx",
         // The version of the existing Network Function Definition to base this NSD on.
         // This NSD will be able to deploy any NFDV with deployment parameters compatible with this version.
@@ -72,9 +72,7 @@ Here's a sample **input-cnf-nsd.jsonc**:
         // The region that the NFDV is published to.
         "publisher_offering_location": "uksouth",
         // Type of Network Function. Valid values are 'cnf' or 'vnf'.
-        "type": "cnf",
-        // Set to true or false. Whether the NSD should allow arbitrary numbers of this type of NF. If false only a single instance will be allowed. Only supported on VNFs, must be set to false on CNFs.
-        "multiple_instances": "false"
+        "type": "cnf"
       }
     }
   ]
@@ -91,11 +89,10 @@ Here's a sample **input-cnf-nsd.jsonc**:
 - **resource_element_templates**:
   - _publisher_ - The name of the publisher that this NFDV is published under.
   - _publisher_resource_group_ - The resource group that the publisher is hosted in.
-  - _name_ - The name of the existing Network Function Definition Group to deploy using this NSD.
+  - _name_ - The name of the existing Network Function Definition Group to deploy using this NSD. This will be the same as the NF name if you published your NFDV using the CLI.
   - _version_ - The version of the existing Network Function Definition to base this NSD on. This NSD is able to deploy any NFDV with deployment parameters compatible with this version.
   - _publisher_offering_location_ - The region that the NFDV is published to.
   - _type_ - Type of Network Function. Valid values are cnf or vnf.
-  - _multiple_instances_ - Valid values are true or false. Controls whether the NSD should allow arbitrary numbers of this type of NF. If set to false only a single instance is allowed. Only supported on VNFs. For CNFs this value must be set to false.
 
 ## Build the Network Service Design Version (NSDV)
 
