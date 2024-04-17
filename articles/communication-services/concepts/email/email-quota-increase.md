@@ -42,7 +42,44 @@ Once you complete the previous steps, you can start building your sender reputat
 
 ## 5. Request an email quota increase  
 
-To request an email quota increase, compile the information outlined in the [Email quota increase request form](https://microsoft-my.sharepoint.com/:w:/p/raviverm/ETwbXkxMGlVBosTGBjnIF-YBxo8YQ8Eb8uI4T7fT44LNzQ?e=oBfQYw). Then submit the information in an incident report at [Create a support ticket](https://azure.microsoft.com/support/create-ticket/), requesting to raise your email sending limit.
+To request an email quota increase, compile the following information:
+
+```
+Customer Information 
+Company name: 
+Company website: 
+Please provide a brief description of your business: 
+
+Email Service Information 
+Subscription ID: 
+Azure Communication Services Resource Name: 
+Is your custom domain already set up and currently used for sending messages:  
+Indicate the domain from which you are currently sending emails:  
+
+Usage Information
+1. What type of emails do you send? (such as Transactional, Marketing, Promotional) 
+2. Please specify the expected volume of emails you plan to send:  
+	- What is the maximum rate of messages per minute that you require? 
+	- What is the maximum rate of messages per hour that you require? 
+	- What is the maximum rate of messages per day that you require? 
+
+Additional Information 
+What is the source of the email addresses that you use for sending your messages?
+Note: The source of the email addresses that you send your messages to plays a crucial role in the 
+effectiveness and compliance of your email marketing campaigns. Providing details about the source 
+of your email addresses helps us understand how you acquire and maintain your subscriber list.
+
+How do you currently manage and remove email addresses that have unsubscribed or resulted in 
+bounce backs from your mailing list?
+Please explain if you have an automated process in place that handles unsubscribes when recipients 
+click on the 'unsubscribe' link in your emails. Additionally, if you receive bounce/undeliverable 
+notifications, can you include how you handle those and whether you have any mechanism to 
+automatically remove email addresses that result in consistent bounces.
+```
+
+You can copy this text to a file and add the requested information.
+
+Then submit the information in an incident report at [Create a support ticket](https://azure.microsoft.com/support/create-ticket/), requesting to raise your email sending limit.
 
 Email quota increase requests aren't automatically approved. The reviewing team considers your overall sender reputation when determining approval status. Sender reputation includes factors such as your email delivery failure rates, your domain reputation, and reports of spam and abuse. 
 
