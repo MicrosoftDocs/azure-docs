@@ -17,16 +17,16 @@ In this tutorial, you troubleshoot the most common problems for a registry enabl
 May include one or more of the following issues: 
 
 - Cached images don't appear in a real repository 
-  - [Cached images don't appear in a live repository](tutorial-troubleshoot-artifact-cache.md#cached-images-dont-appear-in-a-live-repository) 
+  - [Cached images don't appear in a live repository](troubleshoot-artifact-cache.md#cached-images-dont-appear-in-a-live-repository) 
 
 - Credentials have an unhealthy status
-  - [Unhealthy Credentials](tutorial-troubleshoot-artifact-cache.md#unhealthy-credentials)
+  - [Unhealthy Credentials](troubleshoot-artifact-cache.md#unhealthy-credentials)
 
 - Unable to create a cache rule
-  - [Cache rule Limit](tutorial-troubleshoot-artifact-cache.md#cache-rule-limit)
+  - [Cache rule Limit](troubleshoot-artifact-cache.md#cache-rule-limit)
 
 - Unable to create cache rule using a wildcard
-  - [Unable to create cache rule using a wildcard](tutorial-troubleshoot-artifact-cache.md#unable-to-create-cache-rule-using-a-wildcard)
+  - [Unable to create cache rule using a wildcard](troubleshoot-artifact-cache.md#unable-to-create-cache-rule-using-a-wildcard)
 
 ## Potential Solutions
 
