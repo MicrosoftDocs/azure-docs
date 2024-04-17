@@ -37,7 +37,7 @@ The Azure Spring Apps Enterprise plan offers the following components:
 - Application Live View for VMware Tanzu
 - Application Accelerator for VMware Tanzu
 
-You also have the flexibility to enable only the components that you need at any time. Below table tells the default resource consumption per component.
+You also have the flexibility to enable only the components that you need at any time and pay for what you actually enable. Below table tells the default resource consumption per component.
 
 | Tanzu component                   | vCPU (cores) | Memory (GBs) |
 |-----------------------------------|------|---------|
