@@ -21,7 +21,7 @@ The Azure CLI Azure Operator Service Manager extension provides a command to pus
 - You might have provided the wrong virtual machine image and need to push a single replacement image
 - You might need to push a new version of a virtual machine to provide a fix for an issue
 
-This How-To article describes how to push VHD images to and pull VHD images from an existing blob storage backed artifact store using the AOSM Artifact Manifest resource. See this [How-To](/how-to-pull-and-push-artifacts-manually-aon.md) for the equivalent article for ACR-backed artifact stores.
+This How-To article describes how to push VHD images to and pull VHD images from an existing blob storage backed artifact store using the AOSM Artifact Manifest resource. See this [How-To](how-to-pull-and-push-artifacts-manually-aon.md) for the equivalent article for ACR-backed artifact stores.
 
 ## Prerequisites
 
