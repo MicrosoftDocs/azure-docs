@@ -17,7 +17,7 @@ Manufacturers want to deploy an overall Industrial IoT solution on a global scal
 
 These increased efficiencies lead to faster production and lower energy consumption, which all lead to lowering the cost for the produced goods while increasing their quality in most cases.
 
-The solution must be as efficient as possible and enable all required use cases like condition monitoring, OEE calculation, forecasting, and anomaly detection. From the insights gained from these use cases, in a second set a digital feedback loop can be created which can then apply optimizations and other changes to the production processes.
+The solution must be as efficient as possible and enable all required use cases like condition monitoring, OEE calculation, forecasting, and anomaly detection. From the insights gained from these use cases, in a second step a digital feedback loop can be created which can then apply optimizations and other changes to the production processes.
 
 Interoperability is the key to achieving a fast rollout of the solution architecture and the use of open standards like OPC UA significantly helps with achieving this interoperability.
 
