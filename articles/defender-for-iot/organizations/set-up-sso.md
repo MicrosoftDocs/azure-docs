@@ -51,7 +51,7 @@ Before you begin:
 ## Add your sensor URIs
 ​
 1. In your new application, select **Authentication​**.
-1. Under **Redirect URIs**, the URI for the first sensor, added in the [previous step](#create-application-id-on-entra-id), is displayed under **Redirect URIs**. To add the rest of the URIs: 
+1. Under **Redirect URIs**, the URI for the first sensor, added in the [previous step](#create-application-id-on-microsoft-entra-id), is displayed under **Redirect URIs**. To add the rest of the URIs: 
     1. Select **Add URI** to add another row, and type an IP or hostname. 
     1. Repeat this step for the rest of the connected sensors. 
     
@@ -79,7 +79,7 @@ Before you begin:
         :::image type="content" source="media/set-up-sso/sensor-setting-sso.png" alt-text="Screenshot of creating a new Single sign-on sensor setting in Defender for IoT.":::
 
 1. In the **Settings** tab:
-    1. Next to **Application name**, select the ID of the [application you created in Microsoft Entra ID](#create-application-id-on-entra-id).
+    1. Next to **Application name**, select the ID of the [application you created in Microsoft Entra ID](#create-application-id-on-microsoft-entra-id).
     1. Under **Permissions management**, assign the **Admin**, **Security analyst**, and **Read only​** permissions to relevant user groups. You can select multiple user groups​.
     
         :::image type="content" source="media/set-up-sso/permissions-management.png" alt-text="Screenshot of setting up permissions in the Defender for IoT sensor settings.":::    
