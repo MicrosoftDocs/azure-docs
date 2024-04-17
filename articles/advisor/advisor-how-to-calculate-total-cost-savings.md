@@ -1,11 +1,15 @@
 ---
-title: Export cost savings in Azure Advisor
+title: Calculate cost savings in Azure Advisor
 ms.topic: article
 ms.date: 02/06/2024
 description: Export cost savings in Azure Advisor and calculate the aggregated potential yearly savings by using the cost savings amount for each recommendation.
 ---
 
-# Export cost savings
+# Calculate cost savings
+
+This article provides guidance on how to calculate cost savings in Azure Advisor. 
+
+## Export cost savings for recommendations
 
 To calculate aggregated potential yearly savings, follow these steps: 
 
@@ -23,7 +27,7 @@ The Advisor **Overview** page opens.
 > [!NOTE]
 > Different types of cost savings recommendations are generated using overlapping datasets (for example, VM rightsizing/shutdown, VM reservations and savings plan recommendations all consider on-demand VM usage). As a result, resource changes (e.g., VM shutdowns) or reservation/savings plan purchases will impact on-demand usage, and the resulting recommendations and associated savings forecast. 
 
-# Understanding cost savings
+## Understanding cost savings
 
 Azure Advisor provides recommendations for resizing/shutting down underutilized resources, purchasing compute reserved instances, and savings plans for compute.
 
