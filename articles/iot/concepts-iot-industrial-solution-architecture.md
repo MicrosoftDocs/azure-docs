@@ -27,7 +27,7 @@ Interoperability is the key to achieving a fast rollout of the solution architec
 This solution uses IEC 62541 Open Platform Communications (OPC) Unified Architecture (UA) for all Operational Technology (OT) data. This standard is described [here](https://opcfoundation.org). 
 
 
-## Reference Solution Architecture
+## Reference solution architecture
 
 Simplified Architecture (both Azure and Fabric Options):
 
@@ -67,7 +67,7 @@ Here are the components involved in this solution:
 > In a real-world deployment, something as critical as opening a pressure relief valve would be done on-premises. This is just a simple example of how to achieve the digital feedback loop.
 
 
-## A Cloud-based OPC UA Certificate Store and Persisted Storage
+## A cloud-based OPC UA certificate store and persisted storage
 
 When manufacturers run OPC UA applications, their OPC UA configuration files, keys, and certificates must be persisted. While Kubernetes has the ability to persist these files in volumes, a safer place for them is the cloud, especially on single-node clusters where the volume would be lost when the node fails. This is why the OPC UA applications used in this solution store their configuration files, keys, and certificates in the cloud. This also has the advantage of providing a single location for mutually trusted certificates for all OPC UA applications.
 
@@ -136,12 +136,12 @@ For best results, change the `Layout` option to `Grouped` and the `Lables` to `n
 :::image type="content" source="media/concepts-iot-industrial-solution-architecture/station-graph.png" alt-text="Graph of the Station Info Model." lightbox="media/concepts-iot-industrial-solution-architecture/station-graph.png" border="false" :::
 
 
-## Production Line Simulation
+## Production line simulation
 
 The solution uses a production line simulation made up of several stations, using an OPC UA information model, as well as a simple Manufacturing Execution System (MES). Both the Stations and the MES are containerized for easy deployment.
 
 
-### Default Simulation Configuration
+### Default simulation configuration
 
 The simulation is configured to include two production lines. The default configuration is:
 
@@ -160,7 +160,7 @@ The simulation is configured to include two production lines. The default config
 > Shift times are in local time, specifically the time zone the Virtual Machine (VM) hosting the production line simulation is set to.
 
 
-### OPC UA Node IDs of Station OPC UA Server
+### OPC UA node IDs of Station OPC UA server
 
 The following OPC UA Node IDs are used in the Station OPC UA Server for telemetry to the cloud
 * i=379 - manufactured product serial number
@@ -175,12 +175,12 @@ The following OPC UA Node IDs are used in the Station OPC UA Server for telemetr
 * i=434 - pressure
 
 
-## Digital Feedback Loop with UA Cloud Commander and UA Cloud Action
+## Digital feedback loop with UA Cloud Commander and UA Cloud Action
 
 This reference implementation implements a "digital feedback loop", specifically triggering a command on one of the OPC UA servers in the simulation from the cloud, based on time-series data reaching a certain threshold (the simulated pressure). You can see the pressure of the assembly machine in the Seattle production line being released on regular intervals in the Azure Data Explorer dashboard.
 
 
-## Installation of Production Line Simulation and Cloud Services
+## Install the production line simulation and cloud services
 
 Clicking on the button deploys all required resources on Microsoft Azure:
 
@@ -205,7 +205,7 @@ After the command is finished, your Azure Kubernetes Services Edge Essentials in
 > To check the memory utilization of your Kubernetes cluster, run `Invoke-AksEdgeNodeCommand -Command "sudo cat /proc/meminfo"` from an **Administrator Powershell window**.
 
 
-## Running the Production Line Simulation
+## Run the production line simulation
 
 From the deployed VM, open a **Windows command prompt**. Navigate to the `C:\ManufacturingOntologies-main\Tools\FactorySimulation` directory and run the **StartSimulation** command by supplying the following parameters:
 
@@ -234,7 +234,7 @@ The following example shows the command with all parameters:
 > In this solution, the OPC UA application certificate store for UA Cloud Publisher, and the simulated production line's MES and individual machines' store, is located in the cloud in the deployed Azure Storage account.
 
 
-## Enabling the Kubernetes Cluster for Management via Azure Arc
+## Enable the Kubernetes cluster for management via Azure Arc
 
 1. On your virtual machine, open an **Administrator PowerShell window**. Navigate to the `C:\ManufacturingOntologies-main\Deployment` directory and run `CreateServicePrincipal`. The two parameters `subscriptionID` and `tenantID` can be retrieved from the Azure portal.
 1. Run `notepad aksedge-config.json` and provide the following information:
@@ -255,7 +255,7 @@ You can now manage your Kubernetes cluster from the cloud via the newly deployed
 :::image type="content" source="media/concepts-iot-industrial-solution-architecture/arc.png" alt-text="Screenshot of Azure Arc in the Azure portal." lightbox="media/concepts-iot-industrial-solution-architecture/arc.png" border="false" :::
 
 
-## Deploying Azure IoT Operations on the Edge
+## Deploying Azure IoT Operations on the edge
 
 Make sure you have already started the production line simulation and enabled the Kubernetes Cluster for management via Azure Arc as described in the previous paragraphs. Then, follow these steps:
 
@@ -264,7 +264,7 @@ Make sure you have already started the production line simulation and enabled th
 1. From the Azure portal, deploy Azure IoT Operations by navigating to your Arc-connected kubernetes cluster, select on `Extensions`, `Add`, select `Azure IoT Operations` and select `Create`. On the Basic page, leave everything as-is. On the Configuration page, set the `MQ Mode` to `Auto`. You don't need to deploy a simulated Programmable Logic Controller (PLC), as this reference solution already contains a much more substantial production line simulation. On the Automation page, select the Key Vault deployed for this reference solution and then copy the `az iot ops init` command automatically generated. From your deployed VM, open a new **Administrator PowerShell Window**, sign in to the correct Azure subscription by running `az login` and then run the `az iot ops init` command with the arguments from the Azure portal. Once the command completes, select `Next` and then close the wizard. 
 
 
-## Configuring OPC UA Security and Connectivity for Azure IoT Operations
+## Configuring OPC UA security and connectivity for Azure IoT Operations
 
 Make sure you have successfully deployed Azure IoT Operations and all Kubernetes workloads are up and running by navigating to the Arc-enabled Kubernetes resource in the Azure portal.
 
@@ -281,7 +281,7 @@ Make sure you have successfully deployed Azure IoT Operations and all Kubernetes
 1. As the last step, connect Azure IoT Operations to the Event Hubs deployed in this reference solution as described [here](/azure/iot-operations/connect-to-cloud/howto-configure-kafka).
 
 
-## Use Cases Condition Monitoring, Calculating OEE, Detecting Anomalies, and Making Predictions in Azure Data Explorer
+## Use cases condition monitoring, calculating OEE, detecting anomalies, and making predictions in Azure Data Explorer
 
 You can also visit the [Azure Data Explorer documentation](/azure/synapse-analytics/data-explorer/data-explorer-overview) to learn how to create no-code dashboards for condition monitoring, yield or maintenance predictions, or anomaly detection. We have provided a sample dashboard [here](https://github.com/digitaltwinconsortium/ManufacturingOntologies/blob/main/Tools/ADXQueries/dashboard-ontologies.json) for you to deploy to the ADX Dashboard by following the steps outlined [here](/azure/data-explorer/azure-data-explorer-dashboards#to-create-new-dashboard-from-a-file). After import, you need to update the dashboard's data source by specifying the HTTPS endpoint of your ADX server cluster instance in the format `https://ADXInstanceName.AzureRegion.kusto.windows.net/` in the top-right-hand corner of the dashboard. 
 
@@ -291,7 +291,7 @@ You can also visit the [Azure Data Explorer documentation](/azure/synapse-analyt
 > If you want to display the OEE for a specific shift, select `Custom Time Range` in the `Time Range` drop-down in the top-left hand corner of the ADX Dashboard and enter the date and time from start to end of the shift you're interested in. 
 
 
-## Rendering the Built-In Unified NameSpace (UNS) and ISA-95 Model Graph in Kusto Explorer
+## Render the built-in Unified NameSpace (UNS) and ISA-95 model graph in Kusto Explorer
 
 This reference solution implements a Unified NameSapce (UNS), based on the OPC UA metadata sent to the time-series database in the cloud (Azure Data Explorer). This OPC UA metadata also includes the ISA-95 asset hierarchy. The resulting graph can be easily visualized in the Kusto Explorer tool available for download [here](/azure/data-explorer/kusto/tools/kusto-explorer).
 
@@ -315,7 +315,7 @@ edges | make-graph source --> target with nodes on DisplayName
 
 For best results, change the `Layout` option to `Grouped`.
 
-:::image type="content" source="media/concepts-iot-industrial-solution-architecture/isa-95-graph.png" alt-text="Graph of an ISA-95 asset hierarchy." lightbox="media/concepts-iot-industrial-solution-architecture/isa-95-graph.png" border="false" :::
+:::image type="content" source="media/concepts-iot-industrial-solution-architecture/isa-95-graph.png" alt-text="Graph that shows an ISA-95 asset hierarchy." lightbox="media/concepts-iot-industrial-solution-architecture/isa-95-graph.png" border="false" :::
 
 
 ## Use Azure Managed Grafana Service
@@ -324,21 +324,21 @@ You can also use Grafana to create a dashboard on Azure for this reference solut
 
 The following screenshot shows the dashboard: 
 
-:::image type="content" source="media/concepts-iot-industrial-solution-architecture/grafana.png" alt-text="Screenshot of Grafana." lightbox="media/concepts-iot-industrial-solution-architecture/grafana.png" border="false" :::
+:::image type="content" source="media/concepts-iot-industrial-solution-architecture/grafana.png" alt-text="Screenshot that shows a Grafana dashboard." lightbox="media/concepts-iot-industrial-solution-architecture/grafana.png" border="false" :::
 
 
 ### Enable Azure Managed Grafana Service
 
 1. Go to the Azure portal and search for the service 'Grafana' and select the 'Azure Managed Grafana' service.
 
-  :::image type="content" source="media/concepts-iot-industrial-solution-architecture/enable-grafana-service.png" alt-text="Screenshot of enabling Grafana in the Marketplace." lightbox="media/concepts-iot-industrial-solution-architecture/enable-grafana-service.png" border="false" :::
+    :::image type="content" source="media/concepts-iot-industrial-solution-architecture/enable-grafana-service.png" alt-text="Screenshot of enabling Grafana in the Marketplace." lightbox="media/concepts-iot-industrial-solution-architecture/enable-grafana-service.png" border="false" :::
 
 1. Give your instance a name and leave the standard options on - and create the service. 
 
 1. After the service is created, navigate to the URL where you access your Grafana instance. You can find the URL in the homepage of the service. 
 
 
-### Add a new Data Source in Grafana
+### Add a new data source in Grafana
 
 After your first sign in, you'll need to add a new data source to Azure Data Explorer. 
 
@@ -350,7 +350,7 @@ After your first sign in, you'll need to add a new data source to Azure Data Exp
 
 1. Save and test your connection on the bottom of the page. 
 
-### Import a Sample Dashboard
+### Import a sample dashboard
 
 Now you are ready to import the provided sample dashboard. 
 
@@ -364,38 +364,38 @@ Now you are ready to import the provided sample dashboard.
 
 1. Navigate back to the dashboard and hit the refresh button. You should now see data (don't forget to hit the save button on the dashboard).
 
-The location variable on the top of the page is automatically filled with data from Azure Digital Twins (the area nodes from ISA95). Here you can select the different locations and see the different datapoints of every factory. 
+    The location variable on the top of the page is automatically filled with data from Azure Digital Twins (the area nodes from ISA95). Here you can select the different locations and see the different datapoints of every factory. 
 
-1. If data isn't showing up in your dashboard, navigate to the individual panels and see if the right data source is selected:
+1. If data isn't showing up in your dashboard, navigate to the individual panels and see if the right data source is selected.
 
-### Configure Alerts
+### Configure alerts
 
 Within Grafana, it's also possible to create alerts. In this example, we create a low OEE alert for one of the production lines. 
 
 1. Sign in to your Grafana service, and select Alert rules in the menu.
 
-  :::image type="content" source="media/concepts-iot-industrial-solution-architecture/navigate-to-alerts.png" alt-text="Screenshot of navigating to alerts." lightbox="media/concepts-iot-industrial-solution-architecture/navigate-to-alerts.png" border="false" :::
+    :::image type="content" source="media/concepts-iot-industrial-solution-architecture/navigate-to-alerts.png" alt-text="Screenshot that shows navigation to alerts." lightbox="media/concepts-iot-industrial-solution-architecture/navigate-to-alerts.png" border="false" :::
 
 1. Select 'Create alert rule'.
 
-  :::image type="content" source="media/concepts-iot-industrial-solution-architecture/create-rule.png" alt-text="Screenshot of creating an alert rule." lightbox="media/concepts-iot-industrial-solution-architecture/create-rule.png" border="false" :::
+    :::image type="content" source="media/concepts-iot-industrial-solution-architecture/create-rule.png" alt-text="Screenshot that shows how to create an alert rule." lightbox="media/concepts-iot-industrial-solution-architecture/create-rule.png" border="false" :::
 
 1. Give your alert a name and select 'Azure Data Explorer' as data source. Select query in the navigation pane. 
 
-  :::image type="content" source="media/concepts-iot-industrial-solution-architecture/alert-query.png" alt-text="Screenshot of creating an alert query." lightbox="media/concepts-iot-industrial-solution-architecture/alert-query.png" border="false" :::
+    :::image type="content" source="media/concepts-iot-industrial-solution-architecture/alert-query.png" alt-text="Screenshot of creating an alert query." lightbox="media/concepts-iot-industrial-solution-architecture/alert-query.png" border="false" :::
 
 1. In the query field, enter the following query. In this example, we use the 'Seattle' production line. 
 
-  ```
-  let oee = CalculateOEEForStation("assembly", "seattle", 6, 6);
-  print round(oee * 100, 2)
-  ```
+    ```
+    let oee = CalculateOEEForStation("assembly", "seattle", 6, 6);
+    print round(oee * 100, 2)
+    ```
 
 1. Select 'table' as output. 
 
 1. Scroll down to the next section. Here, you configure the alert threshold. In this example, we use 'below 10' as the threshold, but in production environments, this value can be higher.
 
-  :::image type="content" source="media/concepts-iot-industrial-solution-architecture/threshold-alert.png" alt-text="Screenshot of a threshold alert." lightbox="media/concepts-iot-industrial-solution-architecture/threshold-alert.png" border="false" :::
+    :::image type="content" source="media/concepts-iot-industrial-solution-architecture/threshold-alert.png" alt-text="Screenshot that shows a threshold alert." lightbox="media/concepts-iot-industrial-solution-architecture/threshold-alert.png" border="false" :::
 
 1. Select the folder where you want to save your alerts and configure the 'Alert Evaluation behavior'. Select the option 'every 2 minutes'.
 
@@ -403,14 +403,16 @@ Within Grafana, it's also possible to create alerts. In this example, we create 
 
 In the overview of your alerts, you can now see an alert being triggered when your OEE is below '10'.
 
-:::image type="content" source="media/concepts-iot-industrial-solution-architecture/alert-overview.png" alt-text="Screenshot of an alert overview." lightbox="media/concepts-iot-industrial-solution-architecture/alert-overview.png" border="false" :::
+:::image type="content" source="media/concepts-iot-industrial-solution-architecture/alert-overview.png" alt-text="Screenshot that shows an alert overview." lightbox="media/concepts-iot-industrial-solution-architecture/alert-overview.png" border="false" :::
 
 You can integrate this setup with, for example, Microsoft Dynamics Field Services.
 
 
-## Connecting the Reference Solution to Microsoft Power BI
+## Connecting the reference solution to Microsoft Power BI
 
-1. You need access to a Power BI subscription.
+To connect the reference solution Power BI, you need access to a Power BI subscription. 
+
+Complete the following steps:
 1. Install the Power BI Desktop app from [here](https://go.microsoft.com/fwlink/?LinkId=2240819&clcid=0x409).
 1. Sign in to Power BI Desktop app using the user with access to the Power BI subscription.
 1. From the Azure portal, navigate to your Azure Data Explorer database instance (`ontologies`) and add `Database Admin` permissions to an Azure Active Directory user with access to just a **single** Azure subscription, specifically the subscription used for your deployed instance of this reference solution. Create a new user in Azure Active Directory if you have to.
@@ -440,13 +442,13 @@ You can integrate this setup with, for example, Microsoft Dynamics Field Service
 1. Under `Visualizations`, move the `NodeValue` from the `Data` source to the `Y-axis`, select on it and select `Median`.
 1. Save your new report.
 
-  > [!NOTE]
-  > You can add other data from Azure Data Explorer to your report similarly.
+    > [!NOTE]
+    > You can add other data from Azure Data Explorer to your report similarly.
 
-  :::image type="content" source="media/concepts-iot-industrial-solution-architecture/power-bi.png" alt-text="Screenshot of a Power BI view." lightbox="media/concepts-iot-industrial-solution-architecture/power-bi.png" border="false" :::
+    :::image type="content" source="media/concepts-iot-industrial-solution-architecture/power-bi.png" alt-text="Screenshot of a Power BI view." lightbox="media/concepts-iot-industrial-solution-architecture/power-bi.png" border="false" :::
 
 
-## Connecting the Reference Solution to Microsoft Dynamics 365 Field Service
+## Connecting the reference solution to Microsoft Dynamics 365 Field Service
 
 This integration showcases the following scenarios:
 
@@ -457,7 +459,7 @@ The integration uses Azure Logics Apps. With Logic Apps bussiness-critcal apps a
 
 First, if you're not already a Dynamics 365 Field Service customer, activate a 30 day trial [here](https://dynamics.microsoft.com/field-service/field-service-management-software/free-trial). Remember to use the same Microsoft Entra ID (formerly Azure Active Directory) used while deploying the Manufacturing Ontologies reference solution. Otherwise, you would need to configure cross tenant authentication that isn't part of these instructions!
 
-### Create an Azure Logic App Workflow to create assets in Dynamics 365 Field Service
+### Create an Azure Logic App workflow to create assets in Dynamics 365 Field Service
 
 Let's start with uploading assets from the Manufacturing Ontologies into Dynamics 365 Field Service:
 
@@ -473,39 +475,39 @@ Let's start with uploading assets from the Manufacturing Ontologies into Dynamic
 
 6. In actions, search for `Azure Data Explorer` and select the `Run KQL query` command. Within this query, we check what kind of assets we have. Use the following query to get assets and paste it in the query field:
 
-  ```
-  let ADTInstance =  "PLACE YOUR ADT URL";let ADTQuery = "SELECT T.OPCUAApplicationURI as AssetName, T.$metadata.OPCUAApplicationURI.lastUpdateTime as UpdateTime FROM DIGITALTWINS T WHERE IS_OF_MODEL(T , 'dtmi:digitaltwins:opcua:nodeset;1') AND T.$metadata.OPCUAApplicationURI.lastUpdateTime > 'PLACE DATE'";evaluate azure_digital_twins_query_request(ADTInstance, ADTQuery)
-  ```
+    ```
+    let ADTInstance =  "PLACE YOUR ADT URL";let ADTQuery = "SELECT T.OPCUAApplicationURI as AssetName, T.$metadata.OPCUAApplicationURI.lastUpdateTime as UpdateTime FROM DIGITALTWINS T WHERE IS_OF_MODEL(T , 'dtmi:digitaltwins:opcua:nodeset;1') AND T.$metadata.OPCUAApplicationURI.lastUpdateTime > 'PLACE DATE'";evaluate azure_digital_twins_query_request(ADTInstance, ADTQuery)
+    ```
 
 7. To get your asset data into Dynamics 365 Field Service, you need to connect to Microsoft Dataverse. Connect to your Dynamics 365 Field Service instance and use the following configuration:
 
-  - Use the 'Customer Assets' Table Name
-  - Put the 'AssetName' into the Name field
+    - Use the 'Customer Assets' Table Name
+    - Put the 'AssetName' into the Name field
 
 8. Save your workflow and run it. You see in a few seconds later that new assets are created in Dynamics 365 Field Service.
 
-### Create an Azure Logic App Workflow to create Alerts in Dynamics 365 Field Service
+### Create an Azure Logic App workflow to create alerts in Dynamics 365 Field Service
 
 This workflow creates alerts in Dynamics 365 Field Service, specifically when a certain threshold of FaultyTime on an asset of the Manufacturing Ontologies reference solution is reached.
 
 1. We first need to create an Azure Data Explorer function to get the right data. Go to your Azure Data Explorer query panel in the Azure portal and run the following code to create a FaultyFieldAssets function:
 
-  :::image type="content" source="media/concepts-iot-industrial-solution-architecture/adx-query.png" alt-text="Screenshot of creating a function ADX query." lightbox="media/concepts-iot-industrial-solution-architecture/adx-query.png" border="false" :::
+    :::image type="content" source="media/concepts-iot-industrial-solution-architecture/adx-query.png" alt-text="Screenshot of creating a function ADX query." lightbox="media/concepts-iot-industrial-solution-architecture/adx-query.png" border="false" :::
 
-   ```
-   .create-or-alter function  FaultyFieldAssets() {  
-   let Lw_start = ago(3d);
-   opcua_telemetry
-   | where Name == 'FaultyTime'
-   and Value > 0
-   and Timestamp between (Lw_start .. now())
-   | join kind=inner (
-       opcua_metadata
-       | extend AssetList =split (Name, ';')
-       | extend AssetName=AssetList[0]
-       ) on DataSetWriterID
-   | project AssetName, Name, Value, Timestamp}
-   ```
+    ```
+    .create-or-alter function  FaultyFieldAssets() {  
+    let Lw_start = ago(3d);
+    opcua_telemetry
+    | where Name == 'FaultyTime'
+    and Value > 0
+    and Timestamp between (Lw_start .. now())
+    | join kind=inner (
+        opcua_metadata
+        | extend AssetList =split (Name, ';')
+        | extend AssetName=AssetList[0]
+        ) on DataSetWriterID
+    | project AssetName, Name, Value, Timestamp}
+    ```
 
 2. Create a new workflow in Azure Logic App. Create a 'Recurrence' trigger to start - every 3 minutes. Create as action 'Azure Data Explorer' and select the Run KQL Query.
 
@@ -515,7 +517,7 @@ This workflow creates alerts in Dynamics 365 Field Service, specifically when a 
 
 5. Run the workflow and to see new alerts being generated in your Dynamics 365 Field Service dashboard:
 
-  :::image type="content" source="media/concepts-iot-industrial-solution-architecture/dynamics-iot-alerts.png" alt-text="Screenshot of alerts in Dynamics 365 FS." lightbox="media/concepts-iot-industrial-solution-architecture/dynamics-iot-alerts.png" border="false" :::
+    :::image type="content" source="media/concepts-iot-industrial-solution-architecture/dynamics-iot-alerts.png" alt-text="Screenshot of alerts in Dynamics 365 FS." lightbox="media/concepts-iot-industrial-solution-architecture/dynamics-iot-alerts.png" border="false" :::
 
 
 ## Related content
