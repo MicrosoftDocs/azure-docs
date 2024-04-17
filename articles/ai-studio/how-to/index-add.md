@@ -9,8 +9,8 @@ ms.custom:
 ms.topic: how-to
 ms.date: 4/5/2024
 ms.reviewer: eur
-ms.author: eur
-author: eric-urban
+ms.author: ssalgado
+author: ssalgadodev
 ---
 
 # How to create a vector index

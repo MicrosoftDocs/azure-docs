@@ -69,7 +69,7 @@ Projects also have specific settings that only hold for that project:
 The hub exposes API endpoints and keys for prebuilt AI services that are created by Microsoft such as Azure OpenAI Service. Which precise services are available to you is subject to your Azure region and your chosen Azure AI services provider at the time of setup ('advanced' option):
 
 * If you create a hub together with an existing Azure OpenAI Service resource, you only have capabilities for Azure OpenAI Service. Use this option if you'd like to reuse existing Azure OpenAI quota and models deployments. Currently, there's no upgrade path to get Speech and Vision capabilities after the hub is created.
-* If you create a hub together with an Azure AI services provider, you can use Azure OpenAI Service and other AI services such as Speech and Vision. Currently, this option is only available via the Azure AI CLI and SDK.
+* If you create a hub together with an Azure AI services provider, you can use Azure OpenAI Service and other AI services such as Speech and Vision. 
 
 To understand the full layering of hubs and its Azure dependencies including the Azure AI services provider, and how these is represented in Azure AI Studio and in the Azure portal, see [Find Azure AI Studio resources in the Azure portal](#find-azure-ai-studio-resources-in-the-azure-portal).
 
@@ -86,7 +86,7 @@ Large language models that can be used to generate text, speech, images, and mor
 
 ### Virtual networking
 
-hubs, compute resources, and projects share the same Microsoft-managed Azure virtual network. After you configure the managed networking settings during the hub creation process, all new projects created using that hub will inherit the same virtual network settings. Therefore, any changes to the networking settings are applied to all current and new project in that hub. By default, hubs provide public network access.
+Hubs, compute resources, and projects share the same Microsoft-managed Azure virtual network. After you configure the managed networking settings during the hub creation process, all new projects created using that hub will inherit the same virtual network settings. Therefore, any changes to the networking settings are applied to all current and new project in that hub. By default, hubs provide public network access.
 
 To establish a private inbound connection to your hub environment, create an Azure Private Link endpoint on the following scopes:
 * The hub

@@ -9,8 +9,8 @@ ms.custom:
 ms.topic: how-to
 ms.date: 2/22/2024
 ms.reviewer: eur
-ms.author: eur
-author: eric-urban
+ms.author: ssalgado
+author: ssalgadodev
 ---
 
 # How to add and manage data in your Azure AI Studio project
@@ -44,9 +44,6 @@ When you create your data, you need to set the data type. AI Studio supports thr
 |**`file`**<br>Reference a single file | Read a single file on Azure Storage (the file can have any format). |
 |**`folder`**<br> Reference a folder |      Read a folder of parquet/CSV files into Pandas/Spark.<br><br>Read unstructured data (such as images, text, and audio) located in a folder. |
 
-
-# [Studio](#tab/azure-studio)
-
 The supported source paths are shown in Azure AI Studio. You can create a data from a folder or file:
 
 - If you select folder type, you can choose the folder URL format. The supported folder URL formats are shown in Azure AI Studio. You can create a data using:
@@ -55,28 +52,10 @@ The supported source paths are shown in Azure AI Studio. You can create a data f
 - If you select file type, you can choose the file URL format. The supported file URL formats are shown in Azure AI Studio. You can create a data using:
     :::image type="content" source="../media/data-add/studio-url-file.png" alt-text="Screenshot of file URL format.":::
 
-# [Python SDK](#tab/python)
-
-
-If you're using the SDK or CLI to create data, you must specify a `path` that points to the data location. Supported paths include:
-
-|Location  | Examples  |
-|---------|---------|
-|Local: A path on your local computer    | `./home/username/data/my_data`         |
-|Connection: A path on a Data Connection  |   `azureml://datastores/<data_store_name>/paths/<path>`      |
-|Direct URL: a path on a public http(s) server   |  `https://raw.githubusercontent.com/pandas-dev/pandas/main/doc/data/titanic.csv`    |
-|Direct URL: a path on Azure Storage    |(Blob) `wasbs://<containername>@<accountname>.blob.core.windows.net/<path>/`<br>(ADLS gen2) `abfss://<file_system>@<account_name>.dfs.core.windows.net/<path>` <br>(OneLake Lakehouse)	`abfss://<workspace-name>@onelake.dfs.fabric.microsoft.com/<LakehouseName>.Lakehouse/Files/<path>` <br>(OneLake Warehouse)	`abfss://<workspace-name>@onelake.dfs.fabric.microsoft.com/<warehouseName>.warehouse/Files/<path>` |
-
-> [!NOTE]
-> When you create a data from a local path, it will automatically upload to the default Blob Connection.
-
----
 
 ### Create data: File type
 
 A data that is a File (`uri_file`) type points to a *single file* on storage (for example, a CSV file). You can create a file typed data using:
-
-# [Studio](#tab/azure-studio)
 
 These steps explain how to create a File typed data in the Azure AI Studio:
 
@@ -105,38 +84,9 @@ These steps explain how to create a File typed data in the Azure AI Studio:
     :::image type="content" source="../media/data-connections/data-add-finish.png" alt-text="Screenshot of naming the data." lightbox="../media/data-connections/data-add-finish.png":::
 
 
-# [Python SDK](#tab/python)
-
-To create a data that is a File type, use the following code and update the `<>` placeholders with your information.
-
-```python
-from azure.ai.resources.client import AIClient
-from azure.ai.generative.entities import Data
-from azure.ai.generative.constants import AssetTypes
-from azure.identity import DefaultAzureCredential
-
-client = AIClient.from_config(DefaultAzureCredential())
-
-path = "<SUPPORTED PATH>"
-
-myfile = Data(
-    name="my-file",
-    path=path,
-    type=AssetTypes.URI_FILE
-)
-
-client.data.create_or_update(myfile)
-```
-
----
-
 ### Create data: Folder type
 
 A data that is a Folder (`uri_folder`) type is one that points to a *folder* on storage (for example, a folder containing several subfolders of images). You can create a folder typed data using:
-
-
-
-# [Studio](#tab/azure-studio)
 
 Use these steps to create a Folder typed data in the Azure AI Studio:
 
@@ -163,36 +113,6 @@ Use these steps to create a Folder typed data in the Azure AI Studio:
 
     :::image type="content" source="../media/data-connections/data-add-finish.png" alt-text="Screenshot of naming the data." lightbox="../media/data-connections/data-add-finish.png":::
 
-
-# [Python SDK](#tab/python)
-
-To create a data that is a Folder type use the following code and update the `<>` placeholders with your information.
-
-```python
-from azure.ai.resources.client import AIClient
-from azure.ai.generative.entities import Data
-from azure.ai.generative.constants import AssetTypes
-from azure.identity import DefaultAzureCredential
-
-client = AIClient.from_config(DefaultAzureCredential())
-
-# Set the path, supported paths include:
-# local: './<path>/<file>' (this will be automatically uploaded to cloud storage)
-# blob:  'wasbs://<container_name>@<account_name>.blob.core.windows.net/<path>/<file>'
-# ADLS gen2: 'abfss://<file_system>@<account_name>.dfs.core.windows.net/<path>/<file>'
-# Connection: 'azureml://datastores/<data_store_name>/paths/<path>/<file>'
-path = "<SUPPORTED PATH>"
-
-myfolder = Data(
-    name="my-folder",
-    path=path,
-    type=AssetTypes.URI_FOLDER
-)
-
-client.data.create_or_update(myfolder)
-```
-
----
 
 
 ## Manage data
@@ -230,108 +150,28 @@ Archiving a data hides it by default from both list queries (for example, in the
 
 #### Archive all versions of a data
 
-To archive *all versions* of the data under a given name, use:
+Currently, archiving *all versions* of the data under a given name is not supported in Azure AI Studio.
 
-# [Python SDK](#tab/python)
-
-```python
-from azure.ai.resources.client import AIClient
-from azure.ai.generative.entities import Data
-from azure.ai.generative.constants import AssetTypes
-from azure.identity import DefaultAzureCredential
-
-client = AIClient.from_config(DefaultAzureCredential())
-
-# Create the data in the workspace
-client.data.archive(name="<DATA NAME>")
-```
-
-# [Studio](#tab/azure-studio)
-
-> [!IMPORTANT]
-> Currently, archiving is not supported in Azure AI Studio.
-
----
 
 #### Archive a specific data version
 
-To archive a specific data version, use:
+Currently, archiving a specific version isn't supported in Azure AI Studio.
 
-# [Python SDK](#tab/python)
-
-```python
-from azure.ai.resources.client import AIClient
-from azure.ai.generative.entities import Data
-from azure.ai.generative.constants import AssetTypes
-from azure.identity import DefaultAzureCredential
-
-client = AIClient.from_config(DefaultAzureCredential())
-
-# Create the data in the workspace
-client.data.archive(name="<DATA NAME>", version="<VERSION TO ARCHIVE>")
-```
-
-# [Studio](#tab/azure-studio)
-
-> [!IMPORTANT]
-> Currently, archiving is not supported in Azure AI Studio.
-
-
----
 
 ### Restore an archived data
 You can restore an archived data. If all of versions of the data are archived, you can't restore individual versions of the data - you must restore all versions.
 
 #### Restore all versions of a data
 
-To restore *all versions* of the data under a given name, use:
+Currently, restoring *all versions* of the data under a given name isn't supported in Azure AI Studio.
 
-# [Python SDK](#tab/python)
-
-```python
-from azure.ai.resources.client import AIClient
-from azure.ai.generative.entities import Data
-from azure.ai.generative.constants import AssetTypes
-from azure.identity import DefaultAzureCredential
-
-client = AIClient.from_config(DefaultAzureCredential())
-# Create the data in the workspace
-client.data.restore(name="<DATA NAME>")
-```
-
-# [Studio](#tab/azure-studio)
-
-> [!IMPORTANT]
-> Currently, restoring archived data is not supported in Azure AI Studio.
-
----
 
 #### Restore a specific data version
 
 > [!IMPORTANT]
 > If all data versions were archived, you cannot restore individual versions of the data - you must restore all versions.
 
-To restore a specific data version, use:
-
-# [Python SDK](#tab/python)
-
-```python
-from azure.ai.resources.client import AIClient
-from azure.ai.generative.entities import Data
-from azure.ai.generative.constants import AssetTypes
-from azure.identity import DefaultAzureCredential
-
-client = AIClient.from_config(DefaultAzureCredential())
-# Create the data in the workspace
-client.data.restore(name="<DATA NAME>", version="<VERSION TO ARCHIVE>")
-```
-
-# [Studio](#tab/azure-studio)
-
-> [!IMPORTANT]
-> Currently, restoring a specific data version is not supported in Azure AI Studio.
-
----
+Currently, restoring a specific data version is not supported in Azure AI Studio.
 
 ### Data tagging
 

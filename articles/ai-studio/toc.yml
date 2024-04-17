@@ -30,9 +30,7 @@ items:
     href: tutorials/deploy-chat-web-app.md
   - name: Build your own copilot using prompt flow
     href: tutorials/deploy-copilot-ai-studio.md
-  - name: Build your own copilot using Azure AI CLI and SDK
-    href: tutorials/deploy-copilot-sdk.md
-  - name: Using Azure AI Studio with a screen reader
+  - name: Use Azure AI Studio with a screen reader
     href: tutorials/screen-reader.md
 - name: How-to
   expanded: true
@@ -60,13 +58,6 @@ items:
     - name: Deploy open models
       href: how-to/deploy-models-open.md
       displayName: oss, open source
-  - name: AI Services
-    items:
-    - name: What are AI services?
-      href: ../ai-services/what-are-ai-services.md?context=/azure/ai-studio/context/context
-      displayName: applied, cognitive, form recognizer
-    - name: Try out Azure AI services
-      href: how-to/models-foundation-azure-ai.md
   - name: Create Azure AI projects and resources
     items:
     - name: AI Studio hubs and projects overview
@@ -81,20 +72,20 @@ items:
       href: how-to/create-azure-ai-hub-template.md
     - name: Create and manage compute
       href: how-to/create-manage-compute.md
-  - name: Data and connections
-    items:
     - name: Connections
       items:
       - name: Connections overview
         href: concepts/connections.md
       - name: Create a connection
         href: how-to/connections-add.md
-    - name: Index for retrieval
+  - name: Data for your copilot
+    items:
+    - name: Retrieval augmented generation (RAG)
       items:
-      - name: Vector index and retrieval augmented generation
+      - name: Overview of RAG
         href: concepts/retrieval-augmented-generation.md
         displayName: RAG
-      - name: Create an index
+      - name: Create a vector index
         href: how-to/index-add.md
     - name: Add and manage your data
       items:
@@ -104,13 +95,7 @@ items:
       - name: Use your image data with Azure OpenAI
         href: how-to/data-image-add.md
         displayName: vision, gpt, turbo
-    - name: Generate synthetic data
-      items:
-      - name: Generate samples from your dataset
-        href: how-to/generate-data-qa.md
-      - name: Simulate interaction data with your app
-        href: how-to/simulator-interaction-data.md
-  - name: Build apps with prompt flow
+  - name: Build apps with prompt flow in AI Studio
     items:
     - name: Prompt flow overview
       href: how-to/prompt-flow.md
@@ -124,9 +109,9 @@ items:
         href: how-to/flow-tune-prompts-using-variants.md
       - name: Process images in a flow
         href: how-to/flow-process-image.md
-    - name: Use prompt flow tools
+    - name: Use prompt flow tools in AI Studio
       items:
-      - name: Overview of prompt flow tools
+      - name: Prompt flow tools overview
         href: how-to/prompt-flow-tools/prompt-flow-tools-overview.md
       - name: LLM tool
         href: how-to/prompt-flow-tools/llm-tool.md
@@ -150,7 +135,7 @@ items:
         href: how-to/prompt-flow-tools/embedding-tool.md
       - name: Serp API tool
         href: how-to/prompt-flow-tools/serp-api-tool.md
-    - name: Evaluate flows
+    - name: Evaluate flows in AI Studio
       items:
         - name: Submit batch run and evaluate a flow
           href: how-to/flow-bulk-test-evaluation.md
@@ -159,7 +144,7 @@ items:
     - name: Deploy a flow for real-time inference
       href: how-to/flow-deploy.md
       displayName: endpoint
-  - name: Evaluate apps
+  - name: Evaluate apps in AI Studio
     items:
     - name: Evaluations concepts
       items:
@@ -169,13 +154,13 @@ items:
         href: concepts/evaluation-metrics-built-in.md
       - name: Harms mitigation strategies with Azure AI
         href: concepts/evaluation-improvement-strategies.md
-    - name: Evaluate with Azure AI Studio and SDK
+    - name: Evaluate with Azure AI Studio
       href: how-to/evaluate-generative-ai-app.md
     - name: Manually evaluate prompts in Azure AI Studio playground
       href: how-to/evaluate-prompts-playground.md
     - name: View evaluation results in Azure AI Studio
       href: how-to/evaluate-flow-results.md
-  - name: Deploy and monitor
+  - name: Deploy and monitor in AI Studio
     items:
     - name: Deployments overview
       href: concepts/deployments-overview.md
@@ -186,6 +171,13 @@ items:
       href: how-to/monitor-quality-safety.md
     - name: Troubleshoot deployments and monitoring
       href: how-to/troubleshoot-deploy-and-monitor.md
+  - name: Azure AI services
+    items:
+    - name: What are AI services?
+      href: ../ai-services/what-are-ai-services.md?context=/azure/ai-studio/context/context
+      displayName: applied, cognitive, form recognizer
+    - name: Try out Azure AI services
+      href: how-to/models-foundation-azure-ai.md
   - name: Costs and quotas
     items:
     - name: Plan and manage costs
@@ -219,12 +211,10 @@ items:
         href: ../ai-services/encryption/cognitive-services-encryption-keys-portal.md?context=/azure/ai-studio/context/context
     - name: Vulnerability management
       href: concepts/vulnerability-management.md
-  - name: Azure AI Generative SDK
+  - name: Azure AI SDKs
     items:
-    - name: Overview
-      href: how-to/sdk-generative-overview.md
-    - name: Get started with the Azure AI SDK
-      href: how-to/sdk-install.md
+    - name: Overview of SDKs
+      href: how-to/develop/sdk-overview.md
     - name: Work with Azure AI projects in VS Code
       href: how-to/develop-in-vscode.md
 - name: Responsible AI

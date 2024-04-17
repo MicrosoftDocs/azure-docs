@@ -527,4 +527,3 @@ Learn how to create a retail copilot using your data with Azure AI Studio in thi
 
 * Learn more about [prompt flow](../how-to/prompt-flow.md).
 * [Deploy a web app for chat on your data](./deploy-chat-web-app.md).
-* [Get started building a sample copilot application with the SDK](./deploy-copilot-sdk.md)
