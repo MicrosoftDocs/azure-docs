@@ -1,7 +1,7 @@
 ---
 title: Increase Azure Storage account quotas
 description: Learn how to request an increase in the quota limit for Azure Storage accounts within a subscription from 250 to 500 for a given region. Quota increases apply to both standard and premium account types.
-ms.date: 05/02/2023
+ms.date: 03/13/2024
 ms.topic: how-to
 ---
 
@@ -37,15 +37,15 @@ To view your current storage account quotas for a subscription in a given region
 
 ## Request storage account quota increases
 
-Follow these steps to request a storage account quota increase from Azure Home.
+Follow these steps to request a storage account quota increase from Azure Home. To request quota increases, you must have an Azure account with the Contributor role (or another role that includes Contributor access).
 
 1. From the [Azure portal](https://portal.azure.com), select **Quotas** and then select **Storage**.
 
 1. Select the subscription for which you want to increase your storage account quota.
 
-1. Locate the region where you want to increase your storage account quota, then select the **Request increase** icon.
+1. Locate the region where you want to increase your storage account quota, then select the pencil icon in the **Request adjustment** column.
 
-1. In the **Request quota increase** dialog, enter a number up to 500.
+1. In the **New Quota Request** pane, enter a number up to 500.
 
     :::image type="content" source="media/storage-account-quota-requests/request-quota-increase-portal.png" alt-text="Screenshot showing how to increase your storage account quota":::
 

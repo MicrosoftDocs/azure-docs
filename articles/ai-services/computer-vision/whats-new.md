@@ -10,19 +10,19 @@ ms.custom:
   - build-2023
   - ignite-2023
 ms.topic: whats-new
-ms.date: 01/19/2024
+ms.date: 03/11/2024
 ms.author: pafarley
 ---
 
 # What's new in Azure AI Vision
 
-Learn what's new in the service. These items might be release notes, videos, blog posts, and other types of information. Bookmark this page to stay up to date with new features, enhancements, fixes, and documentation updates. 
+Learn what's new in Azure AI Vision. Check this page to stay up to date with new features, enhancements, fixes, and documentation updates. 
 
 ## February 2024
 
 #### Multimodal embeddings GA: new multi-language model
 
-The Multimodal embeddings API has been updated and is now generally available. The new `2024-02-01` API includes a new model that supports text search in 102 languages. The original English-only model is still available, but it cannot be combined with the new model in the same search index. If you vectorized text and images using the English-only model, these vectors aren't compatible with multi-lingual text and image vectors.
+The Multimodal embeddings API has been updated and is now generally available. The new `2024-02-01` API includes a new model that supports text search in 102 languages. The original English-only model is still available, but it can't be combined with the new model in the same search index. If you vectorized text and images using the English-only model, these vectors aren't compatible with multi-lingual text and image vectors.
 
 
 See the [language support](/azure/ai-services/computer-vision/language-support#multimodal-embeddings) page for the list of supported languages.
@@ -37,7 +37,7 @@ Major changes:
 - The SDK now calls the generally available [Computer Vision REST API (2023-10-01)](https://eastus.dev.cognitive.microsoft.com/docs/services/Cognitive_Services_Unified_Vision_API_2023-10-01), instead of the preview [Computer Vision REST API (2023-04-01-preview)](https://eastus.dev.cognitive.microsoft.com/docs/services/unified-vision-apis-public-preview-2023-04-01-preview/operations/61d65934cd35050c20f73ab6).
 - Support for JavaScript was added.
 - C++ is no longer supported.
-- Image Analysis with a custom model, and Image Segmentation (background removal) are no longer supported in the SDK, because the [Computer Vision REST API (2023-10-01)](https://eastus.dev.cognitive.microsoft.com/docs/services/Cognitive_Services_Unified_Vision_API_2023-10-01) does not yet support them. To use either feature, call the [Computer Vision REST API (2023-04-01-preview)](https://eastus.dev.cognitive.microsoft.com/docs/services/unified-vision-apis-public-preview-2023-04-01-preview/operations/61d65934cd35050c20f73ab6) directly (using the `Analyze` and `Segment` operations respectively).
+- Image Analysis with a custom model, and Image Segmentation (background removal) are no longer supported in the SDK, because the [Computer Vision REST API (2023-10-01)](https://eastus.dev.cognitive.microsoft.com/docs/services/Cognitive_Services_Unified_Vision_API_2023-10-01) doesn't yet support them. To use either feature, call the [Computer Vision REST API (2023-04-01-preview)](https://eastus.dev.cognitive.microsoft.com/docs/services/unified-vision-apis-public-preview-2023-04-01-preview/operations/61d65934cd35050c20f73ab6) directly (using the `Analyze` and `Segment` operations respectively).
 
 ## November 2023
 
@@ -124,7 +124,7 @@ Image Analysis 4.0 has been released in public preview. The new API includes ima
 The preview versions of the Azure AI Vision 3.0 and 3.1 Read API are scheduled to be retired on January 31, 2023. Customers are encouraged to refer to the [How-To](./how-to/call-read-api.md) and [QuickStarts](./quickstarts-sdk/client-library.md?tabs=visual-studio&pivots=programming-language-csharp) to get started with the generally available (GA) version of the Read API instead. The latest GA versions provide the following benefits:
 * 2022 latest generally available OCR model
 * Significant expansion of OCR language coverage including support for handwritten text
-* Significantly improved OCR quality 
+* Improved OCR quality 
 
 ## June 2022
 
@@ -136,13 +136,13 @@ Vision Studio provides you with a platform to try several service features, and 
 
 ### Responsible AI for Face
 
-#### Face transparency documentation
-* The [transparency documentation](https://aka.ms/faceraidocs) provides guidance to assist our customers to improve the accuracy and fairness of their systems by incorporating meaningful human review to detect and resolve cases of misidentification or other failures, providing support to people who believe their results were incorrect, and identifying and addressing fluctuations in accuracy due to variations in operational conditions.
+#### Face transparency note
+* The [transparency note](https://aka.ms/faceraidocs) provides guidance to assist our customers to improve the accuracy and fairness of their systems by incorporating meaningful human review to detect and resolve cases of misidentification or other failures, providing support to people who believe their results were incorrect, and identifying and addressing fluctuations in accuracy due to variations in operational conditions.
 
 #### Retirement of sensitive attributes
 
-* We have retired facial analysis capabilities that purport to infer emotional states and identity attributes, such as gender, age, smile, facial hair, hair and makeup. 
-* Facial detection capabilities, (including detecting blur, exposure, glasses, headpose, landmarks, noise, occlusion, facial bounding box) will remain generally available and do not require an application.
+* We have retired facial analysis capabilities that purport to infer emotional states and identity attributes, such as gender, age, smile, facial hair, hair, and makeup. 
+* Facial detection capabilities, (including detecting blur, exposure, glasses, headpose, landmarks, noise, occlusion, facial bounding box) will remain generally available and don't require an application.
 
 #### Fairlearn package and Microsoft's Fairness Dashboard
 
@@ -155,7 +155,7 @@ Vision Studio provides you with a platform to try several service features, and 
 ### Azure AI Vision 3.2-preview deprecation
 
 The preview versions of the 3.2 API are scheduled to be retired in December of 2022. Customers are encouraged to use the generally available (GA) version of the API instead. Mind the following changes when migrating from the 3.2-preview versions:
-1. The [Analyze Image](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b) and [Read](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d986960601faab4bf452005) API calls now take an optional _model-version_ parameter that you can use to specify which AI model to use. By default, they will use the latest model.
+1. The [Analyze Image](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b) and [Read](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d986960601faab4bf452005) API calls now take an optional _model-version_ parameter that you can use to specify which AI model to use. By default, they use the latest model.
 1. The [Analyze Image](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b) and [Read](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d986960601faab4bf452005) API calls also return a `model-version` field in successful API responses. This field reports which model was used.
 1. Image Analysis APIs now use a different error-reporting format. See the [API reference documentation](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b) to learn how to adjust any error-handling code.
 
@@ -184,7 +184,7 @@ See the [OCR how-to guide](how-to/call-read-api.md#determine-how-to-process-the-
 
 Azure AI Vision's [OCR (Read) API](overview-ocr.md) expands [supported languages](language-support.md) to 164 with its latest preview:
 
-* OCR support for print text expands to 42 new languages including Arabic, Hindi and other languages using Arabic and Devanagari scripts.
+* OCR support for print text expands to 42 new languages including Arabic, Hindi, and other languages using Arabic and Devanagari scripts.
 * OCR support for handwritten text expands to Japanese and Korean in addition to English, Chinese Simplified, French, German, Italian, Portuguese, and Spanish.
 * Enhancements including better support for extracting handwritten dates, amounts, names, and single character boxes.
 * General performance and AI quality improvements
@@ -195,7 +195,7 @@ See the [OCR how-to guide](how-to/call-read-api.md#determine-how-to-process-the-
 > [Get Started with the Read API](./quickstarts-sdk/client-library.md)
 
 ### New Quality Attribute in Detection_01 and Detection_03
-* To help system builders and their customers capture high quality images which are necessary for high quality outputs from Face API, we’re introducing a new quality attribute **QualityForRecognition** to help decide whether an image is of sufficient quality to attempt face recognition. The value is an informal rating of low, medium, or high. The new attribute is only available when using any combinations of detection models `detection_01` or `detection_03`, and recognition models `recognition_03` or `recognition_04`. Only "high" quality images are recommended for person enrollment and quality above "medium" is recommended for identification scenarios. To learn more about the new quality attribute, see [Face detection and attributes](concept-face-detection.md) and see how to use it with [QuickStart](./quickstarts-sdk/identity-client-library.md?pivots=programming-language-csharp&tabs=visual-studio).
+* To help system builders and their customers capture high quality images, which are necessary for high quality outputs from Face API, we’re introducing a new quality attribute **QualityForRecognition** to help decide whether an image is of sufficient quality to attempt face recognition. The value is an informal rating of low, medium, or high. The new attribute is only available when using any combinations of detection models `detection_01` or `detection_03`, and recognition models `recognition_03` or `recognition_04`. Only "high" quality images are recommended for person enrollment and quality above "medium" is recommended for identification scenarios. To learn more about the new quality attribute, see [Face detection and attributes](concept-face-detection.md) and see how to use it with [QuickStart](./quickstarts-sdk/identity-client-library.md?pivots=programming-language-csharp&tabs=visual-studio).
 
 ## September 2021
 
@@ -224,7 +224,7 @@ The [latest version (v3.2)](https://westus.dev.cognitive.microsoft.com/docs/serv
 ### New HeadPose and Landmarks improvements for Detection_03
 
 * The Detection_03 model has been updated to support facial landmarks.
-* The landmarks feature in Detection_03 is much more precise, especially in the eyeball landmarks which are crucial for gaze tracking.
+* The landmarks feature in Detection_03 is much more precise, especially in the eyeball landmarks, which are crucial for gaze tracking.
 
 ## May 2021
 
@@ -254,8 +254,8 @@ The Azure AI Vision API v3.2 is now generally available with the following updat
 
 ### PersonDirectory data structure (preview)
 
-* In order to perform face recognition operations such as Identify and Find Similar, Face API customers need to create an assorted list of **Person** objects. The new **PersonDirectory** is a data structure that contains unique IDs, optional name strings, and optional user metadata strings for each **Person** identity added to the directory. Currently, the Face API offers the **LargePersonGroup** structure which has similar functionality but is limited to 1 million identities. The **PersonDirectory** structure can scale up to 75 million identities.
-* Another major difference between **PersonDirectory** and previous data structures is that you'll no longer need to make any Train calls after adding faces to a **Person** object&mdash;the update process happens automatically. For more details see [Use the PersonDirectory structure](how-to/use-persondirectory.md).
+* In order to perform face recognition operations such as Identify and Find Similar, Face API customers need to create an assorted list of **Person** objects. The new **PersonDirectory** is a data structure that contains unique IDs, optional name strings, and optional user metadata strings for each **Person** identity added to the directory. Currently, the Face API offers the **LargePersonGroup** structure, which has similar functionality but is limited to 1 million identities. The **PersonDirectory** structure can scale up to 75 million identities.
+* Another major difference between **PersonDirectory** and previous data structures is that you'll no longer need to make any Train calls after adding faces to a **Person** object&mdash;the update process happens automatically. For more details, see [Use the PersonDirectory structure](how-to/use-persondirectory.md).
 
 ## March 2021
 
@@ -285,11 +285,11 @@ See the [Read API how-to guide](how-to/call-read-api.md) to learn more.
 
 
 ### New Face API detection model
-* The new Detection 03 model is the most accurate detection model currently available. If you're a new customer, we recommend using this model. Detection 03 improves both recall and precision on smaller faces found within images (64x64 pixels). Additional improvements include an overall reduction in false positives and improved detection on rotated face orientations. Combining Detection 03 with the new Recognition 04 model will provide improved recognition accuracy as well. See [Specify a face detection model](./how-to/specify-detection-model.md) for more details.
+* The new Detection 03 model is the most accurate detection model currently available. If you're a new customer, we recommend using this model. Detection 03 improves both recall and precision on smaller faces found within images (64x64 pixels). Other improvements include an overall reduction in false positives and improved detection on rotated face orientations. Combining Detection 03 with the new Recognition 04 model provides improved recognition accuracy as well. See [Specify a face detection model](./how-to/specify-detection-model.md) for more details.
 ### New detectable Face attributes
-* The `faceMask` attribute is available with the latest Detection 03 model, along with the additional attribute `"noseAndMouthCovered"` which detects whether the face mask is worn as intended, covering both the nose and mouth. To use the latest mask detection capability, users need to specify the detection model in the API request: assign the model version with the _detectionModel_ parameter to `detection_03`. See [Specify a face detection model](./how-to/specify-detection-model.md) for more details.
+* The `faceMask` attribute is available with the latest Detection 03 model, along with the added attribute `"noseAndMouthCovered"`, which detects whether the face mask is worn as intended, covering both the nose and mouth. To use the latest mask detection capability, users need to specify the detection model in the API request: assign the model version with the _detectionModel_ parameter to `detection_03`. See [Specify a face detection model](./how-to/specify-detection-model.md) for more details.
 ### New Face API Recognition Model
-* The new Recognition 04 model is the most accurate recognition model currently available. If you're a new customer, we recommend using this model for verification and identification. It improves upon the accuracy of Recognition 03, including improved recognition for users wearing face covers (surgical masks, N95 masks, cloth masks). Note that we recommend against enrolling images of users wearing face covers as this will lower recognition quality. Now customers can build safe and seamless user experiences that detect whether a user is wearing a face cover with the latest Detection 03 model, and recognize them with the latest Recognition 04 model. See [Specify a face recognition model](./how-to/specify-recognition-model.md) for more details.
+* The new Recognition 04 model is the most accurate recognition model currently available. If you're a new customer, we recommend using this model for verification and identification. It improves upon the accuracy of Recognition 03, including improved recognition for users wearing face covers (surgical masks, N95 masks, cloth masks). We recommend against enrolling images of users wearing face covers as this will lower recognition quality. Now customers can build safe and seamless user experiences that detect whether a user is wearing a face cover with the latest Detection 03 model, and recognize them with the latest Recognition 04 model. See [Specify a face recognition model](./how-to/specify-recognition-model.md) for more details.
 
 ## January 2021
 
@@ -375,7 +375,7 @@ See the [OCR overview](overview-ocr.md) to learn more.
 
 ## April 2020
 ### New Face API Recognition Model
-* The new recognition 03 model is the most accurate model currently available. If you're a new customer, we recommend using this model. Recognition 03 will provide improved accuracy for both similarity comparisons and person-matching comparisons. More details can be found at [Specify a face recognition model](./how-to/specify-recognition-model.md).
+* The new recognition 03 model is the most accurate model currently available. If you're a new customer, we recommend using this model. Recognition 03 provides improved accuracy for both similarity comparisons and person-matching comparisons. More details can be found at [Specify a face recognition model](./how-to/specify-recognition-model.md).
 
 ## March 2020
 

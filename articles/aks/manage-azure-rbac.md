@@ -3,6 +3,7 @@ title: Use Azure RBAC for Kubernetes Authorization
 titleSuffix: Azure Kubernetes Service
 description: Learn how to use Azure role-based access control (Azure RBAC) for Kubernetes Authorization with Azure Kubernetes Service (AKS).
 ms.topic: article
+ms.subservice: aks-security
 ms.custom: devx-track-azurecli
 ms.date: 03/02/2023
 ms.author: jpalma
@@ -241,3 +242,4 @@ To learn more about AKS authentication, authorization, Kubernetes RBAC, and Azur
 [az-role-definition-create]: /cli/azure/role/definition#az-role-definition-create
 [az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
 [kubernetes-rbac]: /azure/aks/concepts-identity#azure-rbac-for-kubernetes-authorization
+

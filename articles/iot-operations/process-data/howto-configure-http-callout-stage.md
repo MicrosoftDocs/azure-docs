@@ -1,6 +1,6 @@
 ---
 title: Call an HTTP endpoint from a pipeline
-description: Configure an HTTP call out pipeline stage to make an HTTP request from a pipeline to incorporate custom processing logic.
+description: Configure an HTTP call out pipeline stage to make an HTTP request from a pipeline to incorporate custom processing logic using Azure IoT Data Processor.
 author: dominicbetts
 ms.author: dobett
 ms.subservice: data-processor
@@ -12,7 +12,7 @@ ms.date: 10/03/2023
 #CustomerIntent: As an operator, I want to call an HTTP endpoint from within a pipeline stage so that I can incorporate custom processing logic.
 ---
 
-# Call out to an HTTP endpoint from a pipeline
+# Call out to an HTTP endpoint from an Azure IoT Data Processor Preview pipeline
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
@@ -25,7 +25,7 @@ Use the _HTTP call out_ stage to call an external HTTP endpoint with an optional
 
 To configure and use an aggregate pipeline stage, you need a:
 
-- Deployed instance of Azure IoT Data Processor (preview).
+- Deployed instance of Azure IoT Data Processor Preview.
 - An HTTP server that's accessible from the Data Processor instance.
 
 ## Configure an HTTP call out stage

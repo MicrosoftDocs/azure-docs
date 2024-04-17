@@ -60,7 +60,7 @@ curl -v -X PUT -H "Ocp-Apim-Subscription-Key: YourSpeechKey" -H "Content-Type: a
     "inputKind": "SSML",
     "inputs": [
         {
-         "content": "<speak version='\''1.0'\'' xml:lang='\''en-US'\''><voice name='\''en-US-JennyNeural'\''>The rainbow has seven colors.</voice></speak>"
+         "content": "<speak version='\''1.0'\'' xml:lang='\''en-US'\''><voice name='\''en-US-AvaMultilingualNeural'\''>The rainbow has seven colors.</voice></speak>"
         }
     ],
     "avatarConfig": {
@@ -265,7 +265,7 @@ The summary file contains the synthesis results for each text input. Here's an e
   "results": [
     {
       "texts": [
-        "<speak version='1.0' xml:lang='en-US'><voice name='en-US-JennyNeural'>The rainbow has seven colors.</voice></speak>"
+        "<speak version='1.0' xml:lang='en-US'><voice name='en-US-AvaMultilingualNeural'>The rainbow has seven colors.</voice></speak>"
       ],
       "status": "Succeeded",
       "videoFileName": "244a87c294b94ddeb3dbaccee8ffa7eb/5a25b929-1358-4e81-a036-33000e788c46/0001.mp4",

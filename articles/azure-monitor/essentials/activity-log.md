@@ -1,5 +1,5 @@
 ---
-title: Stream Azure activity log data
+title: Send Azure activity log data
 description: Send Azure Monitor activity log data to Azure Monitor Logs, Azure Event Hubs, and Azure Storage.
 author: guywi-ms
 services: azure-monitor
@@ -9,7 +9,7 @@ ms.author: guywild
 ms.reviewer: orens
 ---
 
-# Stream Azure Monitor activity log data
+# Send Azure Monitor activity log data
 
 The Azure Monitor activity log is a platform log that provides insight into subscription-level events. The activity log includes information like when a resource is modified or a virtual machine is started. You can view the activity log in the Azure portal or retrieve entries with PowerShell and the Azure CLI. This article provides information on how to view the activity log and send it to different destinations.
 

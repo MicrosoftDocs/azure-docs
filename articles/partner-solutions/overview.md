@@ -4,7 +4,7 @@ description: Introduction to the Azure Native ISV Services.
 author: flang-msft
 
 ms.topic: conceptual
-ms.date: 10/25/2023
+ms.date: 04/08/2024
 ms.author: franlanglois
 ---
 
@@ -18,12 +18,12 @@ A list of features of any Azure Native ISV Service listed follows.
 
 ### Unified operations
 
-- Integrated onboarding: Use ARM template, SDK, CLI and the Azure portal to create and manage services.
+- Integrated onboarding: Use ARM template, SDK, CLI, and the Azure portal to create and manage services.
 - Unified management: Manage entire lifecycle of these ISV services through the Azure portal.
 - Unified access: Use Single Sign-on (SSO) through Microsoft Entra ID--no need for separate ISV authentications for subscribing to the service.
 
 ### Integrations
 
-- Logs and metrics: Seamlessly direct logs and metrics from Azure Monitor to the Azure Native ISV Service using just a few gestures. You can configure autodiscovery of resources to monitor, and set up automatic log forwarding and metrics shipping.  You can easily do the setup in Azure, without needing to create more infrastructure or write custom code.
+- Logs and metrics: Seamlessly direct logs and metrics from Azure Monitor to the Azure Native ISV Service using just a few gestures. You can configure autodiscovery of resources to monitor, and set up automatic log forwarding and metrics shipping. You can easily do the setup in Azure, without needing to create more infrastructure or write custom code.
 - Virtual network injection: Provides private data plane access to Azure Native ISV services from customers’ virtual networks.
 - Unified billing: Engage with a single entity, Microsoft Azure Marketplace, for billing. No separate license purchase is required to use Azure Native ISV Services.

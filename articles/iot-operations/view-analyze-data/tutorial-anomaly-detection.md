@@ -27,7 +27,7 @@ Contoso also wants to reduce the amount of data at the edge and send the final d
 
 ## Prerequisite
 
-- Follow the steps in [Quickstart: Deploy Azure IoT Operations to an Arc-enabled Kubernetes cluster](../get-started/quickstart-deploy.md) to install Azure IoT operations on an Azure Arc-enabled Kubernetes cluster.
+- Follow the steps in [Quickstart: Deploy Azure IoT Operations Preview to an Arc-enabled Kubernetes cluster](../get-started/quickstart-deploy.md) to install Azure IoT operations on an Azure Arc-enabled Kubernetes cluster.
 
 - An Azure Data Explorer cluster and database. Follow the steps in [Quickstart: Create an Azure Data Explorer cluster and database](/azure/data-explorer/create-cluster-and-database?tabs=free) to create a free cluster and database to use in this tutorial. Name your database `bakery_ops`.
 
@@ -89,7 +89,7 @@ The simulation generates data and measurements from two sources for anomaly dete
 
 ### Production line assets
 
-_Production line assets_ have sensors that generate measurements as the baked goods are produced. Contoso production lines contain _oven_, _mixer_, and _slicer_ assets. As a product moves through each asset, the system captures measurements of values that can affect the final product. The system sends these measurements to Azure IoT MQ.
+_Production line assets_ have sensors that generate measurements as the baked goods are produced. Contoso production lines contain _oven_, _mixer_, and _slicer_ assets. As a product moves through each asset, the system captures measurements of values that can affect the final product. The system sends these measurements to Azure IoT MQ Preview.
 
 In this tutorial, the industrial data simulator simulates the assets that generate measurements. A [manifest](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/industrial-data-simulator/manifests/anomaly-detection/manifest.yml) file determines how the industrial data simulator generates the measurements.
 
@@ -208,7 +208,7 @@ To make the ERP data available to the enrichment stage in the operations data pr
 
 To create the _erp-data_ dataset:
 
-1. Navigate to the [Azure IoT Operations](https://iotoperations.azure.com) portal in your browser and sign in with your Microsoft Entra ID credentials.
+1. Navigate to the [Azure IoT Operations (preview)](https://iotoperations.azure.com) portal in your browser and sign in with your Microsoft Entra ID credentials.
 
 1. Select **Get started** and navigate to **Azure IoT Operations instances** to see a list of the clusters you have access to.
 
@@ -404,7 +404,7 @@ Now you can send your transformed and enriched measurement data to Microsoft Azu
 
 The next step is to create a Data Processor pipeline that sends the transformed and enriched measurement data to your Azure Data Explorer instance.
 
-1. Back in the [Azure IoT Operations](https://iotoperations.azure.com) portal, navigate to **Data pipelines** and select **Create pipeline**.
+1. Back in the [Azure IoT Operations (preview)](https://iotoperations.azure.com) portal, navigate to **Data pipelines** and select **Create pipeline**.
 
 1. Select the title of the pipeline on the top left corner, rename the pipeline to _adx-pipeline_, and **Apply** the change.
 
@@ -620,7 +620,7 @@ This tutorial shows you how to do anomaly detection with the Contoso manufacturi
 ## Related content
 
 - [Tutorial: Calculate overall equipment effectiveness](tutorial-overall-equipment-effectiveness.md)
-- [Tutorial: Configure MQTT bridge between IoT MQ and Azure Event Grid](../connect-to-cloud/tutorial-connect-event-grid.md)
+- [Tutorial: Configure MQTT bridge between Azure IoT MQ Preview and Azure Event Grid](../connect-to-cloud/tutorial-connect-event-grid.md)
 - [Build event-driven apps with Dapr](../develop/tutorial-event-driven-with-dapr.md)
 - [Upload MQTT data to Microsoft Fabric lakehouse](tutorial-upload-mqtt-lakehouse.md)
 - [Build a real-time dashboard in Microsoft Fabric with MQTT data](tutorial-real-time-dashboard-fabric.md)

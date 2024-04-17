@@ -6,7 +6,7 @@ services: virtual-network
 author: asudbring
 ms.service: virtual-network
 ms.topic: conceptual
-ms.date: 1/26/2023
+ms.date: 04/16/2024
 ms.author: allensu
 ---
 
@@ -61,7 +61,6 @@ By default, service tags reflect the ranges for the entire cloud. Some service t
 | **AzureCosmosDB** | Azure Cosmos DB. | Outbound | Yes | Yes |
 | **AzureDatabricks** | Azure Databricks. | Both | No | Yes |
 | **AzureDataExplorerManagement** | Azure Data Explorer Management. | Inbound | No | Yes |
-| **AzureDataLake** | Azure Data Lake Storage Gen1. | Outbound | No | Yes |
 | **AzureDeviceUpdate** | Device Update for IoT Hub. | Both | No | Yes |
 | **AzureDevSpaces** | Azure Dev Spaces. | Outbound | No | Yes |
 | **AzureDevOps** | Azure DevOps. | Inbound | Yes | Yes |
@@ -119,7 +118,7 @@ By default, service tags reflect the ranges for the entire cloud. Some service t
 | **MicrosoftPurviewPolicyDistribution** | This tag should be used within the outbound security rules for a data source (e.g. Azure SQL MI) configured with private endpoint to retrieve policies from Microsoft Purview | Outbound| No | No |
 | **PowerBI** | Power BI platform backend services and API endpoints.<br/><br/>**Note:** does not include frontend endpoints at the moment (e.g., app.powerbi.com).<br/><br/>Access to frontend endpoints should be provided through AzureCloud tag (Outbound, HTTPS, can be regional). | Both | No | Yes |
 | **PowerPlatformInfra** | This tag represents the IP addresses used by the infrastructure to host Power Platform services. | Both | Yes | Yes |
-| **PowerPlatformPlex** | This tag represents the IP addresses used by the infrastructure to host Power Platform extension execution on behalf of the customer. | Inbound | Yes | Yes |
+| **PowerPlatformPlex** | This tag represents the IP addresses used by the infrastructure to host Power Platform extension execution on behalf of the customer. | Both | Yes | Yes |
 | **PowerQueryOnline** | Power Query Online. | Both | No | Yes |
 | **Scuba** | Data connectors for Microsoft security products (Sentinel, Defender, etc). | Inbound | No | No|
 | **SerialConsole** | Limit access to boot diagnostics storage accounts from only Serial Console service tag | Inbound | No | Yes |

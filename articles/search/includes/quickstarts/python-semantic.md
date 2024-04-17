@@ -52,6 +52,8 @@ It can take a minute to set up. If you run into problems, see [Python environmen
 
 #### Create an index
 
+Create or update an index schema to include a `SemanticConfiguration`. If you're updating an existing index, this modification doesn't require a reindexing because the structure of your documents is unchanged.
+
 ```python
 from azure.search.documents.indexes import SearchIndexClient
 from azure.search.documents import SearchClient
@@ -115,6 +117,8 @@ print(f' {result.name} created')
 ```
 
 #### Create a documents payload
+
+You can push JSON documents to a search index. Documents must match the index schema.
 
 ```python
 documents = [
@@ -240,22 +244,15 @@ In this query for "what hotel has a good restaurant on site", Sublime Cliff Hote
 
 ```python
 # Run a text query (returns a BM25-scored result set)
-results =  search_client.search(query_type='semantic', semantic_configuration_name='my-semantic-config',
-    search_text="what hotel has a good restaurant on site", 
-    select='HotelName,Description,Category', query_caption='extractive')
-
+results =  search_client.search(query_type='simple',
+    search_text="what hotel has a good restaurant on site" ,
+    select='HotelName,HotelId,Description',
+    include_total_count=True)
+    
 for result in results:
-    print(result["@search.reranker_score"])
+    print(result["@search.score"])
     print(result["HotelName"])
     print(f"Description: {result['Description']}")
-
-    captions = result["@search.captions"]
-    if captions:
-        caption = captions[0]
-        if caption.highlights:
-            print(f"Caption: {caption.highlights}\n")
-        else:
-            print(f"Caption: {caption.text}\n")
 ```
 
 #### Run a semantic query

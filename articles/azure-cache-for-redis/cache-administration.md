@@ -5,7 +5,7 @@ author: flang-msft
 
 ms.service: cache
 ms.topic: conceptual
-ms.date: 01/05/2024
+ms.date: 04/12/2024
 ms.author: franlanglois 
 ---
 # How to administer Azure Cache for Redis
@@ -74,7 +74,7 @@ Yes, for PowerShell instructions see [To reboot an Azure Cache for Redis](cache-
 
 No. Reboot isn't available for the Enterprise tier yet. Reboot is available for Basic, Standard and Premium tiers.The settings that you see on the Resource menu under **Administration** depend on the tier of your cache. You don't see **Reboot** when using a cache from the Enterprise tier.
 
-## Flush data (preview)
+## Flush data
 
 When using the Basic, Standard, or Premium tiers of Azure Cache for Redis, you see **Flush data** on the resource menu. The **Flush data** operation allows you to delete or _flush_ all data in your cache. This _flush_ operation can be used before scaling operations to potentially reduce the time required to complete the scaling operation on your cache. You can also configure to run the _flush_ operation periodically on your dev/test caches to keep memory usage in check.
 
@@ -136,7 +136,7 @@ Yes, you can manage your scheduled updates using the following PowerShell cmdlet
 
 Yes. In general, updates aren't applied outside the configured Scheduled Updates window. Rare critical security updates can be applied outside the patching schedule as part of our security policy.
 
-## Next steps
+## Related content
 
 Learn more about Azure Cache for Redis features.
 

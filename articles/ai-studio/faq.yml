@@ -6,7 +6,7 @@ metadata:
   manager: nitinme
   ms.service: azure-ai-studio
   ms.topic: faq
-  ms.date: 2/6/2024
+  ms.date: 3/14/2024
   ms.reviewer: eur
   ms.author: eur
   author: eric-urban
@@ -40,10 +40,6 @@ sections:
           How is the playground in Azure AI Studio different from the Azure OpenAI Studio playground? 
         answer: |
           The playground experiences in both Azure AI Studio and Azure OpenAI Studio are similar; however, Azure AI Studio provides playground experience for models in addition to those provisioned via Azure OpenAI Studio.
-      - question: |
-          What is the plan for plugin support? 
-        answer: |
-          Plugins are available today in preview. For more information, see [Plugins for Azure OpenAI Service - Microsoft Community Hub](https://techcommunity.microsoft.com/t5/microsoft-azure-netherlands/how-to-leverage-plugins-for-azure-openai-service/m-p/3863986).
       - question: |
           Will there be multiple varying model benchmarks in Azure AI Studio based on individual projects and data sources? 
         answer: |

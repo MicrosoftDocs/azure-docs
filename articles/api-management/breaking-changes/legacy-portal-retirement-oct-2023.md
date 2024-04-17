@@ -11,6 +11,8 @@ ms.author: danlep
 
 # Legacy developer portal retirement (October 2023)
 
+[!INCLUDE [api-management-availability-premium-dev-standard-basic](../../../includes/api-management-availability-premium-dev-standard-basic.md)]
+
 Azure API Management in the dedicated service tiers provides a customizable developer portal where API consumers can discover APIs managed in your API Management instance, learn how to use them, and request access. The current ("new") developer portal was released in October 2020 and is the successor to an earlier ("legacy") version of the developer portal. The legacy portal was deprecated with the release of the new developer portal. 
 
 On 31 October 2023, the legacy portal was retired and will no longer be supported. If you want to continue using the developer portal, you must migrate to the new developer portal. 

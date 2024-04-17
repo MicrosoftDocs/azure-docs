@@ -38,5 +38,4 @@ For more information, see the following articles:
 
 - Learn about [Calling SDK capabilities](../voice-video-calling/getting-started-with-calling.md)
 - Learn more about [how calling works](../../concepts/voice-video-calling/about-call-types.md)
-- Learn about [Calling SDK capabilities](../voice-video-calling/getting-started-with-calling.md)
-- Learn more about [how calling works](../../concepts/voice-video-calling/about-call-types.md)
+- Learn about [Number lookup capabilities](../telephony/number-lookup.md)

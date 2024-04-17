@@ -164,7 +164,8 @@ Use the following steps to grant permission:
    > [!NOTE]
    > If you don't find Azure Spring Apps Resource Provider, search for *Azure Spring Cloud Resource Provider*.
 
-   :::image type="content" source="./media/how-to-deploy-in-azure-virtual-network/assign-owner-resource-provider.png" alt-text="Screenshot of the Azure portal showing the Access Control (IAM) page, with the Add Role Assignment pane open and search results displaying the Azure Spring Apps Resource Provider." lightbox="./media/how-to-deploy-in-azure-virtual-network/assign-owner-resource-provider.png":::
+   :::image type="content" source="./media/how-to-deploy-in-azure-virtual-network/assign-owner-resource-provider.png" alt-text="Screenshot of the Azure portal Access Control page with Add role assignment pane and Select box with Azure Spring Apps Resource Provider highlighted." lightbox="./media/how-to-deploy-in-azure-virtual-network/assign-owner-resource-provider.png":::
+
 
 ### [Azure CLI](#tab/azure-CLI)
 

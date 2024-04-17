@@ -51,14 +51,18 @@ More details on eligible subscription types are as follows:
 |Canada|
 |Denmark|
 |France|
+|Germany|
 |Ireland|
 |Italy|
+|Japan|
 |Netherlands|
 |Puerto Rico|
 |Spain|
 |Sweden|
 |United Kingdom|
 |United States|
+
+[!INCLUDE [Azure Prepayment](../../includes/azure-prepayment.md)]
 
 ## Azure subscription billing locations where United Kingdom alphanumeric sender IDs are available
 | Country/Region |
