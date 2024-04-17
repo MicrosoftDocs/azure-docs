@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 03/05/2024
+ms.date: 04/17/2024
 ---
 
 # Copy data from Google BigQuery using Azure Data Factory or Synapse Analytics
@@ -183,7 +183,7 @@ To copy data from Google BigQuery, set the source type in the copy activity to *
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property of the copy activity source must be set to **GoogleBigQueryV2Source**. | Yes |
-| query | Use the custom SQL query to read data. An example is `"SELECT * FROM MyTable"`. For more information, go to [Query syntax](https://cloud.google.com/bigquery/docs/reference/standard-sql/query-syntax). | No (if "tableName" in dataset is specified) |
+| query | Use the custom SQL query to read data. An example is `"SELECT * FROM MyTable"`. For more information, go to [Query syntax](https://cloud.google.com/bigquery/docs/reference/standard-sql/query-syntax). | No (if "dataset" and "table" in dataset is specified) |
 
 **Example:**
 
@@ -224,6 +224,17 @@ To learn details about the properties, check [Lookup activity](control-flow-look
 ## Upgrade the Google BigQuery linked service
 
 To upgrade the Google BigQuery linked service, create a new Google BigQuery linked service and configure it by referring to [Linked service properties](#linked-service-properties).
+
+## Differences between Google BigQuery and Google BigQuery (legacy)
+
+The Google BigQuery connector offers new functionalities and is compatible with most features of Google BigQuery (legacy) connector. The table below shows the feature differences between Google BigQuery and Google BigQuery (legacy).
+
+| Google BigQuery  | Google BigQuery (legacy) | 
+| :----------- | :------- |
+| Service authentication is supported by the Azure integration runtime and the self-hosted integration runtime.<br>The properties trustedcerts, usesystemtruststore, email and keyfilepath are not supported as they are available on the self-hosted integration runtime only. | Service authentication is only supported by the self-hosted integration runtime. <br>Support trustedcerts, usesystemtruststore, email and keyfilepath properties. | 
+| The following mappings are used from Google BigQuery data types to interim data types used by the service internally. <br><br>Numeric -> SqlBigDecimal<br>Timestamp -> DateTimeOffset<br>Datetime -> DatetimeOffset | The following mappings are used from  Google BigQuery (legacy) data types to interim data types used by the service internally. <br><br>Numeric -> string<br>Timestamp -> DateTime<br>Datetime -> DateTime | 
+| RequestGoogleDriveScope is not supported. You need additionally apply the permission in Google BigQuery service by referring to this [article](https://developers.google.com/drive/api/guides/api-specific-auth). | Support RequestGoogleDriveScope. | 
+| AdditionalProjects is not supported. As an alternative, [query a public dataset with the Google Cloud console](https://cloud.google.com/bigquery/docs/quickstarts/query-public-dataset-console). | Support AdditionalProjects. | 
 
 ## Related content
 
