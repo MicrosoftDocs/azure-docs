@@ -21,14 +21,14 @@ Using Entra ID simplifies the onboarding and offboarding processes, reduces admi
 Before you begin:
 - [Synchronize on-premises active directory with Entra ID](/azure/architecture/reference-architectures/identity/azure-ad).
 - Add outbound allow rules to your firewall, proxy server, and so on. You can access the list of required endpoints from the [Sites and sensors page](how-to-manage-sensors-on-the-cloud.md#endpoint).
-- If you don't have existing Entra ID user groups to use for SSO authorization, work with your organization's identity manager to create relevant user groups. To create the groups, verify that:
+- If you don't have existing Entra ID user groups to use for SSO authorization, work with your organization's identity manager to create relevant user groups.
 - Verify that you have the following permissions:
     - A Member user on Entra ID. 
     - Admin, Contributor, or Security Admin permissions on the Defender for IoT subscription.
 - Ensure that each user has a **First name**, **Last name**, and **User principal name**.
 - If needed, set up [Multifactor authentication (MFA)](/entra/identity/authentication/tutorial-enable-azure-mfa).
 
-## Create application ID on Azure Active Directory
+## Create application ID on Entra ID
 ​
 1. In the Azure portal, open Microsoft Entra ID.
 1. Select **Add > App registration**.
@@ -38,7 +38,7 @@ Before you begin:
 1. In the **Register an application** page: 
     - Under **Name**, type a name for your application.
     - Under **Supported account types**, select **Accounts in this organizational directory only (Microsoft only - single tenant)**.
-    - Under **Redirect URI**, add an IP or hostname for the first sensor on which you want to enable SSO. You continue to add URIs for the other sensors in the next step, [Add your sensor URIs](#add-your-sensor-uris​). 
+    - Under **Redirect URI**, add an IP or hostname for the first sensor on which you want to enable SSO. You continue to add URIs for the other sensors in the next step, [Add your sensor URIs](#add-your-sensor-uris​​). 
     
     > [!NOTE]
     > Adding the URI at this stage is required for SSO to work. 
@@ -51,11 +51,13 @@ Before you begin:
 ## Add your sensor URIs​
 ​
 1. In your new application, select **Authentication​**.
-1. Under **Redirect URIs**, add the IPs or hostnames for all connected sensors. Type the first IP or hostname, and select **Add URI** to add more rows.
+1. Under **Redirect URIs**, the URI for the first sensor, added in the [previous step](#create-application-id-on-entra-id), is displayed under **Redirect URIs**. To add the rest of the URIs: 
+    1. Select **Add URI** to add another row, and type an IP or hostname. 
+    1. Repeat this step for the rest of the connected sensors. 
     
-    When Entra ID adds the URI successfully, a "Your redirect URI is eligible for the Authorization Code Flow with PKCE" message is displayed.
+        When Entra ID adds the URIs successfully, a "Your redirect URI is eligible for the Authorization Code Flow with PKCE" message is displayed.
 
-    :::image type="content" source="media/set-up-sso/authentication.png" alt-text="Screenshot of setting up URIs for your application on the Entra ID Authentication page." lightbox="media/set-up-sso/authentication.png":::
+        :::image type="content" source="media/set-up-sso/authentication.png" alt-text="Screenshot of setting up URIs for your application on the Entra ID Authentication page." lightbox="media/set-up-sso/authentication.png":::        
 
 1. Select **Save**.
 

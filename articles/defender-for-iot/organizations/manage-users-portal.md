@@ -62,10 +62,6 @@ For more information, see:
 - [List Azure role assignments using the Azure portal](../../role-based-access-control/role-assignments-list-portal.md)
 - [Check access for a user to Azure resources](../../role-based-access-control/check-access.md)
 
-### Single sign-on for login to the sensor console
-
-You can set up single sign-on (SSO) for the Defender for IoT sensor console using Entra ID. With SSO, your organization's users can simply sign into the sensor console, and don't need multiple login credentials across different sensors and sites. For more information, see [Set up single sign-on for the sensor console](set-up-sso.md).
-
 ## Next steps
 
 For more information, see:

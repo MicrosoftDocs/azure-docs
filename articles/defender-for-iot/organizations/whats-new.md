@@ -22,7 +22,7 @@ Features released earlier than nine months ago are described in the [What's new 
 |---------|---------|
 | **OT networks** | - [Single sign-on support](#single-sign-on-support)<br>- [Sensor time drift detection](#sensor-time-drift-detection)<br>- [Security update](#security-update) |
 
-#### Single sign-on support
+#### Single sign-on for the sensor console
 
 You can set up single sign-on (SSO) for the Defender for IoT sensor console using Entra ID. SSO allows simple sign in for your organization's users, allows your organization to meet regulation standards, and increases your security posture. With SSO, your users don't need multiple login credentials across different sensors and sites. 
 
