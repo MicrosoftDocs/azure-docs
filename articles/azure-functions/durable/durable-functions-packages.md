@@ -61,7 +61,7 @@ Users of [Extension Bundles](../functions-bindings-register.md#extension-bundles
 
 Durable Functions is developed in the open as OSS. Users are welcome to contribute to it's development, request features, and to report issues in the appropiate repositories:
 
-* [azure-functions-durable-extension](https://github.com/Azure/azure-functions-durable-extension): For .NET in-process and the Azure Storage backend.
+* [azure-functions-durable-extension](https://github.com/Azure/azure-functions-durable-extension): For .NET in-process and the Azure Storage storage provider.
 * [durabletask-dotnet](https://github.com/microsoft/durabletask-dotnet): For .NET isolated.
 * [azure-functions-durable-js](https://github.com/Azure/azure-functions-durable-js): For the Node.js SDK.
 * [azure-functions-durable-python](https://github.com/Azure/azure-functions-durable-python): For the Python SDK.
