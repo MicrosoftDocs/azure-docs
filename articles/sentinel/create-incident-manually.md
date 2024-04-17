@@ -19,9 +19,9 @@ ms.date: 08/17/2022
 
 With Microsoft Sentinel as your security information and event management (SIEM) solution, your security operations' threat detection and response activities are centered on **incidents** that you investigate and remediate. These incidents have two main sources: 
 
-- They are generated automatically when detection mechanisms operate on the logs and alerts that Microsoft Sentinel ingests from its connected data sources.
+- They're generated automatically when detection mechanisms operate on the logs and alerts that Microsoft Sentinel ingests from its connected data sources.
 
-- They are ingested directly from other connected Microsoft security services (such as [Microsoft Defender XDR](microsoft-365-defender-sentinel-integration.md)) that created them.
+- They're ingested directly from other connected Microsoft security services (such as [Microsoft Defender XDR](microsoft-365-defender-sentinel-integration.md)) that created them.
 
 However, threat data can also come from other sources *not ingested into Microsoft Sentinel*, or events not recorded in any log, and yet can justify opening an investigation. For example, an employee might notice an unrecognized person engaging in suspicious activity related to your organization’s information assets. This employee might call or email the security operations center (SOC) to report the activity.
 

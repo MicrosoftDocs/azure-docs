@@ -46,7 +46,7 @@ The following capabilities are only available in the Defender portal.
 | Capability | Learn more |
 | ---------- | ---------- |
 | Attack disruption for SAP | [Automatic attack disruption in the Microsoft Defender portal](/microsoft-365/security/defender/automatic-attack-disruption) |
-| Removing alerts from incidents | After onboarding Microsoft Sentinel to the unified security operations platform, you can no longer remove alerts from incidents in the Azure portal. <br><br>You can remove an alert from an incident in the Defender portal, but only by linking the alert to another incident (existing or new). |
+| Adding alerts to incidents /<br>Removing alerts from incidents | After onboarding Microsoft Sentinel to the unified security operations platform, you can no longer add alerts to, or remove alerts from, incidents in the Azure portal. <br><br>You can remove an alert from an incident in the Defender portal, but only by linking the alert to another incident (existing or new). |
 
 ### Azure portal only
 
