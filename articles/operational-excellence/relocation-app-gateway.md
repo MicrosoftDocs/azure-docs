@@ -28,7 +28,7 @@ ms.custom:
 
 - Create a dependency map with all the Azure services used by the Application Gateway. For the services that are in scope of the relocation, you must [select the appropriate relocation strategy](overview-relocation.md).
 
-- Capture the below list of internal resources/setting of Application Gateway:
+- Capture the below list of internal resources/settings of Application Gateway:
     - Frontend configuration (Public/Private IP)
     - Alert Notifications
     - Backend Pool Resources (ex. VMs, VMSS, Azure App Services)
@@ -40,7 +40,7 @@ ms.custom:
 
 ## Redeploy
 
-To relocate Application Gateway and optional WAF, you must create a separate Application Gateway deployment with a new public IP address at the target location. Workloads are then migrated from the source Application Gateway set up to the new one.  Since you're changing the public IP address, changes to DNS configuration, virtual networks, and subnets are also required. 
+To relocate Application Gateway and optional WAF, you must create a separate Application Gateway deployment with a new public IP address at the target location. Workloads are then migrated from the source Application Gateway setup to the new one.  Since you're changing the public IP address, changes to DNS configuration, virtual networks, and subnets are also required. 
 
 
 If you only want to relocate in order to gain availability zones support, see [Migrate Application Gateway and WAF to availability zone support](../reliability/migrate-app-gateway-v2.md).
@@ -67,21 +67,21 @@ If you only want to relocate in order to gain availability zones support, see [M
 1. Migrate your configuration to the new public IP address.
      1. Switch Public and Private endpoints in order to point to the new application gateway. 
      1. Migrate your DNS configuration to the new Public- and/or Private  IP address.
-     1. Update endpoints in consumer applications/services. Consumer application/services updates are usually done by means of a properties change and redeployment. However, perform this method whenever a new hostname is used in respect to deployment in the source region.
+     1. Update endpoints in consumer applications/services. Consumer application/services updates are usually done by means of a properties change and redeployment. However, perform this method whenever a new hostname is used in respect to deployment in the old region.
 
 1. Delete the source Application Gateway and WAF resources.
 
 ## Relocate certificates for Premium TLS Termination (Application Gateway v2)
 
 
-Application Gateway v2 offers two models for TLS termination:
+The certificates for TLS termination can be supplied in two ways:
 
-- *Attachment.* Provide an TLS/SSL certificate that's attached to the listener. The attachment model is the traditional way to pass TLS/SSL certificates to Application Gateway for TLS termination.
+- *Upload.* Provide an TLS/SSL certificate by directly uploading it to your Application Gateway.
 
-- *Reference.* Provide a reference to an existing Key Vault certificate or secret when you create a HTTPS-enabled listener. For more information on downloading a certificate, see [Relocate Key Vault to another region](./relocation-key-vault.md). When referencing a Key Vault certificate, consider:
+- *Key Vault reference.* Provide a reference to an existing Key Vault certificate when you create a HTTPS/TLS-enabled listener. For more information on downloading a certificate, see [Relocate Key Vault to another region](./relocation-key-vault.md). 
 
 >[!WARNING]
- >Application Gateway v2 currently supports only Key Vault accounts in the same subscription as the Application Gateway v2 resource. Choosing a key vault under a different subscription than your Application Gateway v2 results in a failure.
+ >References to Key Vaults in other Azure subscriptions are supported, but must be configured via ARM Template, Azure PowerShell, CLI, Bicep, etc. Cross-subscription key vault configuration is not supported by Application Gateway via Azure portal.
 
 
 Follow the documented procedure to enable [TLS termination with Key Vault certificates](/azure/application-gateway/key-vault-certs#configure-your-key-vault) for your relocated Application Gateway. 
