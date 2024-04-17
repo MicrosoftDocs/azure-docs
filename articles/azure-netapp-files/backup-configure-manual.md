@@ -10,7 +10,7 @@ ms.author: anfdocs
 ---
 # Configure manual backups for Azure NetApp Files 
 
-Azure NetApp Files backup supports *policy-based* (scheduled) backups and *manual* (on-demand) backups at the volume level. You can use both types of backups in the same volume. During the configuration process, you will enable the backup feature for an Azure NetApp Files volume before policy-based backups or manual backups can be taken. 
+Azure NetApp Files backup supports *policy-based* (scheduled) backups and *manual* (on-demand) backups at the volume level. You can use both types of backups in the same volume. During the configuration process, you enable the backup feature for an Azure NetApp Files volume before policy-based backups or manual backups can be taken. 
 
 This article shows you how to configure manual backups. For policy-based backup configuration, see [Configure policy-based backups](backup-configure-policy-based.md).  
 
@@ -30,7 +30,7 @@ The following list summarizes manual backup behaviors:
 
 ## Requirements
 
-* Azure NetApp Files now requires you to create a backup vault before enabling backup functionality. If you have not configured a backup, refer to [Manage backup vaults](backup-vault-manage.md) for more information.
+* Azure NetApp Files now requires you to create a backup vault before enabling backup functionality. If you haven't configured a backup, see [Manage backup vaults](backup-vault-manage.md) for more information.
 * [!INCLUDE [consideration regarding deleting backups after deleting resource or subscription](includes/disable-delete-backup.md)]
 
 ## Enable backup functionality
@@ -61,13 +61,13 @@ If you haven’t done so, enable the backup functionality for the volume before 
 
             `account1-pool1-vol1-backup1`   
 
-            If you are using a shorter form for the backup name, ensure that it still includes information that identifies the NetApp account, capacity pool, and volume name for display in the backup list.
+            If you're using a shorter form for the backup name, ensure that it still includes information that identifies the NetApp account, capacity pool, and volume name for display in the backup list.
             
     2. If you want to use an existing snapshot for the backup, select the **Use Existing Snapshot** option.  When you use this option, ensure that the Name field matches the existing snapshot name that is being used for the backup. 
 
 4. Select **Create**. 
 
-    When you create a manual backup, a snapshot is also created on the volume using the same name you specified for the backup. This snapshot represents the current state of the active file system. It is transferred to Azure storage. Once the backup completes, the manual backup entry appears in the list of backups for the volume.
+    When you create a manual backup, a snapshot is also created on the volume using the same name you specified for the backup. This snapshot represents the current state of the active file system. It's transferred to Azure storage. Once the backup completes, the manual backup entry appears in the list of backups for the volume.
 
 ![Screenshot that shows the New Backup window.](./media/backup-configure-manual/backup-new.png)
 
