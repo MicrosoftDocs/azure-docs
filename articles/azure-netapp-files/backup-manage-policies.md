@@ -50,7 +50,7 @@ A backup policy can be suspended so that it does not perform any new backup oper
 
 1. Toggle **Policy State** to **Disabled**, enter the policy name to confirm, and click **Save**. 
 
-    ![Screenshot that shows the Modify Backup Policy window with Policy State disabled.](./media/backup-manage-policies/backup-modify-policy-disabled.png)
+<!-- this does NOT work anymore -->
 
 ### Suspend a backup policy for a specific volume 
 
