@@ -42,7 +42,7 @@ The cloud security explorer can be used to identify containers that are running 
 
     :::image type="content" source="media/explore-ai-risk/vulnerable-images-results-details.png" alt-text="Screenshot that shows the details of the selected containers node." lightbox="media/explore-ai-risk/vulnerable-images-results-details.png":::
 
-1. In the insights section, select a CVE ID from the drop down menu.
+1. In the insights section, select a CVE ID from the drop-down menu.
 
 1. Select **Open the vulnerability page**.
 
