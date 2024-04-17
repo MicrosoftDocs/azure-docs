@@ -4,6 +4,7 @@ titleSuffix: Azure Lab Services
 description: Learn how to connect to a lab VM in Azure Lab Services. You can use SSH or remote desktop to connect to your VM.
 services: lab-services
 ms.service: lab-services
+ms.custom: linux-related-content
 author: RoseHJM
 ms.author: rosemalcolm
 ms.topic: how-to

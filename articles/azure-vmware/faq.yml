@@ -164,7 +164,7 @@ sections:
 
 
   - name: Backup/restore
-    questions:         
+    questions:
     
       - question:  What independent software vendors (ISVs) backup solutions work with Azure VMware Solution?
         answer: Commvault, Veritas, and Veeam have extended their backup solutions to work with Azure VMware Solution.  However, any backup solution that uses VMware vStorage API for Data Protection (VADP) with the HotAdd transport mode works out of the box on Azure VMware Solution. For more information, see [Backup solutions for Azure VMware Solution VMs](ecosystem-back-up-vms.md).
@@ -174,7 +174,7 @@ sections:
    
 
   - name: Networking and interconnectivity
-    questions:        
+    questions:
 
       - question: Can Azure Bastion be used for connecting to Azure VMware Solution VMs?
         answer: Azure Bastion is the service recommended to connect to the jump box to prevent exposing Azure VMware Solution to the internet. You can't use Azure Bastion to connect to Azure VMware Solution VMs since they aren't Azure IaaS objects.

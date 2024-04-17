@@ -7,9 +7,9 @@ keywords: 'SAP, Azure, ANF, HANA, Azure NetApp Files, snapshot'
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
-ms.date: 08/02/2023
+ms.date: 04/01/2024
 ms.author: juergent
-ms.custom: H1Hack27Feb2017
+ms.custom: H1Hack27Feb2017, linux-related-content
 ---
 
 # NFS v4.1 volumes on Azure NetApp Files for SAP HANA
@@ -111,7 +111,8 @@ To meet the SAP minimum throughput requirements for data and log, and according 
 | /hana/logbackup | 3 x RAM  | 3 x RAM | v3 or v4.1 |
 | /hana/backup | 2 x RAM  | 2 x RAM | v3 or v4.1 |
 
-For all volumes, NFS v4.1 is highly recommended
+For all volumes, NFS v4.1 is highly recommended.  
+Review carefully the [considerations for sizing **/hana/shared**](hana-vm-operations-storage.md#considerations-for-the-hana-shared-file-system), as appropriately sized **/hana/shared** volume contributes to system's stability.   
 
 The sizes for the backup volumes are estimations. Exact requirements need to be defined based on workload and operation processes. For backups, you could consolidate many volumes for different SAP HANA instances to one (or two) larger volumes, which could have a lower service level of ANF.
 

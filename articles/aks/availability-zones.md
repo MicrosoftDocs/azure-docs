@@ -4,6 +4,9 @@ description: Learn how to create a cluster that distributes nodes across availab
 ms.custom: fasttrack-edit, references_regions, devx-track-azurecli
 ms.topic: article
 ms.date: 12/06/2023
+author: schaffererin
+ms.author: schaffererin
+
 ---
 
 # Create an Azure Kubernetes Service (AKS) cluster that uses availability zones
@@ -209,3 +212,4 @@ This article described how to create an AKS cluster using availability zones. Fo
 <!-- LINKS - external -->
 [kubectl-describe]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#describe
 [kubectl-well_known_labels]: https://kubernetes.io/docs/reference/labels-annotations-taints/
+

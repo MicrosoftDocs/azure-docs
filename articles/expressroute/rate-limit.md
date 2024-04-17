@@ -1,5 +1,5 @@
 ---
-title: Rate limiting for ExpressRoute Direct circuits (Preview)
+title: Rate limiting for ExpressRoute Direct circuits
 titleSuffix: Azure ExpressRoute
 description: This document provides guidance on how to enable or disable rate limiting for an ExpressRoute Direct circuit.
 services: expressroute
@@ -11,7 +11,7 @@ ms.date: 03/21/2024
 ms.author: duau
 ---
 
-# Rate limiting for ExpressRoute Direct circuits (Preview)
+# Rate limiting for ExpressRoute Direct circuits
 
 Rate limiting is a feature that enables you to regulate the volume of traffic between your on-premises network and Azure via an ExpressRoute Direct circuit. This applies to traffic traversing either private or Microsoft peering of the ExpressRoute circuit. This feature aids in evenly distributing the port bandwidth across the circuits, ensuring network stability, and averting network congestion. This article outlines steps to enable rate limiting for your ExpressRoute Direct circuits.
 

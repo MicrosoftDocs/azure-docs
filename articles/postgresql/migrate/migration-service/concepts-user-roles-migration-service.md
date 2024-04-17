@@ -16,7 +16,7 @@ ms.topic: conceptual
 > [!IMPORTANT]  
 > The migration of user roles, ownerships, and privileges feature is available only for the Azure Database for PostgreSQL Single server as the source. This feature is currently disabled for PostgreSQL version 16 servers.
 
-The service automatically provides the following built-in capabilities for the Azure Database for PostgreSQL single server as the source and data migration.
+The migration service automatically provides the following built-in capabilities for the Azure Database for PostgreSQL single server as the source and data migration.
 
 - Migration of user roles on your source server to the target server.
 - Migration of ownership of all the database objects on your source server to the target server.

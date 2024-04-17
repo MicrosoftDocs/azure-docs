@@ -5,6 +5,7 @@ ms.topic: article
 ms.custom: build-2023, devx-track-azurecli
 ms.author: nickoman
 author: nickomang
+ms.subservice: aks-upgrade
 ms.date: 11/22/2023
 ---
 

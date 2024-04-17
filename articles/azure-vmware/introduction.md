@@ -3,7 +3,7 @@ title: Introduction
 description: Learn the features and benefits of Azure VMware Solution to deploy and manage VMware-based workloads in Azure.
 ms.topic: overview
 ms.service: azure-vmware
-ms.date: 3/22/2024
+ms.date: 3/29/2024
 ms.custom: engagement-fy23
 ---
 
@@ -15,7 +15,7 @@ Azure VMware Solution is a VMware validated solution with ongoing validation and
 
 The diagram shows the adjacency between private clouds and VNets in Azure, Azure services, and on-premises environments. Network access from private clouds to Azure services or VNets provides SLA-driven integration of Azure service endpoints. ExpressRoute Global Reach connects your on-premises environment to your Azure VMware Solution private cloud.
 
-:::image type="content" source="media/introduction/adjacency-overview-drawing-final.png" alt-text="Diagram showing Azure VMware Solution private cloud adjacency to Azure services and on-premises environments." border="false":::
+:::image type="content" source="media/introduction/adjacency-overview-drawing-final.png" alt-text="Diagram showing Azure VMware Solution private cloud adjacency to Azure services and on-premises environments." border="false" lightbox="media/introduction/adjacency-overview-drawing-final.png":::
 
 ## Hosts, clusters, and private clouds
 
@@ -74,17 +74,17 @@ The following three scenarios show examples of instances that normally error out
 -  Removing a host creates a vSAN FD imbalance with a difference of hosts between most and least populated FD to be more than one.
 	In the following example users, need to remove one of the hosts from FD 1 before removing hosts from other FDs.
 
-	 :::image type="content" source="media/introduction/remove-host-scenario-1.png" alt-text="Diagram showing how users need to remove one of the hosts from FD 1 before removing hosts from other FDs." border="false":::
+	 :::image type="content" source="media/introduction/remove-host-scenario-1.png" alt-text="Diagram showing how users need to remove one of the hosts from FD 1 before removing hosts from other FDs." border="false" lightbox="media/introduction/remove-host-scenario-1.png":::
 
 - Multiple host removal requests are made at the same time and certain host removals create an imbalance. In this scenario, the Azure VMware Solution control plane removes only hosts, which don't create imbalance.
 	In the following example users can't take both of the hosts from the same FDs unless they're reducing the cluster size to four or lower. 
 
-     :::image type="content" source="media/introduction/remove-host-scenario-2.png" alt-text="Diagram showing how users can't take both of the hosts from the same FDs unless they're reducing the cluster size to four or lower." border="false":::
+     :::image type="content" source="media/introduction/remove-host-scenario-2.png" alt-text="Diagram showing how users can't take both of the hosts from the same FDs unless they're reducing the cluster size to four or lower." border="false" lightbox="media/introduction/remove-host-scenario-2.png":::
 
 - A selected host removal causes less than three active vSAN FDs. This scenario isn't expected to occur given that all AV64 regions have five FDs. While adding hosts, the Azure VMware Solution control plane takes care of adding hosts from all five FDs evenly.
 	In the following example, users can remove one of the hosts from FD 1, but not from FD 2 or 3.
 
-	 :::image type="content" source="media/introduction/remove-host-scenario-3.png" alt-text="Diagram showing how users can remove one of the hosts from FD 1, but not from FD 2 or 3." border="false":::
+	 :::image type="content" source="media/introduction/remove-host-scenario-3.png" alt-text="Diagram showing how users can remove one of the hosts from FD 1, but not from FD 2 or 3." border="false" lightbox="media/introduction/remove-host-scenario-3.png":::
 
 **How to identify the host that can be removed without causing a vSAN FD imbalance**: A user can go to the vSphere Client interface to get the current state of vSAN FDs and hosts associated with each of them. This helps to identify hosts (based on the previous examples) that can be removed without affecting the vSAN FD balance and avoid any errors in the removal operation. 
 
@@ -150,7 +150,7 @@ Azure VMware Solution implements a shared responsibility model that defines dist
 
 The shared responsibility matrix table outlines the main tasks that customers and Microsoft each handle in deploying and managing both the private cloud and customer application workloads.
 
-:::image type="content" source="media/introduction/azure-introduction-shared-responsibility-matrix.png" alt-text="Screenshot of the high-level shared responsibility matrix for Azure VMware Solution." lightbox="media/introduction/azure-introduction-shared-responsibility-matrix.png":::
+:::image type="content" source="media/introduction/azure-introduction-shared-responsibility-matrix.png" alt-text="Screenshot of the high-level shared responsibility matrix for Azure VMware Solution." border="false" lightbox="media/introduction/azure-introduction-shared-responsibility-matrix.png":::
 
 The following table provides a detailed list of roles and responsibilities between the customer and Microsoft, which encompasses the most frequent tasks and definitions. For further questions, contact Microsoft.
 

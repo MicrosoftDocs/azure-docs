@@ -5,7 +5,7 @@ author: realAngryAnalytics
 ms.author: stevehow
 manager: joannapea
 ms.reviewer: joanpo, wiassaf
-ms.date: 01/31/2024
+ms.date: 03/21/2024
 ms.service: synapse-analytics
 ms.subservice: sql-dw
 ms.topic: conceptual
@@ -24,12 +24,18 @@ Use dedicated SQL pool restore points to recover or copy your data warehouse to 
 
 A *data warehouse snapshot* creates a restore point you can leverage to recover or copy your data warehouse to a previous state.  Since dedicated SQL pool is a distributed system, a data warehouse snapshot consists of many files that are located in Azure storage. Snapshots capture incremental changes from the data stored in your data warehouse.
 
+> [!NOTE]
+> Dedicated SQL pool Recovery Time Objective (RTO) rates can vary. Factors that might affect the recovery (restore) time:
+> - The database size
+> - The location of the source and target data warehouse (in the case of a geo-restore)
+> - Data warehouse snapshot can't be exported as a separate file (e.g. For Azure Storage, on-premises environment)
+
 A *data warehouse restore* is a new data warehouse that is created from a restore point of an existing or deleted data warehouse. Restoring your data warehouse is an essential part of any business continuity and disaster recovery strategy because it re-creates your data after accidental corruption or deletion. Data warehouse snapshot is also a powerful mechanism to create copies of your data warehouse for test or development purposes.
 
 > [!NOTE]
 > Dedicated SQL pool Recovery Time Objective (RTO) rates can vary. Factors that might affect the recovery (restore) time:
 > - The database size
-> - The location of the source and target data warehouse (in the case of a geo-restore) 
+> - The location of the source and target data warehouse (in the case of a geo-restore)
 
 ## Automatic Restore Points
 
@@ -50,7 +56,7 @@ ORDER BY run_id desc;
 
 ## User-defined restore points
 
-This feature enables you to manually trigger snapshots to create restore points of your data warehouse before and after large modifications. This capability ensures that restore points are logically consistent, which provides additional data protection in case of any workload interruptions or user errors for quick recovery time. User-defined restore points are available for seven days and are automatically deleted on your behalf. You cannot change the retention period of user-defined restore points. **42 user-defined restore points** are guaranteed at any point in time so they must be [deleted](#delete-user-defined-restore-points) before creating another restore point. You can trigger snapshots to create user-defined restore points by using the Azure portal or programmatically by using the [PowerShell or REST APIs](#create-user-defined-restore-points)
+This feature enables you to manually trigger snapshots to create restore points of your data warehouse before and after large modifications. This capability ensures that restore points are logically consistent, which provides additional data protection in case of any workload interruptions or user errors for quick recovery time. User-defined restore points are available for seven days and are automatically deleted on your behalf. You cannot change the retention period of user-defined restore points. **42 user-defined restore points** are guaranteed at any point in time so they must be [deleted](#delete-user-defined-restore-points) before creating another restore point. You can trigger snapshots to create user-defined restore points by using the Azure portal or programmatically by using the [PowerShell or REST APIs only](#create-user-defined-restore-points).
 
 - For more information on user-defined restore points in a standalone data warehouse (formerly SQL pool), see [User-defined restore points for a dedicated SQL pool (formerly SQL DW)](sql-data-warehouse-restore-points.md).
 - For more information on user-defined restore points in a dedicated SQL pool in a Synapse workspace, [User-defined restore points in Azure Synapse Analytics](../backuprestore/sqlpool-create-restore-point.md).
@@ -59,6 +65,8 @@ This feature enables you to manually trigger snapshots to create restore points 
 > If you require restore points longer than 7 days, please [vote for this capability](https://feedback.azure.com/d365community/idea/4c446fd9-0b25-ec11-b6e6-000d3a4f07b8).
 
 > [!NOTE]
+> T-SQL script can't be used to take backup on-demand. User-defined restore points can be created by using the Azure portal or programmatically by using PowerShell or REST APIs.
+> 
 > In case you're looking for a Long-Term Backup (LTR) concept:
 > 1. Create a new user-defined restore point, or you can use one of the automatically generated restore points.
 > 1. Restore from the newly created restore point to a new data warehouse.

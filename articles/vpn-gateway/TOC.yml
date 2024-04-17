@@ -143,6 +143,8 @@
             href: vpn-gateway-certificates-point-to-site.md
           - name: Makecert
             href: vpn-gateway-certificates-point-to-site-makecert.md
+          - name: Linux - OpenSSL
+            href: point-to-site-certificates-linux-openssl.md
           - name: Linux - strongSwan
             href: vpn-gateway-certificates-point-to-site-linux.md
       - name: RADIUS authentication

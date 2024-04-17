@@ -4,6 +4,7 @@ description: Learn how to use cost analysis to surface granular cost allocation 
 author: nickomang
 ms.author: nickoman
 ms.service: azure-kubernetes-service
+ms.subservice: aks-monitoring
 ms.custom: ignite-2023, devx-track-azurecli
 ms.topic: how-to
 ms.date: 03/15/2024

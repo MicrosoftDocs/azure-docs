@@ -15,7 +15,7 @@ items:
   - name: Document Intelligence SDKs
     expanded: true
     items:
-      - name: Changelog and release history
+      - name: Changelog and migration guide
         displayName: latest, update, beta, package, preview, version
         href: changelog-release-history.md
       - name: "SDK targets: REST API 2024–02–29-preview"

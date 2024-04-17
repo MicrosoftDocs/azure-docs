@@ -4,6 +4,7 @@ ms.date: 12/23/2022
 author: PatAltimore
 ms.author: patricka
 ms.service: iot-edge
+ms.custom: linux-related-content
 services: iot-edge
 ---
 

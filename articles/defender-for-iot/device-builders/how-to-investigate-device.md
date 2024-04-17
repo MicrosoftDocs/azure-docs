@@ -15,11 +15,6 @@ In this guide, use the investigation suggestions provided to help determine the 
 > * Find your device data
 > * Investigate using KQL queries
 
-> [!NOTE]
-> The Microsoft Defender for IoT legacy experience under IoT Hub has been replaced by our new Defender for IoT standalone experience, in the Defender for IoT area of the Azure portal. The legacy experience under IoT Hub will not be supported after **March 31, 2023**.
->
-> For more information, see [Tutorial: Investigate security recommendations](tutorial-investigate-security-recommendations.md) and [Tutorial: Investigate security alerts](tutorial-investigate-security-alerts.md).
-
 ## How can I access my data?
 
 By default, Defender for IoT stores your security alerts and recommendations in your Log Analytics workspace. You can also choose to store your raw security data.

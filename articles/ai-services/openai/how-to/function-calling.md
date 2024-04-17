@@ -31,11 +31,13 @@ Parallel function calls are supported with:
 ### Supported models
 
 * `gpt-35-turbo` (1106)
-* `gpt-4` (1106-preview)
+* `gpt-35-turbo` (0125)
+* `gpt-4` (1106-Preview)
+* `gpt-4` (0125-Preview)
 
-### Supported API versions
+### API support
 
-* [`2023-12-01-preview`](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-12-01-preview/inference.json)
+Support for parallel function was first added in API version [`2023-12-01-preview`](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-12-01-preview/inference.json)
 
 Parallel function calls allow you to perform multiple function calls together, allowing for parallel execution and retrieval of results. This reduces the number of calls to the API that need to be made and can improve overall performance.
 
@@ -58,7 +60,7 @@ import json
 client = AzureOpenAI(
   azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT"), 
   api_key=os.getenv("AZURE_OPENAI_API_KEY"),  
-  api_version="2023-12-01-preview"
+  api_version="2024-03-01-preview"
 )
 
 
