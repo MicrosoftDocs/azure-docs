@@ -3,24 +3,25 @@ title: "Artifact cache in Azure Container Registry (Preview)"
 description: "Artifact cache is a feature that allows you to cache container images in Azure Container Registry, improving performance and efficiency."
 author: tejaswikolli-web
 ms.service: container-registry
+ms.topic: conceptual #Don't change
 ms.custom: devx-track-azurecli
 zone_pivot_groups: container-registry-zones
 ms.date: 02/26/2024
 ai-usage: ai-assisted
-#customer intent: As a developer, I want artifact cache capabilities so that I can efficiently deliver and serve containerized applications to end-users in real-time.
+#customer intent: As a developer, I want Artifact cache capabilities so that I can efficiently deliver and serve containerized applications to end-users in real-time.
 ---
 
-# Artifact Cache in Azure Container Registry (Preview)
+# Artifact cache in Azure Container Registry (Preview)
 
-Artifact Cache feature allows users to cache container images in a private container registry. Artifact Cache is available in *Basic*, *Standard*, and *Premium* [service tiers](container-registry-skus.md).
+Artifact cache feature allows users to cache container images in a private container registry. Artifact cache is available in *Basic*, *Standard*, and *Premium* [service tiers](container-registry-skus.md).
 
-Artifact Cache enhances container image management by providing a caching solution for both public and private repositories. 
+Artifact cache enhances container image management by providing a caching solution for both public and private repositories. 
 
-Artifact Cache offers faster and more *reliable pull operations* through Azure Container Registry (ACR), utilizing features like Geo-Replication and Availability Zone support for higher availability and speed image pulls.
+Artifact cache offers faster and more *reliable pull operations* through Azure Container Registry (ACR), utilizing features like Geo-Replication and Availability Zone support for higher availability and speed image pulls.
 
-Artifact Cache allows cached registries to be accessible over *private networks* for users to align with firewall configurations and compliance standards seamlessly.
+Artifact cache allows cached registries to be accessible over *private networks* for users to align with firewall configurations and compliance standards seamlessly.
 
-Artifact Cache addresses the challenge of anonymous pull limits imposed by public registries like Docker Hub. By allowing users to pull images from the local ACR, it circumvents these limits, ensuring *uninterrupted content delivery* from upstream sources and eliminating the concern of hitting pull limits.
+Artifact cache addresses the challenge of anonymous pull limits imposed by public registries like Docker Hub. By allowing users to pull images from the local ACR, it circumvents these limits, ensuring *uninterrupted content delivery* from upstream sources and eliminating the concern of hitting pull limits.
 
 ## Terminology 
 
@@ -48,13 +49,13 @@ Artifact Cache addresses the challenge of anonymous pull limits imposed by publi
 
 ## Limitations
 
-- Cache will only occur after at least one image pull is complete on the available container image. For every new image available, a new image pull must be complete. Artifact Cache doesn't automatically pull new tags of images when a new tag is available. It is on the roadmap but not supported in this release. 
+- Cache will only occur after at least one image pull is complete on the available container image. For every new image available, a new image pull must be complete. Artifact cache doesn't automatically pull new tags of images when a new tag is available. It is on the roadmap but not supported in this release. 
 
-- Artifact Cache only supports 1,000 cache rules.
+- Artifact cache only supports 1,000 cache rules.
 
 ## Upstream support 
 
-Artifact Cache currently supports the following upstream registries:
+Artifact cache currently supports the following upstream registries:
 
 | Upstream registries                    | Support                                                      | Availability            |
 | -------------------------------------- | ------------------------------------------------------------ | ----------------------- |
@@ -69,7 +70,7 @@ Artifact Cache currently supports the following upstream registries:
 
 ## Wildcards
 
-Wildcard use asterisks (*) to match multiple paths within the container image registry. Artifact Cache currently supports the following wildcards:
+Wildcard use asterisks (*) to match multiple paths within the container image registry. Artifact cache currently supports the following wildcards:
 
 > [!NOTE] 
 > The cache rules map from Target Repository => Source Repository.
@@ -127,9 +128,9 @@ The addition of the new cache rule is allowed because `contoso.azurecr.io/librar
 :::zone target="docs" pivot="development-environment-azure-cli"
 <!-- markdownlint-enable MD044 -->
 
-## Enable Artifact Cache - Azure CLI
+## Enable Artifact cache - Azure CLI
 
-You can enable Artifact Cache in your Azure Container Registry with or without authentication using Azure CLI by following the steps.
+You can enable Artifact cache in your Azure Container Registry with or without authentication using Azure CLI by following the steps.
 
 ### Prerequisites
 
@@ -293,9 +294,9 @@ Before configuring the Credentials, you have to create and store secrets in the 
 :::zone target="docs" pivot="development-environment-azure-portal"
 <!-- markdownlint-enable MD044 -->
 
-## Enable Artifact Cache - Azure portal
+## Enable Artifact cache - Azure portal
 
-You can enable Artifact Cache in your Azure Container Registry with or without authentication using Azure portal by following the steps.
+You can enable Artifact cache in your Azure Container Registry with or without authentication using Azure portal by following the steps.
 
 ### Prerequisites
 
@@ -303,7 +304,7 @@ You can enable Artifact Cache in your Azure Container Registry with or without a
 * You have an existing Key Vault to store credentials. Learn more about [creating and storing credentials in a Key Vault.][create-and-store-keyvault-credentials]
 * You have the existing Key vaults without the Role based access(RBAC) controls.
 
-### Configure Artifact Cache without credentials
+### Configure Artifact cache without credentials
 
 Follow the steps to create cache rule in the [Azure portal](https://portal.azure.com). 
 
@@ -351,7 +352,7 @@ Follow the steps to create cache rule in the [Azure portal](https://portal.azure
      docker pull myregistry.azurecr.io/hello-world:latest
     ```
 
-### Configure Artifact Cache with authentication 
+### Configure Artifact cache with authentication 
 
 Follow the steps to create cache rule in the [Azure portal](https://portal.azure.com). 
 
@@ -372,7 +373,7 @@ Follow the steps to create cache rule in the [Azure portal](https://portal.azure
 4. A window for **New cache rule** appears.
 
 
-    :::image type="content" source="./media/container-registry-artifact-cache/new-cache-rule-auth-03.png" alt-text="Screenshot for new Cache Rule in Azure portal.":::
+    :::image type="content" source="./media/container-registry-artifact-cache/new-cache-rule-auth-03.png" alt-text="Screenshot for new Cache Rule with auth in Azure portal.":::
 
 
 5. Enter the **Rule name**.
@@ -418,7 +419,7 @@ Before configuring the Credentials, you require to create and store secrets in t
 
 1. Enter **Name** for the new credentials for your source registry.
 
-1. Select a **Source Authentication**. Artifact Cache currently supports **Select from Key Vault** and **Enter secret URI's**.
+1. Select a **Source Authentication**. Artifact cache currently supports **Select from Key Vault** and **Enter secret URI's**.
 
 1. For the  **Select from Key Vault** option, Learn more about [creating credentials using key vault][create-and-store-keyvault-credentials]. 
 

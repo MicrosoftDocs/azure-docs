@@ -1,16 +1,16 @@
 ---
-title: Troubleshoot Artifact Cache
-description: Learn how to troubleshoot the most common problems for a registry enabled with the Artifact Cache feature.
-ms.topic: tutorial
+title: Troubleshoot Artifact cache
+description: Learn how to troubleshoot the most common problems for a registry enabled with the Artifact cache feature.
+ms.topic: article
 ms.date: 10/31/2023
 ms.author: tejaswikolli
 ms.service: container-registry
-# customer intent: As a user, I want to troubleshoot the most common problems for a registry enabled with the Artifact Cache feature so that I can effectively use the feature.
+# customer intent: As a user, I want to troubleshoot the most common problems for a registry enabled with the Artifact cache feature so that I can effectively use the feature.
 ---
 
-# Troubleshoot guide for Artifact Cache 
+# Troubleshoot guide for Artifact cache 
 
-In this tutorial, you troubleshoot the most common problems for a registry enabled with the Artifact Cache feature by identifying the Symptoms, causes, and potential solutions to effectively use the feature.
+In this tutorial, you troubleshoot the most common problems for a registry enabled with the Artifact cache feature by identifying the Symptoms, causes, and potential solutions to effectively use the feature.
 
 ## Symptoms and Causes
 
@@ -83,7 +83,7 @@ To resolve this issue, you need to follow these steps:
 
 ## Upstream support 
 
-Artifact Cache currently supports the following upstream registries:
+Artifact cache currently supports the following upstream registries:
 
 | Upstream registries         | Support                                                      | Availability            |
 | --------------------------- | ------------------------------------------------------------ | ----------------------- |
