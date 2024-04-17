@@ -208,7 +208,7 @@ Replace the properties in the following table before deploying the template. See
 | `destinations` | Add additional section to send data to multiple workspaces. |
 | - `name` | Name for the destination to reference in the `dataFlows` section. Must be unique for the DCR. |
 | - `workspaceResourceId` | Resource ID of the Log Analytics workspace. |
-| - `workspaceId` | Immutable ID of the Log Analytics workspace. |
+| - `workspaceId` | Workspace ID of the Log Analytics workspace. |
 | `dataFlows` | Matches streams and destinations. One entry for each stream/destination combination. |
 | - `streams` | One or more streams (defined in `streamDeclarations`). You can include multiple stream if they're being sent to the same destination. |
 | - `destinations` | One or more destinations (defined in `destinations`). You can include multiple destinations if they're being sent to the same destination. |
@@ -265,7 +265,7 @@ Replace the properties in the following table before deploying the template. See
                 {
                     "name": "LogAnayticsWorkspace01",
                     "workspaceResourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/my-resource-group/providers/Microsoft.OperationalInsights/workspaces/my-workspace",
-                    "workspaceId": "dcr-00000000000000000000000000000000"
+                    "workspaceId": "00000000-0000-0000-0000-000000000000"
                 }
             ]
         },
