@@ -125,68 +125,10 @@ az aosm nfd generate-config --definition-type cnf --output-file <filename.jsonc>
           // The file path (absolute or relative to this configuration file) of YAML values file on the local disk which will be used instead of the values.yaml file present in the helm chart.
           // Accepts .yaml or .yml. Use Linux slash (/) file separator even if running on Windows.
           "default_values": "",
-          // Names of the Helm packages this package depends on.
-          // Leave as an empty array if there are no dependencies.
-          "depends_on": [
-          ]
       }
   ]
 }
 ```
-
->[!NOTE]
-> AOSM supports CNFs which are composed of multiple independent helm charts. AOSM installs and upgrades helm charts in the order they are specified in the list of helm packages if no dependencies are specified in the `depends_on` parameter. If dependencies are specified, AOSM calculates the ordering and installs and upgrades the helm charts in that order. AOSM deletes the helm charts in the reverse order in both cases.  This example shows a fictional Contoso CNF made of three helm charts, `contoso-a`, `contoso-b`, and `contoso-c`.
-
-```json
-    "helm_packages": [
-        {
-            // The name of the Helm package.
-            "name": "contoso-a",
-            // The file path to the helm chart on the local disk, relative to the directory from which the command is run.
-            // Accepts .tgz, .tar or .tar.gz, or an unpacked directory. Use Linux slash (/) file separator even if running on Windows.
-            "path_to_chart": "/home/cnf-onboard/contoso-a-helm-chart-0-1-0.tgz",
-            // The file path (absolute or relative to this configuration file) of YAML values file on the local disk which will be used instead of the values.yaml file present in the helm chart.
-            // Accepts .yaml or .yml. Use Linux slash (/) file separator even if running on Windows.
-            "default_values": "",
-            // Names of the Helm packages this package depends on.
-            // Leave as an empty array if there are no dependencies.
-            "depends_on": [
-              "contoso-b",
-              "contoso-c"
-            ]
-        },
-        {
-            // The name of the Helm package.
-            "name": "contoso-b",
-            // The file path to the helm chart on the local disk, relative to the directory from which the command is run.
-            // Accepts .tgz, .tar or .tar.gz, or an unpacked directory. Use Linux slash (/) file separator even if running on Windows.
-            "path_to_chart": "/home/cnf-onboard/contoso-b-helm-chart-0-1-0.tgz",
-            // The file path (absolute or relative to this configuration file) of YAML values file on the local disk which will be used instead of the values.yaml file present in the helm chart.
-            // Accepts .yaml or .yml. Use Linux slash (/) file separator even if running on Windows.
-            "default_values": "",
-            // Names of the Helm packages this package depends on.
-            // Leave as an empty array if there are no dependencies.
-            "depends_on": [
-            ]
-        },
-        {
-            // The name of the Helm package.
-            "name": "contoso-c",
-            // The file path to the helm chart on the local disk, relative to the directory from which the command is run.
-            // Accepts .tgz, .tar or .tar.gz, or an unpacked directory. Use Linux slash (/) file separator even if running on Windows.
-            "path_to_chart": "/home/cnf-onboard/contoso-c-helm-chart-0-1-0.tgz",
-            // The file path (absolute or relative to this configuration file) of YAML values file on the local disk which will be used instead of the values.yaml file present in the helm chart.
-            // Accepts .yaml or .yml. Use Linux slash (/) file separator even if running on Windows.
-            "default_values": "",
-            // Names of the Helm packages this package depends on.
-            // Leave as an empty array if there are no dependencies.
-            "depends_on": [
-            ]
-        }
-    ]
-```
-
-In this example `contoso-a` depends on `contoso-b` and `contoso-c`. `contoso-b` is installed first, followed by `contoso-c`. `contoso-a` is installed last.
 
 1. Execute the following command to build the Network Function Definition Group and Version BICEP templates.
 
