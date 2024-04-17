@@ -80,7 +80,7 @@ The easiest way to test the connection is by running the Import data wizard.
 ## See also
 
 + [Connect to other Azure resources using a managed identity](search-howto-managed-identities-data-sources.md)
-+ [Azure Blob indexer](search-howto-indexing-azure-blob-storage.md)
-+ [Azure Data Lake Storage Gen2 indexer](search-howto-index-azure-data-lake-storage.md)
++ [Azure blob indexer](search-howto-indexing-azure-blob-storage.md)
++ [ADLS Gen2 indexer](search-howto-index-azure-data-lake-storage.md)
 + [Authenticate with Microsoft Entra ID](/azure/architecture/framework/security/design-identity-authentication)
 + [About managed identities (Microsoft Entra ID)](../active-directory/managed-identities-azure-resources/overview.md)
