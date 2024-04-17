@@ -25,14 +25,13 @@ SOC analysts are typically inundated with security alerts and incidents on a reg
 Many, if not most, of these alerts and incidents conform to recurring patterns that can be addressed by specific and defined sets of remediation actions. Analysts are also tasked with basic remediation and investigation of the incidents they do manage to address. To the extent that these activities can be automated, a SOC can be that much more productive and efficient, allowing analysts to devote more time and energy to investigative activity.
 
 A playbook is a collection of these remediation actions that you run from Microsoft Sentinel as a routine, to help [**automate and orchestrate your threat response**](tutorial-respond-threats-playbook.md). It can be run in two ways:
+
 - **Manually** on-demand, on a particular entity or alert
 - **Automatically** in response to specific alerts or incidents, when triggered by an [automation rule](automate-incident-handling-with-automation-rules.md).
 
 For example, if an account and machine are compromised, a playbook can isolate the machine from the network and block the account by the time the SOC team is notified of the incident.
 
-While the **Active playbooks** tab on the **Automation** page displays all the active playbooks available across any selected subscriptions, by default a playbook can be used only within the subscription to which it belongs, unless you specifically grant Microsoft Sentinel permissions to the playbook's resource group.
 
-After onboarding to the unified security operations platform, the **Active playbooks** tab shows a pre-defined filter with onboarded workspace's subscription. In the Azure portal, add data for other subscriptions using the Azure subscription filter.
 
 ### Playbook templates
 
@@ -321,25 +320,6 @@ If you want to run an incident-trigger playbook that you don't see in the list, 
 
 - In the **Runs** tab, you'll see a list of all the times any playbook has been run on the incident or alert you selected. It might take a few seconds for any just-completed run to appear in this list. Selecting a specific run will open the full run log in Azure Logic Apps.
 
-## Manage your playbooks
-
-In the **Active playbooks** tab, there appears a list of all the playbooks which you have access to, filtered by the subscriptions which are currently displayed in Azure. The subscriptions filter is available from the **Directory + subscription** menu in the global page header.
-
-Clicking on a playbook name directs you to the playbook's main page in Azure Logic Apps. The **Status** column indicates if it is enabled or disabled.
-
-The **Plan** column indicates whether the playbook uses the **Standard** or **Consumption** resource type in Azure Logic Apps. You can filter the list by plan type to see only one type of playbook. You'll notice that playbooks of the Standard type use the `LogicApp/Workflow` naming convention. This convention reflects the fact that a Standard playbook represents a workflow that exists *alongside other workflows* in a single Logic App.
-
-**Trigger kind** represents the Azure Logic Apps trigger that starts this playbook.
-
-| Trigger kind | Indicates component types in playbook |
-|-|-|
-| **Microsoft Sentinel Incident/Alert/Entity** | The playbook is started with one of the Sentinel triggers (incident, alert, entity) |
-| **Using Microsoft Sentinel Action** | The playbook is started with a non-Sentinel trigger but uses a Microsoft Sentinel action |
-| **Other** | The playbook does not include any Sentinel components |
-| **Not initialized** | The playbook has been created, but contains no components (triggers or actions). |
-|
-
-In the playbook's Azure Logic Apps page, you can see more information about the playbook, including a log of all the times it has run, and the result (success or failure, and other details). You can also open the workflow designer in Azure Logic Apps, and edit the playbook directly, if you have the appropriate permissions.
 
 ### API connections
 

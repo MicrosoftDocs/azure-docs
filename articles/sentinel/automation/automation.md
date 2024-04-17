@@ -1,7 +1,7 @@
 ---
-title: Introduction to automation in Microsoft Sentinel | Microsoft Docs
-description: This article introduces the Security Orchestration, Automation, and Response (SOAR) capabilities of Microsoft Sentinel and describes its SOAR components - automation rules and playbooks.
-ms.topic: conceptual
+title: Automation in Microsoft Sentinel | Microsoft Docs
+description: Learn about Microsoft Sentinel security orchestration, automation, and response (SOAR) capabilities and components, including automation rules and playbooks.
+ms.topic: overview
 author: batamig
 ms.author: bagol
 ms.date: 03/14/2024
@@ -12,27 +12,23 @@ ms.collection: usx-security
 
 ---
 
-# Security Orchestration, Automation, and Response (SOAR) in Microsoft Sentinel
+# Automation in Microsoft Sentinel: security orchestration, automation, and response (SOAR)
 
-This article describes the Security Orchestration, Automation, and Response (SOAR) capabilities of Microsoft Sentinel, and shows how the use of automation rules and playbooks in response to security threats increases your SOC's effectiveness and saves you time and resources.
+This article describes Microsoft Sentinel's security orchestration, automation, and response (SOAR) capabilities, and shows how using automation rules and playbooks in response to security threats increases your SOC's effectiveness and saves you time and resources.
 
 [!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]
 
 ## Microsoft Sentinel as a SOAR solution
 
-### The problem
-
 SIEM/SOC teams are typically inundated with security alerts and incidents on a regular basis, at volumes so large that available personnel are overwhelmed. This results all too often in situations where many alerts are ignored and many incidents aren't investigated, leaving the organization vulnerable to attacks that go unnoticed.
 
-### The solution
-
-Microsoft Sentinel, in addition to being a Security Information and Event Management (SIEM) system, is also a platform for Security Orchestration, Automation, and Response (SOAR). One of its primary purposes is to automate any recurring and predictable enrichment, response, and remediation tasks that are the responsibility of your Security Operations Center and personnel (SOC/SecOps), freeing up time and resources for more in-depth investigation of, and hunting for, advanced threats. Automation takes a few different forms in Microsoft Sentinel, from automation rules that centrally manage the automation of incident handling and response, to playbooks that run predetermined sequences of actions to provide powerful and flexible advanced automation to your threat response tasks.
+Microsoft Sentinel, in addition to being a security information and event management (SIEM) system, is also a platform for security orchestration, automation, and response (SOAR). One of its primary purposes is to automate any recurring and predictable enrichment, response, and remediation tasks that are the responsibility of your security operations center and personnel (SOC/SecOps), freeing up time and resources for more in-depth investigation of, and hunting for, advanced threats. Automation takes a few different forms in Microsoft Sentinel, from automation rules that centrally manage the automation of incident handling and response, to playbooks that run predetermined sequences of actions to provide powerful and flexible advanced automation to your threat response tasks.
 
 ## Automation rules
 
 Automation rules allow users to centrally manage the automation of incident handling. Besides letting you assign playbooks to incidents and alerts, automation rules also allow you to automate responses for multiple analytics rules at once, automatically tag, assign, or close incidents without the need for playbooks, create lists of tasks for your analysts to perform when triaging, investigating, and remediating incidents, and control the order of actions that are executed. Automation rules also allow you to apply automations when an incident is updated, as well as when it's created. This new capability will further streamline automation use in Microsoft Sentinel and will enable you to simplify complex workflows for your incident orchestration processes.
 
-Learn more with this [complete explanation of automation rules](automate-incident-handling-with-automation-rules.md).
+For more information, see [Automate threat response in Microsoft Sentinel with automation rules](../automate-incident-handling-with-automation-rules.md).
 
 ## Playbooks
 
@@ -40,7 +36,7 @@ A playbook is a collection of response and remediation actions and logic that ca
 
 Playbooks in Microsoft Sentinel are based on workflows built in [Azure Logic Apps](../logic-apps/logic-apps-overview.md), a cloud service that helps you schedule, automate, and orchestrate tasks and workflows across systems throughout the enterprise. This means that playbooks can take advantage of all the power and customizability of Logic Apps' integration and orchestration capabilities and easy-to-use design tools, and the scalability, reliability, and service level of a Tier 1 Azure service.
 
-Learn more with this [complete explanation of playbooks](automate-responses-with-playbooks.md).
+For more information, see a[Automate threat response with playbooks in Microsoft Sentinel](automate-responses-with-playbooks.md).
 
 ## Automation with the unified security operations platform
 
@@ -60,11 +56,9 @@ After onboarding your Microsoft Sentinel workspace to the unified security opera
 | **Running playbooks on incidents requires Microsoft Sentinel sync** | If you try to run a playbook on an incident from the unified security operations platform and see the *Can't access data related to this action. Refresh the screen in a few minutes.* message, this means that the incident is not yet synchronized to Microsoft Sentinel. <br><br>Refresh the incident page after after the incident is synchronized to run the playbook successfully. |
 
 
-## Next steps
+## Related content
 
-In this document, you learned how Microsoft Sentinel uses automation to help your SOC operate more effectively and efficiently.
-
-- To learn about automation of incident handling, see [Automate incident handling in Microsoft Sentinel](automate-incident-handling-with-automation-rules.md).
-- To learn more about advanced automation options, see [Automate threat response with playbooks in Microsoft Sentinel](automate-responses-with-playbooks.md).
-- To get started creating automation rules, see [Create and use Microsoft Sentinel automation rules to manage incidents](create-manage-use-automation-rules.md)
-- For help with implementing advanced automation with playbooks, see [Tutorial: Use playbooks to automate threat responses in Microsoft Sentinel](tutorial-respond-threats-playbook.md).
+- [Automate threat response in Microsoft Sentinel with automation rules](../automate-incident-handling-with-automation-rules.md)
+- [Automate threat response with playbooks in Microsoft Sentinel](automate-responses-with-playbooks.md)
+- [Create and use Microsoft Sentinel automation rules to manage response](../create-manage-use-automation-rules.md)
+- [Tutorial: Respond to threats by using playbooks with automation rules in Microsoft Sentinel](tutorial-respond-threats-playbook.md)
