@@ -7,7 +7,7 @@ ms.author: mbender
 ms.service: virtual-network-manager
 ms.topic: how-to 
 ms.date: 04/17/2024
-ms.custom: template-how-to
+ms.custom: template-how-to, references_regions
 #Customer intent: As a network administrator, I want to deploy security admin rules using network groups in Azure Virtual Network Manager so that I can define the source and destination of the traffic for the security admin rule.
 ---
 # Create a security admin rule using network groups in Azure Virtual Network Manager
