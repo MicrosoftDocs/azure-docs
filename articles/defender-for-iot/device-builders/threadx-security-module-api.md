@@ -2,7 +2,7 @@
 title: Defender-IoT-micro-agent for Eclipse ThreadX API
 description: Reference API for the Defender-IoT-micro-agent for Eclipse ThreadX.
 ms.topic: reference
-ms.date: 17/04/2024
+ms.date: 04/17/2024
 ---
 
 

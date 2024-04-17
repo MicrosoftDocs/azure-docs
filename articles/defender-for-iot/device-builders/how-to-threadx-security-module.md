@@ -2,7 +2,7 @@
 title: Configure and customize Defender-IoT-micro-agent for Eclipse ThreadX
 description: Learn about how to configure and customize your Defender-IoT-micro-agent for Eclipse ThreadX.
 ms.topic: how-to
-ms.date: 17/04/2024
+ms.date: 04/17/2024
 ---
 
 # Configure and customize Defender-IoT-micro-agent for Eclipse ThreadX
