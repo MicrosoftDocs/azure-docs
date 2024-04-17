@@ -122,11 +122,26 @@ This error appears due to absence of these FQDN rules because of which configura
    ```Error
 Backup extension is not installed is not in a healthy state. This will impact your backup and restore operations. Click to fix the issue.
 ```
+![Backup extension is not installed is not in a healthy state](../backup/media/azure-kubernetes-service-backup-troubleshoot/backup-extension-is-not-installed-is-not-in-a-healthy-state.png)
+
 **Cause**: Azure policy maybe is preventing to pull no allowed images. [Learn more](../aks/policy-reference.md).
 
-This error appears due to policy blocking no allowed images to pull in AKS.
+**Solution 1**:
+Include *"dataprotection-microsoft"* into namespace exclusion:
+```
+["dataprotection-microsoft","kube-system","gatekeeper-system","azure-arc","azure-extensions-usage-system"]
+```
 
-**Resolution**: To resolve the issue, you need to allow *Kubernetes cluster containers should only use allowed images* policy in the *Parameters* to pulll velero container image.
+**Solution 2**:
+Modify your policy to allow images:
+```
+"scope": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx",
+"notScopes": [],
+"parameters": {
+"allowedContainerImagesInKubernetesClusterEffect": {
+                        "value": "audit"
+            },
+```
 
 1. To check logs of the *ExtensionAgent* pod, run the following command:
 
