@@ -209,7 +209,4 @@
     href: https://azure.microsoft.com/pricing/details/azure-defender/
   - name: Videos
     href: https://azure.microsoft.com/resources/videos/index/?services=security-center&service=internet-of-things&page=1&sort=newest
-  - name: Agent-based solution for device builders
-    items: 
-  - name: Eclipse ThreadX Defender-IoT-micro-agent on Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/azure-rtos+azure-iot-security-module
+  

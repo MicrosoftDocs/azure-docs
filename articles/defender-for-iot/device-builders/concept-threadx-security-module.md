@@ -15,9 +15,9 @@ Defender-IoT-micro-agent for Eclipse ThreadX provides a comprehensive security s
 
 The Defender-IoT-micro-agent for Eclipse ThreadX runs in the background, and provides a seamless user experience, while sending security messages using each customer's unique connections to their IoT Hub. The Defender-IoT-micro-agent for Eclipse ThreadX is enabled by default.  
 
-## Eclipse ThreadX NetX Duo <!-- maybe FileX??-->
+## Eclipse ThreadX NetX Duo
 
-Azure RTOS NetX Duo is an advanced, industrial-grade TCP/IP network stack designed specifically for deeply embedded real-time and IoT applications. Azure RTOS NetX Duo is a dual IPv4 and IPv6 network stack providing a rich set of protocols, including security and cloud. Learn more about [Azure RTOS NetX Duo](/azure/rtos/netx-duo/) solutions.
+Eclipse ThreadX NetX Duo is an advanced, industrial-grade TCP/IP network stack designed specifically for deeply embedded real-time and IoT applications. Eclipse ThreadX NetX Duo is a dual IPv4 and IPv6 network stack providing a rich set of protocols, including security and cloud. Learn more about [Eclipse ThreadX NetX Duo](https://github.com/eclipse-threadx) solutions.
 
 The module offers the following features:
 
