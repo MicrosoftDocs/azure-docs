@@ -41,6 +41,8 @@ items:
           href: howto-manage-digital-twin.md
         - name: Convert a device to IoT Plug and Play
           href: howto-convert-to-pnp.md
+        - name: Connect an on-premise SAP system to Azure   
+          href: howto-connect-on-premises-sap-to-azure.md   
 
   - name: Tutorials
     items:
@@ -125,6 +127,10 @@ items:
             href: iot-mqtt-5-preview.md
           - name: MQTT 5 API reference
             href: iot-mqtt-5-preview-reference.md
+      - name: Architecture
+        items:
+        - name: Reference architecture for condition monitoring
+          href: concepts-iot-industrial-solution-architecture.md    
 
   - name: Resources
     items:
