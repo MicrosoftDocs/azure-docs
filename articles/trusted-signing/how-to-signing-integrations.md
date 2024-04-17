@@ -1,12 +1,12 @@
 ---
-title: Implement signing integrations with Trusted Signing #Required; page title is displayed in search results. Include the brand.
-description: Learn how to set up signing integrations with Trusted Signing. #Required; article description that is displayed in search results. 
-author: microsoftshawarma #Required; your GitHub user alias, with correct capitalization.
-ms.author: rakiasegev #Required; microsoft alias of author; optional team alias.
-ms.service: azure-code-signing #Required; service per approved list. slug assigned by ACOM.
-ms.topic: how-to #Required; leave this attribute/value as-is.
-ms.date: 04/04/2024 #Required; mm/dd/yyyy format.
-ms.custom: template-how-to-pattern #Required; leave this attribute/value as-is.
+title: Implement signing integrations with Trusted Signing 
+description: Learn how to set up signing integrations with Trusted Signing.  
+author: microsoftshawarma 
+ms.author: rakiasegev 
+ms.service: azure-code-signing 
+ms.topic: how-to
+ms.date: 04/04/2024 
+ms.custom: template-how-to-pattern 
 ---
 
 # Implement Signing Integrations with Trusted Signing
@@ -18,7 +18,7 @@ Trusted Signing currently supports the following signing integrations:
 * PowerShell for Authenticode
 * Azure PowerShell - App Control for Business CI Policy
 
-We constantly work to support more signing integrations and update the above when more become available. 
+We constantly work to support more signing integrations and update the supported integration list when more become available. 
 
 This article explains how to set up each of the above Trusted Signing signing integrations.
 
@@ -32,7 +32,7 @@ Prerequisites:
 
 Overview of steps:  
 1.	[Download and install SignTool.](#download-and-install-signtool)
-2.	[Download and install the .NET 6 Runtime.](#download-and-install-net-60-runtime)
+2.	[Download and install the .NET 8 Runtime.](#download-and-install-net-80-runtime)
 3.	[Download and install the Trusted Signing Dlib Package.](#download-and-install-trusted-signing-dlib-package)
 4.	[Create JSON file to provide your Trusted Signing account and Certificate Profile.](#create-json-file)
 5.	[Invoke SignTool.exe to sign a file.](#invoke-signtool-to-sign-a-file)
@@ -46,24 +46,24 @@ To download and install SignTool:
 1.	Download the latest version of SignTool + Windows Build Tools NuGet at: [Microsft.Windows.SDK.BuildTools](https://www.nuget.org/packages/Microsoft.Windows.SDK.BuildTools/)
 2.	Install SignTool from Windows SDK (min version: 10.0.2261.755)
 
- Another option is to use the latest nuget.exe to download and extract the latest SDK Build Tools NuGet package by completing the following steps (PowerShell):
+ Another option is to use the latest `nuget.exe` to download and extract the latest SDK Build Tools NuGet package by completing the following steps (PowerShell):
 
-1.	Download nuget.exe by running the following download command:  
+1.	Download `nuget.exe` by running the following download command:  
 
 ```
 Invoke-WebRequest -Uri https://dist.nuget.org/win-x86-commandline/latest/nuget.exe -OutFile .\nuget.exe  
 ```
 
-2.	Install nuget.exe by running the following install command:
+2.	Install `nuget.exe` by running the following install command:
 ```
 .\nuget.exe install Microsoft.Windows.SDK.BuildTools -Version 10.0.20348.19 
 ```
 
-### Download and install .NET 6.0 Runtime
-The components that SignTool.exe uses to interface with Trusted Signing require the installation of the [.NET 6.0 Runtime](https://dotnet.microsoft.com/en-us/download/dotnet/6.0) You only need the core .NET 6.0 Runtime. Make sure you install the correct platform runtime depending on which version of SignTool.exe you intend to run (or simply install both). For example: 
+### Download and install .NET 8.0 Runtime
+The components that SignTool.exe uses to interface with Trusted Signing require the installation of the [.NET 8.0 Runtime](https://dotnet.microsoft.com/en-us/download/dotnet/8.0) You only need the core .NET 8.0 Runtime. Make sure you install the correct platform runtime depending on which version of SignTool.exe you intend to run (or simply install both). For example: 
 
-* For x64 SignTool.exe: [Download Download .NET 6.0 Runtime - Windows x64 Installer](https://dotnet.microsoft.com/en-us/download/dotnet/thank-you/runtime-6.0.9-windows-x64-installer)
-* For x86 SignTool.exe: [Download Download .NET 6.0 Runtime - Windows x86 Installer](https://dotnet.microsoft.com/en-us/download/dotnet/thank-you/runtime-6.0.9-windows-x86-installer)
+* For x64 SignTool.exe: [Download Download .NET 8.0 Runtime - Windows x64 Installer](https://dotnet.microsoft.com/en-us/download/dotnet/thank-you/runtime-8.0.4-windows-x64-installer)
+* For x86 SignTool.exe: [Download Download .NET 8.0 Runtime - Windows x86 Installer](https://dotnet.microsoft.com/en-us/download/dotnet/thank-you/runtime-8.0.4-windows-x86-installer)
 
 ### Download and install Trusted Signing Dlib package
 Complete these steps to download and install the Trusted Signing Dlib package (.ZIP):
@@ -78,7 +78,7 @@ To sign using Trusted Signing, you need to provide the details of your Trusted S
 ```
 { 
   "Endpoint": "<Code Signing Account Endpoint>", 
-  "CodeSigningAccountName": "<Code Signing Account Name>", 
+  "TrustedSigningAccountName": "<Trusted Signing Account Name>", 
   "CertificateProfileName": "<Certificate Profile Name>", 
   "CorrelationId": "<Optional CorrelationId*>" 
 } 
@@ -89,11 +89,13 @@ To sign using Trusted Signing, you need to provide the details of your Trusted S
 | Region       | Region Class Fields  | Endpoint URI value  |
 |--------------|-----------|------------|
 | East US  | EastUS  | `https://eus.codesigning.azure.net` |
-| West US   | WestUS  | `https://wus.codesigning.azure.net` |
-| West Central US  | WestCentralUS  | `https://wcus.codesigning.azure.net/` |
-| West US 2   | WestUS2   | `https://wus2.codesigning.azure.net/` |
+| West US3 <sup>[1](#myfootnote1)</sup>   | WestUS3  | `https://wus3.codesigning.azure.net` |
+| West Central US  | WestCentralUS  | `https://wcus.codesigning.azure.net` |
+| West US 2   | WestUS2   | `https://wus2.codesigning.azure.net` |
 | North Europe   | NorthEurope   | `https://neu.codesigning.azure.net`   |
 | West Europe   | WestEurope   | `https://weu.codesigning.azure.net`  |
+
+<a name="myfootnote1">1</a>: WestUS3 coming soon!
 
 * The optional `"CorrelationId"` field is an opaque string value that you can provide to correlate sign requests with your own workflows such as build identifiers or machine names.
 
@@ -120,6 +122,7 @@ This section explains how to set up other not [SignTool](#set-up-signtool-with-t
 
 * PowerShell for Authenticode – To use PowerShell for Trusted Signing, visit [PowerShell Gallery | Trusted Signing 0.3.8](https://www.powershellgallery.com/packages/TrustedSigning/0.3.8) to install the PowerShell module. 
 
-* Azure PowerShell: App Control for Business CI Policy – To use Trusted Signing for CI policy signing follow the instructions at [Signing a New CI policy](./how-to-sign-ci-policy.md) and visit the [Az.CodeSigning PowerShell Module](https://learn.microsoft.com/powershell/azure/install-azps-windows).
+* Azure PowerShell: App Control for Business CI Policy – To use Trusted Signing for CI policy signing follow the instructions at [Signing a New CI policy](./how-to-sign-ci-policy.md) and visit the [Az.CodeSigning PowerShell Module](/powershell/azure/install-azps-windows).
 
 * Trusted Signing SDK – To create your own signing integration our [Trusted Signing SDK](https://www.nuget.org/packages/Azure.CodeSigning.Sdk) is publicly available.
+

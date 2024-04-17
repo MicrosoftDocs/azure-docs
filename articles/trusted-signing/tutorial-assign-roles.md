@@ -31,12 +31,17 @@ Complete the following steps to assign roles in Trusted Signing.
 1.	Navigate to your Trusted Signing account on the Azure portal and select the **Access Control (IAM)** tab in the left menu. 
 2.	Select on the **Roles** tab and search "Trusted Signing". You can see in the screenshot below the two custom roles.
 ![Screenshot of Azure portal UI with the Trusted Signing custom RBAC roles.](./media/trusted-signing-rbac-roles.png)
+<<<<<<< HEAD
 3. To assign these roles, select on the **Add** drop down and select **Add role assignment**. Follow the [Assign roles in Azure](../role-based-access-control/role-assignments-portal.yml) guide to assign the relevant roles to your identities. _You'll need at least a Contributor role to create a Trusted Signing account and certificate profile._
+=======
+
+3. To assign these roles, select on the **Add** drop down and select **Add role assignment**. Follow the [Assign roles in Azure](/azure/role-based-access-control/role-assignments-portal?tabs=current) guide to assign the relevant roles to your identities. _You'll need at least a Contributor role to create a Trusted Signing account and certificate profile._
+>>>>>>> 39b384bcf8888990b0f233c9fca7f588cf33a573
 4. For more granular access control on the certificate profile level, you can use the Azure CLI to assign roles. The following commands can be used to assign the _Code Signing Certificate Profile Signer_ role to users/service principles to sign files. 
 ```
 az role assignment create --assignee <objectId of user/service principle> 
---role "Code Signing Certificate Profile Signer" 
---scope "/subscriptions/<subscriptionId>/resourceGroups/<resource-group-name>/providers/Microsoft.CodeSigning/codeSigningAccounts/<codesigning-account-name>/certificateProfiles/<profileName>" 
+--role "Trusted Signing Certificate Profile Signer" 
+--scope "/subscriptions/<subscriptionId>/resourceGroups/<resource-group-name>/providers/Microsoft.CodeSigning/trustedSigningAccounts/<trustedsigning-account-name>/certificateProfiles/<profileName>" 
 ```
 
 

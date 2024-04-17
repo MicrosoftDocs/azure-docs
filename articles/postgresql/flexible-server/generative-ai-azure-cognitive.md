@@ -31,7 +31,7 @@ In the Language resource, under **Resource Management** > **Keys and Endpoint** 
 select azure_ai.set_setting('azure_cognitive.endpoint','https://<endpoint>.cognitiveservices.azure.com');
 select azure_ai.set_setting('azure_cognitive.subscription_key', '<API Key>');
 -- the region setting is only required for the translate function
-select azure_ai.set_setting('azure_cognitive.region', '<API Key>');
+select azure_ai.set_setting('azure_cognitive.region', '<Region>');
 ```
 
 ## Sentiment analysis

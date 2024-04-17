@@ -21,6 +21,10 @@ Watch the following video for an overview of creating and working with metrics c
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4qO59]
 
+## Create a metric chart using PromQL
+
+You can now create charts using Prometheus query language (PromQL) for metrics stored in an Azure Monitor workspace. For more information, see [Metrics explorer with PromQL (Preview)](./metrics-explorer.md).
+
 ## Create a metric chart
 
 You can open metrics explorer from the **Azure Monitor overview** page, or from the **Monitoring** section of any resource. In the Azure portal, select **Metrics**.
@@ -115,6 +119,8 @@ Use the time picker to change the **Time range** for your data, such as the last
 :::image type="content" source="./media/analyze-metrics/time.png" alt-text="Screenshot that shows how to configure the time range for the resource metric data in the Azure portal." lightbox="./media/analyze-metrics/time.png":::
 
 In addition to changing the time range with the time picker, you can pan and zoom by using the controls in the chart area.
+
+## Interactive chart features
 
 ### Pan across metrics data
 

@@ -74,23 +74,31 @@ At this point in the normal creation process, we initialize and download the new
 az keyvault security-domain init-recovery --hsm-name ContosoMHSM2 --sd-exchange-key ContosoMHSM2-SDE.cer
 ```
 
-## Upload Security Domain to destination HSM
+## Create a Security Domain Upload blob of the source HSM
 
 For this step you'll need:
 - The Security Domain Exchange Key you downloaded in previous step.
 - The Security Domain of the source HSM.
 - At least quorum number of private keys that were used to encrypt the security domain.
 
-The `az keyvault security-domain upload` command performs following operations:
+The `az keyvault security-domain restore-blob` command performs following operations:
+- Decrypt the source HSM's Security Domain with the private keys you supply.
+- Create a Security Domain Upload blob encrypted with the Security Domain Exchange Key we downloaded in the previous step
 
-- Decrypt the source HSM's Security Domain with the private keys you supply. 
-- Create a Security Domain Upload blob encrypted with the Security Domain Exchange Key we downloaded in the previous step and then
-- Upload the Security Domain Upload blob to the HSM to complete security domain recovery
+This step can be performed offline.
 
-In the following example, we use the Security Domain from the **ContosoMHSM**, the 2 of the corresponding private keys, and upload it to **ContosoMHSM2**, which is waiting to receive a Security Domain. 
+In the following example, we use the Security Domain from the **ContosoMHSM**, the 3 of the corresponding private keys, and the Security Domain Exchange Key to create and download an encrypted blob which we will use to upload to **ContosoMHSM2**, which is waiting to receive a Security Domain. 
+
+```azurecli-interactive 
+az keyvault security-domain restore-blob --sd-exchange-key ContosoMHSM2-SDE.cer --sd-file ContosoMHSM-SD.json --sd-wrapping-keys cert_0.key cert_1.key cert_2.key --sd-file-restore-blob restore_blob.json 
+``` 
+
+## Upload Security Domain Upload blob to destination HSM
+
+We now use the Security Domain Upload blob created in the previous step and upload it to the destination HSM to complete the security domain recovery. The `--restore-blob` flag is used to prevent exposing keys in an online environment.
 
 ```azurecli-interactive
-az keyvault security-domain upload --hsm-name ContosoMHSM2 --sd-exchange-key ContosoMHSM2-SDE.cer --sd-file ContosoMHSM-SD.json --sd-wrapping-keys cert_0.key cert_1.key
+az keyvault security-domain upload --hsm-name ContosoMHSM2 --sd-file restore_blob.json --restore-blob
 ```
 
 Now both the source HSM (ContosoMHSM) and the destination HSM (ContosoMHSM2) have the same security domain. We can now restore a full backup from the source HSM into the destination HSM.
