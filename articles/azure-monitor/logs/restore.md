@@ -136,9 +136,9 @@ The charge for restored logs is based on the volume of data you restore, and the
 
 - The minimum charge will be for a 12-hour restore duration, even if the restore is active for less than 12-hours.
 
-- For more information on your data restore price, see [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
+- For more information on your data restore price, see [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/) on the Logs tab.
 
-Here are some examples:
+Here are some examples to illustrate data restore cost calculations:
 
 1. If your table holds 500 GB a day and you restore 10 days data from that table, your total restore size is 5 TB and you will be charged for this 5 TB of restored data each day until you [dismiss the restored data](#dismiss-restored-data). Your daily cost will be 5000 GB multiplied by your data restore price (see [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).) 
 
