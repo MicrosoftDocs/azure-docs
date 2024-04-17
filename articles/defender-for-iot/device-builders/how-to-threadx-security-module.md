@@ -79,5 +79,5 @@ You can enable and configure Log Analytics to investigate device events and acti
 ## Next steps
 
 
-- Review and customize Defender-IoT-micro-agent for Eclipse ThreadX [security alerts and recommendations](concept-xthread-security-alerts-recommendations.md)
-- Refer to the [Defender-IoT-micro-agent for Eclipse ThreadX API](azure-xthread-security-module-api.md) as needed.
+- Review and customize Defender-IoT-micro-agent for Eclipse ThreadX [security alerts and recommendations](concept-threadx-security-alerts-recommendations.md)
+- Refer to the [Defender-IoT-micro-agent for Eclipse ThreadX API](azure-threadx-security-module-api.md) as needed.
