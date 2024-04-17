@@ -6,7 +6,7 @@ ms.subservice: flexible-server
 ms.topic: troubleshooting-error-codes
 ms.author: alkuchar
 author: AlicjaKucharczyk
-ms.date: 01/30/2024
+ms.date: 02/02/2024
 ---
 
 # Password authentication failed for user `<user-name>`
