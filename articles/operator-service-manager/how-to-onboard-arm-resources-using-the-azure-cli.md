@@ -28,7 +28,7 @@ This how-to guide uses Azure Key Vault (AKV) as an example of an Azure Resource,
 
 - You have [enabled AOSM](quickstart-onboard-subscription-to-aosm.md) on your Azure subscription.
 - If your CNF is intended to run on Azure Operator Nexus, you have access to an Azure Operator Nexus instance and have completed [the prerequisites for workload deployment](/azure/operator-nexus/quickstarts-tenant-workload-prerequisites?tabs=azure-cli).
-- You have onboarded [a CNF](/how-to-onboard-a-cnf-using-the-azure-cli.md) and have the input file you generated with the `az aosm nsd generate-config` file available on the local storage of the machine from which you're executing the CLI.
+- You have onboarded [a CNF](how-to-onboard-a-cnf-using-the-azure-cli.md) and have the input file you generated with the `az aosm nsd generate-config` file available on the local storage of the machine from which you're executing the CLI.
 
 ### Configure permissions
 

@@ -21,11 +21,11 @@ AOSM can't install a CNF which is built from incorrect helm charts or misconfigu
 
 Test that your helm charts meet these prerequisites. Make sure that you test with the same helm values you intend to use when deploying through AOSM.
 
-- You can connect to your Azure Operator Nexus Kubernetes cluster using [cluster connect](https://learn.microsoft.com/en-us/azure/operator-nexus/howto-kubernetes-cluster-connect#connected-mode-access) and use [helm install](https://helm.sh/docs/helm/helm_install/) to install your helm charts.
+- You can connect to your Azure Operator Nexus Kubernetes cluster using [cluster connect](/azure/operator-nexus/howto-kubernetes-cluster-connect#connected-mode-access) and use [helm install](https://helm.sh/docs/helm/helm_install/) to install your helm charts.
 
 ## Confirm that your network function (NF) ARM Template has `--atomic` set to false
 
-By default, AOSM removes failed installations from the cluster to reduce resource usage. This prevents detailed debugging in failure scenarios. The NF ARM template supports overriding this behaviour. Use this [How-To guide](/how-to-use-helm-option-parameters.md) to configure AOSM to leave failed installations in place.
+By default, AOSM removes failed installations from the cluster to reduce resource usage. This prevents detailed debugging in failure scenarios. The NF ARM template supports overriding this behaviour. Use this [How-To guide](how-to-use-helm-option-parameters.md) to configure AOSM to leave failed installations in place.
 
 ## Confirm that your network function (NF) Azure Resource Manager (ARM) Template uses artifact store injection
 
