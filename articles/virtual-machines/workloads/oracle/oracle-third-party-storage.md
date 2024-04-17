@@ -1,5 +1,5 @@
 ---
-title: Third-party storage options for Oracle on Azure VMs 
+title: Partner storage options for Oracle on Azure VMs 
 description: This article describes how third-party storage options are available for Oracle on Azure Virtual Machines.
 author: jjaygbay1
 ms.author: jacobjaygbay
@@ -10,7 +10,7 @@ ms.topic: article
 ms.date: 03/26/2024
 ---
 
-# Third-party storage options for Oracle on Azure VMs
+# Partner storage options for Oracle on Azure VMs
 
 This article describes third-party storage options for high performance - input/output operations (IOPS) and throughput - Oracle workloads on Azure virtual machines (VMs). While Microsoft first-party storage offerings for migrating Oracle workloads to Azure VMs are effective, there are use cases that require performance beyond the capacity of the first-party storage offering for Oracle on Azure VMs. These trusted third-party storage solutions are ideal for high performance use cases. 
 
@@ -73,6 +73,4 @@ The following table provides other inputs to help you to determine the appropria
 | Provisioning Model       | Per GB granularity, online resize & scale-up or out, thin provisioned, compressed, optional deduped |
 | BCDR                     | One-to-Many Multi-Zone and Multi-Region Replication, Instant zero footprint Snapshot, Clone, Revert, and Extract for AI / BI, Testing, or Back up |
 | Redundancy & Scale Targets | One-to-Many Multi-Zone and Multi-Region Replication                                                  |
-| Encryption   | Azure Key Vault based & bring your own encryption                          |
-
-
+| Encryption   | Azure Key Vault based & bring your own encryption      |

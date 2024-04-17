@@ -13,7 +13,7 @@ ms.date: 07/08/2022
 [!INCLUDE[NoSQL, MongoDB, Cassandra, Gremlin, Table](includes/appliesto-nosql-mongodb-cassandra-gremlin-table.md)]
 
 > [!NOTE]
-> Free tier for **Azure Cosmos DB for MongoDB vCore-based model** can be found [here](mongodb/vcore/free-tier.md).
+> Free tier for **vCore cluster and/or vector database in Azure Cosmos DB for MongoDB** can be found [here](mongodb/vcore/free-tier.md).
 > 
 > Free tier is currently not available for serverless accounts.
 
