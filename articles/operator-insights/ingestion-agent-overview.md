@@ -13,7 +13,7 @@ ms.date: 12/8/2023
 
 # Ingestion agent overview
 
-An _ingestion agent_ uploads data to an Azure Operator Insights data product. We provide an ingestion agent called the Azure Operator Insights ingestion agent that you can install on a Linux virtual machine to upload data from your network. This ingestion agent supports uploading:
+An _ingestion agent_ uploads data to an Azure Operator Insights Data Product. We provide an ingestion agent called the Azure Operator Insights ingestion agent that you can install on a Linux virtual machine to upload data from your network. This ingestion agent supports uploading:
 
 - Affirmed Mobile Content Cloud (MCC) Event Data Record (EDR) data streams.
 - Files stored on an SFTP server.

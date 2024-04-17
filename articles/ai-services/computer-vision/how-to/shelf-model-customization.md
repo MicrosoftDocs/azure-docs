@@ -46,7 +46,7 @@ When your custom model is trained and ready (you've completed the steps in the [
 The API call will look like this:
 
 ```bash
-curl.exe -H "Ocp-Apim-Subscription-Key: <subscriptionKey>" -H "Content-Type: application/json" "https://<endpoint>/computervision/productrecognition/<your_model_name>/runs/<your_run_name>?api-version=2023-04-01-preview" -d "{
+curl.exe -H "Ocp-Apim-Subscription-Key: <subscriptionKey>" -H "Content-Type: application/json" "<endpoint>/computervision/productrecognition/<your_model_name>/runs/<your_run_name>?api-version=2023-04-01-preview" -d "{
     'url':'<your_url_string>'
 }"
 ```

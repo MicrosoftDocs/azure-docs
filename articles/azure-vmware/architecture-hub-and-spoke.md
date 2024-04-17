@@ -3,7 +3,7 @@ title: Architecture - Integrate an Azure VMware Solution deployment in a hub and
 description: Learn about integrating an Azure VMware Solution deployment in a hub and spoke architecture on Azure.
 ms.topic: conceptual
 ms.service: azure-vmware
-ms.date: 3/22/2024
+ms.date: 4/12/2024
 ms.custom: engagement-fy23
 ---
 

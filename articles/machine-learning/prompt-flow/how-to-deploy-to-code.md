@@ -153,11 +153,11 @@ identity:
     - resource_id: user_identity_ARM_id_place_holder
 ```
 
-Besides, you also need to specify the `Clicn ID` of the user-assigned identity under `environment_variables` the `deployment.yaml` as following. You can find the `Clicn ID` in the `Overview` of the managed identity in Azure portal.
+Besides, you also need to specify the `Client ID` of the user-assigned identity under `environment_variables` the `deployment.yaml` as following. You can find the `Client ID` in the `Overview` of the managed identity in Azure portal.
 
 ```yaml
 environment_variables:
-  AZURE_CLIENT_ID: <cliend_id_of_your_user_assigned_identity>
+  AZURE_CLIENT_ID: <client_id_of_your_user_assigned_identity>
 ```
 
 > [!IMPORTANT]
@@ -462,5 +462,6 @@ request_settings:
 - Learn more about [managed online endpoint schema](../reference-yaml-endpoint-online.md) and [managed online deployment schema](../reference-yaml-deployment-managed-online.md).
 - Learn more about how to [test the endpoint in UI](./how-to-deploy-for-real-time-inference.md#test-the-endpoint-with-sample-data) and [monitor the endpoint](./how-to-deploy-for-real-time-inference.md#view-managed-online-endpoints-common-metrics-using-azure-monitor-optional).
 - Learn more about how to [troubleshoot managed online endpoints](../how-to-troubleshoot-online-endpoints.md).
+- [Troubleshoot prompt flow deployments.](how-to-troubleshoot-prompt-flow-deployment.md)
 - Once you improve your flow, and would like to deploy the improved version with safe rollout strategy, see [Safe rollout for online endpoints](../how-to-safely-rollout-online-endpoints.md).
 - Learn more about [deploy flows to other platforms, such as a local development service, Docker container, Azure APP service, etc.](https://microsoft.github.io/promptflow/how-to-guides/deploy-a-flow/index.html)

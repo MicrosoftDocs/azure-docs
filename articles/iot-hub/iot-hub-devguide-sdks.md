@@ -28,13 +28,13 @@ Learn about the [benefits of developing using Azure IoT SDKs](https://azure.micr
 
 [!INCLUDE [iot-hub-sdks-device](../../includes/iot-hub-sdks-device.md)]
 
-Learn more about the IoT Hub device SDKs in the [IoT device development documentation](../iot-develop/about-iot-sdks.md).
+Learn more about the IoT Hub device SDKs in the [IoT device development documentation](../iot/iot-sdks.md).
 
 ### Embedded device SDKs
 
 [!INCLUDE [iot-hub-sdks-embedded](../../includes/iot-hub-sdks-embedded.md)]
 
-Learn more about the IoT Hub embedded device SDKs in the [IoT device development documentation](../iot-develop/about-iot-sdks.md).
+Learn more about the IoT Hub embedded device SDKs in the [IoT device development documentation](../iot/iot-sdks.md).
 
 ## Azure IoT Hub service SDKs
 
@@ -56,4 +56,4 @@ Azure IoT SDKs are also available for the following services:
 
 ## Next steps
 
-Learn how to [manage connectivity and reliable messaging](../iot-develop/concepts-manage-device-reconnections.md) using the IoT Hub device SDKs.
+Learn how to [manage connectivity and reliable messaging](../iot/concepts-manage-device-reconnections.md) using the IoT Hub device SDKs.

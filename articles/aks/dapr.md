@@ -262,3 +262,4 @@ az k8s-extension delete --resource-group myResourceGroup --cluster-name myAKSClu
 [dapr-supported-version]: https://docs.dapr.io/operations/support/support-release-policy/#supported-versions
 [dapr-troubleshooting]: https://docs.dapr.io/operations/troubleshooting/common_issues/
 [supported-cloud-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=azure-arc
+
