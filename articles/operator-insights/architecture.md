@@ -14,7 +14,7 @@ ms.topic: concept-article
 
 # Architecture of Azure Operator Insights
 
-Azure Operator Insights is a fully managed service that enables the collection and analysis of massive quantities of network data gathered from complex multi-part or multi-vendor network functions. It delivers statistical, machine learning, and AI-based insights for operator-specific workloads to help operators understand the health of their networks and the quality of their subscribers' experiences in near real-time. For more of an overview, see [What is Azure Operator Insights?](overview.md). 
+Azure Operator Insights is a fully managed service that enables the collection and analysis of massive quantities of network data gathered from complex multi-part or multi-vendor network functions. It delivers statistical, machine learning, and AI-based insights for operator-specific workloads to help operators understand the health of their networks and the quality of their subscribers' experiences in near real-time. For more information on the problem Azure Operator Insights solves, see [the general overview of Azure Operator Insights](overview.md).
 
 Azure Operator Insights deploys a Data Product resource to encapsulate a specific category or namespace of data. Azure Operator Insights enables a fourth generation data mesh architecture, which offers query-time federation to correlate and query across multiple Data Products.
 
@@ -40,7 +40,7 @@ You can deploy Azure Operator Insights Data Products with any standard Azure int
 
 Each Azure Operator Insights Data Product is scoped for a given category or namespace of data. An example is the data from a single network function (NF) such as a voice SBC. Some Data Products might contain correlated data from multiple NFs, particularly if the NFs are from the same vendor, such as the UPF, SMF, and AMF from a mobile packet core vendor. Each Data Product appears as a single Azure resource in your resource group and subscription. You can deploy multiple Data Products, for different categories of data, for example different mobile packet core NFs from different vendors, or a mobile packet core plus a radio access network (RAN) Data Product. 
 
-Microsoft publishes several publicly available Data Products; the following image shows some examples. Partners and operators can also design and publish Data Products using the Azure Operator Insights data product factory. For more information on the data product factory, see [What is the Azure Operator Insights data product factory (preview)?](data-product-factory.md).
+Microsoft publishes several Data Products; the following image shows some examples. Partners and operators can also design and publish Data Products using the Azure Operator Insights data product factory (preview). For more information on the data product factory, see the [overview of the data product factory](data-product-factory.md).
 
 :::image type="content" source="media/data-product-selection.png" alt-text="Screenshot of the Azure portal displaying a selection of Data Products from Microsoft.":::
 

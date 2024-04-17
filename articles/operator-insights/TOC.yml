@@ -12,7 +12,7 @@
 - name: Quickstart
   expanded: false
   items:
-  - name: Create an Azure Operator Insights Data Product
+  - name: Deploy an Azure Operator Insights Data Product
     href: data-product-create.md
 - name: Concepts
   expanded: false

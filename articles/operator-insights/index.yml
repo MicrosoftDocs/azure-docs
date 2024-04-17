@@ -44,7 +44,7 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Create an Azure Operator Insights Data Product
+          - text: Deploy an Azure Operator Insights Data Product
             url: data-product-create.md
       - linkListType: how-to-guide
         links:

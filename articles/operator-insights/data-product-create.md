@@ -1,6 +1,6 @@
 ---
-title: Create an Azure Operator Insights Data Product
-description: In this article, learn how to create an Azure Operator Insights Data Product resource. 
+title: Deploy an Azure Operator Insights Data Product
+description: In this article, learn how to deploy an Azure Operator Insights Data Product resource. 
 author: rcdun
 ms.author: rdunstan
 ms.reviewer: rathishr
@@ -10,7 +10,7 @@ ms.date: 10/16/2023
 ms.custom: template-quickstart, devx-track-azurecli #Required; leave this attribute/value as-is.
 ---
 
-# Create an Azure Operator Insights Data Product
+# Deploy an Azure Operator Insights Data Product
 
 In this article, you learn how to create an Azure Operator Insights Data Product instance.
 
