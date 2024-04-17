@@ -26,7 +26,7 @@ While Microsoft and Red Hat manage the Azure Red Hat OpenShift service, the cust
    </td>
    <td><strong><a href="#identity-and-access-management">Identity and Access Management</a></strong>
    </td>
-   <td><strong><a href="#security-and-regulation-compliance">Security and Regulation Compliance</a></strong>
+   <td><strong><a href="#security-and-compliance">Security and Regulation Compliance</a></strong>
    </td>
   </tr>
   <tr>
