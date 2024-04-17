@@ -79,20 +79,20 @@ items:
       href: how-to/create-azure-ai-hub-template.md
     - name: Create and manage compute
       href: how-to/create-manage-compute.md
-  - name: Data and connections
-    items:
     - name: Connections
       items:
       - name: Connections overview
         href: concepts/connections.md
       - name: Create a connection
         href: how-to/connections-add.md
-    - name: Index for retrieval
+  - name: Data for your copilot
+    items:
+    - name: Retrieval augmented generation (RAG)
       items:
-      - name: Vector index and retrieval augmented generation
+      - name: Overview
         href: concepts/retrieval-augmented-generation.md
         displayName: RAG
-      - name: Create an index
+      - name: Create a vector index
         href: how-to/index-add.md
     - name: Add and manage your data
       items:
@@ -102,12 +102,6 @@ items:
       - name: Use your image data with Azure OpenAI
         href: how-to/data-image-add.md
         displayName: vision, gpt, turbo
-    - name: Generate synthetic data
-      items:
-      - name: Generate samples from your dataset
-        href: how-to/generate-data-qa.md
-      - name: Simulate interaction data with your app
-        href: how-to/simulator-interaction-data.md
   - name: Build apps with prompt flow
     items:
     - name: Prompt flow overview
