@@ -34,11 +34,13 @@ The resources must be created in Azure regions where Trusted Signing is currentl
 | Region               | Region Class Fields  | Endpoint URI Value     |
 | :------------------- | :------------------- |:---------------|
 | East US              | EastUS               | <https://eus.codesigning.azure.net>  |
-| West US              |West US                | <https://wus.codesigning.azure.net>           |
+| West US3<sup>[1](#myfootnote1)</sup>              |West US3                | <https://wus3.codesigning.azure.net>           |
 | West Central US      | WestCentralUS                | <https://wcus.codesigning.azure.net/>              |
 | West US 2                 |   WestUS2                   | <https://wus2.codesigning.azure.net/>              |
 | North Europe              | NorthEurope               | <https://neu.codesigning.azure.net>  |
 | West Europe              | WestEurope               | <https://weu.codesigning.azure.net>  |
+
+<a name="myfootnote1">1</a>: WestUS3 coming soon!
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. From either the Azure portal menu or the Home page, select **Create a resource**.

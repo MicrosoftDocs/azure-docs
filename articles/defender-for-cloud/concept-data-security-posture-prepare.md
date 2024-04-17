@@ -138,6 +138,6 @@ AWS:
 > - Exposure rules that include 0.0.0.0/0 are considered “excessively exposed”, meaning that they can be accessed from any public IP.
 > - Azure resources with the exposure rule “0.0.0.0” are accessible from any resource in Azure (regardless of tenant or subscription).
 
-## Next steps
+## Next step
 
 [Enable](data-security-posture-enable.md) data-aware security posture.
