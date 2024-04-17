@@ -9,9 +9,7 @@ ms.service: container-registry
 
 # Troubleshoot guide for Artifact Cache 
 
-This article is part six in a six-part tutorial series. [Part one](tutorial-artifact-cache.md) provides an overview of Artifact Cache, its features, benefits, and limitations. In [part two](tutorial-enable-artifact-cache.md), you learn how to enable Artifact Cache feature by using the Azure portal. In [part three](tutorial-enable-artifact-cache-cli.md), you learn how to enable Artifact Cache feature by using the Azure CLI. In [part four](tutorial-enable-artifact-cache-auth.md), you learn how to enable Artifact Cache feature with authentication by using Azure portal. In [part five](tutorial-enable-artifact-cache-auth-cli.md), you learn how to enable Artifact Cache feature with authentication by using Azure CLI. 
-
-This article helps you troubleshoot problems you might encounter when attempting to use Artifact Cache.
+This article helps you to troubleshoot problems you might encounter when attempting to use Artifact Cache.
 
 ## Symptoms and Causes
 
@@ -20,7 +18,7 @@ May include one or more of the following issues:
 - Cached images don't appear in a real repository 
   - [Cached images don't appear in a live repository](tutorial-troubleshoot-artifact-cache.md#cached-images-dont-appear-in-a-live-repository) 
 
-- Credentials has an unhealthy status
+- Credentials have an unhealthy status
   - [Unhealthy Credentials](tutorial-troubleshoot-artifact-cache.md#unhealthy-credentials)
 
 - Unable to create a cache rule
@@ -33,7 +31,7 @@ May include one or more of the following issues:
 
 ## Cached images don't appear in a live repository 
 
-If you're having an issue with cached images not showing up in your repository in ACR, we recommend verifying the repository path. Incorrect repository paths lead the cached images to not show up in your repository in ACR.  
+If you're having an issue with cached images not showing up in your repository in Azure Container Registry(ACR), we recommend verifying the repository path. Incorrect repository paths lead the cached images to not show up in your repository in ACR.  
 
 - The Login server for Docker Hub is `docker.io`.
 - The Login server for Microsoft Artifact Registry is `mcr.microsoft.com`.
@@ -44,7 +42,7 @@ The Azure portal autofills these fields for you. However, many Docker repositori
 
 Credentials are a set of Key Vault secrets that operate as a Username and Password for private repositories. Unhealthy Credentials are often a result of these secrets no longer being valid. In the Azure portal, you can select the credentials, to edit and apply changes.
 
-- Verify the secrets in Azure Key Vault haven't expired. 
+- Verify the secrets in Azure Key Vault are expired. 
 - Verify the secrets in Azure Key Vault are valid.
 - Verify the access to the Azure Key Vault is assigned.
 
@@ -61,11 +59,11 @@ Learn more about [Assigning the access to Azure Key Vault][az-keyvault-set-polic
 
 ### Cache rule Limit
 
-If you're facing issues while creating a Cache rule, we recommend verifying if you have more than 1000 cache rules created. 
+If you're facing issues while creating a Cache rule, we recommend verifying if you have more than 1,000 cache rules created. 
 
 We recommend deleting any unwanted cache rules to avoid hitting the limit. 
 
-Learn more about the [Cache Terminology](tutorial-artifact-cache.md#terminology)
+Learn more about the [Cache Terminology.](tutorial-artifact-cache.md#terminology)
 
 
 

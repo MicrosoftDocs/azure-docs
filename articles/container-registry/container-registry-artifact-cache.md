@@ -18,7 +18,7 @@ Artifact Cache enhances container image management by providing a caching soluti
 
 Artifact Cache offers faster and more *reliable pull operations* through Azure Container Registry (ACR), utilizing features like Geo-Replication and Availability Zone support for higher availability and speed image pulls.
 
-Artifact Cache allows cached registries to be accessible over *private networks*. This enables users to align with firewall configurations and compliance standards seamlessly.
+Artifact Cache allows cached registries to be accessible over *private networks* for users to align with firewall configurations and compliance standards seamlessly.
 
 Artifact Cache addresses the challenge of anonymous pull limits imposed by public registries like Docker Hub. By allowing users to pull images from the local ACR, it circumvents these limits, ensuring *uninterrupted content delivery* from upstream sources and eliminating the concern of hitting pull limits.
 
@@ -50,22 +50,22 @@ Artifact Cache addresses the challenge of anonymous pull limits imposed by publi
 
 - Cache will only occur after at least one image pull is complete on the available container image. For every new image available, a new image pull must be complete. Artifact Cache doesn't automatically pull new tags of images when a new tag is available. It is on the roadmap but not supported in this release. 
 
-- Artifact Cache only supports 1000 cache rules.
+- Artifact Cache only supports 1,000 cache rules.
 
 ## Upstream support 
 
 Artifact Cache currently supports the following upstream registries:
 
-| Upstream registries         | Support                                                      | Availability            |
-| --------------------------- | ------------------------------------------------------------ | ----------------------- |
-| Docker Hub                   | Supports both authenticated pulls and unauthenticated pulls. | Azure CLI, Azure portal |
-| Microsoft Artifact Registry | Supports unauthenticated pulls only.                         | Azure CLI, Azure portal |
-| ECR Public                  | Supports unauthenticated pulls only.                         | Azure CLI, Azure portal |
-| GitHub Container Registry   | Supports both authenticated pulls and unauthenticated pulls. | Azure CLI, Azure portal |
-| Nvidia                   | Supports both authenticated pulls and unauthenticated pulls. | Azure CLI               |
-| Quay                        | Supports both authenticated pulls and unauthenticated pulls. | Azure CLI, Azure portal |
-| registry.k8s.io             | Supports both authenticated pulls and unauthenticated pulls. | Azure CLI               |
-|Google Container Registry|Supports both authenticated pulls and unauthenticated pulls.|Azure CLI|
+| Upstream registries                    | Support                                                      | Availability            |
+| -------------------------------------- | ------------------------------------------------------------ | ----------------------- |
+| Docker Hub                             | Supports both authenticated pulls and unauthenticated pulls. | Azure CLI, Azure portal |
+| Microsoft Artifact Registry            | Supports unauthenticated pulls only.                         | Azure CLI, Azure portal |
+| Elastic Container Registry(ECR) Public | Supports unauthenticated pulls only.                         | Azure CLI, Azure portal |
+| GitHub Container Registry              | Supports both authenticated pulls and unauthenticated pulls. | Azure CLI, Azure portal |
+| Nvidia                                 | Supports both authenticated pulls and unauthenticated pulls. | Azure CLI               |
+| Quay                                   | Supports both authenticated pulls and unauthenticated pulls. | Azure CLI, Azure portal |
+| registry.k8s.io                        | Supports both authenticated pulls and unauthenticated pulls. | Azure CLI               |
+| Google Container Registry              | Supports both authenticated pulls and unauthenticated pulls. | Azure CLI               |
 
 ## Wildcards
 
@@ -94,7 +94,7 @@ The repository level wildcard allows you to cache all repositories from an upstr
 
 ### Limitations for Wildcard based cache rules
 
-Wildcard cache rules use asterisks (*) to match multiple paths within the container image registry. These rules cannot overlap with other wildcard cache rules. In other words, if you have a wildcard cache rule for a certain registry path, you cannot add another wildcard rule that overlaps with it. 
+Wildcard cache rules use asterisks (*) to match multiple paths within the container image registry. These rules can't overlap with other wildcard cache rules. In other words, if you have a wildcard cache rule for a certain registry path, you cannot add another wildcard rule that overlaps with it. 
 
 Here are some examples of overlapping rules:
 
@@ -129,7 +129,7 @@ The addition of the new cache rule is allowed because `contoso.azurecr.io/librar
 
 ## Enable Artifact Cache - Azure CLI
 
-You can enable Artifact Cache in your Azure Container Registry with or without authentication using Azure CLI by following the steps below.
+You can enable Artifact Cache in your Azure Container Registry with or without authentication using Azure CLI by following the steps.
 
 ### Prerequisites
 
@@ -158,7 +158,7 @@ You can enable Artifact Cache in your Azure Container Registry with or without a
 
 ### Create the Credentials
 
-Before configuring the Credentials, you have to create and store secrets in the Azure KeyVault and retrieve the secrets from the Key Vault. Learn more about [creating and storing credentials in a Key Vault.][create-and-store-keyvault-credentials] and to [set and retrieve a secret from Key Vault.][set-and-retrieve-a-secret].
+Before configuring the Credentials, you have to create and store secrets in the Azure KeyVault and retrieve the secrets from the Key Vault. Learn more about [creating and storing credentials in a Key Vault.][create-and-store-keyvault-credentials] And to [set and retrieve a secret from Key Vault.][set-and-retrieve-a-secret].
 
 1. Run [az acr credential set create][az-acr-credential-set-create] command to create the credentials. 
 
@@ -295,13 +295,13 @@ Before configuring the Credentials, you have to create and store secrets in the 
 
 ## Enable Artifact Cache - Azure portal
 
-You can enable Artifact Cache in your Azure Container Registry with or without authentication using Azure portal by following the steps below.
+You can enable Artifact Cache in your Azure Container Registry with or without authentication using Azure portal by following the steps.
 
 ### Prerequisites
 
 * Sign in to the [Azure portal](https://ms.portal.azure.com/)
 * You have an existing Key Vault to store credentials. Learn more about [creating and storing credentials in a Key Vault.][create-and-store-keyvault-credentials]
-* You have the existing Key vaults without the RBAC controls.
+* You have the existing Key vaults without the Role based access(RBAC) controls.
 
 ### Configure Artifact Cache without credentials
 
@@ -312,19 +312,19 @@ Follow the steps to create cache rule in the [Azure portal](https://portal.azure
 2. In the side **Menu**, under the **Services**, select **Cache**.
 
 
-    :::image type="content" source="./media/container-registry-artifact-cache/cache-preview-01.png" alt-text="Screenshot for Registry cache in Azure Portal.":::
+    :::image type="content" source="./media/container-registry-artifact-cache/cache-preview-01.png" alt-text="Screenshot for Registry cache in Azure portal.":::
 
 
 3. Select **Create Rule**.
 
 
-    :::image type="content" source="./media/container-registry-artifact-cache/cache-blade-02.png" alt-text="Screenshot for Create Rule in Azure Portal.":::
+    :::image type="content" source="./media/container-registry-artifact-cache/cache-blade-02.png" alt-text="Screenshot for Create Rule in Azure portal.":::
 
 
 4. A window for **New cache rule** appears.
 
 
-    :::image type="content" source="./media/container-registry-artifact-cache/new-cache-rule-03.png" alt-text="Screenshot for new Cache Rule in Azure Portal.":::
+    :::image type="content" source="./media/container-registry-artifact-cache/new-cache-rule-03.png" alt-text="Screenshot for new Cache Rule in Azure portal.":::
 
 
 5. Enter the **Rule name**.
@@ -338,7 +338,7 @@ Follow the steps to create cache rule in the [Azure portal](https://portal.azure
 9. Under the **Destination**, Enter the name of the **New ACR Repository Namespace** to store cached artifacts.
 
 
-    :::image type="content" source="./media/container-registry-artifact-cache/save-cache-rule-04.png" alt-text="Screenshot to save Cache Rule in Azure Portal.":::
+    :::image type="content" source="./media/container-registry-artifact-cache/save-cache-rule-04.png" alt-text="Screenshot to save Cache Rule in Azure portal.":::
 
 
 10. Select on **Save**.
@@ -405,7 +405,7 @@ Follow the steps to create cache rule in the [Azure portal](https://portal.azure
 
 ### Create new Credentials
 
-Before configuring the Credentials, you require to create and store secrets in the Azure KeyVault and retrieve the secrets from the Key Vault. Learn more about [creating and storing credentials in a Key Vault.][create-and-store-keyvault-credentials] and to [set and retrieve a secret from Key Vault.][set-and-retrieve-a-secret].
+Before configuring the Credentials, you require to create and store secrets in the Azure KeyVault and retrieve the secrets from the Key Vault. Learn more about [creating and storing credentials in a Key Vault.][create-and-store-keyvault-credentials] And to [set and retrieve a secret from Key Vault.][set-and-retrieve-a-secret].
 
 1. Navigate to **Credentials** > **Create credentials**.
 
