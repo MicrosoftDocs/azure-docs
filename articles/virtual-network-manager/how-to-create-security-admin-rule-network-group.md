@@ -12,9 +12,9 @@ ms.custom: template-how-to
 ---
 # Create a security admin rule using network groups in Azure Virtual Network Manager
 
-In Azure Virtual Network Manager, you can deploy [security admin rules](./concept-security-admins.md) using [network groups](./concept-network-groups.md). Security admin rules and network groups allow you to define the source and destination of the traffic for the security admin rule.    
-
 In this article, you learn how to create a security admin rule using network groups in Azure Virtual Network Manager. You use the Azure portal to create a security admin configuration, add a security admin rule, and deploy the security admin configuration.
+
+In Azure Virtual Network Manager, you can deploy [security admin rules](./concept-security-admins.md) using [network groups](./concept-network-groups.md). Security admin rules and network groups allow you to define the source and destination of the traffic for the security admin rule.    
 
 [!INCLUDE [virtual-network-manager-preview](../../includes/virtual-network-manager-network-groups-source-destination-preview.md)]
 
@@ -63,16 +63,19 @@ To create a security admin configuration, follow these steps:
 
     :::image type="content" source="media/how-to-create-security-admin-rules-network-groups/create-configuration-with-aggregation-options.png" alt-text="Screenshot of create a security admin configuration deployment options selecting manual aggregation option.":::
 
-1. Select **Rule collections** or **Next: Rule collections >**.
-2. In the Rule collections tab, select **Add**.
-3. In the **Add a rule collection** window, enter the following settings:
+    > [!NOTE]
+    > The **Network group address space aggregation option** setting allows you to reference network groups in your security admin rules. Once elected, the virtual network manager instance will aggregate the CIDR ranges of the network groups referenced as the source and destination of the security admin rules in the configuration. With the manual aggregation option, the CIDR ranges in the network group are aggregated only when you deploy the security admin configuration. This allows you to commit the CIDR ranges on your schedule.
+
+2. Select **Rule collections** or **Next: Rule collections >**.
+3. In the Rule collections tab, select **Add**.
+4. In the **Add a rule collection** window, enter the following settings:
 
     | **Setting** | **Value** |
     | --- | --- |
     | Name | Enter a name for the rule collection. |
     | Target network groups | Select the network group that contains the source and destination of the traffic for the security admin rule. |
 
-1. Select **Add** and enter the following settings in the **Add a rule** window:
+5. Select **Add** and enter the following settings in the **Add a rule** window:
 
     | **Setting** | **Value** |
     | --- | --- |
@@ -92,9 +95,9 @@ To create a security admin configuration, follow these steps:
 
     :::image type="content" source="media/how-to-create-security-admin-rules-network-groups/create-network-group-as-source-destination-rule.png" alt-text="Screenshot of add a rule window using network groups as source and destination in rule creation.":::
 
-2. Select **Add** and **Add** again to add the security admin rule to the rule collection.
+6. Select **Add** and **Add** again to add the security admin rule to the rule collection.
 
-3. Select **Review + create** and then select **Create**.
+7. Select **Review + create** and then select **Create**.
 
 ## Deploy the security admin configuration
 
