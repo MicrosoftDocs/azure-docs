@@ -1424,6 +1424,11 @@
       "source_path_from_root": "/articles/iot-central/core/tutorial-industrial-end-to-end.md",
       "redirect_url": "/azure/iot/iot-introduction",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-central/core/concepts-iiot-architecture.md",
+      "redirect_url": "/azure/iot/concepts-iot-industrial-solution-architecture",
+      "redirect_document_id": false
     }
   ]
 }
