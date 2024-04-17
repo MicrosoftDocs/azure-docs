@@ -11,7 +11,6 @@
 For the list of currently supported regions, see the **Premium SSD v2** row on the [Products available by Region](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=storage) page.
 
 The following regions currently only support Premium SSD v2 in a limited number of availability zones:
-- Brazil South (Two availability zones)
 - Central US (Two availability zones)
 - Israel Central (Two availability zones)
 - Italy North (One availability zone) 
