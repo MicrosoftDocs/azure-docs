@@ -80,7 +80,7 @@ There are several other machine-learning libraries on DSVMs - for example, the p
 | Supported editions     | Windows, Linux     |
 | Typical uses      | General machine-learning tool     |
 | How to use or run it      | On Windows, search for Weka on the **Start** menu. On Linux, sign in with X2Go, and then go to **Applications** > **Development** > **Weka**. |
-| Link to samples      | [Weka samples](https://www.cs.waikato.ac.nz/ml/weka/documentation.html) |
+| Link to samples      | [Weka samples](https://docs.weka.io/) |
 
 ## XGBoost 
 | Category | Value |
