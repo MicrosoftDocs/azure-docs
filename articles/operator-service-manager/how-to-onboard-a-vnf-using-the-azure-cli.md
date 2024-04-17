@@ -89,6 +89,9 @@ az aosm nfd generate-config --definition-type vnf-nexus --output-file <filename.
 
 1. Open the input file you generated in the previous step and use the inline comments to enter the required values. This example shows the Az CLI AOSM extension input file for a fictional Contoso VNF, which runs on Azure Operator Nexus.
 
+> [!NOTE]
+> The Azure CLI AOSM extension only exposes required parameters without default values in the input ARM template by default. You can set `expose_all_parameters` to `true` to expose all ARM template parameters in the Network Function Definition Version (NFDV) and Configuration Group Schema (CGS). See [Parameter expose using the AOSM CLI extension](concepts-expose-parameters-in-a-cgs.md) for more detailed information.
+
 ```json
 {
     // Azure location to use when creating resources e.g uksouth
@@ -106,6 +109,9 @@ az aosm nfd generate-config --definition-type vnf-nexus --output-file <filename.
     "nf_name": "contoso-vnf",
     // Version of the network function definition in 1.1.1 format (three integers separated by dots).
     "version": "1.0.0",
+    // If set to true, all NFD configuration parameters are made available to the designer, including optional parameters and those with defaults.
+    // If not set or set to false, only required parameters without defaults will be exposed.
+    "expose_all_parameters": false,
     // ARM template configuration. The ARM templates given here would deploy a VM if run. They will be used to generate the VNF.
     "arm_templates": [
         {

@@ -64,6 +64,10 @@ landingContent:
         links:
           - text: About the CLI
             url: concepts-about-aosm-cli-extension.md
+      - linkListType: concept
+        links:
+          - text: Parameter exposure with the AOSM CLI Extension
+            url: concepts-expose-parameters-in-a-cgs.md
       - linkListType: how-to-guide
         links:
           - text: Onboard a Containerized Network Function
@@ -72,9 +76,9 @@ landingContent:
             url: how-to-onboard-a-vnf-using-the-azure-cli.md
           - text: Onboard Azure Resource Manager (ARM) resources
             url: how-to-onboard-arm-resources-using-the-azure-cli.md
-          - text: Troublehshoot common CLI Issues
+          - text: Troubleshoot common CLI Issues
             url: troubleshooting-cli-common-issues.md
-            
+
   # Card
   - title: Additional Resources
     linkLists:
