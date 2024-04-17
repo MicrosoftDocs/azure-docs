@@ -232,9 +232,9 @@ The Google BigQuery connector offers new functionalities and is compatible with 
 | Google BigQuery  | Google BigQuery (legacy) | 
 | :----------- | :------- |
 | Service authentication is supported by the Azure integration runtime and the self-hosted integration runtime.<br>The properties trustedcerts, usesystemtruststore, email and keyfilepath are not supported as they are available on the self-hosted integration runtime only. | Service authentication is only supported by the self-hosted integration runtime. <br>Support trustedcerts, usesystemtruststore, email and keyfilepath properties. | 
-| The following mappings are used from Google BigQuery data types to interim data types used by the service internally. <br><br>Numeric -> SqlBigDecimal<br>Timestamp -> DateTimeOffset<br>Datetime -> DatetimeOffset | The following mappings are used from  Google BigQuery (legacy) data types to interim data types used by the service internally. <br><br>Numeric -> string<br>Timestamp -> DateTime<br>Datetime -> DateTime | 
-| RequestGoogleDriveScope is not supported. You need additionally apply the permission in Google BigQuery service by referring to this [article](https://developers.google.com/drive/api/guides/api-specific-auth). | Support RequestGoogleDriveScope. | 
-| AdditionalProjects is not supported. As an alternative, [query a public dataset with the Google Cloud console](https://cloud.google.com/bigquery/docs/quickstarts/query-public-dataset-console). | Support AdditionalProjects. | 
+| The following mappings are used from Google BigQuery data types to interim data types used by the service internally. <br><br>Numeric -> Decimal<br>Timestamp -> DateTimeOffset<br>Datetime -> DatetimeOffset | The following mappings are used from Google BigQuery data types to interim data types used by the service internally. <br><br>Numeric -> string<br>Timestamp -> DateTime<br>Datetime -> DateTime | 
+| requestGoogleDriveScope is not supported. You need additionally apply the permission in Google BigQuery service by referring to [Choose Google Drive API scopes](https://developers.google.com/drive/api/guides/api-specific-auth) and [Query Drive data](https://cloud.google.com/bigquery/docs/query-drive-data). | Support requestGoogleDriveScope. | 
+| additionalProjects is not supported. As an alternative, [query a public dataset with the Google Cloud console](https://cloud.google.com/bigquery/docs/quickstarts/query-public-dataset-console). | Support additionalProjects. | 
 
 ## Related content
 
