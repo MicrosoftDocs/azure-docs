@@ -153,7 +153,6 @@ This section summarizes considerations about the read replica feature. The follo
 - **Power operations**: [Power operations](how-to-stop-start-server-portal.md), including start and stop actions, can be applied to both the primary and replica servers. However, to preserve system integrity, a specific sequence should be followed. Before stopping the read replicas, ensure the primary server is stopped first. When commencing operations, initiate the start action on the replica servers before starting the primary server.
 - If server has read replicas then read replicas should be deleted first before deleting the primary server.
 - [In-place major version upgrade](concepts-major-version-upgrade.md) in Azure Database for PostgreSQL flexible server requires removing any read replicas currently enabled on the server. Once the replicas have been deleted, the primary server can be upgraded to the desired major version. After the upgrade is complete, you can recreate the replicas to resume the replication process.
-- **Storage auto-grow**: When configuring read replicas for an Azure Database for PostgreSQL flexible server instance, it's essential to ensure that the storage autogrow setting on the replicas matches that of the primary server. The storage autogrow feature allows the database storage to increase automatically to prevent running out of space, which could lead to database outages. To maintain consistency and avoid potential replication issues, if the primary server has storage autogrow disabled, the read replicas must also have storage autogrow disabled. Conversely, if storage autogrow is enabled on the primary server, then any read replica that is created must have storage autogrow enabled from the outset. This synchronization of storage autogrow settings ensures the replication process isn't disrupted by differing storage behaviors between the primary server and its replicas.
 - **Premium SSD v2**: As of the current release, if the primary server uses Premium SSD v2 for storage, the creation of read replicas isn't supported.
 - **Resetting admin password**: Resetting the admin password on the replica server is currently not supported. Additionally, updating the admin password along with [promoting](concepts-read-replicas-promote.md) replica operation in the same request is also not supported. If you wish to do this you must first promote the replica server and then update the password on the newly promoted server separately.
 
@@ -164,6 +163,15 @@ A read replica is created as a new Azure Database for PostgreSQL flexible server
 ### Resource move
 
 Users can create read replicas in a different resource group than the primary. However, moving read replicas to another resource group after their creation is unsupported. Additionally, moving replica(s) to a different subscription, and moving the primary that has read replica(s) to another resource group or subscription, it's not supported.
+
+### Storage auto-grow
+When configuring read replicas for an Azure Database for PostgreSQL flexible server instance, it's essential to ensure that the storage autogrow setting on the replicas matches that of the primary server. The storage autogrow feature allows the database storage to increase automatically to prevent running out of space, which could lead to database outages.
+Here’s how to manage storage autogrow settings effectively:
+
+- You may have storage autogrow enabled on any replica regardless of the primary server’s setting.
+- If storage autogrow is enabled on the primary server, it must also be enabled on the replicas to ensure consistency in storage scaling behaviors.
+- To enable storage autogrow on the primary, you must first enable it on the replicas. This order of operations is crucial to maintain replication integrity.
+- Conversely, if you wish to disable storage autogrow, begin by disabling it on the primary server before the replicas to avoid replication complications.
 
 ### Back up and Restore
 
