@@ -4,13 +4,12 @@ titleSuffix: Azure AI Studio
 description: Evaluate your generative AI application with Azure AI Studio.
 manager: scottpolly
 ms.service: azure-ai-studio
-ms.custom: ignite-2023, devx-track-python
+ms.custom: ignite-2023, devx-track-python, references_regions
 ms.topic: how-to
 ms.date: 3/28/2024
 ms.reviewer: eur
 ms.author: lagayhar
 author: lgayhardt
-ms.custom: references_regions
 ---
 
 # How to evaluate generative AI apps with Azure AI Studio
