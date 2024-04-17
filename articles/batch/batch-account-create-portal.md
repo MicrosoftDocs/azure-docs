@@ -150,7 +150,7 @@ To create a Batch account with authentication mode settings:
 1. Leave the remaining settings at default values, select **Review + create**, and then select **Create**.
 
 > [!TIP]
-> Batch support multiple authentication modes, and offers the built-in policies wherein users can enforce AAD authentication for Batch accounts when being created or update **AuthenticationMode** after a Batch account is created.    
+> Batch support multiple authentication modes, and offers the built-in policies wherein users can enforce AAD authentication for Batch accounts when being created or update **Authentication mode** property after a Batch account is created.    
 
 ### Grant access to the key vault manually
 
