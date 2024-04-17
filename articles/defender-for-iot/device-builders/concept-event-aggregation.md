@@ -54,7 +54,7 @@ Network activity events are considered identical when the local port, remo
 
 The default buffer for a network activity event is 256. For situations where the cache is full:
 
-- **Azure RTOS devices**: No new network events will be cached until the next collection cycle starts.  
+- **Eclipse ThreadX devices**: No new network events will be cached until the next collection cycle starts.  
 
 - **Linux devices**: The oldest event will be replaced by every new event. A warning to increase the cache size will be logged.
 

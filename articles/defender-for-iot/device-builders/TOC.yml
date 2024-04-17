@@ -97,14 +97,14 @@
   - name: Create custom alerts
     displayName: security group
     href: quickstart-create-custom-alerts.md
-  - name: Defender-IoT-micro-agent for Azure RTOS (Preview)
+  - name: Defender-IoT-micro-agent for Eclipse ThreadX (Preview)
     href: iot-security-azure-rtos.md
     items:
-    - name: Work with Defender-IoT-micro-agent for Azure RTOS (Preview)
+    - name: Work with Defender-IoT-micro-agent for Eclipse ThreadX (Preview)
       href: how-to-azure-rtos-security-module.md
-    - name: Understand the Defender-IoT-micro-agent for Azure RTOS (Preview)
+    - name: Understand the Defender-IoT-micro-agent for Eclipse ThreadX (Preview)
       href: concept-rtos-security-module.md
-    - name: Defender-IoT-micro-agent for Azure RTOS alerts and recommendations (Preview)
+    - name: Defender-IoT-micro-agent for Eclipse ThreadX alerts and recommendations (Preview)
       href: concept-rtos-security-alerts-recommendations.md
   - name: Manage cloud device inventory
     href: how-to-manage-device-inventory-on-the-cloud.md
@@ -182,7 +182,7 @@
     href: how-to-investigate-device.md
 - name: Reference
   items:
-  - name: Defender-IoT-micro-agent for Azure RTOS API (Preview)
+  - name: Defender-IoT-micro-agent for Eclipse ThreadX API (Preview)
     displayName: prototype, disable
     href: azure-rtos-security-module-api.md
   - name: Frequently asked questions
@@ -211,5 +211,5 @@
     href: https://azure.microsoft.com/resources/videos/index/?services=security-center&service=internet-of-things&page=1&sort=newest
   - name: Agent-based solution for device builders
     items: 
-  - name: Azure RTOS Defender-IoT-micro-agent on Stack Overflow
+  - name: Eclipse ThreadX Defender-IoT-micro-agent on Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-rtos+azure-iot-security-module

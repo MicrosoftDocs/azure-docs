@@ -1,13 +1,13 @@
 ---
-title: Configure and customize Defender-IoT-micro-agent for Azure RTOS
-description: Learn about how to configure and customize your Defender-IoT-micro-agent for Azure RTOS.
+title: Configure and customize Defender-IoT-micro-agent for Eclipse ThreadX
+description: Learn about how to configure and customize your Defender-IoT-micro-agent for Eclipse ThreadX.
 ms.topic: how-to
 ms.date: 01/01/2023
 ---
 
-# Configure and customize Defender-IoT-micro-agent for Azure RTOS
+# Configure and customize Defender-IoT-micro-agent for Eclipse ThreadX
 
-This article describes how to configure the Defender-IoT-micro-agent for your Azure RTOS device, to meet your network, bandwidth, and memory requirements.
+This article describes how to configure the Defender-IoT-micro-agent for your Eclipse ThreadX device, to meet your network, bandwidth, and memory requirements.
 
 ## Configuration steps
 
@@ -70,7 +70,7 @@ Other configurations flags are advanced, and have unsupported features. Contact 
  
 ## Supported security alerts and recommendations
 
-The Defender-IoT-micro-agent for Azure RTOS supports specific security alerts and recommendations. Make sure to [review and customize the relevant alert and recommendation values](concept-rtos-security-alerts-recommendations.md) for your service.
+The Defender-IoT-micro-agent for Eclipse ThreadX supports specific security alerts and recommendations. Make sure to [review and customize the relevant alert and recommendation values](concept-rtos-security-alerts-recommendations.md) for your service.
 
 ## Log Analytics (optional)
 
@@ -79,5 +79,5 @@ You can enable and configure Log Analytics to investigate device events and acti
 ## Next steps
 
 
-- Review and customize Defender-IoT-micro-agent for Azure RTOS [security alerts and recommendations](concept-rtos-security-alerts-recommendations.md)
-- Refer to the [Defender-IoT-micro-agent for Azure RTOS API](azure-rtos-security-module-api.md) as needed.
+- Review and customize Defender-IoT-micro-agent for Eclipse ThreadX [security alerts and recommendations](concept-rtos-security-alerts-recommendations.md)
+- Refer to the [Defender-IoT-micro-agent for Eclipse ThreadX API](azure-rtos-security-module-api.md) as needed.
