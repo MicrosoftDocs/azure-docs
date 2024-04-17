@@ -5,11 +5,12 @@ ms.topic: tutorial
 ms.date: 10/31/2023
 ms.author: tejaswikolli
 ms.service: container-registry
+# customer intent: As a user, I want to troubleshoot the most common problems for a registry enabled with the Artifact Cache feature so that I can effectively use the feature.
 ---
 
 # Troubleshoot guide for Artifact Cache 
 
-This article helps you to troubleshoot problems you might encounter when attempting to use Artifact Cache.
+In this tutorial, you troubleshoot the most common problems for a registry enabled with the Artifact Cache feature by identifying the Symptoms, causes, and potential solutions to effectively use the feature.
 
 ## Symptoms and Causes
 
@@ -29,7 +30,7 @@ May include one or more of the following issues:
 
 ## Potential Solutions
 
-## Cached images don't appear in a live repository 
+### Cached images don't appear in a live repository 
 
 If you're having an issue with cached images not showing up in your repository in Azure Container Registry(ACR), we recommend verifying the repository path. Incorrect repository paths lead the cached images to not show up in your repository in ACR.  
 
@@ -38,7 +39,7 @@ If you're having an issue with cached images not showing up in your repository i
 
 The Azure portal autofills these fields for you. However, many Docker repositories begin with `library/` in their path. For example, in-order to cache the `hello-world` repository, the correct Repository Path is `docker.io/library/hello-world`. 
 
-## Unhealthy Credentials 
+### Unhealthy Credentials 
 
 Credentials are a set of Key Vault secrets that operate as a Username and Password for private repositories. Unhealthy Credentials are often a result of these secrets no longer being valid. In the Azure portal, you can select the credentials, to edit and apply changes.
 
@@ -55,9 +56,9 @@ az keyvault set-policy --name myKeyVaultName --object-id myObjID --secret-permis
 Learn more about [Key Vaults][create-and-store-keyvault-credentials].
 Learn more about [Assigning the access to Azure Key Vault][az-keyvault-set-policy].
 
-## Unable to create a Cache rule
+### Unable to create a Cache rule
 
-### Cache rule Limit
+#### Cache rule Limit
 
 If you're facing issues while creating a Cache rule, we recommend verifying if you have more than 1,000 cache rules created. 
 
@@ -66,8 +67,7 @@ We recommend deleting any unwanted cache rules to avoid hitting the limit.
 Learn more about the [Cache Terminology.](tutorial-artifact-cache.md#terminology)
 
 
-
-## Unable to create cache rule using a wildcard
+### Unable to create cache rule using a wildcard
 
 If you're trying to create a cache rule, but there's a conflict with an existing rule. The error message suggests that there's already a cache rule with a wildcard for the specified target repository.
 
