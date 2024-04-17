@@ -146,7 +146,7 @@ To create a Batch account with authentication mode settings:
 1. You must then select **Authentication mode** to define which authentication mode that a Batch account can use by authentication mode property key.
 1. You can select either of the 3 **"Microsoft Entra ID**, **Shared Key**, **Task Authentication Token** authentication mode for the Batch account to support or leave the settings at default values. 
 
-   :::image type="content" source="media/batch-account-create-portal/authentication_mode_property.png" alt-text="Screenshot of the Authentication Mode options when creating a Batch account.":::
+   :::image type="content" source="media/batch-account-create-portal/authentication-mode-property.png" alt-text="Screenshot of the Authentication Mode options when creating a Batch account.":::
 1. Leave the remaining settings at default values, select **Review + create**, and then select **Create**.
 
 > [!TIP]
