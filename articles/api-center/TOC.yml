@@ -34,6 +34,8 @@
         href: import-api-management-apis.md
 - name: API governance
   items:
+      - name: Configure metadata for governance
+        href: metadata.md
       - name: Analyze APIs using linting rules
         href: enable-api-analysis-linting.md
 - name: API discovery and consumption
