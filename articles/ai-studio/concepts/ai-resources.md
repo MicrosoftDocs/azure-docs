@@ -86,7 +86,7 @@ Large language models that can be used to generate text, speech, images, and mor
 
 ### Virtual networking
 
-hubs, compute resources, and projects share the same Microsoft-managed Azure virtual network. After you configure the managed networking settings during the hub creation process, all new projects created using that hub will inherit the same virtual network settings. Therefore, any changes to the networking settings are applied to all current and new project in that hub. By default, hubs provide public network access.
+Hubs, compute resources, and projects share the same Microsoft-managed Azure virtual network. After you configure the managed networking settings during the hub creation process, all new projects created using that hub will inherit the same virtual network settings. Therefore, any changes to the networking settings are applied to all current and new project in that hub. By default, hubs provide public network access.
 
 To establish a private inbound connection to your hub environment, create an Azure Private Link endpoint on the following scopes:
 * The hub

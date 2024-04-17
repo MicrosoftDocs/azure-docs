@@ -17,6 +17,8 @@ author: eric-urban
 
 Microsoft offers a family of packages that you can use for generative AI applications like a copilot. These packages provide APIs and SDKs that you can use to create, manage, and deploy AI models. 
 
+## SDKs and REST APIs
+
 This table provides an overview of the Azure AI SDKs and REST APIs. The table also includes some packages other than Azure AI SDKs that you can use to build AI applications.
 
 | SDK name | Description | 

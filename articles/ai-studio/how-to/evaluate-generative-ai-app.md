@@ -10,6 +10,7 @@ ms.date: 3/28/2024
 ms.reviewer: eur
 ms.author: lagayhar
 author: lgayhardt
+ms.custom: references_regions
 ---
 
 # How to evaluate generative AI apps with Azure AI Studio
