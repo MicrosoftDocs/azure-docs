@@ -124,6 +124,4 @@ The Azure AI code samples in GitHub Codespaces help you quickly get started with
 
 ## Next steps
 
-- [Build your own copilot using Azure AI CLI and SDK](../tutorials/deploy-copilot-sdk.md)
-- [Try the Azure AI CLI from Azure AI Studio in a browser](develop-in-vscode.md)
 - [Azure SDK for Python reference documentation](/python/api/overview/azure/ai)

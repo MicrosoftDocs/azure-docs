@@ -127,6 +127,5 @@ To opt out of the telemetry feature in a Jupyter scenario:
 
 ## Next steps
 
-- [Build your own copilot using Azure AI CLI and SDK](../tutorials/deploy-copilot-sdk.md)
 - [Get started with the Azure AI SDK](./sdk-install.md)
 - [Azure SDK for Python reference documentation](/python/api/overview/azure/ai)

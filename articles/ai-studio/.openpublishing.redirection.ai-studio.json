@@ -29,6 +29,11 @@
             "source_path_from_root": "/articles/ai-studio/how-to/simulator-interaction-data.md",
             "redirect_url": "/azure/ai-studio/how-to/data-add",
             "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/ai-studio/tutorials/deploy-copilot-sdk.md",
+            "redirect_url": "/azure/ai-studio/tutorials/deploy-copilot-ai-studio",
+            "redirect_document_id": true
         }
     ]
 }

@@ -104,5 +104,5 @@ For app templates and SDK samples in your preferred programming language, see [D
 
 ## Next steps
 
-- [Build your own copilot using Azure AI CLI and SDK](../tutorials/deploy-copilot-sdk.md)
+- [Get started with Azure AI SDKs](../how-to/sdk-generative-overview.md)
 - [Quickstart: Analyze images and video with GPT-4 for Vision in the playground](../quickstarts/multimodal-vision.md)
