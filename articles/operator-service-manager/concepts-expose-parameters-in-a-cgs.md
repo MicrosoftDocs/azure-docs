@@ -72,7 +72,7 @@ required:
 The AOSM CLI builds an NFDV that exposes the `required` parameter in the `deployParameters` property. The `optional` parameter isn't exposed. At deployment time, the CNF deploys with `optional` set to the default value of `optional`. The user triggering the deployment must provide a value for `required`.
 
 > [!IMPORTANT]
-> The AOSM CLI validates that the default `values.yaml` file in the helm chart is consistent with the chart by running `helm template`. The CLI raises an error if this `helm template` command fails. It is not valid to have a declared parameter without a value in the default `values.yaml` in the helm chart. You must use the syntax demonstrated in this example in the override values file.
+> The AOSM CLI validates that the default `values.yaml` file in the helm chart is consistent with the chart by running `helm template`. The CLI raises an error if this `helm template` command fails.
 
 ## Exposing all parameters
 
@@ -92,10 +92,7 @@ The AOSM CLI Extension, if `expose_all_parameters` is set to `true`:
 
 ## CGS construction
 
-In all cases, the AOSM CLI includes all exposed parameters in the CGS. This means:
-
-- Only required parameters with no default values are included in the CGS if `expose_all_parameters` is set to `false`
-- All parameters are included in the CGS if `expose_all_parameters` is set to `true`
+In all cases, all parameters exposed by the `az aosm nfd build` command are added to the CGS during the `az aosm nsd build` command. The AOSM CLI extension also adds some extra parameters to the CGS, not parsed from the ARM Template or helm values, such as `customLocationId` and `managedIdentityId`. These parameters are needed to deploy the Site Network Service on the target environment.
 
 ## Next Steps
 
