@@ -30,8 +30,6 @@ items:
     href: tutorials/deploy-chat-web-app.md
   - name: Build your own copilot using prompt flow
     href: tutorials/deploy-copilot-ai-studio.md
-  - name: Build your own copilot using Azure AI CLI and SDK
-    href: tutorials/deploy-copilot-sdk.md
   - name: Using Azure AI Studio with a screen reader
     href: tutorials/screen-reader.md
 - name: How-to
@@ -169,7 +167,7 @@ items:
         href: concepts/evaluation-metrics-built-in.md
       - name: Harms mitigation strategies with Azure AI
         href: concepts/evaluation-improvement-strategies.md
-    - name: Evaluate with Azure AI Studio and SDK
+    - name: Evaluate with Azure AI Studio
       href: how-to/evaluate-generative-ai-app.md
     - name: Manually evaluate prompts in Azure AI Studio playground
       href: how-to/evaluate-prompts-playground.md

@@ -19,6 +19,16 @@
             "source_path_from_root": "/articles/ai-studio/how-to/cli-install.md",
             "redirect_url": "/azure/ai-studio/how-to/sdk-install",
             "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/ai-studio/how-to/generate-data-qa.md",
+            "redirect_url": "/azure/ai-studio/how-to/data-add",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/ai-studio/how-to/simulator-interaction-data.md",
+            "redirect_url": "/azure/ai-studio/how-to/data-add",
+            "redirect_document_id": true
         }
     ]
 }
