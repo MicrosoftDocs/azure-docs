@@ -54,7 +54,7 @@ RUN mv terraform /usr/bin/terraform
 ```
 
 > [!Tip]
-> You can download your preferred version of the Terraform CLI from [Terraform releases](https://aka.ms/deployment-environments/terraform-cli-zip).
+> You can get the download URL for your preferred version of the Terraform CLI from [Hashicorp releases](https://aka.ms/deployment-environments/terraform-cli-zip).
 
 The ADE sample images are based on the Azure CLI image, and have the ADE CLI and JQ packages preinstalled. You can learn more about the [Azure CLI](/cli/azure/), and the [JQ package](https://devdocs.io/jq/).
 
