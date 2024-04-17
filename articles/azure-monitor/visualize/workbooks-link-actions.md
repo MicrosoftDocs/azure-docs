@@ -50,7 +50,7 @@ When you use the link renderer, the following settings are available:
 
 | Setting | Description |
 |:------------- |:-------------|
-|View to open| Allows you to select one of the actions enumerated above. |
+|View to open| Allows you to select one of the actions. |
 |Menu item| If **Resource Overview** is selected, this menu item is in the resource's overview. You can use it to open alerts or activity logs instead of the "overview" for the resource. Menu item values are different for each Azure Resource type.|
 |Link label| If specified, this value appears in the grid column. If this value isn't specified, the value of the cell appears. If you want another value to appear, like a heatmap or icon, don't use the link renderer. Instead, use the appropriate renderer and select the **Make this item a link** option. |
 |Open link in Context pane| If specified, the link is opened as a pop-up "context" view on the right side of the window instead of opening as a full view. |
@@ -66,7 +66,7 @@ When you use the **Make this item a link** option, the following settings are av
 
 ## ARM Action Settings
 
-Use this setting to invoke an ARM action by specifying the ARM api details. The documentation for ARM REST apis can be found [here](https://aka.ms/armrestapi). In all of the UX fields, you can resolve parameters using `{paramName}`. Also you can resolve columns using `["columnName"]`. In the example images below, we can reference the column `id` by writing `["id"]`. If the column is an Azure Resource Id, you can get a friendly name of the resource using the formatter `label`. This is similar to [parameter formatting](workbooks-parameters.md#parameter-formatting-options).
+Use this setting to invoke an ARM action by specifying the ARM API details. The documentation for ARM REST APIs can be found [here](https://aka.ms/armrestapi). In all of the UX fields, you can resolve parameters using `{paramName}`. You can also resolve columns using `["columnName"]`. In the example images below, we can reference the column `id` by writing `["id"]`. If the column is an Azure Resource ID, you can get a friendly name of the resource using the formatter `label`. This is similar to [parameter formatting](workbooks-parameters.md#parameter-formatting-options).
 
 ### ARM Action Settings Tab
 
@@ -85,7 +85,7 @@ This section defines the ARM action API.
 
 ### ARM Action UX Settings
 
-This section configures what the users will see before they run the ARM action.
+This section configures what the users see before they run the ARM action.
 
 | Source | Explanation |
 |:------------- |:-------------|
@@ -96,18 +96,18 @@ This section configures what the users will see before they run the ARM action.
 
 :::image type="content" source="media/workbooks-link-actions/arm-action-ux-settings.png" alt-text="Screenshot that shows Azure Workbooks ARM action UX settings.":::
 
-After these configurations are set, when the user clicks on the link, the view opens with the UX described here. If the user selects the button specified by **Run button text from**, it runs the ARM action using the configured values. On the bottom of the context pane, you can select **View Request Details** to inspect the HTTP method and the ARM API endpoint used for the ARM action.
+After these configurations are set, when the user selects the link, the view opens with the UX described here. If the user selects the button specified by **Run button text from**, it runs the ARM action using the configured values. On the bottom of the context pane, you can select **View Request Details** to inspect the HTTP method and the ARM API endpoint used for the ARM action.
 
 :::image type="content" source="media/workbooks-link-actions/arm-action-blade.png" alt-text="Screenshot that shows Azure Workbooks ARM action blade.":::
 
-The progress and result of the ARM Action is shown as an Azure Portal notification.
+The progress and result of the ARM Action is shown as an Azure portal notification.
 
 :::image type="content" source="media/workbooks-link-actions/arm-action-custom-notification.png" alt-text="Screenshot that shows Azure ARM custom notifications.":::
 
 
 ## Azure Resource Manager deployment link settings
 
-If the selected link type is **ARM Deployment**, you must specify more settings to open a Resource Manager deployment. There are two main tabs for configurations: **Template Settings** and **UX Settings**.
+If the link type is **ARM Deployment**, you must specify more settings to open a Resource Manager deployment. There are two main tabs for configurations: **Template Settings** and **UX Settings**.
 
 ### Template settings
 
@@ -117,7 +117,7 @@ This section defines where the template should come from and the parameters used
 |:------------- |:-------------|
 |Resource group ID comes from| The resource ID is used to manage deployed resources. The subscription is used to manage deployed resources and costs. The resource groups are used like folders to organize and manage all your resources. If this value isn't specified, the deployment fails. Select from **Cell**, **Column**, **Parameter**, and **Static Value** in [Link sources](#link-sources).|
 |ARM template URI from| The URI to the ARM template itself. The template URI needs to be accessible to the users who deploy the template. Select from **Cell**, **Column**, **Parameter**, and **Static Value** in [Link sources](#link-sources). For more information, see [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/).|
-|ARM Template Parameters|Defines the template parameters used for the template URI defined earlier. These parameters are used to deploy the template on the run page. The grid contains an **Expand** toolbar button to help fill the parameters by using the names defined in the template URI and set to static empty values. This option can only be used when there are no parameters in the grid and the template URI is set. The lower section is a preview of what the parameter output looks like. Select **Refresh** to update the preview with current changes. Parameters are typically values. References are something that could point to key vault secrets that the user has access to. <br/><br/> **Template Viewer pane limitation** doesn't render reference parameters correctly and will show up as null/value. As a result, users won't be able to correctly deploy reference parameters from the **Template Viewer** tab.|
+|ARM Template Parameters|Defines the template parameters used for the template URI defined earlier. These parameters are used to deploy the template on the run page. The grid contains an **Expand** toolbar button to help fill the parameters by using the names defined in the template URI and set to static empty values. This option can only be used when there are no parameters in the grid and the template URI is set. The lower section is a preview of what the parameter output looks like. Select **Refresh** to update the preview with current changes. Parameters are typically values. References are something that could point to key vault secrets that the user has access to. <br/><br/> **Template Viewer pane limitation** doesn't render reference parameters correctly and shows as a null/value. As a result, users won't be able to correctly deploy reference parameters from the **Template Viewer** tab.|
 <!-- convertborder later -->
 :::image type="content" source="./media/workbooks-link-actions/template-settings.png" lightbox="./media/workbooks-link-actions/template-settings.png" alt-text="Screenshot that shows the Template Settings tab." border="false":::
 
@@ -185,7 +185,7 @@ If the selected link type is **Workbook (Template)**, you must specify more sett
 |Workbook resources come from| An array of Azure Resource IDs that specify the default resource used in the workbook. For example, if the template being opened shows virtual machine metrics, the values here would be virtual machine resource IDs. Many times, the owner and resources are set to the same settings. |
 |Template ID comes from| Specify the ID of the template to be opened. A community template from the gallery is the most common case. Prefix the path to the template with `Community-`, like `Community-Workbooks/Performance/Apdex` for the `Workbooks/Performance/Apdex` template. If it's a link to a saved workbook or template, use the full path to the Azure resource ID of that item, for example, "/subscriptions/12345678-a1b2-1234-a1b2-c3d4e5f6/resourceGroups/rgname/providers/microsoft.insights/workbooks/1a2b3c4d-5678-abcd-xyza-1a2b3c4d5e6f. |
 |Workbook Type comes from| Specify the kind of workbook template to open. The most common cases use the default or workbook option to use the value in the current workbook. |
-|Gallery Type comes from| This value specifies the gallery type that's displayed in the **Gallery** view of the template that opens. The most common cases use the default or workbook option to use the value in the current workbook. |
+|Gallery Type comes from| This value specifies the gallery type displayed in the **Gallery** view of the template that opens. The most common cases use the default or workbook option to use the value in the current workbook. |
 |Location comes from| The location field should be specified if you're opening a specific workbook resource. If location isn't specified, finding the workbook content is slower. If you know the location, specify it. If you don't know the location or are opening a template with no specific location, leave this field as `Default`.|
 |Pass specific parameters to template| Select to pass specific parameters to the template. If selected, only the specified parameters are passed to the template or else all the parameters in the current workbook are passed to the template. In that case, the parameter *names* must be the same in both workbooks for this parameter value to work.|
 |Workbook Template Parameters| This section defines the parameters that are passed to the target template. The name should match with the name of the parameter in the target template. Select from **Cell**, **Column**, **Parameter**, and **Static Value**. The name and value must not be empty to pass that parameter to the target template.|
