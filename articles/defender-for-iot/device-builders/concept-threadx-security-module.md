@@ -2,7 +2,7 @@
 title: Conceptual explanation of the basics of the Defender-IoT-micro-agent for Eclipse ThreadX 
 description: Learn the basics about the Defender-IoT-micro-agent for Eclipse ThreadX concepts and workflow.
 ms.topic: conceptual
-ms.date: 17/04/2024
+ms.date: 04/17/2024
 ---
 
 # Defender-IoT-micro-agent for Eclipse ThreadX
