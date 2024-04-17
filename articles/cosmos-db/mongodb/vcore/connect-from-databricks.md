@@ -150,6 +150,7 @@ df_vcore.write.format("mongo").option("spark.mongodb.output.uri", connectionStri
 This command doesn't have an output as it writes directly to the collection. You can cross check if the record is updated using a read command.
 
 ### Read data from Azure Cosmos DB for MongoDB vCore collection running an Aggregation Pipeline
+
 [!Note]
 [Aggregation Pipeline](../tutorial-aggregation.md) is a powerful capability that allows to preprocess and transform data within Azure Cosmos DB for MongoDB. It's a great match for  real-time analytics, dashboards, report generation with roll-ups, sums & averages with 'server-side' data post-processing. (Note: there's a [whole book written about it](https://www.practical-mongodb-aggregations.com/front-cover.html)). 
 
