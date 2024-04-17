@@ -395,6 +395,20 @@ const partitionKey: PartitionKey = new PartitionKeyBuilder()
 // Create the item in the container
 const { resource: document } = await container.items.create(item, partitionKey);
 ```
+
+#### [Python SDK](#tab/python)
+
+For python, just make sure that values for all the fields in the partition key path are specified in the item definition.
+
+```python
+# specify values for all fields on partition key path
+item_definition = {'id': 'f7da01b0-090b-41d2-8416-dacae09fbb4a',
+                        'tenantId': 'Microsoft',
+                        'userId': '8411f20f-be3e-416a-a3e7-dcd5a3c1f28b',
+                        'sessionId': '0000-11-0000-1111'}
+
+item = container.create_item(body=item_definition)
+```
 ---
 
 ### Perform a key/value lookup (point read) of an item
