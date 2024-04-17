@@ -1,23 +1,23 @@
 ---
-title: "Condition monitoring, OEE calculation, forecasting, and anomaly detection concepts for Azure IoT"
-description: "Azure Industrial IoT reference architecture for condition monitoring, OEE calculation, forecasting, and anomaly detection."
+title: "Tutorial: Implement a condition monitoring solution"
+description: "Azure Industrial IoT reference architecture for condition monitoring, Overall Equipment Effectiveness (OEE) calculation, forecasting, and anomaly detection."
 author: barnstee
 ms.author: erichb
 ms.service: iot
-ms.topic: concept-article #Don't change.
-ms.date: 4/14/2024
+ms.topic: tutorial #Don't change.
+ms.date: 4/17/2024
 
 #customer intent: As an industrial IT engineer, I want to collect data from on-prem assets and systems so that I can enable the condition monitoring, OEE calculation, forecasting, and anomaly detection use cases for production managers on a global scale.
 
 ---
 
-# Azure Industrial IoT reference architecture
+# Tutorial: Implement the Azure Industrial IoT reference architecture for condition monitoring
 
 Manufacturers want to deploy an overall Industrial IoT solution on a global scale and connecting all of their production sites to this solution to increase efficiencies for each individual production site.
 
 These increased efficiencies lead to faster production and lower energy consumption, which all lead to lowering the cost for the produced goods while increasing their quality in most cases.
 
-The solution must be as efficient as possible and enable all required use cases like condition monitoring, OEE calculation, forecasting, and anomaly detection. From the insights gained from these use cases, in a second set a digital feedback loop can be created which can then apply optimizations and other changes to the production processes.
+The solution must be as efficient as possible and enable all required use cases like condition monitoring, OEE calculation, forecasting, and anomaly detection. From the insights gained from these use cases, in a second step a digital feedback loop can be created which can then apply optimizations and other changes to the production processes.
 
 Interoperability is the key to achieving a fast rollout of the solution architecture and the use of open standards like OPC UA significantly helps with achieving this interoperability.
 
@@ -46,10 +46,10 @@ Here are the components involved in this solution:
 | Component | Description |
 | --- | --- |
 | Industrial Assets | A set of simulated OPC-UA enabled production lines hosted in Docker containers |
-| [Azure IoT Operations](/azure/iot-operations/get-started/overview-iot-operations) | Azure IoT Operations is a unified data plane for the edge. It's composed of a set of modular, scalable, and highly available data services that run on Azure Arc-enabled edge Kubernetes clusters. |
+| [Azure IoT Operations](/azure/iot-operations/get-started/overview-iot-operations) | Azure IoT Operations is a unified data plane for the edge. It includes a set of modular, scalable, and highly available data services that run on Azure Arc-enabled edge Kubernetes clusters. |
 | [Data Gateway](/azure/logic-apps/logic-apps-gateway-install#how-the-gateway-works) | This gateway connects your on-premises data sources (like SAP) to Azure Logic Apps in the cloud. |
 | [Azure Kubernetes Services Edge Essentials](/azure/aks/hybrid/aks-edge-overview) | This Kubernetes implementation runs at the Edge. It provides single- and multi-node Kubernetes clusters for a fault-tolerant Edge configuration. Both K3S and K8S are supported. It runs on embedded or PC-class hardware, like an industrial gateway. |
-| [Azure Event Hubs](/azure/event-hubs/event-hubs-about) | The cloud message broker that receives OPC UA PubSub messages from edge gateways and stores them until they're retrieved by subscribers. |
+| [Azure Event Hubs](/azure/event-hubs/event-hubs-about) | The cloud message broker that receives OPC UA PubSub messages from edge gateways and stores them until retrieved by subscribers. |
 | [Azure Data Explorer](/azure/synapse-analytics/data-explorer/data-explorer-overview) | The time series database and front-end dashboard service for advanced cloud analytics, including built-in anomaly detection and predictions. |
 | [Azure Logic Apps](/azure/logic-apps/logic-apps-overview) | Azure Logic Apps is a cloud platform you can use to create and run automated workflows with little to no code. |
 | [Azure Arc](/azure/azure-arc/kubernetes/overview) | This cloud service is used to manage the on-premises Kubernetes cluster at the edge. New workloads can be deployed via Flux. |
@@ -69,12 +69,12 @@ Here are the components involved in this solution:
 
 ## A cloud-based OPC UA certificate store and persisted storage
 
-When manufacturers run OPC UA applications, their OPC UA configuration files, keys, and certificates must be persisted. While Kubernetes has the ability to persist these files in volumes, a safer place for them is the cloud, especially on single-node clusters where the volume would be lost when the node fails. This is why the OPC UA applications used in this solution store their configuration files, keys, and certificates in the cloud. This also has the advantage of providing a single location for mutually trusted certificates for all OPC UA applications.
+When manufacturers run OPC UA applications, their OPC UA configuration files, keys, and certificates must be persisted. While Kubernetes has the ability to persist these files in volumes, a safer place for them is the cloud, especially on single-node clusters where the volume would be lost when the node fails. This scenario is why the OPC UA applications used in this solution store their configuration files, keys, and certificates in the cloud. This approach also has the advantage of providing a single location for mutually trusted certificates for all OPC UA applications.
 
 
 ## UA Cloud Library
 
-You can read OPC UA Information Models directly from Azure Data Explorer. This is done by importing the OPC UA nodes defined in the OPC UA Information Model into a table for lookup of more metadata within queries. 
+You can read OPC UA Information Models directly from Azure Data Explorer. You can do this by importing the OPC UA nodes defined in the OPC UA Information Model into a table for lookup of more metadata within queries. 
 
 First, configure an Azure Data Explorer (ADX) callout policy for the UA Cloud Library by running the following query on your ADX cluster (make sure you're an ADX cluster administrator, configurable under Permissions in the ADX tab in the Azure portal):
 
@@ -138,7 +138,7 @@ For best results, change the `Layout` option to `Grouped` and the `Lables` to `n
 
 ## Production line simulation
 
-The solution uses a production line simulation made up of several stations, using an OPC UA information model, as well as a simple Manufacturing Execution System (MES). Both the Stations and the MES are containerized for easy deployment.
+The solution uses a production line simulation made up of several stations, using an OPC UA information model, and a simple Manufacturing Execution System (MES). Both the Stations and the MES are containerized for easy deployment.
 
 
 ### Default simulation configuration
@@ -162,7 +162,7 @@ The simulation is configured to include two production lines. The default config
 
 ### OPC UA node IDs of Station OPC UA server
 
-The following OPC UA Node IDs are used in the Station OPC UA Server for telemetry to the cloud
+The following OPC UA Node IDs are used in the Station OPC UA Server for telemetry to the cloud.
 * i=379 - manufactured product serial number
 * i=385 - number of manufactured products
 * i=391 - number of discarded products
@@ -186,7 +186,7 @@ Clicking on the button deploys all required resources on Microsoft Azure:
 
 [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fdigitaltwinconsortium%2FManufacturingOntologies%2Fmain%2FDeployment%2Farm.json)
 
-During deployment, you must provide a password for a VM used to host the production line simulation and for UA Cloud Twin. The password must have three of the following: One lower case character, one upper case character, one number, and one special character. The password must be between 12 and 72 characters long.
+During deployment, you must provide a password for a VM used to host the production line simulation and for UA Cloud Twin. The password must have three of the following attributes: One lower case character, one upper case character, one number, and one special character. The password must be between 12 and 72 characters long.
 
 > [!NOTE]
 > To save cost, the deployment deploys just a single Windows 11 Enterprise VM for both the production line simulation and the base OS for the Azure Kubernetes Services Edge Essentials instance. In production scenarios, the production line simulation isn't required and for the base OS for the Azure Kubernetes Services Edge Essentials instance, we recommend Windows IoT Enterprise Long Term Servicing Channel (LTSC).
@@ -248,7 +248,7 @@ The following example shows the command with all parameters:
     | ClientId | The name of the Azure Service Principal previously created. Azure Kubernetes Services uses this service principal to connect your cluster to Arc. |
     | ClientSecret | The password for the Azure Service Principal. |
 
-1. Save the file, close the PowerShell window, open a new **Administrator Powershell window**. Navigate back to the `C:\ManufacturingOntologies-main\Deployment` directory and run `SetupArc`.
+1. Save the file, close the PowerShell window, and open a new **Administrator Powershell window**. Navigate back to the `C:\ManufacturingOntologies-main\Deployment` directory and run `SetupArc`.
 
 You can now manage your Kubernetes cluster from the cloud via the newly deployed Azure Arc instance. In the Azure portal, browse to the Azure Arc instance and select Workloads. The required service token can be retrieved via `Get-AksEdgeManagedServiceToken` from an **Administrator Powershell window** on your virtual machine.
 
@@ -261,12 +261,12 @@ Make sure you have already started the production line simulation and enabled th
 
 1. From the Azure portal, navigate to the Key Vault deployed in this reference solution and add your own identity to the access policies by clicking `Access policies`, `Create`, select the `Keys, Secrets & Certificate Management` template, select `Next`, search for and select your own user identity, select `Next`, leave the Application section blank, select `Next` and finally `Create`.
 1. Enable custom locations for your Arc-connected Kubernetes cluster (called ontologies_cluster) by first logging in to your Azure subscription via `az login` from an **Administrator PowerShell Window** and then running `az connectedk8s enable-features -n "ontologies_cluster" -g "<resourceGroupName>" --features cluster-connect custom-locations`, providing the `resourceGroupName` from the reference solution deployed.
-1. From the Azure portal, deploy Azure IoT Operations by navigating to your Arc-connected kubernetes cluster, select on `Extensions`, `Add`, select `Azure IoT Operations` and select `Create`. On the Basic page, leave everything as-is. On the Configuration page, set the `MQ Mode` to `Auto`. You don't need to deploy a simulated Programmable Logic Controller (PLC), as this reference solution already contains a much more substantial production line simulation. On the Automation page, select the Key Vault deployed for this reference solution and then copy the `az iot ops init` command automatically generated. From your deployed VM, open a new **Administrator PowerShell Window**, sign in to the correct Azure subscription by running `az login` and then run the `az iot ops init` command with the arguments from the Azure portal. Once the command completes, select `Next` and then close the wizard. 
+1. From the Azure portal, deploy Azure IoT Operations by navigating to your Arc-connected kubernetes cluster, select on `Extensions`, `Add`, select `Azure IoT Operations`, and select `Create`. On the Basic page, leave everything as-is. On the Configuration page, set the `MQ Mode` to `Auto`. You don't need to deploy a simulated Programmable Logic Controller (PLC), as this reference solution already contains a much more substantial production line simulation. On the Automation page, select the Key Vault deployed for this reference solution and then copy the `az iot ops init` command automatically generated. From your deployed VM, open a new **Administrator PowerShell Window**, sign in to the correct Azure subscription by running `az login` and then run the `az iot ops init` command with the arguments from the Azure portal. Once the command completes, select `Next` and then close the wizard. 
 
 
 ## Configuring OPC UA security and connectivity for Azure IoT Operations
 
-Make sure you have successfully deployed Azure IoT Operations and all Kubernetes workloads are up and running by navigating to the Arc-enabled Kubernetes resource in the Azure portal.
+Make sure you successfully deployed Azure IoT Operations and all Kubernetes workloads are up and running by navigating to the Arc-enabled Kubernetes resource in the Azure portal.
 
 1. From the Azure portal, navigate to the Azure Storage deployed in this reference solution, open the `Storage browser` and then `Blob containers`. Here you can access the cloud-based OPC UA certificate store used in this solution. Azure IoT Operations uses Azure Key Vault as the cloud-based OPC UA certificate store so the certificates need to be copied:
     1. From within the Azure Storage browser's Blob containers, for each simulated production line, navigate to the app/pki/trusted/certs folder, select the assembly, packaging, and test cert file and download it.
@@ -283,7 +283,7 @@ Make sure you have successfully deployed Azure IoT Operations and all Kubernetes
 
 ## Use cases condition monitoring, calculating OEE, detecting anomalies, and making predictions in Azure Data Explorer
 
-You can also visit the [Azure Data Explorer documentation](/azure/synapse-analytics/data-explorer/data-explorer-overview) to learn how to create no-code dashboards for condition monitoring, yield or maintenance predictions, or anomaly detection. We have provided a sample dashboard [here](https://github.com/digitaltwinconsortium/ManufacturingOntologies/blob/main/Tools/ADXQueries/dashboard-ontologies.json) for you to deploy to the ADX Dashboard by following the steps outlined [here](/azure/data-explorer/azure-data-explorer-dashboards#to-create-new-dashboard-from-a-file). After import, you need to update the dashboard's data source by specifying the HTTPS endpoint of your ADX server cluster instance in the format `https://ADXInstanceName.AzureRegion.kusto.windows.net/` in the top-right-hand corner of the dashboard. 
+You can also visit the [Azure Data Explorer documentation](/azure/synapse-analytics/data-explorer/data-explorer-overview) to learn how to create no-code dashboards for condition monitoring, yield or maintenance predictions, or anomaly detection. We provided a sample dashboard [here](https://github.com/digitaltwinconsortium/ManufacturingOntologies/blob/main/Tools/ADXQueries/dashboard-ontologies.json) for you to deploy to the ADX Dashboard by following the steps outlined [here](/azure/data-explorer/azure-data-explorer-dashboards#to-create-new-dashboard-from-a-file). After import, you need to update the dashboard's data source by specifying the HTTPS endpoint of your ADX server cluster instance in the format `https://ADXInstanceName.AzureRegion.kusto.windows.net/` in the top-right-hand corner of the dashboard. 
 
 :::image type="content" source="media/concepts-iot-industrial-solution-architecture/dashboard.png" alt-text="Screenshot of an Azure Data Explorer dashboard." lightbox="media/concepts-iot-industrial-solution-architecture/dashboard.png" border="false" :::
 
@@ -320,7 +320,7 @@ For best results, change the `Layout` option to `Grouped`.
 
 ## Use Azure Managed Grafana Service
 
-You can also use Grafana to create a dashboard on Azure for this reference solution. Grafana is used within manufacturing to create dashboards that display real-time data. Azure offers a service named Azure Managed Grafana. With this, you can create cloud dashboards. In this configuration manual, you enable Grafana on Azure and you'll create a dashboard with data that is queried from Azure Data Explorer and Azure Digital Twins service, using the simulated production line data from this reference solution. 
+You can also use Grafana to create a dashboard on Azure for the solution described in this article. Grafana is used within manufacturing to create dashboards that display real-time data. Azure offers a service named Azure Managed Grafana. With this, you can create cloud dashboards. In this configuration manual, you enable Grafana on Azure and you create a dashboard with data that is queried from Azure Data Explorer and Azure Digital Twins service, using the simulated production line data from this reference solution. 
 
 The following screenshot shows the dashboard: 
 
@@ -352,7 +352,7 @@ After your first sign in, you'll need to add a new data source to Azure Data Exp
 
 ### Import a sample dashboard
 
-Now you are ready to import the provided sample dashboard. 
+Now you're ready to import the provided sample dashboard. 
 
 1. Download the sample dashboard here: [Sample Grafana Manufacturing Dashboard](https://github.com/digitaltwinconsortium/ManufacturingOntologies/blob/main/Tools/GrafanaDashboard/samplegrafanadashboard.json).
 

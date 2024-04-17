@@ -20,7 +20,7 @@ Many manufacturers use on-premises SAP Enterprise Resource Planning (ERP) system
 
 The following prerequisites are required to complete the SAP connection as described in this article.
 
-- An Azure Industrial IoT solution deployed in an Azure subscription as described in [Azure Industrial IoT reference architecture](concepts-iot-industrial-solution-architecture.md)
+- An Azure Industrial IoT solution deployed in an Azure subscription as described in [Azure Industrial IoT reference architecture](tutorial-iot-industrial-solution-architecture.md)
 
  
 ## IEC 62541 Open Platform Communications Unified Architecture (OPC UA)
@@ -35,7 +35,7 @@ This solution uses IEC 62541 Open Platform Communications (OPC) Unified Architec
 
 ## Components
 
-For a list of components, refer to [Azure Industrial IoT reference architecture](concepts-iot-industrial-solution-architecture.md).
+For a list of components, refer to [Azure Industrial IoT reference architecture](tutorial-iot-industrial-solution-architecture.md).
 
 
 ## Connect the reference solution to on-premises SAP Systems
