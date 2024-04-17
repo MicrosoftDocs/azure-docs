@@ -23,7 +23,7 @@ This article supplements [**Create an indexer**](search-howto-create-indexers.md
 
 ## Prerequisites
 
-+ [Azure File Storage](../storage/files/storage-how-to-use-files-portal.md), Transaction Optimized tier.
++ [Azure Files](../storage/files/storage-how-to-use-files-portal.md), Transaction Optimized tier.
 
 + An [SMB file share](../storage/files/files-smb-protocol.md) providing the source content. [NFS shares](../storage/files/files-nfs-protocol.md#support-for-azure-storage-features) are not supported.
 
