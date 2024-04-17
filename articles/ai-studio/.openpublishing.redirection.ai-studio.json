@@ -17,7 +17,7 @@
         },
         {
             "source_path_from_root": "/articles/ai-studio/how-to/cli-install.md",
-            "redirect_url": "/azure/ai-studio/how-to/sdk-install",
+            "redirect_url": "/azure/ai-studio/how-to/develop/sdk-overview",
             "redirect_document_id": true
         },
         {
@@ -33,6 +33,16 @@
         {
             "source_path_from_root": "/articles/ai-studio/tutorials/deploy-copilot-sdk.md",
             "redirect_url": "/azure/ai-studio/tutorials/deploy-copilot-ai-studio",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/ai-studio/how-to/sdk-install.md",
+            "redirect_url": "/azure/ai-studio/how-to/develop/sdk-overview",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/ai-studio/how-to/sdk-generative-overview.md",
+            "redirect_url": "/azure/ai-studio/how-to/develop/sdk-overview",
             "redirect_document_id": true
         }
     ]

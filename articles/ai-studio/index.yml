@@ -62,7 +62,7 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Get started with the Azure AI SDK
-            url: how-to/sdk-install.md
+            url: how-to/develop/sdk-overview.md
           - text: Work with Azure AI projects in VS Code
             url: how-to/develop-in-vscode.md
       - linkListType: concept

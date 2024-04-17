@@ -217,12 +217,10 @@ items:
         href: ../ai-services/encryption/cognitive-services-encryption-keys-portal.md?context=/azure/ai-studio/context/context
     - name: Vulnerability management
       href: concepts/vulnerability-management.md
-  - name: Azure AI Generative SDK
+  - name: Azure AI SDKs
     items:
     - name: Overview
-      href: how-to/sdk-generative-overview.md
-    - name: Get started with the Azure AI SDK
-      href: how-to/sdk-install.md
+      href: how-to/develop/sdk-overview.md
     - name: Work with Azure AI projects in VS Code
       href: how-to/develop-in-vscode.md
 - name: Responsible AI

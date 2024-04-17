@@ -22,7 +22,7 @@ Azure AI Studio brings together capabilities from across multiple Azure AI servi
 [Azure AI Studio](https://ai.azure.com) is designed for developers to:
 
 - Build generative AI applications on an enterprise-grade platform. 
-- Directly from the studio you can interact with a project code-first via the [Azure AI SDK](how-to/sdk-install.md).
+- Directly from the studio you can interact with a project code-first via [Visual Studio Code (Web)](how-to/develop-in-vscode.md).
 - Azure AI Studio is a trusted and inclusive platform that empowers developers of all abilities and preferences to innovate with AI and shape the future. 
 - Seamlessly explore, build, test, and deploy using cutting-edge AI tools and ML models, grounded in responsible AI practices. 
 - Build together as one team. Your [Azure AI Studio hub](./concepts/ai-resources.md) provides enterprise-grade security, and a collaborative environment with shared files and connections to pretrained models, data and compute.
