@@ -144,7 +144,7 @@ You can use the deviceManager to prompt a user to grant camera and/or microphone
 const result = await deviceManager.askDevicePermission({audio: true, video: true});
 ```
 
-Once the promise is resolved, the method returns with a [`DeviceAccess`](https://learn.microsoft.com/en-us/javascript/api/azure-communication-services/%40azure/communication-calling/deviceaccess?view=azure-communication-services-js) 
+Once the promise is resolved, the method returns with a [`DeviceAccess`](https://learn.microsoft.com/javascript/api/azure-communication-services/%40azure/communication-calling/deviceaccess?view=azure-communication-services-js) 
 object that indicates whether `audio` and `video` permissions were granted:
 
 ```js
