@@ -39,7 +39,7 @@ The Azure Spring Apps Enterprise plan offers the following components:
 
 You also have the flexibility to enable only the components that you need at any time. Below table tells the default resource consumption per component.
 
-| Tanzu component                   | vCPU | Memory  |
+| Tanzu component                   | vCPU (cores) | Memory (GBs) |
 |-----------------------------------|------|---------|
 | Build service                     | 2    | 4       |
 | Application Configuration Service | 1    | 2       |
