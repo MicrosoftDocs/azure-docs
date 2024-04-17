@@ -73,7 +73,7 @@ items:
     - name: Use MQTT to connect a Mobile device
       href: tutorial-use-mqtt.md
     - name: Implement a condition monitoring solution
-      href: concepts-iot-industrial-solution-architecture.md 
+      href: tutorial-iot-industrial-solution-architecture.md 
 
   - name: Concepts
     items:
