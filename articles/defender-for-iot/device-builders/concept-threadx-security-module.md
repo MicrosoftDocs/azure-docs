@@ -29,7 +29,7 @@ The module offers the following features:
 
 The Defender-IoT-micro-agent for Eclipse ThreadX is initialized by the Azure IoT middleware platform and uses IoT Hub clients to send security telemetry to the Hub.
 
-:::image type="content" source="media/concept-rtos-security-module/security-module-state-diagram.png" alt-text="Micro agent state diagram and information flow":::
+:::image type="content" source="media/concept-threadx-security-module/security-module-state-diagram.png" alt-text="Micro agent state diagram and information flow":::
 
 
 The Defender-IoT-micro-agent for Eclipse ThreadX monitors the following device activity and information using three collectors:
@@ -39,11 +39,11 @@ The Defender-IoT-micro-agent for Eclipse ThreadX monitors the following device a
 
 Each collector is linked to a priority group and each priority group has its own interval with possible values of **Low**, **Medium**, and **High**. The intervals affect the time interval in which the data is collected and sent.
 
-Each time interval is configurable and the IoT connectors can be enabled and disabled in order to further [customize your solution](how-to-azure-rtos-security-module.md). 
+Each time interval is configurable and the IoT connectors can be enabled and disabled in order to further [customize your solution](how-to-threadx-security-module.md). 
 
 ## Supported security alerts and recommendations
 
-The Defender-IoT-micro-agent for Eclipse ThreadX supports specific security alerts and recommendations. Make sure to [review and customize the relevant alert and recommendation values](concept-rtos-security-alerts-recommendations.md) for your service after completing the initial configuration.
+The Defender-IoT-micro-agent for Eclipse ThreadX supports specific security alerts and recommendations. Make sure to [review and customize the relevant alert and recommendation values](concept-threadx-security-alerts-recommendations.md) for your service after completing the initial configuration.
 
 ## Ready to begin?
 
@@ -51,6 +51,6 @@ Defender-IoT-micro-agent for Eclipse ThreadX is provided as a free download for 
 
 ## Next steps
 
-- Get started with Defender-IoT-micro-agent for Eclipse ThreadX [prerequisites and setup](./how-to-azure-rtos-security-module.md).
-- Learn more about Defender-IoT-micro-agent for Eclipse ThreadX [security alerts and recommendation support](concept-rtos-security-alerts-recommendations.md). 
-- Use the Defender-IoT-micro-agent for Eclipse ThreadX [reference API](azure-rtos-security-module-api.md).
+- Get started with Defender-IoT-micro-agent for Eclipse ThreadX [prerequisites and setup](./how-to-threadx-security-module.md).
+- Learn more about Defender-IoT-micro-agent for Eclipse ThreadX [security alerts and recommendation support](concept-threadx-security-alerts-recommendations.md). 
+- Use the Defender-IoT-micro-agent for Eclipse ThreadX [reference API](threadx-security-module-api.md).

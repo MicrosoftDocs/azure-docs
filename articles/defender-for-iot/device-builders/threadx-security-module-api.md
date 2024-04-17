@@ -80,4 +80,4 @@ Threads
 
 To learn more about how to get started with Eclipse ThreadX Defender-IoT-micro-agent, see the following articles:
 
-- Review the Defender for IoT RTOS Defender-IoT-micro-agent [overview](iot-security-azure-rtos.md).
+- Review the Defender for IoT Eclipse ThreadX Defender-IoT-micro-agent [overview](iot-security-xthread.md).

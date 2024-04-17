@@ -8,9 +8,9 @@ ms.date: 01/01/2023
 
 # Overview: Defender for IoT Defender-IoT-micro-agent for Eclipse ThreadX
 
-The Microsoft Defender for IoT micro module provides a comprehensive security solution for devices that use Eclipse ThreadX. It provides coverage for common threats and potential malicious activities on real-time operating system (RTOS) devices. Eclipse ThreadX now ships with the Azure IoT Defender-IoT-micro-agent built in.
-<!-- is this image oK? -->
-:::image type="content" source="./media/iot-security-azure-rtos/azure-rtos-security-monitoring.png" alt-text="Visualization of Defender for IoT Eclipse ThreadX.":::
+The Microsoft Defender for IoT micro module provides a comprehensive security solution for devices that use Eclipse ThreadX. It provides coverage for common threats and potential malicious activities on real-time operating system (FileX) devices. Eclipse ThreadX now ships with the Azure IoT Defender-IoT-micro-agent built in.
+
+:::image type="content" source="./media/iot-security-threadx/threadx-security-monitoring.png" alt-text="Visualization of Defender for IoT Eclipse ThreadX.":::
 
 The micro module for Eclipse ThreadX offers the following features:
 
@@ -38,5 +38,5 @@ Defender-IoT-micro-agent for Eclipse ThreadX is provided as a free download for 
 
 In this article, you learned about the Defender-IoT-micro-agent for Eclipse ThreadX. To learn more about the Defender-IoT-micro-agent and get started, see the following articles:
 
-- [Eclipse ThreadX IoT Defender-IoT-micro-agent concepts](concept-rtos-security-module.md)
-- [Quickstart: Eclipse ThreadX IoT Defender-IoT-micro-agent](./how-to-azure-rtos-security-module.md)
+- [Eclipse ThreadX IoT Defender-IoT-micro-agent concepts](concept-threadx-security-module.md)
+- [Quickstart: Eclipse ThreadX IoT Defender-IoT-micro-agent](./how-to-threadx-security-module.md)

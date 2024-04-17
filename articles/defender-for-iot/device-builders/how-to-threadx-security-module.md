@@ -70,7 +70,7 @@ Other configurations flags are advanced, and have unsupported features. Contact 
  
 ## Supported security alerts and recommendations
 
-The Defender-IoT-micro-agent for Eclipse ThreadX supports specific security alerts and recommendations. Make sure to [review and customize the relevant alert and recommendation values](concept-rtos-security-alerts-recommendations.md) for your service.
+The Defender-IoT-micro-agent for Eclipse ThreadX supports specific security alerts and recommendations. Make sure to [review and customize the relevant alert and recommendation values](concept-threadx-security-alerts-recommendations.md) for your service.
 
 ## Log Analytics (optional)
 
@@ -79,5 +79,5 @@ You can enable and configure Log Analytics to investigate device events and acti
 ## Next steps
 
 
-- Review and customize Defender-IoT-micro-agent for Eclipse ThreadX [security alerts and recommendations](concept-rtos-security-alerts-recommendations.md)
-- Refer to the [Defender-IoT-micro-agent for Eclipse ThreadX API](azure-rtos-security-module-api.md) as needed.
+- Review and customize Defender-IoT-micro-agent for Eclipse ThreadX [security alerts and recommendations](concept-xthread-security-alerts-recommendations.md)
+- Refer to the [Defender-IoT-micro-agent for Eclipse ThreadX API](azure-xthread-security-module-api.md) as needed.
