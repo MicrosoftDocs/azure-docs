@@ -49,7 +49,7 @@ After the transfer is complete, you can view and manage the file in the Azure po
 
 See the documentation of your SFTP client for guidance about how to connect and transfer files.
 
-## Connect using a custom domain
+### Connect using a custom domain
 
 When using custom domains the connection string is `myaccount.myuser@customdomain.com`. If home directory hasn't been specified for the user, it's `myaccount.mycontainer.myuser@customdomain.com`.
 	
@@ -58,12 +58,77 @@ When using custom domains the connection string is `myaccount.myuser@customdomai
 
 Add a link to the custom domain content.
 
-## Connect using a private endpoint
+### Connect using a private endpoint
 
 When using a private endpoint the connection string is `myaccount.myuser@myaccount.privatelink.blob.core.windows.net`. If home directory hasn't been specified for the user, it's `myaccount.mycontainer.myuser@myaccount.privatelink.blob.core.windows.net`.
 	
 > [!NOTE]
 > Ensure you change networking configuration to "Enabled from selected virtual networks and IP addresses" and select your private endpoint, otherwise the regular SFTP endpoint will still be publicly accessible.
+
+### Modify access control lists (ACLs)
+
+You can modify the ACL of a file by using an SFTP client. Changes that you make to the ACL of a file that is already uploaded to Blob Storage are automatically updated on the server.
+You can modify the owner ID, group ID, and set the permission for Owner, group, and Other users.  During the preview of this capability, you can't add named users or change the ACL of existing named users.
+
+#### Change the owner
+
+The following commands chang the owner:
+
+```console
+sftp> ls -l
+drwxr-x---        0        0                0 Mon, 08 Jan 2024 16:00:12 GMT dir1
+drwxr-x---        0        0                0 Mon, 16 Oct 2023 12:18:08 GMT dir2
+sftp> chown 1234 dir1
+Changing owner on /dir1
+sftp> ls -l
+drwxr-x---     1234        0                0 Mon, 08 Jan 2024 16:52:52 GMT dir1
+drwxr-x---        0        0                0 Mon, 16 Oct 2023 12:18:08 GMT dir2
+sftp>
+```
+
+The ACL of the blob in Azure is automatically updated. You can see that by opening it's access control list.
+
+Screenshot goes here.
+
+#### Change the group
+
+The following commands change the group:
+
+```console
+sftp> ls -l
+drwxr-x---     1234        0                0 Mon, 08 Jan 2024 16:52:52 GMT dir1
+drwxr-x---        0        0                0 Mon, 16 Oct 2023 12:18:08 GMT dir2
+sftp> chgrp 5678 dir1
+Changing group on /dir1
+sftp> ls -l
+drwxr-x---     1234     5678                0 Mon, 08 Jan 2024 16:53:25 GMT dir1
+drwxr-x---        0        0                0 Mon, 16 Oct 2023 12:18:08 GMT dir2
+```
+
+The ACL of the blob in Azure is automatically updated. You can see that by opening it's access control list.
+
+Screenshot goes here.
+
+#### Change the permissions
+
+You can change the perms of owner, group, and all other users.
+
+The following commands change permissions:
+
+```console
+sftp> ls -l
+drwxr-x---     1234     5678                0 Mon, 08 Jan 2024 16:53:25 GMT dir1
+drwxr-x---        0        0                0 Mon, 16 Oct 2023 12:18:08 GMT dir2
+sftp> chmod 777 dir1
+Changing mode on /dir1
+sftp> ls -l
+drwxrwxrwx     1234     5678                0 Mon, 08 Jan 2024 16:54:06 GMT dir1
+drwxr-x---        0        0                0 Mon, 16 Oct 2023 12:18:08 GMT dir2
+```
+
+The ACL of the blob in Azure is automatically updated. You can see that by opening it's access control list.
+
+Screenshot goes here.
 
 ## Related content
 
