@@ -426,7 +426,7 @@ Two Kubernetes built-in [types of Secrets](https://kubernetes.io/docs/concepts/c
 |---|---|
 |.kubernetes.secret.type|kubernetes.io/tls|
 
-### Refresh of secrets from Key Vault
+#### Refresh of secrets from Key Vault
 
 Refreshing secrets from Key Vaults usually requires reloading the corresponding Key Vault references from Azure App Configuration. However, with the `spec.secret.refresh` property, you can refresh the secrets from Key Vault independently. This is especially useful for ensuring that your workload automatically picks up any updated secrets from Key Vault during secret rotation. Note that to load the latest version of a secret, the Key Vault reference must not be a versioned secret.
 

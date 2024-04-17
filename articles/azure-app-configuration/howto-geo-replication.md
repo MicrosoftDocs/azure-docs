@@ -179,7 +179,7 @@ You can specify one or more endpoints of a geo-replication-enabled App Configura
 
 The automatically discovered replicas will be selected and used randomly. If you have a preference for specific replicas, you can explicitly specify their endpoints. This feature is enabled by default, but you can refer to the following sample code to disable it.
 
-### [.NET](#tab/Dotnet)
+### [.NET](#tab/dotnet)
 
 Edit the call to the `AddAzureAppConfiguration` method, which is often found in the `program.cs` file of your application.
 
@@ -216,7 +216,7 @@ spec:
 ```
 
 > [!NOTE]
-> The automatic replica discovery and failover support is available if you use version **1.3.0** or later of [Azure App Configuration Kubernetes Provider](https://mcr.microsoft.com/product/azure-app-configuration/kubernetes-provider/about).
+> The automatic replica discovery and failover support is available if you use version **1.3.0** or later of [Azure App Configuration Kubernetes Provider](./quickstart-azure-kubernetes-service.md).
 
 ---
 
