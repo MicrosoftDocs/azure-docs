@@ -4,7 +4,7 @@ description: Learn about security in the Flexible Server deployment option for A
 author: gennadNY
 ms.author: gennadyk
 ms.reviewer: maghan
-ms.date: 03/25/2024
+ms.date: 04/03/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
@@ -24,9 +24,9 @@ Multiple layers of security are available to help protect the data on your Azure
 
 Azure Database for PostgreSQL - Flexible Server encrypts data in two ways:
 
-- **Data in transit**: Azure Database for PostgreSQL - Flexible Server encrypts in-transit data with Secure Sockets Layer and Transport Layer Security (SSL/TLS). Encryption is enforced by default. See this [guide](how-to-connect-tls-ssl.md) for more details. For better security, you might choose to enable [SCRAM authentication in Azure Database for PostgreSQL - Flexible Server](how-to-connect-scram.md).
+- **Data in transit**: Azure Database for PostgreSQL - Flexible Server encrypts in-transit data with Secure Sockets Layer and Transport Layer Security (SSL/TLS). Encryption is enforced by default. For more detailed information  on connection security with SSL\TLS see this [documentation](../flexible-server/concepts-networking-ssl-tls.md). For better security, you might choose to enable [SCRAM authentication in Azure Database for PostgreSQL - Flexible Server](how-to-connect-scram.md).
 
-   Although it's not recommended, if needed, you have an option to disable TLS\SSL for connections to Azure Database for PostgreSQL - Flexible Server by updating the `require_secure_transport` server parameter to OFF. You can also set TLS version by setting `ssl_max_protocol_version` server parameters.
+   Although it's highly not recommended, if needed, due to legacy client incompatibility, you have an option to disable TLS\SSL for connections to Azure Database for PostgreSQL - Flexible Server by updating the `require_secure_transport` server parameter to OFF. You can also set TLS version by setting `ssl_max_protocol_version` server parameters.
 - **Data at rest**: For storage encryption, Azure Database for PostgreSQL - Flexible Server uses the FIPS 140-2 validated cryptographic module. Data is encrypted on disk, including backups and the temporary files created while queries are running.
 
   The service uses the AES 256-bit cipher included in Azure storage encryption, and the keys are system managed. This is similar to other at-rest encryption technologies, like transparent data encryption in SQL Server or Oracle databases. Storage encryption is always on and can't be disabled.
@@ -192,8 +192,13 @@ CREATE POLICY account_managers ON accounts TO managers
 
 The USING clause implicitly adds a `WITH CHECK` clause, ensuring that members of the manager role can't perform `SELECT`, `DELETE`, or `UPDATE` operations on rows that belong to other managers, and can't `INSERT` new rows belonging to another manager.
 
-> [!NOTE]  
-> In [PostgreSQL it is possible for a user to be assigned the `BYPASSRLS` attribute by another superuser](https://www.postgresql.org/docs/current/ddl-rowsecurity.html). With this permission, a user can bypass RLS for all tables in Postgres, as superuser. That permission cannot be assigned in Azure Database for PostgreSQL - Flexible Server, since administrator role has no superuser privileges, as common in cloud based PaaS PostgreSQL services.
+## Bypassing Row Level Security
+
+PostgreSQL has **BYPASSRLS** and **NOBYPASSRLS** permissions, which can be assigned to a role; NOBYPASSRLS is assigned by default. 
+With **newly provisioned servers** in Azure Database for PostgreSQL - Flexible Server bypassing row level security privilege (BYPASSRLS)is implemented as follows:
+* For Postgres 16 and above versioned servers we follow [standard PostgreSQL 16 behavior](#postgresql-16-changes-with-role-based-security).  Non-administrative users created by **azure_pg_admin** administrator role allow you to create roles with BYPASSRLS attribute\privilege as necessary. 
+* For Postgres 15 and below versioned servers. , you can use **azure_pg_admin** user to do administrative tasks that require BYPASSRLS privilege, but cannot create non-admin users with BypassRLS privilege, since administrator role has no superuser privileges, as common in cloud based PaaS PostgreSQL services.
+
 
 ## Update passwords
 

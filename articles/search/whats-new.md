@@ -1,6 +1,6 @@
 ---
 title: What's new in Azure AI Search
-description: Announcements of new and enhanced features, including a service rename of Azure Search to Azure AI Search.
+description: Announcements of new and enhanced features, including a service rename of Azure Cognitive Search to Azure AI Search.
 
 manager: nitinme
 author: HeidiSteen

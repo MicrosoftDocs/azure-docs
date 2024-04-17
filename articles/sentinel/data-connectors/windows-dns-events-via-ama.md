@@ -1,14 +1,14 @@
 ---
-title: "Windows DNS Events via AMA (Preview) connector for Microsoft Sentinel"
-description: "Learn how to install the connector Windows DNS Events via AMA (Preview) to connect your data source to Microsoft Sentinel."
+title: "Windows DNS Events via AMA connector for Microsoft Sentinel"
+description: "Learn how to install the connector Windows DNS Events via AMA to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 02/28/2023
+ms.date: 04/04/2024
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
 
-# Windows DNS Events via AMA (Preview) connector for Microsoft Sentinel
+# Windows DNS Events via AMA connector for Microsoft Sentinel
 
 The Windows DNS log connector allows you to easily filter and stream all analytics logs from your Windows DNS servers to your Microsoft Sentinel workspace using the Azure Monitoring agent (AMA). Having this data in Microsoft Sentinel helps you identify issues and security threats such as:
 - Trying to resolve malicious domain names.

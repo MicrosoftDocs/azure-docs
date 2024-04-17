@@ -25,7 +25,7 @@ Depending on the different target services and authentication types selected whe
 
 ### Add the Service Connector kubernetes extension
 
-A kubernetes extension named `sc-extension` is added to the cluster the first time a service connection is created. Later on, the extension helps create kubernetes resources in user's cluster, whenever a service connection request comes to Service Connector. You can find the extension in your AKS cluster in the Azure portal, in the Extensions + applications menu.
+A kubernetes extension named `sc-extension` is added to the cluster the first time a service connection is created. Later on, the extension helps create kubernetes resources in user's cluster, whenever a service connection request comes to Service Connector. You can find the extension in your AKS cluster in the Azure portal, in the **Extensions + applications** menu.
 
 :::image type="content" source="./media/aks-tutorial/sc-extension.png" alt-text="Screenshot of the Azure portal, view AKS extension.":::
 

@@ -91,7 +91,7 @@ This method provides an automated deployment of the VMware Carbon Black connecto
 
 1. Click the **Deploy to Azure** button below. 
 
-	[![Deploy To Azure](https://aka.ms/deploytoazurebutton)](https://aka.ms/deploytoazurebutton)](https://aka.ms/sentinelcarbonblackazuredeploy)
+	[![Deploy To Azure](https://aka.ms/deploytoazurebutton)](https://aka.ms/sentinelcarbonblackazuredeploy)
 2. Select the preferred **Subscription**, **Resource Group** and **Location**. 
 3. Enter the **Workspace ID**, **Workspace Key**, **Log Types**, **API ID(s)**, **API Key(s)**, **Carbon Black Org Key**, **S3 Bucket Name**, **AWS Access Key Id**, **AWS Secret Access Key**, **EventPrefixFolderName**,**AlertPrefixFolderName**,  and validate the **URI**.
 > - Enter the URI that corresponds to your region. The complete list of API URLs can be [found here](https://community.carbonblack.com/t5/Knowledge-Base/PSC-What-URLs-are-used-to-access-the-APIs/ta-p/67346)
