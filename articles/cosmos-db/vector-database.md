@@ -14,9 +14,9 @@ ms.date: 03/30/2024
 
 [!INCLUDE[NoSQL, MongoDB vCore, PostgreSQL](includes/appliesto-nosql-mongodbvcore-postgresql.md)]
 
-Vector databases are used in numerous domains and situations across analytical and generative AI, including natural language processing, video and image recognition, recommendation system, search, etc.
+Vector databases are used in numerous domains and situations across analytical and generative AI, including natural language processing, video and image recognition, recommendation system, and search, among others.
 
-In 2023, a notable trend in software was the integration of AI enhancements, often achieved by incorporating specialized standalone vector databases into existing tech stacks. This article explains what vector databases are, as well as presents an alternative architecture that you might want to consider: using an integrated vector database in the NoSQL or relational database you already use, especially when working with multi-modal data. This approach not only allows you to reduce cost but also achieve greater data consistency, scalability, and performance.
+In 2023, a notable trend in software was the integration of AI enhancements, often achieved by incorporating specialized standalone vector databases into existing tech stacks. This article explains what vector databases are and presents an alternative architecture that you might want to consider: using an integrated vector database in the NoSQL or relational database you already use, especially when working with multi-modal data. This approach not only allows you to reduce cost but also achieve greater data consistency, scalability, and performance.
 
 > [!TIP]
 > Data consistency, scalability, and performance are critical for data-intensive applications, which is why OpenAI chose to build the ChatGPT service on top of Azure Cosmos DB. You, too, can take advantage of its integrated vector database, as well as its single-digit millisecond response times, automatic and instant scalability, and guaranteed speed at any scale. See [implementation samples](#how-to-implement-integrated-vector-database-functionalities) and [try](#next-step) it for free.
@@ -105,6 +105,9 @@ Here are multiple ways to implement RAG on your data by using our integrated vec
 
 You can implement integrated vector database functionalities for the following [Azure Cosmos DB APIs](choose-api.md):
 
+> [!NOTE]
+> For our NoSQL API, the native integration of a state-of-the-art vector indexing algorithm will be announced during Build in May 2024. Please stay tuned.
+
 ### API for MongoDB
 
 Use the natively [integrated vector database in Azure Cosmos DB for MongoDB](mongodb/vcore/vector-search.md), which offers an efficient way to store, index, and search high-dimensional vector data directly alongside other application data. This approach removes the necessity of migrating your data to costlier alternative vector databases and provides a seamless integration of your AI-driven applications.
@@ -130,7 +133,7 @@ Use the natively integrated vector database in [Azure Cosmos DB for PostgreSQL](
 
 ### NoSQL API
 
-The natively integrated vector database in our NoSQL API will become available in mid-2024. In the meantime, you may implement RAG patterns with Azure Cosmos DB for NoSQL and [Azure AI Search](../search/vector-search-overview.md). This approach enables powerful integration of your data residing in the NoSQL API into your AI-oriented applications.
+The natively integrated vector databaseg in the NoSQL API is under development. In the meantime, you may implement RAG patterns with Azure Cosmos DB for NoSQL and [Azure AI Search](../search/vector-search-overview.md). This approach enables powerful integration of your data residing in the NoSQL API into your AI-oriented applications.
 
 #### Code samples
 
@@ -149,8 +152,10 @@ The natively integrated vector database in our NoSQL API will become available i
 > [!div class="nextstepaction"]
 > [Use the Azure Cosmos DB lifetime free tier](free-tier.md)
 
-## More Vector Store Solutions
+## More vector database solutions
 
 - [Azure PostgreSQL Server pgvector Extension](../postgresql/flexible-server/how-to-use-pgvector.md)
 - [Azure AI Search](../search/vector-store.md)
 - [Open Source Vector Databases](mongodb/vcore/vector-search-ai.md)
+
+:::image type="content" source="media/vector-search/vector-indexes-in-databases-and-ai-search.png" lightbox="media/vector-search/vector-indexes-in-databases-and-ai-search.png" alt-text="Vector indexing services":::
