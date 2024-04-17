@@ -501,6 +501,6 @@ This rating value should always be an integer between 1 and 5. So the rating pro
 ## Next steps
 
 - [Evaluate your generative AI apps via the playground](../how-to/evaluate-prompts-playground.md)
-- [Evaluate your generative AI apps with the Azure AI Studio or SDK](../how-to/evaluate-generative-ai-app.md)
+- [Evaluate your generative AI apps with the Azure AI Studio](../how-to/evaluate-generative-ai-app.md)
 - [View the evaluation results](../how-to/evaluate-flow-results.md)
 - [Transparency Note for Azure AI Studio safety evaluations](safety-evaluations-transparency-note.md)
