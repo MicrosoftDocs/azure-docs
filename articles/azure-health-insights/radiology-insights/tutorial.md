@@ -153,12 +153,11 @@ The codes (in this example SNOMED) can be displayed using the displayCodes() met
 
 ## Clean up resources
 
-If you created a resource or resource group for this tutorial, these can be cleaned up as explained here: [Deploy Azure Health Insights using CLI or Powershell](create-resource-cli.md#delete-a-resource-or-resource-group).
+If you created a resource or resource group for this tutorial, these can be cleaned up as explained here: [Deploy Azure Health Insights using CLI or Powershell](get-started-CLI.md).
 
 ## Related content
 
-[Link to corresponding sample, containing full code]
-
-* [Related article title](link.md)
-* [Related article title](link.md)
-* [Related article title](link.md)
+* [SampleFollowupRecommendationInferenceAsync](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/healthinsights/azure-health-insights-radiologyinsights/src/samples/java/com/azure/health/insights/radiologyinsights/SampleFollowupRecommendationInferenceAsync.java)
+* [Deploy Azure AI Health Insights using the Azure portal](../deploy-portal.md)
+* [Deploy Azure Health Insights using CLI or Powershell](get-started-CLI.md)
+* [Azure Cognitive Services Health Insights Radiology Insights client library for Java](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/healthinsights/azure-health-insights-radiologyinsights/README.md)
