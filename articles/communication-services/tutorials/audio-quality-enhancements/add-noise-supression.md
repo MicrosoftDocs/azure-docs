@@ -69,6 +69,28 @@ The `activeEffects` property returns an object with the names of the current act
 const currentActiveEffects = audioEffectsFeatureApi.activeEffects;
 ```
 
+### Start a call with Noise Suppression enabled
+To start a call with **noise suppression** turned on, you can create a new `LocalAudioStream` with a `AudioDeviceInfo` (the LocalAudioStream source <u>shouldn't</u> be a raw `MediaStream` to use audio effects), and pass it in the `CallStartOptions.audioOptions`:
+```js
+// As an example, here we are simply creating a LocalAudioStream using the current selected mic on the DeviceManager
+const audioDevice = deviceManager.selectedMicrophone;
+const localAudioStreamWithEffects = new SDK.LocalAudioStream(audioDevice);
+const audioEffectsFeatureApi = localAudioStreamWithEffects.feature(SDK.Features.AudioEffects);
+
+// Start effect
+await audioEffectsFeatureApi.startEffects({
+    noiseSuppression: deepNoiseSuppression
+});
+
+// Pass the LocalAudioStream in audioOptions in call start/accept options.
+await call.startCall({
+    audioOptions: {
+        muted: false,
+        localAudioStreams: [localAudioStreamWithEffects]
+    }
+});
+```
+
 ### How to turn on Noise Suppression during an ongoing call
 There are situations where a user might start a call and not have **noise suppression** turned on, but their current environment might get noisy resulting in them needing to turn on **noise suppression**. To turn on **noise suppression**, you can use the `audioEffectsFeatureApi.startEffects` API.
 ```js
@@ -89,28 +111,5 @@ await audioEffectsFeatureApi.startEffects({
 // To stop ACS Deep Noise Suppression
 await audioEffectsFeatureApi.stopEffects({
     noiseSuppression: true
-});
-```
-
-
-### Start a call with Noise Suppression enabled
-To start a call with **noise suppression** turned on, you can create a new `LocalAudioStream` with a `AudioDeviceInfo` (the LocalAudioStream source <u>shouldn't</u> be a raw `MediaStream` to use audio effects), and pass it in the `CallStartOptions.audioOptions`:
-```js
-// As an example, here we are simply creating a LocalAudioStream using the current selected mic on the DeviceManager
-const audioDevice = deviceManager.selectedMicrophone;
-const localAudioStreamWithEffects = new SDK.LocalAudioStream(audioDevice);
-const audioEffectsFeatureApi = localAudioStreamWithEffects.feature(SDK.Features.AudioEffects);
-
-// Start effect
-await audioEffectsFeatureApi.startEffects({
-    noiseSuppression: deepNoiseSuppression
-});
-
-// Pass the LocalAudioStream in audioOptions in call start/accept options.
-await call.startCall({
-    audioOptions: {
-        muted: false,
-        localAudioStreams: [localAudioStreamWithEffects]
-    }
 });
 ```

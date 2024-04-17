@@ -99,6 +99,7 @@ The following list presents the set of features that are currently available in 
 |                   | Custom background image                                                                                             | ✔️   | ❌       | ❌              | ❌                 |
 | Audio Effects     | [Music Mode](./music-mode.md)          | ❌   | ✔️       | ✔️              | ✔️                 |
 |      | [Audio filters](../../how-tos/calling-sdk/manage-audio-filters.md)          | ❌   | ✔️       | ✔️              | ✔️                 |
+|      | [Noise Supression](../../tutorials/audio-quality-enhancements/add-noise-supression.md)          | ✔️   | ❌       | ❌              | ❌                 |
 
 
 <sup>1</sup> The capability to Mute Others is currently in public preview.
