@@ -24,7 +24,7 @@ Traditional secrets scanning solutions often detect misplaced secrets in code re
 
 Scanning for cloud deployment secrets adds an extra layer of security, addressing scenarios such as: 
 
-- **Increased security coverage: In Defender for Cloud, DevOps security capabilities in Defender for Cloud [can identify exposed secrets](defender-for-devops-introduction.md) within source control management platforms. However, manually triggered cloud deployments from a developer’s workstation can lead to exposed secrets that might be overlooked. In addition, some secrets might only surface during deployment runtime, like those revealed in deployment outputs, or resolved from Azure Key Vault. Scanning for cloud deployment secrets bridges this gap.
+- **Increased security coverage**: In Defender for Cloud, DevOps security capabilities in Defender for Cloud [can identify exposed secrets](defender-for-devops-introduction.md) within source control management platforms. However, manually triggered cloud deployments from a developer’s workstation can lead to exposed secrets that might be overlooked. In addition, some secrets might only surface during deployment runtime, like those revealed in deployment outputs, or resolved from Azure Key Vault. Scanning for cloud deployment secrets bridges this gap.
 - **Preventing lateral movement**: Discovery of exposed secrets within deployment resources poses a significant risk of unauthorized access.
     - Threat actors can exploit these vulnerabilities to traverse laterally across an environment, ultimately compromising critical services
     -  Using attack path analysis with cloud deployment secrets scanning will automatically discover attack paths involving an Azure deployment that might lead to a sensitive data breach.  
@@ -68,17 +68,13 @@ The following cloud deployment secrets security recommendations are available:
 
 ### Attack path scenarios
 
-The table summarizes supported attack paths.
+The table summarizes supported attack paths. Currently an attack path for Azure Resource Manager deployments in Azure is supported: Internet exposed Azure VM with 
 
-**VM** | **Attack paths**
---- | ---
-Azure | Exposed Vulnerable VM has an insecure SSH private key that is used to authenticate to a VM.<br/>Exposed Vulnerable VM has insecure secrets that are used to authenticate to a storage account.<br/>Vulnerable VM has insecure secrets that are used to authenticate to a storage account.<br/>Exposed Vulnerable VM has insecure secrets that are used to authenticate to an SQL server.
-AWS | Exposed Vulnerable EC2 instance has an insecure SSH private key that is used to authenticate to an EC2 instance.<br/>Exposed Vulnerable EC2 instance has an insecure secret that are used to authenticate to a storage account.<br/>Exposed Vulnerable EC2 instance has insecure secrets that are used to authenticate to an AWS RDS server.<br/>Vulnerable EC2 instance has insecure secrets that are used to authenticate to an AWS RDS server.
-GCP | Exposed Vulnerable GCP VM instance has an insecure SSH private key that is used to authenticate to a GCP VM instance.
-
+ 
 ### Predefined cloud security explorer queries
 
-Defender for Cloud provides these predefined queries for investigating secrets security issues:
+In cloud security explorer, you can currently search for Azure Resource Manager deployments. For example, you might search for:
+Azure resource manager deployments, that contain secrets such as connection strings, SAS tokens, that can authenticate to 
 
 - VM with plaintext secret that can authenticate to another VM - Returns all Azure VMs, AWS EC2 instances, or GCP VM instances with plaintext secret that can access other VMs or EC2s.
 - VM with plaintext secret that can authenticate to a storage account - Returns all Azure VMs, AWS EC2 instances, or GCP VM instances with plaintext secret that can access storage accounts
