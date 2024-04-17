@@ -61,6 +61,31 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/container-registry/tutorial-enable-artifact-cache.md",
+            "redirect_url": "/azure/container-registry/container-registry-artifact-cache",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/container-registry/tutorial-enable-artifact-cache-cli.md",
+            "redirect_url": "/azure/container-registry/container-registry-artifact-cache",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/container-registry/tutorial-enable-artifact-cache-auth.md",
+            "redirect_url": "/azure/container-registry/container-registry-artifact-cache",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/container-registry/tutorial-enable-artifact-cache-auth-cli.md",
+            "redirect_url": "/azure/container-registry/container-registry-artifact-cache",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/container-registry/tutorial-artifact-cache-troubleshoot.md",
+            "redirect_url": "/azure/container-registry/troubleshoot-artifact-cache",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/container-registry/container-registry-diagnostics-audit-logs.md",
             "redirect_url": "/azure/container-registry/monitor-service"
         },
