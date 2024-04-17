@@ -366,6 +366,12 @@ This problem can be caused by the previous VPN client installations.
 
 Delete the old VPN client configuration files from **C:\Users\UserName\AppData\Roaming\Microsoft\Network\Connections\<VirtualNetworkId>** and run the VPN client installer again.
 
+## The VPN client hibernates or sleeps
+
+### Solution
+
+Check the sleep and hibernate settings in the computer that the VPN client is running on.
+
 ## I can't resolve records in Private DNS Zones using Private Resolver from point-to-site clients.
 
 ### Symptom
