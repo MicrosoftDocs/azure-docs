@@ -10,14 +10,14 @@ ms.service: azure-communication-services
 This tutorial describes how to enable file attachment support using the Azure Communication Services Chat SDK for C#.
 
 ## Sample code
-Find the finalized code of this tutorial on [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/ChatTeamsInteropQuickStart).
+Find the finalized code for this tutorial at [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/ChatTeamsInteropQuickStart).
 
 ## Prerequisites 
 
-* You went through the quickstart - [Join your chat app to a Teams meeting](../../../quickstarts/chat/meeting-interop.md). 
-* Created an Azure Communication Services resource. For details, see [Create an Azure Communication Services resource](../../../quickstarts/create-communication-resource.md). You need to **record your connection string** for this tutorial.
-* You set up a Teams meeting using your business account and have the meeting URL ready.
-* You have the Chat SDK for C# (@azure/communication-chat) 1.3.0 or the latest. See [here](https://www.nuget.org/packages/Azure.Communication.Chat).
+* Complete the quickstart [Join your chat app to a Teams meeting](../../../quickstarts/chat/meeting-interop.md). 
+* Create an Azure Communication Services resource as described in [Create an Azure Communication Services resource](../../../quickstarts/create-communication-resource.md). You need to **record your connection string** for this tutorial.
+* Set up a Teams meeting using your business account and have the meeting URL ready.
+* Download the Chat SDK for C# (@azure/communication-chat) 1.3.0 or the latest. See [Azure Communication Chat client library](https://www.nuget.org/packages/Azure.Communication.Chat).
 
 ## Handle file attachments
 
@@ -57,7 +57,7 @@ For example, the following JSON shows what `ChatAttachment` might look like for 
 ]
 ```
 
-Now let's go back to event handler we created in previous [quickstart](../../../quickstarts/chat/meeting-interop.md) to add some extra logic to handle attachments with `ChatAttachmentType` of `file`: 
+Now let's go back to the event handler we created in previous [quickstart](../../../quickstarts/chat/meeting-interop.md) and add some extra logic to handle attachments with `ChatAttachmentType` of `file`: 
 
 ```csharp
 
@@ -88,7 +88,6 @@ await foreach (ChatMessage message in allMessages)
 ```
 
 Specifically, for each file attachment, we get the `previewUrl` and construct a list of URLs in the `for loop`. Then we embed the string along with the chat message content.
-
 
 ## Handle image attachments
 
@@ -121,5 +120,4 @@ foreach (ChatAttachment imageAttachment in imageAttachments)
 }
 ```
 
-Now your support image attachments.
-
+Now your app supports image attachments.
