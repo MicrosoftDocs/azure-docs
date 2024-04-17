@@ -5,7 +5,7 @@ author: vijain
 ms.author: vijain
 ms.topic: conceptual
 ms.service: azure-migrate
-ms.date: 09/01/2023
+ms.date: 04/11/2024
 ms.custom: engagement-fy23, linux-related-content
 ---
 
@@ -51,6 +51,9 @@ Azure Migrate will create the network interface, a new virtual network, subnet, 
 After the virtual machine is created, Azure Migrate will invoke the [Custom Script Extension](../virtual-machines/extensions/custom-script-windows.md) on the temporary VM using the Azure Virtual Machine REST API. The Custom Script Extension utility will execute a preparation script containing the required configuration for Azure readiness on the on-premises VM disks attached to the temporary Azure VM. The preparation script is downloaded from an Azure Migrate owned storage account. The network security group rules of the virtual network will be configured to permit the temporary Azure VM to access the Azure Migrate storage account for invoking the script.
 
  ![Migration steps](./media/concepts-vmware-agentless-migration/migration-steps.png)
+
+>[!NOTE]
+>Hydration VM disks do not support Customer Managed Key (CMK). Platform Managed Key (PMK) is the default option.
 
 ## Changes performed during the hydration process
 

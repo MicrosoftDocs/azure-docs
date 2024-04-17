@@ -34,7 +34,7 @@ IoT Hub currently supports the following endpoints for message routing:
 * Service Bus queues
 * Service Bus topics
 * Event Hubs
-* Cosmos DB (preview)
+* Cosmos DB
 
 For more information about each of these endpoints, see [IoT Hub endpoints](./iot-hub-devguide-endpoints.md#custom-endpoints-for-message-routing).
 

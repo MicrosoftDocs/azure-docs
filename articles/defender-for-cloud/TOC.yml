@@ -452,7 +452,7 @@
           displayName: threat intelligence reports
           href: threat-intelligence-reports.md
         - name: Validate your alert configuration
-          displayname: eicar, Kubernetes, Linux
+          displayName: eicar, Kubernetes, Linux
           href: alert-validation.md
         - name: Automate responses to alerts
           displayName: workflow
@@ -1004,7 +1004,13 @@
         - name: Unified insights from Microsoft Entra permissions management
           href: episode-forty-three.md
         - name: Agentless malware detection
-          href: episode-forty-four.md   
+          href: episode-forty-four.md
+        - name: Risk prioritization
+          href: episode-forty-five.md
+        - name: DevOps Security Capabilities in Defender CSPM
+          href: episode-forty-six.md
+        - name: Vulnerability management in Defender CSPM
+          href: episode-forty-seven.md
     - name: Manage user data
       href: privacy.md
     - name: Microsoft Defender for IoT documentation

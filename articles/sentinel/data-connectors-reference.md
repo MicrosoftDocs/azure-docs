@@ -416,7 +416,6 @@ Data connectors are available as part of the following offerings:
 - [Azure Web Application Firewall (WAF)](data-connectors/azure-web-application-firewall-waf.md)
 - [Common Event Format (CEF)](data-connectors/common-event-format-cef.md)
 - [Common Event Format (CEF) via AMA](data-connectors/common-event-format-cef-via-ama.md)
-- [DNS](data-connectors/dns.md)
 - [Fortinet FortiWeb Web Application Firewall](data-connectors/fortinet-fortiweb-web-application-firewall.md)
 - [Microsoft 365 (formerly, Office 365)](data-connectors/microsoft-365.md)
 - [Microsoft Defender XDR](data-connectors/microsoft-365-defender.md)
