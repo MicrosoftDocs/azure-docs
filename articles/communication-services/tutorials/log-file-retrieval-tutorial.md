@@ -15,8 +15,24 @@ ms.custom: devx-track-extended-java
 zone_pivot_groups: acs-programming-languages-java-swift-csharp
 ---
 
+---
+title: Log file retrieval
+titleSuffix: An Azure Communication Services tutorial
+description: Learn how to retrieve Log Files from the Calling SDK for enhanced supportability.
+author: adamhammer
+manager: jamcheng
+services: azure-communication-services
+
+ms.author: adamhammer
+ms.date: 06/30/2021
+ms.topic: tutorial
+ms.service: azure-communication-services
+ms.subservice: identity
+ms.custom: devx-track-extended-java
+zone_pivot_groups: acs-programming-languages-java-swift-csharp
+---
+
 # Log File Access tutorial
-[!INCLUDE [Public Preview](../includes/public-preview-include-document.md)]
 
 In this tutorial, you learn how to access the Log Files stored on the device with the Calling SDK.
 
