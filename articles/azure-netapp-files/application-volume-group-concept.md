@@ -29,7 +29,7 @@ Individual volumes are the building blocks within an application volume group. V
 
 The following diagram captures an example layout of volumes deployed by an application volume group, which includes application volume groups provisioned in a secondary availability zone.
 
-:::image type="content" source="./media/application-volume-groups-concept/zonal-volume-group-diagram.png" alt-text="Diagram of zonal application volume group deployment." lightbox="./media/application-volume-groups-concept/zonal-volume-group-diagram.png":::
+:::image type="content" source="./media/application-volume-group-concept/application-volume-group-layout.png" alt-text="Diagram of zonal application volume group deployment." lightbox="./media/application-volume-group-concept/application-volume-group-layout.png":::
 
 Volumes are assigned names by application volume group according to a template and user input describing the purpose and deployment type.
 
@@ -73,7 +73,9 @@ Volume placement within the application volume group enables organizations to ad
 
 Upon execution of volume deployment application volume group detects available resources and applies logic to place volumes in the most optimal locations. In resource-constrained zones, volumes can share storage endpoints:
 
-:::image type="content" source="./media/application-volume-groups-concept/constrained-zone-diagram.png" alt-text="Diagram of constrained zone deployment." lightbox="./media/application-volume-groups-concept/constrained-zone-diagram.png":::
+:::image type="content" source="./media/application-volume-group-concept/resource-constrained-layout.png" alt-text="Diagram of constrained zone deployment." lightbox="./media/application-volume-group-concept/resource-constrained-layout.png":::
+
+
 
 Application volume group in Azure NetApp Files empowers you to optimize deployment procedures, application performance, availability, cost, and compliance for application workloads. Strategically allocating storage resources and leveraging advanced placement strategies enables you to enhance the agility, resilience, and efficiency of your storage infrastructure to meet evolving business needs.
 
