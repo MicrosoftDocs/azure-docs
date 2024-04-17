@@ -69,7 +69,7 @@ Follow the [instructions to enable Capture](../../articles/event-hubs/event-hubs
 ## Understand telemetry points
 
 ### Current telemetry schema version: 4.1
-The ground station provides telemetry using Avro as a schema. The schema is below:
+The ground station provides telemetry using Avro as a schema. The schema is below.  Note, Microsoft antennas emit Telemetry once the first data point is received. Telemetry is reported using a "last known value" approach, meaning that we will always send the most recent value we have for a metric. Due to this behavior, you may see a `NULL` value in the first second of a contact until that metric is first produced.
 
 ```json
 {
