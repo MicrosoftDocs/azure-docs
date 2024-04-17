@@ -26,7 +26,7 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/container-registry/tutorial-troubleshoot-artifact-cache.md",
+            "source_path_from_root": "/articles/container-registry/tutorial-troubleshoot-registry-cache.md",
             "redirect_url": "/azure/container-registry/troubleshoot-artifact-cache",
             "redirect_document_id": false
         },

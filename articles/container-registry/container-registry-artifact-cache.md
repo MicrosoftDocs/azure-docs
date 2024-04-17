@@ -115,7 +115,7 @@ The addition of the new cache rule is blocked because the target repository path
 
 ### Limitations for Static/fixed cache rules
 
-Static or fixed cache rules are more specific and do not use wildcards. They can overlap with wildcard-based cache rules. If a cache rule specifies a fixed repository path, then it's allowed to overlap with a wildcard-based cache rule.
+Static or fixed cache rules are more specific and do not use wildcards. They can overlap with wildcard-based cache rules. If a cache rule specifies a fixed repository path, then it allows overlapping with a wildcard-based cache rule.
 
 **Example 1**:
 
@@ -134,7 +134,7 @@ You can enable Artifact cache in your Azure Container Registry with or without a
 
 ### Prerequisites
 
-* You can use the [Azure Cloud Shell][Azure Cloud Shell] or a local installation of the Azure CLI to run the command examples in this article. If you'd like to use it locally, version 2.46.0 or later is required. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][Install Azure CLI].
+* You can use the [Azure Cloud Shell][Azure Cloud Shell] or a local installation of the Azure CLI to run the command examples in this article. If you'd like to use it locally, version 2.46.0 or later is required. Run `az --version` for finding the version. If you need to install or upgrade, see [Install Azure CLI][Install Azure CLI].
 * You have an existing Key Vault to store the credentials. Learn more about [creating and storing credentials in a Key Vault.][create-and-store-keyvault-credentials]
 * You can set and retrieve secrets from your Key Vault. Learn more about [set and retrieve a secret from Key Vault.][set-and-retrieve-a-secret]
 
