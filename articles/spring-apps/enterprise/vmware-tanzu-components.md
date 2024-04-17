@@ -46,7 +46,7 @@ You also have the flexibility to enable only the components that you need at any
 | Service Registry                  | 1    | 2       |
 | Spring Cloud Gateway              | 5    | 10      |
 | API Portal                        | 0.5  | 1       |
-| Dev Tools Portal                  | 1.25 | 2.25    |
+| Dev Tools Portal (for App Live View and App Accelerator)                  | 1.25 | 2.25    |
 | App Live View                     | 1.5  | 1.5     |
 | App Accelerator                   | 2    | 4.25    |
 
