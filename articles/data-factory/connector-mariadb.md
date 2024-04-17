@@ -294,6 +294,14 @@ Here are steps that help you upgrade your MariaDB driver version:
 
 1. The latest driver version v2 supports more MariaDB versions. For more information, see [Supported capabilities](connector-mariadb.md#supported-capabilities). 
 
+## Differences between MariaDB and MariaDB (legacy)
+
+The MariaDB connector offers new functionalities and is compatible with most features of MariaDB (legacy) connector. The table below shows the feature differences between MariaDB and MariaDB (legacy).
+
+|MariaDB |MariaDB (legacy)|
+|:---|:---|
+|The following mappings are used from MariaDB data types to interim data types used by the service internally.<br><br>bit(1) -> UInt64<br>bit(M), M>1	-> UInt64<br>bool -> Boolean<br>JSON -> String|The following mappings are used from MariaDB data types to interim data types used by the service internally.<br><br>bit(1) -> Boolean<br>bit(M), M>1 -> Byte[]<br>bool -> Int16<br>JSON -> Byte[]|
+
 ## Related content
 
 For a list of data stores supported as sources and sinks by the copy activity, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

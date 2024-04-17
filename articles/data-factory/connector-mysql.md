@@ -323,6 +323,14 @@ Here are steps that help you upgrade your MySQL driver version:
 
 1. The latest driver version v2 supports more MySQL versions. For more information, see [Supported capabilities](connector-mysql.md#supported-capabilities).
 
+## Differences between MySQL and MySQL (legacy)
+
+The MySQL connector offers new functionalities and is compatible with most features of MySQL (legacy) connector. The table below shows the feature differences between MySQL and MySQL (legacy).
+
+|MySQL |MySQL (legacy)|
+|:---|:---|
+|The following mappings are used from MySQL data types to interim data types used by the service internally.<br><br>bit(1) -> UInt64<br>bit(M), M>1	-> UInt64<br>bool -> Boolean<br>JSON -> String|The following mappings are used from MySQL data types to interim data types used by the service internally.<br><br>bit(1) -> Boolean<br>bit(M), M>1 -> Byte[]<br>bool -> Int16<br>JSON -> Byte[]|
+
 ## Related content
 
 For a list of data stores supported as sources and sinks by the copy activity, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

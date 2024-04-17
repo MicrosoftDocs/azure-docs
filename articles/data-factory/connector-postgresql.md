@@ -317,5 +317,13 @@ Here are steps that help you upgrade your PostgreSQL linked service:
 
 1. The data type mapping for the latest PostgreSQL linked service is different from that for the legacy version. To learn the latest data type mapping, see [Data type mapping for PostgreSQL](#data-type-mapping-for-postgresql).
 
+## Differences between PostgreSQL and PostgreSQL (legacy)
+
+The PostgreSQL connector offers new functionalities and is compatible with most features of PostgreSQL (legacy) connector. The table below shows the feature differences between PostgreSQL and PostgreSQL (legacy).
+
+|PostgreSQL |PostgreSQL (legacy)|
+|:---|:---|
+|The following mappings are used from PostgreSQL data types to interim data types used by the service internally.<br><br>Money -> Decimal<br>Timestamp with time zone -> DateTime<br>Time with time zone -> DateTimeOffset<br>Interval -> TimeSpan<br>The BigDecimal type is not supported. As an alternative, utilize `to_char()` function to convert BigDecimal to String. |The following mappings are used from PostgreSQL data types to interim data types used by the service internally.<br><br>Money -> String<br>Timestamp with time zone -> String<br>Time with time zone -> String<br>Interval -> String<br>BigDecimal -> String|
+
 ## Related content
 For a list of data stores supported as sources and sinks by the copy activity, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
