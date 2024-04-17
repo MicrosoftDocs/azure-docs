@@ -12,6 +12,7 @@ ms.date: 04/11/2024
 ms.author: pafarley
 ---
 
+# Custom categories 
 
 ## basic
 The Azure AI Content Safety Custom Category feature empowers users to create and manage their own content categories for enhanced moderation and filtering. This feature enables customers to define categories specific to their needs, provide sample data, train a custom machine learning model, and utilize it to classify new content according to the predefined categories.
@@ -69,8 +70,8 @@ After training, you need to evaluate the model to ensure it meets your accuracy 
 
 ## Next steps
 
-Follow the how-to guide to use the Azure AI Content Safety TBD API.
+Follow the how-to guide to create custom categories in Azure AI Content Safety.
 
-* [Use the TBD API](../how-to/TBD-response.md)
+* [Use custom category API](../how-to/custom-category.md)
 
 
