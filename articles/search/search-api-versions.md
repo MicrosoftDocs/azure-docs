@@ -27,7 +27,7 @@ See [Azure SDK lifecycle and support policy](https://azure.github.io/azure-sdk/p
 
 ## Deprecated versions
 
-**2023-07-01-preview** was deprecated on April 8, 2024 and will be retried on July 8, 2024. This was the first REST API that offered vector search support. Newer API versions have a different property structure. We recommend [migrating to a newer version](search-api-migration.md) as soon as possible.
+**2023-07-01-preview** was deprecated on April 8, 2024 and will be retired on July 8, 2024. This was the first REST API that offered vector search support. Newer API versions have a different vector configuration. We recommend [migrating to a newer version](search-api-migration.md) as soon as possible.
 
 <a name="unsupported-versions"></a>
 

@@ -125,7 +125,7 @@
     href: samples-rest.md
 - name: Concepts
   items:
-  - name: Indexing and storage
+  - name: Storage
     items:
     - name: Search index
       href: search-what-is-an-index.md
