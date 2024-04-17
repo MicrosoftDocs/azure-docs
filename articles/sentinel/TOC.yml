@@ -500,8 +500,6 @@
       href: data-connectors/digital-guardian-data-loss-prevention.md
     - name: Digital Shadows Searchlight (using Azure Functions)
       href: data-connectors/digital-shadows-searchlight-using-azure-functions.md
-    - name: DNS
-      href: data-connectors/dns.md
     - name: Dynamics 365
       href: data-connectors/dynamics-365.md
     - name: Dynatrace Attacks
