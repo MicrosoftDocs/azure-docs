@@ -15,7 +15,7 @@ Defender for Cloud provides security posture management capabilities for generat
 
 - You must [enable Microsoft Defender for Cloud](get-started.md#enable-defender-for-cloud-on-your-azure-subscription) on your Azure subscription.
 
-- You must sign up for and be approved for the preview by [filling out the preview form](https://forms.office.com/pages/responsepage.aspx?id=v4j5cvGGr0GRqy180BHbR9EXzLewuFRArQPJzR1tntlURThQR0hYU1MyRVRNODNMV1hBOUEzVlk3NC4u).
+- You must sign up for and be approved for the preview by [filling out the preview form](https://aka.ms/D4AI/PublicPreviewAccess).
 
 ## Enable the Defenders for AI workload plan
 

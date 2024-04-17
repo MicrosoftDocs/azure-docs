@@ -12,21 +12,25 @@ author: Elazark
 
 Defender for Cloud provides AI threat protection capabilities that help you secure your generative AI applications. These capabilities help you identify and respond to security issues in your generative AI applications.
 
-Generative AI based applications introduce various new risks and threats to organizations including Disruption of Service (DOS) attacks and user prompt injection attacks. These risks can generate the following alerts in Microsoft Defender for Cloud:
+Generative AI workloads are come with distinct vulnerabilities where threat actors can target not only the model itself, but also the entire application ecosystem, including the training and grounding data it leverages. As organizations embed AI into their workflows, security teams must secure their systems against attack techniques that exploit these vulnerabilities.
 
-- **Jailbreak** - an intentional attempt by a user to exploit the vulnerabilities of an LLM-powered system, bypass its safety mechanisms, and provoke restricted behaviors.
+Defender for Cloud's AI threat protection integrates with [Azure AI Content Safety Prompt Shields](../ai-services/content-safety/concepts/jailbreak-detection.md) and Microsoft's intelligence signals to secure your generative AI applications by providing alerts for the following types of threats:
 
-- **Credential threat** - an attempt by a user to get privileged information such as usernames and passwords from the AI.
+- **Sensitive data leak and data poisoning** - The inadvertent exposure or manipulation of sensitive organizational data, poses significant risks to confidentiality and compliance.
 
-- **Sensitive data leak** - an attempt by a user to bypass the model and application guardrails and obtain unauthorized sensitive data.
+- **Jailbreak** - When threat actors exploit vulnerabilities in generative AI applications to bypass safety mechanisms, provoke restricted behaviors, and compromise the integrity of AI applications.
 
-- **Wallet / DOS** - an attempt by a user to disrupt the service by sending a large number of requests to the AI model.
+- **Credential threat** - Unauthorized attempts to obtain privileged information, such as usernames and passwords, from AI systems can lead to unauthorized access and data breaches.
 
-Organizations need to identify, catalog, monitor, and govern the utilization of generative AI applications against potential risks such as sensitive information disclosure and insecure response handling. To combat these risks, Microsoft Defender for Cloud provides these alerts to help you identify and respond to security issues in your generative AI applications.
+Defender for Cloud relies on [Azure Open AI content filtering](../ai-services/openai/concepts/content-filter.md) for prompt-base triggered alert. If you have opted out of prompt-based trigger alerts and removed that capability, it can affect Defender for Cloud's ability to monitor and detect such attacks.
+
+## Defender XDR integration
+
+[Defender for Cloud's alerts and incidents integrated with Defender XDR](concept-integration-365.md), allow security teams to handle AI Workloads alerts on within the Defender XDR portal. Security teams can correlate alerts and incidents, and gain an understanding of the full scope of an attack, including malicious activities associated with generative AI applications from the XDR dashboard.
 
 ## Limited public preview
 
-To gain the benefits provided by the Defender for Workloads AI threat protection capabilities, you must be enrolled in the limited public preview program. To enroll in the preview you must fill out the [registration form](https://forms.office.com/pages/responsepage.aspx?id=v4j5cvGGr0GRqy180BHbR9EXzLewuFRArQPJzR1tntlURThQR0hYU1MyRVRNODNMV1hBOUEzVlk3NC4u).
+To gain the benefits provided by the Defender for Workloads AI threat protection capabilities, you must be enrolled in the limited public preview program. To enroll in the preview you must fill out the [registration form](https://aka.ms/D4AI/PublicPreviewAccess).
 
 The plan is offered in a preview capacity to scale, fine tune and enhance product offering with relevant features.
 
