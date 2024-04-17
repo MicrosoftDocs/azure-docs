@@ -4,7 +4,7 @@ description: Learn about the features of Azure Kubernetes Service (AKS) and how 
 ms.topic: overview
 ms.author: schaffererin
 author: schaffererin
-ms.date: 04/16/2024
+ms.date: 04/17/2024
 ---
 
 # What is Azure Kubernetes Service (AKS)?
@@ -63,7 +63,7 @@ The following table lists some of the key features of AKS:
 | **Clusters and nodes** | • Connect storage to nodes and pods, upgrade cluster components, and use GPUs. <br/> • Create clusters that run multiple node pools to support mixed operating systems and Windows Server containers. <br/> • Configure automatic scaling using the [cluster autoscaler](./cluster-autoscaler.md) and [horizontal pod autoscaler](./tutorial-kubernetes-scale.md#autoscale-pods). <br/> • Deploy clusters with [confidential computing nodes](../confidential-computing/confidential-nodes-aks-overview.md) to allow containers to run in a hardware-based trusted execution environment. |
 | **Storage volume support** | • Mount static or dynamic storage volumes for persistent data. <br/> • Use [Azure Disks](./azure-disk-csi.md) for single pod access and [Azure Files](./azure-files-csi.md) for multiple, concurrent pod access. <br/> • Use [Azure NetApp Files](./azure-netapp-files.md) for high-performance, high-throughput, and low-latency file shares. |
 | **Networking** | • Leverage [Kubenet networking](./concepts-network.md#kubenet-basic-networking) for simple deployments and [Azure Container Networking Interface (CNI) networking](./concepts-network.md#azure-cni-advanced-networking) for advanced scenarios. <br/> • [Bring your own Container Network Interface (CNI)](./use-byo-cni.md) to use a third-party CNI plugin. <br/> • Easily access applications deployed to your clusters using the [application routing add-on with nginx](./app-routing.md). |
-| **Development tooling integration** | • Develop on AKS with [Helm](./quickstart-helm.md). <br/> • Install the [Kubernetes extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-kubernetes-tools.vscode-kubernetes-tools) to manage your workloads. <br/> • Leverage the features of Istio with the [Istio-baed service mesh add-on](./istio-about.md). |
+| **Development tooling integration** | • Develop on AKS with [Helm](./quickstart-helm.md). <br/> • Install the [Kubernetes extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-kubernetes-tools.vscode-kubernetes-tools) to manage your workloads. <br/> • Leverage the features of Istio with the [Istio-based service mesh add-on](./istio-about.md). |
 
 ## Get started with AKS
 
