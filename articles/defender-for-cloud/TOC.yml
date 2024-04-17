@@ -902,7 +902,7 @@
             href: review-pull-request-annotations.md
       - name: Common questions about DevOps security
         href: faq-defender-for-devops.yml
-  - name: Defender for AI workloads
+  - name: Defender for AI Workloads
     items:
       - name: Overview - AI threat protection
         displayName: AI, Defender for AI

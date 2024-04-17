@@ -20,6 +20,8 @@ The Defender CSPM plan in Microsoft Defender for cloud helps you to improve the 
 
 - Have at least one [Azure OpenAI resource](../ai-studio/how-to/create-azure-ai-resource.md), with at least one [model deployment](../ai-studio/how-to/deploy-models-openai.md) connected to it via Azure AI Studio.
 
+- Read about [AI security posture management](ai-security-posture.md).
+
 ## Identify container images with vulnerabilities
 
 The cloud security explorer can be used to identify containers that are running generative AI container images with known vulnerabilities.

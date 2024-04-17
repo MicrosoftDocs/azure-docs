@@ -8,7 +8,7 @@ ms.date: 04/17/2024
 
 # Discover generative AI applications
 
-Defender for Cloud provides a comprehensive view of your cloud environment, including the generative Artificial Intelligence (AI) workloads and models running in your environment. By using the cloud security explorer, you can identify the AI workloads and models that are running in your environment and assess their security posture.
+Defender for Cloud provides a comprehensive view of cloud environments, including the generative AI workloads and models running in your environment. By using the cloud security explorer, you can identify the AI workloads and models that are running in your environment and assess their security posture.
 
 ## Prerequisites
 
@@ -20,9 +20,11 @@ Defender for Cloud provides a comprehensive view of your cloud environment, incl
 
 - Have at least one [Azure OpenAI resource](../ai-studio/how-to/create-azure-ai-resource.md), with at least one [model deployment](../ai-studio/how-to/deploy-models-openai.md) connected to it via Azure AI Studio.
 
+- Read about [AI security posture management](ai-security-posture.md).
+
 ## Discover workloads and models
 
-If you have multiple generative AI workloads and models running in your environment, you can use the cloud security explorer to identify them. 
+If you have generative AI workloads and models running in your environment, you can use the cloud security explorer to identify them. 
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
@@ -42,7 +44,7 @@ If you have multiple generative AI workloads and models running in your environm
 
     :::image type="content" source="media/identify-ai-workload-model/additional-resource-details.png" alt-text="Screenshot of the results with a different resource selected and its results are displayed." lightbox="media/identify-ai-workload-model/additional-resource-details.png":::
 
-With the information provided in the results, you can determine deployed models and specific model versions that are running on your resources.
+    The findings show the deployed models and specific model versions that are running on your resources.
 
 ## Next step
 

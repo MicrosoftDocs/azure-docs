@@ -26,7 +26,7 @@ Defenders for Cloud continuously discover deployed AI workloads. Currently suppo
 
 - Azure OpenAI Service
 - Azure Machine Learning
-- Amazon Bedrock. 
+- Amazon Bedrock.
 
 Defender for Cloud can also detect vulnerabilities within generative AI library dependencies, whether in source code or container images. 
 
