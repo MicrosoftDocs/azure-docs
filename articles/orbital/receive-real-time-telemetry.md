@@ -302,6 +302,7 @@ You can write simple consumer apps to receive events from your Event Hubs using 
 - [JavaScript](../event-hubs/event-hubs-node-get-started-send.md)
 
 ## Changelog
+2023-04-17 - Updated schema to include possible NULL for TLEs, and added EsN0 for QRX, and added blurb about how Microsoft antennas may have a NULL for a field during the first second of a contact.
 2023-10-03 - Introduce version 4.0. Updated schema to include uplink packet metrics and names of infrastructure in use (ground station, antenna, spacecraft, modem, digitizer, link, channel) <br>
 2023-06-05 - Updated schema to show metrics under channels instead of links.
 
