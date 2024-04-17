@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: Phil-Jensen
 ms.service: azure-netapp-files
 ms.topic: conceptual
-ms.date: 08/21/2023
+ms.date: 04/17/2024
 ms.author: phjensen
 ---
 
@@ -16,6 +16,18 @@ This page lists major changes made to AzAcSnap to provide new functionality or r
 Download the [latest release](https://aka.ms/azacsnapinstaller) of the installer and review how to [get started](azacsnap-get-started.md).  
 
 For specific information on Preview features, refer to the [AzAcSnap Preview](azacsnap-preview.md) page.
+
+## Apr-2024
+
+### AzAcSnap 9a (Build: 1B3B458)
+
+AzAcSnap 9a is being released with the following fixes and improvements:
+
+- Fixes and Improvements:
+  - Allow AzAcSnap to have Azure Management Endpoints manually configured to allow it to work in Azure Sovereign Clouds.
+    - Added a global override variable to be used in either the `.azacsnaprc` file or as an environment variable `AZURE_MANAGEMENT_ENDPOINT` for the appropriate management endpoints.  For example, on Linux you can `export AZURE_MANAGEMENT_ENDPOINT=https://management.usgovcloudapi.net` to ensure all management calls go to the Azure Management Endpoint for US Govt Cloud (ref: [Azure Government Guidance for developers](/articles/azure-government/compare-azure-government-global-azure.md#guidance-for-developers)).
+
+Download the [AzAcSnap 9a](https://aka.ms/azacsnap-9a) installer.
 
 ## Aug-2023
 
