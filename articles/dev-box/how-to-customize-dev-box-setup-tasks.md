@@ -35,7 +35,7 @@ You can implement customizations in stages, building from a simple but functiona
 
 ### Team-specific customization scenarios 
 
-Customizations are useful wherever you need to configure settings, install software, add extensions, or set common OS settings, like enabling Windows Features, on your dev boxes during the final stage of creation. Development team leads can use customizations to preconfigure the software required for their specific development team. Developer team leads can author configuration files that apply only the setup tasks relevant for their teams. This method lets developers make their own dev boxes that best fit their work, without needing to ask IT for changes or wait for the engineering team to create a custom VM image.  
+Customizations are useful wherever you need to configure settings or install software. You can also use customizations to add extensions, or to set common OS settings like enabling Windows Features on your dev boxes during the final stage of creation. Development team leads can use customizations to preconfigure the software required for their specific development team. Developer team leads can author configuration files that apply only the setup tasks relevant for their teams. This method lets developers make their own dev boxes that best fit their work, without needing to ask IT for changes or wait for the engineering team to create a custom VM image.  
 
 ### What are tasks? 
 
@@ -193,15 +193,20 @@ Creating new tasks in a catalog allows you to create customizations tailored to 
 
 1.	Create a configuration file for those tasks by following the steps in [Write a configuration file](#write-a-configuration-file). 
 
-## Use secrets from Azure Key Vault in your configuration
+## Use secrets from an Azure Key Vault
 
-But that’s not all. You can also use secrets, such as personal access tokens, from Azure Key Vault in your yaml configurations to clone private repositories (with the git-clone task), or with any custom task you author that requires an access token. 
+You can use secrets from your Azure Key Vault in your yaml configurations to clone private repositories, or with any custom task you author that requires an access token. 
 
-First, make sure to give your dev center project’s managed identity the Key Vault Reader role and Key Vault Secrets User role on your key vault, and any user (or group) who should be able to consume that secret when creating a customized Dev Box the Key Vault Secrets User role on that key vault. Be sure to also grant the Secrets User role to each user or user group who should be able to consume this secret during the customization of a dev box. You can now reference this secret in your yaml configuration in this format, using the git-clone task as an example:
+To configure your Key Vault secrets for use in your yaml configurations, follow these steps:
+1. Ensure that your dev center project’s managed identity has the Key Vault Reader role and Key Vault Secrets User role on your key vault. 
+2. Add any user (or group) who should be able to consume that secret when creating a customized dev box to the Key Vault Secrets User role on that key vault. 
+3. Grant the Secrets User role to each user or user group who should be able to consume this secret during the customization of a dev box. 
+
+You can reference the secret in your yaml configuration in this format, using the git-clone task as an example:
 
 :::image type="content" source="media/how-to-customize-dev-box-setup-tasks/customizations-reference-pat-in-yaml.png" alt-text="screenshot":::
 
-If you wish to clone a private AzDO repository, you don’t need to configure a secret in Key Vault. Instead, you can use "{{ado}}", or "{{ado://your-ado-organization-name}}" as a parameter, and this will fetch an access token on your behalf when creating a Dev Box. The access token fetched has read-only permission to your AzDO repository, and the git-clone task in Quickstart catalog can use this access token to clone your repository. Here is an example:
+If you wish to clone a private Azure Repos repository, you don’t need to configure a secret in Key Vault. Instead, you can use `{{ado}}`, or `{{ado://your-ado-organization-name}}` as a parameter. This fetches an access token on your behalf when creating a dev box, which has read-only permission to your Azure Repos repository. The git-clone task in the quickstart catalog uses the access token to clone your repository. Here's an example:
 
 :::image type="content" source="media/how-to-customize-dev-box-setup-tasks/customizations-reference-private-repo-in-yaml.png" alt-text="screenshot":::
 
