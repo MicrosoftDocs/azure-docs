@@ -45,9 +45,6 @@ This statement pulls the most recently published core image, and makes it a basi
 
 You can install the Terraform CLI to an executable location so that it can be used in your deployment and deletion scripts. 
 
-> [!Tip]
-> You can download the latest version of the Terraform CLI from [Terraform](https://aka.ms/deployment-environments/terraform-cli-zip).
-
 Here's an example of that process, installing version 1.7.5 of the Terraform CLI:
 
 ```azure cli
@@ -55,6 +52,9 @@ RUN wget -O terraform.zip https://releases.hashicorp.com/terraform/1.7.5/terrafo
 RUN unzip terraform.zip && rm terraform.zip
 RUN mv terraform /usr/bin/terraform
 ```
+
+> [!Tip]
+> You can download your preferred version of the Terraform CLI from [Terraform releases](https://aka.ms/deployment-environments/terraform-cli-zip).
 
 The ADE sample images are based on the Azure CLI image, and have the ADE CLI and JQ packages preinstalled. You can learn more about the [Azure CLI](/cli/azure/), and the [JQ package](https://devdocs.io/jq/).
 
