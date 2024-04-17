@@ -1,4 +1,4 @@
-# Test Event Hubs Locally with Event Hubs emulator 
+# Test Event Hubs Locally with Event hubs emulator 
 
 This article summarizes the steps to develop and test with local event hubs emulator. TO read more about Event hubs read :
 
