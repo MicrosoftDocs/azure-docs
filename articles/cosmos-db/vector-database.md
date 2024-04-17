@@ -133,7 +133,7 @@ Use the natively integrated vector database in [Azure Cosmos DB for PostgreSQL](
 
 ### NoSQL API
 
-The natively integrated vector database with state-of-the-art vector indexing in our NoSQL API will be announced during Build in May 2024. In the meantime, you may implement RAG patterns with Azure Cosmos DB for NoSQL and [Azure AI Search](../search/vector-search-overview.md). This approach enables powerful integration of your data residing in the NoSQL API into your AI-oriented applications.
+The natively integrated vector databaseg in the NoSQL API is under development. In the meantime, you may implement RAG patterns with Azure Cosmos DB for NoSQL and [Azure AI Search](../search/vector-search-overview.md). This approach enables powerful integration of your data residing in the NoSQL API into your AI-oriented applications.
 
 #### Code samples
 
