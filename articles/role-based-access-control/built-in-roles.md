@@ -7,7 +7,7 @@ ms.workload: identity
 author: rolyon
 manager: amycolannino
 ms.author: rolyon
-ms.date: 03/01/2024
+ms.date: 04/13/2024
 ms.custom: generated
 ---
 
@@ -284,6 +284,10 @@ The following table provides a brief description of each built-in role. Click th
 > | <a name='api-management-workspace-reader'></a>[API Management Workspace Reader](./built-in-roles/integration.md#api-management-workspace-reader) | Has read-only access to entities in the workspace. This role should be assigned on the workspace scope. | ef1c2c96-4a77-49e8-b9a4-6179fe1d2fd2 |
 > | <a name='app-configuration-data-owner'></a>[App Configuration Data Owner](./built-in-roles/integration.md#app-configuration-data-owner) | Allows full access to App Configuration data. | 5ae67dd6-50cb-40e7-96ff-dc2bfa4b606b |
 > | <a name='app-configuration-data-reader'></a>[App Configuration Data Reader](./built-in-roles/integration.md#app-configuration-data-reader) | Allows read access to App Configuration data. | 516239f1-63e1-4d78-a4de-a74fb236a071 |
+> | <a name='azure-api-center-compliance-manager'></a>[Azure API Center Compliance Manager](./built-in-roles/integration.md#azure-api-center-compliance-manager) | Allows managing API compliance in Azure API Center service. | ede9aaa3-4627-494e-be13-4aa7c256148d |
+> | <a name='azure-api-center-data-reader'></a>[Azure API Center Data Reader](./built-in-roles/integration.md#azure-api-center-data-reader) | Allows for access to Azure API Center data plane read operations. | c7244dfb-f447-457d-b2ba-3999044d1706 |
+> | <a name='azure-api-center-service-contributor'></a>[Azure API Center Service Contributor](./built-in-roles/integration.md#azure-api-center-service-contributor) | Allows managing Azure API Center service. | dd24193f-ef65-44e5-8a7e-6fa6e03f7713 |
+> | <a name='azure-api-center-service-reader'></a>[Azure API Center Service Reader](./built-in-roles/integration.md#azure-api-center-service-reader) | Allows read-only access to Azure API Center service. | 6cba8790-29c5-48e5-bab1-c7541b01cb04 |
 > | <a name='azure-relay-listener'></a>[Azure Relay Listener](./built-in-roles/integration.md#azure-relay-listener) | Allows for listen access to Azure Relay resources. | 26e0b698-aa6d-4085-9386-aadae190014d |
 > | <a name='azure-relay-owner'></a>[Azure Relay Owner](./built-in-roles/integration.md#azure-relay-owner) | Allows for full access to Azure Relay resources. | 2787bf04-f1f5-4bfe-8383-c8a24483ee38 |
 > | <a name='azure-relay-sender'></a>[Azure Relay Sender](./built-in-roles/integration.md#azure-relay-sender) | Allows for send access to Azure Relay resources. | 26baccc8-eea7-41f1-98f4-1762cc7f685d |
@@ -418,6 +422,7 @@ The following table provides a brief description of each built-in role. Click th
 > | <a name='reservations-administrator'></a>[Reservations Administrator](./built-in-roles/management-and-governance.md#reservations-administrator) | Lets one read and manage all the reservations in a tenant | a8889054-8d42-49c9-bc1c-52486c10e7cd |
 > | <a name='reservations-reader'></a>[Reservations Reader](./built-in-roles/management-and-governance.md#reservations-reader) | Lets one read all the reservations in a tenant | 582fc458-8989-419f-a480-75249bc5db7e |
 > | <a name='resource-policy-contributor'></a>[Resource Policy Contributor](./built-in-roles/management-and-governance.md#resource-policy-contributor) | Users with rights to create/modify resource policy, create support ticket and read resources/hierarchy. | 36243c78-bf99-498c-9df9-86d9f8d28608 |
+> | <a name='scheduled-patching-contributor'></a>[Scheduled Patching Contributor](./built-in-roles/management-and-governance.md#scheduled-patching-contributor) | Provides access to manage maintenance configurations with maintenance scope InGuestPatch and corresponding configuration assignments | cd08ab90-6b14-449c-ad9a-8f8e549482c6 |
 > | <a name='site-recovery-contributor'></a>[Site Recovery Contributor](./built-in-roles/management-and-governance.md#site-recovery-contributor) | Lets you manage Site Recovery service except vault creation and role assignment | 6670b86e-a3f7-4917-ac9b-5d6ab1be4567 |
 > | <a name='site-recovery-operator'></a>[Site Recovery Operator](./built-in-roles/management-and-governance.md#site-recovery-operator) | Lets you failover and failback but not perform other Site Recovery management operations | 494ae006-db33-4328-bf46-533a6560a3ca |
 > | <a name='site-recovery-reader'></a>[Site Recovery Reader](./built-in-roles/management-and-governance.md#site-recovery-reader) | Lets you view Site Recovery status but not perform other management operations | dbaa88c4-0c30-4179-9fb3-46319faa6149 |

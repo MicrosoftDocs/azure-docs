@@ -31,7 +31,7 @@ node --version
 
 ## Download the code
 
-If you completed [Tutorial: Connect a sample IoT Plug and Play device application running on Windows to IoT Hub (Node)](../articles/iot-develop/tutorial-connect-device.md), you've already cloned the repository.
+If you completed [Tutorial: Connect a sample IoT Plug and Play device application running on Windows to IoT Hub (Node)](../articles/iot/tutorial-connect-device.md), you've already cloned the repository.
 
 Open a command prompt in the directory of your choice. Execute the following command to clone the [Microsoft Azure IoT SDK for Node.js](https://github.com/Azure/azure-iot-sdk-node) GitHub repository into this location:
 

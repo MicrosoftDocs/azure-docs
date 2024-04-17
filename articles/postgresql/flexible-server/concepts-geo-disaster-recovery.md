@@ -8,7 +8,7 @@ ms.custom:
 ms.topic: conceptual
 ms.author: alkuchar
 author: AlicjaKucharczyk
-ms.date: 01/22/2024
+ms.date: 01/23/2024
 ---
 
 # Geo-disaster recovery in Azure Database for PostgreSQL - Flexible Server

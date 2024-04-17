@@ -25,6 +25,7 @@ If you're looking for the latest release notes, you can find them in the [What's
 
 | Planned change | Announcement date | Estimated date for change |
 |--|--|--|
+| [Change in CIEM assessment IDs](#change-in-ciem-assessment-ids) | April 16.2024 | May 2024 |
 | [Deprecation of encryption recommendation](#deprecation-of-encryption-recommendation) | April 3, 2024 | May 2024 |
 | [Deprecating of virtual machine recommendation](#deprecating-of-virtual-machine-recommendation) | April 2, 2024 | April 30, 2024 |
 | [General Availability of Unified Disk Encryption recommendations](#general-availability-of-unified-disk-encryption-recommendations) | March 28, 2024 | April 30, 2024 |
@@ -45,13 +46,27 @@ If you're looking for the latest release notes, you can find them in the [What's
 | [Deprecating two security incidents](#deprecating-two-security-incidents) |  | November 2023 |
 | [Defender for Cloud plan and strategy for the Log Analytics agent deprecation](#defender-for-cloud-plan-and-strategy-for-the-log-analytics-agent-deprecation) |  | August 2024 |
 
+## Change in CIEM assessment IDs
+
+**Announcement date: April 16, 2024**
+
+**Estimated date for change: May 2024**
+
+The following recommendations are scheduled for remodeling, which will result in changes to their assessment IDs:
+
+- `Azure overprovisioned identities should have only the necessary permissions`
+- `AWS Overprovisioned identities should have only the necessary permissions`
+- `GCP overprovisioned identities should have only the necessary permissions`
+- `Super identities in your Azure environment should be removed`
+- `Unused identities in your Azure environment should be removed`
+
 ## Deprecation of encryption recommendation
 
 **Announcement date: April 3, 2024**
 
 **Estimated date for change: May 2024**
 
-the recommendation ### [Virtual machines should encrypt temp disks, caches, and data flows between Compute and Storage resources](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/d57a4221-a804-52ca-3dea-768284f06bb7) is set to be deprecated.
+The recommendation [Virtual machines should encrypt temp disks, caches, and data flows between Compute and Storage resources](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/d57a4221-a804-52ca-3dea-768284f06bb7) is set to be deprecated.
 
 ## Deprecating of virtual machine recommendation
 
