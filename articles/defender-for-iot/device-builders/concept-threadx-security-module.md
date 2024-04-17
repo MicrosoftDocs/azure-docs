@@ -2,7 +2,7 @@
 title: Conceptual explanation of the basics of the Defender-IoT-micro-agent for Eclipse ThreadX 
 description: Learn the basics about the Defender-IoT-micro-agent for Eclipse ThreadX concepts and workflow.
 ms.topic: conceptual
-ms.date: 01/01/2023
+ms.date: 17/04/2024
 ---
 
 # Defender-IoT-micro-agent for Eclipse ThreadX
@@ -47,7 +47,7 @@ The Defender-IoT-micro-agent for Eclipse ThreadX supports specific security aler
 
 ## Ready to begin?
 
-Defender-IoT-micro-agent for Eclipse ThreadX is provided as a free download for your IoT devices. The Defender for IoT cloud service is available with a 30-day trial per Azure subscription. [Download the Defender-IoT-micro-agent now](https://github.com/azure-rtos/azure-iot-preview/releases) and let's get started. 
+Defender-IoT-micro-agent for Eclipse ThreadX is provided as a free download for your IoT devices. The Defender for IoT cloud service is available with a 30-day trial per Azure subscription. [Download the Defender-IoT-micro-agent now](https://github.com/eclipse-threadx) and let's get started. 
 
 ## Next steps
 

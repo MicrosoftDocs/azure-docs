@@ -2,7 +2,7 @@
 title: Defender-IoT-micro-agent for Eclipse ThreadX API
 description: Reference API for the Defender-IoT-micro-agent for Eclipse ThreadX.
 ms.topic: reference
-ms.date: 11/09/2021
+ms.date: 17/04/2024
 ---
 
 
@@ -10,7 +10,7 @@ ms.date: 11/09/2021
 
 Defender for IoT APIs are governed by [Microsoft API License and Terms of use](/legal/microsoft-apis/terms-of-use).
 
-This API is intended for use with the Defender-IoT-micro-agent for Eclipse ThreadX only. For additional resources, see the [Defender-IoT-micro-agent for Eclipse ThreadX GitHub resource](https://github.com/azure-rtos/azure-iot-preview/releases).
+This API is intended for use with the Defender-IoT-micro-agent for Eclipse ThreadX only. For additional resources, see the [Defender-IoT-micro-agent for Eclipse ThreadX GitHub resource](https://github.com/eclipse-threadx).
 
 ## Enable Defender-IoT-micro-agent for Eclipse ThreadX
 
