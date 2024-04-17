@@ -254,7 +254,7 @@ Ensure the integrity and confidentiality of applications and foster trust and co
 
 ### Palo Alto Networks
 
-:::image type="icon" source="./media/azure-linux-aks-partner-solutions/paloaltonetworks.png":::
+:::image type="icon" source="./media/azure-linux-aks-partner-solutions/palo-alto-networks.png":::
 
 | Solution | Categories |
 |----------|------------|
