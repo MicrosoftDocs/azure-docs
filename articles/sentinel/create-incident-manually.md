@@ -19,11 +19,11 @@ ms.date: 08/17/2022
 
 With Microsoft Sentinel as your security information and event management (SIEM) solution, your security operations' threat detection and response activities are centered on **incidents** that you investigate and remediate. These incidents have two main sources: 
 
-- They are generated automatically by detection mechanisms that operate on the logs and alerts that Sentinel ingests from its connected data sources.
+- They are generated automatically when detection mechanisms operate on the logs and alerts that Microsoft Sentinel ingests from its connected data sources.
 
 - They are ingested directly from other connected Microsoft security services (such as [Microsoft Defender XDR](microsoft-365-defender-sentinel-integration.md)) that created them.
 
-However, threat data can also come from other sources *not ingested into Microsoft Sentinel*, or events not recorded in any log, and yet can justify opening an investigation. For example, an employee might witness an unrecognized person engaging in suspicious activity related to your organization’s information assets, and this employee might call or email the security operations center (SOC) to report the activity.
+However, threat data can also come from other sources *not ingested into Microsoft Sentinel*, or events not recorded in any log, and yet can justify opening an investigation. For example, an employee might notice an unrecognized person engaging in suspicious activity related to your organization’s information assets. This employee might call or email the security operations center (SOC) to report the activity.
 
 Microsoft Sentinel allows your security analysts to manually create incidents for any type of event, regardless of its source or data, so you don't miss out on investigating these unusual types of threats.
 
@@ -39,7 +39,7 @@ Create incidents based on events from systems whose logs are not ingested into M
 
 ### Create incidents based on hunting results
 
-Create incidents based on the observed results of hunting activities. For example, in the course of your threat hunting activities in relation to a particular investigation (or independently), you might come across evidence of a completely unrelated threat that warrants its own separate investigation.
+Create incidents based on the observed results of hunting activities. For example, while threat hunting in the context of a particular investigation (or on your own), you might come across evidence of a completely unrelated threat that warrants its own separate investigation.
 
 ## Manually create an incident
 
