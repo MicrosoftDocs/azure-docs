@@ -325,8 +325,8 @@ This can be done by going through the array or video stream (`videoStreams`) of 
 is accessed via the `Call` object.
 
 ```js
-const remoteVideoStream: RemoteVideoStream = call.remoteParticipants[0].videoStreams[0];
-const streamType: MediaStreamType = remoteVideoStream.mediaStreamType;
+const remoteVideoStream = call.remoteParticipants[0].videoStreams[0];
+const streamType = remoteVideoStream.mediaStreamType;
 ```
 
 To render `RemoteVideoStream`, you have to subscribe to its `isAvailableChanged` event. If the `isAvailable` property changes to `true`,
@@ -447,16 +447,9 @@ application should render at a given moment. Applications should handle these ch
 accordingly to the recommendation. There's a debounce period (around 10 s) between each update.
 
 **Usage**
-The `optimalVideoCount` feature is a call feature.
+The `optimalVideoCount` feature is a call feature. You need to reference the feature `OptimalVideoCount` via the `feature` method of the `Call` object. You can then set a listener via the `on` method of the `OptimalVideoCountCallFeature` to be notifiied when the optimalVideoCount changes. To unsubscribe from the changes you can call the `off` method
 
-<!-- TODO KLG convert this to Javascript -->
-```typescript
-interface OptimalVideoCountCallFeature extends CallFeature {
-    off(event: 'optimalVideoCountChanged', listener: PropertyChangedEvent): void;
-    on(event: 'optimalVideoCountChanged', listener: PropertyChangedEvent): void;
-    readonly optimalVideoCount: number;
-}
-
+```javascript
 const optimalVideoCountFeature = call.feature(Features.OptimalVideoCount);
 optimalVideoCountFeature.on('optimalVideoCountChanged', () => {
     const localOptimalVideoCountVariable = optimalVideoCountFeature.optimalVideoCount;
