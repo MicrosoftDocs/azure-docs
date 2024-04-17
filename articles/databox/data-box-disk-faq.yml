@@ -190,7 +190,7 @@ sections:
               
           1. After you place the order, the order is processed and the disks are prepared. You will be notified via an email that your order is ready for pickup. 
           2. Once the order is ready for pickup, go to your order in the Azure portal and navigate to the **Overview** blade. 
-          3. You will see a notification with a code in the Azure portal. Email the [Azure Data Box Operations team](mailto:adbops@microsoft.com) and provide them the code. The team will provide the location and schedule a pickup date and time. You must call the team within 5 business days after you receive the email notification.
+          3. You will see a notification with a code in the Azure portal. Email the [Azure Data Box Operations team](mailto:adbops@microsoft.com) and provide them with the code. The team will provide the location and schedule a pickup date and time. You must call the team within 5 business days after you receive the email notification.
           
           Once the data copy and validation is complete, take the following steps to return your disk:
           
@@ -200,7 +200,7 @@ sections:
               - Reuse the packaging from the initial shipment. We recommend that you pack disks using a well-secured bubbled wrap.
               - Make sure the fit is snug to reduce any movements within the box.
           3. Go to the **Overview blade** for your order in Azure portal. You should see a notification with a code.
-          4. Use that code and email the [Azure Data Box Operations team](mailto:adbops@microsoft.com) and provide them the code. They would provide you information on where and when to drop off the disks.
+          4. Use that code and email the [Azure Data Box Operations team](mailto:adbops@microsoft.com) and provide them with the code. They would provide you with information on where and when to drop off the disks.
           
           
   - name: Migrate data
@@ -223,7 +223,7 @@ sections:
       - question: |
           How do I know that my data is secure during transit? 
         answer: |
-          Data Box Disks are encrypted using BitLocker AES-128 bit encryption and the passkey is only available in the Azure portal. Log into the Azure portal using your account credentials to get the passkey. Supply this passkey when you run the Data Box Disk unlock tool.
+          Data Box Disks are encrypted using BitLocker AES-128 bit encryption and the passkey is only available in the Azure portal. Log in to the Azure portal using your account credentials to get the passkey. Supply this passkey when you run the Data Box Disk unlock tool.
 
       - question: |
           How do I copy the data to the Data Box Disks? 

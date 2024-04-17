@@ -68,7 +68,7 @@ This step takes approximately 5 minutes.
 1. Create a new **Azure Data Box** resource in the Azure portal.
 2. Select a subscription enabled for this service and choose transfer type as **Import**. Provide the **Source country** where the data resides and **Azure destination region** for the data transfer.
 3. Select **Data Box Disk**. The maximum solution capacity is 35 TB and you can create multiple disk orders for larger data sizes.  
-4. Enter the order details and shipping information. Select either **Hardware encryption** (new) or **Software encryption** from the **Disk encryption type** drop down list. If the service is available in your region, provide notification email addresses, review the summary, and then create the order.
+4. Enter the order details and shipping information. Select either **Hardware encryption** (new) or **Software encryption** from the **Disk encryption type** drop-down list. If the service is available in your region, provide notification email addresses, review the summary, and then create the order.
 
 Once the order is created, the disks are prepared for shipment.
 

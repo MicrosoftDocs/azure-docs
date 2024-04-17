@@ -33,7 +33,7 @@ The system requirements include the supported platforms for clients connecting t
 2. You have a client computer available from which you can copy the data. Your client computer must:
 
     - Run a supported operating system.
-    - Have other required software installed.
+    - Have any additional required software installed.
 
 ::: zone-end
 
@@ -98,7 +98,7 @@ The following additional software is required.
 > [!Note]
 > Classic storage accounts are not supported beginning **August 1, 2023**.
 
-The follow table contains supported storage types for Data Box Disks.
+The following table contains supported storage types for Data Box Disks.
 
 | **Storage account** | **Supported access tiers** |
 | --- | --- |

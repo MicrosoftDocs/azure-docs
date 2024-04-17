@@ -157,7 +157,7 @@ Perform the following steps to connect and unlock your disks.
     .\DataBoxDiskUnlock.exe /help
     ```
 
-    :::image type="content" source="media/data-box-disk-deploy-set-up/disk-unlock-help.png" alt-text="Screenshot showing the output fo the Data Box Unlock tool's Help sommand." lightbox="media/data-box-disk-deploy-set-up/disk-unlock-help-lrg.png":::
+    :::image type="content" source="media/data-box-disk-deploy-set-up/disk-unlock-help.png" alt-text="Screenshot showing the output of the Data Box Unlock tool's Help command." lightbox="media/data-box-disk-deploy-set-up/disk-unlock-help-lrg.png":::
 
 8. After the disk is unlocked, you can view the contents of the disk.
 
@@ -229,7 +229,7 @@ Perform the following steps to connect and unlock hardware encrypted Data Box di
     > [!IMPORTANT]
     > SEDUtil is an external utility for Self-Encrypting Drives. This is not managed by Microsoft. More information, including license information for this utility, can be found at [https://sedutil.com/](https://sedutil.com/).
 
-1.	Extract `SEDUtil` to a local path on the machine and create a symbolic link to the utility path using the following example. Alternatively, you can add the utility paht to the `PATH` environment variable.
+1.	Extract `SEDUtil` to a local path on the machine and create a symbolic link to the utility path using the following example. Alternatively, you can add the utility path to the `PATH` environment variable.
 
     ```bash
     chmod +x /path/to/sedutil-cli
@@ -256,7 +256,7 @@ Perform the following steps to connect and unlock hardware encrypted Data Box di
 
     :::image type="content" source="media/data-box-disk-deploy-set-up/disk-serial.png" alt-text="Screen capture of example output of the sedutil tool showing identified volumes." lightbox="media/data-box-disk-deploy-set-up/disk-serial-lrg.png":::
    
-1.	Run the **Data Box Disk Unlock Utility** from the Linux toolset extracted in a previous step. Supply the passkey from the Azure portal you obtained from the **Connect to disks** section. Optionally, you can specify a list of Bitlocker encrypted volumes to unlock. The passkey and volume list should be specified within single quotes as shown in the following example.
+1.	Run the **Data Box Disk Unlock Utility** from the Linux toolset extracted in a previous step. Supply the passkey from the Azure portal you obtained from the **Connect to disks** section. Optionally, you can specify a list of BitLocker encrypted volumes to unlock. The passkey and volume list should be specified within single quotes as shown in the following example.
 
     ```bash
     chmod +x DataBoxDiskUnlock
@@ -267,9 +267,9 @@ Perform the following steps to connect and unlock hardware encrypted Data Box di
     sudo ./DataBoxDiskUnlock /Passkey:<'passkey'> /SerialNumbers:<'serialNumber1,serialNumber2'> /SED
     ```
    
-    The following example output indicates that the volume was successfully unlocked. The mount point is also displayed for the volume in whick your data can be copied.
+    The following example output indicates that the volume was successfully unlocked. The mount point is also displayed for the volume in which your data can be copied.
 
-    :::image type="content" source="media/data-box-disk-deploy-set-up/disk-unlocked.png" alt-text="Screen capture showing showing a successfully unlocked data box disk.":::
+    :::image type="content" source="media/data-box-disk-deploy-set-up/disk-unlocked.png" alt-text="Screen capture showing a successfully unlocked data box disk.":::
 
     > [!IMPORTANT]
     > Repeat the steps to unlock the disk for any future disk reinserts.
@@ -327,7 +327,7 @@ Perform the following steps to connect and unlock software encrypted Data Box di
     `chmod +x DataBoxDiskUnlock`
     `chmod +x DataBoxDiskUnlock_Prep.sh`
 
-    After the `chmod` command has been excuted, verify that the file permissions are changed by running the `ls` command as shown in the following sample output.
+    After the `chmod` command has been executed, verify that the file permissions are changed by running the `ls` command as shown in the following sample output.
 
     ```
         [user@localhost Downloads]$ chmod +x DataBoxDiskUnlock
@@ -337,7 +337,7 @@ Perform the following steps to connect and unlock software encrypted Data Box di
         -rwxrwxr-x. 1 user user 795 Aug 5 23:26 DataBoxDiskUnlock_Prep.sh
     ```
 
-1. Execute the following script to install the Data Box Disk Unlock binaries. Use `sudo` to run the command as root. An acknowledgement is displayed in the terminal to notify you of the successful installation.
+1. Execute the following script to install the Data Box Disk Unlock binaries. Use `sudo` to run the command as root. An acknowledgment is displayed in the terminal to notify you of the successful installation.
 
     `sudo ./DataBoxDiskUnlock_Prep.sh`
 
