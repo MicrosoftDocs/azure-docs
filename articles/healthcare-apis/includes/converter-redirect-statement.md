@@ -15,4 +15,4 @@ ms.author: jasteppe
 > - No dependency on [Azure Container Registry](../../container-registry/index.yml). 
 > - Easier integraton with storage accounts and GitHub repos.
 > 
-> To implement the FHIR converter container image, see the [FHIR converter Github project](https://github.com/Azure-Samples/azure-health-data-services-samples).
+> To implement the FHIR converter container image, see the [FHIR converter GitHub project](https://github.com/Azure-Samples/azure-health-data-services-samples).
