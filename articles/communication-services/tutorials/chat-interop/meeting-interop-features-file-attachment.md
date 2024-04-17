@@ -34,7 +34,7 @@ In addition to regular files (with `AttachmentType` of `file`), the Chat SDK als
 
 Azure Communication Services users can add images via **Upload from this device**, which renders on the Teams side and Chat SDK returns such attachments as `image`. For images uploaded via **Attach cloud files** however, images are treated as regular files on the Teams side, so Chat SDK returns such attachments as `file`.
 
-Also note that Azure Communication Services users can only upload files using drag-and-drop or via the attachment menu commands **Upload from this device** and **Attach cloud files**. Some messages with embedded media (such as video clips, audio messages, weather cards, and so on) are *adaptive card*, which currently isn't supported. For more information, see [Overview of adaptive cards for Microsoft Teams](/power-automate/overview-adaptive-cards.md)
+Also note that Azure Communication Services users can only upload files using drag-and-drop or via the attachment menu commands **Upload from this device** and **Attach cloud files**. Some messages with embedded media (such as video clips, audio messages, weather cards, and so on) are *adaptive card*, which currently isn't supported. For more information, see [Overview of adaptive cards for Microsoft Teams](/power-automate/overview-adaptive-cards)
 
 
 ::: zone pivot="programming-language-javascript"
