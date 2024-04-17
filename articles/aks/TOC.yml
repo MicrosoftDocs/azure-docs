@@ -240,9 +240,9 @@
       items:
         - name: Deploy a cluster in an Edge Zone
           href: edge-zones.md
-        - name: Cluster configuration options
-          href: cluster-configuration.md 
-        - name: Manually scale nodes in an AKS cluster
+        - name: Deploy a cluster with a fully managed resource group
+          href: node-resource-group-lockdown.md
+        - name: Scale an AKS cluster
           href: scale-cluster.md
         - name: Stop and start an AKS cluster
           href: start-stop-cluster.md
@@ -749,6 +749,8 @@
           href: use-windows-hpc.md
         - name: Upgrade from Windows Server 2019 to 2022
           href: upgrade-windows-2019-2022.md
+        - name: Use generation 2 VMs
+          href: generation-2-vm-windows.md
         - name: Create Dockerfiles for Windows Server containers
           href: /virtualization/windowscontainers/manage-docker/manage-windows-dockerfile?context=/azure/aks/context/aks-context
         - name: Optimize Dockerfiles for Windows Server containers
