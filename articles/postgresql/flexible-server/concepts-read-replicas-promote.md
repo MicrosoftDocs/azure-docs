@@ -83,6 +83,10 @@ When dealing with multiple replicas and if the primary region lacks a [paired re
 
 ## Frequently asked questions
 
+* **Can I promote a replica if my primary server has high availability (HA) enabled?**
+
+     Yes, whether your primary server is HA-enabled or not, you can promote its read replica. The ability to promote a read replica to a primary server is independent of the HA configuration of the primary. 
+
 * **If I have an HA-enabled primary and a read replica, and I promote the replica, then switch back to the original primary, will the server still be in HA?**
  
     No, we disable HA during the initial promotion since we do not support HA-enabled read replicas. Promoting a read replica to a primary means that the original primary is changing its role to a replica. If you are switching back, you will need to enable HA on your original primary server.
