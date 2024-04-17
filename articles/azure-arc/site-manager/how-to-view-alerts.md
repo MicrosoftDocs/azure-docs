@@ -59,4 +59,4 @@ View alert status for an Arc site from the main page of Azure Arc site manager (
 
 1. On a site's resource page, you can view the alert status for each resource within the site, including the resource responsible for the top-level most important status.
 
-   :::image type="content" source="./media/how-to-view-alerts/site-manager-overview-alerts-details-status-los-angeles.png" alt-text="Screenshot that shows the site detail page with alert status for each resource.":::
+   :::image type="content" source="./media/how-to-view-alerts/site-manager-overview-alerts-details-status-los-angeles.png" alt-text="Screenshot that shows the site detail page with alert status for each resource." lightbox="./media/how-to-view-alerts/site-manager-overview-alerts-details-status-los-angeles.png":::
