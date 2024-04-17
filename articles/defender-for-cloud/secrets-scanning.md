@@ -21,6 +21,9 @@ Defender for Cloud provides secrets scanning for virtual machines, and for cloud
 
 - **Virtual machines (VMs)**: Agentless secrets scanning on multicloud VMs.
 - **Cloud deployments**: Agentless secrets scanning across multicloud infrastructure-as-code deployment resources.
+- **Azure DevOps**: Scanning to discover exposed secrets in Azure DevOps.
+
+
 
 ## Deploying secrets scanning
 
@@ -104,5 +107,6 @@ Plaintext Azure Service Bus Shared Access Signature.|No	|Yes | Invento
 ## Related content
 - [VM secrets scanning](secrets-scanning-servers.md).
 - [Cloud deployment secrets scanning](secrets-scanning-cloud-deployment.md)
+- [Azure DevOps scanning](devops-support.md)
 
 

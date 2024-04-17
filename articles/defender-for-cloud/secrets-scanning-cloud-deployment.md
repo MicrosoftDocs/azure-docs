@@ -8,15 +8,42 @@ ms.date: 04/16/2024
 
 # Protecting cloud deployment secrets
 
-Defender for Cloud provides agentless secrets scanning for cloud deployments. Cloud deployments (infrastructure as code) refers to the process of deploying and managing resources on cloud providers such as Azure and AWS at scale, using tools such as Azure Resource Manager templates and AWS CloudFormation stack.
+Microsoft Defender for Cloud provides agentless secrets scanning for cloud deployments. 
+
+## What is cloud deployment?
+
+Cloud deployments refers to the process of deploying and managing resources on cloud providers such as Azure and AWS at scale, using tools such as Azure Resource Manager templates and AWS CloudFormation stack. In other words, a cloud deployment is an instance of an infrastructure-as-code (IaC) template. 
+
+Each cloud provide exposes an API query, and when querying APIs for cloud deployment resources, you typically retrieve deployment metadata such as deployment templates, parameters, output, and tags.
+
+
+## Security from software development to runtime
+
+Traditional secrets scanning solutions often detect misplaced secrets in code repositories, DevOps pipelines, or files within VMs and containers. Cloud deployment resources tend to be overlooked, and might potentially include plaintext secrets that can lead to critical assets, such as databases, blob storage, GitHub repositories, and Azure Open AI services. These secrets can allow attackers to exploit otherwise hidden attack surfaces within cloud environments.
+
+
+Scanning for cloud deployment secrets adds an extra layer of security, addressing scenarios such as: 
+
+- **Increased security coverage: In Defender for Cloud, DevOps security capabilities in Defender for Cloud [can identify exposed secrets](defender-for-devops-introduction.md) within source control management platforms. However, manually triggered cloud deployments from a developer’s workstation can lead to exposed secrets that might be overlooked. In addition, some secrets might only surface during deployment runtime, like those revealed in deployment outputs, or resolved from Azure Key Vault. Scanning for cloud deployment secrets bridges this gap.
+- **Preventing lateral movement**: Discovery of exposed secrets within deployment resources poses a significant risk of unauthorized access.
+    - Threat actors can exploit these vulnerabilities to traverse laterally across an environment, ultimately compromising critical services
+    -  Using attack path analysis with cloud deployment secrets scanning will automatically discover attack paths involving an Azure deployment that might lead to a sensitive data breach.  
+- **Resource discovery**: The impact of misconfigured deployment resources can be extensive, leading to the new resources being created on an expanding attack surface.
+    - Detecting and securing secrets within resource control plane data can help prevent potential breaches.
+    - Addressing exposed secrets during resource creation can be particularly challenging.
+    - Cloud deployment secrets scanning helps to identify and mitigate these vulnerabilities at an early stage. 
+
 
 Scanning helps you to quickly detect plaintext secrets in cloud deployments. If secrets are detected Defender for Cloud can assist your security team to prioritize action and remediate to minimize the risk of lateral movement.
 
+
+
+
 ## How does cloud deployment secrets scanning work?
 
-Secrets scanning for cloud deployment resources is agentless and uses cloud control plan APIs. 
+Scanning helps you to quickly detect plaintext secrets in cloud deployments. Secrets scanning for cloud deployment resources is agentless and uses the cloud control plane API.
 
-The Microsoft secrets scanning engine verifies whether SSH private keys can be used to move laterally in your network. 
+The Microsoft secrets scanning engine verifies whether SSH private keys can be used to move laterally in your network.
 
 - SSH keys that aren’t successfully verified are categorized as unverified on the Defender for Cloud Recommendations page. 
 - Directories recognized as containing test-related content are excluded from scanning.
