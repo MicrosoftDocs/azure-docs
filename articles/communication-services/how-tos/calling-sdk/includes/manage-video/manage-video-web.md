@@ -79,7 +79,7 @@ const defaultSpeaker = deviceManager.selectedSpeaker;
 await deviceManager.selectSpeaker(localCameras[0]);
 ```
 
-Each `CallAgent` can choose its own microphone and speakers on its associated `DeviceManager`. It's recommended that different `CallAgents` use different microphones and speakers. They shouldn't share the same microphones nor speakers. If sharing happens, then Microphone User Facing Diagnostics might be triggered and the microphone stops working depending on the browser / os.
+Each `CallAgent` can choose its own microphone and speakers on its associated `DeviceManager`. We recommend that different `CallAgents` use different microphones and speakers. They shouldn't share the same microphones nor speakers. If sharing happens, then Microphone User Facing Diagnostics might be triggered and the microphone stops working depending on the browser / os.
 
 ### Local video stream
 
@@ -111,7 +111,7 @@ You can use `deviceManager` and `VideoStreamRenderer` to begin rendering streams
 Once a `LocalVideoStream` is created, use it to set up`VideoStreamRenderer`. Once the `VideoStreamRenderer`is
 created call its `createView() method to get a view that you can add as a child to your page.
 
-Note that this stream isn't sent to other participants; it's a local preview feed.
+This stream isn't sent to other participants; it's a local preview feed.
 
 ```js
 // To start viewing local camera preview
@@ -447,7 +447,7 @@ application should render at a given moment. Applications should handle these ch
 accordingly to the recommendation. There's a debounce period (around 10 s) between each update.
 
 **Usage**
-The `optimalVideoCount` feature is a call feature. You need to reference the feature `OptimalVideoCount` via the `feature` method of the `Call` object. You can then set a listener via the `on` method of the `OptimalVideoCountCallFeature` to be notifiied when the optimalVideoCount changes. To unsubscribe from the changes you can call the `off` method
+The `optimalVideoCount` feature is a call feature. You need to reference the feature `OptimalVideoCount` via the `feature` method of the `Call` object. You can then set a listener via the `on` method of the `OptimalVideoCountCallFeature` to be notified when the optimalVideoCount changes. To unsubscribe from the changes, you can call the `off` method.
 
 ```javascript
 const optimalVideoCountFeature = call.feature(Features.OptimalVideoCount);
