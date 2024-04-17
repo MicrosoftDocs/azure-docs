@@ -200,7 +200,7 @@
     - name: Migrate NSG flow logs
       href: nsg-flow-logs-migrate.md
     - name: Read NSG flow logs
-      href: network-watcher-read-nsg-flow-logs.md
+      href: flow-logs-read.md
     - name: Analyze NSG flow logs
       items:
       - name: Use Power BI
