@@ -20,6 +20,8 @@
   items:
   - name: Fleets and member clusters
     href: concepts-fleet.md
+  - name: Scheduler and scheduling framework
+    href: concepts-scheduler-scheduling-framework.md
   - name: Update orchestration across multiple member clusters
     href: concepts-update-orchestration.md
   - name: Kubernetes workload orchestration

@@ -288,6 +288,10 @@ items:
       displayName: diagnostics, Survey, feedback, quality, reliability, users, end, call, quick
     - name: Collecting user feedback with the mobile UI Library
       href: tutorials/collecting-user-feedback/collecting-user-feedback.md
+    - name: Audio quality enhancements
+      items:
+        - name: Enabling noise supression
+          href: tutorials/audio-quality-enhancements/add-noise-supression.md
     - name: Virtual appointments
       items:      
       - name: Sample builder
