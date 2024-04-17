@@ -1,19 +1,19 @@
 ---
-title: "Tutorial: Retrieve supporting evidence for Radiology Insight inferences"
-description: "This tUtorial page shows how supporting evidence for Radiology Insight inferences can be retrieved."
+title: "Tutorial: Retrieve supporting evidence of Radiology Insights inferences"
+description: "This tutorial page shows how supporting evidence of Radiology Insights inferences can be retrieved."
 author: hvanhoe
 ms.author: hvanhoe
 ms.service: azure-health-insights
 ms.topic: tutorial  #Don't change.
 ms.date: 04/17/2024
 
-#customer intent: As a developer, I want to retrieve supporting evidence for inferences so that the origin of an inference in the report can be determined.
+#customer intent: As a developer, I want to retrieve supporting evidence of inferences so that the origin of an inference in the report text can be determined.
 
 ---
 
-# Tutorial: Retrieve supporting evidence for Radiology Insight inferences
+# Tutorial: Retrieve supporting evidence of Radiology Insight inferences
 
-This tutorial shows how to retrieve supporting evidence for Radiology Insight inferences. The supporting evidence shows on what part of the report text an Radiology Insight inference is based.
+This tutorial shows how to retrieve supporting evidence of Radiology Insight inferences. The supporting evidence shows what part of the report text triggered a specific Radiology Insights inference.
 
 In this tutorial, you:
 
@@ -23,13 +23,15 @@ In this tutorial, you:
 > * retrieve the imaging procedure recommendation and imaging procedure contained in this followup recommendation
 > * display the (SNOMED) codes and the evidence for the Modality and the Anatomy contained in the imaging procedure
 
-[If you don’t have a service subscription, create a free
-trial account . . .]
+If you don’t have a service subscription, create a free trial account: <a href="https://azure.microsoft.com/free/ai-services" target="_blank">Create one for free</a>.
+
+A complete working example of the code contained in this tutorial (with some extra additions) can be found here: [SampleFollowupRecommendationInferenceAsync](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/healthinsights/azure-health-insights-radiologyinsights/src/samples/java/com/azure/health/insights/radiologyinsights/SampleFollowupRecommendationInferenceAsync.java).
 
 ## Prerequisites
 
-Deploy a HealthInsights service...
-See ... for how to create a RadiologyInsightsClient and send a document.
+To use the Radiology Insights (Preview) model, you must have an Azure Health Insights service created. If you have no Azure Health Insights service, see [Deploy Azure AI Health Insights using the Azure portal](../deploy-portal.md) or [Deploy Azure Health Insights using CLI or Powershell](get-started-CLI.md).
+
+See [Azure Cognitive Services Health Insights Radiology Insights client library for Java](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/healthinsights/azure-health-insights-radiologyinsights/README.md) for an explanation on how to create a RadiologyInsightsClient, send a document to it, and retrieve a RadiologyInsightsInferenceResult.
 
 ## Retrieve the Followup Recommendation inference
 
@@ -51,14 +53,14 @@ Once you have a RadiologyInsightsInferenceResult, use the following code to retr
 
 ## Display the supporting evidence for this inference
 
-The object as exposed by the Java SDK are closely aligned with the FHIR standard. Therefore the supporting evidence for the Followup Recommendation inferences is encode inside FhirExtension objects. Retrieve those objects and display the evidence as in the following code:
+The objects as exposed by the Java SDK are closely aligned with the FHIR standard. Therefore the supporting evidence for the Followup Recommendation inferences is encoded inside FhirExtension objects. Retrieve those objects and display the evidence as in the following code:
 
 ```java
         List<FhirR4Extension> extensions = followupRecommendationInference.getExtension();
         System.out.println("   Evidence: " + extractEvidence(extensions));
 ```
 
-As the evidence is encoded in extensions wrapped in a top level extension, the extractEvidence() method loops over those "subextensions":
+As the evidence is encoded in extensions wrapped in a top level extension, the extractEvidence() method loops over those "subExtensions":
 
 ```java
     private static String extractEvidence(List<FhirR4Extension> extensions) {
@@ -75,7 +77,7 @@ As the evidence is encoded in extensions wrapped in a top level extension, the e
     }                    
 ```
 
-The extractEvidenceToken() method loops over those subExtensions and extracts the offsets and lengths for each token or word of the supporting evidence. Both offset and length are encoded as extensions with a corresponding "url" value. Finally the ofsets and length values are used to extract the tokens or words from the document text (as stored in the DOC_CONTENT constant):
+The extractEvidenceToken() method loops over these subExtensions and extracts the offsets and lengths for each token or word of the supporting evidence. Both offset and length are encoded as separate extensions with a corresponding "url" value ("offset" or "length"). Finally the offsets and length values are used to extract the tokens or words from the document text (as stored in the DOC_CONTENT constant):
 
 ```java
     private static String extractEvidenceToken(List<FhirR4Extension> subExtensions) {
@@ -99,7 +101,7 @@ The extractEvidenceToken() method loops over those subExtensions and extracts th
                     
 ## Retrieve the imaging procedure(s) contained in the followup recommendation
 
-The imaging procedures are wrapped in a ImagingProcedureRecommendation (which is itself a subclass of ProcedureRecommendation), and can be retrieved as follows:
+The imaging procedures are wrapped in an ImagingProcedureRecommendation (which is itself a subclass of ProcedureRecommendation), and can be retrieved as follows:
 
 ```java
         ProcedureRecommendation recommendedProcedure = followupRecommendationInference.getRecommendedProcedure();
@@ -130,7 +132,7 @@ An imaging procedure can contain both a modality and an anatomy. The supporting 
                         }
 ```
 
-The codes (in this example SNOMED) can be displayed using the displayCodes() method. The codes are wrapped in FHir4Coding objects, and can be displayed in a straightforward manner as in the followin code. The indentation parameter is only added for formatting purposes:
+The codes (in this example SNOMED) can be displayed using the displayCodes() method. The codes are wrapped in FHir4Coding objects, and can be displayed in a straightforward manner as in the following code. The indentation parameter is only added for formatting purposes:
 
 ```java
     private static void displayCodes(FhirR4CodeableConcept codeableConcept, int indentation) {
@@ -151,7 +153,7 @@ The codes (in this example SNOMED) can be displayed using the displayCodes() met
 
 ## Clean up resources
 
-[Link to deployment documentation.]
+If you created a resource or resource group for this tutorial, these can be cleaned up as explained here: [Deploy Azure Health Insights using CLI or Powershell](create-resource-cli.md#delete-a-resource-or-resource-group).
 
 ## Related content
 
