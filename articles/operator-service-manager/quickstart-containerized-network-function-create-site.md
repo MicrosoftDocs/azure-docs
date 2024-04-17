@@ -41,7 +41,7 @@ Sites can be within a single Azure region or an on-premises location. If colloca
     |Setting  |Value  |
     |---------|---------|
     |NFVI Name     |  Enter nginx_NFVI1.       |
-    |NFVI Type     |   Select AzureOperatorNexus.      |
+    |NFVI Type     |   Select Azure Arc Kubernetes.      |
     |Custom Location ID    |    Select your custom location that you created in the previous guide.     |
 
     :::image type="content" source="media/create-site-add-nfvis.png" alt-text="Screenshot showing the Add the NFVIs table to enter the name, type and custom location of the NFVIs.":::
