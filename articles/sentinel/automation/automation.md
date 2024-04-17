@@ -16,7 +16,7 @@ ms.collection: usx-security
 
 This article describes Microsoft Sentinel's security orchestration, automation, and response (SOAR) capabilities, and shows how using automation rules and playbooks in response to security threats increases your SOC's effectiveness and saves you time and resources.
 
-[!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]
+[!INCLUDE [unified-soc-preview](../includes/unified-soc-preview.md)]
 
 ## Microsoft Sentinel as a SOAR solution
 

@@ -1110,11 +1110,11 @@
     - name: Advanced playbook scenarios
       items:
       - name: Migrate alert playbooks to automation rules
-       href: automation/migrate-playbooks-to-automation-rules.md
-    - name: Define an access restriction for Standard-plan playbooks
-      href: automation/define-playbook-access-restrictions.md
-    - name: Create and perform advanced incident tasks using playbooks
-      href: automation/create-tasks-playbook.md
+        href: automation/migrate-playbooks-to-automation-rules.md
+      - name: Define an access restriction for Standard-plan playbooks
+        href: automation/define-playbook-access-restrictions.md
+      - name: Create and perform advanced incident tasks using playbooks
+        href: automation/create-tasks-playbook.md
 - name: Manage Microsoft Sentinel
   items:
   - name: Manage costs and billing

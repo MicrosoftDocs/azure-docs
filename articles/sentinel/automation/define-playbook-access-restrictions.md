@@ -21,7 +21,7 @@ Learn more about [using private endpoints to secure traffic between Standard log
 >
 > The new version of access restriction policies is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
-> [!INCLUDE [unified-soc-preview-without-alert](includes/unified-soc-preview-without-alert.md)]
+> [!INCLUDE [unified-soc-preview-without-alert](../includes/unified-soc-preview-without-alert.md)]
 
 ## Define an access restriction policy
 

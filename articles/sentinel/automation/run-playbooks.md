@@ -22,7 +22,7 @@ This article describes how to attach playbooks to analytics rules or automation 
 > [!NOTE]
 > Playbooks in Microsoft Sentinel are based on workflows built in [Azure Logic Apps](/azure/logic-apps/logic-apps-overview), which means that you get all the power, customizability, and built-in templates of Logic Apps. Additional charges may apply. Visit the [Azure Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps/) pricing page for more details.
 
-[!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]
+[!INCLUDE [unified-soc-preview](../includes/unified-soc-preview.md)]
 
 ## Prerequisites
 

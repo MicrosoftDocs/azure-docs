@@ -16,7 +16,7 @@ ms.collection: usx-security
 
 This article explains what Microsoft Sentinel playbooks are, and how to use them to implement your Security Orchestration, Automation and Response (SOAR) operations, achieving better results while saving time and resources.
 
-[!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]
+[!INCLUDE [unified-soc-preview](../includes/unified-soc-preview.md)]
 
 ## What is a playbook?
 
