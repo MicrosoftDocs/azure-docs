@@ -65,7 +65,7 @@ The standard practice in signing is to countersign all signatures with an RFC316
 
 The countersignature provides a reliable date and time of when the signing occurred, so if the time stamp countersign is inside the signing certificate's validity period (and the Time Stamp Authority certificate's validity period) the signature is valid even long after the signing (and Time Stamp Authority) certificates have expired (unless either are revoked).
 
-Trusted Signing provides a generally available Time Stamp Authority endpoint at `http://acs.timestamp.microsoft.com`. We recommend that all Trusted Signing subscribers leverage this Time Stamp Authority endpoint for countersigning any signatures they're producing.
+Trusted Signing provides a generally available Time Stamp Authority endpoint at `http://timestamp.acs.microsoft.com`. We recommend that all Trusted Signing subscribers leverage this Time Stamp Authority endpoint for countersigning any signatures they're producing.
 
 ### Active monitoring
 
