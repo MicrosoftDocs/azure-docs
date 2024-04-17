@@ -65,34 +65,6 @@ We recommend that you restrict the following:
 
 When using an Azure VM, also follow all recommendations from Microsoft Defender for Cloud. You can find these recommendations in the portal by navigating to the VM, then selecting Security.
 
-## Download the RPM for the agent
-
-Download the RPM for the ingestion agent using the details you received as part of the [Azure Operator Insights onboarding process](overview.md#how-do-i-get-access-to-azure-operator-insights) or from [https://go.microsoft.com/fwlink/?linkid=2260508](https://go.microsoft.com/fwlink/?linkid=2260508).
-
-Links to the current and previous releases of the agents are available below the heading of each [release note](ingestion-agent-release-notes.md). If you're looking for an agent version that's more than six months old, check out the [release notes archive](ingestion-agent-release-notes-archive.md).
-
-### Verify the authenticity of the ingestion agent RPM (optional)
-
-Before you install the RPM, you can verify the signature of the RPM with the [Microsoft public key file](https://packages.microsoft.com/keys/microsoft.asc) to ensure it hasn't been corrupted or tampered with.
-
-To do this, perform the following steps:
-
-1. Download the RPM.
-1. Download the provided public key
-    ```
-    wget https://packages.microsoft.com/keys/microsoft.asc
-    ```
-1. Import the public key to the GPG keyring
-    ```
-    gpg --import microsoft.asc
-    ```
-1. Verify the RPM signature matches the public key
-    ```
-    rpm --checksig <path-to-rpm>
-    ```
-
-The output of the final command should be `<path-to-rpm>: digests signatures OK`
-
 ## Set up authentication to Azure
 
 The ingestion agent must be able to authenticate with the Azure Key Vault created by the Data Product to retrieve storage credentials. The method of authentication can either be:
@@ -186,7 +158,6 @@ Repeat these steps for each VM onto which you want to install the agent.
     ```
     sudo dnf install systemd logrotate zip
     ```
-1. Obtain the ingestion agent RPM and copy it to the VM.
 1. If you're using a service principal, copy the base64-encoded P12 certificate (created in the [Prepare certificates](#prepare-certificates-for-the-service-principal) step) to the VM, in a location accessible to the ingestion agent.
 1. Configure the agent VM based on the type of ingestion source.
 
@@ -222,7 +193,7 @@ Repeat these steps for each VM onto which you want to install the agent.
 
     ---
 
-## Ensure that VM can resolve Microsoft hostnames
+## Ensure that the VM can resolve Microsoft hostnames
 
 Check that the VM can resolve public hostnames to IP addresses. For example, open an SSH session and use `dig login.microsoftonline.com` to check that the VM can resolve `login.microsoftonline.com` to an IP address.
 
@@ -230,14 +201,18 @@ If the VM can't use DNS to resolve public Microsoft hostnames to IP addresses, [
 
 ## Install the agent software
 
-Repeat these steps for each VM onto which you want to install the agent:
+The agent software package is hosted on the "Linux software repository for Microsoft products" at [https://packages.microsoft.com](https://packages.microsoft.com)
 
-1. In an SSH session, change to the directory where the RPM was copied.
-1. Install the RPM.
-    ```
-    sudo dnf install ./*.rpm
-    ```
-    Answer `y` when prompted. If there are any missing dependencies, the RPM won't be installed.
+**The name of the ingestion agent package is `az-aoi-ingestion`.**
+
+To download and install a package from the software repository, follow the relevant steps for your VM's Linux distribution in [
+How to install Microsoft software packages using the Linux Repository](/linux/packages#how-to-install-microsoft-software-packages-using-the-linux-repository).
+
+ For example, if you are installing on a VM running Red Hat Enterprise Linux (RHEL) 8, follow the instructions under the [Red Hat-based Linux distributions](/linux/packages#red-hat-based-linux-distributions) heading, substituting the following parameters:
+
+- distribution:  `rhel`
+- version: `8`
+- package-name: `az-aoi-ingestion`
 
 ## Configure the agent software
 
@@ -344,7 +319,6 @@ The configuration you need is specific to the type of source and your Data Produ
     ```    
     sudo systemctl enable az-aoi-ingestion.service
     ```
-1. Save a copy of the delivered RPM – you need it to reinstall or to back out any future upgrades.
 
 ## Related content
 

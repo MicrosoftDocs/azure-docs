@@ -64,6 +64,8 @@
       items:
         - name: Create transactions
           href: how-to-transactions.md
+        - name: Connect using Spark connector from Azure Databricks
+          href: connect-from-databricks.md
     - name: Scale cluster
       href: how-to-scale-cluster.md
     - name: Restore cluster

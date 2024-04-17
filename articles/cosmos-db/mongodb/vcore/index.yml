@@ -13,7 +13,7 @@ metadata:
   ms.subservice: mongodb-vcore
   ms.topic: landing-page
   ms.date: 02/21/2024
-landingContent:  
+landingContent:
   - title: Get started with Azure Cosmos DB for MongoDB vCore
     linkLists:
       - linkListType: overview

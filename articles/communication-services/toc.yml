@@ -102,7 +102,9 @@ items:
         - name: Create an access token
           href: quickstarts/identity/access-tokens.md
         - name: Add Teams meeting calling to your app
-          href: quickstarts/voice-video-calling/get-started-teams-interop.md  
+          href: quickstarts/voice-video-calling/get-started-teams-interop.md
+        - name: Add Teams interop group calls to your app
+          href: quickstarts/voice-video-calling/get-started-teams-interop-group-calls.md  
       - name: Use a Teams identity
         items:
           - name: Generate an access token for a Teams User
@@ -402,6 +404,8 @@ items:
       items:
       - name: Integrate with CallKit in iOS
         href: how-tos/calling-sdk/callkit-integration.md
+      - name: Integrate with TelecomManager on Android
+        href: how-tos/calling-sdk/telecommanager-integration.md
       - name: Enable push notifications
         href: how-tos/calling-sdk/push-notifications.md
       - name: Using the mobile UI Library for voice and video
@@ -1057,6 +1061,18 @@ items:
           href: resources/troubleshooting/voice-video-calling/general-troubleshooting-strategies/report-issue.md
       - name: Calling (JavaScript)
         items:
+        - name: Call setup issues
+          items:
+          - name: Overview
+            href: resources/troubleshooting/voice-video-calling/call-setup-issues/overview.md
+          - name: Invalid or expired tokens
+            href: resources/troubleshooting/voice-video-calling/call-setup-issues/invalid-or-expired-tokens.md
+          - name: Failed to create callAgent
+            href: resources/troubleshooting/voice-video-calling/call-setup-issues/failed-to-create-call-agent.md
+          - name: The user doesn't receive incoming call notifications
+            href: resources/troubleshooting/voice-video-calling/call-setup-issues/no-incoming-call-notifications.md
+          - name: The call setup takes too long
+            href: resources/troubleshooting/voice-video-calling/call-setup-issues/call-setup-takes-too-long.md
         - name: Device and permission issues
           items:
           - name: Overview

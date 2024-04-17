@@ -1387,7 +1387,7 @@
     },
     {
       "source_path_from_root": "/articles/iot-central/core/concepts-telemetry-properties-commands.md",
-      "redirect_url": "/azure/iot-develop/concepts-message-payloads/",
+      "redirect_url": "/azure/iot/concepts-message-payloads/",
       "redirect_document_id": false
     },
     {
