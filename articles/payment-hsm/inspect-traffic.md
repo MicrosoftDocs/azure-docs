@@ -6,7 +6,7 @@ ms.service: payment-hsm
 author: davidsntg
 ms.author: dasantiago
 ms.topic: quickstart
-ms.date: 04/06/2023
+ms.date: 01/31/2024
 ---
 
 # Azure Payment HSM traffic inspection

@@ -2,8 +2,8 @@
 title: 'Tutorial: Create a private endpoint DNS infrastructure with Azure Private Resolver for an on-premises workload'
 titleSuffix: Azure Private Link
 description: Learn how to deploy a private endpoint with an Azure Private resolver for an on-premises workload.
-author: asudbring
-ms.author: allensu
+author: abell
+ms.author: abell
 ms.service: private-link
 ms.topic: tutorial
 ms.date: 08/29/2023

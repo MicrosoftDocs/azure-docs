@@ -48,10 +48,7 @@ pip install azure-storage-file-datalake
 Add these import statements to the top of your code file.
 
 ```python
-import os, uuid, sys
 from azure.storage.filedatalake import DataLakeServiceClient
-from azure.core._match_conditions import MatchConditions
-from azure.storage.filedatalake._models import ContentSettings
 from azure.identity import DefaultAzureCredential
 ```
 

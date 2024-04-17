@@ -9,7 +9,7 @@ metadata:
   ms.topic: landing-page
   ms.custom:
     - ignite-2023
-  ms.date: 10/25/2023
+  ms.date: 02/14/2024
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
 landingContent:
@@ -36,5 +36,22 @@ landingContent:
         links:
           - text: Troubleshooting Apache Airflow on Astro 
             url: astronomer-troubleshoot.md
+  #Card
+  - title: SDKs and tools
+    linkLists:
+      - linkListType: reference 
+        links:
+        - text: Astro developer tools 
+          url: astronomer-tools.md#developer-tools
+        - text: Azure CLI
+          url: /cli/azure/service-page/astronomer
+        - text: Go
+          url: https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/astro/armastro@v0.1.0#section-readme
+        - text: Java
+          url: /java/api/overview/azure/astro
+        - text: JavaScript
+          url: https://www.npmjs.com/package/@azure/arm-astro/v/1.0.0-beta.1
+        - text: Python
+          url: /python/api/overview/azure/liftr-astronomer
 
   

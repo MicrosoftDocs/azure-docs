@@ -1,12 +1,12 @@
 ---
 title: Built-in and preinstalled components on Azure-SSIS Integration Runtime
-description: List all built-in and preinstalled components, such as clients, drivers, providers, connection managers, data sources/destinations/transformations, and tasks on Azure-SSIS Integration Runtime. 
+description: List all built-in and preinstalled components, such as clients, drivers, providers, connection managers, data sources/destinations/transformations, and tasks on Azure-SSIS Integration Runtime.
 ms.service: data-factory
 ms.subservice: integration-services
 ms.topic: conceptual
 author: chugugrace
 ms.author: chugu
-ms.custom: seo-lt-2019, devx-track-dotnet
+ms.custom: devx-track-dotnet
 ms.date: 01/05/2024
 ---
 

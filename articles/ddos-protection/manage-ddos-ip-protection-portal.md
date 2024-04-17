@@ -1,14 +1,12 @@
 ---
 title: 'Quickstart: Create and configure Azure DDoS IP Protection - Azure portal'
-description: Learn how to use Azure DDoS IP Protection to mitigate an attack. 
+description: Learn how to use Azure DDoS IP Protection to mitigate an attack.
 author: AbdullahBell
 ms.author: abell
 ms.service: ddos-protection
-ms.topic: quickstart 
-ms.date: 06/22/2023
-ms.workload: infrastructure-services
-ms.custom: template-quickstart 
-# Customer intent As an IT admin, I want to learn how to enable DDoS IP Protection on my public IP address.
+ms.topic: quickstart
+ms.date: 03/01/2024
+ms.custom: template-quickstart
 ---
 
 # Quickstart: Create and configure Azure DDoS IP Protection using Azure portal

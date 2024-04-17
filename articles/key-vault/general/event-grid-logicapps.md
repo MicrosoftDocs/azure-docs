@@ -3,12 +3,11 @@ title: Email when Key Vault status of the secret changes
 description: Guide to use Logic Apps to respond to Key Vault secrets changes
 services: key-vault
 author: msmbaldwin
-tags: azure-resource-manager
 
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.date: 01/11/2023
+ms.date: 01/30/2024
 ms.author: mbaldwin
 
 ---

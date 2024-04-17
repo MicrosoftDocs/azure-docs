@@ -9,7 +9,6 @@ ms.service: azure-ai-vision
 ms.topic: how-to
 ms.date: 01/19/2024
 ms.author: aahi
-ms.custom: seodec18
 ---
 
 # Configure Read OCR Docker containers

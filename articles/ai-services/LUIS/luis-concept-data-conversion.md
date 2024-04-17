@@ -6,12 +6,10 @@ description: Learn how utterances can be changed before predictions in Language 
 ms.author: aahi
 author: aahill
 manager: nitinme
-ms.custom: seodec18
 ms.service: azure-ai-language
 ms.subservice: azure-ai-luis
 ms.topic: conceptual
 ms.date: 01/19/2024
-
 ---
 
 # Convert data format of utterances

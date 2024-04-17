@@ -3,7 +3,7 @@ title: Template functions - lambda
 description: Describes the lambda functions to use in an Azure Resource Manager template (ARM template)
 ms.topic: conceptual
 ms.custom: devx-track-arm-template
-ms.date: 06/22/2023
+ms.date: 01/25/2024
 ---
 
 # Lambda functions for ARM templates
@@ -240,7 +240,7 @@ In Bicep, use the [reduce](../bicep/bicep-functions-lambda.md#reduce) function.
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
 | inputArray |Yes |array |The array to reduce.|
-| initialValue |No |any |Initial value.|
+| initialValue |Yes |any |Initial value.|
 | lambda function |Yes |expression |The lambda function used to aggregate the current value and the next value.|
 
 ### Return value

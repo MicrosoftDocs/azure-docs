@@ -67,7 +67,7 @@ The primary data is the top scoring **intent name**. The endpoint response is:
 }
 ```
 
-Learn more about the [V3 prediction endpoint](luis-migration-api-v3.md).
+
 
 * * *
 
@@ -127,7 +127,7 @@ Set the querystring parameter, `show-all-intents=true`. The endpoint response is
 }
 ```
 
-Learn more about the [V3 prediction endpoint](luis-migration-api-v3.md).
+
 
 * * *
 
@@ -190,7 +190,7 @@ If you add prebuilt domains, the intent name indicates the domain, such as `Util
 }
 ```
 
-Learn more about the [V3 prediction endpoint](luis-migration-api-v3.md).
+
 
 * * *
 

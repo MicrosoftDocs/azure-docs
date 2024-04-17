@@ -2,11 +2,11 @@
 metadata:
   title: Frequently asked questions about Analysis Services network connectivity | Microsoft Docs
   description: This article provides answers to some of the more common questions about Analysis Services network connectivity.
-  author: minewiskan
+  author: kfollis
   ms.service: analysis-services
   ms.topic: faq
   ms.date: 02/02/2022
-  ms.author: owend
+  ms.author: kfollis
   ms.reviewer: minewiskan
 title: Frequently asked questions about Analysis Services network connectivity
 summary: This article provides answers to common questions about connecting to storage accounts, data sources, firewalls, and IP addresses.

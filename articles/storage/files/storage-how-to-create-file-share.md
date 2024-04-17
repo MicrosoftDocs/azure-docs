@@ -5,7 +5,7 @@ description: How to create and delete an SMB Azure file share by using the Azure
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 10/10/2023
+ms.date: 03/27/2023
 ms.author: kendownie
 ms.custom: devx-track-azurecli, references_regions, devx-track-azurepowershell, ai-video-demo
 ai-usage: ai-assisted
@@ -23,7 +23,7 @@ To create an Azure file share, you need to answer three questions about how you 
     Premium file shares are available with local redundancy and zone redundancy in a subset of regions. To find out if premium file shares are available in your region, see [products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=storage). For more information, see [Azure Files redundancy](files-redundancy.md).
 
 - **What size file share do you need?**  
-    In local and zone redundant storage accounts, Azure file shares can span up to 100 TiB. However, in geo- and geo-zone redundant storage accounts, Azure file shares can span only up to 5 TiB unless you sign up for [Geo-redundant storage for large file shares (preview)](geo-redundant-storage-for-large-file-shares.md).
+    In local and zone redundant storage accounts, Azure file shares can span up to 100 TiB. However, in geo- and geo-zone redundant storage accounts, Azure file shares can span only up to 5 TiB unless you register for [Geo-redundant storage for large file shares](geo-redundant-storage-for-large-file-shares.md).
 
 For more information on these three choices, see [Planning for an Azure Files deployment](storage-files-planning.md).
 
@@ -171,7 +171,7 @@ az storage account create \
 ---
 
 ### Enable large file shares on an existing account
-Before you create an Azure file share on an existing storage account, you might want to enable large file shares (up to 100 TiB) on the storage account if you haven't already. Standard storage accounts using either LRS or ZRS can be upgraded to support large file shares without causing downtime for existing file shares on the storage account. If you have a GRS, GZRS, RA-GRS, or RA-GZRS account, you'll either need to convert it to an LRS account before proceeding or register for the [Azure Files geo-redundancy for large file shares preview](geo-redundant-storage-for-large-file-shares.md).
+Before you create an Azure file share on an existing storage account, you might want to enable large file shares (up to 100 TiB) on the storage account if you haven't already. Standard storage accounts using either LRS or ZRS can be upgraded to support large file shares without causing downtime for existing file shares on the storage account. If you have a GRS, GZRS, RA-GRS, or RA-GZRS account, you'll either need to convert it to an LRS account before proceeding or register for [Azure Files geo-redundancy for large file shares](geo-redundant-storage-for-large-file-shares.md).
 
 # [Portal](#tab/azure-portal)
 1. Open the [Azure portal](https://portal.azure.com), and navigate to the storage account where you want to enable large file shares.

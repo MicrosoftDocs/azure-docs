@@ -7,7 +7,6 @@ ms.author: jacodel
 author: jcodella
 ms.service: azure-ai-personalizer
 ms.topic: include
-ms.custom: cog-serv-seo-aug-2020
 ms.date: 01/19/2024
 ---
 

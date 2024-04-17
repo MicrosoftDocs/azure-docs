@@ -1,9 +1,9 @@
 ---
 title: Working with Azure Functions in containers
 description: Learn how to work with function apps running in Linux containers.
-ms.date: 07/30/2023
+ms.date: 02/27/2024
 ms.topic: how-to
-ms.custom: build-2023
+ms.custom: build-2023, linux-related-content
 zone_pivot_groups: functions-container-hosting
 ---
 
@@ -46,7 +46,7 @@ Functions tooling provides a Docker option that generates a Dockerfile with your
 
 The way you create a Dockerfile depends on how you create your project.
 
-# [Command line](#tab/core-tools)
+#### [Command line](#tab/core-tools)
 
 + When you create a Functions project using [Azure Functions Core Tools](./functions-run-local.md), include the `--docker` option when you run the [`func init`](./functions-core-tools-reference.md#func-init) command, as in the following example:
 
@@ -61,7 +61,7 @@ The way you create a Dockerfile depends on how you create your project.
 
 For a complete example, see [Create a function app in a local container](functions-create-container-registry.md#create-and-test-the-local-functions-project).
 
-# [Visual Studio Code](#tab/vs-code)
+#### [Visual Studio Code](#tab/vs-code)
 
 The Azure Functions extension for Visual Studio Code doesn't provide a way to create a Dockerfile when you create the project. However, you can instead create the Dockerfile for an existing project by using the `--docker-only` option when you run the [`func init`](./functions-core-tools-reference.md#func-init) command in the Terminal windows of an existing project folder, as in the following example:
 
@@ -69,7 +69,7 @@ The Azure Functions extension for Visual Studio Code doesn't provide a way to cr
 func init --docker-only
 ```  
 
-# [Visual Studio](#tab/vs)
+#### [Visual Studio](#tab/vs)
 
 + When you create a Functions project, make sure to check the **Enable Docker** option on the **Additional Information** page of the new project dialog. 
 
@@ -95,7 +95,7 @@ For an example of how to create the container, see [Build the container image an
 
 When you make changes to your functions code project or need to update to the latest base image, you need to rebuild the container locally and republish the updated image to your chosen container registry. The following command rebuilds the image from the root folder with an updated version number and pushes it to your registry:    
 
-# [Azure Container Registry](#tab/acr)
+### [Azure Container Registry](#tab/acr)
 
 ```console
 az acr build --registry <REGISTRY_NAME> --image <LOGIN_SERVER>/azurefunctionsimage:v1.0.1 .
@@ -103,7 +103,7 @@ az acr build --registry <REGISTRY_NAME> --image <LOGIN_SERVER>/azurefunctionsima
 
 Replace `<REGISTRY_NAME>` with your Container Registry instance and `<LOGIN_SERVER>` with the login server name.
 
-# [Docker Hub](#tab/docker)
+### [Docker Hub](#tab/docker)
 
 ```console
 docker build --tag <DOCKER_ID> azurefunctionsimage:v1.0.1 .
@@ -148,7 +148,7 @@ The following steps create and deploy an existing containerized function app fro
 
 ::: zone-end  
 :::zone pivot="azure-functions"  
-   <sup>*</sup>App name must be globally unique amongst all Azure Functions hosted apps.
+   <sup>*</sup>App name must be globally unique among all Azure Functions hosted apps.
 
 4. In **[Hosting options and plans](functions-scale.md)**, choose **Functions Premium**. 
 
@@ -169,7 +169,8 @@ The following steps create and deploy an existing containerized function app fro
 ::: zone-end
 :::zone pivot="azure-functions,container-apps"
 5. Accept the default options of creating a new storage account on the **Storage** tab and a new Application Insight instance on the **Monitoring** tab. You can also choose to use an existing storage account or Application Insights instance.
-
+::: zone-end
+:::zone pivot="container-apps"
 6. Select the **Deployment** tab and unselect **Use quickstart image**. If you don't do this, the function app is deployed from the base image for your function app language.
 
 7. Choose your **Image type**, public or private. Choose **Private** if you're using Azure Container Registry or some other private registry. Supply the **Image** name, including the registry prefix. If you're using a private registry, provide the image registry authentication credentials.
@@ -177,7 +178,16 @@ The following steps create and deploy an existing containerized function app fro
 8. Select **Review + create** to review the app configuration selections.
 
 9. On the **Review + create** page, review your settings, and then select **Create** to provision the function app and deploy your container image from the registry.
-::: zone-end
+::: zone-end  
+:::zone pivot="azure-functions"  
+6. Select **Review + create** to review the app configuration selections.
+
+7. On the **Review + create** page, review your settings, and then select **Create** to provision the function app using a default base image.
+
+8. After your function app resource is created, select **Go to resource** and in the function app page select **Deployment center**.
+
+9. In the **Deployment center**, you can connect your container registry as the source of the image. You can also enable  GitHub Actions or Azure Pipelines for more robust continuous deployment of updates to your container in the registry.  
+::: zone-end  
 
 ## Work with images in Azure Functions
 
@@ -187,6 +197,40 @@ When your function app container is deployed from a registry, Functions maintain
 
  +  [`az functionapp config container set`](/cli/azure/functionapp/config/container#az-functionapp-config-container-set): change registry settings or update the image used for deployment, as shown in the previous example.
 
+:::zone pivot="container-apps"  
+## Container Apps workload profiles
+
+Workload profiles are feature of Container Apps that let you better control your deployment resources. Azure Functions on Azure Container Apps also supports workload profiles. For more information, see [Workload profiles in Azure Container Apps](../container-apps/workload-profiles-overview.md).  
+
+You can create and manage workload profiles using the Azure CLI or in the Azure portal.
+
+### [Azure CLI](#tab/azure-cli2)
+
+You enable workload profiles when you create your container app environment. For an example, see [Create a container app in a profile](../container-apps/workload-profiles-manage-cli.md#create-a-container-app-in-a-profile). 
+
+You can add, edit, and delete profiles in your environment. For an example, see [Add profiles](../container-apps/workload-profiles-manage-cli.md#add-profiles).  
+
+When you create a containerized function app in an environment that has workload profiles enabled, you should also specify the profile in which to run. You do this by using the `--workload-profile-name` parameter of the [`az functionapp create`](/cli/azure/functionapp#az-functionapp-create) command, like in this example:
+
+```azurecli
+az functionapp create --name <APP_NAME> --storage-account <STORAGE_NAME> --environment MyContainerappEnvironment --resource-group AzureFunctionsContainers-rg --functions-version 4 --runtime <LANGUAGE_STACK> --image <IMAGE_URI>  --workload-profile-name  PROFILE_NAME> --cpu <CPU_COUNT> --memory <MEMORY_SIZE> 
+```
+
+In the [`az functionapp create`](/cli/azure/functionapp#az-functionapp-create) command, the `--environment` parameter specifies the Container Apps environment and the `--image` parameter specifies the image to use for the function app. In this example, replace `<STORAGE_NAME>` with the name you used in the previous section for the storage account. Also, replace `<APP_NAME>` with a globally unique name appropriate to you. 
+
+Also, replace `<CPU_COUNT>` with your desired number of virtual CPUs, with a minimum of 0.5 up to the maximum allowed by the profile. For `<MEMORY_SIZE>`, choose a dedicated memory amount from 1 GB up to the maximum allowed by the profile. 
+
+### [Azure portal](#tab/portal)
+
+You enable workload profiles when you create your container app environment. For an example, see [Create a container app in a profile](../container-apps/workload-profiles-manage-portal.md#create-a-container-app-in-a-workload-profile). 
+
+You can add, edit, and delete profiles in your environment. For an example, see [Add profiles](../container-apps/workload-profiles-manage-portal.md#add-profiles).
+
+When you create a containerized function app in an environment that has workload profiles enabled, you should also specify the profile in which to run. In the portal, you can choose your profile during the create process.
+
+---  
+
+::: zone-end  
 ## Application settings
 
 Azure Functions lets you work with application settings for containerized function apps in the standard way. For more information, see [Use application settings](functions-how-to-use-azure-function-app-settings.md#settings).  
@@ -201,14 +245,14 @@ You can enable Azure Functions to automatically update your deployment of an ima
 
 1. Use the following command to enable continuous deployment and to get the webhook URL:
 
-    # [Azure CLI](#tab/azure-cli)
+    ### [Azure CLI](#tab/azure-cli)
     ```azurecli
     az functionapp deployment container config --enable-cd --query CI_CD_URL --output tsv --name <APP_NAME> --resource-group AzureFunctionsContainers-rg
     ```
     
     The [`az functionapp deployment container config`](/cli/azure/functionapp/deployment/container#az-functionapp-deployment-container-config) command enables continuous deployment and returns the deployment webhook URL. You can retrieve this URL at any later time by using the [`az functionapp deployment container show-cd-url`](/cli/azure/functionapp/deployment/container#az-functionapp-deployment-container-show-cd-url) command.
     
-    # [Azure PowerShell](#tab/azure-powershell)
+    ### [Azure PowerShell](#tab/azure-powershell)
     ```azurepowershell
     Update-AzFunctionAppSetting -Name <APP_NAME> -ResourceGroupName AzureFunctionsContainers-rg -AppSetting @{"DOCKER_ENABLE_CI" = "true"}
     Get-AzWebAppContainerContinuousDeploymentUrl -Name <APP_NAME> -ResourceGroupName AzureFunctionsContainers-rg
@@ -227,7 +271,6 @@ You can enable Azure Functions to automatically update your deployment of an ima
     :::image type="content" source="./media/functions-create-function-linux-custom-image/dockerhub-set-continuous-webhook.png" alt-text="Screenshot showing how to add the webhook in your Docker Hub window.":::  
 
 1. With the webhook set, Azure Functions redeploys your image whenever you update it in Docker Hub.
-::: zone-end
 
 ## Enable SSH connections
 
@@ -262,6 +305,10 @@ SSH enables secure communication between a container and a client. With SSH enab
 1. After a connection is established with your container, run the `top` command to view the currently running processes.
 
     :::image type="content" source="media/functions-create-function-linux-custom-image/linux-custom-kudu-ssh-top.png" alt-text="Screenshot that shows Linux top command running in an SSH session.":::
+::: zone-end
+:::zone pivot="container-apps"  
+<!---For when we support connecting to the container console -->
+::: zone-end
 
 ## Next steps
 

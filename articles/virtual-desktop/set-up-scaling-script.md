@@ -6,7 +6,6 @@ ms.topic: how-to
 ms.custom: devx-track-azurepowershell
 ms.date: 11/01/2023
 ms.author: helohr
-manager: femila
 ---
 # Set up scaling tool using Azure Automation and Azure Logic Apps for Azure Virtual Desktop
 

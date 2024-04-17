@@ -10,7 +10,6 @@ ms.service: azure-ai-language
 ms.subservice: azure-ai-qna-maker
 ms.topic: how-to
 ms.date: 01/19/2024
-ms.custom: ignite-fall-2021
 ---
 
 # Filter Responses with Metadata

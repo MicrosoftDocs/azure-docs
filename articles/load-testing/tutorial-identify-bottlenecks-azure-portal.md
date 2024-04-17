@@ -4,8 +4,8 @@ titleSuffix: Azure Load Testing
 description: In this tutorial, you learn how to identify performance bottlenecks in a web app by running a high-scale load test with Azure Load Testing. Use the dashboard to analyze client-side and server-side metrics.
 services: load-testing
 ms.service: load-testing
-ms.author: nicktrog
-author: ntrogh
+ms.author: ninallam
+author: ninallam
 ms.date: 11/29/2023
 ms.topic: tutorial
 #Customer intent: As an Azure user, I want to learn how to identify and fix bottlenecks in a web app so that I can improve the performance of the web apps that I'm running in Azure.

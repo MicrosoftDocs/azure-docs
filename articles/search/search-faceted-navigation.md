@@ -286,14 +286,10 @@ If your application uses faceted navigation exclusively (that is, no search box)
 
 If you build the list of facets dynamically based on untrusted user input, validate that the names of the faceted fields are valid. Or, escape the names when building URLs by using either `Uri.EscapeDataString()` in .NET, or the equivalent in your platform of choice.
 
-## Demos and samples
+## Samples
 
-Several samples include faceted navigation. This section has links to the samples and also notes which client library and language is used for each one.
+We recommend the following samples for faceted navigation. The samples also include filters, suggestions, and autocomplete. These samples use React for the presentation layer.
 
-### Add search to web apps (React)
-
-Tutorials and samples in [C#](tutorial-csharp-overview.md), [Python](tutorial-python-overview.md), and [JavaScript](tutorial-javascript-overview.md) include faceted navigation as well as filters, suggestions, and autocomplete. These samples use React for the presentation layer.
-
-### NYCJobs sample code and demo (Ajax)
-
-The NYCJobs sample is an ASP.NET MVC application that uses Ajax in the presentation layer. It's available as a [live demo app](https://aka.ms/azjobsdemo) and as source code on [Azure-Samples repo on GitHub](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs).
+* [C#: Add search to web apps](tutorial-csharp-overview.md)
+* [Python: Add search to web apps](tutorial-python-overview.md)
+* [JavaScript: Add search to web apps](tutorial-javascript-overview.md)

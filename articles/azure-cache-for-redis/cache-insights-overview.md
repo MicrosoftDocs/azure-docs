@@ -1,47 +1,25 @@
 ---
-title: Azure Monitor for Azure Cache for Redis | Microsoft Docs
-description: This article describes the Azure Monitor for Azure Redis Cache feature, which provides cache owners with a quick understanding of performance and utilization problems.
+title: Azure Monitor insights for Azure Cache for Redis | Microsoft Docs
+description: This article describes Azure Monitor insights for Azure Cache for Redis, which provides cache owners with a quick understanding of performance and utilization.
 author: flang-msft
-
 ms.author: franlanglois
 ms.topic: conceptual
 ms.service: cache
-ms.date: 11/22/2022
-ms.custom: subject-monitoring, ignite-2022, 
-
+ms.date: 03/25/2024
+ms.custom: subject-monitoring
 ---
 
-# Explore Azure Monitor for Azure Cache for Redis
+# Azure Monitor insights for Azure Cache for Redis
 
-For all of your Azure Cache for Redis resources, Azure Monitor for Azure Cache for Redis provides a unified, interactive view of:
+Azure Monitor insights for Azure Cache for Redis provide a unified, interactive view of cache performance, failures, capacity, and operational health. This article shows you how to view Azure Cache for Redis insights across all of your subscriptions, and how to modify and adapt insights to fit the unique needs of your organization.
 
-- Overall performance
-- Failures
-- Capacity
-- Operational health
+For more information about Azure Monitor for Azure Cache for Redis, see [Monitor Azure Cache for Redis](monitor-cache.md). For a full list of the metric definitions that form these insights, see [Supported metrics for Microsoft.Cache/redis](monitor-cache-reference.md#supported-metrics-for-microsoftcacheredis).
 
-This article helps you understand the benefits of this new monitoring experience. It also shows how to modify and adapt the experience to fit the unique needs of your organization.
+## View insights from Azure Monitor
 
-## Introduction
+You can access Azure Cache for Redis insights from the **Insights Hub** of Azure Monitor.
 
-Before starting the experience, you should understand how Azure Monitor for Azure Cache for Redis visually presents information.
-
-It delivers:
-
-- **At scale perspective** of your Azure Cache for Redis resources in a single location across all of your subscriptions. You can selectively scope to only the subscriptions and resources you want to evaluate.
-
-- **Drill-down analysis** of a particular Azure Cache for Redis resource. You can diagnose problems and see detailed analysis of utilization, failures, capacity, and operations. Select any of these categories to see an in-depth view of  relevant information.  
-
-- **Customization** of this experience, which is built atop Azure Monitor workbook templates. The experience lets you change what metrics are displayed and modify or set thresholds that align with your limits. You can save the changes in a custom workbook and then pin workbook charts to Azure dashboards.
-
-This feature doesn't require you to enable or configure anything. Azure Cache for Redis information is collected by default.
-
->[!NOTE]
->There is no charge to access this feature. You're charged only for the Azure Monitor essential features you configure or enable, as described on the [Azure Monitor pricing details](https://azure.microsoft.com/pricing/details/monitor/) page.
-
-## View utilization and performance metrics for Azure Cache for Redis
-
-To view the utilization and performance of your storage accounts across all of your subscriptions, do the following steps:
+To view the utilization and performance of your Azure Cache for Redis instances across all of your subscriptions, do the following steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -50,6 +28,18 @@ To view the utilization and performance of your storage accounts across all of y
     :::image type="content" source="../cosmos-db/media/insights-overview/search-monitor.png" alt-text="Search box with the word 'Monitor' and the Services search result that shows 'Monitor' with a speedometer symbol":::
 
 1. Select **Azure Cache for Redis**. If this option isn't present, select **More** > **Azure Cache for Redis**.
+
+## Workbooks
+
+Azure Cache for Redis insights are based on the [workbooks feature of Azure Monitor](/azure/azure-monitor/visualize/workbooks-overview) that provides rich visualizations for metrics and other data. Azure Cache for Redis insights provides two workbooks by default:
+
+   :::image type="content" source="media/cache-how-to-monitor/cache-monitoring-workbook.png" alt-text="Screenshot showing the workbooks selected in the Resource menu.":::
+
+- **Azure Cache For Redis Resource Overview** combines many of the most commonly used metrics so that the health and performance of the cache instance can be viewed at a glance.
+    :::image type="content" source="media/cache-how-to-monitor/cache-monitoring-resource-overview.png" alt-text="Screenshot of graphs showing a resource overview for the cache.":::
+
+- **Geo-Replication Dashboard** pulls geo-replication health and status metrics from both the geo-primary and geo-secondary cache instances to give a complete picture of geo-replcation health. Using this dashboard is recommended, as some geo-replication metrics are only emitted from either the geo-primary or geo-secondary.
+    :::image type="content" source="media/cache-how-to-monitor/cache-monitoring-geo-dashboard.png" alt-text="Screenshot showing the geo-replication dashboard with a geo-primary and geo-secondary cache set.":::
 
 ### Overview
 
@@ -117,11 +107,7 @@ When you select **Failures** at the top of the page, the **Failures** table of t
 
 :::image type="content" source="./media/cache-insights-overview/failures.png" alt-text="Screenshot of failures with a breakdown by HTTP request type.":::
 
-### Metric definitions
-
-For a full list of the metric definitions that form these workbooks, check out the [article on available metrics and reporting intervals](./cache-how-to-monitor.md#create-your-own-metrics).
-
-## View from an Azure Cache for Redis resource
+## View insights from an Azure Cache for Redis resource
 
 To access Azure Monitor for Azure Cache for Redis directly from an individual resource:
 
@@ -167,7 +153,7 @@ To expand or collapse all views in a workbook, select the expand symbol to the l
 
 :::image type="content" source="../cosmos-db/media/insights-overview/expand.png" alt-text="Screenshot of  highlighted expand-workbook symbol.":::
 
-## Customize Azure Monitor for Azure Cache for Redis
+## Customize Azure Monitor insights for Azure Cache for Redis
 
 Because this experience is built atop Azure Monitor workbook templates, you can select **Customize** > **Edit** > **Save** to save a copy of your modified version into a custom workbook.
 
@@ -179,11 +165,9 @@ After you save a custom workbook, go to the workbook gallery to open it.
 
 :::image type="content" source="../cosmos-db/media/insights-overview/gallery.png" alt-text="Screenshot of a command bar with Gallery highlighted.":::
 
-## Troubleshooting
+## Related content
 
-For troubleshooting guidance, refer to the dedicated workbook-based insights [troubleshooting article](../azure-monitor/insights/troubleshoot-workbooks.md).
-
-## Next steps
-
-- Configure [metric alerts](../azure-monitor/alerts/alerts-metric.md) and [service health notifications](../service-health/alerts-activity-log-service-notifications-portal.md) to set up automated alerts that aid in detecting problems.
-- Learn the scenarios that workbooks support, how to author or customize reports, and more by reviewing [Create interactive reports with Azure Monitor workbooks](../azure-monitor/visualize/workbooks-overview.md).
+- [Create interactive reports with Azure Monitor workbooks](/azure/azure-monitor/visualize/workbooks-overview)
+- [Troubleshoot workbook-based insights](/azure/azure-monitor/insights/troubleshoot-workbooks)
+- [Configure metric alerts](/azure/azure-monitor/alerts/alerts-metric)
+- [Configure service health notifications](/azure/service-health/alerts-activity-log-service-notifications-portal)

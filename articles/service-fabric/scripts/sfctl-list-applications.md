@@ -5,7 +5,6 @@ services: service-fabric
 author: athinanthny
 manager: chackdan
 ms.service: service-fabric
-ms.workload: multiple
 ms.topic: sample
 ms.date: 04/13/2018
 ms.author: atsenthi

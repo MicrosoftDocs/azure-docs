@@ -21,7 +21,7 @@ Azure Database for MySQL flexible server supports two mutually exclusive network
 - Public access (allowed IP addresses)
 - Private access (VNet Integration)
 
-In this article, we focus on the creation of a Azure Database for MySQL flexible server instance with **Public access (allowed IP addresses)** using Azure CLI. This article provides an overview of Azure CLI commands you can use to create, update, delete, list, and show firewall rules after creating a server. With *Public access (allowed IP addresses)*, the connections to the Azure Database for MySQL flexible server instance are restricted to allowed IP addresses only. The client IP addresses need to be allowed in the firewall rules. To learn more about it, refer to [Public access (allowed IP addresses)](./concepts-networking-public.md#public-access-allowed-ip-addresses). The firewall rules can be defined at the time of server creation (recommended) but can be added later as well.
+In this article, we focus on the creation of an Azure Database for MySQL flexible server instance with **Public access (allowed IP addresses)** using Azure CLI. This article provides an overview of Azure CLI commands you can use to create, update, delete, list, and show firewall rules after creating a server. With *Public access (allowed IP addresses)*, the connections to the Azure Database for MySQL flexible server instance are restricted to allowed IP addresses only. The client IP addresses need to be allowed in the firewall rules. To learn more about it, refer to [Public access (allowed IP addresses)](./concepts-networking-public.md#public-access-allowed-ip-addresses). The firewall rules can be defined at the time of server creation (recommended) but can be added later as well.
 
 ## Launch Azure Cloud Shell
 

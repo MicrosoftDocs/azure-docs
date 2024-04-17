@@ -12,7 +12,7 @@ metadata:
   manager: nitinme
   ms.service: azure-ai-speech
   ms.topic: hub-page
-  ms.date: 03/24/2020
+  ms.date: 2/16/2024
   ms.author: eur
 
 highlightedContent:
@@ -108,14 +108,14 @@ conceptualContent:
       - itemType: quickstart
         text: Get started with speech translation
         url: get-started-speech-translation.md         
-    - title: Custom Keyword
+    - title: Azure OpenAI
       links:
         - itemType: overview
-          text: About Custom Keyword
-          url: keyword-recognition-overview.md
-        - itemType: quickstart
-          text: Get started with Custom Keyword       
-          url: custom-keyword-basics.md          
+          text: What is the Whisper model?
+          url: whisper-overview.md
+        - itemType: overview
+          text: What are OpenAI text to speech voices?     
+          url: openai-voices.md          
     - title: Intent recognition
       links:
         - itemType: quickstart
@@ -147,8 +147,8 @@ conceptualContent:
           text: Migrate to neural voice
           url: migration-overview-neural-voice.md
         - itemType: how-to-guide
-          text: Migrate to the v3.1 REST API
-          url: migrate-v3-0-to-v3-1.md
+          text: Migrate to the v3.2 REST API
+          url: migrate-v3-1-to-v3-2.md
         - itemType: how-to-guide
           text: Migrate to Batch synthesis REST API
           url: migrate-to-batch-synthesis.md

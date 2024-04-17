@@ -6,7 +6,7 @@ ms.author: piyushdhore
 ms.manager: vijain
 ms.topic: tutorial
 ms.service: azure-migrate
-ms.date: 01/22/2024
+ms.date: 04/11/2024
 ms.custom: mvc, engagement-fy23
 ---
 
@@ -87,7 +87,7 @@ Enable replication as follows:
 7. In **Virtual Network**, select the Azure VNet/subnet, which the Azure VMs join after migration.
 8. In **Availability options**, select:
     -  Availability Zone to pin the migrated machine to a specific Availability Zone in the region. Use this option to distribute servers that form a multi-node application tier across Availability Zones. If you select this option, you'll need to specify the Availability Zone to use for each of the selected machine in the Compute tab. This option is only available if the target region selected for the migration supports Availability Zones
-    -  Availability Set to place the migrated machine in an Availability Set. The target Resource Group that was selected must have one or more availability sets in order to use this option.
+    -  Availability Set to place the migrated machine in an Availability Set. The target Resource Group that was selected must have one or more availability sets in order to use this option. Availability Set with Proximity Placement Groups is supported.
     - No infrastructure redundancy required option if you don't need either of these availability configurations for the migrated machines.
 9. In **Disk encryption type**, select:
     - Encryption-at-rest with platform-managed key
@@ -136,7 +136,7 @@ Enable replication as follows:
 ## Track and monitor
 
 1. Track job status in the portal notifications.
-2. Monitor replication status by clicking on **Replicating servers** in **Migration and modernization**.
+2. Monitor replication status by clicking on the numerical value next to **Azure VM** in **Migration and modernization**.
 
      ![Monitor replication](./media/tutorial-migrate-vmware/replicating-servers.png)
 
@@ -157,7 +157,7 @@ When delta replication begins, you can run a test migration for the VMs, before 
 Do a test migration as follows:
 
 
-1. In **Migration goals** > **Servers, databases and web apps** > **Migration and modernization**, select **Test migrated servers**.
+1. In **Migration goals** > **Servers, databases and web apps** > **Migration and modernization**, select the numerical value next to **Azure VM**.
 
     :::image type="content" source="./media/tutorial-migrate-vmware/test-migrated-servers.png" alt-text="Screenshot of Test migrated servers.":::
 
@@ -185,7 +185,7 @@ Do a test migration as follows:
 
 After you've verified that the test migration works as expected, you can migrate the on-premises machines.
 
-1. In the Azure Migrate project > **Servers, databases and web apps** > **Migration and modernization**, select **Replicating servers**.
+1. In the Azure Migrate project > **Servers, databases and web apps** > **Migration and modernization**, select numerical value next to **Azure VM**.
 
     ![Replicating servers](./media/tutorial-migrate-vmware/replicate-servers.png)
 
@@ -218,6 +218,7 @@ After you've verified that the test migration works as expected, you can migrate
     - By default, data disks are created with host caching set to "None". Review and adjust data disk caching to your workload needs. [Learn more](../virtual-machines/premium-storage-performance.md#disk-caching).  
 - For increased security:
     - Lock down and limit inbound traffic access with [Microsoft Defender for Cloud - Just in time administration](../security-center/security-center-just-in-time.md).
+    - Manage and govern updates on Windows and Linux machines with [Azure Update Manager](../update-manager/overview.md).
     - Restrict network traffic to management endpoints with [Network Security Groups](../virtual-network/network-security-groups-overview.md).
     - Deploy [Azure Disk Encryption](../virtual-machines/disk-encryption-overview.md) to help secure disks, and keep data safe from theft and unauthorized access.
     - Read more about [securing IaaS resources](https://azure.microsoft.com/services/virtual-machines/secure-well-managed-iaas/), and visit the [Microsoft Defender for Cloud](https://azure.microsoft.com/services/security-center/).

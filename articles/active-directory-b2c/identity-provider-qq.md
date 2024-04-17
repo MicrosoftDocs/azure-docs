@@ -9,6 +9,9 @@ ms.date: 09/16/2021
 ms.author: godonnell
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
+
+#Customer Intent: As a developer using Azure Active Directory B2C, I want to set up sign-up and sign-in with a QQ account, so that users can authenticate with their QQ accounts in my application.
+
 ---
 
 # Set up sign-up and sign-in with a QQ account using Azure Active Directory B2C

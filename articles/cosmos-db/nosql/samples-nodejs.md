@@ -9,7 +9,7 @@ ms.subservice: nosql
 ms.devlang: javascript
 ms.topic: sample
 ms.date: 08/26/2021
-ms.custom: devx-track-js, ignite-2022, devguide-js
+ms.custom: devx-track-js, devguide-js
 ---
 
 # Examples for Azure Cosmos DB for NoSQL SDK for JS

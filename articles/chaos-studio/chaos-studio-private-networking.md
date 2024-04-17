@@ -5,10 +5,12 @@ services: chaos-studio
 author: prashabora
 ms.topic: conceptual
 ms.date: 10/26/2022
-ms.author: prashabora
+ms.author: abbyweisberg
+ms.reviewer: nikhilkaul
 ms.service: chaos-studio
 ms.custom: devx-track-azurecli
 ---
+
 # Virtual network injection in Azure Chaos Studio
 
 Azure [Virtual Network](../virtual-network/virtual-networks-overview.md) is the fundamental building block for your private network in Azure. A virtual network enables many types of Azure resources to securely communicate with each other, the internet, and on-premises networks. A virtual network is similar to a traditional network that you operate in your own datacenter. It brings other benefits of Azure's infrastructure, such as scale, availability, and isolation.

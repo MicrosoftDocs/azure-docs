@@ -1,8 +1,8 @@
 ---
 ms.service: hdinsight
+ms.custom: linux-related-content
 ms.topic: include
 ms.date: 10/25/2018
-
 ---
 > [!div class="op_single_selector"]
 > * [Overview](../hdinsight-hadoop-provision-linux-clusters.md)
@@ -14,4 +14,3 @@ ms.date: 10/25/2018
 > * [Azure Resource Manager templates](../hdinsight-hadoop-create-linux-clusters-arm-templates.md)
 > 
 > 
-

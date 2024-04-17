@@ -1,7 +1,7 @@
 ---
 title: Do video retrieval using vectorization - Image Analysis 4.0
 titleSuffix: Azure AI services
-description: Learn how to call the Spatial Analysis Video Retrieval APIs to vectorize video frames and search terms.
+description: Learn how to call the Video Retrieval APIs to vectorize video frames and search terms.
 #services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -14,7 +14,7 @@ ms.author: pafarley
 
 # Do video retrieval using vectorization (version 4.0 preview)
 
-Azure AI Spatial Analysis Video Retrieval APIs are part of Azure AI Vision and enable developers to create an index, add documents (videos and images) to it, and search with natural language. Developers can define metadata schemas for each index and ingest metadata to the service to help with retrieval. Developers can also specify what features to extract from the index (vision, speech) and filter their search based on features.
+Azure AI Video Retrieval APIs are part of Azure AI Vision and enable developers to create an index, add documents (videos and images) to it, and search with natural language. Developers can define metadata schemas for each index and ingest metadata to the service to help with retrieval. Developers can also specify what features to extract from the index (vision, speech) and filter their search based on features.
 
 ## Prerequisites
 
@@ -24,38 +24,11 @@ Azure AI Spatial Analysis Video Retrieval APIs are part of Azure AI Vision and e
 
 ## Input requirements
 
-### Supported formats
-
-| File format | Description |
-| ----------- | ----------- |
-| `asf`         | ASF (Advanced / Active Streaming Format)       |
-| `avi`         | AVI (Audio Video Interleaved)        |
-| `flv`         | FLV (Flash Video)        |
-| `matroskamm`, `webm`          | Matroska / WebM       |
-| `mov`,`mp4`,`m4a`,`3gp`,`3g2`,`mj2`   | QuickTime / MOV        |
- 
-### Supported video codecs
-
-| Codec       | Format |
-| ----------- | ----------- |
-| `h264`        | H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10       |
-| `h265`        | H.265/HEVC        |
-| `libvpx-vp9`  | libvpx VP9 (codec vp9)        |
-| `mpeg4`       | MPEG-4 part 2       |
- 
-### Supported audio codecs
-
-| Codec       | Format |
-| ----------- | ----------- |
-| `aac`         | AAC (Advanced Audio Coding)       |
-| `mp3`         | MP3 (MPEG audio layer 3)        |
-| `pcm`         | PCM (uncompressed)        |
-| `vorbis`      | Vorbis       |
-| `wmav2`       | Windows Media Audio 2       |
+[!INCLUDE [video-retrieval-input](../includes/video-retrieval-input.md)]
 
 ## Call the Video Retrieval APIs
 
-To use the Spatial Analysis Video Retrieval APIs in a typical pattern, you would do the following steps:
+To use the Video Retrieval APIs in a typical pattern, you would do the following steps:
 
 1. Create an index using **PUT - Create an index**.
 2. Add video documents to the index using **PUT - CreateIngestion**.
@@ -65,7 +38,7 @@ To use the Spatial Analysis Video Retrieval APIs in a typical pattern, you would
 
 ### Use Video Retrieval APIs for metadata-based search
 
-The Spatial Analysis Video Retrieval APIs allows a user to add metadata to video files. Metadata is additional information associated with video files such as "Camera ID," "Timestamp," or "Location" that can be used to organize, filter, and search for specific videos. This example demonstrates how to create an index, add video files with associated metadata, and perform searches using different features.
+The Video Retrieval APIs allows a user to add metadata to video files. Metadata is additional information associated with video files such as "Camera ID," "Timestamp," or "Location" that can be used to organize, filter, and search for specific videos. This example demonstrates how to create an index, add video files with associated metadata, and perform searches using different features.
 
 ### Step 1: Create an Index
 
@@ -365,4 +338,4 @@ Connection: close
 
 ## Next steps
 
-[Multi-modal embeddings concepts](../concept-image-retrieval.md)
+[Multimodal embeddings concepts](../concept-image-retrieval.md)

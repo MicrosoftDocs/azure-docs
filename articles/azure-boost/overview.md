@@ -4,7 +4,6 @@ description: Learn more about how Azure Boost can Learn more about how Azure Boo
 author: mattmcinnes
 ms.service: virtual-machines
 ms.topic: conceptual
-ms.workload: infrastructure
 ms.custom:
   - ignite-2023
 ms.date: 11/07/2023

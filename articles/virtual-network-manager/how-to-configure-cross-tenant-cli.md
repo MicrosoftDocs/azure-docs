@@ -7,7 +7,7 @@ ms.service: virtual-network-manager
 ms.topic: how-to 
 ms.date: 03/22/2023
 ms.custom: template-how-to, devx-track-azurecli
-#customerintent: As a cloud admin, I need to manage multiple tenants from a single network manager so that I can easily manage all network resources governed by Azure Virtual Network Manager.
+# Customer intent: As a cloud admin, I need to manage multiple tenants from a single network manager so that I can easily manage all network resources governed by Azure Virtual Network Manager.
 ---
 
 # Configure a cross-tenant connection in Azure Virtual Network Manager Preview - CLI

@@ -1,16 +1,15 @@
 ---
 title: Azure Active Directory B2C global identity framework proof of concept for region-based configuration
 description: Learn how to create a proof of concept regional based approach for Azure AD B2C to provide customer identity and access management for global customers.
-
 author: gargi-sinha
 manager: martinco
-
 ms.service: active-directory
-
-ms.topic: conceptual
-ms.date: 12/15/2022
+ms.topic: concept-article
+ms.date: 01/24/2024
 ms.author: gasinh
 ms.subservice: B2C
+
+# Customer intent: I'm a developer implementing Azure Active Directory B2C, and I want to configure region-based sign-up, sign-in, and password reset journeys. My goal is for users to be directed to the correct region and their data managed accordingly.
 ---
 
 # Azure Active Directory B2C global identity framework proof of concept for region-based configuration

@@ -10,7 +10,7 @@ author: kvijaykannan
 ms.author: vkann
 ms.date: 10/21/2021
 ms.topic: how-to
-# As a project manager, I want to hire a company to label the data in my data labeling project
+# Customer intent: As a project manager, I want to hire a company to label the data in my data labeling project
 # Keywords: data labeling companies, volume 170.  No other keywords found. 
 ---
 

@@ -9,7 +9,7 @@ ms.topic: conceptual
 author: bozhong68
 ms.author: bozhlin
 ms.reviewer: ssalgado
-ms.custom: devplatv2, ignite-fall-2021, event-tier1-build-2022, ignite-2022
+ms.custom: devplatv2
 ms.date: 12/22/2023
 #Customer intent: As part of ML Professionals focusing on ML infratrasture setup using self-managed compute, I want to understand what Kubernetes compute target is used for and what benefits it proves.
 ---
@@ -66,7 +66,7 @@ Train model in cloud, deploy model on-premises | Cloud | Make use of cloud compu
 
 `KubernetesCompute` target in Azure Machine Learning workloads (training and model inference) has the following limitations:
 * The availability of **Preview features** in Azure Machine Learning isn't guaranteed.
-    * Identified limitation: Models (including the foundational model) from the **Model Catalog** aren't supported on Kubernetes online endpoints.
+    * Identified limitation: Models (including the foundational model) from the **Model Catalog** and **Registry** aren't supported on Kubernetes online endpoints.
 
 ## Recommended best practices
 

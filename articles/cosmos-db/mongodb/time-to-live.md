@@ -9,7 +9,7 @@ ms.devlang: csharp
 # ms.devlang: csharp, java, javascript
 ms.topic: how-to
 ms.date: 02/16/2022
-ms.custom: devx-track-csharp, ignite-2022
+ms.custom: devx-track-csharp
 ---
 # Expire data with Azure Cosmos DB's API for MongoDB
 [!INCLUDE[MongoDB](../includes/appliesto-mongodb.md)]

@@ -8,7 +8,8 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
-ms.date: 09/21/2023
+ms.devlang: nosql
+ms.date: 02/27/2024
 ms.custom: query-reference
 ---
 
@@ -20,7 +21,7 @@ Returns the reverse order of a string value.
 
 ## Syntax
 
-```sql
+```nosql
 REVERSE(<string_expr>)  
 ```
 
@@ -38,7 +39,7 @@ Returns a string expression.
 
 The following example shows how to use this function to reverse multiple strings.
 
-:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/reverse/query.sql" highlight="2-4":::
+:::code language="nosql" source="~/cosmos-db-nosql-query-samples/scripts/reverse/query.sql" highlight="2-4":::
 
 :::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/reverse/result.json":::
 

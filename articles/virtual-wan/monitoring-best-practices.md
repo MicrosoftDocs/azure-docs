@@ -84,13 +84,13 @@ The following section details the configuration of metric-based alerts only. How
 
 ### ExpressRoute gateway
 
-This section of the article focuses on metric-based alerts. There are no diagnostic logs currently available for Virtual WAN ExpressRoute gateways. In addition to the alerts described below, which focus on the gateway component, we recommend that you use the available metrics, logs, and tools to monitor the ExpressRoute circuit. To learn more about ExpressRoute monitoring, see [ExpressRoute monitoring, metrics, and alerts](../expressroute/expressroute-monitoring-metrics-alerts.md). To learn about how you can use the ExpressRoute Traffic Collector tool, see [Configure ExpressRoute Traffic Collector for ExpressRoute Direct](../expressroute/how-to-configure-traffic-collector.md).
+The following section focuses on metric-based alerts. In addition to the alerts described below, which focus on the gateway component, we recommend that you use the available metrics, logs, and tools to monitor the ExpressRoute circuit. To learn more about ExpressRoute monitoring, see [ExpressRoute monitoring, metrics, and alerts](../expressroute/expressroute-monitoring-metrics-alerts.md). To learn about how you can use the ExpressRoute Traffic Collector tool, see [Configure ExpressRoute Traffic Collector for ExpressRoute Direct](../expressroute/how-to-configure-traffic-collector.md).
 
 **Design checklist - metric alerts**
 
-* Create alert rule for Bits Received Per Second.
+* Create alert rule for bits received per second.
 * Create alert rule for CPU overutilization.
-* Create alert rule for Packets per Second.
+* Create alert rule for packets per second.
 * Create alert rule for number of routes advertised to peer.
 * Count alert rule for number of routes learned from peer.
 * Create alert rule for high frequency in route changes.
@@ -106,7 +106,16 @@ This section of the article focuses on metric-based alerts. There are no diagnos
 
 ## Virtual hub
 
-We're working to support alerts based on virtual hub metrics soon. Currently, you can retrieve information for the Metrics, but alerting is unsupported. There are no diagnostic logs available for virtual hubs at this time.
+The following section focuses on metrics-based alerts for virtual hubs. 
+
+**Design checklist - metric alerts**
+
+* Create alert rule for BGP peer status
+
+|Recommendation | Description|
+|---|---|
+|Create alert rule to monitor BGP peer status.| Select the **BGP Peer Status** metric when creating the alert rule. Using a **static** threshold, choose the **Average** aggregation type and configure the alert to be triggered whenever the value is **less than 1**.<br><br> This will allow you to identify when the virtual hub router is having connectivity issues with ExpressRoute, Site-to-Site VPN, and Point-to-Site VPN gateways deployed in the hub.|
+
 
 ## Azure Firewall
 

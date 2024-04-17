@@ -84,6 +84,9 @@ After you add an empty disk, you'll need to initialize it. To initialize the dis
 
 The script file can contain code to initialize the disks, for example:
 
+> [!NOTE]
+> The example script uses MBR partition style. If your disk is two tebibytes (TiB) or larger, you must use GPT partitioning. If it's under two TiB, you can use either MBR or GPT.
+
 ```azurepowershell-interactive
     $disks = Get-Disk | Where partitionstyle -eq 'raw' | sort number
 

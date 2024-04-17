@@ -9,7 +9,7 @@ ms.service: azure-ai-custom-vision
 ms.topic: quickstart
 ms.date: 01/21/2024
 ms.author: pafarley
-ms.custom: cog-serv-seo-aug-2020, mode-other
+ms.custom: mode-other
 keywords: image recognition, image recognition app, custom vision
 ---
 

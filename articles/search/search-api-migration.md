@@ -42,7 +42,7 @@ If any of these situations apply to you, change your code to maintain existing f
 
 This version has breaking changes and behavioral differences for semantic ranking and vector search support. 
 
-+ [Semantic ranking](semantic-search-overview.md) no longer uses `queryLanguage`. It also requires a `semanticConfiguration` definition. If you're migrating from 2020-06-30-preview, a semantic configuration replaces `searchFields`. See [Migrate from preview version](semantic-how-to-query-request.md#migrate-from-preview-versions) for steps.
++ [Semantic ranking](semantic-search-overview.md) no longer uses `queryLanguage`. It also requires a `semanticConfiguration` definition. If you're migrating from 2020-06-30-preview, a semantic configuration replaces `searchFields`. See [Migrate from preview version](semantic-how-to-configure.md#migrate-from-preview-versions) for steps.
 
 + [Vector search](vector-search-overview.md) support was introduced in [Create or Update Index (2023-07-01-preview)](/rest/api/searchservice/preview-api/create-or-update-index). If you're migrating from that version, there are new options and several breaking changes. New options include vector filter mode, vector profiles, and an exhaustive K-nearest neighbors algorithm and query-time exhaustive k-NN flag. Breaking changes include renaming and restructuring the vector configuration in the index, and vector query syntax.
 

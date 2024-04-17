@@ -8,7 +8,8 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
-ms.date: 09/21/2023
+ms.devlang: nosql
+ms.date: 02/27/2024
 ms.custom: query-reference
 ---
 
@@ -20,7 +21,7 @@ Compares expressions in two sets and returns the set of expressions that is cont
 
 ## Syntax
 
-```sql
+```nosql
 SetIntersect(<array_expr_1>, <array_expr_2>)
 ```
 
@@ -39,7 +40,7 @@ Returns an array of expressions.
 
 This first example uses the function with static arrays to demonstrate the intersect functionality.
 
-:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/setintersect/query.novalidate.sql" highlight="2-6":::
+:::code language="nosql" source="~/cosmos-db-nosql-query-samples/scripts/setintersect/query.novalidate.sql" highlight="2-6":::
 
 :::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/setintersect/result.novalidate.json":::
 
@@ -49,7 +50,7 @@ This last example uses a single item that share values within two array properti
 
 The query selects the appropriate field from the item\[s\] in the container.
 
-:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/setintersect-field/query.novalidate.sql" highlight="3":::
+:::code language="nosql" source="~/cosmos-db-nosql-query-samples/scripts/setintersect-field/query.novalidate.sql" highlight="3":::
 
 :::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/setintersect-field/result.novalidate.json":::
 

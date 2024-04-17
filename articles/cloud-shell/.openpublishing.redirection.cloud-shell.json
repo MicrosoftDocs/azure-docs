@@ -6,6 +6,11 @@
             "redirect_document_id": false
         },
         {
+            "redirect_url": "/azure/cloud-shell/overview",
+            "source_path_from_root": "/articles/cloud-shell/embed-cloud-shell.md",
+            "redirect_document_id": false
+        },
+        {
             "redirect_url": "/azure/cloud-shell/faq-troubleshooting",
             "source_path_from_root": "/articles/cloud-shell/limitations.md",
             "redirect_document_id": false

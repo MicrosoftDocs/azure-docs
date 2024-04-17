@@ -2,11 +2,9 @@
 title: HBv3-series VM overview, architecture, topology - Azure Virtual Machines | Microsoft Docs
 description: Learn about the HBv3-series VM size in Azure.
 services: virtual-machines
-tags: azure-resource-manager
 ms.custom: linux-related-content
 ms.service: virtual-machines
 ms.subservice: hpc
-ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 04/21/2023
 ms.reviewer: cynthn
@@ -15,6 +13,9 @@ author: ju-shim
 ---
 
 # HBv3-series virtual machine overview
+
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 

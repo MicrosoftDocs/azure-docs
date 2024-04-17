@@ -10,7 +10,7 @@ ms.author: samkemp
 author: samuel100
 ms.reviewer: franksolomon
 ms.date: 06/02/2023
-ms.custom: contperf-fy21q1, data4ml
+ms.custom: data4ml
 # Customer intent: As an experienced Python developer, I need to make my Azure storage data available to my remote compute, to train my machine learning models.
 ---
 
@@ -486,7 +486,7 @@ MLTable supports the following path types:
 > `mltable` handles user credential passthrough for paths on Azure Storage and Azure Machine Learning datastores. If you don't have permission to the data on the underlying storage, you can't access the data.
 
 #### A note on defining paths for Delta Lake Tables
-Defining paths to read Delta Lake tables is different compared to the other file types. For Delta Lake tables, the path points to a *single* folder (typically on ADLS gen2) that contains the Delta table. *time travel* is supported. The following code shows how to define a path for a Delta Lake table:
+Defining paths to read Delta Lake tables is different compared to the other file types. For Delta Lake tables, the path points to a *single* folder (typically on ADLS gen2) that contains the "_delta_log" folder and data files. *time travel* is supported. The following code shows how to define a path for a Delta Lake table:
 
 ```python
 import mltable
@@ -516,6 +516,13 @@ tbl = mltable.from_delta_lake(delta_table_path, timestamp_as_of=current_timestam
 df = tbl.to_pandas_dataframe()
 ```
 
+> [!IMPORTANT]
+> **Limitation**: `mltable` doesn't support extracting partition keys when reading data from Delta Lake.
+> The `mltable` transformation `extract_columns_from_partition_format` won't work when you are reading Delta Lake data via `mltable`.
+
+> [!IMPORTANT]
+> `mltable` handles user credential passthrough for paths on Azure Storage and Azure Machine Learning datastores. If you don't have permission to the data on the underlying storage, you can't access the data.
+
 ### Files, folders and globs
 
 Azure Machine Learning Tables support reading from:
@@ -525,10 +532,6 @@ Azure Machine Learning Tables support reading from:
 - [glob](https://wikipedia.org/wiki/Glob_(programming)) pattern(s), for example `abfss://<file_system>@<account_name>.dfs.core.windows.net/my-folder/*.csv`
 - Or, a combination of files, folders and globbing patterns
 
-> [!IMPORTANT]
-> In your list of paths you **must**:
-> - Use the **same** schemed URI paths. For example, they must all be `abfss://` **or** `wasbs://` **or** `https://` **or** `./local_path`.
-> - Use Azure Machine Learning Datastores URI paths **or** Storage URI paths. For example, you cannot mix `azureml://` with `abfss://` URI paths in the list of paths.
 
 ### Supported data loading transformations
 

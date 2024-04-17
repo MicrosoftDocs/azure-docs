@@ -6,7 +6,7 @@ manager: gaggupta
 ms.service: site-recovery
 ms.topic: conceptual
 ms.author: ankitadutta
-ms.date: 05/27/2021
+ms.date: 03/13/2024
 ---
 
 # Reprotect from Azure to on-premises
@@ -50,6 +50,9 @@ Enable replication. You can reprotect specific VMs, or a recovery plan:
 - After a VM boots in Azure after failover, it takes some time for the agent to register back to the configuration server (up to 15 minutes). During this time, you won't be able to reprotect and an error message indicates that the agent isn't installed. If this happens, wait for a few minutes, and then reprotect.
 - If you want to fail back the Azure VM to an existing on-premises VM, mount the on-premises VM data stores with read/write access on the master target server's ESXi host.
 - If you want to fail back to an alternate location, for example if the on-premises VM doesn't exist, select the retention drive and data store that are configured for the master target server. When you fail back to the on-premises site, the VMware virtual machines in the failback protection plan use the same data store as the master target server. A new VM is then created in vCenter.
+
+> [!NOTE]
+> It is strongly recommended that the mobility service agent is not uninstalled from the failed over machine (which is running in Azure). Performing re-protect or failback operations will not be possible post that.  
 
 Enable reprotection as follows:
 

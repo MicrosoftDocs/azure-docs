@@ -2,16 +2,13 @@
 title: Syslog collection with Container Insights
 description: This article describes how to collect Syslog from AKS nodes using Container insights.
 ms.topic: conceptual
-ms.date: 01/31/2023
+ms.date: 2/28/2024
 ms.reviewer: damendo
 ---
 
 # Syslog collection with Container Insights 
 
 Container Insights offers the ability to collect Syslog events from Linux nodes in your [Azure Kubernetes Service (AKS)](../../aks/intro-kubernetes.md) clusters. This includes the ability to collect logs from control plane components like kubelet. Customers can also use Syslog for monitoring security and health events, typically by ingesting syslog into a SIEM system like [Microsoft Sentinel](https://azure.microsoft.com/products/microsoft-sentinel/#overview).  
-
-> [!IMPORTANT]
-> Syslog collection is now GA. However due to slower rollouts towards the year end, the agent version with the GA changes will not be in all regions until the end of January 2024.  Agent versions 3.1.16 and above have Syslog GA changes. Please check agent version before enabling in production.
 
 ## Prerequisites 
 
@@ -113,7 +110,10 @@ Navigate to your cluster. Open the _Workbooks_ tab for your cluster and look for
 
 ### Access using a Grafana dashboard
 
-Customers can use our Syslog dashboard for Grafana to get an overview of their Syslog data. Customers who use Azure-managed Grafana will have this dashboard available in their Grafana instance by default. Once syslog collection is enabled, no other steps are needed. Other customers can [import the Syslog dashboard from Grafana marketplace](https://grafana.com/grafana/dashboards/19866-azure-monitor-container-insights-syslog/).
+Customers can use our Syslog dashboard for Grafana to get an overview of their Syslog data. Customers who create a new Azure-managed Grafana instance will have this dashboard available by default. Customers with existing instances or those running their own instance can [import the Syslog dashboard from the Grafana marketplace](https://grafana.com/grafana/dashboards/19866-azure-monitor-container-insights-syslog/). 
+
+> [!NOTE]
+> You will need to have the **Monitoring Reader** role on the Subscription containing the Azure Managed Grafana instance to access syslog from Container Insights. 
 
 :::image type="content" source="media/container-insights-syslog/grafana-screenshot.png" lightbox="media/container-insights-syslog/grafana-screenshot.png" alt-text="Screenshot of Syslog Grafana dashboard." border="false":::
 

@@ -14,7 +14,7 @@ By connecting your GitLab groups to Defender for Cloud, you extend the security 
 
 - **Foundational Cloud Security Posture Management (CSPM) features**: You can assess your GitLab security posture through GitLab-specific security recommendations. You can also learn about all the [recommendations for DevOps](recommendations-reference.md) resources.
 
-- **Defender CSPM features**: Defender CSPM customers receive code to cloud contextualized attack paths, risk assessments, and insights to identify the most critical weaknesses that attackers can use to breach their environment. Connecting your GitLab projects will allow you to contextualize DevOps security findings with your cloud workloads and identify the origin and developer for timely remediation. For more information, learn how to [identify and analyze risks across your environment](concept-attack-path.md)
+- **Defender CSPM features**: Defender CSPM customers receive code to cloud contextualized attack paths, risk assessments, and insights to identify the most critical weaknesses that attackers can use to breach their environment. Connecting your GitLab projects allows you to contextualize DevOps security findings with your cloud workloads and identify the origin and developer for timely remediation. For more information, learn how to [identify and analyze risks across your environment](concept-attack-path.md).
 
 ## Prerequisites
 
@@ -28,9 +28,9 @@ To complete this quickstart, you need:
 | Aspect | Details |
 |--|--|
 | Release state: | Preview. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability. |
-| Pricing: | For pricing, see the Defender for Cloud [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/?v=17.23h#pricing). |
-| Required permissions: | **Account Administrator** with permissions to sign in to the Azure portal. <br> **Contributor** to create a connector on the Azure subscription. <br> **Group Owner** on the GitLab Group. 
-| Regions and availability: | Refer to the [support and prerequisites](devops-support.md) section for region support and feature availability.  |
+| Pricing: | For pricing, see the Defender for Cloud [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/?v=17.23h#pricing).|
+| Required permissions: | **Account Administrator** with permissions to sign in to the Azure portal. <br> **Contributor** to create a connector on the Azure subscription. <br> **Group Owner** on the GitLab Group.|
+| Regions and availability: | Refer to the [support and prerequisites](devops-support.md) section for region support and feature availability.|
 | Clouds: | :::image type="icon" source="media/quickstart-onboard-github/check-yes.png" border="false"::: Commercial <br> :::image type="icon" source="media/quickstart-onboard-github/x-no.png" border="false"::: National (Azure Government, Microsoft Azure operated by 21Vianet) |
 
 > [!NOTE]
@@ -60,14 +60,14 @@ To connect your GitLab Group to Defender for Cloud by using a native connector:
 
 1. Select **Next: Configure access**.
 
-1. Select **Authorize**. 
+1. Select **Authorize**.
 
 1. In the popup dialog, read the list of permission requests, and then select **Accept**.
 
 1. For Groups, select one of the following:
 
-    - Select **all existing groups** to autodiscover all subgroups and projects in groups you are currently an Owner in.
-    - Select **all existing and future groups** to autodiscover all subgroups and projects in all current and future groups you are an Owner in.
+    - Select **all existing groups** to autodiscover all subgroups and projects in groups you're currently an Owner in.
+    - Select **all existing and future groups** to autodiscover all subgroups and projects in all current and future groups you're an Owner in.
 
 Since GitLab projects are onboarded at no additional cost, autodiscover is applied across the group to ensure Defender for Cloud can comprehensively assess the security posture and respond to security threats across your entire DevOps ecosystem. Groups can later be manually added and removed through **Microsoft Defender for Cloud** > **Environment settings**.
 
@@ -78,7 +78,7 @@ Since GitLab projects are onboarded at no additional cost, autodiscover is appli
 > [!NOTE]
 > To ensure proper functionality of advanced DevOps posture capabilities in Defender for Cloud, only one instance of a GitLab group can be onboarded to the Azure Tenant you are creating a connector in.
 
-The **DevOps security** blade shows your onboarded repositories by GitLab group. The **Recommendations** blade shows all security assessments related to GitLab projects.
+The **DevOps security** pane shows your onboarded repositories by GitLab group. The **Recommendations** pane shows all security assessments related to GitLab projects.
 
 ## Next steps
 

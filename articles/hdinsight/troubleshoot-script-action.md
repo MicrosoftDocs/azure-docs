@@ -3,8 +3,7 @@ title: Troubleshoot script actions in Azure HDInsight
 description: General troubleshooting steps for script actions in Azure HDInsight.
 ms.service: hdinsight
 ms.topic: troubleshooting
-ms.custom: seoapr2020
-ms.date: 02/27/2023
+ms.date: 03/22/2024
 ---
 
 # Troubleshoot script actions in Azure HDInsight
@@ -21,11 +20,11 @@ You can use the Apache Ambari web UI to view information logged by script action
 
 1. From the bar at the top of the page, select the **ops** entry. A list displays current and previous operations done on the cluster through Ambari.
 
-    :::image type="content" source="./media/troubleshoot-script-action/hdi-apache-ambari-nav.png" alt-text="Ambari web UI bar with ops selected" border="true":::
+    :::image type="content" source="./media/troubleshoot-script-action/hdi-apache-ambari-nav.png" alt-text="Ambari web UI bar with ops selected." border="true":::
 
 1. Find the entries that have **run\_customscriptaction** in the **Operations** column. These entries are created when the script actions run.
 
-    :::image type="content" source="./media/troubleshoot-script-action/ambari-script-action.png" alt-text="Apache Ambari script action operations" border="true":::
+    :::image type="content" source="./media/troubleshoot-script-action/ambari-script-action.png" alt-text="Apache Ambari script action operations." border="true":::
 
     To view the **STDOUT** and **STDERR** output, select the **run\customscriptaction** entry and drill down through the links. This output is generated when the script runs and might have useful information.
 
@@ -35,7 +34,7 @@ If cluster creation fails because of a script error, the logs are kept in the cl
 
 * The storage logs are available at `\STORAGE_ACCOUNT_NAME\DEFAULT_CONTAINER_NAME\custom-scriptaction-logs\CLUSTER_NAME\DATE`.
 
-    :::image type="content" source="./media/troubleshoot-script-action/script-action-logs-in-storage.png" alt-text="Script action logs" border="true":::
+    :::image type="content" source="./media/troubleshoot-script-action/script-action-logs-in-storage.png" alt-text="Script action logs." border="true":::
 
     Under this directory, the logs are organized separately for **headnode**, **worker node**, and **zookeeper node**. See the following examples:
 

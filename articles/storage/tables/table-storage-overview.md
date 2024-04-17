@@ -5,7 +5,6 @@ services: storage
 ms.service: azure-table-storage
 author: akashdubey-ms
 ms.author: akashdubey
-ms.custom: ignite-2022
 ms.topic: overview
 ms.date: 05/27/2021
 ---

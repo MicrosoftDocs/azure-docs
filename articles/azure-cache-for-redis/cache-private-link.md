@@ -43,8 +43,8 @@ You can restrict public access to the private endpoint of your cache by disablin
 >
 
 > [!IMPORTANT]
-> When using private link, you cannot export or import data to a to a storage account that has firewall enabled unless you're using [managed identity to autenticate to the storage account](cache-managed-identity.md).
-> For more information, see [How to export if I have firewall enabled on my storage account?](cache-how-to-import-export-data.md#how-to-export-if-i-have-firewall-enabled-on-my-storage-account)
+> When using private link, you cannot export or import data to a to a storage account that has firewall enabled unless you're using a Premium tier cache with [managed identity to autenticate to the storage account](cache-managed-identity.md).
+> For more information, see [What if I have firewall enabled on my storage account?](cache-how-to-import-export-data.md#what-if-i-have-firewall-enabled-on-my-storage-account)
 >
 
 ## Create a private endpoint with a new Azure Cache for Redis instance
@@ -358,8 +358,12 @@ For more information, see [Azure services DNS zone configuration](../private-lin
 ### Why can't I connect to a private endpoint?
 
 - Private endpoints can't be used with your cache instance if your cache is already a VNet injected cache.
+  
+- For Basic, Standard, and Premium tier caches, you are limited to 100 private links. 
 
-- On Premium tier caches, you have a limit of one private link for clustered caches. Enterprise and Enterprise Flash tier caches do not have this limitation for clustered caches. For all other caches, your limit is 100 private links.
+- On Premium tier caches using clustering, you are limited to one private link.
+  
+- Enterprise and Enterprise Flash tier caches are limited to 84 private links.
 
 - You try to [persist data to storage account](cache-how-to-premium-persistence.md) where firewall rules are applied might prevent you from creating the Private Link.
 

@@ -2,8 +2,8 @@
 title: Install TmaxSoft OpenFrame on Azure Virtual Machines
 description: Learn how to set up an OpenFrame environment on Azure suitable for development, demos, testing, or production workloads.
 services: virtual-machines
-author: njray
-ms.author: larryme
+author: johnjrayborn
+ms.author: johnray
 ms.date: 04/19/2023
 ms.topic: article
 ms.service: virtual-machines
@@ -12,6 +12,9 @@ ms.custom: linux-related-content
 ---
 
 # Install TmaxSoft OpenFrame on Azure
+
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 Learn how to set up an OpenFrame environment on Azure suitable for development, demos, testing, or production workloads. This tutorial walks you through each step.
 
