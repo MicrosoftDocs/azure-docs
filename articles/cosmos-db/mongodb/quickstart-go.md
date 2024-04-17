@@ -69,7 +69,7 @@ The following snippets are all taken from the `todo.go` file.
 
 ### Connecting the Go app to Azure Cosmos DB
 
-[`clientOptions`](https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.3.2/mongo/options?tab=doc#ClientOptions) encapsulates the connection string for Azure Cosmos DB, which is passed in using an environment variable (details in the upcoming section). The connection is initialized using [`mongo.NewClient`](https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.3.2/mongo?tab=doc#NewClient) to which the `clientOptions` instance is passed. [`Ping` function](https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.3.2/mongo?tab=doc#Client.Ping) is invoked to confirm successful connectivity (it is a fail-fast strategy).
+[`clientOptions`](https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.3.2/mongo/options?tab=doc#ClientOptions) encapsulates the connection string for Azure Cosmos DB, which is passed in using an environment variable (details in the upcoming section). The connection is initialized using [`mongo.NewClient`](https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.3.2/mongo?tab=doc#NewClient) to which the `clientOptions` instance is passed. [`Ping` function](https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.3.2/mongo?tab=doc#Client.Ping) is invoked to confirm successful connectivity (it'is a fail-fast strategy).
 
 ```go
     ctx, cancel := context.WithTimeout(context.Background(), time.Second*10)
@@ -194,7 +194,7 @@ func update(todoid, newStatus string) {
 
 ### Delete a `todo`
 
-A `todo` is deleted based on its `_id` and it is encapsulated in the form of a [`bson.D`](https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.3.2/bson?tab=doc#D) instance. [`DeleteOne`](https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.3.2/mongo?tab=doc#Collection.DeleteOne) is invoked to delete the document.
+A `todo` is deleted based on its `_id` and it'is encapsulated in the form of a [`bson.D`](https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.3.2/bson?tab=doc#D) instance. [`DeleteOne`](https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.3.2/mongo?tab=doc#Collection.DeleteOne) is invoked to delete the document.
 
 ```go
 func delete(todoid string) {
@@ -231,9 +231,9 @@ To confirm that the application was built properly.
 
 ### Sign in to Azure
 
-If you choose to install and use the CLI locally, this topic requires that you are running the Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI]. 
+If you choose to install and use the CLI locally, this topic requires that you're running the Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI]. 
 
-If you are using an installed Azure CLI, sign in to your Azure subscription with the [az login](/cli/azure/reference-index#az-login) command and follow the on-screen directions. You can skip this step if you're using the Azure Cloud Shell.
+If you're using an installed Azure CLI, sign in to your Azure subscription with the [az login](/cli/azure/reference-index#az-login) command and follow the on-screen directions. You can skip this step if you're using the Azure Cloud Shell.
 
 ```azurecli
 az login 
@@ -241,9 +241,9 @@ az login
    
 ### Add the Azure Cosmos DB module
 
-If you are using an installed Azure CLI, check to see if the `cosmosdb` component is already installed by running the `az` command. If `cosmosdb` is in the list of base commands, proceed to the next command. You can skip this step if you're using the Azure Cloud Shell.
+If you're using an installed Azure CLI, check to see if the `cosmosdb` component is already installed by running the `az` command. If `cosmosdb` is in the list of base commands, proceed to the next command. You can skip this step if you're using the Azure Cloud Shell.
 
-If `cosmosdb` is not in the list of base commands, reinstall [Azure CLI](/cli/azure/install-azure-cli).
+If `cosmosdb` isn't in the list of base commands, reinstall [Azure CLI](/cli/azure/install-azure-cli).
 
 ### Create a resource group
 
@@ -251,7 +251,7 @@ Create a [resource group](../../azure-resource-manager/management/overview.md) w
 
 The following example creates a resource group in the West Europe region. Choose a unique name for the resource group.
 
-If you are using Azure Cloud Shell, select **Try It**, follow the onscreen prompts to log in, then copy the command into the command prompt.
+If you're using Azure Cloud Shell, select **Try It**, follow the onscreen prompts to log in, then copy the command into the command prompt.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location "West Europe"
@@ -430,7 +430,7 @@ List the `todo`s to confirm:
 ./todo --list all
 ```
 
-The `todo` you just deleted should not be present:
+The `todo` you just deleted shouldn't be present:
 
 ```bash
 +----------------------------+--------------------------------+-----------+
