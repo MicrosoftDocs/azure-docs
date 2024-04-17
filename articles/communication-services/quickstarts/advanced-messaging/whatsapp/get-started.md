@@ -10,10 +10,10 @@ ms.date: 02/29/2024
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.custom: devx-track-extended-java, devx-track-js
-zone_pivot_groups: acs-js-csharp-java
+zone_pivot_groups: acs-js-csharp-java-python
 ---
 
-# Quickstart: Add Advanced Messaging to your app
+# Quickstart: Send WhatsApp Messages using Advanced Messages
 
 Azure Communication Services enables you to send and receive WhatsApp messages. In this quickstart, get started integrating your app with Azure Communication Advanced Messages SDK and start sending/receiving WhatsApp messages. Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
 
@@ -27,6 +27,10 @@ Azure Communication Services enables you to send and receive WhatsApp messages. 
 
 ::: zone pivot="programming-language-javascript"
 [!INCLUDE [Send WhatsApp Messages JavaScript SDK](./includes/get-started/messages-get-started-js.md)]
+::: zone-end
+
+::: zone pivot="programming-language-python"
+[!INCLUDE [Send WhatsApp Messages Python SDK](./includes/get-started/messages-quickstart-python.md)]
 ::: zone-end
 
 ## Next steps

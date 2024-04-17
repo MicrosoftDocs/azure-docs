@@ -3,7 +3,7 @@ title: Table API and SQL - Use Delta Catalog type with Hive with Apache Flink® 
 description: Learn about how to create Delta Catalog with Apache Flink® on Azure HDInsight on AKS
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 03/14/2024
+ms.date: 03/29/2024
 ---
 
 # Create Delta Catalog with Apache Flink® on Azure HDInsight on AKS
@@ -64,7 +64,7 @@ Using the delta catalog
 We use arrival data of flights from a sample data, you can choose a table of your choice.
 
 ```sql
-    CREATE TABLE flightsintervaldata1 (arrivalAirportCandidatesCount INT, estArrivalHour INT) PARTITIONED BY (estArrivalHour) WITH ('connector' = 'delta', 'table-path' = 'abfs://container@storage_account.dfs.core.windows.net'/delta-output);
+   CREATE TABLE flightsintervaldata1 (arrivalAirportCandidatesCount INT, estArrivalHour INT) PARTITIONED BY (estArrivalHour) WITH ('connector' = 'delta', 'table-path' = 'abfs://container@storage_account.dfs.core.windows.net/delta-output'); 
 ```
 > [!NOTE]
 > In the above step, the container and storage account *need not be same* as specified during the cluster creation. In case you want to specify another storage account, you can update `core-site.xml` with `fs.azure.account.key.<account_name>.dfs.core.windows.net: <azure_storage_key>` using configuration management.

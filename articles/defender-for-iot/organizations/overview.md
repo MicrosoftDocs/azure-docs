@@ -2,7 +2,7 @@
 title: Overview - Microsoft Defender for IoT for organizations
 description: Learn about Microsoft Defender for IoT's features for end-user organizations and comprehensive IoT security for OT and Enterprise IoT networks.
 ms.topic: overview
-ms.date: 12/25/2022
+ms.date: 04/10/2024
 ms.custom: enterprise-iot
 ---
 
@@ -73,12 +73,6 @@ Extend Defender for IoT's agentless security features beyond OT environments to 
 Enterprise IoT devices can include devices such as printers, smart TVs, and conferencing systems and purpose-built, proprietary devices.
 
 For more information, see [Securing IoT devices in the enterprise](concept-enterprise.md).
-
-## Defender for IoT for device builders
-
-Defender for IoT also provides a lightweight security micro-agent that you can use to build security straight into your new IoT innovations.
-
-For more information, see the [Microsoft Defender for IoT for device builders documentation](../device-builders/overview.md).
 
 ## Supported service regions
 

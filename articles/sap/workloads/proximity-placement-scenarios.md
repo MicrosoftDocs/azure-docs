@@ -69,7 +69,7 @@ For more information and deployment examples of proximity placement groups, see 
 
 ### Proximity placement groups with zonal deployments
 
-It's important to provide a reasonably low network latency between the SAP application tier and the DBMS tier. In most situations, a zonal deployment alone fulfills this requirement. To place VMs as close as possible and enable such a reasonably low network latency for a limited set of scenarios, an Azure proximity placement group can be defined for such an SAP system.
+It's important to provide a reasonably low network latency between the SAP application tier and the DBMS tier. In most situations a zonal deployment alone fulfills this requirement. For a limited set of scenarios, a zonal deployment alone might not meet the application latency requirements. Such situations require VM placement as close as possible and enable reasonably low network latency, an Azure proximity placement group can be defined for such an SAP system.
 
 Avoid bundling several SAP production or nonproduction systems into a single proximity placement group. Avoid bundles of SAP systems because the more systems you group in a proximity placement group, the higher the chances:
 

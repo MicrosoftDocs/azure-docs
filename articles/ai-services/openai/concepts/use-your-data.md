@@ -8,7 +8,7 @@ ms.service: azure-ai-openai
 ms.topic: quickstart
 author: aahill
 ms.author: aahi
-ms.date: 02/26/2024
+ms.date: 04/08/2024
 recommendations: false
 ms.custom: references_regions 
 ---
@@ -58,13 +58,19 @@ There's an [upload limit](../quotas-limits.md), and there are some caveats about
 
 ## Supported data sources
 
-You need to connect to a data source to upload your data. When you want to use your data to chat with an Azure OpenAI model, your data is chunked in a search index so that relevant data can be found based on user queries. For some data sources such as uploading files from your local machine (preview) or data contained in a blob storage account (preview), Azure AI Search is used. 
+You need to connect to a data source to upload your data. When you want to use your data to chat with an Azure OpenAI model, your data is chunked in a search index so that relevant data can be found based on user queries.
 
-When you choose the following data sources, your data is ingested into an Azure AI Search index.
+The [Integrated Vector Database in vCore-based Azure Cosmos DB for MongoDB](/azure/cosmos-db/mongodb/vcore/vector-search) natively supports integration with Azure OpenAI On Your Data.
+
+For some data sources such as uploading files from your local machine (preview) or data contained in a blob storage account (preview), Azure AI Search is used. When you choose the following data sources, your data is ingested into an Azure AI Search index.
+
+>[!TIP]
+>If you use Azure Cosmos DB (except for its vCore-based API for MongoDB), you may be eligible for the [Azure AI Advantage offer](/azure/cosmos-db/ai-advantage), which provides the equivalent of up to $6,000 in Azure Cosmos DB throughput credits.
 
 |Data source  | Description  |
 |---------|---------|
 | [Azure AI Search](/azure/search/search-what-is-azure-search)  | Use an existing Azure AI Search index with Azure OpenAI On Your Data.      |
+| [Azure Cosmos DB](/azure/cosmos-db/introduction)  | Azure Cosmos DB's API for Postgres and vCore-based API for MongoDB have natively integrated vector indexing and do not require Azure AI Search; however, its other APIs do require Azure AI Search for vector indexing. Azure Cosmos DB for NoSQL will offer a natively integrated vector database by mid-2024.     |
 |Upload files (preview)      | Upload files from your local machine to be stored in an Azure Blob Storage database, and ingested into Azure AI Search.         |
 |URL/Web address (preview)        | Web content from the URLs is stored in Azure Blob Storage.         |
 |Azure Blob Storage (preview) | Upload files from Azure Blob Storage to be ingested into an Azure AI Search index.         |
@@ -133,15 +139,15 @@ If you want to implement additional value-based criteria for query execution, yo
 
 [!INCLUDE [ai-search-ingestion](../includes/ai-search-ingestion.md)]
 
-# [Azure Cosmos DB for MongoDB vCore](#tab/mongo-db)
+# [Vector Database in Azure Cosmos DB for MongoDB](#tab/mongo-db)
 
 ### Prerequisites
-* [Azure Cosmos DB for MongoDB vCore](/azure/cosmos-db/mongodb/vcore/introduction) account
+* [vCore-based Azure Cosmos DB for MongoDB](/azure/cosmos-db/mongodb/vcore/introduction) account
 * A deployed [embedding model](../concepts/understand-embeddings.md)
 
 ### Limitations
-* Only Azure Cosmos DB for MongoDB vCore is supported.
-* The search type is limited to [Azure Cosmos DB for MongoDB vCore vector search](/azure/cosmos-db/mongodb/vcore/vector-search) with an Azure OpenAI embedding model.
+* Only vCore-based Azure Cosmos DB for MongoDB is supported.
+* The search type is limited to [Integrated Vector Database in Azure Cosmos DB for MongoDB](/azure/cosmos-db/mongodb/vcore/vector-search) with an Azure OpenAI embedding model.
 * This implementation works best on unstructured and spatial data.
 
 ### Data preparation
@@ -150,9 +156,9 @@ Use the script provided on [GitHub](https://github.com/microsoft/sample-app-aoai
 
 <!--### Add your data source in Azure OpenAI Studio
 
-To add Azure Cosmos DB for MongoDB vCore as a data source, you will need an existing Azure Cosmos DB for MongoDB vCore index containing your data, and a deployed Azure OpenAI Ada embeddings model that will be used for vector search.
+To add vCore-based Azure Cosmos DB for MongoDB as a data source, you will need an existing Azure Cosmos DB for MongoDB index containing your data, and a deployed Azure OpenAI Ada embeddings model that will be used for vector search.
 
-1. In the [Azure OpenAI portal](https://oai.azure.com/portal) chat playground, select **Add your data**. In the panel that appears, select **Azure Cosmos DB for MongoDB vCore** as the data source. 
+1. In the [Azure OpenAI portal](https://oai.azure.com/portal) chat playground, select **Add your data**. In the panel that appears, select ** vCore-based Azure Cosmos DB for MongoDB** as the data source. 
 1. Select your Azure subscription and database account, then connect to your Azure Cosmos DB account by providing your Azure Cosmos DB account username and password.
     
     :::image type="content" source="../media/use-your-data/add-mongo-data-source.png" alt-text="A screenshot showing the screen for adding Mongo DB as a data source in Azure OpenAI Studio." lightbox="../media/use-your-data/add-mongo-data-source.png":::
@@ -164,7 +170,7 @@ To add Azure Cosmos DB for MongoDB vCore as a data source, you will need an exis
 
 ### Index field mapping
 
-When you add your Azure Cosmos DB for MongoDB vCore data source, you can specify  data fields to properly map your data for retrieval.
+When you add your vCore-based Azure Cosmos DB for MongoDB data source, you can specify data fields to properly map your data for retrieval.
 
 * Content data (required): One or more provided fields that will be used to ground the model on your data. For multiple fields, separate the values with commas, with no spaces.
 * File name/title/URL: Used to display more information when a document is referenced in the chat.
@@ -318,6 +324,27 @@ You can use Azure OpenAI On Your Data securely by protecting data and resources 
 
 Use the following sections to learn how to improve the quality of responses given by the model.
 
+### Ingestion parameter
+
+When your data is ingested into to Azure AI Search, You can modify the following additional settings in either the studio or [ingestion API](/rest/api/azureopenai/ingestion-jobs/create#request-body).
+
+### Chunk size (preview)
+
+Azure OpenAI On Your Data processes your documents by splitting them into chunks before ingesting them. The chunk size is the maximum size in terms of the number of tokens of any chunk in the search index. Chunk size and the number of retrieved documents together control how much information (tokens) is included in the prompt sent to the model. In general, the chunk size multiplied by the number of retrieved documents is the total number of tokens sent to the model. 
+
+#### Setting chunk size for your use case
+
+The default chunk size is 1,024 tokens. However, given the uniqueness of your data, you might find a different chunk size (such as 256, 512, or 1,536 tokens) more effective.
+
+Adjusting the chunk size can enhance your chatbot's performance. While finding the optimal chunk size requires some trial and error, start by considering the nature of your dataset. A smaller chunk size is generally better for datasets with direct facts and less context, while a larger chunk size might be beneficial for more contextual information, though it could affect retrieval performance. 
+
+A small chunk size like 256 produces more granular chunks. This size also means the model will utilize fewer tokens to generate its output (unless the number of retrieved documents is very high), potentially costing less. Smaller chunks also mean the model does not have to process and interpret long sections of text, reducing noise and distraction. This granularity and focus however pose a potential problem. Important information might not be among the top retrieved chunks, especially if the number of retrieved documents is set to a low value like 3.
+
+> [!TIP]
+> Keep in mind that altering the chunk size requires your documents to be re-ingested, so it's useful to first adjust [runtime parameters](#runtime-parameters) like strictness and the number of retrieved documents. Consider changing the chunk size if you're still not getting the desired results:
+> * If you are encountering a high number of responses such as "I don't know" for questions with answers that should be in your documents, consider reducing the chunk size to 256 or 512 to improve granularity.
+> * If the chatbot is providing some correct details but missing others, which becomes apparent in the citations, increasing the chunk size to 1,536 might help capture more contextual information.
+
 ### Runtime parameters
 
 You can modify the following additional settings in the **Data parameters** section in Azure OpenAI Studio and [the API](../references/on-your-data.md). You don't need to reingest your data when you update these parameters. 
@@ -328,6 +355,10 @@ You can modify the following additional settings in the **Data parameters** sect
 | **Limit responses to your data** | This flag configures the chatbot's approach to handling queries unrelated to the data source or when search documents are insufficient for a complete answer. When this setting is disabled, the model supplements its responses with its own knowledge in addition to your documents. When this setting is enabled, the model attempts to only rely on your documents for responses. This is the `inScope` parameter in the API, and set to true by default. |
 |**Retrieved documents**     |  This parameter is an integer that can be set to 3, 5, 10, or 20, and controls the number of document chunks provided to the large language model for formulating the final response. By default, this is set to 5. The search process can be noisy and sometimes, due to chunking, relevant information might be spread across multiple chunks in the search index. Selecting a top-K number, like 5, ensures that the model can extract relevant information, despite the inherent limitations of search and chunking. However, increasing the number too high can potentially distract the model. Additionally, the maximum number of documents that can be effectively used depends on the version of the model, as each has a different context size and capacity for handling documents. If you find that responses are missing important context, try increasing this parameter. This is the `topNDocuments` parameter in the API, and is 5 by default. |
 | **Strictness**     | Determines the system's aggressiveness in filtering search documents based on their similarity scores. The system queries Azure Search or other document stores, then decides which documents to provide to large language models like ChatGPT. Filtering out irrelevant documents can significantly enhance the performance of the end-to-end chatbot. Some documents are excluded from the top-K results if they have low similarity scores before forwarding them to the model. This is controlled by an integer value ranging from 1 to 5. Setting this value to 1 means that the system will minimally filter documents based on search similarity to the user query. Conversely, a setting of 5 indicates that the system will aggressively filter out documents, applying a very high similarity threshold. If you find that the chatbot omits relevant information, lower the filter's strictness (set the value closer to 1) to include more documents. Conversely, if irrelevant documents distract the responses, increase the threshold (set the value closer to 5). This is the `strictness` parameter in the API, and set to 3 by default. |
+
+### Uncited references
+
+It's possible for the model to return `"TYPE":"UNCITED_REFERENCE"` instead of `"TYPE":CONTENT` in the API for documents that are retrieved from the data source, but not included in the citation. This can be useful for debugging, and you can control this behavior by modifying the **strictness** and **retrieved documents** runtime parameters described above.
 
 ### System message
 
@@ -439,6 +470,13 @@ You can send a streaming request using the `stream` parameter, allowing data to 
 
 When you chat with a model, providing a history of the chat will help the model return higher quality results. You don't need to include the `context` property of the assistant messages in your API requests for better response quality. See [the API reference documentation](../references/on-your-data.md#examples) for examples.
 
+#### Function Calling
+
+Some Azure OpenAI models allow you to define [tools and tool_choice parameters](../how-to/function-calling.md) to enable function calling. You can set up function calling through [REST API](../reference.md#chat-completions) `/chat/completions`. If both `tools` and [data sources](../references/on-your-data.md#request-body) are in the request, the following policy is applied.
+1. If `tool_choice` is `none`, the tools are ignored, and only the data sources are used to generate the answer.
+1. Otherwise, if `tool_choice` is not specified, or specified as `auto` or an object, the data sources are ignored, and the response will contain the selected functions name and the arguments, if any. Even if the model decides no function is selected, the data sources are still ignored.
+
+If the policy above doesn't meet your need, please consider other options, for example: [prompt flow](/azure/machine-learning/prompt-flow/overview-what-is-prompt-flow) or [Assistants API](../how-to/assistant.md).
 
 ## Token usage estimation for Azure OpenAI On Your Data
 
@@ -522,10 +560,9 @@ token_output = TokenEstimator.estimate_tokens(input_text)
 
 ## Troubleshooting 
 
+To troubleshoot failed operations, always look out for errors or warnings specified either in the API response or Azure OpenAI studio. Here are some of the common errors and warnings: 
+
 ### Failed ingestion jobs
-
-To troubleshoot a failed job, always look out for errors or warnings specified either in the API response or Azure OpenAI studio. Here are some of the common errors and warnings: 
-
 
 **Quota Limitations Issues** 
 
@@ -555,6 +592,10 @@ Resolution:
 
 This means the storage account isn't accessible with the given credentials. In this case, please review the storage account credentials passed to the API and ensure the storage account isn't hidden behind a private endpoint (if a private endpoint isn't configured for this resource). 
 
+### 503 errors when sending queries with Azure AI Search
+
+Each user message can translate to multiple search queries, all of which get sent to the search resource in parallel. This can produce throttling behavior when the amount of search replicas and partitions is low. The maximum number of queries per second that a single partition and single replica can support may not be sufficient. In this case, consider increasing your replicas and partitions, or adding sleep/retry logic in your application. See the [Azure AI Search documentation](../../../search/performance-benchmarks.md) for more information.
+
 ## Regional availability and model support
 
 You can use Azure OpenAI On Your Data with an Azure OpenAI resource in the following regions:
@@ -580,6 +621,7 @@ You can use Azure OpenAI On Your Data with an Azure OpenAI resource in the follo
 
 * `gpt-4` (0314)
 * `gpt-4` (0613)
+* `gpt-4` (0125)
 * `gpt-4-32k` (0314)
 * `gpt-4-32k` (0613)
 * `gpt-4` (1106-preview)
