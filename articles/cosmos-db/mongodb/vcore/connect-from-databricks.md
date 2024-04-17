@@ -11,14 +11,14 @@ ms.date: 03/08/2024
 ---
 
 # Connect to Azure Cosmos DB for MongoDB vCore from Azure Databricks
-This article explains you for connecting Azure Cosmos DB MongoDB vCore from Azure Databricks. It walks through basic Data Manipulation Language(DML) operations like Read, Filter, SQLs, Aggregation Pipelines and Write Tables using python code.
+This article explains how to connect Azure Cosmos DB MongoDB vCore from Azure Databricks. It walks through basic Data Manipulation Language(DML) operations like Read, Filter, SQLs, Aggregation Pipelines and Write Tables using python code.
 
 ## Prerequisites
 * [Provision an Azure Cosmos DB for MongoDB vCore cluster.](quickstart-portal.md)
 
 * Provision your choice of Spark environment [Azure Databricks](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal).
 
-## Configure Dependencies for connectivity
+## Configure dependencies for connectivity
 The following are the dependencies required to connect to Azure Cosmos DB for MongoDB vCore from Azure Databricks:
 * **Spark connector for MongoDB**
   Spark connector is used to connect to Azure Cosmos DB for MongoDB vCore. Identify and use the version of the connector located in [Maven central](https://mvnrepository.com/artifact/org.mongodb.spark/mongo-spark-connector) that is compatible with the Spark and Scala versions of your Spark environment. We recommend an environment that supports Spark 3.2.1 or higher, and the spark connector available at maven coordinates `org.mongodb.spark:mongo-spark-connector_2.12:3.0.1`.
@@ -51,7 +51,7 @@ Create a Python Notebook in Databricks. Make sure to enter the right values for 
 
 ### Update Spark configuration with the Azure Cosmos DB for MongoDB connection string
 
-1. Note the connect string under the **Settings** -> **Connection strings** in Azure Cosmos DB MongoDB vCore Resource in Azure Portal. It has the form of "mongodb+srv://\<user>\:\<password>\@\<database_name>.mongocluster.cosmos.azure.com"
+1. Note the connect string under the **Settings** -> **Connection strings** in Azure Cosmos DB MongoDB vCore Resource in Azure portal. It has the form of "mongodb+srv://\<user>\:\<password>\@\<database_name>.mongocluster.cosmos.azure.com"
 2. Back in Databricks in your cluster configuration, under **Advanced Options** (bottom of page), paste the connection string for both the `spark.mongodb.output.uri` and `spark.mongodb.input.uri` variables. Populate the username and password field appropriate. This way all the workbooks, which running on the cluster uses this configuration. 
 3. Alternatively you can explicitly set the `option` when calling APIs like: `spark.read.format("mongo").option("spark.mongodb.input.uri", connectionString).load()`. If you configure the variables in the cluster, you don't have to set the option.
 
@@ -61,7 +61,7 @@ database="<database_name>"
 collection="<collection_name>"
 ```
 
-### Data Sample Set
+### Data sample set
 
 For the purpose with this lab, we're using the CSV 'Citibike2019' data set. You can import it:
 [CitiBike Trip History 2019](https://citibikenyc.com/system-data).
@@ -93,11 +93,12 @@ display(df_vcore)
 ```
 
 Output:
+
 **Schema**
  :::image type="content" source="./media/connect-from-databricks/print-schema.png" alt-text="Screenshot of the Print Schema.":::
 
 **DataFrame**
- :::image type="content" source="./media/connect-from-databricks/display-df-vcore.png" alt-text="Screenshot of the Display DataFrame.":::
+ :::image type="content" source="./media/connect-from-databricks/display-dataframe-vcore.png" alt-text="Screenshot of the Display DataFrame.":::
 
 ### Filter data from Azure Cosmos DB for MongoDB vCore
 
@@ -149,9 +150,11 @@ df_vcore.write.format("mongo").option("spark.mongodb.output.uri", connectionStri
 This command doesn't have an output as it writes directly to the collection. You can cross check if the record is updated using a read command.
 
 ### Read data from Azure Cosmos DB for MongoDB vCore collection running an Aggregation Pipeline
+[!Note]
+[Aggregation Pipeline](../tutorial-aggregation.md) is a powerful capability that allows to preprocess and transform data within Azure Cosmos DB for MongoDB. It's a great match for  real-time analytics, dashboards, report generation with roll-ups, sums & averages with 'server-side' data post-processing. (Note: there's a [whole book written about it](https://www.practical-mongodb-aggregations.com/front-cover.html)). 
 
-[Aggregation Pipeline](../tutorial-aggregation.md) is a powerful capability that allows to preprocess and transform data within Azure Cosmos DB for MongoDB. It's a great match for  real-time analytics, dashboards, report generation with roll-ups, sums & averages with 'server-side' data post-processing. (Note: there's a [whole book written about it](https://www.practical-mongodb-aggregations.com/front-cover.html)).  <br/>
 Azure Cosmos DB for MongoDB even supports [rich secondary/compound indexes](../indexing.md) to extract, filter, and process only the data it needs.
+
 For example, analyzing all customers located in a specific geography right within the database without first having to load the full data-set, minimizing data-movement and reducing latency. <br/> 
 
 Here's an example of using aggregate function:
@@ -163,9 +166,10 @@ display(df_vcore)
 ```
 
 Output:
- :::image type="content" source="./media/connect-from-databricks/display-agg.png" alt-text="Screenshot of the Display Aggregate Data.":::
 
-## Related Content
+ :::image type="content" source="./media/connect-from-databricks/display-aggregation-pipeline.png" alt-text="Screenshot of the Display Aggregate Data.":::
+
+## Related contents
 
 The following articles demonstrate how to use aggregation pipelines in Azure Cosmos DB for MongoDB vCore:
 
