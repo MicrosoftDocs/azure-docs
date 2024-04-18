@@ -2,6 +2,7 @@ items:
 - name: Azure confidential ledger 
   href: index.yml
 - name: Overview
+  expanded: true
   items:
   - name: About Azure confidential ledger
     href: overview.md
@@ -35,6 +36,7 @@ items:
     - name: Write transaction receipts
       href: write-transaction-receipts.md
 - name: How To Guides
+  expanded: true
   items:
   - name: Manage your Ledger
     items:
