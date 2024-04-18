@@ -9,11 +9,11 @@ ms.date: 03/25/2024
 ms.custom: template-how-to
 ---
 
-# Running the log collector script on the Azure Operator Nexus Kubernetes cluster node
+# Run the log collector script on the Azure Operator Nexus Kubernetes cluster node
 
 Microsoft support may need deeper visibility within the Nexus Kubernetes cluster in certain scenarios. To facilitate this, a log-collection script is available for you to use. This script retrieves all the necessary logs, enabling Microsoft support to gain a better understanding of the issue and troubleshoot it effectively.
 
-## What it collects?
+## What it collects
 
 The log collector script is designed to comprehensively gather data across various aspects of the system for troubleshooting and analysis purposes. Below is an overview of the types of diagnostic data it collects:
 
