@@ -2,7 +2,7 @@
 title: Azure Kubernetes Service (AKS) backup support matrix
 description: This article provides a summary of support settings and limitations of Azure Kubernetes Service (AKS) backup.
 ms.topic: conceptual
-ms.date: 02/16/2024
+ms.date: 04/21/2024
 ms.custom:
   - references_regions
   - ignite-2023
@@ -67,6 +67,8 @@ You can use [Azure Backup](./backup-overview.md) to help protect Azure Kubernete
   | Number of backup instances per Backup vault | 5,000 |
   | Number of on-demand backups allowed in a day per backup instance | 10 |
   | Number of allowed restores per backup instance in a day | 10 |
+
+- Configuration of a storage account with private endpoint is supported.
 
 ### Additional limitations for Vaulted backup and Cross Region Restore (preview)
 
