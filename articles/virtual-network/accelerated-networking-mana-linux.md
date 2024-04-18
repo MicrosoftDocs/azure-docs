@@ -41,7 +41,7 @@ Because the MANA feature set requires both host hardware and VM software compone
 
 ### Azure portal check
 
-Ensure that you have Accelerated Networking enabled on at least one of your NICs:
+Ensure that Accelerated Networking is enabled on at least one of your NICs:
 
 1. On the Azure portal page for the VM, select **Networking** from the left menu.
 1. On the **Networking settings** page, for **Network Interface**, select your NIC.
