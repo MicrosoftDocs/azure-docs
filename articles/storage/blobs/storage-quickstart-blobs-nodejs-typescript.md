@@ -3,7 +3,7 @@ title: "Quickstart: Azure Blob storage library - TypeScript"
 description: In this quickstart, you learn how to use the Azure Blob Storage for TypeScript to create a container and a blob in Blob (object) storage. Next, you learn how to download the blob to your local computer, and how to list all of the blobs in a container.
 author: pauljewellmsft
 ms.author: pauljewell
-ms.date: 03/06/2024
+ms.date: 03/18/2024
 ms.service: azure-blob-storage
 ms.topic: quickstart
 ms.devlang: javascript
@@ -62,7 +62,6 @@ Create a JavaScript application named *blob-quickstart*.
 1. Edit the *package.json* file to add the following properties to support ESM with TypeScript:
 
     ```json
-    "main": "dist/index.js",
     "type": "module",
     ```
 
