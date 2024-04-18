@@ -23,6 +23,44 @@ Trusted Signing provides users with both an Azure portal and Azure CLI extension
 
 An existing Azure Tenant ID and Azure subscription. [Create Azure tenant](https://learn.microsoft.com/azure/active-directory/fundamentals/create-new-tenant#create-a-new-tenant-for-your-organization) and [Create Azure subscription](https://docs.microsoft.com/azure/cost-management-billing/manage/create-subscription#create-a-subscription-in-the-azure-portal) before you begin if you don’t already have.
 
+
+## Register the Trusted Signing resource provider
+
+Before using Trusted Signing, you must first register the Trusted Signing resource provider.
+
+**How to register**
+A resource provider is a service that supplies Azure resources. Use the Azure portal or Azure CLI az provider register command to register the Trusted Signing resource provider, 'Microsoft.CodeSigning'.
+
+# [Azure portal](#tab/registerrp-portal)
+
+1. Sign in to the [Azure portal](https://portal.azure.com/).
+2. From either the Azure portal search bar or under All services, select **Subscriptions**.
+3. Select your **Subscription**, where you intend to create Trusted Signing resources.
+
+:::image type="content" source="media/trusted-signing-subscription-resource-provider.png" alt-text="Screenshot of trusted-signing-subscription-resource-provider." lightbox="media/trusted-signing-subscription-resource-provider.png":::
+
+4. From the list of resource providers, select **Microsoft.CodeSigning**. By default the resource provider is NotRegistered.
+5. Click on the ellipsis, select **Register**.
+6. The status changes to **Registered**.
+
+:::image type="content" source="media/trusted-signing-resource-provider-registration.png" alt-text="Screenshot of trusted-signing-resource-provider-registration." lightbox="media/trusted-signing-resource-provider-registration.png":::
+
+# [Azure CLI](#tab/registerrp-cli)
+
+You can register Trusted Signing resource provider with the commands below:
+
+```
+az provider register --namespace "Microsoft.CodeSigning"
+```
+
+You can verify that registration is complete with the Azure CLI az provider register command 
+
+```
+az provider show --namespace "microsoft.ConfidentialLedger"
+```
+
+---
+
 ## Create a Trusted Signing account
 
 A Trusted Signing account is a logical container of identity validation and certificate profile resources.
@@ -306,3 +344,4 @@ In this Quickstart, you created a Trusted Signing account, an Identity Validatio
 - [Learn more about the signing integrations.](how-to-signing-integrations.md)
 - [Learn more about different Trust Models supported in Trusted Signing](concept-trusted-signing-trust-models.md)
 - [Learn more about Certificate management](concept-trusted-signing-cert-management.md)
+
