@@ -56,7 +56,7 @@ The 'M' family of VM size series are one of Azure's ultra memory-optimized VM in
 ### Msv3 and Mdsv3-series
 [!INCLUDE [msv3-mdsv3-series-summary](./includes/msv3-mdsv3-series-summary.md)]
 
-[View the full Msv3 and Mdsv3-series page](../../msv3-mdsv3-series.md).
+[View the full Msv3 and Mdsv3-series page](../../msv3-mdsv3-medium-series.md).
 
 [!INCLUDE [msv3-mdsv3-series-specs](./includes/msv3-mdsv3-series-specs.md)]
 
