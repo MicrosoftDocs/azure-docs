@@ -21,19 +21,19 @@ Network security perimeter access logs categories are based on the results of ac
 
 | **Log category** | **Description** | **Applicable to Modes** |
 | --- | --- | --- |
-| network security perimeterPublicInboundPerimeterRulesAllowed | Inbound access allowed based on network security perimeter access rules | Learning/Enforced |
-| network security perimeterPublicInboundPerimeterRulesDenied | Public inbound access denied by network security perimeter | Enforced |
-| network security perimeterPublicOutboundPerimeterRulesAllowed | Outbound access allowed based on network security perimeter access rules | Learning/Enforced |
-| network security perimeterPublicOutboundPerimeterRulesDenied | Public outbound access denied by network security perimeter | Enforced |
-| network security perimeterOutboundAttempt | Outbound attempt within network security perimeter or between two 'linked' network security perimeters | Learning/Enforced |
-| network security perimeterIntraPerimeterInboundAllowed | Inbound access within perimeter | Learning/Enforced |
-| network security perimeterPublicInboundResourceRulesAllowed | When network security perimeter rules denies, and Inbound access allowed based on PaaS resource rules | Learning |
-| network security perimeterPublicInboundResourceRulesDenied | When network security perimeter rules denies, Inbound access denied by PaaS resource rules | Learning |
-| network security perimeterPublicOutboundResourceRulesAllowed | When network security perimeter rules denies, Outbound access allowed based on PaaS resource rules | Learning |
-| network security perimeterPublicOutboundResourceRulesDenied | When network security perimeter rules denies, Outbound access denied by PaaS resource rules | Learning |
-| network security perimeterCrossPerimeterInboundAllowed | Inbound access based on 'Link' rules | Learning/Enforced |
-| network security perimeterCrossPerimeterOutboundAllowed | Outbound access based on 'Link' rules | Learning/Enforced |
-| network security perimeterPrivateInboundAllowed | Private endpoint traffic | Learning/Enforced |
+| **network security perimeterPublicInboundPerimeterRulesAllowed** | Inbound access allowed based on network security perimeter access rules | Learning/Enforced |
+| **network security perimeterPublicInboundPerimeterRulesDenied** | Public inbound access denied by network security perimeter | Enforced |
+| **network security perimeterPublicOutboundPerimeterRulesAllowed** | Outbound access allowed based on network security perimeter access rules | Learning/Enforced |
+| **network security perimeterPublicOutboundPerimeterRulesDenied** | Public outbound access denied by network security perimeter | Enforced |
+| **network security perimeterOutboundAttempt** | Outbound attempt within network security perimeter or between two 'linked' network security perimeters | Learning/Enforced |
+| **network security perimeterIntraPerimeterInboundAllowed** | Inbound access within perimeter | Learning/Enforced |
+| **network security perimeterPublicInboundResourceRulesAllowed** | When network security perimeter rules denies, and Inbound access allowed based on PaaS resource rules | Learning |
+| **network security perimeterPublicInboundResourceRulesDenied** | When network security perimeter rules denies, Inbound access denied by PaaS resource rules | Learning |
+| **network security perimeterPublicOutboundResourceRulesAllowed** | When network security perimeter rules denies, Outbound access allowed based on PaaS resource rules | Learning |
+| **network security perimeterPublicOutboundResourceRulesDenied** | When network security perimeter rules denies, Outbound access denied by PaaS resource rules | Learning |
+| **network security perimeterCrossPerimeterInboundAllowed** | Inbound access based on 'Link' rules | Learning/Enforced |
+| **network security perimeterCrossPerimeterOutboundAllowed** | Outbound access based on 'Link' rules | Learning/Enforced |
+| **network security perimeterPrivateInboundAllowed** | Private endpoint traffic | Learning/Enforced |
 
 ## Storage options for access logs
 

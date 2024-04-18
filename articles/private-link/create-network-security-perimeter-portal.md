@@ -11,9 +11,9 @@ ms.date: 02/22/2024
 
 # Quickstart: Create a network security perimeter - Azure portal
 
-Get started with network security perimeter by creating a network security perimeter for an Azure key vault using the Azure portal. A [network security perimeter](network-security-perimeter-overview.md) allows Azure PaaS resources to communicate within an explicit trusted boundary.
+Get started with network security perimeter by creating a network security perimeter for an Azure key vault using the Azure portal. A [network security perimeter](./network-security-perimeter-concepts.md) allows Azure PaaS resources to communicate within an explicit trusted boundary.
 
-In this quickstart, you create a network security perimeter for an Azure key vault, one of many [Azure Platform as a Service (PaaS) accounts supported by network security perimeter](./network-security-perimeter-concepts.md#supported-paas-services),using the Azure portal. Next, You learn to create a network security perimeter with a profile. To finish, you delete all resources created in this quickstart.
+In this quickstart, you create a network security perimeter for an Azure key vault, one of many [Azure Platform as a Service (PaaS) accounts supported by network security perimeter](./network-security-perimeter-concepts.md#onboarded-private-link-resources),using the Azure portal. Next, You learn to create a network security perimeter with a profile. To finish, you delete all resources created in this quickstart.
 
 [!INCLUDE [network-security-perimeter-preview-message](../../includes/network-security-perimeter-preview-message.md)]
 

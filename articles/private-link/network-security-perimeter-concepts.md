@@ -15,12 +15,12 @@ ms.custom: references_regions
 Network security perimeter is a service that provides a secure perimeter for communication of Platform as a Service (PaaS) services deployed outside the virtual network. These PaaS services can communicate with each other within the perimeter, and can also communicate with resources outside the perimeter using public inbound and outbound access rules. Network security perimeter is a feature of Azure Private Link.
 
 Features of network security perimeter include:
-    - All resources inside perimeter can communicate with any other resource within perimeter.
-    - For external access the following controls are available:
-        - Public inbound access can be approved using Network and Identity attributes of the client such as source IP addresses, subscriptions.
-        - Public outbound can be approved using FQDNs (Fully Qualified Domain Names) of the external destinations.
-    - Diagnostic Logs is enabled for PaaS resources within perimeter for Audit and Compliance.
-    - Resources in Private Endpoints can additionally accept communication from customer virtual networks, both network security perimeter and Private Endpoints are independent controls.
+- All resources inside perimeter can communicate with any other resource within perimeter.
+- For external access the following controls are available:
+  - Public inbound access can be approved using Network and Identity attributes of the client such as source IP addresses, subscriptions.
+  - Public outbound can be approved using FQDNs (Fully Qualified Domain Names) of the external destinations.
+- Diagnostic Logs is enabled for PaaS resources within perimeter for Audit and Compliance.
+- Resources in Private Endpoints can additionally accept communication from customer virtual networks, both network security perimeter and Private Endpoints are independent controls.
 
 :::image type="content" source="media/network-security-perimeter-concepts/network-security-perimeter-overview.png" alt-text="Diagram of securing a service with network security perimeter.":::
 
@@ -51,7 +51,7 @@ Network security perimeter composed of the following components:
 |---------------------|-------------------------------------------------------------------------------------------------------------|
 | **Network security perimeter** | Top level resource defining logical network boundary to secure PaaS resources. |
 | **Access Rule**| Inbound and outbound rules for resources in a perimeter to communicate outside the perimeter. |
-| **Profile** | Collection access rules that apply on resources associated with the profile. |
+| **Profile** | Collection of access rules that apply on resources associated with the profile. |
 | **ResourceAssociation** | Perimeter membership for a PaaS resource. |
 | **DiagnosticsSettings** | Extension resource hosted by Microsoft.Insights to collect logs & metrics for all resources in the perimeter. |
 
@@ -79,7 +79,7 @@ Administrators add PaaS resources to a perimeter by creating resource associatio
 
 Learn more on transitioning from learning mode to enforced mode in [transitioning to a network security perimeter](network-security-perimeter-transitioning.md) article.
 
-## Private-link resources
+## Onboarded private-link resources
 A private-link resource is the network security perimeter aware PaaS resource that can be associated. Currently, the current list of onboarded private-link resources are as follows:
 
 | Private-link resource name | Resource type | Resources |

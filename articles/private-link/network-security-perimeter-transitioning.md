@@ -11,15 +11,15 @@ ms.date: 04/05/2024
 
 # Transition to a network security perimeter in Azure
 
-In this article, you learn about the different access modes and how to transition to a network security perimeter in Azure. 
+In this article, you learn about the different access modes and how to transition to a network security perimeter in Azure. Access modes control the resource's connectivity and logging behavior.
 
 ## Configuration points for access modes 
 
 Network security perimeter uses two configuration points for access modes to control the resource's connectivity and logging behavior. These configuration points are part of the PaaS resource configuration and the perimeter configuration.
 
-### Public network access property on PaaS resources 
+### Public network access configuration point on PaaS resources 
 
-This configuration point is part of the PaaS resource configuration set by the resource's administrator. 
+The **public network access** configuration point is part of the PaaS resource configuration set by the resource's administrator. 
 
 Along with the original two values (*enabled* and *disabled*) on `publicNetworkAccess` property, PaaS services onboarded to network security perimeter, have another value of `SecuredByPerimeter`. 
 
@@ -30,9 +30,9 @@ Along with the original two values (*enabled* and *disabled*) on `publicNetworkA
 | ***Disabled*** | Public inbound communication is disallowed regardless of the state of firewall rules defined by the resource.                            |
 | **SecuredByPerimeter** | In Secured mode, the network security perimeter configuration governs the resource's inbound and outbound connectivity. Specifically, PaaS-to-PaaS communication is restricted to members of the same perimeter. Public access is granted in accordance with the access rules defined by the associated perimeter profile. |
 
-### Access mode property on resource associations 
+### Access mode configuration point on resource associations 
 
-This configuration point is part of a resource association on the perimeter and therefore can be set by the perimeter's administrator. 
+The **access mode** configuration point is part of a resource association on the perimeter and therefore can be set by the perimeter's administrator. 
 
 The property `accessMode` can be set in a resource association to control the resource's connectivity and logging behavior. 
 
@@ -93,7 +93,6 @@ As a special case, when `publicNetworkAccess` is set to `SecuredByPerimete
 The **locked down for public access** mode exists by-design and helps prevent PaaS resources not yet associated with a perimeter from being temporarily exposed to public networks or to other PaaS resources. Administrators can apply Azure Policy to ensure publicNetworkAccess is set to SecuredByPerimeter from the moment a resource is created. 
 
 The behavior of public network access on PaaS resources according to the association's accessMode value and the resource's `publicNetworkAccess` value can be summarized as follows: 
-
 
 | **Association accessMode** | **Not associated** | **Learning mode** | **Enforced mode** |
 |-------------|-----------|-------------|-----------|
