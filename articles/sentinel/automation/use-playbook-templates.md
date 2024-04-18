@@ -24,14 +24,20 @@ Many playbook templates are developed by the Microsoft Sentinel community, indep
 >
 > **Playbook templates** are currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
-> [!INCLUDE [unified-soc-preview-without-alert](includes/unified-soc-preview-without-alert.md)]
+> [!INCLUDE [unified-soc-preview-without-alert](../includes/unified-soc-preview-without-alert.md)]
 <!--what abt prerequisites?-->
 
 ## Access playbook templates
 
 Get playbook templates from the following sources:
 
-[!INCLUDE [playbooks-template-sources](includes/playbooks-template-sources.md)]
+|Location  |Description  |
+|---------|---------|
+|**Microsoft Sentinel Automation page**     |  The **Playbook templates** tab lists all installed playbooks. Create one or more active playbooks using the same templates. <br><br>When we publish a new version of a template, any active playbooks created from that template show up in the **Active playbooks** tab with a label that indicates that an update is available.       |
+|**Microsoft Sentinel Content hub page**     |  Playbook templates are available as part of product solutions or standalone content installed from the **Content hub**.  <br><br>For more information, see [About Microsoft Sentinel content and solutions](../sentinel-solutions.md) and [Discover and manage Microsoft Sentinel out-of-the-box content](../sentinel-solutions-deploy.md). |
+|**GitHub**     |  The [Microsoft Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks) contains many playbook templates. They can be deployed to an Azure subscription by selecting the **Deploy to Azure** button.       |
+
+Technically, a playbook template is an [Azure Resource Manager (ARM) template](../../azure-resource-manager/templates/index.yml) which consists of several resources: an Azure Logic Apps workflow and API connections for each connection involved.
 
 This article focuses on deploying a playbook template from the **Playbook templates** tab under **Automation**.
 
