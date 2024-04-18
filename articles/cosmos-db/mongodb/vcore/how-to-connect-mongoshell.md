@@ -56,10 +56,7 @@ mongosh "mongodb+srv://testuser@mongodbvcoretesting.mongocluster.cosmos.azure.co
 ```
 ![GIF for connecting by entering password](./media/connect-using-mongoshell/mongoshellconnect.gif)
 
-Once you provide the password and are successfully authenticated you will notice the following warning.
-
-![PNG Warning image for Shell](./media/connect-using-mongoshell/shellwarning.PNG)
-
+Once you provide the password and are successfully authenticated you will notice some warning stating *"This server or service appears to be an emulation of MongoDB"*
 This can be ignored. Its just shell way of notifying that you are not connection to an emulation of MongoDB. Since it is an Azure as a platform as a service offering this is expected. 
 
 #### B. By providing the password as a part of the connection string
