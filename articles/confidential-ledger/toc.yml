@@ -67,7 +67,7 @@ items:
   - name: Applications using Confidential Ledger 
     items: 
     - name: Store your data securely in SQL Server with Ledger
-      href: ~/sql/relational-databases/security/ledger/ledger-landing-sql-server
+      href: /sql/relational-databases/security/ledger/ledger-overview?branch=sql
     - name: Create a managed application to store blob digests
       href: create-blob-managed-app.md
 - name: References
