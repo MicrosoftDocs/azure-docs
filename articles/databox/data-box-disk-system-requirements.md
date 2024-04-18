@@ -8,7 +8,7 @@ ms.service: databox
 ms.subservice: disk
 ms.custom: linux-related-content
 ms.topic: article
-ms.date: 04/16/2024
+ms.date: 04/18/2024
 ms.author: shaas
 ---
 
@@ -51,7 +51,7 @@ The following supported operating systems can be used with hardware encrypted Da
 | Windows (64-bit)<sup><b>*</b></sup> | 10, 11 |
 |Linux <br> <li> Ubuntu </li><li> Debian </li><li>  CentOS| <br>22 <br> 9 <br> 9 |
 
-<sup><b>*</b></sup>Windows-based machines can only be used for data validation when using hardware-encrypted disks. Data copy operations are only supported on Linux-based hosts.
+<sup><b>*</b></sup>Data copy operations are only supported on Linux-based hosts when using hardware-encrypted disks. Windows-based machines can be used for data validation only. 
 
 ### [Software encrypted disks](#tab/software)
 
