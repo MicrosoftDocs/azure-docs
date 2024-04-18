@@ -1,18 +1,18 @@
 ---
-title: Defender-IoT-micro-agent for Azure RTOS API
-description: Reference API for the Defender-IoT-micro-agent for Azure RTOS.
+title: Defender-IoT-micro-agent for Eclipse ThreadX API
+description: Reference API for the Defender-IoT-micro-agent for Eclipse ThreadX.
 ms.topic: reference
-ms.date: 11/09/2021
+ms.date: 04/17/2024
 ---
 
 
-# Defender-IoT-micro-agent for Azure RTOS API (preview)
+# Defender-IoT-micro-agent for Eclipse ThreadX API (preview)
 
 Defender for IoT APIs are governed by [Microsoft API License and Terms of use](/legal/microsoft-apis/terms-of-use).
 
-This API is intended for use with the Defender-IoT-micro-agent for Azure RTOS only. For additional resources, see the [Defender-IoT-micro-agent for Azure RTOS GitHub resource](https://github.com/azure-rtos/azure-iot-preview/releases).
+This API is intended for use with the Defender-IoT-micro-agent for Eclipse ThreadX only. For additional resources, see the [Defender-IoT-micro-agent for Eclipse ThreadX GitHub resource](https://github.com/eclipse-threadx).
 
-## Enable Defender-IoT-micro-agent for Azure RTOS
+## Enable Defender-IoT-micro-agent for Eclipse ThreadX
 
 **nx_azure_iot_security_module_enable**
 
@@ -78,6 +78,6 @@ Threads
 
 ## Next steps
 
-To learn more about how to get started with Azure RTOS Defender-IoT-micro-agent, see the following articles:
+To learn more about how to get started with Eclipse ThreadX Defender-IoT-micro-agent, see the following articles:
 
-- Review the Defender for IoT RTOS Defender-IoT-micro-agent [overview](iot-security-azure-rtos.md).
+- Review the Defender for IoT Eclipse ThreadX Defender-IoT-micro-agent [overview](iot-security-threadx.md).
