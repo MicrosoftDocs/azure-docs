@@ -323,8 +323,8 @@ This returns a string representing the current state of a call:
 - `Ringing`: For an outgoing call, indicates that a call is ringing for remote participants. It's `Incoming` on their side.
 - `EarlyMedia`: Indicates a state in which an announcement is played before the call is connected.
 - `Connected`: Indicates that the call is connected.
-- `LocalHold`: Indicates that a local partipant the call put the call on hold. No media is flowing between the local endpoint and remote participants.
-- `RemoteHold`: Indicates that a remote partipant the call put the call on hold. No media is flowing between the local endpoint and remote participants.
+- `LocalHold`: Indicates that a local participant the call put the call on hold. No media is flowing between the local endpoint and remote participants.
+- `RemoteHold`: Indicates that a remote participant the call put the call on hold. No media is flowing between the local endpoint and remote participants.
 - `InLobby`: Indicates that user is in lobby.
 - `Disconnecting`: Transition state before the call goes to a `Disconnected` state.
 - `Disconnected`: Final call state. If the network connection is lost, the state changes to `Disconnected` after two minutes.
