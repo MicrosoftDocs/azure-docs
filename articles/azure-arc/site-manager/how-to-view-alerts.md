@@ -6,32 +6,32 @@ ms.author: kgremban
 ms.service: azure-arc
 #ms.subservice: site-manager
 ms.topic: how-to #Don't change
-ms.date: 02/16/2024
+ms.date: 04/18/2024
 
 ---
 
-# How to view alert status for an Arc site
+# How to view alert status for an Azure Arc site
 
-This article details how to view the alert status for an Arc site. A site's alert status reflects the status of the underlying resources. From the site status view, you can find detailed status information for the supported resources as well.
+This article details how to view the alert status for an Azure Arc site. A site's alert status reflects the status of the underlying resources. From the site status view, you can find detailed status information for the supported resources as well.
 
 ## Prerequisites
 
+* An Azure subscription. If you don't have a service subscription, create a [free trial account in Azure](https://azure.microsoft.com/free/).
 * Azure portal access
 * Internet connectivity
-* Subscription
-* Resource group or subscription with at least one resource for a site
-* A site created for the associated resource group or subscription
+* A resource group or subscription in Azure with at least one resource for a site. For more information, see [Supported resource types](./overview.md#supported-resource-types).
+* A site created for the associated resource group or subscription. If you don't have one, see [Create and manage sites](./how-to-crud-site.md).
 
 ## Alert status colors and meanings
 
 In the Azure portal, status is indicated using color.
 
-* Red: **Critical**
-* Orange: **Error**
-* Yellow: **Warning**
+* Green: **Up to Date**
 * Blue: **Info**
 * Purple: **Verbose**
-* Green: **Up to Date**
+* Yellow: **Warning**
+* Orange: **Error**
+* Red: **Critical**
 
 ## View alert status
 
@@ -51,12 +51,12 @@ View alert status for an Arc site from the main page of Azure Arc site manager (
 
    :::image type="content" source="./media/how-to-view-alerts/site-manager-overview-alerts-details.png" alt-text="Screenshot of site manager overview page directing to the sites page to view more details.":::
 
-1. The **sites** page shows the top-level status for each site, which reflects the most important status for the site.
+1. The **sites** page shows the top-level status for each site, which reflects the most significant status for the site.
 
    :::image type="content" source="./media/how-to-view-alerts/site-manager-overview-alerts-details-status-site-page.png" alt-text="Screenshot that shows the top level alerts status for each site.":::
 
 1. If there's an alert, select the status text to open details for a given site. You can also select the name of the site to open its details.
 
-1. On a site's resource page, you can view the alert status for each resource within the site, including the resource responsible for the top-level most important status.
+1. On a site's resource page, you can view the alert status for each resource within the site, including the resource responsible for the top-level most significant status.
 
    :::image type="content" source="./media/how-to-view-alerts/site-manager-overview-alerts-details-status-los-angeles.png" alt-text="Screenshot that shows the site detail page with alert status for each resource." lightbox="./media/how-to-view-alerts/site-manager-overview-alerts-details-status-los-angeles.png":::

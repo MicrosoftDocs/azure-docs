@@ -6,7 +6,7 @@ ms.author: kgremban
 ms.service: azure-arc
 #ms.subservice: site-manager
 ms.topic: quickstart  #Don't change
-ms.date: 03/06/2024
+ms.date: 04/18/2024
 
 #customer intent: As a admin who manages my sites as resource groups in Azure, I want to represent them as Arc sites and so that I can benefit from logical representation and extended functionality in Arc for my resources under my resource groups.
 
@@ -21,9 +21,10 @@ In this quickstart, you'll get started with Azure Arc site manager by creating a
 * Azure subscription. If you don't have a service subscription, create a [free trial account in Azure](https://azure.microsoft.com/free/).
 * Azure portal access
 * Internet connectivity
-* Resource group or subscription with at least one resource for a site
+* A resource group or subscription in Azure with at least one resource for a site. For more information, see [Supported resource types](./overview.md#supported-resource-types).
 
-  It's beneficial to name the resource group a similar name to the real site function. For the example in this article, the resource group is named **LA_10001**.
+  >[!TIP]
+  >We recommend that you name the resource group a similar name to the real site function. For the example in this article, the resource group is named **LA_10001** to reflect resources in Los Angeles.
 
 ## Open Azure Arc site manager
 

@@ -1,16 +1,16 @@
 ### YamlMime:Landing
 
-title: Azure Arc site manager # < 60 chars
+title: Azure Arc site manager (preview) # < 60 chars
 summary: Organize your Arc-connected resources based on physical location. # < 160 chars
  
 metadata:
-  title: Azure Arc site manager
+  title: Azure Arc site manager (preview)
   description: Organize your Arc-connected resources.
   ms.service: azure-arc
   ms.topic: landing-page
   author: kgremban
   ms.author: kgremban
-  ms.date: 02/14/2024
+  ms.date: 04/17/2024
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
 
@@ -24,37 +24,37 @@ landingContent:
         links:
           - text: What is Azure Arc site manager?
             url: overview.md
-  - title: Getting started
+  - title: Get started
     linkLists:
       - linkListType: quickstart
         links:
-          - text: How do I get started with Azure Arc site manager?
+          - text: Get started with Azure Arc site manager
             url: quickstart.md
-          - text: Frequently asked questions.
+          - text: Frequently asked questions
             url: faq.md
-  - title: Using Azure Arc site manager
+  - title: Use Azure Arc site manager
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: How do I create, use, delete, and modify an Arc site?
+          - text: Create, use, delete, and modify an Arc site
             url: how-to-crud-site.md
-          - text: How do I view connectivity status?
+          - text: View connectivity status
             url: how-to-view-connectivity-status.md
-          - text: How do I view update status?
+          - text: View update status
             url: how-to-view-update-status.md
-          - text: How do I view alerts?
+          - text: View alerts
             url: how-to-view-alerts.md
-          - text: How do I configure Azure Monitor alerts?
+          - text: Configure Azure Monitor alerts
             url: how-to-configure-monitor-site.md
-          - text: Known issues.
+          - text: Known issues
             url: known-issues.md
-          - text: Troubleshooting.
+          - text: Troubleshoot
             url: troubleshooting.md
   - title: Explore more
     linkLists:
       - linkListType: reference
         links:
-          - text: Learn more about Azure Arc.
+          - text: Learn more about Azure Arc
             url: ../overview.md
-          - text: Learn more about Azure Monitor.
+          - text: Learn more about Azure Monitor
             url: ../../azure-monitor/overview.md

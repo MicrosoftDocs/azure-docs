@@ -6,7 +6,7 @@ ms.author: kgremban
 ms.service: azure-arc
 #ms.subservice: site-manager
 ms.topic: how-to #Don't change
-ms.date: 03/24/2024
+ms.date: 04/18/2024
 
 #customer intent: As a site admin, I want to know how to create, delete, and modify sites so that I can manage my site.
 
@@ -18,10 +18,10 @@ This article guides you through how to create, modify, and delete a site using A
 
 ## Prerequisites
 
+* An Azure subscription. If you don't have a service subscription, create a [free trial account in Azure](https://azure.microsoft.com/free/).
 * Azure portal access
 * Internet connectivity
-* Subscription
-* Resource group or subscription with at least one resource for a site
+* A resource group or subscription in Azure with at least one resource for a site. For more information, see [Supported resource types](./overview.md#supported-resource-types).
 
 ## Open Azure Arc site manager
 
@@ -75,21 +75,19 @@ Once you create a site, you can access it and its managed resources through site
 
    * View resources
    * Modify resources (modifications affect the resources elsewhere as well)
-   * View connectivity status (when supported by resources)
-   * View update status (when supported by resources)
-   * View alerts (when supported by resources)
-   * Add new resources (currently only resources supporting creation from the site view)
+   * View connectivity status
+   * View update status
+   * View alerts
+   * Add new resources
 
-Additionally, currently only some aspects of a site can be modified. These are as follows:
+Currently, only some aspects of a site can be modified. These are as follows:
 
 | Site Attribute | Modification that can be done |
 |--|--|
-| Site name | Site name can be modified to a new unique name |
-| Address | Address can be modified to a pre-existing or new address |
+| Display name | Update the display name of a site to a new unique name. |
+| Address | Update the address of a site to an existing or new address. |
 
 ## Delete a site
-
-If you no longer want to manage a site, you can delete it from the site manager.
 
 Deleting a site doesn't affect the resources, resource group, or subscription in its scope. After a site is deleted, the resources of that site will still exist but can't be viewed or managed from site manager. You can create a new site for the resource group or the subscription after the original site is deleted.
 
