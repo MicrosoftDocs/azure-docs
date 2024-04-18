@@ -92,6 +92,8 @@ You can also use the OpenAI text to speech voices via Azure AI Speech. To learn 
 
 [!INCLUDE [Standard Models](../includes/model-matrix/standard-models.md)]
 
+This table does not include fine-tuning regional availability, consult the dedicated [fine-tuning section](#fine-tuning-models) for this information.
+
 ### Standard deployment model quota
 
 [!INCLUDE [Quota](../includes/model-matrix/quota.md)]
@@ -241,8 +243,8 @@ The following Embeddings models are available with [Azure Government](/azure/azu
 
 |  Model ID  | Fine-Tuning Regions | Max Request (tokens) | Training Data (up to) |
 |  --- | --- | :---: | :---: |
-| `babbage-002` | North Central US <br> Sweden Central | 16,384 | Sep 2021 |
-| `davinci-002` | North Central US <br> Sweden Central | 16,384 | Sep 2021 |
+| `babbage-002` | North Central US <br> Sweden Central  <br> Switzerland West | 16,384 | Sep 2021 |
+| `davinci-002` | North Central US <br> Sweden Central  <br> Switzerland West | 16,384 | Sep 2021 |
 | `gpt-35-turbo` (0613) | East US2 <br> North Central US <br> Sweden Central <br> Switzerland West | 4,096 | Sep 2021 |
 | `gpt-35-turbo` (1106) | East US2 <br> North Central US <br> Sweden Central <br> Switzerland West | Input: 16,385<br> Output: 4,096 |  Sep 2021|
 | `gpt-35-turbo` (0125)  | East US2 <br> North Central US <br> Sweden Central <br> Switzerland West | 16,385 | Sep 2021 |
