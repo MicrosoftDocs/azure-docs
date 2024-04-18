@@ -18,14 +18,10 @@ items:
       href: quickstart-powershell.md
     - name: Python
       href: quickstart-python.md
-    - name: ARM template
-      href: quickstart-template.md
-  - name: Writing to a Confidential Ledger
-    items:
-    - name: Python
-      href: quickstart-python.md
     - name: .NET
       href: quickstart-net.md
+    - name: ARM template
+      href: quickstart-template.md 
 - name: Concepts
   items:
   - name: Architecture
@@ -34,10 +30,10 @@ items:
     items:
     - name: Authentication with Microsoft Entra ID
       href: authentication-azure-ad.md
+  - name: Verifying your Ledger Data
+    items:
     - name: Authenticating ledger nodes
       href: authenticate-ledger-nodes.md
-  - name: Verifying Ledger Data
-    items:
     - name: Write transaction receipts
       href: write-transaction-receipts.md
 - name: How To Guides
@@ -50,12 +46,12 @@ items:
       href: register-application.md
   - name: Manage users
     items:  
-    - name: Create a client certificate
-      href: create-client-certificate.md
     - name: Manage Microsoft Entra token-based users
       href: manage-azure-ad-token-based-users.md
     - name: Manage certificate-based users
       href: manage-certificate-based-users.md
+    - name: Create a client certificate
+      href: create-client-certificate.md
   - name: Verifying your data with Confidential Ledger
     items:
     - name: Verify write transaction receipts
