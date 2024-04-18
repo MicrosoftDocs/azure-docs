@@ -132,7 +132,7 @@ To resume call from hold:
 ```
 await call.resume();
 ```
-When the `resume` API resolves, the call state will be set again to `Connected`.
+When the `resume` API resolves, the call state is set again to `Connected`.
 
 ## Mute and unmute a call
 
@@ -158,7 +158,7 @@ await call.muteIncomingAudio();
 await call.unmuteIncomingAudio();
 ```
 
-When incoming audio is muted, the participant client SDK will still receive the call audio (remote participant's audio). The call audio won't be heard in the speaker and the participant won't be able to listen until 'call.unmuteIncomingAudio()' is called. However, we can apply filter on call audio and play the filtered audio.
+When incoming audio is muted, the participant client SDK still receives the call audio (remote participant's audio). The call audio won't be heard in the speaker and the participant won't be able to listen until 'call.unmuteIncomingAudio()' is called. However, we can apply filter on call audio and play the filtered audio.
 
 ## Mute other participants
 > [!NOTE]
@@ -272,7 +272,7 @@ const state = remoteParticipant.state;
     ```js
         const endpointDetails: EndpointDetails[] = remoteParticipant.endpointDetails;
     ```
-    *Note: A remote participant could be in the call from many endpoints, and each endpoint will have its own unique `participantId`. `participantId` is different from the RemoteParticipant.identifier's raw ID.*
+    *Note: A remote participant could be in the call from many endpoints, and each endpoint has its own unique `participantId`. `participantId` is different from the RemoteParticipant.identifier's raw ID.*
 
 ## Check call properties
 
@@ -285,7 +285,7 @@ Get the local participant ID:
 ```js
 const participantId: string = call.info.participantId;
 ```
-*Note: An Azure Communication Services identity can use the web calling sdk in many endpoints, and each endpoint will have its own unique `participantId`. `participantId` is different from the Azure Communication Services identity raw Id.*
+*Note: An Azure Communication Services identity can use the web calling sdk in many endpoints, and each endpoint has its own unique `participantId`. `participantId` is different from the Azure Communication Services identity raw Id.*
 
 Retrieve the thread ID if joining a Teams meeting:
 ```js
