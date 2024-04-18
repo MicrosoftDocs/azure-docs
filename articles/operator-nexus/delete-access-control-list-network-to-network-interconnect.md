@@ -1,4 +1,3 @@
-
 ---
 title: Delete ACLs associated with Network-to-Network Interconnects (NNI)
 description: Process of deleting ACLs associated with Network-to-Network Interconnects (NNI)
@@ -39,8 +38,6 @@ Before proceeding, ensure you have the following prerequisites:
 3. **Delete ACLs Associated with NNI:**
    
    To delete ACLs applied on NNI or External Network resources, pass a null value to `--ingress-acl-id` and `--egress-acl-id`.
-
-   Update the NNI or External Network by passing a null ID to `--ingress-acl-id` and `--egress-acl-id`.
 
    ```Azure CLI
    az networkfabric nni update --resource-group "<resource-group-name>" --resource-name "<nni-name>" --fabric "<fabric-name>" --ingress-acl-id null --egress-acl-id null
