@@ -17,22 +17,17 @@ Access Control Lists (ACLs) are a set of rules that regulate inbound and outboun
 
 To create an ACL and define its properties, you can utilize the `az networkfabric acl create` command. Below are the steps involved:
 
-1. **Install Azure CLI:**
-   If you haven't already installed the Azure CLI, you can do so by following the instructions provided [here](https://docs.microsoft.com/cli/azure/install-azure-cli).
+ [!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
-2. **Login to Azure:**
-   Use the following command to log in to your Azure account:
-   ```bash
-   az login
-   ```
-
-3. **Set Subscription (if necessary):**
-   If you have multiple subscriptions and need to set one as the default, you can do so with:
-   ```bash
+1. **Set Subscription (if necessary):**
+ 
+ If you have multiple subscriptions and need to set one as the default, you can do so with:
+ 
+ ```bash
    az account set --subscription <subscription-id>
    ```
 
-4. **Create ACL:**
+2. **Create ACL:**
 
     ```bash
     az networkfabric acl create --resource-group "<resource-group>" --location "<location>" --resource-name "<acl-name>" --annotation "<annotation>" --configuration-type "<configuration-type>" --default-action "<default-action>" --match-configurations "[{matchConfigurationName:<match-config-name>,sequenceNumber:<sequence-number>,ipAddressType:<IPv4/IPv6>,matchConditions:[{ipCondition:{type:<SourceIP/DestinationIP>,prefixType:<Prefix/Exact>,ipPrefixValues:['<ip-prefix1>', '<ip-prefix2>', ...]}}],actions:[{type:<Action>}]}]"
@@ -75,12 +70,12 @@ The table below provides guidance on the usage of parameters when creating ACLs:
 | configuration-type     | Configuration type (inline or file)                        | Example: inline                 |
 
 > [!NOTE]
-> Inline ports and inline VLANs are statically defined using azcli.
-> PortGroupNames and VlanGroupNames are dynamically defined.
-> Combining inline ports with portGroupNames is not allowed, similarly for inline VLANs and VLANGroupNames.
-> IPGroupNames and IpPrefixValues cannot be combined.
-> Egress ACLs do not support certain options like IP options, IP length, fragment, ether-type, DSCP marking, and TTL values.
-> Ingress ACLs do not support the following options: etherType.
+> Inline ports and inline VLANs are statically defined using azcli.<br>
+> PortGroupNames and VlanGroupNames are dynamically defined.<br>
+> Combining inline ports with portGroupNames is not allowed, similarly for inline VLANs and VLANGroupNames.<br>
+> IPGroupNames and IpPrefixValues cannot be combined.<br>
+> Egress ACLs do not support certain options like IP options, IP length, fragment, ether-type, DSCP marking, and TTL values.<br>
+> Ingress ACLs do not support the following options: etherType.<br>
 
 ### Example payload for ACL creation
 
