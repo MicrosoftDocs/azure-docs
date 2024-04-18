@@ -19,7 +19,7 @@ This article describes how to enable complete monitoring of your Kubernetes clus
 
 > [!IMPORTANT]
 > Kubernetes clusters generate a lot of log data, which can result in significant costs if you aren't selective about the logs that you collect. Before you enable monitoring for your cluster, see the following articles to ensure that your environment is optimized for cost and that you limit your log collection to only the data that you require:
->
+> 
 >- [Configure data collection and cost optimization in Container insights using data collection rule](./container-insights-data-collection-dcr.md)<br>Details on customizing log collection once you've enabled monitoring, including using preset cost optimization configurations.
 >- [Best practices for monitoring Kubernetes with Azure Monitor](../best-practices-containers.md)<br>Best practices for monitoring Kubernetes clusters organized by the five pillars of the [Azure Well-Architected Framework](/azure/architecture/framework/), including cost optimization.
 >- [Cost optimization in Azure Monitor](../best-practices-cost.md)<br>Best practices for configuring all features of Azure Monitor to optimize you costs and limit the amount of data that you collect.
@@ -86,10 +86,10 @@ If you don't specify an existing Azure Monitor workspace in the following comman
 
 #### Prerequisites
 
-- Az CLI version of 2.49.0 or higher is required.
-- The aks-preview extension must be [uninstalled from AKS clusters](/cli/azure/azure-cli-extensions-overview) by using the command `az extension remove --name aks-preview`.
+- Az CLI version of 2.49.0 or higher is required. 
+- The aks-preview extension must be [uninstalled from AKS clusters](/cli/azure/azure-cli-extensions-overview) by using the command `az extension remove --name aks-preview`. 
 - The k8s-extension extension must be installed using the command `az extension add --name k8s-extension`.
-- The k8s-extension version 1.4.1 or higher is required.
+- The k8s-extension version 1.4.1 or higher is required. 
 
 #### AKS cluster
 Use the `-enable-azure-monitor-metrics` option `az aks create` or `az aks update` (depending whether you're creating a new cluster or updating an existing cluster) to install the metrics add-on that scrapes Prometheus metrics.
@@ -149,7 +149,7 @@ Both ARM and Bicep templates are provided in this section.
 
 > [!NOTE]
 > Currently in Bicep, there's no way to explicitly scope the `Monitoring Reader` role assignment on a string parameter "resource ID" for an Azure Monitor workspace like in an ARM template. Bicep expects a value of type `resource | tenant`. There is also no REST API [spec](https://github.com/Azure/azure-rest-api-specs) for an Azure Monitor workspace.
->
+> 
 > Therefore, the default scoping for the `Monitoring Reader` role is on the resource group. The role is applied on the same Azure Monitor workspace by inheritance, which is the expected behavior. After you deploy this Bicep template, the Grafana instance is given `Monitoring Reader` permissions for all the Azure Monitor workspaces in that resource group.
 
 
@@ -245,7 +245,7 @@ If the Azure Managed Grafana instance is already linked to an Azure Monitor work
 
     **Bicep**
 
-
+    
 
     ```bicep
         resource grafanaResourceId_8 'Microsoft.Dashboard/grafana@2022-08-01' = {
@@ -429,7 +429,7 @@ az k8s-extension delete --name azuremonitor-containers --cluster-type connectedC
 Both ARM and Bicep templates are provided in this section.
 
 #### Prerequisites
-
+ 
 - The template must be deployed in the same resource group as the cluster.
 
 #### Download and install template
@@ -477,7 +477,7 @@ Both ARM and Bicep templates are provided in this section.
     **Syslog**
     - [https://aka.ms/enable-monitoring-msi-syslog-terraform](https://aka.ms/enable-monitoring-msi-syslog-terraform)
 
-    **No Syslog**
+    **No Syslog** 
     - [https://aka.ms/enable-monitoring-msi-terraform](https://aka.ms/enable-monitoring-msi-terraform)
 
 2.	Adjust the `azurerm_kubernetes_cluster` resource in *main.tf* based on your cluster settings.
@@ -552,12 +552,12 @@ Both ARM and Bicep templates are provided in this section.
     ```
 
 2. Create the policy definition using the following CLI command:
-
+ 
     ```
     az policy assignment create --name aks-monitoring-addon --policy "AKS-Monitoring-Addon-MSI" --assign-identity --identity-scope /subscriptions/<subscriptionId> --role Contributor --scope /subscriptions/<subscriptionId> --location <location> --role Contributor --scope /subscriptions/<subscriptionId> -p "{ \"workspaceResourceId\": { \"value\":  \"/subscriptions/<subscriptionId>/resourcegroups/<resourceGroupName>/providers/microsoft.operationalinsights/workspaces/<workspaceName>\" } }"
     ```
 
-After the policy is assigned to the subscription, whenever you create a new cluster without Prometheus enabled, the policy will run and deploy to enable Prometheus monitoring.
+After the policy is assigned to the subscription, whenever you create a new cluster without Prometheus enabled, the policy will run and deploy to enable Prometheus monitoring. 
 
 ---
 
@@ -566,7 +566,7 @@ After the policy is assigned to the subscription, whenever you create a new clus
 
 
 ## Enable full monitoring with Azure portal
-Using the Azure portal, you can enable both Managed Prometheus and Container insights at the same time.
+Using the Azure portal, you can enable both Managed Prometheus and Container insights at the same time. 
 
 > [!NOTE]
 > If you want to enabled Managed Prometheus without Container insights, then [enable it from the Azure Monitor workspace](./kubernetes-monitoring-enable.md#enable-prometheus-and-grafana) as described below.
@@ -579,7 +579,7 @@ When you create a new AKS cluster in the Azure portal, you can enable Prometheus
 
 ### Existing cluster (Prometheus and Container insights)
 
-This option enables Container insights and optionally Prometheus and Grafana on an existing AKS cluster.
+This option enables Container insights and optionally Prometheus and Grafana on an existing AKS cluster. 
 
 1. Either select **Insights** from the cluster's menu OR select **Containers** from the **Monitor** menu, **Unmonitored clusters** tab, and click **Enable** next to a cluster.
    1. If Container insights isn't enabled for the cluster, then you're presented with a screen identifying which of the features have been enabled. Click **Configure monitoring**.
@@ -590,7 +590,7 @@ This option enables Container insights and optionally Prometheus and Grafana on 
 
     :::image type="content" source="media/aks-onboard/monitor-settings-button.png" lightbox="media/aks-onboard/monitor-settings-button.png" alt-text="Screenshot that shows the monitoring settings button for a cluster.":::
 
-2. **Container insights** will be enabled. **Select** the checkboxes for **Enable Prometheus metrics** and **Enable Grafana** if you also want to enable them for the cluster. If you have existing Azure Monitor workspace and Grafana workspace, then they're selected for you.
+2. **Container insights** will be enabled. **Select** the checkboxes for **Enable Prometheus metrics** and **Enable Grafana** if you also want to enable them for the cluster. If you have existing Azure Monitor workspace and Grafana workspace, then they're selected for you. 
 
     :::image type="content" source="media/prometheus-metrics-enable/configure-container-insights.png" lightbox="media/prometheus-metrics-enable/configure-container-insights.png" alt-text="Screenshot that shows the dialog box to configure Container insights with Prometheus and Grafana.":::
 
@@ -619,9 +619,9 @@ This option enables Prometheus metrics on a cluster without enabling Container i
 ## Enable Windows metrics collection (preview)
 
 > [!NOTE]
-> There is no CPU/Memory limit in windows-exporter-daemonset.yaml so it may over-provision the Windows nodes
+> There is no CPU/Memory limit in windows-exporter-daemonset.yaml so it may over-provision the Windows nodes  
 > For more details see [Resource reservation](https://kubernetes.io/docs/concepts/configuration/windows-resource-management/#resource-reservation)
->
+>   
 > As you deploy workloads, set resource memory and CPU limits on containers. This also subtracts from NodeAllocatable and helps the cluster-wide scheduler in determining which pods to place on which nodes.
 > Scheduling pods without limits may over-provision the Windows nodes and in extreme cases can cause the nodes to become unhealthy.
 
@@ -636,7 +636,7 @@ As of version 6.4.0-main-02-22-2023-3ee44b9e of the Managed Prometheus addon con
    * `memory`
    * `process`
    * `cpu_info`
-
+   
    For more collectors, please see [Prometheus exporter for Windows metrics](https://github.com/prometheus-community/windows_exporter#windows_exporter).
 
    Deploy the [windows-exporter-daemonset YAML](https://github.com/prometheus-community/windows_exporter/blob/master/kubernetes/windows-exporter-daemonset.yaml) file:
@@ -783,14 +783,14 @@ When you enable monitoring, the following resources are created in your subscrip
 | `MSCI-<aksclusterregion>-<clustername>` | **Data Collection Rule** | Same as cluster | Same as Log Analytics workspace | This data collection rule is for log collection by Azure Monitor agent, which uses the Log Analytics workspace as destination, and is associated to the AKS cluster resource. |
 | `MSPROM-<aksclusterregion>-<clustername>` | **Data Collection Rule** | Same as cluster | Same as Azure Monitor workspace | This data collection rule is for prometheus metrics collection by metrics addon, which has the chosen Azure monitor workspace as destination, and also it is associated to the AKS cluster resource |
 | `MSPROM-<aksclusterregion>-<clustername>` | **Data Collection endpoint** | Same as cluster | Same as Azure Monitor workspace | This data collection endpoint is used by the above data collection rule for ingesting Prometheus metrics from the metrics addon|
-
+    
 When you create a new Azure Monitor workspace, the following additional resources are created as part of it
 
 | Resource Name | Resource Type | Resource Group | Region/Location | Description |
 |:---|:---|:---|:---|:---|
 | `<azuremonitor-workspace-name>` | **Data Collection Rule** | MA_\<azuremonitor-workspace-name>_\<azuremonitor-workspace-region>_managed | Same as Azure Monitor Workspace | DCR created when you use OSS Prometheus server to Remote Write to Azure Monitor Workspace. |
 | `<azuremonitor-workspace-name>` | **Data Collection Endpoint** | MA_\<azuremonitor-workspace-name>_\<azuremonitor-workspace-region>_managed | Same as Azure Monitor Workspace | DCE created when you use OSS Prometheus server to Remote Write to Azure Monitor Workspace.|
-
+    
 
 
 ## Differences between Windows and Linux clusters
