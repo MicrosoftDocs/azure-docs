@@ -148,6 +148,8 @@ items:
         href: network-file-system-protocol-support.md
       - name: Performance considerations
         href: network-file-system-protocol-support-performance.md
+      - name: Performance benchmark
+        href: network-file-system-protocol-performance-benchmark.md
       - name: Mount storage by using NFS
         href: network-file-system-protocol-support-how-to.md
       - name: Limitations and known issues
@@ -929,6 +931,8 @@ items:
         items:
         - name: Performance tuning for uploads and downloads
           href: storage-blobs-tune-upload-download-python.md
+        - name: Implement a retry policy
+          href: storage-retry-policy-python.md
         - name: Configure logging
           href: /azure/developer/python/sdk/azure-sdk-logging?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
     - name: Test with a storage emulator
@@ -1031,6 +1035,8 @@ items:
       items:
       - name: Configuration settings
         href: ../common/storage-ref-azcopy-configuration-settings.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+      - name: Error codes
+        href: ../common/storage-ref-azcopy-error-codes.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
       - name: azcopy
         href: ../common/storage-ref-azcopy.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
       - name: azcopy bench

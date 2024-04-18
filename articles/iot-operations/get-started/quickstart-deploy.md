@@ -253,15 +253,6 @@ In this section, you use the [az iot ops init](/cli/azure/iot/ops#az-iot-ops-ini
    >[!TIP]
    >If you've run `az iot ops init` before, it automatically created an app registration in Microsoft Entra ID for you. You can reuse that registration rather than creating a new one each time. To use an existing app registration, add the optional parameter `--sp-app-id <APPLICATION_CLIENT_ID>`.
 
-1. These quickstarts use the **OPC PLC simulator** to generate sample data. To configure the simulator for the quickstart scenario, run the following command:
-
-   > [!IMPORTANT]
-   > Don't use the following example in production, use it for simulation and test purposes only. The example lowers the security level for the OPC PLC so that it accepts connections from any client without an explicit peer certificate trust operation.
-
-   ```azurecli
-   az k8s-extension update --version 0.3.0-preview --name opc-ua-broker --release-train preview --cluster-name <CLUSTER_NAME> --resource-group <RESOURCE_GROUP> --cluster-type connectedClusters --auto-upgrade-minor-version false --config opcPlcSimulation.deploy=true --config opcPlcSimulation.autoAcceptUntrustedCertificates=true
-   ```
-
 ## View resources in your cluster
 
 While the deployment is in progress, you can watch the resources being applied to your cluster. You can use kubectl commands to observe changes on the cluster or, since the cluster is Arc-enabled, you can use the Azure portal.
@@ -296,19 +287,19 @@ In this quickstart, you configured your Arc-enabled Kubernetes cluster so that i
 
 If you're continuing on to the next quickstart, keep all of your resources.
 
-If you want to delete the Azure IoT Operations deployment but plan on reinstalling it on your cluster, be sure to keep the secrets provider on your cluster. 
+If you want to delete the Azure IoT Operations deployment but plan on reinstalling it on your cluster, be sure to keep the secrets provider on your cluster.
 
 1. In your resource group in the Azure portal, select your cluster.
 1. On your cluster resource page, select **Extensions**.
-1. Select all of the extensions of type **microsoft.iotoperations.x** and **microsoft.deviceregistry.assets**, then select **Uninstall**. 
+1. Select all of the extensions of type **microsoft.iotoperations.x** and **microsoft.deviceregistry.assets**, then select **Uninstall**. You don't need to uninstall the secrets provider extension:
 
-   Keep the secrets provider extension on your cluster.
+    :::image type="content" source="media/quickstart-deploy/uninstall-extensions.png" alt-text="Screenshot that shows the extensions to uninstall.":::
 
 1. Return to your resource group and select the custom location resource, then select **Delete**.
 
 If you want to delete all of the resources you created for this quickstart, delete the Kubernetes cluster that you deployed Azure IoT Operations to and remove the Azure resource group that contained the cluster.
 
-## Next steps
+## Next step
 
 > [!div class="nextstepaction"]
 > [Quickstart: Add OPC UA assets to your Azure IoT Operations Preview cluster](quickstart-add-assets.md)
