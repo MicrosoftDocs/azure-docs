@@ -1026,7 +1026,7 @@ curl -X POST https://{your-resource-name}.openai.azure.com/openai/deployments/{d
   -d '{
     "prompt": "An avocado chair",
     "size": "1024x1024",
-    "n": 3,
+    "n": 1,
     "quality": "hd", 
     "style": "vivid"
   }'
@@ -1383,7 +1383,7 @@ The speech is returned as an audio file from the previous request.
 
 ## Management APIs
 
-Azure OpenAI is deployed as a part of the Azure AI services. All Azure AI services rely on the same set of management APIs for creation, update, and delete operations. The management APIs are also used for deploying models within an OpenAI resource.
+Azure OpenAI is deployed as a part of the Azure AI services. All Azure AI services rely on the same set of management APIs for creation, update, and delete operations. The management APIs are also used for deploying models within an Azure OpenAI resource.
 
 [**Management APIs reference documentation**](/rest/api/aiservices/)
 

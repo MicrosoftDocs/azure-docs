@@ -67,7 +67,7 @@ The following diagram shows a managed VNet configured to __allow only approved o
 
 # [Azure CLI](#tab/azure-cli)
 
-Not available in AI CLI, but you can use [Azure Machine Learning CLI](../../machine-learning/how-to-managed-network.md#configure-a-managed-virtual-network-to-allow-internet-outbound). Use your Azure AI hub name as workspace name in Azure Machine Learning CLI.
+You can use [Azure Machine Learning CLI](../../machine-learning/how-to-managed-network.md#configure-a-managed-virtual-network-to-allow-internet-outbound). Use your Azure AI hub name as the workspace name in Azure Machine Learning CLI.
 
 # [Python SDK](#tab/python)
 
@@ -115,7 +115,7 @@ Not available.
 
 # [Azure CLI](#tab/azure-cli)
 
-Not available in AI CLI, but you can use [Azure Machine Learning CLI](../../machine-learning/how-to-managed-network.md#configure-a-managed-virtual-network-to-allow-only-approved-outbound). Use your Azure AI hub name as workspace name in Azure Machine Learning CLI.
+You can use [Azure Machine Learning CLI](../../machine-learning/how-to-managed-network.md#configure-a-managed-virtual-network-to-allow-only-approved-outbound). Use your Azure AI hub name as the workspace name in Azure Machine Learning CLI.
 
 # [Python SDK](#tab/python)
 
@@ -181,7 +181,7 @@ Not available.
 
 # [Azure CLI](#tab/azure-cli)
 
-Not available in AI CLI, but you can use [Azure Machine Learning CLI](../../machine-learning/how-to-managed-network.md#manage-outbound-rules). Use your Azure AI hub name as workspace name in Azure Machine Learning CLI.
+You can use [Azure Machine Learning CLI](../../machine-learning/how-to-managed-network.md#manage-outbound-rules). Use your Azure AI hub name as workspace name in Azure Machine Learning CLI.
 
 # [Python SDK](#tab/python)
 
@@ -332,3 +332,4 @@ The Azure AI hub managed VNet feature is free. However, you're charged for the f
 * The managed VNet is deleted when the Azure AI is deleted. 
 * Data exfiltration protection is automatically enabled for the only approved outbound mode. If you add other outbound rules, such as to FQDNs, Microsoft can't guarantee that you're protected from data exfiltration to those outbound destinations.
 * Using FQDN outbound rules increases the cost of the managed VNet because FQDN rules use Azure Firewall. For more information, see [Pricing](#pricing).
+* When using a compute instance with a managed network, you can't connect to the compute instance using SSH.

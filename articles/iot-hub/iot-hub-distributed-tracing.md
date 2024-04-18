@@ -45,7 +45,7 @@ Consider the following limitations to determine if this preview feature is right
 
 - The proposal for the W3C Trace Context standard is currently a working draft.
 - The only development language that the client SDK currently supports is C, in the [public preview branch of the Azure IoT device SDK for C](https://github.com/Azure/azure-iot-sdk-c/blob/public-preview/readme.md)
-- Cloud-to-device twin capability isn't available for the [IoT Hub basic tier](iot-hub-scaling.md#basic-and-standard-tiers). However, IoT Hub still logs to Azure Monitor if it sees a properly composed trace context header.
+- Cloud-to-device twin capability isn't available for the [IoT Hub basic tier](iot-hub-scaling.md). However, IoT Hub still logs to Azure Monitor if it sees a properly composed trace context header.
 - To ensure efficient operation, IoT Hub imposes a throttle on the rate of logging that can occur as part of distributed tracing.
 - The distributed tracing feature is supported only for IoT hubs created in the following regions:
 

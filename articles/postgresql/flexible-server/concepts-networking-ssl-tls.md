@@ -4,7 +4,7 @@ description: Learn about secure connectivity with Flexible Server using SSL and 
 author: GennadNY
 ms.author: gennadyk
 ms.reviewer: maghan
-ms.date: 01/04/2024
+ms.date: 04/05/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.custom:
@@ -112,7 +112,7 @@ Microsoft RSA Root Certificate Authority 2017  https://www.microsoft.com/pkiops/
 * Optionally, to prevent future disruption, it's also recommended to add the following roots to the trusted store:
   Microsoft ECC Root Certificate Authority 2017 - https://www.microsoft.com/pkiops/certs/Microsoft%20ECC%20Root%20Certificate%20Authority%202017.crt
 
-Detailed information on updating client applications certificate stores with new Root CA certificates has been documented in this [tutorial](../flexible-server/how-to-update-client-certificates-java.md). 
+Detailed information on updating client applications certificate stores with new Root CA certificates has been documented in this **[tutorial](../flexible-server/how-to-update-client-certificates-java.md)**. 
 
 ### Read Replicas with certificate pinning scenarios
 
@@ -123,6 +123,17 @@ Therefore, for clients that use **verify-ca** and **verify-full** sslmode config
 
 > [!NOTE]
 > Azure Database for PostgreSQL - Flexible server doesn't support [certificate based authentication](https://www.postgresql.org/docs/current/auth-cert.html) at this time.
+
+### Testing client certificates by connecting with psql in certificate pinning scenarios
+
+You can use psql command line from your client to test connectivity to the server in  certificate pinning scenarios, as shown in example below:
+
+```bash
+
+$ psql "host=hostname.postgres.database.azure.com port=5432 user=myuser dbname=mydatabase sslmode=verify-full sslcert=client.crt sslkey=client.key sslrootcert=ca.crt"
+
+```
+For more on ssl and certificate parameters you can follow [psql documentation](https://www.postgresql.org/docs/current/app-psql.html)
 
 ## Testing SSL/TLS Connectivity
 

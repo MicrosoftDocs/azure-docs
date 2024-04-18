@@ -105,9 +105,9 @@ Learn how to [use Azure Private Link to connect networks to Azure Monitor](../az
 | Security posture management | Kubernetes data plane hardening | EKS | GA| - | Azure Policy for Kubernetes | Defender for Containers |
 | [Vulnerability assessment](agentless-vulnerability-assessment-aws.md) | Agentless registry scan (powered by Microsoft Defender Vulnerability Management) [supported packages](#registries-and-images-support-for-aws---vulnerability-assessment-powered-by-microsoft-defender-vulnerability-management)| ECR | Preview | Preview | Agentless | Defender for Containers or Defender CSPM |
 | [Vulnerability assessment](agentless-vulnerability-assessment-aws.md) | Agentless/sensor-based runtime (powered by Microsoft Defender Vulnerability Management) [supported packages](#registries-and-images-support-for-aws---vulnerability-assessment-powered-by-microsoft-defender-vulnerability-management)| EKS | Preview | Preview | Agentless **OR/AND** Defender sensor | Defender for Containers or Defender CSPM |
-| Runtime protection| Control plane | EKS | Preview | Preview | Agentless | Defender for Containers |
-| Runtime protection| Workload | EKS | Preview | - | Defender sensor | Defender for Containers |
-| Deployment & monitoring | Discovery of unprotected clusters | EKS | Preview | - | Agentless | Free |
+| Runtime protection| Control plane | EKS | GA | Preview | Agentless | Defender for Containers |
+| Runtime protection| Workload | EKS | GA | - | Defender sensor | Defender for Containers |
+| Deployment & monitoring | Discovery of unprotected clusters | EKS | GA | - | Agentless | Defender for Containers |
 | Deployment & monitoring | Auto provisioning of Defender sensor | - | - | - | - | - |
 | Deployment & monitoring | Auto provisioning of Azure Policy for Kubernetes | - | - | - | - | - |
 
@@ -149,9 +149,9 @@ Outbound proxy without authentication and outbound proxy with basic authenticati
 | Security posture management | Kubernetes data plane hardening | GKE | GA| - | Azure Policy for Kubernetes | Defender for Containers |
 | [Vulnerability assessment](agentless-vulnerability-assessment-gcp.md) | Agentless registry scan (powered by Microsoft Defender Vulnerability Management) [supported packages](#registries-and-images-support-for-gcp---vulnerability-assessment-powered-by-microsoft-defender-vulnerability-management)| GAR, GCR | Preview | Preview | Agentless | Defender for Containers or Defender CSPM |
 | [Vulnerability assessment](agentless-vulnerability-assessment-gcp.md) | Agentless/sensor-based runtime (powered by Microsoft Defender Vulnerability Management) [supported packages](#registries-and-images-support-for-gcp---vulnerability-assessment-powered-by-microsoft-defender-vulnerability-management)| GKE | Preview | Preview | Agentless **OR/AND** Defender sensor | Defender for Containers or Defender CSPM |
-| Runtime protection| Control plane | GKE | Preview | Preview | Agentless | Defender for Containers |
-| Runtime protection| Workload | GKE | Preview | - | Defender sensor | Defender for Containers |
-| Deployment & monitoring | Discovery of unprotected clusters | GKE | Preview | - | Agentless | Free |
+| Runtime protection| Control plane | GKE | GA | Preview | Agentless | Defender for Containers |
+| Runtime protection| Workload | GKE | GA | - | Defender sensor | Defender for Containers |
+| Deployment & monitoring | Discovery of unprotected clusters | GKE | GA | - | Agentless | Defender for Containers |
 | Deployment & monitoring | Auto provisioning of Defender sensor | GKE | Preview | - | Agentless | Defender for Containers |
 | Deployment & monitoring | Auto provisioning of Azure Policy for Kubernetes | GKE | Preview | - | Agentless | Defender for Containers |
 

@@ -4,7 +4,7 @@ description: Learn about connectivity and networking options for Azure Database 
 author: GennadNY
 ms.author: gennadyk
 ms.reviewer: maghan
-ms.date: 01/22/2024
+ms.date: 04/01/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.custom:
@@ -59,9 +59,9 @@ Cross Feature Availability Matrix for Private Endpoint in Azure Database for Pos
 | **Feature** | **Availability** | **Notes** |
 | --- | --- | --- |
 | High Availability (HA) | Yes |Works as designed |
-| Read Replica | Yes | Works as designed|
-| Read Replica with Virtual Endpoints|Yes|**Important limitation: Swap is only supported with single read replica** |
-| Point in Time Restore (PITR) | Yes |Works as designed |
+| Read Replica | Yes | Works as designed |
+| Read Replica with virtual endpoints|Yes| Works as designed |
+| Point in Time Restore (PITR) | Yes | Works as designed |
 | Allowing also public/internet access with firewall rules | Yes | Works as designed|
 | Major Version Upgrade (MVU) | Yes | Works as designed |
 | Microsoft Entra Authentication (Entra Auth) | Yes | Works as designed |
