@@ -30,7 +30,7 @@ To create and manage playbooks, you'll need access to Microsoft Sentinel with on
 - **Logic App Contributor**, to edit and manage logic apps
 - **Logic App operator**, to read, enable, and disable logic apps
 
-For more information, see [Microsoft Sentinel playbook prerequisites](automate-responses-with-playbooks.md#permissions-required).
+For more information, see [Microsoft Sentinel playbook prerequisites](automate-responses-with-playbooks.md#prerequisites).
 
 ## Create a playbook
 
@@ -188,7 +188,7 @@ Now that you have a logic app, define what happens when you call the playbook. A
 
 In every one of these steps, clicking on any field displays a panel with the following menus:
 
-- **Dynamic content**: Add references to the attributes of the alert or incident that was passed to the playbook, including the values and attributes of all the [mapped entities](map-data-fields-to-entities.md) and [custom details](surface-custom-details-in-alerts.md) contained in the alert or incident.
+- **Dynamic content**: Add references to the attributes of the alert or incident that was passed to the playbook, including the values and attributes of all the [mapped entities](map-data-fields-to-entities.md) and [custom details](../surface-custom-details-in-alerts.md) contained in the alert or incident.
 - **Expression**: Choose from a large library of functions to add additional logic to your steps.
 
 For more information, see [Use triggers and actions in Microsoft Sentinel playbooks](playbook-triggers-actions.md), especially [Entity playbooks with no incident ID](playbook-triggers-actions.md#entity-playbooks-with-no-incident-id).
