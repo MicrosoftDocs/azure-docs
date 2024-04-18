@@ -58,7 +58,7 @@ Total capacity units are calculated based on the higher of the capacity units by
 
 ### Compute unit
 
-**Compute Unit** is the measure of compute capacity consumed. Factors affecting compute unit consumption are TLS connections/seccond, URL Rewrite computations, and WAF rule processing. The number of requests a compute unit can handle depends on various criteria like TLS certificate key size, key exchange algorithm, header rewrites, and in case of WAF: incoming request size.
+**Compute Unit** is the measure of compute capacity consumed. Factors affecting compute unit consumption are TLS connections/second, URL Rewrite computations, and WAF rule processing. The number of requests a compute unit can handle depends on various criteria like TLS certificate key size, key exchange algorithm, header rewrites, and in case of WAF: incoming request size.
 
 Compute unit guidance:
 * Basic_v2 (preview) - Each compute unit is capable of approximately 10 connections per second with RSA 2048-bit key TLS certificate.

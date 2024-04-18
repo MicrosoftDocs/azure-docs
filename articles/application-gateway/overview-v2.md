@@ -1,11 +1,11 @@
 ---
 title: What is Azure Application Gateway v2?
-description: Learn about Azure application Gateway v2 features
+description: Learn about Azure application Gateway v2 features.
 services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
 ms.topic: overview
-ms.date: 02/26/2024
+ms.date: 04/18/2024
 ms.author: greglin
 ms.custom: references_regions
 ---
@@ -26,14 +26,14 @@ The new v2 SKU includes the following enhancements:
 - **Zone redundancy**: An Application Gateway or WAF deployment can span multiple Availability Zones, removing the need to provision separate Application Gateway instances in each zone with a Traffic Manager. You can choose a single zone or multiple zones where Application Gateway instances are deployed, which makes it more resilient to zone failure. The backend pool for applications can be similarly distributed across availability zones.
 
   Zone redundancy is available only where Azure Zones are available. In other regions, all other features are supported. For more information, see [Regions and Availability Zones in Azure](../reliability/availability-zones-service-support.md)
-- **Static VIP**: Application Gateway v2 SKU supports the static VIP type exclusively. This ensures that the VIP associated with the application gateway doesn't change for the lifecycle of the deployment, even after a restart.  There isn't a static VIP in v1, so you must use the application gateway URL instead of the IP address for domain name routing to App Services via the application gateway.
+- **Static VIP**: Application Gateway v2 SKU supports the static VIP type exclusively. Static VIP ensures that the VIP associated with the application gateway doesn't change for the lifecycle of the deployment, even after a restart. You must use the application gateway URL for domain name routing to App Services via the application gateway, as v1 doesn't have a static VIP.
 - **Header Rewrite**: Application Gateway allows you to add, remove, or update HTTP request and response headers with v2 SKU. For more information, see [Rewrite HTTP headers with Application Gateway](./rewrite-http-headers-url.md)
 - **Key Vault Integration**: Application Gateway v2 supports integration with Key Vault for server certificates that are attached to HTTPS enabled listeners. For more information, see [TLS termination with Key Vault certificates](key-vault-certs.md).
 - **Mutual Authentication (mTLS)**: Application Gateway v2 supports authentication of client requests. For more information, see [Overview of mutual authentication with Application Gateway](mutual-authentication-overview.md).
 - **Azure Kubernetes Service Ingress Controller**: The Application Gateway v2 Ingress Controller allows the Azure Application Gateway to be used as the ingress for an Azure Kubernetes Service (AKS) known as AKS Cluster. For more information, see [What is Application Gateway Ingress Controller](ingress-controller-overview.md).
-- **Private link**: The v2 SKU offers private connectivity from other virtual networks in other regions and subscriptions through the use of private endpoints.
+- **Private link**: The v2 SKU offers private connectivity from other virtual networks in other regions and subscriptions by using private endpoints.
 - **Performance enhancements**: The v2 SKU offers up to 5X better TLS offload performance as compared to the Standard/WAF SKU.
-- **Faster deployment and update time**: The v2 SKU provides faster deployment and update time as compared to Standard/WAF SKU. This also includes WAF configuration changes.
+- **Faster deployment and update time**: The v2 SKU provides faster deployment and update time as compared to Standard/WAF SKU. The faster time also includes WAF configuration changes.
 
 ![Diagram of auto-scaling zone.](./media/application-gateway-autoscaling-zone-redundant/application-gateway-autoscaling-zone-redundant.png)
 
@@ -46,23 +46,23 @@ Application Gateway v2 is available under two SKUs:
 - **Basic** (preview): The Basic SKU is designed for applications that have lower traffic and SLA requirements, and don't need advanced auto scale and traffic management features. 
 - **Standard_v2 SKU**: The Standard_v2 SKU is designed for running production workloads and high traffic. It also includes auto scale that can automatically adjust the number of instances to match your traffic needs. 
 
-See the following table for a comparison between Basic and Stadard_v2.
+The following table displays a comparison between Basic and Standard_v2.
 
 |      Feature             | Capabilities                             | Basic SKU (preview)|   Standard SKU    |
 |     :---:                | :---                                     |     :---:      |     :---:         |
 | Reliability              | SLA                                      | 99.9           | 99.95             |
-| Functionality - basic    | HTTP/HTTP2/HTTPS<br>Websocket<br>Public/Private IP<br>Cookie Affinitiy<br>Path-based affinity<br>Wildcard<br>Multisite<br>KeyVault<br>AKS (via AGIC)<br>Zone | &#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713;<br><br> | &#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713;|
+| Functionality - basic    | HTTP/HTTP2/HTTPS<br>Websocket<br>Public/Private IP<br>Cookie Affinity<br>Path-based affinity<br>Wildcard<br>Multisite<br>KeyVault<br>AKS (via AGIC)<br>Zone | &#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713;<br> | &#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713;|
 | Functionality - advanced | URL rewrite<br>mTLS<br>Private Link<br>Private-only<sup>1</sup><br>TCP/TLS Proxy |  | &#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713; |
 | Scale                    | Max. connections per second<br>Number of listeners<br>Number of backend pools<br>Number of backend servers per pool<br>Number of rules | 200<br>5<br>5<br>5<br>5  | 1250<br>100<br>100<br>1200<br>400 |
-| Capacity Unit            | Connections Per Second per Compute Unit<br>Throughput<br>Persistent news connections  | 10<br>2.22 Mbps<br>2500 | 50<br>2.22 Mbps<br>2500 |
+| Capacity Unit            | Connections per second per compute unit<br>Throughput<br>Persistent new connections  | 10<br>2.22 Mbps<br>2500 | 50<br>2.22 Mbps<br>2500 |
 
 ## Pricing
 
-With the v2 SKU, the pricing model is driven by consumption and is no longer attached to instance counts or sizes. To learn more, see [Understanding pricing](understanding-pricing.md).
+With the v2 SKU, consumption drives the pricing model and is no longer attached to instance counts or sizes. To learn more, see [Understanding pricing](understanding-pricing.md).
 
 ## Unsupported regions
 
-The Standard_v2 and WAF_v2 SKU isn't currently available in the following regions:
+Currently, the Standard_v2 and WAF_v2 SKUs aren't available in the following regions:
 
 - UK North
 - UK South 2
