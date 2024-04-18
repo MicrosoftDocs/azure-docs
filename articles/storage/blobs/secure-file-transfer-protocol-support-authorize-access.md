@@ -22,7 +22,7 @@ To learn more about SFTP support for Azure Blob Storage, see [SSH File Transfer 
 
 ## Create a local user
 
-Azure Storage doesn't support shared access signature (SAS), or Microsoft Entra authentication for accessing the SFTP endpoint. Instead, you must use an identity called local user that can be secured with an Azure generated password or a secure shell (SSH) key pair. To grant access to a connecting client, the storage account must have an identity associated with the password or key pair. That identity is called a *local user*. 
+Azure Storage doesn't support shared access signature (SAS), or Microsoft Entra authentication for accessing the SFTP endpoint. Instead, you must use an identity called local user that can be secured with an Azure generated password or a secure shell (SSH) key pair. To grant access to a connecting client, the storage account must have an identity associated with the password or key pair. That identity is called a *local user*.
 
 In this section, you'll learn how to create a local user, choose an authentication method, and assign permissions for that local user.
 
@@ -89,7 +89,7 @@ This section shows you how to authenticate by using either an SSH key or a passw
    $sshkey = New-AzStorageLocalUserSshPublicKey -Key $sshkey -Description "description for ssh public key"
    ```
 
-3. Create a local user by using the [Set-AzStorageLocalUser](powershell/module/az.storage/set-azstoragelocaluser) command. If you're using an SSH key, then set the `SshAuthorization` parameter to the public key object that you created in the previous step.
+3. Create a local user by using the [Set-AzStorageLocalUser](/powershell/module/az.storage/set-azstoragelocaluser) command. If you're using an SSH key, then set the `SshAuthorization` parameter to the public key object that you created in the previous step.
 
    The following example creates a local user and then prints the key to the console.
 
@@ -106,7 +106,7 @@ This section shows you how to authenticate by using either an SSH key or a passw
 
 ##### Authenticate by using a password (PowerShell)
 
-1. Create a local user by using the [Set-AzStorageLocalUser](powershell/module/az.storage/set-azstoragelocaluser) command, and set the `-HasSshPassword` parameter to `$true`.
+1. Create a local user by using the [Set-AzStorageLocalUser](/powershell/module/az.storage/set-azstoragelocaluser) command, and set the `-HasSshPassword` parameter to `$true`.
 
    The following example creates a local user that uses password authentication.
 
@@ -179,7 +179,7 @@ This section shows you how to authenticate by using either an SSH key or a passw
 
 ### Give permission to containers
 
-Choose which containers you want to grant access to and what level of access you want to provide. Those permissions apply to all directories and subdirectories in the container. You can set ACLs only in the Azure portal. To learn more about each container permission, see [Container permissions](secure-file-transfer-protocol-support#container-permissions).
+Choose which containers you want to grant access to and what level of access you want to provide. Those permissions apply to all directories and subdirectories in the container. You can set ACLs only in the Azure portal. To learn more about each container permission, see [Container permissions](secure-file-transfer-protocol-support.md#container-permissions).
 
 If you want to authorize access at the file and directory level, you can enable ACL authorization. This capability is in preview and can be enabled only by using the Azure portal.
 
@@ -229,7 +229,7 @@ If you want to authorize access at the file and directory level, you can enable 
    > [!IMPORTANT]
    > The local user must have at least one container permission for the container it is connecting to otherwise the connection attempt will fail.
 
-2. Update the local user by using the [Set-AzStorageLocalUser](powershell/module/az.storage/set-azstoragelocaluser) command. Set the `-PermissionScope` parameter to the permission scope object that you created earlier.
+2. Update the local user by using the [Set-AzStorageLocalUser](/powershell/module/az.storage/set-azstoragelocaluser) command. Set the `-PermissionScope` parameter to the permission scope object that you created earlier.
 
    The following example updates a local user with container permissions and then prints the permission scopes to the console.
   

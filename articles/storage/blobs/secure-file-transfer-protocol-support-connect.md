@@ -32,7 +32,7 @@ You can use any SFTP client to securely connect and then transfer files. The fol
 PS C:\Users\temp> sftp contoso4.contosouser@contoso4.blob.core.windows.net
 ```
 
-The SFTP username is `storage_account_name`.`username`.  In the example above the `storage_account_name` is "contoso4" and the `username` is "contosouser."  The combined username becomes `contoso4.contosouser`. The blob service endpoint is `contoso4.blob.core.windows.net`.
+The SFTP username is `storage_account_name`.`username`.  In the example above the `storage_account_name` is "contoso4" and the `username` is "contosouser."  The combined username becomes "contoso4.contosouser". The blob service endpoint is "contoso4.blob.core.windows.net".
 
 To complete the connection, you might have to respond to one or more prompts. For example, if you configured the local user with password authentication, then you'll be prompted to enter that password. You might also be prompted to trust a host key. Valid host keys are published [here](secure-file-transfer-protocol-host-keys.md).  
 
@@ -75,7 +75,7 @@ See the documentation of your SFTP client for guidance about how to connect and 
 
 ### Modify ACLs (preview)
 
-You can set the ACL of a directory or blob by using an SFTP client. You can also change the ID of the owning user and the owning group. To learn more about ACL support for SFTP clients, see [ACLs](secure-file-transfer-protocol-support.md#acls). These examples use [Open SSH](/windows-server/administration/openssh/openssh_overview).
+You can set the ACL of a directory or blob by using an SFTP client. You can also change the ID of the owning user and the owning group. To learn more about ACL support for SFTP clients, see [ACLs](secure-file-transfer-protocol-support.md#acls).
 
 #### Set an ACL
 
