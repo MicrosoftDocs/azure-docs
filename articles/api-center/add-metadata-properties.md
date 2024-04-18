@@ -1,18 +1,21 @@
 ---
 title: Tutorial - Customize metadata properties in Azure API Center | Microsoft Docs
-description: In this tutorial, define custom metadata properties in your API center. Use custom and built-in properties to organize your APIs.
+description: In this tutorial, define custom metadata properties in your API center. Use custom and predefined properties to organize your APIs.
 author: dlepow
 ms.service: api-center
 ms.topic: tutorial
-ms.date: 11/07/2023
+ms.date: 04/18/2024
 ms.author: danlep 
 ---
 
 # Tutorial: Customize metadata properties
 
-In this tutorial, define custom properties to help you organize your APIs and other information in your API center. Use custom metadata properties and several built-in properties for search and filtering and to enforce governance standards in your organization. 
+In this tutorial, define custom properties to help you organize your APIs and other information in your API center. Use custom metadata properties and several predefined properties for search and filtering and to enforce governance standards in your organization. 
 
-For background information about the metadata schema in Azure API Center, see [Key concepts](key-concepts.md).
+For background information about metadata in Azure API Center, see:
+
+* [Key concepts](key-concepts.md#metadata-properties)
+* [Metadata for API governance](metadata.md)
 
 In this tutorial, you learn how to use the portal to:
 > [!div class="checklist"]
@@ -27,7 +30,7 @@ In this tutorial, you learn how to use the portal to:
 
 You organize your API inventory by setting values of metadata properties. While several common properties such as "API type" and "Version lifecycle" are available out of the box, each API center provides a configurable metadata schema so you can add properties that are specific to your organization. 
 
-Here you define two example properties: *Line of business* and *Public-facing*; if you prefer, define other properties of your own. When you add or update APIs and other information in your inventory, you'll set values for these properties and any common built-in properties.
+Here you define two example properties: *Line of business* and *Public-facing*; if you prefer, define other properties of your own. When you add or update APIs and other information in your inventory, you'll set values for these properties and any common predefined properties.
 
 > [!IMPORTANT]
 > Take care not to include any sensitive, confidential, or personal information in the titles (names) of metadata properties you define. These titles are visible in monitoring logs that are used by Microsoft to improve the functionality of the service. However, other metadata details and values are your protected customer data. 
@@ -66,11 +69,11 @@ Here you define two example properties: *Line of business* and *Public-facing*; 
 
 ## View metadata schema
 
-You can view and download the JSON schema for the metadata properties in your API center. The schema includes built-in and custom properties.
+You can view and download the JSON schema for the metadata properties in your API center. The schema includes predefined and custom properties.
 
 1. In the left menu, select **Metadata schema > View schema**. 
 
-1. Select **View schema > API** to see the metadata schema for APIs, which includes built-in properties and the properties that you added. You can also view the metadata schema defined for deployments and environments in your API center.
+1. Select **View schema > API** to see the metadata schema for APIs, which includes predefined properties and the properties that you added. You can also view the metadata schema defined for deployments and environments in your API center.
 
     :::image type="content" source="media/add-metadata-properties/metadata-schema.png" alt-text="Screenshot of metadata schema in the portal." lightbox="media/add-metadata-properties/metadata-schema.png":::
 
