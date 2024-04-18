@@ -6,14 +6,12 @@ author: hhunter-ms
 ms.service: container-apps
 ms.custom: build-2023
 ms.topic: conceptual
-ms.date: 04/08/2024
+ms.date: 04/18/2024
 ---
 
 # Microservice APIs powered by Dapr
 
-Azure Container Apps provides serverless and versionless APIs powered by [Distributed Application Runtime (Dapr)][dapr-concepts] that run as a sidecar process that helps you write and implement simple, portable, resilient, and secured microservices. Dapr works together with Azure Container Apps as an abstraction layer to provide a low-maintenance, serverless, and scalable platform. [Enabling Dapr on your container app][dapr-enable] creates a secondary process alongside your application code that simplifies application intercommunication with Dapr via HTTP or gRPC.
-
-Dapr in Azure can now offer a selection of fully-managed Dapr APIs, components, and features, catered specifically to an Azure Container Apps scenario. Simply enable and configure Dapr as usual in your container app environment. 
+Azure Container Apps provides serverless and versionless APIs powered by [Distributed Application Runtime (Dapr)][dapr-concepts] that help you write and implement simple, portable, resilient, and secured microservices. Dapr works together with Azure Container Apps as an abstraction layer to provide a low-maintenance, serverless, and scalable platform. Azure Container Apps offers a selection of fully-managed Dapr APIs, components, and features, catered specifically to microservice scenarios. Simply [enable and configure Dapr][dapr-enable] as usual in your container app environment.
 
 ## How the microservices APIs work with your container app
 
