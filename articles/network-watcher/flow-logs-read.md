@@ -172,7 +172,7 @@ ZjAyZTliYWE3OTI1YWZmYjFmMWI0MjJhNzMxZTI4MDM=      2      True
 
 ## Read the block blob
 
-Next, you read the `$blocklist` variable to retrieve the data. In this example we iterate through the blocklist, read the bytes from each block and store them in an array. Use the [DownloadRangeToByteArray](/dotnet/api/microsoft.azure.storage.blob.cloudblob.downloadrangetobytearray) method to retrieve the data.
+In this section, you read the `$blocklist` variable to retrieve the data. In the following example, we iterate through the blocklist to read the bytes from each block and store them in an array. Use the [DownloadRangeToByteArray](/dotnet/api/microsoft.azure.storage.blob.cloudblob.downloadrangetobytearray) method to retrieve the data.
 
 # [**NSG flow logs**](#tab/nsg)
 
