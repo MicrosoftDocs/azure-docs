@@ -54,3 +54,4 @@ Except for more write latency, disks using ZRS are identical to disks using LRS,
 ## Next steps
 
 - To learn how to create a ZRS disk, see [Deploy a ZRS managed disk](disks-deploy-zrs.md).
+- To convert a disk from LRS to ZRS, see [Convert a disk from LRS to ZRS](https://aka.ms/migratedisksfromLRStoZRS).
