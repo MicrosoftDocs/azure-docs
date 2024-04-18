@@ -10,7 +10,7 @@ ms.custom:
   - ignite-2023
   - references_regions
 ms.topic: whats-new
-ms.date: 04/02/2024
+ms.date: 04/18/2024
 recommendations: false
 ---
 
@@ -18,15 +18,29 @@ recommendations: false
 
 ## April 2024
 
-### Fine-tuning is now supported in East US 2
+### Fine-tuning is now supported in two new regions East US 2 and Switzerland West
 
-Fine-tuning is now available in East US 2 with support for:
+Fine-tuning is now available with support for:
+
+### East US 2
 
 - `gpt-35-turbo` (0613)
 - `gpt-35-turbo` (1106)
 - `gpt-35-turbo` (0125)
 
+### Switzerland West
+
+- `babbage-002`
+- `davinci-002`
+- `gpt-35-turbo` (0613)
+- `gpt-35-turbo` (1106)
+- `gpt-35-turbo` (0125)
+
 Check the [models page](concepts/models.md#fine-tuning-models), for the latest information on model availability and fine-tuning support in each region.  
+
+### Multi-turn chat training examples
+
+Fine-tuning now supports [multi-turn chat training examples](./how-to/fine-tuning.md#multi-turn-chat-file-format).
 
 ### GPT-4 (0125) is available for Azure OpenAI On Your Data
 
