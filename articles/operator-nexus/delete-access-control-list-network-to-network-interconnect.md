@@ -24,18 +24,22 @@ Before proceeding, ensure you have the following prerequisites:
 ## Procedure
 
 1. **Login to Azure:**
+   
    Use the following command to log in to your Azure account:
+   
    ```Azure CLI
    az login
    ```
 
-2. **Set subscription (if necessary):**
+3. **Set subscription (if necessary):**
+   
    If you have multiple subscriptions and need to set one as the default, you can do so with:
+   
    ```Azure CLI
    az account set --subscription <subscription-id>
    ```
 
-3. **Delete ACLs Associated with NNI:**
+5. **Delete ACLs associated with NNI:**
    
    To delete ACLs applied on NNI or External Network resources, pass a null value to `--ingress-acl-id` and `--egress-acl-id`.
 
@@ -54,7 +58,7 @@ Before proceeding, ensure you have the following prerequisites:
    > [!NOTE]
    > Based on requirements, either the Ingress, Egress, or both can be updated.
 
-4. **Commit Configuration Changes:**
+6. **Fabric commit configuration changes:**
 
    Execute `fabric commit-configuration` to commit the configuration changes.
 
@@ -67,23 +71,23 @@ Before proceeding, ensure you have the following prerequisites:
    | `--resource-group` | The name of the resource group containing the Nexus Network Fabric. |
    | `--resource-name`  | The name of the Nexus Network Fabric to which the configuration changes will be committed. |
 
-5. **Verify Changes:**
+7. **Verify changes:**
 
    Verify the changes using the `resource list` command.
 
-### Deleting ACL Associations from NNI
+### Deleting ACL associations from NNI
 
 To disassociate only the egress ACL from an NNI, use the following command:
 
-	```Azure CLI
-	az networkfabric nni update --resource-group "<resource-group-name>" --resource-name "<nni-name>" --fabric "<fabric-name>" --egress-acl-id null
-	```
+```Azure CLI
+az networkfabric nni update --resource-group "<resource-group-name>" --resource-name "<nni-name>" --fabric "<fabric-name>" --egress-acl-id null
+```
 
 To disassociate both egress and ingress ACLs from an NNI, use the following command:
 
-	```Azure CLI
-	az networkfabric nni update --resource-group "<resource-group-name>" --resource-name "<nni-name>" --fabric "<fabric-name>" --egress-acl-id null --ingress-acl-id null
-	```
+```Azure CLI
+az networkfabric nni update --resource-group "<resource-group-name>" --resource-name "<nni-name>" --fabric "<fabric-name>" --egress-acl-id null --ingress-acl-id null
+```
 
 Ensure to replace placeholders with actual resource group and NNI names for accurate execution.
 
