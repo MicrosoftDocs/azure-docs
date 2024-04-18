@@ -72,7 +72,7 @@ The ideal number of data warehouse units depends very much on your workload and 
 Steps for finding the best DWU for your workload:
 
 1. Begin by selecting a smaller DWU.
-1. Monitor your application performance as you test data loads into the system, observing the number of DWUs selected compared to the performance you observe. Verify [Monitor Resource utilization](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-concept-resource-utilization-query-activity)
+1. Monitor your application performance as you test data loads into the system, observing the number of DWUs selected compared to the performance you observe. Verify by monitoring [resource utilization](sql-data-warehouse-concept-resource-utilization-query-activity.md).
 
 3. Identify any additional requirements for periodic periods of peak activity. Workloads that show significant peaks and troughs in activity may need to be scaled frequently.
 
