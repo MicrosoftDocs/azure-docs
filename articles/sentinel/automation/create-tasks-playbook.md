@@ -13,7 +13,7 @@ ms.collection: usx-security
 
 # Create and perform incident tasks in Microsoft Sentinel using playbooks
 
-This article explains how to use [playbooks](tutorial-respond-threats-playbook.md) to create, and optionally perform, [incident tasks](incident-tasks.md) to manage complex analyst workflow processes in Microsoft Sentinel.
+This article explains how to use [playbooks](tutorial-respond-threats-playbook.md) to create, and optionally perform, [incident tasks](../incident-tasks.md) to manage complex analyst workflow processes in Microsoft Sentinel.
 
 Use the **Add task** action in a playbook, in the Microsoft Sentinel connector, to automatically add a task to the incident that triggered the playbook. Both Standard and Consumption workflows are supported.
 
@@ -53,7 +53,7 @@ To add and configure these actions, take the following steps:
     Add the **Accounts Microsoft Entra user ID** dynamic content item to the **userIds Item - 1** field.
 
     > [!NOTE]
-    > This field (Accounts Microsoft Entra user ID) is one way to identify a user in AADIP. It might not necessarily be the best way in every scenario, but is brought here just as an example. For assistance, consult other playbooks that handle compromised users, or the [Microsoft Entra ID Protection documentation](../active-directory/identity-protection/overview-identity-protection.md).
+    > This field (Accounts Microsoft Entra user ID) is one way to identify a user in AADIP. It might not necessarily be the best way in every scenario, but is brought here just as an example. For assistance, consult other playbooks that handle compromised users, or the [Microsoft Entra ID Protection documentation](/azure/active-directory/identity-protection/overview-identity-protection.md).
 
     This action sets in motion processes inside Microsoft Entra ID Protection to reset the user's password.
 
@@ -109,20 +109,7 @@ In this example, we're going to add a playbook action that researches an IP addr
 
 For more information, see:
 
-- [Automate threat response with Microsoft Sentinel playbooks](automate-responses-with-playbooks.md)
-
-- [Respond to threats by using playbooks with automation rules in Microsoft Sentinel](tutorial-respond-threats-playbook.md)
-
-- [Use tasks to manage incidents in Microsoft Sentinel](../incident-tasks.md)
-
 - [Investigate incidents with Microsoft Sentinel](../investigate-cases.md)
+- [Create incident tasks in Microsoft Sentinel using automation rules](../create-tasks-automation-rule.md)
+- [Work with incident tasks in Microsoft Sentinel](../work-with-tasks.md)
 
-- [Create incident tasks in Microsoft Sentinel using automation rules](../create-tasks-automation-rule.md). For SOC managers, senior analysts, and automation engineers:
-
-    - [View automation rules with incident task actions](../create-tasks-automation-rule.md#view-automation-rules-with-incident-task-actions)
-    - [Add tasks to incidents with automation rules](../create-tasks-automation-rule.md#add-tasks-to-incidents-with-automation-rules)
-
-- [Work with incident tasks in Microsoft Sentinel](../work-with-tasks.md). For SOC analysts:
-
-    - [View and follow incident tasks](../work-with-tasks.md#view-and-follow-incident-tasks)
-    - [Manually add an ad-hoc task to an incident](../work-with-tasks.md#manually-add-an-ad-hoc-task-to-an-incident)

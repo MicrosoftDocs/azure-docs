@@ -184,8 +184,7 @@ API connections are used to connect Azure Logic Apps to other services, includin
 
 **To change the authorization of an existing connection**, enter the connection resource, and select **Edit API connection**.
 
-## Next steps
+## Next step
 
-In this article, you learned about the different methods of authenticating a Logic Apps-based playbook to Microsoft Sentinel.
-
-- Learn more about how to [use triggers and actions in playbooks](playbook-triggers-actions.md).
+> [!div class="nextstepaction"]
+> [Use triggers and actions in playbooks](playbook-triggers-actions.md)

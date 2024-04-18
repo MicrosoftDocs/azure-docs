@@ -1,7 +1,7 @@
 ---
 title: Use a Microsoft Sentinel playbook to stop potentially compromised users
 description: Learn how to use Microsoft Sentinel playbooks and automation rules to automate a sample incident response and remediate security threats.
-ms.topic: tutorial
+ms.topic: concept
 author: batamig
 ms.author: bagol
 ms.date: 04/17/2024

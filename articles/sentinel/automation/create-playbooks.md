@@ -188,7 +188,7 @@ Now that you have a logic app, define what happens when you call the playbook. A
 
 In every one of these steps, clicking on any field displays a panel with the following menus:
 
-- **Dynamic content**: Add references to the attributes of the alert or incident that was passed to the playbook, including the values and attributes of all the [mapped entities](map-data-fields-to-entities.md) and [custom details](../surface-custom-details-in-alerts.md) contained in the alert or incident.
+- **Dynamic content**: Add references to the attributes of the alert or incident that was passed to the playbook, including the values and attributes of all the [mapped entities](../map-data-fields-to-entities.md) and [custom details](../surface-custom-details-in-alerts.md) contained in the alert or incident.
 - **Expression**: Choose from a large library of functions to add more logic to your steps.
 
 For more information, see [Use triggers and actions in Microsoft Sentinel playbooks](playbook-triggers-actions.md), especially [Entity playbooks with no incident ID](playbook-triggers-actions.md#use-entity-playbooks-with-no-incident-id).
@@ -216,7 +216,7 @@ Select a playbook to open its Azure Logic Apps page, which shows more details ab
 - View run results, including successes and failures and other details
 - If you have the relevant permissions, open the workflow designer in Azure Logic Apps to edit the playbook directly
 
-## Next steps
+## Related content
 
 Once you created your playbook, attach it to rules to be triggered by events in your environment, or run your playbooks manually on specific incidents, alerts, or entities.
 
