@@ -29,8 +29,6 @@ Configure microservices APIs for your container apps environment with a [Dapr-en
 
 Azure Container Apps offers the following APIs powered by Dapr. 
 
-:::image type="content" source="media/dapr-overview/azure-container-apps-dapr-building-blocks.png" alt-text="Diagram that shows Dapr APIs.":::
-
 | API                                              | Description                                                                                                                                                     |
 | ----------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [**Service-to-service invocation**][dapr-serviceinvo] | Discover services and perform reliable, direct service-to-service calls with automatic mTLS authentication and encryption.                                     |
