@@ -18,7 +18,7 @@ SOC analysts deal with numerous security alerts and incidents. The sheer volume 
 
 Many alerts and incidents can be addressed by the same sets of defined remediation actions, which are also assigned to the analysts. Automating repetitive tasks can make the SOC more efficient, freeing up analysts for deeper investigations.
 
-Playbooks are sets of remediation actions run from Microsoft Sentinel as a routine, to help [automate and orchestrate your threat response](tutorial-respond-threats-playbook.md). Run playbooks manually and on-demand, for a particular entity or alert, or automatically, in response to specific alerts and incidents that trigger a configured [automation rule](automate-incident-handling-with-automation-rules.md).
+Playbooks are sets of remediation actions run from Microsoft Sentinel as a routine, to help [automate and orchestrate your threat response](tutorial-respond-threats-playbook.md). Run playbooks manually and on-demand, for a particular entity or alert, or automatically, in response to specific alerts and incidents that trigger a configured [automation rule](../automate-incident-handling-with-automation-rules.md).
 
 For example, if an account and machine are compromised, a playbook can automatically isolate the machine from the network and block the account by the time the SOC team is notified of the incident.
 
@@ -37,7 +37,7 @@ The following table lists use cases where we recommend using Microsoft playbooks
 |**Orchestration**     | Use the SOC chat platform to better control the incidents queue. For example, send a message to your security operations channel in Microsoft Teams or Slack to make sure your security analysts are aware of the incident.      |
 |**Response**     |  Immediately respond to threats, with minimal human dependencies, such as when a compromised user or machine is indicated. Alternately, manually trigger a series of automated steps during an investigation or while hunting.     |
 
-For more information, see [Recommended playbook use cases, templates, and examples](playbooks-recommendations.md).
+For more information, see [Recommended playbook use cases, templates, and examples](playbook-recommendations.md).
 
 ## Prerequisites
 
@@ -76,7 +76,7 @@ For more information, see:
 
 Use the following workflow to create and run Microsoft Sentinel playbooks:
 
-1. Define your automation scenario. We recommend that you review [recommended playbooks use cases](playbooks-recommendations.md#recommended-playbook-use-cases) and [playbook templates](playbooks-recommendations.md#recommended-playbook-templates) to start.
+1. Define your automation scenario. We recommend that you review [recommended playbooks use cases](playbook-recommendations.md#recommended-playbook-use-cases) and [playbook templates](playbook-recommendations.md#recommended-playbook-templates) to start.
 
 1. If you're not using a template, create your playbook and build your logic app. For more information, see [Create and manage Microsoft Sentinel playbooks](create-playbooks.md).
 

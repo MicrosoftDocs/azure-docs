@@ -41,7 +41,7 @@ Technically, a playbook template is an [Azure Resource Manager (ARM) template](.
 
 This article focuses on deploying a playbook template from the **Playbook templates** tab under **Automation**.
 
-For more information, see [Recommended playbook templates](playbooks-recommendations.md#recommended-playbook-templates).
+For more information, see [Recommended playbook templates](playbook-recommendations.md#recommended-playbook-templates).
 
 ## Explore playbook templates
 

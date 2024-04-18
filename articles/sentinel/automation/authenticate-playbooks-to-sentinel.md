@@ -14,7 +14,7 @@ ms.collection: usx-security
 
 # Authenticate playbooks to Microsoft Sentinel
 
-Microsoft Sentinel playbooks are based on workflows built in [Azure Logic Apps](../logic-apps/logic-apps-overview.md), a cloud service that helps you schedule, automate, and orchestrate tasks and workflows across systems throughout the enterprise.
+Microsoft Sentinel playbooks are based on workflows built in [Azure Logic Apps](/azure/logic-apps/logic-apps-overview), a cloud service that helps you schedule, automate, and orchestrate tasks and workflows across systems throughout the enterprise.
 
 Azure Logic Apps must connect separately and authenticate independently to each resource, of each type, that it interacts with, including to Microsoft Sentinel itself. Logic Apps uses [specialized connectors](/connectors/connector-reference/) for this purpose, with each resource type having its own connector.
 
@@ -43,10 +43,10 @@ The following table lists the permissions required by the authenticated identity
 
 | Roles | Triggers | "Read" actions | "Write" actions,<br>such as updating incidents or adding a comment |
 | ------------- | :-----------: | :------------: | :-----------: |
-| **[Microsoft Sentinel Reader](../role-based-access-control/built-in-roles.md#microsoft-sentinel-reader)** | &#10003; | &#10003; | **-** |
-| **Microsoft Sentinel [Responder](../role-based-access-control/built-in-roles.md#microsoft-sentinel-responder)/[Contributor](../role-based-access-control/built-in-roles.md#microsoft-sentinel-contributor)** | &#10003; | &#10003; | &#10003; |
+| **[Microsoft Sentinel Reader](/azure/role-based-access-control/built-in-roles#microsoft-sentinel-reader)** | &#10003; | &#10003; | **-** |
+| **Microsoft Sentinel [Responder](/azure/role-based-access-control/built-in-roles#microsoft-sentinel-responder)/[Contributor](/azure/role-based-access-control/built-in-roles#microsoft-sentinel-contributor)** | &#10003; | &#10003; | &#10003; |
 
-For more information, see [Roles and permissions in Microsoft Sentinel](roles.md) and [Microsoft Sentinel playbook prerequisites](automate-responses-with-playbooks.md#prerequisites).
+For more information, see [Roles and permissions in Microsoft Sentinel](../roles.md) and [Microsoft Sentinel playbook prerequisites](automate-responses-with-playbooks.md#prerequisites).
 
 <a name='authenticate-as-an-azure-ad-user'></a>
 
@@ -75,8 +75,8 @@ Use this method to lower the number of identities you need to manage.
 
         | Role | Situation |
         | --- | --- |
-        | [**Microsoft Sentinel Responder**](../role-based-access-control/built-in-roles.md#microsoft-sentinel-responder) | Playbook has steps that update incidents or watchlists |
-        | [**Microsoft Sentinel Reader**](../role-based-access-control/built-in-roles.md#microsoft-sentinel-reader) | Playbook only receives incidents |
+        | [**Microsoft Sentinel Responder**](/azure/role-based-access-control/built-in-roles#microsoft-sentinel-responder) | Playbook has steps that update incidents or watchlists |
+        | [**Microsoft Sentinel Reader**](/azure/role-based-access-control/built-in-roles#microsoft-sentinel-reader) | Playbook only receives incidents |
 
     1. Under **Assign access to**, select **Logic App**.
     1. Select the subscription the playbook belongs to, and then select the playbook name.
@@ -164,7 +164,7 @@ To make a connection as a Microsoft Entra user:
 
 1. In the resulting list of connections, select **Add new**, and then select **Sign in**.
 
-    :::image type="content" source="media/authenticate-playbooks-to-sentinel/auth-methods-sign-in.png" alt-text="Screenshot of the Sign in button selected.":::
+    :::image type="content" source="../media/authenticate-playbooks-to-sentinel/auth-methods-sign-in.png" alt-text="Screenshot of the Sign in button selected.":::
 
 1. Enter your credentials when prompted, and then follow the remaining instructions on the screen to create a connection.
 

@@ -54,7 +54,7 @@ In a multitenant deployment, if the playbook you want to run is in a different t
 1. Select the **Configure permissions** button to open the **Manage permissions** panel.
 1. Mark the check boxes of the resource groups containing the playbooks you want to run, and select **Apply**. For example:
 
-    :::image type="content" source="./media/tutorial-respond-threats-playbook/manage-permissions.png" alt-text="Screenshot that shows the actions section with run playbook selected.":::
+    :::image type="content" source="../media/tutorial-respond-threats-playbook/manage-permissions.png" alt-text="Screenshot that shows the actions section with run playbook selected.":::
 
 You yourself must have **owner** permissions on any resource group to which you want to grant Microsoft Sentinel permissions, and you must have the **Logic App Contributor** role on any resource group containing playbooks you want to run.
 
@@ -88,17 +88,17 @@ To respond automatically to entire incidents or individual alerts with a playboo
 
 1. From the **Automation** page in the Microsoft Sentinel navigation menu, select **Create** from the top menu and then **Automation rule**. For example:
 
-   :::image type="content" source="./media/tutorial-respond-threats-playbook/add-new-rule.png" alt-text="Screenshot showing how to add a new automation rule.":::
+   :::image type="content" source="../media/tutorial-respond-threats-playbook/add-new-rule.png" alt-text="Screenshot showing how to add a new automation rule.":::
 
 1. The **Create new automation rule** panel opens. Enter a name for your rule.     Your options differ depending on whether your workspace is onboarded to the unified security operations platform. For example:
 
     #### [Onboarded workspaces](#tab/after-onboarding)
 
-    :::image type="content" source="./media/tutorial-respond-threats-playbook/create-automation-rule-onboarded.png" alt-text="Screenshot showing the automation rule creation wizard.":::
+    :::image type="content" source="../media/tutorial-respond-threats-playbook/create-automation-rule-onboarded.png" alt-text="Screenshot showing the automation rule creation wizard.":::
 
     #### [Workspaces that aren't onboarded](#tab/before-onboarding)
 
-   :::image type="content" source="./media/tutorial-respond-threats-playbook/create-automation-rule.png" alt-text="Screenshot showing the automation rule creation wizard.":::
+   :::image type="content" source="../media/tutorial-respond-threats-playbook/create-automation-rule.png" alt-text="Screenshot showing the automation rule creation wizard.":::
 
     ---
 
@@ -117,7 +117,7 @@ To respond automatically to entire incidents or individual alerts with a playboo
 
     1. For all trigger types, if you want the automation rule to take effect only on certain analytics rules, specify which ones by modifying the **If Analytics rule name contains** condition.
 
-    1. Add any other conditions you want to determine whether this automation rule runs. Select **+ Add** and choose [conditions or condition groups](add-advanced-conditions-to-automation-rules.md) from the drop-down list. The list of conditions is populated by alert detail and entity identifier fields.
+    1. Add any other conditions you want to determine whether this automation rule runs. Select **+ Add** and choose [conditions or condition groups](../add-advanced-conditions-to-automation-rules.md) from the drop-down list. The list of conditions is populated by alert detail and entity identifier fields.
 
 1. **Actions:**
 
@@ -127,7 +127,7 @@ To respond automatically to entire incidents or individual alerts with a playboo
 
        In the **Manage permissions** panel that opens up, mark the check boxes of the resource groups containing the playbooks you want to run, and select **Apply**. For example:
 
-       :::image type="content" source="./media/tutorial-respond-threats-playbook/manage-permissions.png" alt-text="Screenshot that shows the actions section with run playbook selected.":::
+       :::image type="content" source="../media/tutorial-respond-threats-playbook/manage-permissions.png" alt-text="Screenshot that shows the actions section with run playbook selected.":::
 
         You yourself must have **owner** permissions on any resource group to which you want to grant Microsoft Sentinel permissions, and you must have the **Logic App Contributor** role on any resource group containing playbooks you want to run.
 
@@ -279,7 +279,7 @@ This procedure isn't supported in the unified security operations platform.
     **If you're proactively hunting for threats:**
 
     1. From the **Entity behavior** screen, select an entity from the lists on the page, or search for and select another entity.
-    1. In the [entity page](entity-pages.md), select the **Run playbook (Preview)** button in the left-hand panel.
+    1. In the [entity page](../entity-pages.md), select the **Run playbook (Preview)** button in the left-hand panel.
 
     ---
 

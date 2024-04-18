@@ -26,8 +26,8 @@ Before you start, make sure that you have the following Azure permissions requir
 
 | Role | Use triggers | Get available actions | Update incident,<br>add a comment |
 | ------------- | :-----------: | :------------: | :-----------: |
-| **[Microsoft Sentinel Reader](../role-based-access-control/built-in-roles.md#microsoft-sentinel-reader)** | &#10003; | &#10003; |**-**  |
-| **Microsoft Sentinel [Responder](../role-based-access-control/built-in-roles.md#microsoft-sentinel-responder)/[Contributor](../role-based-access-control/built-in-roles.md#microsoft-sentinel-contributor)** | &#10003; | &#10003; | &#10003; |
+| **[Microsoft Sentinel Reader](/azure/role-based-access-control/built-in-roles#microsoft-sentinel-reader)** | &#10003; | &#10003; |**-**  |
+| **Microsoft Sentinel [Responder](/azure/role-based-access-control/built-in-roles#microsoft-sentinel-responder)/[Contributor](/azure/role-based-access-control/built-in-roles#microsoft-sentinel-contributor)** | &#10003; | &#10003; | &#10003; |
 
 For more information, see [Roles and permissions in Microsoft Sentinel](../roles.md) and [prerequisites for working with Microsoft Sentinel playbooks](automate-responses-with-playbooks.md#prerequisites).
 
@@ -164,21 +164,21 @@ To use custom fields for incident triggers:
 
 1. Find and select **Alert Custom Details** in the **Dynamic content** list, under the incident trigger. For example:
 
-    :::image type="content" source="./media/playbook-triggers-actions/custom-details-dynamic-field.png" alt-text="Screenshot of selecting Alert custom details from Dynamic content.":::
+    :::image type="content" source="../media/playbook-triggers-actions/custom-details-dynamic-field.png" alt-text="Screenshot of selecting Alert custom details from Dynamic content.":::
 
     This creates a **For each** loop, since an incident contains an array of alerts.
 
 1. Select the **Use sample payload to generate schema** link. For example:
 
-    :::image type="content" source="./media/playbook-triggers-actions/generate-schema-link.png" alt-text="Screenshot of selecting the use sample payload to generate schema link from Dynamic content option.":::
+    :::image type="content" source="../media/playbook-triggers-actions/generate-schema-link.png" alt-text="Screenshot of selecting the use sample payload to generate schema link from Dynamic content option.":::
 
 1. Supply a sample payload. You can find a sample payload by looking in Log Analytics for another instance of this alert, and copying the custom details object (under **Extended Properties**). Access Log Analytics data either in the **Logs** page in the Azure portal or the **Advanced hunting** page in the Defender portal. In the screenshot below, we used the JSON code shown above.
 
-    :::image type="content" source="./media/playbook-triggers-actions/sample-payload.png" alt-text="Screenshot of entering a sample JSON payload.":::
+    :::image type="content" source="../media/playbook-triggers-actions/sample-payload.png" alt-text="Screenshot of entering a sample JSON payload.":::
 
 The custom fields are ready to be used as dynamic fields of type **Array**. For example, the following screenshot shows an array and its items, both in the schema and in the list that appears under **Dynamic content**, that we described in this section:
 
-:::image type="content" source="./media/playbook-triggers-actions/fields-ready-to-use.png" alt-text="Screenshot of fields from the schema ready to use.":::
+:::image type="content" source="../media/playbook-triggers-actions/fields-ready-to-use.png" alt-text="Screenshot of fields from the schema ready to use.":::
 
 ## Related content
 

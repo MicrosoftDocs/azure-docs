@@ -37,10 +37,10 @@ For more information, see [Microsoft Sentinel playbook prerequisites](automate-r
 Follow these steps to create a new playbook in Microsoft Sentinel:
 
 #### [Azure portal](#tab/azure-portal)
-:::image type="content" source="./media/tutorial-respond-threats-playbook/add-new-playbook.png" alt-text="Screenshot of the menu selection for adding a new playbook in the Automation screen." lightbox="media/tutorial-respond-threats-playbook/add-new-playbook.png":::
+:::image type="content" source="../media/tutorial-respond-threats-playbook/add-new-playbook.png" alt-text="Screenshot of the menu selection for adding a new playbook in the Automation screen." lightbox="media/tutorial-respond-threats-playbook/add-new-playbook.png":::
 
 #### [Defender portal](#tab/defender-portal)
-:::image type="content" source="./media/tutorial-respond-threats-playbook/add-new-playbook-defender.png" alt-text="Screenshot of the menu selection for adding a new playbook in the Automation screen." lightbox="media/tutorial-respond-threats-playbook/add-new-playbook-defender.png":::
+:::image type="content" source="../media/tutorial-respond-threats-playbook/add-new-playbook-defender.png" alt-text="Screenshot of the menu selection for adding a new playbook in the Automation screen." lightbox="media/tutorial-respond-threats-playbook/add-new-playbook-defender.png":::
 
 ---
 
@@ -66,7 +66,7 @@ For more information, see [Azure Logic Apps for Microsoft Sentinel playbooks](lo
 
 The **Create playbook** wizard appears after selecting any of the playbook options supported for Consumption workflows. For example:
 
-:::image type="content" source="./media/tutorial-respond-threats-playbook/create-playbook-basics.png" alt-text="Create a logic app":::
+:::image type="content" source="../media/tutorial-respond-threats-playbook/create-playbook-basics.png" alt-text="Create a logic app":::
 
 1. In the **Basics** tab:
 
@@ -90,7 +90,7 @@ The **Create playbook** wizard appears after selecting any of the playbook optio
 
     Review the configuration choices you have made, and select **Create and continue to designer**.
 
-1. Your playbook will take a few minutes to be created and deployed, after which you see the message "Your deployment is complete" and you're taken to your new playbook's [Logic App Designer](../logic-apps/logic-apps-overview.md). The trigger you chose at the beginning is automatically been added as the first step, and you can continue designing the workflow from there.
+1. Your playbook will take a few minutes to be created and deployed, after which you see the message "Your deployment is complete" and you're taken to your new playbook's [Logic App Designer](/azure/logic-apps/logic-apps-overview). The trigger you chose at the beginning is automatically been added as the first step, and you can continue designing the workflow from there.
 
     :::image type="content" source="media/tutorial-respond-threats-playbook/logic-app-blank.png" alt-text="Screenshot of logic app designer screen with opening trigger." lightbox="media/tutorial-respond-threats-playbook/logic-app-blank.png":::
 
@@ -106,7 +106,7 @@ Since playbooks based on the Standard workflow don't support playbook templates,
 
 After selecting the **Blank playbook** option, a new browser tab opens with the **Create Logic App** wizard. For example:
 
-:::image type="content" source="./media/tutorial-respond-threats-playbook/create-logic-app-basics.png" alt-text="Create a Standard logic app.":::
+:::image type="content" source="../media/tutorial-respond-threats-playbook/create-logic-app-basics.png" alt-text="Create a Standard logic app.":::
 
 1. In the **Basics** tab, enter the following details:
 
@@ -169,7 +169,7 @@ After selecting the **Blank playbook** option, a new browser tab opens with the 
 
     For example:
 
-    :::image type="content" source="./media/tutorial-respond-threats-playbook/sentinel-triggers.png" alt-text="Choose a trigger for your playbook":::
+    :::image type="content" source="../media/tutorial-respond-threats-playbook/sentinel-triggers.png" alt-text="Choose a trigger for your playbook":::
 
 1. If you choose the **Microsoft Sentinel entity (Preview)** trigger, select the type of entity you want this playbook to receive as an input. For example:
 
@@ -191,7 +191,7 @@ In every one of these steps, clicking on any field displays a panel with the fol
 - **Dynamic content**: Add references to the attributes of the alert or incident that was passed to the playbook, including the values and attributes of all the [mapped entities](map-data-fields-to-entities.md) and [custom details](../surface-custom-details-in-alerts.md) contained in the alert or incident.
 - **Expression**: Choose from a large library of functions to add more logic to your steps.
 
-For more information, see [Use triggers and actions in Microsoft Sentinel playbooks](playbook-triggers-actions.md), especially [Entity playbooks with no incident ID](playbook-triggers-actions.md#entity-playbooks-with-no-incident-id).
+For more information, see [Use triggers and actions in Microsoft Sentinel playbooks](playbook-triggers-actions.md), especially [Entity playbooks with no incident ID](playbook-triggers-actions.md#use-entity-playbooks-with-no-incident-id).
 
 ## Manage your playbooks
 
