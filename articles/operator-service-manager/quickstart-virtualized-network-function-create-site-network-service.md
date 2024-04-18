@@ -28,7 +28,7 @@ This quickstart assumes you followed the prerequisites in these quickstarts:
 1. In Azure portal, enter "Site Network Services" into the search and select **Site Network Service** from the results.
 1. Select **+ Create**.
 
-   :::image type="content" source="media/create-site-network-service-virtual-network-function.png" alt-text="Screenshot showing the Create a resource page search for and select Site Network Service.":::
+   :::image type="content" source="media/create-site-network-service-virtual-network-function.png" alt-text="Screenshot showing the Create a resource page search for and select Site Network Service." lightbox="media/create-site-network-service-virtual-network-function.png":::
 
 1. In the **Basics** tab, enter or select the following information. Accept the defaults for the remaining settings.
 
@@ -42,7 +42,7 @@ This quickstart assumes you followed the prerequisites in these quickstarts:
    | **Managed Identity Type**  | User Assigned.                                                |
    | **User Assigned Identity** | Select **identity-for-ubuntu-vm-sns**.                        |
 
-   :::image type="content" source="media/basics-tab-virtual-network-function.png" alt-text="Screenshot showing the Basics page where the details for the Site Network Service are input.":::
+   :::image type="content" source="media/basics-tab-virtual-network-function.png" alt-text="Screenshot showing the Basics page where the details for the Site Network Service are input." lightbox="media/basics-tab-virtual-network-function.png":::
 
 ### Choose Network Service Design
 
@@ -55,7 +55,7 @@ This quickstart assumes you followed the prerequisites in these quickstarts:
    | **Network Service Design resource** | Select **ubuntu-nsdg**      |
    | **Network Service Design version**  | Select **1.0.0**            |
 
-   :::image type="content" source="media/choose-network-service-design-virtual-network-function.png" alt-text="Screenshot showing the Choose a Network Service Design tab and Network Service Design resource.":::
+   :::image type="content" source="media/choose-network-service-design-virtual-network-function.png" alt-text="Screenshot showing the Choose a Network Service Design tab and Network Service Design resource." lightbox="media/choose-network-service-design-virtual-network-function.png":::
 
 1. Select **Next**.
 
@@ -64,7 +64,7 @@ This quickstart assumes you followed the prerequisites in these quickstarts:
 1. From the **Set initial configuration** tab, choose **Create New**.
 1. Enter ubuntu-sns-cgvs into the name field.
 
-   :::image type="content" source="media/review-create-virtual-network-function.png" alt-text="Screenshot showing the Set initial configuration tab, then Review and Create.":::
+   :::image type="content" source="media/review-create-virtual-network-function.png" alt-text="Screenshot showing the Set initial configuration tab, then Review and Create." lightbox="media/review-create-virtual-network-function.png":::
 
 1. Copy and paste the following JSON file into the ubuntu-sns-cgvs dialog that appears. Edit the place holders to contain your virtual network ID, your managed identity, and your SSH public key values.
 

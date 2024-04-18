@@ -33,7 +33,7 @@ Sites can be within a single Azure region or an on-premises location. If colloca
 1. Search for **Sites**, then select **Create**.
 1. On the **Basics tab**, enter or select your **Subscription**, **Resource group**, and the **Name** and **Region** of your instance.
 
-    :::image type="content" source="media/create-site-basics-tab.png" alt-text="Screenshot showing the Basic tab to enter Project details and Instance details for your site.":::
+    :::image type="content" source="media/create-site-basics-tab.png" alt-text="Screenshot showing the Basic tab to enter Project details and Instance details for your site." lightbox="media/create-site-basics-tab.png":::
     > [!NOTE]
     > The site must be located in the same region as the prerequisite resources.
 1. Add the Network Function Virtualization Infrastructure (NFVIs).
@@ -44,7 +44,7 @@ Sites can be within a single Azure region or an on-premises location. If colloca
     |NFVI Type     |   Select Azure Arc Kubernetes.      |
     |Custom Location ID    |    Select your custom location that you created in the previous guide.     |
 
-    :::image type="content" source="media/create-site-add-nfvis.png" alt-text="Screenshot showing the Add the NFVIs table to enter the name, type and custom location of the NFVIs.":::
+    :::image type="content" source="media/create-site-add-nfvis.png" alt-text="Screenshot showing the Add the NFVIs table to enter the name, type and custom location of the NFVIs." lightbox="media/create-site-add-nfvis.png":::
 
     > [!NOTE]
     > This example features a single Network Function Virtual Infrastructure (NFVI) named nginx_NFVI1. If you modified the nsd_name in the input.json file while publishing the NSD, the NFVI name should be <nsd_name>_NFVI1. Ensure that the NFVI type is set to Azure Core and that the NFVI location matches the location of the prerequisite resources.

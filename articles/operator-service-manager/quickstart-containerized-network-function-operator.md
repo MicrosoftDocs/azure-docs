@@ -125,7 +125,7 @@ Retrieve the Custom location value. You need this information to fill in the Con
 
 Search for the name of the Custom location (customLocationId) in the Azure portal, then select Properties. Locate the full Resource ID under the Essentials information area and look for field name ID. The following image provides an example of where the Resource ID information is located.
 
-:::image type="content" source="media/retrieve-azure-arc-custom-location-value.png" alt-text="Screenshot showing the search field and Properties information.":::
+:::image type="content" source="media/retrieve-azure-arc-custom-location-value.png" alt-text="Screenshot showing the search field and Properties information." lightbox="media/retrieve-azure-arc-custom-location-value.png":::
 
 > [!TIP]
 > The full Resource ID has a format of: /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/microsoft.extendedlocation/customlocations/{customLocationName}
@@ -178,17 +178,17 @@ In prior steps, you created a Managed Identity labeled identity-for-nginx-sns in
 
 1. Choose Add **Role Assignment**.
 
-   :::image type="content" source="media/add-role-assignment-publisher-resource-group-containerized.png" alt-text="Screenshot showing the publisher resource group add role assignment.":::
+   :::image type="content" source="media/add-role-assignment-publisher-resource-group-containerized.png" alt-text="Screenshot showing the publisher resource group add role assignment." lightbox="media/add-role-assignment-publisher-resource-group-containerized.png":::
 
 1. Under the **Privileged administrator roles**, category pick _Contributor_ then proceed with **Next**.
 
-   :::image type="content" source="media/privileged-admin-roles-contributor-resource-group.png" alt-text="Screenshot showing the privileged administrator role with contributor selected.":::
+   :::image type="content" source="media/privileged-admin-roles-contributor-resource-group.png" alt-text="Screenshot showing the privileged administrator role with contributor selected." lightbox="media/privileged-admin-roles-contributor-resource-group.png":::
 
 1. Select **Managed identity**.
 
 1. Choose **+ Select members** then find and choose the user-assigned managed identity **identity-for-nginx-sns**.
 
-   :::image type="content" source="media/how-to-create-user-assigned-managed-identity-select-members.png" alt-text="Screenshot showing the select managed identities with user assigned managed identity.":::
+   :::image type="content" source="media/how-to-create-user-assigned-managed-identity-select-members.png" alt-text="Screenshot showing the select managed identities with user assigned managed identity." lightbox="media/how-to-create-user-assigned-managed-identity-select-members.png":::
 
 ### Grant Contributor role over Custom Location to Managed Identity
 
@@ -198,17 +198,17 @@ In prior steps, you created a Managed Identity labeled identity-for-nginx-sns in
 
 1. Choose Add **Role Assignment**.
 
-   :::image type="content" source="media/add-role-assignment-custom-location.png" alt-text="Screenshot showing the publisher resource group add role assignment.":::
+   :::image type="content" source="media/add-role-assignment-custom-location.png" alt-text="Screenshot showing the publisher resource group add role assignment." lightbox="media/add-role-assignment-custom-location.png":::
 
 1. Under the **Privileged administrator roles**, category pick _Contributor_ then proceed with **Next**.
 
-   :::image type="content" source="media/privileged-admin-roles-contributor-resource-group.png" alt-text="Screenshot showing the privileged administrator role with contributor selected.":::
+   :::image type="content" source="media/privileged-admin-roles-contributor-resource-group.png" alt-text="Screenshot showing the privileged administrator role with contributor selected."::: lightbox="media/privileged-admin-roles-contributor-resource-group.png"
 
 1. Select **Managed identity**.
 
 1. Choose **+ Select members** then find and choose the user-assigned managed identity **identity-for-nginx-sns**.
 
-   :::image type="content" source="media/how-to-create-user-assigned-managed-identity-select-members.png" alt-text="Screenshot showing the select managed identities with user assigned managed identity.":::
+   :::image type="content" source="media/how-to-create-user-assigned-managed-identity-select-members.png" alt-text="Screenshot showing the select managed identities with user assigned managed identity." lightbox="media/how-to-create-user-assigned-managed-identity-select-members.png":::
 
 ### Grant Managed Identity Operator role to itself
 
@@ -220,17 +220,17 @@ In prior steps, you created a Managed Identity labeled identity-for-nginx-sns in
 
 1. Choose **Add Role Assignment**.
 
-   :::image type="content" source="media/how-to-create-user-assigned-managed-identity-operator.png" alt-text="Screenshot showing identity for nginx sns add role assignment.":::
+   :::image type="content" source="media/how-to-create-user-assigned-managed-identity-operator.png" alt-text="Screenshot showing identity for nginx sns add role assignment." lightbox="media/how-to-create-user-assigned-managed-identity-operator.png":::
 
 1. Select the **Managed Identity Operator** role then proceed with **Next**.
 
-   :::image type="content" source="media/add-role-assignment-managed-identity-operator-containerized.png" alt-text="Screenshot showing add role assignment with managed identity operator selected.":::
+   :::image type="content" source="media/add-role-assignment-managed-identity-operator-containerized.png" alt-text="Screenshot showing add role assignment with managed identity operator selected." lightbox="media/add-role-assignment-managed-identity-operator-containerized.png":::
 
 1. Select **Managed identity**.
 
 1. Select **+ Select members** and navigate to the user-assigned managed identity called _identity-for-nginx-sns_ and proceed with the assignment.
 
-   :::image type="content" source="media/how-to-create-user-assigned-managed-identity-select-members.png" alt-text="Screenshot showing the select managed identities with user assigned managed identity.":::
+   :::image type="content" source="media/how-to-create-user-assigned-managed-identity-select-members.png" alt-text="Screenshot showing the select managed identities with user assigned managed identity." lightbox="media/how-to-create-user-assigned-managed-identity-select-members.png":::
 
 1. Select **Review and assign**.
 
