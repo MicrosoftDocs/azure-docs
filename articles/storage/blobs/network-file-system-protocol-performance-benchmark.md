@@ -17,15 +17,15 @@ This article provides benchmark testing recommendations and results for NFS 3.0 
 
 Storage performance testing is done to evaluate and compare different storage services. There are many ways to perform it, but three most common ones are:
 
-1. using standard Linux commands, typically cp or dd,
-1. using performance benchmark tools like fio, vdbench, ior, etc.,
-1. using real-world application that is used in production.
+- Using standard Linux commands, typically cp or dd,
+- Using performance benchmark tools like fio, vdbench, ior, etc.,
+- Using real-world application that is used in production.
 
 No matter which method is used, it's always important to understand other potential bottlenecks in the environment, and make sure they aren't affecting the results. As an example, when measuring write performance, we need to make sure that source disk can read data as fast as the expected write performance. Same principle applies for read performance. Ideally, in these tests we can use a RAM disk. We need to make similar considerations for network throughput, CPU utilization, etc.
 
 **Using standard Linux commands** is the simplest method for performance benchmark testing, but also least recommended. Method is simple as tools exist on every Linux environment and users are familiar with them. Results must be carefully analyzed since many aspects have impact on them, not only storage performance. Two commands that are typically used:
-- testing with `cp` command copies one or more files from source to the destination storage service and measuring the time it takes to fully finish the operation. This command performs buffered, not direct IO and depends on buffer sizes, operating system, threading model, etc. On the other hand, some real-world applications behave in similar way and sometimes represent a good use case.
-- second often used command is `dd`. Command is single threaded and in large scale bandwidth testing, results are limited by the speed of a single CPU core. It's possible to run multiple commands at the same time and assign them to different cores, but that complicates the testing and aggregating results. It's also much simpler to run than some of the performance benchmarking tools.
+- Testing with `cp` command copies one or more files from source to the destination storage service and measuring the time it takes to fully finish the operation. This command performs buffered, not direct IO and depends on buffer sizes, operating system, threading model, etc. On the other hand, some real-world applications behave in similar way and sometimes represent a good use case.
+- Second often used command is `dd`. Command is single threaded and in large scale bandwidth testing, results are limited by the speed of a single CPU core. It's possible to run multiple commands at the same time and assign them to different cores, but that complicates the testing and aggregating results. It's also much simpler to run than some of the performance benchmarking tools.
 
 **Using performance benchmark tools** represents synthetic performance testing that is common in comparing different storage services. Tools are properly designed to utilize available client resources to maximize the storage throughput. Most of the tools are configurable and allow mimicking real-world applications, at least the simpler ones. Mimicking real-world applications requires detail information on application behavior and understanding their storage patterns. 
 
@@ -79,7 +79,7 @@ Our testing setup was done in US East region with client virtual machine type [D
 #### Results
 
 > [!div class="mx-imgBorder"]
-> ![Results for sequential bandwidth tests](./media/network-file-system-protocol-performance-benchmark/seq_bw.png)
+> ![Screenshot of sequential bandwidth test results.](./media/network-file-system-protocol-performance-benchmark/sequential-bw.png)
 
 ### Measuring sequential IOPS
 
@@ -94,7 +94,7 @@ Our testing setup was done in US East region with client virtual machine type [D
 #### Results
 
 > [!div class="mx-imgBorder"]
-> ![Results for sequential IOPS tests](./media/network-file-system-protocol-performance-benchmark/seq_iops.png)
+> ![Screenshot of sequential iops test results.](./media/network-file-system-protocol-performance-benchmark/sequential-iops.png)
 
 > [!NOTE]
 > Results for sequential IOPS tests show values larger than [Storage Account limits](../common/scalability-targets-standard-account.md) for requests per second. IOPS are measured on the client side and larger values are due to service optimizations and sequential nature of the test.
@@ -112,7 +112,7 @@ Our testing setup was done in US East region with client virtual machine type [D
 #### Results
 
 > [!div class="mx-imgBorder"]
-> ![Results for random IOPS tests](./media/network-file-system-protocol-performance-benchmark/rnd_iops.png)
+> ![Screenshot of random iops test results.](./media/network-file-system-protocol-performance-benchmark/random-iops.png)
 
 > [!NOTE]
 > Results from random tests are added for completeness, NFS 3.0 endpoint on Azure Blob Storage is not a recommended storage service for random write workloads.
