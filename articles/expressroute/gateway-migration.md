@@ -28,16 +28,16 @@ The following SKUs are available for ExpressRoute virtual network gateways:
 ## Availability zone enabled SKUs
 The ErGw1Az, ErGw2Az, ErGw3Az and ErGwScale (Preview) SKUs, also known as Az-Enabled SKUs, support Availability zone deployments. This feature provides high availability and resiliency to the gateway by distributing the gateway across multiple availability zones.  
 
-The Standard, HighPerformance, and UltraPerformance SKUs, which are also known as non-availability zone enabled SKUs are historically associated with Basic IPs, do not support the distribution of the gateway across multiple availability zones.  
+The Standard, HighPerformance, and UltraPerformance SKUs, which are also known as non-availability zone enabled SKUs are historically associated with Basic IPs, don't support the distribution of the gateway across multiple availability zones.  
 
-For enhanced reliability, it is recommended to use an Availability-Zone Enabled virtual network gateway SKU. These SKUs support a zone-redundant setup and are, by default, associated with Standard IPs. This setup ensures that even if one zone experiences issues, the virtual network gateway infrastructure remains operational due to the distribution across multiple zones. For a deeper understanding of zone redundant gateways, please refer to [Availability Zone deployments.](../reliability/availability-zones-overview.md)
+For enhanced reliability, it's recommended to use an Availability-Zone Enabled virtual network gateway SKU. These SKUs support a zone-redundant setup and are, by default, associated with Standard IPs. This setup ensures that even if one zone experiences issues, the virtual network gateway infrastructure remains operational due to the distribution across multiple zones. For a deeper understanding of zone redundant gateways, please refer to [Availability Zone deployments.](../reliability/availability-zones-overview.md)
 
 ## Gateway migration experience
 Historically, users had to use the Resize-AzVirtualNetworkGateway PowerShell command or delete and recreate the virtual network gateway to migrate between SKUs.
 
 With the guided gateway migration experience you can deploy a second virtual network gateway in the same GatewaySubnet and Azure automatically transfers the control plane and data path configuration from the old gateway to the new one. During the migration process, there will be two virtual network gateways in operation within the same GatewaySubnet. This feature is designed to support migrations without downtime. However, users may experience brief connectivity issues or interruptions during the migration process.
 ## Supported migration scenarios
-The guided gateway migration experience supports any-to-any SKU migration. However, it is recommended to migrate to an Az-enabled SKU. 
+The guided gateway migration experience supports any-to-any SKU migration. However, it's recommended to migrate to an Az-enabled SKU. 
 
 ### Limitations
 
@@ -47,20 +47,20 @@ The guided gateway migration experience doesn't support these scenarios:
 Private endpoints (PEs) in the virtual network, connected over ExpressRoute private peering, might have connectivity problems during the migration. To understand and reduce this issue, see [Private endpoint connectivity](expressroute-about-virtual-network-gateways.md#private-endpoint-connectivity-and-planned-maintenance-events).
 
 ## Common Validation Errors
-In the gateway migration experience, you will need to validate if your resource is capable of migration. Here are some Common migration errors: 
+In the gateway migration experience, you'll need to validate if your resource is capable of migration. Here are some Common migration errors: 
 
 ### Virtual Network 
 * Gateway Subnet needs two or more prefixes for migration.
 * MaxGatewayCountInVnetReached – Reached maximum number of gateways that can be created in a Virtual Network. 
 
 ### Connection 
-The virtual network gateway connection resource is not in a succeed state. 
+The virtual network gateway connection resource isn't in a succeed state. 
 
 ## Enroll subscription to access the feature
 
 1. To access this feature, you need to enroll your subscription by filling out the [ExpressRoute gateway migration form](https://aka.ms/ergwmigrationform).
 
-1. After your subscription is enrolled, you'll get a confirmation e-mail with a PowerShell script or a link to the Azure Portal for the gateway migration.
+1. After your subscription is enrolled, you'll get a confirmation e-mail with a PowerShell script or a link to the Azure portal for the gateway migration.
 
 ## Migrate to a new gateway
 
