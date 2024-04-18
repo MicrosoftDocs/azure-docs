@@ -51,7 +51,7 @@ On the **Content hub** page, select **Content type** to filter for **Playbook**.
 
 Then, select **Configuration** > **Automation** > **Playbook templates** tab to view the installed templates. For example:
 
-:::image type="content" source="media/use-playbook-templates/gallery.png" alt-text="Screenshot of the playbook templates gallery." lightbox="media/use-playbook-templates/gallery.png":::
+:::image type="content" source="../media/use-playbook-templates/gallery.png" alt-text="Screenshot of the playbook templates gallery." lightbox="../media/use-playbook-templates/gallery.png":::
 
 To find a playbook template that fits your requirements, filter the list by the following criteria:
 
@@ -64,7 +64,7 @@ To find a playbook template that fits your requirements, filter the list by the 
 
 For example:
 
-:::image type="content" source="media/use-playbook-templates/filters.png" alt-text="Filter the list of playbook templates":::
+:::image type="content" source="../media/use-playbook-templates/filters.png" alt-text="Filter the list of playbook templates":::
 
 ## Customize a playbook from a template
 
@@ -82,18 +82,18 @@ This procedure describes how to deploy playbook templates. Repeat this process t
 
     - **Basics:** Locate your new playbook, which is a Logic Apps resource, and give it a name. You can use the default. For example:
 
-        :::image type="content" source="media/use-playbook-templates/basics.png" alt-text="Playbook creation wizard, basics tab":::
+        :::image type="content" source="../media/use-playbook-templates/basics.png" alt-text="Playbook creation wizard, basics tab":::
 
     - **Parameters:** Enter customer-specific values that the playbook uses. For example, if this playbook sends an email to the SOC, you can define the recipient address here. This tab is shown only if the playbook has parameters. For example:
 
-        :::image type="content" source="media/use-playbook-templates/parameters.png" alt-text="Playbook creation wizard, parameters tab":::
+        :::image type="content" source="../media/use-playbook-templates/parameters.png" alt-text="Playbook creation wizard, parameters tab":::
 
         > [!NOTE]
         > If this playbook has a custom connector in use, it should be deployed in the same resource group, and you will be able to insert its name in this tab.
 
     - **Connections:** Expand each action to see the existing connections you created for previous playbooks. For example:
 
-        :::image type="content" source="media/use-playbook-templates/connections.png" alt-text="Playbook creation wizard. connections tab":::
+        :::image type="content" source="../media/use-playbook-templates/connections.png" alt-text="Playbook creation wizard. connections tab":::
 
         If there aren't any connections, or if you want to create new ones, choose **Create new connection after deployment**. This option takes you to the Logic Apps designer after the deployment process is completed.
 
@@ -108,7 +108,7 @@ This procedure describes how to deploy playbook templates. Repeat this process t
 
 1. After following the steps in the playbook creation wizard to the end, you're taken to the new playbook's workflow design in the Logic Apps designer. For example:
 
-    :::image type="content" source="media/use-playbook-templates/designer.png" alt-text="See playbook in Logic Apps designer":::
+    :::image type="content" source="../media/use-playbook-templates/designer.png" alt-text="See playbook in Logic Apps designer":::
 
 1. For each connector you chose, create a new connection for after deployment:
 
@@ -116,13 +116,13 @@ This procedure describes how to deploy playbook templates. Repeat this process t
 
     1. Select the connection name. For example:
 
-        :::image type="content" source="media/use-playbook-templates/view-api-connections.png" alt-text="Screenshot showing how to view A P I connections.":::
+        :::image type="content" source="../media/use-playbook-templates/view-api-connections.png" alt-text="Screenshot showing how to view A P I connections.":::
 
     1. Select **Edit API connection** from the navigation menu.
 
     1. Fill in the required parameters and select **Save**. For example:
 
-        :::image type="content" source="media/use-playbook-templates/edit-api-connection.png" alt-text="Screenshot showing how to edit A P I connections.":::
+        :::image type="content" source="../media/use-playbook-templates/edit-api-connection.png" alt-text="Screenshot showing how to edit A P I connections.":::
 
     Alternatively, create a new connection from within the relevant steps in the Logic Apps designer:
 

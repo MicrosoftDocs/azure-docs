@@ -75,7 +75,7 @@ The incident triggers an automation rule, which runs a playbook with the followi
 
 Two examples:
 
-**Example 1:** Respond to an analytics rule that indicates a compromised user, as discovered by [Microsoft Entra ID Protection](/azure/active-directory/identity-protection/overview-identity-protection.md):
+**Example 1:** Respond to an analytics rule that indicates a compromised user, as discovered by [Microsoft Entra ID Protection](/azure/active-directory/identity-protection/overview-identity-protection):
 
 1. Start when a [new Microsoft Sentinel incident is created](/connectors/azuresentinel/#triggers).
 

@@ -72,7 +72,7 @@ Without an access restriction policy, workflows with private endpoints might sti
 
 An indicator identifies Standard workflows as either *stateful* or *stateless*. Microsoft Sentinel doesn't currently support stateless workflows.
 
-For more information, see [Stateful and stateless workflows](../../logic-apps/single-tenant-overview-compare.md#stateful-and-stateless-workflows).
+For more information, see [Stateful and stateless workflows](..//azure/logic-apps/single-tenant-overview-compare.md#stateful-and-stateless-workflows).
 
 ## Playbook authentications to Microsoft Sentinel
 

@@ -169,7 +169,7 @@ In the Azure portal, select one of the following tabs as needed for your environ
 
 1. In the incident details page, in the **Incident timeline** widget, choose the alert you want to run the playbook on. Select the three dots at the end of the alert's line and choose **Run playbook** from the pop-up menu.
 
-    :::image type="content" source="media/investigate-incidents/remove-alert.png" alt-text="Screenshot of running a playbook on an alert on-demand.":::
+    :::image type="content" source="../media/investigate-incidents/remove-alert.png" alt-text="Screenshot of running a playbook on an alert on-demand.":::
 
 1. The **Alert playbooks** pane opens. You see a list of all playbooks configured with the **Microsoft Sentinel Alert** Logic Apps trigger that you have access to.
 

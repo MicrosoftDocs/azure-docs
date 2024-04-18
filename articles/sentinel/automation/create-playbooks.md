@@ -37,10 +37,10 @@ For more information, see [Microsoft Sentinel playbook prerequisites](automate-r
 Follow these steps to create a new playbook in Microsoft Sentinel:
 
 #### [Azure portal](#tab/azure-portal)
-:::image type="content" source="../media/tutorial-respond-threats-playbook/add-new-playbook.png" alt-text="Screenshot of the menu selection for adding a new playbook in the Automation screen." lightbox="media/tutorial-respond-threats-playbook/add-new-playbook.png":::
+:::image type="content" source="../media/tutorial-respond-threats-playbook/add-new-playbook.png" alt-text="Screenshot of the menu selection for adding a new playbook in the Automation screen." lightbox="../media/tutorial-respond-threats-playbook/add-new-playbook.png":::
 
 #### [Defender portal](#tab/defender-portal)
-:::image type="content" source="../media/tutorial-respond-threats-playbook/add-new-playbook-defender.png" alt-text="Screenshot of the menu selection for adding a new playbook in the Automation screen." lightbox="media/tutorial-respond-threats-playbook/add-new-playbook-defender.png":::
+:::image type="content" source="../media/tutorial-respond-threats-playbook/add-new-playbook-defender.png" alt-text="Screenshot of the menu selection for adding a new playbook in the Automation screen." lightbox="../media/tutorial-respond-threats-playbook/add-new-playbook-defender.png":::
 
 ---
 
@@ -76,7 +76,7 @@ The **Create playbook** wizard appears after selecting any of the playbook optio
 
     1. If you want to monitor this playbook's activity for diagnostic purposes, mark the **Enable diagnostics logs in Log Analytics** check box, and choose your **Log Analytics workspace** from the drop-down list.
 
-    1. If your playbooks need access to protected resources that are inside or connected to an Azure virtual network, [you might need to use an integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md). If so, mark the **Associate with integration service environment** check box, and select the desired ISE from the drop-down list.
+    1. If your playbooks need access to protected resources that are inside or connected to an Azure virtual network, [you might need to use an integration service environment (ISE)](/azure/logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md). If so, mark the **Associate with integration service environment** check box, and select the desired ISE from the drop-down list.
 
     1. Select **Next : Connections >**.
 
@@ -92,11 +92,11 @@ The **Create playbook** wizard appears after selecting any of the playbook optio
 
 1. Your playbook will take a few minutes to be created and deployed, after which you see the message "Your deployment is complete" and you're taken to your new playbook's [Logic App Designer](/azure/logic-apps/logic-apps-overview). The trigger you chose at the beginning is automatically been added as the first step, and you can continue designing the workflow from there.
 
-    :::image type="content" source="media/tutorial-respond-threats-playbook/logic-app-blank.png" alt-text="Screenshot of logic app designer screen with opening trigger." lightbox="media/tutorial-respond-threats-playbook/logic-app-blank.png":::
+    :::image type="content" source="../media/tutorial-respond-threats-playbook/logic-app-blank.png" alt-text="Screenshot of logic app designer screen with opening trigger." lightbox="../media/tutorial-respond-threats-playbook/logic-app-blank.png":::
 
     If you chose the **Microsoft Sentinel entity (Preview)** trigger, select the type of entity you want this playbook to receive as an input.
 
-    :::image type="content" source="media/tutorial-respond-threats-playbook/entity-trigger-types.png" alt-text="Screenshot of drop-down list of entity types to choose from to set playbook schema.":::
+    :::image type="content" source="../media/tutorial-respond-threats-playbook/entity-trigger-types.png" alt-text="Screenshot of drop-down list of entity types to choose from to set playbook schema.":::
 
 ### [Standard](#tab/standard)
 
@@ -157,7 +157,7 @@ After selecting the **Blank playbook** option, a new browser tab opens with the 
 
 1. The **Designer** page opens and you're prompted to add a trigger and continue designing the workflow.  For example:
 
-    :::image type="content" source="media/tutorial-respond-threats-playbook/logic-app-standard-designer.png" alt-text="Screenshot of Logic App Standard designer." lightbox="media/tutorial-respond-threats-playbook/logic-app-standard-designer.png":::
+    :::image type="content" source="../media/tutorial-respond-threats-playbook/logic-app-standard-designer.png" alt-text="Screenshot of Logic App Standard designer." lightbox="../media/tutorial-respond-threats-playbook/logic-app-standard-designer.png":::
 
 #### Add your trigger
 
@@ -173,7 +173,7 @@ After selecting the **Blank playbook** option, a new browser tab opens with the 
 
 1. If you choose the **Microsoft Sentinel entity (Preview)** trigger, select the type of entity you want this playbook to receive as an input. For example:
 
-    :::image type="content" source="media/tutorial-respond-threats-playbook/entity-trigger-types-standard.png" alt-text="Screenshot of drop-down list of entity types to choose from to set playbook schema.":::
+    :::image type="content" source="../media/tutorial-respond-threats-playbook/entity-trigger-types-standard.png" alt-text="Screenshot of drop-down list of entity types to choose from to set playbook schema.":::
 
 > [!NOTE]
 > When you choose a trigger, or any subsequent action, you will be asked to authenticate to whichever resource provider you are interacting with. In this case, the provider is Microsoft Sentinel. There are a few different approaches you can take to authentication. For details and instructions, see [**Authenticate playbooks to Microsoft Sentinel**](authenticate-playbooks-to-sentinel.md).

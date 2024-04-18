@@ -48,23 +48,23 @@ Finally, the ability to invoke playbooks from analytics rules will be **deprecat
 
 1. Select **Edit**.
 
-    :::image type="content" source="media/migrate-playbooks-to-automation-rules/find-analytics-rule.png" alt-text="Screenshot of finding and selecting an analytics rule.":::
+    :::image type="content" source="../media/migrate-playbooks-to-automation-rules/find-analytics-rule.png" alt-text="Screenshot of finding and selecting an analytics rule.":::
 
 1. Select the **Automated response** tab.
 
 1. Playbooks directly configured to run from this analytics rule can be found under **Alert automation (classic)**. Notice the warning about deprecation.
 
-    :::image type="content" source="media/migrate-playbooks-to-automation-rules/see-playbooks.png" alt-text="Screenshot of automation rules and playbooks screen.":::
+    :::image type="content" source="../media/migrate-playbooks-to-automation-rules/see-playbooks.png" alt-text="Screenshot of automation rules and playbooks screen.":::
 
 1. Select **+ Add new** under **Automation rules** (in the upper half of the screen) to create a new automation rule.
 
 1. In the **Create new automation rule** panel, under **Trigger**, select **When alert is created**.
 
-    :::image type="content" source="media/migrate-playbooks-to-automation-rules/select-trigger.png" alt-text="Screenshot of creating automation rule in analytics rule screen.":::
+    :::image type="content" source="../media/migrate-playbooks-to-automation-rules/select-trigger.png" alt-text="Screenshot of creating automation rule in analytics rule screen.":::
 
 1. Under **Actions**, see that the **Run playbook** action, being the only type of action available, is automatically selected and grayed out. Select your playbook from those available in the drop-down list in the line below.
 
-    :::image type="content" source="media/migrate-playbooks-to-automation-rules/select-playbook.png" alt-text="Screenshot of selecting playbook as action in automation rule wizard.":::
+    :::image type="content" source="../media/migrate-playbooks-to-automation-rules/select-playbook.png" alt-text="Screenshot of selecting playbook as action in automation rule wizard.":::
 
 1. Select **Apply**. The new rule shows in the automation rules grid.
 

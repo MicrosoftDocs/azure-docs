@@ -99,13 +99,13 @@ Currently supported entity types include:
 
 The following image shows an example of available actions for entities:
 
-:::image type="content" source="media/playbook-triggers-actions/entities-actions.png" alt-text="Screenshot of an entities actions list":::
+:::image type="content" source="../media/playbook-triggers-actions/entities-actions.png" alt-text="Screenshot of an entities actions list":::
 
 For other entity types, similar functionality can be achieved using Logic Apps' built-in actions:
 
-- Filter the array of entities by the requested type using [**Filter Array**](../logic-apps/logic-apps-perform-data-operations.md#filter-array-action).
+- Filter the array of entities by the requested type using [**Filter Array**](/azure/logic-apps/logic-apps-perform-data-operations.md#filter-array-action).
 
-- Parse the specific fields of this type, so they can be used as dynamic fields in further actions using [**Parse JSON**](../logic-apps/logic-apps-perform-data-operations.md#parse-json-action).
+- Parse the specific fields of this type, so they can be used as dynamic fields in further actions using [**Parse JSON**](/azure/logic-apps/logic-apps-perform-data-operations.md#parse-json-action).
 
 ### Use entity playbooks with no incident ID
 
@@ -127,11 +127,11 @@ Do the following steps:
 
 1. Verify the resulting expression is `length(triggerBody()?['IncidentArmID'])` and select **OK**. For example:
 
-    :::image type="content" source="media/playbook-triggers-actions/condition-incident-id.png" alt-text="Screenshot of dynamic content dialog to select fields for a playbook condition.":::
+    :::image type="content" source="../media/playbook-triggers-actions/condition-incident-id.png" alt-text="Screenshot of dynamic content dialog to select fields for a playbook condition.":::
 
 1. Set the **operator** and **value** in the condition to **is greater than** and **0**. For example:
 
-    :::image type="content" source="media/playbook-triggers-actions/condition-length.png" alt-text="Screenshot of final definition of condition described in the previous screenshot.":::
+    :::image type="content" source="../media/playbook-triggers-actions/condition-length.png" alt-text="Screenshot of final definition of condition described in the previous screenshot.":::
 
 1. In the **True** frame, add the actions to be taken if the playbook is run from an incident context.
 
@@ -145,7 +145,7 @@ Since this field in the alert is customizable, its schema depends on the type of
 
 For example:
 
-:::image type="content" source="media/playbook-triggers-actions/custom-details-values.png" alt-text="Screenshot of custom details defined in an analytics rule.":::
+:::image type="content" source="../media/playbook-triggers-actions/custom-details-values.png" alt-text="Screenshot of custom details defined in an analytics rule.":::
 
 In these key-value pairs:
 

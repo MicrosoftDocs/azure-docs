@@ -13,11 +13,11 @@ ms.collection: usx-security
 
 # Define an access restriction policy for Standard-plan playbooks
 
-This article describes how to define an [access restriction policy](../app-service/overview-access-restrictions.md) for Microsoft Sentinel Standard-plan playbooks, so that they can support private endpoints. 
+This article describes how to define an [access restriction policy](/azure/app-service/overview-access-restrictions.md) for Microsoft Sentinel Standard-plan playbooks, so that they can support private endpoints. 
 
 Define an access restriction policy to ensure that only Microsoft Sentinel has access to the Standard logic app containing your playbook workflows.
 
-For more information, see [Secure traffic between Standard logic apps and Azure virtual networks using private endpoints](../logic-apps/secure-single-tenant-workflow-virtual-network-private-endpoint.md) and [Supported logic app types](playbooks/logic-apps-playbooks.md#supported-logic-app-types).
+For more information, see [Secure traffic between Standard logic apps and Azure virtual networks using private endpoints](/azure/logic-apps/secure-single-tenant-workflow-virtual-network-private-endpoint.md) and [Supported logic app types](playbooks/logic-apps-playbooks.md#supported-logic-app-types).
 
 > [!IMPORTANT]
 >
@@ -33,29 +33,29 @@ For more information, see [Secure traffic between Standard logic apps and Azure 
 
 1. Filter the list for Standard-plan apps. Select the **Plan** filter and clear the **Consumption** checkbox, and then select **OK**. For example:
     
-    :::image type="content" source="media/define-playbook-access-restrictions/filter-list-for-standard.png" alt-text="Screenshot showing how to filter the list of apps for the standard plan type.":::
+    :::image type="content" source="../media/define-playbook-access-restrictions/filter-list-for-standard.png" alt-text="Screenshot showing how to filter the list of apps for the standard plan type.":::
 
 1. Select a playbook to which you want to restrict access. For example:
 
-    :::image type="content" source="media/define-playbook-access-restrictions/select-playbook.png" alt-text="Screenshot showing how to select playbook from the list of playbooks.":::
+    :::image type="content" source="../media/define-playbook-access-restrictions/select-playbook.png" alt-text="Screenshot showing how to select playbook from the list of playbooks.":::
 
 1. Select the logic app link on the playbook screen. For example:
 
-    :::image type="content" source="media/define-playbook-access-restrictions/select-logic-app.png" alt-text="Screenshot showing how to select logic app from the playbook screen.":::
+    :::image type="content" source="../media/define-playbook-access-restrictions/select-logic-app.png" alt-text="Screenshot showing how to select logic app from the playbook screen.":::
 
 1. From the navigation menu of your logic app, under **Settings**, select **Networking**. For example:
 
-    :::image type="content" source="media/define-playbook-access-restrictions/select-networking.png" alt-text="Screenshot showing how to select networking settings from the logic app menu.":::
+    :::image type="content" source="../media/define-playbook-access-restrictions/select-networking.png" alt-text="Screenshot showing how to select networking settings from the logic app menu.":::
 
 1. In the **Inbound traffic** area, select **Access restriction**. For example:
 
-    :::image type="content" source="media/define-playbook-access-restrictions/select-access-restriction.png" alt-text="Screenshot showing how to select access restriction policy for configuration.":::
+    :::image type="content" source="../media/define-playbook-access-restrictions/select-access-restriction.png" alt-text="Screenshot showing how to select access restriction policy for configuration.":::
 
 1. In the **Access Restrictions** page, leave the **Allow public access** checkbox marked.
 
 1. Under **Site access and rules**, select **+ Add**. The **Add rule** panel opens to the right. For example:
 
-    :::image type="content" source="media/define-playbook-access-restrictions/add-filter-rule.png" alt-text="Screenshot showing how to add a filter rule to your access restriction policy.":::
+    :::image type="content" source="../media/define-playbook-access-restrictions/add-filter-rule.png" alt-text="Screenshot showing how to add a filter rule to your access restriction policy.":::
 
 1. Enter the following information in the **Add rule** panel. The name and optional description should reflect that this rule allows only Microsoft Sentinel to access the logic app. Leave the fields not mentioned below as they are.
 
@@ -74,7 +74,7 @@ For more information, see [Secure traffic between Standard logic apps and Azure 
 
 After following the procedure in this article,  your policy should look as follows:
 
-:::image type="content" source="media/define-playbook-access-restrictions/resulting-rule.png" alt-text="Screenshot showing rules as they should appear in your access restriction policy.":::
+:::image type="content" source="../media/define-playbook-access-restrictions/resulting-rule.png" alt-text="Screenshot showing rules as they should appear in your access restriction policy.":::
 
 ## Related content
 
@@ -82,4 +82,4 @@ For more information, see:
 
 - [Automate threat response with Microsoft Sentinel playbooks](automate-responses-with-playbooks.md)
 - [Use playbooks with automation rules in Microsoft Sentinel](tutorial-respond-threats-playbook.md)
-- [Set up Azure App Service access restrictions](../app-service/app-service-ip-restrictions.md)
+- [Set up Azure App Service access restrictions](/azure/app-service/app-service-ip-restrictions.md)
