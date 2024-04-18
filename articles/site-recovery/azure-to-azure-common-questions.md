@@ -4,7 +4,7 @@ description: This article answers common questions about Azure VM disaster recov
 ms.author: ankitadutta
 author: ankitaduttaMSFT
 manager: rochakm
-ms.date: 02/27/2024
+ms.date: 04/18/2024
 ms.topic: conceptual
 ms.service: site-recovery
 
@@ -348,6 +348,48 @@ Site Recovery is ISO 27001:2013, 27018, HIPAA, and DPA certified. The service is
 ### Does Site Recovery encrypt replication?
 
 Yes, both encryption in transit and [encryption at rest in Azure](../storage/common/storage-service-encryption.md) are supported.
+
+
+## Disk network access
+
+### What network access do the disks created by Azure Site Recovery have?
+
+Azure Site Recovery creates [replica disks](./azure-to-azure-architecture.md#target-resources) where data is replicated and the target disks are attached to failover (or test failover) virtual machines. It also enables public access for these disks. However, you can manually disable the public access for these disks by following these steps:
+
+1. Go to the **Replicated items** section of your recovery services vault. 
+1. Select the virtual machine for which you want to change the disk network access policy.
+1. Find the target subscription name and target resource group name in the **Compute** tab.
+    The replica disks are in the target subscription and target resource group along with the failover and test failover virtual machines created in target resource group within target subscription.
+
+    :::image type="content" source="media/azure-to-azure-common-questions/replicated-items.png" alt-text="Screenshot of replicated items.":::
+ 
+1. Go to the **Disks** tab of the replicated items to identify the replica disk names and target disk names corresponding to each source disk. 
+    You can find the replica disks in the target resource group obtained from the previous step. Similarly, when you complete the failover, you get target disks attached to recovery VM in the target resource group.
+
+    :::image type="content" source="media/azure-to-azure-common-questions/disks-tab.png" alt-text="Screenshot of disks tab.":::
+ 
+1. For each replica disk, do the following:
+    1. Go to the **Disk Export** tab under the **Settings** of the disk. The disk should have SAS Access taken by Azure Site Recovery by default.
+    1. Cancel the export using the **Cancel export** option before making any network access changes. 
+    
+        :::image type="content" source="media/azure-to-azure-common-questions/disk-export.png" alt-text="Screenshot of disk export tab.":::
+
+    > [!NOTE]
+    > Canceling the SAS may briefly impact Azure Site Recovery replication, but it automatically get the SAS back in a few minutes.
+ 
+    1. Go to the **Networking** tab under the **Settings** options of the disk. By default, the disk is created with *Enable public access from all networks* setting. 
+    1. Change the network access to either **Disable public access and enable private access** or **Disable public and private access** per your requirement.
+        
+        :::image type="content" source="media/azure-to-azure-common-questions/disk-networking.png" alt-text="Screenshot of Disk networking.":::
+
+        > [!NOTE]
+        > You can change the network access of the disk only if you have cancelled the export. If you do not cancel the export, network access change for the disk is disabled.
+        > If you want to change disk network access to **Disable public access and enable private access**, the disk access resource to be used should already be present in the target region within the target subscription. Find the steps to [create a disk access resource here](../virtual-machines/disks-enable-private-links-for-import-export-portal.mdl#create-a-disk-access-resource).
+
+After completing the failover or test failover, the recovery virtual machine created in the target location also have the disks with public access allowed. These disks won't have SAS taken by Azure Site Recovery. To change the network access for these disks, go to the **Networking** tab of the disk and adjust as needed according to steps provided 4b and 4c. 
+
+During reprotection and failback, Azure Site Recovery creates disks with public access allowed. You can change the network access of those disks as well as discussed in the steps above based on your requirements.
+
 
 ## Next steps
 
