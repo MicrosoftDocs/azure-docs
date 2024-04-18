@@ -30,6 +30,8 @@ The chart pane has two options for charting a metric:
 
 Adding a chart with the editor allows you to enter a PromQL query to retrieve metrics data. The editor provides syntax highlighting and intellisense for PromQL queries. Currently, queries are limited to the metrics stored in an Azure Monitor workspace. For more information on PromQL, see [Querying Prometheus](https://prometheus.io/docs/prometheus/latest/querying/basics/).
 
+> [!NOTE]
+> To write queries in the editor, the workspace must have at least one Azure Kubernetes Service (AKS) cluster or Azure Arc-enabled Kubernetes cluster connected to it.
 
 Adding a chart with the builder allows you to select metrics from any of your Azure resources. The builder provides a list of metrics available in the selected scope. Select the metric, aggregation type, and chart type from the builder. The builder can't be used to chart metrics stored in an Azure Monitor workspace.
 

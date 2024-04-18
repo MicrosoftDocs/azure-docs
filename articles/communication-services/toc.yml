@@ -961,6 +961,8 @@ items:
       href: concepts/email/email-optout-management.md   
     - name: Understanding sender reputation
       href: concepts/email/sender-reputation-managed-suppression-list.md      
+    - name: Quota increase for email domains
+      href: concepts/email/email-quota-increase.md  
     - name: Pricing
       href: https://azure.microsoft.com/pricing/details/communication-services/
     - name: Domains
@@ -969,6 +971,8 @@ items:
         href: concepts/email/email-domain-and-sender-authentication.md
       - name: Best practices for sender authentication support 
         href: concepts/email/email-authentication-best-practice.md
+      - name: Troubleshooting Domain Configuration issues 
+        href: concepts/email/email-domain-configuration-troubleshooting.md
     - name: Messaging policy
       href: concepts/sms/messaging-policy.md
     - name: Events
