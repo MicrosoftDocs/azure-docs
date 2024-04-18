@@ -30,9 +30,9 @@ Azure HDInsight Open known issues:
 
 Select the title to view more information about that specific known issue. Fixed issues are removed after 60 days.
 
-| Issue ID         | Area                   |Title                    | Issue published date| Status |
-|------------------|------------------------|-------------------------|-------------------|-------|
-|Not applicable|Spark|[Conda Version Regression in a recent HDInsight release](./hdinsight-known-issues-conda-version-regression.md)|October 13, 2023|Closed|
+| Area                   |Title                    | Issue published date| Status |
+|------------------------|-------------------------|-------------------|-------|
+|Spark|[Conda Version Regression in a recent HDInsight release](./hdinsight-known-issues-conda-version-regression.md)|October 13, 2023|Closed|
 
 ## Next steps
 
