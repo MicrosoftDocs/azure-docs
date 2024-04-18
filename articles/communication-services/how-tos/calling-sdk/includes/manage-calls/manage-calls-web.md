@@ -111,7 +111,7 @@ callAgentInstance.on('incomingCall', incomingCallHandler);
 
 The `incomingCall` event includes an `incomingCall` instance that you can accept or reject.
 
-When starting, joining, or accepting a call with video on, if the camera is being used by another process or if it's disabled in the operating system, the call starts with video off, and a cameraStartFailed: true call diagnostic is raised.
+The Azure Communication Calling SDK raises a cameraStartFailed: true call diagnostic if the camera is not available when starting, accepting, or joining a call with video enabled. In this case, the call starts with video off. The camera might not be available because it is being used by another process or because it is disabled in the operating system.
 
 ## Hold and resume call
 
