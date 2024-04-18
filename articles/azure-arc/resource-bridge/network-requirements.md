@@ -61,17 +61,18 @@ The default value for `noProxy` is `localhost,127.0.0.1,.svc,10.0.0.0/8,172.16.0
 > When listing multiple addresses for the `noProxy` settings, don't add a space after each comma to separate the addresses. The addresses must immediately follow the commas.
 >
 
-## Ports being listened to
+## Internal Port Listening
 
-As a notice, you should be aware that the following ports are listened to on the appliance VM but don’t need any access from outside of the appliance VM. 
+As a notice, you should be aware that the appliance VM is configured to listen on the following ports. These ports are used exclusively for internal processes and do not require external access:
 
-- 8443 – AAD Authentication Webhook endpoint. 
+- 8443 – Endpoint for AAD Authentication Webhook
 
-- 10257 – Metrics endpoint
+- 10257 – Endpoint for Arc resource bridge metrics
 
-- 10250 – Metrics endpoint
+- 10250 – Endpoint for Arc resource bridge metrics
 
-- 2382 – Metrics endpoint
+- 2382 – Endpoint for Arc resource bridge metrics
+
 
 ## Next steps
 
