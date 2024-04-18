@@ -1290,14 +1290,6 @@ items:
       href: change/change-analysis-troubleshoot.md
 - name: Respond
   items:
-  - name: AIOps
-    items:
-    - name: Azure Monitor Investigator Overview
-      href: ai-ops/investigator-overview.md
-    - name: Responsible AI FAQ
-      href: ai-ops/responsible-ai-faq.md
-    - name: Investigate an alert using Investigator
-      href: ai-ops/investigate-alert-instance.md
   - name: Alerts
     items:
     - name: Overview
