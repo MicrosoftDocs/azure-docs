@@ -37,7 +37,7 @@ The firewall and proxy URLs below must be allowlisted in order to enable communi
 |Diagnostic data | 443 | `*.prod.microsoftmetrics.com`	|	Appliance VM IPs need outbound connection. | Periodically sends Microsoft required diagnostic data. |
 |Diagnostic data | 443 | `*.prod.hot.ingest.monitor.core.windows.net`	|	Appliance VM IPs need outbound connection. | Periodically sends Microsoft required diagnostic data. |
 |Diagnostic data | 443 | `*.prod.warm.ingest.monitor.core.windows.net`	|	Appliance VM IPs need outbound connection. | Periodically sends Microsoft required diagnostic data. |
-|Azure Portal | 443 | `*.arc.azure.net`| Appliance VM IPs need outbound connection. | Manage cluster from Azure Portal.|
+|Azure portal | 443 | `*.arc.azure.net`| Appliance VM IPs need outbound connection. | Manage cluster from Azure portal.|
 |Azure CLI & Extension | 443 | `*.blob.core.windows.net`| Management machine needs outbound connection. | Download Azure CLI Installer and extension. |
 |Azure Arc Agent| 443 | `*.dp.kubernetesconfiguration.azure.com`| Management machine needs outbound connection. | Dataplane used for Arc agent.|
 |Python package| 443 | `pypi.org`, `*.pypi.org`| Management machine needs outbound connection. | Validate Kubernetes and Python versions.|
