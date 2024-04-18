@@ -71,9 +71,12 @@ A single worker instance can execute multiple work items concurrently to increas
 > [!NOTE]
 > This is not a replacement for fine-tuning the performance and concurrency settings of your language runtime in Azure Functions. The Durable Functions concurrency settings only determine how much work can be assigned to a given VM at a time, but it does not determine the degree of parallelism in processing that work inside the VM. The latter requires fine-tuning the language runtime performance settings.
 
-### Create IDs for your external events so they may be de-duplicated
+### Use unique names for your external events
 
-As with Activity Functions, external events have an _at-least-once_ delivery guarantee. This means that, under certain conditions (like restarts, scaling, crashes, etc.), your application may receive duplicates of the same external event. Therefore, we recommend that external events contain some kind of ID that allows them to be manually de-duplicated in orchestrators.
+As with Activity Functions, external events have an _at-least-once_ delivery guarantee. This means that, under certain _rare_ conditions (that may occur during restarts, scaling, crashes, etc.), your application may receive duplicates of the same external event. Therefore, we recommend that external events contain some kind of ID that allows them to be manually de-duplicated in orchestrators.
+
+> [!NOTE]
+> Some storage providers, like [Netherite](./durable-functions-storage-providers.md#netherite) and [MSSQL](./durable-functions-storage-providers.md#microsoft-sql-server-mssql) consume external events and update orchestrator state transactionally, so in those backends there should be no risk of duplicate events, unlike with the default [Azure Storage storage provider](./durable-functions-storage-providers.md). That said, it is still recommended that external events have unique names so that code is portable across backends.
 
 ### Invest in stress testing
 
