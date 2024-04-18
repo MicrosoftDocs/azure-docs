@@ -21,7 +21,7 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/container-registry/tutorial-artifact-cache",
+            "source_path_from_root": "/articles/container-registry/tutorial-artifact-cache.md",
             "redirect_url": "/azure/container-registry/tutorial-enable-artifact-cache-cli",
             "redirect_document_id": false
         },
