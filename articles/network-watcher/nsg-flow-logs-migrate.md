@@ -6,9 +6,9 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: network-watcher
 ms.topic: how-to
-ms.date: 04/16/2024
+ms.date: 04/18/2024
 
-#CustomerIntent: As an Azure administrator, I want to migrate my NSG flow logs to the new VNet flow logs so that I can use all the benefits of VNet flow logs that overcome some of the NSG flow logs limitations..
+#CustomerIntent: As an Azure administrator, I want to migrate my NSG flow logs to the new VNet flow logs so that I can use all the benefits of VNet flow logs, which overcome some of the NSG flow logs limitations..
 ---
 
 # Migrate from NSG flow logs to VNet flow logs
