@@ -215,7 +215,7 @@ The latest values for Azure Machine Learning Compute quotas can be found in the 
 
 [!INCLUDE [maps-limits](../../../includes/maps-limits.md)]
 
-## Azure Manamaged Grafana limits
+## Azure Managed Grafana limits
 
 [!INCLUDE [Azure Managed Grafana limits](../../../includes/azure-managed-grafana-limits.md)]
 
