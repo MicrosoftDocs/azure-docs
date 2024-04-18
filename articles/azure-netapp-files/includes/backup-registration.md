@@ -11,7 +11,7 @@ ms.author: anfdocs
 
 ## Register the feature
 
-Azure NetApp Files backup is generally available. You must register the feature before using it for the first. 
+Azure NetApp Files backup is currently in preview. You must register the feature before using it for the first. 
 
 1.  Register the feature
 
