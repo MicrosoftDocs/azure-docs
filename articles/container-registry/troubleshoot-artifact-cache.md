@@ -64,7 +64,7 @@ If you're facing issues while creating a Cache rule, we recommend verifying if y
 
 We recommend deleting any unwanted cache rules to avoid hitting the limit. 
 
-Learn more about the [Cache Terminology.](tutorial-artifact-cache.md#terminology)
+Learn more about the [Cache Terminology.](container-registry-artifact-cache.md#terminology)
 
 
 ### Unable to create cache rule using a wildcard
