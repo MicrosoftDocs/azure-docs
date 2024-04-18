@@ -53,7 +53,7 @@ The following models are available in Azure Marketplace for Llama 3 when deploye
   
 ---
 
-If you need to deploy a different model, [deploy it to real-time endpoints](#deploy-llama-models-to-real-time-endpoints) instead.
+If you need to deploy a different model, [deploy it to real-time endpoints](#deploy-meta-llama-models-to-real-time-endpoints) instead.
 
 ### Prerequisites
 
@@ -176,7 +176,7 @@ Models deployed as a service can be consumed using either the chat or the comple
     - For completions models, such as `Meta-Llama-3-8B`, use the [`/v1/completions`](#completions-api) API.
     - For chat models, such as `Meta-Llama-3-8B-Instruct`, use the [`/v1/chat/completions`](#chat-api) API.
 
-    For more information on using the APIs, see the [reference](#reference-for-llama-models-deployed-as-a-service) section.
+    For more information on using the APIs, see the [reference](#reference-for-meta-llama-models-deployed-as-a-service) section.
 
 # [Meta Llama 2](#tab/llama-two)
 
@@ -196,7 +196,7 @@ Models deployed as a service can be consumed using either the chat or the comple
     - For completions models, such as `Meta-Llama-2-7B`, use the [`/v1/completions`](#completions-api) API.
     - For chat models, such as `Meta-Llama-2-7B-Chat`, use the [`/v1/chat/completions`](#chat-api) API.
 
-    For more information on using the APIs, see the [reference](#reference-for-llama-models-deployed-as-a-service) section.
+    For more information on using the APIs, see the [reference](#reference-for-meta-llama-models-deployed-as-a-service) section.
 
 ---
 
