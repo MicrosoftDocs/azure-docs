@@ -17,21 +17,9 @@ This document outlines the process of deleting Access Control Lists (ACLs) assoc
 
 ## Prerequisites
 
-Before proceeding, ensure you have the following prerequisites:
-- Azure CLI installed. If not, follow the instructions provided [here](https://docs.microsoft.com/cli/azure/install-azure-cli).
-- Access to an Azure account.
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
-## Procedure
-
-1. **Login to Azure:**
-   
-   Use the following command to log in to your Azure account:
-   
-   ```Azure CLI
-   az login
-   ```
-
-3. **Set subscription (if necessary):**
+1. **Set subscription (if necessary):**
    
    If you have multiple subscriptions and need to set one as the default, you can do so with:
    
@@ -39,7 +27,7 @@ Before proceeding, ensure you have the following prerequisites:
    az account set --subscription <subscription-id>
    ```
 
-5. **Delete ACLs associated with NNI:**
+2. **Delete ACLs associated with NNI:**
    
    To delete ACLs applied on NNI or External Network resources, pass a null value to `--ingress-acl-id` and `--egress-acl-id`.
 
@@ -58,7 +46,7 @@ Before proceeding, ensure you have the following prerequisites:
    > [!NOTE]
    > Based on requirements, either the Ingress, Egress, or both can be updated.
 
-6. **Fabric commit configuration changes:**
+3. **Fabric commit configuration changes:**
 
    Execute `fabric commit-configuration` to commit the configuration changes.
 
@@ -71,7 +59,7 @@ Before proceeding, ensure you have the following prerequisites:
    | `--resource-group` | The name of the resource group containing the Nexus Network Fabric. |
    | `--resource-name`  | The name of the Nexus Network Fabric to which the configuration changes will be committed. |
 
-7. **Verify changes:**
+4. **Verify changes:**
 
    Verify the changes using the `resource list` command.
 
