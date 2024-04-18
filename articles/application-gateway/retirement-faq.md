@@ -3,11 +3,11 @@ title: FAQ on V1 retirement
 titleSuffix: Azure Application Gateway
 description: This article lists out commonly added questions on  retirement of Application gateway V1 SKUs and Migration
 services: application-gateway
-author: MJyot
+author: greg-lindsay
 ms.service: application-gateway
 ms.topic: how-to
-ms.date: 04/19/2023
-ms.author: mjyothish
+ms.date: 04/18/2024
+ms.author: greglin
 ---
 # FAQs
 On April 28,2023 we announced retirement of Application gateway V1 on 28 April 2026.This article lists  the commonly asked questions on V1 retirement and V1-V2 migration.
@@ -16,7 +16,7 @@ On April 28,2023 we announced retirement of Application gateway V1 on 28 April 2
 
 ### What is the official date Application Gateway V1 is cut off from creation?
 
-New Customers will not be allowed to create V1 from 1 July 2023 onwards. However, any existing V1 customers can continue to create resources in existing subscriptions until August 2024 and manage V1 resources until the retirement date of 28 April 2026.
+New Customers won't be allowed to create V1 from 1 July 2023 onwards. However, any existing V1 customers can continue to create resources in existing subscriptions until August 2024 and manage V1 resources until the retirement date of 28 April 2026.
 
 ### What happens to existing Application Gateway V1 after 28 April 2026?
 
@@ -37,6 +37,10 @@ Until April 28, 2026, existing Application Gateway V1 deployments are supported.
 ### What happens to my V1 application gateways if I don’t plan on migrating soon?
 
 On April 28, 2026, the V1 gateways are fully retired and all active AppGateway V1s are stopped & deleted. To prevent business impact, we highly recommend starting to plan your migration at the earliest and complete it before April 28, 2026.
+
+### Will the retirement of Basic SKU Public IPs in September 2025 affect my existing V1 Application Gateways?
+
+Existing V1 Application Gateways will continue to function normally until April 2026. However, creation of new V1 Application Gateways will be disabled after August 2024. We strongly recommend that you plan and migrate your existing V1 Application Gateways to V2 as soon as possible to ensure a smooth transition.
 
 ### How do I migrate my application gateway V1 to V2 SKU?
 
