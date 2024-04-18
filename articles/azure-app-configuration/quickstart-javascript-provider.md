@@ -36,7 +36,7 @@ Add the following key-values to the App Configuration store. For more informatio
 | *app.greeting* | *Hello World*                          | Leave empty        |
 | *app.json*     | *{"myKey":"myValue"}*                  | *application/json* |
 
-## Set up the Node.js app
+## Create a Node.js console app
 
 In this tutorial, you create a Node.js console app and load data from your App Configuration store.
 
@@ -60,13 +60,11 @@ In this tutorial, you create a Node.js console app and load data from your App C
 
 ## Connect to an App Configuration store
 
-The key-values stored in Azure App Configuration are loaded as a `Map` object and accessed using their full key names.
-If your application requires configuration to be consumed as an object, you can use the `constructConfigurationObject` API.
-This API constructs a configuration object based on the key-values loaded from Azure App Configuration.
-It minimizes the code changes required to integrate Azure App Configuration into your application.
+The following examples demonstrate how to retrieve configuration data from Azure App Configuration and utilize it in your application.
+By default, the key-values are loaded as a `Map` object, allowing you to access each key-value using its full key name.
+However, if your application uses configuration objects, you can use the `constructConfigurationObject` helper API that creates a configuration object based on the key-values loaded from Azure App Configuration.
 
-The following samples show how to load configuration and consume it as either a `Map` or an object.
-Create a new file called *app.js* in the *app-configuration-quickstart* directory and copy the code from each sample.
+Create a file named *app.js* in the *app-configuration-quickstart* directory and copy the code from each sample.
 
 ### Sample 1: Load key-values with default selector
 
