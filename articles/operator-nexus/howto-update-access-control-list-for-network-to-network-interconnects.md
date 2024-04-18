@@ -103,6 +103,3 @@ az networkfabric fabric commit-configuration --resource-group "<resource-group>"
 
 4. Verify the changes using the `resource list` command.
 
-## Next steps
-
-[Delete ACLs associated with Network-to-Network Interconnects (NNI)](howto-delete-access-control-list-network-to-network-interconnect.md)
