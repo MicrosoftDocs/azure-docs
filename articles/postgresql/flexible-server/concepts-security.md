@@ -45,7 +45,7 @@ When you're running Azure Database for PostgreSQL - Flexible Server, you have tw
 
 ## Microsoft Defender for Cloud support
 
-**[Overview of Microsoft Defender for open-source relational databases](../../defender-for-cloud/defender-for-databases-introduction.md)** detects anomalous activities indicating unusual and potentially harmful attempts to access or exploit databases. Defender for Cloud provides [security alerts](../../defender-for-cloud/alerts-reference.md#alerts-for-open-source-relational-databases) on anomalous activities so that you can detect potential threats and respond to them as they occur.
+**[Microsoft Defender for open-source relational databases](../../defender-for-cloud/defender-for-databases-introduction.md)** detects anomalous activities indicating unusual and potentially harmful attempts to access or exploit databases. Defender for Cloud provides [security alerts](../../defender-for-cloud/alerts-reference.md#alerts-for-open-source-relational-databases) on anomalous activities so that you can detect potential threats and respond to them as they occur.
 When you enable this plan, Defender for Cloud provides alerts when it detects anomalous database access and query patterns and suspicious database activities.
 
 These alerts appear in Defender for Cloud's security alerts page and include:
@@ -191,6 +191,18 @@ CREATE POLICY account_managers ON accounts TO managers
 ```
 
 The USING clause implicitly adds a `WITH CHECK` clause, ensuring that members of the manager role can't perform `SELECT`, `DELETE`, or `UPDATE` operations on rows that belong to other managers, and can't `INSERT` new rows belonging to another manager.
+You can drop a row security policy by using DROP POLICY command , as in his example:
+```sql
+
+
+DROP POLICY account_managers ON accounts;
+```
+Although you may have have dropped the policy, role manager is still not able to view any data that belong to any other manager. This is because the row-level security policy is still enabled on the accounts table. If row-level security is enabled by default, PostgreSQL uses a default-deny policy. You can disable row level security, as in example below:
+
+```sql
+ALTER TABLE accounts DISABLE ROW LEVEL SECURITY;
+```
+
 
 ## Bypassing Row Level Security
 
