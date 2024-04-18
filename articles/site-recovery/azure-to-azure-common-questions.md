@@ -204,9 +204,9 @@ The first recovery point that's generated has the complete copy. Successive reco
 
 Yes. For example, if you increase retention from one day to three days, Site Recovery saves recovery points for an additional two days. The added time incurs storage changes. Earlier, it was saving recovery points per hour for one day. Now, it is saving recovery points per two hours for 3 days. Refer [pruning of recovery points](#how-does-the-pruning-of-recovery-points-happen). So additional 12 recovery points are saved.  As an example only, if a single recovery point had delta changes of 10 GB, with a per-GB cost of $0.16 per month, then additional charges would be $1.60 × 12 per month.
 
-## Multi-virtual machine consistency
+## Multi-VM consistency
 
-### What is multi-virtual machine consistency?
+### What is multi-VM consistency?
 
 Multi-VM consistency ensures that recovery points are consistent across replicated virtual machines.
 
@@ -217,7 +217,7 @@ Multi-VM consistency ensures that recovery points are consistent across replicat
 
 ### Can I fail over a single virtual machine in a replication group?
 
-No. When you enable multi-virtual machine consistency, it infers that an app has a dependency on all virtual machines in the replication group, and single virtual machine failover isn't allowed.
+No. When you enable multi-VM consistency, it infers that an app has a dependency on all virtual machines in the replication group, and single virtual machine failover isn't allowed.
 
 ### How many virtual machines can I replicate together in a group?
 
