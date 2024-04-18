@@ -6675,7 +6675,7 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "articles/azure-monitor/ai-ops/investigate-alert-instance.md",
+            "source_path_from_root": "/articles/azure-monitor/ai-ops/investigate-alert-instance.md",
             "redirect_url": "/azure/copilot/overview",
             "redirect_document_id": false
         },
