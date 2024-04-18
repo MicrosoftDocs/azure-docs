@@ -277,9 +277,9 @@ The results of this value are shown in the following example:
 	"records": [
 		{
 			"time": "2017-06-16T20:59:43.7340000Z",
-			"systemId": "5f4d02d3-a7d0-4ed4-9ce8-c0ae9377951c",
+			"systemId": "abcdef01-2345-6789-0abc-def012345678",
 			"category": "NetworkSecurityGroupFlowEvent",
-			"resourceId": "/SUBSCRIPTIONS/00000000-0000-0000-0000-000000000000/RESOURCEGROUPS/CONTOSORG/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/CONTOSONSG",
+			"resourceId": "/SUBSCRIPTIONS/00000000-0000-0000-0000-000000000000/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/MYNSG",
 			"operationName": "NetworkSecurityGroupFlowEvents",
 			"properties": {
 				"Version": 1,
@@ -365,25 +365,25 @@ The results of this value are shown in the following example:
 {
     "time": "2023-07-09T03:59:30.2837112Z",
     "flowLogVersion": 4,
-    "flowLogGUID": "c4de7bdb-291a-4315-84c2-ba1ecd0296dd",
+    "flowLogGUID": "abcdef01-2345-6789-0abc-def012345678",
     "macAddress": "0022485D8CF8",
     "category": "FlowLogFlowEvent",
-    "flowLogResourceID": "/SUBSCRIPTIONS/00000000-0000-0000-0000-000000000000/RESOURCEGROUPS/NETWORKWATCHERRG/PROVIDERS/MICROSOFT.NETWORK/NETWORKWATCHERS/NETWORKWATCHER_WESTCENTRALUS/FLOWLOGS/CONTOSOVNETWCUSFLOWLOG",
-    "targetResourceID": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/Contoso-westcentralus-RG/providers/Microsoft.Network/virtualNetworks/ContosoVnetWcus",
+    "flowLogResourceID": "/SUBSCRIPTIONS/00000000-0000-0000-0000-000000000000/RESOURCEGROUPS/NETWORKWATCHERRG/PROVIDERS/MICROSOFT.NETWORK/NETWORKWATCHERS/NETWORKWATCHER_EASTUS/FLOWLOGS/MYVNET-MYRESOURCEGROUP-FLOWLOG",
+    "targetResourceID": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myVNet",
     "operationName": "FlowLogFlowEvent",
     "flowRecords": {
         "flows": [
             {
-                "aclID": "db903ae8-908e-491b-b12b-afaafab9d9ed",
+                "aclID": "00000000-1234-abcd-ef00-c1c2c3c4c5c6",
                 "flowGroups": [
                     {
-                        "rule": "BlockHighRiskTCPPortsFromInternet_456b4993-6e57-4e46-aa4d-81767afff09c",
+                        "rule": "BlockHighRiskTCPPortsFromInternet",
                         "flowTuples": [
                             "1688875131557,45.119.212.87,192.168.0.4,53018,3389,6,I,D,NX,0,0,0,0"
                         ]
                     },
                     {
-                        "rule": "Internet_4b9ac3d8-dc7b-4b9e-8702-9e9c25b52451",
+                        "rule": "Internet",
                         "flowTuples": [
                             "1688875103311,35.203.210.145,192.168.0.4,56688,52113,6,I,D,NX,0,0,0,0",
                             "1688875119073,162.216.150.87,192.168.0.4,50111,9920,6,I,D,NX,0,0,0,0",
