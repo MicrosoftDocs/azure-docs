@@ -4,7 +4,7 @@ titleSuffix: Microsoft Cost Management
 description: This article describes the fields in the usage data files.
 author: bandersmsft
 ms.author: banders
-ms.date: 04/15/2024
+ms.date: 04/18/2024
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -76,7 +76,7 @@ MPA accounts have all MCA terms, in addition to the MPA terms, as described in t
 | MeterName | All | The name of the meter. Purchases and Marketplace usage might be shown as blank or `unassigned`.|
 | MeterRegion | All | Name of the datacenter location for services priced based on location. See Location. |
 | MeterSubCategory | All | Name of the meter subclassification category. Purchases and Marketplace usage might be shown as blank or `unassigned`.|
-| OfferId¹ | All | Name of the Azure offer, which is the type of Azure subscription that you have. For more information, see supported [Microsoft Azure offer details](https://azure.microsoft.com/support/legal/offer-details/). |
+| OfferId¹ | EA, pay-as-you-go | Name of the Azure offer, which is the type of Azure subscription that you have. For more information, see supported [Microsoft Azure offer details](https://azure.microsoft.com/support/legal/offer-details/). |
 | pay-as-you-goPrice² ³| All | The market price, also referred to as retail or list price, for a given product or service. For more information, see [Pricing behavior in cost details](automation-ingest-usage-details-overview.md#pricing-behavior-in-cost-details). |
 | PartnerEarnedCreditApplied | MPA | Indicates whether the partner earned credit was applied. |
 | PartnerEarnedCreditRate | MPA | Rate of discount applied if there's a partner earned credit (PEC), based on partner admin link access. |
