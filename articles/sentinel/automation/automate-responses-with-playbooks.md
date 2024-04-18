@@ -37,7 +37,7 @@ The following table lists use cases where we recommend using Microsoft playbooks
 |**Orchestration**     | Use the SOC chat platform to better control the incidents queue. For example, send a message to your security operations channel in Microsoft Teams or Slack to make sure your security analysts are aware of the incident.      |
 |**Response**     |  Immediately respond to threats, with minimal human dependencies, such as when a compromised user or machine is indicated. Alternately, manually trigger a series of automated steps during an investigation or while hunting.     |
 
-For more information, see [Recommended playbook use cases, templates, and examples](playbooks/playbooks-recommendations.md).
+For more information, see [Recommended playbook use cases, templates, and examples](playbooks-recommendations.md).
 
 ## Prerequisites
 
@@ -76,18 +76,18 @@ For more information, see:
 
 Use the following workflow to create and run Microsoft Sentinel playbooks:
 
-1. Define your automation scenario. We recommend that you review [recommended playbooks use cases](playbooks/playbooks-recommendations.md#recommended-playbook-use-cases) and [playbook templates](playbooks/playbooks-recommendations.md#recommended-playbook-templates) to start.
+1. Define your automation scenario. We recommend that you review [recommended playbooks use cases](playbooks-recommendations.md#recommended-playbook-use-cases) and [playbook templates](playbooks-recommendations.md#recommended-playbook-templates) to start.
 
-1. If you're not using a template, create your playbook and build your logic app. For more information, see [Create and manage Microsoft Sentinel playbooks](playbooks/create-playbooks.md).
+1. If you're not using a template, create your playbook and build your logic app. For more information, see [Create and manage Microsoft Sentinel playbooks](create-playbooks.md).
 
-1. Test your logic app by running it manually. For more information, see [Run a playbook manually, on demand](playbooks/run-playbooks.md#run-a-playbook-manually-on-demand).
+1. Test your logic app by running it manually. For more information, see [Run a playbook manually, on demand](run-playbooks.md#run-a-playbook-manually-on-demand).
 
-1. Configure your playbook to run automatically on a new alert or incident creation, or run it manually as needed for your processes. For more information, see [Respond to threats with Microsoft Sentinel playbooks](playbooks/run-playbooks.md).
+1. Configure your playbook to run automatically on a new alert or incident creation, or run it manually as needed for your processes. For more information, see [Respond to threats with Microsoft Sentinel playbooks](run-playbooks.md).
 
 ## Related content
 
-- [Azure Logic Apps for Microsoft Sentinel playbooks](playbooks/logic-apps-playbooks.md)
-- [Create and manage Microsoft Sentinel playbooks](playbooks/create-playbooks.md)
-- [Respond to threats with Microsoft Sentinel playbooks](playbooks/run-playbooks.md)
+- [Azure Logic Apps for Microsoft Sentinel playbooks](logic-apps-playbooks.md)
+- [Create and manage Microsoft Sentinel playbooks](create-playbooks.md)
+- [Respond to threats with Microsoft Sentinel playbooks](run-playbooks.md)
 - [Create and customize Microsoft Sentinel playbooks from content templates](use-playbook-templates.md)
 

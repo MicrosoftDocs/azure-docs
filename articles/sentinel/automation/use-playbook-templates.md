@@ -41,7 +41,7 @@ Technically, a playbook template is an [Azure Resource Manager (ARM) template](.
 
 This article focuses on deploying a playbook template from the **Playbook templates** tab under **Automation**.
 
-For more information, see [Recommended playbook templates](playbooks/playbooks-recommendations.md#recommended-playbook-templates).
+For more information, see [Recommended playbook templates](playbooks-recommendations.md#recommended-playbook-templates).
 
 ## Explore playbook templates
 
@@ -138,7 +138,7 @@ This procedure describes how to deploy playbook templates. Repeat this process t
 
 1. Save the playbook. You'll now be able to see it in the **Active Playbooks** tab.
 
-1. To run this playbook, set an automated response or run it manually. For more information, see [Respond to threats with Microsoft Sentinel playbooks](playbooks/run-playbooks.md).
+1. To run this playbook, set an automated response or run it manually. For more information, see [Respond to threats with Microsoft Sentinel playbooks](run-playbooks.md).
 
 > [!NOTE]
 > Most of the templates can be used as is, but we recommend making any adjustments required to fit the new playbook to your SOC needs.

@@ -5,7 +5,6 @@ author: batamig
 ms.author: bagol
 ms.topic: how-to
 ms.date: 04/17/2024
-appliesto: Microsoft Sentinel in the Azure portal and the Microsoft Defender portal
 #customer-intent: As a SOC engineer, I want to understand how to create playbooks in Microsoft Sentinel so that my team can automate threat responses in our environment.
 appliesto:
     - Microsoft Sentinel in the Azure portal
@@ -55,7 +54,7 @@ Follow these steps to create a new playbook in Microsoft Sentinel:
 
     1. If you're creating a **Consumption** playbook (the original, classic kind), then, depending on which trigger you want to use, select either **Playbook with incident trigger**, **Playbook with alert trigger**, or **Playbook with entity trigger**. Then, continue following the steps in the **Logic Apps Consumption** tab below.
 
-        For more about which trigger to use, see [**Use triggers and actions in Microsoft Sentinel playbooks**](playbook-triggers-actions.md).
+    For more information, see [Supported logic app types](logic-apps-playbooks.md#supported-logic-app-types) and [Use triggers and actions in Microsoft Sentinel playbooks](playbook-triggers-actions.md).
 
 ## Prepare your playbook's Logic App
 

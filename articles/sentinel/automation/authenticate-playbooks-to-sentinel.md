@@ -25,8 +25,8 @@ This article describes the types of connections and authentication supported for
 We recommend that you read the following articles before this one:
 
 - [Automate threat response with Microsoft Sentinel playbooks](automate-responses-with-playbooks.md)
-- [Create and manage Microsoft Sentinel playbooks](playbooks/create-playbooks.md)
-- [Azure Logic Apps for Microsoft Sentinel playbooks](playbooks/logic-apps-playbooks.md)
+- [Create and manage Microsoft Sentinel playbooks](create-playbooks.md)
+- [Azure Logic Apps for Microsoft Sentinel playbooks](logic-apps-playbooks.md)
 
 For more information, see [Use triggers and actions in Microsoft Sentinel playbooks](playbook-triggers-actions.md).
 
@@ -34,7 +34,7 @@ For more information, see [Use triggers and actions in Microsoft Sentinel playbo
 
 The Microsoft Sentinel connector in Logic Apps, and its component triggers and actions, can operate on behalf of any identity that has the necessary permissions (read and/or write) on the relevant workspace. The connector supports multiple identity types:
 
-- [Managed identity (Preview)](#authenticate-with-managed-identity)
+- [Managed identity (Preview)](#authenticate-with-a-managed-identity)
 - [Service principal (Microsoft Entra application)](#authenticate-as-a-service-principal-azure-ad-application)
 - [Microsoft Entra user](#authenticate-as-an-azure-ad-user)
 
