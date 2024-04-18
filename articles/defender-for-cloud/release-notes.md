@@ -24,20 +24,22 @@ If you're looking for items older than six months, you can find them in the [Arc
 
 | Date  | Update                                                            |
 | ----- | ----------------------------------------------------------------- |
-| May 9 | [AI security posture management](#ai-security-posture-management) |
-| May 9 | [Limited public preview of Defender for AI Workloads](#limited-public-preview-of-defender-for-ai-workloads) |
+| May 6 | [AI security posture management](#ai-security-posture-management) |
+| May 6 | [Limited public preview of Defender for AI Workloads](#limited-public-preview-of-defender-for-ai-workloads) |
 
 ### AI security posture management
 
-May 9, 2024
+May 6, 2024
 
-We are announcing the inclusion of AI security posture management in Defender for Cloud. This feature provides multicloud AI security posture management capabilities that enhance the security of your AI pipelines and services.
+We are announcing the inclusion of AI security posture management in Defender for Cloud. This feature provides AI security posture management capabilities for Azure and AWS that enhance the security of your AI pipelines and services.
 
 Learn more about [AI security posture management](ai-security-posture.md).
 
 ### Limited public preview of Defender for AI Workloads
 
-We are announcing the Limited public preview of Defender for AI Workloads. Defender for AI Workloads provides security threat protection for AI workloads. This plan helps you identify and remediate security risks in your AI workloads.
+May 6, 2024
+
+Defender for AI Workloads provides contextual insights into AI workload threat protection, integrating with [responsible AI](../ai-services/responsible-use-of-ai-overview.md) and Microsoft Threat Intelligence. Defender for AI security alerts are integrated into Defender XDR in the Defender portal. 
 
 Learn more about [Defender for AI Workloads](ai-threat-protection.md).
 

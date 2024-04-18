@@ -2,29 +2,29 @@
 title: Discover generative AI applications
 description: Learn how to use the cloud security explorer to determine which AI workloads and models are running in your environment.
 ms.topic: how-to
-ms.date: 04/17/2024
+ms.date: 04/18/2024
 # customer intent: As a user, I want to learn how to identify AI workloads and models in my environment so that I can assess their security posture.
 ---
 
 # Discover generative AI applications
 
-Defender for Cloud provides a comprehensive view of cloud environments, including the generative AI workloads and models running in your environment. By using the cloud security explorer, you can identify the AI workloads and models that are running in your environment and assess their security posture.
+Defender for Cloud provides a comprehensive view of your organization's AI bill of materials (AIBOM). By using the cloud security explorer, you can identify the AI workloads and models that are running in your environment and assess their security posture.
 
 ## Prerequisites
 
+- Read about [AI security posture management](ai-security-posture.md).
+
 - You need a Microsoft Azure subscription. If you don't have an Azure subscription, you can [sign up for a free subscription](https://azure.microsoft.com/pricing/free-trial/).
 
-- [Enable Defender for Cloud on your Azure subscription](connect-azure-subscription.md).
+- [Defender for Cloud on your Azure subscription](connect-azure-subscription.md).
 
 - Enable [Defender Cloud Security Posture Management (CSPM)](tutorial-enable-cspm-plan.md) on your Azure subscription.
 
-- Have at least one [Azure OpenAI resource](../ai-studio/how-to/create-azure-ai-resource.md), with at least one [model deployment](../ai-studio/how-to/deploy-models-openai.md) connected to it via Azure AI Studio.
+- Have at least one AI supported workload (Azure Open AI, AWS account).
 
-- Read about [AI security posture management](ai-security-posture.md).
+## Discover AI workloads and models in use
 
-## Discover workloads and models
-
-If you have generative AI workloads and models running in your environment, you can use the cloud security explorer to identify them. 
+You can use the cloud security explorer to identify generative AI workloads and models running in your environment, you can use the cloud security explorer to identify them. 
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 

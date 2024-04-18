@@ -7,7 +7,7 @@ ms.date: 04/17/2024
 
 # Onboard Defender for AI Workloads
 
-The Defender for AI wokload plan in Defender for Cloud provides security posture management capabilities for generative AI workloads and models running in your environment. To get started onboard the plan.
+To get started you must [sign up](https://aka.ms/D4AI/PublicPreviewAccess) for and onboard the plan. The Defender for AI Wokloads plan in Defender for Cloud provides threat protection for AI workloads in your Azure environment. 
 
 > [!IMPORTANT]
 > The Defender for Workloads AI plan is currently in PREVIEW.
@@ -15,25 +15,27 @@ The Defender for AI wokload plan in Defender for Cloud provides security posture
 
 ## Prerequisites
 
+- Read up on [Overview - AI threat protection](ai-threat-protection.md).
+
 - You need a Microsoft Azure subscription. If you don't have an Azure subscription, you can [sign up for a free subscription](https://azure.microsoft.com/pricing/free-trial/).
 
 - You must [enable Defender for Cloud](get-started.md#enable-defender-for-cloud-on-your-azure-subscription) on your Azure subscription.
 
-- You must sign up for and be approved for the preview by [filling out the preview form](https://aka.ms/D4AI/PublicPreviewAccess).
+- Defender for AI Workloads relies on [Azure Open AI content filtering](../ai-services/openai/concepts/content-filter.md) for prompt-base triggered alert. If you opt out of prompt-based trigger alerts and removed that capability, it can affect Defender for Cloud's ability to monitor and detect such attacks.
 
-- Defender for Cloud relies on [Azure Open AI content filtering](../ai-services/openai/concepts/content-filter.md) for prompt-base triggered alert. If you opt out of prompt-based trigger alerts and removed that capability, it can affect Defender for Cloud's ability to monitor and detect such attacks.
+## Enroll in the limited public preview
 
-- Read up on [Overview - AI threat protection](ai-threat-protection.md).
+Before you can start to use the Defender for Workloads AI plan, you must enroll in the limited public preview program.
 
-Currently supported AI workloads include: 
+1. Fill out the [registration form](https://aka.ms/D4AI/PublicPreviewAccess).
 
-- Azure OpenAI Service
-- Azure Machine Learning
-- Amazon Bedrock.
+1. Wait to receive an email that confirms your acceptance or rejection from the preview program.
 
-## Enable the Defender for AI workload plan
+If you are accepted into the preview program, you can enable the Defender for AI Workloads plan to your Azure subscription.
 
-You can enable the Defender for AI workload plan on an Azure subscription and AWS accounts.
+## Enable the Defender for AI Workloads plan
+
+You can enable the Defender for AI Workloads plan on an Azure subscription and AWS accounts.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -49,7 +51,7 @@ You can enable the Defender for AI workload plan on an Azure subscription and AW
 
 ### Remediate alerts
 
-After you have onboarded the Defender for AI Workloads plan, you can [manage and respond to the security alerts](managing-and-responding-alerts.md) that generate for your AI applications and remediate them.
+After you have onboarded the Defender for AI Workloads plan, you can [manage and remediate the security alerts](managing-and-responding-alerts.md) that are generated for your AI applications.
 
 ## Next step
 
