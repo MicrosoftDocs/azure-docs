@@ -75,7 +75,7 @@ The schema for resource logs varies depending on the resource and log category. 
 | Azure Firewall | [Logging for Azure Firewall](../../firewall/diagnostic-logs.md) |
 | Azure Front Door | [Logging for Azure Front Door](../../frontdoor/front-door-diagnostics.md) |
 | Azure Functions | [Monitoring Azure Functions Data Reference Resource Logs](../../azure-functions/monitor-functions-reference.md#resource-logs) |
-| Application Insights | [Application Insights Data Reference Resource Logs](~/azure-reference-other-repo/azure-monitor-ref/supported-logs/includes/microsoft-insights-components-logs-include.md) |
+| Application Insights | [Application Insights Data Reference Resource Logs](../monitor-azure-monitor-reference.md#supported-resource-logs-for-microsoftinsightscomponents) |
 | Azure IoT Hub | [IoT Hub operations](../../iot-hub/monitor-iot-hub-reference.md#resource-logs) |
 | Azure IoT Hub Device Provisioning Service| [Device Provisioning Service operations](../../iot-dps/monitor-iot-dps-reference.md#resource-logs) |
 | Azure Key Vault |[Azure Key Vault logging](../../key-vault/general/logging.md) |
