@@ -40,7 +40,7 @@ Check the [models page](concepts/models.md#fine-tuning-models), for the latest i
 
 ### Multi-turn chat training examples
 
-Fine-tuning now supports [multi-turn chat training examples](./includes/fine-tuning-studio.md#multi-turn-chat-file-format).
+Fine-tuning now supports [multi-turn chat training examples](./how-to/fine-tuning.md#multi-turn-chat-file-format).
 
 ### GPT-4 (0125) is available for Azure OpenAI On Your Data
 
