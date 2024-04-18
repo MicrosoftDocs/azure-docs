@@ -66,7 +66,7 @@ Textual content of a document is extracted into a string field named "content". 
   > [!NOTE]
   > Azure AI Search imposes [indexer limits](search-limits-quotas-capacity.md#indexer-limits) on how much text it extracts depending on the pricing tier. A warning will appear in the indexer status response if documents are truncated.  
 
-## Use a Blob indexer for content extraction
+## Use a blob indexer for content extraction
 
 An *indexer* is a data-source-aware subservice in Azure AI Search, equipped with internal logic for sampling data, reading and retrieving data and metadata, and serializing data from native formats into JSON documents for subsequent import. 
 
@@ -74,7 +74,7 @@ Blobs in Azure Storage are indexed using the [blob indexer](search-howto-indexin
 
 An indexer ["cracks a document"](search-indexer-overview.md#document-cracking), opening a blob to inspect content. After connecting to the data source, it's the first step in the pipeline. For blob data, this is where PDF, Office docs, and other content types are detected. Document cracking with text extraction is no charge. If your blobs contain image content, images are ignored unless you [add AI enrichment](cognitive-search-concept-intro.md). Standard indexing applies only to text content.
 
-The Blob indexer comes with configuration parameters and supports change tracking if the underlying data provides sufficient information. You can learn more about the core functionality in [Blob indexer](search-howto-indexing-azure-blob-storage.md).
+The Azure blob indexer comes with configuration parameters and supports change tracking if the underlying data provides sufficient information. You can learn more about the core functionality in [Index data from Azure Blob Storage](search-howto-indexing-azure-blob-storage.md).
 
 ### Supported access tiers
 
@@ -82,7 +82,7 @@ Blob storage [access tiers](../storage/blobs/access-tiers-overview.md) include h
 
 ### Supported content types
 
-By running a Blob indexer over a container, you can extract text and metadata from the following content types with a single query:
+By running a blob indexer over a container, you can extract text and metadata from the following content types with a single query:
 
 [!INCLUDE [search-blob-data-sources](../../includes/search-blob-data-sources.md)]
 
