@@ -361,18 +361,18 @@ Azure Site Recovery creates [replica disks](./azure-to-azure-architecture.md#tar
 1. Find the target subscription name and target resource group name in the **Compute** tab.
     The replica disks are in the target subscription and target resource group. The failover and test failover virtual machines are also created in the target resource group within target subscription.
 
-    :::image type="content" source="media/azure-to-azure-common-questions/replicated-items.png" alt-text="Screenshot of replicated items.":::
+    :::image type="content" source="media/azure-to-azure-common-questions/replicated-items.png" alt-text="Screenshot of replicated items."lightbox="media/azure-to-azure-common-questions/replicated-items.png":::
  
 1. Go to the **Disks** tab of the replicated items to identify the replica disk names and target disk names corresponding to each source disk. 
     You can find the replica disks in the target resource group obtained from the previous step. Similarly, when you complete the failover, you get target disks attached to recovery virtual machine in the target resource group.
 
-    :::image type="content" source="media/azure-to-azure-common-questions/disks-tab.png" alt-text="Screenshot of disks tab.":::
+    :::image type="content" source="media/azure-to-azure-common-questions/disks-tab.png" alt-text="Screenshot of disks tab."lightbox="media/azure-to-azure-common-questions/disks-tab.png":::
  
 1. For each replica disk, do the following:
     1. Go to the **Disk Export** tab under the **Settings** of the disk. The disk should have SAS Access taken by Azure Site Recovery by default.
     1. Cancel the export using the **Cancel export** option before making any network access changes. 
     
-        :::image type="content" source="media/azure-to-azure-common-questions/disk-export.png" alt-text="Screenshot of disk export tab.":::
+        :::image type="content" source="media/azure-to-azure-common-questions/disk-export.png" alt-text="Screenshot of disk export tab."lightbox="media/azure-to-azure-common-questions/disk-export.png":::
 
  
         Azure Site Recovery needs SAS on replica disks for replication. Canceling the export may briefly impact Azure Site Recovery replication, but Site Recovery automatically gets the SAS back in a few minutes.
@@ -382,7 +382,7 @@ Azure Site Recovery creates [replica disks](./azure-to-azure-architecture.md#tar
     
         If you want to change disk network access to **Disable public access and enable private access**, the disk access resource to be used should already be present in the target region within the target subscription. Find the steps to [create a disk access resource here](../virtual-machines/disks-enable-private-links-for-import-export-portal.md#create-a-disk-access-resource).
         
-        :::image type="content" source="media/azure-to-azure-common-questions/disk-networking.png" alt-text="Screenshot of Disk networking.":::
+        :::image type="content" source="media/azure-to-azure-common-questions/disk-networking.png" alt-text="Screenshot of Disk networking."lightbox="media/azure-to-azure-common-questions/disk-networking.png":::
 
     > [!NOTE]
     > You can change the network access of the disk only if you have cancelled the export. If you do not cancel the export, network access change for the disk is disabled.
