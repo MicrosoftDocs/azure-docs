@@ -18,7 +18,7 @@ This page is updated monthly, so revisit it regularly. If you're looking for ite
 
 ## Version 1.40 - April 2024
 
-Download for [Windows](https://download.microsoft.com/download/c/c/e/cce7456c-e998-4fa1-9566-f43f4a2f6a6f/AzureConnectedMachineAgent.ms) or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
+Download for [Windows](https://download.microsoft.com/download/c/c/e/cce7456c-e998-4fa1-9566-f43f4a2f6a6f/AzureConnectedMachineAgent.msi) or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
 
 ### New features
 
@@ -29,7 +29,7 @@ Download for [Windows](https://download.microsoft.com/download/c/c/e/cce7456c-e9
 - Improved error handling when a machine configuration policy has an invalid SAS token
 - The installation script for Windows now includes a flag to suppress reboots in case any agent executables are in use during an upgrade
 - Fixed an issue that could block agent installation or upgrades on Windows when the installer can't change the access control list on the agent's log directories.
-- Extension package maximum download size increased to fix access to the [latest versions of the Azure Monitor Agent](/azure-monitor/agents/azure-monitor-agent-extension-versions) on Azure Arc-enabled servers.
+- Extension package maximum download size increased to fix access to the [latest versions of the Azure Monitor Agent](/azure/azure-monitor/agents/azure-monitor-agent-extension-versions) on Azure Arc-enabled servers.
 
 ## Version 1.39 - March 2024
 
