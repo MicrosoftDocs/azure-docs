@@ -244,7 +244,7 @@ const state = remoteParticipant.state;
     ```
     Note:
     - This property is only set when adding a remote participant via the Call.addParticipant() API, and the remote participant declines for example.
-    - In the scenario, where UserB kicks UserC, from UserA's perspective, UserA doesn't see this flag get set for UserC. In other words UserA doesn't see UserC's callEndReason property get set at all.
+    - In the scenario, where UserB kicks UserC, from UserA's perspective, UserA doesn't see this flag get set for UserC. In other words, UserA doesn't see UserC's callEndReason property get set at all.
 
 - `isMuted` status: To find out if a remote participant is muted, check the `isMuted` property. It returns `Boolean`.
 
