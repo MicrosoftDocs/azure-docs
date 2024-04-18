@@ -21,7 +21,7 @@ To maintain network security and regulate traffic flow within your Azure Fabric 
 
 Before applying ACLs to NNIs, utilize the following commands to view ACL details.
 
-#### Viewing ACL Details
+#### Viewing ACL details
 
 To view the specifics of a particular ACL, execute the following command:
 
@@ -31,7 +31,7 @@ az networkfabric acl show --name acl-ingress --resource-group myResourceGroup
 
 This command furnishes detailed information regarding the ACL's configuration, administrative state, default action, and matching conditions.
 
-#### Listing ACLs in a Resource Group
+#### Listing ACLs in a resource group
 
 To list all ACLs within a resource group, use the command:
 
