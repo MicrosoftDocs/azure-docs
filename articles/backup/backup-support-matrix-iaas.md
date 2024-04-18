@@ -138,8 +138,7 @@ Restore files from network-restricted storage accounts | Not supported.
 Restore files on VMs by using Windows Storage Spaces | Not supported.
 Restore files on a Linux VM by using LVM or RAID arrays | Not supported on the same VM.<br/><br/> Restore on a compatible VM.
 Restore files with special network settings | Not supported on the same VM. <br/><br/> Restore on a compatible VM.
-Restore files from an ultra disk | Supported. <br/><br/>See [Azure VM storage support](#vm-storage-support).
-Restore files from a shared disk, temporary drive, deduplicated disk, ultra disk, or disk with a write accelerator enabled | Not supported. <br/><br/>See [Azure VM storage support](#vm-storage-support).
+Restore files from a shared disk, temporary drive, deduplicated disk, Ultra disk, Premium SSD v2 disk, or disk with a write accelerator enabled | Not supported. <br/><br/>See [Azure VM storage support](#vm-storage-support).
 
 ## Support for VM management
 

@@ -452,7 +452,7 @@
           displayName: threat intelligence reports
           href: threat-intelligence-reports.md
         - name: Validate your alert configuration
-          displayname: eicar, Kubernetes, Linux
+          displayName: eicar, Kubernetes, Linux
           href: alert-validation.md
         - name: Automate responses to alerts
           displayName: workflow

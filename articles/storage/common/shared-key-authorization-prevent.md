@@ -8,7 +8,7 @@ ms.author: pauljewell
 ms.service: azure-storage
 ms.subservice: storage-common-concepts
 ms.topic: how-to
-ms.date: 12/05/2023
+ms.date: 04/16/2024
 ms.reviewer: nachakra
 ms.custom: devx-track-azurecli, engagement-fy23
 ms.devlang: azurecli
@@ -289,6 +289,16 @@ az storage account update \
     --resource-group <resource-group> \
     --allow-shared-key-access false
 ```
+
+# [Template](#tab/template)
+
+To disallow Shared Key authorization for a storage account with an Azure Resource Manager template or Bicep file, you can modify the following property:
+
+```json
+"allowSharedKeyAccess": false
+```
+
+To learn more, see the [storageAccounts specification](/azure/templates/microsoft.storage/storageaccounts).
 
 ---
 
