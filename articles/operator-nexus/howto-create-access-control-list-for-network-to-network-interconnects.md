@@ -9,7 +9,7 @@ ms.date: 04/18/2024
 ms.custom: template-how-to
 ---
 
-# Access Control List (ACL) management for NNI and layer 3 isolation domain external networks
+# Creating Access Control List (ACL) management for NNI and layer 3 isolation domain external networks
 
 Access Control Lists (ACLs) are a set of rules that regulate inbound and outbound packet flow within a network. Azure's Nexus Network Fabric service offers an API-based mechanism to configure ACLs for network-to-network interconnects and layer 3 isolation domain external networks. This guide outlines the steps to create ACLs.
 
