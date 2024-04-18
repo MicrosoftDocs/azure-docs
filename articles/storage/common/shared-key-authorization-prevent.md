@@ -1,3 +1,7 @@
+![image](https://github.com/MicrosoftDocs/azure-docs/assets/9943067/0e76a280-7b1b-4716-b669-98f5936a0ac6)
+![image](https://github.com/MicrosoftDocs/azure-docs/assets/9943067/ee9e00c8-0dbc-454a-9733-067676cffc79)
+![image](https://github.com/MicrosoftDocs/azure-docs/assets/9943067/ac41f216-7777-4c8d-827f-249501fcfecd)
+![image](https://github.com/MicrosoftDocs/azure-docs/assets/9943067/52db4742-b690-4306-89d3-6e105e40240d)
 ---
 title: Prevent authorization with Shared Key
 titleSuffix: Azure Storage
@@ -287,7 +291,7 @@ The following example shows how to disallow access with Shared Key for an existi
 az storage account update \
     --name <storage-account> \
     --resource-group <resource-group> \
-    --allow-shared-key-access false
+    --allowSharedKeyAccess false
 ```
 
 # [Template](#tab/template)
@@ -314,7 +318,7 @@ To verify that Shared Key authorization is no longer permitted, you can query th
 az storage account show \
     --name <storage-account-name> \
     --resource-group <resource-group-name> \
-    --query "allow-shared-key-access"
+    --query "allowSharedKeyAccess"
 ```
 
 The command returns **false** if Shared Key authorization is disallowed for the storage account.
