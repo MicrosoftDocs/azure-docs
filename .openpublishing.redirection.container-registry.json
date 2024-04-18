@@ -31,6 +31,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/container-registry/tutorial-troubleshoot-artifact-cache.md",
+            "redirect_url": "/azure/container-registry/troubleshoot-artifact-cache",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/container-registry/container-registry-customer-managed-keys.md",
             "redirect_url": "/azure/container-registry/tutorial-customer-managed-keys",
             "redirect_document_id": false
