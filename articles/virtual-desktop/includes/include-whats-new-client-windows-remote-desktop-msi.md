@@ -2,7 +2,7 @@
 ms.topic: include
 author: heidilohr
 ms.author: helohr
-ms.date: 04/17/2024
+ms.date: 04/18/2024
 ---
 
 ## Supported client versions
@@ -11,7 +11,7 @@ The following table lists the current versions available for the public and Insi
 
 | Release | Latest version | Download |
 |--|--|--|
-| Public | 1.2.5326 | [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369) *(most common)*<br />[Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139456)<br />[Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139370) |
+| Public | 1.2.5331 | [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369) *(most common)*<br />[Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139456)<br />[Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139370) |
 | Insider | 1.2.5405 | [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139233) *(most common)*<br />[Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139144)<br />[Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139368) |
 
 ## Updates for version 1.2.5405 (Insider)
@@ -26,17 +26,22 @@ In this release, we made the following changes:
 - Fixed an issue that caused an extra string to appear next to a user's tenant URL.
 - Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues. 
 
-## Updates for version 1.2.5326
+## Updates for version 1.2.5331
 
 Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369), [Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139456), [Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139370)
 
-*Date published: March 19, 2024*
+*Date published: April 18, 2024*
 
 In this release, we've made the following changes:
 
 - Fixed an issue that caused the RemoteApp window to appear stretched.
 - When users enter text into the email or URL field to search for a workspace while subscribing to a feed, screen readers now announce whether the client can find the workspace.
+- - Fixed an issue that made the MFA prompt appear twice when users tried to connect to a resource 
+- Fixed an issue that caused an extra string to appear next to a user's tenant URL.
 - Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues.
+
+>[!NOTE]
+>This release was originally version 1.2.5326, but we made a hotfix after receiving user reports about issues that affected the MFA prompt and tenant URLs. Version 1.2.5331, which fixes these issues, has replaced version 1.2.5326.
 
 ## Updates for version 1.2.5255
 
