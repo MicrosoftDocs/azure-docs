@@ -26,9 +26,14 @@ In this article, we learn how to use Iceberg Table managed in Hive catalog, with
  
 1. Go to Script actions on Cluster Azure Portal:
  
-Upload <hadoop-hdfs-client_jar:https://hdiconfigactions2.blob.core.windows.net/flink-script-action/hudi-sa-test.sh>
+1. Upload <hadoop-hdfs-client_jar:https://hdiconfigactions2.blob.core.windows.net/flink-script-action/hudi-sa-test.sh>
 
-Once you launch the Secure Shell (SSH), let us start downloading the dependencies required to the SSH node, to illustrate the Iceberg table managed in Hive catalog.
+:::image type="content" source="./media/flink-catalog-iceberg-hive/add-script-action.png" alt-text="Screenshot showing how to add script sction.":::
+
+:::image type="content" source="./media/flink-catalog-iceberg-hive/script-action-successful.png" alt-text="Screenshot showing script action added successfully.":::
+
+
+1. Once you launch the Secure Shell (SSH), let us start downloading the dependencies required to the SSH node, to illustrate the Iceberg table managed in Hive catalog.
 
    ```
    wget https://repo1.maven.org/maven2/org/apache/iceberg/iceberg-flink-runtime-1.17/1.4.0/iceberg-flink-runtime-1.17-1.4.0.jar -P $FLINK_HOME/lib
