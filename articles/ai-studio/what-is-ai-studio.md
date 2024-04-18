@@ -1,12 +1,12 @@
 ---
-title: What is AI Studio?
+title: What is Azure AI Studio?
 titleSuffix: Azure AI Studio
-description: Azure AI Studio brings together capabilities from across multiple Azure AI services. You can build generative AI applications on an enterprise-grade platform.
+description: Azure AI Studio is a trusted platform that empowers developers to drive innovation and shape the future with AI in a safe, secure, and responsible way.
 manager: nitinme
 keywords: Azure AI services, cognitive
 ms.service: azure-ai-studio
 ms.topic: overview
-ms.date: 2/6/2024
+ms.date: 5/21/2024
 ms.reviewer: eur
 ms.author: eur
 author: eric-urban
@@ -15,43 +15,135 @@ ms.custom: ignite-2023
 
 # What is Azure AI Studio?
 
-Azure AI Studio brings together capabilities from across multiple Azure AI services. 
+[Azure AI Studio](https://ai.azure.com) is a trusted platform that empowers developers to drive innovation and shape the future with AI in a safe, secure, and responsible way. The comprehensive platform accelerates the development of production-ready copilots with agent-like functionality to support enterprise chat, content generation, data analysis, and more. Developers can explore cutting-edge APIs and models for their use cases; build and test solutions with collaborative and responsible AI tools, safeguards, and best practices; deploy AI innovations for use in websites, applications, and other production environments; and manage solutions with continuous monitoring and governance in production.
 
 :::image type="content" source="./media/explore/ai-studio-home.png" alt-text="Screenshot of the Azure AI Studio home page." lightbox="./media/explore/ai-studio-home.png":::
 
-[Azure AI Studio](https://ai.azure.com) is designed for developers to:
+[AI Studio](https://ai.azure.com) is designed for developers to:
 
 - Build generative AI applications on an enterprise-grade platform. 
 - Directly from the studio you can interact with a project code-first via [Visual Studio Code (Web)](how-to/develop-in-vscode.md).
-- Azure AI Studio is a trusted and inclusive platform that empowers developers of all abilities and preferences to innovate with AI and shape the future. 
+- AI Studio is a trusted and inclusive platform that empowers developers of all abilities and preferences to innovate with AI and shape the future. 
 - Seamlessly explore, build, test, and deploy using cutting-edge AI tools and ML models, grounded in responsible AI practices. 
-- Build together as one team. Your [Azure AI Studio hub](./concepts/ai-resources.md) provides enterprise-grade security, and a collaborative environment with shared files and connections to pretrained models, data and compute.
-- Organize your way. Your [Azure AI Studio project](./how-to/create-projects.md) helps you save state, allowing you iterate from first idea, to first prototype, and then first production deployment. Also easily invite others to collaborate along this journey.
+- Build together as one team. Your [AI Studio hub](./concepts/ai-resources.md) provides enterprise-grade security, and a collaborative environment with shared files and connections to pretrained models, data and compute.
+- Organize your way. Your [AI Studio project](./how-to/create-projects.md) helps you save state, allowing you iterate from first idea, to first prototype, and then first production deployment. Also easily invite others to collaborate along this journey.
 
-With Azure AI Studio, you can evaluate large language model (LLM) responses and orchestrate prompt application components with prompt flow for better performance. The platform facilitates scalability for transforming proof of concepts into full-fledged production with ease. Continuous monitoring and refinement support long-term success.  
+With AI Studio, you can evaluate large language model (LLM) responses and orchestrate prompt application components with prompt flow for better performance. The platform facilitates scalability for transforming proof of concepts into full-fledged production with ease. Continuous monitoring and refinement support long-term success.  
 
-## Getting around in Azure AI Studio
+### API and model choice 
 
-Wherever you're at or going in Azure AI Studio, use the **Home**, **Explore**, **Build**, and **Manage** tabs to find your way around.
+Identify the best AI services and models for your use case. 
+- Azure AI services 
+- Azure OpenAI Service 
+- Model catalog: Managed compute and serverless APIs
+- Model benchmarking: Compare models by performance and key parameters
 
-# [Home](#tab/home)
+**Build intelligent apps with industry-leading APIs.** Develop multimodal, multi-lingual AI with out-of-the-box and customizable APIs and models. 
 
-The introduction to Azure AI, with information about what's new, access to any existing projects, a curated selection of Azure AI experiences, and links to learning resources. 
+**Discover models for your use case.** Choose from the latest cutting-edge foundation and open models. Benchmark models by performance and key parameters and deploy what’s right for your use case. 
 
-:::image type="content" source="./media/explore/ai-studio-tab-home.png" alt-text="Screenshot of the signed-out Azure AI Studio home page." lightbox="./media/explore/ai-studio-tab-home.png":::
+**Deploy serverless models.** Get started quickly with ready-to-use APIs, without the need to provision GPUs. 
 
-# [Explore](#tab/explore)
+### Complete AI toolchain 
 
-This is where you can find a model, service, or solution to start working on. The goal is that you can find, and try, all of Azure AI from here. Explore is stateless, so when you want to save settings and assets such as data you create a project and continue on the [Build](?tabs=build) page. 
+Access collaborative, comprehensive tooling to support the development lifecycle and differentiate your apps.
+- Azure AI Search
+- Fine-tuning
+- Prompt flow
+- Open frameworks
+- Tracing and debugging
+- Evaluations
 
-- Explore has a growing suite of tools, patterns, and guidance on how to build with AI so that enterprise can scale PoCs with a paved path to full production.
-- Guidance about how to select the right models and tools based on your use case.
-- Test AI solutions with your app code and data and receive guidance on standardized methods to evaluate the model, prompt, and overall application pipeline.
-- The try-out and model catalog cards provide an easy way to spin up a new project or add to an existing project.
+**Ground models on your secure data.** Use your protected data to customize models with advanced fine-tuning and for contextually relevant retrieval augmented generation. 
 
-:::image type="content" source="./media/explore/ai-studio-tab-explore.png" alt-text="Screenshot of the signed-out Azure AI Studio explore page." lightbox="./media/explore/ai-studio-tab-explore.png":::
+**Orchestrate and debug AI workflows.** Streamline app development with easy-to-use prompt orchestration, tracing, and debugging via interactive visual and code-first workflows. 
 
-# [Build](#tab/build)
+**Streamline model and app evaluations.** Systematically measure and improve app performance with manual and automated evaluations. 
+
+### Responsible AI tools and practices 
+
+Design and safeguard applications.
+- Responsible AI principles
+- Azure AI Content Safety 
+
+**Design apps responsibly.** Confidently build apps with technologies, templates, and best practices to help manage risk, improve accuracy, protect privacy, reinforce transparency, and simplify compliance. 
+
+**Safeguard apps with configurable filters and controls.** Detect and filter content, protect personal identifiable information (PII), and safeguard applications against prompt attacks. 
+
+### Enterprise-grade production at scale 
+
+Deploy AI innovations to Azure’s managed infrastructure with continuous monitoring and governance across environments. 
+- Collaborative AI hubs
+- LLMOps
+- Monitoring & observability
+- IT governance
+- Security & privacy
+- RBAC
+- Microsoft Copilot Copyright Commitment
+
+**Deploy to production.** Scale AI for use in websites, applications, and other production environments. 
+
+**Operationalize and monitor workflows.** Continuously monitor AI safety, quality, and token consumption in production. Automate workflows and alerts for timely issue resolution. 
+
+**Enable developer agility and enterprise governance at scale.** Provide easy project creation and resource management across the organization and enterprise controls for security, privacy, and compliance. 
+
+## Home page
+
+Go to the **Home** page to create or access hubs and projects, explore the model catalog, access the AI services try-out experiences, dive into documentation, and more.
+
+:::image type="content" source="media/explore/home-page.gif" alt-text="GIF of scrolling down the AI Studio home page." lightbox= "media/explore/home-page.gif":::
+
+### Model catalog
+
+The model catalog is a collection of models that you can use in your projects. You can filter the models by collection, inference task (such as summarization and chat completion), license, and more.
+
+:::image type="content" source="media/explore/home-model-catalog.png" alt-text="Screenshot of the model catalog on the AI Studio home page." lightbox= "media/explore/home-model-catalog.png":::
+
+### Model benchmarking
+
+Assess model performance with evaluated metrics for accuracy, coherence, fluency, and similarity. Compare benchmarks across models and datasets available in the industry to assess which one meets your business scenario.
+
+The model benchmarking tool helps you compare the performance of different models on a specific task. You can select a task, such as question answering or text generation, and see how different models perform on that task. You can also filter by specific models or model collections to see how they compare to each other.
+
+:::image type="content" source="media/explore/home-model-benchmarking.png" alt-text="Screenshot of the model benchmarking page in AI Studio." lightbox= "media/explore/home-model-benchmarking.png":::
+
+### Prompt catalog
+
+The prompt catalog is a collection of prompts for common use cases such as generating text or images. You can filter the prompts by modality (such as chat, completions, image, and video), by industry (such as retail and education), and by task (such as summarization and chat completion).
+
+:::image type="content" source="media/explore/home-prompt-catalog.png" alt-text="Screenshot of the prompt catalog on the AI Studio home page." lightbox= "media/explore/home-prompt-catalog.png":::
+
+Choose a sample prompt to see how it works or as a starting point for your project. Then customize it for your scenario and evaluate how it performs before integrating into your app.
+
+### AI Services
+
+From the **AI Services** page, you can jump to try-out experiences for different [Azure AI services](../ai-services/what-are-ai-services.md?context=/azure/ai-studio/context/context) and models. For example, you can try out Speech, Language, Vision, Document Intelligence, Content Safety, and more.
+
+:::image type="content" source="media/explore/home-ai-services.png" alt-text="Screenshot of the AI Services home page." lightbox= "media/explore/home-ai-services.png":::
+
+### Management
+
+All hubs
+
+The **All hubs** page provides a list of all the hubs that you have access to in Azure AI Studio. You can see the name of each hub, the number of projects in the hub, and the number of users in the hub. You can also filter the hubs by name or description.
+
+Resources and keys
+
+The resources and keys section provides information about the resources and keys that you have access to in Azure AI Studio. You can see the name of each resource, the type of resource, and the key that you need to access the resource. You can also filter the resources by name or description.
+
+Quota
+
+The quota section provides information about the quota that you have access to in Azure AI Studio. You can see the name of each quota, the type of quota, and the amount of quota that you have used. You can also filter the quotas by name or description.
+
+## Hub view
+
+As a developer, you can manage settings such as connections and compute. Your admin mainly uses this section to look at access control, usage, and billing.
+
+- Centralized backend infrastructure to reduce complexity for developers.
+- A single hub for enterprise configuration, unified data story, and built-in governance.
+
+
+## Project view
 
 Build is an experience where AI Devs and ML Pros can build or customize AI solutions and models. Developers can switch between studio and code.
 
@@ -59,41 +151,25 @@ Build is an experience where AI Devs and ML Pros can build or customize AI solut
 - Orchestration framework to handle the complex mapping of functions and code between LLMs, tools, custom code, prompts, data, search indexes, and more.
 - Evaluate, deploy, and continuously monitor your AI application and app performance.
 
-:::image type="content" source="./media/explore/ai-studio-tab-build.png" alt-text="Screenshot of the signed-out Azure AI Studio Build page." lightbox="./media/explore/ai-studio-tab-build.png":::
+## AI Studio enterprise chat solution demo
 
-# [Manage](#tab/manage)
-
-As a developer, you can manage settings such as connections and compute. Your admin mainly uses this section to look at access control, usage, and billing.
-
-- Centralized backend infrastructure to reduce complexity for developers.
-- A single hub for enterprise configuration, unified data story, and built-in governance.
-
-:::image type="content" source="./media/explore/ai-studio-tab-manage.png" alt-text="Screenshot of the signed-out Azure AI Studio manage page." lightbox="./media/explore/ai-studio-tab-manage.png":::
-
----
-
-## Azure AI Studio enterprise chat solution demo
-
-Learn how to build your own copilot with Azure AI Studio in this [overview video from Microsoft Mechanics on YouTube](https://youtu.be/3hZorLy6JiA).
+Learn how to build your own copilot with AI Studio in this [overview video from Microsoft Mechanics on YouTube](https://youtu.be/3hZorLy6JiA).
 > [!VIDEO https://www.youtube.com/embed/3hZorLy6JiA]
 
 ## Pricing and Billing
 
-Using Azure AI Studio also incurs cost associated with the underlying services, to learn more read [Plan and manage costs for Azure AI services](./how-to/costs-plan-manage.md).
+Using AI Studio also incurs cost associated with the underlying services, to learn more read [Plan and manage costs for Azure AI services](./how-to/costs-plan-manage.md).
 
 ## Region availability
 
-Azure AI Studio is available in most regions where Azure AI services are available. For more information, see [region support for Azure AI Studio](reference/region-support.md).
+AI Studio is available in most regions where Azure AI services are available. For more information, see [region support for AI Studio](reference/region-support.md).
 
 ## How to get access
 
-You can explore Azure AI Studio without signing in, but for full functionality an Azure account is needed. You also need to apply for access to Azure OpenAI Service by completing the form at [https://aka.ms/oai/access](https://aka.ms/oai/access). You receive a follow-up email when your subscription is added.
+You can [explore AI Studio](#get-started) without signing in, but for full functionality an Azure account is needed. You also need to apply for access to Azure OpenAI Service by completing the form at [https://aka.ms/oai/access](https://aka.ms/oai/access). You receive a follow-up email when your subscription is added.
 
 ## Next steps 
 
 - [Create a project](./how-to/create-projects.md)
 - [Tutorial: Deploy a chat web app](tutorials/deploy-chat-web-app.md)
-- [Tutorial: Using Azure AI Studio with a screen reader](tutorials/screen-reader.md)
-
-
- 
+- [Tutorial: Using AI Studio with a screen reader](tutorials/screen-reader.md)
