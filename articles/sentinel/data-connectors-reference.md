@@ -57,7 +57,7 @@ Data connectors are available as part of the following offerings:
 ## Amazon Web Services
 
 - [Amazon Web Services](data-connectors/amazon-web-services.md)
-- [Amazon Web Services S3 (preview)](data-connectors/amazon-web-services-s3.md)
+- [Amazon Web Services S3](data-connectors/amazon-web-services-s3.md)
 
 ## Apache
 
@@ -416,7 +416,6 @@ Data connectors are available as part of the following offerings:
 - [Azure Web Application Firewall (WAF)](data-connectors/azure-web-application-firewall-waf.md)
 - [Common Event Format (CEF)](data-connectors/common-event-format-cef.md)
 - [Common Event Format (CEF) via AMA](data-connectors/common-event-format-cef-via-ama.md)
-- [DNS](data-connectors/dns.md)
 - [Fortinet FortiWeb Web Application Firewall](data-connectors/fortinet-fortiweb-web-application-firewall.md)
 - [Microsoft 365 (formerly, Office 365)](data-connectors/microsoft-365.md)
 - [Microsoft Defender XDR](data-connectors/microsoft-365-defender.md)
@@ -440,7 +439,7 @@ Data connectors are available as part of the following offerings:
 - [Threat intelligence - TAXII](data-connectors/threat-intelligence-taxii.md)
 - [Threat Intelligence Platforms](data-connectors/threat-intelligence-platforms.md)
 - [Threat Intelligence Upload Indicators API (Preview)](data-connectors/threat-intelligence-upload-indicators-api.md)
-- [Windows DNS Events via AMA (Preview)](data-connectors/windows-dns-events-via-ama.md)
+- [Windows DNS Events via AMA](data-connectors/windows-dns-events-via-ama.md)
 - [Windows Firewall](data-connectors/windows-firewall.md)
 - [Windows Forwarded Events](data-connectors/windows-forwarded-events.md)
 - [Windows Security Events via AMA](data-connectors/windows-security-events-via-ama.md)

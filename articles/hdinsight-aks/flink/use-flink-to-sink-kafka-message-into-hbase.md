@@ -170,7 +170,7 @@ hbase:002:0>
         <java.version>1.8</java.version>
         <scala.binary.version>2.12</scala.binary.version>
         <hbase.version>2.4.11</hbase.version>
-        <kafka.version>3.2.0</kafka.version> // Replace with 2.4.0 for HDInsight Kafka 2.4
+        <kafka.version>3.2.0</kafka.version>
     </properties>
     <dependencies>
         <dependency>

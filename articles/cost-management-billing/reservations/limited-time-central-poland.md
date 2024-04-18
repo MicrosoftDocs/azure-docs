@@ -14,7 +14,7 @@ ms.custom: references_regions, linux-related-content
 # Save on select VMs in Poland Central for a limited time
 
 > [!NOTE]
-> This limited-time offer expired on March 1, 2024. You can still purchase Azure Reserved VM Instances at regular discounted prices. For more information about reservation discount, see [How the Azure reservation discount is applied to virtual machines](../manage/understand-vm-reservation-charges.md).
+> This limited-time offer expired on April 1, 2024. You can still purchase Azure Reserved VM Instances at regular discounted prices. For more information about reservation discount, see [How the Azure reservation discount is applied to virtual machines](../manage/understand-vm-reservation-charges.md).
 
 Save up to 66 percent compared to pay-as-you-go pricing when you purchase one or three-year [Azure Reserved Virtual Machine (VM) Instances](../../virtual-machines/prepay-reserved-vm-instances.md?toc=/azure/cost-management-billing/reservations/toc.json) for select VMs Poland Central for a limited time. This offer is available between October 1, 2023 – March 31, 2024.
 

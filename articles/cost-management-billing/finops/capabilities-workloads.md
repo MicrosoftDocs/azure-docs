@@ -5,8 +5,7 @@ author: bandersmsft
 ms.author: banders
 ms.date: 03/21/2024
 ms.topic: conceptual
-ms.service: cost-management-billing
-ms.subservice: finops
+ms.service: finops
 ms.reviewer: micflan
 ---
 
@@ -60,7 +59,7 @@ At this point, you have setup autoscaling and autostop behaviors. As you move be
 
 ## Learn more at the FinOps Foundation
 
-This capability is a part of the FinOps Framework by the FinOps Foundation, a non-profit organization dedicated to advancing cloud cost management and optimization. For more information about FinOps, including useful playbooks, training and certification programs, and more, see the [Workload management and automation capability](https://www.finops.org/framework/capabilities/workload-management-automation) article in the FinOps Framework documentation.
+This capability is a part of the FinOps Framework by the FinOps Foundation, a non-profit organization dedicated to advancing cloud cost management and optimization. For more information about FinOps, including useful playbooks, training and certification programs, and more, see the [Workload Optimization](https://www.finops.org/framework/capabilities/workload-optimization/) article in the FinOps Framework documentation.
 
 ## Next steps
 

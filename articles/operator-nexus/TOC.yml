@@ -22,6 +22,10 @@
           href: concepts-network-fabric-controller.md
         - name: Network Fabric Services
           href: concepts-network-fabric-services.md
+        - name: Network Fabric resource update and commit
+          href: concepts-network-fabric-resource-update-commit.md
+        - name: Network Fabric read-only commands
+          href: concepts-network-fabric-read-only-commands.md
     - name: Isolation Domains
       expanded: false
       items:
@@ -134,6 +138,8 @@
               href: how-to-ip-prefixes.md
             - name: Network Packet Broker
               href: howto-configure-network-packet-broker.md
+            - name: Validate cables for Nexus Network Fabric
+              href: how-to-validate-cables.md
     - name: Nexus Kubernetes cluster
       expanded: false
       items:
