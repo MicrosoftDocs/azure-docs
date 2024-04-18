@@ -48,7 +48,7 @@ In this section, you create an Azure DDoS protection plan to associate with the 
     | Resource group | Select **Create new**. </br> Enter **RouteServerRG**. </br> Select **OK**. |
     | **Instance details** |   |
     | Name | Enter **myDDoSProtectionPlan**. |
-    | Region | Select **West Central US**. |
+    | Region | Select **West US**. |
 
 5. Select **Review + create**.
 
@@ -71,7 +71,7 @@ In this section, you create an Azure Route Server. The virtual network and publi
     | Resource group | Select **RouteServerRG**. |
     | **Instance details** |   |
     | Name | Enter **myRouteServer**. |
-    | Region | Select **West Central US**. |
+    | Region | Select **West US**. |
     | **Configure virtual networks** |   |
     | Virtual network | Select **Create new**. </br> In **Name**, enter **myVNet**. </br> Leave the pre-populated **Address space** and **Subnets**. In the example for this article, the address space is **10.1.0.0/16** with a subnet of **10.1.0.0/24**. </br> In **Subnets**, for **Subnet name**, enter **RouteServerSubnet**. </br> In **Address range**, enter **10.1.1.0/27**. </br> Select **OK**.  |
     | Subnet | Select **RouteServerSubnet (10.1.1.0/27)**. |
