@@ -124,7 +124,7 @@ To hold the call
 ```js
 await call.hold();
 ```
-When `hold` API resolves, the call state will be set to `LocalHold`, if this is a 1:1 call, the other participant will be also put on hold, and state of the call from the perspective of that participant will be set to 'RemoteHold'. The other participant may further put its call on hold, which would result in state change to `LocalHold`.
+When `hold` API resolves, the call state is set to `LocalHold`, if this is a 1:1 call, the other participant is also put on hold, and state of the call from the perspective of that participant is set to 'RemoteHold'. Later, the other participant might put its call on hold, which would result in a state change to `LocalHold`.
 If this is a group call - the `hold` is just a local operation, it won't hold the call for other participants of that call.
 To fully resume that call all users who initiated hold must resume it.
 
