@@ -4,7 +4,7 @@ metadata:
   description: This article discusses popular general questions about Azure Site Recovery.
   ms.topic: faq
   ms.service: site-recovery
-  ms.date: 03/06/2024
+  ms.date: 04/08/2024
 
 
 title: General questions about Azure Site Recovery
@@ -477,6 +477,11 @@ sections:
               * [Replicate Hyper-V virtual machines in VMMs clouds to Azure PowerShell Resource Manager](hyper-v-vmm-powershell-resource-manager.md)
               * [Replicate Hyper-V virtual machines without VMM to Azure PowerShell Resource Manager](hyper-v-azure-powershell-resource-manager.md)
               * [Replicate VMware to Azure with PowerShell Resource Manager](vmware-azure-disaster-recovery-powershell.md)
+
+      - question: |
+         Does the retirement of the AzureRM module affect how Site Recovery automatic updates work with an automation account?
+        answer: |
+              No, the retirement of the AzureRM module doesn't affect how Site Recovery automatic updates work. No changes are needed for the internal runbook, and the REST API used in place, continues to function as intended with the automation account.
 
   - name: Component/provider upgrade
     questions:
