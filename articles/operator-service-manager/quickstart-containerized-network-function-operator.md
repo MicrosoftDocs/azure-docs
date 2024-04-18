@@ -198,7 +198,7 @@ In prior steps, you created a Managed Identity labeled identity-for-nginx-sns in
 
 1. Choose Add **Role Assignment**.
 
-   :::image type="content" source="media/add-role-assignment-publisher-resource-group-containerized.png" alt-text="Screenshot showing the publisher resource group add role assignment.":::
+   :::image type="content" source="media/add-role-assignment-custom-location.png" alt-text="Screenshot showing the publisher resource group add role assignment.":::
 
 1. Under the **Privileged administrator roles**, category pick _Contributor_ then proceed with **Next**.
 
