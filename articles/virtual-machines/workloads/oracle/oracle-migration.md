@@ -13,6 +13,8 @@ ms.date: 4/16/2024
 
 This article shows how to move your Oracle workload from your on-premises environment to the Azure virtual machine (VM) infrastructure. It uses the Landing zone for Oracle Database at Azure, which offers design advice and best practices for Oracle migration on Azure IaaS. A proven discovery, design, and deployment approach are recommended for the overall migration strategy, followed by data migration, and cut over. 
 
+:::image type="content" source="./media/oracle-migration/azure-virtual-machine-migration.png" alt-text="Screenshot of discovery, design, and deploy migration strategy."lightbox="./media/oracle-migration/azure-virtual-machine-migration.png":::
+
 ## Discovery
 
 Migration begins with a detailed assessment of the Oracle product portfolio. The current infrastructure that supports Oracle database and apps, database versions, and types of applications that use Oracle database are: Oracle (EBS, Siebel, People Soft, JDE, and others) and non-Microsoft partner offerings like SAP or custom applications. The existing Oracle database can operate on servers, Oracle Real Application Clusters (RAC), or non-Microsoft partner RAC. For applications, we need to discover size of infrastructure that can be done easily by using Azure Migrate based discovery. For database, the approach is to get allowed with restrictions (AWR) reports on peak load to move on to design steps. 
