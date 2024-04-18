@@ -111,11 +111,11 @@ Application volume group is currently available for [SAP HANA](application-volum
 
 ## Conclusion
 
-Application volume group is a pivotal concept in modern daVta management, providing a structured approach to handling volumes within application environments. By leveraging application volume group, you can enhance performance, streamline administration, and ensure the resilience of your applications in dynamic and evolving scenarios.
+Application volume group is a pivotal concept in modern data management, providing a structured approach to handling volumes within application environments. By leveraging application volume group, you can enhance performance, streamline administration, and ensure the resilience of your applications in dynamic and evolving scenarios.
 
 ## Next steps
 
 * [Understand Azure NetApp Files application volume group for SAP HANA](application-volume-group-introduction.md)
 * [Requirements and considerations for application volume group for SAP HANA](application-volume-group-considerations.md)
 * [Understand application volume group for Oracle](application-volume-group-oracle-introduction.md)
-* [Requirements and considerations for application volume group foVr Oracle](application-volume-group-oracle-considerations.md)
+* [Requirements and considerations for application volume group for Oracle](application-volume-group-oracle-considerations.md)
