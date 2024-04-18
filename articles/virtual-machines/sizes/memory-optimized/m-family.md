@@ -1,6 +1,6 @@
 ---
-title: F family VM size series
-description: Overview of the 'F' family and sub families of virtual machine sizes
+title: M family VM size series
+description: Overview of the 'M' family and sub families of virtual machine sizes
 author: mattmcinnes
 ms.service: virtual-machines
 ms.subservice: sizes

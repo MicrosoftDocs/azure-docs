@@ -28,6 +28,6 @@ The 'D' family of VM size series are one of Azure's memory-optimized VM instance
 ### Dv2-series
 [!INCLUDE [dv2-dsv2-series-summary](./includes/dv2-dsv2-series-summary.md)]
 
-[View the full Dv2 and Dsv2-series page](../../dv2-dsv2-series.md).
+[View the full Dv2 and Dsv2-series page](../../dv2-dsv2-series-memory.md).
 
 [!INCLUDE [dv2-dsv2-series-specs](./includes/dv2-dsv2-series-specs.md)]
