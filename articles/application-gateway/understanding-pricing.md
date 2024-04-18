@@ -65,7 +65,7 @@ Compute unit guidance:
 * Standard_v2 - Each compute unit is capable of approximately 50 connections per second with RSA 2048-bit key TLS certificate.
 * WAF_v2 - Each compute unit can support approximately 10 concurrent requests per second for 70-30% mix of traffic with 70% requests less than 2 KB GET/POST and remaining higher. WAF performance isn't affected by response size currently.
 
-The following table shows example prices based on a snapshot of East US pricing and are for illustration purposes only.
+The following table shows example prices using Application Gateway Standard v2 SKU. These prices are based on a snapshot of East US pricing and are for illustration purposes only.
 
 #### Fixed Costs (East US region pricing)
 

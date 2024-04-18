@@ -19,7 +19,7 @@ Application Gateway v2 is the latest version of Application Gateway. It provides
 
 ## Key capabilities
 
-The new v2 SKU includes the following enhancements:
+The v2 SKU includes the following enhancements:
 
 - **TCP/TLS proxy (Preview)**: Azure Application Gateway now also supports Layer 4 (TCP protocol) and TLS (Transport Layer Security) proxying. This feature is currently in public preview. For more information, see [Application Gateway TCP/TLS proxy overview](tcp-tls-proxy-overview.md).
 - **Autoscaling**: Application Gateway or WAF deployments under the autoscaling SKU can scale out or in based on changing traffic load patterns. Autoscaling also removes the requirement to choose a deployment size or instance count during provisioning. This SKU offers true elasticity. In the Standard_v2 and WAF_v2 SKU, Application Gateway can operate both in fixed capacity (autoscaling disabled) and in autoscaling enabled mode. Fixed capacity mode is useful for scenarios with consistent and predictable workloads. Autoscaling mode is beneficial in applications that see variance in application traffic.
@@ -53,8 +53,10 @@ The following table displays a comparison between Basic and Standard_v2.
 | Reliability              | SLA                                      | 99.9           | 99.95             |
 | Functionality - basic    | HTTP/HTTP2/HTTPS<br>Websocket<br>Public/Private IP<br>Cookie Affinity<br>Path-based affinity<br>Wildcard<br>Multisite<br>KeyVault<br>AKS (via AGIC)<br>Zone | &#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713;<br> | &#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713;|
 | Functionality - advanced | URL rewrite<br>mTLS<br>Private Link<br>Private-only<sup>1</sup><br>TCP/TLS Proxy |  | &#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713; |
-| Scale                    | Max. connections per second<br>Number of listeners<br>Number of backend pools<br>Number of backend servers per pool<br>Number of rules | 200<br>5<br>5<br>5<br>5  | 1250<br>100<br>100<br>1200<br>400 |
+| Scale                    | Max. connections per second<br>Number of listeners<br>Number of backend pools<br>Number of backend servers per pool<br>Number of rules | 200<br>5<br>5<br>5<br>5  | 62500<sup>1</sup><br>100<br>100<br>1200<br>400 |
 | Capacity Unit            | Connections per second per compute unit<br>Throughput<br>Persistent new connections  | 10<br>2.22 Mbps<br>2500 | 50<br>2.22 Mbps<br>2500 |
+
+<sup>1</sup>Estimated based on using an RSA 2048-bit key TLS certificate.
 
 ## Pricing
 

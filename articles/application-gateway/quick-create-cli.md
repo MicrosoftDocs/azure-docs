@@ -145,6 +145,8 @@ done
 
 Create an application gateway using `az network application-gateway create`. When you create an application gateway with the Azure CLI, you specify configuration information, such as capacity, SKU (for example: `Basic`), and HTTP settings. Azure then adds the private IP addresses of the network interfaces as servers in the backend pool of the application gateway.
 
+The Standard v2 SKU is used in this example.
+
 ```azurecli-interactive
 address1=$(az network nic show --name myNic1 --resource-group myResourceGroupAG | grep "\"privateIPAddress\":" | grep -oE '[^ ]+$' | tr -d '",')
 address2=$(az network nic show --name myNic2 --resource-group myResourceGroupAG | grep "\"privateIPAddress\":" | grep -oE '[^ ]+$' | tr -d '",')

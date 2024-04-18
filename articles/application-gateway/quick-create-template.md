@@ -5,7 +5,7 @@ description: In this quickstart, you learn how to use a Resource Manager templat
 services: application-gateway
 author: greg-lindsay
 ms.author: greglin
-ms.date: 01/23/2024
+ms.date: 04/18/2024
 ms.topic: quickstart
 ms.service: application-gateway
 ms.custom: mvc, subject-armqs, mode-arm, devx-track-arm-template
@@ -13,7 +13,7 @@ ms.custom: mvc, subject-armqs, mode-arm, devx-track-arm-template
 
 # Quickstart: Direct web traffic with Azure Application Gateway - ARM template
 
-In this quickstart, you use an Azure Resource Manager template (ARM template) to create an Azure Application Gateway. Then you test the application gateway to make sure it works correctly.
+In this quickstart, you use an Azure Resource Manager template (ARM template) to create an Azure Application Gateway. Then you test the application gateway to make sure it works correctly. The Standard v2 SKU is used in this example.
 
 :::image type="content" source="media/quick-create-portal/application-gateway-qs-resources.png" alt-text="application gateway resources":::
 

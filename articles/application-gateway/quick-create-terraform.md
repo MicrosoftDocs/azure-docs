@@ -16,7 +16,7 @@ ai-usage: ai-assisted
 
 # Quickstart: Direct web traffic with Azure Application Gateway - Terraform
 
-In this quickstart, you use Terraform to create an Azure Application Gateway. Then you test the application gateway to make sure it works correctly.
+In this quickstart, you use Terraform to create an Azure Application Gateway. Then you test the application gateway to make sure it works correctly. The Standard v2 SKU is used in this example.
 
 [!INCLUDE [About Terraform](~/azure-dev-docs-pr/articles/terraform/includes/abstract.md)]
 

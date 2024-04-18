@@ -29,7 +29,7 @@ Sign in to the [Azure portal](https://portal.azure.com) with your Azure account.
 
 ## Create an application gateway
 
-Create the application gateway using the tabs on the **Create application gateway** page. The Standard v2 SKU is used. To create a Basic SKU using the Azure portal, see [Deploy Application Gateway basic (Preview)](deploy-basic-portal.md)
+Create the application gateway using the tabs on the **Create application gateway** page. The Standard v2 SKU is used in this example. To create a Basic SKU using the Azure portal, see [Deploy Application Gateway basic (Preview)](deploy-basic-portal.md)
 
 1. On the Azure portal menu or from the **Home** page, select **Create a resource**.
 2. Under **Categories**, select **Networking** and then select **Application Gateway** in the **Popular Azure services** list.

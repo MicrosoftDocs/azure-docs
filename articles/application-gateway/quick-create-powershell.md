@@ -13,7 +13,7 @@ ms.custom: devx-track-azurepowershell, mvc, mode-api
 
 # Quickstart: Direct web traffic with Azure Application Gateway using Azure PowerShell
 
-In this quickstart, you use Azure PowerShell to create an application gateway. Then you test it to make sure it works correctly. 
+In this quickstart, you use Azure PowerShell to create an application gateway. Then you test it to make sure it works correctly.
 
 The application gateway directs application web traffic to specific resources in a backend pool. You assign listeners to ports, create rules, and add resources to a backend pool. For the sake of simplicity, this article uses a simple setup with a public frontend IP address, a basic listener to host a single site on the application gateway, a basic request routing rule, and two virtual machines in the backend pool.
 
@@ -75,6 +75,8 @@ New-AzPublicIpAddress `
   -Sku Standard
 ```
 ## Create an application gateway
+
+The Standard v2 SKU is used in this example.
 
 ### Create the IP configurations and frontend port
 
