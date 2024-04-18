@@ -104,7 +104,7 @@ Automatic is the default option for a runtime. You can start an automatic runtim
     - If you choose compute instance, you can only set idle shutdown time. 
         - As it is running on an existing compute instance the VM size is fixed and cannot change in runtime side.
         - Identity used for this runtime also is defined in compute instance, by default it uses the user identity. [Learn more about how to assign identity to compute instance](../how-to-create-compute-instance.md#assign-managed-identity)
-        - For the idle shutdown time it is used to define life cycle of the runtime, if the runtime is idle for the time you set, it will be deleted automatically. And of you have idle shut down enabled on compute instance, then it will continue 
+        - For the idle shutdown time it is used to define life cycle of the runtime, if the runtime is idle for the time you set, it will be deleted automatically. And if you have idle shut down enabled on compute instance, then it will continue 
 
             :::image type="content" source="./media/how-to-create-manage-runtime/runtime-creation-automatic-compute-instance-settings.png" alt-text="Screenshot of prompt flow with advanced settings using compute instance for starting an automatic runtime on a flow page." lightbox = "./media/how-to-create-manage-runtime/runtime-creation-automatic-compute-instance-settings.png":::
 
@@ -362,7 +362,7 @@ If you select **Use customized environment**, you first need to rebuild the envi
 
 ## Relationship between runtime, compute resource, flow and user
 
-- One single user can have multiple compute resources (serverless or compute instance). Base on customer different need, we allow single user to have multiple compute resources. For example, one user can have multiple compute resources with different VM size. You can find 
+- One single user can have multiple compute resources (serverless or compute instance). Base on customer different need, we allow single user to have multiple compute resources. For example, one user can have multiple compute resources with different VM size. 
 - One compute resource can only be used by single user. Compute resource is model as private dev box of single user, so we didn't allow multiple user share same compute resources. In AI studio case, different user can join different project and data and other asset need to be isolated, so we didn't allow multiple user share same compute resources.
 - One compute resource can host multiple runtimes. Runtime is container running on underlying compute resource, as in common case, prompt flow authoring didn't need too many compute resources, we allow single compute resource to host multiple runtimes from same user. 
 - One runtime only belongs to single compute resource in same time. But you can delete or stop runtime and reallocate it to other compute resource.

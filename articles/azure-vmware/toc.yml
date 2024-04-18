@@ -377,3 +377,5 @@ items:
       href: https://kb.vmware.com/s/article/2129927
   - name: FAQ
     href: ./faq.yml
+  - name: Azure VMware Solution Master Diagrams File
+    href: https://github.com/Azure/azure-vmware-solution/blob/main/azure-vmware-master-diagrams

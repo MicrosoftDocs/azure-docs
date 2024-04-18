@@ -24,6 +24,8 @@
           href: concepts-network-fabric-services.md
         - name: Network Fabric resource update and commit
           href: concepts-network-fabric-resource-update-commit.md
+        - name: Network Fabric read-only commands
+          href: concepts-network-fabric-read-only-commands.md
     - name: Isolation Domains
       expanded: false
       items:

@@ -6,7 +6,7 @@ author: ankitaduttaMSFT
 ms.service: site-recovery
 ms.topic: conceptual
 ms.author: ankitadutta
-ms.date: 03/07/2024
+ms.date: 04/02/2024
 ms.custom: engagement-fy23, linux-related-content
 ---
 
@@ -64,6 +64,11 @@ On each Linux machine that you want to protect, do the following:
 12. Add the account you created.
 13. Enter the credentials you use when you enable replication for a computer.
 1. Additional step for updating or protecting SUSE Linux Enterprise Server 11 SP3 OR RHEL 5 or CentOS 5 or Debian 7 machines. [Ensure the latest version is available in the configuration server](vmware-physical-mobility-service-overview.md#download-latest-mobility-agent-installer-for-suse-11-sp3-suse-11-sp4-rhel-5-cent-os-5-debian-7-debian-8-debian-9-oracle-linux-6-and-ubuntu-1404-server).
+
+> [!NOTE]
+> Ensure the following ports are opened in appliance:
+> - **SMB share port**: `445`
+> - **WMI port**: `135`, `5985`, and `5986`.
 
 ## Anti-virus on replicated machines
 
