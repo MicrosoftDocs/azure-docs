@@ -12,9 +12,7 @@ ms.author: normesta
 
 # Connect to Azure Blob Storage by using the SSH File Transfer Protocol (SFTP)
 
-This article shows you how to securely connect to the Blob Storage endpoint of an Azure Storage account by using an SFTP client, and then upload and download files. 
-
-Before you can authorize access, you must first enable SFTP support. See [Enable or disable SFTP support](secure-file-transfer-protocol-support-how-to.md).
+This article shows you how to securely connect to the Blob Storage endpoint of an Azure Storage account by using an SFTP client. After you connect, you can then upload and download files as well as modify access control lists (ACLs) on files and folders.
 
 To learn more about SFTP support for Azure Blob Storage, see [SSH File Transfer Protocol (SFTP) in Azure Blob Storage](secure-file-transfer-protocol-support.md).
 
@@ -28,18 +26,44 @@ To learn more about SFTP support for Azure Blob Storage, see [SSH File Transfer 
 
 ## Connect an SFTP client
 
-You can use any SFTP client to securely connect and then transfer files. The following screenshot shows a Windows PowerShell session that uses [Open SSH](/windows-server/administration/openssh/openssh_overview) and password authentication to connect and then upload a file named `logfile.txt`.  
+You can use any SFTP client to securely connect and then transfer files. The following example shows a Windows PowerShell session that uses [Open SSH](/windows-server/administration/openssh/openssh_overview).
 
-> [!div class="mx-imgBorder"]
-> ![Connect with Open SSH](./media/secure-file-transfer-protocol-support-connect/ssh-connect-and-transfer.png)
+```console
+PS C:\Users\temp> sftp contoso4.contosouser@contoso4.blob.core.windows.net
+```
+
+The SFTP username is `storage_account_name`.`username`.  In the example above the `storage_account_name` is "contoso4" and the `username` is "contosouser."  The combined username becomes `contoso4.contosouser`. The blob service endpoint is `contoso4.blob.core.windows.net`.
+
+To complete the connection, you might have to respond to one or more prompts. For example, if you configured the local user with password authentication, then you'll be prompted to enter that password. You might also be prompted to trust a host key. Valid host keys are published [here](secure-file-transfer-protocol-host-keys.md).  
+
+### Connect using a custom domain
+
+If you want to connect to the blob service endpoint by using a custom domain, then the connection string is `myaccount.myuser@customdomain.com`. If the home directory hasn't been specified for the user, then the connection string is `myaccount.mycontainer.myuser@customdomain.com`.
+
+> [!IMPORTANT]
+> Ensure your DNS provider does not proxy requests as this might cause the connection attempt to time out.
+
+To learn how to map a custom domain to a blob service endpoint, see [Map a custom domain to an Azure Blob Storage endpoint](storage-custom-domain-name.md).
+
+### Connect using a private endpoint
+
+If you want to connect to the blob service endpoint by using a private endpoint, then the connection string is `myaccount.myuser@myaccount.privatelink.blob.core.windows.net`. If the home directory hasn't been specified for the user, then it's `myaccount.mycontainer.myuser@myaccount.privatelink.blob.core.windows.net`.
 
 > [!NOTE]
-> The SFTP username is `storage_account_name`.`username`.  In the example above the `storage_account_name` is "contoso4" and the `username` is "contosouser."  The combined username becomes `contoso4.contosouser` for the SFTP command.
+> Ensure that you change the networking configuration to "Enabled from selected virtual networks and IP addresses", and then select your private endpoint. Otherwise, the blob service endpoint will still be publicly accessible.
 
-> [!NOTE]
-> You might be prompted to trust a host key. Valid host keys are published [here](secure-file-transfer-protocol-host-keys.md).  
+### Transfer data
 
-After the transfer is complete, you can view and manage the file in the Azure portal. 
+After you connect, you can upload and download files. The following example uploads a file named `logfile.txt` by using an active Open SSH session.
+
+```console
+sftp> put logfile.txt
+Uploading logfile.txt to /mydirectory/logfile.txt
+logfile.txt
+        100%    19    0.2kb/S    00.00
+```
+
+After the transfer is complete, you can view and manage the file in the Azure portal.
 
 > [!div class="mx-imgBorder"]
 > ![Uploaded file appears in storage account](./media/secure-file-transfer-protocol-support-connect/uploaded-file-in-storage-account.png)
@@ -49,30 +73,31 @@ After the transfer is complete, you can view and manage the file in the Azure po
 
 See the documentation of your SFTP client for guidance about how to connect and transfer files.
 
-### Connect using a custom domain
+### Modify ACLs (preview)
 
-When using custom domains the connection string is `myaccount.myuser@customdomain.com`. If home directory hasn't been specified for the user, it's `myaccount.mycontainer.myuser@customdomain.com`.
-	
-> [!IMPORTANT]
-> Ensure your DNS provider does not proxy requests. Proxying may cause the connection attempt to time out.
+You can set the ACL of a directory or blob by using an SFTP client. You can also change the ID of the owning user and the owning group. To learn more about ACL support for SFTP clients, see [ACLs](secure-file-transfer-protocol-support.md#acls). These examples use [Open SSH](/windows-server/administration/openssh/openssh_overview).
 
-Add a link to the custom domain content.
+#### Set an ACL
 
-### Connect using a private endpoint
+The following example prints the ACL of a directory to the console. It then, sets the ACL to `777`. Each `7` is the numeric form of `rwx` (read, write, and execute). So `777` gives read, write, and execute permission to the owning user, owning group, and all other users. This example then prints the updated ACL to the console. To learn more about numeric and short forms of an ACL, see [Short forms for permissions](data-lake-storage-access-control.md#short-forms-for-permissions).
 
-When using a private endpoint the connection string is `myaccount.myuser@myaccount.privatelink.blob.core.windows.net`. If home directory hasn't been specified for the user, it's `myaccount.mycontainer.myuser@myaccount.privatelink.blob.core.windows.net`.
-	
+```console
+sftp> ls -l
+drwxr-x---     1234     5678                0 Mon, 08 Jan 2024 16:53:25 GMT dir1
+drwxr-x---        0        0                0 Mon, 16 Oct 2023 12:18:08 GMT dir2
+sftp> chmod 777 dir1
+Changing mode on /dir1
+sftp> ls -l
+drwxrwxrwx     1234     5678                0 Mon, 08 Jan 2024 16:54:06 GMT dir1
+drwxr-x---        0        0                0 Mon, 16 Oct 2023 12:18:08 GMT dir2
+```
+
 > [!NOTE]
-> Ensure you change networking configuration to "Enabled from selected virtual networks and IP addresses" and select your private endpoint, otherwise the regular SFTP endpoint will still be publicly accessible.
+> Adding or modifying ACL entries for named users, named groups, and named security principals is not yet supported.
 
-### Modify access control lists (ACLs)
+#### Change the owning user
 
-You can modify the ACL of a file by using an SFTP client. Changes that you make to the ACL of a file that is already uploaded to Blob Storage are automatically updated on the server.
-You can modify the owner ID, group ID, and set the permission for Owner, group, and Other users.  During the preview of this capability, you can't add named users or change the ACL of existing named users.
-
-#### Change the owner
-
-The following commands chang the owner:
+The following example prints the ACL of a directory to the console. The ID of the owning user is `0`. This example uses the `chown` command to set the ID of the owning user to `1234` and prints the change to the console.
 
 ```console
 sftp> ls -l
@@ -86,13 +111,9 @@ drwxr-x---        0        0                0 Mon, 16 Oct 2023 12:18:08 GMT dir2
 sftp>
 ```
 
-The ACL of the blob in Azure is automatically updated. You can see that by opening it's access control list.
+#### Change the owning group
 
-Screenshot goes here.
-
-#### Change the group
-
-The following commands change the group:
+The following example prints the ACL of a directory to the console. The ID of the owning group is `0`. This example uses the `chgrp` command to set the ID of the owning group to `1234` and prints the change to the console.
 
 ```console
 sftp> ls -l
@@ -104,31 +125,6 @@ sftp> ls -l
 drwxr-x---     1234     5678                0 Mon, 08 Jan 2024 16:53:25 GMT dir1
 drwxr-x---        0        0                0 Mon, 16 Oct 2023 12:18:08 GMT dir2
 ```
-
-The ACL of the blob in Azure is automatically updated. You can see that by opening it's access control list.
-
-Screenshot goes here.
-
-#### Change the permissions
-
-You can change the perms of owner, group, and all other users.
-
-The following commands change permissions:
-
-```console
-sftp> ls -l
-drwxr-x---     1234     5678                0 Mon, 08 Jan 2024 16:53:25 GMT dir1
-drwxr-x---        0        0                0 Mon, 16 Oct 2023 12:18:08 GMT dir2
-sftp> chmod 777 dir1
-Changing mode on /dir1
-sftp> ls -l
-drwxrwxrwx     1234     5678                0 Mon, 08 Jan 2024 16:54:06 GMT dir1
-drwxr-x---        0        0                0 Mon, 16 Oct 2023 12:18:08 GMT dir2
-```
-
-The ACL of the blob in Azure is automatically updated. You can see that by opening it's access control list.
-
-Screenshot goes here.
 
 ## Related content
 
