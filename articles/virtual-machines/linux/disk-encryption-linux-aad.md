@@ -8,7 +8,7 @@ ms.collection: linux
 ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 02/20/2024
-ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.custom: devx-track-azurepowershell, devx-track-azurecli, linux-related-content
 ---
 
 # Enable Azure Disk Encryption with Microsoft Entra ID on Linux VMs (previous release)

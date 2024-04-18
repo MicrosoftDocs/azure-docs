@@ -1,6 +1,11 @@
 {
     "redirections": [
         {
+            "source_path": "articles/sentinel/sap/deploy-data-connector-agent-container-other-methods.md",
+            "redirect_url": "/azure/sentinel/sap/deploy-data-connector-agent-container",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/sentinel/data-connectors/abnormalsecurity-using-azure-function.md",
             "redirect_url": "/azure/sentinel/data-connectors/abnormalsecurity-using-azure-functions",
             "redirect_document_id": true
@@ -1056,6 +1061,21 @@
             "redirect_document_id": true
         },
         {
+            "source_path_from_root": "/articles/sentinel/connect-cef-ama.md",
+            "redirect_url": "/azure/sentinel/connect-cef-syslog-ama",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/connect-cef-syslog.md",
+            "redirect_url": "/azure/sentinel/connect-cef-syslog-ama",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/connect-cef-syslog-options.md",
+            "redirect_url": "/azure/sentinel/connect-cef-syslog-ama",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/sentinel/notebooks-with-synapse.md",
             "redirect_url": "/azure/sentinel/notebooks-hunt",
             "redirect_document_id": false
@@ -1068,6 +1088,11 @@
         {
             "source_path_from_root": "/articles/sentinel/notebooks-with-synapse-hunt.md",
             "redirect_url": "/azure/sentinel/notebooks-hunt",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/dns.md",
+            "redirect_url": "/azure/sentinel/data-connectors/windows-dns-events-via-ama",
             "redirect_document_id": false
         }
     ]

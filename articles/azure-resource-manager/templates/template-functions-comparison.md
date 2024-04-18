@@ -3,7 +3,7 @@ title: Template functions - comparison
 description: Describes the functions to use in an Azure Resource Manager template (ARM template) to compare values.
 ms.topic: conceptual
 ms.custom: devx-track-arm-template
-ms.date: 05/22/2023
+ms.date: 03/20/2024
 ---
 
 # Comparison functions for ARM templates

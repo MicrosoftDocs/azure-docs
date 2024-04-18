@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Connect services in Azure Container Apps (preview)'
+title: 'Tutorial: Connect to an Azure Cache for Redis service in Azure Container Apps (preview)'
 description: Connect a service in development and then promote to production in Azure Container Apps.
 services: container-apps
 author: craigshoemaker
@@ -10,7 +10,7 @@ ms.date: 06/13/2023
 ms.author: cshoe
 ---
 
-# Tutorial: Connect services in Azure Container Apps (preview)
+# Tutorial: Connect to an Azure Cache for Redis service in Azure Container Apps (preview)
 
 Azure Container Apps allows you to connect to services that support your app that run in the same environment as your container app.
 
@@ -18,7 +18,7 @@ When in development, your application can quickly create and connect to [dev ser
 
 As you move to production, your application can connect production-grade managed services.
 
-This tutorial shows you how to connect both dev and production grade services to your container app.
+This tutorial shows you how to connect both dev and production grade Azure Cache for Redis service to your container app.
 
 In this tutorial, you learn to:
 

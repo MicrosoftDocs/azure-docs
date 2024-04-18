@@ -5,7 +5,7 @@ description: Learn the region-based design consideration for Azure AD B2C to pro
 author: gargi-sinha
 manager: martinco
 ms.service: active-directory
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 01/26/2024
 ms.author: gasinh
 ms.subservice: B2C

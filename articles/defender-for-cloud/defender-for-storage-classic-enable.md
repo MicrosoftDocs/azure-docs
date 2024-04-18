@@ -351,7 +351,7 @@ Microsoft Defender for Storage can exclude specific active Databricks workspace 
 
     :::image type="content" source="media/defender-for-storage-exclude/storage-off.png" alt-text="Screenshot showing how to switch the Defender for Storage plan to off.":::
 
-1. Re-enable Defender for Storage (classic) using one of the supported methods (you can’t enable Defender for Storage classic from the Azure portal). 
+1. Re-enable Defender for Storage (classic) using one of the supported methods (you can’t enable Defender for Storage classic from the Azure portal).
 
 The tags are inherited by the Storage account of the Databricks workspace and prevent Defender for Storage from turning on.
 

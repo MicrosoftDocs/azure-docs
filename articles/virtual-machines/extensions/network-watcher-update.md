@@ -5,13 +5,13 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: virtual-machines
 ms.topic: concept-article
-ms.date: 02/18/2024
+ms.date: 03/17/2024
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
 # Update Azure Network Watcher extension to the latest version
 
-[Azure Network Watcher](../../network-watcher/network-watcher-monitoring-overview.md) is a network performance monitoring, diagnostic, and analytics service that monitors Azure networks. The Network Watcher Agent virtual machine (VM) extension is a requirement for capturing network traffic on demand and using other advanced functionality on Azure VMs. The Network Watcher extension is used by features like connection monitor, connection monitor (preview), connection troubleshoot, and packet capture.
+[Azure Network Watcher](../../network-watcher/network-watcher-monitoring-overview.md) is a network performance monitoring, diagnostic, and analytics service that monitors Azure networks. The Network Watcher Agent virtual machine (VM) extension is a requirement for capturing network traffic on demand and using other advanced functionality on Azure VMs. It's used by connection monitor, connection troubleshoot, and packet capture.
 
 ## Prerequisites
 

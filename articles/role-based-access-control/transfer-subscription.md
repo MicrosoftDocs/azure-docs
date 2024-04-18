@@ -6,7 +6,7 @@ manager: amycolannino
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.custom: devx-track-azurecli
-ms.date: 01/02/2024
+ms.date: 04/07/2024
 ms.author: rolyon
 ---
 
@@ -63,7 +63,7 @@ Several Azure resources have a dependency on a subscription or a directory. Depe
 > This section lists the known Azure services or resources that depend on your subscription. Because resource types in Azure are constantly evolving, there might be additional dependencies not listed here that can cause a breaking change to your environment. 
 
 | Service or resource | Impacted | Recoverable | Are you impacted? | What you can do |
-| --------- | --------- | --------- | --------- | --------- |
+| --------- | :---------: | :---------: | --------- | --------- |
 | Role assignments | Yes | Yes | [List role assignments](#save-all-role-assignments) | All role assignments are permanently deleted. You must map users, groups, and service principals to corresponding objects in the target directory. You must re-create the role assignments. |
 | Custom roles | Yes | Yes | [List custom roles](#save-custom-roles) | All custom roles are permanently deleted. You must re-create the custom roles and any role assignments. |
 | System-assigned managed identities | Yes | Yes | [List managed identities](#list-role-assignments-for-managed-identities) | You must disable and re-enable the managed identities. You must re-create the role assignments. |
@@ -82,8 +82,10 @@ Several Azure resources have a dependency on a subscription or a directory. Depe
 | App registrations | Yes | Yes |  |  |
 | Microsoft Dev Box | Yes | No | | You cannot transfer a dev box and its associated resources to a different directory. Once a subscription moves to another tenant, you will not be able to perform any actions on your dev box |
 | Azure Deployment Environments | Yes | No | | You cannot transfer an environment and its associated resources to a different directory. Once a subscription moves to another tenant, you will not be able to perform any actions on your environment |
+| Azure Service Fabric | Yes | No | | You must re-create the cluster. For more information, see [SF Clusters FAQ](../service-fabric/service-fabric-common-questions.md) or [SF Managed Clusters FAQ](../service-fabric/faq-managed-cluster.yml) |
 | Azure Service Bus | Yes | Yes | |You must delete, re-create, and attach the managed identities to the appropriate resource. You must re-create the role assignments. |
 | Azure Synapse Analytics Workspace | Yes | Yes |  | You must update the tenant ID associated with the Synapse Analytics Workspace. If the workspace is associated with a Git repository, you must update the [workspace's Git configuration](../synapse-analytics/cicd/source-control.md#switch-to-a-different-git-repository). For more information, see [Recovering Synapse Analytics workspace after transferring a subscription to a different Microsoft Entra directory (tenant)](../synapse-analytics/how-to-recover-workspace-after-tenant-move.md). |
+| Azure Databricks | Yes | No |  | Currently, Azure Databricks does not support moving workspaces to a new tenant. For more information, see [Manage your Azure Databricks account](/azure/databricks/administration-guide/account-settings/#move-workspace-between-tenants-unsupported). |
 
 > [!WARNING]
 > If you are using encryption at rest for a resource, such as a storage account or SQL database, that has a dependency on a key vault that is being transferred, it can lead to an unrecoverable scenario. If you have this situation, you should take steps to use a different key vault or temporarily disable customer-managed keys to avoid this unrecoverable scenario.
@@ -95,7 +97,7 @@ To get a list of some of the Azure resources that are impacted when you transfer
 To complete these steps, you will need:
 
 - [Bash in Azure Cloud Shell](../cloud-shell/overview.md) or [Azure CLI](/cli/azure)
-- Account Administrator of the subscription you want to transfer in the source directory
+- Billing account owner of the subscription you want to transfer in the source directory
 - A user account in both the source and target directory for the user making the directory change
 
 ## Step 1: Prepare for the transfer

@@ -87,7 +87,7 @@ If your credit card gets renewed and the number stays the same, update the exist
 1. Search for **Cost Management + Billing**.
     :::image type="content" source="./media/change-credit-card/search.png" alt-text="Screenshot of Search." lightbox="./media/change-credit-card/search.png" :::
 1. Select **Payment methods**.
-    :::image type="content" source="./media/change-credit-card/payment-methods-blade-x.png" alt-text="Screenshot showing Manage payment methods" lightbox="./media/change-credit-card/payment-methods-blade-x.png" :::
+    :::image type="content" source="./media/change-credit-card/payment-methods-blade-x.png" alt-text="Screenshot showing Manage payment methods." lightbox="./media/change-credit-card/payment-methods-blade-x.png" :::
 1. On the right side of the page, for the credit card that you want to edit, select the ellipsis (`...`) at the end of the row. Select **Edit**. 
     :::image type="content" source="./media/change-credit-card/edit-card-x.png" alt-text="Screenshot showing Edit navigation." lightbox="./media/change-credit-card/edit-card-x.png" :::
 1. Update the credit card details.  

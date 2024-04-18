@@ -48,6 +48,7 @@ Azure NetApp Files backup is supported for the following regions:
 * Japan East
 * Japan West
 * Korea Central
+* Korea South
 * North Central US
 * North Europe
 * Norway East
@@ -63,6 +64,7 @@ Azure NetApp Files backup is supported for the following regions:
 * UAE Central
 * UAE North
 * UK South
+* UK West
 * West Europe
 * West US
 * West US 2

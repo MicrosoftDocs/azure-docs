@@ -6,7 +6,7 @@ ms.reviewer: amberbhargava
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 12/06/2022
+ms.date: 03/21/2024
 ms.author: banders
 ---
 
@@ -20,7 +20,7 @@ Usage only appears in the Azure portal after you start using free resources so i
 
 1.	Sign in to the [Azure portal](https://portal.azure.com).
 1.  Search for **Subscriptions**.  
-    ![Screenshot that shows search in portal for subscriptions](./media/check-free-service-usage/billing-search-subscriptions.png)
+    :::image type="content" border="true" source="./media/check-free-service-usage/billing-search-subscriptions.png" alt-text="Screenshot that shows search in the Azure portal for subscriptions.":::
 1.	Select the subscription that was created when you signed up for your Azure free account.
 1.  The page shows your free service usage.  
     :::image type="content" source="./media/check-free-service-usage/free-account-subscription-page.png" alt-text="Screenshot showing the free account subscription page where you see your Azure usage." lightbox="./media/check-free-service-usage/free-account-subscription-page.png" :::

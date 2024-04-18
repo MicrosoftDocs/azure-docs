@@ -2,7 +2,7 @@
 title: Limit Network Traffic with Azure Firewall in Azure Kubernetes Service (AKS)
 description: Learn how to control egress traffic with Azure Firewall to set restrictions for outbound network connections in AKS clusters.
 ms.subservice: aks-networking
-ms.custom: devx-track-azurecli, linux-related-content
+ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.author: allensu
 ms.date: 12/05/2023
@@ -130,7 +130,7 @@ You need to configure Azure Firewall inbound and outbound rules. The main purpos
 
     ```azurecli-interactive
     az network firewall ip-config create -g $RG -f $FWNAME -n $FWIPCONFIG_NAME --public-ip-address $FWPUBLICIP_NAME --vnet-name $VNET_NAME
-   ```
+    ```
 
 5. Once the previous command succeeds, save the firewall frontend IP address for configuration later.
 
@@ -265,18 +265,18 @@ If you don't have user-assigned identities, follow the steps in this section. If
 
     The output should resemble the following example output:
 
-    ```output
+    ```json
      {
        "clientId": "<client-id>",
-        "clientSecretUrl": "<clientSecretUrl>",
-        "id": "/subscriptions/<subscriptionid>/resourcegroups/aks-egress-rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myIdentity",
+       "clientSecretUrl": "<clientSecretUrl>",
+       "id": "/subscriptions/<subscriptionid>/resourcegroups/aks-egress-rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myIdentity",
        "location": "eastus",
-      "name": "myIdentity",
+       "name": "myIdentity",
        "principalId": "<principal-id>",
-      "resourceGroup": "aks-egress-rg",
+       "resourceGroup": "aks-egress-rg",
        "tags": {},
        "tenantId": "<tenant-id>",
-        "type": "Microsoft.ManagedIdentity/userAssignedIdentities"
+       "type": "Microsoft.ManagedIdentity/userAssignedIdentities"
      }
     ```
 
@@ -284,24 +284,24 @@ If you don't have user-assigned identities, follow the steps in this section. If
 
     ```azurecli-interactive
     az identity create --name myKubeletIdentity --resource-group $RG
-   ```
+    ```
 
     The output should resemble the following example output:
 
-    ```output
-   {
+    ```json
+    {
       "clientId": "<client-id>",
-     "clientSecretUrl": "<clientSecretUrl>",
-     "id": "/subscriptions/<subscriptionid>/resourcegroups/aks-egress-rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myKubeletIdentity",
+      "clientSecretUrl": "<clientSecretUrl>",
+      "id": "/subscriptions/<subscriptionid>/resourcegroups/aks-egress-rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myKubeletIdentity",
       "location": "westus2",
       "name": "myKubeletIdentity",
-     "principalId": "<principal-id>",
+      "principalId": "<principal-id>",
       "resourceGroup": "aks-egress-rg",
       "tags": {},
-     "tenantId": "<tenant-id>",
-     "type": "Microsoft.ManagedIdentity/userAssignedIdentities"
+      "tenantId": "<tenant-id>",
+      "type": "Microsoft.ManagedIdentity/userAssignedIdentities"
     }
-   ```
+    ```
 
   > [!NOTE]
   > If you create your own VNet and route table where the resources are outside of the worker node resource group, the CLI will add the role assignment automatically. If you're using an ARM template or other method, you need to use the Principal ID of the cluster managed identity to perform a [role assignment][add role to identity].
@@ -442,3 +442,4 @@ In this article, you learned how to secure your outbound traffic using Azure Fir
 [Use a pre-created kubelet managed identity]: use-managed-identity.md#use-a-pre-created-kubelet-managed-identity
 [az-identity-create]: /cli/azure/identity#az_identity_create
 [az-aks-get-credentials]: /cli/azure/aks#az_aks_get_credentials
+

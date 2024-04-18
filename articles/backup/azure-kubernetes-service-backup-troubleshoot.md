@@ -2,7 +2,7 @@
 title: Troubleshoot Azure Kubernetes Service backup
 description: Symptoms, causes, and resolutions of the Azure Kubernetes Service backup and restore operations.
 ms.topic: troubleshooting
-ms.date: 02/28/2024
+ms.date: 02/29/2024
 ms.service: backup
 ms.custom:
   - ignite-2023
@@ -63,10 +63,10 @@ The extension pods aren't exempt, and require the Microsoft Entra pod identity t
    kubectl get Azurepodidentityexceptions --all-namespaces
    ```
 
-3. To assign the *Storage Account Contributor* role to the extension identity, run the following command:
+3. To assign the *Storage Blob Data Contributor* role to the extension identity, run the following command:
 
    ```azurecli-interactive
-   az role assignment create --assignee-object-id $(az k8s-extension show --name azure-aks-backup --cluster-name aksclustername --resource-group aksclusterresourcegroup --cluster-type managedClusters --query aksAssignedIdentity.principalId --output tsv) --role 'Storage Account Contributor' --scope /subscriptions/subscriptionid/resourceGroups/storageaccountresourcegroup/providers/Microsoft.Storage/storageAccounts/storageaccountname
+   az role assignment create --assignee-object-id $(az k8s-extension show --name azure-aks-backup --cluster-name aksclustername --resource-group aksclusterresourcegroup --cluster-type managedClusters --query aksAssignedIdentity.principalId --output tsv) --role 'Storage Blob Data Contributor' --scope /subscriptions/subscriptionid/resourceGroups/storageaccountresourcegroup/providers/Microsoft.Storage/storageAccounts/storageaccountname
    ```
 
 ### Scenario 3
@@ -192,13 +192,13 @@ These error codes appear due to issues based on the Backup extension installed i
 
 ### UserErrorExtensionMSIMissingPermissionsOnBackupStorageLocation
 
-**Cause**: The Backup extension should have the *Storage Account Contributor* role on the Backup Storage Location (storage account). The Extension Identity gets this role assigned. 
+**Cause**: The Backup extension should have the *Storage Blob Data Contributor* role on the Backup Storage Location (storage account). The Extension Identity gets this role assigned. 
 
 **Recommended action**: If this role is missing, then use Azure portal or CLI to reassign this missing permission on the storage account.
 
 ### UserErrorBackupStorageLocationNotReady
 
-**Cause**: During extension installation, a Backup Storage Location is to be provided as input that includes a storage account and blob container. The Backup extension should have *Storage Account Contributor* role on the Backup Storage Location (storage account). The Extension Identity gets this role assigned.
+**Cause**: During extension installation, a Backup Storage Location is to be provided as input that includes a storage account and blob container. The Backup extension should have *Storage Blob Data Contributor* role on the Backup Storage Location (storage account). The Extension Identity gets this role assigned.
 
 **Recommended action**: The error appears if the Extension Identity doesn't have right permissions to access the storage account. This  error appears if AKS backup extension is installed the first time when configuring protection operation. This happens for the time taken for the granted permissions to propagate to the AKS backup extension. As a workaround, wait an hour and retry the protection configuration. Otherwise, use Azure portal or CLI to reassign this missing permission on the storage account.
 

@@ -2,10 +2,8 @@
 title: ARM template test toolkit
 description: Describes how to run the Azure Resource Manager template (ARM template) test toolkit on your template. The toolkit lets you see if you have implemented recommended practices.
 ms.topic: conceptual
-ms.custom: devx-track-arm-template
-ms.date: 03/21/2023
-ms.author: tomfitz
-author: tfitzmac
+ms.custom: devx-track-arm-template, linux-related-content
+ms.date: 03/20/2024
 ---
 
 # Use ARM template test toolkit

@@ -6,7 +6,7 @@ ms.author: tomcassidy
 author: tomvcassidy
 ms.service: container-instances
 services: container-instances
-ms.date: 06/17/2022
+ms.date: 04/09/2024
 ---
 # Container group and instance logging with Azure Monitor logs
 
@@ -54,7 +54,7 @@ To deploy with the Azure CLI, specify the `--log-analytics-workspace` and `--log
 az container create \
     --resource-group myResourceGroup \
     --name mycontainergroup001 \
-    --image fluent/fluentd \
+    --image fluent/fluentd:v1.3-debian-1 \
     --log-analytics-workspace <WORKSPACE_ID> \
     --log-analytics-workspace-key <WORKSPACE_KEY>
 ```
@@ -75,7 +75,7 @@ properties:
   - name: mycontainer001
     properties:
       environmentVariables: []
-      image: fluent/fluentd
+      image: fluent/fluentd:v1.3-debian-1
       ports: []
       resources:
         requests:
@@ -101,7 +101,7 @@ You should receive a response from Azure containing deployment details shortly a
 
 ## View logs
 
-After you've deployed the container group, it can take several minutes (up to 10) for the first log entries to appear in the Azure portal. 
+After you deploy the container group, it can take several minutes (up to 10) for the first log entries to appear in the Azure portal. 
 
 To view the container group's logs in the `ContainerInstanceLog_CL` table:
 
@@ -116,7 +116,7 @@ You should see several results displayed by the query. If at first you don't see
 
 ## View events
 
-You can also view events for container instances in the Azure portal. Events include the time the instance is created and when it is started. To view the event data in the `ContainerEvent_CL` table:
+You can also view events for container instances in the Azure portal. Events include the time the instance is created and when it's started. To view the event data in the `ContainerEvent_CL` table:
 
 1. Navigate to your Log Analytics workspace in the Azure portal
 1. Under **General**, select **Logs**  
@@ -151,7 +151,7 @@ ContainerInstanceLog_CL
 ## Log schema
 
 > [!NOTE]
-> Some of the columns listed below only exist as part of the schema, and won't have any data emitted in logs. These columns are denoted below with a description of 'Empty'.
+> Some of the columns listed in the following table only exist as part of the schema, and won't have any data emitted in logs. These columns are denoted with a description of 'Empty'.
 
 ### ContainerInstanceLog_CL
 
@@ -197,9 +197,9 @@ ContainerInstanceLog_CL
 
 ## Using Diagnostic Settings
 
-Diagnostic Settings for container groups is a preview feature and it can be enabled through preview features options in Azure portal. Once this feature is enabled for a subscription, Diagnostic Settings can be applied to a container group. Applying Diagnostic Settings will cause a container group to restart.
+Diagnostic Settings for container groups is a preview feature and it can be enabled through preview features options in Azure portal. Once this feature is enabled for a subscription, Diagnostic Settings can be applied to a container group. Applying Diagnostic Settings causes a container group to restart.
 
-For example, here is how we can use New-AzDiagnosticSetting command to apply a Diagnostic Settings object to a container group.
+For example, here's how we can use New-AzDiagnosticSetting command to apply a Diagnostic Settings object to a container group.
 
 ```azurepowershell
 $log = @()

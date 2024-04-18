@@ -3,12 +3,12 @@ title: Bicep functions - parameters file
 description: This article describes the Bicep functions to be used in Bicep parameter files.
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 06/05/2023
+ms.date: 03/20/2024
 ---
 
 # Parameters file function for Bicep
 
-Bicep provides a function called `readEnvironmentVariable()` that allows you to retrieve values from environment variables. It also offers the flexibility to set a default value if the environment variable does not exist. This function can only be used in the `.bicepparam` files. For more information, see [Bicep parameters file](./parameter-files.md).
+Bicep provides a function called `readEnvironmentVariable()` that allows you to retrieve values from environment variables. It also offers the flexibility to set a default value if the environment variable doesn't exist. This function can only be used in the `.bicepparam` files. For more information, see [Bicep parameters file](./parameter-files.md).
 
 ## getSecret
 
@@ -26,7 +26,7 @@ param secureUserName = getSecret('exampleSubscription', 'exampleResourceGroup', 
 param securePassword = getSecret('exampleSubscription', 'exampleResourceGroup', 'exampleKeyVault', 'exampleSecretPassword')
 ```
 
-You'll get an error if you use this function with string interpolation.
+You get an error if you use this function with string interpolation.
 
 A [namespace qualifier](bicep-functions.md#namespaces-for-functions) (`az`) can be used, but it's optional, because the function is available from the _default_ Azure Namespace.
 
@@ -46,7 +46,7 @@ The value for the secret.
 
 ### Example
 
-The following `.bicepparam` file has a `securePassword` parameter that will have the latest value of the _\<secretName\>_ secret.
+The following `.bicepparam` file has a `securePassword` parameter that has the latest value of the _\<secretName\>_ secret.
 
 ```bicep
 using './main.bicep'
@@ -54,7 +54,7 @@ using './main.bicep'
 param securePassword = getSecret('exampleSubscription', 'exampleResourceGroup', 'exampleKeyVault', 'exampleSecretPassword')
 ```
 
-The following `.bicepparam` file has a `securePassword` parameter that will have the value of the _\<secretName\>_ secret, but it's pinned to a specific _\<secretValue\>_.
+The following `.bicepparam` file has a `securePassword` parameter that has the value of the _\<secretName\>_ secret, but it's pinned to a specific _\<secretValue\>_.
 
 ```bicep
 using './main.bicep'
@@ -75,7 +75,7 @@ Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
 | variableName | Yes | string | The name of the variable. |
-| defaultValue | No | string | A default string value to be used if the environment variable does not exist. |
+| defaultValue | No | string | A default string value to be used if the environment variable doesn't exist. |
 
 ### Return value
 

@@ -3,7 +3,7 @@ title: Customize cluster egress with outbound types in Azure Kubernetes Service 
 description: Learn how to define a custom egress route in Azure Kubernetes Service (AKS)
 author: asudbring
 ms.subservice: aks-networking
-ms.custom: devx-track-azurecli
+ms.custom:
 ms.author: allensu
 ms.topic: how-to
 ms.date: 02/06/2024
@@ -151,3 +151,4 @@ az aks update -g <resourceGroup> -n <clusterName> --outbound-type userAssignedNA
 [az-feature-show]: /cli/azure/feature#az_feature_show
 [az-provider-register]: /cli/azure/provider#az_provider_register
 [az-aks-update]: /cli/azure/aks#az_aks_update
+

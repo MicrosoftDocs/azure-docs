@@ -6,7 +6,7 @@ ms.reviewer: amberb
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: troubleshooting
-ms.date: 12/06/2022
+ms.date: 03/21/2024
 ms.author: banders
 ---
 
@@ -30,7 +30,7 @@ To fix this issue:
 
 * Make sure that the correct Azure directory is selected by selecting your account at the top right.
 
-  ![Select the directory at the top right of the Azure portal](./media/no-subscriptions-found/directory-switch.png)
+  :::image type="content" border="true" source="./media/no-subscriptions-found/directory-switch.png" alt-text="Screenshot showing select the directory at the top right of the Azure portal.":::
 * If the right Azure directory is selected but you still receive the error message, [assign the Owner role to your account](../../role-based-access-control/role-assignments-portal.md).
 
 ## Need help? Contact us.

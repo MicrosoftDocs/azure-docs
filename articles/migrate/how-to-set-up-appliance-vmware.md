@@ -7,7 +7,7 @@ ms.manager: abhemraj
 ms.topic: how-to
 ms.service: azure-migrate
 ms.date: 02/06/2024
-ms.custom: engagement-fy23, linux-related-content
+ms.custom: engagement-fy23
 ---
 
 # Set up an appliance for servers in a VMware environment
