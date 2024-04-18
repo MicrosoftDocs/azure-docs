@@ -47,12 +47,13 @@ items:
         href: how-to/deploy-models-cohere-command.md
       - name: Deploy Cohere Embed models
         href: how-to/deploy-models-cohere-embed.md
-    - name: Deploy Llama models
+    - name: Llama 2 family models
       items:
-      - name: Deploy Llama family models
+      - name: Deploy Llama 2 family models
         href: how-to/deploy-models-llama.md
       - name: Fine-tune Llama 2 family models
         href: how-to/fine-tune-model-llama.md
+        displayName: maas
     - name: Deploy Mistral family models
       href: how-to/deploy-models-mistral.md
       displayName: maas
