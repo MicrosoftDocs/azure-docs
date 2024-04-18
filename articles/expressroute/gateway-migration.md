@@ -46,10 +46,10 @@ The guided gateway migration experience doesn't support these scenarios:
 
 Private endpoints (PEs) in the virtual network, connected over ExpressRoute private peering, might have connectivity problems during the migration. To understand and reduce this issue, see [Private endpoint connectivity](expressroute-about-virtual-network-gateways.md#private-endpoint-connectivity-and-planned-maintenance-events).
 
-## Common Validation Errors
+## Common validation errors
 In the gateway migration experience, you'll need to validate if your resource is capable of migration. Here are some Common migration errors: 
 
-### Virtual Network 
+### Virtual network 
 * Gateway Subnet needs two or more prefixes for migration.
 * MaxGatewayCountInVnetReached – Reached maximum number of gateways that can be created in a Virtual Network. 
 
