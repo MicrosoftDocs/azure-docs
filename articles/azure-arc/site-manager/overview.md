@@ -42,7 +42,7 @@ Arc sites currently have a 1:1 relationship with resource groups and subscriptio
 
 An example of a hierarchy is shown with **London** and **California** sites within the site **World**.
 
-:::image type="content" source="./media/overview/site-nested-world.jpeg" alt-text="Screenshot that shows Site manager with a nested site.":::
+:::image type="content" source="./media/overview/site-nested-world.png" alt-text="Screenshot that shows Site manager with a nested site.":::
 
 ## Supported regions
 
@@ -53,12 +53,6 @@ Regions supported can be found [here](https://azure.microsoft.com/explore/global
 | Brazil South | Connectivity and updates status aren't supported for Arc-enabled machines or Arc-enabled Kubernetes clusters |
 | UAE North | Connectivity and updates status aren't supported for Arc-enabled machines or Arc-enabled Kubernetes clusters |
 | South Africa North | Connectivity and updates status aren't supported for Arc-enabled machines or Arc-enabled Kubernetes clusters |
-
-## Arc site suggested state
-
-The suggested state for Azure Arc site manager managed sites is to have the status of the site kept at **green** indicating there are no issues or pending actions. An example of this status is shown.
-
-:::image type="content" source="./media/overview/site-suggested-state.jpeg" alt-text="Screenshot that shows Site manager green and suggested state.":::
 
 ## What does it cost to use Azure Arc site manager?
 
