@@ -47,13 +47,15 @@ The following supported operating systems can be used with hardware encrypted Da
 
 | **Operating system** | **Tested versions** |
 | --- | --- |
-| Windows Server | 2022 |
-| Windows (64-bit) | 10, 11 |
-|Linux <br> <li> Ubuntu </li><li> Debian </li><li>  CentOS| <br>22 <br> 9 <br> 9 |  
+| Windows Server<sup><b>*</b></sup> | 2022 |
+| Windows (64-bit)<sup><b>*</b></sup> | 10, 11 |
+|Linux <br> <li> Ubuntu </li><li> Debian </li><li>  CentOS| <br>22 <br> 9 <br> 9 |
+
+<sup><b>*</b></sup>Windows-based machines can only be used for data validation when using hardware-encrypted disks. Data copy operations are only supported on Linux-based hosts.
 
 ### [Software encrypted disks](#tab/software)
 
-The following supported operating systems can be used with hardware encrypted Data Box Disks.
+The following supported operating systems can be used with software encrypted Data Box Disks.
 
 | **Operating system** | **Tested versions** |
 | -------------------- | ------------------- |
