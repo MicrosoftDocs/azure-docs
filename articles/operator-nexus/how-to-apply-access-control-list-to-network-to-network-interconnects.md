@@ -26,7 +26,7 @@ Before applying ACLs to NNIs, utilize the following commands to view ACL details
 To view the specifics of a particular ACL, execute the following command:
 
 ```azurecli
-az networkfabric acl show --name acl-ingress --resource-group myResourceGroup
+az networkfabric acl show --name "<acl-ingress-name>" --resource-group "<resource-group-name>"
 ```
 
 This command furnishes detailed information regarding the ACL's configuration, administrative state, default action, and matching conditions.
@@ -36,7 +36,7 @@ This command furnishes detailed information regarding the ACL's configuration, a
 To list all ACLs within a resource group, use the command:
 
 ```azurecli
-az networkfabric acl list --resource-group myResourceGroup
+az networkfabric acl list --resource-group "<resource-group-name>"
 ```
 
 This command presents a comprehensive list of ACLs along with their configuration states and other pertinent details.
@@ -44,29 +44,29 @@ This command presents a comprehensive list of ACLs along with their configuratio
 #### Applying Ingress ACL to NNI
 
 ```azurecli
-az networkfabric nni update --resource-group "example-rg" --resource-name "example-nnimgmt" --fabric "examplefabric" --ingress-acl-id "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxx/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/accesscontrollists/example-Ipv4ingressACL"
+az networkfabric nni update --resource-group "<resource-group-name>" --resource-name "<nni-name>" --fabric "<fabric-name>" --ingress-acl-id "<ingress-acl-resource-id>"
 ```
 
 | Parameter         | Description                                      |
 |-------------------|--------------------------------------------------|
-| --ingress-acl-id | Apply the ACL as ingress by specifying its ID.  |
+| --ingress-acl-id | Apply the ACL as ingress by specifying its resource ID.  |
 
 #### Applying Egress ACL to NNI
 
 ```azurecli
-az networkfabric nni update --resource-group "example-rg" --resource-name "example-nnimgmt" --fabric "examplefabric" --egress-acl-id "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxx/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/accesscontrollists/example-Ipv4ingressACL"
+az networkfabric nni update --resource-group "example-rg" --resource-name "<nni-name>" --fabric "<fabric-name>" --egress-acl-id "<egress-acl-resource-id>"
 ```
 
 | Parameter        | Description                                    |
 |------------------|------------------------------------------------|
-| --egress-acl-id | Apply the ACL as egress by specifying its ID. |
+| --egress-acl-id | Apply the ACL as egress by specifying its resource ID. |
 
 #### Applying Ingress and Egress ACLs to NNI:
 
 ```azurecli
-az networkfabric nni update --resource-group "example-rg" --resource-name "example-nnimgmt" --fabric "examplefabric" --ingress-acl-id "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxx/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/accesscontrollists/example-Ipv4ingressACL" --egress-acl-id "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxx/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/accesscontrollists/example-Ipv4egressACL"
+az networkfabric nni update --resource-group "example-rg" --resource-name "<nni-name>" --fabric "<fabric-name>" --ingress-acl-id "<ingress-acl-resource-id>" --egress-acl-id ""<egress-acl-resource-id>""
 ```
 
 | Parameter         | Description                                                                                                    |
 |-------------------|----------------------------------------------------------------------------------------------------------------|
-| --ingress-acl-id, --egress-acl-id | To apply both ingress and egress ACLs simultaneously, create two new ACLs and include their respective IDs. |
+| --ingress-acl-id, --egress-acl-id | To apply both ingress and egress ACLs simultaneously, create two new ACLs and include their respective resource IDs. |
