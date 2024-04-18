@@ -86,32 +86,32 @@ The **Incident** object received from **Microsoft Sentinel incident** includes t
 ### Update an incident
 -  Playbook is triggered by **Microsoft Sentinel incident**
 
-    ![Incident trigger simple Update flow example](media/playbook-triggers-actions/incident-simple-flow.png)
+    ![Incident trigger simple Update flow example](../media/playbook-triggers-actions/incident-simple-flow.png)
 
 -  Playbook is triggered by **Microsoft Sentinel alert**
 
-    ![Alert trigger simple Update Incident flow example](media/playbook-triggers-actions/alert-update-flow.png)
+    ![Alert trigger simple Update Incident flow example](../media/playbook-triggers-actions/alert-update-flow.png)
       
 ### Use Incident Information
 
 Basic playbook to send incident details over mail:
 -  Playbook is triggered by **Microsoft Sentinel incident**
 
-    ![Incident trigger simple Get flow example](media/playbook-triggers-actions/incident-simple-mail-flow.png)
+    ![Incident trigger simple Get flow example](../media/playbook-triggers-actions/incident-simple-mail-flow.png)
 
 -  Playbook is triggered by **Microsoft Sentinel alert**
 
-    ![Alert trigger simple Get Incident flow example](media/playbook-triggers-actions/alert-simple-mail-flow.png)
+    ![Alert trigger simple Get Incident flow example](../media/playbook-triggers-actions/alert-simple-mail-flow.png)
 
 ### Add a comment to the incident
 
 -  Playbook is triggered by **Microsoft Sentinel incident**
 
-    ![Incident trigger simple add comment example](media/playbook-triggers-actions/incident-comment.png)
+    ![Incident trigger simple add comment example](../media/playbook-triggers-actions/incident-comment.png)
 
 -  Playbook is triggered by **Microsoft Sentinel alert**
 
-    !["Alert trigger simple add comment example"](media/playbook-triggers-actions/alert-comment.png)
+    !["Alert trigger simple add comment example"](../media/playbook-triggers-actions/alert-comment.png)
 
 ### Disable a user
 

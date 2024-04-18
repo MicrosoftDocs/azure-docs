@@ -51,7 +51,7 @@ On the **Content hub** page, select **Content type** to filter for **Playbook**.
 
 Then, select **Configuration** > **Automation** > **Playbook templates** tab to view the installed templates. For example:
 
-:::image type="content" source="media/use-playbook-templates/gallery.png" alt-text="Screenshot of the playbooks gallery." lightbox="media/use-playbook-templates/gallery.png":::
+:::image type="content" source="media/use-playbook-templates/gallery.png" alt-text="Screenshot of the playbook templates gallery." lightbox="media/use-playbook-templates/gallery.png":::
 
 To find a playbook template that fits your requirements, filter the list by the following criteria:
 
@@ -80,7 +80,7 @@ This procedure describes how to deploy playbook templates. Repeat this process t
 
 1. Select **Create playbook** to open the playbook creation wizard based on the selected template. The wizard has four tabs:
 
-    - **Basics:** Locate your new playbook, which is a Logic Apps resource, and give it a name. You can use the default. For example: 
+    - **Basics:** Locate your new playbook, which is a Logic Apps resource, and give it a name. You can use the default. For example:
 
         :::image type="content" source="media/use-playbook-templates/basics.png" alt-text="Playbook creation wizard, basics tab":::
 
@@ -125,7 +125,7 @@ This procedure describes how to deploy playbook templates. Repeat this process t
         :::image type="content" source="media/use-playbook-templates/edit-api-connection.png" alt-text="Screenshot showing how to edit A P I connections.":::
 
     Alternatively, create a new connection from within the relevant steps in the Logic Apps designer:
-    
+
     1. For each step that appears with an error sign, select it to expand.
 
     1. Select **Add new**.

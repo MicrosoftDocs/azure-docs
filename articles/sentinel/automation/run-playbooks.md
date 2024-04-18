@@ -275,7 +275,7 @@ This procedure is not supported in the unified security operations platform.
 
     For some entity types, you might have to select the **Entity actions** button and from the resulting menu select **Run playbook (Preview)**.
 
-    #### [Pro-active hunting](#tab/investigation-graph)
+    #### [Pro-active hunting](#tab/hunting)
 
     **If you're proactively hunting for threats:**
 
