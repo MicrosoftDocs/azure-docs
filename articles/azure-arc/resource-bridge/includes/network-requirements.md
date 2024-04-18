@@ -14,10 +14,10 @@ The firewall and proxy URLs below must be allowlisted in order to enable communi
 |SFS API endpoint | 443 | `msk8s.api.cdp.microsoft.com` | Management machine & Appliance VM IPs need outbound connection. | Download product catalog, product bits, and OS images from SFS. |
 |Resource bridge (appliance) image download| 443 | `msk8s.sb.tlu.dl.delivery.mp.microsoft.com`| Management machine & Appliance VM IPs need outbound connection. |  Download the Arc Resource Bridge OS images.|
 |Microsoft Container Registry| 443 | `https://mcr.microsoft.com`| Management machine & Appliance VM IPs need outbound connection. | Download container images for Arc Resource Bridge.|
-|Windows NTP Server| 123 | `time.windows.com` | Appliance VM & Management machine (if Hyper-V default is Windows NTP) need outbound connection on UDP | OS time sync in appliance VM & Management machine (Windows NTP).|
+|Windows NTP Server| 123 | `time.windows.com` | Management machine & Appliance VM IPs (if Hyper-V default is Windows NTP) need outbound connection on UDP | OS time sync in appliance VM & Management machine (Windows NTP).|
 |Azure Resource Manager| 443 | `https://management.azure.com`| Management machine & Appliance VM IPs need outbound connection. | Manage resources in Azure. |
 |Microsoft Graph | 443 | `https://graph.microsoft.com` | Management machine & Appliance VM IPs need outbound connection. | Required for Azure RBAC. |
-|Azure Resource Manager | 443 | `login.microsoftonline.com`| MManagement machine & Appliance VM IPs need outbound connection. | Required to update ARM tokens.|
+|Azure Resource Manager | 443 | `login.microsoftonline.com`| Management machine & Appliance VM IPs need outbound connection. | Required to update ARM tokens.|
 |Azure Resource Manager | 443 | `https://*.login.microsoft.com`| Management machine & Appliance VM IPs need outbound connection. | Required to update ARM tokens.|
 |Azure Resource Manager | 443 | `login.windows.net`| Management machine & Appliance VM IPs need outbound connection. | Required to update ARM tokens.|
 |Resource bridge (appliance) Dataplane service| 443 | `https://*.dp.prod.appliances.azure.com`| Appliance VMs IP need outbound connection. | Communicate with resource provider in Azure.|
