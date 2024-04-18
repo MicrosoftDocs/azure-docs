@@ -4,15 +4,12 @@ description: Describes network connectivity between customer's own Azure environ
 services: virtual-machines-linux,virtual-machines-windows
 author: msftrobiro
 manager: juergent
-tags: azure-resource-manager
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure
 ms.date: 12/21/2023
 ms.author: robiro
-
 ---
 
 # Connectivity with SAP RISE

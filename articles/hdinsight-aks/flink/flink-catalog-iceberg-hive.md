@@ -3,7 +3,7 @@ title: Table API and SQL - Use Iceberg Catalog type with Hive in Apache Flink® 
 description: Learn how to create Iceberg Catalog in Apache Flink® on HDInsight on AKS
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 10/27/2023
+ms.date: 3/28/2024
 ---
 
 # Create Iceberg Catalog in Apache Flink® on HDInsight on AKS
@@ -23,8 +23,10 @@ In this article, we learn how to use Iceberg Table managed in Hive catalog, with
 Once you launch the Secure Shell (SSH), let us start downloading the dependencies required to the SSH node, to illustrate the Iceberg table managed in Hive catalog.
 
    ```
-   wget https://repo1.maven.org/maven2/org/apache/iceberg/iceberg-flink-runtime-1.16/1.3.0/iceberg-flink-runtime-1.16-1.3.0.jar -P $FLINK_HOME/lib
+   wget https://repo1.maven.org/maven2/org/apache/iceberg/iceberg-flink-runtime-1.17/1.4.0/iceberg-flink-runtime-1.17-1.4.0.jar -P $FLINK_HOME/lib
    wget https://repo1.maven.org/maven2/org/apache/parquet/parquet-column/1.12.2/parquet-column-1.12.2.jar -P $FLINK_HOME/lib
+   wget https://repo1.maven.org/maven2/org/apache/hadoop/hadoop-hdfs-client/3.3.4/hadoop-hdfs-client-3.3.4.jar -P $FLINK_HOME
+   export HADOOP_CLASSPATH=$HADOOP_CLASSPATH:$FLINK_HOME/hadoop-hdfs-client-3.3.4.jar
    ```
 
 ## Start the Apache Flink SQL Client
@@ -43,7 +45,7 @@ With the following steps, we illustrate how you can create Flink-Iceberg Catalog
   'uri'='thrift://hive-metastore:9083',
   'clients'='5',
   'property-version'='1',
-  'warehouse'='abfs://container@storage_account.dfs.core.windows.net/ieberg-output');
+  'warehouse'='abfs://container@storage_account.dfs.core.windows.net/iceberg-output');
 ```
 > [!NOTE]
 > - In the above step, the container and storage account *need not be same* as specified during the cluster creation.
@@ -56,8 +58,8 @@ With the following steps, we illustrate how you can create Flink-Iceberg Catalog
 #### Add dependencies to server classpath
 
 ```sql
-  ADD JAR '/opt/flink-webssh/lib/iceberg-flink-runtime-1.16-1.3.0.jar';
-  ADD JAR '/opt/flink-webssh/lib/parquet-column-1.12.2.jar';
+ADD JAR '/opt/flink-webssh/lib/iceberg-flink-runtime-1.17-1.4.0.jar';
+ADD JAR '/opt/flink-webssh/lib/parquet-column-1.12.2.jar';
 ```
 #### Create Database
 

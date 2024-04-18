@@ -6,8 +6,7 @@ services: virtual-network
 author: asudbring
 ms.service: virtual-network
 ms.topic: how-to
-ms.workload: infrastructure-services
-ms.custom: linux-related-content
+ms.custom:
 ms.date: 04/24/2023
 ms.author: allensu
 ---
@@ -339,7 +338,7 @@ You can determine the next hop type between a virtual machine and the IP address
 
 1. In the **Network Watcher | Next hop** page:
 
-    :::image type="content" source="./media/manage-route-table/add-route.png" alt-text="Screenshot of add a route page for a route table.":::
+    :::image type="content" source="./media/manage-route-table/next-hop.png" alt-text="Screenshot of next hop in Network Watcher.":::
 
     | Setting | Value |
     |--|--|

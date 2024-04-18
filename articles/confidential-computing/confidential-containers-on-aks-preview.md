@@ -16,8 +16,6 @@ ms.custom:
 
 With the growth in cloud-native application development, there's an increased need to protect the workloads running in cloud environments as well. Containerizing the workload forms a key component for this programming model, and then, protecting the container is paramount to running confidentially in the cloud.
 
-:::image type="content" source="media/confidential-containers/attack-vectors-conf-containers.png" alt-text="Diagram of various attack vectors that make your cKubernetes container vulnerable.":::
-
 Confidential Containers on Azure Kubernetes Service (AKS) enable container level isolation in your Kubernetes workloads. It's an addition to Azure suite of confidential computing products, and uses the AMD SEV-SNP memory encryption to protect your containers at runtime.
 
 Confidential Containers are attractive for deployment scenarios that involve sensitive data (for instance, personal data or any data with strong security needed for regulatory compliance).
@@ -32,7 +30,7 @@ In alignment with the guidelines set by the [Confidential Computing Consortium](
 *	Code integrity: Runtime enforcement is always available through customer defined policies for containers and container configuration, such as immutable policies and container signing. 
 *	Isolation from operator: Security designs that assume least privilege and highest isolation shielding from all untrusted parties including customer/tenant admins. It includes hardening existing Kubernetes control plane access (kubelet) to confidential pods.
 
-But with these features of confidentiality, the product maintains its ease of use: it supports all unmodified Linux containers with high Kubernetes feature conformance. Additionally, it supports  heterogenous node pools (GPU, general-purpose nodes) in a single cluster to optimize for cost.  
+But with these features of confidentiality, the product should additioanally its ease of use: it supports all unmodified Linux containers with high Kubernetes feature conformance. Additionally, it supports  heterogenous node pools (GPU, general-purpose nodes) in a single cluster to optimize for cost.  
 
 ## What forms Confidential Containers on AKS?
 

@@ -7,8 +7,7 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 09/11/2023
 ms.author: duau
-ms.custom: seodec18, devx-track-azurepowershell, template-tutorial
-
+ms.custom: devx-track-azurepowershell, template-tutorial
 ---
 # Configure a virtual network gateway for ExpressRoute using PowerShell
 > [!div class="op_single_selector"]

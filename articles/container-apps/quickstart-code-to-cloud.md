@@ -8,7 +8,7 @@ ms.custom:
   - devx-track-azurecli
   - ignite-2023
 ms.topic: quickstart
-ms.date: 01/26/2024
+ms.date: 01/27/2024
 ms.author: cshoe
 zone_pivot_groups: container-apps-code-to-cloud-segmemts
 ---
@@ -195,8 +195,7 @@ Extract the download and change into the *containerapps-albumapi-csharp-buildpac
 Extract the download and change into the *containerapps-albumapi-java-buildpack/src* folder.
 
 > [!NOTE] 
-> The Java Builpack currently supports the [Maven tool](https://maven.apache.org/what-is-maven.html) to build your application.
-
+> The Java Buildpack uses [Maven](https://maven.apache.org/what-is-maven.html) with default settings to build your application. Alternatively, you can the [use `--build-env-vars` parameter to configure the image build from source code](java-build-environment-variables.md).
 
 # [JavaScript](#tab/javascript)
 
@@ -204,13 +203,11 @@ Extract the download and change into the *containerapps-albumapi-java-buildpack/
 
 Extract the download and change into the *containerapps-albumapi-javascript-buildpack/src* folder.
 
-
 # [Python](#tab/python)
 
 [Download the source code](https://codeload.github.com/azure-samples/containerapps-albumapi-python/zip/refs/heads/buildpack) to your machine.
 
 Extract the download and change into the *containerapps-albumapi-python-buildpack/src* folder.
-
 
 # [Go](#tab/go)
 
@@ -262,7 +259,6 @@ In the following code example, the `.` (dot) tells `containerapp up` to run in t
 ```azurecli
 az containerapp up \
   --name $API_NAME \
-  --resource-group $RESOURCE_GROUP \
   --location $LOCATION \
   --environment $ENVIRONMENT \
   --source .
@@ -274,13 +270,14 @@ az containerapp up \
 ```azurecli
 az containerapp up \
   --name $API_NAME \
-  --resource-group $RESOURCE_GROUP \
   --location $LOCATION \
   --environment $ENVIRONMENT \
   --ingress external \
   --target-port 8080 \
   --source .
 ```
+> [!IMPORTANT]
+> In order to deploy your container app to an existing resource group, include `--resource-group yourResourceGroup` to the `containerapp up` command.
 
 ::: zone-end
 
@@ -323,8 +320,6 @@ az containerapp up `
 Copy the FQDN to a web browser.  From your web browser, go to the `/albums` endpoint of the FQDN.
 
 :::image type="content" source="media/quickstart-code-to-cloud/azure-container-apps-album-api.png" alt-text="Screenshot of response from albums API endpoint.":::
-
-[!INCLUDE [.NET data protection](../../includes/container-apps-net-data-protection-scaling.md)]
 
 ## Clean up resources
 

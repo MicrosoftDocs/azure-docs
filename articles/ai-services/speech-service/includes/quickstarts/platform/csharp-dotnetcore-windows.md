@@ -6,20 +6,17 @@ author: markamos
 manager: nitinme
 ms.service: azure-ai-speech
 ms.topic: include
-ms.date: 09/05/2023
+ms.date: 02/02/2024
 ms.author: eur
-ms.custom: ignite-fall-2021
 ---
 
 This guide shows how to install the [Speech SDK](~/articles/ai-services/speech-service/speech-sdk.md) for a .NET Core console app. .NET Core is an open-source, cross-platform .NET platform that implements the .NET Standard specification.
-
-## Prerequisites
 
 This guide requires:
 
 - [Microsoft Visual C++ Redistributable for Visual Studio 2019](https://support.microsoft.com/topic/the-latest-supported-visual-c-downloads-2647da03-1eea-4433-9aff-95f26a218cc0) for the Windows platform. Installing it for the first time might require a restart.
 - [.NET Core SDK](https://dotnet.microsoft.com/download).
-- [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/) or later.
+- [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/).
 
 ## Create a Visual Studio project and install the Speech SDK
 
@@ -37,9 +34,11 @@ This guide requires:
 
 1. Install and reference the [Speech SDK NuGet package](https://aka.ms/csspeech/nuget). In Solution Explorer, right-click the solution and select **Manage NuGet Packages for Solution**.
 
-   :::image type="content" source="~/articles/ai-services/speech-service/media/sdk/qs-csharp-dotnetcore-windows-02-manage-nuget-packages.png" alt-text="Screenshot of Solution Explorer, with Manage NuGet Packages for Solution highlighted." lightbox="~/articles/ai-services/speech-service/media/sdk/qs-csharp-dotnetcore-windows-02-manage-nuget-packages.png":::
+   :::image type="content" source="~/articles/ai-services/speech-service/media/sdk/qs-csharp-dotnetcore-windows-02-manage-nuget-packages.png" alt-text="Screenshot of Solution Explorer, with Manage NuGet Packages for Solution highlighted.":::
 
-1. In the upper-right corner, in the **Package Source** box, select **nuget.org**. Search for the **Microsoft.CognitiveServices.Speech** package, and install it into the **helloworld** project.
+1. Select **Browse**, then in the upper-right corner, for **Package Source**, select **nuget.org**.
+
+1. Search for the *Microsoft.CognitiveServices.Speech* package, and install it into the **helloworld** project.
 
    :::image type="content" source="~/articles/ai-services/speech-service/media/sdk/qs-csharp-dotnetcore-windows-03-nuget-install-1.0.0.png" alt-text="Screenshot that shows the Manage Packages for Solution dialog box." lightbox="~/articles/ai-services/speech-service/media/sdk/qs-csharp-dotnetcore-windows-03-nuget-install-1.0.0.png":::
 

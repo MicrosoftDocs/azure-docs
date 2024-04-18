@@ -5,11 +5,10 @@ author: oriwolman
 manager: vashan
 ms.service: virtual-machines
 ms.subservice: classic-to-arm-migration
-ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 04/12/2023
 ms.author: oriwolman
-ms.custom: devx-track-azurecli compute-evergreen, devx-track-arm-template, linux-related-content
+ms.custom: devx-track-azurecli compute-evergreen, devx-track-arm-template
 ---
 
 # Migrate IaaS resources from classic to Azure Resource Manager by using Azure CLI

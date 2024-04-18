@@ -5,7 +5,7 @@ description: Learn about the latest updates to Azure Machine Learning Python SDK
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.custom: UpdateFrequency5, event-tier1-build-2022, devx-track-python
+ms.custom: UpdateFrequency5, devx-track-python
 ms.topic: reference
 ms.author: larryfr
 author: BlackMist
@@ -2400,7 +2400,7 @@ Azure Machine Learning is now a resource provider for Event Grid, you can config
   + **Preview features**
     + We are releasing preview support for disk encryption of your local SSD in Azure Machine Learning Compute. Raise a technical support ticket to get your subscription allow listed to use this feature.
     + Public Preview of Azure Machine Learning Batch Inference. Azure Machine Learning Batch Inference targets large inference jobs that are not time-sensitive. Batch Inference provides cost-effective inference compute scaling, with unparalleled throughput for asynchronous applications. It is optimized for high-throughput, fire-and-forget inference over large collections of data.
-    + [**azureml-contrib-dataset**](/python/api/azureml-contrib-dataset)
+    + **azureml-contrib-dataset**
         + Enabled functionalities for labeled dataset
         ```Python
         import azureml.core

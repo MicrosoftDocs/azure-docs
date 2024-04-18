@@ -4,7 +4,7 @@ description: Learn how to install and configure VMware Cloud Director Availabili
 author: suzuber
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 1/22/2024
+ms.date: 4/15/2024
 --- 
 
 # Deploy VMware Cloud Director Availability in Azure VMware Solution
@@ -55,7 +55,7 @@ VMware Cloud Director Availability installation in the Azure VMware Solution clo
 
 The following diagram shows VMware Cloud Director Availability appliances installed in both on-premises and Azure VMware Solution.
 
-:::image type="content" source="media/deploy-vmware-cloud-director-availability/vmware-cloud-director-availability-diagram.png" alt-text="Diagram shows VMware Cloud Director Availability appliances installed in both on-premises and Azure VMware Solution."lightbox="media/deploy-vmware-cloud-director-availability/vmware-cloud-director-availability-diagram.png"::: 
+:::image type="content" source="media/deploy-vmware-cloud-director-availability/vmware-cloud-director-availability-diagram.png" alt-text="Diagram shows VMware Cloud Director Availability appliances installed in both on-premises and Azure VMware Solution." lightbox="media/deploy-vmware-cloud-director-availability/vmware-cloud-director-availability-diagram.png"::: 
 
 ## Install and configure VMware Cloud Director Availability on Azure VMware Solution
 
@@ -69,7 +69,7 @@ Verify the following prerequisites to ensure you're ready to install and configu
 - Verify the subnet has outbound Internet connectivity to communicate with: VMware Cloud Director service, remote VMware Cloud Director Availability sites, and the upgrade repository. 
 - Verify the DNS zone has a forwarding capability for the public IP addresses that need to be reached.  
 
-For using VMware Cloud Director Availability outside of the local network segment, [turn on public IP addresses to an NSX-T Edge node for NSX-T Data Center](https://learn.microsoft.com/azure/azure-vmware/enable-public-ip-nsx-edge).
+For using VMware Cloud Director Availability outside of the local network segment, [turn on public IP addresses to an NSX-T Edge node for NSX-T Data Center](enable-public-ip-nsx-edge.md).
 
 - Verify the Cloud Director service is associated, and the Transport Proxy is configured with the Azure VMware Solution private cloud SDDC.
 
@@ -112,7 +112,7 @@ VMware Cloud Director Availability is a VMware owned and supported product on Az
 
 ### What are Run commands in Azure VMware Solution? 
 
-For more information, go to [Run Command in Azure VMware Solution](https://learn.microsoft.com/azure/azure-vmware/concepts-run-command).
+For more information, go to [Run Command in Azure VMware Solution](/azure/azure-vmware/concepts-run-command).
 
 ### How can I add more Replicators in my existing VMware Cloud Director Availability instance in Azure VMware Solution?
 

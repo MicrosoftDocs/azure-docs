@@ -399,7 +399,7 @@ mssparkutils.fs.fastcp('source file or directory', 'destination file or director
 ```
 
 > [!NOTE]
-> The method only supports in Spark 3.3 and Spark 3.4.
+> The method only supports in [Azure Synapse Runtime for Apache Spark 3.3](./apache-spark-33-runtime.md) and [Azure Synapse Runtime for Apache Spark 3.4](./apache-spark-34-runtime.md).
 
 ### Preview file content
 
@@ -597,6 +597,9 @@ run(path: String, timeoutSeconds: int, arguments: Map): String -> This method ru
 
 ```
 
+> [!NOTE]
+> Notebook utilities aren't applicable for Apache Spark job definitions (SJD).
+
 ### Reference a notebook
 Reference a notebook and returns its exit value. You can run nesting function calls in a notebook interactively or in a pipeline. The notebook being referenced will run on the Spark pool of which notebook calls this function.
 
@@ -681,7 +684,7 @@ mssparkutils.notebook.runMultiple(DAG)
 
 > [!NOTE]
 >
-> - The method only supports in Spark 3.3 and Spark 3.4.
+> - The method only supports in [Azure Synapse Runtime for Apache Spark 3.3](./apache-spark-33-runtime.md) and [Azure Synapse Runtime for Apache Spark 3.4](./apache-spark-34-runtime.md).
 > - The parallelism degree of the multiple notebook run is restricted to the total available compute resource of a Spark session.
 
 

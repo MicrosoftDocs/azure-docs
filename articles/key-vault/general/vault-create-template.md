@@ -8,7 +8,7 @@ ms.custom: devx-track-arm-template
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.date: 3/14/2021
+ms.date: 02/20/2024
 ms.author: mbaldwin 
 #Customer intent: As a security admin who's new to Azure, I want to use Key Vault to securely store keys and passwords in Azure.
 ---

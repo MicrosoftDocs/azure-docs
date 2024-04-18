@@ -12,7 +12,7 @@ ms.author: gasinh
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
 
-#customer intent: I'm an Azure AD B2C administrator, and I want to configure IDEMIA Mobile ID integration with Azure AD B2C. I want users to authenticate using biometric authentication services and benefit from a trusted, government-issued digital ID.
+# Customer intent: I'm an Azure AD B2C administrator, and I want to configure IDEMIA Mobile ID integration with Azure AD B2C. I want users to authenticate using biometric authentication services and benefit from a trusted, government-issued digital ID.
 ---
 
 # Tutorial: Configure IDEMIA Mobile ID with Azure Active Directory B2C 

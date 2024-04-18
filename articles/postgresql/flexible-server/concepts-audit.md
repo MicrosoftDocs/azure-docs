@@ -6,7 +6,7 @@ ms.subservice: flexible-server
 ms.topic: conceptual
 ms.author: gennadyk
 author: GennadNY
-ms.date: 01/19/2024
+ms.date: 01/23/2024
 ---
 
 # Audit logging in Azure Database for PostgreSQL - Flexible Server

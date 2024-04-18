@@ -1,10 +1,9 @@
 ---
-title: Download a Windows VHD from Azure 
+title: Download a Windows VHD from Azure
 description: Download a Windows VHD using the Azure portal.
 author: roygara
 ms.author: rogarana
 ms.service: azure-disk-storage
-ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 10/17/2023
 ---
@@ -95,7 +94,9 @@ az disk grant-access --duration-in-seconds 86400 --access-level Read --name your
 
 
 > [!NOTE]
-> The expiration time is increased from the default to provide enough time to download the large VHD file for a Windows Server operating system. Large VHDs can take up to several hours to download depending on your connection and the size of the VM. 
+> The expiration time is increased from the default to provide enough time to download the large VHD file for a Windows Server operating system. Large VHDs can take up to several hours to download depending on your connection and the size of the VM.
+>
+> While the SAS URL is active, attempting to start the VM will result in the error **There is an active shared access signature outstanding for disk** *diskname*. You can revoke the SAS URL by selecting **Cancel export** on the **Disk Export** page.  
 
 ## Download VHD
 

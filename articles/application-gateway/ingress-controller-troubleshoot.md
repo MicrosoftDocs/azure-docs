@@ -4,9 +4,9 @@ description: This article provides documentation on how to troubleshoot common q
 services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
-ms.custom: linux-related-content
+ms.custom:
 ms.topic: troubleshooting
-ms.date: 08/01/2023
+ms.date: 01/31/2024
 ms.author: greglin
 ---
 
@@ -15,10 +15,10 @@ ms.author: greglin
 [Azure Cloud Shell](https://shell.azure.com/) is the most convenient way to troubleshoot any problems with your AKS
 and AGIC installation. Launch your shell from [shell.azure.com](https://shell.azure.com/) or by selecting the link:
 
-[![Embed launch](./media/launch-cloud-shell/launch-cloud-shell.png "Launch Azure Cloud Shell")](https://shell.azure.com)
+:::image type="icon" source="~/reusable-content/ce-skilling/azure/media/cloud-shell/launch-cloud-shell-button.png" alt-text="Button to launch the Azure Cloud Shell." border="false" link="https://shell.azure.com":::
 
 > [!TIP]
-> Also see [What is Application Gateway for Containers?](for-containers/overview.md) currently in public preview.
+> Also see [What is Application Gateway for Containers](for-containers/overview.md).
 
 ## Test with a simple Kubernetes app
 
@@ -65,6 +65,7 @@ metadata:
   annotations:
     kubernetes.io/ingress.class: azure/application-gateway
 spec:
+  ingressClassName: azure-application-gateway
   rules:
     - host: test.agic.contoso.com
       http:

@@ -6,7 +6,6 @@ services: front-door
 author: duongau
 ms.service: frontdoor
 ms.topic: conceptual
-ms.workload: infrastructure-services
 ms.date: 06/01/2023
 ms.author: duau
 zone_pivot_groups: front-door-tiers
@@ -47,6 +46,8 @@ Preserve unmatched path allows you to append the remaining path after the source
 ::: zone-end
 
 ::: zone pivot="front-door-classic"
+
+[!INCLUDE [Azure Front Door (classic) retirement notice](../../includes/front-door-classic-retirement.md)]
 
 Azure Front Door (classic) supports URL rewrite by configuring a **Custom forwarding path** when configuring the forward routing type rule. By default, if only a forward slash (`/*`) is defined, Front Door copies the incoming URL path to the URL used in the forwarded request. The host header used in the forwarded request is as configured for the selected backend. For more information, see [Backend host header](origin.md#origin-host-header).
 

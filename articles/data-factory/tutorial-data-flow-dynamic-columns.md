@@ -6,7 +6,6 @@ ms.author: makromer
 ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: conceptual
-ms.custom: seo-lt-2021
 ms.date: 08/10/2023
 ---
 

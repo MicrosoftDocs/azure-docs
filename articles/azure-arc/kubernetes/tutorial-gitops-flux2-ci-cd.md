@@ -132,7 +132,7 @@ The CI/CD workflow populates the manifest directory with extra manifests to depl
       --cluster-type connectedClusters \
       --branch master \
       --kustomization name=cluster-config prune=true path=arc-cicd-cluster/manifests
-    ```
+   ```
 
    > [!TIP]
    > For an AKS cluster (rather than an Arc-enabled cluster), use `-cluster-type managedClusters`.

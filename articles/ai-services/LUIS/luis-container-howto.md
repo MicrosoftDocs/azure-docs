@@ -5,7 +5,6 @@ description: Use the LUIS container to load your trained or published app, and g
 #services: cognitive-services
 author: aahill
 manager: nitinme
-ms.custom: seodec18, cog-serv-seo-aug-2020
 ms.service: azure-ai-language
 ms.subservice: azure-ai-luis
 ms.topic: how-to
@@ -257,7 +256,7 @@ More [examples](luis-container-configuration.md#example-docker-run-commands) of 
 
 ## Endpoint APIs supported by the container
 
-Both V2 and [V3](luis-migration-api-v3.md) versions of the API are available with the container.
+Both V2 and V3 versions of the API are available with the container.
 
 ## Query the container's prediction endpoint
 

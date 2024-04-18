@@ -8,7 +8,6 @@ ms.subservice: confidential-computing
 ms.topic: conceptual
 ms.date: 11/01/2021
 ms.author: jushiman
-ms.custom: ignite-fall-2021
 ---
 
 # Application enclave development 

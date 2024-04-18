@@ -6,7 +6,6 @@ services: network-watcher
 author: halkazwini
 ms.service: network-watcher
 ms.topic: how-to
-ms.workload: infrastructure-services
 ms.date: 12/09/2021
 ms.author: halkazwini
 ms.custom: engagement-fy23, devx-track-azurecli

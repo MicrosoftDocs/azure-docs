@@ -10,7 +10,7 @@ ms.author: xunwan
 author: SturgeonMi
 ms.date: 08/08/2023
 ms.topic: how-to
-ms.custom: UpdateFrequency5, data4ml, contperf-fy21q2, sdkv1, event-tier1-build-2022
+ms.custom: UpdateFrequency5, data4ml, sdkv1
 #Customer intent: As a data scientist, I want to detect data drift in my datasets and set alerts for when drift is large.
 ---
 

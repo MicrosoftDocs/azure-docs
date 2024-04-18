@@ -84,10 +84,11 @@ To see how all Azure Arc-enabled components are validated, see [Validation progr
 
 ### Red Hat
 
-|Solution and version | Kubernetes version | Azure Arc-enabled data services version | SQL engine version | PostgreSQL server version
+|Solution and version |Kubernetes version |Azure Arc-enabled data services version |SQL engine version |PostgreSQL server version|
 |-----|-----|-----|-----|-----|
-| [OpenShift 4.13.4](https://docs.openshift.com/container-platform/4.13/release_notes/ocp-4-13-release-notes.html) | 1.26.5 | 1.21.0_2023-07-11 | 16.0.5100.7242 |  14.5 (Ubuntu 20.04) |
-| OpenShift 4.10.16 | 1.23.5 | 1.11.0_2022-09-13 | 16.0.312.4243 |  12.3 (Ubuntu 12.3-1)|
+|[OpenShift 4.15.0](https://docs.openshift.com/container-platform/4.15/release_notes/ocp-4-15-release-notes.html)|1.28.6|1.27.0_2024-02-13|16.0.5100.7246|Not validated|
+|[OpenShift 4.13.4](https://docs.openshift.com/container-platform/4.13/release_notes/ocp-4-13-release-notes.html) |1.26.5 |1.21.0_2023-07-11 |16.0.5100.7242 |14.5 (Ubuntu 20.04) |
+|OpenShift 4.10.16 |1.23.5 |1.11.0_2022-09-13 |16.0.312.4243 |12.3 (Ubuntu 12.3-1)|
 
 ### VMware
 
@@ -104,7 +105,7 @@ To see how all Azure Arc-enabled components are validated, see [Validation progr
 
 |Solution and version | Kubernetes version | Azure Arc-enabled data services version | SQL engine version | PostgreSQL server version
 |-----|-----|-----|-----|-----|
-| [Wind River Cloud Platform 22.12](https://www.windriver.com/studio/operator/cloud-platform) | 1.24.4 | 1.21.0_2023-07-11 | 16.0.5100.7242 | Not validated |
+|[Wind River Cloud Platform 22.12](https://www.windriver.com/studio/operator/cloud-platform)|1.24.4|1.26.0_2023-12-12|16.0.5100.7246|Not validated|
 |Wind River Cloud Platform 22.06 | 1.23.1|1.9.0_2022-07-12 |16.0.312.4243| 12.3 (Ubuntu 12.3-1) |
 
 ## Data services validation process

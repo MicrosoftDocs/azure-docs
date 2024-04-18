@@ -7,7 +7,7 @@ ms.service: azure-import-export
 ms.topic: tutorial
 ms.date: 02/01/2023
 ms.author: alkohli
-ms.custom: "tutorial, devx-track-azurepowershell, devx-track-azurecli, contperf-fy21q3"
+ms.custom: tutorial, devx-track-azurepowershell, devx-track-azurecli
 ---
 # Tutorial: Import data to Blob Storage with Azure Import/Export service
 
@@ -115,7 +115,7 @@ Perform the following steps to prepare the drives.
 
 Use the following steps to create an import job in the Azure CLI.
 
-[!INCLUDE [azure-cli-prepare-your-environment-h3.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-h3.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-h3.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-h3.md)]
 
 ### Create a job
 

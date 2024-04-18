@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
-ms.date: 11/16/2022
+ms.date: 03/12/2024
 
 ---
 
@@ -97,11 +97,11 @@ To verify that the integration between Azure Synapse and Azure Machine Learning 
 
     :::image type="content" source="./media/how-to-private-endpoint-integration-synapse/approve-pending-private-endpoint.png" alt-text="Screenshot of the private endpoint approval.":::
 
-1. From the left of the page, select __Access control (IAM)__. Select __+ Add__, and then select __Role assignment__.
+1. From the left of the page, select __Access control (IAM)__. Select __+ Add__, and then select __Role assignment__. 
 
     :::image type="content" source="./media/how-to-private-endpoint-integration-synapse/workspace-role-assignment.png" alt-text="Screenshot of the role assignment.":::
 
-1. Select __Contributor__, and then select __Next__.
+1. Select __Privileged administrator roles__, __Contributor__, and then select __Next__.
 
     :::image type="content" source="./media/how-to-private-endpoint-integration-synapse/contributor-role.png" alt-text="Screenshot of selecting contributor.":::
 

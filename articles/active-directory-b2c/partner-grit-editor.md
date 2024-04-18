@@ -11,7 +11,7 @@ ms.author: gasinh
 ms.reviewer: kengaderdus
 ms.subservice: B2C 
 
-#customer intent: I'm an Azure AD B2C administrator, and I want to use the Visual IEF Editor tool to create, modify, and deploy Azure AD B2C policies, without writing code.
+# Customer intent: I'm an Azure AD B2C administrator, and I want to use the Visual IEF Editor tool to create, modify, and deploy Azure AD B2C policies, without writing code.
 ---
 
 

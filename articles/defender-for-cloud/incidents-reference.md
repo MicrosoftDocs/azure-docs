@@ -12,7 +12,7 @@ ms.date: 10/15/2023
 
 This article lists the incidents you might get from Microsoft Defender for Cloud and any Microsoft Defender plans you've enabled. The incidents shown in your environment depend on the resources and services you're protecting, and your customized configuration.
 
-A [security incident](alerts-overview.md#what-are-security-incidents) is a correlation of alerts with an attack story that share an entity. For example, Resource, IP Address, User or share a [kill chain](alerts-reference.md#intentions) pattern.
+A [security incident](alerts-overview.md#what-are-security-incidents) is a correlation of alerts with an attack story that share an entity. For example, Resource, IP Address, User or share a [kill chain](alerts-reference.md#mitre-attck-tactics) pattern.
 
 You can select an incident to view all of the alerts that are related to the incident and get more information.
 
@@ -21,7 +21,7 @@ Learn how to [manage security incidents](incidents.md#managing-security-incident
 > [!NOTE]
 > The same alert can exist as part of an incident, as well as to be visible as a standalone alert.
 
-## Security incident 
+## Security incident
 
 [Further details and notes](alerts-overview.md#what-are-security-incidents)
 
@@ -59,4 +59,3 @@ Learn how to [manage security incidents](incidents.md#managing-security-incident
 ## Next steps
 
 [Manage security incidents in Microsoft Defender for Cloud](incidents.md)
-

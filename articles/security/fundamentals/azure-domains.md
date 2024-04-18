@@ -6,8 +6,8 @@ services: security
 author: memildin
 manager: rkarlin
 
-ms.service: active-directory
-ms.subservice: domain-services
+ms.service: security
+ms.subservice: security-fundamentals
 ms.topic: article
 ms.date: 07/07/2020
 ms.author: memildin

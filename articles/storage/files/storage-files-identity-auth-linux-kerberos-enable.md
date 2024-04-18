@@ -3,6 +3,7 @@ title: Use on-premises Active Directory Domain Services or Microsoft Entra Domai
 description: Learn how to enable identity-based Kerberos authentication for Linux clients over Server Message Block (SMB) for Azure Files using on-premises Active Directory Domain Services (AD DS) or Microsoft Entra Domain Services
 author: khdownie
 ms.service: azure-file-storage
+ms.custom: linux-related-content
 ms.topic: how-to
 ms.date: 04/18/2023
 ms.author: kendownie

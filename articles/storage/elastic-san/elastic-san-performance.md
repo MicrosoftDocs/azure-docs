@@ -1,16 +1,16 @@
 ---
-title: Azure Elastic SAN Preview and virtual machine performance
+title: Azure Elastic SAN and virtual machine performance
 description: Learn how your workload's performance is handled by Azure Elastic SAN and Azure Virtual Machines.
 author: roygara
 ms.service: azure-elastic-san-storage
 ms.custom:
   - ignite-2023-elastic-SAN
 ms.topic: conceptual
-ms.date: 01/19/2024
+ms.date: 02/13/2024
 ms.author: rogarana
 ---
 
-# How performance works when Virtual Machines are connected to Elastic SAN Preview volumes
+# How performance works when virtual machines are connected to Elastic SAN volumes
 
 This article clarifies how Elastic SAN performance works, and how the combination of Elastic SAN limits and Azure Virtual Machines (VM) limits can affect the performance of your workloads.
 
@@ -93,7 +93,7 @@ Generally, this is the ideal configuration for a SAN sharing workloads. It's bes
 |Workload  |Requested IOPS  |Served IOPS  |Spike time  |
 |---------|---------|---------|---------|
 |AKS workload     |5,000         |5,000         |9:00 am         |
-|Workload 1     |40,000         |19,000         |9:01 am         |
+|Workload 1     |40,000         |21,000         |9:01 am         |
 |Workload 2     |45,000         |45,000         |9:00 am         |
 |Workload 3     |64,000         |64,000         |9:00 am         |
 
@@ -106,4 +106,4 @@ In this scenario, all the workloads hit their spike at almost the same time. At 
 
 ## Next steps
 
-[Deploy an Elastic SAN (preview)](elastic-san-create.md).
+[Deploy an Elastic SAN](elastic-san-create.md).

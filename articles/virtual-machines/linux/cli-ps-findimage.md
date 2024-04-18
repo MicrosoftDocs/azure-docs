@@ -8,9 +8,12 @@ ms.date: 02/09/2023
 author: ebolton-cyber
 ms.author: mattmcinnes
 ms.collection: linux
-ms.custom: contperf-fy21q3-portal, devx-track-azurecli, GGAL-freshness922, linux-related-content
+ms.custom: devx-track-azurecli, GGAL-freshness922, linux-related-content
 ---
 # Find Azure Marketplace image information using the Azure CLI
+
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets
 

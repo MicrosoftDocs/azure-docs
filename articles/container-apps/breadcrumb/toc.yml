@@ -5,4 +5,4 @@ items:
   items:
   - name: Azure Container Apps
     tocHref: /reliability/
-    topicHref: /azure/spring-apps/index
+    topicHref: /azure/container-apps/index

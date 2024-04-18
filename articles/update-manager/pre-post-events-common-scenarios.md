@@ -3,7 +3,7 @@ title: Common scenarios in pre and post events (preview) in your Azure Update Ma
 description: An overview of common scenarios for pre and post events (preview), including viewing the list of different endpoints, successful delivery to an endpoint, checking the script in Webhooks using runbooks triggered from Event Grid.
 ms.service: azure-update-manager
 ms.topic: conceptual
-ms.date: 11/06/2023
+ms.date: 02/03/2024
 author: SnehaSudhir 
 ms.author: sudhirsneha
 #Customer intent: As an implementer, I want answers to various questions.
@@ -141,6 +141,15 @@ For more information on how to retrieve details from Automation account's activi
 ### How to confirm if the cancelation is by user or system?
 
 You can view the status of the maintenance job from the ARG query mentioned above to understand if you've canceled the job or the system. The error message confirms the status of the job.
+
+The following query allows you to view the list of VMs for a given schedule or a maintenance configuration:
+
+```kusto
+maintenanceresources  
+| where type =~ "microsoft.maintenance/maintenanceconfigurations/applyupdates"  
+| where properties.correlationId has "/subscriptions/<your-s-id> /resourcegroups/<your-rg-id> /providers/microsoft.maintenance/maintenanceconfigurations/<mc-name> /providers/microsoft.maintenance/applyupdates/"  
+| order by name desc
+```
 
 :::image type="content" source="./media/pre-post-events-common-scenarios/cancelation-query.png" alt-text="Screenshot that shows the status of job that has been canceled by system or user." lightbox="./media/pre-post-events-common-scenarios/cancelation-query.png":::
 

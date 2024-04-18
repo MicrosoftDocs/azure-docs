@@ -7,8 +7,8 @@ ms.reviewer: mjbrown
 ms.service: cosmos-db
 ms.subservice: apache-gremlin
 ms.topic: sample
-ms.date: 06/12/2020 
-ms.custom: devx-track-azurepowershell, ignite-2022
+ms.date: 06/12/2020
+ms.custom: devx-track-azurepowershell
 ---
 
 # Create a resource lock for Azure Cosmos DB for Gremlin database and graph using Azure PowerShell

@@ -5,12 +5,12 @@ description: Learn how to configure Azure AD B2C to provide customer identity an
 author: gargi-sinha
 manager: martinco
 ms.service: active-directory
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 01/26/2024
 ms.author: gasinh
 ms.subservice: B2C
 
-#customer intent: I'm a developer building a customer-facing application. I need to understand the different approaches to implement an identity platform using Azure AD B2C tenants for a globally operating business model. I want to make an informed decision about the architecture that best suits my application's requirements.
+# Customer intent: I'm a developer building a customer-facing application. I need to understand the different approaches to implement an identity platform using Azure AD B2C tenants for a globally operating business model. I want to make an informed decision about the architecture that best suits my application's requirements.
 ---
 
 # Azure Active Directory B2C global identity framework

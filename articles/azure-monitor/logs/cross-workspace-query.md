@@ -33,7 +33,7 @@ If you manage subscriptions in other Microsoft Entra tenants through [Azure Ligh
 * Cross-resource and cross-service queries don’t support parameterized functions and functions whose definition includes other cross-workspace or cross-service expressions, including `adx()`, `arg()`, `resource()`, `workspace()`, and `app()`.
 * You can include up to 100 Log Analytics workspaces or classic Application Insights resources in a single query.
 * Querying across a large number of resources can substantially slow down the query.
-* Cross-resource queries in log alerts are only supported in the current [scheduledQueryRules API](/rest/api/monitor/scheduledqueryrule-2018-04-16/scheduled-query-rules). If you're using the legacy Log Analytics Alerts API, you'll need to [switch to the current API](../alerts/alerts-log-api-switch.md).
+* Cross-resource queries in log search alerts are only supported in the current [scheduledQueryRules API](/rest/api/monitor/scheduledqueryrule-2018-04-16/scheduled-query-rules). If you're using the legacy Log Analytics Alerts API, you'll need to [switch to the current API](../alerts/alerts-log-api-switch.md).
 * References to a cross resource, such as another workspace, should be explicit and can't be parameterized. 
 
 ## Query across workspaces, applications, and resources using functions
@@ -84,7 +84,7 @@ applicationsScoping
 ```
 
 >[!NOTE]
-> This method can't be used with log alerts because the access validation of the alert rule resources, including workspaces and applications, is performed at alert creation time. Adding new resources to the function after the alert creation isn't supported. If you prefer to use a function for resource scoping in log alerts, you must edit the alert rule in the portal or with an Azure Resource Manager template to update the scoped resources. Alternatively, you can include the list of resources in the log alert query.
+> This method can't be used with log search alerts because the access validation of the alert rule resources, including workspaces and applications, is performed at alert creation time. Adding new resources to the function after the alert creation isn't supported. If you prefer to use a function for resource scoping in log search alerts, you must edit the alert rule in the portal or with an Azure Resource Manager template to update the scoped resources. Alternatively, you can include the list of resources in the log search alert query.
 
 ## Query across Log Analytics workspaces using workspace() 
 

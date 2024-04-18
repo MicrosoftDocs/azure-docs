@@ -7,7 +7,6 @@ ms.author: jacodel
 author: jcodella
 ms.service: azure-ai-personalizer
 ms.topic: include
-ms.custom: cog-serv-seo-aug-2020
 ms.date: 01/19/2024
 ---
 
@@ -101,4 +100,3 @@ You can easily generate, say, 5,000 events from this quickstart scenario, which 
 [!code-python[](~/cognitive-services-quickstart-code/python/Personalizer/quickstart-sdk/personalizer-quickstart.py?name=snippet_multi)]
 
 The source code for this quickstart is available on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/python/Personalizer).
-

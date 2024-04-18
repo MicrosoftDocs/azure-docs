@@ -5125,7 +5125,7 @@
         },
         {
             "source_path_from_root": "/articles/cognitive-services/text-analytics/migration-guide.md",
-            "redirect_url": "/azure/ai-services/language-service/concepts/migrate-from-text-analytics-v2",
+            "redirect_url": "/azure/ai-services/language-service/concepts/migrate",
             "redirect_document_id": false
         },
         {

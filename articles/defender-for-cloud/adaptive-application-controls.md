@@ -19,7 +19,7 @@ When you enable and configure adaptive application controls, you get security al
 
 By defining lists of known-safe applications, and generating alerts when anything else is executed, you can achieve multiple oversight and compliance goals:
 
-- Identify potential malware, even any that antimalware solutions can miss 
+- Identify potential malware, even any that antimalware solutions can miss
 - Improve compliance with local security policies that dictate the use of only licensed software
 - Identify outdated or unsupported versions of applications
 - Identify software your organization banned but is nevertheless running on your machines
@@ -37,6 +37,6 @@ No enforcement options are currently available. Adaptive application controls ar
 |Required roles and permissions:|**Security Reader** and **Reader** roles can both view groups and the lists of known-safe applications<br>**Contributor** and **Security Admin** roles can both edit groups and the lists of known-safe applications|
 |Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: National (Azure Government, Microsoft Azure operated by 21Vianet)<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Connected AWS accounts|
 
-## Next steps
+## Next step
 
 [Enable adaptive application controls](enable-adaptive-application-controls.md)

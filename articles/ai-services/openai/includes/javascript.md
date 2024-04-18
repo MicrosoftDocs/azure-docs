@@ -57,7 +57,7 @@ Open a command prompt where you created the new project, and create a new file n
 ```javascript
 const { OpenAIClient, AzureKeyCredential } = require("@azure/openai");
 const endpoint = process.env["AZURE_OPENAI_ENDPOINT"] ;
-const azureApiKey = process.env["AZURE_OPENAI_KEY"] ;
+const azureApiKey = process.env["AZURE_OPENAI_API_KEY"] ;
 
 const prompt = ["When was Microsoft founded?"];
 

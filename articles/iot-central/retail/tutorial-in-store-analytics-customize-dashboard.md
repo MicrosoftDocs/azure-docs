@@ -3,12 +3,13 @@ title: Tutorial - Customize the dashboard in Azure IoT Central
 description: This tutorial shows how to customize the dashboard in an IoT Central application, and manage devices.
 services: iot-central
 ms.service: iot-central
-ms.subservice: iot-central-retail
 ms.topic: tutorial
 ms.custom: [iot-storeAnalytics-checkout, iot-p0-scenario]
 author: dominicbetts
 ms.author: dobett
-ms.date: 06/12/2023
+ms.date: 03/27/2024
+
+# Customer intent: Learn how to customize the dashboard in an IoT Central application, and manage devices.
 ---
 
 # Tutorial: Customize the dashboard and manage devices in Azure IoT Central
@@ -16,6 +17,7 @@ ms.date: 06/12/2023
 In this tutorial, you learn how to customize the dashboard in your Azure IoT Central in-store analytics application. Application operators can use the customized dashboard to run the application and manage the attached devices.
 
 In this tutorial, you learn how to:
+
 > [!div class="checklist"]
 > * Customize image tiles on the dashboard
 > * Arrange tiles to modify the layout
@@ -25,8 +27,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-Before you begin, complete the following tutorial:
-* [Create an in-store analytics application in Azure IoT Central](./tutorial-in-store-analytics-create-app.md)
+Before you begin, complete the [Create an in-store analytics application in Azure IoT Central](./tutorial-in-store-analytics-create-app.md) tutorial.
 
 ## Change the dashboard name
 
@@ -46,7 +47,8 @@ The first step in customizing the application dashboard is to change the name:
 
 An Azure IoT Central application dashboard consists of one or more tiles. A tile is a rectangular container for displaying content on a dashboard. You associate various types of content with tiles, and you can drag, drop, and resize tiles to customize the dashboard layout.
 
-There are several types of tiles for displaying content: 
+There are several types of tiles for displaying content:
+
 * **Image** tiles contain images, and you can add a URL that lets you select the image. 
 * **Label** tiles display plain text. 
 * **Markdown** tiles contain formatted content and let you set an image, a URL, a title, and Markdown code that renders as HTML.
@@ -86,9 +88,9 @@ In this tutorial, you associate sensors with these zones to provide telemetry.
 
 ## Arrange tiles to modify the layout
 
-A key step in customizing a dashboard is to rearrange the tiles to create a useful view. Application operators use the dashboard to visualize device telemetry, manage devices, and monitor conditions in a store. 
+A key step in customizing a dashboard is to rearrange the tiles to create a useful view. Application operators use the dashboard to visualize device telemetry, manage devices, and monitor conditions in a store.
 
-Azure IoT Central simplifies the application builder task of creating a dashboard. By using the dashboard edit mode, you can quickly add, move, resize, and delete tiles. 
+Azure IoT Central simplifies the application builder task of creating a dashboard. By using the dashboard edit mode, you can quickly add, move, resize, and delete tiles.
 
 The *In-store analytics - checkout* application template also simplifies the task of creating a dashboard. The template provides a working dashboard layout, with sensors connected, and tiles that display checkout line counts and environmental conditions.
 
@@ -98,7 +100,7 @@ To remove tiles that you don't plan to use in your application:
 
 1. Select **Edit** on the dashboard toolbar.
 
-1. For each of the following tiles, which the Contoso store dashboard doesn't use, select the ellipsis (**...**), and then select **Delete**: 
+1. For each of the following tiles, which the Contoso store dashboard doesn't use, select the ellipsis (**...**), and then select **Delete**:
    * **Back to all zones**
    * **Visit store dashboard**
    * **Warm-up checkout zone**
@@ -203,18 +205,7 @@ To add a command tile to reboot the gateway:
 
 [!INCLUDE [iot-central-clean-up-resources](../../../includes/iot-central-clean-up-resources.md)]
 
-## Next steps
-
-In this tutorial, you learned how to:
-
-* Change the dashboard name.
-* Customize image tiles on the dashboard.
-* Arrange tiles to modify the layout.
-* Add telemetry tiles to display conditions.
-* Add property tiles to display device details.
-* Add command tiles to run commands.
-
-Now that you've customized the dashboard in your Azure IoT Central in-store analytics application, here's the suggested next step:
+## Next step
 
 > [!div class="nextstepaction"]
 > [Export data and visualize insights](./tutorial-in-store-analytics-export-data-visualize-insights.md)
