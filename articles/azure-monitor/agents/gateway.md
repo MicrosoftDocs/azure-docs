@@ -81,7 +81,7 @@ The Log Analytics gateway is available in these languages:
 
 ### Supported encryption protocols
 
-The Log Analytics gateway supports only Transport Layer Security (TLS) 1.0, 1.1, 1.2 and 1.3.  It doesn't support Secure Sockets Layer (SSL). To ensure the security of data in transit to Log Analytics, configure the gateway to use at least TLS 1.3. Although they currently allow for backward compatibility, avoid using older versions because they are vunerable.  
+The Log Analytics gateway supports only Transport Layer Security (TLS) 1.0, 1.1, 1.2 and 1.3.  It doesn't support Secure Sockets Layer (SSL). To ensure the security of data in transit to Log Analytics, configure the gateway to use at least TLS 1.3. Although they currently allow for backward compatibility, avoid using older versions because they are vulnerable.  
 
 For additional information, review [Sending data securely using TLS](../logs/data-security.md#sending-data-securely-using-tls). 
 
