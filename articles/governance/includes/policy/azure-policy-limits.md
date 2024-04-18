@@ -1,14 +1,12 @@
 ---
-title: "include file"
-description: "include file"
-author: davidsmatlak
+ms.topic: include
 ms.service: azure-policy
-ms.topic: "include"
-ms.date: 09/30/2020
+ms.date: 04/17/2024
 ms.author: davidsmatlak
+author: davidsmatlak
 ---
 
-There's a maximum count for each object type for Azure Policy. For definitions, an entry of _Scope_ means the [management group](../articles/governance/management-groups/overview.md) or subscription. For assignments and exemptions, an entry of _Scope_ means the [management group](../articles/governance/management-groups/overview.md), subscription, resource group, or individual resource.
+There's a maximum count for each object type for Azure Policy. For definitions, an entry of _Scope_ means the [management group](../../management-groups/overview.md) or subscription. For assignments and exemptions, an entry of _Scope_ means the management group, subscription, resource group, or individual resource.
 
 | Where | What | Maximum count |
 |---|---|---|
@@ -25,4 +23,4 @@ There's a maximum count for each object type for Azure Policy. For definitions, 
 | Remediation task | Resources | 50,000 |
 | Policy definition, initiative, or assignment request body | Bytes | 1,048,576 |
 
-Policy rules have additional limits to the number of conditions and their complexity. See [Policy rule limits](../articles/governance/policy/concepts/definition-structure.md#policy-rule-limits) for more details.
+Policy rules have more limits to the number of conditions and their complexity. For more information, go to [Policy rule limits](../../policy/concepts/definition-structure-policy-rule.md#policy-rule-limits) for more details.
