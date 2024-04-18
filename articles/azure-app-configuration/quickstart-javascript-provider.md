@@ -114,7 +114,7 @@ const { load } = require("@azure/app-configuration-provider");
 const connectionString = process.env.AZURE_APPCONFIG_CONNECTION_STRING;
 
 async function run() {
-    console.log("Sample 3: Load specific key-values using selectors");
+    console.log("Sample 2: Load specific key-values using selectors");
 
     // Load a subset of keys starting with "app." prefix.
     const settings = await load(connectionString, {
@@ -154,7 +154,7 @@ const { load } = require("@azure/app-configuration-provider");
 const connectionString = process.env.AZURE_APPCONFIG_CONNECTION_STRING;
 
 async function run() {
-    console.log("Sample 2: Load key-values and trim prefix from keys");
+    console.log("Sample 3: Load key-values and trim prefix from keys");
 
     // Load all key-values with no label, and trim "app." prefix from all keys.
     const settings = await load(connectionString, {
@@ -280,7 +280,7 @@ run().catch(console.error);
     **Sample 2**
 
     ```Output
-    Sample 3: Load specific key-values using selectors
+    Sample 2: Load specific key-values using selectors
     ---Consume configuration as a Map---
     settings.has("message"): false
     settings.has("app.greeting"): true
@@ -294,7 +294,7 @@ run().catch(console.error);
     **Sample 3**
 
     ```Output
-    Sample 2: Load key-values and trim prefix from keys
+    Sample 3: Load key-values and trim prefix from keys
     ---Consume configuration as a Map---
     settings.get("greeting"): Hello World
     settings.get("json"): { myKey: 'myValue' }
