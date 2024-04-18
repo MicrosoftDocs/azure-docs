@@ -76,13 +76,14 @@ When you create a new workspace, you're required to bring other Azure resources 
   >
   > If you bring an existing general-purpose v1 storage account, you may [upgrade this to general-purpose v2](../storage/common/storage-account-upgrade.md) after the workspace has been created.
   
-+ [Azure Container Registry](https://azure.microsoft.com/services/container-registry/). Stores created docker containers, when you build custom environments via Azure Machine Learning. Scenarios that trigger creation of custom environments include AutoML when deploying models and data profiling.
++ [Azure Container Registry (ACR)](https://azure.microsoft.com/services/container-registry/). Stores created docker containers, when you build custom environments via Azure Machine Learning. Deploying AutoML models and data profile will also trigger creation of custom environments.
 
-    > [!TIP] 
-    > Workspaces can be created without Azure Container Registry as a dependency if you do not have a need to build custom docker containers. Azure Machine Learning works with external container registries to read curated images. Azure Container Registry will automatically be provisioned when you build custom docker images. Use Azure RBAC to prevent customer docker containers from being built.
+    Workspaces *can* be created without ACR as a dependency if you do not have a need to build custom docker containers. Azure Machine Learning can read from external container registries.
 
-    > [!NOTE]
-    > If your subscription setting requires adding tags to resources under it, Azure Container Registry (ACR) created by Azure Machine Learning will fail, since we cannot set tags to ACR.
+    ACR will automatically be provisioned when you build custom docker images. Use [Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md) to prevent customer docker containers from being built.
+
+    > [!IMPORTANT]
+    > If your subscription setting requires adding tags to resources under it, ACR created by Azure Machine Learning will fail, since we cannot set tags to ACR.
 
 + [Azure Application Insights](https://azure.microsoft.com/services/application-insights/). Helps you monitor and collect diagnostic information from your inference endpoints.
     :::moniker range="azureml-api-2"
