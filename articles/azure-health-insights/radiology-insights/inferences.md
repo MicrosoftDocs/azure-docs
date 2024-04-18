@@ -36,7 +36,9 @@ The types of inferences currently supported by the system are: AgeMismatch, SexM
 
 
 
-To interact with the Radiology-Insights model, you can provide several model configuration parameters that modify the outcome of the responses. One of the configurations is "inferenceTypes", which can be used if only part of the Radiology Insights inferences is required. If this list is omitted or empty, the model returns all the inference types.
+To interact with the Radiology-Insights model, you can provide several model configuration parameters that modify the outcome of the responses. One of the configurations is "inferenceTypes", which can be used if only part of the Radiology Insights inferences is required. If this list is omitted or empty, the model returns all the inference types.  
+Possible inference types:
+"finding", "ageMismatch", "lateralityDiscrepancy", "sexMismatch", "completeOrderDiscrepancy", "limitedOrderDiscrepancy", "criticalResult", "followupRecommendation", "followupCommunication", "radiologyProcedure".
 
 ```json
 "configuration" : {

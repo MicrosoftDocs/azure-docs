@@ -29,8 +29,7 @@ The Service URL to access your service is: https://```YOUR-NAME```.cognitiveserv
 To send an API request, you need the endpoint and key of your Azure Health Insights service. 
 
 
-<!-- You can also find a full view of the [request parameters here](/rest/api/cognitiveservices/healthinsights/radiology-insights/create-job). -->
-
+You can also find a full view of the [request parameters here](/rest/api/cognitiveservices/healthinsights/radiology-insights/create-job).
 
 
 ![[Screenshot of the Keys and Endpoints for the Radiology Insights.](../media/keys-and-endpoints.png)](../media/keys-and-endpoints.png#lightbox)
@@ -39,6 +38,11 @@ To send an API request, you need the endpoint and key of your Azure Health Insig
 > Prediction is performed upon receipt of the API request and the results will be returned asynchronously. The API results are available for 24 hours from the time the request was ingested, and is indicated in the response. After this time period, the results are purged and are no longer available for retrieval.
 
 ## Example request
+
+> [!NOTE]
+> The examples below are based on API version: 2023-03-01-preview. There might be changes between
+API versions. For a specific API version, please use the reference to the REST API to see full description.
+
 
 ### Starting with a request that contains a case
 
@@ -127,7 +131,7 @@ Ocp-Apim-Subscription-Key: {cognitive-services-account-key}
 }
 ```
 
-<!-- You can also find a full view of the [request parameters here](/rest/api/cognitiveservices/healthinsights/radiology-insights/create-job). -->
+You can also find a full view of the [request parameters here](/rest/api/cognitiveservices/healthinsights/radiology-insights/create-job).
 
 
 
@@ -177,7 +181,7 @@ Ocp-Apim-Subscription-Key: {cognitive-services-account-key}
 }
 ```
 
-<!-- You can also find a full view of the [request parameters here](/rest/api/cognitiveservices/healthinsights/radiology-insights/get-job). -->
+You can also find a full view of the [request parameters here](/rest/api/cognitiveservices/healthinsights/radiology-insights/get-job).
 
 ## Data limits
 
@@ -216,11 +220,13 @@ Within patients:
 For the patientDocuments within a patient:
 - createdDateTime (serviceDate) should be set
 - Patient Document language should be EN (case-insensitive) 
-- documentType should be set to Note
-- Patient Document clinicalType should be set to radiology report or pathology report
+- documentType should be set to note (case-insensitive)
+- Patient Document clinicalType should be set to radiologyReport or pathologyReport (case-insensitive, in one word)
 - Patient Document specialtyType should be radiology or pathology
 - If set, orderedProcedures in administrativeMetadata should contain code -with code and display- and description
 - Document content shouldn't be blank/empty/null 
+
+Optional: sex and birthDate are optional fields.
 
 
 ```json
