@@ -14,7 +14,7 @@ ms.author: mattmcinnes
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
 > [!NOTE]
-> 'EC' family VMs are specialized for confidential computing scenarios. If your workload doesn't require confidential compute and you're looking for memory-optimized VMs with similar specs, consider the [the standard E-family size series](./e-family.md).
+> 'EC' family VMs are specialized for confidential computing scenarios. If your workload doesn't require confidential compute and you're looking for memory-optimized VMs with similar specifications, consider the [standard E-family size series](./e-family.md).
 
 The 'EC' family of VM size series are one of Azure's security focused memory-optimized VM instances. They're designed for memory-intensive workloads, such as large databases, big data analytics, and enterprise applications that require significant amounts of RAM to maintain high performance. Equipped with high memory-to-core ratios, E-series VMs support applications and services that benefit from faster data access and more efficient data processing capabilities. This makes them particularly well-suited for scenarios involving in-memory databases and extensive data processing tasks where ample memory is crucial for optimal performance.
 
