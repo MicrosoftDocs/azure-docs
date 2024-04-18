@@ -249,6 +249,9 @@
         displayName: users, user
       - name: Audit user activity
         href: track-user-activity.md
+      - name: SSO for sensor console login
+        href: set-up-sso.md
+        displayName: users, user
     - name: Maintain OT on-premises resources
       items:
       - name: Enhance device data and detection

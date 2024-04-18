@@ -2,7 +2,7 @@
 title: Back up Azure VMs with Enhanced policy
 description: Learn how to configure Enhanced policy to back up VMs.
 ms.topic: how-to
-ms.date: 04/01/2024
+ms.date: 04/18/2024
 ms.reviewer: sharrai
 ms.service: backup
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
@@ -106,27 +106,26 @@ Also, the output object for this cmdlet contains the following additional fields
 **Step 2: Set the backup schedule objects**
 
 ```azurepowershell
-$startTime = Get-Date -Date "2021-12-22T06:10:00.00+00:00"
-$SchPol.ScheduleRunStartTime = $startTime
-$SchPol.ScheduleInterval = 6
-$SchPol.ScheduleWindowDuration = 12
-$SchPol.ScheduleRunTimezone = "PST"
+$schedulePolicy = Get-AzRecoveryServicesBackupSchedulePolicyObject -WorkloadType AzureVM -BackupManagementType AzureVM -PolicySubType Enhanced -ScheduleRunFrequency Hourly
+$timeZone = Get-TimeZone -ListAvailable | Where-Object { $_.Id -match "India" }
+$schedulePolicy.ScheduleRunTimeZone = $timeZone.Id
+$windowStartTime = (Get-Date -Date "2022-04-14T08:00:00.00+00:00").ToUniversalTime()
+$schPol.HourlySchedule.WindowStartTime = $windowStartTime
+$schedulePolicy.HourlySchedule.ScheduleInterval = 4
+$schedulePolicy.HourlySchedule.ScheduleWindowDuration = 23
 
 ```
 
-This sample cmdlet contains the following parameters:
+In this sample cmdlet:
 
-- `$ScheduleInterval`: Defines the difference (in hours) between two successive backups per day. Currently, the acceptable values are *4*, *6*, *8* and *12*.
+- The first command gets a base enhanced hourly SchedulePolicyObject for WorkloadType AzureVM, and then stores it in the $schedulePolicy variable.
+- The second and third command fetches the India timezone and updates the timezone in the $schedulePolicy.
+- The fourth and fifth command initializes the schedule window start time and updates the $schedulePolicy. 
 
-- `$ScheduleWindowStartTime`: The time at which the first backup job is triggered in case of *hourly backups*. The current limits (in policy's timezone) are:
-  - `Minimum: 00:00`
-  - `Maximum:19:30`
+  >[Note]
+  >The start time must be in UTC even if the timezone is not UTC.
 
-- `$ScheduleRunTimezone`: Specifies the timezone in which backups are scheduled. The default schedule is *UTC*.
-
-- `$ScheduleWindowDuration`: The time span (in hours measured from the Schedule Window Start Time) beyond which backup jobs shouldn't be triggered. The current limits are:
-  - `Minimum: 4`
-  - `Maximum:23`
+- The sixth and seventh command updates the interval (in hours) after which the backup will be retriggered on the same day, duration (in hours) for which the schedule will run.
 
 **Step 3: Create the backup retention policy**
 

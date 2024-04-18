@@ -266,7 +266,7 @@ March 6, 2024
 
 Based on customer feedback, we've added compliance standards in preview to Defender for Cloud.
 
-Check out the [full list of supported compliance standards](concept-regulatory-compliance-standards.md#available-regulatory-standards)
+Check out the [full list of supported compliance standards](concept-regulatory-compliance-standards.md#available-compliance-standards)
 
 We are continuously working on adding and updating new standards for Azure, AWS, and GCP environments.
 
