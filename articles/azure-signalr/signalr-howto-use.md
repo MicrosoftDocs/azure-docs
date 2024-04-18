@@ -4,7 +4,7 @@ description: Learn how to use Azure SignalR Service in your app server
 author: vicancy
 ms.service: signalr
 ms.topic: how-to
-ms.date: 12/18/2023
+ms.date: 04/18/2024
 ms.author: lianwei 
 ---
 
@@ -150,8 +150,9 @@ You can increase this value to avoid client disconnect.
 
 #### `TransportTypeDetector`
 
-- Default value is null.
-- This option defines a function to customize the transports that clients can use to send HTTP requests. If it's null, all transports are supported.
+- Default value: All transports are enabled.
+- This option defines a function to customize the transports that clients can use to send HTTP requests.
+- Use this options instead of [`HttpConnectionDispatcherOptions.Transports`](https://learn.microsoft.com/aspnet/core/signalr/configuration?&tabs=dotnet#advanced-http-configuration-options) to configure transports. 
 
 ### Sample
 
@@ -167,6 +168,7 @@ services.AddSignalR()
 
                 options.GracefulShutdown.Mode = GracefulShutdownMode.WaitForClientsClose;
                 options.GracefulShutdown.Timeout = TimeSpan.FromSeconds(10);
+                options.TransportTypeDetector = httpContext => AspNetCore.Http.Connections.HttpTransportType.WebSockets | AspNetCore.Http.Connections.HttpTransportType.LongPolling;
             });
 ```
 
