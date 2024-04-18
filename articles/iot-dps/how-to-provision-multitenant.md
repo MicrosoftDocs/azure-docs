@@ -8,7 +8,7 @@ ms.author: kgremban
 ms.topic: tutorial
 ms.date: 08/24/2022
 ms.service: iot-dps
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, linux-related-content
 ---
 
 # Tutorial: Provision for geo latency

@@ -4,7 +4,7 @@ ms.service: azure-ai-speech
 ms.topic: include
 ms.date: 03/11/2020
 ms.author: eur
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, linux-related-content
 ---
 
 [!INCLUDE [Header](../../common/csharp.md)]

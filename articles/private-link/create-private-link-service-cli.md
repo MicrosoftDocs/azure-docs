@@ -5,7 +5,7 @@ services: private-link
 author: abell
 ms.service: private-link
 ms.topic: quickstart
-ms.date: 02/03/2023
+ms.date: 03/28/2024
 ms.author: abell
 ms.devlang: azurecli
 ms.custom: mode-api, devx-track-azurecli, template-quickstart

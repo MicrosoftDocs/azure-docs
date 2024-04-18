@@ -350,7 +350,7 @@ StorageProfile = new GalleryImageVersionStorageProfile()
             },
 ```
 
-For VHD as a source, use StorageAccountID field under GallerySource under OS disk or Data disk Image(GalleryImageVersionStorageProfile.OSDiskImage.GallerySource.StorageAccountId). The new property requires api-version 2022-03-03
+For VHD as a source, use StorageAccountID field under GallerySource under OSDiskImage or Data disk Image(GalleryImageVersionStorageProfile.OSDiskImage.GallerySource.StorageAccountId). The new property requires api-version 2022-03-03
 ```
 StorageProfile = new GalleryImageVersionStorageProfile()
             {

@@ -27,7 +27,7 @@ Assessments you create with Azure Migrate are a point-in-time snapshot of data. 
 --- | --- 
 **Azure VM** | Assessments to migrate your on-premises servers to Azure virtual machines. You can assess your on-premises servers in [VMware vSphere](how-to-set-up-appliance-vmware.md) and [Hyper-V](how-to-set-up-appliance-hyper-v.md) environment, and [physical servers](how-to-set-up-appliance-physical.md) for migration to Azure VMs using this assessment type.
 **Azure SQL** | Assessments to migrate your on-premises SQL servers from your VMware environment to Azure SQL Database or Azure SQL Managed Instance.
-**Azure App Service** | Assessments to migrate your on-premises ASP.NET web apps, running on IIS web servers, from your VMware vSphere environment to Azure App Service.
+**Azure App Service** | Assessments to migrate your on-premises ASP.NET web apps, running on IIS web servers, or Java web applications, running on Tomcat servers from your VMware vSphere environment to Azure App Service.
 **Azure VMware Solution (AVS)** | Assessments to migrate your on-premises vSphere servers to [Azure VMware Solution](../azure-vmware/introduction.md). You can assess your on-premises [VMware vSphere VMs](how-to-set-up-appliance-vmware.md) for migration to Azure VMware Solution using this assessment type. [Learn more](concepts-azure-vmware-solution-assessment-calculation.md)
 
 > [!NOTE]

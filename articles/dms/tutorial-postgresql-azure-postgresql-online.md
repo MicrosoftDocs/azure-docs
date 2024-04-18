@@ -488,17 +488,12 @@ If you need to cancel or delete any DMS task, project, or service, perform the c
     az dms project task delete --service-name PostgresCLI --project-name PGMigration --resource-group PostgresDemo --name runnowtask
     ```
 
-3. To cancel a running project, use the following command:
-     ```azurecli
-    az dms project task cancel -n runnowtask --project-name PGMigration -g PostgresDemo --service-name PostgresCLI
-     ```
-
-4. To delete a running project, use the following command:
+3. To delete a project, use the following command:
     ```azurecli
-    az dms project task delete -n runnowtask --project-name PGMigration -g PostgresDemo --service-name PostgresCLI
+    az dms project delete -n PGMigration -g PostgresDemo --service-name PostgresCLI
     ```
 
-5. To delete DMS service, use the following command:
+4. To delete DMS service, use the following command:
 
      ```azurecli
     az dms delete -g ProgresDemo -n PostgresCLI

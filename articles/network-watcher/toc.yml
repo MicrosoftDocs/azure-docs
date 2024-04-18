@@ -191,12 +191,16 @@
         href: nsg-flow-logs-policy-portal.md
     - name: Manage VNet flow logs
       items:
+      - name: Azure portal
+        href: vnet-flow-logs-portal.md
       - name: PowerShell
         href: vnet-flow-logs-powershell.md
       - name: Azure CLI
         href: vnet-flow-logs-cli.md
+    - name: Migrate NSG flow logs
+      href: nsg-flow-logs-migrate.md
     - name: Read NSG flow logs
-      href: network-watcher-read-nsg-flow-logs.md
+      href: flow-logs-read.md
     - name: Analyze NSG flow logs
       items:
       - name: Use Power BI
