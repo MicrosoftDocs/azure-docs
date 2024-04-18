@@ -8,20 +8,18 @@ items:
 - name: Quickstarts
   expanded: true
   items:
-  - name: Managing a Confidential Ledger
-    items:
-    - name: Portal
-      href: quickstart-portal.md
-    - name: CLI
-      href: quickstart-cli.md
-    - name: PowerShell
-      href: quickstart-powershell.md
-    - name: Python
-      href: quickstart-python.md
-    - name: .NET
-      href: quickstart-net.md
-    - name: ARM template
-      href: quickstart-template.md 
+  - name: Portal
+    href: quickstart-portal.md
+  - name: CLI
+    href: quickstart-cli.md
+  - name: PowerShell
+    href: quickstart-powershell.md
+  - name: Python
+    href: quickstart-python.md
+  - name: .NET
+    href: quickstart-net.md
+  - name: ARM template
+    href: quickstart-template.md 
 - name: Concepts
   items:
   - name: Architecture
