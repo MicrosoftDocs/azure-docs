@@ -202,7 +202,7 @@ Stateful workflows in single-tenant Azure Logic Apps use Azure Table Storage for
 
 For more information about scaling targets and limitations for the various Azure Storage services, see the following documentation:
 
-- [Scale targets for Table Storage](../storage/tables/scalability-targets.mdscale-targets-for-table-storage)
+- [Scale targets for Table Storage](../storage/tables/scalability-targets.md#scale-targets-for-table-storage)
 - [Data operation targets for Table Storage](../storage/tables/storage-performance-checklist.md#targets-for-data-operations)
 - [Scale targets for Blob Storage](../storage/blobs/scalability-targets.md#scale-targets-for-blob-storage)
 - [Scale targets for Queue Storage](../storage/queues/scalability-targets.md#scale-targets-for-queue-storage)
