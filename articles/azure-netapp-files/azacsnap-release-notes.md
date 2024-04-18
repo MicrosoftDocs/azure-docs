@@ -25,7 +25,7 @@ AzAcSnap 9a is being released with the following fixes and improvements:
 
 - Fixes and Improvements:
   - Allow AzAcSnap to have Azure Management Endpoints manually configured to allow it to work in Azure Sovereign Clouds.
-    - Added a global override variable `AZURE_MANAGEMENT_ENDPOINT` to be used in either the `.azacsnaprc` file or as an environment variable set to the appropriate Azure management endpoint. For details on configuration refer to the [global settings to control AzAcSnap behavior](azacsnap-tips.md#global-settings-to-control-azacsnap-behavior).
+    - Added a global override variable `AZURE_MANAGEMENT_ENDPOINT` to be used in either the `.azacsnaprc` file or as an environment variable set to the appropriate Azure management endpoint. For details on configuration refer to the [global override settings to control AzAcSnap behavior](azacsnap-tips.md#global-override-settings-to-control-azacsnap-behavior).
 
 Download the [AzAcSnap 9a](https://aka.ms/azacsnap-9a) installer.
 
