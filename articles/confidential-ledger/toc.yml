@@ -1,3 +1,4 @@
+items:
 - name: Azure confidential ledger 
   href: index.yml
 - name: Overview
@@ -7,51 +8,70 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Portal
-    href: quickstart-portal.md
-  - name: CLI
-    href: quickstart-cli.md
-  - name: PowerShell
-    href: quickstart-powershell.md
-  - name: Python
-    href: quickstart-python.md
-  - name: .NET
-    href: quickstart-net.md
-  - name: ARM template
-    href: quickstart-template.md 
+  - name: Managing a Confidential Ledger
+    items:
+    - name: Portal
+      href: quickstart-portal.md
+    - name: CLI
+      href: quickstart-cli.md
+    - name: PowerShell
+      href: quickstart-powershell.md
+    - name: Python
+      href: quickstart-python.md
+    - name: ARM template
+      href: quickstart-template.md
+  - name: Writing to a Confidential Ledger
+    items:
+    - name: Python
+      href: quickstart-python.md
+    - name: .NET
+      href: quickstart-net.md
 - name: Concepts
   items:
   - name: Architecture
     href: architecture.md
-  - name: Authentication with Microsoft Entra ID
-    href: authentication-azure-ad.md
-  - name: Authenticating ledger nodes
-    href: authenticate-ledger-nodes.md
-  - name: Write transaction receipts
-    href: write-transaction-receipts.md
+  - name: User Authentication and authorization 
+    items:
+    - name: Authentication with Microsoft Entra ID
+      href: authentication-azure-ad.md
+    - name: Authenticating ledger nodes
+      href: authenticate-ledger-nodes.md
+  - name: Verifying Ledger Data
+    items:
+    - name: Write transaction receipts
+      href: write-transaction-receipts.md
 - name: How To Guides
   items:
-  - name: Create a client certificate
-    href: create-client-certificate.md 
-  - name: Create a managed application to store blob digests
-    href: create-blob-managed-app.md
-  - name: Register the confidential ledger resource provider
-    href: register-ledger-resource-provider.md
-  - name: Register an ACL app with Microsoft Entra ID
-    href: register-application.md
-  - name: Verify write transaction receipts
-    href: verify-write-transaction-receipts.md
-  - name: Establish trust on Azure confidential ledger
-    href: verify-node-quotes.md
-  - name: Manage Microsoft Entra token-based users
-    href: manage-azure-ad-token-based-users.md
-  - name: Manage certificate-based users
-    href: manage-certificate-based-users.md
-  - name: Upload, view and list ledger data with the Azure ledger explorer
-    href: quickstart-ledger-explorer.md
+  - name: Manage your Ledger
+    items:
+    - name: Register the confidential ledger resource provider
+      href: register-ledger-resource-provider.md  
+    - name: Register an ACL app with Microsoft Entra ID
+      href: register-application.md
+  - name: Manage users
+    items:  
+    - name: Create a client certificate
+      href: create-client-certificate.md
+    - name: Manage Microsoft Entra token-based users
+      href: manage-azure-ad-token-based-users.md
+    - name: Manage certificate-based users
+      href: manage-certificate-based-users.md
+  - name: Verifying your data with Confidential Ledger
+    items:
+    - name: Verify write transaction receipts
+      href: verify-write-transaction-receipts.md
+    - name: Establish trust on Azure confidential ledger
+      href: verify-node-quotes.md
+    - name: Upload, view and list ledger data with the Azure ledger explorer
+      href: quickstart-ledger-explorer.md
+  - name: Applications using Confidential Ledger 
+    items: 
+    - name: Store your data securely in SQL Server with Ledger
+      href: ~/sql/relational-databases/security/ledger/ledger-landing-sql-server
+    - name: Create a managed application to store blob digests
+      href: create-blob-managed-app.md
 - name: References
   items:
-
   - name: FAQ
     href: faq.yml
   - name: Azure confidential ledger REST API reference
