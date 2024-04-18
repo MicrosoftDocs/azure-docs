@@ -35,7 +35,7 @@ This value enables you to successfully create HDInsight clusters. The below snip
 
 
 > [!NOTE]
-> Spark 2.4 has [reached EOL](https://azure.microsoft.com/en-us/updates/azure-hdinsight-spark-24-approaching-eol/) and is no longer under support by Microsoft. HDInsight versions 4.0 and 5.0 are under basic support. migrate to [HDInsight 5.1](https://learn.microsoft.com/en-us/azure/hdinsight/hdinsight-5x-component-versioning) or [HDInsight on AKS](https://learn.microsoft.com/en-us/azure/hdinsight-aks/) by 31 March 2025. 
+> Spark 2.4 has [reached EOL](https://azure.microsoft.com/updates/azure-hdinsight-spark-24-approaching-eol/) and is no longer under support by Microsoft. HDInsight versions 4.0 and 5.0 are under basic support. Migrate to [HDInsight 5.1](https://learn.microsoft.com/azure/hdinsight/hdinsight-5x-component-versioning) or [HDInsight on AKS](https://learn.microsoft.com/azure/hdinsight-aks/) by 31 March 2025. 
 
 
 
