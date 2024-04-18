@@ -1,7 +1,7 @@
 ---
 title: Search over JSON blobs
 titleSuffix: Azure AI Search
-description: Extract searchable text from JSON blobs using the Blob indexer in Azure AI Search. Indexers provide indexing automation for supported data sources like Azure Blob Storage.
+description: Extract searchable text from JSON blobs using the blob indexer in Azure AI Search. Indexers provide indexing automation for supported data sources like Azure Blob Storage.
 
 manager: nitinme
 author: HeidiSteen
@@ -18,7 +18,7 @@ ms.date: 01/11/2024
 
 **Applies to**: [Blob indexers](search-howto-indexing-azure-blob-storage.md), [File indexers](search-file-storage-integration.md)
 
-For blob indexing in Azure AI Search, this article shows you how to set properties for blobs or files consisting of JSON documents. JSON files in Azure Blob Storage or Azure File Storage commonly assume any of these forms:
+For blob indexing in Azure AI Search, this article shows you how to set properties for blobs or files consisting of JSON documents. JSON files in Azure Blob Storage or Azure Files commonly assume any of these forms:
 
 + A single JSON document
 + A JSON document containing an array of well-formed JSON elements
@@ -109,9 +109,9 @@ api-key: [admin key]
 }
 ```
 
-### jsonArrays example (clinical trials sample data)
+### jsonArrays example
 
-The [clinical trials JSON data set](https://github.com/Azure-Samples/azure-search-sample-data/tree/main/clinical-trials/clinical-trials-json) on GitHub is helpful for testing JSON array parsing. You can upload the data files to Blob storage and use the [**Import data** wizard](search-get-started-portal.md) to quickly evaluate how this content is parsed into individual search documents. 
+The [New York Philharmonic JSON data set](https://github.com/Azure-Samples/azure-search-sample-data/tree/main/ny-philharmonic) on GitHub is helpful for testing JSON array parsing. You can upload the data files to Blob storage and use the [**Import data** wizard](search-get-started-portal.md) to quickly evaluate how this content is parsed into individual search documents. 
 
 The data set consists of eight blobs, each containing a JSON array of entities, for a total of 100 entities. The entities vary as to which fields are populated, but the end result is one search document per entity, from all arrays, in all blobs.
 
