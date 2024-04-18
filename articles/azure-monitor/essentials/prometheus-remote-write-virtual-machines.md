@@ -45,8 +45,9 @@ If you have virtual machines in non-Azure environments, and you don't want to on
 - Prometheus versions greater than v2.48 are required for Microsoft Entra ID application authentication. 
 
 ### Azure Monitor workspace
-This article covers sending Prometheus metrics to an Azure Monitor workspace. To create an Azure monitor workspace, see [Manage an Azure Monitor workspace](./azure-monitor-workspace-manage.md#create-an-azure-monitor-workspace#create-an-azure-monitor-workspace).
+This article covers sending Prometheus metrics to an Azure Monitor workspace. To create an Azure monitor workspace, see [Manage an Azure Monitor workspace](./azure-monitor-workspace-manage.md#create-an-azure-monitor-workspace).
 
+## Permissions
 Administrator permissions for the cluster or resource are required to complete the steps in this article.
 
 
@@ -313,7 +314,7 @@ To find your client for managed identity authentication in the portal, go to the
 
 :::image type="content" source="media/prometheus-remote-write-virtual-machines/find-clinet-id.png" lightbox="media/prometheus-remote-write-virtual-machines/find-clinet-id.png" alt-text="A screenshot showing the client ID on the Identity overview page."::: 
 
-To find the client ID for the Microsoft Entra ID application, use the following CLI or see the first step in the [Create an Microsoft Entra ID application using the Azure portal](#create-an-microsoft-entra-id-application-using-the-azure-portal) section.
+To find the client ID for the Microsoft Entra ID application, use the following CLI or see the first step in the [Create an Microsoft Entra ID application using the Azure portal](#remote-write-using-microsoft-entra-id-application-authentication) section.
 
 ```azurecli
 $ az ad app list --display-name < application name>

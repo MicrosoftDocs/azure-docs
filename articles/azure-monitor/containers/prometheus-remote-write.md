@@ -36,7 +36,7 @@ See the following articles for more information on how to configure remote write
 
 ## Remote write from Virtual Machines and Virtual Machine Scale sets 
 
-You can send Prometheus data from Virtual Machines and Virtual Machines Scale Sets to Azure Monitor workspaces using remote write. The servers can be Azure-managed or in any other environment. For more information, see [Send Prometheus metrics from Virtual Machines to an Azure Monitor workspace](/azure/azure-monitor/containers/prometheus-remote-write-virtual-machines).
+You can send Prometheus data from Virtual Machines and Virtual Machines Scale Sets to Azure Monitor workspaces using remote write. The servers can be Azure-managed or in any other environment. For more information, see [Send Prometheus metrics from Virtual Machines to an Azure Monitor workspace](/azure/azure-monitor/essentials/prometheus-remote-write-virtual-machines).
 
 
 ## Verify remote write is working correctly

@@ -17,6 +17,9 @@ This article describes how to set up [remote write](prometheus-remote-write.md) 
 ## Prerequisites
 
 To send data from a Prometheus server by using remote write with Microsoft Entra Workload ID authentication, you need:
+## Prerequisites
+
+- Prometheus versions greater than v2.48 are required for Microsoft Entra ID application authentication. 
 
 - A cluster that has feature flags that are specific to OpenID Connect (OIDC) and an OIDC issuer URL:
   - For managed clusters (Azure Kubernetes Service, Amazon Elastic Kubernetes Service, and Google Kubernetes Engine), see [Managed Clusters - Microsoft Entra Workload ID](https://azure.github.io/azure-workload-identity/docs/installation/managed-clusters.html).
@@ -179,7 +182,7 @@ az ad app federated-credential create --id ${APPLICATION_OBJECT_ID} --parameters
 
 ## Verification and troubleshooting
 
-For verification and troubleshooting information, see [Troubleshooting remote write](articles/azure-monitor/containers/prometheus-remote-write-troubleshooting)  and [Azure Monitor managed service for Prometheus remote write](prometheus-remote-write.md#verify-remote-write-is-working-correctly).
+For verification and troubleshooting information, see [Troubleshooting remote write](/azure/azure-monitor/containers/prometheus-remote-write-troubleshooting)  and [Azure Monitor managed service for Prometheus remote write](prometheus-remote-write.md#verify-remote-write-is-working-correctly).
 
 ## Next steps
 

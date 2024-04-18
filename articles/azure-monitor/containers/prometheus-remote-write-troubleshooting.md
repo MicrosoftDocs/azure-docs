@@ -13,6 +13,13 @@ ms.date: 4/18/2024
 
 # Troubleshoot remote write
 
+
+## Supported versions
+
+- Prometheus versions greater than v2.45 are required for managed identity authentication.
+- Prometheus versions greater than v2.48 are required for Microsoft Entra ID application authentication. 
+
+
 ##  HTTP 403 error in the Prometheus log
 
 It takes about 30 minutes for the assignment of the role to take effect. During this time, you may see an HTTP 403 error in the Prometheus log. Check that you have configured the managed identity or Microsoft Entra ID application correctly with the `Monitoring Metrics Publisher` role on the workspace's data collection rule. If the configuration is correct, wait 30 minutes for the role assignment to take effect.

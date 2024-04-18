@@ -22,7 +22,17 @@ This article applies to the following cluster configurations:
 
 ## Prerequisites
 
-The prerequisites that are described in [Azure Monitor managed service for Prometheus remote write](prometheus-remote-write.md#prerequisites) apply to the processes that are described in this article.
+### Supported versions
+
+Prometheus versions greater than v2.45 are required for managed identity authentication.
+
+### Azure Monitor workspace
+
+This article covers sending Prometheus metrics to an Azure Monitor workspace. To create an Azure monitor workspace, see [Manage an Azure Monitor workspace](./azure-monitor-workspace-manage.md#create-an-azure-monitor-workspace#create-an-azure-monitor-workspace).
+
+## Permissions
+
+Administrator permissions for the cluster or resource are required to complete the steps in this article.
 
 ## Set up an application for managed identity
 
@@ -131,7 +141,7 @@ This step isn't required if you're using an AKS identity. An AKS identity alread
 
 ## Verification and troubleshooting
 
-For verification and troubleshooting information, see [Troubleshooting remote write](articles/azure-monitor/containers/prometheus-remote-write-troubleshooting)  and [Azure Monitor managed service for Prometheus remote write](prometheus-remote-write.md#verify-remote-write-is-working-correctly).
+For verification and troubleshooting information, see [Troubleshooting remote write](/azure/azure-monitor/containers/prometheus-remote-write-troubleshooting)  and [Azure Monitor managed service for Prometheus remote write](prometheus-remote-write.md#verify-remote-write-is-working-correctly).
 
 ## Next steps
 
