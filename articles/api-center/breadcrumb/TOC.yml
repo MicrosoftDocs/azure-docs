@@ -4,9 +4,6 @@ items:
   topicHref: /azure/index
   items:
     - name: API Center
-      tocHref: /azure/api-center/
-      topicHref: /azure/api-center/index
-    - name: API Center
       tocHref: /azure/azure-resource-manager/
       topicHref: /azure/api-center/index
     - name: API Center
