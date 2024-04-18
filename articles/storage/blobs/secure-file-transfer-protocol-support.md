@@ -14,7 +14,7 @@ ms.author: normesta
 
 # SSH File Transfer Protocol (SFTP) support for Azure Blob Storage
 
-Blob storage now supports the SSH File Transfer Protocol (SFTP). This support lets you securely connect to Blob Storage via an SFTP endpoint, allowing you to use SFTP for file access, file transfer, and file management. 
+Blob storage now supports the SSH File Transfer Protocol (SFTP). This support lets you securely connect to Blob Storage by using an SFTP client, allowing you to use SFTP for file access, file transfer, and file management.
 
 Here's a video that tells you more about it.
 
@@ -24,7 +24,7 @@ Azure allows secure data transfer to Blob Storage accounts using Azure Blob serv
 
 Prior to the release of this feature, if you wanted to use SFTP to transfer data to Azure Blob Storage you would have to either purchase a third party product or orchestrate your own solution. For custom solutions, you would have to create virtual machines (VMs) in Azure to host an SFTP server, and then update, patch, manage, scale, and maintain a complex architecture.
 
-Now, with SFTP support for Azure Blob Storage, you can enable an SFTP endpoint for Blob Storage accounts with a single click. Then you can set up local user identities for authentication to connect to your storage account with SFTP via port 22. 
+Now, with SFTP support for Azure Blob Storage, you can enable an SFTP support for Blob Storage accounts with a single click. Then you can set up local user identities for authentication to connect to your storage account with SFTP via port 22.
 
 This article describes SFTP support for Azure Blob Storage. To learn how to enable SFTP for your storage account, see [Connect to Azure Blob Storage by using the SSH File Transfer Protocol (SFTP)](secure-file-transfer-protocol-support-how-to.md).
 
@@ -42,18 +42,18 @@ Different protocols are supported by the hierarchical namespace. SFTP is one of 
 
 ## SFTP permission model
 
-Azure Blob Storage doesn't support Microsoft Entra authentication or authorization via SFTP. Instead, SFTP utilizes a new form of identity management called _local users_. 
+SFTP clients can't be authorized by using Microsoft Entra identities. Instead, SFTP utilizes a new form of identity management called _local users_.
 
 Local users must use either a password or a Secure Shell (SSH) private key credential for authentication. You can have a maximum of 2000 local users for a storage account.
 
 To set up access permissions, you'll create a local user, and choose authentication methods. Then, for each container in your account, you can specify the level of access you want to give that user.
  
 > [!CAUTION]
-> Local users do not interoperate with other Azure Storage permission models such as RBAC (role based access control) and ABAC (attribute based access control). ACLs (access control lists) are supported for local users at the preview level.
+> Local users do not interoperate with other Azure Storage permission models such as RBAC (role based access control) and ABAC (attribute based access control). Access control lists (ACLs) are supported for local users at the preview level.
 >
 > For example, Jeff has read only permission (can be controlled via RBAC or ABAC) via their Microsoft Entra identity for file _foo.txt_ stored in container _con1_. If Jeff is accessing the storage account via NFS (when not mounted as root/superuser), Blob REST, or Data Lake Storage Gen2 REST, these permissions will be enforced. However, if Jeff also has a local user identity with delete permission for data in container _con1_, they can delete _foo.txt_ via SFTP using the local user identity.
 
-For SFTP enabled storage accounts, you can use the full breadth of Azure Blob Storage security settings, to authenticate and authorize users accessing Blob Storage via Azure portal, Azure CLI, Azure PowerShell commands, AzCopy, as well as Azure SDKs, and Azure REST APIs. To learn more, see [Access control model in Azure Data Lake Storage Gen2](data-lake-storage-access-control-model.md).
+Enabling SFTP support doesn't prevent other types of clients from using Microsoft Entra ID. For users that access Blob Storage by using the Azure portal, Azure CLI, Azure PowerShell commands, AzCopy, as well as Azure SDKs, and Azure REST APIs, you can continue to use the full breadth of Azure Blob Storage security setting to authorize access. To learn more, see [Access control model in Azure Data Lake Storage Gen2](data-lake-storage-access-control-model.md).
 
 ## Authentication methods
 
@@ -80,20 +80,32 @@ For container-level permissions, you can choose which containers you want to gra
 | List | l | <li>List content within container</li><li>List content within directory</li> |
 | Delete | d | <li>Delete file/directory</li> |
 | Create | c | <li>Upload file if file doesn't exist</li><li>Create directory if directory doesn't exist</li> |
-| Modify Ownership | o | <li>Change the owning user or owning group for file/directory</li> |
-| Modify Permissions | p | <li>Change permissions for file/directory</li> |
+| Modify Ownership | o | <li>Change the owning user or owning group of file or directory</li> |
+| Modify Permissions | p | <li>Change the ACL of a file or directory</li> |
 
 When performing write operations on blobs in sub directories, Read permission is required to open the directory and access blob properties.
 
-## ACLs
+## Access control lists (ACLs)
 
-For directory or blob level permissions, you can change owning user, owning group, and mode that are used by ADLS Gen2 ACLs. Most SFTP clients expose commands for changing these properties. The following table describes common commands in more detail.
+You can authorize local users at the directory and blob level by using ACLs. To learn more about ACLs, see [Access control lists (ACLs) in Azure Data Lake Storage Gen2](data-lake-storage-access-control.md). You can authorize local users by using only the owning user, owning group, and all other users entries of an ACL. Named users, named groups are not yet supported.
+
+> [!IMPORTANT]
+> This capability is currently in PREVIEW.
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
+You can modify the ACL of a directory or blob by using any supported tool or SDKs. See [How to set ACLs](data-lake-storage-access-control.md#how-to-set-acls). 
+
+To modify the ACL by using an SFTP client, you must give the local user `Modify Permission` permission. To change owning user or owning group of a directory or blob. The local user must have been given `Modify Ownership` permission.
+
+Most SFTP clients expose commands for changing these properties. The following table describes common commands in more detail.
 
 | Command | Required Container Permission | Description |
 |---|---|---|
 | chown | o | <li>Change owning user for file/directory</li><li>Must specify numeric ID</li> |
 | chgrp | o | <li>Change owning group for file/directory</li><li>Must specify numeric ID</li> |
 | chmod | p | <li>Change permissions/mode for file/directory</li><li>Must specify POSIX style octal permissions</li> |
+
+To see examples that modify ACLs by using [Open SSH](/windows-server/administration/openssh/openssh_overview), see [Modify ACLs](secure-file-transfer-protocol-support-connect.md#modify-acls).
 
 The IDs required for changing owning user and owning group are part of new properties for Local Users. The following table describes each new Local User property in more detail. 
 
@@ -193,7 +205,7 @@ See the [limitations and known issues article](secure-file-transfer-protocol-kno
 
 ## Pricing and billing
 
-Enabling the SFTP endpoint has an hourly cost. For the latest pricing information, see [Azure Blob Storage pricing](https://azure.microsoft.com/pricing/details/storage/blobs/).
+Enabling SFTP has an hourly cost. For the latest pricing information, see [Azure Blob Storage pricing](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
 > [!TIP]
 > To avoid passive charges, consider enabling SFTP only when you are actively using it to transfer data. For guidance about how to enable and then disable SFTP support, see [Connect to Azure Blob Storage by using the SSH File Transfer Protocol (SFTP)](secure-file-transfer-protocol-support-how-to.md). 
