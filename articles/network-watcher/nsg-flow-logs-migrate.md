@@ -105,7 +105,7 @@ In this section, you learn how to use the script file that you downloaded in the
     Do you want to rollback? You won't get the option to revert the actions done now again (y/n): n
     ```
 
-    Check the Azure portal to confirm that the status of NSG flow logs that you migrated became disabled, and VNet flow logs are created to replace them.
+1. Check the Azure portal to confirm that the status of NSG flow logs that you migrated became disabled, and VNet flow logs are created to replace them.
  
     :::image type="content" source="./media/nsg-flow-logs-migrate/list-flow-logs.png" alt-text="Screenshot that shows the newly created VNet flow log as a result of migrating from NSG flow log." lightbox="./media/nsg-flow-logs-migrate/list-flow-logs.png":::
 
