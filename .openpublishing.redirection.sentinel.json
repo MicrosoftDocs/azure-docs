@@ -1,6 +1,21 @@
 {
     "redirections": [
         {
+            "source_path": "articles/sentinel/automate-responses-with-playbooks.md#azure-logic-apps-basic-concepts",
+            "redirect_url": "/azure/sentinel/playbooks/logic-apps-playbooks",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sentinel/automate-responses-with-playbooks.md#how-to-run-a-playbook",
+            "redirect_url": "/azure/sentinel/playbooks/run-manage-playbooks",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sentinel/automate-responses-with-playbooks.md#recommended-playbooks",
+            "redirect_url": "/azure/sentinel/playbooks/playbooks-recommendations",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/sentinel/authenticate-playbooks-to-sentinel.md",
             "redirect_url": "/azure/sentinel/automation/authenticate-playbooks-to-sentinel",
             "redirect_document_id": true

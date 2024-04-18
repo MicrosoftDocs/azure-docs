@@ -5,7 +5,10 @@ author: batamig
 ms.author: bagol
 ms.topic: concept
 ms.date: 04/18/2024
-
+appliesto:
+    - Microsoft Sentinel in the Azure portal
+    - Microsoft Sentinel in the Microsoft Defender portal
+ms.collection: usx-security
 #customer intent: As a SOC engineer, I want to understand more about how Azure Logic Apps works with Microsoft Sentinel playbooks to help me automate threat prevention and response.
 
 ---
