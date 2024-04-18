@@ -1,6 +1,6 @@
 ---
 title: Onboard a Subscription to Azure Operator Service Manager
-description: Use this Quickstart to enable Azure Operator Service Manager on your subscription
+description: Use this Quickstart to enable Azure Operator Service Manager on your subscription.
 author: pjw711
 ms.author: peterwhiting
 ms.service: azure-operator-service-manager

@@ -74,4 +74,4 @@ The Azure AOSM CLI extension searches for the images in `myregistry.azurecr.io`,
 
 ## Next steps
 
-- [How to onboard a CNF using the CLI](how-to-onboard-a-cnf-using-the-azure-cli.md)
+- [How to onboard a CNF using the CLI](how-to-onboard-containerized-network-function-cli.md)

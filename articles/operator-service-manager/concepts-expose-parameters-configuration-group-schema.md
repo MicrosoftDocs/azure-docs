@@ -96,5 +96,5 @@ In all cases, all parameters exposed by the `az aosm nfd build` command are adde
 
 ## Next Steps
 
-- [Onboard a CNF](how-to-onboard-a-cnf-using-the-azure-cli.md)
-- [Onboard a VNF](how-to-onboard-a-vnf-using-the-azure-cli.md)
+- [Onboard a CNF](how-to-onboard-containerized-network-function-cli.md)
+- [Onboard a VNF](how-to-onboard-virtualized-network-function-cli.md)

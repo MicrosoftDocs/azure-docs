@@ -21,7 +21,7 @@ The Azure CLI Azure Operator Service Manager extension provides a command to pus
 - You might have provided the wrong virtual machine image and need to push a single replacement image
 - You might need to push a new version of a virtual machine to provide a fix for an issue
 
-This How-To article describes how to push VHD images to and pull VHD images from an existing blob storage backed artifact store using the AOSM Artifact Manifest resource. See this [How-To](how-to-pull-and-push-artifacts-manually-aon.md) for the equivalent article for ACR-backed artifact stores.
+This How-To article describes how to push VHD images to and pull VHD images from an existing blob storage backed artifact store using the AOSM Artifact Manifest resource. See this [How-To](how-to-manage-artifacts-nexus.md) for the equivalent article for ACR-backed artifact stores.
 
 ## Prerequisites
 
@@ -78,7 +78,7 @@ This command returns the SAS URI you'll use to sign in to the storage account ba
 }
 ```
 
-### Push an image to a storage account backed artifact store
+## Push an image to a storage account backed artifact store
 
 1. Push the image to a storage blob using the credentials returned from the artifact manifest.
 
@@ -91,7 +91,7 @@ az storage blob upload \
     --sas-token <container-sas-token>
 ```
 
-### Pull an image from a storage account backed artifact store
+## Pull an image from a storage account backed artifact store
 
 1. Pull the image from a storage blob using the credentials returned from the artifact manifest.
 
@@ -104,7 +104,7 @@ az storage blob download \
     --sas-token <container-sas-token>
 ```
 
-### Next steps
+## Next steps
 
 - See the [Azure storage account quickstart](/azure/storage/blobs/storage-quickstart-blobs-cli) for more detailed usage instructions
 - See the [Azure storage account documentation](/azure/storage/common/storage-sas-overview) for more detailed information on shared access signatures (SAS)

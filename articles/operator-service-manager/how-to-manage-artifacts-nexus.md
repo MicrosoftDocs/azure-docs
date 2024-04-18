@@ -23,7 +23,7 @@ The Azure CLI AOSM extension provides a command to push all the artifacts needed
 - You might need to edit the NF ARM template as part of a debugging cycle
 - You might need to edit helm packages or a VM ARM template as part of a debugging cycle
 
-This How-To article describes how to push artifacts to and pull artifacts from an existing ACR-backed artifact store using the AOSM Artifact Manifest resource and the [ORAS command line tool](https://oras.land/docs/). See this [How-To](how-to-pull-and-push-artifacts-manually-vnf-core.md) for the equivalent article for Storage Account backed artifact stores.
+This How-To article describes how to push artifacts to and pull artifacts from an existing ACR-backed artifact store using the AOSM Artifact Manifest resource and the [ORAS command line tool](https://oras.land/docs/). See this [How-To](how-to-manage-artifacts-virtualized-network-function-cloud.md) for the equivalent article for Storage Account backed artifact stores.
 
 ## Prerequisites
 
@@ -54,7 +54,7 @@ resource acrArtifactManifest 'Microsoft.Hybridnetwork/publishers/artifactStores/
 - Install the [ORAS CLI](https://oras.land/docs/installation/)
 - You require the Contributor role over the resource group that contains your artifact store
 
-### Sign in to an ACR-backed artifact store
+## Sign in to an ACR-backed artifact store
 
 1. Get repository-scoped permissions from the artifact manifest resource
 
@@ -90,7 +90,7 @@ This command returns the username and password you''ll use to sign in to the ACR
 oras login <acr-name>.azurecr.io --username <artifact-manifest-name> --password <token>
 ```
 
-### Push an artifact to an ACR-backed artifact store
+## Push an artifact to an ACR-backed artifact store
 
 1. Use ORAS to upload the artifact to the ACR. The `<artifact-name>` must match the `artifactName` property in the artifact manifest. The `<artifact-tag>` must match the `artifactVersion` property in the artifact manifest. The `<artifact-tag>` must be in `1.0.0` format
 
@@ -98,7 +98,7 @@ oras login <acr-name>.azurecr.io --username <artifact-manifest-name> --password 
 oras push <acr-name>.azurecr.io/<artifact-name>:<artifact-tag> </path/to/artifact>
 ```
 
-### Pull an artifact from an ACR-backed artifact store
+## Pull an artifact from an ACR-backed artifact store
 
 1. Use ORAS to pull the artifact from the ACR.
 
@@ -106,7 +106,7 @@ oras push <acr-name>.azurecr.io/<artifact-name>:<artifact-tag> </path/to/artifac
 oras pull <acr-name>.azurecr.io/<artifact-name>:<artifact-tag>
 ```
 
-### Next steps
+## Next steps
 
 - See [ORAS push](https://oras.land/docs/commands/oras_push) for more detailed usage instructions for the `oras push` command
 - See [ORAS pull](https://oras.land/docs/commands/oras_pull) for more detailed usage instructions for the `oras pull` command

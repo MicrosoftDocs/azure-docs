@@ -88,7 +88,7 @@ az aosm nfd generate-config --definition-type cnf --output-file <filename.jsonc>
 1. Open the input file you generated in the previous step and use the inline comments to enter the required values. This example shows the Az CLI AOSM extension input file for a fictional Contoso CNF.
 
 > [!NOTE]
-> The Azure CLI AOSM extension only exposes required parameters without default values in the input `values.yaml` by default. You can set `expose_all_parameters` to `true` to expose all helm values in the Network Function Definition Version (NFDV) and Configuration Group Schema (CGS). See [Parameter expose using the AOSM CLI extension](concepts-expose-parameters-in-a-cgs.md) for more detailed information.
+> The Azure CLI AOSM extension only exposes required parameters without default values in the input `values.yaml` by default. You can set `expose_all_parameters` to `true` to expose all helm values in the Network Function Definition Version (NFDV) and Configuration Group Schema (CGS). See [Parameter expose using the AOSM CLI extension](concepts-expose-parameters-configuration-group-schema.md) for more detailed information.
 
 ```jsonc
 {
