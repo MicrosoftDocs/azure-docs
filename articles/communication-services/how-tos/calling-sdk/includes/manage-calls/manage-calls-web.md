@@ -359,7 +359,7 @@ const muted = call.isMuted;
 Check if the current incoming audio (speaker) is muted. It returns `Boolean`.
 
 ```js
-const incomingAudioMuted = call._isIncomingAudioMuted;
+const incomingAudioMuted = call.isIncomingAudioMuted;
 ```
 
 Check if video is on. It returns `Boolean`.
