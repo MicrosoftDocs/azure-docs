@@ -69,7 +69,7 @@ The following tables describe the request body parameters and volume properties 
 | `capacityPoolResourceId` | ID of the capacity pool | The capacity pool must be of type manual QoS. Generally, all Oracle volumes are placed in a common capacity pool. However, it isn't a requirement. |
 | `protocolTypes` | Protocol to use | This parameter should be either NFSv3 or NFSv4.1 and should match the protocol specified in the Export Policy Rule described earlier in this table. | 
 
-## Examples: application volume group for Oracle API request content
+## Examples: Application volume group for Oracle API request content
 
 The examples in this section illustrate the values passed in the volume group creation request for various Oracle configurations. The examples demonstrate best practices for naming, sizing, and values as described in the tables.
 
@@ -105,7 +105,7 @@ Oracle volume groups for the following examples can be created using a sample sh
     echo "---"curl -X PUT -H "Authorization: Bearer $token" -H "Content-Type:application/json" -H "Accept:application/json" -d @<ExampleJson> https://management.azure.com/subscriptions/$subId/resourceGroups/<ResourceGroup>/providers/Microsoft.NetApp/netAppAccounts/<NtapAccount>/volumeGroups/<VolumeGroupName>?api-version=2023-05-01 | jq . 
     ```
 
-## Example: application volume group for Oracle creation request
+## Example: Application volume group for Oracle creation request
 
 This example creates a volume group name "group1" with the following volumes:
 * test-ora-data1

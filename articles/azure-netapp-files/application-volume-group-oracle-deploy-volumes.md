@@ -188,10 +188,7 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
     [ ![Screenshot that shows the new volume group for Oracle.](./media/volume-hard-quota-guidelines/application-new-volume-group-oracle.png) ](./media/volume-hard-quota-guidelines/application-new-volume-group-oracle.png#lightbox)
 
 
-15. You can display the list of volume groups to see the new volume group. You can select the new volume group to see the details and status of each of the volumes being created.
-
-    [ ![Screenshot that shows the list of volumes in a volume group for Oracle.](./media/volume-hard-quota-guidelines/application-list-volume-group-oracle.png) ](./media/volume-hard-quota-guidelines/application-list-volume-group-oracle.png#lightbox)
-
+15. Following complete, in **Volumes** you can display the list of volume groups to see the new volume group. You can select the new volume group to see the details and status of each of the volumes being created.
 
 ## Next steps
 

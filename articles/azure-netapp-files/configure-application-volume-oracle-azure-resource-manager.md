@@ -74,21 +74,9 @@ For detailed documentation on how to use the ARM template, see [ORACLE Azure Net
 
     [ ![Screenshot that shows the Create button on the custom deployment page.](./media/volume-hard-quota-guidelines/custom-deploy-oracle-create.png) ](./media/volume-hard-quota-guidelines/custom-deploy-oracle-create.png#lightbox) 
 
-10.	The deployment is in progress:
-
-     [ ![Screenshot that shows the deployment is in progress.](./media/volume-hard-quota-guidelines/custom-deploy-oracle-deploy-progress.png) ](./media/volume-hard-quota-guidelines/custom-deploy-oracle-deploy-progress.png#lightbox)    
-
-11.	The deployment is complete:
-          
-     [ ![Screenshot that shows the deployment is complete.](./media/volume-hard-quota-guidelines/custom-deploy-oracle-deploy-complete.png) ](./media/volume-hard-quota-guidelines/custom-deploy-oracle-deploy-complete.png#lightbox)    
-
-12.	You can display a summary for the volume group.
-
-     [ ![Screenshot that shows the group volume summary.](./media/volume-hard-quota-guidelines/custom-deploy-oracle-group-volume-summary.png) ](./media/volume-hard-quota-guidelines/custom-deploy-oracle-group-volume-summary.png#lightbox)  
- 
-13.	You can display the volumes in the volume group under the NetApp account.
-
-     [ ![Screenshot that shows the volume list in the volume group.](./media/volume-hard-quota-guidelines/custom-deploy-oracle-volume-list.png) ](./media/volume-hard-quota-guidelines/custom-deploy-oracle-volume-list.png#lightbox)  
+10.	The overview page denotes "Your deployment is in progress" then "Your deployment is complete."
+        
+12.	You can display a summary for the volume group.	You can also display the volumes in the volume group under the NetApp account.
 
 ## Next steps
 

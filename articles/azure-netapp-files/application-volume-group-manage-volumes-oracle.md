@@ -26,8 +26,6 @@ You can manage a volume from its volume group. You can resize, delete, or change
 
 2. Select the volume you want to resize, delete, or change throughput. The volume overview will be displayed. 
 
-    [![Screenshot that shows Application Volume Groups overview page for Oracle.](./media/volume-hard-quota-guidelines/application-volume-group-overview-oracle.png)](./media/volume-hard-quota-guidelines/application-volume-group-overview-oracle.png#lightbox)  
-
 3. From **Volume Overview**, you can select:
 
     * **Edit**    
@@ -45,8 +43,6 @@ You can manage a volume from its volume group. You can resize, delete, or change
 
     * **Change Throughput**   
         You can adapt the throughput of the volume.
-
-    [![Screenshot that shows the Edit window for Oracle.](./media/volume-hard-quota-guidelines/application-volume-edit-oracle.png)](./media/volume-hard-quota-guidelines//application-volume-edit-oracle.png#lightbox)  
 
 ## Next steps
 
