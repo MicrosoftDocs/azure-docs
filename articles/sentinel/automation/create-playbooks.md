@@ -25,7 +25,7 @@ This article describes how to create and manage Microsoft Sentinel playbooks. Yo
 
 ## Prerequisites
 
-To create and manage playbooks, you'll need access to Microsoft Sentinel with one of the following Azure roles:
+To create and manage playbooks, you need access to Microsoft Sentinel with one of the following Azure roles:
 
 - **Logic App Contributor**, to edit and manage logic apps
 - **Logic App operator**, to read, enable, and disable logic apps
@@ -50,9 +50,9 @@ Follow these steps to create a new playbook in Microsoft Sentinel:
 
 1. The drop-down menu that appears under **Create** gives you four choices for creating playbooks:
 
-    1. If you're creating a **Standard** playbook (the new kind - see [Logic app types](automate-responses-with-playbooks.md#logic-app-types)), select **Blank playbook** and then follow the steps in the **Logic Apps Standard** tab below.
+    1. If you're creating a **Standard** playbook, select **Blank playbook** and then [follow the steps for the **Standard** logic app type](#prepare-your-playbooks-logic-app).
 
-    1. If you're creating a **Consumption** playbook (the original, classic kind), then, depending on which trigger you want to use, select either **Playbook with incident trigger**, **Playbook with alert trigger**, or **Playbook with entity trigger**. Then, continue following the steps in the **Logic Apps Consumption** tab below.
+    1. If you're creating a **Consumption** playbook, depending on which trigger you want to use, select either **Playbook with incident trigger**, **Playbook with alert trigger**, or **Playbook with entity trigger**. Then, continue following the steps in the **Logic Apps Consumption** tab below.
 
     For more information, see [Supported logic app types](logic-apps-playbooks.md#supported-logic-app-types) and [Use triggers and actions in Microsoft Sentinel playbooks](playbook-triggers-actions.md).
 
@@ -70,7 +70,7 @@ The **Create playbook** wizard appears after selecting any of the playbook optio
 
 1. In the **Basics** tab:
 
-    1. Select the **Subscription**, **Resource group**, and **Region** of your choosing from their respective drop-down lists. The chosen region is where your Logic App information will be stored.
+    1. Select the **Subscription**, **Resource group**, and **Region** of your choosing from their respective drop-down lists. The chosen region is where your Logic App information is stored.
 
     1. Enter a name for your playbook under **Playbook name**.
 
@@ -90,7 +90,7 @@ The **Create playbook** wizard appears after selecting any of the playbook optio
 
     Review the configuration choices you have made, and select **Create and continue to designer**.
 
-1. Your playbook will take a few minutes to be created and deployed, after which you will see the message "Your deployment is complete" and you will be taken to your new playbook's [Logic App Designer](../logic-apps/logic-apps-overview.md). The trigger you chose at the beginning will have automatically been added as the first step, and you can continue designing the workflow from there.
+1. Your playbook will take a few minutes to be created and deployed, after which you see the message "Your deployment is complete" and you're taken to your new playbook's [Logic App Designer](../logic-apps/logic-apps-overview.md). The trigger you chose at the beginning is automatically been added as the first step, and you can continue designing the workflow from there.
 
     :::image type="content" source="media/tutorial-respond-threats-playbook/logic-app-blank.png" alt-text="Screenshot of logic app designer screen with opening trigger." lightbox="media/tutorial-respond-threats-playbook/logic-app-blank.png":::
 
@@ -100,7 +100,7 @@ The **Create playbook** wizard appears after selecting any of the playbook optio
 
 ### [Standard](#tab/standard)
 
-Since playbooks based on the Standard workflow don't support playbook templates, you'll need to first create your logic app, then create your playbook, and finally choose the trigger for your playbook.
+Since playbooks based on the Standard workflow don't support playbook templates, you need to first create your logic app, then create your playbook, and finally choose the trigger for your playbook.
 
 #### Create a Logic App for a Standard workflow
 
@@ -131,11 +131,11 @@ After selecting the **Blank playbook** option, a new browser tab opens with the 
 
 1. In the **Review + create** tab:
 
-    Review the configuration choices you have made, and select **Create**.
+    Review the configuration choices you made, and select **Create**.
 
-1. Your playbook will take a few minutes to be created and deployed, during which you will see some deployment messages. At the end of the process you will be taken to the final deployment screen where you'll see the message "Your deployment is complete".
+1. Your playbook takes a few minutes to be created and deployed, during which you see some deployment messages. At the end of the process you're taken to the final deployment screen, where you see the message: "Your deployment is complete."
 
-    Select **Go to resource**. You will be taken to the main page of your new Logic App.
+    Select **Go to resource**. You're taken to the main page of your new Logic App.
 
     Unlike with classic Consumption playbooks, you're not done yet. Now you must create a workflow.
 
@@ -151,7 +151,7 @@ After selecting the **Blank playbook** option, a new browser tab opens with the 
 
     Your workflow is saved and appears in the list of workflows in your Logic App.
 
-1. Select the new workflow to proceed and access your workflow details page. Here you can see all the information about your workflow, including a record of all the times it will have run.
+1. Select the new workflow to proceed and access your workflow details page. Here you can see all the information about your workflow, including a record of all the times it runs.
 
 1. From the workflow details page, select **Designer**.
 
@@ -189,7 +189,7 @@ Now that you have a logic app, define what happens when you call the playbook. A
 In every one of these steps, clicking on any field displays a panel with the following menus:
 
 - **Dynamic content**: Add references to the attributes of the alert or incident that was passed to the playbook, including the values and attributes of all the [mapped entities](map-data-fields-to-entities.md) and [custom details](../surface-custom-details-in-alerts.md) contained in the alert or incident.
-- **Expression**: Choose from a large library of functions to add additional logic to your steps.
+- **Expression**: Choose from a large library of functions to add more logic to your steps.
 
 For more information, see [Use triggers and actions in Microsoft Sentinel playbooks](playbook-triggers-actions.md), especially [Entity playbooks with no incident ID](playbook-triggers-actions.md#entity-playbooks-with-no-incident-id).
 
@@ -199,7 +199,7 @@ In Microsoft Sentinel, select the **Automation > Active playbooks** tab to view 
 
 - While the **Active playbooks** tab on the **Automation** page displays all the active playbooks available across any selected subscriptions, by default a playbook can be used only within the subscription to which it belongs, unless you specifically grant Microsoft Sentinel permissions to the playbook's resource group.
 
-- After onboarding to the unified security operations platform, the **Active playbooks** tab shows a pre-defined filter with onboarded workspace's subscription. In the Azure portal, add data for other subscriptions using the Azure subscription filter.
+- After onboarding to the unified security operations platform, the **Active playbooks** tab shows a predefined filter with onboarded workspace's subscription. In the Azure portal, add data for other subscriptions using the Azure subscription filter.
 
 The **Active playbooks** tab shows your playbooks with the following details:
 

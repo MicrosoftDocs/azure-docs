@@ -107,7 +107,7 @@ Use this method to lower the number of identities you need to manage.
 
 ## Authenticate as a service principal (Microsoft Entra application)
 
-Create a service principal by registering a Microsoft Entra application. We recommend that you use a registered application as the connector's identity, instead of using a user account, for enhanced ability to control permissions, manage credentials, and enable certain limitations on the use of the connector.
+Create a service principal by registering a Microsoft Entra application. We recommend that you use a registered application as the connector's identity instead of a user account. Registered applications provide an enhanced ability to control permissions, manage credentials, and enable certain limitations on the use of the connector.
 
 **To use your own application with the Microsoft Sentinel connector**:
 

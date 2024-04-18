@@ -126,4 +126,3 @@ For more information, see:
 
     - [View and follow incident tasks](../work-with-tasks.md#view-and-follow-incident-tasks)
     - [Manually add an ad-hoc task to an incident](../work-with-tasks.md#manually-add-an-ad-hoc-task-to-an-incident)
-

@@ -20,16 +20,17 @@ This article explains how (and why) to take your existing playbooks built on the
 
 ## Why migrate
 
-If you have already created and built playbooks to respond to alerts (rather than incidents), and attached them to analytics rules, we strongly encourage you to move these playbooks to automation rules. Doing so will give you the following advantages:
+If you have already created and built playbooks to respond to alerts (rather than incidents), and attached them to analytics rules, we strongly encourage you to move these playbooks to automation rules. Doing so gives you the following advantages:
+
 - Manage all your automations from a single display, regardless of type<br>(“single pane of glass”).
 
 - Define a single automation rule that can trigger playbooks for multiple analytics rules, instead of configuring each analytics rule independently.
 
-- Define the order in which alert playbooks will be executed.
+- Define the order in which alert playbooks are be executed.
 
 - Support scenarios that set an expiration date for running a playbook.
 
-It's important to understand that the playbook itself won't change at all. Only the mechanism that invokes it to run will change.
+It's important to understand that the playbook itself doesn't change at all. Only the mechanism that invokes it to run changes.
 
 Finally, the ability to invoke playbooks from analytics rules will be **deprecated effective March 2026**. Until then, playbooks already defined to be invoked from analytics rules will continue to run, but as of **June 2023** you can no longer add playbooks to the list of those invoked from analytics rules. The only remaining option is to invoke them from automation rules.
 
@@ -65,7 +66,7 @@ Finally, the ability to invoke playbooks from analytics rules will be **deprecat
 
     :::image type="content" source="media/migrate-playbooks-to-automation-rules/select-playbook.png" alt-text="Screenshot of selecting playbook as action in automation rule wizard.":::
 
-1. Select **Apply**. You will now see the new rule in the automation rules grid.
+1. Select **Apply**. The new rule shows in the automation rules grid.
 
 1. Remove the playbook from the **Alert automation (classic)** section.
 
@@ -81,7 +82,7 @@ Finally, the ability to invoke playbooks from analytics rules will be **deprecat
 
 1. Under **Conditions**, select the analytics rules you want to run a particular playbook or a set of playbooks on.
 
-1. Under **Actions**, for each playbook you want this rule to invoke, select **+ Add action**. The **Run playbook** action will be automatically selected and grayed out. Select from the list of available playbooks in the drop-down list in the line below. Order the actions according to the order in which you want the playbooks to run. You can change the order of actions by selecting the up/down arrows next to each action.
+1. Under **Actions**, for each playbook you want this rule to invoke, select **+ Add action**. The **Run playbook** action is automatically selected and grayed out. Select from the list of available playbooks in the drop-down list in the line below. Order the actions according to the order in which you want the playbooks to run. You can change the order of actions by selecting the up/down arrows next to each action.
 
 1. Select **Apply** to save the automation rule.
 

@@ -13,7 +13,7 @@ ms.collection: usx-security
 
 # Configure advanced security for Microsoft Sentinel playbooks
 
-This article shows how to define an [access restriction policy](../app-service/overview-access-restrictions.md) for Microsoft Sentinel Standard-plan playbooks, so that they can support private endpoints. Defining this policy will ensure that **only Microsoft Sentinel will have access** to the Standard logic app containing your playbook workflows.
+This article shows how to define an [access restriction policy](../app-service/overview-access-restrictions.md) for Microsoft Sentinel Standard-plan playbooks, so that they can support private endpoints. Defining this policy ensures that **only Microsoft Sentinel will have access** to the Standard logic app containing your playbook workflows.
 
 Learn more about [using private endpoints to secure traffic between Standard logic apps and Azure virtual networks](../logic-apps/secure-single-tenant-workflow-virtual-network-private-endpoint.md).
 
@@ -54,11 +54,11 @@ Learn more about [using private endpoints to secure traffic between Standard log
 
 1. In the **Access Restrictions** page, leave the **Allow public access** checkbox marked.
 
-1. Under **Site access and rules**, select **+ Add**. The **Add rule** panel will open to the right.
+1. Under **Site access and rules**, select **+ Add**. The **Add rule** panel opens on the side.
 
     :::image type="content" source="media/define-playbook-access-restrictions/add-filter-rule.png" alt-text="Screenshot showing how to add a filter rule to your access restriction policy.":::
 
-1. Enter the following information in the **Add rule** panel. The name and optional description should reflect that this rule allows only Microsoft Sentinel to access the logic app. Leave the fields not mentioned below as they are.
+1. Enter the following information in the **Add rule** panel. The name and optional description should reflect that this rule allows only Microsoft Sentinel to access the logic app. Leave any field not mentioned in the following table with its default value.
 
     | Field | Enter or select |
     | ----- | --------------- |
@@ -67,7 +67,7 @@ Learn more about [using private endpoints to secure traffic between Standard log
     | **Priority** | Enter `1` |
     | **Description** | Optional. Add a description of your choosing. |
     | **Type** | Select **Service Tag**. |
-    | **Service Tag**<br>*(will appear only after you<br>select **Service Tag** above.)* | Search for and select **AzureSentinel**. |
+    | **Service Tag**<br>*(appears only after you select **Service Tag** in the **Type** field)* | Search for and select **AzureSentinel**. |
 
 1. Select **Add rule**.
 
