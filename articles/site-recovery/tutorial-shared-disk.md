@@ -218,6 +218,32 @@ To disable replication of your cluster with Azure Site Recovery, follow these st
     :::image type="content" source="media/tutorial-shared-disk/disable-replication.png" alt-text="Screenshot showing disable replication.":::
  
 
+## Commonly asked questions
+
+
+#### Is PowerShell supported for Azure Site Recovery with shared disks?
+No, PowerShell support for shared disks will be available as part of General Availability.
+
+#### Can we enable replication for only some of the VMs attached to a shared disk?
+No, enable replication can only be enabled successfully when all the VMs attached to a shared disk are selected.
+
+#### Is it possible to exclude shared disks and enable replication for only some of the VMs in a cluster?
+Yes, the first time you don’t select all the VMs in Enable Replication, a warning appears mentioning the unselected VMs attached to the shared disk. If you still proceed, unselect the shared disk replication by selecting ‘No’ for the storage option in Replication Settings tab.
+ 
+
+#### Can new shared disks be added to a protected cluster?
+No, if new shared disks need to be added, disable the replication for the already protected cluster. Enable a new cluster protection with a new cluster name for the modified infrastructure.
+
+#### Can we select both crash-consistent and app-consistent recovery points?
+Yes, both types of recovery points are generated. However, during Public Preview only crash-consistent and the Latest Processed recovery points are supported. App-consistent recovery points and Latest recovery point will be available as part of General Availability.
+
+#### Can we use recovery plans to failover Azure Site Recovery enabled VMs with shared disks?
+No, recovery plans are not supported for shared disks in Azure Site Recovery.
+
+#### Why is there no health status for VMs with shared disks in the monitoring plane, whether test failover is completed or not?
+The health status warning due to test failover will be available as part of General Availability.
+
+
 ## Next steps
 
 Learn more about:
