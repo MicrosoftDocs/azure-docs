@@ -28,7 +28,7 @@ There are many service-related benefits which can be found in the migration guid
 ## Services being retired 
 To help with this transition, we are providing a range of resources and tools, including documentation and migration guides. We encourage you to begin planning your migration to ARM as soon as possible to ensure that you can continue to take advantage of the latest Azure features and capabilities. 
 
-Below is a list of classic resources being retired, their retirement dates, and a link to migration to ARM guidance :
+Below is a list of classic resources being retired, their retirement dates, and a link to migration to ARM guidance:
 
 | Classic resource |  Retirement date | Migration documentation | Support |
 |---|---|---|---|
