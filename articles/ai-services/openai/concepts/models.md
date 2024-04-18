@@ -239,7 +239,7 @@ The following Embeddings models are available with [Azure Government](/azure/azu
 
 `babbage-002` and `davinci-002` are not trained to follow instructions. Querying these base models should only be done as a point of reference to a fine-tuned version to evaluate the progress of your training.
 
-`gpt-35-turbo-0613` - fine-tuning of this model is limited to a subset of regions, and is not available in every region the base model is available.  
+`gpt-35-turbo` - fine-tuning of this model is limited to a subset of regions, and is not available in every region the base model is available.  
 
 |  Model ID  | Fine-Tuning Regions | Max Request (tokens) | Training Data (up to) |
 |  --- | --- | :---: | :---: |
