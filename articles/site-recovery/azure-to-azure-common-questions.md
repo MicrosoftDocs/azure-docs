@@ -374,8 +374,8 @@ Azure Site Recovery creates [replica disks](./azure-to-azure-architecture.md#tar
     
         :::image type="content" source="media/azure-to-azure-common-questions/disk-export.png" alt-text="Screenshot of disk export tab.":::
 
-    > [!NOTE]
-    > Canceling the SAS may briefly impact Azure Site Recovery replication, but it automatically get the SAS back in a few minutes.
+ 
+     Canceling the SAS may briefly impact Azure Site Recovery replication, but it automatically get the SAS back in a few minutes.
  
     1. Go to the **Networking** tab under the **Settings** options of the disk. By default, the disk is created with *Enable public access from all networks* setting. 
     1. Change the network access to either **Disable public access and enable private access** or **Disable public and private access** per your requirement.
@@ -386,7 +386,7 @@ Azure Site Recovery creates [replica disks](./azure-to-azure-architecture.md#tar
         > You can change the network access of the disk only if you have cancelled the export. If you do not cancel the export, network access change for the disk is disabled.
         > If you want to change disk network access to **Disable public access and enable private access**, the disk access resource to be used should already be present in the target region within the target subscription. Find the steps to [create a disk access resource here](../virtual-machines/disks-enable-private-links-for-import-export-portal.md#create-a-disk-access-resource).
 
-After completing the failover or test failover, the recovery virtual machine created in the target location also have the disks with public access allowed. These disks won't have SAS taken by Azure Site Recovery. To change the network access for these disks, go to the **Networking** tab of the disk and adjust as needed according to steps provided 4b and 4c. 
+After completing the failover or test failover, the recovery virtual machine created in the target location also have the disks with public access allowed. These disks won't have SAS taken by Azure Site Recovery. To change the network access for these disks, go to the **Networking** tab of the disk and adjust as needed according to step 5. 
 
 During reprotection and failback, Azure Site Recovery creates disks with public access allowed. You can change the network access of those disks as well as discussed in the steps above based on your requirements.
 
