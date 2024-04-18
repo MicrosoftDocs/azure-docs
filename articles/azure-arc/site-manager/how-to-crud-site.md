@@ -43,10 +43,11 @@ Create a site to manage geographically related resources.
 
    | Parameter | Description |
    |--|--|
-   | **Site scope** | **Subscription** or **Resource group**. The scope can only be defined at the time of creating a site and can't be modified later. All the resources in the scope can be viewed and managed from site manager. |
    | **Site name** | Custom name for site. |
    | **Display name** | Custom display name for site. |
+   | **Site scope** | Either **Subscription** or **Resource group**. The scope can only be defined at the time of creating a site and can't be modified later. All the resources in the scope can be viewed and managed from site manager. |
    | **Subscription** | Subscription for the site to be created under. |
+   | **Resource group** | The resource group for the site, if the scope was set to resource group. |
    | **Address** | Physical address for a site. |
 
 1. Once these details are provided, select **Review + create**.

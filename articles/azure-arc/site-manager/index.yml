@@ -46,15 +46,4 @@ landingContent:
             url: how-to-view-alerts.md
           - text: Configure Azure Monitor alerts
             url: how-to-configure-monitor-site.md
-          - text: Known issues
-            url: known-issues.md
-          - text: Troubleshoot
-            url: troubleshooting.md
-  - title: Explore more
-    linkLists:
-      - linkListType: reference
-        links:
-          - text: Learn more about Azure Arc
-            url: ../overview.md
-          - text: Learn more about Azure Monitor
-            url: ../../azure-monitor/overview.md
+

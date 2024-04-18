@@ -6,7 +6,7 @@ ms.author: torreyt
 ms.service: azure-arc
 #ms.subservice: site-manager
 ms.topic: issues #Don't change
-ms.date: 4/10/2024
+ms.date: 04/18/2024
 
 #customer intent: As a customer, I want to understand how to resolve known issues I experience in site manager.
 

@@ -43,17 +43,17 @@ View alert status for an Arc site from the main page of Azure Arc site manager (
 
    :::image type="content" source="./media/how-to-view-alerts/overview-sites-page.png" alt-text="Screenshot that shows selecting the overview page from site manager.":::
 
-1. In the **Overview** page, you can view the summarized alert statuses of all sites. This site-level alert status is an aggregation of all the alert statuses of the resources in that site. In the example below, sites are shown with different statuses.
+1. On the **Overview** page, you can view the summarized alert statuses of all sites. This site-level alert status is an aggregation of all the alert statuses of the resources in that site. In the following example, sites are shown with different statuses.
 
-   :::image type="content" source="./media/how-to-view-alerts/site-manager-overview-alerts.png" alt-text="Screenshot that shows viewing the alert status on the site manager overview page.":::
+   :::image type="content" source="./media/how-to-view-alerts/site-manager-overview-alerts.png" alt-text="Screenshot that shows viewing the alert status on the site manager overview page." lightbox="./media/how-to-view-alerts/site-manager-overview-alerts.png":::
 
 1. To understand which site has which status, select either the **Sites** tab or the blue status text.
 
-   :::image type="content" source="./media/how-to-view-alerts/site-manager-overview-alerts-details.png" alt-text="Screenshot of site manager overview page directing to the sites page to view more details.":::
+   :::image type="content" source="./media/how-to-view-alerts/site-manager-overview-alerts-details.png" alt-text="Screenshot of site manager overview page directing to the sites page to view more details." lightbox="./media/how-to-view-alerts/site-manager-overview-alerts-details.png":::
 
 1. The **sites** page shows the top-level status for each site, which reflects the most significant status for the site.
 
-   :::image type="content" source="./media/how-to-view-alerts/site-manager-overview-alerts-details-status-site-page.png" alt-text="Screenshot that shows the top level alerts status for each site.":::
+   :::image type="content" source="./media/how-to-view-alerts/site-manager-overview-alerts-details-status-site-page.png" alt-text="Screenshot that shows the top level alerts status for each site." lightbox="./media/how-to-view-alerts/site-manager-overview-alerts-details-status-site-page.png":::
 
 1. If there's an alert, select the status text to open details for a given site. You can also select the name of the site to open its details.
 

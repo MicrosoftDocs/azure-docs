@@ -41,19 +41,19 @@ You can view connectivity status for an Arc site as a whole from the main page o
 
    :::image type="content" source="./media/how-to-view-connectivity-status/overview-sites-page.png" alt-text="Screenshot that shows selecting the Overview page in site manager.":::
 
-1. On the **Overview** page, you can see a summary of the connectivity statuses of all your sites. The connectivity status of a given site is an aggregation of the connectivity status of its resources. In the example below, sites are shown with different statuses.
+1. On the **Overview** page, you can see a summary of the connectivity statuses of all your sites. The connectivity status of a given site is an aggregation of the connectivity status of its resources. In the following example, sites are shown with different statuses.
 
-   :::image type="content" source="./media/how-to-view-connectivity-status/site-connection-overview.png" alt-text="Screenshot that shows the connectivity view in the sites overview page.":::
+   :::image type="content" source="./media/how-to-view-connectivity-status/site-connection-overview.png" alt-text="Screenshot that shows the connectivity view in the sites overview page." lightbox="./media/how-to-view-connectivity-status/site-connection-overview.png":::
 
 1. To understand which site has which status, select either the **sites** tab or the blue colored status text to be directed to the **sites** page.
 
-   :::image type="content" source="./media/how-to-view-connectivity-status/click-connectivity-status-site-details.png" alt-text="Screenshot that shows selecting the Sites tab to get more detail about connectivity status.":::
+   :::image type="content" source="./media/how-to-view-connectivity-status/click-connectivity-status-site-details.png" alt-text="Screenshot that shows selecting the Sites tab to get more detail about connectivity status." lightbox="./media/how-to-view-connectivity-status/click-connectivity-status-site-details.png":::
 
 1. On the **Sites** page, you can view the top-level status for each site. This site-level status reflects the most significant resource-level status for the site.
 
 1. Select the **Needs attention** link to view the resource details.
 
-   :::image type="content" source="./media/how-to-view-connectivity-status/site-connectivity-status-from-sites-page.png" alt-text="Screenshot that shows selecting the connectivity status for a site to see the resource details.":::
+   :::image type="content" source="./media/how-to-view-connectivity-status/site-connectivity-status-from-sites-page.png" alt-text="Screenshot that shows selecting the connectivity status for a site to see the resource details." lightbox="./media/how-to-view-connectivity-status/site-connectivity-status-from-sites-page.png":::
 
 1. On the site's resource page, you can view the connectivity status for each resource within the site, including the resource responsible for the top-level most significant status.
 
