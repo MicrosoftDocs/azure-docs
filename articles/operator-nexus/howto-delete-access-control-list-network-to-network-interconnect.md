@@ -11,8 +11,6 @@ ms.custom: template-how-to
 
 # Deleting ACLs associated with Network-to-Network Interconnects (NNI)
 
-## Introduction
-
 This document outlines the process of deleting Access Control Lists (ACLs) associated with Network-to-Network Interconnects (NNIs) within a Nexus Network Fabric.
 
 ## Prerequisites
