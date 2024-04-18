@@ -529,8 +529,8 @@ items:
         href: containers/container-insights-prometheus-logs.md
     - name: Remote-write with Prometheus
       items:
-      - name: Remote-write using Azure Monitor sidecar
-        displayName: Prometheus,remote-write
+      - name: Prometheus remote-write
+        displayName: Prometheus,remote-write, azure monitor
         href: containers/prometheus-remote-write.md
       - name: Microsoft Entra authorization proxy
         displayName: Prometheus
@@ -547,6 +547,9 @@ items:
       - name: Microsoft Entra Workload ID (preview) authentication
         displayName: Prometheus,remote-write
         href: containers/prometheus-remote-write-azure-workload-identity.md
+      - name: Troubleshoot remote-write
+        displayName: Prometheus,remote-write
+        href: containers/prometheus-remote-write-troubleshooting.md
     - name: Private Link
       items:
       - name: Private link for Container Insights          
@@ -914,8 +917,9 @@ items:
         href: essentials/prometheus-metrics-overview.md
       - name: FAQ
         href: essentials/prometheus-metrics-overview.md#frequently-asked-questions
-      - name: Get started
-        href: essentials/prometheus-get-started.md
+      - name: Prometheus remote-write from virtual-machines
+        displayName: Prometheus remote-write
+        href: essentials/prometheus-remote-write-virtual-machines.md
       - name: Azure Monitor workspace
         items:
         - name: Overview
@@ -931,9 +935,6 @@ items:
         - name: Private link data query of Prometheus metrics
         displayName: Private link data query
         href: ../managed-grafana/how-to-connect-to-data-source-privately.md?toc=/azure/azure-monitor/toc.json
-      - name: Self-managed Prometheus remote-write to Azure Monitor workspace
-        displayName: Prometheus
-        href: essentials/self-managed-prometheus-remote-write.md
       - name: Alerting and rule groups
         displayName: Prometheus
         href: essentials/prometheus-rule-groups.md

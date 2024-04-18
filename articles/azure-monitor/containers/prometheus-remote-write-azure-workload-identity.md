@@ -6,7 +6,7 @@ services: azure-monitor
 ms.author: edbaynash
 ms.topic: conceptual
 ms.custom: devx-track-azurecli
-ms.date: 09/10/2023
+ms.date: 4/18/2024
 ms.reviewer: rapadman
 ---
 
@@ -179,9 +179,9 @@ az ad app federated-credential create --id ${APPLICATION_OBJECT_ID} --parameters
 
 ## Verification and troubleshooting
 
-For verification and troubleshooting information, see [Azure Monitor managed service for Prometheus remote write](prometheus-remote-write.md#verify-remote-write-is-working-correctly).
+For verification and troubleshooting information, see [Troubleshooting remote write](articles/azure-monitor/containers/prometheus-remote-write-troubleshooting)  and [Azure Monitor managed service for Prometheus remote write](prometheus-remote-write.md#verify-remote-write-is-working-correctly).
 
-## Related content
+## Next steps
 
 - [Collect Prometheus metrics from an AKS cluster](../containers/kubernetes-monitoring-enable.md#enable-prometheus-and-grafana)
 - [Learn more about Azure Monitor managed service for Prometheus](../essentials/prometheus-metrics-overview.md)

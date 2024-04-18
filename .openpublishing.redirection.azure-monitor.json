@@ -6691,7 +6691,7 @@
         },
         {
             "source_path_from_root": "/articles/azure-monitor/essentials/remote-write-prometheus.md",
-            "redirect_url": "/azure/azure-monitor/essentials/self-managed-prometheus-remote-write",
+            "redirect_url": "/azure/azure-monitor/essentials/prometheus-remote-write-virtual-machines",
             "redirect_document_id": false
         },
         {

@@ -4,7 +4,7 @@ description: Learn how to set up remote write for Azure Monitor managed service 
 author: EdB-MSFT
 ms.author: edbaynash
 ms.topic: conceptual
-ms.date: 05/11/2023
+ms.date: 4/18/2024
 ms.reviewer: rapadman
 ---
 
@@ -100,9 +100,9 @@ The `aadpodidbinding` label must be added to the Prometheus pod for the pod-mana
 
 ## Verification and troubleshooting
 
-For verification and troubleshooting information, see [Azure Monitor managed service for Prometheus remote write](prometheus-remote-write.md#verify-remote-write-is-working-correctly).
+For verification and troubleshooting information, see [Troubleshooting remote write](articles/azure-monitor/containers/prometheus-remote-write-troubleshooting)  and [Azure Monitor managed service for Prometheus remote write](prometheus-remote-write.md#verify-remote-write-is-working-correctly).
 
-## Related content
+## Next steps
 
 - [Collect Prometheus metrics from an AKS cluster](../containers/kubernetes-monitoring-enable.md#enable-prometheus-and-grafana)
 - [Learn more about Azure Monitor managed service for Prometheus](../essentials/prometheus-metrics-overview.md)
