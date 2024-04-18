@@ -58,7 +58,10 @@ If a proxy server is being used, the following table contains the list of addres
 The default value for `noProxy` is `localhost,127.0.0.1,.svc,10.0.0.0/8,172.16.0.0/12,192.168.0.0/16`. While these default values will work for many networks, you may need to add more subnet ranges and/or names to the exemption list. For example, you may want to exempt your enterprise namespace (.contoso.com) from being directed through the proxy. You can achieve that by specifying the values in the `noProxy` list.
 
 > [!IMPORTANT]
-> When listing multiple addresses for the `noProxy` settings, don't add a space after each comma to separate the addresses. The addresses must immediately follow the commas.## Ports being listened to
+> When listing multiple addresses for the `noProxy` settings, don't add a space after each comma to separate the addresses. The addresses must immediately follow the commas.
+>
+
+## Ports being listened to
 
 As a notice, you should be aware that the following ports are listened to on the appliance VM but don’t need any access from outside of the appliance VM. 
 
