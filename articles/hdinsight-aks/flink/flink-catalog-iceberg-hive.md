@@ -3,7 +3,7 @@ title: Table API and SQL - Use Iceberg Catalog type with Hive in Apache Flink® 
 description: Learn how to create Iceberg Catalog in Apache Flink® on HDInsight on AKS
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 3/28/2024
+ms.date: 04/18/2024
 ---
 
 # Create Iceberg Catalog in Apache Flink® on HDInsight on AKS
@@ -19,6 +19,14 @@ In this article, we learn how to use Iceberg Table managed in Hive catalog, with
    - Refer this article on how to use CLI from [Secure Shell](./flink-web-ssh-on-portal-to-flink-sql.md) on Azure portal.
 
 ### Add dependencies
+
+**Script actions**
+
+1. Upload hadoop-hdfs-client and iceberg-flink connector jar into Flink cluster Job Manager and Task Manager
+ 
+1. Go to Script actions on Cluster Azure Portal:
+ 
+Upload <hadoop-hdfs-client_jar:https://hdiconfigactions2.blob.core.windows.net/flink-script-action/hudi-sa-test.sh>
 
 Once you launch the Secure Shell (SSH), let us start downloading the dependencies required to the SSH node, to illustrate the Iceberg table managed in Hive catalog.
 
