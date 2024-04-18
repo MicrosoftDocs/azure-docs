@@ -13,6 +13,10 @@ ms.topic: conceptual
 
 We're pleased to announce the April 2024 maintenance for Azure Database for MySQL Flexible Server. This maintenance incorporates several new features and improvement, along with known issue fix, minor version upgrade, and security patches.
 
+> [!NOTE]
+> During our routine preparatory evaluations for the upcoming April maintenance cycle, we identified a high likelihood of potential failure specifically affecting the B1S SKU servers of Azure MySQL. This discovery necessitated a reassessment of our planned maintenance activities. As a result, all maintenance sessions originally scheduled for B1S SKU servers in April have been canceled.
+
+
 ## Engine version changes
 All existing engine version server upgrades to 8.0.36 engine version.
 
