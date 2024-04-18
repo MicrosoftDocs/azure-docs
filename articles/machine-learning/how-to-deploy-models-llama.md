@@ -169,7 +169,7 @@ Models deployed as a service can be consumed using either the chat or the comple
     - For completions models, such as `Llama-3-8B`, use the [`<target_url>/v1/completions`](#completions-api) API.
     - For chat models, such as `Llama-3-8B-Instruct`, use the [`<target_url>/v1/chat/completions`](#chat-api) API.
 
-   For more information on using the APIs, see the [reference](#reference-for-llama-models-deployed-as-a-service) section.
+   For more information on using the APIs, see the [reference](#reference-for-meta-llama-models-deployed-as-a-service) section.
 
 # [Meta Llama 2](#tab/llama-two)
 
