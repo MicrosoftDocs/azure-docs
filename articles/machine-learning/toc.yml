@@ -1246,6 +1246,8 @@
       items:
         - name: Failover & disaster recovery
           displayName: high availability
+          href: how-to-high-availability-machine-learning.md
+        - name: Failover & disaster recovery
           href: ./v1/how-to-high-availability-machine-learning.md
         - name: Regenerate storage access keys
           href: how-to-change-storage-access-key.md
