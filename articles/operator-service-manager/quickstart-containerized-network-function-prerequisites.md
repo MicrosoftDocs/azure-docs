@@ -15,7 +15,7 @@ In this Quickstart, you complete the tasks necessary prior to using the Azure Op
 
 ## Prerequisites
 
-- You have [enabled AOSM](quickstart-onboard-subscription-to-aosm.md) on your Azure subscription.
+- You have [enabled AOSM](quickstart-onboard-subscription-azure-operator-service-manager.md) on your Azure subscription.
 
 ## Download and install Azure CLI
 

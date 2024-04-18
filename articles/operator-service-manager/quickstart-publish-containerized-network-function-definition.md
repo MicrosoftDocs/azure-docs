@@ -73,15 +73,15 @@ Here's sample input-cnf-nfd.jsonc file:
 
 - **publisher_name** - Name of the Publisher resource you want your definition published to. Created if it doesn't already exist.
 - **publisher_resource_group_name** - Resource group for the Publisher resource. Created if it doesn't already exist.
-- **acr_artifact_store_name** - Name of the ACR Artifact Store resource. Created if it doesn't already exist.
+- **acr_artifact_store_name** - Name of the Azure Container Registry (ACR) Artifact Store resource. Created if it doesn't already exist.
 - **location** - The Azure location to use when creating resources.
 - **nf_name** - The name of the NF definition.
 - **version** - The version of the NF definition in A.B.C format.
-- **image_sources** - list of the registries from which to pull the image(s).
+- **image_sources** - list of the registries from which to pull the images.
 - **helm_packages**:
   - _name_ - The name of the Helm package.
   - _path_to_chart_ - The file path of Helm Chart on the local disk. Accepts .tgz, .tar or .tar.gz. Use Linux slash (/) file separator even if running on Windows. The path should be an absolute path or the path relative to the location of the `cnf-input.jsonc` file.
-  - _default_values_ - The file path (absolute or relative to `cnf-input.jsonc`) of the YAML values file on the local disk which will be used instead of the values.yaml file present in the helm chart.
+  - _default_values_ - The file path (absolute or relative to `cnf-input.jsonc`) of the YAML values file on the local disk that is used instead of the values.yaml file present in the helm chart.
   - _depends_on_ - Names of the Helm packages this package depends on. Leave as an empty array if there are no dependencies.
 
 ## Build the Network Function Definition (NFD)

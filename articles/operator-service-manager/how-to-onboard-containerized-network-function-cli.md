@@ -22,7 +22,7 @@ Onboarding is a multi-step process. Once you meet the prerequisites, you'll use 
 
 ## Prerequisites
 
-- You have [enabled AOSM](quickstart-onboard-subscription-to-aosm.md) on your Azure subscription.
+- You have [enabled AOSM](quickstart-onboard-subscription-azure-operator-service-manager.md) on your Azure subscription.
 - If your CNF is intended to run on Azure Operator Nexus, you have access to an Azure Operator Nexus instance and have completed [the prerequisites for workload deployment](/azure/operator-nexus/quickstarts-tenant-workload-prerequisites?tabs=azure-cli).
 
 > [!NOTE]
@@ -45,7 +45,7 @@ Onboarding is a multi-step process. Once you meet the prerequisites, you'll use 
 
 ### Container images
 
-- Your container images are present in either an existing ACR or an alternative container registry that supports the Docker API. Container images must be stored in your source registry in a structure that matches the image location defined in your helm charts. This requirement is explained in [CLI CNF image discovery and upload](concepts-cli-cnf-image-upload.md).
+- Your container images are present in either an existing ACR or an alternative container registry that supports the Docker API. Container images must be stored in your source registry in a structure that matches the image location defined in your helm charts. This requirement is explained in [CLI CNF image discovery and upload](concepts-cli-containerized-network-function-image-upload.md).
 - Use the `docker login` command to sign in to a non-Azure container registry hosting your container images before you run any `az aosm` commands. This step isn't required if you're using an ACR: the Azure CLI AOSM extension will automatically sign in.
 
 ### Helm and Docker engine

@@ -22,7 +22,7 @@ In this how-to guide, Network Function Publishers and Service Designers learn ho
 ## Prerequisites
 
 - You have access to an Azure Operator Nexus instance and have completed [the prerequisites for workload deployment](/azure/operator-nexus/quickstarts-tenant-workload-prerequisites?tabs=azure-cli).
-- You have [enabled AOSM](quickstart-onboard-subscription-to-aosm.md) on your Azure subscription.
+- You have [enabled AOSM](quickstart-onboard-subscription-azure-operator-service-manager.md) on your Azure subscription.
 
 > [!NOTE]
 > It is strongly recommended that you have tested that the VM deployment succeeds on your Azure Operator Nexus instance before onboarding the VNF to AOSM.

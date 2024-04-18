@@ -16,7 +16,7 @@ This quickstart describes how to use the `az aosm` Azure CLI extension to create
 
 An Azure account with an active subscription is required. If you don't have an Azure subscription, follow the instructions here [Start free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) to create an account before you begin.
 
-It's also assumed that you followed the prerequisites in [Quickstart: Publish Ubuntu Virtual Machine (VM) as Virtual Network Function (VNF)](quickstart-publish-virtualized-network-function-definition.md).
+You must follow the prerequisites in [Quickstart: Publish Ubuntu Virtual Machine (VM) as Virtual Network Function (VNF)](quickstart-publish-virtualized-network-function-definition.md).
 
 ## Create input file
 
@@ -26,7 +26,7 @@ Create an input file for publishing the Network Service Design. Execute the foll
 az aosm nsd generate-config
 ```
 
-Once you execute this command an nsd-input.jsonc file is generated.
+An `nsd-input.jsonc` file is generated when you run this command.
 
 > [!NOTE]
 > Edit the nsd-input.jsonc file, replacing it with the values shown in the sample. Remove the section where resource_element_type is set to ArmTemplate. This is for adding infrastructure (such as VNets) to more complicated NSDs, which is not needed in this quickstart. Save the file as **input-vnf-nsd.jsonc**.
@@ -82,9 +82,9 @@ Once you execute this command an nsd-input.jsonc file is generated.
 | --------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | **publisher_name**                | Name of the Publisher resource you want your definition published to. Created if it doesn't exist.                                                                                   |
 | **publisher_resource_group_name** | Resource group for the Publisher resource. Created if it doesn't exist.                                                                                                              |
-| **acr_artifact_store_name**       | Name of the ACR Artifact Store resource. Created if it doesn't exist.                                                                                                                |
+| **acr_artifact_store_name**       | Name of the Azure Container Registry (ACR) Artifact Store resource. Created if it doesn't exist.                                                                                                                |
 | **location**                      | Azure location to use when creating resources.                                                                                                                                       |
-| **network-functions**             | _publisher_: The name of the publisher that this NFDV is published under.                                                                                                            |
+| **network-functions**             | _publisher_: The name of the publisher that this Network Function Definition Version (NFDV) is published under.                                                                                                            |
 |                                   | _publisher_resource_group_: The resource group that the publisher is hosted in.                                                                                                      |
 |                                   | _name_: The name of the existing Network Function Definition Group to deploy using this NSD.                                                                                         |
 |                                   | _version_: The version of the existing Network Function Definition to base this NSD on. This NSD is able to deploy any NFDV with deployment parameters compatible with this version. |
@@ -112,16 +112,16 @@ These files are created in a subdirectory called **nsd-cli-output**:
 | deploy.bicep                        | Bicep template to create artifact manifest, with artifacts populated from input file                                                                                                                                                                                                                                              |
 | **nsd-cli-output/artifacts**        |                                                                                                                                                                                                                                                                                                                                   |
 | artifacts.json                      | List of artifacts (images and ARM templates) to be uploaded on publish. Correlates with the artifact manifest                                                                                                                                                                                                                     |
-| \<nf-name>.bicep                    | Bicep template per NF RET provided in the input file, for deploying the NF. This is converted to an ARM template and uploaded to the artifact store when you run the publish command                                                                                                                                              |
+| \<nf-name>.bicep                    | Bicep template per Network Function (NF) RET provided in the input file, for deploying the NF. This template is converted to an ARM template and uploaded to the artifact store when you run the publish command                                                                                                                                              |
 | **nsd-cli-output/base**             |                                                                                                                                                                                                                                                                                                                                   |
-| deploy.bicep                        | Bicep template to create the publisher, storage accounts and network service design group shared by all NSDVs of this NSD group                                                                                                                                                                                                   |
+| deploy.bicep                        | Bicep template to create the publisher, storage accounts, and network service design group shared by all NSDVs of this NSD group                                                                                                                                                                                                   |
 | **nsd-cli-output/nsdDefinition**    |                                                                                                                                                                                                                                                                                                                                   |
-| deploy.bicep                        | Bicep template to create the Network Service Design Version (NSDV). In this template are child resource element templates, which are taken from the published NFs or ARM templates (for infrastructure) defined in the nsd-input.jsonc file                                                                                       |
-| config-group-schema.json            | Combined configuration group schema for all NFs in this NSDV. This schema defines the inputs the operator will need to supply in the config group values when deploying the NSDV as part of a site network service (SNS).                                                                                                         |
-| \<nf-name>-mappings.json            | File that maps the config group values provided by the operator to the deploy parameters defined in the NSDV. There will be one per NF in your NSDV                                                                                                                                                                               |
+| deploy.bicep                        | Bicep template to create the Network Service Design Version (NSDV). This template contains child resource element templates, which are taken from the published NFs or ARM templates (for infrastructure) defined in the nsd-input.jsonc file                                                                                       |
+| config-group-schema.json            | Combined configuration group schema for all NFs in this NSDV. This schema defines the inputs the operator needs to supply in the config group values when deploying the NSDV as part of a site network service (SNS).                                                                                                         |
+| \<nf-name>-mappings.json            | File that maps the config group values provided by the operator to the deploy parameters defined in the NSDV. There's one per NF in your NSDV                                                                                                                                                                               |
 | **nsd-cli-output**                  |                                                                                                                                                                                                                                                                                                                                   |
-| all_deploy.parameters.json          | Superset of all NF's deploy parameters, providing a single file to customise resource names. The values output to this file by the build command are taken from the nsd-input.jsonc file, but may be edited in this file before running publish, for example to publish to a different location or use a different publisher name |
-| index.json                          | File used internally when publishing resources. Do not edit                                                                                                                                                                                                                                                                       |
+| all_deploy.parameters.json          | Superset of all NF's deploy parameters, providing a single file to customize resource names. The values output to this file by the build command are taken from the nsd-input.jsonc file. You can edit the values in this file before running publish, for example to publish to a different location or use a different publisher name |
+| index.json                          | File used internally when publishing resources. Don't edit                                                                                                                                                                                                                                                                       |
 
 ## Publish the Network Service Design (NSD)
 
@@ -131,7 +131,7 @@ To publish the Network Service Design (NSD) and its associated artifacts, issue 
 az aosm nsd publish --build-output-folder nsd-cli-output
 ```
 
-When the Publish process is complete navigate to your Publisher Resource Group to observe and review the resources and artifacts that were produced.
+Navigate to your Publisher Resource Group to observe and review the resources and artifacts that were produced.
 
 These resources are created:
 

@@ -16,7 +16,7 @@ Before you begin using Azure Operator Service Manager, ensure you have registere
 
 ## Prerequisites
 
-- You have [enabled AOSM](quickstart-onboard-subscription-to-aosm.md) on your Azure subscription.
+- You have [enabled AOSM](quickstart-onboard-subscription-azure-operator-service-manager.md) on your Azure subscription.
 
 ## Download and install Azure CLI
 

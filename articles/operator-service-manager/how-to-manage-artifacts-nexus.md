@@ -27,7 +27,7 @@ This How-To article describes how to push artifacts to and pull artifacts from a
 
 ## Prerequisites
 
-- [Enable AOSM](quickstart-onboard-subscription-to-aosm.md) on your Azure subscription
+- [Enable AOSM](quickstart-onboard-subscription-azure-operator-service-manager.md) on your Azure subscription
 - Install the [Azure CLI](/cli/azure/install-azure-cli)
 - Deploy an Artifact Store resource of type Azure Container Registry
 - Deploy an Artifact manifest resource that contains an entry for the artifact you want to install. This example shows the artifact manifest BICEP definition for a fictional Contoso CNF container image
