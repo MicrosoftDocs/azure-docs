@@ -19,47 +19,47 @@ This document outlines the process of deleting Access Control Lists (ACLs) assoc
 
 1. **Set subscription (if necessary):**
    
-   If you have multiple subscriptions and need to set one as the default, you can do so with:
+If you have multiple subscriptions and need to set one as the default, you can do so with:
    
-   ```Azure CLI
-   az account set --subscription <subscription-id>
-   ```
+```Azure CLI
+az account set --subscription <subscription-id>
+```
 
 2. **Delete ACLs associated with NNI:**
    
-   To delete ACLs applied on NNI or External Network resources, pass a null value to `--ingress-acl-id` and `--egress-acl-id`.
+To delete ACLs applied on NNI or External Network resources, pass a null value to `--ingress-acl-id` and `--egress-acl-id`.
 
-   ```Azure CLI
-   az networkfabric nni update --resource-group "<resource-group-name>" --resource-name "<nni-name>" --fabric "<fabric-name>" --ingress-acl-id null --egress-acl-id null
-   ```
+```Azure CLI
+az networkfabric nni update --resource-group "<resource-group-name>" --resource-name "<nni-name>" --fabric "<fabric-name>" --ingress-acl-id null --egress-acl-id null
+```
 
-   | Parameter            | Description                                                                                      |
-   |----------------------|--------------------------------------------------------------------------------------------------|
-   | `--resource-group`   | Name of the resource group containing the network fabric instance.                              |
-   | `--resource-name`    | Name of the network fabric NNI (Network-to-Network Interface) to be updated.                    |
-   | `--fabric`           | Name of the fabric where the NNI is provisioned.                                                     |
-   | `--ingress-acl-id`   | Resource ID of the ingress access control list (ACL) for inbound traffic (null for no specific ACL). |
-   | `--egress-acl-id`    | Resource ID of the egress access control list (ACL) for outbound traffic (null for no specific ACL). |
+| Parameter            | Description                                                                                      |
+|----------------------|--------------------------------------------------------------------------------------------------|
+| `--resource-group`   | Name of the resource group containing the network fabric instance.                              |
+| `--resource-name`    | Name of the network fabric NNI (Network-to-Network Interface) to be updated.                    |
+| `--fabric`           | Name of the fabric where the NNI is provisioned.                                                     |
+| `--ingress-acl-id`   | Resource ID of the ingress access control list (ACL) for inbound traffic (null for no specific ACL). |
+| `--egress-acl-id`    | Resource ID of the egress access control list (ACL) for outbound traffic (null for no specific ACL). |
 
-   > [!NOTE]
-   > Based on requirements, either the Ingress, Egress, or both can be updated.
+> [!NOTE]
+> Based on requirements, either the Ingress, Egress, or both can be updated.
 
 3. **Fabric commit configuration changes:**
 
-   Execute `fabric commit-configuration` to commit the configuration changes.
+Execute `fabric commit-configuration` to commit the configuration changes.
 
-   ```Azure CLI
-   az networkfabric fabric commit-configuration --resource-group "<resource-group>" --resource-name "<fabric-name>"
-   ```
+```Azure CLI
+az networkfabric fabric commit-configuration --resource-group "<resource-group>" --resource-name "<fabric-name>"
+```
 
-   | Parameter        | Description                                                  |
-   |------------------|--------------------------------------------------------------|
-   | `--resource-group` | The name of the resource group containing the Nexus Network Fabric. |
-   | `--resource-name`  | The name of the Nexus Network Fabric to which the configuration changes will be committed. |
+| Parameter        | Description                                                  |
+|------------------|--------------------------------------------------------------|
+| `--resource-group` | The name of the resource group containing the Nexus Network Fabric. |
+| `--resource-name`  | The name of the Nexus Network Fabric to which the configuration changes will be committed. |
 
 4. **Verify changes:**
 
-   Verify the changes using the `resource list` command.
+Verify the changes using the `resource list` command.
 
 ### Deleting ACL associations from NNI
 
