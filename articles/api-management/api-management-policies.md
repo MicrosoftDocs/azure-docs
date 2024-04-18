@@ -34,7 +34,7 @@ More information about policies:
 | [Set usage quota by subscription](quota-policy.md) | Allows you to enforce a renewable or lifetime call volume and/or bandwidth quota, on a per subscription basis. | Yes | Yes | Yes | Yes
 | [Set usage quota by key](quota-by-key-policy.md) |  Allows you to enforce a renewable or lifetime call volume and/or bandwidth quota, on a per key basis. | Yes | No | No | Yes | 
 | [Limit concurrency](limit-concurrency-policy.md) | Prevents enclosed policies from executing by more than the specified number of requests at a time. | Yes | Yes | Yes | Yes |
-| [Limit Azure OpenAI token usage](azure-openai-token-limit-policy.md) | Prevents Azure OpenAI AI usage spikes by limiting language model tokens per calculated key. | Yes | Yes | No | No |
+| [Limit Azure OpenAI token usage](azure-openai-token-limit-policy.md) | Prevents Azure OpenAI API usage spikes by limiting language model tokens per calculated key. | Yes | Yes | No | No |
 
 ## Authentication and authorization
 
