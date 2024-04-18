@@ -6,7 +6,7 @@ ms.author: tomcassidy
 author: tomvcassidy
 ms.service: service-fabric
 services: service-fabric
-ms.date: 07/14/2022
+ms.date: 04/17/2024
 ---
 
 # Tutorial: Deploy an application with CI/CD to a Service Fabric cluster
