@@ -74,7 +74,7 @@ To update your VM's Linux kernel, check the documentation for your specific dist
 
 ## Verify that traffic is flowing through MANA
 
-Each vNIC that you configure for the VM, with Accelerated Networking enabled, results in two network interfaces in the VM. The following example shows `eth0` and `enP30832p0s0` in a single-NIC configuration:
+Each virtual NIC (vNIC) that you configure for the VM, with Accelerated Networking enabled, results in two network interfaces in the VM. The following example shows `eth0` and `enP30832p0s0` in a single-NIC configuration:
 
 ```
 $ ip link

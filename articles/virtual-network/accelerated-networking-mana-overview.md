@@ -17,7 +17,7 @@ Learn how to use the Microsoft Azure Network Adapter (MANA) component of Azure B
 
 ## Compatibility
 
-MANA supports several VM operating systems. Although your VM might be running a supported OS, you might need to update the kernel (Linux) or install drivers (Windows).
+MANA supports several VM operating systems. Although your VM might be running a supported operating system, you might need to update the kernel (Linux) or install drivers (Windows).
 
 MANA maintains feature parity with previous Azure networking features. VMs run on hardware with both Mellanox and MANA NICs, so existing `mlx4` and `mlx5` support still need to be present.
 
@@ -46,7 +46,7 @@ Several [Azure Marketplace](/marketplace/azure-marketplace-overview) images have
 
 ### Custom images and legacy VMs
 
-We recommend using an operating system with support for MANA to maximize performance. If the operating system doesn't support MANA, network connectivity is provided through the hypervisor's virtual switch. The virtual switch is also used during some infrastructure servicing events where the Virtual Function (VF) is revoked.
+To maximize performance, we recommend using an operating system that supports MANA. If the operating system doesn't support MANA, network connectivity is provided through the hypervisor's virtual switch. The virtual switch is also used during some infrastructure servicing events where the Virtual Function (VF) is revoked.
 
 ### DPDK on MANA hardware
 
@@ -60,7 +60,7 @@ For information on testing and optimizing network performance in Azure, see [TCP
 
 ## Getting started with MANA
 
-Tutorials for each supported OS type are available for you to get started:
+Tutorials for each supported OS type are available to help you get started:
 
 - For Linux support, see [Linux VMs with Azure MANA](./accelerated-networking-mana-linux.md).
 - For Windows support, see [Windows VMs with Azure MANA](./accelerated-networking-mana-windows.md).

@@ -44,7 +44,7 @@ Ensure that Accelerated Networking is enabled on at least one of your NICs:
 When you enable Accelerated Networking, you can identify the underlying MANA NIC as a PCI device in the virtual machine.
 
 > [!NOTE]
-> When you configure multiple NICs on MANA-supported hardware, there's still only one PCIe Virtual Function (VF) assigned to the VM. MANA is designed such that all VM NICs interact with the same PCIe VF. Because network resource limits are set at the level of the VM type, this configuration has no effect on performance.
+> When you configure multiple NICs on MANA-supported hardware, there's still only one PCI Express (PCIe) Virtual Function (VF) assigned to the VM. MANA is designed such that all VM NICs interact with the same PCIe VF. Because network resource limits are set at the level of the VM type, this configuration has no effect on performance.
 
 ### Driver check
 
