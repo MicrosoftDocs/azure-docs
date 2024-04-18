@@ -18,7 +18,7 @@ Access Control Lists (ACLs) are a set of rules that regulate inbound and outboun
 To create an ACL and define its properties, you can utilize the `az networkfabric acl create` command. Below are the steps involved:
 
 1. **Install Azure CLI:**
-   If you haven't already installed the Azure CLI, you can do so by following the instructions provided [here](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli).
+   If you haven't already installed the Azure CLI, you can do so by following the instructions provided [here](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 2. **Login to Azure:**
    Use the following command to log in to your Azure account:
