@@ -17,7 +17,7 @@ Call creation and start are synchronous. The `call` instance allows you to subsc
 
 To call another Communication Services user, use the `startCall` method on `callAgent` and pass the recipient's `CommunicationUserIdentifier` that you [created with the Communication Services administration library](../../../../quickstarts/identity/access-tokens.md).
 
-For a 1:1 call to a user, use the following code:
+For a "1:1" call to a user, use the following code:
 
 ```js
 const userCallee = { communicationUserId: '<ACS_USER_ID>' }
@@ -111,7 +111,7 @@ callAgentInstance.on('incomingCall', incomingCallHandler);
 
 The `incomingCall` event includes an `incomingCall` instance that you can accept or reject.
 
-The Azure Communication Calling SDK raises a cameraStartFailed: true call diagnostic if the camera is not available when starting, accepting, or joining a call with video enabled. In this case, the call starts with video off. The camera might not be available because it is being used by another process or because it is disabled in the operating system.
+The Azure Communication Calling SDK raises a cameraStartFailed: true call diagnostic if the camera isn't available when starting, accepting, or joining a call with video enabled. In this case, the call starts with video off. The camera might not be available because it's being used by another process or because it's disabled in the operating system.
 
 ## Hold and resume call
 
@@ -158,7 +158,7 @@ await call.muteIncomingAudio();
 await call.unmuteIncomingAudio();
 ```
 
-When incoming audio is muted, the participant client SDK still receives the call audio (remote participant's audio). The call audio won't be heard in the speaker and the participant won't be able to listen until 'call.unmuteIncomingAudio()' is called. However, we can apply filter on call audio and play the filtered audio.
+When incoming audio is muted, the participant client SDK still receives the call audio (remote participant's audio). The call audio isn't heard in the speaker and the participant isn't able to listen until 'call.unmuteIncomingAudio()' is called. However, we can apply filter on call audio and play the filtered audio.
 
 ## Mute other participants
 > [!NOTE]
@@ -244,7 +244,7 @@ const state = remoteParticipant.state;
     ```
     Note:
     - This property is only set when adding a remote participant via the Call.addParticipant() API, and the remote participant declines for example.
-    - In the scenario, where for example, UserB kicks UserC, from UserA's perspective, UserA won't see this flag get set for UserC. In other words UserA won't see UserC's callEndReason property get set at all.
+    - In the scenario, where UserB kicks UserC, from UserA's perspective, UserA doesn't see this flag get set for UserC. In other words UserA doesn't see UserC's callEndReason property get set at all.
 
 - `isMuted` status: To find out if a remote participant is muted, check the `isMuted` property. It returns `Boolean`.
 
@@ -285,7 +285,7 @@ Get the local participant ID:
 ```js
 const participantId: string = call.info.participantId;
 ```
-*Note: An Azure Communication Services identity can use the web calling sdk in many endpoints, and each endpoint has its own unique `participantId`. `participantId` is different from the Azure Communication Services identity raw Id.*
+*Note: An Azure Communication Services identity can use the web calling SDK in many endpoints, and each endpoint has its own unique `participantId`. `participantId` is different from the Azure Communication Services identity raw ID.*
 
 Retrieve the thread ID if joining a Teams meeting:
 ```js
@@ -323,8 +323,8 @@ This returns a string representing the current state of a call:
 - `Ringing`: For an outgoing call, indicates that a call is ringing for remote participants. It's `Incoming` on their side.
 - `EarlyMedia`: Indicates a state in which an announcement is played before the call is connected.
 - `Connected`: Indicates that the call is connected.
-- `LocalHold`: Indicates that the call is put on hold by a local participant. No media is flowing between the local endpoint and remote participants.
-- `RemoteHold`: Indicates that the call was put on hold by remote participant. No media is flowing between the local endpoint and remote participants.
+- `LocalHold`: Indicates that a local partipant the call put the call on hold. No media is flowing between the local endpoint and remote participants.
+- `RemoteHold`: Indicates that a remote partipant the call put the call on hold. No media is flowing between the local endpoint and remote participants.
 - `InLobby`: Indicates that user is in lobby.
 - `Disconnecting`: Transition state before the call goes to a `Disconnected` state.
 - `Disconnected`: Final call state. If the network connection is lost, the state changes to `Disconnected` after two minutes.
@@ -344,7 +344,7 @@ const isIncoming = call.direction == 'Incoming';
 const isOutgoing = call.direction == 'Outgoing';
 ```
 
-Inspect the active video streams and active screen sharing streams by checking the `localVideoStreams` collection. The `localVideoStreams` API returns `LocalVideoStream` objects or type `Video`, `ScreenSharing` or `RawMedia`.
+Inspect the active video streams and active screen sharing streams by checking the `localVideoStreams` collection. The `localVideoStreams` API returns `LocalVideoStream` objects of type `Video`, `ScreenSharing`, or `RawMedia`.
 
 ```js
 const localVideoStreams = call.localVideoStreams;
