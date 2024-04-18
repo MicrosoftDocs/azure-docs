@@ -18,7 +18,7 @@ Azure HDInsight Open known issues:
 
 | HDInsight component | Issue description |
 |---------------------|-------------------|
-| Kafka | [Component version validation error in ARM templates](./component-version-validation-error-arm-templates.md) |
+| Control Plane | [Component version validation error in ARM templates](./component-version-validation-error-arm-templates.md) |
 | Platform | [Cluster reliability issue with older images in HDInsight clusters](./cluster-reliability-issues.md)|
 | Platform | [Switch users through the Ambari UI](./hdinsight-known-issues-ambari-users-cache.md)|
 
