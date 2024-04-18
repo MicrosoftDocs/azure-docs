@@ -1,6 +1,7 @@
+
 ---
-title: Delete ACLs associated to network-to-network interconnects (NNI)
-description: Process of deleting ACLs to network-to-network interconnects (NNI)
+title: Delete ACLs associated with Network-to-Network Interconnects (NNI)
+description: Process of deleting ACLs associated with Network-to-Network Interconnects (NNI)
 author: sushantjrao 
 ms.author: sushrao
 ms.service: azure-operator-nexus
@@ -9,43 +10,87 @@ ms.date: 04/18/2024
 ms.custom: template-how-to
 ---
 
+# Deleting ACLs associated with Network-to-Network Interconnects (NNI)
 
-To delete ACLs applied on NNI or External Network resources, pass a null value to `--ingress-acl-id` and `--egress-acl-id`.
+## Introduction
 
-1. Update the NNI or External Network by passing a null ID to `--ingress-acl-id` and `--egress-acl-id`.
+This document outlines the process of deleting Access Control Lists (ACLs) associated with Network-to-Network Interconnects (NNIs) within a Nexus Network Fabric.
 
-```Azure CLI
-az networkfabric nni update --resource-group "<resource-group-name>" --resource-name "<nni-name>" --fabric "<fabric-name>" --ingress-acl-id null --egress-acl-id null
-```
+## Prerequisites
 
-| Parameter            | Description                                                                                      |
-|----------------------|--------------------------------------------------------------------------------------------------|
-| `--resource-group`   | Name of the resource group containing the network fabric instance.                              |
-| `--resource-name`    | Name of the network fabric NNI (Network-to-Network Interface) to be updated.                    |
-| `--fabric`           | Name of the fabric where the NNI is provisioned.                                                     |
-| `--ingress-acl-id`   | Resource ID of the ingress access control list (ACL) for inbound traffic (null for no specific ACL). |
-| `--egress-acl-id`    | Resource ID of the egress access control list (ACL) for outbound traffic (null for no specific ACL). |
+Before proceeding, ensure you have the following prerequisites:
+- Azure CLI installed. If not, follow the instructions provided [here](https://docs.microsoft.com/cli/azure/install-azure-cli).
+- Access to an Azure account.
 
-> [!NOTE]
-> Based on requirements, either the Ingress, Egress, or both can be updated.
+## Procedure
 
-2. Execute `fabric commit-configuration`. 
+1. **Login to Azure:**
+   Use the following command to log in to your Azure account:
+   ```Azure CLI
+   az login
+   ```
 
-```Azure CLI
-az networkfabric fabric commit-configuration --resource-group "<resource-group>" --resource-name "<fabric-name>"
-```
+2. **Set subscription (if necessary):**
+   If you have multiple subscriptions and need to set one as the default, you can do so with:
+   ```Azure CLI
+   az account set --subscription <subscription-id>
+   ```
 
-| Parameter        | Description                                                  |
-|------------------|--------------------------------------------------------------|
-| `--resource-group` | The name of the resource group containing the Nexus Network Fabric. |
-| `--resource-name`  | The name of the Nexus Network Fabric to which the configuration changes will be committed. |
+3. **Delete ACLs Associated with NNI:**
+   
+   To delete ACLs applied on NNI or External Network resources, pass a null value to `--ingress-acl-id` and `--egress-acl-id`.
 
-4. Verify the changes using the `resource list` command.
+   Update the NNI or External Network by passing a null ID to `--ingress-acl-id` and `--egress-acl-id`.
 
+   ```Azure CLI
+   az networkfabric nni update --resource-group "<resource-group-name>" --resource-name "<nni-name>" --fabric "<fabric-name>" --ingress-acl-id null --egress-acl-id null
+   ```
+
+   | Parameter            | Description                                                                                      |
+   |----------------------|--------------------------------------------------------------------------------------------------|
+   | `--resource-group`   | Name of the resource group containing the network fabric instance.                              |
+   | `--resource-name`    | Name of the network fabric NNI (Network-to-Network Interface) to be updated.                    |
+   | `--fabric`           | Name of the fabric where the NNI is provisioned.                                                     |
+   | `--ingress-acl-id`   | Resource ID of the ingress access control list (ACL) for inbound traffic (null for no specific ACL). |
+   | `--egress-acl-id`    | Resource ID of the egress access control list (ACL) for outbound traffic (null for no specific ACL). |
+
+   > [!NOTE]
+   > Based on requirements, either the Ingress, Egress, or both can be updated.
+
+4. **Commit Configuration Changes:**
+
+   Execute `fabric commit-configuration` to commit the configuration changes.
+
+   ```Azure CLI
+   az networkfabric fabric commit-configuration --resource-group "<resource-group>" --resource-name "<fabric-name>"
+   ```
+
+   | Parameter        | Description                                                  |
+   |------------------|--------------------------------------------------------------|
+   | `--resource-group` | The name of the resource group containing the Nexus Network Fabric. |
+   | `--resource-name`  | The name of the Nexus Network Fabric to which the configuration changes will be committed. |
+
+5. **Verify Changes:**
+
+   Verify the changes using the `resource list` command.
 
 ### Deleting ACL Associations from NNI
 
 To disassociate only the egress ACL from an NNI, use the following command:
+
+	```Azure CLI
+	az networkfabric nni update --resource-group "<resource-group-name>" --resource-name "<nni-name>" --fabric "<fabric-name>" --egress-acl-id null
+	```
+
+To disassociate both egress and ingress ACLs from an NNI, use the following command:
+
+	```Azure CLI
+	az networkfabric nni update --resource-group "<resource-group-name>" --resource-name "<nni-name>" --fabric "<fabric-name>" --egress-acl-id null --ingress-acl-id null
+	```
+
+Ensure to replace placeholders with actual resource group and NNI names for accurate execution.
+
+Example of disassociating the egress ACL from an NNI
 
 ```Azure CLI
 az networkfabric nni update --resource-group "example-rg" --resource-name "example-nni" --fabric "example-fabric" --egress-acl-id null
@@ -94,12 +139,3 @@ Example Output:
     "useOptionB": "True"
 }
 ```
-
-To disassociate both egress and ingress ACLs from an NNI, use the following command:
-
-```Azure CLI
-az networkfabric nni update --resource-group "example-rg" --resource-name "example-nni" --fabric "example-fabric" --egress-acl-id null --ingress-acl-id null
-```
-
-These commands allow for the disassociation of ACLs from NNIs within the specified Nexus Network Fabric. Ensure to replace placeholders with actual resource group and NNI names for accurate execution.
-
