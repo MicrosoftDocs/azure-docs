@@ -71,9 +71,7 @@ In either case, it can be helpful to know which capabilities are available and h
 
 - Experiment with different prompts and variations to see what works best for your use case. Chat AI models vary, so iterate and refine your prompts based on the results you receive.
 
-- Security Copilot saves your prompt sessions. To see the previous sessions, in Security Copilot, go to the menu > **My investigations**:
-
-   ![Screenshot that shows the Microsoft Security Copilot menu and My investigations with previous sessions.](media/copilot-1.png)
+- Security Copilot saves your prompt sessions. To see the previous sessions, in Security Copilot, go to the menu > **My sessions**. 
 
 
   For a walkthrough on Security Copilot, including the pin and share feature, go to [Navigating Microsoft Security Copilot](/security-copilot/navigating-security-copilot).
