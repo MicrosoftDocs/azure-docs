@@ -4,7 +4,7 @@ description: How to find unattached Azure managed and unmanaged (VHDs/page blobs
 author: roygara
 ms.service: azure-disk-storage
 ms.topic: how-to
-ms.date: 04/10/2024
+ms.date: 04/18/2024
 ms.author: rogarana
 ---
 
