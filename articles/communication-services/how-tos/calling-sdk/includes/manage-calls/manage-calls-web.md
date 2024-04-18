@@ -176,7 +176,7 @@ await call.remoteParticipants[0].mute();
 
 ## Manage remote participants
 
-All remote participants are detailed in  the `RemoteParticipant` API and available through the `remoteParticipants` collection on a call instance.
+All remote participants are detailed in  the `RemoteParticipant` object and available through the `remoteParticipants` collection on a call instance. The `remoteParticipants` is accessible from a `Call` instance.
 
 ### List the participants in a call
 
