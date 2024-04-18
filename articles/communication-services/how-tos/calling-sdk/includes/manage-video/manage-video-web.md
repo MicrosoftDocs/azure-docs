@@ -155,7 +155,7 @@ console.log(result.video);
 #### Notes
 - `videoDevicesUpdated` event fires when video devices are plugging-in/unplugged.
 - `audioDevicesUpdated` event fires when audio devices are plugged.
-- When the DeviceManager is created, at first it doesn't know about any devices if permissions aren't granted yet, so initially its device list is empty. If we then call the DeviceManager.askPermission() API, the user is prompted for device access. When the user selects on 'allow' to grant the access the device manager learns about the devices on the system, update it's device lists and emit the 'audioDevicesUpdated' and 'videoDevicesUpdated' events. If a user refreshes the page and creates a device manager, the device manager is able to learn about devices because user granted access previously. It has its device lists filled initially and it doesn't emit 'audioDevicesUpdated' nor 'videoDevicesUpdated' events.
+- When the DeviceManager is created, at first it doesn't know about any devices if permissions aren't granted yet, so initially its device name is empty and the doesn't contain detailed device information. If we then call the DeviceManager.askPermission() API, the user is prompted for device access. When the user selects on 'allow' to grant the access the device manager learns about the devices on the system, update it's device lists and emit the 'audioDevicesUpdated' and 'videoDevicesUpdated' events. If a user refreshes the page and creates a device manager, the device manager is able to learn about devices because user granted access previously. It has its device lists filled initially and it doesn't emit 'audioDevicesUpdated' nor 'videoDevicesUpdated' events.
 - Speaker enumeration/selection isn't supported on Android Chrome, iOS Safari, nor macOS Safari.
 
 ## Place a call with video camera
@@ -506,7 +506,7 @@ const isReceiving: boolean = remoteVideoStream.isReceiving;
 const size: StreamSize = remoteVideoStream.size;
 ```
 
-- `size`: The stream size. The higher the stream size, the better the video quality.
+- `size`: The stream size with information about the width and height of the video.
 
 ## VideoStreamRenderer methods and properties
 
