@@ -272,7 +272,7 @@ const state = remoteParticipant.state;
     ```js
         const endpointDetails: EndpointDetails[] = remoteParticipant.endpointDetails;
     ```
-    *Note: A remote participant could be in the call from many endpoints, and each endpoint will have its own unique `participantId`. `participantId` is different from the RemoteParticipant.identifier's raw Id.*
+    *Note: A remote participant could be in the call from many endpoints, and each endpoint will have its own unique `participantId`. `participantId` is different from the RemoteParticipant.identifier's raw ID.*
 
 ## Check call properties
 
@@ -281,7 +281,7 @@ Get the unique ID (string) for a call:
 const callId: string = call.id;
 ```
 
-Get the local participant Id:
+Get the local participant ID:
 ```js
 const participantId: string = call.info.participantId;
 ```
