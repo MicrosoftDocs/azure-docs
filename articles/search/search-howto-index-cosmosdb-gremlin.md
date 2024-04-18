@@ -1,7 +1,7 @@
 ---
 title: Azure Cosmos DB Gremlin indexer
 titleSuffix: Azure AI Search
-description: Set up an Azure Cosmos DB indexer to automate indexing of Azure Cosmos DB for Apache Gremlin content for full text search in Azure AI Search. This article explains how index data using the Azure Cosmos DB for Apache Gremlin protocol.
+description: Set up an Azure Cosmos DB indexer to automate indexing of Apache Gremlin content for full text search in Azure AI Search. This article explains how index data using the Azure Cosmos DB for Apache Gremlin protocol.
 
 author: mgottein
 ms.author: magottei
@@ -14,7 +14,7 @@ ms.topic: how-to
 ms.date: 02/28/2024
 ---
 
-# Import data from Azure Cosmos DB for Apache Gremlin for queries in Azure AI Search
+# Index data from Azure Cosmos DB for Apache Gremlin for queries in Azure AI Search
 
 > [!IMPORTANT]
 > The Azure Cosmos DB for Apache Gremlin indexer is currently in public preview under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Currently, there is no SDK support.
@@ -312,7 +312,7 @@ The Azure Cosmos DB for Apache Gremlin indexer will automatically map a couple p
 
 1. The indexer will map `_id` to an `id` field in the index if it exists.
 
-1. When querying your Azure Cosmos DB database using the Azure Cosmos DB for Apache Gremlin you may notice that the JSON output for each property has an `id` and a `value`. Azure AI Search Azure Cosmos DB indexer will automatically map the properties `value` into a field in your search index that has the same name as the property if it exists. In the following example, 450 would be mapped to a `pages` field in the search index.
+1. When querying your Azure Cosmos DB database using the Azure Cosmos DB for Apache Gremlin you may notice that the JSON output for each property has an `id` and a `value`. The indexer will automatically map the properties `value` into a field in your search index that has the same name as the property if it exists. In the following example, 450 would be mapped to a `pages` field in the search index.
 
 ```http
     {
