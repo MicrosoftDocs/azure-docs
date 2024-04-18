@@ -10,7 +10,7 @@ ms.date: 04/17/2024
 
 The Microsoft Defender for IoT micro module provides a comprehensive security solution for devices that use Eclipse ThreadX. It provides coverage for common threats and potential malicious activities on real-time operating system (FileX) devices. Eclipse ThreadX now ships with the Azure IoT Defender-IoT-micro-agent built in.
 
-:::image type="content" source="./media/iot-security-threadx/threadx-security-monitoring.png" alt-text="Visualization of Defender for IoT Eclipse ThreadX.":::
+:::image type="content" source="./media/iot-security-threadx/threadx-security-monitoring.png" alt-text="Diagram of the visualization of Defender for IoT Eclipse ThreadX.":::
 
 The micro module for Eclipse ThreadX offers the following features:
 
