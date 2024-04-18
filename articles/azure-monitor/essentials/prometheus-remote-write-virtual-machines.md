@@ -20,7 +20,7 @@ This article explains how to configure remote-write to send data from a self-man
 
 Self-managed Prometheus can run on Azure and non-Azure environments. The following are authentication options for remote-write to Azure Monitor workspace based on the environment where Prometheus is running.
 
-#### Azure managed Virtual Machines and Virtual Machine Scale Sets
+## Azure managed Virtual Machines and Virtual Machine Scale Sets
 
 Use user-assigned managed identity authentication for services running self managed Prometheus in an Azure environment. Azure managed services include:
 
@@ -31,7 +31,7 @@ Use user-assigned managed identity authentication for services running self mana
 To set up remote write for Azure managed resources, see [Remote-write using user-assigned managed identity](#remote-write-using-user-assigned-managed-identity-authentication).
 
 
-#### Virtual machines running on non-Azure environments.
+## Virtual machines running on non-Azure environments.
 
 Onboarding to Azure Arc-enabled services, allows you to manage and configure non-Azure virtual machines in Azure. Once onboarded, configure [Remote-write using user-assigned managed identity](#remote-write-using-user-assigned-managed-identity-authentication) authentication. For more Information on onboarding Virtual Machines to Azure Arc-enabled servers, see [Azure Arc-enabled servers](/azure/azure-arc/servers/overview). 
 
@@ -107,7 +107,7 @@ Assign the `Monitoring Metrics Publisher` role on the workspace's data collectio
 
 
 ### [Microsoft Entra ID application](#tab/entra-application)
-### Remote-write using Microsoft Entra ID application authentication.
+### Remote-write using Microsoft Entra ID application authentication
 
 To configure remote-write to Azure Monitor workspace using a Microsoft Entra ID application, create an Entra application and assign it the `Monitoring Metrics Publisher` role on the workspace's data collection rule to the application. 
 
@@ -154,21 +154,21 @@ Assign the `Monitoring Metrics Publisher` role on the workspace's data collectio
 
 1. Select **User, group, or service principal**, and then choose **Select members**. Select the application that you created, and then choose **Select**.
 
-    :::image type="content" source="../containers/media/prometheus-remote-write-active-directory/select-application.png" alt-text="Screenshot that shows selecting the application." lightbox="../containers/media/prometheus-remote-write-active-directory/select-application.png":::
+    :::image type="content" source="media/prometheus-remote-write-virtual-machines/select-members-apps.png" alt-text="Screenshot that shows selecting the application." lightbox="media/prometheus-remote-write-virtual-machines/select-members-apps.png":::
 
 1. To complete the role assignment, select **Review + assign**.
 
 ### [CLI](#tab/CLI)
 ## Create user-assigned identities and Microsoft Entra ID apps using CLI
 
-#### Create a user-assigned managed identity
+### Create a user-assigned managed identity
 
 Create a user-assigned managed identity for remote-write using the following steps:
-- Create a user-assigned managed identity
-- Assign the `Monitoring Metrics Publisher` role on the workspace's data collection rule to the managed identity
-- Assign the managed identity to a Virtual Machine or Virtual Machine Scale Set.
+1. Create a user-assigned managed identity
+1. Assign the `Monitoring Metrics Publisher` role on the workspace's data collection rule to the managed identity
+1. Assign the managed identity to a Virtual Machine or Virtual Machine Scale Set.
 
-Note the value of the `clientId` of the managed identity that you created. This ID is used in the Prometheus remote write configuration. 
+Note the value of the `clientId` of the managed identity that you create. This ID is used in the Prometheus remote write configuration. 
 
 1. Create a user-assigned managed identity using the following CLI command:
 
