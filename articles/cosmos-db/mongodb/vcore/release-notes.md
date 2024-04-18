@@ -21,7 +21,6 @@ This article contains release notes for the API for MongoDB vCore. These release
 - Query operator enhancements.
   - $centerSphere with index pushdown along with support for GeoJSON coordinates.
   - $graphLookup support.
-  - $push accumulator. (Private Preview)
 
 - Performance improvements.
   - $exists, { $eq: null}, {$ne: null} by adding new index terms.
@@ -40,8 +39,6 @@ This article contains release notes for the API for MongoDB vCore. These release
   - $min & $max operator with $project.
   - $binarySize aggregation operator.
 - Ability to build indexes in background (except Unique indexes). (Public Preview)
-- Significant performance improvements for $ne/$eq/$in queries.
-- Performance improvements up to 30% on Range queries (involving index pushdown).
 
 ### March 03, 2024
 
