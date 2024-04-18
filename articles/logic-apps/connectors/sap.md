@@ -7,7 +7,7 @@ author: daviburg
 ms.author: daviburg
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 02/10/2024
+ms.date: 04/18/2024
 ---
 
 # Connect to SAP from workflows in Azure Logic Apps
@@ -1082,7 +1082,7 @@ See the steps for [SAP logging for Consumption logic apps in multitenant workflo
 
 ---
 
-## Enable SAP client library (NCo) logging and tracing (Built-in connector only)
+## Enable SAP client library (NCo) logging and tracing (built-in connector only)
 
 When you have to investigate any problems with this component, you can set up custom text file-based NCo tracing, which SAP or Microsoft support might request from you. By default, this capability is disabled because enabling this trace might negatively affect performance and quickly consume the application host's storage space. 
 
@@ -1097,6 +1097,16 @@ You can control this tracing capability at the application level by adding the f
    * **SAP_RFC_TRACE_DIRECTORY**: The directory where to store the NCo trace files, for example, **C:\home\LogFiles\NCo**.
 
    * **SAP_RFC_TRACE_LEVEL**: The NCo trace level with **Level4** as the suggested value for typical verbose logging. SAP or Microsoft support might request that you set a [different trace level](#trace-levels).
+   
+     > [!NOTE]
+     >
+     > For Standard logic app workflows that use runtime version 1.69.0 or later, you can enable
+     > logging for multiple trace levels by separating each trace level with a comma (**,**).
+     >
+     > To find your workflow's runtime version, follow these steps:
+     >
+     > 1. In the Azure portal, on your workflow menu, select **Overview**.
+     > 2. In the **Essentials** section, find the **Runtime Version** property.
 
    * **SAP_CPIC_TRACE_LEVEL**: The Common Programming Interface for Communication (CPI-C) trace level with **Verbose** as the suggested value for typical verbose logging. SAP or Microsoft support might request that you set a [different trace level](#trace-levels).
 
