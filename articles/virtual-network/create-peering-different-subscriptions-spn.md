@@ -15,6 +15,12 @@ ms.date: 04/18/2024
 
 Scenarios exist where you need to connect virtual networks in different subscriptions without the use of user accounts or guest accounts. In this how-to, you'll learn how to peer two virtual networks with service principal names (SPNs) in different subscriptions.
 
+## Prerequisites
+
+- An Azure account(s) with two active subscriptions. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+
+- Account permissions to create a service principal, assign app permissions, and create resources in the Microsoft Entra ID tenant associated with each subscription.
+
 ## Resources used
 
 | SPN | Resource group | Subscription/Tenant | Virtual network | Location |
@@ -34,8 +40,8 @@ Scenarios exist where you need to connect virtual networks in different subscrip
 
     ```azurecli
     az group create \
-      --name test-rg-1 \
-      --location eastus2  
+        --name test-rg-1 \
+        --location eastus2  
     ```
 
 1. Create a virtual network named **vnet-1** in **subscription-1**.
@@ -50,69 +56,71 @@ Scenarios exist where you need to connect virtual networks in different subscrip
         --subnet-prefixes 10.0.0.0/24
     ```
 
+### Create spn-1-peer-vnet
+
 Create **spn1-peer-vnet** with a scope to the virtual network created in the previous step. This SPN is added to the scope of **vnet-2** in a future step to allow for the vnet peer.
 
 1. Place the resource ID of the virtual network you created earlier in a variable for use in the later step.
 
     ```azurecli
     vnetid=$(az network vnet show \
-          --resource-group test-rg-1 \
-          --name vnet-1 \
-          --query id \
-          --output tsv)
+                --resource-group test-rg-1 \
+                --name vnet-1 \
+                --query id \
+                --output tsv)
      ```
 
 1. Create **spn-1-peer-vnet** with a role of **Network Contributor** scoped to the virtual network **vnet-1**.
 
     ```azurecli
     az ad sp create-for-rbac \
-          --name spn-1-peer-vnet \
-          --role "Network Contributor" \
-          --scope $vnetid
+        --name spn-1-peer-vnet \
+        --role "Network Contributor" \
+        --scope $vnetid
     ```
 
-Make note of the output of the creation in the step. The password is only showed here in this output. Copy the password to a place safe for use in the later sign-in steps. 
+    Make note of the output of the creation in the step. The password is only showed here in this output. Copy the password to a place safe for use in the later sign-in steps. 
 
-```output
-{
-"appId": "c404755a-fe16-44fe-860f-e646f6c01c77",
-"displayName": "spn-1-peer-vnet",
-"password": "",
-"tenant": "688647e7-9434-42d3-82c9-e19c24270a54"
-}
-
-```
+    ```output
+    {
+    "appId": "c404755a-fe16-44fe-860f-e646f6c01c77",
+    "displayName": "spn-1-peer-vnet",
+    "password": "",
+    "tenant": "688647e7-9434-42d3-82c9-e19c24270a54"    
+    }
+    ```
 
 1. The appId of the service principal is used in the subsequent steps to finish the configuration of the SPN. Use the following command to place the appId of the SPN into a variable for later use.
 
     ```azurecli
     appid1=$(az ad sp list \
-          --display-name spn-1-peer-vnet \
-          --query [].appId \
-          --output tsv)
+                --display-name spn-1-peer-vnet \
+                --query [].appId \
+                --output tsv)
+    echo $appid1
     ```
 
 1. The SPN created in the previous step must have a redirect URI to finish the authentication process approval and must be converted to multi-tenant use. Use the following command to add **https://www.microsoft.com** as a redirect URI and enable multi-tenant on **spn-1-peer-vnet**. 
 
     ```azurecli
     az ad app update \
-          --id $appid1 \
-          --sign-in-audience AzureADMultipleOrgs \
-          --web-redirect-uris https://www.microsoft.com     
+        --id $appid1 \
+        --sign-in-audience AzureADMultipleOrgs \
+        --web-redirect-uris https://www.microsoft.com     
     ```
 
 1. The service principal must have **User.Read** permissions to the directory. Use the following command to add the Microsoft Graph permissions of **User.Read** to the service principal.
 
     ```azurecli
     az ad app permission add \
-          --id $appid1 \
-          --api 00000003-0000-0000-c000-000000000000 \
-          --api-permissions e1fe6dd8-ba31-4d61-89e7-88639da4683d=Scope
+        --id $appid1 \
+        --api 00000003-0000-0000-c000-000000000000 \
+        --api-permissions e1fe6dd8-ba31-4d61-89e7-88639da4683d=Scope
 
     az ad app permission grant \
-          --id $appid1 \
-          --api 00000003-0000-0000-c000-000000000000 \
-          --scope User.Read
+        --id $appid1 \
+        --api 00000003-0000-0000-c000-000000000000 \
+        --scope User.Read
     ```
 
 ## Create subscription-2 resources
@@ -127,8 +135,8 @@ Make note of the output of the creation in the step. The password is only showed
 
     ```azurecli
     az group create \
-          --name test-rg-2 \
-          --location westus2  
+        --name test-rg-2 \
+        --location westus2  
     ```
 
 1. Create a virtual network named **vnet-2** in **subscription-2**.
@@ -143,71 +151,72 @@ Make note of the output of the creation in the step. The password is only showed
         --subnet-prefixes 10.1.0.0/24
     ```
 
+### Create spn-2-peer-vnet
+
 Create **spn-2-peer-vnet** with a scope to the virtual network created in the previous step. This SPN is added to the scope of **vnet-2** in a future step to allow for the vnet peer.
 
 1. Place the resource ID of the virtual network you created earlier in a variable for use in the later step.
 
     ```azurecli
     vnetid=$(az network vnet show \
-          --resource-group test-rg-2 \
-          --name vnet-2 \
-          --query id \
-          --output tsv)
+                --resource-group test-rg-2 \
+                --name vnet-2 \
+                --query id \
+                --output tsv)
     ```
 
 1. Create **spn-2-peer-vnet** with a role of **Network Contributor** scoped to the virtual network **vnet-2**.
 
     ```azurecli
     az ad sp create-for-rbac \
-          --name spn-2-peer-vnet \
-          --role "Network Contributor" \
-          --scope $vnetid
+        --name spn-2-peer-vnet \
+        --role "Network Contributor" \
+        --scope $vnetid
     ```
 
-Make note of the output of the creation in the step. The password is only showed here in this output. Copy the password to a place safe for use in the later sign-in steps.
+    Make note of the output of the creation in the step. The password is only showed here in this output. Copy the password to a place safe for use in the later sign-in steps.
 
-The output will look similar to the following output.
+    The output will look similar to the following output.
 
-```output
-{
-"appId": "c404755a-fe16-44fe-860f-e646f6c01c77",
-"displayName": "spn-2-peer-vnet",
-"password": "",
-"tenant": "688647e7-9434-42d3-82c9-e19c24270a54"
-}
-
-```
+    ```output
+    {
+    "appId": "c404755a-fe16-44fe-860f-e646f6c01c77",
+    "displayName": "spn-2-peer-vnet",
+    "password": "",
+    "tenant": "688647e7-9434-42d3-82c9-e19c24270a54"
+    }    
+    ```
 
 1. The appId of the service principal is used in the subsequent steps to finish the configuration of the SPN. Use the following command to place the ID of the SPN into a variable for later use.
 
     ```azurecli
     appid2=$(az ad sp list \
-          --display-name spn-2-peer-vnet \
-          --query [].appId \
-          --output tsv)
+                --display-name spn-2-peer-vnet \
+                --query [].appId \
+                --output tsv)
     ```
 
 1. The SPN created in the previous step must have a redirect URI to finish the authentication process approval and must be converted to multi-tenant use. Use the following command to add **https://www.microsoft.com** as a redirect URI and enable multi-tenant on **spn-2-peer-vnet**. 
 
     ```azurecli
     az ad app update \
-          --id $appid2 \
-          --sign-in-audience AzureADMultipleOrgs \
-          --web-redirect-uris https://www.microsoft.com     
+        --id $appid2 \
+        --sign-in-audience AzureADMultipleOrgs \
+        --web-redirect-uris https://www.microsoft.com     
     ```
 
 1. The service principal must have **User.Read** permissions to the directory. Use the following command to add the Microsoft Graph permissions of **User.Read** to the service principal.
 
     ```azurecli
     az ad app permission add \
-          --id $appid2 \
-          --api 00000003-0000-0000-c000-000000000000 \
-          --api-permissions e1fe6dd8-ba31-4d61-89e7-88639da4683d=Scope
+        --id $appid2 \
+        --api 00000003-0000-0000-c000-000000000000 \
+        --api-permissions e1fe6dd8-ba31-4d61-89e7-88639da4683d=Scope
 
     az ad app permission grant \
-          --id $appid2 \
-          --api 00000003-0000-0000-c000-000000000000 \
-          --scope User.Read
+        --id $appid2 \
+        --api 00000003-0000-0000-c000-000000000000 \
+        --scope User.Read
     ```
 
 ## Register spn-2-peer-vnet in subscription-1 and assign permissions to vnet-1
@@ -228,9 +237,9 @@ An administrator in the **subscription-1** Microsoft Entra ID tenant must approv
 
     ```azurecli
     appid2=$(az ad sp list \
-          --display-name spn-2-peer-vnet \
-          --query [].appId \
-          --output tsv)
+                --display-name spn-2-peer-vnet \
+                --query [].appId \
+                --output tsv)
     echo $appid2
     ```
 
@@ -264,9 +273,9 @@ Once the administrator has approved **spn-2-vnet-peer**, add it to the virtual n
 
     ```azurecli
     appid2=$(az ad sp list \
-              --display-name spn-2-peer-vnet \
-              --query [].appId \
-              --output tsv)
+                --display-name spn-2-peer-vnet \
+                --query [].appId \
+                --output tsv)
     echo $appid2
     ```
 
@@ -312,9 +321,9 @@ An administrator in the **subscription-2** Microsoft Entra ID tenant must approv
 
     ```azurecli
     appid1=$(az ad sp list \
-              --display-name spn-1-peer-vnet \
-              --query [].appId \
-              --output tsv)
+                --display-name spn-1-peer-vnet \
+                --query [].appId \
+                --output tsv)
     echo $appid1
     ```
 
