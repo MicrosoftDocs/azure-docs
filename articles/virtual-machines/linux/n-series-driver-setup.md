@@ -74,7 +74,7 @@ Ubuntu packages NVIDIA proprietary drivers. Those drivers come directly from NVI
 
    The installation can take several minutes.
 
-4. Verify that the GPU is correctly recognized:
+4. Verify that the GPU is correctly recognized (you may need to reboot your VM for system changes to take effect):
    ```bash
    nvidia-smi
    ```
