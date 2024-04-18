@@ -26,6 +26,8 @@ landingContent:
             url: overview.md
           - text: Key concepts
             url: key-concepts.md
+          - text: Frequently asked questions
+            url: frequently-asked-questions.yml
   # Card
   - title: Manage your API inventory
     linkLists:
