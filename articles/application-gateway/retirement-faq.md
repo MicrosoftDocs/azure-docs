@@ -65,7 +65,7 @@ Post your issues and questions about migration to our [Microsoft Q&A](https://ak
 
 ### Are there any limitations with the Azure PowerShell script to migrate the configuration from v1 to v2?
 
-Yes. See [Caveats/Limitations](./migrate-v1-v2.md#caveatslimitations).
+Yes, see [Caveats/Limitations](./migrate-v1-v2.md#caveatslimitations).
 
 ### Is this article and the Azure PowerShell script applicable for Application Gateway WAF product as well?
 
@@ -73,7 +73,7 @@ Yes.
 
 ### Does the Azure PowerShell script also switch over the traffic from my v1 gateway to the newly created v2 gateway?
 
-No. The Azure PowerShell script only migrates the configuration. Actual traffic migration is your responsibility and in your control.
+No, the Azure PowerShell script only migrates the configuration. Actual traffic migration is your responsibility and under your control.
 
 ### Is the new v2 gateway created by the Azure PowerShell script sized appropriately to handle all of the traffic that is served by my v1 gateway?
 
@@ -81,11 +81,11 @@ The Azure PowerShell script creates a new v2 gateway with an appropriate size to
 
 ### I configured my v1 gateway  to send logs to Azure storage. Does the script replicate this configuration for v2 as well?
 
-No. The script doesn't  replicate this configuration for v2. You must add the log configuration separately to the migrated v2 gateway.
+No, the script doesn't replicate this configuration for v2. You must add the log configuration separately to the migrated v2 gateway.
 
 ### Does this script support certificate uploaded to Azure Key Vault?
 
-Yes. You can download the certificate from Keyvault and provide it as input to the migration script.
+Yes, you can download the certificate from Keyvault and provide it as input to the migration script.
 
 ### I ran into some issues with using this script. How can I get help?
 
