@@ -33,8 +33,8 @@ Following are the features for each of the domains in Defender for Containers:
 |--|--|--|--|--|--|--|--|--|
 | [Agentless discovery for Kubernetes](defender-for-containers-introduction.md#security-posture-management) | Provides zero footprint, API-based discovery of Kubernetes clusters, their configurations and deployments. | AKS | GA | GA | Enable **Agentless discovery on Kubernetes** toggle | Agentless  | Defender for Containers **OR** Defender CSPM | Azure commercial clouds |
 | Comprehensive inventory capabilities | Enables you to explore resources, pods, services, repositories, images, and configurations through [security explorer](how-to-manage-cloud-security-explorer.md#build-a-query-with-the-cloud-security-explorer) to easily monitor and manage your assets. | ACR, AKS | GA | GA | Enable **Agentless discovery on Kubernetes** toggle | Agentless| Defender for Containers **OR** Defender CSPM | Azure commercial clouds |
-| Attack path analysis | A graph-based algorithm that scans the cloud security graph. The scans  expose exploitable paths that attackers might use to breach your  environment. | ACR, AKS | GA | - | Activated with plan | Agentless | Defender CSPM (requires Agentless discovery for Kubernetes to be enabled) | Azure commercial clouds |
-| Enhanced risk-hunting | Enables security admins to actively hunt for posture issues in their containerized assets through queries (built-in and custom) and [security insights](attack-path-reference.md#insights) in the [security explorer](how-to-manage-cloud-security-explorer.md). | ACR, AKS | GA | - | Enable **Agentless discovery on Kubernetes** toggle | Agentless | Defender for Containers **OR** Defender CSPM | Azure commercial clouds |
+| Attack path analysis | A graph-based algorithm that scans the cloud security graph. The scans  expose exploitable paths that attackers might use to breach your  environment. | ACR, AKS | GA | GA | Activated with plan | Agentless | Defender CSPM (requires Agentless discovery for Kubernetes to be enabled) | Azure commercial clouds |
+| Enhanced risk-hunting | Enables security admins to actively hunt for posture issues in their containerized assets through queries (built-in and custom) and [security insights](attack-path-reference.md#insights) in the [security explorer](how-to-manage-cloud-security-explorer.md). | ACR, AKS | GA | GA | Enable **Agentless discovery on Kubernetes** toggle | Agentless | Defender for Containers **OR** Defender CSPM | Azure commercial clouds |
 | [Control plane hardening](defender-for-containers-architecture.md) | Continuously assesses the configurations of your clusters and compares them with the initiatives applied to your subscriptions. When it finds misconfigurations, Defender for Cloud generates security recommendations that are available on Defender for Cloud's Recommendations page. The recommendations let you investigate and remediate issues. | ACR, AKS | GA | Preview | Activated with plan | Agentless | Free | Commercial clouds<br><br> National clouds: Azure Government, Azure operated by 21Vianet |
 | [Kubernetes data plane hardening](kubernetes-workload-protections.md) |Protect workloads of your Kubernetes containers with best practice recommendations. |AKS | GA | - | Enable **Azure Policy for Kubernetes** toggle | Azure Policy | Free | Commercial clouds<br><br> National clouds: Azure Government, Azure operated by 21Vianet |
 | Docker CIS | Docker CIS benchmark | VM, Virtual Machine Scale Set | GA | - | Enabled with plan | Log Analytics agent | Defender for Servers Plan 2 | Commercial clouds<br><br> National clouds: Azure Government, Microsoft Azure operated by 21Vianet  |
@@ -98,18 +98,18 @@ Learn how to [use Azure Private Link to connect networks to Azure Monitor](../az
 |--|--| -- | -- | -- | -- | --|
 | Security posture management  | [Agentless discovery for Kubernetes](defender-for-containers-introduction.md#security-posture-management) | EKS | GA | GA | Agentless  | Defender for Containers **OR** Defender CSPM |
 | Security posture management  | Comprehensive inventory capabilities | ECR, EKS | GA | GA | Agentless| Defender for Containers **OR** Defender CSPM |
-| Security posture management  | Attack path analysis | ECR, EKS | GA | - | Agentless | Defender CSPM |
+| Security posture management  | Attack path analysis | ECR, EKS | GA | GA | Agentless | Defender CSPM |
 | Security posture management  | Enhanced risk-hunting | ECR, EKS | GA | GA | Agentless | Defender for Containers **OR** Defender CSPM |
-| Security posture management | Docker CIS | EC2 | Preview | - | Log Analytics agent | Defender for Servers Plan 2 |
+| Security posture management | Docker CIS | EC2 | GA | - | Log Analytics agent | Defender for Servers Plan 2 |
 | Security posture management | Control plane hardening | - | - | - | - | - |
 | Security posture management | Kubernetes data plane hardening | EKS | GA| - | Azure Policy for Kubernetes | Defender for Containers |
 | [Vulnerability assessment](agentless-vulnerability-assessment-aws.md) | Agentless registry scan (powered by Microsoft Defender Vulnerability Management) [supported packages](#registries-and-images-support-for-aws---vulnerability-assessment-powered-by-microsoft-defender-vulnerability-management)| ECR | GA | GA | Agentless | Defender for Containers or Defender CSPM |
 | [Vulnerability assessment](agentless-vulnerability-assessment-aws.md) | Agentless/sensor-based runtime (powered by Microsoft Defender Vulnerability Management) [supported packages](#registries-and-images-support-for-aws---vulnerability-assessment-powered-by-microsoft-defender-vulnerability-management)| EKS | GA | GA | Agentless **OR/AND** Defender sensor | Defender for Containers or Defender CSPM |
-| Runtime protection| Control plane | EKS | GA | Preview | Agentless | Defender for Containers |
+| Runtime protection| Control plane | EKS | GA | GA | Agentless | Defender for Containers |
 | Runtime protection| Workload | EKS | GA | - | Defender sensor | Defender for Containers |
-| Deployment & monitoring | Discovery of unprotected clusters | EKS | GA | - | Agentless | Defender for Containers |
-| Deployment & monitoring | Auto provisioning of Defender sensor | EKS | Preview | - | - | - |
-| Deployment & monitoring | Auto provisioning of Azure Policy for Kubernetes | EKS | Preview | - | - | - |
+| Deployment & monitoring | Discovery of unprotected clusters | EKS | GA | GA | Agentless | Defender for Containers |
+| Deployment & monitoring | Auto provisioning of Defender sensor | EKS | GA | - | - | - |
+| Deployment & monitoring | Auto provisioning of Azure Policy for Kubernetes | EKS | GA | - | - | - |
 
 ### Registries and images support for AWS - Vulnerability assessment powered by Microsoft Defender Vulnerability Management
 
@@ -142,18 +142,18 @@ Outbound proxy without authentication and outbound proxy with basic authenticati
 |--|--| -- | -- | -- | -- | --|
 | Security posture management  | [Agentless discovery for Kubernetes](defender-for-containers-introduction.md#security-posture-management) | GKE | GA | GA | Agentless  | Defender for Containers **OR** Defender CSPM |
 | Security posture management  | Comprehensive inventory capabilities | GAR, GCR, GKE | GA | GA | Agentless| Defender for Containers **OR** Defender CSPM |
-| Security posture management  | Attack path analysis | GAR, GCR, GKE | GA | - | Agentless | Defender CSPM |
+| Security posture management  | Attack path analysis | GAR, GCR, GKE | GA | GA | Agentless | Defender CSPM |
 | Security posture management  | Enhanced risk-hunting | GAR, GCR, GKE | GA | GA | Agentless | Defender for Containers **OR** Defender CSPM |
-| Security posture management | Docker CIS | GCP VMs | Preview | - | Log Analytics agent | Defender for Servers Plan 2 |
+| Security posture management | Docker CIS | GCP VMs | GA | - | Log Analytics agent | Defender for Servers Plan 2 |
 | Security posture management | Control plane hardening | GKE | GA | GA | Agentless | Free |
 | Security posture management | Kubernetes data plane hardening | GKE | GA| - | Azure Policy for Kubernetes | Defender for Containers |
 | [Vulnerability assessment](agentless-vulnerability-assessment-gcp.md) | Agentless registry scan (powered by Microsoft Defender Vulnerability Management) [supported packages](#registries-and-images-support-for-gcp---vulnerability-assessment-powered-by-microsoft-defender-vulnerability-management)| GAR, GCR | GA | GA | Agentless | Defender for Containers or Defender CSPM |
 | [Vulnerability assessment](agentless-vulnerability-assessment-gcp.md) | Agentless/sensor-based runtime (powered by Microsoft Defender Vulnerability Management) [supported packages](#registries-and-images-support-for-gcp---vulnerability-assessment-powered-by-microsoft-defender-vulnerability-management)| GKE | GA | GA | Agentless **OR/AND** Defender sensor | Defender for Containers or Defender CSPM |
-| Runtime protection| Control plane | GKE | GA | Preview | Agentless | Defender for Containers |
+| Runtime protection| Control plane | GKE | GA | GA | Agentless | Defender for Containers |
 | Runtime protection| Workload | GKE | GA | - | Defender sensor | Defender for Containers |
-| Deployment & monitoring | Discovery of unprotected clusters | GKE | GA | - | Agentless | Defender for Containers |
-| Deployment & monitoring | Auto provisioning of Defender sensor | GKE | Preview | - | Agentless | Defender for Containers |
-| Deployment & monitoring | Auto provisioning of Azure Policy for Kubernetes | GKE | Preview | - | Agentless | Defender for Containers |
+| Deployment & monitoring | Discovery of unprotected clusters | GKE | GA | GA | Agentless | Defender for Containers |
+| Deployment & monitoring | Auto provisioning of Defender sensor | GKE | GA | - | Agentless | Defender for Containers |
+| Deployment & monitoring | Auto provisioning of Azure Policy for Kubernetes | GKE | GA | - | Agentless | Defender for Containers |
 
 ### Registries and images support for GCP - Vulnerability assessment powered by Microsoft Defender Vulnerability Management
 
