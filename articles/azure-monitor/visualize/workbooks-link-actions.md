@@ -98,11 +98,11 @@ This section configures what the users see before they run the ARM action.
 
 After these configurations are set, when the user selects the link, the view opens with the UX described here. If the user selects the button specified by **Run button text from**, it runs the ARM action using the configured values. On the bottom of the context pane, you can select **View Request Details** to inspect the HTTP method and the ARM API endpoint used for the ARM action.
 
-:::image type="content" source="media/workbooks-link-actions/azure-resource-manager-action-blade.png" alt-text="Screenshot that shows Azure Workbooks ARM action blade.":::
+:::image type="content" source="media/workbooks-link-actions/azure-resource-manager-action-pane.png" alt-text="Screenshot that shows Azure Workbooks ARM action pane.":::
 
 The progress and result of the ARM Action is shown as an Azure portal notification.
 
-:::image type="content" source="media/workbooks-link-actions/azure-resource-manager-action-custom-notification.png" alt-text="Screenshot that shows Azure ARM custom notifications.":::
+:::image type="content" source="media/workbooks-link-actions/azure-resource-manager-action-custom-notifications.png" alt-text="Screenshot that shows Azure ARM custom notifications.":::
 
 
 ## Azure Resource Manager deployment link settings
