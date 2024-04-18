@@ -24,7 +24,7 @@ The firewall and proxy URLs below must be allowlisted in order to enable communi
 |Resource bridge (appliance) container image download| 443 | `*.blob.core.windows.net, https://ecpacr.azurecr.io`| Appliance VM IPs need outbound connection. | Required to pull container images. |
 |Managed Identity| 443 | `*.his.arc.azure.com`| Appliance VM IPs need outbound connection. | Required to pull system-assigned Managed Identity certificates. | 
 |Azure Arc for Kubernetes container image download| 443 | `https://azurearcfork8s.azurecr.io`|  Appliance VM IPs need outbound connection. | Pull container images. |
-|Azure Arc agent| 443 | `https://azurearcfork8s.azurecr.io`|  Appliance VM IPs need outbound connection. | deploy Azure Arc agent. |
+|Azure Arc agent| 443 | `https://k8connecthelm.azureedge.net`|  Appliance VM IPs need outbound connection. | deploy Azure Arc agent. |
 |ADHS telemetry service | 443 | `adhs.events.data.microsoft.com`| Appliance VM IPs need outbound connection. | Periodically sends Microsoft required diagnostic data from appliance VM. |
 |Microsoft events data service | 443 |`v20.events.data.microsoft.com`| Appliance VM IPs need outbound connection. | Send diagnostic data from Windows. |
 |Log collection for Arc Resource Bridge| 443 | `linuxgeneva-microsoft.azurecr.io`| Appliance VM IPs need outbound connection. | Push logs for Appliance managed components.|
