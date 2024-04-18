@@ -116,7 +116,7 @@ sections:
       - question: How do I fix pop-up credentials when using GCP?
         answer: |
           - Since GCP doesn't have Azure Managed Identity resource by default, an [Environment Credential](https://docs.microsoft.com/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet) needs to be set up. 
-          Use the [EnvironmentCredential Class]https://docs.microsoft.com/dotnet/api/azure.identity.environmentcredential?view=azure-dotnet) to set up the credential. The recommendation is:
+          Use the [EnvironmentCredential Class](https://docs.microsoft.com/dotnet/api/azure.identity.environmentcredential?view=azure-dotnet) to set up the credential. The recommendation is:
           ```AZURE_TENANT_ID  The Microsoft Entra tenant(directory) ID. 
           AZURE_CLIENT_ID The client(application) ID of an App Registration in the tenant. 
           AZURE_CLIENT_SECRET A client secret that was generated for the App Registration. ````
