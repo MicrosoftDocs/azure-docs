@@ -21,7 +21,7 @@ Settings, which can be controlled by adding/editing the global override settings
 
 - **MAINLOG_LOCATION** which customizes the location of the "main-log" output file, which is called `azacsnap.log` and was introduced in AzAcSnap 8.  Values should be absolute paths and the default value = '.' (which is the current working directory).  For example, to ensure the "main-log" output file goes to the `/home/azacsnap/bin/logs` add the following to the `.azacsnaprc` file:
   - `MAINLOG_LOCATION=/home/azacsnap/bin/logs`
-- **AZURE_MANAGEMENT_ENDPOINT** to customize the location of the Azure Management Endpoint which AzAcSnap will make Azure REST API calls to was introduced in AzAcSnap 9a.  Values should be URL paths and the default value = 'https://management.azure.com'.  For example, to configure AzAcSnap to ensure all management calls go to the Azure Management Endpoint for US Govt Cloud (ref: [Azure Government Guidance for developers](/articles/azure-government/compare-azure-government-global-azure#guidance-for-developers)) add the following to the `.azacsnaprc` file:
+- **AZURE_MANAGEMENT_ENDPOINT** to customize the location of the Azure Management Endpoint which AzAcSnap will make Azure REST API calls to was introduced in AzAcSnap 9a.  Values should be URL paths and the default value = 'https://management.azure.com'.  For example, to configure AzAcSnap to ensure all management calls go to the Azure Management Endpoint for US Govt Cloud (ref: [Azure Government Guidance for developers](/azure-government/compare-azure-government-global-azure#guidance-for-developers)) add the following to the `.azacsnaprc` file:
   - `AZURE_MANAGEMENT_ENDPOINT=https://management.usgovcloudapi.net`
 
 > [!NOTE]
