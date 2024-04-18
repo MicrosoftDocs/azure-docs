@@ -30,7 +30,7 @@ If you have unattached managed disks and no longer need the data on them, the fo
 
 1. On the individual disk's page, confirm the disk state is unattached, then select **Delete**.
 
-    :::image type="content" source="media/disks-find-unattached-portal/delete-managed-disk-unattached.png" alt-text="Screenshot of an individual managed disks blade. This page shows unattached in the disk state if it is unattached. You can delete this disk if you don't need to preserve its data any longer":::
+    :::image type="content" source="media/disks-find-unattached-portal/delete-managed-disk-unattached.png" alt-text="Screenshot of an individual managed disks blade. This page shows unattached in the disk state if it is unattached. You can delete this disk if you don't need to preserve its data any longer.":::
 
 ## Unmanaged disks: Find and delete unattached disks
 
