@@ -81,7 +81,7 @@ Assign the `Monitoring Metrics Publisher` role on the workspace's data collectio
 1. Select **Add**, and **Add role assignment**.
     :::image type="content" source="media/prometheus-remote-write-virtual-machines/data-collection-rule-access-control.png" lightbox="media/prometheus-remote-write-virtual-machines/data-collection-rule-access-control.png" alt-text="A screenshot showing the data collection rule.":::
 
-1. Select for *Monitoring Metrics Publisher*, and then select **Next**.
+1. Search for and select for *Monitoring Metrics Publisher*, and then select **Next**.
     :::image type="content" source="media/prometheus-remote-write-virtual-machines/add-role-assignment.png" lightbox="media/prometheus-remote-write-virtual-machines/add-role-assignment.png" alt-text="A screenshot showing the role assignment menu for a data collection rule.":::
 
 1. Select **Managed Identity**.
@@ -257,7 +257,7 @@ For example,
 az ad sp create-for-rbac \
 --name PromRemoteWriteApp \
 --role "Monitoring Metrics Publisher" \
---scopes /ubscriptions/abcdef00-1234-5678-abcd-1234567890ab/resourceGroups/MA_amw-001_eastus_managed/providers/Microsoft.nsights/dataCollectionRules/amw-001
+--scopes /subscriptions/abcdef00-1234-5678-abcd-1234567890ab/resourceGroups/MA_amw-001_eastus_managed/providers/Microsoft.nsights/dataCollectionRules/amw-001
 ```    
 The following is an example of the output displayed:    
 ```azurecli
@@ -278,7 +278,7 @@ For more information, see [az ad app create](/cli/azure/ad/app?view=azure-cli-la
 
 Remote-write is configured in the Prometheus configuration file `prometheus.yml`.
 
-For more information on configuring remote-write, see the Prometeus.io article: [Configuration](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#remote_write). For more on tuning the remote write configuration, see [Remote write tuning](https://prometheus.io/docs/practices/remote_write/#remote-write-tuning).
+For more information on configuring remote-write, see the Prometheus.io article: [Configuration](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#remote_write). For more on tuning the remote write configuration, see [Remote write tuning](https://prometheus.io/docs/practices/remote_write/#remote-write-tuning).
 
 To send data to your Azure Monitor Workspace, add the following section to the configuration file of your self-managed Prometheus instance.
 
@@ -337,12 +337,12 @@ To check if the metrics are flowing to the Azure Monitor workspace, from your Az
 
 ### Prometheus explorer in Azure Monitor Workspace
 
-Prometheus Explorer provides a convenient way to interact with Prometheus metrics within your Azure environment, making monitoring and troubleshooting more efficient. To use the Prometheus explorer, from to your Azure Monitor workspace in the Azure portal and select **Prometheus Explorer** to query the metrics that you're expecting from the self-managed Prometheus environment.
+Prometheus Explorer provides a convenient way to interact with Prometheus metrics within your Azure environment, making monitoring and troubleshooting more efficient. To use the Prometheus explorer, go to your Azure Monitor workspace in the Azure portal and select **Prometheus Explorer** to query the metrics that you're expecting from the self-managed Prometheus environment.
 For more information, see [Prometheus explorer](/azure/azure-monitor/essentials/prometheus-workbooks).
 
 ### Grafana
 
-Use PromQL queries in Grafana and verify that the results return expected data. See [getting Grafana setup with Managed Prometheus](../essentials/prometheus-grafana.md) to configure Grafana.
+Use PromQL queries in Grafana to verify that the results return the expected data. See [getting Grafana setup with Managed Prometheus](../essentials/prometheus-grafana.md) to configure Grafana.
 
 
 ## Troubleshoot remote write 

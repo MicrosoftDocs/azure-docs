@@ -16,9 +16,6 @@ This article describes how to set up [remote write](prometheus-remote-write.md) 
 
 ## Prerequisites
 
-To send data from a Prometheus server by using remote write with Microsoft Entra Workload ID authentication, you need:
-## Prerequisites
-
 - Prometheus versions greater than v2.48 are required for Microsoft Entra ID application authentication. 
 
 - A cluster that has feature flags that are specific to OpenID Connect (OIDC) and an OIDC issuer URL:
