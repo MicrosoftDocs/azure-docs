@@ -2,7 +2,7 @@
     "redirections": [  
         {
             "source_path_from_root": "/articles/defender-for-iot/device-builders/how-to-azure-rtos-security-module.md",
-            "redirect_url": "/azure/defender-for-iot/device-builders/how-to-azure-threadx-security-module",
+            "redirect_url": "/azure/defender-for-iot/device-builders/how-to-threadx-security-module",
             "redirect_document_id": false
         }, 
         {
