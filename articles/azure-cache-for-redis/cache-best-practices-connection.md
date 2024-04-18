@@ -5,6 +5,7 @@ description: Learn how to make your Azure Cache for Redis connections resilient.
 author: flang-msft
 
 ms.service: cache
+ms.custom: linux-related-content
 ms.topic: conceptual
 ms.date: 09/29/2023
 ms.author: franlanglois

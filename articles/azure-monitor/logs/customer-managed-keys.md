@@ -262,20 +262,20 @@ Key rotation has two modes:
 
 All your data remains accessible after the key rotation operation. Data always encrypted with the Account Encryption Key ("AEK"), which is encrypted with your new Key Encryption Key ("KEK") version in Key Vault.
 
-## Customer-managed key for saved queries and log alerts
+## Customer-managed key for saved queries and log search alerts
 
-The query language used in Log Analytics is expressive and can contain sensitive information in comments, or in the query syntax. Some organizations require that such information is kept protected under Customer-managed key policy and you need save your queries encrypted with your key. Azure Monitor enables you to store saved queries and log alerts encrypted with your key in your own Storage Account when linked to your workspace. 
+The query language used in Log Analytics is expressive and can contain sensitive information in comments, or in the query syntax. Some organizations require that such information is kept protected under Customer-managed key policy and you need save your queries encrypted with your key. Azure Monitor enables you to store saved queries and log search alerts encrypted with your key in your own Storage Account when linked to your workspace. 
 
 ## Customer-managed key for Workbooks
 
-With the considerations mentioned for [Customer-managed key for saved queries and log alerts](#customer-managed-key-for-saved-queries-and-log-alerts), Azure Monitor enables you to store Workbook queries encrypted with your key in your own Storage Account, when selecting **Save content to an Azure Storage Account** in Workbook 'Save' operation.
+With the considerations mentioned for [Customer-managed key for saved queries and log search alerts](#customer-managed-key-for-saved-queries-and-log-search-alerts), Azure Monitor enables you to store Workbook queries encrypted with your key in your own Storage Account, when selecting **Save content to an Azure Storage Account** in Workbook 'Save' operation.
 <!-- convertborder later -->
 :::image type="content" source="media/customer-managed-keys/cmk-workbook.png" lightbox="media/customer-managed-keys/cmk-workbook.png" alt-text="Screenshot of Workbook save." border="false":::
 
 > [!NOTE]
 > Queries remain encrypted with Microsoft key ("MMK") in the following scenarios regardless Customer-managed key configuration: Azure dashboards, Azure Logic App, Azure Notebooks and Automation Runbooks.
 
-When linking your Storage Account for saved queries, the service stores saved-queries and log alerts queries in your Storage Account. Having control on your Storage Account [encryption-at-rest policy](../../storage/common/customer-managed-keys-overview.md), you can protect saved queries and log alerts with Customer-managed key. You will, however, be responsible for the costs associated with that Storage Account. 
+When linking your Storage Account for saved queries, the service stores saved queries and log search alert queries in your Storage Account. Having control on your Storage Account [encryption-at-rest policy](../../storage/common/customer-managed-keys-overview.md), you can protect saved queries and log search alerts with Customer-managed key. You will, however, be responsible for the costs associated with that Storage Account. 
 
 **Considerations before setting Customer-managed key for queries**
 * You need to have "write" permissions on your workspace and Storage Account.
@@ -284,9 +284,9 @@ When linking your Storage Account for saved queries, the service stores saved-qu
 * Saves queries in storage are considered service artifacts and their format may change.
 * Linking a Storage Account for queries removes existing saves queries from your workspace. Copy saves queries that you need before this configuration. You can view your saved queries using [PowerShell](/powershell/module/az.operationalinsights/get-azoperationalinsightssavedsearch).
 * Query 'history' and 'pin to dashboard' aren't supported when linking Storage Account for queries.
-* You can link a single Storage Account to a workspace for both saved queries and log alerts queries.
-* Log alerts are saved in blob storage and Customer-managed key encryption can be configured at Storage Account creation, or later.
-* Fired log alerts won't contain search results or alert query. You can use [alert dimensions](../alerts/alerts-unified-log.md#split-by-alert-dimensions) to get context in the fired alerts.
+* You can link a single Storage Account to a workspace for both saved queries and log search alert queries.
+* Log search alerts are saved in blob storage and Customer-managed key encryption can be configured at Storage Account creation, or later.
+* Fired log search alerts won't contain search results or alert query. You can use [alert dimensions](../alerts/alerts-types.md#monitor-the-same-condition-on-multiple-resources-using-splitting-by-dimensions-1) to get context in the fired alerts.
 
 **Configure BYOS for saved queries**
 
@@ -342,9 +342,9 @@ Content-type: application/json
 
 After the configuration, any new *saved search* query will be saved in your storage.
 
-**Configure BYOS for log alerts queries**
+**Configure BYOS for log search alert queries**
 
-Link a Storage Account for *Alerts* to keep *log alerts* queries in your Storage Account. 
+Link a Storage Account for *Alerts* to keep *log search alert* queries in your Storage Account. 
 
 # [Azure portal](#tab/portal)
 

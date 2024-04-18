@@ -5,6 +5,7 @@ author: KarlErickson
 ms.author: edburns
 ms.topic: how-to
 ms.date: 02/09/2024
+ms.subservice: aks-developer
 ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-wls, devx-track-javaee-wls-aks, devx-track-extended-java
 ---
 
@@ -143,6 +144,7 @@ The other values in the outputs are beyond the scope of this article, but are ex
    ```sql
    CREATE TABLE COFFEE (ID NUMERIC(19) NOT NULL, NAME VARCHAR(255) NULL, PRICE FLOAT(32) NULL, PRIMARY KEY (ID));
    CREATE TABLE SEQUENCE (SEQ_NAME VARCHAR(50) NOT NULL, SEQ_COUNT NUMERIC(28) NULL, PRIMARY KEY (SEQ_NAME));
+   INSERT INTO SEQUENCE VALUES ('SEQ_GEN',0);
    ```
 
    After a successful run, you should see the message **Query succeeded: Affected rows: 0**. If you don't see this message, troubleshoot and resolve the problem before proceeding.
@@ -452,7 +454,7 @@ Use the following steps to build the image:
    => => naming to docker.io/library/model-in-image:WLS-v1                      0.2s
    ```
 
-1. If you have successfully created the image, then it should now be in your local machine’s Docker repository. You can verify the image creation by using the following command:
+1. If you have successfully created the image, then it should now be in your local machine's Docker repository. You can verify the image creation by using the following command:
 
    ```text
    docker images model-in-image:WLS-v1
@@ -474,13 +476,14 @@ Use the following steps to build the image:
    This command should produce output similar to the following example:
 
    ```output
-   /auxiliary/models/dbmodel.yaml
-   /auxiliary/models/archive.zip
    /auxiliary/models/model.properties
+   /auxiliary/models/dbmodel.yaml
    /auxiliary/models/model.yaml
-   /auxiliary/weblogic-deploy/VERSION.txt
-   /auxiliary/weblogic-deploy/LICENSE.txt
+   /auxiliary/models/archive.zip
+   /auxiliary/models/appmodel.yaml
    /auxiliary/Dockerfile
+   /auxiliary/weblogic-deploy/LICENSE.txt
+   /auxiliary/weblogic-deploy/VERSION.txt
    ```
 
 1. Use the following steps to push the auxiliary image to Azure Container Registry:
@@ -583,9 +586,9 @@ In the previous steps, you created the auxiliary image including models and WDT.
 
    kubectl -n ${WLS_DOMAIN_NS} create secret generic \
        ${SECRET_NAME} \
-       --from-literal=password='${DB_PASSWORD}' \
-       --from-literal=url='${DB_CONNECTION_STRING}' \
-       --from-literal=user='${DB_USER}'
+       --from-literal=password="${DB_PASSWORD}" \
+       --from-literal=url="${DB_CONNECTION_STRING}" \
+       --from-literal=user="${DB_USER}"
 
    kubectl -n ${WLS_DOMAIN_NS} label secret \
        ${SECRET_NAME} \
@@ -674,6 +677,14 @@ Use the following steps to verify the functionality of the deployment by viewing
 
 1. Sign in with the username `weblogic` and the password you entered when deploying WLS from the Azure portal. Recall that this value is `wlsAksCluster2022`.
 
+1. In the **Domain Structure** box, select **Services**.
+
+1. Under the **Services**, select **Data Sources**.
+
+1. In the **Summary of JDBC Data Sources** panel, select **Monitoring**. Your screen should look similar to the following example. You find the state of data source is running on managed servers.
+
+   :::image type="content" source="media/howto-deploy-java-wls-app/datasource-state.png" alt-text="Screenshot of data source state." border="false":::
+
 1. In the **Domain Structure** box, select **Deployments**.
 
 1. In the **Deployments** table, there should be one row. The name should be the same value as the `Application` value in your *appmodel.yaml* file. Select the name.
@@ -718,3 +729,4 @@ Learn more about running WLS on AKS or virtual machines by following these links
 
 > [!div class="nextstepaction"]
 > [WLS on virtual machines](/azure/virtual-machines/workloads/oracle/oracle-weblogic)
+

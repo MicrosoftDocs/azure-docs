@@ -2,7 +2,8 @@
 title: How to remotely and securely configure servers using Run command (Preview)
 description: Learn how to remotely and securely configure servers using Run Command.
 ms.date: 02/07/2024
-ms.topic: conceptual
+ms.topic: how-to
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
 
 # Remotely and securely configure servers using Run command (Preview)
@@ -53,7 +54,7 @@ The following examples use [az connectedmachine run-command](/cli/azure/connecte
 This command delivers the script to the machine, executes it, and returns the captured output.
 
 ```azurecli
-az connectedmachine run-command create –-name "myRunCommand" --machine-name "myMachine" --resource-group "myRG" --script "Write-Host Hello World!"
+az connectedmachine run-command create --name "myRunCommand" --machine-name "myMachine" --resource-group "myRG" --script "Write-Host Hello World!"
 ```
 
 ### List all deployed RunCommand resources on a machine
@@ -179,7 +180,14 @@ New-AzMachineRunCommand -ResourceGroupName MyRG0 -MachineName MyMachine -RunComm
 
 > [!NOTE]
 > SAS URL must provide read access to the blob. An expiry time of 24 hours is suggested for SAS URL. SAS URLs can be generated on Azure portal using blob options or SAS token using `New-AzStorageBlobSASToken`. If generating SAS token using `New-AzStorageBlobSASToken`, the SAS URL format is: base blob URL + "?" + the SAS token from `New-AzStorageBlobSASToken`.
-> 
+
+
+### Create or update Run Command on a machine using ScriptLocalPath (local script file)
+Create or update Run Command on a machine using a local script file that is on the client machine where cmdlet is executed.
+
+```powershell
+New-AzMachineRunCommand -ResourceGroupName MyRG0 -VMName MyMachine -RunCommandName MyRunCommand -Location EastUS2EUAP -ScriptLocalPath "C:\MyScriptsDir\MyScript.ps1"
+```
 
 ### Create or update Run Command on a machine instance using Parameter and ProtectedParameter parameters (Public and Protected Parameters to script)
 
@@ -223,19 +231,21 @@ Start off by creating a Run Command script to provide endpoint access to the `ww
 
 To directly provide the script in line, use the following operation:
 
-```
+```rest
 PUT https://management.azure.com/subscriptions/aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa/resourceGroups/ContosoRG/providers/Microsoft.HybridCompute/machines/2012DatacenterServer1/runCommands/EndpointAccessCommand?api-version=2023-10-03-preview
+```
 
+```json
 {
   "location": "eastus2",
   "properties": {
     "source": {
-      "script": " New-NetFirewallRule -DisplayName $ruleName -Direction Outbound -Action Allow -RemoteAddress $endpoint -RemotePort $port -Protocol $protocol”
+      "script": "New-NetFirewallRule -DisplayName $ruleName -Direction Outbound -Action Allow -RemoteAddress $endpoint -RemotePort $port -Protocol $protocol"
     },
     "parameters": [
       {
         "name": "ruleName",
-        "value": " Allow access to www.microsoft.com/pkiops/certs"
+        "value": "Allow access to www.microsoft.com/pkiops/certs"
       },
       {
         "name": "endpoint",
@@ -253,7 +263,7 @@ PUT https://management.azure.com/subscriptions/aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaa
     ],
     "asyncExecution": false,
     "runAsUser": "contoso-user1",
-    "runAsPassword": "Contoso123!”
+    "runAsPassword": "Contoso123!"
     "timeoutInSeconds": 3600,
     "outputBlobUri": "https://mystorageaccount.blob.core.windows.net/myscriptoutputcontainer/MyScriptoutput.txt",
     "errorBlobUri": "https://mystorageaccount.blob.core.windows.net/mycontainer/MyScriptError.txt"
@@ -263,9 +273,11 @@ PUT https://management.azure.com/subscriptions/aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaa
 
 To instead link to the script file, you can use the Run Command operation’s ScriptURI option. For this it's assumed you have prepared a `newnetfirewallrule.ps1` file containing the in-line script and uploaded this script to blob storage.
 
-```
+```rest
 PUT https://management.azure.com/subscriptions/aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa/resourceGroups/ContosoRG/providers/Microsoft.HybridCompute/machines/2012DatacenterServer1/runCommands/EndpointAccessCommand?api-version=2023-10-03-preview
+```
 
+```json
 {
   "location": "eastus2",
   "properties": {
@@ -293,7 +305,7 @@ PUT https://management.azure.com/subscriptions/aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaa
     ],
     "asyncExecution": false,
     "runAsUser": "contoso-user1",
-    "runAsPassword": "Contoso123!”
+    "runAsPassword": "Contoso123!"
     "timeoutInSeconds": 3600,
     "outputBlobUri": "https://mystorageaccount.blob.core.windows.net/myscriptoutputcontainer/MyScriptoutput.txt",
     "errorBlobUri": "https://mystorageaccount.blob.core.windows.net/mycontainer/MyScriptError.txt"
@@ -303,13 +315,13 @@ PUT https://management.azure.com/subscriptions/aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaa
 
 SAS URL must provide read access to the blob. An expiry time of 24 hours is suggested for SAS URL. SAS URLs can be generated on Azure portal using blobs options or SAS token using `New-AzStorageBlobSASToken`. If generating SAS token using `New-AzStorageBlobSASToken`, the SAS URL format is: `base blob URL + "?"` + the SAS token from `New-AzStorageBlobSASToken`. 
 
-Output and error blobs must be the AppendBlob type and their SAS URLs must provide read, append, create, write access to the blob. An expiration time of 24 hours is suggested for SAS URL. SAS URLs can be generated on Azure portal using blob's options, or SAS token from using New-`AzStorageBlobSASToken`.
+Output and error blobs must be the AppendBlob type and their SAS URLs must provide read, append, create, write access to the blob. An expiration time of 24 hours is suggested for SAS URL. SAS URLs can be generated on Azure portal using blob's options, or SAS token from using `New-AzStorageBlobSASToken`.
 
 ### Example 2: Get Run Command details
 
 To verify that you've correctly provisioned the Run Command, use the GET command to retrieve details on the provisioned Run Command:
 
-```
+```rest
 GET https://management.azure.com/subscriptions/aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa/resourceGroups/ContosoRG/providers/Microsoft.HybridCompute/machines/2012DatacenterServer1/runCommands/EndpointAccessCommand?api-version=2023-10-03-preview
 ```
 
@@ -318,23 +330,25 @@ GET https://management.azure.com/subscriptions/aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaa
 Let’s suppose you want to open up access to an additional endpoint `*.waconazure.com` for connectivity to Windows Admin Center. You can update the existing Run Command with new parameters:
 
 
-```
+```rest
 PATCH https://management.azure.com/subscriptions/aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa/resourceGroups/ContosoRG/providers/Microsoft.HybridCompute/machines/2012DatacenterServer1/runCommands/EndpointAccessCommand?api-version=2023-10-03-preview
+```
 
+```json
 {
   "location": "eastus2",
   "properties": {
     "source": {
-      "script": " New-NetFirewallRule -DisplayName $ruleName -Direction Outbound -Action Allow -RemoteAddress $endpoint -RemotePort $port -Protocol $protocol”
+      "script": "New-NetFirewallRule -DisplayName $ruleName -Direction Outbound -Action Allow -RemoteAddress $endpoint -RemotePort $port -Protocol $protocol"
     },
     "parameters": [
       {
         "name": "ruleName",
-        "value": " Allow access to WAC endpoint"
+        "value": "Allow access to WAC endpoint"
       },
       {
         "name": "endpoint",
-        "value": “*.waconazure.com”
+        "value": "*.waconazure.com"
       },
       {
         "name": "port",
@@ -360,7 +374,7 @@ PATCH https://management.azure.com/subscriptions/aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaa
 
 Ahead of deleting the Run Command for Endpoint Access, make sure there are no other Run Commands for the Arc-enabled server. You can use the list command to get all of the Run Commands:
 
-```
+```rest
 LIST https://management.azure.com/subscriptions/aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa/resourceGroups/ContosoRG/providers/Microsoft.HybridCompute/machines/2012DatacenterServer1/runCommands/
 ```
 
@@ -368,7 +382,7 @@ LIST https://management.azure.com/subscriptions/aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaa
 
 If you no longer need the Run Command extension, you can delete it using the following command:
 
-```
+```rest
 DELETE https://management.azure.com/subscriptions/ aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa/resourceGroups/ContosoRG/providers/Microsoft.HybridCompute/machines/2012DatacenterServer1/runCommands/EndpointAccessCommand?api-version=2023-10-03-preview
 ```
 
@@ -383,4 +397,3 @@ To disable the Run Command on Azure Arc-enabled servers, open an administrative 
 **Linux**
 
 `sudo azcmagent config set extensions.blocklist "microsoft.cplat.core/runcommandhandlerlinux"`
-

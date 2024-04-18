@@ -381,6 +381,11 @@
         "redirect_document_id": false
     },
     {
+        "source_path_from_root": "/articles/machine-learning/how-to-use-openai-models-in-azure-ml.md",
+        "redirect_url": "/azure/ai-services/openai/how-to/fine-tuning",
+        "redirect_document_id": false
+    },
+    {
         "source_path_from_root": "/articles/machine-learning/how-to-use-managed-identities.md",
         "redirect_url": "/azure/machine-learning/how-to-identity-based-service-authentication",
         "redirect_document_id": true
@@ -1562,7 +1567,12 @@
     },
     {
         "source_path_from_root": "/articles/machine-learning/service/monitor-resource-reference.md",
-        "redirect_url": "/azure/machine-learning/monitor-resource-reference",
+        "redirect_url": "/azure/machine-learning/monitor-azure-machine-learning-reference",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/monitor-resource-reference.md",
+        "redirect_url": "/azure/machine-learning/monitor-azure-machine-learning-reference",
         "redirect_document_id": true
     },
     {
@@ -2889,6 +2899,11 @@
         "source_path_from_root": "/articles/machine-learning/v-fake/how-to-deploy-package-models.md",
         "redirect_url": "/azure/machine-learning/how-to-deploy-package-models",
         "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/how-to-deploy-package-models.md",
+        "redirect_url": "/azure/machine-learning/how-to-package-models-app-service",
+        "redirect_document_id": false
     },
     {
         "source_path_from_root": "/articles/machine-learning/how-to-deploy-no-code-deployment.md",
@@ -4223,6 +4238,16 @@
     {
         "source_path_from_root": "/articles/machine-learning/prompt-flow/tools-reference/open-source-llm-tool.md",
         "redirect_url": "/azure/machine-learning/prompt-flow/tools-reference/open-model-llm-tool",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/machine-learning-data-science-customize-hadoop-cluster.md",
+        "redirect_url": "/azure/hdinsight/spark/apache-spark-jupyter-spark-sql",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/team-data-science-process/customize-hadoop-cluster.md",
+        "redirect_url": "/azure/hdinsight/spark/apache-spark-jupyter-spark-sql",
         "redirect_document_id": false
     }
 ]

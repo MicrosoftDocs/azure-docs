@@ -7,7 +7,7 @@ ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
 ms.topic: tutorial
-ms.date: 2/6/2024
+ms.date: 2/22/2024
 ms.reviewer: eur
 ms.author: eur
 author: eric-urban
@@ -23,7 +23,7 @@ This article is for people who use screen readers such as Microsoft's Narrator, 
 
 Most Azure AI Studio pages are composed of the following structure: 
 
-- Banner (contains Azure AI Studio app title, settings and profile information) 
+- Banner (contains Azure AI Studio app title, settings, and profile information) 
 - Primary navigation (contains Home, Explore, Build, and Manage) 
 - Secondary navigation 
 - Main page content 
@@ -36,15 +36,15 @@ For efficient navigation, it might be helpful to navigate by landmarks to move b
 
 In **Explore** you can explore the different capabilities of Azure AI before creating a project. You can find this page in the primary navigation landmark.
 
-Within **Explore**, you can [explore many capabilities](../how-to/models-foundation-azure-ai.md) found within the secondary navigation. These include [model catalog](../how-to/model-catalog.md), model leaderboard, and pages for Azure AI services such as Speech, Vision, and Content Safety. 
-- [Model catalog](../how-to/model-catalog.md) contains three main areas: Announcements, Models and Filters. You can use Search and Filters to narrow down model selection 
+Within **Explore**, you can [explore many capabilities](../how-to/models-foundation-azure-ai.md) found within the secondary navigation. These include [model catalog](../how-to/model-catalog.md), model benchmarks, and pages for Azure AI services such as Speech, Vision, and Content Safety. 
+- [Model catalog](../how-to/model-catalog.md) contains three main areas: Announcements, Models, and Filters. You can use Search and Filters to narrow down model selection 
 - Azure AI service pages such as Speech consist of many cards containing links. These cards lead you to demo experiences where you can sample our AI capabilities and might link out to another webpage. 
 
 ## Projects 
 
 To work within the Azure AI Studio, you must first [create a project](../how-to/create-projects.md): 
 1. In [Azure AI Studio](https://ai.azure.com), navigate to the **Build** tab in the primary navigation.
-1. Press the **Tab** key until you hear *New project* and select this button.  
+1. Press the **Tab** key until you hear *new project* and select this button.  
 1. Enter the information requested in the **Create a new project** dialog.  
 
 You then get taken to the project details page. 
@@ -71,30 +71,22 @@ Once you edit the system message or examples, your changes don't save automatica
 
 ### Chat session pane  
 
-The chat session pane is where you can chat to the model and test out your assistant 
+The chat session pane is where you can chat to the model and test out your assistant. 
 - After you send a message, the model might take some time to respond, especially if the response is long. You hear a screen reader announcement "Message received from the chatbot" when the model finishes composing a response.  
-- Content in the chatbot follows this format: 
-
-    ```
-    [message from user] [user image] 
-    [chatbot image] [message from chatbot] 
-    ```
-
 
 ## Using prompt flow 
 
-Prompt flow is a tool to create executable flows, linking LLMs, prompts and Python tools through a visualized graph. You can use this to prototype, experiment and iterate on your AI applications before deploying.  
+Prompt flow is a tool to create executable flows, linking LLMs, prompts, and Python tools through a visualized graph. You can use this to prototype, experiment, and iterate on your AI applications before deploying.  
 
-With the Build tab selected, navigate to the secondary navigation landmark and press the down arrow until you hear *flows*.  
+With the Build tab selected, navigate to the secondary navigation landmark and press the down arrow until you hear *prompt flow*.  
 
-The prompt flow UI in Azure AI Studio is composed of the following main sections: Command toolbar, Flow (includes list of the flow nodes), Files and the Graph view. The Flow, Files and Graph sections each have their own H2 headings that can be used for navigation.
-
+The prompt flow UI in Azure AI Studio is composed of the following main sections: Command toolbar, Flow (includes list of the flow nodes), Files and the Graph view. The Flow, Files, and Graph sections each have their own H2 headings that can be used for navigation.
 
 ### Flow 
 
 - This is the main working area where you can edit your flow, for example adding a new node, editing the prompt, selecting input data 
 - You can also choose to work in code instead of the editor by navigating to the **Raw file mode** toggle button to view the flow in code. 
-- You can also open your flow in VS Code Web by selecting the **Work in VS Code Web** button.
+- You can also open your flow in VS Code Web by selecting the **Open project in VS Code (Web)** button.
 - Each node has its own H3 heading, which can be used for navigation.  
 
 ### Files 
@@ -110,14 +102,14 @@ The prompt flow UI in Azure AI Studio is composed of the following main sections
  
 ## Evaluations  
 
-Evaluation is a tool to help you evaluate the performance of your generative AI application. You can use this to prototype, experiment and iterate on your applications before deploying.
+Evaluation is a tool to help you evaluate the performance of your generative AI application. You can use this to prototype, experiment, and iterate on your applications before deploying.
 
 ### Creating an evaluation 
 
 To review evaluation metrics, you must first create an evaluation.  
 
 1. Navigate to the Build tab in the primary navigation.
-1. Navigate to the secondary navigation landmark and press the down arrow until you hear *evaluations*.
+1. Navigate to the secondary navigation landmark and press the down arrow until you hear *evaluation*.
 1. Press the Tab key until you hear *new evaluation* and select this button.  
 1. Enter the information requested in the **Create a new evaluation** dialog. Once complete, your focus is returned to the evaluations list. 
 
@@ -127,9 +119,9 @@ Once you create an evaluation, you can access it from the list of evaluations.
 
 Evaluation runs are listed as links within the Evaluations grid. Selecting a link takes you to a dashboard view with information about your specific evaluation run. 
 
-You might prefer to export the data from your evaluation run so that you can view it in an application of your choosing. To do this, select your evaluation run link, then navigate to the **Export results** button and select it. 
+You might prefer to export the data from your evaluation run so that you can view it in an application of your choosing. To do this, select your evaluation run link, then navigate to the **Export result** button and select it. 
 
-There's also a dashboard view provided to allow you to compare evaluation runs. From the main Evaluations list page, navigate to the **Switch to dashboard view** button. You can also export all this data using the **Export table** button. 
+There's also a dashboard view provided to allow you to compare evaluation runs. From the main Evaluations list page, navigate to the **Switch to dashboard view** button. 
 
  
 ## Technical support for customers with disabilities 

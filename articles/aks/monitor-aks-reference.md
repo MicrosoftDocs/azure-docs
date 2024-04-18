@@ -3,7 +3,11 @@ title: Monitor AKS data reference
 description: Important reference material needed when you monitor AKS
 ms.custom: subject-monitoring
 ms.date: 08/01/2023
+author: nickomang
+ms.author: nickoman
+
 ms.topic: conceptual
+ms.subservice: aks-monitoring
 ---
 
 # Monitor AKS data reference
@@ -81,7 +85,7 @@ For a reference of all Azure Monitor Logs / Log Analytics tables, see the [Azure
 
 ## Activity log
 
-The following table lists a few example operations related to AKS that may be created in the [Activity log](../azure-monitor/essentials/activity-log.md). Use the Activity log to track information such as when a cluster is created or had its configuration change. You can view this information [in the portal](../azure-monitor/essentials/activity-log.md#view-the-activity-log) or by using [other methods](../azure-monitor/essentials/activity-log.md#other-methods-to-retrieve-activity-log-events). You can also use it to create an [Activity log alert]() to be proactively notified when an event occurs.
+The following table lists a few example operations related to AKS that may be created in the [Activity log](../azure-monitor/essentials/activity-log-insights.md). Use the Activity log to track information such as when a cluster is created or had its configuration change. You can view this information in the portal or by using [other methods](../azure-monitor/essentials/activity-log.md#other-methods-to-retrieve-activity-log-events). You can also use it to create an [Activity log alert]() to be proactively notified when an event occurs.
 
 | Operation | Description |
 |:---|:---|
@@ -99,3 +103,4 @@ For more information on the schema of Activity Log entries, see [Activity  Log s
 
 - See [Monitoring Azure AKS](monitor-aks.md) for a description of monitoring Azure AKS.
 - See [Monitoring Azure resources with Azure Monitor](../azure-monitor/essentials/monitor-azure-resource.md) for details on monitoring Azure resources.
+

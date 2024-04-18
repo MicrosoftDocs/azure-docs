@@ -4,9 +4,10 @@ description: Learn how to collect metrics from the Azure Kubernetes Service (AKS
 author: aritraghosh
 ms.author: aritraghosh
 ms.service: azure-kubernetes-service
+ms.subservice: aks-monitoring
 ms.topic: how-to
 ms.date: 01/31/2024
-ms.custom: references_regions
+ms.custom: references_regions, devx-track-azurecli
 
 #CustomerIntent: As a platform engineer, I want to collect metrics from the control plane and monitor them for any potential issues
 ---
@@ -195,6 +196,15 @@ When you enable the add-on, you might have specified an existing workspace that 
 
 You can disable control plane metrics at any time, by either disabling the feature flag, disabling managed Prometheus, or by deleting the AKS cluster.
 
+## Preview flag enabled after Managed Prometheus setup
+If the preview flag(`AzureMonitorMetricsControlPlanePreview`) was enabled on an existing Managed Prometheus cluster, it will require forcing an update for the cluster to emit control plane metrics
+
+You can run an az aks update to ensure the cluster updates to start collecting control plane metrics.
+
+```azurecli
+az aks update -n <cluster-name> -g <resource-group>
+```
+
 > [!NOTE]
 > This action doesn't remove any existing data stored in your Azure Monitor workspace.
 
@@ -209,6 +219,14 @@ Run the following command to disable scraping of control plane metrics on the AK
 ```azurecli-interactive
 az feature unregister "Microsoft.ContainerService" --name "AzureMonitorMetricsControlPlanePreview"
 ```
+
+## FAQs
+* Can these metrics be scraped with self hosted prometheus?
+  * The control plane metrics currently cannot be scraped with self hosted prometheus. Self hosted prometheus will be able to scrape the single instance depending on the load balancer. These metrics are notaccurate as there are often multiple replicas of the control plane metrics which will only be visible through Managed Prometheus
+
+* Why is the user agent not available through the control plane metrics?
+  * [Control plane metrics in Kubernetes](https://kubernetes.io/docs/reference/instrumentation/metrics/) do not have the user agent. The user agent is only available through Control Plane logs available through [Diagnostic settings](../azure-monitor/essentials/diagnostic-settings.md)
+
 
 ## Next steps
 
@@ -237,3 +255,4 @@ After evaluating this preview feature, [share your feedback][share-feedback]. We
 [list-of-default-metrics-aks-control-plane]: control-plane-metrics-default-list.md
 [az-feature-unregister]: /cli/azure/feature#az-feature-unregister
 [release-tracker]: https://releases.aks.azure.com/#tabversion
+

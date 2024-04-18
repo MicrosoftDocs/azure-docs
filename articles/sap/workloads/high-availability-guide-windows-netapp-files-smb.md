@@ -4,7 +4,6 @@ description: High availability for SAP NetWeaver on Azure VMs on Windows with Az
 services: virtual-machines-windows,virtual-network,storage
 author: rdeltcheva
 manager: juergent
-tags: azure-resource-manager
 ms.assetid: 5e514964-c907-4324-b659-16dd825f6f87
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads

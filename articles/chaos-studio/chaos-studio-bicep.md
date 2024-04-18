@@ -78,7 +78,7 @@ resource vm 'Microsoft.Compute/virtualMachines@2023-03-01' existing = {
 }
 
 // Deploy the Chaos Studio target resource to the Virtual Machine
-resource chaosTarget 'Microsoft.Chaos/targets@2023-11-01' = {
+resource chaosTarget 'Microsoft.Chaos/targets@2024-01-01' = {
   name: 'Microsoft-VirtualMachine'
   location: location
   scope: vm
@@ -98,7 +98,7 @@ resource chaosRoleDefinition 'Microsoft.Authorization/roleDefinitions@2022-04-01
 }
 
 // Define the role assignment for the Chaos experiment
-resource chaosRoleAssignment 'Microsoft.Authorization/roleAssignments@2020-04-01-preview' = {
+resource chaosRoleAssignment 'Microsoft.Authorization/roleAssignments@2022-04-01' = {
   name: guid(vm.id, chaosExperiment.id, chaosRoleDefinition.id)
   scope: vm
   properties: {
@@ -109,7 +109,7 @@ resource chaosRoleAssignment 'Microsoft.Authorization/roleAssignments@2020-04-01
 }
 
 // Deploy the Chaos Studio experiment resource
-resource chaosExperiment 'Microsoft.Chaos/experiments@2023-11-01' = {
+resource chaosExperiment 'Microsoft.Chaos/experiments@2024-01-01' = {
   name: experimentName
   location: location // Doesn't need to be the same as the Targets & Capabilities location
   identity: {
@@ -128,7 +128,6 @@ resource chaosExperiment 'Microsoft.Chaos/experiments@2023-11-01' = {
         ]
       }
     ]
-    startOnCreation: false // Change this to true if you want to start the experiment on creation
     steps: experimentSteps
   }
 }
@@ -154,7 +153,6 @@ resource chaosExperiment 'Microsoft.Chaos/experiments@2023-11-01' = {
 1. When prompted, enter the following values:
     * **targetName**: the name of an existing Virtual Machine within your resource group that you want to target
     * **experimentName**: the desired name for your Chaos Experiment
-    * **location**: the desired region for the experiment, targets, and capabilities
 1. The template should deploy within a few minutes. Once the deployment is complete, navigate to Chaos Studio in the Azure portal, select **Experiments**, and find the experiment created by the template. Select it, then **Start** the experiment.
 
 ## Next steps

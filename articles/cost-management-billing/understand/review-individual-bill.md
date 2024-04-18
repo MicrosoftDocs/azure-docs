@@ -6,7 +6,7 @@ ms.reviewer: judupont
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: tutorial
-ms.date: 04/05/2023
+ms.date: 03/21/2024
 ms.author: banders
 ---
 
@@ -44,7 +44,7 @@ The first step to compare usage and costs is to download your invoice and usage 
 
 In the Azure portal, type *subscriptions* in the search box and then select **Subscriptions**.
 
-[![Navigate to subscriptions](./media/review-individual-bill/navigate-subscriptions.png)](./media/review-individual-bill/navigate-subscriptions.png#lightbox)
+:::image type="content" border="true" source="./media/review-individual-bill/navigate-subscriptions.png" lightbox="./media/review-individual-bill/navigate-subscriptions.png" alt-text="Screenshot showing navigation to subscriptions.":::
 
 In the list of subscriptions, select the subscription.
 
@@ -52,11 +52,11 @@ Under **Billing**, select **Invoices**.
 
 In the list of invoices, look for the one that you want to download then select the download symbol. You might need to change the timespan to view older invoices. It might take a few minutes to generate the usage details file and invoice.
 
-![Screenshot that shows billing periods, the download option, and total charges for each billing period](./media/review-individual-bill/download-invoice.png)
+:::image type="content" border="true" source="./media/review-individual-bill/download-invoice.png" alt-text="Screenshot that shows billing periods, the download option, and total charges for each billing period.":::
 
 In the Download Usage + Charges window, select **Download csv** and **Download invoice**.
 
-![Screenshot that shows Download invoice and usage page](./media/review-individual-bill/usageandinvoice.png)
+:::image type="content" border="true" source="./media/review-individual-bill/usageandinvoice.png" alt-text="Screenshot that shows the Download invoice and usage page.":::
 
 If it says **Not available** there are several reasons that you don't see usage details or an invoice:
 
@@ -68,11 +68,11 @@ If it says **Not available** there are several reasons that you don't see usage 
 
 Next, you review the charges. Your invoice shows values for taxes and your usage charges.
 
-![Example Azure Invoice](./media/review-individual-bill/invoice-usage-charge.png)
+:::image type="content" border="true" source="./media/review-individual-bill/invoice-usage-charge.png" alt-text="Screenshot showing an example Azure Invoice.":::
 
 Open the CSV usage file that you downloaded. At the end of the file, sum the value for all items in the *Cost* column.
 
-![Example usage file with summed cost](./media/review-individual-bill/usage-file-usage-charges.png)
+:::image type="content" border="true" source="./media/review-individual-bill/usage-file-usage-charges.png" alt-text="Screenshot showing an example CSV usage file with summed cost.":::
 
  The summed *Cost* value should match precisely to the *usage charges* cost on your invoice.
 
@@ -92,13 +92,13 @@ Your usage charges are displayed at the meter level. The following terms mean th
 
 The **Usage Charges** section of your invoice shows the total value (cost) for each meter that was consumed during your billing period. For example, the following image shows a usage charge for the Azure Storage service for the *P10 Disks* resource.
 
-![Invoice usage charges](./media/review-individual-bill/invoice-usage-charges.png)
+:::image type="content" border="true" source="./media/review-individual-bill/invoice-usage-charges.png" alt-text="Screenshot showing usage charges in an invoice.":::
 
 In your CSV usage file, filter by *MeterName* for the corresponding Resource shown on you invoice. Then, sum the *Cost* value for items in the column. Here's an example that focuses on the meter name (P10 disks) that corresponds to the same line item on the invoice.
 
 To reconcile your reservation purchase charges, in your CSV usage file, filter by *ChargeType* as Purchase, it will show all the reservation purchases charges for the month. You can compare these charges by looking at *MeterName* and *MeterSubCategory* in the usage file to Resource and Type in your invoice respectively.
 
-![Usage file summed value for MeterName](./media/review-individual-bill/usage-file-usage-charge-resource.png)
+:::image type="content" border="true" source="./media/review-individual-bill/usage-file-usage-charge-resource.png" alt-text="Screenshot showing the summed value for MeterName.":::
 
 The summed *Cost* value should match precisely to the *usage charges* cost for the individual resource charged on your invoice.
 
@@ -106,15 +106,15 @@ The summed *Cost* value should match precisely to the *usage charges* cost for t
 
 Cost analysis in the Azure portal can also help you verify your charges. To get a quick overview of your invoiced usage and charges, select your subscription from the Subscriptions page in the Azure portal. Next, select **Cost analysis** and then in the views list, select **Invoice details**.
 
-![Example showing Invoice details selection](./media/review-individual-bill/cost-analysis-select-invoice-details.png)
+:::image type="content" border="true" source="./media/review-individual-bill/cost-analysis-select-invoice-details.png" alt-text="Screenshot showing the invoice details selection.":::
 
 Next, in the date range list, select a time period for you invoice. Add a filter for invoice number and then select the InvoiceNumber that matches the one on your invoice. Cost analysis shows cost details for your invoiced items.
 
-![Example showing invoiced cost details in cost analysis](./media/review-individual-bill/cost-analysis-service-usage-charges.png)
+:::image type="content" border="true" source="./media/review-individual-bill/cost-analysis-service-usage-charges.png" alt-text="Screenshot showing invoiced cost details in cost analysis.":::
 
 Costs shown in cost analysis should match precisely to the *usage charges* cost for the individual resource charged on your invoice.
 
-![Invoice usage charges](./media/review-individual-bill/invoice-usage-charges.png)
+:::image type="content" border="true" source="./media/review-individual-bill/invoice-usage-charges.png" alt-text="Screenshot showing invoice usage charges.":::
 
 ## External Marketplace services
 

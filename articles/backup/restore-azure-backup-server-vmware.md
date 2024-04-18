@@ -93,7 +93,7 @@ MABS v4 supports restoring more than one VMware VMs protected from the same vCen
 >[!Note]
 >Before you increase the number of parallel recoveries, you need to consider the VMware performance. Considering the number of resources in use and additional usage required on VMware vSphere Server, you need to determine the number of recoveries to run in parallel.
 >
->**Key Path**: `HKLM\ Software\Microsoft\Microsoft Data Protection Manager\Configuration\ MaxParallelRecoveryJobs`
+>**Key Path**: `HKLM\Software\Microsoft\Microsoft Data Protection Manager\Configuration\MaxParallelRecoveryJobs`
 >- **32 Bit DWORD**: VMware
 >- **Data**: `<number>`. The value should be the number (decimal) of virtual machines that you select for parallel recovery.
 

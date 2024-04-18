@@ -72,17 +72,17 @@ This step is optional. If you're interested to learn how the code creates the da
 * Initialize the session by connecting to a Cassandra cluster endpoint. The API for Cassandra on Azure Cosmos DB supports only TLSv1.2. 
 
   ```csharp
-   var options = new Cassandra.SSLOptions(SslProtocols.Tls12, true, ValidateServerCertificate);
-   options.SetHostNameResolver((ipAddress) => CassandraContactPoint);
-   Cluster cluster = Cluster.Builder().WithCredentials(UserName, Password).WithPort(CassandraPort).AddContactPoint(CassandraContactPoint).WithSSL(options).Build();
-   ISession session = cluster.Connect();
-   ```
+  var options = new Cassandra.SSLOptions(SslProtocols.Tls12, true, ValidateServerCertificate);
+  options.SetHostNameResolver((ipAddress) => CassandraContactPoint);
+  Cluster cluster = Cluster.Builder().WithCredentials(UserName, Password).WithPort(CassandraPort).AddContactPoint(CassandraContactPoint).WithSSL(options).Build();
+  ISession session = cluster.Connect();
+  ```
 
 * Create a new keyspace.
 
-    ```csharp
-    session.Execute("CREATE KEYSPACE uprofile WITH REPLICATION = { 'class' : 'NetworkTopologyStrategy', 'datacenter1' : 1 };"); 
-    ```
+  ```csharp
+  session.Execute("CREATE KEYSPACE uprofile WITH REPLICATION = { 'class' : 'NetworkTopologyStrategy', 'datacenter1' : 1 };"); 
+  ```
 
 * Create a new table.
 

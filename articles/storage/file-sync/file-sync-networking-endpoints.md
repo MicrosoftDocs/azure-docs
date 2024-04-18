@@ -6,7 +6,7 @@ ms.service: azure-file-storage
 ms.topic: how-to
 ms.date: 04/26/2023
 ms.author: kendownie
-ms.custom: devx-track-azurepowershell, devx-track-azurecli, linux-related-content
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
 # Configuring Azure File Sync network endpoints

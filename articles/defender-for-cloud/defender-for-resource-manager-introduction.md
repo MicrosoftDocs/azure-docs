@@ -31,7 +31,7 @@ Microsoft Defender for Resource Manager protects against issues including:
 
 :::image type="content" source="media/defender-for-resource-manager-introduction/consistent-management-layer-with-defender.png" alt-text="Azure Resource Manager overview diagram.":::
 
-A full list of the alerts provided by Microsoft Defender for Resource Manager is on the [alerts reference page](alerts-reference.md#alerts-resourcemanager).
+A full list of the alerts provided by Microsoft Defender for Resource Manager is on the [alerts reference page](alerts-reference.md#alerts-for-resource-manager).
 
 ## Next steps
 

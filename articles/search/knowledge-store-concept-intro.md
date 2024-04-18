@@ -95,12 +95,12 @@ The wizard automates several tasks. Specifically, both shaping and projections (
 
 ### [**REST**](#tab/kstore-rest)
 
-[**Create your first knowledge store using Postman**](knowledge-store-create-rest.md) is a tutorial that walks you through the objects and requests belonging to this [knowledge store collection](https://github.com/Azure-Samples/azure-search-postman-samples/tree/main/knowledge-store).
+[**Create a knowledge store using REST**](knowledge-store-create-rest.md) is a tutorial that walks you through the objects and requests belonging to this [knowledge store collection](https://github.com/Azure-Samples/azure-search-rest-samples/tree/main/knowledge-store).
 
-REST API version `2020-06-30` can be used to create a knowledge store through additions to a skillset.
+REST API version `2020-06-30` and higher can be used to create a knowledge store through additions to a skillset.
 
-+ [Create Skillset (api-version=2020-06-30)](/rest/api/searchservice/create-skillset)
-+ [Update Skillset (api-version=2020-06-30)](/rest/api/searchservice/update-skillset)
++ [Create Skillset](/rest/api/searchservice/create-skillset)
++ [Update Skillset](/rest/api/searchservice/update-skillset)
 
 Within the skillset:
 
@@ -153,7 +153,7 @@ Although an indexer creates and updates structures and content in Azure Storage,
 
 Knowledge store offers persistence of enriched documents, useful when designing a skillset, or the creation of new structures and content for consumption by any client applications capable of accessing an Azure Storage account.
 
-The simplest approach for creating enriched documents is [through the portal](knowledge-store-create-portal.md), but you can also use Postman and the REST API, which is more useful if you want insight into how objects are created and referenced programmatically.
+The simplest approach for creating enriched documents is [through the portal](knowledge-store-create-portal.md), but a REST client and REST APIs can provide more insight into how objects are created and referenced programmatically.
 
 > [!div class="nextstepaction"]
-> [Create a knowledge store using Postman and REST](knowledge-store-create-rest.md)
+> [Create a knowledge store using REST](knowledge-store-create-rest.md)

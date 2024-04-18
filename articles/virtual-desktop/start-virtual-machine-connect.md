@@ -3,15 +3,19 @@ title: Set up Start VM on Connect for Azure Virtual Desktop
 description: How to set up the Start VM on Connect feature for Azure Virtual Desktop to turn on session host virtual machines only when they're needed.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 03/14/2023
+ms.date: 04/11/2024
 ms.author: helohr
 ms.custom: subject-rbac-steps
 ---
 # Set up Start VM on Connect
 
+> [!IMPORTANT]
+> Start VM on Connect for Azure Stack HCI with Azure Virtual Desktop is currently in PREVIEW. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
+
 Start VM On Connect lets you reduce costs by enabling end users to turn on their session host virtual machines (VMs) only when they need them. You can then turn off VMs when they're not needed.
 
-You can configure Start VM on Connect for personal or pooled host pools using the Azure portal or PowerShell. Start VM on Connect is a host pool setting.
+You can configure Start VM on Connect for session hosts on Azure and Azure Stack HCI in personal or pooled host pools using the Azure portal or PowerShell. Start VM on Connect is a host pool setting.
 
 For personal host pools, Start VM On Connect will only turn on an existing session host VM that has already been assigned or will be assigned to a user. For pooled host pools, Start VM On Connect will only turn on a session host VM when none are turned on and additional VMs will only be turned on when the first VM reaches the session limit.
 

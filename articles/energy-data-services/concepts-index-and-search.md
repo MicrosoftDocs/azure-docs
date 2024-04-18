@@ -41,6 +41,8 @@ For more information, see [Indexer service OSDU&trade; documentation](https://co
     
 `Search service` provides a mechanism for discovering indexed metadata documents. The Search API supports full-text search on string fields, range queries on date, numeric, or string field, etc. along with geo-spatial searches.
 
+When metadata records are loaded onto the Platform using `Storage service`, we can configure permissions for viewers and owners of the metadata records under the *acl* field. The viewers and owners are assigned via groups as defined in the `Entitlement service`. When performing a search as a user, the matched metadata records will only show up for users who are assigned to the Group. 
+
 For a detailed tutorial on `Search service`, refer [Search service OSDU&trade; documentation](https://community.opengroup.org/osdu/platform/system/search-service/-/blob/release/0.15/docs/tutorial/SearchService.md)
     
 

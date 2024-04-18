@@ -1,0 +1,374 @@
+{
+    "redirections": [
+        {
+            "source_path_from_root": "/articles/databox-online/azure-stack-edge-zero-touch-provisioning.md",
+            "redirect_url": "/azure/databox-online/azure-stack-edge-powershell-based-configuration",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/databox-online/azure-stack-edge-gpu-2307-release-notes.md",
+            "redirect_url": "/azure/databox-online/azure-stack-edge-gpu-2309-release-notes",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/databox-online/data-box-gateway-1905-release-notes.md",
+            "redirect_url": "/azure/databox-gateway/data-box-gateway-1905-release-notes",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/databox-online/data-box-gateway-1906-release-notes.md",
+            "redirect_url": "/azure/databox-gateway/data-box-gateway-1906-release-notes",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/databox-online/data-box-gateway-1911-release-notes.md",
+            "redirect_url": "/azure/databox-gateway/data-box-gateway-1911-release-notes",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/databox-online/data-box-gateway-2007-release-notes.md",
+            "redirect_url": "/azure/databox-gateway/data-box-gateway-2007-release-notes",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/databox-online/data-box-gateway-apply-updates.md",
+            "redirect_url": "/azure/databox-gateway/data-box-gateway-apply-updates",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/databox-online/data-box-gateway-connect-powershell-interface.md",
+            "redirect_url": "/azure/databox-gateway/data-box-gateway-connect-powershell-interface",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/databox-online/data-box-gateway-deploy-add-shares.md",
+            "redirect_url": "/azure/databox-gateway/data-box-gateway-deploy-add-shares",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/databox-online/data-box-gateway-deploy-connect-setup-activate.md",
+            "redirect_url": "/azure/databox-gateway/data-box-gateway-deploy-connect-setup-activate",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/databox-online/data-box-gateway-deploy-prep.md",
+            "redirect_url": "/azure/databox-gateway/data-box-gateway-deploy-prep",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/databox-online/data-box-gateway-deploy-provision-hyperv.md",
+            "redirect_url": "/azure/databox-gateway/data-box-gateway-deploy-provision-hyperv",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/databox-online/data-box-gateway-deploy-provision-vmware.md",
+            "redirect_url": "/azure/databox-gateway/data-box-gateway-deploy-provision-vmware",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/databox-online/data-box-gateway-limits.md",
+            "redirect_url": "/azure/databox-gateway/data-box-gateway-limits.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/databox-online/data-box-gateway-manage-access-power-connectivity-mode.md",
+            "redirect_url": "/azure/databox-gateway/data-box-gateway-manage-access-power-connectivity-mode",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/databox-online/data-box-gateway-manage-bandwidth-schedules.md",
+            "redirect_url": "/azure/databox-gateway/data-box-gateway-manage-bandwidth-schedules",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/databox-online/data-box-gateway-manage-shares.md",
+            "redirect_url": "/azure/databox-gateway/data-box-gateway-manage-shares",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/databox-online/data-box-gateway-manage-users.md",
+            "redirect_url": "/azure/databox-gateway/data-box-gateway-manage-users",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/databox-online/data-box-gateway-monitor.md",
+            "redirect_url": "/azure/databox-gateway/data-box-gateway-monitor",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/databox-online/data-box-gateway-overview.md",
+            "redirect_url": "/azure/databox-gateway/data-box-gateway-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/databox-online/data-box-gateway-release-notes.md",
+            "redirect_url": "/azure/databox-gateway/data-box-gateway-release-notes",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/databox-online/data-box-gateway-security.md",
+            "redirect_url": "/azure/databox-gateway/data-box-gateway-security",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/databox-online/data-box-gateway-system-requirements.md",
+            "redirect_url": "/azure/databox-gateway/data-box-gateway-system-requirements",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/databox-online/data-box-gateway-troubleshoot.md",
+            "redirect_url": "/azure/databox-gateway/data-box-gateway-troubleshoot",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/databox-online/data-box-gateway-use-cases.md",
+            "redirect_url": "/azure/databox-gateway/data-box-gateway-use-cases",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/databox-online/data-box-edge-connect-powershell-interface.md",
+            "redirect_url": "/azure/databox-online/azure-stack-edge-connect-powershell-interface",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/databox-online/data-box-edge-contact-microsoft-support.md",
+            "redirect_url": "/azure/databox-online/azure-stack-edge-contact-microsoft-support",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/databox-online/data-box-edge-create-iot-edge-module.md",
+            "redirect_url": "/azure/databox-online/azure-stack-edge-create-iot-edge-module",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/databox-online/data-box-edge-deploy-add-shares.md",
+            "redirect_url": "/azure/databox-online/azure-stack-edge-deploy-add-shares",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/databox-online/data-box-edge-deploy-configure-compute.md",
+            "redirect_url": "/azure/databox-online/azure-stack-edge-deploy-configure-compute",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/databox-online/data-box-edge-deploy-configure-compute-advanced.md",
+            "redirect_url": "/azure/databox-online/azure-stack-edge-deploy-configure-compute-advanced",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/databox-online/data-box-edge-deploy-connect-setup-activate.md",
+            "redirect_url": "/azure/databox-online/azure-stack-edge-deploy-connect-setup-activate",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/databox-online/data-box-edge-deploy-install.md",
+            "redirect_url": "/azure/databox-online/azure-stack-edge-deploy-install",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/databox-online/data-box-edge-deploy-prep.md",
+            "redirect_url": "/azure/databox-online/azure-stack-edge-deploy-prep",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/databox-online/data-box-edge-extend-compute-access-modules.md",
+            "redirect_url": "/azure/databox-online/azure-stack-edge-extend-compute-access-modules",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/databox-online/azure-stack-edge-gpu-2009-release-notes.md",
+            "redirect_url": "/azure/databox-online/azure-stack-edge-gpu-2010-release-notes",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/databox-online/azure-stack-edge-j-series-deploy-virtual-machine-powershell.md",
+            "redirect_url": "/azure/databox-online/azure-stack-edge-gpu-deploy-virtual-machine-powershell",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/databox-online/azure-stack-edge-j-series-virtual-machine-image.md",
+            "redirect_url": "/azure/databox-online/azure-stack-edge-gpu-create-virtual-machine-image",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/databox-online/azure-stack-edge-j-series-deploy-virtual-machine-powershell-script.md",
+            "redirect_url": "/azure/databox-online/azure-stack-edge-gpu-deploy-virtual-machine-powershell-script",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/databox-online/azure-stack-edge-j-series-manage-users.md",
+            "redirect_url": "/azure/databox-online/azure-stack-edge-gpu-manage-users",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/databox-online/azure-stack-edge-j-series-manage-shares.md",
+            "redirect_url": "/azure/databox-online/azure-stack-edge-gpu-manage-shares",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/databox-online/azure-stack-edge-j-series-manage-storage-accounts.md",
+            "redirect_url": "/azure/databox-online/azure-stack-edge-gpu-manage-storage-accounts",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/databox-online/azure-stack-edge-j-series-manage-bandwidth-schedules.md",
+            "redirect_url": "/azure/databox-online/azure-stack-edge-gpu-manage-bandwidth-schedules",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/databox-online/azure-stack-edge-j-series-configure-gpu-modules.md",
+            "redirect_url": "/azure/databox-online/azure-stack-edge-gpu-configure-gpu-modules",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/databox-online/azure-stack-edge-j-series-configure-tls-settings.md",
+            "redirect_url": "/azure/databox-online/azure-stack-edge-gpu-configure-tls-settings",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/databox-online/azure-stack-edge-j-series-connect-resource-manager.md",
+            "redirect_url": "/azure/databox-online/azure-stack-edge-gpu-connect-resource-manager",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/databox-online/azure-stack-edge-j-series-deploy-add-shares.md",
+            "redirect_url": "/azure/databox-online/azure-stack-edge-gpu-deploy-add-shares",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/databox-online/azure-stack-edge-j-series-deploy-add-storage-accounts.md",
+            "redirect_url": "/azure/databox-online/azure-stack-edge-gpu-deploy-add-storage-accounts",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/databox-online/azure-stack-edge-j-series-deploy-stateless-application-kubernetes.md",
+            "redirect_url": "/azure/databox-online/azure-stack-edge-gpu-deploy-stateless-application-kubernetes",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/databox-online/azure-stack-edge-j-series-deploy-virtual-machine-cli-python.md",
+            "redirect_url": "/azure/databox-online/azure-stack-edge-gpu-deploy-virtual-machine-cli-python",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/databox-online/azure-stack-edge-j-series-manage-compute.md",
+            "redirect_url": "/azure/databox-online/azure-stack-edge-gpu-manage-compute",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/databox-online/azure-stack-edge-j-series-overview.md",
+            "redirect_url": "/azure/databox-online/azure-stack-edge-pro-r-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/databox-online/azure-stack-edge-j-series-set-azure-resource-manager-password.md",
+            "redirect_url": "/azure/azure-stack-edge-gpu-set-azure-resource-manager-password",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/databox-online/azure-stack-edge-j-series-create-iot-edge-module.md",
+            "redirect_url": "/azure/databox-online/azure-stack-edge-gpu-create-iot-edge-module",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/databox-online/data-box-edge-limits.md",
+            "redirect_url": "/azure/databox-online/azure-stack-edge-limits",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/databox-online/azure-stack-edge-k-series-overview.md",
+            "redirect_url": "/azure/databox-online/azure-stack-edge-mini-r-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/databox-online/azure-stack-edge-gpu-deploy-arc-data-controller.md",
+            "redirect_url": "/azure/azure-arc/data/create-data-controller-direct-azure-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/databox-online/data-box-edge-manage-access-power-connectivity-mode.md",
+            "redirect_url": "/azure/databox-online/azure-stack-edge-manage-access-power-connectivity-mode",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/databox-online/data-box-edge-manage-bandwidth-schedules.md",
+            "redirect_url": "/azure/databox-online/azure-stack-edge-manage-bandwidth-schedules",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/databox-online/data-box-edge-manage-compute.md",
+            "redirect_url": "/azure/databox-online/azure-stack-edge-manage-compute",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/databox-online/data-box-edge-manage-shares.md",
+            "redirect_url": "/azure/databox-online/azure-stack-edge-manage-shares",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/databox-online/data-box-edge-manage-users.md",
+            "redirect_url": "/azure/databox-online/azure-stack-edge-manage-users",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/databox-online/data-box-edge-monitor.md",
+            "redirect_url": "/azure/databox-online/azure-stack-edge-monitor",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/databox-online/data-box-edge-overview.md",
+            "redirect_url": "/azure/databox-online/azure-stack-edge-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/databox-online/data-box-edge-return-device.md",
+            "redirect_url": "/azure/databox-online/azure-stack-edge-return-device",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/databox-online/data-box-edge-security.md",
+            "redirect_url": "/azure/databox-online/azure-stack-edge-security",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/databox-online/data-box-edge-system-requirements.md",
+            "redirect_url": "/azure/databox-online/azure-stack-edge-system-requirements",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/databox-online/data-box-edge-technical-specifications-compliance.md",
+            "redirect_url": "/azure/databox-online/azure-stack-edge-technical-specifications-compliance",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/databox-online/data-box-edge-troubleshoot.md",
+            "redirect_url": "/azure/databox-online/azure-stack-edge-troubleshoot",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/databox-online/azure-stack-edge-j-series-certificate-requirements.md",
+            "redirect_url": "/azure/databox-online/azure-stack-edge-gpu-certificate-requirements",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/databox-online/azure-stack-edge-j-series-certificate-troubleshooting.md",
+            "redirect_url": "/azure/databox-online/azure-stack-edge-gpu-certificate-troubleshooting",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/databox-online/azure-stack-edge-j-series-create-certificates-tool.md",
+            "redirect_url": "/azure/databox-online/azure-stack-edge-gpu-create-certificates-tool",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/databox-online/azure-stack-edge-j-series-manage-certificates.md",
+            "redirect_url": "/azure/databox-online/azure-stack-edge-gpu-manage-certificates",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/databox-online/azure-stack-edge-troubleshoot-virtual-machine-image-upload.md",
+            "redirect_url": "/azure/databox-online/azure-stack-edge-gpu-troubleshoot-virtual-machine-image-upload",
+            "redirect_document_id": false
+        }
+    ]
+}

@@ -1,7 +1,6 @@
 ---
 title: Best practices for Azure RBAC
 description: Best practices for using Azure role-based access control (Azure RBAC).
-services: active-directory
 author: rolyon
 manager: amycolannino
 ms.service: role-based-access-control

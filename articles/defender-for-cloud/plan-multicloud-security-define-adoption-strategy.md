@@ -28,7 +28,7 @@ Think about your broad requirements:
   - What is your process for responding to security alerts and recommendations? Remember to consider Defender for Cloud’s governance feature when making decisions about recommendation processes.
   - How will security teams collaborate to prevent friction during remediation?
 
-- **Plan a lifecycle strategy.** As new multicloud resources onboard into Defender for Cloud, you need a strategic plan in place for that onboarding. Remember that you can use [auto-provisioning](/azure/defender-for-cloud/enable-data-collection?tabs=autoprovision-defendpoint) for easier agent deployment.
+- **Plan a lifecycle strategy.** As new multicloud resources onboard into Defender for Cloud, you need a strategic plan in place for that onboarding. Remember that you can use [auto-provisioning](monitoring-components.md?tabs=autoprovision-defendpoint) for easier agent deployment.
 
 ## Next steps
 

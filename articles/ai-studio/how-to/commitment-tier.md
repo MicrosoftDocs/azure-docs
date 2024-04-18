@@ -7,7 +7,7 @@ ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 11/15/2023
+ms.date: 2/24/2024
 ms.reviewer: siarora
 ms.author: larryfr
 author: Blackmist 
@@ -22,12 +22,13 @@ Azure AI offers commitment tier pricing, each offering a discounted rate compare
 ## Purchase a commitment plan by updating your Azure resource
 
 1. Sign in to the [Azure portal](https://portal.azure.com) with your Azure subscription.
-2. In your Azure resource for one of the applicable features listed, select **Commitment tier pricing**.
-3. Select **Change** to view the available commitments for hosted API and container usage. Choose a commitment plan for one or more of the following offerings:
+1. Select the existing Azure resource you want to purchase a commitment plan for.
+1. From the collapsible left menu, select **Resource Management** > **Commitment tier pricing**.
+1. Select **Change** to view the available commitments for hosted API and container usage. Choose a commitment plan for one or more of the following offerings:
     * **Web**: web-based APIs, where you send data to Azure for processing.
     * **Connected container**: Docker containers that enable you to [deploy Azure AI services on premises](../../ai-services/cognitive-services-container-support.md), and maintain an internet connection for billing and metering.
 
-4. In the window that appears, select both a **Tier** and **Auto-renewal** option.
+1. In the window that appears, select both a **Tier** and **Auto-renewal** option.
 
     * **Commitment tier** - The commitment tier for the feature. The commitment tier is enabled immediately when you select **Purchase** and you're charged the commitment amount on a pro-rated basis.
 
@@ -52,7 +53,7 @@ If you decide that you don't want to continue purchasing a commitment plan, you 
 
 ## Purchase a commitment tier pricing plan for disconnected containers
 
-Commitment plans for disconnected containers have a calendar year commitment period. These are different plans than web and connected container commitment plans. When you purchase a commitment plan, you're charged the full price immediately. During the commitment period, you can't change your commitment plan, however you can purchase more units at a pro-rated price for the remaining days in the year. You have until midnight (UTC) on the last day of your commitment, to end a commitment plan.
+Commitment plans for disconnected containers have a calendar year commitment period. These plans are different the than web and connected container commitment plans. When you purchase a commitment plan, you're charged the full price immediately. During the commitment period you can't change your commitment plan. However, you can purchase more units at a pro-rated price for the remaining days in the year. You have until midnight (UTC) on the last day of your commitment, to end a commitment plan.
 
 You can choose a different commitment plan in the **Commitment Tier pricing** settings of your resource.
 

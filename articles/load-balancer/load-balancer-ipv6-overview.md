@@ -69,7 +69,7 @@ Limitations
 * Changing the loadDistributionMethod parameter for IPv6 is **currently not supported**.
 * IPv6 for Basic Load Balancer is locked to a **Dynamic** SKU.  IPv6 for a Standard Load Balancer is locked to a **Static** SKU.
 * NAT64 (translation of IPv6 to IPv4) is not supported.
-* Attaching a secondary NIC that refers to an IPv6 subnet to a back-end pool is **not supported** for Basic Load Balancer.
+* Attaching a secondary NIC that refers to an IPv6 subnet to a backend pool is **not supported** for Basic Load Balancer.
 
 ## Next steps
 

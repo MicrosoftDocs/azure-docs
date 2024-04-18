@@ -6,7 +6,7 @@ description: Learn how to create your own customized model with Azure OpenAI Ser
 manager: nitinme
 ms.service: azure-ai-openai
 ms.topic: include
-ms.date: 10/10/2023
+ms.date: 03/06/2024
 author: mrbullwinkle
 ms.author: mbullwin
 ---
@@ -30,10 +30,15 @@ ms.author: mbullwin
 
 The following models support fine-tuning:
 
-- `gpt-35-turbo-0613`
-- `gpt-35-turbo-1106`
 - `babbage-002`
 - `davinci-002`
+- `gpt-35-turbo` (0613)
+- `gpt-35-turbo` (1106)
+- `gpt-35-turbo` (0125)
+
+Or you can fine tune a previously fine-tuned model, formatted as base-model.ft-{jobid}.
+
+:::image type="content" source="../media/fine-tuning/models.png" alt-text="Screenshot of model options with a custom fine-tuned model." lightbox="../media/fine-tuning/models.png":::
 
 Consult the [models page](../concepts/models.md#fine-tuning-models) to check which regions currently support fine-tuning.
 
@@ -70,11 +75,21 @@ If you would like a step-by-step walk-through of fine-tuning a `gpt-35-turbo-061
 {"messages": [{"role": "system", "content": "You are an Xbox customer support agent whose primary goal is to help users with issues they are experiencing with their Xbox devices. You are friendly and concise. You only provide factual answers to queries, and do not provide answers that are not related to Xbox."}, {"role": "user", "content": "I'm having trouble connecting my Xbox to the Wi-Fi."}, {"role": "assistant", "content": "No worries, let's go through the network settings on your Xbox. Can you please tell me what happens when you try to connect it to the Wi-Fi?"}]}
 ```
 
-In addition to the JSONL format, training and validation data files must be encoded in UTF-8 and include a byte-order mark (BOM). The file must be less than 100 MB in size.
+### Multi-turn chat file format
+
+Multiple turns of a conversation in a single line of your jsonl training file is also supported. To skip fine-tuning on specific assistant messages add the optional `weight` key value pair. Currently `weight` can be set to 0 or 1.  
+
+```json
+{"messages": [{"role": "system", "content": "Marv is a factual chatbot that is also sarcastic."}, {"role": "user", "content": "What's the capital of France?"}, {"role": "assistant", "content": "Paris", "weight": 0}, {"role": "user", "content": "Can you be more sarcastic?"}, {"role": "assistant", "content": "Paris, as if everyone doesn't know that already.", "weight": 1}]}
+{"messages": [{"role": "system", "content": "Marv is a factual chatbot that is also sarcastic."}, {"role": "user", "content": "Who wrote 'Romeo and Juliet'?"}, {"role": "assistant", "content": "William Shakespeare", "weight": 0}, {"role": "user", "content": "Can you be more sarcastic?"}, {"role": "assistant", "content": "Oh, just some guy named William Shakespeare. Ever heard of him?", "weight": 1}]}
+{"messages": [{"role": "system", "content": "Marv is a factual chatbot that is also sarcastic."}, {"role": "user", "content": "How far is the Moon from Earth?"}, {"role": "assistant", "content": "384,400 kilometers", "weight": 0}, {"role": "user", "content": "Can you be more sarcastic?"}, {"role": "assistant", "content": "Around 384,400 kilometers. Give or take a few, like that really matters.", "weight": 1}]}
+```
+
+In addition to the JSONL format, training and validation data files must be encoded in UTF-8 and include a byte-order mark (BOM). The file must be less than 512 MB in size.
 
 ### Create your training and validation datasets
 
-The more training examples you have, the better. The minimum number of training examples is 10, but such a small number of examples is often not enough to noticeably influence model responses. OpenAI states it's best practice to have at least 50 high quality training examples. However, it is entirely possible to have a use case that might require 1,000's of high quality training examples to be successful.
+The more training examples you have, the better. Fine tuning jobs will not proceed without at least 10 training examples, but such a small number are not enough to noticeably influence model responses. It is best practice to provide hundreds, if not thousands, of training examples to be successful.
 
 In general, doubling the dataset size can lead to a linear increase in model quality. But keep in mind, low quality examples can negatively impact performance. If you train the model on a large amount of internal data, without first pruning the dataset for only the highest quality examples you could end up with a model that performs much worse than expected.
 
@@ -88,13 +103,13 @@ The training and validation data you use **must** be formatted as a JSON Lines (
 {"prompt": "<prompt text>", "completion": "<ideal generated text>"}
 ```
 
-In addition to the JSONL format, training and validation data files must be encoded in UTF-8 and include a byte-order mark (BOM). The file must be less than 100 MB in size. 
+In addition to the JSONL format, training and validation data files must be encoded in UTF-8 and include a byte-order mark (BOM). The file must be less than 512 MB in size.
 
 ### Create your training and validation datasets
 
 Designing your prompts and completions for fine-tuning is different from designing your prompts for use with any of [our GPT-3 base models](../concepts/legacy-models.md#gpt-3-models). Prompts for completion calls often use either detailed instructions or few-shot learning techniques, and consist of multiple examples. For fine-tuning, each training example should consist of a single input prompt and its desired completion output. You don't need to give detailed instructions or multiple completion examples for the same prompt.
 
-The more training examples you have, the better. The minimum number of training examples is 10, but such a small number of examples is often not enough to noticeably influence model responses. OpenAI states it's best practice to have at least 50 high quality training examples. However, it is entirely possible to have a use case that might require 1,000's of high quality training examples to be successful.
+The more training examples you have, the better. Fine tuning jobs will not proceed without at least 10 training examples, but such a small number are not enough to noticeably influence model responses. It is best practice to provide hundreds, if not thousands, of training examples to be successful.
 
 In general, doubling the dataset size can lead to a linear increase in model quality. But keep in mind, low quality examples can negatively impact performance. If you train the model on a large amount of internal data, without first pruning the dataset for only the highest quality examples you could end up with a model that performs much worse than expected.
 
@@ -136,41 +151,9 @@ The next step is to either choose existing prepared training data or upload new 
 For large data files, we recommend that you import from an Azure Blob  store. Large files can become unstable when uploaded through multipart forms because the requests are atomic and can't be retried or resumed. For more information about Azure Blob storage, see [What is Azure Blob storage?](../../../storage/blobs/storage-blobs-overview.md)
 
 > [!NOTE]
-> Training data files must be formatted as JSONL files, encoded in UTF-8 with a byte-order mark (BOM). The file must be less than 100 MB in size.
+> Training data files must be formatted as JSONL files, encoded in UTF-8 with a byte-order mark (BOM). The file must be less than 512 MB in size.
 
 The following Python example uploads local training and validation files by using the Python SDK, and retrieves the returned file IDs.
-
-# [OpenAI Python 0.28.1](#tab/python)
-
-```python
-# Upload fine-tuning files
-
-import openai
-import os
-
-openai.api_key = os.getenv("AZURE_OPENAI_API_KEY") 
-openai.api_base =  os.getenv("AZURE_OPENAI_ENDPOINT")
-openai.api_type = 'azure'
-openai.api_version = '2023-12-01-preview' # This API version or later is required to access fine-tuning for turbo/babbage-002/davinci-002
-
-training_file_name = 'training_set.jsonl'
-validation_file_name = 'validation_set.jsonl'
-
-# Upload the training and validation dataset files to Azure OpenAI with the SDK.
-
-training_response = openai.File.create(
-    file=open(training_file_name, "rb"), purpose="fine-tune", user_provided_filename="training_set.jsonl"
-)
-training_file_id = training_response["id"]
-
-validation_response = openai.File.create(
-    file=open(validation_file_name, "rb"), purpose="fine-tune", user_provided_filename="validation_set.jsonl"
-)
-validation_file_id = validation_response["id"]
-
-print("Training file ID:", training_file_id)
-print("Validation file ID:", validation_file_id)
-```
 
 # [OpenAI Python 1.x](#tab/python-new)
 
@@ -182,8 +165,8 @@ from openai import AzureOpenAI
 
 client = AzureOpenAI(
   azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT"), 
-  api_key=os.getenv("AZURE_OPENAI_KEY"),  
-  api_version="2023-12-01-preview"  # This API version or later is required to access fine-tuning for turbo/babbage-002/davinci-002
+  api_key=os.getenv("AZURE_OPENAI_API_KEY"),  
+  api_version="2024-02-01"  # This API version or later is required to access fine-tuning for turbo/babbage-002/davinci-002
 )
 
 training_file_name = 'training_set.jsonl'
@@ -206,6 +189,40 @@ print("Validation file ID:", validation_file_id)
 
 ```
 
+# [OpenAI Python 0.28.1](#tab/python)
+
+[!INCLUDE [Deprecation](../includes/deprecation.md)]
+
+```python
+# Upload fine-tuning files
+
+import openai
+import os
+
+openai.api_key = os.getenv("AZURE_OPENAI_API_KEY") 
+openai.api_base =  os.getenv("AZURE_OPENAI_ENDPOINT")
+openai.api_type = 'azure'
+openai.api_version = '2024-02-01' # This API version or later is required to access fine-tuning for turbo/babbage-002/davinci-002
+
+training_file_name = 'training_set.jsonl'
+validation_file_name = 'validation_set.jsonl'
+
+# Upload the training and validation dataset files to Azure OpenAI with the SDK.
+
+training_response = openai.File.create(
+    file=open(training_file_name, "rb"), purpose="fine-tune", user_provided_filename="training_set.jsonl"
+)
+training_file_id = training_response["id"]
+
+validation_response = openai.File.create(
+    file=open(validation_file_name, "rb"), purpose="fine-tune", user_provided_filename="validation_set.jsonl"
+)
+validation_file_id = validation_response["id"]
+
+print("Training file ID:", training_file_id)
+print("Validation file ID:", validation_file_id)
+```
+
 ---
 
 ## Create a customized model
@@ -213,6 +230,25 @@ print("Validation file ID:", validation_file_id)
 After you upload your training and validation files, you're ready to start the fine-tuning job.
 
 The following Python code shows an example of how to create a new fine-tune job with the Python SDK:
+
+# [OpenAI Python 1.x](#tab/python-new)
+
+```python
+response = client.fine_tuning.jobs.create(
+    training_file=training_file_id,
+    validation_file=validation_file_id,
+    model="gpt-35-turbo-0613" # Enter base model name. Note that in Azure OpenAI the model name contains dashes and cannot contain dot/period characters. 
+)
+
+job_id = response.id
+
+# You can use the job ID to monitor the status of the fine-tuning job.
+# The fine-tuning job will take some time to start and complete.
+
+print("Job ID:", response.id)
+print("Status:", response.id)
+print(response.model_dump_json(indent=2))
+```
 
 # [OpenAI Python 0.28.1](#tab/python)
 
@@ -235,28 +271,9 @@ print(response)
 
 ```
 
-# [OpenAI Python 1.x](#tab/python-new)
-
-```python
-response = client.fine_tuning.jobs.create(
-    training_file=training_file_id,
-    validation_file=validation_file_id,
-    model="gpt-35-turbo-0613" # Enter base model name. Note that in Azure OpenAI the model name contains dashes and cannot contain dot/period characters. 
-)
-
-job_id = response.id
-
-# You can use the job ID to monitor the status of the fine-tuning job.
-# The fine-tuning job will take some time to start and complete.
-
-print("Job ID:", response.id)
-print("Status:", response.id)
-print(response.model_dump_json(indent=2))
-```
-
 ---
 
-You can also pass additional optional parameters like hyperparameters to take greater control of the fine-tuning process. For initial training we recommend using the automatic defaults that are present without specifying these parameters.
+You can also pass additional optional parameters like hyperparameters to take greater control of the fine-tuning process. For initial training we recommend using the automatic defaults that are present without specifying these parameters. 
 
 The current supported hyperparameters for fine-tuning are:
 
@@ -273,8 +290,8 @@ from openai import AzureOpenAI
 
 client = AzureOpenAI(
   azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT"), 
-  api_key=os.getenv("AZURE_OPENAI_KEY"),  
-  api_version="2023-12-01-preview"  # This API version or later is required to access fine-tuning for turbo/babbage-002/davinci-002
+  api_key=os.getenv("AZURE_OPENAI_API_KEY"),  
+  api_version="2024-02-01"  # This API version or later is required to access fine-tuning for turbo/babbage-002/davinci-002
 )
 
 client.fine_tuning.jobs.create(
@@ -288,6 +305,16 @@ client.fine_tuning.jobs.create(
 
 ## Check fine-tuning job status
 
+# [OpenAI Python 1.x](#tab/python-new)
+
+```python
+response = client.fine_tuning.jobs.retrieve(job_id)
+
+print("Job ID:", response.id)
+print("Status:", response.status)
+print(response.model_dump_json(indent=2))
+```
+
 # [OpenAI Python 0.28.1](#tab/python)
 
 ```python
@@ -298,16 +325,6 @@ response = openai.FineTuningJob.retrieve(job_id)
 print("Job ID:", response["id"])
 print("Status:", response["status"])
 print(response)
-```
-
-# [OpenAI Python 1.x](#tab/python-new)
-
-```python
-response = client.fine_tuning.jobs.retrieve(job_id)
-
-print("Job ID:", response.id)
-print("Status:", response.status)
-print(response.model_dump_json(indent=2))
 ```
 
 ---
@@ -463,30 +480,6 @@ az cognitiveservices account deployment create
 
 After your custom model deploys, you can use it like any other deployed model. You can use the **Playgrounds** in [Azure OpenAI Studio](https://oai.azure.com) to experiment with your new deployment. You can continue to use the same parameters with your custom model, such as `temperature` and `max_tokens`, as you can with other deployed models. For fine-tuned `babbage-002` and `davinci-002` models you will use the Completions playground and the Completions API. For fine-tuned `gpt-35-turbo-0613` models you will use the Chat playground and the Chat completion API.
 
-# [OpenAI Python 0.28.1](#tab/python)
-
-```python
-import os
-import openai
-openai.api_type = "azure"
-openai.api_base = os.getenv("AZURE_OPENAI_ENDPOINT") 
-openai.api_version = "2023-05-15"
-openai.api_key = os.getenv("AZURE_OPENAI_KEY")
-
-response = openai.ChatCompletion.create(
-    engine="gpt-35-turbo-ft", # engine = "Custom deployment name you chose for your fine-tuning model"
-    messages=[
-        {"role": "system", "content": "You are a helpful assistant."},
-        {"role": "user", "content": "Does Azure OpenAI support customer managed keys?"},
-        {"role": "assistant", "content": "Yes, customer managed keys are supported by Azure OpenAI."},
-        {"role": "user", "content": "Do other Azure AI services support this too?"}
-    ]
-)
-
-print(response)
-print(response['choices'][0]['message']['content'])
-```
-
 # [OpenAI Python 1.x](#tab/python-new)
 
 ```python
@@ -495,8 +488,8 @@ from openai import AzureOpenAI
 
 client = AzureOpenAI(
   azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT"), 
-  api_key=os.getenv("AZURE_OPENAI_KEY"),  
-  api_version="2023-05-15"
+  api_key=os.getenv("AZURE_OPENAI_API_KEY"),  
+  api_version="2024-02-01"
 )
 
 response = client.chat.completions.create(
@@ -512,6 +505,30 @@ response = client.chat.completions.create(
 print(response.choices[0].message.content)
 ```
 
+# [OpenAI Python 0.28.1](#tab/python)
+
+```python
+import os
+import openai
+openai.api_type = "azure"
+openai.api_base = os.getenv("AZURE_OPENAI_ENDPOINT") 
+openai.api_version = "2024-02-01"
+openai.api_key = os.getenv("AZURE_OPENAI_API_KEY")
+
+response = openai.ChatCompletion.create(
+    engine="gpt-35-turbo-ft", # engine = "Custom deployment name you chose for your fine-tuning model"
+    messages=[
+        {"role": "system", "content": "You are a helpful assistant."},
+        {"role": "user", "content": "Does Azure OpenAI support customer managed keys?"},
+        {"role": "assistant", "content": "Yes, customer managed keys are supported by Azure OpenAI."},
+        {"role": "user", "content": "Do other Azure AI services support this too?"}
+    ]
+)
+
+print(response)
+print(response['choices'][0]['message']['content'])
+```
+
 ---
 
 ## Analyze your customized model
@@ -519,25 +536,6 @@ print(response.choices[0].message.content)
 Azure OpenAI attaches a result file named _results.csv_ to each fine-tune job after it completes. You can use the result file to analyze the training and validation performance of your customized model. The file ID for the result file is listed for each customized model, and you can use the Python SDK to retrieve the file ID and download the result file for analysis.
 
 The following Python example retrieves the file ID of the first result file attached to the fine-tuning job for your customized model, and then uses the Python SDK to download the file to your working directory for analysis.
-
-# [OpenAI Python 0.28.1](#tab/python)
-
-```python
-# Retrieve the file ID of the first result file from the fine-tune job
-# for the customized model.
-response = openai.FineTuningJob.retrieve(job_id)
-if response["status"] == 'succeeded':
-    result_file_id = response.result_files[0].id
-    result_file_name = response.result_files[0].filename
-
-# Download the result file.
-print(f'Downloading result file: {result_file_id}')
-# Write the byte array returned by the File.download() method to 
-# a local file in the working directory.
-with open(result_file_name, "wb") as file:
-    result = openai.File.download(id=result_file_id)
-    file.write(result)
-```
 
 # [OpenAI Python 1.x](#tab/python-new)
 
@@ -558,6 +556,25 @@ with open(retrieve.filename, "wb") as file:
     file.write(result)
 ```
 
+# [OpenAI Python 0.28.1](#tab/python)
+
+```python
+# Retrieve the file ID of the first result file from the fine-tune job
+# for the customized model.
+response = openai.FineTuningJob.retrieve(job_id)
+if response["status"] == 'succeeded':
+    result_file_id = response.result_files[0].id
+    result_file_name = response.result_files[0].filename
+
+# Download the result file.
+print(f'Downloading result file: {result_file_id}')
+# Write the byte array returned by the File.download() method to 
+# a local file in the working directory.
+with open(result_file_name, "wb") as file:
+    result = openai.File.download(id=result_file_id)
+    file.write(result)
+```
+
 ---
 
 The result file is a CSV file that contains a header row and a row for each training step performed by the fine-tuning job. The result file contains the following columns:
@@ -571,6 +588,10 @@ The result file is a CSV file that contains a header row and a row for each trai
 | `valid_loss` | The loss for the validation batch. |
 | `valid_accuracy` | The percentage of completions in the validation batch for which the model's predicted tokens exactly matched the true completion tokens.<br>For example, if the batch size is set to 3 and your data contains completions `[[1, 2], [0, 5], [4, 2]]`, this value is set to 0.67 (2 of 3) if the model predicted `[[1, 1], [0, 5], [4, 2]]`. |
 | `validation_mean_token_accuracy` | The percentage of tokens in the validation batch correctly predicted by the model.<br>For example, if the batch size is set to 3 and your data contains completions `[[1, 2], [0, 5], [4, 2]]`, this value is set to 0.83 (5 of 6) if the model predicted `[[1, 1], [0, 5], [4, 2]]`. |
+
+You can also view the data in your results.csv file as plots in Azure OpenAI Studio. Select the link for your trained model, and you will see three charts: loss, mean token accuracy, and token accuracy. If you provided validation data, both datasets will appear on the same plot.
+
+Look for your loss to decrease over time, and your accuracy to increase. If you see a divergence between your training and validation data, that may indicate that you are overfitting. Try training with fewer epochs, or a smaller learning rate multiplier.
 
 ## Clean up your deployments, customized models, and training files
 
@@ -637,8 +658,8 @@ from openai import AzureOpenAI
 
 client = AzureOpenAI(
   azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT"), 
-  api_key=os.getenv("AZURE_OPENAI_KEY"),  
-  api_version="2023-12-01-preview"  
+  api_key=os.getenv("AZURE_OPENAI_API_KEY"),  
+  api_version="2024-02-01"  
 )
 
 response = client.fine_tuning.jobs.create(
