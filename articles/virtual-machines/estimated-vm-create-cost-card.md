@@ -54,7 +54,7 @@ Costs associated with selecting existing resources during the VM creation proces
 
 | Resource or feature                      | Notes                                          |
 |------------------------------------------|-----------------------------------------------------------|
-| [Public IP](https://azure.microsoft.com/pricing/details/ip-addresses/) | Displays an estimate of running a public IP Address. A Standard Public IP is selected when a new IP is created as part of the default selection. |
+| [Public IP](https://azure.microsoft.com/pricing/details/ip-addresses/) | Estimated cost of running a public IP Address. A Standard Public IP is selected when a new IP is created as part of the default selection. |
 | [VM Data transfer](https://azure.microsoft.com/pricing/details/bandwidth/) | Estimated cost is based on inter-region data transfer routed via Microsoft Premium Global Network. |
 | [Azure Load Balancer](https://azure.microsoft.com/pricing/details/load-balancer/) | A new Standard Azure Load Balancer estimate includes the cost of one rule and estimated data processed. For an existing Azure load balancer, the estimate includes only the estimated data transfer and Azure assumes rules already exist. |
 | [Azure Application Gateway](https://azure.microsoft.com/pricing/details/application-gateway/) | A new Application Gateway v2 estimate includes Fixed, Capacity units and estimate outbound data transfer costs. For this estimate, one capacity unit consumption is assumed. For an existing Azure Application gateway, only the outbound data transfer estimate is displayed. Azure assumes that other fixed costs are already paid for. |
