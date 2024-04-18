@@ -229,7 +229,7 @@ For Azure Monitor limits, see [Azure Monitor service limits](../../azure-monitor
 
 ## Azure Policy limits
 
-[!INCLUDE [policy-limits](../../../includes/azure-policy-limits.md)]
+[!INCLUDE [azure-policy-limits](../../governance/includes/policy/azure-policy-limits.md)]
 
 ## Azure Quantum limits
 
