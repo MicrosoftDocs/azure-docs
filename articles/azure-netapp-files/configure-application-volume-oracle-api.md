@@ -88,7 +88,7 @@ In the following examples, selected placeholders are specified. You should repla
 * `<CapacityPoolResourceId>`:  
     Capacity pool resource ID. Example: `/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/myRG/providers/Microsoft.NetApp/netAppAccounts/account1/capacityPools/SH9_Pool `
 
-## Creating application volume groups for Oracle using curl
+## Create application volume groups for Oracle using curl
 
 Oracle volume groups for the following examples can be created using a sample shell script that calls the API using curl:
 

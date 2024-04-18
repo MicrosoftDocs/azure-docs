@@ -315,7 +315,7 @@
           href: application-volume-group-add-volume-secondary.md
         - name: Add volumes for an SAP HANA system as a DR system
           href: application-volume-group-disaster-recovery.md
-        - name: Manage volumes in an application volume group for SAP NANA
+        - name: Manage volumes in an application volume group for SAP HANA
           href: application-volume-group-manage-volumes.md
         - name: Configure application volume groups for SAP HANA using REST API
           href: configure-application-volume-group-sap-hana-api.md
@@ -327,7 +327,7 @@
           href: application-volume-group-manage-volumes-oracle.md
         - name: Configure application volume group for Oracle using REST API
           href: configure-application-volume-oracle-api.md 
-        - name: Deploy application volume group for Oracle using ARM
+        - name: Deploy application volume group for Oracle using Azure Resource Manager
           href: configure-application-volume-oracle-azure-resource-manager.md 
       - name: Delete an application volume group
         href: application-volume-group-delete.md

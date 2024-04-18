@@ -183,7 +183,7 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 
     [ ![Screenshot that shows the Deployment in Progress window for Oracle.](./media/volume-hard-quota-guidelines/application-deployment-in-progress-oracle.png) ](./media/volume-hard-quota-guidelines/application-deployment-in-progress-oracle.png#lightbox)
 
-    Creating a volume group is an "all-or-none" operation. If one volume can't be created, the operation is cancelled, and all remaining volumes will be removed also.
+    Creating a volume group is an "all-or-none" operation. If one volume can't be created, the operation is canceled, and all remaining volumes will be removed also.
 
     [ ![Screenshot that shows the new volume group for Oracle.](./media/volume-hard-quota-guidelines/application-new-volume-group-oracle.png) ](./media/volume-hard-quota-guidelines/application-new-volume-group-oracle.png#lightbox)
 
