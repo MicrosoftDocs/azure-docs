@@ -72,9 +72,7 @@ The following list presents the set of features that are currently available in 
 | -----------------| ----------- |
 | Microsoft Teams Desktop | ✔️ |
 | Microsoft Teams Web | ✔️ |
-| Microsoft Teams iOS | ✔️ |
-| Microsoft Teams Android | ✔️ |
-| Azure Communications Services signed in with Microsoft 365 Identity | ❌ |
+| Azure Communications Services user app signed in with Microsoft 365 Identity | ✔️ |
 
 > [!NOTE]
 > While in preview, the support for Microsoft Teams mobile apps is available with limited functionality and some features might not work properly.   
