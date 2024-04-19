@@ -30,7 +30,6 @@ If a volume is deleted but the backup policy wasn’t disabled before the volume
 3. Select **Configure**.
 4. In the Configure Backups page, provide a null value for the **Backup Vault**. 
 
-
 ## Next steps  
 
 * [Understand Azure NetApp Files backup](backup-introduction.md)
