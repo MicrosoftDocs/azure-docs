@@ -85,7 +85,7 @@ The same share name can be used for:
 * volumes deployed in different regions
 * volumes deployed to different availability zones within the same region 
 
-If you are using:
+If you're using:
 * regional volumes (without availability zones) or
 * volumes within the same availability zone, 
 

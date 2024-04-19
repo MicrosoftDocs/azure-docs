@@ -81,7 +81,7 @@ Several features of Azure NetApp Files require that you have an Active Directory
 
 You can use the NetApp account overview page to confirm the Active Directory account type. There are three values for AD type:
 
-* **NA**: Existing NetApp account which supports only one AD configuration per subscription and region. The AD  configuration is not shared with other other NetApp accounts in the subscription.
+* **NA**: Existing NetApp account which supports only one AD configuration per subscription and region. The AD  configuration is not shared with other NetApp accounts in the subscription.
 * **MultiAD**: Account supports one AD configuration in each NetApp account in the subscription.
 * **SharedAD**: Account supports only one AD configuration per subscription and region, but is shared across all NetApp accounts in the subscription and region.
 
