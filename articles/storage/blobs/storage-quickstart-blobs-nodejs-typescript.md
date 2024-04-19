@@ -32,7 +32,7 @@ This section walks you through preparing a project to work with the Azure Blob S
 
 ### Create the Node.js project
 
-Create a JavaScript application named *blob-quickstart*.
+Create a TypeScript application named *blob-quickstart*.
 
 1. In a console window (such as cmd, PowerShell, or Bash), create a new directory for the project:
 
