@@ -34,7 +34,7 @@ Using confidential computing technologies, you can harden your virtualized envir
 
 Confidential computing support continues to expand, from foundational virtual machines, to GPU-backed offerings, and up the stack via containers, and managed services. 
 
-:::image type="content" source="media/overview-azure-products/confidential-computing-product-line.jpg" alt-text="Diagram of the various confidential computing enabled VM SKUs, container and data services.":::
+:::image type="content" source="media/overview-azure-products/confidential-computing-product-line.jpg" alt-text="Diagram of the various confidential computing enabled VM SKUs, container and data services." lightbox="media/overview-azure-products/confidential-computing-product-line.jpg":::
 
 Verifying that applications are running confidentially form the very foundation of confidential computing. This verification is multi-pronged and relies on the following suite of Azure offerings:
 
