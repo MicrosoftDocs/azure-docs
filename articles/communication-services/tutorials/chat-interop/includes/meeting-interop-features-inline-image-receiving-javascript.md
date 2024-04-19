@@ -9,19 +9,19 @@ ms.service: azure-communication-services
 
 In this tutorial, you learn how to enable inline image support using the Azure Communication Services Chat SDK for JavaScript.
 
-Inline images are images that are copied and pasted directly into the send box of the Teams client. For images that were uploaded via the "Upload from this device" menu or via drag-and-drop, such as images dragged directly to the send box in Teams, you need to refer to [this tutorial](../meeting-interop-features-file-attachment.md) to enable it as the part of the file sharing feature. (See the section "Handling Image Attachment.") To copy an image, the Teams user can either use their operating system's context menu to copy the image file and then paste it into the send box of their Teams client or use keyboard shortcuts.
+Inline images are images that are copied and pasted directly into the send box of the Teams client. For images uploaded via the "Upload from this device" menu or via drag-and-drop, such as images dragged directly to the send box in Teams, you need to refer to [this tutorial](../meeting-interop-features-file-attachment.md) as the part of the file sharing feature. (See the section "Handling Image Attachment.") To copy an image, the Teams user can either use their operating system's context menu to copy the image file and then paste it into the send box of their Teams client or use keyboard shortcuts.
 
-There are 2 parts in this tutorial, you learn what you need to do:
+There are two parts in this tutorial, you learn what you need to do:
 1. [when receiving an inline image](#handle-received-inline-images-in-new-message-event)
 2. [when sending out an inline image](#handle-sending-inline-images-in-new-message-request)
 
 
-Please note that the ability to send an inline image is currently available in public preview and it's only available for JavaScript only. And for receiving inline images, it's currently general available and available for both JavaScript and C# in a Teams interoperability chat. 
+Note that the ability to send an inline image is currently available in public preview and it's only available for JavaScript only. And for receiving inline images, it's currently general available and available for both JavaScript and C# in a Teams interoperability chat. 
 
 
 ## Sample Code
-Find the finalized code of this tutorial on [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/join-chat-to-teams-meeting).
 
+Find the finalized code of this tutorial on [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/join-chat-to-teams-meeting).
 
 ## Handle received inline images in new message event
 
@@ -218,7 +218,7 @@ To show full scale image in an overlay, we need to add a new component as well:
 
 ```
 
-with some CSS:
+With some CSS:
 
 ```css
 
@@ -353,13 +353,13 @@ var imageAttachment = await chatThreadClient.uploadImage(blob, file.name, {
 });
 ```
 
-Noticing the API takes in an image blob, file name string, and a function call back that reports upload progress.
+Noticing the API takes in an image blob, file name string, and a function callback that reports upload progress.
 
 Therefore, to send an image to other chat participant, we need to:
 
 1. Upload the image via `uploadImage` API from `ChatThreadClient`, save the returned object to somewhere
 2. Compose the message content and set attachment to the returned object we have saved in previous step
-3. Send the new message via `sendMessage` API from from `ChatThreadClient`
+3. Send the new message via `sendMessage` API from `ChatThreadClient`
 4. Done!
 
 
@@ -371,13 +371,13 @@ So let's begin to create a new file picker that accepts images like the followin
 <input style="display: none;" id="upload-result"></input>
 ```
 
-Next we need to set up a event licenser that will be called when there's a state change:
+Next we need to set up an event licenser for when there's a state change:
 
 ```js
 document.getElementById("upload").addEventListener("change", uploadImages);
 ```
 
-Here we need to create a new function that will be called when state changes:
+Here we need to create a new function for when state changes:
 
 ```js
 var uploadedImageModels = [];
@@ -413,9 +413,9 @@ async function uploadImage(file) {
 }
 ```
 
-Noticing in this example, we have created a `FileReader` which will first read each image as `base64` encoded images, then create a `Blob` before calling the ChatSDK API to upload them. Also notice how we have created a global `uploadedImageModels` to save the data models of uploaded images from the ChatSDK.
+Noticing in this example, we have created a `FileReader` to read each image as `base64` encoded images, then create a `Blob` before calling the ChatSDK API to upload them. Also notice how we created a global `uploadedImageModels` to save the data models of uploaded images from the ChatSDK.
 
-Lastly we need to modify the sendMessageButton event listener we have created previously to attach images we have just uploaded.
+Lastly we need to modify the sendMessageButton event listener we created previously to attach images we just uploaded.
 
 ```js
 sendMessageButton.addEventListener("click", async () => {
@@ -447,8 +447,6 @@ sendMessageButton.addEventListener("click", async () => {
 
 ```
 
-the newly added lines are marked by `// NEW`. 
-
 That's it, now let's run the code and see it in action. 
 
 ### Run the code 
@@ -471,7 +469,7 @@ Then we can select images we wanted to attach:
 
 :::image type="content" source="./media/meeting-interop-features-inline-7.png" alt-text="7.":::
 
-Upon clicking send button, the Teams user should now receive the image we just sent out:
+The Teams user should now receive the image we just sent out when they click on send button:
 
 :::image type="content" source="./media/meeting-interop-features-inline-8.png" alt-text="8.":::
 
