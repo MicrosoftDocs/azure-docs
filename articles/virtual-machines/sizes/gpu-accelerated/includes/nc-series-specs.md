@@ -16,4 +16,4 @@ ms.custom: include file
 | Memory           | 56 - 224<sup>GiB    |                                                |
 | Data Disks       | 24 - 64<sup>Disks     |                                                |
 | Network          | 1 - 4<sup>NICs       |                                                  |
-| Accelerators     | 1 - 4 [NVIDIA Tesla K80](https://www.nvidia.com/content/dam/en-zz/Solutions/Data-Center/tesla-product-literature/Tesla-K80-BoardSpec-07317-001-v05.pdf) | 12<sup>GiB </sup>/ GPU |
+| Accelerators     | 1 - 4<sup>GPUs</sup> | [NVIDIA Tesla K80](https://www.nvidia.com/content/dam/en-zz/Solutions/Data-Center/tesla-product-literature/Tesla-K80-BoardSpec-07317-001-v05.pdf) 12<sup>GiB </sup> <br> 12 - 48<sup>GiB</sup> per VM |

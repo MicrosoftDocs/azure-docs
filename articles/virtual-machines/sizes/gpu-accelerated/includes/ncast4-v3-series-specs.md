@@ -16,4 +16,4 @@ ms.custom: include file
 | Memory           | 28 - 440<sup>GiB     |                                                |
 | Data Disks       | 8 - 32<sup>Disks     | 20000 - 80000<sup>IOPS</sup> / 200 - 800<sup>MBps    |
 | Network          | 2 - 8 <sup>NICs       | 8000 - 32000<sup>Mbps                           |
-| Accelerators     | 1 - 4 NVIDIA Tesla T4 | 16<sup>GiB </sup>/ GPU |
+| Accelerators     | 1 - 4<sup>GPUs</sup> | NVIDIA Tesla T4 16<sup>GiB </sup> <br> 16 - 64<sup>GiB</sup> per VM|

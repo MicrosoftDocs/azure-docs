@@ -9,11 +9,11 @@ ms.date: 04/18/2024
 ms.author: mattmcinnes
 ---
 
-# 'NP' family storage optimized VM size series
+# 'NC' sub-family GPU accelerated VM size series
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
-The 'NC' family of VM size series are one of Azure's GPU-optimized VM instances. They're designed for compute-intensive workloads, such as AI and machine learning model training, high-performance computing (HPC), and graphics-intensive applications. Equipped with powerful NVIDIA GPUs, NC-series VMs offer substantial acceleration for processes that require heavy computational power, including deep learning, scientific simulations, and 3D rendering. This makes them particularly well-suited for industries such as technology research, entertainment, and engineering, where rendering and processing speed are critical to productivity and innovation.
+The 'NC' sub-family of VM size series are one of Azure's GPU-optimized VM instances. They're designed for compute-intensive workloads, such as AI and machine learning model training, high-performance computing (HPC), and graphics-intensive applications. Equipped with powerful NVIDIA GPUs, NC-series VMs offer substantial acceleration for processes that require heavy computational power, including deep learning, scientific simulations, and 3D rendering. This makes them particularly well-suited for industries such as technology research, entertainment, and engineering, where rendering and processing speed are critical to productivity and innovation.
 
 ## Workloads and use cases
 
@@ -29,7 +29,7 @@ The 'NC' family of VM size series are one of Azure's GPU-optimized VM instances.
 
 ## Series in family
 
-### NC-series
+### NC-series V1
 [!INCLUDE [nc-series-summary](./includes/nc-series-summary.md)]
 
 [View the full NC-series page](../../nc-series.md).

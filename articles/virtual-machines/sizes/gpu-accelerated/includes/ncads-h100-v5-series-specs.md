@@ -16,4 +16,4 @@ ms.custom: include file
 | Memory           | 320 - 640<sup>GiB    |                                                |
 | Data Disks       | 8 - 16<sup>Disks     | 100000 - 240000<sup>IOPS</sup> / 3000 - 7000<sup>MBps                                                |
 | Network          | 2 - 4<sup>NICs       | 40000 - 80000<sup>Mbps </sup>                                |
-| Accelerators     | 1 - 2 NVIDIA H100 NVL | 94<sup>GiB </sup>/ GPU |
+| Accelerators     | 1 - 2<sup>GPUs</sup> | NVIDIA H100 NVL 94<sup>GiB </sup> <br> 94 - 188<sup>GiB</sup> per VM|

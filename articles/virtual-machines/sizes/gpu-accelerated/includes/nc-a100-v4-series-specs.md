@@ -16,4 +16,4 @@ ms.custom: include file
 | Memory           | 220 - 880<sup>GiB     |                                                |
 | Data Disks       | 8 - 32<sup>Disks     | 30000 - 120000<sup>IOPS</sup> / 1000 - 4000<sup>MBps    |
 | Network          | 2 - 8 <sup>NICs       | 20000 - 80000<sup>Mbps                           |
-| Accelerators     | 1 - 4 NVIDIA A100 (PCIe) | 80<sup>GiB </sup>/ GPU |
+| Accelerators     | 1 - 4<sup>GPUs</sup>  | NVIDIA A100 (PCIe) 80<sup>GiB </sup> <br> 80 - 320<sup>GiB</sup> per VM|
