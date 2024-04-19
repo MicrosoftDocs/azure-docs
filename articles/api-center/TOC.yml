@@ -11,9 +11,9 @@
       - name: Key concepts
         href: key-concepts.md  
       - name: Service limits
-        href: ../azure-resource-manager/management/azure-subscription-service-limits.md#api-center-limits
+        href: ../azure-resource-manager/management/azure-subscription-service-limits.md?toc=/azure/api-center/toc.json&bc=/azure/api-center/breadcrumb/toc.json#api-center-limits
       - name: Frequently asked questions
-        href: frequently-asked-questions.yml  
+        href: frequently-asked-questions.yml    
     - name: Quickstarts
       items:
           - name: Create an API center
@@ -46,6 +46,10 @@
         href: use-vscode-extension.md
       - name: Discover APIs with GitHub Copilot Chat
         href: use-vscode-extension-copilot.md
+- name: API center management and operations
+  items:
+      - name: Reliability
+        href: ../reliability/reliability-api-center.md?toc=/azure/api-center/toc.json&bc=/azure/api-center/breadcrumb/toc.json
 - name: Reference
   items:
       - name: Azure CLI
@@ -61,6 +65,8 @@
           - name: Python
             href: https://pypi.org/project/azure-mgmt-apicenter
       - name: Event Grid schema
-        href: ../event-grid/event-schema-api-center.md
+        href: ../event-grid/event-schema-api-center.md?toc=/azure/api-center/toc.json&bc=/azure/api-center/breadcrumb/toc.json
       - name: Resource Manager template
         href: /azure/templates/microsoft.apicenter/allversions
+      - name: Azure built-in roles
+        href: ../role-based-access-control/built-in-roles.md?toc=/azure/api-center/toc.json&bc=/azure/api-center/breadcrumb/toc.json#integration

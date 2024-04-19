@@ -181,6 +181,14 @@ Azure AI Video Indexer enabled by Arc runs video and audio analysis on edge devi
 
 For more information, see [Try Azure AI Video Indexer enabled by Arc](/azure/azure-video-indexer/azure-video-indexer-enabled-by-arc-quickstart).
 
+## Edge Storage Accelerator
+
+- **Supported distributions**: AKS enabled by Azure Arc, AKS Edge Essentials, Ubuntu
+
+[Edge Storage Accelerator (ESA)](../edge-storage-accelerator/index.yml) is a first-party storage system designed for Arc-connected Kubernetes clusters. ESA can be deployed to write files to a "ReadWriteMany" persistent volume claim (PVC) where they are then transferred to Azure Blob Storage. ESA offers a range of features to support Azure IoT Operations and other Azure Arc Services.
+
+For more information, see [What is Edge Storage Accelerator?](../edge-storage-accelerator/overview.md).
+
 ## Next steps
 
 - Read more about [cluster extensions for Azure Arc-enabled Kubernetes](conceptual-extensions.md).
