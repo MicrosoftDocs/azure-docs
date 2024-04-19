@@ -11,7 +11,7 @@ ms.topic: how-to
 author: cloga
 ms.author: lochen
 ms.reviewer: lagayhar
-ms.date: 04/1/2024
+ms.date: 04/19/2024
 ---
 
 # Manage prompt flow compute session in Azure Machine Learning studio
@@ -47,7 +47,7 @@ One flow will bind to one compute session. You can start an compute session on a
 
   - Select compute type. You can choose between serverless compute and compute instance. 
     - If you choose serverless compute, you can set following settings:
-        - Customize the VM size that the compute session uses.
+        - Customize the VM size that the compute session uses. Please opt for VM series D and above. For additional information, refer to the section on [Supported VM series and sizes](../concept-compute-target.md#supported-vm-series-and-sizes)
         - Customize the idle time, which will delete the compute session automatically if it isn't in use for a while.
         - Set the user-assigned managed identity. The compute session uses this identity to pull a base image, auth with connection and install packages. Make sure that the user-assigned managed identity has enough permission. If you don't set this identity, we use the user identity by default. 
 
@@ -68,7 +68,6 @@ One flow will bind to one compute session. You can start an compute session on a
            user_assigned_identities:
             '/subscriptions/<subscription_id>/resourcegroups/<resource_group_name>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<uai_name>': {}
             '<UAI resource ID 2>': {}
-        primary_user_assigned_identity: <one of the UAI resource IDs in the above list>
         ```
 
         > [!TIP]
@@ -109,7 +108,7 @@ data: <path_to_flow>/data.jsonl
 # identity:
 #   type: user_identity 
 
-# use workspace primary UAI
+# use workspace first UAI
 # identity:
 #   type: managed
   
@@ -197,34 +196,33 @@ On a flow page, you can use the following options to manage an compute session:
 
 - **Change compute session settings**, you change compute settings like VM size and e user-assigned managed identity for serverless compute, if you are using compute instance you can change to use other instance. You can also change 
 -   can also change the user-assigned managed identity for serverless compute. If you change the VM size, the compute session will be reset with the new VM size. If you
-- **Install packages** Open `requirements.txt` in prompt flow UI, you can add packages in it.
-- **View installed packages** shows the packages that are installed in the runtime. It includes the packages baked to base image and packages specify in the `requirements.txt` file in the flow folder.
-- **Reset** deletes the current runtime and creates a new one with the same environment. If you encounter a package conflict issue, you can try this option.
-- **Edit** opens the runtime configuration page, where you can define the VM side and the idle time for the runtime.
-- **Stop** deletes the current runtime. If there's no active runtime on the underlying compute, the compute resource is also deleted.
+- **Install packages from requirements.txt** Open `requirements.txt` in prompt flow UI, you can add packages in it.
+- **View installed packages** shows the packages that are installed in the compute session. It includes the packages install to base image and packages specify in the `requirements.txt` file in the flow folder.
+- **Reset compute session** deletes the current compute session and creates a new one with the same environment. If you encounter a package conflict issue, you can try this option.
+- **Stop compute session** deletes the current compute session. If there's no active compute session on the underlying compute, the serverless compute resource will also be deleted.
 
-:::image type="content" source="./media/how-to-create-manage-runtime/runtime-create-automatic-actions.png" alt-text="Screenshot of actions for an automatic runtime on a flow page." lightbox = "./media/how-to-create-manage-runtime/runtime-create-automatic-actions.png":::
+:::image type="content" source="./media/how-to-manage-compute-session/update-compute-session.png" alt-text="Screenshot of actions for an compute session on a flow page." lightbox = "./media/how-to-manage-compute-session/update-compute-session.png":::
 
 You can also customize the environment that you use to run this flow by adding packages in the `requirements.txt` file in the flow folder. After you add more packages in this file, you can choose either of these options:
 
 - **Save and install** triggers `pip install -r requirements.txt` in the flow folder. The process can take a few minutes, depending on the packages that you install.
 - **Save only** just saves the `requirements.txt` file. You can install the packages later yourself.
 
-:::image type="content" source="./media/how-to-create-manage-runtime/runtime-create-automatic-save-install.png" alt-text="Screenshot of the option to save and install packages for an automatic runtime on a flow page." lightbox = "./media/how-to-create-manage-runtime/runtime-create-automatic-save-install.png":::
+:::image type="content" source="./media/how-to-manage-compute-session/save-install.png" alt-text="Screenshot of the option to save and install packages for an compute session on a flow page." lightbox = "./media/how-to-manage-compute-session/save-install.png":::
 
 > [!NOTE]
 > You can change the location and even the file name of `requirements.txt`, but be sure to also change it in the `flow.dag.yaml` file in the flow folder.
 >
 > Don't pin the version of `promptflow` and `promptflow-tools` in `requirements.txt`, because we already include them in the session base image.
 > 
-> `requirements.txt` didn't support local wheel file, you need build them in your image and update customize base image in `flow.dag.yaml`. Learn more [how to build custom base image](how-to-customize-environment-runtime.md#customize-environment-with-docker-context-for-runtime)
+> `requirements.txt` didn't support local wheel file, you need build them in your image and update customize base image in `flow.dag.yaml`. Learn more [how to build custom base image](how-to-customize-session-base-image.md#customize-environment-with-docker-context-for-runtime)
 
 #### Add packages in a private feed in Azure DevOps
 
 If you want to use a private feed in Azure DevOps, follow these steps:
 
 1. Assign managed identity to workspace or compute instance.
-    1. Use serverless compute as automatic runtime, you need assign user-assigned managed identity to workspace.
+    1. Use serverless compute as compute session, you need assign user-assigned managed identity to workspace.
         1. Create a user-assigned managed identity and add this identity in the Azure DevOps organization. To learn more, see [Use service principals and managed identities](/azure/devops/integrate/get-started/authentication/service-principal-managed-identity).
 
             > [!NOTE]
@@ -235,7 +233,7 @@ If you want to use a private feed in Azure DevOps, follow these steps:
             > [!NOTE]
             > Please make sure the user-assigned managed identity has `Microsoft.KeyVault/vaults/read` on the workspace linked keyvault.
   
-    2. Use compute instance as automatic runtime, you need [assign a user-assigned managed identity to a compute instance](../how-to-create-compute-instance.md#assign-managed-identity).
+    2. Use compute instance as compute session, you need [assign a user-assigned managed identity to a compute instance](../how-to-create-compute-instance.md#assign-managed-identity).
 
 2. Add `{private}` to your private feed URL. For example, if you want to install `test_package` from `test_feed` in Azure DevOps, add `-i https://{private}@{test_feed_url_in_azure_devops}` in `requirements.txt`:
 
@@ -244,36 +242,42 @@ If you want to use a private feed in Azure DevOps, follow these steps:
    test_package
    ```
 
-3. Specify using user-assigned managed identity in the runtime configuration. 
-    1. If you are using serverless compute, specify the user-assigned managed identity in **Start with advanced settings** if automatic runtime isn't running, or use the **Edit** button if automatic runtime is running.
+3. Specify using user-assigned managed identity in the compute session configuration. 
+    1. If you are using serverless compute, specify the user-assigned managed identity in **Start with advanced settings** if compute session isn't running, or use the **Change compute session settings** button if compute session is running.
 
-       :::image type="content" source="./media/how-to-create-manage-runtime/runtime-advanced-setting-msi.png" alt-text="Screenshot that shows the toggle for using a workspace user-assigned managed identity. " lightbox = "./media/how-to-create-manage-runtime/runtime-advanced-setting-msi.png":::
+       :::image type="content" source="./media/how-to-manage-compute-session/compute-session-user-assigned-identity.png" alt-text="Screenshot that shows the toggle for using a workspace user-assigned managed identity. " lightbox = "./media/how-to-manage-compute-session/compute-session-user-assigned-identity.png":::
     2. If you are using compute instance, it will use the user-assigned managed identity that you assigned to the compute instance.
 
 
 > [!NOTE]
-> This approach mainly focuses on quick testing in flow develop phase, if you also want to deploy this flow as endpoint please build this private feed in your image and update customize base image in `flow.dag.yaml`. Learn more [how to build custom base image](how-to-customize-environment-runtime.md#customize-environment-with-docker-context-for-runtime)
+> This approach mainly focuses on quick testing in flow develop phase, if you also want to deploy this flow as endpoint please build this private feed in your image and update customize base image in `flow.dag.yaml`. Learn more [how to build custom base image](how-to-customize-session-base-image.md#customize-environment-with-docker-context-for-runtime)
 
-#### Change the base image for automatic runtime (preview)
+#### Change the base image for compute session
 
-By default, we use the latest prompt flow image as the base image. If you want to use a different base image, you can [build a custom one](how-to-customize-environment-runtime.md#customize-environment-with-docker-context-for-runtime). Then, put the new base image under `environment` in the `flow.dag.yaml` file in the flow folder. To use the new base image, you need to reset the runtime via the `reset` command. This process takes several minutes as it pulls the new base image and reinstalls packages.
+By default, we use the latest prompt flow base image. If you want to use a different base image, you can [build a custom one](how-to-customize-session-base-image.md#customize-environment-with-docker-context-for-runtime). 
 
-:::image type="content" source="./media/how-to-create-manage-runtime/runtime-creation-automatic-image-flow-dag.png" alt-text="Screenshot of actions for customizing an environment for an automatic runtime on a flow page." lightbox = "./media/how-to-create-manage-runtime/runtime-creation-automatic-image-flow-dag.png":::
+- In studio UI, you can change base image in base image settings under compute session settings. You need apply this change and 
 
-```yaml
-environment:
-    image: <your-custom-image>
-    python_requirements_txt: requirements.txt
-```
+:::image type="content" source="./media/how-to-manage-compute-session/change-base-image.png" alt-text="Screenshot of changing base image of an compute session on a flow page." lightbox = "./media/how-to-manage-compute-session/change-base-image.png":::
 
+- You can also specify the new base image under `environment` in the `flow.dag.yaml` file in the flow folder. To use the new base image, you need to reset the compute session. This process takes several minutes as it pulls the new base image and reinstalls packages.
 
-## Relationship between runtime, compute resource, flow and user
+    :::image type="content" source="./media/how-to-manage-compute-session/base-image-in-flow-dag.png" alt-text="Screenshot of actions for customizing an base image for an compute session on a flow page." lightbox = "./media/how-to-manage-compute-session/base-image-in-flow-dag.png":::
+    
+    ```yaml
+    environment:
+        image: <your-custom-image>
+        python_requirements_txt: requirements.txt
+    ```
+    
 
-- One single user can have multiple compute resources (serverless or compute instance). Base on customer different need, we allow single user to have multiple compute resources. For example, one user can have multiple compute resources with different VM size. You can find 
-- One compute resource can only be used by single user. Compute resource is model as private dev box of single user, so we didn't allow multiple user share same compute resources. In AI studio case, different user can join different project and data and other asset need to be isolated, so we didn't allow multiple user share same compute resources.
-- One compute resource can host multiple runtimes. Runtime is container running on underlying compute resource, as in common case, prompt flow authoring didn't need too many compute resources, we allow single compute resource to host multiple runtimes from same user. 
-- One runtime only belongs to single compute resource in same time. But you can delete or stop runtime and reallocate it to other compute resource.
-- In automatic runtime, one flow only have one runtime, as we expect each flow is self contained it defined the base image and required python package in flow folder. In compute instance runtime, you can run different flow on same compute instance runtime, but you need make sure the packages and image is compatible.
+## Relationship between compute session, compute resource, flow and user
+
+- One single user can have multiple compute resources (serverless or compute instance). Base on customer different need, we allow single user to have multiple compute resources. For example, one user can have multiple compute resources with different VM size or different user-assigned managed identity.
+- One compute resource can only be used by single user. Compute resource is model as private dev box of single user, so we didn't allow multiple user share same compute resources. 
+- One compute resource can host multiple compute session. Compute session is container running on underlying compute resource, as in common case, prompt flow authoring didn't need too many compute resources, we allow single compute resource to host multiple compute session from same user. 
+- One compute session only belongs to single compute resource in same time. But you can delete or stop compute session and reallocate it to other compute resource.
+- One flow only have one compute session, as we expect each flow is self contained which defined the base image and required python package in flow folder. 
 
 ## Switch compute instance runtime to compute session
 
@@ -281,15 +285,16 @@ Compute session has following advantages over compute instance runtime:
 - Automatic manage lifecycle of session and underlying compute. You don't need to manually create and managed them anymore.
 - Easily customize packages by adding packages in the `requirements.txt` file in the flow folder, instead of creating a custom environment.
 
-You can switch it to an compute session by using the following steps:
+You can switch compute instance runtime to an compute session by using the following steps:
 - Prepare your `requirements.txt` file in the flow folder. Make sure that you don't pin the version of `promptflow` and `promptflow-tools` in `requirements.txt`, because we already include them in the base image. Compute session will install the packages in `requirements.txt` file when it starts.
-- If you create custom environment to create compute instance runtime, you can also use get the image from environment detail page, and specify it in `flow.dag.yaml` file in the flow folder.  To learn more, see [Change the base image for automatic runtime (preview)](#change-the-base-image-for-automatic-runtime-preview). Make sure you have `acr pull` permission for the image.
+- If you create custom environment to create compute instance runtime, you can also use get the image from environment detail page, and specify it in `flow.dag.yaml` file in the flow folder.  To learn more, see [Change the base image for automatic runtime (preview)](#change-the-base-image-for-compute-session). Make sure you or related user assigned managed identity on workspace have `acr pull` permission for the image.
 
-:::image type="content" source="./media/how-to-create-manage-runtime/image-path-environment-detail.png" alt-text="Screenshot of finding image in environment detail page." lightbox = "./media/how-to-create-manage-runtime/image-path-environment-detail.png":::
+:::image type="content" source="./media/how-to-manage-compute-session/image-path-environment-detail.png" alt-text="Screenshot of finding image in environment detail page." lightbox = "./media/how-to-manage-compute-session/image-path-environment-detail.png":::
 
 - For compute resource, you can continue to use the existing compute instance if you would like to manually manage the lifecycle of compute resource or you can try serverless compute which lifecycle is managed by system.
 
 ## Next steps
 
+- [How to customize base image of compute session](how-to-customize-session-base-image.md)
 - [Develop a standard flow](how-to-develop-a-standard-flow.md)
 - [Develop a chat flow](how-to-develop-a-chat-flow.md)
