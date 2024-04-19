@@ -1712,12 +1712,22 @@
         },
         {
             "source_path_from_root": "/articles/guides/developer/index.md",
-            "redirect_url": "/azure/guides/developer/azure-developer-guide",
+            "redirect_url": "/azure/developer/",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/guides/developer/azure-developer-guide.md",
+            "redirect_url": "/azure/developer/",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/guides/operations/index.md",
-            "redirect_url": "/azure/guides/operations/azure-operations-guide",
+            "redirect_url": "/azure/developer/intro/azure-developer-key-concepts",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/guides/operations/azure-operations-guide.md",
+            "redirect_url": "/azure/developer/intro/azure-developer-key-concepts",
             "redirect_document_id": false
         },
         {
@@ -3840,8 +3850,18 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/aks/cluster-configuration.md",
+            "redirect_url": "/azure/aks/concepts-clusters-workloads.md",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/orbital/overview-analytics.md",
             "redirect_url": "/azure/orbital/overview",
+            "redirect_document_id": false  
+        },
+        {
+            "source_path_from_root": "/articles/aks/intro-kubernetes.md",
+            "redirect_url": "/azure/aks/what-is-aks",
             "redirect_document_id": false
         },
         {
@@ -3920,11 +3940,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/container-registry/container-registry-auth-aci.md",
-            "redirect_url": "/azure/container-registry/container-registry-authentication",
-            "redirect_document_id": false
-        },
-        {
             "source_path_from_root": "/articles/event-hubs/move-cluster-across-regions.md",
             "redirect_url": "/azure/operational-excellence/relocation-event-hub-cluster",
             "redirect_document_id": false
@@ -3974,6 +3989,16 @@
             "source_path_from_root":"/articles/trusted-signing/concept.md",
             "redirect_url":"/azure/trusted-signing/concept-trustedsigning-resources-roles",
             "redirect_document_id":false 
-        }
+        },
+        {
+            "source_path_from_root":"/articles/container-instances/availability-zones.md",
+            "redirect_url":"/azure/reliability/reliability-containers",
+            "redirect_document_id":false 
+        },
+		{
+			"source_path_from_root":"/articles/service-connector/quickstart-cli-aks-connection.md",
+			"redirect_url":"/azure/service-connector/quickstart-portal-aks-connection",
+			"redirect_document_id":false
+		}
     ]
 }

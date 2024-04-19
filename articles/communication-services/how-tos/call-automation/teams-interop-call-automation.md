@@ -23,7 +23,7 @@ In this quickstart, we use the Azure Communication Services Call Automation APIs
 ## Prerequisites
 
 - An Azure account with an active subscription.
-- A Microsoft Teams phone license and a Teams tenant with administrative privileges. Teams phone license is a must in order to use this feature, learn more about Teams licenses [here](https://www.microsoft.com/microsoft-teams/compare-microsoft-teams-bundle-options). Administrative privileges are required to authorize Communication Services resource to call Teams users, explained later in Step 1.  
+- A Microsoft Teams phone license and a Teams tenant with administrative privileges. Teams phone license is a must in order to use this feature, learn more about Teams licenses [here](https://www.microsoft.com/microsoft-teams/compare-microsoft-teams-bundle-options). The Microsoft Teams user must also be `voice` enabled, see [setting-up-your-phone-system](https://learn.microsoft.com/microsoftteams/setting-up-your-phone-system).  Administrative privileges are required to authorize Communication Services resource to call Teams users, explained later in Step 1.  
 - A deployed [Communication Service resource](../../quickstarts/create-communication-resource.md) and valid connection string found by selecting Keys in left side menu on Azure portal.
 - [Acquire a PSTN phone number from the Communication Service resource](../../quickstarts/telephony/get-phone-number.md). Note the phone number you acquired to use in this quickstart. 
 - An Azure Event Grid subscription to receive the `IncomingCall` event.

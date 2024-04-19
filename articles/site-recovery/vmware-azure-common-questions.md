@@ -389,6 +389,10 @@ When you fail back from Azure, data from Azure is copied back to your on-premise
 
 No. Azure Site Recovery cannot use On-demand capacity reservation unless it's Azure to Azure scenario.
 
+### The application license is based on UUID of VMware virtual machine. Is the UUID of a VMware virtual machine changed when it is failed over to Azure?
+
+Yes, the UUID of the Azure virtual machine is different from the on-prem VMware virtual machine. However, most application vendors support transferring the license to a new UUID. If the application supports it, the customer can work with the vendor to transfer the license to the VM with the new UUID.
+
 ## Automation and scripting
 
 ### Can I set up replication with scripting?
