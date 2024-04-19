@@ -14,12 +14,9 @@ ms.author: yanzh
 ---
 # Tutorial: Use dynamic configuration in JavaScript
 
-Data from App Configuration can be loaded and consumed as a Map or an object.
-For more information, see the [quickstart](./quickstart-javascript-provider.md).
-The Azure App Configuration JavaScript provider supports caching and refreshing configuration dynamically without app restart.
-This tutorial shows how to enable dynamic configuration in JavaScript applications.
-
-In this tutorial, you learn how to set up your JavaScript app to update its configuration in response to changes in an App Configuration store.
+In this tutorial, you learn how to enable dynamic configuration in your JavaScript applications.
+The example in this tutorial builds on the sample application introduced in the JavaScript quickstart.
+Before you continue, finish [Create a JavaScript app with Azure App Configuration](./quickstart-javascript-provider.md).
 
 ## Prerequisites
 
@@ -40,10 +37,9 @@ Add the following key-value to your Azure App Configuration store. For more info
 ## Reload data from App Configuration
 
 The following examples show how to use refreshable configuration values in console applications.
-The refresh behavior is configured by `refreshOptions` parameter when calling `load` function.
-The loaded configuration is updated when a change is detected on the server.
+Choose the following instructions based on how your application consumes configuration data loaded from App Configuration, either as a `Map` or a configuration object.
 
-1. Open the file *app.js* and update the `load` function. Add a `refreshOptions` parameter to enable the refresh and configure refresh options. By default, a refresh interval of 30 seconds is used, but you can override it with the `refreshIntervalInMs` property.
+1. Open the file *app.js* and update the `load` function. Add a `refreshOptions` parameter to enable the refresh and configure refresh options. The loaded configuration will be updated when a change is detected on the server. By default, a refresh interval of 30 seconds is used, but you can override it with the `refreshIntervalInMs` property.
 
     ### [Use configuration as Map](#tab/configuration-map)
 
