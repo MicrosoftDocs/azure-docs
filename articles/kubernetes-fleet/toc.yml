@@ -28,8 +28,6 @@
     href: concepts-resource-propagation.md
   - name: Multi-cluster layer-4 load balancing
     href: concepts-l4-load-balancing.md
-  - name: FAQ
-    href: faq.md
 - name: How-to guides
   items:
   - name: Orchestrate updates across multiple member clusters
@@ -62,3 +60,7 @@
     href: /javascript/api/overview/azure/container-service-fleet
   - name: Resource Manager template
     href: /azure/templates/microsoft.containerservice/fleets
+- name: FAQ
+  href: faq.md
+- name: Troubleshooting
+  href: https://github.com/Azure/fleet/blob/main/docs/troubleshooting
