@@ -16,8 +16,6 @@ zone_pivot_groups: acs-interop-chat-tutorial-js-csharp
 
 The Chat SDK works seamlessly with Microsoft Teams in the context of a meeting. Only a Teams user can send file attachments to an Azure Communication Services user. An Azure Communication Services user can't send file attachments to a to Teams user. For the current capabilities, see [Teams Interop Chat](../../concepts/interop/guest/capabilities.md).
 
-## Add file attachment support
-
 The Chat SDK provides `previewUrl` for each file attachment. Specifically, the `previewUrl` links to a webpage on SharePoint where the user can see the content of the file, edit the file, and download the file if permission allows. 
 
 Some constraints associated with this feature:
