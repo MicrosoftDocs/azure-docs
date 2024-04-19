@@ -1170,7 +1170,7 @@ You can control this tracing capability at the application level by adding the f
    > If you download a log or trace file that your logic app workflow opened 
    > and is currently in use, your download might result in an empty file.
 
-## Enable SAP CCL (Common Crypto Library) logging
+## Enable SAP CCL (Common Crypto Library) logging (built-in connector only)
 
 When you have to investigate any problems with crypto library while using PSE authentication, you can set up custom text file-based CCL logging, which SAP or Microsoft support might request from you. By default, this capability is disabled because enabling this trace might negatively affect performance and quickly consume the application host's storage space.
 
