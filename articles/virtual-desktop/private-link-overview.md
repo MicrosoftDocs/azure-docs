@@ -77,11 +77,11 @@ When a user connects to Azure Virtual Desktop over Private Link, and Azure Virtu
 
 1. For each workspace in the feed, a DNS query is made for the address `<workspaceId>.privatelink.wvd.microsoft.com`.
 
-1. Your private DNS zone for **privatelink.wvd.microsoft.com** returns the private IP address for the workspace feed download.
+1. Your private DNS zone for **privatelink.wvd.microsoft.com** returns the private IP address for the workspace feed download, and downloads the feed using TCP port 443.
 
 1. When connecting to a remote session, the `.rdp` file that comes from the workspace feed download contains the address for the Azure Virtual Desktop gateway service with the lowest latency for the user's device. A DNS query is made to an address in the format `<hostpooId>.afdfp-rdgateway.wvd.microsoft.com`.
 
-1. Your private DNS zone for **privatelink.wvd.microsoft.com** returns the private IP address for the Azure Virtual Desktop gateway service to use for the host pool providing the remote session. Azure networking's internal infrastructure manages two key processes: orchestration through the virtual network and the private endpoint the connection takes, using TCP port 443. 
+1. Your private DNS zone for **privatelink.wvd.microsoft.com** returns the private IP address for the Azure Virtual Desktop gateway service to use for the host pool providing the remote session. Orchestration through the virtual network and the private endpoint uses TCP port 443. 
 
 1. Following orchestration, the network traffic between the client, Azure Virtual Desktop gateway service, and session host is transferred over to a port in the TCP dynamic port range of 1 - 65535. The entire port range is needed because port mapping is used to all global gateways through the single private endpoint IP address corresponding to the *connection* sub-resource. Azure private networking internally maps these ports to the appropriate gateway that was selected during client orchestration.
 
