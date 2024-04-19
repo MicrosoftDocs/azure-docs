@@ -214,18 +214,18 @@ For continuation (`C`) and end (`E`) flow states, byte and packet counts are agg
 
 ## Pricing
 
-VNet flow logs are charged per gigabyte of ***Network flow logs collected*** and come with a free tier of 5 GB/month per subscription.
+- VNet flow logs are charged per gigabyte of ***Network flow logs collected*** and come with a free tier of 5 GB/month per subscription.
 
-> [!NOTE]
-> VNet flow logs will be billed effective June 1, 2024.
+    > [!NOTE]
+    > VNet flow logs will be billed effective June 1, 2024.
 
-If traffic analytics is enabled with VNet flow logs, traffic analytics pricing applies at per gigabyte processing rates. Traffic analytics isn't offered with a free tier of pricing. For more information, see [Network Watcher pricing](https://azure.microsoft.com/pricing/details/network-watcher/).
+- If traffic analytics is enabled with VNet flow logs, traffic analytics pricing applies at per gigabyte processing rates. Traffic analytics isn't offered with a free tier of pricing. For more information, see [Network Watcher pricing](https://azure.microsoft.com/pricing/details/network-watcher/).
 
-Storage of logs is charged separately. For more information, see [Azure Blob Storage pricing](https://azure.microsoft.com/pricing/details/storage/blobs/).
+- Storage of logs is charged separately. For more information, see [Azure Blob Storage pricing](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
 ## Availability
 
-Azure Virtual Network encryption is generally available in all Azure public regions.
+VNet flow logs are generally available in all Azure public regions.
 
 ## Related content
 
