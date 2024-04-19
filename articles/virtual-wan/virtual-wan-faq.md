@@ -42,7 +42,7 @@ While the concept of Virtual WAN is global, the actual Virtual WAN resource is R
 
 ### Is it possible to share the Firewall in a protected hub with other hubs?
 
-No, each Azure Virtual Hub must have their own Firewall. The deployment of custom routes to point the Firewall of another secured hub's will fail and will not complete successfully. Please consider to convert those hubs to [secured hubs](/virtual-wan/howto-firewall.md) with their own Firewalls.
+No, each Azure Virtual Hub must have their own Firewall. The deployment of custom routes to point the Firewall of another secured hub's will fail and will not complete successfully. Please consider to convert those hubs to [secured hubs](/azure/virtual-wan/howto-firewall) with their own Firewalls.
 
 ### What client does the Azure Virtual WAN User VPN (point-to-site) support?
 
