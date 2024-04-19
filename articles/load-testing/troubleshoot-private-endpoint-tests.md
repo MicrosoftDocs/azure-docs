@@ -37,16 +37,26 @@ To test connectivity from your virtual network:
     The virtual machine can be of any type. 
 
 2. Login to the virtual machine using [Azure Bastion](/azure/bastion/bastion-connect-vm-ssh-linux).
-3. Test outbound connections from the virtual machine
-   
-| Destination | Type of connectivity | Command to be used | Response validation |
-| ------------|----------------------|--------------------|---------------------|
-| azure.com | DNS | nslookup azure.com | Successful response with IP addresses|
-| azure.com | Connectivity | curl azure.com -I | Ensure that you get an HTTP response|
-| azure.com | DNS | nslookup windows.net | Successful response with IP addresses|
-| azure.com | Connectivity | curl azure.com -I | Ensure that you get an HTTP response|
+3. Test outbound connectivity from the virtual machine to azure.com
+    - Run the following command to validate DNS lookup 
+        ```
+        nslookup azure.com
+        ```
+        A response with IP addresses assocaiated with azure.com indicates successful connection. 	
 
+      :::image type="content" source="media/troubleshoot-private-endpoint-tests/dns-success-response.png" alt-text="Screenshot that shows a successful response for DNS validation":::
+      
+    - Run the following command to validate connectivity
+      ```
+      curl azure.com -I
+      ```
+       An HTTP response indicates successful connectivity
 
+        :::image type="content" source="media/troubleshoot-private-endpoint-tests/curl-success-response.png" alt-text="Screenshot that shows a successful response for connectivity validation":::
+      
+    4. Repeat the above step for 'windows.net' and 'azurecr.io' to validate connectivity to these destinations. 
+
+You can also use any other approaches to ensure connectivity from the subnet to *.azure.com, *.windows.net and *.azurecr.io. 
 
 ## Troubleshoot issues using the actionable error messages 
 
