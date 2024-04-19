@@ -143,7 +143,7 @@ In previous tutorials, you used a RabbitMQ container to store orders submitted b
     ```
 
 2. Open the `aks-store-quickstart.yaml` file in a text editor.
-3. Remove the existing `rabbitmq` Deployment, ConfigMap, and Service sections and replace the existing `order-service` Deployment section with the following content:
+3. Remove the existing `rabbitmq` StatefulSet, ConfigMap, and Service sections and replace the existing `order-service` Deployment section with the following content:
 
     ```yaml
     apiVersion: apps/v1
