@@ -63,7 +63,7 @@ When you contact support, the ticket should be raised under the category of Azur
 ## Related content
 - [What are Extended Security Updates - SQL Server](https://learn.microsoft.com/sql/sql-server/end-of-support/sql-server-extended-security-updates)
 - [Extend Security Updates for Windows Server overview](https://learn.microsoft.com/windows-server/get-started/extended-security-updates-overview)
-- Planning your Windows Server and SQL Server end of support: [Extended Security Updates for SQL Server and Windows Server](https://www.microsoft.com/en-us/windows-server/extended-security-updates)
+- [Plan your Windows Server and SQL Server end of support](https://www.microsoft.com/windows-server/extended-security-updates)
  
 
 [Microsoft Support]: https://ms.portal.azure.com/#view/Microsoft_Azure_Support/NewSupportRequestV3Blade/assetId/%2Fsubscriptions%2F5a79c43b-b03d-4610-bc59-627d8a6744d1%2FresourceGroups%2FABM_CSS_Lab_Enviroment%2Fproviders%2FMicrosoft.AVS%2FprivateClouds%2FBareMetal_CSS_Lab/callerWorkflowId/a7ecc9f7-8578-4820-abdf-1db09a2bdb47/callerName/Microsoft_Azure_Support%2FAurora.ReactView/subscriptionId/5a79c43b-b03d-4610-bc59-627d8a6744d1/productId/e7b24d57-0431-7d60-a4bf-e28adc11d23e/summary/Issue/topicId/9e078285-e10f-0365-31e3-6b31e5871794/issueType/technical
