@@ -65,7 +65,7 @@ Automatic is the default option for a runtime. You can start an automatic runtim
 
   - Select compute type. You can choose between serverless compute and compute instance. 
     - If you choose serverless compute, you can set following settings:
-        - Customize the VM size that the runtime uses. Please use D and above series, learn more about [Supported VM series and sizes](../concept-compute-target.md#supported-vm-series-and-sizes)
+        - Customize the VM size that the runtime uses. Please opt for VM series D and above. For additional information, refer to the section on [Supported VM series and sizes](../concept-compute-target.md#supported-vm-series-and-sizes)
         - Customize the idle time, which saves code by deleting the runtime automatically if it isn't in use.
         - Set the user-assigned managed identity. The automatic runtime uses this identity to pull a base image, auth with connection and install packages. Make sure that the user-assigned managed identity has Azure Container Registry `acrpull` permission. If you don't set this identity, we use the user identity by default. 
 
