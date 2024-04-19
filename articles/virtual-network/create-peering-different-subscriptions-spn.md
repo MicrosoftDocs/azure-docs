@@ -513,4 +513,3 @@ For the purposes of this article, we will login to each subscription and obtain 
         --vnet-name vnet-2 \
         --output table
     ```
-
