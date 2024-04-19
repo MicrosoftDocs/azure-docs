@@ -18,7 +18,7 @@ Trusted Signing currently supports the following signing integrations:
 * PowerShell for Authenticode
 * Azure PowerShell - App Control for Business CI Policy
 
-We constantly work to support more signing integrations and update the above when more become available. 
+We constantly work to support more signing integrations and update the supported integration list when more become available. 
 
 This article explains how to set up each of the above Trusted Signing signing integrations.
 
@@ -89,11 +89,13 @@ To sign using Trusted Signing, you need to provide the details of your Trusted S
 | Region       | Region Class Fields  | Endpoint URI value  |
 |--------------|-----------|------------|
 | East US  | EastUS  | `https://eus.codesigning.azure.net` |
-| West US   | WestUS  | `https://wus.codesigning.azure.net` |
+| West US3 <sup>[1](#myfootnote1)</sup>   | WestUS3  | `https://wus3.codesigning.azure.net` |
 | West Central US  | WestCentralUS  | `https://wcus.codesigning.azure.net` |
 | West US 2   | WestUS2   | `https://wus2.codesigning.azure.net` |
 | North Europe   | NorthEurope   | `https://neu.codesigning.azure.net`   |
 | West Europe   | WestEurope   | `https://weu.codesigning.azure.net`  |
+
+<a name="myfootnote1">1</a>: WestUS3 coming soon!
 
 * The optional `"CorrelationId"` field is an opaque string value that you can provide to correlate sign requests with your own workflows such as build identifiers or machine names.
 

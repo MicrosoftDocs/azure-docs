@@ -51,6 +51,8 @@ az ad sp list --display-name vm-name --query [*].appId --out tsv
 
 Now, connect as the Microsoft Entra administrator user to your Azure Database for PostgreSQL flexible server database, and run the following SQL statements, replacing `<identity_name>` with the name of the resources for which you created a system-assigned managed identity:
 
+Please note **pgaadauth_create_principal** must be run  on the Postgres database.
+
 ```sql
 select * from pgaadauth_create_principal('<identity_name>', false, false);
 ```
@@ -69,6 +71,9 @@ The managed identity now has access when authenticating with the identity name a
 
 > [!Note]
 > If the managed identity is not valid, an error is returned: `ERROR:   Could not validate AAD user <ObjectId> because its name is not found in the tenant. [...]`.
+> 
+> [!Note]
+> If you see an error like "No function matches...", make sure you're connecting to the `postgres` database, not a different database that you also created.
 
 ## Retrieve the access token from the Azure Instance Metadata service
 
