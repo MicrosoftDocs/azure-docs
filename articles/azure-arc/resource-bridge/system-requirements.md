@@ -62,26 +62,25 @@ Management machine requirements:
 - [Azure CLI x64](/cli/azure/install-azure-cli-windows?tabs=azure-cli) installed
 - Open communication to Control Plane IP 
 
-- Communication to Appliance VM IP (SSH TCP port 22, Kubernetes API port 6443)
+- Communication to Appliance VM IPs (SSH TCP port 22, Kubernetes API port 6443)
 
-- Communication to the reserved Appliance VM IP ((SSH TCP port 22, Kubernetes API port 6443)
+- Communication to the reserved Appliance VM IPs (SSH TCP port 22, Kubernetes API port 6443)
 
-- communication over port 443 (if applicable) to the private cloud management console (ex: VMware vCenter host machine)
+- communication over port 443 to the private cloud management console (ex: VMware vCenter machine)
 
 - Internal and external DNS resolution. The DNS server must resolve internal names, such as the vCenter endpoint for vSphere or cloud agent service endpoint for Azure Stack HCI. The DNS server must also be able to resolve external addresses that are [required URLs](network-requirements.md#outbound-connectivity) for deployment.
 - Internet access
   
 ## Appliance VM IP address requirements
 
-Arc resource bridge consists of an appliance VM that is deployed on-premises. The appliance VM has visibility into the on-premises infrastructure and can tag on-premises resources (guest management) for projection into Azure Resource Manager (ARM).
-
-The appliance VM is assigned an IP address from the `k8snodeippoolstart` parameter in the `createconfig` command; it may be referred to in partner products as Start Range IP, RB IP Start or VM IP 1.
-
-The appliance VM IP is the starting IP address for the appliance VM IP pool range. The VM IP pool range requires a minimum of 2 IP addresses.
+Arc resource bridge consists of an appliance VM that is deployed on-premises. The appliance VM has visibility into the on-premises infrastructure and can tag on-premises resources (guest management) for projection into Azure Resource Manager (ARM). The appliance VM is assigned an IP address from the `k8snodeippoolstart` parameter in the `createconfig` command. It may be referred to in partner products as Start Range IP, RB IP Start or VM IP 1. The appliance VM IP is the starting IP address for the appliance VM IP pool range; therefore, when you first deploy Arc resource  bridge, this is the IP that's initially assigned to your appliance VM. The VM IP pool range requires a minimum of 2 IP addresses.
 
 Appliance VM IP address requirements:
 
-- Open communication with the management machine and management endpoint (such as vCenter for VMware or MOC cloud agent service endpoint for Azure Stack HCI).
+- Communication with the management machine (SSH TCP port 22, Kubernetes API port 6443)
+
+- Communcation with the private cloud management endpoint via Port 443 (such as VMware vCenter).
+
 - Internet connectivity to [required URLs](network-requirements.md#outbound-connectivity) enabled in proxy/firewall.
 - Static IP assigned and within the IP address prefix.
 
@@ -90,15 +89,13 @@ Appliance VM IP address requirements:
 
 ## Reserved appliance VM IP requirements
 
-Arc resource bridge reserves an additional IP address to be used for the appliance VM upgrade.
-
-The reserved appliance VM IP is assigned an IP address via the `k8snodeippoolend` parameter in the `az arcappliance createconfig` command. This IP address may be referred to as End Range IP, RB IP End, or VM IP 2.
-
-The reserved appliance VM IP is the ending IP address for the appliance VM IP pool range. If specifying an IP pool range larger than two IP addresses, the additional IPs are reserved.
+Arc resource bridge reserves an additional IP address to be used for the appliance VM upgrade. The reserved appliance VM IP is assigned an IP address via the `k8snodeippoolend` parameter in the `az arcappliance createconfig` command. This IP address may be referred to as End Range IP, RB IP End, or VM IP 2. The reserved appliance VM IP is the ending IP address for the appliance VM IP pool range. When your appliance VM is upgraded for the first time, this is the IP assigned to your appliance VM post-upgrade and the initial appliance VM IP is returned to the IP pool to be used for a future upgrade. If specifying an IP pool range larger than two IP addresses, the additional IPs are reserved.
 
 Reserved appliance VM IP requirements:  
 
-- Open communication with the management machine and management endpoint (such as vCenter for VMware or MOC cloud agent service endpoint for Azure Stack HCI).
+- Communication with the management machine (SSH TCP port 22, Kubernetes API port 6443)
+
+- Communcation with the private cloud management endpoint via Port 443 (such as VMware vCenter).
 
 - Internet connectivity to [required URLs](network-requirements.md#outbound-connectivity) enabled in proxy/firewall.
 
@@ -114,7 +111,7 @@ The appliance VM hosts a management Kubernetes cluster with a control plane that
 
 Control plane IP requirements:
 
-- Open communication with the management machine.
+- Communication with the management machine (SSH TCP port 22, Kubernetes API port 6443).
 
 - Static IP address assigned and within the IP address prefix.
 
