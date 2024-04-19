@@ -31,7 +31,7 @@ A customer service agent, who is using a Contact Center Agent experience, wants 
 
 The dataflow diagram depicts a canonical scenario where a Teams user is added to an ongoing Azure Communication Services call for expert consultation.
 
-[ ![Diagram of calling flow for a customer service with Microsoft Teams and Call Automation.](../media/call-automation-teams-interop.png)](./media/call-automation-teams-interop.png#lightbox)
+[ ![Diagram of calling flow for a customer service with Microsoft Teams and Call Automation.](../media/call-automation-teams-interop.png)](../media/call-automation-teams-interop.png#lightbox)
 
 1. Customer is on an ongoing call with a Contact Center customer service agent. 
 1. During the call, the customer service agent needs expert help from one of the domain experts part of an engineering team. The agent is able to identify a knowledge worker who is available on Teams (presence via Graph APIs) and tries to add them to the call. 
