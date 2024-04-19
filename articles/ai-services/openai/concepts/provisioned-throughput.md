@@ -110,8 +110,30 @@ We use a variation of the leaky bucket algorithm to maintain utilization below 1
 > [!NOTE]
 > Calls are accepted until utilization reaches 100%. Bursts just over 100% maybe permitted in short periods, but over time, your traffic is capped at 100% utilization.
 
-
-:::image type="content" source="../media/provisioned/utilization.jpg" alt-text="Diagram showing how subsequent calls are added to the utilization." lightbox="../media/provisioned/utilization.jpg":::
+Sure, I've reformatted the information into a structure that fits the Azure documentation style:  
+   
+#### Checking Utilization of PTU-Managed Deployment  
+   
+You can monitor the utilization of a PTU-Managed deployment through Azure Monitor. Here's how:  
+   
+1. Navigate to Azure Monitor in the Azure portal.  
+2. Select "Metrics" from the left-hand menu.  
+3. Choose the appropriate subscription, resource group, resource type, and then the specific resource that corresponds to the PTU-Managed service you wish to monitor.  
+4. From the "Metric Namespace" dropdown, select "**Provisioned-managed Utilization V2**".   
+  
+   > [!NOTE]  
+   >  
+   > "Provisioned-managed Utilization V2" is an **updated** metric that provides more reliable and accurate utilization data than the previous "Provisioned-managed Utilization".  
+   
+##### Understanding Provisioned-managed Utilization V2  
+   
+The Provisioned-managed Utilization V2 Util metrics offer a more precise measure of PTU usage compared to its predecessor Provisioned-managed Utilization   
+  
+- If the metrics display a value less than 100%, you usually won't face throttling.   
+  
+- The basis for throttling (429) is a conservative estimate taken at the arrival of the request, while the Provisioned-managed Utilization V2 metric is computed based on the actual PTU-Managed expenditure per request, accumulated into minute buckets after the request is completely served.  
+   
+- Considering the minute-specific granularity of the computation, there could be situations where the utilization metric goes beyond 100% without setting off a 429 error. This is attributed to the system's flexibility that accommodates usage variations.
 
 #### How many concurrent calls can I have on my deployment?
 
