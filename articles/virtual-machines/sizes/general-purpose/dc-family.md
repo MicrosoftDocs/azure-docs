@@ -9,7 +9,7 @@ ms.date: 04/16/2024
 ms.author: mattmcinnes
 ---
 
-# DC sub-family general purpose VM size series
+# 'DC' sub-family general purpose VM size series
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 

@@ -97,6 +97,11 @@ Suggested order of operations for manually upgrading a Basic Load Balancer in co
 1. Remove the temporary frontend configuration
 1. Test that inbound and outbound traffic flow through the new Standard Load Balancer as expected 
 
+## FAQ
+
+### Will the Basic Load Balancer retirement impact Cloud Services Extended Support (CSES) deployments?
+No, this retirement will not impact your existing or new deployments on CSES. This means that you can still create and use Basic Load Balancers for CSES deployments. However, we advise using Standard SKU on ARM native resources (those that do not depend on CSES) when possible, because Standard has more advantages than Basic.
+
 ## Next Steps
 
 For guidance on upgrading basic Public IP addresses to Standard SKUs, see:
