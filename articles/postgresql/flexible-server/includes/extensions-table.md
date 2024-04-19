@@ -3,7 +3,7 @@ author: varun-dhawan
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: include
-ms.date: 04/16/2024
+ms.date: 04/19/2024
 ms.author: varundhawan
 ---
 |                                      **Extension name**                                      |                                                   **Description**                                                   |    **PostgreSQL 16**     |     **PostgreSQL 15**     |     **PostgreSQL 14**     |     **PostgreSQL 13**     |     **PostgreSQL 12**     |    **PostgreSQL 11**     |
@@ -38,7 +38,6 @@ ms.author: varundhawan
 | [pg_buffercache](https://www.postgresql.org/docs/13/pgbuffercache.html)                      | Examine the shared buffer cache                                                                                     | 1.4                      | 1.3                       | 1.3                       | 1.3                       | 1.3                       | 1.3|
 | [pg_cron](https://github.com/citusdata/pg_cron)                                              | Job scheduler for PostgreSQL                                                                                        | 1.5 :heavy_check_mark:   | 1.4-1 :heavy_check_mark:  | 1.4-1 :heavy_check_mark:  | 1.4-1 :heavy_check_mark:  | 1.4-1 :heavy_check_mark:  | 1.4-1 :heavy_check_mark:|
 | [pgcrypto](https://www.postgresql.org/docs/13/pgcrypto.html)                                 | Cryptographic functions                                                                                             | 1.3                      | 1.3                       | 1.3                       | 1.3                       | 1.3                       | 1.3|
-| [pg_failover_slots](https://github.com/EnterpriseDB/pg_failover_slots) (Preview)             | Logical replication slot manager for failover purposes                                                              | 1.0.1                    | 1.0.1                     | 1.0.1                     | 1.0.1                     | 1.0.1                     | 1.0.1|
 | [pg_freespacemap](https://www.postgresql.org/docs/13/pgfreespacemap.html)                    | Examine the free space map (FSM)                                                                                    | 1.2                      | 1.2                       | 1.2                       | 1.2                       | 1.2                       | 1.2|
 | [pg_hint_plan](https://github.com/ossc-db/pg_hint_plan)                                      | Makes it possible to tweak PostgreSQL execution plans using so-called hints in SQL comments.                        | 1.6.0 :heavy_check_mark: | 1.5 :heavy_check_mark:    | 1.4 :heavy_check_mark:    | 1.3.7 :heavy_check_mark:  | 1.3.7 :heavy_check_mark:  | 1.3.7 :heavy_check_mark:|
 | [pglogical](https://github.com/2ndQuadrant/pglogical)                                        | PostgreSQL Logical Replication                                                                                      | 2.4.4 :heavy_check_mark: | 2.4.2 :heavy_check_mark:  | 2.4.1 :heavy_check_mark:  | 2.4.1 :heavy_check_mark:  | 2.4.1 :heavy_check_mark:  | 2.4.1 :heavy_check_mark:|
