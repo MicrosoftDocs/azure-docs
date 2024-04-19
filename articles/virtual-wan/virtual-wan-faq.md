@@ -40,7 +40,7 @@ Currently, Azure Firewall can be deployed to support Availability Zones using Az
 
 While the concept of Virtual WAN is global, the actual Virtual WAN resource is Resource Manager-based and deployed regionally. If the virtual WAN region itself were to have an issue, all hubs in that virtual WAN will continue to function as is, but the user won't be able to create new hubs until the virtual WAN region is available.
 
-### Can share the Firewall deployed in one secured Hub other ones?
+### Is it possible to share the Firewall in a protected hub with other hubs?
 
 No, each Azure Virtual Hub must have their own Firewall. The deployment of custom routes to point the Firewall of another secured hub's will fail and will not complete successfully. Please consider to convert those hubs to [secured hubs](/articles/virtual-wan/howto-firewall.md) with their own Firewalls.
 
