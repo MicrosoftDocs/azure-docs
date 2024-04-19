@@ -39,7 +39,7 @@ Summary rules provide a way to aggregate ingested data to Log Analytics workspac
 
 <!-- Limits information = ../../includes/azure-monitor-limits-workspaces.md in Summary rules section -->
 
-- For limits and restrictions related to Summary rules in Log Analytics, see [Azure Monitor service limits](service-limits.md#log-analytics-workspaces).
+- For limits and restrictions related to Summary rules in Log Analytics, see [Azure Monitor service limits](../service-limits.md#log-analytics-workspaces).
 
 ## Explore Summary rules
 
@@ -249,7 +249,7 @@ Authorization: {credential}
 
 ## Examine data completeness
 
-Summary rules are designed for scale, and include a retry mechanism that can overcome transient failure related to service or query, such as hitting [query limits](service-limits.md#log-analytics-workspaces). The retry mechanism includes 10 attempts within 8 hours and skips a bin, if exhausted. The rule is set to `isActive: false` and put on hold after eight consecutive bins with retries. If diagnostic settings are enabled in your workspace, an event is sent to LASummaryLogs table in your workspace.
+Summary rules are designed for scale, and include a retry mechanism that can overcome transient failure related to service or query, such as hitting [query limits](../service-limits.md#log-analytics-workspaces). The retry mechanism includes 10 attempts within 8 hours and skips a bin, if exhausted. The rule is set to `isActive: false` and put on hold after eight consecutive bins with retries. If diagnostic settings are enabled in your workspace, an event is sent to LASummaryLogs table in your workspace.
 
 Failed bins can`t be run again, but they can be detected by using the following query in your workspace. If the query reveals missing bins, see the [Monitor Summary rules](#monitor-summary-rules) section for rule remediation options and proactive alerts.
 
@@ -275,7 +275,7 @@ The following graph charts the query results for failed bins in Summary rules:
 
 The recommendation is to enable Diagnostics settings for the **Summary Logs** category in your workspace, so you receive diagnostics data in the LASummaryLogs table including run Start, Succeeded, and Failed.
 
-Summary rules are designed for scale, and include a retry mechanism that can overcome transient failure related to service or query, such as hitting [query limits](service-limits.md#log-analytics-workspaces). After eight consecutive bins with failures, the rule operation is suspended. The rule configuration is updated to `isActive: false`, and the diagnostic event is sent to the LASummaryLogs table, if Diagnostic settings are enabled in the Log Analytics workspace.
+Summary rules are designed for scale, and include a retry mechanism that can overcome transient failure related to service or query, such as hitting [query limits](../service-limits.md#log-analytics-workspaces). After eight consecutive bins with failures, the rule operation is suspended. The rule configuration is updated to `isActive: false`, and the diagnostic event is sent to the LASummaryLogs table, if Diagnostic settings are enabled in the Log Analytics workspace.
 
 Events in the LASummaryLogs diagnostic table include `QueryDuationMs`, which indicates the time for the query to complete. This value is useful indication for nearing query timeout limit. The recommendation is to set alerts and receive notifications for bin failures, or when bin execution is nearing time-out. Depending on the failure reason, you can either reduce bin size to process less data on each execution, or alter the query to return fewer records, or fields with higher volume.
 
