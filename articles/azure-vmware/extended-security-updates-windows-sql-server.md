@@ -1,5 +1,5 @@
 ---
-title: Extended Security Updates (ESU) for SQL Server and Windows Server
+title: Extended Security Updates (ESUs) for SQL Server and Windows Server
 description: Customers get free Extended Security Updates (ESUs) for older SQL Server and Windows Server versions. This article is to raise awareness of ESU support in Azure and Azure VMware Solution and shows customer how they can configure it for this software running in virtual machines on the platform.
 author: MikeWeiner-Microsoft
 ms.author: michwe
@@ -38,13 +38,13 @@ To find the SQL Server Configuration from the Azure portal:
 3. You should then follow the steps discussed in the section: [Subscribe to Extended Security Updates enabled by Azure Arc](https://learn.microsoft.com/sql/sql-server/end-of-support/sql-server-extended-security-updates?#subscribe-to-extended-security-updates-enabled-by-azure-arc), which also provides syntax to configure via Azure PowerShell or Azure CLI.
 
 #### View ESU subscription status
-For machines running SQL Server where guest management is enabled the Azure Extension for SQL Server should be registered. You can validate the extension is installed through the Azure portal or through Azure Resource Graph (ARG) queries. 
+For machines running SQL Server where guest management is enabled the Azure Extension for SQL Server should be registered. You can validate the extension is installed through the Azure portal or through Azure Resource Graph queries. 
 
 -	From the Azure portal 
     1. In the Azure VMware Solution portal, go to **vCenter Server Inventory** and **Virtual Machines** clicking through one of the Arc-enabled VMs. Here you see the *Machine-Azure Arc (AVS)* page. 
     2. As part of the **Overview** section of the left pane, there's a **Properties/Extensions** view that will list the WindowsAgent.SqlServer (Microsoft.HybridCompute/machines/extensions) if installed. Alternatively, you can expand **Settings** from the left pane and choose **Extensions** which should display the WindowsAgent.SqlServer name and type if configured.
     
--	Through Azure Resource Graph (ARG) queries
+-	Through Azure Resource Graph queries
     - You can use the following query [VM ESU subscription status](https://learn.microsoft.com/sql/sql-server/end-of-support/sql-server-extended-security-updates?#view-esu-subscriptions)  as an example to show you can view eligible SQL Server ESU instances and their ESU subscription status. 
     
 ### Windows Server 
