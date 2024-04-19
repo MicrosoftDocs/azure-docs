@@ -4,19 +4,19 @@ description: Learn about metadata properties in Azure API Center. Use predefined
 author: dlepow
 ms.service: api-center
 ms.topic: concept-article
-ms.date: 04/16/2024
+ms.date: 04/19/2024
 ms.author: danlep
 #customer intent: As an API program manager, I want to learn about using metadata properties to govern the APIs in my API center.
 ---
 
 # Create and apply metadata properties
 
-This article provides more information about how to use metadata for API governance in [Azure API Center](overview.md). You set metadata properties to organize and filter APIs and other [entities](key-concepts.md) in your API center. Metadata properties can be predefined or custom, and you can develop a metadata schema to enforce consistency across your APIs, environments, and deployments.  
+This article provides background about metadata and how to use it for API governance in [Azure API Center](overview.md). You set metadata properties to organize and filter APIs and other [entities](key-concepts.md) in your API center. Metadata properties can be predefined or custom, and you can develop a metadata schema to enforce consistency across your APIs, environments, and deployments.  
 
 
 ## Predefined metadata properties
 
-When creating or updating APIs, environments, and deployments in your API center, you set certain properties, such as the API type (REST, WSDL, and so on).
+When creating or updating APIs, environments, and deployments in your API center, you set certain predefined properties, such as the API type (REST, WSDL, and so on).
 
 The following tables list common predefined metadata properties that are provided for Azure API Center entities. For details, see the [API Center REST API reference](/rest/api/resource-manager/apicenter/operation-groups). Tables don't include standard Azure properties such as resource identifiers, display titles, and descriptions. Not all properties are required.
 
@@ -50,7 +50,7 @@ The following tables list common predefined metadata properties that are provide
 
 ## Custom metadata properties
 
-Define custom metadata properties using the Azure portal, the Azure API Center [REST API](/rest/api/resource-manager/apicenter/metadata-schemas), or the [Azure CLI](/cli/azure/apic/metadata-schema) to help organize and filter APIs, environments, and deployments in your API center. Azure API Center supports custom metadata properties of the following types. 
+Define custom metadata properties using the [Azure portal](add-metadata-properties.md), the Azure API Center [REST API](/rest/api/resource-manager/apicenter/metadata-schemas), or the [Azure CLI](/cli/azure/apic/metadata-schema) to help organize and filter APIs, environments, and deployments in your API center. Azure API Center supports custom metadata properties of the following types. 
 
 Type | Description | Example property name |
 |--------|----------|-------------|
@@ -63,9 +63,9 @@ Type | Description | Example property name |
 
 ### Assign metadata properties to entities
 
-Assign a custom metadata property to APIs, environments, or deployments in your API center. For example, create and assign a *Department* property to APIs, so that when an API is registered or a new API version is added, the department responsible for the API is specified. 
+Custom metadata properties can be assigned to APIs, environments, or deployments in your API center. For example, create and assign a *Department* property to APIs, so that when an API is registered or a new API version is added, the department responsible for the API is specified. 
 
-If assigned to an entity, a property can be either optional or required. For example, you might require that the *Department* property is set only for APIs, but allow a *YearOfCreation* property to be an optional property for environments.
+If assigned to an entity, a property is either optional or required. For example, you might require that the *Department* property is set only for APIs, but allow a *YearOfCreation* property to be an optional property for environments.
 
 ## Use metadata properties for governance
 
@@ -84,4 +84,5 @@ Use predefined and custom metadata properties to organize your APIs, environment
 
 * [What is Azure API Center?](overview.md)
 * [API Center - key concepts](key-concepts.md)
+* [Tutorial: Add custom metadata properties](add-metadata-properties.md)
 

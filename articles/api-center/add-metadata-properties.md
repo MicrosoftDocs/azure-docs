@@ -8,7 +8,7 @@ ms.date: 04/18/2024
 ms.author: danlep 
 ---
 
-# Tutorial: Customize metadata properties
+# Tutorial: Add custom metadata properties
 
 In this tutorial, define custom properties to help you organize your APIs and other information in your API center. Use custom metadata properties and several predefined properties for search and filtering and to enforce governance standards in your organization. 
 
