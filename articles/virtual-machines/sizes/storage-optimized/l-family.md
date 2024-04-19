@@ -28,7 +28,7 @@ The 'L' family of VM size series are one of Azure's storage-optimized VM instanc
 ## Series in family
 
 ### Lsv2-series
-[!INCLUDE [lsv2-series-summary](./includes/mv2-series-summary.md)]
+[!INCLUDE [lsv2-series-summary](./includes/lsv2-series-summary.md)]
 
 [View the full Lsv2-series page](../../lsv2-series.md).
 
