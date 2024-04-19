@@ -14,13 +14,15 @@ ms.custom: devx-track-azurepowershell
 
 # Read flow logs
 
-In this article, you learn how to read portions of Azure Network Watcher flow logs using PowerShell without having to parse the entire log. Flow logs are stored in a storage account in block blobs. Each log is a separate block blob that is generated every hour and updated with the latest data every few minutes. You'll use PowerShell to selectively read the latest events in flow logs that are stored in a storage account. The concepts discussed in this article aren't limited to the PowerShell and are applicable to all languages supported by the Azure Storage APIs.
+In this article, you learn how to selectively read portions of Azure Network Watcher flow logs using PowerShell without having to parse the entire log. Flow logs are stored in a storage account in block blobs. Each log is a separate block blob that is generated every hour and updated with the latest data every few minutes. Using the script provided in this article, you can read the latest data from the flow logs without having to download the entire log.
+
+The concepts discussed in this article aren't limited to the PowerShell and are applicable to all languages supported by the Azure Storage APIs.
 
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-- PowerShell. For more information, see [Install PowerShell on Windows, Linux, and macOS](/powershell/scripting/install/installing-powershell). This article requires the Az PowerShell module. For more information, see [How to install Azure PowerShell](/powershell/azure/install-azure-powershell). To find the installed version, run `Get-Module -ListAvailable Az`. 
+- PowerShell installed on your machine. For more information, see [Install PowerShell on Windows, Linux, and macOS](/powershell/scripting/install/installing-powershell). This article requires the Az PowerShell module. For more information, see [How to install Azure PowerShell](/powershell/azure/install-azure-powershell). To find the installed version, run `Get-Module -ListAvailable Az`. 
 
 - Flow logs in a region or more. For more information, see [Create NSG flow logs](nsg-flow-logs-portal.md#create-a-flow-log) or [Create VNet flow logs](vnet-flow-logs-portal.md#create-a-flow-log).
 
@@ -170,7 +172,7 @@ ZjAyZTliYWE3OTI1YWZmYjFmMWI0MjJhNzMxZTI4MDM=      2      True
 
 ## Read the block blob
 
-Next, you read the `$blocklist` variable to retrieve the data. In this example we iterate through the blocklist, read the bytes from each block and story them in an array. Use the [DownloadRangeToByteArray](/dotnet/api/microsoft.azure.storage.blob.cloudblob.downloadrangetobytearray) method to retrieve the data.
+In this section, you read the `$blocklist` variable to retrieve the data. In the following example, we iterate through the blocklist to read the bytes from each block and store them in an array. Use the [DownloadRangeToByteArray](/dotnet/api/microsoft.azure.storage.blob.cloudblob.downloadrangetobytearray) method to retrieve the data.
 
 # [**NSG flow logs**](#tab/nsg)
 
