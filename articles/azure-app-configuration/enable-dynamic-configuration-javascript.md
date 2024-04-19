@@ -45,7 +45,7 @@ The loaded configuration is updated when a change is detected on the server.
 
 1. Open the file *app.js* and update the `load` function with `refreshOptions` specified.
 
-    ### [Use configuration as Map](#tab/configurtion-map)
+    ### [Use configuration as Map](#tab/configuration-map)
 
     ```javascript
     // Connecting to Azure App Configuration using connection string
@@ -59,7 +59,7 @@ The loaded configuration is updated when a change is detected on the server.
     });
     ```
 
-    ### [Use configuration as object](#tab/configurtion-object)
+    ### [Use configuration as object](#tab/configuration-object)
 
     The configuration object is constructed by calling `constructConfigurationObject` function.
     So you need to add a callback to ensure the object is also updated after a refresh.
@@ -98,12 +98,12 @@ The loaded configuration is updated when a change is detected on the server.
 
 1. At the end of the while loop, add the following line to print the value after each refresh call.
 
-    ### [Use configuration as Map](#tab/configurtion-map)
+    ### [Use configuration as Map](#tab/configuration-map)
 
     ```javascript
     console.log(settings.get("message")); // Consume current value of message from a Map
     ```
-    ### [Use configuration as object](#tab/configurtion-object)
+    ### [Use configuration as object](#tab/configuration-object)
 
     ```javascript
     console.log(config.message); // Consume current value of message from an object
@@ -113,7 +113,7 @@ The loaded configuration is updated when a change is detected on the server.
 
 1. Now the file *app.js* should look like the following code snippet:
 
-    ### [Use configuration as Map](#tab/configurtion-map)
+    ### [Use configuration as Map](#tab/configuration-map)
 
     ```javascript
     const sleepInMs = require("util").promisify(setTimeout);
@@ -141,7 +141,7 @@ The loaded configuration is updated when a change is detected on the server.
 
     run().catch(console.error);
     ```
-    ### [Use configuration as object](#tab/configurtion-object)
+    ### [Use configuration as object](#tab/configuration-object)
 
     ```javascript
     const sleepInMs = require("util").promisify(setTimeout);
