@@ -121,10 +121,10 @@ If an attribute is padded with nulls, the attribute is indexed when searchable a
 | `409 (Conflict)`               | None of the instances in the store transaction request were stored.                                                                                                                                                |
 | `415 (Unsupported Media Type)` | The provided `Content-Type` isn't supported.                                                                                                                                                                       |
 | `424 (Failed Dependency)`      | The DICOM service cannot access a resource it depends on to complete this request. An example is failure to access the connected Data Lake store, or the key vault for supporting customer-managed key encryption. |
-| `503 (Service Unavailable)`    | The service is unavailable or busy. Try again later.                                                                                                                                                               |
 | `500 (Internal Server Error)`  | The server encountered an unknown internal error. Try again later.                                                                                                                                                 |
+| `503 (Service Unavailable)`    | The service is unavailable or busy. Try again later.                                                                                                                                                               |
 
-### Store response payload
+### Store response paylo
 
 The response payload populates a DICOM dataset with the following elements:
 
@@ -421,6 +421,7 @@ Content-Type: application/dicom
 | `403 (Forbidden)`           | The user isn't authorized.                                                                                                                                                                                                          |
 | `404 (Not Found)`           | The specified DICOM resource couldn't be found, or for rendered request the instance didn't contain pixel data.                                                                                                                     |
 | `406 (Not Acceptable)`      | The specified `Accept` header isn't supported, or for rendered and transcodes requests the file requested was too large.                                                                                                            |
+| `424 (Failed Dependency)`      | The DICOM service cannot access a resource it depends on to complete this request. An example is failure to access the connected Data Lake store, or the key vault for supporting customer-managed key encryption. |
 | `503 (Service Unavailable)` | The service is unavailable or busy. Try again later.                                                                                                                                                                                |
 
 ### Search (QIDO-RS)
