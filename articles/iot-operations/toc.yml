@@ -2,11 +2,11 @@ items:
   - name: Azure IoT Operations
     href: index.yml
     items:
+    - name: Overview
+      href: get-started/overview-iot-operations.md
     - name: Get started
       expanded: true
       items:
-      - name: Overview
-        href: get-started/overview-iot-operations.md
       - name: Deploy Azure IoT Operations
         href: get-started/quickstart-deploy.md
       - name: Add OPC UA assets to your cluster
