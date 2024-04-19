@@ -172,10 +172,10 @@ In the vault > **Monitoring** section, select **Site Recovery Events**.
 
 ## Built-in Azure Monitor alerts for Azure Site Recovery
 
-Azure Site Recovery also provides default alerts via Azure Monitor, which enables you to have a consistent experience for alert management across different Azure services. With Azure Monitor based alerts, you can route alerts to any notification channel supported by Azure Monitor, such as email, Webhook, Logic app, and more. You can also use other alert management capabilities offered by Azure Monitor, for example, suppressing notifications during a planned maintenance window.
+Azure Site Recovery also provides default alerts via Azure Monitor, which enables you to have a consistent experience for alert management across different Azure services. With Azure Monitor based alerts, you can route alerts to any notification channel supported by Azure Monitor, such as email, Webhook, Logic app, and more. You can also use other alert management capabilities offered by Azure Monitor, for example, suppressing notifications during a planned maintenance window. 
 
 > [!NOTE]
-> - We recommended that you wait for 24 hours for the registration to take effect before testing out the feature. 
+> We recommended that you wait for 24 hours for the registration to take effect before testing out the feature. 
 
 ### Alerts scenarios
 
@@ -206,12 +206,12 @@ Once alerts are generated, you can view and manage them from the Azure Monitor p
 2.	Set the filter for **Monitor Service** = **Azure Site Recovery** to see Azure Site Recovery specific alerts. 
     You can also customize the values of other filters to see alerts of a specific time range up to 30 days or for vaults, subscriptions, severity and alert state (user response).
    
-    :::image type="content" source="./media/site-recovery-monitor-and-troubleshoot/azure-monitor-site-recovery-alert-portal-view-azmon.png" alt-text="Screenshot displays Viewing alerts via Azure Monitor in portal." lightbox="./media/site-recovery-monitor-and-troubleshoot/azure-monitor-site-recovery-alert-portal-view-azmon.png":::
+    :::image type="content" source="./media/site-recovery-monitor-and-troubleshoot/monitor-service.png" alt-text="Screenshot displays Azure Monitor in portal." lightbox="./media/site-recovery-monitor-and-troubleshoot/monitor-service.png":::
 
 3. Select any alert of your interest to see further details. For example, the affected VM, possible causes, recommended action, etc.
 4. Once the event is mitigated, you can modify its state to **Closed** or **Acknowledged**.
 
-    :::image type="content" source="./media/site-recovery-monitor-and-troubleshoot/azure-monitor-site-recovery-alert-portal-view-azmon.png" alt-text="Screenshot displays Viewing alerts via Azure Monitor in portal." lightbox="./media/site-recovery-monitor-and-troubleshoot/azure-monitor-site-recovery-alert-portal-view-azmon.png":::
+    :::image type="content" source="./media/site-recovery-monitor-and-troubleshoot/azure-monitor-closed.png" alt-text="Screenshot displays closed alerts via Azure Monitor in portal." lightbox="./media/site-recovery-monitor-and-troubleshoot/azure-monitor-closed.png":::
 
 
 ### View the generated Azure Site Recovery alerts in Recovery Services vault
@@ -219,14 +219,14 @@ Once alerts are generated, you can view and manage them from the Azure Monitor p
 Follow these steps to view the alerts generated for a particular vault via the vault experience:
 
 1.	On the [Azure portal](https://ms.portal.azure.com), go to the Recovery Services vault that you are using. 
-2.	Select the **Alerts** section and filter for **Monitor Service** = **Azure Site Recovery** to see Azure Site Recovery specific alerts. You can customize the values of the other filters to see alerts of a specific time range up to 30 days, for vaults, subscriptions, severity and alert state (user response).
+2.	Select the **Alerts** section and filter for **Monitor Service** = **Azure Site Recovery** to see Azure Site Recovery specific alerts.   You can customize the values of the other filters to see alerts of a specific time range up to 30 days, for vaults, subscriptions, severity and alert state (user response).
     
-    :::image type="content" source="./media/site-recovery-monitor-and-troubleshoot/azure-monitor-site-recovery-alert-portal-view-vault.png" alt-text="Screenshot displays alerts via Recovery Services vault in portal." lightbox="./media/site-recovery-monitor-and-troubleshoot/azure-monitor-site-recovery-alert-portal-view-vault.png":::
+
 
 3.	Select any alert of your interest to see further details such as the affected VM, possible causes, recommended action, etc. 
 4. Once the event is mitigated, you can modify its state to **Closed** or **Acknowledged**.
 
-    :::image type="content" source="./media/site-recovery-monitor-and-troubleshoot/azure-monitor-site-recovery-alert-portal-view-vault.png" alt-text="Screenshot displays alerts via Recovery Services vault in portal." lightbox="./media/site-recovery-monitor-and-troubleshoot/azure-monitor-site-recovery-alert-portal-view-vault.png":::
+
 
 ### Configure email notifications for alerts
 
@@ -236,7 +236,7 @@ To configure email notifications for built-in Azure Monitor alerts for Azure Sit
  
 1.	Go to **Azure Monitor** > **Alerts** and select **Alert processing rules** on the top pane.
 
-    :::image type="content" source="./media/site-recovery-monitor-and-troubleshoot/alert-processing-rule-site-recovery-button.png" alt-text="Screenshot displays alert processing rules option in Azure Monitor." lightbox="./media/site-recovery-monitor-and-troubleshoot/alert-processing-rule-site-recovery-button.png":::
+    
 
 2.	Select **Create**.
 
