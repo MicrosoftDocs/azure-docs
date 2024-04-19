@@ -73,23 +73,23 @@ sections:
         answer: |
           There's no local emulator for Azure Cache for Redis. You can run the MSOpenTech version of redis-server.exe from the [Redis command-line tools](https://github.com/MSOpenTech/redis/releases/) on your local machine. Then, connect to it to get a similar experience to a local cache emulator, as shown in the following example:
           
-          ```csharp
-          private static Lazy<ConnectionMultiplexer>
-              lazyConnection = new Lazy<ConnectionMultiplexer> (() =>
-              {
-                  // Connect to a locally running instance of Redis to simulate
-                  // a local cache emulator experience.
-                  return ConnectionMultiplexer.Connect("127.0.0.1:6379");
-              });
-          
-          public static ConnectionMultiplexer Connection
-          {
-              get
-              {
-                  return lazyConnection.Value;
-              }
-          }
-          ```
+            ```csharp
+            private static Lazy<ConnectionMultiplexer>
+                lazyConnection = new Lazy<ConnectionMultiplexer> (() =>
+                {
+                    // Connect to a locally running instance of Redis to simulate
+                    // a local cache emulator experience.
+                    return ConnectionMultiplexer.Connect("127.0.0.1:6379");
+                });
+            
+            public static ConnectionMultiplexer Connection
+            {
+                get
+                {
+                    return lazyConnection.Value;
+                }
+            }
+            ```
           
           You can optionally configure a [redis.conf](https://redis.io/topics/config) file to more closely match the [default cache settings](cache-configure.md#default-redis-server-configuration) for your online Azure Cache for Redis if you want.
           
@@ -102,7 +102,9 @@ sections:
           
           You can also use the Redis command-line tools. To use them, do the following steps:
           1. Download the [Redis command-line tools](/azure/azure-cache-for-redis/cache-how-to-redis-cli-tool#install-redis-cli).
+
           1. Connect to the cache using `redis-cli.exe`. Pass in the cache endpoint using the -h switch and the key using -a as shown in the following example:
+          
                `redis-cli -h <Azure Cache for Redis name>.redis.cache.windows.net -a <key>`
           
           > [!NOTE]
