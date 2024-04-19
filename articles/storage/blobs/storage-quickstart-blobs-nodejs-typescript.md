@@ -6,7 +6,7 @@ ms.author: pauljewell
 ms.date: 03/18/2024
 ms.service: azure-blob-storage
 ms.topic: quickstart
-ms.devlang: javascript
+ms.devlang: typescript
 ms.custom: devx-track-js, mode-api, passwordless-js, devx-track-extended-azdevcli
 zone_pivot_groups: azure-blob-storage-quickstart-options
 ---
