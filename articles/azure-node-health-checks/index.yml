@@ -1,0 +1,48 @@
+### YamlMime:Landing
+
+title: Azure Node Health Checks # < 60 chars
+summary: Documentation for using Azure Node Health Checks (AzNHC) to validate AI-HPC VM offerings. # < 160 chars
+
+metadata:
+  title: Azure Node Health Checks
+  description: Documentation for using Azure Node Health Checks (AzNHC) to validate AI-HPC VM offerings.
+  ms.service: azure-node-health-checks
+  ms.topic: landing-page
+  author: rafsalas19
+  ms.author: rafaelsalas
+  ms.date: 04/15/2024
+
+landingContent:
+  # Cards and links should be based on top customer tasks or top subjects
+  - title: Overview of AZNHC
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Overview
+            url: ./overview.md
+          - text: Test Coverage
+            url: ./test-coverage.md
+      - linkListType: quickstart
+        links:
+          - text: AzNHC Quickstart Guide
+            url: ./quickstart.md
+
+  - title: Concepts
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Core Concepts
+            url: ./core-concepts.md
+          - text: Overview
+            url: ./overview.md
+
+  - title: Tutorial
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Running Health Checks
+            url: ./running-health-checks.md
+          - text: Exporting to Kusto
+            url: ./export-kusto.md
+          - text: Interpreting Results
+            url: ./reviewing-results.md

@@ -1,0 +1,20 @@
+- name: Azure AI-HPC Node Health Checks
+  href: index.yml
+- name: Overview
+  items:
+    - name: AzNHC Overview
+      href: overview.md
+    - name: Test Coverage
+      href: test-coverage.md
+    - name: Concepts
+      href: core-concepts.md
+- name: Quickstart
+  href: quickstart.md
+- name: Tutorial
+  items:
+    - name: Running Health Checks
+      href: running-health-checks.md
+    - name: Exporting to Kusto
+      href: export-kusto.md
+    - name: Interpreting Results
+      href: reviewing-results.md
