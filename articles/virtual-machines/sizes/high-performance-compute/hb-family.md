@@ -13,21 +13,11 @@ ms.author: mattmcinnes
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
-The 'HB' sub-family of VM size series are one of Azure's high-performance computing (HPC) optimized H-family VM instances. They're designed for compute-intensive workloads, such as computational fluid dynamics, finite element analysis, and large-scale scientific simulations. Equipped with high-performance AMD EPYC processors and fast memory, HB-series VMs offer exceptional CPU and memory bandwidth, making them ideal for applications that require extensive computational resources to perform large-scale calculations and data processing. This makes them particularly well-suited for industries like engineering, scientific research, and data analysis where processing speed and accuracy are critical for productivity and innovation.
+[!INCLUDE [hb-family-summary](./includes/hb-family-summary.md)]
 
 ## Workloads and use cases
 
-**Computational Fluid Dynamics (CFD):** HB-family VMs are ideal for simulations in fields like aerospace, automotive design, and manufacturing, where fluid dynamics calculations are intensive.
-
-**Finite Element Analysis (FEA):** HB-family VMs are suitable for engineering analyses that simulate physical phenomena, requiring intensive computational power to model complex systems and materials.
-
-**Weather Forecasting:** HB-family VMs can handle the massive datasets and complex simulations required for high-resolution weather modeling and forecasting.
-
-**Seismic Processing:** Used in the oil and gas industry, HB-family VMs can process seismic data to help map and understand subsurface structures.
-
-**Scientific Research:** HB-family VMs support a wide range of scientific research that requires large-scale mathematical modeling, including physics and computational chemistry simulations.
-
-**Genomics and Bioinformatics:** HB-family VMs are also used in life sciences for genomic analysis, where large amounts of data need to be processed quickly to decode genetic information.
+[!INCLUDE [hb-family-workloads](./includes/hb-family-workloads.md)]
 
 ## Series in family
 
