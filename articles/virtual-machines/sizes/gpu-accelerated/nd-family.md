@@ -9,7 +9,7 @@ ms.date: 04/18/2024
 ms.author: mattmcinnes
 ---
 
-# 'NC' sub-family GPU accelerated VM size series
+# 'ND' sub-family GPU accelerated VM size series
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
@@ -17,7 +17,7 @@ The 'ND' family of VM size series are one of Azure's GPU-accelerated VM instance
 
 ## Workloads and use cases
 
-**AI and Deep Learning:** ND-family VMs are ideal for training and deploying complex deep learning models. Equipped with powerful NVIDIA Tesla GPUs, they provide the computational power necessary for handling extensive neural network training with large datasets, significantly reducing training times.
+**AI and Deep Learning:** ND-family VMs are ideal for training and deploying complex deep learning models. Equipped with powerful NVIDIA GPUs, they provide the computational power necessary for handling extensive neural network training with large datasets, significantly reducing training times.
 
 **High-Performance Computing (HPC):** ND-family VMs are suitable for HPC applications that require GPU acceleration. Fields such as scientific research, engineering simulations (e.g., computational fluid dynamics), and genomic processing can benefit from the high-throughput computing capabilities of ND-series VMs.
 
