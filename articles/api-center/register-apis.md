@@ -47,7 +47,7 @@ The following steps register two sample APIs: Swagger Petstore API and Demo Conf
 
 1. In the left menu, under **Assets**, select **APIs** > **+ Register an API**.
 
-1. In the **Register API** page, add the following information for the Swagger Petstore API. You'll see the custom *Line of business* and *Public-facing* metadata properties that you defined in the previous tutorial at the bottom of the page.
+1. In the **Register an API** page, add the following information for the Swagger Petstore API. You'll see the custom *Line of business* and *Public-facing* metadata properties that you defined in the previous tutorial at the bottom of the page.
 
     |Setting|Value|Description|
     |-------|-----|-----------|
