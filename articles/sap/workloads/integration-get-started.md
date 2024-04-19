@@ -260,7 +260,7 @@ See below video to experience the SAP security orchestration, automation and res
 The [Defender product family](../../defender-for-cloud/defender-for-cloud-introduction.md) consist of multiple products tailored to provide "cloud security posture management" (CSPM) and "cloud workload protection" (CWPP) for the various workload types. Below excerpt serves as entry point to start securing your SAP system.
 
 - Defender XDR (integration with Sentinel for SAP)
-    - [Automatic attack disruption for SAP](../../sentinel/sap/deployment-attack-disrupt)
+    - [Automatic attack disruption for SAP](../../sentinel/sap/deployment-attack-disrupt.md)
 
 - Defender for Servers (SAP hosts)
     - [Protect your SAP hosts with Defender](../../defender-for-cloud/defender-for-servers-introduction.md) including OS specific Endpoint protection with Microsoft Defender for Endpoint (MDE)
