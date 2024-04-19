@@ -3,7 +3,7 @@ title: Table API and SQL - Use Iceberg Catalog type with Hive in Apache Flink® 
 description: Learn how to create Iceberg Catalog in Apache Flink® on HDInsight on AKS.
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 04/18/2024
+ms.date: 04/19/2024
 ---
 
 # Create Iceberg Catalog in Apache Flink® on HDInsight on AKS
@@ -48,7 +48,7 @@ A detailed explanation is given on how to get started with Flink SQL Client usin
 ```
 ### Create Iceberg Table managed in Hive catalog
 
-With the following steps, we illustrate how you can create Flink-Iceberg Catalog using Hive catalog
+With the following steps, we illustrate how you can create Flink-Iceberg catalog using Hive catalog.
 
 ```sql
   CREATE CATALOG hive_catalog WITH (
@@ -97,7 +97,7 @@ ADD JAR '/opt/flink-webssh/lib/parquet-column-1.12.2.jar';
 
 #### Output of the Iceberg Table
 
-You can view the Iceberg Table output on the ABFS container .
+You can view the Iceberg Table output on the ABFS container.
 
 :::image type="content" source="./media/flink-catalog-iceberg-hive/flink-catalog-iceberg-hive-output.png" alt-text="Screenshot showing output of the Iceberg table in ABFS.":::
 
