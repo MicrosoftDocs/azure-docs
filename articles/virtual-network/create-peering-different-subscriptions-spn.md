@@ -13,7 +13,7 @@ ms.date: 04/18/2024
 ---
 # Connect virtual networks in different subscriptions with service principal names
 
-Scenarios exist where you need to connect virtual networks in different subscriptions without the use of user accounts or guest accounts. In this how-to, you'll learn how to peer two virtual networks with service principal names (SPNs) in different subscriptions.
+Scenarios exist where you need to connect virtual networks in different subscriptions without the use of user accounts or guest accounts. In this how-to, you'll learn how to peer two virtual networks with service principal names (SPNs) in different subscriptions. Virtual network peerings between virtual networks in different subscriptions and Microsoft Entra ID tenants must be peered via Azure CLI or PowerShell. Currently there isn't an option in the Azure portal to peer virtual networks with SPNs in different subscriptions.
 
 ## Prerequisites
 
