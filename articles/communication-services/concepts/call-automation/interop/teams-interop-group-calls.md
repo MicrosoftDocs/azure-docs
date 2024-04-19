@@ -12,6 +12,8 @@ ms.custom: mode-other, devx-track-js
 ---
 
 # Capabilities for Microsoft Teams users in Azure Communication Services group calls
+[!INCLUDE [Teams Phone license](../../../includes/teams-phone-license-include.md)]
+
 Teams users joining a call with Azure Communication Services users have a subset of capabilities available to them. The following table represents the experience for such users joining a group call with Azure Communication Services users, through the Teams client or a custom client built using the Azure Communication Services SDKs. You can find per platform availability in [voice and video calling capabilities](../../voice-video-calling/calling-sdk-features.md).
 
 ## Core calling capabilities for Teams users
