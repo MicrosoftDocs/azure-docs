@@ -1,7 +1,7 @@
 ---
 title: Agent portfolio overview and OS support
 description: Microsoft Defender for IoT provides a large portfolio of agents based on the device type. 
-ms.date: 01/09/2022
+ms.date: 04/17/2024
 ms.topic: conceptual
 ---
 
@@ -28,9 +28,9 @@ For additional information on supported operating systems, or to request access 
 
 For a more granular view of the micro agent-operating system dependencies, see [Linux dependencies](concept-micro-agent-linux-dependencies.md#linux-dependencies).
 
-## Azure RTOS micro agent
+## Eclipse ThreadX micro agent
 
-The Microsoft Defender for IoT micro agent comes built in as part of the Azure RTOS NetX Duo component, and monitors the device's network activity. The micro agent consists of a comprehensive and lightweight security solution that provides coverage for common threats, and potential malicious activities on a real-time operating system (RTOS) devices.
+The Microsoft Defender for IoT micro agent comes built in as part of the FileX NetX Duo component, and monitors the device's network activity. The micro agent consists of a comprehensive and lightweight security solution that provides coverage for common threats, and potential malicious activities on a real-time operating system (FileX) devices.
 
 ## Next steps
 

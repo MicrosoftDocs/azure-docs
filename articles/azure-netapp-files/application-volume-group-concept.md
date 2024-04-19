@@ -107,13 +107,11 @@ Resulting volumes provide the same flexibility for resizing capacity and through
 
 ## Availability 
 
-Application volume group is currently available for [SAP HANA](application-volume-group-introduction.md).
-
-<!-- and Oracle databases. -->
+Application volume group is currently available for [SAP HANA](application-volume-group-introduction.md) and [Oracle](application-volume-group-oracle-introduction.md) databases. 
 
 ## Conclusion
 
-In conclusion, the application volume group is a pivotal concept in modern data management, providing a structured approach to handling volumes within application environments. By leveraging application volume group, you can enhance performance, streamline administration, and ensure the resilience of your applications in dynamic and evolving scenarios.
+Application volume group is a pivotal concept in modern data management, providing a structured approach to handling volumes within application environments. By leveraging application volume group, you can enhance performance, streamline administration, and ensure the resilience of your applications in dynamic and evolving scenarios.
 
 ## Next steps
 
