@@ -269,7 +269,15 @@ By default, we use the latest prompt flow base image. If you want to use a diffe
         image: <your-custom-image>
         python_requirements_txt: requirements.txt
     ```
-    
+
+## Manage serverless instance used by compute session
+When you using serverless compute as compute session, you can manage the serverless instance used by compute session. You can view the serverless instance used by compute session in the compute session list tab under compute page. 
+
+:::image type="content" source="./media/how-to-manage-compute-session/serverless-instance-list.png" alt-text="Screenshot of the option to save and install packages for an compute session on a flow page." lightbox = "./media/how-to-manage-compute-session/serverless-instance-list.png":::
+
+You can also active flow and running running on it under active flows and runs tab. As delete the instance will impact the flow and runs on it.
+
+:::image type="content" source="./media/how-to-manage-compute-session/active-flows-runs-serverless-instance.png" alt-text="Screenshot of the option to save and install packages for an compute session on a flow page." lightbox = "./media/how-to-manage-compute-session/active-flows-runs-serverless-instance.png":::
 
 ## Relationship between compute session, compute resource, flow and user
 
