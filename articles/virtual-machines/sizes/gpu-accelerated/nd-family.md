@@ -13,17 +13,11 @@ ms.author: mattmcinnes
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
-The 'ND' family of VM size series are one of Azure's GPU-accelerated VM instances. They're designed for deep learning, AI research, and high-performance computing tasks that benefit from powerful GPU acceleration. Equipped with NVIDIA GPUs, ND-series VMs offer specialized capabilities for training and inference of complex machine learning models, facilitating faster computations and efficient handling of large datasets. This makes them particularly well-suited for academic and commercial applications in AI development and simulation, where cutting-edge GPU technology is crucial for achieving rapid and accurate results in neural network processing and other computationally intensive tasks.
+[!INCLUDE [nd-family-summary](./includes/nd-family-summary.md)]
 
 ## Workloads and use cases
 
-**AI and Deep Learning:** ND-family VMs are ideal for training and deploying complex deep learning models. Equipped with powerful NVIDIA GPUs, they provide the computational power necessary for handling extensive neural network training with large datasets, significantly reducing training times.
-
-**High-Performance Computing (HPC):** ND-family VMs are suitable for HPC applications that require GPU acceleration. Fields such as scientific research, engineering simulations (e.g., computational fluid dynamics), and genomic processing can benefit from the high-throughput computing capabilities of ND-series VMs.
-
-**Graphics Rendering:** ND-family's GPUs make them a great choice for graphics-intensive tasks, including real-time rendering for animation and video production, as well as high-fidelity simulations for virtual reality environments.
-
-**Remote Visualization:** ND-family VMs can be used for remote visualization of data-intensive tasks, where high-end GPU capabilities are necessary to process and render complex visualizations over the cloud, facilitating access from less powerful client machines.
+[!INCLUDE [nd-family-workloads](./includes/nd-family-workloads.md)]
 
 ## Series in family
 
