@@ -1,7 +1,7 @@
 ---
 title: Details of the policy definition structure basics
 description: Describes how policy definition basics are used to establish conventions for Azure resources in your organization.
-ms.date: 04/01/2024
+ms.date: 04/19/2024
 ms.topic: conceptual
 ---
 
@@ -98,7 +98,7 @@ The `mode` determines which resource types are evaluated for a policy definition
 - `all`: evaluate resource groups, subscriptions, and all resource types
 - `indexed`: only evaluate resource types that support tags and location
 
-For example, resource `Microsoft.Network/routeTables` supports tags and location and is evaluated in both modes. However, resource `Microsoft.Network/routeTables/routes` can't be tagged and isn't evaluated in `Indexed` mode.
+For example, resource `Microsoft.Network/routeTables` supports tags and location and is evaluated in both modes. However, resource `Microsoft.Network/routeTables/routes` can't be tagged and isn't evaluated in `indexed` mode.
 
 We recommend that you set `mode` to `all` in most cases. All policy definitions created through the portal use the `all` mode. If you use PowerShell or Azure CLI, you can specify the `mode` parameter manually. If the policy definition doesn't include a `mode` value, it defaults to `all` in Azure PowerShell and to `null` in Azure CLI. A `null` mode is the same as using `indexed` to support backward compatibility.
 
@@ -121,17 +121,24 @@ The following Resource Provider modes are currently supported as a [preview](htt
 > [!NOTE]
 >Unless explicitly stated, Resource Provider modes only support built-in policy definitions, and exemptions are not supported at the component-level.
 
+When Azure Policy versioning is released, the following Resource Provider modes won't support built-in versioning:
+
+- `Microsoft.DataFactory.Data`
+- `Microsoft.MachineLearningServices.v2.Data`
+- `Microsoft.ManagedHSM.Data`
+
 ## Version
-Built-in policy definitions and initiatives can host multiple versions with the same `definitionID`. If no version number is specified, all experiences will show the latest version of the definition. To see a specific version of a built-in, it must be specified in API, SDK or UI. To reference a specific version of a definition within an assignment, see [definition version within assignment](../concepts/assignment-structure.md#policy-definition-id-and-version) 
+
+Built-in policy definitions and initiatives can host multiple versions with the same `definitionID`. If no version number is specified, all experiences will show the latest version of the definition. To see a specific version of a built-in, it must be specified in API, SDK or UI. To reference a specific version of a definition within an assignment, see [definition version within assignment](../concepts/assignment-structure.md#policy-definition-id-and-version).
 
 The Azure Policy service uses `version`, `preview`, and `deprecated` properties to convey level of
 > change to a built-in policy definition or initiative and state. The format of `version` is:
 > `{Major}.{Minor}.{Patch}`. Specific states, such as _deprecated_ or _preview_, are appended to the
-> `version` property or in another property as a **boolean**. 
+> `version` property or in another property as a **boolean**.
 
-- Major Version (ex. 2.0.0): introduce breaking changes such as major rule logic changes, removing parameters, adding an enforcement effect by default. 
-- Minor Version (ex. 2.1.0): introduce changes such as minor rule logic changes, adding new parameter allowed values, change to role definitionIds, adding ore moveing definitions within an initiative. 
-- Patch Version (ex.2.1.4): introduce string or metadata changes as well as breaking glass security scenarios (rare).
+- Major Version (example: 2.0.0): introduce breaking changes such as major rule logic changes, removing parameters, adding an enforcement effect by default.
+- Minor Version (example: 2.1.0): introduce changes such as minor rule logic changes, adding new parameter allowed values, change to `roleDefinitionIds`, adding or moving definitions within an initiative.
+- Patch Version (example: 2.1.4): introduce string or metadata changes as well as breaking glass security scenarios (rare).
 
 For more information about the way
 > Azure Policy versions built-ins, see
