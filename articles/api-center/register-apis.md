@@ -66,7 +66,7 @@ The following steps register two sample APIs: Swagger Petstore API and Demo Conf
     | **Line of business** | If you added this property in the previous tutorial, make a selection from the dropdown, such as **Marketing**. | Custom metadata property that identifies the business unit that owns the API. |
     | **Public-facing**  | If you added this property, select the checkbox.    |  Custom metadata property that identifies whether the API is public-facing or internal only.     |
 
-    :::image type="content" source="media/register-apis/register-api.png" alt-text="Screenshot of registering an API in the portal." lightbox="media/register-apis/register-api.png" lightbox="media/register-apis/register-api.png":::
+    :::image type="content" source="media/register-apis/register-api.png" alt-text="Screenshot of registering an API in the portal." lightbox="media/register-apis/register-api.png":::
 
 1. Select **Create**. The API is registered.
 
