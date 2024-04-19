@@ -188,7 +188,7 @@ See how data, including customer information, vendor details, and line items, is
 ## Field extraction
 
 |Name| Type | Description | Standardized output |
-|:-----|:----|:----|:---:|
+|:-----|:----|:----|:----|
 | CustomerName |string | Invoiced customer|Microsoft Corp|
 | CustomerId |string | Customer reference ID |CID-12345 |
 | PurchaseOrder |string | Purchase order reference number |PO-3333 |
