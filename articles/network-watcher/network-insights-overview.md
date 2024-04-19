@@ -26,9 +26,9 @@ Azure Monitor Network Insights is structured around these key components of moni
 
 ## Topology
 
-The Azure Monitor topology page provides a visualization of Azure virtual networks and connected resources for understanding network topology. Topology provides an interactive interface to view resources and their relationships in Azure across multiple subscriptions, regions, and resource groups. You can drill down to the resource view of an individual resource such as a virtual machine (VM) to see its traffic and connectivity insights and access network diagnostic tools to troubleshoot any network issues the VM is experiencing. To learn how to use Azure Monitor topology, see [View topology](network-insights-topology.md?toc=/azure/azure-monitor/toc.json&bc=/azure/azure-monitor/breadcrumb/toc.json).
+Topology provides a visualization of Azure virtual networks and connected resources for understanding network topology. Topology provides an interactive interface to view resources and their relationships in Azure across multiple subscriptions, regions, and resource groups. You can drill down to the resource view of an individual resource such as a virtual machine (VM) to see its traffic and connectivity insights and access network diagnostic tools to troubleshoot any network issues the VM is experiencing. To learn how to use Azure Monitor topology, see [View topology](network-insights-topology.md?toc=/azure/azure-monitor/toc.json&bc=/azure/azure-monitor/breadcrumb/toc.json).
 
-:::image type="content" source="./media/network-insights-overview/topology-landing-view.png" alt-text="Screenshot of Azure Monitor topology." lightbox="./media/network-insights-overview/topology-landing-view.png":::
+:::image type="content" source="./media/network-insights-overview/topology-landing-view.png" alt-text="Screenshot that shows Network Insights topology." lightbox="./media/network-insights-overview/topology-landing-view.png":::
 
 ## Network health and metrics
 
