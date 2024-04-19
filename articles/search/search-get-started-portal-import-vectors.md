@@ -45,6 +45,8 @@ In this preview version of the wizard:
 + Blobs providing text content, unstructured docs only, and metadata. In this preview, your data source must be Azure blobs.
 
 + Read permissions in Azure Storage. A storage connection string that includes an access key gives you read access to storage content. If instead you're using Microsoft Entra logins and roles, make sure the [search service's managed identity](search-howto-managed-identities-data-sources.md) has [**Storage Blob Data Reader**](/azure/storage/blobs/assign-azure-role-data-access) permissions.
+  
++ All components (data source and embedding endpoint) must have public access enabled for the portal nodes to be able to access them. Otherwise, the wizard will fail. After the wizard runs, firewalls and private endpoints can be enabled in the different integration components for security. If private endpoints are already present and can't be disabled, the alternative option is to run the respective end-to-end flow from a script or program from a Virtual Machine within the same VNET as the private endpoint. Here is a [Python code sample](https://github.com/Azure/azure-search-vector-samples/tree/main/demo-python/code/integrated-vectorization) for integrated vectorization. In the same [GitHub repo](https://github.com/Azure/azure-search-vector-samples/tree/main) are samples in other programming languages. 
 
 ## Check for space
 

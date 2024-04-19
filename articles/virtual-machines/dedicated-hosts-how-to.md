@@ -5,7 +5,7 @@ author: mattmcinnes
 ms.author: mattmcinnes
 ms.service: azure-dedicated-host
 ms.topic: how-to
-ms.custom: devx-track-azurepowershell, devx-track-azurecli, linux-related-content
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.date: 07/12/2023
 ms.reviewer: vamckMS
 ---

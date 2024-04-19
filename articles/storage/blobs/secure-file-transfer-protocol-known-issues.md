@@ -46,7 +46,6 @@ To transfer files to or from Azure Blob Storage via SFTP clients, see the follow
 
 | Category | Unsupported operations |
 |---|---|
-| ACLs | <li>`chgrp` - change group<li>`chmod` - change permissions/mode<li>`chown` - change owner<li>`put/get -p` - preserving properties such as permissions |
 | Random writes | Operations that include both READ and WRITE flags. For example: [SSH.NET create API](https://github.com/sshnet/SSH.NET/blob/develop/src/Renci.SshNet/SftpClient.cs#:~:text=public%20SftpFileStream-,Create,-(string%20path)) |
 | Links |<li>`symlink` - creating symbolic links<li>`ln` - creating hard links<li>Reading links not supported |
 | Capacity Information | `df` - usage info for filesystem |
@@ -61,8 +60,6 @@ To transfer files to or from Azure Blob Storage via SFTP clients, see the follow
 - _Local users_ are the only form of identity management that is currently supported for the SFTP endpoint.
 
 - Microsoft Entra ID isn't supported for the SFTP endpoint.
-
-- POSIX-like access control lists (ACLs) aren't supported for the SFTP endpoint.
 
 To learn more, see [SFTP permission model](secure-file-transfer-protocol-support.md#sftp-permission-model) and see [Access control model in Azure Data Lake Storage Gen2](data-lake-storage-access-control-model.md).
 

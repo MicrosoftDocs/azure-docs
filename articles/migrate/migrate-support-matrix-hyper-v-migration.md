@@ -13,7 +13,7 @@ ms.custom: engagement-fy24
 # Support matrix for Hyper-V migration
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 This article summarizes support settings and limitations for migrating Hyper-V VMs with [Migration and modernization](migrate-services-overview.md#migration-and-modernization-tool) . If you're looking for information about assessing Hyper-V VMs for migration to Azure, review the [assessment support matrix](migrate-support-matrix-hyper-v.md).
 
@@ -99,7 +99,7 @@ This table summarizes support for the replication storage account for Hyper-V VM
 **Setting** | **Support** | **Details**
 --- | --- | ---
 General purpose V2 storage accounts (Hot and Cool tier) | Supported | GPv2 storage accounts might incur higher transaction costs than V1 storage accounts.
-Premium storage | Supported | However, standard storage accounts are recommended to help optimize costs. Cache storage account should be standard storage account and not premium.
+Premium storage | Supported | However, standard storage accounts are recommended to help optimize costs. <br/>Cache storage account should be standard storage account and premium is not supported.
 Region | Same region as virtual machine | Storage account should be in the same region as the virtual machine being protected.
 Subscription | Can be different from source virtual machines | The Storage account need not be in the same subscription as the source virtual machine(s).
 Azure Storage firewalls for virtual networks | Supported | If you're using firewall enabled replication storage account or target storage account, ensure you [Allow trusted Microsoft services](../storage/common/storage-network-security.md#exceptions). Also, ensure that you allow access to at least one subnet of source virtual network. **You should allow access from All networks for public endpoint connectivity.** 

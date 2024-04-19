@@ -16,7 +16,7 @@ Run cross-service queries by using any client tools that support Kusto Query Lan
 
 ## Permissions required
 
-To run a cross-service query, you need:
+To run a cross-service query that correlates data in Azure Data Explorer or Azure Resource Graph with data in a Log Analytics workspace, you need:
 
 - `Microsoft.OperationalInsights/workspaces/query/*/read` permissions to the Log Analytics workspaces you query, as provided by the [Log Analytics Reader built-in role](../logs/manage-access.md#log-analytics-reader), for example.
 - Reader permissions to the resources you query in Azure Resource Graph.
@@ -124,9 +124,12 @@ More use cases:
 -	Use a tag to determine whether VMs should be running 24x7 or should be shut down at night.
 -	Show alerts on any server that contains a certain number of cores.
 
-## Create an alert based on a cross-service query
+## Create an alert based on a cross-service query from your Log Analytics workspace
 
-To create a new alert rule based on a cross-service query, follow the steps in [Create a new alert rule](../alerts/alerts-create-new-alert-rule.md), selecting your Log Analytics workspace on the **Scope** tab.
+To create an alert rule based on a cross-service query from your Log Analytics workspace, follow the steps in [Create or edit a log search alert rule](../alerts/alerts-create-log-alert-rule.md), selecting your Log Analytics workspace, on the **Scope** tab.
+
+> [!NOTE]
+> You can also run cross-service queries from Azure Data Explorer and Azure Resource Graph to a Log Analytics workspace, by selecting the relevant resource as the scope of your alert.  
 
 ## Limitations
 

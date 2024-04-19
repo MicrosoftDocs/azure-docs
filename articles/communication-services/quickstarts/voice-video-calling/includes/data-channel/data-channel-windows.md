@@ -70,7 +70,7 @@ dataChannelCallFeature.ReceiverCreated += DataChannelReceiverCreatedHandler;
 ```csharp
 void MessageReceivedHandler(object sender, PropertyChangedEventArgs args) 
 {
-    DataChannelMessage message = (sender as DataChannelReceiver).PopMessage(); // read the data message from the receiver
+    DataChannelMessage message = (sender as DataChannelReceiver).ReceiveMessage(); // read the data message from the receiver
     long sequence = message.SequenceNumber; // get the message sequence number
     byte[] data = message.Data; // get the data content
 }

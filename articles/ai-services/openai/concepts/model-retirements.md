@@ -53,13 +53,16 @@ For more information, see [How to upgrade to a new model or version](./model-ver
 
 ## Current models
 
+> [!NOTE]
+> Not all models go through a deprecation period prior to retirement. Some models/versions only have a retirement date.
+
 These models are currently available for use in Azure OpenAI Service.
 
 | Model | Version | Retirement date |
 | ---- | ---- | ---- |
 | `gpt-35-turbo` | 0301 | No earlier than June 13, 2024 |
 | `gpt-35-turbo`<br>`gpt-35-turbo-16k` | 0613 | No earlier than July 13, 2024 |
-| `gpt-35-turbo` | 1106 | No earlier than Nov 17, 2025 |
+| `gpt-35-turbo` | 1106 | No earlier than Nov 17, 2024 |
 | `gpt-35-turbo` | 0125 | No earlier than Feb 22, 2025 |
 | `gpt-4`<br>`gpt-4-32k` | 0314 | No earlier than July 13, 2024 |
 | `gpt-4`<br>`gpt-4-32k` | 0613 | No earlier than Sep 30, 2024 |

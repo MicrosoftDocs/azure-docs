@@ -49,7 +49,9 @@ Once content is extracted, the [skillset](cognitive-search-working-with-skillset
 
 ### Download files
 
-+ [Sample data files (mixed media)](https://github.com/Azure-Samples/azure-search-sample-data/tree/main/ai-enrichment-mixed-media). Download a zip file of the sample data repository and extract the contents.
+Download a zip file of the sample data repository and extract the contents. [Learn how](https://docs.github.com/get-started/start-your-journey/downloading-files-from-github).
+
++ [Sample data files (mixed media)](https://github.com/Azure-Samples/azure-search-sample-data/tree/main/ai-enrichment-mixed-media). 
 
 + [Sample REST file](https://github.com/Azure-Samples/azure-search-rest-samples/tree/main/skillset-tutorial)
 
@@ -122,7 +124,7 @@ POST {{baseUrl}}/datasources?api-version=2023-11-01  HTTP/1.1
 
 ### Step 2: Create a skillset
 
-Call [Create Skillset](/rest/api/searchservice/create-skillset) to specify which enrichment steps are applied to your content.
+Call [Create Skillset](/rest/api/searchservice/create-skillset) to specify which enrichment steps are applied to your content. Skills execute in parallel unless there's a dependency.
 
 ```http
 ### Create a skillset
@@ -309,7 +311,9 @@ POST {{baseUrl}}/skillsets?api-version=2023-11-01  HTTP/1.1
 
 ### Step 3: Create an index
 
-Call [Create Index](/rest/api/searchservice/create-index) to provide the schema used to create inverted indexes and other constructs in Azure AI Search. The largest component of an index is the fields collection, where data type and attributes determine content and behavior in Azure AI Search.
+Call [Create Index](/rest/api/searchservice/create-index) to provide the schema used to create inverted indexes and other constructs in Azure AI Search. 
+
+The largest component of an index is the fields collection, where data type and attributes determine content and behavior in Azure AI Search. Make sure you have fields for your newly generated output.
 
 ```http
 ### Create an index
@@ -397,7 +401,6 @@ POST {{baseUrl}}/indexes?api-version=2023-11-01  HTTP/1.1
         ]
     }
 ```
-
 
 ### Step 4: Create and run an indexer
 

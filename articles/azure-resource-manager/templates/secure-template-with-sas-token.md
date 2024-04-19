@@ -2,7 +2,7 @@
 title: Deploy ARM template with SAS token - Azure Resource Manager | Microsoft Docs
 description: Learn how to use Azure CLI or Azure PowerShell to securely deploy a private ARM template with a SAS token. Protect and manage access to your templates.
 ms.topic: conceptual
-ms.date: 05/23/2023
+ms.date: 03/20/2024
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, seo-azure-cli, devx-track-arm-template
 keywords: private template, sas token template, storage account, template security, azure arm template, azure resource manager template
 ---

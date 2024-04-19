@@ -7,7 +7,7 @@ ms.subservice: confidential-computing
 ms.topic: quickstart
 ms.date: 11/01/2021
 ms.author: jushiman
-ms.custom: mode-other
+ms.custom: mode-other, linux-related-content
 ---
 
 # Quickstart: Create Intel SGX VM in the Azure Marketplace

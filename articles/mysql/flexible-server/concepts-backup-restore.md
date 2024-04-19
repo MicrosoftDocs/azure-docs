@@ -148,10 +148,27 @@ The estimated time of recovery depends on several factors including the database
 
 After a restore from either **latest restore point** or **custom restore point** recovery mechanism, you should perform the following tasks to get your users and applications back up and running:
 
--   If the new server is meant to replace the original server, redirect clients and client applications to the new server.
--   Ensure appropriate server-level firewall and virtual network rules are in place for users to connect.
--   Ensure appropriate logins and database level permissions are in place.
--   Configure alerts, as appropriate.
+- If the new server is meant to replace the original server, redirect clients and client applications to the new server.
+- Ensure appropriate server-level firewall and virtual network rules are in place for users to connect.
+- Ensure appropriate logins and database level permissions are in place.
+- Configure alerts, as appropriate.
+
+## Long-term retention (preview)
+
+Azure Backup and Azure Database for MySQL flexible server services have built an enterprise-class long-term backup solution for Azure Database for MySQL flexible server instances that retains backups for up to 10 years. You can use long-term retention independently or in addition to the automated backup solution offered by Azure Database for MySQL flexible server, which offers retention of up to 35 days. Automated backups are snapshot backups suited for operational recoveries, especially when you want to restore from the latest backups. Long-term backups help you with your compliance needs and auditing needs. In addition to long-term retention, the solution offers the following capabilities:
+
+- Customer-controlled scheduled and on-demand backups 
+- Manage and monitor all the backup-related operations and jobs across servers, resource groups, locations, subscriptions, and tenants from a single pane of glass called the Backup Center. 
+- Backups are stored in separate security and fault domains. If the source server or subscription is compromised, the backups remain safe in the Backup vault (in Azure Backup managed storage accounts).
+
+### Limitations and considerations
+- In preview, LTR restore is currently available as RestoreasFiles to storage accounts. RestoreasServer capability will be added in the future.
+- LTR backup is currently not supported for HA-enabled servers. This capability will be added in the future.
+
+- Support for LTR creation and management through Azure CLI is currently not supported.
+
+For more information about performing a long-term backup, visit the [how-to guide](../../backup/backup-azure-mysql-flexible-server.md)
+
 
 ## Frequently Asked Questions (FAQs)
 

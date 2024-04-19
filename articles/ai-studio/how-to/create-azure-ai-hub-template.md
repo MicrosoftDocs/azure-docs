@@ -60,7 +60,7 @@ The Bicep template is made up of the following files:
 | File | Description |
 | ---- | ----------- |
 | [main.bicep](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.machinelearningservices/aistudio-basics/main.bicep) | The main Bicep file that defines the parameters and variables. Passing parameters & variables to other modules in the `modules` subdirectory. |
-| [ai-resource.bicep](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.machinelearningservices/aistudio-basics/modules/ai-resource.bicep)  | Defines the Azure AI hub resource. |
+| [ai-resource.bicep](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.machinelearningservices/aistudio-basics/modules/ai-hub.bicep)  | Defines the Azure AI hub resource. |
 | [dependent-resources.bicep](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.machinelearningservices/aistudio-basics/modules/dependent-resources.bicep) | Defines the dependent resources for the Azure AI hub. Azure Storage Account, Container Registry, Key Vault, and Application Insights. |
 
 > [!IMPORTANT]

@@ -14,11 +14,11 @@ Creating a capacity pool enables you to create volumes within it.
 
 ## Before you begin 
 
-* You must have already [created a NetApp account](azure-netapp-files-create-netapp-account.md).   
-* If you are using Azure CLI, ensure that you are using the latest version. For more information, see [How to update the Azure CLI](/cli/azure/update-azure-cli).
-* If you are using PowerShell, ensure that you are using the latest version of the Az.NetAppFiles module. To update to the latest version, use the 'Update-Module Az.NetAppFiles' command. For more information, see [Update-Module](/powershell/module/powershellget/update-module).
-* If you are using the Azure REST API, ensure that you are specifying the latest version.
-* If this is your first time using a 1-TiB capacity pool, you must first register the feature: 
+* You need [a NetApp account](azure-netapp-files-create-netapp-account.md).   
+* If you're using Azure CLI, ensure that you're using the latest version. For more information, see [How to update the Azure CLI](/cli/azure/update-azure-cli).
+* If you're using PowerShell, ensure that you're using the latest version of the Az.NetAppFiles module. To update to the latest version, use the 'Update-Module Az.NetAppFiles' command. For more information, see [Update-Module](/powershell/module/powershellget/update-module).
+* If you're using the Azure REST API, ensure that you specify the latest version.
+* If you're creating 1-TiB capacity pool, you must first register the feature: 
     1. Register the feature: 
         ```azurepowershell-interactive
         Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANF1TiBPoolSize
@@ -31,10 +31,9 @@ Creating a capacity pool enables you to create volumes within it.
         ```
         You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. 
 
-
 ## Steps 
 
-1. Go to the management blade for your NetApp account, and then, from the navigation pane, click **Capacity pools**.  
+1. In the Azure portal, go to your NetApp account. From the navigation pane, select **Capacity pools**.  
     
     ![Navigate to capacity pool](./media/azure-netapp-files-set-up-capacity-pool/azure-netapp-files-navigate-to-capacity-pool.png)
 
@@ -51,14 +50,14 @@ Creating a capacity pool enables you to create volumes within it.
      Specify the service level for the capacity pool: [**Ultra**](azure-netapp-files-service-levels.md#Ultra), [**Premium**](azure-netapp-files-service-levels.md#Premium), or [**Standard**](azure-netapp-files-service-levels.md#Standard).
 
     * **Size**     
-     Specify the size of the capacity pool that you are purchasing.        
+     Specify the size of the capacity pool that you're purchasing.        
      The minimum capacity pool size is 1 TiB. You can change the size of a capacity pool in 1-TiB increments.
     
     >[!NOTE]
     >[!INCLUDE [Limitations for capacity pool minimum of 1 TiB](includes/2-tib-capacity-pool.md)]
 
     * **Enable cool access**  *(for Standard service level only)*   
-        This option specifies whether volumes in the capacity pool will support cool access. This option is currently supported for the Standard service level only. For details about using this option, see [Manage Azure NetApp Files standard storage with cool access](manage-cool-access.md). 
+        This option specifies whether volumes in the capacity pool support cool access. This option is currently supported for the Standard service level only. For details about using this option, see [Manage Azure NetApp Files standard storage with cool access](manage-cool-access.md). 
 
     * **QoS**   
         Specify whether the capacity pool should use the **Manual** or **Auto** QoS type.  See [Storage Hierarchy](azure-netapp-files-understand-storage-hierarchy.md) and [Performance Considerations](azure-netapp-files-performance-considerations.md) to understand the QoS types.  
@@ -74,7 +73,7 @@ Creating a capacity pool enables you to create volumes within it.
         >
         > After the capacity pool is created, you can’t modify the setting (switching between `single` or `double`) for the encryption type.  
 
-        Azure NetApp Files double encryption at rest is currently in preview. If you are using this feature for the first time, you need to register the feature first.  
+        Azure NetApp Files double encryption at rest is currently in preview. If using this feature for the first time, you need to register the feature first.  
 
         1. Register the feature: 
             ```azurepowershell-interactive

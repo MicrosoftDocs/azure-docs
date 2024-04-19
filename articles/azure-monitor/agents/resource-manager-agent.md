@@ -1068,9 +1068,6 @@ resource managedIdentity 'Microsoft.Compute/virtualMachines/extensions@2021-11-0
       },
       "workspaceResourceId": {
         "value": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/my-resource-group/providers/microsoft.operationalinsights/workspaces/my-workspace"
-      },
-      "workspaceKey": {
-        "value": "Npl#3y4SmqG4R30ukKo3oxfixZ5axv1xocXgKR17kgVdtacU4cEf+SNr2TdHGVKTsZHZv3R8QKRXfh+ToVR9dA-="
       }
   }
 }

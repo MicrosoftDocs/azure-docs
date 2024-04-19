@@ -9,7 +9,7 @@ ms.author: micahvivion
 ms.date: 02/24/2024
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.custom: devx-track-js
+ms.custom:
 zone_pivot_groups: acs-plat-web-native
 ---
 
