@@ -7,7 +7,7 @@ author: nabhishek
 ms.author: abnarain
 ms.reviewer: susabat
 ms.topic: conceptual
-ms.date: 03/11/2023
+ms.date: 04/09/2024
 ---
 
 # Automated publishing for continuous integration and delivery (CI/CD)

@@ -59,7 +59,7 @@ If Speech Studio uses your Microsoft Entra token, but the Speech resource doesn'
 
 | Authentication credential | Feature availability | 
 | ---| ---|  
-|Speech resource key|Full access limited only by the assigned role permissions.|
+|Speech resource key|Full access. Role configuration is ignored if resource key is used.|
 |Microsoft Entra token with custom subdomain and private endpoint|Full access limited only by the assigned role permissions.|
 |Microsoft Entra token without custom subdomain and private endpoint (not recommended)|Features are limited. For example, the Speech resource can be used to train a custom speech model or custom neural voice. But you can't use a custom speech model or custom neural voice.|
 

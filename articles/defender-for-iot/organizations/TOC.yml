@@ -249,6 +249,9 @@
         displayName: users, user
       - name: Audit user activity
         href: track-user-activity.md
+      - name: SSO for sensor console login
+        href: set-up-sso.md
+        displayName: users, user
     - name: Maintain OT on-premises resources
       items:
       - name: Enhance device data and detection
@@ -382,7 +385,7 @@
         items:
         - name: OT sensor (VMware ESXi) 
           href: appliance-catalog/virtual-sensor-vmware.md
-        - name: OT sensor (Hyper-V)
+        - name: OT sensor (Hyper-V) Gen 2
           href: appliance-catalog/virtual-sensor-hyper-v.md
         - name: On-premises management console (VMware ESXi)
           href: appliance-catalog/virtual-management-vmware.md

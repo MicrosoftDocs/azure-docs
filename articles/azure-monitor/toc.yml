@@ -108,6 +108,10 @@ items:
                   href: app/java-standalone-telemetry-processors-examples.md
           - name: Upgrade from 2.x
             href: app/java-standalone-upgrade-from-2x.md
+        - name: Node.js (supplemental)
+          items:
+          - name: Upgrade from SDK 2.X
+            href: app/opentelemetry-nodejs-migrate.md
         - name: Python (supplemental)
           items:
           - name: Migrate from Opencensus
@@ -529,11 +533,8 @@ items:
         href: containers/container-insights-prometheus-logs.md
     - name: Remote-write with Prometheus
       items:
-      - name: Overview
-        displayName: Prometheus,remote-write
-        href: essentials/remote-write-prometheus.md
-      - name: Remote-write using Azure Monitor sidecar
-        displayName: Prometheus,remote-write
+      - name: Prometheus remote-write
+        displayName: Prometheus,remote-write, azure monitor
         href: containers/prometheus-remote-write.md
       - name: Microsoft Entra authorization proxy
         displayName: Prometheus
@@ -550,22 +551,13 @@ items:
       - name: Microsoft Entra Workload ID (preview) authentication
         displayName: Prometheus,remote-write
         href: containers/prometheus-remote-write-azure-workload-identity.md
+      - name: Troubleshoot remote-write
+        displayName: Prometheus,remote-write
+        href: containers/prometheus-remote-write-troubleshooting.md
     - name: Private Link
       items:
-      - name: Private link data ingestion with Prometheus metrics
-        displayName: Private link data ingestion
-        href: essentials/private-link-data-ingestion.md
-      - name: Private link data query of Prometheus metrics
-        displayName: Private link data query
-        href: ../managed-grafana/how-to-connect-to-data-source-privately.md
       - name: Private link for Container Insights          
-        href: containers/container-insights-private-link.md
-      - name: Query using Azure workbooks
-        displayName: Prometheus
-        href: essentials/prometheus-workbooks.md
-      - name: Query using the API and PromQL
-        displayName: Prometheus
-        href: essentials/prometheus-api-promql.md        
+        href: containers/container-insights-private-link.md    
     - name: Monitor
       items:
       - name: Monitor performance
@@ -727,8 +719,8 @@ items:
           href: agents/data-collection-syslog.md
         - name: Configure a syslog forwarder
           href: ../sentinel/forward-syslog-monitor-agent.md?bc=%2fazure%2fazure-monitor%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fazure-monitor%2ftoc.json
-        - name: Send data to Event Hubs and Storage
-          href: agents/azure-monitor-agent-send-data-to-event-hubs-and-storage.md
+        - name: Log Analytics gateway
+          href: agents/gateway.md
       - name: Define network settings
         href: agents/azure-monitor-agent-data-collection-endpoint.md
       - name: Configure Private Link for Azure Monitor Agent
@@ -763,8 +755,6 @@ items:
             href: ../virtual-machines/extensions/oms-windows.md?toc=/azure/azure-monitor/toc.json
           - name: VM Extension for Linux
             href: ../virtual-machines/extensions/oms-linux.md?toc=/azure/azure-monitor/toc.json
-          - name: Log Analytics gateway
-            href: agents/gateway.md
           - name: LA Agent Management
             href: agents/agent-manage.md
           - name: LA Agent Health
@@ -799,6 +789,8 @@ items:
           items:
           - name: Overview
             href: agents/diagnostics-extension-overview.md
+          - name: Send data to Event Hubs and Storage
+            href: agents/azure-monitor-agent-send-data-to-event-hubs-and-storage.md
           - name: Windows
             displayName: diagnostics extension
             items:
@@ -929,8 +921,9 @@ items:
         href: essentials/prometheus-metrics-overview.md
       - name: FAQ
         href: essentials/prometheus-metrics-overview.md#frequently-asked-questions
-      - name: Get started
-        href: essentials/prometheus-get-started.md
+      - name: Prometheus remote-write from virtual-machines
+        displayName: Prometheus remote-write
+        href: essentials/prometheus-remote-write-virtual-machines.md
       - name: Azure Monitor workspace
         items:
         - name: Overview
@@ -943,9 +936,9 @@ items:
           href: essentials/azure-monitor-workspace-private-endpoint.md
         - name: Private link for Prometheus data ingestion
           href: essentials/private-link-data-ingestion.md
-      - name: Remote-write from self-managed Prometheus
-        displayName: Prometheus
-        href: essentials/remote-write-prometheus.md
+        - name: Private link data query of Prometheus metrics
+        displayName: Private link data query
+        href: ../managed-grafana/how-to-connect-to-data-source-privately.md?toc=/azure/azure-monitor/toc.json
       - name: Alerting and rule groups
         displayName: Prometheus
         href: essentials/prometheus-rule-groups.md
@@ -1171,6 +1164,9 @@ items:
     items:
       - name: Analyze metrics
         href: essentials/analyze-metrics.md
+      - name: Metrics explorer with PromQL
+        displayName: Prometheus, metrics explorer
+        href: essentials/metrics-explorer.md  
       - name: Understanding metrics aggregation
         href: essentials/metrics-aggregation-explained.md
       - name: Examples of metric charts

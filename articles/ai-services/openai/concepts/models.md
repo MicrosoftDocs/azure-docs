@@ -4,7 +4,7 @@ titleSuffix: Azure OpenAI
 description: Learn about the different model capabilities that are available with Azure OpenAI.
 ms.service: azure-ai-openai
 ms.topic: conceptual
-ms.date: 04/04/2024
+ms.date: 04/17/2024
 ms.custom: references_regions, build-2023, build-2023-dataai, refefences_regions
 manager: nitinme
 author: mrbullwinkle #ChrisHMSFT
@@ -92,6 +92,8 @@ You can also use the OpenAI text to speech voices via Azure AI Speech. To learn 
 
 [!INCLUDE [Standard Models](../includes/model-matrix/standard-models.md)]
 
+This table does not include fine-tuning regional availability, consult the dedicated [fine-tuning section](#fine-tuning-models) for this information.
+
 ### Standard deployment model quota
 
 [!INCLUDE [Quota](../includes/model-matrix/quota.md)]
@@ -170,7 +172,7 @@ GPT-3.5 Turbo version 0301 is the first version of the model released.  Version 
 See [model versions](../concepts/model-versions.md) to learn about how Azure OpenAI Service handles model version upgrades, and [working with models](../how-to/working-with-models.md) to learn how to view and configure the model version settings of your GPT-3.5 Turbo deployments.
 
 > [!NOTE]
-> Version `0613` of `gpt-35-turbo` and `gpt-35-turbo-16k` will be retired no earlier than June 13, 2024. Version `0301` of `gpt-35-turbo` will be retired no earlier than July 5, 2024.  See [model updates](../how-to/working-with-models.md#model-updates) for model upgrade behavior.
+> Version `0613` of `gpt-35-turbo` and `gpt-35-turbo-16k` will be retired no earlier than July 13, 2024. Version `0301` of `gpt-35-turbo` will be retired no earlier than June 13, 2024.  See [model updates](../how-to/working-with-models.md#model-updates) for model upgrade behavior.
 
 |  Model ID   | Max Request (tokens) | Training Data (up to) |
 |  --------- |:------:|:----:|
@@ -237,15 +239,15 @@ The following Embeddings models are available with [Azure Government](/azure/azu
 
 `babbage-002` and `davinci-002` are not trained to follow instructions. Querying these base models should only be done as a point of reference to a fine-tuned version to evaluate the progress of your training.
 
-`gpt-35-turbo-0613` - fine-tuning of this model is limited to a subset of regions, and is not available in every region the base model is available.  
+`gpt-35-turbo` - fine-tuning of this model is limited to a subset of regions, and is not available in every region the base model is available.  
 
 |  Model ID  | Fine-Tuning Regions | Max Request (tokens) | Training Data (up to) |
 |  --- | --- | :---: | :---: |
-| `babbage-002` | North Central US <br> Sweden Central | 16,384 | Sep 2021 |
-| `davinci-002` | North Central US <br> Sweden Central | 16,384 | Sep 2021 |
-| `gpt-35-turbo` (0613) | East US2 <br> North Central US <br> Sweden Central | 4,096 | Sep 2021 |
-| `gpt-35-turbo` (1106) | East US2 <br> North Central US <br> Sweden Central | Input: 16,385<br> Output: 4,096 |  Sep 2021|
-| `gpt-35-turbo` (0125)  | East US2 <br> North Central US <br> Sweden Central  | 16,385 | Sep 2021 |
+| `babbage-002` | North Central US <br> Sweden Central  <br> Switzerland West | 16,384 | Sep 2021 |
+| `davinci-002` | North Central US <br> Sweden Central  <br> Switzerland West | 16,384 | Sep 2021 |
+| `gpt-35-turbo` (0613) | East US2 <br> North Central US <br> Sweden Central <br> Switzerland West | 4,096 | Sep 2021 |
+| `gpt-35-turbo` (1106) | East US2 <br> North Central US <br> Sweden Central <br> Switzerland West | Input: 16,385<br> Output: 4,096 |  Sep 2021|
+| `gpt-35-turbo` (0125)  | East US2 <br> North Central US <br> Sweden Central <br> Switzerland West | 16,385 | Sep 2021 |
 
 ### Whisper models
 

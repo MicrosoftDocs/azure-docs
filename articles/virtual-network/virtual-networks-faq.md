@@ -624,7 +624,6 @@ There is no limit on the total number of service endpoints in a virtual network.
 |Azure Cosmos DB|    64|
 |Azure Event Hubs|    128|
 |Azure Service Bus|    128|
-|Azure Data Lake Storage Gen1|    100|
 
 >[!NOTE]
 > The limits are subject to change at the discretion of the Azure services. Refer to the respective service documentation for details.

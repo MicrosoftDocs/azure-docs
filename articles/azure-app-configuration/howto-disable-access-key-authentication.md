@@ -3,10 +3,10 @@ title: Disable access key authentication for an Azure App Configuration instance
 titleSuffix: Azure App Configuration
 description: Learn how to disable access key authentication for an Azure App Configuration instance.
 ms.service: azure-app-configuration
-author: jimmyca15
-ms.author: jimmyca
+author: maud-lv
+ms.author: malev
 ms.topic: how-to
-ms.date: 5/14/2021
+ms.date: 04/05/2024
 ---
 
 # Disable access key authentication for an Azure App Configuration instance
