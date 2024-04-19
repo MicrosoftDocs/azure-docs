@@ -30,6 +30,14 @@ Scheduled patching doesn't install the patches on the VMs and gives an error `Sh
 #### Resolution
 In a static scope, it's crucial for customers to avoid relying on outdated VM configurations. Instead, they should prioritize re-assigning configurations after recreating instances.
 
+### TimeOut or Failed Schduled Patching Job 
+
+#### Issue
+Scheduled patching fails with an error `TimeOut` or `Failed` after the VM has been moved to a different region
+
+#### Resolution
+If a VM is recreated with the same name but in a different region, patch installation might fail with the `TimeOut` or `Failed` error. The portal might show the same VM twice because the previously created VM has not been removed from the backend. This is a known bug, and the team is working on resolving it. If you encounter this issue, please contact the support team for immediate assistance.
+ 
 ### Schedule Patching stops working after the resource is moved
 
 #### Issue
