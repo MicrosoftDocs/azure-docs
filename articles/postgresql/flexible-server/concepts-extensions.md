@@ -120,6 +120,9 @@ Azure Database for PostgreSQL flexible server instance supports a subset of key 
 ## Extension versions
 
 The following extensions are available in Azure Database for PostgreSQL flexible server:
+> [!NOTE]  
+> Extensions in the following table with the :heavy_check_mark: mark, require their corresponding libraries to be enabled in the shared_preload_libraries server parameter.
+
 [!INCLUDE [extensions-table](./includes/extensions-table.md)]
 
 ## dblink and postgres_fdw
@@ -353,7 +356,7 @@ CREATE EXTENSION pg_buffercache;
 
 ## Extensions and Major Version Upgrade
 
-Azure Database for PostgreSQL flexible server has introduced an [in-place major version upgrade](./concepts-major-version-upgrade.md#overview) feature that performs an in-place upgrade of the Azure Database for PostgreSQL flexible server instance with just a click. In-place major version upgrade simplifies the Azure Database for PostgreSQL flexible server upgrade process, minimizing the disruption to users and applications accessing the server. In-place major version upgrade doesn't support specific extensions, and there are some limitations to upgrading certain extensions. The extensions **Timescaledb**, **pgaudit**, **dblink**, **orafce**, and **postgres_fdw** are unsupported for all Azure Database for PostgreSQL flexible server versions when using [in-place major version update feature](./concepts-major-version-upgrade.md#overview).
+Azure Database for PostgreSQL flexible server has introduced an [in-place major version upgrade](./concepts-major-version-upgrade.md) feature that performs an in-place upgrade of the Azure Database for PostgreSQL flexible server instance with just a click. In-place major version upgrade simplifies the Azure Database for PostgreSQL flexible server upgrade process, minimizing the disruption to users and applications accessing the server. In-place major version upgrade doesn't support specific extensions, and there are some limitations to upgrading certain extensions. The extensions **Timescaledb**, **pgaudit**, **dblink**, **orafce**, and **postgres_fdw** are unsupported for all Azure Database for PostgreSQL flexible server versions when using [in-place major version update feature](./concepts-major-version-upgrade.md).
 
 ## Related content
 

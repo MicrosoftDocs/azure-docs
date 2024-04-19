@@ -53,7 +53,7 @@ If you aren't already using Azure, you may Try Azure Cosmos DB free for 30 days 
 
 ## ...for more than just AI apps
 
-Besides AI, Azure Cosmos DB should also be your goto database for web, mobile, gaming, and IoT applications. Azure Cosmos DB is well positioned for solutions that handle massive amounts of data, reads, and writes at a global scale with near-real response times. Azure Cosmos DB's guaranteed high availability, high throughput, low latency, and tunable consistency are huge advantages when building these types of applications. Learn about how Azure Cosmos DB can be used to build IoT and telematics, retail and marketing, gaming and web and mobile applications.
+Besides AI, Azure Cosmos DB should also be your goto database for a variety of use cases, including [retail and marketing](use-cases.md#retail-and-marketing), [IoT and telematics](use-cases.md#iot-and-telematics), [gaming](use-cases.md#gaming), [social](social-media-apps.md), and [personalization](use-cases.md#personalization), among others. Azure Cosmos DB is well positioned for solutions that handle massive amounts of data, reads, and writes at a global scale with near-real response times. Azure Cosmos DB's guaranteed high availability, high throughput, low latency, and tunable consistency are huge advantages when building these types of applications.
 
 ## ...with unmatched reliability and flexibility
 
