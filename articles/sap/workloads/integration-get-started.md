@@ -86,7 +86,7 @@ Also see these SAP resources:
 
 ### Microsoft Teams
 
-For more information about integration with Microsoft Teams, see [Native SAP apps on the Teams marketplace](https://appsource.microsoft.com/marketplace/apps?product=teams&search=sap&page=1). Also see the following SAP resources. 
+For more information about integration with Microsoft Teams, see [Native SAP apps on the Teams marketplace](https://appsource.microsoft.com/en-us/marketplace/apps?page=1&search=sap&product=teams). Also see the following SAP resources. 
 
 - [SAP SuccessFactors Learning](https://help.sap.com/docs/SAP_SUCCESSFACTORS_LEARNING/b5f34f583e874dd58c40525e4504b99e/e7c54e3fc9a24ee2b114a78761d3ff90.html)
 - [SAP Build Work Zone, advanced edition](https://help.sap.com/docs/WZ/b03c84105ff74f809631e494bd612e83/bfa596db8219450ba9c65b809300b55d.html)
@@ -233,7 +233,7 @@ Discover partner offerings for SAP security on the [Azure marketplace](https://a
 
 #### Microsoft Sentinel for SAP
 
-Sentinel integrates natively with Defender XDR. See the integration in action with [Automatic attack disruption for SAP](https://learn.microsoft.com/azure/sentinel/sap/deployment-attack-disrupt).
+Sentinel integrates natively with Defender XDR. See the integration in action with [Automatic attack disruption for SAP](../../sentinel/sap/deployment-attack-disrupt.md).
 
 For more information about [SAP certified](https://www.sap.com/dmc/exp/2013_09_adpd/enEN/#/solutions?id=s:33db1376-91ae-4f36-a435-aafa892a88d8) threat monitoring with Microsoft Sentinel for SAP, see the following Microsoft resources:
 
@@ -345,7 +345,7 @@ You can use the following free developer accounts to explore integration scenari
 
 ## Next steps
 
-- [Discover native SAP applications available on the Microsoft Teams marketplace](https://appsource.microsoft.com/marketplace/apps?product=teams&search=sap&page=1)
+- [Discover native SAP applications available on the Microsoft Teams marketplace](https://appsource.microsoft.com/en-us/marketplace/apps?page=1&search=sap&product=teams)
 - [Browse the out-of-the-box SAP applications available on Microsoft Power Platform](/power-automate/sap-integration/overview?source=recommendations#prebuilt-sap-integration-solution)
 - [Understand SAP data integration with Azure - Cloud Adoption Framework](/azure/cloud-adoption-framework/scenarios/sap/sap-lza-identify-sap-data-sources)
 - [Identify your SAP data sources - Cloud Adoption Framework](/azure/cloud-adoption-framework/scenarios/sap/sap-lza-identify-sap-data-sources)
