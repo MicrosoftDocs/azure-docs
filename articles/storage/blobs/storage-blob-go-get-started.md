@@ -8,7 +8,7 @@ ms.author: pauljewell
 
 ms.service: azure-blob-storage
 ms.topic: how-to
-ms.date: 11/14/2023
+ms.date: 04/19/2024
 ms.custom: devx-track-go, devguide-go
 ---
 
@@ -56,7 +56,7 @@ To connect an application to Blob Storage, create a client object using [azblob.
 
 To learn more about creating and managing client objects, including best practices, see [Create and manage client objects that interact with data resources](storage-blob-client-management.md).
 
-You can authorize a `BlobServiceClient` object by using a Microsoft Entra authorization token, an account access key, or a shared access signature (SAS).
+You can authorize a client object using a Microsoft Entra authorization token, an account access key, or a shared access signature (SAS).
 
 <a name='azure-ad'></a>
 
@@ -72,23 +72,24 @@ To authorize with Microsoft Entra ID, you need to use a [security principal](../
 
 An easy and secure way to authorize access and connect to Blob Storage is to obtain an OAuth token by creating a [DefaultAzureCredential](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity#DefaultAzureCredential) instance. You can then use that credential to create the client object using [azblob.NewClient](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob#NewClient).
 
-:::code language="go" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob_devguide_auth.go" id="Snippet_get_service_client_DAC":::
+:::code language="go" source="~/blob-devguide-go/cmd/client-auth/client_auth.go" id="Snippet_get_service_client_DAC":::
 
 ## [SAS token](#tab/sas-token)
 
-To use a shared access signature (SAS) token, provide the token as a string and create the client object using [azblob.NewClient](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob#NewClient). If your account URL includes the SAS token, omit the credential parameter.
+To use a shared access signature (SAS) token, append the token to the account URL string and create the client object using [azblob.NewClientWithNoCredential](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob#NewClientWithNoCredential).
 
-:::code language="go" source="~/azure-storage-snippets/blobs/howto/go/blob-devguide-py/blob_devguide_auth.go" id="Snippet_get_service_client_SAS":::
+:::code language="go" source="~/blob-devguide-go/cmd/client-auth/client_auth.go" id="Snippet_get_service_client_SAS":::
 
 ## [Account key](#tab/account-key)
 
 To use a storage account shared key, provide the key as a string and initialize a client object using [azblob.NewClientWithSharedKeyCredential](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob#NewClientWithSharedKeyCredential).
 
-:::code language="go" source="~/azure-storage-snippets/blobs/howto/go/blob-devguide-py/blob_devguide_auth.go" id="Snippet_get_service_client_account_key":::
+:::code language="go" source="~/blob-devguide-go/cmd/client-auth/client_auth.go" id="Snippet_get_service_client_shared_key":::
 
-You can also create a `BlobServiceClient` object using a connection string.
 
-:::code language="go" source="~/azure-storage-snippets/blobs/howto/go/blob-devguide-py/blob_devguide_auth.go" id="Snippet_get_service_client_connection_string":::
+You can also create a client object using a connection string.
+
+:::code language="go" source="~/blob-devguide-go/cmd/client-auth/client_auth.go" id="Snippet_get_service_client_connection_string":::
 
 For information about how to obtain account keys and best practice guidelines for properly managing and safeguarding your keys, see [Manage storage account access keys](../common/storage-account-keys-manage.md).
 
@@ -108,7 +109,9 @@ The following guides show you how to work with data resources and perform specif
 | [Create a container](storage-blob-container-create-go.md) | Create containers. |
 | [Delete and restore containers](storage-blob-container-delete-go.md) | Delete containers, and if soft-delete is enabled, restore deleted containers.  |
 | [List containers](storage-blob-containers-list-go.md) | List containers in an account and the various options available to customize a listing. |
+| [Manage properties and metadata (containers)](storage-blob-container-properties-metadata-go.md) | Manage container properties and metadata. |
 | [Upload blobs](storage-blob-upload-go.md) | Learn how to upload blobs by using strings, streams, file paths, and other methods. |
 | [Download blobs](storage-blob-download-go.md) | Download blobs by using strings, streams, and file paths. |
 | [List blobs](storage-blobs-list-go.md) | List blobs in different ways. |
-| [Delete and restore](storage-blob-delete-go.md) | Delete blobs, and if soft-delete is enabled, restore deleted blobs.  |
+| [Delete and restore blobs](storage-blob-delete-go.md) | Delete blobs, and if soft-delete is enabled, restore deleted blobs.  |
+| [Manage properties and metadata (blobs)](storage-blob-properties-metadata-go.md) | Manage container properties and metadata. |
