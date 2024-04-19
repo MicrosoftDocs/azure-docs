@@ -20,11 +20,11 @@ For each vector field, Azure AI Search constructs an internal vector index using
 > A note about terminology. Internally, the physical data structures of a search index include raw content (used for retrieval patterns requiring non-tokenized content), inverted indexes (used for searchable text fields), and vector indexes (used for searchable vector fields). This article explains the limits for the internal vector indexes that back each of your vector fields. 
 
 > [!TIP]
-> [Vector quantization and storage configuration](vector-search-how-to-configure-compression-storage.md) is now in preview. Use capabilities like narrow data types, scalar quantization, and elimination of redundant storage to stay under vector quota.
+> [Vector quantization and storage configuration](vector-search-how-to-configure-compression-storage.md) is now in preview. Use capabilities like narrow data types, scalar quantization, and elimination of redundant storage to stay under vector quota and storage quota.
 
 ## Key points about quota and vector index size
 
-+ Vector indexes are measured in bytes.
++ Vector index size is measured in bytes.
 
 + Vector quotas are based on memory constraints. All searchable vector indexes must be loaded into memory. At the same time, there must also be sufficient memory for other runtime operations. Vector quotas exist to ensure that the overall system remains stable and balanced for all workloads.
 
@@ -229,4 +229,4 @@ To obtain the **vector index size**, multiply this **raw_size** by the **algorit
 
 ## How vector fields affect disk storage
 
-Most of this article provides information about the size of vectors in memory. If you want to know about vector size on disk, the disk consumption for vector data is roughly three times the size of the vector index in memory. For example, if your `vectorIndexSize` usage is at 100 megabytes (10 million bytes), you should have at least 300 megabytes of `storageSize` quota to accommodate your vector indexes. 
+Most of this article provides information about the size of vectors in memory. If you want to know about vector size on disk, the disk consumption for vector data is roughly three times the size of the vector index in memory. For example, if your `vectorIndexSize` usage is at 100 megabytes (10 million bytes), you would have used least 300 megabytes of `storageSize` quota to accommodate your vector indexes
