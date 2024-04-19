@@ -17,6 +17,7 @@ elements for:
 - display name
 - description
 - metadata
+- version
 - parameters
 - policy definitions
 - policy groups (this property is part of the [Regulatory Compliance (Preview) feature](./regulatory-compliance.md))
@@ -30,6 +31,7 @@ and `productName`. It uses two built-in policies to apply the default tag value.
         "displayName": "Billing Tags Policy",
         "policyType": "Custom",
         "description": "Specify cost Center tag and product name tag",
+        "version" : "1.0.0",
         "metadata": {
             "version": "1.0.0",
             "category": "Tags"
@@ -52,6 +54,7 @@ and `productName`. It uses two built-in policies to apply the default tag value.
         },
         "policyDefinitions": [{
                 "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/1e30110a-5ceb-460c-a204-c1c3969c6d62",
+                "definitionVersion": "1.*.*"
                 "parameters": {
                     "tagName": {
                         "value": "costCenter"
@@ -110,7 +113,7 @@ there are some _common_ properties used by Azure Policy and in built-ins.
 ### Common metadata properties
 
 - `version` (string): Tracks details about the version of the contents of a policy initiative
-  definition.
+  definition. For built-ins, this metadata version will follow the version property of the built-in. It is recommend to use the version property over this metadata version. 
 - `category` (string): Determines under which category in the Azure portal the policy definition is
   displayed.
 
@@ -122,13 +125,25 @@ there are some _common_ properties used by Azure Policy and in built-ins.
 - `deprecated` (boolean): True or false flag for if the policy initiative definition has been marked
   as _deprecated_.
 
-> [!NOTE]
-> The Azure Policy service uses `version`, `preview`, and `deprecated` properties to convey level of
+## Version
+Built-in policy initiatives can host multiple versions with the same `definitionID`. If no version number is specified, all experiences will show the latest version of the definition. To see a specific version of a built-in, it must be specified in API, SDK or UI. To reference a specific version of a definition within an assignment, see [definition version within assignment](../concepts/assignment-structure.md#policy-definition-id-and-version) 
+
+The Azure Policy service uses `version`, `preview`, and `deprecated` properties to convey level of
 > change to a built-in policy definition or initiative and state. The format of `version` is:
 > `{Major}.{Minor}.{Patch}`. Specific states, such as _deprecated_ or _preview_, are appended to the
-> `version` property or in another property as a **boolean**. For more information about the way
+> `version` property or in another property as a **boolean**. 
+
+- Major Version (ex. 2.0.0): introduce breaking changes such as major rule logic changes, removing parameters, adding an enforcement effect by default. 
+- Minor Version (ex. 2.1.0): introduce changes such as minor rule logic changes, adding new parameter allowed values, change to role definitionIds, adding ore moveing definitions within an initiative. 
+- Patch Version (ex.2.1.4): introduce string or metadata changes as well as breaking glass security scenarios (rare).
+
+For more information about the way
 > Azure Policy versions built-ins, see
 > [Built-in versioning](https://github.com/Azure/azure-policy/blob/master/built-in-policies/README.md).
+> To learn more about what it means for a policy to be _deprecated_ or in _preview_, see [Preview and deprecated policies](https://github.com/Azure/azure-policy/blob/master/built-in-policies/README.md#preview-and-deprecated-policies).
+
+Built-in initiatives themselves are versioned, but it is possible to reference a sepcific versions of a built-in definition within a builtin and custom initiative. For more information see [reference definition and versions.](#policy-definition-properties)
+
 
 ## Parameters
 
@@ -259,6 +274,7 @@ Each _array_ element that represents a policy definition has the following prope
 - `parameters`: (Optional) The name/value pairs for passing an initiative parameter to the
   included policy definition as a property in that policy definition. For more information, see
   [Parameters](#parameters).
+- `definitionVersion` : (Optional) The version of the built-in definition to refer to. If none is specied, it will refer to the latest major version at assignment time and auto injest any minor updates. For more information, see [definition version](./definition-structure-basics.md#version)
 - `groupNames` (array of strings): (Optional) The group the policy definition is a member of. For
   more information, see [Policy groups](#policy-definition-groups).
 
@@ -270,6 +286,7 @@ passed the same initiative parameter:
     {
         "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/0ec8fc28-d5b7-4603-8fec-39044f00a92b",
         "policyDefinitionReferenceId": "allowedLocationsSQL",
+        "definitionVersion": "1.2.*"
         "parameters": {
             "sql_locations": {
                 "value": "[parameters('init_allowedLocations')]"

@@ -122,7 +122,7 @@ The following Resource Provider modes are currently supported as a [preview](htt
 >Unless explicitly stated, Resource Provider modes only support built-in policy definitions, and exemptions are not supported at the component-level.
 
 ## Version
-Built-in policy definitions and initiatives can host multiple versions with the same `definitionID`. If no version number is specified, all experiences will show the latest version of the definition. To see a specific version of a built-in, it must be specified in API, SDK or UI. To reference a specific version of a definition within an assignment, see [definition version within assignment](../concepts/assignment-structure.md#policy-definition-id-and-version) 
+Built-in policy definitions can host multiple versions with the same `definitionID`. If no version number is specified, all experiences will show the latest version of the definition. To see a specific version of a built-in, it must be specified in API, SDK or UI. To reference a specific version of a definition within an assignment, see [definition version within assignment](../concepts/assignment-structure.md#policy-definition-id-and-version) 
 
 The Azure Policy service uses `version`, `preview`, and `deprecated` properties to convey level of
 > change to a built-in policy definition or initiative and state. The format of `version` is:
