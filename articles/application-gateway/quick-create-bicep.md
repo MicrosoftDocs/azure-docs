@@ -27,12 +27,12 @@ In this quickstart, you use Bicep to create an Azure Application Gateway. Then y
 
 This Bicep file creates a simple setup with a public frontend IP address, a basic listener to host a single site on the application gateway, a basic request routing rule, and two virtual machines in the backend pool.
 
-> [!TIP]
-> You can modify values of the `Name` and `Tier` parameters under `resource\applicationGateWay\properties\sku` to use a different SKU. For example: `Basic`.
-
 The Bicep file used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/ag-docs-qs/)
 
 :::code language="bicep" source="~/quickstart-templates/demos/ag-docs-qs/main.bicep":::
+
+> [!TIP]
+> You can modify values of the `Name` and `Tier` parameters under `resource\applicationGateWay\properties\sku` to use a different SKU. For example: `Basic`.
 
 Multiple Azure resources are defined in the Bicep file:
 
