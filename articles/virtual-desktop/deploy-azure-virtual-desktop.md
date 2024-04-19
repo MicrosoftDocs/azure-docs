@@ -64,6 +64,8 @@ In addition, you need:
    
    - A logical network that you created on your Azure Stack HCI cluster. DHCP logical networks or static logical networks with automatic IP allocation are supported. For more information, see [Create logical networks for Azure Stack HCI](/azure-stack/hci/manage/create-logical-networks).
 
+- If you are going to deploy Azure Virtual Desktop in an [Azure Extended Zone](/azure/virtual-desktop/azure-extended-zones), you will need an existing [Azure Load Balancer](../load-balancer/load-balancer-outbound-connections.md) on the virtual network that the session hosts are being deployed to. 
+
 # [Azure PowerShell](#tab/powershell)
 
 In addition, you need:
