@@ -43,7 +43,7 @@ The following examples show how to use refreshable configuration values in conso
 The refresh behavior is configured by `refreshOptions` parameter when calling `load` function.
 The loaded configuration is updated when a change is detected on the server.
 
-1. Open the file *app.js* and update the `load` function with `refreshOptions` specified.
+1. Open the file *app.js* and update the `load` function. Add a `refreshOptions` parameter to enable the refresh and configure refresh options. By default, a refresh interval of 30 seconds is used, but you can override it with the `refreshIntervalInMs` property.
 
     ### [Use configuration as Map](#tab/configuration-map)
 
@@ -53,8 +53,7 @@ The loaded configuration is updated when a change is detected on the server.
         // Setting up to refresh when the sentinel key is changed
         refreshOptions: {
             enabled: true,
-            watchedSettings: [{ key: "sentinel" }], // Watch for changes to the key "sentinel" and refreshes the configuration when it changes
-            refreshIntervalInMs: 10 * 1000 // Default value is 30 seconds, shorted for this sample
+            watchedSettings: [{ key: "sentinel" }] // Watch for changes to the key "sentinel" and refreshes the configuration when it changes
         }
     });
     ```
@@ -62,7 +61,7 @@ The loaded configuration is updated when a change is detected on the server.
     ### [Use configuration as object](#tab/configuration-object)
 
     The configuration object is constructed by calling `constructConfigurationObject` function.
-    So you need to add a callback to ensure the object is also updated after a refresh.
+    To ensure an up-to-date configuration, update the configuration object in the `onRefresh` callback triggered whenever a configuration change is detected and the configuration is updated.
 
     ```javascript
     // Connecting to Azure App Configuration using connection string
@@ -70,8 +69,7 @@ The loaded configuration is updated when a change is detected on the server.
         // Setting up to refresh when the sentinel key is changed
         refreshOptions: {
             enabled: true,
-            watchedSettings: [{ key: "sentinel" }], // Watch for changes to the key "sentinel" and refreshes the configuration when it changes
-            refreshIntervalInMs: 10 * 1000 // Default value is 30 seconds, shorted for this sample
+            watchedSettings: [{ key: "sentinel" }] // Watch for changes to the key "sentinel" and refreshes the configuration when it changes
         }
     });
 
@@ -88,25 +86,26 @@ The loaded configuration is updated when a change is detected on the server.
 
 1. Add the following code to poll configuration changes of watched key-values every 5 seconds.
 
+    ### [Use configuration as Map](#tab/configuration-map)
+
     ```javascript
     // Polling for configuration changes every 5 seconds
     while (true) {
         await sleepInMs(5000); // Waiting before the next refresh
         await settings.refresh(); // Refreshing the configuration setting
+        console.log(settings.get("message")); // Consume current value of message from a Map
     }
     ```
 
-1. At the end of the while loop, add the following line to print the value after each refresh call.
-
-    ### [Use configuration as Map](#tab/configuration-map)
-
-    ```javascript
-    console.log(settings.get("message")); // Consume current value of message from a Map
-    ```
     ### [Use configuration as object](#tab/configuration-object)
 
     ```javascript
-    console.log(config.message); // Consume current value of message from an object
+    // Polling for configuration changes every 5 seconds
+    while (true) {
+        await sleepInMs(5000); // Waiting before the next refresh
+        await settings.refresh(); // Refreshing the configuration setting
+        console.log(config.message); // Consume current value of message from an object
+    }
     ```
 
     ---
@@ -126,8 +125,7 @@ The loaded configuration is updated when a change is detected on the server.
             // Setting up to refresh when the sentinel key is changed
             refreshOptions: {
                 enabled: true,
-                watchedSettings: [{ key: "sentinel" }], // Watch for changes to the key "sentinel" and refreshes the configuration when it changes
-                refreshIntervalInMs: 10 * 1000 // Default value is 30 seconds, shorted for this sample
+                watchedSettings: [{ key: "sentinel" }] // Watch for changes to the key "sentinel" and refreshes the configuration when it changes
             }
         });
 
@@ -154,8 +152,7 @@ The loaded configuration is updated when a change is detected on the server.
             // Setting up to refresh when the sentinel key is changed
             refreshOptions: {
                 enabled: true,
-                watchedSettings: [{ key: "sentinel" }], // Watch for changes to the key "sentinel" and refreshes the configuration when it changes
-                refreshIntervalInMs: 10 * 1000 // Default value is 30 seconds, shorted for this sample
+                watchedSettings: [{ key: "sentinel" }] // Watch for changes to the key "sentinel" and refreshes the configuration when it changes
             }
         });
 
