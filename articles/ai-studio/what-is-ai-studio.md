@@ -121,27 +121,30 @@ From the **AI Services** page, you can jump to try-out experiences for different
 
 :::image type="content" source="media/explore/home-ai-services.png" alt-text="Screenshot of the AI Services home page." lightbox= "media/explore/home-ai-services.png":::
 
+> [!NOTE]
+> Although Azure OpenAI Service isn't listed on the **AI Services** page, it's also an Azure AI service. You can access Azure OpenAI models from the model catalog, playground, deployments, and other locations in AI Studio.
+
 ### Management
 
-All hubs
+From the left navigation pane on the **Home** page, you can access following pages under **Management:**
 
-The **All hubs** page provides a list of all the hubs that you have access to in Azure AI Studio. You can see the name of each hub, the number of projects in the hub, and the number of users in the hub. You can also filter the hubs by name or description.
+**All hubs:** This is one of the places in AI Studio where you can create new hubs. You can view a list of all the hubs that you have access to in Azure AI Studio. You can also filter the hubs by name, region, or resource group. For more information about hubs, see [AI Studio hubs for your projects](concepts/ai-resources.md).
 
-Resources and keys
+**Resources and keys:** Provides information about the Azure AI services (including Azure OpenAI) resources and keys that you have access to in Azure AI Studio. You can see the name of each Azure resource, the subscription it belongs to, the region it's in, the pricing tier, the endpoint URL, and the key that you need to access the resource. 
 
-The resources and keys section provides information about the resources and keys that you have access to in Azure AI Studio. You can see the name of each resource, the type of resource, and the key that you need to access the resource. You can also filter the resources by name or description.
-
-Quota
-
-The quota section provides information about the quota that you have access to in Azure AI Studio. You can see the name of each quota, the type of quota, and the amount of quota that you have used. You can also filter the quotas by name or description.
+**Quota:** The quota section provides information about your quota usage and limits Azure ML (including virtual machines for compute) and Azure OpenAI model quotas. For more information about quotas, see [Quotas and limits for Azure AI Studio](concepts/quotas-limits.md).
 
 ## Hub view
 
-As a developer, you can manage settings such as connections and compute. Your admin mainly uses this section to look at access control, usage, and billing.
+You (or your admin) use a hub for enterprise configuration, a unified data story, and built-in governance. There's a centralized backend infrastructure to reduce complexity for developers. For more information about hubs and dependencies, see [AI Studio architecture](concepts/architecture.md).
 
-- Centralized backend infrastructure to reduce complexity for developers.
-- A single hub for enterprise configuration, unified data story, and built-in governance.
+After you've created a hub (whether or not you have a project in it), you can view the hub's details, manage settings, and access resources. From the left navigation pane on the **Home** page, select **All hubs** and then select a hub to view its details.
 
+From the left navigation pane on the **Hub overview** page, you can access the same model catalog, model benchmarking, prompt catalog, and AI Services pages that you can access from the [**Home** page](#home-page). You can also access the following pages:
+
+- **All projects:** This is one of the places in AI Studio where you can create new projects. You can view a list of all the projects that you have access to in the hub. You can also filter the projects by project name, hub name, or region. For more information about creating projects, see [Create a project](how-to/create-projects.md).
+- **Playgrounds:** This is where you can experiment with your data and prompts for generative AI models. Available playgrounds include chat and assistants. 
+- **Shared resources:** This is where you can view and manage shared resources in the hub. Shared resources include [deployments](./concepts/deployments-overview.md), [connections](./concepts/connections.md), [compute instances](./how-to/create-manage-compute.md), [users](./concepts/rbac-ai-studio.md), policies, and [content filters](./concepts/content-filtering.md). 
 
 ## Project view
 
@@ -166,7 +169,11 @@ AI Studio is available in most regions where Azure AI services are available. Fo
 
 ## How to get access
 
-You can [explore AI Studio](#get-started) without signing in, but for full functionality an Azure account is needed. You also need to apply for access to Azure OpenAI Service by completing the form at [https://aka.ms/oai/access](https://aka.ms/oai/access). You receive a follow-up email when your subscription is added.
+You can [explore AI Studio (including the model catalog)](./how-to/model-catalog.md) without signing in. 
+
+But for full functionality there are some requirements:
+- You need an [Azure account](https://azure.microsoft.com/en-us/free/). 
+- You also need to apply for access to Azure OpenAI Service by completing the form at [https://aka.ms/oai/access](https://aka.ms/oai/access). You receive a follow-up email when your subscription is added.
 
 ## Next steps 
 
