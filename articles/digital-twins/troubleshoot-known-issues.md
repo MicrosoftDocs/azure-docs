@@ -15,7 +15,7 @@ This article provides information about known issues associated with Azure Digit
 
 ## Azure Digital Twins Explorer doesn't support private endpoints
 
-**Issue description:** Azure Digital Twins Explorer shows errors when attempting to use it with an Azure Digital Twins instance that uses [Private Link](../articles/digital-twins/concepts-security.md#private-network-access-with-azure-private-link) to disable public access. You may see a popup that says *Error fetching models.*
+**Issue description:** Azure Digital Twins Explorer shows errors when attempting to use it with an Azure Digital Twins instance that uses [Private Link](concepts-security.md#private-network-access-with-azure-private-link) to disable public access. You may see a popup that says *Error fetching models.*
 
 | Does this affect me? | Cause | Resolution |
 | --- | --- | --- |
