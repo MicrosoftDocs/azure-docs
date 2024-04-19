@@ -13,11 +13,11 @@ ms.date: 04/18/2024
 ---
 # Connect virtual networks in different subscriptions with service principal names
 
-Scenarios exist where you need to connect virtual networks in different subscriptions without the use of user accounts or guest accounts. In this how-to, you'll learn how to peer two virtual networks with service principal names (SPNs) in different subscriptions. Virtual network peerings between virtual networks in different subscriptions and Microsoft Entra ID tenants must be peered via Azure CLI or PowerShell. Currently there isn't an option in the Azure portal to peer virtual networks with SPNs in different subscriptions.
+Scenarios exist where you need to connect virtual networks in different subscriptions without the use of user accounts or guest accounts. In this virtual network how-to, learn how to peer two virtual networks with service principal names (SPNs) in different subscriptions. Virtual network peerings between virtual networks in different subscriptions and Microsoft Entra ID tenants must be peered via Azure CLI or PowerShell. Currently there isn't an option in the Azure portal to peer virtual networks with SPNs in different subscriptions.
 
 ## Prerequisites
 
-- An Azure account(s) with two active subscriptions. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with two active subscriptions. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 - Account permissions to create a service principal, assign app permissions, and create resources in the Microsoft Entra ID tenant associated with each subscription.
 
@@ -30,7 +30,7 @@ Scenarios exist where you need to connect virtual networks in different subscrip
 
 ## Create subscription-1 resources
 
-1. Sign-in to **subscription-1** with a user account with permissions to create a resource group, a virtual network and an SPN in the Microsoft Entra ID tenant associated with **subscription-1**
+1. Sign-in to **subscription-1** with a user account with permissions to create a resource group, a virtual network, and an SPN in the Microsoft Entra ID tenant associated with **subscription-1**
 
     ```azurecli
     az login
@@ -58,7 +58,7 @@ Scenarios exist where you need to connect virtual networks in different subscrip
 
 ### Create spn-1-peer-vnet
 
-Create **spn1-peer-vnet** with a scope to the virtual network created in the previous step. This SPN is added to the scope of **vnet-2** in a future step to allow for the vnet peer.
+Create **spn1-peer-vnet** with a scope to the virtual network created in the previous step. This SPN is added to the scope of **vnet-2** in a future step to allow for the virtual network peer.
 
 1. Place the resource ID of the virtual network you created earlier in a variable for use in the later step.
 
@@ -79,7 +79,7 @@ Create **spn1-peer-vnet** with a scope to the virtual network created in the pre
         --scope $vnetid
     ```
 
-    Make note of the output of the creation in the step. The password is only showed here in this output. Copy the password to a place safe for use in the later sign-in steps. 
+    Make note of the output of the creation in the step. The password is only displayed here in this output. Copy the password to a place safe for use in the later sign-in steps. 
 
     ```output
     {
@@ -100,7 +100,7 @@ Create **spn1-peer-vnet** with a scope to the virtual network created in the pre
     echo $appid1
     ```
 
-1. The SPN created in the previous step must have a redirect URI to finish the authentication process approval and must be converted to multi-tenant use. Use the following command to add **https://www.microsoft.com** as a redirect URI and enable multi-tenant on **spn-1-peer-vnet**. 
+1. The SPN created in the previous step must have a redirect URI to finish the authentication process approval and must be converted to multitenant use. Use the following command to add **https://www.microsoft.com** as a redirect URI and enable multitenant on **spn-1-peer-vnet**. 
 
     ```azurecli
     az ad app update \
@@ -125,7 +125,7 @@ Create **spn1-peer-vnet** with a scope to the virtual network created in the pre
 
 ## Create subscription-2 resources
 
-1. Sign-in to **subscription-2** with a user account with permissions to create a resource group, a virtual network and an SPN in the Microsoft Entra ID tenant associated with **subscription-2**
+1. Sign-in to **subscription-2** with a user account with permissions to create a resource group, a virtual network, and an SPN in the Microsoft Entra ID tenant associated with **subscription-2**
 
     ```azurecli
     az login
@@ -153,7 +153,7 @@ Create **spn1-peer-vnet** with a scope to the virtual network created in the pre
 
 ### Create spn-2-peer-vnet
 
-Create **spn-2-peer-vnet** with a scope to the virtual network created in the previous step. This SPN is added to the scope of **vnet-2** in a future step to allow for the vnet peer.
+Create **spn-2-peer-vnet** with a scope to the virtual network created in the previous step. This SPN is added to the scope of **vnet-2** in a future step to allow for the virtual network peer.
 
 1. Place the resource ID of the virtual network you created earlier in a variable for use in the later step.
 
@@ -174,9 +174,9 @@ Create **spn-2-peer-vnet** with a scope to the virtual network created in the pr
         --scope $vnetid
     ```
 
-    Make note of the output of the creation in the step. The password is only showed here in this output. Copy the password to a place safe for use in the later sign-in steps.
+    Make note of the output of the creation in the step. Copy the password to a place safe for use in the later sign-in steps. The password isn't displayed again.
 
-    The output will look similar to the following output.
+    The output looks similar to the following output.
 
     ```output
     {
@@ -196,7 +196,7 @@ Create **spn-2-peer-vnet** with a scope to the virtual network created in the pr
                 --output tsv)
     ```
 
-1. The SPN created in the previous step must have a redirect URI to finish the authentication process approval and must be converted to multi-tenant use. Use the following command to add **https://www.microsoft.com** as a redirect URI and enable multi-tenant on **spn-2-peer-vnet**. 
+1. The SPN created in the previous step must have a redirect URI to finish the authentication process approval and must be converted to multitenant use. Use the following command to add **https://www.microsoft.com** as a redirect URI and enable multitenant on **spn-2-peer-vnet**. 
 
     ```azurecli
     az ad app update \
@@ -221,7 +221,7 @@ Create **spn-2-peer-vnet** with a scope to the virtual network created in the pr
 
 ## Register spn-2-peer-vnet in subscription-1 and assign permissions to vnet-1
 
-An user account with administrator permissions in the Microsoft Entra ID tenant must complete the process of adding **spn-2-vnet-peer** to **subscription-1**. Once completed, **spn-2-vnet-peer** can be assigned permissions to **vnet-1**. 
+A user account with administrator permissions in the Microsoft Entra ID tenant must complete the process of adding **spn-2-vnet-peer** to **subscription-1**. Once completed, **spn-2-vnet-peer** can be assigned permissions to **vnet-1**. 
 
 ### Register spn-2-peer-vnet app in subscription-1
 
@@ -233,7 +233,7 @@ An administrator in the **subscription-1** Microsoft Entra ID tenant must approv
     az login
     ```
 
-1. Obtain the appId of **spn-2-peer-vnet**. Note the appID in the output.  This appID is used in the authentication URL in the later steps.
+1. Obtain the appId of **spn-2-peer-vnet**. Note the appID in the output. This appID is used in the authentication URL in the later steps.
 
     ```azurecli
     appid2=$(az ad sp list \
@@ -243,25 +243,25 @@ An administrator in the **subscription-1** Microsoft Entra ID tenant must approv
     echo $appid2
     ```
 
-1. Use the appid for **spn-2-peer-vnet** and the Microsoft Entra ID tenant ID for **subcription-1** to build the login URL for the approval. The URL is built from the following example:
+1. Use the appid for **spn-2-peer-vnet** and the Microsoft Entra ID tenant ID for **subcription-1** to build the sign-in URL for the approval. The URL is built from the following example:
 
     ```
     https://login.microsoftonline.com/entra-tenant-id-subscription-1/oauth2/authorize?client_id={$appid2}&response_type=code&redirect_uri=https://www.microsoft.com
     ```
 
-    The URL will look similar to the below example.
+    The URL looks similar to the below example.
 
     ```
     https://login.microsoftonline.com/1e1cce84-0637-4693-99d9-27ff18dd65c8/oauth2/authorize?client_id=8791e68c-8d8b-4a63-b6f1-ca49008b142b&response_type=code&redirect_uri=https://www.microsoft.com
     ```
 
-1. Open the URL in a web browser and login with an administrator in the Microsoft Entra ID tenant in **subscription-1**.
+1. Open the URL in a web browser and sign-in with an administrator in the Microsoft Entra ID tenant in **subscription-1**.
 
-1. Approve the application **spn-2-vnet-peer**. The microsoft.com homepage will display if the authentication was successful.
+1. Approve the application **spn-2-vnet-peer**. The microsoft.com homepage displays if the authentication was successful.
 
 ### Assign spn-2-peer-vnet to vnet-1
 
-Once the administrator has approved **spn-2-vnet-peer**, add it to the virtual network **vnet-1** as a **Network Contributor**.
+After the administrator approves **spn-2-vnet-peer**, add it to the virtual network **vnet-1** as a **Network Contributor**.
 
 1. Sign-in to **subscription-1**.
 
@@ -279,7 +279,7 @@ Once the administrator has approved **spn-2-vnet-peer**, add it to the virtual n
     echo $appid2
     ```
 
-1. Obtain the resource id of **vnet-1** into a variable for use in the later steps.
+1. Obtain the resource ID of **vnet-1** into a variable for use in the later steps.
 
     ```azurecli
     vnetid=$(az network vnet show \
@@ -299,7 +299,7 @@ Once the administrator has approved **spn-2-vnet-peer**, add it to the virtual n
 
 ## Register spn-1-vnet-peer in subscription-2 and assign permissions to vnet-2
 
-An user account with administrator permissions in the Microsoft Entra ID tenant must complete the process of adding **spn-1-vnet-peer** to **subscription-2**. Once completed, **spn-1-vnet-peer** can be assigned permissions to **vnet-2**. 
+A user account with administrator permissions in the Microsoft Entra ID tenant must complete the process of adding **spn-1-vnet-peer** to **subscription-2**. Once completed, **spn-1-vnet-peer** can be assigned permissions to **vnet-2**. 
 
 ### Register spn-1-peer-vnet app in subscription-2
 
@@ -321,25 +321,25 @@ An administrator in the **subscription-2** Microsoft Entra ID tenant must approv
     echo $appid1
     ```
 
-1. Use the appid for **spn-1-peer-vnet** and the Microsoft Entra ID tenant ID for **subcription-2** to build the login URL for the approval. The URL is built from the following example:
+1. Use the appid for **spn-1-peer-vnet** and the Microsoft Entra ID tenant ID for **subcription-2** to build the sign-in URL for the approval. The URL is built from the following example:
 
     ```
     https://login.microsoftonline.com/entra-tenant-id-subscription-2/oauth2/authorize?client_id={$appid1}&response_type=code&redirect_uri=https://www.microsoft.com
     ```
 
-    The URL will look similar to the below example.
+    The URL looks similar to the below example.
 
     ```
     https://login.microsoftonline.com/1e1cce84-0637-4693-99d9-27ff18dd65c8/oauth2/authorize?client_id=8791e68c-8d8b-4a63-b6f1-ca49008b142b&response_type=code&redirect_uri=https://www.microsoft.com
     ```
 
-1. Open the URL in a web browser and login with an administrator in the Microsoft Entra ID tenant in **subscription-2**.
+1. Open the URL in a web browser and sign-in with an administrator in the Microsoft Entra ID tenant in **subscription-2**.
 
-1. Approve the application **spn-1-vnet-peer**. The microsoft.com homepage will display if the authentication was successful.
+1. Approve the application **spn-1-vnet-peer**. The microsoft.com homepage displays if the authentication was successful.
 
 ### Assign spn-1-peer-vnet to vnet-2
 
-Once the administrator has approved **spn-1-vnet-peer**, add it to the virtual network **vnet-2** as a **Network Contributor**.
+Once the administrator approves **spn-1-vnet-peer**, add it to the virtual network **vnet-2** as a **Network Contributor**.
 
 1. Sign-in to **subscription-2**.
 
@@ -357,7 +357,7 @@ Once the administrator has approved **spn-1-vnet-peer**, add it to the virtual n
     echo $appid1
     ```
 
-1. Obtain the resource id of **vnet-2** into a variable for use in the later steps.
+1. Obtain the resource ID of **vnet-2** into a variable for use in the later steps.
 
     ```azurecli
     vnetid=$(az network vnet show \
@@ -377,11 +377,11 @@ Once the administrator has approved **spn-1-vnet-peer**, add it to the virtual n
 
 ## Peer vnet-1 to vnet-2 and vnet-2 to vnet-1
 
-To peer **vnet-1** to **vnet-2**, you use the service principal appId and password to login to the Microsoft Entra ID tenant associated with **subscription-1**.
+To peer **vnet-1** to **vnet-2**, you use the service principal appId and password to sign-in to the Microsoft Entra ID tenant associated with **subscription-1**.
 
 ### Obtain the appId of spn-1-peer-vnet and spn-2-peer-vnet
 
-For the purposes of this article, we will login to each subscription and obtain the appID of each SPN and the resource ID of each virtual network so that we can login to each subscription with the SPN in the later steps. These steps aren't required to peer the virtual networks if both sides already have the appID of the SPNs and the resource ID of the virtual networks.
+For the purposes of this article, sign-in to each subscription and obtain the appID of each SPN and the resource ID of each virtual network. Use these values to sign-in to each subscription with the SPN in the later steps. These steps aren't required to peer the virtual networks if both sides already have the appID of the SPNs and the resource ID of the virtual networks.
 
 1. Sign-in to **subscription-1** with a regular user account.
 
@@ -389,7 +389,7 @@ For the purposes of this article, we will login to each subscription and obtain 
     az login
     ```
 
-1. Obtain the resource id of **vnet-1** into a variable for use in the later steps.
+1. Obtain the resource ID of **vnet-1** into a variable for use in the later steps.
 
     ```azurecli
     vnetid1=$(az network vnet show \
@@ -415,7 +415,7 @@ For the purposes of this article, we will login to each subscription and obtain 
     az login
     ```
 
-1. Obtain the resource id of **vnet-2** into a variable for use in the later steps.
+1. Obtain the resource ID of **vnet-2** into a variable for use in the later steps.
 
     ```azurecli
     vnetid2=$(az network vnet show \
@@ -435,13 +435,13 @@ For the purposes of this article, we will login to each subscription and obtain 
     echo $appid2
     ```
 
-1. Sign-out of the azure cli session with the following command:
+1. Sign out of the Azure cli session with the following command:
 
     ```azurecli
     az logout
     ```
 
-1. Sign-in to **subscription-1** with **spn-1-peer-vnet**. You will need the tenant ID of the Microsoft Entra ID tenant associated with **subscription-1** to complete the command. The password here is shown with a variable placeholder. Replace with the password you noted during the resource creation. Replace the placeholder in `--tenant` with the tenant ID of the Microsoft Entra ID tenant associated with **subscription-1**.
+1. Sign-in to **subscription-1** with **spn-1-peer-vnet**. You need the tenant ID of the Microsoft Entra ID tenant associated with **subscription-1** to complete the command. The password is shown in the example with a variable placeholder. Replace with the password you noted during the resource creation. Replace the placeholder in `--tenant` with the tenant ID of the Microsoft Entra ID tenant associated with **subscription-1**.
 
     ```azurecli
     az login \
@@ -451,7 +451,7 @@ For the purposes of this article, we will login to each subscription and obtain 
         --tenant 1e1cce84-0637-4693-99d9-27ff18dd65c8
     ```
 
-1. Sign-in to **subscription-2** with **spn-2-peer-vnet**. You will need the tenant ID of the Microsoft Entra ID tenant associated with **subscription-2** to complete the command. The password here is shown with a variable placeholder. Replace with the password you noted during the resource creation. Replace the placeholder in `--tenant` with the tenant ID of the Microsoft Entra ID tenant associated with **subscription-2**.
+1. Sign-in to **subscription-2** with **spn-2-peer-vnet**. You need the tenant ID of the Microsoft Entra ID tenant associated with **subscription-2** to complete the command. The password is shown in the example with a variable placeholder. Replace with the password you noted during the resource creation. Replace the placeholder in `--tenant` with the tenant ID of the Microsoft Entra ID tenant associated with **subscription-2**.
 
     ```azurecli
     az login \
