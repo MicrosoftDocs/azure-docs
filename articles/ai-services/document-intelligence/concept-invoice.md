@@ -220,9 +220,9 @@ See how data, including customer information, vendor details, and line items, is
 |CustomerTaxId|string|The taxpayer number associated with the customer|765432-1|
 | PaymentTerm |string | The terms of payment for the invoice |Net90 |
 | KVKNumber |string | A unique identifier for businesses registered in the Netherlands (NL-only)|12345678|
+| CurrencyCode |string | The currency code associated with the extracted amount | |
 | PaymentDetails | array | An array that holds Payment Option details such as `IBAN`,`SWIFT`, `BPayBillerCode(AU)`, `BPayReference(AU)` |  |
 |TaxDetails|array|An array that holds tax details like amount and rate||
-| CurrencyCode |string | The currency code associated with the extracted amount | |
 | TaxDetails | array | AN array that holds added tax information such as `CGST`, `IGST`, and `SGST`. This line item is currently only available for the Germany (`de`), Spain (`es`), Portugal (`pt`), and English Canada (`en-CA`) locales| |
 
 ### Line items array
@@ -232,14 +232,14 @@ Following are the line items extracted from an invoice in the JSON output respon
 |Name| Type | Description | Value (standardized output) |
 |:-----|:----|:----|:----|
 | Amount | currency | The amount of the line item | $60.00 |
-| Date | Date| Date corresponding to each line item. Often it's a date the line item was shipped | 3/4/2021|
+| Date | date| Date corresponding to each line item. Often it's a date the line item was shipped | 3/4/2021|
 | Description | string | The text description for the invoice line item | Consulting service|
 | Quantity | number | The quantity for this invoice line item | 2 |
 | ProductCode | string| Product code, product number, or SKU associated with the specific line item | A123|
 | Tax | currency | Tax associated with each line item. Possible values include tax amount and tax Y/N | $6.00 |
 | TaxRate | string | Tax Rate associated with each line item. | 18%|
 | Unit | string| The unit of the line item, e.g,  kg, lb etc. | Hours|
-| UnitPrice | Number | The net or gross price (depending on the gross invoice setting of the invoice) of one unit of this item | $30.00 |
+| UnitPrice | number | The net or gross price (depending on the gross invoice setting of the invoice) of one unit of this item | $30.00 |
 
 The invoice key-value pairs and line items extracted are in the `documentResults` section of the JSON output.
 
