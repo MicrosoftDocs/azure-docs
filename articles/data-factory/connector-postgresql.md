@@ -253,7 +253,7 @@ If you were using `RelationalSource` typed source, it is still supported as-is, 
 
 When copying data from PostgreSQL, the following mappings are used from PostgreSQL data types to interim data types used by the service internally. See [Schema and data type mappings](copy-activity-schema-and-type-mapping.md) to learn about how copy activity maps the source schema and data type to the sink.
 
-|PostgreSql data type | Interim service data type | Interim service data type (for the legacy driver version) |
+|PostgreSql data type | Interim service data type | Interim service data type for PostgreSQL (legacy) |
 |:---|:---|:---|
 |`SmallInt`|`Int16`|`Int16`|
 |`Integer`|`Int32`|`Int32`|
@@ -319,11 +319,15 @@ Here are steps that help you upgrade your PostgreSQL linked service:
 
 ## Differences between PostgreSQL and PostgreSQL (legacy)
 
-The PostgreSQL connector offers new functionalities and is compatible with most features of PostgreSQL (legacy) connector. The table below shows the feature differences between PostgreSQL and PostgreSQL (legacy).
+The table below shows the data type mapping differences between PostgreSQL and PostgreSQL (legacy).
 
-|PostgreSQL |PostgreSQL (legacy)|
-|:---|:---|
-|The following mappings are used from PostgreSQL data types to interim data types used by the service internally.<br><br>Money -> Decimal<br>Timestamp with time zone -> DateTime<br>Time with time zone -> DateTimeOffset<br>Interval -> TimeSpan<br>The BigDecimal type is not supported. As an alternative, utilize `to_char()` function to convert BigDecimal to String. |The following mappings are used from PostgreSQL data types to interim data types used by the service internally.<br><br>Money -> String<br>Timestamp with time zone -> String<br>Time with time zone -> String<br>Interval -> String<br>BigDecimal -> String|
+|PostgreSQL data type|Interim service data type for PostgreSQL|Interim service data type for PostgreSQL (legacy)|
+|:---|:---|:---|
+|Money|Decimal|String|
+|Timestamp with time zone |DateTime|String|
+|Time with time zone |DateTimeOffset|String|
+|Interval | TimeSpan|String|
+|BigDecimal|Not supported. As an alternative, utilize `to_char()` function to convert BigDecimal to String.|String|
 
 ## Related content
 For a list of data stores supported as sources and sinks by the copy activity, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
