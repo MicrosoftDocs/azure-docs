@@ -21,7 +21,7 @@ Trusted Signing provides users with both an Azure portal and Azure CLI extension
 
 ## Prerequisites
 
-An existing Azure Tenant ID and Azure subscription. [Create Azure tenant](/azure/active-directory/fundamentals/create-new-tenant#create-a-new-tenant-for-your-organization) and [Create Azure subscription](../cost-management-billing/manage/create-subscription.md#create-a-subscription-in-the-azure-portal) before you begin if you don’t already have.
+An existing Azure Tenant ID and Azure subscription. [Create Azure tenant](/azure/active-directory/fundamentals/create-new-tenant#create-a-new-tenant-for-your-organization) and [Create Azure subscription](../cost-management-billing/manage/create-subscription.md#create-a-subscription) before you begin if you don’t already have.
 
 ## Create a Trusted Signing account
 
