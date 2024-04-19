@@ -15,7 +15,10 @@ You can disable the backup functionality for a volume if you no longer need the 
 > [!IMPORTANT]
 > Disabling backups for a volume deletes all the backups stored in the Azure storage for that volume.
 
-If a volume is deleted but the backup policy wasn’t disabled before the volume deletion, all the backups related to the volume are retained in the Azure storage and will be listed under the associated NetApp account. 
+If a volume is deleted but the backup policy wasn’t disabled before the volume deletion, all the backups related to the volume are retained in the Azure storage and listed under the associated NetApp account. 
+
+>[!IMPORTANT]
+>Beginning with the 2023.09 API version, the `backupEnabled` property is no longer supported on Azure NetApp Files.  
 
 ## Steps
 

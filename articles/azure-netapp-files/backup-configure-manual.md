@@ -10,21 +10,21 @@ ms.author: anfdocs
 ---
 # Configure manual backups for Azure NetApp Files 
 
-Azure NetApp Files backup supports *policy-based* (scheduled) backups and *manual* (on-demand) backups at the volume level. You can use both types of backups in the same volume. During the configuration process, you enable the backup feature for an Azure NetApp Files volume before policy-based backups or manual backups can be taken. 
+Azure NetApp Files backup supports *policy-based* (scheduled) backups and *manual* (on-demand) backups at the volume level. You can use both types of backups in the same volume. During the configuration process, you need to assign a backup vault to Azure NetApp Files volume before policy-based backups or manual backups can be created. 
 
 This article shows you how to configure manual backups. For policy-based backup configuration, see [Configure policy-based backups](backup-configure-policy-based.md).  
 
 ## About manual backups  
 
-Every Azure NetApp Files volume must have the backup functionality enabled before any backups (policy-based or manual) can be taken.   
+Every Azure NetApp Files volume must have a backup vault assigned before any backups (policy-based or manual) can be taken.   
 
-After you enable the backup functionality, you can choose to manually back up a volume. A manual backup takes a point-in-time snapshot of the active file system and backs up   that snapshot to the Azure storage account.
+After you assign a backup vault, you can choose to manually back up a volume. A manual backup takes a point-in-time snapshot of the active file system and backs up that snapshot to the Azure storage account.
 
 The following list summarizes manual backup behaviors:  
 
-* You can create manual backups on a volume even if the volume is already backup-enabled and configured with backup policies.  However, there can be only one outstanding manual-backup request for the volume. If you assign a backup policy and if the baseline transfer is still in progress, then the creation of a manual backup will be blocked until the baseline transfer is complete.
+* You can create manual backups on a volume even if the volume is already assigned to a backup vault and configured with backup policies.  However, there can be only one outstanding manual-backup request for the volume. If you assign a backup policy and if the baseline transfer is still in progress, then the creation of a manual backup is blocked until the baseline transfer is complete.
 
-* Unless you specify an existing snapshot to use for a backup, creating a manual backup automatically generates a snapshot on the volume. The snapshot is then transferred to Azure storage. The snapshot created on the volume will be retained until the next manual backup is created. During the subsequent manual backup operation, older snapshots will be cleaned up. You can't delete the snapshot generated for the latest manual backup. 
+* Unless you specify an existing snapshot to use for a backup, creating a manual backup automatically generates a snapshot on the volume. The snapshot is then transferred to Azure storage. The snapshot created on the volume will be retained until the next manual backup is created. During the subsequent manual backup operation, older snapshots are cleaned up. You can't delete the snapshot generated for the latest manual backup. 
 
 [!INCLUDE [Backup registration heading](includes/backup-registration.md)]
 
@@ -35,11 +35,11 @@ The following list summarizes manual backup behaviors:
 
 ## Enable backup functionality
 
-If you haven’t done so, enable the backup functionality for the volume before creating manual backups: 
+If you haven’t done so, assign a backup vault to the volume before creating manual backups: 
 
-1. Go to **Volumes** and select the specific volume for which you want to enable backup.
+1. Go to **Volumes** and select the specific volume for which you want to configure backups.
 2. Select **Configure**.
-3. In the Configure Backup page, toggle the **Enabled** setting to **On**.   
+3. In the Configure Backup page, select the backup vault from the dropdown menu.  
 4. Select **OK**.   
 
 ![Screenshot that shows the Enabled setting of Configure Backups window.](./media/shared/backup-configure-enabled.png)
