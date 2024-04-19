@@ -221,6 +221,8 @@ Use [Microsoft Defender for Cloud](../../defender-for-cloud/defender-for-cloud-i
 
 Complimenting that, use the [SAP certified](https://www.sap.com/dmc/exp/2013_09_adpd/enEN/#/solutions?id=s:33db1376-91ae-4f36-a435-aafa892a88d8) solution [Microsoft Sentinel for SAP](../../sentinel/sap/sap-solution-security-content.md) to protect your SAP system and [SAP Business Technology Platform (BTP)](../../sentinel/sap/sap-btp-solution-overview.md) instance from within using signals from the SAP Audit Log among others.
 
+Unify all your security solutions for M365, cloud-infrastructure, and SAP in one portal experience with [Microsoft Defender XDR](/microsoft-365/security/defender/microsoft-365-defender). Profit from the correlation of signals across the Microsoft ecosystem and connected 3rd parties to detect and respond to threats in real-time.
+
 Learn more about identity focused integration capabilities that power the analysis on Defender and Sentinel via the [Microsoft Entra ID section](#microsoft-entra-id-formerly-azure-ad).
 
 Leverage the [immutable vault for Azure Backup](/azure/backup/backup-azure-immutable-vault-concept) to protect your SAP data from ransomware attacks.
@@ -230,6 +232,8 @@ See the Microsoft Security Copilot working with an SAP Incident in action [here]
 Discover partner offerings for SAP security on the [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/consulting-services?search=Sentinel%20for%20SAP&page=1).
 
 #### Microsoft Sentinel for SAP
+
+Sentinel integrates natively with Defender XDR. See the integration in action with [Automatic attack disruption for SAP](https://learn.microsoft.com/azure/sentinel/sap/deployment-attack-disrupt).
 
 For more information about [SAP certified](https://www.sap.com/dmc/exp/2013_09_adpd/enEN/#/solutions?id=s:33db1376-91ae-4f36-a435-aafa892a88d8) threat monitoring with Microsoft Sentinel for SAP, see the following Microsoft resources:
 
@@ -251,9 +255,12 @@ See below video to experience the SAP security orchestration, automation and res
 
 > [!VIDEO https://www.youtube.com/embed/b-AZnR-nQpg]
 
-#### Microsoft Defender for Cloud
+#### Microsoft Defender XDR and Defender for Cloud
 
 The [Defender product family](../../defender-for-cloud/defender-for-cloud-introduction.md) consist of multiple products tailored to provide "cloud security posture management" (CSPM) and "cloud workload protection" (CWPP) for the various workload types. Below excerpt serves as entry point to start securing your SAP system.
+
+- Defender XDR (integration with Sentinel for SAP)
+    - [Automatic attack disruption for SAP](../../sentinel/sap/deployment-attack-disrupt)
 
 - Defender for Servers (SAP hosts)
     - [Protect your SAP hosts with Defender](../../defender-for-cloud/defender-for-servers-introduction.md) including OS specific Endpoint protection with Microsoft Defender for Endpoint (MDE)
