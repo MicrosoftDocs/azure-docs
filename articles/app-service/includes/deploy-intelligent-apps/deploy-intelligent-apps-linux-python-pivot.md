@@ -91,14 +91,14 @@ In order to make calls to OpenAI with your client, you will need to first grab t
 
 For Azure OpenAI, see [this documentation](https://learn.microsoft.com/azure/ai-services/openai/quickstart?pivots=programming-language-csharp&tabs=command-line%2Cpython#retrieve-key-and-endpoint) to retrieve the key and endpoint values. For our application, you will need the following values:
 
-1. api_key
-2. api_version
-3. azure_deployment
-4. model_name
+1. `api_key`
+2. `api_version`
+3. `azure_deployment`
+4. `model_name`
 
 For OpenAI, see this [documentation](https://platform.openai.com/docs/api-reference) to retrieve the API keys. For our application, you will need the following values:
 
-1. apiKey
+1. `apiKey`
 
 Since we’ll be deploying to App Service we can secure these secrets in **Azure Key Vault** for protection. Follow the [Quickstart](https://learn.microsoft.com/azure/key-vault/secrets/quick-create-cli#create-a-key-vault) to setup your Key Vault and add the secrets you saved from earlier.
 
@@ -108,25 +108,33 @@ Then, go to the portal Environment Variables blade in your resource and add the 
 
 For Azure OpenAI, use the following:
 
-1. API_KEY = @Microsoft.KeyVault(SecretUri=[https://myvault.vault.azure.net/secrets/mysecret/](https://myvault.vault.azure.net/secrets/mysecret/))
-2. API_VERSION = @Microsoft.KeyVault(SecretUri=[https://myvault.vault.azure.net/secrets/mysecret/](https://myvault.vault.azure.net/secrets/mysecret/))
-3. AZURE_DEPLOYMENT = @Microsoft.KeyVault(SecretUri=[https://myvault.vault.azure.net/secrets/mysecret/](https://myvault.vault.azure.net/secrets/mysecret/))
-4. MODEL_NAME = @Microsoft.KeyVault(SecretUri=[https://myvault.vault.azure.net/secrets/mysecret/](https://myvault.vault.azure.net/secrets/mysecret/))
+| Setting name| Value |
+|-|-|-|
+| `DEPOYMENT_NAME` | @Microsoft.KeyVault(SecretUri=https://myvault.vault.azure.net/secrets/mysecret/) |
+| `ENDPOINT` | @Microsoft.KeyVault(SecretUri=https://myvault.vault.azure.net/secrets/mysecret/) |
+| `API_KEY` | @Microsoft.KeyVault(SecretUri=https://myvault.vault.azure.net/secrets/mysecret/) |
+| `MODEL_ID` | @Microsoft.KeyVault(SecretUri=https://myvault.vault.azure.net/secrets/mysecret/) |
+
 
 For OpenAI, use the following:
 
-1. OPENAI_API_KEY = @Microsoft.KeyVault(SecretUri=[https://myvault.vault.azure.net/secrets/mysecret/](https://myvault.vault.azure.net/secrets/mysecret/))
+| Setting name| Value |
+|-|-|-|
+| `OPENAI_API_KEY` | @Microsoft.KeyVault(SecretUri=https://myvault.vault.azure.net/secrets/mysecret/) |
 
 Once your app settings are saved, you can [access the app settings](https://www.notion.so/Creating-Intelligent-App-on-App-Service-Python-757641ec4eda4dde88c9cad02d542170?pvs=21) in your code by referencing them in your application.  Add the following to the *[app.py](http://app.py) file:*
 
+For Azure OpenAI:
 ```python
-
 # Azure OpenAI
 api_key = os.environ['API_KEY']
 api_version = os.environ['API_VERSION']
 azure_deployment = os.environ['AZURE_DEPLOYMENT']
 model_name = os.environ['MODEL_NAME']
+```
 
+For OpenAI: 
+```python
 # OpenAI
 openai_api_key = os.environ['OPENAI_API_KEY']
 ```

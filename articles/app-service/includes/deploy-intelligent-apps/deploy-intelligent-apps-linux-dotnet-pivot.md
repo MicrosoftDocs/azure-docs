@@ -66,14 +66,15 @@ After the Navigation is updated, we can start preparing to build the OpenAI clie
 In order to make calls to OpenAI with your client, you will need to first grab the Keys and Endpoint values from Azure OpenAI or OpenAI and add them as secrets for use in your application.  Retrieve and save the values for later use.
 
 For Azure OpenAI, see [this documentation](https://learn.microsoft.com/azure/ai-services/openai/quickstart?pivots=programming-language-csharp&tabs=command-line%2Cpython#retrieve-key-and-endpoint) to retrieve the key and endpoint values.  For our application, you will need the following values:
-1. deploymentName
-2. endpoint
-3. apiKey
-4. modelId
+
+1. `deploymentName`
+2. `endpoint`
+3. `apiKey`
+4. `modelId`
 
 For OpenAI, see this [documentation](https://platform.openai.com/docs/api-reference) to retrieve the api keys.  For our application, you will need the following values:
-1. apiKey
-2. modelId
+1. `apiKey`
+2. `modelId`
 
 Since we�ll be deploying to App Service we can secure these secrets in **Azure Key Vault** for protection.  Follow the [Quickstart](https://learn.microsoft.com/azure/key-vault/secrets/quick-create-cli#create-a-key-vault) to setup your Key Vault and add the secrets you saved from earlier.
 Next, we can use Key Vault references as app settings in our App Service resource to reference in our application.  Follow the instructions in the [documentation](https://learn.microsoft.com/azure/app-service/app-service-key-vault-references?source=recommendations&tabs=azure-cli) to grant your app access to your Key Vault and to setup Key Vault references.
@@ -81,16 +82,25 @@ Then, go to the portal Environment Variables blade in your resource and add the 
 
 For Azure OpenAI, use the following:
 
-1. DEPOYMENT_NAME = @Microsoft.KeyVault(SecretUri=https://myvault.vault.azure.net/secrets/mysecret/)
-2. ENDPOINT = @Microsoft.KeyVault(SecretUri=https://myvault.vault.azure.net/secrets/mysecret/)
-3. API_KEY = @Microsoft.KeyVault(SecretUri=https://myvault.vault.azure.net/secrets/mysecret/)
-4. MODEL_ID = @Microsoft.KeyVault(SecretUri=https://myvault.vault.azure.net/secrets/mysecret/)
+| Setting name| Value |
+|-|-|-|
+| `DEPOYMENT_NAME` | @Microsoft.KeyVault(SecretUri=https://myvault.vault.azure.net/secrets/mysecret/) |
+| `ENDPOINT` | @Microsoft.KeyVault(SecretUri=https://myvault.vault.azure.net/secrets/mysecret/) |
+| `API_KEY` | @Microsoft.KeyVault(SecretUri=https://myvault.vault.azure.net/secrets/mysecret/) |
+| `MODEL_ID` | @Microsoft.KeyVault(SecretUri=https://myvault.vault.azure.net/secrets/mysecret/) |
+
+
 For OpenAI, use the following:
 
-1. OPENAI_API_KEY = @Microsoft.KeyVault(SecretUri=https://myvault.vault.azure.net/secrets/mysecret/)
-2. OPENAI_MODEL_ID = @Microsoft.KeyVault(SecretUri=https://myvault.vault.azure.net/secrets/mysecret/)
+| Setting name| Value |
+|-|-|-|
+| `OPENAI_API_KEY` | @Microsoft.KeyVault(SecretUri=https://myvault.vault.azure.net/secrets/mysecret/) |
+| `OPENAI_MODEL_ID` | @Microsoft.KeyVault(SecretUri=https://myvault.vault.azure.net/secrets/mysecret/) |
+
+
 Once your app settings are saved, you can bring them into the code by injecting IConfiguration and referencing the app settings. Add the following code to your *OpenAI.razor* file:
 
+For Azure OpenAI:
 ```csharp
 @inject Microsoft.Extensions.Configuration.IConfiguration _config
 
@@ -99,13 +109,23 @@ Once your app settings are saved, you can bring them into the code by injecting 
 	private async Task SemanticKernelClient()
 	{
 	    string deploymentName = _config["DEPLOYMENT_NAME"];
-			string endpoint = _config["ENDPOINT"];
-			string apiKey = _config["API_KEY"];
-			string modelId = _config["MODEL_ID"];
+		string endpoint = _config["ENDPOINT"];
+		string apiKey = _config["API_KEY"];
+		string modelId = _config["MODEL_ID"];
+  }
+```
 
-			// OpenAI
-			string OpenAIModelId = _config["OPENAI_MODEL_ID"];
-			string OpenAIApiKey = _config["OPENAI_API_KEY"];
+For OpenAI:
+```csharp
+@inject Microsoft.Extensions.Configuration.IConfiguration _config
+
+@code {
+
+	private async Task SemanticKernelClient()
+	{
+		// OpenAI
+		string OpenAIModelId = _config["OPENAI_MODEL_ID"];
+		string OpenAIApiKey = _config["OPENAI_API_KEY"];
   }
 ```
 

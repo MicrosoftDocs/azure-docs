@@ -34,14 +34,14 @@ First, you will need to grab the keys and endpoint values from Azure OpenAI or O
 
 For Azure OpenAI, see [this documentation](https://learn.microsoft.com/azure/ai-services/openai/quickstart?pivots=programming-language-csharp&tabs=command-line%2Cpython#retrieve-key-and-endpoint) to retrieve the key and endpoint values. For our application, you will need the following values:
 
-1. endpoint
-2. apiKey
-3. deploymentName
+1. `endpoint`
+2. `apiKey`
+3. `deploymentName`
 
 For OpenAI, see this [documentation](https://platform.openai.com/docs/api-reference) to retrieve the API keys. For our application, you will need the following values:
 
-1. apiKey
-2. modelName
+1. `apiKey`
+2. `modelName`
 
 Since we’ll be deploying to App Service we can secure these secrets in **Azure Key Vault** for protection. Follow the [Quickstart](https://learn.microsoft.com/azure/key-vault/secrets/quick-create-cli#create-a-key-vault) to setup your Key Vault and add the secrets you saved from earlier.
 
@@ -51,18 +51,25 @@ Then, go to the portal Environment Variables blade in your resource and add the 
 
 For Azure OpenAI, use the following:
 
-1. API_KEY = @Microsoft.KeyVault(SecretUri=[https://myvault.vault.azure.net/secrets/mysecret/](https://myvault.vault.azure.net/secrets/mysecret/))
-2. ENDPOINT = @Microsoft.KeyVault(SecretUri=[https://myvault.vault.azure.net/secrets/mysecret/](https://myvault.vault.azure.net/secrets/mysecret/))
-3. DEPOYMENT_NAME = @Microsoft.KeyVault(SecretUri=[https://myvault.vault.azure.net/secrets/mysecret/](https://myvault.vault.azure.net/secrets/mysecret/))
+| Setting name| Value |
+|-|-|-|
+| `DEPOYMENT_NAME` | @Microsoft.KeyVault(SecretUri=https://myvault.vault.azure.net/secrets/mysecret/) |
+| `ENDPOINT` | @Microsoft.KeyVault(SecretUri=https://myvault.vault.azure.net/secrets/mysecret/) |
+| `API_KEY` | @Microsoft.KeyVault(SecretUri=https://myvault.vault.azure.net/secrets/mysecret/) |
+
 
 For OpenAI, use the following:
 
-1. OPENAI_API_KEY = @Microsoft.KeyVault(SecretUri=[https://myvault.vault.azure.net/secrets/mysecret/](https://myvault.vault.azure.net/secrets/mysecret/))
-2. OPENAI_MODEL_NAME = @Microsoft.KeyVault(SecretUri=[https://myvault.vault.azure.net/secrets/mysecret/](https://myvault.vault.azure.net/secrets/mysecret/))
+| Setting name| Value |
+|-|-|-|
+| `OPENAI_API_KEY` | @Microsoft.KeyVault(SecretUri=https://myvault.vault.azure.net/secrets/mysecret/) |
+| `OPENAI_MODEL_NAME` | @Microsoft.KeyVault(SecretUri=https://myvault.vault.azure.net/secrets/mysecret/) |
 
 Once your app settings are saved, you can access the app settings in your code by referencing them in your application.  Add the following code in the *[Application.java](http://Application.java)* file:
 
-```bash
+For Azure OpenAI:
+
+```java
   @RequestMapping("/")
 	String sayHello() {
 
@@ -71,13 +78,20 @@ Once your app settings are saved, you can access the app settings in your code b
       String apiKey = envVariables.get("API_KEY");
       String endpoint = envVariables.get("ENDPOINT");
       String depoymentName = envVariables.get("DEPLOYMENT_NAME");
+  }  
+```
+
+For OpenAI:
+
+```java
+  @RequestMapping("/")
+	String sayHello() {
 
       // OpenAI
       Map<String, String> envVariables = System.getenv();
       String apiKey = envVariables.get("OPENAI_API_KEY");
       String modelName = envVariables.get("OPENAI_MODEL_NAME");
   }  
-
 ```
 
 ### Add the package
