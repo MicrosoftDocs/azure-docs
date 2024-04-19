@@ -6,7 +6,7 @@ ms.service: azure-file-storage
 ms.topic: how-to
 ms.date: 02/07/2023
 ms.author: kendownie
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, linux-related-content
 ---
 
 # Configure a Point-to-Site (P2S) VPN on Linux for use with Azure Files

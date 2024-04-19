@@ -5,7 +5,7 @@ description: Learn how to enable policy support to help protect your VMs by usin
 author: ankitaduttaMSFT
 ms.author: ankitadutta
 ms.topic: how-to
-ms.date: 12/01/2023
+ms.date: 03/13/2024
 ms.service: site-recovery
 ms.custom: template-how-to
 
@@ -51,6 +51,8 @@ With built-in Azure Policy capabilities, you have a way to enable Site Recovery 
   Classic deployment model | Not supported
   Zone-to-zone DR  | Supported
   Interoperability with other policies applied as default by Azure (if any) | Supported
+  Private endpoint | Not supported
+  Cross-subscription | Not supported
 
 > [!NOTE]
 > Site Recovery won't be enabled if an unsupported VM is created within the scope of the policy.

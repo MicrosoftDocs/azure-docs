@@ -4,6 +4,7 @@ description: In this Azure Linux Container Host for AKS tutorial, you will learn
 author: htaubenfeld
 ms.author: htaubenfeld
 ms.service: microsoft-linux
+ms.custom: linux-related-content
 ms.topic: tutorial
 ms.date: 04/18/2023
 ---

@@ -5,10 +5,10 @@ author: sethmanheim
 manager: femila
 ms.service: notification-hubs
 ms.topic: article
-ms.date: 03/01/2024
+ms.date: 04/12/2024
 ms.author: sethm
 ms.reviewer: heathertian
-ms.lastreviewed: 03/01/2024
+ms.lastreviewed: 04/12/2024
 ---
 
 # Google Firebase Cloud Messaging migration using REST API and the Azure portal
@@ -45,7 +45,12 @@ The first step is to add credentials via the Azure portal, a management-plane hu
 
    OR
 
-   If you want to create a service account with customized access permission, you can create a service account through the [IAM & Admin > Service Accounts page](https://console.cloud.google.com/iam-admin/serviceaccounts). Go to the page directly by clicking **Manage service account permissions**. You can create a service account that has **Firebase cloud messaging admin access** and use it for your notification hub credential update.
+   If you want to create a service account with customized access permission, you can create a service account through the [IAM & Admin > Service Accounts page](https://console.cloud.google.com/iam-admin/serviceaccounts). Go to the page directly by clicking **Manage service account permissions**. You can create a service account that has one of the following roles:
+
+    - Firebase Admin (roles/firebase.admin)
+    - Firebase Grow Admin (roles/firebase.growthAdmin)
+    - Firebase Admin SDK Administrator Service Agent (roles/firebase.sdkAdminServiceAgent)
+    - Firebase SDK Provisioning Service Agent (roles/firebase.sdkProvisioningServiceAgent)
 
    :::image type="content" source="media/firebase-migration-rest/service-accounts.png" alt-text="Screenshot showing IAM service account settings." lightbox="media/firebase-migration-rest/service-accounts.png":::
 
@@ -153,26 +158,28 @@ If you have an existing GCM registration, update the registration to **FcmV1Regi
 
 ```xml
 // FcmV1Registration 
-<?xml version="1.0" encoding="utf-8"?> 
-<entry xmlns="http://www.w3.org/2005/Atom"> 
-    <content type="application/xml"> 
-        <FcmV1RegistrationDescription xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/netservices/2010/10/servicebus/connect"> 
-   <Tags>myTag, myOtherTag</Tags> 
-            <FcmV1RegistrationId>{deviceToken}</FcmV1RegistrationId> 
-        </FcmV1RegistrationDescription> 
-    </content> 
+<?xml version="1.0" encoding="utf-8"?>
+<entry xmlns="http://www.w3.org/2005/Atom">
+    <content type="application/xml">
+        <FcmV1RegistrationDescription xmlns:i="http://www.w3.org/2001/XMLSchema-instance"
+            xmlns="http://schemas.microsoft.com/netservices/2010/10/servicebus/connect">
+            <Tags>myTag, myOtherTag</Tags>
+            <FcmV1RegistrationId>{deviceToken}</FcmV1RegistrationId>
+        </FcmV1RegistrationDescription>
+    </content>
 </entry> 
 
 // FcmV1TemplateRegistration 
-<?xml version="1.0" encoding="utf-8"?> 
-<entry xmlns="http://www.w3.org/2005/Atom"> 
-    <content type="application/xml"> 
-        <FcmV1TemplateRegistrationDescription xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/netservices/2010/10/servicebus/connect"> 
-            <Tags>myTag, myOtherTag</Tags> 
-            <FcmV1RegistrationId>{deviceToken}</FcmV1RegistrationId>  
-            <BodyTemplate><![CDATA[ {BodyTemplate}]]></BodyTemplate> 
-        </ FcmV1TemplateRegistrationDescription > 
-    </content> 
+<?xml version="1.0" encoding="utf-8"?>
+<entry xmlns="http://www.w3.org/2005/Atom">
+    <content type="application/xml">
+        <FcmV1TemplateRegistrationDescription xmlns:i="http://www.w3.org/2001/XMLSchema-instance"
+            xmlns="http://schemas.microsoft.com/netservices/2010/10/servicebus/connect">
+            <Tags>myTag, myOtherTag</Tags>
+            <FcmV1RegistrationId>{deviceToken}</FcmV1RegistrationId>
+            <BodyTemplate><![CDATA[ {BodyTemplate}]]></BodyTemplate>
+        </FcmV1TemplateRegistrationDescription>
+    </content>
 </entry>
 ```
 

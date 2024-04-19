@@ -13,6 +13,12 @@ ms.service: azure-maps
 
 Migrating from the Azure Maps iOS SDK to the Web SDK in a WebView involves transitioning your existing map view from a native implementation to a web-based map using the Azure Maps Web SDK. This guide shows you how to migrate your code and features from the iOS SDK to the Web SDK.
 
+> [!NOTE]
+>
+> **Azure Maps iOS SDK retirement**
+>
+> The Azure Maps Native SDK for iOS is now deprecated and will be retired on 3/31/25. To avoid service disruptions, migrate to the Azure Maps Web SDK by 3/31/25.
+
 ## Prerequisites
 
 To use the Map Control in a web page, you must have one of the following prerequisites:
@@ -22,7 +28,7 @@ To use the Map Control in a web page, you must have one of the following prerequ
 
 ## Create a WebView
 
-Add a `WebView` if your iOS application doesn't have one. Do so by adding the `WKWebView` to your storyboard or programmatically in your Swift code. Be sure it's configured to occupy the desired area of your layout.
+Add a WebView if your iOS application doesn't have one. Do so by adding the `WKWebView` to your storyboard or programmatically in your Swift code. Be sure it's configured to occupy the desired area of your layout.
 
 ```swift
 import UIKit
@@ -117,7 +123,7 @@ In your HTML file, initialize a map with your subscription key. Replace `<YOUR_S
 </html>
 ```
 
-Save and run the app. A map should be shown within a WebView. Add any features or functionalities that you want to use from the Web SDK. You can refer to the [Azure Maps documentation] and the [Azure Maps Code Samples website] for more use cases.
+Save and run the app. A map should be shown within a WebView. Add any features or functionalities that you want to use from the Web SDK. You can refer to the [Azure Maps Documentation] and the [Azure Maps Samples] for more use cases.
 
 :::image type="content" source="./media/ios-sdk-migration-guide/maps-ios.png" alt-text="A screenshot of a map in a WebView.":::
 
@@ -143,8 +149,8 @@ Learn how to add maps to web and mobile applications using the Map Control clien
 [Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
 [subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
 [authentication options]: /javascript/api/azure-maps-control/atlas.authenticationoptions
-[Azure Maps documentation]: how-to-use-map-control.md
-[Azure Maps Code Samples website]: https://samples.azuremaps.com/
+[Azure Maps Documentation]: how-to-use-map-control.md
+[Azure Maps Samples]: https://samples.azuremaps.com/
 [WKScriptMessageHandler]: https://developer.apple.com/documentation/webkit/wkscriptmessagehandler
 [Use the Azure Maps map control]: how-to-use-map-control.md
 

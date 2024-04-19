@@ -3,7 +3,7 @@ title: SQL Server HADR and centrally managed Azure Hybrid Benefit coexistence
 description: This article explains how the SQL Server HADR Software Assurance benefit and centrally managed Azure Hybrid Benefit coexist.
 author: bandersmsft
 ms.author: banders
-ms.date: 04/20/2022
+ms.date: 03/21/2024
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: ahb

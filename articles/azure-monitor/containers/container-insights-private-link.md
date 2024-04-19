@@ -12,33 +12,38 @@ This article describes how to configure Container insights to use Azure Private 
 
 
 ## Cluster using managed identity authentication
-Use the following procedures to enable network isolation by connecting your cluster to the Log Analytics workspace using [Azure Private Link](../logs/private-link-security.md) if your cluster is using managed identity authentication.
 
-1. Follow the steps in [Enable network isolation for Azure Monitor Agent by using Private Link](../agents/azure-monitor-agent-private-link.md) to create a data collection endpoint (DCE) and add it to your Azure Monitor private link service (AMPLS).
+### Prerequisites
+- The template must be deployed in the same resource group as the cluster.
 
-1. Create an association between the cluster and the DCE by using the following API call. For information on this call, see [Data collection rule associations - Create](/rest/api/monitor/data-collection-rule-associations/create). The DCR association name must be **configurationAccessEndpoint**, and `resourceUri` is the resource ID of the AKS cluster.
+### Download and install template
 
-    ```rest
-    PUT https://management.azure.com/{cluster-resource-id}/providers/Microsoft.Insights/dataCollectionRuleAssociations/configurationAccessEndpoint?api-version=2021-04-01
-    {
-    "properties": {
-        "dataCollectionEndpointId": "{data-collection-endpoint-resource-id}"
-        }
-    }
-    ```
+1. Download ARM template and parameter file:
+ 
+   **AKS cluster**
+   - Template file: https://aka.ms/aks-enable-monitoring-msi-onboarding-template-file
+   - Parameter file: https://aka.ms/aks-enable-monitoring-msi-onboarding-template-parameter-file
 
-    For example, using Azure CLI:
+    **Arc-enabled Kubernetes cluster**
+    - Template file: https://aka.ms/arc-k8s-azmon-extension-msi-arm-template
+    - Parameter file: https://aka.ms/arc-k8s-azmon-extension-msi-arm-template-params
 
-    ```rest
-    PUT https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.ContainerService/managedClusters/my-aks-cluster/providers/Microsoft.Insights/dataCollectionRuleAssociations/configurationAccessEndpoint?api-version=2021-04-01
+2.	Edit the following values in the parameter file.  Retrieve the **resource ID** of the resources from the **JSON** View of their **Overview** page.
 
-    {
-    "properties": {
-        "dataCollectionEndpointId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Insights/dataCollectionEndpoints/myDataCollectionEndpoint"
-        }
-    }
-    ```
+    | Parameter | Description |
+    |:---|:---|
+    | AKS: `aksResourceId`<br>Arc: `clusterResourceId` | Resource ID of the cluster. |
+    | AKS: `aksResourceLocation`<br>Arc: `clusterRegion` | Azure Region of the cluster. |
+    | AKS: `workspaceResourceId`<br>Arc: `workspaceResourceId` | Resource ID of the  Log Analytics workspace. |
+    | AKS: `workspaceRegion`<br>Arc: `workspaceRegion` | Region of the Log Analytics workspace. |
+    |  Arc: `workspaceDomain`	| Domain of the Log Analytics workspace:<br>`opinsights.azure.com` for Azure public cloud<br>`opinsights.azure.us` for Azure US Government<br>`opinsights.azure.cn` for Azure China Cloud |
+    | AKS: `resourceTagValues` | Tag values specified for the existing Container insights extension data collection rule (DCR) of the cluster and the name of the DCR. The name will be MSCI-\<clusterName\>-\<clusterRegion\>, and this resource created in an AKS clusters resource group. For first time onboarding, you can set arbitrary tag values. |
+    | AKS: `useAzureMonitorPrivateLinkScope`<br>Arc: `useAzureMonitorPrivateLinkScope` | Boolean flag to indicate whether Azure Monitor link scope is used or not. |
+    | AKS: `azureMonitorPrivateLinkScopeResourceId`<br>Arc: `azureMonitorPrivateLinkScopeResourceId` | Resource ID of the Azure Monitor Private link scope.   This only used if `useAzureMonitorPrivateLinkScope` is set to **true**. |
 
+  Based on your requirements, you can configure other parameters such `streams`, `enableContainerLogV2`, `enableSyslog`, `syslogLevels`, `syslogFacilities`, `dataCollectionInterval`, `namespaceFilteringModeForDataCollection` and `namespacesForDataCollection`. 
+
+3. Deploy the template with the parameter file by using any valid method for deploying Resource Manager templates. For examples of different methods, see [Deploy the sample templates](../resource-manager-samples.md#deploy-the-sample-templates).
 
 ### Cluster using legacy authentication
 Use the following procedures to enable network isolation by connecting your cluster to the Log Analytics workspace using [Azure Private Link](../logs/private-link-security.md) if your cluster is not using managed identity authentication. This requires a [private AKS cluster](../../aks/private-clusters.md).

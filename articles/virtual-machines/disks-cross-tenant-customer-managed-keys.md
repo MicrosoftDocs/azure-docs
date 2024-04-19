@@ -23,9 +23,9 @@ If you have questions about cross-tenant customer-managed keys with managed disk
 - This feature doesn't support Ultra Disks or Azure Premium SSD v2 managed disks.
 - This feature isn't available in Microsoft Azure operated by 21Vianet or Government clouds.
 
-[!INCLUDE [active-directory-msi-cross-tenant-cmk-overview](../../includes/active-directory-msi-cross-tenant-cmk-overview.md)]
+[!INCLUDE [entra-msi-cross-tenant-cmk-overview](../../includes/entra-msi-cross-tenant-cmk-overview.md)]
 
-[!INCLUDE [active-directory-msi-cross-tenant-cmk-create-identities-authorize-key-vault](../../includes/active-directory-msi-cross-tenant-cmk-create-identities-authorize-key-vault.md)]
+[!INCLUDE [entra-msi-cross-tenant-cmk-create-identities-authorize-key-vault](../../includes/entra-msi-cross-tenant-cmk-create-identities-authorize-key-vault.md)]
 
 ## Create a disk encryption set
 
@@ -74,7 +74,7 @@ $config = New-AzDiskEncryptionSetConfig `
 
 # [Azure CLI](#tab/azure-cli)
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 In the command below, `myAssignedId` should be the resource ID of the user-assigned managed identity that you created earlier, and `myFederatedClientId` should be the application ID (client ID) of the multi-tenant application.
 

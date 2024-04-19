@@ -134,20 +134,6 @@ The regulatory compliance has automated and manual assessments that might need t
 
  _By downloading this file, you are giving consent to Microsoft to store the current user and the selected subscriptions at the time of download. This data is used in order to notify you in case of changes or updates to the downloaded audit report. This data is used by Microsoft and the audit firms that produce the certification/reports only when notification is required._
 
-### Check compliance offerings status
-
-Transparency provided by the compliance offerings (currently in preview), allows you to view the certification status for each of the services provided by Microsoft before adding your product to the Azure platform.
-
-1. In the Defender for Cloud portal, open **Regulatory compliance**.
-
-1. Select **Compliance offerings**.
-
-    :::image type="content" source="media/regulatory-compliance-dashboard/compliance-offerings.png" alt-text="Screenshot that shows where to select the compliance offering button from the dashboard." lightbox="media/regulatory-compliance-dashboard/compliance-offerings.png":::
-
-1. Enter a service in the search bar to view its compliance offering.
-
-    :::image type="content" source="media/regulatory-compliance-dashboard/search-service.png" alt-text="Screenshot of the compliance offering screen with the search bar highlighted." lightbox="media/regulatory-compliance-dashboard/search-service.png":::
-
 ## Continuously export compliance status
 
 If you want to track your compliance status with other monitoring tools in your environment, Defender for Cloud includes an export mechanism to make this straightforward. Configure **continuous export** to send select data to an Azure Event Hubs or a Log Analytics workspace. Learn more in [continuously export Defender for Cloud data](continuous-export.md).

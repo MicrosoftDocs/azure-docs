@@ -6,7 +6,7 @@ services: frontdoor
 author: duongau
 ms.service: frontdoor
 ms.topic: how-to
-ms.date: 03/03/2023
+ms.date: 03/31/2024
 ms.author: duau
 ---
 
@@ -47,7 +47,7 @@ In this section, you map the Private Link service to a private endpoint created 
     | Priority | Different origin can have different priorities to provide primary, secondary, and backup origins. |
     | Weight | 1000 (default). Assign weights to your different origin when you want to distribute traffic.|
     | Region | Select the region that is the same or closest to your origin. |
-    | Target sub resource | The type of sub-resource for the resource selected previously that your private endpoint can access. You can select *web* or *web_secondary*. |
+    | Target sub resource | The type of subresource for the resource selected previously that your private endpoint can access. You can select *web* or *web_secondary*. |
     | Request message | Custom message to see while approving the Private Endpoint. | 
 
 1. Then select **Add** to save your configuration. Then select **Update** to save your changes.
@@ -74,7 +74,7 @@ When creating a private endpoint connection to the storage static website's seco
 
 :::image type="content" source="./media/how-to-enable-private-link-storage-static-website/private-endpoint-storage-static-website-secondary.png" alt-text="Screenshot of enabling private link to a storage static website secondary.":::
 
-Once the origin has been added and the private endpoint connection has been approved, you can test your private link connection to your storage static website.
+Once the origin is added and the private endpoint connection is approved, you can test your private link connection to your storage static website.
 
 ## Next steps
 

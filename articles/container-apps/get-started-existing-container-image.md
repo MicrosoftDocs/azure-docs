@@ -4,7 +4,7 @@ description: Deploy an existing container image to Azure Container Apps with the
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps
-ms.custom: devx-track-azurecli, devx-track-azurepowershell, linux-related-content
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.topic: quickstart
 ms.date: 08/31/2022
 ms.author: cshoe

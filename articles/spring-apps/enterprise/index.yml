@@ -10,7 +10,6 @@ metadata:
   ms.service: spring-apps
   ms.custom: devx-track-java
   ms.topic: landing-page
-  ms.collection: collection
   author: KarlErickson
   ms.author: karler
   ms.date: 12/14/2023
@@ -20,6 +19,16 @@ landingContent:
 # Cards and links should be based on top customer tasks or top subjects
 # Start card title with a verb
 
+  # Card (optional)
+  - title: Documentation for other plans
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Basic/Standard plan
+            url: ../basic-standard/index.yml
+          - text: Consumption and dedicated plan
+            url: ../consumption-dedicated/index.yml
+  
   # Card (optional)
   - title: About Azure Spring Apps
     linkLists:

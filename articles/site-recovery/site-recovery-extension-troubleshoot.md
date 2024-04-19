@@ -5,7 +5,7 @@ author: ankitaduttaMSFT
 ms.author: ankitadutta
 manager: rochakm
 ms.service: site-recovery
-ms.custom: linux-related-content
+ms.custom:
 ms.topic: troubleshooting
 ms.date: 05/03/2023
 ---

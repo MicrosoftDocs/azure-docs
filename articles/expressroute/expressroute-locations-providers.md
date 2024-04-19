@@ -5,7 +5,7 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 02/27/2024
+ms.date: 04/05/2024
 ms.author: duau
 ms.custom: references_regions, template-concept, engagement-fy23
 ---
@@ -117,7 +117,7 @@ The following table shows connectivity locations and the service providers for e
 | **Santiago** | [EdgeConnex SCL](https://www.edgeconnex.com/locations/south-america/santiago/) | 3 | n/a | Supported | PitChile |
 | **Sao Paulo** | [Equinix SP2](https://www.equinix.com/locations/americas-colocation/brazil-colocation/sao-paulo-data-centers/sp2/) | 3 | Brazil South | Supported | Aryaka Networks<br/>Ascenty Data Centers<br/>British Telecom<br/>Equinix<br/>InterCloud<br/>Level 3 Communications<br/>Neutrona Networks<br/>Orange<br/>RedCLARA<br/>Tata Communications<br/>Telefonica<br/>UOLDIVEO |
 | **Sao Paulo2** | [TIVIT TSM](https://www.tivit.com/en/tivit/) | 3 | Brazil South | Supported | Ascenty Data Centers<br/>Tivit |
-| **Seattle** | [Equinix SE2](https://www.equinix.com/locations/americas-colocation/united-states-colocation/seattle-data-centers/se2/) | 1 | West US 2 | Supported | Aryaka Networks<br/>CenturyLink Cloud Connect<br/>DE-CIX<br/>Equinix<br/>Level 3 Communications<br/>Megaport<br/>PacketFabric<br/>Telus<br/>Zayo |
+| **Seattle** | [Equinix SE2](https://www.equinix.com/locations/americas-colocation/united-states-colocation/seattle-data-centers/se2/) | 1 | West US 2 | Supported | Aryaka Networks<br/>CenturyLink Cloud Connect<br/>DE-CIX<br/>Equinix<br/>Level 3 Communications<br/>Megaport<br/>Pacific Northwest Gigapop<br/>PacketFabric<br/>Telus<br/>Zayo |
 | **Seoul** | [KINX Gasan IDC](https://www.kinx.net/?lang=en) | 2 | Korea Central | Supported | KINX<br/>KT<br/>LG CNS<br/>LGUplus<br/>Equinix<br/>Sejong Telecom<br/>SK Telecom |
 | **Seoul2** | [KT IDC](https://www.kt-idc.com/eng/introduce/sub1_4_10.jsp#tab) | 2 | Korea Central | n/a | KT |
 | **Silicon Valley** | [Equinix SV1](https://www.equinix.com/locations/americas-colocation/united-states-colocation/silicon-valley-data-centers/sv1/) | 1 | West US | Supported | Aryaka Networks<br/>AT&T Dynamic Exchange<br/>AT&T NetBond<br/>British Telecom<br/>CenturyLink Cloud Connect<br/>Colt<br/>Comcast<br/>Coresite<br/>Cox Business Cloud Port<br/>Equinix<br/>InterCloud<br/>Internet2<br/>IX Reach<br/>Packet<br/>PacketFabric<br/>Level 3 Communications<br/>Megaport<br/>Momentum Telecom<br/>Orange<br/>Sprint<br/>Tata Communications<br/>Telia Carrier<br/>Verizon<br/>Vodafone<br/>Zayo |
@@ -199,6 +199,8 @@ If you're remote and don't have fiber connectivity or want to explore other conn
 * Intelsat
 * [SES](https://www.ses.com/networks/signature-solutions/signature-cloud/ses-and-azure-expressroute)
 * [Viasat](https://news.viasat.com/newsroom/press-releases/viasat-introduces-direct-cloud-connect-a-new-service-providing-fast-secure-private-connections-to-business-critical-cloud-services)
+
+## Connectivity through additional service providers
 
 | Location | Exchange | Connectivity providers |
 |--|--|--|

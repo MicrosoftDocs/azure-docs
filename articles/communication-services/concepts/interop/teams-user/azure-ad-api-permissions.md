@@ -32,4 +32,4 @@ None.
 - Application admin
 - Cloud application admin
 
-Find more details in [Microsoft Entra documentation](../../../../active-directory/roles/permissions-reference.md).
+Find more details in [Microsoft Entra documentation](/entra/identity/role-based-access-control/permissions-reference).

@@ -47,6 +47,8 @@
       href: delegate-role-assignments-overview.md
     - name: Authorization actions and attributes
       href: conditions-authorization-actions-attributes.md
+    - name: Example conditions
+      href: delegate-role-assignments-examples.md
   - name: ABAC conditions
     items:
     - name: Condition format
@@ -103,8 +105,6 @@
       href: role-assignments-portal-subscription-admin.md
     - name: Delegate role assignment management with conditions
       href: delegate-role-assignments-portal.md
-    - name: Example conditions
-      href: delegate-role-assignments-examples.md
   - name: Add or edit ABAC conditions
     items:
     - name: Portal
@@ -124,15 +124,7 @@
   - name: Remove role assignments
     href: role-assignments-remove.md
   - name: List deny assignments
-    items:
-    - name: Overview
-      href: deny-assignments.md
-    - name: Portal
-      href: deny-assignments-portal.md
-    - name: PowerShell
-      href: deny-assignments-powershell.md
-    - name: REST API
-      href: deny-assignments-rest.md
+    href: deny-assignments.md
   - name: Create custom roles
     items:
     - name: Overview

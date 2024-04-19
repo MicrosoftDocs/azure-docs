@@ -7,7 +7,7 @@ author: mrbullwinkle
 manager: nitinme
 ms.service: azure-ai-language
 ms.topic: how-to
-ms.date: 11/15/2023
+ms.date: 04/03/2024
 ms.author: mbullwin
 recommendations: false
 ---
@@ -53,6 +53,7 @@ If a user were granted role-based access to only this role for an Azure OpenAI r
 ✅ Ability to view the resource and associated model deployments in Azure OpenAI Studio. <br>
 ✅ Ability to view what models are available for deployment in Azure OpenAI Studio. <br>
 ✅ Use the Chat, Completions, and DALL-E (preview) playground experiences to generate text and images with any models that have already been deployed to this Azure OpenAI resource. <br>
+✅ Make inference API calls with Microsoft Entra ID.
 
 A user with only this role assigned would be unable to:
 
@@ -101,6 +102,7 @@ This role is typically granted access at the resource group level for a user in 
 A user with only this role assigned would be unable to:
 
 ❌ Access quota <br>
+❌ Make inference API calls with Microsoft Entra ID.
 
 ### Cognitive Services Usages Reader
 
@@ -148,7 +150,7 @@ All the capabilities of Cognitive Services Contributor plus the ability to:
 |Create customized content filters|❌|❌|✅| ➖ |
 |Add a data source for the “on your data” feature|❌|❌|✅| ➖ |
 |Access quota|❌|❌|❌|✅|
-
+|Make inference API calls with Microsoft Entra ID| ✅ | ✅ | ❌ |  ➖ | 
 ## Common Issues
 
 ### Unable to view Azure Cognitive Search option in Azure OpenAI Studio

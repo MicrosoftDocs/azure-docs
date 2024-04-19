@@ -186,7 +186,7 @@ In some circumstances, you may want to search for a special character, like an '
 
 Analyzers that tokenize special characters include the whitespace analyzer, which takes into consideration any character sequences separated by whitespaces as tokens (so the `❤` string would be considered a token). Also, a language analyzer like the Microsoft English analyzer ("en.microsoft"), would take the "€" string as a token. You can [test an analyzer](/rest/api/searchservice/test-analyzer) to see what tokens it generates for a given query.
 
-When using Unicode characters, make sure symbols are properly escaped in the query url (for instance for `❤` would use the escape sequence `%E2%9D%A4+`). Postman does this translation automatically.  
+When using Unicode characters, make sure symbols are properly escaped in the query url (for instance for `❤` would use the escape sequence `%E2%9D%A4+`). Some REST clients do this translation automatically.  
 
 ## Precedence (grouping)
 

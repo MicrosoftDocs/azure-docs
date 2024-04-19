@@ -259,7 +259,6 @@ In the following code example, the `.` (dot) tells `containerapp up` to run in t
 ```azurecli
 az containerapp up \
   --name $API_NAME \
-  --resource-group $RESOURCE_GROUP \
   --location $LOCATION \
   --environment $ENVIRONMENT \
   --source .
@@ -271,13 +270,14 @@ az containerapp up \
 ```azurecli
 az containerapp up \
   --name $API_NAME \
-  --resource-group $RESOURCE_GROUP \
   --location $LOCATION \
   --environment $ENVIRONMENT \
   --ingress external \
   --target-port 8080 \
   --source .
 ```
+> [!IMPORTANT]
+> In order to deploy your container app to an existing resource group, include `--resource-group yourResourceGroup` to the `containerapp up` command.
 
 ::: zone-end
 
@@ -320,8 +320,6 @@ az containerapp up `
 Copy the FQDN to a web browser.  From your web browser, go to the `/albums` endpoint of the FQDN.
 
 :::image type="content" source="media/quickstart-code-to-cloud/azure-container-apps-album-api.png" alt-text="Screenshot of response from albums API endpoint.":::
-
-[!INCLUDE [.NET data protection](../../includes/container-apps-net-data-protection-scaling.md)]
 
 ## Clean up resources
 

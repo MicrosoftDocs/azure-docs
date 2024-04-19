@@ -10,7 +10,7 @@ ms.reviewer: aul
 
 Follow the steps in this article to determine the cause of Prometheus metrics not being collected as expected in Azure Monitor.
 
-Replica pod scrapes metrics from `kube-state-metrics` and custom scrape targets in the `ama-metrics-prometheus-config` configmap. DaemonSet pods scrape metrics from the following targets on their respective node: `kubelet`, `cAdvisor`, `node-exporter`, and custom scrape targets in the `ama-metrics-prometheus-config-node` configmap. The pod that you want to view the logs and the Prometheus UI for it depends on which scrape target you're investigating.
+Replica pod scrapes metrics from `kube-state-metrics`, custom scrape targets in the `ama-metrics-prometheus-config` configmap and custom scrape targets defined in the [Custom Resources](prometheus-metrics-scrape-crd.md). DaemonSet pods scrape metrics from the following targets on their respective node: `kubelet`, `cAdvisor`, `node-exporter`, and custom scrape targets in the `ama-metrics-prometheus-config-node` configmap. The pod that you want to view the logs and the Prometheus UI for it depends on which scrape target you're investigating.
 
 ## Troubleshoot using powershell script
 
@@ -36,8 +36,8 @@ Check the pod status with the following command:
 kubectl get pods -n kube-system | grep ama-metrics
 ```
 
-- There should be one `ama-metrics-xxxxxxxxxx-xxxxx` replica pod, one `ama-metrics-ksm-*` pod, and an `ama-metrics-node-*` pod for each node on the cluster.
-- Each pod state should be `Running` and have an equal number of restarts to the number of configmap changes that have been applied:
+- There should be one `ama-metrics-xxxxxxxxxx-xxxxx` replica pod, one `ama-metrics-operator-targets-*`, one `ama-metrics-ksm-*` pod, and an `ama-metrics-node-*` pod for each node on the cluster.
+- Each pod state should be `Running` and have an equal number of restarts to the number of configmap changes that have been applied. The ama-metrics-operator-targets-* pod might have an extra restart at the beginning and this is expected:
 
 :::image type="content" source="media/prometheus-metrics-troubleshoot/pod-status.png" alt-text="Screenshot showing pod status." lightbox="media/prometheus-metrics-troubleshoot/pod-status.png":::
 
@@ -66,6 +66,14 @@ kubectl logs <ama-metrics pod name> -n kube-system -c prometheus-collector
       - If so, check that the Data Collection Rule and Data Collection Endpoint exist in your resource group.
       - Also verify that the Azure Monitor Workspace exists.
       - Verify that you don't have a private AKS cluster and that it's not linked to an Azure Monitor Private Link Scope for any other service. This scenario is currently not supported.
+
+### Config Processing 
+View the container logs with the following command:
+
+```
+kubectl logs <ama-metrics-operator-targets pod name> -n kube-system -c config-reader
+```
+
 - Verify there are no errors with parsing the Prometheus config, merging with any default scrape targets enabled, and validating the full config.
 - If you did include a custom Prometheus config, verify that it's recognized in the logs. If not:
   - Verify that your configmap has the correct name: `ama-metrics-prometheus-config` in the `kube-system` namespace.
@@ -81,6 +89,10 @@ kubectl logs <ama-metrics pod name> -n kube-system -c prometheus-collector
         scrape_configs:
         - job_name: <your scrape job here>
     ```
+- If you did create [Custom Resources](prometheus-metrics-scrape-crd.md), you should have seen any validation errors during the creation of pod/service monitors. If you still don't see the metrics from the targets make sure that the logs show no errors.
+```
+kubectl logs <ama-metrics-operator-targets pod name> -n kube-system -c targetallocator
+```
 - Verify there are no errors from `MetricsExtension` regarding authenticating with the Azure Monitor workspace.
 - Verify there are no errors from the `OpenTelemetry collector` about scraping the targets.
 
@@ -97,13 +109,14 @@ If there are no errors in the logs, the Prometheus interface can be used for deb
 
 ## Prometheus interface
 
-Every `ama-metrics-*` pod has the Prometheus Agent mode User Interface available on port 9090. Port-forward into either the replica pod or one of the daemon set pods to check the config, service discovery and targets endpoints as described here to verify the custom configs are correct, the intended targets have been discovered for each job, and there are no errors with scraping specific targets.
+Every `ama-metrics-*` pod has the Prometheus Agent mode User Interface available on port 9090. 
+Custom config and [Custom Resources](prometheus-metrics-scrape-crd.md) targets are scraped by the `ama-metrics-*` pod and the node targets by the `ama-metrics-node-*` pod.
+Port-forward into either the replica pod or one of the daemon set pods to check the config, service discovery and targets endpoints as described here to verify the custom configs are correct, the intended targets have been discovered for each job, and there are no errors with scraping specific targets.
 
 Run the command `kubectl port-forward <ama-metrics pod> -n kube-system 9090`.
 
 - Open a browser to the address `127.0.0.1:9090/config`. This user interface has the full scrape configuration. Verify all jobs are included in the config.
 :::image type="content" source="media/prometheus-metrics-troubleshoot/config-ui.png" alt-text="Screenshot showing configuration jobs." lightbox="media/prometheus-metrics-troubleshoot/config-ui.png":::
-
 
 - Go to `127.0.0.1:9090/service-discovery` to view the targets discovered by the service discovery object specified and what the relabel_configs have filtered the targets to be. For example, when missing metrics from a certain pod, you can find if that pod was discovered and what its URI is. You can then use this URI when looking at the targets to see if there are any scrape errors. 
 :::image type="content" source="media/prometheus-metrics-troubleshoot/service-discovery.png" alt-text="Screenshot showing service discovery." lightbox="media/prometheus-metrics-troubleshoot/service-discovery.png":::
@@ -111,6 +124,19 @@ Run the command `kubectl port-forward <ama-metrics pod> -n kube-system 9090`.
 
 - Go to `127.0.0.1:9090/targets` to view all jobs, the last time the endpoint for that job was scraped, and any errors 
 :::image type="content" source="media/prometheus-metrics-troubleshoot/targets.png" alt-text="Screenshot showing targets." lightbox="media/prometheus-metrics-troubleshoot/targets.png":::
+
+### Custom Resources
+- If you did include [Custom Resources](prometheus-metrics-scrape-crd.md), make sure they show up under configuration, service discovery and targets.
+
+#### Configuration
+:::image type="content" source="media/prometheus-metrics-troubleshoot/image-pod-monitor-config.png" alt-text="Screenshot showing configuration jobs for pod monitor." lightbox="media/prometheus-metrics-troubleshoot/image-pod-monitor-config.png":::
+
+#### Service Discovery
+:::image type="content" source="media/prometheus-metrics-troubleshoot/image-sd-pod-svc-monitor.png" alt-text="Screenshot showing sd for pod monitor." lightbox="media/prometheus-metrics-troubleshoot/image-sd-pod-svc-monitor.png":::
+
+#### Targets
+:::image type="content" source="media/prometheus-metrics-troubleshoot/image-targets-pod-svc-monitor.png" alt-text="Screenshot showing targets for pod monitor." lightbox="media/prometheus-metrics-troubleshoot/image-targets-pod-svc-monitor.png":::
+
 
 If there are no issues and the intended targets are being scraped, you can view the exact metrics being scraped by enabling debug mode.
 

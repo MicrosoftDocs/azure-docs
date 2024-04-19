@@ -14,7 +14,33 @@ ms.author: anfdocs
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
 
+## April 2024 
+
+* [Application volume group for Oracle](application-volume-group-oracle-introduction.md) (Preview)
+
+    Application volume group (AVG) for Oracle enables you to deploy all volumes required to install and operate Oracle databases at enterprise scale, with optimal performance and according to best practices in a single one-step and optimized workflow. The application volume group feature uses the Azure NetApp Files ability to place all volumes in the same availability zone as the VMs to achieve automated, latency-optimized deployments. 
+
+    Application volume group for Oracle has implemented many technical improvements that simplify and standardize the entire process to help you streamline volume deployments for Oracle. All required volumes, such as up to eight data volumes, online redo log and archive redo log, backup and binary, are created in a single "atomic" operation (through the Azure portal, RP, or API).
+
+    Azure NetApp Files application volume group shortens Oracle database deployment time and increases overall application performance and stability, including the use of multiple storage endpoints. The application volume group feature supports a wide range of Oracle database layouts from small databases with a single volume up to multi 100-TiB sized databases. It supports up to eight data volumes with latency-optimized performance and is only limited by the database VM's network capabilities. 
+
+    Application volume group for Oracle is supported in all Azure NetApp Files-enabled regions.
+  
 ## March 2024
+
+* [Large volumes (Preview) improvement:](large-volumes-requirements-considerations.md) new minimum size of 50 TiB
+
+    Large volumes support a minimum size of 50 TiB. Large volumes still support a maximum quota of 500 TiB. 
+
+* [Availability zone volume placement](manage-availability-zone-volume-placement.md) is now generally available (GA).
+
+    You can deploy new volumes in the logical availability zone of your choice to create cross-zone volumes to improve resiliency in case of zonal failures. This feature is available in all availability zone-enabled regions with Azure NetApp Files presence.
+    
+    The [populate existing volume](manage-availability-zone-volume-placement.md#populate-an-existing-volume-with-availability-zone-information) feature is still in preview. 
+
+* [Capacity pool enhancement](azure-netapp-files-set-up-capacity-pool.md): The 1 TiB capacity pool feature is now generally available (GA). 
+
+    The 1 TiB lower limit for capacity pools using Standard network features is now generally available (GA). You still must register the feature.
 
 * [Volume enhancement: create volumes with the same file path, share name, or volume path in different availability zones](manage-availability-zone-volume-placement.md#file-path-uniqueness) (Preview)
 
@@ -54,8 +80,6 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
     
 * [Customer-managed keys](configure-customer-managed-keys.md) is now generally available (GA).
 
-    You still must register the feature before using it for the first time.
-
 ## November 2023
 
 * [Capacity pool enhancement:](azure-netapp-files-set-up-capacity-pool.md) New lower limits
@@ -90,7 +114,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 * [Standard storage with cool access](cool-access-introduction.md) (Preview)
 
-    Most of unstructured data is typically infrequently accessed. It can account for more than 50% of the total storage capacity in many storage environments. Infrequently accessed data associated with productivity software, completed projects, and old datasets are an inefficient use of a high-performance storage. You can now use the cool access option in a capacity pool of Azure NetApp Files standard service level to have inactive data transparently moved from Azure NetApp Files standard service-level storage (the *hot tier*) to an Azure storage account (the *cool tier*). This option lets you free up storage that resides within Azure NetApp Files volumes by moving data blocks to the lower cost cool tier, resulting in overall cost savings. You can configure this option on a volume by specifying the number of days (the *coolness period*, ranging from 7 to 183 days) for inactive data to be considered "cool". Viewing and accessing the data stay transparent, except for a higher access time to data blocks that were moved to the cool tier.
+    Most of unstructured data is typically infrequently accessed. It can account for more than 50% of the total storage capacity in many storage environments. Infrequently accessed data associated with productivity software, completed projects, and old datasets are an inefficient use of a high-performance storage. You can now use the cool access option in a capacity pool of Azure NetApp Files standard service level to have inactive data transparently moved from Azure NetApp Files standard service-level storage (the *hot tier*) to an Azure storage account (the *cool tier*). This option lets you free up storage that resides within Azure NetApp Files volumes by moving data blocks to the lower cost cool tier, resulting in overall cost savings. You can configure this option on a volume by specifying the number of days (the *coolness period*, ranging from 2 to 183 days) for inactive data to be considered "cool". Viewing and accessing the data stay transparent, except for a higher access time to data blocks that were moved to the cool tier.
 
 * [Troubleshoot Azure NetApp Files using diagnose and solve problems tool](troubleshoot-diagnose-solve-problems.md)
 

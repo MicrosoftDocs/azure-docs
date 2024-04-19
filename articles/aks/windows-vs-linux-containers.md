@@ -3,6 +3,7 @@ title: Windows container considerations in Azure Kubernetes Service
 titleSuffix: Azure Kubernetes Service
 description: See the Windows container considerations with Azure Kubernetes Service (AKS).
 ms.topic: article
+ms.custom: linux-related-content
 ms.date: 01/12/2024
 ms.author: schaffererin
 author: schaffererin
@@ -64,3 +65,4 @@ For more information on Windows containers, see the [Windows Server containers F
 [gen-2-vms]: cluster-configuration.md#generation-2-virtual-machines
 [custom-node-config]: custom-node-configuration.md
 [custom-kubelet-parameters]: custom-node-configuration.md#kubelet-custom-configuration
+

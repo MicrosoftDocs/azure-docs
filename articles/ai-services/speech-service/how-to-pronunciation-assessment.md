@@ -197,6 +197,8 @@ This table lists some of the optional methods you can set for the `Pronunciation
 
 > [!NOTE]
 > Content and prosody assessments are only available in the [en-US](./language-support.md?tabs=pronunciation-assessment) locale.
+> 
+> To explore the content and prosody assessments, upgrade to the SDK version 1.35.0 or later.
 
 | Method | Description |
 |-----------|-------------|

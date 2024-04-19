@@ -14,6 +14,11 @@ You can apply this data to scenarios that include migration planning, capacity a
 
 For information on using these queries, see [Using queries in Azure Monitor Log Analytics](../logs/queries.md). For a complete tutorial on using Log Analytics to run queries and work with their results, see [Log Analytics tutorial](../logs/log-analytics-tutorial.md).
 
+> [!IMPORTANT]
+> The queries in this article depend on data collected by Container insights and stored in a Log Analytics workspace. If you've modified the default data collection settings, the queries might not return the expected results. Most notably, if you've disabled collection of performance data since you've enabled Prometheus metrics for the cluster, any queries using the `Perf` table won't return results. 
+> 
+> See [Configure data collection in Container insights using data collection rule](./container-insights-data-collection-dcr.md) for preset configurations including disabling performance data collection. See [Configure data collection in Container insights using ConfigMap](./container-insights-data-collection-configmap.md) for further data collection options.
+
 ## Open Log Analytics
 
 There are multiple options for starting Log Analytics. Each option starts with a different [scope](../logs/scope.md). For access to all data in the workspace, on the **Monitoring** menu, select **Logs**. To limit the data to a single Kubernetes cluster, select **Logs** from that cluster's menu.
