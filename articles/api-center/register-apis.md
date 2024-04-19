@@ -74,7 +74,7 @@ The following steps register two sample APIs: Swagger Petstore API and Demo Conf
 
 The APIs appear on the **APIs** page in the portal. When you've added a large number of APIs to the API center, use the search box and filters on this page to find the APIs you want.
 
-:::image type="content" source="media/register-apis/apis-page.png" alt-text="Screenshot of the APIs page in the portal." lightbox="media/register-apis/apis-page.png" lightbox="media/register-apis/apis-page.png":::
+:::image type="content" source="media/register-apis/apis-page.png" alt-text="Screenshot of the APIs page in the portal." lightbox="media/register-apis/apis-page.png":::
 
 > [!TIP]
 > After registering an API, you can view or edit the API's properties. On the **APIs** page, select the API to see pages to manage the API registration. 
@@ -126,7 +126,7 @@ To add an API definition to your version:
         | **Description** | Optionally enter a description. | Description of the API definition. |
         | **Specification name** | For the Demo Conference API, select **OpenAPI**. | Specification format for the API.|
         | **Specification version** | Enter a version identifier of your choice, such as *2.0*. | Specification version. |
-        |**Document**        | Browse to a definition file for the Demo Conference API, or enter a URL. Example: `https://conferenceapi.azurewebsites.net?format=json`   |  API definition file.     |
+        |**Document**        | Browse to a local definition file for the Demo Conference API, or enter a URL. Example URL: `https://conferenceapi.azurewebsites.net?format=json`   |  API definition file.     |
 
         :::image type="content" source="media/register-apis/add-definition.png" alt-text="Screenshot of adding an API definition in the portal." lightbox="media/register-apis/add-definition.png" :::
 
