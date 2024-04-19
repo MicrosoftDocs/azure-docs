@@ -153,7 +153,8 @@ This function.json defines both a pub/sub trigger and an input binding to the GE
 
 This JavaScript code (from index.js) retrives and logs the cached value related to the key provided by the pub/sub trigger. 
 
-```nodejs
+
+```javascript
 
 module.exports = async function (context, key, value) {
     context.log("Key '" + key + "' was set to value '" + value + "'");

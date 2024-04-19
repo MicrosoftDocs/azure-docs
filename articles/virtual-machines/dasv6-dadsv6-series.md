@@ -19,7 +19,7 @@ ms.date: 01/29/2024
 The Dasv6-series and Dadsv6-series utilize AMD's 4th Generation EPYC<sup>TM</sup> 9004 processor in a multi-threaded configuration with up to 320 MB L3 cache, increasing customer options for running their general-purpose workloads. The Dasv6-series VMs work well for many general computing workloads, such as e-commerce systems, web front ends, desktop virtualization solutions, customer relationship management applications, entry-level and mid-range databases, application servers, and more. 
 
 > [!NOTE]
-> The new Dasv6 and Dadsv6 VM series will only work on OS images that are tagged with NVMe support.  If your current OS image is not supported for NVMe, you’ll see an error message. NVMe support is available in 50+ of the most popular OS images, and we continuously improve the OS image coverage. Please refer to our up-to-date [lists](https://learn.microsoft.com/azure/virtual-machines/enable-nvme-interface) for information on which OS images are tagged as NVMe supported.  For more information on NVMe enablement, see our [FAQ](https://learn.microsoft.com/azure/virtual-machines/enable-nvme-faqs).
+> The new Dasv6 and Dadsv6 VM series will only work on OS images that are tagged with NVMe support.  If your current OS image is not supported for NVMe, you’ll see an error message. NVMe support is available in 50+ of the most popular OS images, and we continuously improve the OS image coverage. Please refer to our up-to-date [lists](./enable-nvme-interface.md) for information on which OS images are tagged as NVMe supported.  For more information on NVMe enablement, see our [FAQ](./enable-nvme-faqs.yml).
 >
 > The new Dasv6 and Dadsv6 VM series virtual machines public preview now available. For more information and to sign up for the preview, please visit our [announcement](https://techcommunity.microsoft.com/t5/azure-compute-blog/public-preview-new-amd-based-vms-with-increased-performance/ba-p/3981351) and follow the link to the [sign-up form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR9RmLSiOpIpImo4Q01A_jJlUM1ZSRVlYU04wMUJQVjNQRFZHQzdEVFc1VyQlQCN0PWcu). This is an opportunity to experience our latest innovation.
 
@@ -27,7 +27,7 @@ The Dasv6-series and Dadsv6-series utilize AMD's 4th Generation EPYC<sup>TM</sup
 Dasv6-series VMs utilize AMD's 4th Generation EPYC<sup>TM</sup> 9004 processors that can achieve a boosted maximum frequency of 3.7GHz. These virtual machines offer up to 96 vCPU and 384 GiB of RAM. The Dasv6-series sizes offer a combination of vCPU and memory for most production workloads. The new VMs with no local disk provide a better value proposition for workloads that do not require local temporary storage. 
 
 > [!NOTE]
-> For frequently asked questions, see [Azure VM sizes with no local temp disk](https://learn.microsoft.com/azure/virtual-machines/azure-vms-no-temp-disk).
+> For frequently asked questions, see [Azure VM sizes with no local temp disk](./azure-vms-no-temp-disk.yml).
  
 
 Dasv6-series virtual machines support Standard SSD, Standard HDD, and Premium SSD disk types. You can also attach Ultra Disk storage based on its regional availability. Disk storage is billed separately from virtual machines. [See pricing for disks](https://azure.microsoft.com/pricing/details/managed-disks/).

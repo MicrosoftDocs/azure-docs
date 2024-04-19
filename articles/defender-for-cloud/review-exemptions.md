@@ -1,38 +1,40 @@
 ---
-title: Exempt a recommendation in Microsoft Defender for Cloud
+title: Review resources exempted from recommendations
 description: Learn how to exempt recommendations so they're not taken into account in Microsoft Defender for Cloud.
 ms.topic: how-to
 ms.author: dacurwin
 author: dcurwin
-ms.date: 11/22/2023
+ms.date: 02/29/2024
+#customer intent: As a user, I want to learn how to exempt recommendations in Microsoft Defender for Cloud so that I can customize the security recommendations for my environment.
 ---
 
 # Review resources exempted from recommendations
 
 In Microsoft Defender for Cloud, you can [exempt protected resources from Defender for Cloud security recommendations](exempt-resource.md). This article describes how to review and work with exempted resources.
 
-> [!IMPORTANT]
-> This page discusses how to use the new recommendations experience where you have the ability to prioritize your recommendations by their effective risk level. To view this experience, you must select **Try it now**.
->
-> :::image type="content" source="media/review-security-recommendations/try-it-now.png" alt-text="Screenshot that shows where the try it now button is located on the recommendation page." lightbox="media/review-security-recommendations/try-it-now.png":::
-
 ## Review exempted resources in the portal
+
+Once a resource has been exempted it will no longer be taken into account for security recommendation. You can review the exempted resources and manage each one in the Defender for Cloud portal.
+
+### Review exempted resources on the recommendations page
+
+**To review exempted resources**:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
 1. Navigate to **Defender for Cloud** > **Recommendations**.
 
-1. Select **Add filter** > **Is exempt**.
+1. Select **Recommendation status**.
 
-1. Select **All**, **Yes** or **No**.
+1. Select **Exempted**.
 
 1. Select **Apply**.
 
-    :::image type="content" source="media/review-exemptions/filter-exemptions.png" alt-text="Steps to create an exemption rule to exempt a recommendation from your subscription or management group."  lightbox="media/review-exemptions/filter-exemptions.png":::
+    :::image type="content" source="media/review-exemptions/exempted-resources.png" alt-text="Screenshot of the recommendations page that shows where the recommendation status, exempted and apply button are located." lightbox="media/review-exemptions/exempted-resources.png":::
 
-1. In the details page for the relevant recommendation, review the exemption rules.
+1. Select a resource to review it.
 
-1. For each resource, the **Reason** column shows why the resource is exempted. To modify the exemption settings for a resource, select the ellipsis in the resource > **Manage exemption**.
+### Review exempted resources on the inventory page
 
 You can also find all resources that are exempted from one or more recommendations on the Inventory page.
 
@@ -40,7 +42,7 @@ You can also find all resources that are exempted from one or more recommendatio
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
-1. Navigate to **Defender for Cloud** > **Recommendations**.
+1. Navigate to **Defender for Cloud** > **Inventory**.
 
 1. Select **Add filter**
 

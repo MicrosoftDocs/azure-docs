@@ -45,6 +45,9 @@ The following metrics are available to get insight on VM and disk IO, throughput
 - **Temp Disk Write Bytes/Sec**: The number of bytes that are written in a second from the temporary disk.
 - **Temp Disk Write Operations/Sec**: The number of output operations that are written in a second from the temporary disk.
 
+> [!NOTE]
+> Disk metrics can't log CRUD (Create, Read, Update, Delete) operations inside managed disks.
+
 ## Bursting metrics
 The following metrics help with observability into our [bursting](disk-bursting.md) feature on our premium disks:
 

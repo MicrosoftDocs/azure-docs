@@ -59,7 +59,7 @@ To install the package:
 
    ``` PowerShell
    CD "<LocalExtractedFolderPath>\AzTSMMARemovalUtilityDeploymentFiles"
-   . ".\MMARemovalUtilitySetupConsolidated.ps1"
+   . ".\MMARemovalUtilityConsolidatedSetup.ps1"
    ```
 
 1. Sign in to the Azure account by using the following PowerShell command:  

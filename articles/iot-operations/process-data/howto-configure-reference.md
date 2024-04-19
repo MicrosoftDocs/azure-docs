@@ -1,6 +1,6 @@
 ---
 title: Configure a reference dataset
-description: The reference datasets within the Data Processor store reference data that other pipelines can use for enrichment and contextualization.
+description: Azure IoT Data Processor reference datasets store reference data that other pipelines can use for enrichment and contextualization.
 author: dominicbetts
 ms.subservice: data-processor
 ms.author: dobett
@@ -12,11 +12,11 @@ ms.date: 09/21/2023
 #CustomerIntent: As an operator, I want to configure a reference dataset so that I can use the reference data to enrich and contextualize the messages in my pipeline.
 ---
 
-# Configure a reference dataset
+# Configure a reference dataset in Azure IoT Data Processor Preview
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-Reference datasets within the Azure IoT Data Processor (preview) store reference data that pipelines can use for enrichment and contextualization. The data inside the reference data store is organized into datasets, each with multiple keys.
+Reference datasets within the Azure IoT Data Processor Preview store reference data that pipelines can use for enrichment and contextualization. The data inside the reference data store is organized into datasets, each with multiple keys.
 
 ## Prerequisites
 

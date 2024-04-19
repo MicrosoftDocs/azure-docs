@@ -25,13 +25,13 @@ While managed private endpoints are free, there may be charges associated with p
 
 Managed private endpoints work with Azure services that support private link. Using them, you can connect your Azure Managed Grafana workspace to the following Azure data stores over private connectivity:
 
--	Azure Cosmos DB for Mongo DB
--	Azure Cosmos DB for PostgreSQL
--	Azure Data Explorer
--	Azure Monitor private link scope (for example, Log Analytics workspace)
--	Azure Monitor workspace, for Managed Service for Prometheus
--	Azure SQL managed instance
--	Azure SQL server
+- Azure Cosmos DB for Mongo DB
+- Azure Cosmos DB for PostgreSQL
+- Azure Data Explorer
+- Azure Monitor private link scope (for example, Log Analytics workspace)
+- Azure Monitor workspace, for Managed Service for Prometheus
+- Azure SQL managed instance
+- Azure SQL server
 - Private link services
 
 ## Prerequisites
@@ -45,7 +45,7 @@ To follow the steps in this guide, you must have:
 
 You can create a managed private endpoint in your Azure Managed Grafana workspace to connect to a [supported data source](#supported-data-sources) using a private link.
 
-1. In the Azure portal, navigate to your Grafana workspace and then select **Networking (Preview)**.
+1. In the Azure portal, navigate to your Grafana workspace and then select **Networking**.
 1. Select **Managed Private Endpoint**, and then select **Create**.
 
    :::image type="content" source="media/managed-private-endpoint/create.png" alt-text="Screenshot of the Azure portal create managed private endpoint." lightbox="media/managed-private-endpoint/create.png":::
@@ -67,7 +67,7 @@ If you have a data source internal to your virtual network, such as an InfluxDB 
 
 Once you've set up the private link service, you can create a managed private endpoint in your Grafana workspace that connects to the new private link.
 
-1. In the Azure portal, navigate to your Grafana resource and then select **Networking (Preview)**.
+1. In the Azure portal, navigate to your Grafana resource and then select **Networking**.
 1. Select **Managed Private Endpoint**, and then select **Create**.
 
    :::image type="content" source="media/managed-private-endpoint/create.png" alt-text="Screenshot of the Azure portal create managed private endpoint." lightbox="media/managed-private-endpoint/create.png":::

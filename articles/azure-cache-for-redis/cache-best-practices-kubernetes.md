@@ -4,6 +4,7 @@ titleSuffix: Azure Cache for Redis
 description: Learn how to host a Kubernetes client application that uses Azure Cache for Redis.
 author: flang-msft
 ms.service: cache
+ms.custom: linux-related-content
 ms.topic: conceptual
 ms.date: 11/10/2023
 ms.author: franlanglois

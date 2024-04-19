@@ -34,15 +34,19 @@ You must strongly consider the following facts regarding the storage accounts us
 
 ## Storage account requirements
 
-Storage accounts created as part of the function app create flow in the Azure portal are guaranteed to work with the new function app. In the portal, unsupported accounts are filtered out when choosing an existing storage account while creating a function app. You can also use an existing storage account with your function app. The following restrictions apply to storage accounts used by your function app, so you must make sure an existing storage account meets these requirements: 
+Storage accounts created as part of the function app create flow in the Azure portal are guaranteed to work with the new function app. When you choose to use an existing storage account, the list provided doesn't include certain unsupported storage accounts. The following restrictions apply to storage accounts used by your function app, so you must make sure an existing storage account meets these requirements: 
 
 + The account type must support Blob, Queue, and Table storage. Some storage accounts don't support queues and tables. These accounts include blob-only storage accounts and Azure Premium Storage. To learn more about storage account types, see [Storage account overview](../storage/common/storage-account-overview.md).
 
-+ Storage accounts already secured by using firewalls or virtual private networks can't be used in the portal creation flow. For more information, see [Restrict your storage account to a virtual network](configure-networking-how-to.md#restrict-your-storage-account-to-a-virtual-network).
++ You can't use a storage account already secured by using a firewall or a virtual private network when you create your function app in the Azure portal. However, the portal doesn't currently filter out these secured storage accounts. To learn how to use a secured storage account with your function app, see [How to use a secured storage account with Azure Functions](configure-networking-how-to.md).
+
++ You can't use secured storage accounts with function apps hosted in the [Consumption plan](consumption-plan.md). 
 
 + When creating your function app in the portal, you're only allowed to choose an existing storage account in the same region as the function app you're creating. This is a performance optimization and not a strict limitation. To learn more, see [Storage account location](#storage-account-location).
 
 + When creating your function app on a plan with [availability zone support](../reliability/reliability-functions.md#availability-zone-support) enabled, only [zone-redundant storage accounts](../storage/common/storage-redundancy.md#zone-redundant-storage) are supported.
+
+You can create function apps in an Elastic Premium or Dedicated (App Service) plan using deployment automation. However, you must include specific networking configurations in your ARM template or Bicep file. When you don't include these settings and resources, your automated deployment might fail in validation. For more information, see [Secured deployments](functions-infrastructure-as-code.md#secured-deployments). 
 
 ## Storage account guidance
 

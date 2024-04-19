@@ -389,6 +389,8 @@ items:
       href: power-bi-visual-on-object-interaction.md
     - name: Show real-time traffic
       href: power-bi-visual-show-real-time-traffic.md
+    - name: Power BI Azure Maps Visual Data Residency
+      href: power-bi-visual-data-residency.md
     - name: Manage access
       href: power-bi-visual-manage-access.md
     - name: Use Azure Maps in Power Apps

@@ -96,5 +96,5 @@ The selected standard appears in the **Regulatory compliance** dashboard as enab
 
 ## Next steps
 
-- Create custom standards for [Azure](custom-security-policies.md), [AWS, and GCP](create-custom-recommendations.md).
+- [Create custom security standards and recommendations](create-custom-recommendations.md)
 - [Improve regulatory compliance](regulatory-compliance-dashboard.md)

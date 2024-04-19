@@ -17,13 +17,16 @@ ms.custom: mode-other
 
 # Tutorial: Create resources you need to get started
 
-In this tutorial, you will create the resources you need to start working with Azure Machine Learning.
+In this tutorial, you will create the resources you need to start working with Azure Machine Learning. 
 
 > [!div class="checklist"]
 >* A *workspace*.  To use Azure Machine Learning, you'll first need a workspace.  The workspace is the central place to view and manage all the artifacts and resources you create. 
 >* A *compute instance*.  A compute instance is a pre-configured cloud-computing resource that you can use to train, automate, manage, and track machine learning models. A compute instance is the quickest way to start using the Azure Machine Learning SDKs and CLIs. You'll use it to run Jupyter notebooks and Python scripts in the rest of the tutorials.
+>
 
-This video shows you how to create a workspace and compute instance.  The steps are also described in the sections below.
+In this tutorial, you'll create the your resources in [Azure Machine Learning studio](https://ml.azure.com).  For more ways to create a workspace, see [Create a workspace](concept-workspace.md#create-a-workspace). For more ways to create a compute instance, see [Create a compute instance](how-to-create-compute-instance.md).
+
+This video shows you how to create a workspace and compute instance in Azure Machine Learning studio.  The steps are also described in the sections below.
 > [!VIDEO https://learn-video.azurefd.net/vod/player?id=a0e901d2-e82a-4e96-9c7f-3b5467859969]
 
 ## Prerequisites
