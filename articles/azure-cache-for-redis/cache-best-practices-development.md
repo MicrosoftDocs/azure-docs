@@ -5,7 +5,7 @@ description: Learn how to develop code for Azure Cache for Redis.
 author: flang-msft
 ms.service: cache
 ms.topic: conceptual
-ms.date: 04/10/2023
+ms.date: 04/18/2024
 ms.author: franlanglois
 
 ---
@@ -66,7 +66,7 @@ Use Standard, Premium, Enterprise, or Enterprise Flash tiers for production syst
 
 - they share a CPU core
 - use little memory
-- are prone to *noisy neighbor* issues
+- are prone to _noisy neighbor_ issues
 
 We recommend performance testing to choose the right tier and validate connection settings. For more information, see [Performance testing](cache-best-practices-performance.md).
 
@@ -74,7 +74,7 @@ We recommend performance testing to choose the right tier and validate connectio
 
 Locate your cache instance and your application in the same region. Connecting to a cache in a different region can significantly increase latency and reduce reliability.  
 
-While you can connect from outside of Azure, it isn't recommended *especially when using Redis as a cache*.  If you're using Redis server as just a key/value store, latency may not be the primary concern.
+While you can connect from outside of Azure, it isn't recommended, especially when using Redis as a cache. If you're using Redis server as just a key/value store, latency might not be the primary concern.
 
 ## Rely on hostname not public IP address
 
@@ -101,7 +101,7 @@ If your client library or tool doesn't support TLS, then enabling unencrypted co
 
 ### Azure TLS Certificate Change
 
-Microsoft is updating Azure services to use TLS server certificates from a different set of Certificate Authorities (CAs). This change is rolled out in phases from August 13, 2020 to October 26, 2020 (estimated). Azure is making this change because [the current CA certificates don't  one of the CA/Browser Forum Baseline requirements](https://bugzilla.mozilla.org/show_bug.cgi?id=1649951). The problem was reported on July 1, 2020 and applies to multiple popular Public Key Infrastructure (PKI) providers worldwide. Most TLS certificates used by Azure services today come from the *Baltimore CyberTrust Root* PKI. The Azure Cache for Redis service will continue to be chained to the Baltimore CyberTrust Root. Its TLS server certificates, however, will be issued by new Intermediate Certificate Authorities (ICAs) starting on October 12, 2020.
+Microsoft is updating Azure services to use TLS server certificates from a different set of Certificate Authorities (CAs). This change is rolled out in phases from August 13, 2020 to October 26, 2020 (estimated). Azure is making this change because [the current CA certificates don't  one of the CA/Browser Forum Baseline requirements](https://bugzilla.mozilla.org/show_bug.cgi?id=1649951). The problem was reported on July 1, 2020 and applies to multiple popular Public Key Infrastructure (PKI) providers worldwide. Most TLS certificates used by Azure services today come from the _Baltimore CyberTrust Root_ PKI. The Azure Cache for Redis service will continue to be chained to the Baltimore CyberTrust Root. Its TLS server certificates, however, will be issued by new Intermediate Certificate Authorities (ICAs) starting on October 12, 2020.
 
 > [!NOTE]
 > This change is limited to services in public [Azure regions](https://azure.microsoft.com/global-infrastructure/geographies/). It excludes sovereign (e.g., China) or government clouds.
@@ -110,7 +110,7 @@ Microsoft is updating Azure services to use TLS server certificates from a diffe
 
 #### Does this change affect me?
 
-We expect that most Azure Cache for Redis customers aren't affected by the change. Your application might be affected if it explicitly specifies a list of acceptable certificates, a practice known as “certificate pinning”. If it's pinned to an intermediate or leaf certificate instead of the Baltimore CyberTrust Root, you should **take immediate actions** to change the certificate configuration. 
+We expect that most Azure Cache for Redis customers aren't affected by the change. Your application might be affected if it explicitly specifies a list of acceptable certificates, a practice known as “certificate pinning”. If it's pinned to an intermediate or leaf certificate instead of the Baltimore CyberTrust Root, you should take immediate actions to change the certificate configuration.
 
 Azure Cache for Redis doesn't support [OCSP stapling](https://docs.redis.com/latest/rs/security/certificates/ocsp-stapling/).
 
