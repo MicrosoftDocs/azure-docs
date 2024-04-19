@@ -145,7 +145,7 @@
             - name: Applying ACLs to Network-to-Network Interconnects (NNI)
               href: howto-apply-access-control-list-to-network-to-network-interconnects.md
             - name: Updating ACL on Network-for-Network Interconnects (NNI)
-              href: howto-update-access-control-list-for-network-to-network-interconnects.md
+              href: how-to-update-access-control-list-for-network-to-network-interconnects.md
             - name: Delete ACLs associated with Network-to-Network Interconnects (NNI)
               href: howto-delete-access-control-list-network-to-network-interconnect.md
     - name: Nexus Kubernetes cluster
