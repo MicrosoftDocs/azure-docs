@@ -17,7 +17,7 @@ ms.author: behoorne
 To interact with the Onco-Phenotype model, you can provide several model configurations parameters that modify the outcome of the responses and reflects the preferences of te user.
 
 > [!NOTE]
-> The examples below are based on API version: 2023-03-01-preview. For a specific API version, please follow the reference to the REST API to see full description of each API version.
+> The examples in this article are based on API version: 2023-03-01-preview. For a specific API version, please follow the reference to the REST API to see full description of each API version.
 
 
 > [!IMPORTANT]
@@ -51,7 +51,7 @@ If a case is found in the provided clinical documents and the model is able to f
 
 ### With case finding 
 
-The following example represents a case finding. The ```checkForCancerCase``` has been set to ```true``` and ```includeEvidence``` has been set to ```false```. Meaning the model checks for a cancer case but not include the evidence.
+The following example represents a case finding. The ```checkForCancerCase``` is set to ```true``` and ```includeEvidence``` is set to ```false```. Meaning the model checks for a cancer case but not include the evidence.
 
 Request that contains a case:
 ```json
@@ -200,7 +200,7 @@ false               | No evidence is returned
 
 ## Evidence example
 
-The following example represents a case finding. The ```checkForCancerCase``` has been set to ```true``` and ```includeEvidence``` has been set to ```true```. Meaning the model checks for a cancer case and include the evidence.
+The following example represents a case finding. The ```checkForCancerCase``` is set to ```true``` and ```includeEvidence``` is set to ```true```. Meaning the model checks for a cancer case and include the evidence.
 
 Request that contains a case:
 ```json 

@@ -23,7 +23,7 @@ The payload should contain a ```patients``` section with one or more objects whe
 In this example, the Onco-Phenotype model receives patient information in the form of unstructured clinical notes.
 
 > [!NOTE]
-> The examples below are based on API version: 2023-03-01-preview. For a specific API version, please follow the reference to the REST API to see full description of each API version.
+> The examples in this article are based on API version: 2023-03-01-preview. For a specific API version, please follow the reference to the REST API to see full description of each API version.
 
 ```json
 {
