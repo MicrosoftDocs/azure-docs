@@ -110,9 +110,9 @@ Azure Functions requires a storage account to work. Choose either of the two fol
 
 1. Start the Azurite storage emulator:
 
-  ```bash
-  azurite -l azurite -d azurite\debug.log
-  ```
+    ```bash
+    azurite -l azurite -d azurite\debug.log
+    ```
 
 1. Make sure the `AzureWebJobsStorage` in *local.settings.json* set to `UseDevelopmentStorage=true`.
 
