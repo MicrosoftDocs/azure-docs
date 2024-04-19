@@ -35,7 +35,7 @@ The Public-Trust resources in Trusted Signing are designed to support the follow
 
 - [Win32 App Code Signing](/windows/win32/seccrypto/cryptography-tools#introduction-to-code-signing)
 - [Windows 11 Smart App Control](/windows/apps/develop/smart-app-control/code-signing-for-smart-app-control)
-- [/INTEGRITYCHECK - Forced Integrity Signing for PE binaries](/cpp/build/reference/integritycheck-require-signature-check?view=msvc-170)
+- [/INTEGRITYCHECK - Forced Integrity Signing for PE binaries](/cpp/build/reference/integritycheck-require-signature-check)
 - [Virtualization Based Security (VBS) Enclaves](/windows/win32/trusted-execution/vbs-enclaves)
 
 Public-Trust is recommended for signing any artifact that is to be shared publicly and for the signer to be a validated legal organization or individual. 
