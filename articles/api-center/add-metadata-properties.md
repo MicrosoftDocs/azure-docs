@@ -1,14 +1,14 @@
 ---
-title: Tutorial - Customize metadata properties in Azure API Center | Microsoft Docs
-description: In this tutorial, define custom metadata properties in your API center. Use custom and predefined properties to organize your APIs.
+title: Tutorial - Add custom metadata properties
+description: In this tutorial, define custom metadata properties in your API center. Use custom and predefined properties to organize and govern your APIs.
 author: dlepow
 ms.service: api-center
 ms.topic: tutorial
-ms.date: 04/18/2024
+ms.date: 04/19/2024
 ms.author: danlep 
 ---
 
-# Tutorial: Add custom metadata properties
+# Tutorial: Define custom metadata properties
 
 In this tutorial, define custom properties to help you organize your APIs and other information in your API center. Use custom metadata properties and several predefined properties for search and filtering and to enforce governance standards in your organization. 
 
@@ -26,34 +26,35 @@ In this tutorial, you learn how to use the portal to:
 
 * An API center in your Azure subscription. If you haven't created one already, see [Quickstart: Create your API center](set-up-api-center.md).
 
-## Define properties in the metadata schema
-
-You organize your API inventory by setting values of metadata properties. While several common properties such as "API type" and "Version lifecycle" are available out of the box, each API center provides a configurable metadata schema so you can add properties that are specific to your organization. 
+## Define metadata properties
 
 Here you define two example properties: *Line of business* and *Public-facing*; if you prefer, define other properties of your own. When you add or update APIs and other information in your inventory, you'll set values for these properties and any common predefined properties.
 
-> [!IMPORTANT]
-> Take care not to include any sensitive, confidential, or personal information in the titles (names) of metadata properties you define. These titles are visible in monitoring logs that are used by Microsoft to improve the functionality of the service. However, other metadata details and values are your protected customer data. 
+[!INCLUDE [metadata-sensitive-data](includes/metadata-sensitive-data.md)]
 
-1. In the left menu, select **Metadata schema > + Add property**. 
+1. In the [Azure portal](https://portal.azure.com), navigate to your API center.
+
+1. In the left menu, under **Assets**, select **Metadata > + New metadata**. 
 
 1. On the **Details** tab, enter information about the property. 
 
     1. In **Title**, enter *Line of business*. 
     
-    1. Select type **Predefined choices** and enter choices such as *Marketing, Finance, IT, Sales*, and so on. Optionally enable **Allow selection of multiple values**. 
+    1. Optionally, enter a **Description**.
 
-    :::image type="content" source="media/add-metadata-properties/metadata-property-details.png" alt-text="Screenshot of metadata schema property in the portal.":::
+    1. Select type **Predefined choices** and enter choices such as *Marketing, Finance, IT, Sales*, and so on. Optionally enable **Allow selection of multiple values**. Select **Next**.
 
-1. On the **Assignments** tab, select **Required** for APIs. Select **Optional** for Deployments and Environments. (You'll add these entities in later tutorials.)
+    :::image type="content" source="media/add-metadata-properties/metadata-property-details.png" alt-text="Screenshot of metadata property in the portal." source="media/add-metadata-properties/metadata-property-details.png":::
 
-    :::image type="content" source="media/add-metadata-properties/metadata-property-assignments.png" alt-text="Screenshot of metadata property assignments in the portal.":::
+1. On the **Assignments** tab, select **Required** for APIs. Select **Optional** for Deployments and Environments. (You'll add these entities in later tutorials.) Select **Next**.
 
-1. On the **Review + Create** tab, review the settings and select **Create**. 
+    :::image type="content" source="media/add-metadata-properties/metadata-property-assignments.png" alt-text="Screenshot of metadata property assignments in the portal." source="media/add-metadata-properties/metadata-property-assignments.png":::
+
+1. On the **Review + create** tab, review the settings and select **Create**. 
  
-    The property is added to the list. 
+    The property is added to the list on the **Metadata** page. 
 
-1. Select **+ Add property** to add another property.
+1. Select **+ New metadata** to add another property.
 
 1. On the **Details** tab, enter information about the property. 
 
@@ -63,7 +64,7 @@ Here you define two example properties: *Line of business* and *Public-facing*; 
 
 1. On the **Assignments** tab, select **Required** for APIs. Select **Not applicable** for Deployments and Environments. 
 
-1. On the **Review + Create** tab, review the settings and select **Create**. 
+1. On the **Review + create** tab, review the settings and select **Create**. 
 
     The property is added to the list.
 
@@ -71,14 +72,14 @@ Here you define two example properties: *Line of business* and *Public-facing*; 
 
 You can view and download the JSON schema for the metadata properties in your API center. The schema includes predefined and custom properties.
 
-1. In the left menu, select **Metadata schema > View schema**. 
+1. In the left menu, under **Assets**, select **Metadata > View metadata schema**. 
 
-1. Select **View schema > API** to see the metadata schema for APIs, which includes predefined properties and the properties that you added. You can also view the metadata schema defined for deployments and environments in your API center.
+1. Select **View metadata schema > APIs** to see the metadata schema for APIs, which includes predefined properties and the properties that you added. You can also view the metadata schema defined for deployments and environments in your API center.
 
     :::image type="content" source="media/add-metadata-properties/metadata-schema.png" alt-text="Screenshot of metadata schema in the portal." lightbox="media/add-metadata-properties/metadata-schema.png":::
 
 > [!NOTE]
-> * Add properties in the schema at any time and apply them to APIs and other entities in your API center. 
+> * Add metadata properties at any time and apply them to APIs and other entities in your API center. 
 > * After adding a property, you can change its assignment to an entity, for example from required to optional for APIs.
 > * You can't delete, unassign, or change the type of properties that are currently set in entities. Remove them from the entities first, and then you can delete or change them.
 

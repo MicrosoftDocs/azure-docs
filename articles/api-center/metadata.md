@@ -61,6 +61,8 @@ Type | Description | Example property name |
 | predefined choice | predefined list of choices | *Department* |
 | object | complex object composed of multiple subproperties | *APIApprover* |
 
+[!INCLUDE [metadata-sensitive-data](includes/metadata-sensitive-data.md)]
+
 ### Assign metadata properties to entities
 
 Custom metadata properties can be assigned to APIs, environments, or deployments in your API center. For example, create and assign a *Department* property to APIs, so that when an API is registered or a new API version is added, the department responsible for the API is specified. 
