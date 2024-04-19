@@ -6,7 +6,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: network-watcher
 ms.topic: how-to
-ms.date: 04/18/2024
+ms.date: 04/22/2024
 
 #CustomerIntent: As an Azure administrator, I want to migrate my NSG flow logs to the new VNet flow logs so that I can use all the benefits of VNet flow logs, which overcome some of the NSG flow logs limitations..
 ---
@@ -14,9 +14,6 @@ ms.date: 04/18/2024
 # Migrate from NSG flow logs to VNet flow logs
 
 In this article, you learn how to migrate your existing NSG flow logs to VNet flow logs. VNet flow logs overcome some of the limitations of NSG flow logs. For more information, see [VNet flow logs](vnet-flow-logs-overview.md).
-
-> [!IMPORTANT]
-> The VNet flow logs feature is currently in preview. This preview version is provided without a service-level agreement, and we don't recommend it for production workloads. Certain features might not be supported or might have constrained capabilities. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Prerequisites
 
