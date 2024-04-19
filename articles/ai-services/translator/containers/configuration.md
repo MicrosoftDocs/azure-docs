@@ -74,7 +74,7 @@ If you need to configure an HTTP proxy for making outbound requests, use these t
 
 | Name | Data type | Description |
 |--|--|--|
-|HTTPS_PROXY|string|The proxy to use, for example, `https://proxy:8888`<br>`<proxy-url>`|
+|HTTPS_PROXY|string|The proxy URL, for example, `https://proxy:8888`|
 
 ```bash
 docker run --rm -it -p 5000:5000 \
@@ -84,7 +84,7 @@ docker run --rm -it -p 5000:5000 \
 Eula=accept \
 Billing=<endpoint> \
 ApiKey=<api-key> \
-HTTPS_PROXY=<proxy-url> \
+HTTPS_PROXY=<proxy-url>
 ```
 
 ## Logging settings

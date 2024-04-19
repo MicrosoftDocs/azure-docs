@@ -26,6 +26,8 @@ items:
     items:
     - name: Security architecture and security pillars
       href: concept-security.md
+    - name: Security baseline for Azure HDInsight on AKS
+      href: https://learn.microsoft.com/security/benchmark/azure/baselines/azure-hdinsight-on-aks-security-baseline
     - name: Network Security
       items:
       - name: Ingress and Egress controls
