@@ -20,9 +20,9 @@ Custom-written Java applications  use a default keystore, called *cacerts*, whic
 You can use following directions to update client root CA certificates for client certificate pinning scenarios with PostgreSQL Flexible Server:
 1. Check *cacerts* java keystore to see if it already contains required certificates. You can list certificates in Java keystore by using following command:
   ```powershell
-    keytool -list -v -keystore </path/to/cacerts>
+    keytool -list -v -keystore ..\lib\security\cacerts > outputfile.txt
   ```
-If necessary certificates are not present in the java key store on the client, you should proceed with following directions:
+If necessary certificates are not present in the java key store on the client,as can be checked in output, you should proceed with following directions:
    
 1. Make a backup copy of your custom keystore.
 2. Download [certificates](../flexible-server/concepts-networking-ssl-tls.md#downloading-root-ca-certificates-and-updating-application-clients-in-certificate-pinning-scenarios)
