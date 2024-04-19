@@ -22,6 +22,8 @@ _OPC UA servers_ are software applications that communicate with assets. OPC UA 
 
 An _asset endpoint_ is a custom resource in your Kubernetes cluster that connects OPC UA servers to OPC UA connector modules. This connection enables an OPC UA connector to access an asset's data points. Without an asset endpoint, data can't flow from an OPC UA server to the Azure IoT OPC UA Broker Preview instance and Azure IoT MQ Preview instance. After you configure the custom resources in your cluster, a connection is established to the downstream OPC UA server and the server forwards telemetry to the OPC UA Broker instance.
 
+A _site_ is a collection of Azure IoT Operations instances. Sites help you organize your instances and manage access control. Your IT administrator creates sites, assigns instances to them, and grants access to OT users in your organization.
+
 In the Azure IoT Operations (preview) portal, an _instance_ represents an Azure IoT Operations cluster. An instance can have one or more asset endpoints.
 
 This article describes how to use the Azure IoT Operations (preview) portal and the Azure CLI to:
