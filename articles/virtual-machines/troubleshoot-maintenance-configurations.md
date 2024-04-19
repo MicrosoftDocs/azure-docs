@@ -16,7 +16,7 @@ This article outlines common errors that may arise during the deployment or util
 ### Shutdown and Unresponsive VM when using `dynamic` scope in Guest Maintenance 
 
 #### Issue
-Scheduled patching doesn't install the patches on the VMs and gives an error `ShutdownOrUnresponsive`
+Scheduled patching doesn't install the patches on the virtual machines(VMs) and gives an error `ShutdownOrUnresponsive`
 
 #### Resolution
 It takes 12 hours to complete the cleanup process for the maintenance configuration assignment so make sure to keep the buffer of 12 hours before recreating the VM with the same name. 
@@ -28,15 +28,15 @@ If a new VM is recreated with the same name before the cleanup, Maintenance Conf
 Scheduled patching doesn't install the patches on the VMs and gives an error `ShutdownOrUnresponsive`
 
 #### Resolution
-In a static scope, it's crucial for customers to avoid relying on outdated VM configurations. Instead, they should prioritize re-assigning configurations after recreating instances.
+In a static scope, it's crucial for customers to avoid relying on outdated VM configurations. Instead, they should prioritize reassigning configurations after recreating instances.
 
 ### TimeOut or Failed Schduled Patching Job 
 
 #### Issue
-Scheduled patching fails with an error `TimeOut` or `Failed` after the VM has been moved to a different region
+Scheduled patching fails with an error `TimeOut` or `Failed` after the VM is moved to a different region.
 
 #### Resolution
-If a VM is recreated with the same name but in a different region, patch installation might fail with the `TimeOut` or `Failed` error. The portal might show the same VM twice because the previously created VM has not been removed from the backend. This is a known bug, and the team is working on resolving it. If you encounter this issue, please contact the support team for immediate assistance.
+If a VM is recreated with the same name but in a different region, patch installation might fail with the `TimeOut` or `Failed` error. The portal might show the same VM twice because the previously created VM is removed from the backend. This bug is known to the team, and the team is working on resolving it. If you encounter this issue, contact the support team for immediate assistance.
  
 ### Schedule Patching stops working after the resource is moved
 
@@ -46,9 +46,9 @@ If a resource is moved to a different resource group or subscription, then sched
 #### Resolution 
 Resource move or Maintenance Configuration move capability across resource group or subscription is currently unsupported by the system. The team is working to provide this capability but in the meantime, as a workaround, for the resource you want to move (in static scope)
 
-1. You need to remove the assignment of it
-2. Move the resource to a different resource group or subscription
-3. Recreate the assignment of it
+1. Remove the assignment of it.
+2. Move the resource to a different resource group or subscription.
+3. Recreate the assignment of it.
 
 In the dynamic scope, the steps are similar, but after removing the assignment in step 1, you simply need to initiate or wait for the next scheduled run. This action prompts the system to completely remove the assignment, enabling you to proceed with steps 2 and 3.
 
@@ -60,13 +60,14 @@ If you forget/miss any one of the above mentioned steps, you can reassign the re
 Failed to create dynamic scope due to RBAC
 
 #### Resolution
-In order to create a dynamic scope, user must have the permission at the subscription level or at a resource group level. Refer to the [list of permissions list for different resources](../update-manager/overview.md#permissions) for more details.
+In order to create a dynamic scope, user must have the permission at the subscription level or at a resource group level. For more details, see [list of permissions list for different resources](../update-manager/overview.md#permissions).
 
 ### Apply Update stuck and Update not progressing
 
 #### Issue
-**Applies to:** :heavy_check_mark: Dedicated Hosts :heavy_check_mark: VMs 
-User initiated update stuck for long time and update is not progressing
+**Applies to:** :heavy_check_mark: Dedicated Hosts :heavy_check_mark: VMs
+ 
+User initiated update stuck for long time and update is not progressing.
 
 #### Resolution
 If a resource is redeployed to a different cluster, and a pending update request is created using the old cluster value, the request becomes stuck indefinitely. If the status of the apply update operation is closed/not found, then retry after 120 hours. If the issue persists, contact the support team for further mitigation.
@@ -74,7 +75,7 @@ If a resource is redeployed to a different cluster, and a pending update request
 ### Dedicated host updates even after Maintenance Configuration is attached
 
 #### Issue
-Dedicated Host update not blocked by Maintenance Configuration and it gets updated even after maintenance configuration is attached
+Dedicated Host update not blocked by Maintenance Configuration and it gets updated even after maintenance configuration is attached.
 
 #### Resolution
 If a Dedicated Host is recreated with the same name, Maintenance Configuration service retains the old Dedicated Host ID, preventing it from blocking updates. Customers can resolve this issue by removing the Maintenance Configuration and reassigning it. If the issue persists, reach out to the support team for further assistance.
@@ -82,7 +83,7 @@ If a Dedicated Host is recreated with the same name, Maintenance Configuration s
 ### Install patch operation fails for invalid classification type
 
 #### Issue
-Install patch operation failed due to invalid classification type in Maintenance Configuration
+Install patch operation failed due to invalid classification type in Maintenance Configuration.
 
 #### Resolution
 Due to a previous bug, the system patch operation couldn't perform validation, and an invalid classification type was found in the Maintenance Configuration. The bug is fixed and deployed. To address this issue, customers can update the Maintenance Configuration and set the correct classification type.
@@ -98,7 +99,7 @@ Modify the start time of one of the maintenance configurations to mitigate the i
 ### Unable to create dynamic scope (at Resource Group Level)
 
 #### Issue
-Dynamic scope validation fails due to a null value in the location
+Dynamic scope validation fails due to a null value in the location.
 
 #### Resolution
 Due to this issue in dynamic scope validation, it results in regression in the validation process. We recommend that customers provide the required set of locations for resource group-level dynamic scope.
@@ -125,7 +126,7 @@ Before deleting a dedicated host, make sure to delete the maintenance configurat
 Portal users might not be able to provide multiple tag values for dynamic scope
 
 #### Resolution
-This is a currently known limitation on the portal. The team is working on making this feature accessible on the portal as well but in the meantime, customers can use CLI/PowerShell to create dynamic scope. The system accepts multiple values for tag using CLI/PowerShell option.
+This behavior is a known limitation on the portal. The team is working on making this feature accessible on the portal as well but in the meantime, customers can use CLI/PowerShell to create dynamic scope. The system accepts multiple values for tag using CLI/PowerShell option.
 
 ### Maintenance Configuration triggered again with older trigger time
 
