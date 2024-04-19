@@ -53,7 +53,7 @@ You can register Trusted Signing resource provider with the commands below:
 az provider register --namespace "Microsoft.CodeSigning"
 ```
 
-You can verify that registration is complete with the Azure CLI az provider register command 
+You can verify that registration is complete with the commands below: 
 
 ```
 az provider show --namespace "microsoft.ConfidentialLedger"
@@ -110,11 +110,13 @@ The resources must be created in Azure regions where Trusted Signing is currentl
 | Region               | Region Class Fields  | Endpoint URI Value     |
 | :------------------- | :------------------- |:---------------|
 | East US              | EastUS               | <https://eus.codesigning.azure.net>  |
-| West US3 (upcoming)              |West US3                | <https://wus3.codesigning.azure.net>           |
+| West US3<sup>[1](#myfootnote1)</sup>               |West US3                | <https://wus3.codesigning.azure.net>           |
 | West Central US      | WestCentralUS                | <https://wcus.codesigning.azure.net/>              |
 | West US 2                 |   WestUS2                   | <https://wus2.codesigning.azure.net/>              |
 | North Europe              | NorthEurope               | <https://neu.codesigning.azure.net>  |
 | West Europe              | WestEurope               | <https://weu.codesigning.azure.net>  |
+
+<a name="myfootnote1">1</a>: WestUS3 coming soon!
 
 Complete the following steps to create a Trusted Signing account with Azure CLI:
 
@@ -189,7 +191,7 @@ Here are the steps to create an Identity Validation request:
 | Input Fields       | Details     |
 | :------------------- | :------------------- |
 | **Organization Name**          | For Public Identity Validation, provide the Legal Business Entity to which the certificate will be issued. For Private Identity Validation, it defaults to your Azure Tenant Name.|
-| **(Private only) Organizational Unit**          | Enter the relevant information|
+| **(Private Identity Type only) Organizational Unit**          | Enter the relevant information|
 | **Website url**          | Enter the website that belongs to the Legal Business Entity.|
 | **Primary Email**           | Enter the organization’s primary email address. A verification link is sent to this email address to verify it, ensure the email address can receive emails from external email addresses with links. The verification link expires in seven days.  |
 | **Secondary Email**          | These email addresses must be different than the primary email address. For organizations, the domain must match the email address provided in primary email address field. ensure the email address can receive emails from external email addresses with links.|
