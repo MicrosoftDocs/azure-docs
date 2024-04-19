@@ -4,22 +4,20 @@ description: Learn to automate and simplifying routing behaviors using user-defi
 author: mbender-ms
 ms.author: mbender
 ms.topic: overview 
-ms.date: 04/10/2024
+ms.date: 04/19/2024
 ms.service: virtual-network-manager
 ms.custom: references_regions
 # Customer Intent: As a network engineer, I want learn how I can automate and simplify routing within my Azure Network using User-defined routes.
 ---
 # Automate UDR Management with Azure Virtual Network Manager
 
-In Azure Virtual Network Manager, you can automate and simplify routing behaviors using user-defined routes (UDRs). UDR management allows you to describe your desired routing behavior, and Azure Virtual Network Manager orchestrates the creation and maintenance of UDRs to achieve the desired routing behavior. This article provides an overview of UDR management, why it's important, how it works, and common routing scenarios that you can simplify and automate using UDR management.
+This article provides an overview of UDR management, why it's important, how it works, and common routing scenarios that you can simplify and automate using UDR management.
 
 [!INCLUDE [virtual-network-manager-udr-preview](../../includes/virtual-network-manager-udr-preview.md)]
 
 ## What is UDR management
 
-Azure Virtual Network Manager (AVNM) allows you to describe your desired routing behavior, and AVNM orchestrates user-defined routes (UDRs) to create and maintain the desired routing behavior. 
-
-User-defined routes address the need for automation and simplification in managing routing behaviors. Currently, you’d manually create User-Defined Routes (UDRs) or utilize custom scripts. However, these methods are prone to errors and overly complicated. You can utilize the Azure-managed hub in Virtual WAN. This option has certain limitations (such as the inability to customize the hub or lack of IPV6 support) not be relevant to your organization. With UDR management in your virtual network manager, you have a centralized hub for managing and maintaining routing behaviors.
+Azure Virtual Network Manager (AVNM) allows you to describe your desired routing behavior and orchestrate user-defined routes (UDRs) to create and maintain the desired routing behavior. User-defined routes address the need for automation and simplification in managing routing behaviors. Currently, you’d manually create User-Defined Routes (UDRs) or utilize custom scripts. However, these methods are prone to errors and overly complicated. You can utilize the Azure-managed hub in Virtual WAN. This option has certain limitations (such as the inability to customize the hub or lack of IPV6 support) not be relevant to your organization. With UDR management in your virtual network manager, you have a centralized hub for managing and maintaining routing behaviors.
 
 ## How does UDR management work
 
