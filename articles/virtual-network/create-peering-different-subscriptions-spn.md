@@ -17,9 +17,13 @@ Scenarios exist where you need to connect virtual networks in different subscrip
 
 ## Prerequisites
 
-- An Azure account with two active subscriptions. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with two active subscriptions and two Microsoft Entra ID tenants. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 - Account permissions to create a service principal, assign app permissions, and create resources in the Microsoft Entra ID tenant associated with each subscription.
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
+
+- This how-to article requires version 2.31.0 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
 ## Resources used
 
