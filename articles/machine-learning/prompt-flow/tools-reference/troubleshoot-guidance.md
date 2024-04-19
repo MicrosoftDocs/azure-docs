@@ -27,7 +27,7 @@ When you update flows for a code-first experience, if the flow utilized the Fais
 To resolve the issue, you have two options:
 
 - **Option 1**
-  - Update your runtime to the latest version.
+  - Update your compute session to the latest base image version.
   - Select **Raw file mode** to switch to the raw code view. Then open the *flow.dag.yaml* file.
   
      ![Screenshot that shows how to switch to Raw file mode.](../media/faq/switch-to-raw-file-mode.png)
@@ -44,7 +44,7 @@ To resolve the issue, you have two options:
   - Save the *flow.dag.yaml* file.
 
 - **Option 2**
-  - Update your runtime to the latest version.
+  - Update your compute session to the latest base image version
   - Remove the old tool and re-create a new tool.
 
 ## "No such file or directory" error
@@ -80,44 +80,20 @@ There are possible reasons for this issue:
 
     :::image type="content" source="../media/faq/resource-sharing-setting-storage-account.png" alt-text="Screenshot that shows data store with wrong account key." lightbox = "../media/faq/resource-sharing-setting-storage-account.png":::
 
-## Runtime-related issues
-
-You might experience runtime issues.
-
-### Runtime failed with "system error runtime not ready" when you used a custom environment
-
-:::image type="content" source="../media/how-to-create-manage-runtime/ci-failed-runtime-not-ready.png" alt-text="Screenshot that shows a failed run on the runtime detail page." lightbox = "../media/how-to-create-manage-runtime/ci-failed-runtime-not-ready.png":::
-
-First, go to the compute instance terminal and run `docker ps` to find the root cause.
-
-Use `docker images` to check if the image was pulled successfully. If your image was pulled successfully, check if the Docker container is running. If it's already running, locate this runtime. It attempts to restart the runtime and compute instance.
-
-If you're using compute instance runtime AI studio, this scenario isn't currently supported, so use automatic runtime instead, [Switch compute instance runtime to automatic runtime](../how-to-create-manage-runtime.md#switch-compute-instance-runtime-to-automatic-runtime-preview).
+## Compute session-related issues
 
 ### Run failed because of "No module named XXX"
 
-This type of error related to runtime lacks required packages. If you're using a default environment, make sure the image of your runtime is using the latest version. For more information, see [Runtime update](../how-to-create-manage-runtime.md#update-a-runtime-on-the-ui). If you're using a custom image and you're using a conda environment, make sure you installed all the required packages in your conda environment. For more information, see [Customize a prompt flow environment](../how-to-customize-environment-runtime.md#customize-environment-with-docker-context-for-runtime).
+This type of error related to compute session lacks required packages. If you're using a default environment, make sure the image of your compute session is using the latest version.  If you're using a custom base image, make sure you installed all the required packages in your docker context. For more information, see [Customize base image for compute session](../how-to-customize-session-base-image.md).
 
-### Where to find the serverless instance used by automatic runtime?
+### Where to find the serverless instance used by compute session?
 
-Automatic runtime is running on a serverless instance, you can find the serverless instance under compute quota page, [View your usage and quotas in the Azure portal](../../how-to-manage-quotas.md#view-your-usage-and-quotas-in-the-azure-portal). The serverless instances with have with name like this `sessionxxxxyyyy`.
+You can view the serverless instance used by compute session in the compute session list tab under compute page. Learn more about [how to manage serverless instance](../how-to-manage-compute-session.md#manage-serverless-instance).
 
-
-### Request timeout issue
-
-You might experience timeout issues.
-
-#### Request timeout error shown in the UI
-
-**Compute instance runtime request timeout error:**
-
-:::image type="content" source="../media/how-to-create-manage-runtime/ci-runtime-request-timeout.png" alt-text="Screenshot that shows a compute instance runtime timeout error in the studio UI." lightbox = "../media/how-to-create-manage-runtime/ci-runtime-request-timeout.png":::
-
-The error in the example says "UserError: Invoking runtime gega-ci timeout, error message: The request was canceled due to the configured HttpClient. Timeout of 100 seconds elapsing."
 
 ### Identify which node consumes the most time
 
-1. Check the runtime logs.
+1. Check the compute session logs.
 
 1. Try to find the following warning log format:
 
