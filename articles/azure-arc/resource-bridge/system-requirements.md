@@ -132,7 +132,7 @@ The gateway IP is the IP of the gateway for the network where Arc resource bridg
 
 The following example shows valid configuration values that can be passed during configuration file creation for Arc resource bridge. 
 
-Notice that the IP addresses for the gateway, control plane, appliance VM and DNS server (for internal resolution) are within the IP address prefix. This key detail helps ensure successful deployment of the appliance VM.
+Notice that the IP addresses for the gateway, control plane, appliance VM and DNS server (for internal resolution) are within the IP address prefix. The VM IP Pool Start/End are sequential. This key detail helps ensure successful deployment of the appliance VM.
 
    IP Address Prefix (CIDR format): 192.168.0.0/29
 
@@ -163,9 +163,9 @@ There are several different types of configuration files, based on the on-premis
 
 ### Appliance configuration files
 
-Three configuration files are created when the `createconfig` command completes (or the equivalent commands used by Azure Stack HCI): `<appliance-name>-resource.yaml`, `<appliance-name>-appliance.yaml` and `<appliance-name>-infra.yaml`.
+Three configuration files are created when deploying the Arc resource bridge: `<appliance-name>-resource.yaml`, `<appliance-name>-appliance.yaml` and `<appliance-name>-infra.yaml`.
 
-By default, these files are generated in the current CLI directory when `createconfig` completes. These files should be saved in a secure location on the management machine, because they're required for maintaining the appliance VM. Because the configuration files reference each other, all three files must be stored in the same location. If the files are moved from their original location at deployment, open the files to check that the reference paths to the configuration files are accurate.
+By default, these files are generated in the current CLI directory of where the deployment commands are run. These files should be saved on the management machine because they're required for maintaining the appliance VM. The configuration files reference each other and should be stored in the same location. 
 
 ### Kubeconfig
 
