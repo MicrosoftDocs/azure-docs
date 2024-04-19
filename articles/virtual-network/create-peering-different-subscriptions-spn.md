@@ -263,7 +263,7 @@ An administrator in the **subscription-1** Microsoft Entra ID tenant must approv
 
 Once the administrator has approved **spn-2-vnet-peer**, add it to the virtual network **vnet-1** as a **Network Contributor**.
 
-1. Sign-in to **subscription-2**.
+1. Sign-in to **subscription-1**.
 
     ```azurecli
     az login
@@ -277,12 +277,6 @@ Once the administrator has approved **spn-2-vnet-peer**, add it to the virtual n
                 --query [].appId \
                 --output tsv)
     echo $appid2
-    ```
-
-1. Sign-in to **subscription-1**.
-
-    ```azurecli
-    az login
     ```
 
 1. Obtain the resource id of **vnet-1** into a variable for use in the later steps.
@@ -329,15 +323,15 @@ An administrator in the **subscription-2** Microsoft Entra ID tenant must approv
 
 1. Use the appid for **spn-1-peer-vnet** and the Microsoft Entra ID tenant ID for **subcription-2** to build the login URL for the approval. The URL is built from the following example:
 
-```
-https://login.microsoftonline.com/entra-tenant-id-subscription-2/oauth2/authorize?client_id={$appid1}&response_type=code&redirect_uri=https://www.microsoft.com
-```
+    ```
+    https://login.microsoftonline.com/entra-tenant-id-subscription-2/oauth2/authorize?client_id={$appid1}&response_type=code&redirect_uri=https://www.microsoft.com
+    ```
 
-The URL will look similar to the below example.
+    The URL will look similar to the below example.
 
-```
-https://login.microsoftonline.com/1e1cce84-0637-4693-99d9-27ff18dd65c8/oauth2/authorize?client_id=8791e68c-8d8b-4a63-b6f1-ca49008b142b&response_type=code&redirect_uri=https://www.microsoft.com
-```
+    ```
+    https://login.microsoftonline.com/1e1cce84-0637-4693-99d9-27ff18dd65c8/oauth2/authorize?client_id=8791e68c-8d8b-4a63-b6f1-ca49008b142b&response_type=code&redirect_uri=https://www.microsoft.com
+    ```
 
 1. Open the URL in a web browser and login with an administrator in the Microsoft Entra ID tenant in **subscription-2**.
 
@@ -347,7 +341,7 @@ https://login.microsoftonline.com/1e1cce84-0637-4693-99d9-27ff18dd65c8/oauth2/au
 
 Once the administrator has approved **spn-1-vnet-peer**, add it to the virtual network **vnet-2** as a **Network Contributor**.
 
-1. Sign-in to **subscription-1**.
+1. Sign-in to **subscription-2**.
 
     ```azurecli
     az login
@@ -361,12 +355,6 @@ Once the administrator has approved **spn-1-vnet-peer**, add it to the virtual n
                 --query [].appId \
                 --output tsv)
     echo $appid1
-    ```
-
-1. Sign-in to **subscription-2**.
-
-    ```azurecli
-    az login
     ```
 
 1. Obtain the resource id of **vnet-2** into a variable for use in the later steps.
@@ -476,7 +464,7 @@ For the purposes of this article, we will login to each subscription and obtain 
 1. Change context to **subscription-1**.
 
     ```azurecli
-    az account set --subscription "subscription-1"
+    az account set --subscription "subscription-1-subscription-id-NOT-ENTRA-ID"
     ```
 
 
@@ -491,10 +479,19 @@ For the purposes of this article, we will login to each subscription and obtain 
         --allow-vnet-access
     ```
 
+1. Use the following command to verify the virtual network peering between **vnet-1** and **vnet-2**.
+
+    ```azurecli
+    az network vnet peering list \
+        --resource-group test-rg-1 \
+        --vnet-name vnet-1 \
+        --output table
+    ```
+
 1. Change context to **subscription-2**.
 
     ```azurecli
-    az account set --subscription "subscription-2"
+    az account set --subscription "subscription-2-subscription-id-NOT-ENTRA-ID"
     ```
 
 1. Use the following command to create the virtual network peering between **vnet-2** and **vnet-1**.
@@ -504,7 +501,16 @@ For the purposes of this article, we will login to each subscription and obtain 
         --name vnet-2-to-vnet-1 \
         --resource-group test-rg-2 \
         --vnet-name vnet-2 \
-        --remote-vnet $vnid1 \
+        --remote-vnet $vnetid1 \
         --allow-vnet-access
+    ```
+
+1. Use the following command to verify the virtual network peering between **vnet-2** and **vnet-1**.
+
+    ```azurecli
+    az network vnet peering list \
+        --resource-group test-rg-2 \
+        --vnet-name vnet-2 \
+        --output table
     ```
 
