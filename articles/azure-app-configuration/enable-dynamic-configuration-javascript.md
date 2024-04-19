@@ -23,9 +23,6 @@ In this tutorial, you learn how to set up your JavaScript app to update its conf
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
-- An App Configuration store. [Create a store](./quickstart-azure-app-configuration-create.md#create-an-app-configuration-store).
-- [LTS versions of Node.js](https://github.com/nodejs/release#release-schedule). For information about installing Node.js either directly on Windows or using the Windows Subsystem for Linux (WSL), see [Get started with Node.js](/windows/dev-environment/javascript/nodejs-overview)
 - Finish the quickstart [Create a JavaScript app with Azure App Configuration](./quickstart-javascript-provider.md).
 
 ## Add key-values
