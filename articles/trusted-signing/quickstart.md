@@ -52,7 +52,7 @@ The resources must be created in Azure regions where Trusted Signing is currentl
 10. In the **Pricing** tier pull-down menu, select a pricing tier.
 11. Select the **Review + Create** button.
 
-:::image type="content" source="media/trusted-signing-account-creation.png" alt-text="Screenshot of trusted-signing-account-creation." lightbox="media/trusted-signing-account-creation.png":::
+    :::image type="content" source="media/trusted-signing-account-creation.png" alt-text="Screenshot of trusted-signing-account-creation." lightbox="media/trusted-signing-account-creation.png":::
 
 12. After successfully creating your Trusted Signing account, select **Go to resource**.  
 
