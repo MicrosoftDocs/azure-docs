@@ -4,7 +4,7 @@ description: Learn how to set up Private Link with Azure Virtual Desktop to priv
 author: dknappettmsft
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.date: 07/17/2023
+ms.date: 04/19/2024
 ms.author: daknappe
 ---
 
@@ -67,11 +67,14 @@ To re-register the *Microsoft.DesktopVirtualization* resource provider:
 
 During the setup process, you create private endpoints to the following resources:
 
-| Purpose | Resource type | Target sub-resource | Quantity | Private DNS zone name |
+| Purpose | Resource type | Target sub-resource | Endpoint quantity | IP address quantity |
 |--|--|--|--|--|
-| Connections to host pools | Microsoft.DesktopVirtualization/hostpools | connection | One per host pool | `privatelink.wvd.microsoft.com` |
-| Feed download | Microsoft.DesktopVirtualization/workspaces | feed | One per workspace | `privatelink.wvd.microsoft.com` |
-| Initial feed discovery | Microsoft.DesktopVirtualization/workspaces | global | **Only one for all your Azure Virtual Desktop deployments** | `privatelink-global.wvd.microsoft.com` |
+| Connections to host pools | Microsoft.DesktopVirtualization/hostpools | connection | One per host pool | Four per endpoint |
+| Feed download | Microsoft.DesktopVirtualization/workspaces | feed | One per workspace | Two per endpoint |
+| Initial feed discovery | Microsoft.DesktopVirtualization/workspaces | global | **Only one for all your Azure Virtual Desktop deployments** | One per endpoint |
+
+> [!IMPORTANT]
+> IP address allocations are subject to change as the demand for IP addresses increases. During capacity expansions, additional addresses are needed for private endpoints. It's important you consider potential address space exhaustion and ensure sufficient headroom for growth. For more information on determining the appropriate network configuration for private endpoints in either a hub or a spoke topology, see [Decision tree for Private Link deployment](/azure/architecture/networking/guide/private-link-hub-spoke-network#decision-tree-for-private-link-deployment).
 
 ### Connections to host pools
 
