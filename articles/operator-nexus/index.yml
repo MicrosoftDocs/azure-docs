@@ -36,6 +36,8 @@ landingContent:
              url: concepts-storage.md
            - text: Nexus Kubernetes overview
              url: concepts-nexus-kubernetes-cluster.md
+           - text: Nexus Kubernetes resource placement
+             url: concepts-nexus-kubernetes-placement.md
            - text: Observability
              url: concepts-observability.md
            - text: Security
