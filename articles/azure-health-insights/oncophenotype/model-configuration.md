@@ -10,14 +10,15 @@ ms.topic: overview
 ms.date: 01/26/2023
 ms.author: behoorne
 ---
-> [!NOTE]
-> The examples below are based on API version: 2023-03-01-preview. There might be changes between
-API versions. For a specific API version, please use the reference to the REST API to see full description.
 
 
 # Onco-Phenotype model configuration
 
 To interact with the Onco-Phenotype model, you can provide several model configurations parameters that modify the outcome of the responses.
+
+> [!NOTE]
+> The examples below are based on API version: 2023-03-01-preview. There might be changes between API versions. For a specific API version, please use the reference to the REST API to see full description.
+
 
 > [!IMPORTANT]
 > Model configuration is applied to ALL the patients within a request.

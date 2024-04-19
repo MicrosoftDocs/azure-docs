@@ -47,7 +47,7 @@ landingContent:
         links:
           - text: Get started
             url: radiology-insights/get-started.md
-   - title: Trial Matcher
+  - title: Trial Matcher
     linkLists:
       - linkListType: overview
         links:
