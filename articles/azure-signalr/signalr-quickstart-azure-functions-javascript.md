@@ -124,6 +124,8 @@ Update the project to use the Azure Blob Storage connection string.
 func settings add AzureWebJobsStorage "<storage-connection-string>"
 ```
 
+---
+
 ### Add the SignalR Service connection string to the function app settings
 
 You're almost done now. The last step is to set the SignalR Service connection string in Azure Function app settings.
