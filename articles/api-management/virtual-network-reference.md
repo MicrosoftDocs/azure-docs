@@ -52,6 +52,7 @@ When an API Management service instance is hosted in a VNet, the ports in the fo
 | * / 4290              | Inbound & Outbound | UDP                | VirtualNetwork / VirtualNetwork     | Sync Counters for [Rate Limit](rate-limit-policy.md) policies between machines (optional)        | External & Internal  |
 | * / 6390                       | Inbound            | TCP                | AzureLoadBalancer / VirtualNetwork | **Azure Infrastructure Load Balancer**                          | External & Internal  |
 | * / 443                       | Inbound            | TCP                | AzureTrafficManager / VirtualNetwork | **Azure Traffic Manager**  routing for multi-region deployment                        | External |
+| * / 6391                       | Inbound            | TCP                | AzureLoadBalancer / VirtualNetwork | Monitoring of individual machine health (Optional)                          | External & Internal  |
 
 ### [stv1](#tab/stv1)
 
