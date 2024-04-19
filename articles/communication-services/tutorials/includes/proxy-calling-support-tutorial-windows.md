@@ -45,16 +45,19 @@ callNetworkOptions.IceServers = new List<IceServer>() { iceServer }.AsReadOnly()
 // Supply the network options when creating an instance of the CallClient
 callClientOptions.Network = callNetworkOptions;
 CallClient callClient = new CallClient(callClientOptions);
-
-// ...continue normally with your SDK setup and usage.
 ```
 
 > [!IMPORTANT]
 > If you provided your TURN server details while you initialized `CallClient`, all the media traffic <i>exclusively</i> flows through these TURN servers. Any other ICE candidates that are normally generated when you create a call won't be considered while trying to establish connectivity between peers. That means only `relay` candidates are considered. To learn more about different types of Ice candidates, see [RTCIceCandidate: type property](https://developer.mozilla.org/en-US/docs/Web/API/RTCIceCandidate/type).
 
-Currently, Windows SDK supports only <b>one IPv4 address</b> and <b>UDP</b> protocol for media proxy. Any URLs in non-ipv4 format are ignored. When multiple URLs are provided, only the last one is used by the SDK. If a UDP port isn't provided, a default UDP port 3478 is used.
+ Currently, the Android SDK supports only <b>one single IPv4 address</b> and <b>UDP</b> protocol for media proxy. If a UDP port isn't provided, a default UDP port 3478 is used. The SDK will throw an `Failed to set media proxy` error when calling `setIceServer` with unsupported input as follows:
+ * More than one ICE server is provided in the IceServers list.
+ * More than one url is provided in the IceServer's url list.
+ * IPv6 url is provided in the url list.
+ * Only TCP port is provided.
+ * Realm information is not provided.
 
-If any of the URLs provided are invalid, the `CallClient` initialization fails and throws errors accordingly.
+If the ICE server information provided is invalid, the `CallClient` initialization fails and throws errors accordingly.
 
 ### Set up a TURN server in Azure
 You can create a Linux virtual machine in the Azure portal. For more information, see [Quickstart: Create a Linux virtual machine in the Azure portal](/azure/virtual-machines/linux/quick-create-portal?tabs=ubuntu). To deploy a TURN server, use [coturn](https://github.com/coturn/coturn). Coturn is a free and open-source implementation of a TURN and STUN server for VoIP and WebRTC.

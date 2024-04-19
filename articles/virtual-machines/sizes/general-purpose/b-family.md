@@ -9,17 +9,17 @@ ms.date: 04/16/2024
 ms.author: mattmcinnes
 ---
 
-# B family general purpose VM size series
+# 'B' family general purpose VM size series
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
-The 'B' family of VM size series are one of Azure's general purpose VM instances. While traditional Azure virtual machines provide fixed CPU performance, B-series virtual machines are the only VM type that use credits for CPU performance provisioning. B-series VMs utilize a CPU credit model to track how much CPU is consumed - the virtual machine accumulates CPU credits when a workload is operating below the base CPU performance threshold and, uses credits when running above the base CPU performance threshold until all of its credits are consumed. Upon consuming all the CPU credits, a B-series virtual machine is throttled back to its base CPU performance until it accumulates the credits to CPU burst again.
+[!INCLUDE [b-family-summary](./includes/b-family-summary.md)]
 
 Read more about the [B-series CPU credit model](../../b-series-cpu-credit-model/b-series-cpu-credit-model.md).
 
 ## Workloads and use cases
 
-B-series VMs are ideal for workloads that do not need the full performance of the CPU continuously, like web servers, proof of concepts, small databases and development build environments. These workloads typically have burstable performance requirements.
+[!INCLUDE [b-family-workloads](./includes/b-family-workloads.md)]
 
 ## Series in family
 

@@ -611,7 +611,7 @@ items:
       items:
       - name: Overview
         href: ../network-watcher/network-insights-overview.md?toc=/azure/azure-monitor/toc.json&bc=/azure/azure-monitor/breadcrumb/toc.json
-      - name: View network topology
+      - name: Topology
         href: ../network-watcher/network-insights-topology.md?toc=/azure/azure-monitor/toc.json&bc=/azure/azure-monitor/breadcrumb/toc.json
       - name: Troubleshoot
         href: ../network-watcher/network-insights-troubleshooting.md?toc=/azure/azure-monitor/toc.json&bc=/azure/azure-monitor/breadcrumb/toc.json
@@ -1279,14 +1279,6 @@ items:
       href: change/change-analysis-troubleshoot.md
 - name: Respond
   items:
-  - name: AIOps
-    items:
-    - name: Azure Monitor Investigator Overview
-      href: ai-ops/investigator-overview.md
-    - name: Responsible AI FAQ
-      href: ai-ops/responsible-ai-faq.md
-    - name: Investigate an alert using Investigator
-      href: ai-ops/investigate-alert-instance.md
   - name: Alerts
     items:
     - name: Overview
