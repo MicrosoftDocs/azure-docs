@@ -681,7 +681,7 @@ items:
       - name: Teams interoperability
         items:
         - name: Ring Microsoft Teams users
-          href: concepts/call-automation/call-automation-teams-interop.md
+          href: concepts/call-automation/interop/call-automation-teams-interop.md
         - name: Add Teams interop group calls to your app
           href: quickstarts/voice-video-calling/get-started-teams-interop-group-calls.md  
     - name: Teams interoperability
@@ -926,7 +926,7 @@ items:
       - name: Gather user input 
         href: concepts/call-automation/recognize-action.md
       - name: Ring Microsoft Teams users
-        href: concepts/call-automation/call-automation-teams-interop.md
+        href: concepts/call-automation/interop/call-automation-teams-interop.md
     - name: Call recording
       href: concepts/voice-video-calling/call-recording.md
     - name: Events
