@@ -44,11 +44,11 @@ Here you define two example properties: *Line of business* and *Public-facing*; 
 
     1. Select type **Predefined choices** and enter choices such as *Marketing, Finance, IT, Sales*, and so on. Optionally enable **Allow selection of multiple values**. Select **Next**.
 
-    :::image type="content" source="media/add-metadata-properties/metadata-property-details.png" alt-text="Screenshot of metadata property in the portal." source="media/add-metadata-properties/metadata-property-details.png":::
+    :::image type="content" source="media/add-metadata-properties/metadata-property-details.png" alt-text="Screenshot of metadata property in the portal." lightbox="media/add-metadata-properties/metadata-property-details.png":::
 
 1. On the **Assignments** tab, select **Required** for APIs. Select **Optional** for Deployments and Environments. (You'll add these entities in later tutorials.) Select **Next**.
 
-    :::image type="content" source="media/add-metadata-properties/metadata-property-assignments.png" alt-text="Screenshot of metadata property assignments in the portal." source="media/add-metadata-properties/metadata-property-assignments.png":::
+    :::image type="content" source="media/add-metadata-properties/metadata-property-assignments.png" alt-text="Screenshot of metadata property assignments in the portal." lightbox="media/add-metadata-properties/metadata-property-assignments.png":::
 
 1. On the **Review + create** tab, review the settings and select **Create**. 
  
