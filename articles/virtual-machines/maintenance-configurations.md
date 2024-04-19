@@ -13,7 +13,7 @@ ms.author: jushiman
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
-Azure frequently updates its infrastructure to improve reliability, performance, and security, or to launch new features. Most updates are transparent to users, but some sensitive workloads, like gaming, media streaming, and financial transactions, can't tolerate even few seconds of a virtual machine (VM) freezing or disconnecting for maintenance.
+Azure frequently updates its infrastructure to improve reliability, performance, and security, or to launch new features. Most updates are transparent to users, but some sensitive workloads can't tolerate even few seconds of a virtual machine (VM) freezing or disconnecting for maintenance. Sensitive workloads might include gaming, media streaming, and financial transactions.
 
 You can use the Maintenance Configurations feature to control and manage updates for many Azure VM resources. Maintenance Configurations is integrated with Azure Resource Graph for a low-latency and high-scale customer experience.
 
@@ -67,7 +67,7 @@ Features and limitations unique to this scope include:
 :::image type="content" source="./media/maintenance-configurations/add-schedule-maintenance-window.png" alt-text="Screenshot of options for adding or modifying a schedule.":::
 
 > [!NOTE]
-> The minimum maintenance window increased from 1 hour 10 minutes to 1 hour 30 minutes, while the minimum repeat value is set to 6 hours for new schedules. Your existing schedules aren't affected. However, we strongly recommend that you update existing schedules to include these changes.
+> The minimum maintenance window increased from 1 hour and 10 minutes to 1 hour and 30 minutes, while the minimum repeat value is set to 6 hours for new schedules. Your existing schedules aren't affected. However, we strongly recommend that you update existing schedules to include these changes.
 >
 > The character count for the resource group name and the maintenance configuration name should be less than 128.
 
@@ -88,7 +88,9 @@ To learn more about this topic, see [Schedule recurring updates for machines by 
 
 ## Shut-down machines
 
-We can't apply maintenance updates to any shut-down machines. Ensure that your machine is turned on at least 15 minutes before a scheduled update, or the update might not be applied. If your machine is shut down at the time of your scheduled update, the maintenance configuration might appear to be disassociated on the Azure portal. This is only a display issue. The maintenance configuration isn't disassociated, and you can [check it via the Azure CLI](maintenance-configurations-cli.md#check-configuration).
+We can't apply maintenance updates to any shut-down machines. Ensure that your machine is turned on at least 15 minutes before a scheduled update, or the update might not be applied.
+
+If your machine is shut down at the time of your scheduled update, the maintenance configuration might appear to be disassociated in the Azure portal. This is only a display issue. The maintenance configuration isn't disassociated, and you can [check it via the Azure CLI](maintenance-configurations-cli.md#check-configuration).
 
 ## Management options
 
@@ -112,7 +114,7 @@ We recommend the following limits for indicators:
 | Number of schedules per subscription per region     | 250  |
 | Total number of resource associations to a schedule | 3,000 |
 | Resource associations on each dynamic scope    | 1,000 |
-| Number of dynamic scopes per resource group or subscription per Region     | 250  |
+| Number of dynamic scopes per resource group or subscription per region     | 250  |
 | Number of dynamic scopes per schedule   | 30  |
 | Total number of subscriptions attached to all dynamic scopes per schedule   | 30  |
 
