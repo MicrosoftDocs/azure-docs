@@ -153,7 +153,7 @@ To use a system-assigned identity, the Azure Key Vault must be configured to use
     * Select the NetApp **Subscription**.
     * For **Identity type**, select **System-assigned**.
 
-    :::image type="content" source="../media/azure-netapp-files/key-enter-uri.png" alt-text="Screenshot of the encryption menu showing key URI field." lightbox="../media/azure-netapp-files/key-enter-uri.png":::
+    :::image type="content" source="./media/azure-netapp-files/key-enter-uri.png" alt-text="Screenshot of the encryption menu showing key URI field." lightbox="./media/azure-netapp-files/key-enter-uri.png":::
 
 1. Select **Save**.
 
@@ -173,7 +173,7 @@ To use a system-assigned identity, the Azure Key Vault must be configured to use
         * "Microsoft.KeyVault/vaults/keys/decrypt/action"
     The user-assigned identity you select is added to your NetApp account. Due to RBAC being customizable, the Azure portal doesn't configure access to the key vault. For more information, see [Using Azure RBAC secret, key, and certificate permissions with Key Vault](../key-vault/general/rbac-guide.md#using-azure-rbac-secret-key-and-certificate-permissions-with-key-vault)
 
-    :::image type="content" source="../media/azure-netapp-files/encryption-user-assigned.png" alt-text="Screenshot of user-assigned submenu." lightbox="../media/azure-netapp-files/encryption-user-assigned.png":::
+    :::image type="content" source="./media/azure-netapp-files/encryption-user-assigned.png" alt-text="Screenshot of user-assigned submenu." lightbox="./media/azure-netapp-files/encryption-user-assigned.png":::
 
 1. Select **Save**.
 
