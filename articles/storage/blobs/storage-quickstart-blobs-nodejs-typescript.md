@@ -338,7 +338,7 @@ In this quickstart, you learned how to upload, download, and list blobs using Ja
 To see Blob storage sample apps, continue to:
 
 > [!div class="nextstepaction"]
-> [Azure Blob Storage library for JavaScript samples](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob/samples)
+> [Azure Blob Storage library for TypeScript samples](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/storage/storage-blob/samples/v12/typescript)
 
 - To learn more, see the [Azure Blob Storage client libraries for JavaScript](/javascript/api/overview/azure/storage-blob-readme).
 - For tutorials, samples, quickstarts, and other documentation, visit [Azure for JavaScript and Node.js developers](/azure/developer/javascript/).
