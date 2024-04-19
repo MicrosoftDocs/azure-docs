@@ -31,14 +31,14 @@ A Trusted Signing account is a logical container of identity validation and cert
 
 The resources must be created in Azure regions where Trusted Signing is currently available. Refer to the table below for the current Azure regions with Trusted Signing resources:  
 
-| Region               | Region Class Fields  | Endpoint URI Value     |
-| :------------------- | :------------------- |:---------------|
-| East US              | EastUS               | <https://eus.codesigning.azure.net>  |
-| West US              |West US                | <https://wus.codesigning.azure.net>           |
-| West Central US      | WestCentralUS                | <https://wcus.codesigning.azure.net/>              |
-| West US 2                 |   WestUS2                   | <https://wus2.codesigning.azure.net/>              |
-| North Europe              | NorthEurope               | <https://neu.codesigning.azure.net>  |
-| West Europe              | WestEurope               | <https://weu.codesigning.azure.net>  |
+| Region               | Region Class Fields  | Endpoint URI Value                   |
+| :------------------- | :------------------- |:-------------------------------------|
+| East US              | EastUS               | `https://eus.codesigning.azure.net`  |
+| West US              | WestUS               | `https://wus.codesigning.azure.net`  |
+| West Central US      | WestCentralUS        | `https://wcus.codesigning.azure.net` |
+| West US 2            | WestUS2              | `https://wus2.codesigning.azure.net` |
+| North Europe         | NorthEurope          | `https://neu.codesigning.azure.net`  |
+| West Europe          | WestEurope           | `https://weu.codesigning.azure.net`  |
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. From either the Azure portal menu or the Home page, select **Create a resource**.
