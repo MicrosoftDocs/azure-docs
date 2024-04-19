@@ -37,7 +37,7 @@ Add the following key-value to your Azure App Configuration store. For more info
 > [!NOTE]
 > A *sentinel key* is a key that you update after you complete the change of all other keys. Your app monitors the sentinel key. When a change is detected, your app refreshes all configuration values. This approach helps to ensure the consistency of configuration in your app and reduces the overall number of requests made to your Azure App Configuration store, compared to monitoring all keys for changes.
 
-## Update the application with refreshable configuration
+## Reload data from App Configuration
 
 The following examples show how to use refreshable configuration values in console applications.
 The refresh behavior is configured by `refreshOptions` parameter when calling `load` function.
