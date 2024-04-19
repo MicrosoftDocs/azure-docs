@@ -33,6 +33,9 @@ Install-Module -Name Az.Tools.Installer -Repository PSGallery
     Install-AzModule -Name Az.Network -AllowPrerelease -Force
     Install-AzModule -Path https://azposhpreview.blob.core.windows.net/public/Az.Network.5.6.1-preview.nupkg
     ```
+
+[!INCLUDE [network-security-perimeter-add-preview](../../includes/network-security-perimeter-add-preview.md)]
+
 [!INCLUDE [azure-powershell-requirements-no-header](../../includes/azure-powershell-requirements-no-header.md)]
 ## Sign in to your Azure account and select your subscription
 

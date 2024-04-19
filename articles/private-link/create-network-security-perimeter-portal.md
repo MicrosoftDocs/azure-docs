@@ -23,6 +23,8 @@ Before you begin, make sure you have the following:
 
 - An Azure account with an active subscription and access to the Azure portal. If you don't already have an Azure account, [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
+[!INCLUDE [network-security-perimeter-add-preview](../../includes/network-security-perimeter-add-preview.md)]
+
 ## Sign in to the Azure portal
 
 Sign in to the [Azure portal](https://portal.azure.com) with your Azure account.
