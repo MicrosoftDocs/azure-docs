@@ -16,7 +16,7 @@ ms.author: behoorne
 
 # Trial Matcher patient info
 
-Trial Matcher uses patient information to match relevant patient(s) with the clinical trial(s). You can provide the information in four different ways: 
+Trial Matcher uses patient information to match relevant patient with a clinical trial eligbility section. The Trial Matcher is reviewing the patient eligibility for each relevant clinical trial. You can provide the information in four different ways: 
 
 -	Unstructured clinical notes
 - FHIR bundles
@@ -158,9 +158,9 @@ The following example shows how to provide patient information as a FHIR Bundle:
 
 ## Gradual Matching
 
-Trial Matcher can also be used with gradual Matching. In this mode, you can send requests to the Trial Matcher in a gradual way. This is done via conversational intelligence or chat-like scenarios. 
+Trial Matcher can also be used with gradual Matching. In this mode, you can send requests to the Trial Matcher in a gradual way, using conversational intelligence or chat-like scenarios. 
 
-The gradual Matching uses patient information for matching, including demographics (gender and birthdate) and structured clinical information. When sending clinical information via gradual matching, it’s passed as a list of ```clinicalCodedElements```.  Each one is expressed in a clinical coding system as a code that’s extended by semantic information and value
+The gradual Matching uses patient information for matching, including demographics (gender and birthdate) and structured clinical information. When sending clinical information via gradual matching, it’s passed as a list of ```clinicalCodedElements```.  Each one is expressed in a clinical coding system as a code that’s extended by semantic information and value.
 
 ### Differentiating concepts
 
