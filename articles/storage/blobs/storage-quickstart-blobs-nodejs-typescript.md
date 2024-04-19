@@ -8,7 +8,6 @@ ms.service: azure-blob-storage
 ms.topic: quickstart
 ms.devlang: typescript
 ms.custom: devx-track-js, mode-api, passwordless-js, devx-track-extended-azdevcli
-zone_pivot_groups: azure-blob-storage-quickstart-options
 ---
 
 # Quickstart: Azure Blob Storage client library for Node.js with TypeScript
