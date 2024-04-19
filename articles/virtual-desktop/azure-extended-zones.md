@@ -17,7 +17,6 @@ Azure Extended Zones are small-footprint extensions of Azure placed in metros, i
 By deploying Azure Virtual Desktop in an Azure Extended Zone, you can:
 
 - Ease low latency and/or data regulation needs for users.
-- 
 
 ## Prerequisites
 

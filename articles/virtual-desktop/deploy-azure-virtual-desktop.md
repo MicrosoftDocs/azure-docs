@@ -204,6 +204,13 @@ Here's how to create a host pool using the Azure portal.
       | Confirm password | Reenter the password. |
    </details>
 
+<details>
+       <summary>To add session hosts on <b>Azure Extended Zones</b>, select to expand this section.</summary>
+
+      See [Azure Extended Zones](/azure/virtual-desktop/azure-extended-zones).
+   </details>
+
+
    Once you've completed this tab, select **Next: Workspace**.
 
 1. *Optional*: On the **Workspace** tab, if you want to create a workspace and register the default desktop application group from this host pool, complete the following information:
