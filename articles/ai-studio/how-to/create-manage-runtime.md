@@ -19,7 +19,7 @@ In Azure AI Studio, you can create and manage prompt flow compute sessions. You 
 
 A prompt flow compute session has computing resources that are required for the application to run, including a Docker image that contains all necessary dependency packages. In addition to flow execution, Azure AI Studio uses the compute session to ensure the accuracy and functionality of the tools incorporated within the flow when you make updates to the prompt or code content.
 
-## Create a compute session 
+## Create a compute session
 
 Sign in to [Azure AI Studio](https://ai.azure.com) and select your prompt flow.
 
@@ -50,6 +50,64 @@ Then select **Start compute session** from top toolbar.
         - If you choose a customized base image, you need to provide the image URL and the image tag. Only images in a public docker registry or the Azure Container Registry are supported. If you specify image in the Azure Container Registry,  make sure you (or the user assigned manage identity) have ACR pull permission.
     - Select **Next** to review your settings.
     - Select **Apply and start compute session** to start the compute session.
+
+### Update an automatic runtime on a flow page
+
+On a flow page, you can use the following options to manage an automatic runtime:
+
+- **Change compute session settings** opens the runtime configuration page, where you can define the VM side and the idle time for the runtime.
+- **Install packages from requirements.txt** Open `requirements.txt` in prompt flow UI, you can add packages in it.
+- **View installed packages** shows the packages that are installed in the runtime. It includes the packages baked to base image and packages specify in the `requirements.txt` file in the flow folder.
+- **Reset compute session** deletes the current runtime and creates a new one with the same environment. If you encounter a package conflict, you can try this option.
+- **Stop compute session** deletes the current runtime. If there's no active runtime on the underlying compute, the compute resource is also deleted.
+
+:::image type="content" source="../media/prompt-flow/how-to-create-manage-runtime/runtime-create-automatic-actions.png" alt-text="Screenshot of actions for an automatic runtime on a flow page." lightbox = "../media/prompt-flow/how-to-create-manage-runtime/runtime-create-automatic-actions.png":::
+
+You can also customize the environment that you use to run this flow by adding packages in the `requirements.txt` file in the flow folder. After you add more packages in this file, you can choose either of these options:
+
+- **Save and install** triggers `pip install -r requirements.txt` in the flow folder. The process can take a few minutes, depending on the packages that you install.
+- **Save only** just saves the `requirements.txt` file. You can install the packages later yourself.
+
+:::image type="content" source="../media/prompt-flow/how-to-create-manage-runtime/runtime-create-automatic-save-install.png" alt-text="Screenshot of the option to save and install packages for an automatic runtime on a flow page." lightbox = "../media/prompt-flow/how-to-create-manage-runtime/runtime-create-automatic-save-install.png":::
+
+> [!NOTE]
+> You can change the location and even the file name of `requirements.txt`, but be sure to also change it in the `flow.dag.yaml` file in the flow folder.
+>
+> Don't pin the version of `promptflow` and `promptflow-tools` in `requirements.txt`, because we already include them in the runtime base image.
+
+#### Add packages in a private feed in Azure DevOps
+
+If you want to use a private feed in Azure DevOps, follow these steps:
+
+1. Create a user-assigned managed identity and add this identity in the Azure DevOps organization. To learn more, see [Use service principals and managed identities](/azure/devops/integrate/get-started/authentication/service-principal-managed-identity).
+
+   > [!NOTE]
+   > If the **Add Users** button isn't visible, you probably don't have the necessary permissions to perform this action.
+
+1. [Add or update user-assigned identities to your project](../../machine-learning/how-to-identity-based-service-authentication.md#to-create-a-workspace-with-multiple-user-assigned-identities-use-one-of-the-following-methods).
+
+1. Add `{private}` to your private feed URL. For example, if you want to install `test_package` from `test_feed` in Azure devops, add `-i https://{private}@{test_feed_url_in_azure_devops}` in `requirements.txt`:
+
+    ```txt
+    -i https://{private}@{test_feed_url_in_azure_devops}
+    test_package
+    ```
+
+1. Specify the user-assigned managed identity in **Start with advanced settings** if automatic runtime isn't running, or use the **Edit** button if automatic runtime is running.
+
+    :::image type="content" source="../media/prompt-flow/how-to-create-manage-runtime/runtime-advanced-setting-msi.png" alt-text="Screenshot that shows the toggle for using a workspace user-assigned managed identity." lightbox = "../media/prompt-flow/how-to-create-manage-runtime/runtime-advanced-setting-msi.png":::
+
+#### Change the base image for automatic runtime (preview)
+
+By default, we use the latest prompt flow image as the base image. If you want to use a different base image, you need build your own base image, this docker image should be built from prompt flow base image that is `mcr.microsoft.com/azureml/promptflow/promptflow-runtime:<newest_version>`. If possible use the [latest version of the base image](https://mcr.microsoft.com/v2/azureml/promptflow/promptflow-runtime/tags/list). To use the new base image, you need to reset the runtime via the `reset` command. This process takes several minutes as it pulls the new base image and reinstalls packages.
+
+:::image type="content" source="../media/prompt-flow/how-to-create-manage-runtime/runtime-creation-automatic-image-flow-dag.png" alt-text="Screenshot of actions for customizing a base image for an automatic runtime on a flow page." lightbox = "../media/prompt-flow/how-to-create-manage-runtime/runtime-creation-automatic-image-flow-dag.png":::
+
+```yaml
+environment:
+    image: <your-custom-image>
+    python_requirements_txt: requirements.txt
+```
 
 ## Next steps
 
