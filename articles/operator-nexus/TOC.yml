@@ -140,8 +140,6 @@
               href: howto-configure-network-packet-broker.md
             - name: Validate cables for Nexus Network Fabric
               href: how-to-validate-cables.md
-            - name: Creating Access Control Lists (ACLs)
-              href: howto-create-access-control-list-for-network-to-network-interconnects.md
             - name: Applying ACLs to Network-to-Network Interconnects (NNI)
               href: howto-apply-access-control-list-to-network-to-network-interconnects.md
             - name: Updating ACL on Network-for-Network Interconnects (NNI)
