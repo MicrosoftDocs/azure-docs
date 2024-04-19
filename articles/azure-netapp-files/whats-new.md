@@ -14,12 +14,10 @@ ms.author: anfdocs
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
 
-<<<<<<< HEAD
-* [Volume encryption with customer-managed keys with managed ardware Security Module (HSM)](configure-customer-managed-keys-hardware.md) (Preview)
+* [Volume encryption with customer-managed keys with managed Hardware Security Module (HSM)](configure-customer-managed-keys-hardware.md) (Preview)
 
     Volume encryption with customer-managed keys with managed HSM extends the [customer-managed keys](configure-customer-managed-keys.md), enabling you to store your keys in a more secure FIPS 140-2 Level 3 HSM service instead of the FIPS 140-2 Level 1 or 2 encryption offered with Azure Key Vault. 
 
-=======
 ## April 2024 
 
 * [Application volume group for Oracle](application-volume-group-oracle-introduction.md) (Preview)
@@ -32,7 +30,6 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
     Application volume group for Oracle is supported in all Azure NetApp Files-enabled regions.
   
->>>>>>> a25a70ebd7353d631242f79fd206eb8344fc9187
 ## March 2024
 
 * [Large volumes (Preview) improvement:](large-volumes-requirements-considerations.md) new minimum size of 50 TiB
