@@ -15,7 +15,7 @@ ms.date: 04/18/2024
 This article addresses issues that might arise when you run load tests against private application endpoints using Azure Load Testing. Azure Load Testing service injects the Azure resources that are required to generate load in the virtual network that contains the application endpoint. In this process, you may run into some issues related to virtual network configuration and RBAC permissions. 
 
 Azure Load Testing service requires outbound connectivity from the virtual network to the following destinations. 
-| Destination | Notes |
+| Destination | Need for connectivity |
 | ------------|-------|
 | *.azure.com | |
 | *.windows.net | Access to this destination is required for the Azure Load Testing service to interact with Azure Service Bus, Azure Event Grids and Azure Storage. To learn more about firewall configuration in these services, see <li> [Azure Service Bus frequently asked questions](/azure/service-bus-messaging/service-bus-faq#what-ports-do-i-need-to-open-on-the-firewall--) </li> <li> [Azure Event Hubs Firewall Rules](/azure/event-hubs/event-hubs-ip-filtering) </li> <li> [Configure Azure Storage firewalls and virtual networks ](/azure/storage/common/storage-network-security?tabs=azure-portal) </li> |
@@ -29,15 +29,27 @@ To test connectivity from your virtual network:
 
 1. Create a Virtual Machine with a Public IP in the subnet that you are using in your test configuration in Azure Load Testing. This virtual machine is only used to diagnose network connectivity and can be deleted after troubleshooting. This will not be used by the Azure Load Testing service to generate load.
 
-  Run the following Azure CLI command to create a virtual machine.
+    Run the following Azure CLI command to create a virtual machine.
   
     ```azurecli
     az vm create --resource-group <your-resource-group> --name <your-virtual-machine-name> --image UbuntuLTS --generate-ssh-keys --subnet <your-subnet>
     ```
-  The virtual machine can be of any type. 
+    The virtual machine can be of any type. 
 
-1. Login to the virtual machine using [Azure Bastion](/azure/bastion/bastion-connect-vm-ssh-linux). 
-  
+2. Login to the virtual machine using [Azure Bastion](/azure/bastion/bastion-connect-vm-ssh-linux).
+3. Test outbound connections from the virtual machine
+   
+| Destination | Type of connectivity | Command to be used | Response validation |
+| ------------|----------------------|--------------------|---------------------|
+| azure.com | DNS | nslookup azure.com | Successful response with IP addresses|
+| azure.com | Connectivity | curl azure.com -I | Ensure that you get an HTTP response|
+| azure.com | DNS | nslookup windows.net | Successful response with IP addresses|
+| azure.com | Connectivity | curl azure.com -I | Ensure that you get an HTTP response|
+
+
+
+## Troubleshoot issues using the actionable error messages 
+
 ### Creating or updating the load test fails with `Subscription not registered with Microsoft.Batch (ALTVNET001)`
 
 When you configure a load test in a virtual network, the subscription has to be registered with `Microsoft.Batch`. 
