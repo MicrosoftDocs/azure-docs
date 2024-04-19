@@ -1190,6 +1190,8 @@ items:
       href: logs/save-query.md
     - name: Using queries
       href: logs/queries.md
+    - name: Summary rules
+      href: logs/summary-rules.md      
     - name: Query packs
       href: logs/query-packs.md
     - name: Tutorial
