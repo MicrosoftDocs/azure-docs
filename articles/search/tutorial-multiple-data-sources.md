@@ -381,4 +381,4 @@ You can find and manage resources in the portal, using the All resources or Reso
 Now that you're familiar with the concept of ingesting data from multiple sources, let's take a closer look at indexer configuration, starting with Azure Cosmos DB.
 
 > [!div class="nextstepaction"]
-> [Configure an Azure Cosmos DB indexer](search-howto-index-cosmosdb.md)
+> [Configure an Azure Cosmos DB for NoSQL indexer](search-howto-index-cosmosdb.md)

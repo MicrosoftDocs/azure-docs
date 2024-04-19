@@ -125,7 +125,6 @@ You can use the data export and rules capabilities in IoT Central to integrate w
 - [Export IoT data to cloud destinations using Blob Storage](howto-export-to-blob-storage.md).
 - [Transform data for IoT Central](howto-transform-data.md)
 - [Use workflows to integrate your Azure IoT Central application with other cloud services](howto-configure-rules-advanced.md)
-- [Extend Azure IoT Central with custom analytics using Azure Databricks](howto-create-custom-analytics.md)
 
 ## Integrate with companion applications
 
