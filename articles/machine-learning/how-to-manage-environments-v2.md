@@ -8,7 +8,7 @@ ms.topic: how-to
 author: ositanachi
 ms.author: osiotugo
 ms.reviewer: larryfr
-ms.date: 01/03/2024
+ms.date: 04/19/2024
 ms.custom: devx-track-azurecli, devplatv2, devx-track-python
 ---
 
@@ -76,6 +76,9 @@ Curated environments are provided by Azure Machine Learning and are available by
 You can use these curated environments out of the box for training or deployment by referencing a specific version or latest version of the environment. Use the following syntax: `azureml://registries/azureml/environment/<curated-environment-name>/versions/<version-number>` or `azureml://registries/azureml/environment/<curated-environment-name>/labels/latest`. You can also use them as a reference for your own custom environments by modifying the Dockerfiles that back these curated environments.
 
 You can see the set of available curated environments in the Azure Machine Learning studio UI, or by using the CLI (v2) via `az ml environment list`.
+
+> [!TIP]
+> When working with curated environments in the CLI or SDK, the environment name begins with `AzureML-` followed by the name of the curated environment. When using the Azure Machine Learning studio, they do not have this prefix. The reason for this difference is that the studio UI displays curated and custom environments on separate tabs, so the prefix is not necessary. The CLI and SDK do not have this separation, so the prefix is used to differentiate between curated and custom environments.
 
 ## Create a custom environment
 
