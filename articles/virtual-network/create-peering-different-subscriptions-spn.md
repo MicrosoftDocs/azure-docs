@@ -87,10 +87,10 @@ Create **spn1-peer-vnet** with a scope to the virtual network created in the pre
 
     ```output
     {
-    "appId": "c404755a-fe16-44fe-860f-e646f6c01c77",
+    "appId": "baa9d5f8-c1f9-4e74-b9fa-b5bc551e6cd0",
     "displayName": "spn-1-peer-vnet",
     "password": "",
-    "tenant": "688647e7-9434-42d3-82c9-e19c24270a54"    
+    "tenant": "c2d26d12-71cc-4f3b-8557-1fa18d077698"    
     }
     ```
 
@@ -184,10 +184,10 @@ Create **spn-2-peer-vnet** with a scope to the virtual network created in the pr
 
     ```output
     {
-    "appId": "c404755a-fe16-44fe-860f-e646f6c01c77",
+    "appId": "19b439a8-614b-4c8e-9e3e-b0c901346362",
     "displayName": "spn-2-peer-vnet",
     "password": "",
-    "tenant": "688647e7-9434-42d3-82c9-e19c24270a54"
+    "tenant": "24baaf57-f30d-4fba-a20e-822030f7eba3"
     }    
     ```
 
@@ -256,7 +256,7 @@ An administrator in the **subscription-1** Microsoft Entra ID tenant must approv
     The URL looks similar to the below example.
 
     ```
-    https://login.microsoftonline.com/1e1cce84-0637-4693-99d9-27ff18dd65c8/oauth2/authorize?client_id=8791e68c-8d8b-4a63-b6f1-ca49008b142b&response_type=code&redirect_uri=https://www.microsoft.com
+    https://login.microsoftonline.com/c2d26d12-71cc-4f3b-8557-1fa18d077698/oauth2/authorize?client_id=19b439a8-614b-4c8e-9e3e-b0c901346362&response_type=code&redirect_uri=https://www.microsoft.com
     ```
 
 1. Open the URL in a web browser and sign-in with an administrator in the Microsoft Entra ID tenant in **subscription-1**.
@@ -334,7 +334,7 @@ An administrator in the **subscription-2** Microsoft Entra ID tenant must approv
     The URL looks similar to the below example.
 
     ```
-    https://login.microsoftonline.com/1e1cce84-0637-4693-99d9-27ff18dd65c8/oauth2/authorize?client_id=8791e68c-8d8b-4a63-b6f1-ca49008b142b&response_type=code&redirect_uri=https://www.microsoft.com
+    https://login.microsoftonline.com/24baaf57-f30d-4fba-a20e-822030f7eba3/oauth2/authorize?client_id=baa9d5f8-c1f9-4e74-b9fa-b5bc551e6cd0&response_type=code&redirect_uri=https://www.microsoft.com
     ```
 
 1. Open the URL in a web browser and sign-in with an administrator in the Microsoft Entra ID tenant in **subscription-2**.
