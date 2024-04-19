@@ -629,13 +629,13 @@ Usage charges are calculated from the `quantity` value.
       }
    ```
 
----
-
 The aggregated value of `billedUnit` for the following meters is counted  towards the characters you licensed for your disconnected container usage:
 
 * `CognitiveServices.TextTranslation.Container.OneDocumentTranslatedCharacters`
 
 * `CognitiveServices.TextTranslation.Container.TranslatedCharacters`
+
+---
 
 ### Summary
 
