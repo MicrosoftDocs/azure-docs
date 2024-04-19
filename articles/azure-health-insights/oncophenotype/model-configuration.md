@@ -14,10 +14,10 @@ ms.author: behoorne
 
 # Onco-Phenotype model configuration
 
-To interact with the Onco-Phenotype model, you can provide several model configurations parameters that modify the outcome of the responses.
+To interact with the Onco-Phenotype model, you can provide several model configurations parameters that modify the outcome of the responses and reflects the preferences of te user.
 
 > [!NOTE]
-> The examples below are based on API version: 2023-03-01-preview. There might be changes between API versions. For a specific API version, please use the reference to the REST API to see full description.
+> The examples below are based on API version: 2023-03-01-preview. For a specific API version, please follow the reference to the REST API to see full description of each API version.
 
 
 > [!IMPORTANT]

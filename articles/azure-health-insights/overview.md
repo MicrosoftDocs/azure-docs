@@ -13,7 +13,7 @@ ms.author: behoorne
 
 # What is Azure AI Health Insights (Preview)?
 
-Azure AI Health Insights is a Cognitive Service providing an API that serves insight models, which perform analysis and provide inferences to be used by a human. The models can receive input in different modalities, and return insight inferences including evidence as a result, for key high value scenarios in the health domain
+Azure AI Health Insights is an Azure AI service providing an API that serves insight models, which perform analysis to support a human decision. The AI models receive patient data input in different modalities, and return insight inferences including evidence as a result, for key high value scenarios in the health domain
 
 > [!IMPORTANT] 
 > Azure AI Health Insights is a capability provided “AS IS” and “WITH ALL FAULTS.” Azure AI Health Insights isn't intended or made available for use as a medical device, clinical support, diagnostic tool, or other technology intended to be used in the diagnosis, cure, mitigation, treatment, or prevention of disease or other conditions, and no license or right is granted by Microsoft to use this capability for such purposes. This capability isn't designed or intended to be implemented or deployed as a substitute for professional medical advice or healthcare opinion, diagnosis, treatment, or the clinical judgment of a healthcare professional, and should not be used as such. The customer is solely responsible for any use of Azure AI Health Insights. 
