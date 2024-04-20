@@ -7,7 +7,7 @@ keywords: 'SAP, Azure, Oracle, Data Guard'
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
-ms.date: 01/21/2024
+ms.date: 04/20/2024
 ms.author: juergent
 ms.custom: H1Hack27Feb2017, linux-related-content
 ---
@@ -85,7 +85,7 @@ Azure provides [multiple storage solutions](../../virtual-machines/disks-types.m
 |--------|------------|--------| ------| -----|
 | **Block Storage Type** | | | | |
 | Premium SSD | Supported | 512e | ASM Recommended. LVM Supported | No support for ASM on Windows |
-| Premium SSD v2 | Supported | 4K Native | ASM Recommended. LVM Supported | No support for ASM on Windows. Change Log File disks from 4K Native to 512e |
+| Premium SSD v2 | Supported | 4K Native or 512e<sup>1</sup> | ASM Recommended. LVM Supported | No support for ASM on Windows. Change Log File disks from 4K Native to 512e |
 | Standard SSD | Not supported | | | |
 | Standard HDD | Not supported | | | |
 | Ultra disk | Supported | 4K Native | ASM Recommended. LVM Supported | No support for ASM on Windows. Change Log File disks from 4K Native to 512e |
@@ -95,6 +95,8 @@ Azure provides [multiple storage solutions](../../virtual-machines/disks-types.m
 | Azure Files NFS | Not supported | | |
 | Azure files SMB | Not supported | | |
 
+<sup>1</sup> 512e is supported on Premium SSD v2 for Windows systems.  512e configurations are not recommended for Linux customers.  Migrate to 4K Native using procedure in MOS 512/512e sector size to 4K Native Review (Doc ID 1133713.1)
+
 Additional considerations that apply list like:
 1. No support for DIRECTIO with 4K Native sector size. Recommended settings for FILESYSTEMIO_OPTIONS for LVM configurations:
    - LVM - If disks with 512/512e geometry are used, FILESYSTEMIO_OPTIONS = SETALL
@@ -102,6 +104,7 @@ Additional considerations that apply list like:
 2. Oracle 19c and higher fully supports 4K Native sector size with both ASM and LVM
 3. Oracle 19c and higher on Linux – when moving from 512e storage to 4K Native storage Log sector sizes must be changed  
 4. To migrate from 512/512e sector size to 4K Native Review (Doc ID 1133713.1) – see section “Offline Migration to 4Kb Sector Disks”
+5.	SAPInst will write to the pfile during installation.  If the $ORACLE_HOME/dbs is on a 4K disk set filesystemio_options=asynch and see the Section “Datafile Support of 4kb Sector Disks” in MOS Supporting 4K Sector Disks (Doc ID 1133713.1)
 5. No support for ASM on Windows platforms
 6. No support for 4K Native sector size for Log volume on Windows platforms.  SSDv2 and Ultra Disk must be changed to 512e via the “Edit Disk” pencil icon in the Azure Portal
 7. 4K Native sector size is supported only on Data volumes for Windows platforms.  4K isn't supported for Log volumes on Windows
@@ -122,10 +125,11 @@ Checklist for Oracle Automatic Storage Management:
 2.  [**ASMLib**](https://docs.oracle.com/en/database/oracle/oracle-database/19/ladbi/about-oracle-asm-with-oracle-asmlib.html)
     is used and not UDEV. UDEV is required for multiple SANs, a scenario that doesn't exist on Azure
 3.  ASM should be configured for **External Redundancy**. Azure Premium SSD storage provides triple redundancy. Azure Premium SSD matches the reliability and integrity of any other storage solution. For optional safety customers can consider **Normal Redundancy** for the Log Disk Group
-4.  No Mirror Log is required for ASM [888626 - Redo log layout for high-end systems](https://launchpad.support.sap.com/#/notes/888626)
+4.  No Mirror Log is optional for ASM [888626 - Redo log layout for high-end systems](https://launchpad.support.sap.com/#/notes/888626)
 5.  ASM Disk Groups configured as per Variant 1, 2 or 3 below
 6.  ASM Allocation Unit size = 4MB (default). VLDB OLAP systems such as BW may benefit from larger ASM Allocation Unit size. Change only after confirming with Oracle support
 7.  ASM Sector Size and Logical Sector Size = default (UDEV isn't recommended but requires 4k)
+8.	If the COMPATIBLE.ASM disk group attribute is set to 11.2 or greater for a disk group, you can create, copy, or move an Oracle ASM SPFILE into ACFS file system.  Review the Oracle documentation on moving pfile into ACFS. SAPInst will not create the pfile in ACFS by default
 8.  Appropriate ASM Variant is used. Production systems should use Variant 2 or 3
 
 ### Oracle Automatic Storage Management Disk Groups
