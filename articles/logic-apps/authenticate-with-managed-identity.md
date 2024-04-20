@@ -389,7 +389,7 @@ If your template also includes the managed identity's resource definition, you c
 
 ### [Standard](#tab/standard)
 
-A Standard logic app resource can enable and use both the system-assigned identity and multiple user-assigned identities. The Standard logic app resource definition is based on the Azure Functions function app resource definition.
+A Standard logic app resource can enable and have both the system-assigned identity and multiple user-assigned identities defined. The Standard logic app resource definition is based on the Azure Functions function app resource definition.
 
 This example shows a Standard logic app resource and workflow definition that includes a non-parameterized `identity` object:
 
@@ -491,7 +491,7 @@ The `principalId` property value is a unique identifier for the identity that's 
 
 ## Give identity access to resources
 
-Before you can use your logic app's managed identity for authentication, you have to set up access for the identity on the Azure resource where you want to use the identity. The way you set up access varies based on the resource that you want the identity to access.
+Before you can use your logic app's managed identity for authentication, you have to set up access for the identity on the target Azure resource where you want to use the identity. The way that you set up access varies based on the target resource.
 
 > [!NOTE]
 >
@@ -527,7 +527,7 @@ However, to access an Azure key vault with your managed identity, you have to cr
 
 <a name="azure-portal-assign-role"></a>
 
-### Assign managed identity role-based access in the Azure portal
+### Assign role-based access to a managed identity using the Azure portal
 
 To use a managed identity for authentication, some Azure resources, such as Azure storage accounts, require that you assign that identity to a role that has the appropriate permissions on the target resource. Other Azure resources, such as Azure key vaults, require that you [create an access policy that has the appropriate permissions on the target resource for that identity](#azure-portal-access-policy).
 
@@ -540,7 +540,7 @@ To use a managed identity for authentication, some Azure resources, such as Azur
    > If the **Add role assignment** option is disabled, you don't have permissions to assign roles. 
    > For more information, see [Microsoft Entra built-in roles](../active-directory/roles/permissions-reference.md).
 
-1. Now, assign the necessary role to your managed identity. On the **Role** tab, assign a role that gives your identity the required access to the current resource.
+1. Assign the necessary role to your managed identity. On the **Role** tab, assign a role that gives your identity the required access to the current resource.
 
    For this example, assign the role that's named **Storage Blob Data Contributor**, which includes write access for blobs in an Azure Storage container. For more information about specific storage container roles, see [Roles that can access blobs in an Azure Storage container](../storage/blobs/authorize-access-azure-active-directory.md#assign-azure-roles-for-access-rights).
 
@@ -555,37 +555,37 @@ To use a managed identity for authentication, some Azure resources, such as Azur
 
    For more information about assigning roles, see [Assign roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
 
-1. After you finish, you can use the identity to [authenticate access for triggers and actions that support managed identities](#authenticate-access-with-identity).
+After you're done, you can use the identity to [authenticate access for triggers and actions that support managed identities](#authenticate-access-with-identity).
 
 For more general information about this task, see [Assign a managed identity access to another resource using Azure RBAC](../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md).
 
 <a name="azure-portal-access-policy"></a>
 
-### Create access policy in the Azure portal
+### Create an access policy using the Azure portal
 
 To use a managed identity for authentication, some Azure resources, such as Azure key vaults, require that you create an access policy that has the appropriate permissions on the target resource for that identity. Other Azure resources, such as Azure storage accounts, require that you [assign that identity to a role that has the appropriate permissions on the target resource](#azure-portal-assign-role).
 
 1. In the [Azure portal](https://portal.azure.com), open the target resource where you want to use the identity. This example uses an Azure key vault as the target resource.
 
-1. On the resource's menu, select **Access policies** > **Create**, which opens the **Create an access policy** pane.
+1. On the resource menu, select **Access policies** > **Create**, which opens the **Create an access policy** pane.
 
    > [!NOTE]
    >
    > If the resource doesn't have the **Access policies** option, [try assigning a role assignment instead](#azure-portal-assign-role).
 
-   ![Screenshot shows Azure portal and key vault example with open pane named Access policies.](./media/authenticate-with-managed-identity/create-access-policy.png)
+   :::image type="content" source="media/authenticate-with-managed-identity/create-access-policy.png" alt-text="Screenshot shows Azure portal and key vault example with open pane named Access policies." lightbox="media/authenticate-with-managed-identity/create-access-policy.png":::
 
 1. On the **Permissions** tab, select the required permissions that the identity needs to access the target resource.
 
-   For example, to use the identity with the managed Azure Key Vault connector's **List secrets** operation, the identity needs **List** permissions. So, in the **Secret permissions** column, select **List**.
+   For example, to use the identity with the Azure Key Vault managed connector's **List secrets** operation, the identity needs **List** permissions. So, in the **Secret permissions** column, select **List**.
 
-   ![Screenshot shows Permissions tab with selected List permissions.](./media/authenticate-with-managed-identity/select-access-policy-permissions.png)
+   :::image type="content" source="media/authenticate-with-managed-identity/select-access-policy-permissions.png" alt-text="Screenshot shows Permissions tab with selected List permissions." lightbox="media/authenticate-with-managed-identity/select-access-policy-permissions.png":::
 
 1. When you're ready, select **Next**. On the **Principal** tab, find and select the managed identity, which is a user-assigned identity in this example.
 
 1. Skip the optional **Application** step, select **Next**, and finish creating the access policy.
 
-The next section discusses using a managed identity to authenticate access for a trigger or action. The example continues with the steps from an earlier section where you set up access for a managed identity using RBAC and doesn't use Azure Key Vault as the example. However, the general steps to use a managed identity for authentication are the same.
+The next section shows how to use a managed identity with a trigger or action to authenticate access. The example continues with the steps from an earlier section where you set up access for a managed identity using RBAC and doesn't use Azure Key Vault as the example. However, the general steps to use a managed identity for authentication are the same.
 
 <a name="authenticate-access-with-identity"></a>
 
@@ -598,13 +598,15 @@ After you [enable the managed identity for your logic app resource](#azure-porta
 > If you have an Azure function where you want to use the system-assigned identity, 
 > first [enable authentication for Azure Functions](logic-apps-azure-functions.md#enable-authentication-functions).
 
-These steps show how to use the managed identity with a trigger or action through the Azure portal. To specify the managed identity in a trigger or action's underlying JSON definition, see [Managed identity authentication](logic-apps-securing-a-logic-app.md#managed-identity-authentication).
+These steps show how to use the managed identity with a trigger or action using the Azure portal. To specify the managed identity in a trigger or action's underlying JSON definition, see [Managed identity authentication](logic-apps-securing-a-logic-app.md#managed-identity-authentication).
 
 ### [Consumption](#tab/consumption)
 
-1. In the [Azure portal](https://portal.azure.com), open your logic app resource.
+1. In the [Azure portal](https://portal.azure.com), open your Consumption logic app resource.
 
 1. If you haven't done so yet, add the [trigger or action that supports managed identities](logic-apps-securing-a-logic-app.md#authentication-types-supported-triggers-actions).
+
+   These steps continue by using the **HTTP** trigger as the example.
 
    > [!NOTE]
    >
@@ -615,39 +617,47 @@ These steps show how to use the managed identity with a trigger or action throug
 
    * **Built-in connector operations that support managed identity authentication**
 
-     1. From the **Add new parameter** list, add the **Authentication** property if the property doesn't already appear.
+     1. From the **Advanced parameters** list, add the **Authentication** property, if the property doesn't already appear.
 
-        ![Screenshot shows Consumption workflow with built-in action and opened list named Add new parameter, with selected option for Authentication.](./media/authenticate-with-managed-identity/built-in-authentication-consumption.png)
+        :::image type="content" source="media/authenticate-with-managed-identity/built-in-authentication-consumption.png" alt-text="Screenshot shows Consumption workflow with built-in action and opened list named Advanced parameters, with selected option for Authentication." lightbox="media/authenticate-with-managed-identity/built-in-authentication-consumption.png":::
 
-     1. From the **Authentication type** list, select **Managed identity**.
+     1. From the **Authentication Type** list, select **Managed Identity**.
 
-        ![Screenshot shows Consumption workflow with built-in action and opened list named Authentication type, with selected option for Managed identity.](./media/authenticate-with-managed-identity/built-in-managed-identity-consumption.png)
+        :::image type="content" source="media/authenticate-with-managed-identity/built-in-managed-identity-consumption.png" alt-text="Screenshot shows Consumption workflow with built-in action and opened list named Authentication Type, with selected option for Managed Identity." lightbox="media/authenticate-with-managed-identity/built-in-managed-identity-consumption.png":::
 
      For more information, see [Example: Authenticate built-in trigger or action with a managed identity](#authenticate-built-in-managed-identity).
 
    * **Managed connector operations that support managed identity authentication**
 
-     1. On the tenant selection page, select **Connect with managed identity**, for example:
+     1. On the **Create Connection** pane, from the **Authentication** list, select **Managed Identity**, for example:
 
-        ![Screenshot shows Consumption workflow with Azure Resource Manager action and selected option for Connect with managed identity.](./media/authenticate-with-managed-identity/select-connect-managed-identity-consumption.png)
+        :::image type="content" source="media/authenticate-with-managed-identity/select-connect-managed-identity-consumption.png" alt-text="Screenshot shows Consumption workflow with Azure Resource Manager action and selected option for Managed Identity." lightbox="media/authenticate-with-managed-identity/select-connect-managed-identity-consumption.png":::
 
-     1. On the next page, for **Connection name**, provide a name to use for the connection.
+     1. On the next pane, for **Connection Name**, provide a name to use for the connection.
 
      1. For the authentication type, choose one of the following options based on your managed connector:
 
-        * **Single-authentication**: These connectors support only one authentication type. From the **Managed identity** list, select the currently enabled managed identity, if not already selected, and then select **Create**, for example:
+        * **Single-authentication**: These connectors support only one authentication type.
 
-          ![Screenshot shows Consumption workflow, connection name box, and selected option for system-assigned managed identity.](./media/authenticate-with-managed-identity/single-system-identity-consumption.png)
+           1. From the **Managed identity** list, select the currently enabled managed identity.
 
-        * **Multi-authentication**: These connectors show multiple authentication types, but you still can select only one type. From the **Authentication type** list, select **Logic Apps Managed Identity** > **Create**, for example:
+              :::image type="content" source="media/authenticate-with-managed-identity/single-system-identity-consumption.png" alt-text="Screenshot shows Consumption workflow, connection creation box, and selected option for system-assigned managed identity." lightbox="media/authenticate-with-managed-identity/single-system-identity-consumption.png":::
 
-          ![Screenshot shows Consumption workflow, connection name box, and selected option for Logic Apps Managed Identity.](./media/authenticate-with-managed-identity/multi-system-identity-consumption.png)
+           1. When you're ready, select **Create New**.
+
+        * **Multi-authentication**: These connectors show multiple authentication types, but you still can select only one type.
+
+           1. From the **Authentication Type** list, select **Logic Apps Managed Identity**.
+
+              :::image type="content" source="media/authenticate-with-managed-identity/multi-system-identity-consumption.png" alt-text="Screenshot shows Consumption workflow, connection creation box, and selected option for Logic Apps Managed Identity." lightbox="media/authenticate-with-managed-identity/multi-system-identity-consumption.png":::
+
+           1. When you're ready, select **Create New**.
 
         For more information, see [Example: Authenticate managed connector trigger or action with a managed identity](#authenticate-managed-connector-managed-identity).
 
 ### [Standard](#tab/standard)
 
-1. In the [Azure portal](https://portal.azure.com), open your logic app resource.
+1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource.
 
 1. If you haven't done so yet, add the [trigger or action that supports managed identities](logic-apps-securing-a-logic-app.md#authentication-types-supported-triggers-actions).
 
