@@ -5,7 +5,7 @@ author: flang-msft
 ms.author: franlanglois
 ms.service: cache
 ms.topic: overview
-ms.date: 09/29/2023
+ms.date: 04/19/2024
 ---
 
 # What is Azure Cache for Redis?

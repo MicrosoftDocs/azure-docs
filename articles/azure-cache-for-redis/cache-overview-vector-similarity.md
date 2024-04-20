@@ -5,7 +5,7 @@ author: flang-msft
 ms.author: franlanglois
 ms.service: cache
 ms.topic: overview
-ms.date: 09/18/2023
+ms.date: 04/19/2024
 ---
 
 # About Vector Embeddings and Vector Search in Azure Cache for Redis

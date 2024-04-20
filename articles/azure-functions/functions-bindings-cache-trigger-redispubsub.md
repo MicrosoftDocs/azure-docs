@@ -8,7 +8,7 @@ ms.author: franlanglois
 ms.service: azure-functions
 ms.custom: devx-track-dotnet, devx-track-extended-java, devx-track-js, devx-track-python
 ms.topic: reference
-ms.date: 02/27/2024
+ms.date: 04/19/2024
 ---
 
 # RedisPubSubTrigger for Azure Functions (preview)
