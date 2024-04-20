@@ -90,7 +90,7 @@ Snapshots can be cloned to provide read/write access to current data for test an
 |Redundancy & scale targets| Demonstrated capability to support largest and highest performing Oracle databases over 100TiB in size and multiple gigabytes per second throughput while maintaining near-instantaneous snapshot-based primary data protection and recoverability |
 | Encryption |[Single or double encryption](/azure/azure-netapp-files/understand-data-encryption#understand-encryption-at-rest) at rest with platform- or customer-managed keys |
 
-## Automation of VM & Storage selection 
+## Automation of VMs & storage selection 
 
 Consider using Community tool Oracle Migration Assistant Tool (OMAT) to get the right VM SKUs with recommended storage options including disk types, Elastic SAN & ANF with indicative cost based on list price.  You can upload AWR report of the Oracle database as input and run the script to get an output of the recommended VM SKUs and storage options that aligns with the performance requirements of the database and is cost effective. 
 
