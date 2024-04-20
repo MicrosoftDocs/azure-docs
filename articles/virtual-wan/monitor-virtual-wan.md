@@ -42,7 +42,7 @@ The following steps help you locate and view metrics:
 
 1. Select **Monitor Gateway** and then **Metrics**. You can also click **Metrics** at the bottom to view a dashboard of the most important metrics for site-to-site and point-to-site VPN. 
 
-   :::image type="content" source="./media/monitor-virtual-wan-reference/site-to-site-vpn-dashboard.png" alt-text="Screenshot shows the sie-to-site VPN metrics dashboard." lightbox="./media/monitor-virtual-wan-reference/site-to-site-vpn-dashboard.png":::
+   :::image type="content" source="./media/monitor-virtual-wan-reference/site-to-site-vpn-metrics-dashboard.png" alt-text="Screenshot shows the sie-to-site VPN metrics dashboard." lightbox="./media/monitor-virtual-wan-reference/site-to-site-vpn-metrics-dashboard.png":::
 
 1. On the **Metrics** page, you can view the metrics that you're interested in.
 
