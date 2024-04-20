@@ -153,7 +153,7 @@
       - name: Same deployment model - different subscriptions
         href: create-peering-different-subscriptions.md
       - name: Same deployment model - different subscriptions - SPN
-        href: create-peering-different-subscriptions-spn.md
+        href: create-peering-different-subscriptions-service-principal.md
       - name: Different deployment models - same subscription
         href: create-peering-different-deployment-models.md
       - name: Different deployment models - different subscriptions
