@@ -47,8 +47,8 @@ Topology supports the following resource types:
 - Service endpoints
 - Traffic Manager profiles
 - Virtual hubs
-- Virtual machines
 - Virtual machine scale sets
+- Virtual machines
 - Virtual network gateways (VPN and ExpressRoute)
 - Virtual networks
 - Virtual WANs
