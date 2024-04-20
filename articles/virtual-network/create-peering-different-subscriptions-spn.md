@@ -21,9 +21,23 @@ Scenarios exist where you need to connect virtual networks in different subscrip
 
 - Account permissions to create a service principal, assign app permissions, and create resources in the Microsoft Entra ID tenant associated with each subscription.
 
+# [**PowerShell**](#tab/create-peering-powershell)
+
+- Azure PowerShell installed locally or Azure Cloud Shell.
+
+- Sign in to Azure PowerShell and ensure you've selected the subscription with which you want to use this feature.  For more information, see [Sign in with Azure PowerShell](/powershell/azure/authenticate-azureps).
+
+- Ensure your `Az.Network` module is 4.3.0 or later. To verify the installed module, use the command `Get-InstalledModule -Name "Az.Network"`. If the module requires an update, use the command `Update-Module -Name Az.Network` if necessary.
+
+If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 5.4.1 or later. Run `Get-Module -ListAvailable Az` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell). If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
+
+# [**Azure CLI**](#tab/create-peering-cli)
+
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 - This how-to article requires version 2.31.0 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
+
+---
 
 ## Resources used
 
@@ -33,6 +47,8 @@ Scenarios exist where you need to connect virtual networks in different subscrip
 | spn-2-peer-vnet | test-rg-2 | subscription-2 | vnet-2 | West US 2 |
 
 ## Create subscription-1 resources
+
+# [**Azure CLI**](#tab/create-peering-cli)
 
 1. Sign-in to **subscription-1** with a user account with permissions to create a resource group, a virtual network, and an SPN in the Microsoft Entra ID tenant associated with **subscription-1**
 
@@ -60,9 +76,16 @@ Scenarios exist where you need to connect virtual networks in different subscrip
         --subnet-prefixes 10.0.0.0/24
     ```
 
+# [**PowerShell**](#tab/create-peering-powershell)
+
+---
+
+
 ### Create spn-1-peer-vnet
 
 Create **spn1-peer-vnet** with a scope to the virtual network created in the previous step. This SPN is added to the scope of **vnet-2** in a future step to allow for the virtual network peer.
+
+# [**Azure CLI**](#tab/create-peering-cli)
 
 1. Place the resource ID of the virtual network you created earlier in a variable for use in the later step.
 
@@ -127,7 +150,13 @@ Create **spn1-peer-vnet** with a scope to the virtual network created in the pre
         --scope User.Read
     ```
 
+# [**PowerShell**](#tab/create-peering-powershell)
+
+---
+
 ## Create subscription-2 resources
+
+# [**Azure CLI**](#tab/create-peering-cli)
 
 1. Sign-in to **subscription-2** with a user account with permissions to create a resource group, a virtual network, and an SPN in the Microsoft Entra ID tenant associated with **subscription-2**
 
@@ -155,9 +184,16 @@ Create **spn1-peer-vnet** with a scope to the virtual network created in the pre
         --subnet-prefixes 10.1.0.0/24
     ```
 
+# [**PowerShell**](#tab/create-peering-powershell)
+
+---
+
+
 ### Create spn-2-peer-vnet
 
 Create **spn-2-peer-vnet** with a scope to the virtual network created in the previous step. This SPN is added to the scope of **vnet-2** in a future step to allow for the virtual network peer.
+
+# [**Azure CLI**](#tab/create-peering-cli)
 
 1. Place the resource ID of the virtual network you created earlier in a variable for use in the later step.
 
@@ -223,6 +259,10 @@ Create **spn-2-peer-vnet** with a scope to the virtual network created in the pr
         --scope User.Read
     ```
 
+# [**PowerShell**](#tab/create-peering-powershell)
+
+---
+
 ## Register spn-2-peer-vnet in subscription-1 and assign permissions to vnet-1
 
 A user account with administrator permissions in the Microsoft Entra ID tenant must complete the process of adding **spn-2-vnet-peer** to **subscription-1**. Once completed, **spn-2-vnet-peer** can be assigned permissions to **vnet-1**. 
@@ -230,6 +270,8 @@ A user account with administrator permissions in the Microsoft Entra ID tenant m
 ### Register spn-2-peer-vnet app in subscription-1
 
 An administrator in the **subscription-1** Microsoft Entra ID tenant must approve the service principal **spn-2-peer-vnet** so that it can be added to the virtual network **vnet-1**. Use the following command to sign-in to **subscription-2** to find the appID of **spn-2-peer-vnet**.
+
+# [**Azure CLI**](#tab/create-peering-cli)
 
 1. Sign-in to **subscription-2**.
 
@@ -263,9 +305,15 @@ An administrator in the **subscription-1** Microsoft Entra ID tenant must approv
 
 1. Approve the application **spn-2-vnet-peer**. The microsoft.com homepage displays if the authentication was successful.
 
+# [**PowerShell**](#tab/create-peering-powershell)
+
+---
+
 ### Assign spn-2-peer-vnet to vnet-1
 
 After the administrator approves **spn-2-vnet-peer**, add it to the virtual network **vnet-1** as a **Network Contributor**.
+
+# [**Azure CLI**](#tab/create-peering-cli)
 
 1. Sign-in to **subscription-1**.
 
@@ -301,6 +349,10 @@ After the administrator approves **spn-2-vnet-peer**, add it to the virtual netw
         --scope $vnetid
     ```
 
+# [**PowerShell**](#tab/create-peering-powershell)
+
+---
+
 ## Register spn-1-vnet-peer in subscription-2 and assign permissions to vnet-2
 
 A user account with administrator permissions in the Microsoft Entra ID tenant must complete the process of adding **spn-1-vnet-peer** to **subscription-2**. Once completed, **spn-1-vnet-peer** can be assigned permissions to **vnet-2**. 
@@ -308,6 +360,8 @@ A user account with administrator permissions in the Microsoft Entra ID tenant m
 ### Register spn-1-peer-vnet app in subscription-2
 
 An administrator in the **subscription-2** Microsoft Entra ID tenant must approve the service principal **spn-1-peer-vnet** so that it can be added to the virtual network **vnet-2**. Use the following command to sign-in to **subscription-1** to find the appID of **spn-1-peer-vnet**.
+
+# [**Azure CLI**](#tab/create-peering-cli)
 
 1. Sign-in to **subscription-1**.
 
@@ -341,9 +395,15 @@ An administrator in the **subscription-2** Microsoft Entra ID tenant must approv
 
 1. Approve the application **spn-1-vnet-peer**. The microsoft.com homepage displays if the authentication was successful.
 
+# [**PowerShell**](#tab/create-peering-powershell)
+
+---
+
 ### Assign spn-1-peer-vnet to vnet-2
 
 Once the administrator approves **spn-1-vnet-peer**, add it to the virtual network **vnet-2** as a **Network Contributor**.
+
+# [**Azure CLI**](#tab/create-peering-cli)
 
 1. Sign-in to **subscription-2**.
 
@@ -379,6 +439,10 @@ Once the administrator approves **spn-1-vnet-peer**, add it to the virtual netwo
         --scope $vnetid
     ```
 
+# [**PowerShell**](#tab/create-peering-powershell)
+
+---
+
 ## Peer vnet-1 to vnet-2 and vnet-2 to vnet-1
 
 To peer **vnet-1** to **vnet-2**, you use the service principal appId and password to sign-in to the Microsoft Entra ID tenant associated with **subscription-1**.
@@ -386,6 +450,8 @@ To peer **vnet-1** to **vnet-2**, you use the service principal appId and passwo
 ### Obtain the appId of spn-1-peer-vnet and spn-2-peer-vnet
 
 For the purposes of this article, sign-in to each subscription and obtain the appID of each SPN and the resource ID of each virtual network. Use these values to sign-in to each subscription with the SPN in the later steps. These steps aren't required to peer the virtual networks if both sides already have the appID of the SPNs and the resource ID of the virtual networks.
+
+# [**Azure CLI**](#tab/create-peering-cli)
 
 1. Sign-in to **subscription-1** with a regular user account.
 
@@ -445,7 +511,15 @@ For the purposes of this article, sign-in to each subscription and obtain the ap
     az logout
     ```
 
+# [**PowerShell**](#tab/create-peering-powershell)
+
+---
+
+### Peer the virtual networks
+
 1. Sign-in to **subscription-1** with **spn-1-peer-vnet**. You need the tenant ID of the Microsoft Entra ID tenant associated with **subscription-1** to complete the command. The password is shown in the example with a variable placeholder. Replace with the password you noted during the resource creation. Replace the placeholder in `--tenant` with the tenant ID of the Microsoft Entra ID tenant associated with **subscription-1**.
+
+# [**Azure CLI**](#tab/create-peering-cli)
 
     ```azurecli
     az login \
@@ -517,3 +591,7 @@ For the purposes of this article, sign-in to each subscription and obtain the ap
         --vnet-name vnet-2 \
         --output table
     ```
+
+# [**PowerShell**](#tab/create-peering-powershell)
+
+---
