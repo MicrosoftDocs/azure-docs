@@ -16,12 +16,13 @@ The [Deploy external or internal Istio Ingress][istio-deploy-ingress] article de
 ## Prerequisites
 
 Before proceeding, complete the following prerequisites:
-- Enable the Istio add-on on your AKS cluster as per [documentation][istio-deploy-addon]
+- Enable the Istio add-on on the cluster as per [documentation][istio-deploy-addon]
 - Deploy an external Istio Ingress gateway as per [documentation][istio-deploy-ingress]
 
 ### Summary of Previous Steps
 
-Up to this point, we've accomplished the following:
+Following steps are complete:
+
 - [Set environment variables][istio-addon-env-vars]
 - [Install Istio add-on][istio-deploy-existing-cluster]
 - [Enable sidecar injection][enable-sidecar-injection]
@@ -30,9 +31,9 @@ Up to this point, we've accomplished the following:
 
 ## Required client/server certificates and keys
 
-This article requires several certificates and keys that are used throughout the examples, you can use your favorite tool to create them or use the commands to generate them using [openssl][openssl].
+This article requires several certificates and keys. Use your favorite tool to create them or following [openssl][openssl] commands mentioned.
 
-1. Create a root certificate and private key to sign the certificates for sample services:
+1. Create a root certificate and private key for signing the certificates for sample services:
     
     ```bash
     mkdir bookinfo_certs
@@ -55,9 +56,9 @@ This article requires several certificates and keys that are used throughout the
     
 ## Configure a TLS ingress gateway
 
-Create a Kubernetes TLS secret for the ingress gateway; for this, use [Azure Keyvault][akv-basic-concepts] to host certificates/keys and [Azure Keyvault Secrets Provider add-on][akv-addon] to sync those to the cluster.
+Create a Kubernetes TLS secret for the ingress gateway; use [Azure Keyvault][akv-basic-concepts] to host certificates/keys and [Azure Keyvault Secrets Provider add-on][akv-addon] to sync secrets to the cluster.
 
-### Set up Azure Keyvault and sync secrets on AKS cluster
+### Set up Azure Keyvault and sync secrets to the cluster
 
 1. Create Azure Keyvault
 
@@ -74,7 +75,7 @@ Create a Kubernetes TLS secret for the ingress gateway; for this, use [Azure Key
     az aks enable-addons --addons azure-keyvault-secrets-provider --resource-group $RESOURCE_GROUP --name $CLUSTER
     ```
     
-3. Authorize the user-assigned managed identity of the add-on to provision access to the Azure Keyvault resource using access policy. Alternatively, follow the instructions [here][[akv-rbac-guide]] to assign an Azure role of Key Vault for the add-on's user-assigned managed identity.
+3. Authorize the user-assigned managed identity of the add-on to access Azure Keyvault resource using access policy. Alternatively, follow the instructions [here][[akv-rbac-guide]] to assign an Azure role of Key Vault for the add-on's user-assigned managed identity.
     
     ```bash
     OBJECT_ID=$(az aks show --resource-group $RESOURCE_GROUP --name $CLUSTER --query 'addonProfiles.azureKeyvaultSecretsProvider.identity.objectId' -o tsv)
@@ -84,7 +85,7 @@ Create a Kubernetes TLS secret for the ingress gateway; for this, use [Azure Key
     az keyvault set-policy --name $AKV_NAME --object-id $OBJECT_ID --secret-permissions get list
     ```
 
-4. Create secrets in Azure Keyvault using the certificates and key generated above.
+4. Create secrets in Azure Keyvault using the certificates and keys.
 
     ```bash
     az keyvault secret set --vault-name $AKV_NAME --name test-productpage-bookinfo-key --file bookinfo_certs/productpage.bookinfo.com.key
@@ -160,7 +161,7 @@ Create a Kubernetes TLS secret for the ingress gateway; for this, use [Azure Key
     EOF
     ```
     
-    - Verify `productpage-credential` secret created on the cluster namespace `aks-istio-ingress` as defined in the SecretProviderClass resource above.
+    - Verify `productpage-credential` secret created on the cluster namespace `aks-istio-ingress` as defined in the SecretProviderClass resource.
     
         ```bash
         kubectl describe secret/productpage-credential -n aks-istio-ingress
@@ -343,7 +344,7 @@ Extend your gateway definition to support mutual TLS.
     EOF
     ```
     
-    - verify secret:
+    - Verify `productpage-credential` secret created on the cluster namespace `aks-istio-ingress`.
     
     ```bash
     kubectl describe secret/productpage-credential -n aks-istio-ingress
@@ -442,7 +443,7 @@ az group delete --name ${RESOURCE_GROUP} --yes --no-wait
 [istio-deploy-ingress]: istio-deploy-ingress.md
 [istio-addon-env-vars]: istio-deploy-addon.md#set-environment-variables
 [istio-deploy-existing-cluster]: istio-deploy-addon.md#install-mesh-for-existing-cluster
-[enable-sidecar-injection]: istio-deploy-addon.md##enable-sidecar-injection
+[enable-sidecar-injection]: istio-deploy-addon.md#enable-sidecar-injection
 [deploy-sample-application]: istio-deploy-addon.md#deploy-sample-application
 [enable-external-ingress-gateway]: istio-deploy-ingress.md#enable-external-ingress-gateway
 [akv-addon]: ./csi-secrets-store-driver.md
