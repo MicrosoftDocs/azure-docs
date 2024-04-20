@@ -16,7 +16,7 @@ ms.lastreviewed: 03/01/2024
 Google will deprecate the Firebase Cloud Messaging (FCM) legacy API by July 2024. You can begin migrating from the legacy HTTP protocol to FCM v1 on March 1, 2024. You must complete the migration by June 2024. This section describes the steps to migrate from FCM legacy to FCM v1 using the Azure SDKs.
 
 ## Prerequisites
-1. Ensure "Firebase Cloud Messaging API (V1)" is enabled in Firebase project setting under "Cloud Messaging".
+1. Ensure that **Firebase Cloud Messaging API (V1)** is enabled in Firebase project setting under **Cloud Messaging**.
 2. Ensure that FCM credentials are updated. [Follow step 1 in the REST API guide](firebase-migration-rest.md#step-1-add-fcm-v1-credentials-to-hub).
 
 ## Android SDK
