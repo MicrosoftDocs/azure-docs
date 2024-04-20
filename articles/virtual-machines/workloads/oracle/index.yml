@@ -74,8 +74,10 @@ landingContent:
         links:
           - text: Migrate Oracle workload to Azure VMs
             url: oracle-migration.md
-          - text: Storage options for oracle on Azure VMs
-            url: oracle-storage.md 
+          - text: Performance best practices for Oracle on Azure VMs
+            url: oracle-performance-best-practice.md
+          - text: Partner storage options for Oracle on Azure VMs 
+            url: oracle-third-party-storage.md
   
   #card 8
   - title: Backup and disaster recovery
