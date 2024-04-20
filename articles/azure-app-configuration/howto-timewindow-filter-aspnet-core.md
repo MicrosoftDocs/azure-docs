@@ -16,12 +16,15 @@ In this tutorial, you use the time window filter to enable a feature on a schedu
 
 ## Prerequisites
 
-- Follow the instructions in [Quickstart: Add feature flags to an ASP.NET Core app](./quickstart-feature-flag-aspnet-core.md) to create a web app with a feature flag.
+- Create an [ASP.NET Core app with a feature flag](./quickstart-feature-flag-aspnet-core.md).
+- [Add a time window filter to the feature flag](./howto-timewindow-filter.md)
 - Update the [`Microsoft.FeatureManagement.AspNetCore`](https://www.nuget.org/packages/Microsoft.FeatureManagement.AspNetCore/) package of version **3.0.0** or later.
 
 ## Use the time window filter
 
-Starting with version *3.0.0* of `Microsoft.FeatureManagement`, the following [built-in filters](https://github.com/microsoft/FeatureManagement-Dotnet#built-in-feature-filters) are registered automatically as part of the `AddFeatureManagement` call, so you don't need to register them.
+You've added a time window filter for your *Beta* feature flag in the prerequisites. Next, you'll use the feature flag with the time window filter in your ASP.NET Core app.
+
+Starting with version *3.0.0* of `Microsoft.FeatureManagement`, the following [built-in filters](https://github.com/microsoft/FeatureManagement-Dotnet#built-in-feature-filters) are registered automatically as part of the `AddFeatureManagement` call. You don't need to add `TimeWindowFilter` manually.
 
 - `TimeWindowFilter`
 - `ContextualTargetingFilter`
@@ -30,14 +33,10 @@ Starting with version *3.0.0* of `Microsoft.FeatureManagement`, the following [b
 > [!TIP]
 > For more information on using `TargetingFilter`, see [Roll out features to targeted audience](./howto-targetingfilter-aspnet-core.md). 
 
-You've registered the feature management service in your ASP.NET Core app in the [Quickstart](./quickstart-feature-flag-aspnet-core.md). The `TimeWindowFilter` has been added automatically as part of the AddFeatureManagement call.
-
 ```csharp
 // This call will also register built-in filters to the container of services.
 builder.Services.AddFeatureManagement();
 ```
-
-Follow the instructions in [Enable features on a schedule](./howto-timewindow-filter.md) to add a time window filter for the **Beta** feature flag you created in the [Quickstart](./quickstart-feature-flag-aspnet-core.md).
 
 Relaunch the application. If your current time is earlier than the start time set for the time window filter, the **Beta** menu item won't appear on the toolbar. This is because the **Beta** feature flag is disabled by the time window filter.
 

@@ -43,7 +43,7 @@ In this section, you will create a web application that allows users to sign in 
     dotnet user-secrets set ConnectionStrings:AppConfig "<your_connection_string>"
     ```
 
-1. Update *Program.cs* with the following code.
+1. Update the *Program.cs* file with the following code.
 
     ``` C#
     // Existing code in Program.cs
@@ -84,7 +84,7 @@ In this section, you will create a web application that allows users to sign in 
     // ... ...
     ```
 
-1. Add *Beta.cshtml* under the *Views\Home* directory and update it with the following markup.
+1. Add a *Beta.cshtml* file under the *Views\Home* directory and update it with the following markup.
 
     ``` cshtml
     @{
@@ -94,7 +94,7 @@ In this section, you will create a web application that allows users to sign in 
     <h1>This is the beta website.</h1>
     ```
 
-1. Open *HomeController.cs* under the *Controllers* directory and update it with the following code.
+1. Open the *HomeController.cs* file under the *Controllers* directory and update it with the following code.
 
     ``` C#
     public IActionResult Beta()
@@ -103,13 +103,13 @@ In this section, you will create a web application that allows users to sign in 
     }
     ```
 
-1. Open *_ViewImports.cshtml*, and register the feature manager Tag Helper using an `@addTagHelper` directive:
+1. Open the *_ViewImports.cshtml* file, and register the feature manager Tag Helper using an `@addTagHelper` directive:
 
     ``` cshtml
     @addTagHelper *, Microsoft.FeatureManagement.AspNetCore
     ```
 
-1. Open *_Layout.cshtml* in the Views\Shared directory. Insert a new `<feature>` tag in between the *Home* and *Privacy* navbar items.
+1. Open the *_Layout.cshtml* file in the Views\Shared directory. Insert a new `<feature>` tag in between the *Home* and *Privacy* navbar items.
 
     ``` html
     <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
@@ -138,7 +138,7 @@ In this section, you will create a web application that allows users to sign in 
 
 At this point, you can use the feature flag to enable or disable the `Beta` feature for all users. To enable the feature flag for some users while disabling it for others, update your code to use `TargetingFilter`. In this example, you use the signed-in user's email address as the user ID, and the domain name portion of the email address as the group. You add the user and group to the `TargetingContext`. The `TargetingFilter` uses this context to determine the state of the feature flag for each request.
 
-1. Add *ExampleTargetingContextAccessor.cs* file.
+1. Add an *ExampleTargetingContextAccessor.cs* file with the following code.
 
     ```csharp
     using Microsoft.AspNetCore.Http;
@@ -183,7 +183,7 @@ At this point, you can use the feature flag to enable or disable the `Beta` feat
     }
     ```
 
-1. Open `Program.cs` and add the `ExampleTargetingContextAccessor` created in the earlier step and `TargetingFilter` to the service collection by calling the `WithTargeting` method after the existing line of `AddFeatureManagement`. The `TargetingFilter` will use the `ExampleTargetingContextAccessor` to determine the targeting context every time that the feature flag is evaluated.
+1. Open the *Program.cs* file and add the `ExampleTargetingContextAccessor` created in the earlier step and `TargetingFilter` to the service collection by calling the `WithTargeting` method after the existing line of `AddFeatureManagement`. The `TargetingFilter` will use the `ExampleTargetingContextAccessor` to determine the targeting context every time that the feature flag is evaluated.
 
     ```csharp
     // Existing code in Program.cs

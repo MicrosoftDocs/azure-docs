@@ -26,9 +26,9 @@ In this tutorial, you'll learn how to implement a custom feature filter and use 
 
 ## Implement a custom feature filter
 
-You've added a custom filter called *Random* filter with a configurable parameter *Percentage* for your feature flag in the prerequisites. In this example, you'll implement it to enable the feature flag at the random rate specified by the *Percentage* parameter.
+You've added a custom feature filter named **Random** with a **Percentage** parameter for your *Beta* feature flag in the prerequisites. Next, you'll implement the feature filter to enable the *Beta* feature flag based on the chance defined by the **Percentage** parameter.
 
-1. Add `RandomFilter.cs` file.
+1. Add a `RandomFilter.cs` file with the following code.
 
     ```csharp
     using Microsoft.FeatureManagement;
@@ -57,9 +57,11 @@ You've added a custom filter called *Random* filter with a configurable paramete
     }
     ```
 
-    *RandomFilter* implements the `IFeatureFilter` interface provided by the `Microsoft.FeatureManagement` library. The `IFeatureFilter` has a single method named `EvaluateAsync`. When a feature specifies that it can be enabled for a feature filter, the `EvaluateAsync` method is called. If `EvaluateAsync` returns true, it means the feature should be enabled.
+    You added a `RandomFilter` class that implements the `IFeatureFilter` interface from the `Microsoft.FeatureManagement` library. The `IFeatureFilter` interface has a single method named `EvaluateAsync`, which is called whenever a feature flag is evaluated. In `EvaluateAsync`, a feature filter enables a feature flag by returning `true`.
 
-1. Open the *Program.cs" and register the *Random* filter by calling the `AddFeatureFilter` method. 
+    You decorated a `FilterAliasAttribute` to the `RandomFilter` to give your filter an alias **Random**, which matches the filter name you set in the *Beta* feature flag in Azure App Configuration.
+
+1. Open the *Program.cs* file and register the `RandomFilter` by calling the `AddFeatureFilter` method. 
 
     ```csharp
     // The rest of existing code in Program.cs
@@ -75,7 +77,7 @@ You've added a custom filter called *Random* filter with a configurable paramete
 
 ## Feature filter in action
 
-Relaunch the application you created in the [Quickstart](./quickstart-feature-flag-aspnet-core.md). This time, you don't toggle the *Beta* feature flag anymore. The *Beta* menu shows up based on the filter condition. Refresh the browser a few times, and you'll see that sometimes the *Beta* menu appears and sometimes it does not.
+Relaunch the application and refresh the browser a few times. Without manually toggling the feature flag, you will see that the *Beta* menu sometimes appears and sometimes doesn't.
 
 > [!div class="mx-imgBorder"]
 > ![Screenshot of browser with Beta menu hidden.](./media/quickstarts/aspnet-core-feature-flag-local-before.png)

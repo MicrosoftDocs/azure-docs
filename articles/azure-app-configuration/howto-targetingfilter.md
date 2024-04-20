@@ -67,12 +67,7 @@ In this article, you will learn how to add and configure a targeting feature fil
     > [!div class="mx-imgBorder"]
     > ![Screenshot of the Azure portal, applying new targeting filter.](./media/feature-filters/feature-flag-edit-apply-targeting-filter.png)
 
-1. On the **Feature manager** page, the feature flag now has a **Feature filter(s)** value of **1**.
-
-    > [!div class="mx-imgBorder"]
-    > ![Screenshot of the Azure portal, displaying updated feature flag.](./media/feature-filters/updated-feature-flag.png)
-
-Now, you sucessfully added a targeting filter for your feature flag. This targeting filter will use the targeting rule you configured to enable or disable the feature flag for specific users and groups. The next step is to use the feature flag with the targeting filter in your application.
+Now, you sucessfully added a targeting filter for your feature flag. This targeting filter will use the targeting rule you configured to enable or disable the feature flag for specific users and groups. Follow the instructions in the *Next Steps* section to use the feature flag with the targeting filter in your application.
 
 ## Next steps
 

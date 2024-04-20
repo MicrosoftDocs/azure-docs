@@ -14,7 +14,7 @@ ms.date: 03/26/2024
 
 [Feature filters](./howto-feature-filters.md#tutorial-enable-conditional-features-with-feature-filters) allow a feature flag to be enabled or disabled dynamically. For instance, you might want to regulate the feature's availability on a schedule, such as enabling or disabling it until a certain moment. This can be accomplished using the time window filter, which provides the capability to enable a feature based on a time window. 
 
-The time window filter is one of the built-in filters of the Microsoft `FeatureManagement` libraries. The time window filter can be accessible from the Azure App Configuration portal and you can add it to your feature flags. 
+The time window filter is one of the built-in filters of the Microsoft feature management libraries. The time window filter can be accessible from the Azure App Configuration portal and you can add it to your feature flags. 
 
 In this article, you will learn how to add and configure a time window feature filter for your feature flags.
 
@@ -41,12 +41,7 @@ In this article, you will learn how to add and configure a time window feature f
     > [!div class="mx-imgBorder"]
     > ![Screenshot of the Azure portal, applying new time window filter.](./media/feature-filters/feature-flag-edit-apply-timewindow-filter.png)
 
-1. On the **Feature manager** page, the feature flag now has a **Feature filter(s)** value of **1**.
-
-    > [!div class="mx-imgBorder"]
-    > ![Screenshot of the Azure portal, displaying updated feature flag.](./media/feature-filters/updated-feature-flag.png)
-
-Now, you sucessfully added a time window filter for your feature flag. This time window filter will disable your feature flag until the *Start* time you specificied. The next step is to use the feature flag with the time window filter in your application.
+Now, you sucessfully added a time window filter for your feature flag. This time window filter will disable your feature flag until the *Start* time you specificied. Follow the instructions in the *Next Steps* section to use the feature flag with the time window filter in your application.
 
 ## Next steps
 
