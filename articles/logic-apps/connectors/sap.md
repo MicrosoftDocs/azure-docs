@@ -1172,7 +1172,7 @@ You can control this tracing capability at the application level by adding the f
 
 ## Enable SAP CCL (Common Crypto Library) logging (built-in connector only)
 
-When you have to investigate any problems with crypto library while using PSE authentication, you can set up custom text file-based CCL logging, which SAP or Microsoft support might request from you. By default, this capability is disabled because enabling this trace might negatively affect performance and quickly consume the application host's storage space.
+If you have to investigate any problems with the crypto library while using PSE authentication, you can set up custom text file-based CCL logging, which SAP or Microsoft support might request from you. By default, this capability is disabled because enabling this trace might negatively affect performance and quickly consume the application host's storage space.
 
 You can control this logging capability at the application level by adding the following settings:
 1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource.
