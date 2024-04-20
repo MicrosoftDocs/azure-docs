@@ -26,18 +26,33 @@ In this article, you learn how to use topology to visualize virtual networks and
 
 Topology supports the following resource types:
 
-- Application gateways
+- Application Gateways
 - Azure Bastion hosts
+- Azure DDoS Protection plans
+- Azure DNS zones
+- Azure Firewalls
 - Azure Front Door profiles
+- Azure NAT Gateways
+- Connections
+- DNS Private Resolvers
+- ExpressRoute circuits
 - Load balancers
+- Local network gateways
 - Network interfaces
 - Network security groups
+- Private DNS zones
 - Private endpoints
 - Private Link services
-- Virtual machines
+- Public IP addresses
+- Service endpoints
+- Traffic Manager profiles
+- Virtual hubs
 - Virtual machine scale sets
-- Virtual network gateways
+- Virtual machines
+- Virtual network gateways (VPN and ExpressRoute)
 - Virtual networks
+- Virtual WANs
+- Web Application Firewall policies
 
 ## Get started with topology
 
