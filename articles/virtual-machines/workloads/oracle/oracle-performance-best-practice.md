@@ -82,23 +82,19 @@ Azure VMs are throttled for network traffic at higher speeds than direct attache
 
 Snapshots can be cloned to provide read/write access to current data for test and development purposes without interacting with the live data. 
 
-| Other parameters          |                               |
-|---------------------------|--------------------------------|
-| Available in three performance service levels (Ultra, Premium, Standard) | Dynamic interruption-free up- and down scaling of performance and capacity to balance changing requirements and cost |
-| Provisioning Model        | Single volume for medium to large databases<br>Multiple volumes for large and high throughput |
-| Provisioning through Azure portal | Online dynamic up- and downsizing |
-| Dynamic online performance scaling | Dynamic service level changes and QoS adjustments |
-| BCDR                      | Snapshot-based independent data access for BC/DR and test/dev purposes |
-| Vaulting of snapshots     | Azure NetApp Files backup |
-| Storage-based cross-region replication | |
-| Storage-based cross-zone replication | |
-| Integration with Oracle Data Guard | High availability and disaster recovery |
-| Redundancy & Scale Targets | Demonstrated capability to support largest and highest performing Oracle databases over 100 TiB in size and multiple gigabytes per second throughput while maintaining near-instantaneous snapshot-based primary data protection and recoverability |
-| Encryption                | Single or double encryption at rest with platform- or customer-managed keys |
+| Item | Description |
+|------|-------------|
+| Other parameter | Available in three performance service levels ([Ultra](/azure/azure-netapp-files/azure-netapp-files-service-levels#supported-service-levels), Premium, Standard) with dynamic interruption-free up- and down scaling of performance and capacity to balance changing requirements and cost |
+|Provisioning model | [Single volume](/azure/azure-netapp-files/performance-oracle-single-volumes) for medium to large databases  [Multiple volumes](/azure/azure-netapp-files/performance-oracle-multiple-volumes) for extremely large and high throughput Provisioning through Azure portal with online dynamic up-and downsizing  Dynamic online performance scaling through [dynamic service level](/azure/azure-netapp-files/azure-netapp-files-service-levels) changes and QoS adjustments |
+| [BDR](/azure/cloud-adoption-framework/scenarios/oracle-iaas/oracle-disaster-recovery-oracle-landing-zone) |Snapshot-based independent data access for BC/DR and test/dev purposes  Vaulting of snapshots with [Azure NetApp Files backup](/azure/azure-netapp-files/backup-introduction) Storage-based [cross-region replication](/azure/azure-netapp-files/cross-region-replication-introduction)  Storage-based [cross-zone replication](/azure/azure-netapp-files/cross-zone-replication-introduction) Integration with Oracle Data Guard for high availability and disaster recovery |
+|Redundancy & scale targets| Demonstrated capability to support largest and highest performing Oracle databases over 100TiB in size and multiple gigabytes per second throughput while maintaining near-instantaneous snapshot-based primary data protection and recoverability |
+| Encryption |[Single or double encryption](/azure/azure-netapp-files/understand-data-encryption#understand-encryption-at-rest) at rest with platform- or customer-managed keys |
 
 ## Automation of VM & Storage selection 
 
 Consider using Community tool Oracle Migration Assistant Tool (OMAT) to get the right VM SKUs with recommended storage options including disk types, Elastic SAN & ANF with indicative cost based on list price.  You can upload AWR report of the Oracle database as input and run the script to get an output of the recommended VM SKUs and storage options that aligns with the performance requirements of the database and is cost effective. 
 
 ## Next steps
- 
+- [Migrate Oracle workload to Azure VMs (IaaS)](oracle-migration.md)
+- [Partner storage options for Oracle on Azure VMs](oracle-third-party-storage.md)
+  
