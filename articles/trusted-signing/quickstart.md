@@ -173,7 +173,7 @@ trustedsigning create -n MyAccount -l eastus -g MyResourceGroup --sku Premium
 
 **Helpful commands**:
 
-| Command                               | Description  | |
+| Command                               | Description  | 
 | :----------------------------------- | :------------------- |
 | `trustedsigning -h`                             | Show help commands and detailed options              |
 | `trustedsigning show -n MyAccount  -g MyResourceGroup`                            | Show the details of an account          |
@@ -294,7 +294,7 @@ trustedsigning certificate-profile show -g myRG --account-name MyAccount -n  MyP
 
 **Helpful commands**:
 
-| Command                               | Description  | |
+| Command                               | Description  | 
 | :----------------------------------- | :------------------- |
 | `trustedsigning certificate-profile create -–help`                            | Show help for sample commands and detailed parameter descriptions              |
 | `trustedsigning certificate-profile list -g MyResourceGroup --account-name MyAccount`                            |List certificate profile under a Trusted Signing account          |
