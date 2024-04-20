@@ -128,7 +128,13 @@ The sample app in this quickstart uses an LLM from Azure OpenAI. It also uses Az
 
 ## Add the code interpreter plugin
 
-1. The Semantic Kernel code interpreter plugin is available as a NuGet package. Add the package to the sample app:
+The Semantic Kernel code interpreter plugin is available as a package you install in your app:
+
+- .NET: [TBD]
+- Python: [TBD]
+- Java: [TBD]
+
+1. Add the package to the sample app:
 
     ```bash
     dotnet add package <TBD>
