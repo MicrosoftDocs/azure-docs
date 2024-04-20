@@ -1,39 +1,53 @@
-# Secure Gateways for Istio service mesh add-on for Azure Kubernetes Service
+---
+title: Secure Gateway for Istio service mesh add-on for Azure Kubernetes Service
+description: Deploy secure gateway for Istio service mesh add-on for Azure Kubernetes Service
+ms.topic: how-to
+ms.service: azure-kubernetes-service
+ms.subservice: aks-networking
+author: deveshdama
+ms.date: 04/19/2024
+ms.author: ddama
+---
 
-The [Deploy external or internal Istio Ingress](https://learn.microsoft.com/azure/aks/istio-deploy-ingress) article describes how to configure an ingress gateway to expose an HTTP service to external traffic. This article shows how to expose a secure HTTPS service using either simple or mutual TLS.
+# Secure Gateway for Istio service mesh add-on for Azure Kubernetes Service
+
+The [Deploy external or internal Istio Ingress][istio-deploy-ingress] article describes how to configure an ingress gateway to expose an HTTP service to external traffic. This article shows how to expose a secure HTTPS service using either simple or mutual TLS.
 
 ## Prerequisites
 
 Before proceeding, ensure that you have completed the following prerequisites:
-- Enable the Istio add-on on your AKS cluster as per [documentation](https://learn.microsoft.com/azure/aks/istio-deploy-addon)
-- Deploy an external Istio Ingress gateway as per [documentation](https://learn.microsoft.com/azure/aks/istio-deploy-ingress)
+- Enable the Istio add-on on your AKS cluster as per [documentation][istio-deploy-addon]
+- Deploy an external Istio Ingress gateway as per [documentation][istio-deploy-ingress]
 
 ### Summary of Previous Steps
 
 So far we've achieved the following:
-- [Set environment variables](https://learn.microsoft.com/azure/aks/istio-deploy-addon#set-environment-variables)
-- [Install Istio add-on](https://learn.microsoft.com/azure/aks/istio-deploy-addon#install-mesh-for-existing-cluster)
-- [Enable sidecar injection](https://learn.microsoft.com/azure/aks/istio-deploy-addon#enable-sidecar-injection)
-- [Deploy sample application](https://learn.microsoft.com/azure/aks/istio-deploy-addon#deploy-sample-application)
-- [Enable external ingress gateway](https://learn.microsoft.com/azure/aks/istio-deploy-ingress#enable-external-ingress-gateway)
+- [Set environment variables][istio-addon-env-vars]
+- [Install Istio add-on][istio-deploy-existing-cluster]
+- [Enable sidecar injection][enable-sidecar-injection]
+- [Deploy sample application][deploy-sample-application]
+- [Enable external ingress gateway][enable-external-ingress-gateway]
 
-## Generate required client and server certificates and keys
+## Required client/server certificates and keys
 
-This article requires several certificates and keys which will be used throughout the examples, you can use your favorite tool to create them or use the commands below to generate them using [openssl](https://man.openbsd.org/openssl.1) 
+This article requires several certificates and keys which will be used throughout the examples, you can use your favorite tool to create them or use the commands below to generate them using [openssl][openssl] 
 
 1. Create a root certificate and private key to sign the certificates for sample services:
+    
     ```bash
     mkdir bookinfo_certs
     openssl req -x509 -sha256 -nodes -days 365 -newkey rsa:2048 -subj '/O=bookinfo Inc./CN=bookinfo.com' -keyout bookinfo_certs/bookinfo.com.key -out bookinfo_certs/bookinfo.com.crt
     ```
 
 2. Generate a certificate and private key for <span>productpage.bookinfo.com</span>:
+    
     ```bash
     openssl req -out bookinfo_certs/productpage.bookinfo.com.csr -newkey rsa:2048 -nodes -keyout bookinfo_certs/productpage.bookinfo.com.key -subj "/CN=productpage.bookinfo.com/O=product organization"
     openssl x509 -req -sha256 -days 365 -CA bookinfo_certs/bookinfo.com.crt -CAkey bookinfo_certs/bookinfo.com.key -set_serial 0 -in bookinfo_certs/productpage.bookinfo.com.csr -out bookinfo_certs/productpage.bookinfo.com.crt
     ```
 
 3. Generate a client certificate and private key:
+
     ```bash
     openssl req -out bookinfo_certs/client.bookinfo.com.csr -newkey rsa:2048 -nodes -keyout bookinfo_certs/client.bookinfo.com.key -subj "/CN=client.bookinfo.com/O=client organization"
     openssl x509 -req -sha256 -days 365 -CA bookinfo_certs/bookinfo.com.crt -CAkey bookinfo_certs/bookinfo.com.key -set_serial 1 -in bookinfo_certs/client.bookinfo.com.csr -out bookinfo_certs/client.bookinfo.com.crt
@@ -41,26 +55,26 @@ This article requires several certificates and keys which will be used throughou
     
 ## Configure a TLS ingress gateway
 
-Create a kubernetes tls secret for the ingress gateway, for this we will use [Azure Keyvault](https://learn.microsoft.com/azure/key-vault/general/basic-concepts) to host certificates/keys and  [Azure Keyvault Secrets Provider add-on](https://learn.microsoft.com/azure/aks/csi-secrets-store-driver) to sync these to the cluster.
+Create a kubernetes tls secret for the ingress gateway, for this we will use [Azure Keyvault][akv-basic-concepts] to host certificates/keys and  [Azure Keyvault Secrets Provider add-on][akv-addon] to sync these to the cluster.
 
 ### Set up Azure Keyvault and sync secrets on AKS cluster
 
 1. Create Azure Keyvault
 
-    You need an [Azure Keyvault](https://learn.microsoft.com/azure/key-vault/general/quick-create-cli) resource to provide the certificate and key inputs to the Istio add-on.  
+    You need an [Azure Key Vault resource][akv-quickstart] to supply the certificate and key inputs to the Istio add-on.
 
     ```bash
     export AKV_NAME=<azure-key-vault-resource-name>  
-    az keyvault create --name $AKV_NAME --resource-group   $RESOURCE_GROUP --location $LOCATION
+    az keyvault create --name $AKV_NAME --resource-group $RESOURCE_GROUP --location $LOCATION
     ```
     
-2. Enable [Azure Key Vault provider for Secret Store CSI Driver](https://learn.microsoft.com/azure/aks/csi-secrets-store-driver) add-on on your cluster.
+2. Enable [Azure Key Vault provider for Secret Store CSI Driver][akv-addon] add-on on your cluster.
 
     ```bash
     az aks enable-addons --addons azure-keyvault-secrets-provider --resource-group $RESOURCE_GROUP --name $CLUSTER
     ```
     
-3. Authorize the user-assigned managed identity of the add-on to provision access to the Azure Keyvault resource using access policy. Alternatively, follow the instructions [here](https://learn.microsoft.com/azure/key-vault/general/rbac-guide?tabs=azure-cli#using-azure-rbac-secret-key-and-certificate-permissions-with-key-vault) to assign an Azure role of Key Vault for the add-on's user-assigned managed identity.
+3. Authorize the user-assigned managed identity of the add-on to provision access to the Azure Keyvault resource using access policy. Alternatively, follow the instructions [here][[akv-rbac-guide]] to assign an Azure role of Key Vault for the add-on's user-assigned managed identity.
     
     ```bash
     OBJECT_ID=$(az aks show --resource-group $RESOURCE_GROUP --name $CLUSTER --query 'addonProfiles.azureKeyvaultSecretsProvider.identity.objectId' -o tsv)
@@ -79,6 +93,7 @@ Create a kubernetes tls secret for the ingress gateway, for this we will use [Az
     ```
     
 5. Deploy a SecretProviderClass using the kubectl apply command and the following YAML script.
+    
     ```bash
     cat <<EOF | kubectl apply -f -
     apiVersion: secrets-store.csi.x-k8s.io/v1
@@ -144,14 +159,24 @@ Create a kubernetes tls secret for the ingress gateway, for this we will use [Az
               secretProviderClass: "productpage-credential-spc"
     EOF
     ```
+    
     - Verify `productpage-credential` secret has been sync'd on the cluster namespace `aks-istio-ingress` as defined in the SecretProviderClass resource above.
         ```bash
-        kubectl get secret productpage-credential -n aks-istio-ingress
+        kubectl describe secret/productpage-credential -n aks-istio-ingress
         ```       
         Example output:
         ```bash
-        NAME                     TYPE   DATA   AGE
-        productpage-credential   tls    2      6s
+        Name:         productpage-credential
+        Namespace:    aks-istio-ingress
+        Labels:       secrets-store.csi.k8s.io/managed=true
+        Annotations:  <none>
+        
+        Type:  tls
+        
+        Data
+        ====
+        cert:  1066 bytes
+        key:   1704 bytes
         ```
 
 ### Configure ingress gateway and virtual service
@@ -177,11 +202,7 @@ Use the following manifest to route HTTPS traffic via the Istio ingress gateway 
           credentialName: productpage-credential
         hosts:
         - productpage.bookinfo.com
-    EOF
-    ```
-
-    ```bash
-    cat <<EOF | kubectl apply -f -
+    ---
     apiVersion: networking.istio.io/v1alpha3
     kind: VirtualService
     metadata:
@@ -220,25 +241,26 @@ Set environment variables for external ingress host and ports:
     
     echo "https://$SECURE_GATEWAY_URL_EXTERNAL/productpage"
     ```
-    
+
+### Verification    
 Send a HTTPS request to access the productpage service through HTTPS:
 
     ```bash
     curl -s -HHost:productpage.bookinfo.com --resolve "productpage.bookinfo.com:$SECURE_INGRESS_PORT_EXTERNAL:$INGRESS_HOST_EXTERNAL" --cacert bookinfo_certs/bookinfo.com.crt "https://productpage.bookinfo.com:$SECURE_INGRESS_PORT_EXTERNAL/productpage" | grep -o "<title>.*</title>"
     ```
 
-Confirm that the sample application's product page is accessible. The expected output is
+    Confirm that the sample application's product page is accessible. The expected output is:
 
-```bash
-<title>Simple Bookstore App</title>
-```
+    ```html
+    <title>Simple Bookstore App</title>
+    ```
 
 ## Configure a mutual TLS ingress gateway
 Extend your gateway definition to support mutual TLS.
 
 1. Update the ingress gateway credential by deleting the current secret and creating a new one. The server uses the CA certificate to verify its clients, and we must use the key ca.crt to hold the CA certificate.
 
-delete resources
+    delete resources
 
     ```bash
     kubectl delete secretproviderclass productpage-credential-spc -n aks-istio-ingress
@@ -246,7 +268,7 @@ delete resources
     kubectl delete pod/secrets-store-sync-productpage -n aks-istio-ingress
     ```
 
-recreate SecretProviderClass with root cert
+    recreate SecretProviderClass with root cert.
 
     ```bash
     cat <<EOF | kubectl apply -f -
@@ -290,7 +312,7 @@ recreate SecretProviderClass with root cert
     EOF
     ```
 
-recreate sample pod
+    recreate sample pod.
 
     ```bash
     cat <<EOF | kubectl apply -f -
@@ -319,10 +341,13 @@ recreate sample pod
               secretProviderClass: "productpage-credential-spc"
     EOF
     ```
-verify secret
+    
+    - verify secret:
+    
     ```bash
     kubectl describe secret/productpage-credential -n aks-istio-ingress
     ```
+    
     Example output:
     ```bash
     Name:         productpage-credential
@@ -339,7 +364,8 @@ verify secret
     tls.key:  1704 bytes
     ```
 
-update the gateway definition to set the TLS mode to MUTUAL
+2. update the gateway definition to set the TLS mode to MUTUAL.
+    
     ```bash
     cat <<EOF | kubectl apply -f -
     apiVersion: networking.istio.io/v1alpha3
@@ -362,11 +388,14 @@ update the gateway definition to set the TLS mode to MUTUAL
     EOF
     ```
 
+### Verification
+
 Attempt to send HTTPS request using the prior approach and see it fail
 
     ```bash
     curl -v -HHost:productpage.bookinfo.com --resolve "productpage.bookinfo.com:$SECURE_INGRESS_PORT_EXTERNAL:$INGRESS_HOST_EXTERNAL" --cacert bookinfo_certs/bookinfo.com.crt "https://productpage.bookinfo.com:$SECURE_INGRESS_PORT_EXTERNAL/productpage" 
     ```
+    
     Example output:
     ```bash
     ...
@@ -381,11 +410,41 @@ Attempt to send HTTPS request using the prior approach and see it fail
     ```
     
 Pass your client’s certificate with the --cert flag and your private key with the --key flag to curl
+    
     ```bash
     curl -s -HHost:productpage.bookinfo.com --resolve "productpage.bookinfo.com:$SECURE_INGRESS_PORT_EXTERNAL:$INGRESS_HOST_EXTERNAL" --cacert bookinfo_certs/bookinfo.com.crt --cert bookinfo_certs/client.bookinfo.com.crt --key bookinfo_certs/client.bookinfo.com.key "https://productpage.bookinfo.com:$SECURE_INGRESS_PORT_EXTERNAL/productpage" | grep -o "<title>.*</title>"
     ```
 
-Confirm that the sample application's product page is accessible. The expected output is
-    ```bash
+    - Confirm that the sample application's product page is accessible. The expected output is:
+    ```html
     <title>Simple Bookstore App</title>
     ```
+## Delete resources
+
+If you want to clean up the Istio service mesh and the ingresses (leaving behind the cluster), run the following command:
+
+```azurecli-interactive
+az aks mesh disable --resource-group ${RESOURCE_GROUP} --name ${CLUSTER}
+```
+
+If you want to clean up all the resources created from the Istio how-to guidance documents, run the following command:
+
+```azurecli-interactive
+az group delete --name ${RESOURCE_GROUP} --yes --no-wait
+```
+
+<!--- External Links --->
+[openssl]: https://man.openbsd.org/openssl.1
+
+<!--- Internal Links --->
+[istio-deploy-addon]: istio-deploy-addon.md
+[istio-deploy-ingress]: istio-deploy-ingress.md
+[istio-addon-env-vars]: istio-deploy-addon.md#set-environment-variables
+[istio-deploy-existing-cluster]: istio-deploy-addon.md#install-mesh-for-existing-cluster
+[enable-sidecar-injection]: istio-deploy-addon.md##enable-sidecar-injection
+[deploy-sample-application]: istio-deploy-addon.md#deploy-sample-application
+[enable-external-ingress-gateway]: istio-deploy-ingress.md#enable-external-ingress-gateway
+[akv-addon]: ./csi-secrets-store-driver.md
+[akv-quickstart]: ../key-vault/general/quick-create-cli.md
+[akv-rbac-guide]: ../key-vault/general/rbac-guide.md#using-azure-rbac-secret-key-and-certificate-permissions-with-key-vault
+[akv-basic-concepts]: ../key-vault/general/basic-concepts.md
