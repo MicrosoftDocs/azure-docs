@@ -1170,19 +1170,22 @@ You can control this tracing capability at the application level by adding the f
    > If you download a log or trace file that your logic app workflow opened 
    > and is currently in use, your download might result in an empty file.
 
-## Enable SAP CCL (Common Crypto Library) logging (built-in connector only)
+## Enable SAP Common Crypto Library (CCL) logging (built-in connector only)
 
 If you have to investigate any problems with the crypto library while using PSE authentication, you can set up custom text file-based CCL logging, which SAP or Microsoft support might request from you. By default, this capability is disabled because enabling this trace might negatively affect performance and quickly consume the application host's storage space.
 
 You can control this logging capability at the application level by adding the following settings:
+
 1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource.
 
 1. On Standard logic app resource menu, under **Development Tools**, select **Advanced Tools** > **Go**.
 
 1. On the **Kudu** toolbar, select **Debug Console** > **CMD**.
 
-1. Browse a location under **C:\home\site\wwwroot** and create a file for example: **CCLPROFILE.txt** with tracing configurations as requested by Microsoft or SAP.
-   Refer [SAP NOTE 2338952](https://me.sap.com/notes/2338952/E) under **Tracing** for more information regarding tracing parameters. An example tracing configuration is given below:
+1. Browse to a location under **C:\home\site\wwwroot** and create a text file, for example:**CCLPROFILE.txt**, with the tracing configurations as requested by Microsoft or SAP.
+
+   For more information about tracing parameters, see [**Tracing** > SAP NOTE 2338952](https://me.sap.com/notes/2338952/E). The following sample provides an example tracing configuration:
+   
    ```
    ccl/trace/directory=C:\home\LogFiles\CCLLOGS
    ccl/trace/level=4
