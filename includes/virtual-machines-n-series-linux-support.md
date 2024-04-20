@@ -35,7 +35,7 @@ Microsoft redistributes NVIDIA GRID driver installers for NV and NVv3-series VMs
 
 The GRID drivers redistributed by Azure don't work on most non-NV series VMs like NC, NCv2, NCv3, ND, and NDv2-series VMs but works on NCasT4v3 series.
 
-For more information on specific vGPU and branch versions, visit the [NVIDIA](https://docs.nvidia.com/grid/) website.
+For more information on the specific vGPU and driver branch versions, visit the [NVIDIA](https://docs.nvidia.com/grid/) website.
 
 |Distribution|Driver|
 | --- | -- |
