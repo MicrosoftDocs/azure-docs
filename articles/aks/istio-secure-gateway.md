@@ -185,77 +185,77 @@ Create a Kubernetes TLS secret for the ingress gateway; use [Azure Keyvault][akv
 
 Use the following manifest to route HTTPS traffic via the Istio ingress gateway to the sample applications.
 
-    ```bash
-    cat <<EOF | kubectl apply -f -
-    apiVersion: networking.istio.io/v1alpha3
-    kind: Gateway
-    metadata:
-      name: bookinfo-gateway
-    spec:
-      selector:
-        istio: aks-istio-ingressgateway-external
-      servers:
-      - port:
-          number: 443
-          name: https
-          protocol: HTTPS
-        tls:
-          mode: SIMPLE
-          credentialName: productpage-credential
-        hosts:
-        - productpage.bookinfo.com
-    ---
-    apiVersion: networking.istio.io/v1alpha3
-    kind: VirtualService
-    metadata:
-      name: productpage-vs
-    spec:
-      hosts:
-      - productpage.bookinfo.com
-      gateways:
-      - bookinfo-gateway
-      http:
-      - match:
-        - uri:
-            exact: /productpage
-        - uri:
-            prefix: /static
-        - uri:
-            exact: /login
-        - uri:
-            exact: /logout
-        - uri:
-            prefix: /api/v1/products
-        route:
-        - destination:
-            port:
-              number: 9080
-            host: productpage
-    EOF
-    ```
+```bash
+cat <<EOF | kubectl apply -f -
+apiVersion: networking.istio.io/v1alpha3
+kind: Gateway
+metadata:
+  name: bookinfo-gateway
+spec:
+  selector:
+    istio: aks-istio-ingressgateway-external
+  servers:
+  - port:
+      number: 443
+      name: https
+      protocol: HTTPS
+    tls:
+      mode: SIMPLE
+      credentialName: productpage-credential
+    hosts:
+    - productpage.bookinfo.com
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: productpage-vs
+spec:
+  hosts:
+  - productpage.bookinfo.com
+  gateways:
+  - bookinfo-gateway
+  http:
+  - match:
+    - uri:
+        exact: /productpage
+    - uri:
+        prefix: /static
+    - uri:
+        exact: /login
+    - uri:
+        exact: /logout
+    - uri:
+        prefix: /api/v1/products
+    route:
+    - destination:
+        port:
+          number: 9080
+        host: productpage
+EOF
+```
 
 Set environment variables for external ingress host and ports:
     
-    ```bash
-    export INGRESS_HOST_EXTERNAL=$(kubectl -n aks-istio-ingress get service aks-istio-ingressgateway-external -o jsonpath='{.status.loadBalancer.ingress[0].ip}')
-    export SECURE_INGRESS_PORT_EXTERNAL=$(kubectl -n aks-istio-ingress get service aks-istio-ingressgateway-external -o jsonpath='{.spec.ports[?(@.name=="https")].port}')
-    export SECURE_GATEWAY_URL_EXTERNAL=$INGRESS_HOST_EXTERNAL:$SECURE_INGRESS_PORT_EXTERNAL
-    
-    echo "https://$SECURE_GATEWAY_URL_EXTERNAL/productpage"
-    ```
+```bash
+export INGRESS_HOST_EXTERNAL=$(kubectl -n aks-istio-ingress get service aks-istio-ingressgateway-external -o jsonpath='{.status.loadBalancer.ingress[0].ip}')
+export SECURE_INGRESS_PORT_EXTERNAL=$(kubectl -n aks-istio-ingress get service aks-istio-ingressgateway-external -o jsonpath='{.spec.ports[?(@.name=="https")].port}')
+export SECURE_GATEWAY_URL_EXTERNAL=$INGRESS_HOST_EXTERNAL:$SECURE_INGRESS_PORT_EXTERNAL
+
+echo "https://$SECURE_GATEWAY_URL_EXTERNAL/productpage"
+```
 
 ### Verification    
 Send an HTTPS request to access the productpage service through HTTPS:
 
-    ```bash
-    curl -s -HHost:productpage.bookinfo.com --resolve "productpage.bookinfo.com:$SECURE_INGRESS_PORT_EXTERNAL:$INGRESS_HOST_EXTERNAL" --cacert bookinfo_certs/bookinfo.com.crt "https://productpage.bookinfo.com:$SECURE_INGRESS_PORT_EXTERNAL/productpage" | grep -o "<title>.*</title>"
-    ```
+```bash
+curl -s -HHost:productpage.bookinfo.com --resolve "productpage.bookinfo.com:$SECURE_INGRESS_PORT_EXTERNAL:$INGRESS_HOST_EXTERNAL" --cacert bookinfo_certs/bookinfo.com.crt "https://productpage.bookinfo.com:$SECURE_INGRESS_PORT_EXTERNAL/productpage" | grep -o "<title>.*</title>"
+```
 
     Confirm that the sample application's product page is accessible. The expected output is:
 
-    ```html
-    <title>Simple Bookstore App</title>
-    ```
+```html
+<title>Simple Bookstore App</title>
+```
 
 ## Configure a mutual TLS ingress gateway
 Extend your gateway definition to support mutual TLS.
@@ -394,33 +394,34 @@ Extend your gateway definition to support mutual TLS.
 
 Attempt to send HTTPS request using the prior approach and see it fail.
 
-    ```bash
-    curl -v -HHost:productpage.bookinfo.com --resolve "productpage.bookinfo.com:$SECURE_INGRESS_PORT_EXTERNAL:$INGRESS_HOST_EXTERNAL" --cacert bookinfo_certs/bookinfo.com.crt "https://productpage.bookinfo.com:$SECURE_INGRESS_PORT_EXTERNAL/productpage" 
-    ```
+```bash
+curl -v -HHost:productpage.bookinfo.com --resolve "productpage.bookinfo.com:$SECURE_INGRESS_PORT_EXTERNAL:$INGRESS_HOST_EXTERNAL" --cacert bookinfo_certs/bookinfo.com.crt "https://productpage.bookinfo.com:$SECURE_INGRESS_PORT_EXTERNAL/productpage" 
+```
     
-    Example output:
-    ```bash
-    ...
-    * TLSv1.2 (IN), TLS header, Supplemental data (23):
-    * TLSv1.3 (IN), TLS alert, unknown (628):
-    * OpenSSL SSL_read: error:0A00045C:SSL routines::tlsv13 alert certificate required, errno 0
-    * Failed receiving HTTP2 data
-    * OpenSSL SSL_write: SSL_ERROR_ZERO_RETURN, errno 0
-    * Failed sending HTTP2 data
-    * Connection #0 to host productpage.bookinfo.com left intact
-    curl: (56) OpenSSL SSL_read: error:0A00045C:SSL routines::tlsv13 alert certificate required, errno 0
-    ```
+  Example output:
+```bash
+
+...
+* TLSv1.2 (IN), TLS header, Supplemental data (23):
+* TLSv1.3 (IN), TLS alert, unknown (628):
+* OpenSSL SSL_read: error:0A00045C:SSL routines::tlsv13 alert certificate required, errno 0
+* Failed receiving HTTP2 data
+* OpenSSL SSL_write: SSL_ERROR_ZERO_RETURN, errno 0
+* Failed sending HTTP2 data
+* Connection #0 to host productpage.bookinfo.com left intact
+curl: (56) OpenSSL SSL_read: error:0A00045C:SSL routines::tlsv13 alert certificate required, errno 0
+```
     
 Pass your client’s certificate with the `--cert` flag and your private key with the `--key` flag to curl.
     
-    ```bash
-    curl -s -HHost:productpage.bookinfo.com --resolve "productpage.bookinfo.com:$SECURE_INGRESS_PORT_EXTERNAL:$INGRESS_HOST_EXTERNAL" --cacert bookinfo_certs/bookinfo.com.crt --cert bookinfo_certs/client.bookinfo.com.crt --key bookinfo_certs/client.bookinfo.com.key "https://productpage.bookinfo.com:$SECURE_INGRESS_PORT_EXTERNAL/productpage" | grep -o "<title>.*</title>"
-    ```
+```bash
+curl -s -HHost:productpage.bookinfo.com --resolve "productpage.bookinfo.com:$SECURE_INGRESS_PORT_EXTERNAL:$INGRESS_HOST_EXTERNAL" --cacert bookinfo_certs/bookinfo.com.crt --cert bookinfo_certs/client.bookinfo.com.crt --key bookinfo_certs/client.bookinfo.com.key "https://productpage.bookinfo.com:$SECURE_INGRESS_PORT_EXTERNAL/productpage" | grep -o "<title>.*</title>"
+```
 
-    - Confirm that the sample application's product page is accessible. The expected output is:
-    ```html
-    <title>Simple Bookstore App</title>
-    ```
+  - Confirm that the sample application's product page is accessible. The expected output is:
+```html
+<title>Simple Bookstore App</title>
+```
 ## Delete resources
 
 If you want to clean up the Istio service mesh and the ingresses (leaving behind the cluster), run the following command:
