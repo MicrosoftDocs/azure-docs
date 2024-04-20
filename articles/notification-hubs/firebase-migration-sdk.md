@@ -17,7 +17,7 @@ Google will deprecate the Firebase Cloud Messaging (FCM) legacy API by July 2024
 
 ## Prerequisites
 1. Ensure "Firebase Cloud Messaging API (V1)" is enabled in Firebase project setting under "Cloud Messaging".
-2. Ensure FCM credentials are updated [follow step 1 in the REST API guide](firebase-migration-rest.md#step-1-add-fcm-v1-credentials-to-hub).
+2. Ensure that FCM credentials are updated. [Follow step 1 in the REST API guide](firebase-migration-rest.md#step-1-add-fcm-v1-credentials-to-hub).
 
 ## Android SDK
 
