@@ -1,6 +1,6 @@
 ---
 title: Secure Gateway for Istio service mesh add-on for Azure Kubernetes Service
-description: Deploy secure gateway for Istio service mesh add-on for Azure Kubernetes Service
+description: Deploy secure gateway for Istio service mesh add-on for Azure Kubernetes Service.
 ms.topic: how-to
 ms.service: azure-kubernetes-service
 ms.subservice: aks-networking
@@ -15,13 +15,13 @@ The [Deploy external or internal Istio Ingress][istio-deploy-ingress] article de
 
 ## Prerequisites
 
-Before proceeding, ensure that you have completed the following prerequisites:
+Before proceeding, complete the following prerequisites:
 - Enable the Istio add-on on your AKS cluster as per [documentation][istio-deploy-addon]
 - Deploy an external Istio Ingress gateway as per [documentation][istio-deploy-ingress]
 
 ### Summary of Previous Steps
 
-So far we've achieved the following:
+Up to this point, we've accomplished the following:
 - [Set environment variables][istio-addon-env-vars]
 - [Install Istio add-on][istio-deploy-existing-cluster]
 - [Enable sidecar injection][enable-sidecar-injection]
@@ -30,7 +30,7 @@ So far we've achieved the following:
 
 ## Required client/server certificates and keys
 
-This article requires several certificates and keys which will be used throughout the examples, you can use your favorite tool to create them or use the commands below to generate them using [openssl][openssl] 
+This article requires several certificates and keys that are used throughout the examples, you can use your favorite tool to create them or use the commands to generate them using [openssl][openssl].
 
 1. Create a root certificate and private key to sign the certificates for sample services:
     
@@ -55,7 +55,7 @@ This article requires several certificates and keys which will be used throughou
     
 ## Configure a TLS ingress gateway
 
-Create a kubernetes tls secret for the ingress gateway, for this we will use [Azure Keyvault][akv-basic-concepts] to host certificates/keys and  [Azure Keyvault Secrets Provider add-on][akv-addon] to sync these to the cluster.
+Create a Kubernetes TLS secret for the ingress gateway; for this, use [Azure Keyvault][akv-basic-concepts] to host certificates/keys and [Azure Keyvault Secrets Provider add-on][akv-addon] to sync those to the cluster.
 
 ### Set up Azure Keyvault and sync secrets on AKS cluster
 
@@ -130,7 +130,7 @@ Create a kubernetes tls secret for the ingress gateway, for this we will use [Az
     EOF
     ```
 
-6. Deploy a sample pod to sync secrets from AKV to the cluster and the following YAML script.
+6. Deploy a sample pod to sync secrets from keyvault to the cluster and the following YAML script.
     
     ```bash
     cat <<EOF | kubectl apply -f -
@@ -160,7 +160,8 @@ Create a kubernetes tls secret for the ingress gateway, for this we will use [Az
     EOF
     ```
     
-    - Verify `productpage-credential` secret has been sync'd on the cluster namespace `aks-istio-ingress` as defined in the SecretProviderClass resource above.
+    - Verify `productpage-credential` secret created on the cluster namespace `aks-istio-ingress` as defined in the SecretProviderClass resource above.
+    
         ```bash
         kubectl describe secret/productpage-credential -n aks-istio-ingress
         ```       
@@ -243,7 +244,7 @@ Set environment variables for external ingress host and ports:
     ```
 
 ### Verification    
-Send a HTTPS request to access the productpage service through HTTPS:
+Send an HTTPS request to access the productpage service through HTTPS:
 
     ```bash
     curl -s -HHost:productpage.bookinfo.com --resolve "productpage.bookinfo.com:$SECURE_INGRESS_PORT_EXTERNAL:$INGRESS_HOST_EXTERNAL" --cacert bookinfo_certs/bookinfo.com.crt "https://productpage.bookinfo.com:$SECURE_INGRESS_PORT_EXTERNAL/productpage" | grep -o "<title>.*</title>"
@@ -390,7 +391,7 @@ Extend your gateway definition to support mutual TLS.
 
 ### Verification
 
-Attempt to send HTTPS request using the prior approach and see it fail
+Attempt to send HTTPS request using the prior approach and see it fail.
 
     ```bash
     curl -v -HHost:productpage.bookinfo.com --resolve "productpage.bookinfo.com:$SECURE_INGRESS_PORT_EXTERNAL:$INGRESS_HOST_EXTERNAL" --cacert bookinfo_certs/bookinfo.com.crt "https://productpage.bookinfo.com:$SECURE_INGRESS_PORT_EXTERNAL/productpage" 
@@ -409,7 +410,7 @@ Attempt to send HTTPS request using the prior approach and see it fail
     curl: (56) OpenSSL SSL_read: error:0A00045C:SSL routines::tlsv13 alert certificate required, errno 0
     ```
     
-Pass your client’s certificate with the --cert flag and your private key with the --key flag to curl
+Pass your client’s certificate with the `--cert` flag and your private key with the `--key` flag to curl.
     
     ```bash
     curl -s -HHost:productpage.bookinfo.com --resolve "productpage.bookinfo.com:$SECURE_INGRESS_PORT_EXTERNAL:$INGRESS_HOST_EXTERNAL" --cacert bookinfo_certs/bookinfo.com.crt --cert bookinfo_certs/client.bookinfo.com.crt --key bookinfo_certs/client.bookinfo.com.key "https://productpage.bookinfo.com:$SECURE_INGRESS_PORT_EXTERNAL/productpage" | grep -o "<title>.*</title>"
