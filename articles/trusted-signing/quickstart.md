@@ -161,6 +161,9 @@ trustedsigning create -n MyAccount -l eastus -g MyResourceGroup --sku Premium
 ```
 8. Verify your Trusted Signing account using the `trustedsigning show -g MyResourceGroup -n MyAccount` command.
 
+>[!Note]
+>If you are using older version of CLI from Trusted Signing Private Preview, your account is defaulted to Basic SKU. To use Premium either upgrade CLI to latest version or use Azure portal to create account.
+
 **Trusted Signing account naming constraints**:
 
 - Between 3-24 alphanumeric characters.
