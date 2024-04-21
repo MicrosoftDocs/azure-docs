@@ -44,7 +44,7 @@ Attack path analysis is a graph-based algorithm that scans your [cloud security 
 
 ## Remediate secrets with recommendations
 
-If a secret is found on your resource, that resource triggers an affiliated recommendation that is located under the Remediate vulnerabilities security control on the Recommendations page. Defender for Cloud provides a [number of VM secrets security recommendations](secrets-scanning.md#security-recommendations).
+If a secret is found on your resource, that resource triggers an affiliated recommendation that is located under the Remediate vulnerabilities security control on the Recommendations page. Defender for Cloud provides a [number of VM secrets security recommendations](secrets-scanning-servers.md#security-recommendations).
 
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
@@ -77,7 +77,7 @@ Secrets that don't have a known attack path are referred to as `secrets without 
 
 ## Remediate secrets with cloud security explorer
 
-The [cloud security explorer](concept-attack-path.md#what-is-cloud-security-explorer) enables you to proactively identify potential security risks within your cloud environment. It does so by querying the [cloud security graph](concept-attack-path.md#what-is-cloud-security-graph), which is the context engine of Defender for Cloud. Cloud security explorer provides a [number of query templates](secret-scanning-servers.md#) for investigating VM secrets issues.
+The [cloud security explorer](concept-attack-path.md#what-is-cloud-security-explorer) enables you to proactively identify potential security risks within your cloud environment. It does so by querying the [cloud security graph](concept-attack-path.md#what-is-cloud-security-graph), which is the context engine of Defender for Cloud. Cloud security explorer provides a [number of query templates](secrets-scanning-servers.md#) for investigating VM secrets issues.
 
 
 1. Sign in to the [Azure portal](https://portal.azure.com).

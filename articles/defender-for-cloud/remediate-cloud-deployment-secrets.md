@@ -84,7 +84,7 @@ The [cloud security explorer](concept-attack-path.md#what-is-cloud-security-expl
 
 1. Create a query to look for secrets in your cloud deployments. To do this, select a resource type, and then select the types of secret you want to find. For example:
 
-    :::image type="content" source="media/remediate-cloud-deployment-secrets.md/query-example.png" alt-text="Screenshot that shows the detailed information of a secret after you have selected the secret in the findings section." lightbox="media/remediate-cloud-deployment-secrets.md/query-example.png":::
+    :::image type="content" source="media/remediate-cloud-deployment-secrets/query-example.png" alt-text="Screenshot that shows a sample query for finding cloud deployment secrets in the cloud security graph." lightbox="media/remediate-cloud-deployment-secrets/query-example.png":::
 
 ## Remediate secrets in the asset inventory
 
