@@ -19,7 +19,7 @@ ms.author: behoorne
 Trial Matcher uses patient information to match relevant patient with a clinical trial eligbility section. The Trial Matcher is reviewing the patient eligibility for each relevant clinical trial. You can provide the information in four different ways: 
 
 -	Unstructured clinical notes
-- FHIR bundles (short for Fast Healthcare Interoperabiltiy Resources standard)
+- FHIR bundles 
 - gradual Matching (question and answer)
 - JSON key/value
 
@@ -160,7 +160,7 @@ The following example shows how to provide patient information as a FHIR Bundle:
 
 Trial Matcher can also be used with gradual Matching. In this mode, you can send requests to the Trial Matcher in a gradual way, using conversational intelligence or chat-like scenarios. 
 
-The gradual Matching uses patient information for matching, including demographics (gender and birthdate) and structured clinical information. When sending clinical information via gradual matching, the clinical infomration is sent as a list of ```clinicalCodedElements```.  Each one is expressed in a clinical coding system as a code that is extended by semantic information and value.
+The gradual Matching uses patient information for matching, including demographics (gender and birthdate) and structured clinical information. When sending clinical information via gradual matching, the clinical infomration is sent as a list of ```clinicalCodedElements```.  Each one is expressed in a clinical coding system as a code that is extended with semantic information and value.
 
 ### Differentiating concepts
 
@@ -190,7 +190,7 @@ There are five different categories that are used as concepts:
 
 ### 1. UMLS concept ID that represents a single concept
 
-Each concept in this category is represented by a unique UMLS ID. The expected answer types can be Boolean, Numeric, or from a defined Choice set.
+Each concept in this category is represented using a unique UMLS ID. The expected answer types can be Boolean, Numeric, or from a defined Choice set.
 
 Example concept from neededClinicalInfo API response:
 
@@ -324,7 +324,7 @@ Example value sent to Trial Matcher for the above concept:
 
 
 ### 4. Entity types
-Entity type concepts are concepts that are grouped by common entity types, such as medications, genomic and biomarker information.
+Entity type concepts are concepts that are grouped to common entity types, such as medications, genomic and biomarker information.
 
 When customers sent entity type concepts to the Trial Matcher as part of the patient’s clinical info, they should concatenate the entity type string to the value, separated with a semicolon. 
 
