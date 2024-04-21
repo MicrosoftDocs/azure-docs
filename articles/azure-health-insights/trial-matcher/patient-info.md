@@ -19,7 +19,7 @@ ms.author: behoorne
 Trial Matcher uses patient information to match relevant patient with a clinical trial eligbility section. The Trial Matcher is reviewing the patient eligibility for each relevant clinical trial. You can provide the information in four different ways: 
 
 -	Unstructured clinical notes
-- FHIR bundles
+- FHIR bundles (short for Fast Healthcare Interoperabiltiy Resources standard)
 - gradual Matching (question and answer)
 - JSON key/value
 
@@ -291,7 +291,7 @@ Example values sent to Trial Matcher for the above category:
 
 ### 3. Textual concepts
 
-Textual concepts are concepts in which the code is a string, instead of a UMLS code. These are typically used to identify disease morphology and behavioral characteristics.
+Textual concepts are concepts in which the code is a string, instead of a UMLS code. The textual concepts are typically used to identify disease morphology and behavioral characteristics.
 
 Example concept from neededClinicalInfo API response:
 ```json
