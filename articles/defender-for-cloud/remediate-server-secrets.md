@@ -29,7 +29,7 @@ This article helps you to identify and remediate security risks with VM secrets.
 
 ## Remediate secrets with attack paths
 
-Attack path analysis is a graph-based algorithm that scans your [cloud security graph](concept-attack-path.md#what-is-cloud-security-graph). to expose exploitable paths that attackers might use to reach high-impact assets. Defender for Cloud provides [a number of attack paths scenarios](secrets-scanning.md#attack-path-scenarios) for VM secrets.
+Attack path analysis is a graph-based algorithm that scans your [cloud security graph](concept-attack-path.md#what-is-cloud-security-graph). to expose exploitable paths that attackers might use to reach high-impact assets. Defender for Cloud provides a number of attack paths scenarios for VM secrets.
 
 
 1. Sign in to the [Azure portal](https://portal.azure.com).

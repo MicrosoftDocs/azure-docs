@@ -29,7 +29,7 @@ This article helps you to identify and remediate security risks with cloud deplo
 
 ## Remediate secrets with attack paths
 
-Attack path analysis is a graph-based algorithm that scans your [cloud security graph](concept-attack-path.md#what-is-cloud-security-graph). to expose exploitable paths that attackers might use to reach high-impact assets. Defender for Cloud provides [a number of attack paths scenarios](secrets-scanning.md#attack-path-scenarios) for VM secrets.
+Attack path analysis is a graph-based algorithm that scans your [cloud security graph](concept-attack-path.md#what-is-cloud-security-graph). to expose exploitable paths that attackers might use to reach high-impact assets. 
 
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
@@ -75,20 +75,16 @@ Secrets that don't have a known attack path are referred to as `secrets without 
 
 ## Remediate secrets with cloud security explorer
 
-The [cloud security explorer](concept-attack-path.md#what-is-cloud-security-explorer) enables you to proactively identify potential security risks within your cloud environment. It does so by querying the [cloud security graph](concept-attack-path.md#what-is-cloud-security-graph), which is the context engine of Defender for Cloud. Cloud security explorer provides a [number of query templates](secret-scanning-servers.md#) for investigating VM secrets issues.
+The [cloud security explorer](concept-attack-path.md#what-is-cloud-security-explorer) enables you to proactively identify potential security risks within your cloud environment. It does so by querying the [cloud security graph](concept-attack-path.md#what-is-cloud-security-graph). 
 
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Navigate to **Microsoft Defender for Cloud** > **Cloud Security Explorer**.
 
-1. Select one of the following templates:
+1. Create a query to look for secrets in your cloud deployments. To do this, select a resource type, and then select the types of secret you want to find. For example:
 
-    - **VM with plaintext secret that can authenticate to another VM** - Returns all Azure VMs, AWS EC2 instances, or GCP VM instances with plaintext secret that can access other VMs or EC2s.
-    - **VM with plaintext secret that can authenticate to a storage account** - Returns all Azure VMs, AWS EC2 instances, or GCP VM instances with plaintext secret that can access storage accounts.
-    - **VM with plaintext secret that can authenticate to an SQL database** - Returns all Azure VMs, AWS EC2 instances, or GCP VM instances with plaintext secret that can access SQL databases.
-
-If you don't want to use any of the available templates, you can also [build your own query](how-to-manage-cloud-security-explorer.md) in the cloud security explorer.
+    :::image type="content" source="media/remediate-cloud-deployment-secrets.md/query-example.png" alt-text="Screenshot that shows the detailed information of a secret after you have selected the secret in the findings section." lightbox="media/remediate-cloud-deployment-secrets.md/query-example.png":::
 
 ## Remediate secrets in the asset inventory
 
