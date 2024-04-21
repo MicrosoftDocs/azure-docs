@@ -4,7 +4,7 @@ description: This article tells how to install an agent-based  Hybrid Runbook Wo
 services: automation
 ms.subservice: process-automation
 ms.custom: linux-related-content
-ms.date: 09/17/2023
+ms.date: 04/21/2024
 ms.topic: conceptual
 ---
 
@@ -60,6 +60,9 @@ The Hybrid Runbook Worker feature supports the following distributions. All oper
 
 > [!IMPORTANT]
 > Before enabling the Update Management feature, which depends on the system Hybrid Runbook Worker role, confirm the distributions it supports [here](update-management/operating-system-requirements.md).
+
+> [!NOTE]
+> Hybrid Worker extension would follow support timelines of the OS vendor.
 
 ### Minimum requirements
 
