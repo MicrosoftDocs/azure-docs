@@ -115,7 +115,7 @@ Microsoft RSA Root Certificate Authority 2017  https://www.microsoft.com/pkiops/
 To import certificates to client certificate stores you may have to convert certificate .crt files to .pem format, after downloading certificate files from URIs above. You can use OpenSSL utility to do these file conversions, as shown in example below:
 
 ```powershell
-openssl x509 -in cert.crt -out cert.pem
+openssl x509 -in certificate.crt -out certificate.pem -outform PEM
 ```
 
 **Detailed information on updating client applications certificate stores with new Root CA certificates has been documented in this [how-to document](../flexible-server/how-to-update-client-certificates-java.md)**. 
