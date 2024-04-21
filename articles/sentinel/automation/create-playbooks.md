@@ -16,7 +16,7 @@ ms.collection: usx-security
 
 <!--why doesn't this URL work?-->
 
-Playbooks are collections of procedures that can be run from Microsoft Sentinel in response to an entire incident, to an individual alert, or to a specific entity. A playbook can help automate and orchestrate your response, and can be set to run automatically when specific alerts are generated or when incidents are created or updated, by being attached to an automation rule. It can also be run manually on-demand on specific incidents, alerts, or entities.
+Playbooks are collections of procedures that can be run from Microsoft Sentinel in response to an entire incident, to an individual alert, or to a specific entity. A playbook can help automate and orchestrate your response, and can be attached to an automation rule to run automatically when specific alerts are generated or when incidents are created or updated. Playbooks can also be run manually on-demand on specific incidents, alerts, or entities.
 
 This article describes how to create and manage Microsoft Sentinel playbooks. You can later attach these playbooks to analytics rules or automation rules, or run them manually on specific incidents, alerts, or entities.
 
@@ -34,19 +34,21 @@ To create and manage playbooks, you need access to Microsoft Sentinel with one o
 
 For more information, see [Microsoft Sentinel playbook prerequisites](automate-responses-with-playbooks.md#prerequisites).
 
+We recommend that you read [Azure Logic Apps for Microsoft Sentinel playbooks](logic-apps-playbooks.md) before creating your playbook.
+
 ## Create a playbook
 
 Follow these steps to create a new playbook in Microsoft Sentinel:
 
-#### [Azure portal](#tab/azure-portal)
-:::image type="content" source="../media/tutorial-respond-threats-playbook/add-new-playbook.png" alt-text="Screenshot of the menu selection for adding a new playbook in the Automation screen." lightbox="../media/tutorial-respond-threats-playbook/add-new-playbook.png":::
-
-#### [Defender portal](#tab/defender-portal)
-:::image type="content" source="../media/tutorial-respond-threats-playbook/add-new-playbook-defender.png" alt-text="Screenshot of the menu selection for adding a new playbook in the Automation screen." lightbox="../media/tutorial-respond-threats-playbook/add-new-playbook-defender.png":::
-
----
-
 1. For Microsoft Sentinel in the [Azure portal](https://portal.azure.com), select the **Configuration** > **Automation** page. For Microsoft Sentinel in the [Defender portal](https://security.microsoft.com/), select **Microsoft Sentinel** > **Configuration** > **Automation**.
+
+    #### [Azure portal](#tab/azure-portal)
+    :::image type="content" source="../media/tutorial-respond-threats-playbook/add-new-playbook.png" alt-text="Screenshot of the menu selection for adding a new playbook in the Automation screen." lightbox="../media/tutorial-respond-threats-playbook/add-new-playbook.png":::
+
+    #### [Defender portal](#tab/defender-portal)
+    :::image type="content" source="../media/tutorial-respond-threats-playbook/add-new-playbook-defender.png" alt-text="Screenshot of the menu selection for adding a new playbook in the Automation screen." lightbox="../media/tutorial-respond-threats-playbook/add-new-playbook-defender.png":::
+
+    ---
 
 1. From the top menu, select **Create**.
 
