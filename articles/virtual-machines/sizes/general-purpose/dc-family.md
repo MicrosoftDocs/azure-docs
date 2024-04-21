@@ -9,22 +9,18 @@ ms.date: 04/16/2024
 ms.author: mattmcinnes
 ---
 
-# DC sub-family general purpose VM size series
+# 'DC' sub-family general purpose VM size series
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
 > [!NOTE]
 > 'DC' family VMs are specialized for confidential computing scenarios. If your workload doesn't require confidential compute and you're looking for general purpose VMs with similar specs, consider the [the standard D-family size series](./d-family.md).
 
-The 'DC' sub-family of VM size series are one of Azure's security focused general purpose VM instances. They're designed for [confidential computing](../../../confidential-computing/overview-azure-products.md) with enhanced data protection and code confidentiality, featuring hardware-based Trusted Execution Environments (TEEs) with Intel's Software Guard Extensions (SGX). These VMs are ideal for handling highly sensitive data that demands isolation from the host environment, such as in scenarios involving secure enclaves for processing private data, financial transactions, and personally identifiable information (PII), ensuring a higher level of security for critical applications.
+[!INCLUDE [dc-family-summary](./includes/dc-family-summary.md)]
 
 ## Workloads and use cases
 
-- **Confidential Computing:** They support secure enclave technology using Intel SGX, which allows parts of the VM memory to be isolated from the main operating system. This enclave securely processes sensitive data, ensuring that it is protected even from privileged users and underlying system software.
-
-- **Data Protection:** DC-series VMs are ideal for applications that manage, store, and process sensitive data, such as personal identifiable information (PII), financial data, health records, and other types of confidential information. The hardware-based encryption ensures that data is protected at rest and during processing.
-
-- **Regulatory Compliance:** For businesses that need to comply with stringent regulatory requirements for data privacy and security (like GDPR, HIPAA, or financial industry regulations), DC-series VMs provide a hardware-assured environment that can help meet these compliance demands.
+[!INCLUDE [dc-family-workloads](./includes/dc-family-workloads.md)]
 
 ## Series in family
 
