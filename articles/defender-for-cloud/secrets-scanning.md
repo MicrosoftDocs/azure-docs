@@ -21,15 +21,17 @@ Defender for Cloud provides secrets scanning for virtual machines, and for cloud
 
 - **Virtual machines (VMs)**: Agentless secrets scanning on multicloud VMs.
 - **Cloud deployments**: Agentless secrets scanning across multicloud infrastructure-as-code deployment resources.
-- **Azure DevOps**: Scanning to discover exposed secrets in Azure DevOps.
+- **Azure DevOps**: [Scanning to discover exposed secrets in Azure DevOps](defender-for-devops-introduction.md).
+
 
 
 
 ## Deploying secrets scanning
 
 Secrets scanning is provided as a feature in Defender for Cloud plans:
-- VM scanning: Provided with Defender for Cloud Security Posture Management (CSPM) plan, or with Defender for Servers Plan 2.
-- Cloud deployment resource scanning: Provided with Defender CSPM
+- **VM scanning**: Provided with Defender for Cloud Security Posture Management (CSPM) plan, or with Defender for Servers Plan 2.
+- **Cloud deployment resource scanning** Provided with Defender CSPM.
+- **DevOps scanning**: Provided with Defender CSPM.
 
 ## Reviewing secrets findings
 
