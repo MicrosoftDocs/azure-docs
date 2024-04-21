@@ -14,6 +14,8 @@ ms.collection: usx-security
 
 # Create and manage Microsoft Sentinel playbooks 
 
+<!--why doesn't this URL work?-->
+
 Playbooks are collections of procedures that can be run from Microsoft Sentinel in response to an entire incident, to an individual alert, or to a specific entity. A playbook can help automate and orchestrate your response, and can be set to run automatically when specific alerts are generated or when incidents are created or updated, by being attached to an automation rule. It can also be run manually on-demand on specific incidents, alerts, or entities.
 
 This article describes how to create and manage Microsoft Sentinel playbooks. You can later attach these playbooks to analytics rules or automation rules, or run them manually on specific incidents, alerts, or entities.

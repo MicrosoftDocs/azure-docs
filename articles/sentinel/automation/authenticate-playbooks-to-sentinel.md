@@ -164,7 +164,7 @@ To make a connection as a Microsoft Entra user:
 
 1. In the resulting list of connections, select **Add new**, and then select **Sign in**.
 
-    :::image type="content" source="../../media/authenticate-playbooks-to-sentinel/auth-methods-sign-in.png" alt-text="Screenshot of the Sign in button selected."::: <!--get this image from old PR-->
+    :::image type="content" source="../media/authenticate-playbooks-to-sentinel/auth-methods-sign-in.png" alt-text="Screenshot of the Sign in button selected."
 
 1. Enter your credentials when prompted, and then follow the remaining instructions on the screen to create a connection.
 
