@@ -33,7 +33,7 @@ In the following configuration, the model queries trials that are in recruitment
 
 - Specifying multiple filter categories results in a trial set that is the combination of the sets.
 In the following case, only trials for diabetes that are recruiting in Illinois are queried.
-Leaving a category empty will not limit the trials by that category.
+Leaving a category empty is not limiting the trials by that category.
 
 ```json
 "registryFilters": [
@@ -92,7 +92,7 @@ Evidence is an indication of whether the model’s output should include evidenc
 ## Verbose
 Verbose is an indication of whether the model should return trial information. The default value is false. If set to True, the model returns trial information including ```Title```, ```Phase```, ```Type```, ```Recruitment status```, ```Sponsors```, ```Contacts```, and ```Facilities```.
 
-If you use [gradual matching](./trial-matcher-modes.md), it’s typically used in the last stage of the qualification process, before displaying trial results
+If you use [gradual matching](./trial-matcher-modes.md), verbose is used typically in the last stage of the qualification process, before displaying trial results.
 
 
 ```json
