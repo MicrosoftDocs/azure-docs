@@ -125,7 +125,7 @@ If you get empty response or `RegistrationState` value is `NotRegistered` then y
 
 # [REST](#tab/rest)
 
-To check whether an Azure subscription has access to BYOS through REST API use [Features - List](/rest/api/resources/features/list) request from Azure Resource Manager REST API.
+To check through REST API whether an Azure subscription has access to BYOS use [Features - List](/rest/api/resources/features/list) request from Azure Resource Manager REST API.
 
 If your subscription has access to BYOS, the REST response will contain the following element:
 ```json
