@@ -221,7 +221,7 @@ As an alternative to building your own VHD, SUSE also publishes BYOS (bring your
     sudo rm -f ~/.bash_history
     ```
 
-## Prepare openSUSE 15.2+
+## Prepare openSUSE 15.4+
 
 1. On the center pane of Hyper-V Manager, select the virtual machine.
 2. Select **Connect** to open the window for the virtual machine.
@@ -231,16 +231,16 @@ As an alternative to building your own VHD, SUSE also publishes BYOS (bring your
    | - | :-------------------- | :-------------------- | :------ | :------
    | 1 | Cloud:Tools_15.4      | Cloud:Tools_15.4      | Yes     | Yes
    | 2 | openSUSE_15.4_OSS     | openSUSE_15.4_OSS     | Yes     | Yes
-   | 3 | openSUSE_15.4_Updates | openSUSE_15.4Updates | Yes     | Yes
+   | 3 | openSUSE_15.4_Updates | openSUSE_15.4Updates  | Yes     | Yes
 
 If you receive the message "___No repositories defined___" from the `zypper lr`  the repositories must be added manually.
 
-Below are examples of commands for adding these repositories (versions and links may vary):
+    Below are examples of commands for adding these repositories (versions and links may vary):
 
     ```bash
-sudo zypper ar -f https://download.opensuse.org/repositories/Cloud:/Tools/15.4 Cloud:Tools_15.4
-sudo zypper ar -f https://download.opensuse.org/distribution/leap/15.4/repo/oss openSUSE_15.4_OSS
-sudo zypper ar -f https://download.opensuse.org/update/leap/15.4 openSUSE_15.4_Updates
+    sudo zypper ar -f https://download.opensuse.org/repositories/Cloud:/Tools/15.4 Cloud:Tools_15.4
+    sudo zypper ar -f https://download.opensuse.org/distribution/leap/15.4/repo/oss openSUSE_15.4_OSS
+    sudo zypper ar -f https://download.opensuse.org/update/leap/15.4 openSUSE_15.4_Updates
     ```
 
     You can then verify that the repositories have been added by running the command `zypper lr` again. If one of the relevant update repositories isn't enabled, enable it by using the following command:
