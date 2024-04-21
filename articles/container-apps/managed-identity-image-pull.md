@@ -8,18 +8,20 @@ ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.topic: how-to
 ms.date: 09/16/2022
 ms.author: v-wellsjason
-zone_pivot_groups: container-apps-interface-types
+zone_pivot_groups: azure-portal-console-bicep
 ---
 
 # Azure Container Apps image pull with managed identity
 
-You can pull images from private repositories in Microsoft Azure Container Registry  using managed identities for authentication to avoid the use of administrative credentials.  You can use a system-assigned or user-assigned managed identity to authenticate with Azure Container Registry.  
+You can pull images from private repositories in Microsoft Azure Container Registry using managed identities for authentication to avoid the use of administrative credentials. You can use a user-assigned or system-assigned managed identity to authenticate with Azure Container Registry.
 
-With a system-assigned managed identity, the identity is created and managed by Azure Container Apps.  The identity is tied to your container app and is deleted when your app is deleted.   With a user-assigned managed identity, you create and manage the identity outside of Azure Container Apps.  It can be assigned to multiple Azure resources, including Azure Container Apps.
+With a user-assigned managed identity, you create and manage the identity outside of Azure Container Apps. It can be assigned to multiple Azure resources, including Azure Container Apps. With a system-assigned managed identity, the identity is created and managed by Azure Container Apps. The identity is tied to your container app and is deleted when your app is deleted.
+
+When possible, you should use a user-assigned managed identity to pull images.
 
 Container Apps checks for a new version of the image whenever a container is started. In Docker or Kubernetes terminology, Container Apps sets each container's image pull policy to `always`.
 
-::: zone pivot="azure-portal"
+::: zone pivot="portal"
 
 This article describes how to use the Azure portal to configure your container app to use user-assigned and system-assigned managed identities to pull images from private Azure Container Registry repositories.
 
@@ -71,7 +73,7 @@ Use the following steps to create a container app with the default quickstart im
 1. Select the **Review + Create** button at the bottom of the **Create Container App** page.
 1. Select the **Create** button at the bottom of the **Create Container App** window.
 
-Allow a few minutes for the container app deployment to finish.  When deployment is complete, select **Go to resource**.
+Allow a few minutes for the container app deployment to finish. When deployment is complete, select **Go to resource**.
 
 ### Add the user-assigned managed identity
 
@@ -104,11 +106,11 @@ Create a container app revision with a private image and the system-assigned man
      :::image type="content" source="media/managed-identity/screenshot-edit-a-container-user-assigned-identity.png" alt-text="Screen shot of the Edit a container dialog entering user assigned managed identity.":::
      >[!NOTE]
      > If the administrative credentials are not enabled on your Azure Container Registry registry, you will see a warning message displayed and you will need to enter the image name and tag information manually.
- 
+
 1. Select **Save**.
 1. Select **Create** from the **Create and deploy new revision** page.
 
-A new revision will be created and deployed.  The portal will automatically attempt to add the `acrpull` role to the user-assigned managed identity.  If the role isn't added, you can add it manually.  
+A new revision will be created and deployed. The portal will automatically attempt to add the `acrpull` role to the user-assigned managed identity. If the role isn't added, you can add it manually.
 
 You can verify that the role was added by checking the identity from the **Identity** pane of the container app page.
 
@@ -133,17 +135,17 @@ This method is typical in Infrastructure as Code (IaC) scenarios.
 If you're not going to continue to use this application, you can delete the Azure Container Apps instance and all the associated services by removing the resource group.
 
 >[!WARNING]
->Deleting the resource group will delete all the resources in the group.  If you have other resources in the group, they will also be deleted. If you want to keep the resources, you can delete the container app instance and the container app environment.
+>Deleting the resource group will delete all the resources in the group. If you have other resources in the group, they will also be deleted. If you want to keep the resources, you can delete the container app instance and the container app environment.
 
 1. Select your resource group from the *Overview* section.
 1. Select the **Delete resource group** button at the top of the resource group *Overview*.
-1. Enter the resource group name  in the confirmation dialog.
-1. Select **Delete**.  
+1. Enter the resource group name in the confirmation dialog.
+1. Select **Delete**.
     The process to delete the resource group may take a few minutes to complete.
 
 ## System-assigned managed identity
 
-The method for configuring a system-assigned managed identity in the Azure portal is the same as configuring a user-assigned managed identity.  The only difference is that you don't need to create a user-assigned managed identity.  Instead, the system-assigned managed identity is created when you create the container app.
+The method for configuring a system-assigned managed identity in the Azure portal is the same as configuring a user-assigned managed identity. The only difference is that you don't need to create a user-assigned managed identity. Instead, the system-assigned managed identity is created when you create the container app.
 
 The method to configure a system-assigned managed identity in the Azure portal is:
 
@@ -177,7 +179,7 @@ Follow these steps to create a container app with the default quickstart image.
 1. Select the **Review + Create** button at the bottom of the **Create Container App** page.
 1. Select the **Create** button at the bottom of the **Create Container App** page.
 
-Allow a few minutes for the container app deployment to finish.  When deployment is complete, select **Go to resource**.
+Allow a few minutes for the container app deployment to finish. When deployment is complete, select **Go to resource**.
 
 ### Edit and deploy a revision
 
@@ -203,9 +205,9 @@ Edit the container to use the image from your private Azure Container Registry, 
 
 1. Select **Save** at the bottom of the page.
 1. Select **Create** at the bottom of the **Create and deploy new revision** page
-1. After a few minutes, select **Refresh**  on the **Revision management** page to see the new revision.
+1. After a few minutes, select **Refresh** on the **Revision management** page to see the new revision.
 
-A new revision will be created and deployed.  The portal will automatically attempt to add the `acrpull` role to the system-assigned managed identity.  If the role isn't added, you can add it manually.  
+A new revision will be created and deployed. The portal will automatically attempt to add the `acrpull` role to the system-assigned managed identity. If the role isn't added, you can add it manually.
 
 You can verify that the role was added by checking the identity in the **Identity** pane of the container app page.
 
@@ -219,16 +221,16 @@ You can verify that the role was added by checking the identity in the **Identit
 If you're not going to continue to use this application, you can delete the Azure Container Apps instance and all the associated services by removing the resource group.
 
 >[!WARNING]
->Deleting the resource group will delete all the resources in the group.  If you have other resources in the group, they will also be deleted. If you want to keep the resources, you can delete the container app instance and the container app environment.
+>Deleting the resource group will delete all the resources in the group. If you have other resources in the group, they will also be deleted. If you want to keep the resources, you can delete the container app instance and the container app environment.
 
 1. Select your resource group from the *Overview* section.
 1. Select the **Delete resource group** button at the top of the resource group *Overview*.
 1. Enter the resource group name in the confirmation dialog.
-1. Select **Delete**.  
+1. Select **Delete**.
     The process to delete the resource group may take a few minutes to complete. 
 
 ::: zone-end
-::: zone pivot="command-line"
+::: zone pivot="console"
 
 This article describes how to configure your container app to use managed identities to pull images from a private Azure Container Registry repository using Azure CLI and Azure PowerShell.
 
@@ -236,7 +238,7 @@ This article describes how to configure your container app to use managed identi
 
 | Prerequisite | Description |
 |--------------|-------------|
-| Azure account | An Azure account with an active subscription. If you don't have one, you can  [can create one for free](https://azure.microsoft.com/free/). |
+| Azure account | An Azure account with an active subscription. If you don't have one, you can [can create one for free](https://azure.microsoft.com/free/). |
 | Azure CLI | If using Azure CLI, [install the Azure CLI](/cli/azure/install-azure-cli) on your local machine. |
 | Azure PowerShell | If using PowerShell, [install the Azure PowerShell](/powershell/azure/install-azure-powershell) on your local machine. Ensure that the latest version of the Az.App module is installed by running the command `Install-Module -Name Az.App`. |
 |Azure Container Registry | A private Azure Container Registry containing an image you want to pull. [Quickstart: Create a private container registry using the Azure CLI](../container-registry/container-registry-get-started-azure-cli.md) or [Quickstart: Create a private container registry using Azure PowerShell](../container-registry/container-registry-get-started-powershell.md)|
@@ -270,7 +272,7 @@ az extension add --name containerapp --upgrade
 
 # [Azure PowerShell](#tab/azure-powershell)
 
-You must have the latest Az PowerShell module installed.  Ignore any warnings about modules currently in use.
+You must have the latest Az PowerShell module installed. Ignore any warnings about modules currently in use.
 
 ```azurepowershell
 Install-Module -Name Az -Scope CurrentUser -Repository PSGallery -Force
@@ -365,7 +367,7 @@ az containerapp env create \
 
 # [Azure PowerShell](#tab/azure-powershell)
 
-A Log Analytics workspace is required for the Container Apps environment.  The following commands create a Log Analytics workspace and save the workspace ID and primary shared key to  variables.
+A Log Analytics workspace is required for the Container Apps environment. The following commands create a Log Analytics workspace and save the workspace ID and primary shared key to variables.
 
 ```azurepowershell
 $WorkspaceArgs = @{
@@ -404,14 +406,14 @@ Continue to the next section to configure user-assigned managed identity or skip
 Follow this procedure to configure user-assigned managed identity:
 
 1. Create a user-assigned managed identity.
-1. If you're using PowerShell, assign a `acrpull` role for your registry to the managed identity.  The Azure CLI automatically makes this assignment.
+1. If you're using PowerShell, assign a `acrpull` role for your registry to the managed identity. The Azure CLI automatically makes this assignment.
 1. Create a container app with the image from the private registry that is authenticated with the user-assigned managed identity.
 
 ### Create a user-assigned managed identity
 
 # [Azure CLI](#tab/azure-cli)
 
-Create a user-assigned managed identity. Replace the *\<PLACEHOLDERS\>* with the name of your managed identity.  
+Create a user-assigned managed identity. Replace the *\<PLACEHOLDERS\>* with the name of your managed identity.
 
 ```azurecli
 IDENTITY="<YOUR_IDENTITY_NAME>"
@@ -425,7 +427,7 @@ az identity create \
 
 # [Azure PowerShell](#tab/azure-powershell)
 
-Create a user-assigned managed identity. Replace  the *\<Placeholders\>* with the name of your managed identity.  
+Create a user-assigned managed identity. Replace the *\<Placeholders\>* with the name of your managed identity.
 
 ```azurepowershell
 $IdentityName = '<YourIdentityName>'
@@ -457,7 +459,7 @@ $IdentityId = (Get-AzUserAssignedIdentity -Name $IdentityName -ResourceGroupName
 $PrincipalId = (Get-AzUserAssignedIdentity -Name $IdentityName -ResourceGroupName $ResourceGroupName).PrincipalId
 ```
 
-Get the registry's resource ID.  Replace the *\<placeholders\>* with the resource group name for your registry.
+Get the registry's resource ID. Replace the *\<placeholders\>* with the resource group name for your registry.
 
 ```azurepowershell
 $RegistryId = (Get-AzContainerRegistry -ResourceGroupName <RegistryResourceGroup> -Name $RegistryName).Id
@@ -555,7 +557,7 @@ To configure a system-assigned identity, you'll need to:
 
 ### Create a container app
 
-Create a container with a public image.  
+Create a container with a public image.
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -597,7 +599,7 @@ New-AzContainerApp @AppArgs
 
 ### Update the container app
 
-Update the container app with the image from your private container registry and add a system-assigned identity to authenticate the Azure Container Registry pull.  You can also include other settings necessary for your container app, such as ingress, scale and Dapr settings.  
+Update the container app with the image from your private container registry and add a system-assigned identity to authenticate the Azure Container Registry pull. You can also include other settings necessary for your container app, such as ingress, scale and Dapr settings.
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -665,6 +667,10 @@ Remove-AzResourceGroup -Name $ResourceGroupName -Force
 ```
 
 ---
+
+::: zone-end
+::: zone pivot="bicep"
+
 
 
 ::: zone-end
