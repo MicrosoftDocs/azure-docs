@@ -1,60 +1,62 @@
 ---
-title: HPE ProLiant DL20 Gen 11 (4SFF) for OT monitoring in SMB/ L500 deployments - Microsoft Defender for IoT 
+title: HPE ProLiant DL20 Gen 11 (NHP 2LFF) for OT monitoring in SMB/ L500 deployments - Microsoft Defender for IoT 
 description: Learn about the HPE ProLiant DL20 Gen 11 Plus appliance when used for OT monitoring with Microsoft Defender for IoT in SMB deployments.
 ms.date: 04/09/2024
 ms.topic: reference
 ---
 
-# HPE ProLiant DL20 Gen 11 (4SFF)
+# HPE ProLiant DL20 Gen 11 (NHP 2LFF)
 
 This article describes the **HPE ProLiant DL20 Gen 11** appliance for OT sensors monitoring production lines.
 
-The HPE ProLiant DL20 Gen11 is also available for the on-premises management console.
+>[!NOTE] 
+>Legacy appliances are certified but aren't currently offered as pre-configured appliances. 
+>
 
 | Appliance characteristic |Details |
 |---------|---------|
-|**Hardware profile** | E1800 |
-|**Performance** | Max bandwidth: 1 Gbps <br>Max devices: 10,000 |
-|**Physical specifications** | Mounting: 1U <br> Minimum dimensions (H x W x D) 1.70 x 17.11 x 15.05 in<br>Minimum dimensions (H x W x D) 4.32 x 43.46 x 38.22 cm|
-|**Status** | Supported, available pre-configured |
+|**Hardware profile** | L500 |
+|**Performance** | Max bandwidth: 200 Mbps <br>Max devices: 1,000 |
+|**Physical specifications** | Mounting: 1U <br> Ports: 4x RJ45|
+|**Status** | Supported, not available pre-configured |
 
 ## Specifications
 
 |Component|Technical specifications|
 |----|----|
 |Chassis|1U rack server|
-|Physical Characteristics  | HPE DL20 Gen11 4SFF Ht Plg CTO Server  |
-|Processor| Intel Xeon E-2434 3.4-GHz 4-core 55 W FIO Processor for HPE |
+|Dimensions |4.32 x 43.46 x 37.84 cm  <br> 1.69 x 17.11 x 15.25in |
+|Processor| Intel Xeon E-2434 3.4 GHz 4-core 55 W |
 |Chipset|Intel C262 |
-|Memory|HPE 16 GB (1 x 16 GB) Single Rank x8 DDR5-4800 CAS-40-39-39 <br>Unbuffered Standard Memory|
-|Storage|HPE 1.2 TB SAS 12 G Mission Critical 10 K SFF |
-|Network controller|On-board: 2 x 1 Gb|
-|External| 1 x HPE Ethernet 1-Gb 4-port 366FLR Adapter |
-|On-board| On-board: 4x 1 Gb|
+|Memory|HPE 16 GB (1 x 16 GB) Single Rank x8 DDR5-4800 |
+|Storage|HPE 1 TB SATA 6 G Business Critical 7.2 K LFF |
+|Network controller|On-board: 4 x 1 Gb|
+|On-board | iLO Port Card 1 Gb|
+|External| 1 x Broadcom BCM5719 Ethernet 1 Gb 4-port BASE-T Adapter for HPE  |
 |Management|HPE iLO Advanced|
-|Device access| Front: One USB 3.0 1 x USB iLO Service Port<br> Rear: Two USBs 3.0|
+|Device access| Front: One USB 3.2 1 x USB iLO Service Port<br> Rear: Four USBs 3.2|
 |External| 1 x Broadcom BCM5719 Ethernet 1 Gb 4-port BASE-T Adapter for HPE  |
 |Internal| One USB 3.2|
-|Power|HPE 1,000 W Flex Slot Titanium Hot Plug Power Supply Kit |
-|Rack support|HPE 1U Short Friction Rail Kit |
+|Power|HPE 800 W Flex Slot Titanium Hot Plug Low Halogen Power Supply Kit |
+|Rack support|HPE Easy Install Rail 12 Kit |
 
-## DL20 Gen11 (4SFF) - Bill of Materials
+## DL20 Gen11 (NHP 2LFF) - Bill of Materials
 
 |Quantity|PN|Description|
 |----|---|----|
-|1|	P65392-B21 | HPE ProLiant DL20 Gen 11 4SFF Hot Plug Configure-to-order Server|
-|1|	P65392-B21 B19 | HPE DL20 Gen11 4SFF Ht Plg CTO Server |
+|1|	P65390-B21 | HPE ProLiant DL20 Gen 11 2LFF Non-hot Plug Configure-to-order Server|
+|1|	P65390-B21 B19 | HPE DL20 Gen11 2LFF NHP CTO Server |
 |1|	P65224-B21 | Intel Xcon E-2434 3.4-GHz 4-core 55 W FIO Processor for HPE|
 |2|	P64336-B21 | HPE 16 GB (1 x 16 GB) Single Rank x8 DDR5-4800 CAS-40-39-39 Unbuffered Standard Memory Kit|
-|4|	P28586-B21 | HPE 1.2 TB SAS 12 G Mission Critical 10K SFF BC 3-year Warranty Multi Vendor HDD |
+|4|	P28586-B21 | HPE 1 TB SATA 6 G  Business Critical 7.2 K LFF RW 1-year Warranty Multi Vendor HDD |
 |1|	P52753-B21 | HPE ProLiant DL320 Genll x 16 FHHL Riser Kit|
 |1|	P51178-B21 | Broadcom BCM5719 Ethernet 1-Gb 4-port BASE-T Adapter for HPE |
-|1|	P47789-B21 | HPE MRi-o Gen11 x 16 Lanes without Cache OCP SPDM Storage Controller |
-|2|	P03178-B21 | HPE 1,000 W Flex Slot Titanium Hot Plug Power Supply Kit|
-|1|	BD505A | HPE iLO Advanced 1-server License with 3 yr Support on iLO Licensed Features |
-|1|	P65412-B21 | HPE ProLiant DL20 Gen11 2LFF/4SFF OCP Cable Kit |
+|1| 389692-B21 | HPE Customer Defined RAID Setting Service |
+|1|	P03178-B21 | HPE 800 W Flex Slot Titanium Hot Plug Low Halogen Power Supply Kit|
+|1| AF573A | HPE C13 - C14 WW 250V 10 Amp Flint gray 2.0 mm Jumper Cord |
+|1|	512485-B21 | HPE iLO Advanced 1-server License with 1 yr Support on iLO Licensed Features |
 |1|	P64576-B21 | HPE Easy Install Rail 12 Kit |
-|1|	P65407-B21 | HPE ProLiant DL20 Gen 11 LP iLO/M.2 Enablement Kit |
+|1|	P65407-B21 | HPE ProLiant DL20 Gen11 LP iLO/M.2 Enablement Kit |
 
 ## Port expansion
 
@@ -70,9 +72,9 @@ Optional modules for port expansion include:
 | SFPs for Fiber Optic NICs|MultiMode, Short Range|455883-B21 - HPE BLc 10G SFP+ SR Transceiver |
 | SFPs for Fiber Optic NICs|SingleMode, Long Range | 455886-B21 - HPE BLc 10G SFP+ LR Transceiver |
 
-## HPE ProLiant DL20 Gen 11 (4SFF) installation
+## HPE ProLiant DL20 Gen 11 (NHP 2LFF) installation
 
-This section describes how to install Defender for IoT software on the HPE ProLiant DL20 Gen11 (4SFF) appliance.
+This section describes how to install Defender for IoT software on the HPE ProLiant DL20 Gen11 (NHP 2LFF) appliance.
 
 Installation includes:
 
@@ -155,9 +157,9 @@ This procedure describes how to update the HPE BIOS configuration for your OT de
 
 [!INCLUDE [install iLO remotely from virtual drive and change timeout settings](../includes/ilo-remote-install-hpe.md)]
 
-### Install Defender for IoT software on the HPE ProLiant DL20 Gen 11 (4SFF)
+### Install Defender for IoT software on the HPE ProLiant DL20 Gen 11 (NHP 2LFF)
 
-This procedure describes how to install Defender for IoT software on the HPE ProLiant DL20 Gen 11 (4SFF).
+This procedure describes how to install Defender for IoT software on the HPE ProLiant DL20 Gen 11 (NHP 2LFF).
 
 The installation process takes about 20 minutes. After the installation, the system is restarted several times.
 
