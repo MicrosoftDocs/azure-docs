@@ -13,17 +13,17 @@ ms.collection: usx-security
 
 # Define an access restriction policy for Standard-plan playbooks
 
-This article describes how to define an [access restriction policy](/azure/app-service/overview-access-restrictions.md) for Microsoft Sentinel Standard-plan playbooks, so that they can support private endpoints. 
+This article describes how to define an [access restriction policy](/azure/app-service/overview-access-restrictions) for Microsoft Sentinel Standard-plan playbooks, so that they can support private endpoints. 
 
 Define an access restriction policy to ensure that only Microsoft Sentinel has access to the Standard logic app containing your playbook workflows.
 
-For more information, see [Secure traffic between Standard logic apps and Azure virtual networks using private endpoints](/azure/logic-apps/secure-single-tenant-workflow-virtual-network-private-endpoint.md) and [Supported logic app types](playbooks/logic-apps-playbooks.md#supported-logic-app-types).
+For more information, see [Secure traffic between Standard logic apps and Azure virtual networks using private endpoints](/azure/logic-apps/secure-single-tenant-workflow-virtual-network-private-endpoint) and [Supported logic app types](logic-apps-playbooks.md#supported-logic-app-types).
 
 > [!IMPORTANT]
 >
 > The new version of access restriction policies is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
-> [!INCLUDE [unified-soc-preview-without-alert](includes/unified-soc-preview-without-alert.md)]
+> [!INCLUDE [unified-soc-preview-without-alert](../includes/unified-soc-preview-without-alert.md)]
 
 ## Define an access restriction policy
 
@@ -82,4 +82,4 @@ For more information, see:
 
 - [Automate threat response with Microsoft Sentinel playbooks](automate-responses-with-playbooks.md)
 - [Use playbooks with automation rules in Microsoft Sentinel](tutorial-respond-threats-playbook.md)
-- [Set up Azure App Service access restrictions](/azure/app-service/app-service-ip-restrictions.md)
+- [Set up Azure App Service access restrictions](/azure/app-service/app-service-ip-restrictions)

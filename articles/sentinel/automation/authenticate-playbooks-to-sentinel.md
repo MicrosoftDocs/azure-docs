@@ -62,7 +62,7 @@ Use this method to lower the number of identities you need to manage.
 
 **To authenticate with a managed identity**:
 
-1. Enable managed identity on the Logic Apps workflow resource. For more information, see [Enable system assigned identity in the Azure portal](/azure/logic-apps/create-managed-service-identity.md#enable-system-assigned-identity-in-azure-portal).
+1. Enable managed identity on the Logic Apps workflow resource. For more information, see [Enable system assigned identity in the Azure portal](/azure/logic-apps/create-managed-service-identity#enable-system-assigned-identity-in-azure-portal).
 
     Your logic app can now use the system-assigned identity, which is registered with Microsoft Entra ID and is represented by an object ID.
 
@@ -82,7 +82,7 @@ Use this method to lower the number of identities you need to manage.
     1. Select the subscription the playbook belongs to, and then select the playbook name.
     1. Select **Save**.
 
-    For more information, see [Give identity access to resources](/azure/logic-apps/create-managed-service-identity.md#give-identity-access-to-resources).
+    For more information, see [Give identity access to resources](/azure/logic-apps/create-managed-service-identity#give-identity-access-to-resources).
 
 1. Enable the managed identity authentication method in the Microsoft Sentinel Logic Apps connector:
 
@@ -164,7 +164,7 @@ To make a connection as a Microsoft Entra user:
 
 1. In the resulting list of connections, select **Add new**, and then select **Sign in**.
 
-    :::image type="content" source="../media/authenticate-playbooks-to-sentinel/auth-methods-sign-in.png" alt-text="Screenshot of the Sign in button selected.":::
+    :::image type="content" source="../../media/authenticate-playbooks-to-sentinel/auth-methods-sign-in.png" alt-text="Screenshot of the Sign in button selected."::: <!--get this image from old PR-->
 
 1. Enter your credentials when prompted, and then follow the remaining instructions on the screen to create a connection.
 

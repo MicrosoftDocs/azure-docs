@@ -76,7 +76,7 @@ The **Create playbook** wizard appears after selecting any of the playbook optio
 
     1. If you want to monitor this playbook's activity for diagnostic purposes, mark the **Enable diagnostics logs in Log Analytics** check box, and choose your **Log Analytics workspace** from the drop-down list.
 
-    1. If your playbooks need access to protected resources that are inside or connected to an Azure virtual network, [you might need to use an integration service environment (ISE)](/azure/logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md). If so, mark the **Associate with integration service environment** check box, and select the desired ISE from the drop-down list.
+    1. If your playbooks need access to protected resources that are inside or connected to an Azure virtual network, [you might need to use an integration service environment (ISE)](/azure/logic-apps/connect-virtual-network-vnet-isolated-environment-overview). If so, mark the **Associate with integration service environment** check box, and select the desired ISE from the drop-down list.
 
     1. Select **Next : Connections >**.
 

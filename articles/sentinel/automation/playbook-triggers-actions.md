@@ -103,9 +103,9 @@ The following image shows an example of available actions for entities:
 
 For other entity types, similar functionality can be achieved using Logic Apps' built-in actions:
 
-- Filter the array of entities by the requested type using [**Filter Array**](/azure/logic-apps/logic-apps-perform-data-operations.md#filter-array-action).
+- Filter the array of entities by the requested type using [**Filter Array**](/azure/logic-apps/logic-apps-perform-data-operations#filter-array-action).
 
-- Parse the specific fields of this type, so they can be used as dynamic fields in further actions using [**Parse JSON**](/azure/logic-apps/logic-apps-perform-data-operations.md#parse-json-action).
+- Parse the specific fields of this type, so they can be used as dynamic fields in further actions using [**Parse JSON**](/azure/logic-apps/logic-apps-perform-data-operations#parse-json-action).
 
 ### Use entity playbooks with no incident ID
 
