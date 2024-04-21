@@ -47,21 +47,21 @@ As an alternative to building your own VHD, SUSE also publishes BYOS (bring your
 
     Edit the */etc/dracut.conf* file and add the following line to the file:
 
-    ```config
+```config
     add_drivers+=" hv_vmbus hv_netvsc hv_storvsc "
-    ```
+```
 
     Run the `dracut` command to rebuild the initramfs file:
 
-    ```bash
+```bash
     sudo dracut --verbose --force
-    ```
+```
 
 2. Set up the serial console.
 
     To successfully work with the serial console, you must set up several variables in the */etc/defaults/grub* file and re-create GRUB on the server:
 
-    ```config
+```config
     # Add console=ttyS0 and earlyprintk=ttS0 to the variable.
     # Remove "splash=silent" and "quiet" options.
     GRUB_CMDLINE_LINUX_DEFAULT="audit=1 no-scroll fbcon=scrollback:0 mitigations=auto security=apparmor crashkernel=228M,high crashkernel=72M,low console=ttyS0 earlyprintk=ttyS0"
@@ -72,32 +72,31 @@ As an alternative to building your own VHD, SUSE also publishes BYOS (bring your
     # Set the GRUB_SERIAL_COMMAND variable.
 
     GRUB_SERIAL_COMMAND="serial --speed=115200 --unit=0 --word=8 --parity=no --stop=1"
-    ```
+```
 
-    ```shell
+```shell
     /usr/sbin/grub2-mkconfig -o /boot/grub2/grub.cfg
-    ```
+```
 
 3. Register your SUSE Linux Enterprise system to allow it to download updates and install packages.
 
 4. Update the system with the latest patches:
 
-    ```bash
+```bash
     sudo zypper update
-    ```
+```
 
 5. Install the Azure Linux VM Agent (`waagent`) and cloud-init:
 
-    ```bash
+```bash
     sudo SUSEConnect -p sle-module-public-cloud/15.2/x86_64  (SLES 15 SP2)
     sudo zypper refresh
     sudo zypper install python-azure-agent
     sudo zypper install cloud-init
-    ```
-
+```
 6. Enable `waagent` and cloud-init to start on boot:
 
-    ```bash
+```bash
     sudo systemctl enable  waagent
     sudo systemctl enable cloud-init-local.service
     sudo systemctl enable cloud-init.service
@@ -105,11 +104,11 @@ As an alternative to building your own VHD, SUSE also publishes BYOS (bring your
     sudo systemctl enable cloud-final.service
     sudo systemctl daemon-reload
     sudo cloud-init clean
-    ```
+```
 
 7. Update the cloud-init configuration:
 
-    ```bash
+```bash
     cat <<EOF | sudo tee /etc/cloud/cloud.cfg.d/91-azure_datasource.cfg
     datasource_list: [ Azure ]
     datasource:
@@ -117,9 +116,9 @@ As an alternative to building your own VHD, SUSE also publishes BYOS (bring your
             apply_network_config: False
 
     EOF
-    ```
+```
 
-    ```bash
+```bash
     sudo cat <<EOF | sudo tee  /etc/cloud/cloud.cfg.d/05_logging.cfg
     # This tells cloud-init to redirect its stdout and stderr to
     # 'tee -a /var/log/cloud-init-output.log' so the user can see output
@@ -133,13 +132,13 @@ As an alternative to building your own VHD, SUSE also publishes BYOS (bring your
     sudo sed -i '/ - disk_setup/d' /etc/cloud/cloud.cfg
     sudo sed -i '/cloud_init_modules/a\\ - mounts' /etc/cloud/cloud.cfg
     sudo sed -i '/cloud_init_modules/a\\ - disk_setup' /etc/cloud/cloud.cfg
-    ```
+```
 
 8. If you want to mount, format, and create a swap partition, one option is to pass in a cloud-init configuration every time you create a VM.
 
     Another option is to use a cloud-init directive in the image to configure swap space every time the VM is created:
 
-    ```bash
+```bash
     cat  <<EOF | sudo tee -a /etc/systemd/system.conf
     'DefaultEnvironment="CLOUD_CFG=/etc/cloud/cloud.cfg.d/00-azure-swap.cfg"'
     EOF
@@ -161,16 +160,16 @@ As an alternative to building your own VHD, SUSE also publishes BYOS (bring your
       - ["ephemeral0.1", "/mnt"]
       - ["ephemeral0.2", "none", "swap", "sw,nofail,x-systemd.requires=cloud-init.service,x-systemd.device-timeout=2", "0", "0"]
     EOF
-    ```
+```
 
 9. Previously, the Azure Linux Agent was used to automatically configure swap space by using the local resource disk that's attached to the virtual machine after the virtual machine is provisioned on Azure. Because cloud-init now handles this step, you *must not* use the Azure Linux Agent to format the resource disk or create the swap file. Use these commands to modify */etc/waagent.conf* appropriately:
 
-    ```bash
+```bash
     sudo sed -i 's/Provisioning.UseCloudInit=n/Provisioning.UseCloudInit=auto/g' /etc/waagent.conf
     sudo sed -i 's/Provisioning.Enabled=y/Provisioning.Enabled=n/g' /etc/waagent.conf
     sudo sed -i 's/ResourceDisk.Format=y/ResourceDisk.Format=n/g' /etc/waagent.conf
     sudo sed -i 's/ResourceDisk.EnableSwap=y/ResourceDisk.EnableSwap=n/g' /etc/waagent.conf
-    ```
+```
 
     > [!NOTE]
     > If you're using a cloud-init version earlier than 21.2, make sure the `udf` module is enabled. Removing or disabling it will cause a provisioning or boot failure. Cloud-init version 21.2 or later removes the UDF requirement.
@@ -179,47 +178,47 @@ As an alternative to building your own VHD, SUSE also publishes BYOS (bring your
 
 11. Remove udev rules and network adapter configuration files to avoid generating static rules for the Ethernet interfaces. These rules can cause problems when you're cloning a virtual machine in Microsoft Azure or Hyper-V.
 
-    ```bash
+```bash
     sudo rm -f /etc/udev/rules.d/70-persistent-net.rules
     sudo rm -f /etc/udev/rules.d/85-persistent-net-cloud-init.rules
     sudo rm -f /etc/sysconfig/network/ifcfg-eth*
-    ```
+```
 
 12. We recommend that you edit the */etc/sysconfig/network/dhcp* file and change the `DHCLIENT_SET_HOSTNAME` parameter to the following:
 
-    ```config
+```config
     DHCLIENT_SET_HOSTNAME="no"
-    ```
+```
 
 13. In the */etc/sudoers* file, comment out or remove the following lines if they exist:
 
-    ```output
+```output
     Defaults targetpw   # Ask for the password of the target user i.e. root
     ALL    ALL=(ALL) ALL   # WARNING! Only use this setting together with 'Defaults targetpw'!
-    ```
+```
 
 14. Ensure that the Secure Shell (SSH) server is installed and configured to start at boot time:
 
-    ```bash
+```bash
     sudo systemctl enable sshd
-    ```
+```
 
 15. Clean the cloud-init stage:
 
-    ```bash
+```bash
     sudo cloud-init clean --seed --logs
-    ```
+```
 
 16. Run the following commands to deprovision the virtual machine and prepare it for provisioning on Azure.
 
     If you're migrating a specific virtual machine and don't want to create a generalized image, skip the deprovisioning step.
 
-    ```bash
+```bash
     sudo rm -f /var/log/waagent.log
     sudo waagent -force -deprovision+user
     sudo export HISTSIZE=0
     sudo rm -f ~/.bash_history
-    ```
+```
 
 ## Prepare openSUSE 15.4+
 
@@ -252,46 +251,46 @@ sudo zypper ar -f https://download.opensuse.org/update/leap/15.4 openSUSE_15.4_U
 
 4. Update the kernel to the latest available version:
 
-    ```bash
+```bash
     sudo zypper up kernel-default
-    ```
+```
 
     Or update the operating system with all the latest patches:
 
-    ```bash
+```bash
     sudo zypper update
-    ```
+```
 
 5. Install the Azure Linux Agent:
 
-    ```bash
+```bash
     sudo zypper install WALinuxAgent
-    ```
+```
 
 6. Modify the kernel boot line in your GRUB configuration to include other kernel parameters for Azure. To do this, open */boot/grub/menu.lst* in a text editor and ensure that the default kernel includes the following parameters:
 
-    ```config-grub
+```config-grub
      console=ttyS0 earlyprintk=ttyS0
-    ```
+```
 
    This option ensures that all console messages are sent to the first serial port, which can assist Azure support with debugging issues. In addition, remove the following parameters from the kernel boot line if they exist:
 
-    ```config-grub
+```config-grub
      libata.atapi_enabled=0 reserve=0x1f0,0x8
-    ```
+```
 
 7. We recommend that you edit the */etc/sysconfig/network/dhcp* file and change the `DHCLIENT_SET_HOSTNAME` parameter to the following setting:
 
-    ```config
+```config
      DHCLIENT_SET_HOSTNAME="no"
-    ```
+```
 
 8. In the */etc/sudoers* file, comment out or remove the following lines if they exist. This is an important step.
 
-    ```output
+```output
     Defaults targetpw   # ask for the password of the target user i.e. root
     ALL    ALL=(ALL) ALL   # WARNING! Only use this together with 'Defaults targetpw'!
-    ```
+```
 
 9. Ensure that the SSH server is installed and configured to start at boot time.
 10. Don't create swap space on the OS disk.
@@ -300,32 +299,32 @@ sudo zypper ar -f https://download.opensuse.org/update/leap/15.4 openSUSE_15.4_U
 
     After you install the Azure Linux Agent, modify the parameters in */etc/waagent.conf* as follows:
 
-    ```config-conf
+```config-conf
     ResourceDisk.Format=n
     ResourceDisk.Filesystem=ext4
     ResourceDisk.MountPoint=/mnt/resource
     ResourceDisk.EnableSwap=n
     ResourceDisk.SwapSizeMB=2048    ## NOTE: set the size to whatever you need it to be.
-    ```
+```
 
 11. Ensure that the Azure Linux Agent runs at startup:
 
-    ```bash
+```bash
     sudo systemctl enable waagent.service
-    ```
+```
 
 12. Run the following commands to deprovision the virtual machine and prepare it for provisioning on Azure.
 
     If you're migrating a specific virtual machine and don't want to create a generalized image, skip the deprovisioning step.
 
-    ```bash
+```bash
         sudo rm -f ~/.bash_history # Remove current user history
         sudo rm -rf /var/lib/waagent/
         sudo rm -f /var/log/waagent.log
         sudo waagent -force -deprovision+user
         sudo rm -f ~/.bash_history # Remove root user history
         sudo export HISTSIZE=0
-    ```
+```
 
 13. Select **Action** > **Shut Down** in Hyper-V Manager.
 
