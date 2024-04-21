@@ -7,8 +7,8 @@ ms.subservice: imaging
 ms.collection: linux
 ms.custom: linux-related-content
 ms.topic: how-to
-ms.date: 12/14/2022
-ms.author: srijangupta
+ms.date: 04/21/2024
+ms.author: maries
 ms.reviewer: mattmcinnes
 ---
 # Prepare a SLES or openSUSE Leap virtual machine for Azure
@@ -229,16 +229,18 @@ As an alternative to building your own VHD, SUSE also publishes BYOS (bring your
 
    | # | Alias                 | Name                  | Enabled | Refresh
    | - | :-------------------- | :-------------------- | :------ | :------
-   | 1 | Cloud:Tools_15.2      | Cloud:Tools_15.2      | Yes     | Yes
-   | 2 | openSUSE_15.2_OSS     | openSUSE_15.2_OSS     | Yes     | Yes
-   | 3 | openSUSE_15.2_Updates | openSUSE_15.2_Updates | Yes     | Yes
+   | 1 | Cloud:Tools_15.4      | Cloud:Tools_15.4      | Yes     | Yes
+   | 2 | openSUSE_15.4_OSS     | openSUSE_15.4_OSS     | Yes     | Yes
+   | 3 | openSUSE_15.4_Updates | openSUSE_15.4Updates | Yes     | Yes
 
-    If the command returns "No repositories defined," use the following commands to add these repos:
+If you receive the message "___No repositories defined___" from the `zypper lr`  the repositories must be added manually.
+
+Below are examples of commands for adding these repositories (versions and links may vary):
 
     ```bash
-    sudo zypper ar -f http://download.opensuse.org/repositories/Cloud:Tools/openSUSE_15.2 Cloud:Tools_15.2
-    sudo zypper ar -f https://download.opensuse.org/distribution/15.2/repo/oss openSUSE_15.2_OSS
-    sudo zypper ar -f http://download.opensuse.org/update/15.2 openSUSE_15.2_Updates
+sudo zypper ar -f https://download.opensuse.org/repositories/Cloud:/Tools/15.4 Cloud:Tools_15.4
+sudo zypper ar -f https://download.opensuse.org/distribution/leap/15.4/repo/oss openSUSE_15.4_OSS
+sudo zypper ar -f https://download.opensuse.org/update/leap/15.4 openSUSE_15.4_Updates
     ```
 
     You can then verify that the repositories have been added by running the command `zypper lr` again. If one of the relevant update repositories isn't enabled, enable it by using the following command:
