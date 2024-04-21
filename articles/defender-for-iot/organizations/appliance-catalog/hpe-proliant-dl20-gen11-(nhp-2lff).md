@@ -9,10 +9,6 @@ ms.topic: reference
 
 This article describes the **HPE ProLiant DL20 Gen 11** appliance for OT sensors monitoring production lines.
 
->[!NOTE] 
->Legacy appliances are certified but aren't currently offered as pre-configured appliances. 
->
-
 | Appliance characteristic |Details |
 |---------|---------|
 |**Hardware profile** | L500 |
@@ -57,105 +53,6 @@ This article describes the **HPE ProLiant DL20 Gen 11** appliance for OT sensors
 |1|	512485-B21 | HPE iLO Advanced 1-server License with 1 yr Support on iLO Licensed Features |
 |1|	P64576-B21 | HPE Easy Install Rail 12 Kit |
 |1|	P65407-B21 | HPE ProLiant DL20 Gen11 LP iLO/M.2 Enablement Kit |
-
-## Port expansion
-
-Optional modules for port expansion include:
-
-|Location |Type|Specifications|
-|--------------|--------------|---------|
-| PCI Slot 1 (Low profile)  | DP F/O NIC |P26262-B21 - Broadcom BCM57414 Ethernet 10/25-Gb 2-port SFP28 Adapter for HPE |
-| PCI Slot 1 (Low profile)  | DP F/O NIC |P28787-B21 - Intel X710-DA2 Ethernet 10-Gb 2-port SFP+ Adapter for HPE |
-| PCI Slot 2 (High profile) | Quad Port Ethernet NIC| P21106-B21 - Intel I350-T4 Ethernet 1-Gb 4-port BASE-T Adapter for HPE |
-| PCI Slot 2 (High profile) | DP F/O NIC |P26262-B21 - Broadcom BCM57414 Ethernet 10/25-Gb 2-port SFP28 Adapter for HPE |
-| PCI Slot 2 (High profile) | DP F/O NIC |P28787-B21 - Intel X710-DA2 Ethernet 10-Gb 2-port SFP+ Adapter for HPE |
-| SFPs for Fiber Optic NICs|MultiMode, Short Range|455883-B21 - HPE BLc 10G SFP+ SR Transceiver |
-| SFPs for Fiber Optic NICs|SingleMode, Long Range | 455886-B21 - HPE BLc 10G SFP+ LR Transceiver |
-
-## HPE ProLiant DL20 Gen 11 (NHP 2LFF) installation
-
-This section describes how to install Defender for IoT software on the HPE ProLiant DL20 Gen11 (NHP 2LFF) appliance.
-
-Installation includes:
-
-- Enabling remote access and updating the default administrator password
-- Configuring iLO port on network port 1
-- Configuring BIOS and RAID10 settings
-- Installing Defender for IoT software
-
-> [!NOTE]
-> Installation procedures are only relevant if you need to re-install software on a pre-configured device, or if you buy your own hardware and configure the appliance yourself.
-> 
-
-### Enable remote access and update the password
-
-Use the following procedure to set up network options and update the default password.
-
-**To enable, and update the password**:
-
-1. Connect a screen and a keyboard to the HPE appliance, turn on the appliance, and press **F9**.
-
-    :::image type="content" source="../media/tutorial-install-components/hpe-proliant-screen-v2.png" alt-text="Screenshot that shows the HPE ProLiant window.":::
-
-1. Go to **System Utilities** > **System Configuration** > **iLO 5 Configuration Utility** > **Network Options**.
-
-    :::image type="content" source="../media/tutorial-install-components/system-configuration-window-v2.png" alt-text="Screenshot that shows the System Configuration window.":::
-
-    1. Select **Shared Network Port-LOM** from the **Network Interface Adapter** field.
-
-    1. Set **Enable DHCP** to **Off**.
-
-    1. Enter the IP address, subnet mask, and gateway IP address.
-
-1. Select **F10: Save**.
-
-1. Select **Esc** to get back to the **iLO 5 Configuration Utility**, and then select **User Management**.
-
-1. Select **Edit/Remove User**. The administrator is the only default user defined.
-
-1. Change the default password and select **F10: Save**.
-
-### Configure the HPE BIOS
-
-This procedure describes how to update the HPE BIOS configuration for your OT deployment. 
-
-**To configure the HPE BIOS:**
-
-1. Select **System Utilities** > **System Configuration** > **BIOS/Platform Configuration (RBSU)**.
-
-1. In the **BIOS/Platform Configuration (RBSU)** form, select **Boot Options**.
-
-1. Change **Boot Mode** to **UEFI BIOS Mode**, and then select **F10: Save**.
-
-1. Select **Esc** twice to close the **System Configuration** form.
-
-1. Select **Embedded RAID 1: HPE Smart Array E208i-a SR Gen 10** > **Array Configuration** > **Create Array**.
-
-1. Select **Proceed to Next Form**.
-
-1. In the **Set RAID Level** form, set the level to **RAID 10**. 
-
-1. Select **Proceed to Next Form**. 
-
-1. In the **Logical Drive Label** form, enter **Logical Drive 1**. 
-
-1. Select **Submit Changes**. 
-
-1. In the **Submit** form, select **Back to Main Menu**. 
-
-1. Select **F10: Save** and then press **Esc** twice. 
-
-1. In the **System Utilities** window, select **One-Time Boot Menu**. 
-
-1. In the **One-Time Boot Menu** form, select **Legacy BIOS One-Time Boot Menu**. 
-
-1. The **Booting in Legacy** and **Boot Override** windows appear. Choose a boot override option; for example, to a CD-ROM, USB, HDD, or UEFI shell. 
-
-:::image type="content" source="../media/tutorial-install-components/boot-override-window-one-v2.png" alt-text="Screenshot that shows the first Boot Override window."::: 
-
-:::image type="content" source="../media/tutorial-install-components/boot-override-window-two-v2.png" alt-text="Screenshot that shows the second Boot Override window."::: 
-
-[!INCLUDE [install iLO remotely from virtual drive and change timeout settings](../includes/ilo-remote-install-hpe.md)]
 
 ### Install Defender for IoT software on the HPE ProLiant DL20 Gen 11 (NHP 2LFF)
 
