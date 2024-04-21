@@ -39,13 +39,13 @@ Once deployment is complete, you can use the Azure portal to navigate to the new
 
      [ ![Screenshot of how to create new Azure AI services account.](media/create-health-insights.png)](media/create-health-insights.png#lightbox)
 
-It is necessary to associate an Azure AI Language resource with the Health Insights resource, to enable the use of Text Analytics for Health by the Health Insights AI models. Any extra costs for the Health Insights resource using the Language resources are calculated and paid on the Language resource provided.   
-When a Language resource is associated with a Health Insights resource, the following actions happens in the background, in order to allow the Health Insights resource access to the Language resource:
+It is necessary to associate an Azure AI Language resource with the Health Insights resource, to enable the use of Text Analytics for Health by the Health Insights AI models. 
+When a Language resource is associated with a Health Insights resource, a couple of things happen in the background, in order to allow the Health Insights resource access to the Language resource:
  - A system assigned managed identity is enabled for the Health Insights resource.
  - A role assignment of 'Cognitive Services User' scoped for the Language resource is added to the Health Insights resource's identity.
 
 It is important not to change or delete these assignments. 
-Any of the following actions disrupt the required access to the associated Language resource and cause API request failures: 
+Any of the following actions may disrupt the required access to the associated Language resource and cause API request failures: 
 - Deleting the Language resource.
 - Disabling the Health Insights resource system assigned managed identity.
 - Removing the Health Insights resource 'Cognitive Services User' role from the Language resource. 
