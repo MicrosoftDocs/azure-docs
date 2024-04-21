@@ -125,7 +125,7 @@ If you get empty response or `RegistrationState` value is `NotRegistered` then y
 
 # [REST](#tab/rest)
 
-To check whether an Azure subscription has access to BYOS through REST API see description of [Features - List](/rest/api/resources/features/list) request from Azure Resource Manager REST API.
+To check whether an Azure subscription has access to BYOS through REST API use [Features - List](/rest/api/resources/features/list) request from Azure Resource Manager REST API.
 
 If your subscription has access to BYOS, the REST response will contain the following element:
 ```json
@@ -137,9 +137,8 @@ If your subscription has access to BYOS, the REST response will contain the foll
   "type": "Microsoft.Features/providers/features",
   "name": "Microsoft.CognitiveServices/byoxPreview"
 }
-
-If the REST response doesn't contain the reference to `byoxPreview` feature or its state is `NotRegistered` then your Azure subscription doesn't have access to BYOS and you need to [request it](#request-access-to-byos-for-your-azure-subscriptions).
 ```
+If the REST response doesn't contain the reference to `byoxPreview` feature or its state is `NotRegistered` then your Azure subscription doesn't have access to BYOS and you need to [request it](#request-access-to-byos-for-your-azure-subscriptions).
 ***
 
 
