@@ -3,7 +3,7 @@ title: Data retention and archive in Azure Monitor Logs
 description: Configure archive settings for a table in a Log Analytics workspace in Azure Monitor.
 ms.reviewer: adi.biran
 ms.topic: conceptual
-ms.date: 3/31/2024
+ms.date: 6/28/2023
 # Customer intent: As an Azure account administrator, I want to set data retention and archive policies to save retention costs.
 ---
 
@@ -240,12 +240,14 @@ Get-AzOperationalInsightsTable -ResourceGroupName ContosoRG -WorkspaceName Conto
 
 ## Purge retained data
 
-If you need to retain data for 30 days for privacy compliance, [configure workspace retention](#configure-the-default-workspace-retention) to 30 days, then update workspace property `immediatePurgeDataOn30Days` to `true` using [REST](https://learn.microsoft.com/rest/api/loganalytics/workspaces/update). This operation isn't supported in CLI, PowerShell, and portal currently.
+If you set the data retention to 30 days, you can purge older data immediately by using the `immediatePurgeDataOn30Days` parameter in Azure Resource Manager. The purge functionality is useful when you need to remove personal data immediately. The immediate purge functionality isn't available through the Azure portal.
+
+Workspaces with a 30-day retention might keep data for 31 days if you don't set the `immediatePurgeDataOn30Days` parameter.
+
+You can also purge data from a workspace by using the [purge feature](personal-data-mgmt.md#exporting-and-deleting-personal-data), which removes personal data. You can't purge data from archived logs.
 
 > [!IMPORTANT]
-> - You can purge privacy data from workspace by using [Purge feature](personal-data-mgmt.md#exporting-and-deleting-personal-data). The purge functionality isn't supported on data in archive.
-> - The Log Analytics [Purge feature](/rest/api/loganalytics/workspacepurge/purge) doesn't affect retention costs. To lower retention costs, reduce retention period for the workspace, or for certain tables.
-
+> The Log Analytics [Purge feature](/rest/api/loganalytics/workspacepurge/purge) doesn't affect your retention costs. To lower retention costs, decrease the retention period for the workspace or for specific tables.
 
 ## Tables with unique retention periods
 
