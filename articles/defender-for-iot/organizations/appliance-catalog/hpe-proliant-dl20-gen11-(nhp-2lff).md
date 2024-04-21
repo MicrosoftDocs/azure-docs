@@ -1,6 +1,6 @@
 ---
 title: HPE ProLiant DL20 Gen 11 (NHP 2LFF) for OT monitoring in SMB/ L500 deployments - Microsoft Defender for IoT 
-description: Learn about the HPE ProLiant DL20 Gen 11 Plus appliance when used for OT monitoring with Microsoft Defender for IoT in SMB deployments.
+description: Learn about the HPE ProLiant DL20 Gen 11 (NHP 2LFF) appliance when used for OT monitoring with Microsoft Defender for IoT in SMB deployments.
 ms.date: 04/09/2024
 ms.topic: reference
 ---
