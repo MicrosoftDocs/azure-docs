@@ -82,11 +82,11 @@ backups.
 
 1. Open the command prompt and navigate to the bin directory of the downloaded MySQL community version folder.
 
-1. Now specify the data directory using `--datadir` by running the following command at the command prompt.
-
-```bash
-mysqld --datadir=<path to the data folder of the files downloaded>
-```
+1. Now specify the data directory using `--datadir` by running the following command at the command prompt:
+    
+    ```bash
+    mysqld --datadir=<path to the data folder of the files downloaded>
+    ```
 
 1. Connect to the database using any supported client.
 
