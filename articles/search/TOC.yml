@@ -135,9 +135,9 @@
       href: search-what-is-data-import.md
     - name: Indexers
       href: search-indexer-overview.md
-  - name: Data transformations
+  - name: Applied AI
     items:
-    - name: AI enrichment
+    - name: AI enrichment during indexing
       href: cognitive-search-concept-intro.md
     - name: Enrichment cache
       href: cognitive-search-incremental-indexing-conceptual.md
@@ -342,12 +342,12 @@
       href: vector-search-how-to-configure-compression-storage.md
     - name: Configure a vectorizer for queries (preview)
       href: vector-search-how-to-configure-vectorizer.md
-    - name: Chunk and embed documents in Azure portal (preview)
-      href: search-get-started-portal-import-vectors.md
     - name: Chunk documents
       href: vector-search-how-to-chunk-documents.md
     - name: Generate embeddings
       href: vector-search-how-to-generate-embeddings.md
+    - name: Portal chunking and embedding (preview)
+      href: search-get-started-portal-import-vectors.md
   - name: Keyword search
     items:
     - name: Full text query
@@ -420,22 +420,6 @@
         href: search-query-fuzzy.md
   - name: Hybrid search
     href: hybrid-search-how-to-query.md
-  - name: Knowledge stores
-    items:
-    - name: Knowledge store overview
-      href: knowledge-store-concept-intro.md
-    - name: Knowledge store projections overview
-      href: knowledge-store-projection-overview.md
-    - name: Create using REST
-      href: knowledge-store-create-rest.md
-    - name: Shape data
-      href: knowledge-store-projection-shape.md
-    - name: Define projections
-      href: knowledge-store-projections-examples.md 
-    - name: Projection example
-      href: knowledge-store-projection-example-long.md
-    - name: Connect with Power BI
-      href: knowledge-store-connect-power-bi.md
   - name: Security
     items:
     - name: Inbound connections
@@ -510,6 +494,22 @@
       href: performance-benchmarks.md
     - name: Tips for better performance
       href: search-performance-tips.md
+  - name: Knowledge store
+    items:
+    - name: Knowledge store overview
+      href: knowledge-store-concept-intro.md
+    - name: Knowledge store projections overview
+      href: knowledge-store-projection-overview.md
+    - name: Create using REST
+      href: knowledge-store-create-rest.md
+    - name: Shape data
+      href: knowledge-store-projection-shape.md
+    - name: Define projections
+      href: knowledge-store-projections-examples.md 
+    - name: Projection example
+      href: knowledge-store-projection-example-long.md
+    - name: Connect with Power BI
+      href: knowledge-store-connect-power-bi.md
 - name: Responsible AI
   items:
   - name: Transparency note
