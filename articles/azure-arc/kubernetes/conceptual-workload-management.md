@@ -305,7 +305,7 @@ Alternatively, this functionality can be delegated to Git to follow the "configu
 
 ### Git repositories hierarchy
 
-It's not necessarily to have a single Git repository with the configuration values for the entire organization as it might become a bottleneck at scale, given the variety of the "platform team" personas, their responsibilities and access levels. It is fairly easy to use GitOps operator references, such as Flux GitRepository and Flux Kustomization to build a repository hierarchy and eliminate the friction points:
+It's not necessary to have a single Git repository with configuration values for the entire organization. Such a repository might become a bottleneck at scale, given the variety of the "platform team" personas, their responsibilities, and their access levels. Instead, you can use GitOps operator references, such as Flux GitRepository and Flux Kustomization, to build a repository hierarchy and eliminate the friction points:
 
 :::image type="content" source="media/concept-workload-management/git-repo-hierarchy.png" alt-text="Diagram showing a Git repository hierarchy." lightbox="media/concept-workload-management/git-repo-hierarchy.png":::
 
