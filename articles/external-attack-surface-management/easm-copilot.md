@@ -30,7 +30,7 @@ This article introduces you to Security Copilot and includes sample prompts that
 
 ### Prerequisites
 
-1. Access to Copilot for Security, with permissions to activate new connections.
+* Access to Copilot for Security, with permissions to activate new connections.
 
 ### Copilot  for Security connection 
 
@@ -45,7 +45,7 @@ This article introduces you to Security Copilot and includes sample prompts that
 
 4. If you would like Copilot for Security to pull data from your Microsoft Defender External Attack Surface Resource, click on the gear to open the plugin settings, and fill out the fields from your resource’s “Essentials” section on the Overview blade.
 
-    ![Screenshot that shows the Defender EASM fields that must be configured in Copilot.](media/copilot-6.png)
+  [ ![Screenshot that shows the Defender EASM fields that must be configured in Copilot.](media/copilot-6.png) ](media/copilot-6.png#lightbox) 
 
 
      > [!NOTE]
