@@ -19,7 +19,7 @@
           - name: Create an API center - portal
             href: set-up-api-center.md
           - name: Create an API center - CLI
-            href: set-up-api-center-cli.md
+            href: set-up-api-center-azure-cli.md
     - name: Tutorials
       items:
           - name: 1 - Customize metadata properties
