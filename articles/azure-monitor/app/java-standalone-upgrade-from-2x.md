@@ -102,7 +102,7 @@ The telemetry processors perform the following actions (in order):
 
    Then it deletes the attribute named `tempPath`, and the attribute appears as a custom dimension.
 
-```
+```json
 {
   "preview": {
     "processors": [
