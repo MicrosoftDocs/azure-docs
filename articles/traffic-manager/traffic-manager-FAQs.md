@@ -86,7 +86,7 @@ One of the metrics provided by Traffic Manager is the number of queries responde
 
 ### When I delete a Traffic Manager profile, what is the amount of time before the name of the profile is available for reuse?
 
-When you delete a Traffic Manager profile, the associated domain name is reserved for a period of time. Other Traffic Manager profiles in the same tenant can immediately reuse the name. However, a different Azure tenant is not able to use the same profile name until the reservation expires. This feature enables you to maintain authority over the namespaces that you deploy, eliminating concerns that the name might be taken by another tenant.
+When you delete a Traffic Manager profile, the associated domain name is reserved for a period of time. Other Traffic Manager profiles in the same tenant can immediately reuse the name. However, a different Azure tenant isn't able to use the same profile name until the reservation expires. This feature enables you to maintain authority over the namespaces that you deploy, eliminating concerns that the name might be taken by another tenant.
 
 For example, if your Traffic Manager profile name is **label1**, then **label1.trafficmanager.net** is reserved for your tenant even if you delete the profile. Child namespaces, such as **xyz.label1** or **123.abc.label1** are also reserved. When the reservation expires, the name is made available to other tenants. The name associated with a disabled profile is reserved indefinitely. For questions about the length of time a name is reserved, contact your account representative. 
 
@@ -211,7 +211,7 @@ Yes, Real User Measurements is designed to ingest data collected through differe
 
 ### How many measurements are made each time my Real User Measurements enabled web page is rendered?
 
-When Real User Measurements is used with the measurement JavaScript provided, each page rendering results in six measurements being taken. These are then reported back to the Traffic Manager service. You are charged for this feature based on the number of measurements reported to Traffic Manager service. For example, if the user navigates away from your webpage while the measurements are being taken but before it was reported, those measurements aren't considered for billing purposes.
+When Real User Measurements is used with the measurement JavaScript provided, each page rendering results in six measurements being taken. These are then reported back to the Traffic Manager service. You're charged for this feature based on the number of measurements reported to Traffic Manager service. For example, if the user navigates away from your webpage while the measurements are being taken but before it was reported, those measurements aren't considered for billing purposes.
 
 ### Is there a delay before Real User Measurements script runs in my webpage?
 
@@ -223,19 +223,19 @@ No, each time it's invoked, the Real User Measurements script measures a set of 
 
 ### Can I limit the number of measurements made to a specific number?
 
-The measurement JavaScript is embedded within your webpage and you are in complete control over when to start and stop using it. As long as the Traffic Manager service receives a request for a list of Azure regions to be measured, a set of regions is returned.
+The measurement JavaScript is embedded within your webpage and you're in complete control over when to start and stop using it. As long as the Traffic Manager service receives a request for a list of Azure regions to be measured, a set of regions is returned.
 
 ### Can I see the measurements taken by my client application as part of Real User Measurements?
 
-Since the measurement logic is run from your client application, you are in full control of what happens including seeing the latency measurements. Traffic Manager doesn't report an aggregate view of the measurements received under the key linked to your subscription.
+Since the measurement logic is run from your client application, you're in full control of what happens including seeing the latency measurements. Traffic Manager doesn't report an aggregate view of the measurements received under the key linked to your subscription.
 
 ### Can I modify the measurement script provided by Traffic Manager?
 
-While you are in control of what is embedded on your web page, we strongly discourage you from making any changes to the measurement script to ensure that it measures and reports the latencies correctly.
+While you're in control of what is embedded on your web page, we strongly discourage you from making any changes to the measurement script to ensure that it measures and reports the latencies correctly.
 
 ### Will it be possible for others to see the key I use with Real User Measurements?
 
-When you embed the measurement script to a web page, it is possible for others to see the script and your Real User Measurements (RUM) key. But it’s important to know that this key is different from your subscription ID and is generated by Traffic Manager to be used only for this purpose. Knowing your RUM key won’t compromise your Azure account safety.
+When you embed the measurement script to a web page, it's possible for others to see the script and your Real User Measurements (RUM) key. But it’s important to know that this key is different from your subscription ID and is generated by Traffic Manager to be used only for this purpose. Knowing your RUM key won’t compromise your Azure account safety.
 
 ### Can others abuse my RUM key?
 
@@ -507,7 +507,7 @@ For full details, see the [Traffic Manager pricing page](https://azure.microsoft
 
 ### Is there a performance impact for nested profiles?
 
-No. There's no performance impact incurred when using nested profiles.
+No, there's no performance impact incurred when using nested profiles.
 
 The Traffic Manager name servers traverse the profile hierarchy internally when processing each DNS query. A DNS query to a parent profile can receive a DNS response with an endpoint from a child profile. A single CNAME record is used whether you're using a single profile or nested profiles. There's no need to create a CNAME record for each profile in the hierarchy.
 
@@ -532,7 +532,7 @@ To avoid this problem, exercise caution when making simultaneous changes to chil
 
 ### Why can't I add Azure Cloud Services Extended Support Endpoints to my Traffic Manager profile? 
 
-When adding Azure Cloud Extended endpoints to a Traffic Manager profile, the resource group must have compatibility with the Azure Service Management (ASM) API. Profiles located in the older resource group must adhere to ASM API standards, which prohibit the inclusion of public IP address endpoints or endpoints from a different subscription than that of the profile. To resolve this, consider moving your Traffic Manager profile and associated resources to a new resource group compatible with the ASM API.  
+In order to add Azure Cloud Extended endpoints to a Traffic Manager profile, the resource group must have compatibility with the Azure Service Management (ASM) API. Profiles located in the older resource group must adhere to ASM API standards, which prohibit the inclusion of public IP address endpoints or endpoints from a different subscription than that of the profile. To resolve this, consider moving your Traffic Manager profile and associated resources to a new resource group compatible with the ASM API.  
 
 ## Next steps:
 
