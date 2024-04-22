@@ -34,7 +34,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 Before you follow this tutorial to assess your servers for migration to AVS, make sure you've discovered the servers you want to assess:
 
 - To discover servers using the Azure Migrate appliance, [follow this tutorial](tutorial-discover-vmware.md). 
-- To discover servers using an imported CSV file, [follow this tutorial](tutorial-discover-import.md).
+- To discover servers using an imported CSV file, [follow this tutorial](../tutorial-discover-import.md).
 
 
 ## Decide which assessment to run

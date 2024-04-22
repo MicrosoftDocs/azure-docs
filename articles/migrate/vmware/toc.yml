@@ -24,6 +24,8 @@ items:
   items:
   - name: Overview
     href: server-migrate-overview.md
+  - name: Support for VMware vSphere migration
+    href: migrate-support-matrix-vmware-migration.md
     items:
   - name: Agent-based migration
     items:
@@ -62,7 +64,7 @@ items:
   - name: Example architecture
     href: /azure/cloud-adoption-framework/scenarios/azure-vmware/example-architectures?context=/azure/migrate/context/migrate-context
   - name: Azure Migrate product documentation
-    href: index.yml
+    href: ../index.yml
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/azure-migrate/
   - name: Well Architected Framework (WAF)
