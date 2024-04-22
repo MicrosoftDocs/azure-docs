@@ -15,13 +15,7 @@ ms.date: 04/22/2024
 - Observability
 - Secret management 
 
-Dapr is incrementally adoptable. You can use any of the API building blocks as needed.
-
-> [!NOTE]
-> Alpha and beta components and [APIs](https://docs.dapr.io/operations/support/alpha-beta-apis/) are available, but not supported.
-> 
-> [Learn the support level Microsoft offers for each Dapr API and component.](#components-and-apis)
-
+Dapr is incrementally adoptable. You can use any of the API building blocks as needed. [Learn the support level Microsoft offers for each Dapr API and component.](#components-and-apis)
 
 :::image type="content" source="./media/dapr-overview/dapr-building-blocks.png" alt-text="Diagram showing how many different code frameworks can interface with the various building blocks of Dapr via HTTP or gRPC." lightbox="./media/dapr-overview/dapr-building-blocks.png":::
 
@@ -46,14 +40,14 @@ The Dapr extension is the only Microsoft-supported option for Dapr in AKS.
 
 Extension operations, critical security fixes, and regressions are prioritized for immediate resolution.
 
-For functional issues - for example, with Dapr APIs or components - Microsoft triages, mitigates, and works with the open source community to determine the best path for resolution. Issues may be resolved in a hotfix or future Dapr release, depending on priority, severity, and size of the issue. Once fixes are released in Dapr open source, they are then made available in the Dapr extension.
+For functional issues (for example, with Dapr APIs or components), Microsoft triages, mitigates, and works with the open source community to determine the best path for resolution. Issues may be resolved in a hotfix or future Dapr release, depending on priority, severity, and size of the issue. Once fixes are released in Dapr open source, they are then made available in the Dapr extension.
 
 ### Dapr versions
 
 The Dapr extension support varies depending on how you manage the runtime. 
 
 **Self-managed**  
-For self-managed runtime, the Dapr extension supports:
+For self-managed runtime, Microsoft provides best-effort support to the Dapr extension for:
 - [The latest version of Dapr and two previous versions (N-2)][dapr-supported-version]
 - Upgrading minor version incrementally (for example, 1.5 -> 1.6 -> 1.7) 
 
@@ -66,7 +60,10 @@ Enabling auto-upgrade requires careful consideration. While auto-upgrade keeps y
 
 #### Stable Dapr APIs
 
-The Dapr extension supports stable versions of Dapr APIs (building blocks). Alpha APIs aren't supported at this time.
+The Dapr extension supports stable versions of Dapr APIs (building blocks). 
+
+> [!NOTE]
+> [Alpha and beta components and APIs][dapr-alpha-beta] are available, but not supported by Microsoft.
 
 | Dapr API                                              | Status | Description                                                                                                                                                     |
 | ----------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |  
@@ -78,9 +75,6 @@ The Dapr extension supports stable versions of Dapr APIs (building blocks). Alph
 | [**Observability**][dapr-observability]               | Stable | Send tracing information to an Application Insights backend.                                                                                                    |
 | [**Secrets**][dapr-secrets]                           | Stable | Access secrets from your application code or reference secure values in your Dapr components.                                                                   |
 | [**Configuration**][dapr-config]                           | Stable | Retrieve and subscribe to application configuration items for supported configuration. stores.                                                                   |
-| [**Distributed Lock**][dapr-distlock]                           | Alpha | Provide exclusive access to a database row, table, or entire database, and more. stores.                                                                   |
-| [**Workflow**][dapr-config]                           | Alpha | Orchestrate microservices using workflow activities to support long-running and fault-tolerant applications.                                                                   |
-| [**Cryptography**][dapr-crypto]                           | Alpha | Encrypt and decrypt messages without exposing cryptographic keys to your application.                                                                   |
 
 #### Managed versus standard components
 
@@ -235,3 +229,4 @@ After learning about Dapr and some of the challenges it solves, try [Deploying a
 [dapr-subscriptions]: https://docs.dapr.io/developing-applications/building-blocks/pubsub/subscription-methods/#declarative-subscriptions
 [dapr-supported-version]: https://docs.dapr.io/operations/support/support-release-policy/
 [dapr-observability]: https://docs.dapr.io/operations/observability/
+[dapr-alpha-beta]: https://docs.dapr.io/operations/support/alpha-beta-apis/
