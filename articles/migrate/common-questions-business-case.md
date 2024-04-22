@@ -87,19 +87,29 @@ If you aren't aware of your facilities costs, use the following methodology.
             1. Conversion of energy consumption into peak consumption = **0.0001**
             1. Integration of Load factor = **2.00**
             1. On-Prem PUE = **1.80**
-1. Determine the unused energy capacity for your on-premises infrastructure. If you aren't aware of the unused capacity, by default you can assume that 40% of the datacenter energy capacity remains unused.
-1. Determine the total energy capacity of the datacenter. Total energy capacity = Energy consumption by current workloads / (1- unused energy capacity).
-1. Calculate total facilities costs per year using the following formula. Facilities costs per year = Total energy capacity * Average colocation costs ($ per kWh per month) * 12. You can assume the average colocation cost = $340 per kWh per month.
+1. **Determine the unused energy capacity for your on-premises infrastructure**: By default you can assume that **40%** of the datacenter energy capacity remains unused. 
+1. **Determine the total energy capacity of the datacenter**: Total energy capacity = Energy consumption by current workloads / (1-unused energy capacity).
+1. **Calculate total facilities costs per year**: Facilities costs per year = Total energy capacity * Average colocation costs ($ per kWh per month) * 12. You can assume the average colocation cost = **$340 per kWh per month**.
 
 **Sample example**  
 
 Assume that Contoso, an e-commerce company has 10,000 virtual cores and 5,000 TB of storage. Let's use the formula to calculate facilities cost:
-1. Total number physical cores = 10,000/2 = **5,000**
-1. Energy consumption for compute resources = 5,000 * 0.009 * 2 * 1.8 = **162** kWh 
-1. Energy consumption for storage resources = 5,000 * 10 * 0.0001 * 2 * 1.8 = **18** kWh 
-1. Energy consumption for current workloads = (162 + 18) kWh = **180** kWh
-1. Total energy capacity of datacenter = 180/(1-0.4) = **300** kWh
-1. Yearly facilities cost = 300 kWh* $340 per kWh * 12 = $1,224,000 = **$1.224** Mn
+1. Total number physical cores = **10,000/2** = **5,000**
+1. Energy consumption for compute resources = **5,000 * 0.009 * 2 * 1.8 = 162 kWh**
+1. Energy consumption for storage resources = **5,000 * 10 * 0.0001 * 2 * 1.8 = 18 kWh**
+1. Energy consumption for current workloads = **(162 + 18) kWh = 180 kWh**
+1. Total energy capacity of datacenter = **180/(1-0.4) = 300 kWh**
+1. Yearly facilities cost = **300 kWh * $340 per kWh * 12 = $1,224,000 = $1.224 Mn**
+
+### What does the different migration strategies mean?
+**Migration Strategy** | **Details** | **Assessment insights**
+--- | --- | ---
+**Azure recommended to minimize cost** | You can get the most cost efficient and compatible target recommendation in Azure across Azure IaaS and Azure PaaS targets |  For SQL Servers, sizing and cost comes from the *Recommended report* with optimization strategy- minimize cost from Azure SQL assessment.<br/><br/> For web apps, sizing and cost comes from Azure App Service assessment is picked.<br/><br/> For general servers, sizing and cost comes from Azure VM assessment.
+**Migrate to all IaaS (Infrastructure as a Service)** | You can get a quick lift and shift recommendation to Azure IaaS. | For SQL Servers, sizing and cost comes from the *Instance to SQL Server on Azure VM* report.<br/><br/> For general servers and servers hosting web apps, sizing and cost comes from Azure VM assessment.
+**Modernize to PaaS (Platform as a Service)** | You can get a PaaS preferred recommendation that means, the logic identifies workloads best fit for PaaS targets.<br/><br/> General servers are recommended with a quick lift and shift recommendation to Azure IaaS. |  For SQL Servers, sizing and cost comes from the *Recommended report* with optimization strategy - *Modernize to PaaS* from Azure SQL assessment.<br/><br/> For web apps, sizing and cost comes from Azure App Service assessment. For general servers, sizing and cost comes from Azure VM assessment.
+
+> [!NOTE]
+> Although the Business case picks Azure recommendations from certain assessments, you won't be able to access the assessments directly. To deep dive into sizing, readiness and Azure cost estimates, you can create respective assessments for the servers or workloads.
 
 ## Business case recommendation
 
