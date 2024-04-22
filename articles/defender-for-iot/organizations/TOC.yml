@@ -365,7 +365,7 @@
       - name: Large enterprises
         items:
         - name: HPE ProLiant DL20 Gen11 (4SFF)
-          href: hpe-proliant-dl20-gen-11.md
+          href: appliance-catalog/hpe-proliant-dl20-gen-11.md
         - name: HPE ProLiant DL20 Gen10 Plus (4SFF)
           href: appliance-catalog/hpe-proliant-dl20-plus-enterprise.md
         - name: Dell Edge 5200 (Rugged MIL-STD-810G)
@@ -375,7 +375,7 @@
       - name: Production line
         items:
         - name: HPE ProLiant DL20 Gen11 Plus (NHP 2LFF)
-          href: hpe-proliant-dl20-gen-11-nhp-2lff.md
+          href: appliance-catalog/hpe-proliant-dl20-gen-11-nhp-2lff.md
         - name: HPE ProLiant DL20 Gen10 Plus (NHP 2LFF)
           href: appliance-catalog/hpe-proliant-dl20-plus-smb.md
         - name: YS-techsystems YS-FIT2 (Rugged MIL-STD-810G)
