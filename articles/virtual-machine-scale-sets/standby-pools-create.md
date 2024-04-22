@@ -43,7 +43,7 @@ In order for standby pools to successfully create Virtual Machines, you need to 
 
 If you're using a customized image in Compute Gallery, ensure to also assign standby pool Resource Provider the **Compute Gallery Sharing Admin** permissions.
 
-For more information on assigning roles, see [assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+For more information on assigning roles, see [assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
 
 ## Create a standby pool
 
