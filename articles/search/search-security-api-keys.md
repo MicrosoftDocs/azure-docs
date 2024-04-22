@@ -20,7 +20,7 @@ Azure AI Search offers key-based authentication that you can use on connections 
 Key-based authentication is the default. You can disable it if you opt in for role-based authentication.
 
 > [!NOTE]
-> A quick note about "key" terminology. An *API key*, as described in this article, refers to a GUID used for authenticating a request. A separate term, *document key*, refers to a unique string in your indexed content that uniquely identifies documents in a search index.
+> A quick note about *key* terminology. An *API key* is a GUID used for authentication. A separate term, *document key* is a unique string in your indexed content that uniquely identifies documents in a search index.
 
 ## Types of API keys
 
@@ -52,7 +52,7 @@ Set an admin key in the request header. You can't pass admin keys on the URI or 
 Here's an example of admin API key usage on a create index request:
 
 ```http
-### Create a new index
+### Create an index
 POST {{baseUrl}}/indexes?api-version=2023-11-01  HTTP/1.1
   Content-Type: application/json
   api-key: {{adminApiKey}}
@@ -71,7 +71,8 @@ Set a query key in a request header for POST, or on the URI for GET. Query keys 
 Here's an example of query API key usage on a Search Documents (GET) request:
 
 ```http
-GET /indexes/my-new-index/docs?search=*&api-version=2020-06-30&api-key={{queryApiKey}}
+### Query an index
+GET /indexes/my-new-index/docs?search=*&api-version=2023-11-01&api-key={{queryApiKey}}
 ```
 
 > [!NOTE]  
