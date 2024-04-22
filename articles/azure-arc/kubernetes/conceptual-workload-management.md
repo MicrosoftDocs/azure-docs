@@ -219,9 +219,9 @@ One of the biggest advantages of this approach is scalability. The structure of 
 
 ### Templating
 
-The control plane composes configuration snapshots for every application instance on every host. The variety of applications, hosts, the underlying technologies and the ways how applications are deployed can be very wide. Furthermore, the same application can be deployed completely differently on its way from dev to production environments. The concern of the control plane is to manage configurations, not to deploy. It should be agnostic from the underlying application/host technologies and generate configuration snapshots in a suitable format for each case. It can be a Kubernetes config map, properties file, Symphony catalog and so on.
+The control plane composes configuration snapshots for every application instance on every host. The variety of applications, hosts, the underlying technologies and the ways how applications are deployed can be very wide. Furthermore, the same application can be deployed completely differently on its way from dev to production environments. The concern of the control plane is to manage configurations, not to deploy. It should be agnostic from the underlying application/host technologies and generate configuration snapshots in a suitable format for each case (for example, a Kubernetes config map, properties file, Symphony catalog, or other format).
 
-One way to do it is to assign different templates to different host types. These templates are used by the control plane when it generates configuration snapshots for the applications to be deployed on the host. It would be beneficial to apply a standard templating approach, which is well known in the developer community. For example, the following templates can be defined with the [Go Templates](https://pkg.go.dev/text/template), which are widely used across the industry:
+One option is to assign different templates to different host types. These templates are used by the control plane when it generates configuration snapshots for the applications to be deployed on the host. It would be beneficial to apply a standard templating approach, which is well known in the developer community. For example, the following templates can be defined with the [Go Templates](https://pkg.go.dev/text/template), which are widely used across the industry:
 
 ```yaml
 # Standard Kubernetes config map
@@ -299,20 +299,22 @@ spec:
 
 The control plane operates with configuration containers that group configuration values at different levels in a hierarchy or a graph. These containers should be stored somewhere. The most obvious approach is to use a database. It could be [etcd](https://etcd.io/), relational, hierarchical or a graph database, providing the most flexible and robust experience. The database gives the ability to granularly track and handle configuration values at the level of each individual configuration container. 
 
-Besides the main features such as storage and the ability to query and manipulate the configuration objects effectively, there should be functionality related to change tracking, approvals, promotions, rollbacks, version compares and so on. The control plane can implement all that on top of a database and incapsulate everything in a monolithic managed service. 
+Besides the main features such as storage and the ability to query and manipulate the configuration objects effectively, there should be functionality related to change tracking, approvals, promotions, rollbacks, version compares and so on. The control plane can implement all that on top of a database and encapsulate everything in a monolithic managed service. 
 
 Alternatively, this functionality can be delegated to Git to follow the "configuration as code" concept. For example, [Kalypso](https://github.com/microsoft/kalypso), being a Kubernetes operator, treats configuration containers as custom Kubernetes resources, that are essentially stored in etcd database. Even though the control plane doesn't dictate that, it is a common practice to originate configuration values in a Git repository, applying all the benefits that it gives out of the box. Then, the configuration values are delivered a Kubernetes etcd storage with a GitOps operator where the control plane can work with them to do the compositions.
 
 ### Git repositories hierarchy
 
-It's not necessarily to have a single Git repository with the configuration values for the entire organization as it might become a bottleneck at scale, given the variety of the "platform team" personas, their responsibilities and access levels. It is fairly easy to use GitOps operator references, such as Flux GitRepository and Flux Kustomization to build a repository hierarchy and eliminate the friction points:
+It's not necessary to have a single Git repository with configuration values for the entire organization. Such a repository might become a bottleneck at scale, given the variety of the "platform team" personas, their responsibilities, and their access levels. Instead, you can use GitOps operator references, such as Flux GitRepository and Flux Kustomization, to build a repository hierarchy and eliminate the friction points:
 
 :::image type="content" source="media/concept-workload-management/git-repo-hierarchy.png" alt-text="Diagram showing a Git repository hierarchy." lightbox="media/concept-workload-management/git-repo-hierarchy.png":::
 
 
 ### Configuration versioning
 
-Whenever application developers introduce a change in the application, they produce a new application version. Similar, a new platform configuration value leads to a new version of the configuration snapshot. Versioning allows for tracking changes, explicit rollouts and rollbacks. A key point is that application configuration snapshots are versioned independently from each other. A single configuration value change at the global or site level doesn't necessarily produce new versions of all application configuration snapshots. It impacts only those snapshots where this value is hydrated. A simple and effective way to track it would be to use a hash of the snapshot content as its version. In this way, if the snapshot content has changed because something has changed in the global configurations, there will be a new version. This new version is a subject to be applied either manually or automatically. In any case, this is a trackable event that can be roll backed if needed.
+Whenever application developers introduce a change in the application, they produce a new application version. Similarly, a new platform configuration value leads to a new version of the configuration snapshot. Versioning allows for tracking changes, explicit rollouts and rollbacks.
+
+A key point is that application configuration snapshots are versioned independently from each other. A single configuration value change at the global or site level doesn't necessarily produce new versions of all application configuration snapshots; it impacts only those snapshots where this value is hydrated. A simple and effective way to track it would be to use a hash of the snapshot content as its version. In this way, if the snapshot content has changed because something has changed in the global configurations, there will be a new version. This new version is a subject to be applied either manually or automatically. In any case, this is a trackable event that can be rolled back if needed.
 
 ## Next steps
 
