@@ -149,7 +149,9 @@ If you want to implement additional value-based criteria for query execution, yo
 * Only vCore-based Azure Cosmos DB for MongoDB is supported.
 * The search type is limited to [Integrated Vector Database in Azure Cosmos DB for MongoDB](/azure/cosmos-db/mongodb/vcore/vector-search) with an Azure OpenAI embedding model.
 * This implementation works best on unstructured and spatial data.
+### Data preparation
 
+Use the script provided on [GitHub](https://github.com/microsoft/sample-app-aoai-chatGPT/tree/main/scripts#data-preparation) to prepare your data.
 <!--### Add your data source in Azure OpenAI Studio
 
 To add vCore-based Azure Cosmos DB for MongoDB as a data source, you will need an existing Azure Cosmos DB for MongoDB index containing your data, and a deployed Azure OpenAI Ada embeddings model that will be used for vector search.
