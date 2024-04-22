@@ -41,7 +41,7 @@ With deployment slots, you can achieve continuous delivery and improve your appl
 
   - Blue-green deployment
   - Product verification testing before slot swapping
-  - A-B testing
+  - A/B testing
 
 ## Prerequisites
 
@@ -119,7 +119,7 @@ The following options are available for you to deploy logic app changes in a dep
 
 1. In the message box that appears, confirm that you want to deploy the current code in your project to the selected slot by selecting **Deploy**. This action overwrites any existing content in the selected slot.
 
-1. After deployment completes, you can update any settings, if required, by selecting **Upload settings** in the message box that appears.
+1. After deployment completes, you can update any settings, if necessary, by selecting **Upload settings** in the message box that appears.
 
 ### [Azure CLI](#tab/azure-cli)
 
