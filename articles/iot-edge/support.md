@@ -117,8 +117,8 @@ The systems listed in the following table are considered compatible with Azure I
 | [Ubuntu 22.04 <sup>1</sup>](https://wiki.ubuntu.com/JammyJellyfish/ReleaseNotes) |  | ![Ubuntu 22.04 + ARM32v7](./media/support/green-check.png) |  | [June 2027](https://wiki.ubuntu.com/Releases) |
 | [Ubuntu Core <sup>2</sup>](https://snapcraft.io/azure-iot-edge) |  | ![Ubuntu Core + AMD64](./media/support/green-check.png) | ![Ubuntu Core + ARM64](./media/support/green-check.png)  | [April 2027](https://ubuntu.com/about/release-cycle) |
 | [Wind River 8](https://docs.windriver.com/category/os-wind_river_linux) | ![Wind River 8 + AMD64](./media/support/green-check.png) |  |  |  |
-| [Yocto](https://www.yoctoproject.org/)<br>For Yocto issues, open a [GitHub issue](https://github.com/Azure/meta-iotedge/issues) | ![Yocto + AMD64](./media/support/green-check.png) | ![Yocto + ARM32v7](./media/support/green-check.png) | ![Yocto + ARM64](./media/support/green-check.png) | [April 2024](https://wiki.yoctoproject.org/wiki/Releases) |
-| Raspberry Pi OS Buster |  | ![Raspberry Pi OS Buster + ARM32v7](./media/support/green-check.png) | ![Raspberry Pi OS Buster + ARM64](./media/support/green-check.png) |  |
+| [Yocto (Kirkstone)](https://www.yoctoproject.org/)<br>For Yocto issues, open a [GitHub issue](https://github.com/Azure/meta-iotedge/issues) | ![Yocto + AMD64](./media/support/green-check.png) | ![Yocto + ARM32v7](./media/support/green-check.png) | ![Yocto + ARM64](./media/support/green-check.png) | [April 2024](https://wiki.yoctoproject.org/wiki/Releases) |
+
 
 <sup>1</sup> Installation packages are made available on the [Azure IoT Edge releases](https://github.com/Azure/azure-iotedge/releases). See the installation steps in [Offline or specific version installation](how-to-provision-single-device-linux-symmetric.md#offline-or-specific-version-installation-optional).
 
