@@ -58,7 +58,7 @@ Here you add information about a fictitious Azure API Management environment to 
     | **Instructions** | Optionally select **Edit** and enter onboarding instructions in standard Markdown. | Instructions to onboard to APIs from the environment. |
     | **Line of business** | If you added this custom property, optionally make a selection from the dropdown, such as **IT**. | Custom metadata property that identifies the business unit that manages the environment. |
 
-    :::image type="content" source="media/configure-environments-deployments/create-environment.png" alt-text="Screenshot of adding an API environment in the portal." lightbox="media/configure-environments-deployments/create-environment.png":::
+    :::image type="content" source="media/configure-environments-deployments/create-environment.png" alt-text="Screenshot of adding an API environment in the portal.":::
 
 1. Select **Create**. The environment appears on the list of environments.
 
@@ -88,7 +88,7 @@ Here you add a deployment by associating one of your APIs with the environment y
     | **Runtime URL** | Enter a base URL, for example, `https://api.contoso.com/conference`. | Base runtime URL for the API in the environment.  |
     | **Line of business** | If you added this custom property, optionally make a selection from the dropdown, such as **IT**. | Custom metadata property that identifies the business unit that manages APIs in the environment. |
 
-    :::image type="content" source="media/configure-environments-deployments/add-deployment.png" alt-text="Screenshot of adding an API deployment in the portal." lightbox="media/configure-environments-deployments/add-deployment.png":::
+    :::image type="content" source="media/configure-environments-deployments/add-deployment.png" alt-text="Screenshot of adding an API deployment in the portal.":::
 
 1. Select **Create**. The deployment appears on the list of deployments.
 
