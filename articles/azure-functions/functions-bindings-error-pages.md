@@ -84,10 +84,62 @@ You can configure two retry strategies that are supported by policy:
 
 A specified amount of time is allowed to elapse between each retry.
 
+[Example](https://github.com/Azure/azure-functions-python-worker/blob/dev/tests/endtoend/retry_policy_functions/fixed_strategy/function_app.py)
+
+```python
+from azure.functions import FunctionApp, TimerRequest, Context, AuthLevel
+import logging
+
+app = FunctionApp(http_auth_level=AuthLevel.ANONYMOUS)
+
+
+@app.timer_trigger(schedule="*/1 * * * * *", arg_name="mytimer",
+                   run_on_startup=False,
+                   use_monitor=False)
+@app.retry(strategy="fixed_delay", max_retry_count="3",
+           delay_interval="00:00:01")
+def mytimer(mytimer: TimerRequest, context: Context) -> None:
+    logging.info(f'Current retry count: {context.retry_context.retry_count}')
+
+    if context.retry_context.retry_count == \
+            context.retry_context.max_retry_count:
+        logging.info(
+            f"Max retries of {context.retry_context.max_retry_count} for "
+            f"function {context.function_name} has been reached")
+    else:
+        raise Exception("This is a retryable exception")
+```
+
 # [Exponential backoff](#tab/exponential-backoff)
 
 The first retry waits for the minimum delay. On subsequent retries, time is added exponentially to the initial duration for each retry, until the maximum delay is reached. Exponential back-off adds some small randomization to delays to stagger retries in high-throughput scenarios.
 
+[Example](https://github.com/Azure/azure-functions-python-worker/blob/dev/tests/endtoend/retry_policy_functions/exponential_strategy/function_app.py):
+
+```python
+from azure.functions import FunctionApp, TimerRequest, Context, AuthLevel
+import logging
+
+app = FunctionApp(http_auth_level=AuthLevel.ANONYMOUS)
+
+
+@app.timer_trigger(schedule="*/1 * * * * *", arg_name="mytimer",
+                   run_on_startup=False,
+                   use_monitor=False)
+@app.retry(strategy="exponential_backoff", max_retry_count="3",
+           minimum_interval="00:00:01",
+           maximum_interval="00:00:02")
+def mytimer(mytimer: TimerRequest, context: Context) -> None:
+    logging.info(f'Current retry count: {context.retry_context.retry_count}')
+
+    if context.retry_context.retry_count == \
+            context.retry_context.max_retry_count:
+        logging.info(
+            f"Max retries of {context.retry_context.max_retry_count} for "
+            f"function {context.function_name} has been reached")
+    else:
+        raise Exception("This is a retryable exception")
+```
 ---
 
 #### Max retry counts
