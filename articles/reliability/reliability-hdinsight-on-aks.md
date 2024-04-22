@@ -1,6 +1,6 @@
 ---
 title: Reliability in Azure HDInsight on AKS
-description: Find out about reliability in Azure HDInsight on AKS
+description: Find out about reliability in Azure HDInsight on AKS.
 author: fengzhou-msft
 ms.author: fenzhou
 ms.topic: reliability-article
@@ -12,7 +12,7 @@ CustomerIntent: As a cloud architect/engineer, I want to understand reliability 
 
 # Reliability in Azure HDInsight on AKS
 
-This article describes reliability support in [Azure HDInsight on AKS](../hdinsight-aks/overview.md), and covers both [specific reliability recommendations](#reliability-recommendations) and [disaster recovery and business continuity](#disaster-recovery-and-business-continuity). For a more detailed overview of a reliability principles in Azure, see [Azure reliability](https://docs.microsoft.com/azure/architecture/framework/resiliency/overview.md).
+This article describes reliability support in [Azure HDInsight on AKS](../hdinsight-aks/overview.md), and covers both [specific reliability recommendations](#reliability-recommendations) and [disaster recovery and business continuity](#disaster-recovery-and-business-continuity). For a more detailed overview of reliability principles in Azure, see [Azure reliability](https://docs.microsoft.com/azure/architecture/framework/resiliency/overview.md).
 
 ## Reliability recommendations
 
@@ -38,7 +38,7 @@ Currently, Azure HDInsight on AKS doesn't support availability zone in its servi
 
 [!INCLUDE [introduction to disaster recovery](includes/reliability-disaster-recovery-description-include.md)]
 
-Currently, Azure HDInsight on AKS CP(Control Plane) service and databases are deployed across regions of Azure. Among these regions, the Azure HDInsight on AKS instances and database instances are completely isolated. When an outage at region level occurs, one region is down. All the resources in this region, including the RP(Resource Provider) of Azure HDInsight on AKS CP, database of Azure HDInsight on AKS CP and all customer clusters in this region. In this case, we can only wait for the reginal outage to end. When the outage is recovered, the Azure HDInsight on AKS service will be back and all customer clusters will be back, too. It is possible that there may be some problems due to data inconsistency after the outage and needs a manual fix.
+Currently, Azure HDInsight on AKS CP(Control Plane) service and databases are deployed across regions of Azure. Among these regions, the Azure HDInsight on AKS instances and database instances are isolated. When an outage at region level occurs, one region is down. All the resources in this region, including the RP(Resource Provider) of Azure HDInsight on AKS CP, database of Azure HDInsight on AKS CP and all customer clusters in this region. In this case, we can only wait for the regional outage to end. When the outage is recovered, the Azure HDInsight on AKS service is back and all customer clusters are back, too. It's possible that there may be some problems due to data inconsistency after the outage and needs a manual fix.
 
 ### Multi-region disaster recovery
 
@@ -56,9 +56,9 @@ Currently, Azure HDInsight on AKS only has one standard service offering and clu
 
 ### Capacity and proactive disaster recovery resiliency
 
-Azure HDInsight on AKS and its customers operate under the Shared responsibility model. This means that the customer must address DR for the service they deploy and control. To ensure that recovery is proactive, customers should always pre-deploy secondaries because there is no guarantee of capacity at time of impact for those who have not pre-allocated.
+Azure HDInsight on AKS and its customers operate under the Shared responsibility model, which means that the customer must address DR for the service they deploy and control. To ensure that recovery is proactive, customers should always predeploy secondaries because there's no guarantee of capacity at time of impact for those who haven't preallocated.
 
-Unlike the original version of HDInsight, the Virtual Machines used in HDInsight on AKS clusters requires the same Quota as Azure VMs. For more information, see [Capacity planning](../hdinsight-aks/virtual-machine-recommendation-capacity-planning.md#capacity-planning).
+Unlike the original version of HDInsight, the Virtual Machines used in HDInsight on AKS clusters require the same Quota as Azure VMs. For more information, see [Capacity planning](../hdinsight-aks/virtual-machine-recommendation-capacity-planning.md#capacity-planning).
 
 ## Next steps
 
