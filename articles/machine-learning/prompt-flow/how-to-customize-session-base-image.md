@@ -73,10 +73,6 @@ In your local compute, you can use the CLI (v2) to create a customized environme
 > - Make sure to meet the [prerequisites](../how-to-manage-environments-v2.md#prerequisites) for creating environment.
 > - Ensure you have [connected to your workspace](../how-to-manage-environments-v2.md?#connect-to-the-workspace).
 
-> [!IMPORTANT]
-> Prompt flow is **not supported** in the workspace which has data isolation enabled. The enableDataIsolation flag can only be set at the workspace creation phase and can't be updated.
->
->Prompt flow is **not supported** in the project workspace which was created with a workspace hub. The workspace hub is a private preview feature.
 
 ```shell
 az login # if not already authenticated
