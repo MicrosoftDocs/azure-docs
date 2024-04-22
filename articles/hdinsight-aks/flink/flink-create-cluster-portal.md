@@ -21,7 +21,7 @@ Complete the prerequisites in the following sections:
 
 > [!IMPORTANT]
 > * For creating a cluster in new cluster pool, assign AKS agentpool MSI "Managed Identity Operator" role on the user-assigned managed identity created as part of resource prerequisite. In case you have required permissions, this step is automated during creation.
-> * AKS agentpool managed identity gets created during cluster pool creation. You can identify the AKS agentpool managed identity by **(your clusterpool name)-agentpool**. Follow these steps to [assign the role](../../role-based-access-control/role-assignments-portal.md#step-2-open-the-add-role-assignment-page).
+> * AKS agentpool managed identity gets created during cluster pool creation. You can identify the AKS agentpool managed identity by **(your clusterpool name)-agentpool**. Follow these steps to [assign the role](../../role-based-access-control/role-assignments-portal.yml#step-2-open-the-add-role-assignment-page).
 
 ## Create an Apache Flink cluster
 

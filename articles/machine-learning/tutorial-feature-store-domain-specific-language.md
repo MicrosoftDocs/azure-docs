@@ -130,7 +130,7 @@ Before you proceed with this tutorial, make sure that you cover these prerequisi
       1. You'll see the list of feature stores that you have access to. Select the feature store that you created above
       1. Select the storage account link under **Account name** on the **Offline materialization store** card, to navigate to the ADLS Gen2 storage account for the offline store
          :::image type="content" source="./media/tutorial-feature-store-domain-specific-language/offline-store-link.png" lightbox="./media/tutorial-feature-store-domain-specific-language/offline-store-link.png" alt-text="This screenshot shows the storage account link for the offline materialization store on the feature store UI.":::
-      1. Visit [this resource](../role-based-access-control/role-assignments-portal.md) for more information about how to assign the **Storage Blob Data Reader** role to your user identity on the ADLS Gen2 storage account for offline store. Allow some time for permissions to propagate.
+      1. Visit [this resource](../role-based-access-control/role-assignments-portal.yml) for more information about how to assign the **Storage Blob Data Reader** role to your user identity on the ADLS Gen2 storage account for offline store. Allow some time for permissions to propagate.
 
 ## Available DSL expressions and benchmarks
 

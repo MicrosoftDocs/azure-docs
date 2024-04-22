@@ -24,8 +24,6 @@ landingContent:
         links:
           - text: Azure IoT Central architecture
             url: core/concepts-architecture.md
-          - text: Industrial IoT patterns
-            url: core/concepts-iiot-architecture.md
       - linkListType: quickstart
         links:
           - text: Connect your first device

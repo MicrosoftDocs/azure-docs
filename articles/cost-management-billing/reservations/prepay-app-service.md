@@ -6,7 +6,7 @@ ms.reviewer: sapnakeshari
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 02/14/2024
+ms.date: 04/15/2024
 ms.author: banders
 ms.custom: references_regions
 ---
@@ -42,7 +42,7 @@ Your usage file shows your charges by billing period and daily usage. For inform
 
 You can buy a reserved Premium v3 reserved instance in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/documentation/filters/%7B%22reservedResourceType%22%3A%22VirtualMachines%22%7D). Pay for the reservation [up front or with monthly payments](prepare-buy-reservation.md). These requirements apply to buying a Premium v3 reserved instance:
 
-- You must be in an Owner role for at least one EA subscription or a subscription with a pay-as-you-go rate.
+- To buy a reservation, you must have owner role or reservation purchaser role on an Azure subscription.
 - For EA subscriptions, the **Reserved Instances** option must be enabled in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_GTM/ModernBillingMenuBlade/BillingAccounts). Navigate to the **Policies** menu to change settings.
 - For the Cloud Solution Provider (CSP) program, only the admin agents or sales agents can buy reservations.
 
