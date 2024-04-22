@@ -724,12 +724,6 @@ Azure Communication Services Call Automation SDK can be used to make and manage 
 
 Learn more about [Communication service - UpgradeServerCallingSdk (Use recommended version of Call Automation SDK)](../communication-services/concepts/voice-video-calling/call-automation-apis.md).
 
-### Use recommended version of Network Traversal SDK
-
-Azure Communication Services Network Traversal SDK can be used to access TURN servers for low-level data transport. Update to the recommended version of Network Traversal SDK to ensure the latest fixes and features.
-
-Learn more about [Communication service - UpgradeTurnSdk (Use recommended version of Network Traversal SDK)](../communication-services/concepts/sdk-options.md).
-
 ### Use recommended version of Rooms SDK
 
 Azure Communication Services Rooms SDK can be used to control who can join a call, when they can meet, and how they can collaborate. Update to the recommended version of Rooms SDK to ensure the latest fixes and features. A non-recommended version was detected in the last 48-60 hours.
