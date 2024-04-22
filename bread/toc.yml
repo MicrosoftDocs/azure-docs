@@ -80,6 +80,9 @@ items:
   - name: Analysis Services
     tocHref: /azure/analysis-services/
     topicHref: /azure/analysis-services/
+  - name: API Center
+    tocHref: /azure/api-center/
+    topicHref: /azure/api-center/
   - name: API Management
     tocHref: /azure/api-management/
     topicHref: /azure/api-management/
@@ -128,12 +131,21 @@ items:
     tocHref: /azure/azure-arc/
     topicHref: /azure/azure-arc/
     items:
-      - name: Arc-enabled Kubernetes
+      - name: Azure Arc-enabled data services
+        tocHref: /azure/azure-arc/data/
+        topicHref: /azure/azure-arc/index
+      - name: Azure Arc-enabled Kubernetes
         tocHref: /azure/azure-arc/kubernetes/
-        topicHref: /azure/azure-arc/kubernetes/
+        topicHref: /azure/azure-arc/index
+      - name: Azure Arc-enabled VMWare
+        tocHref: /azure/azure-arc/vmware-vsphere/
+        topicHref: /azure/azure-arc/index
       - name: Arc-enabled servers
         tocHref: /azure/azure-arc/servers/
-        topicHref: /azure/azure-arc/servers/
+        topicHref: /azure/azure-arc/servers/        
+      - name: Edge Storage Accelerator
+        tocHref: /azure/azure-arc/edge-storage-accelerator/
+        topicHref: /azure/azure-arc/edge-storage-accelerator/index      
   - name: Automation
     tocHref: /azure/automation/
     topicHref: /azure/automation/
@@ -255,7 +267,7 @@ items:
       - name: Azure Maps
         tocHref: /azure/azure-maps/
         topicHref: /azure/azure-maps/
-      - name: Edge Secured-core
+      - name: Edge Secured-core 
         tocHref: /azure/certification/
         topicHref: /azure/certification/
       - name: IoT Operations
@@ -316,7 +328,10 @@ items:
         topicHref: /azure/partner-solutions/palo-alto/palo-alto-overview
       - name: Apache Airflow on Astro
         tocHref: /azure/partner-solutions/astronomer/
-        topicHref: /azure/partner-solutions/astronomer/index     
+        topicHref: /azure/partner-solutions/astronomer/index
+      - name: Informatica Intelligent Data Management Cloud
+        tocHref: /azure/partner-solutions/informatica/
+        topicHref: /azure/partner-solutions/informatica/index
   - name: SignalR Service
     tocHref: /azure/azure-signalr/
     topicHref: /azure/azure-signalr/
