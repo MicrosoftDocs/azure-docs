@@ -1645,11 +1645,11 @@
 		</g>
 		<g id="shape87-247" v:mID="87" v:groupContext="shape" transform="translate(656.799,-128.325)">
 			<title>Sheet.87</title>
-			<desc>HDFS</desc>
+			<desc>ADLS</desc>
 			<v:textBlock v:margins="rect(0,0,0,0)"/>
 			<v:textRect cx="19.5" cy="435.15" width="39.01" height="11.7"/>
 			<rect x="0" y="429.3" width="39" height="11.7" class="st3"/>
-			<text x="0" y="438.08" class="st11" v:langID="2057"><v:paragraph/><v:tabList/>HDFS</text>		</g>
+			<text x="0" y="438.08" class="st11" v:langID="2057"><v:paragraph/><v:tabList/>ADLS</text>		</g>
 		<g id="shape88-250" v:mID="88" v:groupContext="shape" transform="translate(105.494,238.125) rotate(-90) scale(-1,1)">
 			<title>Sheet.88</title>
 			<path d="M0 369.26 L90.95 369.26 C91.57 369.26 92.08 369.76 92.08 370.38 L92.08 435.37 L89.83 435.37 L89.83 370.38 L90.95
