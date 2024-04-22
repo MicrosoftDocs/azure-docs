@@ -23,7 +23,7 @@ By deploying Azure Virtual Desktop in an Azure Extended Zone, you can:
 Before you can use Azure Virtual Desktop with Azure Extended Zones, you need:
 
 - An active Azure subscription.
-- Access to an Azure Extended Zone.
+- [Access](#gaining-access-to-an-azure-extended-zone) to an Azure Extended Zone.
 - An existing [Azure Load Balancer](../load-balancer/load-balancer-outbound-connections.md) on the virtual network that the session hosts are being deployed to. You will need to use the frontend IP address(es) of a load balancer for outbound connectivity to the internet in order for the session hosts to join a host pool.  
 
 ## Gaining access to an Azure Extended Zone 
