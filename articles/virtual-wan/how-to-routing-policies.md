@@ -211,6 +211,8 @@ When a Virtual hub is configured with a Private Routing policy Virtual WAN adver
 * Routes corresponding to prefixes learned from remote hub Virtual Networks, ExpressRoute, Site-to-site VPN, Point-to-site VPN, NVA-in-the-hub and  BGP connections where Routing Intent isn't configured **and** the remote connections propagate to the defaultRouteTable of the local hub.
 * Prefixes learned from one ExpressRoute circuit aren't advertised to other ExpressRoute circuits unless Global Reach is enabled. If you want to enable ExpressRoute to ExpressRoute transit through a security solution deployed in the hub, open a support case. For more information, see [Enabling connectivity across ExpressRoute circuits](#expressroute).
 
+## Notable Routing Scenarios
+
 ###  <a name="expressroute"></a> Transit connectivity between ExpressRoute circuits with routing intent
 
 Transit connectivity between ExpressRoute circuits within Virtual WAN is provided through two different configurations. Because these two configurations aren't compatible, customers should choose one configuration option to support transit connectivity between two ExpressRoute circuits.
@@ -300,7 +302,7 @@ Using the sample VPN configuration and VPN site from above, create firewall rule
 |Destination Port| * |
 |Protocol| ANY|
 
-### Performance
+#### Performance for Encrypted ExpressRoute
 
 Configuring private routing policies with Encrypted ExpressRoute routes VPN ESP packets through the next hop security appliance deployed in the hub. As a result, you can expect Encrypted ExpressRoute maximum VPN tunnel throughput of 1 Gbps in both directions (inbound from on-premises and outbound from Azure). To achieve the maximum VPN tunnel throughput, consider the following deployment optimizations:
 
@@ -309,6 +311,23 @@ Configuring private routing policies with Encrypted ExpressRoute routes VPN ESP 
 * Turn off deep-packet for traffic between the VPN tunnel endpoints.For information on how to configure Azure Firewall to exclude traffic from deep-packet inspection, reference [IDPS bypass list documentation](../firewall/premium-features.md#idps).
 * Configure VPN devices to use GCMAES256 for both IPSEC Encryption and Integrity to maximize performance.
 
+#### Direct routing to NVA instances for dual-role connectivity and firewall NVAs
+
+> [!NOTE]
+> Direct routing to dual-role NVA used with private routing policies in Virtual WAN only applies to traffic between Virtual Networks and NVA-connected on-premises. ExpressRoute and VPN transit connectivity to NVA-connected on-premises does not go directly to NVA instances and is instead routed via the dual-role NVA's load balancer.
+
+Certain Network Virtual Appliances have both connectivity (SD-WAN) and security (NGFW) capabilities. These dual-role Network Virtual Appliances can be selected as the next hop for routing intent and policies. Simultaneously, SD-WAN or VPN connections can be terminated directly on the NVA instances.
+
+When private routing policies are configured for dual-role NVAs, Virtual WAN automatically advertises routes learnt from that Virtual WAN hub's NVA device to directly connected (local) Virtual Networks as well to other Virtual Hubs in the Virtual WAN with the next hop as the NVA instance as opposed to the NVAs Internal Load Balancer.
+
+For **active-passive NVA configurations** where only one instance of the NVAs is advertising a route for a specific prefix to Virtual WAN (or the AS-PATH length of routes learnt from one of the instances is always the shortest), Virtual WAN ensures that outbound traffic from Azure is always routed  to the active or preferred NVA instance.
+
+:::image type="content" source="./media/routing-policies/active-passive-nva.png"alt-text="Screenshot showing routing patterns for active-passive NVAs."lightbox="./media/routing-policies/active-passive-nva.png":::
+
+For **active-active NVA configurations** (both instances advertise the same route with the same AS-PATH length), Azure automatically performs ECMP to route traffic from Azure to on-premises. Azure's software-defined networking platform does not guarantee flow-level symmetry, meaning the inbound flow to Azure and outbound flow from Azure can land on different instances of the NVA. This results in asymmetric routing which is dropped by stateful firewall inspection. Therefore, it is not recommended to use active-active connectivity patterns where an NVA is behaving as a dual-role NVA unless the NVA can support asymmetric forwarding or support session sharing/synchronization. For more information on whether your NVA supports asymmetric forwarding or session state sharing/synchronization, reach out to your NVA provider.  
+
+:::image type="content" source="./media/routing-policies/active-active-nva.png"alt-text="Screenshot showing routing patterns for active-active NVAs."lightbox="./media/routing-policies/active-active-nva.png":::
+ 
 
 ## Configuring routing intent through Azure portal
 
