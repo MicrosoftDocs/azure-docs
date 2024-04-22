@@ -148,6 +148,8 @@ items:
         href: network-file-system-protocol-support.md
       - name: Performance considerations
         href: network-file-system-protocol-support-performance.md
+      - name: Performance benchmark
+        href: network-file-system-protocol-performance-benchmark.md
       - name: Mount storage by using NFS
         href: network-file-system-protocol-support-how-to.md
       - name: Limitations and known issues
