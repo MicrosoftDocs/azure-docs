@@ -15,7 +15,7 @@ Virtual WAN Hub routing intent allows you to set up simple and declarative routi
 
 ## Background
 
-Routing Intent and Routing Policies allow you to configure the Virtual WAN hub to forward Internet-bound and Private (Point-to-site VPN, Site-to-site VPN, ExpressRoute, Virtual Network, and Network Virtual Appliance) Traffic to an Azure Firewall,  Next-Generation Firewall (NGFW), Network Virtual Appliance (NVA) or security software-as-a-service (SaaS) solution deployed in the virtual hub.
+Routing Intent and Routing Policies allow you to configure the Virtual WAN hub to forward Internet-bound and Private (Point-to-site VPN, Site-to-site VPN, ExpressRoute, Virtual Network, and Network Virtual Appliance) Traffic to an Azure Firewall,  Next-Generation Firewall (NGFW), Network Virtual Appliance (NVA), or security software-as-a-service (SaaS) solution deployed in the virtual hub.
 
 There are two types of Routing Policies: Internet Traffic and Private Traffic Routing Policies. Each Virtual WAN Hub may have at most one Internet Traffic Routing Policy and one Private Traffic Routing Policy, each with a single Next Hop resource. While Private Traffic includes both branch and Virtual Network address prefixes, Routing Policies considers them as one entity within the Routing Intent concepts.
 
@@ -33,7 +33,7 @@ The following section describes two common scenarios where Routing Policies are 
 
 ### All Virtual WAN Hubs are secured (deployed with Azure Firewall, NVA, or SaaS solution)
 
-In this scenario, all Virtual WAN hubs are deployed with an Azure Firewall, NVA or SaaS solution in them. In this scenario, you may configure an Internet Traffic Routing Policy, a Private Traffic Routing Policy or both on each Virtual WAN Hub.
+In this scenario, all Virtual WAN hubs are deployed with an Azure Firewall, NVA, or SaaS solution in them. In this scenario, you may configure an Internet Traffic Routing Policy, a Private Traffic Routing Policy or both on each Virtual WAN Hub.
 
 :::image type="content" source="./media/routing-policies/two-secured-hubs-diagram.png"alt-text="Screenshot showing architecture with two secured hubs."lightbox="./media/routing-policies/two-secured-hubs-diagram.png":::
 
@@ -54,10 +54,10 @@ The following are the traffic flows that result from such a configuration.
 
 | From |   To |  Hub 1 VNets | Hub 1 branches | Hub 2 VNets | Hub 2 branches| Internet|
 | -------------- | -------- | ---------- | ---| ---| ---| ---|
-| Hub 1 VNets     | &#8594;| Hub 1 AzFW  or NVA|   Hub 1 AzFW or NVA    | Hub 1 and 2 AzFW, NVA, or SaaS | Hub 1 and 2 AzFW, NVA, or SaaS | Hub 1 AzFW, NVA or SaaS |
-| Hub 1 Branches   | &#8594;|  Hub 1 AzFW, NVA, or SaaS |   Hub 1 AzFW, NVA or SaaS    | Hub 1 and 2 AzFW, NVA, or SaaS | Hub 1 and 2 AzFW, NVA or SaaS | Hub 1 AzFW, NVA or SaaS|
+| Hub 1 VNets     | &#8594;| Hub 1 AzFW  or NVA|   Hub 1 AzFW or NVA    | Hub 1 and 2 AzFW, NVA, or SaaS | Hub 1 and 2 AzFW, NVA, or SaaS | Hub 1 AzFW, NVA, or SaaS |
+| Hub 1 Branches   | &#8594;|  Hub 1 AzFW, NVA, or SaaS |   Hub 1 AzFW, NVA, or SaaS    | Hub 1 and 2 AzFW, NVA, or SaaS | Hub 1 and 2 AzFW, NVA, or SaaS | Hub 1 AzFW, NVA, or SaaS|
 | Hub 2 VNets     | &#8594;| Hub 1 and 2 AzFW, NVA, or SaaS|   Hub 1 and 2 AzFW, NVA, or SaaS    | Hub 2 AzFW, NVA, or SaaS | Hub 2 AzFW, NVA, or SaaS| Hub 2 AzFW, NVA, or SaaS|
-| Hub 2 Branches   | &#8594;|   Hub 1 and 2 AzFW, NVA, or SaaS|    Hub 1 and 2 AzFW, NVA, or SaaS   | Hub 2 AzFW, NVA, or SaaS |  Hub 2 AzFW, NV,A or SaaS | Hub 2AzFW, NVA, or SaaS|
+| Hub 2 Branches   | &#8594;|   Hub 1 and 2 AzFW, NVA, or SaaS|    Hub 1 and 2 AzFW, NVA, or SaaS   | Hub 2 AzFW, NVA, or SaaS |  Hub 2 AzFW, NVA, or SaaS | Hub 2AzFW, NVA, or SaaS|
 
 
 ### Deploying both secured and regular Virtual WAN Hubs 
@@ -67,7 +67,7 @@ In this scenario, not all hubs in the WAN are Secured Virtual WAN Hubs (hubs tha
 Consider the following configuration where Hub 1 (Normal) and Hub 2 (Secured) are deployed in a Virtual WAN. Hub 2 has Routing Policies for both Private and Internet Traffic. 
 
 **Hub 1 Configuration:**
-* N/A (can't configure Routing Policies if hub isn't deployed with Azure Firewall, NVA ,or SaaS solution)
+* N/A (can't configure Routing Policies if hub isn't deployed with Azure Firewall, NVA, or SaaS solution)
 
 **Hub 2 Configuration:**
 * Private Traffic  Policy with Next Hop Hub 2 Azure Firewall, NVA, or SaaS solution.
@@ -93,7 +93,7 @@ Consider the following configuration where Hub 1 (Normal) and Hub 2 (Secured) ar
 * The following connectivity use cases are **not** supported with Routing Intent:
   * Static routes in the defaultRouteTable that point to a Virtual Network connection can't be used in conjunction with routing intent. However, you can use the [BGP peering feature](scenario-bgp-peering-hub.md).
   * The ability to deploy both an SD-WAN connectivity NVA and a separate Firewall NVA or SaaS solution in the **same** Virtual WAN hub is currently in the road-map. Once routing intent is configured with next hop SaaS solution or Firewall NVA, connectivity between the SD-WAN NVA and Azure is impacted. Instead, deploy the SD-WAN NVA and Firewall NVA, or SaaS solution in different Virtual Hubs. Alternatively, you can also deploy the SD-WAN NVA in a spoke Virtual Network connected to the hub and leverage the virtual hub [BGP peering](scenario-bgp-peering-hub.md) capability.
-  * Network Virtual Appliances (NVAs) can only be specified as the next hop resource for routing intent if they're Next-Generation Firewall or dual-role Next-Generation Firewall and SD-WAN NVAs. Currently, **checkpoint**, **fortinet-ngfw** and **fortinet-ngfw-and-sdwan** are the only NVAs eligible to be configured to be the next hop for routing intent. If you attempt to specify another NVA, Routing Intent creation fails. You can check the type of the NVA by navigating to your Virtual Hub -> Network Virtual Appliances and then looking at the **Vendor** field.
+  * Network Virtual Appliances (NVAs) can only be specified as the next hop resource for routing intent if they're Next-Generation Firewall or dual-role Next-Generation Firewall and SD-WAN NVAs. Currently, **checkpoint**, **fortinet-ngfw**, and **fortinet-ngfw-and-sdwan** are the only NVAs eligible to be configured to be the next hop for routing intent. If you attempt to specify another NVA, Routing Intent creation fails. You can check the type of the NVA by navigating to your Virtual Hub -> Network Virtual Appliances and then looking at the **Vendor** field.
   * Routing Intent users who want to connect multiple ExpressRoute circuits to Virtual WAN and want to send traffic between them via a security solution deployed in the hub can enable open up a support case to enable this use case. Reference [enabling connectivity across ExpressRoute circuits](#expressroute) for more information.
 
 ## Considerations
@@ -308,13 +308,13 @@ Configuring private routing policies with Encrypted ExpressRoute routes VPN ESP 
 
 * Deploy Azure Firewall Premium instead of Azure Firewall Standard or Azure Firewall Basic.
 * Ensure Azure Firewall processes the rule that allows traffic between the VPN tunnel endpoints (192.168.1.4 and 192.168.1.5 in the example above) first by making the rule have the highest priority in your Azure Firewall policy. For more information about Azure Firewall rule processing logic, see [Azure Firewall rule processing logic](../firewall/rule-processing.md#rule-processing-using-firewall-policy).
-* Turn off deep-packet for traffic between the VPN tunnel endpoints.For information on how to configure Azure Firewall to exclude traffic from deep-packet inspection, reference [IDPS bypass list documentation](../firewall/premium-features.md#idps).
+* Turn off deep-packet for traffic between the VPN tunnel endpoints. For information on how to configure Azure Firewall to exclude traffic from deep-packet inspection, reference [IDPS bypass list documentation](../firewall/premium-features.md#idps).
 * Configure VPN devices to use GCMAES256 for both IPSEC Encryption and Integrity to maximize performance.
 
 #### Direct routing to NVA instances for dual-role connectivity and firewall NVAs
 
 > [!NOTE]
-> Direct routing to dual-role NVA used with private routing policies in Virtual WAN only applies to traffic between Virtual Networks and NVA-connected on-premises. ExpressRoute and VPN transit connectivity to NVA-connected on-premises does not go directly to NVA instances and is instead routed via the dual-role NVA's load balancer.
+> Direct routing to dual-role NVA used with private routing policies in Virtual WAN only applies to traffic between Virtual Networks and NVA-connected on-premises. ExpressRoute and VPN transit connectivity to NVA-connected on-premises does'nt go directly to NVA instances and is instead routed via the dual-role NVA's load balancer.
 
 Certain Network Virtual Appliances can have both connectivity (SD-WAN) and security (NGFW) capabilities  on the same device. These NVAs are considered dual-role NVAs. Check whether or not your NVA is dual-role NVA under [NVA partners](../virtual-wan/about-nva-hub#partners).
 
@@ -324,7 +324,7 @@ For **active-passive NVA configurations** where only one instance of the NVAs is
 
 :::image type="content" source="./media/routing-policies/active-passive-nva.png"alt-text="Screenshot showing routing patterns for active-passive NVAs"lightbox="./media/routing-policies/active-passive-nva.png":::
 
-For **active-active NVA configurations** (both instances advertise the same route with the same AS-PATH length), Azure automatically performs ECMP to route traffic from Azure to on-premises. Azure's software-defined networking platform does not guarantee flow-level symmetry, meaning the inbound flow to Azure and outbound flow from Azure can land on different instances of the NVA. This results in asymmetric routing which is dropped by stateful firewall inspection. Therefore, it is not recommended to use active-active connectivity patterns where an NVA is behaving as a dual-role NVA unless the NVA can support asymmetric forwarding or support session sharing/synchronization. For more information on whether your NVA supports asymmetric forwarding or session state sharing/synchronization, reach out to your NVA provider.  
+For **active-active NVA configurations** (both instances advertise the same route with the same AS-PATH length), Azure automatically performs ECMP to route traffic from Azure to on-premises. Azure's software-defined networking platform doesn't guarantee flow-level symmetry, meaning the inbound flow to Azure and outbound flow from Azure can land on different instances of the NVA. This results in asymmetric routing which is dropped by stateful firewall inspection. Therefore, it isn't recommended to use active-active connectivity patterns where an NVA is behaving as a dual-role NVA unless the NVA can support asymmetric forwarding or support session sharing/synchronization. For more information on whether your NVA supports asymmetric forwarding or session state sharing/synchronization, reach out to your NVA provider.  
 
 :::image type="content" source="./media/routing-policies/active-active-nva.png"alt-text="Screenshot showing routing patterns for active-active NVAs"lightbox="./media/routing-policies/active-active-nva.png":::
 
@@ -398,7 +398,7 @@ The following section describes common ways to troubleshoot when you configure r
 
 When private routing policies are configured on the Virtual Hub, all traffic between on-premises and Virtual Networks are inspected by Azure Firewall, Network Virtual Appliance, or SaaS solution in the Virtual hub.
 
-Therefore, the effective routes of the defaultRouteTable show the RFC1918 aggregate prefixes (10.0.0.0/8, 192.168.0.0/16, 172.16.0.0/12) with next hop Azure Firewall or Network Virtual Appliance. This reflects that all traffic between Virtual Networks and branches is routed to  Azure Firewall, NVA or SaaS solution in the hub for inspection.
+Therefore, the effective routes of the defaultRouteTable show the RFC1918 aggregate prefixes (10.0.0.0/8, 192.168.0.0/16, 172.16.0.0/12) with next hop Azure Firewall or Network Virtual Appliance. This reflects that all traffic between Virtual Networks and branches is routed to  Azure Firewall, NVA, or SaaS solution in the hub for inspection.
 
   :::image type="content" source="./media/routing-policies/default-route-table-effective-routes.png"alt-text="Screenshot showing effective routes for defaultRouteTable."lightbox="./media/routing-policies/public-routing-policy-nva.png":::
 
@@ -427,7 +427,7 @@ Assuming you have already reviewed  the [Known Limitations](#knownlimitations) s
 * Scenario-specific troubleshooting:
   * **If you have a non-secured hub (hub without Azure Firewall or NVA) in your Virtual WAN**, make sure connections to the nonsecured hub are propagating to the defaultRouteTable of the hubs with routing intent configured. If propagations aren't set to the defaultRouteTable, connections to the secured hub won't be able to send packets to the nonsecured hub.
   * **If you have Internet Routing Policies configured**, make sure the 'Propagate Default Route' or 'Enable Internet Security' setting is set to 'true' for all connections that should learn the 0.0.0.0/0 default route. Connections where this setting is set to 'false' won't learn the 0.0.0.0/0 route, even if Internet Routing Policies are configured.
-  * **If you're using Private Endpoints deployed in Virtual Networks connected to the Virtual Hub**, traffic from on-premises destined for Private Endpoints deployed in Virtual Networks connected to the Virtual WAN hub by default **bypasses** the routing intent next hop Azure Firewall, NVA or SaaS. However, this results in asymmetric routing (which can lead to loss of connectivity between on-premises and Private Endpoints) as Private Endpoints in Spoke Virtual Networks forward on-premises traffic to the Firewall. To ensure routing symmetry, enable [Route Table network policies for private endpoints](../private-link/disable-private-endpoint-network-policy.md) on the subnets where Private Endpoints are deployed. Configuring  /32 routes corresponding to  Private Endpoint private IP addresses in the Private Traffic text box **will not** ensure traffic symmetry when private routing policies are configured on the hub.
+  * **If you're using Private Endpoints deployed in Virtual Networks connected to the Virtual Hub**, traffic from on-premises destined for Private Endpoints deployed in Virtual Networks connected to the Virtual WAN hub by default **bypasses** the routing intent next hop Azure Firewall, NVA, or SaaS. However, this results in asymmetric routing (which can lead to loss of connectivity between on-premises and Private Endpoints) as Private Endpoints in Spoke Virtual Networks forward on-premises traffic to the Firewall. To ensure routing symmetry, enable [Route Table network policies for private endpoints](../private-link/disable-private-endpoint-network-policy.md) on the subnets where Private Endpoints are deployed. Configuring  /32 routes corresponding to  Private Endpoint private IP addresses in the Private Traffic text box **will not** ensure traffic symmetry when private routing policies are configured on the hub.
   * **If you're using Encrypted ExpressRoute with Private Routing Policies**, ensure that your Firewall device has a rule configured to allow traffic between the Virtual WAN Site-to-site VPN Gateway private IP tunnel endpoint and on-premises VPN device. ESP  (encrypted outer) packets should log in Azure Firewall logs. For more information on Encrypted ExpressRoute with routing intent, see [Encrypted ExpressRoute documentation](#encryptedER).
 
 ### Troubleshooting Azure Firewall routing issues
