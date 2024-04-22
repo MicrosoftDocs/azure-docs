@@ -181,9 +181,9 @@ For more information, see [Max Unavailable](https://kubernetes.io/docs/concepts/
 
 > **Best practice guidance**
 >
-> Use pod topology spread constraints to ensure that pods are spread across different nodes, zones, or regions to improve availability and reliability.
+> Use pod topology spread constraints to ensure that pods are spread across different nodes or zones to improve availability and reliability.
 
-You can use pod topology spread constraints to control how pods are spread across your cluster based on the topology of the nodes. You can use topology spread constraints to spread pods across different nodes, zones, or regions to improve availability and reliability.
+You can use pod topology spread constraints to control how pods are spread across your cluster based on the topology of the nodes and spread pods across different nodes or zones to improve availability and reliability.
 
 The following example pod definition file shows how to use the `topologySpreadConstraints` field to spread pods across different nodes:
 
