@@ -138,7 +138,7 @@ Deployment Observability Hub is a central storage that is easy to query with com
 
 ## Platform configuration concepts
 
-## Separation of concerns
+### Separation of concerns
 
 Application behavior on a deployment target is determined by configuration values. However, configuration values are not all the same. These values are provided by different personas at different points in the application lifecycle and have different scopes. Generally, there are application and platform configurations.
 
@@ -152,7 +152,7 @@ Orthogonal to that, an application might be deployed multiple times in each envi
 
 Besides development time configurations, an application often needs platform-specific configuration values such as endpoints, tags, or secrets. These values may be different on every single host where the application is deployed. The deployment descriptors/manifests, created by the application developers, refer to the configuration objects containing these values, such as config maps or secrets. Application developers expect these configuration objects to be present on the host and available for the application to consume. Commonly, these objects and their values are provided by a platform team. Depending on the organization, the platform team persona may be backed up by different departments/people, for example IT Global, Site IT, Equipment owners and such.
 
-The concerns of the application developers and the platform team are totally separated. The application developers are focused on the application; they own and configure it. Similarly, the platform team owns and configures the platform. The key point is that the platform team doesn't configure applications, they configure environments for applications. Essentially, they provide environment variable values for the application developers to use. 
+The concerns of the application developers and the platform team are totally separated. The application developers are focused on the application; they own and configure it. Similarly, the platform team owns and configures the platform. The key point is that the platform team doesn't configure applications, they configure environments for applications. Essentially, they provide environment variable values for the applications to use. 
 
 Platform configurations often consist of common configurations that are irrelevant to the applications consuming them, and application-specific configurations that may be unique for every application. 
 
@@ -215,7 +215,7 @@ A simple and flexible way to implement configuration composition is the label ma
 
 In this diagram, configuration containers group configuration values at different levels such as **Site**, **Line**, **Environment**, and **Region**. Depending on the organization, the values in these containers may be provided by different personas, such as IT Global, Site IT, Equipment owners, or just the Platform team. Each container is marked with a set of labels that define where values from this container are applicable. Besides the configuration containers, there are abstractions representing an application and a host where the application is to be deployed. Both of them are marked with the labels as well. The combination of the application's and host's labels composes the instance's labels set. This set determines the values of configuration containers that should be pulled into the application configuration snapshot. This snapshot is delivered to the host and fed to the application instance. The control plane iterates over the containers and evaluates if the container's labels match the instance's labels set. If so, the container's values are included in the final snapshot; if not, the container is skipped. The control plane can be configured with different strategies of overriding and merging for the complex objects and arrays.
 
-One of the biggest advantages of this approach is scalability. The structure of configuration containers is abstracted away from the application instance, which doesn't really know where the values are coming from. This lets the application easily manipulate the configuration containers, introduce new levels and configuration groups without reconfiguring hundreds of application instances.
+One of the biggest advantages of this approach is scalability. The structure of configuration containers is abstracted away from the application instance, which doesn't really know where the values are coming from. This lets the platform team easily manipulate the configuration containers, introduce new levels and configuration groups without reconfiguring hundreds of application instances.
 
 ### Templating
 
