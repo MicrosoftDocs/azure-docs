@@ -1,7 +1,7 @@
 ---
 title: Create and manage prompt flow compute sessions
 titleSuffix: Azure AI Studio
-description: Learn how to create and manage prompt flow compute sessions in Azure AI Studio.
+description: In this article, learn how to create and manage compute sessions to run prompt flows in Azure AI Studio.
 manager: scottpolly
 ms.service: azure-ai-studio
 ms.custom:
@@ -11,6 +11,7 @@ ms.date: 04/22/2024
 ms.reviewer: eur
 ms.author: sgilley
 author: sdgilley
+# customer intent: Learn how to create and manage prompt flow compute sessions in Azure AI Studio.
 ---
 
 # Create and manage prompt flow compute sessions in Azure AI Studio
@@ -27,7 +28,7 @@ Then select **Start compute session** from the top toolbar.
 
 - Select the button **Start compute session**, or select **Start compute session** after using the arrow to drop down the list. The automatic compute session uses the environment defined in `flow.dag.yaml` in the [flow folder](flow-develop.md#authoring-the-flow). It runs on a serverless compute with a virtual machine (VM) size for which you have sufficient quota in your workspace.
 
-  :::image type="content" source="../media/prompt-flow/how-to-create-manage-runtime/runtime-create-automatic-init.png" alt-text="Screenshot of prompt flow with default settings for starting an automatic compute session on a flow page." lightbox = "../media/prompt-flow/how-to-create-manage-compute session/compute session-create-automatic-init.png":::
+  :::image type="content" source="../media/prompt-flow/how-to-create-manage-runtime/runtime-create-automatic-init.png" alt-text="Screenshot of prompt flow with default settings for starting an automatic compute session on a flow page." lightbox = "../media/prompt-flow/how-to-create-manage-runtime/runtime-create-automatic-init.png":::
 
 - Use the arrow to the right to access **Start with advanced settings**. In the advanced settings, you can:
 - Select **Start with advanced settings**. In the advanced settings, you can select the compute type. You can choose between serverless compute and compute instance.
@@ -41,9 +42,9 @@ Then select **Start compute session** from the top toolbar.
             :::image type="content" source="../media/prompt-flow/how-to-create-manage-runtime/runtime-creation-automatic-settings.png" alt-text="Screenshot of prompt flow with advanced settings using serverless compute for starting an automatic runtime on a flow page." lightbox = "../media/prompt-flow/how-to-create-manage-runtime/runtime-creation-automatic-settings.png":::
 
     - If you choose compute instance, you can only set idle shutdown time. 
-        - As it is running on an existing compute instance the VM size is fixed and cannot change in runtime side.
-        - Identity used for this runtime also is defined in compute instance, by default it uses the user identity. [Learn more about how to assign identity to compute instance](../../machine-learning/how-to-create-compute-instance.md#assign-managed-identity)
-        - For the idle shutdown time it is used to define life cycle of the runtime, if the runtime is idle for the time you set, it will be deleted automatically. And of you have idle shut down enabled on compute instance, then it will continue 
+        - Since this is an existing compute instance, the VM size is fixed and can't change in runtime side.
+        - The identity used for this runtime also is defined in compute instance, by default it uses the user identity. [Learn more about how to assign identity to compute instance](../../machine-learning/how-to-create-compute-instance.md#assign-managed-identity)
+        - Idle shutdown time is used to define the life cycle of the runtime. If the runtime is idle for the time you set, it's deleted automatically. If you have idle shutdown enabled on a compute instance, then it shuts down but won't be deleted.
 
             :::image type="content" source="../media/prompt-flow/how-to-create-manage-runtime/runtime-creation-automatic-compute-instance-settings.png" alt-text="Screenshot of prompt flow with advanced settings using compute instance for starting an automatic runtime on a flow page." lightbox = "../media/prompt-flow/how-to-create-manage-runtime/runtime-creation-automatic-compute-instance-settings.png":::
     - Select **Next** to specify the base image settings. Use the default base image or provide a custom base image.
@@ -51,7 +52,7 @@ Then select **Start compute session** from the top toolbar.
     - Select **Next** to review your settings.
     - Select **Apply and start compute session** to start the compute session.
 
-### Update an automatic runtime on a flow page
+## Update an automatic runtime on a flow page
 
 To manage an automatic runtime, select the **Compute session running** on the top toolbar:
 
@@ -75,7 +76,7 @@ You can also customize the environment that you use to run this flow by adding p
 >
 > Don't pin the version of `promptflow` and `promptflow-tools` in `requirements.txt`, because they are already included in the runtime base image.
 
-#### Add packages in a private feed in Azure DevOps
+### Add packages in a private feed in Azure DevOps
 
 If you want to use a private feed in Azure DevOps, follow these steps:
 
@@ -97,9 +98,9 @@ If you want to use a private feed in Azure DevOps, follow these steps:
 
     :::image type="content" source="../media/prompt-flow/how-to-create-manage-runtime/runtime-advanced-setting-msi.png" alt-text="Screenshot that shows the toggle for using a workspace user-assigned managed identity." lightbox = "../media/prompt-flow/how-to-create-manage-runtime/runtime-advanced-setting-msi.png":::
 
-#### Change the base image for automatic runtime (preview)
+### Change the base image for automatic runtime (preview)
 
-By default, we use the latest prompt flow image as the base image. If you want to use a different base image, you need build your own base image, this docker image should be built from prompt flow base image that is `mcr.microsoft.com/azureml/promptflow/promptflow-runtime:<newest_version>`. If possible use the [latest version of the base image](https://mcr.microsoft.com/v2/azureml/promptflow/promptflow-runtime/tags/list). To use the new base image, you need to reset the runtime via the `reset` command. This process takes several minutes as it pulls the new base image and reinstalls packages.
+By default, we use the latest prompt flow image as the base image. If you want to use a different base image, you need to build your own base image. The docker image should be built from the prompt flow base image, `mcr.microsoft.com/azureml/promptflow/promptflow-runtime:<newest_version>`. If possible use the [latest version of the base image](https://mcr.microsoft.com/v2/azureml/promptflow/promptflow-runtime/tags/list). To use the new base image, you need to reset the runtime via the `reset` command. This process takes several minutes as it pulls the new base image and reinstalls packages.
 
 :::image type="content" source="../media/prompt-flow/how-to-create-manage-runtime/runtime-creation-automatic-image-flow-dag.png" alt-text="Screenshot of actions for customizing a base image for an automatic runtime on a flow page." lightbox = "../media/prompt-flow/how-to-create-manage-runtime/runtime-creation-automatic-image-flow-dag.png":::
 
@@ -109,7 +110,7 @@ environment:
     python_requirements_txt: requirements.txt
 ```
 
-## Next steps
+## Related resources
 
 - [Learn more about prompt flow](./prompt-flow.md)
 - [Develop a flow](./flow-develop.md)
