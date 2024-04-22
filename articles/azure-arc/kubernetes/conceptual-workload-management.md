@@ -154,7 +154,7 @@ Besides development time configurations, an application often needs platform-spe
 
 The concerns of the application developers and the platform team are totally separated. The application developers are focused on the application; they own and configure it. Similarly, the platform team owns and configures the platform. The key point is that the platform team doesn't configure applications, they configure environments for applications. Essentially, they provide environment variable values for the application developers to use. 
 
-The platform configurations often consist of the common configurations that are irrelevant to the applications consuming them and application specific configurations that may be unique for every application. 
+Platform configurations often consist of common configurations that are irrelevant to the applications consuming them, and application-specific configurations that may be unique for every application. 
 
 :::image type="content" source="media/concept-workload-management/app-platform-config.png" alt-text="Diagram showing application and platform configurations." lightbox="media/concept-workload-management/app-platform-config.png":::
 
