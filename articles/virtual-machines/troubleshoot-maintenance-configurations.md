@@ -11,13 +11,13 @@ ms.author: lnagpal
 
 # Troubleshoot problems with Maintenance Configurations
 
-This article outlines common problems and errors that might arise during the deployment or use of Maintenance Configurations for scheduled updates on virtual machines (VMs), along with strategies to address them.
+This article outlines common problems and errors that might arise during the deployment or use of Maintenance Configurations for scheduled patching on virtual machines (VMs), along with strategies to address them.
 
-## A VM shuts down and is unresponsive when you use a dynamic scope
+## A VM shuts down and is unresponsive when you use a dynamic scope in guest maintenance
 
 ### Problem
 
-A maintenance configuration doesn't install a scheduled update on the VMs and gives a `ShutdownOrUnresponsive` error.
+A maintenance configuration doesn't install a scheduled patch on the VMs and gives a `ShutdownOrUnresponsive` error.
 
 ### Resolution
 
@@ -25,31 +25,31 @@ It takes 12 hours to complete the cleanup process for the maintenance configurat
 
 If you create a VM with the same name before the cleanup, Maintenance Configurations can't trigger the schedule.
 
-## A VM shuts down and is unresponsive when you use a static scope
+## A VM shuts down and is unresponsive when you use a static scope in guest maintenance
 
 ### Problem
 
-A maintenance configuration doesn't install a scheduled update on the VMs and gives a `ShutdownOrUnresponsive` error.
+A maintenance configuration doesn't install a scheduled patch on the VMs and gives a `ShutdownOrUnresponsive` error.
 
 ### Resolution
 
 In a static scope, it's crucial to avoid relying on outdated VM configurations. Instead, prioritize reassigning configurations after you re-create instances.
 
-## A scheduled update times out or fails
+## Scheduled patching times out or fails
 
 ### Problem
 
-A scheduled update fails with a `TimeOut` or `Failed` error after you move a VM by re-creating it with the same name in a different region. The portal might show the same VM twice because the previously created VM is removed from the back end.
+Scheduled patching fails with a `TimeOut` or `Failed` error after you move a VM by re-creating it with the same name in a different region. The portal might show the same VM twice because the previously created VM is removed from the back end.
 
 ### Resolution
 
 This is a known bug, and we're working on resolving it. If you encounter this problem, contact the support team for assistance.
 
-## A scheduled update stops working after the resource is moved
+## Scheduled patching stops working after the resource is moved
 
 ### Problem
 
-If you move a resource to a different resource group or subscription, scheduled updates for the resource stop working.
+If you move a resource to a different resource group or subscription, scheduled patching for the resource stop working.
 
 ### Resolution
 
@@ -78,7 +78,7 @@ You can't create a dynamic scope because of role-based access control (RBAC).
 
 ### Resolution
 
-To create a dynamic scope, you must have the permission at the subscription level or at a resource group level. For more details, see the [list of permissions list for various resources](../update-manager/overview.md#permissions).
+To create a dynamic scope, you must have the permission at the subscription level or at a resource group level. For more information, see the [list of permissions list for various resources](../update-manager/overview.md#permissions).
 
 ## An update is stuck and not progressing
 
@@ -102,23 +102,23 @@ A maintenance configuration doesn't block the update of a dedicated host, and th
 
 If you re-create a dedicated host with the same name, Maintenance Configurations retains the old dedicated host ID, which prevents it from blocking updates. You can resolve this problem by removing the maintenance configuration and reassigning it. If the problem persists, contact the support team for assistance.
 
-## An update operation fails for an invalid classification type
+## Patch installation fails for an invalid classification type
 
 ### Problem
 
-The installation of an update fails because of an invalid classification type in a maintenance configuration.
+Patch installation fails because of an invalid classification type in a maintenance configuration.
 
-A previous bug prevented the system's update operation from performing validation, and the maintenance configuration contained an invalid classification type.
+A previous bug prevented the system's patch operation from performing validation, and the maintenance configuration contained an invalid classification type.
 
 ### Resolution
 
 The bug is fixed. Update the maintenance configuration and set the correct classification type.
 
-## A schedule doesn't trigger an update
+## A schedule isn't triggered
 
 ### Problem
 
-If a resource has two maintenance configurations with the same trigger time and update configuration, and both are assigned to the same VM or resource, only one maintenance configuration is triggered.
+If a resource has two maintenance configurations with the same trigger time and patch installation configuration, and both are assigned to the same VM or resource, only one maintenance configuration is triggered.
 
 ### Resolution
 
@@ -134,7 +134,7 @@ Dynamic scope validation fails because of a null value in the location.
 
 This problem with dynamic scope validation causes regression in the validation process. We recommend that you provide the required set of locations for a dynamic scope at the resource-group level.
 
-## A dynamic scope isn't executed and no resources are updated
+## A dynamic scope isn't executed and no resources are patched
 
 ### Problem
 
@@ -178,7 +178,7 @@ We recommend that you update the maintenance configuration at least 1 hour befor
 
 ### Problem
 
-In rare cases, if the host update window happens to coincide with the guest (VM) update window, and if the guest update window doesn't have sufficient time to run after host update, the system shows this error message: "Schedule timeout, waiting for an ongoing update to complete the resource." The reason is that the platform allows only one update at a time.
+In rare cases, if the host update window happens to coincide with the VM guest patching window, and if the guest patching window doesn't have sufficient time to run after the host update, the system shows this error message: "Schedule timeout, waiting for an ongoing update to complete the resource." The reason is that the platform allows only one update at a time.
 
 ### Resolution
 

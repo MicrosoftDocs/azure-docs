@@ -71,26 +71,20 @@ Features and limitations unique to this scope include:
 >
 > The character count for the resource group name and the maintenance configuration name should be less than 128.
 
-Maintenance Configuration provides two scheduled patching modes for VMs in the guest scope: Static Mode and [Dynamic Scope](../update-manager/dynamic-scope-overview.md) Mode. By default, the system operates in Static Mode if you don't configure a Dynamic Scope Mode.
+Maintenance Configurations provides two scheduled patching modes for VMs in the guest scope: Static Mode and [Dynamic Scope](../update-manager/dynamic-scope-overview.md) Mode. By default, the system operates in Static Mode if you don't configure a Dynamic Scope Mode.
 
 To schedule or modify the maintenance configuration in either mode, a buffer of 15 minutes before the scheduled patch time is required. For instance, if you schedule the patch for 3:00 PM, all modifications (including adding VMs, removing VMs, or altering the dynamic scope) should finish before 2:45 PM.
 
 To learn more about this topic, see [Schedule recurring updates for machines by using the Azure portal and Azure Policy](../update-center/scheduled-patching.md).
 
 > [!IMPORTANT]
-> If you move a resource to a different resource group or subscription, scheduled patching for the resource stops working, because the system currently doesn't support this scenario. As a workaround, follow these steps for the resource that you want to move (in static scope):
->
-> 1. Remove the resource assignment.
-> 2. Move the resource to a different resource group or subscription.
-> 3. Re-create the resource assignment.
->
-> In the dynamic scope, the steps are similar, but after you remove the assignment in step 1, you simply need to initiate or wait for the next scheduled run. This action prompts the system to completely remove the assignment so that you can proceed with steps 2 and 3. If you forget or miss any one of the preceding steps, you can reassign the resource to the original assignment and repeat the steps again sequentially.
+> If you move a resource to a different resource group or subscription, scheduled patching for the resource stops working, because the system currently doesn't support this scenario. As a workaround, follow the steps in the [troubleshooting article](troubleshoot-maintenance-configurations.md#scheduled-patching-stops-working-after-the-resource-is-moved).
 
 ## Shut-down machines
 
-We can't apply maintenance updates to any shut-down machines. Ensure that your machine is turned on at least 15 minutes before a scheduled update, or the update might not be applied.
+You can't apply maintenance updates to any shut-down machines. Ensure that your machine is turned on at least 15 minutes before a scheduled update, or the update might not be applied.
 
-If your machine is shut down at the time of your scheduled update, the maintenance configuration might appear to be disassociated in the Azure portal. This is only a display issue. The maintenance configuration isn't disassociated, and you can [check it via the Azure CLI](maintenance-configurations-cli.md#check-configuration).
+If your machine is shut down at the time of your scheduled update, the maintenance configuration might appear to be disassociated in the Azure portal. This is only a display issue. The maintenance configuration isn't disassociated, and you can [check it via the Azure CLI](maintenance-configurations-cli.md#check-the-configuration).
 
 ## Management options
 
