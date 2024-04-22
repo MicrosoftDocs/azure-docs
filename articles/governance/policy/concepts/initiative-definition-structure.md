@@ -113,7 +113,7 @@ there are some _common_ properties used by Azure Policy and in built-ins.
 ### Common metadata properties
 
 - `version` (string): Tracks details about the version of the contents of a policy initiative
-  definition. For built-ins, this metadata version will follow the version property of the built-in. It is recommend to use the version property over this metadata version. 
+  definition. For built-ins, this metadata version will follow the version property of the built-in. It's recommend to use the version property over this metadata version. 
 - `category` (string): Determines under which category in the Azure portal the policy definition is
   displayed.
 
@@ -133,16 +133,16 @@ The Azure Policy service uses `version`, `preview`, and `deprecated` properties 
 > `{Major}.{Minor}.{Patch}`. Specific states, such as _deprecated_ or _preview_, are appended to the
 > `version` property or in another property as a **boolean**. 
 
-- Major Version (ex. 2.0.0): introduce breaking changes such as major rule logic changes, removing parameters, adding an enforcement effect by default. 
-- Minor Version (ex. 2.1.0): introduce changes such as minor rule logic changes, adding new parameter allowed values, change to role definitionIds, adding ore moveing definitions within an initiative. 
-- Patch Version (ex.2.1.4): introduce string or metadata changes as well as breaking glass security scenarios (rare).
+- Major Version (example: 2.0.0): introduce breaking changes such as major rule logic changes, removing parameters, adding an enforcement effect by default. 
+- Minor Version (example: 2.1.0): introduce changes such as minor rule logic changes, adding new parameter allowed values, change to role definitionIds, adding or removeing definitions within an initiative. 
+- Patch Version (example: 2.1.4): introduce string or metadata changes as well as breaking glass security scenarios (rare).
 
 For more information about the way
 > Azure Policy versions built-ins, see
 > [Built-in versioning](https://github.com/Azure/azure-policy/blob/master/built-in-policies/README.md).
 > To learn more about what it means for a policy to be _deprecated_ or in _preview_, see [Preview and deprecated policies](https://github.com/Azure/azure-policy/blob/master/built-in-policies/README.md#preview-and-deprecated-policies).
 
-Built-in initiatives themselves are versioned, but it is possible to reference a sepcific versions of a built-in definition within a builtin and custom initiative. For more information see [reference definition and versions.](#policy-definition-properties)
+Built-in initiatives themselves are versioned, but it's possible to reference a sepcific versions of a built-in definition within a builtin and custom initiative. For more information see [reference definition and versions.](#policy-definition-properties)
 
 
 ## Parameters
@@ -274,7 +274,7 @@ Each _array_ element that represents a policy definition has the following prope
 - `parameters`: (Optional) The name/value pairs for passing an initiative parameter to the
   included policy definition as a property in that policy definition. For more information, see
   [Parameters](#parameters).
-- `definitionVersion` : (Optional) The version of the built-in definition to refer to. If none is specied, it will refer to the latest major version at assignment time and auto injest any minor updates. For more information, see [definition version](./definition-structure-basics.md#version)
+- `definitionVersion` : (Optional) The version of the built-in definition to refer to. If none is specified, it will refer to the latest major version at assignment time and auto injest any minor updates. For more information, see [definition version](./definition-structure-basics.md#version)
 - `groupNames` (array of strings): (Optional) The group the policy definition is a member of. For
   more information, see [Policy groups](#policy-definition-groups).
 
