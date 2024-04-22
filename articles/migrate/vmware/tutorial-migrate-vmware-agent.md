@@ -75,7 +75,7 @@ If you are following the least privilege principle, assign the **Application Dev
 
 ### Set up an Azure network
 
-[Set up an Azure network](../../virtual-network/manage-virtual-network.md#create-a-virtual-network). On-premises machines are replicated to Azure managed disks. When you fail over to Azure for migration, Azure VMs are created from these managed disks, and joined to the Azure network you set up.
+[Set up an Azure network](/azure/virtual-network/manage-virtual-network). On-premises machines are replicated to Azure managed disks. When you fail over to Azure for migration, Azure VMs are created from these managed disks, and joined to the Azure network you set up.
 
 
 ## Prepare for migration
@@ -138,7 +138,7 @@ Make sure VMware vSphere VMs comply with requirements for migration to Azure.
 3. Verify Azure settings. On-premises VMs you replicate to Azure must comply with [Azure VM requirements](migrate-support-matrix-vmware-migration.md#azure-vm-requirements).
 4. There are some changes needed on VMs before you migrate them to Azure.
     - It's important to make these changes before you begin migration. If you migrate the VM before you make the change, the VM might not boot up in Azure.
-    - Review [Windows](prepare-for-migration.md#windows-machines) and [Linux](prepare-for-migration.md#linux-machines) changes you need to make.
+    - Review [Windows](../prepare-for-migration.md#windows-machines) and [Linux](../prepare-for-migration.md#linux-machines) changes you need to make.
 
 > [!NOTE]
 > Agent-based migration with the Migration and modernization tool is based on features of the Azure Site Recovery service. Some requirements might link to Site Recovery documentation.
@@ -282,7 +282,7 @@ Select VMs for migration.
     - Double encryption with platform-managed and customer-managed keys
 
    > [!NOTE]
-   > To replicate VMs with CMK, you'll need to [create a disk encryption set](../../virtual-machines/disks-enable-customer-managed-keys-portal.md#set-up-your-disk-encryption-set) under the target Resource Group. A disk encryption set object maps Managed Disks to a Key Vault that contains the CMK to use for SSE.
+   > To replicate VMs with CMK, you'll need to [create a disk encryption set](/azure/virtual-machines/disks-enable-customer-managed-keys-portal#set-up-your-disk-encryption-set) under the target Resource Group. A disk encryption set object maps Managed Disks to a Key Vault that contains the CMK to use for SSE.
 
 
 15. In **Azure Hybrid Benefit**:

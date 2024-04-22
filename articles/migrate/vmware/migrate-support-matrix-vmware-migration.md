@@ -114,9 +114,9 @@ The table summarizes agentless migration requirements for VMware vSphere VMs.
 
 Agentless migration uses the [Azure Migrate appliance](../migrate-appliance.md). You can deploy the appliance as a VMware vSphere VM using an OVA template, imported into vCenter Server, or using a [PowerShell script](../deploy-appliance-script.md).
 
-- Learn about [appliance requirements](../migrate-appliance.md#appliance---vmware?context=/azure/migrate/context/vmware-context) for VMware vSphere.
-- Learn about URLs that the appliance needs to access in [public](../migrate-appliance.md#public-cloud-urls?context=/azure/migrate/context/vmware-context) and [government](../migrate-appliance.md#government-cloud-urls?context=/azure/migrate/context/vmware-context) clouds.
-- In Azure Government, you must deploy the appliance [using the script](../deploy-appliance-script-government.md?context=/azure/migrate/context/vmware-context).
+- Learn about [appliance requirements](../migrate-appliance.md#appliance---vmware) for VMware vSphere.
+- Learn about URLs that the appliance needs to access in [public](../migrate-appliance.md#public-cloud-urls) and [government](../migrate-appliance.md#government-cloud-urls) clouds.
+- In Azure Government, you must deploy the appliance [using the script](../deploy-appliance-script-government.md).
 
 ### Port requirements (agentless)
 
@@ -149,9 +149,9 @@ The table summarizes VMware vSphere VM support for VMware vSphere VMs you want t
 **Support** | **Details**
 --- | ---
 **Machine workload** | Azure Migrate supports migration of any workload (say Active Directory, SQL server, etc.) running on a supported machine.
-**Operating systems** | For the latest information, review the [operating system support](../site-recovery/vmware-physical-azure-support-matrix.md#replicated-machines) for Site Recovery. Azure Migrate provides identical VM operating system support.
-**Linux file system/guest storage** | For the latest information, review the [Linux file system support](../site-recovery/vmware-physical-azure-support-matrix.md#linux-file-systemsguest-storage) for Site Recovery. Azure Migrate has identical Linux file system support.
-**Network/Storage** | For the latest information, review the [network](../site-recovery/vmware-physical-azure-support-matrix.md#network) and [storage](../site-recovery/vmware-physical-azure-support-matrix.md#storage) prerequisites for Site Recovery. Azure Migrate provides identical network/storage requirements.
+**Operating systems** | For the latest information, review the [operating system support](../../site-recovery/vmware-physical-azure-support-matrix.md#replicated-machines) for Site Recovery. Azure Migrate provides identical VM operating system support.
+**Linux file system/guest storage** | For the latest information, review the [Linux file system support](../../site-recovery/vmware-physical-azure-support-matrix.md#linux-file-systemsguest-storage) for Site Recovery. Azure Migrate has identical Linux file system support.
+**Network/Storage** | For the latest information, review the [network](../../site-recovery/vmware-physical-azure-support-matrix.md#network) and [storage](../../site-recovery/vmware-physical-azure-support-matrix.md#storage) prerequisites for Site Recovery. Azure Migrate provides identical network/storage requirements.
 **Azure requirements** | For the latest information, review the [Azure network](../site-recovery/vmware-physical-azure-support-matrix.md#azure-vm-network-after-failover), [storage](../site-recovery/vmware-physical-azure-support-matrix.md#azure-storage), and [compute](../site-recovery/vmware-physical-azure-support-matrix.md#azure-compute) requirements for Site Recovery. Azure Migrate has identical requirements for VMware migration.
 **Mobility service** | The Mobility service agent must be installed on each VM you want to migrate.
 **UEFI boot** | Supported. UEFI-based VMs will be migrated to Azure generation 2 VMs.
@@ -178,10 +178,10 @@ The table summarizes VMware vSphere VM support for VMware vSphere VMs you want t
 
 When you set up the replication appliance using the OVA template provided in the Azure Migrate hub, the appliance runs Windows Server 2022 and complies with the support requirements. If you set up the replication appliance manually on a physical server, then make sure that it complies with the requirements.
 
-- Learn about [replication appliance requirements](migrate-replication-appliance.md#appliance-requirements) for VMware vSphere.
-- Install MySQL on the appliance. Learn about [installation options](migrate-replication-appliance.md#mysql-installation).
-- Learn about URLs that the replication appliance needs to access in [public](migrate-replication-appliance.md#url-access) and [government](migrate-replication-appliance.md#azure-government-url-access) clouds.
-- Review the [ports](migrate-replication-appliance.md#port-access) the replication appliance needs to access.
+- Learn about [replication appliance requirements](../migrate-replication-appliance.md#appliance-requirements) for VMware vSphere.
+- Install MySQL on the appliance. Learn about [installation options](../migrate-replication-appliance.md#mysql-installation).
+- Learn about URLs that the replication appliance needs to access in [public](../migrate-replication-appliance.md#url-access) and [government](../migrate-replication-appliance.md#azure-government-url-access) clouds.
+- Review the [ports](../migrate-replication-appliance.md#port-access) the replication appliance needs to access.
 
 ### Port requirements (agent-based)
 
@@ -208,7 +208,7 @@ Shared VHD | Not supported.
 FC disk | Not supported.
 BitLocker | Not supported.<br/><br/> BitLocker must be disabled before you migrate the machine.
 VM name | From 1 to 63 characters.<br/><br/> Restricted to letters, numbers, and hyphens.<br/><br/> The machine name must start and end with a letter or number.
-Connect after migration-Windows | To connect to Azure VMs running Windows after migration:<br/><br/> - Before migration, enable RDP on the on-premises VM.<br/><br/> Make sure that TCP and UDP rules are added for the **Public** profile, and that RDP is allowed in **Windows Firewall** > **Allowed Apps** for all profiles.<br/><br/> For site-to-site VPN access, enable RDP and allow RDP in **Windows Firewall** > **Allowed apps and features** for **Domain and Private** networks.<br/><br/> In addition, check that the operating system's SAN policy is set to **OnlineAll**. [Learn more](prepare-for-migration.md).
+Connect after migration-Windows | To connect to Azure VMs running Windows after migration:<br/><br/> - Before migration, enable RDP on the on-premises VM.<br/><br/> Make sure that TCP and UDP rules are added for the **Public** profile, and that RDP is allowed in **Windows Firewall** > **Allowed Apps** for all profiles.<br/><br/> For site-to-site VPN access, enable RDP and allow RDP in **Windows Firewall** > **Allowed apps and features** for **Domain and Private** networks.<br/><br/> In addition, check that the operating system's SAN policy is set to **OnlineAll**. [Learn more](../prepare-for-migration.md).
 Connect after migration-Linux | To connect to Azure VMs after migration using SSH:<br/><br/> Before migration, on the on-premises machine, check that the Secure Shell service is set to Start, and that firewall rules allow an SSH connection.<br/><br/> After failover, on the Azure VM, allow incoming connections to the SSH port for the network security group rules on the failed over VM, and for the Azure subnet to which it's connected.<br/><br/> In addition, add a public IP address for the VM.  
 
 

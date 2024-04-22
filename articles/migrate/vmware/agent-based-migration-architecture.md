@@ -12,7 +12,7 @@ ms.custom: engagement-fy23
 
 # Agent-based migration architecture
 
-This article provides an overview of the architecture and processes used for agent-based replication of VMware VMs with the [Migration and modernization](../migrate-services-overview.md#migration-and-modernization-tool?context=/azure/migrate/context/vmware-context) tool.
+This article provides an overview of the architecture and processes used for agent-based replication of VMware VMs with the [Migration and modernization](../migrate-services-overview.md#migration-and-modernization-tool) tool.
 
 Using the Migration and modernization tool, you can replicate VMware VMs with a couple of options:
 
