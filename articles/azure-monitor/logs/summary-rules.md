@@ -68,7 +68,7 @@ The destination table you define in a rule can be a new or an existing custom lo
 
 Summary rules can query tables in all tiers, including Analytics, Basic, and Auxiliary. The rules help to optimize cost when you retain raw data for the time needed for your scenario and retain summarized data longer.
 
-The summarized data in a custom log table can be exported to a Storage Account or Event Hubs for further integrations by setting the [Data Export rule](logs-data-export.md) in your workspace.
+The summarized data in a custom log table can be exported to a Storage Account or Event Hubs for further integrations. Set the [Data Export rule](logs-data-export.md) in your workspace to enable the export.
 
 :::image type="content" source="media/summary-rules/ingestion-flow.png" alt-text="Screenshot that shows how Summary rules ingest data through the Azure Monitor pipeline to Log Analytics workspace." border="false" lightbox="media/summary-rules/ingestion-flow.png":::
 
@@ -85,7 +85,7 @@ The following table lists the Summary rules properties and descriptions:
 | `binSize` | Defines the interval query to perform and the query time range. The value can be every 20, 30, 60, 120, 180, 360, 720, or 1,440 minutes. The bin summarization is at the whole hour, for example, `02:00 to 04:00, 04:00 to 06:00` when the bin is 120. When the bin is smaller than an hour, execution is at the bin fraction, 20, and 30 minutes. |
 | `query` | Defines the query to execute in the rule. A time range isn't needed because the `binSize` property determines the value, such as `02:00 to 03:00` for a 60-minutes bin. If you add a time filter in the query, the time rage used in the query is the intersection between the filter and the bin size. |
 | `destinationTable` | Specifies the name of the destination custom log table. The name value must end with `_CL`. The table is created automatically in the workspace, if it doesn't already exist, including the schema derived by the query in the rule. If the table already exists in the workspace, new fields introduced in the query are automatically appended. <br><br> When a reserved field, such as `TimeGenerated`, `_IsBillable`, `_ResourceId`, `TenantId`, or `Type`, is included in the summary results, the `_Original` prefix is appended to the fields to preserve their original values. <br><br> The following standard fields are always included in the Summary rule results: <br> - `_BinStartTime`: The start time of each bin <br> - `_BinSize`: The interval query to perform and the query time range. The bin end time can be calculated as `_BinStartTime` plus `_BinSize`. <br> - `_RuleLastModifiedTime`: The time the rule was last modified, which is helpful for rule change tracking. <br> - `_RuleName`: The name of the rule, which is helpful with rules mapping, especially when multiple rules send data to a table. |
-| `binDelay` (optional) | Identifies bin processing that's triggered by a specified delay after the bin end time, which allows for most data to arrive and for service load distribution. The minimum delay is 3.5 minutes and up to 10% of the `binSize` value. <br><br> If you know that the data you query is typically ingested with delay, set the `binDelay` property with the known delay value or greater. The `binDelay` value can be between 3.5 minutes to 1,440 minutes. For example, for a 60-minutes bin and 10-minutes bin delay, execution of a bin 13:00 to 14:00 doesn't trigger before 14:10. |
+| `binDelay` (optional) | Identifies the time to delay before bin execution for late arriving data. The delay allows for most data to arrive and for service load distribution. The minimum delay is 3.5 minutes and up to 10% of the `binSize` value. <br><br> If you know that the data you query is typically ingested with delay, set the `binDelay` property with the known delay value or greater. The `binDelay` value can be between 3.5 minutes to 1,440 minutes. For example, for a 60-minutes bin and 10-minutes bin delay, execution of a bin 13:00 to 14:00 doesn't trigger before 14:10. |
 | `binStartTime` (optional) | Specifies the date and time for the initial bin execution. The value can start at rule creation datetime minus the `binSize` value, or later and in whole hours. For example, if the datetime is `2023-12-03T12:13Z` and `binSize` is 1,440, the minimum `binStartTime` value can be `2023-12-02T13:00Z`, and execution of the first bin 02T13:00 to 03T13:00 is at 03T13:00 plus a specified delay. <br><br> The `binStartTime` property is useful in daily summary scenarios and helps specify the time of a bin. Suppose datetime is `2023-12-03T12:13Z` and you're located in the UTC-8 time zone, and you want a daily rule to complete before you start your day at 8:00 (00:00 UTC). Set the `binStartTime` property to `2023-12-02T22:00Z`. The first bin occurs at 02T:06:00 to 03T:06:00 local time and recurs daily. <br><br> When you update rules, you have several options: <br> - Use the existing `binStartTime` value: Execution continues per the initial definition. <br> - Remove the `binStartTime` property: Execution continues per the initial definition. <br> - Update the rule with a new `binStartTime` value: Executions adhere to the new datetime value. |
 | `timeSelector` (optional) | Provides the datetime field for use by the query. Currently, the value can be `TimeGenerated`. |
 
@@ -179,7 +179,7 @@ The destination table is created after initial rule execution, which is at the n
 
 The following image shows the results for the example request:
 
-:::image type="content" source="media/summary-rules/example-request.png" alt-text="Screenshot that shows the results for the example Summary rules request." border="false" lightbox="media/summary-rules/example-request.png":::
+:::image type="content" source="media/summary-rules/example-request.png" alt-text="Screenshot that shows the results for the example Summary rules request." lightbox="media/summary-rules/example-request.png":::
 
 The next sections provide more examples for working with Summary rules.
 
@@ -256,7 +256,7 @@ LASummaryLogs
 
 The following graph charts the query results for failed bins in Summary rules:
 
-:::image type="content" source="media/summary-rules/data-completeness.png" alt-text="Screenshot that shows a graph that charts the query results for failed bins in Summary rules." border="false" lightbox="media/summary-rules/data-completeness.png":::
+:::image type="content" source="media/summary-rules/data-completeness.png" alt-text="Screenshot that shows a graph that charts the query results for failed bins in Summary rules." lightbox="media/summary-rules/data-completeness.png":::
 
 ## Monitor Summary rules
 
