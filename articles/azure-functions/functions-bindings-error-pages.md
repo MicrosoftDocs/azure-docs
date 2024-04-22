@@ -84,7 +84,7 @@ You can configure two retry strategies that are supported by policy:
 
 A specified amount of time is allowed to elapse between each retry.
 
-[Example](https://github.com/Azure/azure-functions-python-worker/blob/dev/tests/endtoend/retry_policy_functions/fixed_strategy/function_app.py)
+[Example using the v2 programming model](https://github.com/Azure/azure-functions-python-worker/blob/dev/tests/endtoend/retry_policy_functions/fixed_strategy/function_app.py):
 
 ```python
 from azure.functions import FunctionApp, TimerRequest, Context, AuthLevel
@@ -114,7 +114,7 @@ def mytimer(mytimer: TimerRequest, context: Context) -> None:
 
 The first retry waits for the minimum delay. On subsequent retries, time is added exponentially to the initial duration for each retry, until the maximum delay is reached. Exponential back-off adds some small randomization to delays to stagger retries in high-throughput scenarios.
 
-[Example](https://github.com/Azure/azure-functions-python-worker/blob/dev/tests/endtoend/retry_policy_functions/exponential_strategy/function_app.py):
+[Example using the v2 programming model](https://github.com/Azure/azure-functions-python-worker/blob/dev/tests/endtoend/retry_policy_functions/exponential_strategy/function_app.py):
 
 ```python
 from azure.functions import FunctionApp, TimerRequest, Context, AuthLevel
