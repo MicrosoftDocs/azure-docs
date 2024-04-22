@@ -212,20 +212,20 @@ Use the Azure portal to **Deploy a custom template** and then use the sample ARM
 
 ### Connectivity
 
-To be alerted to store health and connectivity failures, please sign up for [Resource Health alerts](https://learn.microsoft.com/en-us/azure/service-health/resource-health-alert-monitor-guide).
+To be alerted to store health and connectivity failures, please sign up for [Resource Health alerts](/azure/service-health/resource-health-alert-monitor-guide).
 
 ### 424 Failed Dependency
 
 When the response status code is `424 Failed Dependency`, the issue lies with a dependency configured with DICOM and it may be the data lake store.
-The response body indicates which dependency failed and provides more context on the failure. For data lake storage account failures, an error code is provided which was received when attempting to interact with the store. For more information, see [Azure Blob Storage error codes](https://learn.microsoft.com/rest/api/storageservices/blob-service-error-codes).
+The response body indicates which dependency failed and provides more context on the failure. For data lake storage account failures, an error code is provided which was received when attempting to interact with the store. For more information, see [Azure Blob Storage error codes](/rest/api/storageservices/blob-service-error-codes).
 Note that a code of `ConditionNotMet` typically indicates the blob file has been moved, deleted or modified without using DICOM APIs. The best way to mitigate such a situation is to use the DICOM API to DELETE the instance to remove the index and then reupload the modified file. This will enable you to continue to reference and interact with the file through DICOM APIs.
 
 ## Next steps
-[Receive resource health alerts](https://learn.microsoft.com/azure/service-health/resource-health-alert-monitor-guide)
+[Receive resource health alerts](/azure/service-health/resource-health-alert-monitor-guide)
 
 [Assign roles for the DICOM service](../configure-azure-rbac.md#assign-roles-for-the-dicom-service)
 
-[Review DICOM service conformance statement](https://learn.microsoft.com/azure/healthcare-apis/dicom/dicom-services-conformance-statement-v2)
+[Review DICOM service conformance statement](/azure/healthcare-apis/dicom/dicom-services-conformance-statement-v2)
 
 [Use DICOMweb Standard APIs with DICOM services](dicomweb-standard-apis-with-dicom-services.md)
 
