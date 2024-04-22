@@ -47,13 +47,15 @@ Query keys are typically distributed to client applications that issue queries.
 
 **How API keys are used in REST calls**:
 
-Set an admin key in the request header. You can't pass admin keys on the URI or in the body of the request. Admin keys are used for create-read-update-delete operation and on requests issued to the search service itself, such as LIST Indexes or GET Service Statistics.
+Set an admin key in the request header. You can't pass admin keys on the URI or in the body of the request. Admin keys are used for create-read-update-delete operation and on requests issued to the search service itself, such as [LIST Indexes](/rest/api/searchservice/indexes/list) or [GET Service Statistics](/rest/api/searchservice/get-service-statistics/get-service-statistics).
+
+Here's an example of admin API key usage on a create index request:
 
 ```http
 ### Create a new index
 POST {{baseUrl}}/indexes?api-version=2023-11-01  HTTP/1.1
   Content-Type: application/json
-  api-key: {{apiKey}}
+  api-key: {{adminApiKey}}
 
     {
         "name": "my-new-index",  
@@ -66,8 +68,10 @@ POST {{baseUrl}}/indexes?api-version=2023-11-01  HTTP/1.1
 
 Set a query key in a request header for POST, or on the URI for GET. Query keys are used for operations that target the `index/docs` collection: [Search Documents](/rest/api/searchservice/documents/search-get), [Autocomplete](/rest/api/searchservice/documents/autocomplete-get), [Suggest](/rest/api/searchservice/documents/suggest-get), or [GET Document](/rest/api/searchservice/documents/get). 
 
+Here's an example of query API key usage on a Search Documents (GET) request:
+
 ```http
-GET /indexes/my-new-index/docs?search=*&api-version=2020-06-30&api-key={{apiKey}}
+GET /indexes/my-new-index/docs?search=*&api-version=2020-06-30&api-key={{queryApiKey}}
 ```
 
 > [!NOTE]  
