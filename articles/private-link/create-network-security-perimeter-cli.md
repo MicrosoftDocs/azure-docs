@@ -128,7 +128,7 @@ In this step, you create and update network security perimeter access rules with
 
     ```
 
-## Delete a all resources
+## Delete all resources
 
 To delete a network security perimeter and other resources in this quickstart, use the following commands:
 
