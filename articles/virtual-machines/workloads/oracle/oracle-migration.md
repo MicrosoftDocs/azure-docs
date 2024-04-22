@@ -6,7 +6,7 @@ ms.author: v-suzuber
 ms.service: virtual-machines
 ms.subservice: oracle
 ms.topic: article
-ms.date: 4/16/2024
+ms.date: 4/22/2024
 ---
 
 # Migrate Oracle workloads to Azure VMs  
