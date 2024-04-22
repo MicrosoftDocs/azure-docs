@@ -104,7 +104,7 @@ The following steps let you attach an Azure Repos repository.
     | **Branch**  | Select the branch. |
     | **Folder path**  | Dev Box retrieves a list of folders in your branch. Select the folder that stores your IaC templates. |
 
-    :::image type="content" source="media/how-to-configure-catalog/add-catalog-to-dev-center.png" alt-text="Screenshot showing the add catalog pane with examples entries and Add highlighted." lightbox="media/how-to-configure-catalog/add-catalog-to-dev-center.png":::
+    :::image type="content" source="media/how-to-configure-catalog/add-catalog-to-dev-center.png" alt-text="Screenshot showing the Add catalog pane with examples entries and Add highlighted." lightbox="media/how-to-configure-catalog/add-catalog-to-dev-center.png":::
 
 1. In **Catalogs** for the dev center, verify that your catalog appears. When the connection is successful, the **Status** reads **Sync successful**. Connecting to a catalog can take a few minutes the first time.
 
@@ -217,9 +217,9 @@ Get the path to the secret you created in the key vault.
 
 To add a catalog, complete the following tasks:
 
-- Install and configure the Microsoft Dev Center app
-- Assign permissions in GitHub for the repos.
-- Add your repository as a catalog.
+1. Install and configure the Microsoft Dev Center app
+1. Assign permissions in GitHub for the repos.
+1. Add your repository as a catalog.
  
 ### Install Microsoft Dev Center app
 
@@ -278,7 +278,7 @@ To add a catalog, complete the following tasks:
 
 1. In **Catalogs** for the dev center, verify that your catalog appears. When the connection is successful, the **Status** reads **Sync successful**.
 
-   :::image type="content" source="media/how-to-configure-catalog/catalog-connection-successful.png" alt-text=" screenshot of Azure portal Catalogs page with a connected status." lightbox="media/how-to-configure-catalog/catalog-connection-successful.png":::
+   :::image type="content" source="media/how-to-configure-catalog/catalog-connection-successful.png" alt-text="Screenshot of Azure portal Catalogs page with a connected status." lightbox="media/how-to-configure-catalog/catalog-connection-successful.png":::
 
 ## [GitHub repo with PAT](#tab/GitHubRepoPAT/)
 
