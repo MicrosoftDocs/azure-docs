@@ -45,11 +45,11 @@ An environment represents a location where an API runtime could be deployed, for
 
 A deployment is a location (an address) where users can access an API. An API can have multiple deployments, such as different staging environments or regions. For example, an API could have one deployment in an internal staging environment and a second in a production environment. Each deployment is associated with a specific API definition.
 
-## Metadata properties
+## Metadata 
 
-In Azure API Center, organize your APIs, deployments, and other entities by setting values of metadata properties, which can be used for search and filtering and to enforce governance standards. An API center provides several common built-in properties such as "API type" and "Version lifecycle". The API center owner can augment the built-in properties by defining custom properties in a metadata schema to organize their APIs, deployments, and environments. For example, create an *API approver* property to identify the individual responsible for approving an API for use. 
+In Azure API Center, organize your APIs, deployments, and other entities by setting metadata values, which can be used for search and filtering and to enforce governance standards. An API center provides several common built-in metadata types such as "API type" and "lifecycle stage". The API center owner can augment the built-in metadata by defining custom metdata in a metadata schema to organize their APIs, deployments, and environments. For example, create an *API approver* to identify the individual responsible for approving an API for use. 
 
-Azure API Center supports properties of type array, boolean, number, object, predefined choices, and string. 
+Azure API Center supports custom metadata of type array, boolean, number, object, predefined choices, and string. 
 
 Azure API Center's metadata schema is compatible with JSON and YAML schema specifications, to allow for schema validation in developer tooling and automated pipelines.
 
@@ -57,4 +57,5 @@ Azure API Center's metadata schema is compatible with JSON and YAML schema speci
 ## Related content
 
 * [What is Azure API Center?](overview.md)
+* [Metadata for API governance](metadata.md)
 
