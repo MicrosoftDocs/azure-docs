@@ -35,10 +35,15 @@ items:
 - name: How-to
   expanded: true
   items:
-  - name: Compare and deploy models
+  - name: Select and deploy AI models
     items:
     - name: Model catalog
       href: how-to/model-catalog.md
+    - name: Deployments overview
+      href: concepts/deployments-overview.md
+      displayName: endpoint
+    - name: Deploy Azure OpenAI models
+      href: how-to/deploy-models-openai.md
     - name: Cohere models
       items:
       - name: Deploy Cohere Command models
@@ -78,99 +83,91 @@ items:
         href: concepts/connections.md
       - name: Create a connection
         href: how-to/connections-add.md
-  - name: Data for your copilot
+  - name: Develop generative AI apps
     items:
-    - name: Retrieval augmented generation (RAG)
+    - name: Data for your copilot
       items:
-      - name: Overview of RAG
-        href: concepts/retrieval-augmented-generation.md
-        displayName: RAG
-      - name: Create a vector index
-        href: how-to/index-add.md
-    - name: Add and manage your data
+      - name: Retrieval augmented generation (RAG)
+        items:
+        - name: Overview of RAG
+          href: concepts/retrieval-augmented-generation.md
+          displayName: RAG
+        - name: Add data to your project
+          href: how-to/data-add.md
+          displayName: index
+        - name: Create a vector index
+          href: how-to/index-add.md
+    - name: Build apps with prompt flow in AI Studio
       items:
-      - name: Add data to your project
-        href: how-to/data-add.md
-        displayName: index
-      - name: Use your image data with Azure OpenAI
-        href: how-to/data-image-add.md
-        displayName: vision, gpt, turbo
-  - name: Build apps with prompt flow in AI Studio
-    items:
-    - name: Prompt flow overview
-      href: how-to/prompt-flow.md
-    - name: Develop flows
+      - name: Prompt flow overview
+        href: how-to/prompt-flow.md
+      - name: Develop flows
+        items:
+        - name: Create and manage runtime
+          href: how-to/create-manage-runtime.md
+        - name: Create a flow
+          href: how-to/flow-develop.md
+        - name: Tune prompts using variants
+          href: how-to/flow-tune-prompts-using-variants.md
+        - name: Process images in a flow
+          href: how-to/flow-process-image.md
+        - name: Use prompt flow tools in AI Studio
+          items:
+          - name: Prompt flow tools overview
+            href: how-to/prompt-flow-tools/prompt-flow-tools-overview.md
+          - name: LLM tool
+            href: how-to/prompt-flow-tools/llm-tool.md
+          - name: Prompt tool
+            href: how-to/prompt-flow-tools/prompt-tool.md
+          - name: Python tool
+            href: how-to/prompt-flow-tools/python-tool.md
+          - name: Azure OpenAI GPT-4 Turbo with Vision tool
+            href: how-to/prompt-flow-tools/azure-open-ai-gpt-4v-tool.md
+          - name: Index Lookup tool
+            href: how-to/prompt-flow-tools/index-lookup-tool.md
+          - name: Vector Index Lookup tool
+            href: how-to/prompt-flow-tools/vector-index-lookup-tool.md
+          - name: Content Safety tool
+            href: how-to/prompt-flow-tools/content-safety-tool.md
+          - name: Faiss Index Lookup tool
+            href: how-to/prompt-flow-tools/faiss-index-lookup-tool.md
+          - name: Vector DB Lookup tool
+            href: how-to/prompt-flow-tools/vector-db-lookup-tool.md
+          - name: Embedding tool
+            href: how-to/prompt-flow-tools/embedding-tool.md
+          - name: Serp API tool
+            href: how-to/prompt-flow-tools/serp-api-tool.md
+    - name: Evaluate apps in AI Studio
       items:
-      - name: Create and manage runtime
-        href: how-to/create-manage-runtime.md
-      - name: Create a flow
-        href: how-to/flow-develop.md
-      - name: Tune prompts using variants
-        href: how-to/flow-tune-prompts-using-variants.md
-      - name: Process images in a flow
-        href: how-to/flow-process-image.md
-    - name: Use prompt flow tools in AI Studio
+      - name: Evaluations concepts
+        items:
+        - name: Approach to generative AI evaluations
+          href: concepts/evaluation-approach-gen-ai.md
+        - name: Evaluation and monitoring metrics for generative AI
+          href: concepts/evaluation-metrics-built-in.md
+        - name: Harms mitigation strategies with Azure AI
+          href: concepts/evaluation-improvement-strategies.md
+      - name: Manually evaluate prompts in Azure AI Studio playground
+        href: how-to/evaluate-prompts-playground.md
+      - name: Evaluate with Azure AI Studio
+        href: how-to/evaluate-generative-ai-app.md
+      - name: View evaluation results in Azure AI Studio
+        href: how-to/evaluate-flow-results.md
+      - name: Evaluate flows in AI Studio
+        items:
+          - name: Submit batch run and evaluate a flow
+            href: how-to/flow-bulk-test-evaluation.md
+          - name: Develop an evaluation flow in Prompt flow
+            href: how-to/flow-develop-evaluation.md
+    - name: Deploy and monitor generative AI apps
       items:
-      - name: Prompt flow tools overview
-        href: how-to/prompt-flow-tools/prompt-flow-tools-overview.md
-      - name: LLM tool
-        href: how-to/prompt-flow-tools/llm-tool.md
-      - name: Prompt tool
-        href: how-to/prompt-flow-tools/prompt-tool.md
-      - name: Python tool
-        href: how-to/prompt-flow-tools/python-tool.md
-      - name: Azure OpenAI GPT-4 Turbo with Vision tool
-        href: how-to/prompt-flow-tools/azure-open-ai-gpt-4v-tool.md
-      - name: Index Lookup tool
-        href: how-to/prompt-flow-tools/index-lookup-tool.md
-      - name: Vector Index Lookup tool
-        href: how-to/prompt-flow-tools/vector-index-lookup-tool.md
-      - name: Content Safety tool
-        href: how-to/prompt-flow-tools/content-safety-tool.md
-      - name: Faiss Index Lookup tool
-        href: how-to/prompt-flow-tools/faiss-index-lookup-tool.md
-      - name: Vector DB Lookup tool
-        href: how-to/prompt-flow-tools/vector-db-lookup-tool.md
-      - name: Embedding tool
-        href: how-to/prompt-flow-tools/embedding-tool.md
-      - name: Serp API tool
-        href: how-to/prompt-flow-tools/serp-api-tool.md
-    - name: Evaluate flows in AI Studio
-      items:
-        - name: Submit batch run and evaluate a flow
-          href: how-to/flow-bulk-test-evaluation.md
-        - name: Develop an evaluation flow in Prompt flow
-          href: how-to/flow-develop-evaluation.md
-    - name: Deploy a flow for real-time inference
-      href: how-to/flow-deploy.md
-      displayName: endpoint
-  - name: Evaluate apps in AI Studio
-    items:
-    - name: Evaluations concepts
-      items:
-      - name: Approach to generative AI evaluations
-        href: concepts/evaluation-approach-gen-ai.md
-      - name: Evaluation and monitoring metrics for generative AI
-        href: concepts/evaluation-metrics-built-in.md
-      - name: Harms mitigation strategies with Azure AI
-        href: concepts/evaluation-improvement-strategies.md
-    - name: Evaluate with Azure AI Studio
-      href: how-to/evaluate-generative-ai-app.md
-    - name: Manually evaluate prompts in Azure AI Studio playground
-      href: how-to/evaluate-prompts-playground.md
-    - name: View evaluation results in Azure AI Studio
-      href: how-to/evaluate-flow-results.md
-  - name: Deploy and monitor in AI Studio
-    items:
-    - name: Deployments overview
-      href: concepts/deployments-overview.md
-      displayName: endpoint
-    - name: Deploy Azure OpenAI models
-      href: how-to/deploy-models-openai.md
-    - name: Monitor prompt flow deployments
-      href: how-to/monitor-quality-safety.md
-    - name: Troubleshoot deployments and monitoring
-      href: how-to/troubleshoot-deploy-and-monitor.md
+      - name: Deploy a flow for real-time inference
+        href: how-to/flow-deploy.md
+        displayName: endpoint
+      - name: Monitor prompt flow deployments
+        href: how-to/monitor-quality-safety.md
+      - name: Troubleshoot deployments and monitoring
+        href: how-to/troubleshoot-deploy-and-monitor.md
   - name: Azure AI services
     items:
     - name: What are AI services?
@@ -178,6 +175,9 @@ items:
       displayName: applied, cognitive, form recognizer
     - name: Try out Azure AI services
       href: how-to/models-foundation-azure-ai.md
+    - name: Use your image data with Azure OpenAI
+      href: how-to/data-image-add.md
+      displayName: vision, gpt, turbo
   - name: Costs and quotas
     items:
     - name: Plan and manage costs
