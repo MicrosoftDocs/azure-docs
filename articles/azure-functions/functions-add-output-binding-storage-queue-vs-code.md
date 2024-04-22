@@ -20,7 +20,7 @@ Most bindings require a stored connection string that Functions uses to access t
 
 ::: zone pivot="programming-language-javascript"  
 >[!NOTE]
->This article currently only supports [Node.js v3 for Functions](./functions-reference-node.md?pivots=nodejs-model-v3).  
+>This article currently supports [Node.js v4 for Functions](./functions-reference-node.md?pivots=nodejs-model-v4).  
 ::: zone-end  
 
 ## Configure your local environment
@@ -72,13 +72,25 @@ In the [previous quickstart article](./create-first-function-vs-code-csharp.md),
 
 Because you're using a Queue storage output binding, you must have the Storage bindings extension installed before you run the project.
 
-::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-powershell,programming-language-java"
+::: zone programming-language-python,programming-language-powershell,programming-language-java"
 
 Your project has been configured to use [extension bundles](functions-bindings-register.md#extension-bundles), which automatically installs a predefined set of extension packages.
 
 Extension bundles is already enabled in the *host.json* file at the root of the project, which should look like the following example:
 
 :::code language="json" source="~/functions-docs-python/functions-add-output-binding-storage-queue-cli/host.json":::
+
+Now, you can add the storage output binding to your project.
+
+::: zone-end
+
+::: zone pivot="programming-language-javascript,programming-language-typescript"
+
+Your project has been configured to use [extension bundles](functions-bindings-register.md#extension-bundles), which automatically installs a predefined set of extension packages.
+
+Extension bundles is already enabled in the *host.json* file at the root of the project, which should look like the following example:
+
+:::code language="json" source="~/functions-docs-javascript/host.json":::
 
 Now, you can add the storage output binding to your project.
 
@@ -92,8 +104,11 @@ Now, you can add the storage output binding to your project.
 
 ## Add an output binding
 
+::: zone pivot="programming-language-javascript,programming-language-typescript"
+[!INCLUDE [functions-add-storage-binding-python](../../includes/functions-add-output-binding-javascript-v4.md)]
+::: zone-end
 
-::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-powershell"
+::: zone pivot="programming-language-powershell"
 
 In Functions, each type of binding requires a `direction`, `type`, and unique `name`. The way you define these attributes depends on the language of your function app.
 
@@ -116,7 +131,7 @@ In Functions, each type of binding requires a `direction`, `type`, and unique `n
 After the binding is defined, you can use the `name` of the binding to access it as an attribute in the function signature. By using an output binding, you don't have to use the Azure Storage SDK code for authentication, getting a queue reference, or writing data. The Functions runtime and queue output binding do those tasks for you.
 
 ::: zone pivot="programming-language-javascript"  
-[!INCLUDE [functions-add-output-binding-js](../../includes/functions-add-output-binding-js.md)]
+[!INCLUDE [functions-add-output-binding-js](../../includes/functions-add-output-binding-js-v4.md)]
 ::: zone-end  
 
 ::: zone pivot="programming-language-typescript"  
