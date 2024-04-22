@@ -251,7 +251,7 @@ Send an HTTPS request to access the productpage service through HTTPS:
 curl -s -HHost:productpage.bookinfo.com --resolve "productpage.bookinfo.com:$SECURE_INGRESS_PORT_EXTERNAL:$INGRESS_HOST_EXTERNAL" --cacert bookinfo_certs/bookinfo.com.crt "https://productpage.bookinfo.com:$SECURE_INGRESS_PORT_EXTERNAL/productpage" | grep -o "<title>.*</title>"
 ```
 
-    Confirm that the sample application's product page is accessible. The expected output is:
+Confirm that the sample application's product page is accessible. The expected output is:
 
 ```html
 <title>Simple Bookstore App</title>
@@ -418,7 +418,8 @@ Pass your client’s certificate with the `--cert` flag and your private key wit
 curl -s -HHost:productpage.bookinfo.com --resolve "productpage.bookinfo.com:$SECURE_INGRESS_PORT_EXTERNAL:$INGRESS_HOST_EXTERNAL" --cacert bookinfo_certs/bookinfo.com.crt --cert bookinfo_certs/client.bookinfo.com.crt --key bookinfo_certs/client.bookinfo.com.key "https://productpage.bookinfo.com:$SECURE_INGRESS_PORT_EXTERNAL/productpage" | grep -o "<title>.*</title>"
 ```
 
-  - Confirm that the sample application's product page is accessible. The expected output is:
+Confirm that the sample application's product page is accessible. The expected output is:
+
 ```html
 <title>Simple Bookstore App</title>
 ```
