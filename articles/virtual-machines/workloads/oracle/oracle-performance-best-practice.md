@@ -12,7 +12,7 @@ ms.date: 06/13/2023
 
 # Performance best practices for Oracle on Azure VMs
 
-This article describes how the right VM size and storage options you choose affects your Oracle workload performance - input output per second (IOPS) and throughput - dependability, and cost. There's a trade-off between optimizing for costs and for performance. This performance best practices series is focused on getting the best performance for the Oracle workload on Azure VMs. If your workload is less demanding, you might not require every optimization recommended. It's critical in the planning phase, to assess the performance requirements of your Oracle workloads and right size the compute and storage as needed.  
+This article describes how the right VM size and storage options you choose affects your Oracle workload performance - input/output operations (IOPS) and throughput - dependability, and cost. There's a trade-off between optimizing for costs and for performance. This performance best practices series is focused on getting the best performance for the Oracle workload on Azure VMs. If your workload is less demanding, you might not require every optimization recommended. It's critical in the planning phase, to assess the performance requirements of your Oracle workloads and right size the compute and storage as needed.  
 
 When considering to run Oracle workloads on Azure VMs, for a cost-effective configuration start by selecting a virtual machine that supports the necessary IOPS and throughput with the appropriate memory-to-vCore ratio and then add your storage requirement. 
 
