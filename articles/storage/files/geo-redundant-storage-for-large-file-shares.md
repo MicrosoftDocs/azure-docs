@@ -54,8 +54,8 @@ Azure Files geo-redundancy for large file shares is generally available in the m
 | Australia Central 2 | GA |
 | Australia East | GA |
 | Australia Southeast | GA |
-| Brazil South | Preview |
-| Brazil Southeast | Preview |
+| Brazil South | GA |
+| Brazil Southeast | GA |
 | Canada Central | GA |
 | Canada East | GA |
 | Central India | GA |
@@ -77,13 +77,13 @@ Azure Files geo-redundancy for large file shares is generally available in the m
 | Japan West | GA |
 | Korea Central | GA |
 | Korea South | GA |
-| North Central US | Preview |
+| North Central US | GA |
 | North Europe | GA |
 | Norway East | GA |
 | Norway West | GA |
 | South Africa North | GA |
 | South Africa West | GA |
-| South Central US | Preview |
+| South Central US | GA |
 | South India | GA |
 | Southeast Asia | GA |
 | Sweden Central | GA |
