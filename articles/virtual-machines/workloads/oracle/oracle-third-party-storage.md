@@ -1,6 +1,6 @@
 ---
 title: Partner storage options for Oracle on Azure VMs 
-description: This article describes how third-party storage options are available for Oracle on Azure Virtual Machines.
+description: This article describes how partner storage options are available for Oracle on Azure Virtual Machines.
 author: jjaygbay1
 ms.author: jacobjaygbay
 ms.service: virtual-machines
@@ -12,7 +12,7 @@ ms.date: 03/26/2024
 
 # Partner storage options for Oracle on Azure VMs
 
-This article describes third-party storage options for high performance - input/output operations (IOPS) and throughput - Oracle workloads on Azure virtual machines (VMs). While Microsoft first-party storage offerings for migrating Oracle workloads to Azure VMs are effective, there are use cases that require performance beyond the capacity of the first-party storage offering for Oracle on Azure VMs. These trusted third-party storage solutions are ideal for high performance use cases. 
+This article describes partner storage options for high performance - input/output operations (IOPS) and throughput - Oracle workloads on Azure virtual machines (VMs). While Microsoft first-party storage offerings for migrating Oracle workloads to Azure VMs are effective, there are use cases that require performance beyond the capacity of the first-party storage offering for Oracle on Azure VMs. These trusted third-party storage solutions are ideal for high performance use cases. 
 
 ## Oracle as a DBaaS on Azure 
 
