@@ -36,13 +36,13 @@ In this tutorial, you learn how to use the portal to:
 
 Use your API center to keep track of your real-world API environments. For example, you might use Azure API Management or another solution to distribute, secure, and monitor some of your APIs. Or you might directly serve some APIs using a compute service or a Kubernetes cluster. 
 
-Here you add information about a fictitious Azure API Management environment to your API center. If you prefer, add information about one of your existing environments. You'll configure both built-in properties and any custom metadata properties you defined in a [previous tutorial](add-metadata-properties.md).
+Here you add information about a fictitious Azure API Management environment to your API center. If you prefer, add information about one of your existing environments. You'll configure both built-in metadata and any custom metadata you defined in a [previous tutorial](add-metadata-properties.md).
 
 1. In the [portal](https://portal.azure.com), navigate to your API center.
 
 1. In the left menu, under **Assets**, select **Environments** > **+ New environment**.
 
-1. On the **New environment** page, add the following information. If you previously defined the custom *Line of business* metadata property or other properties assigned to environments, you'll see them at the bottom of the page.
+1. On the **New environment** page, add the following information. If you previously defined the custom *Line of business* metadata or other metadata assigned to environments, you'll see them at the bottom of the page.
 
     |Setting|Value|Description|
     |-------|-----|-----------|
@@ -56,7 +56,7 @@ Here you add information about a fictitious Azure API Management environment to 
     | **Onboarding** | | |
     | **Development portal URL** | Optionally enter a URL for a developer portal, such as `https://developer.contoso.com` | URL of interface for developer onboarding in the environment. |
     | **Instructions** | Optionally select **Edit** and enter onboarding instructions in standard Markdown. | Instructions to onboard to APIs from the environment. |
-    | **Line of business** | If you added this custom property, optionally make a selection from the dropdown, such as **IT**. | Custom metadata property that identifies the business unit that manages the environment. |
+    | **Line of business** | If you added this custom metadata, optionally make a selection from the dropdown, such as **IT**. | Custom metadata that identifies the business unit that manages the environment. |
 
     :::image type="content" source="media/configure-environments-deployments/create-environment.png" alt-text="Screenshot of adding an API environment in the portal.":::
 
@@ -66,7 +66,7 @@ Here you add information about a fictitious Azure API Management environment to 
 
 API center can also help you catalog your API deployments - the runtime environments where the APIs you track are deployed. 
 
-Here you add a deployment by associating one of your APIs with the environment you created in the previous section. You'll configure both built-in properties and any custom metadata properties you defined.
+Here you add a deployment by associating one of your APIs with the environment you created in the previous section. You'll configure both built-in metadata and any custom metadata that you defined.
 
 1. In the portal, navigate to your API center.
 
@@ -76,7 +76,7 @@ Here you add a deployment by associating one of your APIs with the environment y
 
 1. On the **Demo Conference API** page, under **Details**, select **Deployments** > **+ Add deployment**.
 
-1. In the **Add deployment** page, add the following information. If you previously defined the custom *Line of business* metadata property or other properties assigned to environments, you'll see them at the bottom of the page.
+1. In the **Add deployment** page, add the following information. If you previously defined the custom *Line of business* metadata or other metadata assigned to environments, you'll see them at the bottom of the page.
 
     |Setting|Value|Description|
     |-------|-----|-----------|
@@ -86,7 +86,7 @@ Here you add a deployment by associating one of your APIs with the environment y
     | **Environment** | Make a selection from the dropdown, such as *My Testing*, or optionally select **Create new**.| New or existing environment where the API version is deployed. |
     | **Definition** | Select or add a definition file for a version of the Demo Conference API. | API definition file. |
     | **Runtime URL** | Enter a base URL, for example, `https://api.contoso.com/conference`. | Base runtime URL for the API in the environment.  |
-    | **Line of business** | If you added this custom property, optionally make a selection from the dropdown, such as **IT**. | Custom metadata property that identifies the business unit that manages APIs in the environment. |
+    | **Line of business** | If you added this custom metadata, optionally make a selection from the dropdown, such as **IT**. | Custom metadata that identifies the business unit that manages APIs in the environment. |
 
     :::image type="content" source="media/configure-environments-deployments/add-deployment.png" alt-text="Screenshot of adding an API deployment in the portal.":::
 
