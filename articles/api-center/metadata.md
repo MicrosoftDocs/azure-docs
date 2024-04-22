@@ -72,7 +72,7 @@ If assigned to an entity, metadataa is either optional or required. For example,
 > [!NOTE]
 > * Define custom metadata at any time and apply to APIs and other entities in your API center. 
 > * After defining custom metadata, you can change its assignment to an entity, for example from required to optional for APIs.
-> * You can't delete or change the type of custom metadata that is currently set in APIs, environments,and deployments. Unassign them from the entities first, and then you can delete or change them.
+> * You can change metadata values, but you can't delete or change the type of custom metadata that is currently set in APIs, environments, and deployments. Unassign the custom metadata from the entities first, and then you can delete or change them.
 
 ## Use metadata for governance
 
