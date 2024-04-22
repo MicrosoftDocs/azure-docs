@@ -12,7 +12,7 @@ CustomerIntent: As a cloud architect/engineer, I want to understand reliability 
 
 # Reliability in Azure HDInsight on AKS
 
-This article describes reliability support in [Azure HDInsight on AKS](../hdinsight-aks/overview.md), and covers both [specific reliability recommendations](#reliability-recommendations) and [disaster recovery and business continuity](#disaster-recovery-and-business-continuity). For a more detailed overview of reliability principles in Azure, see [Azure reliability](https://docs.microsoft.com/azure/architecture/framework/resiliency/overview.md).
+This article describes reliability support in [Azure HDInsight on AKS](../hdinsight-aks/overview.md), and covers both [specific reliability recommendations](#reliability-recommendations) and [disaster recovery and business continuity](#disaster-recovery-and-business-continuity). For a more detailed overview of reliability principles in Azure, see [Azure reliability](/azure/architecture/framework/resiliency/overview).
 
 ## Reliability recommendations
 
