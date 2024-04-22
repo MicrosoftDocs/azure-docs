@@ -1,7 +1,7 @@
 ---
 author: andrewwright
 ms.author: andrewwright
-ms.service: operator-call-protection
+ms.service: azure-operator-call-protection
 ms.topic: include
 ms.date: 02/23/2024
 ---
