@@ -316,7 +316,7 @@ Configuring private routing policies with Encrypted ExpressRoute routes VPN ESP 
 > [!NOTE]
 > Direct routing to dual-role NVA used with private routing policies in Virtual WAN only applies to traffic between Virtual Networks and NVA-connected on-premises. ExpressRoute and VPN transit connectivity to NVA-connected on-premises does not go directly to NVA instances and is instead routed via the dual-role NVA's load balancer.
 
-Certain Network Virtual Appliances have both connectivity (SD-WAN) and security (NGFW) capabilities. These dual-role Network Virtual Appliances can be selected as the next hop for routing intent and policies. Simultaneously, SD-WAN or VPN connections can be terminated directly on the NVA instances.
+Certain Network Virtual Appliances have both connectivity (SD-WAN) and security (NGFW) capabilities and are considered  dual-role NVAs. Check whether or not your NVA is dual-role NVA under [NVA partners](../virtual-wan/about-nva-hub#partners). These dual-role Network Virtual Appliances can be selected as the next hop for routing intent and policies. Simultaneously, SD-WAN or VPN connections can be terminated directly on the NVA instances.
 
 When private routing policies are configured for dual-role NVAs, Virtual WAN automatically advertises routes learnt from that Virtual WAN hub's NVA device to directly connected (local) Virtual Networks as well to other Virtual Hubs in the Virtual WAN with the next hop as the NVA instance as opposed to the NVAs Internal Load Balancer.
 
@@ -327,7 +327,6 @@ For **active-passive NVA configurations** where only one instance of the NVAs is
 For **active-active NVA configurations** (both instances advertise the same route with the same AS-PATH length), Azure automatically performs ECMP to route traffic from Azure to on-premises. Azure's software-defined networking platform does not guarantee flow-level symmetry, meaning the inbound flow to Azure and outbound flow from Azure can land on different instances of the NVA. This results in asymmetric routing which is dropped by stateful firewall inspection. Therefore, it is not recommended to use active-active connectivity patterns where an NVA is behaving as a dual-role NVA unless the NVA can support asymmetric forwarding or support session sharing/synchronization. For more information on whether your NVA supports asymmetric forwarding or session state sharing/synchronization, reach out to your NVA provider.  
 
 :::image type="content" source="./media/routing-policies/active-active-nva.png"alt-text="Screenshot showing routing patterns for active-active NVAs."lightbox="./media/routing-policies/active-active-nva.png":::
- 
 
 ## Configuring routing intent through Azure portal
 
