@@ -105,6 +105,8 @@ items:
       href: ../connectors/enable-stateful-affinity-built-in-connectors.md
     - name: DevOps deployment for single-tenant
       href: devops-deployment-single-tenant-azure-logic-apps.md
+    - name: Set up deployment slots
+      href: set-up-deployment-slots.md
     - name: Set up DevOps deployment for single-tenant
       href: set-up-devops-deployment-single-tenant-azure-logic-apps.md
     - name: Secure traffic between single-tenant logic apps and virtual networks
