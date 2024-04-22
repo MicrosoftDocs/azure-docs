@@ -11,26 +11,26 @@ ms.date: 04/04/2024
 
 # Diagnostic logging for Azure Network Security Perimeter
 
-In this article, you will learn about the diagnostic logs for network security perimeter and how to enable logging. You'll learn access logs categories used. Then, you'll discover the options for storing diagnostic logs and how to enable logging through the Azure portal.
+In this article, you learn about the diagnostic logs for network security perimeter and how to enable logging. You learn access logs categories used. Then, you discover the options for storing diagnostic logs and how to enable logging through the Azure portal.
 
 [!INCLUDE [network-security-perimeter-preview-message](../../includes/network-security-perimeter-preview-message.md)]
 
 ## Access logs categories
 
-Network security perimeter access logs categories are based on the results of access rules evaluation. The log categories chosen in the diagnostic settings are sent to the customer chosen storage location. The following are the descriptions for each of the access log categories including the modes in which they are applicable:
+Network security perimeter access logs categories are based on the results of access rules evaluation. The log categories chosen in the diagnostic settings are sent to the customer chosen storage location. The following are the descriptions for each of the access log categories including the modes in which they're applicable:
 
 | **Log category** | **Description** | **Applicable to Modes** |
 | --- | --- | --- |
-| **network security perimeterPublicInboundPerimeterRulesAllowed** | Inbound access allowed based on network security perimeter access rules | Learning/Enforced |
+| **network security perimeterPublicInboundPerimeterRulesAllowed** | Inbound access is allowed based on network security perimeter access rules | Learning/Enforced |
 | **network security perimeterPublicInboundPerimeterRulesDenied** | Public inbound access denied by network security perimeter | Enforced |
-| **network security perimeterPublicOutboundPerimeterRulesAllowed** | Outbound access allowed based on network security perimeter access rules | Learning/Enforced |
+| **network security perimeterPublicOutboundPerimeterRulesAllowed** | Outbound access is allowed based on network security perimeter access rules | Learning/Enforced |
 | **network security perimeterPublicOutboundPerimeterRulesDenied** | Public outbound access denied by network security perimeter | Enforced |
 | **network security perimeterOutboundAttempt** | Outbound attempt within network security perimeter or between two 'linked' network security perimeters | Learning/Enforced |
 | **network security perimeterIntraPerimeterInboundAllowed** | Inbound access within perimeter | Learning/Enforced |
-| **network security perimeterPublicInboundResourceRulesAllowed** | When network security perimeter rules denies, and Inbound access allowed based on PaaS resource rules | Learning |
-| **network security perimeterPublicInboundResourceRulesDenied** | When network security perimeter rules denies, Inbound access denied by PaaS resource rules | Learning |
-| **network security perimeterPublicOutboundResourceRulesAllowed** | When network security perimeter rules denies, Outbound access allowed based on PaaS resource rules | Learning |
-| **network security perimeterPublicOutboundResourceRulesDenied** | When network security perimeter rules denies, Outbound access denied by PaaS resource rules | Learning |
+| **network security perimeterPublicInboundResourceRulesAllowed** | When network security perimeter rules deny, and Inbound access allowed based on PaaS resource rules | Learning |
+| **network security perimeterPublicInboundResourceRulesDenied** | When network security perimeter rules deny, Inbound access denied by PaaS resource rules | Learning |
+| **network security perimeterPublicOutboundResourceRulesAllowed** | When network security perimeter rules deny, Outbound access allowed based on PaaS resource rules | Learning |
+| **network security perimeterPublicOutboundResourceRulesDenied** | When network security perimeter rules deny, Outbound access denied by PaaS resource rules | Learning |
 | **network security perimeterCrossPerimeterInboundAllowed** | Inbound access based on 'Link' rules | Learning/Enforced |
 | **network security perimeterCrossPerimeterOutboundAllowed** | Outbound access based on 'Link' rules | Learning/Enforced |
 | **network security perimeterPrivateInboundAllowed** | Private endpoint traffic | Learning/Enforced |
@@ -41,7 +41,7 @@ You can store the diagnostic logs in the following locations:
 
 | **Service** | **Description** |
 | --- | --- |
-| **Log Analytic workspace** | Log Analytic workspaces are recommended since they all you to use the predefined queries, visualizations and set alerts based on specific log conditions. |
+| **Log Analytic workspace** | Log Analytic workspaces are recommended since they all you to use the predefined queries, visualizations, and set alerts based on specific log conditions. |
 |** Azure Storage account** | Storage accounts are best used for logs when logs are stored for a longer duration and reviewed when needed. |
 | **Azure Event Hubs** | Event hubs are a great option for integrating with other security information and event management (SIEM) tools to get alerts on your resources. |
 

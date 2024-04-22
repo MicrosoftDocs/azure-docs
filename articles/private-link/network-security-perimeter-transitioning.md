@@ -45,11 +45,11 @@ The possible values of `accessMode` are currently Enforced and Learnin
 
 ## Prevent connectivity disruptions while adopting network security perimeter 
 
-In order to prevent undesired connectivity disruptions while adopting network security perimeter to exist PaaS resources and  ensure a smooth transition to secure configurations, administrators can add PaaS resources to network security perimeter in Learning access mode and leave publicNetworkAccess set to either Enabled or Disabled. While this step doesn't secure the PaaS resources, it allows: 
+In order to prevent undesired connectivity disruptions while adopting network security perimeter to exist PaaS resources and  ensure a smooth transition to secure configurations, administrators can add PaaS resources to network security perimeter in Learning access mode and leave publicNetworkAccess set to either Enabled or Disabled. While this step doesn't secure the PaaS resources, it: 
 
-- Resources to begin establishing connections in accordance with the network security perimeter configuration. Additionally, resources in this configuration fallback to honoring resource-defined firewall rules and trusted access behavior when connections aren't permitted by the network security perimeter configuration. 
+- Allows resources to begin establishing connections in accordance with the network security perimeter configuration. Additionally, resources in this configuration fallback to honoring resource-defined firewall rules and trusted access behavior when connections aren't permitted by the network security perimeter configuration. 
 
-- Generate logs detailing whether connections were approved based on network security perimeter configuration or the resource's configuration. Administrators can then analyze those logs to identify gaps in access rules, missing perimeter memberships, and undesired connections. 
+- Generates logs detailing whether connections were approved based on network security perimeter configuration or the resource's configuration. Administrators can then analyze those logs to identify gaps in access rules, missing perimeter memberships, and undesired connections. 
 
 > [!IMPORTANT]
 > Operating PaaS resources in Learning mode should serve only as a transitional step. Malicious actors may exploit unsecured resources to exfiltrate data. Therefore, it is crucial to transition to a fully secure configuration as soon as possible. 
@@ -66,7 +66,7 @@ Depending on th configuration of the resource and the perimeter, the behavior of
 - **Trusted access:** Trusted service access refers to a feature of some Azure services that enables access through public networks when its origin is specific Azure services that are considered trusted. Network security perimeters provide more granular control than trusted access. Trusted access is disabled in secured by perimeter mode. 
 - **Private access:** Access via Private Links on the other hand, is considered private and isn't impacted by network security perimeter or by other public traffic-related controls like the resource's publicNetworkAccess property. 
 
-When associated with a perimeter and configured in *Learning* mode with `publicNetworkAccess` set to either **Enabled** or **Disabled**, a PaaS resource retains most of the behaviors it would exhibit in the absence of such an association. For example, regular public access continues to honor resource-defined firewall rules, and trusted service access will be allowed as follows: 
+When associated with a perimeter and configured in *Learning* mode with `publicNetworkAccess` set to either **Enabled** or **Disabled**, a PaaS resource retains most of the behaviors it would exhibit in the absence of such an association. For example, regular public access continues to honor resource-defined firewall rules, and trusted service access is allowed as follows: 
 
 | **publicNetworkAccess**| **Disabled (existing value)** | **Enabled (existing value)** | **SecuredByPerimeter (new value)** |
 |-----------------|---------------|----------------|------------|

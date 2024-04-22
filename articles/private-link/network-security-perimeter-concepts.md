@@ -16,7 +16,7 @@ Network security perimeter is a service that provides a secure perimeter for com
 
 Features of network security perimeter include:
 - All resources inside perimeter can communicate with any other resource within perimeter.
-- For external access the following controls are available:
+- External access is available for the following controls:
   - Public inbound access can be approved using Network and Identity attributes of the client such as source IP addresses, subscriptions.
   - Public outbound can be approved using FQDNs (Fully Qualified Domain Names) of the external destinations.
 - Diagnostic Logs is enabled for PaaS resources within perimeter for Audit and Compliance.
@@ -53,7 +53,7 @@ Network security perimeter composed of the following components:
 | **Access Rule**| Inbound and outbound rules for resources in a perimeter to communicate outside the perimeter. |
 | **Profile** | Collection of access rules that apply on resources associated with the profile. |
 | **ResourceAssociation** | Perimeter membership for a PaaS resource. |
-| **DiagnosticsSettings** | Extension resource hosted by Microsoft.Insights to collect logs & metrics for all resources in the perimeter. |
+| **DiagnosticsSettings** | Extension resource hosted by Microsoft. Insights to collect logs & metrics for all resources in the perimeter. |
 
 > [!NOTE]
 > For organizational and informational safety, Please do not put any personal identifiable or sensitive data in the network security perimeter rules or other network security perimeter configuration.
@@ -104,7 +104,7 @@ Network security perimeter is currently available in all public cloud regions. W
   - East US 2
   - West US
   - West US 2
-  - Southcentral US
+  - South central US
 
 > [!NOTE]
 > Though the network security perimeter can be created in any region, the Log analytics workspace to be associated with the network security perimeter needs to be located in one of the Azure Monitor supported regions.
