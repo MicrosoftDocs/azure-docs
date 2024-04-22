@@ -53,15 +53,15 @@ Trusted Signing provides five total Certificate Profile types that all subscribe
 
 - **Public Trust**
     - **Public Trust**: Used for signing code and artifacts that can be publicly distributed. It's default trusted on the Windows platform for code signing. 
-    - **VBS Enclave**: Used for signing [Virtualization-based Security Enclaves](https://learn.microsoft.com/windows/win32/trusted-execution/vbs-enclaves) on Windows.
+    - **VBS Enclave**: Used for signing [Virtualization-based Security Enclaves](/windows/win32/trusted-execution/vbs-enclaves) on Windows.
     - **Public Trust Test**: Used for test signing only and aren't publicly trusted by default. Consider Public Trust Test Certificate Profile as a great option for inner loop build signing. 
     
     > [!NOTE]
     > All certificates under the Public Trust Test Certificate Profile type include the Lifetime EKU (1.3.6.1.4.1.311.10.3.13) forcing validation to respect the lifetime of the signing certificate regardless of the presence of a valid time stamp countersignature. 
 
 - **Private Trust**
-    - **Private Trust**: Used for signing internal or private artifacts such as Line of Business (LoB) applications and containers. It can also be used to sign [catalog files for Windows App Control for Business](https://learn.microsoft.com/windows/security/application-security/application-control/windows-defender-application-control/deployment/deploy-catalog-files-to-support-wdac).
-    - **Private Trust CI Policy**: The Private Trust CI Policy Certificate Profile is the only type that does NOT include the Code Signing EKU (1.3.6.1.5.5.7.3.3). It's specifically designed for [signing Windows App Control for Business CI policy files](https://learn.microsoft.com/windows/security/application-security/application-control/windows-defender-application-control/deployment/use-signed-policies-to-protect-wdac-against-tampering). 
+    - **Private Trust**: Used for signing internal or private artifacts such as Line of Business (LoB) applications and containers. It can also be used to sign [catalog files for Windows App Control for Business](/windows/security/application-security/application-control/windows-defender-application-control/deployment/deploy-catalog-files-to-support-wdac).
+    - **Private Trust CI Policy**: The Private Trust CI Policy Certificate Profile is the only type that does NOT include the Code Signing EKU (1.3.6.1.5.5.7.3.3). It's specifically designed for [signing Windows App Control for Business CI policy files](/windows/security/application-security/application-control/windows-defender-application-control/deployment/use-signed-policies-to-protect-wdac-against-tampering). 
  
 
 ## Supported roles
