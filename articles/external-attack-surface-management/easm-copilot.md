@@ -48,7 +48,7 @@ This article introduces you to Security Copilot and includes sample prompts that
   [ ![Screenshot that shows the Defender EASM fields that must be configured in Copilot.](media/copilot-6.png) ](media/copilot-6.png#lightbox) 
 
 
-     > [!NOTE]
+    > [!NOTE]
     > Customers can still use Defender EASM skills if they have not purchased Defender EASM. See the Plugin capabilities reference section for more information. 
 
 
