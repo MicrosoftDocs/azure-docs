@@ -37,13 +37,7 @@ If at any point in time your scale set needs to scale beyond the number of insta
 
 ## Virtual Machine States
 
-The virtual machines in the standby pool can be created in a running State or a deallocated state. The states of the virtual machines in the standby pool are configured using the `virtualMachineState` parameter.
-
-```
-"virtualMachineState":"Running"
-
-"virtualMachineState":"Deallocated"
-```
+The virtual machines in the standby pool can be kept in a running state or a deallocated state. 
 
 **Deallocated virtual machine state:** Deallocated virtual machines are shut down and keep any associated data disks, NICs, and any static IPs remain unchanged. 
 
@@ -55,10 +49,7 @@ The virtual machines in the standby pool can be created in a running State or a 
 
 ## Pricing
 
->[!IMPORTANT]
->The `virtualMachineState` you choose will impact the cost of your standby pool. You can update the desired state at any point in time. 
-
-There's no direct cost associated with using standby pools. Users are charged based on the resources deployed into the standby pool. For more information on Virtual Machine billing, see [virtual machine power states and billing documentation](../virtual-machines/states-billing.md)
+There's no direct cost associated with using standby pools. Users are charged based on the resources deployed. For example, keeping virtual machines in a running state incurs compute, networking and storage costs. While keeping virtual machines in a deallocated state does not incur any compute costs but any persistent disks or networking configurations do incur cost. For more information on Virtual Machine billing, see [states and billing status of Azure Virtual Machines](../virtual-machines/states-billing.md)
 
 | State | Description |
 |---|---|
