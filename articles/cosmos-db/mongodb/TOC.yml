@@ -254,10 +254,16 @@
             - name: Mapping MongoDB consistency levels
               href: consistency-mapping.md
             - name: High availability
-              href: ../high-availability.md
-            - name: Conflict types and resolution policies
-              displayName: last write wins, custom, multi-region writes, multi-master
-              href: ../conflict-resolution-policies.md
+              items:
+                - name: High availability overview
+                  href: ../high-availability.md
+                - name: Multi-region writes
+                  items:
+                    - name: Understanding multi-region writes
+                      href: ../multi-region-writes.md
+                    - name: Conflict resolution
+                      displayName: last write wins, custom, multi-region writes, multi-master
+                      href: ../conflict-resolution-policies.md
             - name: Global distribution - under the hood
               href: ../global-dist-under-the-hood.md
         - name: Security
