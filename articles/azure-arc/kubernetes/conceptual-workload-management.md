@@ -31,6 +31,7 @@ The following capabilities are required to perform this type of workload managem
 - Promotion of the multi-cluster state through a chain of environments
 - Sophisticated, extensible and replaceable scheduler
 - Flexibility to use different reconcilers for different cluster types depending on their nature and connectivity
+- Platform configuration management at scale
 
 ## Scenario personas
 
@@ -134,6 +135,26 @@ Platform services are workloads (such as Prometheus, NGINX, Fluentbit, and so on
 ### Deployment Observability Hub
 
 Deployment Observability Hub is a central storage that is easy to query with complex queries against a large amount of data. It contains deployment data with historical information on workload versions and their deployment state across clusters. Clusters register themselves in the storage and update their compliance status with the GitOps repositories. Clusters operate at the level of Git commits only. High-level information, such as application versions, environments, and cluster type data, is transferred to the central storage from the GitOps repositories. This high-level information gets correlated in the central storage with the commit compliance data sent from the clusters. 
+
+## Platform Configuration Concepts
+
+## Separation of concerns
+
+Application behavior on a deployment target is determined by configuration values. However, configuration values are not all same. They are provided by different personas at different points in the application lifecycle and have different scope. Generally, there are application and platform configurations.
+
+### Application Configurations
+
+Application configurations are provided by the application developers and they are abstracted away from the deployment target details. Normally, application developers are not aware of what hosts the application is going to be deployed to, how many of them, and therefore, they are not aware of any host specific details. But the application developers know a chain of environments and rings that the application is promoted through on its way to production. Orthogonal to that, an application may be deployed multiple times in each environment to play different roles. For example, the very same application can serve as a "dispatcher" and as an "exporter". The application developers may want to configure the application differently for all those use cases. For example, if the application is running as a "dispatcher" for the purpose of functional testing on a QA environment, it should be configured in this way regardless of the actual host. The configuration values of this type are provided at the development time, when the application developers create deployment descriptors/manifests for various environments/rings and application roles. 
+
+### Platform Configurations
+
+Besides development time configurations, an application often needs some platform specific configuration values such as endpoints, tags, secrets, etc. These values may be different on every single host where the application is deployed to. The deployment descriptors/manifests, created by the application developers, refer to the configuration objects containing these values, for example, config maps or secrets. So the application developers expect these configuration objects to be present on the host and available for the application to consume. Commonly, these objects with the values are provided by a platform team. Depending on the organization, the platform team persona may be backed up by different departments/people, for example "IT Global", "Site IT", "Equipment owners", etc. 
+
+The concerns of the application developers and the platform team are totally separated. The application developers are in charge of the application, they ere focused on the application, own it and configure it. Similar, the platform team owns and configure the platform. The key point is that the platform team doesn't configure applications, they configure environments for applications. Essentially, they provide environment variable values. 
+
+With that in place, the behavior of a specific application instance on a specific host is determined by a combination of application and platform configurations. The platform configurations often consist of the common configurations that are irrelevant to the applications consuming them and application specific configurations that may be unique for every application. 
+
+:::image type="content" source="media/concept-workload-management/app-platform-config.png" alt-text="Diagram showing application and platform configurations." lightbox="media/concept-workload-management/app-platform-config.png":::
 
 ## Next steps
 
