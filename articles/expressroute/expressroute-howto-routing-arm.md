@@ -72,11 +72,11 @@ This section helps you create, get, update, and delete the Microsoft peering con
    ```azurepowershell-interactive
    Select-AzSubscription -SubscriptionId "<subscription ID>"
    ```
-1. Create an ExpressRoute circuit.
+2. Create an ExpressRoute circuit.
 
    Follow the instructions to create an [ExpressRoute circuit](expressroute-howto-circuit-arm.md) and have it provisioned by the connectivity provider. If your connectivity provider offers managed Layer 3 services, you can ask your connectivity provider to enable Microsoft peering for you. You won't need to follow instructions listed in the next sections. However, if your connectivity provider doesn't manage routing for you, after creating your circuit, continue your configuration using the next steps. 
 
-1. Check the ExpressRoute circuit to make sure it's provisioned and also enabled. Use the following example:
+3. Check the ExpressRoute circuit to make sure it's provisioned and also enabled. Use the following example:
 
    ```azurepowershell-interactive
    Get-AzExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
@@ -107,17 +107,21 @@ This section helps you create, get, update, and delete the Microsoft peering con
    ServiceKey                       : **************************************
    Peerings                         : []
    ```
-1. Configure Microsoft peering for the circuit. Make sure that you have the following information before you continue.
+4. Configure Microsoft peering for the circuit. Make sure that you have the following information before you continue.
 
-   * A /30 or /126 subnet for the primary link. The address block must be a valid public IPv4 or IPv6 prefix owned by you and registered in an RIR / IRR.
-   * A /30 or /126 subnet for the secondary link. The address block must be a valid public IPv4 or IPv6 prefix owned by you and registered in an RIR / IRR.
-   * A valid VLAN ID to establish this peering on. Ensure that no other peering in the circuit uses the same VLAN ID.
+    * A pair of subnets owned by you and registered in an RIR/IRR. One subnet is used for the primary link, while the other will be used for the secondary link. From each of these subnets, you assign the first usable IP address to your router as Microsoft uses the second usable IP for its router. You have three options for this pair of subnets:
+       * IPv4: Two /30 subnets. These must be valid public IPv4 prefixes.
+       * IPv6: Two /126 subnets. These must be valid public IPv6 prefixes.
+       * Both: Two /30 subnets and two /126 subnets.
+   * Microsoft peering enables you to communicate with the public IP addresses on Microsoft network. So, your traffic endpoints on your on-premises network should be public too. This is often done using SNAT. 
+   > [!NOTE]
+   > When using SNAT, we advise against a public IP address from the range assigned to primary or secondary link. Instead, you should use a different range of public IP addresses that has been assigned to you and registered in a Regional Internet Registry (RIR) or Internet Routing Registry (IRR). Depending on your call volume, this range can be as small as a single IP address (represented as '/32' for IPv4 or '/128' for IPv6).
+   * A valid VLAN ID to establish this peering on. Ensure that no other peering in the circuit uses the same VLAN ID. For both Primary and Secondary links you must use the same VLAN ID.
    * AS number for peering. You can use both 2-byte and 4-byte AS numbers.
-   * Advertised prefixes: You provide a list of all prefixes you plan to advertise over the BGP session. Only public IP address prefixes are accepted. If you plan to send a set of prefixes, you can send a comma-separated list. These prefixes must be registered to you in an RIR / IRR. IPv4 BGP sessions require IPv4 advertised prefixes and IPv6 BGP sessions require IPv6 advertised prefixes. 
+   * Advertised prefixes: You provide a list of all prefixes you plan to advertise over the BGP session. Only public IP address prefixes are accepted. If you plan to send a set of prefixes, you can send a comma-separated list. These prefixes must be registered to you in an RIR / IRR.
+   * **Optional -** Customer ASN: If you're advertising prefixes not registered to the peering AS number, you can specify the AS number to which they're registered with.
    * Routing Registry Name: You can specify the RIR / IRR against which the AS number and prefixes are registered.
-   * Optional:
-     * Customer ASN: If you're advertising prefixes not registered to the peering AS number, you can specify the AS number to which they're registered with.
-     * An MD5 hash if you choose to use one.
+   * **Optional -** An MD5 hash if you choose to use one.
 
 > [!IMPORTANT]
 > Microsoft verifies if the specified 'Advertised public prefixes' and 'Peer ASN' (or 'Customer ASN') are assigned to you in the Internet Routing Registry. If you are getting the public prefixes from another entity and if the assignment is not recorded with the routing registry, the automatic validation will not complete and will require manual validation. If the automatic validation fails, you will see 'AdvertisedPublicPrefixesState' as 'Validation needed' on the output of "Get-AzExpressRouteCircuitPeeringConfig" (see "To get Microsoft peering details" in the following section). 
@@ -194,11 +198,11 @@ This section helps you create, get, update, and delete the Azure private peering
    ```azurepowershell-interactive
    Select-AzSubscription -SubscriptionId "<subscription ID>"
    ```
-1. Create an ExpressRoute circuit.
+2. Create an ExpressRoute circuit.
 
    Follow the instructions to create an [ExpressRoute circuit](expressroute-howto-circuit-arm.md) and have it provisioned by the connectivity provider. If your connectivity provider offers managed Layer 3 services, you can ask your connectivity provider to enable Azure private peering for you. You won't need to follow instructions listed in the next sections. However, if your connectivity provider doesn't manage routing for you, after creating your circuit, continue your configuration using the next steps.
 
-1. Check the ExpressRoute circuit to make sure it's provisioned and also enabled. Use the following example:
+3. Check the ExpressRoute circuit to make sure it's provisioned and also enabled. Use the following example:
 
    ```azurepowershell-interactive
    Get-AzExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
@@ -229,21 +233,16 @@ This section helps you create, get, update, and delete the Azure private peering
    ServiceKey                       : **************************************
    Peerings                         : []
    ```
-1. Configure Microsoft peering for the circuit. Make sure that you have the following information before you continue.
+4. Configure Azure private peering for the circuit. Make sure that you have the following items before you continue with the next steps:
 
-   * A pair of subnets owned by you and registered in an RIR/IRR. One subnet is used for the primary link, while the other will be used for the secondary link. From each of these subnets, you assign the first usable IP address to your router as Microsoft uses the second usable IP for its router. You have three options for this pair of subnets:
-       * IPv4: Two /30 subnets. These must be valid public IPv4 prefixes.
-       * IPv6: Two /126 subnets. These must be valid public IPv6 prefixes.
+   * A pair of subnets that aren't part of any address space reserved for virtual networks. One subnet is used for the primary link, while the other is used for the secondary link. From each of these subnets, you assign the first usable IP address to your router as Microsoft uses the second usable IP for its router. You have three options for this pair of subnets:
+       * IPv4: Two /30 subnets.
+       * IPv6: Two /126 subnets.
        * Both: Two /30 subnets and two /126 subnets.
-   * Microsoft peering enables you to communicate with the public IP addresses on Microsoft network. So, your traffic endpoints on your on-premises network should be public too. This is often done using SNAT. 
-   > [!NOTE]
-   > When using SNAT, we advise against a public IP address from the range assigned to primary or secondary link. Instead, you should use a different range of public IP addresses that has been assigned to you and registered in a Regional Internet Registry (RIR) or Internet Routing Registry (IRR). Depending on your call volume, this range can be as small as a single IP address (represented as '/32' for IPv4 or '/128' for IPv6).
-   * A valid VLAN ID to establish this peering on. Ensure that no other peering in the circuit uses the same VLAN ID. For both Primary and Secondary links you must use the same VLAN ID.
-   * AS number for peering. You can use both 2-byte and 4-byte AS numbers.
-   * Advertised prefixes: You provide a list of all prefixes you plan to advertise over the BGP session. Only public IP address prefixes are accepted. If you plan to send a set of prefixes, you can send a comma-separated list. These prefixes must be registered to you in an RIR / IRR.
-   * **Optional -** Customer ASN: If you're advertising prefixes not registered to the peering AS number, you can specify the AS number to which they're registered with.
-   * Routing Registry Name: You can specify the RIR / IRR against which the AS number and prefixes are registered.
-   * **Optional -** An MD5 hash if you choose to use one.
+   * A valid VLAN ID to establish this peering on. Ensure that no other peering in the circuit uses the same VLAN ID.
+   * AS number for peering. You can use both 2-byte and 4-byte AS numbers. You can use a private AS number for this peering. Ensure that you aren't using 65515.
+   * Optional:
+     * An MD5 hash if you choose to use one.
 
    Use the following example to configure Azure private peering for your circuit:
 
