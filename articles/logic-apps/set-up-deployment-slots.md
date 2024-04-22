@@ -193,7 +193,7 @@ The following steps show how to remove a deployment slot from your Standard logi
 
 1. Open the command palette. (Keyboard: Ctrl + Shift + P)
 
-1. From the command list, select **Azure Logic Apps: Deploy to Slot**, and follow the prompts to provide the required information:
+1. From the command list, select **Azure Logic Apps: Delete Slot**, and follow the prompts to provide the required information:
 
    1. Enter and select the name for your Azure subscription.
 
@@ -221,7 +221,7 @@ After you delete a deployment slot, verify that the slot no longer exists on you
 
 1. On the **Deployment slots** page, under **Deployment Slots (Preview)**, confirm that the deployment slot no longer exists.
 
-## See also
+## Related content
 
 - [Deployment best practices](../app-service/deploy-best-practices.md)
 - [Azure Functions deployment slots](../azure-functions/functions-deployment-slots.md)
