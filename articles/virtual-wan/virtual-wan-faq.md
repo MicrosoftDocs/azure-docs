@@ -40,6 +40,10 @@ Currently, Azure Firewall can be deployed to support Availability Zones using Az
 
 While the concept of Virtual WAN is global, the actual Virtual WAN resource is Resource Manager-based and deployed regionally. If the virtual WAN region itself were to have an issue, all hubs in that virtual WAN will continue to function as is, but the user won't be able to create new hubs until the virtual WAN region is available.
 
+### Is it possible to share the Firewall in a protected hub with other hubs?
+
+No, each Azure Virtual Hub must have their own Firewall. The deployment of custom routes to point the Firewall of another secured hub's will fail and will not complete successfully. Please consider to convert those hubs to [secured hubs](/azure/virtual-wan/howto-firewall) with their own Firewalls.
+
 ### What client does the Azure Virtual WAN User VPN (point-to-site) support?
 
 Virtual WAN supports [Azure VPN client](https://go.microsoft.com/fwlink/?linkid=2117554), OpenVPN Client, or any IKEv2 client. Microsoft Entra authentication is supported with Azure VPN Client.A minimum of Windows 10 client OS version 17763.0 or higher is required. OpenVPN client(s) can support certificate-based authentication. Once cert-based auth is selected on the gateway, you'll see the.ovpn* file to download to your device. IKEv2 supports both certificate and RADIUS authentication.

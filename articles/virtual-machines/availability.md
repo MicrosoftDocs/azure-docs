@@ -21,6 +21,8 @@ This article provides an overview of the availability options for Azure virtual 
 
 Each Availability Zone has a distinct power source, network, and cooling. By designing your solutions to use replicated VMs in zones, you can protect your apps and data from the loss of a data center. If one zone is compromised, then replicated apps and data are instantly available in another zone. 
 
+> [!NOTE]
+> Regional resources may or may not exist in an Availability zone, and there is no insight into what physical or logical zone a regional resource is in. A failure in any of the availability zones in a region has the potential to bring down a regional VM.
 
 ## Virtual Machines Scale Sets 
 [Azure virtual machine scale sets](flexible-virtual-machine-scale-sets.md) let you create and manage a group of load balanced VMs. The number of VM instances can automatically increase or decrease in response to demand or a defined schedule. Scale sets provide high availability to your applications, and allow you to centrally manage, configure, and update many VMs. There is no cost for the scale set itself, you only pay for each VM instance that you create.

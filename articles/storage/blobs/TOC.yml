@@ -48,6 +48,10 @@ items:
       href: storage-quickstart-blobs-go.md
     - name: Terraform
       href: storage-quickstart-static-website-terraform.md
+    - name: TypeScript
+      items: 
+      - name: TypeScript for Node.js
+        href: storage-quickstart-blobs-nodejs-typescript.md
   - name: Storage accounts
     items:
     - name: Storage accounts overview

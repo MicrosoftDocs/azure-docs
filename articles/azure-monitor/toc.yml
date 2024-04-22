@@ -611,7 +611,7 @@ items:
       items:
       - name: Overview
         href: ../network-watcher/network-insights-overview.md?toc=/azure/azure-monitor/toc.json&bc=/azure/azure-monitor/breadcrumb/toc.json
-      - name: View network topology
+      - name: Topology
         href: ../network-watcher/network-insights-topology.md?toc=/azure/azure-monitor/toc.json&bc=/azure/azure-monitor/breadcrumb/toc.json
       - name: Troubleshoot
         href: ../network-watcher/network-insights-troubleshooting.md?toc=/azure/azure-monitor/toc.json&bc=/azure/azure-monitor/breadcrumb/toc.json
