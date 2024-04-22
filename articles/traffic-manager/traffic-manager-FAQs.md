@@ -527,8 +527,7 @@ The following table describes the behavior of Traffic Manager health checks for 
 
 > [!IMPORTANT]
 > When managing child profiles under a parent profile in Azure Traffic Manager, an issue can occur if you simultaneously disable and enable two child profiles. If these actions occur at the same time, there might be a brief period when both endpoints are disabled, leading to the parent profile entering a compromised state.<br><br>
-
-To avoid this problem, exercise caution when making simultaneous changes to child profiles. Consider staggering these actions slightly to prevent unintended disruptions to your traffic management configuration. 
+> To avoid this problem, exercise caution when making simultaneous changes to child profiles. Consider staggering these actions slightly to prevent unintended disruptions to your traffic management configuration. 
 
 ### Why can't I add Azure Cloud Services Extended Support Endpoints to my Traffic Manager profile? 
 
