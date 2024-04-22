@@ -50,13 +50,13 @@ If you choose to install and use PowerShell locally, this article requires the A
 
 # [**Azure CLI**](#tab/create-peering-cli)
 
-1. Sign-in to **subscription-1** with a user account with permissions to create a resource group, a virtual network, and an SPN in the Microsoft Entra ID tenant associated with **subscription-1**
+1. Use [az sign-in](/cli/azure/reference-index#az-login) to sign-in to **subscription-1** with a user account with permissions to create a resource group, a virtual network, and an SPN in the Microsoft Entra ID tenant associated with **subscription-1**
 
     ```azurecli
     az login
     ```
 
-1. Create a resource group.
+1. Create a resource group with [az group create](/cli/azure/group#az-group-create).
 
     ```azurecli
     az group create \
@@ -64,7 +64,7 @@ If you choose to install and use PowerShell locally, this article requires the A
         --location eastus2  
     ```
 
-1. Create a virtual network named **vnet-1** in **subscription-1**.
+1. Use [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create) to create a virtual network named **vnet-1** in **subscription-1**.
 
     ```azurecli
     az network vnet create \
@@ -78,6 +78,29 @@ If you choose to install and use PowerShell locally, this article requires the A
 
 # [**PowerShell**](#tab/create-peering-powershell)
 
+1. Sign-in to **subscription-1** with a user account with permissions to create a resource group, a virtual network, and an SPN in the Microsoft Entra ID tenant associated with **subscription-1**
+
+    ```azurepowershell
+    Connect-AzAccount
+    ```
+
+1. Create a resource group.
+
+    ```azurepowershell
+    New-AzResourceGroup -Name test-rg-1 -Location eastus2
+    ```
+
+1. Create a virtual network named **vnet-1** in **subscription-1**.
+
+    ```azurepowershell
+    $vnet = @{
+        Name = "vnet-1"
+        ResourceGroupName = "test-rg-1"
+        Location = "eastus2"
+        AddressPrefix = "10.0.0.0/16"
+    }
+    ```
+
 ---
 
 
@@ -87,7 +110,7 @@ Create **spn1-peer-vnet** with a scope to the virtual network created in the pre
 
 # [**Azure CLI**](#tab/create-peering-cli)
 
-1. Place the resource ID of the virtual network you created earlier in a variable for use in the later step.
+1. Use [az network vnet show](/cli/azure/network/vnet#az-network-vnet-show) to place the resource ID of the virtual network you created earlier in a variable for use in the later step.
 
     ```azurecli
     vnetid=$(az network vnet show \
@@ -97,7 +120,7 @@ Create **spn1-peer-vnet** with a scope to the virtual network created in the pre
                 --output tsv)
      ```
 
-1. Create **spn-1-peer-vnet** with a role of **Network Contributor** scoped to the virtual network **vnet-1**.
+1. Use [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) to create **spn-1-peer-vnet** with a role of **Network Contributor** scoped to the virtual network **vnet-1**.
 
     ```azurecli
     az ad sp create-for-rbac \
@@ -117,7 +140,7 @@ Create **spn1-peer-vnet** with a scope to the virtual network created in the pre
     }
     ```
 
-1. The appId of the service principal is used in the subsequent steps to finish the configuration of the SPN. Use the following command to place the appId of the SPN into a variable for later use.
+1. The appId of the service principal is used in the subsequent steps to finish the configuration of the SPN. Use [az ad sp list](/cli/azure/ad/sp#az-ad-sp-list) to place the appId of the SPN into a variable for later use.
 
     ```azurecli
     appid1=$(az ad sp list \
@@ -127,7 +150,7 @@ Create **spn1-peer-vnet** with a scope to the virtual network created in the pre
     echo $appid1
     ```
 
-1. The SPN created in the previous step must have a redirect URI to finish the authentication process approval and must be converted to multitenant use. Use the following command to add **https://www.microsoft.com** as a redirect URI and enable multitenant on **spn-1-peer-vnet**. 
+1. The SPN created in the previous step must have a redirect URI to finish the authentication process approval and must be converted to multitenant use. Use [az ad app update](/cli/azure/ad/app##az-ad-app-update) to add **https://www.microsoft.com** as a redirect URI and enable multitenant on **spn-1-peer-vnet**. 
 
     ```azurecli
     az ad app update \
@@ -136,7 +159,7 @@ Create **spn1-peer-vnet** with a scope to the virtual network created in the pre
         --web-redirect-uris https://www.microsoft.com     
     ```
 
-1. The service principal must have **User.Read** permissions to the directory. Use the following command to add the Microsoft Graph permissions of **User.Read** to the service principal.
+1. The service principal must have **User.Read** permissions to the directory. Use [az ad app permission add](/cli/azure/ad/app#az-ad-app-permission-add) and [az ad app permission grant](/cli/azure/ad/app#az-ad-app-permission-grant) to add the Microsoft Graph permissions of **User.Read** to the service principal.
 
     ```azurecli
     az ad app permission add \
@@ -158,13 +181,13 @@ Create **spn1-peer-vnet** with a scope to the virtual network created in the pre
 
 # [**Azure CLI**](#tab/create-peering-cli)
 
-1. Sign-in to **subscription-2** with a user account with permissions to create a resource group, a virtual network, and an SPN in the Microsoft Entra ID tenant associated with **subscription-2**
+1. Use [az login](/cli/azure/reference-index#az-login) to sign-in to **subscription-2** with a user account with permissions to create a resource group, a virtual network, and an SPN in the Microsoft Entra ID tenant associated with **subscription-2**
 
     ```azurecli
     az login
     ```
 
-1. Create resource group.
+1. Create resource group with [az group create](/cli/azure/group#az-group-create).
 
     ```azurecli
     az group create \
@@ -172,7 +195,7 @@ Create **spn1-peer-vnet** with a scope to the virtual network created in the pre
         --location westus2  
     ```
 
-1. Create a virtual network named **vnet-2** in **subscription-2**.
+1. Use [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create) to create a virtual network named **vnet-2** in **subscription-2**.
 
     ```azurecli
     az network vnet create \
@@ -195,7 +218,7 @@ Create **spn-2-peer-vnet** with a scope to the virtual network created in the pr
 
 # [**Azure CLI**](#tab/create-peering-cli)
 
-1. Place the resource ID of the virtual network you created earlier in a variable for use in the later step.
+1. Use [az network vnet show](/cli/azure/network/vnet#az-network-vnet-show) to place the resource ID of the virtual network you created earlier in a variable for use in the later step.
 
     ```azurecli
     vnetid=$(az network vnet show \
@@ -205,7 +228,7 @@ Create **spn-2-peer-vnet** with a scope to the virtual network created in the pr
                 --output tsv)
     ```
 
-1. Create **spn-2-peer-vnet** with a role of **Network Contributor** scoped to the virtual network **vnet-2**.
+1. Use [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) to create **spn-2-peer-vnet** with a role of **Network Contributor** scoped to the virtual network **vnet-2**.
 
     ```azurecli
     az ad sp create-for-rbac \
@@ -227,7 +250,7 @@ Create **spn-2-peer-vnet** with a scope to the virtual network created in the pr
     }    
     ```
 
-1. The appId of the service principal is used in the subsequent steps to finish the configuration of the SPN. Use the following command to place the ID of the SPN into a variable for later use.
+1. The appId of the service principal is used in the subsequent steps to finish the configuration of the SPN. Use [az ad sp list](/cli/azure/ad/sp#az-ad-sp-list) to place the ID of the SPN into a variable for later use.
 
     ```azurecli
     appid2=$(az ad sp list \
@@ -236,7 +259,7 @@ Create **spn-2-peer-vnet** with a scope to the virtual network created in the pr
                 --output tsv)
     ```
 
-1. The SPN created in the previous step must have a redirect URI to finish the authentication process approval and must be converted to multitenant use. Use the following command to add **https://www.microsoft.com** as a redirect URI and enable multitenant on **spn-2-peer-vnet**. 
+1. The SPN created in the previous step must have a redirect URI to finish the authentication process approval and must be converted to multitenant use. Use Use [az ad app update](/cli/azure/ad/app##az-ad-app-update) to add **https://www.microsoft.com** as a redirect URI and enable multitenant on **spn-2-peer-vnet**. 
 
     ```azurecli
     az ad app update \
@@ -245,7 +268,7 @@ Create **spn-2-peer-vnet** with a scope to the virtual network created in the pr
         --web-redirect-uris https://www.microsoft.com     
     ```
 
-1. The service principal must have **User.Read** permissions to the directory. Use the following command to add the Microsoft Graph permissions of **User.Read** to the service principal.
+1. The service principal must have **User.Read** permissions to the directory. Use [az ad app permission add](/cli/azure/ad/app#az-ad-app-permission-add) and [az ad app permission grant](/cli/azure/ad/app#az-ad-app-permission-grant)to add the Microsoft Graph permissions of **User.Read** to the service principal.
 
     ```azurecli
     az ad app permission add \
@@ -273,13 +296,13 @@ An administrator in the **subscription-1** Microsoft Entra ID tenant must approv
 
 # [**Azure CLI**](#tab/create-peering-cli)
 
-1. Sign-in to **subscription-2**.
+1. [az login](/cli/azure/reference-index#az-login) to sign-in to **subscription-2**.
 
     ```azurecli
     az login
     ```
 
-1. Obtain the appId of **spn-2-peer-vnet**. Note the appID in the output. This appID is used in the authentication URL in the later steps.
+1. Use [az ad sp list](/cli/azure/ad/sp#az-ad-sp-list) to obtain the appId of **spn-2-peer-vnet**. Note the appID in the output. This appID is used in the authentication URL in the later steps.
 
     ```azurecli
     appid2=$(az ad sp list \
@@ -315,13 +338,13 @@ After the administrator approves **spn-2-vnet-peer**, add it to the virtual netw
 
 # [**Azure CLI**](#tab/create-peering-cli)
 
-1. Sign-in to **subscription-1**.
+1. Use [az login](/cli/azure/reference-index#az-login) to sign-in to **subscription-1**.
 
     ```azurecli
     az login
     ```
 
-1. Use the following command to find the appId for **spn-2-vnet-peer** and place in a variable for later use.
+1. Use [az ad sp list](/cli/azure/ad/sp#az-ad-sp-list) to find the appId for **spn-2-vnet-peer** and place in a variable for later use.
 
     ```azurecli
     appid2=$(az ad sp list \
@@ -331,7 +354,7 @@ After the administrator approves **spn-2-vnet-peer**, add it to the virtual netw
     echo $appid2
     ```
 
-1. Obtain the resource ID of **vnet-1** into a variable for use in the later steps.
+1. Use Use [az network vnet show](/cli/azure/network/vnet#az-network-vnet-show) to obtain the resource ID of **vnet-1** into a variable for use in the later steps.
 
     ```azurecli
     vnetid=$(az network vnet show \
@@ -341,7 +364,7 @@ After the administrator approves **spn-2-vnet-peer**, add it to the virtual netw
                 --output tsv)
     ```
 
-1. Use the following command to add **spn-2-peer-vnet** to **vnet-1** as a **Network Contributor**.
+1. Use [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) the following command to add **spn-2-peer-vnet** to **vnet-1** as a **Network Contributor**.
 
     ```azurecli
     az role assignment create --assignee $appid2 \
@@ -363,13 +386,13 @@ An administrator in the **subscription-2** Microsoft Entra ID tenant must approv
 
 # [**Azure CLI**](#tab/create-peering-cli)
 
-1. Sign-in to **subscription-1**.
+1. Use [az login](/cli/azure/reference-index#az-login) to sign-in to **subscription-1**.
 
     ```azurecli
     az login
     ```
 
-1. Obtain the appId of **spn-1-peer-vnet**. Note the appID in the output. This appID is used in the authentication URL in the later steps.
+1. Use [az ad sp list](/cli/azure/ad/sp#az-ad-sp-list) to obtain the appId of **spn-1-peer-vnet**. Note the appID in the output. This appID is used in the authentication URL in the later steps.
 
     ```azurecli
     appid1=$(az ad sp list \
@@ -379,7 +402,7 @@ An administrator in the **subscription-2** Microsoft Entra ID tenant must approv
     echo $appid1
     ```
 
-1. Use the appid for **spn-1-peer-vnet** and the Microsoft Entra ID tenant ID for **subcription-2** to build the sign-in URL for the approval. The URL is built from the following example:
+1. Use the appid for **spn-1-peer-vnet** and the Microsoft Entra ID tenant ID for **subscription-2** to build the sign-in URL for the approval. The URL is built from the following example:
 
     ```
     https://login.microsoftonline.com/entra-tenant-id-subscription-2/oauth2/authorize?client_id={$appid1}&response_type=code&redirect_uri=https://www.microsoft.com
@@ -405,13 +428,13 @@ Once the administrator approves **spn-1-vnet-peer**, add it to the virtual netwo
 
 # [**Azure CLI**](#tab/create-peering-cli)
 
-1. Sign-in to **subscription-2**.
+1. Use [az login](/cli/azure/reference-index#az-login) to sign-in to **subscription-2**.
 
     ```azurecli
     az login
     ```
 
-1. Use the following command to find the appId for **spn-1-vnet-peer** and place in a variable for later use.
+1. Use [az ad sp list](/cli/azure/ad/sp#az-ad-sp-list) to find the appId for **spn-1-vnet-peer** and place in a variable for later use.
 
     ```azurecli
     appid1=$(az ad sp list \
@@ -421,7 +444,7 @@ Once the administrator approves **spn-1-vnet-peer**, add it to the virtual netwo
     echo $appid1
     ```
 
-1. Obtain the resource ID of **vnet-2** into a variable for use in the later steps.
+1. Use [az network vnet show](/cli/azure/network/vnet#az-network-vnet-show) to obtain the resource ID of **vnet-2** into a variable for use in the later steps.
 
     ```azurecli
     vnetid=$(az network vnet show \
@@ -431,7 +454,7 @@ Once the administrator approves **spn-1-vnet-peer**, add it to the virtual netwo
                 --output tsv)
     ```
 
-1. Use the following command to add **spn-1-peer-vnet** to **vnet-2** as a **Network Contributor**.
+1. Use [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) to add **spn-1-peer-vnet** to **vnet-2** as a **Network Contributor**.
 
     ```azurecli
     az role assignment create --assignee $appid1 \
@@ -453,13 +476,13 @@ For the purposes of this article, sign-in to each subscription and obtain the ap
 
 # [**Azure CLI**](#tab/create-peering-cli)
 
-1. Sign-in to **subscription-1** with a regular user account.
+1. Use [az login](/cli/azure/reference-index#az-login) to sign-in to **subscription-1** with a regular user account.
 
     ```azurecli
     az login
     ```
 
-1. Obtain the resource ID of **vnet-1** into a variable for use in the later steps.
+1. Use [az network vnet show](/cli/azure/network/vnet#az-network-vnet-show) to obtain the resource ID of **vnet-1** into a variable for use in the later steps.
 
     ```azurecli
     vnetid1=$(az network vnet show \
@@ -469,7 +492,7 @@ For the purposes of this article, sign-in to each subscription and obtain the ap
                 --output tsv)
     ```
 
-1. Obtain the appId of **spn-1-peer-vnet** and place in a variable for use in the later steps.
+1. Use [az ad sp list](/cli/azure/ad/sp#az-ad-sp-list) to obtain the appId of **spn-1-peer-vnet** and place in a variable for use in the later steps.
 
     ```azurecli
     appid1=$(az ad sp list \
@@ -485,7 +508,7 @@ For the purposes of this article, sign-in to each subscription and obtain the ap
     az login
     ```
 
-1. Obtain the resource ID of **vnet-2** into a variable for use in the later steps.
+1. [az network vnet show](/cli/azure/network/vnet#az-network-vnet-show) to obtain the resource ID of **vnet-2** into a variable for use in the later steps.
 
     ```azurecli
     vnetid2=$(az network vnet show \
@@ -495,7 +518,7 @@ For the purposes of this article, sign-in to each subscription and obtain the ap
                 --output tsv)
     ```
 
-1. Obtain the appId of **spn-2-peer-vnet** and place in a variable for use in the later steps.
+1. [az ad sp list](/cli/azure/ad/sp#az-ad-sp-list) to obtain the appId of **spn-2-peer-vnet** and place in a variable for use in the later steps.
 
     ```azurecli
     appid2=$(az ad sp list \
@@ -505,7 +528,7 @@ For the purposes of this article, sign-in to each subscription and obtain the ap
     echo $appid2
     ```
 
-1. Sign out of the Azure cli session with the following command:
+1. Sign out of the Azure CLI session with the following command. Don't close the terminal.
 
     ```azurecli
     az logout
@@ -517,7 +540,7 @@ For the purposes of this article, sign-in to each subscription and obtain the ap
 
 ### Peer the virtual networks
 
-1. Sign-in to **subscription-1** with **spn-1-peer-vnet**. You need the tenant ID of the Microsoft Entra ID tenant associated with **subscription-1** to complete the command. The password is shown in the example with a variable placeholder. Replace with the password you noted during the resource creation. Replace the placeholder in `--tenant` with the tenant ID of the Microsoft Entra ID tenant associated with **subscription-1**.
+1. Use [az login](/cli/azure/reference-index#az-login) to sign-in to **subscription-1** with **spn-1-peer-vnet**. You need the tenant ID of the Microsoft Entra ID tenant associated with **subscription-1** to complete the command. The password is shown in the example with a variable placeholder. Replace with the password you noted during the resource creation. Replace the placeholder in `--tenant` with the tenant ID of the Microsoft Entra ID tenant associated with **subscription-1**.
 
 # [**Azure CLI**](#tab/create-peering-cli)
 
@@ -529,7 +552,7 @@ For the purposes of this article, sign-in to each subscription and obtain the ap
         --tenant 1e1cce84-0637-4693-99d9-27ff18dd65c8
     ```
 
-1. Sign-in to **subscription-2** with **spn-2-peer-vnet**. You need the tenant ID of the Microsoft Entra ID tenant associated with **subscription-2** to complete the command. The password is shown in the example with a variable placeholder. Replace with the password you noted during the resource creation. Replace the placeholder in `--tenant` with the tenant ID of the Microsoft Entra ID tenant associated with **subscription-2**.
+1. Use [az login](/cli/azure/reference-index#az-login) to sign-in to **subscription-2** with **spn-2-peer-vnet**. You need the tenant ID of the Microsoft Entra ID tenant associated with **subscription-2** to complete the command. The password is shown in the example with a variable placeholder. Replace with the password you noted during the resource creation. Replace the placeholder in `--tenant` with the tenant ID of the Microsoft Entra ID tenant associated with **subscription-2**.
 
     ```azurecli
     az login \
@@ -539,14 +562,14 @@ For the purposes of this article, sign-in to each subscription and obtain the ap
         --tenant 688647e7-9434-42d3-82c9-e19c24270a54
     ```
 
-1. Change context to **subscription-1**.
+1. Use [az account set](/cli/azure/account#az-account-set) to change the context to **subscription-1**.
 
     ```azurecli
     az account set --subscription "subscription-1-subscription-id-NOT-ENTRA-ID"
     ```
 
 
-1. Use the following command to create the virtual network peering between **vnet-1** and **vnet-2**.
+1. Use [az network vnet peering create](/cli/azure/network/vnet/peering#az-network-vnet-peering-create) to create the virtual network peering between **vnet-1** and **vnet-2**.
 
     ```azurecli
     az network vnet peering create \
@@ -557,7 +580,7 @@ For the purposes of this article, sign-in to each subscription and obtain the ap
         --allow-vnet-access
     ```
 
-1. Use the following command to verify the virtual network peering between **vnet-1** and **vnet-2**.
+1. Use [az network vnet peering list](/cli/azure/network/vnet/peering#az-network-vnet-peering-list) to verify the virtual network peering between **vnet-1** and **vnet-2**.
 
     ```azurecli
     az network vnet peering list \
@@ -566,13 +589,13 @@ For the purposes of this article, sign-in to each subscription and obtain the ap
         --output table
     ```
 
-1. Change context to **subscription-2**.
+1. Use [az account set](/cli/azure/account#az-account-set) to change the context to **subscription-2**.
 
     ```azurecli
     az account set --subscription "subscription-2-subscription-id-NOT-ENTRA-ID"
     ```
 
-1. Use the following command to create the virtual network peering between **vnet-2** and **vnet-1**.
+1. Use [az network vnet peering create](/cli/azure/network/vnet/peering#az-network-vnet-peering-create) to create the virtual network peering between **vnet-2** and **vnet-1**.
 
     ```azurecli
     az network vnet peering create \
@@ -583,7 +606,7 @@ For the purposes of this article, sign-in to each subscription and obtain the ap
         --allow-vnet-access
     ```
 
-1. Use the following command to verify the virtual network peering between **vnet-2** and **vnet-1**.
+1. Use [az network vnet peering list](/cli/azure/network/vnet/peering#az-network-vnet-peering-list) to verify the virtual network peering between **vnet-2** and **vnet-1**.
 
     ```azurecli
     az network vnet peering list \
