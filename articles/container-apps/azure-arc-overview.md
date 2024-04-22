@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: container-apps
 ms.topic: conceptual
-ms.date: 01/30/2024
+ms.date: 04/22/2024
 ms.author: cshoe
 ---
 
@@ -201,7 +201,24 @@ ARM64 based clusters aren't supported at this time.
  - Add startingDeadlineSeconds to Container App Job in case of cluster reboot
  - Removed heavy logging in Envoy access log server
  - Updated Monitoring Configuration version for Azure Container Apps on Azure Arc enabled Kubernetes
-  
+
+### Container Apps extension v1.36.15 (April 2024)
+
+ - Update Dapr to v1.12
+ - Update Dapr Metrics to v0.6
+ - Allow customers to enabled Azure SDK debug logging in Dapr
+ - Scale Envoy in response to memory usage
+ - Change of Envoy log format to Json
+ - Export additional Envoy metrics
+ - Handle SIGTERM gracefully in local proxy
+ - Truncate Enoy log to first 1024 characters when log content failed to parse
+ - Allow ability to leverage different namespaces with KEDA
+ - Validation added for scale rule name
+ - Enabled revision GC by default
+ - Enabled emission of metrics for sidecars
+ - Added volumeMounts to job executions
+ - Added validation to webhook endpoints for jobs 
+
 ## Next steps
 
 [Create a Container Apps connected environment (Preview)](azure-arc-enable-cluster.md)
