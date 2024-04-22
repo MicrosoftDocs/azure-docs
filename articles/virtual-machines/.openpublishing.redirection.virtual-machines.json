@@ -2,7 +2,7 @@
     "redirections": [
         {
             "source_path_from_root": "/articles/virtual-machines/linux/tutorial-availability-sets.md",
-            "redirect_url": "/azure/virtual-machines/linux/tutorial-availability-sets",
+            "redirect_url": "/previous-versions/azure/virtual-machines/linux/tutorial-availability-sets",
             "redirect_document_id": false
         },
         {
