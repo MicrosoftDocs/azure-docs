@@ -112,12 +112,18 @@ Microsoft RSA Root Certificate Authority 2017  https://www.microsoft.com/pkiops/
 * Optionally, to prevent future disruption, it's also recommended to add the following roots to the trusted store:
   Microsoft ECC Root Certificate Authority 2017 - https://www.microsoft.com/pkiops/certs/Microsoft%20ECC%20Root%20Certificate%20Authority%202017.crt
 
-Detailed information on updating client applications certificate stores with new Root CA certificates has been documented in this **[tutorial](../flexible-server/how-to-update-client-certificates-java.md)**. 
+To import certificates to client certificate stores you may have to convert certificate .crt files to .pem format, after downloading certificate files from URIs above. You can use OpenSSL utility to do these file conversions, as shown in example below:
+
+```powershell
+openssl x509 -in certificate.crt -out certificate.pem -outform PEM
+```
+
+**Detailed information on updating client applications certificate stores with new Root CA certificates has been documented in this [how-to document](../flexible-server/how-to-update-client-certificates-java.md)**. 
 
 ### Read Replicas with certificate pinning scenarios
 
 With Root CA migration to [Microsoft RSA Root Certificate Authority 2017](https://www.microsoft.com/pkiops/docs/repository.htm) it's feasible for newly created replicas to be on a newer Root CA certificate than primary server created earlier. 
-Therefore, for clients that use **verify-ca** and **verify-full** sslmode configuration settings, i.e. certificate pinning, is imperative for interrupted connectivity to accept **both** root CA certificates:
+Therefore, for clients that use **verify-ca** and **verify-full** sslmode configuration settings, that is, certificate pinning, is imperative for interrupted connectivity to accept **both** root CA certificates:
   * For connectivity to servers deployed to Azure Government cloud regions (US Gov Virginia, US Gov Texas, US Gov Arizona):  [DigiCert Global Root G2](https://www.digicert.com/kb/digicert-root-certificates.htm) and [Microsoft RSA Root Certificate Authority 2017](https://www.microsoft.com/pkiops/docs/repository.htm) root CA certificates, as services are migrating from Digicert to Microsoft CA. 
   * For connectivity to servers deployed to Azure public cloud regions worldwide: [Digicert Global Root CA](https://www.digicert.com/kb/digicert-root-certificates.htm) and [Microsoft RSA Root Certificate Authority 2017](https://www.microsoft.com/pkiops/docs/repository.htm), as services are migrating from Digicert to Microsoft CA.
 
@@ -133,7 +139,7 @@ You can use psql command line from your client to test connectivity to the serve
 $ psql "host=hostname.postgres.database.azure.com port=5432 user=myuser dbname=mydatabase sslmode=verify-full sslcert=client.crt sslkey=client.key sslrootcert=ca.crt"
 
 ```
-For more on ssl and certificate parameters you can follow [psql documentation](https://www.postgresql.org/docs/current/app-psql.html)
+For more on ssl and certificate parameters, you can follow [psql documentation.](https://www.postgresql.org/docs/current/app-psql.html)
 
 ## Testing SSL/TLS Connectivity
 
