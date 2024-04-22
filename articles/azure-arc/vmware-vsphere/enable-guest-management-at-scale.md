@@ -156,19 +156,19 @@ You can use any of the following automation approaches to install Arc agents at 
 
 b. **Link Arc-enabled Server resources to the vCenter:** The following commands will update the Kind property of Hybrid Compute machines as **VMware**. Linking the machines to vCenter will enable virtual lifecycle operations and power cycle operations (start, stop, etc.) on the machines.  
 
-   - The following command scans all the Arc for Server machines that belong to the vCenter in the specified subscription and links the machines with that vCenter. 
+- The following command scans all the Arc for Server machines that belong to the vCenter in the specified subscription and links the machines with that vCenter. 
 
    ```azurecli
    az connectedvmware vm create-from-machines --subscription contoso-sub --vcenter-id /subscriptions/fedcba98-7654-3210-0123-456789abcdef/resourceGroups/contoso-rg-2/providers/Microsoft.HybridCompute/vcenters/contoso-vcenter
    ```
 
-   - The following command scans all the Arc for Server machines that belong to the vCenter in the specified Resource Group and links the machines with that vCenter. 
+- The following command scans all the Arc for Server machines that belong to the vCenter in the specified Resource Group and links the machines with that vCenter. 
 
    ```azurecli
    az connectedvmware vm create-from-machines --resource-group contoso-rg --vcenter-id /subscriptions/fedcba98-7654-3210-0123-456789abcdef/resourceGroups/contoso-rg-2/providers/Microsoft.HybridCompute/vcenters/contoso-vcenter.
    ```
 
-   - The following command can be used to link an individual Arc for Server resource to vCenter. 
+- The following command can be used to link an individual Arc for Server resource to vCenter. 
 
    ```azurecli
    az connectedvmware vm create-from-machines --resource-group contoso-rg --name contoso-vm --vcenter-id /subscriptions/fedcba98-7654-3210-0123-456789abcdef/resourceGroups/contoso-rg-2/providers/Microsoft.HybridCompute/vcenters/contoso-vcenter
