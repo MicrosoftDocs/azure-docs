@@ -41,49 +41,36 @@ Summary rules provide a way to aggregate ingested data to Log Analytics workspac
 
 - For limits and restrictions related to Summary rules in Log Analytics, see [Azure Monitor service limits](../service-limits.md#log-analytics-workspaces).
 
+### Permissions required
+
+<!-- Questions:
+
+ - Since "summarylogs" is new, it's not yet mentioned in the permissions article. Need to identify section in the permissions article to link for each action in the table.
+
+ - Is it accurate to use the inline code format around the last two role definitions that don't start with "Microsoft." ? 
+
+-->
+
+| Action | Permissions required |
+| --- | --- |
+| Create or update rule | `Microsoft.Operationalinsights/workspaces/summarylogs/write` permissions to the Log Analytics workspace, as provided by the [Log Analytics Contributor built-in role](manage-access.md#log-analytics-contributor), for example |
+| Create or update destination table | `Microsoft.OperationalInsights/workspaces/write` permissions to the Log Analytics workspace, as provided by the [Log Analytics Contributor built-in role](manage-access.md#log-analytics-contributor), for example |
+| Enable query in workspace | `Microsoft.OperationalInsights/workspaces/query/read` permissions to the Log Analytics workspace, as provided by the [Log Analytics Reader built-in role](manage-access.md#log-analytics-reader), for example |
+| Query all logs in workspace | `Microsoft.OperationalInsights/workspaces/query/*/read` permissions to the Log Analytics workspace, as provided by the [Log Analytics Reader built-in role](manage-access.md#log-analytics-reader), for example |
+| Query logs in table | `workspaces/query/<table-name>/read` permissions to the Log Analytics workspace, as provided by the [Log Analytics Reader built-in role](manage-access.md#log-analytics-reader), for example |
+| Query logs in table (table action) | `workspaces/query/read` permissions to the Log Analytics workspace, as provided by the [Log Analytics Reader built-in role](manage-access.md#log-analytics-reader), for example |
+
 ## Explore Summary rules
 
-Summary rules operate as batch processing directly in your Log Analytics workspace. The goal is to summarize incoming data to your workspace in small chunks, defined by bin size, and ingest the results to Analytics custom log table in your workspace. When you run complex queries on large data sets, the process might time out. It's easier to do analysis and reporting for summarized data that is _cleaned_ and aggregated to a reduced set of data.
+Summary rules operate as batch processing directly in your Log Analytics workspace. The goal is to summarize incoming data to your workspace in small chunks, defined by bin size, and ingest the results to an Analytics custom log table in your workspace. When you run complex queries on large data sets, the process might time out. It's easier to do analysis and reporting for summarized data that's _cleaned_ and aggregated to a reduced set of data.
 
-The destination table you define in rule can be new, or existing custom log that was created previously for different purposes. You can configure several rules to the same destination table in workspace. The table is generated automatically if it isn't present in the workspace, and schema is appended with query output fields automatically.
+The destination table you define in a rule can be a new or an existing custom log that was created previously for different purposes. You can configure several rules to the same destination table in your workspace. The table is generated automatically if it isn't present in the workspace, and the schema is appended with query output fields automatically.
 
-Summary rules can query tables in all tiers, including Analytics, Basic, and Auxiliary. It helps optimize cost when retaining raw data for the time needed for your scenario, and summarized data longer.
+Summary rules can query tables in all tiers, including Analytics, Basic, and Auxiliary. The rules help to optimize cost when you retain raw data for the time needed for your scenario and retain summarized data longer.
 
-The summarized data in custom log table can be exported to a Storage Account, or Event Hubs for further integrations by setting the [Data Export rule](logs-data-export.md) in workspace.
+The summarized data in a custom log table can be exported to a Storage Account or Event Hubs for further integrations by setting the [Data Export rule](logs-data-export.md) in your workspace.
 
-:::image type="content" source="media/summary-rules/ingestion-flow.png" alt-text="Screenshot that shows how Summary rules ingest data through the Azure Monitor pipeline to Log Analytics workspace." lightbox="media/summary-rules/ingestion-flow.png":::
-
-### Understand Summary rules pricing model
-
-The cost of Summary rules includes the cost of queries and ingested results to Analytics table, depending on the tier of tables you query.
-
-<!-- Following table isn't necessary as second and third columns show identical values -->
-
-| Plan of table used in query | Query cost | Results ingestion cost |
-| --- | --- | --- |
-| Analytics |            | Analytics ingested GB | 
-| Basic     | Scanned GB | Analytics ingested GB | 
-| Auxiliary | Scanned GB | Analytics ingested GB | 
-
-Cost calculation for hourly rule returning 100 records per bin:
-
-| Rule configuration | Monthly price calculation
-| --- | --- |
-| Query Analytics table  | Ingestion price x record size x number of records x 24 hours x 30 days | 
-| Query Basic table scanning 1 GB each bin | Scanned GB price x scanned size + record size x number of records x 24 hours x 30 days | 
-
-### Understand Summary rules permissions
-
-The following table summarizes the Microsoft role and permissions for working with Summary rules:
-
-| Action | Permissions or role needed |
-| --- | --- |
-| Create or update rule | Microsoft.Operationalinsights/workspaces/summarylogs/write |
-| Create or update destination table | Microsoft.OperationalInsights/workspaces/write |
-| Enable query in workspace | Microsoft.OperationalInsights/workspaces/query/read |
-| Query all logs in workspace | Microsoft.OperationalInsights/workspaces/query/*/read |
-| Query logs in table | workspaces/query/\<table-name>/read |
-| Query logs in table (table action) | workspaces/query/read |
+:::image type="content" source="media/summary-rules/ingestion-flow.png" alt-text="Screenshot that shows how Summary rules ingest data through the Azure Monitor pipeline to Log Analytics workspace." border="false" lightbox="media/summary-rules/ingestion-flow.png":::
 
 ## Configure Summary rules properties
 
@@ -93,22 +80,22 @@ The following table lists the Summary rules properties and descriptions:
 
 | Property | Description |
 | --- | --- |
-| `ruleType` | Specified the type of rule. <br> - `User` or `System.User`: Use these values for rules you author with query, bin, and so on. <br> - `System`: Use this value for predefined rules managed by Azure services. |
-| `description` | Details about the rule and its function. This property is helpful when having several rules and can help your team manage them. |
-| `binSize` | The interval query is performed and query time range. Can be every 20, 30, 60, 120, 180, 360, 720, 1,440 minutes. The bin summarization is at whole hour, for example, 02:00 to 04:00, 04:00 to 06:00 when bin is 120. When the bin is smaller than an hour, execution is at the bin fraction, 20, 30 minutes. |
-| `query` | Defines the query to execute in the rule. A time range isn't needed because the `binSize` property determines the value, such as 02:00 to 03:00 for a 60-minutes bin. If you add a time filter in the query, the time rage used in the query is the intersection between the filter and the bin size. |
-| `destinationTable` | The name of the destination custom log table and must end with `_CL`. The table is created automatically in the workspace, if it doesn't already exist, including the schema derived by the query in the rule. If the table already exists in the workspace, new fields introduced in the query are automatically appended. <br><br> When a reserved field, such as `TimeGenerated`, `_IsBillable`, `_ResourceId`, `TenantId`, `Type`, is included in the summary results, the `_Original` prefix is appended to the fields to reserve their original values. <br><br> The following standard fields always included in Summary results: <br> - `_BinStartTime`: the start time of each bin <br> - `_BinSize`: the interval query is performed and query time range. The bin end time can be calculated as `_BinStartTime` plus `_BinSize` <br> - `_RuleLastModifiedTime`: the time rule was last modified. It's helpful for rule change tracking <br> - `_RuleName`: the name of the rule. It's helpful with rules mapping, especially when multiple rules send data to a table |
-| `binDelay` (optional) | A bin processing triggered with certain delay after bin end time to allow most data arrival, and for service load distribution. The minimum delay is 3.5 minutes and up to 10% of the `binSize`. <br><br> If you know that the data you query is typically ingested with delay, set the `binDelay` property with that value or greater. The `binDelay` value can be between 3.5 minutes to 1,440 minutes. For example, for a 60-minutes bin and 10-minutes bin delay, execution of bin 13:00 to 14:00 doesn't trigger before 14:10. |
-| `binStartTime` (optional) | The date and time for the initial bin execution. Value can start at rule creation datetime minus `binSize`, or later and in whole hours. For example, if datetime is `2023-12-03T12:13Z` and `binSize` is 1440, the minimum `binStartTime` value can be `2023-12-02T13:00Z`, and execution of first bin: 02T13:00 to 03T13:00 is at 03T13:00 plus certain delay. <br><br> `binStartTime` is useful in daily summary scenario and helps specify the time of bin. Suppose datetime is `2023-12-03T12:13Z` and you're located in the UTC-8 time zone, and you want a daily rule to complete before you start your day at 8:00 (00:00 UTC). Set the `binStartTime` property to 2023-12-02T22:00Z. The first bin occurs at 02T:06:00 to 03T:06:00 local time and recurs daily. <br><br> When you update rules, you have several options: <br> - Use the existing `binStartTime` value: Execution continues per the initial definition. <br> - Remove the `binStartTime` property: Execution continues per the initial definition. <br> - Update the rule with a new `binStartTime` value: Executions adhere to the new datetime value. |
-| `timeSelector` (optional) | The datetime field to be used by the query. Can be `TimeGenerated` currently. |
+| `ruleType` | Specifies the type of rule. <br> - `User` or `System.User`: Use these values for rules you author with a query, bin, and so on. <br> - `System`: Use this value for predefined rules managed by Azure services. |
+| `description` | Provides details about the rule and its function. This property is helpful when you have several rules and can help with rule management. |
+| `binSize` | Defines the interval query to perform and the query time range. The value can be every 20, 30, 60, 120, 180, 360, 720, or 1,440 minutes. The bin summarization is at the whole hour, for example, `02:00 to 04:00, 04:00 to 06:00` when the bin is 120. When the bin is smaller than an hour, execution is at the bin fraction, 20, and 30 minutes. |
+| `query` | Defines the query to execute in the rule. A time range isn't needed because the `binSize` property determines the value, such as `02:00 to 03:00` for a 60-minutes bin. If you add a time filter in the query, the time rage used in the query is the intersection between the filter and the bin size. |
+| `destinationTable` | Specifies the name of the destination custom log table. The name value must end with `_CL`. The table is created automatically in the workspace, if it doesn't already exist, including the schema derived by the query in the rule. If the table already exists in the workspace, new fields introduced in the query are automatically appended. <br><br> When a reserved field, such as `TimeGenerated`, `_IsBillable`, `_ResourceId`, `TenantId`, or `Type`, is included in the summary results, the `_Original` prefix is appended to the fields to preserve their original values. <br><br> The following standard fields are always included in the Summary rule results: <br> - `_BinStartTime`: The start time of each bin <br> - `_BinSize`: The interval query to perform and the query time range. The bin end time can be calculated as `_BinStartTime` plus `_BinSize`. <br> - `_RuleLastModifiedTime`: The time the rule was last modified, which is helpful for rule change tracking. <br> - `_RuleName`: The name of the rule, which is helpful with rules mapping, especially when multiple rules send data to a table. |
+| `binDelay` (optional) | Identifies bin processing that's triggered by a specified delay after the bin end time, which allows for most data to arrive and for service load distribution. The minimum delay is 3.5 minutes and up to 10% of the `binSize` value. <br><br> If you know that the data you query is typically ingested with delay, set the `binDelay` property with the known delay value or greater. The `binDelay` value can be between 3.5 minutes to 1,440 minutes. For example, for a 60-minutes bin and 10-minutes bin delay, execution of a bin 13:00 to 14:00 doesn't trigger before 14:10. |
+| `binStartTime` (optional) | Specifies the date and time for the initial bin execution. The value can start at rule creation datetime minus the `binSize` value, or later and in whole hours. For example, if the datetime is `2023-12-03T12:13Z` and `binSize` is 1,440, the minimum `binStartTime` value can be `2023-12-02T13:00Z`, and execution of the first bin 02T13:00 to 03T13:00 is at 03T13:00 plus a specified delay. <br><br> The `binStartTime` property is useful in daily summary scenarios and helps specify the time of a bin. Suppose datetime is `2023-12-03T12:13Z` and you're located in the UTC-8 time zone, and you want a daily rule to complete before you start your day at 8:00 (00:00 UTC). Set the `binStartTime` property to `2023-12-02T22:00Z`. The first bin occurs at 02T:06:00 to 03T:06:00 local time and recurs daily. <br><br> When you update rules, you have several options: <br> - Use the existing `binStartTime` value: Execution continues per the initial definition. <br> - Remove the `binStartTime` property: Execution continues per the initial definition. <br> - Update the rule with a new `binStartTime` value: Executions adhere to the new datetime value. |
+| `timeSelector` (optional) | Provides the datetime field for use by the query. Currently, the value can be `TimeGenerated`. |
 
-After a rule configuration, the initial execution is at the next whole hour, or per `binStartTime` (optional), plus a certain delay, and recurs per `binSize`. 
+After a rule configuration, the initial execution is at the next whole hour or per the `binStartTime` value (optional), plus a specified delay. Execution recurs per the value specified in the `binSize` property. 
 
 The following sections provide example executions for a rule defined at `2023-06-07 14:44`.
 
 ### Use basic rule configuration
 
-The first rule run is at the next whole hour after rule provisioning plus delay, which can be from 3.5 minutes to 10% of the `binSize`. In this scenario, a delay of 4 minutes is added.
+The first rule run is at the next whole hour after rule provisioning plus delay, which can be from 3.5 minutes to 10% of the `binSize` value. In this scenario, execution adds a delay of 4 minutes.
 
 <!-- Questions:
 
@@ -131,10 +118,10 @@ The first rule run is at the next whole hour after rule provisioning plus delay,
 
 ### Use advanced rule configuration
 
-The first rule run is at the next whole hour after rule provisioning plus a delay, which can be from 3.5 minutes to 10% of the binSize. If you want to control the execution hour for daily rules, or add a certain delay before bin is processed, include the `binStartTime`, `binDelay` value in the rule configuration. 
+The first rule run is at the next whole hour after rule provisioning plus a delay, which can be from 3.5 minutes to 10% of the binSize. If you want to control the execution hour for daily rules, or add a specified delay before bin is processed, include the `binStartTime`, `binDelay` value in the rule configuration. 
 
 > [!NOTE]
-> The `binStartTime` value starts at rule creation datetime minus `binSize`, or later in whole hours.
+> The `binStartTime` value starts at rule creation datetime minus the `binSize` value, or later in whole hours.
 
 For this example, the rule includes the following configuration:
 - `binStartTime`: 2023-06-08 07:00
@@ -157,14 +144,14 @@ For this example, the rule includes the following configuration:
 |   30 | 2023-06-08 07:38 | 2023-06-08 07:00 -- 2023-06-08 07:30 | 2023-06-08 07:30 -- 2023-06-08 08:00 |
 |   20 | 2023-06-08 07:28 | 2023-06-08 07:00 -- 2023-06-08 07:20 | 2023-06-08 07:20 -- 2023-06-08 07:40 |
 
-The initial rule execution is after bin range plus 8-minutes delay. The delay can be between 4 minutes and up to 10% of `binSize` typically. For example, a rule with 12 hours bin size can execute bin 02:00 to 14:00 at 15:12. 
+The initial rule execution is after the bin range plus an 8-minute delay. The typical delay can be between 4 minutes and up to 10% of the `binSize` value. For example, a rule with a 12-hours bin size can execute bin 02:00 to 14:00 at 15:12. 
 
 ## Create or update Summary rules
 
-Azure services provide and manage two types of predefined Summary rules, `User` and `System`. For rules that you create and configure, `ruleType` is always `User` and `destinationTable` must end with `_CL`. When you update a query and output fields are omitted from the results set, existing fields aren't automatically removed from the destination table. You can remove the fields by using the [Table API](/rest/api/loganalytics/tables/update?tabs=HTTP). 
+Azure services provide and manage two types of predefined Summary rules, `User` and `System`. For rules that you create and configure, the `ruleType` property is always `User` and the `destinationTable` name must end with `_CL`. When you update a query and output fields are omitted from the results set, existing fields aren't automatically removed from the destination table. You can remove the fields by using the [Table API](/rest/api/loganalytics/tables/update?tabs=HTTP). 
 
 > [!NOTE]
-> Before you create a rule configuration, first experiment with the intended query in Log Analytics Logs. Verify that the query doesn't hit or get close to the query limit. Confirm the query produces the intended schema shape and the results are as expected. If the query is close to the query limits, consider using a smaller `binSize` to process less data per bin. You can also alter the query to return less records or remove fields with higher volume.
+> Before you create a rule configuration, first experiment with the intended query in Log Analytics Logs. Verify that the query doesn't hit or get close to the query limit. Confirm the query produces the intended schema shape and expected results. If the query is close to the query limits, consider using a smaller `binSize` to process less data per bin. You can also modify the query to return fewer records or remove fields with higher volume.
 
 ```kusto
 PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourcegroup}/providers/Microsoft.OperationalInsights/workspaces/{workspace}/summaryslogs/{ruleName}?api-version=2023-01-01-preview
@@ -183,16 +170,16 @@ Authorization: {credential}
 }
 ```
 
-The destination table is created after initial rule execution, which is at the next whole hour after rule configuration plus a certain delay. The destination table is always appended with the following fields:
+The destination table is created after initial rule execution, which is at the next whole hour after rule configuration plus a specified delay. The destination table is always appended with the following fields:
 
 - `_BinStartTime`: The start time of each bin.
-- `_BinSize`: The interval query performed and query time range. The bin end time can be calculated as `_BinStartTime` plus `_BinSize`.
+- `_BinSize`: The interval query performed and query time range. The bin end time can be calculated as the `_BinStartTime` value plus the `_BinSize` value.
 - `_RuleLastModifiedTime`: The time that the rule was last modified. This value is helpful for rule change tracking.
 - `_RuleName`: The name of the rule. This value is helpful with rules mapping, especially when multiple rules send data to a table.
 
 The following image shows the results for the example request:
 
-:::image type="content" source="media/summary-rules/example-request.png" alt-text="Screenshot that shows the results for the example Summary rules request." lightbox="media/summary-rules/example-request.png":::
+:::image type="content" source="media/summary-rules/example-request.png" alt-text="Screenshot that shows the results for the example Summary rules request." border="false" lightbox="media/summary-rules/example-request.png":::
 
 The next sections provide more examples for working with Summary rules.
 
@@ -249,7 +236,7 @@ Authorization: {credential}
 
 ## Examine data completeness
 
-Summary rules are designed for scale, and include a retry mechanism that can overcome transient failure related to service or query, such as hitting [query limits](../service-limits.md#log-analytics-workspaces). The retry mechanism includes 10 attempts within 8 hours and skips a bin, if exhausted. The rule is set to `isActive: false` and put on hold after eight consecutive bins with retries. If diagnostic settings are enabled in your workspace, an event is sent to LASummaryLogs table in your workspace.
+Summary rules are designed for scale, and include a retry mechanism that can overcome transient failure related to service or query, such as hitting [query limits](../service-limits.md#log-analytics-workspaces). The retry mechanism includes 10 attempts within 8 hours and skips a bin, if exhausted. The rule is set to `isActive: false` and put on hold after eight consecutive bins with retries. If diagnostic settings are enabled in your workspace, an event is sent to the LASummaryLogs table in your workspace.
 
 Failed bins can`t be run again, but they can be detected by using the following query in your workspace. If the query reveals missing bins, see the [Monitor Summary rules](#monitor-summary-rules) section for rule remediation options and proactive alerts.
 
@@ -269,19 +256,21 @@ LASummaryLogs
 
 The following graph charts the query results for failed bins in Summary rules:
 
-:::image type="content" source="media/summary-rules/data-completeness.png" alt-text="Screenshot that shows a graph that charts the query results for failed bins in Summary rules." lightbox="media/summary-rules/data-completeness.png":::
+:::image type="content" source="media/summary-rules/data-completeness.png" alt-text="Screenshot that shows a graph that charts the query results for failed bins in Summary rules." border="false" lightbox="media/summary-rules/data-completeness.png":::
 
 ## Monitor Summary rules
 
-The recommendation is to enable Diagnostics settings for the **Summary Logs** category in your workspace, so you receive diagnostics data in the LASummaryLogs table including run Start, Succeeded, and Failed.
+To receive diagnostics data in the LASummaryLogs table, enable Diagnostics settings for the **Summary Logs** category in your Log Analytics workspace. The data indicates the Summary rule run Start, Succeeded, and Failed information.
 
-Summary rules are designed for scale, and include a retry mechanism that can overcome transient failure related to service or query, such as hitting [query limits](../service-limits.md#log-analytics-workspaces). After eight consecutive bins with failures, the rule operation is suspended. The rule configuration is updated to `isActive: false`, and the diagnostic event is sent to the LASummaryLogs table, if Diagnostic settings are enabled in the Log Analytics workspace.
+Summary rules are designed for scale, and include a retry mechanism that can overcome transient failure related to service or query, such as hitting [query limits](../service-limits.md#log-analytics-workspaces). After eight consecutive bins with failures, the rule operation is suspended. The rule configuration is updated to `isActive: false`, and the diagnostic event is sent to the LASummaryLogs table, if Diagnostic settings are enabled in your workspace.
 
-Events in the LASummaryLogs diagnostic table include `QueryDuationMs`, which indicates the time for the query to complete. This value is useful indication for nearing query timeout limit. The recommendation is to set alerts and receive notifications for bin failures, or when bin execution is nearing time-out. Depending on the failure reason, you can either reduce bin size to process less data on each execution, or alter the query to return fewer records, or fields with higher volume.
+Events in the LASummaryLogs diagnostic table include the `QueryDuationMs` value, which indicates the time for the query to complete. This value can help to indicate if the run is approaching the query timeout limit. The recommendation is to set alerts and receive notifications for bin failures, or when bin execution is nearing time-out. Depending on the failure reason, you can either reduce the bin size to process less data on each execution, or alter the query to return fewer records or fields with higher volume.
 
 The following sections provide example queries for the LASummaryLogs diagnostic table.
 
 ### Exhausted bin execution
+
+The following query searches rule date in the LASummaryLogs table for Failed runs:
 
 ```kusto
 LASummaryLogs | where Status == "Failed"
@@ -289,23 +278,42 @@ LASummaryLogs | where Status == "Failed"
 
 ### Summary execution at 90% of query timeout
 
+The following query searches rule data in the LASummaryLogs table for entries where the `QueryDurationMs` value is greater than 0.9 x 600,000 milliseconds:
+
 ```kusto
 LASummaryLogs | where QueryDurationMs > 0.9 * 600000
 ```
 
 ## Troubleshoot Summary rules
 
-Review the following troubleshooting tips for working with Summary rules.
+Review the following troubleshooting tips for working with Summary rules:
 
-- **Destination table accidental delete**: f table was deleted via UI or API while Summary rule is active, the rule remains active although no data retuned. The diagnostics logs to LASummaryLogs table show successful. 
+- **Destination table accidental delete**: If a table was deleted from the UI or by using an API while a Summary rule is active, the rule remains active although no data returned. The diagnostics logs to the LASummaryLogs table show the run as successful. 
 
-   - If you don't need the summary results in destination table, delete the rule.
+   - If you don't need the summary results in the destination table, delete the rule.
 
-   - If you need the summary results, see the instructions in the [Create or update Summary rules](#create-or-update-summary-rules) section for a previously defined query. The results table restores, including the data ingested before the delete, depending on the retention policy in the table.
+   - If you need the summary results, see the instructions for a previously defined query in the [Create or update Summary rules](#create-or-update-summary-rules) section. The results table restores, including the data ingested before the delete, depending on the retention policy in the table.
 
 - **Query operators allow output schema expansion**: If the query in the rule includes operators that allow output schema expansion per incoming data, such as `arg_max(expression, *)`, `bag_unpack()`, and so on, new fields can be generated in the output per the incoming data. New fields generated after rule creation or updates aren't added to the destination table and dropped. You can add the new fields to the destination table when you perform a [rule update](#create-or-update-summary-rules), or add fields manually in [Table management](manage-logs-tables.md#view-table-properties).
 
-- **Data remains in workspace, subjected to retention period**: When you [delete fields or a custom log table](manage-logs-tables.md#view-table-properties), data remains in workspace and subjected to [retention](data-retention-archive.md) period defined on table, or workspace. Re-creating the table with the same name and fields, cause old data to show up. If you want to delete old data, [update table retention](/rest/api/loganalytics/tables/update) with minimum retention supported (four days) and then delete table.
+- **Data remains in workspace, subjected to retention period**: When you [delete fields or a custom log table](manage-logs-tables.md#view-table-properties), data remains in the workspace and is subjected to the [retention](data-retention-archive.md) period defined on the table or workspace. Recreating the table with the same name and fields, cause old data to show up. If you want to delete old data, [update the table retention period](/rest/api/loganalytics/tables/update) with the minimum retention supported (four days) and then delete the table.
+
+## Pricing model
+
+The cost of Summary rules includes the cost of queries and ingested results to the Analytics table, depending on the tier of tables you query.
+
+| Plan of table used in query | Query cost | Results ingestion cost |
+| --- | --- | --- |
+| Analytics |            | Analytics ingested GB | 
+| Basic     | Scanned GB | Analytics ingested GB | 
+| Auxiliary | Scanned GB | Analytics ingested GB | 
+
+Cost calculation for hourly rule returning 100 records per bin:
+
+| Rule configuration | Monthly price calculation
+| --- | --- |
+| Query Analytics table  | Ingestion price x record size x number of records x 24 hours x 30 days | 
+| Query Basic table scanning 1 GB each bin | Scanned GB price x scanned size + record size x number of records x 24 hours x 30 days | 
 
 ## Related content
 
