@@ -38,18 +38,36 @@ The Dapr extension is the only Microsoft-supported option for Dapr in AKS.
 
 ### Issue handling
 
-Extension operations, critical security fixes, and regressions are prioritized for immediate resolution.
+Microsoft addresses issues raised against the Dapr extension in two parts: 
+- Issues related to Dapr extension operations
+- Issues related to the Dapr runtime, APIs, and components
 
-For functional issues (for example, with Dapr APIs or components), Microsoft triages, mitigates, and works with the open source community to determine the best path for resolution. Issues may be resolved in a hotfix or future Dapr release, depending on priority, severity, and size of the issue. Once fixes are released in Dapr open source, they are then made available in the Dapr extension.
+#### Extension operations
+
+Functional issues (installing/uninstalling Dapr on your cluster), critical security fixes, and regressions in the Dapr extension are prioritized for immediate resolution.
+
+#### Dapr runtime, APIs, and components
+
+Microsoft investigates high-priority security and regression issues raised against the Dapr open source runtime, APIs, or components. Microsoft works with the open source community to determine the best path for resolution. 
+
+Issues may be resolved in a hotfix or future Dapr release, depending on priority, severity, and size of the issue. Once fixes are released in Dapr open source, they are then made available in the Dapr extension.
 
 ### Dapr versions
 
 The Dapr extension support varies depending on how you manage the runtime. 
 
 **Self-managed**  
-For self-managed runtime, Microsoft provides best-effort support to the Dapr extension for:
-- [The latest version of Dapr and two previous versions (N-2)][dapr-supported-version]
-- Upgrading minor version incrementally (for example, 1.5 -> 1.6 -> 1.7) 
+For self-managed runtime, Microsoft provides best-effort support for [the latest version of Dapr and two previous versions (N-2)][dapr-supported-version]. The latest patch version is the only supported version of each minor version release.
+
+Currently, the Dapr extension for AKS or Arc-enabled Kubernetes supports the following Dapr versions.
+
+| Runtime version | 
+| --------------- | 
+| 1.13.2 |
+| 1.12.4 |
+| 1.11.6* |
+
+*This version will be retired once the next Dapr version is released.
 
 Self-managed runtime requires manual upgrade to remain in the support window. To upgrade Dapr via the extension, follow the [Update extension instance](deploy-extensions-az-cli.md#update-extension-instance) instructions.
 
@@ -62,9 +80,6 @@ Enabling auto-upgrade requires careful consideration. While auto-upgrade keeps y
 
 The Dapr extension supports stable versions of Dapr APIs (building blocks). 
 
-> [!NOTE]
-> [Alpha and beta components and APIs][dapr-alpha-beta] are available, but not supported by Microsoft.
-
 | Dapr API                                              | Status | Description                                                                                                                                                     |
 | ----------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |  
 | [**Service-to-service invocation**][dapr-serviceinvo] | Stable | Discover services and perform reliable, direct service-to-service calls with automatic mTLS authentication and encryption.(#limitations)                                     |
@@ -76,29 +91,7 @@ The Dapr extension supports stable versions of Dapr APIs (building blocks).
 | [**Secrets**][dapr-secrets]                           | Stable | Access secrets from your application code or reference secure values in your Dapr components.                                                                   |
 | [**Configuration**][dapr-config]                           | Stable | Retrieve and subscribe to application configuration items for supported configuration. stores.                                                                   |
 
-#### Managed versus standard components
-
-A subset of Dapr components is supported for the Dapr extension for AKS and Arc-enabled Kubernetes. Within that subset, Dapr components are broken into two support categories: _managed_ or _standard_.  
-
-- [Managed components:](#managed-components) Fully managed, stable components that receive immediate investigation in critical (security or serious regression) scenarios. Otherwise, collaborate with open source to address in a hotfix or the next regular release.
-- [Standard components:](#standard-components) Built-in components that receive immediate investigation and are supported with best effort attempt to address with third party provider.
-
-##### Managed components
-
-| API | Component | Type |
-| --- | --------- | ------ |
-| State management | Azure Blob Storage v1<br>Azure Table Storage<br>Microsoft SQL Server | `state.azure.blobstorage`<br>`state.azure.tablestorage`<br>`state.sqlserver` | 
-| Publish & subscribe | Azure Service Bus Queues<br>Azure Service Bus Topics<br>Azure Event Hubs | `pubsub.azure.servicebus.queues`<br>`pubsub.azure.servicebus.topics`<br>`pubsub.azure.eventhubs` |
-| Binding | Azure Storage Queues<br>Azure Service Bus Queues<br>Azure Blob Storage<br>Azure Event Hubs | `bindings.azure.storagequeues`<br>`bindings.azure.servicebusqueues`<br>`bindings.azure.blobstorage`<br>`bindings.azure.eventhubs` |
-
-##### Standard components
-
-| API | Component | Type |
-| --- | --------- | ------ |
-| State management | Azure Cosmos DB<br>PostgreSQL<br>MySQL & MariaDB<br>Redis | `state.azure.cosmosdb`<br>`state.postgresql`<br>`state.mysql`<br>`state.redis` | 
-| Publish & subscribe | Apache Kafka<br>Redis Streams | `pubsub.kafka`<br>`pubsub.redis` |
-| Binding | Azure Event Grid<br>Azure Cosmos DB<br>Apache Kafka<br>PostgreSQL<br>Redis | `bindings.azure.eventgrid`<br>`bindings.azure.cosmosdb`<br>`bindings.kafka`<br>`bindings.postgresql`<br>`bindings.redis` |
-| Configuration | PostgreSQL<br>Redis | `bindings.postgresql`<br>`bindings.redis` |
+[!INCLUDE [component-support](../../includes/dapr-in-azure/dapr-support-policy.md)]
 
 ### Clouds/regions
 
