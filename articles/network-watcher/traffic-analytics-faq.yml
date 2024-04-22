@@ -23,7 +23,7 @@ sections:
       - question: |
           How can I check if I have the required roles?
         answer: |
-          To learn how to check roles assigned to a user for a subscription, see [List Azure role assignments using the Azure portal](../role-based-access-control/role-assignments-list-portal.md). If you can't see the role assignments, contact the respective subscription admin.
+          To learn how to check roles assigned to a user for a subscription, see [List Azure role assignments using the Azure portal](../role-based-access-control/role-assignments-list-portal.yml). If you can't see the role assignments, contact the respective subscription admin.
 
       - question: |
           Can I enable flow logs for network security groups that are in different regions than my workspace region?
