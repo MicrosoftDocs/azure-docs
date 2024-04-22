@@ -19,7 +19,7 @@ ms.custom: subject-rbac-steps, devx-track-arm-template
 > This capability is in preview and is subject to the 
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-To deploy mission-critical logic apps that are always available and responsive, even during updates or maintenance, you can enable zero downtime deployment by using deployment slots. Zero downtime means that when you deploy new versions of your app, end users shouldn't experience disruption or downtime. Deployment slots are isolated non-production environments that host different versions of your app and provide the following benefits:
+To deploy mission-critical logic apps that are always available and responsive, even during updates or maintenance, you can enable zero downtime deployment by using deployment slots. Zero downtime means that when you deploy new versions of your app, end users shouldn't experience disruption or downtime. Deployment slots are isolated nonproduction environments that host different versions of your app and provide the following benefits:
 
 - You can swap a deployment slot with your production slot without interruption. That way, you can update an app without affecting availability or performance.
 
@@ -27,13 +27,13 @@ To deploy mission-critical logic apps that are always available and responsive, 
 
 - You can roll back to a previous version, if anything goes wrong with your deployment.
 
-With deployment slots, you can achieve continuous delivery and improve your applications' quality and reliability. For more information about deployment slots in Azure and because Standard logic app workflows are based on Azure Functions extensibility, see [Azure Functions deployment slots](../azure-functions/functions-deployment-slots.md)
+With deployment slots, you can achieve continuous delivery and improve your applications' quality and reliability. For more information about deployment slots in Azure and because Standard logic app workflows are based on Azure Functions extensibility, see [Azure Functions deployment slots](../azure-functions/functions-deployment-slots.md).
 
 ### Known issues and limitations
 
-- Non-production slots are created in read-only mode.
+- nonproduction slots are created in read-only mode.
 
-- The non-production slots dispatcher is turned off, which means that workflows can only run when they're in the production slot.
+- The nonproduction slots dispatcher is turned off, which means that workflows can only run when they're in the production slot.
 
 - Traffic distribution is disabled for deployment slots in Standard logic apps.
 
@@ -57,7 +57,7 @@ With deployment slots, you can achieve continuous delivery and improve your appl
 
 ## Create a deployment slot
 
-The following options are availble for you to create a deployment slot:
+The following options are available for you to create a deployment slot:
 
 ### [Visual Studio Code](#tab/visual-studio-code)
 
@@ -75,7 +75,7 @@ The following options are availble for you to create a deployment slot:
 
 ### [Azure CLI](#tab/azure-cli)
 
-To create a non-production slot, run the following Azure CLI command:
+To create a nonproduction slot, run the following Azure CLI command:
 
 `az functionapp deployment slot create --name {logic-app-name} --resource-group {resource-group-name} --slot {slot-name}`
 
@@ -101,7 +101,7 @@ After you create the deployment slot, confirm that the slot is available on your
 
 ## Deploy logic app changes to a deployment slot
 
-The following options are availble for you to deploy logic app changes in a deployment slot:
+The following options are available for you to deploy logic app changes in a deployment slot:
 
 ### [Visual Studio Code](#tab/visual-studio-code)
 
@@ -185,7 +185,7 @@ After you swap slots, verify that the changes from your deployment slot now appe
 
 ## Delete a deployment slot
 
-The following steps show how to remove a deployment slot from your Standard logic app resource.
+The following options are available for you to remove a deployment slot from your Standard logic app resource.
 
 ### [Visual Studio Code](#tab/visual-studio-code)
 
