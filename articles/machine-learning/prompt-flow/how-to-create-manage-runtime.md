@@ -89,6 +89,7 @@ Automatic is the default option for a runtime. You can start an automatic runtim
         ```
 
         > [!TIP]
+        > Please make sure user have permission to `Assign User Assigned Identity` or `Managed Identity Operator` role on the user assigned identity resource.
         > The following [Azure RBAC role assignments](../../role-based-access-control/role-assignments.md) are required on your user-assigned managed identity for your Azure Machine Learning workspace to access data on the workspace-associated resources.
         
         |Resource|Permission|
