@@ -1,7 +1,7 @@
 ---
-title: "Quickstart: Azure Blob Storage client library for Go"
+title: "Quickstart: Azure Blob Storage client module for Go"
 titleSuffix: Azure Storage
-description: In this quickstart, you learn how to use the Azure Blob Storage client library for Go to create a container and a blob in Blob (object) storage. Next, you learn how to download the blob to your local computer, and how to list all of the blobs in a container.
+description: In this quickstart, you learn how to use the Azure Blob Storage client module for Go to create a container and a blob in Blob (object) storage. Next, you learn how to download the blob to your local computer, and how to list all of the blobs in a container.
 author: pauljewellmsft
 ms.author: pauljewell
 ms.date: 08/29/2023
@@ -11,9 +11,9 @@ ms.devlang: golang
 ms.custom: mode-api, passwordless-go, devx-track-go
 ---
 
-# Quickstart: Azure Blob Storage client library for Go
+# Quickstart: Azure Blob Storage client module for Go
 
-Get started with the Azure Blob Storage client library for Go to manage blobs and containers. Follow these steps to install the package and try out example code for basic tasks.
+Get started with the Azure Blob Storage client module for Go to manage blobs and containers. Follow these steps to install the package and try out example code for basic tasks.
 
 [API reference documentation](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob#section-readme) | [Library source code](https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/storage/azblob) | [Package (pkg.go.dev)](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob)
 
@@ -25,7 +25,7 @@ Get started with the Azure Blob Storage client library for Go to manage blobs an
 
 ## Setting up
 
-This section walks you through preparing a project to work with the Azure Blob Storage client library for Go.
+This section walks you through preparing a project to work with the Azure Blob Storage client module for Go.
 
 ### Download the sample application
 
@@ -265,5 +265,5 @@ To see Blob storage sample apps, continue to:
 > [!div class="nextstepaction"]
 > [Azure Blob Storage library for Go samples](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob#example-package)
 
-- To learn more, see the [Azure Blob Storage client library for Go](https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/storage/azblob).
+- To learn more, see the [Azure Blob Storage client module for Go](https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/storage/azblob).
 - For tutorials, samples, quickstarts, and other documentation, visit [Azure for Go Developers](/azure/developer/go/overview).

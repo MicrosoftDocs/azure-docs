@@ -8,7 +8,8 @@ ms.author: pauljewell
 
 ms.service: azure-blob-storage
 ms.topic: how-to
-ms.date: 04/19/2024
+ms.date: 04/22/2024
+ms.devlang: golang
 ms.custom: devx-track-go, devguide-go
 ---
 
@@ -16,7 +17,7 @@ ms.custom: devx-track-go, devguide-go
 
 [!INCLUDE [storage-dev-guide-selector-getting-started](../../../includes/storage-dev-guides/storage-dev-guide-selector-getting-started.md)]
 
-This article shows you how to connect to Azure Blob Storage by using the Azure Blob Storage client library for Go. Once connected, your code can operate on containers, blobs, and features of the Blob Storage service.
+This article shows you how to connect to Azure Blob Storage by using the Azure Blob Storage client module for Go. Once connected, your code can operate on containers, blobs, and features of the Blob Storage service.
 
 [API reference documentation](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob#section-readme) | [Library source code](https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/storage/azblob) | [Package (pkg.go.dev)](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob)
 
@@ -28,7 +29,7 @@ This article shows you how to connect to Azure Blob Storage by using the Azure B
 
 ## Set up your project
 
-This section walks you through preparing a project to work with the Azure Blob Storage client library for Go.
+This section walks you through preparing a project to work with the Azure Blob Storage client module for Go.
 
 From your project directory, install packages for the Azure Blob Storage and Azure Identity client libraries using the `go get` command. The **azidentity** package is needed for passwordless connections to Azure services.
 
@@ -72,19 +73,19 @@ To authorize with Microsoft Entra ID, you need to use a [security principal](../
 
 An easy and secure way to authorize access and connect to Blob Storage is to obtain an OAuth token by creating a [DefaultAzureCredential](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity#DefaultAzureCredential) instance. You can then use that credential to create the client object using [azblob.NewClient](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob#NewClient).
 
-:::code language="go" source="~/blob-devguide-go/cmd/client-auth/client_auth.go" id="Snippet_get_service_client_DAC":::
+:::code language="go" source="~/blob-devguide-go/cmd/client-auth/client_auth.go" id="snippet_get_service_client_DAC":::
 
 ## [SAS token](#tab/sas-token)
 
 To use a shared access signature (SAS) token, append the token to the account URL string and create the client object using [azblob.NewClientWithNoCredential](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob#NewClientWithNoCredential).
 
-:::code language="go" source="~/blob-devguide-go/cmd/client-auth/client_auth.go" id="Snippet_get_service_client_SAS":::
+:::code language="go" source="~/blob-devguide-go/cmd/client-auth/client_auth.go" id="snippet_get_service_client_SAS":::
 
 ## [Account key](#tab/account-key)
 
 To use a storage account shared key, provide the key as a string and initialize a client object using [azblob.NewClientWithSharedKeyCredential](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob#NewClientWithSharedKeyCredential).
 
-:::code language="go" source="~/blob-devguide-go/cmd/client-auth/client_auth.go" id="Snippet_get_service_client_shared_key":::
+:::code language="go" source="~/blob-devguide-go/cmd/client-auth/client_auth.go" id="snippet_get_service_client_shared_key":::
 
 
 You can also create a client object using a connection string.
