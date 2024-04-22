@@ -51,28 +51,23 @@ You need one of the Oracle Tools plus Azure infrastructures to deploy the correc
 
 Scenario -1: RMAN: Use RMAN backup and restore with Azure features, the setup for RMAN based recovery. The main thing is the network between on-premises and Azure.
 
-<scenario-1-diagram>
-
+:::image type="content" source="./media/oracle-migration/oracle-migrate-diagram-scenario-1.png" alt-text="Diagram shows the setup for RMAN based recovery."lightbox="./media/oracle-migration/oracle-migrate-diagram-scenario-1.png":::
 
 Scenario-2: RMAN Backup Approach
 
-<scenario-2-diagram>
-
+:::image type="content" source="./media/oracle-migration/oracle-migrate-diagram-scenario-2.png" alt-text="Diagram shows the RMAN backup and restore approach."lightbox="./media/oracle-migration/oracle-migrate-diagram-scenario-2.png":::
  
 Scenario-3: Alternatively, setup can be modified in multiple different ways as depicted in the following scenario.
 
-<scenario-3-diagram>
-
+:::image type="content" source="./media/oracle-migration/oracle-migrate-diagram-scenario-3.png" alt-text="Diagram shows modified versions of scenario 2."lightbox="./media/oracle-migration/oracle-migrate-diagram-scenario-3.png":::
  
 Scenario-4: Data PumpàAzCopy: Easy and straight forward approach using Data Pump backup and restore using Azure capabilities.
 
-<scenario-4-diagram>
-
+:::image type="content" source="./media/oracle-migration/oracle-migrate-diagram-scenario-4.png" alt-text="Diagram shows Data Pump backup and restore using Azure capabilities."lightbox="./media/oracle-migration/oracle-migrate-diagram-scenario-4.png":::
  
 Scenario -5: Data Box - Unique scenario in which data is moved between the locations using a storage device and physical shipment.
 
-<scenario-5-diagram>
- 
+:::image type="content" source="./media/oracle-migration/oracle-migrate-diagram-scenario-5.png" alt-text="Diagram shows data moved between locations using a storage device with physical shipment."lightbox="./media/oracle-migration/oracle-migrate-diagram-scenario-5.png":::
 
 ## Cutover
 
