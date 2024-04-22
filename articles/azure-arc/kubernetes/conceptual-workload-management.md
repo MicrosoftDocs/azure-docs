@@ -136,17 +136,17 @@ Platform services are workloads (such as Prometheus, NGINX, Fluentbit, and so on
 
 Deployment Observability Hub is a central storage that is easy to query with complex queries against a large amount of data. It contains deployment data with historical information on workload versions and their deployment state across clusters. Clusters register themselves in the storage and update their compliance status with the GitOps repositories. Clusters operate at the level of Git commits only. High-level information, such as application versions, environments, and cluster type data, is transferred to the central storage from the GitOps repositories. This high-level information gets correlated in the central storage with the commit compliance data sent from the clusters. 
 
-## Platform Configuration Concepts
+## Platform configuration concepts
 
 ## Separation of concerns
 
 Application behavior on a deployment target is determined by configuration values. However, configuration values are not all same. They are provided by different personas at different points in the application lifecycle and have different scope. Generally, there are application and platform configurations.
 
-### Application Configurations
+### Application configurations
 
 Application configurations are provided by the application developers and they are abstracted away from the deployment target details. Normally, application developers are not aware of what hosts the application is going to be deployed to and how many of them. Therefore, they are not aware of any host specific details. But the application developers know a chain of environments and rings that the application is promoted through on its way to production. Orthogonal to that, an application may be deployed multiple times in each environment to play different roles. For example, the same application can serve as a "dispatcher" and as an "exporter". The application developers may want to configure the application differently for all those use cases. For example, if the application is running as a "dispatcher" for the purpose of functional testing on a QA environment, it should be configured in this way regardless of the actual host. The configuration values of this type are provided at the development time, when the application developers create deployment descriptors/manifests for various environments/rings and application roles. 
 
-### Platform Configurations
+### Platform configurations
 
 Besides development time configurations, an application often needs some platform specific configuration values such as endpoints, tags, secrets, etc. These values may be different on every single host where the application is deployed to. The deployment descriptors/manifests, created by the application developers, refer to the configuration objects containing these values, for example, config maps or secrets. So the application developers expect these configuration objects to be present on the host and available for the application to consume. Commonly, these objects with the values are provided by a platform team. Depending on the organization, the platform team persona may be backed up by different departments/people, for example "IT Global", "Site IT", "Equipment owners", etc. 
 
@@ -155,6 +155,162 @@ The concerns of the application developers and the platform team are totally sep
 With that in place, the behavior of a specific application instance on a specific host is determined by a combination of application and platform configurations. The platform configurations often consist of the common configurations that are irrelevant to the applications consuming them and application specific configurations that may be unique for every application. 
 
 :::image type="content" source="media/concept-workload-management/app-platform-config.png" alt-text="Diagram showing application and platform configurations." lightbox="media/concept-workload-management/app-platform-config.png":::
+
+### Configuration schema
+
+Platform team has a very limited knowledge about the applications and how they work. But they know what platform configurations is required to be present on the target host. This information is provided by the application developers. They specify what configuration values their application needs, their types and constraints. One of the ways to define this contract is to leverage a JSON schema. For example:
+
+```json
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "patch-to-core Platform Config Schema",
+    "description": "Schema for platform config",
+    "type": "object",
+    "properties": {
+      "ENVIRONMENT": {
+      "type": "string",
+      "description": "Environment Name"
+      },
+      "TimeWindowShift": {
+      "type": "integer",
+      "description": "Time Window Shift"
+      },
+      "QueryIntervalSec": {
+      "type": "integer",
+      "description": "Query Interval Sec"
+      },
+      "module": {
+      "type": "object",
+      "description": "module",
+      "properties": {
+        "drop-threshold": { "type": "number" }
+      },
+      "required": ["drop-threshold"]      
+      }
+    },
+      "required": [
+        "ENVIRONMENT",
+        "module"
+      ]              
+    }	    
+```
+
+This approach is well known in the developers community as the JSON schema is used by Helm to define what possible values could be provided for a Helm chart. 
+
+A formal contract also allows for automation. Normally, platform team uses a tool to provide configuration values. This tool can analyze what applications are supposed to be deployed on a host and use configuration schemas to advise what values should be provided by the platform team. The tool composes configuration values for every application instance and validates them against the schema to see if all the values are in place. 
+
+The configuration management tool may perform validation in multiple stages at different points in time. For example, the tool validates a configuration value when it is provided by the platform team to check its type, format and basic constrains. The final and the most important validation is conducted when the tool composes all available configuration values for the application in the configuration snapshot. Only at this point it is possible to check presence of required config values and check integrity constraints that involve multiple values, coming from different sources. 
+
+### Configuration graph model
+  
+A configuration management tool composes configuration values snapshots for the application instances on deployment targets pulling the values from different configuration containers. The relationship of these containers may represent a hierarchy or a graph. The configuration tool follows some rules to identify what configuration values from what containers should be hydrated into the application configuration snapshot. This is responsibility of the platform team to define the configuration containers and establish the hydration rules. Application developers are not aware of this structure, all they know is a list of config values to be provided and it's not their concern where the values are coming from.  
+
+### Label matching approach 
+
+A simple and flexible way to implement configuration composition is the label matching approach.
+
+:::image type="content" source="media/concept-workload-management/label-matching-approach.png" alt-text="Diagram showing label matching configuration composition model." lightbox="media/concept-workload-management/label-matching-approach.png":::
+
+On this diagram there are a few configuration containers grouping configuration values at different levels such as "Site", "Line", "Environment", "Region" and so on. Depending on the organization, the values in these containers may be provided by different personas, such as "IT Global", "Site IT", "Equipment owners" or it may be just "Platform team". Each container is marked with a set of labels that define where values from this container are applicable. Besides the configuration containers, there are abstractions representing an application and a host where the application is to be deployed. Both of them are marked with the labels as well. The combination of the application's and host's labels composes instance's labels set. This set determines values of what configuration containers should be pulled into the application configuration snapshot, which will be delivered to the host and fed to the application instance. The configuration management tool iterates over the containers and evaluates if the container's labels match the instance's labels set. If so, the container's values are included in the final snapshot, if not the container is skipped. The tool can be configured with different strategies of overriding and merging for the complex objects and arrays.
+
+One of the biggest advantages of this approach is scalability. The structure of configuration containers is abstracted away from the application instance. It doesn't really know where the values are coming from. This lets easily manipulate the configuration containers, introduce new levels and configuration groups without reconfiguring hundreds of application instances.
+
+### Templating
+
+The configuration management system composes configuration snapshots for every application instance on every host. The variety of applications, hosts, the underlying technologies and the ways how applications are deployed can be very wide. Furthermore, the same application can be deployed completely differently on its way from dev to prod environments. The concern of the configuration management system is to manage configurations, not to deploy. It should be agnostic from the underlying application/host technologies and generate configuration snapshots in a suitable format for each case. It can be a Kubernetes config map, properties file, Symphony catalog and so on.
+
+One way to do it is to assign different templates to different host types. These templates are used by the configuration management system when it generates configuration snapshots for the applications to be deployed on the host. It would be beneficial to leverage a standard templating approach, which is well known in the developer community. For example, the following templates can be defined with the [Go Templates](https://pkg.go.dev/text/template), which are widely used across the industry:
+
+```yaml
+# Standard Kubernetes config map
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: platform-config
+  namespace: {{ .Namespace}}
+data:
+{{ toYaml .ConfigData | indent 2}}
+```
+
+```yaml
+# Symphony catalog object
+apiVersion: federation.symphony/v1
+kind: Catalog
+metadata:
+  name: platform-config
+  namespace: {{ .Namespace}}
+spec:  
+  type: config
+  name: platform-config
+  properties:
+{{ toYaml .ConfigData | indent 4}}
+```
+
+```yaml
+# JSON file
+{{ toJson .ConfigData}}
+```
+
+Then we assign these templates to hosts A, B and C respectively. Assuming an application with same configuration values is about to be deployed to all three hosts, the configuration management system generates three different configuration snapshots for each instance:
+
+```yaml
+# Standard Kubernetes config map
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: platform-config
+  namespace: line1
+data:
+  FACTORY_NAME: Atlantida
+  LINE_NAME_LOWER: line1
+  LINE_NAME_UPPER: LINE1
+  QueryIntervalSec: "911"
+```
+
+```yaml
+# Symphony catalog object
+apiVersion: federation.symphony/v1
+kind: Catalog
+metadata:
+  name: platform-config
+  namespace: line1
+spec:  
+  type: config
+  name: platform-config
+  properties:
+    FACTORY_NAME: Atlantida
+    LINE_NAME_LOWER: line1
+    LINE_NAME_UPPER: LINE1
+    QueryIntervalSec: "911"
+```
+
+```json
+{
+ "FACTORY_NAME" : "Atlantida",
+ "LINE_NAME_LOWER" : "line1",
+ "LINE_NAME_UPPER": "LINE1",
+ "QueryIntervalSec": "911"
+}
+```
+
+### Configuration storage
+
+Configuration management system operates with configuration containers that group configuration values at different levels in a hierarchy or a graph. These containers should be stored somewhere. The most obvious approach is to use a database. It could be [etcd](https://etcd.io/), relational, hierarchical or a graph database, providing the most flexible and robust experience. The database gives the ability to granularly track and handle configuration values at the level of each individual configuration container. 
+
+Besides the main features such as storage and the ability to query and manipulate the configuration objects effectively, there should be functionality related to change tracking, approvals, promotions, rollbacks, version compares, etc. The configuration management system can implement all that on top of a database and incapsulate everything in a monolithic managed service. 
+
+Alternatively, this functionality can be delegated to Git to follow the "configuration as code" concept. For example [Kalypso](https://github.com/microsoft/kalypso), being a Kubernetes operator, treats configuration containers as custom Kubernetes resources, that are essentially stored in etcd database. Even though Kalypso doesn't dictate that, it is a common practice to originate configuration values in a Git repository, leveraging all the benefits that it gives out of the box, and then deliver the values to a Kubernetes etcd with a GitOps operator where Kalypso can work with them to do the compositions.
+
+### Git repositories hierarchy
+
+It's not necessarily to have a single Git repository with the configuration values for the entire organization as it might become a bottleneck at scale, given the variety of the "platform team" personas, their responsibilities and access levels. It is fairly easy to use GitOps operator references, such as Flux GitRepository and Flux Kustomization to build a repository hierarchy and eliminate the friction points:
+
+:::image type="content" source="media/concept-workload-management/git-repo-hierarchy.png" alt-text="Diagram showing a Git repository hierarchy." lightbox="media/concept-workload-management/git-repo-hierarchy.png":::
+
+
+### Configuration versioning
+
+Whenever application developers introduce a change in the application, they produce a new application version. Similar, a new platform configuration value leads to a new version of the configuration snapshot. Versioning allows for tracking changes, explicit rollouts and rollbacks. A key point is that application configuration snapshots are versioned independently from each other. A single configuration value change at the global or site level doesn't necessarily produce new versions of all application configuration snapshots. It impacts only those snapshots where this value is hydrated. A simple and effective way to track this would be to use a hash of the snapshot content as its version. In this way, if the snapshot content has changed because something has changed in the global configurations, there will be a new version. This new version is a subject to be applied either manually or automatically. In any case this is a trackable event which can be rollbacked if needed.
 
 ## Next steps
 
