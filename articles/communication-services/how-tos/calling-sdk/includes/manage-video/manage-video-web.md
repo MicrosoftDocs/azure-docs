@@ -213,7 +213,7 @@ To stop local video while on a call, pass the `localVideoStream` instance that's
 await call.stopVideo(localVideoStream);
 ```
 
-You can switch to a different camera device while having an active LocalVideoStream by invoking `switchSource` on that `LocalVideoStream` instance::
+You can switch to a different camera device while having an active LocalVideoStream by invoking `switchSource` on that `LocalVideoStream` instance:
 
 ```js
 const cameras = await callClient.getDeviceManager().getCameras();
