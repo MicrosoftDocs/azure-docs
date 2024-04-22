@@ -18,7 +18,7 @@ recommendations: false
 
 Azure OpenAI Assistants (Preview) allows you to create AI assistants tailored to your needs through custom instructions and augmented by advanced tools like code interpreter, and custom functions. In this article we'll provide an in-depth walkthrough of getting started with the Assistants API.
 
-[!INCLUDE [Assistants v2 note](includes/assistants-v2-note.md)]
+[!INCLUDE [Assistants v2 note](../includes/assistants-v2-note.md)]
 
 ## Assistants support
 
