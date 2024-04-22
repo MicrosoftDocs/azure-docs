@@ -16,13 +16,13 @@ Azure AI Translator container enables you to build translator application archit
 
 ## Connected containers
 
-**Translator connected container** is deployed on premises and processes content in your environment. It requires internet connectivity to transmit usage metadata for billing; however, your customer content isn't transmitted outside of your premises.
+**Translator connected container** is deployed on premises and processes content in your environment. It requires internet connectivity to transmit usage metadata for billing; however, your customer content isn't transmitted outside of your premises. The `EULA`, `Billing` and `APIKey` options must be specified to run a container.
 
-You're billed for connected containers monthly, based on the usage and consumption. The container needs to be configured to send metering data to Azure, and transactions are billed accordingly. Queries to the container are billed at the pricing tier of the Azure resource used for the API Key. You're billed for each container instance used to process your documents and images.
+You're billed for connected containers monthly, based on the usage and consumption. Queries to the container are billed at the pricing tier for the Azure resource used for the `APIKey` parameter. For more information, *see* [Billing configuration](configuration.md#billing-configuration-setting).
 
   ***Sample billing metadata for Translator connected container***
 
-  Usage charges are calculated from the `quantity` value.
+  Usage charges are calculated based upon the `quantity` value.
 
    ```json
    {
@@ -72,7 +72,7 @@ The aggregated value of `billedUnit` for the following meters is counted  toward
 
 ## Request container access
 
-**Translator containers are a gated offering. To use the Translator container, you must submit an online request and for approval.**
+**Translator containers are a gated offering. To use the Translator container, you must submit an online request for approval.**
 
 * To request access to a connected container, complete and submit the [**connected container access request form**](https://aka.ms/csgate-translator).
 

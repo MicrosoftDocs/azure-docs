@@ -590,7 +590,7 @@ The usage-logs endpoints return a JSON response similar to the following example
 
 ***Connected container***
 
-Usage charges are calculated from the `quantity` value.
+Usage charges are calculated based upon the `quantity` value.
 
    ```json
    {
