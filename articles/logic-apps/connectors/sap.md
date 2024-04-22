@@ -7,7 +7,7 @@ author: daviburg
 ms.author: daviburg
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 02/10/2024
+ms.date: 04/18/2024
 ---
 
 # Connect to SAP from workflows in Azure Logic Apps
@@ -1082,9 +1082,9 @@ See the steps for [SAP logging for Consumption logic apps in multitenant workflo
 
 ---
 
-## Enable SAP client library (NCo) logging and tracing (Built-in connector only)
+## Enable SAP client library (NCo) logging and tracing (built-in connector only)
 
-When you have to investigate any problems with this component, you can set up custom text file-based NCo tracing, which SAP or Microsoft support might request from you. *Traces* include text information that's used with metrics. This information is sent to the Application Insights table named **traces**. By default, traces are sent at 10-minute intervals. By default, this capability is disabled because enabling this trace might negatively affect performance and quickly consume the application host's storage space. 
+When you have to investigate any problems with this component, you can set up custom text file-based NCo tracing, which SAP or Microsoft support might request from you. By default, this capability is disabled because enabling this trace might negatively affect performance and quickly consume the application host's storage space. 
 
 You can control this tracing capability at the application level by adding the following settings:
 
@@ -1097,6 +1097,16 @@ You can control this tracing capability at the application level by adding the f
    * **SAP_RFC_TRACE_DIRECTORY**: The directory where to store the NCo trace files, for example, **C:\home\LogFiles\NCo**.
 
    * **SAP_RFC_TRACE_LEVEL**: The NCo trace level with **Level4** as the suggested value for typical verbose logging. SAP or Microsoft support might request that you set a [different trace level](#trace-levels).
+   
+     > [!NOTE]
+     >
+     > For Standard logic app workflows that use runtime version 1.69.0 or later, you can enable
+     > logging for multiple trace levels by separating each trace level with a comma (**,**).
+     >
+     > To find your workflow's runtime version, follow these steps:
+     >
+     > 1. In the Azure portal, on your workflow menu, select **Overview**.
+     > 2. In the **Essentials** section, find the **Runtime Version** property.
 
    * **SAP_CPIC_TRACE_LEVEL**: The Common Programming Interface for Communication (CPI-C) trace level with **Verbose** as the suggested value for typical verbose logging. SAP or Microsoft support might request that you set a [different trace level](#trace-levels).
 
@@ -1170,13 +1180,15 @@ With the August 2021 update for the on-premises data gateway, SAP connector oper
 
 ### Metrics and traces from SAP NCo client library
 
-*Metrics* are numeric values that might or might not vary over a time period, based on the usage and availability of resources on the on-premises data gateway. You can use these metrics to better understand system health and to create alerts about the following activities:
+SAP NCo-based metrics are numeric values that might or might not vary over a time period, based on the usage and availability of resources on the on-premises data gateway. You can use these metrics to better understand system health and to create alerts about the following activities:
 
 * System health decline.
 * Unusual events.
 * Heavy system load.
 
 This information is sent to the Application Insights table named **customMetrics**. By default, metrics are sent at 30-second intervals.
+
+SAP NCo-based traces include text information that's used with metrics. This information is sent to the Application Insights table named **traces**. By default, traces are sent at 10-minute intervals.
 
 SAP NCo metrics and traces are based on SAP NCo metrics, specifically the following NCo classes:
 
@@ -1185,7 +1197,7 @@ SAP NCo metrics and traces are based on SAP NCo metrics, specifically the follow
 * RfcServerMonitor.
 * RfcRepositoryMonitor.
 
-For more information about the metrics that each class provides, review the [SAP NCo documentation (sign-in required)](https://support.sap.com/en/product/connectors/msnet.html#section_512604546).
+For more information about the metrics that each class provides, see the [SAP NCo documentation (sign-in required)](https://support.sap.com/en/product/connectors/msnet.html#section_512604546).
 
 ### Set up SAP telemetry for Application Insights
 
