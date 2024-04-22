@@ -51,7 +51,7 @@ The Hybrid Runbook Worker feature supports the following operating systems:
 * Windows 7 SP1
 
 > [!NOTE]
-> Hybrid Worker extension would follow support timelines of the OS vendor.
+> Hybrid Worker would follow support timelines of the OS vendor.
 
 ### Minimum requirements
 
