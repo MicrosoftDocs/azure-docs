@@ -160,7 +160,7 @@ Platform configurations often consist of common configurations that are irreleva
 
 ### Configuration schema
 
-Platform team has a limited knowledge about the applications and how they work. But they know what platform configuration is required to be present on the target host. This information is provided by the application developers. They specify what configuration values their application needs, their types and constraints. One of the ways to define this contract is to use a JSON schema. For example:
+Although the platform team may have limited knowledge about the applications and how they work, they know what platform configuration is required to be present on the target host. This information is provided by the application developers. They specify what configuration values their application needs, their types and constraints. One of the ways to define this contract is to use a JSON schema. For example:
 
 ```json
 {
