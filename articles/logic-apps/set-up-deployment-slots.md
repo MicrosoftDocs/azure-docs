@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 12/07/2023
 ms.custom: subject-rbac-steps, devx-track-arm-template
 
-#customer-intent: As a logic app developer, I want to set up deployment slots on my logic app resource so that I can deploy with zero downtime.
+#Customer intent: As a logic app developer, I want to set up deployment slots on my logic app resource so that I can deploy with zero downtime.
 ---
 
 # Set up deployment slots to enable zero downtime deployment in Azure Logic Apps (preview)
@@ -221,7 +221,7 @@ After you delete a deployment slot, verify that the slot no longer exists on you
 
 1. On the **Deployment slots** page, under **Deployment Slots (Preview)**, confirm that the deployment slot no longer exists.
 
-## Next steps
+## See also
 
 - [Deployment best practices](../app-service/deploy-best-practices.md)
 - [Azure Functions deployment slots](../azure-functions/functions-deployment-slots.md)
