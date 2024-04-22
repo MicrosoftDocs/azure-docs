@@ -140,7 +140,7 @@ Deployment Observability Hub is a central storage that is easy to query with com
 
 ## Separation of concerns
 
-Application behavior on a deployment target is determined by configuration values. However, configuration values are not all same. They are provided by different personas at different points in the application lifecycle and have different scope. Generally, there are application and platform configurations.
+Application behavior on a deployment target is determined by configuration values. However, configuration values are not all the same. These values are provided by different personas at different points in the application lifecycle and have different scopes. Generally, there are application and platform configurations.
 
 ### Application configurations
 
