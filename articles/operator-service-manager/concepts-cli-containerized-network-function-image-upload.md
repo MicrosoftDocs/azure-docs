@@ -19,7 +19,7 @@ The Azure CLI AOSM extension Network Function Definition Version (NFDV) input fi
 
 ```jsonc
   // List of registries from which to pull the image(s).
-  // For example [sourceacr.azurecr.io/test, myacr2.azurecr.io, ghcr.io/path].
+  // For example ["sourceacr.azurecr.io/test", "myacr2.azurecr.io", "ghcr.io/path"].
   // For non Azure Container Registries, ensure you have run a docker login command before running build.
   "image_sources": [],
 ```
@@ -43,7 +43,7 @@ The "image_sources" field in the NFDV input file is set as follows:
 
 ```jsonc
   // List of registries from which to pull the image(s).
-  // For example [sourceacr.azurecr.io/test, myacr2.azurecr.io, ghcr.io/path].
+  // For example ["sourceacr.azurecr.io/test", "myacr2.azurecr.io", "ghcr.io/path"].
   // For non Azure Container Registries, ensure you have run a docker login command before running build.
   "image_sources": ["myregistry.azurecr.io"],
 ```
@@ -65,7 +65,7 @@ The Azure CLI AOSM extension also supports image namespacing in source container
 
 ```jsonc
   // List of registries from which to pull the image(s).
-  // For example [sourceacr.azurecr.io/test, myacr2.azurecr.io, ghcr.io/path].
+  // For example ["sourceacr.azurecr.io/test", "myacr2.azurecr.io", "ghcr.io/path"].
   // For non Azure Container Registries, ensure you have run a docker login command before running build.
   "image_sources": ["myregistry.azurecr.io", "myregistry.azurecr.io/test"],
 ```
