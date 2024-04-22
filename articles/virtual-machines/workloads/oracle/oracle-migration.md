@@ -1,6 +1,6 @@
 ---
 title: Migrate Oracle workloads to Azure VMs
-description: Learn how to migrate Oracle workloads to Azure VMs
+description: Learn how to migrate Oracle workloads to Azure VMs.
 author: suzizuber
 ms.author: v-suzuber
 ms.service: virtual-machines
@@ -49,7 +49,7 @@ Azure enhances the Oracle tools with the right network connectivity, bandwidth, 
 
 You need one of the Oracle Tools plus Azure infrastructures to deploy the correct solution architecture to migrate data. See the following reference solution scenarios:
 
-Scenario -1: RMAN: Use RMAN backup and restore with Azure features, the setup for RMAN based recovery. The main thing is the network between on-premises and Azure.
+Scenario-1: RMAN: Use RMAN backup and restore with Azure features, the setup for RMAN based recovery. The main thing is the network between on-premises and Azure.
 
 :::image type="content" source="./media/oracle-migration/oracle-migrate-diagram-scenario-1.png" alt-text="Diagram shows the setup for RMAN based recovery."lightbox="./media/oracle-migration/oracle-migrate-diagram-scenario-1.png":::
 
@@ -61,11 +61,11 @@ Scenario-3: Alternatively, setup can be modified in multiple different ways as d
 
 :::image type="content" source="./media/oracle-migration/oracle-migrate-diagram-scenario-3.png" alt-text="Diagram shows modified versions of scenario 2."lightbox="./media/oracle-migration/oracle-migrate-diagram-scenario-3.png":::
  
-Scenario-4: Data PumpàAzCopy: Easy and straight forward approach using Data Pump backup and restore using Azure capabilities.
+Scenario-4: Data PumpàAzCopy - easy and straight forward approach using Data Pump backup and restore using Azure capabilities.
 
 :::image type="content" source="./media/oracle-migration/oracle-migrate-diagram-scenario-4.png" alt-text="Diagram shows Data Pump backup and restore using Azure capabilities."lightbox="./media/oracle-migration/oracle-migrate-diagram-scenario-4.png":::
  
-Scenario -5: Data Box - Unique scenario in which data is moved between the locations using a storage device and physical shipment.
+Scenario-5: Data Box - a unique scenario in which data is moved between the locations using a storage device and physical shipment.
 
 :::image type="content" source="./media/oracle-migration/oracle-migrate-diagram-scenario-5.png" alt-text="Diagram shows data moved between locations using a storage device with physical shipment."lightbox="./media/oracle-migration/oracle-migrate-diagram-scenario-5.png":::
 
