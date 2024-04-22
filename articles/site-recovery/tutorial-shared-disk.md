@@ -36,7 +36,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 **Before you start, ensure you have:**
 
 - A recovery services vault. If you don't have one, [create recovery services vault](./azure-to-azure-tutorial-enable-replication.md#create-a-recovery-services-vault). 
-- A virtual machine as a part of the [Windows Server Failover Cluster](https://learn.microsoft.com/sql/sql-server/failover-clusters/windows/windows-server-failover-clustering-wsfc-with-sql-server?view=sql-server-ver16). 
+- A virtual machine as a part of the [Windows Server Failover Cluster](/sql/sql-server/failover-clusters/windows/windows-server-failover-clustering-wsfc-with-sql-server?view=sql-server-ver16). 
 
 
 ## Enable replication for shared disks
