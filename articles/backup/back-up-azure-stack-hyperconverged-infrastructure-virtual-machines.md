@@ -107,7 +107,7 @@ These are the prerequisites for backing up virtual machines with MABS:
 
    - **Clustered HA VMs**: Select this VM type from the cluster.
 
-     :::image type="content" source="./media/back-up-azure-stack-hyperconverged-infrastructure-virtual-machines/select-clustered-vm.png" alt-text="Screenshot shows the selection of Clustered VMs." lightbox"./media/back-up-azure-stack-hyperconverged-infrastructure-virtual-machines/select-clustered-vm.png":::
+     :::image type="content" source="./media/back-up-azure-stack-hyperconverged-infrastructure-virtual-machines/select-clustered-vm.png" alt-text="Screenshot shows the selection of Clustered VMs." lightbox="./media/back-up-azure-stack-hyperconverged-infrastructure-virtual-machines/select-clustered-vm.png":::
 
 
 6. On the **Select Data Protection Method** page, specify a protection group name. Select **I want short-term protection using Disk** and select **I want online protection** if you want to back up data to Azure using the Azure Backup service.
