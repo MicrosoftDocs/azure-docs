@@ -316,17 +316,26 @@ public class DeltaSourceExample {
     </build>
 </project>
 ```
+
 ## Package the jar and submit it to Flink cluster to run
 
 1. Upload the jar to ABFS.
     :::image type="content" source="./media/use-flink-delta-connector/app-mode-jar.png" alt-text="Screenshot showing App mode jar files." lightbox="./media/use-flink-delta-connector/app-mode-jar.png":::
+
 1. Pass the job jar information in AppMode cluster.
+
     :::image type="content" source="./media/use-flink-delta-connector/cluster-configuration.png" alt-text="Screenshot showing cluster configuration." lightbox="./media/use-flink-delta-connector/cluster-configuration.png":::
+
 1. Enable `hadoop.classpath.enable`.
+
 1. Submit the cluster, you should be able to see the job in Flink UI.
+
     :::image type="content" source="./media/use-flink-delta-connector/flink-dashboard.png" alt-text="Screenshot showing Flink dashboard." lightbox="./media/use-flink-delta-connector/flink-dashboard.png":::
+
 1. Find Results in ADLS.
+
     :::image type="content" source="./media/use-flink-delta-connector/output.png" alt-text="Screenshot showing the output." lightbox="./media/use-flink-delta-connector/output.png":::
+
 
 ## Power BI integration
 
