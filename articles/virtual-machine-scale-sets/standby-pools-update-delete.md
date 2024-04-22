@@ -5,7 +5,7 @@ author: mimckitt
 ms.author: mimckitt
 ms.service: virtual-machine-scale-sets
 ms.topic: how-to
-ms.date: 04/03/2024
+ms.date: 04/22/2024
 ms.reviewer: ju-shim
 ---
 
@@ -20,7 +20,10 @@ ms.reviewer: ju-shim
 ## Update a standby pool
 
 ### [Portal](#tab/portal)
-To update an existing standby pool, navigate to Virtual Machine Scale set the standby pool is associated with. Under **Availability + scale** select **Standby pool**. Select the **Manage pool** option. This brings up a window where you can adjust the provisioning state and maximum ready capacity. The standby pool name can only be set during standby pool creation. 
+1) Navigate to Virtual Machine Scale set the standby pool is associated with. 
+2) Under **Availability + scale** select **Standby pool**. 
+3) Select **Manage pool**. 
+4) This brings up a window where you can adjust the provisioning state and maximum ready capacity. The standby pool name can only be set during standby pool creation. 
 
 :::image type="content" source="media/standby-pools/managed-standby-pool-after-vmss-create.png" alt-text="A screenshot of the Networking tab in the Azure portal during the Virtual Machine Scale Set creation process.":::
 
@@ -36,7 +39,7 @@ az standby-vm-pool update \
    --vm-state "Deallocated" \
 ```
 ### [PowerShell](#tab/powershell)
-Update an existing standby pool using [Update-AzStandbyPool](/cli/azure/standby-pool).
+Update an existing standby pool using [Update-AzStandbyVMPool](/powershell/module/az.standbypool/update-azstandbyvmpool).
 
 ```azurepowershell-interactive
 Update-AzStandbyVMPool `
@@ -70,7 +73,7 @@ Update-AzStandbyVMPool `
 ```
 
 ### [REST](#tab/rest)
-Update an existing standby pool using the Microsoft.standby pool REST API.
+Update an existing standby pool using [Create or Update REST](https://learn.microsoft.com/rest/api/standbypool/standby-virtual-machine-pools?view=rest-standbypool-2023-12-01-preview)
 
 ```HTTP
 PUT https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.StandbyPool/standbyVirtualMachinePools/{standbyPoolName}?api-version=2023-12-01-preview
@@ -118,20 +121,20 @@ To delete an existing standby pool, navigate to Virtual Machine Scale set the st
 
 
 ### [CLI](#tab/cli1)
-Delete an existing standby pool using [az standbypool delete]().
+Delete an existing standby pool using [az standbypool delete](/cli/azure/standby-pool).
 
 ```azurecli-interactive
 az standby-vm-pool delete --resource-group myResourceGroup --name myStandbyPool
 ```
 ### [PowerShell](#tab/powershell1)
-Delete an existing standby pool using [Delete-AzStandbyPool]().
+Delete an existing standby pool using [Remove-AzStandbyVMPool](/powershell/module/az.standbypool/remove-azstandbyvmpool).
 
 ```azurepowershell-interactive
 Remove-AzStandbyVMPool -ResourceGroup myResourceGroup -Name myStandbyPool -Nowait
 ```
 
 ### [REST](#tab/rest1)
-Delete an existing standby pool using Microsoft.standby pool REST command. 
+Delete an existing standby pool using [Create or Update REST](https://learn.microsoft.com/rest/api/standbypool/standby-virtual-machine-pools?view=rest-standbypool-2023-12-01-preview)
 
 ```HTTP
 DELETE https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.StandbyPool/standbyVirtualMachinePools/{standbyPoolName}?api-version=2023-12-01-preview

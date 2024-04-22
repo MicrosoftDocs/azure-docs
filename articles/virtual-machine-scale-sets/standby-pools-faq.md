@@ -5,7 +5,7 @@ author: mimckitt
 ms.author: mimckitt
 ms.service: virtual-machine-scale-sets
 ms.topic: how-to
-ms.date: 04/03/2024
+ms.date: 04/22/2024
 ms.reviewer: ju-shim
 ---
 
@@ -38,7 +38,7 @@ The maximum number of virtual machines between a scale set and a standby pool is
 No. Virtual machines in the standby pool don't take any traffic from the Load Balancer associated with the scale set until they're moved from the standby pool into the scale set. 
 
 ### Can my standby pool span multiple Virtual Machine Scale Sets? 
-A standby pool resource itself does not span multiple scale set. Each scale set has its own Standby Pool attached to it. Standby pool inherits the unique properties of the scale set such as networking, virtual machine profile, extensions, and more. 
+No. A standby pool resource can not span multiple scale sets. Each scale set has its own Standby Pool attached to it. Standby pool inherits the unique properties of the scale set such as networking, virtual machine profile, extensions, and more. 
 
 ### How is the configuration of my virtual machines in the standby pool for Virtual Machine Scale Sets determined? 
 Virtual machines in the standby pool inherit the same virtual machine profile as the virtual machines in the scale set. Some examples are:  
@@ -52,13 +52,11 @@ Virtual machines in the standby pool inherit the same virtual machine profile as
 
 
 ### Can I change the size of my standby pool without needing to recreate it? 
-Yes. To change the size of your standby pool, resubmit the create request and specify the new MaxReadyCapacity you wish you use.
+Yes. To change the size of your standby pool, change the max ready capacity using the SDK of your choice. 
 
-### I created my standby pool and it reported back as successful. However, I don't see any virtual machines being created in my subscription. 
-Make sure you enter the correct Subscription ID in the create request. If you accidentally used the incorrect subscription or there was an error in your input, the response might still show successful even though the actual creation of the virtual machines fail on the backend. 
 
 ### I created a standby pool and I noticed that some virtual machines are coming up in a failed state. 
-Ensure you have enough quota to complete the standby pool creation. Insufficient quota usually results in the platform attempting to create the virtual machines in the standby pool but unable to successfully complete the create operation. Check for multiple types of quotas such as Cores, Network Interfaces, IP Addresses, etc.
+Ensure you have enough quota to complete the standby pool creation. Insufficient quota results in the platform attempting to create the virtual machines in the standby pool but unable to successfully complete the create operation. Check for multiple types of quotas such as Cores, Network Interfaces, IP Addresses, etc.
 
 ### Will my scale set use virtual machines from my standby pool if they are in a failed state? 
 No. Virtual Machine Scale Sets will only use instances from your standby pool that match the desired power state of your pool. For example, if your desired power state is set as deallocated, the scale set only uses virtual machines in that current power state. If virtual machines are in a creating, failed or any other state than the expected state, the scale set defaults to new virtual machine creation instead. 

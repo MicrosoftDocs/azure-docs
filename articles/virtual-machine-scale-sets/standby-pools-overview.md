@@ -5,7 +5,7 @@ author: mimckitt
 ms.author: mimckitt
 ms.service: virtual-machine-scale-sets
 ms.topic: how-to
-ms.date: 04/03/2024
+ms.date: 04/22/2024
 ms.reviewer: ju-shim
 ---
 
@@ -14,22 +14,22 @@ ms.reviewer: ju-shim
 > [!IMPORTANT]
 > Standby pools for Virtual Machine Scale Sets are currently in preview. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of this feature may change prior to general availability (GA). 
 
-Standby pools for Virtual Machine Scale Sets allow you to increase scaling performance by creating a pool of pre-provisioned virtual machines from which the scale set can draw from when scaling out. 
+Standby pools for Virtual Machine Scale Sets enables you to increase scaling performance by creating a pool of pre-provisioned virtual machines from which the scale set can draw from when scaling out. 
 
 Standby pools reduce the time to scale out by performing various initialization steps such as installing applications/ software or loading large amounts of data. These initialization steps are performed on the virtual machines in the standby pool before to being put into the scale set and before the instances begin taking traffic.
 
 ## Standby pool size
-The number of virtual machines in a standby pool are determined by the number of virtual machines in your scale set and the total max ready capacity configured. 
+The number of virtual machines in a standby pool are determined by the number of virtual machines in your scale set and the total max ready capacity configured.
 
 | Setting | Description | 
 |---|---|
-| `MaxReadyCapacity` | The maximum number of virtual machines you want to have ready.|
-| `instanceCount` | The current number of virtual machines already deployed in your scale set.|
+| MaxReadyCapacity | The maximum number of virtual machines you want to have ready.|
+| instanceCount | The current number of virtual machines already deployed in your scale set.|
 | Standby pool Size | Standby pool size = `MaxReadyCapacity`– `InstanceCount` |
 
 ## Scaling
 
-When your scale set requires more instances, rather than creating new instances and placing them directly into the scale set, the scale set can instead pull virtual machines from the standby pool. Standby pools reduce the time it takes to scale out and have the instances ready to take traffic. 
+When your scale set requires more instances, rather than creating new instances and placing them directly into the scale set, the scale set can instead pull virtual machines from the standby pool. 
 
 When your scale set scales back down, the instances are deleted from your scale set based on the [scale-in policy](virtual-machine-scale-sets-scale-in-policy.md) you have configured and your standby pool will refill to meet the `MaxReadyCapacity` configured.  
 
@@ -45,12 +45,11 @@ The virtual machines in the standby pool can be created in a running State or a 
 "virtualMachineState":"Deallocated"
 ```
 
-**Deallocated virtual machine State:** Deallocated virtual machines are shut down and keep any associated data disks, NICs, and any static IPs remain unchanged. 
+**Deallocated virtual machine state:** Deallocated virtual machines are shut down and keep any associated data disks, NICs, and any static IPs remain unchanged. 
 
 :::image type="content" source="media/standby-pools/deallocated-vm-pool.png" alt-text="A screenshot showing the workflow when using deallocated VM pools.":::
 
-**Running virtual machine State:** Using virtual machines in a running state is recommended when latency and reliability 
-requirements are strict.
+**Running virtual machine state:** Using virtual machines in a running state is recommended when latency and reliability requirements are strict. 
 
 :::image type="content" source="media/standby-pools/running-vm-pool.png" alt-text="A screenshot showing the workflow when using running VM pools.":::
 
@@ -69,6 +68,7 @@ There's no direct cost associated with using standby pools. Users are charged ba
 ## Considerations
 - The total capacity of the standby pool and the Virtual Machine Scale Set together can't exceed 1000 instances. 
 - Creation of pooled resources is subject to the resource availability in each region.
+- Instances in the standby pool are automatically placed into the same resource group that the associated scale set is part of. 
 
 ## Unsupported configurations
 - Attaching a standby pool to a Virtual Machine Scale Set using Azure Spot instances.
