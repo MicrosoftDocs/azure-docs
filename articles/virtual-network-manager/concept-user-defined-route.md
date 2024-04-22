@@ -115,6 +115,15 @@ When you create a rule collection, you define the local routing settings. The lo
 
 When you select **Direct routing within virtual network** or **Direct routing within subne**t, a UDR with a virtual network next hop is created for local traffic routing within the same virtual network or subnet. However, if the destination CIDR is fully contained within the source CIDR under these selections and direct routing is selected, a UDR specifying a network appliance as the next hop won't be set up.
 
+## Limitations of UDR management
+
+The following are the limitations of UDR management with Azure Virtual Network Manager:
+
+- Conflicting routing rules (rules with same destination but different next hops) are not supported within or across rule collections that target the same virtual network or subnet.
+- If there already exists a route in the route table with the same destination as the routing rule, then the routing rule will be ignored.
+- If a virtual network manager-created UDR is manually modified in the route table, the route will not be cleaned up in case an empty commit is done, or any update to the rule will not be reflected in the route with the same destination.
+- Existing Azure services in the Hub virtual network will continue to have their existing limitations with respect to Route Table and UDRs.
+
 ## Next step
 
 > [!div class="nextstepaction"]
