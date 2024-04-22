@@ -213,7 +213,7 @@ To stop local video while on a call, pass the `localVideoStream` instance that's
 await call.stopVideo(localVideoStream);
 ```
 
-You can switch to a different camera device while having an active LocalVideoStream by invoking `switchSource` on that `LocalVideoStream` instance:
+You can switch to a different camera device while having an active LocalVideoStream by invoking `switchSource` on that `LocalVideoStream` instance::
 
 ```js
 const cameras = await callClient.getDeviceManager().getCameras();
@@ -221,7 +221,7 @@ const camera = cameras[1];
 localVideoStream.switchSource(camera);
 ```
 
-If the specified video device is being used by another process, or if it isn't enabled in the system:
+If the specified video device isn't available:
 - While in a call, if your video is off and you start video using `call.startVideo()`, this method throws a `SourceUnavailableError` and `cameraStartFailed` user facing diagnostic is set to true.
 - A call to the `localVideoStream.switchSource()` method causes `cameraStartFailed` to be set to true.
 Our Call Diagnostics guide provides additional information on how to diagnose call related issues.
@@ -289,9 +289,8 @@ call.off('isScreenSharingOnChanged', () => {
 Local screen share preview is in public preview and available as part of version 1.15.1-beta.1+.
 
 ### Local screen share preview
+You can use a `VideoStreamRenderer` to begin rendering streams from your local screen share so you can see what you are sending as a screen sharing stream.
 
-You can use a `VideoStreamRenderer` to begin rendering streams from your local screen share so you can see 
-what you are sending as a screen sharing stream.
 ```js
 // To start viewing local screen share preview
 await call.startScreenSharing();
@@ -334,8 +333,8 @@ After that happens, create a new instance of `VideoStreamRenderer`, and then cre
 instance by using the asynchronous `createView` method.  
 You can then attach `view.target` to any UI element.
 
-Whenever the availability of a remote stream changes, you can destroy the whole `VideoStreamRenderer` or 
-a specific `VideoStreamRendererView`. If you decide to keep them, then the view displays a blank video frame.
+Whenever the availability of a remote stream changes, you can destroy the whole `VideoStreamRenderer` or a specific `VideoStreamRendererView`. 
+If you decide to keep them, then the view displays a blank video frame.
 
 ```js
 // Reference to the html's div where we would display a grid of all remote video stream from all participants.
