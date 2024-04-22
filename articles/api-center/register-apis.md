@@ -11,7 +11,7 @@ ms.author: danlep
 
 # Tutorial: Register APIs in your API inventory
 
-In this tutorial, start the API inventory in your organization's [API center](overview.md) by registering APIs and assigning metadata properties using the Azure portal. 
+In this tutorial, start the API inventory in your organization's [API center](overview.md) by registering APIs and assigning metadata using the Azure portal. 
 
 For background information about APIs, API versions, definitions, and other entities that you can inventory in Azure API Center, see [Key concepts](key-concepts.md).
 
@@ -29,7 +29,7 @@ In this tutorial, you learn how to use the portal to:
     * [Swagger Petstore API](https://github.com/swagger-api/swagger-petstore/blob/master/src/main/resources/openapi.yaml)
     * [Azure Demo Conference API](https://conferenceapi.azurewebsites.net?format=json)
 
-* Complete the previous tutorial, [Define metadata properties](add-metadata-properties.md), to define custom metadata properties for your APIs.
+* Complete the previous tutorial, [Define custom metadata](add-metadata-properties.md), to define custom metadata for your APIs.
 
 ## Register APIs
 
@@ -37,7 +37,7 @@ When you register (add) an API in your API center, the API registration includes
 * A title (name), type, and description
 * Version information
 * Optional links to documentation and contacts
-* Built-in and custom metadata properties that you defined
+* Built-in and custom metadata that you defined
 
 After registering an API, you can add versions and definitions to the API.
 
@@ -47,7 +47,7 @@ The following steps register two sample APIs: Swagger Petstore API and Demo Conf
 
 1. In the left menu, under **Assets**, select **APIs** > **+ Register an API**.
 
-1. In the **Register an API** page, add the following information for the Swagger Petstore API. You'll see the custom *Line of business* and *Public-facing* metadata properties that you defined in the previous tutorial at the bottom of the page.
+1. In the **Register an API** page, add the following information for the Swagger Petstore API. You'll see the custom *Line of business* and *Public-facing* metadata that you defined in the previous tutorial at the bottom of the page.
 
     |Setting|Value|Description|
     |-------|-----|-----------|
@@ -63,8 +63,8 @@ The following steps register two sample APIs: Swagger Petstore API and Demo Conf
     |**External documentation**     | Optionally add one or more links to external documentation.       | Name, description, and URL of documentation for the API.      |
     |**License**         |  Optionally add license information.       | Name, URL, and ID of a license for the API.      |    
     |**Contact information**         |  Optionally add information for one or more contacts.       | Name, email, and URL of a contact for the API.      |  
-    | **Line of business** | If you added this property in the previous tutorial, make a selection from the dropdown, such as **Marketing**. | Custom metadata property that identifies the business unit that owns the API. |
-    | **Public-facing**  | If you added this property, select the checkbox.    |  Custom metadata property that identifies whether the API is public-facing or internal only.     |
+    | **Line of business** | If you added this metadata in the previous tutorial, make a selection from the dropdown, such as **Marketing**. | Custom metadata that identifies the business unit that owns the API. |
+    | **Public-facing**  | If you added this metadata, select the checkbox.    |  Custom metadata that identifies whether the API is public-facing or internal only.     |
 
     :::image type="content" source="media/register-apis/register-api.png" alt-text="Screenshot of registering an API in the portal.":::
 
