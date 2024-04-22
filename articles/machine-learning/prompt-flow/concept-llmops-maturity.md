@@ -20,9 +20,10 @@ Large Language Model Operations, or **LLMOps**, describes the operational practi
 
 Use the descriptions below to find your *LLMOps Maturity Model* ranking level. These levels provide a general understanding and practical application level of your organization. The guidelines provide you with helpful links to expand your LLMOps knowledge base.  
 
-Or use this [LLMOps Maturity Model Assessment](/assessments/e14e1e9f-d339-4d7e-b2bb-24f056cf08b6/) to determine your organization's current LLMOps maturity level. The questionnaire is designed to help you understand your organization's current capabilities and identify areas for improvement.
-
-Your results from the assessment corresponds to a *LLMOps Maturity Model* ranking level, providing a general understanding and practical application level of your organization. These guidelines provide you with helpful links to expand your LLMOps knowledge base
+> [!TIP]
+> Use the [LLMOps Maturity Model Assessment](/assessments/e14e1e9f-d339-4d7e-b2bb-24f056cf08b6/) to determine your organization's current LLMOps maturity level. The questionnaire is designed to help you understand your organization's current capabilities and identify areas for improvement.
+>
+> Your results from the assessment corresponds to a *LLMOps Maturity Model* ranking level, providing a general understanding and practical application level of your organization. These guidelines provide you with helpful links to expand your LLMOps knowledge base. 
 
 ## <a name="level1"></a>Level 1 - initial
 

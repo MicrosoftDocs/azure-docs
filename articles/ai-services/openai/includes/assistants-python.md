@@ -30,8 +30,11 @@ ms.date: 02/01/2024
 Install the OpenAI Python client library with:
 
 ```console
-pip install openai
+pip install openai==v1.20.0
 ```
+
+> [!NOTE]
+> Azure OpenAI does not yet support Assistants V2. Please use the v1.20.0 release of the OpenAI Python library until V2 support is available.
 
 > [!NOTE]
 > This library is maintained by OpenAI. Refer to the [release history](https://github.com/openai/openai-python/releases) to track the latest updates to the library.
@@ -215,4 +218,4 @@ If you want to clean up and remove an Azure OpenAI resource, you can delete the 
 * Learn more about how to use Assistants with our [How-to guide on Assistants](../how-to/assistant.md).
 * [Azure OpenAI Assistants API samples](https://github.com/Azure-Samples/azureai-samples/tree/main/scenarios/Assistants)
 
--->
+

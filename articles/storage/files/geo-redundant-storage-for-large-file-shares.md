@@ -4,7 +4,7 @@ description: Azure Files geo-redundancy for large file shares significantly impr
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: conceptual
-ms.date: 04/07/2024
+ms.date: 04/22/2024
 ms.author: kendownie
 ms.custom: references_regions
 ---
@@ -46,68 +46,7 @@ Enabling large file shares when using geo-redundant storage (GRS) and geo-zone-r
 | Max throughput per share | Up to 60 MiB/s | Up to [storage account limits](./storage-files-scale-targets.md#storage-account-scale-targets) (150x increase) |
 
 ## Region availability
-Azure Files geo-redundancy for large file shares is generally available in the majority of regions that support geo-redundancy. Use the table below to see which regions are generally available (GA) or still in preview.
-
-| **Region** | **Availability** |
-|---------------|-------------------|
-| Australia Central | GA |
-| Australia Central 2 | GA |
-| Australia East | GA |
-| Australia Southeast | GA |
-| Brazil South | Preview |
-| Brazil Southeast | Preview |
-| Canada Central | GA |
-| Canada East | GA |
-| Central India | Preview |
-| Central US | GA |
-| China East | GA |
-| China East 2 | Preview |
-| China East 3 | GA |
-| China North | GA |
-| China North 2 | Preview |
-| China North 3 | GA |
-| East Asia | GA |
-| East US | Preview |
-| East US 2 | GA |
-| France Central | GA |
-| France South | GA |
-| Germany North | GA |
-| Germany West Central | GA |
-| Japan East | GA |
-| Japan West | GA |
-| Korea Central | GA |
-| Korea South | GA |
-| North Central US | Preview |
-| North Europe | Preview |
-| Norway East | GA |
-| Norway West | GA |
-| South Africa North | GA |
-| South Africa West | GA |
-| South Central US | Preview |
-| South India | Preview |
-| Southeast Asia | GA |
-| Sweden Central | GA |
-| Sweden South | GA |
-| Switzerland North | GA |
-| Switzerland West | GA |
-| UAE Central | GA |
-| UAE North | GA |
-| UK South | GA |
-| UK West | GA |
-| US DoD Central | GA |
-| US DoD East | GA |
-| US Gov Arizona | GA |
-| US Gov Texas | GA |
-| US Gov Virginia | GA |
-| West Central US | GA |
-| West Europe | Preview |
-| West India | Preview |
-| West US | Preview |
-| West US 2 | GA |
-| West US 3 | Preview |
-
-> [!NOTE]  
-> Azure Files geo-redundancy for large file shares (the "preview") is subject to the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). You may use the preview in production environments.
+Azure Files geo-redundancy for large file shares is generally available in all regions except China East 2 and China North 2 which are still in preview. 
 
 ## Pricing
 
