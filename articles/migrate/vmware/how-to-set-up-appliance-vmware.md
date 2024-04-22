@@ -12,9 +12,9 @@ ms.custom: engagement-fy23
 
 # Set up an appliance for servers in a VMware environment
 
-This article describes how to set up the Azure Migrate appliance for assessment by using the [Azure Migrate: Discovery and assessment](migrate-services-overview.md#azure-migrate-discovery-and-assessment-tool) tool.
+This article describes how to set up the Azure Migrate appliance for assessment by using the [Azure Migrate: Discovery and assessment](../migrate-services-overview.md#azure-migrate-discovery-and-assessment-tool) tool.
 
-The [Azure Migrate appliance](migrate-appliance.md) is a lightweight appliance that the Azure Migrate: Discovery and assessment tool uses to discover servers running in vCenter Server and to send server configuration and performance metadata to Azure.
+The [Azure Migrate appliance](../migrate-appliance.md) is a lightweight appliance that the Azure Migrate: Discovery and assessment tool uses to discover servers running in vCenter Server and to send server configuration and performance metadata to Azure.
 
 ## Set up the appliance
 
@@ -24,7 +24,7 @@ The [Azure Migrate appliance](migrate-appliance.md) is a lightweight appliance t
 You can deploy the Azure Migration appliance using these methods:
 
 - Create a server on a vCenter Server VM using a downloaded OVA template. This method is described in this article.
-- Set up the appliance on an existing server by using a PowerShell installer script. You should [run a PowerShell script](deploy-appliance-script.md) if you can't use an OVA template or if you're in Azure Government.
+- Set up the appliance on an existing server by using a PowerShell installer script. You should [run a PowerShell script](../deploy-appliance-script.md) if you can't use an OVA template or if you're in Azure Government.
 
 After you create the appliance, check if the appliance can connect to Azure Migrate: Discovery and assessment, register the appliance with the project, and configure the appliance to start discovery.
 
@@ -99,7 +99,7 @@ Import the downloaded file, and create a server in the VMware environment:
 
 #### Verify appliance access to Azure
 
-Make sure that the appliance server can connect to Azure URLs for [public clouds](migrate-appliance.md#public-cloud-urls) and [government clouds](migrate-appliance.md#government-cloud-urls).
+Make sure that the appliance server can connect to Azure URLs for [public clouds](../migrate-appliance.md#public-cloud-urls) and [government clouds](../migrate-appliance.md#government-cloud-urls).
 
 <a name="4-configure-the-appliance"></a>
 
@@ -108,7 +108,7 @@ Make sure that the appliance server can connect to Azure URLs for [public clouds
 To set up the appliance for the first time:
 
 > [!NOTE]
-> If you set up the appliance by using a [PowerShell script](deploy-appliance-script.md) instead of a downloaded OVA template, you can skip the first two steps.
+> If you set up the appliance by using a [PowerShell script](../deploy-appliance-script.md) instead of a downloaded OVA template, you can skip the first two steps.
 
 1. In vSphere Client, right-click the server, and select **Open Console**.
 1. Select or enter the language, time zone, and password for the appliance.

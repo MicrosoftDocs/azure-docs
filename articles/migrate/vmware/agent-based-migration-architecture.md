@@ -12,7 +12,7 @@ ms.custom: engagement-fy23
 
 # Agent-based migration architecture
 
-This article provides an overview of the architecture and processes used for agent-based replication of VMware VMs with the [Migration and modernization](migrate-services-overview.md#migration-and-modernization-tool) tool.
+This article provides an overview of the architecture and processes used for agent-based replication of VMware VMs with the [Migration and modernization](../migrate-services-overview.md#migration-and-modernization-tool) tool.
 
 Using the Migration and modernization tool, you can replicate VMware VMs with a couple of options:
 
@@ -83,7 +83,7 @@ By default, you deploy a single replication appliance that runs both the configu
 
 ### Plan VMware deployment
 
-If you're replicating VMware VMs, you can use the [Site Recovery Deployment Planner for VMware](../site-recovery/site-recovery-deployment-planner.md), to help determine performance requirements, including the daily data change rate, and the process servers you need.
+If you're replicating VMware VMs, you can use the [Site Recovery Deployment Planner for VMware](../../site-recovery/site-recovery-deployment-planner.md), to help determine performance requirements, including the daily data change rate, and the process servers you need.
 
 ### Replication appliance capacity
 
@@ -122,4 +122,4 @@ VMware traffic that replicates to Azure goes through a specific process server. 
 
 ## Next steps
 
-Try out [agent-based migration](tutorial-migrate-vmware-agent.md) for [VMware](tutorial-migrate-vmware-agent.md) or [physical servers](tutorial-migrate-physical-virtual-machines.md).
+Try out [agent-based migration](tutorial-migrate-vmware-agent.md) for [VMware](tutorial-migrate-vmware-agent.md) or [physical servers](../tutorial-migrate-physical-virtual-machines.md).
