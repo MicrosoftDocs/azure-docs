@@ -111,7 +111,7 @@ New-AzStandbyVMPool `
 ```
 
 ### [REST](#tab/rest)
-Create a standby pool and associate it with an existing scale set using [Create or Update REST](https://learn.microsoft.com/rest/api/standbypool/standby-virtual-machine-pools?view=rest-standbypool-2023-12-01-preview)
+Create a standby pool and associate it with an existing scale set using [Create or Update](rest/api/standbypool/standby-virtual-machine-pools/create-or-update)
 
 ```HTTP
 PUT https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.StandbyPool/standbyVirtualMachinePools/{standbyPoolName}?api-version=2023-12-01-preview

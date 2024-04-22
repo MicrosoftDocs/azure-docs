@@ -73,7 +73,7 @@ Update-AzStandbyVMPool `
 ```
 
 ### [REST](#tab/rest)
-Update an existing standby pool using [Create or Update REST](https://learn.microsoft.com/rest/api/standbypool/standby-virtual-machine-pools?view=rest-standbypool-2023-12-01-preview)
+Update an existing standby pool using [Create or Update](rest/api/standbypool/standby-virtual-machine-pools/create-or-update)
 
 ```HTTP
 PUT https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.StandbyPool/standbyVirtualMachinePools/{standbyPoolName}?api-version=2023-12-01-preview
@@ -134,7 +134,7 @@ Remove-AzStandbyVMPool -ResourceGroup myResourceGroup -Name myStandbyPool -Nowai
 ```
 
 ### [REST](#tab/rest1)
-Delete an existing standby pool using [Create or Update REST](https://learn.microsoft.com/rest/api/standbypool/standby-virtual-machine-pools?view=rest-standbypool-2023-12-01-preview)
+Delete an existing standby pool using [Create or Update REST](rest/api/standbypool/standby-virtual-machine-pools/create-or-update)
 
 ```HTTP
 DELETE https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.StandbyPool/standbyVirtualMachinePools/{standbyPoolName}?api-version=2023-12-01-preview
