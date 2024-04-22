@@ -65,7 +65,7 @@ The following table indicates which triggers support retries and where the retry
 
 ### Retry policies
 
-Starting with version 3.x of the Azure Functions runtime, you can define retry policies for Timer, Kafka, Event Hubs, and Azure Cosmos DB triggers that are enforced by the Functions runtime.
+Starting with version 3.x of the Azure Functions runtime, you can define retry policies for Timer, Kafka, Event Hubs, and Azure Cosmos DB triggers that are enforced by the Functions runtime. When using Python, retry support is the same for both the v1 and v2 programming models.
 
 The retry policy tells the runtime to rerun a failed execution until either successful completion occurs or the maximum number of retries is reached.
 
