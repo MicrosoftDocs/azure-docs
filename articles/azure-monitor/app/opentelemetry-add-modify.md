@@ -2087,7 +2087,7 @@ You might use the following ways to filter out telemetry before it leaves your a
 
 ### [Java](#tab/java)
 
-See [sampling overrides](java-standalone-config.md#sampling-overrides) and [telemetry processors](java-standalone-telemetry-processors.md).
+See [sampling overrides](java-standalone-config.md#sampling-overrides), [telemetry processors](java-standalone-telemetry-processors.md), and [OpenTelemetry Extensions](java-standalone-sampling-overrides.md#span-attributes-available-for-sampling).
 
 ### [Node.js](#tab/nodejs)
 
