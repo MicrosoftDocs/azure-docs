@@ -150,6 +150,9 @@ From the left navigation pane on the **Hub overview** page, you can access the s
 
 Build is an experience where AI Devs and ML Pros can build or customize AI solutions and models. Developers can switch between studio and code.
 
+
+:::image type="content" source="media/explore/project-view-current.png" alt-text="Screenshot of an AI Studio project overview page." lightbox= "media/explore/project-view-current.png":::
+
 - Simplified development of large language model (LLM) solutions and copilots with end-to-end app templates and prompt samples for common use cases.
 - Orchestration framework to handle the complex mapping of functions and code between LLMs, tools, custom code, prompts, data, search indexes, and more.
 - Evaluate, deploy, and continuously monitor your AI application and app performance.

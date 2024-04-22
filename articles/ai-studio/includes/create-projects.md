@@ -12,13 +12,10 @@ ms.custom: include
 
 To create a project in [Azure AI Studio](https://ai.azure.com), follow these steps:
 
-1. Select the **Build** tab at the top of the page.
+1. Go to the **Home** page of [Azure AI Studio](https://ai.azure.com). 
 1. Select **+ New project**.
-
-    :::image type="content" source="../media/how-to/projects/projects-create-new.png" alt-text="Screenshot of the Build tab of the Azure AI Studio with the option to create a new project visible." lightbox="../media/how-to/projects/projects-create-new.png":::
-
 1. Enter a name for the project.
-1. Select a hub from the dropdown to host your project. If you don't have access to a hub yet, select **Create a new resource**.
+1. Select a hub from the dropdown to host your project. If you don't have access to a hub yet, select **Create a new hub**.
 
     :::image type="content" source="../media/how-to/projects/projects-create-details.png" alt-text="Screenshot of the project details page within the create project dialog." lightbox="../media/how-to/projects/projects-create-details.png":::
 
@@ -27,7 +24,7 @@ To create a project in [Azure AI Studio](https://ai.azure.com), follow these ste
 
 1. If you're creating a new hub, enter a name.
 
-1. Select your **Azure subscription** from the dropdown. Choose a specific Azure subscription for your project for billing, access, or administrative reasons. For example, this grants users and service principals with subscription-level access to your project.
+1. Select your Azure subscription from the **Subscription** dropdown. Choose a specific Azure subscription for your project for billing, access, or administrative reasons. For example, this grants users and service principals with subscription-level access to your project.
 
 1. Leave the **Resource group** as the default to create a new resource group. Alternatively, you can select an existing resource group from the dropdown.
 
@@ -35,11 +32,11 @@ To create a project in [Azure AI Studio](https://ai.azure.com), follow these ste
     > Especially for getting started it's recommended to create a new resource group for your project. This allows you to easily manage the project and all of its resources together. When you create a project, several resources are created in the resource group, including a hub, a container registry, and a storage account.
 
 1. Enter the **Location** for the hub and then select **Next**. The location is the region where the hub is hosted. The location of the hub is also the location of the project. Azure AI services availability differs per region. For example, certain models might not be available in certain regions.
-1. Select an existing Azure OpenAI resource from the dropdown or create a new one. 
+1. Select an existing Azure AI services resource (including Azure OpenAI) from the dropdown or create a new one. 
 
     :::image type="content" source="../media/how-to/projects/projects-create-resource.png" alt-text="Screenshot of the create resource page within the create project dialog." lightbox="../media/how-to/projects/projects-create-resource.png":::
 
-1. On the **Review and finish** page, you see the Azure OpenAI Service resource name and other settings to review.
+1. On the **Review and finish** page, you see the Azure AI services resource name and other settings to review.
 
     :::image type="content" source="../media/how-to/projects/projects-create-review-finish.png" alt-text="Screenshot of the review and finish page within the create project dialog." lightbox="../media/how-to/projects/projects-create-review-finish.png":::
 
@@ -47,4 +44,4 @@ To create a project in [Azure AI Studio](https://ai.azure.com), follow these ste
 
     :::image type="content" source="../media/how-to/projects/projects-create-review-finish-progress.png" alt-text="Screenshot of the resource creation progress within the create project dialog." lightbox="../media/how-to/projects/projects-create-review-finish-progress.png":::
 
-Once a project is created, you can access the **Tools**, **Components**, and **Project settings** assets in the left navigation panel. For a project that uses a hub with support for Azure OpenAI, you see the **Playground** navigation option under **Tools**. 
+Once a project is created, you can access the the playground, tools, and other assets in the left navigation panel. 
