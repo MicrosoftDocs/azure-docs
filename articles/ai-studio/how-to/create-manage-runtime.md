@@ -23,9 +23,9 @@ A prompt flow compute session has computing resources that are required for the 
 
 Sign in to [Azure AI Studio](https://ai.azure.com) and select your prompt flow.
 
-Then select **Start compute session** from top toolbar.
+Then select **Start compute session** from the top toolbar.
 
-- Select the button **Start compute session**, or select **Start compute session** after using the arrow to drop down the list. Start creating an automatic compute session by using the environment defined in `flow.dag.yaml` in the flow folder, it runs on the virtual machine (VM) size of serverless compute which you have enough quota in the workspace.
+- Select the button **Start compute session**, or select **Start compute session** after using the arrow to drop down the list. The automatic compute session uses the environment defined in `flow.dag.yaml` in the [flow folder](flow-develop.md#authoring-the-flow). It runs on a serverless compute with a virtual machine (VM) size for which you have sufficient quota in your workspace.
 
   :::image type="content" source="../media/prompt-flow/how-to-create-manage-compute session/compute session-create-automatic-init.png" alt-text="Screenshot of prompt flow with default settings for starting an automatic compute session on a flow page." lightbox = "../media/prompt-flow/how-to-create-manage-compute session/compute session-create-automatic-init.png":::
 
@@ -46,14 +46,14 @@ Then select **Start compute session** from top toolbar.
         - For the idle shutdown time it is used to define life cycle of the runtime, if the runtime is idle for the time you set, it will be deleted automatically. And of you have idle shut down enabled on compute instance, then it will continue 
 
             :::image type="content" source="../media/prompt-flow/how-to-create-manage-runtime/runtime-creation-automatic-compute-instance-settings.png" alt-text="Screenshot of prompt flow with advanced settings using compute instance for starting an automatic runtime on a flow page." lightbox = "../media/prompt-flow/how-to-create-manage-runtime/runtime-creation-automatic-compute-instance-settings.png":::
-    - Select **Next** to specify the base image settings. You can choose between the default base image and a customized base image.
-        - If you choose a customized base image, you need to provide the image URL and the image tag. Only images in a public docker registry or the Azure Container Registry are supported. If you specify image in the Azure Container Registry,  make sure you (or the user assigned manage identity) have ACR pull permission.
+    - Select **Next** to specify the base image settings. Use the default base image or provide a custom base image.
+        - If you choose a customized base image, provide the image URL and the image tag. Only images in a public docker registry or the Azure Container Registry (ACR) are supported. If you specify an image in the ACR,  make sure you (or the user assigned manage identity) have ACR pull permission.
     - Select **Next** to review your settings.
     - Select **Apply and start compute session** to start the compute session.
 
 ### Update an automatic runtime on a flow page
 
-On a flow page, you can use the following options to manage an automatic runtime:
+To manage an automatic runtime, select the **Compute session running** on the top toolbar:
 
 - **Change compute session settings** opens the runtime configuration page, where you can define the VM side and the idle time for the runtime.
 - **Install packages from requirements.txt** Open `requirements.txt` in prompt flow UI, you can add packages in it.
@@ -73,7 +73,7 @@ You can also customize the environment that you use to run this flow by adding p
 > [!NOTE]
 > You can change the location and even the file name of `requirements.txt`, but be sure to also change it in the `flow.dag.yaml` file in the flow folder.
 >
-> Don't pin the version of `promptflow` and `promptflow-tools` in `requirements.txt`, because we already include them in the runtime base image.
+> Don't pin the version of `promptflow` and `promptflow-tools` in `requirements.txt`, because they are already included in the runtime base image.
 
 #### Add packages in a private feed in Azure DevOps
 
