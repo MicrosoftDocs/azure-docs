@@ -12,7 +12,7 @@ ms.custom:
 ms.topic: reference
 ---
 
-# pg_azure_storage extension - Preview
+# pg_azure_storage extension
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
