@@ -83,15 +83,15 @@ items:
     - name: $convert-data
       items: 
         - name: $convert-data overview
-          href: overview-of-convert-data.md
+          href: convert-data-overview.md
         - name: Configure settings for $convert-data
-          href: configure-settings-convert-data.md
+          href: convert-data-configuration.md
         - name: Transform HL7v2 data to FHIR R4
-          href: convert-data-with-azure-data-factory.md
+          href: convert-data-azure-data-factory.md
         - name: Troubleshoot $convert-data
-          href: troubleshoot-convert-data.md
+          href: convert-data-troubleshoot.md
         - name: FAQ - $convert-data
-          href: frequently-asked-questions-convert-data.md
+          href: convert-data-faq.md
     - name: $export
       items: 
         - name: Configure settings for export
