@@ -53,7 +53,7 @@ With deployment slots, you can achieve continuous delivery and improve your appl
 
 - [Azure Logic Apps Standard Contributor role permissions](logic-apps-securing-a-logic-app.md?tabs=azure-portal#standard-workflows)
 
-- An existing deployed Standard logic app resource in Azure where you want to create your deployment slot and deploy your changes. You can create an empty Standard logic app resource without any workflows. For more information, see [](create-single-tenant-workflows-azure-portal.md).
+- An existing deployed Standard logic app resource in Azure where you want to create your deployment slot and deploy your changes. You can create an empty Standard logic app resource without any workflows. For more information, see [Create example Standard workflow in single-tenant Azure Logic Apps](create-single-tenant-workflows-azure-portal.md).
 
 ## Create a deployment slot
 
