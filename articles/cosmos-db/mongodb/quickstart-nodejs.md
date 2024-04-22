@@ -27,6 +27,9 @@ zone_pivot_groups: azure-cosmos-db-quickstart-env
 
 Get started with the MongoDB npm package to create databases, collections, and docs within your Azure Cosmos DB resource. Follow these steps to  install the package and try out example code for basic tasks.
 
+> [!NOTE]
+> The [example code snippets](https://github.com/alexwolfmsft/cosmos-db-mongodb-nodejs-quickstart) are available on GitHub as a JavaScript project.
+
 [API for MongoDB reference documentation](https://www.mongodb.com/docs/drivers/csharp) | [MongoDB Package (NuGet)](https://www.nuget.org/packages/MongoDB.Driver)
 packages/Microsoft.Azure.Cosmos) | [Azure Developer CLI](/azure/developer/azure-developer-cli/overview)
 
@@ -61,10 +64,6 @@ Add the [MongoDB](https://www.npmjs.com/package/mongodb) npm package to the Java
 ```console
 npm install mongodb dotenv
 ```
-
-### Configure environment variables
-
-[!INCLUDE [Multi-tab](./includes/environment-variables-connection-string.md)]
 
 ## Object model
 
