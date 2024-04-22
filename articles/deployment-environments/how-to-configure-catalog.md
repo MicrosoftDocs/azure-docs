@@ -251,9 +251,11 @@ To add a catalog, complete the following tasks:
  
    :::image type="content" source="media/how-to-configure-catalog/install-organization.png" alt-text="Screenshot of the Install Microsoft DevCenter page, with a GitHub organization highlighted." lightbox="media/how-to-configure-catalog/install-organization.png":::
  
-1. On the Install Microsoft DevCenter page, select **Only select repositories**, select the repository you want to add as a catalog, and then select **Install**.
+1. On the Install Microsoft DevCenter page, select **Only select repositories**, select the repository you want to add as a catalog, and then select **Install**. 
 
    :::image type="content" source="media/how-to-configure-catalog/select-one-repository.png" alt-text="Screenshot of the Install Microsoft DevCenter page, with one repository selected and highlighted." lightbox="media/how-to-configure-catalog/select-one-repository.png":::
+
+   You can select multiple repositories to add as catalogs. You must add each repository as a separate catalog, as described in [Add your repository as a catalog](#add-your-repository-as-a-catalog).
  
 1. On the **Microsoft DevCenter by Microsoft would like permission to:** page, review the permissions required, and then select **Authorize Microsoft Dev Center**.
 
