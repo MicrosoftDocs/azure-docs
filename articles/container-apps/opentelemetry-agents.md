@@ -11,8 +11,7 @@ ms.topic: how-to
 
 # Collect and read OpenTelemetry data in Azure Container Apps (preview)
 
-Using an [
-OpenTelemetry](https://opentelemetry.io/) data agent with your Azure Container Apps environment, you can choose to send observability data in an OpenTelemetry format by:
+Using an [OpenTelemetry](https://opentelemetry.io/) data agent with your Azure Container Apps environment, you can choose to send observability data in an OpenTelemetry format by:
 
 - Piping data from an agent into a desired endpoint. Destination options include Azure Monitor Application Insights, Datadog, and any OpenTelemetry Protocol (OTLP)-compatible endpoint.
 
