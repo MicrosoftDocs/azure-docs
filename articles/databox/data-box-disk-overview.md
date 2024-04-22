@@ -44,8 +44,6 @@ You can use your Data Box data with many non-Azure service providers. For instan
 
 - **[Veeam](https://helpcenter.veeam.com/docs/backup/hyperv/osr_adding_data_box.html?ver=100)** - allows you to backup and replicated large amounts of data from your Hyper-V machine to your Data Box.
 
-For a list of other non-Azure service providers that integrate with Data Box, see [Azure Data Box Partners](https://cloudchampions.blob.core.windows.net/db-partners/PartnersTable.pdf).
-
 ## The workflow
 
 A typical flow includes the following steps:

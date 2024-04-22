@@ -87,7 +87,7 @@ Once the executable file and dependency files are created, you need to copy the 
     cd "C:\Users\User"
     ```
 
-1. Create a *tar* file with all the files created in previous steps. For more information about PowerShell *tar* support, see [Tar and Curl Come to Windows](/virtualization/community/team-blog/2017/20171219-tar-and-curl-come-to-windows).
+1. Create a *tar* file with all the files created in previous steps. For more information about PowerShell *tar* support, see [Tar and Curl Come to Windows](https://devblogs.microsoft.com/commandline/tar-and-curl-come-to-windows/).
     For example, if you have all your files under the folder _TPM_, you can use the following command to create the _TPM.tar_ file.
     ```powershell
      tar -cvzf TPM.tar ".\TPM"
