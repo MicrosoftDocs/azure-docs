@@ -77,6 +77,7 @@ If you are following the least privilege principle, assign the **Application Dev
 
 [Set up an Azure network](../../virtual-network/manage-virtual-network.md#create-a-virtual-network). On-premises machines are replicated to Azure managed disks. When you fail over to Azure for migration, Azure VMs are created from these managed disks, and joined to the Azure network you set up.
 
+
 ## Prepare for migration
 
 Verify support requirements  and permissions, and prepare to deploy a replication appliance.
@@ -282,6 +283,7 @@ Select VMs for migration.
 
    > [!NOTE]
    > To replicate VMs with CMK, you'll need to [create a disk encryption set](../../virtual-machines/disks-enable-customer-managed-keys-portal.md#set-up-your-disk-encryption-set) under the target Resource Group. A disk encryption set object maps Managed Disks to a Key Vault that contains the CMK to use for SSE.
+
 
 15. In **Azure Hybrid Benefit**:
 

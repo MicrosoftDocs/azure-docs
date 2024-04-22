@@ -95,7 +95,7 @@ While the portal URL is publicly accessible, users must sign in to see the APIs 
 > [!IMPORTANT]
 > By default, you and other administrators of the API center don't have access to APIs in the API Center portal. Be sure to assign the **Azure API Center Data Reader** role to yourself and other administrators.  
 
-For detailed prerequisites and steps to assign a role to users and groups, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md). Brief steps follow:
+For detailed prerequisites and steps to assign a role to users and groups, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml). Brief steps follow:
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your API center.
 1. In the left menu, select **Access control (IAM)** > **+ Add role assignment**.
