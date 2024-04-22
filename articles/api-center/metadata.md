@@ -1,6 +1,6 @@
 ---
 title: Use metadata to organize and govern APIs
-description: Learn about metadata in Azure API Center. Use built-in and custom metadata to organize your inventory and enforce governance standards.
+description: Learn about metadata in Azure API Center. Use built in and custom metadata to organize your inventory and enforce governance standards.
 author: dlepow
 ms.service: api-center
 ms.topic: concept-article
@@ -11,7 +11,7 @@ ms.author: danlep
 
 # Create and apply metadata
 
-This article provides background about metadata and how to use it for API governance in [Azure API Center](overview.md). You define metadata to organize and filter APIs and other [entities](key-concepts.md) in your API center. Metadata can be built-in or custom, and you can develop a metadata schema to enforce consistency across your APIs, environments, and deployments.  
+This article provides background about metadata and how to use it for API governance in [Azure API Center](overview.md). You define metadata to organize and filter APIs and other [entities](key-concepts.md) in your API center. Metadata can be built in or custom, and you can develop a metadata schema to enforce consistency across your APIs, environments, and deployments.  
 
 
 ## Built-in metadata
@@ -67,7 +67,7 @@ Type | Description | Example name |
 
 Custom metadata can be assigned to APIs, environments, or deployments in your API center. For example, create and assign *Department* metadata to APIs, so that when an API is registered or a new API version is added, the department responsible for the API is specified. 
 
-If assigned to an entity, metadataa is either optional or required. For example, you might require that the *Department* metadata is set only for APIs, but allow *YearOfCreation* to be optional metadata for environments.
+If assigned to an entity, metadata is either optional or required. For example, you might require that the *Department* metadata is set only for APIs, but allow *YearOfCreation* to be optional metadata for environments.
 
 > [!NOTE]
 > * Define custom metadata at any time and apply to APIs and other entities in your API center. 
