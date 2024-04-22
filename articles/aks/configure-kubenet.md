@@ -115,7 +115,7 @@ For more information to help you decide which network model to use, see [Compare
         --name myAKSVnet \
         --address-prefixes 192.168.0.0/16 \
         --subnet-name myAKSSubnet \
-        --subnet-prefix 192.168.1.0/24
+        --subnet-prefix 192.168.1.0/24 \
         --location eastus
     ```
 
