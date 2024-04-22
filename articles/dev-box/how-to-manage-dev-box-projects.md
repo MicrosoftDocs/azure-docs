@@ -35,7 +35,7 @@ To manage a dev box project, you need the following permissions:
 |---|---|
 | _Create or delete dev box project_ | Owner, Contributor, or Write permissions on the dev center in which you want to create the project. |
 | _Update a dev box project_ | Owner, Contributor, or Write permissions on the project. |
-| _Create, delete, and update dev box pools in the project_ | Owner, Contributor, or DevCenter Project Admin. |
+| _Create, delete, and update dev box pools in the project_ |- Owner, Contributor permissions on an Azure subscription or a specific resource group. </br> - DevCenter Project Admin permissions for the project.|
 | _Manage a dev box within the project_ | Owner, Contributor, or DevCenter Project Admin. |
 | _Add a dev box user to the project_ | Owner permissions on the project. |
 
