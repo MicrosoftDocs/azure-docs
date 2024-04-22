@@ -75,6 +75,8 @@ If your devices are sending Syslog and CEF logs over TLS (because, for example, 
 
 ## Set up the data connectors
 
+Select the appropriate tab to see the instructions for syslog or CEF.
+
 # [Syslog](#tab/syslog)
 
 ### Set up the Syslog via AMA connector
