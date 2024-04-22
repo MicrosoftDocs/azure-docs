@@ -751,6 +751,23 @@ Starting from version 3.2.0, you can enable the following preview instrumentatio
 }
 ```
 
+## Custom Instrumentation (preview)
+
+Starting from verion 3.3.1, you can enable custom method instrumentation of your application:
+
+```json
+{
+  "preview": {
+    "customInstrumentation": [
+      {
+        "className": "my.package.MyClass",
+        "methodName": "myMethod"
+      }
+    ]
+  }
+}
+```
+
 > [!NOTE]
 > Akka instrumentation is available starting from version 3.2.2. Vertx HTTP Library instrumentation is available starting from version 3.3.0.
 
