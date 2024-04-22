@@ -8,7 +8,7 @@ ms.date: 04/22/2024
 
 # Dapr
 
-[Distributed Application Runtime (Dapr)][dapr-docs] offers APIs that help you write and implement simple, portable, resilient, and secured microservices. Running as a sidecar process in tandem with your applications, Dapr APIs abstract away common complexities you may encounter when building distributed applications, such as:
+[Distributed Application Runtime (Dapr)][dapr-docs] offers APIs that help you write and implement simple, portable, resilient, and secured microservices. Dapr APIs run as a sidecar process in tandem with your applications and abstract away common complexities you may encounter when building distributed applications, such as:
 - Service discovery
 - Message broker integration
 - Encryption
@@ -46,7 +46,7 @@ The Dapr extension is the only Microsoft-supported option for Dapr in AKS.
 
 Extension operations, critical security fixes, and regressions are prioritized for immediate resolution.
 
-For functional issues - for example, with Dapr APIs or components - Microsoft triages, mitigates, and works with the open source community to determine the best path for resolution. Issues may be resolved in a hotfix or future Dapr release, depending on priority, severity, and size of the issue. Once released in Dapr open source, fixes are then made available in the Dapr extension.
+For functional issues - for example, with Dapr APIs or components - Microsoft triages, mitigates, and works with the open source community to determine the best path for resolution. Issues may be resolved in a hotfix or future Dapr release, depending on priority, severity, and size of the issue. Once fixes are released in Dapr open source, they are then made available in the Dapr extension.
 
 ### Dapr versions
 
@@ -60,13 +60,13 @@ For self-managed runtime, the Dapr extension supports:
 Self-managed runtime requires manual upgrade to remain in the support window. To upgrade Dapr via the extension, follow the [Update extension instance](deploy-extensions-az-cli.md#update-extension-instance) instructions.
 
 **Auto-upgrade**  
-Enabling auto-upgrade requires careful consideration. While auto-upgrade keeps your Dapr extension updated to the latest minor version, you may experience breaking changes between updates. Microsoft is not responsible for any downtime caused due to breaking changes between auto-updates.
+Enabling auto-upgrade requires careful consideration. While auto-upgrade keeps your Dapr extension updated to the latest minor version, you may experience breaking changes between updates. Microsoft isn't responsible for any downtime caused due to breaking changes between auto-updates.
 
 ### Components and APIs
 
 #### Stable Dapr APIs
 
-The Dapr extension supports stable versions of Dapr APIs (building blocks). Alpha APIs are not supported at this time.
+The Dapr extension supports stable versions of Dapr APIs (building blocks). Alpha APIs aren't supported at this time.
 
 | Dapr API                                              | Status | Description                                                                                                                                                     |
 | ----------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |  
@@ -79,7 +79,7 @@ The Dapr extension supports stable versions of Dapr APIs (building blocks). Alph
 | [**Secrets**][dapr-secrets]                           | Stable | Access secrets from your application code or reference secure values in your Dapr components.                                                                   |
 | [**Configuration**][dapr-config]                           | Stable | Retrieve and subscribe to application configuration items for supported configuration. stores.                                                                   |
 | [**Distributed Lock**][dapr-distlock]                           | Alpha | Provide exclusive access to a database row, table, or entire database, and more. stores.                                                                   |
-| [**Workflow**][dapr-config]                           | Alpha | Orchestrate microservices using workflow activities to support long-running and fault-tolerant aplications.                                                                   |
+| [**Workflow**][dapr-config]                           | Alpha | Orchestrate microservices using workflow activities to support long-running and fault-tolerant applications.                                                                   |
 | [**Cryptography**][dapr-crypto]                           | Alpha | Encrypt and decrypt messages without exposing cryptographic keys to your application.                                                                   |
 
 #### Managed versus standard components
@@ -180,7 +180,7 @@ The following table lists the capabilities of each offering:
 | **Secret rotation** | New API calls obtain the updated secrets | Polls for secrets and updates the mount at a configurable interval |
 | **Logging and metrics** | The Dapr sidecar generates logs, which can be configured with collectors such as Azure Monitor, emits metrics via Prometheus, and exposes an HTTP endpoint for health checks | Emits driver and Azure Key Vault provider metrics via Prometheus |
 
-For more information on the secret management in Dapr, see the [secrets management building block overview][dapr-secrets].
+For more information on the secret management in Dapr, see the [secrets management overview][dapr-secrets].
 
 For more information on the Secrets Store CSI driver and Azure Key Vault provider, see the [Secrets Store CSI driver overview][csi-secrets-store].
 
@@ -188,7 +188,7 @@ For more information on the Secrets Store CSI driver and Azure Key Vault provide
 
 The managed Dapr cluster extension is the easiest method to provision Dapr on an AKS cluster. With the extension, you're able to offload management of the Dapr runtime version by opting into automatic upgrades. Additionally, the extension installs Dapr with smart defaults (for example, provisioning the Dapr control plane in high availability mode).
 
-When installing Dapr open source via helm or the Dapr CLI, runtime versions and configuration options are the responsibility of developers and cluster maintainers.  
+When installing Dapr open source via helm or the Dapr CLI, developers and cluster maintainers are also responsible for runtime versions and configuration options.  
 
 Lastly, the Dapr extension is an extension of AKS, therefore you can expect the same support policy as other AKS features.
 
