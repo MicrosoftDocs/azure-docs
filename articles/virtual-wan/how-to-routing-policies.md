@@ -316,7 +316,7 @@ Configuring private routing policies with Encrypted ExpressRoute routes VPN ESP 
 > [!NOTE]
 > Direct routing to dual-role NVA used with private routing policies in Virtual WAN only applies to traffic between Virtual Networks and NVA-connected on-premises. ExpressRoute and VPN transit connectivity to NVA-connected on-premises does'nt go directly to NVA instances and is instead routed via the dual-role NVA's load balancer.
 
-Certain Network Virtual Appliances can have both connectivity (SD-WAN) and security (NGFW) capabilities  on the same device. These NVAs are considered dual-role NVAs. Check whether or not your NVA is dual-role NVA under [NVA partners](about-nva-hub#partners).
+Certain Network Virtual Appliances can have both connectivity (SD-WAN) and security (NGFW) capabilities  on the same device. These NVAs are considered dual-role NVAs. Check whether or not your NVA is dual-role NVA under [NVA partners](about-nva-hub.md#partners).
 
 When private routing policies are configured for dual-role NVAs, Virtual WAN automatically advertises routes learnt from that Virtual WAN hub's NVA device to directly connected (local) Virtual Networks as well to other Virtual Hubs in the Virtual WAN with the next hop as the NVA instance as opposed to the NVAs Internal Load Balancer.
 
