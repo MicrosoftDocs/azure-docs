@@ -49,7 +49,7 @@ This is a known bug, and we're working on resolving it. If you encounter this pr
 
 #### Problem
 
-If you move a resource to a different resource group or subscription, scheduled patching for the resource stop working.
+If you move a resource to a different resource group or subscription, scheduled patching for the resource stops working.
 
 #### Resolution
 
@@ -78,7 +78,7 @@ You can't create a dynamic scope because of role-based access control (RBAC).
 
 #### Resolution
 
-To create a dynamic scope, you must have the permission at the subscription level or at a resource group level. For more information, see the [list of permissions list for various resources](../update-manager/overview.md#permissions).
+To create a dynamic scope, you must have the permission at the subscription level or at the resource group level. For more information, see the [list of permissions list for various resources](../update-manager/overview.md#permissions).
 
 ### An update is stuck and not progressing
 
@@ -132,7 +132,7 @@ Dynamic scope validation fails because of a null value in the location.
 
 #### Resolution
 
-This problem with dynamic scope validation causes regression in the validation process. We recommend that you provide the required set of locations for a dynamic scope at the resource-group level.
+This problem with dynamic scope validation causes regression in the validation process. We recommend that you provide the required set of locations for a dynamic scope at the resource group level.
 
 ### A dynamic scope isn't executed and no resources are patched
 
