@@ -41,7 +41,7 @@ The DSVM offers these data movement tools:
 
 ## Azure Cosmos DB Data Migration tool
 
-|--|--|
+| Category | Value |
 | ------------- | ------------- |
 | What is it? | Tool to import data from various sources into Azure Cosmos DB, a NoSQL database in the cloud. These sources include JSON files<br>CSV files<br>SQL<br>MongoDB<br>Azure Table storage<br>Amazon DynamoDB<br>Azure Cosmos DB for NoSQL collections |
 | Supported DSVM versions | Windows |
