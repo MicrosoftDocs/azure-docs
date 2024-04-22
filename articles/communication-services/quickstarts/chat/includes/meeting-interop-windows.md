@@ -143,6 +143,7 @@ The Teams meeting link can be retrieved using Graph APIs, detailed in [Graph doc
 
 You can also get the required meeting link from the **Join Meeting** URL in the Teams meeting invite itself.
 A Teams meeting link looks like this: `https://teams.microsoft.com/l/meetup-join/meeting_chat_thread_id/1606337455313?context=some_context_here`. 
+Note that if your teams link has a different format to this, you will need to retrieve the thread ID using the Graph API.
 
 :::image type="content" source="../join-teams-meeting-chat-quickstart-windows.png" alt-text="Screenshot of the completed csharp Application.":::
 
