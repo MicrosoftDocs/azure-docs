@@ -430,7 +430,6 @@
       - name: Partitioning using pg_partman
         href: flexible-server/how-to-use-pg-partman.md
         displayName: pg_partman
-- name: Migration
 - name: Migration Service
   items:
   - name: Overview
