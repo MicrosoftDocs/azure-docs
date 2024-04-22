@@ -197,7 +197,7 @@ Although the platform team may have limited knowledge about the applications and
     }	    
 ```
 
-This approach is well known in the developer's community as the JSON schema is used by Helm to define what possible values could be provided for a Helm chart. 
+This approach is well known in the developer community, as the JSON schema is used by Helm to define the possible values to be provided for a Helm chart. 
 
 A formal contract also allows for automation. The platform team uses the control plane to provide the configuration values. The control plane analyzes what applications are supposed to be deployed on a host. It uses configuration schemas to advise what values should be provided by the platform team. The control plane composes configuration values for every application instance and validates them against the schema to see if all the values are in place. 
 
