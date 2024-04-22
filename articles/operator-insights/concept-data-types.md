@@ -1,5 +1,5 @@
 ---
-title: Data types - Azure Operator Insights
+title: Data types in Azure Operator Insights
 description: This article provides an overview of the data types used by Azure Operator Insights Data Products.
 author: rcdun
 ms.author: rdunstan
@@ -11,7 +11,7 @@ ms.date: 10/25/2023
 #CustomerIntent: As a Data Product user, I want to understand the concept of Data Types so that I can use Data Product(s) effectively.
 ---
 
-# Data types overview
+# Data types in Azure Operator Insights
 
 A Data Product ingests data from one or more sources, digests and enriches this data, and presents this data to provide domain-specific insights and to support further data analysis.
 
