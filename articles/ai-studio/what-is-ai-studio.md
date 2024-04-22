@@ -109,6 +109,8 @@ The model benchmarking tool helps you compare the performance of different model
 
 ### Prompt catalog
 
+Prompt engineering is an important aspect of working with generative AI models as it allows users to have greater control, customization, and influence over the outputs. By skillfully designing prompts, users can harness the capabilities of generative AI models to generate desired content, address specific requirements, and cater to various application domains.   
+
 The prompt catalog is a collection of prompts for common use cases such as generating text or images. You can filter the prompts by modality (such as chat, completions, image, and video), by industry (such as retail and education), and by task (such as summarization and chat completion).
 
 :::image type="content" source="media/explore/home-prompt-catalog.png" alt-text="Screenshot of the prompt catalog on the AI Studio home page." lightbox= "media/explore/home-prompt-catalog.png":::
@@ -132,7 +134,7 @@ From the left navigation pane on the **Home** page, you can access following pag
 
 **Resources and keys:** Provides information about the Azure AI services (including Azure OpenAI) resources and keys that you have access to in Azure AI Studio. You can see the name of each Azure resource, the subscription it belongs to, the region it's in, the pricing tier, the endpoint URL, and the key that you need to access the resource. 
 
-**Quota:** The quota section provides information about your quota usage and limits Azure ML (including virtual machines for compute) and Azure OpenAI model quotas. For more information about quotas, see [Quotas and limits for Azure AI Studio](concepts/quotas-limits.md).
+**Quota:** The quota section provides information about your quota usage and limits Azure ML (including virtual machines for compute) and Azure OpenAI model quotas. For more information about quotas, see [Quotas and limits for Azure AI Studio](./how-to/quota.md).
 
 ## Hub view
 
@@ -175,7 +177,7 @@ AI Studio is available in most regions where Azure AI services are available. Fo
 You can [explore AI Studio (including the model catalog)](./how-to/model-catalog.md) without signing in. 
 
 But for full functionality there are some requirements:
-- You need an [Azure account](https://azure.microsoft.com/en-us/free/). 
+- You need an [Azure account](https://azure.microsoft.com/free/). 
 - You also need to apply for access to Azure OpenAI Service by completing the form at [https://aka.ms/oai/access](https://aka.ms/oai/access). You receive a follow-up email when your subscription is added.
 
 ## Next steps 
