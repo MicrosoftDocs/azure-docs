@@ -35,7 +35,7 @@ Before you use Azure Machine Learning studio to start a compute session, make su
 - The working directory (`workspaceworkingdirectory`) exists in the workspace.
 - If you use a virtual network for prompt flow, you understand the considerations in [Network isolation in prompt flow](how-to-secure-prompt-flow.md).
 
-### Start and manage an compute session on a flow page
+### Start an compute session on a flow page
 
 One flow will bind to one compute session. You can start an compute session on a flow page.
 
