@@ -205,7 +205,7 @@ The control plane may perform validation in multiple stages at different points 
 
 ### Configuration graph model
   
-The control plane composes configuration value snapshots for the application instances on deployment targets. It pulls the values from different configuration containers. The relationship of these containers may represent a hierarchy or a graph. The control plane follows some rules to identify what configuration values from what containers should be hydrated into the application configuration snapshot. This is a responsibility of the platform team to define the configuration containers and establish the hydration rules. Application developers are not aware of this structure. They are aware of configuration values to be provided and it's not their concern where the values are coming from.  
+The control plane composes configuration value snapshots for the application instances on deployment targets. It pulls the values from different configuration containers. The relationship of these containers may represent a hierarchy or a graph. The control plane follows some rules to identify what configuration values from what containers should be hydrated into the application configuration snapshot. It's the platform team's responsibility to define the configuration containers and establish the hydration rules. Application developers aren't aware of this structure. They are aware of configuration values to be provided, and it's not their concern where the values are coming from.  
 
 ### Label matching approach 
 
