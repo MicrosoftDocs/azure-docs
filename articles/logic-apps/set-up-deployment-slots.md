@@ -31,7 +31,7 @@ With deployment slots, you can achieve continuous delivery and improve your appl
 
 ### Known issues and limitations
 
-- nonproduction slots are created in read-only mode.
+- Nonproduction slots are created in read-only mode.
 
 - The nonproduction slots dispatcher is turned off, which means that workflows can only run when they're in the production slot.
 
