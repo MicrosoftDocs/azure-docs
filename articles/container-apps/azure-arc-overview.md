@@ -89,7 +89,7 @@ During the preview period, certain Azure Container App features are being valida
 
 ### Are managed identities supported?
 
-No. Apps can't be assigned managed identities when running in Azure Arc. If your app needs an identity for working with another Azure resource, consider using an [application service principal](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) instead.
+Managed Identities are not supported. Apps can't be assigned managed identities when running in Azure Arc. If your app needs an identity for working with another Azure resource, consider using an [application service principal](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) instead.
 
 ### Are there any scaling limits?
 
@@ -105,7 +105,7 @@ By default, logs from system components are sent to the Azure team. Application 
 
 ### What do I do if I see a provider registration error?
 
-As you create an Azure Container Apps connected environment resource, some subscriptions might see the "No registered resource provider found" error. The error details might include a set of locations and api versions that are considered valid. If this error message is returned, the subscription must be re-registered with the `Microsoft.App` provider. Re-registering the provider has no effect on existing applications or APIs. To re-register, use the Azure CLI to run `az provider register --namespace Microsoft.App --wait`. Then reattempt the connected environment command.
+As you create an Azure Container Apps connected environment resource, some subscriptions might see the "No registered resource provider found" error. The error details might include a set of locations and API versions that are considered valid. If this error message is returned, the subscription must be re-registered with the `Microsoft.App` provider. Re-registering the provider has no effect on existing applications or APIs. To re-register, use the Azure CLI to run `az provider register --namespace Microsoft.App --wait`. Then reattempt the connected environment command.
 
 ### Can I deploy the Container Apps extension on an ARM64 based cluster?
 
@@ -210,8 +210,8 @@ ARM64 based clusters aren't supported at this time.
  - Scale Envoy in response to memory usage
  - Change of Envoy log format to Json
  - Export additional Envoy metrics
+ - Truncate Envoy log to first 1024 characters when log content failed to parse
  - Handle SIGTERM gracefully in local proxy
- - Truncate Enoy log to first 1024 characters when log content failed to parse
  - Allow ability to leverage different namespaces with KEDA
  - Validation added for scale rule name
  - Enabled revision GC by default
