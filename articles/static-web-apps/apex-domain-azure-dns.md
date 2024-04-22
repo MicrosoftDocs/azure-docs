@@ -27,19 +27,19 @@ The following procedure requires you to copy settings from an Azure DNS zone you
 
 1. Select **+ Add**, and then select **Custom Domain on Azure DNS** from the drop down menu.
 
-1. Select your apex domain name from the *DNS zone* drop down.
+1. Select your apex domain name from the *DNS zone* drop-down.
 
-    If this list is empty, please proceed to [create a public zone in Azure DNS](../dns/dns-getstarted-portal.md).
+    If this list is empty, [create a public zone in Azure DNS](../dns/dns-getstarted-portal.md).
 
 1. Select **Add**.
 
-    Wait as the DNS record and custom domain records are added for your static web app. It make take a minute or so to complete.
+    Wait as the DNS record and custom domain records are added for your static web app. It may take a minute or so to complete.
 
 1. Select **Close**.
 
-Observe the *Status* for the row of your apex domain. While this validation is running, the necessary CNAME or TXT and ALIAS records are created for you. Once the validation is complete, then your apex domain is publicly available. 
+Observe the *Status* for the row of your apex domain. While this validation is running, the necessary CNAME or TXT and ALIAS records are created for you automatically. Once the validation is complete, your apex domain is publicly available. 
 
-Open a new browser tab and go to your apex domain, you should see your static web app in the browser. Also, inspect the location to verify that your site is served securely using `https`..
+Open a new browser tab and go to your apex domain. You should see your static web app in the browser. Also, inspect the location to verify that your site is served securely using `https`.
 
 ## Next steps
 
