@@ -3,7 +3,7 @@ title: Dapr extension for Azure Kubernetes Service (AKS) overview
 description: Learn more about using Dapr on your Azure Kubernetes Service (AKS) cluster to develop applications.
 ms.author: nickoman
 ms.topic: article
-ms.date: 04/10/2024
+ms.date: 04/22/2024
 ---
 
 # Dapr
@@ -60,7 +60,7 @@ For self-managed runtime, the Dapr extension supports:
 Self-managed runtime requires manual upgrade to remain in the support window. To upgrade Dapr via the extension, follow the [Update extension instance](deploy-extensions-az-cli.md#update-extension-instance) instructions.
 
 **Auto-upgrade**  
-Enabling auto-upgrade keeps your Dapr extension updated to the latest minor version. You may experience breaking changes between updates.
+Enabling auto-upgrade requires careful consideration. While auto-upgrade keeps your Dapr extension updated to the latest minor version, you may experience breaking changes between updates. Microsoft is not responsible for any downtime caused due to breaking changes between auto-updates.
 
 ### Components and APIs
 
@@ -75,7 +75,7 @@ The Dapr extension supports stable versions of Dapr APIs (building blocks). Alph
 | [**Pub/sub**][dapr-pubsub]                            | Stable | Allows publisher and subscriber apps to intercommunicate via an intermediary message broker. You can also create [declarative subscriptions][dapr-subscriptions] to a topic using an external component JSON file.                                                          |
 | [**Bindings**][dapr-bindings]                         | Stable | Trigger your applications based on events.                                                                                                                       |
 | [**Actors**][dapr-actors]                             | Stable | Dapr actors are message-driven, single-threaded, units of work designed to quickly scale. For example, in burst-heavy workload situations. |
-| **Observability**               | Stable | Send tracing information to an Application Insights backend.                                                                                                    |
+| [**Observability**][dapr-observability]               | Stable | Send tracing information to an Application Insights backend.                                                                                                    |
 | [**Secrets**][dapr-secrets]                           | Stable | Access secrets from your application code or reference secure values in your Dapr components.                                                                   |
 | [**Configuration**][dapr-config]                           | Stable | Retrieve and subscribe to application configuration items for supported configuration. stores.                                                                   |
 | [**Distributed Lock**][dapr-distlock]                           | Alpha | Provide exclusive access to a database row, table, or entire database, and more. stores.                                                                   |
@@ -108,7 +108,7 @@ A subset of Dapr components is supported for the Dapr extension for AKS and Arc-
 
 ### Clouds/regions
 
-Global Azure cloud is supported with Arc support on the following regions:
+Global Azure cloud is supported with AKS and Arc support on the following regions:
 
 | Region | AKS support | Arc for Kubernetes support |
 | ------ | ----------- | -------------------------- |
@@ -230,4 +230,8 @@ After learning about Dapr and some of the challenges it solves, try [Deploying a
 [dapr-actors]: https://docs.dapr.io/developing-applications/building-blocks/actors/actors-overview/
 [dapr-secrets]: https://docs.dapr.io/developing-applications/building-blocks/secrets/secrets-overview/
 [dapr-config]: https://docs.dapr.io/developing-applications/building-blocks/configuration/
+[dapr-distlock]: https://docs.dapr.io/developing-applications/building-blocks/distributed-lock/
+[dapr-crypto]: https://docs.dapr.io/developing-applications/building-blocks/cryptography/
 [dapr-subscriptions]: https://docs.dapr.io/developing-applications/building-blocks/pubsub/subscription-methods/#declarative-subscriptions
+[dapr-supported-version]: https://docs.dapr.io/operations/support/support-release-policy/
+[dapr-observability]: https://docs.dapr.io/operations/observability/
