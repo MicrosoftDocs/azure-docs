@@ -27,7 +27,7 @@ Then select **Start compute session** from the top toolbar.
 
 - Select the button **Start compute session**, or select **Start compute session** after using the arrow to drop down the list. The automatic compute session uses the environment defined in `flow.dag.yaml` in the [flow folder](flow-develop.md#authoring-the-flow). It runs on a serverless compute with a virtual machine (VM) size for which you have sufficient quota in your workspace.
 
-  :::image type="content" source="../media/prompt-flow/how-to-create-manage-compute session/compute session-create-automatic-init.png" alt-text="Screenshot of prompt flow with default settings for starting an automatic compute session on a flow page." lightbox = "../media/prompt-flow/how-to-create-manage-compute session/compute session-create-automatic-init.png":::
+  :::image type="content" source="../media/prompt-flow/how-to-create-manage-runtime/runtime-create-automatic-init.png" alt-text="Screenshot of prompt flow with default settings for starting an automatic compute session on a flow page." lightbox = "../media/prompt-flow/how-to-create-manage-compute session/compute session-create-automatic-init.png":::
 
 - Use the arrow to the right to access **Start with advanced settings**. In the advanced settings, you can:
 - Select **Start with advanced settings**. In the advanced settings, you can select the compute type. You can choose between serverless compute and compute instance.
