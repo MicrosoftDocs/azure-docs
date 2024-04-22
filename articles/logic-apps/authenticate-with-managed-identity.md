@@ -606,8 +606,6 @@ These steps show how to use the managed identity with a trigger or action using 
 
 1. If you haven't done so yet, add the [trigger or action that supports managed identities](logic-apps-securing-a-logic-app.md#authentication-types-supported-triggers-actions).
 
-   These steps continue by using the **HTTP** trigger as the example.
-
    > [!NOTE]
    >
    > Not all connector operations support letting you add an authentication type. For more information, see 
@@ -616,6 +614,8 @@ These steps show how to use the managed identity with a trigger or action using 
 1. On the trigger or action that you added, follow these steps:
 
    * **Built-in connector operations that support managed identity authentication**
+
+     These steps continue by using the **HTTP** action as an example.
 
      1. From the **Advanced parameters** list, add the **Authentication** property, if the property doesn't already appear.
 
@@ -639,13 +639,17 @@ These steps show how to use the managed identity with a trigger or action using 
 
         * **Single-authentication**: These connectors support only one authentication type.
 
+          These steps continue by using an **Azure Resource Manager** action as an example.
+
            1. From the **Managed identity** list, select the currently enabled managed identity.
 
               :::image type="content" source="media/authenticate-with-managed-identity/single-system-identity-consumption.png" alt-text="Screenshot shows Consumption workflow, connection creation box, and selected option for system-assigned managed identity." lightbox="media/authenticate-with-managed-identity/single-system-identity-consumption.png":::
 
            1. When you're ready, select **Create New**.
 
-        * **Multi-authentication**: These connectors show multiple authentication types, but you still can select only one type.
+        * **Multi-authentication**: These connectors support multiple authentication types, but you can select and use only one type at a time.
+
+          These steps continue by using an **Azure Blob Storage** action as an example.
 
            1. From the **Authentication Type** list, select **Logic Apps Managed Identity**.
 
@@ -670,7 +674,9 @@ These steps show how to use the managed identity with a trigger or action using 
 
    * **Built-in operations that support managed identity authentication**
 
-     1. From the **Add new parameter** list, add the **Authentication** property if the property doesn't already appear.
+     These steps continue by using the **HTTP** action as an example.
+
+     1. From the **Advanced parameters** list, add the **Authentication** property, if the property doesn't already appear.
 
         ![Screenshot shows Standard workflow, example built-in action, opened list named Add new parameter, and selected option for Authentication.](./media/authenticate-with-managed-identity/built-in-authentication-standard.png)
 
