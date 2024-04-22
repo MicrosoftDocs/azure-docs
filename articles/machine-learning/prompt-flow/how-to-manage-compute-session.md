@@ -215,7 +215,7 @@ You can also customize the environment that you use to run this flow by adding p
 >
 > Don't pin the version of `promptflow` and `promptflow-tools` in `requirements.txt`, because we already include them in the session base image.
 > 
-> `requirements.txt` didn't support local wheel file, you need build them in your image and update customize base image in `flow.dag.yaml`. Learn more [how to build custom base image](how-to-customize-session-base-image.md#customize-environment-with-docker-context-for-runtime)
+> `requirements.txt` didn't support local wheel file, you need build them in your image and update customize base image in `flow.dag.yaml`. Learn more [how to build custom base image](how-to-customize-session-base-image.md)
 
 #### Add packages in a private feed in Azure DevOps
 
@@ -250,11 +250,11 @@ If you want to use a private feed in Azure DevOps, follow these steps:
 
 
 > [!NOTE]
-> This approach mainly focuses on quick testing in flow develop phase, if you also want to deploy this flow as endpoint please build this private feed in your image and update customize base image in `flow.dag.yaml`. Learn more [how to build custom base image](how-to-customize-session-base-image.md#customize-environment-with-docker-context-for-runtime)
+> This approach mainly focuses on quick testing in flow develop phase, if you also want to deploy this flow as endpoint please build this private feed in your image and update customize base image in `flow.dag.yaml`. Learn more [how to build custom base image](how-to-customize-session-base-image.md)
 
 #### Change the base image for compute session
 
-By default, we use the latest prompt flow base image. If you want to use a different base image, you can [build a custom one](how-to-customize-session-base-image.md#customize-environment-with-docker-context-for-runtime). 
+By default, we use the latest prompt flow base image. If you want to use a different base image, you can [build a custom one](how-to-customize-session-base-image.md). 
 
 - In studio UI, you can change base image in base image settings under compute session settings. You need apply this change and 
 
@@ -273,11 +273,11 @@ By default, we use the latest prompt flow base image. If you want to use a diffe
 ## Manage serverless instance used by compute session
 When you using serverless compute as compute session, you can manage the serverless instance used by compute session. You can view the serverless instance used by compute session in the compute session list tab under compute page. 
 
-:::image type="content" source="./media/how-to-manage-compute-session/serverless-instance-list.png" alt-text="Screenshot of the option to save and install packages for an compute session on a flow page." lightbox = "./media/how-to-manage-compute-session/serverless-instance-list.png":::
+:::image type="content" source="./media/how-to-manage-compute-session/serverless-instance-list.png" alt-text="Screenshot of list of serverless instance." lightbox = "./media/how-to-manage-compute-session/serverless-instance-list.png":::
 
 You can also active flow and running running on it under active flows and runs tab. As delete the instance will impact the flow and runs on it.
 
-:::image type="content" source="./media/how-to-manage-compute-session/active-flows-runs-serverless-instance.png" alt-text="Screenshot of the option to save and install packages for an compute session on a flow page." lightbox = "./media/how-to-manage-compute-session/active-flows-runs-serverless-instance.png":::
+:::image type="content" source="./media/how-to-manage-compute-session/active-flows-runs-serverless-instance.png" alt-text="Screenshot of compute detail page of serverless instance." lightbox = "./media/how-to-manage-compute-session/active-flows-runs-serverless-instance.png":::
 
 ## Relationship between compute session, compute resource, flow and user
 

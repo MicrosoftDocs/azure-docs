@@ -140,7 +140,7 @@ Click on the link to know more about [connections](./concept-connections.md).
 
 Runtime can be created through **prompt flow portal UI** or using the **REST API**. Please follow the [guidelines](https://github.com/microsoft/llmops-promptflow-template/blob/main/docs/Azure_devops_how_to_setup.md#setup-runtime-for-prompt-flow) to set up compute and runtime for prompt flow. 
 
-Click on the link to know more about [runtime](./concept-runtime.md).
+Click on the link to know more about [runtime](./concept-session.md).
 
 > [!NOTE]
 >

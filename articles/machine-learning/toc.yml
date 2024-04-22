@@ -616,8 +616,8 @@
           items:
             - name: Connections
               href: ./prompt-flow/concept-connections.md
-            - name: Runtimes
-              href: ./prompt-flow/concept-runtime.md
+            - name: Session
+              href: ./prompt-flow/concept-session.md
             - name: Flows
               href: ./prompt-flow/concept-flows.md
             - name: Tools
@@ -632,12 +632,10 @@
           href: ./prompt-flow/community-ecosystem.md
         - name: Set up infrastructure
           items:
-            - name: Create and manage runtime
-              href: ./prompt-flow/how-to-create-manage-runtime.md
-            - name: Customize environment for runtime
-              href: ./prompt-flow/how-to-customize-environment-runtime.md
-            - name: Migrate from managed online endpoint/deployment runtime
-              href: ./prompt-flow/migrate-managed-inference-runtime.md
+            - name: Manage compute_session
+              href: ./prompt-flow/how-to-manage-compute-session.md
+            - name: Customize base image for compute session
+              href: ./prompt-flow/how-to-customize-session-base-image.md
             - name: Network isolation in prompt flow
               href: ./prompt-flow/how-to-secure-prompt-flow.md
         - name: Develop flows
