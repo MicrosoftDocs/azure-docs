@@ -230,16 +230,6 @@
         href: search-howto-schedule-indexers.md
       - name: Define field mappings
         href: search-indexer-field-mappings.md
-      - name: Connect with managed identities
-        items:
-        - name: Azure Storage
-          href: search-howto-managed-identities-storage.md
-        - name: Azure Cosmos DB
-          href: search-howto-managed-identities-cosmos-db.md
-        - name: SQL Database
-          href: search-howto-managed-identities-sql.md
-        - name: SQL Managed Instance
-          href: search-index-azure-sql-managed-instance-with-managed-identity.md
       - name: Portal indexing
         items:
         - name: Import data wizard
@@ -346,7 +336,7 @@
       href: vector-search-how-to-chunk-documents.md
     - name: Generate embeddings
       href: vector-search-how-to-generate-embeddings.md
-    - name: Portal chunking and embedding (preview)
+    - name: Chunk and embed in Azure portal (preview)
       href: search-get-started-portal-import-vectors.md
   - name: Keyword search
     items:
@@ -441,7 +431,17 @@
       - name: Connect as a trusted service
         href: search-indexer-howto-access-trusted-service-exception.md
       - name: Connect using a managed identity
-        href: search-howto-managed-identities-data-sources.md
+        items:
+        - name: Any Azure resource
+          href: search-howto-managed-identities-data-sources.md
+        - name: Azure Storage
+          href: search-howto-managed-identities-storage.md
+        - name: Azure Cosmos DB
+          href: search-howto-managed-identities-cosmos-db.md
+        - name: SQL Database
+          href: search-howto-managed-identities-sql.md
+        - name: SQL Managed Instance
+          href: search-index-azure-sql-managed-instance-with-managed-identity.md
       - name: Connect through a firewall
         href: search-indexer-howto-access-ip-restricted.md
       - name: Connect through a shared private link
