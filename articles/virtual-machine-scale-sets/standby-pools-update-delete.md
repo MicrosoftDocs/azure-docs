@@ -114,7 +114,10 @@ resource standbyPool 'Microsoft.standbypool/standbyvirtualmachinepools@2023-12-0
 
 ### [Portal](#tab/portal1)
 
-To delete an existing standby pool, navigate to Virtual Machine Scale set the standby pool is associated with. Under **Availability + scale** select **Standby pool**. Select **Delete pool**. This brings up a window where you can confirm the delete action. 
+1) Navigate to Virtual Machine Scale set the standby pool is associated with. 
+2) Under **Availability + scale** select **Standby pool**. 
+3) Select **Delete pool**. 
+4) Select **Delete**. 
 
 :::image type="content" source="media/standby-pools/delete-standby-pool-portal.png" alt-text="A screenshot showing how to delete a standby pool in the portal.":::
 
@@ -134,7 +137,7 @@ Remove-AzStandbyVMPool -ResourceGroup myResourceGroup -Name myStandbyPool -Nowai
 ```
 
 ### [REST](#tab/rest1)
-Delete an existing standby pool using [Create or Update REST](rest/api/standbypool/standby-virtual-machine-pools/create-or-update)
+Delete an existing standby pool using [Delete](rest/api/standbypool/standby-virtual-machine-pools/delete)
 
 ```HTTP
 DELETE https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.StandbyPool/standbyVirtualMachinePools/{standbyPoolName}?api-version=2023-12-01-preview

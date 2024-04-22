@@ -13,11 +13,12 @@ ms.reviewer: ju-shim
 # Create a standby pool
 This article steps through creating a standby pool for Virtual Machine Scale Sets with Flexible Orchestration.
 
-## Prerequisites
-
 > [!IMPORTANT]
 > Standby pools for Virtual Machine Scale Sets with Flexible Orchestration is currently in preview. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of this feature may change prior to general availability (GA). 
 
+
+
+## Prerequisites
 
 ### Feature Registration 
 Register the standby pool resource provider and the standby pool preview feature with your subscription using Azure Cloud Shell. Registration can take up to 30 minutes to successfully show as registered. You can rerun the below commands to determine when the feature is successfully registered. 
