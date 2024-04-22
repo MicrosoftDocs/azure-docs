@@ -48,7 +48,7 @@ To submit a batch synthesis request, construct the HTTP PUT request path and bod
 - Optionally you can set the `description`, `timeToLiveInHours`, and other properties. For more information, see [batch synthesis properties](batch-synthesis-properties.md).
 
 > [!NOTE]
-> The maximum JSON payload size that will be accepted is 2 megabytes. There is no limit on concurrent batch synthesis jobs for Standard (S0) Speech resources.
+> The maximum JSON payload size that will be accepted is 2 megabytes.
 
 Set the required `YourSynthesisId` in path. The `YourSynthesisId` have to be unique. It must be 3-64 long, contains only numbers, letters, hyphens, underscores and dots, starts and ends with a letter or number.
 
