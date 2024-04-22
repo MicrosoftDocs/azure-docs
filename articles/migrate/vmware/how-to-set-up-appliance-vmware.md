@@ -188,7 +188,7 @@ To add server credentials:
 1. Select **Add Credentials**.
 1. In the dropdown menu, select **Credentials type**.
 
-    You can provide domain/, Windows(non-domain)/, Linux(non-domain)/, and SQL Server authentication credentials. Learn how to [provide credentials](add-server-credentials.md) and how we handle them.
+    You can provide domain/, Windows(non-domain)/, Linux(non-domain)/, and SQL Server authentication credentials. Learn how to [provide credentials](../add-server-credentials.md) and how we handle them.
 1. For each type of credentials, enter:
     * A friendly name.
     * A username.
@@ -196,7 +196,7 @@ To add server credentials:
     Select **Save**.
 
     If you choose to use domain credentials, you also must enter the FQDN for the domain. The FQDN is required to validate the authenticity of the credentials with the Active Directory instance in that domain.
-1. Review the [required permissions](add-server-credentials.md#required-permissions) on the account for Step 3: Provide server credentials to perform software inventory, agentless dependency analysis, discovery of SQL Server instances and databases and discovery of ASP.NET web apps.
+1. Review the [required permissions](../add-server-credentials.mddd-server-credentials.md#required-permissions) on the account for Step 3: Provide server credentials to perform software inventory, agentless dependency analysis, discovery of SQL Server instances and databases and discovery of ASP.NET web apps.
 1. To add multiple credentials at once, select **Add more** to save credentials, and add more credentials.
     When you select **Save** or **Add more**, the appliance validates the domain credentials with the domain's Active Directory instance for authentication. Validation is made after each addition to avoid account lockouts as the appliance iterates to map credentials to respective servers.
 
@@ -229,8 +229,8 @@ To start vCenter Server discovery, in **Step 3: Provide server credentials to pe
 
 * It takes approximately 20-25 minutes for the discovery of servers across 10 vCenter Servers added to a single appliance.
 * If you have provided server credentials, software inventory (discovery of installed applications) is automatically initiated when the discovery of servers running on vCenter Server(s) is finished. Software inventory occurs once every 12 hours.
-* [Software inventory](how-to-discover-applications.md) identifies the SQL Server instances that are running on the servers. Using the information it collects, the appliance attempts to connect to the SQL Server instances through the Windows authentication credentials or the SQL Server authentication credentials that are provided on the appliance. It gathers data on SQL Server databases and their properties. The SQL Server discovery is performed once every 24 hours.
-* [Software inventory](how-to-discover-applications.md) identifies the web server role on the servers. Using the information it collects, the appliance attempts to connect to the IIS web server through the Windows authentication credentials that are provided on the appliance. It gathers data on web apps. The web app discovery is performed once every 24 hours.
+* [Software inventory](../how-to-discover-applications.md) identifies the SQL Server instances that are running on the servers. Using the information it collects, the appliance attempts to connect to the SQL Server instances through the Windows authentication credentials or the SQL Server authentication credentials that are provided on the appliance. It gathers data on SQL Server databases and their properties. The SQL Server discovery is performed once every 24 hours.
+* [Software inventory](../how-to-discover-applications.md) identifies the web server role on the servers. Using the information it collects, the appliance attempts to connect to the IIS web server through the Windows authentication credentials that are provided on the appliance. It gathers data on web apps. The web app discovery is performed once every 24 hours.
 * Discovery of installed applications might take longer than 15 minutes. The duration depends on the number of discovered servers. For 500 servers, it takes approximately one hour for the discovered inventory to appear in the Azure Migrate project in the portal.
 * During software inventory, the added server credentials are iterated against servers and validated for agentless dependency analysis. When the discovery of servers is finished, in the portal, you can enable agentless dependency analysis on the servers. Only the servers on which validation succeeds can be selected to enable agentless dependency analysis.
 * SQL Server instances and databases data and web apps data begin to appear in the portal within 24 hours after you start discovery.

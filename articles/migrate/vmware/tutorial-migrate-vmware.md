@@ -12,7 +12,7 @@ ms.custom: mvc, engagement-fy23
 
 # Migrate VMware VMs to Azure (agentless)
 
-This article shows you how to migrate on-premises VMware VMs to Azure, using the [Migration and modernization](migrate-services-overview.md#migration-and-modernization-tool) tool, with agentless migration. You can also migrate VMware VMs using agent-based migration. [Compare](server-migrate-overview.md#compare-migration-methods) the methods.
+This article shows you how to migrate on-premises VMware VMs to Azure, using the [Migration and modernization](../migrate-services-overview.md#migration-and-modernization-tool) tool, with agentless migration. You can also migrate VMware VMs using agent-based migration. [Compare](server-migrate-overview.md#compare-migration-methods) the methods.
 
 This tutorial is the third in a series that demonstrates how to assess and migrate VMware VMs to Azure.
 
@@ -37,7 +37,7 @@ Before you begin this tutorial, you should:
 
 1. [Complete the first tutorial](./tutorial-discover-vmware.md) to prepare Azure and VMware for migration.
 2. We recommend that you complete the second tutorial to [assess VMware VMs](./tutorial-assess-vmware-azure-vm.md) before migrating them to Azure, but you don't have to.
-3. Go to the already created project or [create a new project](./create-manage-projects.md)
+3. Go to the already created project or [create a new project](../create-manage-projects.md)
 4. Verify permissions for your Azure account - Your Azure account needs permissions to create a VM, and write to an Azure managed disk.
 
 > [!NOTE]
@@ -48,7 +48,7 @@ Before you begin this tutorial, you should:
 The Migration and modernization tool runs a lightweight VMware VM appliance that's used for discovery, assessment, and agentless migration of VMware VMs. If you follow the [assessment tutorial](./tutorial-assess-vmware-azure-vm.md), you've already set the appliance up. If  you didn't, set it up now, using one of these methods:
 
 - **OVA template**: [Set up](how-to-set-up-appliance-vmware.md) on a VMware VM using a downloaded OVA template.
-- **Script**: [Set up](deploy-appliance-script.md) on a VMware VM or physical machine, using a PowerShell installer script. This method should be used if you can't set up a VM using an OVA template, or if you're in Azure Government.
+- **Script**: [Set up](../deploy-appliance-script.md) on a VMware VM or physical machine, using a PowerShell installer script. This method should be used if you can't set up a VM using an OVA template, or if you're in Azure Government.
 
 After creating the appliance, you check that it can connect to Azure Migrate: Server Assessment, configure it for the first time, and register it with the Azure Migrate project.
 
@@ -95,7 +95,7 @@ Enable replication as follows:
     - Double encryption with platform-managed and customer-managed keys
 
    > [!NOTE]
-   > To replicate VMs with CMK, you'll need to [create a disk encryption set](../virtual-machines/disks-enable-customer-managed-keys-portal.md#set-up-your-disk-encryption-set) under the target Resource Group. A disk encryption set object maps Managed Disks to a Key Vault that contains the CMK to use for SSE.
+   > To replicate VMs with CMK, you'll need to [create a disk encryption set](../../virtual-machines/disks-enable-customer-managed-keys-portal.md#set-up-your-disk-encryption-set) under the target Resource Group. A disk encryption set object maps Managed Disks to a Key Vault that contains the CMK to use for SSE.
 
 10. In **Azure Hybrid Benefit**:
 
@@ -169,7 +169,7 @@ Do a test migration as follows:
 4. Choose the subnet to which you would like to associate each of the Network Interface Cards (NICs) of the migrated VM.
 
     :::image type="content" source="./media/tutorial-migrate-vmware/test-migration-subnet-selection.png" alt-text="Screenshot shows subnet selection during test migration.":::
-1. You have an option to upgrade the Windows Server OS during test migration. To upgrade, select the **Upgrade available** option. In the pane that appears, select the target OS version that you want to upgrade to and select **Apply**. [Learn more](how-to-upgrade-windows.md).
+1. You have an option to upgrade the Windows Server OS during test migration. To upgrade, select the **Upgrade available** option. In the pane that appears, select the target OS version that you want to upgrade to and select **Apply**. [Learn more](../how-to-upgrade-windows.md).
 5. The **Test migration** job starts. Monitor the job in the portal notifications.
 6. After the migration finishes, view the migrated Azure VM in **Virtual Machines** in the Azure portal. The machine name has a suffix **-Test**.
 7. After the test is done, right-click the Azure VM in **Replicating machines**, and click **Clean up test migration**.
@@ -212,18 +212,18 @@ After you've verified that the test migration works as expected, you can migrate
 ## Post-migration best practices
 
 - For increased resilience:
-    - Keep data secure by backing up Azure VMs using the Azure Backup service. [Learn more](../backup/quick-backup-vm-portal.md).
-    - Keep workloads running and continuously available by replicating Azure VMs to a secondary region with Site Recovery. [Learn more](../site-recovery/azure-to-azure-tutorial-enable-replication.md).
+    - Keep data secure by backing up Azure VMs using the Azure Backup service. [Learn more](../../backup/quick-backup-vm-portal.md).
+    - Keep workloads running and continuously available by replicating Azure VMs to a secondary region with Site Recovery. [Learn more](../../site-recovery/azure-to-azure-tutorial-enable-replication.md).
 - For increased performance:
-    - By default, data disks are created with host caching set to "None". Review and adjust data disk caching to your workload needs. [Learn more](../virtual-machines/premium-storage-performance.md#disk-caching).  
+    - By default, data disks are created with host caching set to "None". Review and adjust data disk caching to your workload needs. [Learn more](../../virtual-machines/premium-storage-performance.md#disk-caching).  
 - For increased security:
-    - Lock down and limit inbound traffic access with [Microsoft Defender for Cloud - Just in time administration](../security-center/security-center-just-in-time.md).
-    - Manage and govern updates on Windows and Linux machines with [Azure Update Manager](../update-manager/overview.md).
-    - Restrict network traffic to management endpoints with [Network Security Groups](../virtual-network/network-security-groups-overview.md).
-    - Deploy [Azure Disk Encryption](../virtual-machines/disk-encryption-overview.md) to help secure disks, and keep data safe from theft and unauthorized access.
+    - Lock down and limit inbound traffic access with [Microsoft Defender for Cloud - Just in time administration](../../security-center/security-center-just-in-time.md).
+    - Manage and govern updates on Windows and Linux machines with [Azure Update Manager](../../update-manager/overview.md).
+    - Restrict network traffic to management endpoints with [Network Security Groups](../../virtual-network/network-security-groups-overview.md).
+    - Deploy [Azure Disk Encryption](../../virtual-machines/disk-encryption-overview.md) to help secure disks, and keep data safe from theft and unauthorized access.
     - Read more about [securing IaaS resources](https://azure.microsoft.com/services/virtual-machines/secure-well-managed-iaas/), and visit the [Microsoft Defender for Cloud](https://azure.microsoft.com/services/security-center/).
 - For monitoring and management:
--  Consider deploying [Azure Cost Management](../cost-management-billing/cost-management-billing-overview.md) to monitor resource usage and spending.
+-  Consider deploying [Azure Cost Management](../../cost-management-billing/cost-management-billing-overview.md) to monitor resource usage and spending.
 
 
 ## Next steps

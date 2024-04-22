@@ -20,7 +20,7 @@ This article helps you understand how to test replicating virtual machines. Test
 
 Before you get started, perform the following steps:
 
-- [Create](create-manage-projects.md) an Azure Migrate project.
+- [Create](../create-manage-projects.md) an Azure Migrate project.
 - Deploy the  appliance for your scenario and complete the discovery of virtual machines.
 - Configure replication for one or more virtual machines that are to be migrated.
 
@@ -29,8 +29,8 @@ Before you get started, perform the following steps:
 
 Review the following tutorials based on your environment:
 - [Migrating VMware VMs with agentless migration](./tutorial-migrate-vmware.md).
-- [Migrating Hyper-V VMs to Azure](./tutorial-migrate-hyper-v.md).
-- [Migrating machines as physical servers to Azure](./tutorial-migrate-physical-virtual-machines.md)
+- [Migrating Hyper-V VMs to Azure](../tutorial-migrate-hyper-v.md).
+- [Migrating machines as physical servers to Azure](../tutorial-migrate-physical-virtual-machines.md)
 
 
 ## Setting up your test environment

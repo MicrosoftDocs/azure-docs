@@ -34,7 +34,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 Before you follow this tutorial to assess your servers for migration to Azure VMs, make sure you've discovered the servers you want to assess:
 
 - To discover servers using the Azure Migrate appliance, [follow this tutorial](tutorial-discover-vmware.md). 
-- To discover servers using an imported CSV file, [follow this tutorial](tutorial-discover-import.md).
+- To discover servers using an imported CSV file, [follow this tutorial](../tutorial-discover-import.md).
 
 
 ## Decide which assessment to run
@@ -73,13 +73,13 @@ Run an assessment as follows:
 1. In **Assessment properties** > **Target Properties**:
    - In **Target location**, specify the Azure region to which you want to migrate.
    - Size and cost recommendations are based on the location that you specify. Once you change the target location from default, you will be prompted to specify **Reserved Instances** and **VM series**.
-   - In Azure Government, you can target assessments in [these regions](migrate-support-matrix.md#azure-government).
+   - In Azure Government, you can target assessments in [these regions](../migrate-support-matrix.md#azure-government).
    - In **Storage type**,
      - If you want to use performance-based data in the assessment, select **Automatic** for Azure Migrate to recommend a storage type, based on disk IOPS and throughput.
      - Alternatively, select the storage type you want to use for VM when you migrate it.
    - In **Savings options (compute)**, specify the savings option that you want the assessment to consider, helping to optimize your Azure compute cost. 
-     - [Azure reservations](../cost-management-billing/reservations/save-compute-costs-reservations.md) (1 year or 3 year reserved) are a good option for the most consistently running resources.
-     - [Azure Savings Plan](../cost-management-billing/savings-plan/savings-plan-compute-overview.md) (1 year or 3 year savings plan) provide additional flexibility and automated cost optimization. Ideally post migration, you could use Azure reservation and savings plan at the same time (reservation will be consumed first), but in the Azure Migrate assessments, you can only see cost estimates of 1 savings option at a time. 
+     - [Azure reservations](../../cost-management-billing/reservations/save-compute-costs-reservations.md) (1 year or 3 year reserved) are a good option for the most consistently running resources.
+     - [Azure Savings Plan](../../cost-management-billing/savings-plan/savings-plan-compute-overview.md) (1 year or 3 year savings plan) provide additional flexibility and automated cost optimization. Ideally post migration, you could use Azure reservation and savings plan at the same time (reservation will be consumed first), but in the Azure Migrate assessments, you can only see cost estimates of 1 savings option at a time. 
      - When you select 'None', the Azure compute cost is based on the Pay as you go rate or based on actual usage.
      - You need to select pay-as-you-go in offer/licensing program to be able to use Reserved Instances or Azure Savings Plan. When you select any savings option other than 'None', the 'Discount (%)' and 'VM uptime' properties are not applicable.
 1. In **VM Size**:
@@ -190,7 +190,7 @@ Confidence ratings are as follows.
 61%-80% | 4 stars
 81%-100% | 5 stars
 
-[Learn more](concepts-assessment-calculation.md#confidence-ratings-performance-based) about confidence ratings.
+[Learn more](../concepts-assessment-calculation.md#confidence-ratings-performance-based) about confidence ratings.
 
 ### Review issues
 
@@ -200,5 +200,5 @@ In the Assessment report, you can see a list of errors if there are any issues f
 
 ## Next steps
 
-- Find server dependencies using [dependency mapping](concepts-dependency-visualization.md).
-- Set up [agentless](how-to-create-group-machine-dependencies-agentless.md) or [agent-based](how-to-create-group-machine-dependencies.md) dependency mapping.
+- Find server dependencies using [dependency mapping](../concepts-dependency-visualization.md).
+- Set up [agentless](../how-to-create-group-machine-dependencies-agentless.md) or [agent-based](../how-to-create-group-machine-dependencies.md) dependency mapping.

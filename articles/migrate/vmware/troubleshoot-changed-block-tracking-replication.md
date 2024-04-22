@@ -103,7 +103,7 @@ The component trying to replicate data to Azure is either down or not responding
     ```
     **Steps to run the performance benchmark test:**
     
-      1. [Download](../storage/common/storage-use-azcopy-v10.md) azcopy.
+      1. [Download](../../storage/common/storage-use-azcopy-v10.md) azcopy.
         
       2. Look for the appliance Storage Account in the Resource Group. The Storage Account has a name that resembles *migrategwsa\*\*\*\*\*\*\*\*\*\**. This is the value of parameter [account] in the above command.
         
@@ -191,7 +191,7 @@ The possible causes include:
 
     **Steps to run the performance benchmark test:**
     
-      1. [Download](../storage/common/storage-use-azcopy-v10.md) azcopy.
+      1. [Download](../../storage/common/storage-use-azcopy-v10.md) azcopy.
         
       2. Look for the Appliance Storage Account in the Resource Group. The Storage Account has a name that resembles migratelsa\*\*\*\*\*\*\*\*\*\*. This is the value of parameter [account] in the above command.
         
