@@ -69,6 +69,11 @@ Custom metadata can be assigned to APIs, environments, or deployments in your AP
 
 If assigned to an entity, metadataa is either optional or required. For example, you might require that the *Department* metadata is set only for APIs, but allow *YearOfCreation* to be optional metadata for environments.
 
+> [!NOTE]
+> * Define custom metadata at any time and apply to APIs and other entities in your API center. 
+> * After defining custom metadata, you can change its assignment to an entity, for example from required to optional for APIs.
+> * You can't delete or change the type of custom metadata that is currently set in APIs, environments,and deployments. Unassign them from the entities first, and then you can delete or change them.
+
 ## Use metadata for governance
 
 Use built-in and custom metadata to organize your APIs, environments, and deployments in your API center. For example:

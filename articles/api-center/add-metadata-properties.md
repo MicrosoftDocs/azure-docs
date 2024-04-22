@@ -78,11 +78,6 @@ You can view and download the JSON schema for the metadata defined in your API c
 
     :::image type="content" source="media/add-metadata-properties/metadata-schema.png" alt-text="Screenshot of metadata schema in the portal." lightbox="media/add-metadata-properties/metadata-schema.png":::
 
-> [!NOTE]
-> * Define custom metadata at any time and apply to APIs and other entities in your API center. 
-> * After adding custom metadata, you can change its assignment to an entity, for example from required to optional for APIs.
-> * You can't delete, unassign, or change the type of custom metadata that is currently set in entities. Remove them from the entities first, and then you can delete or change them.
-
 ## Next steps
 
 In this tutorial, you learned how to use the portal to:
