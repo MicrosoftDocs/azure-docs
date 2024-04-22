@@ -88,7 +88,7 @@ This type of error related to compute session lacks required packages. If you're
 
 ### Where to find the serverless instance used by compute session?
 
-You can view the serverless instance used by compute session in the compute session list tab under compute page. Learn more about [how to manage serverless instance](../how-to-manage-compute-session.md#manage-serverless-instance).
+You can view the serverless instance used by compute session in the compute session list tab under compute page. Learn more about [how to manage serverless instance](../how-to-manage-compute-session.md#manage-serverless-instance-used-by-compute-session).
 
 
 ### Identify which node consumes the most time
@@ -111,7 +111,7 @@ You can view the serverless instance used by compute session in the compute sess
 
         :::image type="content" source="../media/how-to-create-manage-runtime/runtime-timeout-by-language-model-timeout.png" alt-text="Screenshot that shows timeout logs caused by an LLM timeout in the studio UI." lightbox = "../media/how-to-create-manage-runtime/runtime-timeout-by-language-model-timeout.png":::
 
-        In this case, if you find the message `request canceled` in the logs, it might be because the OpenAI API call is taking too long and exceeding the runtime limit.
+        In this case, if you find the message `request canceled` in the logs, it might be because the OpenAI API call is taking too long and exceeding the timeout limit.
 
         An OpenAI API timeout could be caused by a network issue or a complex request that requires more processing time. For more information, see [OpenAI API timeout](https://help.openai.com/en/articles/6897186-timeout).
 
@@ -119,58 +119,19 @@ You can view the serverless instance used by compute session in the compute sess
 
         If retrying doesn't work, check whether you're using a long context model, such as `gpt-4-32k`, and have set a large value for `max_tokens`. If so, the behavior is expected because your prompt might generate a long response that takes longer than the interactive mode's upper threshold. In this situation, we recommend trying `Bulk test` because this mode doesn't have a timeout setting.
 
-1. If you can't find anything in runtime logs to indicate it's a specific node issue:
+1. If you can't find anything in logs to indicate it's a specific node issue:
 
-    - Contact the prompt flow team ([promptflow-eng](mailto:aml-pt-eng@microsoft.com)) with the runtime logs. We try to identify the root cause.
+    - Contact the prompt flow team ([promptflow-eng](mailto:aml-pt-eng@microsoft.com)) with the logs. We try to identify the root cause.
 
-### Find the compute instance runtime log for further investigation
+### Compute session failures using custom base image
 
-Go to the compute instance terminal and run `docker logs -<runtime_container_name>`.
 
-### You don't have access to this compute instance
+#### Compute session start failure with requirements.txt or custom base image
 
-Check if this compute instance is assigned to you and you have access to the workspace. Also, verify that you're on the correct network to access this compute instance.
+Compute session support to use `requirements.txt` or custom base image in `flow.dag.yaml` to customize the image. We would recommend you to use `requirements.txt` for common case, which will use `pip install -r requirements.txt` to install the packages. If you have dependency more then python packages, you need follow the [Customize base image](../how-to-customize-session-base-image.md) to create build a new image base on top of promptflow base image. Then use it in `flow.dag.yaml`. Learn more [how to specify base image in compute session](how-to-manage-compute-session.md#change-the-base-image-for-compute-session)
 
-:::image type="content" source="../media/how-to-create-manage-runtime/ci-flow-clone-others.png" alt-text="Screenshot that shows you don't have an access error on the flow page." lightbox = "../media/how-to-create-manage-runtime/ci-flow-clone-others.png":::
-
-This error occurs because you're cloning a flow from others that's using a compute instance as the runtime. Because the compute instance runtime is user isolated, you need to create your own compute instance runtime or select a managed online deployment/endpoint runtime, which can be shared with others.
-
-### Find Python packages installed in compute instance runtime
-
-Follow these steps to find Python packages installed in compute instance runtime:
-
-- Add a Python node in your flow.
-- Put the following code in the code section:
-
-    ```python
-    from promptflow import tool
-    import subprocess
-    
-    @tool
-    def list_packages(input: str) -> str: 
-        # Run the pip list command and save the output to a file
-        with open('packages.txt', 'w') as f:
-            subprocess.run(['pip', 'list'], stdout=f)    
-    
-    ```
-- Run the flow. Then you can find `packages.txt` in the flow folder.
-
-  :::image type="content" source="../media/faq/list-packages.png" alt-text="Screenshot that shows finding Python packages installed in runtime." lightbox = "../media/faq/list-packages.png":::
-
-### Runtime start failures using custom environment
-
-#### CI (Compute instance) runtime start failure using custom environment
-
-To use promptflow as runtime on CI, you need use the base image provide by promptflow. If you want to add extra packages to the base image, you need follow the [Customize environment with Docker context for runtime](../how-to-customize-environment-runtime.md) to create a new environment. Then use it to create CI runtime.
-
-If you got `UserError: FlowRuntime on compute instance is not ready`, you need login into to terminal of CI and run `journalctl -u c3-progenitor.serivice` to check the logs.
-
-#### Automatic runtime start failure with requirements.txt or custom base image
-
-Automatic runtime support to use `requirements.txt` or custom base image in `flow.dag.yaml` to customize the image. We would recommend you to use `requirements.txt` for common case, which will use `pip install -r requirements.txt` to install the packages. If you have dependency more then python packages, you need follow the [Customize environment with Docker context for runtime](../how-to-customize-environment-runtime.md) to create build a new image base on top of promptflow base image. Then use it in `flow.dag.yaml`. Learn more about [Customize environment with Docker context for runtime](../how-to-create-manage-runtime.md#update-an-automatic-runtime-preview-on-a-flow-page).
-
-- You can not use arbitrary base image to create runtime, you need use the base image provide by promptflow.
-- Don't pin the version of `promptflow` and `promptflow-tools` in `requirements.txt`, because we already include them in the runtime base image. Using old version of `promptflow` and `promptflow-tools` may cause unexpected behavior.
+- You can not use arbitrary base image to create Compute session, you need use the base image provide by promptflow.
+- Don't pin the version of `promptflow` and `promptflow-tools` in `requirements.txt`, because we already include them in the base image. Using old version of `promptflow` and `promptflow-tools` may cause unexpected behavior.
 
 ## Flow run related issues
 
