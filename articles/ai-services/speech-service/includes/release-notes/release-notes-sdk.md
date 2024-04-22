@@ -8,8 +8,79 @@ ms.author: eur
 
 ### Upcoming plans for Linux and Android users:
 
-* With the End of Life for **OpenSSL 1.1.1** on September 11th, we are working on changes to support OpenSSL 3.0 that will release soon. This streamlines usage on Linux Distributions that only have OpenSSL 3.0 pre-installed (such as Ubuntu 22.04).
-* **Ubuntu 18.04** also hit end of life back in April of 2023, so our users should prepare for us to move our minimum version up to Ubuntu 20.04 soon.
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
+
+* **Ubuntu 18.04** also hit end of life back in April of 2023, so our users should prepare for us to move our minimum version up to Ubuntu 20.04.
+
+### Speech SDK 1.37.0: 2024-April release
+
+####  New features
+
+* Add support for input text streaming in speech synthesis.
+* Change the default speech synthesis voice to en-US-AvaMultilingualNeural.
+* Update Android builds to use OpenSSL 3.x.
+
+####  Bug fixes
+
+* Fix occasional JVM crashes during SpeechRecognizer dispose when using MAS. (https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/2125)
+* Improve detection of default audio devices on Linux. (https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/2292)
+
+####  Samples
+
+* Updated for new features.
+
+### Speech SDK 1.36.0: 2024-March release
+
+####  New features
+
+* Add support  for language identification in multi-lingual translation on v2 endpoints using AutoDetectSourceLanguageConfig::FromOpenRange().
+
+####  Bug fixes
+
+* Fix SynthesisCanceled event not fired if stop is called during SynthesisStarted event.
+* Fix a noise issue in embedded speech synthesis.
+* Fix a crash in embedded speech recognition when running multiple recognizers in parallel.
+
+* Fix the phrase detection mode setting on v1/v2 endpoints.
+* Fixes to various issues with Microsoft Audio Stack.
+####  Samples
+
+* Updates for new features.
+
+### Speech SDK 1.35.0: February 2024 release
+
+#### New features
+
+* Change the default text to speech voice from en-US-JennyMultilingualNeural to en-US-AvaNeural.
+* Support word-level detail in embedded speech translation results using the detailed output format.
+
+#### Bug fixes
+
+*  Fix the AudioDataStream position getter API in Python.
+*  Fix speech translation using v2 endpoints without language detection.
+*  Fix a random crash and duplicate word boundary events in embedded text to speech.
+*  Return a correct cancellation error code for an internal server error on WebSocket connections.
+*  Fix the failure to load FPIEProcessor.dll library when MAS is used with C#.
+
+#### Samples
+
+* Minor formatting updates for Embedded recognition samples.
+
+### Speech SDK 1.34.1: January 2024 release
+
+#### Breaking changes
+
+* Bug fixes only
+
+#### New features
+
+* Bug fixes only
+
+#### Bug fixes
+
+* Fix regression introduced in 1.34.0 where service endpoint url was constructed with bad locale info for users in several China regions.
+
 
 ### Speech SDK 1.34.0: November 2023 release
 
@@ -22,7 +93,7 @@ ms.author: eur
 * Compatibility with .NET 8 (Fix for https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/2170 except for warning about centos7-x64)
 * Support for embedded speech performance metrics which can be used to evaluate the capability of a device to run embedded speech.
 * Support for source language identification in embedded multi-lingual translation.
-* Support for embedded speech-to-text, text-to-speech and translation for iOS and Swift/Objective-C released in preview.
+* Support for embedded speech-to-text, text to speech and translation for iOS and Swift/Objective-C released in preview.
 * Embedded support is provided in MicrosoftCognitiveServicesSpeechEmbedded-iOS Cocoapod.
 
 #### Bug fixes
@@ -37,7 +108,7 @@ ms.author: eur
 
 #### Samples
 
-* Embedded iOS samples for speech-to-text, text-to-speech and translation.
+* Embedded iOS samples for speech-to-text, text to speech and translation.
 
 
 ### Speech CLI 1.34.0: November 2023 release
@@ -92,7 +163,7 @@ ms.author: eur
 
 #### Samples
 
-* [conversation transcription with Swift APIs](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/swift/ios/conversation-transcription/README.md)
+* [Conversation transcription with Swift APIs](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/swift/ios/conversation-transcription/README.md)
 
 ### Speech SDK 1.31.0: August 2023 release
 
@@ -156,7 +227,7 @@ This table shows the previous and new object names for real-time diarization and
 #### Bug fixes
 
 * Fixed a memory leak when using speech recognizer with PhraseListGrammar, as reported by a customer ([GitHub issue](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/1978)).
-* Fixed a deadlock in Text-to-Speech (TTS) open connection API.
+* Fixed a deadlock in text to speech open connection API.
 
 #### Additional notes
 
@@ -179,7 +250,7 @@ This table shows the previous and new object names for real-time diarization and
 * **C++, C#, Java** - Preview of Embedded Speech Translation APIs. Now you can do speech translation without cloud connection!
 * **JavaScript** - Continuous Language Identification (LID) now enabled for speech translation.
 * **JavaScript** - Community contribution for adding `LocaleName` property to `VoiceInfo` class. Thank you GitHub user [shivsarthak](https://github.com/shivsarthak) for the pull request. 
-* **C++, C#, Java** - Added support for resampling Embedded Text-to-Speech (TTS) output from 16 kHz to 48 kHz sample rate.
+* **C++, C#, Java** - Added support for resampling Embedded text to speech output from 16 kHz to 48 kHz sample rate.
 * Added support for `hi-IN` locale in Intent Recognizer with Simple Pattern Matching.
 
 #### Bug fixes
@@ -210,7 +281,7 @@ This table shows the previous and new object names for real-time diarization and
 #### Samples
 
 * Added an embedded speech sample for MAUI.
-* Updated the embedded speech sample for Android Java to include Text to speech.
+* Updated the embedded speech sample for Android Java to include text to speech.
 
 ### Speech SDK 1.27.0: April 2023 release
 
@@ -709,7 +780,7 @@ This table shows the previous and new object names for real-time diarization and
 - **C++/Java/C#**: Added support to set any `HttpHeader` key/value via `ServicePropertyChannel::HttpHeader`.
 - **JavaScript**: Added support for the `ConversationTranscriber` API. Read documentation [here](../../get-started-stt-diarization.md).
 - **C++/C#**: Added new `AudioDataStream FromWavFileInput` method (to read .WAV files) [here (C++)](/cpp/cognitive-services/speech/audiodatastream) and [here (C#)](/dotnet/api/microsoft.cognitiveservices.speech.audiodatastream).
--  **C++/C#/Java/Python/Objective-C/Swift**: Added a `stopSpeakingAsync()` method to stop Text to speech synthesis. Read the Reference documentation [here (C++)](/cpp/cognitive-services/speech/microsoft-cognitiveservices-speech-namespace), [here (C#)](/dotnet/api/microsoft.cognitiveservices.speech), [here (Java)](/java/api/com.microsoft.cognitiveservices.speech), [here (Python)](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech),  and [here (Objective-C/Swift)](/objectivec/cognitive-services/speech/).
+-  **C++/C#/Java/Python/Objective-C/Swift**: Added a `stopSpeakingAsync()` method to stop text to speech synthesis. Read the Reference documentation [here (C++)](/cpp/cognitive-services/speech/microsoft-cognitiveservices-speech-namespace), [here (C#)](/dotnet/api/microsoft.cognitiveservices.speech), [here (Java)](/java/api/com.microsoft.cognitiveservices.speech), [here (Python)](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech),  and [here (Objective-C/Swift)](/objectivec/cognitive-services/speech/).
 - **C#, C++, Java**: Added a `FromDialogServiceConnector()` function to the `Connection` class that can be used to monitor connection and disconnection events for `DialogServiceConnector`. Read the Reference documentation [here (C#)](/dotnet/api/microsoft.cognitiveservices.speech.connection), [here (C++)](/cpp/cognitive-services/speech/connection), and [here (Java)](/java/api/com.microsoft.cognitiveservices.speech.connection).
 - **C++/C#/Java/Python/Objective-C/Swift**: Added support for Pronunciation Assessment, which evaluates speech pronunciation and gives speakers feedback on the accuracy and fluency of spoken audio. Read the documentation [here](../../how-to-pronunciation-assessment.md).
 
@@ -804,7 +875,7 @@ Stay healthy!
 
 #### New features
 - **Go**: New Go language support for [Speech Recognition](../../get-started-speech-to-text.md?pivots=programming-language-go) and [custom voice assistant](../../quickstarts/voice-assistants.md?pivots=programming-language-go). Set up your dev environment [here](../../quickstarts/setup-platform.md?pivots=programming-language-go). For sample code, see the Samples section below.
-- **JavaScript**: Added Browser support for Text to speech. See documentation [here](../../get-started-text-to-speech.md?pivots=programming-language-JavaScript).
+- **JavaScript**: Added Browser support for text to speech. See documentation [here](../../get-started-text-to-speech.md?pivots=programming-language-JavaScript).
 - **C++, C#, Java**: New `KeywordRecognizer` object and APIs supported on Windows, Android, Linux & iOS platforms. Read the documentation [here](../../keyword-recognition-overview.md). For sample code, see the Samples section below.
 - **Java**: Added multi-device conversation with translation support. See the reference doc [here](/java/api/com.microsoft.cognitiveservices.speech.transcription).
 
@@ -1056,7 +1127,7 @@ This is a bug fix release and only affecting the native/managed SDK. It isn't af
 
 #### Bug fixes
 
-- Fixed a problem where the speaker resource was destructed too early in Text to speech.
+- Fixed a problem where the speaker resource was destructed too early in text to speech.
 
 ### Speech SDK 1.4.2
 

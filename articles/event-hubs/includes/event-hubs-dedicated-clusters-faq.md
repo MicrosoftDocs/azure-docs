@@ -1,7 +1,6 @@
 ---
 title: include file
 description: include file
-services: event-hubs
 author: spelluru
 ms.service: event-hubs
 ms.topic: include

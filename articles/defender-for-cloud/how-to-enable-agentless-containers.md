@@ -11,7 +11,7 @@ ms.date: 12/13/2023
 Onboarding agentless container posture in Defender CSPM allows you to gain all its [capabilities](concept-agentless-containers.md#capabilities).
 
 > [!NOTE]
-> Agentless container posture is available for Azure and AWS clouds.
+> Agentless container posture is available for Azure, AWS, and GCP clouds.
 
 Defender CSPM includes [two extensions](/azure/defender-for-cloud/faq-defender-for-containers#what-are-the-extensions-for-agentless-container-posture-management) that allow for agentless visibility into Kubernetes and containers registries across your organization's software development lifecycle.
 
@@ -34,12 +34,12 @@ Defender CSPM includes [two extensions](/azure/defender-for-cloud/faq-defender-f
 A notification message pops up in the top right corner that verifies that the settings were saved successfully.
 
 > [!NOTE]
-> Agentless discovery for Kubernetes uses AKS trusted access. For more information about about AKS trusted access, see [Enable Azure resources to access Azure Kubernetes Service (AKS) clusters using Trusted Access](/azure/aks/trusted-access-feature).
+> Agentless discovery for Kubernetes uses AKS trusted access. For more information about about AKS trusted access, see [Enable Azure resources to access Azure Kubernetes Service (AKS) clusters using Trusted Access](../aks/trusted-access-feature.md).
 
 ## Next steps
 
 - Check out [common questions about Defender for Containers](faq-defender-for-containers.yml).
-- Learn more about [Trusted Access](/azure/aks/trusted-access-feature).
+- Learn more about [Trusted Access](../aks/trusted-access-feature.md).
 - Learn how to [view and remediate vulnerability assessment findings for registry images](view-and-remediate-vulnerability-assessment-findings.md).
 - Learn how to [view and remediate vulnerabilities for images running on your AKS clusters](view-and-remediate-vulnerabilities-for-images.md).
 - Learn how to [Test the Attack Path and Security Explorer using a vulnerable container image](how-to-test-attack-path-and-security-explorer-with-vulnerable-container-image.md)

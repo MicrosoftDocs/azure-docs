@@ -2,17 +2,16 @@
 title: High availability of SAP HANA on Azure VMs on RHEL | Microsoft Docs
 description: Establish high availability of SAP HANA on Azure virtual machines (VMs).
 services: virtual-machines-linux
-documentationcenter: 
 author: rdeltcheva
 manager: juergent
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
-ms.workload: infrastructure
-ms.custom: devx-track-python
-ms.date: 01/17/2024
+ms.custom: devx-track-python, devx-track-azurecli, devx-track-azurepowershell, linux-related-content
+ms.date: 04/08/2024
 ms.author: radeltch
 ---
+
 # High availability of SAP HANA on Azure VMs on Red Hat Enterprise Linux
 
 [dbms-guide]:dbms-guide-general.md
@@ -282,22 +281,9 @@ The steps in this section use the following prefixes:
    Create firewall rules to allow HANA System Replication and client traffic. The required ports are listed on [TCP/IP Ports of All SAP Products](https://help.sap.com/viewer/ports). The following commands are just an example to allow HANA 2.0 System Replication and client traffic to database SYSTEMDB, HN1, and NW1.
 
    ```bash
-   sudo firewall-cmd --zone=public --add-port=40302/tcp --permanent
-   sudo firewall-cmd --zone=public --add-port=40302/tcp
-   sudo firewall-cmd --zone=public --add-port=40301/tcp --permanent
-   sudo firewall-cmd --zone=public --add-port=40301/tcp
-   sudo firewall-cmd --zone=public --add-port=40307/tcp --permanent
-   sudo firewall-cmd --zone=public --add-port=40307/tcp
-   sudo firewall-cmd --zone=public --add-port=40303/tcp --permanent
-   sudo firewall-cmd --zone=public --add-port=40303/tcp
-   sudo firewall-cmd --zone=public --add-port=40340/tcp --permanent
-   sudo firewall-cmd --zone=public --add-port=40340/tcp
-   sudo firewall-cmd --zone=public --add-port=30340/tcp --permanent
-   sudo firewall-cmd --zone=public --add-port=30340/tcp
-   sudo firewall-cmd --zone=public --add-port=30341/tcp --permanent
-   sudo firewall-cmd --zone=public --add-port=30341/tcp
-   sudo firewall-cmd --zone=public --add-port=30342/tcp --permanent
-   sudo firewall-cmd --zone=public --add-port=30342/tcp
+    sudo firewall-cmd --zone=public --add-port={40302,40301,40307,40303,40340,30340,30341,30342}/tcp --permanent
+    sudo firewall-cmd --zone=public --add-port={40302,40301,40307,40303,40340,30340,30341,30342}/tcp
+
    ```
 
 1. **[1]** Create the tenant database.
@@ -775,7 +761,7 @@ pcs resource move SAPHana_HN1_03-master
 pcs resource move SAPHana_HN1_03-clone --master
 ```
 
-If you set `AUTOMATED_REGISTER="false"`, this command should migrate the SAP HANA master node and the group that contains the virtual IP address to `hn1-db-1`.
+The cluster would migrate the SAP HANA master node and the group containing virtual IP address to `hn1-db-1`. 
 
 After the migration is done, the `sudo pcs status` output looks like:
 
@@ -790,7 +776,7 @@ Resource Group: g_ip_HN1_03
     vip_HN1_03 (ocf::heartbeat:IPaddr2):       Started hn1-db-1
 ```
 
-The SAP HANA resource on `hn1-db-0` is stopped. In this case, configure the HANA instance as secondary by running these commands, as **hn1adm**:
+With `AUTOMATED_REGISTER="false"`, the cluster would not restart the failed HANA database or register it against the new primary on `hn1-db-0`. In this case, configure the HANA instance as secondary by running these commands, as **hn1adm**:
 
 ```bash
 sapcontrol -nr 03 -function StopWait 600 10

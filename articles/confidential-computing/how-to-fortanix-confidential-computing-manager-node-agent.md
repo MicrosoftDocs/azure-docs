@@ -5,11 +5,9 @@ services: virtual-machines
 author: ju-shim
 ms.service: virtual-machines
 ms.subservice: confidential-computing
-ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 03/24/2021
 ms.author: jushiman
-ms.custom: ignite-fall-2021
 ---
 # Run an application by using Fortanix Confidential Computing Manager
 

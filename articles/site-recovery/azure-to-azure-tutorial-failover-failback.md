@@ -2,7 +2,7 @@
 title: Tutorial to fail over Azure VMs to a secondary region for disaster recovery with Azure Site Recovery.
 description: Tutorial to learn how to fail over and reprotect Azure VMs replicated to a secondary Azure region for disaster recovery, with the Azure Site Recovery service.
 ms.topic: tutorial
-ms.date: 11/05/2020
+ms.date: 03/29/2024
 ms.custom: mvc
 ms.service: site-recovery
 ms.author: ankitadutta
@@ -109,7 +109,5 @@ After failover, you reprotect the VM in the secondary region, so that it replica
 
 ## Next steps
 
-In this tutorial, you failed over from the primary region to the secondary, and started replicating VMs back to the primary region. Now you can fail back from the secondary region to the primary.
+In this tutorial, you failed over from the primary region to the secondary, and started replicating VMs back to the primary region. Now you can [fail back from the secondary region to the primary](azure-to-azure-tutorial-failback.md).
 
-> [!div class="nextstepaction"]
-> [Fail back to the primary region](azure-to-azure-tutorial-failback.md)

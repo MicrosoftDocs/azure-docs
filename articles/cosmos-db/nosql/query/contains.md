@@ -8,7 +8,8 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
-ms.date: 09/21/2023
+ms.devlang: nosql
+ms.date: 02/27/2024
 ms.custom: query-reference
 ---
 
@@ -20,7 +21,7 @@ Returns a boolean indicating whether the first string expression contains the se
 
 ## Syntax
 
-```sql
+```nosql
 CONTAINS(<string_expr_1>, <string_expr_2> [, <bool_expr>])  
 ```  
 
@@ -40,7 +41,7 @@ Returns a boolean expression.
 
 The following example checks if various static substrings exist in a string.
 
-:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/contains/query.sql" highlight="2-7":::
+:::code language="nosql" source="~/cosmos-db-nosql-query-samples/scripts/contains/query.sql" highlight="2-7":::
 
 :::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/contains/result.json":::
 

@@ -6,12 +6,13 @@ services: front-door
 author: duongau
 ms.service: frontdoor
 ms.topic: conceptual
-ms.workload: infrastructure-services
 ms.date: 12/28/2023
 ms.author: jodowns
 ---
 
 # Front Door routing limits
+
+[!INCLUDE [Azure Front Door (classic) retirement notice](../../includes/front-door-classic-retirement.md)]
 
 Each Front Door profile has a *composite route limit*.
 

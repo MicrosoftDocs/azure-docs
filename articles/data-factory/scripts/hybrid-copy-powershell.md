@@ -6,7 +6,7 @@ ms.subservice: data-movement
 ms.topic: article
 ms.author: jianleishen
 author: jianleishen
-ms.custom: seo-lt-2019, devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell
 ms.date: 01/05/2024
 ---
 

@@ -29,7 +29,7 @@ You can host function apps in several ways:
 
 Use the following resources to quickly get started with Azure Functions networking scenarios. These resources are referenced throughout the article.
 
-* ARM, Bicep, and Terraform templates:
+*  ARM templates, Bicep files, and Terraform templates:
     * [Private HTTP triggered function app](https://github.com/Azure-Samples/function-app-with-private-http-endpoint)
     * [Private Event Hubs triggered function app](https://github.com/Azure-Samples/function-app-with-private-eventhub)
 * ARM templates only:
@@ -74,7 +74,7 @@ To learn more, see [Virtual network service endpoints](../virtual-network/virtua
 
 To restrict access to a specific subnet, create a restriction rule with a **Virtual Network** type. You can then select the subscription, virtual network, and subnet that you want to allow or deny access to. 
 
-If service endpoints aren't already enabled with Microsoft.Web for the subnet that you selected, they are automatically enabled unless you select the **Ignore missing Microsoft.Web service endpoints** check box. The scenario where you might want to enable service endpoints on the app but not the subnet depends mainly on whether you have the permissions to enable them on the subnet.
+If service endpoints aren't already enabled with `Microsoft.Web` for the subnet that you selected, they're automatically enabled unless you select the **Ignore missing Microsoft.Web service endpoints** check box. The scenario where you might want to enable service endpoints on the app but not the subnet depends mainly on whether you have the permissions to enable them on the subnet.
 
 If you need someone else to enable service endpoints on the subnet, select the **Ignore missing Microsoft.Web service endpoints** check box. Your app is configured for service endpoints in anticipation of having them enabled later on the subnet. 
 
@@ -212,21 +212,27 @@ Currently, you can use non-HTTP trigger functions from within a virtual network 
 
 ### Premium plan with virtual network triggers
 
-When you run a Premium plan, you can connect non-HTTP trigger functions to services that run inside a virtual network. To do this, you must enable virtual network trigger support for your function app. The **Runtime Scale Monitoring** setting is found in the [Azure portal](https://portal.azure.com) under **Configuration** > **Function runtime settings**.
+The [Premium plan](functions-premium-plan.md) lets you create functions that are triggered by services inside a virtual network. These non-HTTP triggers are known as _virtual network triggers_.   
+
+By default, virtual network triggers don't cause your function app to scale beyond their pre-warmed instance count. However, certain extensions support virtual network triggers that cause your function app to scale dynamically. You can enable this _dynamic scale monitoring_ in your function app for supported extensions in one of these ways:
+
+#### [Azure portal](#tab/azure-portal)
+
+1. In the [Azure portal](https://portal.azure.com), navigate to your function app. 
+
+1. Under **Settings** select **Configuration**, then in the **Function runtime settings** tab set **Runtime Scale Monitoring** to **On**.
+
+1. Select **Save** to update the function app configuration and restart the app.
 
 :::image type="content" source="media/functions-networking-options/virtual-network-trigger-toggle.png" alt-text="VNETToggle":::
 
-### [Azure CLI](#tab/azure-cli)
-
-You can also enable virtual network triggers by using the following Azure CLI command:
+#### [Azure CLI](#tab/azure-cli)
 
 ```azurecli-interactive
 az resource update -g <resource_group> -n <function_app_name>/config/web --set properties.functionsRuntimeScaleMonitoringEnabled=1 --resource-type Microsoft.Web/sites
 ```
 
-### [Azure PowerShell](#tab/azure-powershell)
-
-You can also enable virtual network triggers by using the following Azure PowerShell command:
+#### [Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 $Resource = Get-AzResource -ResourceGroupName <resource_group> -ResourceName <function_app_name>/config/web -ResourceType Microsoft.Web/sites
@@ -237,20 +243,24 @@ $Resource | Set-AzResource -Force
 ---
 
 > [!TIP]
-> Enabling virtual network triggers may have an impact on the performance of your application since your App Service plan instances will need to monitor your triggers to determine when to scale. This impact is likely to be very small.
+> Enabling the monitoring of virtual network triggers may have an impact on the performance of your application, though this impact is likely to be very small.
 
-Virtual network triggers are supported in version 2.x and above of the Functions runtime. The following non-HTTP trigger types are supported.
+Support for dynamic scale monitoring of virtual network triggers isn't available in version 1.x of the Functions runtime. 
 
-| Extension | Minimum version |
-|-----------|---------| 
-|[Microsoft.Azure.WebJobs.Extensions.Storage](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage/) | 3.0.10 or above |
-|[Microsoft.Azure.WebJobs.Extensions.EventHubs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventHubs)| 4.1.0 or above|
-|[Microsoft.Azure.WebJobs.Extensions.ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.ServiceBus)| 3.2.0 or above|
-|[Microsoft.Azure.WebJobs.Extensions.CosmosDB](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.CosmosDB)| 3.0.5 or above|
-|[Microsoft.Azure.WebJobs.Extensions.DurableTask](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask)| 2.0.0 or above|
+The extensions in this table support dynamic scale monitoring of virtual network triggers. To get the best scaling performance, you should upgrade to versions that also support [target-based scaling](functions-target-based-scaling.md#premium-plan-with-runtime-scale-monitoring-enabled).
+
+| Extension (minimum version) | Runtime scale monitoring only | With [target-based scaling](functions-target-based-scaling.md#premium-plan-with-runtime-scale-monitoring-enabled) |
+|-----------|---------|--- |
+|[Microsoft.Azure.WebJobs.Extensions.CosmosDB](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.CosmosDB)| > 3.0.5 | > 4.1.0 |
+|[Microsoft.Azure.WebJobs.Extensions.DurableTask](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask)| > 2.0.0 | n/a |
+|[Microsoft.Azure.WebJobs.Extensions.EventHubs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventHubs)| > 4.1.0 | > 5.2.0 |
+|[Microsoft.Azure.WebJobs.Extensions.ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.ServiceBus)| > 3.2.0 | > 5.9.0 |
+|[Microsoft.Azure.WebJobs.Extensions.Storage](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage/) | > 3.0.10 | > 5.1.0<sup>*</sup>  |
+
+<sup>*</sup> Queue storage only.
 
 > [!IMPORTANT]
-> When you enable virtual network trigger support, only the trigger types shown in the previous table scale dynamically with your application. You can still use triggers that aren't in the table, but they're not scaled beyond their pre-warmed instance count. For the complete list of triggers, see [Triggers and bindings](./functions-triggers-bindings.md#supported-bindings).
+> When you enable virtual network trigger monitoring, only triggers for these extensions can cause your app to scale dynamically. You can still use triggers from extensions that aren't in this table, but they won't cause scaling beyond their pre-warmed instance count. For a complete list of all trigger and binding extensions, see [Triggers and bindings](./functions-triggers-bindings.md#supported-bindings).
 
 ### App Service plan and App Service Environment with virtual network triggers
 

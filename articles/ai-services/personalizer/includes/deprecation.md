@@ -5,7 +5,7 @@ author: jboback
 manager: nitinme
 ms.service: azure-ai-personalizer
 ms.topic: include
-ms.date: 10/04/2023
+ms.date: 01/19/2024
 ms.author: jboback
 ---
 

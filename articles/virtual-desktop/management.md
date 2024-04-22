@@ -5,7 +5,6 @@ author: heidilohr
 ms.topic: conceptual
 ms.date: 04/11/2023
 ms.author: helohr
-manager: femila
 ---
 # Manage session hosts with Microsoft Intune
 

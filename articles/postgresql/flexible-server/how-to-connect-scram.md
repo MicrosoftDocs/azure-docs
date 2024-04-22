@@ -6,7 +6,7 @@ author: AwdotiaRomanowna
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: how-to
-ms.date: 11/30/2021
+ms.date: 01/23/2024
 ---
 
 # SCRAM authentication in Azure Database for PostgreSQL - Flexible Server

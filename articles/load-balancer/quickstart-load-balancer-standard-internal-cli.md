@@ -19,7 +19,7 @@ Get started with Azure Load Balancer by using the Azure CLI to create an interna
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)] 
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)] 
 
 - This quickstart requires version 2.0.28 or later of the Azure CLI. If you're using Azure Cloud Shell, the latest version is already installed.
 
@@ -200,7 +200,7 @@ To create a network security group rule, use [az network nsg rule create](/cli/a
     --priority 200
 ```
 
-## Create back-end servers
+## Create backend servers
 
 In this section, you create:
 

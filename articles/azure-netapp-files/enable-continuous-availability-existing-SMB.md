@@ -1,16 +1,9 @@
 ---
 title: Enable Continuous Availability on existing Azure NetApp Files SMB volumes | Microsoft Docs
-description: Describes how to enable SMB Continuous Availability on existing Azure NetApp Files SMB volume.  
+description: Describes how to enable SMB Continuous Availability on existing Azure NetApp Files SMB volume.
 services: azure-netapp-files
-documentationcenter: ''
 author: b-hchen
-manager: ''
-editor: ''
-
-ms.assetid:
 ms.service: azure-netapp-files
-ms.workload: storage
-ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.date: 05/31/2023
 ms.author: anfdocs
@@ -30,7 +23,7 @@ You can enable the SMB Continuous Availability (CA) feature when you [create a n
        
 1. Select the SMB volume that you want to have SMB CA enabled. Then select **Edit**.  
 1. On the Edit window that appears, select the **Enable Continuous Availability** checkbox.   
-    ![Snapshot that shows the Enable Continuous Availability option.](../media/azure-netapp-files/enable-continuous-availability.png)
+    ![Snapshot that shows the Enable Continuous Availability option.](./media/enable-continuous-availability-existing-smb/enable-continuous-availability.png)
 
 1. Reboot the Windows systems connecting to the existing SMB share.   
 

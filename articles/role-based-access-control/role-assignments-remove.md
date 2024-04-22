@@ -1,14 +1,12 @@
 ---
 title: Remove Azure role assignments - Azure RBAC
 description: Learn how to remove access to Azure resources for users, groups, service principals, or managed identities using Azure portal, Azure PowerShell, Azure CLI, or REST API.
-services: active-directory
 author: rolyon
 manager: amycolannino
 ms.service: role-based-access-control
 ms.topic: how-to
-ms.workload: identity
-ms.date: 01/02/2024
-ms.author: rolyon 
+ms.date: 04/15/2024
+ms.author: rolyon
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-arm-template
 ms.devlang: azurecli
 ---
@@ -75,6 +73,14 @@ Removes the [Billing Reader](built-in-roles.md#billing-reader) role from the *al
 PS C:\> Remove-AzRoleAssignment -SignInName alain@example.com `
 -RoleDefinitionName "Billing Reader" `
 -Scope "/providers/Microsoft.Management/managementGroups/marketing-group"
+```
+
+Removes the [User Access Administrator](built-in-roles.md#user-access-administrator) role with ID 18d7d88d-d35e-4fb5-a5c3-7773c20a72d9 from the principal with ID 33333333-3333-3333-3333-333333333333 at subscription scope with ID 00000000-0000-0000-0000-000000000000.
+
+```azurepowershell
+PS C:\> Remove-AzRoleAssignment -ObjectId 33333333-3333-3333-3333-333333333333 `
+-RoleDefinitionId 18d7d88d-d35e-4fb5-a5c3-7773c20a72d9 `
+-Scope /subscriptions/00000000-0000-0000-0000-000000000000
 ```
 
 If you get the error message: "The provided information does not map to a role assignment", make sure that you also specify the `-Scope` or `-ResourceGroupName` parameters. For more information, see [Troubleshoot Azure RBAC](troubleshooting.md#symptom---role-assignments-with-identity-not-found).

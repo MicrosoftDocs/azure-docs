@@ -2,7 +2,6 @@
 title: Azure Monitor workbooks and Azure Resource Manager templates 
 description: Simplify complex reporting with prebuilt and custom parameterized Azure Monitor workbooks deployed via Azure Resource Manager templates.
 services: azure-monitor
-ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.custom: devx-track-arm-template
 ms.topic: conceptual

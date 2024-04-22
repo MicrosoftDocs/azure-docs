@@ -9,7 +9,6 @@ ms.author: danlep
 ms.manager: gwallace
 ms.reviewer: estfan, macolso
 ms.topic: how-to
-tags: connectors
 ms.date: 01/04/2024
 ---
 

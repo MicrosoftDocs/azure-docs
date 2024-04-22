@@ -108,6 +108,7 @@ az vmss create \
     --resource-group myResourceGroup \
     --name myScaleSet \
     --image Ubuntu2204 \
+    --orchestration-mode Flexible \
     --single-placement-group false \
     --admin-username azureuser \
     --generate-ssh-keys \
@@ -130,6 +131,7 @@ Just add '-Priority Spot', and supply a `-max-price` to the [New-AzVmssConfig](/
 $vmssConfig = New-AzVmssConfig `
     -Location "East US 2" `
     -SkuCapacity 2 `
+    -OrchestrationMode "Flexible" `
     -SkuName "Standard_DS2" `
     -Priority "Spot" `
     -max-price -1 `

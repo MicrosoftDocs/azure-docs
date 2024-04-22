@@ -2,7 +2,7 @@
 title: Migrate Batch pool configuration from Cloud Services to Virtual Machines
 description: Learn how to update your pool configuration to the latest and recommended configuration
 ms.topic: how-to
-ms.date: 09/03/2021
+ms.date: 01/30/2024
 ---
 
 # Migrate Batch pool configuration from Cloud Services to Virtual Machine
@@ -12,6 +12,12 @@ Currently, Batch pools can be created using either [virtualMachineConfiguration]
 Cloud Services Configuration pools don't support some of the current Batch features, and won't support any newly added features. You won't be able to create new 'CloudServiceConfiguration' pools or add new nodes to existing pools [after February 29, 2024](https://azure.microsoft.com/updates/azure-batch-cloudserviceconfiguration-pools-will-be-retired-on-29-february-2024/).
 
 If your Batch solutions currently use 'cloudServiceConfiguration' pools, we recommend changing to 'virtualMachineConfiguration' as soon as possible. This will enable you to benefit from all Batch capabilities, such as an expanded [selection of VM series](batch-pool-vm-sizes.md), Linux VMs, [containers](batch-docker-container-workloads.md), [Azure Resource Manager virtual networks](batch-virtual-network.md), and [node disk encryption](disk-encryption.md).
+
+> [!IMPORANT]
+> Azure [Batch account certificates](credential-access-key-vault.md) are deprecated and will be retired after the
+> same February 29, 2024 date as `cloudServiceConfiguration` pools. If you are using Batch account certificates,
+> [migrate your Batch account certificates to Azure Key Vault](batch-certificate-migration-guide.md) at the same
+> time as migrating your pool configuration.
 
 ## Create a pool using Virtual Machine Configuration
 

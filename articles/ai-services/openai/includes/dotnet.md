@@ -9,7 +9,6 @@ ms.topic: include
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 07/26/2023
-keywords: 
 ---
 
 [Source code](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/openai/Azure.AI.OpenAI/src) | [Package (NuGet)](https://www.nuget.org/packages/Azure.AI.OpenAI/) | [Samples](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/openai/Azure.AI.OpenAI/tests/Samples)
@@ -47,7 +46,7 @@ using Azure.AI.OpenAI;
 using static System.Environment;
 
 string endpoint = GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT");
-string key = GetEnvironmentVariable("AZURE_OPENAI_KEY");
+string key = GetEnvironmentVariable("AZURE_OPENAI_API_KEY");
 
 var client = new OpenAIClient(new Uri(endpoint), new AzureKeyCredential(key));
 
@@ -83,7 +82,7 @@ Microsoft was founded on April 4, 1975.
 
 ## Clean up resources
 
-If you want to clean up and remove an OpenAI resource, you can delete the resource. Before deleting the resource you must first delete any deployed models.
+If you want to clean up and remove an Azure OpenAI resource, you can delete the resource. Before deleting the resource you must first delete any deployed models.
 
 - [Portal](../../multi-service-resource.md?pivots=azportal#clean-up-resources)
 - [Azure CLI](../../multi-service-resource.md?pivots=azcli#clean-up-resources)

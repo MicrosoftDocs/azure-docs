@@ -7,11 +7,11 @@ ms.author: aahi
 author: aahill
 manager: nitinme
 ms.devlang: javascript
-ms.custom: seodec18, devx-track-js
+ms.custom: devx-track-js
 ms.service: azure-ai-language
 ms.subservice: azure-ai-luis
 ms.topic: tutorial
-ms.date: 05/17/2021
+ms.date: 01/19/2024
 ---
 
 # Build a LUIS app programmatically using Node.js

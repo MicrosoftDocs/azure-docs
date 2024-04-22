@@ -3,7 +3,6 @@ title: Azure Functions trigger for Azure Cosmos DB advanced configuration
 description: Learn how to configure logging and connection policy used by Azure Functions trigger for Azure Cosmos DB
 author: ealsur
 ms.service: cosmos-db
-ms.custom: ignite-2022
 ms.topic: how-to
 ms.date: 12/21/2022
 ms.author: maquaran

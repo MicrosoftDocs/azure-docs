@@ -32,9 +32,9 @@ User with Reader role trying to edit an attestation policy in PowerShell
 
   ```powershell
   Set-AzAttestationPolicy : Operation returned HTTP Status Code 401
-At line:1 char:1
-+ Set-AzAttestationPolicy -Name $attestationProvider -ResourceGroupName ...
-+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  At line:1 char:1
+  + Set-AzAttestationPolicy -Name $attestationProvider -ResourceGroupName ...
+  + ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     + CategoryInfo          : CloseError: (:) [Set-AzAttestationPolicy], RestException
     + FullyQualifiedErrorId : Microsoft.Azure.Commands.Attestation.SetAzureAttestationPolicy
   ```

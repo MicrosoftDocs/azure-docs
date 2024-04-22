@@ -99,11 +99,9 @@ During the blob rehydration operation, you can call the [Get Blob Properties](/r
 
 Rehydration of an archived blob may take up to 15 hours, and it is inefficient to repeatedly poll **Get Blob Properties** to determine whether rehydration is complete. Microsoft recommends that you use [Azure Event Grid](../../event-grid/overview.md) to capture the event that fires when rehydration is complete for better performance and cost optimization.
 
-Azure Event Grid raises one of the following two events on blob rehydration, depending on which operation was used to rehydrate the blob:
+Azure Event Grid raises **Microsoft.Storage.BlobTierChanged** event on the completion of blob rehydration:
 
-- The **Microsoft.Storage.BlobCreated** event fires when a blob is created. In the context of blob rehydration, this event fires when a [Copy Blob](/rest/api/storageservices/copy-blob) operation creates a new destination blob in either the hot or cool tier and the blob's data is fully rehydrated from the archive tier. If the account has the **hierarchical namespace** feature enabled on it, the `CopyBlob` operation works a little differently. In that case, the **Microsoft.Storage.BlobCreated** event is triggered when the `CopyBlob` operation is **initiated** and not when the Block Blob is completely committed.
-  
-- The **Microsoft.Storage.BlobTierChanged** event fires when a blob's tier is changed. In the context of blob rehydration, this event fires when a [Set Blob Tier](/rest/api/storageservices/set-blob-tier) operation successfully changes an archived blob's tier to the hot or cool tier.
+- The **Microsoft.Storage.BlobTierChanged** event fires when a blob's tier is changed. In the context of blob rehydration, this event fires when the access tier of a destination blob is successfully changed from archive tier to an online tier (hot, cool or cold tier). You can use Set Blob Tier operation to change the access tier of an archived blob or use Copy Blob operation to copy an archived blob to a new destination blob in an online tier.
 
 To learn how to capture an event on rehydration and send it to an Azure Function event handler, see [Run an Azure Function in response to a blob rehydration event](archive-rehydrate-handle-event.md).
 

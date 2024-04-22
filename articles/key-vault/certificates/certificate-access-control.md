@@ -3,12 +3,11 @@ title: About Azure Key Vault Certificates access control
 description: Overview of Azure Key Vault certificates access control
 services: key-vault
 author: sebansal
-tags: azure-resource-manager
 
 ms.service: key-vault
 ms.subservice: certificates
 ms.topic: overview
-ms.date: 01/20/2023
+ms.date: 01/30/2024
 ms.author: sebansal
 ---
 

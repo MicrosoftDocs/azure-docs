@@ -12,6 +12,9 @@ ms.author: danlep
 
 # Configure a GraphQL resolver
 
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
+
+
 Configure a resolver to retrieve or set data for a GraphQL field in an object type specified in a GraphQL schema. The schema must be imported to API Management as a GraphQL API. 
 
 Currently, API Management supports resolvers that can access the following data sources:
@@ -194,6 +197,6 @@ You can define the resolver as follows:
 For more resolver examples, see:
 
 
-* [GraphQL resolver policies](api-management-policies.md#graphql-resolver-policies)
+* [GraphQL resolver policies](api-management-policies.md#graphql-resolvers)
 
 * [Sample APIs for Azure API Management](https://github.com/Azure-Samples/api-management-sample-apis)

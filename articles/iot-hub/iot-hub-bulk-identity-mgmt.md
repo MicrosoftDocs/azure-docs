@@ -1,45 +1,46 @@
 ---
-title: Import and export Azure IoT Hub device identities
-description: How to use the Azure IoT service SDK to run bulk operations against the identity registry to import and export device identities. Import operations enable you to create, update, and delete device identities in bulk.
+title: Import and export device identities
+titleSuffix: Azure IoT Hub
+description: Use the Azure IoT service SDK to import and export device identities so that you can create, update, and delete device identities in bulk.
 author: kgremban
 
 ms.author: kgremban
 ms.service: iot-hub
 ms.topic: how-to
-ms.date: 06/16/2023
+ms.date: 01/25/2024
 ms.custom: devx-track-csharp, references_regions
 ---
 
 # Import and export IoT Hub device identities in bulk
 
-Each IoT hub has an identity registry you can use to create per-device resources in the service. The identity registry also enables you to control access to the device-facing endpoints. This article describes how to import and export device identities in bulk to and from an identity registry, using the ImportExportDeviceSample sample included with the [Microsoft Azure IoT SDK for .NET](https://github.com/Azure/azure-iot-sdk-csharp/tree/main). For more information about how you can use this capability when migrating an IoT hub to a different region, see [How to manually migrate an Azure IoT hub using an Azure Resource Manager template](migrate-hub-arm.md).
+Each IoT hub has an identity registry that you can use to create device resources in the service. The identity registry also enables you to control access to the device-facing endpoints. This article describes how to import and export device identities in bulk to and from an identity registry, using the ImportExportDeviceSample sample included with the [Microsoft Azure IoT SDK for .NET](https://github.com/Azure/azure-iot-sdk-csharp/tree/main). For more information about how you can use this capability when migrating an IoT hub to a different region, see [How to manually migrate an Azure IoT hub using an Azure Resource Manager template](migrate-hub-arm.md).
 
 > [!NOTE]
-> IoT Hub has recently added virtual network support in a limited number of regions. This feature secures import and export operations and eliminates the need to pass keys for authentication.  Initially, virtual network support is available only in these regions: *WestUS2*, *EastUS*, and *SouthCentralUS*. To learn more about virtual network support and the API calls to implement it, see [IoT Hub Support for virtual networks](virtual-network-support.md).
+> IoT Hub recently added virtual network support in a limited number of regions. This feature secures import and export operations and eliminates the need to pass keys for authentication. Currently, virtual network support is available only in these regions: *WestUS2*, *EastUS*, and *SouthCentralUS*. To learn more about virtual network support and the API calls to implement it, see [IoT Hub Support for virtual networks](virtual-network-support.md).
 
-Import and export operations take place in the context of *Jobs* that enable you to execute bulk service operations against an IoT hub.
+Import and export operations take place in the context of *jobs* that enable you to execute bulk service operations against an IoT hub.
 
 The **RegistryManager** class in the SDK includes the **ExportDevicesAsync** and **ImportDevicesAsync** methods that use the **Job** framework. These methods enable you to export, import, and synchronize the entirety of an IoT hub identity registry.
 
-This topic discusses using the **RegistryManager** class and **Job** system to perform bulk imports and exports of devices to and from an IoT hub's identity registry. You can also use the Azure IoT Hub Device Provisioning Service to enable zero-touch, just-in-time provisioning to one or more IoT hubs without requiring human intervention. To learn more, see the [provisioning service documentation](../iot-dps/index.yml).
+This article discusses using the **RegistryManager** class and **Job** system to perform bulk imports and exports of devices to and from an IoT hub's identity registry. You can also use the Azure IoT Hub Device Provisioning Service to enable zero-touch, just-in-time provisioning to one or more IoT hubs. To learn more, see the [provisioning service documentation](../iot-dps/index.yml).
 
 > [!NOTE]
 > Some of the code snippets in this article are included from the ImportExportDevicesSample service sample provided with the [Microsoft Azure IoT SDK for .NET](https://github.com/Azure/azure-iot-sdk-csharp/tree/main). The sample is located in the `/iothub/service/samples/how to guides/ImportExportDevicesSample` folder of the SDK and, where specified, code snippets are included from the `ImportExportDevicesSample.cs` file for that SDK sample. For more information about the ImportExportDevicesSample sample and other service samples included in the Azure IoT SDK for.NET, see [Azure IoT hub service samples for C#](https://github.com/Azure/azure-iot-sdk-csharp/tree/main/iothub/service/samples/how%20to%20guides).
 
 ## What are jobs?
 
-Identity registry operations use the **Job** system when the operation:
+Identity registry operations use the job system when the operation:
 
 * Has a potentially long execution time compared to standard run-time operations.
 
 * Returns a large amount of data to the user.
 
-Instead of a single API call waiting or blocking on the result of the operation, the operation asynchronously creates a **Job** for that IoT hub. The operation then immediately returns a **JobProperties** object.
+Instead of a single API call waiting or blocking on the result of the operation, the operation asynchronously creates a job for that IoT hub. The operation then immediately returns a **JobProperties** object.
 
 The following C# code snippet shows how to create an export job:
 
 ```csharp
-// Call an export job on the IoT Hub to retrieve all devices
+// Call an export job on the IoT hub to retrieve all devices
 JobProperties exportJob = await 
   registryManager.ExportDevicesAsync(containerSasUri, false);
 ```
@@ -56,13 +57,13 @@ RegistryManager registryManager =
 
 To find the connection string for your IoT hub, in the Azure portal:
 
-- Navigate to your IoT hub.
+1. Navigate to your IoT hub.
 
-- Select **Shared access policies**.
+1. Select **Shared access policies**.
 
-- Select a policy, taking into account the permissions you need.
+1. Select a policy, taking into account the permissions you need.
 
-- Copy the connection string from the panel on the right-hand side of the screen.
+1. Copy the connection string for that policy.
 
 The following C# code snippet, from the **WaitForJobAsync** method in the SDK sample, shows how to poll every five seconds to see if the job has finished executing:
 
@@ -93,9 +94,7 @@ Only one active device import or export job is allowed at a time for all IoT Hub
 
 ## Export devices
 
-Use the **ExportDevicesAsync** method to export the entirety of an IoT hub identity registry to an Azure Storage blob container using a shared access signature (SAS). For more information about shared access signatures, see [Grant limited access to Azure Storage resources using shared access signatures (SAS)](../storage/common/storage-sas-overview.md).
-
-This method enables you to create reliable backups of your device information in a blob container that you control.
+Use the **ExportDevicesAsync** method to export the entirety of an IoT hub identity registry to an Azure Storage blob container using a shared access signature (SAS). This method enables you to create reliable backups of your device information in a blob container that you control.
 
 The **ExportDevicesAsync** method requires two parameters:
 
@@ -150,7 +149,6 @@ If a device has twin data, then the twin data is also exported together with the
    "id":"export-6d84f075-0",
    "eTag":"MQ==",
    "status":"enabled",
-   "statusReason":"firstUpdate",
    "authentication":null,
    "twinETag":"AAAAAAAAAAI=",
    "tags":{
@@ -162,35 +160,13 @@ If a device has twin data, then the twin data is also exported together with the
             "Temperature":75.1,
             "Unit":"F"
          },
-         "$metadata":{
-            "$lastUpdated":"2017-03-09T18:30:52.3167248Z",
-            "$lastUpdatedVersion":2,
-            "Thermostat":{
-               "$lastUpdated":"2017-03-09T18:30:52.3167248Z",
-               "$lastUpdatedVersion":2,
-               "Temperature":{
-                  "$lastUpdated":"2017-03-09T18:30:52.3167248Z",
-                  "$lastUpdatedVersion":2
-               },
-               "Unit":{
-                  "$lastUpdated":"2017-03-09T18:30:52.3167248Z",
-                  "$lastUpdatedVersion":2
-               }
-            }
-         },
-         "$version":2
       },
-      "reported":{
-         "$metadata":{
-            "$lastUpdated":"2017-03-09T18:30:51.1309437Z"
-         },
-         "$version":1
-      }
+      "reported":{}
    }
 }
 ```
 
-If you need access to this data in code, you can easily deserialize this data using the **ExportImportDevice** class. The following C# code snippet, from the **ReadFromBlobAsync** method in the SDK sample, shows how to read device information that was previously exported from **ExportImportDevice** into a **BlobClient** instance:
+If you need access to this data in code, you can deserialize this data using the **ExportImportDevice** class. The following C# code snippet, from the **ReadFromBlobAsync** method in the SDK sample, shows how to read device information that was previously exported from **ExportImportDevice** into a **BlobClient** instance:
 
 ```csharp
 private static async Task<List<string>> ReadFromBlobAsync(BlobClient blobClient)
@@ -221,13 +197,13 @@ Take care using the **ImportDevicesAsync** method because in addition to provisi
 
 The **ImportDevicesAsync** method takes two parameters:
 
-* A *string* that contains a URI of an [Azure Storage](../storage/index.yml) blob container to use as *input* to the job. This URI must contain a SAS token that grants read access to the container. This container must contain a blob with the name **devices.txt** that contains the serialized device data to import into your identity registry. The import data must contain device information in the same JSON format that the **ExportImportDevice** job uses when it creates a **devices.txt** blob. The SAS token must include these permissions:
+* A *string* that contains a URI of an Azure Storage blob container to use as *input* to the job. This URI must contain a SAS token that grants read access to the container. This container must contain a blob with the name **devices.txt** that contains the serialized device data to import into your identity registry. The import data must contain device information in the same JSON format that the **ExportImportDevice** job uses when it creates a **devices.txt** blob. The SAS token must include these permissions:
 
    ```csharp
    SharedAccessBlobPermissions.Read
    ```
 
-* A *string* that contains a URI of an [Azure Storage](../storage/index.yml) blob container to use as *output* from the job. The job creates a block blob in this container to store any error information from the completed import **Job**. The SAS token must include these permissions:
+* A *string* that contains a URI of an Azure Storage blob container to use as *output* from the job. The job creates a block blob in this container to store any error information from the completed import job. The SAS token must include these permissions:
 
    ```csharp
    SharedAccessBlobPermissions.Write | SharedAccessBlobPermissions.Read 
@@ -244,7 +220,7 @@ JobProperties importJob =
    await registryManager.ImportDevicesAsync(containerSasUri, containerSasUri);
 ```
 
-This method can also be used to import the data for the device twin. The format for the data input is the same as the format shown in the **ExportDevicesAsync** section. In this way, you can reimport the exported data. The **$metadata** is optional.
+This method can also be used to import the data for the device twin. The format for the data input is the same as the format shown in the **ExportDevicesAsync** section. In this way, you can reimport the exported data.
 
 ## Import behavior
 
@@ -259,28 +235,23 @@ You can use the **ImportDevicesAsync** method to perform the following bulk oper
 
 You can perform any combination of the preceding operations within a single **ImportDevicesAsync** call. For example, you can register new devices and delete or update existing devices at the same time. When used along with the **ExportDevicesAsync** method, you can completely migrate all your devices from one IoT hub to another.
 
-If the import file includes twin metadata, then this metadata overwrites the existing twin metadata. If the import file doesn't include twin metadata, then only the `lastUpdateTime` metadata is updated using the current time.
-
 Use the optional **importMode** property in the import serialization data for each device to control the import process per-device. The **importMode** property has the following options:
 
-| importMode | Description |
-| --- | --- |
-| **Create** |If a device doesn't exist with the specified **ID**, it's newly registered. If the device already exists, an error is written to the log file. |
-| **CreateOrUpdate** |If a device doesn't exist with the specified **ID**, it's newly registered. If the device already exists, existing information is overwritten with the provided input data without regard to the **ETag** value. |
-| **CreateOrUpdateIfMatchETag** |If a device doesn't exist with the specified **ID**, it's newly registered. If the device already exists, existing information is overwritten with the provided input data only if there's an **ETag** match. If there's an **ETag** mismatch, an error is written to the log file. |
-| **Delete** |If a device already exists with the specified **ID**, it's deleted without regard to the **ETag** value. If the device doesn't exist, an error is written to the log file. |
-| **DeleteIfMatchETag** |If a device already exists with the specified **ID**, it's deleted only if there's an **ETag** match. If the device doesn't exist, an error is written to the log file. If there's an ETag mismatch, an error is written to the log file. |
-| **Update** |If a device already exists with the specified **ID**, existing information is overwritten with the provided input data without regard to the **ETag** value. If the device doesn't exist, an error is written to the log file. |
-| **UpdateIfMatchETag** |If a device already exists with the specified **ID**, existing information is overwritten with the provided input data only if there's an **ETag** match. If the device doesn't exist or there's an **ETag** mismatch, an error is written to the log file. |
-| **UpdateTwin** |If a twin already exists with the specified **ID**, existing information is overwritten with the provided input data without regard to the twin's **ETag** value. |
-| **UpdateTwinIfMatchETag** |If a twin already exists with the specified **ID**, existing information is overwritten with the provided input data only if there's a match on the twin's **ETag** value. The twin's **ETag** is processed independently from the device's **ETag**. If there's a mismatch with the existing twin's **ETag**, an error is written to the log file. |
+* **Create**
+* **CreateOrUpdate** (default)
+* **CreateOrUpdateIfMatchETag**
+* **Delete**
+* **DeleteIfMatchETag**
+* **Update**
+* **UpdateIfMatchETag**
+* **UpdateTwin**
+* **UpdateTwinIfMatchETag**
 
-> [!NOTE]
-> If the serialization data doesn't explicitly define an **importMode** flag for a device, it defaults to **createOrUpdate** during the import operation.
+For details about each of these import mode options, see [ImportMode](/dotnet/api/microsoft.azure.devices.importmode)
 
-## Import troubleshooting
+## Troubleshoot import jobs
 
-Using an import job to create devices may fail with a quota issue when it's close to the device count limit of the IoT hub. This failure can happen even if the total device count is still lower than the quota limit. The **IotHubQuotaExceeded (403002)** error is returned with the following error message: "Total number of devices on IotHub exceeded the allocated quota.”
+Using an import job to create devices might fail with a quota issue when it's close to the device count limit of the IoT hub. This failure can happen even if the total device count is still lower than the quota limit. The **IotHubQuotaExceeded (403002)** error is returned with the following error message: "Total number of devices on IotHub exceeded the allocated quota.”
 
 If you get this error, you can use the following query to return the total number of devices registered on your IoT hub:
 
@@ -290,7 +261,7 @@ SELECT COUNT() as totalNumberOfDevices FROM devices
 
 For information about the total number of devices that can be registered to an IoT hub, see [IoT Hub limits](iot-hub-devguide-quotas-throttling.md#other-limits).
 
-If there's still quota available, you can examine the job output blob for devices that failed with the **IotHubQuotaExceeded (403002)** error. You can then try adding these devices individually to the IoT hub. For example, you can use the **AddDeviceAsync** or **AddDeviceWithTwinAsync** methods. Don't try to add the devices using another job as you may likely encounter the same error.
+If there's still quota available, you can examine the job output blob for devices that failed with the **IotHubQuotaExceeded (403002)** error. You can then try adding these devices individually to the IoT hub. For example, you can use the **AddDeviceAsync** or **AddDeviceWithTwinAsync** methods. Don't try to add the devices using another job as you might encounter the same error.
 
 ## Import devices example – bulk device provisioning
 
@@ -402,7 +373,7 @@ private async Task GenerateDevicesAsync(RegistryManager registryManager, int num
     Console.WriteLine($"GenerateDevices, time elapsed = {stopwatch.Elapsed}.");
 }
 ```
- 
+
 ## Import devices example – bulk deletion
 
 The following C# code snippet, from the **DeleteFromHubAsync** method in the SDK sample, shows you how to delete all of the devices from an IoT hub:

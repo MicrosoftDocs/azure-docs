@@ -1,16 +1,9 @@
 ---
 title: Configure policy-based backups for Azure NetApp Files | Microsoft Docs
-description: Describes how to configure policy-based (scheduled) backups for Azure NetApp Files volumes. 
+description: Describes how to configure policy-based (scheduled) backups for Azure NetApp Files volumes.
 services: azure-netapp-files
-documentationcenter: ''
 author: b-hchen
-manager: ''
-editor: ''
-
-ms.assetid:
 ms.service: azure-netapp-files
-ms.workload: storage
-ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.date: 10/25/2023
 ms.author: anfdocs
@@ -21,9 +14,6 @@ Azure NetApp Files backup supports *policy-based* (scheduled) backups and *manua
 
 This article shows you how to configure policy-based backups. For manual backup configuration, see [Configure manual backups](backup-configure-manual.md).  
 
-> [!IMPORTANT]
-> The Azure NetApp Files backup feature is currently in preview. You need to submit a waitlist request for accessing the feature through the **[Azure NetApp Files Backup Public Preview](https://aka.ms/anfbackuppreviewsignup)** page. Wait for an official confirmation email from the Azure NetApp Files team before using the Azure NetApp Files backup feature.
-
 ## About policy-based backups    
 
 Backups are long-running operations. The system schedules backups based on the primary workload (which is given a higher priority) and runs backups in the background. Depending on the size of the volume being backed up, a backup can run in background for hours. There's no option to select the start time for backups. The service performs the backups based on the internal scheduling and optimization logic. 
@@ -31,6 +21,8 @@ Backups are long-running operations. The system schedules backups based on the p
 Assigning a policy creates a baseline snapshot that is the current state of the volume and transfers the snapshot to Azure storage. This baseline snapshot is deleted automatically when the first scheduled backup is complete (based on the policy). If the backup policy is attached to a volume, the backup list will be empty until the baseline snapshot is transferred. When the backup is complete, the baseline backup entry appears in the list of backups for the volume. After the baseline transfer, the list will be updated daily based on the policy. An empty list of backups indicates that the baseline backup is in progress. If a volume already has existing manual backups before you assign a backup policy, the baseline snapshot isn't created. A baseline snapshot is created only when the volume has no prior backups.
 
 [!INCLUDE [consideration regarding deleting backups after deleting resource or subscription](includes/disable-delete-backup.md)]
+
+[!INCLUDE [Backup registration heading](includes/backup-registration.md)]
 
 ## Configure a backup policy
 
@@ -44,7 +36,7 @@ To enable a policy-based (scheduled) backup:
 2. Select your Azure NetApp Files account.
 3. Select **Backups**. 
 
-    <!-- :::image type="content" source="../media/azure-netapp-files/backup-navigate.png" alt-text="Screenshot that shows how to navigate to Backups option." lightbox="../media/azure-netapp-files/backup-navigate.png"::: -->
+    <!-- :::image type="content" source="./media/backup-configure-policy-based/backup-navigate.png" alt-text="Screenshot that shows how to navigate to Backups option." lightbox="./media/backup-configure-policy-based/backup-navigate.png"::: -->
 
 4. Select **Backup Policies**.
 5. Select **Add**. 
@@ -52,7 +44,7 @@ To enable a policy-based (scheduled) backup:
 
     The minimum value for **Daily Backups to Keep** is 2. 
 
-    :::image type="content" source="../media/azure-netapp-files/backup-policy-window-daily.png" alt-text="Screenshot that shows the Backup Policy window." lightbox="../media/azure-netapp-files/backup-policy-window-daily.png":::
+    :::image type="content" source="./media/backup-configure-policy-based/backup-policy-window-daily.png" alt-text="Screenshot that shows the Backup Policy window." lightbox="./media/backup-configure-policy-based/backup-policy-window-daily.png":::
  
 ### Example of a valid configuration
 
@@ -90,7 +82,7 @@ To enable the backup functionality for a volume:
 
     The Vault information is prepopulated.  
 
-  :::image type="content" source="../media/azure-netapp-files/backup-configure-enabled.png" alt-text="Screenshot showing Configure Backups window." lightbox="../media/azure-netapp-files/backup-configure-enabled.png":::
+  :::image type="content" source="./media/shared/backup-configure-enabled.png" alt-text="Screenshot showing Configure Backups window." lightbox="./media/shared/backup-configure-enabled.png":::
 
 ## Next steps  
 

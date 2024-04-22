@@ -6,11 +6,11 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
 ms.topic: how-to
-ms.reviewer: ssalgado 
+ms.reviewer: ssalgado
 author: tbombach
 ms.author: tbombach
 ms.date: 10/21/2021
-ms.custom: UpdateFrequency5, sdkv1, event-tier1-build-2022
+ms.custom: UpdateFrequency5, sdkv1
 monikerRange: 'azureml-api-1'
 ---
 

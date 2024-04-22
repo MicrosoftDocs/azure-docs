@@ -8,7 +8,7 @@ ms.subservice: flexible-server
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 11/30/2021
+ms.date: 01/23/2024
 ---
 
 # Scale operations in Azure Database for PostgreSQL - Flexible Server

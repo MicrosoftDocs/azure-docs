@@ -59,6 +59,9 @@ The **ValidationTechnicalProfile** element contains the following attribute:
 |ContinueOnError|No| Indicating whether validation of any subsequent validation technical profiles should continue if this validation technical profile raises an error. Possible values: `true` or `false` (default, processing of further validation profiles will stop and an error returned). |
 |ContinueOnSuccess | No | Indicating whether validation of any subsequent validation profiles should continue if this validation technical profile succeeds. Possible values: `true` or `false`. The default is `true`, meaning that the processing of further validation profiles will continue. |
 
+> [!NOTE]
+> Currently, if you set ContinueOnError to false for a validation technical profile of type ClaimsTransformation, the technical profile doesn't honor the setting. To overcome this issue, use Preconditions instead.
+
 The **ValidationTechnicalProfile** element contains the following element:
 
 | Element | Occurrences | Description |

@@ -7,7 +7,7 @@ ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.custom: engagement-fy23, devx-track-arm-template
 ms.date: 10/09/2023
-# As a developer, I want to deploy Standard logic apps to Azure storage accounts that use private endpoints.
+# Customer intent: As a developer, I want to deploy Standard logic apps to Azure storage accounts that use private endpoints.
 ---
 
 # Deploy single-tenant Standard logic apps to private storage accounts using private endpoints

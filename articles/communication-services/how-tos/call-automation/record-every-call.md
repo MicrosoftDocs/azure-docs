@@ -182,10 +182,8 @@ To run the function locally, you can press `F5` in Visual Studio Code. We use [n
 
 1. Once the function is running, we configure ngrok. (You need to [download ngrok](https://ngrok.com/download) for your environment.)
 
-   ```bash
-
-    ngrok http 7071
-
+    ```bash
+     ngrok http 7071
     ```
 
     Copy the ngrok link provided where your function is running.

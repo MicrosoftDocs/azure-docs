@@ -5,7 +5,7 @@ ms.topic: quickstart
 ms.date: 04/26/2023
 ms.devlang: csharp
 ms.custom: devx-track-dotnet
-author: kasun04
+author: spelluru
 ms.author: spelluru
 ---
 

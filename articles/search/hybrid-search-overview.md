@@ -9,7 +9,7 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 11/01/2023
+ms.date: 01/29/2024
 ---
 
 # Hybrid search using vectors and full text in Azure AI Search
@@ -24,9 +24,9 @@ This article explains the concepts, benefits, and limitations of hybrid search. 
 
 ## How does hybrid search work?
 
-In Azure AI Search, vector indexes containing embeddings can live alongside textual and numerical fields allowing you to issue hybrid full text and vector queries. Hybrid queries can take advantage of existing functionality like filtering, faceting, sorting, scoring profiles, and [semantic ranking](semantic-search-overview.md) in a single search request.
+In Azure AI Search, vector fields containing embeddings can live alongside textual and numerical fields, allowing you to formulate hybrid queries that execute in parallel. Hybrid queries can take advantage of existing functionality like filtering, faceting, sorting, scoring profiles, and [semantic ranking](semantic-search-overview.md) in a single search request.
 
-Hybrid search combines results from both full text and vector queries, which use different ranking functions such as BM25 and HNSW. A [Reciprocal Rank Fusion (RRF)](hybrid-search-ranking.md) algorithm is used to merge results. The query response provides just one result set, using RRF to determine which matches are included.
+Hybrid search combines results from both full text and vector queries, which use different ranking functions such as BM25 and HNSW. A [Reciprocal Rank Fusion (RRF)](hybrid-search-ranking.md) algorithm merges the results. The query response provides just one result set, using RRF to pick the most relevant matches from each query.
 
 ## Structure of a hybrid query
 

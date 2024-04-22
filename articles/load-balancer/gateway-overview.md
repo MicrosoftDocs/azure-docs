@@ -7,7 +7,7 @@ author: mbender-ms
 ms.author: mbender
 ms.date: 04/20/2023
 ms.topic: conceptual
-ms.custom: template-concept, ignite-fall-2021, engagement-fy23
+ms.custom: template-concept, engagement-fy23
 ---
 
 # Gateway Load Balancer

@@ -414,7 +414,7 @@ To configure a display control, use the following steps:
 You can configure a Microsoft Entra ID technical profile to update a user account instead of attempting to create a new one. To do so, set the Microsoft Entra ID technical profile to throw an error if the specified user account doesn't already exist in the `Metadata` collection by using the following code. The *Operation* needs to be set to *Write*:
 
 ```xml
-    <!--<Item Key="Operation">Write</Item>-->
+    <Item Key="Operation">Write</Item>
     <Item Key="RaiseErrorIfClaimsPrincipalDoesNotExist">true</Item>
 ``` 
 

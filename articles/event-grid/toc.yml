@@ -17,24 +17,32 @@ items:
         href: mqtt-overview.md
       - name: Quickstarts
         items:
-        - name: Publish and subscribe on an MQTT topic using CLI
-          href: mqtt-publish-and-subscribe-cli.md
-        - name: Publish and subscribe on an MQTT topic using portal
-          href: mqtt-publish-and-subscribe-portal.md
+        - name: Publish and subscribe on an MQTT topic
+          items:
+          - name: Azure CLI
+            href: mqtt-publish-and-subscribe-cli.md          
+          - name: Azure portal
+            href: mqtt-publish-and-subscribe-portal.md
       - name: Tutorials
         items:
-        - name: Route MQTT messages to Event Hubs using CLI
-          href: mqtt-routing-to-event-hubs-cli.md
-        - name: Route MQTT messages to Event Hubs using portal
-          href: mqtt-routing-to-event-hubs-portal.md
+        - name: Route MQTT messages to Event Hubs
+          items:
+          - name: Azure CLI
+            href: mqtt-routing-to-event-hubs-cli-namespace-topics.md
+          - name: Azure portal
+            href: mqtt-routing-to-event-hubs-portal-namespace-topics.md
+        - name: Route MQTT messages to Azure Functions using custom topics 
+          items:
+          - name: Azure portal
+            href: mqtt-routing-to-azure-functions-portal.md
+          - name: Azure CLI
+            href: mqtt-routing-to-azure-functions-cli.md
       - name: Samples
         href: https://github.com/Azure-Samples/MqttApplicationSamples
       - name: Concepts
         items:
         - name: Terminology
           href: mqtt-event-grid-namespace-terminology.md
-        - name: MQTT client authentication
-          href: mqtt-client-authentication.md                
         - name: Access control for MQTT clients
           href: mqtt-access-control.md
         - name: MQTT clients
@@ -56,8 +64,15 @@ items:
           href: mqtt-support.md
         - name: MQTT clients life cycle events
           href: mqtt-client-life-cycle-events.md
-        - name: JWT authentication and RBAC authorization for clients with Microsoft Entra identity
-          href: mqtt-client-microsoft-entra-token-and-rbac.md
+        - name: MQTT client authentication
+          href: mqtt-client-authentication.md                
+          items:
+          - name: MQTT client authentication using certificates
+            href: mqtt-client-certificate-authentication.md        
+          - name: JWT authentication and RBAC authorization for clients with Microsoft Entra identity
+            href: mqtt-client-microsoft-entra-token-and-rbac.md
+          - name: Transport Layer Security connection with MQTT broker
+            href: mqtt-transport-layer-security-flow.md
         - name: High availability and disaster recovery
           href: high-availability-disaster-recovery.md 
         - name: Security
@@ -83,10 +98,14 @@ items:
           href: custom-disaster-recovery-client-side.md
         - name: How to configure multiple sessions for an MQTT client
           href: mqtt-establishing-multiple-sessions-per-client.md
+        - name: Send events to Microsoft Fabric via Azure Event Hubs
+          href: mqtt-events-fabric.md
         - name: MQTT Request Response messaging
           href: mqtt-request-response-messages.md                
         - name: Monitor
           items:
+          - name: Monitor Event Grid namespaces
+            href: monitor-namespaces.md
           - name: Monitoring data reference (MQTT delivery)
             href: monitor-mqtt-delivery-reference.md
         - name: Troubleshoot
@@ -117,16 +136,24 @@ items:
           items:
           - name: Receive events from namespace topics (Java)
             href: receive-events-from-namespace-topics-java.md         
-          - name: Publish and subscribe to events using namespace topics (CLI)
-            href: publish-events-using-namespace-topics.md
+          - name: Publish and subscribe to events using namespace topics
+            items:
+            - name: Azure CLI
+              href: publish-events-using-namespace-topics.md
+            - name: Azure portal
+              href: publish-events-namespace-topics-portal.md
           - name: Send and pull messages
             items:
             - name: .NET
               href: event-grid-dotnet-get-started-pull-delivery.md
         - name: Push delivery
           items:
-          - name: Publish and deliver events using namespace topics
-            href: publish-deliver-events-with-namespace-topics.md
+          - name: Deliver events to Azure Event Hubs using namespace topics
+            items:
+            - name: Azure CLI
+              href: publish-deliver-events-with-namespace-topics.md
+            - name: Azure portal
+              href: publish-deliver-events-with-namespace-topics-portal.md
       - name: Concepts        
         items:
         - name: Terminology 
@@ -172,6 +199,8 @@ items:
           href: handler-event-grid-namespace-topic.md
         - name: Monitor
           items:
+          - name: Monitor Event Grid namespaces
+            href: monitor-namespaces.md
           - name: Pull delivery data reference
             href: monitor-pull-reference.md
           - name: Push delivery data reference
@@ -295,6 +324,8 @@ items:
           href: system-topics.md
         - name: Event sources (publishers)
           items:
+          - name: Azure API Center
+            href: event-schema-api-center.md
           - name: Azure API Management
             href: event-schema-api-management.md
           - name: Azure App Configuration
@@ -365,6 +396,8 @@ items:
             href: event-schema-service-bus.md
           - name: Azure SignalR
             href: event-schema-azure-signalr.md
+          - name: Azure Storage Actions
+            href: event-schema-storage-actions.md
           - name: Azure subscriptions
             href: event-schema-subscriptions.md
       - name: Partner Events
@@ -462,6 +495,8 @@ items:
           href: security-authorization.md
         - name: Network security
           href: network-security.md
+        - name: Enforce minimum required TLS version
+          href: transport-layer-security-enforce-minimum-version.md
       - name: Use cases
         items:
         - name: Use cases for domains
@@ -566,6 +601,8 @@ items:
           href: configure-firewall.md
         - name: Deliver events to Microsoft Entra protected endpoints
           href: secure-webhook-delivery.md
+        - name: Configure minimum required TLS version
+          href: transport-layer-security-configure-minimum-version.md
       - name: Monitor
         items:
         - name: Enable diagnostic logs
@@ -598,20 +635,6 @@ items:
           href: /azure/templates/microsoft.eventgrid/topics
       - name: Transition from Event Grid on IoT Edge to Azure IoT Edge
         href: transition.md
-    - name: Resources
-      items:
-      - name: Build your skills with Microsoft Learn training
-        href: /training/browse/?products=azure-event-grid
-      - name: FAQ
-        href: faq.yml
-      - name: Azure Roadmap
-        href: https://azure.microsoft.com/roadmap/
-      - name: Pricing
-        href: https://azure.microsoft.com/pricing/details/event-grid/
-      - name: Pricing Calculator
-        href: https://azure.microsoft.com/pricing/calculator/
-      - name: Stack Overflow
-        href: https://stackoverflow.com/questions/tagged/azure-eventgrid
   - name: Reference
     items:
     - name: SDKs

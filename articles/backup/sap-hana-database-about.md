@@ -4,7 +4,6 @@ description: In this article, you'll learn about backing up SAP HANA databases t
 ms.topic: conceptual
 ms.date: 11/02/2023
 ms.service: backup
-ms.custom: ignite-2022
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---

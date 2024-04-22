@@ -3,7 +3,7 @@ title: Linter rule - simplify JSON null
 description: Linter rule - simplify JSON null
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 03/20/2023
+ms.date: 03/20/2024
 ---
 
 # Linter rule - simplify JSON null

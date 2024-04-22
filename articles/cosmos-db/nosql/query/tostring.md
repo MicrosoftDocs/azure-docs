@@ -8,7 +8,8 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
-ms.date: 09/21/2023
+ms.devlang: nosql
+ms.date: 02/27/2024
 ms.custom: query-reference
 ---
 
@@ -20,7 +21,7 @@ Returns a string representation of a value.
 
 ## Syntax
 
-```sql
+```nosql
 ToString(<expr>)
 ```
 
@@ -38,7 +39,7 @@ Returns a string expression.
 
 This example converts multiple scalar and object values to a string.
 
-:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/tostring/query.sql" highlight="2-10":::
+:::code language="nosql" source="~/cosmos-db-nosql-query-samples/scripts/tostring/query.sql" highlight="2-10":::
 
 :::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/tostring/result.json":::
 

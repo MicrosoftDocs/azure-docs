@@ -8,8 +8,6 @@ ms.service: expressroute
 ms.topic: article
 ms.date: 06/30/2023
 ms.author: duau
-ms.custom: seodec18
-
 ---
 # ExpressRoute for Cloud Solution Providers (CSP)
 

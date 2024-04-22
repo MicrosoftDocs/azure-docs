@@ -2,26 +2,29 @@
 title: Concepts - Scale applications in Azure Kubernetes Services (AKS)
 description: Learn about scaling in Azure Kubernetes Service (AKS), including the horizontal pod autoscaler, cluster autoscaler, and Azure Container Instances.
 ms.topic: conceptual
-ms.date: 04/04/2023
+ms.date: 03/18/2024
+author: nickomang
+ms.author: nickoman
+
 ---
 
 # Scaling options for applications in Azure Kubernetes Service (AKS)
 
-When running applications in Azure Kubernetes Service (AKS), you may need to increase or decrease the amount of compute resources. As you change the number of application instances you have, you may need to change the number of underlying Kubernetes nodes. You also may need to provision a large number of additional application instances.
+When running applications in Azure Kubernetes Service (AKS), you may need to increase or decrease the amount of compute resources. As you change the number of application instances you have, you may need to change the number of underlying Kubernetes nodes. You also may need to provision a large number of other application instances.
 
 This article introduces core AKS application scaling concepts, including [manually scaling pods or nodes](#manually-scale-pods-or-nodes), using the [Horizontal pod autoscaler](#horizontal-pod-autoscaler), using the [Cluster autoscaler](#cluster-autoscaler), and integrating with [Azure Container Instances (ACI)](#burst-to-azure-container-instances-aci).
 
 ## Manually scale pods or nodes
 
-You can manually scale replicas, or pods, and nodes to test how your application responds to a change in available resources and state. Manually scaling resources lets you define a set amount of resources to use to maintain a fixed cost, such as the number of nodes. To manually scale, you define the replica or node count. The Kubernetes API then schedules the creation of additional pods or the draining of nodes based on that replica or node count.
+You can manually scale replicas, or pods, and nodes to test how your application responds to a change in available resources and state. Manually scaling resources lets you define a set amount of resources to use to maintain a fixed cost, such as the number of nodes. To manually scale, you define the replica or node count. The Kubernetes API then schedules creating more pods or the draining of nodes based on that replica or node count.
 
-When scaling down nodes, the Kubernetes API calls the relevant Azure Compute API tied to the compute type used by your cluster. For example, for clusters built on Virtual Machine Scale Sets, the logic for selecting which nodes to remove is determined by the Virtual Machine Scale Sets API. To learn more about how nodes are selected for removal on scale down, see the [Virtual Machine Scale Sets FAQ](../virtual-machine-scale-sets/virtual-machine-scale-sets-faq.yml#if-i-reduce-my-scale-set-capacity-from-20-to-15--which-vms-are-removed-).
+When scaling down nodes, the Kubernetes API calls the relevant Azure Compute API tied to the compute type used by your cluster. For example, for clusters built on Virtual Machine Scale Sets, Virtual Machine Scale Sets API determines which nodes to remove. To learn more about how nodes are selected for removal on scale down, see the [Virtual Machine Scale Sets FAQ](../virtual-machine-scale-sets/virtual-machine-scale-sets-faq.yml#if-i-reduce-my-scale-set-capacity-from-20-to-15--which-vms-are-removed-).
 
-To get started with manually scaling pods and nodes see [Scale applications in AKS][aks-scale].
+To get started with manually scaling nodes, see [manually scale nodes in an AKS cluster][aks-nodes-scale]. To manually scale the number of pods, see [kubectl scale command][kubectl-scale-reference].
 
 ## Horizontal pod autoscaler
 
-Kubernetes uses the horizontal pod autoscaler (HPA) to monitor the resource demand and automatically scale the number of pods. By default, the HPA checks the Metrics API every 15 seconds for any required changes in replica count, and the Metrics API retrieves data from the Kubelet every 60 seconds. So, the HPA is updated every 60 seconds. When changes are required, the number of replicas is increased or decreased accordingly. The HPA works with AKS clusters that have deployed the Metrics Server for Kubernetes 1.8+.
+Kubernetes uses the horizontal pod autoscaler (HPA) to monitor the resource demand and automatically scale the number of pods. By default, the HPA checks the Metrics API every 15 seconds for any required changes in replica count, and the Metrics API retrieves data from the Kubelet every 60 seconds. So, the HPA is updated every 60 seconds. When changes are required, the number of replicas is increased or decreased accordingly. HPA works with AKS clusters that deployed the Metrics Server for Kubernetes version 1.8 and higher.
 
 ![Kubernetes horizontal pod autoscaling](media/concepts-scale/horizontal-pod-autoscaling.png)
 
@@ -41,17 +44,17 @@ To respond to changing pod demands, the Kubernetes cluster autoscaler adjusts th
 
 ![Kubernetes cluster autoscaler](media/concepts-scale/cluster-autoscaler.png)
 
-The cluster autoscaler is typically used alongside the [horizontal pod autoscaler](#horizontal-pod-autoscaler). When combined, the horizontal pod autoscaler increases or decreases the number of pods based on application demand, and the cluster autoscaler adjusts the number of nodes to run additional pods.
+The cluster autoscaler is typically used alongside the [horizontal pod autoscaler](#horizontal-pod-autoscaler). When combined, the horizontal pod autoscaler increases or decreases the number of pods based on application demand, and the cluster autoscaler adjusts the number of nodes to run more pods.
 
 To get started with the cluster autoscaler in AKS, see [Cluster autoscaler on AKS][aks-cluster-autoscaler].
 
 ### Scale out events
 
-If a node doesn't have sufficient compute resources to run a requested pod, that pod can't progress through the scheduling process. The pod can't start unless additional compute resources are available within the node pool.
+If a node doesn't have sufficient compute resources to run a requested pod, that pod can't progress through the scheduling process. The pod can't start unless more compute resources are available within the node pool.
 
-When the cluster autoscaler notices pods that can't be scheduled because of node pool resource constraints, the number of nodes within the node pool is increased to provide the additional compute resources. When those additional nodes are successfully deployed and available for use within the node pool, the pods are then scheduled to run on them.
+When the cluster autoscaler notices pods that can't be scheduled because of node pool resource constraints, the number of nodes within the node pool is increased to provide extra compute resources. When the nodes are successfully deployed and available for use within the node pool, the pods are then scheduled to run on them.
 
-If your application needs to scale rapidly, some pods may remain in a state waiting to be scheduled until the additional nodes deployed by the cluster autoscaler can accept the scheduled pods. For applications that have high burst demands, you can scale with virtual nodes and [Azure Container Instances](#burst-to-azure-container-instances-aci).
+If your application needs to scale rapidly, some pods may remain in a state waiting to be scheduled until more nodes deployed by the cluster autoscaler can accept the scheduled pods. For applications that have high burst demands, you can scale with virtual nodes and [Azure Container Instances](#burst-to-azure-container-instances-aci).
 
 ### Scale in events
 
@@ -59,25 +62,34 @@ The cluster autoscaler also monitors the pod scheduling status for nodes that ha
 
 Your applications may experience some disruption as pods are scheduled on different nodes when the cluster autoscaler decreases the number of nodes. To minimize disruption, avoid applications that use a single pod instance.
 
+## Kubernetes Event-driven Autoscaling (KEDA)
+
+[Kubernetes Event-driven Autoscaling][keda-official-documentation] (KEDA) is an open source component for event-driven autoscaling of workloads. It scales workloads dynamically based on the number of events received. KEDA extends Kubernetes with a custom resource definition (CRD), referred to as a *ScaledObject*, to describe how applications should be scaled in response to specific traffic.
+
+KEDA scaling is useful in scenarios where workloads receive bursts of traffic or handle high volumes of data. It is different from Horizontal Pod Autoscaler, as KEDA is event-driven and scales based on the number of events, while HPA is metrics-driven based on the resource utilization (for example, CPU and memory).
+
+To get started with the KEDA add-on in AKS, see [KEDA overview][keda-overview].
+
 ## Burst to Azure Container Instances (ACI)
 
-To rapidly scale your AKS cluster, you can integrate with Azure Container Instances (ACI). Kubernetes has built-in components to scale the replica and node count. However, if your application needs to rapidly scale, the [horizontal pod autoscaler](#horizontal-pod-autoscaler) may schedule more pods than can be provided by the existing compute resources in the node pool. If configured, this scenario would then trigger the [cluster autoscaler](#cluster-autoscaler) to deploy additional nodes in the node pool, but it may take a few minutes for those nodes to successfully provision and allow the Kubernetes scheduler to run pods on them.
+To rapidly scale your AKS cluster, you can integrate with Azure Container Instances (ACI). Kubernetes has built-in components to scale the replica and node count. However, if your application needs to rapidly scale, the [horizontal pod autoscaler](#horizontal-pod-autoscaler) may schedule more pods than can be provided by the existing compute resources in the node pool. If configured, this scenario would then trigger the [cluster autoscaler](#cluster-autoscaler) to deploy more nodes in the node pool, but it may take a few minutes for those nodes to successfully provision and allow the Kubernetes scheduler to run pods on them.
 
 ![Kubernetes burst scaling to ACI](media/concepts-scale/burst-scaling.png)
 
-ACI lets you quickly deploy container instances without additional infrastructure overhead. When you connect with AKS, ACI becomes a secured, logical extension of your AKS cluster. The [virtual nodes][virtual-nodes-cli] component, which is based on [virtual Kubelet][virtual-kubelet], is installed in your AKS cluster that presents ACI as a virtual Kubernetes node. Kubernetes can then schedule pods that run as ACI instances through virtual nodes, not as pods on VM nodes directly in your AKS cluster.
+ACI lets you quickly deploy container instances without extra infrastructure overhead. When you connect with AKS, ACI becomes a secured, logical extension of your AKS cluster. The [virtual nodes][virtual-nodes-cli] component, which is based on [virtual Kubelet][virtual-kubelet], is installed in your AKS cluster that presents ACI as a virtual Kubernetes node. Kubernetes can then schedule pods that run as ACI instances through virtual nodes, not as pods on VM nodes directly in your AKS cluster.
 
 Your application requires no modifications to use virtual nodes. Your deployments can scale across AKS and ACI and with no delay as the cluster autoscaler deploys new nodes in your AKS cluster.
 
-Virtual nodes are deployed to an additional subnet in the same virtual network as your AKS cluster. This virtual network configuration secures the traffic between ACI and AKS. Like an AKS cluster, an ACI instance is a secure, logical compute resource isolated from other users.
+Virtual nodes are deployed to another subnet in the same virtual network as your AKS cluster. This virtual network configuration secures the traffic between ACI and AKS. Like an AKS cluster, an ACI instance is a secure, logical compute resource isolated from other users.
 
 ## Next steps
 
-To get started with scaling applications, follow the [quickstart to create an AKS cluster with the Azure CLI][aks-quickstart]. You can then start manually or automatically scaling applications in your AKS clusters using the following resources:
+To get started with scaling applications, see the following resources:
 
-- Manually scale [pods][aks-manually-scale-pods] or [nodes][aks-manually-scale-nodes]
+- Manually scale [pods][kubectl-scale-reference] or [nodes][aks-manually-scale-nodes]
 - Use the [horizontal pod autoscaler][aks-hpa]
 - Use the [cluster autoscaler][aks-cluster-autoscaler]
+- Use the [Kubernetes Event-driven Autoscaling (KEDA) add-on][keda-addon]
 
 For more information on core Kubernetes and AKS concepts, see the following articles:
 
@@ -89,13 +101,13 @@ For more information on core Kubernetes and AKS concepts, see the following arti
 
 <!-- LINKS - external -->
 [virtual-kubelet]: https://virtual-kubelet.io/
+[kubectl-scale-reference]: https://kubernetes.io/docs/reference/kubectl/generated/kubectl_scale/
+[keda-official-documentation]: https://keda.sh/docs/2.13/concepts/
 
 <!-- LINKS - internal -->
-[aks-quickstart]: ./learn/quick-kubernetes-deploy-cli.md
 [aks-hpa]: tutorial-kubernetes-scale.md#autoscale-pods
-[aks-scale]: tutorial-kubernetes-scale.md
-[aks-manually-scale-pods]: tutorial-kubernetes-scale.md#manually-scale-pods
-[aks-manually-scale-nodes]: tutorial-kubernetes-scale.md#manually-scale-aks-nodes
+[aks-nodes-scale]: scale-cluster.md
+[aks-manually-scale-nodes]: scale-cluster.md
 [aks-cluster-autoscaler]: ./cluster-autoscaler.md
 [aks-concepts-clusters-workloads]: concepts-clusters-workloads.md
 [aks-concepts-security]: concepts-security.md
@@ -103,3 +115,4 @@ For more information on core Kubernetes and AKS concepts, see the following arti
 [aks-concepts-identity]: concepts-identity.md
 [aks-concepts-network]: concepts-network.md
 [virtual-nodes-cli]: virtual-nodes-cli.md
+[keda-overview]: keda-about.md

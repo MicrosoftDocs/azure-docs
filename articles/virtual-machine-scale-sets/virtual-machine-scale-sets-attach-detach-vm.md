@@ -78,7 +78,7 @@ New-AzVm `
 
 ### Attach an existing VM to a Virtual Machine Scale Set (Preview)
 
-Attach an existing virtual machine to a Virtual Machine Scale Set after the time of VM creation by specifying the `virtualMachineScaleSet` property. Attaching an existing VM to a scale set with a fault domain count of 1 does not require downtime. 
+Attach an existing virtual machine to a Virtual Machine Scale Set after the time of VM creation by specifying the `virtualMachineScaleSet` property. Attaching an existing VM to a scale set with a fault domain count of 1 doesn't require downtime. 
 
 #### Enroll in the Preview
 
@@ -140,7 +140,7 @@ Update-AzVM -ResourceGroupName $resourceGroupName -VM $vm  -VirtualMachineScaleS
 - The VM can't be in a `ProximityPlacementGroup`. 
 - The VM can't be in an Azure Dedicated Host. 
 - The VM must have a managed disk. 
-- The VM can't be attached to a scale set with `SinglePlacementGroup` set to true. 
+- The scale set must have `properties.singlePlacementGroup` set to `False`.
 
 ## Detaching a VM from a Virtual Machine Scale Set (Preview)
 Should you need to detach a VM from a scale set, you can follow the below steps to remove the VM from the scale set.

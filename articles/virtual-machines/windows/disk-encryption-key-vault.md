@@ -2,13 +2,13 @@
 title: Creating and configuring a key vault for Azure Disk Encryption on a Windows VM
 description: This article provides steps for creating and configuring a key vault for use with Azure Disk Encryption on a Windows VM.
 ms.service: virtual-machines
-ms.subservice: disks
+ms.subservice: security
 ms.collection: windows
 ms.topic: how-to
 author: msmbaldwin
 ms.author: mbaldwin
-ms.date: 01/04/2023
-ms.custom: seodec18, devx-track-azurecli, devx-track-azurepowershell
+ms.date: 02/20/2024
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
 
 # Create and configure a key vault for Azure Disk Encryption on a Windows VM

@@ -2,7 +2,7 @@
 title: Post event to custom Azure Event Grid topic
 description: This article describes how to post an event to a custom topic. It shows the format of the post and event data.
 ms.topic: conceptual
-ms.date: 11/17/2022 
+ms.date: 01/18/2024 
 ---
 
 # Publish events to Azure Event Grid custom topics using access keys

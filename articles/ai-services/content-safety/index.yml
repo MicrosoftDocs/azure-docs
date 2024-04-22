@@ -6,13 +6,12 @@ summary: The cloud-based Azure AI Content Safety API provides developers with ac
 metadata:
   title: Azure AI Content Safety documentation - Quickstarts, Tutorials, API Reference - Azure AI services | Microsoft Docs # Required; page title displayed in search results. Include the brand. < 60 chars.
   description: The cloud-based Azure AI Content Safety API provides developers with access to advanced algorithms for processing images and text and flagging content that is potentially offensive, risky, or otherwise undesirable. # Required; article description that is displayed in search results. < 160 chars.
-  #services: cognitive-services
-  ms.service: azure-ai-content-safety #Required; service per approved list. service slug assigned to your service by ACOM.
+  ms.service: azure-ai-content-safety
   ms.custom: build-2023
   ms.topic: landing-page # Required
   author: PatrickFarley #Required; your GitHub user alias, with correct capitalization.
   ms.author: pafarley #Required; microsoft alias of author; optional team alias.
-  ms.date: 04/07/2023 #Required; mm/dd/yyyy format.
+  ms.date: 02/14/2024 #Required; mm/dd/yyyy format.
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
 
@@ -30,6 +29,10 @@ landingContent:
         links:
           - text: Content Safety Studio
             url: studio-quickstart.md
+      - linkListType: concept
+        links:
+          - text: Harm categories
+            url: concepts/harm-categories.md
       - linkListType: whats-new
         links:
           - text: What's new in Azure AI Content Safety
@@ -54,16 +57,32 @@ landingContent:
         links:
           - text: Harm categories
             url: concepts/harm-categories.md
+          - text: Groundedness detection
+            url: concepts/groundedness.md
       - linkListType: quickstart
         links:
           - text: Using Content Safety Studio
             url: studio-quickstart.md?pivots=content-safety-studio
           - text: Using the REST API or client SDKs
             url: quickstart-text.md?pivots=programming-language-rest
+          - text: Detect groundedness in LLM responses
+            url: quickstart-groundedness.md
       - linkListType: how-to-guide
         links:
           - text: Use a blocklist
             url: how-to/use-blocklist.md
+
+  - title: User input risk detection
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Prompt Shields
+            url: concepts/jailbreak-detection.md
+      - linkListType: quickstart
+        links:
+          - text: Using the REST API
+            url: quickstart-jailbreak.md
+
 
   - title: Reference
     linkLists:

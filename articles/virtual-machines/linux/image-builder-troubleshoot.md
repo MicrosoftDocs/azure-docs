@@ -8,12 +8,12 @@ ms.date: 11/27/2023
 ms.topic: troubleshooting
 ms.service: virtual-machines
 ms.subservice: image-builder
-ms.custom: devx-track-azurecli, devx-track-linux
+ms.custom: devx-track-azurecli, linux-related-content
 ---
 
 # Troubleshoot Azure VM Image Builder
 
-**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets
 
 Use this article to troubleshoot and resolve common issues that you might encounter when you're using Azure VM Image Builder.
 
@@ -67,19 +67,19 @@ Get-AzImageBuilderTemplate -ImageTemplateName  <imageTemplateName> -ResourceGrou
 ### **Error output for version 2020-02-14 and earlier**
 
 ```output
-{ 
+{
   "code": "ValidationFailed",
-  "message": "Validation failed: 'ImageTemplate.properties.source': Field 'imageId' has a bad value: '/subscriptions/subscriptionID/resourceGroups/resourceGroupName/providers/Microsoft.Compute/images/imageName'. Please review  http://aka.ms/azvmimagebuildertmplref  for details on fields requirements in the Image Builder Template." 
-} 
+  "message": "Validation failed: 'ImageTemplate.properties.source': Field 'imageId' has a bad value: '/subscriptions/subscriptionID/resourceGroups/resourceGroupName/providers/Microsoft.Compute/images/imageName'. Please review  http://aka.ms/azvmimagebuildertmplref  for details on fields requirements in the Image Builder Template."
+}
 ```
 
 ### **Error output for version 2021-10-01 and later**
 
 ```output
-{ 
+{
   "error": {
-    "code": "ValidationFailed", 
-    "message": "Validation failed: 'ImageTemplate.properties.source': Field 'imageId' has a bad value: '/subscriptions/subscriptionID/resourceGroups/resourceGroupName/providers/Microsoft.Compute/images/imageName'. Please review  http://aka.ms/azvmimagebuildertmplref  for details on fields requirements in the Image Builder Template." 
+    "code": "ValidationFailed",
+    "message": "Validation failed: 'ImageTemplate.properties.source': Field 'imageId' has a bad value: '/subscriptions/subscriptionID/resourceGroups/resourceGroupName/providers/Microsoft.Compute/images/imageName'. Please review  http://aka.ms/azvmimagebuildertmplref  for details on fields requirements in the Image Builder Template."
   }
 }
 ```
@@ -113,7 +113,7 @@ The assigned managed identity cannot be used. Please remove the existing one and
 #### Cause
 
 
-There are cases where [Managed Service Identities (MSI)](/azure/virtual-machines/linux/image-builder-permissions-cli#create-a-user-assigned-managed-identity) assigned to the image template cannot be used: 
+There are cases where [Managed Service Identities (MSI)](/azure/virtual-machines/linux/image-builder-permissions-cli#create-a-user-assigned-managed-identity) assigned to the image template cannot be used:
 
 
 - The Image Builder template uses a customer provided staging resource group and the MSI is deleted before the image template is deleted ([staging resource group](./image-builder-json.md#properties-stagingresourcegroup) scenario)
@@ -164,7 +164,7 @@ Depending on your scenario, VM Image Builder might need permissions to:
 
 - The source image or Azure Compute Gallery (formerly Shared Image Gallery) resource group.
 - The distribution image or Azure Compute Gallery resource.
-- The storage account, container, or blob that the `File` customizer is accessing. 
+- The storage account, container, or blob that the `File` customizer is accessing.
 
 Also, ensure the staging resource group name is uniquely specified for each image template.
 
@@ -177,7 +177,7 @@ For more information about configuring permissions, see [Configure VM Image Buil
 ```output
 Build (Managed Image) step failed: Error getting Managed Image '/subscriptions/.../providers/Microsoft.Compute/images/mymanagedmg1': Error getting managed image (...): compute.
 ImagesClient#Get: Failure responding to request: StatusCode=403 -- Original Error: autorest/azure: Service returned an error.
-Status=403 Code="AuthorizationFailed" Message="The client '......' with object id '......' doesn't have authorization to perform action 'Microsoft.Compute/images/read' over scope 
+Status=403 Code="AuthorizationFailed" Message="The client '......' with object id '......' doesn't have authorization to perform action 'Microsoft.Compute/images/read' over scope
 ```
 
 #### Cause
@@ -199,7 +199,7 @@ For more information about configuring permissions, see [Configure VM Image Buil
 #### Error
 
 ```output
-Build (Shared Image Version) step failed for Image Version '/subscriptions/.../providers/Microsoft.Compute/galleries/.../images/... /versions/0.23768.4001': Error getting Image Version '/subscriptions/.../resourceGroups/<rgName>/providers/Microsoft.Compute/galleries/.../images/.../versions/0.23768.4001': Error getting image version '... :0.23768.4001': compute.GalleryImageVersionsClient#Get: Failure responding to request: StatusCode=404 -- Original Error: autorest/azure: Service returned an error. 
+Build (Shared Image Version) step failed for Image Version '/subscriptions/.../providers/Microsoft.Compute/galleries/.../images/... /versions/0.23768.4001': Error getting Image Version '/subscriptions/.../resourceGroups/<rgName>/providers/Microsoft.Compute/galleries/.../images/.../versions/0.23768.4001': Error getting image version '... :0.23768.4001': compute.GalleryImageVersionsClient#Get: Failure responding to request: StatusCode=404 -- Original Error: autorest/azure: Service returned an error.
 Status=404 Code="ResourceNotFound" Message="The Resource 'Microsoft.Compute/galleries/.../images/.../versions/0.23768.4001' under resource group '<rgName>' was not found."
 ```
 
@@ -234,12 +234,12 @@ The Azure Image Builder build fails with an authorization error that looks like 
 #### Error
 
 ```output
-Attempting to deploy created Image template in Azure fails with an 'The client '6df325020-fe22-4e39-bd69-10873965ac04' with object id '6df325020-fe22-4e39-bd69-10873965ac04' does not have authorization to perform action 'Microsoft.Compute/disks/write' over scope '/subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>/providers/Microsoft.Compute/disks/proxyVmDiskWin_<timestamp>' or the scope is invalid. If access was recently granted, please refresh your credentials.' 
+Attempting to deploy created Image template in Azure fails with an 'The client '6df325020-fe22-4e39-bd69-10873965ac04' with object id '6df325020-fe22-4e39-bd69-10873965ac04' does not have authorization to perform action 'Microsoft.Compute/disks/write' over scope '/subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>/providers/Microsoft.Compute/disks/proxyVmDiskWin_<timestamp>' or the scope is invalid. If access was recently granted, please refresh your credentials.'
 ```
 
 #### Cause
 
-This error is caused when trying to specify a pre-existing resource group and VNet to the Azure Image Builder service with a Windows source image.  
+This error is caused when trying to specify a pre-existing resource group and VNet to the Azure Image Builder service with a Windows source image.
 
 #### Solution
 
@@ -254,14 +254,14 @@ az ad sp show --id {servicePrincipalName, or objectId}
 Then, to implement this solution using CLI, use the following command:
 
 ```azurecli-interactive
-az role assignment create -g {ResourceGroupName} --assignee {AibrpSpOid} --role Contributor 
+az role assignment create -g {ResourceGroupName} --assignee {AibrpSpOid} --role Contributor
 ```
 
 To implement this solution in portal, follow the instructions in this documentation: [Assign Azure roles using the Azure portal - Azure RBAC](../../role-based-access-control/role-assignments-portal.md).
 
-For [Step 1: Identify the needed scope](../../role-based-access-control/role-assignments-portal.md#step-1-identify-the-needed-scope): The needed scope is your resource group. 
+For [Step 1: Identify the needed scope](../../role-based-access-control/role-assignments-portal.md#step-1-identify-the-needed-scope): The needed scope is your resource group.
 
-For [Step 3: Select the appropriate role](../../role-based-access-control/role-assignments-portal.md#step-3-select-the-appropriate-role): The role is Contributor. 
+For [Step 3: Select the appropriate role](../../role-based-access-control/role-assignments-portal.md#step-3-select-the-appropriate-role): The role is Contributor.
 
 For [Step 4: Select who needs access](../../role-based-access-control/role-assignments-portal.md#step-4-select-who-needs-access): Select member “Azure Virtual Machine Image Builder”
 
@@ -337,11 +337,11 @@ The `customization.log` file includes the following stages:
     (telemetry) ending file
     (telemetry) Starting provisioner windows-restart
     (telemetry) ending windows-restart
-    
+
     (telemetry) Finalizing. - This means the build hasfinished
     ```
 
-1. *Deprovision* stage. VM Image Builder adds a hidden customizer. This deprovision step is responsible for preparing the VM for deprovisioning. In Windows, it runs `Sysprep` (by using *c:\DeprovisioningScript.ps1*). In Linux, it runs `waagent-deprovision` (by using /tmp/DeprovisioningScript.sh). 
+1. *Deprovision* stage. VM Image Builder adds a hidden customizer. This deprovision step is responsible for preparing the VM for deprovisioning. In Windows, it runs `Sysprep` (by using *c:\DeprovisioningScript.ps1*). In Linux, it runs `waagent-deprovision` (by using /tmp/DeprovisioningScript.sh).
 
     For example:
 
@@ -412,7 +412,7 @@ Customization failure.
 
 #### Solution
 
-Review the log to locate customizer failures. Search for *(telemetry)*. 
+Review the log to locate customizer failures. Search for *(telemetry)*.
 
 For example:
 
@@ -460,19 +460,19 @@ The build exceeded the build time-out. This error is seen in the 'lastrunstatus'
 #### Error
 
 ```text
-[086cf9c4-0457-4e8f-bfd4-908cfe3fe43c] PACKER OUT 
+[086cf9c4-0457-4e8f-bfd4-908cfe3fe43c] PACKER OUT
 myBigFile.zip 826 B / 826000 B  1.00%
-[086cf9c4-0457-4e8f-bfd4-908cfe3fe43c] PACKER OUT 
+[086cf9c4-0457-4e8f-bfd4-908cfe3fe43c] PACKER OUT
 myBigFile.zip 1652 B / 826000 B  2.00%
-[086cf9c4-0457-4e8f-bfd4-908cfe3fe43c] PACKER OUT 
+[086cf9c4-0457-4e8f-bfd4-908cfe3fe43c] PACKER OUT
 ..
 hours later...
 ..
 myBigFile.zip 826000 B / 826000 B  100.00%
-[086cf9c4-0457-4e8f-bfd4-908cfe3fe43c] PACKER OUT 
+[086cf9c4-0457-4e8f-bfd4-908cfe3fe43c] PACKER OUT
 ```
 
-#### Cause 
+#### Cause
 
 `File` customizer is downloading a large file.
 
@@ -519,7 +519,7 @@ myBigFile.zip 826000 B / 826000 B  100.00%
 [864c0337-b300-48ab-8e8e-7894bc695b7c] PACKER ERR 2023/06/13 08:46:26 machine readable: azure-arm,error []string{"Timeout waiting for machine to restart."}
 [864c0337-b300-48ab-8e8e-7894bc695b7c] PACKER OUT --> azure-arm: Timeout waiting for machine to restart.
 [864c0337-b300-48ab-8e8e-7894bc695b7c] PACKER ERR ==> Builds finished but no artifacts were created.
-[864c0337-b300-48ab-8e8e-7894bc695b7c] PACKER OUT 
+[864c0337-b300-48ab-8e8e-7894bc695b7c] PACKER OUT
 [864c0337-b300-48ab-8e8e-7894bc695b7c] PACKER ERR 2023/06/13 08:46:26 [INFO] (telemetry) Finalizing.
 [864c0337-b300-48ab-8e8e-7894bc695b7c] PACKER OUT ==> Builds finished but no artifacts were created.
 ```
@@ -600,7 +600,7 @@ Increase the value of `buildTimeoutInMinutes`.
 [45f485cf-5a8c-4379-9937-8d85493bc791] PACKER ERR 2020/04/30 23:38:59 packer-provisioner-windows-update: 2020/04/30 23:38:59 [INFO] RPC client: Communicator ended with: 1115
 [45f485cf-5a8c-4379-9937-8d85493bc791] PACKER ERR 2020/04/30 23:38:59 packer-provisioner-windows-update: 2020/04/30 23:38:59 Retryable error: Machine not yet available (exit status 1115)
 [45f485cf-5a8c-4379-9937-8d85493bc791] PACKER OUT Build 'azure-arm' errored: unexpected EOF
-[45f485cf-5a8c-4379-9937-8d85493bc791] PACKER OUT 
+[45f485cf-5a8c-4379-9937-8d85493bc791] PACKER OUT
 ```
 
 #### Cause
@@ -617,9 +617,9 @@ Increase the build VM size.
 
 ```text
 [<log_id>] PACKER 2023/09/14 19:01:18 ui: Build 'azure-arm' finished after 3 minutes 13 seconds.
-[<log_id>] PACKER 2023/09/14 19:01:18 ui: 
+[<log_id>] PACKER 2023/09/14 19:01:18 ui:
 [<log_id>] PACKER ==> Wait completed after 3 minutes 13 seconds
-[<log_id>] PACKER 2023/09/14 19:01:18 ui: 
+[<log_id>] PACKER 2023/09/14 19:01:18 ui:
 [<log_id>] PACKER ==> Builds finished but no artifacts were created.
 [<log_id>] PACKER 2023/09/14 19:01:18 [INFO] (telemetry) Finalizing.
 [<log_id>] PACKER 2023/09/14 19:01:19 waiting for all plugin processes to complete...
@@ -642,7 +642,7 @@ The above warning can safely be ignored.
 ```text
 [<log_id>] PACKER 2023/09/14 19:00:18 ui: ==> azure-arm:  -> Snapshot ID : '/subscriptions/<subscription_id>/resourceGroups/<resourcegroup_name>/providers/Microsoft.Compute/snapshots/<snapshot_name>'
 [<log_id>] PACKER 2023/09/14 19:00:18 ui: ==> azure-arm: Skipping image creation...
-[<log_id>] PACKER 2023/09/14 19:00:18 ui: ==> azure-arm: 
+[<log_id>] PACKER 2023/09/14 19:00:18 ui: ==> azure-arm:
 [<log_id>] PACKER ==> azure-arm: Deleting individual resources ...
 [<log_id>] PACKER 2023/09/14 19:00:18 packer-plugin-azure plugin: 202
 ```
@@ -671,7 +671,7 @@ Missing permissions.
 
 #### Solution
 
-Recheck to ensure that VM Image Builder has all the permissions it requires. 
+Recheck to ensure that VM Image Builder has all the permissions it requires.
 
 For more information about configuring permissions, see [Configure VM Image Builder permissions by using the Azure CLI](image-builder-permissions-cli.md) or [Configure VM Image Builder permissions by using PowerShell](image-builder-permissions-powershell.md).
 
@@ -726,7 +726,7 @@ For more information about configuring permissions, see [Configure VM Image Buil
 [922bdf36-b53c-4e78-9cd8-6b70b9674685] PACKER ERR 2020/05/05 22:26:17 Cancelling builder after context cancellation context canceled
 [922bdf36-b53c-4e78-9cd8-6b70b9674685] PACKER OUT Cancelling build after receiving terminated
 [922bdf36-b53c-4e78-9cd8-6b70b9674685] PACKER ERR 2020/05/05 22:26:17 packer: 2020/05/05 22:26:17 Cancelling provisioning due to context cancellation: context canceled
-[922bdf36-b53c-4e78-9cd8-6b70b9674685] PACKER OUT ==> azure-arm: 
+[922bdf36-b53c-4e78-9cd8-6b70b9674685] PACKER OUT ==> azure-arm:
 [922bdf36-b53c-4e78-9cd8-6b70b9674685] PACKER ERR 2020/05/05 22:26:17 packer: 2020/05/05 22:26:17 Cancelling hook after context cancellation context canceled
 [922bdf36-b53c-4e78-9cd8-6b70b9674685] PACKER OUT ==> azure-arm: The resource group was not created by Packer, deleting individual resources ...
 [922bdf36-b53c-4e78-9cd8-6b70b9674685] PACKER ERR ==> azure-arm: The resource group was not created by Packer, deleting individual resources ...
@@ -845,8 +845,8 @@ Early in the build process, the build fails and the log indicates a JSON Web Tok
 
 ```text
 PACKER OUT Error: Failed to prepare build: "azure-arm"
-PACKER ERR 
-PACKER OUT 
+PACKER ERR
+PACKER OUT
 PACKER ERR * client_jwt will expire within 5 minutes, please use a JWT that is valid for at least 5 minutes
 PACKER OUT 1 error(s) occurred:
 ```
@@ -884,7 +884,7 @@ Making these observations is especially important in build failures, where these
 When images are stuck in template deletion, the customization log might show the below error:
 
 ```output
-error deleting resource id /subscriptions/<subscriptionID>/resourceGroups/<rgName>/providers/Microsoft.Network/networkInterfaces/<networkInterfacName>: resources.Client#DeleteByID: Failure sending request: StatusCode=400 -- 
+error deleting resource id /subscriptions/<subscriptionID>/resourceGroups/<rgName>/providers/Microsoft.Network/networkInterfaces/<networkInterfacName>: resources.Client#DeleteByID: Failure sending request: StatusCode=400 --
 Original Error: Code="NicInUseWithPrivateEndpoint"
 Message="Network interface /subscriptions/<subscriptionID>/resourceGroups/<rgName>/providers/Microsoft.Network/networkInterfaces/<networkInterfacName> cannot be deleted because it is currently in use with an private endpoint (/subscriptions/<subscriptionID>/resourceGroups/<rgName>/providers/Microsoft.Network/privateEndpoints/<pIname>)." Details=[]
 ```
@@ -905,33 +905,33 @@ To resolve the issue, delete the below resources one by one in the specific orde
 
 For additional assistance, you can [contact Azure support](/azure/azure-portal/supportability/how-to-create-azure-support-request) to resolve the stuck deletion error.
 
-### Distribute target not found in the update request 
+### Distribute target not found in the update request
 
-#### Error  
+#### Error
 
 ```text
 Validation failed: Distribute target with Runoutput name <runoutputname> not found in the update request. Deleting a distribution target is not allowed.
 ```
 #### Cause
 
-This error occurs when an existing distribute target isn't found in the Patch request body. 
+This error occurs when an existing distribute target isn't found in the Patch request body.
 
-#### Solution  
+#### Solution
 
-The distribution array should contain all the distribution targets that is, new targets (if any), existing targets with no change and updated targets. If you want to remove an existing distribution target, delete and re-create the image template as deleting a distribution target is currently not supported through the Patch API.   
+The distribution array should contain all the distribution targets that is, new targets (if any), existing targets with no change and updated targets. If you want to remove an existing distribution target, delete and re-create the image template as deleting a distribution target is currently not supported through the Patch API.
 
-### Missing required fields 
+### Missing required fields
 
-#### Error  
+#### Error
 
 ```text
 Validation failed: 'ImageTemplate.properties.distribute[<index>]': Missing field <fieldname>. Please review http://aka.ms/azvmimagebuildertmplref for details on fields required in the Image Builder Template.
-``` 
+```
 #### Cause
 
-This error occurs when a required field is missing from a distribute target. 
+This error occurs when a required field is missing from a distribute target.
 
-#### Solution 
+#### Solution
 
 When creating a request, please provide every required field in a distribute target even if there's no change.
 
@@ -941,7 +941,7 @@ When creating a request, please provide every required field in a distribute tar
 
 The task fails only if an error occurs during customization. When this happens, the task reports the failure and leaves the staging resource group, with the logs, so that you can identify the issue.
 
-To locate the log, you need to know the template name. Go to **pipeline** > **failed build**, and then drill down into the VM Image Builder DevOps task. 
+To locate the log, you need to know the template name. Go to **pipeline** > **failed build**, and then drill down into the VM Image Builder DevOps task.
 
 You'll see the log and a template name:
 
@@ -1006,7 +1006,7 @@ For more information about Azure DevOps capabilities and limitations, see [Micro
 
 #### Solution
 
-You can host your own DevOps agents or look to reduce the time of your build. For example, if you're distributing to Azure Compute Gallery, you can replicate them to one region or replicate them asynchronously. 
+You can host your own DevOps agents or look to reduce the time of your build. For example, if you're distributing to Azure Compute Gallery, you can replicate them to one region or replicate them asynchronously.
 
 ### Slow Windows logon
 
@@ -1023,13 +1023,13 @@ Please wait for the Windows Modules Installer
 1. In the image build, check to ensure that:
 
    - There are no outstanding reboots required by adding a Windows Restart customizer as the last customization.
-   - All software installation is complete. 
+   - All software installation is complete.
 
-1. Add the [/mode:vm](/windows-hardware/manufacture/desktop/sysprep-command-line-options) option to the default `Sysprep` that VM Image Builder uses. For more information, go to the ["Override the commands"](#override-the-commands) section under "VMs created from VM Image Builder images aren't created successfully."  
+1. Add the [/mode:vm](/windows-hardware/manufacture/desktop/sysprep-command-line-options) option to the default `Sysprep` that VM Image Builder uses. For more information, go to the ["Override the commands"](#override-the-commands) section under "VMs created from VM Image Builder images aren't created successfully."
 
 ## VMs created from VM Image Builder images aren't created successfully
 
-By default, VM Image Builder runs *deprovision* code at the end of each image customization phase to *generalize* the image. To generalize an image is to set it up to reuse to create multiple VMs. As part of the process, you can pass in VM settings, such as hostname, username, and so on. In Windows, VM Image Builder runs `Sysprep`, and in Linux, VM Image Builder runs `waagent -deprovision`. 
+By default, VM Image Builder runs *deprovision* code at the end of each image customization phase to *generalize* the image. To generalize an image is to set it up to reuse to create multiple VMs. As part of the process, you can pass in VM settings, such as hostname, username, and so on. In Windows, VM Image Builder runs `Sysprep`, and in Linux, VM Image Builder runs `waagent -deprovision`.
 
 In Windows, VM Image Builder uses a generic `Sysprep` command. However, this command might not be suitable for every successful Windows generalization. With VM Image Builder, you can customize the `Sysprep` command. Note that VM Image Builder is an image automation tool that's responsible for running `Sysprep` command successfully. But you might need different `Sysprep` commands to make your image reusable. In Linux, VM Image Builder uses a generic `waagent -deprovision+user` command. For more information, see [Microsoft Azure Linux Agent documentation](https://github.com/Azure/WALinuxAgent#command-line-options).
 
@@ -1056,7 +1056,7 @@ In Linux:
 
 ### The `Sysprep` command: Windows
 
-```azurepowershell-interactive 
+```azurepowershell-interactive
 Write-Output '>>> Waiting for GA Service (RdAgent) to start ...'
 while ((Get-Service RdAgent).Status -ne 'Running') { Start-Sleep -s 5 }
 Write-Output '>>> Waiting for GA Service (WindowsAzureTelemetryService) to start ...'

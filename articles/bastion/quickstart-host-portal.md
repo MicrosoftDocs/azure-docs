@@ -5,7 +5,7 @@ description: Learn how to deploy Azure Bastion with default settings from the Az
 author: cherylmc
 ms.service: bastion
 ms.topic: quickstart
-ms.date: 10/12/2023
+ms.date: 01/18/2024
 ms.author: cherylmc
 
 ---
@@ -79,6 +79,14 @@ When you deploy from VM settings, Bastion is automatically configured with the f
 |**SKU** | **Basic** |
 | **Name** | Based on the virtual network name |
 | **Public IP address name** | Based on the virtual network name |
+
+## Configure the AzureBastionSubnet
+
+When you deploy Azure Bastion, resources are created in a specific subnet which must be named **AzureBastionSubnet**. The name of the subnet lets the system know where to deploy resources. Use the following steps to add the AzureBastionSubnet to your virtual network:
+
+[!INCLUDE [Add AzureBastionSubnet](../../includes/bastion-add-subnet-include.md)]
+
+After adding the AzureBastionSubnet, you can continue to the next section and deploy Bastion.
 
 ## <a name="createvmset"></a>Deploy Bastion
 

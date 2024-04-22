@@ -3,7 +3,7 @@ title: Overview of enhanced soft delete for Azure Backup
 description: This article gives an overview of enhanced soft delete for Azure Backup.
 ms.topic: conceptual
 ms.custom: references_regions
-ms.date: 09/11/2023
+ms.date: 03/02/2024
 ms.service: backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
@@ -49,6 +49,7 @@ The key benefits of enhanced soft delete are:
 
 - Enhanced soft delete is supported for Recovery Services vaults and Backup vaults. Also, it's supported for new and existing vaults.
 - Enhanced soft delete applies to all vaulted workloads alike and is supported for Recovery Services vaults and Backup vaults. However, it currently doesn't support operational tier workloads, such as Azure Files backup, Operational backup for Blobs, Disk and VM snapshot backups.
+- Always-on feature for soft delete is currently not supported for SQL database backups.
 
 ## States of soft delete settings
 

@@ -137,7 +137,7 @@ To learn more about using Azure Monitor with IoT Hub, see [Monitor IoT Hub](moni
 
 ## Regional availability
 
-During public preview, IoT Hub device streams are available in the Central US, Central US EUAP, North Europe, and Southeast Asia regions. Please make sure you create your hub in one of these regions.
+During public preview, IoT Hub device streams are available in the Central US, East US EUAP, North Europe, and Southeast Asia regions. Please make sure you create your hub in one of these regions.
 
 ## SDK availability
 
