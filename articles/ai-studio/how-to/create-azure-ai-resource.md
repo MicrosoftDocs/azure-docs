@@ -82,12 +82,6 @@ If your organization is using [Azure Policy](../../governance/policy/overview.md
 
 ## Manage your Azure AI hub resource from the Azure portal
 
-### Azure AI hub resource keys
-
-View your keys and endpoints for your Azure AI hub resource from the overview page within the Azure portal.
-
-:::image type="content" source="../media/how-to/resource-manage-view-keys.png" alt-text="Screenshot of the Azure AI hub resource in the Azure portal showing the keys and endpoints." lightbox="../media/how-to/resource-manage-view-keys.png":::
-
 ### Manage access control
 
 Manage role assignments from **Access control (IAM)** within the Azure portal. Learn more about Azure AI hub resource [role-based access control](../concepts/rbac-ai-studio.md).
