@@ -172,7 +172,7 @@ Limitations for log search alert rule queries:
     1. <a name="managed-id"></a>In the **Identity** section, select which identity is used by the log search alert rule to send the log query. This identity is used for authentication when the alert rule executes the log query.
 
         Keep these things in mind when selecting an identity:
-        - A managed identity is required if you're sending a query to Azure Data Explorer.
+        - A managed identity is required if you're sending a query to Azure Data Explorer (ADX) or to Azure Resource Graph (ARG).
         - Use a managed identity if you want to be able to see or edit the permissions associated with the alert rule.
         - If you don't use a managed identity, the alert rule permissions are based on the permissions of the last user to edit the rule, at the time the rule was last edited.
         - Use a managed identity to help you avoid a case where the rule doesn't work as expected because the user that last edited the rule didn't have permissions for all the resources added to the scope of the rule.
