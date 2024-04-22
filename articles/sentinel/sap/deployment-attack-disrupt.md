@@ -3,11 +3,12 @@ title: Automatic attack disruption for SAP | Microsoft Sentinel
 description: Learn about deploying automatic attack disruption for SAP with the unified security operations platform.
 author: batamig
 ms.author: bagol
-ms.topic: concept
+ms.topic: how-to
 ms.date: 04/01/2024
-appliesto: Microsoft Sentinel in the Azure portal and the Microsoft Defender portal
+appliesto:
+  - Microsoft Sentinel in the Azure portal and the Microsoft Defender portal
 ms.collection: usx-security
-#customerIntent: As a security engineer, I want to deploy automatic attack disruption for SAP in the Microsoft Defender portal.
+#customerIntent: As a security engineer, I want to use automatic attack disruption for SAP in the Microsoft Defender portal.
 ---
 
 # Automatic attack disruption for SAP (Preview)
@@ -26,12 +27,13 @@ Attack disruption for SAP is configured by updating your data connector agent ve
 
 To use attack disruption for SAP, make sure that you configured the integration between Microsoft Sentinel and Microsoft Defender XDR. For more information, see [Connect Microsoft Sentinel to Microsoft Defender XDR](/microsoft-365/security/defender/microsoft-sentinel-onboard) and [Microsoft Sentinel in the Microsoft Defender portal (preview)](../microsoft-sentinel-defender-portal.md).
 
-## Required SAP data connector agent version and role
+## Required SAP data connector agent version and role assignments
 
 Attack disruption for SAP requires that you have:
 
-- A Microsoft Sentinel SAP data connector agent, version 88020708 or higher.
+- A Microsoft Sentinel SAP data connector agent, version 90847355 or higher.
 - The identity of your data connector agent VM must be assigned to the **Microsoft Sentinel Business Applications Agent Operator** Azure role.
+- The **/MSFTSEN/SENTINEL_RESPONDER** SAP role, applied to your SAP system and assigned to the SAP user account used by Microsoft Sentinel's SAP data connector agent.
 
 **To use attack disruption for SAP**, deploy a new agent, or update your current agent to the latest version. For more information, see:
 
@@ -52,6 +54,28 @@ SAP_HeartBeat_CL
 ```
 
 If the identity of your data connector agent VM isn't yet assigned to the **Microsoft Sentinel Business Applications Agent Operator** role as part of the deployment process, assign the role manually. For more information, see [Deploy and configure the container hosting the SAP data connector agent](deploy-data-connector-agent-container.md#role).
+
+## Apply and assign the /MSFTSEN/SENTINEL_RESPONDER SAP role to your SAP system
+
+Attack disruption is supported by the new **/MSFTSEN/SENTINEL_RESPONDER** SAP role, which you must apply to your SAP system and assign to the SAP user account used by Microsoft Sentinel's SAP data connector agent.
+
+1. Upload role definitions from the [/MSFTSEN/SENTINEL_RESPONDER](https://aka.ms/SAP_Sentinel_Responder_Role) file in GitHub.
+
+1. Assign the **/MSFTSEN/SENTINEL_RESPONDER** role to the SAP user account used by Microsoft Sentinel's SAP data connector agent. For more information, see [Deploy SAP Change Requests and configure authorization](preparing-sap.md).
+
+Alternately, manually assign the following authorizations to the current role already assigned to the SAP user account used by Microsoft Sentinel's SAP data connector. These authorizations are included in the **/MSFTSEN/SENTINEL_RESPONDER** SAP role specifically for attack disruption response actions.
+
+| Authorization object | Field | Value |
+| -------------------- | ----- | ----- |
+|S_RFC	|RFC_TYPE	|Function Module |
+|S_RFC	|RFC_NAME	|BAPI_USER_LOCK |
+|S_RFC	|RFC_NAME	|BAPI_USER_UNLOCK |
+|S_RFC	|RFC_NAME	|TH_DELETE_USER <br>In contrast to its name, this function doesn't delete users, but ends the active user session. |
+|S_USER_GRP	|CLASS	|* <br>We recommend replacing S_USER_GRP CLASS with the relevant classes in your organization that represent dialog users. |
+|S_USER_GRP	|ACTVT	|03 |
+|S_USER_GRP	|ACTVT	|05 |
+
+For more information, see [Required ABAP authorizations](preparing-sap.md#required-abap-authorizations).
 
 ## Related content
 

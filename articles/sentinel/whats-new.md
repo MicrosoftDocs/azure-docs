@@ -22,6 +22,8 @@ The listed features were released in the last three months. For information abou
 
 - [Unified security operations platform in the Microsoft Defender portal (preview)](#unified-security-operations-platform-in-the-microsoft-defender-portal-preview)
 - [Microsoft Sentinel now generally available (GA) in Azure China 21Vianet](#microsoft-sentinel-now-generally-available-ga-in-azure-china-21vianet)
+- [Two anomaly detections discontinued](#two-anomaly-detections-discontinued)
+- [Microsoft Sentinel now available in Italy North region](#microsoft-sentinel-is-now-available-in-italy-north-region)
 
 ### Unified security operations platform in the Microsoft Defender portal (preview)
 
@@ -34,7 +36,21 @@ The unified security operations platform in the Microsoft Defender portal is now
 
 ### Microsoft Sentinel now generally available (GA) in Azure China 21Vianet
 
-Microsoft Sentinel is now generally available (GA) in Azure China 21Vianet. <!--what does this actually mean?--> Individual features might still be in public preview, as listed on [Microsoft Sentinel feature support for Azure commercial/other clouds](feature-availability.md).
+Microsoft Sentinel is now generally available (GA) in Azure China 21Vianet. Individual features might still be in public preview, as listed on [Microsoft Sentinel feature support for Azure commercial/other clouds](feature-availability.md).
+
+For more information, see also [Geographical availability and data residency in Microsoft Sentinel](geographical-availability-data-residency.md).
+
+### Two anomaly detections discontinued
+
+The following anomaly detections are discontinued as of March 26, 2024, due to low quality of results:
+- Domain Reputation Palo Alto anomaly
+- Multi-region logins in a single day via Palo Alto GlobalProtect
+
+For the complete list of anomaly detections, see the [anomalies reference page](anomalies-reference.md).
+
+### Microsoft Sentinel is now available in Italy North region
+
+Microsoft Sentinel is now available in Italy North Azure region with the same feature set as all other Azure Commercial regions as listed on [Microsoft Sentinel feature support for Azure commercial/other clouds](feature-availability.md).
 
 For more information, see also [Geographical availability and data residency in Microsoft Sentinel](geographical-availability-data-residency.md).
 

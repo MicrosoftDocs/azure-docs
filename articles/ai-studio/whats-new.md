@@ -18,9 +18,9 @@ Azure AI Studio is updated on an ongoing basis. To stay up-to-date with recent d
 
 ## February 2024
 
-### Azure AI hub
+### Azure AI Studio hub
 
-Azure AI resource is renamed Azure AI hub resource. For additional information about the Azure AI hub resource, check out [the Azure AI hub resource documentation](./concepts/ai-resources.md).
+Azure AI resource is renamed hub. For additional information about the hub, check out [the hub documentation](./concepts/ai-resources.md).
 
 ## January 2024
 

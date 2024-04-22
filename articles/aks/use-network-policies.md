@@ -5,6 +5,9 @@ description: Learn how to secure traffic that flows in and out of pods by using 
 ms.topic: article
 ms.custom: devx-track-azurecli
 ms.date: 03/28/2024
+author: schaffererin
+ms.author: schaffererin
+
 ---
 
 # Secure traffic between pods by using network policies in AKS
@@ -195,7 +198,7 @@ Create the AKS cluster and specify `--network-plugin azure`, and `--network-poli
 If you plan on adding Windows node pools to your cluster, include the `windows-admin-username` and `windows-admin-password` parameters that meet the [Windows Server password requirements][windows-server-password].
 
 > [!IMPORTANT]
-> At this time, using Calico network policies with Windows nodes is available on new clusters by using Kubernetes version 1.20 or later with Calico 3.17.2 and requires that you use Azure CNI networking. Windows nodes on AKS clusters with Calico enabled also have [Direct Server Return (DSR)][dsr] enabled by default.
+> At this time, using Calico network policies with Windows nodes is available on new clusters by using Kubernetes version 1.20 or later with Calico 3.17.2 and requires that you use Azure CNI networking. Windows nodes on AKS clusters with Calico enabled also have Floating IP enabled by default.
 >
 > For clusters with only Linux node pools running Kubernetes 1.20 with earlier versions of Calico, the Calico version automatically upgrades to 3.17.2.
 
@@ -426,3 +429,4 @@ To learn more about policies, see [Kubernetes network policies][kubernetes-netwo
 [az-extension-add]: /cli/azure/extension#az_extension_add
 [az-extension-update]: /cli/azure/extension#az_extension_update
 [dsr]: ../load-balancer/load-balancer-multivip-overview.md#rule-type-2-backend-port-reuse-by-using-floating-ip
+

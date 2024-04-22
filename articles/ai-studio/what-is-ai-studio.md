@@ -22,11 +22,11 @@ Azure AI Studio brings together capabilities from across multiple Azure AI servi
 [Azure AI Studio](https://ai.azure.com) is designed for developers to:
 
 - Build generative AI applications on an enterprise-grade platform. 
-- Directly from the studio you can interact with a project code-first via the [Azure AI SDK](how-to/sdk-install.md) and [Azure AI CLI](how-to/cli-install.md). 
+- Directly from the studio you can interact with a project code-first via [Visual Studio Code (Web)](how-to/develop-in-vscode.md).
 - Azure AI Studio is a trusted and inclusive platform that empowers developers of all abilities and preferences to innovate with AI and shape the future. 
 - Seamlessly explore, build, test, and deploy using cutting-edge AI tools and ML models, grounded in responsible AI practices. 
-- Build together as one team. Your [Azure AI hub resource](./concepts/ai-resources.md) provides enterprise-grade security, and a collaborative environment with shared files and connections to pretrained models, data and compute.
-- Organize your way. Your [Azure AI project](./how-to/create-projects.md) helps you save state, allowing you iterate from first idea, to first prototype, and then first production deployment. Also easily invite others to collaborate along this journey.
+- Build together as one team. Your [Azure AI Studio hub](./concepts/ai-resources.md) provides enterprise-grade security, and a collaborative environment with shared files and connections to pretrained models, data and compute.
+- Organize your way. Your [Azure AI Studio project](./how-to/create-projects.md) helps you save state, allowing you iterate from first idea, to first prototype, and then first production deployment. Also easily invite others to collaborate along this journey.
 
 With Azure AI Studio, you can evaluate large language model (LLM) responses and orchestrate prompt application components with prompt flow for better performance. The platform facilitates scalability for transforming proof of concepts into full-fledged production with ease. Continuous monitoring and refinement support long-term success.  
 
@@ -66,7 +66,7 @@ Build is an experience where AI Devs and ML Pros can build or customize AI solut
 As a developer, you can manage settings such as connections and compute. Your admin mainly uses this section to look at access control, usage, and billing.
 
 - Centralized backend infrastructure to reduce complexity for developers.
-- A single Azure AI hub resource for enterprise configuration, unified data story, and built-in governance.
+- A single hub for enterprise configuration, unified data story, and built-in governance.
 
 :::image type="content" source="./media/explore/ai-studio-tab-manage.png" alt-text="Screenshot of the signed-out Azure AI Studio manage page." lightbox="./media/explore/ai-studio-tab-manage.png":::
 
@@ -91,7 +91,7 @@ You can explore Azure AI Studio without signing in, but for full functionality a
 
 ## Next steps 
 
-- [Create an AI Studio project](./how-to/create-projects.md)
+- [Create a project](./how-to/create-projects.md)
 - [Tutorial: Deploy a chat web app](tutorials/deploy-chat-web-app.md)
 - [Tutorial: Using Azure AI Studio with a screen reader](tutorials/screen-reader.md)
 

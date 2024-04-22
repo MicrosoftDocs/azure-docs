@@ -108,7 +108,7 @@ If you're developing a Python tool that requires calling external services with 
 
 Create a custom connection that stores all your large language model API key or other required credentials.
 
-1. Go to **AI project settings**. Then select **New Connection**.
+1. Go to **Project settings**. Then select **New Connection**.
 1. Select **Custom** service. You can define your connection name. You can add multiple key-value pairs to store your credentials and keys by selecting **Add key-value pairs**.
 
     > [!NOTE]
