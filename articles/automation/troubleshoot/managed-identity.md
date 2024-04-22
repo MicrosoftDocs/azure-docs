@@ -16,15 +16,14 @@ This article discusses solutions to problems that you might encounter when you u
 
 ### Issue
 
-Runbook with system assigned managed identity fails with 400 error message.
+Runbook with system assigned managed identity fails with the error as `unable to acquire for tenant organizations with error ManagedIdentityCredential authentication failed. Managed System Identity not found! Status 400 (Bad Request)`
 
-:::image type="content" source="./media/managed-identity/error-runbooks-system-assigned-managed-identity.png" alt-text="screenshot of failure of Runbook with system assigned managed identity." lightbox="./media/managed-identity/error-runbooks-system-assigned-managed-identity.png":::
 
 ### Cause
 You haven't assigned permissions after creating the system-assigned managed identity. 
 
 ### Resolution
-Ensure to assign the appropriate permissions for system-assigned managed identity. [Learn more](../enable-managed-identity-for-automation.md)
+Ensure to assign the appropriate permissions for system-assigned managed identity. [Using a system-assigned managed identity for an Azure Automation account](../enable-managed-identity-for-automation.md)
 
 
 ## Scenario: Managed Identity in a Runbook cannot authenticate against Azure
