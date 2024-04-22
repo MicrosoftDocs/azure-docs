@@ -54,7 +54,7 @@ With the Maintenance Configurations feature, you can control when to apply updat
 
 ## Assign the configuration
 
-1. On the details page of the maintenance configuration, select **Machines**, and then select **Add Machine**.
+1. On the details page of the maintenance configuration, select **Machines**, and then select **Add machine**.
 
     ![Screenshot that shows the button for adding a machine.](media/virtual-machines-maintenance-control-portal/maintenance-configurations-add-assignment.png)
 

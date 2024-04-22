@@ -22,7 +22,7 @@ If you're looking for information about using Maintenance Configurations for sca
 > [!IMPORTANT]
 > Specific *scopes* support certain machine types and schedules. Be sure to select the right scope for your VM.
 
-## Enable the PowerShell module
+## Enable the Azure PowerShell module
 
 Make sure that `PowerShellGet` is up to date:
 
@@ -30,13 +30,13 @@ Make sure that `PowerShellGet` is up to date:
 Install-Module -Name PowerShellGet -Repository PSGallery -Force
 ```
 
-Install the `Az.Maintenance` PowerShell module:
+Install the `Az.Maintenance` Azure PowerShell module:
 
 ```azurepowershell-interactive
 Install-Module -Name Az.Maintenance
 ```
 
-Check that you're running the latest version of the `Az.Maintenance` PowerShell module (version 1.2.0):
+Check that you're running the latest version of `Az.Maintenance` (version 1.2.0):
 
 ```azurepowershell-interactive
 Get-Module -ListAvailable -Name Az.Maintenance
@@ -48,7 +48,7 @@ Ensure that you're running the appropriate version of `Az.Maintenance`:
 Import-Module -Name Az.Maintenance -RequiredVersion 1.2.0
 ```
 
-If you're installing locally, be sure to open your PowerShell prompt as an administrator.
+If you're installing locally, be sure to open your Azure PowerShell prompt as an administrator.
 
 You might be asked to confirm that you want to install from an untrusted repository. Enter **Y** or select **Yes to All** to install the module.
 
@@ -99,7 +99,7 @@ New-AzMaintenanceConfiguration
    -RecurEvery $recurEvery
 ```  
 
-Using `$scope = "Host"` ensures that the maintenance configuration is used for controlling updates on host machines. Ensure that you're creating a configuration for the specific scope of the machines that you're targeting. [Learn more about scopes](maintenance-configurations.md#scopes).
+Using `$scope = "Host"` ensures that the maintenance configuration is used for controlling updates on host machines. Be sure to create a configuration for the specific scope of the machines that you're targeting. [Learn more about scopes](maintenance-configurations.md#scopes).
 
 ### OS image
 
@@ -132,7 +132,7 @@ New-AzMaintenanceConfiguration
 
 ### Guest
 
-The most recent addition to the Maintenance Configurations feature is the `InGuestPatch` scope. This example shows how to create a maintenance configuration for a guest scope by using PowerShell. For more information about this scope, see [Guest](maintenance-configurations.md#guest).
+The most recent addition to the Maintenance Configurations feature is the `InGuestPatch` scope. This example shows how to create a maintenance configuration for a guest scope by using Azure PowerShell. For more information about this scope, see [Guest](maintenance-configurations.md#guest).
 
 ```azurepowershell-interactive
 $RGName = "myMaintenanceRG"
@@ -185,7 +185,7 @@ Get-AzMaintenanceConfiguration | Format-Table -Property Name,Id
 
 ## Assign the configuration
 
-After you create your configuration, you might want to also assign machines to it by using PowerShell. You can use the [New-AzConfigurationAssignment](/powershell/module/az.maintenance/new-azconfigurationassignment) cmdlet.
+After you create your configuration, you might want to also assign machines to it by using Azure PowerShell. You can use the [New-AzConfigurationAssignment](/powershell/module/az.maintenance/new-azconfigurationassignment) cmdlet.
 
 ### Isolated VM
 
