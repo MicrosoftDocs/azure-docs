@@ -5,7 +5,7 @@ services: traffic-manager
 author: greg-lindsay
 ms.service: traffic-manager
 ms.topic: conceptual
-ms.date: 01/29/2024
+ms.date: 04/22/2024
 ms.author: greglin
 ---
 
@@ -525,8 +525,14 @@ The following table describes the behavior of Traffic Manager health checks for 
 | CheckingEndpoints. At least one child profile endpoint is 'CheckingEndpoint'. No endpoints are 'Online' or 'Degraded' |Same as above. | |
 | Inactive. All child profile endpoints are either Disabled or Stopped, or this profile has no endpoints. |Stopped | |
 
-> [!NOTE]
-> When managing child profiles under a parent profile in Azure Traffic Manager, an issue can occur if you disable and then enable two child profiles simultaneously. If there is a brief period when both endpoints are disabled, this can result in the parent profile entering a compromised state. To avoid this problem, use caution when making simultaneous changes to child profiles. Consider staggering the changes slightly to prevent unintended disruptions to your traffic management configuration.
+> [!IMPORTANT]
+> When managing child profiles under a parent profile in Azure Traffic Manager, an issue can occur if you simultaneously disable and enable two child profiles. If these actions occur at the same time, there might be a brief period when both endpoints are disabled, leading to the parent profile entering a compromised state.<br><br>
+
+To avoid this problem, exercise caution when making simultaneous changes to child profiles. Consider staggering these actions slightly to prevent unintended disruptions to your traffic management configuration. 
+
+### Why can't I add Azure Cloud Services Extended Support Endpoints to my Traffic Manager profile? 
+
+When adding Azure Cloud Extended endpoints to a Traffic Manager profile, the resource group must have compatibility with the Azure Service Management (ASM) API. Profiles located in the older resource group must adhere to ASM API standards, which prohibit the inclusion of public IP address endpoints or endpoints from a different subscription than that of the profile. To resolve this, consider moving your Traffic Manager profile and associated resources to a new resource group compatible with the ASM API.  
 
 ## Next steps:
 
