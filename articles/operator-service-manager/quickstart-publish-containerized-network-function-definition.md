@@ -55,7 +55,7 @@ Here's sample input-cnf-nfd.jsonc file:
   // Version of the NF definition in 1.1.1 format (three integers separated by dots).
   "version": "1.0.0",
   // List of registries from which to pull the image(s).
-  // For example [sourceacr.azurecr.io/test, myacr2.azurecr.io, ghcr.io/path].
+  // For example ["sourceacr.azurecr.io/test", "myacr2.azurecr.io", "ghcr.io/path"].
   // For non Azure Container Registries, ensure you have run a docker login command before running build.
   //
   "image_sources": ["docker.io"],

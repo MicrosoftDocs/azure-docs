@@ -111,7 +111,7 @@ az aosm nfd generate-config --definition-type cnf --output-file <filename.jsonc>
   // If not set or set to false, only required parameters without defaults will be exposed.
   "expose_all_parameters": false,
   // List of registries from which to pull the image(s).
-  // For example [sourceacr.azurecr.io/test, myacr2.azurecr.io, ghcr.io/path].
+  // For example ["sourceacr.azurecr.io/test", "myacr2.azurecr.io", "ghcr.io/path"].
   // For non Azure Container Registries, ensure you have run a docker login command before running build.
   "image_sources": ["contoso.azuercr.io/contoso", "docker.io"],
   // List of Helm packages to be included in the CNF.
