@@ -96,5 +96,5 @@ Consider using Community tool Oracle Migration Assistant Tool (OMAT) to get the 
 
 ## Next steps
 - [Migrate Oracle workload to Azure VMs (IaaS)](oracle-migration.md)
-- [Partner storage options for Oracle on Azure VMs](oracle-third-party-storage.md)
-  
+- [Partner storage offerings for Oracle on Azure VMs](oracle-third-party-storage.md)
+

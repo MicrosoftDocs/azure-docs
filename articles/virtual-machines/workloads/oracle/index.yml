@@ -76,7 +76,7 @@ landingContent:
             url: oracle-migration.md
           - text: Performance best practices for Oracle on Azure VMs
             url: oracle-performance-best-practice.md
-          - text: Partner storage options for Oracle on Azure VMs 
+          - text: Partner storage offerings for Oracle on Azure VMs 
             url: oracle-third-party-storage.md
   
   #card 8

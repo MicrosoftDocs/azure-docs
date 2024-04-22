@@ -74,3 +74,7 @@ The following table provides other inputs to help you to determine the appropria
 | BCDR                     | One-to-Many Multi-Zone and Multi-Region Replication, Instant zero footprint Snapshot, Clone, Revert, and Extract for AI / BI, Testing, or Back up |
 | Redundancy & Scale Targets | One-to-Many Multi-Zone and Multi-Region Replication                                                  |
 | Encryption   | Azure Key Vault based & bring your own encryption      |
+
+## Next steps
+- [Migrate Oracle workload to Azure VMs (IaaS)](oracle-migration.md)
+- [Performance best practices for Oracle on Azure VMs](oracle-performance-best-practice.md)

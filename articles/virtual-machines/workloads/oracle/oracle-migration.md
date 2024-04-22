@@ -75,4 +75,4 @@ First step in the migration journey starts with understanding the customer’s O
 
 ## Next steps
 - [Oracle performance best practices for Azure VMs](oracle-performance-best-practice.md)
-- [Partner storage options for Oracle on Azure VMs](oracle-third-party-storage.md)
+- [Partner storage offerings for Oracle on Azure VMs](oracle-third-party-storage.md)
