@@ -43,7 +43,7 @@ This account is used for the ongoing operation of Azure Arc-enabled VMware vSphe
 
 ### Resource bridge resource requirements
 
-For Arc-enabled VMware vSphere, resource bridge has the following minimum virtual hardware requirements
+For Arc-enabled VMware vSphere, resource bridge has the following minimum virtual hardware requirements:
 
 - 16 GB of memory
 - 4 vCPUs
