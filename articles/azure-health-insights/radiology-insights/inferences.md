@@ -62,7 +62,7 @@ Possible inference types:
 
 **Age Mismatch**
 
-An age mismatch occurs when the document gives a certain age for the patient, which differs from the age that is calculated based on the patient’s info birthdate and the encounter period in the request.  
+An age mismatch occurs when the document gives a certain age for the patient, which differs from the age that is calculated based on the patient’s birthdate in info/details and the date of creation or the encounter period in the request.  
 - kind: RadiologyInsightsInferenceType.AgeMismatch;
 
 Examples request/response json:
@@ -76,8 +76,10 @@ Examples request/response json:
 
 **Laterality Discrepancy**
 
-A laterality mismatch is mostly flagged when the orderedProcedure is for a body part with a laterality and the text refers to the opposite laterality.
+A laterality mismatch is flagged when the orderedProcedure is for a body part with a laterality and the text refers to the opposite laterality or does not contain a laterality.
 Example: "x-ray right foot", "left foot is normal"
+A laterality mismatch is also flagged when there's a body part with left or right in the finding section, and the same body part occurs with the opposite laterality in the impression section.
+
 - kind: RadiologyInsightsInferenceType.LateralityDiscrepancy
 - LateralityIndication: FHIR.R4.CodeableConcept
 - DiscrepancyType: LateralityDiscrepancyType
@@ -97,7 +99,7 @@ The meaning of this field is as follows:
 -	For textLateralityContradiction: concept in the impression section that the laterality was flagged for.
 -	For "textLateralityMissing", this field isn't filled in.
 
-A mismatch with discrepancy type "textLaterityMissing" has no token extensions.
+For a mismatch with discrepancy type "textLaterityMissing" no evidence is returned..
 
 
 Examples request/response json:
@@ -110,7 +112,7 @@ Examples request/response json:
 
 
 **Sex Mismatch**
-This mismatch occurs when the document gives a different sex for the patient than stated in the patient’s info in the request. If the patient info contains no sex, then the mismatch can also be flagged when there's contradictory language about the patient’s sex in the text.
+This mismatch occurs when the document gives a different sex for the patient than stated in the patient’s info/details in the request. If the patient info contains no sex, then the mismatch can also be flagged when there's contradictory language about the patient’s sex in the text.
 - kind: RadiologyInsightsInferenceType.SexMismatch
 - sexIndication: FHIR.R4.CodeableConcept  
 Field "sexIndication" contains one coding with a SNOMED concept for either MALE (FINDING) if the document refers to a male or FEMALE (FINDING) if the document refers to a female:
@@ -129,7 +131,7 @@ Examples request/response json:
 
 
 **Complete Order Discrepancy**
-CompleteOrderDiscrepancy is created if there's a complete orderedProcedure - meaning that some body parts need to be mentioned in the text, and possibly also measurements for some of them - and not all the body parts or their measurements are in the text.
+A CompleteOrderDiscrepancy is created if there's a complete orderedProcedure for a body region and not all the body parts for this body region or their measurements are in the text.
 - kind: RadiologyInsightsInferenceType.CompleteOrderDiscrepancy  
 - orderType: FHIR.R4.CodeableConcept 
 - MissingBodyParts: Array FHIR.R4.CodeableConcept
@@ -141,8 +143,10 @@ Field "ordertype" contains one Coding, with one of the following Loinc codes:
 - 24531-6: US Retroperitoneum
 - 24601-7: US breast
 
-Fields "missingBodyParts" and/or "missingBodyPartsMeasurements" contain body parts (radlex codes) that are missing or whose measurements are missing. The token extensions refer to body parts or measurements that are present (or words that imply them).
-        
+Fields "missingBodyParts" and/or "missingBodyPartsMeasurements" contain body parts (radlex codes) that are missing or whose measurements are missing. The provided evidence for this inference refers to body parts or measurements that are present (or words that imply them).
+
+Example: 
+A report with "ULTRASOUND, PELVIC (NONOBSTETRIC), REAL TIME WITH IMAGE DOCUMENTATION; COMPLETE" as orderedProcedure needs to mention the bodyparts uterus, left  ovary, right ovary, endometrium and their measurements.        
 
 
 Examples request/response json:
@@ -157,7 +161,7 @@ Examples request/response json:
         
 **Limited Order Discrepancy**
   
-This inference is created if there's a limited order, meaning that not all body parts and measurements for a corresponding complete order should be in the text.
+This inference is created if there's a limited orderedProcedure, meaning that not all body parts and measurements for a corresponding complete order should be in the text.
 - kind: RadiologyInsightsInferenceType.LimitedOrderDiscrepancy 
 - orderType: FHIR.R4.CodeableConcept 
 - PresentBodyParts: Array FHIR.R4.CodeableConcept
@@ -169,7 +173,10 @@ Field "ordertype" contains one Coding, with one of the following Loinc codes:
 - 24531-6: US Retroperitoneum
 - 24601-7: US breast
 
-Fields "presentBodyParts" and/or "presentBodyPartsMeasurements" contain body parts (radlex codes) that are present or whose measurements are present. The token extensions refer to body parts or measurements that are present (or words that imply them).
+Fields "presentBodyParts" and/or "presentBodyPartsMeasurements" contain body parts (radlex codes) that are present or whose measurements are present. The provided evidence for this inference refers  to body parts or measurements that are present (or words that imply them).
+Example: 
+A report with "US ABDOMEN LIMITED"" as orderedProcedure should not mention all bodyparts corresponding to a complete order.
+
 
 
 Examples request/response json:
@@ -187,15 +194,19 @@ This inference is created for a medical problem (for example "acute infection of
 - kind: RadiologyInsightsInferenceType.finding
 - finding: FHIR.R4.Observation
         
-Finding: Section and ci_sentence
-Next to the token extensions, there can be an extension with url "section". This extension has an inner extension with a display name that describes the section. The inner extension can also have a LOINC code.
-There can also be an extension with url "ci_sentence". This extension refers to the sentence containing the first token of the clinical indicator (that is, the medical problem), if any. The generation of such a sentence is switchable.
+Finding: Section
+Next to the provided evidence for this inference, there can be an extension with "url" : "section". This extension has an inner extension with a display name that describes the section, the inner extension will also have a LOINC code.
 
-Finding: fields within field "finding"
-list of fields within field "finding", except "component":
+
+When the findingOptions provideFocusedSentenceEvidence is on true (link to Model Configuration)
+, there can also be an extension with url "ci_sentence". This extension refers to the sentence containing the first word of the clinical indicator (that is, the medical problem), if any. The generation of such a sentence is switchable using the model configuration (link to Model Configuration).
+
+Finding: status and resourceType: 
 - status: is always set to "unknown"
 - resourceType: is always set to "Observation"
-- interpretation: contains a sublist of the following SNOMED codes:
+
+Finding: interpretation:
+contains a sublist of the following SNOMED codes:
 - 7147002: NEW (QUALIFIER VALUE)
 - 36692007: KNOWN (QUALIFIER VALUE)
 - 260413007: NONE (QUALIFIER VALUE)
@@ -301,7 +312,7 @@ This inference is made for a new medical problem that requires attention within 
 Field "result.description" gives a description of the medical problem, for example "MALIGNANCY".
 Field "result.finding", if set, contains the same information as the "finding" field in a finding inference.
 
-Next to token extensions, there can be an extension for a section. This field contains the most specific section that the first token of the critical result is in (or to be precise, the first token that is in a section). This section is in the same format as a section for a finding.
+Next to provided evidence for this inference , there can be an extension for a section. This field contains the most specific section that the first token of the critical result is in (or to be precise, the first token that is in a section). This section is in the same format as a section for a finding. This extension has an inner extension with a display name that describes the section. When a Loinc code is known for this section, the inner extension  will also have a code. 
 
 
 Examples request/response json:
@@ -317,13 +328,22 @@ Examples request/response json:
 
 This inference is created when the text recommends a specific medical procedure or follow-up for the patient.
 - kind: RadiologyInsightsInferenceType.FollowupRecommendation
-- effectiveDateTime: utcDateTime
+- effectiveDateTime/effectiveAt: utcDateTime
 - effectivePeriod: FHIR.R4.Period
-- Findings: Array RecommendationFinding
+- findings: Array RecommendationFinding
 - isConditional: boolean
 - isOption: boolean
 - isGuideline: boolean
 - isHedging: boolean
+- recommendedProcedure:  ProcedureRecommendation.
+
+Explanation of the different fields:
+- follow up Recommendation: sentences Next to the provided evidence for this inference , there can be an extension containing sentences.
+When the followupRecommendationOptions provideFocusedSentenceEvidence is on true (link to Model Configuration)
+, there can also be an extension with url "modality_sentences". This extension refers to the sentence containing the first word of the modality (that is, the procedure). The generation of such a sentence is switchable using the model configuration.(link to example in Model Configuration)
+
+
+
 
 recommendedProcedure: ProcedureRecommendation
 - follow up Recommendation: sentences
@@ -334,16 +354,16 @@ Next to the token extensions, there can be an extension containing sentences. Th
 "isGuideline" means that the recommendation is in a general guideline like the following:
 
 BI-RADS CATEGORIES: 
-- (0) Incomplete: Needs more imaging evaluation 
-- (1) Negative 
-- (2) Benign 
-- (3) Probably benign - Short interval follow-up suggested 
-- (4) Suspicious abnormality - Biopsy should be considered 
-- (5) Highly suggestive of malignancy - Appropriate action should be taken. 
-- (6) Known biopsy-proven malignancy
+- Incomplete: Needs more imaging evaluation 
+- Negative 
+- Benign 
+- Probably benign - Short interval follow-up suggested 
+- Suspicious abnormality - Biopsy should be considered 
+- Highly suggestive of malignancy - Appropriate action should be taken. 
+- Known biopsy-proven malignancy
 
-- follow up Recommendation: effectiveDateTime and effectivePeriod
-Field "effectiveDateTime" will be set when the procedure needs to be done (recommended) at a specific point in time. For example, "next Wednesday". Field "effectivePeriod" will be set if a specific period is mentioned, with a start and end datetime. For example, for "within six months", the start datetime will be the date of service, and the end datetime will be the day six months after that.
+- follow up Recommendation: effectiveDateTime/effectiveAt  and effectivePeriod.
+Field "effectiveDateTime" or "effectiveAt"  will be set when the procedure needs to be done (recommended) at a specific point in time. For example, "next Wednesday". Field "effectivePeriod" will be set if a specific period is mentioned, with a start and end datetime. For example, for "within six months", the start datetime will be the date of service, and the end datetime will be the day six months after that.
 - follow up Recommendation: findings
 If set, field "findings" contains one or more findings that have to do with the recommendation. For example, a leg scan (procedure) can be recommended because of leg pain (finding).
 Every array element of field "findings" is a RecommendationFinding. Field RecommendationFinding.finding has the same information as a FindingInference.finding field.
@@ -380,11 +400,11 @@ Examples request/response json:
 
 This inference is created when findings or test results were communicated to a medical professional.
 - kind: RadiologyInsightsInferenceType.FollowupCommunication
-- dateTime: Array utcDateTime
+- dateTime/communicatedAt: Array utcDateTime
 - recipient: Array MedicalProfessionalType
 - wasAcknowledged: boolean
         
-Field "wasAcknowledged" is set to true if the communication was verbal (nonverbal communication might not have reached the recipient yet and cannot be considered acknowledged). Field "dateTime" is set if the date-time of the communication is known. Field "recipient" is set if the recipient(s) are known. See the OpenAPI spec for its possible values.
+Field "wasAcknowledged" is set to true if the communication was verbal (nonverbal communication might not have reached the recipient yet and cannot be considered acknowledged). Field "dateTime/communicatedAt" is set if the date-time of the communication is known. Field "recipient" is set if the recipient(s) are known. See the OpenAPI spec for its possible values.
 
 Examples request/response json:
 

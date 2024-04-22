@@ -20,6 +20,18 @@ The model ensures that critical findings are identified and communicated using t
 > [!IMPORTANT]
 > The Radiology Insights model is a capability provided “AS IS” and “WITH ALL FAULTS”. The Radiology Insights model isn't intended or made available for use as a medical device, clinical support, diagnostic tool, or other technology intended to be used in the diagnosis, cure, mitigation, treatment, or prevention of disease or other conditions, and no license or right is granted by Microsoft to use this capability for such purposes. This capability isn't designed or intended to be implemented or deployed as a substitute for professional medical advice or healthcare opinion, diagnosis, treatment, or the clinical judgment of a healthcare professional, and should not be used as such. The customer is solely responsible for any use of the Radiology Insights model. The customer is responsible for ensuring compliance with those license terms, including any geographic or other applicable restrictions.
 
+
+
+> [!IMPORTANT]
+> Disclaimer  
+The Radiology insights service  
+(1) is not intended, designed or made available as a medical device,  
+(2) is not designed or intended to be used in the diagnosis, cure, mitigation, monitoring, treatment or prevention of a disease, condition or illness, and no license or right is granted by Microsoft to use the healthcare add-on or online services for such purposes, and  
+(3) is not designed or intended to be a substitute for professional medical advice, diagnosis, treatment, or judgment and should not be used to replace or as a substitute for professional medical advice, diagnosis, treatment, or judgment. Customer should not use the Radiology insights service as a medical device. Customer is solely responsible for any use that doesn’t conform to these restrictions and acknowledges that it would be the legal manufacturer in respect of any such use. Customer is solely responsible for displaying and/or obtaining appropriate consents, warnings, disclaimers, and acknowledgements to end users of customer’s implementation of the Radiology insights service. Customer is solely responsible for any use of the Radiology insights service to collate, store, transmit, process or present any data or information from any third-party products (including medical devices). 
+
+
+
+
 ## Radiology Insights features
 
 To remain competitive and successful, healthcare organizations and radiology teams must have visibility into trends and outcomes. The focus is on radiology operational excellence and performance and quality.
