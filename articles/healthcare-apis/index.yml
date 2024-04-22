@@ -134,7 +134,7 @@ additionalContent:
       items:
         # Card
         - title: Azure Health Data & AI workflows
-          summary: Sample apps and code
+          summary: Sample apps, converters, and code
           url: https://github.com/Azure-Samples/azure-health-data-services-samples
         # Card
         - title: REST API for Azure Health Data Services

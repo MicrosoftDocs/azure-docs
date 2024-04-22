@@ -13,7 +13,7 @@ ms.author: jasteppe
 
 [!INCLUDE [Converter redirect statement](../includes/converter-redirect-statement.md)]
 
-In this article, we detail how to use [Azure Data Factory (ADF)](../../data-factory/introduction.md) with the `$convert-data` operation to transform [HL7v2](https://www.hl7.org/implement/standards/product_brief.cfm?product_id=185) data to [FHIR&reg; R4](https://www.hl7.org/fhir/R4/). The transformed results are then persisted within an [Azure storage account](../../storage/common/storage-account-overview.md) with [Azure Data Lake Storage (ADLS) Gen2](../../storage/blobs/data-lake-storage-introduction.md) capabilities.
+In this article, we detail how to use [Azure Data Factory (ADF)](../../data-factory/introduction.md) with the `$convert-data` operation to transform [HL7v2](https://www.hl7.org/implement/standards/product_brief.cfm?product_id=185) data to [FHIR R4](https://www.hl7.org/fhir/R4/). The transformed results are then persisted within an [Azure storage account](../../storage/common/storage-account-overview.md) with [Azure Data Lake Storage (ADLS) Gen2](../../storage/blobs/data-lake-storage-introduction.md) capabilities.
 
 ## Prerequisites
 
@@ -214,4 +214,4 @@ To learn how to troubleshoot `$convert-data`, see
 > [!div class="nextstepaction"]
 > [Troubleshoot $convert-data](troubleshoot-convert-data.md)
 
-[!INCLUDE [FHIR trademark statement](../includes/healthcare-apis-fhir-trademark.md)]
+FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.
