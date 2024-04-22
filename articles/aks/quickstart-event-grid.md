@@ -21,7 +21,7 @@ In this quickstart, you create an AKS cluster and subscribe to AKS events.
 * [Azure CLI][azure-cli-install] or [Azure PowerShell][azure-powershell-install] installed.
 
 > [!NOTE]
-> In case there are issues specifically with EventGrid notifications, as can be seen here [Service Outages](https://azure.status.microsoft/status), please note that AKS operations wont be impacted and they are independent of Event Grid outages. 
+> In case there are issues specifically with EventGrid notifications, as can be seen here [Service Outages](https://azure.status.microsoft/status), please note that AKS operations won't be impacted and they are independent of Event Grid outages. 
 
 ## Create an AKS cluster
 
