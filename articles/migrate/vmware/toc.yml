@@ -2,57 +2,57 @@ items:
 - name: Start here to migrate VMware to Azure
   href: start-here-vmware.md
 - name: Support matrix for Azure Migrate
-  href: ../migrate-support-matrix-vmware.md?context=/azure/migrate/context/vmware-context
+  href: migrate-support-matrix-vmware.md
 - name: Discover
   items:
   - name: Discover servers using an appliance
-    href: ../tutorial-discover-vmware.md?context=/azure/migrate/context/vmware-context
+    href: tutorial-discover-vmware.md
     items:
     - name: Limit discovery scope for servers in VMware environment
-      href: ../set-discovery-scope.md?context=/azure/migrate/context/vmware-context
+      href: set-discovery-scope.md
     - name: Deploy the appliance using an ARM template
-      href: ../how-to-set-up-appliance-vmware.md?context=/azure/migrate/context/vmware-context
+      href: how-to-set-up-appliance-vmware.md
   - name: Import using RVTools XLSX
-    href: ../tutorial-import-vmware-using-rvtools-xlsx.md?context=/azure/migrate/context/vmware-context
+    href: tutorial-import-vmware-using-rvtools-xlsx.md
 - name: Assess
   items:
   - name: Assess servers for migration to Azure VMs
-    href: ../tutorial-assess-vmware-azure-vm.md?context=/azure/migrate/context/vmware-context
+    href: tutorial-assess-vmware-azure-vm.md
   - name: Assess servers for migration to AVS
-    href: ../tutorial-assess-vmware-azure-vmware-solution.md?context=/azure/migrate/context/vmware-context
+    href: tutorial-assess-vmware-azure-vmware-solution.md
 - name: Migrate
   items:
   - name: Overview
-    href: ../server-migrate-overview.md?context=/azure/migrate/context/vmware-context
+    href: server-migrate-overview.md
     items:
   - name: Agent-based migration
     items:
     - name: VMware agent-based migration architecture
-      href: ../agent-based-migration-architecture.md?context=/azure/migrate/context/vmware-conte
+      href: agent-based-migration-architecture.md?context=/azure/migrate/context/vmware-conte
     - name: Migrate with agent-based migration
-      href: ../tutorial-migrate-vmware-agent.md?context=/azure/migrate/context/vmware-context    
+      href: tutorial-migrate-vmware-agent.md    
   - name: Agentless migration
     items:
     - name: VMware agentless migration architecture
-      href: ../concepts-vmware-agentless-migration.md?context=/azure/migrate/context/vmware-context
+      href: concepts-vmware-agentless-migration.md
     - name: Prepare for VMware agentless migration
-      href: ../prepare-for-agentless-migration.md?context=/azure/migrate/context/vmware-context
+      href: prepare-for-agentless-migration.md
     - name: Test the migration
-      href: ../how-to-test-replicating-virtual-machines.md?context=/azure/migrate/context/vmware-context
+      href: how-to-test-replicating-virtual-machines.md
     - name: Portal
-      href: ../tutorial-migrate-vmware.md?context=/azure/migrate/context/vmware-context
+      href: tutorial-migrate-vmware.md
     - name: PowerShell
-      href: ../tutorial-migrate-vmware-powershell.md?context=/azure/migrate/context/vmware-context
+      href: tutorial-migrate-vmware-powershell.md
     - name: How to automate VMware migration
-      href: ../how-to-automate-migration.md?context=/azure/migrate/context/vmware-context
+      href: how-to-automate-migration.md
     - name: Migrate to SSE CMK encrypted Azure VMs
-      href: ../how-to-migrate-vmware-vms-with-cmk-disks.md?context=/azure/migrate/context/vmware-context
+      href: how-to-migrate-vmware-vms-with-cmk-disks.md
     - name: Troubleshoot
       items:
       - name: Troubleshoot replication issues in agentless VMware migration
-        href: ../troubleshoot-changed-block-tracking-replication.md?context=/azure/migrate/context/vmware-context
+        href: troubleshoot-changed-block-tracking-replication.md
       - name: Troubleshoot stuck replication and slow migration issues in agentless VMware
-        href: ../troubleshoot-replication-vmware.md?context=/azure/migrate/context/vmware-context
+        href: troubleshoot-replication-vmware.md
 - name: Reference
   items:
   - name: Azure VMware Solutions (AVS)
@@ -62,7 +62,7 @@ items:
   - name: Example architecture
     href: /azure/cloud-adoption-framework/scenarios/azure-vmware/example-architectures?context=/azure/migrate/context/migrate-context
   - name: Azure Migrate product documentation
-    href: ../index.yml
+    href: index.yml
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/azure-migrate/
   - name: Well Architected Framework (WAF)
