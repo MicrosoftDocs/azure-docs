@@ -20,7 +20,7 @@ The following table lists the options available to manage certificates in Contai
 | Option | Description |
 |---|---|
 | [Custom domain with a free certificate](./custom-domains-managed-certificates.md) | A private certificate that's free of charge and easy to use if you just need to secure your custom domain in Container Apps. |
-| [Custom domain with an existing certificate](./custom-domains-certificates) | You can upload a private certificate if you already have one. |
+| [Custom domain with an existing certificate](./custom-domains-certificates.md) | You can upload a private certificate if you already have one. |
 | [Certificates from Azure Key Vault](./key-vault-certificates-manage.md) | When you use Azure Key Vault, you get features like automatic renewal and  notifications for lifecycle events. |
 
 ## Next steps
