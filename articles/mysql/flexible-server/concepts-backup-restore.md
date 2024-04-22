@@ -169,6 +169,11 @@ Azure Backup and Azure Database for MySQL flexible server services have built an
 
 For more information about performing a long-term backup, visit the [how-to guide](../../backup/backup-azure-mysql-flexible-server.md)
 
+## On-demand backup and Export (preview)
+
+Azure Database for MySQL Flexible server now offers the ability to trigger an on-demand at-moment physical backup of the server and export it to an Azure storage account (Azure blob storage). Once exported, these backups can be used for data recovery, migration, and redundancy. These exported physical backup files can be used to restore back to an on-prem MySQL server to help meet auditing/compliance/archival needs of an organization. The feature is currently in public preview and available only in public cloud regions.
+
+For more information regarding export backup, visit the [how-to guide](../flexible-server/how-to-trigger-on-demand-backup.md)
 
 ## Frequently Asked Questions (FAQs)
 

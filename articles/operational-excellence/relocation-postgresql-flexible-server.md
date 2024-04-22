@@ -34,6 +34,12 @@ Prerequisites only apply to [redeployment with data](#redeploy-with-data). To mo
     - [Virtual Network](./relocation-virtual-network.md)
     - [Network Peering](/azure/virtual-network/scripts/virtual-network-powershell-sample-peer-two-virtual-networks)
 
+
+## Downtime
+
+To understand the possible downtimes involved, see [Cloud Adoption Framework for Azure: Select a relocation method](/azure/cloud-adoption-framework/relocate/select#select-a-relocation-method).
+
+
 ## Prepare
 
 To get started, export a Resource Manager template. This template contains settings that describe your Automation namespace.

@@ -52,7 +52,7 @@ You can leverage API Priority and Fairness (APF) to throttle specific clients an
 
 Kubernetes clients are the applications clients, such as operators or monitoring agents, deployed in the Kubernetes cluster that need to communicate with the kube-api server to perform read or mutate operations. It's important to optimize the behavior of these clients to minimize the load they add to the kube-api server and Kubernetes control plane.
 
-AKS doesn't expose control plane and API server metrics via Prometheus or through platform metrics. However, you can analyze API server traffic and client behavior through Kube Audit logs. For more information, see [Troubleshoot the Kubernetes control plane](/troubleshoot/azure/azure-kubernetes/troubleshoot-apiserver-etcd).
+You can analyze API server traffic and client behavior through Kube Audit logs. For more information, see [Troubleshoot the Kubernetes control plane](/troubleshoot/azure/azure-kubernetes/troubleshoot-apiserver-etcd).
 
 LIST requests can be expensive. When working with lists that might have more than a few thousand small objects or more than a few hundred large objects, you should consider the following guidelines:
 
@@ -87,7 +87,7 @@ Always upgrade your Kubernetes clusters to the latest version. Newer versions co
 
 As you scale your AKS clusters to larger scale points, keep the following feature limitations in mind:
 
-* AKS supports scaling up to 5,000 nodes by default for all Standard Tier / LTS clusters. AKS scales your cluster's control plane at runtime based on cluster size and API server resource utilization. If you cannot scale up to the supported limit, enable [control plane metrics (Preview)](./monitor-control-plane-metrics.md) with the [Azure Monitor managed service for Prometheus](../azure-monitor/essentials/prometheus-metrics-overview.md) to monitor the control plane. To help troubleshoot scaling performance or reliability issues, see the following resources:
+* AKS supports scaling up to 5,000 nodes by default for all Standard Tier / LTS clusters. AKS scales your cluster's control plane at runtime based on cluster size and API server resource utilization. If you can't scale up to the supported limit, enable [control plane metrics (Preview)](./monitor-control-plane-metrics.md) with the [Azure Monitor managed service for Prometheus](../azure-monitor/essentials/prometheus-metrics-overview.md) to monitor the control plane. To help troubleshoot scaling performance or reliability issues, see the following resources:
   * [AKS at scale troubleshooting guide](/troubleshoot/azure/azure-kubernetes/aks-at-scale-troubleshoot-guide) 
   * [Troubleshoot the Kubernetes control plane](/troubleshoot/azure/azure-kubernetes/troubleshoot-apiserver-etcd)
 
@@ -95,6 +95,10 @@ As you scale your AKS clusters to larger scale points, keep the following featur
 > During the operation to scale the control plane, you might encounter elevated API server latency or timeouts for up to 15 minutes. If you continue to have problems scaling to the supported limit, open a [support ticket](https://portal.azure.com/#create/Microsoft.Support/Parameters/%7B%0D%0A%09%22subId%22%3A+%22%22%2C%0D%0A%09%22pesId%22%3A+%225a3a423f-8667-9095-1770-0a554a934512%22%2C%0D%0A%09%22supportTopicId%22%3A+%2280ea0df7-5108-8e37-2b0e-9737517f0b96%22%2C%0D%0A%09%22contextInfo%22%3A+%22AksLabelDeprecationMarch22%22%2C%0D%0A%09%22caller%22%3A+%22Microsoft_Azure_ContainerService+%2B+AksLabelDeprecationMarch22%22%2C%0D%0A%09%22severity%22%3A+%223%22%0D%0A%7D).
 
 * [Azure Network Policy Manager (Azure npm)][azure-npm] only supports up to 250 nodes.
+* Some AKS node metrics, including node disk usage, node CPU/memory usage, and network in/out, won't be accessible in [azure monitor platform metrics](/azure/azure-monitor/reference/supported-metrics/microsoft-containerservice-managedclusters-metrics) after the control plane is scaled up. To confirm if your control plane has been scaled up, look for the configmap 'control-plane-scaling-status'
+```
+kubectl describe configmap control-plane-scaling-status -n kube-system
+```
 * You can't use the Stop and Start feature with clusters that have more than 100 nodes. For more information, see [Stop and start an AKS cluster](./start-stop-cluster.md).
 
 ## Networking
