@@ -1,6 +1,6 @@
 ---
 title: Performance best practices for Oracle on Azure VMs 
-description: Performance best practices for Oracle on Azure VMs.  
+description: Performance best practices for Oracle on Azure VMs - optimizing performance, dependability, and cost for your Oracle workloads on Azure VMs.
 author: jjaygbay1
 ms.author: jacobjaygbay
 ms.service: virtual-machines
@@ -12,7 +12,7 @@ ms.date: 06/13/2023
 
 # Performance best practices for Oracle on Azure VMs
 
-This article describes how the right VM size and storage options you choose affects your Oracle workload performance -IOPS & throughput - dependability, and cost. There's a trade-off between optimizing for costs and for performance. This performance best practices series is focused on getting the best performance for the Oracle workload on Azure VMs. If your workload is less demanding, you might not require every optimization recommended. It's critical in the planning phase, to assess the performance requirements of your Oracle workloads and right size the compute and storage as needed.  
+This article describes how the right VM size and storage options you choose affects your Oracle workload performance - input output per second (IOPS) and throughput - dependability, and cost. There's a trade-off between optimizing for costs and for performance. This performance best practices series is focused on getting the best performance for the Oracle workload on Azure VMs. If your workload is less demanding, you might not require every optimization recommended. It's critical in the planning phase, to assess the performance requirements of your Oracle workloads and right size the compute and storage as needed.  
 
 When considering to run Oracle workloads on Azure VMs, for a cost-effective configuration start by selecting a virtual machine that supports the necessary IOPS and throughput with the appropriate memory-to-vCore ratio and then add your storage requirement. 
 
@@ -26,18 +26,18 @@ The [E-series](/azure/virtual-machines/edv5-edsv5-series) is designed for memory
 The new [Ebdsv5-series](/azure/virtual-machines/ebdsv5-ebsv5-series#ebdsv5-series) provides the highest I/O throughput-to-vCore ratio in Azure along with a memory-to-vCore ratio of 8. This series offers the best price-performance for Oracle workloads on Azure VMs. Consider this series first for most Oracle database workloads.  
 
 ### M-series
-The [M-seires](/azure/virtual-machines/m-series) is built for large databases, that is, up to 12 TB RAM and 416vCPUs. The M series VMs offer the highest memory-to-vCore ratio in Azure. Consider these VMs for large and large mission critical Oracle database workloads or if you would need to consolidate databases into fewer VMs.  
+The [M-seires](/azure/virtual-machines/m-series) is built for large databases, that is, up to 12-TB RAM and 416vCPUs. The M series VMs offer the highest memory-to-vCore ratio in Azure. Consider these VMs for large and large mission critical Oracle database workloads or if you would need to consolidate databases into fewer VMs.  
 
 ### D-series
-The [D-series](/azure/virtual-machines/dv5-dsv5-series) is built for general purpose VM with the smaller memory-to-vCore ratios with the General-Purpose virtual machines, it's important to carefully monitor memory-based performance counters to ensure Oracle workload can get the IOPS & through put. The [Ddsv5-series](/azure/virtual-machines/ddv5-ddsv5-series#ddsv5-series) offers a fair combination of vCPU, memory, and temporary disk but with smaller memory-to-vCore support. D-series doesn't have the memory-to-vCore ratio of 8 that is recommended for Oracle workloads. As such, consider using these virtual machines for small to medium databases or for dev/test environment for lower TCO. 
+The [D-series](/azure/virtual-machines/dv5-dsv5-series) is built for general purpose VMs with smaller memory-to-vCore ratios with the General-Purpose virtual machines. It's important to carefully monitor memory-based performance counters to ensure Oracle workload can get the IOPS & through put. The [Ddsv5-series](/azure/virtual-machines/ddv5-ddsv5-series#ddsv5-series) offers a fair combination of vCPU, memory, and temporary disk but with smaller memory-to-vCore support. D-series doesn't have the memory-to-vCore ratio of 8 that is recommended for Oracle workloads. As such, consider using these virtual machines for small to medium databases or for dev/test environment for lower TCO. 
 
 ## Storage recommendations 
 
 This section provides storage best practices and guidelines to optimize performance for your Oracle workload on Azure Virtual Machines (VM). Consider your performance needs, costs, and workload patterns as you evaluate these recommendations. Let us take a quick look at the options: 
 
-- [Disk Types](/azure/virtual-machines/disks-types): [Premium SSD](/azure/virtual-machines/disks-types#premium-ssds), [Premium SSD V2](/azure/virtual-machines/disks-types#premium-ssd-v2) & [Ultra disks](/azure/virtual-machines/disks-types#ultra-disks) are recommended disk types for Oracle workload. Refer to [disk type comparison](/azure/virtual-machines/disks-types#disk-type-comparison) to understand max disk size, max throughput and max IOPS to choose right disk type for Azure VM to meet your Oracle workload performance. Generally, Premium SSD v2 is the best price per performance disk option that you could consider.  
+- [Disk Types](/azure/virtual-machines/disks-types): [Premium SSD](/azure/virtual-machines/disks-types#premium-ssds), [Premium SSD V2](/azure/virtual-machines/disks-types#premium-ssd-v2) & [Ultra disks](/azure/virtual-machines/disks-types#ultra-disks) are recommended disk types for Oracle workload. Refer to [disk type comparison](/azure/virtual-machines/disks-types#disk-type-comparison) to understand maximum disk size, maximum throughput and maximum IOPS to choose right disk type for Azure VM to meet your Oracle workload performance. Generally, Premium SSD v2 is the best price per performance disk option that you could consider.  
 
-- Premium SSD V2 offers higher performance than Premium SSDs while also generally being less costly. You can individually tweak the performance (capacity, throughput, and IOPS) of Premium SSD v2 disks at any time, allowing workloads to be cost efficient while meeting shifting performance needs. For example, a transaction-intensive database may need a large amount of IOPS at a small size, or a gaming application may need a large amount of IOPS but only during peak hours. Because of this, for most general-purpose workloads, Premium SSD v2 can provide the best price performance. 
+- Premium SSD V2 offers higher performance than Premium SSDs while also generally being less costly. You can individually tweak the performance (capacity, throughput, and IOPS) of Premium SSD v2 disks at any time, allowing workloads to be cost efficient while meeting shifting performance needs. For example, a transaction-intensive database needs a large amount of IOPS at a small size, or a gaming application can require a large amount of IOPS but only during peak hours. Because you can individually tweak the performance, for most general-purpose workloads, Premium SSD v2 can provide the best price performance. 
 
 - Premium SSDs are suitable for mission-critical production workloads. They deliver high-performance and low-latency disk support for virtual machines (VMs) with input/output (IO)-intensive workloads.  
 
@@ -56,7 +56,7 @@ Consider placing Oracle workloads on Elastic SAN for better cost efficiency for 
 
 Additionally, the following are some inputs can help you to derive further value from Elastic SAN.  
 
-| Other parameters          |                           |
+| Other parameters      | description                          |
 |---------------------------|---------------------------|
 | Provisioning Model        | Flexible model at TiB granularity |
 | [BCDR](/azure/cloud-adoption-framework/scenarios/oracle-iaas/oracle-disaster-recovery-oracle-landing-zone)                      | Incremental snapshot for fast restore; Snapshot export for hardening. |
@@ -78,7 +78,7 @@ Azure NetApp Files volumes are [highly available](https://www.microsoft.com/lice
 For hosting extremely demanding Oracle database files, redo logs and archive logs that scale well into multiple gigabytes per second throughput and multiple tens of terabytes capacity, you can utilize [single](/azure/azure-netapp-files/performance-oracle-single-volumes) or [multiple volumes](/azure/azure-netapp-files/performance-oracle-multiple-volumes), depending on capacity and performance requirements. Volumes can be protected using [snapshots](/azure/azure-netapp-files/snapshots-introduction) for fast primary data protection and recoverability, and can be backed up using RMAN, [AzAcSnap](/azure/azure-netapp-files/azacsnap-introduction), [Azure NetApp Files backup](/azure/azure-netapp-files/backup-introduction) or other preferred backup methods or applications.   
 
 It's highly recommended to use [Oracle direct NFS (dNFS) with Azure NetApp Files](/azure/azure-netapp-files/solutions-benefits-azure-netapp-files-oracle-database#how-oracle-direct-nfs-works) for enhanced performance. The combination of Oracle dNFS with Azure NetApp Files provides great advantage to your workloads. Oracle dNFS makes it possible to drive higher performance than the operating system's kernel NFS. The article explains the technology and provides a performance comparison between dNFS and the kernel NFS client.  
-Azure VMs are throttled for network traffic at higher speeds than direct attached storage such as SSD. As a result, the Oracle deployment may perform better using Azure NetApp Files volumes at the same VM SKU, or you may choose a smaller VM SKU for the same performance and save on Oracle license cost. 
+Azure VMs are throttled for network traffic at higher speeds than direct attached storage such as SSD. As a result, the Oracle deployment performs better using Azure NetApp Files volumes at the same VM SKU, or you can choose a smaller VM SKU for the same performance and save on Oracle license cost. 
 
 Snapshots can be cloned to provide read/write access to current data for test and development purposes without interacting with the live data. 
 
@@ -90,7 +90,7 @@ Snapshots can be cloned to provide read/write access to current data for test an
 |Redundancy & scale targets| Demonstrated capability to support largest and highest performing Oracle databases over 100TiB in size and multiple gigabytes per second throughput while maintaining near-instantaneous snapshot-based primary data protection and recoverability |
 | Encryption |[Single or double encryption](/azure/azure-netapp-files/understand-data-encryption#understand-encryption-at-rest) at rest with platform- or customer-managed keys |
 
-## Automation of VMs & storage selection 
+## Automate VMs and storage selection 
 
 Consider using Community tool Oracle Migration Assistant Tool (OMAT) to get the right VM SKUs with recommended storage options including disk types, Elastic SAN & ANF with indicative cost based on list price.  You can upload AWR report of the Oracle database as input and run the script to get an output of the recommended VM SKUs and storage options that aligns with the performance requirements of the database and is cost effective. 
 

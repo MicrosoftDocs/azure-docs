@@ -6,6 +6,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root":"/articles/virtual-machines/workloads/oracle/oracle-storage.md",
+            "redirect_url": "/previous-versions/azure/virtual-machines/workloads/oracle/oracle-storage",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/virtual-machines/extensions/symantec.md",
             "redirect_url": "/azure/virtual-machines/overview",
             "redirect_document_id": false
