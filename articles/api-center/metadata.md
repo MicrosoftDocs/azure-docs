@@ -1,28 +1,28 @@
 ---
 title: Use metadata to organize and govern APIs
-description: Learn about metadata properties in Azure API Center. Use predefined and custom metadata properties to organize your inventory and enforce governance standards.
+description: Learn about metadata in Azure API Center. Use built-in and custom metadata to organize your inventory and enforce governance standards.
 author: dlepow
 ms.service: api-center
 ms.topic: concept-article
 ms.date: 04/19/2024
 ms.author: danlep
-#customer intent: As an API program manager, I want to learn about using metadata properties to govern the APIs in my API center.
+#customer intent: As an API program manager, I want to learn about using metadata to govern the APIs in my API center.
 ---
 
-# Create and apply metadata properties
+# Create and apply metadata
 
-This article provides background about metadata and how to use it for API governance in [Azure API Center](overview.md). You set metadata properties to organize and filter APIs and other [entities](key-concepts.md) in your API center. Metadata properties can be predefined or custom, and you can develop a metadata schema to enforce consistency across your APIs, environments, and deployments.  
+This article provides background about metadata and how to use it for API governance in [Azure API Center](overview.md). You define metadata to organize and filter APIs and other [entities](key-concepts.md) in your API center. Metadata can be built-in or custom, and you can develop a metadata schema to enforce consistency across your APIs, environments, and deployments.  
 
 
-## Predefined metadata properties
+## Built-in metadata
 
-When creating or updating APIs, environments, and deployments in your API center, you set certain predefined properties, such as the API type (REST, WSDL, and so on).
+When creating or updating APIs, environments, and deployments in your API center, you set certain built-in metadata, such as the API type (REST, WSDL, and so on).
 
-The following tables list common predefined metadata properties that are provided for Azure API Center entities. For details, see the [API Center REST API reference](/rest/api/resource-manager/apicenter/operation-groups). Tables don't include standard Azure properties such as resource identifiers, display titles, and descriptions. Not all properties are required.
+The following tables list built-in metadata provided for Azure API Center entities. For details, see the [API Center REST API reference](/rest/api/resource-manager/apicenter/operation-groups). Tables don't include standard Azure properties such as resource identifiers, display titles, and descriptions. Not all properties are required.
 
 ### APIs
 
-| Property | Description | Example values |
+| Metadata | Description | Example values |
 |--------|----------|-------------|
 | kind|  kind (type) of API | REST, SOAP, GraphQL |
 | lifecycle stage  | stage of the API development lifecycle | design, development |
@@ -33,7 +33,7 @@ The following tables list common predefined metadata properties that are provide
 
 ### Environments
 
-| Property | Description | Example values |
+| Metadata | Description | Example values |
 |--------|----------|-------------|
 | kind | kind (type) of environment | production, staging, development |
 | server |  server information of the environment   |  type and URL pointing to the environment server   |
@@ -42,45 +42,42 @@ The following tables list common predefined metadata properties that are provide
 
 ### Deployments
 
-| Property | Description | Example values |
+| Metadata | Description | Example values |
 |--------|----------|-------------|
 | server | server information of the deployment | URL pointing to the deployment server |
 | state | state of the deployment | active, inactive |
 
 
-## Custom metadata properties
+## Custom metadata
 
-Define custom metadata properties using the [Azure portal](add-metadata-properties.md), the Azure API Center [REST API](/rest/api/resource-manager/apicenter/metadata-schemas), or the [Azure CLI](/cli/azure/apic/metadata-schema) to help organize and filter APIs, environments, and deployments in your API center. Azure API Center supports custom metadata properties of the following types. 
+Define custom metadata using the [Azure portal](add-metadata-properties.md), the Azure API Center [REST API](/rest/api/resource-manager/apicenter/metadata-schemas), or the [Azure CLI](/cli/azure/apic/metadata-schema) to help organize and filter APIs, environments, and deployments in your API center. Azure API Center supports custom metadata of the following types. 
 
-Type | Description | Example property name |
+Type | Description | Example name |
 |--------|----------|-------------|
 | boolean | true or false | *IsInternal* |
 | number | numeric value | *YearOfCreation*  |
 | string | text value | *GitHubRepository* |
 | array | list of values | *Tags* |
-| predefined choice | predefined list of choices | *Department* |
-| object | complex object composed of multiple subproperties | *APIApprover* |
+| built-in choice | built-in list of choices | *Department* |
+| object | complex object composed of multiple types | *APIApprover* |
 
 [!INCLUDE [metadata-sensitive-data](includes/metadata-sensitive-data.md)]
 
-### Assign metadata properties to entities
+### Assign metadata to entities
 
-Custom metadata properties can be assigned to APIs, environments, or deployments in your API center. For example, create and assign a *Department* property to APIs, so that when an API is registered or a new API version is added, the department responsible for the API is specified. 
+Custom metadata can be assigned to APIs, environments, or deployments in your API center. For example, create and assign *Department* metadata to APIs, so that when an API is registered or a new API version is added, the department responsible for the API is specified. 
 
-If assigned to an entity, a property is either optional or required. For example, you might require that the *Department* property is set only for APIs, but allow a *YearOfCreation* property to be an optional property for environments.
+If assigned to an entity, metadataa is either optional or required. For example, you might require that the *Department* metadata is set only for APIs, but allow *YearOfCreation* to be optional metadata for environments.
 
-## Use metadata properties for governance
+## Use metadata for governance
 
-Use predefined and custom metadata properties to organize your APIs, environments, and deployments in your API center. For example:
+Use built-in and custom metadata to organize your APIs, environments, and deployments in your API center. For example:
 
-* Enforce governance standards in your organization by requiring certain metadata properties to be set for APIs, environments, and deployments.
+* Enforce governance standards in your organization by requiring certain metadata to be set for APIs, environments, and deployments.
 
-* Search and filter APIs in your API center by metadata properties. You can filter directly on the APIs page in the Azure portal, or use the Azure API Center REST API or Azure CLI to query APIs based on metadata properties.
+* Search and filter APIs in your API center by metadata values. You can filter directly on the APIs page in the Azure portal, or use the Azure API Center REST API or Azure CLI to query APIs based on values of certain metadata.
 
     :::image type="content" source="media/metadata/filter-on-properties.png" alt-text="Screenshot of filtering APIs in the portal." lightbox="media/metadata/filter-on-properties.png":::
-
-* Use schema validation tools to ensure that metadata properties are set correctly when APIs are registered or updated, particularly when using automated pipelines.
-
 
 ## Related content
 

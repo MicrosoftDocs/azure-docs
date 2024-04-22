@@ -1,2 +1,2 @@
 > [!IMPORTANT]
-> Take care not to include any sensitive, confidential, or personal information in the titles (names) of metadata properties you define. These titles are visible in monitoring logs that are used by Microsoft to improve the functionality of the service. However, other metadata details and values are your protected customer data. 
+> Don't include any sensitive, confidential, or personal information in the titles (names) of metadata you define. These titles are visible in monitoring logs that are used by Microsoft to improve the functionality of the service. However, other metadata details and values are your protected customer data. 

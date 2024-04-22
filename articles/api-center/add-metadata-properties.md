@@ -1,6 +1,6 @@
 ---
-title: Tutorial - Add custom metadata properties
-description: In this tutorial, define custom metadata properties in your API center. Use custom and predefined properties to organize and govern your APIs.
+title: Tutorial - Define custom metadata 
+description: In this tutorial, define custom metadata in your API center. Use custom and built-in metadata to organize and govern your APIs.
 author: dlepow
 ms.service: api-center
 ms.topic: tutorial
@@ -8,9 +8,9 @@ ms.date: 04/19/2024
 ms.author: danlep 
 ---
 
-# Tutorial: Define custom metadata properties
+# Tutorial: Define custom metadata
 
-In this tutorial, define custom properties to help you organize your APIs and other information in your API center. Use custom metadata properties and several predefined properties for search and filtering and to enforce governance standards in your organization. 
+In this tutorial, define custom metadata to help you organize your APIs and other information in your API center. Use custom and built-in metadata for search and filtering and to enforce governance standards in your organization. 
 
 For background information about metadata in Azure API Center, see:
 
@@ -19,16 +19,16 @@ For background information about metadata in Azure API Center, see:
 
 In this tutorial, you learn how to use the portal to:
 > [!div class="checklist"]
-> * Define custom metadata properties in your API center
+> * Define custom metadata in your API center
 > * View the metadata schema
 
 ## Prerequisites
 
 * An API center in your Azure subscription. If you haven't created one already, see [Quickstart: Create your API center](set-up-api-center.md).
 
-## Define metadata properties
+## Define metadata
 
-Here you define two example properties: *Line of business* and *Public-facing*; if you prefer, define other properties of your own. When you add or update APIs and other information in your inventory, you'll set values for these properties and any common predefined properties.
+Here you define two custom metadata examples: *Line of business* and *Public-facing*; if you prefer, define other metadata of your own. When you add or update APIs and other information in your inventory, you'll set values for custom and any common built-in metadata.
 
 [!INCLUDE [metadata-sensitive-data](includes/metadata-sensitive-data.md)]
 
@@ -36,7 +36,7 @@ Here you define two example properties: *Line of business* and *Public-facing*; 
 
 1. In the left menu, under **Assets**, select **Metadata > + New metadata**. 
 
-1. On the **Details** tab, enter information about the property. 
+1. On the **Details** tab, enter information about the metadata. 
 
     1. In **Title**, enter *Line of business*. 
     
@@ -44,19 +44,19 @@ Here you define two example properties: *Line of business* and *Public-facing*; 
 
     1. Select type **Predefined choices** and enter choices such as *Marketing, Finance, IT, Sales*, and so on. Optionally enable **Allow selection of multiple values**. Select **Next**.
 
-    :::image type="content" source="media/add-metadata-properties/metadata-property-details.png" alt-text="Screenshot of metadata property in the portal." lightbox="media/add-metadata-properties/metadata-property-details.png":::
+    :::image type="content" source="media/add-metadata-properties/metadata-property-details.png" alt-text="Screenshot of adding custom metadata in the portal." lightbox="media/add-metadata-properties/metadata-property-details.png":::
 
 1. On the **Assignments** tab, select **Required** for APIs. Select **Optional** for Deployments and Environments. (You'll add these entities in later tutorials.) Select **Next**.
 
-    :::image type="content" source="media/add-metadata-properties/metadata-property-assignments.png" alt-text="Screenshot of metadata property assignments in the portal." lightbox="media/add-metadata-properties/metadata-property-assignments.png":::
+    :::image type="content" source="media/add-metadata-properties/metadata-property-assignments.png" alt-text="Screenshot of metadata assignments in the portal." lightbox="media/add-metadata-properties/metadata-property-assignments.png":::
 
 1. On the **Review + create** tab, review the settings and select **Create**. 
  
-    The property is added to the list on the **Metadata** page. 
+    The metadata is added to the list on the **Metadata** page. 
 
-1. Select **+ New metadata** to add another property.
+1. Select **+ New metadata** to add another example.
 
-1. On the **Details** tab, enter information about the property. 
+1. On the **Details** tab, enter information about the metadata. 
 
     1. In **Title**, enter *Public-facing*. 
     
@@ -66,28 +66,28 @@ Here you define two example properties: *Line of business* and *Public-facing*; 
 
 1. On the **Review + create** tab, review the settings and select **Create**. 
 
-    The property is added to the list.
+    The metadata is added to the list.
 
 ## View metadata schema
 
-You can view and download the JSON schema for the metadata properties in your API center. The schema includes predefined and custom properties.
+You can view and download the JSON schema for the metadata defined in your API center. The schema includes built-in and custom metadata.
 
 1. In the left menu, under **Assets**, select **Metadata > View metadata schema**. 
 
-1. Select **View metadata schema > APIs** to see the metadata schema for APIs, which includes predefined properties and the properties that you added. You can also view the metadata schema defined for deployments and environments in your API center.
+1. Select **View metadata schema > APIs** to see the metadata schema for APIs, which includes built-in and custom metadata. You can also view the metadata schema defined for deployments and environments in your API center.
 
     :::image type="content" source="media/add-metadata-properties/metadata-schema.png" alt-text="Screenshot of metadata schema in the portal." lightbox="media/add-metadata-properties/metadata-schema.png":::
 
 > [!NOTE]
-> * Add metadata properties at any time and apply them to APIs and other entities in your API center. 
-> * After adding a property, you can change its assignment to an entity, for example from required to optional for APIs.
-> * You can't delete, unassign, or change the type of properties that are currently set in entities. Remove them from the entities first, and then you can delete or change them.
+> * Define custom metadata at any time and apply to APIs and other entities in your API center. 
+> * After adding custom metadata, you can change its assignment to an entity, for example from required to optional for APIs.
+> * You can't delete, unassign, or change the type of custom metadata that is currently set in entities. Remove them from the entities first, and then you can delete or change them.
 
 ## Next steps
 
 In this tutorial, you learned how to use the portal to:
 > [!div class="checklist"]    
-> * Define custom metadata properties in your API center
+> * Define custom metadata in your API center
 > * View the metadata schema
 
 Now that you've prepared your metadata schema, add APIs to the inventory in your API center. 
