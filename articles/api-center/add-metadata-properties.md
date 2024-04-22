@@ -14,7 +14,7 @@ In this tutorial, define custom metadata to help you organize your APIs and othe
 
 For background information about metadata in Azure API Center, see:
 
-* [Key concepts](key-concepts.md#metadata-properties)
+* [Key concepts](key-concepts.md#metadata)
 * [Metadata for API governance](metadata.md)
 
 In this tutorial, you learn how to use the portal to:
