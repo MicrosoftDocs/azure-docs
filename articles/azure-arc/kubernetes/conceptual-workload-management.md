@@ -312,7 +312,9 @@ It's not necessary to have a single Git repository with configuration values for
 
 ### Configuration versioning
 
-Whenever application developers introduce a change in the application, they produce a new application version. Similar, a new platform configuration value leads to a new version of the configuration snapshot. Versioning allows for tracking changes, explicit rollouts and rollbacks. A key point is that application configuration snapshots are versioned independently from each other. A single configuration value change at the global or site level doesn't necessarily produce new versions of all application configuration snapshots. It impacts only those snapshots where this value is hydrated. A simple and effective way to track it would be to use a hash of the snapshot content as its version. In this way, if the snapshot content has changed because something has changed in the global configurations, there will be a new version. This new version is a subject to be applied either manually or automatically. In any case, this is a trackable event that can be roll backed if needed.
+Whenever application developers introduce a change in the application, they produce a new application version. Similarly, a new platform configuration value leads to a new version of the configuration snapshot. Versioning allows for tracking changes, explicit rollouts and rollbacks.
+
+A key point is that application configuration snapshots are versioned independently from each other. A single configuration value change at the global or site level doesn't necessarily produce new versions of all application configuration snapshots; it impacts only those snapshots where this value is hydrated. A simple and effective way to track it would be to use a hash of the snapshot content as its version. In this way, if the snapshot content has changed because something has changed in the global configurations, there will be a new version. This new version is a subject to be applied either manually or automatically. In any case, this is a trackable event that can be rolled back if needed.
 
 ## Next steps
 
