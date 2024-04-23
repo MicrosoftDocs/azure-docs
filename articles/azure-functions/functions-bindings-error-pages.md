@@ -65,17 +65,17 @@ The following table indicates which triggers support retries and where the retry
 
 ### Retry policies
 
-Azure Functions lets you define retry policies that are enforced by the runtime. These trigger types currently support retry policies:
+Azure Functions lets you define retry policies for specific trigger types, which are enforced by the runtime. These trigger types currently support retry policies:
 
 + [Azure Cosmos DB](./functions-bindings-cosmosdb-v2-trigger.md)
-+ [Event Hubs](./functions-bindings-event-hubs-trigger.md) triggers. 
++ [Event Hubs](./functions-bindings-event-hubs-trigger.md) 
 + [Kafka](./functions-bindings-kafka-trigger.md)
 + [Timer](./functions-bindings-timer.md)
  
 ::: zone pivot="programming-language-python"  
 Retry support is the same for both v1 and v2 Python programming models.
 ::: zone-end
-::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript"
+::: zone pivot="programming-language-csharp,programming-language-javascript"
 Retry policies aren't supported in version 1.x of the Functions runtime.
 ::: zone-end
 
@@ -180,58 +180,26 @@ public static async Task Run([EventHubTrigger("myHub", Connection = "EventHubCon
 
 ---
 ::: zone-end
-::: zone pivot="programming-language-javascript,programming-language-python,programming-language-powershell"
+::: zone pivot="programming-language-powershell"
 
 Here's the retry policy in the *function.json* file:
 
 ##### [Fixed delay](#tab/fixed-delay)
 
-```json
-{
-    "disabled": false,
-    "bindings": [
-        {
-            ....
-        }
-    ],
-    "retry": {
-        "strategy": "fixedDelay",
-        "maxRetryCount": 4,
-        "delayInterval": "00:00:10"
-    }
-}
-```
+[!INCLUDE [functions-retry-fixed-delay-json](../../includes/functions-retry-fixed-delay-json.md)]
 
 ##### [Exponential backoff](#tab/exponential-backoff)
 
-```json
-{
-    "disabled": false,
-    "bindings": [
-        {
-            ....
-        }
-    ],
-    "retry": {
-        "strategy": "exponentialBackoff",
-        "maxRetryCount": 5,
-        "minimumInterval": "00:00:10",
-        "maximumInterval": "00:15:00"
-    }
-}
-```
+[!INCLUDE [functions-retry-exponential-backoff-json](../../includes/functions-retry-exponential-backoff-json.md)]
 
 ---
 
-|*function.json* property  | Description |
-|---------|-------------|
-|strategy|Required. The retry strategy to use. Valid values are `fixedDelay` or `exponentialBackoff`.|
-|maxRetryCount|Required. The maximum number of retries allowed per function execution. `-1` means to retry indefinitely.|
-|delayInterval|The delay used between retries when you're using a `fixedDelay` strategy. Specify it as a string with the format `HH:mm:ss`.|
-|minimumInterval|The minimum retry delay when you're using an `exponentialBackoff` strategy. Specify it as a string with the format `HH:mm:ss`.|
-|maximumInterval|The maximum retry delay when you're using `exponentialBackoff` strategy. Specify it as a string with the format `HH:mm:ss`.|
+[!INCLUDE [functions-retry-function-json-definitions](../../includes/functions-retry-function-json-definitions.md)]
 
-::: zone-end
+::: zone-end  
+::: zone pivot="programming-language-javascript"  
+
+::: zone-end  
 ::: zone pivot="programming-language-python"  
 ##### [Python v2 model](#tab/v2-model/fixed-delay)
 
@@ -246,6 +214,10 @@ Here's an example of a Timer trigger function that uses an exponential backoff r
 :::code language="python" source="~/azure-functions-python-worker/tests/endtoend/retry_policy_functions/exponential_strategy/function_app.py" :::
 
 ##### [Python v1 model](#tab/v1-model/fixed-delay)
+
+The retry policy is defined in the function.json file:
+
+[!INCLUDE [functions-retry-fixed-delay-json](../../includes/functions-retry-fixed-delay-json.md)]
 
 Here's an example of a Timer trigger function that uses a fixed delay retry strategy:
 
@@ -266,7 +238,27 @@ def main(mytimer: azure.functions.TimerRequest, context: azure.functions.Context
 
 ##### [Python v1 model](#tab/v1-model/exponential-backoff)
 
-Example not yet available.
+The retry policy is defined in the function.json file:
+
+[!INCLUDE [functions-retry-exponential-backoff-json](../../includes/functions-retry-exponential-backoff-json.md)]
+
+---
+
+You can set these properties on retry policy definitions:
+
+##### [Python v2 model](#tab/v2-model)
+
+|Property  | Description |
+|---------|-------------|
+|strategy|Required. The retry strategy to use. Valid values are `fixed_delay` or `exponential_backoff`.|
+|max_retry_count|Required. The maximum number of retries allowed per function execution. `-1` means to retry indefinitely.|
+|delay_interval|The delay used between retries when you're using a `fixed_delay` strategy. Specify it as a string with the format `HH:mm:ss`.|
+|minimum_interval|The minimum retry delay when you're using an `exponential_backoff` strategy. Specify it as a string with the format `HH:mm:ss`.|
+|maximum_interval|The maximum retry delay when you're using `exponential_backoff` strategy. Specify it as a string with the format `HH:mm:ss`.|
+
+##### [Python v1 model](#tab/v1-model)
+
+[!INCLUDE [functions-retry-function-json-definitions](../../includes/functions-retry-function-json-definitions.md)]
 
 ---
 
