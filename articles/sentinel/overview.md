@@ -47,6 +47,8 @@ Collect data at cloud scale across all users, devices, applications, and infrast
 
 ---
 
+The following table highlights the key capabilities in Microsoft Sentinel for data collection.
+
 |Capability|Description|Get started|
 |---------|---------|---------|
 |Out of the box data connectors  | Many connectors are packaged with SIEM solutions for Microsoft Sentinel and provide real-time integration. These connectors include Microsoft sources and Azure sources like Microsoft Entra ID, Azure Activity, Azure Storage, and more. Out of the box connectors are also available for the broader security and applications ecosystems for non-Microsoft solutions. You can also use common event format, Syslog, or REST-API to connect your data sources with Microsoft Sentinel.  | [Microsoft Sentinel data connectors](connect-data-sources.md)   |
@@ -57,6 +59,7 @@ Collect data at cloud scale across all users, devices, applications, and infrast
 
 Detect previously undetected threats, and minimize false positives using Microsoft's analytics and unparalleled threat intelligence.
 
+The following table highlights the key capabilities in Microsoft Sentinel for threat detection.
 
 |Capacity  |Description |Get started|
 |---------|---------|---------|
@@ -64,7 +67,7 @@ Detect previously undetected threats, and minimize false positives using Microso
 |MITRE ATT&CK coverage   | Microsoft Sentinel analyzes ingested data, not only to detect threats and help you investigate, but also to visualize the nature and coverage of your organization's security status based on the tactics and techniques from the MITRE ATT&CK® framework.|[Understand security coverage by the MITRE ATT&CK® framework](mitre-coverage.md).       |
 |Threat intelligence    | Integrate numerous sources of threat intelligence into Microsoft Sentinel to detect malicious activity in your environment and provide context to security investigators for informed response decisions. | [Threat intelligence in Microsoft Sentinel](understand-threat-intelligence.md).       |
 |Watchlists   |  Correlate data from a data source you provide, a watchlist, with the events in your Microsoft Sentinel environment. For example, you might create a watchlist with a list of high-value assets, terminated employees, or service accounts in your environment. Use watchlists in your search, detection rules, threat hunting, and response playbooks. | [Watchlists in Microsoft Sentinel](watchlists.md)   |
-|Workbooks     |   Create interactive visual reports by using workbooks.  Microsoft Sentinel comes with built-in workbook templates that allow you to quickly gain insights across your data as soon as you connect a data source. Or, create your own custom workbooks.|  [Visualize collected data](get-visibility.md).   |
+|Workbooks     |   Create interactive visual reports by using workbooks. Microsoft Sentinel comes with built-in workbook templates that allow you to quickly gain insights across your data as soon as you connect a data source. Or, create your own custom workbooks.|  [Visualize collected data](get-visibility.md).   |
 
 ## Investigate threats
 
@@ -72,17 +75,21 @@ Investigate threats with artificial intelligence, and hunt for suspicious activi
 
 :::image type="content" source="media/investigate-cases/map-timeline.png" alt-text="Screenshot of an incident investigation that shows an entity and connected entities in an interactive graph.":::
 
+The following table highlights the key capabilities in Microsoft Sentinel for threat investigation.
+
 |Feature  |Description  |Get started|
 |---------|---------|---------|
 |Incidents   |  Microsoft Sentinel deep investigation tools help you to understand the scope and find the root cause of a potential security threat. You can choose an entity on the interactive graph to ask interesting questions for a specific entity, and drill down into that entity and its connections to get to the root cause of the threat.| [Navigate and investigate incidents in Microsoft Sentinel](investigate-incidents.md).     |
 |Tasks     |  Manage your organization's incident-handling workflow processes in Microsoft Sentinel by using incident tasks. | [Use tasks to manage incidents in Microsoft Sentinel](incident-tasks.md).       |
 |Hunts    |  Microsoft Sentinel's powerful hunting search-and-query tools, based on the MITRE framework, enable you to proactively hunt for security threats across your organization’s data sources, before an alert is triggered. Create custom detection rules based on your hunting query. Then, surface those insights as alerts to your security incident responders. | [Threat hunting in Microsoft Sentinel](hunting.md).      |
-|Notebooks    | Microsoft Sentinel supports Jupyter notebooks in Azure Machine Learning workspaces, including full libraries for machine learning, visualization, and data analysis.<br><br>Use notebooks in Microsoft Sentinel to extend the scope of what you can do with Microsoft Sentinel data. For example:<br><br>- Perform analytics that aren't built in to Microsoft Sentinel, such as some Python machine learning features.<br>- Create data visualizations that aren't built in to Microsoft Sentinel, such as custom timelines and process trees.<br>- Integrate data sources outside of Microsoft Sentinel, such as an on-premises data set. <br><br>Notebooks in Microsoft Sentinel provide:<br>- Queries to both Microsoft Sentinel and external data<br>- Features for data enrichment, investigation, visualization, hunting, machine learning, and big data analytics.| [Jupyter notebooks with Microsoft Sentinel hunting capabilities](notebooks.md).     |
+|Notebooks    | Microsoft Sentinel supports Jupyter notebooks in Azure Machine Learning workspaces, including full libraries for machine learning, visualization, and data analysis.<br><br>Use notebooks in Microsoft Sentinel to extend the scope of what you can do with Microsoft Sentinel data. For example:<br><br>- Perform analytics that aren't built in to Microsoft Sentinel, such as some Python machine learning features.<br>- Create data visualizations that aren't built in to Microsoft Sentinel, such as custom timelines and process trees.<br>- Integrate data sources outside of Microsoft Sentinel, such as an on-premises data set. | [Jupyter notebooks with Microsoft Sentinel hunting capabilities](notebooks.md).     |
 
 
 ## Respond to incidents rapidly
 
 Automate your common tasks and simplify security orchestration with playbooks that integrate with Azure services and your existing tools. Microsoft Sentinel's automation and orchestration provides a highly extensible architecture that enables scalable automation as new technologies and threats emerge.
+
+The following table highlights the key capabilities in Microsoft Sentinel for threat response.
 
 |Feature  |Description  |Get started|
 |---------|---------|---------|
