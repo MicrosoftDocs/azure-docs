@@ -9,7 +9,7 @@ items:
     href: translator-overview.md
   - name: Create a Translator resource
     displayName: endpoint,key,portal,azure,authentication,delete,resource
-    href: create-translator-resource.md  
+    href: create-translator-resource.yml  
   - name: Language Support
     displayName: iso,language code,translation,transliteration,detection,detect,pdf,document
     href: language-support.md
@@ -32,7 +32,7 @@ items:
     href: text-translation-overview.md
   - name: Create a Translator resource
     displayName: endpoint,key,portal,azure,authentication,delete,resource
-    href: create-translator-resource.md
+    href: create-translator-resource.yml
   - name: 🆕 Text Translation SDK overview (preview)
     displayName: get started,sdk,keys,endpoint
     href: text-sdk-overview.md
@@ -187,7 +187,7 @@ items:
     href: containers/overview.md
   - name: Install and run containers
     displayName: docker,docker-run,run,pull,swagger,c#,python,import,cpu,EULA,billing
-    href: containers/translator-how-to-install-container.md
+    href: containers/install-run.md
   - name: Container configuration guide
     displayName: docker,docker-run,billing,settings,key,logging,EULA,telemetry,proxy
     href: containers/configuration.md
@@ -199,10 +199,10 @@ items:
       - name: "Container: Translate text"
         displayName: docker,docker-run,run,pull,swagger,c#,python,import,cpu,EULA,billing
         href: containers/translate-text-parameters.md
-      - name: "Container: Transliterate text"
+      - name: "🆕 Container: Transliterate text"
         displayName: docker,docker-run,run,pull,swagger,c#,python,import,cpu,EULA,billing
         href: containers/transliterate-text-parameters.md
-      - name: "Container: Translate documents"
+      - name: "🆕 Container: Translate documents (preview)"
         displayName: docker,docker-run,run,pull,swagger,c#,python,import,cpu,EULA,billing
         href: containers/translate-document-parameters.md
   - name: Translator container FAQ

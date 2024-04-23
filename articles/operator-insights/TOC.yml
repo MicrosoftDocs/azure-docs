@@ -11,6 +11,8 @@
     href: ingestion-agent-release-notes.md
 - name: Planning
   items:
+  - name: Architecture
+    href: architecture.md
   - name: Data Products
     items:
     - name: Quality of Experience - Affirmed MCC
@@ -27,7 +29,7 @@
     href: managed-identity.md
 - name: Deployment
   items:
-  - name: Create an Azure Operator Insights Data Product
+  - name: Deploy an Azure Operator Insights Data Product
     href: data-product-create.md
 - name: Data ingestion
   items:
@@ -49,7 +51,7 @@
     href: purview-setup.md
 - name: Management
   items:
-  - name: Manage permissions to the consumption URL
+  - name: Manage permissions to the KQL consumption URL
     href: consumption-plane-configure-permissions.md
   - name: Monitoring
     items:

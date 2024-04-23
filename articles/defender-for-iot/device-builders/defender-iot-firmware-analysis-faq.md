@@ -44,3 +44,5 @@ Defender for IoT Firmware Analysis supports unencrypted images that contain file
 
 ## Where are the Defender for IoT Firmware Analysis Azure CLI/PowerShell docs?
 You can find the documentation for our Azure CLI commands [here](/cli/azure/firmwareanalysis/firmware) and the documentation for our Azure PowerShell commands [here](/powershell/module/az.firmwareanalysis/?#firmwareanalysis).
+
+You can also find the Quickstart for our Azure CLI [here](/azure/defender-for-iot/device-builders/quickstart-upload-firmware-using-azure-command-line-interface) and the Quickstart for our Azure PowerShell [here](/azure/defender-for-iot/device-builders/quickstart-upload-firmware-using-powershell). To run a Python script using the SDK to upload and analyze firmware images, visit [Quickstart: Upload firmware using Python](/azure/defender-for-iot/device-builders/quickstart-upload-firmware-using-python).

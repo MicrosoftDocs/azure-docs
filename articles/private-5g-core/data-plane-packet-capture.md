@@ -34,6 +34,9 @@ To perform packet capture using the command line, you must:
 
 [!INCLUDE [](includes/include-diagnostics-storage-account-setup.md)]
 
+>[!IMPORTANT]
+> Once you have created the user-assigned managed identity, you must refresh the packet core configuration by making a dummy configuration change. This could be a change that will have no impact on your deployment and can be left in place, or a change that you immediately revert. See [Modify a packet core instance](modify-packet-core.md). If you do not refresh the packet core configuration, packet capture will fail.
+
 ### Start a packet capture
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).

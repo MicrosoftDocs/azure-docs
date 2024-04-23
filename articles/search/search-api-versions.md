@@ -14,7 +14,7 @@ ms.custom:
   - devx-track-python
   - ignite-2023
 ms.topic: conceptual
-ms.date: 01/10/2024
+ms.date: 04/17/2024
 ---
 
 # API versions in Azure AI Search
@@ -24,6 +24,10 @@ Azure AI Search rolls out feature updates regularly. Sometimes, but not always, 
 As a rule, the REST APIs and libraries are versioned only when necessary, since it can involve some effort to upgrade your code to use a new API version. A new version is needed only if some aspect of the API has changed in a way that breaks backward compatibility. Such changes can happen because of fixes to existing features, or because of new features that change existing API surface area.
 
 See [Azure SDK lifecycle and support policy](https://azure.github.io/azure-sdk/policies_support.html) for more information about the deprecation path.
+
+## Deprecated versions
+
+**2023-07-01-preview** was deprecated on April 8, 2024 and will be retired on July 8, 2024. This was the first REST API that offered vector search support. Newer API versions have a different vector configuration. We recommend [migrating to a newer version](search-api-migration.md) as soon as possible.
 
 <a name="unsupported-versions"></a>
 
