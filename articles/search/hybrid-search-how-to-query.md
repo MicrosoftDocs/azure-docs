@@ -1,5 +1,5 @@
 ---
-title: Hybrid query how-to
+title: Hybrid query
 titleSuffix: Azure AI Search
 description: Learn how to build queries for hybrid search.
 
@@ -14,29 +14,29 @@ ms.date: 04/23/2024
 
 # Create a hybrid query in Azure AI Search
 
-Hybrid search combines one or more keyword queries with one or more vector queries in a single search request. The queries execute in parallel. The results are merged and reordered by new search scores, using [Reciprocal Rank Fusion (RRF)](hybrid-search-ranking.md) to return a single ranked result set.
+[Hybrid search](hybrid-search-overview.md) combines one or more keyword queries with one or more vector queries in a single search request. The queries execute in parallel. The results are merged and reordered by new search scores, using [Reciprocal Rank Fusion (RRF)](hybrid-search-ranking.md) to return a single ranked result set.
 
 In most cases, [per benchmark tests](https://techcommunity.microsoft.com/t5/ai-azure-ai-services-blog/azure-ai-search-outperforming-vector-search-with-hybrid/ba-p/3929167), hybrid queries with semantic ranking return the most relevant results.
 
-To define a hybrid query, use [**Search Post REST API version 2023-11-01**](/rest/api/searchservice/documents/search-post), **2023-10-01-preview** or higher, Search Explorer in the Azure portal, or newer versions of the Azure SDKs. For more information about hybrid search concepts, see [Hybrid search in Azure AI Search](hybrid-search-overview.md).
+To define a hybrid query, use REST API [**2023-11-01**](/rest/api/searchservice/documents/search-post), **2023-10-01-preview** or higher, Search Explorer in the Azure portal, or newer versions of the Azure SDKs. 
 
 ## Prerequisites
 
 + A search index containing `searchable` vector and nonvector fields. See [Create an index](search-how-to-create-search-index.md) and [Add vector fields to a search index](vector-search-how-to-create-index.md).
 
-+ (Optional) If you want [semantic ranking](semantic-search-overview.md), your search service must be Basic tier or higher, with [semantic ranking enabled](semantic-how-to-enable-disable.md).
++ (Optional) If you want [semantic ranking](semantic-how-to-configure), your search service must be Basic tier or higher, with [semantic ranking enabled](semantic-how-to-enable-disable.md).
 
 + (Optional) If you want text-to-vector conversion of a query string (currently in preview), [create and assign a vectorizer](vector-search-how-to-configure-vectorizer.md) to vector fields in the search index.
 
 ## Run a hybrid query in Search Explorer
 
-You can use the index and hybrid query from the [vector search quickstart (REST)](vector-search-how-to-configure-vectorizer.md#try-a-vectorizer-with-sample-data) as an example for this task. If you have the index, you can copy and paste the query from line 539 to 553 to run the hybrid query in Search Explorer.
-
-1. In Search Explorer, make sure the API version is **2023-10-01-preview** or later.
+1. In [Search Explorer](search-explorer.md), make sure the API version is **2023-10-01-preview** or later.
 
 1. Under **View**, select **JSON view**. 
 
-1. Replace the default query template with a hybrid query, such as the one starting on line 539 for the vector quickstart example. For brevity, the vector is truncated. The text query is specified in `search`. The vector query is specified under `vectorQueries.vector`.
+1. Replace the default query template with a hybrid query, such as the one starting on line 539 for the [vector quickstart example](vector-search-how-to-configure-vectorizer.md#try-a-vectorizer-with-sample-data). For brevity, the vector is truncated in this article. 
+
+   A hybrid query has a text query specified in `search`, and a vectory query specified under `vectorQueries.vector`.
 
    The text query and vector query should be equivalent or at least not conflict. If the queries are different, you don't get the benefit of hybrid.
 
@@ -62,7 +62,7 @@ You can use the index and hybrid query from the [vector search quickstart (REST)
 
 ## Hybrid query request (REST API)
 
-A hybrid query combines text search and vector search, where the `"search"` parameter takes a query string and `"vectors.value"` takes the vector query. The search engine runs full text and vector queries in parallel. The union of all matches is evaluated for relevance using Reciprocal Rank Fusion (RRF) and a single result set is returned in the response.
+A hybrid query combines text search and vector search, where the `search` parameter takes a query string and `vectorQueries.vector` takes the vector query. The search engine runs full text and vector queries in parallel. The union of all matches is evaluated for relevance using Reciprocal Rank Fusion (RRF) and a single result set is returned in the response.
 
 Results are returned in plain text, including vectors in fields marked as `retrievable`. Because numeric vectors aren't useful in search results, choose other fields in the index as a proxy for the vector match. For example, if an index has "descriptionVector" and "descriptionText" fields, the query can match on "descriptionVector" but the search result can show "descriptionText". Use the `select` parameter to specify only human-readable fields in the results.
 
