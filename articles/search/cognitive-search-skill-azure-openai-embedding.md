@@ -8,7 +8,7 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: reference
-ms.date: 03/28/2024
+ms.date: 04/23/2024
 ---
 
 #	Azure OpenAI Embedding skill
@@ -42,6 +42,8 @@ Parameters are case-sensitive.
 | `apiKey`   |  The secret key used to access the model. If you provide a key, leave `authIdentity` empty. If you set both the `apiKey` and `authIdentity`, the `apiKey` is used on the connection. |
 | `deploymentId`   | The name of the deployed Azure OpenAI embedding model. The model should be an embedding model, such as text-embedding-ada-002. See the [List of Azure OpenAI models](/azure/ai-services/openai/concepts/models) for supported models.|
 | `authIdentity`   | A user-managed identity used by the search service for connecting to Azure OpenAI. You can use either a [system or user managed identity](search-howto-managed-identities-data-sources.md). To use a system manged identity, leave `apiKey` and `authIdentity` blank. The system-managed identity is used automatically. A managed identity must have [Cognitive Services OpenAI User](/azure/ai-services/openai/how-to/role-based-access-control#azure-openai-roles) permissions to send text to Azure OpenAI. |
+| `modelName` | (Required in API version 2024-05-01-Preview and later). The name of the Azure OpenAI embedding model that is deployed at the provided `resourceUri` and `deploymentId`. Currently supported values are `text-embedding-ada-002`, `text-embedding-3-large`, and `text-embedding-3-small` |
+| `dimensions` | (Optional, supported in API version 2024-05-01-Preview and later) The dimensions of embeddings that you would like to generate if the model supports reducing the embedding dimensions. Defaults to the maximum dimensions for each model if not specified.  |
 
 ## Skill inputs
 
@@ -73,6 +75,7 @@ Then your skill definition might look like this:
   "description": "Connects a deployed embedding model.",
   "resourceUri": "https://my-demo-openai-eastus.openai.azure.com/",
   "deploymentId": "my-text-embedding-ada-002-model",
+  "modelName": "text-embedding-ada-002",
   "inputs": [
     {
       "name": "text",
