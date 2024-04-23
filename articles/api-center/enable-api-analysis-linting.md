@@ -40,9 +40,9 @@ The following diagram shows the steps to enable linting and analysis in your API
 
 This article provides two options to deploy the linting engine and event subscription in your API center:
 
-1. **Automated deployment** - Use the Azure developer CLI (`azd`) for one-step deployment of linting infrastructure. This option is recommended for a streamlined deployment process.
+- **Automated deployment** - Use the Azure developer CLI (`azd`) for one-step deployment of linting infrastructure. This option is recommended for a streamlined deployment process.
 
-1. **Manual deployment** - Follow step-by-step guidance to deploy the Azure Functions app and configure the event subscription. This option is recommended if you prefer to deploy and manage the resources manually.
+- **Manual deployment** - Follow step-by-step guidance to deploy the Azure Functions app and configure the event subscription. This option is recommended if you prefer to deploy and manage the resources manually.
 
 ### Limitations
 
