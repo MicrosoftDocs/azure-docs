@@ -28,7 +28,7 @@ This quickstart assumes you followed the prerequisites in these quickstarts:
 1. In Azure portal, enter "Site Network Services" into the search and select **Site Network Service** from the results.
 1. Select **+ Create**.
 
-   :::image type="content" source="media/create-site-network-service-virtual-network-function.png" alt-text="Screenshot showing the Create a resource page search for and select Site Network Service." lightbox="media/create-site-network-service-virtual-network-function.png":::
+   :::image type="content" source="media/create-site-network-service-virtual-network-function.png" alt-text="Screenshot showing the Create a resource page search for and select Site Network Service.":::
 
 1. In the **Basics** tab, enter or select the following information. Accept the defaults for the remaining settings.
 
