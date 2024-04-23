@@ -76,7 +76,7 @@ For more information, see the [Deploy an AKS cluster][cluster] tutorial.
 
 ### Install Dapr on your AKS cluster
 
-Install the Dapr extension on your AKS cluster. Before you start, make sure you've:
+Install the Dapr extension on your AKS cluster. Before you start, make sure you have:
 - [Installed or updated the `k8s-extension`][k8s-ext]. 
 - [Registered the `Microsoft.KubernetesConfiguration` service provider][k8s-sp]
 
@@ -84,7 +84,7 @@ Install the Dapr extension on your AKS cluster. Before you start, make sure you'
 az k8s-extension create --cluster-type managedClusters --cluster-name myAKSCluster --resource-group myResourceGroup --name dapr --extension-type Microsoft.Dapr
 ```
 
-Verify Dapr has been installed by running the following command:
+Verify Dapr is installed:
 
 ```sh
 kubectl get pods -A
@@ -108,7 +108,7 @@ kubectl apply -f redis.yaml
 
 ### Run the application
 
-Once you've deployed Redis, deploy the application to AKS:
+Once Redis is deployed, deploy the application to AKS:
 
 ```sh
 kubectl apply -f deployment.yaml
@@ -131,7 +131,7 @@ echo $DAPR_URL
 
 ## Start the workflow
 
-Now that the application and Dapr have been deployed to the AKS cluster, you can now start and query workflow instances. Begin by making an API call to the sample app to restock items in the inventory:
+Now that the application and Dapr are deployed to the AKS cluster, you can now start and query workflow instances. Restock items in the inventory using the following API call to the sample app:
 
 ```sh
 curl -X GET $APP_URL/stock/restock
