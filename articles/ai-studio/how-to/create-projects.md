@@ -39,6 +39,6 @@ Select **Manage in the Azure portal** to navigate to the project resources in th
 
 ## Next steps
 
-- [Deploy a web app for chat on your data](../tutorials/deploy-chat-web-app.md)
+- [Deploy an enterprise chat web app](../tutorials/deploy-chat-web-app.md)
 - [Learn more about Azure AI Studio](../what-is-ai-studio.md)
 - [Learn more about hubs](../concepts/ai-resources.md)

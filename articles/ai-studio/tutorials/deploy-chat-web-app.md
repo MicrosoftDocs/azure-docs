@@ -1,7 +1,7 @@
 ---
-title: Deploy a web app for chat on your data in the Azure AI Studio playground
+title: Deploy an enterprise chat web app in the Azure AI Studio playground
 titleSuffix: Azure AI Studio
-description: Use this article to deploy a web app for chat on your data in the Azure AI Studio playground.
+description: Use this article to deploy an enterprise chat web app in the Azure AI Studio playground.
 manager: nitinme
 ms.service: azure-ai-studio
 ms.custom:
@@ -13,11 +13,11 @@ ms.author: aahi
 author: aahill
 ---
 
-# Tutorial: Deploy a web app for chat on your data
+# Tutorial: Deploy an enterprise chat web app
 
 In this article, you deploy a chat web app that uses your own data with an Azure OpenAI Service model.
 
-You upload your local data files to Azure Blob storage and create an Azure AI Search index. Your data source is used to help ground the model with specific data. Grounding means that the model uses your data to help it understand the context of your question. You're not changing the deployed model itself. Your data is stored separately and securely in your Azure subscription. For more information, see [Azure OpenAI on your data](/azure/ai-services/openai/concepts/use-your-data). 
+You upload your local data files to Azure Blob storage and create an Azure AI Search index. Your data source is used to help ground the model with specific data. Grounding means that the model uses your data to help it understand the context of your question. You're not changing the deployed model itself. Your data is stored separately and securely in your Azure subscription. For more information, see [Azure OpenAI enterprise chat](/azure/ai-services/openai/concepts/use-your-data). 
 
 The steps in this tutorial are:
 
@@ -87,7 +87,7 @@ Follow these steps to add your data to the playground to help the assistant answ
     :::image type="content" source="../media/tutorials/chat-web-app/add-your-data-source.png" alt-text="Screenshot of the data source selection options." lightbox="../media/tutorials/chat-web-app/add-your-data-source.png":::
 
     > [!TIP]
-    > For data source options and supported file types and formats, see [Azure OpenAI on your data](/azure/ai-services/openai/concepts/use-your-data). 
+    > For data source options and supported file types and formats, see [Azure OpenAI enterprise chat](/azure/ai-services/openai/concepts/use-your-data). 
 
 1. Enter your data source details:
 
@@ -110,7 +110,7 @@ Follow these steps to add your data to the playground to help the assistant answ
 1. On the **Data management** pane under **Search type**, select **Keyword**. This setting helps determine how the model responds to requests. Then select **Next**.
     
     > [!NOTE]
-    > If you had added vector search on the **Select or add data source** page, then more options would be available here for an additional cost. For more information, see [Azure OpenAI on your data](/azure/ai-services/openai/concepts/use-your-data).
+    > If you had added vector search on the **Select or add data source** page, then more options would be available here for an additional cost. For more information, see [Azure OpenAI enterprise chat](/azure/ai-services/openai/concepts/use-your-data).
     
 1. Review the details you entered, and select **Save and close**. You can now chat with the model and it uses information from your data to construct the response.
 

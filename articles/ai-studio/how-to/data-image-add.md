@@ -11,12 +11,12 @@ ms.author: pafarley
 author: PatrickFarley
 ---
 
-# Azure OpenAI on your data with images using GPT-4 Turbo with Vision (preview)
+# Azure OpenAI enterprise chat with images using GPT-4 Turbo with Vision (preview)
 
-Use this article to learn how to provide your own image data for GPT-4 Turbo with Vision, Azure OpenAI's vision model. GPT-4 Turbo with Vision on your data allows the model to generate more customized and targeted answers using retrieval augmented generation based on your own images and image metadata. 
+Use this article to learn how to provide your own image data for GPT-4 Turbo with Vision, Azure OpenAI's vision model. GPT-4 Turbo with Vision enterprise chat allows the model to generate more customized and targeted answers using retrieval augmented generation based on your own images and image metadata. 
 
 > [!TIP]
-> This article is for using your data on the GPT-4 Turbo with Vision model. See [Deploy a web app for chat on your data](../tutorials/deploy-chat-web-app.md) for a tutorial on how to deploy a chat web app using your text data.
+> This article is for using your data on the GPT-4 Turbo with Vision model. See [Deploy an enterprise chat web app](../tutorials/deploy-chat-web-app.md) for a tutorial on how to deploy a chat web app using your text data.
 
 ## Prerequisites 
 
@@ -222,4 +222,4 @@ When you remove a data source, you'll see a warning message. Removing a data sou
 ## Next steps
 
 - Learn how to [create a project in Azure AI Studio](./create-projects.md).
-- [Deploy a web app for chat on your data](../tutorials/deploy-chat-web-app.md)
+- [Deploy an enterprise chat web app](../tutorials/deploy-chat-web-app.md)

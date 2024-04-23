@@ -91,7 +91,7 @@ In the next section, you'll add your data to the model to help it answer questio
 
 You need a local copy of example product information. For more information and links to example data, see the [prerequisites](#prerequisites).
 
-You upload your local data files to Azure Blob storage and create an Azure AI Search index. Your data source is used to help ground the model with specific data. Grounding means that the model uses your data to help it understand the context of your question. You're not changing the deployed model itself. Your data is stored separately and securely in your Azure subscription. For more information, see [Azure OpenAI on your data](/azure/ai-services/openai/concepts/use-your-data). 
+You upload your local data files to Azure Blob storage and create an Azure AI Search index. Your data source is used to help ground the model with specific data. Grounding means that the model uses your data to help it understand the context of your question. You're not changing the deployed model itself. Your data is stored separately and securely in your Azure subscription. For more information, see [Azure OpenAI enterprise chat](/azure/ai-services/openai/concepts/use-your-data). 
 
 Follow these steps to add your data to the playground to help the assistant answer questions about your products. 
 
@@ -105,7 +105,7 @@ Follow these steps to add your data to the playground to help the assistant answ
     :::image type="content" source="../media/tutorials/copilot-deploy-flow/add-your-data-source.png" alt-text="Screenshot of the product data source selection options." lightbox="../media/tutorials/copilot-deploy-flow/add-your-data-source.png":::
 
     > [!TIP]
-    > For data source options and supported file types and formats, see [Azure OpenAI on your data](/azure/ai-services/openai/concepts/use-your-data). 
+    > For data source options and supported file types and formats, see [Azure OpenAI enterprise chat](/azure/ai-services/openai/concepts/use-your-data). 
 
 1. Enter *product-info* as the name of your product information index. 
 
@@ -126,7 +126,7 @@ Follow these steps to add your data to the playground to help the assistant answ
 1. On the **Data management** page under **Search type**, select **Keyword**. This setting helps determine how the model responds to requests. Then select **Next**.
     
     > [!NOTE]
-    > If you had added vector search on the **Select or add data source** page, then more options would be available here for an additional cost. For more information, see [Azure OpenAI on your data](/azure/ai-services/openai/concepts/use-your-data).
+    > If you had added vector search on the **Select or add data source** page, then more options would be available here for an additional cost. For more information, see [Azure OpenAI enterprise chat](/azure/ai-services/openai/concepts/use-your-data).
     
 1. Review the details you entered, and select **Save and close**. You can now chat with the model and it uses information from your data to construct the response.
 
@@ -526,4 +526,4 @@ Learn how to create a retail copilot using your data with Azure AI Studio in thi
 ## Next steps
 
 * Learn more about [prompt flow](../how-to/prompt-flow.md).
-* [Deploy a web app for chat on your data](./deploy-chat-web-app.md).
+* [Deploy an enterprise chat web app](./deploy-chat-web-app.md).

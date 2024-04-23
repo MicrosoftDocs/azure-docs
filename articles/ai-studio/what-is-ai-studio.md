@@ -36,7 +36,7 @@ Identify the best AI services and models for your use case.
 - Azure AI services 
 - Azure OpenAI Service 
 - Model catalog: Managed compute and serverless APIs
-- Model benchmarking: Compare models by performance and key parameters
+- Model benchmarks: Compare models by performance and key parameters
 
 **Build intelligent apps with industry-leading APIs.** Develop multimodal, multi-lingual AI with out-of-the-box and customizable APIs and models. 
 
@@ -91,7 +91,7 @@ Deploy AI innovations to Azure’s managed infrastructure with continuous monito
 
 Go to the **Home** page to create or access hubs and projects, explore the model catalog, access the AI services try-out experiences, dive into documentation, and more.
 
-:::image type="content" source="media/explore/home-page.gif" alt-text="GIF of scrolling down the AI Studio home page." lightbox= "media/explore/home-page.gif":::
+:::image type="content" source="./media/explore/ai-studio-home.png" alt-text="Screenshot of the Azure AI Studio home page with links to get started." lightbox="./media/explore/ai-studio-home.png":::
 
 ### Model catalog
 
@@ -99,13 +99,13 @@ The model catalog is a collection of models that you can use in your projects. Y
 
 :::image type="content" source="media/explore/home-model-catalog.png" alt-text="Screenshot of the model catalog on the AI Studio home page." lightbox= "media/explore/home-model-catalog.png":::
 
-### Model benchmarking
+### Model benchmarks
 
 Assess model performance with evaluated metrics for accuracy, coherence, fluency, and similarity. Compare benchmarks across models and datasets available in the industry to assess which one meets your business scenario.
 
-The model benchmarking tool helps you compare the performance of different models on a specific task. You can select a task, such as question answering or text generation, and see how different models perform on that task. You can also filter by specific models or model collections to see how they compare to each other.
+The model benchmarks tool helps you compare the performance of different models on a specific task. You can select a task, such as question answering or text generation, and see how different models perform on that task. You can also filter by specific models or model collections to see how they compare to each other.
 
-:::image type="content" source="media/explore/home-model-benchmarking.png" alt-text="Screenshot of the model benchmarking page in AI Studio." lightbox= "media/explore/home-model-benchmarking.png":::
+:::image type="content" source="media/explore/home-model-benchmarks.png" alt-text="Screenshot of the model benchmarks page in AI Studio." lightbox= "media/explore/home-model-benchmarks.png":::
 
 ### Prompt catalog
 
@@ -134,7 +134,7 @@ From the left navigation pane on the **Home** page, you can access following pag
 
 **Resources and keys:** Provides information about the Azure AI services (including Azure OpenAI) resources and keys that you have access to in Azure AI Studio. You can see the name of each Azure resource, the subscription it belongs to, the region it's in, the pricing tier, the endpoint URL, and the key that you need to access the resource. 
 
-**Quota:** The quota section provides information about your quota usage and limits Azure ML (including virtual machines for compute) and Azure OpenAI model quotas. For more information about quotas, see [Quotas and limits for Azure AI Studio](./how-to/quota.md).
+**Quota:** The quota section provides information about your quota usage and limits for virtual machines for compute and Azure OpenAI model deployments. For more information about quotas, see [Quotas and limits for Azure AI Studio](./how-to/quota.md).
 
 ## Hub view
 
@@ -142,7 +142,7 @@ You (or your admin) use a hub for enterprise configuration, a unified data story
 
 After you've created a hub (whether or not you have a project in it), you can view the hub's details, manage settings, and access resources. From the left navigation pane on the **Home** page, select **All hubs** and then select a hub to view its details.
 
-From the left navigation pane on the **Hub overview** page, you can access the same model catalog, model benchmarking, prompt catalog, and AI Services pages that you can access from the [**Home** page](#home-page). You can also access the following pages:
+From the left navigation pane on the **Hub overview** page, you can access the same model catalog, model benchmarks, prompt catalog, and AI Services pages that you can access from the [**Home** page](#home-page). You can also access the following pages:
 
 - **All projects:** This is one of the places in AI Studio where you can create new projects. You can view a list of all the projects that you have access to in the hub. You can also filter the projects by project name, hub name, or region. For more information about creating projects, see [Create a project](how-to/create-projects.md).
 - **Playgrounds:** This is where you can experiment with your data and prompts for generative AI models. Available playgrounds include chat and assistants. 
@@ -156,7 +156,7 @@ You can access a project in the following ways:
 - Go to the **Home** page and select a project from the list of recent projects.
 - From the left navigation pane on the **Home** page, select **All hubs** and then select a hub. Then you can select a project from the list of projects in the hub.
 
-From the project's left navigation pane, you can access the same model catalog, model benchmarking, and prompt catalog pages that you can access from the [**Home** page](#home-page). 
+From the project's left navigation pane, you can access the same model catalog, model benchmarks, and prompt catalog pages that you can access from the [**Home** page](#home-page). 
 
 :::image type="content" source="media/explore/project-view-current.png" alt-text="Screenshot of an AI Studio project overview page." lightbox= "media/explore/project-view-current.png":::
 
