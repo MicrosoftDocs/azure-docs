@@ -85,7 +85,7 @@ landingContent:
              - text: Manage models
                url: ./how-to/working-with-models.md
              - text: OpenAI versus Azure OpenAI (Python)
-               url: ./how-to/switching-endpoints.md
+               url: ./how-to/switching-endpoints.yml
              - text: Role-based access control (Azure RBAC)
                url: ./how-to/role-based-access-control.md 
              - text: GPT-3.5 Turbo & GPT-4
