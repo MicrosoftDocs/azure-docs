@@ -15,7 +15,7 @@ ms.custom: ignite-2023
 
 # What is Azure AI Studio?
 
-[Azure AI Studio](https://ai.azure.com) is a trusted platform that empowers developers to drive innovation and shape the future with AI in a safe, secure, and responsible way. The comprehensive platform accelerates the development of production-ready copilots with agent-like functionality to support enterprise chat, content generation, data analysis, and more. Developers can explore cutting-edge APIs and models for their use cases; build and test solutions with collaborative and responsible AI tools, safeguards, and best practices; deploy AI innovations for use in websites, applications, and other production environments; and manage solutions with continuous monitoring and governance in production.
+[Azure AI Studio](https://ai.azure.com) is a trusted platform that empowers developers to drive innovation and shape the future with AI in a safe, secure, and responsible way. The comprehensive platform accelerates the development of production-ready copilots to support enterprise chat, content generation, data analysis, and more. Developers can explore cutting-edge APIs and models for their use cases; build and test solutions with collaborative and responsible AI tools, safeguards, and best practices; deploy AI innovations for use in websites, applications, and other production environments; and manage solutions with continuous monitoring and governance in production.
 
 :::image type="content" source="./media/explore/ai-studio-home.png" alt-text="Screenshot of the Azure AI Studio home page." lightbox="./media/explore/ai-studio-home.png":::
 
@@ -28,7 +28,7 @@ ms.custom: ignite-2023
 - Build together as one team. Your [AI Studio hub](./concepts/ai-resources.md) provides enterprise-grade security, and a collaborative environment with shared files and connections to pretrained models, data and compute.
 - Organize your way. Your [AI Studio project](./how-to/create-projects.md) helps you save state, allowing you iterate from first idea, to first prototype, and then first production deployment. Also easily invite others to collaborate along this journey.
 
-With AI Studio, you can evaluate large language model (LLM) responses and orchestrate prompt application components with prompt flow for better performance. The platform facilitates scalability for transforming proof of concepts into full-fledged production with ease. Continuous monitoring and refinement support long-term success.  
+With AI Studio, you can evaluate model responses and orchestrate prompt application components with prompt flow for better performance. The platform facilitates scalability for transforming proof of concepts into full-fledged production with ease. Continuous monitoring and refinement support long-term success.  
 
 ### API and model choice 
 
@@ -150,14 +150,21 @@ From the left navigation pane on the **Hub overview** page, you can access the s
 
 ## Project view
 
-Build is an experience where AI Devs and ML Pros can build or customize AI solutions and models. Developers can switch between studio and code.
+You use a project to organize your work, manage resources, and collaborate with others. A project is a container for your data, models, code, and other resources. For more information about creating projects, see [create AI Studio projects](how-to/create-projects.md).
 
+You can access a project in the following ways:
+- Go to the **Home** page and select a project from the list of recent projects.
+- From the left navigation pane on the **Home** page, select **All hubs** and then select a hub. Then you can select a project from the list of projects in the hub.
+
+From the project's left navigation pane, you can access the same model catalog, model benchmarking, and prompt catalog pages that you can access from the [**Home** page](#home-page). 
 
 :::image type="content" source="media/explore/project-view-current.png" alt-text="Screenshot of an AI Studio project overview page." lightbox= "media/explore/project-view-current.png":::
 
-- Simplified development of large language model (LLM) solutions and copilots with end-to-end app templates and prompt samples for common use cases.
-- Orchestration framework to handle the complex mapping of functions and code between LLMs, tools, custom code, prompts, data, search indexes, and more.
-- Evaluate, deploy, and continuously monitor your AI application and app performance.
+You can also access the following pages:
+- Project playground: This is where you can experiment with your data and prompts for generative AI models. Available playgrounds include chat, completion, assistants, and images.
+- Tools: This is where you can access tools for prompt flow, tracing, evaluations, and fine-tuning. You can also access the [Visual Studio Code (Web)](how-to/develop-in-vscode.md) experience from this page. 
+- Components: This is where you can view and manage components in the project. Components include data, indexes, deployments, and content filters.
+
 
 ## AI Studio enterprise chat solution demo
 
