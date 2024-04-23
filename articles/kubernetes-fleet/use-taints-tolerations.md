@@ -2,7 +2,7 @@
 title: "Use taints on member clusters and tolerations on cluster resource placements in Azure Kubernetes Fleet Manager"
 description: Learn how to use taints on `MemberCluster` resources and tolerations on `ClusterResourcePlacement` resources in Azure Kubernetes Fleet Manager.
 ms.topic: how-to
-ms.date: 04/19/2024
+ms.date: 04/23/2024
 author: schaffererin
 ms.author: schaffererin
 ms.service: kubernetes-fleet
@@ -11,6 +11,8 @@ ms.service: kubernetes-fleet
 # Use taints on member clusters and tolerations on cluster resource placements
 
 This article explains how to add/remove taints on `MemberCluster` resources and tolerations on `ClusterResourcePlacement` resources in Azure Kubernetes Fleet Manager.
+
+Taints and tolerations work together to ensure member clusters only receive specified resources during resource propagation. Taints are applied to `MemberCluster` resources to prevent resources from being propagated to the member cluster. Tolerations are applied to `ClusterResourcePlacement` resources to allow resources to be propagated to the member cluster, even if the member cluster has a taint.
 
 ## Prerequisites
 

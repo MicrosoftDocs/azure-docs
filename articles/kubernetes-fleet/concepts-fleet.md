@@ -1,7 +1,7 @@
 ---
 title: "Azure Kubernetes Fleet Manager and member clusters"
 description: This article provides a conceptual overview of Azure Kubernetes Fleet Manager and member clusters.
-ms.date: 04/01/2024
+ms.date: 04/23/2024
 author: shashankbarsin
 ms.author: shasb
 ms.service: kubernetes-fleet
