@@ -19,11 +19,15 @@ ms.custom: devx-track-go, devguide-go
 
 Blobs in Azure Storage are organized into containers. Before you can upload a blob, you must first create a container. This article shows how to create containers with the [Azure Storage client module for Go](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob#section-readme).
 
-## Prerequisites
+[!INCLUDE [storage-dev-guide-prereqs-go](../../../includes/storage-dev-guides/storage-dev-guide-prereqs-go.md)]
 
-- This article assumes you already have a project set up to work with the Azure Blob Storage client module for Go. To learn about setting up your project, including package installation, adding `import` statements, and creating an authorized client object, see [Get started with Azure Blob Storage and Go](storage-blob-go-get-started.md).
-- The [authorization mechanism](../common/authorize-data-access.md) must have permissions to create a blob container. To learn more, see the authorization guidance for the following REST API operation:
-    - [Create Container](/rest/api/storageservices/create-container#authorization)
+## Set up your environment
+
+[!INCLUDE [storage-dev-guide-project-setup-go](../../../includes/storage-dev-guides/storage-dev-guide-project-setup-go.md)]
+
+### Authorization
+
+For authorization with Microsoft Entra ID (recommended), you need Azure RBAC built-in role **Storage Blob Data Contributor** or higher. To learn more, see the authorization guidance for [Create Container (REST API)](/rest/api/storageservices/create-container#authorization).
 
 [!INCLUDE [storage-dev-guide-about-container-naming](../../../includes/storage-dev-guides/storage-dev-guide-about-container-naming.md)]
 
@@ -37,7 +41,7 @@ Containers are created immediately beneath the storage account. It's not possibl
 
 The following example shows how to create a container:
 
-:::code language="go" source="~/blob-devguide-go/cmd/create-container/create_container.go id="snippet_create_container":::
+:::code language="go" source="~/blob-devguide-go/cmd/create-container/create_container.go" id="snippet_create_container":::
 
 ## Create the root container
 
@@ -55,14 +59,14 @@ The following example creates the container if it doesn't already exist in the s
 
 To learn more about creating a container using the Azure Blob Storage client module for Go, see the following resources.
 
+### Code samples
+
+- View [code samples](https://github.com/Azure-Samples/blob-storage-devguide-go/cmd/create-container/create_container.go) from this article (GitHub)
+
 ### REST API operations
 
 The Azure SDK for Go contains libraries that build on top of the Azure REST API, allowing you to interact with REST API operations through familiar Go paradigms. The client library methods for creating a container use the following REST API operation:
 
 - [Create Container](/rest/api/storageservices/create-container) (REST API)
-
-### Code samples
-
-- View [code samples](https://github.com/Azure-Samples/blob-storage-devguide-go/cmd/create-container/create_container.go) from this article (GitHub)
 
 [!INCLUDE [storage-dev-guide-resources-go](../../../includes/storage-dev-guides/storage-dev-guide-resources-go.md)]
