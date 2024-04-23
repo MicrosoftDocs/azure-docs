@@ -101,7 +101,7 @@ items:
       href: how-to/prompt-flow.md
     - name: Develop flows
       items:
-      - name: Create and manage runtime
+      - name: Create and manage compute service
         href: how-to/create-manage-runtime.md
       - name: Create a flow
         href: how-to/flow-develop.md
