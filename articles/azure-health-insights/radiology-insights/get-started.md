@@ -40,7 +40,7 @@ You can also find a full view of the [request parameters here](/rest/api/cogniti
 ## Example request
 
 > [!NOTE]
-> The examples below are based on API version: 2023-03-01-preview. There might be changes between
+> The examples below are based on API version: 2024-04-01-preview. There might be changes between
 API versions. For a specific API version, please use the reference to the REST API to see full description.
 
 
