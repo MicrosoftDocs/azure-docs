@@ -6,7 +6,7 @@ ms.reviewer: sgautam
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 03/29/2023
+ms.date: 03/21/2024
 ms.author: banders
 ms.custom:
 ---
@@ -30,7 +30,7 @@ The following sections help you identify your subscription account admin, requir
 
 Identify the subscription account admin by signing in to the Azure portal with an account that has at least the Azure RBAC reader role for the subscription. Then navigate to **Subscriptions** > Select the subscription > **Properties**. The subscription **Account Admin** is shown. Make a note of the user information.
 
-:::image type="content" source="./media/mosp-ea-transfer/subscription-account-admin.png" alt-text="Image showing subscription properties where you can view the Account Admin" lightbox="./media/mosp-ea-transfer/subscription-account-admin.png" :::
+:::image type="content" source="./media/mosp-ea-transfer/subscription-account-admin.png" alt-text="Screenshot showing subscription properties where you can view the Account Admin." lightbox="./media/mosp-ea-transfer/subscription-account-admin.png" :::
 
 > [!NOTE]
 > You must sign in later with the same Account Admin user account as described in the preceding information. If you don't have access to the account, you must get it before proceeding. For more information, see [Transfer billing ownership of an Azure subscription to another account](billing-subscription-transfer.md).

@@ -3,6 +3,7 @@ title: Azure Automation Update Management Supported Clients
 description: This article describes the supported Windows and Linux operating systems with Azure Automation Update Management.
 services: automation
 ms.subservice: update-management
+ms.custom: linux-related-content
 ms.date: 08/01/2023
 ms.topic: conceptual
 ---
@@ -10,7 +11,7 @@ ms.topic: conceptual
 # Operating systems supported by Update Management
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 This article details the Windows and Linux operating systems supported and system requirements for machines or servers managed by Update Management.
 
@@ -62,7 +63,7 @@ The following table lists operating systems not supported by Update Management:
 
 ## System requirements
 
-The section describes operating system-specific requirements. For additional guidance, see [Network planning](plan-deployment.md#ports). To understand requirements for TLS 1.2 or higher, see [TLS 1.2 or higher for Azure Automation](../automation-managing-data.md#tls-12-or-higher-for-azure-automation).
+The section describes operating system-specific requirements. For additional guidance, see [Network planning](plan-deployment.md#ports). To understand requirements for TLS 1.2 or higher, see [TLS for Azure Automation](../automation-managing-data.md#tls-for-azure-automation).
 
 # [Windows](#tab/sr-win)
 

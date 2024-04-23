@@ -34,7 +34,6 @@ There are many services you can use to analyze and visualize your IoT data. Some
 [Azure Data Explorer](/azure/data-explorer/data-explorer-overview/) is a fully managed, high-performance, big-data analytics platform that makes it easy to analyze high volumes of data in near real time. The following articles and tutorials show some examples of how to use Azure Data Explorer to analyze and visualize IoT data:
 
 - [IoT Hub data connection (Azure Data Explorer)](/azure/data-explorer/ingest-data-iot-hub-overview)
-- [Explore an Azure IoT Central industrial scenario](../iot-central/core/tutorial-industrial-end-to-end.md)
 - [Export IoT data to Azure Data Explorer (IoT Central)](../iot-central/core/howto-export-to-azure-data-explorer.md)
 - [Azure Digital Twins query plugin for Azure Data Explorer](../digital-twins/concepts-data-explorer-plugin.md)
 
@@ -42,8 +41,7 @@ There are many services you can use to analyze and visualize your IoT data. Some
 
 Use [Azure Databricks](/azure/databricks/introduction/) to process, store, clean, share, analyze, model, and monetize datasets with solutions from BI to machine learning. Use the Azure Databricks platform to build and deploy data engineering workflows, machine learning models, analytics dashboards, and more.
 
-- [Use structured streaming with Azure Event Hubs and Azure Databricks clusters](/azure/databricks/structured-streaming/streaming-event-hubs/). You can connect a Databricks workspace to the Event Hubs-compatible endpoint on an IoT hub to read data from IoT devices.
-- [Extend Azure IoT Central with custom analytics](../iot-central/core/howto-create-custom-analytics.md).
+[Use structured streaming with Azure Event Hubs and Azure Databricks clusters](/azure/databricks/structured-streaming/streaming-event-hubs/). You can connect a Databricks workspace to the Event Hubs-compatible endpoint on an IoT hub to read data from IoT devices.
 
 ### Azure Stream Analytics
 

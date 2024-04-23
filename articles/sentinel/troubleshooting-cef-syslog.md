@@ -3,6 +3,7 @@ title: Troubleshoot a connection between Microsoft Sentinel and a CEF or Syslog 
 description: Learn how to troubleshoot issues with your Microsoft Sentinel CEF or Syslog data connector.
 author: limwainstein
 ms.topic: how-to
+ms.custom: linux-related-content
 ms.date: 01/09/2023
 ms.author: lwainstein
 ---
@@ -10,7 +11,7 @@ ms.author: lwainstein
 # Troubleshoot your CEF or Syslog data connector
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 This article describes common methods for verifying and troubleshooting a CEF or Syslog data connector for Microsoft Sentinel.
 

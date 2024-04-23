@@ -6,7 +6,7 @@ services: virtual-network
 author: asudbring
 ms.service: virtual-network
 ms.topic: quickstart
-ms.date: 03/09/2023
+ms.date: 02/28/2024
 ms.author: allensu
 ms.custom: mode-arm, devx-track-bicep
 ---
@@ -16,6 +16,8 @@ ms.custom: mode-arm, devx-track-bicep
 This quickstart shows you how to create a virtual network with two virtual machines (VMs), and then deploy Azure Bastion on the virtual network, by using Bicep templates. You then securely connect to the VMs from the internet by using Bastion and start private communication between the VMs.
 
 A virtual network is the fundamental building block for private networks in Azure. Azure Virtual Network enables Azure resources like VMs to securely communicate with each other and the internet.
+
+:::image type="content" source="./media/quick-create-bicep/virtual-network-bicep-resources.png" alt-text="Diagram of resources created in the virtual network quickstart.":::
 
 [!INCLUDE [About Bicep](../../includes/resource-manager-quickstart-bicep-introduction.md)]
 
@@ -282,7 +284,7 @@ Remove-AzResourceGroup -Name TestRG
 
 ## Next steps
 
-In this quickstart, you created a virtual network that has two subnets: one that contains two VMs and the other for Bastion. You deployed Bastion, and you used it to connect to the VMs and start communication between the VMs. To learn more about virtual network settings, see [Create, change, or delete a virtual network](manage-virtual-network.md).
+In this quickstart, you created a virtual network that has two subnets: one that contains two VMs and the other for Bastion. You deployed Bastion, and you used it to connect to the VMs and start communication between the VMs. To learn more about virtual network settings, see [Create, change, or delete a virtual network](manage-virtual-network.yml).
 
 Private communication between VMs is unrestricted in a virtual network. To learn more about configuring various types of VM communications in a virtual network, continue to the next article:
 

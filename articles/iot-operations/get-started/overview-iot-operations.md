@@ -9,7 +9,7 @@ ms.custom:
 ms.date: 10/18/2023
 ---
 
-# What is Azure IoT Operations?
+# What is Azure IoT Operations Preview?
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
@@ -23,7 +23,7 @@ Azure IoT Operations:
 * Lets you manage all edge services from the cloud by using Azure Arc.
 * Can integrate customer workloads into the platform to create a unified solution.
 * Supports GitOps configuration as code for deployment and updates.
-* Natively integrates with [Azure Event Hubs](/azure/event-hubs/azure-event-hubs-kafka-overview), [Azure Event Grid's MQTT broker](/azure/event-grid/mqtt-overview), and [Microsoft Fabric](/fabric/) in the cloud.
+* Natively integrates with [Azure Event Hubs](../../event-hubs/azure-event-hubs-kafka-overview.md), [Azure Event Grid's MQTT broker](../../event-grid/mqtt-overview.md), and [Microsoft Fabric](/fabric/) in the cloud.
 
 ## Architecture overview
 
@@ -35,19 +35,19 @@ There are two core elements in the Azure IoT Operations Preview architecture:
   * **Azure IoT Data Processor Preview** - a configurable data processing service that can manage the complexities and diversity of industrial data. Use Data Processor to make data from disparate sources more understandable, usable, and valuable.
   * **Azure IoT MQ Preview** - an edge-native MQTT broker that powers event-driven architectures.
   * **Azure IoT OPC UA Broker Preview** - an OPC UA broker that handles the complexities of OPC UA communication with OPC UA servers and other leaf devices.
-* **Azure IoT Operations Experience Preview portal**. This web UI provides a unified experience for operational technologists to manage assets and Data Processor pipelines in an Azure IoT Operations deployment.
+* **Azure IoT Operations (preview) portal**. This web UI provides a unified experience for operational technologists to manage assets and Data Processor pipelines in an Azure IoT Operations deployment. An IT administrator can use Azure Arc sites to control the resources that an operational technologist can access in the portal.
 
 ## Deploy
 
 Azure IoT Operations runs on Arc-enabled Kubernetes clusters on the edge. You can deploy Azure IoT Operations by using the Azure portal or the Azure CLI.
 
-[Azure IoT Orchestrator](../deploy-custom/overview-orchestrator.md) manages the deployment, configuration, and update of the Azure IoT Operations components that run on your Arc-enabled Kubernetes cluster.
+[Azure IoT Orchestrator Preview](../deploy-custom/overview-orchestrator.md) manages the deployment, configuration, and update of the Azure IoT Operations components that run on your Arc-enabled Kubernetes cluster.
 
 ## Manage devices and assets
 
-Azure IoT Operations can connect to various industrial devices and assets. You can use the [Azure IoT Operations portal](../manage-devices-assets/howto-manage-assets-remotely.md) to manage the devices and assets that you want to connect to.
+Azure IoT Operations can connect to various industrial devices and assets. You can use the [Azure IoT Operations (preview)](../manage-devices-assets/howto-manage-assets-remotely.md?tabs=portal) portal or the [Azure CLI](../manage-devices-assets/howto-manage-assets-remotely.md?tabs=cli) to manage the devices and assets that you want to connect to.
 
-The [OPC UA Broker Preview](../manage-devices-assets/overview-opcua-broker.md) component manages the connection to OPC UA servers and other leaf devices. The OPC UA Broker component publishes data from the OPC UA servers and the devices discovered by _Azure IoT Akri_ to Azure IoT MQ topics.
+The [Azure IoT OPC UA Broker Preview](../manage-devices-assets/overview-opcua-broker.md) component manages the connection to OPC UA servers and other leaf devices. The OPC UA Broker component publishes data from the OPC UA servers and the devices discovered by _Azure IoT Akri Preview_ to Azure IoT MQ topics.
 
 The [Azure IoT Akri Preview](../manage-devices-assets/overview-akri.md) component helps you discover and connect to other types of devices and assets.
 
@@ -103,4 +103,4 @@ To secure communication between devices and the cloud through isolated network e
 
 ## Next step
 
-Try the [Quickstart: Deploy Azure IoT Operations to an Arc-enabled Kubernetes cluster](quickstart-deploy.md).
+Try the [Quickstart: Deploy Azure IoT Operations Preview to an Arc-enabled Kubernetes cluster](quickstart-deploy.md).

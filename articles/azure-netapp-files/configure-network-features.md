@@ -97,7 +97,7 @@ The edit network features option is available in [all regions that support Stand
 > ```
 
 > [!NOTE]
-> You can also revert the option from *Standard* back to *Basic* network features. However, before performing the revert operation, you need to submit a waitlist request through the **[Azure NetApp Files standard networking features (edit volumes) Request Form](https://aka.ms/anfeditnetworkfeaturespreview)**. The revert capability can take approximately one week to be enabled after you submit the waitlist request. You can check the status of the registration by using the following command: 
+> You can also revert the option from *Standard* back to *Basic* network features. However, before performing the revert operation, you need to submit a waitlist request through the **[Azure NetApp Files standard networking features (edit volumes) Request Form](https://aka.ms/anfeditnetworkfeatures)**. The revert capability can take approximately one week to be enabled after you submit the waitlist request. You can check the status of the registration by using the following command: 
 >
 > ```azurepowershell-interactive
 > Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFStdToBasicNetworkFeaturesRevert                                                      

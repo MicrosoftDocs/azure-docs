@@ -5,6 +5,7 @@ ms.topic: overview
 ms.date: 01/22/2024
 ---
 
+
 # Manage secrets with agentless secrets scanning
 
 Attackers can move laterally across networks, find sensitive data, and exploit vulnerabilities to damage critical information systems by accessing internet-facing workloads and exploiting exposed credentials and secrets.
@@ -85,6 +86,8 @@ The following secrets can also be accessed from the `Security Recommendations` a
 
 The agentless scanner verifies whether SSH private keys can be used to move laterally in your network. Keys that aren't successfully verified are categorized as `unverified` on the Recommendations page.
 
+We exclude directories that we recognize as containing test-related content. This is achieved by adjusting patterns that identify files with testing, sample, or example data.
+
 ## Prerequisites
 
 - An Azure account. If you don't already have an Azure account, you can [create your Azure free account today](https://azure.microsoft.com/free/).
@@ -123,7 +126,7 @@ Agentless secrets scanning for Azure VMs supports the following attack path scen
 
 Agentless secrets scanning for AWS instances supports the following attack path scenarios:
 
-- `Exposed Vulnerable EC2 instance has an insecure SSH private key that is used to authenticate to a EC2 instance`.
+- `Exposed Vulnerable EC2 instance has an insecure SSH private key that is used to authenticate to an EC2 instance`.
 
 - `Exposed Vulnerable EC2 instance has an insecure secret that are used to authenticate to a storage account`.
 

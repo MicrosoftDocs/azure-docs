@@ -13,7 +13,7 @@ ms.topic: how-to
 ms.date: 01/18/2024
 ---
 
-# Import data from Azure Cosmos DB for NoSQL for queries in Azure AI Search
+# Index data from Azure Cosmos DB for NoSQL for queries in Azure AI Search
 
 In this article, learn how to configure an [**indexer**](search-indexer-overview.md) that imports content from [Azure Cosmos DB for NoSQL](../cosmos-db/nosql/index.yml) and makes it searchable in Azure AI Search.
 
@@ -29,7 +29,7 @@ Because terminology can be confusing, it's worth noting that [Azure Cosmos DB in
 
 + Read permissions. A "full access" connection string includes a key that grants access to the content, but if you're using Azure RBAC (Microsoft Entra ID), make sure the [search service managed identity](search-howto-managed-identities-data-sources.md) is assigned both **Cosmos DB Account Reader Role** and [**Cosmos DB Built-in Data Reader Role**](../cosmos-db/how-to-setup-rbac.md#built-in-role-definitions).
 
-+ A REST client, such as [Postman](search-get-started-rest.md), to send REST calls that create the data source, index, and indexer. 
++ A [REST client](search-get-started-rest.md) to create the data source, index, and indexer. 
 
 ## Define the data source
 
@@ -69,7 +69,7 @@ The data source definition specifies the data to index, credentials, and policie
 
 1. [Set "dataChangeDetectionPolicy"](#DataChangeDetectionPolicy) if data is volatile and you want the indexer to pick up just the new and updated items on subsequent runs.
 
-1. [Set "dataDeletionDetectionPolicy"](#DataDeletionDetectionPolicy) if you want to remove search documents from a search index when the source item is deleted.
+1. [Set "dataDeletionDetectionPolicy"](#DataDeletionDetectionPolicy) if you want to remove search documents from a search index when the source item is deleted. 
 
 <a name="credentials"></a>
 
@@ -204,7 +204,7 @@ In a [search index](search-what-is-an-index.md), add fields to accept the source
 | GeoJSON objects such as { "type": "Point", "coordinates": [long, lat] } |Edm.GeographyPoint |
 | Other JSON objects |N/A |
 
-## Configure and run the Azure Cosmos DB indexer
+## Configure and run the Azure Cosmos DB for NoSQL indexer
 
 Once the index and data source have been created, you're ready to create the indexer. Indexer configuration specifies the inputs, parameters, and properties controlling run time behaviors.
 
@@ -311,7 +311,7 @@ If you're using a [custom query to retrieve documents](#flatten-structures), mak
 
 In some cases, even if your query contains an `ORDER BY [collection alias]._ts` clause, Azure AI Search might not infer that the query is ordered by the `_ts`. You can tell Azure AI Search that results are ordered by setting the `assumeOrderByHighWaterMarkColumn` configuration property. 
 
-To specify this hint, [create or update your indexer definition](#configure-and-run-the-azure-cosmos-db-indexer) as follows: 
+To specify this hint, [create or update your indexer definition](#configure-and-run-the-azure-cosmos-db-for-nosql-indexer) as follows: 
 
 ```http
 {
@@ -336,6 +336,8 @@ When rows are deleted from the collection, you normally want to delete those row
 ```
 
 If you're using a custom query, make sure that the property referenced by `softDeleteColumnName` is projected by the query.
+
+The `softDeleteColumnName` must be a top-level field in the index. Using nested fields within complex data types as the `softDeleteColumnName` is not supported.
 
 The following example creates a data source with a soft-deletion policy:
 

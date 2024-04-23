@@ -2580,6 +2580,6 @@
             "source_path_from_root": "/articles/sql-data-warehouse/sql-data-warehouse-security-threat-detection.md",
             "redirect_url": "/azure/sql-database/sql-database-threat-detection-overview",
             "redirect_document_id": false
-        },
+        }
     ]
 }

@@ -8,7 +8,7 @@ ms.topic: how-to
 # Azure Batch rendering capabilities
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 Standard Azure Batch capabilities are used to run rendering workloads and applications. Batch also includes specific features to support rendering workloads.
 
@@ -30,18 +30,6 @@ Most rendering applications will require licenses obtained from a license server
   * Package the application files using one or more ZIP files, upload via the Azure portal, and specify the package in pool configuration. When pool VMs are created, the ZIP files are downloaded and the files extracted.
 * Resource files:
   * Application files are uploaded to Azure blob storage, and you specify file references in the [pool start task](/rest/api/batchservice/pool/add#starttask). When pool VMs are created, the resource files are downloaded onto each VM.
-
-### Environment variables for pre-installed applications
-
-To be able to create the command line for rendering tasks, the installation location of the rendering application executables must be specified.  System environment variables have been created on the Azure Marketplace VM images, which can be used instead of having to specify actual paths.  These environment variables are in addition to the [standard Batch environment variables](./batch-compute-node-environment-variables.md) created for each task.
-
-|Application|Application Executable|Environment Variable|
-|---------|---------|---------|
-|Autodesk 3ds Max 2021|3dsmaxcmdio.exe|3DSMAX_2021_EXEC|
-|Autodesk Maya 2020|render.exe|MAYA_2020_EXEC|
-|Chaos Group V-Ray Standalone|vray.exe|VRAY_4.10.03_EXEC|
-|Arnold 2020 command line|kick.exe|ARNOLD_2020_EXEC|
-|Blender|blender.exe|BLENDER_2018_EXEC|
 
 ## Azure VM families
 

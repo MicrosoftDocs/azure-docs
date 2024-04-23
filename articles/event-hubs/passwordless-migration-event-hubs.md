@@ -1,7 +1,7 @@
 ---
 title: Migrate applications to use passwordless authentication with Azure Event Hubs
 titleSuffix: Azure Event Hubs
-description: Learn to migrate existing applications away from Shared Key authorization with the account key to instead use Microsoft Entra ID and Azure RBAC for enhanced security with Azure Event Hubs.
+description: Learn to migrate existing applications away from Shared Key authorization with the account key to instead use Microsoft Entra ID and Azure role-based access control (RBAC) for enhanced security with Azure Event Hubs.
 author: alexwolfmsft
 ms.author: alexwolf
 ms.date: 06/12/2023
@@ -16,7 +16,7 @@ ms.custom: devx-track-csharp, passwordless-java, passwordless-js, passwordless-p
 
 ## Configure your local development environment
 
-Passwordless connections can be configured to work for both local and Azure-hosted environments. In this section, you'll apply configurations to allow individual users to authenticate to Azure Event Hubs for local development.
+Passwordless connections can be configured to work for both local and Azure-hosted environments. In this section, you apply configurations to allow individual users to authenticate to Azure Event Hubs for local development.
 
 ### Assign user roles
 
@@ -308,7 +308,7 @@ Next, you need to grant permissions to the managed identity you created to acces
 
     :::image type="content" source="../../includes/passwordless/media/migration-add-role-small.png" alt-text="Screenshot showing how to add a role to a managed identity." lightbox="../../includes/passwordless/media/migration-add-role.png" :::
 
-1. In the **Role** search box, search for *Azure Event Hub Data Sender*, which is a common role used to manage data operations for queues. You can assign whatever role is appropriate for your use case. Select the *Azure Event Hub Data Sender* from the list and choose **Next**.
+1. In the **Role** search box, search for *Azure Event Hubs Data Sender*, which is a common role used to manage data operations for queues. You can assign whatever role is appropriate for your use case. Select the *Azure Event Hubs Data Sender* from the list and choose **Next**.
 
 1. On the **Add role assignment** screen, for the **Assign access to** option, select **Managed identity**. Then choose **+Select members**.
 
@@ -322,7 +322,7 @@ Next, you need to grant permissions to the managed identity you created to acces
 
 ### [Azure CLI](#tab/assign-role-azure-cli)
 
-To assign a role at the resource level using the Azure CLI, you first must retrieve the resource ID using the [az eventhubs eventhub show](/cli/azure/eventhubs/eventhub) show command. You can filter the output properties using the `--query` parameter.
+To assign a role at the resource level using the Azure CLI, you first must retrieve the resource ID using the [`az eventhubs eventhub show`](/cli/azure/eventhubs/eventhub) show command. You can filter the output properties using the `--query` parameter.
 
 ```azurecli
 az eventhubs eventhub show \
@@ -354,7 +354,7 @@ If you connected your services using Service Connector you don't need to complet
 
 ### Test the app
 
-After deploying the updated code, browse to your hosted application in the browser. Your app should be able to connect to the event hub successfully. Keep in mind that it may take several minutes for the role assignments to propagate through your Azure environment. Your application is now configured to run both locally and in a production environment without the developers having to manage secrets in the application itself.
+After deploying the updated code, browse to your hosted application in the browser. Your app should be able to connect to the event hub successfully. Keep in mind that it can take several minutes for the role assignments to propagate through your Azure environment. Your application is now configured to run both locally and in a production environment without the developers having to manage secrets in the application itself.
 
 ## Next steps
 

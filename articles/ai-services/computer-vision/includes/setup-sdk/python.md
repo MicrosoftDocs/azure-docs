@@ -1,6 +1,7 @@
 ---
 author: PatrickFarley
 ms.service: azure-ai-vision
+ms.custom: linux-related-content
 ms.topic: include
 ms.date: 08/01/2023
 ms.author: pafarley
@@ -77,4 +78,3 @@ To install the Image Analysis SDK for Python:
 For more information about Visual Studio Code and Python, see the [Visual Studio Code documentation](https://code.visualstudio.com/docs) and the [Visual Studio Code Python tutorial](https://code.visualstudio.com/docs/python/python-tutorial).
 
 ---
-

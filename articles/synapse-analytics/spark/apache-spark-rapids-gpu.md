@@ -24,9 +24,9 @@ spark.conf.set('spark.rapids.sql.enabled','true/false')
 > Azure Synapse GPU-enabled pools are currently in Public Preview.
 
 > [!WARNING]
-> - The GPU accelerated preview is limited to the [Azure Synapse 3.1 (unsupported)](../spark/apache-spark-3-runtime.md) and [Apache Spark 3.2 (EOLA)](../spark/apache-spark-32-runtime.md) runtimes.
-> - Azure Synapse Runtime for Apache Spark 3.1 has reached its end of life (EOL) as of January 26, 2023, with official support discontinued effective January 26, 2024, and no further addressing of support tickets, bug fixes, or security updates beyond this date.
-> - Azure Synapse Runtime for Apache Spark 3.2 has reached its end of life (EOL) as of July 8, 2023, with no further bug or feature fixes, but security fixes may be backported based on risk assessment, and it will be retired and disabled as of July 8, 2024.
+> - The GPU accelerated preview is limited to the [Azure Synapse 3.1 (unsupported)](../spark/apache-spark-3-runtime.md) and [Apache Spark 3.2 (End of Support announced)](../spark/apache-spark-32-runtime.md) runtimes.
+> - Azure Synapse Runtime for Apache Spark 3.1 has reached its End of Support as of January 26, 2023, with official support discontinued effective January 26, 2024, and no further addressing of support tickets, bug fixes, or security updates beyond this date.
+> - End of Support announced for Azure Synapse Runtime for Apache Spark 3.2 has been announced July 8, 2023. End of Support announced runtimes will not have bug and feature fixes. Security fixes will be backported based on risk assessment. This runtime will be retired and disabled as of July 8, 2024.
 
 ## RAPIDS Accelerator for Apache Spark
 
@@ -102,11 +102,11 @@ val empDF = spark.createDataFrame(emp, schema)
 
 ```python
 emp = [(1, "Smith", 10, 100000),
-	(2, "Rose", 20, 97600),
-	(3, "Williams", 20, 110000),
-	(4, "Jones", 10, 80000),
-	(5, "Brown", 40, 60000),
-	(6, "Brown", 30, 78000)]
+    (2, "Rose", 20, 97600),
+    (3, "Williams", 20, 110000),
+    (4, "Jones", 10, 80000),
+    (5, "Brown", 40, 60000),
+    (6, "Brown", 30, 78000)]
 
 empColumns = ["emp_id", "name", "emp_dept_id", "salary"]
 

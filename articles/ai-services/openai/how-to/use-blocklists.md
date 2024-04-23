@@ -47,7 +47,7 @@ Copy the cURL command below to a text editor and make the following changes:
 1. Optionally replace the value of the "description" field with a custom description.
 
 ```bash
-curl --location --request PUT 'https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CognitiveServices/accounts/{accountName}/raiBlocklists/{raiBlocklistName}?api-version=2023-10-01-preview' \ 
+curl --location --request PUT 'https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CognitiveServices/accounts/{accountName}/raiBlocklists/{raiBlocklistName}?api-version=2024-03-01-preview' \ 
 --header 'Authorization: Bearer {token}' \ 
 --header 'Content-Type: application/json' \ 
 --data-raw '{ 
@@ -73,7 +73,7 @@ To apply a **completion** blocklist to a content filter, use the following cURL 
 1. Replace "raiBlocklistName" in the body with a custom name for your list. Allowed characters: `0-9, A-Z, a-z, - . _ ~`. 
 
 ```bash
-curl --location --request PUT 'https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CognitiveServices/accounts/{accountName}/raiPolicies/{raiPolicyName}?api-version=2023-10-01-preview' \ 
+curl --location --request PUT 'https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CognitiveServices/accounts/{accountName}/raiPolicies/{raiPolicyName}?api-version=2024-03-01-preview' \ 
 --header 'Authorization: Bearer {token}' \ 
 --header 'Content-Type: application/json' \ 
 --data-raw '{ 
@@ -103,7 +103,7 @@ Copy the cURL command below to a text editor and make the following changes:
 1. Replace the value of the `"blocking pattern"` field with the item you'd like to add to your blocklist. The maximum length of a blockItem is 1000 characters. Also specify whether the pattern is regex or exact match. 
 
 ```bash
-curl --location --request PUT 'https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CognitiveServices/accounts/{accountName}/raiBlocklists/{raiBlocklistName}/raiBlocklistItems/{raiBlocklistItemName}?api-version=2023-10-01-preview' \ 
+curl --location --request PUT 'https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CognitiveServices/accounts/{accountName}/raiBlocklists/{raiBlocklistName}/raiBlocklistItems/{raiBlocklistItemName}?api-version=2024-03-01-preview' \ 
 --header 'Authorization: Bearer {token}' \ 
 --header 'Content-Type: application/json' \ 
 --data-raw '{  

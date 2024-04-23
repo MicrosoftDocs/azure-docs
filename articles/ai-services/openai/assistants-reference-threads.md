@@ -9,10 +9,12 @@ ms.date: 02/01/2024
 author: mrbullwinkle
 ms.author: mbullwin
 recommendations: false
-ms.custom:
+ms.custom: devx-track-python
 ---
 
 # Assistants API (Preview) threads reference
+
+[!INCLUDE [Assistants v2 note](includes/assistants-v2-note.md)]
 
 This article provides reference documentation for Python and REST for the new Assistants API (Preview). More in-depth step-by-step guidance is provided in the [getting started guide](./how-to/assistant.md).
 

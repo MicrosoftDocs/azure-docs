@@ -4,7 +4,7 @@ description: Learn what's new with Azure Virtual WAN such as the latest release 
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 05/30/2023
+ms.date: 03/04/2024
 ms.author: cherylmc
 ---
 
@@ -26,7 +26,7 @@ You can also find the latest Azure Virtual WAN updates and subscribe to the RSS 
 | Type |Area |Name |Description | Date added | Limitations |
 | --- |---|---|---|---|---|
 | Feature| Routing | [Routing intent](how-to-routing-policies.md)| Routing intent is the mechanism through which you can configure Virtual WAN to send private or internet traffic via a security solution deployed in the hub.|May 2023|Routing Intent is Generally Available  in Azure public cloud. See documentation for [additional limitations](how-to-routing-policies.md#knownlimitations).|
-|Feature| Routing |[Virtual hub routing preference](about-virtual-hub-routing-preference.md)|Hub routing preference gives you more control over your infrastructure by allowing you to select how your traffic is routed when a virtual hub router learns multiple routes across S2S VPN, ER and SD-WAN NVA connections.  |October 2022| |
+|Feature| Routing |[Virtual hub routing preference](about-virtual-hub-routing-preference.md)|Hub routing preference gives you more control over your infrastructure by allowing you to select how your traffic is routed when a virtual hub router learns multiple routes across S2S VPN, ER, and SD-WAN NVA connections.  |October 2022| |
 |Feature| Routing|[Bypass next hop IP for workloads within a spoke VNet connected to the virtual WAN hub generally available](how-to-virtual-hub-routing.md)|Bypassing next hop IP for workloads within a spoke VNet connected to the virtual WAN hub lets you deploy and access other resources in the VNet with your NVA without any additional configuration.|October 2022| |
 |SKU/Feature/Validation | Routing | [BGP end point (General availability)](scenario-bgp-peering-hub.md) | The virtual hub router now exposes the ability to peer with it, thereby exchanging routing information directly through Border Gateway Protocol (BGP) routing protocol. | June 2022 | |
 |Feature|Routing|[0.0.0.0/0 via NVA in the spoke](scenario-route-through-nvas-custom.md)|Ability to send internet traffic to an NVA in spoke for egress.|March 2021| 0.0.0.0/0 doesn't propagate across hubs.<br><br>Can't specify multiple public prefixes with different next hop IP addresses.|
@@ -35,7 +35,7 @@ You can also find the latest Azure Virtual WAN updates and subscribe to the RSS 
 
 | Type |Area |Name |Description | Date added | Limitations |
 | --- |---|---|---|---|---|
-| Feature|Network Virtual Appliances (NVAs)/Integrated Third-party solutions in Virtual WAN hubs|  Public Preview of Internet inbound/DNAT for Next-Generation Firewall NVA's| Destination NAT for Network Virtual Appliances in the Virtual WAN hub allows you to publish applications to the users in the internet without directly exposing the application or server's public IP. Consumers access applications through a public IP address assigned to a Firewall Network Virtual Appliance. |February 2024| Supported for Fortinet Next-Generation Firewall, Check Point CloudGuard. See [DNAT documentation](how-to-network-virtual-appliance-inbound.md) for the full list of limitations and considerations.|
+| Feature|Network Virtual Appliances (NVAs)/Integrated Third-party solutions in Virtual WAN hubs|  Public Preview of Internet inbound/DNAT for Next-Generation Firewall NVAs| Destination NAT for Network Virtual Appliances in the Virtual WAN hub allows you to publish applications to the users in the internet without directly exposing the application or server's public IP. Consumers access applications through a public IP address assigned to a Firewall Network Virtual Appliance. |February 2024| Supported for Fortinet Next-Generation Firewall, Check Point CloudGuard. See [DNAT documentation](how-to-network-virtual-appliance-inbound.md) for the full list of limitations and considerations.|
 |Feature|Software-as-a-service|Palo Alto Networks Cloud NGFW|General Availability of [Palo Alto Networks Cloud NGFW](https://aka.ms/pancloudngfwdocs), the first software-as-a-serivce security offering deployable within the Virtual WAN hub.|July 2023|Palo Alto Networks Cloud NGFW is now deployable in all  Virtual WAN hubs (new and old). See [Limitations of Palo Alto Networks Cloud NGFW](how-to-palo-alto-cloud-ngfw.md) for a full list of limitations and regional availability. Same limitations as routing intent.|
 |Feature|Network Virtual Appliances (NVAs)/Integrated Third-party solutions in Virtual WAN hubs|[Fortinet NGFW](https://www.fortinet.com/products/next-generation-firewall)|General Availability of [Fortinet NGFW](https://aka.ms/fortinetngfwdocumentation) and [Fortinet SD-WAN/NGFW dual-role](https://aka.ms/fortinetdualroledocumentation) NVAs.|May 2023| Same limitations as routing intent. Doesn't support internet inbound scenario.|
 |Feature|Network Virtual Appliances (NVAs)/Integrated Third-party solutions in Virtual WAN hubs|[Check Point CloudGuard Network Security for Azure Virtual WAN](https://www.checkpoint.com/cloudguard/microsoft-azure-security/wan/) |General Availability of Check Point CloudGuard Network Security NVA deployable from Azure Marketplace within the Virtual WAN hub in all Azure regions.|May 2023|Same limitations as routing intent. Doesn't support internet inbound scenario.|
@@ -81,7 +81,7 @@ The following features are currently in gated public preview. After working with
 
 |Type of preview|Feature |Description|Contact alias|Limitations|
 |---|---|---|---|---|
-| Managed preview | Route-maps | This feature allows you to perform route aggregation, route filtering, and modify BGP attributes for your routes in Virtual WAN. | preview-route-maps@microsoft.com | Known limitations are displayed here: [About Route-maps (preview)](route-maps-about.md#key-considerations).
+| Managed preview | Route-maps | This feature allows you to perform route aggregation, route filtering, and modify BGP attributes for your routes in Virtual WAN. | preview-route-maps@microsoft.com | Known limitations are displayed here: [About Route-maps](route-maps-about.md).
 |Managed preview|Aruba EdgeConnect SD-WAN| Deployment of Aruba EdgeConnect SD-WAN NVA into the Virtual WAN hub| preview-vwan-aruba@microsoft.com| |
 
 ## Known issues
@@ -90,7 +90,7 @@ The following features are currently in gated public preview. After working with
 |---|---|---|---|---|
 |1|ExpressRoute connectivity with Azure Storage and the 0.0.0.0/0 route|If you have configured a 0.0.0.0/0 route statically in a virtual hub route table or dynamically via a network virtual appliance for traffic inspection, that traffic will bypass inspection when destined for Azure Storage and is in the same region as the ExpressRoute gateway in the virtual hub. | | As a workaround, you can either use [Private Link](../private-link/private-link-overview.md) to access Azure Storage or put the Azure Storage service in a different region than the virtual hub.|
 |2| Default routes (0/0) won't propagate inter-hub |0/0 routes won't propagate between two virtual WAN hubs. | June 2020 |  None. Note: While the Virtual WAN team has fixed the issue, wherein static routes defined in the static route section of the VNet peering page propagate to route tables listed in "propagate to route tables" or the labels listed in "propagate to route tables" on the VNet connection page, default routes (0/0) won't propagate inter-hub. |
-|3| Two ExpressRoute circuits in the same peering location connected to multiple hubs |If you have two ExpressRoute circuits in the same peering location, and both of these circuits are connected to multiple virtual hubs in the same Virtual WAN, then connectivity to your Azure resources may be impacted. | July 2023 | Make sure each virtual hub has at least 1 virtual network connected to it. This will ensure connectivity to your Azure resources. The Virtual WAN team is also working on a fix for this issue. |
+|3| Two ExpressRoute circuits in the same peering location connected to multiple hubs |If you have two ExpressRoute circuits in the same peering location, and both of these circuits are connected to multiple virtual hubs in the same Virtual WAN, then connectivity to your Azure resources might be impacted. | July 2023 | Make sure each virtual hub has at least 1 virtual network connected to it. This ensures connectivity to your Azure resources. The Virtual WAN team is also working on a fix for this issue. |
 
 ## Next steps
 

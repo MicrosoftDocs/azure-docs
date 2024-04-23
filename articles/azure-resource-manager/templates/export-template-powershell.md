@@ -3,8 +3,9 @@ title: Export template in Azure PowerShell
 description: Use Azure PowerShell to export an Azure Resource Manager template from resources in your subscription.
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell, devx-track-arm-template
-ms.date: 05/22/2023
+ms.date: 03/20/2024
 ---
+
 # Use Azure PowerShell to export a template
 
 [!INCLUDE [Export template intro](../../../includes/resource-manager-export-template-intro.md)]

@@ -6,6 +6,7 @@ ms.date: 11/07/2023
 ms.custom: devx-track-arm-template
 content_well_notification: 
   - AI-contribution
+ai-usage: ai-assisted
 ---
 
 # What are the resource providers for Azure services
@@ -157,6 +158,7 @@ The resource providers for hybrid services are:
 | Microsoft.HybridCompute | [Azure Arc-enabled servers](../../azure-arc/servers/index.yml) |
 | Microsoft.Kubernetes | [Azure Arc-enabled Kubernetes](../../azure-arc/kubernetes/index.yml) |
 | Microsoft.KubernetesConfiguration | [Azure Arc-enabled Kubernetes](../../azure-arc/kubernetes/index.yml) |
+| Microsoft.Edge | [Azure Arc site manager](../../azure-arc/site-manager/index.yml) |
 
 ## Identity resource providers
 
