@@ -24,13 +24,14 @@ Learn how to manage data access and how to authenticate in Azure Machine Learnin
 > This article is intended for Azure administrators who want to create the required infrastructure for an Azure Machine Learning solution.
 
 ## Credential-based data authentication
-In general, credential-based data authentication from studio involves these checks:
+In general, credential-based data authentication involves these checks:
 * Does the user who is accessing data from the credential-based datastore have been assigned a RBAC role containing `Microsoft.MachineLearningServices/workspaces/datastores/listsecrets/action`?
     - This permission is required to retrieve credentials from the datastore on behalf of the user.
 * Does the stored credential (service principal, account key, or sas token) have access to the data resource?
 
+
 ## Identity-based data authentication
-In general, identity-based data authentication from studio involves these checks:
+In general, identity-based data authentication involves these checks:
 
 * Which user wants to access the resources?
     - Depending on the conext the data is being accessed, different types of authentication are available, for example
@@ -49,7 +50,12 @@ In general, identity-based data authentication from studio involves these checks
     - The storage account [Reader](../role-based-access-control/built-in-roles.md#reader) reads the storage metadata.
     - The [Storage Blob Data Contributor](../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) reads, writes, and deletes Azure Storage containers and blobs. 
     - Please find more [Azure built-in roles for storage here](../role-based-access-control/built-in-roles/storage.md).
- 
+
+
+## VNET specific checks for authetication
+
+
+
 ## Other general checks for authetication
 * Where does the access come from?
     - User: Is the client IP address in the VNet/subnet range?
@@ -77,6 +83,14 @@ This table lists the identities to use for specific scenarios:
 | Access from UI | No | User's Identity |
 | Access from Job | Yes/No | Compute MSI |
 | Access from Notebook | Yes/No | User's identity |
+
+| Configuration | SDK Local | Job | Dataset Preview | Datastore browse | Notebook VM |
+| -- | -- | -- | -- | -- | -- |
+| Credential + Workspace MSI | Credential | Credential | Workspace MSI | Credential (Only Account key and SAS token) | Credential | Notebook VM |
+| No Credential + Workspace MSI | User Identity | Compute MSI/User identity | Workspace MSI | User identity | User identity |
+| Credential + No Workspace MSI | Credential | Credential | Credential | Credential (Only Account key and SAS token) | Credential |
+| No Credential + No Workspace MSI | User Identity | Compute MSI/User identity | User Identity | User Identity | User Identity |
+
 
 Data access is complex and it involves many pieces. For example, data access from Azure Machine Learning studio is different compared to use of the SDK for data access. When you use the SDK in your local development environment, you directly access data in the cloud. When you use studio, you don't always directly access the data store from your client. Studio relies on the workspace to access data on your behalf.
 
