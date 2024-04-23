@@ -3,7 +3,7 @@ author: stevenmatthew
 ms.service: databox
 ms.subservice: databox
 ms.topic: include
-ms.date: 06/06/2022
+ms.date: 04/22/2024
 ms.author: shaas
 ---
 
@@ -55,7 +55,7 @@ To order and device, perform the following steps in the Azure portal:
     |Resource group    | The resource group you selected previously. |
     |Import order name | Provide a friendly name to track the order. <ul><li>The name can have between 3 to 24 characters that can be a letter, number, or hyphen.</li><li>The name must start and end with a letter or a number.</li></ul>    |
 
-    :::image type="content" source="media/data-box-order-portal/data-box-import-05.png" alt-text="Screenshot showing the Basics screen for a Data Box order with example entries. The Basics tab and "Next: Data destination" button are highlighted.":::
+    :::image type="content" source="media/data-box-order-portal/data-box-import-05.png" alt-text="Screenshot showing the Basics screen for a Data Box order with example entries. 'The Basics' tab and 'Next: Data destination' button are highlighted.":::
 
 7. On the **Data destination** screen, select the **Data destination** - either storage accounts or managed disks.
 
@@ -124,11 +124,11 @@ To order and device, perform the following steps in the Azure portal:
 
     If you don't want to use a customer-managed key, skip to Step 15.
 
-    :::image type="content" source="/media/data-box-order-portal/customer-managed-key-01.png" alt-text="Screenshot of Security tab in the Data Box Order wizard. Encryption Type settings are expanded and highlighted.":::
+    :::image type="content" source="media/data-box-order-portal/customer-managed-key-01.png" alt-text="Screenshot of Security tab in the Data Box Order wizard. Encryption Type settings are expanded and highlighted.":::
 
 10. To use a customer-managed key, select **Customer managed key** as the key type. Then choose **Select a key vault and key**.
    
-    :::image type="content" source="/media/data-box-order-portal/customer-managed-key-02.png" alt-text="Screenshot of Encryption Type settings on the Security tab for a Data Box order. The "Select a key and key vault" link is highlighted.":::
+    :::image type="content" source="media/data-box-order-portal/customer-managed-key-02.png" alt-text="Screenshot of Encryption Type settings on the Security tab for a Data Box order. The 'Select a key and key vault' link is highlighted.":::
 
 11. On the **Select key from Azure Key Vault** pane:
 
@@ -136,45 +136,45 @@ To order and device, perform the following steps in the Azure portal:
 
     - For **Key vault**, you can select an existing key vault from the dropdown list.
 
-      :::image type="content" source="/media/data-box-order-portal/customer-managed-key-03.png" alt-text="Screenshot of Encryption type settings on the Security tab for a Data Box order. The 'Customer managed key' option and the 'Select a key and key vault' link are selected."
+      :::image type="content" source="media/data-box-order-portal/customer-managed-key-03.png" alt-text="Screenshot of Encryption type settings on the Security tab for a Data Box order. The 'Customer managed key' option and the 'Select a key and key vault' link are selected."
 
       Or select **Create new key vault** if you want to create a new key vault. 
     
-      :::image type="content" source="/media/data-box-order-portal/customer-managed-key-04.png" alt-text="Screenshot of Encryption type settings on the Security tab for a Data Box order. The "Create new key vault" link is highlighted.":::
+      :::image type="content" source="media/data-box-order-portal/customer-managed-key-04.png" alt-text="Screenshot of Encryption type settings on the Security tab for a Data Box order. The 'Create new key vault' link is highlighted.":::
 
       Then, on the **Create key vault** screen, enter the resource group and a key vault name. Ensure that **Soft delete** and **Purge protection** are enabled. Accept all other defaults, and select **Review + Create**.
 
-      :::image type="content" source="/media/data-box-order-portal/customer-managed-key-05.png" alt-text="Screenshot of the 'Create Key Vault' screen for a Data Box order. Resource Group and Key Vault Name are highlighted. Soft-Delete and Purge Protection are enabled.":::
+      :::image type="content" source="media/data-box-order-portal/customer-managed-key-05.png" alt-text="Screenshot of the 'Create Key Vault' screen for a Data Box order. Resource Group and Key Vault Name are highlighted. Soft-Delete and Purge Protection are enabled.":::
 
       Review the information for your key vault, and select **Create**. Wait for a couple minutes for key vault creation to complete.
 
-      :::image type="content" source="/media/data-box-order-portal/customer-managed-key-06.png" alt-text="Screenshot of the Review Plus Create tab of the Create Key Vault wizard for Azure. The Create button is highlighted.":::
+      :::image type="content" source="media/data-box-order-portal/customer-managed-key-06.png" alt-text="Screenshot of the Review Plus Create tab of the Create Key Vault wizard for Azure. The Create button is highlighted.":::
 
 12. The **Select a key** pane displays your selected key vault.
 
-    :::image type="content" source="/media/data-box-order-portal/customer-managed-key-07.png" alt-text="Screenshot of the "Select a key" screen in Azure Key Vault. The Key Vault field is highlighted."::: 
+    :::image type="content" source="media/data-box-order-portal/customer-managed-key-07.png" alt-text="Screenshot of the 'Select a key' screen in Azure Key Vault. The Key Vault field is highlighted."::: 
 
     If you want to create a new key, select **Create new key**. You must use an RSA key. The size can be 2048 or greater. Enter a name for your new key, accept the other defaults, and select **Create**.
 
-      :::image type="content" source="/media/data-box-order-portal/customer-managed-key-08.png" alt-text="Screenshot of the "Create a Key" screen in Azure Key Vault with a key name entered. The Name field and the Create button are highlighted."::: 
+      :::image type="content" source="media/data-box-order-portal/customer-managed-key-08.png" alt-text="Screenshot of the 'Create a Key' screen in Azure Key Vault with a key name entered. The Name field and the Create button are highlighted."::: 
 
       You're notified when the key is created in your key vault. Your new key is selected within the **Select a key** pane.
 
 13. Select the **Version** of the key to use, and then choose **Select**.
 
-    :::image type="content" source="/media/data-box-order-portal/customer-managed-key-09.png" alt-text="Screenshot of the 'Create a Key' screen in Azure Key Vault. The Version field is highlighted, with available versions displayed.":::
+    :::image type="content" source="media/data-box-order-portal/customer-managed-key-09.png" alt-text="Screenshot of the 'Create a Key' screen in Azure Key Vault. The Version field is highlighted, with available versions displayed.":::
 
     If you want to create a new key version, select **Create new version**.
 
-    :::image type="content" source="/media/data-box-order-portal/customer-managed-key-10.png" alt-text="Screenshot of the Create A Key screen in Azure Key Vault. The Create New Version link is highlighted.":::
+    :::image type="content" source="media/data-box-order-portal/customer-managed-key-10.png" alt-text="Screenshot of the Create A Key screen in Azure Key Vault. The Create New Version link is highlighted.":::
 
     Choose settings for the new key version, and select **Create**.
 
-    :::image type="content" source="/media/data-box-order-portal/customer-managed-key-11.png" alt-text="Screenshot of the Create a Key dialog box in Azure Key Vault with example field settings. The Create button is highlighted.":::
+    :::image type="content" source="media/data-box-order-portal/customer-managed-key-11.png" alt-text="Screenshot of the Create a Key dialog box in Azure Key Vault with example field settings. The Create button is highlighted.":::
 
     The **Encryption type** settings on the **Security** screen show your key vault and key.
 
-    :::image type="content" source="/media/data-box-order-portal/customer-managed-key-12.png" alt-text="Screenshot of the Security tab for a Data Box import order. A key vault and key are highlighted in the Encryption type settings.":::
+    :::image type="content" source="media/data-box-order-portal/customer-managed-key-12.png" alt-text="Screenshot of the Security tab for a Data Box import order. A key vault and key are highlighted in the Encryption type settings.":::
 
 14. Select a user identity with which to manage access to this resource. Choose **Select a user identity**. In the panel on the right, select the subscription and the managed identity to use. Then choose **Select**.
 
@@ -182,11 +182,11 @@ To order and device, perform the following steps in the Azure portal:
 
     If you need to create a new managed identity, follow the guidance in [Create, list, delete, or assign a role to a user-assigned managed identity using the Azure portal](../articles/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md).
     
-    :::image type="content" source="/media/data-box-order-portal/customer-managed-key-13.png" alt-text="Screenshot of Security tab showing "Select user assigned management identity" panel for a Data Box order. Subscription and Selected Identity fields are highlighted.":::
+    :::image type="content" source="media/data-box-order-portal/customer-managed-key-13.png" alt-text="Screenshot of Security tab showing 'Select user assigned management identity' panel for a Data Box order. Subscription and Selected Identity fields are highlighted.":::
 
     The user identity is shown in **Encryption type** settings.
 
-    :::image type="content" source="/media/data-box-order-portal/customer-managed-key-14.png" alt-text="Screenshot of the Security tab for a Data Box import order. A selected User Identify is highlighted in the Encryption Type settings."::::
+    :::image type="content" source="media/data-box-order-portal/customer-managed-key-14.png" alt-text="Screenshot of the Security tab for a Data Box import order. A selected User Identify is highlighted in the Encryption Type settings."::::
 
     > [!IMPORTANT]
     > If you use a customer-managed key, you must enable the `Get`, `UnwrapKey`, and `WrapKey` permissions on the key. Without these permissions, order creation will fail. They're also needed during data copy. To set the permissions in Azure CLI, see [az keyvault set-policy](/cli/azure/keyvault#az-keyvault-set-policy).
@@ -196,7 +196,7 @@ To order and device, perform the following steps in the Azure portal:
 
     The system-generated passwords are secure, and are recommended unless your organization requires otherwise.
 
-    :::image type="content" source="media/data-box-order-portal/bring-your-own-password-01.png" alt-text="Screenshot of expanded "Bring your own password" on the Security tab for a Data Box order. Security tab and password options are highlighted."::: 
+    :::image type="content" source="media/data-box-order-portal/bring-your-own-password-01.png" alt-text="Screenshot of expanded 'Bring your own password' on the Security tab for a Data Box order. Security tab and password options are highlighted."::: 
 
     - To use your own password for your new device, by **Set preference for the device password**, select **Use your own password**, and type a password that meets the security requirements.
      
@@ -205,7 +205,7 @@ To order and device, perform the following steps in the Azure portal:
      - Allowed special characters: @ # - $ % ^ ! + = ; : _ ( )
      - Characters not allowed: I i L o O 0
    
-     :::image type="content" source="media/data-box-order-portal/bring-your-own-password-02.png" alt-text="Screenshot of "Bring your own password" options on Security tab for a Data Box order. The Use Your Own Password option and Device Password option are highlighted."::: 
+     :::image type="content" source="media/data-box-order-portal/bring-your-own-password-02.png" alt-text="Screenshot of 'Bring your own password' options on Security tab for a Data Box order. The Use Your Own Password option and Device Password option are highlighted."::: 
 
  - To use your own passwords for shares:
 
