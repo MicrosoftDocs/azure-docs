@@ -67,7 +67,7 @@ As a direct EA customer, you can view and download your Azure EA invoice in the 
 
 Azure Prepayment, previously called monetary commitment, is an amount paid up front for Azure services. The Azure Prepayment is consumed as services are used. First-party Azure services are billed against the Azure Prepayment. However, some charges are billed separately, and Azure Marketplace services don't consume Azure Prepayment.
 
-For more information about paying overages with Azure Prepayment, see [Pay your overage with your Azure Prepayment](direct-ea-administration.md#pay-your-overage-with-your-azure-pPrepayment).
+For more information about paying overages with Azure Prepayment, see [Pay your overage with your Azure Prepayment](direct-ea-administration.md#pay-your-overage-with-azure-prepayment).
 
 ## View Microsoft Azure Consumption Commitment (MACC)
 

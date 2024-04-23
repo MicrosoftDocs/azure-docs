@@ -565,7 +565,7 @@ Azure Enterprise users can convert from a Microsoft Account (MSA) or Live ID to 
 1. The Microsoft account should be free from any active subscriptions and can be deleted.
 1. Any deleted accounts remain viewable in the Azure portal with inactive status for historic billing reasons. You can filter it out of the view by selecting **Show only active accounts**.
 
-## Pay your overage with your Azure Prepayment
+## Pay your overage with Azure Prepayment
 
 To apply your Azure Prepayment to overages, you must meet the following criteria:
 
