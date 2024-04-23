@@ -161,7 +161,7 @@ Attach the upgrade media for the target Windows Server version to the VM which w
 
 To initiate the in-place upgrade the VM must be in the `Running` state. Once the VM is in a running state use the following steps to perform the upgrade.
 
-1. Connect to the VM using [RDP](./windows/connect-rdp.md#connect-to-the-virtual-machine) or [RDP-Bastion](../bastion/bastion-connect-vm-rdp-windows.md#rdp).
+1. Connect to the VM using [RDP](./windows/connect-rdp.yml#connect-to-the-virtual-machine) or [RDP-Bastion](../bastion/bastion-connect-vm-rdp-windows.md#rdp).
 
 1. Determine the drive letter for the upgrade disk (typically E: or F: if there are no other data disks).
 
@@ -183,7 +183,7 @@ During the upgrade process the VM will automatically disconnect from the RDP ses
 
 To initiate the in-place upgrade the VM must be in the `Running` state. Once the VM is in a running state use the following steps to perform the upgrade.
 
-1. Connect to the VM using [RDP](./windows/connect-rdp.md#connect-to-the-virtual-machine) or [RDP-Bastion](../bastion/bastion-connect-vm-rdp-windows.md#rdp).
+1. Connect to the VM using [RDP](./windows/connect-rdp.yml#connect-to-the-virtual-machine) or [RDP-Bastion](../bastion/bastion-connect-vm-rdp-windows.md#rdp).
 
 1. Determine the drive letter for the upgrade disk (typically E: or F: if there are no other data disks).
 
@@ -229,9 +229,9 @@ If the in-place upgrade process failed to complete successfully you can return t
 
 1. [Swap the OS disk](scripts/virtual-machines-powershell-sample-create-managed-disk-from-snapshot.md) of the VM. 
 
-1. [Detach any data disks](./windows/detach-disk.md) from the VM.
+1. [Detach any data disks](./windows/detach-disk.yml) from the VM.
 
-1. [Attach data disks](./windows/attach-managed-disk-portal.md) created from the snapshots in step 1.
+1. [Attach data disks](./windows/attach-managed-disk-portal.yml) created from the snapshots in step 1.
 
 1. Restart the VM.
 
