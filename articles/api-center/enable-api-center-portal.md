@@ -21,7 +21,7 @@ This article introduces the *API Center portal*, a website that developers and o
 
 The API Center portal is a website that you can host in your Azure subscription to display the API inventory in your API center. The portal enables developers and other stakeholders in your organization to discover APIs and view API details. 
 
-A reference implementation of the portal can be built using code in the [API Center portal starter](https://github.com/Azure/APICenter-Portal-Starter.git) repository. The portal uses the [Azure API Center data plane API](/rest/api/dataplane/apicenter/operation-groups) to retrieve data from your API center and restricts user access based on Azure role-based access control.
+You can buile a reference implementation of the portal using code in the [API Center portal starter](https://github.com/Azure/APICenter-Portal-Starter.git) repository. The portal uses the [Azure API Center data plane API](//api/dataplane/apicenter/operation-groups) to retrieve data from your API center. User access to API information is based on Azure role-based access control.
 
 The API Center portal reference implementation provides:
 
@@ -138,9 +138,6 @@ After you configure access to the portal, configured users can sign in to the po
 
 > [!NOTE]
 > The first user to sign in to the portal is prompted to consent to the permissions requested by the API Center portal app registration. Thereafter, other configured users aren't prompted to consent.
-
-:::image type="content" source="media/enable-api-center-portal/api-center-portal-signed-in.png" alt-text="Screenshot of the API Center portal after user sign-in.":::
-
 
 ## Troubleshooting
 
