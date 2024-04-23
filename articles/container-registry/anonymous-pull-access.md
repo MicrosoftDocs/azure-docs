@@ -6,6 +6,7 @@ author: tejaswikolli-web
 ms.author: tejaswikolli
 ms.service: container-registry
 ms.date: 10/31/2023
+#customer intent: As a user, I want to learn how to enable anonymous pull access in Azure container registry so that I can make my registry content publicly available.
 ---
 
 # Make your container registry content publicly available
@@ -30,6 +31,7 @@ By default, access to pull or push content from an Azure container registry is o
 ## Configure anonymous pull access 
 
 ### Enable anonymous pull access
+
 Update a registry using the [az acr update](/cli/azure/acr#az-acr-update) command and pass the `--anonymous-pull-enabled` parameter. By default, anonymous pull is disabled in the registry.
           
 ```azurecli
@@ -38,8 +40,19 @@ az acr update --name myregistry --anonymous-pull-enabled
 
 > [!IMPORTANT]
 > If you previously authenticated to the registry with Docker credentials, run `docker logout` to ensure that you clear the existing credentials before attempting anonymous pull operations. Otherwise, you might see an error message similar to "pull access denied".
+> Remember to always specify the fully qualified registry name (all lowercase) when using `docker login` and tagging images for pushing to your registry. In the examples provided, the fully qualified name is `myregistry.azurecr.io`.
+
+If you've previously authenticated to the registry with Docker credentials, run the following command to clear existing credentials or any previous authentication is cleared.
+ 
+   ```azurecli
+      docker logout myregistry.azurecr.io
+   ```
+
+This will help you to attempt an anonymous pull operation. If you encounter any issues, you might see an error message similar to "pull access denied."
+
 
 ### Disable anonymous pull access
+
 Disable anonymous pull access by setting `--anonymous-pull-enabled` to `false`.
 
 ```azurecli
