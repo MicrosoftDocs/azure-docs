@@ -6,7 +6,7 @@ author: craxal
 ms.service: azure-storage
 ms.topic: article
 ms.date: 11/08/2019
-ms.author: storagetools
+ms.author: cralvord
 ---
 
 # Get started with Storage Explorer
