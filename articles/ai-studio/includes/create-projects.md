@@ -44,4 +44,4 @@ To create a project in [Azure AI Studio](https://ai.azure.com), follow these ste
 
     :::image type="content" source="../media/how-to/projects/projects-create-review-finish-progress.png" alt-text="Screenshot of the resource creation progress within the create project dialog." lightbox="../media/how-to/projects/projects-create-review-finish-progress.png":::
 
-Once a project is created, you can access the the playground, tools, and other assets in the left navigation panel. 
+Once a project is created, you can access the playground, tools, and other assets in the left navigation panel. 

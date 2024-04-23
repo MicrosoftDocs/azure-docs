@@ -134,7 +134,7 @@ From the left navigation pane on the **Home** page, you can access following pag
 
 **Resources and keys:** Provides information about the Azure AI services (including Azure OpenAI) resources and keys that you have access to in Azure AI Studio. You can see the name of each Azure resource, the subscription it belongs to, the region it's in, the pricing tier, the endpoint URL, and the key that you need to access the resource. 
 
-**Quota:** The quota section provides information about your quota usage and limits Azure ML (including virtual machines for compute) and Azure OpenAI model quotas. For more information about quotas, see [Quotas and limits for Azure AI Studio](./how-to/quota.md).
+**Quota:** The quota section provides information about your quota usage and limits Azure Machine Learning (including virtual machines for compute) and Azure OpenAI model quotas. For more information about quotas, see [Quotas and limits for Azure AI Studio](./how-to/quota.md).
 
 ## Hub view
 
