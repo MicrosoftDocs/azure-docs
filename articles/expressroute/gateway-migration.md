@@ -1,5 +1,5 @@
 ---
-title: Migrate to an availability zone-enabled ExpressRoute virtual network gateway 
+title: Migrate to an availability zone-enabled ExpressRoute virtual network gateway
 titleSuffix: Azure ExpressRoute
 description: This article explains how to seamlessly migrate from Standard/HighPerf/UltraPerf SKUs to ErGw1/2/3AZ SKUs.
 services: expressroute
@@ -29,7 +29,7 @@ The following SKUs are available for ExpressRoute virtual network gateways:
 
 The ErGw1Az, ErGw2Az, ErGw3Az and ErGwScale (Preview) SKUs, also known as Az-Enabled SKUs, support Availability zone deployments. This feature provides high availability and resiliency to the gateway by distributing the gateway across multiple availability zones.  
 
-The Standard, HighPerformance, and UltraPerformance SKUs, which are also known as non-availability zone enabled SKUs are historically associated with Basic IPs, don't support the distribution of the gateway across multiple availability zones.  
+The Standard, HighPerformance, and UltraPerformance SKUs, which are also known as nonavailability zone enabled SKUs are historically associated with Basic IPs, don't support the distribution of the gateway across multiple availability zones.  
 
 For enhanced reliability, it's recommended to use an Availability-Zone Enabled virtual network gateway SKU. These SKUs support a zone-redundant setup and are, by default, associated with Standard IPs. This setup ensures that even if one zone experiences issues, the virtual network gateway infrastructure remains operational due to the distribution across multiple zones. For a deeper understanding of zone redundant gateways, please refer to [Availability Zone deployments.](../reliability/availability-zones-overview.md)
 
@@ -41,7 +41,7 @@ With the guided gateway migration experience you can deploy a second virtual net
 
 ## Supported migration scenarios
 
-### Azure Portal
+### Azure portal
 
 The guided gateway migration experience supports non-Az-enabled SKU to Az-enabled SKU migration.
 
@@ -52,7 +52,7 @@ The guided gateway migration experience supports:
 * Non-Az-enabled SKU on Basic IP to Non-az enabled SKU on Standard IP.
 * Non-Az-enabled SKU to Az-enabled SKU.
 
-It is recommended to migrate to an Az-enabled SKU for enhanced reliability and high availability.
+It's recommended to migrate to an Az-enabled SKU for enhanced reliability and high availability.
 
 ### Limitations
 
@@ -63,7 +63,7 @@ Private endpoints (PEs) in the virtual network, connected over ExpressRoute priv
 
 ## Common validation errors
 
-In the gateway migration experience, you'll need to validate if your resource is capable of migration. Here are some Common migration errors: 
+In the gateway migration experience, you need to validate if your resource is capable of migration. Here are some Common migration errors: 
 
 ### Virtual network 
 
@@ -85,11 +85,11 @@ Here are the steps to migrate to a new gateway, using the Azure portal or PowerS
 
     :::image type="content" source="media/gateway-migration/gateway-sku-migration-location.png" alt-text="Screenshot of Gateway migration location.":::
 
-1. Select **Validate** to check if the gateway is ready for migration. You will first see a list of prerequisites that must be met before migration can begin. If these prerequisites aren't met, validation fails and you can't proceed.
+1. Select **Validate** to check if the gateway is ready for migration. You'll first see a list of prerequisites that must be met before migration can begin. If these prerequisites aren't met, validation fails and you can't proceed.
 
     :::image type="content" source="media/gateway-migration/service-technology-image-description.png" alt-text="Alt text that describes the content of the image.":::
 
-1. Once validation is successful, you'll enter the *Prepare* stage. Here, a new Virtual Network gateway is created. Under **Virtual Network Gateway Details**, enter the following information.
+1. Once validation is successful, you enter the *Prepare* stage. Here, a new Virtual Network gateway is created. Under **Virtual Network Gateway Details**, enter the following information.
     
     :::image type="content" source="media/gateway-migration/gateway-prepare-stage.png" alt-text="Alt text that describes the content of the image.":::
 
@@ -106,11 +106,11 @@ Here are the steps to migrate to a new gateway, using the Azure portal or PowerS
 
     :::image type="content" source="media/gateway-migration/service-technology-image-description.png" alt-text="Alt text that describes the content of the image.":::
 
-1. After the new gateway is created, you'll proceed to the *Migrate* stage. Here, you'll choose the new ExpressRoute gateway you just created. This will transfer the settings from your old gateway to the new one. All network traffic, as well as control plane and data path connections from your old gateway, will be transferred without any interruptions. To start this process, click on 'Migrate Traffic'. Please note, this operation could take up to 5 minutes.
+1. After the new gateway is created, you'll proceed to the *Migrate* stage. Here, you choose the new ExpressRoute gateway you created. This transfers the settings from your old gateway to the new one. All network traffic, and control plane and data path connections from your old gateway, will be transferred without any interruptions. To start this process, select on *Migrate Traffic*. Note, this operation could take up to 5 minutes.
 
     :::image type="content" source="media/gateway-migration/service-technology-image-description.png" alt-text="Alt text that describes the content of the image.":::
 
-1. "After the traffic migration is finished, you'll proceed to the *Commit* stage. In this stage, you'll finalize the migration, which involves deleting the old gateway. To do this, click on 'Commit Migration'. This final step is designed to occur without causing any downtime. 
+1. "After the traffic migration is finished, you'll proceed to the *Commit* stage. In this stage, you finalize the migration, which involves deleting the old gateway. To do this, select on 'Commit Migration'. This final step is designed to occur without causing any downtime. 
 
     :::image type="content" source="media/gateway-migration/service-technology-image-description.png" alt-text="Alt text that describes the content of the image.":::
 
