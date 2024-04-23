@@ -13,7 +13,7 @@ ms.author: duau
 
 # Migrate to an availability zone-enabled ExpressRoute virtual network gateway 
 
-When you create an ExpressRoute virtual network gateway, you need to specify the gateway SKU that you want to use. When you select a higher gateway SKU, more CPUs and network bandwidth are allocated to the gateway, and as a result, the gateway can support higher network throughput and more dependable network connections to the virtual network. 
+When you create an ExpressRoute virtual network gateway, you need to choose the gateway SKU. If you choose a higher-level SKU, more CPUs and network bandwidth are allocated to the gateway. As a result, the gateway can support higher network throughput and more dependable network connections to the virtual network. 
 
 The following SKUs are available for ExpressRoute virtual network gateways:
 
@@ -27,7 +27,7 @@ The following SKUs are available for ExpressRoute virtual network gateways:
 
 ## Availability zone enabled SKUs
 
-The ErGw1Az, ErGw2Az, ErGw3Az and ErGwScale (Preview) SKUs, also known as Az-Enabled SKUs, support Availability zone deployments. This feature provides high availability and resiliency to the gateway by distributing the gateway across multiple availability zones.  
+The ErGw1Az, ErGw2Az, ErGw3Az, and ErGwScale (Preview) SKUs, also known as Az-Enabled SKUs, support Availability zone deployments. This feature provides high availability and resiliency to the gateway by distributing the gateway across multiple availability zones.  
 
 The Standard, HighPerformance, and UltraPerformance SKUs, which are also known as nonavailability zone enabled SKUs are historically associated with Basic IPs, don't support the distribution of the gateway across multiple availability zones.  
 
@@ -83,7 +83,7 @@ Here are the steps to migrate to a new gateway, using the Azure portal or PowerS
 1. In the [Azure portal](https://portal.azure.com/), navigate to the ExpressRoute Gateway Resource that you want to migrate to.
 1. the left-hand menu under *Settings*, select **Gateway SKU Migration**.
 
-    :::image type="content" source="media/gateway-migration/gateway-sku-migration-location.png" alt-text="Screenshot of Gateway migration location.":::
+    :::image type="content" source="media/gateway-migration/gateway-sku-migration-location.png" alt-text="Screenshot of Gateway migration location."lightbox="media/gateway-migration/gateway-sku-migration-location.png":::
 
 1. Select **Validate** to check if the gateway is ready for migration. You'll first see a list of prerequisites that must be met before migration can begin. If these prerequisites aren't met, validation fails and you can't proceed.
 
@@ -91,7 +91,7 @@ Here are the steps to migrate to a new gateway, using the Azure portal or PowerS
 
 1. Once validation is successful, you enter the *Prepare* stage. Here, a new Virtual Network gateway is created. Under **Virtual Network Gateway Details**, enter the following information.
     
-    :::image type="content" source="media/gateway-migration/gateway-prepare-stage.png" alt-text="Alt text that describes the content of the image.":::
+    :::image type="content" source="media/gateway-migration/gateway-prepare-stage.png" alt-text="Screenshot of the Prepare stage."lightbox="media/gateway-migration/gateway-prepare-stage.png":::
 
     | Setting | Value |
     | --------| ----- |
