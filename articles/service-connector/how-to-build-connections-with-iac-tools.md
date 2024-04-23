@@ -22,8 +22,9 @@ Translating the infrastructure to IaC templates usually involves two major parts
 * Authoring the template from scratch.
 * Exporting the template from Azure and polish it.
 
-To implement the logics to build connections, there are also two options:
+To implement the logics to build connections, there are three options:
 
+* Using Service Connector and store configuration in App Configuration
 * Using Service Connector in the template.
 * Using template logics to configure source and target services directly.
 
@@ -31,10 +32,12 @@ Combinations of these different options can produce different solutions. Due to 
 
 | Solution | Provision source and target |                     Build connection                     |                           Applicable scenario                           | Pros                                                                                           | Cons                                                                                                                                        |
 | :------: | :-------------------------: | :-------------------------------------------------------: | :----------------------------------------------------------------------: | ---------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
-|    1    |   Authoring from scratch   |                   Use Service Connector                   | Has liveness check on the cloud resources before allowing live traffics | - Template is simple and readable<br />- Service Connector brings extra values                 | - Cost to check cloud resources liveness                                                                                                   |
-|    2    |   Authoring from scratch   | Configure source and target services directly in template |                No liveness check on the cloud resources                | - Template is simple and readable                                                              | - Service Connector features aren't available                                                                                               |
-|    3    |      Export and polish      |                   Use Service Connector                   | Has liveness check on the cloud resources before allowing live traffics | - Resources are exactly the same as in the cloud<br />- Service Connector brings extra values | - Cost to check cloud resources liveness<br />- Supports only ARM templates<br />- Efforts required to understand and polish the template |
-|    4    |      Export and polish      | Configure source and target services directly in template |                No liveness check on the cloud resources                | - Resources are exactly same as on the cloud                                                  | - Support only ARM template<br />- Efforts to understand and polish the template<br />- Service Connector features aren't available       |
+|    1    |   Authoring from scratch   | Use Service Connector and store configuration in App Configuration | Has liveness check on the cloud resources before allowing live traffics | - Template is simple and readable<br />- Service Connector brings extra values<br />- No IaC problem is introduced by Service Connector | - Need extra dependency to read configuration from App Configuration<br />- Cost to check cloud resources liveness |
+|    2    |   Authoring from scratch   |                   Use Service Connector                   | Has liveness check on the cloud resources before allowing live traffics | - Template is simple and readable<br />- Service Connector brings extra values                 | - Cost to check cloud resources liveness                                                                                                   |
+|    3    |   Authoring from scratch   | Configure source and target services directly in template |                No liveness check on the cloud resources                | - Template is simple and readable                                                              | - Service Connector features aren't available                                                                                               |
+|    4    |     Export and polish      | Use Service Connector and store configuration in App Configuration | Has liveness check on the cloud resources before allowing live traffics | - Resources are exactly the same as in the cloud<br />- Service Connector brings extra values<br />- No IaC problem is introduced by Service Connector | - Need extra dependency to read configuration from App Configuration<br />- Cost to check cloud resources liveness<br />- Supports only ARM templates<br />- Efforts required to understand and polish the template |
+|    5    |     Export and polish      |                   Use Service Connector                   | Has liveness check on the cloud resources before allowing live traffics | - Resources are exactly the same as in the cloud<br />- Service Connector brings extra values | - Cost to check cloud resources liveness<br />- Supports only ARM templates<br />- Efforts required to understand and polish the template |
+|    6    |     Export and polish      | Configure source and target services directly in template |                No liveness check on the cloud resources                | - Resources are exactly same as on the cloud                                                  | - Support only ARM template<br />- Efforts to understand and polish the template<br />- Service Connector features aren't available       |
 
 ## Authoring templates
 
@@ -114,6 +117,46 @@ If the resources you're provisioning are exactly the same ones as the ones you h
 :::image type="content" source="./media/how-to/export-webapp-template.png" alt-text="Screenshot of the Azure portal, exporting arm template of a web app.":::
 
 ### Build connection logics
+
+**Using Service Connector and store configuration in App Configuration**
+
+While using the App Configuration to store configuration, it would naturally support IaC scenario. So, we would recommend you to use it to build IaC template if possible.
+
+For simple portal instruction, you can refer to [another documentation](./tutorial-portal-app-configuration-store.md). When you want to add this feature into your bicep, just easily add the App Configuration id in the Service Connector payload.
+
+```bicep
+resource webApp 'Microsoft.Web/sites@2022-09-01' existing = {
+  name: webAppName
+}
+
+resource storageAccount 'Microsoft.Storage/storageAccounts@2023-01-01' existing = {
+  name: storageAccountName
+}
+
+resource appConfiguration 'Microsoft.AppConfiguration/configurationStores@2023-03-01' existing = {
+  name: appConfigurationName
+}
+
+resource serviceConnector 'Microsoft.ServiceLinker/linkers@2022-05-01' = {
+  name: connectorName
+  scope: webApp
+  properties: {
+    clientType: 'python'
+    targetService: {
+      type: 'AzureResource'
+      id: storageAccount.id
+    }
+    authInfo: {
+      authType: 'systemAssignedIdentity'
+    }
+    configurationInfo: {
+      configurationStore: {
+        appConfigurationId: appConfiguration.id
+      }
+    }
+  }
+}
+```
 
 **Using Service Connector**
 
