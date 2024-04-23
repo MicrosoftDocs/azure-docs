@@ -107,4 +107,4 @@ Select **Go to resource**.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Configure app settings](./application-settings.md)
+> [Configure app settings](./application-settings.yml)

@@ -25,7 +25,7 @@ To access managed disks secured with Microsoft Entra ID, the requesting user mus
 - **Microsoft.Compute/snapshots/download/action**
 - **Microsoft.Compute/snapshots/upload/action**
 
-For detailed steps on assigning a role, see the following articles for [portal](../articles/role-based-access-control/role-assignments-portal.md), [PowerShell](../articles/role-based-access-control/role-assignments-powershell.md), or [CLI](../articles/role-based-access-control/role-assignments-cli.md). To create or update a custom role, see the following articles for [portal](../articles/role-based-access-control/custom-roles-portal.md), [PowerShell](../articles/role-based-access-control/role-assignments-powershell.md), or [CLI](../articles/role-based-access-control/role-assignments-cli.md).
+For detailed steps on assigning a role, see the following articles for [portal](../articles/role-based-access-control/role-assignments-portal.yml), [PowerShell](../articles/role-based-access-control/role-assignments-powershell.md), or [CLI](../articles/role-based-access-control/role-assignments-cli.md). To create or update a custom role, see the following articles for [portal](../articles/role-based-access-control/custom-roles-portal.md), [PowerShell](../articles/role-based-access-control/role-assignments-powershell.md), or [CLI](../articles/role-based-access-control/role-assignments-cli.md).
 
 ### Enable data access authentication mode
 
