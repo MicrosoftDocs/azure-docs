@@ -7,7 +7,7 @@ ms.reviewer: jushiman
 ms.service: virtual-machines
 ms.subservice: trusted-launch
 ms.topic: conceptual
-ms.date: 11/06/2023
+ms.date: 04/10/2024
 ms.custom: template-concept
 ---
 
@@ -144,7 +144,7 @@ The Microsoft Azure Attestation extensions won't properly work when customers se
 
 In Azure, Network Security Groups (NSG) are used to help filter network traffic between Azure resources. NSGs contains security rules that either allow or deny inbound network traffic, or outbound network traffic from several types of Azure resources. For the Microsoft Azure Attestation endpoint, it should be able to communicate with the guest attestation extension. Without this endpoint, Trusted Launch can’t access guest attestation, which allows Microsoft Defender for Cloud to monitor the integrity of the boot sequence of your virtual machines.
 
-To unblock traffic using an NSG with service tags, set allow rules for Microsoft Azure Attestation.
+Unblocking Microsoft Azure Attestation traffic in **Network Security Groups** using service tags.
 
 1. Navigate to the **virtual machine** that you want to allow outbound traffic.
 1. Under "Networking" in the left-hand sidebar, select the **networking settings** tab.
@@ -153,10 +153,30 @@ To unblock traffic using an NSG with service tags, set allow rules for Microsoft
 1. To allow Microsoft Azure Attestation, make the destination a **service tag**. This allows for the range of IP addresses to update and automatically set allow rules for Microsoft Azure Attestation. The destination service tag is **AzureAttestation** and action is set to **Allow**.
     :::image type="content" source="media/trusted-launch/unblocking-NSG.png" alt-text="Screenshot showing how to make the destination a service tag.":::
 
+Firewalls protects a virtual network, which contains multiple Trusted Launch virtual machines. To unblock Microsoft Azure Attestation traffic in **Firewall** using application rule collection. 
+
+1. Navigate to the Azure Firewall, that has traffic blocked from the Trusted Launch virtual machine resource. 
+2. Under settings, select Rules (classic) to begin unblocking guest attestation behind the Firewall.
+3. Select a **network rule collection** and add network rule.
+   :::image type="content" source="./media/trusted-launch/firewall-network-rule-collection.png" lightbox="./media/trusted-launch/firewall-network-rule-collection.png" alt-text="Screenshot of the adding application rule":::
+5. The user can configure their name, priority, source type, destination ports based on their needs. The name of the service tag is as follows: **AzureAttestation**, and action needs to be set as **allow**.
+
+To unblock Microsoft Azure Attestation traffic in **Firewall** using application rule collection. 
+
+1. Navigate to the Azure Firewall, that has traffic blocked from the Trusted Launch virtual machine resource.
+:::image type="content" source="./media/trusted-launch/firewall-rule.png" lightbox="./media/trusted-launch/firewall-rule.png" alt-text="Screenshot of the adding traffic for application rule route."::: The rules collection must contain at least one rule, navigate to Target FQDNs (fully qualified domain names).
+2. Select Application Rule collection and add an application rule.
+3. Select a name, a numeric priority for your application rules. The action for rule collection is set to ALLOW. To learn more about the application processing and values, read here.
+:::image type="content" source="./media/trusted-launch/firewall-application-rule.png" lightbox="./media/trusted-launch/firewall-application-rule.png" alt-text="Screenshot of the adding application rule route.":::
+4. Name, source, protocol, are all configurable by the user. Source type for single IP address, select IP group to allow multiple IP address through the firewall. 
+
+### Regional Shared Providers
+
+Azure Attestation provides a [regional shared provider](https://maainfo.azurewebsites.net/) in each available region. Customers can choose to use the regional shared provider for attestation or create their own providers with custom policies. Shared providers can be accessed by any Azure AD user, and the policy associated with it cannot be changed.
+
 > [!NOTE]
 > Users can configure their source type, service, destination port ranges, protocol, priority, and name.
 
-This service tag is a global endpoint that unblocks Microsoft Azure Attestation traffic in any region.  
 
 ## Next steps
 
