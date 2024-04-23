@@ -9,7 +9,6 @@ ms.topic: quickstart
 ms.reviewer: franksolomon
 ms.date: 04/23/2024
 ms.custom: mode-other, linux-related-content
-ms.reviewer: mattmcinnes
 #Customer intent: As a data scientist, I want to learn how to provision the Linux DSVM so that I can move my existing workflow to the cloud.
 ---
 
