@@ -36,7 +36,6 @@ By default, the following users can view and manage savings plans:
 
 The savings plan lifecycle is independent of an Azure subscription, so the savings plan isn't a resource under the Azure subscription. Instead, it's a tenant-level resource with its own Azure role-based access control (RBAC_ permission separate from subscriptions. Savings plans don't inherit permissions from subscriptions after the purchase.
 
-
 ## View and manage savings plans as a billing administrator
 
 If you're a billing administrator, use following steps to view and manage all savings plans and savings plan transactions in the Azure portal:
@@ -80,14 +79,15 @@ Users who have owner access on the savings plan and billing administrators can d
 
 To allow other people to manage savings plans, you have two options:
 
-- Delegate access management for an individual savings plan order by assigning the Owner role to a user at the resource scope of the savings plan order. If you want to give limited access, select a different role. For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
-
+- Delegate access management for an individual savings plan order by assigning the Owner role to a user at the resource scope of the savings plan order. If you want to give limited access, select a different role. For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.yml).
 - Add a user as billing administrator to an Enterprise Agreement or a Microsoft Customer Agreement:
   - For an Enterprise Agreement, add users with the Enterprise Administrator role to view and manage all savings plan orders that apply to the Enterprise Agreement. Users with the Enterprise Administrator (read only) role can only view the savings plan. Department admins and account owners can't view savings plans unless they're explicitly added to them using Access control (IAM). For more information, see [Manage Azure Enterprise roles](../manage/understand-ea-roles.md).
+  - For a Microsoft Customer Agreement, users with the billing profile owner role or the billing profile contributor role can manage all savings plan purchases made using the billing profile. Billing profile readers and invoice managers can view all savings plans that are paid for with the billing profile. However, they can't make changes to savings plans. For more information, see [Billing profile roles and tasks](../manage/understand-mca-roles.md#billing-profile-roles-and-tasks).
 
       _Enterprise Administrators can take ownership of a savings plan order and they can add other users to a savings plan using Access control (IAM)._
 
   - For a Microsoft Customer Agreement, users with the billing profile owner role or the billing profile contributor role can manage all savings plan purchases made using the billing profile. Billing profile readers and invoice managers can view all savings plans that are paid for with the billing profile. However, they can't make changes to savings plans. For more information, see [Billing profile roles and tasks](../manage/understand-mca-roles.md#billing-profile-roles-and-tasks).
+
 
 
 ## Grant access with PowerShell

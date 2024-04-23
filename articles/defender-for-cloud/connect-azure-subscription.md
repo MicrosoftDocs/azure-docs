@@ -49,7 +49,7 @@ Defender for Cloud is now enabled on your subscription and you have access to th
 - Access to the [Asset inventory](asset-inventory.md).
 - [Workbooks](custom-dashboards-azure-workbooks.md).
 - [Secure score](secure-score-security-controls.md).
-- [Regulatory compliance](update-regulatory-compliance-packages.md) with the [Microsoft cloud security benchmark](concept-regulatory-compliance.md).
+- [Regulatory compliance](update-regulatory-compliance-packages.yml) with the [Microsoft cloud security benchmark](concept-regulatory-compliance.md).
 
 The Defender for Cloud overview page provides a unified view into the security posture of your hybrid cloud workloads, helping you discover and assess the security of your workloads and to identify and mitigate risks. Learn more in [Microsoft Defender for Cloud's overview page](overview-page.md).
 
