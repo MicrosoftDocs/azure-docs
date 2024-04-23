@@ -72,7 +72,7 @@ In the [previous quickstart article](./create-first-function-vs-code-csharp.md),
 
 Because you're using a Queue storage output binding, you must have the Storage bindings extension installed before you run the project.
 
-::: zone programming-language-python,programming-language-powershell,programming-language-java"
+::: zone pivot="programming-language-python,programming-language-powershell,programming-language-java"
 
 Your project has been configured to use [extension bundles](functions-bindings-register.md#extension-bundles), which automatically installs a predefined set of extension packages.
 
@@ -105,7 +105,7 @@ Now, you can add the storage output binding to your project.
 ## Add an output binding
 
 ::: zone pivot="programming-language-javascript,programming-language-typescript"
-[!INCLUDE [functions-add-storage-binding-python](../../includes/functions-add-output-binding-javascript-v4.md)]
+[!INCLUDE [functions-add-storage-binding-python](../../includes/functions-add-output-binding-js-v4.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-powershell"

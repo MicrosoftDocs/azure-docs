@@ -33,4 +33,4 @@ Each function has its own configuration object, based on the type of function. T
 
 A binding is added to the code file, which should look like the following:
 
-:::code language="javascript" source="~/functions-docs-javascript/src/functions/httpSendToStorage.js" range="3-6:::
+:::code language="javascript" source="~/functions-docs-javascript/src/functions/httpSendToStorage.js" range="3-6":::
