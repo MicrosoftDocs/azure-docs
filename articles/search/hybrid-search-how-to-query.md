@@ -18,13 +18,13 @@ ms.date: 04/23/2024
 
 In most cases, [per benchmark tests](https://techcommunity.microsoft.com/t5/ai-azure-ai-services-blog/azure-ai-search-outperforming-vector-search-with-hybrid/ba-p/3929167), hybrid queries with semantic ranking return the most relevant results.
 
-To define a hybrid query, use REST API [**2023-11-01**](/rest/api/searchservice/documents/search-post), **2023-10-01-preview** or higher, Search Explorer in the Azure portal, or newer versions of the Azure SDKs. 
+To define a hybrid query, use REST API [**2023-11-01**](/rest/api/searchservice/documents/search-post), [**2023-10-01-preview**](/rest/api/searchservice/documents/search-post?view=rest-searchservice-2023-10-01-preview&preserve-view=true), [**2024-03-01-preview**](/rest/api/searchservice/documents/search-post?view=rest-searchservice-2024-03-01-preview&preserve-view=true), Search Explorer in the Azure portal, or newer versions of the Azure SDKs. 
 
 ## Prerequisites
 
 + A search index containing `searchable` vector and nonvector fields. See [Create an index](search-how-to-create-search-index.md) and [Add vector fields to a search index](vector-search-how-to-create-index.md).
 
-+ (Optional) If you want [semantic ranking](semantic-how-to-configure), your search service must be Basic tier or higher, with [semantic ranking enabled](semantic-how-to-enable-disable.md).
++ (Optional) If you want [semantic ranking](semantic-how-to-configure.md), your search service must be Basic tier or higher, with [semantic ranking enabled](semantic-how-to-enable-disable.md).
 
 + (Optional) If you want text-to-vector conversion of a query string (currently in preview), [create and assign a vectorizer](vector-search-how-to-configure-vectorizer.md) to vector fields in the search index.
 
@@ -134,7 +134,7 @@ api-key: {{admin-api-key}}
 
 **Key points:**
 
-+ Filters are applied to the content of filterable fields. In this example, the ParkingIncluded field is a boolean and it's marked as filterable in the index schema.
++ Filters are applied to the content of filterable fields. In this example, the ParkingIncluded field is a boolean and it's marked as `filterable` in the index schema.
 
 + In hybrid queries, filters can be applied before query execution to reduce the query surface, or after query execution to trim results. `"preFilter"` is the default. To use `postFilter`, set the [filter processing mode](vector-search-filters.md) as shown in this example.
 
