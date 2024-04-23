@@ -44,15 +44,16 @@ By default, Azure Cosmos DB stores continuous mode backup data in locally redund
 Continuous backup mode supports two ways to restore deleted containers and databases. They can be restored into a [new account](restore-account-continuous-backup.md) as documented here or can be restored into an existing account as described [here](restore-account-continuous-backup.md). The choice between these two depends on the scenarios and impact. In most cases it is preferred to restore deleted containers and databases into an existing account to prevent the cost of data transfer which is required in the case they are restored to a new account. For scenarios where you have modified the data accidentally restore into new account could be the preferred option. 
 
 ## Multi region write account restores (preview)
-All the writes that are performed on the conflict resolution region are immediately confirmed and backed up asynchronously within 100 seconds. The mutations that are performed on the satellite region(non conflict resolution region) are sent to conflict resolution region for confirmation. The conflict resolution region  checks to see if any conflict resolution is needed, assigns a “conflict resolved timestamp” after resolving the conflicts and sends back to satellite region. The satellite region only backs up the entities after the confirmation is received from the conflict resolution region.  
+All the writes that are performed on the [hub region](multi-region-writes.md#hub-region) are immediately confirmed and backed up asynchronously within 100 seconds. The mutations that are performed on the satellite region(non conflict resolution region) are sent to conflict resolution region for confirmation. The conflict resolution region  checks to see if any [conflict resolution](conflict-resolution-policies) is needed, assigns a [conflict resolved timestamp](multi-region-writes.md#understanding-timestamps) after resolving the conflicts and sends back to satellite region. The satellite region only backs up the entities after the confirmation is received from the hub region.  
 In short, the restore process only restores the documents that are confirmed by the hub region by the restore point of time.  
 
 > [!NOTE]
-> More information about multi write region accounts can be found [here](), conflict resolution region is the first region in the portal. 
+> More information about multi write region accounts can be found [here](multi-region-writes.md#hub-region), hub region is the first region in the portal. 
 
 ### What is not restored for Multi region write account restores (preview)? 
 The mutations that are yet to be confirmed by the restore timestamp are not restored. 
 The collections with custom conflict resolution policy is reset to last writer wins based on timestamp. 
+
 Example: 
 Given a multi-write region account with two regions East us and West us, out of which East US is the conflict resolution region region, consider the following sequence of events: 
 
