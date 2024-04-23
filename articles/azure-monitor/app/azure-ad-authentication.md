@@ -24,8 +24,8 @@ The following preliminary steps are required to enable Microsoft Entra authentic
 - Be familiar with:
   - [Managed identity](../../active-directory/managed-identities-azure-resources/overview.md).
   - [Service principal](../../active-directory/develop/howto-create-service-principal-portal.md).
-  - [Assigning Azure roles](../../role-based-access-control/role-assignments-portal.md).
-- Have an Owner role to the resource group if you want to grant access by using [Azure built-in roles](../../role-based-access-control/built-in-roles.md).
+  - [Assigning Azure roles](../../role-based-access-control/role-assignments-portal.yml).
+- Have an Owner role to the resource group to grant access by using [Azure built-in roles](../../role-based-access-control/built-in-roles.md).
 - Understand the [unsupported scenarios](#unsupported-scenarios).
 
 ## Unsupported scenarios
@@ -55,7 +55,7 @@ The following Software Development Kits (SDKs) and features are unsupported for 
 
 1. Assign a role to the Azure service.
 
-    Follow the steps in [Assign Azure roles](../../role-based-access-control/role-assignments-portal.md) to add the Monitoring Metrics Publisher role from the target Application Insights resource to the Azure resource from which the telemetry is sent.
+    Follow the steps in [Assign Azure roles](../../role-based-access-control/role-assignments-portal.yml) to add the Monitoring Metrics Publisher role from the target Application Insights resource to the Azure resource from which the telemetry is sent.
 
     > [!NOTE]
     > Although the Monitoring Metrics Publisher role says "metrics," it will publish all telemetry to the Application Insights resource.
