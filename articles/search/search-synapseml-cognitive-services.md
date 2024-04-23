@@ -42,7 +42,7 @@ You need the `synapseml` library and several Azure resources. If possible, use t
 
 <sup>1</sup> This link resolves to a tutorial for loading the package.
 
-<sup>2</sup> You can use the free search tier to index the sample data, but [choose a higher tier](search-sku-tier.md) if your data volumes are large. For billable tiers, provide the [search API key](search-security-api-keys.md#find-existing-keys) in the [Set up dependencies](#2---set-up-dependencies) step further on.
+<sup>2</sup> You can use the free search tier to index the sample data, but [choose a higher tier](search-sku-tier.md) if your data volumes are large. For billable tiers, provide the [search API key](search-security-api-keys.md#find-existing-keys) in the [Set up dependencies](#step-2-set-up-dependencies) step further on.
 
 <sup>3</sup> This tutorial uses Azure AI Document Intelligence and Azure AI Translator. In the instructions that follow, provide a [multi-service key](../ai-services/multi-service-resource.md?pivots=azportal#get-the-keys-for-your-resource) and the region. The same key works for both services.
 
