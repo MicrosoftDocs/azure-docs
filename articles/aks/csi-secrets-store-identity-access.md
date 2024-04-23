@@ -288,13 +288,13 @@ After the pod starts, the mounted content at the volume path specified in your d
 1. Show secrets held in the secrets store using the following command.
 
     ```bash
-    kubectl exec busybox-secrets-store-inline -- ls /mnt/secrets-store/
+    kubectl exec busybox-secrets-store-inline-user-msi -- ls /mnt/secrets-store/
     ```
 
 2. Display a secret in the store using the following command. This example command shows the test secret `ExampleSecret`.
 
     ```bash
-    kubectl exec busybox-secrets-store-inline -- cat /mnt/secrets-store/ExampleSecret
+    kubectl exec busybox-secrets-store-inline-user-msi -- cat /mnt/secrets-store/ExampleSecret
     ```
 
 ## Obtain certificates and keys
