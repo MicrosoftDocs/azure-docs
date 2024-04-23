@@ -49,7 +49,7 @@ When you create a dashboard, it's private by default, so you're the only person 
 <!-- convertborder later -->
 :::image type="content" source="media/tutorial-logs-dashboards/log-analytics-share-dashboard.png" lightbox="media/tutorial-logs-dashboards/log-analytics-share-dashboard.png" alt-text="Screenshot that shows sharing a new dashboard in the Azure portal." border="false":::
 
-Choose a subscription and resource group for your dashboard to be published to. For convenience, you're guided toward a pattern where you place dashboards in a resource group called **dashboards**. Verify the subscription selected and then select **Publish**. Access to the information displayed in the dashboard is controlled with [Azure role-based access control](../../role-based-access-control/role-assignments-portal.md).
+Choose a subscription and resource group for your dashboard to be published to. For convenience, you're guided toward a pattern where you place dashboards in a resource group called **dashboards**. Verify the subscription selected and then select **Publish**. Access to the information displayed in the dashboard is controlled with [Azure role-based access control](../../role-based-access-control/role-assignments-portal.yml).
 
 ## Visualize a log query
 [Log Analytics](../logs/log-analytics-tutorial.md) is a dedicated portal used to work with log queries and their results. Features include the ability to edit a query on multiple lines and selectively execute code. Log Analytics also uses context-sensitive IntelliSense and Smart Analytics. 

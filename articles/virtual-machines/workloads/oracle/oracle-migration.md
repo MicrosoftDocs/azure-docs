@@ -26,7 +26,7 @@ First step in the migration journey starts with understanding the customer’s O
 
 4. **Optimize Azure compute and choose deployment** **architecture:** Finalize the VM configuration that meets the requirements by optimizing compute and licenses, choose the right [deployment architecture](/azure/virtual-machines/workloads/oracle/oracle-reference-architecture) (HA, Backup, etc.).
 
-5. **Tuning parameters of Oracle on Azure:** Ensure the VM selected, and deployment architecture meet the performance requirements. Two major factors are throughput & read/write IOPS– meet the requirements by choosing right [storage](oracle-storage.md) and [backup options](oracle-database-backup-strategies.md).
+5. **Tuning parameters of Oracle on Azure:** Ensure the VM selected, and deployment architecture meet the performance requirements. Two major factors are throughput & read/write IOPS– meet the requirements by choosing right [Oracle performance best practices for Azure VMs](oracle-performance-best-practice.md) and [backup options](oracle-database-backup-strategies.md).
 
 6. Move your **on-premises Oracle data to the Oracle on Azure VM:** Now that your required Oracle setup is done, pending task is to move data from on premise to cloud. There are many approaches. Best approaches are:
 
@@ -74,5 +74,5 @@ First step in the migration journey starts with understanding the customer’s O
    - Use a change control management tool and consider checking in data changes, not just code changes, into the system. 
 
 ## Next steps
-
-[Storage options for Oracle on Azure VMs](oracle-storage.md)
+- [Oracle performance best practices for Azure VMs](oracle-performance-best-practice.md)
+- [Partner storage offerings for Oracle on Azure VMs](oracle-third-party-storage.md)

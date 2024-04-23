@@ -129,8 +129,8 @@ Azure Arc-enabled System Center Virtual Machine Manager also allows you to manag
 
 The following table provides a quick way to see the major capabilities of the three Azure Arc services that connect your existing Windows and Linux machines to Azure Arc.
 
-| Capability |Arc-enabled servers  |Arc-enabled VMware vSphere  |Arc-enabled SCVMM  |Arc-enabled Azure Stack HCI  |SQL Server enabled by Azure Arc  |
-|---------|---------|---------|---------|---------|
+| _ |Arc-enabled servers  |Arc-enabled VMware vSphere  |Arc-enabled SCVMM  |Arc-enabled Azure Stack HCI  |SQL Server enabled by Azure Arc  |
+|---------|---------|---------|---------|---------|---------|
 |Microsoft Defender for Cloud     |✓         |✓         |✓         |✓         |✓         |
 |Microsoft Sentinel     | ✓        |✓         |✓         |✓         |✓         |
 |Azure Automation     |✓         |✓         |✓         |✓         |✓         |
