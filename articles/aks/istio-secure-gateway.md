@@ -75,7 +75,7 @@ Create a Kubernetes TLS secret for the ingress gateway; use [Azure Keyvault][akv
     az aks enable-addons --addons azure-keyvault-secrets-provider --resource-group $RESOURCE_GROUP --name $CLUSTER
     ```
     
-3. Authorize the user-assigned managed identity of the add-on to access Azure Keyvault resource using access policy. Alternatively, follow the instructions [here][[akv-rbac-guide]] to assign an Azure role of Key Vault for the add-on's user-assigned managed identity.
+3. Authorize the user-assigned managed identity of the add-on to access Azure Keyvault resource using access policy. Alternatively, follow the instructions [here][akv-rbac-guide] to assign an Azure role of Key Vault for the add-on's user-assigned managed identity.
     
     ```bash
     OBJECT_ID=$(az aks show --resource-group $RESOURCE_GROUP --name $CLUSTER --query 'addonProfiles.azureKeyvaultSecretsProvider.identity.objectId' -o tsv)
@@ -338,25 +338,25 @@ Extend your gateway definition to support mutual TLS.
     
     - Verify `productpage-credential` secret created on the cluster namespace `aks-istio-ingress`.
     
-    ```bash
-    kubectl describe secret/productpage-credential -n aks-istio-ingress
-    ```
-    
-    Example output:
-    ```bash
-    Name:         productpage-credential
-    Namespace:    aks-istio-ingress
-    Labels:       secrets-store.csi.k8s.io/managed=true
-    Annotations:  <none>
-    
-    Type:  opaque
-    
-    Data
-    ====
-    ca.crt:   1188 bytes
-    tls.crt:  1066 bytes
-    tls.key:  1704 bytes
-    ```
+      ```bash
+      kubectl describe secret/productpage-credential -n aks-istio-ingress
+      ```
+      
+      Example output:
+      ```bash
+      Name:         productpage-credential
+      Namespace:    aks-istio-ingress
+      Labels:       secrets-store.csi.k8s.io/managed=true
+      Annotations:  <none>
+      
+      Type:  opaque
+      
+      Data
+      ====
+      ca.crt:   1188 bytes
+      tls.crt:  1066 bytes
+      tls.key:  1704 bytes
+      ```
 
 2. Update the gateway definition to set the TLS mode to MUTUAL, using the `kubectl apply` command and the following YAML script.
     
@@ -402,7 +402,7 @@ curl -v -HHost:productpage.bookinfo.com --resolve "productpage.bookinfo.com:$SEC
 curl: (56) OpenSSL SSL_read: error:0A00045C:SSL routines::tlsv13 alert certificate required, errno 0
 ```
     
-Pass your client’s certificate with the `--cert` flag and your private key with the `--key` flag to curl.
+Pass your client’s certificate with the `--cert` flag and private key with the `--key` flag to curl.
     
 ```bash
 curl -s -HHost:productpage.bookinfo.com --resolve "productpage.bookinfo.com:$SECURE_INGRESS_PORT_EXTERNAL:$INGRESS_HOST_EXTERNAL" --cacert bookinfo_certs/bookinfo.com.crt --cert bookinfo_certs/client.bookinfo.com.crt --key bookinfo_certs/client.bookinfo.com.key "https://productpage.bookinfo.com:$SECURE_INGRESS_PORT_EXTERNAL/productpage" | grep -o "<title>.*</title>"
