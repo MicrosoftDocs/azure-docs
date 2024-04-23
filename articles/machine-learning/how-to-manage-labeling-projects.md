@@ -77,7 +77,10 @@ Additionally, when ML-assisted labeling is enabled, you can scroll down to see t
 
 ### Review data and labels
 
-On the **Data** tab, preview the dataset and review labeled data. 
+On the **Data** tab, preview the dataset and review labeled data.
+
+> [!TIP]
+> Before you review, coordinate with any other possible reviewers.  Otherwise, you might both be trying to approve the same label at the same time, which will keep one of you from updating it.
 
 Scroll through the labeled data to see the labels. If you see data that's incorrectly labeled, select it and choose **Reject** to remove the labels and return the data to the unlabeled queue.
 
@@ -306,7 +309,7 @@ You can also add users and customize the permissions so that they can access lab
 
 ## Troubleshoot issues
 
-Use these tips if you see any of the following issues:
+Use these tips if you see any of the following issues while managing your project:
 
 |Issue |Resolution |
 |---------|---------|
@@ -320,7 +323,9 @@ Use these tips if you see any of the following issues:
 
 |Issue |Resolution |
 |---------|---------|
-|If you select the Esc key when you label for object detection, a zero-size label is created and label submission fails.|To delete the label, select the **X** delete icon next to the label.|
+|If you select the Esc key when you label for object detection, a zero-size label is created and label submission fails.|To delete the label, select the **X** delete icon next to the label.
+
+If you have problems creating the project, see [Troubleshoot problems during creation of a data labeling project](how-to-troubleshoot-data-labeling.md)
 
 ## Next step
 

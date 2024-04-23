@@ -328,4 +328,4 @@ For examples of web application firewalls that are available in the Azure Market
 
 ## Next step
 
-- [Responding to today's threats](../../defender-for-cloud/managing-and-responding-alerts.md): Helps identify active threats that target your Azure resources and provides the insights you need to respond quickly.
+- [Responding to today's threats](../../defender-for-cloud/managing-and-responding-alerts.yml): Helps identify active threats that target your Azure resources and provides the insights you need to respond quickly.

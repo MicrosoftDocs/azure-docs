@@ -1,8 +1,8 @@
-- name: MongoDB vCore documentation
+- name: MongoDB (vCore) documentation
   href: index.yml
 - name: Overview
   items:
-    - name: What is Azure Cosmos DB for MongoDB vCore?
+    - name: What is Azure Cosmos DB for MongoDB (vCore)?
       href: introduction.md
     - name: FAQ
       href: faq.yml
@@ -12,6 +12,8 @@
       href: quickstart-portal.md
     - name: Create resources - Bicep template
       href: quickstart-bicep.md
+    - name: Create resources - Terraform
+      href: quickstart-terraform.md
 - name: Tutorials
   items:
     - name: Build web applications
@@ -24,20 +26,18 @@
       href: free-tier.md
     - name: Burstable tier
       href: burstable-tier.md
-    - name: Multi-Cloud Solution
+    - name: Multicloud Solution
       href: multi-cloud.md
-    - name: Vector search
+    - name: Integrated vector database
       items:
-        - name: Vector search overview
+        - name: Integrated vector database overview
           href: vector-search.md
-        - name: Build AI Apps with vector search
+        - name: Open-source vector databases
           href: vector-search-ai.md
     - name: MongoDB feature support
       href: compatibility.md
-    - name: High availability
-      href: high-availability.md
-    - name: Failover and disaster recovery
-      href: failover-disaster-recovery.md
+    - name: Reliability
+      href: /azure/reliability/reliability-cosmos-mongodb?toc=/azure/cosmos-db/mongodb/vcore/toc.json
     - name: Migration options
       href: migration-options.md 
     - name: Security
@@ -64,6 +64,8 @@
       items:
         - name: Create transactions
           href: how-to-transactions.md
+        - name: Connect using Spark connector from Azure Databricks
+          href: connect-from-databricks.md
     - name: Scale cluster
       href: how-to-scale-cluster.md
     - name: Restore cluster
@@ -78,5 +80,14 @@
       href: how-to-create-indexes.md
 - name: Reference
   items:
+    - name: Release notes
+      href: release-notes.md
     - name: Troubleshoot common issues
       href: troubleshoot-common-issues.md
+- name: Samples
+  items:
+    - name: Solution accelerators
+      href: ../../solutions.md?pivots=api-mongodb
+    - name: AI-Enhanced Advertisement Generation
+      href: ai-advertisement-generation.md
+      

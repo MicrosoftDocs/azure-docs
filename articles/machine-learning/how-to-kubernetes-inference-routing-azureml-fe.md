@@ -7,7 +7,7 @@ ms.author: bozhlin
 ms.reviewer: ssalgado
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 08/31/2022
+ms.date: 02/05/2024
 ms.topic: how-to
 ms.custom: build-spring-2022, cliv2, sdkv2
 ---
@@ -100,7 +100,7 @@ replicas = ceil(concurrentRequests / maxReqPerContainer)
 
 ### Performance of azureml-fe
 
-The `azureml-fe` can reach 5K requests per second (QPS) with good latency, having an overhead not exceeding 3ms on average and 15ms at 99% percentile.
+The `azureml-fe` can reach 5 K requests per second (QPS) with good latency, having an overhead not exceeding 3 ms on average and 15 ms at 99% percentile.
 
 
 >[!Note]
@@ -119,7 +119,7 @@ AKS cluster is deployed with one of the following two network models:
 * Kubenet networking - The network resources are typically created and configured as the AKS cluster is deployed.
 * Azure Container Networking Interface (CNI) networking - The AKS cluster is connected to an existing virtual network resource and configurations.
 
-For Kubenet networking, the network is created and configured properly for Azure Machine Learning service. For the CNI networking, you need to understand the connectivity requirements and ensure DNS resolution and outbound connectivity for AKS inferencing. For example, you may be using a firewall to block network traffic.
+For Kubenet networking, the network is created and configured properly for Azure Machine Learning service. For the CNI networking, you need to understand the connectivity requirements and ensure DNS resolution and outbound connectivity for AKS inferencing. For example, you may require additional steps if you are using a firewall to block network traffic.
 
 The following diagram shows the connectivity requirements for AKS inferencing. Black arrows represent actual communication, and blue arrows represent the domain names. You may need to add entries for these hosts to your firewall or to your custom DNS server.
 

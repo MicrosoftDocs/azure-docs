@@ -6,7 +6,7 @@ ms.topic: reference
 author: rolyon
 manager: amycolannino
 ms.author: rolyon
-ms.date: 02/07/2024
+ms.date: 03/01/2024
 ms.custom: generated
 ---
 
@@ -454,6 +454,19 @@ Azure service: [Azure Blueprints](/azure/governance/blueprints/)
 > | Microsoft.Blueprint/blueprints/versions/delete | Delete any blueprints |
 > | Microsoft.Blueprint/blueprints/versions/artifacts/read | Read any blueprint artifacts |
 
+## Microsoft.Carbon
+
+Azure service: [Azure carbon optimization](/azure/carbon-optimization/overview)
+
+> [!div class="mx-tableFixed"]
+> | Action | Description |
+> | --- | --- |
+> | Microsoft.Carbon/carbonEmissionReports/action | API for Carbon Emissions Reports |
+> | Microsoft.Carbon/queryCarbonEmissionDataAvailableDateRange/action | API for query carbon emission data available date range |
+> | Microsoft.Carbon/register/action | Register the subscription for Microsoft.Carbon |
+> | Microsoft.Carbon/unregister/action | Unregister the subscription for Microsoft.Carbon |
+> | Microsoft.Carbon/operations/read | read operations |
+
 ## Microsoft.Consumption
 
 Programmatic access to cost and usage data for your Azure resources.
@@ -590,6 +603,32 @@ Azure service: Microsoft Monitoring Insights
 > | Microsoft.Intune/diagnosticsettings/read | Reading a diagnostic setting |
 > | Microsoft.Intune/diagnosticsettings/delete | Deleting a diagnostic setting |
 > | Microsoft.Intune/diagnosticsettingscategories/read | Reading a diagnostic setting categories |
+
+## Microsoft.Maintenance
+
+Azure service: [Azure Maintenance](/azure/virtual-machines/maintenance-configurations), [Azure Update Manager](/azure/update-manager/overview)
+
+> [!div class="mx-tableFixed"]
+> | Action | Description |
+> | --- | --- |
+> | Microsoft.Maintenance/applyUpdates/write | Write apply updates to a resource. |
+> | Microsoft.Maintenance/applyUpdates/read | Read apply updates to a resource. |
+> | Microsoft.Maintenance/configurationAssignments/write | Create or update maintenance configuration assignment. |
+> | Microsoft.Maintenance/configurationAssignments/read | Read maintenance configuration assignment. |
+> | Microsoft.Maintenance/configurationAssignments/delete | Delete maintenance configuration assignment. |
+> | Microsoft.Maintenance/configurationAssignments/maintenanceScope/InGuestPatch/write | Create or update a maintenance configuration assignment for InGuestPatch maintenance scope. |
+> | Microsoft.Maintenance/configurationAssignments/maintenanceScope/InGuestPatch/read | Read maintenance configuration assignment for InGuestPatch maintenance scope. |
+> | Microsoft.Maintenance/configurationAssignments/maintenanceScope/InGuestPatch/delete | Delete maintenance configuration assignment for InGuestPatch maintenance scope. |
+> | Microsoft.Maintenance/maintenanceConfigurations/write | Create or update maintenance configuration. |
+> | Microsoft.Maintenance/maintenanceConfigurations/read | Read maintenance configuration. |
+> | Microsoft.Maintenance/maintenanceConfigurations/delete | Delete maintenance configuration. |
+> | Microsoft.Maintenance/maintenanceConfigurations/eventGridFilters/delete | Notifies Microsoft.Maintenance that an EventGrid Subscription for Maintenance Configuration is being deleted. |
+> | Microsoft.Maintenance/maintenanceConfigurations/eventGridFilters/read | Notifies Microsoft.Maintenance that an EventGrid Subscription for Maintenance Configuration is being viewed. |
+> | Microsoft.Maintenance/maintenanceConfigurations/eventGridFilters/write | Notifies Microsoft.Maintenance that a new EventGrid Subscription for Maintenance Configuration is being created. |
+> | Microsoft.Maintenance/maintenanceConfigurations/maintenanceScope/InGuestPatch/write | Create or update a maintenance configuration for InGuestPatch maintenance scope. |
+> | Microsoft.Maintenance/maintenanceConfigurations/maintenanceScope/InGuestPatch/read | Read maintenance configuration for InGuestPatch maintenance scope. |
+> | Microsoft.Maintenance/maintenanceConfigurations/maintenanceScope/InGuestPatch/delete | Delete maintenance configuration for InGuestPatch maintenance scope. |
+> | Microsoft.Maintenance/updates/read | Read updates to a resource. |
 
 ## Microsoft.ManagedServices
 
@@ -1009,7 +1048,6 @@ Azure service: [Azure Resource Manager](/azure/azure-resource-manager/)
 > | Microsoft.Resources/checkZonePeers/action | Check Zone Peers |
 > | Microsoft.Resources/changes/read | Gets or lists changes |
 > | Microsoft.Resources/checkPolicyCompliance/read | Check the compliance status of a given resource against resource policies. |
-> | Microsoft.Resources/dataBoundaries/write | Tenant level opt-in to data boundary |
 > | Microsoft.Resources/deployments/read | Gets or lists deployments. |
 > | Microsoft.Resources/deployments/write | Creates or updates an deployment. |
 > | Microsoft.Resources/deployments/delete | Deletes a deployment. |

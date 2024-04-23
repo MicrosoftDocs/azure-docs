@@ -343,9 +343,9 @@
     - name: Move
       items:
       - name: Move a namespace to another region
-        href: move-across-regions.md
+        href: ../operational-excellence/relocation-event-hub.md?toc=/azure/event-hubs/TOC.json
       - name: Move a dedicated cluster to another region
-        href: move-cluster-across-regions.md
+        href: ../operational-excellence/relocation-event-hub-cluster.md?toc=/azure/event-hubs/TOC.json
 - name: Reference
   items:
     - name: Monitor data Reference

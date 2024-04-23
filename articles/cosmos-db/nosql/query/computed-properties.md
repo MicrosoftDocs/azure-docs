@@ -8,7 +8,8 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
-ms.date: 09/21/2023
+ms.devlang: nosql
+ms.date: 02/27/2024
 ms.custom: query-reference
 ---
 
@@ -78,6 +79,7 @@ During the preview, computed properties must be created using the .NET v3 or Jav
 | --- | --- | --- |
 | **.NET SDK v3** | >= [3.34.0-preview](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/3.34.0-preview) | Computed properties are currently available only in preview package versions. |
 | **Java SDK v4** | >= [4.46.0](https://mvnrepository.com/artifact/com.azure/azure-cosmos/4.46.0) | Computed properties are currently under preview version. |
+| **Python SDK** | >= [v4.5.2b5](https://pypi.org/project/azure-cosmos/4.5.2b5/)  | Computed properties are currently under preview version. |
 
 ### Create computed properties by using the SDK
 
@@ -111,6 +113,26 @@ List<ComputedProperty> computedProperties = new ArrayList<>(List.of(new Computed
 containerProperties.setComputedProperties(computedProperties);
 client.getDatabase("myDatabase").createContainer(containerProperties);
 ```
+
+### [Python](#tab/python)
+
+You can define multiple computed properties in a list and then add them to the container properties. Python SDK currently doesn't support computed properties on existing containers. 
+
+```python
+computed_properties = [{'name': "cp_lower", 'query': "SELECT VALUE LOWER(c.db_group) FROM c"},
+                       {'name': "cp_power", 'query': "SELECT VALUE POWER(c.val, 2) FROM c"},
+                       {'name': "cp_str_len", 'query': "SELECT VALUE LENGTH(c.stringProperty) FROM c"}]
+
+container_with_computed_props = db.create_container_if_not_exists(
+            "myContainer", PartitionKey(path="/pk"), computed_properties=computed_properties)
+```
+Computed properties can be used like any other property in queries. For example, you can use the computed property `cp_lower` in a query like this:
+
+```python
+queried_items = list(
+            container_with_computed_props.query_items(query='Select * from c Where c.cp_power = 25', partition_key="test"))
+```
+
 
 ---
 
@@ -154,6 +176,9 @@ containerProperties.setComputedProperties(modifiedComputedProperites);
 // Update the container with changes
 container.replace(containerProperties);
 ```
+
+### [Python](#tab/python)
+Updating computed properties on an existing container is not supported in Python SDK. You can only define computed properties when creating a new container. This is a work in progress currently.
 
 ---
 
@@ -208,7 +233,7 @@ Here's an example computed property definition to convert the `name` property to
 
 This property could then be projected in a query:
 
-```sql
+```nosql
 SELECT 
     c.cp_lowerName 
 FROM 
@@ -230,7 +255,7 @@ Here's an example computed property definition to calculate a 20 percent price d
 
 This property could then be filtered on to ensure that only products where the discount would be less than $50 are returned:
 
-```sql
+```nosql
 SELECT 
     c.price - c.cp_20PercentDiscount as discountedPrice, 
     c.name 
@@ -255,7 +280,7 @@ Here's an example computed property definition that finds the primary category f
 
 You can then group by `cp_primaryCategory` to get the count of items in each primary category:
 
-```sql
+```nosql
 SELECT 
     COUNT(1), 
     c.cp_primaryCategory 
@@ -283,7 +308,7 @@ Here's an example computed property definition that gets the month out of the `_
 
 Before you can ORDER BY `cp_monthUpdated`, you must add it to your indexing policy. After your indexing policy is updated, you can order by the computed property.
 
-```sql
+```nosql
 SELECT
     *
 FROM
@@ -309,7 +334,7 @@ There are a few considerations for indexing computed properties, including:
 > [!TIP]
 > Every time you update container properties, the old values are overwritten. If you have existing computed properties and want to add new ones, be sure that you add both new and existing computed properties to the collection.
 
->![NOTE]
+> [!NOTE]
 > When the definition of an indexed computed property is modified, it's not automatically reindexed. To index the modified computed property, you'll first need to drop the computed property from the index. Then after the reindexing is completed, add the computed property back to the index policy.
 >
 > If you want to delete a computed property, you'll first need to remove it from the index policy.

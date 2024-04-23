@@ -9,7 +9,7 @@ ms.service: security
 ms.topic: how-to
 ms.date: 01/15/2023
 ms.author: bagol
-
+ms.custom: has-azure-ad-ps-ref, azure-ad-ref-level-one-done
 ---
 
 # Recovering from systemic identity compromise
@@ -197,7 +197,7 @@ For more information, see:
 
 ### Monitoring with Microsoft Entra ID
 
-Microsoft Entra sign-in logs can show whether multi-factor authentication is being used correctly. Access sign-in logs directly from the Microsoft Entra area in the Azure portal, use the **Get-AzureADAuditSignInLogs** cmdlet, or view them in the **Logs** area of Microsoft Sentinel.
+Microsoft Entra sign-in logs can show whether multi-factor authentication is being used correctly. Access sign-in logs directly from the Microsoft Entra area in the Azure portal, use the [Get-MgBetaAuditLogSignIn](/powershell/module/microsoft.graph.beta.reports/get-mgbetaauditlogsignin) cmdlet, or view them in the **Logs** area of Microsoft Sentinel.
 
 For example, search or filter the results for when the **MFA results** field has a value of **MFA requirement satisfied by claim in the token**. If your organization uses ADFS and the claims logged are not included in the ADFS configuration, these claims may indicate attacker activity.
 

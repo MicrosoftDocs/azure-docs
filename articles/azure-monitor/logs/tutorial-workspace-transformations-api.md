@@ -18,7 +18,7 @@ Workspace transformations are stored together in a single [data collection rule 
 In this tutorial, you learn to:
 
 > [!div class="checklist"]
-> * Configure [workspace transformation](../essentials/data-collection-transformations.md#workspace-transformation-dcr) for a table in a Log Analytics workspace.
+> * Configure [workspace transformation](../essentials/data-collection-transformations-workspace.md) for a table in a Log Analytics workspace.
 > * Write a log query for an ingestion-time transform.
 
 
@@ -31,7 +31,7 @@ To complete this tutorial, you need the following:
 - Log Analytics workspace where you have at least [contributor rights](manage-access.md#azure-rbac).
 - [Permissions to create Data Collection Rule objects](../essentials/data-collection-rule-create-edit.md#permissions) in the workspace.
 - The table must already have some data.
-- The table can't already be linked to the [workspace transformation DCR](../essentials/data-collection-transformations.md#workspace-transformation-dcr).
+- The table can't already be linked to the [workspace transformation DCR](../essentials/data-collection-transformations-workspace.md).
 
 
 ## Overview of tutorial
@@ -147,7 +147,7 @@ Use Log Analytics to test the transformation query before adding it to a data co
    ```
 
 ## Create data collection rule (DCR)
-Since this is the first transformation in the workspace, you need to create a [workspace transformation DCR](../essentials/data-collection-transformations.md#workspace-transformation-dcr). If you create workspace transformations for other tables in the same workspace, they must be stored in this same DCR.
+Since this is the first transformation in the workspace, you need to create a [workspace transformation DCR](../essentials/data-collection-transformations-workspace.md). If you create workspace transformations for other tables in the same workspace, they must be stored in this same DCR.
 
 1. In the Azure portal's search box, type in *template* and then select **Deploy a custom template**.
 

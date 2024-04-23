@@ -97,7 +97,7 @@
       href: mutual-authentication-overview.md
     - name: Using Key Vault
       href: key-vault-certs.md
-    - name: SSL certificate management (preview)
+    - name: SSL certificate management
       href: ssl-certificate-management.md
   - name: Health monitoring
     items:

@@ -55,14 +55,13 @@ Read [prerequisites](virtual-network-tap-overview.md#prerequisites) before you c
        --out tsv)
       ```
 
-   - Create the virtual network TAP in the *westcentralus* Azure region using the ID of the IP configuration as the destination and an optional port property. The port specifies the destination port on network interface IP configuration where the TAP traffic will be received :
+   - Create the virtual network TAP in the *westcentralus* Azure region using the ID of the IP configuration as the destination. The traffic mirror destination must allow traffic to port 4789:
 
       ```azurecli-interactive
        az network vnet tap create \
        --resource-group myResourceGroup \
        --name myTap \
        --destination $IpConfigId \
-       --port 4789 \
        --location westcentralus
       ```
 

@@ -141,7 +141,7 @@ landingContent:
             url: integrate-storage-account.md
           - text: Azure API Management
             url: ../api-management/front-door-api-management.md
-          - text: Azure Open AI
+          - text: Azure OpenAI
             url: ../web-application-firewall/afds/protect-azure-open-ai.md
           - text: Azure Static Web Apps
             url: ../static-web-apps/front-door-manual.md

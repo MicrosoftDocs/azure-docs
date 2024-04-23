@@ -6,7 +6,7 @@ ms.topic: reference
 author: rolyon
 manager: amycolannino
 ms.author: rolyon
-ms.date: 02/07/2024
+ms.date: 03/01/2024
 ms.custom: generated
 ---
 
@@ -545,8 +545,6 @@ Azure service: [Azure Monitor](/azure/azure-monitor/)
 > | Microsoft.Insights/MonitoredObjects/Read | Read a monitored object |
 > | Microsoft.Insights/MonitoredObjects/Write | Create or update a monitored object |
 > | Microsoft.Insights/MonitoredObjects/Delete | Delete a monitored object |
-> | Microsoft.Insights/MyWorkbooks/Read | Read a private Workbook |
-> | Microsoft.Insights/MyWorkbooks/Delete | Delete a private workbook |
 > | Microsoft.Insights/NotificationStatus/Read | Get the test notification status/detail |
 > | Microsoft.Insights/Operations/Read | Read operations |
 > | Microsoft.Insights/PrivateLinkScopeOperationStatuses/Read | Read a private link scoped operation status |
@@ -598,13 +596,15 @@ Azure service: [Azure Monitor](/azure/azure-monitor/)
 > | Microsoft.Insights/Metrics/Write | Write metrics |
 > | Microsoft.Insights/Telemetry/Write | Write telemetry |
 
-## Microsoft.Monitor
+## microsoft.monitor
 
 Azure service: [Azure Monitor](/azure/azure-monitor/)
 
 > [!div class="mx-tableFixed"]
 > | Action | Description |
 > | --- | --- |
+> | microsoft.monitor/register/action | Registers the subscription for the Microsoft.Monitor resource provider |
+> | microsoft.monitor/unregister/action | Unregisters the subscription for the Microsoft.Monitor resource provider |
 > | microsoft.monitor/accounts/read | Read any Monitoring Account |
 > | microsoft.monitor/accounts/write | Create or Update any Monitoring Account |
 > | microsoft.monitor/accounts/delete | Delete any Monitoring Account |
