@@ -56,7 +56,7 @@ Every authoring region has corresponding prediction regions that you can publish
 Single data residency means that the data does not leave the boundaries of the region.
 
 > [!Note]
-> * Make sure to set `log=false` for [V3 APIs](https://westus.dev.cognitive.microsoft.com/docs/services/luis-endpoint-api-v3-0/operations/5cb0a91e54c9db63d589f433) to disable active learning. By default this value is `false`, to ensure that data does not leave the boundaries of the runtime region. 
+> * Make sure to set `log=false` for [V3 APIs](/rest/api/cognitiveservices-luis/runtime/prediction/get-slot-prediction?view=rest-cognitiveservices-luis-runtime-v3.0&tabs=HTTP&preserve-view=true) to disable active learning. By default this value is `false`, to ensure that data does not leave the boundaries of the runtime region. 
 > * If `log=true`, data is returned to the authoring region for active learning.
 
 ## Publishing to Europe

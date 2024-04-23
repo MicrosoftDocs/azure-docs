@@ -15,7 +15,7 @@ ms.date: 01/19/2024
 [!INCLUDE [deprecation notice](./includes/deprecation-notice.md)]
 
 
-These settings are stored in the [exported](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c40) app and updated with the REST APIs or LUIS portal.
+These settings are stored in the [exported](/rest/api/cognitiveservices-luis/authoring/versions/export?view=rest-cognitiveservices-luis-authoring-v3.0-preview&tabs=HTTP&tabs=HTTP&preserve-view=true) app and updated with the REST APIs or LUIS portal.
 
 Changing your app version settings resets your app training status to untrained.
 

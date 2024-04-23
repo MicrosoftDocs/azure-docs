@@ -125,7 +125,7 @@ Learn more about authoring your app programmatically from the [Developer referen
 
 ### Prediction endpoint
 
-The LUIS prediction endpoint URL is where you submit LUIS queries after the [LUIS app](#application-app) is authored and published. The endpoint URL contains the region or custom subdomain of the published app as well as the app ID. You can find the endpoint on the **[Azure resources](luis-how-to-azure-subscription.md)** page of your app, or you can get the endpoint URL from the [Get App Info](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c37) API.
+The LUIS prediction endpoint URL is where you submit LUIS queries after the [LUIS app](#application-app) is authored and published. The endpoint URL contains the region or custom subdomain of the published app as well as the app ID. You can find the endpoint on the **[Azure resources](luis-how-to-azure-subscription.md)** page of your app, or you can get the endpoint URL from the [Get App Info](/rest/api/cognitiveservices-luis/authoring/apps/get?view=rest-cognitiveservices-luis-authoring-v3.0-preview&tabs=HTTP&preserve-view=true) API.
 
 Your access to the prediction endpoint is authorized with the LUIS prediction key.
 
