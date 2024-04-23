@@ -61,8 +61,8 @@ You can get your authoring key from the [LUIS portal](https://www.luis.ai/) by c
 
 Authoring APIs for packaged apps:
 
-* [Published package API](/rest/api/cognitiveservices-luis/authoring/apps/package-published-application-as-gzip?view=rest-cognitiveservices-luis-authoring-v3.0-preview&tabs=HTTP)
-* [Not-published, trained-only package API](/rest/api/cognitiveservices-luis/authoring/apps/package-trained-application-as-gzip?view=rest-cognitiveservices-luis-authoring-v3.0-preview&tabs=HTTP)
+* [Published package API](/rest/api/cognitiveservices-luis/authoring/apps/package-published-application-as-gzip?view=rest-cognitiveservices-luis-authoring-v3.0-preview&tabs=HTTP&preserve-view=true)
+* [Not-published, trained-only package API](/rest/api/cognitiveservices-luis/authoring/apps/package-trained-application-as-gzip?view=rest-cognitiveservices-luis-authoring-v3.0-preview&tabs=HTTP&preserve-view=true)
 
 ### The host computer
 
@@ -110,7 +110,7 @@ Once the container is on the [host computer](#the-host-computer), use the follow
 1. When you are done with the container, [import the endpoint logs](#import-the-endpoint-logs-for-active-learning) from the output mount in the LUIS portal and [stop](#stop-the-container) the container.
 1. Use LUIS portal's [active learning](how-to/improve-application.md) on the **Review endpoint utterances** page to improve the app.
 
-The app running in the container can't be altered. In order to change the app in the container, you need to change the app in the LUIS service using the [LUIS](https://www.luis.ai) portal or use the LUIS [authoring APIs](/rest/api/cognitiveservices-luis/authoring/operation-groups?view=rest-cognitiveservices-luis-authoring-v3.0-preview). Then train and/or publish, then download a new package and run the container again.
+The app running in the container can't be altered. In order to change the app in the container, you need to change the app in the LUIS service using the [LUIS](https://www.luis.ai) portal or use the LUIS [authoring APIs](/rest/api/cognitiveservices-luis/authoring/operation-groups?view=rest-cognitiveservices-luis-authoring-v3.0-preview&preserve-view=true). Then train and/or publish, then download a new package and run the container again.
 
 The LUIS app inside the container can't be exported back to the LUIS service. Only the query logs can be uploaded.
 
