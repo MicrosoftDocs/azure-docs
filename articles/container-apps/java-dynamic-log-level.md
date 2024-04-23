@@ -55,7 +55,7 @@ It may take up to 2 minutes for the logger level change to take effect. You can 
 
 Currently most of those popular Java logging frameworks are supported: [Log4j](https://logging.apache.org/log4j/2.x/), [SLF4J](https://slf4j.org/), [jboss-logging](https://github.com/jboss-logging/jboss-logging).
 
-### Log Level Visibility of Log4j
+### Visibility of Log4j Log Levels
 
 | Log Level | FATAL | ERROR | WARN | INFO | DEBUG | TRACE |
 |-----------|-------|-------|------|------|-------|-------|
@@ -67,7 +67,7 @@ Currently most of those popular Java logging frameworks are supported: [Log4j](h
 | **DEBUG** | Y     | Y     | Y    | Y    | Y     |       |
 | **TRACE** | Y     | Y     | Y    | Y    | Y     | Y     |
 
-### Log Level Visibility of SLF4J
+### Visibility of SLF4J Log Levels
 
 | Log Level | ERROR | WARN | INFO | DEBUG | TRACE |
 |-----------|-------|------|------|-------|-------|
@@ -78,7 +78,7 @@ Currently most of those popular Java logging frameworks are supported: [Log4j](h
 | **DEBUG** | Y     | Y    | Y    | Y     |       |
 | **TRACE** | Y     | Y    | Y    | Y     | Y     |
 
-### Log Level Visibility of jboss-logging
+### Visibility of jboss-logging Log Levels
 
 | Log Level | FATAL | ERROR | WARN | INFO | DEBUG |
 |-----------|-------|------|------|-------|-------|
