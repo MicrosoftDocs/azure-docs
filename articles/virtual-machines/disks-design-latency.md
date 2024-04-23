@@ -1,5 +1,5 @@
 ---
-title: Best practices for availability
+title: Design your Azure infrastructure for High Availability
 description: Learn the steps you can take to get the best availability with your Azure virtual machines and managed disks
 author: roygara
 ms.author: rogarana
@@ -14,6 +14,21 @@ Ensuring availability of Azure virtual machines (VMs) and Azure Disk Storage is 
 
 
 At a high level:
+
+Applications running on a single VM
+
+|Recommendation  |Benefits  |
+|---------|---------|
+|Use Ultra Disks, Premium SSD v2, and Premium SSD disks     |Ultra Disks, Premium SSD v2, and Premium SSD disks have the highest uptime SLA for single VMs and offer the best performance.         |
+|Use zone-redundant storage (ZRS) disks     |You can access your data even if an entire zone experiences an outage.         |
+
+Applications running on multiple VMs
+
+|Recommendation  |Benefits  |
+|---------|---------|
+|Deploy VMs across multiple availability zones     |Redundancy in VMs across multiple zones in a region.         |
+|Deploy VMs across multiple fault domains     |         |
+
 
 - Applications running on a single VM
     - Use Ultra Disks, Premium SSD v2, or Premium SSD disks. These disk types have the highest uptime SLA for single VMs and offer the best performance.
