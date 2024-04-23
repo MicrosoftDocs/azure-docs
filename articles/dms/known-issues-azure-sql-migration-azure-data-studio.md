@@ -27,6 +27,18 @@ This article provides a list of known issues and troubleshooting steps associate
 
 - **Recommendation**: Ensure the database backups in your Azure Storage container are correct. If you're using network file share, there can be network-related issues and lags that are causing this error. Wait for the process to be completed.
 
+- **Message**: `Cutover failed or cancelled for database '{databaseName}'. Error details: 'errorCode: Ext_RestoreSettingsError, message: RestoreId: {RestoreId}, OperationId: {operationId}, Detail: Failed to complete restore., RestoreJobState: Restoring, CompleteRestoreErrorMessage: The database contains incompatible physical layout. Too many full text catalog files.`
+
+- **Cause**:  SQL Vm restore currently does not support restoring databases with full text catalog files as Azure SQL Vm does not support them at the moment.
+
+- **Recommendation**: Remove full text catalog files from database when creating the restore
+
+- **Message**: `Cutover failed or cancelled for database '{databaseName}'. Error details: 'Migration cannot be completed because provided backup file name '{providedFileName}' should be the last restore backup file '{lastRestoredFileName}'.'`
+
+- **Cause**:  This error occurs due to a known limitation in SqlMi. It means the '{providedFileName}' is different from '{lastRestoredFileName}'. SqlMi will automatically restore all valid backup files in the container based on the LSN sequence. A typical failure case could be: the '{providedFileName}' is "log1", but the files in container has other files, like "log2", which have largest LSN number than "log1". In this case, SqlMi will automatically restore all files in the container. In the end of completing the migration, SqlMi will report this error message.
+
+- **Recommendation**: For offline migration mode, please provide the "lastBackupName" with the largest LSN. For online migration scenario this warning/error can be ignored if the migration status is succeeded.
+
 ## Error code: 2009 - MigrationRestoreFailed
 
 - **Message**: `Migration for Database 'DatabaseName' failed with error cannot find server certificate with thumbprint.`
