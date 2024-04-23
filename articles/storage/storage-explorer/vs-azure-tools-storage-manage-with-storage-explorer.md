@@ -2,11 +2,11 @@
 title: Get started with Storage Explorer
 description: Start managing Azure storage resources with Storage Explorer. Download and install Azure Storage Explorer, connect to a storage account or service, and more.
 services: storage
-author: cawaMS
+author: craxal
 ms.service: azure-storage
 ms.topic: article
 ms.date: 11/08/2019
-ms.author: cawa
+ms.author: storagetools
 ---
 
 # Get started with Storage Explorer
@@ -246,22 +246,6 @@ If you want to use a different name for your connection, or if your emulator isn
 1. In the **Select Resource** panel of the **Connect to Azure Storage** dialog, select **Local storage emulator**.
 1. Enter a display name for your connection and the port number for each emulated service you want to use. If you don't want to use to a service, leave the corresponding port blank. Select **Next**.
 1. Review your connection information in the **Summary** panel. If the connection information is correct, select **Connect**.
-
-#### Connect to Azure Data Lake Store by URI
-
-You can access a resource that's not in your subscription. You need someone who has access to that resource to give you the resource URI. After you sign in, connect to Data Lake Store by using the URI. To connect, follow these steps:
-
-1. Under **EXPLORER**, expand **Local & Attached**.
-
-1. Right-click **Data Lake Storage Gen1**, and select **Connect to Data Lake Storage Gen1**.
-
-    ![Connect to Data Lake Store context menu](./media/vs-azure-tools-storage-manage-with-storage-explorer/storage-explorer-connect-data-lake-storage.png)
-
-1. Enter the URI, and then select **OK**. Your Data Lake Store appears under **Data Lake Storage**.
-
-    ![Connect to Data Lake Store result](./media/vs-azure-tools-storage-manage-with-storage-explorer/storage-explorer-attach-data-lake-finished.png)
-
-This example uses Data Lake Storage Gen1. Azure Data Lake Storage Gen2 is now available. For more information, see [What is Azure Data Lake Storage Gen1](../../data-lake-store/data-lake-store-overview.md).
 
 ## Generate a shared access signature in Storage Explorer<a name="generate-a-sas-in-storage-explorer"></a>
 
