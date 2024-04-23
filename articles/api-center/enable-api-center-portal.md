@@ -37,7 +37,7 @@ The API Center portal reference implementation provides:
 
 * To build and deploy the portal, you need a GitHub account and the following tools installed on your local machine:
 
-    * [Node.js and npm](https://docs.npmjs.com/downloading-andinstalling-node-js-and-npm)
+    * [Node.js and npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
     * [Vite package](https://www.npmjs.com/package/vite)
 
 ## Create Microsoft Entra app registration
