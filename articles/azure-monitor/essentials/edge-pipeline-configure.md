@@ -68,7 +68,7 @@ The following table and diagram describe the detailed steps and components in th
 | 5. | Cloud pipeline applies a transformation to the data. | The DCR includes a transformation that filters or modifies the data before it's sent to the destination. The transformation may filter data, remove or add columns, or completely change its schema. The output of the transformation must match the schema of the destination table. |
 | 6. | Cloud pipeline sends the data to the destination. | The DCR includes a destination that specifies the Log Analytics workspace and table where the data will be stored. |
 
-:::image type="content" source="media/edge-pipeline/edge-pipeline-dataflow.png" lightbox="media/edge-pipeline/edge-pipeline-dataflow.png" alt-text="Detailed diagram of the steps and components for data collection using Azure Monitor edge pipeline." border="false"::: 
+:::image type="content" source="media/edge-pipeline/edge-pipeline-data-flows.png" lightbox="media/edge-pipeline/edge-pipeline-data-flows.png" alt-text="Detailed diagram of the steps and components for data collection using Azure Monitor edge pipeline." border="false"::: 
 
 
 
