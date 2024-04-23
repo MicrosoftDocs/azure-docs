@@ -5,13 +5,13 @@ author: sushantjrao
 ms.author: sushrao
 ms.service: azure-operator-nexus
 ms.topic: how-to
-ms.date: 04/18/2024
+ms.date: 04/23/2024
 ms.custom: template-how-to
 ---
 
 # Access Control List (ACL) Management for NNI
 
-In Azure Nexus Network Fabric, maintaining network security is paramount for ensuring a robust and secure infrastructure. Access Control Lists (ACLs) are crucial tools for enforcing network security policies. This guide will lead you through the process of applying ACLs to network-to-network interconnects (NNI) within the Nexus Network Fabric.
+In Azure Nexus Network Fabric, maintaining network security is paramount for ensuring a robust and secure infrastructure. Access Control Lists (ACLs) are crucial tools for enforcing network security policies. This guide leads you through the process of applying ACLs to network-to-network interconnects (NNI) within the Nexus Network Fabric.
 
 ## Applying Access Control Lists (ACLs) to NNI in Azure Fabric
 
