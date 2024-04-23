@@ -289,7 +289,7 @@ Here are the error messages that occur if the `import` operation fails, along wi
 
 **Cause:** The FHIR service uses a managed identity for source storage authentication. This error indicates a missing or incorrect role assignment.
 
-**Solution:** Assign the **Storage Blob Data Contributor** role to the FHIR server. For more information, see [Assign Azure roles](../../role-based-access-control/role-assignments-portal.md?tabs=current).
+**Solution:** Assign the **Storage Blob Data Contributor** role to the FHIR server. For more information, see [Assign Azure roles](../../role-based-access-control/role-assignments-portal.yml?tabs=current).
 
 #### 500 Internal Server Error
 

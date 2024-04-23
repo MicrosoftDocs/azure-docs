@@ -40,9 +40,9 @@ The following steps help you locate and view metrics:
 
 1. Select **VPN (Site to site)** to locate a site-to-site gateway, **ExpressRoute** to locate an ExpressRoute gateway, or **User VPN (Point to site)** to locate a point-to-site gateway.
 
-1. Select **Monitor Gateway** and then **Metrics**.
+1. Select **Monitor Gateway** and then **Metrics**. You can also click **Metrics** at the bottom to view a dashboard of the most important metrics for site-to-site and point-to-site VPN. 
 
-   :::image type="content" source="./media/monitor-virtual-wan-reference/view-metrics.png" alt-text="Screenshot shows a site to site VPN pane with View in Azure Monitor selected." lightbox="./media/monitor-virtual-wan-reference/view-metrics.png":::
+   :::image type="content" source="./media/monitor-virtual-wan-reference/site-to-site-vpn-metrics-dashboard.png" alt-text="Screenshot shows the sie-to-site VPN metrics dashboard." lightbox="./media/monitor-virtual-wan-reference/site-to-site-vpn-metrics-dashboard.png":::
 
 1. On the **Metrics** page, you can view the metrics that you're interested in.
 

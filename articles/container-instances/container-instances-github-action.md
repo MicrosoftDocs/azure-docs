@@ -251,7 +251,7 @@ jobs:
         - name: 'Build and push image'
           uses: docker/login-action@v3
           with:
-            registry: <registry-name>.azurecr.io
+            registry: $({ secrets.REGISTRY_LOGIN_SERVER })
             username: ${{ secrets.AZURE_CLIENT_ID }}
             password: ${{ secrets.AZURE_CLIENT_SECRET }}
         - run: |
