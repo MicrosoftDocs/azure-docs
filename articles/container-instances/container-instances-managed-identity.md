@@ -327,7 +327,7 @@ On a container group, you can enable both a system-assigned identity and one or 
 
 ```json
 "identity": {
-    "type": "System Assigned, UserAssigned",
+    "type": "SystemAssigned, UserAssigned",
     "userAssignedIdentities": {
         "myResourceID1": {
             }
