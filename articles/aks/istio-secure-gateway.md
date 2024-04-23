@@ -93,9 +93,10 @@ Create a Kubernetes TLS secret for the ingress gateway; use [Azure Keyvault][akv
     az keyvault secret set --vault-name $AKV_NAME --name test-bookinfo-crt --file bookinfo_certs/bookinfo.com.crt
     ```
     
-5. Deploy a SecretProviderClass using the `kubectl apply` command and the following YAML script.
+5. Use the following manifest to deploy SecretProviderClass to provide azure keyvault specific parameters to the CSI driver.
     
     ```bash
+    cat <<EOF | kubectl apply -f -
     apiVersion: secrets-store.csi.x-k8s.io/v1
     kind: SecretProviderClass
     metadata:
@@ -127,11 +128,13 @@ Create a Kubernetes TLS secret for the ingress gateway; use [Azure Keyvault][akv
               objectType: secret
               objectAlias: "test-productpage-bookinfo-crt"
         tenantId: $TENANT_ID
+    EOF
     ```
 
-6. Deploy a sample pod to sync secrets from keyvault to the cluster using the `kubectl apply` command and the following YAML script.
+6. Use the following manifest to deploy a sample pod to sync secrets from keyvault to the cluster.
     
     ```bash
+    cat <<EOF | kubectl apply -f -
     apiVersion: v1
     kind: Pod
     metadata:
@@ -155,6 +158,7 @@ Create a Kubernetes TLS secret for the ingress gateway; use [Azure Keyvault][akv
             readOnly: true
             volumeAttributes:
               secretProviderClass: "productpage-credential-spc"
+    EOF
     ```
     
     - Verify `productpage-credential` secret created on the cluster namespace `aks-istio-ingress` as defined in the SecretProviderClass resource.
@@ -180,9 +184,10 @@ Create a Kubernetes TLS secret for the ingress gateway; use [Azure Keyvault][akv
 ### Configure ingress gateway and virtual service
 
 Route HTTPS traffic via the Istio ingress gateway to the sample applications.
-Deploy gateway and virtual service reasources using the `kubectl apply` command and the following YAML script.
+Use the following manifest to deploy gateway and virtual service resources.
 
 ```bash
+cat <<EOF | kubectl apply -f -
 apiVersion: networking.istio.io/v1alpha3
 kind: Gateway
 metadata:
@@ -227,6 +232,7 @@ spec:
         port:
           number: 9080
         host: productpage
+EOF
 ```
 
 Set environment variables for external ingress host and ports:
@@ -266,9 +272,10 @@ Extend your gateway definition to support mutual TLS.
     kubectl delete pod/secrets-store-sync-productpage -n aks-istio-ingress
     ```
 
-    Recreate SecretProviderClass with CA certificate using the `kubectl apply` command and the following YAML script.
+    Use the following manifest to recreate SecretProviderClass with CA certificate.
 
     ```bash
+    cat <<EOF | kubectl apply -f -
     apiVersion: secrets-store.csi.x-k8s.io/v1
     kind: SecretProviderClass
     metadata:
@@ -306,11 +313,13 @@ Extend your gateway definition to support mutual TLS.
               objectType: secret
               objectAlias: "test-bookinfo-crt"
         tenantId: $TENANT_ID
+    EOF
     ```
 
-    Redeploy sample pod to sync secrets from keyvault to the cluster using the `kubectl apply` command and the following YAML script.
+    Use the following manifest to redeploy sample pod to sync secrets from keyvault to the cluster.
 
     ```bash
+    cat <<EOF | kubectl apply -f -
     apiVersion: v1
     kind: Pod
     metadata:
@@ -334,6 +343,7 @@ Extend your gateway definition to support mutual TLS.
             readOnly: true
             volumeAttributes:
               secretProviderClass: "productpage-credential-spc"
+    EOF
     ```
     
     - Verify `productpage-credential` secret created on the cluster namespace `aks-istio-ingress`.
@@ -358,9 +368,10 @@ Extend your gateway definition to support mutual TLS.
       tls.key:  1704 bytes
       ```
 
-2. Update the gateway definition to set the TLS mode to MUTUAL, using the `kubectl apply` command and the following YAML script.
+2. Use the following manifest to update the gateway definition to set the TLS mode to MUTUAL.
     
     ```bash
+    cat <<EOF | kubectl apply -f -
     apiVersion: networking.istio.io/v1alpha3
     kind: Gateway
     metadata:
@@ -378,6 +389,7 @@ Extend your gateway definition to support mutual TLS.
           credentialName: productpage-credential # must be the same as secret
         hosts:
         - productpage.bookinfo.com
+    EOF
     ```
 
 ### Verification
