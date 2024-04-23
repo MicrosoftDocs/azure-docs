@@ -9,7 +9,7 @@ author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
 
-# Tutotial: Back up multiple virtual machines by using the Azure portal 
+# Tutorial: Back up multiple virtual machines by using the Azure portal 
 
 This tutorial describes how to back up multiple virtual machines by using the Azure portal .
 
