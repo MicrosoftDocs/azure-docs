@@ -19,15 +19,17 @@ ms.custom: subject-rbac-steps, devx-track-arm-template
 > This capability is in preview and is subject to the 
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-To deploy mission-critical logic apps that are always available and responsive, even during updates or maintenance, you can enable zero downtime deployment by using deployment slots. Zero downtime means that when you deploy new versions of your app, end users shouldn't experience disruption or downtime. Deployment slots are isolated nonproduction environments that host different versions of your app and provide the following benefits:
+To deploy mission-critical logic apps that are always available and responsive, even during updates or maintenance, you can enable zero downtime deployment by creating and using deployment slots. Zero downtime means that when you deploy new versions of your app, end users shouldn't experience disruption or downtime. Deployment slots are isolated nonproduction environments that host different versions of your app and provide the following benefits:
 
-- You can swap a deployment slot with your production slot without interruption. That way, you can update an app without affecting availability or performance.
+- You can swap a deployment slot with your production slot without interruption. That way, you can update your logic app without affecting availability or performance.
 
 - You can test and validate any changes in a deployment slot before you apply those changes to the production slot.
 
 - You can roll back to a previous version, if anything goes wrong with your deployment.
 
 With deployment slots, you can achieve continuous delivery and improve your applications' quality and reliability. For more information about deployment slots in Azure and because Standard logic app workflows are based on Azure Functions extensibility, see [Azure Functions deployment slots](../azure-functions/functions-deployment-slots.md).
+
+:::image type="content" source="media/set-up-deployment-slots/overview.png" alt-text="Screenshot shows Azure portal, Standard logic app resource, and deployment slots page." lightbox="media/set-up-deployment-slots/overview.png":::
 
 ### Known issues and limitations
 
@@ -47,17 +49,31 @@ With deployment slots, you can achieve continuous delivery and improve your appl
 
 - An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-- Visual Studio Code with the Azure Logic Apps (Standard) extension. To meet these requirements, see the prerequisites for [Create Standard workflows with Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md#prerequisites).
-
-- A Standard logic app project in Visual Studio Code that you want to publish to Azure.
+- To work in Visual Studio Code with the Azure Logic Apps (Standard) extension, you'll need to meet the prerequisites described in [Create Standard workflows with Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md#prerequisites). You'll also need a Standard logic app project that you want to publish to Azure.
 
 - [Azure Logic Apps Standard Contributor role permissions](logic-apps-securing-a-logic-app.md?tabs=azure-portal#standard-workflows)
 
-- An existing deployed Standard logic app resource in Azure where you want to create your deployment slot and deploy your changes. You can create an empty Standard logic app resource without any workflows. For more information, see [Create example Standard workflow in single-tenant Azure Logic Apps](create-single-tenant-workflows-azure-portal.md).
+- An existing Standard logic app resource in Azure where you want to create your deployment slot and deploy your changes. You can create an empty Standard logic app resource without any workflows. For more information, see [Create example Standard workflow in single-tenant Azure Logic Apps](create-single-tenant-workflows-azure-portal.md).
 
 ## Create a deployment slot
 
 The following options are available for you to create a deployment slot:
+
+### [Portal](#tab/portal)
+
+1. In [Azure portal](https://portal.azure.com), open your Standard logic app resource where you want to create a deployment slot.
+
+1. On the resource menu, under **Deployment**, select **Deployment slots (Preview)**.
+
+1. On the toolbar, select **Add**.
+
+1. In the **Add Slot** pane, provide a name, which must be unique and uses only lowercase alphanumeric characters or hyphens (**-**), for your deployment slot.
+
+   > [!NOTE]
+   >
+   > After creation, your deployment slot name uses the following format: <*logic-app-name-deployment-slot-name*>.
+
+1. When you're done, select **Add**.
 
 ### [Visual Studio Code](#tab/visual-studio-code)
 
@@ -71,15 +87,15 @@ The following options are available for you to create a deployment slot:
 
    1. Enter and select the name for your existing Standard logic app in Azure.
 
-   1. Enter a unique name for your deployment slot.
+   1. Enter a name, which must be unique and uses only lowercase alphanumeric characters or hyphens (**-**), for your deployment slot.
 
 ### [Azure CLI](#tab/azure-cli)
 
-To create a nonproduction slot, run the following Azure CLI command:
+To create a nonproduction deployment slot on your Standard logic app, run the following Azure CLI command:
 
 `az functionapp deployment slot create --name {logic-app-name} --resource-group {resource-group-name} --slot {slot-name}`
 
-To enable a system-assigned managed identity on a Standard logic app in a deployment slot, run the following Azure CLI command:
+To enable a system-assigned managed identity on your Standard logic app deployment slot, run the following Azure CLI command:
 
 `az functionapp identity assign --name {logic-app-name} --resource-group {resource-group-name} --slot {slot-name}`
 
@@ -87,21 +103,25 @@ To enable a system-assigned managed identity on a Standard logic app in a deploy
 
 ## Confirm deployment slot creation
 
-After you create the deployment slot, confirm that the slot is available on your deployed logic app resource.
+After you create the deployment slot, confirm that the slot exists on your deployed logic app resource.
 
 1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource.
 
 1. On the resource menu, under **Deployment**, select **Deployment slots (Preview)**.
 
-1. On the **Deployment slots** page, under **Deployment Slots (Preview)**, find your new deployment slot.
+1. On the **Deployment slots** page, under **Deployment Slots (Preview)**, find and select your new deployment slot.
 
    > [!NOTE]
    >
-   > Your deployment slot's name appears as <*logic-app-name-deployment-slot-name*>.
+   > After creation, your deployment slot name uses the following format: <*logic-app-name-deployment-slot-name*>.
 
 ## Deploy logic app changes to a deployment slot
 
 The following options are available for you to deploy logic app changes in a deployment slot:
+
+### [Portal](#tab/portal)
+
+Unavailable at this time. Please follow the steps for Visual Studio Code to deploy your changes.
 
 ### [Visual Studio Code](#tab/visual-studio-code)
 
@@ -139,15 +159,37 @@ After you deploy your changes, confirm that the changes appear in your deployed 
 
 1. On the **Deployment slots** page, under **Deployment Slots (Preview)**, find and select your deployment slot.
 
-1. On the **Notifications** tab, check whether any deployment issues exist, for example, errors that might happen during app startup or around slot swapping:
+1. On the resource menu, select **Overview**. On the **Notifications** tab, check whether any deployment issues exist, for example, errors that might happen during app startup or around slot swapping:
 
-   :::image type="content" source="{source}" alt-text="{alt-text}":::
+   :::image type="content" source="media/set-up-deployment-slots/deployment-slot-notifications.png" alt-text="Screenshot shows Azure portal, logic app deployment slot resource with Overview page, and selected Notifications tab." lightbox="media/set-up-deployment-slots/deployment-slot-notifications.png":::
 
 1. To verify the changes in your workflow, under **Workflows**, select **Workflows**, and then select a workflow, which appears in read-only view.
 
 ## Swap a deployment slot with the production slot
 
 The following steps show how to swap a Standard logic app deployment slot with the current production slot.
+
+### [Portal](#tab/portal)
+
+1. In [Azure portal](https://portal.azure.com), open your Standard logic app resource where you want to swap slots.
+
+1. On the resource menu, under **Deployment**, select **Deployment slots (Preview)**.
+
+1. On the toolbar, select **Swap**.
+
+1. On the **Swap** pane, under **Source**, select the deployment slot that you want to activate.
+
+1. Under **Target**, select the production slot that you want to replace with the deployment slot.
+
+   > [!NOTE]
+   >
+   > **Perform swap with preview** works only with logic apps that enabled deployment slot settings.
+
+1. Under **Config Changes**, review the configuration changes for the source and target slots.
+
+1. When you're ready, select **Start Swap**.
+
+1. Wait for the operation to successfully complete.
 
 ### [Visual Studio Code](#tab/visual-studio-code)
 
@@ -161,7 +203,7 @@ The following steps show how to swap a Standard logic app deployment slot with t
 
    1. Enter and select the name for your existing Standard logic app in Azure.
 
-   1. Select the deployment slot that you want to become the active slot.
+   1. Select the deployment slot that you want to make as the active slot.
 
    1. Select the production slot that you want to swap with the deployment slot.
 
@@ -186,6 +228,10 @@ After you swap slots, verify that the changes from your deployment slot now appe
 ## Delete a deployment slot
 
 The following options are available for you to remove a deployment slot from your Standard logic app resource.
+
+### [Portal](#tab/portal)
+
+Unavailable at this time.
 
 ### [Visual Studio Code](#tab/visual-studio-code)
 
