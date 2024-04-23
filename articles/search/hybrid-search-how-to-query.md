@@ -9,40 +9,34 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 02/22/2024
+ms.date: 04/23/2024
 ---
 
 # Create a hybrid query in Azure AI Search
 
-Hybrid search combines one or more keyword queries with vector queries in a single search request. 
+Hybrid search combines one or more keyword queries with one or more vector queries in a single search request. The queries execute in parallel. The results are merged and reordered by a new search score, using [Reciprocal Rank Fusion (RRF)](hybrid-search-ranking.md) to return a single ranked result set.
 
-The response includes the top results ordered by search score. Both vector queries and free text queries are assigned an initial search score from their respective scoring or similarity algorithms. Those scores are merged using [Reciprocal Rank Fusion (RRF)](hybrid-search-ranking.md) to return a single ranked result set. 
+In [benchmark tests](https://techcommunity.microsoft.com/t5/ai-azure-ai-services-blog/azure-ai-search-outperforming-vector-search-with-hybrid/ba-p/3929167), hybrid queries return the most relevant results.
+
+To define a hybrid query, use [**Search Post REST API version 2023-11-01**](/rest/api/searchservice/documents/search-post), **2023-10-01-preview** or higher, Search Explorer in the Azure portal, or newer versions of the Azure SDKs.
 
 ## Prerequisites
 
-+ Azure AI Search, in any region and on any tier. Most existing services support vector search. For services created prior to January 2019, there's a small subset that doesn't support vector search. If an index containing vector fields fails to be created or updated, this is an indicator. In this situation, a new service must be created.
++ A search index containing `searchable` vector and nonvector fields. See [Create an index](search-how-to-create-search-index.md) and [Add vector fields to a search index](vector-search-how-to-create-index.md).
 
-+ A search index containing vector and non-vector fields. See [Create an index](search-how-to-create-search-index.md) and [Add vector fields to a search index](vector-search-how-to-create-index.md).
++ (Optional) If you want [semantic ranking](semantic-search-overview.md), your search service must be Basic tier or higher, with [semantic ranking enabled](semantic-how-to-enable-disable.md).
 
-+ Use [**Search Post REST API version 2023-11-01**](/rest/api/searchservice/documents/search-post) or **REST API 2023-10-01-preview**, Search Explorer in the Azure portal, or packages in the Azure SDKs that have been updated to use this feature.
++ (Optional) If you want text-to-vector conversion of a query string (currently in preview), [create and assign a vectorizer](vector-search-how-to-configure-vectorizer.md) to vector fields in the search index.
 
-+ (Optional) If you want to also use [semantic ranking](semantic-search-overview.md) and vector search together, your search service must be Basic tier or higher, with [semantic ranking enabled](semantic-how-to-enable-disable.md).
+## Hybrid query request (REST API)
 
-## Tips
-
-The stable version (**2023-11-01**) of vector search doesn't provide built-in vectorization of the query input string. Encoding (text-to-vector) of the query string requires that you pass the query string to an external embedding model for vectorization. You would then pass the response to the search engine for similarity search over vector fields.
-
-The preview version (**2023-10-01-Preview**) of vector search adds [integrated vectorization](vector-search-integrated-vectorization.md). If you want to explore this feature, [create and assign a vectorizer](vector-search-how-to-configure-vectorizer.md) to get built-in embedding of query strings.
+A hybrid query combines text search and vector search, where the `"search"` parameter takes a query string and `"vectors.value"` takes the vector query. The search engine runs full text and vector queries in parallel. All matches are evaluated for relevance using Reciprocal Rank Fusion (RRF) and a single result set is returned in the response.
 
 All results are returned in plain text, including vectors in fields marked as `retrievable`. Because numeric vectors aren't useful in search results, choose other fields in the index as a proxy for the vector match. For example, if an index has "descriptionVector" and "descriptionText" fields, the query can match on "descriptionVector" but the search result can show "descriptionText". Use the `select` parameter to specify only human-readable fields in the results.
 
-## Hybrid query request
-
-A hybrid query combines full text search and vector search, where the `"search"` parameter takes a query string and `"vectors.value"` takes the vector query. The search engine runs full text and vector queries in parallel. All matches are evaluated for relevance using Reciprocal Rank Fusion (RRF) and a single result set is returned in the response.
-
 Hybrid queries are useful because they add support for all query capabilities, including orderby and [semantic ranking](semantic-how-to-query-request.md). For example, in addition to the vector query, you could search over people or product names or titles, scenarios for which similarity search isn't a good fit.
 
-The following example shows a hybrid query configurations.
+The following example shows a hybrid query configuration.
 
 ```http
 POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/docs/search?api-version=2023-11-01
@@ -211,7 +205,7 @@ Search results are composed of "retrievable" fields from your search index. A re
 + All "retrievable" fields (a REST API default).
 + Fields explicitly listed in a "select" parameter on the query. 
 
-The examples in this article used a "select" statement to specify text (non-vector) fields in the response.
+The examples in this article used a "select" statement to specify text (nonvector) fields in the response.
 
 > [!NOTE]
 > Vectors aren't designed for readability, so avoid returning them in the response. Instead, choose non-vector fields that are representative of the search document. For example, if the query targets a "descriptionVector" field, return an equivalent text field if you have one ("description") in the response.
