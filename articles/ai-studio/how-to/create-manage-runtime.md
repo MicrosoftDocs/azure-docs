@@ -16,7 +16,7 @@ author: sdgilley
 
 # Create and manage prompt flow compute sessions in Azure AI Studio
 
-You need a compute session to use prompt flow. Create and manage prompt flow compute sessions in Azure AI Studio to run prompt flows. 
+You need a compute session to use prompt flow. Create and manage prompt flow compute sessions in Azure AI Studio to run prompt flows.
 
 A prompt flow compute session has computing resources that are required for the application to run, including a Docker image that contains all necessary dependency packages. In addition to flow execution, Azure AI Studio uses the compute session to ensure the accuracy and functionality of the tools incorporated within the flow when you make updates to the prompt or code content.
 
@@ -30,25 +30,26 @@ From your prompt flow, select **Start compute session** on the top toolbar.
 
 - Select the button **Start compute session**, or select **Start compute session** after using the arrow to drop down the list. The compute session uses the environment defined in `flow.dag.yaml` in the [flow folder](flow-develop.md#authoring-the-flow). It runs on a serverless compute with a virtual machine (VM) size for which you have sufficient quota in your workspace.
 
-  :::image type="content" source="../media/prompt-flow/how-to-create-manage-runtime/runtime-create-automatic-init.png" alt-text="Screenshot of prompt flow with default settings for starting an automatic compute session on a flow page." lightbox = "../media/prompt-flow/how-to-create-manage-runtime/runtime-create-automatic-init.png":::
+  :::image type="content" source="../media/prompt-flow/how-to-create-manage-runtime/runtime-create-automatic-init.png" alt-text="Screenshot of prompt flow with default settings for starting a compute session on a flow page." lightbox = "../media/prompt-flow/how-to-create-manage-runtime/runtime-create-automatic-init.png":::
 
 - Use the arrow to the right to access **Start with advanced settings**. In the advanced settings, you can:
 - Select **Start with advanced settings**. In the advanced settings, you can select the compute type. You can choose between serverless compute and compute instance.
     - If you choose serverless compute, you can set following settings:
-        - Customize the VM size that the runtime uses.
-        - Customize the idle time, which saves code by deleting the runtime automatically if it isn't in use.
+        - Customize the VM size that the compute session uses.
+        - Customize the idle time, which saves code by deleting the compute session automatically if it isn't in use.
         - Set the user-assigned managed identity. The compute session uses this identity to pull a base image and install packages. Make sure that the user-assigned managed identity has Azure Container Registry pull permission.
             
             If you don't set this identity, we use the user identity by default. [Learn more about how to create and update user-assigned identities for a workspace](../../machine-learning/how-to-identity-based-service-authentication.md#to-create-a-workspace-with-multiple-user-assigned-identities-use-one-of-the-following-methods).
 
-            :::image type="content" source="../media/prompt-flow/how-to-create-manage-runtime/runtime-creation-automatic-settings.png" alt-text="Screenshot of prompt flow with advanced settings using serverless compute for starting an compute session on a flow page." lightbox = "../media/prompt-flow/how-to-create-manage-runtime/runtime-creation-automatic-settings.png":::
+            :::image type="content" source="../media/prompt-flow/how-to-create-manage-runtime/runtime-creation-automatic-settings.png" alt-text="Screenshot of prompt flow with advanced settings using serverless compute for starting a compute session on a flow page." lightbox = "../media/prompt-flow/how-to-create-manage-runtime/runtime-creation-automatic-settings.png":::
 
     - If you choose compute instance, you can only set idle shutdown time. 
-        - Since this is an existing compute instance, the VM size is fixed and can't change in runtime side.
-        - The identity used for this runtime also is defined in compute instance, by default it uses the user identity. [Learn more about how to assign identity to compute instance](../../machine-learning/how-to-create-compute-instance.md#assign-managed-identity)
-        - Idle shutdown time is used to define the life cycle of the runtime. If the runtime is idle for the time you set, it's deleted automatically. If you have idle shutdown enabled on a compute instance, then it shuts down but won't be deleted.
+        - Since this is an existing compute instance, the VM size is fixed and can't change in a compute session side.
+        - The identity used for this compute session also is defined in the compute instance, by default it uses the user identity. [Learn more about how to assign identity to compute instance](../../machine-learning/how-to-create-compute-instance.md#assign-managed-identity)
+        - Idle shutdown time is used to define the life cycle of the compute session. If the compute session is idle for the time you set, it's deleted automatically. If you have idle shutdown enabled on a compute instance, then it shuts down but won't be deleted.
 
-            :::image type="content" source="../media/prompt-flow/how-to-create-manage-runtime/runtime-creation-automatic-compute-instance-settings.png" alt-text="Screenshot of prompt flow with advanced settings using compute instance for starting an compute session on a flow page." lightbox = "../media/prompt-flow/how-to-create-manage-runtime/runtime-creation-automatic-compute-instance-settings.png":::
+            :::image type="content" source="../media/prompt-flow/how-to-create-manage-runtime/runtime-creation-automatic-compute-instance-settings.png" alt-text="Screenshot of prompt flow with advanced settings using compute instance for starting a compute session on a flow page." lightbox = "../media/prompt-flow/how-to-create-manage-runtime/runtime-creation-automatic-compute-instance-settings.png":::
+
     - Select **Next** to specify the base image settings. Use the default base image or provide a custom base image.
         - If you choose a customized base image, provide the image URL and the image tag. Only images in a public docker registry or the Azure Container Registry (ACR) are supported. If you specify an image in the ACR,  make sure you (or the user assigned manage identity) have ACR pull permission.
     - Select **Next** to review your settings.
@@ -58,25 +59,25 @@ From your prompt flow, select **Start compute session** on the top toolbar.
 
 To manage a compute session, select the **Compute session running** on the top toolbar of the flow page.:
 
-- **Change compute session settings** opens the compute session configuration page, where you can define the VM side and the idle time for the runtime.
+- **Change compute session settings** opens the compute session configuration page, where you can define the VM side and the idle time for the compute session.
 - **Install packages from requirements.txt** Open `requirements.txt` in prompt flow UI, you can add packages in it.
-- **View installed packages** shows the packages that are installed in the runtime. It includes the packages baked to base image and packages specify in the `requirements.txt` file in the flow folder.
+- **View installed packages** shows the packages that are installed in the compute session. It includes the packages baked to base image and packages specify in the `requirements.txt` file in the flow folder.
 - **Reset compute session** deletes the current compute session and creates a new one with the same environment. If you encounter a package conflict, you can try this option.
 - **Stop compute session** deletes the current compute session. If there's no active compute session on the underlying compute, the compute resource is also delete if it use serverless compute, if it is using compute instance then it will follow the idle shut down settings.
 
-:::image type="content" source="../media/prompt-flow/how-to-create-manage-runtime/runtime-create-automatic-actions.png" alt-text="Screenshot of actions for an compute session on a flow page." lightbox = "../media/prompt-flow/how-to-create-manage-runtime/runtime-create-automatic-actions.png":::
+:::image type="content" source="../media/prompt-flow/how-to-create-manage-runtime/runtime-create-automatic-actions.png" alt-text="Screenshot of actions for a compute session on a flow page." lightbox = "../media/prompt-flow/how-to-create-manage-runtime/runtime-create-automatic-actions.png":::
 
 You can customize the environment that you use to run this flow by adding packages in the `requirements.txt` file in the flow folder. After you add more packages in this file, choose either of these options:
 
 - **Save and install** triggers `pip install -r requirements.txt` in the flow folder. The process can take a few minutes, depending on the packages that you install.
 - **Save only** just saves the `requirements.txt` file. You can install the packages later yourself.
 
-:::image type="content" source="../media/prompt-flow/how-to-create-manage-runtime/runtime-create-automatic-save-install.png" alt-text="Screenshot of the option to save and install packages for an compute session on a flow page." lightbox = "../media/prompt-flow/how-to-create-manage-runtime/runtime-create-automatic-save-install.png":::
+:::image type="content" source="../media/prompt-flow/how-to-create-manage-runtime/runtime-create-automatic-save-install.png" alt-text="Screenshot of the option to save and install packages for a compute session on a flow page." lightbox = "../media/prompt-flow/how-to-create-manage-runtime/runtime-create-automatic-save-install.png":::
 
 > [!NOTE]
 > You can change the location and even the file name of `requirements.txt`, but be sure to also change it in the `flow.dag.yaml` file in the flow folder.
 >
-> Don't pin the version of `promptflow` and `promptflow-tools` in `requirements.txt`, because they are already included in the runtime base image.
+> Don't pin the version of `promptflow` and `promptflow-tools` in `requirements.txt`, because they are already included in the compute session base image.
 
 ### Add packages in a private feed in Azure DevOps
 
@@ -96,15 +97,15 @@ If you want to use a private feed in Azure DevOps, follow these steps:
     test_package
     ```
 
-1. Specify the user-assigned managed identity in **Start with advanced settings** if compute session isn't running, or use the **Edit** button if the compute session is running.
+1. Specify the user-assigned managed identity in **Start with advanced settings** if the compute session isn't running, or use the **Edit** button if the compute session is running.
 
     :::image type="content" source="../media/prompt-flow/how-to-create-manage-runtime/runtime-advanced-setting-msi.png" alt-text="Screenshot that shows the toggle for using a workspace user-assigned managed identity." lightbox = "../media/prompt-flow/how-to-create-manage-runtime/runtime-advanced-setting-msi.png":::
 
 ### Change the base image
 
-By default, we use the latest prompt flow image as the base image. If you want to use a different base image, you need to build your own base image. The docker image should be built from the prompt flow base image, `mcr.microsoft.com/azureml/promptflow/promptflow-runtime:<newest_version>`. If possible use the [latest version of the base image](https://mcr.microsoft.com/v2/azureml/promptflow/promptflow-runtime/tags/list). To use the new base image, reset the runtime via the `reset` command. This process takes several minutes as it pulls the new base image and reinstalls packages.
+By default, we use the latest prompt flow image as the base image. If you want to use a different base image, you need to build your own base image. The docker image should be built from the prompt flow base image, `mcr.microsoft.com/azureml/promptflow/promptflow-runtime:<newest_version>`. If possible use the [latest version of the base image](https://mcr.microsoft.com/v2/azureml/promptflow/promptflow-runtime/tags/list). To use the new base image, you need to reset the compute session via the `reset` command. This process takes several minutes as it pulls the new base image and reinstalls packages.
 
-:::image type="content" source="../media/prompt-flow/how-to-create-manage-runtime/runtime-creation-automatic-image-flow-dag.png" alt-text="Screenshot of actions for customizing a base image for an compute session on a flow page." lightbox = "../media/prompt-flow/how-to-create-manage-runtime/runtime-creation-automatic-image-flow-dag.png":::
+:::image type="content" source="../media/prompt-flow/how-to-create-manage-runtime/runtime-creation-automatic-image-flow-dag.png" alt-text="Screenshot of actions for customizing a base image for a compute session on a flow page." lightbox = "../media/prompt-flow/how-to-create-manage-runtime/runtime-creation-automatic-image-flow-dag.png":::
 
 ```yaml
 environment:
