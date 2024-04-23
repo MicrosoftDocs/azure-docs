@@ -247,7 +247,7 @@
       "url": "https://github.com/Azure-Samples/function-app-arm-templates",
       "branch": "main",
       "branch_mapping": {}
-    },    
+    },
     {
       "path_to_root": "functions-azure-product",
       "url": "https://github.com/Azure/Azure-Functions",
@@ -1278,6 +1278,7 @@
   "articles/network-watcher/.openpublishing.redirection.network-watcher.json",
   "articles/object-anchors/.openpublishing.redirection.object-anchors.json",
   "articles/operator-nexus/.openpublishing.redirection.operator-nexus.json",
+  "articles/operator-service-manager/.openpublishing.redirection.operator-service-manager.json",
   "articles/peering-service/.openpublishing.redirection.peering-service.json",
   "articles/postgresql/.openpublishing.redirection.postgresql.json",
   "articles/purview/.openpublishing.redirection.purview.json",

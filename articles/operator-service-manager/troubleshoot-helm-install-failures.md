@@ -25,14 +25,14 @@ Test that your helm charts meet these prerequisites. Make sure that you test wit
 
 ## Confirm that your network function (NF) ARM Template has `--atomic` set to false
 
-By default, AOSM removes failed installations from the cluster to reduce resource usage. This prevents detailed debugging in failure scenarios. The NF ARM template supports overriding this behaviour. Use this [How-To guide](how-to-use-helm-option-parameters.md) to configure AOSM to leave failed installations in place.
+By default, AOSM removes failed installations from the cluster to reduce resource usage. This prevents detailed debugging in failure scenarios. The NF ARM template supports overriding this behavior. Use this [How-To guide](how-to-use-helm-option-parameters.md) to configure AOSM to leave failed installations in place.
 
 ## Confirm that your network function (NF) Azure Resource Manager (ARM) Template uses artifact store injection
 
 AOSM supports zero-touch onboarding of helm charts. This feature is configured in the NF ARM template and is automatically enabled if you onboarded the CNF using the Az CLI AOSM extension.
 
 1. Download the NF ARM template from the Artifact Store.
-1. Confirm that the `roleOverrideValues` property of the `Microsoft.HybridNetwork/networkFunctions` contains the following snippet. This snippet uses a fictional Contoso CNF built from three independent helm charts. These helm charts are modelled as three network function applications in the network function definition version (NFDV). Your ARM template should have one element in the `roleOverrideValues` array for each network function application in the NFDV.
+1. Confirm that the `roleOverrideValues` property of the `Microsoft.HybridNetwork/networkFunctions` contains the following snippet. This snippet uses a fictional Contoso CNF built from three independent helm charts. These helm charts are modeled as three network function applications in the network function definition version (NFDV). Your ARM template should have one element in the `roleOverrideValues` array for each network function application in the NFDV.
 
 ```json
 roleOverrideValues: ["{\"name\": \"Contoso-one\", \"deployParametersMappingRuleProfile\": {\"applicationEnablement\": \"Enabled\", \"helmMappingRuleProfile\": {\"options\": {\"installOptions\": {\"injectArtifactStoreDetails\":\"true\"}},{\"upgradeOptions\": {\"injectArtifactStoreDetails\":\"true\"}}}}},{\"name\": \"Contoso-two\", \"deployParametersMappingRuleProfile\": {\"applicationEnablement\": \"Enabled\", \"helmMappingRuleProfile\": {\"options\": {\"installOptions\": {\"injectArtifactStoreDetails\":\"true\"}},{\"upgradeOptions\": {\"injectArtifactStoreDetails\":\"true\"}}}}},{\"name\": \"Contoso-three\", \"deployParametersMappingRuleProfile\": {\"applicationEnablement\": \"Enabled\", \"helmMappingRuleProfile\": {\"options\": {\"installOptions\": {\"injectArtifactStoreDetails\":\"true\"}},{\"upgradeOptions\": {\"injectArtifactStoreDetails\":\"true\"}}}}}"]
@@ -44,7 +44,7 @@ If the ARM template doesn't contain the `\"injectArtifactStoreDetails\":\"true\"
 
 1. Access the Azure portal and open the Resource Group you deployed the Site Network Service (SNS) into
 1. Select the **Deployments** page from the Resource Group menu
-1. Open the deployment page for the for the deployment corresponding to your failed SNS deployment and select the **error details** button
+1. Open the deployment page for the deployment corresponding to your failed SNS deployment and select the **error details** button
     :::image type="content" source="media/sns-error-details.png" alt-text="Screenshot showing error details on a failed Site Network Service deployment." lightbox="media/sns-error-details.png":::
 
 ## Use the AOSM Azure portal to view the NF deployment error
@@ -54,7 +54,7 @@ If the ARM template doesn't contain the `\"injectArtifactStoreDetails\":\"true\"
     :::image type="content" source="media/sns-hosted-resource-group.png" alt-text="Screenshot showing the hosted resource group deployed by a Site Network Service." lightbox="media/sns-hosted-resource-group.png":::
 1. Select the **Deployments** page from the Resource Group menu.
 1. Select the **error details** button for the deployment corresponding to your failed NF deployment
-    :::image type="content" source="media/nf-error-details.png" alt-text="Screenshot showing error details on a failed Network Function deployment." lightbox="media/nf-error-details.png":::
+    :::image type="content" source="media/network-function-error-details.png" alt-text="Screenshot showing error details on a failed Network Function deployment." lightbox="media/network-function-error-details.png":::
 
 ## Use the AOSM Azure portal to view the network function deployment parameters
 

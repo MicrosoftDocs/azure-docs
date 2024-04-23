@@ -9,7 +9,7 @@ ms.topic: quickstart
 ms.date: 03/19/2023
 ---
 
-# Quickstart: Onboard a Subscription to Azure Operator Service Manager (AOSM)
+# Quickstart: Onboard a subscription to Azure Operator Service Manager (AOSM)
 
 In this Quickstart, you onboard a subscription to Azure Operator Service Manager (AOSM).
 

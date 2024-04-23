@@ -9,7 +9,7 @@ ms.service: azure-operator-service-manager
 ms.custom: devx-track-azurecli
 
 ---
-# Push and pull images and other artifacts to/from an Azure Container Registry (ACR) backed artifact store.
+# Push and pull images and other artifacts to/from an Azure Container Registry (ACR) backed artifact store
 
 The Azure Operator Service Manager (AOSM) artifact store resource manages the artifacts required to deploy network functions (NFs). These artifacts include containerized network function (CNF) images, virtualized network function (VNF) images, Azure Resource Manager (ARM) templates, and Helm packages. There are two flavors of artifact store:
 
@@ -58,28 +58,28 @@ resource acrArtifactManifest 'Microsoft.Hybridnetwork/publishers/artifactStores/
 
 1. Get repository-scoped permissions from the artifact manifest resource
 
-```azurecli
-az rest --method POST --url 'https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.HybridNetwork/publishers/<publisher>/artifactStores/<artifact-store-name>/artifactManifests/<artifact-manifest-name>/listCredential?api-version=2023-09-01'
-```
+  ```azurecli
+  az rest --method POST --url 'https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.HybridNetwork/publishers/<publisher>/artifactStores/<artifact-store-name>/artifactManifests/<artifact-manifest-name>/listCredential?api-version=2023-09-01'
+  ```
 
-This command returns the username and password you''ll use to sign in to the ACR backing the artifact store. The password is in the `token` field.
+  This command returns the username and password you'll use to sign in to the ACR backing the artifact store. The password is in the `token` field.
 
-```bash
-{
-  "acrServerUrl": "https://<acr-name>.azurecr.io",
-  "acrToken": "<token>",
-  "credentialType": "AzureContainerRegistryScopedToken",
-  "expiry": "2024-03-27T10:25:03.9217887+00:00",
-  "repositories": [
-    "<artifact-name>"
-  ],
-  "username": "<artifact-manifest-name>"
-}
-```
+  ```bash
+  {
+    "acrServerUrl": "https://<acr-name>.azurecr.io",
+    "acrToken": "<token>",
+    "credentialType": "AzureContainerRegistryScopedToken",
+    "expiry": "2024-03-27T10:25:03.9217887+00:00",
+    "repositories": [
+      "<artifact-name>"
+    ],
+    "username": "<artifact-manifest-name>"
+  }
+  ```
 
->[!IMPORTANT]
-> The artifact manifest resource grants tightly scoped permissions for push and pull operations. You must use an artifact manifest that contains an entry for the artifact you want to push or pull. The `artifactName` must match the artifact name in the repository. The `artifactVersion` must match the artifact tag
-
+  >[!IMPORTANT]
+  > The artifact manifest resource grants tightly scoped permissions for push and pull operations. You must use an artifact manifest that contains an entry for the artifact you want to push or pull. The `artifactName` must match the artifact name in the repository. The `artifactVersion` must match the artifact tag
+  
 1. Find the name of the ACR that backs the artifact store resource by opening the navigating to the artifact store and copying the `Backing storage` field
 
     :::image type="content" source="media/how-to-find-backing-artifact-store.png" alt-text="Diagram showing the Azure portal Artifact Store backing resource field." lightbox="media/how-to-find-backing-artifact-store.png":::

@@ -1,6 +1,6 @@
 ---
-title: How to use Helm option parameters to prevent deletion on install failure
-description: Learn how to use Helm option parameters to prevent deletion on install failure.
+title: How to use Helm option parameters to prevent deletion on install failure in Azure Operator Service Manager
+description: Learn how to use Helm option parameters to prevent deletion on install failure in Azure Operator Service Manager
 author: pjw711
 ms.author: peterwhiting
 ms.date: 03/21/2024
@@ -35,69 +35,69 @@ This section explains how to override `--atomic` for an NF that consists of a si
 
 1. Navigate to the `nsd-cli-output` directory, open the `artifacts` directory, and open the `<nf-arm-template>.bicep` file. `<nf-arm-template>` is configured in the Az AOSM CLI extension NSD input file. You can confirm you have the right file by comparing against the following example template for a fictional Contoso containerized network function (CNF).
 
-```bicep
-@secure()
-param configObject object
+  ```bicep
+  @secure()
+  param configObject object
 
-var resourceGroupId = resourceGroup().id
+  var resourceGroupId = resourceGroup().id
 
-var identityObject = (configObject.managedIdentityId == '')  ? {
-  type: 'SystemAssigned'
-} : {
-  type: 'UserAssigned'
-  userAssignedIdentities: {
-    '${configObject.managedIdentityId}': {}
-  }
-}
-
-var nfdvSymbolicName = '${configObject.publisherName}/${configObject.nfdgName}/${configObject.nfdv}'
-
-resource nfdv 'Microsoft.Hybridnetwork/publishers/networkfunctiondefinitiongroups/networkfunctiondefinitionversions@2023-09-01' existing = {
-  name: nfdvSymbolicName
-  scope: resourceGroup(configObject.publisherResourceGroup)
-}
-
-resource nfResource 'Microsoft.HybridNetwork/networkFunctions@2023-09-01' = [for (values, i) in configObject.deployParameters: {
-  name: '${configObject.nfdgName}${i}'
-  location: configObject.location
-  identity: identityObject
-  properties: {
-    networkFunctionDefinitionVersionResourceReference: {
-      id: nfdv.id
-      idType: 'Open'
+  var identityObject = (configObject.managedIdentityId == '')  ? {
+    type: 'SystemAssigned'
+  } : {
+    type: 'UserAssigned'
+    userAssignedIdentities: {
+      '${configObject.managedIdentityId}': {}
     }
-    nfviType: 'AzureArcKubernetes'
-    nfviId: (configObject.customLocationId == '') ? resourceGroupId : configObject.customLocationId
-    allowSoftwareUpdate: true
-    configurationType: 'Open'
-    deploymentValues: string(values)
   }
-}]
-```
+
+  var nfdvSymbolicName = '${configObject.publisherName}/${configObject.nfdgName}/${configObject.nfdv}'
+
+  resource nfdv 'Microsoft.Hybridnetwork/publishers/networkfunctiondefinitiongroups/networkfunctiondefinitionversions@2023-09-01' existing = {
+    name: nfdvSymbolicName
+    scope: resourceGroup(configObject.publisherResourceGroup)
+  }
+
+  resource nfResource 'Microsoft.HybridNetwork/networkFunctions@2023-09-01' = [for (values, i) in configObject.deployParameters: {
+    name: '${configObject.nfdgName}${i}'
+    location: configObject.location
+    identity: identityObject
+    properties: {
+      networkFunctionDefinitionVersionResourceReference: {
+        id: nfdv.id
+        idType: 'Open'
+      }
+      nfviType: 'AzureArcKubernetes'
+      nfviId: (configObject.customLocationId == '') ? resourceGroupId : configObject.customLocationId
+      allowSoftwareUpdate: true
+      configurationType: 'Open'
+      deploymentValues: string(values)
+    }
+  }]
+  ```
 
 1. Find the network function application name by navigating to the `cnf-cli-output` directory, opening the `nfDefinition` directory, and copying the value from the only entry in the networkFunctionApplications array in the `nfdv` resource. Confirm you have the correct value by comparing against the following fictional Contoso example BICEP snippet. In this case, the network function application name is `Contoso`.
 
-```bicep
-resource nfdv 'Microsoft.Hybridnetwork/publishers/networkfunctiondefinitiongroups/networkfunctiondefinitionversions@2023-09-01' = {
-  parent: nfdg
-  name: nfDefinitionVersion
-  location: location
-  properties: {
-    deployParameters: string(loadJsonContent('deployParameters.json'))
-    networkFunctionType: 'ContainerizedNetworkFunction'
-    networkFunctionTemplate: {
-      nfviType: 'AzureArcKubernetes'
-      networkFunctionApplications: [
-        {
-          artifactType: 'HelmPackage'
-          name: 'Contoso'
-```
+  ```bicep
+  resource nfdv 'Microsoft.Hybridnetwork/publishers/networkfunctiondefinitiongroups/networkfunctiondefinitionversions@2023-09-01' = {
+    parent: nfdg
+    name: nfDefinitionVersion
+    location: location
+    properties: {
+      deployParameters: string(loadJsonContent('deployParameters.json'))
+      networkFunctionType: 'ContainerizedNetworkFunction'
+      networkFunctionTemplate: {
+        nfviType: 'AzureArcKubernetes'
+        networkFunctionApplications: [
+          {
+            artifactType: 'HelmPackage'
+            name: 'Contoso'
+  ```
 
 1. Edit the template to override the default helm install `--atomic` option by adding the following configuration to the `nfResource` properties in the NF ARM Template:
 
-```bicep
-roleOverrideValues: ['{"name": "Contoso-one", "deployParametersMappingRuleProfile": {"applicationEnablement": "Enabled", "helmMappingRuleProfile": {"options": {"installOptions": {"atomic": "false"}},{"upgradeOptions": {"atomic": "false"}}}}}']
-```
+  ```bicep
+  roleOverrideValues: ['{"name": "Contoso-one", "deployParametersMappingRuleProfile": {"applicationEnablement": "Enabled", "helmMappingRuleProfile": {"options": {"installOptions": {"atomic": "false"}},{"upgradeOptions": {"atomic": "false"}}}}}']
+  ```
 
 1. Confirm that you have made this edit correctly by comparing against the following snippet from the Contoso example NF
 
@@ -123,24 +123,24 @@ resource nfResource 'Microsoft.HybridNetwork/networkFunctions@2023-09-01' = [for
 
 1. Navigate to the `nsd-cli-output/artifacts` directory created by the `az aosm nsd build` command and build the Network Function ARM Template from the BICEP file generated by the CLI.
 
-```azurecli
-bicep build <nf-name>.bicep
-```
+  ```azurecli
+  bicep build <nf-name>.bicep
+  ```
 
 1. Generate scope map token credentials from the Artifact Manifest created in the `az aosm nsd publish` command.
 
-> [!IMPORTANT]
-> You are required to use the Artifact Manifest created in the `az aosm nsd publish` command. The NF ARM template is only declared in that manifest hence only the scope map token generated by this manifest will allow you to push (or pull) the NF ARM template to the Artifact Store.
+  > [!IMPORTANT]
+  > You are required to use the Artifact Manifest created in the `az aosm nsd publish` command. The NF ARM template is only declared in that manifest hence only the scope map token generated by this manifest will allow you to push (or pull) the NF ARM template to the Artifact Store.
 
-```azurecli
-az rest --method POST --url 'https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.HybridNetwork/publishers/<publisher>/artifactStores/<artifact-store>/artifactManifests/<artifactManifest>/listCredential?api-version=2023-09-01'
-```
+  ```azurecli
+  az rest --method POST --url 'https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.HybridNetwork/publishers/<publisher>/artifactStores/<artifact-store>/artifactManifests/<artifactManifest>/listCredential?api-version=2023-09-01'
+  ```
 
 1. Sign in to the AOSM managed ACR. The AOSM managed ACR name can be found in Azure portal Artifact Store resource overview. The username and password can be found in the output of the previous step.
 
-```bash
-oras login <aosm-managed-acr-name>.azurecr.io --username <username> --password <scope map token>
-```
+  ```bash
+  oras login <aosm-managed-acr-name>.azurecr.io --username <username> --password <scope map token>
+  ```
 
 1. Use ORAS to upload the Network Function ARM template to the AOSM managed Azure Container Registry (ACR). The `<arm-template-version>` artifact tag must be in `1.0.0` format. The `<arm-template-name>` and `<arm-template-version>` must match the values in the Artifact Manifest created in the `az aosm nsd publish` command.
 

@@ -9,7 +9,7 @@ ms.date: 03/19/2024
 ms.custom: troubleshooting
 ---
 
-# Common Azure CLI Azure Operator Service Manager (AOSM) extension issues
+# Azure CLI Azure Operator Service Manager (AOSM) extension issues
 
 This document contains a list of common issues when using the Azure CLI AOSM extension to onboard Network Functions, and their resolutions.
 

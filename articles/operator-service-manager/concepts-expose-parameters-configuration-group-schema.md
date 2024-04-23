@@ -9,7 +9,7 @@ ms.service: azure-operator-service-manager
 ms.custom: devx-track-azurecli
 
 ---
-# About parameter exposure using the Azure Operator Service Manager (AOSM) CLI extension.
+# About parameter exposure using the Azure Operator Service Manager (AOSM) CLI extension
 
 This document explains how the Azure Operator Service Manager (AOSM) Azure CLI extension translates helm values and parameters in ARM templates into a configuration model exposed to an operator.
 

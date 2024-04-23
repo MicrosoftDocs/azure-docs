@@ -81,54 +81,54 @@ This step creates a folder in the working directory called `cnf-cli-output` with
 
 1. Generate the Azure CLI AOSM extension input file for a CNF.
 
-```azurecli
-az aosm nfd generate-config --definition-type cnf --output-file <filename.jsonc>
-```
+  ```azurecli
+  az aosm nfd generate-config --definition-type cnf --output-file <filename.jsonc>
+  ```
 
 1. Open the input file you generated in the previous step and use the inline comments to enter the required values. This example shows the Az CLI AOSM extension input file for a fictional Contoso CNF.
 
-> [!NOTE]
-> The Azure CLI AOSM extension only exposes required parameters without default values in the input `values.yaml` by default. You can set `expose_all_parameters` to `true` to expose all helm values in the Network Function Definition Version (NFDV) and Configuration Group Schema (CGS). See [Parameter expose using the AOSM CLI extension](concepts-expose-parameters-configuration-group-schema.md) for more detailed information.
+  > [!NOTE]
+  > The Azure CLI AOSM extension only exposes required parameters without default values in the input `values.yaml` by default. You can set `expose_all_parameters` to `true` to expose all helm values in the Network Function Definition Version (NFDV) and Configuration Group Schema (CGS). See [Parameter expose using the AOSM CLI extension](concepts-expose-parameters-configuration-group-schema.md) for more detailed information.
 
-```jsonc
-{
-  // Azure location to use when creating resources e.g uksouth
-  "location": "eastus",
-  // Name of the Publisher resource you want your definition published to.
-  // Will be created if it does not exist.
-  "publisher_name": "contoso",
-  // Resource group for the Publisher resource.
-  // You should create this before running the publish command
-  "publisher_resource_group_name": "contoso",
-  // Name of the ACR Artifact Store resource.
-  // Will be created if it does not exist.
-  "acr_artifact_store_name": "contoso-artifact-store",
-  // Name of NF definition.
-  "nf_name": "contoso-cnf-nfd",
-  // Version of the NF definition in 1.1.1 format (three integers separated by dots).
-  "version": "1.0.0",
-  // If set to true, all NFD configuration parameters are made available to the designer, including optional parameters and those with defaults.
-  // If not set or set to false, only required parameters without defaults will be exposed.
-  "expose_all_parameters": false,
-  // List of registries from which to pull the image(s).
-  // For example ["sourceacr.azurecr.io/test", "myacr2.azurecr.io", "ghcr.io/path"].
-  // For non Azure Container Registries, ensure you have run a docker login command before running build.
-  "image_sources": ["contoso.azuercr.io/contoso", "docker.io"],
-  // List of Helm packages to be included in the CNF.
-  "helm_packages": [
-      {
-          // The name of the Helm package.
-          "name": "contoso-helm-package",
-          // The file path to the helm chart on the local disk, relative to the directory from which the command is run.
-          // Accepts .tgz, .tar or .tar.gz, or an unpacked directory. Use Linux slash (/) file separator even if running on Windows.
-          "path_to_chart": "/home/cnf-onboard/contoso-cnf-helm-chart-0-1-0.tgz",
-          // The file path (absolute or relative to this configuration file) of YAML values file on the local disk which will be used instead of the values.yaml file present in the helm chart.
-          // Accepts .yaml or .yml. Use Linux slash (/) file separator even if running on Windows.
-          "default_values": "",
-      }
-  ]
-}
-```
+  ```jsonc
+  {
+    // Azure location to use when creating resources e.g uksouth
+    "location": "eastus",
+    // Name of the Publisher resource you want your definition published to.
+    // Will be created if it does not exist.
+    "publisher_name": "contoso",
+    // Resource group for the Publisher resource.
+    // You should create this before running the publish command
+    "publisher_resource_group_name": "contoso",
+    // Name of the ACR Artifact Store resource.
+    // Will be created if it does not exist.
+    "acr_artifact_store_name": "contoso-artifact-store",
+    // Name of NF definition.
+    "nf_name": "contoso-cnf-nfd",
+    // Version of the NF definition in 1.1.1 format (three integers separated by dots).
+    "version": "1.0.0",
+    // If set to true, all NFD configuration parameters are made available to the designer, including optional parameters and those with defaults.
+    // If not set or set to false, only required parameters without defaults will be exposed.
+    "expose_all_parameters": false,
+    // List of registries from which to pull the image(s).
+    // For example ["sourceacr.azurecr.io/test", "myacr2.azurecr.io", "ghcr.io/path"].
+    // For non Azure Container Registries, ensure you have run a docker login command before running build.
+    "image_sources": ["contoso.azuercr.io/contoso", "docker.io"],
+    // List of Helm packages to be included in the CNF.
+    "helm_packages": [
+        {
+            // The name of the Helm package.
+            "name": "contoso-helm-package",
+            // The file path to the helm chart on the local disk, relative to the directory from which the command is run.
+            // Accepts .tgz, .tar or .tar.gz, or an unpacked directory. Use Linux slash (/) file separator even if running on Windows.
+            "path_to_chart": "/home/cnf-onboard/contoso-cnf-helm-chart-0-1-0.tgz",
+            // The file path (absolute or relative to this configuration file) of YAML values file on the local disk which will be used instead of the values.yaml file present in the helm chart.
+            // Accepts .yaml or .yml. Use Linux slash (/) file separator even if running on Windows.
+            "default_values": "",
+        }
+    ]
+  }
+  ```
 
 1. Execute the following command to build the Network Function Definition Group and Version BICEP templates.
 
@@ -157,58 +157,58 @@ This section creates a folder in the working directory called `nsd-cli-output`. 
 
 1. Generate the Azure CLI AOSM Extension NSD input file.
 
-```azurecli
-az aosm nsd generate-config --output-file <nsd-output-filename.jsonc>
-```
+  ```azurecli
+  az aosm nsd generate-config --output-file <nsd-output-filename.jsonc>
+  ```
 
 1. Open the input file you generated in the previous step and use the inline comments to enter the required values. The generated input file contains an additional `resource_element_type` of type `ArmTemplate`. This is unnecessary when onboarding a CNF; you can delete it. The result should look like this example. The example shows the Az CLI AOSM extension input file for a fictional Contoso NSD that can be used to deploy a fictional Contoso CNF onto an Arc-connected Nexus Kubernetes cluster.
 
-```json
-{
-    // Azure location to use when creating resources e.g uksouth
-    "location": "eastus",
-    // Name of the Publisher resource you want your definition published to.
-    // Will be created if it does not exist.
-    "publisher_name": "contoso",
-    // Resource group for the Publisher resource.
-    // Will be created if it does not exist.
-    "publisher_resource_group_name": "contoso",
-    // Name of the ACR Artifact Store resource.
-    // Will be created if it does not exist.
-    "acr_artifact_store_name": "contoso-artifact-store",
-    // Network Service Design (NSD) name. This is the collection of Network Service Design Versions. Will be created if it does not exist.
-    "nsd_name": "contoso-nsd",
-    // Version of the NSD to be created. This should be in the format A.B.C
-    "nsd_version": "1.0.0",
-    // Optional. Description of the Network Service Design Version (NSDV).
-    "nsdv_description": "An NSD that deploys the onboarded contoso-cnf NFD",
-    // List of Resource Element Templates (RETs).
-    // There must be at least one NF RET.
-    // ArmTemplate RETs are optional. Delete if not required.
-    "resource_element_templates": [
-        {
-            // Type of Resource Element. Either NF or ArmTemplate
-            "resource_element_type": "NF",
-            "properties": {
-                // The name of the existing publisher for the NSD.
-                "publisher": "contoso",
-                // The resource group that the publisher is hosted in.
-                "publisher_resource_group": "contoso",
-                // The name of the existing Network Function Definition Group to deploy using this NSD.
-                // This will be the same as the NF name if you published your NFDV using the CLI.
-                "name": "contoso-cnf-nfd",
-                // The version of the existing Network Function Definition to base this NSD on.
-                // This NSD will be able to deploy any NFDV with deployment parameters compatible with this version.
-                "version": "1.0.0",
-                // The region that the NFDV is published to.
-                "publisher_offering_location": "eastus",
-                // Type of Network Function. Valid values are 'cnf' or 'vnf'.
-                "type": "cnf"
-            }
-        }
-    ]
-}
-```
+  ```json
+  {
+      // Azure location to use when creating resources e.g uksouth
+      "location": "eastus",
+      // Name of the Publisher resource you want your definition published to.
+      // Will be created if it does not exist.
+      "publisher_name": "contoso",
+      // Resource group for the Publisher resource.
+      // Will be created if it does not exist.
+      "publisher_resource_group_name": "contoso",
+      // Name of the ACR Artifact Store resource.
+      // Will be created if it does not exist.
+      "acr_artifact_store_name": "contoso-artifact-store",
+      // Network Service Design (NSD) name. This is the collection of Network Service Design Versions. Will be created if it does not exist.
+      "nsd_name": "contoso-nsd",
+      // Version of the NSD to be created. This should be in the format A.B.C
+      "nsd_version": "1.0.0",
+      // Optional. Description of the Network Service Design Version (NSDV).
+      "nsdv_description": "An NSD that deploys the onboarded contoso-cnf NFD",
+      // List of Resource Element Templates (RETs).
+      // There must be at least one NF RET.
+      // ArmTemplate RETs are optional. Delete if not required.
+      "resource_element_templates": [
+          {
+              // Type of Resource Element. Either NF or ArmTemplate
+              "resource_element_type": "NF",
+              "properties": {
+                  // The name of the existing publisher for the NSD.
+                  "publisher": "contoso",
+                  // The resource group that the publisher is hosted in.
+                  "publisher_resource_group": "contoso",
+                  // The name of the existing Network Function Definition Group to deploy using this NSD.
+                  // This will be the same as the NF name if you published your NFDV using the CLI.
+                  "name": "contoso-cnf-nfd",
+                  // The version of the existing Network Function Definition to base this NSD on.
+                  // This NSD will be able to deploy any NFDV with deployment parameters compatible with this version.
+                  "version": "1.0.0",
+                  // The region that the NFDV is published to.
+                  "publisher_offering_location": "eastus",
+                  // Type of Network Function. Valid values are 'cnf' or 'vnf'.
+                  "type": "cnf"
+              }
+          }
+      ]
+  }
+  ```
 
 >[!NOTE]
 > The resource element template section defines which NFD is included in the NSD. The properties must match those used in the input file passed to the `az aosm nfd build` command. This is because the Azure CLI AOSM Extension validates that the NFD has been correctly onboarded when building the NSD.

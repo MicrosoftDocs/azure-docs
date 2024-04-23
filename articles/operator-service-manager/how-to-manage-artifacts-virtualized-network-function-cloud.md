@@ -9,7 +9,7 @@ ms.service: azure-operator-service-manager
 ms.custom: devx-track-azurecli
 
 ---
-# Push and pull VHD images to/from a Storage Account backed artifact store.
+# Push and pull VHD images to/from a Storage Account backed artifact store
 
 The Azure Operator Service Manager (AOSM) artifact store resource manages the artifacts required to deploy network functions (NFs). These artifacts include containerized network function (CNF) images, virtualized network function (VNF) images, Azure Resource Manager (ARM) templates, and Helm packages. There are two flavors of artifact store:
 

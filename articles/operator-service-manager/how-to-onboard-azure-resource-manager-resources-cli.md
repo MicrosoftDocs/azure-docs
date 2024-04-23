@@ -75,74 +75,74 @@ az extension add --name aosm
 
 1. Open the NSDV input file you generated when you onboarded your CNF.
 
-> [!NOTE]
-> You can generate a new input file using the `az aosm nsd generate-config --output-file <nsd-output-filename.jsonc>` command if you do not have the NSDV input file from your CNF onboarding.
+  > [!NOTE]
+  > You can generate a new input file using the `az aosm nsd generate-config --output-file <nsd-output-filename.jsonc>` command if you do not have the NSDV input file from your CNF onboarding.
 
 1. Enter the required values using the inline comments in your input file. This example shows the Az CLI AOSM extension input file for a fictional Contoso NSDV that can be used to deploy a fictional Contoso CNF onto an Arc-connected Nexus Kubernetes cluster and an AKV instance in an Azure location.
 
-```json
-{
-    // Azure location to use when creating resources e.g uksouth
-    "location": "eastus",
-    // Name of the Publisher resource you want your definition published to.
-    // Will be created if it does not exist.
-    "publisher_name": "contoso",
-    // Resource group for the Publisher resource.
-    // Will be created if it does not exist.
-    "publisher_resource_group_name": "contoso",
-    // Name of the ACR Artifact Store resource.
-    // Will be created if it does not exist.
-    "acr_artifact_store_name": "contoso-artifact-store",
-    // Network Service Design (NSD) name. This is the collection of Network Service Design Versions. Will be created if it does not exist.
-    "nsd_name": "contoso-nsd",
-    // Version of the NSD to be created. This should be in the format A.B.C
-    "nsd_version": "1.0.0",
-    // Optional. Description of the Network Service Design Version (NSDV).
-    "nsdv_description": "An NSD that deploys the onboarded contoso-cnf NFD and an Azure Key Vault",
-    // List of Resource Element Templates (RETs).
-    // There must be at least one NF RET.
-    // ArmTemplate RETs are optional. Delete if not required.
-    "resource_element_templates": [
-        {
-            // Type of Resource Element. Either NF or ArmTemplate
-            "resource_element_type": "NF",
-            "properties": {
-                // The name of the existing publisher for the NSD.
-                "publisher": "contoso",
-                // The resource group that the publisher is hosted in.
-                "publisher_resource_group": "contoso",
-                // The name of the existing Network Function Definition Group to deploy using this NSD.
-                // This will be the same as the NF name if you published your NFDV using the CLI.
-                "name": "contoso-cnf-nfd",
-                // The version of the existing Network Function Definition to base this NSD on.
-                // This NSD will be able to deploy any NFDV with deployment parameters compatible with this version.
-                "version": "1.0.0",
-                // The region that the NFDV is published to.
-                "publisher_offering_location": "eastus",
-                // Type of Network Function. Valid values are 'cnf' or 'vnf'.
-                "type": "cnf"
-            }
-        },
-        {
-            // Type of Resource Element. Either NF or ArmTemplate
-            "resource_element_type": "ArmTemplate",
-            // Properties of the Resource Element.
-            "properties": {
-                // Name of the artifact. Used as internal reference only.
-                "artifact_name": "contoso-keyvault",
-                // Version of the artifact in 1.1.1 format (three integers separated by dots).
-                "version": "1.0.0",
-                // File path (absolute or relative to this configuration file) of the artifact you wish to upload from your local disk.
-                // Use Linux slash (/) file separator even if running on Windows.
-                "file_path": "./contoso-keyvault.json"
-            }
-        }
-    ]
-}
-```
-> [!NOTE]
-> The resource element template section defines which NFD is included in the NSD. The properties must match those used in the input file passed to the `az aosm nfd build` command. This is because the Azure CLI AOSM Extension validates that the NFD has been correctly onboarded when building the NSD.
-
+  ```json
+  {
+      // Azure location to use when creating resources e.g uksouth
+      "location": "eastus",
+      // Name of the Publisher resource you want your definition published to.
+      // Will be created if it does not exist.
+      "publisher_name": "contoso",
+      // Resource group for the Publisher resource.
+      // Will be created if it does not exist.
+      "publisher_resource_group_name": "contoso",
+      // Name of the ACR Artifact Store resource.
+      // Will be created if it does not exist.
+      "acr_artifact_store_name": "contoso-artifact-store",
+      // Network Service Design (NSD) name. This is the collection of Network Service Design Versions. Will be created if it does not exist.
+      "nsd_name": "contoso-nsd",
+      // Version of the NSD to be created. This should be in the format A.B.C
+      "nsd_version": "1.0.0",
+      // Optional. Description of the Network Service Design Version (NSDV).
+      "nsdv_description": "An NSD that deploys the onboarded contoso-cnf NFD and an Azure Key Vault",
+      // List of Resource Element Templates (RETs).
+      // There must be at least one NF RET.
+      // ArmTemplate RETs are optional. Delete if not required.
+      "resource_element_templates": [
+          {
+              // Type of Resource Element. Either NF or ArmTemplate
+              "resource_element_type": "NF",
+              "properties": {
+                  // The name of the existing publisher for the NSD.
+                  "publisher": "contoso",
+                  // The resource group that the publisher is hosted in.
+                  "publisher_resource_group": "contoso",
+                  // The name of the existing Network Function Definition Group to deploy using this NSD.
+                  // This will be the same as the NF name if you published your NFDV using the CLI.
+                  "name": "contoso-cnf-nfd",
+                  // The version of the existing Network Function Definition to base this NSD on.
+                  // This NSD will be able to deploy any NFDV with deployment parameters compatible with this version.
+                  "version": "1.0.0",
+                  // The region that the NFDV is published to.
+                  "publisher_offering_location": "eastus",
+                  // Type of Network Function. Valid values are 'cnf' or 'vnf'.
+                  "type": "cnf"
+              }
+          },
+          {
+              // Type of Resource Element. Either NF or ArmTemplate
+              "resource_element_type": "ArmTemplate",
+              // Properties of the Resource Element.
+              "properties": {
+                  // Name of the artifact. Used as internal reference only.
+                  "artifact_name": "contoso-keyvault",
+                  // Version of the artifact in 1.1.1 format (three integers separated by dots).
+                  "version": "1.0.0",
+                  // File path (absolute or relative to this configuration file) of the artifact you wish to upload from your local disk.
+                  // Use Linux slash (/) file separator even if running on Windows.
+                  "file_path": "./contoso-keyvault.json"
+              }
+          }
+      ]
+  }
+  ```
+  > [!NOTE]
+  > The resource element template section defines which NFD is included in the NSD. The properties must match those used in the input file passed to the `az aosm nfd build` command. This is because the Azure CLI AOSM Extension validates that the NFD has been correctly onboarded when building the NSD.
+  
 1. Execute the following command to build the Network Service Design Group and Version BICEP templates.
 
 ```azurecli
