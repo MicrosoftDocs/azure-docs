@@ -125,7 +125,7 @@ You can deploy the guest attestation extension for trusted launch VMs using a qu
 
 If Secure Boot and vTPM are ON, boot integrity will be ON.
 
-1. Create a virtual machine with Trusted Launch that has Secure Boot + vTPM capabilities through initial deployment of the trusted launch virtual machine. Configuration of virtual machines are customizable by virtual machine owner.
+1. Create a virtual machine with Trusted Launch that has Secure Boot + vTPM capabilities through initial deployment of the trusted launch virtual machine. Configuration of virtual machines is customizable by virtual machine owner.
 1. For existing VMs, you can enable boot integrity monitoring settings by updating to make sure both SecureBoot and vTPM are on.
 
 For more information on creation or updating a virtual machine to include the boot integrity monitoring through the guest attestation extension, see [Deploy a VM with trusted launch enabled (PowerShell)](trusted-launch-portal.md#deploy-a-trusted-launch-vm).
@@ -153,7 +153,7 @@ Unblocking Microsoft Azure Attestation traffic in **Network Security Groups** us
 1. To allow Microsoft Azure Attestation, make the destination a **service tag**. This allows for the range of IP addresses to update and automatically set allow rules for Microsoft Azure Attestation. The destination service tag is **AzureAttestation** and action is set to **Allow**.
     :::image type="content" source="media/trusted-launch/unblocking-NSG.png" alt-text="Screenshot showing how to make the destination a service tag.":::
 
-Firewalls protects a virtual network, which contains multiple Trusted Launch virtual machines. To unblock Microsoft Azure Attestation traffic in **Firewall** using application rule collection. 
+Firewalls protect a virtual network, which contains multiple Trusted Launch virtual machines. To unblock Microsoft Azure Attestation traffic in **Firewall** using application rule collection. 
 
 1. Navigate to the Azure Firewall, that has traffic blocked from the Trusted Launch virtual machine resource. 
 2. Under settings, select Rules (classic) to begin unblocking guest attestation behind the Firewall.
