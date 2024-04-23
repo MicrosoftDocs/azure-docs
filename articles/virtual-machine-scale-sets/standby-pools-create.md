@@ -131,18 +131,30 @@ PUT https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{
 ```
 
 ### [Bicep](#tab/bicep)
+Create a standby pool and associate it with an existing scale set. Deploy the template using [az deployment group create](/cli/azure/deployment/group) or [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment).
+
 ```bicep
 param location string = resourceGroup().location
+param standbyPoolName string = '{standbyPoolName}'
+param maxReadyCapacity int = {maxReadyCapacityCount}
+@allowed([
+  'Running'
+  'Deallocated'
+])
+param vmState string = '{vmState}'
+param virtualMachineScaleSetId string = '{vmssId}'
 
 resource standbyPool 'Microsoft.standbypool/standbyvirtualmachinepools@2023-12-01-preview' = {
-    name: {StandbyPoolName}
-    location: location
-    properties: {
-        maxReadyCapacity: 20
-        virtualMachineState: 'Deallocated'
-        attachedVirtualMachineScaleSetId: ['/subscriptions/{SubscriptionID}/resourceGroups/{ResourceGroup}/providers/Microsoft.Compute/virtualMachineScaleSets/{ScaleSetName}]
-        }
-    } 
+  name: standbyPoolName
+  location: location
+  properties: {
+     elasticityProfile: {
+      maxReadyCapacity: maxReadyCapacity
+    }
+    virtualMachineState: vmState
+    attachedVirtualMachineScaleSetId: virtualMachineScaleSetId
+  }
+}
 ```
 
 
