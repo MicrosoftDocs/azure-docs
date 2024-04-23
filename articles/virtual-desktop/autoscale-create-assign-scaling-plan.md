@@ -35,6 +35,10 @@ To use scaling plans, make sure you follow these guidelines:
     > Hibernation is currently in PREVIEW.
     > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 - If you are using PowerShell to create and assign your scaling plan, you will need module [Az.DesktopVirtualization](https://www.powershellgallery.com/packages/Az.DesktopVirtualization/) version 4.2.0 or later. 
+- If you are [configuring a time limit policy using Microsoft Intune](#configure-a-time-limit-policy-using-microsoft-intune), you will need: 
+    - A Microsoft Entra ID account that is assigned the Policy and Profile manager built-in RBAC role.
+    - A group containing the devices you want to configure.
+
 
 ## Assign the Desktop Virtualization Power On Off Contributor role with the Azure portal
 
@@ -120,9 +124,11 @@ Now that you've assigned the *Desktop Virtualization Power On Off Contributor* r
     
         > [!IMPORTANT]
         > - If you've enabled autoscale to force users to sign out during ramp-down, the feature will choose the session host with the lowest number of user sessions (active and disconnected) to shut down. Autoscale will put the session host in drain mode, send those user sessions a notification telling them they'll be signed out, and then sign out those users after the specified wait time is over. After autoscale signs out those user sessions, it then deallocates the VM.
+
         > - If you haven't enabled forced sign out during ramp-down, you then need to choose whether you want to shut down ‘VMs have no active or disconnected sessions’ or ‘VMs have no active sessions’ during ramp-down.
+
         > - Whether you’ve enabled autoscale to force users to sign out during ramp-down or not, the [capacity threshold](autoscale-glossary.md#capacity-threshold) and the [minimum percentage of hosts](autoscale-glossary.md#minimum-percentage-of-hosts) are still respected, autoscale will only shut down VMs if all existing user sessions (active and disconnected) in the host pool can be consolidated to fewer VMs without exceeding the capacity threshold.
-        > - You can also configure the time limit policy that will apply to all phases to sign out all disconnected users to reduce the [used host pool capacity](autoscale-glossary.md#used-host-pool-capacity), go to **Local Computer Policy** > **Computer Configuration** > **Administrative Templates** > **Windows Components** > **Remote Desktop Services** > **Remote Desktop Session Host** > **Session Time Limits** > **Set time limit for disconnected sessions**.
+        
     
         - Likewise, **Off-peak hours** works the same way as **Peak hours**:
     
@@ -314,9 +320,24 @@ Here's how to create a scaling plan using the Az.DesktopVirtualization PowerShel
     
  You have now created a new scaling plan, 1 or more schedules, assigned it to your pooled or personal host pool(s), and enabled autoscale. 
 
-
-
 ---
+
+## Configure a time limit policy using Microsoft Intune
+
+You can configure a time limit policy that will sign out all disconnected users to reduce the [used host pool capacity](autoscale-glossary.md#used-host-pool-capacity). 
+
+To configure the policy using Intune, follow these steps: 
+
+1. Sign in to the [Microsoft Intune admin center](https://intune.microsoft.com/).
+2. Select **Devices** and **Configuration**. Then, select **Create** and **New policy**. 
+3. In **Profile type**, select **Settings catalog** and then **Create**. This will take you to the **Create profile** page.
+4. On the **Basics** tab, enter a name for your policy. Select **Next**.
+5. On the **Configuration settings** tab, select **Add settings**. 
+6. In the **Settings picker** pane, select **Administrative Templates** > **Windows Components** > **Remote Desktop Services** > **Remote Desktop Session Host** > **Session Time Limits**. Then select the checkbox for **Set time limit for disconnected sessions**.
+7. The settings to enable the time limit will appear in the **Configuration settings** tab. Select your desired time limit in the drop-down menu for **End a disconnected session (Device)** and change the toggle to **Enabled** for **Set time limit for disconnected sessions**.
+8. On the **Assignments** tab, select the group containing the computers providing a remote session you want to configure, then select Next.
+9. On the **Review + create** tab, review the settings, then select **Create**.
+
 
 ## Edit an existing scaling plan
 
