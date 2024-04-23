@@ -751,7 +751,7 @@ Starting from version 3.2.0, you can enable the following preview instrumentatio
 }
 ```
 
-## Custom Instrumentation (preview)
+## Custom instrumentation (preview)
 
 Starting from verion 3.3.1, you can enable custom method instrumentation of your application:
 
