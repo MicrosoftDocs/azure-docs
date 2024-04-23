@@ -115,7 +115,7 @@ To get the same top intent between all the apps, make sure the intent prediction
 
 When training these apps, make sure to [train with all data](how-to/train-test.md).
 
-Designate a single main app. Any utterances that are suggested for review should be added to the main app, then moved back to all the other apps. This is either a full export of the app, or loading the labeled utterances from the main app to the other apps. Loading can be done from either the [LUIS](./luis-reference-regions.md) website or the authoring API for a [single utterance](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c08) or for a [batch](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c09).
+Designate a single main app. Any utterances that are suggested for review should be added to the main app, then moved back to all the other apps. This is either a full export of the app, or loading the labeled utterances from the main app to the other apps. Loading can be done from either the [LUIS](./luis-reference-regions.md?view=rest-cognitiveservices-luis-authoring-v3.0-preview&tabs=HTTP) website or the authoring API for a [single utterance](/rest/api/cognitiveservices-luis/authoring/examples/add) or for a [batch](/rest/api/cognitiveservices-luis/authoring/examples/batch?view=rest-cognitiveservices-luis-authoring-v3.0-preview&tabs=HTTP).
 
 Schedule a periodic review, such as every two weeks, of [endpoint utterances](how-to/improve-application.md) for active learning, then retrain and republish the app.
 
