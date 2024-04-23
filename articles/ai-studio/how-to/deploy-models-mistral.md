@@ -24,7 +24,7 @@ Mistral AI offers two categories of models in [Azure AI Studio](https://ai.azure
 
 You can browse the Mistral family of models in the [Model Catalog](model-catalog.md) by filtering on the Mistral collection.
 
-## Mistral Models
+## Mistral family of Models
 
 In this article, you learn how to use Azure AI Studio to deploy the Mistral family of models as a service with pay-as-you-go billing.
 # [Mistral Large](#tab/mistral-large)
@@ -49,7 +49,7 @@ Mistral Small is:
 - **Strong in coding.** Code generation, review and comments. Supports all mainstream coding languages.
 - **Multi-lingual by design.** Best-in-class performance in French, German, Spanish, and Italian - in addition to English. Dozens of other languages are supported.
 - **Responsible AI.** Efficient guardrails baked in the model, with additional safety layer with safe_mode option
-
+---
 ## Deploy Mistral family of models with pay-as-you-go
 
 Certain models in the model catalog can be deployed as a service with pay-as-you-go, providing a way to consume them as an API without hosting them on your subscription, while keeping the enterprise security and compliance organizations need. This deployment option doesn't require quota from your subscription.
