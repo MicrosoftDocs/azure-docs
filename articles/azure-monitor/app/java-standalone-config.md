@@ -413,6 +413,23 @@ For more information, see the [Telemetry processor](./java-standalone-telemetry-
 > [!NOTE]
 > If you want to drop specific (whole) spans for controlling ingestion cost, see [Sampling overrides](./java-standalone-sampling-overrides.md).
 
+## Custom instrumentation (preview)
+
+Starting from verion 3.3.1, you can capture spans for a method in your application:
+
+```json
+{
+  "preview": {
+    "customInstrumentation": [
+      {
+        "className": "my.package.MyClass",
+        "methodName": "myMethod"
+      }
+    ]
+  }
+}
+```
+
 ## Autocollected logging
 
 Log4j, Logback, JBoss Logging, and java.util.logging are autoinstrumented. Logging performed via these logging frameworks is autocollected.
@@ -747,23 +764,6 @@ Starting from version 3.2.0, you can enable the following preview instrumentatio
         "enabled": true
       }
     }
-  }
-}
-```
-
-## Custom instrumentation (preview)
-
-Starting from verion 3.3.1, you can enable custom method instrumentation of your application:
-
-```json
-{
-  "preview": {
-    "customInstrumentation": [
-      {
-        "className": "my.package.MyClass",
-        "methodName": "myMethod"
-      }
-    ]
   }
 }
 ```
