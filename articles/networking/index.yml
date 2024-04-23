@@ -35,9 +35,9 @@ highlightedContent:
     - title: Define an Azure network topology
       itemType: architecture
       url: /azure/cloud-adoption-framework/ready/azure-best-practices/define-an-azure-network-topology
-    - title: Azure Network Watcher
-      itemType: overview
-      url: ../network-watcher/network-watcher-overview.md
+    - title: Network Architecture Design
+      itemType: architecture
+      url: /azure/architecture/networking
     - title: Apply Zero Trust principles to encrypting Azure-based network communications
       itemType: architecture
       url: /security/zero-trust/azure-networking-encryption
