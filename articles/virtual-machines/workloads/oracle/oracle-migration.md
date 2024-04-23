@@ -47,7 +47,7 @@ Azure enhances the Oracle tools with the right network connectivity, bandwidth, 
 - [AzCopy](/azure/storage/common/storage-ref-azcopy)
 - [Data Box](/azure/databox/data-box-overview)
 
-**Approach**
+**Oracle tools for data migration**
 
 The following diagram is a pictographic representation of the overall migration portfolio.
 
