@@ -78,4 +78,4 @@ The command will return a boolean value indicating whether "Anonymous Pull" is e
 * Learn about options to [authenticate](container-registry-authentication.md) to an Azure container registry.
 
 
-[az-acr-show]: /cli/azure/acr?view=azure-cli-latest#az-acr-show
+[az-acr-show]: /cli/azure/acr#az-acr-show
