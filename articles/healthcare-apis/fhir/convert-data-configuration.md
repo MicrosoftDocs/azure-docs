@@ -1,11 +1,11 @@
 ---
-title: Configure settings for $convert-data using the Azure portal - Azure Health Data Services
-description: Learn how to configure settings for $convert-data using the Azure portal.
+title: Configure $convert-data settings for the FHIR service in Azure Health Data Services
+description: Learn how to configure settings for the $convert-data operation to convert healthcare data into FHIR R4 format.
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 08/28/2023
+ms.date: 05/06/2024
 ms.author: jasteppe
 ---
 
@@ -201,10 +201,10 @@ You should receive a `bundle` response that contains the health data converted i
 
 ## Next steps
 
-> [Overview of $convert-data](overview-of-convert-data.md)
+> [Overview of $convert-data](convert-data-overview.md)
 
-> [Troubleshoot $convert-data](troubleshoot-convert-data.md)
+> [Troubleshoot $convert-data](convert-data-troubleshoot.md)
 
-> [Frequently asked questions about $convert-data](frequently-asked-questions-convert-data.md)
+> [$convert-data FAQ](convert-data-faq.md)
 
 [!INCLUDE [FHIR trademark statement](../includes/healthcare-apis-fhir-trademark.md)]
