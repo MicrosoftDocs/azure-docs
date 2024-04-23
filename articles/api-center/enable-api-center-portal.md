@@ -1,30 +1,44 @@
 ---
-title: Enable API Center portal - Azure API Center
-description: Enable the API Center portal, an automatically generated website that enables discovery of your API inventory.
+title: Self-host the API Center portal
+description: How to self-host the API Center portal, a customer-managed website that enables discovery of your API inventory.
 author: dlepow
 ms.service: api-center
 ms.topic: how-to
-ms.date: 03/18/2024
+ms.date: 04/23/2024
 ms.author: danlep 
 ms.custom: 
 # Customer intent: As an API program manager, I want to enable a portal for developers and other API stakeholders in my organization to discover the APIs in my organization's API center.
 ---
 
-# Enable your API Center portal
+# Self-host your API Center portal
 
-This article shows how to enable your *API Center portal*, an automatically generated website that developers and other stakeholders in your organization can use to discover the APIs in your [API center](overview.md). The portal is hosted by Azure at a unique URL and restricts user access based on Azure role-based access control.
+This article introduces the *API Center portal*, a website that developers and other stakeholders in your organization can use to discover the APIs in your [API center](overview.md). Deploy a reference implementation of the portal from the [API Center portal starter](https://github.com/Azure/APICenter-Portal-Starter.git) repository.
 
-> [!IMPORTANT]
-> The Azure-hosted API Center portal is experimental and will be removed from API Center in an upcoming release. You will have an option to self-host an API Center portal for API discovery in an upcoming release.
-
+:::image type="content" source="media/enable-api-center-portal/api-center-portal-signed-in.png" alt-text="Screenshot of the API Center portal after user sign-in.":::
 
 
+## About the API Center portal
+
+The API Center portal is a website that you can host in your Azure subscription to display the API inventory in your API center. The portal enables developers and other stakeholders in your organization to discover APIs and view API details. 
+
+A reference implementation of the portal can be built using code in the [API Center portal starter](https://github.com/Azure/APICenter-Portal-Starter.git) repository. The portal uses the [Azure API Center data plane API](/rest/api/dataplane/apicenter/operation-groups) to retrieve data from your API center and restricts user access based on Azure role-based access control.
+
+The API Center portal reference implementation provides:
+
+* A framework for publishing and maintaining a customer-managed API portal using GitHub Actions
+* A portal platform that customers can modify or extend to meet their needs
+* Flexibility to host on different infrastructures, including deployment to Azure Static Web Apps or Azure App Service.  
 
 ## Prerequisites
 
 * An API center in your Azure subscription. If you haven't created one already, see [Quickstart: Create your API center](set-up-api-center.md).
 
 * Permissions to create an app registration in a Microsoft Entra tenant associated with your Azure subscription, and permissions to grant access to data in your API center. 
+
+* To build and deploy the portal, you need a GitHub account and the following tools installed on your local machine:
+
+    * [Node.js and npm](https://docs.npmjs.com/downloading-andinstalling-node-js-and-npm)
+    * [Vite package](https://www.npmjs.com/package/vite)
 
 ## Create Microsoft Entra app registration
 
@@ -36,14 +50,12 @@ First configure an app registration in your Microsoft Entra ID tenant. The app r
     
     * Set **Name** to a meaningful name such as *api-center-portal*
     * Under **Supported account types**, select **Accounts in this organizational directory (Single tenant)**. 
-    * In **Redirect URI**, select **Single-page application (SPA)** and enter the following URI, substituting your API center name and region where indicated:
+    * In **Redirect URI**, select **Single-page application (SPA)** and set the URI.
 
-        `https://<api-center-name>.portal.<region>.azure-apicenter.ms`
-
-        Example: `https://contoso.portal.westeurope.azure-apicenter.ms`
-
+        * For local testing, set the URI to `http://localhost:5173`. 
+        * For production, set the URI to the URL of your API Center portal, which is in the format `https://<api-center-name>.portal.<region>.azure-apicenter.ms`
     * Select **Register**.
-1. On the **Overview** page, copy the **Application (client) ID**. You use this value when you configure the identity provider for the portal in your API center.
+1. On the **Overview** page, copy the **Application (client) ID** and the **Directory (tenant) ID**. You set these values when you build the portal.
       
 1. On the **API permissions** page, select **+ Add a permission**. 
     1. On the **Request API permissions** page, select the **APIs my organization uses** tab. Search for and select **Azure API Center**. You can also search for and select application ID `c3ca1a77-7a87-4dba-b8f8-eea115ae4573`. 
@@ -54,41 +66,57 @@ First configure an app registration in your Microsoft Entra ID tenant. The app r
 
     :::image type="content" source="media/enable-api-center-portal/configure-app-permissions.png" alt-text="Screenshot of required permissions in Microsoft Entra ID app registration in the portal." lightbox="media/enable-api-center-portal/configure-app-permissions.png":::
 
+## Configure local environment
 
-## Configure Microsoft Entra ID provider for API Center portal
+1. Clone the [API Center portal starter](https://github.com/Azure/APICenter-Portal-Starter.git) repository to your local machine.
 
-In your API center, configure the Microsoft Entra ID identity provider for the API Center portal.
+    ```bash
+    git clone https://github.com/Azure/APICenter-Portal-Starter.git
+    ```
+    
+1. To configure the service, edit the `public/config.json` file to point to your service. Where indicated:
+    * Replace `<service name>` and `<region>` with the name of your API center and the region where it's deployed
+    * Replace `<client ID>` and `<tenant ID>` with the **Application (client) ID** and **Directory (tenant) ID** of the app registration you created in the previous section.
 
-1. In the [Azure portal](https://portal.azure.com), navigate to your API center.
-1. In the left menu, under **API Center portal**, select **Portal settings**.
-1. Select **Identity provider** > **Start set up**.
-1. On the **Set up user sign-in with Microsoft Entra ID** page, in **Client ID**, enter the **Application (client) ID** of the app registration that you created in the previous section.
+    > [!TIP]
+    > Update the `title` property to a name that you want to appear on the portal.
 
-    :::image type="content" source="media/enable-api-center-portal/set-up-sign-in-portal.png" alt-text="Screenshot of the Microsoft Entra ID provider settings in the API Center portal." lightbox="media/enable-api-center-portal/set-up-sign-in-portal.png":::
+    ```json
+    {
+      "dataApiHostName": "<service name>.data.<region>.azure-apicenter.ms",
+      "title": "API portal",
+      "authentication": {
+          "clientId": "<client ID>",
+          "tenantId": "<tenant ID>",
+          "scopes": ["https://azure-apicenter.net/user_impersonation"],
+          "authority": "https://login.microsoftonline.com/"
+      }
+    }
+    ```
 
-1. Select **Save + publish**. The Microsoft Entra ID provider appears on the **Identity provider** page.
+1. Start the development server to test the portal locally.
 
-1. To view the API Center portal, on the **Portal settings** page, select **View API Center portal**.
+    ```bash
+    npm start
+    ```
 
-The portal is published at the following URL that you can share with developers in your organization: `https://<api-center-name>.<region>.azure-apicenter.ms`.
+    Browse to the portal at `https://localhost:5173`.
 
-:::image type="content" source="media/enable-api-center-portal/api-center-portal-home.png" alt-text="Screenshot of the API Center portal home page.":::
+1. When you're ready to build the portal for production, run the following command.
 
-## Customize portal name
+    ```bash
+    npm run build
+    ```
 
-By default, the name that appears on the upper left of the API Center portal is the name of your API center. You can customize this name.
 
-1. In the Azure portal, go to the **Portal settings** > **Site profile** page.
-1. Enter a new name in **Add a website name**.
-1. Select **Save + publish**.
+## Deploy to Azure
 
-    :::image type="content" source="media/enable-api-center-portal/add-website-name.png" alt-text="Screenshot of adding a custom website name in the Azure portal.":::
+For options to deploy the portal to Azure Static Web Apps or Azure App Service, see the [API Center portal starter](https://github.com/Azure/APICenter-Portal-Starter.git) repository.
 
-    The new name appears after you refresh the API Center portal.
 
 ## Enable sign-in to portal by Microsoft Entra users and groups 
 
-While the portal URL is publicly accessible, users must sign in to see the APIs in your API center. To enable sign-in, assign the **Azure API Center Data Reader** role to users or groups in your organization, scoped to your API center.
+Users must sign in to see the APIs in your API center. To enable sign-in, assign the **Azure API Center Data Reader** role to users or groups in your organization, scoped to your API center.
 
 > [!IMPORTANT]
 > By default, you and other administrators of the API center don't have access to APIs in the API Center portal. Be sure to assign the **Azure API Center Data Reader** role to yourself and other administrators.  
@@ -112,6 +140,7 @@ After you configure access to the portal, configured users can sign in to the po
 > The first user to sign in to the portal is prompted to consent to the permissions requested by the API Center portal app registration. Thereafter, other configured users aren't prompted to consent.
 
 :::image type="content" source="media/enable-api-center-portal/api-center-portal-signed-in.png" alt-text="Screenshot of the API Center portal after user sign-in.":::
+
 
 ## Troubleshooting
 
@@ -137,7 +166,7 @@ If users who have been assigned the **Azure API Center Data Reader** role can't 
 In the Microsoft Entra app registration, review and, if needed, update the **Redirect URI** settings:
 
 * Platform: **Single-page application (SPA)**
-* URI: `https://<api-center-name>.portal.<region>.azure-apicenter.ms`. This value must be the URI shown for the Microsoft Entra ID provider for your API Center portal.
+* URI: `https://<api-center-name>.portal.<region>.azure-apicenter.ms`. 
 
 ### Unable to select Azure API Center permissions in Microsoft Entra app registration
 
@@ -150,6 +179,14 @@ az provider register --namespace Microsoft.ApiCenter
 ```
 
 After re-registering the resource provider, try again to request API permissions.
+
+
+## Data API for API Center
+
+
+
+## Support policy
+
 
 
 ## Related content
