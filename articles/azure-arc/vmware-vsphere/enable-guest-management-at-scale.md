@@ -92,7 +92,7 @@ Arc agent installation can be automated using the helper script built using the 
 
 - Allows for service principal authentication to Azure for automation. 
 
-Before running this script, install az cli and the connectedvmware extension. 
+Before running this script, install az cli and the `connectedvmware` extension. 
 
 ### Prerequisites 
 
@@ -146,33 +146,33 @@ Arc agents can be installed directly on machines without relying on VMware tools
 
 1. **Connect the machines as Arc-enabled Server resources:** Install Arc agents using Arc-enabled Server scripts. 
 
-You can use any of the following automation approaches to install Arc agents at scale:
+    You can use any of the following automation approaches to install Arc agents at scale:
 
-- [Install Arc agents at scale using a Service Principal](../servers/onboard-service-principal.md).
-- [Install Arc agents at scale using Configuration Manager script](../servers/onboard-configuration-manager-powershell.md).
-- [Install Arc agents at scale with a Configuration Manager custom task sequence](../servers/onboard-configuration-manager-custom-task.md).
-- [Install Arc agents at scale using Group policy](../servers/onboard-group-policy-powershell.md).
-- [Install Arc agents at scale using Ansible playbook](../servers/onboard-ansible-playbooks.md).
+   - [Install Arc agents at scale using a Service Principal](../servers/onboard-service-principal.md).
+   - [Install Arc agents at scale using Configuration Manager script](../servers/onboard-configuration-manager-powershell.md).
+   - [Install Arc agents at scale with a Configuration Manager custom task sequence](../servers/onboard-configuration-manager-custom-task.md).
+   - [Install Arc agents at scale using Group policy](../servers/onboard-group-policy-powershell.md).
+   - [Install Arc agents at scale using Ansible playbook](../servers/onboard-ansible-playbooks.md).
 
 2. **Link Arc-enabled Server resources to the vCenter:** The following commands will update the Kind property of Hybrid Compute machines as **VMware**. Linking the machines to vCenter will enable virtual lifecycle operations and power cycle operations (start, stop, etc.) on the machines.  
 
-- The following command scans all the Arc for Server machines that belong to the vCenter in the specified subscription and links the machines with that vCenter. 
+   - The following command scans all the Arc for Server machines that belong to the vCenter in the specified subscription and links the machines with that vCenter. 
 
-   ```azurecli
-   az connectedvmware vm create-from-machines --subscription contoso-sub --vcenter-id /subscriptions/fedcba98-7654-3210-0123-456789abcdef/resourceGroups/contoso-rg-2/providers/Microsoft.HybridCompute/vcenters/contoso-vcenter
-   ```
+     ```azurecli
+     az connectedvmware vm create-from-machines --subscription contoso-sub --vcenter-id /subscriptions/fedcba98-7654-3210-0123-456789abcdef/resourceGroups/contoso-rg-2/providers/Microsoft.HybridCompute/vcenters/contoso-vcenter
+     ```
 
-- The following command scans all the Arc for Server machines that belong to the vCenter in the specified Resource Group and links the machines with that vCenter. 
+   - The following command scans all the Arc for Server machines that belong to the vCenter in the specified Resource Group and links the machines with that vCenter. 
 
-   ```azurecli
-   az connectedvmware vm create-from-machines --resource-group contoso-rg --vcenter-id /subscriptions/fedcba98-7654-3210-0123-456789abcdef/resourceGroups/contoso-rg-2/providers/Microsoft.HybridCompute/vcenters/contoso-vcenter.
-   ```
+     ```azurecli
+     az connectedvmware vm create-from-machines --resource-group contoso-rg --vcenter-id /subscriptions/fedcba98-7654-3210-0123-456789abcdef/resourceGroups/contoso-rg-2/providers/Microsoft.HybridCompute/vcenters/contoso-vcenter.
+     ```
 
-- The following command can be used to link an individual Arc for Server resource to vCenter. 
+   - The following command can be used to link an individual Arc for Server resource to vCenter. 
 
-   ```azurecli
-   az connectedvmware vm create-from-machines --resource-group contoso-rg --name contoso-vm --vcenter-id /subscriptions/fedcba98-7654-3210-0123-456789abcdef/resourceGroups/contoso-rg-2/providers/Microsoft.HybridCompute/vcenters/contoso-vcenter
-   ```
+     ```azurecli
+     az connectedvmware vm create-from-machines --resource-group contoso-rg --name contoso-vm --vcenter-id /subscriptions/fedcba98-7654-3210-0123-456789abcdef/resourceGroups/contoso-rg-2/providers/Microsoft.HybridCompute/vcenters/contoso-vcenter
+     ```
 
 ## Next steps
 
