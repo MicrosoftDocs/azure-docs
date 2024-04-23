@@ -21,7 +21,7 @@ You can:
 * Manage your agreement with an enterprise customer.
 * Manage numbers for the enterprise.
 * View civic addresses for an enterprise.
-* Configure a custom header for a number (available for all communications services except Azure Operator Call Protection Preview and Teams Phone Mobile).
+* Configure a custom header for a number (not available for Teams Phone Mobile).
 
 ## Prerequisites
 
