@@ -363,6 +363,8 @@ az acr import \
 ```azurepowershell
 Import-AzContainerRegistryImage -RegistryName myregistry -ResourceGroupName myResourceGroup -SourceRegistryUri docker.io/sourcerepo -SourceImage sourcerrepo:tag -Username <username> -Password <password>
 ```
+> [!NOTE]
+> If you're importing from a non-Azure private registry with IP rules or firewall rules, [follow these steps.](container-registry-access-selected-networks.md) 
 
 ---
 
