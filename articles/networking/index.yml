@@ -32,9 +32,9 @@ highlightedContent:
     - title: Azure Networking blogs
       itemType: concept
       url: https://azure.microsoft.com/blog/topics/networking/
-    - title: Define an Azure network topology
-      itemType: architecture
-      url: /azure/cloud-adoption-framework/ready/azure-best-practices/define-an-azure-network-topology
+    - title: Design a hybrid network architecture on Azure
+      itemType: learn
+      url: /training/modules/design-a-hybrid-network-architecture/
     - title: Network Architecture Design
       itemType: architecture
       url: /azure/architecture/networking
