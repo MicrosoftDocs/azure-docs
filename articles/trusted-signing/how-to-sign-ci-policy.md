@@ -3,7 +3,7 @@ title: Signing CI Policies
 description: Learn how to sign new CI policies with Trusted Signing.  
 author: microsoftshawarma 
 ms.author: rakiasegev 
-ms.service: azure-code-signing 
+ms.service: trusted-signing
 ms.topic: how-to 
 ms.date: 04/04/2024 
 ms.custom: template-how-to-pattern 

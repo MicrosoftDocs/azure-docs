@@ -3,7 +3,7 @@ title: Assign roles in Trusted Signing #Required; page title displayed in search
 description: Tutorial on assigning roles in the Trusted Signing service. #Required; article description that is displayed in search results. Include the word "tutorial".
 author: microsoftshawarma #Required; your GitHub user alias, with correct capitalization.
 ms.author: rakiasegev #Required; microsoft alias of author; optional team alias.
-ms.service: azure-code-signing #Required; service per approved list. slug assigned by ACOM.
+ms.service: trusted-signing
 ms.topic: tutorial #Required; leave this attribute/value as-is.
 ms.date: 03/21/2023 #Required; mm/dd/yyyy format.
 ---
