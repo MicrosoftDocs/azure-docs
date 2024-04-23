@@ -3,7 +3,7 @@ title: Trusted Signing certificate management
 description: Learn about the certificates used in Trusted Signing, including the two unique certificate attributes, the zero-touch certificate lifecycle management process, and most effective ways to manage the certificates.
 author: ianjmcm
 ms.author: ianmcm
-ms.service: azure-code-signing
+ms.service: trusted-signing
 ms.topic: concept-article
 ms.date: 04/03/2024
 ms.custom: template-concept

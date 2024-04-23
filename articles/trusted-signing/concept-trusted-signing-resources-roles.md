@@ -3,7 +3,7 @@ title: Trusted Signing resources and roles
 description: Trusted Signing is a Microsoft fully managed end-to-end signing solution that simplifies the signing process for Azure developers. Learn all about the resources and roles specific to Trusted Signing, such as identity validations, certificate profiles, and the trusted signing identity verifier.
 author: ianjmcm
 ms.author: ianmcm
-ms.service: azure-code-signing
+ms.service: trusted-signing
 ms.topic: concept-article
 ms.date: 04/03/2024
 ms.custom: template-concept

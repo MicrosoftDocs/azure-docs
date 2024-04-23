@@ -3,7 +3,7 @@ title: Trusted Signing trust models
 description: Trusted Signing is a fully managed end-to-end service for signing. Managed as an Azure resource, the service functions through the familiar tenant and subscription management experiences. In this article, learn what a trust model is, the two primary trust models provided in Trusted Signing (Public-Trust and Private-Trust), and the signing scenarios and security features that each of the Trusted Signing trust models support.
 author: ianjmcm
 ms.author: ianmcm
-ms.service: azure-code-signing
+ms.service: trusted-signing
 ms.topic: concept-article
 ms.date: 04/03/2024
 ms.custom: template-concept
