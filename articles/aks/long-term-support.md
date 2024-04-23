@@ -32,7 +32,7 @@ LTS intends to give you an extended period of time to plan and test for upgrades
 
 ## Enable long-term support
 
-Enabling and disabling long-term support is a combination of moving your cluster to the Premium tier and explicitly selecting the LTS support plan. LTS is supported on both Ubuntu and Azure Linux AKS clusters. To use Azure Linux, you need to pass the `--os-sku=AzureLinux` option to the create command.  
+Enabling and disabling long-term support is a combination of moving your cluster to the Premium tier and explicitly selecting the LTS support plan.
 
 > [!NOTE]
 > While it's possible to enable LTS when the cluster is in Community support, you'll be charged once you enable the Premium tier.
