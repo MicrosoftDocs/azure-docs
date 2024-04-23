@@ -13,11 +13,6 @@ zone_pivot_groups: programming-languages-set-functions
 
 In this article, you integrate an Azure Storage queue with the function and storage account you created in the previous quickstart article. You achieve this integration by using an *output binding* that writes data from an HTTP request to a message in the queue. Completing this article incurs no additional costs beyond the few USD cents of the previous quickstart. To learn more about bindings, see [Azure Functions triggers and bindings concepts](functions-triggers-bindings.md).
 
-::: zone pivot="programming-language-javascript"  
->[!NOTE]
->This article currently only supports [Node.js v3 for Functions](./functions-reference-node.md?pivots=nodejs-model-v3).  
-::: zone-end   
-
 ## Configure your local environment
 
 ::: zone pivot="programming-language-csharp"  
@@ -67,7 +62,7 @@ With the queue binding defined, you can now update your function to receive the 
 ::: zone-end  
 
 ::: zone pivot="programming-language-javascript"  
-[!INCLUDE [functions-add-output-binding-js](../../includes/functions-add-output-binding-js.md)]
+[!INCLUDE [functions-add-output-binding-js](../../includes/functions-add-output-binding-js-v4.md)]
 ::: zone-end  
 
 ::: zone pivot="programming-language-typescript"  
