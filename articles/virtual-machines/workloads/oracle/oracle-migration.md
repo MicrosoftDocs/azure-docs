@@ -45,7 +45,13 @@ Azure enhances the Oracle tools with the right network connectivity, bandwidth, 
 - [VPN Connectivity](/azure/vpn-gateway/)
 - [Express Route](/azure/expressroute/expressroute-introduction)
 - [AzCopy](/azure/storage/common/storage-ref-azcopy)
-- Data Box
+- [Data Box](/azure/databox/data-box-overview)
+
+**Approach**
+
+The following diagram is a pictographic representation of the overall migration portfolio.
+
+:::image type="content" source="./media/oracle-migration/oracle-migrate-tools.png" alt-text="Diagram shows a pictographic representation of the migration portfolio."lightbox="./media/oracle-migration/oracle-migrate-tools.png":::
 
 You need one of the Oracle Tools plus Azure infrastructures to deploy the correct solution architecture to migrate data. See the following reference solution scenarios:
 
