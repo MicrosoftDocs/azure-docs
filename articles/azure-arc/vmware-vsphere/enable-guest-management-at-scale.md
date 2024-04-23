@@ -27,12 +27,12 @@ Ensure the following before you install Arc agents at scale for VMware VMs:
     - Powered on and the resource bridge has network connectivity to the host running the VM.
     - Running a [supported operating system](../servers/prerequisites.md#supported-operating-systems).c
     - VMware tools are installed on the machines. If VMware tools aren't installed, the enable guest management operation is grayed out in the portal.  
-    >[!Note]
-    >You can use the [out-of-band method](./enable-guest-management-at-scale.md#approach-d-install-arc-agents-at-scale-using-out-of-band-approach) to install Arc agents if VMware tools aren't installed.  
+        >[!Note]
+        >You can use the [out-of-band method](./enable-guest-management-at-scale.md#approach-d-install-arc-agents-at-scale-using-out-of-band-approach) to install Arc agents if VMware tools aren't installed.  
     - Able to connect through the firewall to communicate over the internet, and [these URLs](../servers/network-requirements.md#urls) aren't blocked.
 
-      > [!NOTE]
-      > If you're using a Linux VM, the account must not prompt for login on sudo commands. To override the prompt, from a terminal, run `sudo visudo`, and add `<username> ALL=(ALL) NOPASSWD:ALL` at the end of the file. Ensure you replace `<username>`. <br> <br>If your VM template has these changes incorporated, you won't need to do this for the VM created from that template.
+   > [!NOTE]
+   > If you're using a Linux VM, the account must not prompt for login on sudo commands. To override the prompt, from a terminal, run `sudo visudo`, and add `<username> ALL=(ALL) NOPASSWD:ALL` at the end of the file. Ensure you replace `<username>`. <br> <br>If your VM template has these changes incorporated, you won't need to do this for the VM created from that template.
 
 ### Approach A: Install Arc agents at scale from portal
 
