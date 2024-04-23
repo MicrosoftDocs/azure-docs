@@ -18,7 +18,7 @@ For details surrounding authentication and authorization, refer to the following
 * [Microsoft Entra ID](authentication-azure-active-directory.md)
 * [Facebook](authentication-facebook.md)
 * [GitHub](authentication-github.md)
-* [Google](authentication-google.md)
+* [Google](authentication-google.yml)
 * [Twitter](authentication-twitter.md)
 * [Custom OpenID Connect](authentication-openid.md)
 
@@ -43,7 +43,7 @@ Container Apps uses [federated identity](https://en.wikipedia.org/wiki/Federated
 | [Microsoft identity platform](../active-directory/fundamentals/active-directory-whatis.md) | `/.auth/login/aad` | [Microsoft identity platform](authentication-azure-active-directory.md) |
 | [Facebook](https://developers.facebook.com/docs/facebook-login) | `/.auth/login/facebook` | [Facebook](authentication-facebook.md) |
 | [GitHub](https://docs.github.com/en/developers/apps/building-oauth-apps/authorizing-oauth-apps) | `/.auth/login/github` | [GitHub](authentication-github.md) |
-| [Google](https://developers.google.com/identity/choose-auth) | `/.auth/login/google` | [Google](authentication-google.md) |
+| [Google](https://developers.google.com/identity/choose-auth) | `/.auth/login/google` | [Google](authentication-google.yml) |
 | [Twitter](https://developer.twitter.com/en/docs/basics/authentication) | `/.auth/login/twitter` | [Twitter](authentication-twitter.md) |
 | Any [OpenID Connect](https://openid.net/connect/) provider | `/.auth/login/<providerName>` | [OpenID Connect](authentication-openid.md) |
 
@@ -224,6 +224,6 @@ Refer to the following articles for details on securing your container app.
 * [Microsoft Entra ID](authentication-azure-active-directory.md)
 * [Facebook](authentication-facebook.md)
 * [GitHub](authentication-github.md)
-* [Google](authentication-google.md)
+* [Google](authentication-google.yml)
 * [Twitter](authentication-twitter.md)
 * [Custom OpenID Connect](authentication-openid.md)
