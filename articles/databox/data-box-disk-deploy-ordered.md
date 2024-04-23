@@ -279,7 +279,7 @@ After the order is created, the device is prepared for shipment.
 
 ## Track the order
 
-After you placing the order, you can track the status of the order from Azure portal. Go to your order and then go to **Overview** to view the status. The portal shows the job in **Ordered** state.
+After you place the order, you can track the status of the order from Azure portal. Go to your order and then go to **Overview** to view the status. The portal shows the job in **Ordered** state.
 
 :::image type="content" alt-text="Data Box Disk status ordered." source="media/data-box-disk-deploy-ordered/data-box-portal-ordered-sml.png" lightbox="media/data-box-disk-deploy-ordered/data-box-portal-ordered.png":::
 
