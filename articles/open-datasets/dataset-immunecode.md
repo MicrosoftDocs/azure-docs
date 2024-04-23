@@ -8,12 +8,13 @@ ms.date: 11/09/2023
 
 # ImmuneCODE Database
 
-The ImmuneCODE™ database, which includes hundreds of millions of T-cell Receptor (TCR) sequences from over 1,400 subjects exposed to or infected with the SARS-CoV-2 virus, as well as over 160,000 high-confidence SARS-CoV-2-specific TCRs. This database is made freely available, and the data contained in it can be analyzed to assist with the global efforts to understand the immune response to the SARS-CoV-2 virus and develop new interventions. To learn more about the dataset refer the associated [publication](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7418738/)
-The latest ImmuneCODE datasets available contains:Release 002
-1. 1,486 subjects exposed to or infected with the SARSCoV-2 virus: ImmuneCODE-Repertoires-002.2
-2. sample metadata: ImmuneCODE-Repertoire-Tags-002.2.tsv (572 KB)Release 002.2
-3. Over 160,000 high-confidence SARS-CoV-2-specific TCRs: ImmuneCODE-MIRA-Release002.1
-4. sample metadata: ImmuneCODE-Repertoire-Tags-002.2.xlsx (352 KB) Release 002.2
+The ImmuneCODE™ database, which includes hundreds of millions of T-cell Receptor (TCR) sequences from over 1,400 subjects exposed to or infected with the SARS-CoV-2 virus, and over 160,000 high-confidence SARS-CoV-2-specific TCRs. 
+The database is accessible at no cost, and its data can be analyzed to aid global initiatives aimed at comprehending the immune response to the SARS-CoV-2 virus and crafting novel interventions. To learn more about the dataset refer the associated [publication.](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7418738/)
+The latest ImmuneCODE datasets available contains:Release 002.
+1. The 1,486 subjects exposed to or infected with the SARSCoV-2 virus: ImmuneCODE-Repertoires-002.2.
+2. The sample metadata: ImmuneCODE-Repertoire-Tags-002.2.tsv (572 KB) Release 002.2.
+3. The high-confidence SARS-CoV-2-specific (Over 160,000): ImmuneCODE-MIRA-Release 002.1.
+4. The sample metadata: ImmuneCODE-Repertoire-Tags-002.2.xlsx (352 KB) Release 002.2.
 
 [!INCLUDE [Open Dataset usage notice](../../includes/open-datasets-usage-note.md)]
 
@@ -39,7 +40,7 @@ West Central US: 'https://dataset1000genomes-secondary.blob.core.windows.net/dat
 
 ## Use Terms
 
-To learn more about the data use terms, refer the [publication] (https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7418738/) and [Terms od Use] (https://clients.adaptivebiotech.com/terms-of-use)
+To learn more about the data use terms refer the [publication] (https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7418738/) and [Terms of Use.] (https://clients.adaptivebiotech.com/terms-of-use)
 ## Contact
 
 https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7418738/
