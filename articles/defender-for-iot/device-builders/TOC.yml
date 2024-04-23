@@ -168,7 +168,7 @@
     - name: Local configuration C#
       href: azure-iot-security-local-configuration-csharp.md 
   - name: Deploy Edge azureiotsecurity
-    href: how-to-deploy-edge.md
+    href: how-to-deploy-edge.yml
   - name: Configure security agents
     displayName: property
     href: how-to-agent-configuration.md

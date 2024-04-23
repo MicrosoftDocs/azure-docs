@@ -62,11 +62,11 @@ High availability deployments include volumes in two availability zones, for whi
 
 A fully built deployment with eight data volumes and all optional volumes in a zone with ample resource availability can resemble:
 
-:::image type="content" source="./media/application-volume-group-oracle-introduction/eight-volume-deployment.png" alt-text="Diagram of eight data volume layout." lightbox="./media/application-volume-group-oracle-introduction/eight-volume-deployment.png":::
+:::image type="content" source="./media/application-volume-group-oracle-introduction/oracle-built-environment.png" alt-text="Diagram of Oracle deployment." lightbox="./media/application-volume-group-oracle-introduction/oracle-built-environment.png":::
 
 In resource-constrained zones, volumes might be deployed on shared storage endpoints due to the aforementioned anti-affinity and no-grouping algorithms. This diagram depicts an example volume layout in a resource-constrained zone: 
 
-:::image type="content" source="./media/application-volume-group-oracle-introduction/oracle-built-environment.png" alt-text="Diagram of Oracle deployment." lightbox="./media/application-volume-group-oracle-introduction/oracle-built-environment.png":::
+:::image type="content" source="./media/application-volume-group-oracle-introduction/eight-volume-deployment.png" alt-text="Diagram of eight data volume layout." lightbox="./media/application-volume-group-oracle-introduction/eight-volume-deployment.png":::
 
 In resource-constrained zones, the volumes are deployed on shared storage endpoints while maintaining the anti-affinity and no-grouping rules. The resulting layout shows the log and log-mirror volumes on private storage endpoints while the data volumes share storage-endpoints. The log and log-mirror volumes do not share storage-endpoints.
 
