@@ -346,7 +346,7 @@ It might take up to eight hours for the account to appear in the Azure portal.
 
 ## Enable Azure Marketplace purchases
 
-Although most pay-as-you-go _subscriptions_ can be associated with an Azure Enterprise Agreement, previously purchased Azure Marketplace _services_ can't. To get a single view of all subscriptions and charges, we recommend that you enable Azure Marketplace purchases.
+To get a single view of all subscriptions and charges, we recommend that you enable Azure Marketplace purchases.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_GTM/ModernBillingMenuBlade/AllBillingScopes).
 1. Navigate to **Cost Management + Billing**.
@@ -355,11 +355,7 @@ Although most pay-as-you-go _subscriptions_ can be associated with an Azure Ente
 1. Under **Azure Marketplace**, set the policy to **On**.  
    :::image type="content" source="./media/direct-ea-administration/azure-marketplace.png" alt-text="Screenshot showing the Azure Marketplace policy setting." lightbox="./media/direct-ea-administration/azure-marketplace.png" :::
 
-The account owner can then repurchase any Azure Marketplace services that were previously owned in the pay-as-you-go subscription.
-
 The setting applies to all account owners in the enrollment. It allows them to make Azure Marketplace purchases.
-
-After subscriptions are activated under your Azure EA enrollment, cancel the Azure Marketplace services that were created with the pay-as-you-go subscription. This step is critical in case your pay-as-you-go payment instrument expires.
 
 ## MSDN subscription transfer
 
