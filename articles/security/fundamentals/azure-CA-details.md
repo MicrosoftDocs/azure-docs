@@ -6,7 +6,7 @@ ms.service: security
 ms.subservice: security-fundamentals
 ms.custom: devx-track-extended-java
 ms.topic: conceptual
-ms.date: 02/29/2024
+ms.date: 04/19/2024
 ms.author: sarahlipsey
 author: shlipsey3
 manager: amycolannino
@@ -14,7 +14,7 @@ ms.reviewer: quentinb
 ---
 # Azure Certificate Authority details
 
-This article provides the details of the root and subordinate Certificate Authorities (CAs) utilized by Azure. The scope includes government and national clouds. The minimum requirements for public key encryption and signature algorithms, links to certificate downloads and revocation lists, and information about key concepts are provided below the CA details tables. The host names for the URIs that should be added to your firewall allowlists are also provided.
+This article outlines the specific root and subordinate Certificate Authorities (CAs) that are employed by Azure's service endpoints. It is important to note that this list is distinct from the trust anchors provided on Azure VMs and hosted services, which leverage the trust anchors provided by the operating systems themselves. The scope includes government and national clouds. The minimum requirements for public key encryption and signature algorithms, links to certificate downloads and revocation lists, and information about key concepts are provided below the CA details tables. The host names for the URIs that should be added to your firewall allowlists are also provided.
 
 ## Certificate Authority details
 

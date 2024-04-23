@@ -8,7 +8,7 @@ ms.service: cosmos-db
 ms.subservice: nosql
 ms.devlang: csharp
 ms.topic: conceptual
-ms.date: 05/09/2023
+ms.date: 04/19/2024
 ms.custom: devx-track-csharp, build-2023
 ---
 
@@ -69,7 +69,7 @@ The normal life cycle of a host instance is:
 
 ## Error handling
 
-The change feed processor is resilient to user code errors. If your delegate implementation has an unhandled exception (step #4), the thread that is processing that particular batch of changes stops, and a new thread is eventually created. The new thread checks the latest point in time that the lease store has saved for that range of partition key values. The new thread restarts from there, effectively sending the same batch of changes to the delegate. This behavior continues until your delegate processes the changes correctly, and it's the reason the change feed processor has an "at least once" guarantee. Consuming the change feed in an Eventual consistency level can also result in duplicate events in between subsequent change feed read operations. For example, the last event of one read operation could appear as the first event of the next operation.
+The change feed processor is resilient to user code errors. If your delegate implementation has an unhandled exception (step #4), the thread that is processing that particular batch of changes stops, and a new thread is eventually created. The new thread checks the latest point in time that the lease store has saved for that range of partition key values. The new thread restarts from there, effectively sending the same batch of changes to the delegate. This behavior continues until your delegate processes the changes correctly, and it's the reason the change feed processor has an "at least once" guarantee.
 
 > [!NOTE]
 > In only one scenario, a batch of changes is not retried. If the failure happens on the first ever delegate execution, the lease store has no previous saved state to be used on the retry. In those cases, the retry uses the [initial starting configuration](#starting-time), which might or might not include the last batch.
@@ -166,7 +166,7 @@ The normal life cycle of a host instance is:
 
 ## Error handling
 
-The change feed processor is resilient to user code errors. If your delegate implementation has an unhandled exception (step #4), the thread that's processing that particular batch of changes is stopped, and a new thread is created. The new thread checks the latest point in time that the lease store has saved for that range of partition key values, and it restart from there, effectively sending the same batch of changes to the delegate. This behavior continues until your delegate processes the changes correctly. It's the reason why the change feed processor has an "at least once" guarantee. Consuming the change feed in an Eventual consistency level can also result in duplicate events in between subsequent change feed read operations. For example, the last event of one read operation might appear as the first event of the next operation.
+The change feed processor is resilient to user code errors. If your delegate implementation has an unhandled exception (step #4), the thread that's processing that particular batch of changes is stopped, and a new thread is created. The new thread checks the latest point in time that the lease store has saved for that range of partition key values, and it restart from there, effectively sending the same batch of changes to the delegate. This behavior continues until your delegate processes the changes correctly. It's the reason why the change feed processor has an "at least once" guarantee.
 
 > [!NOTE]
 > In only one scenario is a batch of changes is not retried. If the failure happens on the first ever delegate execution, the lease store has no previous saved state to be used on the retry. In those cases, the retry uses the [initial starting configuration](#starting-time), which might or might not include the last batch.
