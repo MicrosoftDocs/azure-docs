@@ -189,7 +189,7 @@ The following featrures of Azure OpenAI are available in Azure Government:
 |Feature|Azure OpenAI|
 |--------|--------|
 |Models available|US Gov Arizona:<br>&nbsp;&nbsp;&nbsp;GPT-4 (1106-Preview)<br>&nbsp;&nbsp;&nbsp;GPT-3.5-Turbo (1106)<br>&nbsp;&nbsp;&nbsp;GPT-3.5-Turbo (0125)<br>&nbsp;&nbsp;&nbsp;text-embedding-ada-002 (version 2)<br><br>US Gov Virginia:<br>&nbsp;&nbsp;&nbsp;GPT-4 (1106-Preview)<br>&nbsp;&nbsp;&nbsp;GPT-3.5-Turbo (0125)<br>&nbsp;&nbsp;&nbsp;text-embedding-ada-002 (version 2)<br><br>Learn more in [Azure OpenAI Service models](../ai-services/openai/concepts/models.md)|
-|Virtual network support & private link support|Yes, unless using [Azure OpenAI on your data](../ai-services/openai/concepts/use-your-data)|
+|Virtual network support & private link support|Yes, unless using [Azure OpenAI on your data](../ai-services/openai/concepts/use-your-data.md)|
 |Managed Identity|Yes, via Microsoft Entra ID|
 |UI experience|**Azure portal** for account & resource management<br>**Azure OpenAI Studio** for model exploration|
 
