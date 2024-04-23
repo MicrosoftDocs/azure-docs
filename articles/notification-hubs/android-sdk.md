@@ -3,7 +3,7 @@ title: Send push notifications to Android using Azure Notification Hubs and Fire
 description: In this tutorial, you learn how to use Azure Notification Hubs and Google Firebase Cloud Messaging to send push notifications to Android devices (version 1.0.0-preview1).
 author: sethmanheim
 ms.author: sethm
-ms.date: 03/14/2024
+ms.date: 04/23/2024
 ms.topic: tutorial
 ms.service: notification-hubs
 ms.reviewer: heathertian
@@ -183,10 +183,13 @@ also have the connection strings that are necessary to send notifications to a d
 2. Add the following repository after the dependencies section:
 
    ```gradle
-   repositories {
-      maven {
-         url "https://dl.bintray.com/microsoftazuremobile/SDK"
-      }
+   dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+        maven { url 'https://example.io' }
+    }
    }
    ```
 
