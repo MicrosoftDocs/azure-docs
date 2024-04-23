@@ -52,15 +52,15 @@ Then select **Start compute session** from the top toolbar.
     - Select **Next** to review your settings.
     - Select **Apply and start compute session** to start the compute session.
 
-## Update an automatic runtime on a flow page
+## Update an compute session on a flow page
 
-To manage an automatic runtime, select the **Compute session running** on the top toolbar:
+To manage a compute session, select the **Compute session running** on the top toolbar:
 
-- **Change compute session settings** opens the runtime configuration page, where you can define the VM side and the idle time for the runtime.
+- **Change compute session settings** opens the compute session configuration page, where you can define the VM side and the idle time for the runtime.
 - **Install packages from requirements.txt** Open `requirements.txt` in prompt flow UI, you can add packages in it.
 - **View installed packages** shows the packages that are installed in the runtime. It includes the packages baked to base image and packages specify in the `requirements.txt` file in the flow folder.
-- **Reset compute session** deletes the current runtime and creates a new one with the same environment. If you encounter a package conflict, you can try this option.
-- **Stop compute session** deletes the current runtime. If there's no active runtime on the underlying compute, the compute resource is also deleted.
+- **Reset compute session** deletes the current compute session and creates a new one with the same environment. If you encounter a package conflict, you can try this option.
+- **Stop compute session** deletes the current compute session. If there's no active compute session on the underlying compute, the compute resource is also delete if it use serverless compute, if it is using compute instance then it will follow the idle shut down settings.
 
 :::image type="content" source="../media/prompt-flow/how-to-create-manage-runtime/runtime-create-automatic-actions.png" alt-text="Screenshot of actions for an automatic runtime on a flow page." lightbox = "../media/prompt-flow/how-to-create-manage-runtime/runtime-create-automatic-actions.png":::
 
