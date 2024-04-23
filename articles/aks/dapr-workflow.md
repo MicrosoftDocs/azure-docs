@@ -6,7 +6,7 @@ ms.author: hannahhunter
 ms.reviewer: nuversky
 ms.service: azure-kubernetes-service
 ms.topic: article
-ms.date: 04/05/2023
+ms.date: 04/23/2024
 ms.subservice: aks-developer
 ms.custom: devx-track-azurecli
 ---
@@ -140,41 +140,44 @@ curl -X GET $APP_URL/stock/restock
 Start the workflow:
 
 ```sh
-curl -X POST $DAPR_URL/v1.0-alpha1/workflows/dapr/OrderProcessingWorkflow/1234/start \
+curl -i -X POST $DAPR_URL/v1.0-beta1/workflows/dapr/OrderProcessingWorkflow/start?instanceID=1234 \
   -H "Content-Type: application/json" \
   -d '{ "input" : {"Name": "Paperclips", "TotalCost": 99.95, "Quantity": 1}}'
 ```
 
 Expected output:
 
-```json
-{"instance_id":"1234"}
+```
+HTTP/1.1 202 Accepted
+Content-Type: application/json
+Traceparent: 00-00000000000000000000000000000000-0000000000000000-00
+Date: Tue, 23 Apr 2024 15:35:00 GMT
+Content-Length: 21
 ```
 
 Check the workflow status:
 
 ```sh
-curl -X GET $DAPR_URL/v1.0-alpha1/workflows/dapr/OrderProcessingWorkflow/1234
+curl -i -X GET $DAPR_URL/v1.0-beta1/workflows/dapr/1234
 ```
 
 Expected output:
 
 ```json
+HTTP/1.1 200 OK
+Content-Type: application/json
+Traceparent: 00-00000000000000000000000000000000-0000000000000000-00
+Date: Tue, 23 Apr 2024 15:51:02 GMT
+Content-Length: 580
+
 {
-  "WFInfo":
-    {
-      "instance_id":"1234"
-    },
-    "start_time":"2023-03-03T19:19:16Z",
-    "metadata":
-    {
-      "dapr.workflow.custom_status":"",
-      "dapr.workflow.input":"{\"Name\":\"Paperclips\",\"Quantity\":1,\"TotalCost\":99.95}",
-      "dapr.workflow.last_updated":"2023-03-03T19:19:33Z",
-      "dapr.workflow.name":"OrderProcessingWorkflow",
-      "dapr.workflow.output":"{\"Processed\":true}",
-      "dapr.workflow.runtime_status":"COMPLETED"
-    }
+  "instanceID":"1234",
+  "workflowName":"OrderProcessingWorkflow",
+  "createdAt":"2024-04-23T15:35:00.156714334Z",
+  "lastUpdatedAt":"2024-04-23T15:35:00.176459055Z",
+  "runtimeStatus":"COMPLETED",
+  "dapr.workflow.input":"{ \"input\" : {\"Name\": \"Paperclips\", \"TotalCost\": 99.95, \"Quantity\": 1}}",
+  "dapr.workflow.output":"{\"Processed\":true}"
 }
 ```
 
