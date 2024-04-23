@@ -41,7 +41,7 @@ Each service instance in Azure Spring Apps is backed by Azure Kubernetes Service
 
 Azure Spring Apps intelligently schedules your applications on the underlying Kubernetes worker nodes. To provide high availability, Azure Spring Apps distributes applications with two or more instances on different nodes.
 
-### In which regions is the Azure Spring Apps available?
+### In which regions is Azure Spring Apps available?
 
 See [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=spring-apps).
 

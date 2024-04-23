@@ -14,8 +14,6 @@ ms.custom: devx-track-java, devx-track-extended-java
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
-**This article applies to:** ✔️ Java
-
 **This article applies to:** ✔️ Basic/Standard ✔️ Enterprise
 
 This article describes how to manually generate a heap dump or thread dump, and how to start Java Flight Recorder (JFR).
