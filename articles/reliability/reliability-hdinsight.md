@@ -208,13 +208,14 @@ functionality. Service incidents in one or more of the following services in a s
 :::image type="content" source="../hdinsight/media/hdinsight-business-continuity/hdinsight-components.png" alt-text="HDInsight components":::
 
 
-## Next steps
+## Related content
 
-To learn more about the items discussed in this article, see:
 
 * [Azure HDInsight business continuity architectures](../hdinsight/hdinsight-business-continuity-architecture.md)
 * [Azure HDInsight highly available solution architecture case study](../hdinsight/hdinsight-high-availability-case-study.md)
 * [What is Apache Hive and HiveQL on Azure HDInsight?](../hdinsight/hadoop/hdinsight-use-hive.md)
 
-> [!div class="nextstepaction"]
-> [Reliability in Azure](availability-zones-overview.md)
+
+* [Reliability for HDInsight on AKS](./reliability-hdinsight-on-aks.md)
+* [Reliability in Azure](./overview.md)
+

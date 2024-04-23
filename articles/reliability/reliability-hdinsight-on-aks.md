@@ -1,18 +1,18 @@
 ---
-title: Reliability in Azure HDInsight on AKS
-description: Find out about reliability in Azure HDInsight on AKS.
+title: Reliability in Azure HDInsight on Azure Kubernetes Service
+description: Find out about reliability in Azure HDInsight on Azure Kubernetes Service.
 author: fengzhou-msft
 ms.author: fenzhou
 ms.topic: reliability-article
 ms.custom: subject-reliability, references_regions
 ms.service: hdinsight-aks
 ms.date: 04/15/2024
-CustomerIntent: As a cloud architect/engineer, I want to understand reliability support for Azure HDInsight on AKS so that I can respond to and/or avoid failures in order to minimize downtime and data loss.
+CustomerIntent: As a cloud architect/engineer, I want to understand reliability support for Azure HDInsight on Azure Kubernetes Service so that I can respond to and/or avoid failures in order to minimize downtime and data loss.
 ---
 
-# Reliability in Azure HDInsight on AKS
+# Reliability in Azure HDInsight on Azure Kubernetes Service
 
-This article describes reliability support in [Azure HDInsight on AKS](../hdinsight-aks/overview.md), and covers both [specific reliability recommendations](#reliability-recommendations) and [disaster recovery and business continuity](#disaster-recovery-and-business-continuity). For a more detailed overview of reliability principles in Azure, see [Azure reliability](/azure/architecture/framework/resiliency/overview).
+This article describes reliability support in [Azure HDInsight on Azure Kubernetes Service (AKS)](../hdinsight-aks/overview.md), and covers both [specific reliability recommendations](#reliability-recommendations) and [disaster recovery and business continuity](#disaster-recovery-and-business-continuity). For a more detailed overview of reliability principles in Azure, see [Azure reliability](/azure/architecture/framework/resiliency/overview).
 
 ## Reliability recommendations
 
@@ -22,7 +22,7 @@ This article describes reliability support in [Azure HDInsight on AKS](../hdinsi
 
 | Category | Priority |Recommendation |  
 |---------------|--------|---|
-| High Availability |:::image type="icon" source="media/icon-recommendation-medium.svg":::| [Default and minimum virtual machine size recommendations](../hdinsight-aks/virtual-machine-recommendation-capacity-planning.md#clusters) |
+| Availability |:::image type="icon" source="media/icon-recommendation-medium.svg":::| [Default and minimum virtual machine size recommendations](../hdinsight-aks/virtual-machine-recommendation-capacity-planning.md#clusters) |
 |  |:::image type="icon" source="media/icon-recommendation-low.svg":::| [Auto Scale HDInsight on AKS Clusters](../hdinsight-aks/hdinsight-on-aks-autoscale-clusters.md) |
 | Monitoring |:::image type="icon" source="media/icon-recommendation-low.svg"::: |[How to integrate with Log Analytics](../hdinsight-aks/how-to-azure-monitor-integration.md) |
 | |:::image type="icon" source="media/icon-recommendation-low.svg"::: |[Monitoring with Azure Managed Prometheus and Grafana](../hdinsight-aks/monitor-with-prometheus-grafana.md) |
@@ -60,7 +60,7 @@ Azure HDInsight on AKS and its customers operate under the Shared responsibility
 
 Unlike the original version of HDInsight, the Virtual Machines used in HDInsight on AKS clusters require the same Quota as Azure VMs. For more information, see [Capacity planning](../hdinsight-aks/virtual-machine-recommendation-capacity-planning.md#capacity-planning).
 
-## Next steps
+## Related content
 
 To learn more about the items discussed in this article, see:
 
@@ -68,5 +68,5 @@ To learn more about the items discussed in this article, see:
 * [Get started with one-click deployment](../hdinsight-aks/get-started.md)
 
 
-> [!div class="nextstepaction"]
-> [Reliability in Azure](availability-zones-overview.md)
+* [Reliability for HDInsight](./reliability-hdinsight.md)
+* [Reliability in Azure](./overview.md)
