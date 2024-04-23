@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: container-apps
 ms.topic: how-to
-ms.date: 04/22/2024
+ms.date: 04/23/2024
 ms.author: cshoe
 ---
 
@@ -16,8 +16,6 @@ You can set up Azure Key Vault to manage your container app's certificates to ha
 ## Prerequisites
 
 - [Azure Key Vault](/azure/key-vault/): Make sure you have a certificate stored in Azure Key Vault.
-
-- [Assign a Key Vault access policy](../key-vault/general/assign-access-policy-cli.md): By default, your container app doesn't have access to your vault. To use a key vault for a certificate deployment, you must [authorize read access for the resource provider to the vault](../key-vault/general/assign-access-policy-cli.md).
 
 - [Azure CLI](/cli/azure/install-azure-cli): You need the Azure CLI updated with the Azure Container Apps extension version `0.3.49` or higher. Use the `list-available` command to view your extension's version number.
 
