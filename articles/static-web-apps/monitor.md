@@ -96,4 +96,4 @@ In some cases, you may want to limit logging while still capturing details on er
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Set up authentication and authorization](authentication-authorization.md)
+> [Set up authentication and authorization](authentication-authorization.yml)
