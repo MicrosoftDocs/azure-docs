@@ -2,11 +2,11 @@
 title: Get started with Storage Explorer
 description: Start managing Azure storage resources with Storage Explorer. Download and install Azure Storage Explorer, connect to a storage account or service, and more.
 services: storage
-author: cawaMS
+author: craxal
 ms.service: azure-storage
 ms.topic: article
 ms.date: 11/08/2019
-ms.author: cawa
+ms.author: storagetools
 ---
 
 # Get started with Storage Explorer
