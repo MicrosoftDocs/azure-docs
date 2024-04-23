@@ -6,7 +6,7 @@ metadata:
   author: rolyon
   ms.author: rolyon
   manager: amycolannino
-  ms.date: 01/02/2024
+  ms.date: 04/23/2024
   ms.service: role-based-access-control
   ms.topic: how-to
   ms.custom:
@@ -82,6 +82,14 @@ procedureSection:
       PS C:\> Remove-AzRoleAssignment -SignInName alain@example.com `
       -RoleDefinitionName "Billing Reader" `
       -Scope "/providers/Microsoft.Management/managementGroups/marketing-group"
+      ```
+
+      Removes the [User Access Administrator](built-in-roles.md#user-access-administrator) role with ID 18d7d88d-d35e-4fb5-a5c3-7773c20a72d9 from the principal with ID 33333333-3333-3333-3333-333333333333 at subscription scope with ID 00000000-0000-0000-0000-000000000000.
+
+      ```azurepowershell
+      PS C:\> Remove-AzRoleAssignment -ObjectId 33333333-3333-3333-3333-333333333333 `
+      -RoleDefinitionId 18d7d88d-d35e-4fb5-a5c3-7773c20a72d9 `
+      -Scope /subscriptions/00000000-0000-0000-0000-000000000000
       ```
 
       If you get the error message: "The provided information does not map to a role assignment", make sure that you also specify the `-Scope` or `-ResourceGroupName` parameters. For more information, see [Troubleshoot Azure RBAC](troubleshooting.md#symptom---role-assignments-with-identity-not-found).
