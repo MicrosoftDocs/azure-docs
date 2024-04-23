@@ -13,7 +13,7 @@ ms.date: 4/22/2024
 
 This article shows how to move your Oracle workload from your on-premises environment to the Azure virtual machine (VM) infrastructure. It uses the Landing zone for Oracle Database at Azure, which offers design advice and best practices for Oracle migration on Azure IaaS. A proven discovery, design, and deployment approach are recommended for the overall migration strategy, followed by data migration, and cut over. 
 
-:::image type="content" source="/media/oracle-migration/azure-virtual-machine-migration.png" alt-text="Screenshot of discovery, design, and deploy migration strategy."lightbox="./media/oracle-migration/azure-virtual-machine-migration.png":::
+:::image type="content" source="media/oracle-migration/azure-virtual-machine-migration.png" alt-text="Screenshot of discovery, design, and deploy migration strategy."lightbox="media/oracle-migration/azure-virtual-machine-migration.png":::
 
 ## Discovery
 
