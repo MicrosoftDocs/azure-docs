@@ -245,7 +245,7 @@ __Body__
 {
     "prompt": "What's the distance to the moon?",
     "temperature": 0.8,
-    "max_tokens": 512,
+    "max_tokens": 512
 }
 ```
 
