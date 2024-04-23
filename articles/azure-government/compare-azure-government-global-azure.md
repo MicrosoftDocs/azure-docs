@@ -184,7 +184,7 @@ For feature variations and limitations, including API endpoints, see [Speech ser
 
 ### [Azure AI services: OpenAI Service](../ai-services/openai/overview.md)
 
-The following featrures of Azure OpenAI are available in Azure Government:
+The following features of Azure OpenAI are available in Azure Government:
 
 |Feature|Azure OpenAI|
 |--------|--------|
