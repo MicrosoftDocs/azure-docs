@@ -20,7 +20,7 @@ For example, one built-in query provides data about the most uncommon processes 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 [!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]
 
-## Use built-in queries
+## Built-in hunting queries
 
 The [hunting dashboard](#use-the-hunting-dashboard) provides ready-made query examples designed to get you started and get you familiar with the tables and the query language. Queries run on data stored in log tables, such as for process creation, DNS events, or other event types.
 
@@ -46,7 +46,7 @@ You can also create hunting and livestream queries over data stored in Azure Dat
 
 Use community resources, such as the [Microsoft Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/Hunting%20Queries) to find more queries and data sources.
 
-## Use the hunting dashboard
+## Hunting dashboard
 
 The hunting dashboard enables you to run all your queries, or a selected subset, in a single selection. In the Microsoft Sentinel portal, select **Hunting**.
 
@@ -126,7 +126,7 @@ In the example above, start with the table name SecurityEvent and add piped elem
 We recommend that your query uses an [Advanced Security Information Model (ASIM) parser](normalization-about-parsers.md) and not a built-in table. This ensures that the query will support any current or future relevant data source rather than a single data source.
 
 
-## Bookmarks
+## Bookmarks to keep track of data
 
 Threat hunting typically requires reviewing mountains of log data looking for evidence of malicious behavior. During this process, investigators find events that they want to remember, revisit, and analyze as part of validating potential hypotheses and understanding the full story of a compromise.
 
@@ -142,14 +142,15 @@ During the hunting and investigation process, you might come across query result
 - Investigate a single bookmarked finding by selecting the bookmark and then clicking **Investigate** in the details pane to open the investigation experience. View, investigate, and visually communicate your findings by using an interactive entity-graph diagram and timeline. You can also directly select a listed entity to view that entity’s corresponding entity page.
 
     You can also create an incident from one or more bookmarks, or add one or more bookmarks to an existing incident. Select a checkbox to the left of any bookmarks you want to use, and then select **Incident actions** > **Create new incident** or **Add to existing incident**. Triage and investigate the incident like any other.
-- Alternatively, view your bookmarked data directly in the **HuntingBookmark** table in your Log Analytics workspace. For example:
+- View your bookmarked data directly in the **HuntingBookmark** table in your Log Analytics workspace. For example:
 
-    :::image type="content" source="media/bookmarks/bookmark-table.png" alt-text="Screenshot of the hunting bookmarks table in the Log Analytics workspace." lightbox="media/bookmarks/bookmark-table.png":::
+    :::image type="content" source="media/hunting/bookmark-table.png" alt-text="Screenshot of the hunting bookmarks table in the Log Analytics workspace." lightbox="media/bookmarks/bookmark-table.png":::
 
     Viewing bookmarks from the table enables you to filter, summarize, and join bookmarked data with other data sources, making it easy to look for corroborating evidence.
-For more information, see [Use bookmarks in hunting](bookmarks.md).
 
-## Use notebooks to power investigations
+To start using bookmarks, see [Keep track of data during hunting with Microsoft Sentinel](bookmarks.md).
+
+## Notebooks to power investigations
 
 When your hunting and investigations become more complex, use Microsoft Sentinel notebooks to enhance your activity with machine learning, visualizations, and data analysis.
 
