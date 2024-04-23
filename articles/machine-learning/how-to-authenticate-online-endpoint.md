@@ -560,6 +560,11 @@ You can get the token if you're using the Azure Machine Learning workspace's com
     export CONTROL_PLANE_TOKEN=`(curl $MSI_ENDPOINT'?api-version=2018-02-01&resource=https%3A%2F%2Fml.azure.com%2F&clientid='$DEFAULT_IDENTITY_CLIENT_ID -H Metadata:true -H Secret:$MSI_SECRET -s | jq -r '.access_token' )`
     ```
 
+@SeokJin, you should add this information to the REST tab. See notes below: 
+
+- expiryTimeUtc: this applies to CLI/SDK/REST when it's AML token / AAD token.
+- refreshAfterTimeUtc: this applies to CLI/SDK/REST when it's AML token (please hold - I'm double confirming this)
+
 ### [Python](#tab/python)
 
 If you plan to use the Python SDK to invoke the endpoint, and if the endpoint is set to use an auth mode of key, or Azure Machine Learning token (`aml_token`), or Microsoft Entra token (`aad_token`), you're not required to get the data plane token explicitly, as the SDK handles it for you. However, you can still use the SDK to get the data plane token so that you can use it with other channels, such as REST API.
