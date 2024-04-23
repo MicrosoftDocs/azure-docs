@@ -18,7 +18,7 @@ In order to use Private Link with Azure Virtual Desktop, you need the following 
 
 - An existing [host pool](create-host-pool.md) with [session hosts](add-session-hosts-host-pool.md), an [application group, and workspace](create-application-group-workspace.md).
 
-- An existing [virtual network](../virtual-network/manage-virtual-network.md) and [subnet](../virtual-network/virtual-network-manage-subnet.md) you want to use for private endpoints.
+- An existing [virtual network](../virtual-network/manage-virtual-network.yml) and [subnet](../virtual-network/virtual-network-manage-subnet.md) you want to use for private endpoints.
 
 - The [required Azure role-based access control permissions to create private endpoints](../private-link/rbac-permissions.md).
 

@@ -91,7 +91,7 @@ If you're not automatically approved, you can submit a request to Azure support 
         - (Old quota) Existing Cores:
         - (New quota) Requested cores:
         - Specific region & series of Subscription:
-    - The **Company name** and **Company address** should match the information that you provided for the Azure account. To view or update the information, see [Change your Azure account profile information](change-azure-account-profile.md).
+    - The **Company name** and **Company address** should match the information that you provided for the Azure account. To view or update the information, see [Change your Azure account profile information](change-azure-account-profile.yml).
     - Add your billing contact information in the Azure portal before the credit limit can be approved. The contact details should be related to the company's Accounts Payable or Finance department.
 1. Verify your contact information and preferred contact method, and then select **Create**.
 
