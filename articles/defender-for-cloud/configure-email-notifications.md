@@ -76,5 +76,5 @@ URI: `https://management.azure.com/subscriptions/<SubscriptionId>/providers/Micr
 To learn more about security alerts, see the following pages:
 
 - [Security alerts - a reference guide](alerts-reference.md) - Learn about the security alerts you might see in Microsoft Defender for Cloud's Threat Protection module.
-- [Manage and respond to security alerts in Microsoft Defender for Cloud](managing-and-responding-alerts.md) - Learn how to manage and respond to security alerts.
-- [Workflow automation](workflow-automation.md) - Automate responses to alerts with custom notification logic.
+- [Manage and respond to security alerts in Microsoft Defender for Cloud](managing-and-responding-alerts.yml) - Learn how to manage and respond to security alerts.
+- [Workflow automation](workflow-automation.yml) - Automate responses to alerts with custom notification logic.

@@ -150,9 +150,10 @@ If you want to implement additional value-based criteria for query execution, yo
 * The search type is limited to [Integrated Vector Database in Azure Cosmos DB for MongoDB](/azure/cosmos-db/mongodb/vcore/vector-search) with an Azure OpenAI embedding model.
 * This implementation works best on unstructured and spatial data.
 
+  
 ### Data preparation
 
-Use the script provided on [GitHub](https://github.com/microsoft/sample-app-aoai-chatGPT/blob/feature/2023-9/scripts/cosmos_mongo_vcore_data_preparation.py) to prepare your data.
+Use the script provided on [GitHub](https://github.com/microsoft/sample-app-aoai-chatGPT/tree/main/scripts#data-preparation) to prepare your data.
 
 <!--### Add your data source in Azure OpenAI Studio
 
