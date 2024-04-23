@@ -26,7 +26,7 @@ Sign in to [Azure AI Studio](https://ai.azure.com) and select your prompt flow.
 
 Then select **Start compute session** from the top toolbar.
 
-- Select the button **Start compute session**, or select **Start compute session** after using the arrow to drop down the list. The automatic compute session uses the environment defined in `flow.dag.yaml` in the [flow folder](flow-develop.md#authoring-the-flow). It runs on a serverless compute with a virtual machine (VM) size for which you have sufficient quota in your workspace.
+- Select the button **Start compute session**, or select **Start compute session** after using the arrow to drop down the list. The compute session uses the environment defined in `flow.dag.yaml` in the [flow folder](flow-develop.md#authoring-the-flow). It runs on a serverless compute with a virtual machine (VM) size for which you have sufficient quota in your workspace.
 
   :::image type="content" source="../media/prompt-flow/how-to-create-manage-runtime/runtime-create-automatic-init.png" alt-text="Screenshot of prompt flow with default settings for starting an automatic compute session on a flow page." lightbox = "../media/prompt-flow/how-to-create-manage-runtime/runtime-create-automatic-init.png":::
 
