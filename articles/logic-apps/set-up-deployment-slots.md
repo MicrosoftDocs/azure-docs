@@ -231,7 +231,7 @@ The following options are available for you to remove a deployment slot from you
 
 ### [Portal](#tab/portal)
 
-Unavailable at this time.
+TBD
 
 ### [Visual Studio Code](#tab/visual-studio-code)
 
