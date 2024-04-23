@@ -1,6 +1,11 @@
 {
     "redirections": [
         {
+            "source_path_from_root": "/articles/search/search-synonyms-tutorial-sdk.md",
+            "redirect_url": "https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/search/Azure.Search.Documents/samples/Sample02_Service.md#create-a-synonym-map",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/search/search-case-studies.md",
             "redirect_url": "https://azure.microsoft.com/case-studies",
             "redirect_document_id": false
