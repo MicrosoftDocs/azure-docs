@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 03/06/2024
+ms.date: 04/18/2024
 ms.author: alkohli
 zone_pivot_groups: azure-stack-edge-device-deployment
 # Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge Pro so I can use it to transfer data to Azure. 
@@ -60,10 +60,10 @@ In this tutorial, you learn about:
 
 ## Prerequisites
 
-Before you configure and set up your Azure Stack Edge Pro device with GPU, make sure that:
+Before you configure and set up your Azure Stack Edge Pro device with GPU, make sure that you:
 
-* You've installed the physical device as detailed in [Install Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-install.md).
-* You've connected to the local web UI of the device as detailed in [Connect to Azure Stack Edge Pro with GPU](azure-stack-edge-gpu-deploy-connect.md).
+* Install the physical device as detailed in [Install Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-install.md).
+* Connect to the local web UI of the device as detailed in [Connect to Azure Stack Edge Pro with GPU](azure-stack-edge-gpu-deploy-connect.md).
 
 ::: zone pivot="single-node"
 
@@ -92,7 +92,7 @@ Follow these steps to configure the network for your device.
 
 3. To change the network settings, select a port and in the right pane that appears, modify the IP address, subnet, gateway, primary DNS, and secondary DNS. 
 
-    - If you select Port 1, you can see that it is preconfigured as static. 
+    - If you select Port 1, you can see that it's preconfigured as static. 
 
         ![Screenshot of local web UI "Port 1 Network settings" for one node.](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/network-3.png)
 
@@ -100,7 +100,7 @@ Follow these steps to configure the network for your device.
 
         ![Screenshot of local web UI "Port 3 Network settings" for one node.](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/network-4.png)
 
-    - By default for all the ports, it is expected that you'll set an IP. If you decide not to set an IP for a network interface on your device, you can set the IP to **No** and then **Modify** the settings.
+    - By default for all the ports, it's expected that you set an IP. If you decide not to set an IP for a network interface on your device, you can set the IP to **No** and then **Modify** the settings.
 
         ![Screenshot of local web UI "Port 2 Network settings" for one node.](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/set-ip-no.png)
 
@@ -116,7 +116,7 @@ Follow these steps to configure the network for your device.
     > [!NOTE]
     > If you need to connect to your device from an outside network, see [Enable device access from outside network](azure-stack-edge-gpu-manage-access-power-connectivity-mode.md#enable-device-access-from-outside-network) for additional network settings.
 
-    Once the device network is configured, the page updates as shown below.
+    Once the device network is configured, the page updates as follows:
 
     ![Screenshot of local web UI "Network" page for fully configured one node. ](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/network-2.png)
 
@@ -125,7 +125,7 @@ Follow these steps to configure the network for your device.
      > We recommend that you do not switch the local IP address of the network interface from static to DCHP, unless you have another IP address to connect to the device. If using one network interface and you switch to DHCP, there would be no way to determine the DHCP address. If you want to change to a DHCP address, wait until after the device has activated with the service, and then change. You can then view the IPs of all the adapters in the **Device properties** in the Azure portal for your service.
 
 
-    After you have configured and applied the network settings, select **Next: Advanced networking** to configure compute network.
+    After you configure and apply the network settings, select **Next: Advanced networking** to configure compute network.
 
 ## Configure virtual switches
 
@@ -146,7 +146,7 @@ Follow these steps to add or delete virtual switches.
      1. Set the **MTU** (Maximum Transmission Unit) parameter for the virtual switch (Optional).
      1. Select **Modify** and **Apply** to save your changes.
      
-    The MTU value determines the maximum packet size that can be transmitted over a network. Azure Stack Edge supports MTU values in the following table. If a device on the network path has an MTU setting lower than 1500, IP packets with the “do not fragment” flag (DF) with packet size 1500 will be dropped.
+    The MTU value determines the maximum packet size that can be transmitted over a network. Azure Stack Edge supports MTU values in the following table. If a device on the network path has an MTU setting lower than 1500, IP packets with the “don't fragment” flag (DF) with packet size 1500 will be dropped.
 
     | Azure Stack Edge SKU | Network interface | Supported MTU values |
     |-------|--------|------------|
@@ -155,9 +155,9 @@ Follow these steps to add or delete virtual switches.
     | Pro 2 | Ports 1 and 2 | 1400 - 1500 |
     | Pro 2 | Ports 3 and 4 | Not configurable, set to default. |
 
-    The host virtual switch will use the specified MTU setting.
+    The host virtual switch uses the specified MTU setting.
 
-    If a virtual network interface is created on the virtual switch, the interface will use the specified MTU setting. If this virtual switch is enabled for compute, the Azure Kubernetes Service VMs and container network interfaces (CNIs) will use the specified MTU as well.
+    If a virtual network interface is created on the virtual switch, the interface uses the specified MTU setting. If this virtual switch is enabled for compute, the Azure Kubernetes Service VMs and container network interfaces (CNIs) uses the specified MTU as well.
 
    ![Screenshot of the Add a virtual switch settings on the Advanced networking page in local UI](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/azure-stack-edge-advanced-networking-add-virtual-switch-settings.png)
 
@@ -165,13 +165,13 @@ Follow these steps to add or delete virtual switches.
 
    ![Screenshot of the MTU setting in Advanced networking in local UI](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/azure-stack-edge-maximum-transmission-unit.png)
 
-1. The configuration will take a few minutes to apply and once the virtual switch is created, the list of virtual switches updates to reflect the newly created switch. You can see that the specified virtual switch is created and enabled for compute.
+1. The configuration takes a few minutes to apply and once the virtual switch is created, the list of virtual switches updates to reflect the newly created switch. You can see that the specified virtual switch is created and enabled for compute.
 
    ![Screenshot of the Configure compute page in Advanced networking in local UI 3](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/configure-compute-network-3.png)
 
 1. You can create more than one switch by following the steps described earlier.
 
-1. To delete a virtual switch, under the **Virtual switch** section, select **Delete virtual switch**. When a virtual switch is deleted, the associated virtual networks will also be deleted.
+1. To delete a virtual switch, under the **Virtual switch** section, select **Delete virtual switch**. When a virtual switch is deleted, the associated virtual networks are also deleted.
 
 Next, you can create and associate virtual networks with your virtual switches.
 
@@ -183,8 +183,8 @@ You can add or delete virtual networks associated with your virtual switches. To
 1. In the **Add virtual network** blade, input the following information:
 
     1. Select a virtual switch for which you want to create a virtual network.
-    1. Provide a **Name** for your virtual network.
-    1. Enter a **VLAN ID** as a unique number in 1-4094 range. The VLAN ID that you provide should be in your trunk configuration. For more information on trunk configuration for your switch, refer to the instructions from your physical switch manufacturer. 
+    1. Provide a **Name** for your virtual network. The name you specify must conform to [Naming rules and restrictions for Azure resources](../azure-resource-manager/management/resource-name-rules.md#microsoftnetwork).
+    1. Enter a **VLAN ID** as a unique number in 1-4094 range. The VLAN ID that you provide should be in your trunk configuration. For more information about trunk configuration for your switch, refer to the instructions from your physical switch manufacturer. 
     1. Specify the **Subnet mask** and **Gateway** for your virtual LAN network as per the physical network configuration.
     1. Select **Apply**. A virtual network is created on the specified virtual switch.
 
@@ -252,7 +252,7 @@ After the virtual switches are created, you can enable the switches for Kubernet
 
 ## Configure network, topology
 
-You'll configure network as well as network topology on both the nodes. These steps can be done in parallel. The cabling on both nodes should be identical and should conform with the network topology you choose.
+Configure network and the network topology on both the nodes. These steps can be done in parallel. The cabling on both nodes should be identical and should conform with the network topology you choose.
 
 For more information about selecting a network topology, see [Supported networking topologies](azure-stack-edge-gpu-clustering-overview.md?tabs=1#supported-network-topologies).
 
@@ -266,7 +266,7 @@ To configure the network for a 2-node device, follow these steps on the first no
 
 1. In the **Network** page, configure the IP addresses for your network interfaces. On your physical device, there are six network interfaces. Port 1 and Port 2 are 1-Gbps network interfaces. Port 3, Port 4, Port 5, and Port 6 are all 25-Gbps network interfaces that can also serve as 10-Gbps network interfaces. Port 1 is automatically configured as a management-only port, and Port 2 to Port 6 are all data ports. 
 
-    For a new device, the **Network settings** page is as shown below.
+    For a new device, the **Network settings** page is as follows:
     
     ![Local web UI "Advanced networking" page for a new device 1](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/configure-network-interface-1.png)
 
@@ -274,7 +274,7 @@ To configure the network for a 2-node device, follow these steps on the first no
 
     ![Local web UI "Advanced networking" page for a new device 2](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/configure-network-settings-1m.png)
 
-    By default for all the ports, it is expected that you'll set an IP. If you decide not to set an IP for a network interface on your device, you can set the IP to **No** and then **Modify** the settings.
+    By default for all the ports, it's expected that you set an IP. If you decide not to set an IP for a network interface on your device, you can set the IP to **No** and then **Modify** the settings.
 
     ![Screenshot of local web UI "Port 2 Network settings" for one node.](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/set-ip-no.png)
 
@@ -282,7 +282,7 @@ To configure the network for a 2-node device, follow these steps on the first no
 
     * Make sure that Port 5 and Port 6 are connected for Network Function Manager deployments. For more information, see [Tutorial: Deploy network functions on Azure Stack Edge (Preview)](../network-function-manager/deploy-functions.md).
     * If DHCP is enabled in your environment, network interfaces are automatically configured. An IP address, subnet, gateway, and DNS are automatically assigned. If DHCP isn't enabled, you can assign static IPs if needed.
-    * On 25-Gbps interfaces, you can set the RDMA (Remote Direct Access Memory) mode to iWarp or RoCE (RDMA over Converged Ethernet). Where low latencies are the primary requirement and scalability is not a concern, use RoCE. When latency is a key requirement, but ease-of-use and scalability are also high priorities, iWARP is the best candidate.
+    * On 25-Gbps interfaces, you can set the RDMA (Remote Direct Access Memory) mode to iWarp or RoCE (RDMA over Converged Ethernet). Where low latencies are the primary requirement and scalability isn't a concern, use RoCE. When latency is a key requirement, but ease-of-use and scalability are also high priorities, iWARP is the best candidate.
     * Serial number for any port corresponds to the node serial number.
 
       > [!IMPORTANT]
@@ -296,27 +296,27 @@ To configure the network for a 2-node device, follow these steps on the first no
 
     - **Switchless**. Use this option when high-speed switches aren't available for storage and clustering traffic.
     - **Use switches and NIC teaming**. Use this option when you need port level redundancy through teaming. NIC Teaming allows you to group two physical ports on the device node, Port 3 and Port 4 in this case, into two software-based virtual network interfaces. These teamed network interfaces provide fast performance and fault tolerance in the event of a network interface failure. For more information, see [NIC teaming on Windows Server](/windows-server/networking/windows-server-supported-networking-scenarios#bkmk_nicteam).
-    - **Use switches without NIC teaming**. Use this option if you need an extra port for workload traffic and port level redundancy is not required.
+    - **Use switches without NIC teaming**. Use this option if you need an extra port for workload traffic and port level redundancy isn't required.
 
       ![Screenshot of local web UI "Network" page with "Use switches and NIC teaming" option selected.](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/select-network-topology-1m.png)
 
 1. Make sure that your node is cabled as per the selected topology.
 1. Select **Apply**.
-1. You'll see a **Confirm network setting** dialog. This dialog reminds you to make sure that your node is cabled as per the network topology you selected. Once you choose the network cluster topology, you can't change this topology without a device reset. Select **Yes** to confirm the network topology. 
+1. The **Confirm network setting** dialog reminds you to make sure that your node is cabled as per the network topology you selected. Once you choose the network cluster topology, you can't change this topology without a device reset. Select **Yes** to confirm the network topology. 
 
     ![Local web UI "Confirm network setting" dialog](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/confirm-network-setting-1.png)
 
     The network topology setting takes a few minutes to apply and you see a notification when the settings are successfully applied.
 
-1. Once the network topology is applied, the **Network** page updates. For example, if you selected network topology that uses switches and NIC teaming, you will see that on a device node, a virtual switch **vSwitch1** is created at Port 2 and another virtual switch, **vSwitch2** is created on Port 3 and Port 4. Port 3 and Port 4 are teamed and then on the teamed network interface, two virtual network interfaces are created, **vPort3** and **vPort4**. The same is true for the second device node. The teamed network interfaces are then connected via switches.
+1. Once the network topology is applied, the **Network** page updates. For example, if you selected network topology that uses switches and NIC teaming, you'll see that on a device node, a virtual switch **vSwitch1** is created at Port 2 and another virtual switch, **vSwitch2** is created on Port 3 and Port 4. Port 3 and Port 4 are teamed and then on the teamed network interface, two virtual network interfaces are created, **vPort3** and **vPort4**. The same is true for the second device node. The teamed network interfaces are then connected via switches.
 
     ![Local web UI "Network" page updated](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/network-settings-updated-1.png)
 
-You'll now configure the network and the network topology of the second node. 
+Next, configure the network and the network topology of the second node. 
 
 ### Configure network on second node
 
-You'll now prepare the second node for clustering. You'll first need to configure the network. Follow these steps in the local UI of the second node:
+Prepare the second node for clustering. First, configure the network. Follow these steps in the local UI of the second node:
 
 1. On the **Prepare a node for clustering** page, in the **Network** tile, select **Needs setup**.
 
@@ -334,20 +334,20 @@ You'll now prepare the second node for clustering. You'll first need to configur
 
 ## Get authentication token
 
-You'll now get the authentication token that will be needed when adding this node to form a cluster. Follow these steps in the local UI of the second node:
+To get the authentication token to add this node to form a cluster, follow these steps in the local UI of the second node:
 
 1. On the **Prepare a node for clustering** page, in the **Get authentication token** tile, select **Prepare node**.
 
     ![Local web UI "Get authentication token" tile with "Prepare node" option selected on second node](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/select-get-authentication-token-1m.png)
 
 1. Select **Get token**.
-1. Copy the node serial number and the authentication token. You will use this information when you add this node to the cluster on the first node.
+1. Copy the node serial number and the authentication token. You'll use this information when you add this node to the cluster on the first node.
 
     ![Local web UI "Get authentication token" on second node](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/get-authentication-token-1m.png)
 
 ## Configure cluster 
 
-To configure the cluster, you'll need to establish a cluster witness and then add a prepared node. You'll also need to configure virtual IP settings so that you can connect to a cluster as opposed to a specific node.
+To configure the cluster, you'll need to establish a cluster witness and then add a prepared node. You must configure virtual IP settings so that you can connect to a cluster as opposed to a specific node.
 
 ### Configure cluster witness
 
@@ -397,7 +397,7 @@ Follow these steps to configure the cluster witness.
 
 ### Add prepared node to cluster
 
-You'll now add the prepared node to the first node and form the cluster. Before you add the prepared node, make sure the networking on the incoming node is configured in the same way as that of this node where you initiated cluster creation.
+Add the prepared node to the first node and form the cluster. Before you add the prepared node, make sure the networking on the incoming node is configured in the same way as that of this node where you initiated cluster creation.
 
 1. In the local UI of the first node, go to the **Cluster** page. Under **Existing nodes**, select **Add node**.
 
@@ -477,7 +477,7 @@ After the cluster is formed and configured, you can now create new virtual switc
      1. Set the **MTU** (Maximum Transmission Unit) parameter for the virtual switch (Optional).
      1. Select **Modify** and **Apply** to save your changes.
      
-    The MTU value determines the maximum packet size that can be transmitted over a network. Azure Stack Edge supports MTU values in the following table. If a device on the network path has an MTU setting lower than 1500, IP packets with the “do not fragment” flag (DF) with packet size 1500 will be dropped.
+    The MTU value determines the maximum packet size that can be transmitted over a network. Azure Stack Edge supports MTU values in the following table. If a device on the network path has an MTU setting lower than 1500, IP packets with the “don't fragment” flag (DF) with packet size 1500 will be dropped.
 
     | Azure Stack Edge SKU | Network interface | Supported MTU values |
     |-------|--------|------------|
@@ -486,9 +486,9 @@ After the cluster is formed and configured, you can now create new virtual switc
     | Pro 2 | Ports 1 and 2 | 1400 - 1500 |
     | Pro 2 | Ports 3 and 4 | Not configurable, set to default. |
 
-    The host virtual switch will use the specified MTU setting.
+    The host virtual switch uses the specified MTU setting.
 
-    If a virtual network interface is created on the virtual switch, the interface will use the specified MTU setting. If this virtual switch is enabled for compute, the Azure Kubernetes Service VMs and container network interfaces (CNIs) will use the specified MTU as well.
+    If a virtual network interface is created on the virtual switch, the interface uses the specified MTU setting. If this virtual switch is enabled for compute, the Azure Kubernetes Service VMs and container network interfaces (CNIs) will use the specified MTU as well.
 
    ![Screenshot of the Add a virtual switch settings on the Advanced networking page in local UI.](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/azure-stack-edge-advanced-networking-add-virtual-switch-settings.png)
 
@@ -496,7 +496,7 @@ After the cluster is formed and configured, you can now create new virtual switc
 
    ![Screenshot of the MTU setting in Advanced networking in local UI.](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/azure-stack-edge-maximum-transmission-unit.png)
 
-1. The configuration will take a few minutes to apply and once the virtual switch is created, the list of virtual switches updates to reflect the newly created switch. You can see that the specified virtual switch is created and enabled for compute.
+1. The configuration takes a few minutes to apply and once the virtual switch is created, the list of virtual switches updates to reflect the newly created switch. You can see that the specified virtual switch is created and enabled for compute.
 
    ![Screenshot of the Configure compute page in Advanced networking in local UI 3.](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/configure-compute-network-3.png)
 
@@ -514,8 +514,8 @@ You can add or delete virtual networks associated with your virtual switches. To
 1. In the **Add virtual network** blade, input the following information:
 
     1. Select a virtual switch for which you want to create a virtual network.
-    1. Provide a **Name** for your virtual network.
-    1. Enter a **VLAN ID** as a unique number in 1-4094 range. The VLAN ID that you provide should be in your trunk configuration. For more information on trunk configuration for your switch, refer to the instructions from your physical switch manufacturer.
+    1. Provide a **Name** for your virtual network. The name you specify must conform to [Naming rules and restrictions for Azure resources](../azure-resource-manager/management/resource-name-rules.md#microsoftnetwork).
+    1. Enter a **VLAN ID** as a unique number in 1-4094 range. The VLAN ID that you provide should be in your trunk configuration. For more information about trunk configuration for your switch, refer to the instructions from your physical switch manufacturer.
     1. Specify the **Subnet mask** and **Gateway** for your virtual LAN network as per the physical network configuration.
     1. Select **Apply**.
 
@@ -578,7 +578,7 @@ This is an optional configuration. Although web proxy configuration is optional,
 
 1. On the **Web proxy settings** page, take the following steps:
 
-   1. In the **Web proxy URL** box, enter the URL in this format: `http://host-IP address or FQDN:Port number`. HTTPS URLs are not supported.
+   1. In the **Web proxy URL** box, enter the URL in this format: `http://host-IP address or FQDN:Port number`. HTTPS URLs aren't supported.
 
    2. To validate and apply the configured web proxy settings, select **Apply**.
 
