@@ -126,7 +126,9 @@ In the example above, start with the table name SecurityEvent and add piped elem
 We recommend that your query uses an [Advanced Security Information Model (ASIM) parser](normalization-about-parsers.md) and not a built-in table. This ensures that the query will support any current or future relevant data source rather than a single data source.
 
 
-## Create bookmarks
+## Bookmarks
+
+Threat hunting typically requires reviewing mountains of log data looking for evidence of malicious behavior. During this process, investigators find events that they want to remember, revisit, and analyze as part of validating potential hypotheses and understanding the full story of a compromise.
 
 During the hunting and investigation process, you might come across query results that look unusual or suspicious. Bookmark these items to refer back to them in the future, such as when creating or enriching an incident for investigation. Events such as potential root causes, indicators of compromise, or other notable events should be raised as a bookmark. If a key event you bookmarked is severe enough to warrant an investigation, escalate it to an incident.
 
@@ -137,10 +139,14 @@ During the hunting and investigation process, you might come across query result
 
 - View all the bookmarked findings by clicking on the **Bookmarks** tab in the main **Hunting** page. Add tags to bookmarks to classify them for filtering. For example, if you're investigating an attack campaign, you can create a tag for the campaign, apply the tag to any relevant bookmarks, and then filter all the bookmarks based on the campaign.
 
-- Investigate a single bookmarked finding by selecting the bookmark and then clicking **Investigate** in the details pane to open the investigation experience. You can also directly select a listed entity to view that entity’s corresponding entity page.
+- Investigate a single bookmarked finding by selecting the bookmark and then clicking **Investigate** in the details pane to open the investigation experience. View, investigate, and visually communicate your findings by using an interactive entity-graph diagram and timeline. You can also directly select a listed entity to view that entity’s corresponding entity page.
 
     You can also create an incident from one or more bookmarks, or add one or more bookmarks to an existing incident. Select a checkbox to the left of any bookmarks you want to use, and then select **Incident actions** > **Create new incident** or **Add to existing incident**. Triage and investigate the incident like any other.
+- Alternatively, view your bookmarked data directly in the **HuntingBookmark** table in your Log Analytics workspace. For example:
 
+    :::image type="content" source="media/bookmarks/bookmark-table.png" alt-text="Screenshot of the hunting bookmarks table in the Log Analytics workspace." lightbox="media/bookmarks/bookmark-table.png":::
+
+    Viewing bookmarks from the table enables you to filter, summarize, and join bookmarked data with other data sources, making it easy to look for corroborating evidence.
 For more information, see [Use bookmarks in hunting](bookmarks.md).
 
 ## Use notebooks to power investigations
