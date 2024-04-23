@@ -68,7 +68,7 @@ This article provides two options to deploy the linting engine and event subscri
 
 ## `azd` deployment of Azure Functions app and event subscription
 
-This section provides automated steps using the Azure Developer CLI to configure the Azure Functions app and event subscription that enable linting and analysis in your API center.
+This section provides automated steps using the Azure Developer CLI to configure the Azure Functions app and event subscription that enable linting and analysis in your API center. You can also configure the resources [manually](#manual-steps-to-configure-azure-functions-app-and-event-subscription).
 
 ### Other prerequisites for this option
 
@@ -100,9 +100,11 @@ This section provides automated steps using the Azure Developer CLI to configure
 
 1. After the deployment is complete, navigate to your API center in the Azure portal. In the left menu, select **Events** > **Event subscriptions** to view the event subscription that was created. 
 
+You can now upload an API definition file to your API center to [trigger the event subscription](#trigger-event-in-your-api-center) and run the linting engine.
+
 ## Manual steps to configure Azure Functions app and event subscription
 
-This section provides the manual steps to configure the Azure Functions app and event subscription to enable linting and analysis in your API center.
+This section provides the manual deployment steps to configure the Azure Functions app and event subscription to enable linting and analysis in your API center. You can also use the [Azure Developer CLI](#azd-deployment-of-azure-functions-app-and-event-subscription) for automated deployment.
 
 ### Other prerequisites for this option
 
@@ -147,7 +149,6 @@ Now that the managed identity is enabled, assign it the Azure API Center Complia
 1. Review the role assignment, and select **Review + assign**.
 
 #### [Azure CLI](#tab/cli)
-
 
 1. Enable the system-assigned identity of the function app using the [az functionapp identity assign](/cli/azure/functionapp/identity#az-functionapp-identity-assign) command. Replace `<function-app-name>` and `<resource-group-name>` with your function app name and resource group name. The following command stores the principal ID of the system-assigned managed identity in the `principalID` variable.
 
