@@ -70,7 +70,7 @@ Delegations represent an association of specific customer resources (subscriptio
 Filters at the top of the page let you sort and group your delegation information. You can also filter by specific service providers, offers, or keywords.
 
 > [!NOTE]
-> When [viewing role assignments for the delegated scope in the Azure portal](../../role-based-access-control/role-assignments-list-portal.md#list-role-assignments-at-a-scope) or via APIs, customers won't see role assignments for users from the service provider tenant who have access through Azure Lighthouse. Similarly, users in the service provider tenant won't see role assignments for users in a customer's tenant, regardless of the role they've been assigned.
+> When [viewing role assignments for the delegated scope in the Azure portal](../../role-based-access-control/role-assignments-list-portal.yml#list-role-assignments-at-a-scope) or via APIs, customers won't see role assignments for users from the service provider tenant who have access through Azure Lighthouse. Similarly, users in the service provider tenant won't see role assignments for users in a customer's tenant, regardless of the role they've been assigned.
 >
 > Note that [classic administrator](../../role-based-access-control/classic-administrators.md) assignments in a customer tenant may be visible to users in the managing tenant, or the other way around, because classic administrator roles don't use the Resource Manager deployment model.
 
