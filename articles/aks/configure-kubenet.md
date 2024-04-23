@@ -115,7 +115,8 @@ For more information to help you decide which network model to use, see [Compare
         --name myAKSVnet \
         --address-prefixes 192.168.0.0/16 \
         --subnet-name myAKSSubnet \
-        --subnet-prefix 192.168.1.0/24
+        --subnet-prefix 192.168.1.0/24 \
+        --location eastus
     ```
 
 3. Get the subnet resource ID using the [`az network vnet subnet show`][az-network-vnet-subnet-show] command and store it as a variable named `SUBNET_ID` for later use.
