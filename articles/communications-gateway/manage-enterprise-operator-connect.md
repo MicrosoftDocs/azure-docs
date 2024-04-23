@@ -19,9 +19,8 @@ Azure Communications Gateway's Number Management Portal (preview) enables you to
 You can:
 
 * Manage your agreement with an enterprise customer.
-* Manage numbers for the enterprise.
+* Manage numbers for the enterprise, including (for Operator Connect) optionally configuring a custom header.
 * View civic addresses for an enterprise.
-* Configure a custom header for a number (not available for Teams Phone Mobile).
 
 ## Prerequisites
 
@@ -146,10 +145,9 @@ Uploading numbers for an enterprise allows IT administrators at the enterprise t
 
     ---
 
-1. To remove numbers from an enterprise:
-    1. Select the numbers.
-    1. Select **Delete numbers**.
-    1. Wait 30 seconds, then select **Refresh** to confirm that the numbers have been removed.
+1. To change or remove existing numbers:
+    1. Select the checkbox next to the number you want to change or remove.
+    1. Select **Edit number** or **Delete numbers** as appropriate.
 
 ## View civic addresses for an enterprise
 
@@ -159,12 +157,6 @@ You can view civic addresses for an enterprise. The enterprise configures the de
 1. Select **Civic addresses**.
 1. You can see the address, the company name, the description, and whether the address was validated when the enterprise configured the address.
 1. Optionally, select an individual address to view additional information provided by the enterprise, for example the Emergency Location Identification Number (ELIN).
-
-## Configure a custom header for a number
-
-You can specify a custom SIP header value for an enterprise telephone number. This value applies to all SIP messages sent and received by that number. This feature is available for all communications services except Azure Operator Call Protection Preview and Teams Phone Mobile.
-
-[!INCLUDE [instructions for configuring custom headers in the portal](includes/communications-gateway-custom-header-configuration-portal.md)]
 
 ## Next steps
 

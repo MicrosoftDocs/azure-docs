@@ -15,8 +15,7 @@ ms.date: 03/31/2024
 Providing Microsoft Teams Direct Routing service with Azure Communications Gateway requires configuration on Azure Communications Gateway and in customer tenants. This article provides guidance on how to set up Direct Routing for a customer, including:
 
 * Setting up a new customer.
-* Managing numbers for a customer.
-* Configuring a custom header for a number.
+* Managing numbers for a customer, including optionally configuring a custom header.
 
 > [!TIP]
 > You typically need to ask your customers to change their tenants configuration, because your organization won't have permission. 
@@ -139,7 +138,15 @@ When you [set up Direct Routing a the customer](#set-up-direct-routing-for-a-cus
 
 # [Number Management Portal (preview)](#tab/number-management-portal)
 
+To add new numbers:
+
 [!INCLUDE [instructions for configuring Direct Routing numbers in the portal](includes/communications-gateway-direct-routing-configure-numbers-portal.md)]
+
+To change or remove existing numbers:
+
+1. From the overview page for your Communications Gateway resource, find the **Number Management** section in the sidebar. Select **Accounts**.
+1. Select the checkbox next to the customer's **Account name** and select **View numbers**.
+1. Select the checkbox next to the number you want to change or remove and select **Edit number** or **Delete numbers**.
 
 # [Provisioning API (preview)](#tab/api)
 
@@ -149,24 +156,10 @@ Use Azure Communications Gateway's Provisioning API to provision the details of 
 
 ### Ask the customer to configure users in their tenant
 
-Your customer can now set up users for Microsoft Teams Direct Routing. They must:
+Your customer can now set up users for Microsoft Teams Direct Routing. To add new numbers, they must:
 
 1. Enable users for Microsoft Teams Direct Routing, by following [Enable users for Direct Routing](/microsoftteams/direct-routing-enable-users).
 2. Configure these users with the voice route for Azure Communications Gateway that [they configured earlier](#ask-the-customer-to-configure-call-routing-that-uses-azure-communications-gateway). For instructions, see the steps for assigning voice routing policies in [Configure call routing for Direct Routing](/microsoftteams/direct-routing-voice-routing).
-
-## Configure a custom header for a number
-
-You can specify a custom SIP header value for an enterprise telephone number. This value applies to all SIP messages sent and received by that number.
-
-# [Number Management Portal (preview)](#tab/number-management-portal)
-
-[!INCLUDE [instructions for configuring custom headers in the portal](includes/communications-gateway-custom-header-configuration-portal.md)]
-
-# [Provisioning API (preview)](#tab/api)
-
-Update the configuration for each number to include the custom SIP header value. For more information on Number resources in the Provisioning API, see the [API Reference](/rest/api/voiceservices) for the Provisioning API.
-
----
 
 ## Next steps
 
