@@ -35,7 +35,9 @@ When adding Private Link with Azure Virtual Desktop, you have the following supp
    |--|--|--|--|
    | Connections to host pools | Microsoft.DesktopVirtualization/hostpools | connection | One per host pool |
    | Feed download | Microsoft.DesktopVirtualization/workspaces | feed | One per workspace |
-   | Initial feed discovery | Microsoft.DesktopVirtualization/workspaces | global | **Only one for all your Azure Virtual Desktop deployments** |
+   | Initial feed discovery* | Microsoft.DesktopVirtualization/workspaces | global | **Only one for all your Azure Virtual Desktop deployments** |
+
+   \* In this setup, it’s also possible to operate without any private endpoints for the global sub-resource. This approach streamlines the integration of the private link for Azure Virtual Desktop (AVD) in existing deployments, known as brownfield cases, without affecting other host pools. 
 
 1. Clients use public routes while session host VMs use private routes. You need the following private endpoints. Endpoints to workspaces aren't required.
 
@@ -61,7 +63,7 @@ With the [reverse connect transport](network-connectivity.md#reverse-connect-tra
 | Public access **enabled** for client networks, but **disabled** for session host networks | Remote sessions are **denied** if the session host is using a *public* route, regardless of the route the client is using.<br /><br />Remote sessions are **allowed** as long as the session host is using a *private* route, regardless of the route the client is using. |
 
 > [!IMPORTANT]
-> - A private endpoint to the global sub-resource of any workspace controls the shared fully qualified domain name (FQDN) for initial feed discovery. This in turn enables feed discovery for all workspaces. Because the workspace connected to the private endpoint is so important, deleting it will cause all feed discovery processes to stop working. We recommend you create an unused placeholder workspace for the global sub-resource. 
+> - A private endpoint connected to a workspace’s global sub-resource governs the shared FQDN (Fully Qualified Domain Name), facilitating the initial discovery of feeds across all workspaces. It’s crucial to note that this private endpoint is not mandatory; clients have the option to utilize the public pathway for the initial feed discovery. However, the subsequent feed download and the connection to the host pool remain safeguarded by their respective private endpoint. Should you opt for a private endpoint for the global sub-resource, it’s advisable to set up a placeholder workspace that remains unused, specifically for this purpose.. 
 >
 > - You can't control access to the workspace used for the initial feed discovery (global sub-resource). If you configure this workspace to only allow private access, the setting is ignored. This workspace is always accessible from public routes.
 > 
@@ -73,7 +75,7 @@ When a user connects to Azure Virtual Desktop over Private Link, and Azure Virtu
 
 1. With a supported client, a user subscribes to a workspace. The user's device queries DNS for the address `rdweb.wvd.microsoft.com` (or the corresponding address for other Azure environments).
 
-1. Your private DNS zone for **privatelink-global.wvd.microsoft.com** returns the private IP address for the initial feed discovery (global sub-resource).
+1. Your private DNS zone for **privatelink-global.wvd.microsoft.com** returns the private IP address for the initial feed discovery (global sub-resource), in case you don't have setup this private endpoint, a public IP address is returned.
 
 1. For each workspace in the feed, a DNS query is made for the address `<workspaceId>.privatelink.wvd.microsoft.com`.
 
