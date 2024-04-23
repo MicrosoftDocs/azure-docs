@@ -121,7 +121,7 @@ The following options are available for you to deploy logic app changes in a dep
 
 ### [Portal](#tab/portal)
 
-Unavailable at this time. Please follow the steps for Visual Studio Code to deploy your changes.
+Unavailable at this time. Please follow the steps for Visual Studio Code or Azure CLI to deploy your changes.
 
 ### [Visual Studio Code](#tab/visual-studio-code)
 
