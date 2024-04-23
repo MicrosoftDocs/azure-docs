@@ -87,8 +87,8 @@ Before you run this command, replace placeholders surrounded by `<>` with your v
 ```azurecli
 az containerapp env telemetry app-insights set \
   --connection-string <YOUR_APP_INSIGHTS_CONNECTION_STRING> \
-  --EnableOpenTelemetryTraces true \
-  --EnableOpenTelemetryLogs true
+  --enable-open-telemetry-traces true \
+  --enable-open-telemetry-logs true
 ```
 
 ---
@@ -142,8 +142,8 @@ Before you run this command, replace placeholders surrounded by `<>` with your v
 az containerapp env telemetry data-dog set \
   --site  "<YOUR_DATADOG_SUBDOMAIN>.datadoghq.com" \
   --key <YOUR_DATADOG_KEY> \
-  --EnableOpenTelemetryTraces true \
-  --EnableOpenTelemetryMetrics true
+  --enable-open-telemetry-traces true \
+  --enable-open-telemetry-metrics true
 ```
 
 ---
@@ -204,14 +204,14 @@ az containerap env telemetry otlp add \
   --endpoint "ENDPOINT_URL_1" \
   --insecure false \
   --headers "api-key-1=key" \
-  --EnableOpenTelemetryTraces true \
-  --EnableOpenTelemetryMetrics true
+  --enable-open-telemetry-traces true \
+  --enable-open-telemetry-metrics true
 az containerap env telemetry otlp add \
   --name "otlp2"
   --endpoint "ENDPOINT_URL_2" \
   --insecure true \
-  --EnableOpenTelemetryTraces true \
-  --EnableOpenTelemetryLogs true
+  --enable-open-telemetry-traces true \
+  --enable-open-telemetry-logs true
 ```
 
 ---

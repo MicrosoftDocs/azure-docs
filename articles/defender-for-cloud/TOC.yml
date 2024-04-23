@@ -323,7 +323,7 @@
     - name: Manage security standards and recommendations
       items:
       - name: Choose standards for your compliance dashboard
-        href: update-regulatory-compliance-packages.md
+        href: update-regulatory-compliance-packages.yml
       - name: Create custom standards/recommendations
         href: create-custom-recommendations.md
       - name: Manage MCSB recommendations
@@ -350,7 +350,7 @@
           href: governance-rules.md
         - name: Automate remediation responses
           displayName: workflow, triggers, logic app, automation, policies, breaking change
-          href: workflow-automation.md
+          href: workflow-automation.yml
         - name: View recommendations and alerts in Windows Admin Center
           displayName: windows, admin, center
           href: windows-admin-center-integration.md
@@ -408,7 +408,7 @@
       items:
         - name: Manage and respond to security alerts
           displayName: security alerts, alerts
-          href: managing-and-responding-alerts.md
+          href: managing-and-responding-alerts.yml
         - name: Create and manage alerts suppression rules
           displayName: alert suppression, alert suppression, create, suppressions rules,
             rules
@@ -456,7 +456,7 @@
           href: alert-validation.md
         - name: Automate responses to alerts
           displayName: workflow
-          href: workflow-automation.md
+          href: workflow-automation.yml
 
 - name: Protect your workloads
   items:
@@ -550,7 +550,7 @@
         href: auto-deploy-vulnerability-assessment.md
       - name: Transition to Microsoft Defender Vulnerability Management for servers
         displayName: qualys, rapid7, vulnerability, migrate, transition, Microsoft Defender Vulnerability Management, mdvm
-        href: how-to-transition-to-built-in.md
+        href: how-to-transition-to-built-in.yml
       - name: Common questions 
         displayName: questions, common, MDVM, Qualys, BYOL, bring your own license, agent, consolidated, vulnerability, management, faq, frequently asked questions
         href: faq-scanner-detection.yml
@@ -575,7 +575,7 @@
         href: just-in-time-access-overview.md
       - name: Enable just-in-time access on VMs
         displayName: jit, management, ports
-        href: just-in-time-access-usage.md
+        href: just-in-time-access-usage.yml
     - name: Endpoint detection and response
       items:
       - name: Understand endpoint detection and response
@@ -870,7 +870,7 @@
           - name: Connect your GitLab environment
             href: quickstart-onboard-gitlab.md
           - name: Configure the Microsoft Security DevOps Azure DevOps extension
-            href: azure-devops-extension.md
+            href: azure-devops-extension.yml
           - name: Configure the Microsoft Security DevOps GitHub action
             href: github-action.md
           - name: Configure pull request annotations
