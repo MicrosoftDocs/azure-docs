@@ -7,7 +7,7 @@ ms.manager: kmadnani
 ms.topic: tutorial
 ms.date: 01/24/2024
 ms.service: azure-migrate
-ms.custom: devx-track-azurepowershell, engagement-fy23
+ms.custom: vmware-scenario-422, devx-track-azurepowershell, engagement-fy23
 ---
 
 # Migrate VMware VMs to Azure (agentless) - PowerShell

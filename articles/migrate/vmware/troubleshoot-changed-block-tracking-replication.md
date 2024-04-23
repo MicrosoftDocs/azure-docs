@@ -7,7 +7,7 @@ ms.manager: vijain
 ms.topic: troubleshooting
 ms.service: azure-migrate
 ms.date: 10/18/2023
-ms.custom: engagement-fy24
+ms.custom: vmware-scenario-422, engagement-fy24
 ---
 
 # Troubleshooting replication issues in agentless VMware VM migration

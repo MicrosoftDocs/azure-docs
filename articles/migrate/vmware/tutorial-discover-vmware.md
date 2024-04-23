@@ -7,7 +7,7 @@ ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 04/11/2024
 ms.service: azure-migrate
-ms.custom: mvc, subject-rbac-steps, engagement-fy24
+ms.custom: vmware-scenario-422, mvc, subject-rbac-steps, engagement-fy24
 #Customer intent: As an VMware admin, I want to discover my on-premises servers running in a VMware environment.
 ---
 

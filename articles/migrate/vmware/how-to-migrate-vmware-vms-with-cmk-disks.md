@@ -5,7 +5,7 @@ author: MaryMichael-MS
 ms.author: v-michaelar
 ms.topic: how-to
 ms.date: 05/31/2023
-ms.custom: devx-track-azurepowershell, engagement-fy23
+ms.custom: vmware-scenario-422, devx-track-azurepowershell, engagement-fy23
 
 ---
 

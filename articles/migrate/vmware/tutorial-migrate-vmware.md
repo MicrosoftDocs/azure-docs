@@ -7,7 +7,7 @@ ms.manager: vijain
 ms.topic: tutorial
 ms.service: azure-migrate
 ms.date: 04/11/2024
-ms.custom: mvc, engagement-fy23
+ms.custom: vmware-scenario-422, mvc, engagement-fy23
 ---
 
 # Migrate VMware VMs to Azure (agentless)

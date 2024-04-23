@@ -7,7 +7,7 @@ ms.manager: vijain
 ms.topic: conceptual
 ms.service: azure-migrate
 ms.date: 12/12/2022
-ms.custom: engagement-fy23
+ms.custom: vmware-scenario-422, engagement-fy23
 ---
 
 

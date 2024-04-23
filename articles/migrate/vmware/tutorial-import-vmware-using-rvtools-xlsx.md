@@ -6,6 +6,7 @@ ms.author: sudhirsneha
 ms.topic: tutorial
 ms.date: 03/22/2024
 ms.service: azure-migrate
+ms.custom: vmware-scenario-422
 #Customer intent: As an VMware admin, I want to import my on-premises servers running in a VMware environment.
 ---
 

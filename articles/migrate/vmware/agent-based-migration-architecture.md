@@ -7,7 +7,7 @@ ms.manager: kmadnani
 ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 12/12/2022
-ms.custom: engagement-fy23
+ms.custom: vmware-scenario-422, engagement-fy23
 ---
 
 # Agent-based migration architecture

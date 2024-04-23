@@ -7,7 +7,7 @@ ms.manager: kmadnani
 ms.topic: tutorial
 ms.service: azure-migrate
 ms.date: 01/24/2024
-ms.custom: MVC, engagement-fy23
+ms.custom: vmware-scenario-422, MVC, engagement-fy23
 ---
 
 # Migrate VMware vSphere VMs to Azure (agent-based)
