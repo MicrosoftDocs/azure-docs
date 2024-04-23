@@ -141,4 +141,4 @@ With Storage Explorer, you can copy a manged disk within or across regions. To c
 ## Next steps
 
 - [Create a virtual machine from a VHD by using the Azure portal](./windows/create-vm-specialized-portal.md)
-- [Attach a managed data disk to a Windows virtual machine by using the Azure portal](./windows/attach-managed-disk-portal.md)
+- [Attach a managed data disk to a Windows virtual machine by using the Azure portal](./windows/attach-managed-disk-portal.yml)
