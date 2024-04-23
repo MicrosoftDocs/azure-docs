@@ -61,8 +61,8 @@ To sign into the Azure CLI use the `az login` command and complete the prompts d
 
 ### Helm and Docker engine
 
-- [Helm CLI](https://helm.sh/) installed on the host computer.
-- [Docker](https://docs.docker.com/) installed on the host computer.
+- Install [Helm CLI](https://helm.sh/) on the host computer. You must use Helm v3.8.0 or later.
+- Install [Docker](https://docs.docker.com/) on the host computer.
 
 ### Install AOSM CLI extension
 

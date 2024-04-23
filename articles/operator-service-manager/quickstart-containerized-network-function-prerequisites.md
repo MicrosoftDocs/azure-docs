@@ -42,7 +42,8 @@ az extension add --name aosm
 For those utilizing Containerized Network Functions, it's essential to ensure that the following packages are installed on the machine from which you're executing the CLI:
 
 - **Install docker**, refer to [Install the Docker Engine](https://docs.docker.com/engine/install/).
-- **Install Helm**, refer to [Install Helm CLI](https://helm.sh/docs/intro/install/).
+- **Install Helm**, refer to [Install Helm CLI](https://helm.sh/docs/intro/install/). You must use Helm v3.8.0 or later.
+
 
 ### Configure Containerized Network Function (CNF) deployment
 

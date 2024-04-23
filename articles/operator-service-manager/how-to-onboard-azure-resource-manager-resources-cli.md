@@ -46,8 +46,8 @@ This how-to guide uses Azure Key Vault (AKV) as an example of an Azure Resource,
 
 ### Helm and Docker engine
 
-- [Helm CLI](https://helm.sh/) installed on the host computer.
-- [Docker](https://docs.docker.com/) installed on the host computer.
+- Install [Helm CLI](https://helm.sh/) on the host computer. You must use Helm v3.8.0 or later.
+- Install [Docker](https://docs.docker.com/) on the host computer.
 
 ### Download and install Azure CLI
 
@@ -142,7 +142,7 @@ az extension add --name aosm
   ```
   > [!NOTE]
   > The resource element template section defines which NFD is included in the NSD. The properties must match those used in the input file passed to the `az aosm nfd build` command. This is because the Azure CLI AOSM Extension validates that the NFD has been correctly onboarded when building the NSD.
-  
+
 1. Execute the following command to build the Network Service Design Group and Version BICEP templates.
 
 ```azurecli
