@@ -231,7 +231,19 @@ The following options are available for you to remove a deployment slot from you
 
 ### [Portal](#tab/portal)
 
-TBD
+1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource.
+
+1. On the resource menu, under **Deployment**, select **Deployment slots (Preview)**.
+
+1. On the **Deployment slots** page, under **Deployment Slots (Preview)**, select the deployment slot that you want to delete.
+
+1. On the deployment slot resource menu, select **Overview**.
+
+1. On the **Overview** toolbar, select **Delete**.
+
+1. Confirm deletion by entering the deployment slot name, and then select **Delete**.
+
+   :::image type="content" source="media/set-up-deployment-slots/delete-deployment-slot.png" alt-text="Screenshot shows Azure portal, deployment slot resource with Overview page opened, and delete confirmation pane with deployment slot name to delete." lightbox="media/set-up-deployment-slots/delete-deployment-slot.png":::
 
 ### [Visual Studio Code](#tab/visual-studio-code)
 
