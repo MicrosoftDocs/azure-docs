@@ -2,7 +2,7 @@
 title: Configuration of Azure Monitor pipeline for edge and multicloud
 description: Configuration of Azure Monitor pipeline for edge and multicloud
 ms.topic: conceptual
-ms.date: 11/14/2023
+ms.date: 04/23/2024
 ms.author: bwren
 author: bwren
 ---
@@ -32,18 +32,59 @@ The following components are required to enable and configure the Azure Monitor 
 | Data collection endpoint (DCE) | Endpoint where the data is sent to the Azure Monitor pipeline. The pipeline configuration includes a property for the URL of the DCE so the pipeline instance knows where to send the data. |
 | Data collection rule (DCR) | Configuration file that defines how the data is received in the cloud pipeline and where it's sent. The DCR can also include a transformation to filter or modify the data before it's sent to the destination. |
 
+## Supported distros
+Edge pipeline is supported on the following Kubernetes distributions:
+
+- Canonical
+- Cluster API Provider for Azure
+- K3
+- Rancher Kubernetes Engine
+- VMware Tanzu Kubernetes Grid
+
+## Supported locations
+Edge pipeline is supported in the following locations:
+
+- East US2
+- West US2
+- West Europe
 
 ## Prerequisites
 
 - [Arc-enabled Kubernetes cluster](../../azure-arc/kubernetes/overview.md ) in your own environment with an external IP address. See [Connect an existing Kubernetes cluster to Azure Arc](../../azure-arc/kubernetes/quickstart-connect-cluster.md) for details on enabling Arc for a cluster.
 - Log Analytics workspace in Azure Monitor to receive the data from the edge pipeline. See [Create a Log Analytics workspace in the Azure portal](../../azure-monitor/logs/quick-create-workspace.md) for details on creating a workspace.
-- Table in the Log Analytics workspace to receive data from each client log. See [Add or delete tables and columns in Azure Monitor Logs](../logs/create-custom-table.md) for details on creating a table. For both Syslog and OTLP data flows, the table should have the columns in the following table. You can use a different schema for these tables using a [transformation](./data-collection-transformations.md) in your DCR.
 
-  | Column Name | Type |
-  |:---|:---|
-  | Body | string |
-  | TimeGenerated | datetime |
-  | SeverityText | string |
+## Workflow
+You don't need a detail understanding of the different steps performed by the Azure Monitor pipeline to configure it using the Azure portal. You may need a more detailed understanding of it though if you use another method of installation or if you need to perform more advanced configuration such as transforming the data before it's stored in its destination.
+
+The following table and diagram describe the detailed steps and components in the process for collecting data using the edge pipeline and the configuration required for each of those components.
+
+| Step | Action | Supporting configuration |
+|:---|:---|:---|
+| 1. | Client sends data to the edge pipeline receiver. | Client is configured with IP and port of the edge pipeline receiver and sends data in the expected format for the receiver type. |
+| 2. | Receiver forwards data to the exporter. | Receiver and exporter are configured in the same pipeline. |
+| 3. | Exporter tries to send the data to the cloud pipeline. | Exporter in the pipeline configuration includes URL of the DCE, a unique identifier for the DCR, and the stream in the DCR that defines how the data will be processed. |
+| 3a. | Exporter stores data in the local cache if it can't connect to the DCE. | Persistent volume for the cache and configuration of the local cache is enabled in the pipeline configuration. |
+| 4. | Cloud pipeline accepts the incoming data. | The DCR includes a schema definition for the incoming stream that must match the schema of the data coming from the edge pipeline. |
+| 5. | Cloud pipeline applies a transformation to the data. | The DCR includes a transformation that filters or modifies the data before it's sent to the destination. The transformation may filter data, remove or add columns, or completely change its schema. The output of the transformation must match the schema of the destination table. |
+| 6. | Cloud pipeline sends the data to the destination. | The DCR includes a destination that specifies the Log Analytics workspace and table where the data will be stored. |
+
+:::image type="content" source="media/edge-pipeline/edge-pipeline-dataflow.png" lightbox="media/edge-pipeline/edge-pipeline-dataflow.png" alt-text="Detailed diagram of the steps and components for data collection using Azure Monitor edge pipeline." border="false"::: 
+
+
+
+## Create table in Log Analytics workspace
+
+Before you configure the data collection process for the edge pipeline, you need to create a table in the Log Analytics workspace to receive the data. This must be a custom table since built-in tables aren't currently supported. The schema of the table must match the data that it receives, but there are multiple steps in the collection process where you can modify the incoming data, so you the table schema doesn't need to match the data that you're collecting. The only requirement for the table in the Log Analytics workspace is that it has a `TimeGenerated` column.
+
+See [Add or delete tables and columns in Azure Monitor Logs](../logs/create-custom-table.md) for details on different methods for creating a table. For example, use the CLI command below to create a table with the following three columns:
+
+- TimeGenerated: datetime 
+- Body: string 
+- SeverityText: string 
+
+```azurecli
+az monitor log-analytics workspace table create --workspace-name my-workspace --resource-group my-resource-group  --name my-table_CL --columns TimeGenerated=datetime Body=string SeverityText=string
+```
 
 
 
@@ -118,7 +159,6 @@ The following ARM template adds the edge pipeline extension to your Arc-enabled 
     "apiVersion": "2022-11-01",
     "name": "my-pipeline-extension",
     "scope": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/my-resource-group/providers/Microsoft.Kubernetes/connectedClusters/my-arc-cluster",
-    "tags": "",
     "identity": {
         "type": "SystemAssigned"
     },
@@ -157,11 +197,12 @@ The following ARM template creates the custom location for to your Arc-enabled K
     "name": "custom-location-name",
     "location": "eastus",
     "apiVersion": "2021-08-15",
-    "tags": "",
     "properties": {
         "hostResourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/my-resource-group/providers/Microsoft.Kubernetes/connectedClusters/my-arc-cluster",
         "namespace": "custom-location-name",
-        "clusterExtensionIds": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/my-resource-group/providers/Microsoft.KubernetesConfiguration/extensions/my-pipeline-extension",
+        "clusterExtensionIds": [
+            "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/my-resource-group/providers/Microsoft.Kubernetes/connectedClusters/strato-01/providers/Microsoft.KubernetesConfiguration/extensions/my-pipeline-extension"
+        ],
         "hostType": "Kubernetes"
     }
 }
@@ -169,7 +210,7 @@ The following ARM template creates the custom location for to your Arc-enabled K
 
 
 ### DCE
-The following ARM template creates the [data collection endpoint (DCE)](./data-collection-endpoint-overview.md) required for the edge pipeline to connect to the cloud pipeline. Replace the properties in the following table before deploying the template.
+The following ARM template creates the [data collection endpoint (DCE)](./data-collection-endpoint-overview.md) required for the edge pipeline to connect to the cloud pipeline. You can use an existing DCE if you already have one in the same region. Replace the properties in the following table before deploying the template.
 
 | Parameter | Description |
 |:---|:--|
@@ -182,7 +223,6 @@ The following ARM template creates the [data collection endpoint (DCE)](./data-c
     "name": "my-dce",
     "location": "eastus",
     "apiVersion": "2021-04-01",
-    "tags": "",
     "properties": {
         "configurationAccess": {},
         "logsIngestion": {},
@@ -222,7 +262,6 @@ Replace the properties in the following table before deploying the template. See
     "name": "my-dcr",
     "location": "eastus",
     "apiVersion": "2021-09-01-preview",
-    "tags": "",
     "properties": {
         "dataCollectionEndpointId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/my-resource-group/providers/Microsoft.Insights/dataCollectionEndpoints/my-dce",
         "streamDeclarations": {
@@ -304,7 +343,7 @@ Use the following command to retrieve the object id of the System Assigned Ident
 az k8s-extension show --name <extension-name> --cluster-name <cluster-name> --resource-group <resource-group> --cluster-type connectedClusters --query "identity.principalId" -o tsv 
 
 ## Example:
-az k8s-extension show --name microsoft.monitor.pipelinecontroller --cluster-name my-cluster --resource-group my-resource-group --cluster-type connectedClusters --query "identity.principalId" -o tsv 
+az k8s-extension show --name my-pipeline-extension--cluster-name my-cluster --resource-group my-resource-group --cluster-type connectedClusters --query "identity.principalId" -o tsv 
 ```
 
 Use the output from this command as input to the following command to give Azure Monitor pipeline the authority to send its telemetry to the DCR.
@@ -323,30 +362,31 @@ Replace the properties in the following table before deploying the template.
 
 | Property | Description |
 |:---|:--|
+| **General** | |
 | `name` | Name of the pipeline instance. Must be unique in the subscription. |
 | `location` | Location of the pipeline instance. |
 | `extendedLocation` |  |
-| `receivers` | One entry for each receiver. Each entry specifies the type of data being received, the port it will listen on, and a unique name that will be used in the `pipelines` section of the configuration. |
-| - `type` | Type of data received. Current options are `OTLP` and `Syslog`. |
-| - `name` | Name for the receiver referenced in the `service` section. Must be unique for the pipeline instance. |
-| - `endpoint` | Address and port the receiver listens on. Use `0.0.0.0` for al addresses. |
-| `processors` | Reserved for future use.|
-| `exporters`  | One entry for each destination. |
-| - `type` | Only currently supported type is `AzureMonitorWorkspaceLogs`. |
-| - `name` | Must be unique for the pipeline instance. The name is used in the `pipelines` section of the configuration. |
-| - `dataCollectionEndpointUrl` |  URL of your DCE. You can locate this in the Azure portal by navigating to the DCE and copying the Logs Ingestion value. |
-| - `dataCollectionRule` | Immutable ID of the DCR. From the JSON view of your DCR, copy the value of the **immutable ID** in the **General** section. |
+| **Receivers** | One entry for each receiver. Each entry specifies the type of data being received, the port it will listen on, and a unique name that will be used in the `pipelines` section of the configuration. |
+| `type` | Type of data received. Current options are `OTLP` and `Syslog`. |
+| `name` | Name for the receiver referenced in the `service` section. Must be unique for the pipeline instance. |
+| `endpoint` | Address and port the receiver listens on. Use `0.0.0.0` for al addresses. |
+| **Processors** | Reserved for future use.|
+| **Exporters**  | One entry for each destination. |
+| `type` | Only currently supported type is `AzureMonitorWorkspaceLogs`. |
+| `name` | Must be unique for the pipeline instance. The name is used in the `pipelines` section of the configuration. |
+| `dataCollectionEndpointUrl` |  URL of the DCE where the edge pipeline will send the data. You can locate this in the Azure portal by navigating to the DCE and copying the **Logs Ingestion** value. |
+| `dataCollectionRule` | Immutable ID of the DCR that defines the data collection in the cloud pipeline. From the JSON view of your DCR in the Azure portal, copy the value of the **immutable ID** in the **General** section. |
 | - `stream` | Name of the stream in your DCR that will accept the data. |
 | - `maxStorageUsage` | Capacity of the cache. When 80% of this capacity is reached, the oldest data is pruned to make room for more data.  |
 | - `retentionPeriod` | Retention period in minutes. Data is pruned after this amount of time. |
 | - `schema` | Schema of the data being sent to the cloud pipeline. This must match the schema defined in the stream in the DCR. The schema used in the example is valid for both Syslog and OTLP. |
-| `service` | One entry for each pipeline instance. Only one instance for each pipeline extension is recommended. {**What does this mean**?} |
-| - `pipelines` | One entry for each data flow. Each entry matches a `receiver` with an `exporter`. |
-| - - `name` | Unique name of the pipeline. |
-| - - `receivers` | One or more receivers to listen for data to receive. |
-| - - `processors` | Reserved for future use. |
-| - - `exporters` | One or more exporters to send the data to the cloud pipeline. |
-| - `persistence` | Name of the persistent volume used for the cache. Remove this parameter if you don't want to enable the cache. |
+| **Service** | One entry for each pipeline instance. Only one instance for each pipeline extension is recommended.  |
+| **Pipelines** | One entry for each data flow. Each entry matches a `receiver` with an `exporter`. |
+| `name` | Unique name of the pipeline. |
+| `receivers` | One or more receivers to listen for data to receive. |
+| `processors` | Reserved for future use. |
+| `exporters` | One or more exporters to send the data to the cloud pipeline. |
+| `persistence` | Name of the persistent volume used for the cache. Remove this parameter if you don't want to enable the cache. |
 
 
 ```json
@@ -354,8 +394,8 @@ Replace the properties in the following table before deploying the template.
     "type": "Microsoft.monitor/pipelineGroups",
     "location": "eastus",
     "apiVersion": "2023-10-01-preview",
-    "name": "my-pipeline-group",
-    "tags": "",
+     "name": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/my-resource-group/providers/Microsoft.ExtendedLocation/customLocations/my-custom-location",
+
     "extendedLocation": {
         "name": "my-custom-location",
         "type": "CustomLocation"
@@ -421,7 +461,8 @@ Replace the properties in the following table before deploying the template.
                     "processors": [],
                     "exporters": [
                         "exporter-log-analytics-workspace"
-                    ]
+                    ],
+                    "type": "logs"
                 },
                 {
                     "name": "DefaultSyslogs",
@@ -431,13 +472,27 @@ Replace the properties in the following table before deploying the template.
                     "processors": [],
                     "exporters": [
                         "exporter-log-analytics-workspace"
-                    ]
+                    ],
+                    "type": "logs"
                 }
             ],
             "persistence": {
                 "persistentVolume": "my-persistent-volume"
             }
-        }
+        },
+        "networkingConfigurations": [
+            {
+                "externalNetworkingMode": "LoadBalancerOnly",
+                "routes": [
+                    {
+                        "receiver": "receiver-OTLP"
+                    },
+                    {
+                        "receiver": "receiver-Syslog"
+                    }
+                ]
+            }
+         ]
     }
 }
 ```
