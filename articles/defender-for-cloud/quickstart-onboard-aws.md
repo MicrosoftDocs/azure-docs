@@ -2,7 +2,7 @@
 title: Connect your AWS account
 description: Defend your AWS resources by using Microsoft Defender for Cloud.
 ms.topic: install-set-up-deploy
-ms.custom: linux-related-content
+ms.custom:
 ms.date: 01/03/2024
 ---
 

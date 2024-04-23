@@ -151,7 +151,7 @@ Amazon Elastic Kubernetes Service, Amazon's managed service for running Kubernet
 
 ### **eBPF**
 
-Extended Berkley Packet Filter [What is eBPF?](https://ebpf.io/)
+Extended Berkeley Packet Filter [What is eBPF?](https://ebpf.io/)
 
 ## F
 

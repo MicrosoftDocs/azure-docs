@@ -20,15 +20,9 @@ Custom skills are web APIs that implement a specific interface. A custom skill c
 + Azure Web apps for simple containerized AI skills
 + Azure Kubernetes service for more complex or larger skills.
 
-## Prerequisites
-
-+ Review the [custom skill interface](cognitive-search-custom-skill-interface.md) for an introduction into the inputs and outputs that a custom skill should implement.
-
-+ Set up your environment. You can start with [this tutorial end-to-end](../azure-functions/create-first-function-vs-code-python.md) to set up serverless Azure Function using Visual Studio Code with the Python extension.
-
 ## Skillset configuration
 
-The following properties on a [custom skill](cognitive-search-custom-skill-web-api.md) are used for scale.
+The following properties on a [custom skill](cognitive-search-custom-skill-web-api.md) are used for scale. Review the [custom skill interface](cognitive-search-custom-skill-interface.md) for an introduction into the inputs and outputs that a custom skill should implement.
 
 1. Set `batchSize` of the custom skill to configure the number of records sent to the skill in a single invocation of the skill.
 
@@ -40,15 +34,15 @@ The following properties on a [custom skill](cognitive-search-custom-skill-web-a
 
 ### Considerations
 
- There's no "one size fits all" set of recommendations. You should plan on testing different configurations to reach an optimum result. Strategies are either fewer large requests or many small requests.
+ There's no "one size fits all" set of recommendations. You should plan on testing different configurations to reach an optimum result. Scale up strategies are based on fewer large requests, or many small requests.
 
-+ Skill invocation cardinality: Does the skill execute once for each document (`/document/content`) or multiple times per document (`/document/reviews_text/pages/*`).
++ Skill invocation cardinality: make sure you know whether the custom skill executes once for each document (`/document/content`) or multiple times per document (`/document/reviews_text/pages/*`). If it's multiple times per document, stay on the lower side of `batchSize` and `degreeOfParallelism` to reduce churn, and try setting indexer batch size to incrementally higher values for more scale.
 
-+ On average, how many documents are read from the data source to fill out a skill request based on the skill batch size? Ideally, this should be less than the indexer batch size. With batch sizes greater than one, your skill can receive records from multiple source documents. For example, if the indexer batch count is 5, and the skill batch count is 50 and each document generates only five records, the indexer will need to fill a custom skill request across multiple indexer batches.
++ Coordinate custom skill `batchSize` and indexer `batchSize`, and make sure you're not creating bottlenecks. For example, if the indexer batch size is 5, and the skill batch size is 50, you would need 10 indexer batches to fill a custom skill request. Ideally, skill batch size should be less than or equal to indexer batch size.
 
-+ The average number of requests an indexer batch can generate should give you an optimal setting for the degrees of parallelism. If your infrastructure hosting the skill can't support that level of concurrency, consider dialing down the degrees of parallelism. As a best practice, test your configuration with a few documents to validate your choices on the parameters.
++ For `degreeOfParallelism`, use the average number of requests an indexer batch can generate to guide your decision on how to set this value. If your infrastructure hosting the skill, for example an Azure function, can't support high levels of concurrency, consider dialing down the degrees of parallelism. You can test your configuration with a few documents to validate your understanding of average number of requests.
 
-+ Testing with a smaller sample of documents, evaluate the execution time of your skill to the overall time taken to process the subset of documents. Does your indexer spend more time building a batch or waiting for a response from your skill? 
++ Although your object is scale and support of high volumes, testing with a smaller sample of documents helps quantify different stages of execution. For example, you can evaluate the execution time of your skill, relative to the overall time taken to process the subset of documents. This helps you answer the question: does your indexer spend more time building a batch or waiting for a response from your skill? 
 
 + Consider the upstream implications of parallelism. If the input to a custom skill is an output from a prior skill, are all the skills in the skillset scaled out effectively to minimize latency?
 

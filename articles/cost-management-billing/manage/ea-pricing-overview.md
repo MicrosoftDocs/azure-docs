@@ -35,7 +35,7 @@ The price is referred to as the baseline price. Here are more details about the 
 
     If you have questions about price protection, contact your partner or Software Advisor.
 
-For services introduced after your Azure purchase, you're charged the price that's in effect at the applicable level discount when the service is first introduced. The price protection applies during your Prepayment term - one or three years depending upon your Enterprise Agreement. For more information about prepayment provisioning, [Azure EA agreements and amendments](ea-portal-agreements.md#enrollment-provisioning-status).
+For services introduced after your Azure purchase, you're charged the price that's in effect at the applicable level discount when the service is first introduced. The price protection applies during your Prepayment term - one or three years depending upon your Enterprise Agreement. For more information about prepayment provisioning, see [Azure EA agreements and amendments](ea-portal-agreements.md#enrollment-provisioning-status).
 
 ## Price changes
 

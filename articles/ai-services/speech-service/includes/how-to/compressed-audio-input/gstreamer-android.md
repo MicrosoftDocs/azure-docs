@@ -73,7 +73,7 @@ APP_PLATFORM = android-21
 APP_BUILD_SCRIPT = Android.mk
 ```
 
-You can build `libgstreamer_android.so` by using the following command on Ubuntu 18.04 or 20.04. The following command lines have been tested for [GStreamer Android version 1.14.4](https://gstreamer.freedesktop.org/download/) with [Android NDK b16b.](https://dl.google.com/android/repository/android-ndk-r16b-linux-x86_64.zip)
+You can build `libgstreamer_android.so` by using the following command on Ubuntu 18.04 or 20.04. The following command lines have been tested for [GStreamer Android version 1.14.4] with [Android NDK b16b.](https://dl.google.com/android/repository/android-ndk-r16b-linux-x86_64.zip)
 
 ```sh
 # Assuming wget and unzip are already installed on the system

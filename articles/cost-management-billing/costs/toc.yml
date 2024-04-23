@@ -25,6 +25,8 @@
       href: understand-work-scopes.md
     - name: Cost Management for partners
       href: get-started-partners.md
+    - name: Retire AWS connector
+      href: retire-aws-connector.md
     - name: Security
       items:
       - name: Security baseline

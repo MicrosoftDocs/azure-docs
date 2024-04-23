@@ -8,7 +8,7 @@ ms.reviewer: mjbrown
 ms.service: cosmos-db
 ms.custom: build-2023, devx-track-azurecli, devx-track-azurepowershell, devx-track-arm-template
 ms.topic: how-to
-ms.date: 05/08/2023
+ms.date: 03/21/2024
 zone_pivot_groups: azure-cosmos-db-apis-nosql-mongodb-gremlin-table
 ---
 
@@ -138,7 +138,8 @@ Use the Azure CLI to restore a deleted container or database. Child containers a
          --resource-group <resource-group-name> \ 
          --account-name <account-name> \  
          --name <database-name> \
-         --restore-timestamp <timestamp>
+         --restore-timestamp <timestamp> \
+         --disable-ttl True
     ```
 
 1. Initiate a restore operation for a deleted container by using [az cosmosdb sql container restore](/cli/azure/cosmosdb/sql/container#az-cosmosdb-sql-container-restore):
@@ -148,8 +149,9 @@ Use the Azure CLI to restore a deleted container or database. Child containers a
          --resource-group <resource-group-name> \ 
          --account-name <account-name> \  
          --database-name <database-name> \
-        --name <container-name> \
-         --restore-timestamp <timestamp>
+         --name <container-name> \
+         --restore-timestamp <timestamp> \
+         --disable-ttl True
     ```
 
 :::zone-end
@@ -210,6 +212,7 @@ Use the Azure CLI to restore a deleted container or database. Child containers a
          --account-name <account-name> \  
          --name <database-name> \
          --restore-timestamp <timestamp>
+         --disable-ttl True
     ```
 
 1. Initiate a restore operation for a deleted collection by using [az cosmosdb mongodb collection restore](/cli/azure/cosmosdb/mongodb/collection#az-cosmosdb-mongodb-collection-restore):
@@ -220,7 +223,8 @@ Use the Azure CLI to restore a deleted container or database. Child containers a
          --account-name <account-name> \   
          --database-name <database-name> \
         --name <container-name> \
-         --restore-timestamp <timestamp> 
+         --restore-timestamp <timestamp> \
+         --disable-ttl True
     ```
 
 :::zone-end
@@ -280,7 +284,8 @@ Use the Azure CLI to restore a deleted container or database. Child containers a
         --resource-group <resource-group-name> \ 
         --account-name <account-name> \  
         --name <database-name> \ 
-        --restore-timestamp <timestamp>
+        --restore-timestamp <timestamp> \
+        --disable-ttl True
     ```
 
 1. Initiate a restore operation for a deleted graph by using [az cosmosdb gremlin graph restore](/cli/azure/cosmosdb/gremlin/graph#az-cosmosdb-gremlin-graph-restore):
@@ -291,7 +296,8 @@ Use the Azure CLI to restore a deleted container or database. Child containers a
         --account-name <account-name> \  
         --database-name <database-name> \ 
         --name <graph-name> \ 
-        --restore-timestamp <timestamp>
+        --restore-timestamp <timestamp> \
+        --disable-ttl True
     ```
 
 :::zone-end
@@ -342,7 +348,8 @@ Use the Azure CLI to restore a deleted container or database. Child containers a
          --resource-group <resource-group-name> \
          --account-name <account-name> \
          --table-name <table-name> \
-         --restore-timestamp <timestamp>
+         --restore-timestamp <timestamp> \
+         --disable-ttl True
     ```
 
 :::zone-end
@@ -424,6 +431,7 @@ Use Azure PowerShell to restore a deleted container or database. Child container
         DatabaseName = "<database-name>"
         Name = "<container-name>"
         RestoreTimestampInUtc = "<timestamp>"
+        DisableTtl= $true
     }
     Restore-AzCosmosDBSqlContainer @parameters 
     ```
@@ -481,6 +489,7 @@ Use Azure PowerShell to restore a deleted container or database. Child container
         AccountName = "<account-name>"
         Name = "<database-name>"
         RestoreTimestampInUtc = "<timestamp>"
+        DisableTtl=$true 
     }
     Restore-AzCosmosDBMongoDBDatabase @parameters 
     ```
@@ -494,6 +503,7 @@ Use Azure PowerShell to restore a deleted container or database. Child container
         DatabaseName = "<database-name>"
         Name = "<collection-name>"
         RestoreTimestampInUtc = "<timestamp>"
+        DisableTtl=$true 
     }
     Restore-AzCosmosDBMongoDBCollection @parameters   
     ```
@@ -551,6 +561,7 @@ Use Azure PowerShell to restore a deleted container or database. Child container
         AccountName = "<account-name>"
         Name = "<database-name>"
         RestoreTimestampInUtc = "<timestamp>"
+        DisableTtl=$true 
     }
     Restore-AzCosmosDBGremlinDatabase @parameters
     ```
@@ -564,6 +575,7 @@ Use Azure PowerShell to restore a deleted container or database. Child container
         DatabaseName = "<database-name>"
         Name = "<graph-name>"
         RestoreTimestampInUtc = "<timestamp>"
+        DisableTtl=$true 
     }
     Restore-AzCosmosDBGremlinGraph @parameters 
     ```
@@ -610,6 +622,7 @@ Use Azure PowerShell to restore a deleted container or database. Child container
         AccountName = "<account-name>"
         Name = "<table-name>"
         RestoreTimestampInUtc = "<timestamp>"
+        DisableTtl=$true 
     }
     Restore-AzCosmosDBTable @parameters
     ```
@@ -663,7 +676,8 @@ You can restore deleted containers and databases by using an Azure Resource Mana
         "name": "<name-of-database-or-container>",
         "restoreParameters": {
           "restoreSource": "<source-account-instance-id>",
-          "restoreTimestampInUtc": "<timestamp>"
+          "restoreTimestampInUtc": "<timestamp>",
+          "restoreWithTtlDisabled": "true" 
         },
         "createMode": "Restore"
       }
@@ -680,7 +694,8 @@ You can restore deleted containers and databases by using an Azure Resource Mana
         "name": "<name-of-database-or-collection>",
         "restoreParameters": {
           "restoreSource": "<source-account-instance-id>",
-          "restoreTimestampInUtc": "<timestamp>"
+          "restoreTimestampInUtc": "<timestamp>",
+          "restoreWithTtlDisabled": "true" 
         },
         "createMode": "Restore"
       }
@@ -697,7 +712,8 @@ You can restore deleted containers and databases by using an Azure Resource Mana
         "name": "<name-of-database-or-graph>",
         "restoreParameters": {
           "restoreSource": "<source-account-instance-id>",
-          "restoreTimestampInUtc": "<timestamp>"
+          "restoreTimestampInUtc": "<timestamp>",
+          "restoreWithTtlDisabled": "true" 
         },
         "createMode": "Restore"
       }
@@ -714,7 +730,8 @@ You can restore deleted containers and databases by using an Azure Resource Mana
         "name": "<name-of-table>",
         "restoreParameters": {
           "restoreSource": "<source-account-instance-id>",
-          "restoreTimestampInUtc": "<timestamp>"
+          "restoreTimestampInUtc": "<timestamp>", 
+          "restoreWithTtlDisabled": "true" 
         },
         "createMode": "Restore"
       }

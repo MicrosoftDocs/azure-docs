@@ -7,7 +7,7 @@ author: tomvcassidy
 ms.service: container-instances
 services: container-instances
 ms.date: 05/23/2023
-ms.custom: mvc, devx-track-arm-template, linux-related-content
+ms.custom: mvc, devx-track-arm-template
 ---
 
 # Tutorial: Prepare a deployment for a confidential container on Azure Container Instances
@@ -180,7 +180,7 @@ In the following steps, you use the Azure portal to deploy the template. You can
 
 1. Select the **Deploy to Azure** button to sign in to Azure and begin a Container Instances deployment.
 
-   :::image type="content" source="~/articles/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Resource Manager template to Azure." border="false" link="https://ms.portal.azure.com/#create/Microsoft.Template":::
+   :::image type="content" source="~/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Resource Manager template to Azure." border="false" link="https://ms.portal.azure.com/#create/Microsoft.Template":::
 
 1. Select **Build your own template in the editor**.
 

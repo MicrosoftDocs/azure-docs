@@ -7,6 +7,7 @@ ms.service: azure-kubernetes-service
 ms.custom: devx-track-azurecli
 ms.topic: article
 ms.date: 11/16/2023
+ms.subservice: aks-nodes
 ---
 
 # Reduce image pull time with Artifact Streaming on Azure Kubernetes Service (AKS) (Preview)
@@ -149,3 +150,4 @@ This article described how to enable Artifact Streaming on your AKS node pools t
 [az-acr-artifact-streaming-create]: /cli/azure/acr/artifact-streaming#az-acr-artifact-streaming-create
 [az-acr-manifest-list-referrers]: /cli/azure/acr/manifest#az-acr-manifest-list-referrers
 [az-aks-nodepool-show]: /cli/azure/aks/nodepool#az-aks-nodepool-show
+

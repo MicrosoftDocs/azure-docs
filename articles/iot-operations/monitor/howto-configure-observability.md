@@ -20,6 +20,7 @@ Observability provides visibility into every layer of your Azure IoT Operations 
 ## Prerequisites
 
 - Azure IoT Operations Preview installed. For more information, see [Quickstart: Deploy Azure IoT Operations Preview to an Arc-enabled Kubernetes cluster](../get-started/quickstart-deploy.md).
+- [Git](https://git-scm.com/downloads) for cloning the repository.
 
 ## Configure your subscription
 
@@ -34,37 +35,51 @@ az provider register -n "Microsoft.AlertsManagement"
 ## Install observability components
 The steps in this section install shared monitoring resources and configure your Arc enabled cluster to emit observability signals to these resources. The shared monitoring resources include Azure Managed Grafana, Azure Monitor Workspace, Azure Managed Prometheus, Azure Log Analytics, and Container Insights. 
 
-To deploy, run the following command. Use the subscription ID and resource group of your Arc-enabled cluster that you want to monitor.
+1. In your console, navigate to a local folder where you want to clone the Azure IoT Operations repo: 
+    > [!NOTE]
+    > The repo contains the deployment definition of Azure IoT Operations, and samples that include the sample dashboards used in this article.
 
-> [!NOTE]
-> To discover other optional parameters you can set, see the [bicep file](https://github.com/Azure/azure-iot-operations/blob/main/tools/setup-3p-obs-infra/observability-full.bicep). The optional parameters can specify things like alternative locations for cluster resources.
+1. Clone the repo to your local machine, using the following command:
 
-```azurecli
-az deployment group create \
-      --subscription <subscription-id> \
-      --resource-group <cluster-resource-group> \
-      --template-file observability-full.bicep \
-      --parameters grafanaAdminId=$(az ad user show --id $(az account show --query user.name --output tsv) --query=id --output tsv) \
-                   clusterName=<cluster-name> \
-                   sharedResourceGroup=<shared-resource-group> \
-                   sharedResourceLocation=<shared-resource-location> \
-      --query=properties.outputs
-```
+    ```shell
+    git clone https://github.com/Azure/azure-iot-operations.git
+    ```
 
-The previous command grants admin access for the newly created Grafana instance to the user who runs it. If that access isn't what you want, run the following command instead. You need to set up permissions manually before anyone can access the Grafana instance. 
+1. Navigate to the following path in your local copy of the repo:
 
-```azurecli
-az deployment group create \
-    --subscription <subscription-id> \
-    --resource-group <cluster-resource-group> \
-    --template-file observability-full.bicep \
-    --parameters clusterName=<cluster-name> \
-                 sharedResourceGroup=<shared-resource-group> \
-                 sharedResourceLocation=<shared-resource-location> \
-    --query=properties.outputs
-```
+    *azure-iot-operations\tools\setup-3p-obs-infra*
 
-To set up permissions manually, [add a role assignment](../../managed-grafana/how-to-share-grafana-workspace.md#add-a-grafana-role-assignment) to the Grafana instance for any users who should have access. Assign one of the Grafana roles (Grafana Admin, Grafana Editor, Grafana Viewer) depending on the level of access desired.
+1. To deploy the observability components, run the following command. Use the subscription ID and resource group of your Arc-enabled cluster that you want to monitor.
+
+    > [!NOTE]
+    > To discover other optional parameters you can set, see the [bicep file](https://github.com/Azure/azure-iot-operations/blob/main/tools/setup-3p-obs-infra/observability-full.bicep). The optional parameters can specify things like alternative locations for cluster resources.
+    
+    ```azurecli
+    az deployment group create \
+          --subscription <subscription-id> \
+          --resource-group <cluster-resource-group> \
+          --template-file observability-full.bicep \
+          --parameters grafanaAdminId=$(az ad user show --id $(az account show --query user.name --output tsv) --query=id --output tsv) \
+                        clusterName=<cluster-name> \
+                        sharedResourceGroup=<shared-resource-group> \
+                        sharedResourceLocation=<shared-resource-location> \
+          --query=properties.outputs
+    ```
+        
+    The previous command grants admin access for the newly created Grafana instance to the user who runs it. If that access isn't what you want, run the following command instead. You need to set up permissions manually before anyone can access the Grafana instance. 
+        
+    ```azurecli
+    az deployment group create \
+        --subscription <subscription-id> \
+        --resource-group <cluster-resource-group> \
+        --template-file observability-full.bicep \
+        --parameters clusterName=<cluster-name> \
+                      sharedResourceGroup=<shared-resource-group> \
+                      sharedResourceLocation=<shared-resource-location> \
+        --query=properties.outputs
+    ```
+
+    To set up permissions manually, [add a role assignment](../../managed-grafana/how-to-share-grafana-workspace.md#add-a-grafana-role-assignment) to the Grafana instance for any users who should have access. Assign one of the Grafana roles (Grafana Admin, Grafana Editor, Grafana Viewer) depending on the level of access desired.
 
 If the deployment succeeds, a few pieces of information are printed at the end of the command output. The information includes the Grafana URL and the resource IDs for both the Log Analytics and Azure Monitor resources that were created. The Grafana URL allows you to navigate to the Grafana instance that you configure in [Deploy dashboards to Grafana](#deploy-dashboards-to-grafana). The two resource IDs enable you to configure other Arc enabled clusters by following the steps in [Add an Arc-enabled cluster to existing observability infrastructure](howto-add-cluster.md).
 
@@ -134,15 +149,9 @@ Azure IoT Operations provides a collection of dashboards designed to give you ma
 
 Complete the following steps to install the Azure IoT Operations curated Grafana dashboards. 
 
-1. Clone the Azure IoT Operations repo by using the following command:
-
-    ```console
-    git clone https://github.com/Azure/azure-iot-operations.git
-    ```
-
 1. Sign in to the Grafana console, then in the upper right area of the Grafana application, select the **+** icon
 
-1. Select **Import dashboard**, follow the prompts to browse to the *samples\grafana-dashboards* path in your cloned copy of the repo, and select a JSON dashboard file
+1. Select **Import dashboard**, follow the prompts to browse to the *samples\grafana-dashboards* path in your local cloned copy of the repo, and select a JSON dashboard file
 
 1. When the application prompts, select your managed Prometheus data source
 

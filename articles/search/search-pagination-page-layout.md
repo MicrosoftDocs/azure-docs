@@ -44,7 +44,7 @@ POST /indexes/hotels-sample-index/docs/search?api-version=2020-06-30
 ```
 
 > [!NOTE]
-> For images in results, such as a product photo or logo, store them outside of Azure AI Search, but add a field in your index to reference the image URL in the search document. Sample indexes that demonstrate images in the results include the **realestate-sample-us** demo (a built-in sample dataset that you can build easily in the Import Data wizard), and the [New York City Jobs demo app](https://aka.ms/azjobsdemo).
+> For images in results, such as a product photo or logo, store them outside of Azure AI Search, but add a field in your index to reference the image URL in the search document. Sample indexes that demonstrate images in the results include the **realestate-sample-us** demo (a built-in sample dataset that you can build easily in the Import Data wizard).
 
 ### Tips for unexpected results
 
@@ -280,7 +280,7 @@ Within a highlighted field, formatting is applied to whole terms. For example, o
 
 ### Phrase search highlighting
 
-Whole-term formatting applies even on a phrase search, where multiple terms are enclosed in double quotation marks. The following example is the same query, except that "divine search" is submitted as a quotation-enclosed  phrase (some REST clients require that you escape the interior quotation marks with a backslash `\"`):
+Whole-term formatting applies even on a phrase search, where multiple terms are enclosed in double quotation marks. The following example is the same query, except that "divine secrets" is submitted as a quotation-enclosed  phrase (some REST clients require that you escape the interior quotation marks with a backslash `\"`):
 
 ```http
 POST /indexes/good-books/docs/search?api-version=2020-06-30 

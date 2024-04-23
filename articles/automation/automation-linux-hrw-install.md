@@ -4,14 +4,14 @@ description: This article tells how to install an agent-based  Hybrid Runbook Wo
 services: automation
 ms.subservice: process-automation
 ms.custom: linux-related-content
-ms.date: 09/17/2023
+ms.date: 04/21/2024
 ms.topic: conceptual
 ---
 
 # Deploy an agent-based Linux Hybrid Runbook Worker in Automation
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 > [!IMPORTANT]
 >  Azure Automation Agent-based User Hybrid Runbook Worker (Windows and Linux) will retire on **31 August 2024** and wouldn't be supported after that date. You must complete migrating existing Agent-based User Hybrid Runbook Workers to Extension-based Workers before 31 August 2024. Moreover, starting **1 November 2023**, creating new Agent-based Hybrid Workers wouldn't be possible. [Learn more](migrate-existing-agent-based-hybrid-worker-to-extension-based-workers.md).
@@ -58,8 +58,13 @@ The Hybrid Runbook Worker feature supports the following distributions. All oper
   16.04 LTS | Xenial Xerus
   14.04 LTS | Trusty Tahr
 
+> [!NOTE]
+> Hybrid Worker would follow support timelines of the OS vendor.
+
 > [!IMPORTANT]
 > Before enabling the Update Management feature, which depends on the system Hybrid Runbook Worker role, confirm the distributions it supports [here](update-management/operating-system-requirements.md).
+
+
 
 ### Minimum requirements
 

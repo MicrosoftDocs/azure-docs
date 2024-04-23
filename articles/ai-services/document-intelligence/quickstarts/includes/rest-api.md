@@ -1,20 +1,30 @@
 ---
-title: "Quickstart: Document Intelligence (formerly Form Recognizer) REST API v3.0 | v3.0"
+title: "Quickstart: Document Intelligence (formerly Form Recognizer) REST API"
 titleSuffix: Azure AI services
 description: Form and document processing, data extraction, and analysis using Document Intelligence REST API v3.0
 author: laujan
 manager: nitinme
 ms.service: azure-ai-document-intelligence
 ms.topic: include
-ms.date: 12/21/2023
+ms.date: 04/02/2024
 ms.author: lajanuar
 ---
 
 <!-- markdownlint-disable MD036 -->
 
-| [Document Intelligence REST API](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP) | [Azure SDKS](../../sdk-overview-v3-1.md) | [Supported SDKs](../../sdk-overview-v3-1.md)
+:::moniker range="doc-intel-4.0.0"
+| [Document Intelligence REST API](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2024-02-29-preview&preserve-view=true&tabs=HTTP) | [Supported Azure SDKS](../../sdk-overview-v4-0.md)
+:::moniker-end
 
-In this quickstart you'll, use the Document Intelligence REST API to analyze and extract data and values from documents:
+:::moniker range="doc-intel-3.1.0"
+| [Document Intelligence REST API](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP) | [Supported Azure SDKS](../../sdk-overview-v3-1.md) |
+:::moniker-end
+
+:::moniker range="doc-intel-3.0.0"
+| [Document Intelligence REST API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument) | [Supported Azure SDKS](../../sdk-overview-v3-0.md) |
+:::moniker-end
+
+In this quickstart, learn to use the Document Intelligence REST API to analyze and extract data and values from documents:
 
 ## Prerequisites
 
@@ -130,18 +140,18 @@ You receive a `202 (Success)` response that includes a read-only **Operation-Loc
 
 :::moniker range="doc-intel-4.0.0"
 
-After you call the [**Analyze document**](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2024-02-29-preview&preserve-view=true&branch=docintelligence&tabs=HTTP) API, call the [**Get analyze result**](/rest/api/aiservices/document-models/get-analyze-result?view=rest-aiservices-2024-02-29-preview&preserve-view=true&branch=docintelligence&tabs=HTTP) API to get the status of the operation and the extracted data. Before you run the command, make these changes:
+After you call the [`Analyze document`](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2024-02-29-preview&preserve-view=true&branch=docintelligence&tabs=HTTP) API, call the [**Get analyze result**](/rest/api/aiservices/document-models/get-analyze-result?view=rest-aiservices-2024-02-29-preview&preserve-view=true&branch=docintelligence&tabs=HTTP) API to get the status of the operation and the extracted data. Before you run the command, make these changes:
 :::moniker-end
 
 :::moniker range="doc-intel-3.1.0"
 
-After you call the [**Analyze document**](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP) API, call the [**Get analyze result**](/rest/api/aiservices/document-models/get-analyze-result?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP) API to get the status of the operation and the extracted data. Before you run the command, make these changes:
+After you call the [`Analyze document`](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP) API, call the [**Get analyze result**](/rest/api/aiservices/document-models/get-analyze-result?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP) API to get the status of the operation and the extracted data. Before you run the command, make these changes:
 
 :::moniker-end
 
 :::moniker range="doc-intel-3.0.0"
 
-After you call the [**Analyze document**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument) API, call the [**Get analyze result**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/GetAnalyzeDocumentResult) API to get the status of the operation and the extracted data. Before you run the command, make these changes:
+After you call the [`Analyze document`](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument) API, call the [**Get analyze result**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/GetAnalyzeDocumentResult) API to get the status of the operation and the extracted data. Before you run the command, make these changes:
 :::moniker-end
 
 1. Replace `{resultID}` Operation-Location header from the [POST response](#post-response-resultid).
@@ -189,8 +199,8 @@ You receive a `200 (Success)` response with JSON output. The first field, `"stat
 ```json
 {
     "status": "succeeded",
-    "createdDateTime": "2023-11-25T19:31:37Z",
-    "lastUpdatedDateTime": "2023-11-25T19:31:43Z",
+    "createdDateTime": "2024-03-25T19:31:37Z",
+    "lastUpdatedDateTime": "2024-03-25T19:31:43Z",
     "analyzeResult": {
         "apiVersion": "2024-02-29-preview",
         "modelId": "prebuilt-invoice",

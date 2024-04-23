@@ -13,7 +13,7 @@ Microsoft Defender for Cloud's threat intelligence reports can help you learn mo
 
 Defender for Cloud's threat protection works by monitoring security information from your Azure resources, the network, and connected partner solutions. It analyzes this information, often correlating information from multiple sources, to identify threats. For more information, see [How Microsoft Defender for Cloud detects and responds to threats](alerts-overview.md#detect-threats).
 
-When Defender for Cloud identifies a threat, it triggers a [security alert](managing-and-responding-alerts.md), which contains detailed information regarding the event, including suggestions for remediation. To help incident response teams investigate and remediate threats, Defender for Cloud provides threat intelligence reports containing information about detected threats. The report includes information such as:
+When Defender for Cloud identifies a threat, it triggers a [security alert](managing-and-responding-alerts.yml), which contains detailed information regarding the event, including suggestions for remediation. To help incident response teams investigate and remediate threats, Defender for Cloud provides threat intelligence reports containing information about detected threats. The report includes information such as:
 
 * Attacker’s identity or associations (if this information is available)
 * Attackers’ objectives
@@ -56,5 +56,5 @@ This type of information is useful during the incident response process. Such as
 
 This page explained how to open threat intelligence reports when investigating security alerts. For related information, see the following pages:
 
-* [Managing and responding to security alerts in Microsoft Defender for Cloud](managing-and-responding-alerts.md). Learn how to manage and respond to security alerts.
+* [Managing and responding to security alerts in Microsoft Defender for Cloud](managing-and-responding-alerts.yml). Learn how to manage and respond to security alerts.
 * [Handling security incidents in Microsoft Defender for Cloud](incidents.md)

@@ -55,6 +55,9 @@ The add-on requires Azure CLI version 2.57.0 or later installed. You can run `az
     az keyvault set-policy --name $AKV_NAME --object-id $OBJECT_ID --secret-permissions get list
     ```
 
+    > [!NOTE]
+    > If you created your Key Vault with Azure RBAC Authorization for your permission model instead of Vault Access Policy, follow the instructions [here][akv-rbac-guide] to create permissions for the managed identity. Add an Azure role assignment for `Key Vault Reader` for the add-on's user-assigned managed identity. 
+
 ## Set up Istio-based service mesh addon with plug-in CA certificates
 
 1. Enable the Istio service mesh addon for your existing AKS cluster while referencing the Azure Key Vault secrets that were created earlier:
@@ -250,6 +253,7 @@ You may need to periodically rotate the certificate authorities for security or 
 
 [akv-quickstart]: ../key-vault/general/quick-create-cli.md
 [akv-addon]: ./csi-secrets-store-driver.md
+[akv-rbac-guide]: ../key-vault/general/rbac-guide.md
 [install-azure-cli]: /cli/azure/install-azure-cli
 [az-feature-register]: /cli/azure/feature#az-feature-register
 [az-feature-show]: /cli/azure/feature#az-feature-show
@@ -257,3 +261,4 @@ You may need to periodically rotate the certificate authorities for security or 
 [az-aks-mesh-disable]: /cli/azure/aks/mesh#az-aks-mesh-disable
 [istio-generate-certs]: https://istio.io/latest/docs/tasks/security/cert-management/plugin-ca-cert/#plug-in-certificates-and-key-into-the-cluster
 [istio-mtls-reference]: https://istio.io/latest/docs/concepts/security/#mutual-tls-authentication
+

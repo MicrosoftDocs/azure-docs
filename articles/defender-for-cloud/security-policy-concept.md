@@ -31,7 +31,7 @@ Here's what you can do with security standards in Defender for Cloud:
 
 - **Modify the built-in MCSB for the subscription**: When you enable Defender for Cloud, the MCSB is automatically assigned to all Defender for Cloud registered subscriptions.
 
-- **Add regulatory compliance standards**: If you have one or more paid plans enabled, you can assign built-in compliance standards against which to assess your Azure, AWS, and GCP resources. [Learn more about assigning regulatory standards](update-regulatory-compliance-packages.md).
+- **Add regulatory compliance standards**: If you have one or more paid plans enabled, you can assign built-in compliance standards against which to assess your Azure, AWS, and GCP resources. [Learn more about assigning regulatory standards](update-regulatory-compliance-packages.yml).
 
 - **Add custom standards**: If you have at least one paid Defender plan enabled, you can define new [Azure standards](custom-security-policies.md) or [AWS/GCP standards](create-custom-recommendations.md) in the Defender for Cloud portal. You can then add recommendations to those standards.
 
@@ -56,8 +56,8 @@ Each recommendation provides the following information:
 
 Every recommendation in Defender for Cloud has an associated risk level that represents how exploitable and impactful the security issue is in your environment. The risk assessment engine takes into account factors such as internet exposure, sensitivity of data, lateral movement possibilities, and attack path remediation. You can prioritize recommendations based on their risk levels.
 
-> [!NOTE]
-> Currently, [risk prioritization](how-to-manage-attack-path.md#features-of-the-attack-path-overview-page) is in public preview and doesn't affect the secure score.
+> [!IMPORTANT]
+> [Risk prioritization](risk-prioritization.md) doesn't affect the secure score.
 
 ### Example
 

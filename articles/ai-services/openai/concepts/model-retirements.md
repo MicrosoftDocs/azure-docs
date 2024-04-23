@@ -53,6 +53,9 @@ For more information, see [How to upgrade to a new model or version](./model-ver
 
 ## Current models
 
+> [!NOTE]
+> Not all models go through a deprecation period prior to retirement. Some models/versions only have a retirement date.
+
 These models are currently available for use in Azure OpenAI Service.
 
 | Model | Version | Retirement date |

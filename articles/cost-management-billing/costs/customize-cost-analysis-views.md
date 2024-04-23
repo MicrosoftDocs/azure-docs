@@ -4,7 +4,7 @@ titleSuffix: Microsoft Cost Management
 description:  This article helps you customize views in cost analysis to understand how you're being charged and to investigate unexpected changes.
 author: bandersmsft
 ms.author: banders
-ms.date: 09/09/2022
+ms.date: 03/21/2024
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management

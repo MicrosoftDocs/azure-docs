@@ -3,6 +3,7 @@ title: Create and provision an IoT Edge for Linux on Windows device using symmet
 description: Create and provision a single IoT Edge for Linux on Windows device in IoT Hub using manual provisioning with symmetric keys
 author: PatAltimore
 ms.service: iot-edge
+ms.custom: linux-related-content
 services: iot-edge
 ms.topic: conceptual
 ms.date: 11/15/2022

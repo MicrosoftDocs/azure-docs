@@ -8,7 +8,7 @@ ms.author: franlanglois
 ms.service: azure-functions
 ms.custom: devx-track-dotnet, devx-track-extended-java, devx-track-js, devx-track-python
 ms.topic: reference
-ms.date: 02/27/2024
+ms.date: 04/19/2024
 ---
 
 # RedisPubSubTrigger for Azure Functions (preview)
@@ -134,6 +134,8 @@ namespace Microsoft.Azure.Functions.Worker.Extensions.Redis.Samples.RedisPubSubT
 ```
 
 ### [In-process model](#tab/in-process)
+
+[!INCLUDE [functions-in-process-model-retirement-note](../../includes/functions-in-process-model-retirement-note.md)]
 
 This sample listens to the channel `pubsubTest`.
 
@@ -607,4 +609,4 @@ JSON string format
 - [Tutorial: Get started with Azure Functions triggers in Azure Cache for Redis](/azure/azure-cache-for-redis/cache-tutorial-functions-getting-started)
 - [Tutorial: Create a write-behind cache by using Azure Functions and Azure Cache for Redis](/azure/azure-cache-for-redis/cache-tutorial-write-behind)
 - [Redis connection string](functions-bindings-cache.md#redis-connection-string)
-- [Redis pub sub messages](https://redis.io/docs/manual/pubsub/)
+- [Redis pub sub messages](https://redis.io/docs/latest/develop/interact/pubsub/)

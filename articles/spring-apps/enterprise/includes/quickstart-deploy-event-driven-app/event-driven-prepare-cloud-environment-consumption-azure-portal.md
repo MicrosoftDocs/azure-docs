@@ -25,7 +25,7 @@ Use the following steps to create all the Azure resources that the app depends o
 
 1. Select the following **Deploy to Azure** button to launch the deployment experience in the Azure portal:
 
-   :::image type="content" source="~/articles/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Resource Manager template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2FASA-Samples-Event-Driven-Application%2Fmain%2Finfra%2Fazuredeploy-asa-consumption.json":::
+   :::image type="content" source="~/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Resource Manager template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2FASA-Samples-Event-Driven-Application%2Fmain%2Finfra%2Fazuredeploy-asa-consumption.json":::
 
 1. Fill out the form on the **Basics** tab. Use the following table as a guide for completing the form:
 

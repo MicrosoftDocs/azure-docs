@@ -5,6 +5,7 @@ ms.topic: overview
 ms.date: 02/16/2024
 ms.custom: devx-track-arm-template
 ---
+
 # What is Azure Resource Manager?
 
 Azure Resource Manager is the deployment and management service for Azure. It provides a management layer that enables you to create, update, and delete resources in your Azure account. You use management features, like access control, locks, and tags, to secure and organize your resources after deployment.
@@ -100,7 +101,7 @@ There are some important factors to consider when defining your resource group:
    
   For more information about building reliable applications, see [Designing reliable Azure applications](/azure/architecture/checklist/resiliency-per-service).
 
-* A resource group can be used to scope access control for administrative actions. To manage a resource group, you can assign [Azure Policies](../../governance/policy/overview.md), [Azure roles](../../role-based-access-control/role-assignments-portal.md), or [resource locks](lock-resources.md).
+* A resource group can be used to scope access control for administrative actions. To manage a resource group, you can assign [Azure Policies](../../governance/policy/overview.md), [Azure roles](../../role-based-access-control/role-assignments-portal.yml), or [resource locks](lock-resources.md).
 
 * You can [apply tags](tag-resources.md) to a resource group. The resources in the resource group don't inherit those tags.
 

@@ -4,7 +4,7 @@ titleSuffix: Azure Storage
 description: How to generate a configuration file for BlobFuse2 from a BlobFuse v1 configuration file.
 author: akashdubey-ms
 ms.service: azure-blob-storage
-ms.custom: linux-related-content
+ms.custom:
 ms.topic: how-to
 ms.date: 12/02/2022
 ms.author: akashdubey

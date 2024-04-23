@@ -3,7 +3,7 @@ title: Azure Monitor Logs Dedicated Clusters
 description: Customers meeting the minimum commitment tier could use dedicated clusters
 ms.topic: conceptual
 ms.reviewer: yossiy
-ms.date: 01/25/2024
+ms.date: 04/21/2024
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
@@ -56,7 +56,7 @@ Provide the following properties when creating new dedicated cluster:
 - **ClusterName**: Must be unique for the resource group.
 - **ResourceGroupName**: Use a central IT resource group because many teams in the organization usually share clusters. For more design considerations, review [Design a Log Analytics workspace configuration](../logs/workspace-design.md).
 - **Location**
-- **SkuCapacity**: You can set the commitment tier to 100, 200, 300, 400, 500, 1000, 2000, 5000, 10000, 25000, 50000 GB per day. For more information on cluster costs, see [Dedicate clusters](./cost-logs.md#dedicated-clusters). 
+- **SkuCapacity**: You can set the commitment tier to 100, 200, 300, 400, 500, 1000, 2000, 5000, 10000, 25000, 50000 GB per day. The minimum commitment tier supported in CLI is 500 currently. Use REST to configure lower commitment tiers with minimum of 100. For more information on cluster costs, see [Dedicate clusters](./cost-logs.md#dedicated-clusters). 
 - **Managed identity**: Clusters support two [managed identity types](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types): 
   - System-assigned managed identity - Generated automatically with the cluster creation when identity `type` is set to "*SystemAssigned*". This identity can be used later to grant storage access to your Key Vault for wrap and unwrap operations.
 
@@ -130,7 +130,7 @@ Get-Job -Command "New-AzOperationalInsightsCluster*" | Format-List -Property *
 *Call* 
 
 ```rest
-PUT https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2021-06-01
+PUT https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2022-10-01
 Authorization: Bearer <token>
 Content-type: application/json
 
@@ -184,7 +184,7 @@ Get-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -Clust
 Send a GET request on the cluster resource and look at the *provisioningState* value. The value is *ProvisioningAccount* while provisioning and *Succeeded* when completed.
 
   ```rest
-  GET https://management.azure.com/subscriptions/subscription-id/resourceGroups/resource-group-name/providers/Microsoft.OperationalInsights/clusters/cluster-name?api-version=2021-06-01
+  GET https://management.azure.com/subscriptions/subscription-id/resourceGroups/resource-group-name/providers/Microsoft.OperationalInsights/clusters/cluster-name?api-version=2022-10-01
   Authorization: Bearer <token>
   ```
 
@@ -298,7 +298,7 @@ Use the following REST call to link to a cluster:
 *Send*
 
 ```rest
-PUT https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>/linkedservices/cluster?api-version=2021-06-01 
+PUT https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>/linkedservices/cluster?api-version=2020-08-01 
 Authorization: Bearer <token>
 Content-type: application/json
 
@@ -346,7 +346,7 @@ Get-AzOperationalInsightsWorkspace -ResourceGroupName "resource-group-name" -Nam
 *Call*
 
 ```rest
-GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>?api-version=2021-06-01
+GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>?api-version=2023-09-01
 Authorization: Bearer <token>
 ```
 
@@ -429,7 +429,7 @@ Get-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name"
 *Call*
 
 ```rest
-GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters?api-version=2021-06-01
+GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters?api-version=2022-10-01
 Authorization: Bearer <token>
 ```
 
@@ -500,7 +500,7 @@ Get-AzOperationalInsightsCluster
 *Call*
 
 ```rest
-GET https://management.azure.com/subscriptions/<subscription-id>/providers/Microsoft.OperationalInsights/clusters?api-version=2021-06-01
+GET https://management.azure.com/subscriptions/<subscription-id>/providers/Microsoft.OperationalInsights/clusters?api-version=2022-10-01
 Authorization: Bearer <token>
 ```
     
@@ -542,7 +542,7 @@ Update-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -Cl
 *Call*
 
 ```rest
-PATCH https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2021-06-01
+PATCH https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2022-10-01
 Authorization: Bearer <token>
 Content-type: application/json
 
@@ -588,7 +588,7 @@ Update-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -Cl
 *Call*
 
 ```rest
-PATCH https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2021-06-01
+PATCH https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2022-10-01
 Authorization: Bearer <token>
 Content-type: application/json
 
@@ -688,7 +688,7 @@ Remove-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -Cl
 Use the following REST call to delete a cluster:
 
 ```rest
-DELETE https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2021-06-01
+DELETE https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2022-10-01
 Authorization: Bearer <token>
 ```
 
@@ -762,11 +762,11 @@ Authorization: Bearer <token>
 
 ### Cluster Get
 
- -  404--Cluster not found, the cluster might have been deleted. If you try to create a cluster with that name and get conflict, the cluster is in deletion process.
+-  404--Cluster not found, the cluster might have been deleted. If you try to create a cluster with that name and get conflict, the cluster is in deletion process.
 
 ### Cluster Delete
 
- -  409--Can't delete a cluster while in provisioning state. Wait for the Async operation to complete and try again.
+-  409--Can't delete a cluster while in provisioning state. Wait for the Async operation to complete and try again.
 
 ### Workspace link
 
