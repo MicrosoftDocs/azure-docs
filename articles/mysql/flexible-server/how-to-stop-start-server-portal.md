@@ -33,7 +33,14 @@ To complete this how-to guide, you must have an Azure Database for MySQL flexibl
 
 > [!NOTE]
 > Once the server is stopped, the other management operations are not available for the Azure Database for MySQL flexible server instance.
-> To prevent any inadvertent long-term disruptions caused by servers being accidentally stopped, our system includes an automatic restart feature. If a server remains stopped for 30 days, it will automatically be restarted. Please note that automatic restarts are not supported for stoppages extending beyond 30 days. If you anticipate a need to halt your server for more than 30 days, we recommend exporting a backup of the server data and then deleting the server instance to avoid unnecessary charges and maintain security.
+
+## Automatic server restart for servers stopped for 30 days
+
+To mitigate potential disruptions resulting from servers inadvertently remaining inactive, our system is equipped with an automatic start feature. If a server remains stopped for a continuous period of 30 days, it will be automatically started.
+
+Upon this automatic start, the server status will update to "Available," and billing for the server will commence accordingly.
+
+Please be advised that automatic start do not apply to stoppages exceeding 30 days. If you anticipate a requirement to stop your server for more than 30 days, we recommend [exporting a backup of your server data](how-to-trigger-on-demand-backup.md) and considering the deletion of the server instance to avoid unwarranted charges and enhance security.
 
 ## Start a stopped server
 
