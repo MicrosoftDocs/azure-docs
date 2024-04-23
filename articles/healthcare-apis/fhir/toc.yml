@@ -90,7 +90,7 @@ items:
           href: convert-data-azure-data-factory.md
         - name: Troubleshoot $convert-data
           href: convert-data-troubleshoot.md
-        - name: FAQ - $convert-data
+        - name: $convert-data FAQ
           href: convert-data-faq.md
     - name: $export
       items: 

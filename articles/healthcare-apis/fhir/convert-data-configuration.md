@@ -201,10 +201,10 @@ You should receive a `bundle` response that contains the health data converted i
 
 ## Next steps
 
-> [Overview of $convert-data](convert-data-overview.md)
+[Overview of $convert-data](convert-data-overview.md)
 
-> [Troubleshoot $convert-data](convert-data-troubleshoot.md)
+[Troubleshoot $convert-data](convert-data-troubleshoot.md)
 
-> [$convert-data FAQ](convert-data-faq.md)
+[$convert-data FAQ](convert-data-faq.md)
 
 [!INCLUDE [FHIR trademark statement](../includes/healthcare-apis-fhir-trademark.md)]

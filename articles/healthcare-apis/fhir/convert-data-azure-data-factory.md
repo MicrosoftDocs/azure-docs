@@ -23,10 +23,10 @@ Before getting started, do these steps:
 2. By default, the ADF pipeline in this scenario uses the [predefined templates provided by Microsoft](configure-settings-convert-data.md#default-templates) for conversion. If your use case requires customized templates, set up your [Azure Container Registry instance to host your own templates](configure-settings-convert-data.md#host-your-own-templates) to be used for the conversion operation. 
 3. Create storage accounts with [Azure Data Lake Storage Gen2 (ADLS Gen2) capabilities](../../storage/blobs/create-data-lake-storage-account.md) by enabling a hierarchical namespace and container to store the data to read from and write to.
 
-You can create and use either one or separate ADLS Gen2 accounts and containers to:
-- Store the HL7v2 data to be transformed (for example: the source account and container the pipeline reads the data to be transformed from).
-- Store the transformed FHIR R4 bundles (for example: the destination account and container the pipeline writes the transformed result to).
-- Store the errors encountered during the transformation (for example: the destination account and container the pipeline writes execution errors to).
+   You can create and use either one or separate ADLS Gen2 accounts and containers to:
+   - Store the HL7v2 data to be transformed (for example: the source account and container the pipeline reads the data to be transformed from).
+   - Store the transformed FHIR R4 bundles (for example: the destination account and container the pipeline writes the transformed result to).
+   - Store the errors encountered during the transformation (for example: the destination account and container the pipeline writes execution errors to).
 
 4. Create an instance of [ADF](../../data-factory/quickstart-create-data-factory.md), which serves as a business logic orchestrator. Ensure that a [system-assigned managed identity](../../data-factory/data-factory-service-identity.md) is enabled. 
 5. Add the following [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) assignments to the ADF system-assigned managed identity:
@@ -196,8 +196,8 @@ Errors encountered during conversion, as part of the pipeline execution, result 
 
 ## Next steps
 
-[Configure settings for $convert-data using the Azure portal](convert-data-azure-data-factory.md)
+[Configure settings for $convert-data](convert-data-azure-data-factory.md)
 
-> [Troubleshoot $convert-data](convert-data-troubleshoot.md)
+[Troubleshoot $convert-data](convert-data-troubleshoot.md)
 
 [!INCLUDE [FHIR trademark statement](../includes/healthcare-apis-fhir-trademark.md)]
