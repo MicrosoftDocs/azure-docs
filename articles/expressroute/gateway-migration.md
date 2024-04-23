@@ -1,5 +1,5 @@
 ---
-title: Migrate to an availability zone-enabled ExpressRoute virtual network gateway (Preview)
+title: Migrate to an availability zone-enabled ExpressRoute virtual network gateway 
 titleSuffix: Azure ExpressRoute
 description: This article explains how to seamlessly migrate from Standard/HighPerf/UltraPerf SKUs to ErGw1/2/3AZ SKUs.
 services: expressroute
@@ -11,7 +11,7 @@ ms.date: 04/23/2024
 ms.author: duau
 ---
 
-# Migrate to an availability zone-enabled ExpressRoute virtual network gateway (Preview)
+# Migrate to an availability zone-enabled ExpressRoute virtual network gateway 
 
 When you create an ExpressRoute virtual network gateway, you need to specify the gateway SKU that you want to use. When you select a higher gateway SKU, more CPUs and network bandwidth are allocated to the gateway, and as a result, the gateway can support higher network throughput and more dependable network connections to the virtual network. 
 
