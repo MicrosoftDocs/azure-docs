@@ -20,6 +20,8 @@ items:
     href: get-started.md
 - name: Concepts
   items:
+  - name: Reliability
+    href: ../reliability/reliability-hdinsight-on-aks.md?toc=/azure/hdinsight-aks/toc.json
   - name: Versioning
     href: versions.md 
   - name: Enterprise security
