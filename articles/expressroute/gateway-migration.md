@@ -7,7 +7,7 @@ author: duongau
 ms.service: expressroute
 ms.custom: ignite-2023, devx-track-azurepowershell
 ms.topic: how-to
-ms.date: 11/15/2023
+ms.date: 04/23/2024
 ms.author: duau
 ---
 
@@ -26,6 +26,7 @@ The following SKUs are available for ExpressRoute virtual network gateways:
 * ErGwScale (Preview)
 
 ## Availability zone enabled SKUs
+
 The ErGw1Az, ErGw2Az, ErGw3Az and ErGwScale (Preview) SKUs, also known as Az-Enabled SKUs, support Availability zone deployments. This feature provides high availability and resiliency to the gateway by distributing the gateway across multiple availability zones.  
 
 The Standard, HighPerformance, and UltraPerformance SKUs, which are also known as non-availability zone enabled SKUs are historically associated with Basic IPs, don't support the distribution of the gateway across multiple availability zones.  
@@ -33,36 +34,88 @@ The Standard, HighPerformance, and UltraPerformance SKUs, which are also known a
 For enhanced reliability, it's recommended to use an Availability-Zone Enabled virtual network gateway SKU. These SKUs support a zone-redundant setup and are, by default, associated with Standard IPs. This setup ensures that even if one zone experiences issues, the virtual network gateway infrastructure remains operational due to the distribution across multiple zones. For a deeper understanding of zone redundant gateways, please refer to [Availability Zone deployments.](../reliability/availability-zones-overview.md)
 
 ## Gateway migration experience
+
 Historically, users had to use the Resize-AzVirtualNetworkGateway PowerShell command or delete and recreate the virtual network gateway to migrate between SKUs.
 
 With the guided gateway migration experience you can deploy a second virtual network gateway in the same GatewaySubnet and Azure automatically transfers the control plane and data path configuration from the old gateway to the new one. During the migration process, there will be two virtual network gateways in operation within the same GatewaySubnet. This feature is designed to support migrations without downtime. However, users may experience brief connectivity issues or interruptions during the migration process.
+
 ## Supported migration scenarios
-The guided gateway migration experience supports any-to-any SKU migration. However, it's recommended to migrate to an Az-enabled SKU. 
+
+### Azure Portal
+
+The guided gateway migration experience supports non-Az-enabled SKU to Az-enabled SKU migration.
+
+### Azure PowerShell
+
+The guided gateway migration experience supports:
+
+* Non-Az-enabled SKU on Basic IP to Non-az enabled SKU on Standard IP.
+* Non-Az-enabled SKU to Az-enabled SKU.
+
+It is recommended to migrate to an Az-enabled SKU for enhanced reliability and high availability.
 
 ### Limitations
 
 The guided gateway migration experience doesn't support these scenarios:
-* Migration to a virtual network gateway SKU configured with a Basic IP
+* Downgrade scenarios, Az-enabled Gateway SKU to non-Az-enabled Gateway SKU.
 
 Private endpoints (PEs) in the virtual network, connected over ExpressRoute private peering, might have connectivity problems during the migration. To understand and reduce this issue, see [Private endpoint connectivity](expressroute-about-virtual-network-gateways.md#private-endpoint-connectivity-and-planned-maintenance-events).
 
 ## Common validation errors
+
 In the gateway migration experience, you'll need to validate if your resource is capable of migration. Here are some Common migration errors: 
 
 ### Virtual network 
+
 * Gateway Subnet needs two or more prefixes for migration.
 * MaxGatewayCountInVnetReached – Reached maximum number of gateways that can be created in a Virtual Network. 
 
 ### Connection 
+
 The virtual network gateway connection resource isn't in a succeed state. 
 
-## Enroll subscription to access the feature
-
-1. To access this feature, you need to enroll your subscription by filling out the [ExpressRoute gateway migration form](https://aka.ms/ergwmigrationform).
-
-1. After your subscription is enrolled, you'll get a confirmation e-mail with a PowerShell script or a link to the Azure portal for the gateway migration.
-
 ## Migrate to a new gateway
+
+Here are the steps to migrate to a new gateway, using the Azure portal or PowerShell.
+
+### [**Portal**](#tab/nic-address-portal)
+
+1. In the [Azure portal](https://portal.azure.com/), navigate to the ExpressRoute Gateway Resource that you want to migrate to.
+1. the left-hand menu under *Settings*, select **Gateway SKU Migration**.
+
+    :::image type="content" source="media/gateway-migration/gateway-sku-migration-location.png" alt-text="Screenshot of Gateway migration location.":::
+
+1. Select **Validate** to check if the gateway is ready for migration. You will first see a list of prerequisites that must be met before migration can begin. If these prerequisites aren't met, validation fails and you can't proceed.
+
+    :::image type="content" source="media/gateway-migration/service-technology-image-description.png" alt-text="Alt text that describes the content of the image.":::
+
+1. Once validation is successful, you'll enter the *Prepare* stage. Here, a new Virtual Network gateway is created. Under **Virtual Network Gateway Details**, enter the following information.
+    
+    :::image type="content" source="media/gateway-migration/gateway-prepare-stage.png" alt-text="Alt text that describes the content of the image.":::
+
+    | Setting | Value |
+    | --------| ----- |
+    | **Gateway Name** | Enter a name for the new gateway. |
+    | **Gateway SKU** | Select the SKU for the new gateway. |
+    | **Public IP Address** | Select **Add new**, then enter a name for the new public IP, select your availability zone, and select **OK** |
+
+    > [!NOTE]
+    > Be aware that your existing Virtual Network gateway will be locked during this process, preventing any creation or modification of connections to this gateway.
+
+1. Select **Prepare** to create the new gateway. This operation could take up to 15 minutes.
+
+    :::image type="content" source="media/gateway-migration/service-technology-image-description.png" alt-text="Alt text that describes the content of the image.":::
+
+1. After the new gateway is created, you'll proceed to the *Migrate* stage. Here, you'll choose the new ExpressRoute gateway you just created. This will transfer the settings from your old gateway to the new one. All network traffic, as well as control plane and data path connections from your old gateway, will be transferred without any interruptions. To start this process, click on 'Migrate Traffic'. Please note, this operation could take up to 5 minutes.
+
+    :::image type="content" source="media/gateway-migration/service-technology-image-description.png" alt-text="Alt text that describes the content of the image.":::
+
+1. "After the traffic migration is finished, you'll proceed to the *Commit* stage. In this stage, you'll finalize the migration, which involves deleting the old gateway. To do this, click on 'Commit Migration'. This final step is designed to occur without causing any downtime. 
+
+    :::image type="content" source="media/gateway-migration/service-technology-image-description.png" alt-text="Alt text that describes the content of the image.":::
+
+
+### [**PowerShell**](#tab/nic-address-powershell)
 
 1. First, update the `Az.Network` module to the latest version by running this PowerShell command:
 
@@ -89,7 +142,7 @@ The virtual network gateway connection resource isn't in a succeed state.
 
     >[!IMPORTANT]
     > Before running this step, verify that the new virtual network gateway has a working ExpressRoute connection.
-    >
+    
 
 ## Next steps
 
