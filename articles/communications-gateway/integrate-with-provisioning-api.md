@@ -22,7 +22,7 @@ Whether you integrate with the Provisioning API depends on your chosen communica
 |---------|---------|---------|
 |Microsoft Teams Direct Routing |Supported (as alternative to the Number Management Portal) |- Configuring the subdomain associated with each Direct Routing customer.<br>- Generating DNS records specific to each customer (as required by the Microsoft 365 environment).<br>- Indicating that numbers are enabled for Direct Routing.<br>- (Optional) Configuring a custom header for messages to your network.|
 |Operator Connect|Recommended|- (Recommended) Flow-through provisioning of Operator Connect customers through interoperation with Operator Connect APIs  (using backend service sync). <br>- (Optional) Configuring a custom header for messages to your network. |
-|Teams Phone Mobile|Recommended|- (Recommended) Flow-through provisioning of Teams Phone Mobile customers through interoperation with Operator Connect APIs (using backend service sync). <br>- (Optional) Configuring a custom header for messages to your network. |
+|Teams Phone Mobile|Recommended|- (Recommended) Flow-through provisioning of Teams Phone Mobile customers through interoperation with Operator Connect APIs (using backend service sync). |
 |Zoom Phone Cloud Peering |Supported (as alternative to the Number Management Portal) |- Indicating that numbers are enabled for Zoom. <br>- (Optional) Configuring a custom header for messages to your network.|
 | Azure Operator Call Protection Preview |Supported (as alternative to the Number Management Portal) |-  Indicating that numbers are enabled for Azure Operator Call Protection.<br> - Automatic provisioning of Azure Operator Call Protection. |
 

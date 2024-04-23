@@ -98,7 +98,7 @@ For more information, see [Configure Azure CNI for an AKS cluster][aks-configure
 
 [Azure CNI Powered by Cilium][azure-cni-powered-by-cilium] uses [Cilium](https://cilium.io) to provide high-performance networking, observability, and network policy enforcement. It integrates natively with [Azure CNI Overlay][azure-cni-overlay] for scalable IP address management (IPAM).
 
-Additionally, Cilium enforces network policies by default, without requiring a separate network policy engine. Azure CNI Powered by Cilium can scale beyond [Azure Network Policy Manager's limits of 250 nodes / 20-K pod][use-network-policies] by using ePBF programs and a more efficient API object structure.
+Additionally, Cilium enforces network policies by default, without requiring a separate network policy engine. Azure CNI Powered by Cilium can scale beyond [Azure Network Policy Manager's limits of 250 nodes / 20-K pod][use-network-policies] by using eBPF programs and a more efficient API object structure.
 
 Azure CNI Powered by Cilium is the recommended option for clusters that require network policy enforcement.
 
