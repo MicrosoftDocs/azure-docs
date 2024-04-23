@@ -70,7 +70,7 @@ The following table describes detailed actions available from the hunting dashbo
 | **Review an underlying query**                     | Perform a quick review of the underlying query in the query details pane. You can see the results by clicking the **View query results** link (below the query window) or the **View Results** button (at the bottom of the pane). The query opens the **Logs** (Log Analytics) page, and below the query, you can review the matches for the query.         |
 
 
-## Create a custom hunting query
+## Custom hunting queries
 
 Create or modify a query and save it as your own query or share it with users who are in the same tenant.
 
