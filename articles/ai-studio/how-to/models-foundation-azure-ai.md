@@ -15,7 +15,7 @@ author: eric-urban
 
 # Explore Azure AI services in Azure AI Studio
 
-In Azure AI Studio, you can quickly try out Azure AI services such as Speech, Vision, and Language. Go to the **Home** page and then select **AI Services** to explore these services.
+In [Azure AI Studio](https://ai.azure.com), you can quickly try out Azure AI services such as Speech, Vision, and Language. Go to the **Home** page and then select **AI Services** to explore these services.
 
 ## Azure AI foundation models
 
@@ -44,7 +44,6 @@ Explore more Speech capabilities in the [Speech Studio](https://aka.ms/speechstu
 > You can also try GPT-4 Turbo with Vision capabilities in the Azure AI Studio playground. For more information, see [GPT-4 Turbo with Vision on your images and videos in Azure AI Studio playground](../quickstarts/multimodal-vision.md).
 
 Explore more vision capabilities in the [Vision Studio](https://portal.vision.cognitive.azure.com/) and the [Azure AI Vision documentation](/azure/ai-services/computer-vision/).
-
 
 ## Language
 
