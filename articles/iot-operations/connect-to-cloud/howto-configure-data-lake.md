@@ -7,7 +7,7 @@ ms.author: patricka
 ms.topic: how-to
 ms.custom:
   - ignite-2023
-ms.date: 04/02/2024
+ms.date: 04/15/2024
 
 #CustomerIntent: As an operator, I want to understand how to configure Azure IoT MQ so that I can send data from Azure IoT MQ to Data Lake Storage.
 ---
@@ -268,7 +268,7 @@ The specification field of a DataLakeConnectorTopicMap resource contains the fol
     - `clientId`: A unique identifier for the MQTT client that subscribes to the topic.
     - `maxMessagesPerBatch`: The maximum number of messages to ingest in one batch into the Delta table. Due to a temporary restriction, this value must be less than 16 if `qos` is set to 1. This field is required.
     - `messagePayloadType`: The type of payload that is sent to the MQTT topic. It can be one of `json` or `avro` (not yet supported).
-    - `mqttSourceTopic`: The name of the MQTT topic(s) to subscribe to. Supports [MQTT topic wildcard notation](https://chat.openai.com/share/c6f86407-af73-4c18-88e5-f6053b03bc02).
+    - `mqttSourceTopic`: The name of the MQTT topic(s) to subscribe to. Supports [MQTT topic wildcard notation](https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901241).
     - `qos`: The quality of service level for subscribing to the MQTT topic. It can be one of 0 or 1.
     - `table`: The table field specifies the configuration and properties of the Delta table in the Data Lake Storage account. It has the following subfields:
         - `tableName`: The name of the Delta table to create or append to in the Data Lake Storage account. This field is also known as the container name when used with Azure Data Lake Storage Gen2. It can contain any **lower case** English letter, and underbar `_`, with length up to 256 characters. No dashes `-` or space characters are allowed.

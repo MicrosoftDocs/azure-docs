@@ -69,6 +69,10 @@ With Immersive Reader, you can break words into syllables to improve readability
 
 Immersive Reader is a standalone web application. When it's invoked, the Immersive Reader client library displays on top of your existing web application in an `iframe`. When your web application calls the Immersive Reader service, you specify the content to show the reader. The Immersive Reader client library handles the creation and styling of the `iframe` and communication with the Immersive Reader backend service. The Immersive Reader service processes the content for parts of speech, text to speech, translation, and more.
 
+## Data privacy for Immersive reader
+
+Immersive reader doesn't store any customer data.
+
 ## Next step
 
 The Immersive Reader client library is available in C#, JavaScript, Java (Android), Kotlin (Android), and Swift (iOS). Get started with:

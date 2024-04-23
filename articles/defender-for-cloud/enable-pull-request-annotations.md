@@ -31,7 +31,7 @@ Annotations can be added by a user with access to the repository, and can be use
 - An Azure account. If you don't already have an Azure account, you can [create your Azure free account today](https://azure.microsoft.com/free/).
 - [Have write access (owner/contributer) to the Azure subscription](../active-directory/privileged-identity-management/pim-how-to-activate-role.md).
 - [Connect your Azure DevOps repositories to Microsoft Defender for Cloud](quickstart-onboard-devops.md).
-- [Configure the Microsoft Security DevOps Azure DevOps extension](azure-devops-extension.md).
+- [Configure the Microsoft Security DevOps Azure DevOps extension](azure-devops-extension.yml).
 
 ## Enable pull request annotations in GitHub
 
@@ -141,7 +141,7 @@ All annotations on your pull requests will be displayed from now on based on you
 
 **To enable pull request annotations for my Projects and Organizations in Azure DevOps**:
 
-You can do this programatically by calling the Update Azure DevOps Resource API exposed the Microsoft. Security
+You can do this programmatically by calling the Update Azure DevOps Resource API exposed the Microsoft. Security
 Resource Provider.
 
 API Info:

@@ -4,7 +4,7 @@ description: Overview of the Azure Monitor Agent, which collects monitoring data
 ms.topic: conceptual
 author: guywi-ms
 ms.author: guywild
-ms.date: 7/19/2023
+ms.date: 04/11/2024
 ms.custom: references_regions
 ms.reviewer: jeffwo
 
@@ -14,10 +14,8 @@ ms.reviewer: jeffwo
 
 # Azure Monitor Agent overview
 
-> [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
-Azure Monitor Agent (AMA) collects monitoring data from the guest operating system of Azure and hybrid virtual machines and delivers it to Azure Monitor for use by features, insights, and other services, such as [Microsoft Sentinel](../../sentintel/../sentinel/overview.md) and [Microsoft Defender for Cloud](../../defender-for-cloud/defender-for-cloud-introduction.md). Azure Monitor Agent replaces all of Azure Monitor's legacy monitoring agents. This article provides an overview of Azure Monitor Agent's capabilities and supported use cases.
+Azure Monitor Agent (AMA) collects monitoring data from the guest operating system of Azure and hybrid virtual machines and delivers it to Azure Monitor for use by features, insights, and other services, such as [Microsoft Sentinel](../../sentintel/../sentinel/overview.md) and [Microsoft Defender for Cloud](../../defender-for-cloud/defender-for-cloud-introduction.md). Azure Monitor Agent replaces Azure Monitor's legacy monitoring agents (MMA/OMS). This article provides an overview of Azure Monitor Agent's capabilities and supported use cases.
 
 Here's a short **introduction to Azure Monitor agent video**, which includes a quick demo of how to set up the agent from the Azure portal:  [ITOps Talk: Azure Monitor Agent](https://www.youtube.com/watch?v=f8bIrFU8tCs)
 
@@ -29,30 +27,21 @@ Using Azure Monitor agent, you get immediate benefits as shown below:
 - **Cost savings** by [using data collection rules](data-collection-rule-azure-monitor-agent.md):
   - Enables targeted and granular data collection for a machine or subset(s) of machines, as compared to the "all or nothing" approach of legacy agents.
   - Allows filtering rules and data transformations to reduce the overall data volume being uploaded, thus lowering ingestion and storage costs significantly.
+- **Security and Performance**
+  - Enhanced security through Managed Identity and Microsoft Entra tokens (for clients).
+  - Higher event throughput that is 25% better than the legacy Log Analytics (MMA/OMS) agents.
 - **Simpler management** including efficient troubleshooting:
   - Supports data uploads to multiple destinations (multiple Log Analytics workspaces, i.e. *multihoming* on Windows and Linux) including cross-region and cross-tenant data collection (using Azure LightHouse).
   - Centralized agent configuration "in the cloud" for enterprise scale throughout the data collection lifecycle, from onboarding to deployment to updates and changes over time.
   - Any change in configuration is rolled out to all agents automatically, without requiring a client side deployment.
   - Greater transparency and control of more capabilities and services, such as Microsoft Sentinel, Defender for Cloud, and VM Insights.
-- **Security and Performance**
-  - Enhanced security through Managed Identity and Microsoft Entra tokens (for clients).
-  - Higher event throughput that is 25% better than the legacy Log Analytics (MMA/OMS) agents.
 - **A single agent** that serves all data collection needs across [supported](#supported-operating-systems) servers and client devices. A single agent is the goal, although Azure Monitor Agent is currently converging with the Log Analytics agents.
 
 ## Consolidating legacy agents
 
->[!IMPORTANT]
->The Log Analytics agent is on a **deprecation path** and won't be supported after **August 31, 2024**. Any new data centers brought online after January 1 2024 will not support the Log Analytics agent. If you use the Log Analytics agent to ingest data to Azure Monitor, [migrate to the new Azure Monitor agent](./azure-monitor-agent-migration.md) prior to that date.
+Azure Monitor Agent replaces the [Legacy Agent](./log-analytics-agent.md), which sends data to a Log Analytics workspace and supports monitoring solutions.
 
-Deploy Azure Monitor Agent on all new virtual machines, scale sets, and on-premises servers to collect data for [supported services and features](./azure-monitor-agent-migration.md#migrate-additional-services-and-features).
-
-If you have machines already deployed with legacy Log Analytics agents, we recommend you [migrate to Azure Monitor Agent](./azure-monitor-agent-migration.md) as soon as possible. The legacy Log Analytics agent will not be supported after August 2024.
-
-Azure Monitor Agent replaces the Azure Monitor legacy monitoring agents:
-
-- [Log Analytics Agent](./log-analytics-agent.md): Sends data to a Log Analytics workspace and supports monitoring solutions. This is fully consolidated into Azure Monitor agent.
-- [Telegraf agent](../essentials/collect-custom-metrics-linux-telegraf.md): Sends data to Azure Monitor Metrics (Linux only). Only basic Telegraf plugins are supported today in Azure Monitor agent.
-- [Diagnostics extension](./diagnostics-extension-overview.md): Sends data to Azure Monitor Metrics (Windows only), Azure Event Hubs, and Azure Storage. This is not consolidated yet.
+The Log Analytics agent is on a **deprecation path** and won't be supported after **August 31, 2024**. Any new data centers brought online after January 1 2024 will not support the Log Analytics agent. If you use the Log Analytics agent to ingest data to Azure Monitor, [migrate to the new Azure Monitor agent](./azure-monitor-agent-migration.md) prior to that date. 
 
 ## Install the agent and configure data collection
 
@@ -68,10 +57,9 @@ Azure Monitor Agent uses [data collection rules](../essentials/data-collection-r
 
     | Resource type | Installation method | More information |
     |:---|:---|:---|
-    | Virtual machines, scale sets | [Virtual machine extension](./azure-monitor-agent-manage.md#virtual-machine-extension-details) | Installs the agent by using Azure extension framework. |
-    | On-premises servers (Azure Arc-enabled servers) | [Virtual machine extension](./azure-monitor-agent-manage.md#virtual-machine-extension-details) (after installing the [Azure Arc agent](../../azure-arc/servers/deployment-options.md)) | Installs the agent by using Azure extension framework, provided for on-premises by first installing [Azure Arc agent](../../azure-arc/servers/deployment-options.md). |
-    | Windows 10, 11 desktops, workstations | [Client installer](./azure-monitor-agent-windows-client.md) | Installs the agent by using a Windows MSI installer. |
-    | Windows 10, 11 laptops | [Client installer](./azure-monitor-agent-windows-client.md) | Installs the agent by using a Windows MSI installer. The installer works on laptops, but the agent *isn't optimized yet* for battery or network consumption. |
+    | Virtual machines and VM scale sets | [Virtual machine extension](./azure-monitor-agent-manage.md#virtual-machine-extension-details) | Installs the agent by using Azure extension framework. |
+    | On-premises Arc-enabled servers | [Virtual machine extension](./azure-monitor-agent-manage.md#virtual-machine-extension-details) (after installing the [Azure Arc agent](../../azure-arc/servers/deployment-options.md)) | Installs the agent by using Azure extension framework, provided for on-premises by first installing [Azure Arc agent](../../azure-arc/servers/deployment-options.md). |
+    | Windows 10, 11 Client Operating Systems | [Client installer](./azure-monitor-agent-windows-client.md) | Installs the agent by using a Windows MSI installer. The installer works on laptops, but the agent *isn't optimized yet* for battery or network consumption. |
 
 1. Define a data collection rule and associate the resource to the rule.
 
@@ -82,7 +70,9 @@ Azure Monitor Agent uses [data collection rules](../essentials/data-collection-r
     | Performance | <ul><li>Azure Monitor Metrics (Public preview):<ul><li>For Windows - Virtual Machine Guest namespace</li><li>For Linux<sup>1</sup> - azure.vm.linux.guestmetrics namespace</li></ul></li><li>Log Analytics workspace - [Perf](/azure/azure-monitor/reference/tables/perf) table</li></ul> | Numerical values measuring performance of different aspects of operating system and workloads |
     | Windows event logs (including sysmon events) | Log Analytics workspace - [Event](/azure/azure-monitor/reference/tables/Event) table | Information sent to the Windows event logging system |
     | Syslog | Log Analytics workspace - [Syslog](/azure/azure-monitor/reference/tables/syslog)<sup>2</sup> table | Information sent to the Linux event logging system. [Collect syslog with Azure Monitor Agent](data-collection-syslog.md) |
-    |	Text logs and Windows IIS logs	|	Log Analytics workspace - custom table(s) created manually |	[Collect text logs with Azure Monitor Agent](data-collection-text-log.md)	|
+    |	Text and JSON logs	|	Log Analytics workspace - custom table(s) created manually |	[Collect text logs with Azure Monitor Agent](data-collection-text-log.md)	|
+    | Windows IIS logs |Internet Information Service (IIS) logs from to the local disk of Windows machines |[Collect IIS Logs with Azure Monitor Agent].(data-collection-iis.md) |
+    | Windows Firewall logs | Firewall logs from the local disk of a Windows Machine| |
 
 
     <sup>1</sup> On Linux, using Azure Monitor Metrics as the only destination is supported in v1.10.9.0 or higher.<br>
@@ -112,63 +102,51 @@ The tables below provide a comparison of Azure Monitor Agent with the legacy the
 
 ### Windows agents
 
-|	Category |	Area	|	Azure Monitor Agent	|	Log Analytics Agent	|	Diagnostics extension (WAD)	|
-|:---|:---|:---|:---|:---|
-|	**Environments supported**	|		|		|		|		|
-|		|	Azure	| ✓ | ✓ | ✓ |
-|		|	Other cloud (Azure Arc)	| ✓ | ✓ |		|
-|		|	On-premises (Azure Arc)	| ✓ | ✓ |		|
-|		|	Windows Client OS	| ✓ |		|		|
-|	**Data collected**	|		|		|		|		|
-|		|	Event Logs	| ✓ | ✓ | ✓ |
-|		|	Performance	| ✓ | ✓ | ✓ |
-|		|	File based logs	|	✓ 	| ✓ | ✓ |
-|		|	IIS logs	|	✓ 	| ✓ | ✓ |
-|		|	ETW events	|		|		| ✓ |
-|		|	.NET app logs	|		|		| ✓ |
-|		|	Crash dumps	|		|		| ✓ |
-|		|	Agent diagnostics logs	|		|		| ✓ |
-|	**Data sent to**	|		|		|		|		|
-|		|	Azure Monitor Logs	| ✓ | ✓ |		|
-|		|	Azure Monitor Metrics<sup>1</sup>	|	✓ (Public preview)	|		|	✓ (Public preview)	|
-|		|	Azure Storage - for Azure VMs only	|	✓ (Preview)	|		| ✓ |
-|		|	Event Hubs - for Azure VMs only   	|	✓ (Preview)	|		| ✓ |
-|	**Services and features supported**	|		|		|		|		|
-|		|	Microsoft Sentinel 	|	✓ ([View scope](./azure-monitor-agent-migration.md#migrate-additional-services-and-features))	| ✓ |		|
-|		|	VM Insights	|	✓ | ✓ |		|
-|		|	Microsoft Defender for Cloud - Only uses MDE agent	|		|  |		|
-|		|	Automation Update Management - Moved to Azure Update Manager	| ✓	| ✓ |		|
-|   | Azure Stack HCI | ✓ |  |  |
-|		|	Update Manager - no longer uses agents	|	|		|		|
-|		|	Change Tracking	| ✓ | ✓ |		|
-|   | SQL Best Practices Assessment | ✓ |     |       |
+|	Category |	Area	|	Azure Monitor Agent	|	Legacy Agent |
+|:---|:---|:---|:---|
+|	**Environments supported**	|		|		|		|
+|		|	Azure	| ✓ | ✓ |
+|		|	Other cloud (Azure Arc)	| ✓ | ✓ |
+|		|	On-premises (Azure Arc)	| ✓ | ✓ |
+|		|	Windows Client OS	| ✓ |		|
+|	**Data collected**	|		|		|		|
+|		|	Event Logs	| ✓ | ✓ |
+|		|	Performance	| ✓ | ✓ |
+|		|	File based logs	|	✓ 	| ✓ |
+|		|	IIS logs	|	✓ 	| ✓ |
+|	**Data sent to**	|		|		|		|
+|		|	Azure Monitor Logs	| ✓ | ✓ |
+|	**Services and features supported**	|		|		|		|
+|		|	Microsoft Sentinel 	|	✓ ([View scope](./azure-monitor-agent-migration.md#migrate-additional-services-and-features))	| ✓ |
+|		|	VM Insights	|	✓ | ✓ |
+|		|	Microsoft Defender for Cloud - Only uses MDE agent	|		|  |
+|		|	Automation Update Management - Moved to Azure Update Manager	| ✓	| ✓ |
+|   | Azure Stack HCI | ✓ |  |
+|		|	Update Manager - no longer uses agents	| 	|		|
+|		|	Change Tracking	| ✓ | ✓ |
+|   | SQL Best Practices Assessment | ✓ |     |
 
 ### Linux agents
 
-|	Category	|	Area	|	Azure Monitor Agent	|	Log Analytics Agent	|	Diagnostics extension (LAD)	|	Telegraf agent	|
-|:---|:---|:---|:---|:---|:---|
-|	**Environments supported**	|		|		|		|		|		|
-|		|	Azure	| ✓ | ✓ | ✓ | ✓ |
-|		|	Other cloud (Azure Arc)	| ✓ | ✓ |		| ✓ |
-|		|	On-premises (Azure Arc)	| ✓ | ✓ |		| ✓ |
-|	**Data collected**	|		|		|		|		|		|
-|		|	Syslog	| ✓ | ✓ | ✓ |		|
-|		|	Performance	| ✓ | ✓ | ✓ | ✓ |
-|		|	File based logs	| ✓ |		|		|		|
-|	**Data sent to**	|		|		|		|		|		|
-|		|	Azure Monitor Logs	| ✓ | ✓ |		|		|
-|		|	Azure Monitor Metrics<sup>1</sup>	|	✓ (Public preview)	|		|		|	✓ (Public preview)	|
-|		|	Azure Storage - for Azrue VMs only	|	✓ (Preview)	|		| ✓ |		|
-|		|	Event Hubs - for azure VMs only   	|	✓ (Preview)	|		| ✓ |		|
-|	**Services and features supported**	|		|		|		|		|		|
-|		|	Microsoft Sentinel 	|	✓ ([View scope](./azure-monitor-agent-migration.md#migrate-additional-services-and-features))	| ✓ |		|
-|		|	VM Insights	| ✓ |	✓ 	|		|
-|		|	Microsoft Defender for Cloud - Only use MDE agent	| 	|  |	|
-|		|	Automation Update Management - Moved to Azure Update Manager	|	✓	| ✓ |		|
-|		|	Update Manager - no longer uses agents	|	|		|		|
-|		|	Change Tracking	| ✓ | ✓ |		|
-
-<sup>1</sup> To review other limitations of using Azure Monitor Metrics, see [quotas and limits](../essentials/metrics-custom-overview.md#quotas-and-limits). On Linux, using Azure Monitor Metrics as the only destination is supported in v.1.10.9.0 or higher.
+|	Category	|	Area	|	Azure Monitor Agent	|	Legacy Agent	|
+|:---|:---|:---|:---|
+|	**Environments supported**	|		|		|		|
+|		|	Azure	| ✓ | ✓ |
+|		|	Other cloud (Azure Arc)	| ✓ | ✓ |
+|		|	On-premises (Azure Arc)	| ✓ | ✓ |
+|	**Data collected**	|		|		|
+|		|	Syslog	| ✓ | ✓ |
+|		|	Performance	| ✓ | ✓ |
+|		|	File based logs	| ✓ |		|
+|	**Data sent to**	|		|		|		|
+|		|	Azure Monitor Logs	| ✓ | ✓ |
+|	**Services and features supported**	|		|		|		|
+|		|	Microsoft Sentinel 	|	✓ ([View scope](./azure-monitor-agent-migration.md#migrate-additional-services-and-features))	| ✓ |
+|		|	VM Insights	| ✓ |	✓ |
+|		|	Microsoft Defender for Cloud - Only use MDE agent	| | |
+|		|	Automation Update Management - Moved to Azure Update Manager	|	✓	| ✓ |
+|		|	Update Manager - no longer uses agents	|	|	|
+|		|	Change Tracking	| ✓ | ✓ |
 
 ## Supported operating systems
 
@@ -177,73 +155,72 @@ View [supported operating systems for Azure Arc Connected Machine agent](../../a
 
 ### Windows
 
-| Operating system | Azure Monitor agent | Log Analytics agent (legacy) | Diagnostics extension |
-|:---|:---:|:---:|:---:|
-| Windows Server 2022                                      | ✓ | ✓ |   |
-| Windows Server 2022 Core                                 | ✓ |   |   |
-| Windows Server 2019                                      | ✓ | ✓ | ✓ |
-| Windows Server 2019 Core                                 | ✓ |   |   |
-| Windows Server 2016                                      | ✓ | ✓ | ✓ |
-| Windows Server 2016 Core                                 | ✓ |   | ✓ |
-| Windows Server 2012 R2                                   | ✓ | ✓ | ✓ |
-| Windows Server 2012                                      | ✓ | ✓ | ✓ |
-| Windows 11 Client and Pro                                | ✓<sup>2</sup>, <sup>3</sup> |  |  |
-| Windows 11 Enterprise<br>(including multi-session)       | ✓ |  |  |
-| Windows 10 1803 (RS4) and higher                         | ✓<sup>2</sup> |  |  |
-| Windows 10 Enterprise<br>(including multi-session) and Pro<br>(Server scenarios only)  | ✓ | ✓ | ✓ |
-| Windows 8 Enterprise and Pro<br>(Server scenarios only)  |   | ✓<sup>1</sup> |   |
-| Windows 7 SP1<br>(Server scenarios only)                 |   | ✓<sup>1</sup> |   |
-| Azure Stack HCI                                          | ✓ | ✓ |   |
-| Windows IoT Enterprise                                          | ✓ |   |   |
+| Operating system | Azure Monitor agent | Legacy agent|
+|:---|:---:|:---:
+| Windows Server 2022                                      | ✓ | ✓ |
+| Windows Server 2022 Core                                 | ✓ |   |
+| Windows Server 2019                                      | ✓ | ✓ |
+| Windows Server 2019 Core                                 | ✓ |   |
+| Windows Server 2016                                      | ✓ | ✓ |
+| Windows Server 2016 Core                                 | ✓ |   |
+| Windows Server 2012 R2                                   | ✓ | ✓ |
+| Windows Server 2012                                      | ✓ | ✓ |
+| Windows 11 Client and Pro                                | ✓<sup>1</sup>, <sup>2</sup> |  |
+| Windows 11 Enterprise<br>(including multi-session)       | ✓ |  |
+| Windows 10 1803 (RS4) and higher                         | ✓<sup>1</sup> |  |
+| Windows 10 Enterprise<br>(including multi-session) and Pro<br>(Server scenarios only)  | ✓ | ✓ |
+| Azure Stack HCI                                          | ✓ | ✓ |
+| Windows IoT Enterprise                                   | ✓ |   |
 
-<sup>1</sup> Running the OS on server hardware that is always connected, always on.<br>
-<sup>2</sup> Using the Azure Monitor agent [client installer](./azure-monitor-agent-windows-client.md).<br>
-<sup>3</sup> Also supported on Arm64-based machines.
+<sup>1</sup> Using the Azure Monitor agent [client installer](./azure-monitor-agent-windows-client.md).<br>
+<sup>2</sup> Also supported on Arm64-based machines.
 
 ### Linux
 
-| Operating system | Azure Monitor agent <sup>1</sup> | Log Analytics agent (legacy) <sup>1</sup> | Diagnostics extension <sup>2</sup>|
-|:---|:---:|:---:|:---:|
-| AlmaLinux 9                                                 | ✓<sup>3</sup> | ✓ |   |
-| AlmaLinux 8                                                 | ✓<sup>3</sup> | ✓ |   |
-| Amazon Linux 2017.09                                        |  | ✓ |   |
-| Amazon Linux 2                                              | ✓ | ✓ |   |
-| Azure Linux                                                 | ✓ |   |   |
-| CentOS Linux 8                                              | ✓ | ✓ |   |
-| CentOS Linux 7                                              | ✓<sup>3</sup> | ✓ | ✓ |
-| CBL-Mariner 2.0                                             | ✓<sup>3,4</sup> |   |   |
-| Debian 11                                                   | ✓<sup>3</sup> | ✓ |   |
-| Debian 10                                                   | ✓ | ✓ |   |
-| Debian 9                                                    | ✓ | ✓ | ✓ |
-| Debian 8                                                    |   | ✓ |   |
-| OpenSUSE 15                                                 | ✓ | ✓ |   |
-| Oracle Linux 9                                              | ✓ |  |   |
-| Oracle Linux 8                                              | ✓ | ✓ |   |
-| Oracle Linux 7                                              | ✓ | ✓ | ✓ |
-| Oracle Linux 6.4+                                           |   |  | ✓ |
-| Red Hat Enterprise Linux Server 9+                          | ✓ | ✓ |   |
-| Red Hat Enterprise Linux Server 8.6+                        | ✓<sup>3</sup> | ✓ | ✓<sup>2</sup> |
-| Red Hat Enterprise Linux Server 8.0-8.5                     | ✓ | ✓ | ✓<sup>2</sup> |
-| Red Hat Enterprise Linux Server 7                           | ✓ | ✓ | ✓ |
-| Red Hat Enterprise Linux Server 6.7+                        |   |  |  |
-| Rocky Linux 9                                               | ✓ | ✓ |   |
-| Rocky Linux 8                                               | ✓ | ✓ |   |
-| SUSE Linux Enterprise Server 15 SP4                         | ✓<sup>3</sup> | ✓   |   |
-| SUSE Linux Enterprise Server 15 SP3                         | ✓ | ✓ |   |
-| SUSE Linux Enterprise Server 15 SP2                         | ✓ | ✓ |   |
-| SUSE Linux Enterprise Server 15 SP1                         | ✓ | ✓ |   |
-| SUSE Linux Enterprise Server 15                             | ✓ | ✓ |   |
-| SUSE Linux Enterprise Server 12                             | ✓ | ✓ | ✓ |
-| Ubuntu 22.04 LTS                                            | ✓ | ✓ |   |
-| Ubuntu 20.04 LTS                                            | ✓<sup>3</sup> | ✓ | ✓ |
-| Ubuntu 18.04 LTS                                            | ✓<sup>3</sup> | ✓ | ✓ |
-| Ubuntu 16.04 LTS                                            | ✓ | ✓ | ✓ |
-| Ubuntu 14.04 LTS                                            |   | ✓ | ✓ |
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
+
+| Operating system | Azure Monitor agent <sup>1</sup> | Legacy Agent <sup>1</sup> |
+|:---|:---:|:---:|
+| AlmaLinux 9                                                 | ✓<sup>2</sup> | ✓ |
+| AlmaLinux 8                                                 | ✓<sup>2</sup> | ✓ |
+| Amazon Linux 2017.09                                        |  | ✓ |
+| Amazon Linux 2                                              | ✓ | ✓ |
+| Azure Linux                                                 | ✓ |   |
+| CentOS Linux 8                                              | ✓ | ✓ |
+| CentOS Linux 7                                              | ✓<sup>2</sup> | ✓ |
+| CBL-Mariner 2.0                                             | ✓<sup>2,3</sup> |   |
+| Debian 11                                                   | ✓<sup>2</sup> | ✓ |
+| Debian 10                                                   | ✓ | ✓ |
+| Debian 9                                                    | ✓ | ✓ |
+| Debian 8                                                    |   | ✓ |
+| OpenSUSE 15                                                 | ✓ | ✓ |
+| Oracle Linux 9                                              | ✓ |  |
+| Oracle Linux 8                                              | ✓ | ✓ |
+| Oracle Linux 7                                              | ✓ | ✓ |
+| Oracle Linux 6.4+                                           |   |  |
+| Red Hat Enterprise Linux Server 9+                          | ✓ | ✓ |
+| Red Hat Enterprise Linux Server 8.6+                        | ✓<sup>2</sup> | ✓ |
+| Red Hat Enterprise Linux Server 8.0-8.5                     | ✓ | ✓ |
+| Red Hat Enterprise Linux Server 7                           | ✓ | ✓ |
+| Red Hat Enterprise Linux Server 6.7+                        |   |  |
+| Rocky Linux 9                                               | ✓ | ✓ | 
+| Rocky Linux 8                                               | ✓ | ✓ |
+| SUSE Linux Enterprise Server 15 SP4                         | ✓<sup>2</sup> | ✓   |
+| SUSE Linux Enterprise Server 15 SP3                         | ✓ | ✓ |
+| SUSE Linux Enterprise Server 15 SP2                         | ✓ | ✓ |
+| SUSE Linux Enterprise Server 15 SP1                         | ✓ | ✓ |
+| SUSE Linux Enterprise Server 15                             | ✓ | ✓ |
+| SUSE Linux Enterprise Server 12                             | ✓ | ✓ |
+| Ubuntu 22.04 LTS                                            | ✓ | ✓ |
+| Ubuntu 20.04 LTS                                            | ✓<sup>2</sup> | ✓ |
+| Ubuntu 18.04 LTS                                            | ✓<sup>2</sup> | ✓ |
+| Ubuntu 16.04 LTS                                            | ✓ | ✓ |
+| Ubuntu 14.04 LTS                                            |   | ✓ |
 
 <sup>1</sup> Requires Python (2 or 3) to be installed on the machine.<br>
-<sup>2</sup> Requires Python 2 to be installed on the machine and aliased to the `python` command.<br>
-<sup>3</sup> Also supported on Arm64-based machines.<br>
-<sup>4</sup> Requires at least 4GB of disk space allocated (not provided by default).
+<sup>2</sup> Also supported on Arm64-based machines.<br>
+<sup>3</sup> Requires at least 4GB of disk space allocated (not provided by default).
 
 > [!NOTE]
 > Machines and appliances that run heavily customized or stripped-down versions of the above distributions and hosted solutions that disallow customization by the user are not supported. Azure Monitor and legacy agents rely on various packages and other baseline functionality that is often removed from such systems, and their installation may require some environmental modifications considered to be disallowed by the appliance vendor. For instance, [GitHub Enterprise Server](https://docs.github.com/en/enterprise-server/admin/overview/about-github-enterprise-server) is not supported due to heavy customization as well as [documented, license-level disallowance](https://docs.github.com/en/enterprise-server/admin/overview/system-overview#operating-system-software-and-patches) of operating system modification.
@@ -264,16 +241,16 @@ Currently supported hardening standards:
 - FIPs
 - FedRamp
 
-| Operating system | Azure Monitor agent <sup>1</sup> | Log Analytics agent (legacy) <sup>1</sup> | Diagnostics extension <sup>2</sup>|
+| Operating system | Azure Monitor agent <sup>1</sup> | Legacy Agent<sup>1</sup> |
 |:---|:---:|:---:|:---:|
-| CentOS Linux 7                                                 | ✓ |   |   |
-| Debian 10                                      | ✓ |   |   |
-| Ubuntu 18                                             | ✓ |   |   |
-| Ubuntu 20                                              | ✓ |   |   |
-| Red Hat Enterprise Linux Server 7                                              | ✓ |   |   |
-| Red Hat Enterprise Linux Server 8                                              | ✓ |   |   |
+| CentOS Linux 7 | ✓ |   |
+| Debian 10      | ✓ |   |
+| Ubuntu 18      | ✓ |   |
+| Ubuntu 20      | ✓ |   |
+| Red Hat Enterprise Linux Server 7 | ✓ |   |
+| Red Hat Enterprise Linux Server 8 | ✓ |   |
 
-<sup>1</sup> Supports only the above distros and versions
+<sup>1</sup> Supports only the above distros and version
 
 ## Frequently asked questions
 

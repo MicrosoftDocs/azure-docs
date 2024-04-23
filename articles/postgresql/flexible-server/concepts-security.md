@@ -4,7 +4,7 @@ description: Learn about security in the Flexible Server deployment option for A
 author: gennadNY
 ms.author: gennadyk
 ms.reviewer: maghan
-ms.date: 03/25/2024
+ms.date: 04/03/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
@@ -45,7 +45,7 @@ When you're running Azure Database for PostgreSQL - Flexible Server, you have tw
 
 ## Microsoft Defender for Cloud support
 
-**[Overview of Microsoft Defender for open-source relational databases](../../defender-for-cloud/defender-for-databases-introduction.md)** detects anomalous activities indicating unusual and potentially harmful attempts to access or exploit databases. Defender for Cloud provides [security alerts](../../defender-for-cloud/alerts-reference.md#alerts-for-open-source-relational-databases) on anomalous activities so that you can detect potential threats and respond to them as they occur.
+**[Microsoft Defender for open-source relational databases](../../defender-for-cloud/defender-for-databases-introduction.md)** detects anomalous activities indicating unusual and potentially harmful attempts to access or exploit databases. Defender for Cloud provides [security alerts](../../defender-for-cloud/alerts-reference.md#alerts-for-open-source-relational-databases) on anomalous activities so that you can detect potential threats and respond to them as they occur.
 When you enable this plan, Defender for Cloud provides alerts when it detects anomalous database access and query patterns and suspicious database activities.
 
 These alerts appear in Defender for Cloud's security alerts page and include:
@@ -191,9 +191,26 @@ CREATE POLICY account_managers ON accounts TO managers
 ```
 
 The USING clause implicitly adds a `WITH CHECK` clause, ensuring that members of the manager role can't perform `SELECT`, `DELETE`, or `UPDATE` operations on rows that belong to other managers, and can't `INSERT` new rows belonging to another manager.
+You can drop a row security policy by using DROP POLICY command , as in his example:
+```sql
 
-> [!NOTE]  
-> In [PostgreSQL it is possible for a user to be assigned the `BYPASSRLS` attribute by another superuser](https://www.postgresql.org/docs/current/ddl-rowsecurity.html). With this permission, a user can bypass RLS for all tables in Postgres, as superuser. That permission cannot be assigned in Azure Database for PostgreSQL - Flexible Server, since administrator role has no superuser privileges, as common in cloud based PaaS PostgreSQL services.
+
+DROP POLICY account_managers ON accounts;
+```
+Although you may have have dropped the policy, role manager is still not able to view any data that belong to any other manager. This is because the row-level security policy is still enabled on the accounts table. If row-level security is enabled by default, PostgreSQL uses a default-deny policy. You can disable row level security, as in example below:
+
+```sql
+ALTER TABLE accounts DISABLE ROW LEVEL SECURITY;
+```
+
+
+## Bypassing Row Level Security
+
+PostgreSQL has **BYPASSRLS** and **NOBYPASSRLS** permissions, which can be assigned to a role; NOBYPASSRLS is assigned by default. 
+With **newly provisioned servers** in Azure Database for PostgreSQL - Flexible Server bypassing row level security privilege (BYPASSRLS)is implemented as follows:
+* For Postgres 16 and above versioned servers we follow [standard PostgreSQL 16 behavior](#postgresql-16-changes-with-role-based-security).  Non-administrative users created by **azure_pg_admin** administrator role allow you to create roles with BYPASSRLS attribute\privilege as necessary. 
+* For Postgres 15 and below versioned servers. , you can use **azure_pg_admin** user to do administrative tasks that require BYPASSRLS privilege, but cannot create non-admin users with BypassRLS privilege, since administrator role has no superuser privileges, as common in cloud based PaaS PostgreSQL services.
+
 
 ## Update passwords
 

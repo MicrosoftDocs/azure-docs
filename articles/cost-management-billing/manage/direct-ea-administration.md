@@ -82,6 +82,28 @@ An Azure enterprise administrator (EA admin) can view and manage enrollment prop
 
 For more information about the department admin (DA) and account owner (AO) view charges policy settings, see [Pricing for different user roles](understand-ea-roles.md#see-pricing-for-different-user-roles).
 
+#### Authorization levels allowed
+
+Enterprise agreements have an authorization (previously labeled authentication) level set that determines which types of users can be added as EA account owners for the enrollment. There are four authorization levels available.
+
+- Microsoft Account only - For organizations that want to use, create, and manage users through Microsoft accounts.
+- Work or School Account only - For organizations that set up Microsoft Entra ID with Federation to the Cloud and all accounts are on a single tenant.
+- Work or School Account Cross Tenant - For organizations that set up Microsoft Entra ID with Federation to the Cloud and have accounts in multiple tenants.
+- Mixed Mode - Allows you to add users with Microsoft Account and/or with a Work or School Account.
+
+The first work or school account added to the enrollment determines the _default_ domain. To add a work or school account with another tenant, you must change the authorization level under the enrollment to cross-tenant authentication.
+
+Ensure that the authorization level set for the EA allows you to create a new EA account owner using the subscription account administrator noted previously. For example:
+
+- If the subscription account administrator has an email address domain of `@outlook.com`, then the EA must have its authorization level set to either **Microsoft Account Only** or **Mixed Mode**.
+- If the subscription account administrator has an email address domain of `@<YourAzureADTenantPrimaryDomain.com>`, then the EA must have its authorization level set to either **Work or School Account only** or **Work or School Account Cross Tenant**. The ability to create a new EA account owner depends on whether the EA's default domain is the same as the subscription account administrator's email address domain.
+
+Microsoft accounts must have an associated ID created at [https://signup.live.com](https://signup.live.com/).
+
+Work or school accounts are available to organizations that set up Microsoft Entra ID with federation and where all accounts are on a single tenant. Users can be added with work or school federated user authentication if the company's internal Microsoft Entra ID is federated.
+
+If your organization doesn't use Microsoft Entra ID federation, you can't use your work or school email address. Instead, register or create a new email address and register it as a Microsoft account.
+
 ## Add another enterprise administrator
 
 Only existing EA admins can create other enterprise administrators. Use one of the following options, based on your situation.
@@ -324,7 +346,7 @@ It might take up to eight hours for the account to appear in the Azure portal.
 
 ## Enable Azure Marketplace purchases
 
-Although most pay-as-you-go _subscriptions_ can be associated with an Azure Enterprise Agreement, previously purchased Azure Marketplace _services_ can't. To get a single view of all subscriptions and charges, we recommend that you enable Azure Marketplace purchases.
+To get a single view of all subscriptions and charges, we recommend that you enable Azure Marketplace purchases.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_GTM/ModernBillingMenuBlade/AllBillingScopes).
 1. Navigate to **Cost Management + Billing**.
@@ -333,11 +355,7 @@ Although most pay-as-you-go _subscriptions_ can be associated with an Azure Ente
 1. Under **Azure Marketplace**, set the policy to **On**.  
    :::image type="content" source="./media/direct-ea-administration/azure-marketplace.png" alt-text="Screenshot showing the Azure Marketplace policy setting." lightbox="./media/direct-ea-administration/azure-marketplace.png" :::
 
-The account owner can then repurchase any Azure Marketplace services that were previously owned in the pay-as-you-go subscription.
-
 The setting applies to all account owners in the enrollment. It allows them to make Azure Marketplace purchases.
-
-After subscriptions are activated under your Azure EA enrollment, cancel the Azure Marketplace services that were created with the pay-as-you-go subscription. This step is critical in case your pay-as-you-go payment instrument expires.
 
 ## MSDN subscription transfer
 
