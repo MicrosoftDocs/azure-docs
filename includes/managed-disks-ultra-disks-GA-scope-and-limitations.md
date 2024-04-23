@@ -4,7 +4,7 @@ description: include file
 author: roygara
 ms.service: azure-disk-storage
 ms.topic: include
-ms.date: 03/06/2024
+ms.date: 04/23/2024
 ms.author: rogarana
 ms.custom: include file
 ---
@@ -35,7 +35,7 @@ The following table outlines the regions ultra disks are available in, and their
 |--------------------|---------|
 | **Single VMs** | Australia Central<br/>Brazil South<br/>Canada East<br/>Central India<br/>East Asia<br/>Germany West Central<br/>Korea Central<br/>Korea South<br/>UK West <br/>North Central US, South Central US, West US<br/>US Gov Arizona, US Gov Texas, US Gov Virginia |
 | **One availability zone** | Brazil Southeast <br/> Poland Central <br/> UAE North |
-| **Two availability zones** | South Africa North <br/> China North 3 <br/>France Central <br/>Qatar Central <br/> Switzerland North |
+| **Two availability zones** | South Africa North <br/> China North 3 <br/>France Central <br/>Italy North <br/>Qatar Central <br/> Switzerland North |
 | **Three availability zones** | Australia East<br/>Canada Central<br/>North Europe, West Europe<br/>Japan East<br/>Southeast Asia<br/>Sweden Central<br/>UK South<br/>Central US, East US, East US 2, West US 2, West US 3 |
 
 Not every VM size is available in every supported region with ultra disks. The following table lists VM series that are compatible with ultra disks.
