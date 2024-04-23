@@ -733,7 +733,7 @@ To configure a deployment, use the registered model and environment:
 model = "azureml:my-model:1"
 env = "azureml:my-env:1"
  
-blue_deployment = ManagedOnlineDeployment(
+blue_deployment_with_registered_assets = ManagedOnlineDeployment(
     name="blue",
     endpoint_name=endpoint_name,
     model=model,
@@ -830,10 +830,10 @@ Next, deploy your online endpoint to Azure.
 
 1. Create the deployment:
 
-    Using the `blue_deployment` that you defined earlier and the `MLClient` you created earlier, you can now create the deployment in the workspace. This command starts the deployment creation and returns a confirmation response while the deployment creation continues.
+    Using the `blue_deployment_with_registered_assets` that you defined earlier and the `MLClient` you created earlier, you can now create the deployment in the workspace. This command starts the deployment creation and returns a confirmation response while the deployment creation continues.
 
     ```python
-    ml_client.online_deployments.begin_create_or_update(blue_deployment)
+    ml_client.online_deployments.begin_create_or_update(blue_deployment_with_registered_assets)
     ```
 
     > [!TIP]
@@ -1134,7 +1134,7 @@ To understand how `begin_create_or_update` works:
 4. Run the method:
 
     ```python
-    ml_client.online_deployments.begin_create_or_update(blue_deployment)
+    ml_client.online_deployments.begin_create_or_update(blue_deployment_with_registered_assets)
     ```
 
 5. Because you modified the `init()` function, which runs when the endpoint is created or updated, the message `Updated successfully` will be in the logs. Retrieve the logs by running:
