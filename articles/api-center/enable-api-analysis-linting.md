@@ -78,6 +78,7 @@ This section provides automated steps using the Azure Developer CLI to configure
 ### Run the sample using `azd`
 
 1. Clone the [GitHub repository](https://github.com/Azure/APICenter-Analyzer/) and open it in Visual Studio Code.
+1. Change directory to the `APICenter-Analyzer` folder in the repository.
 1. In the `resources/rulesets` folder, you can find an `oas.yaml` file. This file reflects your current API style guide and can be modified based on your organizational needs and requirements.
 1. Authenticate with the Azure Developer CLI and the Azure CLI using the following commands:
 
@@ -103,13 +104,13 @@ This section provides automated steps using the Azure Developer CLI to configure
 
 This section provides the manual steps to configure the Azure Functions app and event subscription to enable linting and analysis in your API center.
 
-### Additional prerequisites
+### Other prerequisites for this option
 
 * Visual Studio Code with the [Azure Functions extension v1.10.4](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) or later.
 
 ### Step 1. Deploy your Azure Functions app
 
-To deploy the Azure Functions app that runs the linting function on API definitions.
+To deploy the Azure Functions app that runs the linting function on API definitions:
 
 1. Clone the [GitHub repository](https://github.com/Azure/APICenter-Analyzer/) and open it in Visual Studio Code.
 1. In the `resources/rulesets` folder, you can find an `oas.yaml` file. This file reflects your current API style guide and can be modified based on your organizational needs and requirements.
