@@ -92,7 +92,7 @@ PUT https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{
 ```
 
 ### [Bicep](#tab/bicep)
-Update an exsisting standby pool deployment. Deploy the updated template using [az deployment group create](/cli/azure/deployment/group) or [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment).
+Update an existing standby pool deployment. Deploy the updated template using [az deployment group create](/cli/azure/deployment/group) or [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment).
 
 ```bicep
 param location string = resourceGroup().location
