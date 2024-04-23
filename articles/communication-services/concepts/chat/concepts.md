@@ -39,9 +39,9 @@ Chat conversations happen within **chat threads**. Chat threads have the followi
 Azure Communication Services supports three levels of user access control, using the chat tokens. See [Identity and Tokens](../identity-model.md) for details. Participants don't have write-access to messages sent by other participants, which means only the message sender can update or delete their sent messages. If another participant tries to do that, they get an error. 
 
 ### Chat Data 
-Azure Communication Services stores chat messages according to your data retention policy. **How and where do they set this?** 
+Azure Communication Services stores chat messages according to the [data retention policy](/purview/create-retention-policies.md) in effect when the message is created. You can update the retention policy if needed during the retention time period you set. After you delete a chat thread (by policy or by a Delete API request), it can't be retrieved.
 
-You can choose between indefinite message retention, automatic deletion after 90 days, **or immediate?**. Existing messages remain unaffected.
+You can choose between indefinite message retention, automatic deletion after 90 days, or immediate deletion using the APIs [Delete Chat Message](/rest/api/communication/chat/chat-thread/delete-chat-message.md) or [Delete Chat Thread](/rest/api/communication/chat/chat/delete-chat-thread.md). Any message created before the new retention policy isn't affected unless you specifically change the policy for that message.
 
 Chat thread participants can use `ListMessages` to view  message history for a particular thread. Users that are removed from a chat thread are able to view previous message history but can't send or receive new messages. Accidentally deleted messages aren't recoverable by the system. To learn more about data being stored in Azure Communication Services chat service, refer to the [data residency and privacy page](../privacy.md). 
 
@@ -50,19 +50,19 @@ For customers that use Virtual appointments, refer to our Teams Interoperability
 ### Service limits
 - The maximum number of participants allowed in a chat thread is 250.
 - The maximum message size allowed is approximately 28 KB.
-- For chat threads with more than 20 participants, read receipts and typing indicator features are not supported.
-- For Teams Interop scenarios, it is the number of Azure Communication Services users, not Teams users, that must be below 20 for the typing indicator feature to be supported.
+- For chat threads with more than 20 participants, read receipts and typing indicator features aren't supported.
+- For Teams Interop scenarios, it's the number of Azure Communication Services users, not Teams users, that must be below 20 for the typing indicator feature to be supported.
 - For Teams Interop scenarios, the typing indicator event might contain a blank display name when sent from Teams user.
 - For Teams Interop scenarios, read receipts aren't supported for Teams users.
   
 ## Chat architecture
 
-There are two core parts to chat architecture: 1) Trusted Service and 2) Client Application.
+There are two core parts to chat architecture: 1) Trusted service and 2) Client application.
 
 :::image type="content" source="../../media/chat-architecture-updated.svg" alt-text="Diagram showing Communication Services' chat architecture.":::
 
- - **Trusted service:** To properly manage a chat session, you need a service that helps you connect to Communication Services by using your resource connection string. This service is responsible for creating chat threads, adding and removing participants, and issuing access tokens to users. More information about access tokens can be found in our [access tokens](../../quickstarts/identity/access-tokens.md) quickstart.
- - **Client app:**  The client application connects to your trusted service and receives the access tokens that are used by users to connect directly to Communication Services. After creating the chat thread and adding users as participants, they can use the client application to connect to the chat thread and send messages. Real-time notifications in your client application can be used to subscribe to message & thread updates from other participants.
+ - **Trusted service:** To properly manage a chat session, you need a service that helps you connect to Communication Services by using your resource connection string. This service is responsible for creating chat threads, adding and removing participants, and issuing access tokens to users. For more information, see [Quickstart: Create and manaage access tokens](../../quickstarts/identity/access-tokens.md) quickstart.
+ - **Client app:**  The client application connects to your trusted service and receives the access tokens that users need to connect directly to Communication Services. After you create the chat thread and add participants, they can use the client application to connect to the chat thread and send messages. Participants can use real-time notifications in your client application to subscribe to message & thread updates from other members.
 
 ## Build intelligent, AI-powered chat experiences
 
@@ -89,9 +89,9 @@ When you call `List Messages` or `Get Messages` on a chat thread, the result con
  - `html`: A formatted message using html, composed and sent by a user as part of chat thread. 
 
 Types of system messages: 
- - `participantAdded`: System message that indicates one or more participants have been added to the chat thread.
+ - `participantAdded`: System message that indicates one or more participants are in the chat thread.
  - `participantRemoved`: System message that indicates a participant has been removed from the chat thread.
- - `topicUpdated`: System message that indicates the thread topic has been updated.
+ - `topicUpdated`: System message that indicates the thread topic is updated.
 
 ## Real-time notifications
 
@@ -120,19 +120,19 @@ This feature lets server applications listen to events such as when a message is
 
 ## Push notifications 
 
-Android and iOS Chat SDKs support push notifications. To send push notifications for messages missed by your users while they were away, connect a Notification Hub resource with Communication Services resource to send push notifications. Doing so will notify your application users about incoming chats and messages when the mobile app is not running in the foreground.    
+Android and iOS Chat SDKs support push notifications. To send push notifications for messages missed by your participants while they were away, connect a Notification Hub resource with Communication Services resource to send push notifications. Doing this notifies your application participants about incoming chats and messages when the mobile app is not running in the foreground.    
     
 IOS and Android SDK support the below event:
-- `chatMessageReceived` - when a new message is sent to a chat thread by a participant.     
+- `chatMessageReceived` - when a participant sends a new message to a chat thread.     
    
 Android SDK supports extra events:
-- `chatMessageEdited` - when a message is edited in a chat thread.	
-- `chatMessageDeleted` - when a message is deleted in a chat thread.	
+- `chatMessageEdited` - when a participant edits a message in a chat thread.	
+- `chatMessageDeleted` - when a participant deletes a message in a chat thread.	
 - `chatThreadCreated` - when a Communication Services user creates a chat thread.	
 - `chatThreadDeleted` - when a Communication Services user deletes a chat thread.	
-- `chatThreadPropertiesUpdated` - when chat thread properties are updated; currently, only updating the topic for the thread is supported.	
-- `participantsAdded` - when a user is added as a chat thread participant. 	
-- `participantsRemoved` - when an existing participant is removed from the chat thread.
+- `chatThreadPropertiesUpdated` - when you update chat thread properties; currently, only updating the topic for the thread is supported.	
+- `participantsAdded` - when you adds a participant to a chat thread. 	
+- `participantsRemoved` - when a you remove an existing participant from the chat thread.
 
 For more information, see [Push Notifications](../notifications.md).
 
@@ -144,5 +144,6 @@ For more information, see [Push Notifications](../notifications.md).
 > [!div class="nextstepaction"]
 > [Get started with chat](../../quickstarts/chat/get-started.md)
 
-The following documents may be interesting to you:
-- Familiarize yourself with the [Chat SDK](sdk-features.md)
+## Related articles
+
+- Familiarize yourself with the [Chat SDK](./sdk-features.md)
