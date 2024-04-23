@@ -364,7 +364,7 @@
           href: fslogix-profile-container-configure-azure-files-active-directory.md
         - name: Use Azure Files and Microsoft Entra ID
           displayName: fslogix, user profiles
-          href: create-profile-container-azure-ad.md
+          href: create-profile-container-azure-ad.yml
       - name: Migrate from classic
         items:
         - name: Migrate automatically 

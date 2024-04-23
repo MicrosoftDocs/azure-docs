@@ -11,7 +11,7 @@ ms.date: 01/10/2024
 
 # Custom authentication in Azure Static Web Apps
 
-Azure Static Web Apps provides [managed authentication](authentication-authorization.md) that uses provider registrations managed by Azure. To enable more flexibility over the registration, you can override the defaults with a custom registration.
+Azure Static Web Apps provides [managed authentication](authentication-authorization.yml) that uses provider registrations managed by Azure. To enable more flexibility over the registration, you can override the defaults with a custom registration.
 
 - Custom authentication also allows you to [configure custom providers](./authentication-custom.md?tabs=openid-connect#configure-a-custom-identity-provider) that support [OpenID Connect](https://openid.net/connect/). This configuration allows the registration of multiple external providers.
 
@@ -24,11 +24,11 @@ Azure Static Web Apps provides [managed authentication](authentication-authoriza
 
 Custom identity providers are configured in the `auth` section of the [configuration file](configuration.md).
 
-To avoid putting secrets in source control, the configuration looks into [application settings](application-settings.md#configure-application-settings) for a matching name in the configuration file. You may also choose to store your secrets in [Azure Key Vault](./key-vault-secrets.md).
+To avoid putting secrets in source control, the configuration looks into [application settings](application-settings.yml#configure-application-settings) for a matching name in the configuration file. You may also choose to store your secrets in [Azure Key Vault](./key-vault-secrets.md).
 
 # [Microsoft Entra ID](#tab/aad)
 
-To create the registration, begin by creating the following [application settings](application-settings.md#configure-application-settings):
+To create the registration, begin by creating the following [application settings](application-settings.yml#configure-application-settings):
 
 | Setting Name | Value |
 | --- | --- |
@@ -89,11 +89,11 @@ For more information on how to configure Microsoft Entra ID, see the [App Servic
 To configure which accounts can sign in, see [Modify the accounts supported by an application](../active-directory/develop/howto-modify-supported-accounts.md) and [Restrict your Microsoft Entra app to a set of users in a Microsoft Entra tenant](../active-directory/develop/howto-restrict-your-app-to-a-set-of-users.md).
 
 > [!NOTE]
-> While the configuration section for Microsoft Entra ID is `azureActiveDirectory`, the platform aliases this to `aad` in the URL's for login, logout and purging user information. Refer to the [authentication and authorization](authentication-authorization.md) section for more information.
+> While the configuration section for Microsoft Entra ID is `azureActiveDirectory`, the platform aliases this to `aad` in the URL's for login, logout and purging user information. Refer to the [authentication and authorization](authentication-authorization.yml) section for more information.
 
 # [Apple](#tab/apple)
 
-To create the registration, begin by creating the following [application settings](application-settings.md):
+To create the registration, begin by creating the following [application settings](application-settings.yml):
 
 | Setting Name | Value |
 | --- | --- |
@@ -121,7 +121,7 @@ For more information on how to configure Apple as an authentication provider, se
 
 # [Facebook](#tab/facebook)
 
-To create the registration, begin by creating the following [application settings](application-settings.md):
+To create the registration, begin by creating the following [application settings](application-settings.yml):
 
 | Setting Name | Value |
 | --- | --- |
@@ -150,7 +150,7 @@ For more information on how to configure Facebook as an authentication provider,
 # [GitHub](#tab/github)
 
 
-To create the registration, begin by creating the following [application settings](application-settings.md):
+To create the registration, begin by creating the following [application settings](application-settings.yml):
 
 | Setting Name | Value |
 | --- | --- |
@@ -177,7 +177,7 @@ Next, use the following sample to configure the provider in the [configuration f
 # [Google](#tab/google)
 
 
-To create the registration, begin by creating the following [application settings](application-settings.md):
+To create the registration, begin by creating the following [application settings](application-settings.yml):
 
 | Setting Name | Value |
 | --- | --- |
@@ -205,7 +205,7 @@ For more information on how to configure Google as an authentication provider, s
 
 # [Twitter](#tab/twitter)
 
-To create the registration, begin by creating the following [application settings](application-settings.md):
+To create the registration, begin by creating the following [application settings](application-settings.yml):
 
 | Setting Name | Value |
 | --- | --- |
@@ -243,7 +243,7 @@ You can configure Azure Static Web Apps to use a custom authentication provider 
 
 You're required to register your application's details with an identity provider. Check with the provider regarding the steps needed to generate a **client ID** and **client secret** for your application.
 
-Once the application is registered with the identity provider, create the following application secrets in the [application settings](application-settings.md) of the Static Web App:
+Once the application is registered with the identity provider, create the following application secrets in the [application settings](application-settings.yml) of the Static Web App:
 
 | Setting Name | Value |
 | --- | --- |
