@@ -37,7 +37,7 @@ Diagram above shows typical TLS 1.2 handshake sequence, consisting of following:
 
 A **certificate chain** is an ordered list of certificates, containing an SSL/TLS Certificate and Certificate Authority (CA) Certificates, that enables the receiver to verify that the sender and all CA's are trustworthy. The chain or path begins with the SSL/TLS certificate, and each certificate in the chain is signed by the entity identified by the next certificate in the chain.
 The chain terminates with a **root CA certificate**. The **root CA certificate** is always signed by the Certificate Authority (CA) itself. The signatures of all certificates in the chain must be verified up to the root CA certificate.
-Any certificate that sits between the SSL/TLS certificate and the root CA certificate in the chain is called an Intermediate Certificate. 
+Any certificate that sits between the SSL/TLS certificate and the root CA certificate in the chain is called an intermediate certificate. 
 
 
 ## TLS versions
