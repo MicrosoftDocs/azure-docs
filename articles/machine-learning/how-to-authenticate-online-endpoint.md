@@ -9,7 +9,7 @@ author: dem108
 ms.author: sehan
 ms.reviewer: mopeakande
 reviewer: msakande
-ms.date: 12/15/2023
+ms.date: 04/23/2024
 ms.topic: how-to
 ms.custom: how-to, devplatv2, cliv2, sdkv2, devx-track-azurecli
 ---
@@ -28,11 +28,6 @@ A _data plane operation_ uses data to interact with an online endpoint without c
 ## Prerequisites
 
 [!INCLUDE [cli & sdk v2](includes/machine-learning-cli-sdk-v2-prereqs.md)]
-
-
-## Limitations
-
-Endpoints with Microsoft Entra token (`aad_token`) auth mode don't support scoring using the CLI `az ml online-endpoint invoke`, SDK `ml_client.online_endpoints.invoke()`, or the __Test__ or __Consume__ tabs of the Azure Machine Learning studio. Instead, use a generic Python SDK or use REST API to pass the control plane token. For more information, see [Score data using the key or token](#score-data-using-the-key-or-token).
 
 
 ## Prepare a user identity
@@ -257,7 +252,7 @@ See [Get a token using the Azure identity client library](/entra/identity/manage
 
 ### [Studio](#tab/studio)
 
-The studio doesn't expose the Microsoft Entra token.
+The studio doesn't expose the Microsoft Entra token for control plane operations.
 
 ---
 
@@ -595,13 +590,7 @@ See [Get a token using the Azure identity client library](/entra/identity/manage
 
 ### [Studio](#tab/studio)
 
-#### Key or Azure Machine Learning token
-
-You can find the key or token on the __Consume__ tab of the endpoint's page.
-
-#### Microsoft Entra token
-
-Microsoft Entra token isn't exposed in the studio.
+You can find the key, Azure Machine Learning token, or Microsoft Entra token on the __Consume__ tab of the endpoint's page.
 
 ---
 
@@ -677,11 +666,7 @@ except urllib.error.HTTPError as error:
 
 #### Key or Azure Machine Learning token
 
-The __Test__ tab of the deployment's detail page supports scoring for endpoints with key or Azure Machine Learning token auth.
-
-#### Microsoft Entra token
-
-The __Test__ tab of the deployment's detail page _doesn't_ support scoring for endpoints with Microsoft Entra token auth.
+The __Test__ tab of the deployment's detail page supports scoring for endpoints with key, Azure Machine Learning token, or Microsoft Entra token auth.
 
 ---
 
