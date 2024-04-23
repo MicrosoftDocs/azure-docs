@@ -3,7 +3,7 @@ title: EA Billing administration on the Azure portal
 description: This article explains the common tasks that an enterprise administrator accomplishes in the Azure portal.
 author: bandersmsft
 ms.author: banders
-ms.date: 04/02/2024
+ms.date: 04/23/2024
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
@@ -261,7 +261,7 @@ If you're a new EA account owner with a .onmicrosoft.com account, you might not 
 
 EA admins can use the Azure portal to transfer account ownership of selected or all subscriptions in an enrollment. When you complete a subscription or account ownership transfer, Microsoft updates the account owner.
 
-Before starting the ownership transfer, get familiar with the following Azure role-based access control (Azure RBAC) policies:
+Before starting the ownership transfer, get familiar with the following Azure role-based access control (RBAC) policies:
 
 - When doing a subscription or account ownership transfers between two organizational IDs within the same tenant, the following items are preserved:
     - Azure RBAC policies
@@ -357,9 +357,9 @@ To get a single view of all subscriptions and charges, we recommend that you ena
 
 The setting applies to all account owners in the enrollment. It allows them to make Azure Marketplace purchases.
 
-## MSDN subscription transfer
+## Visual Studio subscription transfer
 
-When your transfer an MSDN subscription to an enrollment, it gets converted to an [Enterprise Dev/Test subscription](https://azure.microsoft.com/pricing/offers/ms-azr-0148p/). After conversion, the subscription loses any existing monetary credit. So, we recommended that you use all your credit before you transfer it to your Enterprise Agreement.
+When you transfer a Visual Studio subscription to an enrollment, it gets converted to an [Enterprise Dev/Test subscription](https://azure.microsoft.com/pricing/offers/ms-azr-0148p/). After conversion, the subscription loses any existing monetary credit. So, we recommended that you use all your credit before you transfer it to your Enterprise Agreement.
 
 ## Azure in Open subscription transfer
 
@@ -367,7 +367,7 @@ When you transfer an Azure in Open subscription to an Enterprise Agreement, you 
 
 ## Subscription transfers with support plans
 
-If your Enterprise Agreement doesn't have a support plan and you try to transfer an existing Microsoft Online Support Agreement (MOSA) subscription that has a support plan, the subscription doesn't automatically transfer. You need to repurchase a support plan for your EA enrollment during the grace period, which is by the end of the following month.
+If you try to transfer an existing Microsoft Online Support Agreement (MOSA) subscription that has a support plan to an Enterprise Agreement without one, the subscription doesn't automatically transfer. You need to repurchase a support plan for your EA enrollment during the grace period, which is by the end of the following month.
 
 ## Manage department and account spending with budgets
 
@@ -475,9 +475,9 @@ When the request is created, the subscription owner (the customer) is sent an em
 
 After the request is created, it's visible in the Azure portal at **Subscriptions** > **View Requests** by the following people:
 
-- The tenant global administrator of the source tenant where the subscription provisioning request is made.
-- The user who made the subscription creation request for the subscription being provisioned in the other tenant.
-- The user who made the request to provision the subscription in a different tenant than where they make the [Subscription – Alias REST API](/rest/api/subscription/) call instead of the Azure portal.
+- The tenant global administrator of the source tenant where the subscription creation request is made.
+- The user who made the subscription creation request for the subscription being created in the other tenant.
+- The user who made the request to create the subscription in a different tenant than where they make the [Subscription – Alias REST API](/rest/api/subscription/) call instead of the Azure portal.
 
 The subscription owner in the request who resides in the target tenant doesn't see this subscription creation request on the View requests page. Instead, they receive an email with the link to accept ownership of the subscription in the target tenant.
 
@@ -550,7 +550,7 @@ If you need assistance, create a [support request](https://portal.azure.com/#b
 
 ## Convert to work or school account authentication
 
-Azure Enterprise users can convert from a Microsoft Account (MSA or Live ID) to a Work or School Account. A Work or School Account uses the Microsoft Entra authentication type.
+Azure Enterprise users can convert from a Microsoft Account (MSA) or Live ID to a Work or School Account. A Work or School Account uses the Microsoft Entra authentication type.
 
 ### To begin
 
@@ -564,6 +564,28 @@ Azure Enterprise users can convert from a Microsoft Account (MSA or Live ID) to 
 1. Use an account ownership transfer to move to the new account.
 1. The Microsoft account should be free from any active subscriptions and can be deleted.
 1. Any deleted accounts remain viewable in the Azure portal with inactive status for historic billing reasons. You can filter it out of the view by selecting **Show only active accounts**.
+
+## Pay your overage with Azure Prepayment
+
+To apply your Azure Prepayment to overages, you must meet the following criteria:
+
+- You incurred overage charges that weren't paid and are within three months of the invoice bill date.
+- Your available Azure Prepayment amount covers the full number of incurred charges, including all past unpaid Azure invoices.
+- The billing term that you want to complete must be fully closed. Billing fully closes after the fifth day of each month.
+- The billing period that you want to offset must be fully closed.
+- Your Azure Prepayment Discount (APD) is based on the actual new Prepayment minus any funds planned for the previous consumption. This requirement applies only to overage charges incurred. It's only valid for services that consume Azure Prepayment, so doesn't apply to Azure Marketplace charges. Azure Marketplace charges are billed separately.
+
+To complete an overage offset, you or the account team can open a support request. An emailed approval from your enterprise administrator or Bill to Contact is required.
+
+## Move charges to another enrollment
+
+Usage data is only moved when a transfer is backdated. There are two options to move usage data from one enrollment to another:
+
+- Account transfers from one enrollment to another enrollment
+- Enrollment transfers from one enrollment to another enrollment
+
+For either option, you must submit a [support request](https://support.microsoft.com/supportrequestform/cf791efa-485b-95a3-6fad-3daf9cd4027c) to the EA Support Team for assistance. ​
+
 
 ## Azure EA term glossary
 
