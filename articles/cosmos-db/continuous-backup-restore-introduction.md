@@ -54,10 +54,16 @@ In short, the restore process only restores the documents that are confirmed by 
 The mutations that are yet to be confirmed by the restore timestamp are not restored. 
 The collections with custom conflict resolution policy is reset to last writer wins based on timestamp. 
 Example: 
-Given a multi-write region account with two regions East us and West us, out of which East US is the conflict resolution region region, consider the following sequence of events depicted in the diagram. 
+Given a multi-write region account with two regions East us and West us, out of which East US is the conflict resolution region region, consider the following sequence of events: 
 
 In this scenario, if the restore timestamp is T3, only entity1 is restored. Entity2 has not been confirmed by conflict resolution region by T3. Only if the restore timestamp > T4, the entity2 will be restored. 
+T1: Client writes a document Doc1 to East US. (Since East US is the hub region, the write is immediately confirmed)  
+T2: Client writes a document Doc2 to West US.
+T3: West US sends Doc2 to East US for confirmation.
+T4: East US receives Doc2, confirms the document and sends of Doc2 back to West US.
+T5: West US receives confirmed Doc2.
 
+In this scenario, if the restore timestamp provided is T3, only Doc1 will get restored. Doc2 has not been confirmed by hub by T3. Only if the restore timestamp > T4, the doc2 will get restored.  
 > [!NOTE]
 > Restore in Conflict resolution region is supported in public preview. 
 
