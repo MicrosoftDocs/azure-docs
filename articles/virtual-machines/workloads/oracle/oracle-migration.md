@@ -35,16 +35,16 @@ The data migration process has two types, online and offline. Online transfers d
 
 After you set up Oracle on Azure infrastructure, install Oracle database, and migrate related applications; the next step is to transfer data from on premise Oracle database to the new Oracle database on Azure. See the following Oracle tools: 
 
-- [Recovery Manager](https://docs.oracle.com/en/database/oracle/oracle-database/19/bradv/getting-started-rman.html) (RMAN)
-- [Data Guard](https://docs.oracle.com/en/database/oracle/oracle-database/21/sbydb/introduction-to-oracle-data-guard-concepts.html) 
+- [Recovery Manager (RMAN)](https://docs.oracle.com/en/database/oracle/oracle-database/19/bradv/getting-started-rman.html)
 - [Data Pump](https://docs.oracle.com/en/database/oracle/oracle-database/19/sutil/oracle-data-pump-overview.html)
+- [Data Guard](https://docs.oracle.com/en/database/oracle/oracle-database/21/sbydb/introduction-to-oracle-data-guard-concepts.html) 
 - [GoldenGate](https://docs.oracle.com/goldengate/c1230/gg-winux/GGCON/introduction-oracle-goldengate.htm)
 
 Azure enhances the Oracle tools with the right network connectivity, bandwidth, and commands that are powered by the following Azure capabilities for data migration.
 
-- VPN Connectivity
-- Express Route
-- AzCopy
+- [VPN Connectivity](/azure/vpn-gateway/)
+- [Express Route](/azure/expressroute/expressroute-introduction)
+- [AzCopy](/azure/storage/common/storage-ref-azcopy)
 - Data Box
 
 You need one of the Oracle Tools plus Azure infrastructures to deploy the correct solution architecture to migrate data. See the following reference solution scenarios:
