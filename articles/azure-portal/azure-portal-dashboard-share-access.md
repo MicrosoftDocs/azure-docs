@@ -7,7 +7,7 @@ ms.date: 09/05/2023
 
 # Share Azure dashboards by using Azure role-based access control
 
-After configuring a dashboard, you can publish it and share it with other users in your organization. When you share a dashboard, you can control who can view it by using [Azure role-based access control (Azure RBAC)](../role-based-access-control/role-assignments-portal.md) to assign roles to either a single user or a group of users. You can select a role that allows them only to view the published dashboard, or a role that also allows them to modify it.
+After configuring a dashboard, you can publish it and share it with other users in your organization. When you share a dashboard, you can control who can view it by using [Azure role-based access control (Azure RBAC)](../role-based-access-control/role-assignments-portal.yml) to assign roles to either a single user or a group of users. You can select a role that allows them only to view the published dashboard, or a role that also allows them to modify it.
 
 > [!TIP]
 > Within a dashboard, individual tiles enforce their own access control requirements based on the resources they display. You can share any dashboard broadly, even if some data on specific tiles might not be visible to all users.

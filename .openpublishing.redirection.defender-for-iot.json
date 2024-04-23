@@ -760,7 +760,7 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/defender-for-iot/how-to-deploy-edge.md",
+            "source_path_from_root": "/articles/defender-for-iot/how-to-deploy-edge.yml",
             "redirect_url": "/azure/defender-for-iot/device-builders/how-to-deploy-edge",
             "redirect_document_id": false
         },
