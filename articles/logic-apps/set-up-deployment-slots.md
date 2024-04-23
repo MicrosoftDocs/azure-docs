@@ -90,7 +90,7 @@ The following options are available for you to create a deployment slot:
 
 ### [Azure CLI](#tab/azure-cli)
 
-To create a nonproduction deployment slot on your Standard logic app, run the following Azure CLI command:
+Run the following Azure CLI command:
 
 `az functionapp deployment slot create --name {logic-app-name} --resource-group {resource-group-name} --slot {slot-name}`
 
@@ -142,7 +142,7 @@ Unavailable at this time. Please follow the steps for Visual Studio Code or Azur
 
 ### [Azure CLI](#tab/azure-cli)
 
-To deploy logic app changes to a deployment slot, run the following Azure CLI command:
+Run the following Azure CLI command:
 
 `az logicapp deployment source config-zip --name {logic-app-name} --resource-group {resource-group-name} --slot {slot-name} --src {deployment-package-local-path}`
 
@@ -166,7 +166,7 @@ After you deploy your changes, confirm that the changes appear in your deployed 
 
 ## Swap a deployment slot with the production slot
 
-The following steps show how to swap a Standard logic app deployment slot with the current production slot.
+The following options are available for you to swap a deployment slot with the current production slot:
 
 ### [Portal](#tab/portal)
 
@@ -210,7 +210,7 @@ The following steps show how to swap a Standard logic app deployment slot with t
 
 ### [Azure CLI](#tab/azure-cli)
 
-To swap your production slot with a deployment slot, run the following Azure CLI command:
+Run the following Azure CLI command:
 
 `az functionapp deployment slot swap --name {logic-app-name} --resource-group {resource-group-name} --slot {slot-name} --target-slot production`
 
@@ -226,7 +226,7 @@ After you swap slots, verify that the changes from your deployment slot now appe
 
 ## Delete a deployment slot
 
-The following options are available for you to remove a deployment slot from your Standard logic app resource.
+The following options are available for you to delete a deployment slot from your Standard logic app resource.
 
 ### [Portal](#tab/portal)
 
@@ -262,7 +262,7 @@ The following options are available for you to remove a deployment slot from you
 
 ### [Azure CLI](#tab/azure-cli)
 
-To delete a deployment slot from your deployed Standard logic app resource, run the following Azure CLI command:
+Run the following Azure CLI command:
 
 `az functionapp deployment slot delete --name {logic-app-name} --resource-group {resource-group-name} --slot {slot-name} --target-slot production`
 
