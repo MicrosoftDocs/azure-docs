@@ -33,13 +33,13 @@ For more information, see [Use Application Insights Java In-Process Agent in Azu
 
 If you're using the *exec* form, add the parameter `-javaagent:"path/to/applicationinsights-agent-3.5.2.jar"` to the parameter list somewhere before the `"-jar"` parameter, for example:
 
-```
+```dockerfile
 ENTRYPOINT ["java", "-javaagent:path/to/applicationinsights-agent-3.5.2.jar", "-jar", "<myapp.jar>"]
 ```
 
 If you're using the *shell* form, add the Java Virtual Machine (JVM) arg `-javaagent:"path/to/applicationinsights-agent-3.5.2.jar"` somewhere before `-jar`, for example:
 
-```
+```dockerfile
 ENTRYPOINT java -javaagent:"path/to/applicationinsights-agent-3.5.2.jar" -jar <myapp.jar>
 ```
 
@@ -48,7 +48,7 @@ ENTRYPOINT java -javaagent:"path/to/applicationinsights-agent-3.5.2.jar" -jar <m
 
 A Dockerfile example:
 
-```
+```dockerfile
 FROM ...
 
 COPY target/*.jar app.jar
@@ -83,7 +83,7 @@ For information on setting up the Application Insights Java agent, see [Enabling
 
 If you installed Tomcat via `apt-get` or `yum`, you should have a file `/etc/tomcat8/tomcat8.conf`. Add this line to the end of that file:
 
-```
+```console
 JAVA_OPTS="$JAVA_OPTS -javaagent:path/to/applicationinsights-agent-3.5.2.jar"
 ```
 
@@ -91,7 +91,7 @@ JAVA_OPTS="$JAVA_OPTS -javaagent:path/to/applicationinsights-agent-3.5.2.jar"
 
 If you installed Tomcat via download and unzip from [https://tomcat.apache.org](https://tomcat.apache.org), you should have a file `<tomcat>/bin/catalina.sh`. Create a new file in the same directory named `<tomcat>/bin/setenv.sh` with the following content:
 
-```
+```console
 CATALINA_OPTS="$CATALINA_OPTS -javaagent:path/to/applicationinsights-agent-3.5.2.jar"
 ```
 
@@ -103,13 +103,13 @@ If the file `<tomcat>/bin/setenv.sh` already exists, modify that file and add `-
 
 Locate the file `<tomcat>/bin/catalina.bat`. Create a new file in the same directory named `<tomcat>/bin/setenv.bat` with the following content:
 
-```
+```console
 set CATALINA_OPTS=%CATALINA_OPTS% -javaagent:path/to/applicationinsights-agent-3.5.2.jar
 ```
 
 Quotes aren't necessary, but if you want to include them, the proper placement is:
 
-```
+```console
 set "CATALINA_OPTS=%CATALINA_OPTS% -javaagent:path/to/applicationinsights-agent-3.5.2.jar"
 ```
 
@@ -181,7 +181,7 @@ The specified `applicationinsights.agent.id` value must be unique. You use the v
 
 Add these lines to `start.ini`:
 
-```
+```console
 --exec
 -javaagent:path/to/applicationinsights-agent-3.5.2.jar
 ```
@@ -209,7 +209,7 @@ Add `-javaagent:path/to/applicationinsights-agent-3.5.2.jar` to the existing `jv
 
 1. In `Generic JVM arguments`, add the following JVM argument.
 
-    ```
+    ```console
     -javaagent:path/to/applicationinsights-agent-3.5.2.jar
     ```
 
@@ -219,7 +219,7 @@ Add `-javaagent:path/to/applicationinsights-agent-3.5.2.jar` to the existing `jv
 
 Create a new file `jvm.options` in the server directory (for example, `<openliberty>/usr/servers/defaultServer`), and add this line:
 
-```
+```console
 -javaagent:path/to/applicationinsights-agent-3.5.2.jar
 ```
 
