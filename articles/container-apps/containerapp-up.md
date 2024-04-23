@@ -83,7 +83,7 @@ In this example, the `az containerapp up` command performs the following actions
 1. Creates and deploys a container app that pulls the image from a public registry.
 1. Sets the container app's ingress to external with a target port set to the specified value.
 
-Run the following command to deploy a container app from an existing image. Replace the \<Placeholders\> with your values. 
+Run the following command to deploy a container app from an existing image. Replace the \<PLACEHOLDERS\> with your values. 
 
 ```azurecli
 az containerapp up \
@@ -186,7 +186,7 @@ az containerapp up \
 
 If you've configured ingress through your Dockerfile or your app doesn't require ingress, you can omit the `ingress` option.
 
-Because the `up` command creates a GitHub Actions workflow, rerunning it to deploy changes to your app's image has the unwanted effect of creating multiple workflows. Instead, push changes to your GitHub repository, and the GitHub workflow automatically build and deploy your app. To change the workflow, edit the workflow file in GitHub.
+Because the `up` command creates a GitHub Actions workflow, rerunning it to deploy changes to your app's image has the unwanted effect of creating multiple workflows. Instead, push changes to your GitHub repository, and the GitHub workflow automatically builds and deploys your app. To change the workflow, edit the workflow file in GitHub.
 
 ## Next steps
 
