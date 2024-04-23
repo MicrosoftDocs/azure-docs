@@ -13,7 +13,7 @@ ms.date: 10/12/2022
 
 [!INCLUDE [functions-in-process-model-retirement-note](../../includes/functions-in-process-model-retirement-note.md)]
 
-This article is an introduction to developing Azure Functions by using C# in .NET class libraries. These class libraries are used to run _in-process with the Functions runtime_. Your .NET functions can alternatively run _isolated from the Functions _runtime_, which offers several advantages. To learn more, see [the isolated worker model](dotnet-isolated-process-guide.md). For a comprehensive comparison between these two models, see [Differences between the in-process model and the isolated worker model](dotnet-isolated-in-process-differences.md).
+This article is an introduction to developing Azure Functions by using C# in .NET class libraries. These class libraries are used to run _in-process with the Functions runtime_. Your .NET functions can alternatively run _isolated from the Functions runtime_, which offers several advantages. To learn more, see [the isolated worker model](dotnet-isolated-process-guide.md). For a comprehensive comparison between these two models, see [Differences between the in-process model and the isolated worker model](dotnet-isolated-in-process-differences.md).
 
 >[!IMPORTANT]
 >This article supports .NET class library functions that run in-process with the runtime. Your C# functions can also run out-of-process and isolated from the Functions runtime. The isolated worker process model is the only way to run non-LTS versions of .NET and .NET Framework apps in current versions of the Functions runtime. To learn more, see [.NET isolated worker process functions](dotnet-isolated-process-guide.md). 
