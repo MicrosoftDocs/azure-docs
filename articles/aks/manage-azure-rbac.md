@@ -3,6 +3,7 @@ title: Use Azure RBAC for Kubernetes Authorization
 titleSuffix: Azure Kubernetes Service
 description: Learn how to use Azure role-based access control (Azure RBAC) for Kubernetes Authorization with Azure Kubernetes Service (AKS).
 ms.topic: article
+ms.subservice: aks-security
 ms.custom: devx-track-azurecli
 ms.date: 03/02/2023
 ms.author: jpalma
@@ -229,8 +230,8 @@ To learn more about AKS authentication, authorization, Kubernetes RBAC, and Azur
 [az-aks-install-cli]: /cli/azure/aks#az-aks-install-cli
 [az-aks-create]: /cli/azure/aks#az-aks-create
 [az-aks-show]: /cli/azure/aks#az-aks-show
-[list-role-assignments-at-a-scope-at-portal]: ../role-based-access-control/role-assignments-list-portal.md#list-role-assignments-at-a-scope
-[list-role-assignments-for-a-user-or-group-at-portal]: ../role-based-access-control/role-assignments-list-portal.md#list-role-assignments-for-a-user-or-group
+[list-role-assignments-at-a-scope-at-portal]: ../role-based-access-control/role-assignments-list-portal.yml#list-role-assignments-at-a-scope
+[list-role-assignments-for-a-user-or-group-at-portal]: ../role-based-access-control/role-assignments-list-portal.yml#list-role-assignments-for-a-user-or-group
 [az-role-assignment-create]: /cli/azure/role/assignment#az-role-assignment-create
 [az-role-assignment-list]: /cli/azure/role/assignment#az-role-assignment-list
 [az-provider-register]: /cli/azure/provider#az-provider-register
@@ -241,3 +242,4 @@ To learn more about AKS authentication, authorization, Kubernetes RBAC, and Azur
 [az-role-definition-create]: /cli/azure/role/definition#az-role-definition-create
 [az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
 [kubernetes-rbac]: /azure/aks/concepts-identity#azure-rbac-for-kubernetes-authorization
+

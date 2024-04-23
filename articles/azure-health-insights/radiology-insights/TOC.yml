@@ -45,7 +45,7 @@ items:
      - name: tutorial
        href: tutorial.md
      - name: REST API
-       href: /rest/api/cognitiveservices/healthinsights/radiology-insights
+       href: /java/api/com.azure.health.insights.radiologyinsights
      - name: SDKs
        items:
          - name: .NET

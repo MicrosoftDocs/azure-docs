@@ -222,6 +222,9 @@ Import-AzContainerRegistryImage -RegistryName myregistry -ResourceGroupName myRe
 
 ### Import from a registry in a different subscription
 
+> [!NOTE]
+> To import an image from one registry to another, the source and target registries must ensure that both regions are registered for Azure Container Registry (ACR) under the subscription’s resource providers.
+
 ### [Azure CLI](#tab/azure-cli)
 
 In the following example, *mysourceregistry* is in a different subscription from *myregistry* in the same Active Directory tenant. Supply the resource ID of the source registry with the `--registry` parameter. Notice that the `--source` parameter specifies only the source repository and tag, not the registry login server name.
@@ -360,6 +363,15 @@ az acr import \
 ```azurepowershell
 Import-AzContainerRegistryImage -RegistryName myregistry -ResourceGroupName myResourceGroup -SourceRegistryUri docker.io/sourcerepo -SourceImage sourcerrepo:tag -Username <username> -Password <password>
 ```
+
+### Troubleshoot Import Container Images
+#### Symptoms and Causes
+- `The remote server may not be RFC 7233 compliant`
+  - The [distribution-spec](https://github.com/opencontainers/distribution-spec/blob/main/spec.md) allows range header form of `Range: bytes=<start>-<end>`. However, the remote server may not be RFC 7233 compliant.
+- `Unexpected response status code`
+  - Get an unexpected response status code from source repository when doing range query.
+- `Unexpected length of body in response`
+  - The received content length does not match the size expected. Expected size is decided by blob size and range header.
 
 ---
 

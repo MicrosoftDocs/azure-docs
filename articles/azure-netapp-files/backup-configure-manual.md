@@ -10,12 +10,9 @@ ms.author: anfdocs
 ---
 # Configure manual backups for Azure NetApp Files 
 
-Azure NetApp Files backup supports *policy-based* (scheduled) backups and *manual* (on-demand) backups at the volume level. You can use both types of backups in the same volume. During the configuration process, you will enable the backup feature for an Azure NetApp Files volume before policy-based backups or manual backups can be taken. 
+Azure NetApp Files backup supports *policy-based* (scheduled) backups and *manual* (on-demand) backups at the volume level. You can use both types of backups in the same volume. During the configuration process, you enable the backup feature for an Azure NetApp Files volume before policy-based backups or manual backups can be taken. 
 
 This article shows you how to configure manual backups. For policy-based backup configuration, see [Configure policy-based backups](backup-configure-policy-based.md).  
-
-> [!IMPORTANT]
-> The Azure NetApp Files backup feature is currently in preview. You need to submit a waitlist request for accessing the feature through the **[Azure NetApp Files Backup Public Preview](https://aka.ms/anfbackuppreviewsignup)** page. Wait for an official confirmation email from the Azure NetApp Files team before using the Azure NetApp Files backup feature.
 
 ## About manual backups  
 
@@ -29,9 +26,11 @@ The following list summarizes manual backup behaviors:
 
 * Unless you specify an existing snapshot to use for a backup, creating a manual backup automatically generates a snapshot on the volume. The snapshot is then transferred to Azure storage. The snapshot created on the volume will be retained until the next manual backup is created. During the subsequent manual backup operation, older snapshots will be cleaned up. You can't delete the snapshot generated for the latest manual backup. 
 
+[!INCLUDE [Backup registration heading](includes/backup-registration.md)]
+
 ## Requirements
 
-* Azure NetApp Files now requires you to create a backup vault before enabling backup functionality. If you have not configured a backup, refer to [Manage backup vaults](backup-vault-manage.md) for more information.
+* Azure NetApp Files now requires you to create a backup vault before enabling backup functionality. If you haven't configured a backup, see [Manage backup vaults](backup-vault-manage.md) for more information.
 * [!INCLUDE [consideration regarding deleting backups after deleting resource or subscription](includes/disable-delete-backup.md)]
 
 ## Enable backup functionality
@@ -62,13 +61,13 @@ If you haven’t done so, enable the backup functionality for the volume before 
 
             `account1-pool1-vol1-backup1`   
 
-            If you are using a shorter form for the backup name, ensure that it still includes information that identifies the NetApp account, capacity pool, and volume name for display in the backup list.
+            If you're using a shorter form for the backup name, ensure that it still includes information that identifies the NetApp account, capacity pool, and volume name for display in the backup list.
             
     2. If you want to use an existing snapshot for the backup, select the **Use Existing Snapshot** option.  When you use this option, ensure that the Name field matches the existing snapshot name that is being used for the backup. 
 
 4. Select **Create**. 
 
-    When you create a manual backup, a snapshot is also created on the volume using the same name you specified for the backup. This snapshot represents the current state of the active file system. It is transferred to Azure storage. Once the backup completes, the manual backup entry appears in the list of backups for the volume.
+    When you create a manual backup, a snapshot is also created on the volume using the same name you specified for the backup. This snapshot represents the current state of the active file system. It's transferred to Azure storage. Once the backup completes, the manual backup entry appears in the list of backups for the volume.
 
 ![Screenshot that shows the New Backup window.](./media/backup-configure-manual/backup-new.png)
 

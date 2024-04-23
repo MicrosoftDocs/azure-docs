@@ -24,7 +24,7 @@ A Private Endpoint is the fundamental building block for private link in Azure. 
 
 - You need an [Azure Database for MariaDB server](quickstart-create-mariadb-server-database-using-azure-cli.md).
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 - This article requires version 2.0.28 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 

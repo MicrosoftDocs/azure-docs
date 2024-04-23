@@ -41,7 +41,7 @@ sections:
       - question: |
           How do I integrate search into my solution?
         answer: |
-          Client code should call the client libraries or REST APIs to connect to a search index, formulate queries, and handle responses. You can also write code that builds and refreshes an index, or runs indexers programmatically or by script.
+          Client code should call the Azure SDK client libraries or REST APIs to connect to a search index, formulate queries, and handle responses. You can also write code that builds and refreshes an index, or runs indexers programmatically or by script.
 
       - question: |
           Is there functional parity across the various APIs?
@@ -70,14 +70,16 @@ sections:
       - question: |
           What does "indexing" mean in Azure AI Search?
         answer: |
-          It refers to the ingestion, parsing, and storing of textual content and tokens that populate a search index. Indexing creates inverted indexes and other physical data structures that support information retrieval. It creates vector indexes if the schema includes vector fields.
+          It refers to the ingestion, parsing, and storing of textual content and tokens that populate a search index. Indexing creates inverted indexes and other physical data structures that support information retrieval. 
+          
+          It creates vector indexes if the schema includes vector fields.
 
       - question: |
           Can I move, backup, and restore indexes?
         answer: |
           There's no native support for porting indexes. Search indexes are considered downstream data structures, accepting content from other data sources that collect operational data. As such, there's no built-in support for backing up and restoring indexes because the expectation is that you would rebuild an index from source data if you deleted it, or wanted to move it.
           
-          However, if you want to move an index between search services, you can try the **index-backup-restore** sample code in this [Azure AI Search .NET sample repo](https://github.com/Azure-Samples/azure-search-dotnet-utilities). There's also a [Python version of backup and restore](https://github.com/Azure/azure-search-vector-samples/blob/main/demo-python/code/azure-search-backup-and-restore.ipynb).
+          However, if you want to move an index between search services, you can try the **index-backup-restore** sample code in this [Azure AI Search .NET sample repo](https://github.com/Azure-Samples/azure-search-dotnet-utilities). There's also a [Python version of backup and restore](https://github.com/Azure/azure-search-vector-samples/blob/main/demo-python/code/index-backup-restore/azure-search-backup-and-restore.ipynb).
                    
       - question: |
           Can I restore my index or service once it's deleted?
@@ -113,7 +115,7 @@ sections:
       - question: |
           Can Azure AI Search vectorize my content or queries?
         answer: |
-          Integrated vectorization is now in public preview.
+          Built-in integrated vectorization is now in public preview. 
 
       - question: |
           Does my search service support vector search?

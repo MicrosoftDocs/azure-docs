@@ -2,7 +2,7 @@
 title: Connect your AWS account
 description: Defend your AWS resources by using Microsoft Defender for Cloud.
 ms.topic: install-set-up-deploy
-ms.custom: linux-related-content
+ms.custom:
 ms.date: 01/03/2024
 ---
 
@@ -191,7 +191,7 @@ In this section of the wizard, you select the Defender for Cloud plans that you 
 1. By default, the **Containers** plan is set to **On**. This setting is necessary to have Defender for Containers protect your AWS EKS clusters. Ensure that you fulfilled the [network requirements](./defender-for-containers-enable.md?pivots=defender-for-container-eks&source=docs&tabs=aks-deploy-portal%2ck8s-deploy-asc%2ck8s-verify-asc%2ck8s-remove-arc%2caks-removeprofile-api#network-requirements) for the Defender for Containers plan.
 
     > [!NOTE]
-    > Azure Arc-enabled Kubernetes, the Azure Arc extensions for Defender agent, and Azure Policy for Kubernetes should be installed. Use the dedicated Defender for Cloud recommendations to deploy the extensions (and Azure Arc, if necessary), as explained in [Protect Amazon Elastic Kubernetes Service clusters](defender-for-containers-enable.md?tabs=defender-for-container-eks).
+    > Azure Arc-enabled Kubernetes, the Azure Arc extensions for Defender sensor, and Azure Policy for Kubernetes should be installed. Use the dedicated Defender for Cloud recommendations to deploy the extensions (and Azure Arc, if necessary), as explained in [Protect Amazon Elastic Kubernetes Service clusters](defender-for-containers-enable.md?tabs=defender-for-container-eks).
 
     Optionally, select **Configure** to edit the configuration as required. If you choose to turn off this configuration, the **Threat detection (control plane)** feature is also disabled. [Learn more about feature availability](supported-machines-endpoint-solutions-clouds-containers.md).
 

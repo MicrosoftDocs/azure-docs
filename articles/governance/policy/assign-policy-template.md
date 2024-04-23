@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Create policy assignment using ARM template"
 description: In this quickstart, you create an Azure Policy assignment to identify non-compliant resources using an Azure Resource Manager template (ARM template).
-ms.date: 02/26/2024
+ms.date: 03/19/2024
 ms.topic: quickstart
 ms.custom: subject-armqs, mode-arm, devx-track-arm-template, devx-track-azurecli, devx-track-azurepowershell
 ---
@@ -11,6 +11,11 @@ ms.custom: subject-armqs, mode-arm, devx-track-arm-template, devx-track-azurecli
 In this quickstart, you use an Azure Resource Manager template (ARM template) to create a policy assignment that validates resource's compliance with an Azure policy. The policy is assigned to a resource group and audits virtual machines that don't use managed disks. After you create the policy assignment, you identify non-compliant virtual machines.
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
+
+If your environment meets the prerequisites and you're familiar with using ARM templates,
+select the **Deploy to Azure** button. The template opens in the Azure portal.
+
+:::image type="content" source="~/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Screenshot of the Deploy to Azure button to assign a policy with an Azure Resource Manager template." link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.authorization%2Fazurepolicy-builtin-vm-managed-disks%2Fazuredeploy.json":::
 
 ## Prerequisites
 
@@ -37,15 +42,24 @@ Create the following ARM template as _policy-assignment.json_.
   "parameters": {
     "policyAssignmentName": {
       "type": "string",
-      "defaultValue": "audit-vm-managed-disks"
+      "defaultValue": "audit-vm-managed-disks",
+      "metadata": {
+        "description": "Policy assignment name used in assignment's resource ID"
+      }
     },
     "policyDefinitionID": {
       "type": "string",
-      "defaultValue": "/providers/Microsoft.Authorization/policyDefinitions/06a78e20-9358-41c9-923c-fb736d382a4d"
+      "defaultValue": "/providers/Microsoft.Authorization/policyDefinitions/06a78e20-9358-41c9-923c-fb736d382a4d",
+      "metadata": {
+        "description": "Policy definition ID"
+      }
     },
     "policyDisplayName": {
       "type": "string",
-      "defaultValue": "Audit VM managed disks"
+      "defaultValue": "Audit VM managed disks",
+      "metadata": {
+        "description": "Display name for Azure portal"
+      }
     }
   },
   "resources": [

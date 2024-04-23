@@ -24,6 +24,25 @@ This article summarizes new releases and features in Azure Database for MySQL fl
 > [!NOTE]  
 > This article references the term slave, which Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
 
+## April 2024 
+- **Microsoft Defender for Cloud supports Azure Database for MySQL flexible server (General Availability)**
+
+  We’re excited to announce the general availability of the Microsoft Defender for Cloud feature for Azure Database for MySQL flexible server in all service tiers. The Microsoft Defender Advanced Threat Protection feature simplifies security management of Azure Database for MySQL flexible server instances. It monitors the server for anomalous or suspicious databases activities to detect potential threats and provides security alerts for you to investigate and take appropriate action, allowing you to actively improve the security posture of your database without being a security expert. [Learn more](/azure/defender-for-cloud/defender-for-databases-introduction)
+- **Known Issues**
+
+  While attempting to enable the Microsoft Defender for Cloud feature for an Azure Database for MySQL flexible server, you may encounter the following error: ‘The server <server_name> is not compatible with Advanced Threat Protection. Please contact Microsoft support to update the server to a supported version.’ This issue can occur on MySQL Flexible Servers that are still awaiting an internal update. It will be automatically resolved in the next internal update of your server. Alternatively, you can open a support ticket to expedite an immediate update.”
+
+## March 2024
+
+- **Accelerated Logs now supports major version upgrade.**
+
+   Accelerated Logs has now introduced support for [major version upgrade](./how-to-upgrade.md) allowing an upgrade from MySQL version 5.7 to MySQL version 8.0 with accelerated logs feature enabled.[Learn more.](./concepts-accelerated-logs.md) 
+  
+  
+- **Support for Long-term retention of backups in Azure Database for MySQL Flexible Server (Preview)**
+
+  This feature will allow retention of backups beyond 35 days and upto 10 years. [Learn more.](./concepts-backup-restore.md) 
+  
 ## February 2024
 
 
@@ -652,11 +671,11 @@ This release of Azure Database for MySQL flexible server includes the following 
 
 - **MySQL 8.0.21 released**
 
-  MySQL 8.0.21 is now available in Azure Database for MySQL flexible server in all major [Azure regions](overview.md#azure-regions). Customers can use the Azure portal, the Azure CLI, or Azure Resource Manager templates to provision the MySQL 8.0.21 release. [Learn more](quickstart-create-server-portal.md#create-an-azure-database-for-mysql-flexible-server-instance).
+  MySQL 8.0.21 is now available in Azure Database for MySQL flexible server in all major [Azure regions](overview.md#azure-regions). Customers can use the Azure portal, the Azure CLI, or Azure Resource Manager templates to provision the MySQL 8.0.21 release. [Learn more](quickstart-create-server-portal.md#create-an-azure-database-for-mysql-flexible-server).
 
 - **Support for Availability zone placement during server creation released**
 
-  Customers can now specify their preferred Availability zone during server creation. This functionality allows customers to collocate their applications hosted on Azure VM, Virtual Machine Scale Set, or AKS and database in the same Availability zones to minimize database latency and improve performance. [Learn more](quickstart-create-server-portal.md#create-an-azure-database-for-mysql-flexible-server-instance).
+  Customers can now specify their preferred Availability zone during server creation. This functionality allows customers to collocate their applications hosted on Azure VM, Virtual Machine Scale Set, or AKS and database in the same Availability zones to minimize database latency and improve performance. [Learn more](quickstart-create-server-portal.md#create-an-azure-database-for-mysql-flexible-server).
 
 - **Performance fixes for issues when running Azure Database for MySQL flexible server in virtual network with private access**
 

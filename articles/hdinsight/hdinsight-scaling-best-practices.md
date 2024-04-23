@@ -31,7 +31,7 @@ Microsoft provides the following utilities to scale clusters:
 |[Azure Classic CLI](hdinsight-administer-use-command-line.md)|`azure hdinsight cluster resize CLUSTERNAME NEWSIZE` |
 |[Azure portal](https://portal.azure.com)|Open your HDInsight cluster pane, select **Cluster size** on the left-hand menu, then on the Cluster size pane, type in the number of worker nodes, and select Save.|  
 
-:::image type="content" source="./media/hdinsight-scaling-best-practices/azure-portal-settings-nodes.png" alt-text="Azure portal scale cluster option":::
+:::image type="content" source="./media/hdinsight-scaling-best-practices/azure-portal-settings-nodes.png" alt-text="Azure portal scale cluster option.":::
 
 Using any of these methods, you can scale your HDInsight cluster up or down within minutes.
 
@@ -94,13 +94,13 @@ To see a list of pending and running jobs, you can use the YARN **Resource Manag
 3. From the Ambari UI, select **YARN** on the list of services on the left-hand menu.  
 4. From the YARN page, select **Quick Links** and hover over the active head node, then select **Resource Manager UI**.
 
-    :::image type="content" source="./media/hdinsight-scaling-best-practices/resource-manager-ui1.png" alt-text="Apache Ambari quick links Resource Manager UI":::
+    :::image type="content" source="./media/hdinsight-scaling-best-practices/resource-manager-ui1.png" alt-text="Apache Ambari quick links Resource Manager UI.":::
 
 You may directly access the Resource Manager UI with `https://<HDInsightClusterName>.azurehdinsight.net/yarnui/hn/cluster`.
 
 You  see a list of jobs, along with their current state. In the screenshot, there's  one job currently running:
 
-:::image type="content" source="./media/hdinsight-scaling-best-practices/resourcemanager-ui-applications.png" alt-text="Resource Manager UI applications":::
+:::image type="content" source="./media/hdinsight-scaling-best-practices/resourcemanager-ui-applications.png" alt-text="Resource Manager UI applications.":::
 
 To  manually kill that running application, execute the following command from the SSH shell:
 

@@ -46,7 +46,7 @@ Azure OpenAI Service provides access to [OpenAI's language models](https://opena
 
 | Logic app | Environment | Connector version |
 |-----------|-------------|-------------------|
-| **Standard** | Single-tenant Azure Logic Apps and App Service Environment v3 (Windows plans only) | Built-in connector, which appears in the connector gallery under **Runtime** > **In-App** and is [service provider-based](../custom-connector-overview.md#service-provider-interface-implementation). The built-in connector can directly access Azure virtual networks without using an on-premises data gateway. <br><br>For more information, see [Azure Open AI built-in connector reference](/azure/logic-apps/connectors/built-in/reference/openai). |
+| **Standard** | Single-tenant Azure Logic Apps and App Service Environment v3 (Windows plans only) | Built-in connector, which appears in the connector gallery under **Runtime** > **In-App** and is [service provider-based](../custom-connector-overview.md#service-provider-interface-implementation). The built-in connector can directly access Azure virtual networks without using an on-premises data gateway. <br><br>For more information, see [Azure OpenAI built-in connector reference](/azure/logic-apps/connectors/built-in/reference/openai). |
 
 ### Azure AI Search
 

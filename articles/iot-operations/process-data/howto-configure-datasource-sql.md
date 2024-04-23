@@ -1,6 +1,6 @@
 ---
 title: Configure a pipeline SQL Server source stage
-description: Configure a pipeline source stage to read data from Microsoft SQL Server for processing. The source stage is the first stage in a Data Processor pipeline.
+description: Configure a pipeline source stage to read data from Microsoft SQL Server for processing. The source stage is the first stage in an Azure IoT Data Processor pipeline.
 author: dominicbetts
 ms.author: dobett
 ms.subservice: data-processor
@@ -12,11 +12,11 @@ ms.date: 02/14/2024
 #CustomerIntent: As an operator, I want to configure a SQL Server source stage so that I can read messages from an SQL Server database for processing.
 ---
 
-# Configure a SQL Server source stage
+# Configure a SQL Server source stage in Azure IoT Data Processor Preview
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-The source stage is the first and required stage in an Azure IoT Data Processor (preview) pipeline. The source stage gets data into the data processing pipeline and prepares it for further processing. The SQL Server source stage lets you read data from a Microsoft SQL Server database at a user-defined interval.
+The source stage is the first and required stage in an Azure IoT Data Processor Preview pipeline. The source stage gets data into the data processing pipeline and prepares it for further processing. The SQL Server source stage lets you read data from a Microsoft SQL Server database at a user-defined interval.
 
 In the source stage, you define:
 
@@ -110,7 +110,7 @@ The following table describes the SQL Server source configuration parameters:
 | Data format | [Format](#select-data-format) | Data format of the incoming data | Required | NA | `{"type": "json"}` |
 | Partitioning | [Partitioning](#configure-partitioning) | Partitioning configuration for the source stage. | Required | NA | See [partitioning](#configure-partitioning) |
 
-To learn more about secrets, see [Manage secrets for your Azure IoT Operations deployment](../deploy-iot-ops/howto-manage-secrets.md).
+To learn more about secrets, see [Manage secrets for your Azure IoT Operations Preview deployment](../deploy-iot-ops/howto-manage-secrets.md).
 
 > [!NOTE]
 > Requests timeout in 30 seconds if there's no response from the SQL server.

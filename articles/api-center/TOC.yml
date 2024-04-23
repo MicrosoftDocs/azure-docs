@@ -30,7 +30,10 @@
         href: manage-apis-azure-cli.md
       - name: Import APIs from API Management
         href: import-api-management-apis.md
-#- name: API governance
+- name: API governance
+  items:
+      - name: Analyze APIs using linting rules
+        href: enable-api-analysis-linting.md
 - name: API discovery and consumption
   items:
       - name: Enable API Center portal
