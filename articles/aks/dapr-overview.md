@@ -40,14 +40,14 @@ The Dapr extension is the only Microsoft-supported option for Dapr in AKS.
 
 Microsoft categorizes issues raised against the Dapr extension into two parts: 
 - Extension operations
-- The extension payload
+- Dapr runtime (including APIs and components)
 
 The following table breaks down support priority levels for each of these categories.
 
 |   | Description | Functional issues | Security risks/Regressions |
 | - | ----------- | ----------------- | -------------------------- | 
-| **Extension operations** | Issues encountered while attempting to install Dapr into a cluster. | Microsoft investigates and addresses as needed. | Microsoft prioritizes for immediate resolution.  
-| **Payload of the Dapr extension** | Issues encountered when using the Dapr runtime, APIs, and components via the extension. | Microsoft investigates new functional issues. Known functional issues won't be investigated by Microsoft at this time. | Microsoft works with the open source community to investigate high priority payload issues. Issues may be resolved in a hotfix or future Dapr release, depending on priority, severity, and size of the issue. Once fixes are released in Dapr open source, they are then made available in the Dapr extension. |
+| **Extension operations** | Issues encountered while attempting to install Dapr into a cluster. | Microsoft investigates and addresses as needed. | Microsoft prioritizes for immediate resolution. | 
+| **Dapr runtime** | Issues encountered when using the Dapr runtime, APIs, and components via the extension. | Microsoft investigates new functional issues. Known open source functional issues won't be investigated by Microsoft at this time. | Microsoft works with the open source community to investigate high priority payload issues. Issues may be resolved in a hotfix or future Dapr open source release, depending on priority, severity, and size of the issue. Once fixes are released in Dapr open source, they are then made available in the Dapr extension. |
 
 ### Dapr versions
 
@@ -56,15 +56,13 @@ The Dapr extension support varies depending on how you manage the runtime.
 **Self-managed**  
 For self-managed runtime, Microsoft provides best-effort support for [the latest version of Dapr and two previous versions (N-2)][dapr-supported-version]. The latest patch version is the only supported version of each minor version release.
 
-Currently, the Dapr extension for AKS or Arc-enabled Kubernetes supports the following Dapr versions.
+Currently, the Dapr extension for AKS or Arc-enabled Kubernetes supports the following Dapr versions:
 
-| Runtime version | 
-| --------------- | 
-| 1.13.2 |
-| 1.12.4 |
-| 1.11.6* |
+- 1.13.2 
+- 1.12.4 
+- 1.11.6* 
 
-*This version will be retired once the next Dapr version is released.
+_*This version will be retired once the next Dapr version is released._
 
 Self-managed runtime requires manual upgrade to remain in the support window. To upgrade Dapr via the extension, follow the [Update extension instance](deploy-extensions-az-cli.md#update-extension-instance) instructions.
 
