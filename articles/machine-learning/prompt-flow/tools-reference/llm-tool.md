@@ -56,8 +56,6 @@ Set up connections to provisioned resources in prompt flow.
   > - Learn more about [how to specify to use user identity to submit flow run](../how-to-create-manage-runtime.md#create-an-automatic-runtime-preview-on-a-flow-page).
   > - Learn more about [How to configure Azure OpenAI Service with managed identities](../../../ai-services/openai/how-to/managed-identity.md).
 
-- 
-
 ## Inputs
 
 The following sections show various inputs.
