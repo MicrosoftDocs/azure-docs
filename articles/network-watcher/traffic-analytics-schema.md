@@ -6,7 +6,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: network-watcher
 ms.topic: concept-article
-ms.date: 12/05/2023
+ms.date: 04/22/2024
 
 #CustomerIntent: As a administrator, I want learn about traffic analytics schema so I can easily use the queries and understand their output.
 ---
@@ -32,7 +32,7 @@ Traffic analytics is a cloud-based solution that provides visibility into user a
 - `FlowStartTime_t` field indicates the first occurrence of such an aggregated flow (same four-tuple) in the flow log processing interval between `FlowIntervalStartTime_t` and `FlowIntervalEndTime_t`.
 - For any resource in traffic analytics, the flows indicated in the Azure portal are total flows seen by the network security group, but in Azure Monitor logs, user sees only the single, reduced record. To see all the flows, use the `blob_id` field,  which can be referenced from storage. The total flow count for that record matches the individual flows seen in the blob.
 
-# [**VNet flow logs (preview)**](#tab/vnet)
+# [**VNet flow logs**](#tab/vnet)
 
 - All flow logs between `FlowIntervalStartTime` and `FlowIntervalEndTime` are captured at one-minute intervals as blobs in a storage account.
 - Default processing interval of traffic analytics is 60 minutes, meaning that every hour, traffic analytics picks blobs from the storage account for aggregation. However, if a processing interval of 10 minutes is selected, traffic analytics will instead pick blobs from the storage account every 10 minutes.
@@ -174,7 +174,7 @@ The following table lists the fields in the schema and what they signify for NSG
 > - Deprecated fields: `VMIP_s`, `Subscription_g`, `Region_s`, `NSGRules_s`, `Subnet_s`, `VM_s`, `NIC_s`, `PublicIPs_s`, `FlowCount_d`
 > - New fields: `SrcPublicIPs_s`, `DestPublicIPs_s`, `NSGRule_s`
 
-# [**VNet flow logs (preview)**](#tab/vnet)
+# [**VNet flow logs**](#tab/vnet)
 
 The following table lists the fields in the schema and what they signify for VNet flow logs.
 
@@ -271,7 +271,7 @@ The following table details public IP schema:
 | **ThreatDescription** | Description of the threat | **For Malicious IPs only**: Description of the threat posed by the malicious IP. |
 | **DNSDomain** | DNS domain | **For Malicious IPs only**: Domain name associated with this IP. |
 
-# [**VNet flow logs (preview)**](#tab/vnet)
+# [**VNet flow logs**](#tab/vnet)
 
 | Field | Format | Comments |
 | ----- | ------ | -------- |
