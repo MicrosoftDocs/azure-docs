@@ -81,7 +81,7 @@ To create a load test for a function app:
     | **Test duration (minutes)** | Enter the duration of the load test in minutes. |
     | **Ramp-up time (minutes)**  | Enter the ramp-up time of the load test in minutes. The ramp-up time is the time it takes to reach the target number of virtual users. |
 
-1. Optionally, configure the network settings if the Function App is not publicly accessible.
+1. Optionally, configure the network settings if the function app isn't publicly accessible.
 
     Learn more about [load testing privately hosted endpoints](./how-to-test-private-endpoint.md).
 
