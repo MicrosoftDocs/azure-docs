@@ -120,11 +120,11 @@ Extra networking controls are configured when you create a private link endpoint
 
 A new architecture for the CMK workspace is available in preview, reducing cost compared to the current architecture and mitigating likelihood of Azure policy conflicts. In this new model, encrypted data is stored service-side on Microsoft-managed resources instead of in your subscription.
 
-Data that previously was stored in CosmosDB in your subscription, will be stored in multi-tenant Microsoft-managed resources using document-level encryption using your encryption key. Data that was previously stored in Azure AI Search, will now be hosted on Microsoft-managed resources, provisioned dedicated for you. The cost of the Azure AI search instance is charged under your Azure ML workspace in Azure Cost Management. The provisioning model differs per [workspace kind](concept-workspace.md):
+Data that previously was stored in CosmosDB in your subscription, will be stored in multi-tenant Microsoft-managed resources using document-level encryption using your encryption key. Search indices that were previously stored in Azure AI Search in your subscription, is stored on Microsoft-managed resources that are provisioned dedicated for you per workspace. The cost of the Azure AI search instance is charged under your Azure ML workspace in Azure Cost Management. The provisioning approach differs per [workspace kind](concept-workspace.md):
 Kind|Note|
 |---|---|
 |Default| Dedicated Azure search instance |
-|Hub| Dedicated Azure search instance |
+|Hub| Dedicated Azure search instance. Recommended for cost efficiency. |
 |Project| Reuses Azure Search from the associated hub workspace.|
 
 Pipelines metadata that previously was stored in a storage account in a managed resource group, is moving to the storage account in your subscription associated to the Azure Machine Learning workspace. Since this resources is managed in your subscription, you are responsible to configure CMK-encryption.
