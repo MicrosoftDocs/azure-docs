@@ -22,10 +22,9 @@ landingContent:
       - linkListType: overview
         links:
           - text: What is AKS?
-            url: intro-kubernetes.md
+            url: what-is-aks.md
           - text: What is AKS Automatic?
             url: intro-aks-automatic.md
-            url: what-is-aks.md
           - text: Get started with AKS
             url: /azure/architecture/reference-architectures/containers/aks-start-here
       - linkListType: whats-new
