@@ -106,18 +106,15 @@ chatClient.on("chatMessageReceived", (e) => {
      return;
   }
    
-  if (e.sender.communicationUserId != userId) {
-    renderReceivedMessage(e);
-  } else {
-    renderSentMessage(e.message);
-  }
+  const isMyMessage = e.sender.communicationUserId === userId;
+  renderReceivedMessage(e, isMyMessage);
 });
 
-async function renderReceivedMessage(e) {
+function renderReceivedMessage(e, isMyMessage) {
   const messageContent = e.message;
 
   const card = document.createElement('div');
-  card.className = 'container lighter';
+  card.className = isMyMessage ? "container darker" : "container lighter";
   card.innerHTML = messageContent;
   
   messagesContainer.appendChild(card);
@@ -397,7 +394,9 @@ async function uploadImages(e) {
 async function uploadImage(file) {
   const buffer = await file.arrayBuffer();
   const blob = new Blob([new Uint8Array(buffer)], {type: file.type });
-  const uploadedImageModel = await chatThreadClient.uploadImage(blob, file.name, {
+  const url = window.URL.createObjectURL(blob);
+  document.getElementById("upload-result").innerHTML += `<img src="${url}" height="auto" width="100" />`;
+  let uploadedImageModel = await chatThreadClient.uploadImage(blob, file.name, {
     imageBytesLength: file.size
   });
   uploadedImageModels.push(uploadedImageModel);
