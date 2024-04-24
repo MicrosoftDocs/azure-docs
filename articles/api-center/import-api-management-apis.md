@@ -39,7 +39,7 @@ After importing API definitions or APIs from API Management, you can add metadat
 * One or more APIs managed in your API Management instance that you want to add to your API center. 
 
 * For Azure CLI:
-    [!INCLUDE [include](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
+    [!INCLUDE [include](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
     > [!NOTE]
     > `az apic` commands require the `apic-extension` Azure CLI extension. If you haven't used `az apic` commands, the extension is installed dynamically when you run your first `az apic` command. Learn more about [Azure CLI extensions](/cli/azure/azure-cli-extensions-overview).
@@ -203,7 +203,7 @@ To add a user-assigned identity, you need to create a user-assigned identity res
 
 ### Assign the managed identity the API Management Service Reader role
 
-To allow import of APIs, assign your API center's managed identity the **API Management Service Reader** role in your API Management instance. You can use the [portal](../role-based-access-control/role-assignments-portal-managed-identity.md) or the Azure CLI.
+To allow import of APIs, assign your API center's managed identity the **API Management Service Reader** role in your API Management instance. You can use the [portal](../role-based-access-control/role-assignments-portal-managed-identity.yml) or the Azure CLI.
 
 #### [Portal](#tab/portal)
 
@@ -347,5 +347,5 @@ After importing APIs from API Management, you can view and manage the imported A
 * [Azure CLI reference for API Center](/cli/azure/apic) 
 * [Azure CLI reference for API Management](/cli/azure/apim) 
 * [Manage API inventory with Azure CLI commands](manage-apis-azure-cli.md)
-* [Assign Azure roles to a managed identity](../role-based-access-control/role-assignments-portal-managed-identity.md)
+* [Assign Azure roles to a managed identity](../role-based-access-control/role-assignments-portal-managed-identity.yml)
 * [Azure API Management documentation](../api-management/index.yml)

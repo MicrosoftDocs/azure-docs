@@ -13,8 +13,6 @@ author: eric-urban
 
 # Tutorial: Build and deploy a question and answer copilot with prompt flow in Azure AI Studio
 
-[!INCLUDE [Azure AI Studio preview](../includes/preview-ai-studio.md)]
-
 In this [Azure AI Studio](https://ai.azure.com) tutorial, you use generative AI and prompt flow to build, configure, and deploy a copilot for your retail company called Contoso. Your retail company specializes in outdoor camping gear and clothing. 
 
 The copilot should answer questions about your products and services. It should also answer questions about your customers. For example, the copilot can answer questions such as "How much do the TrailWalker hiking shoes cost?" and "How many TrailWalker hiking shoes did Daniel Wilson buy?".
@@ -35,19 +33,19 @@ The steps in this tutorial are:
 
     Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI by completing the form at <a href="https://aka.ms/oai/access" target="_blank">https://aka.ms/oai/access</a>. Open an issue on this repo to contact us if you have an issue.
 
-- You need an Azure AI hub resource and your user role must be **Azure AI Developer**, **Contributor**, or **Owner** on the Azure AI hub resource. For more information, see [Azure AI hub resources](../concepts/ai-resources.md) and [Azure AI roles](../concepts/rbac-ai-studio.md).
-    - If your role is **Contributor** or **Owner**, you can [create an Azure AI hub resource in this tutorial](#create-an-azure-ai-project-in-azure-ai-studio). 
-    - If your role is **Azure AI Developer**, the Azure AI hub resource must already be created. 
+- You need an Azure AI Studio hub and your user role must be **Azure AI Developer**, **Contributor**, or **Owner** on the hub. For more information, see [hubs](../concepts/ai-resources.md) and [Azure AI roles](../concepts/rbac-ai-studio.md).
+    - If your role is **Contributor** or **Owner**, you can [create a hub in this tutorial](#create-a-project-in-azure-ai-studio). 
+    - If your role is **Azure AI Developer**, the hub must already be created. 
 
 - Your subscription needs to be below your [quota limit](../how-to/quota.md) to [deploy a new model in this tutorial](#deploy-a-chat-model). Otherwise you already need to have a [deployed chat model](../how-to/deploy-models-openai.md).
 
 - You need a local copy of product and customer data. The [Azure/aistudio-copilot-sample repository on GitHub](https://github.com/Azure/aistudio-copilot-sample/tree/main/data) contains sample retail customer and product information that's relevant for this tutorial scenario. Clone the repository or copy the files from [1-customer-info](https://github.com/Azure/aistudio-copilot-sample/tree/main/data/1-customer-info) and [3-product-info](https://github.com/Azure/aistudio-copilot-sample/tree/main/data/3-product-info). 
 
-## Create an Azure AI project in Azure AI Studio
+## Create a project in Azure AI Studio
 
-Your Azure AI project is used to organize your work and save state while building your copilot. During this tutorial, your project contains your data, prompt flow runtime, evaluations, and other resources. For more information about the Azure AI projects and resources model, see [Azure AI hub resources](../concepts/ai-resources.md).
+Your project is used to organize your work and save state while building your copilot. During this tutorial, your project contains your data, prompt flow runtime, evaluations, and other resources. For more information about the projects and resources model, see [hubs](../concepts/ai-resources.md).
 
-[!INCLUDE [Create AI project](../includes/create-projects.md)]
+[!INCLUDE [Create project](../includes/create-projects.md)]
 
 ## Deploy a chat model
 
@@ -77,7 +75,7 @@ In the [Azure AI Studio](https://ai.azure.com) playground you can observe how yo
 
     :::image type="content" source="../media/tutorials/copilot-deploy-flow/playground-chat.png" alt-text="Screenshot of the chat playground with the chat mode and model selected." lightbox="../media/tutorials/copilot-deploy-flow/playground-chat.png":::
 
-1. In the **System message** text box on the **Assistant setup** pane, provide this prompt to guide the assistant: "You are an AI assistant that helps people find information." You can tailor the prompt for your scenario. For more information, see [prompt samples](../how-to/models-foundation-azure-ai.md#prompt-samples). 
+1. In the **System message** text box on the **Assistant setup** pane, provide this prompt to guide the assistant: "You are an AI assistant that helps people find information." You can tailor the prompt for your scenario. For more information, see [the prompt catalog](../what-is-ai-studio.md#prompt-catalog). 
 1. Select **Apply changes** to save your changes, and when prompted to see if you want to update the system message, select **Continue**. 
 1. In the chat session pane, enter the following question: "How much do the TrailWalker hiking shoes cost", and then select the right arrow icon to send.
 
@@ -93,7 +91,7 @@ In the next section, you'll add your data to the model to help it answer questio
 
 You need a local copy of example product information. For more information and links to example data, see the [prerequisites](#prerequisites).
 
-You upload your local data files to Azure Blob storage and create an Azure AI Search index. Your data source is used to help ground the model with specific data. Grounding means that the model uses your data to help it understand the context of your question. You're not changing the deployed model itself. Your data is stored separately and securely in your Azure subscription. For more information, see [Azure OpenAI on your data](/azure/ai-services/openai/concepts/use-your-data). 
+You upload your local data files to Azure Blob storage and create an Azure AI Search index. Your data source is used to help ground the model with specific data. Grounding means that the model uses your data to help it understand the context of your question. You're not changing the deployed model itself. Your data is stored separately and securely in your Azure subscription. For more information, see [Azure OpenAI enterprise chat](/azure/ai-services/openai/concepts/use-your-data). 
 
 Follow these steps to add your data to the playground to help the assistant answer questions about your products. 
 
@@ -107,7 +105,7 @@ Follow these steps to add your data to the playground to help the assistant answ
     :::image type="content" source="../media/tutorials/copilot-deploy-flow/add-your-data-source.png" alt-text="Screenshot of the product data source selection options." lightbox="../media/tutorials/copilot-deploy-flow/add-your-data-source.png":::
 
     > [!TIP]
-    > For data source options and supported file types and formats, see [Azure OpenAI on your data](/azure/ai-services/openai/concepts/use-your-data). 
+    > For data source options and supported file types and formats, see [Azure OpenAI enterprise chat](/azure/ai-services/openai/concepts/use-your-data). 
 
 1. Enter *product-info* as the name of your product information index. 
 
@@ -128,7 +126,7 @@ Follow these steps to add your data to the playground to help the assistant answ
 1. On the **Data management** page under **Search type**, select **Keyword**. This setting helps determine how the model responds to requests. Then select **Next**.
     
     > [!NOTE]
-    > If you had added vector search on the **Select or add data source** page, then more options would be available here for an additional cost. For more information, see [Azure OpenAI on your data](/azure/ai-services/openai/concepts/use-your-data).
+    > If you had added vector search on the **Select or add data source** page, then more options would be available here for an additional cost. For more information, see [Azure OpenAI enterprise chat](/azure/ai-services/openai/concepts/use-your-data).
     
 1. Review the details you entered, and select **Save and close**. You can now chat with the model and it uses information from your data to construct the response.
 
@@ -194,7 +192,7 @@ The **FormatReply** node formats the output of the **DetermineReply** node.
 
 In prompt flow, you should also see:
 - **Save**: You can save your prompt flow at any time by selecting **Save** from the top menu. Be sure to save your prompt flow periodically as you make changes in this tutorial. 
-- **Runtime**: The runtime that you created [earlier in this tutorial](#create-compute-and-runtime-that-are-needed-for-prompt-flow). You can start and stop runtimes and compute instances via **AI project settings** in the left menu. To work in prompt flow, make sure that your runtime is in the **Running** status.
+- **Runtime**: The runtime that you created [earlier in this tutorial](#create-compute-and-runtime-that-are-needed-for-prompt-flow). You can start and stop runtimes and compute instances via **Project settings** in the left menu. To work in prompt flow, make sure that your runtime is in the **Running** status.
 
     :::image type="content" source="../media/tutorials/copilot-deploy-flow/prompt-flow-overview.png" alt-text="Screenshot of the prompt flow editor and surrounding menus." lightbox="../media/tutorials/copilot-deploy-flow/prompt-flow-overview.png":::
 
@@ -413,7 +411,7 @@ Now that you have your evaluation dataset, you can evaluate your flow by followi
 1. Select a model to use for evaluation. In this example, select **gpt-35-turbo-16k**. Then select **Next**.
 
     > [!NOTE]
-    > Evaluation with AI-assisted metrics needs to call another GPT model to do the calculation. For best performance, use a GPT-4 or gpt-35-turbo-16k model. If you didn't previously deploy a GPT-4 or gpt-35-turbo-16k model, you can deploy another model by following the steps in [Deploy a chat model](#deploy-a-chat-model). Then return to this step and select the model you deployed.
+    > Evaluation with AI-assisted metrics needs to call another GPT model to do the calculation. For best performance, use a model that supports at least 16k tokens such as gpt-4-32k or gpt-35-turbo-16k model. If you didn't previously deploy such a model, you can deploy another model by following the steps in [Deploy a chat model](#deploy-a-chat-model). Then return to this step and select the model you deployed.
 
 1. Select **Add new dataset**. Then select **Next**.
 
@@ -513,15 +511,19 @@ Your copilot application can use the deployed prompt flow to answer questions in
 
     :::image type="content" source="../media/tutorials/copilot-deploy-flow/deployments-score-url-samples.png" alt-text="Screenshot of the prompt flow deployment endpoint and code samples." lightbox = "../media/tutorials/copilot-deploy-flow/deployments-score-url-samples.png":::
 
-
 ## Clean up resources
 
 To avoid incurring unnecessary Azure costs, you should delete the resources you created in this tutorial if they're no longer needed. To manage resources, you can use the [Azure portal](https://portal.azure.com?azure-portal=true). 
 
 You can also [stop or delete your compute instance](../how-to/create-manage-compute.md#start-or-stop-a-compute-instance) in [Azure AI Studio](https://ai.azure.com).
 
+
+## Azure AI Studio enterprise chat solution demo
+
+Learn how to create a retail copilot using your data with Azure AI Studio in this [end-to-end walkthrough video](https://youtu.be/Qes7p5w8Tz8).
+> [!VIDEO https://www.youtube.com/embed/Qes7p5w8Tz8]
+
 ## Next steps
 
 * Learn more about [prompt flow](../how-to/prompt-flow.md).
-* [Deploy a web app for chat on your data](./deploy-chat-web-app.md).
-* [Get started building a sample copilot application with the SDK](./deploy-copilot-sdk.md)
+* [Deploy an enterprise chat web app](./deploy-chat-web-app.md).

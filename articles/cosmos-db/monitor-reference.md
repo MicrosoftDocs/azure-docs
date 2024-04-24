@@ -11,26 +11,26 @@ ms.service: cosmos-db
 
 # Azure Cosmos DB monitoring data reference
 
-[!INCLUDE [horz-monitor-ref-intro](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-intro.md)]
+[!INCLUDE [horz-monitor-ref-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-intro.md)]
 
 See [Monitor Azure Cosmos DB](monitor.md) for details on the data you can collect for Azure Cosmos DB and how to use it.
 
-[!INCLUDE [horz-monitor-ref-metrics-intro](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-intro.md)]
+[!INCLUDE [horz-monitor-ref-metrics-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-intro.md)]
 For a list of all Azure Monitor supported metrics, including Azure Cosmos DB, see [Azure Monitor supported metrics](/azure/azure-monitor/essentials/metrics-supported).
 
 ### Supported metrics for Microsoft.DocumentDB/DatabaseAccounts
 The following table lists the metrics available for the Microsoft.DocumentDB/DatabaseAccounts resource type.
-[!INCLUDE [horz-monitor-ref-metrics-tableheader](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-tableheader.md)]
+[!INCLUDE [horz-monitor-ref-metrics-tableheader](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-tableheader.md)]
 [!INCLUDE [Microsoft.DocumentDB/DatabaseAccounts](~/azure-reference-other-repo/azure-monitor-ref/supported-metrics/includes/microsoft-documentdb-databaseaccounts-metrics-include.md)]
 
 ### Supported metrics for Microsoft.DocumentDB/cassandraClusters
 The following table lists the metrics available for the Microsoft.DocumentDB/cassandraClusters resource type.
-[!INCLUDE [horz-monitor-ref-metrics-tableheader](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-tableheader.md)]
+[!INCLUDE [horz-monitor-ref-metrics-tableheader](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-tableheader.md)]
 [!INCLUDE [Microsoft.DocumentDB/cassandraClusters](~/azure-reference-other-repo/azure-monitor-ref/supported-metrics/includes/microsoft-documentdb-cassandraclusters-metrics-include.md)]
 
 ### Supported metrics for Microsoft.DocumentDB/mongoClusters
 The following table lists the metrics available for the Microsoft.DocumentDB/mongoClusters resource type.
-[!INCLUDE [horz-monitor-ref-metrics-tableheader](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-tableheader.md)]
+[!INCLUDE [horz-monitor-ref-metrics-tableheader](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-tableheader.md)]
 [!INCLUDE [Microsoft.DocumentDB/mongoClusters](~/azure-reference-other-repo/azure-monitor-ref/supported-metrics/includes/microsoft-documentdb-mongoclusters-metrics-include.md)]
 
 ### Metrics by category
@@ -75,8 +75,8 @@ The following tables list Azure Cosmos DB metrics categorized by metric type.
 - CassandraRequestCharges (Cassandra Request Charges)
 - CassandraConnectionClosures (Cassandra Connection Closures)
 
-[!INCLUDE [horz-monitor-ref-metrics-dimensions-intro](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-dimensions-intro.md)]
-[!INCLUDE [horz-monitor-ref-metrics-dimensions](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-dimensions.md)]
+[!INCLUDE [horz-monitor-ref-metrics-dimensions-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-dimensions-intro.md)]
+[!INCLUDE [horz-monitor-ref-metrics-dimensions](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-dimensions.md)]
 
 ### Microsoft.DocumentDB/DatabaseAccounts
 
@@ -125,7 +125,7 @@ The following tables list Azure Cosmos DB metrics categorized by metric type.
 
 - ServerName
 
-[!INCLUDE [horz-monitor-ref-resource-logs](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-resource-logs.md)]
+[!INCLUDE [horz-monitor-ref-resource-logs](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-resource-logs.md)]
 
 ### Supported resource logs for Microsoft.DocumentDB/DatabaseAccounts
 [!INCLUDE [Microsoft.DocumentDB/DatabaseAccounts](~/azure-reference-other-repo/azure-monitor-ref/supported-logs/includes/microsoft-documentdb-databaseaccounts-logs-include.md)]
@@ -136,7 +136,7 @@ The following tables list Azure Cosmos DB metrics categorized by metric type.
 ### Supported resource logs for Microsoft.DocumentDB/mongoClusters
 [!INCLUDE [Microsoft.DocumentDB/mongoClusters](~/azure-reference-other-repo/azure-monitor-ref/supported-logs/includes/microsoft-documentdb-mongoclusters-logs-include.md)]
 
-[!INCLUDE [horz-monitor-ref-logs-tables](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-logs-tables.md)]
+[!INCLUDE [horz-monitor-ref-logs-tables](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-logs-tables.md)]
 
 ### Azure Cosmos DB
 Microsoft.DocumentDb/databaseAccounts
@@ -192,7 +192,7 @@ The following table lists properties of resource logs in Azure Cosmos DB. The re
 | **resourceTokenUserRid** | **resourceTokenUserRid_s** | This value is non-empty when [resource tokens](./secure-access-to-data.md#resource-tokens) are used for authentication. The value points to the resource ID of the user. |
 | **responseLength** | **responseLength_s** | The length of the response, in bytes.|
 
-[!INCLUDE [horz-monitor-ref-activity-log](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-activity-log.md)]
+[!INCLUDE [horz-monitor-ref-activity-log](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-activity-log.md)]
 - [Microsoft.DocumentDB resource provider operations](/azure/role-based-access-control/resource-provider-operations#microsoftdocumentdb)
 
 ## Related content

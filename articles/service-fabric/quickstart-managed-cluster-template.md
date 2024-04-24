@@ -7,7 +7,7 @@ author: tomvcassidy
 ms.service: service-fabric
 ms.custom: devx-track-arm-template
 services: service-fabric
-ms.date: 07/14/2022
+ms.date: 04/23/2024
 ---
 
 # Quickstart: Deploy a Service Fabric managed cluster with an Azure Resource Manager template
@@ -34,11 +34,13 @@ If you need to create a new client certificate, follow the steps in [set and ret
 
 Take note of the certificate thumbprint as this will be required to deploy the template in the next step.
 
+You can also [use Microsoft Entra ID for access control](how-to-managed-cluster-azure-active-directory-client.md). We recommend this for production scenarios.
+
 ## Deploy the template
 
 1. Select the following image to sign in to Azure and open a template.
 
-      :::image type="content" source="~/articles/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Resource Manager template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fservice-fabric-cluster-templates%2Fmaster%2FSF-Managed-Basic-SKU-1-NT%2Fazuredeploy.json":::
+      :::image type="content" source="~/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Resource Manager template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fservice-fabric-cluster-templates%2Fmaster%2FSF-Managed-Basic-SKU-1-NT%2Fazuredeploy.json":::
 
 2. Select or enter the following values
 

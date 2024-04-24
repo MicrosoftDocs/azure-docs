@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 03/07/2024
+ms.date: 04/17/2024
 ms.author: jianleishen
 ---
 # Copy data from PostgreSQL using Azure Data Factory or Synapse Analytics
@@ -253,7 +253,7 @@ If you were using `RelationalSource` typed source, it is still supported as-is, 
 
 When copying data from PostgreSQL, the following mappings are used from PostgreSQL data types to interim data types used by the service internally. See [Schema and data type mappings](copy-activity-schema-and-type-mapping.md) to learn about how copy activity maps the source schema and data type to the sink.
 
-|PostgreSql data type | Interim service data type | Interim service data type (for the legacy driver version) |
+|PostgreSql data type | Interim service data type | Interim service data type for PostgreSQL (legacy) |
 |:---|:---|:---|
 |`SmallInt`|`Int16`|`Int16`|
 |`Integer`|`Int32`|`Int32`|
@@ -316,6 +316,18 @@ Here are steps that help you upgrade your PostgreSQL linked service:
 1. Create a new PostgreSQL linked service and configure it by referring to [Linked service properties](#linked-service-properties).
 
 1. The data type mapping for the latest PostgreSQL linked service is different from that for the legacy version. To learn the latest data type mapping, see [Data type mapping for PostgreSQL](#data-type-mapping-for-postgresql).
+
+## Differences between PostgreSQL and PostgreSQL (legacy)
+
+The table below shows the data type mapping differences between PostgreSQL and PostgreSQL (legacy).
+
+|PostgreSQL data type|Interim service data type for PostgreSQL|Interim service data type for PostgreSQL (legacy)|
+|:---|:---|:---|
+|Money|Decimal|String|
+|Timestamp with time zone |DateTime|String|
+|Time with time zone |DateTimeOffset|String|
+|Interval | TimeSpan|String|
+|BigDecimal|Not supported. As an alternative, utilize `to_char()` function to convert BigDecimal to String.|String|
 
 ## Related content
 For a list of data stores supported as sources and sinks by the copy activity, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

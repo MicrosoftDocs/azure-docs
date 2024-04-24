@@ -451,10 +451,10 @@
                   href: functions-create-maven-kotlin-intellij.md
                 - name: Linux App Service plan
                   href: create-function-app-linux-app-service-plan.md
-                - name: Linux Consumption plan
-                  href: create-first-function-cli-python.md
+                - name: Consumption plan
+                  href: ./scripts/functions-cli-create-app-service-plan.md
                 - name: Premium plan
-                  href: create-premium-plan-function-app-portal.md
+                  href: ./scripts/functions-cli-create-premium-plan.md
                 - name: Linux container (Premium)
                   href: functions-deploy-container.md
                   displayName: container, Docker, custom

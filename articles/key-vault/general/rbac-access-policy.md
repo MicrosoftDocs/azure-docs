@@ -14,7 +14,7 @@ ms.author: mbaldwin
 
 Azure Key Vault offers two authorization systems: **[Azure role-based access control](../../role-based-access-control/overview.md)** (Azure RBAC), which operates on Azure's [control and data planes](../../azure-resource-manager/management/control-plane-and-data-plane.md), and the **access policy model**, which operates on the data plane alone.
 
-Azure RBAC is built on [Azure Resource Manager](../../azure-resource-manager/management/overview.md) and provides fine-grained access management of Azure resources. With Azure RBAC you control access to resources by creating role assignments, which consist of three elements: a security principal, a role definition (predefined set of permissions), and a scope (group of resources or individual resource).
+Azure RBAC is built on [Azure Resource Manager](../../azure-resource-manager/management/overview.md) and provides centralized access management of Azure resources. With Azure RBAC you control access to resources by creating role assignments, which consist of three elements: a security principal, a role definition (predefined set of permissions), and a scope (group of resources or individual resource).
 
 The access policy model is a legacy authorization system, native to Key Vault, which provides access to keys, secrets, and certificates. You can control access by assigning individual permissions to security principals (users, groups, service principals, and managed identities) at Key Vault scope.
 
@@ -32,6 +32,6 @@ To transition your Key Vault data plane access control from access policies to R
 ## Learn more
 
 - [Azure RBAC Overview](../../role-based-access-control/overview.md)
-- [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md)
+- [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.yml)
 - [Migrating from an access policy to RBAC](../../role-based-access-control/tutorial-custom-role-cli.md)
 - [Azure Key Vault best practices](best-practices.md)

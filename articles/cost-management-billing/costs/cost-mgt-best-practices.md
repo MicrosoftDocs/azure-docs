@@ -4,7 +4,7 @@ titleSuffix: Microsoft Cost Management
 description: This article helps get the most value out of your cloud investments, reduce your costs, and evaluate where your money is being spent.
 author: bandersmsft
 ms.author: banders
-ms.date: 12/06/2022
+ms.date: 03/21/2024
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management

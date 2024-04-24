@@ -50,7 +50,7 @@ status:
 
 ### StorageClass: nexus-shared
 
-In situations where a shared file system is required, the *nexus-shared* storage class is available. This storage class provides a shared storage solution by enabling multiple pods to concurrently access and share the same volume. These volumes are of type NFS Storage that are accessed by the kubernetes nodes as a persistent volume. Nexus-shared supports both Read Write Once (RWO) and Read Write Many (RWX) access modes. What that means is that the workload applications can make use of either of these access modes to access the storage.
+In situations where a shared file system is required, the *nexus-shared* storage class is available. This storage class provides a shared storage solution by enabling multiple pods to concurrently access and share the same volume. These volumes are of type NFS Storage (currently limited to a maximum size of 1TB) that are accessed by the kubernetes nodes as a persistent volume. Nexus-shared supports both Read Write Once (RWO) and Read Write Many (RWX) access modes. What that means is that the workload applications can make use of either of these access modes to access the storage.
 
 Although the performance and availability of *nexus-shared* are sufficient for most applications, we recommend that workloads with heavy I/O requirements use the *nexus-volume* option for optimal performance.
 

@@ -1,11 +1,14 @@
 ---
-title: Regulatory compliance standards in Microsoft Defender for Cloud
-description: Learn about regulatory compliance standards in Microsoft Defender for Cloud
-ms.topic: conceptual
-ms.date: 11/27/2023
+title: Regulatory compliance in Defender for Cloud
+description: Learn about regulatory compliance in Microsoft Defender for Cloud, and how it helps ensure compliance with industry, regional, and global standards.
+author: dcurwin
+ms.author: dacurwin
+ms.topic: concept-article
+ms.date: 03/31/2024
+#customer intent: As a cloud security professional, I want to understand how Defender for Cloud helps me meet regulatory compliance standards, so that I can ensure my organization is compliant with industry standards and regulations.
 ---
 
-# Regulatory compliance standards
+# Regulatory compliance standards in Microsoft Defender for Cloud
 
 Microsoft Defender for Cloud streamlines the regulatory compliance process by helping you to identify issues that are preventing you from meeting a particular compliance standard, or achieving compliance certification.
 
@@ -61,7 +64,35 @@ By default, when you enable Defender for Cloud, the following standards are enab
 - For **AWS**: [Microsoft Cloud Security Benchmark (MCSB)](concept-regulatory-compliance.md) and [AWS Foundational Security Best Practices standard](https://docs.aws.amazon.com/securityhub/latest/userguide/fsbp-standard.html).
 - For **GCP**: [Microsoft Cloud Security Benchmark (MCSB)](concept-regulatory-compliance.md) and **GCP Default**.
 
-## Next steps
+## Available compliance standards
 
-- [Assign regulatory compliance standards](update-regulatory-compliance-packages.md)
+The following standards are available in Defender for Cloud:
+
+| Standards for Azure subscriptions | Standards for AWS accounts | Standards for GCP projects |
+|--|--|--|
+| Australian Government ISM Protected | AWS Foundational Security Best Practices | Brazilian General Personal Data Protection Law (LGPD)|
+| Canada Federal PBMM | AWS Well-Architected Framework | California Consumer Privacy Act (CCPA)|
+| CIS Azure Foundations | Brazilian General Personal Data Protection Law (LGPD) | CIS Controls|
+| CMMC | California Consumer Privacy Act (CCPA) | CIS GCP Foundations|
+| FedRAMP ‘H’ & ‘M’ | CIS AWS Foundations | CIS Google Cloud Platform Foundation Benchmark|
+| HIPAA/HITRUST | CRI Profile | CIS Google Kubernetes Engine (GKE) Benchmark|
+| ISO/IEC 27001 | CSA Cloud Controls Matrix (CCM) | CRI Profile|
+| New Zealand ISM Restricted | GDPR | CSA Cloud Controls Matrix (CCM)|
+| NIST SP 800-171 | ISO/IEC 27001 | Cybersecurity Maturity Model Certification (CMMC)|
+| NIST SP 800-53 | ISO/IEC 27002 | FFIEC Cybersecurity Assessment Tool (CAT)|
+| PCI DSS | NIST Cybersecurity Framework (CSF) | GDPR|
+| RMIT Malaysia | NIST SP 800-172 | ISO/IEC 27001|
+| SOC 2 | PCI DSS | ISO/IEC 27002|
+| SWIFT CSP CSCF | | ISO/IEC 27017|
+| UK OFFICIAL and UK NHS | | NIST Cybersecurity Framework (CSF)|
+| | | NIST SP 800-53 |
+| | | NIST SP 800-171|
+| | | NIST SP 800-172|
+| | | PCI DSS|
+| | | Sarbanes Oxley Act (SOX)|
+| | | SOC 2|
+
+## Related content
+
+- [Assign regulatory compliance standards](update-regulatory-compliance-packages.yml)
 - [Improve regulatory compliance](regulatory-compliance-dashboard.md)

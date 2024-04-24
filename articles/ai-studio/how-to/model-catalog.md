@@ -2,20 +2,18 @@
 title: Explore the model catalog in Azure AI Studio
 titleSuffix: Azure AI Studio
 description: This article introduces foundation model capabilities and the model catalog in Azure AI Studio.
-manager: nitinme
+manager: scottpolly
 ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
 ms.topic: how-to
 ms.date: 2/22/2024
-ms.reviewer: eur
-ms.author: eur
-author: eric-urban
+ms.reviewer: jcioffi
+ms.author: ssalgado
+author: ssalgadodev
 ---
 
 # Explore the model catalog in Azure AI Studio
-
-[!INCLUDE [Azure AI Studio preview](../includes/preview-ai-studio.md)]
 
 The model catalog in AI Studio is a hub for discovering foundation models. The catalog includes some of the most popular large language and vision foundation models curated by Microsoft, Hugging Face, and Meta. These models are packaged for out-of-the-box usage and are optimized for use in Azure AI Studio. 
 
@@ -34,13 +32,9 @@ You can filter the model catalog by collection, model name, or task to find the 
 
 ## Model benchmarks
 
-You might prefer to use a model that has been evaluated on a specific dataset or task. In Azure AI Studio, you can compare benchmarks across models and datasets available in the industry to assess which one meets your business scenario. You can find models to benchmark on the **Explore** page in Azure AI Studio. 
+You might prefer to use a model that has been evaluated on a specific dataset or task. In Azure AI Studio, you can compare benchmarks across models and datasets available in the industry to assess which one meets your business scenario. You can find models to benchmark on the **Home** > **Model benchmarks** page in Azure AI Studio. 
 
 :::image type="content" source="../media/explore/model-benchmarks-find-model-task.png" alt-text="Screenshot of models and tasks that can be selected to benchmark." lightbox="../media/explore/model-benchmarks-find-model-task.png":::
-
-Select the models and tasks you want to benchmark, and then select **Compare**.
-
-:::image type="content" source="../media/explore/model-benchmarks-compare-chart.png" alt-text="Screenshot of accuracy metrics of two models compared by task in a chart." lightbox="../media/explore/model-benchmarks-compare-chart.png":::
 
 The model benchmarks help you make informed decisions about the suitability of models and datasets prior to initiating any job. The benchmarks are a curated list of the best-performing models for a given task, based on a comprehensive comparison of benchmarking metrics. Currently, Azure AI Studio only provides benchmarks based on accuracy.
 
@@ -73,11 +67,6 @@ You can also filter the list view by model name, dataset, and task.
 :::image type="content" source="../media/explore/model-benchmarks-compare-list.png" alt-text="Screenshot of accuracy metrics of two models compared by task in a list." lightbox="../media/explore/model-benchmarks-compare-list.png":::
 
 Dashboard view allows you to compare the scores of multiple models across datasets and tasks. You can view models side by side (horizontally along the x-axis) and compare their scores (vertically along the y-axis) for each metric. 
-
-You can switch to dashboard view from list view by following these quick steps:
-1. Select the models you want to compare.
-1. Select **Switch to dashboard view** on the right side of the page.
-
 
 ## Next steps
 

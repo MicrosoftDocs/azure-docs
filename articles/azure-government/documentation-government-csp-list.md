@@ -147,7 +147,7 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[Dell Federal Services](https://www.dellemc.com/en-us/industry/federal/federal-government-it.htm#)|
 |[Dell Marketing LP](https://www.dell.com/)|
 |[Delphi Technology Solutions](https://delphi-ts.com/)|
-|[Derek Coleman & Associates Corporation](https://www.dcassociatesgroup.com/)|
+|Derek Coleman & Associates Corporation|
 |[Developing Today LLC](https://www.developingtoday.net/)|
 |[DevHawk, LLC](https://www.devhawk.io)|
 |Diamond Capture Associates LLC|
@@ -331,7 +331,7 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[People Services Inc. DBA CATCH Intelligence](https://catchintelligence.com)|
 |[Perizer Corp.](https://perizer.com)|
 |[Perrygo Consulting Group, LLC](https://perrygo.com)|
-|[Phacil (By Light)](https://www.bylight.com/phacil/)|
+|Phacil (By Light) |
 |[Pharicode LLC](https://pharicode.com)|
 |Philistin & Heller Group, Inc.|
 |[Picis Envision](https://www.picis.com/en/)|
@@ -564,7 +564,7 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[Leidos](https://www.leidos.com/)|
 |[LiftOff, LLC](https://www.liftoffonline.com)|
 |[ManTech](https://www.mantech.com/)|
-|[NeoSustems LLC](https://www.neosystemscorp.com/solutions-services/microsoft-licenses/microsoft-365-licenses/)|
+|[NeoSystems LLC](https://www.neosystemscorp.com/solutions-services/microsoft-licenses/microsoft-365-licenses/)|
 |[Nimbus Logic, LLC](https://www.nimbus-logic.com/)|
 |[Northrop Grumman](https://www.northropgrumman.com/)|
 |[Novetta](https://www.novetta.com)|
