@@ -274,7 +274,7 @@ The following example creates the endpoint with a system-assigned identity (SAI)
 
 ### [Azure CLI](#tab/azure-cli)
 
-The CLI doesn't require you to explicitly provide the control plane token. Instead, the CLI authenticates you during sign in, and the token is automatically retrieved and passed for you.
+The CLI doesn't require you to explicitly provide the control plane token. Instead, the CLI `az login` authenticates you during sign in, and the token is automatically retrieved and passed for you.
 
 1. Create an endpoint definition YAML file.
 
@@ -355,7 +355,7 @@ The REST API call requires you to explicitly provide the control plane token. Us
 
 ### [Python](#tab/python)
 
-Python SDK doesn't require you to explicitly provide the control plane token. Rather, the SDK MLClient authenticates you during sign in, and the token is automatically retrieved and passed for you.
+Python SDK doesn't require you to explicitly provide the control plane token. Rather, the SDK `MLClient` authenticates you during sign in, and the token is automatically retrieved and passed for you.
 
 ```python
 from azure.ai.ml import MLClient
@@ -498,42 +498,55 @@ Getting the _Microsoft Entra token_ doesn't require any extra roles for the user
 
 ### [Azure CLI](#tab/azure-cli)
 
-If you plan to use the CLI to invoke the endpoint, and if the endpoint is set up to use an auth mode of key, Azure Machine Learning token (`aml_token`), or Microsoft Entra token (`aad_token`), you're not required to get the data plane token explicitly, as the CLI handles it for you. However, you can still use the CLI to get the data plane token so that you can use it with other channels, such as REST API.
+If you plan to use the CLI to invoke the endpoint, you're not required to get the keys or token for data plane operation explicitly, as the CLI handles it for you. However, you can still use the CLI to get the keys or token for data plane operation so that you can use it with other channels, such as REST API.
 
-To get the keys, Azure Machine Learning token (`aml_token`), or Microsoft Entra token (`aad_token`), use the [az ml online-endpoint get-credentials](/cli/azure/ml/online-endpoint#az-ml-online-endpoint-get-credentials) command. This command returns a JSON document that contains the keys, token, and/or additional information.
+To get the keys or token for data plane operation, use the [az ml online-endpoint get-credentials](/cli/azure/ml/online-endpoint#az-ml-online-endpoint-get-credentials) command. This command returns a JSON output that contains the keys, token, and/or additional information.
 
 > [!TIP]
 > To extract a specific information from the JSON output, the `--query` parameter of the CLI command is used as an example. However, you can use any suitable tool for this purpose.
 
-__Keys__ are returned in the `primaryKey` and `secondaryKey` fields, when auth_mode of endpoint is `key`:
+__When auth_mode of endpoint is `key`__
+
+- Keys are returned in the `primaryKey` and `secondaryKey` fields.
 
 ```bash
 export DATA_PLANE_TOKEN=$(az ml online-endpoint get-credentials -n $ENDPOINT_NAME -g $RESOURCE_GROUP -w $WORKSPACE_NAME -o tsv --query primaryKey)
+export DATA_PLANE_TOKEN2=$(az ml online-endpoint get-credentials -n $ENDPOINT_NAME -g $RESOURCE_GROUP -w $WORKSPACE_NAME -o tsv --query secondaryKey)
 ```
 
-__Azure Machine Learning tokens__ and __Microsoft Entra tokens__ are returned in the `accessToken` field, when auth_mode of endpoint is either `aml_token` or `aml_token`:
+__When auth_mode of endpoint is `aml_token`__
+
+- Token is returned in the `accessToken` field.
+- Token expiration time is returned in the `expiryTimeUtc` field.
+- Token refresh time is returned in the `refreshAfterTimeUtc` field.
 
 ```bash
 export DATA_PLANE_TOKEN=$(az ml online-endpoint get-credentials -n $ENDPOINT_NAME -g $RESOURCE_GROUP -w $WORKSPACE_NAME -o tsv --query accessToken)
+export EXPIRY_TIME_UTC=$(az ml online-endpoint get-credentials -n $ENDPOINT_NAME -g $RESOURCE_GROUP -w $WORKSPACE_NAME -o tsv --query expiryTimeUtc)
+export REFRESH_AFTER_TIME_UTC=$(az ml online-endpoint get-credentials -n $ENDPOINT_NAME -g $RESOURCE_GROUP -w $WORKSPACE_NAME -o tsv --query refreshAfterTimeUtc)
 ```
 
-In addition, the `expiryTimeUtc` field contains the token expiration time for Azure Machine Learning token and Microsoft Entra token. The `refreshAfterTimeUtc` field contains the token refresh time for Azure Machine Learning token. The following example shows how to get the token expiration time for Azure Machine Learning token or Microsoft Entra token:
+__When auth_mode of endpoint is `aad_token`__
+
+- Token is returned in the `accessToken` field.
+- Token expiration time is returned in the `expiryTimeUtc` field.
 
 ```bash
-export DATA_PLANE_TOKEN=$(az ml online-endpoint get-credentials -n $ENDPOINT_NAME -g $RESOURCE_GROUP -w $WORKSPACE_NAME -o tsv --query expiryTimeUtc)
+export DATA_PLANE_TOKEN=$(az ml online-endpoint get-credentials -n $ENDPOINT_NAME -g $RESOURCE_GROUP -w $WORKSPACE_NAME -o tsv --query accessToken)
+export EXPIRY_TIME_UTC=$(az ml online-endpoint get-credentials -n $ENDPOINT_NAME -g $RESOURCE_GROUP -w $WORKSPACE_NAME -o tsv --query expiryTimeUtc)
 ```
 
-> [!NOTE]
-> The token for data plane operations is retrieved from the Azure resource endpoint `ml.azure.com` instead of `management.azure.com`, unlike the token for control plane operations.
-
 ### [REST](#tab/rest)
+
+To get the keys or token for data plane operation, choose the right API depending on the auth_mode of the endpoint. The API returns a JSON output that contains the keys, token, and/or additional information.
 
 > [!TIP]
 > To extract a specific information from the JSON output, the `jq` utility is used as an example. However, you can use any suitable tool for this purpose.
 
-#### Key
+__When auth_mode of endpoint is `key`__
 
-To get the key:
+- Use `listkeys` API.
+- Keys are returned in the `primaryKey` and `secondaryKey` fields.
 
 ```bash
 response=$(curl -H "Content-Length: 0" --location --request POST "https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.MachineLearningServices/workspaces/$WORKSPACE/onlineEndpoints/$ENDPOINT_NAME/listkeys?api-version=$API_VERSION" \
@@ -542,20 +555,29 @@ response=$(curl -H "Content-Length: 0" --location --request POST "https://manage
 export DATA_PLANE_TOKEN=$(echo $response | jq -r '.primaryKey')
 ```
 
-#### Azure Machine Learning token
+__When auth_mode of endpoint is `aml_token`__
 
-To get Azure Machine Learning token (`aml_token`):
+- Use `token` API.
+- Token is returned in the `accessToken` field.
+- Token expiration time is returned in the `expiryTimeUtc` field
+- Token refresh time is returned in the `refreshAfterTimeUtc` field
 
 ```bash
 response=$(curl -H "Content-Length: 0" --location --request POST "https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.MachineLearningServices/workspaces/$WORKSPACE/onlineEndpoints/$ENDPOINT_NAME/token?api-version=$API_VERSION" \
 --header "Authorization: Bearer $CONTROL_PLANE_TOKEN")
 
 export DATA_PLANE_TOKEN=$(echo $response | jq -r '.accessToken')
+export EXPIRY_TIME_UTC=$(echo $response | jq -r '.expiryTimeUtc')
+export REFRESH_AFTER_TIME_UTC=$(echo $response | jq -r '.refreshAfterTimeUtc')
 ```
 
-#### Microsoft Entra token
+__When auth_mode of endpoint is `aad_token`__
 
-__From an Azure virtual machine__
+- Use IMDS endpoint or MSI endpoint depending on where you request for the token.
+- Token is returned in the `accessToken` field.
+- Token expiration time is returned in the `expiryTimeUtc` field
+
+___From an Azure virtual machine___
 
 You can acquire the token based on the managed identities for an Azure VM (when the VM enables a managed identity). 
 
@@ -563,24 +585,25 @@ You can acquire the token based on the managed identities for an Azure VM (when 
 
     ```bash
     export DATA_PLANE_TOKEN=`(curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fml.azure.com%2F' -H Metadata:true -s | jq -r '.access_token' )`
+    export EXPIRY_TIME_UTC=`(curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fml.azure.com%2F' -H Metadata:true -s | jq -r '.expiryTimeUtc' )`
     ```
 
     For more information on getting tokens based on managed identities, see [Get a token using HTTP](/entra/identity/managed-identities-azure-resources/how-to-use-vm-token#get-a-token-using-http).
 
-__From a compute instance__
+___From a compute instance___
 
 You can get the token if you're using the Azure Machine Learning workspace's compute instance. To get the token, you must pass the client ID and the secret of the compute instance's managed identity to the managed system identity (MSI) endpoint that is configured locally at the compute instance. You can get the MSI endpoint, client ID, and secret from the environment variables `MSI_ENDPOINT`, `DEFAULT_IDENTITY_CLIENT_ID`, and `MSI_SECRET`, respectively. These variables are set automatically if you enable managed identity for the compute instance. 
 
 1. Get the token for the Azure resource endpoint `ml.azure.com` from the workspace's compute instance:
 
     ```bash
-    export CONTROL_PLANE_TOKEN=`(curl $MSI_ENDPOINT'?api-version=2018-02-01&resource=https%3A%2F%2Fml.azure.com%2F&clientid='$DEFAULT_IDENTITY_CLIENT_ID -H Metadata:true -H Secret:$MSI_SECRET -s | jq -r '.access_token' )`
+    export DATA_PLANE_TOKEN=`(curl $MSI_ENDPOINT'?api-version=2018-02-01&resource=https%3A%2F%2Fml.azure.com%2F&clientid='$DEFAULT_IDENTITY_CLIENT_ID -H Metadata:true -H Secret:$MSI_SECRET -s | jq -r '.access_token' )`
+    export EXPIRY_TIME_UTC=`(curl $MSI_ENDPOINT'?api-version=2018-02-01&resource=https%3A%2F%2Fml.azure.com%2F&clientid='$DEFAULT_IDENTITY_CLIENT_ID -H Metadata:true -H Secret:$MSI_SECRET -s | jq -r '.expiryTimeUtc' )`
     ```
 
-@SeokJin, you should add this information to the REST tab. See notes below: 
+> [!IMPORTANT]
+> The Microsoft Entra token for data plane operations is retrieved from the Azure resource endpoint `ml.azure.com` instead of `management.azure.com`, unlike the token for control plane operations.
 
-- expiryTimeUtc: this applies to CLI/SDK/REST when it's AML token / AAD token.
-- refreshAfterTimeUtc: this applies to CLI/SDK/REST when it's AML token (please hold - I'm double confirming this)
 
 ### [Python](#tab/python)
 
