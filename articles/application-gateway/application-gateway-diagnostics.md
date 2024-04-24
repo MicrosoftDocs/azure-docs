@@ -1,7 +1,7 @@
 ---
 title: Diagnostic logs
 titleSuffix: Azure Application Gateway
-description: Learn how to enable and manage logs for Azure Application Gateway
+description: Learn how to enable and manage logs for Azure Application Gateway.
 services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
@@ -32,24 +32,24 @@ You can use different types of logs in Azure to manage and troubleshoot applicat
 
 You have the following options to store the logs in your preferred location.
 
-1. **Log Analytic workspace**: Recommended as it allows you to readily use the predefined queries, visualizations and set alerts based on specific log conditions.The tables used by resource logs in log analytics workspace depends on what type of collection the resource is using:
+1. **Log Analytic workspace**: Recommended as it allows you to readily use the predefined queries, visualizations, and set alerts based on specific log conditions. The tables used by resource logs in log analytics workspace depends on what type of collection the resource is using:
    
   **Azure diagnostics**: Data is written to the [Azure Diagnostics table](../azure-monitor/reference/tables/azurediagnostics). Azure Diagnostics table is shared between multiple resource type, with 
    each of them adding their own custom fields. When number of custom fields ingested to Azure Diagnostics table exceeds 
    500, new fields aren't added as top level but added to "AdditionalFields" field as dynamic key value pairs. 
 
-  **Resource-specific(recommended)**: Data is written to dedicated tables for each category of the resource.In resource- 
+  **Resource-specific(recommended)**: Data is written to dedicated tables for each category of the resource. In resource- 
   specific mode, each log category selected in the diagnostic setting is assigned its own table within the chosen 
-  workspace. This has several benefits, including easier data manipulation in log queries,improved discoverability of schemas and their structures,enhanced performance in terms of ingestion latency and query times,ability to assign [Azure role-based access control rights to specific tables](../azure-monitor/logs/manage-access.md?tabs=portal#set-table-level-read-access).
+  workspace. This has several benefits, including easier data manipulation in log queries, improved discoverability of schemas and their structures,enhanced performance in terms of ingestion latency and query times,ability to assign [Azure role-based access control rights to specific tables](../azure-monitor/logs/manage-access.md?tabs=portal#set-table-level-read-access).
    * For Application Gateway resource specific mode creates three tables: 
      * [AGWAccessLogs](../azure-monitor/reference/tables/agwaccesslogs)
      * [AGWPerformanceLogs](../azure-monitor/reference/tables/agwperformancelogs)
      * [AGWFirewallLogs](../azure-monitor/reference/tables/agwfirewalllogs)
 
 > [!NOTE]
->  The resource specific option is currently available in all **public regions**. Existing users can continue using Azure Diagnostics or can opt for dedicated tables by switching the toggle in Diagnostic settings to "Resource specific", or to "Dedicated"  in API destination. There is no dual mode possible. The data in all the logs can either flow to Azure Diagnostics, or to dedicated tables. But customer can have Multiple diagnostic settings where, one can have data flow to azure diagnostic and other with resource specific at same time. 
+>  The resource specific option is currently available in all **public regions**. Existing users can continue using Azure Diagnostics or can opt for dedicated tables by switching the toggle in Diagnostic settings to "Resource specific", or to "Dedicated"  in API destination. There's no dual mode possible. The data in all the logs can either flow to Azure Diagnostics, or to dedicated tables. But customer can have Multiple diagnostic settings where, one can have data flow to azure diagnostic and other with resource specific at same time. 
 
- **Selecting the destination table in Log analytics :** All Azure services will eventually use the resource-specific tables. As part of this transition, currently you can select Azure diagnostic or resource specific table in the diagnostic setting using a toggle button.The toggle will be set to "Resource specific" by default and in this mode, logs for new selected categories are sent to dedicated tables in Log Analytics, while existing streams remain unchanged.  
+ **Selecting the destination table in Log analytics :** All Azure services will eventually use the resource-specific tables. As part of this transition, currently you can select Azure diagnostic or resource specific table in the diagnostic setting using a toggle button. The toggle will be set to "Resource specific" by default and in this mode, logs for new selected categories are sent to dedicated tables in Log Analytics, while existing streams remain unchanged.  
  ![Portal: resource ID for application gateway](./media/application-gateway-diagnostics/resource-specific.png)
  
 **Workspace Transformations:** Opting for the Resource specific option allows you to filter and modify your data before it’s ingested with [workspace transformations](../azure-monitor/essentials/data-collection-transformations-workspace.md). This provides granular control, allowing you to focus on the most relevant information from the logs there by reducing data costs and enhancing security.
@@ -263,18 +263,18 @@ If the application gateway can't complete the request, it stores one of the foll
 
 |4XX Errors  | (The 4xx error codes indicate that there was an issue with the client's request, and the Application Gateway can't fulfill it.) |
 |---------|---------|
-|    ERRORINFO_INVALID_METHOD|	The client has sent a request  which is non-RFC compliant.  Possible reasons: client using HTTP method not supported by server, misspelled method, incompatible HTTP protocol version etc.|
+|    ERRORINFO_INVALID_METHOD|	The client has sent a request  which is non-RFC compliant. Possible reasons: client using HTTP method not supported by server, misspelled method, incompatible HTTP protocol version etc.|
   |  ERRORINFO_INVALID_REQUEST	| The server can't fulfill the request because of incorrect syntax.|
   | ERRORINFO_INVALID_VERSION|	The application gateway received a request with an invalid or unsupported HTTP version.|
    | ERRORINFO_INVALID_09_METHOD|	The client sent request with HTTP Protocol version 0.9.|
-   | ERRORINFO_INVALID_HOST	|The value provided in the "Host" header is either missing, improperly formatted, or doesn't match the expected host value (when there is no Basic listener, and none of the hostnames of Multisite listeners match with the host).| 
+   | ERRORINFO_INVALID_HOST	|The value provided in the "Host" header is either missing, improperly formatted, or doesn't match the expected host value (when there's no Basic listener, and none of the hostnames of Multisite listeners match with the host).| 
    | ERRORINFO_INVALID_CONTENT_LENGTH |	The length of the content specified by the client in the content-Length header doesn't match the actual length of the content in the request.|
-   | ERRORINFO_INVALID_METHOD_TRACE | The  client sent HTTP TRACE method which is not supported by the application gateway.|
-   |  ERRORINFO_CLIENT_CLOSED_REQUEST |	The client closed the connection with the application gateway before the idle timeout period elapsed.Check whether the client timeout period is greater than the [idle timeout period](./application-gateway-faq.yml#what-are-the-settings-for-keep-alive-timeout-and-tcp-idle-timeout) for the application gateway.|
+   | ERRORINFO_INVALID_METHOD_TRACE | The  client sent HTTP TRACE method which isn't supported by the application gateway.|
+   |  ERRORINFO_CLIENT_CLOSED_REQUEST |	The client closed the connection with the application gateway before the idle timeout period elapsed. Check whether the client timeout period is greater than the [idle timeout period](./application-gateway-faq.yml#what-are-the-settings-for-keep-alive-timeout-and-tcp-idle-timeout) for the application gateway.|
    | ERRORINFO_REQUEST_URI_INVALID	|Indicates issue with the Uniform Resource Identifier (URI) provided in the client's request. |
    |  ERRORINFO_HTTP_NO_HOST_HEADER	| Client sent a request without Host header. |
    | ERRORINFO_HTTP_TO_HTTPS_PORT	|The client sent a plain HTTP request to an HTTPS port. |
-   | ERRORINFO_HTTPS_NO_CERT | 	Indicates client is not sending a valid and properly configured TLS certificate during Mutual TLS authentication.    |
+   | ERRORINFO_HTTPS_NO_CERT | 	Indicates client isn't sending a valid and properly configured TLS certificate during Mutual TLS authentication.    |
 
 
 |5XX Errors  | Description  |
@@ -284,12 +284,12 @@ If the application gateway can't complete the request, it stores one of the foll
   | ERRORINFO_UPSTREAM_TIMED_OUT	| The established TCP connection with the server was closed as the connection took longer than the configured timeout value. |
 ### Performance log
 
-The performance log is generated only if you have enabled it on each Application Gateway instance, as detailed in the preceding steps. The data is stored in the storage account that you specified when you enabled the logging. The performance log data is generated in 1-minute intervals. It is available only for the v1 SKU. For the v2 SKU, use [Metrics](application-gateway-metrics.md) for performance data. The following data is logged:
+The performance log is generated only if you have enabled it on each Application Gateway instance, as detailed in the preceding steps. The data is stored in the storage account that you specified when you enabled the logging. The performance log data is generated in 1-minute intervals. It's available only for the v1 SKU. For the v2 SKU, use [Metrics](application-gateway-metrics.md) for performance data. The following data is logged:
 
 
 |Value  |Description  |
 |---------|---------|
-|instanceId     |  Application Gateway instance for which performance data is being generated. For a multiple-instance application gateway, there is one row per instance.        |
+|instanceId     |  Application Gateway instance for which performance data is being generated. For a multiple-instance application gateway, there's one row per instance.        |
 |healthyHostCount     | Number of healthy hosts in the backend pool.        |
 |unHealthyHostCount     | Number of unhealthy hosts in the backend pool.        |
 |requestCount     | Number of requests served.        |
@@ -326,7 +326,7 @@ The firewall log is generated only if you have enabled it for each application g
 
 |Value  |Description  |
 |---------|---------|
-|instanceId     | Application Gateway instance for which firewall data is being generated. For a multiple-instance application gateway, there is one row per instance.         |
+|instanceId     | Application Gateway instance for which firewall data is being generated. For a multiple-instance application gateway, there's one row per instance.         |
 |clientIp     |   Originating IP for the request.      |
 |clientPort     |  Originating port for the request.       |
 |requestUri     | URL of the received request.       |
