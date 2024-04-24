@@ -22,6 +22,17 @@ The diagram below illustrates the relocation pattern for a Log Analytics workspa
 
 :::image type="content" source="media/relocation/log-analytics/log-analytics-workspace-relocation-pattern.png" alt-text="Diagram illustrating Log Analytics workspace relocation pattern.":::
 
+
+## Relocation to availability zone support
+
+[!INCLUDE [availability zone overview](../reliability/includes/reliability-availability-zone-description-include.md)]
+
+If you want to relocate your Log Analytics workspace to a region that supports availability zones:
+
+- Read [Azure availability zone migration baseline](../reliability/availability-zones-baseline.md) to assess the availability-zone readiness of your workload or application.
+- Follow the guidance in [Migrate Log Analytics to availability zone support](../reliability/migrate-monitor-log-analytics.md).
+
+
 ## Prerequisites
 
 - To export the workspace configuration to a template that can be deployed to another region, you need the [Log Analytics Contributor](../role-based-access-control/built-in-roles.md#log-analytics-contributor) or [Monitoring Contributor](../role-based-access-control/built-in-roles.md#monitoring-contributor) role, or higher.
@@ -340,9 +351,6 @@ If you no longer need access to older data in the original workspace:
 
 ## Related content
 
-To learn more about moving resources between regions and disaster recovery in Azure, refer to:
-
-- [Migrate Log Analytics to availability zone support](../reliability/migrate-monitor-log-analytics.md)
 
 - [Move resources to a new resource group or subscription](../azure-resource-manager/management/move-resource-group-and-subscription.md)
 
