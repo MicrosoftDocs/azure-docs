@@ -395,7 +395,7 @@ When you're done and if you want to, you can delete the resource group. The acti
 >Deleting a resource group also deletes all resources within it. The action can't be undone.  
 
 >[!IMPORTANT]
->Before you delete a resource group, you must first delete the backups. Deleting a resource group will not delete the backups. You can preemptively delete backups on volumes by [manually delete the backups](backup-delete.md). If you delete the resource group without deleting all the backups, you can't see those backups anymore but can continue to incur billing for them. In case you're wrongly billed for some backups, open a support case ticket to get this issue resolved. 
+>Before you delete a resource group, you must first delete the backups. Deleting a resource group doesn't delete the backups. You can preemptively delete backups on volumes by [manually delete the backups](backup-delete.md). If you delete the resource group without deleting all the backups, you lose the ability to see the backups. The backups, however, can continue to incur costs. If you're wrongly billed for some backups, open a support case ticket to get this issue resolved. 
 
 1. In the Azure portal's search box, enter **Azure NetApp Files** and then select **Azure NetApp Files** from the list that appears.
 

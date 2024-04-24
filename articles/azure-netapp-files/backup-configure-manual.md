@@ -30,10 +30,10 @@ The following list summarizes manual backup behaviors:
 
 ## Requirements
 
-* Azure NetApp Files now requires you to create a backup vault before enabling backup functionality. If you haven't configured a backup, see [Manage backup vaults](backup-vault-manage.md) for more information.
+* Azure NetApp Files requires you to assign a backup vault before allowing backup creation on a volume. To configure a backup vault, see [Manage backup vaults](backup-vault-manage.md) for more information.
 * [!INCLUDE [consideration regarding deleting backups after deleting resource or subscription](includes/disable-delete-backup.md)]
 
-## Enable backup functionality
+## Configure backups
 
 If you haven’t done so, assign a backup vault to the volume before creating manual backups: 
 
@@ -43,6 +43,7 @@ If you haven’t done so, assign a backup vault to the volume before creating ma
 4. Select **OK**.   
 
 ![Screenshot that shows the Enabled setting of Configure Backups window.](./media/shared/backup-configure-enabled.png)
+:::image type="content" source="./media/shared/backup-configure-enabled.png" alt-text="Screenshot of backup vault creation.":::
 
 ## Create a manual backup for a volume
 
@@ -61,7 +62,7 @@ If you haven’t done so, assign a backup vault to the volume before creating ma
 
             `account1-pool1-vol1-backup1`   
 
-            If you're using a shorter form for the backup name, ensure that it still includes information that identifies the NetApp account, capacity pool, and volume name for display in the backup list.
+            If you're using a shorter form for the backup name, ensure that it includes information that identifies the NetApp account, capacity pool, and volume name for display in the backup list.
             
     2. If you want to use an existing snapshot for the backup, select the **Use Existing Snapshot** option.  When you use this option, ensure that the Name field matches the existing snapshot name that is being used for the backup. 
 
@@ -81,7 +82,6 @@ If you haven’t done so, assign a backup vault to the volume before creating ma
 * [Manage backup policies](backup-manage-policies.md)
 * [Search backups](backup-search.md)
 * [Restore a backup to a new volume](backup-restore-new-volume.md)
-* [Disable backup functionality for a volume](backup-disable.md)
 * [Delete backups of a volume](backup-delete.md)
 * [Volume backup metrics](azure-netapp-files-metrics.md#volume-backup-metrics)
 * [Azure NetApp Files backup FAQs](faq-backup.md)
