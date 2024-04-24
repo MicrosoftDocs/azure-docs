@@ -24,16 +24,20 @@ Learn how to manage data access and how to authenticate in Azure Machine Learnin
 > This article is intended for Azure administrators who want to create the required infrastructure for an Azure Machine Learning solution.
 
 ## Credential-based data authentication
-In general, credential-based data authentication from studio involves these checks:
-* Does the user who is accessing data from the credential-based datastore have been assigned a RBAC role containing `Microsoft.MachineLearningServices/workspaces/datastores/listsecrets/action`?
+In general, credential-based data authentication involves these checks:
+* Does the user who is accessing data from the credential-based datastore have been assigned an RBAC role containing `Microsoft.MachineLearningServices/workspaces/datastores/listsecrets/action`?
     - This permission is required to retrieve credentials from the datastore on behalf of the user.
+    - Built in roles that contain this permission already is the [Contributor](../role-based-access-control/built-in-roles/general.md#contributor), the Azure AI Developer or the [AML Data Scientist](../role-based-access-control/built-in-roles/ai-machine-learning.md#azureml-data-scientist) roles. Alternatively, if a custom role is being applied then we need to ensure that this permission is added to that custom role.
+    - You must know *which* specific user is trying to access the data. It can be a real user with user identity or a compute with compute MSI etc., you can check the section [Scenarios and authentication options](#scenarios-and-authentication-options) to identify what is the identity that you need to add permission for.
+
 * Does the stored credential (service principal, account key, or sas token) have access to the data resource?
 
+
 ## Identity-based data authentication
-In general, identity-based data authentication from studio involves these checks:
+In general, identity-based data authentication involves these checks:
 
 * Which user wants to access the resources?
-    - Depending on the conext the data is being accessed, different types of authentication are available, for example
+    - Depending on the conext when the data is being accessed, different types of authentication are available, for example
       -  user identity
       -  compute managed identity
       -  workspace managed identity
@@ -49,15 +53,16 @@ In general, identity-based data authentication from studio involves these checks
     - The storage account [Reader](../role-based-access-control/built-in-roles.md#reader) reads the storage metadata.
     - The [Storage Blob Data Contributor](../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) reads, writes, and deletes Azure Storage containers and blobs. 
     - Please find more [Azure built-in roles for storage here](../role-based-access-control/built-in-roles/storage.md).
- 
-## Other general checks for authetication
+
+
+## Other general checks for authentication
 * Where does the access come from?
     - User: Is the client IP address in the VNet/subnet range?
     - Workspace: Is the workspace public, or does it have a private endpoint in a VNet/subnet?
     - Storage: Does the storage allow public access, or does it restrict access through a service endpoint or a private endpoint?
 * What operation will be performed?
     - Azure Machine Learning handles create, read, update, and delete (CRUD) operations on a data store/dataset.
-    - Archive operations on data assets in the Studio require this RBAC operation: `Microsoft.MachineLearningServices/workspaces/datasets/registered/delete`
+    - Archive operations on data assets in the studio require this RBAC operation: `Microsoft.MachineLearningServices/workspaces/datasets/registered/delete`
     - Data Access calls (for example, preview or schema) go to the underlying storage, and need extra permissions.
 * Will this operation run in your Azure subscription compute resources, or resources hosted in a Microsoft subscription?
     - All calls to dataset and datastore services (except the "Generate Profile" option) use resources hosted in a __Microsoft subscription__ to run the operations.
@@ -67,25 +72,31 @@ This diagram shows the general flow of a data access call. Here, a user tries to
 
 :::image type="content" source="./media/concept-network-data-access/data-access-flow.svg" alt-text="Diagram of the logic flow when accessing data.":::
 
-## Scenarios and identities
+## Scenarios and authentication options
 
 This table lists the identities to use for specific scenarios:
 
-| Scenario | Use workspace</br>Managed Service Identity (MSI) | Identity to use |
-|--|--|--|
-| Access from UI | Yes | Workspace MSI |
-| Access from UI | No | User's Identity |
-| Access from Job | Yes/No | Compute MSI |
-| Access from Notebook | Yes/No | User's identity |
+| Configuration | SDK Local/Notebook VM | Job | Dataset Preview | Datastore Browse |
+| -- | -- | -- | -- | -- |
+| Credential + Workspace MSI | Credential | Credential | Workspace MSI | Credential (Only Account key and SAS token) |
+| No Credential + Workspace MSI | Compute MSI/User Identity | Compute MSI/User identity | Workspace MSI | User identity |
+| Credential + No Workspace MSI | Credential | Credential | Credential(Not supported for Dataset Preview under private network) | Credential (Only Account key and SAS token) |
+| No Credential + No Workspace MSI | Compute MSI/User Identity | Compute MSI/User identity | User Identity | User Identity |
 
-Data access is complex and it involves many pieces. For example, data access from Azure Machine Learning studio is different compared to use of the SDK for data access. When you use the SDK in your local development environment, you directly access data in the cloud. When you use studio, you don't always directly access the data store from your client. Studio relies on the workspace to access data on your behalf.
+For SDK V1, data authentication in a job is always using compute MSI. And for SDK V2, data authentication in a job depends on the job setting: can be user identity or compute MSI based on your setting.
+
 
 > [!TIP]
 > To access data from outside Azure Machine Learning, for example with Azure Storage Explorer, that access probably relies on the *user* identity. For specific information, review the documentation for the tool or service you're using. For more information about how Azure Machine Learning works with data, see [Setup authentication between Azure Machine Learning and other services](how-to-identity-based-service-authentication.md).
 
-## Azure Storage Account
 
-When you use an Azure Storage Account from Azure Machine Learning studio, you must add the managed identity of the workspace to these Azure RBAC roles for the storage account:
+## VNET specific requirements
+
+The following will help you set up data authentication to access data behind VNET from an Azure Machine Learning workspace.
+
+### Add permissions of Azure Storage Account to Azure Machine Learning workspace managed identity 
+
+When you use an Azure Storage Account from Azure Machine Learning studio, if you want to see Dataset Preview, you must enable "Use workspace managed identity for data preview and profiling in Azure Machine Learning studio" in datastore setting, and add these Azure RBAC roles of the storage account to the workspace managed identity:
 
 * [Blob Data Reader](../role-based-access-control/built-in-roles.md#storage-blob-data-reader)
 * If the storage account uses a private endpoint to connect to the VNet, you must grant the [Reader](../role-based-access-control/built-in-roles.md#reader) role for the storage account private endpoint to the managed identity.
@@ -100,7 +111,7 @@ To secure communication between Azure Machine Learning and Azure Storage Account
 
 ### Azure Storage firewall
 
-When an Azure Storage account is located behind a virtual network, the storage firewall can normally be used to allow your client to directly connect over the internet. However, when using studio, your client doesn't connect to the storage account. The Azure Machine Learning service that makes the request connects to the storage account. The IP address of the service isn't documented, and it changes frequently. __Enabling the storage firewall will not allow studio to access the storage account in a VNet configuration__.
+When an Azure Storage account is located behind a virtual network, the storage firewall can normally be used to allow your client to directly connect over the internet. However, when using studio, your client doesn't connect to the storage account. The Azure Machine Learning service that makes the request connect to the storage account. The IP address of the service isn't documented, and it changes frequently. __Enabling the storage firewall will not allow studio to access the storage account in a VNet configuration__.
 
 ### Azure Storage endpoint type
 
