@@ -27,6 +27,9 @@ Learn how to manage data access and how to authenticate in Azure Machine Learnin
 In general, credential-based data authentication involves these checks:
 * Does the user who is accessing data from the credential-based datastore have been assigned an RBAC role containing `Microsoft.MachineLearningServices/workspaces/datastores/listsecrets/action`?
     - This permission is required to retrieve credentials from the datastore on behalf of the user.
+    - Built in roles that contain this permission already is the [Contributor](../role-based-access-control/built-in-roles/general.md#contributor), the Azure AI Developer or the [AML Data Scientist](../role-based-access-control/built-in-roles/ai-machine-learning.md#azureml-data-scientist) roles. Alternatively, if a custom role is being applied then we need to ensure that this permission is added to that custom role.
+    - You must know *which* specific user is trying to access the data. It can be a real user with user identity or a compute with compute MSI etc., you can check the section [Scenarios and authentication options](#scenarios-and-authentication-options) to identify what is the identity that you need to add permission for.
+
 * Does the stored credential (service principal, account key, or sas token) have access to the data resource?
 
 
