@@ -173,6 +173,22 @@ There are multiple solutions available.
 
 ### CGVs don't match CGS when parameter has null type
 
-Currently, AOSM doesn't support null as a default value in deployParameters schema, which means that the default value null isn't allowed in Configuration Group Schemas either. To work around this issue, the AOSM CLI sets the default value for parameters of type null to be the string "null", which allows an nfdv to publish successfully. 
+Currently, AOSM doesn't support `null` as a default value in deployParameters schema, which means that the default value `null` isn't allowed in Configuration Group Schemas either. To work around this issue, the AOSM CLI sets the default value for parameters of type null to be the string `"null"`, which allows an nfdv to publish successfully. 
 
-When using the portal to create CGVs, your parameter autofills to have "null" as its value. If you don't change this value, the Portal shows an error message, saying: "New Configuration Group Value doesn't match the schema - please edit the values.". To fix this error, change "null" to null in the CGVs.
+When using the portal to create CGVs, your parameter autofills to have `"null"` as its value. If you don't change this value, the Portal shows an error message, saying: "New Configuration Group Value doesn't match the schema - please edit the values.".
+
+![Screenshot of the portal where there is an error message because the CGVs do not match the CGS](media/cgv_error.png)
+
+To fix this error, change `"null"` to `null` in the CGVs. 
+
+For example, originally we have the value `"null"`:
+
+```json
+"serviceAccount_name": "null",
+```
+Which must be changed to the value `null`.
+
+```json
+"serviceAccount_name": null,
+
+
