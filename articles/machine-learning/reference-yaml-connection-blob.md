@@ -32,12 +32,11 @@ You can find the source JSON schema at TBD.
 | `type` | string | **Required.** The connection type. | `azure_blob` | `azure_blob` |
 | `account_name` | string | **Required.** The Azure Storage Account name. | | |
 | `container_name` | string | **Required.** The blob container name. | | |
-| `subscription_id` | string | The Azure subscription ID that contains the storage account. | | |
-| `is_shared` | boolean | | | `true` |
+| `is_shared` | boolean | `true` if the connection is shared across other projects in the hub; otherwise, `false`. | | `true` |
 | `url` | string | The URL to the blob container. | | |
 | `credentials` | object | Credential-based authentication to access the storage account. An account key, or shared access signature (SAS) token will work. Do not specify `credentials` when using credential-less authentication. | | |
-| `credentials.account_key` | string | The account key used to access the storage account. One of `credentials.account_key` or `credentials.sas_token` is required if `credentials` is specified. | | |
-| `credentials.sas_token` | string | The SAS token to access the storage account. One of `credentials.account_key` or `credentials.sas_token` is required if `credentials` is specified. | | |
+| `credentials.account_key` | string | The account key used to access the storage account. | | |
+| `credentials.sas_token` | string | The SAS token to access the storage account. | | |
 
 ## Remarks
 
@@ -45,7 +44,7 @@ The `az ml connection` commands can be used to manage both Azure Machine Learnin
 
 ## Examples
 
-Visit [this GitHub resource]() for examples. Several are shown here:
+Visit [this GitHub resource]() for examples. Several are shown here. These examples would be in the form of YAML files and used from the CLI. For example, `az ml connection create -f <file-name>.yaml`. 
 
 ### YAML: account key
 
