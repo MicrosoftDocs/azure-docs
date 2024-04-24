@@ -72,7 +72,9 @@ After you create a session pool, your application can interact with sessions in 
 
 ### Session identifiers
 
-When you interact with a session in a pool, you use a session identifier to reference the session. If there's a running session with the identifier, the session is reused. If there's no running session with the identifier, a new session is automatically created.
+When you interact with sessions in a pool, you use a session identifier to reference each session. If there's a running session with the identifier, the session is reused. If there's no running session with the identifier, a new session is automatically created.
+
+The session identifier is a string that you define that is unique within the session pool. If you're building a web application, you can use the user's ID. If you're building a chatbot, you can use the conversation ID.
 
 ### Authentication
 
@@ -105,14 +107,14 @@ The following endpoints are available for managing sessions in a pool:
 | `downloadFile` | `GET` | Download a file from a session. |
 | `files` | `GET` | List the files in a session. |
 
-Build the full URL for each endpoint by concatenating the pool's management API endpoint with a session ID and the endpoint path. For example: `https://<region>.dynamicsessions.io/subscriptions/<subscription-id>/resourceGroups/<resource-group>/sessionPools/<session-pool-name>/identifier/<session-id>/execute`.
+Build the full URL for each endpoint by concatenating the pool's management API endpoint with the endpoint path. The query string must include an `identifier` parameter containing the session identifier. For example: `https://<region>.dynamicsessions.io/subscriptions/<subscription-id>/resourceGroups/<resource-group>/sessionPools/<session-pool-name>/execute?identifier=<identifier>`.
 
 #### Execute code in a session
 
-To execute code in a session, send a `POST` request to the `execute` endpoint with the code to run in the request body.
+To execute code in a session, send a `POST` request to the `execute` endpoint with the code to run in the request body. This example prints "Hello, world!" in Python and returns the output:
 
 ```http
-POST https://<region>.dynamicsessions.io/subscriptions/<subscription-id>/resourceGroups/<resource-group>/sessionPools/<session-pool-name>/identifier/<session-id>/execute
+POST https://<region>.dynamicsessions.io/subscriptions/<subscription-id>/resourceGroups/<resource-group>/sessionPools/<session-pool-name>/execute?identifier=<session-id>
 Content-Type: application/json
 Authorization: Bearer <token>
 
@@ -132,7 +134,7 @@ Replace the placeholders with the appropriate values for your session pool and s
 To upload a file to a session, send a `POST` request to the `uploadFile` endpoint in a multipart form data request. Include the file data in the request body.
 
 ```http
-POST https://<region>.dynamicsessions.io/subscriptions/<subscription-id>/resourceGroups/<resource-group>/sessionPools/<session-pool-name>/identifier/<session-id>/uploadFile
+POST https://<region>.dynamicsessions.io/subscriptions/<subscription-id>/resourceGroups/<resource-group>/sessionPools/<session-pool-name>/uploadFile?identifier=<session-id>
 Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
 Authorization: Bearer <token>
 
@@ -149,7 +151,7 @@ Content-Type: application/octet-stream
 To download a file from a session, send a `GET` request to the `downloadFile` endpoint. The response will contain the file data.
 
 ```http
-GET https://<region>.dynamicsessions.io/subscriptions/<subscription-id>/resourceGroups/<resource-group>/sessionPools/<session-pool-name>/identifier/<session-id>/downloadFile?file=myfile.csv
+GET https://<region>.dynamicsessions.io/subscriptions/<subscription-id>/resourceGroups/<resource-group>/sessionPools/<session-pool-name>/downloadFile?identifier=<session-id>&file=myfile.csv
 Authorization: Bearer <token>
 ```
 
@@ -158,7 +160,7 @@ Authorization: Bearer <token>
 To list the files in a session, send a `GET` request to the `files` endpoint.
 
 ```http
-GET https://<region>.dynamicsessions.io/subscriptions/<subscription-id>/resourceGroups/<resource-group>/sessionPools/<session-pool-name>/identifier/<session-id>/files
+GET https://<region>.dynamicsessions.io/subscriptions/<subscription-id>/resourceGroups/<resource-group>/sessionPools/<session-pool-name>/files?identifier=<session-id>
 Authorization: Bearer <token>
 ```
 
@@ -193,6 +195,26 @@ The response contains a list of files in the session.
             "last_modified_time": "2024-04-23T19:36:16.4999251Z"
         }
     ]
+}
+```
+
+## Pre-installed packages
+
+Python code interpreter sessions include popular Python packages such as NumPy, pandas, and scikit-learn.
+
+To output the list of pre-installed packages, call the `execute` endpoint with the following code:
+
+```http
+POST https://<region>.dynamicsessions.io/subscriptions/<subscription-id>/resourceGroups/<resource-group>/sessionPools/<session-pool-name>/identifier/<session-id>/execute
+Content-Type: application/json
+Authorization: Bearer <token>
+    
+{
+    "properties": {
+        "codeInputType": "inline",
+        "executionType": "synchronous",
+        "code": "import pkg_resources\n[(d.project_name, d.version) for d in pkg_resources.working_set]"
+    }
 }
 ```
 
