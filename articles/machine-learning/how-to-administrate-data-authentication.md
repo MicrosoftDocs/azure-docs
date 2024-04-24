@@ -1,7 +1,7 @@
 ---
 title: How to administrate data authentication
 titleSuffix: Azure Machine Learning
-description: Learn how to manage data access and how to authenticate in Azure Machine Learning
+description: Learn how to manage data access and how to authenticate in Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
@@ -18,14 +18,14 @@ ms.custom: engagement-fy23
 # Data administration
 
 Learn how to manage data access and how to authenticate in Azure Machine Learning
-[!INCLUDE [sdk/cli v2](includes/machine-learning-dev-v2.md)]
+[!INCLUDE [sdk/cli v2](includes/machine-learning-dev-v2.md)].
 
 > [!IMPORTANT]
 > This article is intended for Azure administrators who want to create the required infrastructure for an Azure Machine Learning solution.
 
 ## Credential-based data authentication
 In general, credential-based data authentication involves these checks:
-* Does the user who is accessing data from the credential-based datastore have been assigned a RBAC role containing `Microsoft.MachineLearningServices/workspaces/datastores/listsecrets/action`?
+* Does the user who is accessing data from the credential-based datastore have been assigned an RBAC role containing `Microsoft.MachineLearningServices/workspaces/datastores/listsecrets/action`?
     - This permission is required to retrieve credentials from the datastore on behalf of the user.
 * Does the stored credential (service principal, account key, or sas token) have access to the data resource?
 
@@ -34,7 +34,7 @@ In general, credential-based data authentication involves these checks:
 In general, identity-based data authentication involves these checks:
 
 * Which user wants to access the resources?
-    - Depending on the conext the data is being accessed, different types of authentication are available, for example
+    - Depending on the conext when the data is being accessed, different types of authentication are available, for example
       -  user identity
       -  compute managed identity
       -  workspace managed identity
@@ -52,7 +52,7 @@ In general, identity-based data authentication involves these checks:
     - Please find more [Azure built-in roles for storage here](../role-based-access-control/built-in-roles/storage.md).
 
 
-## Other general checks for authetication
+## Other general checks for authentication
 * Where does the access come from?
     - User: Is the client IP address in the VNet/subnet range?
     - Workspace: Is the workspace public, or does it have a private endpoint in a VNet/subnet?
@@ -108,7 +108,7 @@ To secure communication between Azure Machine Learning and Azure Storage Account
 
 ### Azure Storage firewall
 
-When an Azure Storage account is located behind a virtual network, the storage firewall can normally be used to allow your client to directly connect over the internet. However, when using studio, your client doesn't connect to the storage account. The Azure Machine Learning service that makes the request connects to the storage account. The IP address of the service isn't documented, and it changes frequently. __Enabling the storage firewall will not allow studio to access the storage account in a VNet configuration__.
+When an Azure Storage account is located behind a virtual network, the storage firewall can normally be used to allow your client to directly connect over the internet. However, when using studio, your client doesn't connect to the storage account. The Azure Machine Learning service that makes the request connect to the storage account. The IP address of the service isn't documented, and it changes frequently. __Enabling the storage firewall will not allow studio to access the storage account in a VNet configuration__.
 
 ### Azure Storage endpoint type
 
