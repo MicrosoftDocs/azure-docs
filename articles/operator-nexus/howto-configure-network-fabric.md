@@ -1223,3 +1223,7 @@ Expected output:
 (ResourceNotFound) The Resource 'Microsoft.ManagedNetworkFabric/NetworkFabrics/NFName' under resource group 'NFResourceGroup' was not found. For more details please go to https://aka.ms/ARMResourceNotFoundFix
 Code: ResourceNotFound
 ```
+
+## Next steps
+
+After you successfully created an Network Fabric, the next step is to create a [cluster](./howto-configure-cluster.md).
