@@ -289,8 +289,8 @@ The following table details public IP schema:
 | **DNSDomain** | DNS domain | *For Malicious IPs only*. Domain name associated with this IP. |
 | **ThreatDescription** | Description of the threat | *For Malicious IPs only*. Description of the threat posed by the malicious IP. |
 | **Location** | Location of the IP | **For Azure Public IP**: Azure region of virtual network / network interface / virtual machine to which the IP belongs or Global for IP 168.63.129.16. <br> **For External Public IP and Malicious IP**: two-letter country code (ISO 3166-1 alpha-2) where IP is located. |
-| **Url** | URL corresponding to the malicious IP | *For Malicious IPs only* |
-| **Port** | Port corresponding to the malicious IP | *For Malicious IPs only* |
+| **Url** | URL corresponding to the malicious IP | *For Malicious IPs only* . |
+| **Port** | Port corresponding to the malicious IP | *For Malicious IPs only*. |
 
 > [!NOTE]
 > *NTAIPDetails* in VNet flow logs replaces *AzureNetworkAnalyticsIPDetails_CL* used in NSG flow logs.
