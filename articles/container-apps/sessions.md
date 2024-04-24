@@ -25,6 +25,9 @@ Sessions have the following attributes:
 
 * **Scalable**: Sessions can run at a high scale. You can run hundreds or thousands of sessions concurrently.
 
+> [!NOTE]
+> Azure Container Apps dynamic sessions is currently in preview.
+
 ## Session types
 
 Azure Container Apps supports two types of sessions:
