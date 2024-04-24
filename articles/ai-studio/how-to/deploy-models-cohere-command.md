@@ -792,7 +792,7 @@ Response:
 
 ##### More inference examples
 
-| **Sample Type**       | **Sample Notebook**                             |
+| **Package**       | **Sample Notebook**                             |
 |----------------|----------------------------------------|
 | CLI using CURL and Python web requests - Command R   | [command-r.ipynb](https://aka.ms/samples/cohere-command-r/webrequests)|
 | CLI using CURL and Python web requests - Command R+   | [command-r-plus.ipynb](https://aka.ms/samples/cohere-command-r-plus/webrequests)|
@@ -802,7 +802,7 @@ Response:
 | LiteLLM SDK    | [litellm.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/foundation-models/cohere/litellm.ipynb) |
 
 ##### Retrieval Augmented Generation (RAG) and tool use samples
-**Description** | **Sample Type** | **Sample Notebook**
+**Description** | **Package** | **Sample Notebook**
 --|--|--
 Create a local Facebook AI similarity search (FAISS) vector index, using Cohere embeddings - Langchain|`langchain`, `langchain_cohere`|[cohere_faiss_langchain_embed.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/foundation-models/cohere/cohere_faiss_langchain_embed.ipynb)
 Use Cohere Command R/R+ to answer questions from data in local FAISS vector index - Langchain|`langchain`, `langchain_cohere`|[command_faiss_langchain.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/foundation-models/cohere/command_faiss_langchain.ipynb)
