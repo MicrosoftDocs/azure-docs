@@ -80,7 +80,7 @@ This table lists the identities to use for specific scenarios:
 | Credential + No Workspace MSI | Credential | Credential | Credential(Not supported for Dataset Preview under private network) | Credential (Only Account key and SAS token) |
 | No Credential + No Workspace MSI | Compute MSI/User Identity | Compute MSI/User identity | User Identity | User Identity |
 
-For SDK V1, data authentication in a job is always using compute MSI. And for SDK V2, data authentication in a job depends on the job setting.
+For SDK V1, data authentication in a job is always using compute MSI. And for SDK V2, data authentication in a job depends on the job setting: can be user identity or compute MSI based on your setting.
 
 
 > [!TIP]
