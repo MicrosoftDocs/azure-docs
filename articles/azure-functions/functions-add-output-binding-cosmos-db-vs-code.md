@@ -102,7 +102,18 @@ dotnet add package Microsoft.Azure.Functions.Worker.Extensions.CosmosDB
 ```
 
 ::: zone-end  
-::: zone pivot="programming-language-javascript,programming-language-python"  
+
+::: zone pivot="programming-language-javascript,programming-language-typescript"  
+
+Your project has been configured to use [extension bundles](functions-bindings-register.md#extension-bundles), which automatically installs a predefined set of extension packages. 
+
+Extension bundles usage is enabled in the *host.json* file at the root of the project, which appears as follows:
+
+:::code language="json" source="~/functions-quickstart-javascript/functions-add-output-binding-storage-queue-cli-v4-programming-model/host.json":::
+
+::: zone-end  
+
+::: zone pivot="programming-language-python"  
 
 Your project has been configured to use [extension bundles](functions-bindings-register.md#extension-bundles), which automatically installs a predefined set of extension packages. 
 
@@ -127,36 +138,16 @@ The `MultiResponse` class allows you to both write to the specified collection i
 
 Specific attributes specify the name of the container and the name of its parent database. The connection string for your Azure Cosmos DB account is set by the `CosmosDbConnectionSetting`.  
 ::: zone-end  
-::: zone pivot="programming-language-javascript"  
-Binding attributes are defined directly in the *function.json* file. Depending on the binding type, other properties may be required. The [Azure Cosmos DB output configuration](./functions-bindings-cosmosdb-v2-output.md#configuration) describes the fields required for an Azure Cosmos DB output binding. The extension makes it easy to add bindings to the *function.json* file. 
+::: zone pivot="programming-language-javascript, programming-language-typescript"  
+Binding attributes are defined directly in the function file. The [Azure Cosmos DB output configuration](./functions-bindings-cosmosdb-v2-output.md#configuration) describes the fields required for an Azure Cosmos DB output binding.  
 
-To create a binding, right-click (Ctrl+select on macOS) the *function.json* file in your HttpTrigger folder and choose **Add binding...**. Follow the prompts to define the following binding properties for the new binding:
+For this `MultiResponse` scenario, you need to add an `extraOutputs` output binding to the function.
 
-| Prompt | Value | Description |
-| -------- | ----- | ----------- |
-| **Select binding direction** | `out` | The binding is an output binding. |
-| **Select binding with direction "out"** | `Azure Cosmos DB` | The binding is an Azure Cosmos DB binding. |
-| **The name used to identify this binding in your code** | `outputDocument` | Name that identifies the binding parameter referenced in your code. |
-| **The Azure Cosmos DB database where data will be written** | `my-database` | The name of the Azure Cosmos DB database containing the target container. |
-| **Database collection where data will be written** | `my-container` | The name of the Azure Cosmos DB container where the JSON documents will be written. |
-| **If true, creates the Azure Cosmos DB database and collection** | `false` | The target database and container already exist. |
-| **Select setting from "local.setting.json"** | `CosmosDbConnectionSetting` | The name of an application setting that contains the connection string for the Azure Cosmos DB account. |
-| **Partition key (optional)** | *leave blank* | Only required when the output binding creates the container. |
-| **Collection throughput (optional)** | *leave blank* | Only required when the output binding creates the container. |
+:::code language="javascript" source="~/functions-docs-javascript/functions-add-output-binding-cosmosdb-cli-v4-programming-model/src/functions/httpSendToCosmosDb.js" range="11-14":::
 
-A binding is added to the `bindings` array in your *function.json*, which should look like the following after removing any `undefined` values present:
+Add the following properties to the binding configuration:
 
-```json
-{
-    "type": "cosmosDB",
-    "direction": "out",
-    "name": "outputDocument",
-    "databaseName": "my-database",
-    "containerName": "my-container",
-    "createIfNotExists": "false",
-    "connection": "CosmosDbConnectionSetting"
-}
-```
+:::code language="javascript" source="~/functions-docs-javascript/functions-add-output-binding-cosmosdb-cli-v4-programming-model/src/functions/httpSendToCosmosDb.js" range="3-9":::
 
 ::: zone-end  
 ::: zone pivot="programming-language-python"  
@@ -178,44 +169,14 @@ Replace the existing Run method with the following code:
 :::code language="csharp" source="~/functions-docs-csharp/functions-add-output-binding-cosmos-db-isolated/HttpExample.cs" range="11-34":::
 
 ::: zone-end  
-::: zone pivot="programming-language-javascript"   
-Add code that uses the `outputDocument` output binding object on `context.bindings` to create a JSON document. Add this code before the `context.res` statement.
+::: zone pivot="programming-language-javascript, programming-language-typescript"   
+Add code that uses the `extraInputs` output binding object on `context` to send a JSON document to the named output binding function, `sendToCosmosDb`. Add this code before the `return` statement.
 
-```javascript
-if (name) {
-    context.bindings.outputDocument = JSON.stringify({
-        // create a random ID
-        id: new Date().toISOString() + Math.random().toString().substring(2, 10),
-        name: name
-    });
-}
-```
+:::code language="javascript" source="~/functions-docs-javascript/functions-add-output-binding-cosmosdb-cli-v4-programming-model/src/functions/httpSendToCosmosDb.js" range="25-31":::
 
 At this point, your function should look as follows:
 
-```javascript
-module.exports = async function (context, req) {
-    context.log('JavaScript HTTP trigger function processed a request.');
-
-    const name = (req.query.name || (req.body && req.body.name));
-    const responseMessage = name
-        ? "Hello, " + name + ". This HTTP triggered function executed successfully."
-        : "This HTTP triggered function executed successfully. Pass a name in the query string or in the request body for a personalized response.";
-
-    if (name) {
-        context.bindings.outputDocument = JSON.stringify({
-            // create a random ID
-            id: new Date().toISOString() + Math.random().toString().substring(2, 10),
-            name: name
-        });
-    }
-
-    context.res = {
-        // status: 200, /* Defaults to 200 */
-        body: responseMessage
-    };
-}
-```
+:::code language="javascript" source="~/functions-docs-javascript/src/functions/httpSendToCosmosDb.js" :::
 
 This code now returns a `MultiResponse` object that contains both a document and an HTTP response.
 
@@ -262,7 +223,7 @@ The document `{"id": "name"}` is created in the database collection specified in
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [functions-run-function-test-local-vs-code-csharp](../../includes/functions-run-function-test-local-vs-code-csharp.md)]
 ::: zone-end
-::: zone pivot="programming-language-javascript,programming-language-python"
+::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-python"
 ## Run the function locally
 
 1. As in the previous article, press <kbd>F5</kbd> to start the function app project and Core Tools. 
