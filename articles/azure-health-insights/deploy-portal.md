@@ -33,7 +33,7 @@ Once deployment is complete, you can use the Azure portal to navigate to the new
     - **Region**: Select an Azure location, such as West Europe.
     - **Name**: Enter an Azure AI services account name.
     - **Pricing tier**: Select your pricing tier.
-    - **New/Exisiting Language resource**: Choose if to create a new Language resource or provide an exisitng one.
+    - **New/Exisiting Language resource**: Choose if to create a new Language resource or provide an exisiting one.
     - **Language resource name**: Enter the Language resource name.
     - **Language resource pricing tier**: Select your Language resource pricing tier.
 
