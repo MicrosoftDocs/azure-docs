@@ -2,7 +2,7 @@
 title: Back up Azure VMs using REST API in Azure Backup
 description: In this article, learn how to configure, initiate, and manage backup operations of Azure VM Backup using REST API.
 ms.topic: how-to
-ms.date: 04/23/2024
+ms.date: 04/24/2024
 ms.assetid: b80b3a41-87bf-49ca-8ef2-68e43c04c1a3
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
@@ -90,7 +90,7 @@ X-Powered-By: ASP.NET
 
 ### Selecting the relevant Azure VM
 
- You can confirm that "caching" is done by [listing all protectable items](/rest/api/backup/backup-protectable-items/list) under the subscription and locate the desired VM in the response. [The response of this operation](#example-responses-to-get-operation) also gives you information on how Recovery Services identifies a VM.  Once you're familiar with the pattern, you can skip this step and directly proceed to [enabling protection](#enabling-protection-for-the-azure-vm).
+ You can confirm that "caching" is done by [listing all protectable items](/rest/api/backup/backup-protectable-items/list) under the subscription and locate the desired VM in the response. [The response of this operation](#responses-to-get-operation) also gives you information on how Recovery Services identifies a VM.  Once you're familiar with the pattern, you can skip this step and directly proceed to [enabling protection](#enable-protection-for-the-azure-vm).
 
 This operation is a *GET* operation.
 
@@ -151,7 +151,7 @@ The response contains the list of all unprotected Azure VMs and each `{value}` c
 
 - containerName = "iaasvmcontainer;"+`{name}`
 - protectedItemName = "vm;"+ `{name}`
-- `{virtualMachineId}` is used later in [the request body](#example-request-body)
+- `{virtualMachineId}` is used later in [the request body](#enable-protection-for-the-azure-vm)
 
 In the example, the above values translate to:
 
@@ -198,7 +198,7 @@ The following request body defines properties required to create a protected ite
 }
 ```
 
-The `{sourceResourceId}` is the `{virtualMachineId}` mentioned above from the [response of list protectable items](#example-responses-to-get-operation).
+The `{sourceResourceId}` is the `{virtualMachineId}` mentioned above from the [response of list protectable items](#responses-to-get-operation).
 Responses to create protected item operation
 @01011011
 
@@ -281,7 +281,7 @@ This confirms that protection is enabled for the VM and the first backup will be
 
 ### Excluding disks in Azure VM backup
 
-Azure Backup also provides a way to selectively back up a subset of disks in Azure VM. More details are provided [here](selective-disk-backup-restore.md). If you want to selectively back up few disks during enabling protection, the following code snippet should be the [request body during enabling protection](#example-request-body).
+Azure Backup also provides a way to selectively back up a subset of disks in Azure VM. More details are provided [here](selective-disk-backup-restore.md). If you want to selectively back up few disks during enabling protection, the following code snippet should be the [request body during enabling protection](#create-the-request-body-for-on-demand-backup).
 
 ```json
 {
@@ -421,7 +421,7 @@ Since the backup job is a long running operation, it needs to be tracked as expl
 
 ### Changing the policy of protection
 
-To change the policy with which VM is protected, you can use the same format as [enabling protection](#enabling-protection-for-the-azure-vm). Just provide the new policy ID in [the request body](#example-request-body) and submit the request. For example: To change the policy of testVM from 'DefaultPolicy' to 'ProdPolicy', provide the 'ProdPolicy' ID in the request body.
+To change the policy with which VM is protected, you can use the same format as [enabling protection](#enable-protection-for-the-azure-vm)). Just provide the new policy ID in [the request body](#create-the-request-body) and submit the request. For example: To change the policy of testVM from 'DefaultPolicy' to 'ProdPolicy', provide the 'ProdPolicy' ID in the request body.
 
 ```json
 {
@@ -494,7 +494,7 @@ It returns two responses: 202 (Accepted) when another operation is created, and 
 
 Undoing the accidental deletion is similar to creating the backup item. After you undo the deletion, the item is retained but no future backups are triggered.
 
-Undo deletion is a *PUT* operation which is very similar to [changing the policy](#changing-the-policy-of-protection) and/or [enabling the protection](#enabling-protection-for-the-azure-vm). Just provide the intent to undo the deletion with the variable *isRehydrate*  in [the request body](#example-request-body) and submit the request. For example: To undo the deletion for testVM, the following request body should be used.
+Undo deletion is a *PUT* operation which is very similar to [changing the policy](#changing-the-policy-of-protection) and/or [enabling the protection](#enable-protection-for-the-azure-vm). Just provide the intent to undo the deletion with the variable *isRehydrate*  in [the request body](#create-the-request-body) and submit the request. For example: To undo the deletion for testVM, the following request body should be used.
 
 ```http
 {

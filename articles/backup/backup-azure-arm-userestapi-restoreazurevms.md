@@ -1,8 +1,9 @@
 ---
 title: Restore Azure VMs using REST API
 description: In this article, learn how to manage restore operations of Azure Virtual Machine Backup using REST API.
-ms.topic: conceptual
-ms.date: 08/26/2021
+ms.topic: how-to
+ms.service: backup
+ms.date: 04/24/2024
 ms.assetid: b8487516-7ac5-4435-9680-674d9ecf5642
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
@@ -22,7 +23,7 @@ The available recovery points of a backup item can be listed using the [list rec
 GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}/recoveryPoints?api-version=2019-05-13
 ```
 
-The `{containerName}` and `{protectedItemName}` are as constructed [here](backup-azure-arm-userestapi-backupazurevms.md#example-responses-to-get-operation). `{fabricName}` is "Azure".
+The `{containerName}` and `{protectedItemName}` are as constructed [here](backup-azure-arm-userestapi-backupazurevms.md#responses-to-get-operation). `{fabricName}` is "Azure".
 
 The *GET* URI has all the required parameters. There's no need for an additional request body.
 
@@ -127,7 +128,7 @@ Triggering restore operations is a *POST* request. To know more about the API, r
 POST https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}/recoveryPoints/{recoveryPointId}/restore?api-version=2019-05-13
 ```
 
-The `{containerName}` and `{protectedItemName}` are as constructed [here](backup-azure-arm-userestapi-backupazurevms.md#example-responses-to-get-operation). `{fabricName}` is "Azure" and the `{recoveryPointId}` is the `{name}` field of the recovery point mentioned [above](#example-response).
+The `{containerName}` and `{protectedItemName}` are as constructed [here](backup-azure-arm-userestapi-backupazurevms.md#responses-to-get-operation). `{fabricName}` is "Azure" and the `{recoveryPointId}` is the `{name}` field of the recovery point mentioned [above](#example-response).
 
 Once the recovery point is obtained, we need to construct the request body for the relevant restore scenario. The following sections outline the request body for each scenario.
 
@@ -349,7 +350,7 @@ GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{
 
 ```
 
-The `{containerName}` and `{protectedItemName}` are as constructed [here](backup-azure-arm-userestapi-backupazurevms.md#example-responses-to-get-operation). `{fabricName}` is "Azure".
+The `{containerName}` and `{protectedItemName}` are as constructed [here](backup-azure-arm-userestapi-backupazurevms.md#responses-to-get-operation). `{fabricName}` is "Azure".
 
 The *GET* URI has all the required parameters. An additional request body isn't required.
 
