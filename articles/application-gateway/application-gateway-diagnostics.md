@@ -34,7 +34,7 @@ You have the following options to store the logs in your preferred location.
 
 **Log Analytic workspace**: This option allows you to readily use the predefined queries, visualizations, and set alerts based on specific log conditions. The tables used by resource logs in log analytics workspace depend on what type of collection the resource is using:
    
-**Azure diagnostics**: Data is written to the [Azure Diagnostics table](../azure-monitor/reference/tables/azurediagnostics). Azure Diagnostics table is shared between multiple resource type, with each of them adding their own custom fields. When number of custom fields ingested to Azure Diagnostics table exceeds 500, new fields aren't added as top level but added to "AdditionalFields" field as dynamic key value pairs. 
+**Azure diagnostics**: Data is written to the [Azure Diagnostics table](/azure/azure-monitor/reference/tables/azurediagnostics). Azure Diagnostics table is shared between multiple resource type, with each of them adding their own custom fields. When number of custom fields ingested to Azure Diagnostics table exceeds 500, new fields aren't added as top level but added to "AdditionalFields" field as dynamic key value pairs. 
 
 **Resource-specific(recommended)**: Data is written to dedicated tables for each category of the resource. In resource specific mode, each log category selected in the diagnostic setting is assigned its own table within the chosen workspace. This has several benefits, including: 
  - Easier data manipulation in log queries 
@@ -43,9 +43,9 @@ You have the following options to store the logs in your preferred location.
  - The ability to assign [Azure role-based access control rights to specific tables](../azure-monitor/logs/manage-access.md?tabs=portal#set-table-level-read-access)
 
  For Application Gateway, resource specific mode creates three tables: 
-  * [AGWAccessLogs](/azure-monitor/reference/tables/agwaccesslogs)
-  * [AGWPerformanceLogs](/azure-monitor/reference/tables/agwperformancelogs)
-  * [AGWFirewallLogs](/azure-monitor/reference/tables/agwfirewalllogs)
+  * [AGWAccessLogs](/azure/azure-monitor/reference/tables/agwaccesslogs)
+  * [AGWPerformanceLogs](/azure/azure-monitor/reference/tables/agwperformancelogs)
+  * [AGWFirewallLogs](/azure/azure-monitor/reference/tables/agwfirewalllogs)
 
 > [!NOTE]
 > The resource specific option is currently available in all **public regions**.<br>
