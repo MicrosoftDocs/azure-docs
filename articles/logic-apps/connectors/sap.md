@@ -1182,7 +1182,7 @@ You can control this tracing capability at the application level by adding the f
 
 1. On the **Kudu** toolbar, select **Debug Console** > **CMD**.
 
-1. Browse to a location under **C:\home\site\wwwroot** and create a text file, for example:**CCLPROFILE.txt**.
+1. Browse to a location under **C:\home\site\wwwroot**, and create a text file, for example: **CCLPROFILE.txt**.
 
    For more information about logging parameters, see [**Tracing** > SAP NOTE 2338952](https://me.sap.com/notes/2338952/E). The following sample provides an example tracing configuration:
    
