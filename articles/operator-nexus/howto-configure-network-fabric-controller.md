@@ -44,7 +44,7 @@ az group create -n NFCResourceGroupName -l "Location"
 | Location | The Azure Region is mandatory to provision your deployment. | eastus, westus3, southcentralus, eastus2euap | eastus | True         | String |
 | Resource-Name | The Resource-name will be the name of the Network Fabric Controller | nfcname | XYZnfcname | True         | String |
 | ipv4-address-space | IPv4 Network Fabric Controller Address Space, the default subnet block is 10.0.0.0/19, and it also shouldn't overlap with any of the ExpressRoute IPs | 10.0.0.0/19 | 10.0.0.0/19 | Not Required | String |
-| ipv6-address-space | IPv6 Network Fabric Controller Address Space, this parameter defaults to FC00::/59, with the permissible range being /59 | "2001:1890:f810:8020::/59" | "2001:1890:f810:8020::/59" | Not Required | String |
+| ipv6-address-space | IPv6 Network Fabric Controller Address Space, this parameter defaults to FC00::/59, with the permissible range being /59 | "FC00::/59" | "FC00::/59" | Not Required | String |
 | Express Route Circuits | The ExpressRoute circuit is a dedicated 10G link that connects Azure and on-premises. You need to know the ExpressRoute Circuit ID and Auth key for an NFC to successfully provision. There are two Express Route Circuits, one for the Infrastructure services and other one for Workload (Tenant) services | --infra-er-connections '[{"expressRouteCircuitId": "xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx", "expressRouteAuthorizationKey": "xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx"}]' <br /><br /> --workload-er-connections '[{"expressRouteCircuitId": "xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx", "expressRouteAuthorizationKey": "xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx"}]' | subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/ER-Dedicated-WUS2-AFO-Circuits/providers/Microsoft.Network/expressRouteCircuits/MSFT-ER-Dedicated-PvtPeering-WestUS2-AFO-Ckt-01", "expressRouteAuthorizationKey": "xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx"}] | True         | string |
 | Managed-Resource-Group | Managed Resource Group configuration properties. | NFCManagedResourceGroupName | XYZNFCManagedResourceGroupName | True | String |
 
@@ -57,7 +57,7 @@ az networkfabric controller create \
   --location "eastus"  \
   --resource-name "nfcname" \
   --ipv4-address-space "10.0.0.0/19" \
-  --ipv6-address-space "2001:1890:f810:8020::/59" \
+  --ipv6-address-space "FC00::/59" \
   --infra-er-connections '[{"expressRouteCircuitId": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/ER-Dedicated-WUS2-AFO-Circuits/providers/Microsoft.Network/expressRouteCircuits/MSFT-ER-Dedicated-PvtPeering-WestUS2-AFO-Ckt-01", "expressRouteAuthorizationKey": "<auth-key>"}]'
   --workload-er-connections '[{"expressRouteCircuitId": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/ER-Dedicated-WUS2-AFO-Circuits/providers/Microsoft.Network/expressRouteCircuits/MSFT-ER-Dedicated-PvtPeering-WestUS2-AFO-Ckt-01"", "expressRouteAuthorizationKey": "<auth-key>"}]' \
 location='eastus' --debug --no-wait
