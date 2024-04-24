@@ -14,29 +14,12 @@ Azure offers several configuration options for ensuring availability of Azure vi
 
 ## At a glance
 
-Applications running on multiple VMs
-
-|Recommendation  |Benefits  |
-|---------|---------|
-|Deploy VMs across multiple availability zones using a zone redundant Virtual Machine Scale Set with flexible orchestration or by deploying VMs across three availability zones.     |Either of these configurations have the highest uptime SLA for multiple VMs deployed across availability zones.         |
-|Deploy VMs across multiple fault domains with either regional Virtual Machine Scale Sets or availability sets.    |Either of these configurations offer the second highest uptime SLA for multiple VMs deployed across fault domains.         |
-
-
-Applications running on a single VM
-
-|Recommendation  |Benefits  |
-|---------|---------|
-|Use Ultra Disks, Premium SSD v2, and Premium SSD disks.     |Single VMs using only Ultra Disks, Premium SSD v2, or Premium SSD disks have the highest uptime SLA and offer the best performance.         |
-|Use zone-redundant storage (ZRS) disks     |Access to your data even if an entire zone experiences an outage.         |
-
-
 |Configuration  |Recommendation  |Benefits  |
 |---------|---------|---------|
 |Applications running on multiple VMs     |Deploy VMs across multiple availability zones using a zone redundant Virtual Machine Scale Set with flexible orchestration or by deploying VMs across three availability zones.         |Either of these configurations have the highest uptime SLA for multiple VMs deployed across availability zones.         |
 |Applications running on multiple VMs     |Deploy VMs across multiple fault domains with either regional Virtual Machine Scale Sets or availability sets.         |Either of these configurations offer the second highest uptime SLA for multiple VMs deployed across fault domains.         |
-|Applications running on a single VM     |Use Ultra Disks, Premium SSD v2, and Premium SSD disks.         |Single VMs using only Ultra Disks, Premium SSD v2, or Premium SSD disks have the highest uptime SLA and offer the best performance.         |
+|Applications running on a single VM     |Use Ultra Disks, Premium SSD v2, and Premium SSD disks.         |Single VMs using only Ultra Disks, Premium SSD v2, or Premium SSD disks have the highest uptime SLA of the available disk types, and offer the best performance.         |
 |Applications running on a single VM     |Use zone-redundant storage (ZRS) disks.         |Access to your data even if an entire zone experiences an outage.         |
-
 
 ## Applications running on multiple VMs
 
