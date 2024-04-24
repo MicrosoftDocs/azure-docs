@@ -498,14 +498,14 @@ Getting the _Microsoft Entra token_ doesn't require any extra roles for the user
 
 ### [Azure CLI](#tab/azure-cli)
 
-If you plan to use the CLI to invoke the endpoint, you're not required to get the keys or token for data plane operation explicitly, as the CLI handles it for you. However, you can still use the CLI to get the keys or token for data plane operation so that you can use it with other channels, such as REST API.
+If you plan to use the CLI to invoke the endpoint, you're not required to get the keys or token for data plane operations explicitly, as the CLI handles it for you. However, you can still use the CLI to get the keys or token for data plane operation so that you can use it with other channels, such as REST API.
 
-To get the keys or token for data plane operation, use the [az ml online-endpoint get-credentials](/cli/azure/ml/online-endpoint#az-ml-online-endpoint-get-credentials) command. This command returns a JSON output that contains the keys, token, and/or additional information.
+To get the keys or token for data plane operations, use the [az ml online-endpoint get-credentials](/cli/azure/ml/online-endpoint#az-ml-online-endpoint-get-credentials) command. This command returns a JSON output that contains the keys, token, and/or additional information.
 
 > [!TIP]
 > To extract a specific information from the JSON output, the `--query` parameter of the CLI command is used as an example. However, you can use any suitable tool for this purpose.
 
-__When auth_mode of endpoint is `key`__
+__When `auth_mode` of the endpoint is `key`__
 
 - Keys are returned in the `primaryKey` and `secondaryKey` fields.
 
@@ -514,7 +514,7 @@ export DATA_PLANE_TOKEN=$(az ml online-endpoint get-credentials -n $ENDPOINT_NAM
 export DATA_PLANE_TOKEN2=$(az ml online-endpoint get-credentials -n $ENDPOINT_NAME -g $RESOURCE_GROUP -w $WORKSPACE_NAME -o tsv --query secondaryKey)
 ```
 
-__When auth_mode of endpoint is `aml_token`__
+__When `auth_mode` of the endpoint is `aml_token`__
 
 - Token is returned in the `accessToken` field.
 - Token expiration time is returned in the `expiryTimeUtc` field.
@@ -526,7 +526,7 @@ export EXPIRY_TIME_UTC=$(az ml online-endpoint get-credentials -n $ENDPOINT_NAME
 export REFRESH_AFTER_TIME_UTC=$(az ml online-endpoint get-credentials -n $ENDPOINT_NAME -g $RESOURCE_GROUP -w $WORKSPACE_NAME -o tsv --query refreshAfterTimeUtc)
 ```
 
-__When auth_mode of endpoint is `aad_token`__
+__When `auth_mode` of the endpoint is `aad_token`__
 
 - Token is returned in the `accessToken` field.
 - Token expiration time is returned in the `expiryTimeUtc` field.
@@ -538,14 +538,14 @@ export EXPIRY_TIME_UTC=$(az ml online-endpoint get-credentials -n $ENDPOINT_NAME
 
 ### [REST](#tab/rest)
 
-To get the keys or token for data plane operation, choose the right API depending on the auth_mode of the endpoint. The API returns a JSON output that contains the keys, token, and/or additional information.
+To get the keys or token for data plane operations, choose the right API, depending on the `auth_mode` of the endpoint. The API returns a JSON output that includes the keys and token.
 
 > [!TIP]
-> To extract a specific information from the JSON output, the `jq` utility is used as an example. However, you can use any suitable tool for this purpose.
+> The `jq` utility is used to demonstrate how to extract a specific information from the JSON output. However, you can use any suitable tool for this purpose.
 
-__When auth_mode of endpoint is `key`__
+__When `auth_mode` of the endpoint is `key`__
 
-- Use `listkeys` API.
+- Use the `listkeys` API.
 - Keys are returned in the `primaryKey` and `secondaryKey` fields.
 
 ```bash
@@ -555,9 +555,9 @@ response=$(curl -H "Content-Length: 0" --location --request POST "https://manage
 export DATA_PLANE_TOKEN=$(echo $response | jq -r '.primaryKey')
 ```
 
-__When auth_mode of endpoint is `aml_token`__
+__When `auth_mode` of the endpoint is `aml_token`__
 
-- Use `token` API.
+- Use the `token` API.
 - Token is returned in the `accessToken` field.
 - Token expiration time is returned in the `expiryTimeUtc` field
 - Token refresh time is returned in the `refreshAfterTimeUtc` field
@@ -571,9 +571,9 @@ export EXPIRY_TIME_UTC=$(echo $response | jq -r '.expiryTimeUtc')
 export REFRESH_AFTER_TIME_UTC=$(echo $response | jq -r '.refreshAfterTimeUtc')
 ```
 
-__When auth_mode of endpoint is `aad_token`__
+__When `auth_mode` of the endpoint is `aad_token`__
 
-- Use IMDS endpoint or MSI endpoint depending on where you request for the token.
+- Use IMDS endpoint or MSI endpoint, depending on where you request for the token.
 - Token is returned in the `accessToken` field.
 - Token expiration time is returned in the `expiryTimeUtc` field
 
@@ -602,16 +602,16 @@ You can get the token if you're using the Azure Machine Learning workspace's com
     ```
 
 > [!IMPORTANT]
-> The Microsoft Entra token for data plane operations is retrieved from the Azure resource endpoint `ml.azure.com` instead of `management.azure.com`, unlike the token for control plane operations.
+> Unlike the Microsoft Entra token for control plane operations, which is retrieved from `management.azure.com`, the Microsoft Entra token for data plane operations is retrieved from the Azure resource endpoint `ml.azure.com`.
 
 
 ### [Python](#tab/python)
 
-If you plan to use the SDK to invoke the endpoint, you're not required to get the keys or token for data plane operation explicitly, as the SDK handles it for you. However, you can still use the SDK to get the keys or token for data plane operation so that you can use it with other channels, such as REST API.
+If you plan to use the SDK to invoke the endpoint, you're not required to get the keys or token for data plane operations explicitly, as the SDK handles it for you. However, you can still use the SDK to get the keys or token for data plane operations so that you can use it with other channels, such as REST API.
 
-To get the keys or token for data plane operation, use the [get_keys](/python/api/azure-ai-ml/azure.ai.ml.operations.onlineendpointoperations#azure-ai-ml-operations-onlineendpointoperations-get-keys) method in the `OnlineEndpointOperations` class. This method returns an object that contains the keys, token, and/or additional information.
+To get the keys or token for data plane operations, use the [get_keys](/python/api/azure-ai-ml/azure.ai.ml.operations.onlineendpointoperations#azure-ai-ml-operations-onlineendpointoperations-get-keys) method in the `OnlineEndpointOperations` class. This method returns an object that includes keys and token.
 
-__When auth_mode of endpoint is `key`__
+__When `auth_mode` of the endpoint is `key`__
 
 - Keys are returned in the `primary_key` and `secondary_key` fields.
 
@@ -620,7 +620,7 @@ DATA_PLANE_TOKEN = ml_client.online_endpoints.get_keys(name=endpoint_name).prima
 DATA_PLANE_TOKEN2 = ml_client.online_endpoints.get_keys(name=endpoint_name).secondary_key
 ```
 
-__When auth_mode of endpoint is `aml_token`__
+__When `auth_mode` of the endpoint is `aml_token`__
 
 - Token is returned in the `access_token` field.
 - Token expiration time is returned in the `expiry_time_utc` field.
@@ -632,7 +632,7 @@ EXPIRY_TIME_UTC = ml_client.online_endpoints.get_keys(name=endpoint_name).expiry
 REFRESH_AFTER_TIME_UTC = ml_client.online_endpoints.get_keys(name=endpoint_name).refresh_after_time_utc
 ```
 
-__When auth_mode of endpoint is `aad_token`__
+__When `auth_mode` of the endpoint is `aad_token`__
 
 - Token is returned in the `access_token` field.
 - Token expiration time is returned in the `expiry_time_utc` field.
