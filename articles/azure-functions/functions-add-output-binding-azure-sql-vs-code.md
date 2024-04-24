@@ -100,7 +100,7 @@ Your project has been configured to use [extension bundles](functions-bindings-r
 
 Extension bundles usage is enabled in the host.json file at the root of the project, which appears as follows:
 
-:::code language="json" source="~/functions-quickstart-javascript/functions-add-output-binding-sql-cli-v4-programming-model/host.json":::
+:::code language="json" source="~/functions-docs-javascript/functions-add-output-binding-sql-cli-v4-programming-model/host.json":::
 
 :::
 
