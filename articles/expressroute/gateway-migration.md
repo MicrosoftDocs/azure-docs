@@ -87,7 +87,7 @@ Here are the steps to migrate to a new gateway, using the Azure portal or PowerS
 
 1. Select **Validate** to check if the gateway is ready for migration. You'll first see a list of prerequisites that must be met before migration can begin. If these prerequisites aren't met, validation fails and you can't proceed.
 
-    :::image type="content" source="media/gateway-migration/service-technology-image-description.png" alt-text="Alt text that describes the content of the image.":::
+    :::image type="content" source="media/gateway-migration/validate-step.png" alt-text="Screenshot of the validate step."lightbox="media/gateway-migration/validate-step.png":::
 
 1. Once validation is successful, you enter the *Prepare* stage. Here, a new Virtual Network gateway is created. Under **Virtual Network Gateway Details**, enter the following information.
     
@@ -104,15 +104,13 @@ Here are the steps to migrate to a new gateway, using the Azure portal or PowerS
 
 1. Select **Prepare** to create the new gateway. This operation could take up to 15 minutes.
 
-    :::image type="content" source="media/gateway-migration/service-technology-image-description.png" alt-text="Alt text that describes the content of the image.":::
+1. After the new gateway is created, you'll proceed to the *Migrate* stage. Here, select the new ExpressRoute gateway you created. In this example it is **myERGateway_migrated**. This transfers the settings from your old gateway to the new one. All network traffic, and control plane and data path connections from your old gateway, will be transferred without any interruptions. To start this process, select **Migrate Traffic**. Note that this operation could take up to 5 minutes.
 
-1. After the new gateway is created, you'll proceed to the *Migrate* stage. Here, you choose the new ExpressRoute gateway you created. This transfers the settings from your old gateway to the new one. All network traffic, and control plane and data path connections from your old gateway, will be transferred without any interruptions. To start this process, select on *Migrate Traffic*. Note, this operation could take up to 5 minutes.
-
-    :::image type="content" source="media/gateway-migration/service-technology-image-description.png" alt-text="Alt text that describes the content of the image.":::
+    :::image type="content" source="media/gateway-migration/migrate-traffic-step.png" alt-text="Screenshot of migrating traffic."lightbox="media/gateway-migration/migrate-traffic-step.png":::
 
 1. "After the traffic migration is finished, you'll proceed to the *Commit* stage. In this stage, you finalize the migration, which involves deleting the old gateway. To do this, select on 'Commit Migration'. This final step is designed to occur without causing any downtime. 
 
-    :::image type="content" source="media/gateway-migration/service-technology-image-description.png" alt-text="Alt text that describes the content of the image.":::
+    :::image type="content" source="media/gateway-migration/commit-step.png" alt-text="Screenshot of the commit step."lightbox="media/gateway-migration/commit-step.png":::
 
 
 ### [**PowerShell**](#tab/nic-address-powershell)
@@ -141,7 +139,8 @@ Here are the steps to migrate to a new gateway, using the Azure portal or PowerS
 1. Finally, run the **CommitMigration.ps1** script to complete the migration. This script deletes the old gateway and its connections.
 
     >[!IMPORTANT]
-    > Before running this step, verify that the new virtual network gateway has a working ExpressRoute connection.
+    > - Before running this step, verify that the new virtual network gateway has a working ExpressRoute connection.
+    > - When migrating your gateway, you can expect possible interruption for a maximum of 30 seconds.
     
 
 ## Next steps
