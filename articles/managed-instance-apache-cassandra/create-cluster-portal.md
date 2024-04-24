@@ -7,13 +7,12 @@ ms.service: managed-instance-apache-cassandra
 ms.topic: quickstart
 ms.date: 05/31/2022
 ms.custom:
-  - ignite-fall-2021
   - mode-ui
   - ignite-2023
 ---
 # Quickstart: Create an Azure Managed Instance for Apache Cassandra cluster from the Azure portal
 
-Azure Managed Instance for Apache Cassandra provides automated deployment and scaling operations for managed open-source Apache Cassandra datacenters, accelerating hybrid scenarios and reducing ongoing maintenance.
+Azure Managed Instance for Apache Cassandra is a fully managed service for pure open-source Apache Cassandra clusters. The service also allows configurations to be overridden, depending on the specific needs of each workload, allowing maximum flexibility and control where needed
 
 This quickstart demonstrates how to use the Azure portal to create an Azure Managed Instance for Apache Cassandra cluster.
 
@@ -47,6 +46,9 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
    * **Assign roles** - Virtual Networks require special permissions in order to allow managed Cassandra clusters to be deployed. Keep this box checked if you are creating a new Virtual Network, or using an existing Virtual Network without permissions applied. If using a Virtual network where you have already deployed Azure SQL Managed Instance Cassandra clusters, uncheck this option.
 
    :::image type="content" source="./media/create-cluster-portal/create-cluster-page.png" alt-text="Fill out the create cluster form." lightbox="./media/create-cluster-portal/create-cluster-page.png" border="true":::
+
+   > [!TIP]
+   > If you use [VPN](use-vpn.md) then you don't need to open any other connection.
 
    > [!NOTE]
    > The Deployment of a Azure Managed Instance for Apache Cassandra requires internet access. Deployment fails in environments where internet access is restricted. Make sure you aren't blocking access within your VNet to the following vital Azure services that are necessary for Managed Cassandra to work properly. See [Required outbound network rules](network-rules.md) for more detailed information.

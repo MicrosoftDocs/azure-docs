@@ -8,7 +8,6 @@ ms.date: 02/25/2020
 ms.service: dms
 ms.topic: conceptual
 ms.custom:
-  - seo-lt-2019
   - sql-migration-content
 ---
 

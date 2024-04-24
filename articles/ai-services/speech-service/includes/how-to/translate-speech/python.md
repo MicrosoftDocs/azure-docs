@@ -293,9 +293,9 @@ For more information about speech synthesis, see [the basics of speech synthesis
 
 ## Multi-lingual translation with language identification
 
-In many scenarios, you might not know which input languages to specify. Using [language identification](../../../language-identification.md?pivots=programming-language-python#speech-translation) you can detect up to 10 possible input languages and automatically translate to your target languages. 
+In many scenarios, you might not know which input languages to specify. Using [language identification](../../../language-identification.md?pivots=programming-language-python#run-speech-translation) you can detect up to 10 possible input languages and automatically translate to your target languages. 
 
-For a complete code sample, see [language identification](../../../language-identification.md?pivots=programming-language-python#speech-translation).
+For a complete code sample, see [language identification](../../../language-identification.md?pivots=programming-language-python#run-speech-translation).
 
 [speechtranslationconfig]: /python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.translation.speechtranslationconfig
 [audioconfig]: /python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.audio.audioconfig

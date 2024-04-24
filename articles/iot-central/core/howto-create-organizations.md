@@ -7,7 +7,6 @@ author: dominicbetts
 ms.author: dobett
 ms.date: 06/14/2023
 ms.topic: how-to
-ms.custom: contperf-fy22q2
 ---
 
 # Manage IoT Central organizations

@@ -33,7 +33,7 @@ To set up Data Catalog, you must be the owner or co-owner of an Azure subscripti
 
 ## Create a data catalog
 
-You can create only one data catalog per organization (Microsoft Entra domain). Therefore, if the owner or co-owner of an Azure subscription who belongs to this Microsoft Entra domain has already created a catalog, then you can't create a catalog again even if you have multiple Azure subscriptions. To test whether a data catalog has been created by a user in your Microsoft Entra domain, go to the [Azure Data Catalog home page](http://azuredatacatalog.com) and verify whether you see the catalog. If a catalog has already been created for you, skip the following procedure and go to the next section.
+You can create only one data catalog per organization (Microsoft Entra domain). Therefore, if the owner or co-owner of an Azure subscription who belongs to this Microsoft Entra domain has already created a catalog, then you can't create a catalog again even if you have multiple Azure subscriptions. To test whether a data catalog has been created by a user in your Microsoft Entra domain, go to the [Azure Data Catalog home page](https://www.azuredatacatalog.com) and verify whether you see the catalog. If a catalog has already been created for you, skip the following procedure and go to the next section.
 
 1. Go to the [Azure portal](https://portal.azure.com) > **Create a resource** and select **Data Catalog**.
 
@@ -41,7 +41,7 @@ You can create only one data catalog per organization (Microsoft Entra domain). 
 
 1. Specify a **name** for the data catalog, the **subscription** you want to use, the **location** for the catalog, and the **pricing tier**. Then select **Create**.
 
-1. Go to the [Azure Data Catalog home page](http://azuredatacatalog.com) and select **Publish Data**.
+1. Go to the [Azure Data Catalog home page](https://www.azuredatacatalog.com) and select **Publish Data**.
 
    :::image type="content" source="media/data-catalog-get-started/data-catalog-publish-data.png" alt-text="On the data catalog homepage, the Publish Data button is selected.":::
 

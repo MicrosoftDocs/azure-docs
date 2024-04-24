@@ -8,7 +8,7 @@ ms.service: azure-ai-document-intelligence
 ms.custom:
   - ignite-2023
 ms.topic: overview
-ms.date: 01/09/2024
+ms.date: 02/29/2024
 ms.author: lajanuar
 monikerRange: '<=doc-intel-4.0.0'
 ---
@@ -106,12 +106,34 @@ Prebuilt models enable you to add intelligent document processing to your apps a
 :::row-end:::
 :::row:::
    :::column span="":::
+      :::image type="icon" source="media/overview/icon-invoice.png" link="#invoice":::</br>
+    [**1003  EULA**](#invoice) | Extract mortgage details.
+   :::column-end:::
+   :::column span="":::
+      :::image type="icon" source="media/overview/icon-receipt.png" link="#receipt":::</br>
+    [**Form 1008**](#receipt) | Extract mortgage details.
+   :::column-end:::
+   :::column span="":::
+      :::image type="icon" source="media/overview/icon-id-document.png" link="#identity-id":::</br>
+    [**Closing Disclosure**](#identity-id) | Extract mortgage details.
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
       :::image type="icon" source="media/overview/icon-insurance-card.png" link="#health-insurance-card":::</br>
     [**Health Insurance card**](#health-insurance-card) | Extract health </br>insurance details.
    :::column-end:::
    :::column span="":::
       :::image type="icon" source="media/overview/icon-contract.png" link="#contract-model":::</br>
     [**Contract**](#contract-model) | Extract agreement</br> and party details.
+   :::column-end:::
+:::column span="":::
+      :::image type="icon" source="media/overview/icon-contract.png" link="#contract-model":::</br>
+    [**Credit/Debit card**](#contract-model) | Extract information from bank cards.
+   :::column-end:::
+       :::column span="":::
+      :::image type="icon" source="media/overview/icon-contract.png" link="#contract-model":::</br>
+    [**Marriage Certificate**](#contract-model) | Extract information from Marriage certificates.
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -134,6 +156,10 @@ Prebuilt models enable you to add intelligent document processing to your apps a
    :::column span="":::
       :::image type="icon" source="media/overview/icon-1098t.png" link="#us-tax-1098-t-form":::</br>
     [**US Tax 1099 form**](concept-tax-document.md#field-extraction-1099-nec) | Extract information from variations of the 1099 form.
+   :::column-end:::
+   :::column span="":::
+      :::image type="icon" source="media/overview/icon-1098t.png" link="#us-tax-1098-t-form":::</br>
+    [**US Tax 1040 form**](concept-tax-document.md#field-extraction-1099-nec) | Extract information from variations of the 1040 form.
    :::column-end:::
 :::row-end:::
 :::moniker-end
@@ -217,14 +243,14 @@ Prebuilt models enable you to add intelligent document processing to your apps a
 :::row:::
     :::column:::
         * **Classification model**</br>
-         ✔️ Custom classifiers identify document types prior to invoking an extraction model.
+         ✔️ Custom classifiers identify document types before invoking an extraction model.
     :::column-end:::
 :::row-end:::
 
 :::row:::
    :::column span="":::
       :::image type="icon" source="media/overview/icon-custom-classifier.png" link="#custom-classification-model":::</br>
-    [**Custom classifier**](#custom-classification-model) | Identify designated document types (classes) </br>prior to invoking an extraction model.
+    [**Custom classifier**](#custom-classification-model) | Identify designated document types (classes) </br>before invoking an extraction model.
    :::column-end:::
 :::row-end:::
 
@@ -240,33 +266,13 @@ Document Intelligence supports optional features that can be enabled and disable
 
 * [`ocr.barcode`](concept-add-on-capabilities.md#barcode-property-extraction)
 
-Document Intelligence supports optional features that can be enabled and disabled depending on the document extraction scenario. The following add-on capabilities are available for `2023-10-31-preview` and later releases:
+Document Intelligence supports optional features that can be enabled and disabled depending on the document extraction scenario. The following add-on capabilities areavailable for`2024-02-29-preview`, `2023-10-31-preview`, and later releases:
 
 * [`queryFields`](concept-add-on-capabilities.md#query-fields)
 
 ## Analysis features
 
-|Model ID|Content Extraction|Paragraphs|Paragraph Roles|Selection Marks|Tables|Key-Value Pairs|Languages|Barcodes|Document Analysis|Formulas*|Style Font*|High Resolution*|query fields|
-|:----|:----|:----|:----|:----|:----|:----|:----|:----|:----|:----|:----|:----|:----|
-|prebuilt-read|✓|✓| | | | |O|O| |O|O|O| |
-|prebuilt-layout|✓|✓|✓|✓|✓|O|O|O| |O|O|O|✓|
-|prebuilt-idDocument|✓| | | | | |O|O|✓|O|O|O|✓|
-|prebuilt-invoice|✓| | |✓|✓|O|O|O|✓|O|O|O|✓|
-|prebuilt-receipt|✓| | | | | |O|O|✓|O|O|O|✓|
-|prebuilt-healthInsuranceCard.us|✓| | | | | |O|O|✓|O|O|O|✓|
-|prebuilt-tax.us.w2|✓| | |✓| | |O|O|✓|O|O|O|✓|
-|prebuilt-tax.us.1098|✓| | |✓| | |O|O|✓|O|O|O|✓|
-|prebuilt-tax.us.1098E|✓| | |✓| | |O|O|✓|O|O|O|✓|
-|prebuilt-tax.us.1098T|✓| | |✓| | |O|O|✓|O|O|O|✓|
-|prebuilt-tax.us.1099(Variations)|✓| | |✓| | |O|O|✓|O|O|O|✓|
-|prebuilt-contract|✓|✓|✓|✓| | |O|O|✓|O|O|O|✓|
-|{ customModelName }|✓|✓|✓|✓|✓| |O|O|✓|O|O|O|✓|
-|prebuilt-document (**deprecated </br>2023-10-31-preview**)|✓|✓|✓|✓|✓|✓|O|O| |O|O|O| |
-|prebuilt-businessCard (**deprecated </br>2023-10-31-preview**)|✓| | | | | | | |✓| | | | |
-
-✓ - Enabled</br>
-O - Optional</br>
-\* - Premium features incur extra costs
+[!INCLUDE [model analysis features](includes/model-analysis-features.md)]
 
 ## Models and development options
 
@@ -281,7 +287,7 @@ You can use Document Intelligence to automate document processing in application
 
 |Model ID| Description |Automation use cases | Development options |
 |----------|--------------|-------------------------|-----------|
-|[**prebuilt-read**](concept-read.md)|&#9679; Extract **text** from documents.</br>&#9679; [Data extraction](concept-read.md#read-model-data-extraction)| &#9679; Digitizing any document. </br>&#9679; Compliance and auditing. &#9679; Processing handwritten notes before translation.|&#9679; [**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com/studio/read)</br>&#9679; [**REST API**](how-to-guides/use-sdk-rest-api.md?view=doc-intel-4.0.0&preserve-view=true&pivots=programming-language-rest-api)</br>&#9679; [**C# SDK**](how-to-guides/use-sdk-rest-api.md?view=doc-intel-4.0.0&preserve-view=true&pivots=programming-language-csharp)</br>&#9679; [**Python SDK**](how-to-guides/use-sdk-rest-api.md?view=doc-intel-4.0.0&preserve-view=true&pivots=programming-language-python)</br>&#9679; [**Java SDK**](how-to-guides/use-sdk-rest-api.md?view=doc-intel-4.0.0&preserve-view=true&pivots=programming-language-java)</br>&#9679; [**JavaScript**](how-to-guides/use-sdk-rest-api.md?view=doc-intel-4.0.0&preserve-view=true&pivots=programming-language-javascript) |
+|[**prebuilt-read**](concept-read.md)|&#9679; Extract **text** from documents.</br>&#9679; [Data extraction](concept-read.md#data-extraction)| &#9679; Digitizing any document. </br>&#9679; Compliance and auditing.</br>&#9679; Processing handwritten notes before translation.|&#9679; [**Document Intelligence Studio**](https://documentintelligence.ai.azure.com/studio/read)</br>&#9679; [**REST API**](how-to-guides/use-sdk-rest-api.md?view=doc-intel-4.0.0&preserve-view=true&pivots=programming-language-rest-api)</br>&#9679; [**C# SDK**](how-to-guides/use-sdk-rest-api.md?view=doc-intel-4.0.0&preserve-view=true&pivots=programming-language-csharp)</br>&#9679; [**Python SDK**](how-to-guides/use-sdk-rest-api.md?view=doc-intel-4.0.0&preserve-view=true&pivots=programming-language-python)</br>&#9679; [**Java SDK**](how-to-guides/use-sdk-rest-api.md?view=doc-intel-4.0.0&preserve-view=true&pivots=programming-language-java)</br>&#9679; [**JavaScript**](how-to-guides/use-sdk-rest-api.md?view=doc-intel-4.0.0&preserve-view=true&pivots=programming-language-javascript) |
 
 > [!div class="nextstepaction"]
 > [Return to model types](#document-analysis-models)
@@ -292,7 +298,7 @@ You can use Document Intelligence to automate document processing in application
 
 | Model ID | Description |Automation use cases | Development options |
 |----------|--------------|-------------------------|-----------|
-|[**prebuilt-layout**](concept-layout.md) |&#9679; Extract **text and layout** information from documents.</br>&#9679; [Data extraction](concept-layout.md#data-extraction) |&#9679; Document indexing and retrieval by structure.</br>&#9679; Financial and medical report analysis. |&#9679; [**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com/studio/layout)</br>&#9679; [**REST API**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true)</br>&#9679; [**C# SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true#layout-model)</br>&#9679; [**Python SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true#layout-model)</br>&#9679; [**Java SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true#layout-model)</br>&#9679; [**JavaScript**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true#layout-model)|
+|[**prebuilt-layout**](concept-layout.md) |&#9679; Extract **text and layout** information from documents.</br>&#9679; [Data extraction](concept-layout.md#data-extraction) |&#9679; Document indexing and retrieval by structure.</br>&#9679; Financial and medical report analysis. |&#9679; [**Document Intelligence Studio**](https://documentintelligence.ai.azure.com/studio/layout)</br>&#9679; [**REST API**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true)</br>&#9679; [**C# SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true#layout-model)</br>&#9679; [**Python SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true#layout-model)</br>&#9679; [**Java SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true#layout-model)</br>&#9679; [**JavaScript**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true#layout-model)|
 
 > [!div class="nextstepaction"]
 > [Return to model types](#document-analysis-models)
@@ -416,7 +422,7 @@ You can use Document Intelligence to automate document processing in application
 
 | Model ID |Description|Development options |
 |----------|--------------|-----------------|
-|**prebuilt-tax.us.1099(Variations)**|Extract information from 1099 form variations.|&#9679; [**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com/studio)</br>&#9679; [**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services?pattern=intelligence)|
+|**prebuilt-tax.us.1099(Variations)**|Extract information from 1099-form variations.|&#9679; [**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com/studio)</br>&#9679; [**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services?pattern=intelligence)|
 
 > [!div class="nextstepaction"]
 > [Return to model types](#prebuilt-models)
@@ -550,9 +556,9 @@ Use the links in the table to learn more about each model and browse the API ref
 
 ::: moniker range=">=doc-intel-3.0.0"
 
-* [Choose a Document Intelligence model](choose-model-feature.md)
+* [Choose a Document Intelligence model](choose-model-feature.md).
 
-* Try processing your own forms and documents with the [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio)
+* Try processing your own forms and documents with the [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio).
 
 * Complete a [Document Intelligence quickstart](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true) and get started creating a document processing app in the development language of your choice.
 
@@ -560,7 +566,7 @@ Use the links in the table to learn more about each model and browse the API ref
 
 ::: moniker range="doc-intel-2.1.0"
 
-* Try processing your own forms and documents with the [Document Intelligence Sample Labeling tool](https://fott-2-1.azurewebsites.net/)
+* Try processing your own forms and documents with the [Document Intelligence Sample Labeling tool](https://fott-2-1.azurewebsites.net/).
 
 * Complete a [Document Intelligence quickstart](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-2.1.0&preserve-view=true) and get started creating a document processing app in the development language of your choice.
 

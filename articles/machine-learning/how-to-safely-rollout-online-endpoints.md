@@ -1,5 +1,5 @@
 ---
-title: Safe rollout for online endpoints 
+title: Safe rollout for online endpoints
 titleSuffix: Azure Machine Learning
 description: Roll out newer versions of ML models without disruption.
 services: machine-learning
@@ -11,7 +11,7 @@ ms.reviewer: mopeakande
 ms.date: 10/24/2023
 reviewer: msakande
 ms.topic: how-to
-ms.custom: how-to, devplatv2, cliv2, event-tier1-build-2022, sdkv2
+ms.custom: how-to, devplatv2, cliv2, sdkv2
 ---
 
 # Perform safe rollout of new deployments for real-time inference
@@ -252,7 +252,7 @@ In the `blue-deployment.yaml` file, we specify the `path` (where to upload files
 
 For registration, you can extract the YAML definitions of `model` and `environment` into separate YAML files and use the commands `az ml model create` and `az ml environment create`. To learn more about these commands, run `az ml model create -h` and `az ml environment create -h`.
 
-For more information on registering your model as an asset, see [Register your model as an asset in Machine Learning by using the CLI](how-to-manage-models.md#register-your-model-as-an-asset-in-machine-learning-by-using-the-cli). For more information on creating an environment, see [Manage Azure Machine Learning environments with the CLI & SDK (v2)](how-to-manage-environments-v2.md#create-an-environment).
+For more information on registering your model as an asset, see [Register your model as an asset in Machine Learning by using the CLI](how-to-manage-models.md#register-your-model-as-an-asset-in-machine-learning-by-using-the-cli). For more information on creating an environment, see [Manage Azure Machine Learning environments with the CLI & SDK (v2)](how-to-manage-environments-v2.md#create-a-custom-environment).
 
 # [Python](#tab/python)
 
@@ -284,7 +284,7 @@ The following table describes the attributes of a `deployment`:
 
     For more information on registering your model as an asset, see [Register your model as an asset in Machine Learning by using the SDK](how-to-manage-models.md#register-your-model-as-an-asset-in-machine-learning-by-using-the-sdk).
 
-    For more information on creating an environment, see [Manage Azure Machine Learning environments with the CLI & SDK (v2)](how-to-manage-environments-v2.md#create-an-environment).
+    For more information on creating an environment, see [Manage Azure Machine Learning environments with the CLI & SDK (v2)](how-to-manage-environments-v2.md#create-a-custom-environment).
 
     > [!NOTE]
     > To create a deployment for a Kubernetes online endpoint, use the `KubernetesOnlineDeployment` class.

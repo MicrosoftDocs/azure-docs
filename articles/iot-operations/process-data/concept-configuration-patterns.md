@@ -1,22 +1,22 @@
 ---
 title: Data Processor configuration patterns
-description: Understand the common patterns such as path, batch, and duration that you use to configure pipeline stages.
+description: Understand the common patterns such as path, batch, templates, retry, and duration that you use to configure Azure IoT Data Processor pipeline stages.
 author: dominicbetts
 ms.author: dobett
 ms.subservice: data-processor
 ms.topic: concept-article #Required; leave this attribute/value as-is.
 ms.custom:
   - ignite-2023
-ms.date: 09/07/2023
+ms.date: 02/13/2024
 
 #CustomerIntent: As an operator I want to understand common configuration patterns so I can configure a pipeline to process my data.
 ---
 
-# What are configuration patterns?
+# What are configuration patterns in Azure IoT Data Processor Preview?
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-Several types of configuration, such as durations and paths, are common to multiple pipeline stages. This article describes these common configuration patterns.
+Several types of configuration are common to multiple pipeline stages. This article describes the _path_, _batch_, _templates_, _retry_, and _duration_ configuration patterns.
 
 ## Path
 
@@ -120,7 +120,7 @@ Currently, you can use templates to define file paths in a destination stage.
 
 ### Static and dynamic fields
 
-Some stages require the definition of values that can either be static strings or a dynamic value that's derived from a `Path` in a [Message](concept-message-structure.md). To define these values, you can use _static_ or _dynamic_ fields.
+Some stages require the definition of values that can either be static strings or a dynamic value derived from a `Path` in a [Message](concept-message-structure.md). To define these values, you can use _static_ or _dynamic_ fields.
 
 A static or dynamic field is always written as an object with a `type` field that has one of two values: `static` or `dynamic`. The schema varies based on `type`.
 
@@ -133,14 +133,91 @@ The static definition is a fixed value for `type` is `static`. The actual value 
 | type | const string | The type of the field. | Yes | - | `static` |
 | value | any | The static value to use for the configuration (typically a string). | Yes | - | `"static"` |
 
+The following examples show some static field definitions:
+
+```json
+{
+    "some-field": {
+        "type": "static",
+        "value": "some-static-value"
+    }
+}
+```
+
+```json
+{
+    "some-boolean-field": {
+        "type": "static",
+        "value": true
+    }
+}
+```
+
+```json
+{
+    "some-complex-field": {
+        "type": "static",
+        "value": {
+            "some": [
+                "nested",
+                "data"
+            ]
+        }
+    }
+}
+```
+
 ### Dynamic fields
 
-The fixed value for `type` is `dynamic`, the value is a [jq path](concept-jq-path.md).
+The fixed value for `type` is `dynamic`. The value is a [jq path](concept-jq-path.md).
 
 | Field | Type | Description | Required | Default | Example |
 | --- | --- | --- | --- | --- | --- |
 | type | const string | The type of the field | Yes | - | `dynamic` |
-| value | Path | The path in each message where a value for the field can be dynamically retrieved. | Yes | - | `.systemProperties.partitionKey` |
+| value | [Path](#path) | The path in each message where a value for the field can be dynamically retrieved. | Yes | - | `.systemProperties.partitionKey` |
+
+The following example shows a dynamic field definition:
+
+```json
+{
+    "some-field": {
+        "type": "dynamic",
+        "value": ".systemProperties.topic"
+    }
+}
+```
+
+## Retry
+
+Stages that call out to external services can use retries to handle temporary failures and improve reliability. You can override the default retry policy when you configure a stage.
+
+There are four possible retry policies:
+
+- `default`: The default retry policy is to use an exponential backoff retry with three retries and 500 ms initial retry interval.
+- `none`: No retries are performed.
+- `fixed`: A fixed retry policy retries a fixed number of times with a fixed interval between each retry.
+- `exponential`: An exponential retry policy retries a fixed number of times with an exponentially increasing interval between each retry.
+
+If you choose `default` or `none`, you don't need to provide any more configuration. If you choose `fixed` or `exponential`, you must provide more configuration:
+
+### Fixed
+
+| Field        | Type                  | Description                             | Required? | Default | Example |
+| ------------ | --------------------- | --------------------------------------- | --------- | ------- | ------- |
+| `type`       |  string               | The name of the retry type: `fixed`     | Yes       | N/A     | `fixed` |
+| `interval`   | [Duration](#duration) | Initial time period between each retry. | No        | `500ms` | `2s`    |
+| `maxRetries` | int                   | The number of retries, from `1` to `20` | No        | `3`     | `20`    |
+
+### Exponential
+
+| Field         | Type                  | Description                               | Required? | Default | Example       |
+| ------------- | --------------------- | ---------------------------------------   | --------- | ------- | ------------- |
+| `type`        |  string               | The name of the retry type: `exponential` | Yes       | N/A     | `exponential` |
+| `interval`    | [Duration](#duration) | Initial time period between each retry.   | No        | `500ms` | `2s`          |
+| `maxRetries`  | int                   | The number of retries, from `1` to `20`   | No        | `3`     | `20`          |
+| `maxInterval` | [Duration](#duration) | Maximum time period between each retry.   | No        | None    |`100s`         |
+
+Exponential retry times are calculated as follows: If the interval starts with `500ms`, the next few retry intervals are `randInt(500ms, 500ms * 2^1)`, `randInt(500ms, 500ms * 2^2)`, …, `randInt(500ms, 500ms * 2^maxRetries)`.
 
 ## Batch
 

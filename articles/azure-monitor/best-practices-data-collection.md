@@ -42,7 +42,7 @@ The following table shows the configuration steps required to collect all availa
 
 ### Collect tenant and subscription logs
 
-The [Microsoft Entra logs](../active-directory/reports-monitoring/overview-reports.md) for your tenant and the [activity log](essentials/platform-logs-overview.md) for your subscription are collected automatically. When you send them to a Log Analytics workspace, you can analyze these events with other log data by using log queries in Log Analytics. You can also create log query alerts, which are the only way to alert on Microsoft Entra logs and provide more complex logic than activity log alerts.
+The [Microsoft Entra logs](../active-directory/reports-monitoring/overview-reports.md) for your tenant and the [activity log](essentials/platform-logs-overview.md) for your subscription are collected automatically. When you send them to a Log Analytics workspace, you can analyze these events with other log data by using log queries in Log Analytics. You can also create log search alerts, which are the only way to alert on Microsoft Entra logs and provide more complex logic than activity log alerts.
 
 There's no cost for sending the activity log to a workspace, but there's a data ingestion and retention charge for Microsoft Entra logs.
 
@@ -66,7 +66,7 @@ Insights provide a specialized monitoring experience for a particular service. T
 
 There's no cost for insights, but you might be charged for any data they collect.
 
-See [What is monitored by Azure Monitor?](monitor-reference.md) for a list of available insights and solutions in Azure Monitor. See the documentation for each for any unique configuration or pricing information.
+See [Azure Monitor Insights overview](insights/insights-overview.md) for a list of available insights and solutions in Azure Monitor. See the documentation for each for any unique configuration or pricing information.
 
 > [!IMPORTANT]
 > The following insights are much more complex than others and have more guidance for their configuration:

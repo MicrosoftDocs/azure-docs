@@ -1,16 +1,13 @@
 ---
 title: What is Azure role-based access control (Azure RBAC)?
 description: Get an overview of Azure role-based access control (Azure RBAC). Use role assignments to control access to Azure resources.
-services: active-directory
 author: rolyon
 manager: amycolannino
 ms.service: role-based-access-control
 ms.topic: overview
-ms.workload: identity
-ms.date: 01/12/2022
+ms.date: 03/12/2024
 ms.author: rolyon
-ms.custom: contperf-fy21q1, azuread-video-2020
-
+ms.custom: azuread-video-2020
 #Customer intent: As a dev, devops, or it admin, I want to learn how permissions and roles work in Azure, so that I can better understand how to grant access to resources.
 ---
 
@@ -73,7 +70,7 @@ For more information about scope, see [Understand scope](scope-overview.md).
 
 A *role assignment* is the process of attaching a role definition to a user, group, service principal, or managed identity at a particular scope for the purpose of granting access. Access is granted by creating a role assignment, and access is revoked by removing a role assignment.
 
-The following diagram shows an example of a role assignment. In this example, the Marketing group has been assigned the [Contributor](built-in-roles.md#contributor) role for the pharma-sales resource group. This means that users in the Marketing group can create or manage any Azure resource in the pharma-sales resource group. Marketing users do not have access to resources outside the pharma-sales resource group, unless they are part of another role assignment.
+The following diagram shows an example of a role assignment. In this example, the Marketing group has been assigned the [Contributor](built-in-roles.md#contributor) role for the pharma-sales resource group. This means that users in the Marketing group can create or manage any Azure resource in the pharma-sales resource group. Marketing users don't have access to resources outside the pharma-sales resource group, unless they're part of another role assignment.
 
 ![Diagram showing how security principal, role definition, and scope create a role assignment.](./media/overview/rbac-overview.png)
 
@@ -83,7 +80,7 @@ For more information, see [Steps to assign an Azure role](role-assignments-steps
 
 ## Groups
 
-Role assignments are transitive for groups which means that if a user is a member of a group and that group is a member of another group that has a role assignment, the user will have the permissions in the role assignment.
+Role assignments are transitive for groups, which means that if a user is a member of a group and that group is a member of another group that has a role assignment, the user has the permissions in the role assignment.
 
 ![Diagram showing how role assignments are transitive for groups.](./media/overview/rbac-groups-transitive.png)
 
@@ -93,15 +90,9 @@ So what happens if you have multiple overlapping role assignments? Azure RBAC is
 
 ![Diagram showing how multiple role assignments overlap.](./media/overview/rbac-multiple-roles.png)
 
-## Deny assignments
-
-Previously, Azure RBAC was an allow-only model with no deny, but now Azure RBAC supports deny assignments in a limited way. Similar to a role assignment, a *deny assignment* attaches a set of deny actions to a user, group, service principal, or managed identity at a particular scope for the purpose of denying access. A role assignment defines a set of actions that are *allowed*, while a deny assignment defines a set of actions that are *not allowed*. In other words, deny assignments block users from performing specified actions even if a role assignment grants them access. Deny assignments take precedence over role assignments.
-
-For more information, see [Understand Azure deny assignments](deny-assignments.md).
-
 ## How Azure RBAC determines if a user has access to a resource
 
-The following are the high-level steps that Azure RBAC uses to determine if you have access to a resource. These steps apply to Azure Resource Manager or data plane services integrated with Azure RBAC. This is helpful to understand if you are trying to troubleshoot an access issue.
+The following are the high-level steps that Azure RBAC uses to determine if you have access to a resource. These steps apply to Azure Resource Manager or data plane services integrated with Azure RBAC. This is helpful to understand if you're trying to troubleshoot an access issue.
 
 1. A user (or service principal) acquires a token for Azure Resource Manager.
 
@@ -121,11 +112,11 @@ The following are the high-level steps that Azure RBAC uses to determine if you 
 
     `DataActions - NotDataActions = Effective data permissions`
 
-1. If the user doesn't have a role with the action at the requested scope, access is not allowed. Otherwise, any conditions are evaluated.
+1. If the user doesn't have a role with the action at the requested scope, access isn't allowed. Otherwise, any conditions are evaluated.
 
-1. If the role assignment includes conditions, they are evaluated. Otherwise access is allowed.
+1. If the role assignment includes conditions, they're evaluated. Otherwise access is allowed.
 
-1. If conditions are met, access is allowed. Otherwise access is not allowed.
+1. If conditions are met, access is allowed. Otherwise access isn't allowed.
 
 The following diagram is a summary of the evaluation logic.
 
@@ -139,7 +130,7 @@ When a role assignment or any other Azure RBAC data is deleted, the data is glob
 
 ## Why is Azure RBAC data global?
 
-Azure RBAC data is global to ensure that customers can timely access resources regardless from where they are accessing. Azure RBAC is enforced by Azure Resource Manager, which has a global endpoint and requests are routed to the nearest region for speed and resilience. Therefore, Azure RBAC must be enforced in all regions and the data is replicated to all regions. For more information, see [Resiliency of Azure Resource Manager](../azure-resource-manager/management/overview.md#resiliency-of-azure-resource-manager).
+Azure RBAC data is global to ensure that customers can timely access resources regardless from where they're accessing. Azure RBAC is enforced by Azure Resource Manager, which has a global endpoint and requests are routed to the nearest region for speed and resilience. Therefore, Azure RBAC must be enforced in all regions and the data is replicated to all regions. For more information, see [Resiliency of Azure Resource Manager](../azure-resource-manager/management/overview.md#resiliency-of-azure-resource-manager).
 
 Consider the following example. Arina creates a virtual machine in East Asia. Bob, who is a member of Arina's team, works in the United States. Bob needs to access the virtual machine that was created in East Asia. To grant Bob timely access to the virtual machine, Azure needs to globally replicate the role assignment that grants Bob access to the virtual machine from anywhere Bob is.
 
@@ -147,10 +138,10 @@ Consider the following example. Arina creates a virtual machine in East Asia. Bo
 
 ## License requirements
 
-[!INCLUDE [Azure AD free license](../../includes/active-directory-free-license.md)]
+[!INCLUDE [Free license](./includes/license-free.md)]
 
 ## Next steps
 
-- [Assign Azure roles using the Azure portal](role-assignments-portal.md)
+- [Assign Azure roles using the Azure portal](role-assignments-portal.yml)
 - [Understand the different roles](rbac-and-directory-admin-roles.md)
 - [Cloud Adoption Framework: Resource access management in Azure](/azure/cloud-adoption-framework/govern/resource-consistency/resource-access-management)

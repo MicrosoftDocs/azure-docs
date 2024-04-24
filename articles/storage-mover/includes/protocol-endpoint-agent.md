@@ -2,29 +2,22 @@
 author: stevenmatthew
 ms.author: shaas
 ms.topic: include
-ms.date: 10/30/2023
+ms.date: 06/02/2024
 ms.service: azure-storage-mover
 ---
 <!-- 
 !########################################################
-STATUS: In-progress
 
-CONTENT: Draft
-
-REVIEW Stephen/Fabian: Not started
-
-Document score: 100 (103 words and 0 issues)
+ATTENTION: 
+This is an include for several Storage Mover articles.
+Handle file and content with care.
 
 !########################################################
 -->
 
-<!--The current Azure Storage Mover release supports migrations from NFS or SMB source shares on a NAS or server device within your network. Data from SMB source shares can be migrated to Azure file shares, while files hosted on NFS shares can be migrated to Azure blob containers.-->
+The current Azure Storage Mover release supports full-fidelity migrations for specific source-target pair combinations. Always utilize the latest agent version to benefit from these supported sources and destinations:
 
-The current Azure Storage Mover release supports only certain, specific source-target pair migration path scenarios. One supported source-target pair consists of an NFS share on a NAS or server device within your network and an Azure blob container. Another pair consists of an SMB share and an Azure file share. Migrating data between other source-target pairs, such as source data on an NFS share to an Azure file share target, is currently unsupported.
-
-The following table identifies the currently supported source-to-destination scenarios:
-
-|Protocol   |Source        |Target                          |Agent version required |
-|-----------|--------------|--------------------------------|-----------------------|
-|SMB        |SMB mount     |Azure file share                |2.0.287                |
-|NFS        |NFS mount     |Azure blob storage container    |1.1.256                |
+|Source protocol   |Target                          |Comments                                                               |
+|------------------|--------------------------------|-----------------------------------------------------------------------|
+|SMB 2.x mount     |Azure file share (SMB)          |SMB 1.x sources and NFS Azure file shares are currently not supported. |
+|NFS 3 & 4 mount   |Azure blob storage container    |Containers with the "Hierarchical Namespace Service (HNS)" feature enabled, are supported and the ADLS Gen2 REST API set is used for migration.|

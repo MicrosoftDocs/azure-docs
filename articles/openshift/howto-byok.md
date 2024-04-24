@@ -7,7 +7,7 @@ ms.service: azure-redhat-openshift
 keywords: encryption, byok, deploy, openshift, red hat, key
 ms.topic: how-to
 ms.date: 05/05/2023
-ms.custom: template-how-to, ignite-fall-2021, devx-track-azurecli 
+ms.custom: template-how-to, devx-track-azurecli
 ms.devlang: azurecli
 ---
 

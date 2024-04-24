@@ -8,7 +8,6 @@ author: bandersmsft
 ms.author: banders
 ms.reviewer: sapnakeshari
 ms.topic: article
-ms.workload: azure-government
 ms.date: 11/08/2023
 ---
 

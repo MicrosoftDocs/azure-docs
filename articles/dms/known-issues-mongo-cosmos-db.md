@@ -9,9 +9,7 @@ ms.date: 05/18/2022
 ms.service: dms
 ms.topic: troubleshooting
 ms.custom:
-  - seo-lt-2019
   - kr2b-contr-experiment
-  - ignite-2022
   - sql-migration-content
 ---
 

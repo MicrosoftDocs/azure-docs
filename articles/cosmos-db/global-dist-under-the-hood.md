@@ -1,9 +1,8 @@
 ---
-title: Global distribution with Azure Cosmos DB- under the hood 
+title: Global distribution with Azure Cosmos DB- under the hood
 description: This article provides technical details relating to global distribution of Azure Cosmos DB
 author: seesharprun
 ms.service: cosmos-db
-ms.custom: ignite-2022
 ms.topic: conceptual
 ms.date: 07/02/2020
 ms.author: sidandrews
@@ -88,7 +87,7 @@ The semantics of the five consistency models in Azure Cosmos DB are described [h
 
 Next learn how to configure global distribution by using the following articles:
 
-* [Add/remove regions from your database account](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
+* [Add/remove regions from your database account](how-to-manage-database-account.yml#add-remove-regions-from-your-database-account)
 * [How to create a custom conflict resolution policy](how-to-manage-conflicts.md#create-a-custom-conflict-resolution-policy)
 * Trying to do capacity planning for a migration to Azure Cosmos DB? You can use information about your existing database cluster for capacity planning.
     * If all you know is the number of vcores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](convert-vcore-to-request-unit.md) 

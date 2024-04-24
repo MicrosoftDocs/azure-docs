@@ -123,11 +123,9 @@
         href: schema-registry-concepts.md   
       - name: Client-side schema enforcement
         href: schema-registry-client-side-enforcement.md
-    - name: Event processing using SDKs
+    - name: Event processing
       items: 
-      - name: Event processor host (legacy SDK)
-        href: event-hubs-event-processor-host.md
-      - name: Event processor (latest SDK)
+      - name: Event processor
         href: event-processor-balance-partition-load.md
       - name: Event processing with no code editor
         href: ../stream-analytics/no-code-stream-processing.md?toc=/azure/event-hubs/toc.json
@@ -345,9 +343,9 @@
     - name: Move
       items:
       - name: Move a namespace to another region
-        href: move-across-regions.md
+        href: ../operational-excellence/relocation-event-hub.md?toc=/azure/event-hubs/TOC.json
       - name: Move a dedicated cluster to another region
-        href: move-cluster-across-regions.md
+        href: ../operational-excellence/relocation-event-hub-cluster.md?toc=/azure/event-hubs/TOC.json
 - name: Reference
   items:
     - name: Monitor data Reference

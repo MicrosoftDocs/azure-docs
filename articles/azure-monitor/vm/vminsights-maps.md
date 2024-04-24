@@ -2,10 +2,10 @@
 title: View app dependencies with VM insights
 description: This article shows how to use the VM insights Map feature. It discovers application components on Windows and Linux systems and maps the communication between services.
 ms.topic: conceptual
+ms.custom: linux-related-content
 author: guywi-ms
 ms.author: guywild
 ms.date: 09/28/2023
-
 ---
 
 # Use the Map feature of VM insights to understand application components
@@ -26,12 +26,13 @@ To enable the Map feature in VM insights, the virtual machine requires one of th
 - Azure Monitor Agent with processes and dependencies enabled.
 - The Log Analytics agent enabled for VM insights.
 
+[!INCLUDE [Log Analytics agent deprecation](../../../includes/log-analytics-agent-deprecation.md)]
+
 For more information, see [Enable VM insights on unmonitored machine](vminsights-enable-overview.md).
 
 > [!WARNING]
 > Collecting duplicate data from a single machine with both Azure Monitor Agent and the Log Analytics agent can result in the Map feature of VM insights being inaccurate because it doesn't check for duplicate data.
->
-> For more information, see [Migrate from the Log Analytics agent](vminsights-enable-overview.md#migrate-from-log-analytics-agent-to-azure-monitor-agent).
+
 
 ## Introduction to the Map experience
 Before diving into the Map experience, you should understand how it presents and visualizes information.

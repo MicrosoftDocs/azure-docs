@@ -5,7 +5,7 @@ author: mksuni
 ms.author: sumuth
 ms.service: mysql
 ms.subservice: flexible-server
-ms.custom: mvc, devcenter, devx-track-azurecli, mode-api, devx-track-extended-java, linux-related-content
+ms.custom: mvc, devcenter, devx-track-azurecli, mode-api, devx-track-extended-java
 ms.topic: quickstart
 ms.devlang: java
 ms.date: 05/03/2023

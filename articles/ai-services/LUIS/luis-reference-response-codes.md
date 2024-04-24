@@ -6,12 +6,10 @@ description:  Understand what HTTP response codes are returned from the LUIS Aut
 author: aahill
 ms.author: aahi
 manager: nitinme
-ms.custom: seodec18
 ms.service: azure-ai-language
 ms.subservice: azure-ai-luis
 ms.topic: reference
 ms.date: 01/19/2024
-
 ---
 
 # Common API response codes and their meaning

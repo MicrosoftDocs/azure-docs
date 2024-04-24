@@ -1,26 +1,20 @@
 ---
-title: Migrating to the Read v3.x containers
+title: Migrate to v3.x of the Read OCR container
 titleSuffix: Azure AI services
-description: Learn how to migrate to the v3 Read OCR containers
+description: Learn how to migrate to the v3 Read OCR containers.
 #services: cognitive-services 
 author: aahill
 manager: nitinme
 ms.service: azure-ai-vision
 ms.topic: how-to
-ms.date: 09/28/2021
+ms.date: 02/27/2024
 ms.author: aahi
 ms.custom: cogserv-non-critical-vision
 ---
 
-# Migrate to the Read v3.x OCR containers
+# Migrate to v3.x of the Read OCR container
 
-If you're using version 2 of the Azure AI Vision Read OCR container, Use this article to learn about upgrading your application to use version 3.x of the container. 
-
-
-## Configuration changes
-
-* `ReadEngineConfig:ResultExpirationPeriod` is no longer supported. The Read OCR container has a built Cron job that removes the results and metadata associated with a request after 48 hours.
-* `Cache:Redis:Configuration` is no longer supported. The Cache isn't used in the v3.x containers, so you don't need to set it.
+If you're using version 2 of the Azure AI Vision Read OCR container, use this article to learn how to upgrade your application to use version 3.x of the container.
 
 ## API changes
 
@@ -30,7 +24,12 @@ The Read v3.2 container uses version 3 of the Azure AI Vision API and has the fo
 * `/vision/v3.2/read/analyze`
 * `/vision/v3.2/read/syncAnalyze`
 
-See the [Azure AI Vision v3 REST API migration guide](./upgrade-api-versions.md) for detailed information on updating your applications to use version 3 of cloud-based Read API. This information applies to the container as well. Sync operations are only supported in containers.
+See the [Azure AI Vision v3 REST API migration guide](./upgrade-api-versions.md) for detailed information on updating your applications to use version 3 of the Read API. Synchronous operations are only supported in containers.
+
+## Configuration changes
+
+* `ReadEngineConfig:ResultExpirationPeriod` is no longer supported. The Read OCR container has a built Cron job that removes the results and metadata associated with a request after 48 hours.
+* `Cache:Redis:Configuration` is no longer supported. The Cache isn't used in the v3.x containers, so you don't need to set it.
 
 ## Memory requirements
 

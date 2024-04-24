@@ -4,7 +4,6 @@ description: Learn how to use a template to deploy Azure Spot Virtual Machines t
 author: ju-shim
 ms.service: virtual-machines
 ms.subservice: spot
-ms.workload: infrastructure-services
 ms.custom: linux-related-content
 ms.topic: how-to
 ms.date: 05/31/2023

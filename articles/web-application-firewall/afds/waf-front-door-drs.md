@@ -5,12 +5,12 @@ ms.service: web-application-firewall
 author: vhorne
 ms.author: victorh
 ms.topic: conceptual
-ms.date: 10/25/2022
+ms.date: 02/29/2024
 ---
 
 # Web Application Firewall DRS rule groups and rules
 
-Azure Web Application Firewall on Azure Front Door protects web applications from common vulnerabilities and exploits. Azure-managed rule sets provide an easy way to deploy protection against a common set of security threats. Because such rule sets are managed by Azure, the rules are updated as needed to protect against new attack signatures.
+Azure Web Application Firewall on Azure Front Door protects web applications from common vulnerabilities and exploits. Azure-managed rule sets provide an easy way to deploy protection against a common set of security threats. Because Azure manages these rule sets, the rules are updated as needed to protect against new attack signatures.
 
 The Default Rule Set (DRS) also includes the Microsoft Threat Intelligence Collection rules that are written in partnership with the Microsoft Intelligence team to provide increased coverage, patches for specific vulnerabilities, and better false positive reduction.
 
@@ -42,7 +42,7 @@ Custom rules are always applied before rules in the DRS are evaluated. If a requ
 
 The Microsoft Threat Intelligence Collection rules are written in partnership with the Microsoft Threat Intelligence team to provide increased coverage, patches for specific vulnerabilities, and better false positive reduction.
 
-Some of the built-in DRS rules are disabled by default because they've been replaced by newer rules in the Microsoft Threat Intelligence Collection rules. For example, rule ID 942440, *SQL Comment Sequence Detected*, has been disabled and replaced by the Microsoft Threat Intelligence Collection rule 99031002. The replaced rule reduces the risk of false positive detections from legitimate requests.
+By default, the Microsoft Threat Intelligence Collection rules replace some of the built-in DRS rules, causing them to be disabled. For example, rule ID 942440, *SQL Comment Sequence Detected*, has been disabled and replaced by the Microsoft Threat Intelligence Collection rule 99031002. The replaced rule reduces the risk of false positive detections from legitimate requests.
 
 ### <a name="anomaly-scoring-mode"></a>Anomaly scoring
 
@@ -59,7 +59,7 @@ When you configure your WAF, you can decide how the WAF handles requests that ex
 
 For example, if the anomaly score is 5 or greater on a request, and the WAF is in Prevention mode with the anomaly score action set to Block, the request is blocked. If the anomaly score is 5 or greater on a request, and the WAF is in Detection mode, the request is logged but not blocked.
 
-A single *Critical* rule match is enough for the WAF to block a request when in Prevention mode with the anomaly score action set to Block because the overall anomaly score is 5. However, one *Warning* rule match only increases the anomaly score by 3, which isn't enough by itself to block the traffic. When an anomaly rule is triggered, it shows a "matched" action in the logs. If the anomaly score is 5 or greater, there will be a separate rule triggered with the anomaly score action configured for the rule set. Default anomaly score action is Block, which results in a log entry with the action `blocked`.
+A single *Critical* rule match is enough for the WAF to block a request when in Prevention mode with the anomaly score action set to Block because the overall anomaly score is 5. However, one *Warning* rule match only increases the anomaly score by 3, which isn't enough by itself to block the traffic. When an anomaly rule is triggered, it shows a "matched" action in the logs. If the anomaly score is 5 or greater, there a separate rule is triggered with the anomaly score action configured for the rule set. Default anomaly score action is Block, which results in a log entry with the action `blocked`.
 
 When your WAF uses an older version of the Default Rule Set (before DRS 2.0), your WAF runs in the traditional mode. Traffic that matches any rule is considered independently of any other rule matches. In traditional mode, you don't have visibility into the complete set of rules that a specific request matched.
 
@@ -74,25 +74,25 @@ DRS 2.1 includes 17 rule groups, as shown in the following table. Each group con
 > [!NOTE]
 > DRS 2.1 is only available on Azure Front Door Premium.
 
-|Rule group|Description|
-|---|---|
-|[General](#general-21)|General group|
-|[METHOD-ENFORCEMENT](#drs911-21)|Lock-down methods (PUT, PATCH)|
-|[PROTOCOL-ENFORCEMENT](#drs920-21)|Protect against protocol and encoding issues|
-|[PROTOCOL-ATTACK](#drs921-21)|Protect against header injection, request smuggling, and response splitting|
-|[APPLICATION-ATTACK-LFI](#drs930-21)|Protect against file and path attacks|
-|[APPLICATION-ATTACK-RFI](#drs931-21)|Protect against remote file inclusion (RFI) attacks|
-|[APPLICATION-ATTACK-RCE](#drs932-21)|Protect again remote code execution attacks|
-|[APPLICATION-ATTACK-PHP](#drs933-21)|Protect against PHP-injection attacks|
-|[APPLICATION-ATTACK-NodeJS](#drs934-21)|Protect against Node JS attacks|
-|[APPLICATION-ATTACK-XSS](#drs941-21)|Protect against cross-site scripting attacks|
-|[APPLICATION-ATTACK-SQLI](#drs942-21)|Protect against SQL-injection attacks|
-|[APPLICATION-ATTACK-SESSION-FIXATION](#drs943-21)|Protect against session-fixation attacks|
-|[APPLICATION-ATTACK-SESSION-JAVA](#drs944-21)|Protect against JAVA attacks|
-|[MS-ThreatIntel-WebShells](#drs9905-21)|Protect against Web shell attacks|
-|[MS-ThreatIntel-AppSec](#drs9903-21)|Protect against AppSec attacks|
-|[MS-ThreatIntel-SQLI](#drs99031-21)|Protect against SQLI attacks|
-|[MS-ThreatIntel-CVEs](#drs99001-21)|Protect against CVE attacks|
+|Rule group|Managed rule group ID|Description|
+|---|---|---|
+|[General](#general-21)|General|General group|
+|[METHOD-ENFORCEMENT](#drs911-21)|METHOD-ENFORCEMENT|Lock-down methods (PUT, PATCH)|
+|[PROTOCOL-ENFORCEMENT](#drs920-21)|PROTOCOL-ENFORCEMENT|Protect against protocol and encoding issues|
+|[PROTOCOL-ATTACK](#drs921-21)|PROTOCOL-ATTACK|Protect against header injection, request smuggling, and response splitting|
+|[APPLICATION-ATTACK-LFI](#drs930-21)|LFI|Protect against file and path attacks|
+|[APPLICATION-ATTACK-RFI](#drs931-21)|RFI|Protect against remote file inclusion (RFI) attacks|
+|[APPLICATION-ATTACK-RCE](#drs932-21)|RCE|Protect again remote code execution attacks|
+|[APPLICATION-ATTACK-PHP](#drs933-21)|PHP|Protect against PHP-injection attacks|
+|[APPLICATION-ATTACK-NodeJS](#drs934-21)|NODEJS|Protect against Node JS attacks|
+|[APPLICATION-ATTACK-XSS](#drs941-21)|XSS|Protect against cross-site scripting attacks|
+|[APPLICATION-ATTACK-SQLI](#drs942-21)|SQLI|Protect against SQL-injection attacks|
+|[APPLICATION-ATTACK-SESSION-FIXATION](#drs943-21)|FIX|Protect against session-fixation attacks|
+|[APPLICATION-ATTACK-SESSION-JAVA](#drs944-21)|JAVA|Protect against JAVA attacks|
+|[MS-ThreatIntel-WebShells](#drs9905-21)|MS-ThreatIntel-WebShells|Protect against Web shell attacks|
+|[MS-ThreatIntel-AppSec](#drs9903-21)|MS-ThreatIntel-AppSec|Protect against AppSec attacks|
+|[MS-ThreatIntel-SQLI](#drs99031-21)|MS-ThreatIntel-SQLI|Protect against SQLI attacks|
+|[MS-ThreatIntel-CVEs](#drs99001-21)|MS-ThreatIntel-CVEs|Protect against CVE attacks|
 
 #### Disabled rules
 
@@ -120,58 +120,58 @@ DRS 2.0 includes 17 rule groups, as shown in the following table. Each group con
 > [!NOTE]
 > DRS 2.0 is only available on Azure Front Door Premium.
 
-|Rule group|Description|
-|---|---|
-|[General](#general-20)|General group|
-|[METHOD-ENFORCEMENT](#drs911-20)|Lock-down methods (PUT, PATCH)|
-|[PROTOCOL-ENFORCEMENT](#drs920-20)|Protect against protocol and encoding issues|
-|[PROTOCOL-ATTACK](#drs921-20)|Protect against header injection, request smuggling, and response splitting|
-|[APPLICATION-ATTACK-LFI](#drs930-20)|Protect against file and path attacks|
-|[APPLICATION-ATTACK-RFI](#drs931-20)|Protect against remote file inclusion (RFI) attacks|
-|[APPLICATION-ATTACK-RCE](#drs932-20)|Protect again remote code execution attacks|
-|[APPLICATION-ATTACK-PHP](#drs933-20)|Protect against PHP-injection attacks|
-|[APPLICATION-ATTACK-NodeJS](#drs934-20)|Protect against Node JS attacks|
-|[APPLICATION-ATTACK-XSS](#drs941-20)|Protect against cross-site scripting attacks|
-|[APPLICATION-ATTACK-SQLI](#drs942-20)|Protect against SQL-injection attacks|
-|[APPLICATION-ATTACK-SESSION-FIXATION](#drs943-20)|Protect against session-fixation attacks|
-|[APPLICATION-ATTACK-SESSION-JAVA](#drs944-20)|Protect against JAVA attacks|
-|[MS-ThreatIntel-WebShells](#drs9905-20)|Protect against Web shell attacks|
-|[MS-ThreatIntel-AppSec](#drs9903-20)|Protect against AppSec attacks|
-|[MS-ThreatIntel-SQLI](#drs99031-20)|Protect against SQLI attacks|
-|[MS-ThreatIntel-CVEs](#drs99001-20)|Protect against CVE attacks|
+|Rule group|Managed rule group ID|Description|
+|---|---|---|
+|[General](#general-20)|General|General group|
+|[METHOD-ENFORCEMENT](#drs911-20)|METHOD-ENFORCEMENT|Lock-down methods (PUT, PATCH)|
+|[PROTOCOL-ENFORCEMENT](#drs920-20)|PROTOCOL-ENFORCEMENT|Protect against protocol and encoding issues|
+|[PROTOCOL-ATTACK](#drs921-20)|PROTOCOL-ATTACK|Protect against header injection, request smuggling, and response splitting|
+|[APPLICATION-ATTACK-LFI](#drs930-20)|LFI|Protect against file and path attacks|
+|[APPLICATION-ATTACK-RFI](#drs931-20)|RFI|Protect against remote file inclusion (RFI) attacks|
+|[APPLICATION-ATTACK-RCE](#drs932-20)|RCE|Protect again remote code execution attacks|
+|[APPLICATION-ATTACK-PHP](#drs933-20)|PHP|Protect against PHP-injection attacks|
+|[APPLICATION-ATTACK-NodeJS](#drs934-20)|NODEJS|Protect against Node JS attacks|
+|[APPLICATION-ATTACK-XSS](#drs941-20)|XSS|Protect against cross-site scripting attacks|
+|[APPLICATION-ATTACK-SQLI](#drs942-20)|SQLI|Protect against SQL-injection attacks|
+|[APPLICATION-ATTACK-SESSION-FIXATION](#drs943-20)|FIX|Protect against session-fixation attacks|
+|[APPLICATION-ATTACK-SESSION-JAVA](#drs944-20)|JAVA|Protect against JAVA attacks|
+|[MS-ThreatIntel-WebShells](#drs9905-20)|MS-ThreatIntel-WebShells|Protect against Web shell attacks|
+|[MS-ThreatIntel-AppSec](#drs9903-20)|MS-ThreatIntel-AppSec|Protect against AppSec attacks|
+|[MS-ThreatIntel-SQLI](#drs99031-20)|MS-ThreatIntel-SQLI|Protect against SQLI attacks|
+|[MS-ThreatIntel-CVEs](#drs99001-20)|MS-ThreatIntel-CVEs|Protect against CVE attacks|
 
 ### DRS 1.1
-|Rule group|Description|
-|---|---|
-|[PROTOCOL-ATTACK](#drs921-11)|Protect against header injection, request smuggling, and response splitting|
-|[APPLICATION-ATTACK-LFI](#drs930-11)|Protect against file and path attacks|
-|[APPLICATION-ATTACK-RFI](#drs931-11)|Protection against remote file inclusion attacks|
-|[APPLICATION-ATTACK-RCE](#drs932-11)|Protection against remote command execution|
-|[APPLICATION-ATTACK-PHP](#drs933-11)|Protect against PHP-injection attacks|
-|[APPLICATION-ATTACK-XSS](#drs941-11)|Protect against cross-site scripting attacks|
-|[APPLICATION-ATTACK-SQLI](#drs942-11)|Protect against SQL-injection attacks|
-|[APPLICATION-ATTACK-SESSION-FIXATION](#drs943-11)|Protect against session-fixation attacks|
-|[APPLICATION-ATTACK-SESSION-JAVA](#drs944-11)|Protect against JAVA attacks|
-|[MS-ThreatIntel-WebShells](#drs9905-11)|Protect against Web shell attacks|
-|[MS-ThreatIntel-AppSec](#drs9903-11)|Protect against AppSec attacks|
-|[MS-ThreatIntel-SQLI](#drs99031-11)|Protect against SQLI attacks|
-|[MS-ThreatIntel-CVEs](#drs99001-11)|Protect against CVE attacks|
+|Rule group|Managed rule group ID|Description|
+|---|---|---|
+|[PROTOCOL-ATTACK](#drs921-11)|PROTOCOL-ATTACK|Protect against header injection, request smuggling, and response splitting|
+|[APPLICATION-ATTACK-LFI](#drs930-11)|LFI|Protect against file and path attacks|
+|[APPLICATION-ATTACK-RFI](#drs931-11)|RFI|Protection against remote file inclusion attacks|
+|[APPLICATION-ATTACK-RCE](#drs932-11)|RCE|Protection against remote command execution|
+|[APPLICATION-ATTACK-PHP](#drs933-11)|PHP|Protect against PHP-injection attacks|
+|[APPLICATION-ATTACK-XSS](#drs941-11)|XSS|Protect against cross-site scripting attacks|
+|[APPLICATION-ATTACK-SQLI](#drs942-11)|SQLI|Protect against SQL-injection attacks|
+|[APPLICATION-ATTACK-SESSION-FIXATION](#drs943-11)|FIX|Protect against session-fixation attacks|
+|[APPLICATION-ATTACK-SESSION-JAVA](#drs944-11)|JAVA|Protect against JAVA attacks|
+|[MS-ThreatIntel-WebShells](#drs9905-11)|MS-ThreatIntel-WebShells|Protect against Web shell attacks|
+|[MS-ThreatIntel-AppSec](#drs9903-11)|MS-ThreatIntel-AppSec|Protect against AppSec attacks|
+|[MS-ThreatIntel-SQLI](#drs99031-11)|MS-ThreatIntel-SQLI|Protect against SQLI attacks|
+|[MS-ThreatIntel-CVEs](#drs99001-11)|MS-ThreatIntel-CVEs|Protect against CVE attacks|
 
 ### DRS 1.0
 
-|Rule group|Description|
-|---|---|
-|[PROTOCOL-ATTACK](#drs921-10)|Protect against header injection, request smuggling, and response splitting|
-|[APPLICATION-ATTACK-LFI](#drs930-10)|Protect against file and path attacks|
-|[APPLICATION-ATTACK-RFI](#drs931-10)|Protection against remote file inclusion attacks|
-|[APPLICATION-ATTACK-RCE](#drs932-10)|Protection against remote command execution|
-|[APPLICATION-ATTACK-PHP](#drs933-10)|Protect against PHP-injection attacks|
-|[APPLICATION-ATTACK-XSS](#drs941-10)|Protect against cross-site scripting attacks|
-|[APPLICATION-ATTACK-SQLI](#drs942-10)|Protect against SQL-injection attacks|
-|[APPLICATION-ATTACK-SESSION-FIXATION](#drs943-10)|Protect against session-fixation attacks|
-|[APPLICATION-ATTACK-SESSION-JAVA](#drs944-10)|Protect against JAVA attacks|
-|[MS-ThreatIntel-WebShells](#drs9905-10)|Protect against Web shell attacks|
-|[MS-ThreatIntel-CVEs](#drs99001-10)|Protect against CVE attacks|
+|Rule group|Managed rule group ID|Description|
+|---|---|---|
+|[PROTOCOL-ATTACK](#drs921-10)|PROTOCOL-ATTACK|Protect against header injection, request smuggling, and response splitting|
+|[APPLICATION-ATTACK-LFI](#drs930-10)|LFI|Protect against file and path attacks|
+|[APPLICATION-ATTACK-RFI](#drs931-10)|RFI|Protection against remote file inclusion attacks|
+|[APPLICATION-ATTACK-RCE](#drs932-10)|RCE|Protection against remote command execution|
+|[APPLICATION-ATTACK-PHP](#drs933-10)|PHP|Protect against PHP-injection attacks|
+|[APPLICATION-ATTACK-XSS](#drs941-10)|XSS|Protect against cross-site scripting attacks|
+|[APPLICATION-ATTACK-SQLI](#drs942-10)|SQLI|Protect against SQL-injection attacks|
+|[APPLICATION-ATTACK-SESSION-FIXATION](#drs943-10)|FIX|Protect against session-fixation attacks|
+|[APPLICATION-ATTACK-SESSION-JAVA](#drs944-10)|JAVA|Protect against JAVA attacks|
+|[MS-ThreatIntel-WebShells](#drs9905-10)|MS-ThreatIntel-WebShells|Protect against Web shell attacks|
+|[MS-ThreatIntel-CVEs](#drs99001-10)|MS-ThreatIntel-CVEs|Protect against CVE attacks|
 
 ### Bot rules
 

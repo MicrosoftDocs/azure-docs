@@ -4,7 +4,7 @@ description: Overview of how data collection endpoints work and how to create an
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 07/17/2023
+ms.date: 03/18/2024
 ms.custom: references_region
 ms.reviwer: nikeist
 
@@ -56,11 +56,14 @@ This table describes the components of a data collection endpoint, related regio
       
      :::image type="content" source="media/data-collection-endpoint-overview/data-collection-endpoint-regionality-multiple-workspaces.png" alt-text="A diagram that shows monitored resources in multiple regions sending data to multiple Log Analytics workspaces in different regions using data collection endpoints." lightbox="media/data-collection-endpoint-overview/data-collection-endpoint-regionality-multiple-workspaces.png":::
 
+> [!NOTE]
+> By default, the Microsoft.Insights resource provider isnt registered in a Subscription. Ensure to register it successfully before trying to create a Data Collection Endpoint.
+
 ## Create a data collection endpoint
 
 # [Azure portal](#tab/portal)
 
-1. On the **Azure Monitor** menu in the Azure portal, select **Data Collection Endpoints** under the **Settings** section. Select **Create** to create a new DCR and assignment.
+1. On the **Azure Monitor** menu in the Azure portal, select **Data Collection Endpoints** under the **Settings** section. Select **Create** to create a new Data Collection Endpoint.
    <!-- convertborder later -->
    :::image type="content" source="media/data-collection-endpoint-overview/data-collection-endpoint-overview.png" lightbox="media/data-collection-endpoint-overview/data-collection-endpoint-overview.png" alt-text="Screenshot that shows data collection endpoints." border="false":::
 
@@ -79,11 +82,44 @@ Create associations between endpoints to your target machines or resources by us
 ---
 
 ## Sample data collection endpoint
-For a sample DCE, see [Sample data collection endpoint](data-collection-endpoint-sample.md).
+The sample data collection endpoint (DCE) below is for virtual machines with Azure Monitor agent, with public network access disabled so that agent only uses private links to communicate and send data to Azure Monitor/Log Analytics.
 
+```json
+{
+  "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxx/resourceGroups/myResourceGroup/providers/Microsoft.Insights/dataCollectionEndpoints/myCollectionEndpoint",
+  "name": "myCollectionEndpoint",
+  "type": "Microsoft.Insights/dataCollectionEndpoints",
+  "location": "eastus",
+  "tags": {
+    "tag1": "A",
+    "tag2": "B"
+  },
+  "properties": {
+    "configurationAccess": {
+      "endpoint": "https://mycollectionendpoint-abcd.eastus-1.control.monitor.azure.com"
+    },
+    "logsIngestion": {
+      "endpoint": "https://mycollectionendpoint-abcd.eastus-1.ingest.monitor.azure.com"
+    },
+    "networkAcls": {
+      "publicNetworkAccess": "Disabled"
+    }
+  },
+  "systemData": {
+    "createdBy": "user1",
+    "createdByType": "User",
+    "createdAt": "yyyy-mm-ddThh:mm:ss.sssssssZ",
+    "lastModifiedBy": "user2",
+    "lastModifiedByType": "User",
+    "lastModifiedAt": "yyyy-mm-ddThh:mm:ss.sssssssZ"
+  },
+  "etag": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+}
+```
 
 ## Limitations
-- Data collection endpoints only support Log Analytics workspaces as a destination for collected data. [Custom metrics (preview)](../essentials/metrics-custom-overview.md) collected and uploaded via Azure Monitor Agent aren't currently controlled by DCEs. Data collection endpoints also can't be configured over private links.
+
+- Data collection endpoints only support Log Analytics workspaces as a destination for collected data. [Custom metrics (preview)](../essentials/metrics-custom-overview.md) collected and uploaded via Azure Monitor Agent aren't currently controlled by DCEs.
 
 - Data collection endpoints are where [Logs ingestion API ingestion limits](../service-limits.md#logs-ingestion-api) are applied.
 

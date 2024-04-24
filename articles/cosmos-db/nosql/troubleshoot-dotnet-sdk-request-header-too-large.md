@@ -9,7 +9,7 @@ ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: troubleshooting
 ms.date: 02/27/2023
-ms.custom: devx-track-dotnet, ignite-2022
+ms.custom: devx-track-dotnet
 ---
 
 # Diagnose and troubleshoot "request header too large" or "bad request" messages in Azure Cosmos DB SDK for .NET

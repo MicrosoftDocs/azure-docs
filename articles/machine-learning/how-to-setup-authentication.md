@@ -4,13 +4,13 @@ titleSuffix: Azure Machine Learning
 description: Learn how to set up and configure authentication for various resources and workflows in Azure Machine Learning.
 services: machine-learning
 author: meyetman
-ms.author: meyetman 
+ms.author: meyetman
 ms.reviewer: larryfr
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
 ms.date: 01/05/2024
 ms.topic: how-to
-ms.custom: has-adal-ref, contperf-fy21q2, subject-rbac-steps, cliv2, sdkv2, event-tier1-build-2022, ignite-2022
+ms.custom: has-adal-ref, subject-rbac-steps, cliv2, sdkv2
 ---
 
 # Set up authentication for Azure Machine Learning resources and workflows
@@ -196,7 +196,7 @@ The easiest way to create an SP and grant access to your workspace is by using t
 
 1. From the [Azure portal](https://portal.azure.com), select your workspace and then select __Access Control (IAM)__.
 1. Select __Add__, __Add Role Assignment__ to open the __Add role assignment page__.
-1. Select the role you want to assign the managed identity. For example, Reader. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+1. Select the role you want to assign the managed identity. For example, Reader. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
 
 ### Managed identity with compute cluster
 

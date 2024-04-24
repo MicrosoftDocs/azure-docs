@@ -7,7 +7,6 @@ ms.topic: tutorial
 ms.date: 11/02/2021
 author: ruixinxu
 ms.author: ruxu
-ms.custom: ignite-fall-2021
 ---
 
 # Tutorial: Document Intelligence with Azure AI services

@@ -2,10 +2,15 @@
 title: Reference - Azure Policy guest configuration baseline for Linux
 description: Details of the Linux baseline on Azure implemented through Azure Policy guest configuration.
 ms.date: 09/21/2022
+author: michaeltlombardi
+ms.author: mlombardi
 ms.topic: reference
 ms.custom: generated
 ---
 # Linux security baseline
+
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 This article details the configuration settings for Linux guests as applicable in the following
 implementations:

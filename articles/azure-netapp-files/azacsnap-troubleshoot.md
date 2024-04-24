@@ -4,7 +4,6 @@ description: Troubleshoot communication issues, test failures, and other SAP HAN
 services: azure-netapp-files
 author: Phil-Jensen
 ms.service: azure-netapp-files
-ms.workload: storage
 ms.topic: troubleshooting
 ms.date: 01/16/2023
 ms.author: phjensen
@@ -360,5 +359,3 @@ In the preceding example, adding the `DATABASE BACKUP ADMIN` privilege to the SY
 
 - [Tips and tricks for using AzAcSnap](azacsnap-tips.md)
 - [AzAcSnap command reference](azacsnap-cmd-ref-configure.md)
-
-

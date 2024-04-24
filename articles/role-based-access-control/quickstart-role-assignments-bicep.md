@@ -7,7 +7,6 @@ manager: amycolannino
 ms.service: role-based-access-control
 ms.topic: quickstart
 ms.custom: subject-armqs, mode-arm, devx-track-bicep
-ms.workload: identity
 ms.date: 12/01/2023
 ms.author: rolyon
 #Customer intent: As a new user, I want to see how to grant access to resources using Bicep so that I can start automating role assignment processes.
@@ -83,7 +82,7 @@ Get-AzRoleAssignment -ResourceGroupName exampleRG
 
 ## Clean up resources
 
-When no longer needed, use the Azure portal, Azure CLI, or Azure PowerShell to remove the role assignment. For more information, see [Remove Azure role assignments](role-assignments-remove.md).
+When no longer needed, use the Azure portal, Azure CLI, or Azure PowerShell to remove the role assignment. For more information, see [Remove Azure role assignments](role-assignments-remove.yml).
 
 Use the Azure portal, Azure CLI, or Azure PowerShell to delete the resource group.
 

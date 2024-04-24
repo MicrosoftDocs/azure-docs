@@ -115,7 +115,8 @@ For more information to help you decide which network model to use, see [Compare
         --name myAKSVnet \
         --address-prefixes 192.168.0.0/16 \
         --subnet-name myAKSSubnet \
-        --subnet-prefix 192.168.1.0/24
+        --subnet-prefix 192.168.1.0/24 \
+        --location eastus
     ```
 
 3. Get the subnet resource ID using the [`az network vnet subnet show`][az-network-vnet-subnet-show] command and store it as a variable named `SUBNET_ID` for later use.
@@ -285,6 +286,7 @@ This article showed you how to deploy your AKS cluster into your existing virtua
 [vnet-peering]: ../virtual-network/virtual-network-peering-overview.md
 [express-route]: ../expressroute/expressroute-introduction.md
 [network-comparisons]: concepts-network.md#compare-network-models
-[custom-route-table]: ../virtual-network/manage-route-table.md
+[custom-route-table]: ../virtual-network/manage-route-table.yml
 [Create an AKS cluster with user-assigned managed identity]: configure-kubenet.md#create-an-aks-cluster-with-user-assigned-managed-identity
 [bring-your-own-control-plane-managed-identity]: ../aks/use-managed-identity.md#bring-your-own-managed-identity
+

@@ -9,7 +9,7 @@ ms.subservice: azure-arc-data-sqlmi
 ms.reviewer: mikeray
 ms.topic: how-to
 ms.date: 06/06/2023
-ms.custom: template-how-to, event-tier1-build-2022, devx-track-azurecli
+ms.custom: template-how-to, devx-track-azurecli
 ---
 
 # Enable transparent data encryption on SQL Managed Instance enabled by Azure Arc (preview)
@@ -395,4 +395,3 @@ Similar to above, to restore the credentials, copy them into the container and r
 ## Related content
 
 [Transparent data encryption](/sql/relational-databases/security/encryption/transparent-data-encryption)
-

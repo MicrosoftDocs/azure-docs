@@ -1,12 +1,12 @@
 ---
-title: Linter rule - admin user name should not be literal
-description: Linter rule - admin user name should not be a literal
+title: Linter rule - admin user name shouldn't be literal
+description: Linter rule - admin user name shouldn't be a literal
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 06/23/2023
+ms.date: 03/20/2024
 ---
 
-# Linter rule - admin user name should not be literal
+# Linter rule - admin user name shouldn't be literal
 
 This rule finds when an admin user name is set to a literal value.
 

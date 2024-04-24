@@ -3,13 +3,13 @@ title: View a custom text classification model evaluation - Azure AI services
 titleSuffix: Azure AI services
 description: Learn how to view the evaluation scores for a custom text classification model
 #services: cognitive-services
-author: aahill
+author: jboback
 manager: nitinme
 ms.service: azure-ai-language
 ms.topic: how-to
 ms.date: 12/19/2023
-ms.author: aahi
-ms.custom: language-service-custom-classification, ignite-fall-2021, event-tier1-build-2022
+ms.author: jboback
+ms.custom: language-service-custom-classification
 ---
 
 # View your text classification model's evaluation and details

@@ -5,7 +5,7 @@ ms.topic: reference
 ms.date: 11/21/2017
 ms.devlang: csharp
 # ms.devlang: csharp, javascript
-ms.custom: devx-track-csharp, seodec18, ignite-2022
+ms.custom: devx-track-csharp
 ---
 
 # Azure Cosmos DB bindings for Azure Functions 1.x

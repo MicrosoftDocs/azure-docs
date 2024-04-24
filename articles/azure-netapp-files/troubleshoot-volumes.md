@@ -4,8 +4,7 @@ description: Describes error messages and resolutions that can help you troubles
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
-ms.workload: storage
-ms.custom: linux-related-content
+ms.custom:
 ms.topic: troubleshooting
 ms.date: 02/21/2023
 ms.author: anfdocs

@@ -17,7 +17,7 @@ ms.date: 01/03/2024
 - Access granted to Azure OpenAI in the desired Azure subscription
 
     Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI by completing the form at <a href="https://aka.ms/oai/access" target="_blank">https://aka.ms/oai/access</a>. Open an issue on this repo to contact us if you have an issue.
-- <a href="https://www.python.org/" target="_blank">Python 3.7.1 or later version</a>
+- <a href="https://www.python.org/" target="_blank">Python 3.8 or later version</a>
 - The following Python libraries: os, requests, json
 - An Azure OpenAI Service resource with a `gpt-35-turbo-instruct` model deployed. For more information about model deployment, see the [resource deployment guide](../how-to/create-resource.md).
 
@@ -28,16 +28,18 @@ ms.date: 01/03/2024
 
 Install the OpenAI Python client library with:
 
-# [OpenAI Python 0.28.1](#tab/python)
-
-```console
-pip install openai==0.28.1
-```
-
 # [OpenAI Python 1.x](#tab/python-new)
 
 ```console
 pip install openai
+```
+
+# [OpenAI Python 0.28.1](#tab/python)
+
+[!INCLUDE [Deprecation](../includes/deprecation.md)]
+
+```console
+pip install openai==0.28.1
 ```
 
 ---
@@ -57,7 +59,7 @@ To successfully make a call against the Azure OpenAI service, you'll need the fo
 
 Go to your resource in the Azure portal. The **Keys and Endpoint** can be found in the **Resource Management** section. Copy your endpoint and access key as you'll need both for authenticating your API calls. You can use either `KEY1` or `KEY2`. Always having two keys allows you to securely rotate and regenerate keys without causing a service disruption.
 
-:::image type="content" source="../media/quickstarts/endpoint.png" alt-text="Screenshot of the overview blade for an OpenAI Resource in the Azure portal with the endpoint & access keys location circled in red." lightbox="../media/quickstarts/endpoint.png":::
+:::image type="content" source="../media/quickstarts/endpoint.png" alt-text="Screenshot of the overview blade for an Azure OpenAI resource in the Azure portal with the endpoint & access keys location circled in red." lightbox="../media/quickstarts/endpoint.png":::
 
 Create and assign persistent environment variables for your key and endpoint.
 
@@ -73,27 +75,6 @@ Create and assign persistent environment variables for your key and endpoint.
 
 2. Replace the contents of quickstart.py with the following code. Modify the code to add your key, endpoint, and deployment name: 
 
-# [OpenAI Python 0.28.1](#tab/python)
-
-```python
-import os
-import openai
-
-openai.api_key = os.getenv("AZURE_OPENAI_KEY")
-openai.api_base = os.getenv("AZURE_OPENAI_ENDPOINT") # your endpoint should look like the following https://YOUR_RESOURCE_NAME.openai.azure.com/
-openai.api_type = 'azure'
-openai.api_version = '2023-05-15' # this might change in the future
-
-deployment_name='REPLACE_WITH_YOUR_DEPLOYMENT_NAME' #This will correspond to the custom name you chose for your deployment when you deployed a model. 
-
-# Send a completion call to generate an answer
-print('Sending a test completion job')
-start_phrase = 'Write a tagline for an ice cream shop. '
-response = openai.Completion.create(engine=deployment_name, prompt=start_phrase, max_tokens=10)
-text = response['choices'][0]['text'].replace('\n', '').replace(' .', '.').strip()
-print(start_phrase+text)
-```
-
 # [OpenAI Python 1.x](#tab/python-new)
 
 ```python
@@ -101,8 +82,8 @@ import os
 from openai import AzureOpenAI
     
 client = AzureOpenAI(
-    api_key=os.getenv("AZURE_OPENAI_KEY"),  
-    api_version="2023-12-01-preview",
+    api_key=os.getenv("AZURE_OPENAI_API_KEY"),  
+    api_version="2024-02-01",
     azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT")
     )
     
@@ -113,6 +94,27 @@ print('Sending a test completion job')
 start_phrase = 'Write a tagline for an ice cream shop. '
 response = client.completions.create(model=deployment_name, prompt=start_phrase, max_tokens=10)
 print(start_phrase+response.choices[0].text)
+```
+
+# [OpenAI Python 0.28.1](#tab/python)
+
+```python
+import os
+import openai
+
+openai.api_key = os.getenv("AZURE_OPENAI_API_KEY")
+openai.api_base = os.getenv("AZURE_OPENAI_ENDPOINT") # your endpoint should look like the following https://YOUR_RESOURCE_NAME.openai.azure.com/
+openai.api_type = 'azure'
+openai.api_version = '2024-02-01' # this might change in the future
+
+deployment_name='REPLACE_WITH_YOUR_DEPLOYMENT_NAME' #This will correspond to the custom name you chose for your deployment when you deployed a model. 
+
+# Send a completion call to generate an answer
+print('Sending a test completion job')
+start_phrase = 'Write a tagline for an ice cream shop. '
+response = openai.Completion.create(engine=deployment_name, prompt=start_phrase, max_tokens=10)
+text = response['choices'][0]['text'].replace('\n', '').replace(' .', '.').strip()
+print(start_phrase+text)
 ```
 
 ---
@@ -148,7 +150,7 @@ Azure OpenAI also performs content moderation on the prompt inputs and generated
 
 ## Clean up resources
 
-If you want to clean up and remove an OpenAI resource, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
+If you want to clean up and remove an Azure OpenAI resource, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
 
 - [Portal](../../multi-service-resource.md?pivots=azportal#clean-up-resources)
 - [Azure CLI](../../multi-service-resource.md?pivots=azcli#clean-up-resources)

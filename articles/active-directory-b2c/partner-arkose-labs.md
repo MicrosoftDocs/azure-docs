@@ -11,7 +11,7 @@ ms.date: 01/26/2024
 ms.author: gasinh
 ms.subservice: B2C
 
-#customer intent: I'm a developer integrating Azure Active Directory B2C with the Arkose Labs platform. I need to configure the integration, so I can protect against bot attacks, account takeover, and fraudulent account openings.
+# Customer intent: I'm a developer integrating Azure Active Directory B2C with the Arkose Labs platform. I need to configure the integration, so I can protect against bot attacks, account takeover, and fraudulent account openings.
 
 ---
 

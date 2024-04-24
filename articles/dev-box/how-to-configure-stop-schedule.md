@@ -4,6 +4,7 @@ titleSuffix: Microsoft Dev Box
 description: Learn how to configure an auto-stop schedule to automatically shut down dev boxes in a pool at a specified time and save on costs.
 services: dev-box
 ms.service: dev-box
+ms.custom: devx-track-azurecli
 author: RoseHJM
 ms.author: rosemalcolm
 ms.date: 01/10/2024

@@ -3,7 +3,7 @@ title: Onboard with PowerShell
 description: This document walks you through the process of enabling Microsoft Defender for Cloud with PowerShell cmdlets.
 ms.topic: quickstart
 ms.date: 01/11/2024
-ms.custom: mode-api, ignite-2022, devx-track-azurepowershell
+ms.custom: mode-api, devx-track-azurepowershell
 ---
 
 # Automate onboarding of Microsoft Defender for Cloud using PowerShell
@@ -115,4 +115,4 @@ To learn more about how you can use PowerShell to automate onboarding to Defende
 To learn more about Defender for Cloud, see the following articles:
 
 * [Setting security policies in Microsoft Defender for Cloud](tutorial-security-policy.md). Learn how to configure security policies for your Azure subscriptions and resource groups.
-* [Managing and responding to security alerts in Microsoft Defender for Cloud](managing-and-responding-alerts.md). Learn how to manage and respond to security alerts.
+* [Managing and responding to security alerts in Microsoft Defender for Cloud](managing-and-responding-alerts.yml). Learn how to manage and respond to security alerts.

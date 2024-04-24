@@ -174,7 +174,7 @@ The **Changes** tab (shown below) lists all changes for the workspace during the
 Use wildcards to simplify tracking across directories. The following rules apply when you configure folder monitoring using wildcards:
 
 - Wildcards are required for tracking multiple files.
-- Wildcards can only be used in the last segment of a path, such as `C:\folder\file` or` /etc/*.conf`
+- Wildcards can only be used in the last segment of a path, such as `C:\folder\file` or `/etc/*.conf`
 - If an environment variable includes a path that isn't valid, validation succeeds but the path fails when inventory runs.
 - When setting the path, avoid general paths such as `c:\*.*`, which results in too many folders being traversed.
 
@@ -184,12 +184,12 @@ Use wildcards to simplify tracking across directories. The following rules apply
 
 ### Enable built-in recursive registry checks
 
-The FIM registry hive defaults provide a convenient way to monitor recursive changes within common security areas.  For example, an adversary might configure a script to execute in LOCAL_SYSTEM context by configuring an execution at startup or shutdown.  To monitor changes of this type, enable the built-in check.  
+The FIM registry hive defaults provide a convenient way to monitor recursive changes within common security areas.  For example, an adversary might configure a script to execute in LOCAL_SYSTEM context by configuring an execution at startup or shutdown.  To monitor changes of this type, enable the built-in check.
 
 ![Registry.](./media/file-integrity-monitoring-enable-log-analytics/baselines-registry.png)
 
 >[!NOTE]
-> Recursive checks apply only to recommended security hives and not to custom registry paths.  
+> Recursive checks apply only to recommended security hives and not to custom registry paths.
 
 ### Add a custom registry check
 
@@ -233,13 +233,13 @@ In the example in the following figure, **Contoso Web App** resides in the D:\ d
 
 ### Retrieve change data
 
-File Integrity Monitoring data resides within the Azure Log Analytics/ConfigurationChange table set.  
+File Integrity Monitoring data resides within the Azure Log Analytics/ConfigurationChange table set.
 
 1. Set a time range to retrieve a summary of changes by resource.
 
     In the following example, we're retrieving all changes in the last 14 days in the categories of registry and files:
 
-    ```
+    ```kusto
     ConfigurationChange
     | where TimeGenerated > ago(14d)
     | where ConfigChangeType in ('Registry', 'Files')
@@ -251,14 +251,14 @@ File Integrity Monitoring data resides within the Azure Log Analytics/Configurat
     1. Remove **Files** from the **where** clause.
     1. Remove the summarization line and replace it with an ordering clause:
 
-    ```
+    ```kusto
     ConfigurationChange
     | where TimeGenerated > ago(14d)
     | where ConfigChangeType in ('Registry')
     | order by Computer, RegistryKey
     ```
 
-Reports can be exported to CSV for archival and/or channeled to a Power BI report.  
+Reports can be exported to CSV for archival and/or channeled to a Power BI report.
 
 ![FIM data.](./media/file-integrity-monitoring-enable-log-analytics/baselines-data.png)
 

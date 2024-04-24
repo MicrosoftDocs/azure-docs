@@ -4,7 +4,7 @@ description: This article provides reference information for the azcopy sync com
 author: normesta
 ms.service: azure-storage
 ms.topic: reference
-ms.date: 02/09/2023
+ms.date: 03/29/2024
 ms.author: normesta
 ms.subservice: storage-common-concepts
 ms.reviewer: zezha-msft
@@ -143,6 +143,8 @@ Note: if include and exclude flags are used together, only files matching the in
 `--log-level`    (string)    Define the log verbosity for the log file, available levels: INFO(all requests and responses), WARNING(slow responses), ERROR(only failed requests), and NONE(no output logs). (default INFO). (default "INFO")
 
 `--mirror-mode`    Disable last-modified-time based comparison and overwrites the conflicting files and blobs at the destination if this flag is set to true. Default is false
+
+`--put-blob-size-mb`   Use this size (specified in MiB) as a threshold to determine whether to upload a blob as a single PUT request when uploading to Azure Storage. The default value is automatically calculated based on file size. Decimal fractions are allowed (For example: 0.25).
 
 `--preserve-permissions`    False by default. Preserves ACLs between aware resources (Windows and Azure Files, or ADLS Gen 2 to ADLS Gen 2). For Hierarchical Namespace accounts, you'll need a container SAS or OAuth token with Modify Ownership and Modify Permissions permissions. For downloads, you'll also need the `--backup` flag to restore permissions where the new Owner won't be the user running AzCopy. This flag applies to both files and folders, unless a file-only filter is specified (for example, include-pattern).
 

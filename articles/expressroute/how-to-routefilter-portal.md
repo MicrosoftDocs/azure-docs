@@ -7,7 +7,7 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 08/31/2023
 ms.author: duau
-ms.custom: seodec18, template-tutorial
+ms.custom: template-tutorial
 ---
 # Configure route filters for Microsoft peering using the Azure portal
 

@@ -11,7 +11,7 @@ ms.date: 01/26/2024
 ms.author: gasinh
 ms.subservice: B2C
 
-#customer intent: I'm an IT admin, and I want to configure Azure Active Directory B2C with Akamai Enterprise Application Access for SSO and secure hybrid access. I want to enable Azure AD B2C authentication for end users accessing private applications secured by Akamai Enterprise Application Access.
+# Customer intent: I'm an IT admin, and I want to configure Azure Active Directory B2C with Akamai Enterprise Application Access for SSO and secure hybrid access. I want to enable Azure AD B2C authentication for end users accessing private applications secured by Akamai Enterprise Application Access.
 ---
 
 # Configure Azure Active Directory B2C with Akamai Web Application Protector

@@ -4,13 +4,11 @@ description: How to create a secure Service Fabric Linux cluster in Azure via th
 services: service-fabric
 author: athinanthny
 manager: chackdan
-tags: azure-service-management
-
 ms.service: service-fabric
 ms.topic: sample
 ms.date: 01/18/2018
 ms.author: atsenthi
-ms.custom: mvc, devx-track-azurecli
+ms.custom: mvc, devx-track-azurecli, linux-related-content
 ---
 
 # Create a secure Service Fabric Linux cluster via the Azure CLI

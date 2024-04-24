@@ -7,7 +7,7 @@ author: PatrickFarley
 manager: nitinme
 ms.service: azure-ai-vision
 ms.topic: how-to
-ms.date: 06/08/2021
+ms.date: 02/27/2024
 ms.author: pafarley
 ms.custom: cogserv-non-critical-vision
 ---
@@ -18,13 +18,13 @@ Spatial Analysis includes a set of features to monitor the health of the system 
 
 ## Enable visualizations
 
-To enable a visualization of AI Insight events in a video frame, you need to use the `.debug` version of a [Spatial Analysis operation](spatial-analysis-operations.md) on a desktop machine or Azure VM. The visualization is not possible on Azure Stack Edge devices. There are four debug operations available.
+To enable a visualization of AI Insight events in a video frame, you need to use the `.debug` version of a [Spatial Analysis operation](spatial-analysis-operations.md) on a desktop machine or Azure VM. The visualization isn't possible on Azure Stack Edge devices. There are four debug operations available.
 
 If your device is a local desktop machine or Azure GPU VM (with remote desktop enabled), then you can switch to `.debug` version of any operation and visualize the output.
 
 1.  Open the desktop either locally or by using a remote desktop client on the host computer running Spatial Analysis. 
-2.  In the terminal run `xhost +`
-3.  Update the [deployment manifest](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json) under the `spaceanalytics` module with the value of the `DISPLAY` environment variable. You can find its value by running `echo $DISPLAY` in the terminal on the host computer.
+1.  In the terminal run `xhost +`
+1.  Update the [deployment manifest](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json) under the `spaceanalytics` module with the value of the `DISPLAY` environment variable. You can find its value by running `echo $DISPLAY` in the terminal on the host computer.
     ```
     "env": {        
         "DISPLAY": {
@@ -32,7 +32,7 @@ If your device is a local desktop machine or Azure GPU VM (with remote desktop e
             }
     }
     ```
-4. Update the graph in the deployment manifest you want to run in debug mode. In the example below, we update the operationId  to cognitiveservices.vision.spatialanalysis-personcrossingpolygon.debug. A new parameter `VISUALIZER_NODE_CONFIG` is required to enable the visualizer window. All operations are available in debug flavor. When using shared nodes, use the cognitiveservices.vision.spatialanalysis.debug operation and add `VISUALIZER_NODE_CONFIG` to the instance parameters. 
+1. Update the graph in the deployment manifest you want to run in debug mode. In the example below, we update the operationId  to cognitiveservices.vision.spatialanalysis-personcrossingpolygon.debug. A new parameter `VISUALIZER_NODE_CONFIG` is required to enable the visualizer window. All operations are available in debug flavor. When using shared nodes, use the cognitiveservices.vision.spatialanalysis.debug operation and add `VISUALIZER_NODE_CONFIG` to the instance parameters. 
 
     ```
     "zonecrossing": {
@@ -52,8 +52,8 @@ If your device is a local desktop machine or Azure GPU VM (with remote desktop e
     }
     ```
     
-5. Redeploy and you will see the visualizer window on the host computer
-6. After the deployment has completed, you might have to copy the `.Xauthority` file from the host computer to the container and restart it. In the sample below, `peopleanalytics` is the name of the container on the host computer.
+1. Redeploy and you'll see the visualizer window on the host computer
+1. After the deployment has completed, you might have to copy the `.Xauthority` file from the host computer to the container and restart it. In the sample below, `peopleanalytics` is the name of the container on the host computer.
 
     ```bash
     sudo docker cp $XAUTHORITY peopleanalytics:/root/.Xauthority
@@ -64,21 +64,21 @@ If your device is a local desktop machine or Azure GPU VM (with remote desktop e
 
 ## Collect system health telemetry
 
-Telegraf is an open source image that works with Spatial Analysis, and is available in the Microsoft Container Registry. It takes the following inputs and sends them to Azure Monitor. The telegraf module can be built with desired custom inputs and outputs. The telegraf module configuration in Spatial Analysis is part of the deployment manifest (linked above). This module is optional and can be removed from the manifest if you don't need it. 
+Telegraf is an open source image that works with Spatial Analysis, and is available in the Microsoft Container Registry. It takes the following inputs and sends them to Azure Monitor. The Telegraf module can be built with desired custom inputs and outputs. The Telegraf module configuration in Spatial Analysis is part of the deployment manifest (linked above). This module is optional and can be removed from the manifest if you don't need it. 
 
 Inputs: 
-1. Spatial Analysis Metrics
-2. Disk Metrics
-3. CPU Metrics
-4. Docker Metrics
-5. GPU Metrics
+- Spatial Analysis Metrics
+- Disk Metrics
+- CPU Metrics
+- Docker Metrics
+- GPU Metrics
 
 Outputs:
-1. Azure Monitor
+- Azure Monitor
 
-The supplied Spatial Analysis telegraf module will publish all the telemetry data emitted by the Spatial Analysis container to Azure Monitor. See the [Azure Monitor](../../azure-monitor/overview.md) for information on adding Azure Monitor to your subscription.
+The supplied Spatial Analysis Telegraf module publishes all the telemetry data emitted by the Spatial Analysis container to Azure Monitor. See the [Azure Monitor](../../azure-monitor/overview.md) for information on adding Azure Monitor to your subscription.
 
-After setting up Azure Monitor, you will need to create credentials that enable the module to send telemetry. You can use the Azure portal to create a new Service Principal, or use the Azure CLI command below to create one.
+After setting up Azure Monitor, you'll need to create credentials that enable the module to send telemetry. You can use the Azure portal to create a new Service Principal, or use the Azure CLI command below to create one.
 
 > [!NOTE] 
 > This command requires you to have Owner privileges on the subscription. 
@@ -93,13 +93,12 @@ az iot hub list
 az ad sp create-for-rbac --role="Monitoring Metrics Publisher" --name "<principal name>" --scopes="<resource ID of IoT Hub>"
 ```
 
-In the deployment manifest for your [Azure Stack Edge device](https://go.microsoft.com/fwlink/?linkid=2142179), [desktop machine](https://go.microsoft.com/fwlink/?linkid=2152270), or [Azure VM with GPU](https://go.microsoft.com/fwlink/?linkid=2152189), look for the *telegraf* module, and replace the following values with the Service Principal information from the previous step and redeploy.
+In the deployment manifest for your [Azure Stack Edge device](https://go.microsoft.com/fwlink/?linkid=2142179), [desktop machine](https://go.microsoft.com/fwlink/?linkid=2152270), or [Azure VM with GPU](https://go.microsoft.com/fwlink/?linkid=2152189), look for the *Telegraf* module, and replace the following values with the Service Principal information from the previous step and redeploy.
 
 ```json
-
-"telegraf": { 
+"Telegraf": { 
   "settings": {
-  "image":   "mcr.microsoft.com/azure-cognitive-services/vision/spatial-analysis/telegraf:1.0",
+  "image":   "mcr.microsoft.com/azure-cognitive-services/vision/spatial-analysis/Telegraf:1.0",
   "createOptions":   "{\"HostConfig\":{\"Runtime\":\"nvidia\",\"NetworkMode\":\"azure-iot-edge\",\"Memory\":33554432,\"Binds\":[\"/var/run/docker.sock:/var/run/docker.sock\"]}}"
 },
 "type": "docker",
@@ -122,18 +121,18 @@ In the deployment manifest for your [Azure Stack Edge device](https://go.microso
 ...
 ```
 
-Once the telegraf module is deployed, the reported metrics can be accessed either through the Azure Monitor service, or by selecting **Monitoring** in the IoT Hub on the Azure portal.
+Once the Telegraf module is deployed, the reported metrics can be accessed either through the Azure Monitor service, or by selecting **Monitoring** in the IoT Hub on the Azure portal.
 
 :::image type="content" source="./media/spatial-analysis/iot-hub-telemetry.png" alt-text="Azure Monitor telemetry report":::
 
 ### System health events
 
 | Event Name                  | Description    |
-|-----------------------------|-------------------------------------------------------------------------------------------|
+|-----------------------------|---------------------------|
 | archon_exit                 | Sent when a user changes the Spatial Analysis module status from *running* to *stopped*.  |
 | archon_error                | Sent when any of the processes inside the container crash. This is a critical error.      |
-| InputRate                   | The rate at which the graph processes video input. Reported every 5 minutes.              |
-| OutputRate                  | The rate at which the graph outputs AI insights. Reported every 5 minutes.                |
+| InputRate                   | The rate at which the graph processes video input. Reported every five minutes.              |
+| OutputRate                  | The rate at which the graph outputs AI insights. Reported every five minutes.                |
 | archon_allGraphsStarted     | Sent when all graphs have finished starting up.                                           |
 | archon_configchange         | Sent when a graph configuration has changed.                                              |
 | archon_graphCreationFailed  | Sent when the graph with the reported `graphId` fails to start.                           |
@@ -144,7 +143,7 @@ Once the telegraf module is deployed, the reported metrics can be accessed eithe
 | VideoIngesterHeartbeat      | Sent every hour to indicate that video is streamed from the Video source, with the number of errors in that hour. Reported for each graph. |
 | VideoIngesterState          | Reports *Stopped* or *Started* for video streaming. Reported for each graph.              |
 
-##  Troubleshooting an IoT Edge Device
+## Troubleshooting an IoT Edge Device
 
 You can use `iotedge` command line tool to check the status and logs of the running modules. For example:
 * `iotedge list`: Reports a list of running modules. 
@@ -156,7 +155,7 @@ You can use `iotedge` command line tool to check the status and logs of the runn
 
 Spatial Analysis generates Docker debugging logs that you can use to diagnose runtime issues, or include in support tickets. The Spatial Analysis diagnostics module is available in the Microsoft Container Registry for you to download. In the manifest deployment file for your [Azure Stack Edge Device](https://go.microsoft.com/fwlink/?linkid=2142179), [desktop machine](https://go.microsoft.com/fwlink/?linkid=2152270), or [Azure VM with GPU](https://go.microsoft.com/fwlink/?linkid=2152189) look for the *diagnostics* module.
 
-In the "env" section add the following configuration:
+In the "env" section, add the following configuration:
 
 ```json
 "diagnostics": {  
@@ -224,8 +223,8 @@ From the IoT Edge portal, select your device and then the **diagnostics** module
 **Configure Upload to Azure Blob Storage**
 
 1. Create your own Azure Blob Storage account, if you haven't already.
-2. Get the **Connection String** for your storage account from the Azure portal. It will be located in **Access Keys**.
-3. Spatial Analysis logs will be automatically uploaded into a Blob Storage container named *rtcvlogs* with the following file name format: `{CONTAINER_NAME}/{START_TIME}-{END_TIME}-{QUERY_TIME}.log`.
+2. Get the **Connection String** for your storage account from the Azure portal. It is located in **Access Keys**.
+3. Spatial Analysis logs are automatically uploaded into a Blob Storage container named *rtcvlogs* with the following file name format: `{CONTAINER_NAME}/{START_TIME}-{END_TIME}-{QUERY_TIME}.log`.
 
 ```json
 "env":{
@@ -238,7 +237,6 @@ From the IoT Edge portal, select your device and then the **diagnostics** module
 ### Uploading Spatial Analysis logs
 
 Logs are uploaded on-demand with the `getRTCVLogs` IoT Edge method, in the `diagnostics` module. 
-
 
 1. Go to your IoT Hub portal page, select **Edge Devices**, then select your device and your diagnostics module. 
 2. Go to the details page of the module and select the ***direct method*** tab.
@@ -260,9 +258,9 @@ The below table lists the parameters you can use when querying logs.
 | Keyword | Description | Default Value |
 |--|--|--|
 | StartTime | Desired logs start time, in milliseconds UTC. | `-1`, the start of the container's runtime. When `[-1.-1]` is used as a time range, the API returns logs from the last one hour.|
-| EndTime | Desired logs end time, in milliseconds UTC. | `-1`, the current time. When `[-1.-1]` time range is used, the api returns logs from the last one hour. |
+| EndTime | Desired logs end time, in milliseconds UTC. | `-1`, the current time. When `[-1.-1]` time range is used, the API returns logs from the last one hour. |
 | ContainerId | Target container for fetching logs.| `null`, when there is no container ID. The API returns all available containers information with IDs.|
-| DoPost | Perform the upload operation. When this is set to `false`, it performs the requested operation and returns the upload size without performing the upload. When set to `true`, it will initiate the asynchronous upload of the selected logs | `false`, do not upload.|
+| DoPost | Perform the upload operation. When this is set to `false`, it performs the requested operation and returns the upload size without performing the upload. When set to `true`, it initiates the asynchronous upload of the selected logs | `false`, do not upload.|
 | Throttle | Indicate how many lines of logs to upload per batch | `1000`, Use this parameter to adjust post speed. |
 | Filters | Filters logs to be uploaded | `null`, filters can be specified as key value pairs based on the Spatial Analysis logs structure: `[UTC, LocalTime, LOGLEVEL,PID, CLASS, DATA]`. For example: `{"TimeFilter":[-1,1573255761112]}, {"TimeFilter":[-1,1573255761112]}, {"CLASS":["myNode"]`|
 
@@ -270,7 +268,7 @@ The following table lists the attributes in the query response.
 
 | Keyword | Description|
 |--|--|
-|DoPost| Either *true* or *false*. Indicates if logs have been uploaded or not. When you choose not to upload logs, the api returns information ***synchronously***. When you choose to upload logs, the api returns 200, if the request is valid, and starts uploading logs ***asynchronously***.|
+|DoPost| Either *true* or *false*. Indicates if logs have been uploaded or not. When you choose not to upload logs, the API returns information ***synchronously***. When you choose to upload logs, the API returns 200, if the request is valid, and starts uploading logs ***asynchronously***.|
 |TimeFilter| Time filter applied to the logs.|
 |ValueFilters| Keywords filters applied to the logs. |
 |TimeStamp| Method execution start time. |
@@ -335,34 +333,35 @@ The following section is provided for help with debugging and verification of th
 
 1. In the local UI of your device, go to the **Devices** page. 
 2. Under **Device endpoints**, copy the Kubernetes API service endpoint. This endpoint is a string in the following format: `https://compute..[device-IP-address]`.
-3. Save the endpoint string. You will use this later when configuring `kubectl` to access the Kubernetes cluster.
+3. Save the endpoint string. You'll use this later when configuring `kubectl` to access the Kubernetes cluster.
 
 ### Connect to PowerShell interface
 
-Remotely, connect from a Windows client. After the Kubernetes cluster is created, you can manage the applications via this cluster. You will need to connect to the PowerShell interface of the device. Depending on the operating system of client, the procedures to remotely connect to the device may be different. The following steps are for a Windows client running PowerShell.
+Remotely, connect from a Windows client. After the Kubernetes cluster is created, you can manage the applications via this cluster. You'll need to connect to the PowerShell interface of the device. Depending on the operating system of client, the procedures to remotely connect to the device may be different. The following steps are for a Windows client running PowerShell.
 
 > [!TIP]
 > * Before you begin, make sure that your Windows client is running Windows PowerShell 5.0 or later.
 > * PowerShell is also [available on Linux](/powershell/scripting/install/installing-powershell-core-on-linux).
 
 1. Run a Windows PowerShell session as an Administrator. 
-    1. Make sure that the Windows Remote Management service is running on your client. At the command prompt, type `winrm quickconfig`.
+    
+    Make sure that the Windows Remote Management service is running on your client. At the command prompt, type `winrm quickconfig`.
 
-2. Assign a variable for the device IP address. For example, `$ip = "<device-ip-address>"`.
+1. Assign a variable for the device IP address. For example, `$ip = "<device-ip-address>"`.
 
-3. Use the following command to add the IP address of your device to the client's trusted hosts list. 
+1. Use the following command to add the IP address of your device to the client's trusted hosts list. 
 
     ```powershell
     Set-Item WSMan:\localhost\Client\TrustedHosts $ip -Concatenate -Force
     ```
  
-4. Start a Windows PowerShell session on the device. 
+1. Start a Windows PowerShell session on the device. 
 
     ```powershell
     Enter-PSSession -ComputerName $ip -Credential $ip\EdgeUser -ConfigurationName Minishell
     ```
 
-5. Provide the password when prompted. Use the same password that is used to sign into the local web interface. The default local web interface password is `Password1`. 
+1. Provide the password when prompted. Use the same password that is used to sign into the local web interface. The default local web interface password is `Password1`. 
 
 ### Access the Kubernetes cluster
 
@@ -374,31 +373,31 @@ After the Kubernetes cluster is created, you can use the `kubectl` command line 
     New-HcsKubernetesNamespace -Namespace
     ```
 
-2. Create a user and get a config file. This command will output configuration information for the Kubernetes cluster. Copy this information and save it in a file named *config*. Do not save the file a file extension.
+1. Create a user and get a config file. This command outputs configuration information for the Kubernetes cluster. Copy this information and save it in a file named *config*. Do not save the file a file extension.
     
     ```powershell
     New-HcsKubernetesUser -UserName
     ```
 
-3. Add the *config* file to the *.kube* folder in your user profile on the local machine.    
+1. Add the *config* file to the _.kube_ folder in your user profile on the local machine.    
 
-4. Associate the namespace with the user you created.
+1. Associate the namespace with the user you created.
 
     ```powershell
     Grant-HcsKubernetesNamespaceAccess -Namespace -UserName
     ```
 
-5. Install `kubectl` on your Windows client using the following command:
+1. Install `kubectl` on your Windows client using the following command:
     
     ```powershell
     curl https://storage.googleapis.com/kubernetesrelease/release/v1.15.2/bin/windows/amd64/kubectl.exe -O kubectl.exe
     ```
 
-6. Add a DNS entry to the hosts file on your system. 
+1. Add a DNS entry to the hosts file on your system. 
     1. Run Notepad as administrator and open the *hosts* file located at `C:\windows\system32\drivers\etc\hosts`. 
     2. Create an entry in the hosts file with the device IP address and DNS domain you got from the **Device** page in the local UI. The endpoint you should use will look similar to: `https://compute.asedevice.microsoftdatabox.com/10.100.10.10`.
 
-7. Verify you can connect to the Kubernetes pods.
+1. Verify you can connect to the Kubernetes pods.
 
     ```powershell
     kubectl get pods -n "iotedge"
@@ -414,37 +413,38 @@ kubectl logs <pod-name> -n <namespace> --all-containers
 
 |Command  |Description  |
 |---------|---------|
-|`Get-HcsKubernetesUserConfig -AseUser`     | Generates a Kubernetes configuration file. When using the command, copy the information into a file named *config*. Do not save the file with a file extension.        |
+|`Get-HcsKubernetesUserConfig -AseUser`     | Generates a Kubernetes configuration file. When using the command, copy the information into a file named *config*. Don't save the file with a file extension.        |
 | `Get-HcsApplianceInfo` | Returns information about your device. |
 | `Enable-HcsSupportAccess` | Generates access credentials to start a support session. |
 
 
 ## How to file a support ticket for Spatial Analysis 
 
-If you need more support in finding a solution to a problem you're having with the Spatial Analysis container, follow these steps to fill out and submit a support ticket. Our team will get back to you with additional guidance. 
+If you need more support in finding a solution to a problem you're having with the Spatial Analysis container, follow these steps to fill out and submit a support ticket. Our team will get back to you with further guidance. 
 
-### Fill out the basics 
+### Fill out basic information
+
 Create a new support ticket at the [New support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) page. Follow the prompts to fill in the following parameters:
 
 ![Support basics](./media/support-ticket-page-1-final.png)
 
 1. Set **Issue Type** to be `Technical`.
-2. Select the subscription that you are utilizing to deploy the Spatial Analysis container.
-3. Select `My services` and select `Azure AI services` as the service.
-4. Select the resource that you are utilizing to deploy the Spatial Analysis container.
-5. Write a brief description detailing the problem you are facing. 
-6. Select `Spatial Analysis` as your problem type.
-7. Select the appropriate subtype from the drop down.
-8. Select **Next: Solutions** to move on to the next page.
+1. Select the subscription that you're utilizing to deploy the Spatial Analysis container.
+1. Select `My services` and select `Azure AI services` as the service.
+1. Select the resource that you're utilizing to deploy the Spatial Analysis container.
+1. Write a brief description detailing the problem you're facing. 
+1. Select `Spatial Analysis` as your problem type.
+1. Select the appropriate subtype from the drop-down.
+1. Select **Next: Solutions** to move on to the next page.
 
 ### Recommended solutions
 The next stage will offer recommended solutions for the problem type that you selected. These solutions will solve the most common problems, but if it isn't useful for your solution, select **Next: Details** to go to the next step.
 
 ### Details
-On this page, add some additional details about the problem you've been facing. Be sure to include as much detail as possible, as this will help our engineers better narrow down the issue. Include your preferred contact method and the severity of the issue so we can contact you appropriately, and select **Next: Review + create** to move to the next step. 
+On this page, add some extra details about the problem you've been facing. Be sure to include as much detail as possible, as this will help our engineers better narrow down the issue. Include your preferred contact method and the severity of the issue so we can contact you appropriately, and select **Next: Review + create** to move to the next step. 
 
 ### Review and create 
-Review the details of your support request to ensure everything is accurate and represents the problem effectively. Once you are ready, select **Create** to send the ticket to our team! You will receive an email confirmation once your ticket is received, and our team will work to get back to you as soon as possible. You can view the status of your ticket in the Azure portal.
+Review the details of your support request to ensure everything is accurate and represents the problem effectively. Once you're ready, select **Create** to send the ticket to our team! You'll receive an email confirmation once your ticket is received, and our team will work to get back to you as soon as possible. You can view the status of your ticket in the Azure portal.
 
 ## Next steps
 

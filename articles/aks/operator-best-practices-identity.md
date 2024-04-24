@@ -1,10 +1,10 @@
 ---
-title: Best practices for managing identity
+title: Best practices for managing authentication and authorization
 titleSuffix: Azure Kubernetes Service
 description: Learn the cluster operator best practices for how to manage authentication and authorization for clusters in Azure Kubernetes Service (AKS)
 ms.topic: conceptual
-ms.custom: ignite-2022
-ms.date: 04/14/2023
+ms.subservice: aks-security
+ms.date: 02/16/2024
 ---
 
 # Best practices for authentication and authorization in Azure Kubernetes Service (AKS)
@@ -207,8 +207,7 @@ For more information about cluster operations in AKS, see the following best pra
 <!-- INTERNAL LINKS -->
 [aks-concepts-identity]: concepts-identity.md
 [azure-ad-integration]: managed-azure-ad.md
-[aks-aad]: azure-ad-integration-cli.md
-[managed-identities]: ../active-directory/managed-identities-azure-resources/overview.md
+[aks-aad]: enable-authentication-microsoft-entra-id.md
 [aks-best-practices-scheduler]: operator-best-practices-scheduler.md
 [aks-best-practices-advanced-scheduler]: operator-best-practices-advanced-scheduler.md
 [aks-best-practices-cluster-isolation]: operator-best-practices-cluster-isolation.md
