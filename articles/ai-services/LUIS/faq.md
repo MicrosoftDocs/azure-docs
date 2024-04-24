@@ -1,6 +1,6 @@
 ---
 title: LUIS frequently asked questions
-description: Use this article to see frequently asked questions about LUIS, and troubleshooting information
+description: Use this article to see frequently asked questions about LUIS, and troubleshooting information.
 ms.service: azure-ai-language
 ms.author: aahi
 author: aahill
@@ -30,24 +30,24 @@ Yes, [Speech](../speech-service/how-to-recognize-intents-from-speech-csharp.md#l
 
 ## What are Synonyms and word variations?
 
-LUIS has little or no knowledge of the broader _NLP_ aspects, such as semantic similarity, without explicit identification in examples. For example, the following tokens (words) are three different things until they are used in similar contexts in the examples provided:
+LUIS has little or no knowledge of the broader _NLP_ aspects, such as semantic similarity, without explicit identification in examples. For example, the following tokens (words) are three different things until they're used in similar contexts in the examples provided:
 
 * Buy
 * Buying
 * Bought
 
-For semantic similarity Natural Language Understanding (NLU), you can use [Conversation Language Understanding](../language-service/conversational-language-understanding/overview.md)
+For semantic similarity Natural Language Understanding (NLU), you can use [Conversation Language Understanding](../language-service/conversational-language-understanding/overview.md).
 
 ## What are the Authoring and prediction pricing?
-Language Understand has separate resources, one type for authoring, and one type for querying the prediction endpoint, each has their own pricing. See [Resource usage and limits](luis-limits.md#resource-usage-and-limits)
+Language Understand has separate resources, one type for authoring, and one type for querying the prediction endpoint, each has their own pricing. See [Resource usage and limits](luis-limits.md#resource-usage-and-limits).
 
 ## What are the supported regions?
 
-See [region support](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services)
+See [region support](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services).
 
 ## How does LUIS store data?
 
-LUIS stores data encrypted in an Azure data store corresponding to the region specified by the key. Data used to train the model such as entities, intents, and utterances will be saved in LUIS for the lifetime of the application. If an owner or contributor deletes the app, this data will be deleted with it. If an application hasn't been used in 90 days, it will be deleted.See [Data retention](luis-concept-data-storage.md) to know more details about data storage
+LUIS stores data encrypted in an Azure data store corresponding to the region specified by the key. Data used to train the model such as entities, intents, and utterances will be saved in LUIS for the lifetime of the application. If an owner or contributor deletes the app, this data will be deleted with it. If an application hasn't been used in 90 days, it will be deleted. See [Data retention](luis-concept-data-storage.md) for more details about data storage.
 
 ## Does LUIS support Customer-Managed Keys (CMK)?
 
@@ -71,7 +71,7 @@ Use one of the following solutions:
 
 ## Why is my app is getting different scores every time I train?
 
-Enable or disable the use non-deterministic training option. When disabled, training will use all available data. When enabled (by default), training will use a random sample each time the app is trained, to be used as a negative for the intent. To make sure that you are getting same scores every time, make sure you train your LUIS app with all your data. See the [training article](how-to/train-test.md#change-deterministic-training-settings-using-the-version-settings-api) for more information.
+Enable or disable the use nondeterministic training option. When disabled, training will use all available data. When enabled (by default), training will use a random sample each time the app is trained, to be used as a negative for the intent. To make sure that you are getting same scores every time, make sure you train your LUIS app with all your data. See the [training article](how-to/train-test.md#change-deterministic-training-settings-using-the-version-settings-api) for more information.
 
 ## I received an HTTP 403 error status code. How do I fix it? Can I handle more requests per second?
 

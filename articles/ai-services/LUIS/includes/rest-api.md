@@ -1,6 +1,4 @@
 ---
-title: REST API include file
-description: include file
 #services: cognitive-services
 manager: nitinme
 ms.service: azure-ai-language
@@ -11,7 +9,7 @@ ms.topic: include
 
 By following this quickstart, you will perform three REST calls in sequence.
 
-- First, you will upload a batch of example utterances which will be used to train the Pizza app model, using the [REST Batch add labels](/rest/api/cognitiveservices-luis/authoring/examples/batch?view=rest-cognitiveservices-luis-authoring-v3.0-preview&tabs=HTTP&preserve-view=true) call.
+- First, you will upload a batch of example utterances, which will be used to train the Pizza app model, using the [REST Batch add labels](/rest/api/cognitiveservices-luis/authoring/examples/batch?view=rest-cognitiveservices-luis-authoring-v3.0-preview&tabs=HTTP&preserve-view=true) call.
 - Next, you will begin a training session for the Pizza app, using the [REST Train application version](/rest/api/cognitiveservices-luis/authoring/train/train-version?view=rest-cognitiveservices-luis-authoring-v3.0-preview&tabs=HTTP&preserve-view=true) call.
 - Lastly, you will get the status of the training session for the Pizza app, using the [REST Get version training status](/rest/api/cognitiveservices-luis/authoring/train/get-status?view=rest-cognitiveservices-luis-authoring-v3.0-preview&tabs=HTTP&preserve-view=true) call.
 

@@ -38,7 +38,7 @@ The following utterances show how diacritics normalization impacts utterances:
 
 ### Language support for diacritics
 
-#### Brazilian portuguese `pt-br` diacritics
+#### Brazilian Portuguese `pt-br` diacritics
 
 |Diacritics set to false|Diacritics set to true|
 |-|-|
@@ -75,7 +75,7 @@ The following utterances show how diacritics normalization impacts utterances:
 
 #### French `fr-` diacritics
 
-This includes both french and canadian subcultures.
+This includes both French and Canadian subcultures.
 
 |Diacritics set to false|Diacritics set to true|
 |--|--|
@@ -119,7 +119,7 @@ This includes both french and canadian subcultures.
 
 #### Spanish `es-` diacritics
 
-This includes both spanish and canadian mexican.
+This includes both Spanish and Canadian Mexican.
 
 |Diacritics set to false|Diacritics set to true|
 |-|-|
