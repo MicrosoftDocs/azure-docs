@@ -13,7 +13,7 @@ appliesto:
 
 # Keep track of data during hunting with Microsoft Sentinel
 
-Hunting bookmarks in Microsoft Sentinel helps you preserve the queries and query results that you deem relevant. You can also record your contextual observations and reference your findings by adding notes and tags. Bookmarked data is visible to you and your teammates for easy collaboration. For more information, see [Bookmarks](hunting.md#bookmarks).
+Hunting bookmarks in Microsoft Sentinel helps you preserve the queries and query results that you deem relevant. You can also record your contextual observations and reference your findings by adding notes and tags. Bookmarked data is visible to you and your teammates for easy collaboration. For more information, see [Bookmarks](hunting.md#bookmarks-to-keep-track-of-data).
 
 [!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]
 

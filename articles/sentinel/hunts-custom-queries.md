@@ -24,6 +24,13 @@ In Microsoft Sentinel, create a custom hunting query from the **Hunting** > **Qu
 1. Select the **Queries** tab.
 1. From the command bar, select **New query**.
 
+   # [Azure portal](#tab/azure-portal)
+   :::image type="content" source="./media/hunts-custom-queries/save-query.png" alt-text="Save query" lightbox="./media/hunts-custom-queries/save-query.png":::
+
+   # [Defender portal](#tab/defender-portal)
+   :::image type="content" source="./media/hunts-custom-queries/save-query-defender.png" alt-text="Save query" lightbox="./media/hunts-custom-queries/save-query-defender.png":::
+   ---
+
 1. Fill in all the blank fields.
 
     1. Create entity mappings by selecting entity types, identifiers, and columns.

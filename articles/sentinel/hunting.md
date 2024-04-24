@@ -20,9 +20,11 @@ For example, one built-in query provides data about the most uncommon processes 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 [!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]
 
+<a name="use-built-in-queries"></a>
+
 ## Built-in hunting queries
 
-The [hunting dashboard](#use-the-hunting-dashboard) provides ready-made query examples designed to get you started and get you familiar with the tables and the query language. Queries run on data stored in log tables, such as for process creation, DNS events, or other event types.
+The hunting dashboard provides ready-made query examples designed to get you started and get you familiar with the tables and the query language. Queries run on data stored in log tables, such as for process creation, DNS events, or other event types.
 
 Built-in hunting queries are developed by Microsoft security researchers on a continuous basis, both adding new queries and fine-tuning existing queries to provide you with an entry point to look for new detections and figure out where to start hunting for the beginnings of new attacks.
 
@@ -46,11 +48,13 @@ You can also create hunting and livestream queries over data stored in Azure Dat
 
 Use community resources, such as the [Microsoft Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/Hunting%20Queries) to find more queries and data sources.
 
+<a name="use-the-hunting-dashboard"></a>
+
 ## Hunting dashboard
 
-The hunting dashboard enables you to run all your queries, or a selected subset, in a single selection. In the Microsoft Sentinel portal, select **Hunting**.
+The hunting dashboard enables you to run all your queries, or a selected subset, in a single selection. In the Microsoft Sentinel, select **Hunting**.
 
-The table shown lists all the queries written by Microsoft's team of security analysts and any extra query you created or modified. Each query provides a description of what it hunts for, and what kind of data it runs on. These queries are grouped by their MITRE ATT&CK **tactics**. The icons on the right categorize the type of threat, such as initial access, persistence, and exfiltration. MITRE ATT&CK **techniques** are shown in the **Techniques** column and describe the specific behavior identified by the hunting query.
+The **Queries** tab lists all the hunting queries installed with security solutions from the **Content hub**, and any extra query you created or modified. Each query provides a description of what it hunts for, and what kind of data it runs on. These queries are grouped by their MITRE ATT&CK **tactics**. The icons on the right categorize the type of threat, such as initial access, persistence, and exfiltration. MITRE ATT&CK **techniques** are shown in the **Techniques** column and describe the specific behavior identified by the hunting query.
 
 :::image type="content" source="media/hunting/hunting-start.png" alt-text="Microsoft Sentinel starts hunting" lightbox="media/hunting/hunting-start.png":::
 
@@ -72,59 +76,18 @@ The following table describes detailed actions available from the hunting dashbo
 
 ## Custom hunting queries
 
-Create or modify a query and save it as your own query or share it with users who are in the same tenant.
+Create or edit a query and save it as your own query or share it with users who are in the same tenant. In Microsoft Sentinel, create a custom hunting query from the **Hunting** > **Queries** tab.
 
+# [Azure portal](#tab/azure-portal)
 :::image type="content" source="./media/hunting/save-query.png" alt-text="Save query" lightbox="./media/hunting/save-query.png":::
+# [Defender portal](#tab/defender-portal)
+:::image type="content" source="./media/hunting/save-query-defender.png" alt-text="Save query" lightbox="./media/hunting/save-query-defender.png":::
 
-**To create a new query**:
+---
 
-1. Select **New query**.
+For more information, see [Create custom hunting queries in Microsoft Sentinel](hunts-custom-queries.md).
 
-1. Fill in all the blank fields and select **Create**.
-
-    1. Create entity mappings by selecting entity types, identifiers, and columns.
-
-        :::image type="content" source="media/hunting/map-entity-types-hunting.png" alt-text="Screenshot for mapping entity types in hunting queries.":::
-
-    1. Map MITRE ATT&CK techniques to your hunting queries by selecting the tactic, technique, and sub-technique (if applicable).
-
-        :::image type="content" source="./media/hunting/mitre-attack-mapping-hunting.png" alt-text="New query" lightbox="./media/hunting/new-query.png":::
-
-**To clone and modify an existing query**:
-
-1. From the table, select the hunting query you want to modify.
-1. Select the ellipsis (...) in the line of the query you want to modify, and select **Clone query**.
-
-    :::image type="content" source="./media/hunting/clone-query.png" alt-text="Clone query" lightbox="./media/hunting/clone-query.png":::
-
-1. Modify the query and select **Create**.
-
-**To modify an existing custom query**:
-
-1. From the table, select the hunting query that you wish to modify. Only queries that from a custom content source can be edited. Other content sources have to be edited at that source.
-
-1. Select the ellipsis (...) in the line of the query you want to modify, and select **Edit query**.
-
-1. Modify the **Custom query** field with the updated query. You can also modify the entity mapping and techniques as explained in the "**To create a new query**" section of this documentation.
-
-## Sample query
-
-A typical query starts with a table or parser name followed by a series of operators separated by a pipe character ("\|").
-
-In the example above, start with the table name SecurityEvent and add piped elements as needed.
-
-1. Define a time filter to review only records from the previous seven days.
-
-1. Add a filter in the query to only show event ID 4688.
-
-1. Add a filter in the query on the command line to contain only instances of cscript.exe.
-
-1. Project only the columns you're interested in exploring and limit the results to 1000 and select **Run query**.
-
-1. Select the green triangle and run the query. You can test the query and run it to look for anomalous behavior.
-
-We recommend that your query uses an [Advanced Security Information Model (ASIM) parser](normalization-about-parsers.md) and not a built-in table. This ensures that the query will support any current or future relevant data source rather than a single data source.
-
+<a name="use-the-hunting-dashboard"></a>
 
 ## Bookmarks to keep track of data
 
@@ -144,11 +107,31 @@ During the hunting and investigation process, you might come across query result
     You can also create an incident from one or more bookmarks, or add one or more bookmarks to an existing incident. Select a checkbox to the left of any bookmarks you want to use, and then select **Incident actions** > **Create new incident** or **Add to existing incident**. Triage and investigate the incident like any other.
 - View your bookmarked data directly in the **HuntingBookmark** table in your Log Analytics workspace. For example:
 
-    :::image type="content" source="media/hunting/bookmark-table.png" alt-text="Screenshot of the hunting bookmarks table in the Log Analytics workspace." lightbox="media/bookmarks/bookmark-table.png":::
+    :::image type="content" source="media/hunting/bookmark-table.png" alt-text="Screenshot of the hunting bookmarks table in the Log Analytics workspace." lightbox="media/hunting/bookmark-table.png":::
 
     Viewing bookmarks from the table enables you to filter, summarize, and join bookmarked data with other data sources, making it easy to look for corroborating evidence.
 
 To start using bookmarks, see [Keep track of data during hunting with Microsoft Sentinel](bookmarks.md).
+
+<a name="use-notebooks-to-power-investigations"></a>
+
+## Livestream sessions
+
+Create interactive sessions that let you test newly created queries as events occur, get notifications from the sessions when a match is found, and launch investigations if necessary. You can quickly create a livestream session using any Log Analytics query.
+
+- **Test newly created queries as events occur**
+    
+    You can test and adjust queries without any conflicts to current rules that are being actively applied to events. After you confirm these new queries work as expected, it's easy to promote them to custom alert rules by selecting an option that elevates the session to an alert.
+
+- **Get notified when threats occur**
+    
+    You can compare threat data feeds to aggregated log data and be notified when a match occurs. Threat data feeds are ongoing streams of data that are related to potential or current threats, so the notification might indicate a potential threat to your organization. Create a livestream session instead of a custom alert rule to be notified of a potential issue without the overheads of maintaining a custom alert rule.
+
+- **Launch investigations**
+    
+    If there's an active investigation that involves an asset such as a host or user, view specific (or any) activity in the log data as it occurs on that asset. Be notified when that activity occurs.
+
+For more information, see [Detect threats by using hunting livestream in Microsoft Sentinel](livestream.md).
 
 ## Notebooks to power investigations
 
@@ -195,7 +178,7 @@ MSTICPy also includes some time-saving notebook tools, such as widgets that set 
 For more information, see:
 
 - [MSTICPy documentation](https://msticpy.readthedocs.io/en/latest/)
-- [Tutorial: Get started with Jupyter notebooks and MSTICPy in Microsoft Sentinel](notebook-get-started.md)
+- [Jupyter notebooks with Microsoft Sentinel hunting capabilities](notebooks.md)
 - [Advanced configurations for Jupyter notebooks and MSTICPy in Microsoft Sentinel](notebooks-msticpy-advanced.md)
 
 ## Useful operators and functions
@@ -228,13 +211,9 @@ The following operators are especially helpful in Microsoft Sentinel hunting que
 
 - **adx()** - This function performs cross-resource queries of Azure Data Explorer data sources from the Microsoft Sentinel hunting experience and Log Analytics. For more information, see [Cross-resource query Azure Data Explorer by using Azure Monitor](../azure-monitor/logs/azure-monitor-data-explorer-proxy.md).
 
-## Next steps
+## Related articles
 
-In this article, you learned how to run a hunting investigation with Microsoft Sentinel.
-
-For more information, see:
-
-- [Use notebooks to run automated hunting campaigns](notebooks.md)
-- [Use bookmarks to save interesting information while hunting](bookmarks.md)
-
-Learn from an example of using custom analytics rules when [monitoring Zoom](https://techcommunity.microsoft.com/t5/azure-sentinel/monitoring-zoom-with-azure-sentinel/ba-p/1341516) with a [custom connector](create-custom-connector.md).
+- [Jupyter notebooks with Microsoft Sentinel hunting capabilities](notebooks.md)
+- [Keep track of data during hunting with Microsoft Sentinel](bookmarks.md)
+- [Detect threats by using hunting livestream in Microsoft Sentinel](livestream.md)
+- Learn from an example of using custom analytics rules when [monitoring Zoom](https://techcommunity.microsoft.com/t5/azure-sentinel/monitoring-zoom-with-azure-sentinel/ba-p/1341516) with a [custom connector](create-custom-connector.md).
