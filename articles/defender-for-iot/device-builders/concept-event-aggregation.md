@@ -1,7 +1,7 @@
 ---
 title: Micro agent event collection
 description: Defender for IoT security agents collect data and system events from your local device, and send the data to the Azure cloud for processing, and analytics.
-ms.date: 04/26/2022
+ms.date: 04/17/2024
 ms.topic: conceptual
 ---
 
@@ -54,7 +54,7 @@ Network activity events are considered identical when the local port, remo
 
 The default buffer for a network activity event is 256. For situations where the cache is full:
 
-- **Azure RTOS devices**: No new network events will be cached until the next collection cycle starts.  
+- **Eclipse ThreadX devices**: No new network events will be cached until the next collection cycle starts.  
 
 - **Linux devices**: The oldest event will be replaced by every new event. A warning to increase the cache size will be logged.
 

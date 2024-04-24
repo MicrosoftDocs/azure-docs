@@ -16,7 +16,7 @@ ms.reviewer: priyamishra
 
 Azure Monitor metrics explorer with PromQL (Preview) allows you to analyze metrics using Prometheus query language (PromQL) for metrics stored in an Azure Monitor workspace. 
 
-Azure Monitor metrics explorer with PromQL (Preview) is available from the **Metrics** menu item of any Azure Monitor workspace. You can query metrics from form Azure Monitor workspaces using PromQL or any other Azure resource using the query builder.
+Azure Monitor metrics explorer with PromQL (Preview) is available from the **Metrics** menu item of any Azure Monitor workspace. You can query metrics from Azure Monitor workspaces using PromQL or any other Azure resource using the query builder.
 
 > [!NOTE]
 > You must have the *Monitoring Reader* role at the subscription level to visualize metrics across multiple resources, resource groups, or a subscription. For more information, see [Assign Azure roles in the Azure portal](/azure/role-based-access-control/role-assignments-portal).

@@ -80,6 +80,9 @@ items:
   - name: Analysis Services
     tocHref: /azure/analysis-services/
     topicHref: /azure/analysis-services/
+  - name: API Center
+    tocHref: /azure/api-center/
+    topicHref: /azure/api-center/
   - name: API Management
     tocHref: /azure/api-management/
     topicHref: /azure/api-management/

@@ -21,7 +21,7 @@ Trusted Signing provides users with both an Azure portal and Azure CLI extension
 
 ## Prerequisites
 
-An existing Azure Tenant ID and Azure subscription. [Create Azure tenant](https://learn.microsoft.com/azure/active-directory/fundamentals/create-new-tenant#create-a-new-tenant-for-your-organization) and [Create Azure subscription](https://docs.microsoft.com/azure/cost-management-billing/manage/create-subscription#create-a-subscription-in-the-azure-portal) before you begin if you don’t already have.
+An existing Azure Tenant ID and Azure subscription. [Create Azure tenant](/azure/active-directory/fundamentals/create-new-tenant#create-a-new-tenant-for-your-organization) and [Create Azure subscription](../cost-management-billing/manage/create-subscription.md#create-a-subscription) before you begin if you don’t already have.
 
 
 ## Register the Trusted Signing resource provider
@@ -69,14 +69,14 @@ A Trusted Signing account is a logical container of identity validation and cert
 
 The resources must be created in Azure regions where Trusted Signing is currently available. Refer to the table below for the current Azure regions with Trusted Signing resources:  
 
-| Region               | Region Class Fields  | Endpoint URI Value     |
-| :------------------- | :------------------- |:---------------|
-| East US              | EastUS               | <https://eus.codesigning.azure.net>  |
-| West US3<sup>[1](#myfootnote1)</sup>              |West US3                | <https://wus3.codesigning.azure.net>           |
-| West Central US      | WestCentralUS                | <https://wcus.codesigning.azure.net/>              |
-| West US 2                 |   WestUS2                   | <https://wus2.codesigning.azure.net/>              |
-| North Europe              | NorthEurope               | <https://neu.codesigning.azure.net>  |
-| West Europe              | WestEurope               | <https://weu.codesigning.azure.net>  |
+| Region                               | Region Class Fields  | Endpoint URI Value                   |
+| :----------------------------------- | :------------------- |:-------------------------------------|
+| East US                              | EastUS               | `https://eus.codesigning.azure.net`  |
+| West US3<sup>[1](#myfootnote1)</sup> | WestUS3              | `https://wus3.codesigning.azure.net` |
+| West Central US                      | WestCentralUS        | `https://wcus.codesigning.azure.net` |
+| West US 2                            | WestUS2              | `https://wus2.codesigning.azure.net` |
+| North Europe                         | NorthEurope          | `https://neu.codesigning.azure.net`  |
+| West Europe                          | WestEurope           | `https://weu.codesigning.azure.net`  |
 
 <a name="myfootnote1">1</a>: WestUS3 coming soon!
 
@@ -92,7 +92,7 @@ The resources must be created in Azure regions where Trusted Signing is currentl
 10. In the **Pricing** tier pull-down menu, select a pricing tier.
 11. Select the **Review + Create** button.
 
-:::image type="content" source="media/trusted-signing-account-creation.png" alt-text="Screenshot of trusted-signing-account-creation." lightbox="media/trusted-signing-account-creation.png":::
+    :::image type="content" source="media/trusted-signing-account-creation.png" alt-text="Screenshot of trusted-signing-account-creation." lightbox="media/trusted-signing-account-creation.png":::
 
 12. After successfully creating your Trusted Signing account, select **Go to resource**.  
 
@@ -107,14 +107,14 @@ The resources must be created in Azure regions where Trusted Signing is currentl
 
 The resources must be created in Azure regions where Trusted Signing is currently available. Refer to the table below for the current Azure regions with Trusted Signing resources:
 
-| Region               | Region Class Fields  | Endpoint URI Value     |
-| :------------------- | :------------------- |:---------------|
-| East US              | EastUS               | <https://eus.codesigning.azure.net>  |
-| West US3<sup>[1](#myfootnote1)</sup>               |West US3                | <https://wus3.codesigning.azure.net>           |
-| West Central US      | WestCentralUS                | <https://wcus.codesigning.azure.net/>              |
-| West US 2                 |   WestUS2                   | <https://wus2.codesigning.azure.net/>              |
-| North Europe              | NorthEurope               | <https://neu.codesigning.azure.net>  |
-| West Europe              | WestEurope               | <https://weu.codesigning.azure.net>  |
+| Region                               | Region Class Fields  | Endpoint URI Value                   |
+| :----------------------------------- | :------------------- |:-------------------------------------|
+| East US                              | EastUS               | `https://eus.codesigning.azure.net`  |
+| West US3<sup>[1](#myfootnote1)</sup> | WestUS3             | `https://wus3.codesigning.azure.net` |
+| West Central US                      | WestCentralUS        | `https://wcus.codesigning.azure.net` |
+| West US 2                            | WestUS2              | `https://wus2.codesigning.azure.net` |
+| North Europe                         | NorthEurope          | `https://neu.codesigning.azure.net`  |
+| West Europe                          | WestEurope           | `https://weu.codesigning.azure.net`  |
 
 <a name="myfootnote1">1</a>: WestUS3 coming soon!
 
@@ -122,7 +122,7 @@ Complete the following steps to create a Trusted Signing account with Azure CLI:
 
 1. If you're using a local installation, login to Azure CLI using the `az login` command.  
 
-2. To finish the authentication process, follow the steps displayed in your terminal. For other sign-in options, see [Sign in with the Azure CLI](https://learn.microsoft.com/cli/azure/authenticate-azure-cli).
+2. To finish the authentication process, follow the steps displayed in your terminal. For other sign-in options, see [Sign in with the Azure CLI](/cli/azure/authenticate-azure-cli).
 
 3. When you're prompted, install the Azure CLI extension on first use. For more information about extensions, see Use extensions with the [Azure CLI](/cli/azure/azure-cli-extensions-overview).
 

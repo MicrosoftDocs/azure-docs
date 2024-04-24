@@ -41,7 +41,7 @@ sections:
           See [Analyze unexpected charges](understand/analyze-unexpected-charges.md).
       - question: How do I change my billing information?
         answer: |
-          See [Change billing information](manage/change-azure-account-profile.md).
+          See [Change billing information](manage/change-azure-account-profile.yml).
       - question: How do I cancel my Azure subscription?
         answer: |
           See [Cancel your Azure subscription](manage/cancel-azure-subscription.md).

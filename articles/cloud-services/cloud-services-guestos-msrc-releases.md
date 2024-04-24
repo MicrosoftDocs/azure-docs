@@ -39,8 +39,6 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 |  Rel 24-04  |  [5034865]  |  Servicing Stack Update LKG  |  [2.150]  |  Apr 9, 2024  |
 |  Rel 24-04  |  [4494175]  |  January '20 Microcode  |  [5.94]  |  Sep 1, 2020  |
 |  Rel 24-04  |  [4494175]  |  January '20 Microcode  |  [6.70]  |  Sep 1, 2020  |
-|  Rel 24-04  |  [5037023]  |  Servicing Stack Update  |  [7.40]  |  |
-|  Rel 24-04  |  [5037017]  |  Servicing Stack Update  |  [6.70]  |  |
 
 [5036626]: https://support.microsoft.com/kb/5036626
 [5036607]: https://support.microsoft.com/kb/5036607
@@ -59,8 +57,6 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 [5034865]: https://support.microsoft.com/kb/5034865
 [4494175]: https://support.microsoft.com/kb/4494175
 [4494175]: https://support.microsoft.com/kb/4494175
-[5037023]: https://support.microsoft.com/kb/5037023
-[5037017]: https://support.microsoft.com/kb/5037017
 [2.150]: ./cloud-services-guestos-update-matrix.md#family-2-releases
 [3.138]: ./cloud-services-guestos-update-matrix.md#family-3-releases
 [4.130]: ./cloud-services-guestos-update-matrix.md#family-4-releases
@@ -90,8 +86,6 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 |  Rel 24-03  |  [5034865]  |  Servicing Stack Update LKG  |  [2.149]  |  Feb 13, 2024  |
 |  Rel 24-03  |  [4494175]  |  January '20 Microcode  |  [5.93]  |  Sep 1, 2020  |
 |  Rel 24-03  |  [4494175]  |  January '20 Microcode  |  [6.69]  |  Sep 1, 2020  |
-|  Rel 24-03  |  [5035970]  |  Servicing Stack Update  |  [7.39]  |  |
-|  Rel 24-03  |  [5035963]  |  Servicing Stack Update  |  [6.69]  |  |
 
 [5033899]: https://support.microsoft.com/kb/5033899
 [5033907]: https://support.microsoft.com/kb/5033907
@@ -110,8 +104,6 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 [5034865]: https://support.microsoft.com/kb/5034865
 [4494175]: https://support.microsoft.com/kb/4494175
 [4494175]: https://support.microsoft.com/kb/4494175
-[5035970]: https://support.microsoft.com/kb/5035970
-[5035963]: https://support.microsoft.com/kb/5035963
 [2.149]: ./cloud-services-guestos-update-matrix.md#family-2-releases
 [3.137]: ./cloud-services-guestos-update-matrix.md#family-3-releases
 [4.129]: ./cloud-services-guestos-update-matrix.md#family-4-releases

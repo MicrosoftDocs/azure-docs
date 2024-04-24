@@ -50,7 +50,7 @@ When you click the **Roles** tab, you'll see the list of built-in and custom rol
 
 :::image type="content" source="./media/shared/roles-list.png" alt-text="Screenshot of built-in roles in the Azure portal." lightbox="./media/shared/roles-list.png":::
 
-For more information, see [Assign Azure roles using the Azure portal](role-assignments-portal.md).
+For more information, see [Assign Azure roles using the Azure portal](role-assignments-portal.yml).
 
 <a name='azure-ad-roles'></a>
 
@@ -122,6 +122,6 @@ Accounts and subscriptions are managed in the [Azure portal](https://portal.azur
 
 ## Next steps
 
-- [Assign Azure roles using the Azure portal](role-assignments-portal.md)
+- [Assign Azure roles using the Azure portal](role-assignments-portal.yml)
 - [Assign Microsoft Entra roles to users](../active-directory/roles/manage-roles-portal.md)
 - [Roles for Microsoft 365 services in Microsoft Entra ID](../active-directory/roles/m365-workload-docs.md)
