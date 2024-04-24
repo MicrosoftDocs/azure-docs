@@ -43,7 +43,8 @@ az containerapps sessionpool create \
     --location westus2 \
     --pool-type python-lts \
     --max-concurrent-sessions 100 \
-    --cooldown-period-in-seconds 300
+    --cooldown-period-in-seconds 300 \
+    --egress-enabled false
 ```
 
 You can define the following settings when you create a session pool:
@@ -51,12 +52,13 @@ You can define the following settings when you create a session pool:
 | Setting | Description |
 |---------|-------------|
 | `--pool-type` | The type of code interpreter to use. The only currently supported value is `python-lts`. |
-| `--max-concurrent-sessions` | The maximum number of sessions that can be concurrently in use. |
-| `--cooldown-period-in-seconds` | The number of seconds that a session can be idle before it is terminated. The idle period is reset each time the session's API is called. |
+| `--max-concurrent-sessions` | The maximum number of sessions that can be concurrently in use. During public preview, the maximum value is `400`. |
+| `--cooldown-period-in-seconds` | The number of seconds that a session can be idle before it is terminated. The idle period is reset each time the session's API is called. Value must be between `???` and `????`. |
+| `--egress-enabled` | Whether outbound network traffic is allowed from the session. Default `false`. |
 
 ### Get the pool management API endpoint with Azure CLI
 
-To use code interpreter sessions with LLM framework integrations or by calling the management API endpoints directly, you need the pool's management API endpoint. The endpoint is in the format `https://<region>.dynamicsessions.io/subscriptions/<subscription-id>/resourceGroups/<resource-group>/sessionPools/<session-pool-name>/`.
+To use code interpreter sessions with LLM framework integrations or by calling the management API endpoints directly, you need the pool's management API endpoint. The endpoint is in the format `https://<region>.dynamicsessions.io/subscriptions/<subscription-id>/resourceGroups/<resource-group>/sessionPools/<session-pool-name>`.
 
 To retrieve the management API endpoint for a session pool, use the `az containerapps sessionpool show` command:
 
@@ -68,13 +70,15 @@ az containerapps sessionpool show \
 
 ## Code execution in a session
 
-After you create a session pool, your application can interact with sessions in the pool using an integration with an LLM framework or by using the pool's management API endpoints directly.
+After you create a session pool, your application can interact with sessions in the pool using an integration with an [LLM framework](#llm-framework-integrations) or by using the pool's [management API endpoints](#management-api-endpoints) directly.
 
 ### Session identifiers
 
 When you interact with sessions in a pool, you use a session identifier to reference each session. If there's a running session with the identifier, the session is reused. If there's no running session with the identifier, a new session is automatically created.
 
 The session identifier is a string that you define that is unique within the session pool. If you're building a web application, you can use the user's ID. If you're building a chatbot, you can use the conversation ID.
+
+The identifier must be a string that is 1 to 128 characters long and can contain only alphanumeric characters and special characters from this list: `|`, `-`, `&`, `^`, `%`, `$`, `#`, `(`, `)`, `{`, `}`, `[`, `]`, `;`, `<`, and `>`.
 
 ### Authentication
 
@@ -102,19 +106,19 @@ The following endpoints are available for managing sessions in a pool:
 
 | Endpoint path | Method | Description |
 |----------|--------|-------------|
-| `execute` | `POST` | Execute code in a session. |
-| `uploadFile` | `POST` | Upload a file to a session. |
-| `downloadFile` | `GET` | Download a file from a session. |
+| `code/execute` | `POST` | Execute code in a session. |
+| `files/upload` | `POST` | Upload a file to a session. |
+| `files/content/{filename}` | `GET` | Download a file from a session. |
 | `files` | `GET` | List the files in a session. |
 
-Build the full URL for each endpoint by concatenating the pool's management API endpoint with the endpoint path. The query string must include an `identifier` parameter containing the session identifier. For example: `https://<region>.dynamicsessions.io/subscriptions/<subscription-id>/resourceGroups/<resource-group>/sessionPools/<session-pool-name>/execute?identifier=<identifier>`.
+Build the full URL for each endpoint by concatenating the pool's management API endpoint with the endpoint path. The query string must include an `identifier` parameter containing the session identifier. For example: `https://<region>.dynamicsessions.io/subscriptions/<subscription-id>/resourceGroups/<resource-group>/sessionPools/<session-pool-name>/code/execute?identifier=<identifier>`.
 
 #### Execute code in a session
 
-To execute code in a session, send a `POST` request to the `execute` endpoint with the code to run in the request body. This example prints "Hello, world!" in Python and returns the output:
+To execute code in a session, send a `POST` request to the `code/execute` endpoint with the code to run in the request body. This example prints "Hello, world!" in Python and returns the output:
 
 ```http
-POST https://<region>.dynamicsessions.io/subscriptions/<subscription-id>/resourceGroups/<resource-group>/sessionPools/<session-pool-name>/execute?identifier=<session-id>
+POST https://<region>.dynamicsessions.io/subscriptions/<subscription-id>/resourceGroups/<resource-group>/sessionPools/<session-pool-name>/code/execute?identifier=<session-id>
 Content-Type: application/json
 Authorization: Bearer <token>
 
@@ -131,10 +135,10 @@ Replace the placeholders with the appropriate values for your session pool and s
 
 #### Upload a file to a session
 
-To upload a file to a session, send a `POST` request to the `uploadFile` endpoint in a multipart form data request. Include the file data in the request body.
+To upload a file to a session, send a `POST` request to the `uploadFile` endpoint in a multipart form data request. Include the file data in the request body. The file must include a filename.
 
 ```http
-POST https://<region>.dynamicsessions.io/subscriptions/<subscription-id>/resourceGroups/<resource-group>/sessionPools/<session-pool-name>/uploadFile?identifier=<session-id>
+POST https://<region>.dynamicsessions.io/subscriptions/<subscription-id>/resourceGroups/<resource-group>/sessionPools/<session-pool-name>/files/upload?identifier=<session-id>
 Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
 Authorization: Bearer <token>
 
@@ -148,10 +152,10 @@ Content-Type: application/octet-stream
 
 #### Download a file from a session
 
-To download a file from a session, send a `GET` request to the `downloadFile` endpoint. The response will contain the file data.
+To download a file from a session, send a `GET` request to the `file/content/{filename}` endpoint. The response will contain the file data.
 
 ```http
-GET https://<region>.dynamicsessions.io/subscriptions/<subscription-id>/resourceGroups/<resource-group>/sessionPools/<session-pool-name>/downloadFile?identifier=<session-id>&file=myfile.csv
+GET https://<region>.dynamicsessions.io/subscriptions/<subscription-id>/resourceGroups/<resource-group>/sessionPools/<session-pool-name>/file/content/myfile.csv?identifier=<session-id>
 Authorization: Bearer <token>
 ```
 
@@ -202,10 +206,10 @@ The response contains a list of files in the session.
 
 Python code interpreter sessions include popular Python packages such as NumPy, pandas, and scikit-learn.
 
-To output the list of pre-installed packages, call the `execute` endpoint with the following code:
+To output the list of pre-installed packages, call the `code/execute` endpoint with the following code:
 
 ```http
-POST https://<region>.dynamicsessions.io/subscriptions/<subscription-id>/resourceGroups/<resource-group>/sessionPools/<session-pool-name>/identifier/<session-id>/execute
+POST https://<region>.dynamicsessions.io/subscriptions/<subscription-id>/resourceGroups/<resource-group>/sessionPools/<session-pool-name>/identifier/<session-id>/code/execute
 Content-Type: application/json
 Authorization: Bearer <token>
     
