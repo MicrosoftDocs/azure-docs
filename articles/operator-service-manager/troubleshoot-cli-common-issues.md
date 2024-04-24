@@ -171,8 +171,8 @@ There are multiple solutions available.
 - Upload the images to your source registry such that the concatenation of "image_sources" in the `cnf-input.jsonc` file and the image path from the helm chart matches the uploaded location in the source registry.
 - The AOSM CLI stores metadata for the images it discovers in `cnf-cli-output/artifacts/artifacts.json`. The path the AOSM CLI searches in the source registry is `<registry_name>/<registry_namespace>/<artifact_name>/<artifact_version>`. You can manually edit this file so that the values match the image's location in your source ACR.
 
-### CGVs do not match CGS when parameter has null type
+### CGVs don't match CGS when parameter has null type
 
-Currently, AOSM does not support null as a default value in deployParameters schema. This means that the default value null is not allowed in Configuration Group Schemas either. To workaround this, the AOSM CLI sets the default value for parameters of type null to be the string "null". This allows an nfdv to publish successfully. 
+Currently, AOSM doesn't support null as a default value in deployParameters schema, which means that the default value null isn't allowed in Configuration Group Schemas either. To work around this issue, the AOSM CLI sets the default value for parameters of type null to be the string "null", which allows an nfdv to publish successfully. 
 
-When using the portal to create CGVs, your parameter will autofill to have "null" as its value. If you do not change this, you will see an error message in the Portal saying: "New Configuration Group Value does not match the schema - please edit the values". To fix this, change "null" to null in the CGVs.
+When using the portal to create CGVs, your parameter autofills to have "null" as its value. If you don't change this value, the Portal shows an error message, saying: "New Configuration Group Value doesn't match the schema - please edit the values.". To fix this error, change "null" to null in the CGVs.
