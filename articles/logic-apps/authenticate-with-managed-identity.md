@@ -55,8 +55,8 @@ Based on your logic app resource type, you can enable either the system-assigned
 
 | Logic app | Environment | Managed identity support |
 |-----------|-------------|--------------------------|
-| Consumption | - Multitenant Azure Logic Apps <br><br>- Integration service environment (ISE) | - Your logic app can enable *either* the system-assigned identity or the user-assigned identity. <br><br>- You can use the managed identity at the logic app resource level and connection level. <br><br>- If you enable the user-assigned identity, your logic app can have *only one* user-assigned identity at a time. |
-| Standard | - Single-tenant Azure Logic Apps <br><br>- App Service Environment v3 (ASEv3) <br><br>- Azure Arc enabled Logic Apps | - You can enable *both* the system-assigned identity, which is enabled by default, and the user-assigned identity at the same time. <br><br>- You can use the managed identity at the logic app resource level and connection level. <br><br>- If you enable the user-assigned identity, your logic app resource can have multiple user-assigned identities defined at the same time. |
+| Consumption | - Multitenant Azure Logic Apps <br><br>- Integration service environment (ISE) | - You can enable *either* the system-assigned identity or the user-assigned identity, but not both on your logic app. <br><br>- You can use the managed identity at the logic app resource level and at the connection level. <br><br>- If you create and enable the user-assigned identity, your logic app can have *only one* user-assigned identity at a time. |
+| Standard | - Single-tenant Azure Logic Apps <br><br>- App Service Environment v3 (ASEv3) <br><br>- Azure Arc enabled Logic Apps | - You can enable *both* the system-assigned identity, which is enabled by default, and the user-assigned identity at the same time. You can also add multiple user-assigned identities to your logic app. However, your logic app can use only one managed identity at a time. <br><br>- You can use the managed identity at the logic app resource level and at the connection level. |
 
 For information about managed identity limits in Azure Logic Apps, see [Limits on managed identities for logic apps](logic-apps-limits-and-config.md#managed-identity). For more information about the Consumption and Standard logic app resource types and environments, see the following documentation:
 
@@ -77,21 +77,21 @@ In Azure Logic Apps, only specific built-in and managed connector operations tha
 
 ### [Consumption](#tab/consumption)
 
-For a Consumption logic app workflow, the following table lists the connectors that support managed identity authentication:
+For a Consumption logic app workflow, the following table lists example connectors that support managed identity authentication:
 
 | Connector type | Supported connectors |
 |----------------|----------------------|
 | Built-in | - Azure API Management <br>- Azure App Services <br>- Azure Functions <br>- HTTP <br>- HTTP + Webhook <br><br>**Note**: HTTP operations can authenticate connections to Azure Storage accounts behind Azure firewalls with the system-assigned identity. However, HTTP operations don't support the user-assigned identity for authenticating the same connections. |
-| Managed | - Azure App Service <br>- Azure Automation <br>- Azure Blob Storage <br>- Azure Container Instance <br>- Azure Cosmos DB <br>- Azure Data Explorer <br>- Azure Data Factory <br>- Azure Data Lake <br>- Azure Event Grid <br>- Azure Event Hubs <br>- Azure IoT Central V2 <br>- Azure IoT Central V3 <br>- Azure Key Vault <br>- Azure Log Analytics <br>- Azure Queues <br>- Azure Resource Manager <br>- Azure Service Bus <br>- Azure Sentinel <br>- Azure Table Storage <br>- Azure VM <br>- HTTP with Microsoft Entra ID <br>- SQL Server |
+| Managed | - Azure App Service <br>- Azure Automation <br>- Azure Blob Storage <br>- Azure Container Instance <br>- Azure Cosmos DB <br>- Azure Data Explorer <br>- Azure Data Factory <br>- Azure Data Lake <br>- Azure Digital Twins <br>- Azure Event Grid <br>- Azure Event Hubs <br>- Azure IoT Central V2 <br>- Azure Key Vault <br>-Azure Monitor Logs <br>- Azure Queues <br>- Azure Resource Manager <br>- Azure Service Bus <br>- Azure Sentinel <br>- Azure Table Storage <br>- Azure VM <br>- SQL Server |
 
 ### [Standard](#tab/standard)
 
-For a Standard logic app workflow, the following table lists the connectors that support managed identity authentication:
+For a Standard logic app workflow, the following table lists example connectors that support managed identity authentication:
 
 | Connector type | Supported connectors |
 |----------------|----------------------|
 | Built-in | - Azure Automation <br>- Azure Blob Storage <br>- Azure Event Hubs <br>- Azure Service Bus <br>- Azure Queues <br>- Azure Tables <br>- HTTP <br>- HTTP + Webhook <br>- SQL Server <br><br>**Note**: Except for the SQL Server and HTTP connectors, most [built-in, service provider-based connectors](/azure/logic-apps/connectors/built-in/reference/) currently don't support selecting user-assigned identities for authentication. Instead, you must use the system-assigned identity. HTTP operations can authenticate connections to Azure Storage accounts behind Azure firewalls with the system-assigned identity. |
-| Managed | - Azure App Service <br>- Azure Automation <br>- Azure Blob Storage <br>- Azure Container Instance <br>- Azure Cosmos DB <br>- Azure Data Explorer <br>- Azure Data Factory <br>- Azure Data Lake <br>- Azure Event Grid <br>- Azure Event Hubs <br>- Azure IoT Central V2 <br>- Azure IoT Central V3 <br>- Azure Key Vault <br>- Azure Log Analytics <br>- Azure Queues <br>- Azure Resource Manager <br>- Azure Service Bus <br>- Azure Sentinel <br>- Azure Table Storage <br>- Azure VM <br>- HTTP with Microsoft Entra ID <br>- SQL Server |
+| Managed | - Azure App Service <br>- Azure Automation <br>- Azure Blob Storage <br>- Azure Container Instance <br>- Azure Cosmos DB <br>- Azure Data Explorer <br>- Azure Data Factory <br>- Azure Data Lake <br>- Azure Digital Twins <br>- Azure Event Grid <br>- Azure Event Hubs <br>- Azure IoT Central V2 <br>- Azure Key Vault <br>-Azure Monitor Logs <br>- Azure Queues <br>- Azure Resource Manager <br>- Azure Service Bus <br>- Azure Sentinel <br>- Azure Table Storage <br>- Azure VM <br>- SQL Server |
 
 ---
 
@@ -663,21 +663,17 @@ The following steps show how to use the managed identity with a trigger or actio
 
      1. On the **Create Connection** pane, from the **Authentication** list, select **Managed Identity**, for example:
 
-        :::image type="content" source="media/authenticate-with-managed-identity/select-connect-managed-identity-consumption.png" alt-text="Screenshot shows Consumption workflow with Azure Resource Manager action and selected option for Managed Identity." lightbox="media/authenticate-with-managed-identity/select-connect-managed-identity-consumption.png":::
+        :::image type="content" source="media/authenticate-with-managed-identity/select-managed-identity-option-consumption.png" alt-text="Screenshot shows Consumption workflow with Azure Resource Manager action and selected option for Managed Identity." lightbox="media/authenticate-with-managed-identity/select-managed-identity-option-consumption.png":::
 
      1. On the next pane, for **Connection Name**, provide a name to use for the connection.
 
      1. For the authentication type, choose one of the following options based on your managed connector:
 
-        - **Single-authentication**: These connectors support only one authentication type.
+        - **Single-authentication**: These connectors support only one authentication type, which is the managed identity in this case.
 
-          These steps continue by using an **Azure Resource Manager** action as an example.
+          1. From the **Managed Identity** list, select the currently enabled managed identity.
 
-           1. From the **Managed identity** list, select the currently enabled managed identity.
-
-              :::image type="content" source="media/authenticate-with-managed-identity/single-system-identity-consumption.png" alt-text="Screenshot shows Consumption workflow, connection creation box, and selected option for system-assigned managed identity." lightbox="media/authenticate-with-managed-identity/single-system-identity-consumption.png":::
-
-           1. When you're ready, select **Create New**.
+          1. When you're ready, select **Create New**.
 
         - **Multi-authentication**: These connectors support multiple authentication types, but you can select and use only one type at a time.
 
@@ -743,33 +739,39 @@ The following steps show how to use the managed identity with a trigger or actio
         > use only one managed identity at a time. 
         >
         > For example, a workflow that acceses different Azure Service Bus messaging entities 
-        > should use only one managed identity. See [Connect to Azure Service Bus](/connectors/connectors-create-api-servicebus#prerequisites).
+        > should use only one managed identity. See [Connect to Azure Service Bus from workflows](../connectors/connectors-create-api-servicebus.md#prerequisites).
 
      For more information, see [Example: Authenticate built-in trigger or action with a managed identity](#authenticate-built-in-managed-identity).
 
    - **Managed connector operations that support managed identity authentication**
 
-     1. On the tenant selection page, select **Connect with managed identity**, for example:
+     1. On the **Create Connection** pane, from the **Authentication** list, select **Managed Identity**, for example:
 
-        ![Screenshot shows Standard workflow, Azure Resource Manager action, and selected option for Connect with managed identity.](./media/authenticate-with-managed-identity/select-connect-managed-identity-standard.png)
+        :::image type="content" source="media/authenticate-with-managed-identity/select-managed-identity-option-standard.png" alt-text="Screenshot shows Standard workflow, Azure Resource Manager action, and selected option for Managed Identity." lightbox="media/authenticate-with-managed-identity/select-managed-identity-option-standard.png":::
 
-     1. On the next page, for **Connection name**, provide a name to use for the connection.
+     1. On the next pane, for **Connection Name**, provide a name to use for the connection.
 
      1. For the authentication type, choose one of the following options based on your managed connector:
 
-        - **Single-authentication**: These connectors support only one authentication type, which is managed identity in this case. From the **Managed identity** list, select the identity that you want to use. When you're ready to create the connection, select **Create**, for example:
+        - **Single-authentication**: These connectors support only one authentication type, which is the managed identity in this case.
 
-          ![Screenshot shows Standard workflow, connection name pane, and available enabled managed identities.](./media/authenticate-with-managed-identity/single-identity-standard.png)
+          1. From the **Managed Identity** list, select the currently enabled managed identity.
 
-        - **Multi-authentication**: These connectors support more than one authentication type.
+          1. When you're ready, select **Create New**.
 
-          1. From the **Authentication type** list, select **Logic Apps Managed Identity** > **Create**, for example:
+        - **Multi-authentication**: These connectors support multiple authentication types, but you can select and use only one type at a time.
 
-             ![Screenshot shows Standard workflow, connection name pane, and selected option for Logic Apps Managed Identity.](./media/authenticate-with-managed-identity/multi-identity-standard.png)
+          These steps continue by using an **Azure Blob Storage** action as an example.
+
+          1. From the **Authentication Type** list, select **Logic Apps Managed Identity**.
+
+             :::image type="content" source="media/authenticate-with-managed-identity/multi-identity-standard.png" alt-text="Screenshot shows Standard workflow, connection name pane, and selected option for Logic Apps Managed Identity." lightbox="media/authenticate-with-managed-identity/multi-identity-standard.png":::
 
           1. From the **Managed identity** list, select the identity that you want to use.
 
              ![Screenshot shows Standard workflow, the action's Parameters pane, and list named Managed identity.](./media/authenticate-with-managed-identity/select-multi-identity-standard.png)
+
+          1. When you're ready, select **Create New**.
 
         For more information, see [Example: Authenticate managed connector trigger or action with a managed identity](#authenticate-managed-connector-managed-identity).
 
@@ -917,7 +919,7 @@ The Azure Resource Manager managed connector has an action named **Read a resour
 
 1. After you add the action to your workflow and select your Microsoft Entra tenant, select **Connect with managed identity**.
 
-   ![Screenshot shows Consumption workflow, Azure Resource Manager action, and selected option for Connect with managed identity.](./media/authenticate-with-managed-identity/select-connect-managed-identity-consumption.png)
+   ![Screenshot shows Consumption workflow, Azure Resource Manager action, and selected option for Connect with managed identity.](./media/authenticate-with-managed-identity/select-managed-identity-option-consumption.png)
 
 1. On the connection name page, provide a name for the connection, and select the managed identity that you want to use.
 
@@ -986,14 +988,14 @@ This example shows what the configuration looks like when the logic app enables 
    "$connections": {
       "value": {
          "<action-name>": {
-            "connectionId": "/subscriptions/{Azure-subscription-ID}/resourceGroups/{resource-group-name}/providers/Microsoft.Web/connections/{connection-name}",
-            "connectionName": "{connection-name}",
+            "connectionId": "/subscriptions/<Azure-subscription-ID>/resourceGroups/<resource-group-name>/providers/Microsoft.Web/connections/<connector-name>",
+            "connectionName": "<connector-name>",
             "connectionProperties": {
                "authentication": {
                   "type": "ManagedServiceIdentity"
                }
             },
-            "id": "/subscriptions/{Azure-subscription-ID}/providers/Microsoft.Web/locations/{Azure-region}/managedApis/{managed-connector-type}"
+            "id": "/subscriptions/<Azure-subscription-ID>/providers/Microsoft.Web/locations/<Azure-region>/managedApis/<managed-connector-type>"
          }
       }
    }
@@ -1007,15 +1009,15 @@ This example shows what the configuration looks like when the logic app enables 
    "$connections": {
       "value": {
          "<action-name>": {
-            "connectionId": "/subscriptions/{Azure-subscription-ID}/resourceGroups/{resource-group-name}/providers/Microsoft.Web/connections/{connection-name}",
-            "connectionName": "{connection-name}",
+            "connectionId": "/subscriptions/<Azure-subscription-ID>/resourceGroups/<resource-group-name>/providers/Microsoft.Web/connections/<connector-name>",
+            "connectionName": "<connector-name>",
             "connectionProperties": {
                "authentication": {
                   "type": "ManagedServiceIdentity",
-                  "identity": "/subscriptions/{Azure-subscription-ID}/resourceGroups/{resourceGroupName}/providers/microsoft.managedidentity/userassignedidentities/{managed-identity-name}"
+                  "identity": "/subscriptions/<Azure-subscription-ID>/resourceGroups/<resource-group-name>/providers/microsoft.managedidentity/userassignedidentities/<managed-identity-name>"
                }
             },
-            "id": "/subscriptions/{Azure-subscription-ID}/providers/Microsoft.Web/locations/{Azure-region}/managedApis/{managed-connector-type}"
+            "id": "/subscriptions/<Azure-subscription-ID>/providers/Microsoft.Web/locations/<Azure-region>/managedApis/<managed-connector-type>"
          }
       }
    }
@@ -1033,13 +1035,13 @@ This example shows what the configuration looks like when the logic app enables 
     "managedApiConnections": {
         "<connector-name>": {
             "api": {
-                "id": "/subscriptions/{Azure-subscription-ID}/providers/Microsoft.Web/locations/{region}/managedApis/<connector-name>"
+                "id": "/subscriptions/<Azure-subscription-ID>/providers/Microsoft.Web/locations/<Azure-region>/managedApis/<connector-name>"
             },
             "authentication": { // Authentication for the internal token store
                 "type": "ManagedServiceIdentity"
             },
             "connection": {
-                "id": "/subscriptions/{Azure-subscription-ID}/resourceGroups/{resource-group-name}/providers/Microsoft.Web/connections/<connection-name>"
+                "id": "/subscriptions/<Azure-subscription-ID>/resourceGroups/<resource-group-name>/providers/Microsoft.Web/connections/<connector-name>"
             },
             "connectionProperties": {
                 "authentication": { // Authentication for the target resource
@@ -1060,13 +1062,13 @@ This example shows what the configuration looks like when the logic app enables 
     "managedApiConnections": {
         "<connector-name>": {
             "api": {
-                "id": "/subscriptions/{Azure-subscription-ID}/providers/Microsoft.Web/locations/{region}/managedApis/<connector-name>"
+                "id": "/subscriptions/<Azure-subscription-ID>/providers/Microsoft.Web/locations/<Azure-region>/managedApis/<connector-name>"
             },
             "authentication": { // Authentication for the internal token store
                 "type": "ManagedServiceIdentity"
             },
             "connection": {
-                "id": "/subscriptions/{Azure-subscription-ID}/resourceGroups/{resource-group-name}/providers/Microsoft.Web/connections/<connection-name>"
+                "id": "/subscriptions/<Azure-subscription-ID>/resourceGroups/<resource-group-name>/providers/Microsoft.Web/connections/<connector-name>"
             },
             "connectionProperties": {
                 "authentication": { // Authentication for the target resource
@@ -1107,7 +1109,7 @@ This example shows the underlying connection resource definition for an Azure Au
 {
     "type": "Microsoft.Web/connections",
     "apiVersion": "[providers('Microsoft.Web','connections').apiVersions[0]]",
-    "name": "[variables('connections_azureautomation_name')]",
+    "name": "[variables('connections_<connector-name>_name')]",
     "location": "[parameters('location')]",
     "kind": "V1",
     "properties": {
@@ -1118,7 +1120,7 @@ This example shows the underlying connection resource definition for an Azure Au
         "authenticatedUser": {},
         "connectionState": "Enabled",
         "customParameterValues": {},
-        "displayName": "[variables('connections_azureautomation_name')]",
+        "displayName": "[variables('connections_<connector-name>_name')]",
         "parameterValueSet": {},
         "parameterValueType": "Alternative"
     }
@@ -1137,7 +1139,7 @@ This example shows the underlying connection resource definition for an Azure Bl
 {
     "type": "Microsoft.Web/connections",
     "apiVersion": "[providers('Microsoft.Web','connections').apiVersions[0]]",
-    "name": "[variables('connections_azureblob_name')]",
+    "name": "[variables('connections_<connector-name>_name')]",
     "location": "[parameters('location')]",
     "kind": "V1",
     "properties": {
@@ -1148,7 +1150,7 @@ This example shows the underlying connection resource definition for an Azure Bl
         "authenticatedUser": {},
         "connectionState": "Enabled",
         "customParameterValues": {},
-        "displayName": "[variables('connections_azureblob_name')]",
+        "displayName": "[variables('connections_<connector-name>_name')]",
         "parameterValueSet":{
             "name": "managedIdentityAuth",
             "values": {}
@@ -1164,7 +1166,7 @@ The following examples apply to Standard logic apps and show how the underlying 
 
 #### Single-authentication
 
-This example shows the underlying connection resource definition for an Azure Automation action in a Standard logic app that uses a managed identity where the definition includes the following attributes:
+This example shows the underlying connection resource definition and attributes for an action that supports only one authentication type and uses a managed identity:
 
 - The **kind** property is set to **V2** for a Standard logic app.
 
@@ -1173,19 +1175,19 @@ This example shows the underlying connection resource definition for an Azure Au
 ```json
 {
     "type": "Microsoft.Web/connections",
-    "name": "[variables('connections_azureautomation_name')]",
+    "name": "[variables('connections_<connector-name>_name')]",
     "apiVersion": "[providers('Microsoft.Web','connections').apiVersions[0]]",
     "location": "[parameters('location')]",
     "kind": "V2",
     "properties": {
         "alternativeParameterValues": {},
         "api": {
-            "id": "[subscriptionResourceId('Microsoft.Web/locations/managedApis', parameters('location'), 'azureautomation')]"
+            "id": "[subscriptionResourceId('Microsoft.Web/locations/managedApis', parameters('location'), '<connector-name>')]"
         },
         "authenticatedUser": {},
         "connectionState": "Enabled",
         "customParameterValues": {},
-        "displayName": "[variables('connections_azureautomation_name')]",
+        "displayName": "[variables('connections_<connector-name>_name')]",
         "parameterValueSet": {},
         "parameterValueType": "Alternative"
     }
@@ -1194,7 +1196,7 @@ This example shows the underlying connection resource definition for an Azure Au
 
 #### Multi-authentication
 
-This example shows the underlying connection resource definition for an Azure Blob Storage action in a Standard logic app that uses a managed identity where the definition includes the following attributes:
+This example shows the underlying connection resource definition and attributes for an action that supports multiple authentication types and uses a managed identity:
 
 - The **kind** property is set to **V2** for a Standard logic app.
 
@@ -1204,18 +1206,18 @@ This example shows the underlying connection resource definition for an Azure Bl
 {
     "type": "Microsoft.Web/connections",
     "apiVersion": "[providers('Microsoft.Web','connections').apiVersions[0]]",
-    "name": "[variables('connections_azureblob_name')]",
+    "name": "[variables('connections_<connector-name>_name')]",
     "location": "[parameters('location')]",
     "kind": "V1",
     "properties": {
         "alternativeParameterValues":{},
         "api": {
-            "id": "[subscriptionResourceId('Microsoft.Web/locations/managedApis', parameters('location'), 'azureblob')]"
+            "id": "[subscriptionResourceId('Microsoft.Web/locations/managedApis', parameters('location'), '<connector-name>')]"
         },
         "authenticatedUser": {},
         "connectionState": "Enabled",
         "customParameterValues": {},
-        "displayName": "[variables('connections_azureblob_name')]",
+        "displayName": "[variables('connections_<connector-name>_name')]",
         "parameterValueSet":{
             "name": "managedIdentityAuth",
             "values": {}
@@ -1237,10 +1239,10 @@ In the subsequent **Microsoft.Web/connections** resource definition, make sure t
 {
    "type": "Microsoft.Web/connections/accessPolicies",
    "apiVersion": "[providers('Microsoft.Web','connections').apiVersions[0]]",
-   "name": "[concat('<connection-name>','/','<object-ID>')]",
+   "name": "[concat('<connector-name>','/','<object-ID>')]",
    "location": "<location>",
    "dependsOn": [
-      "[resourceId('Microsoft.Web/connections', parameters('connection_name'))]"
+      "[resourceId('Microsoft.Web/connections', parameters('<connector-name>'))]"
    ],
    "properties": {
       "principal": {
@@ -1279,13 +1281,13 @@ In your Standard logic app's **connections.json** file, which stores information
 ```json
 "keyvault": {
    "api": {
-      "id": "/subscriptions/{Azure-subscription-ID}/providers/Microsoft.Web/locations/{region}/managedApis/keyvault"
+      "id": "/subscriptions/<Azure-subscription-ID>/providers/Microsoft.Web/locations/<Azure-region>/managedApis/keyvault"
    },
    "authentication": {
       "type": "ManagedServiceIdentity",
    },
    "connection": {
-      "id": "/subscriptions/{Azure-subscription-ID}/resourceGroups/{resource-group-name}/providers/Microsoft.Web/connections/<connection-name>"
+      "id": "/subscriptions/<Azure-subscription-ID>/resourceGroups/<resource-group-name>/providers/Microsoft.Web/connections/<connector-name>"
    },
    "connectionProperties": {
       "authentication": {
@@ -1330,13 +1332,13 @@ In other scenarios, you might not want to have the system-assigned identity set 
    ```json
    "keyvault": {
       "api": {
-         "id": "/subscriptions/{Azure-subscription-ID}/providers/Microsoft.Web/locations/{region}/managedApis/keyvault"
+         "id": "/subscriptions/<Azure-subscription-ID>/providers/Microsoft.Web/locations/<Azure-region>/managedApis/keyvault"
       },
       "authentication": {
          "type": "ManagedServiceIdentity"
       },
       "connection": {
-         "id": "/subscriptions/{Azure-subscription-ID}/resourceGroups/{resource-group-name}/providers/Microsoft.Web/connections/<connection-name>"
+         "id": "/subscriptions/<Azure-subscription-ID>/resourceGroups/<resource-group-name>/providers/Microsoft.Web/connections/<connector-name>"
       },
       "connectionProperties": {
          "authentication": {
@@ -1359,15 +1361,15 @@ In other scenarios, you might not want to have the system-assigned identity set 
    ```json
    "keyvault": {
       "api": {
-         "id": "/subscriptions/{Azure-subscription-ID}/providers/Microsoft.Web/locations/{region}/managedApis/keyvault"
+         "id": "/subscriptions/<Azure-subscription-ID>/providers/Microsoft.Web/locations/<Azure-region>/managedApis/keyvault"
       },
       "authentication": {
          "type": "ManagedServiceIdentity",
          // Add "identity" property here
-         "identity": "/subscriptions/{Azure-subscription-ID}/resourcegroups/{resource-group-name}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identity-resource-ID}" 
+         "identity": "/subscriptions/<Azure-subscription-ID>/resourcegroups/<resource-group-name>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<identity-resource-ID>"
       },
       "connection": {
-         "id": "/subscriptions/{Azure-subscription-ID}/resourceGroups/{resource-group-name}/providers/Microsoft.Web/connections/<connection-name>"
+         "id": "/subscriptions/<Azure-subscription-ID>/resourceGroups/<resource-group-name>/providers/Microsoft.Web/connections/<connector-name>"
       },
       "connectionProperties": {
          "authentication": {
@@ -1461,6 +1463,6 @@ If you created the logic app's managed identity by using an ARM template, set th
 }
 ```
 
-## Related information
+## Related content
 
 - [Secure access and data in Azure Logic Apps](logic-apps-securing-a-logic-app.md)
