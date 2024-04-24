@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: conceptual
-ms.date: 09/18/2023
+ms.date: 04/24/2024
 ms.author: danlep
 ---
 
@@ -72,6 +72,9 @@ API Management supports the following operation types in GraphQL schemas. For mo
 > [!IMPORTANT]
 > API Management supports subscriptions implemented using  the [graphql-ws](https://github.com/enisdenjo/graphql-ws) WebSocket protocol. Queries and mutations aren't supported over WebSocket.
 > 
+
+> [!NOTE]
+> API Management also supports the [union](https://spec.graphql.org/October2021/#sec-Unions) and [interface](https://spec.graphql.org/October2021/#sec-Interfaces) types in GraphQL schemas.
 
 ## Resolvers
 
