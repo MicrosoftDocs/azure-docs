@@ -607,28 +607,39 @@ You can get the token if you're using the Azure Machine Learning workspace's com
 
 ### [Python](#tab/python)
 
-If you plan to use the Python SDK to invoke the endpoint, and if the endpoint is set to use an auth mode of key, or Azure Machine Learning token (`aml_token`), or Microsoft Entra token (`aad_token`), you're not required to get the data plane token explicitly, as the SDK handles it for you. However, you can still use the SDK to get the data plane token so that you can use it with other channels, such as REST API.
+If you plan to use the SDK to invoke the endpoint, you're not required to get the keys or token for data plane operation explicitly, as the SDK handles it for you. However, you can still use the SDK to get the keys or token for data plane operation so that you can use it with other channels, such as REST API.
 
-To get the key, or Azure Machine Learning token (`aml_token`), or Microsoft Entra token (`aad_token`), use the [get_keys](/python/api/azure-ai-ml/azure.ai.ml.operations.onlineendpointoperations#azure-ai-ml-operations-onlineendpointoperations-get-keys) method in the `OnlineEndpointOperations` class.
+To get the keys or token for data plane operation, use the [get_keys](/python/api/azure-ai-ml/azure.ai.ml.operations.onlineendpointoperations#azure-ai-ml-operations-onlineendpointoperations-get-keys) method in the `OnlineEndpointOperations` class. This method returns an object that contains the keys, token, and/or additional information.
 
-__Keys__ are returned in the `primary_key` and `secondary_key` fields:
+__When auth_mode of endpoint is `key`__
+
+- Keys are returned in the `primary_key` and `secondary_key` fields.
 
 ```Python
 DATA_PLANE_TOKEN = ml_client.online_endpoints.get_keys(name=endpoint_name).primary_key
+DATA_PLANE_TOKEN2 = ml_client.online_endpoints.get_keys(name=endpoint_name).secondary_key
 ```
 
-__Azure Machine Learning tokens__ and __Microsoft Entra tokens__ are returned in the `accessToken` field:
+__When auth_mode of endpoint is `aml_token`__
+
+- Token is returned in the `access_token` field.
+- Token expiration time is returned in the `expiry_time_utc` field.
+- Token refresh time is returned in the `refresh_after_time_utc` field.
 
 ```Python
 DATA_PLANE_TOKEN = ml_client.online_endpoints.get_keys(name=endpoint_name).access_token
+EXPIRY_TIME_UTC = ml_client.online_endpoints.get_keys(name=endpoint_name).expiry_time_utc
+REFRESH_AFTER_TIME_UTC = ml_client.online_endpoints.get_keys(name=endpoint_name).refresh_after_time_utc
 ```
 
-Also, the `expiry_time_utc` field contains the token expiration time.
+__When auth_mode of endpoint is `aad_token`__
 
-For example, to get the `expiry_time_utc`:
+- Token is returned in the `access_token` field.
+- Token expiration time is returned in the `expiry_time_utc` field.
 
 ```Python
-print(ml_client.online_endpoints.get_keys(name=endpoint_name).expiry_time_utc)
+DATA_PLANE_TOKEN = ml_client.online_endpoints.get_keys(name=endpoint_name).access_token
+EXPIRY_TIME_UTC = ml_client.online_endpoints.get_keys(name=endpoint_name).expiry_time_utc
 ```
 
 See [Get a token using the Azure identity client library](/entra/identity/managed-identities-azure-resources/how-to-use-vm-token#get-a-token-using-the-azure-identity-client-library) for more information.
