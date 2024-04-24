@@ -239,9 +239,9 @@ Here's how to create a scaling plan using the Az.DesktopVirtualization PowerShel
             RampDownLoadBalancingAlgorithm = 'BreadthFirst'
             RampDownMinimumHostsPct = '20'
             RampDownCapacityThresholdPct = '20'
-            RampDownForceLogoffUser:$true
+            RampDownForceLogoffUser = $true
             RampDownWaitTimeMinute = '30'
-            RampDownNotificationMessage = '"Log out now, please."'
+            RampDownNotificationMessage = 'Log out now, please.'
             RampDownStopHostsWhen = 'ZeroSessions'
             OffPeakStartTimeHour = '22'
             OffPeakStartTimeMinute = '45'
