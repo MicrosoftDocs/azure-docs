@@ -3,7 +3,7 @@ title: Azure Functions error handling and retry guidance
 description: Learn how to handle errors and retry events in Azure Functions, with links to specific binding errors, including information on retry policies.
 ms.topic: conceptual
 ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
-ms.date: 04/23/2024
+ms.date: 04/24/2024
 zone_pivot_groups: programming-languages-set-functions
 ---
 
@@ -199,96 +199,38 @@ You can set these properties on retry policy definitions:
 [!INCLUDE [functions-retry-function-json-definitions](../../includes/functions-retry-function-json-definitions.md)]
 
 ::: zone-end  
-::: zone pivot="programming-language-javascript"  
-##### [Node.js v4](#tab/node-v4/fixed-delay)
+::: zone pivot="programming-language-javascript" 
+The way you define the retry policy for the trigger depends on your Node.js version.
+
+##### [Node.js v4](#tab/node-v4)
 
 Here's an example of a Timer trigger function that uses a fixed delay retry strategy:
 
-```javascript
-const { app } = require('@azure/functions');
+:::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/timerTriggerWithRetry.js" :::
 
-app.timer('timerTriggerWithRetry', {
-    schedule: '0 */5 * * * *',
-    retry: {
-        strategy: 'fixedDelay',
-        delayInterval: {
-            seconds: 10,
-        },
-        maxRetryCount: 4,
-    },
-    handler: (myTimer, context) => {
-        if (context.retryContext?.retryCount < 2) {
-            throw new Error('Retry!');
-        } else {
-            context.log('Timer function processed request.');
-        }
-    },
-});
-```
-
-##### [Node.js v4](#tab/node-v4/exponential-backoff)
-
-TBD
-
-##### [Node.js v3](#tab/node-v3/fixed-delay)
+##### [Node.js v3](#tab/node-v3)
 
 Here's an example of a fixed delay retry policy defined in the *function.json* file:
 
 [!INCLUDE [functions-retry-fixed-delay-json](../../includes/functions-retry-fixed-delay-json.md)]
-
-##### [Node.js v3](#tab/node-v3/exponential-backoff)
-
-Here's an example of an exponential backoff retry policy defined in the *function.json* file:
-
-[!INCLUDE [functions-retry-exponential-backoff-json](../../includes/functions-retry-exponential-backoff-json.md)]
 
 ---
 
 ::: zone-end  
 ::: zone pivot="programming-language-typescript"  
-##### [Node.js v4](#tab/node-v4/fixed-delay)
+The way you define the retry policy for the trigger depends on your Node.js version.
+
+##### [Node.js v4](#tab/node-v4)
 
 Here's an example of a Timer trigger function that uses a fixed delay retry strategy:
 
-```typescript
-import { app, InvocationContext, Timer } from '@azure/functions';
+:::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/timerTriggerWithRetry.ts" :::
 
-export async function timerTriggerWithRetry(myTimer: Timer, context: InvocationContext): Promise<void> {
-    if (context.retryContext?.retryCount < 2) {
-        throw new Error('Retry!');
-    } else {
-        context.log('Timer function processed request.');
-    }
-}
-
-app.timer('timerTriggerWithRetry', {
-    schedule: '0 */5 * * * *',
-    retry: {
-        strategy: 'fixedDelay',
-        delayInterval: {
-            seconds: 10,
-        },
-        maxRetryCount: 4,
-    },
-    handler: timerTriggerWithRetry,
-});
-```
-
-##### [Node.js v4](#tab/node-v4/exponential-backoff)
-
-TBD
-
-##### [Node.js v3](#tab/node-v3/fixed-delay)
+##### [Node.js v3](#tab/node-v3)
 
 Here's an example of a fixed delay retry policy defined in the *function.json* file:
 
 [!INCLUDE [functions-retry-fixed-delay-json](../../includes/functions-retry-fixed-delay-json.md)]
-
-##### [Node.js v3](#tab/node-v3/exponential-backoff)
-
-Here's an example of an exponential backoff retry policy defined in the *function.json* file:
-
-[!INCLUDE [functions-retry-exponential-backoff-json](../../includes/functions-retry-exponential-backoff-json.md)]
 
 ---
 
