@@ -5,7 +5,7 @@ description: Learn how to create a custom query to hunt for threats.
 author: austinmccollum
 ms.author: austinmc
 ms.topic: how-to
-ms.date: 04/23/2024
+ms.date: 04/24/2024
 appliesto:
     - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
@@ -14,7 +14,7 @@ ms.collection: usx-security
 
 # Create custom hunting queries in Microsoft Sentinel
 
-Create or modify a query and save it as your own query or share it with users who are in the same tenant.
+Hunt for security threats across your organization's data sources with custom hunting queries. Microsoft Sentinel provides built-in hunting queries to help you find issues in the data you have on your network. But you can create your own custom queries. For more information about hunting queries, see [Threat hunting in Microsoft Sentinel](hunting.md).
 
 ## Create a new query
 
@@ -36,37 +36,36 @@ In Microsoft Sentinel, create a custom hunting query from the **Hunting** > **Qu
 
 1.  When your finished defining your query, select **Create**.
 
-**To clone and modify an existing query**:
+## Clone an existing query
 
-1. From the table, select the hunting query you want to modify.
-1. Select the ellipsis (...) in the line of the query you want to modify, and select **Clone query**.
+Clone a custom or built-in query and edit it as needed.
+ 
+1. From the **Hunting** > **Queries** tab, select the hunting query you want to clone.
+1. Select the ellipsis (...) in the line of the query you want to modify, and select **Clone**.
 
-    :::image type="content" source="./media/hunting/clone-query.png" alt-text="Clone query" lightbox="./media/hunting/clone-query.png":::
+   # [Azure portal](#tab/azure-portal)
+   :::image type="content" source="./media/hunts-custom-queries/clone-hunting-query.png" alt-text="Clone query" lightbox="./media/hunts-custom-queries/clone-hunting-query.png":::
+   # [Defender portal](#tab/defender-portal)
+   :::image type="content" source="./media/hunts-custom-queries/clone-hunting-query-defender.png" alt-text="Clone query" lightbox="./media/hunts-custom-queries/clone-hunting-query-defender.png":::
+   ---
+1. Edit the query and other fields as appropriate.
+1. Select **Create**.
 
-1. Modify the query and select **Create**.
+## Edit an existing custom query
 
-**To modify an existing custom query**:
+Only queries that from a custom content source can be edited. Other content sources have to be edited at that source.
 
-1. From the table, select the hunting query that you wish to modify. Only queries that from a custom content source can be edited. Other content sources have to be edited at that source.
+1. From the **Hunting** > **Queries** tab, select the hunting query you want to change. 
 
-1. Select the ellipsis (...) in the line of the query you want to modify, and select **Edit query**.
+1. Select the ellipsis (...) in the line of the query you want to change, and select **Edit**.
 
-1. Modify the **Custom query** field with the updated query. You can also modify the entity mapping and techniques as explained in the "**To create a new query**" section of this documentation.
+1. Update the **Query** field with the updated query. You can also change the entity mapping and techniques.
+1. When finished select **Save**.
 
-## Sample query
+## Related content
 
-A typical query starts with a table or parser name followed by a series of operators separated by a pipe character ("\|").
+- [KQL quick reference](/azure/data-explorer/kusto/query/kql-quick-reference?toc=%2Fazure%2Fsentinel%2FTOC.json&bc=%2Fazure%2Fsentinel%2Fbreadcrumb%2Ftoc.json)
+- [Advanced Security Information Model (ASIM) parser](normalization-about-parsers.md)
+- [Threat hunting in Microsoft Sentinel](hunting.md)
+- [Conduct end-to-end proactive threat hunting in Microsoft Sentinel](hunts.md)
 
-In the example above, start with the table name SecurityEvent and add piped elements as needed.
-
-1. Define a time filter to review only records from the previous seven days.
-
-1. Add a filter in the query to only show event ID 4688.
-
-1. Add a filter in the query on the command line to contain only instances of cscript.exe.
-
-1. Project only the columns you're interested in exploring and limit the results to 1000 and select **Run query**.
-
-1. Select the green triangle and run the query. You can test the query and run it to look for anomalous behavior.
-
-We recommend that your query uses an [Advanced Security Information Model (ASIM) parser](normalization-about-parsers.md) and not a built-in table. This ensures that the query will support any current or future relevant data source rather than a single data source.
