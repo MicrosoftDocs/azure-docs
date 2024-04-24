@@ -109,8 +109,12 @@ This table shows a column that represents each level of a fictitious directory h
 | List /Oregon/           |   `--X`   |   `R-X`    |  `---`      | `---`          |
 | List /Oregon/Portland/  |   `--X`   |   `--X`    |  `R-X`      | `---`          |
 
+### Deleting files and directories
+
+As shown in the previous table, write permissions on the file are not required to delete it as long as the previous two conditions are true. However, to delete a directory and all of its contents, the parent directory must have Write + Execute permissions. The directory to be deleted, and every directory within it, requires Read + Write + Execute permissions.
+
 > [!NOTE]
-> To delete a directory and all of its contents, the parent directory must have Write + Execute permissions. The directory to be deleted, and every directory within it, requires Read + Write + Execute permissions.
+> The root directory "/" can never be deleted.
 
 ### Which permissions are required to recursively delete a directory and its contents?
 
