@@ -24,9 +24,9 @@ Providing Microsoft Teams Direct Routing service with Azure Communications Gatew
 
 ## Prerequisites
 
-You must [connect Azure Communications Gateway to Microsoft Teams Direct Routing](connect-teams-direct-routing.md).
+[Connect Azure Communications Gateway to Microsoft Teams Direct Routing](connect-teams-direct-routing.md).
 
-You must provision Azure Communications Gateway with the details of the enterprise customer tenant and numbers for the enterprise during this procedure.
+During this procedure, you provision Azure Communications Gateway with the details of the enterprise customer tenant and numbers for the enterprise.
 
 [!INCLUDE [communications-gateway-provisioning-permissions](includes/communications-gateway-provisioning-permissions.md)]
 
@@ -47,6 +47,9 @@ Azure Communications Gateway has _per-region domain names_ for connecting to Mic
 
 [!INCLUDE [communications-gateway-direct-routing-subdomain-calculation](includes/communications-gateway-direct-routing-subdomain-calculation.md)]
 
+> [!TIP]
+> Lab deployments have one per-region domain name. A customer for a lab deployment therefore also only has one customer subdomain.
+
 ### Ask the customer to register the subdomains in their tenant and get DNS TXT values
 
 The customer tenant must be configured with the customer subdomains that you allocated in [Choose a DNS subdomain label to use to identify the customer](#choose-a-dns-subdomain-label-to-use-to-identify-the-customer). Microsoft 365 then requires you (as the carrier) to create DNS records that use a verification code from the enterprise.
@@ -65,7 +68,7 @@ Provide your customer with the customer subdomains and ask them to carry out the
 
 ### Configure the customer on Azure Communications Gateway and generate DNS records
 
-Azure Communications Gateway includes a DNS server. You must use Azure Communications Gateway to create the DNS records required to verify the customer subdomains. To generate the records, provision the details of the customer tenant and the DNS TXT values on Azure Communications Gateway.
+Azure Communications Gateway includes a DNS server that you must use to generate the DNS records required to verify the customer subdomains. Provision the details of the customer tenant and the DNS TXT values on Azure Communications Gateway.
 
 # [Number Management Portal (preview)](#tab/number-management-portal)
 
@@ -73,7 +76,7 @@ Azure Communications Gateway includes a DNS server. You must use Azure Communica
 1. Select **Accounts**.
 1. Select **Create account**.
 1. Enter an **Account name** and select the **Enable Teams Direct Routing** checkbox.
-1. Set **Teams tenant ID** to the ID of your customer tenant.
+1. Set **Teams tenant ID** to the ID of the customer tenant.
 1. Optionally, select **Enable call screening**. This screening ensures that customers can only place Direct Routing calls from numbers that you assign to them.
 1. Set **Subdomain** to the label for the subdomain that you chose in [Choose a DNS subdomain label to use to identify the customer](#choose-a-dns-subdomain-label-to-use-to-identify-the-customer) (for example, `contoso`).
 1. Set the **Subdomain token region** fields to the TXT values that the customer provided when they [registered the subdomains](#ask-the-customer-to-register-the-subdomains-in-their-tenant-and-get-dns-txt-values).

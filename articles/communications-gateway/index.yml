@@ -88,10 +88,6 @@ landingContent:
         links:
           - text: Connect to Microsoft Teams Direct Routing
             url: connect-teams-direct-routing.md
-          - text: Configure a test customer
-            url: configure-test-customer-teams-direct-routing.md
-          - text: Configure test numbers
-            url: configure-test-numbers-teams-direct-routing.md
           - text: Prepare for live traffic
             url: prepare-for-live-traffic-teams-direct-routing.md
       - linkListType: concept

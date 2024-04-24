@@ -21,7 +21,7 @@ For example:
 - Your per-region domain names are therefore:
     - `1-r1.<deployment-id>.commsgw.azure.com`
     - `1-r2.<deployment-id>.commsgw.azure.com`
-- If you allocate the label `contoso`, this label combined with the per-region domain names creates the following customer subdomains for your test customer:
+- If you allocate the label `contoso`, this label combined with the per-region domain names creates the following customer subdomains for your customer:
     - `contoso.1-r1.<deployment-id>.commsgw.azure.com`
     - `contoso.1-r2.<deployment-id>.commsgw.azure.com`
 

@@ -66,10 +66,6 @@ items:
     items:
     - name: Connect
       href: connect-teams-direct-routing.md
-    - name: Configure a test customer
-      href: configure-test-customer-teams-direct-routing.md
-    - name: Configure test numbers
-      href: configure-test-numbers-teams-direct-routing.md
     - name: Prepare for live traffic
       href: prepare-for-live-traffic-teams-direct-routing.md
   - name: Emergency calling
