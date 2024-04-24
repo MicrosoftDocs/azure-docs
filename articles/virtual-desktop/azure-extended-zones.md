@@ -41,7 +41,7 @@ For more information, see ....
 
 Azure Virtual Desktop with Azure Extended Zones has the following limitations:
 
-- With Azure Extended Zones, there is no default outbound internet access, as the default outbound route is being retired in September 2025. For more information, see [Default outbound access for VMs in Azure will be retired— transition to a new method of internet access.](https://azure.microsoft.com/updates/default-outbound-access-for-vms-in-azure-will-be-retired-transition-to-a-new-method-of-internet-access/)
+- With Azure Extended Zones, there is no default outbound internet access. The default outbound route is being retired across all Azure regions in September 2025. As Extended Zones will become generally available shortly prior to this date they will start without this default outbound internet route. For more information, see [Default outbound access for VMs in Azure will be retired— transition to a new method of internet access.](https://azure.microsoft.com/updates/default-outbound-access-for-vms-in-azure-will-be-retired-transition-to-a-new-method-of-internet-access/)
 
 - Azure Extended Zones do not support NAT Gateways. You will need to use an Azure Load Balancer with outbound rules enabled for outbound connectivity.
 
