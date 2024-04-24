@@ -17,16 +17,16 @@ Service Connector helps users connect their compute services to target backing s
 
 ## Solution overview
 
-Translating the infrastructure to IaC templates usually involves two major parts: the logics to provision source and target services, and the logics to build connections. To implement the logics to provision source and target services, there are two options:
+Translating the infrastructure to IaC templates usually involves two major parts: the logic to provision source and target services, and the logic to build connections. To implement the logic to provision source and target services, there are two options:
 
 * Authoring the template from scratch
 * Exporting the template from Azure and polish it
 
-To implement the logics to build connections, there are three options:
+To implement the logic to build connections, there are three options:
 
 * Using Service Connector and store configuration in App Configuration
 * Using Service Connector in the template
-* Using template logics to configure source and target services directly
+* Using template logic to configure source and target services directly
 
 Combinations of these different options can produce different solutions. Due to [IaC limitations](./known-limitations.md) in Service Connector, we recommend that you implement the following solutions in the order presented below. To apply these solutions, you must understand the IaC tools and the template authoring grammar.
 
@@ -41,7 +41,7 @@ Combinations of these different options can produce different solutions. Due to 
 
 ## Authoring templates
 
-The following sections show how to create a web app and a storage account and connect them with a system-assigned identity using Bicep. It shows how to do this both using Service Connector and using template logics.
+The following sections show how to create a web app and a storage account and connect them with a system-assigned identity using Bicep. It shows how to do this both using Service Connector and using template logic.
 
 ### Provision source and target services
 
@@ -116,7 +116,7 @@ If the resources you're provisioning are exactly the same ones as the ones you h
 
 :::image type="content" source="./media/how-to/export-webapp-template.png" alt-text="Screenshot of the Azure portal, exporting arm template of a web app.":::
 
-### Build connection logics
+### Build connection logic
 
 ### Using Service Connector and storing configuration in App Configuration
 
@@ -160,7 +160,7 @@ resource serviceConnector 'Microsoft.ServiceLinker/linkers@2022-05-01' = {
 
 **Using Service Connector**
 
-Creating connections between the source and target service using Service Connector is the preferred and recommended way if the [Service Connector ](./known-limitations.md)[IaC limitation](./known-limitations.md) doesn't matter for your scenario. Service Connector makes the template simpler and also provides additional elements, such as the connection health validation, which you won't have if you're building connections through template logics directly.
+Creating connections between the source and target service using Service Connector is the preferred and recommended way if the [Service Connector ](./known-limitations.md)[IaC limitation](./known-limitations.md) doesn't matter for your scenario. Service Connector makes the template simpler and also provides additional elements, such as the connection health validation, which you won't have if you're building connections through template logic directly.
 
 ```bicep
 // The template builds a connection between a webapp and a storage account 
@@ -202,9 +202,9 @@ For the formats of properties and values needed when creating a Service Connecto
 
 :::image type="content" source="./media/how-to/export-sc-template.png" alt-text="Screenshot of the Azure portal, exporting arm template of a service connector resource.":::
 
-**Using template logics**
+**Using template logic**
 
-For the scenarios where the Service Connector [IaC limitation](./known-limitations.md) matters, consider building connections using the template logics directly. The following template is an example showing how to connect a storage account to a web app using a system-assigned identity.
+For the scenarios where the Service Connector [IaC limitation](./known-limitations.md) matters, consider building connections using the template logic directly. The following template is an example showing how to connect a storage account to a web app using a system-assigned identity.
 
 ```bicep
 // The template builds a connection between a webapp and a storage account 
@@ -250,7 +250,7 @@ resource roleAssignment 'Microsoft.Authorization/roleAssignments@2022-04-01' = {
 }
 ```
 
-When building connections using template logics directly, it's crucial to understand what Service Connector does for each kind of authentication type, as the template logics are equivalent to the Service Connector backend operations. The following table shows the operation details that you need translate to template logics for each kind of authentication type.
+When building connections using template logic directly, it's crucial to understand what Service Connector does for each kind of authentication type, as the template logic are equivalent to the Service Connector backend operations. The following table shows the operation details that you need translate to template logic for each kind of authentication type.
 
 | Auth type                        | Service Connector operations                                                                                                                                                                                                                                                                                                                               |
 | -------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
