@@ -1,6 +1,6 @@
 ---
 title: Restore Azure VMs using REST API
-description: In this article, learn how to manage restore operations of Azure Virtual Machine Backup using REST API.
+description: In this article, learn how to manage to restore operations of Azure Virtual Machine Backup using REST API.
 ms.topic: how-to
 ms.service: backup
 ms.date: 04/24/2024
@@ -23,7 +23,7 @@ The available recovery points of a backup item can be listed using the [list rec
 GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}/recoveryPoints?api-version=2019-05-13
 ```
 
-The `{containerName}` and `{protectedItemName}` are as constructed [here](backup-azure-arm-userestapi-backupazurevms.md#responses-to-get-operation). `{fabricName}` is "Azure".
+The `{containerName}` and `{protectedItemName}` are as constructed [here](backup-azure-arm-userestapi-backupazurevms.md#responses-to-get-operation). `{fabricName}` is `Azure`.
 
 The *GET* URI has all the required parameters. There's no need for an additional request body.
 
@@ -244,7 +244,7 @@ The following request body defines properties required to trigger a disk restore
 
 ### Restore disks selectively
 
-If you are [selectively backing up disks](backup-azure-arm-userestapi-backupazurevms.md#excluding-disks-in-azure-vm-backup), then the current backed-up disk list is provided in the [recovery point summary](#select-recovery-point) and [detailed response](/rest/api/backup/recovery-points/get). You can also selectively restore disks and more details are provided [here](selective-disk-backup-restore.md#selective-disk-restore). To selectively restore a disk among the list of backed up disks, find the LUN of the disk from the recovery point response and add the **restoreDiskLunList** property to the [request body above](#example-request) as shown below.
+If you're [selectively backing up disks](backup-azure-arm-userestapi-backupazurevms.md#excluding-disks-in-azure-vm-backup), then the current backed-up disk list is provided in the [recovery point summary](#select-recovery-point) and [detailed response](/rest/api/backup/recovery-points/get). You can also selectively restore disks and more details are provided [here](selective-disk-backup-restore.md#selective-disk-restore). To selectively restore a disk among the list of backed up disks, find the LUN of the disk from the recovery point response and add the **restoreDiskLunList** property to the [request body above](#example-request) as shown below.
 
 ```json
 {
@@ -350,7 +350,7 @@ GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{
 
 ```
 
-The `{containerName}` and `{protectedItemName}` are as constructed [here](backup-azure-arm-userestapi-backupazurevms.md#responses-to-get-operation). `{fabricName}` is "Azure".
+The `{containerName}` and `{protectedItemName}` are as constructed [here](backup-azure-arm-userestapi-backupazurevms.md#responses-to-get-operation). `{fabricName}` is `Azure`.
 
 The *GET* URI has all the required parameters. An additional request body isn't required.
 
