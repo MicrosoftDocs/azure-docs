@@ -4,7 +4,7 @@ titleSuffix: Azure OpenAI
 description: Learn about the different model capabilities that are available with Azure OpenAI.
 ms.service: azure-ai-openai
 ms.topic: conceptual
-ms.date: 04/17/2024
+ms.date: 04/24/2024
 ms.custom: references_regions, build-2023, build-2023-dataai, refefences_regions
 manager: nitinme
 author: mrbullwinkle #ChrisHMSFT
@@ -165,14 +165,14 @@ The following GPT-4 models are available with [Azure Government](/azure/azure-go
 > [!IMPORTANT]
 > The NEW `gpt-35-turbo (0125)`  model has various improvements, including higher accuracy at responding in requested formats and a fix for a bug which caused a text encoding issue for non-English language function calls.
 
-GPT-3.5 Turbo is used with the Chat Completion API. GPT-3.5 Turbo version 0301 can also be used with the Completions API.  GPT-3.5 Turbo versions 0613 and 1106 only support the Chat Completions API.
+GPT-3.5 Turbo is used with the Chat Completion API. GPT-3.5 Turbo version 0301 can also be used with the Completions API, though this is not recommended.  GPT-3.5 Turbo versions 0613 and 1106 only support the Chat Completions API.
 
 GPT-3.5 Turbo version 0301 is the first version of the model released.  Version 0613 is the second version of the model and adds function calling support.
 
 See [model versions](../concepts/model-versions.md) to learn about how Azure OpenAI Service handles model version upgrades, and [working with models](../how-to/working-with-models.md) to learn how to view and configure the model version settings of your GPT-3.5 Turbo deployments.
 
 > [!NOTE]
-> Version `0613` of `gpt-35-turbo` and `gpt-35-turbo-16k` will be retired no earlier than July 13, 2024. Version `0301` of `gpt-35-turbo` will be retired no earlier than June 13, 2024.  See [model updates](../how-to/working-with-models.md#model-updates) for model upgrade behavior.
+> Version `0613` of `gpt-35-turbo` and `gpt-35-turbo-16k` will be retired no earlier than August 1, 2024. Version `0301` of `gpt-35-turbo` will be retired no earlier than August 1, 2024.  See [model updates](../how-to/working-with-models.md#model-updates) for model upgrade behavior.
 
 |  Model ID   | Max Request (tokens) | Training Data (up to) |
 |  --------- |:------:|:----:|
