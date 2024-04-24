@@ -7,7 +7,7 @@ ms.custom: references_regions, build-2023
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: overview
-ms.date: 01/02/2024
+ms.date: 02/04/2024
 ---
 
 # API release notes - Azure Database for PostgreSQL - Flexible Server

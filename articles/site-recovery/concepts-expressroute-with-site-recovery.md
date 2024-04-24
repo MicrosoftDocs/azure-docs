@@ -56,6 +56,7 @@ If you are already using ExpressRoute to connect from your on-premises datacente
 You can replicate Azure virtual machines to any Azure region within the same geographic cluster as detailed [here](../site-recovery/azure-to-azure-support-matrix.md#region-support). If the chosen target Azure region is not within the same geopolitical region as the source, you might need to enable ExpressRoute Premium. For more details, check [ExpressRoute locations](../expressroute/expressroute-locations.md) and [ExpressRoute pricing](https://azure.microsoft.com/pricing/details/expressroute/).
 
 ## Next steps
+
 - Learn more about [ExpressRoute circuits](../expressroute/expressroute-circuit-peerings.md).
 - Learn more about [ExpressRoute routing domains](../expressroute/expressroute-circuit-peerings.md#peeringcompare).
 - Learn more about [ExpressRoute locations](../expressroute/expressroute-locations.md).

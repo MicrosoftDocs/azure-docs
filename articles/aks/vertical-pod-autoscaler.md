@@ -4,6 +4,9 @@ description: Learn how to vertically autoscale your pod on an Azure Kubernetes S
 ms.topic: article
 ms.custom: devx-track-azurecli
 ms.date: 09/28/2023
+author: nickomang
+ms.author: nickoman
+
 ---
 
 # Vertical Pod Autoscaling in Azure Kubernetes Service (AKS)
@@ -632,3 +635,4 @@ This article showed you how to automatically scale resource utilization, such as
 [az-feature-register]: /cli/azure/feature#az-feature-register
 [az-feature-show]: /cli/azure/feature#az-feature-show
 [horizontal-pod-autoscaler-overview]: concepts-scale.md#horizontal-pod-autoscaler
+

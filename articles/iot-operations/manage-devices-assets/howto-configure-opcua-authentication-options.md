@@ -30,12 +30,12 @@ Azure IoT Operations Preview installed. For more information, see [Quickstart: D
 | Configuration of OPC UA user authentication with an X.509 user certificate	  | Unsupported |   ❌     |
 
 ## Configure OPC UA user authentication with username and password
-If an OPC UA Server requires user authentication with username and password, you can select that option in Operations Experience, and configure the secrets references for the username and password.
+If an OPC UA Server requires user authentication with username and password, you can select that option in the Azure IoT Operations (preview) portal, and configure the secrets references for the username and password.
 
 Before you can configure secrets for the username and password, you need to complete two more configuration steps:
-If an OPC UA Server requires user authentication with username and password, you can select that option in the Operations Experience portal, and configure the secret references for the username and password.
+If an OPC UA Server requires user authentication with username and password, you can select that option in the Azure IoT Operations (preview) portal, and configure the secret references for the username and password.
 
-1. Configure the username and password in Azure Key Vault. In the following example, use the `username` and `password` as secret references for the configuration in Operations Experience.
+1. Configure the username and password in Azure Key Vault. In the following example, use the `username` and `password` as secret references for the configuration in the Azure IoT Operations (preview) portal.
 
     > [!NOTE]
     > Replace the values in the example for user (*user1*) and password (*password*) with the actual credentials used in the OPC UA server to connect.

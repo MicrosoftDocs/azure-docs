@@ -4,7 +4,7 @@ description: Install Salt Minion on Linux or Windows VMs using the VM Extension.
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: extensions
-ms.custom: devx-track-arm-template, devx-track-azurecli, devx-track-terraform
+ms.custom: devx-track-arm-template, devx-track-azurecli, devx-track-terraform, linux-related-content
 ms.author: gabsta
 author: GabstaMSFT
 ms.date: 01/24/2024

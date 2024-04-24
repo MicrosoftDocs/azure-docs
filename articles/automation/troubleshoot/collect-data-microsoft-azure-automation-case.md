@@ -4,7 +4,7 @@ description: This article describes the information to gather before opening a c
 services: automation
 ms.subservice:
 ms.topic: troubleshooting
-ms.custom: engagement-fy23
+ms.custom: engagement-fy23, linux-related-content
 ms.date: 10/21/2022
 ---
 

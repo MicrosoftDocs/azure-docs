@@ -7,7 +7,7 @@ manager: juergent
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
-ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.custom: devx-track-azurecli, devx-track-azurepowershell, linux-related-content
 ms.date: 01/17/2024
 ms.author: radeltch
 ---

@@ -212,6 +212,9 @@ There's a default limit of three `join` and three `mv-expand` operators in a sin
 
 To support the _Open Query_ portal experience, Azure Resource Graph Explorer has a higher global limit than Resource Graph SDK.
 
+> [!NOTE]
+> You can't reference a table as right table multiple times, which exceeds the limit of 1. If you do so, you would receive an error with code DisallowedMaxNumberOfRemoteTables.
+
 ## Query scope
 
 The scope of the subscriptions or [management groups](../../management-groups/overview.md) from

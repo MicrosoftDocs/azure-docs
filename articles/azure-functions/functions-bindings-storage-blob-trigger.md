@@ -31,6 +31,8 @@ For information on setup and configuration details, see the [overview](./functio
 
 [!INCLUDE [functions-bindings-csharp-intro](../../includes/functions-bindings-csharp-intro.md)]
 
+[!INCLUDE [functions-in-process-model-retirement-note](../../includes/functions-in-process-model-retirement-note.md)]
+
 # [Isolated worker model](#tab/isolated-process)
 
 The following example is a [C# function](dotnet-isolated-process-guide.md) that runs in an isolated worker process and uses a blob trigger with both blob input and blob output blob bindings. The function is triggered by the creation of a blob in the *test-samples-trigger* container. It reads a text file from the *test-samples-input* container and creates a new text file in an output container based on the name of the triggered file.
@@ -419,7 +421,7 @@ See [Binding types](./functions-bindings-storage-blob.md?tabs=in-process#binding
 
 ---
 
-Binding to `string`, or `Byte[]` is only recommended when the blob size is small. This is recommended because the entire blob contents are loaded into memory. For most blobs, use a `Stream` or `BlobClient` type. For more information, see [Concurrency and memory usage](./functions-bindings-storage-blob-trigger.md#concurrency-and-memory-usage).
+Binding to `string`, or `Byte[]` is only recommended when the blob size is small. This is recommended because the entire blob contents are loaded into memory. For most blobs, use a `Stream` or `BlobClient` type. For more information, see [Concurrency and memory usage](./functions-bindings-storage-blob-trigger.md#memory-usage-and-concurrency).
 
 If you get an error message when trying to bind to one of the Storage SDK types, make sure that you have a reference to [the correct Storage SDK version](./functions-bindings-storage-blob.md#tabpanel_2_functionsv1_in-process).
 
@@ -529,18 +531,29 @@ If all 5 tries fail, Azure Functions adds a message to a Storage queue named *we
 - BlobName
 - ETag (a blob version identifier, for example: `0x8D1DC6E70A277EF`)
 
-## Concurrency and memory usage
+## Memory usage and concurrency 
 
-The blob trigger uses a queue internally, so the maximum number of concurrent function invocations is controlled by the [queues configuration in host.json](functions-host-json.md#queues). The default settings limit concurrency to 24 invocations. This limit applies separately to each function that uses a blob trigger.
+::: zone pivot="programming-language-csharp" 
+When you bind to an [output type](#usage) that doesn't support steaming, such as `string`, or `Byte[]`, the runtime must load the entire blob into memory more than one time during processing. This can result in higher-than expected memory usage when processing blobs. When possible, use a stream-supporting type. Type support depends on the C# mode and extension version. For more information, see [Binding types](./functions-bindings-storage-blob.md#binding-types).
+::: zone-end  
+::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-powershell,programming-language-java" 
+At this time, the runtime must load the entire blob into memory more than one time during processing. This can result in higher-than expected memory usage when processing blobs. 
+::: zone-end  
+Memory usage can be further impacted when multiple function instances are concurrently processing blob data. If you are having memory issues using a Blob trigger, consider reducing the number of concurrent executions permitted. Of course, reducing the concurrency can have the side effect of increasing the backlog of blobs waiting to be processed. The memory limits of your function app depends on the plan. For more information, see [Service limits](functions-scale.md#service-limits).  
+ 
+The way that you can control the number of concurrent executions depends on the version of the Storage extension you are using.
 
-> [!NOTE]
-> For apps using the 5.0.0 or higher version of the Storage extension, the queues configuration in host.json only applies to queue triggers. The blob trigger concurrency is instead controlled by [blobs configuration in host.json](functions-host-json.md#blobs).
+### [Extension 5.x and higher](#tab/extensionv5)
 
-[The Consumption plan](event-driven-scaling.md) limits a function app on one virtual machine (VM) to 1.5 GB of memory. Memory is used by each concurrently executing function instance and by the Functions runtime itself. If a blob-triggered function loads the entire blob into memory, the maximum memory used by that function just for blobs is 24 * maximum blob size. For example, a function app with three blob-triggered functions and the default settings would have a maximum per-VM concurrency of 3*24 = 72 function invocations.
+When using version 5.0.0 of the Storage extension or a later version, you control trigger concurrency by using the `maxDegreeOfParallelism` setting in the [blobs configuration in host.json](functions-bindings-storage-blob.md#hostjson-settings). 
 
-JavaScript and Java functions load the entire blob into memory, and C# functions do that if you bind to `string`, or `Byte[]`.
+### [Pre-extension 5.x](#tab/extensionv4)
 
-Due to the existing architecture, we load the blob into memory several times so you should expect the memory usage to be two to three times the size of the blob. 
+Because the blob trigger uses a queue internally, the maximum number of concurrent function invocations is controlled by the [queues configuration in host.json](functions-bindings-storage-queue.md#host-json). 
+
+---
+
+Limits apply separately to each function that uses a blob trigger.
 
 ## host.json properties
 

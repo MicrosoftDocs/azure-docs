@@ -9,30 +9,8 @@ ms.author: kendownie
 ms.service: azure-file-storage
 ---
 
-<!-- 
-IMPORTANT 
-To make this template easier to use, first:
-1. Search and replace Azure Files with the official name of your service.
-2. Search and replace files with the service name to use in GitHub filenames.-->
-
-<!-- VERSION 3.0 2024_01_07
-For background about this template, see https://review.learn.microsoft.com/en-us/help/contribute/contribute-monitoring?branch=main -->
-
-<!-- Most services can use the following sections unchanged. The sections use #included text you don't have to maintain, which changes when Azure Monitor functionality changes. Add info into the designated service-specific places if necessary. Remove #includes or template content that aren't relevant to your service.
-At a minimum your service should have the following two articles:
-1. The primary monitoring article (based on this template)
-   - Title: "Monitor Azure Files"
-   - TOC title: "Monitor"
-   - Filename: "monitor-files.md"
-2. A reference article that lists all the metrics and logs for your service (based on the template data-reference-template.md).
-   - Title: "Azure Files monitoring data reference"
-   - TOC title: "Monitoring data reference"
-   - Filename: "storage-files-monitoring-reference.md".
--->
-
 # Monitor Azure Files
 
-<!-- Intro -->
 [!INCLUDE [horz-monitor-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-intro.md)]
 
 ## Applies to
@@ -45,55 +23,20 @@ At a minimum your service should have the following two articles:
 >[!IMPORTANT]
 >Metrics and logs in Azure Monitor support only Azure Resource Manager storage accounts. Azure Monitor doesn't support classic storage accounts. If you want to use metrics or logs on a classic storage account, you need to migrate to an Azure Resource Manager storage account. For more information, see [Migrate to Azure Resource Manager](/azure/virtual-machines/migration-classic-resource-manager-overview).
 
-<!-- ## Insights. Optional section. If your service has insights, add the following include and information. -->
 [!INCLUDE [horz-monitor-insights](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-insights.md)]
-<!-- Insights service-specific information. Add brief information about what your Azure Monitor insights provide here. You can refer to another article that gives details or add a screenshot. -->
+
 Azure Storage insights offer a unified view of storage performance, capacity, and availability. See [Monitor storage with Azure Monitor Storage insights](../common/storage-insights-overview.md).
 
-<!-- ## Resource types. Required section. -->
 [!INCLUDE [horz-monitor-resource-types](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-resource-types.md)]
 
-<!-- ## Data storage. Required section. Optionally, add service-specific information about storing your monitoring data after the include. -->
 [!INCLUDE [horz-monitor-data-storage](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-data-storage.md)]
-<!-- Add service-specific information about storing monitoring data here, if applicable. For example, SQL Server stores other monitoring data in its own databases. -->
 
-<!-- METRICS SECTION START ------------------------------------->
-
-<!-- ## Platform metrics. Required section.
-  - If your service doesn't collect platform metrics, use the following include: [!INCLUDE [horz-monitor-no-platform-metrics](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-no-platform-metrics.md)]
-  - If your service collects platform metrics, add the following include, statement, and service-specific information as appropriate. -->
 [!INCLUDE [horz-monitor-platform-metrics](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-platform-metrics.md)]
 For a list of available metrics for Azure Files, see [Azure Files monitoring data reference](storage-files-monitoring-reference.md#metrics).
-<!-- Platform metrics service-specific information. Add service-specific information about your platform metrics here.-->
 
-<!-- ## Prometheus/container metrics. Optional. If your service uses containers/Prometheus metrics, add the following include and information. 
-[!INCLUDE [horz-monitor-container-metrics](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-container-metrics.md)]
-<!-- Add service-specific information about your container/Prometheus metrics here.-->
-
-<!-- ## System metrics. Optional. If your service uses system-imported metrics, add the following include and information. 
-[!INCLUDE [horz-monitor-system-metrics](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-system-metrics.md)]
-<!-- Add service-specific information about your system-imported metrics here.-->
-
-<!-- ## Custom metrics. Optional. If your service uses custom imported metrics, add the following include and information. 
-[!INCLUDE [horz-monitor-custom-metrics](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-custom-metrics.md)]
-<!-- Custom imported service-specific information. Add service-specific information about your custom imported metrics here.-->
-
-<!-- ## Non-Azure Monitor metrics. Optional. If your service uses any non-Azure Monitor based metrics, add the following include and information. 
-[!INCLUDE [horz-monitor-custom-metrics](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-non-monitor-metrics.md)]
-<!-- Non-Monitor metrics service-specific information. Add service-specific information about your non-Azure Monitor metrics here.-->
-
-<!-- METRICS SECTION END ------------------------------------->
-
-<!-- LOGS SECTION START -------------------------------------->
-
-<!-- ## Resource logs. Required section.
-  - If your service doesn't collect resource logs, use the following include [!INCLUDE [horz-monitor-no-resource-logs](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-no-resource-logs.md)]
-  - If your service collects resource logs, add the following include, statement, and service-specific information as appropriate. -->
 <a name="collection-and-routing"></a>
 [!INCLUDE [horz-monitor-resource-logs](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-resource-logs.md)]
 For the available resource log categories, their associated Log Analytics tables, and the logs schemas for Azure Files, see [Azure Files monitoring data reference](storage-files-monitoring-reference.md#resource-logs).
-<!-- Resource logs service-specific information. Add service-specific information about your resource logs here.
-NOTE: Azure Monitor already has general information on how to configure and route resource logs. See https://learn.microsoft.com/azure/azure-monitor/platform/diagnostic-settings. Ideally, don't repeat that information here. You can provide a single screenshot of the diagnostic settings portal experience if you want. -->
 
 To get the list of SMB and REST operations that are logged, see [Storage logged operations and status messages](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) and [Azure Files monitoring data reference](storage-files-monitoring-reference.md).
 
@@ -110,25 +53,10 @@ For general destination limitations, see [Destination limitations](/azure/azure-
 
   If you send logs to Log Analytics, you can manage the data retention period of Log Analytics at the workspace level or even specify different retention settings by data type. To learn how, see [Change the data retention period](/azure/azure-monitor/logs/data-retention-archive).
 
-<!-- ## Activity log. Required section. Optionally, add service-specific information about your activity log after the include. -->
 [!INCLUDE [horz-monitor-activity-log](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-activity-log.md)]
-<!-- Activity log service-specific information. Add service-specific information about your activity log here. -->
 
-<!-- ## Imported logs. Optional section. If your service uses imported logs, add the following include and information. 
-[!INCLUDE [horz-monitor-imported-logs](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-imported-logs.md)]
-<!-- Add service-specific information about your imported logs here. -->
-
-<!-- ## Other logs. Optional section.
-If your service has other logs that aren't resource logs or in the activity log, add information that states what they are and what they cover here. You can describe how to route them in a later section. -->
-
-<!-- LOGS SECTION END ------------------------------------->
-
-<!-- ANALYSIS SECTION START -------------------------------------->
-
-<!-- ## Analyze data. Required section. -->
 [!INCLUDE [horz-monitor-analyze-data](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-analyze-data.md)]
 
-<!-- ### External tools. Required section. -->
 [!INCLUDE [horz-monitor-external-tools](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-external-tools.md)]
 
 ### Analyze metrics for Azure Files
@@ -164,9 +92,8 @@ Log entries are created only if there are requests made against the service endp
 
 Requests made by the Azure Files service itself, such as log creation or deletion, aren't logged. 
 
-<!-- ### Sample Kusto queries. Required section. If you have sample Kusto queries for your service, add them after the include. -->
 [!INCLUDE [horz-monitor-kusto-queries](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-kusto-queries.md)]
-<!-- Add sample Kusto queries for your service here. -->
+
 Here are some queries that you can enter in the **Log search** bar to help you monitor your Azure file shares. These queries work with the [new language](../../azure-monitor/logs/log-query-overview.md).
 
 - View SMB errors over the last week.
@@ -208,17 +135,7 @@ To view the list of column names and descriptions for Azure Files, see [StorageF
 
 For more information on how to write queries, see [Log Analytics tutorial](/azure/azure-monitor/logs/log-analytics-tutorial).
 
-<!-- ANALYSIS SECTION END ------------------------------------->
-
-<!-- ALERTS SECTION START -------------------------------------->
-
-<!-- ## Alerts. Required section. -->
 [!INCLUDE [horz-monitor-alerts](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-alerts.md)]
-
-<!-- ### Azure Files alert rules. Required section.
-**MUST HAVE** service-specific alert rules. Include useful alerts on metrics, logs, log conditions, or activity log.
-Fill in the following table with metric and log alerts that would be valuable for your service. Change the format as necessary for readability. You can instead link to an article that discusses your common alerts in detail.
-Ask your PMs if you don't know. This information is the BIGGEST request we get in Azure Monitor, so don't avoid it long term. People don't know what to monitor for best results. Be prescriptive. -->
 
 ### Azure Files alert rules
 The following table lists common and recommended alert rules for Azure Files and the proper metric to use for the alert.
@@ -236,13 +153,10 @@ The following table lists common and recommended alert rules for Azure Files and
 
 For instructions on how to create alerts on throttling, capacity, egress, and high server latency, see [Create monitoring alerts for Azure Files](files-monitoring-alerts.md).
 
-<!-- ### Advisor recommendations -->
 [!INCLUDE [horz-monitor-advisor-recommendations](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-advisor-recommendations.md)]
 
-<!-- ALERTS SECTION END -------------------------------------->
 
 ## Related content
-<!-- You can change the wording and add more links if useful. -->
 
 Other Azure Files monitoring content:
 - [Azure Files monitoring data reference](storage-files-monitoring-reference.md). A reference of the logs and metrics created by Azure Files.

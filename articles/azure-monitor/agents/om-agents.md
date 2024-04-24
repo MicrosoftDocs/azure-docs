@@ -98,9 +98,9 @@ The following table lists the proxy and firewall configuration information requi
 |api.loganalytics.io| 80 and 443||
 |docs.loganalytics.io| 80 and 443||  
 
-### TLS 1.2 protocol
+### TLS protocol
 
-To ensure the security of data in transit to Azure Monitor, configure the agent and management group to use at least Transport Layer Security (TLS) 1.2. Older versions of TLS/Secure Sockets Layer (SSL) are vulnerable. Although they still currently work to allow backward compatibility, they're *not recommended*. For more information, see [Sending data securely by using TLS 1.2](../logs/data-security.md#sending-data-securely-using-tls-12).
+To ensure the security of data in transit to Azure Monitor, configure the agent and management group to use at least Transport Layer Security (TLS) 1.2. Older versions of TLS/Secure Sockets Layer (SSL) are vulnerable. Although they still currently work to allow backward compatibility, they're *not recommended*. For more information, see [Sending data securely by using TLS 1.2](../logs/data-security.md#sending-data-securely-using-tls).
 
 ## Connect Operations Manager to Azure Monitor
 

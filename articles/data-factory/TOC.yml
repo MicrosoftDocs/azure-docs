@@ -240,8 +240,6 @@ items:
             href: concepts-data-flow-performance-transformations.md
           - name: Using data flows in pipelines
             href: concepts-data-flow-performance-pipelines.md
-          - name: Memory optimized compute
-            href: memory-optimized-compute.md
       - name: Integration Runtime performance
         href: concepts-integration-runtime-performance.md
       - name: Manage data flow canvas

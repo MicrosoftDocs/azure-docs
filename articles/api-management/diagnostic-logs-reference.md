@@ -12,6 +12,8 @@ ms.custom: engagement-fy23
 ---
 # Diagnostics logs settings reference: API Management
 
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
+
 This reference describes settings for API diagnostics logging from an API Management instance. To enable logging of API requests, see the following guidance:
 
 * [Collect resource logs](api-management-howto-use-azure-monitor.md#resource-logs)

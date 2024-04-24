@@ -51,7 +51,7 @@ This article contains known issues for Azure IoT Operations Preview.
 
 ## Azure IoT OPC UA Broker Preview
 
-- All AssetEndpointProfiles in the cluster have to be configured with the same transport authentication certificate, otherwise the OPC UA Broker might exhibit random behavior. To avoid this issue when using transport authentication, configure all asset endpoints with the same thumbprint for the transport authentication certificate in the Azure IoT Operations portal.
+- All AssetEndpointProfiles in the cluster have to be configured with the same transport authentication certificate, otherwise the OPC UA Broker might exhibit random behavior. To avoid this issue when using transport authentication, configure all asset endpoints with the same thumbprint for the transport authentication certificate in the Azure IoT Operations (preview) portal.
 
 - If you deploy an AssetEndpointProfile into the cluster and the OPC UA Broker can't connect to the configured endpoint on the first attempt, then the OPC UA Broker never retries to connect.
 
@@ -59,9 +59,7 @@ This article contains known issues for Azure IoT Operations Preview.
 
 ## OPC PLC simulator
 
-If you create an asset endpoint for the OPC PLC simulator, but the OPC PLC simulator isn't sending data to the IoT MQ broker, try the following command:
-
-- Patch the asset endpoint with `autoAcceptUntrustedServerCertificates=true`:
+If you create an asset endpoint for the OPC PLC simulator, but the OPC PLC simulator isn't sending data to the IoT MQ broker, run the following command to set `autoAcceptUntrustedServerCertificates=true` for the asset endpoint:
 
 ```bash
 ENDPOINT_NAME=<name-of-you-endpoint-here>
@@ -71,7 +69,10 @@ kubectl patch AssetEndpointProfile $ENDPOINT_NAME \
 -p '{"spec":{"additionalConfiguration":"{\"applicationName\":\"'"$ENDPOINT_NAME"'\",\"security\":{\"autoAcceptUntrustedServerCertificates\":true}}"}}'
 ```
 
-You can also patch all your asset endpoints with the following command:
+> [!CAUTION]
+> Don't use this configuration in production or pre-production environments. Exposing your cluster to the internet without proper authentication might lead to unauthorized access and even DDOS attacks.
+
+You can patch all your asset endpoints with the following command:
 
 ```bash
 ENDPOINTS=$(kubectl get AssetEndpointProfile -n azure-iot-operations --no-headers -o custom-columns=":metadata.name")
@@ -83,8 +84,14 @@ kubectl patch AssetEndpointProfile $ENDPOINT_NAME \
 done
 ```
 
-> [!WARNING]
-> Don't use untrusted certificates in production environments.
+Update the OPC UA Broker cluster extension to accept untrusted server certificates with the following command:
+
+```azurecli
+az k8s-extension update --version 0.3.0-preview --name opc-ua-broker --release-train preview --cluster-name <CLUSTER_NAME> --resource-group <RESOURCE_GROUP> --cluster-type connectedClusters --auto-upgrade-minor-version false --config opcPlcSimulation.deploy=true --config opcPlcSimulation.autoAcceptUntrustedCertificates=true
+```
+
+> [!CAUTION]
+> Don't use this configuration in production or pre-production environments. The configuration lowers the security level for the OPC PLC so that it accepts connections from any client without an explicit peer certificate trust operation.
 
 If the OPC PLC simulator isn't sending data to the IoT MQ broker after you create a new asset, restart the OPC PLC simulator pod. The pod name looks like `aio-opc-opc.tcp-1-f95d76c54-w9v9c`. To restart the pod, use the `k9s` tool to kill the pod, or run the following command:
 
@@ -94,7 +101,7 @@ kubectl delete pod aio-opc-opc.tcp-1-f95d76c54-w9v9c -n azure-iot-operations
 
 ## Azure IoT Operations (preview) portal
 
-To sign in to the Azure IoT Operations portal, you need a Microsoft Entra ID account with at least contributor permissions for the resource group that contains your **Kubernetes - Azure Arc** instance. You can't sign in with a Microsoft account (MSA). To create an account in your Azure tenant:
+To sign in to the Azure IoT Operations (preview) portal, you need a Microsoft Entra ID account with at least contributor permissions for the resource group that contains your **Kubernetes - Azure Arc** instance. You can't sign in with a Microsoft account (MSA). To create an account in your Azure tenant:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) with the same tenant and user name that you used to deploy Azure IoT Operations.
 1. In the Azure portal, navigate to the **Microsoft Entra ID** section, select **Users > +New user > Create new user**. Create a new user and make a note of the password, you need it to sign in later.

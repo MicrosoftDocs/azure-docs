@@ -6,7 +6,7 @@ ms.topic: tutorial
 ms.date: 11/30/2023
 ms.author: msangapu
 author: msangapu-msft
-ms.custom: mvc, cli-validate, devx-track-python, devdivchpfy22, vscode-azure-extension-update-completed, AppServiceConnectivity, devx-track-extended-azdevcli
+ms.custom: mvc, cli-validate, devx-track-python, devdivchpfy22, vscode-azure-extension-update-completed, AppServiceConnectivity, devx-track-extended-azdevcli, linux-related-content
 zone_pivot_groups: app-service-portal-azd
 ---
 

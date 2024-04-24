@@ -345,8 +345,8 @@ It returns two responses: 201 (Created) when backup instance is created and the 
 
 Once you submit the *PUT* request to create a backup instance, the initial response is 201 (Created) with an Azure-asyncOperation header. 
 
->[Note]
->The request body contains all the backup instance properties.
+> [!NOTE]
+> The request body contains all the backup instance properties.
 
 ```http
 HTTP/1.1 201 Created

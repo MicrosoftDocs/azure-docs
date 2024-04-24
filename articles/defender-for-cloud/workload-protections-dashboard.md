@@ -25,7 +25,7 @@ Defender for Cloud includes many advanced threat protection capabilities for vir
 
 ## Insights
 
-Insights provide you with news, suggested reading, and high priority alerts that are relevant in your environment.  
+Insights provide you with news, suggested reading, and high priority alerts that are relevant in your environment.
 
 ## Next steps
 

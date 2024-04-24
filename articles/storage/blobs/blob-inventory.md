@@ -5,7 +5,7 @@ services: storage
 author: normesta
 
 ms.service: azure-blob-storage
-ms.date: 10/23/2023
+ms.date: 03/28/2024
 ms.topic: conceptual
 ms.author: normesta
 ms.custom: references_regions
@@ -425,10 +425,16 @@ An object replication policy can prevent an inventory job from writing inventory
 
 You can't configure an inventory policy in the account if support for version-level immutability is enabled on that account, or if support for version-level immutability is enabled on the destination container that is defined in the inventory policy.
 
+### Reports might exclude soft-deleted blobs in accounts that have a hierarchical namespace
+
+If a container or directory is deleted with soft-delete enabled, then the container or directory and all its contents are marked as soft-deleted. However, only the container or directory (reported as a zero-length blob) appears in an inventory report and not the soft-deleted blobs in that container or directory even if you set the `includeDeleted` field of the policy to **true**.  This can lead to a difference between what appears in capacity metrics that you obtain in the Azure Portal and what is reported by an inventory report. 
+
+Only blobs that are explicitly deleted appear in reports. Therefore, to obtain a complete listing of all soft-deleted blobs (directory and all child blobs), workloads should delete each blob in a directory before deleting the directory itself.
+
 ## Next steps
 
 - [Enable Azure Storage blob inventory reports](blob-inventory-how-to.md)
-- [Calculate the count and total size of blobs per container](calculate-blob-count-size.md)
+- [Calculate the count and total size of blobs per container](calculate-blob-count-size.yml)
 - [Tutorial: Analyze blob inventory reports](storage-blob-inventory-report-analytics.md)
 - [Manage the Azure Blob Storage lifecycle](./lifecycle-management-overview.md)
 - [Blob Inventory FAQ](storage-blob-faq.yml#azure-storage-blob-inventory)

@@ -2,6 +2,7 @@
 title: Enable managed identity authentication on Azure Kubernetes Service
 description: Learn how to enable Microsoft Entra ID on Azure Kubernetes Service with kubelogin and authenticate Azure users with credentials or managed roles.
 ms.topic: article
+ms.subservice: aks-security
 ms.date: 02/08/2024
 ms.custom: devx-track-azurecli
 ms.author: miwithro

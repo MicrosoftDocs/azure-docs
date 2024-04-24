@@ -9,7 +9,7 @@ ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.date: 03/18/2024
 ms.author: juergent
-ms.custom: H1Hack27Feb2017
+ms.custom: H1Hack27Feb2017, linux-related-content
 ---
 
 # SAP HANA Azure virtual machine storage configurations

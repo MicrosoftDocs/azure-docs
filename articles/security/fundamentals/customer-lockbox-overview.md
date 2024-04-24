@@ -107,7 +107,7 @@ The following steps outline a typical workflow for a Customer Lockbox for Micros
 1. The designated approver reviews the request and selects **Approve** or **Deny**:
     :::image type="content" source="./media/customer-lockbox-overview/customer-lockbox-approval.png" lightbox="./media/customer-lockbox-overview/customer-lockbox-approval.png" alt-text="A screenshot of the Approve or Deny UI.":::
     As a result of the selection:
-    - **Approve**:  Access is granted to the Microsoft engineer for the duration specified in the request details, which is shown in the email notification and in the Azure portal
+    - **Approve**:  Access is granted to the Microsoft engineer for the duration specified in the request details, which is shown in the email notification and in the Azure portal.
     - **Deny**: The elevated access request by the Microsoft engineer is rejected and no further action is taken.
     
     For auditing purposes, the actions taken in this workflow are logged in [Customer Lockbox request logs](#auditing-logs).

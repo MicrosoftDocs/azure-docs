@@ -9,7 +9,7 @@ ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.date: 02/02/2022
 ms.author: juergent
-ms.custom: H1Hack27Feb2017
+ms.custom: H1Hack27Feb2017, linux-related-content
 ---
 
 # What SAP software is supported for Azure deployments

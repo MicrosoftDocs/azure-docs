@@ -4,6 +4,7 @@ description: Learn how to deploy an application that uses OpenAI on Azure Kubern
 ms.topic: how-to
 ms.date: 10/02/2023
 ms.custom: template-how-to, devx-track-azurecli 
+ms.subservice: aks-developer
 ---
 
 # Deploy an application that uses OpenAI on Azure Kubernetes Service (AKS)

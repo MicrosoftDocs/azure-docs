@@ -2,6 +2,7 @@
 author: KennedyDenMSFT
 ms.author: guywild
 ms.service: azure-monitor
+ms.custom: linux-related-content
 ms.topic: include
 ms.date: 02/27/2024
 ---

@@ -240,3 +240,4 @@ In this article, you learned how to use Image Integrity to validate signed image
 <!--- External links ---->
 [ratify]: https://github.com/deislabs/ratify
 [image-integrity-policy]: https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fcf426bb8-b320-4321-8545-1b784a5df3a4
+

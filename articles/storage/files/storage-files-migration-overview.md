@@ -50,7 +50,7 @@ File fidelity in a migration can be defined as the ability to:
 To ensure your migration proceeds smoothly, identify [the best copy tool for your needs](#migration-toolbox) and match a storage target to your source.
 
 > [!IMPORTANT]
-> If you're migrating on-premises file servers to Azure File Sync, set the ACLs for the root directory of the file share **before** copying a large number of files, as changes to permissions for root ACLs can take up to a day to propagate if done after a large file migration.
+> If you're migrating on-premises file servers to Azure Files, set the ACLs for the root directory of the file share **before** copying a large number of files, as changes to permissions for root ACLs can take a long time to propagate if done after a large file migration.
 
 Users that leverage Active Directory Domain Services (AD DS) as their on-premises domain controller can natively access an Azure file share. So can users of Microsoft Entra Domain Services. Each uses their current identity to get access based on share permissions and on file and folder ACLs. This behavior is similar to a user connecting to an on-premises file share.
 

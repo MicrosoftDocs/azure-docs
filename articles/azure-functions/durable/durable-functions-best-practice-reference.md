@@ -75,6 +75,16 @@ A single worker instance can execute multiple work items concurrently to increas
 
 As with anything performance related, the ideal concurrency settings and architechture of your app ultimately depends on your application's workload. Therefore, it's recommended that users to invest in a performance testing harness that simulates their expected workload and to use it to run performance and reliability experiments for their app.
 
+### Avoid sensitive data in inputs, outputs, and exceptions
+
+Inputs and outputs (including exceptions) to and from Durable Functions APIs are [durably persisted](./durable-functions-serialization-and-persistence.md) in your [storage provider of choice](./durable-functions-storage-providers.md). If those inputs, outputs, or exceptions contain sensitive data (such as secrets, connection strings, personally identifiable information, etc.) then anyone with read access to your storage provider's resources would be able to obtain them. To safely deal with sensitive data, it is recommended for users to fetch that data _within activity functions_ from either Azure Key Vault or environment variables, and to never communicate that data directly to orchestrators or entities. That should help prevent sensitive data from leaking into your storage resources.
+
+> [!NOTE]
+> This guidance also applies to the `CallHttp` orchestrator API, which also persists its request and response payloads in storage. If your target HTTP endpoints require authentication, which may be sensitive, it is recommended that users implement the HTTP Call themselves inside of an activity, or to use the [built-in managed identity support offered by `CallHttp`](./durable-functions-http-features.md#managed-identities), which does not persist any credentials to storage.
+
+> [!TIP]
+> Similarly, avoid logging data containing secrets as anyone with read access to your logs (for example in Application Insights), would be able to obtain those secrets.
+
 ## Diagnostic tools
 
 There are several tools available to help you diagnose problems.

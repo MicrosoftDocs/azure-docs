@@ -35,7 +35,7 @@ You can buy Azure Cosmos DB reserved capacity from the [Azure portal](https://po
 
 The required permissions to purchase reserved capacity for Azure Cosmos DB are:
 
-* You must be in the Owner role for at least one Enterprise or individual  subscription with pay-as-you-go rates.  
+* To buy a reservation, you must have owner role or reservation purchaser role on an Azure subscription.
 * For Enterprise subscriptions, **Add Reserved Instances** must be enabled in the [EA portal](https://ea.azure.com). Or, if that setting is disabled, you must be an EA Admin on the subscription.
 * For the Cloud Solution Provider (CSP) program, only admin agents or sales agents can buy Azure Cosmos DB reserved capacity.
 

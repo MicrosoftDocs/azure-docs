@@ -7,6 +7,7 @@ ms.author: patricka
 ms.date: 8/1/2022
 ms.topic: conceptual
 ms.service: iot-edge
+ms.custom: linux-related-content
 services: iot-edge
 ---
 

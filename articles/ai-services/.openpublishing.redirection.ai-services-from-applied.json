@@ -637,11 +637,30 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/ai-services/translator/containers/translator-container-configuration.md",
+      "redirect_url": "/azure/ai-services/translator/containers/configuration",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/ai-services/translator/containers/translator-container-supported-parameters.md",
+      "redirect_url": "/azure/ai-services/translator/containers/translate-text-parameters",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/ai-services/translator/containers/translator-disconnected-containers.md",
+      "redirect_url": "/azure/ai-services/translator/containers/install-run",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/ai-services/translator/containers/translator-how-to-install-container.md",
+      "redirect_url": "/azure/ai-services/translator/containers/install-run",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/ai-services/document-intelligence/concept-retrieval-augumented-generation.md",
       "redirect_url": "/azure/ai-services/document-intelligence/concept-retrieval-augmented-generation",
       "redirect_document_id": true
     }
-
 
   ]
 }

@@ -8,7 +8,7 @@ ms.service: operator-insights
 ms.topic: troubleshooting-general #Don't change.
 ms.date: 02/29/2024
 
-#CustomerIntent: As a someone managing an agent that has already been set up, I want to monitor and troubleshoot it so that data products in Azure Operator Insights receive the correct data.
+#CustomerIntent: As a someone managing an agent that has already been set up, I want to monitor and troubleshoot it so that Data Products in Azure Operator Insights receive the correct data.
 ---
 
 
@@ -61,7 +61,7 @@ Symptoms: `sudo systemctl status az-aoi-ingestion` shows that the service is in 
 Symptoms: no data appears in Azure Data Explorer.
 
 - Check the network connectivity and firewall configuration between the ingestion agent VM and the Data Product's input storage account.
-- Check the logs from the ingestion agent for errors uploading to Azure. If the logs point to authentication issues, check that the agent configuration has the correct sink settings and authentication for your data product. Then restart the agent.
+- Check the logs from the ingestion agent for errors uploading to Azure. If the logs point to authentication issues, check that the agent configuration has the correct sink settings and authentication for your Data Product. Then restart the agent.
 - Check that the ingestion agent is receiving data from its source. Check the network connectivity and firewall configuration between your network and the ingestion agent.
 
 ## Problems with the MCC EDR source

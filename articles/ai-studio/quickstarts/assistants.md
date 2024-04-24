@@ -7,8 +7,8 @@ ms.service: azure-ai-studio
 ms.custom:
 ms.topic: quickstart
 ms.date: 03/19/2024
-ms.author: mbullwin
-author: mrbullwinkle
+ms.author: aahi
+author: aahill
 ---
 
 

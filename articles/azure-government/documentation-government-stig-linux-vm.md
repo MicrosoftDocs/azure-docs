@@ -5,7 +5,7 @@ author: EliotSeattle
 ms.author: eliotgra
 ms.service: azure-government
 ms.topic: quickstart
-ms.custom: mode-other, kr2b-contr-experiment
+ms.custom: mode-other, kr2b-contr-experiment, linux-related-content
 recommendations: false
 ms.date: 06/14/2023
 ---

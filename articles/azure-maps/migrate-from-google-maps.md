@@ -40,8 +40,8 @@ The table provides a high-level list of Azure Maps features, which correspond to
 | Google Maps feature         | Azure Maps support                     |
 |-----------------------------|:--------------------------------------:|
 | Web SDK                     | ✓                                      |
-| Android SDK                 | ✓                                      |
-| iOS SDK                     | Planned                                |
+| Android SDK                 | ✓<sup>1</sup>                          |
+| iOS SDK                     | N/A<sup>2</sup>                        |
 | REST Service APIs           | ✓                                      |
 | Directions (Routing)        | ✓                                      |
 | Distance Matrix             | ✓                                      |
@@ -59,6 +59,9 @@ The table provides a high-level list of Azure Maps features, which correspond to
 | Time Zone                   | ✓                                      |
 | Maps Embedded API           | N/A                                    |
 | Map URLs                    | N/A                                    |
+
+<sup>1</sup> The Azure Maps Native SDK for Android is now deprecated and will be retired on 3/31/25. To avoid service disruptions, migrate to the Azure Maps Web SDK by 3/31/25. For more information, see [The Azure Maps Android SDK migration guide](android-sdk-migration-guide.md).
+<sup>2</sup> The Azure Maps Native SDK for iOS is now deprecated and will be retired on 3/31/25. To avoid service disruptions, migrate to the Azure Maps Web SDK by 3/31/25. For more information, see [The Azure Maps iOS SDK migration guide](ios-sdk-migration-guide.md).
 
 Google Maps provides basic key-based authentication. Azure Maps provides both basic key-based authentication and Microsoft Entra authentication. Microsoft Entra authentication provides more security features, compared to the basic key-based authentication.
 

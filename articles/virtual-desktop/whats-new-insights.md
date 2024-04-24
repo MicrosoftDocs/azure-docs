@@ -3,7 +3,7 @@ title: What's new in Azure Virtual Desktop Insights?
 description: New features and product updates in Azure Virtual Desktop Insights.
 author: Heidilohr
 ms.topic: release-notes
-ms.date: 03/21/2024
+ms.date: 03/22/2024
 ms.author: helohr
 ms.custom: references_regions
 ---
@@ -41,6 +41,8 @@ When one of the numbers is increased, all numbers after it must change, too. One
 
 In this update, we made the following change:
 
+- Updated logic for Data Collection Rule (DCR) selection in the Configuration workbook.
+- Removed unused performance counters from DCR for data savings.
 - Removed Terminal Services counters that the Azure Virtual Desktop Insights workbook no longer uses.
 
 ## Version 3.2.0

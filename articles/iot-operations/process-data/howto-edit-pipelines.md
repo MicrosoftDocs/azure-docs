@@ -1,6 +1,6 @@
 ---
 title: Edit and manage pipelines
-description: Use the advanced features in the Digital Operations portal to edit Azure IoT Data Processor pipelines and import and export pipelines.
+description: Use the advanced features in the Azure IoT Operations portal to edit Azure IoT Data Processor pipelines and import and export pipelines.
 author: dominicbetts
 ms.author: dobett
 ms.subservice: data-processor
@@ -16,7 +16,7 @@ ms.date: 10/17/2023
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-The Digital Operations portal provides a graphical user interface (GUI) for editing pipelines. To edit the JSON definition of a stage directly, you can use the **Advanced** tab. This feature gives you more flexibility and control over the pipeline configuration, especially if you need to manage complex configurations that might not be fully supported by the GUI such as for the [filter stage](howto-configure-filter-stage.md).
+The Azure IoT Operations (preview) portal provides a graphical user interface (GUI) for editing pipelines. To edit the JSON definition of a stage directly, you can use the **Advanced** tab. This feature gives you more flexibility and control over the pipeline configuration, especially if you need to manage complex configurations that might not be fully supported by the GUI such as for the [filter stage](howto-configure-filter-stage.md).
 
 The portal also lets you import and export complete pipelines as JSON files.
 
@@ -50,7 +50,7 @@ To pause or restart a pipeline, open the pipeline, select **Edit** and use **Pip
 
 ## Manage pipelines in your cluster
 
-To create, delete or copy pipelines, use the **Pipelines** tab in the Digital Operations portal:
+To create, delete or copy pipelines, use the **Pipelines** tab in the Azure IoT Operations (preview) portal:
 
 :::image type="content" source="media/pipelines-manage.png" alt-text="A screenshot that shows the options in the pipelines list.":::
 

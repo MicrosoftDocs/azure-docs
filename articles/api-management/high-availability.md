@@ -12,6 +12,7 @@ ms.custom: engagement-fy23
 
 # Ensure API Management availability and reliability
 
+[!INCLUDE [api-management-availability-premium](../../includes/api-management-availability-premium.md)]
 
 This article introduces service capabilities and considerations to ensure that your API Management instance continues to serve API requests if Azure outages occur. 
 

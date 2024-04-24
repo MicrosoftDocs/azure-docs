@@ -155,6 +155,12 @@ The Map Control API is a convenient client library. This API allows you to easil
 
 This section shows how to use the Maps [Search API] to find a point of interest on your map. It's a RESTful API designed for developers to search for addresses, points of interest, and other geographical information. The Search service assigns a latitude and longitude information to a specified address. The **Service Module** explained next can be used to search for a location using the Maps Search API.
 
+> [!NOTE]
+>
+> **Azure Maps Web SDK Service Module retirement**
+>
+> The Azure Maps Web SDK Service Module is now deprecated and will be retired on 9/30/26. To avoid service disruptions, we recommend migrating to the Azure Maps JavaScript REST SDK by 9/30/26. For more information, see [JavaScript/TypeScript REST SDK Developers Guide (preview)](how-to-dev-guide-js-sdk.md).
+
 ### Service Module
 
 1. In the map `ready` event handler, construct the search service URL by adding the following JavaScript code immediately after `map.layers.add(resultLayer);`:

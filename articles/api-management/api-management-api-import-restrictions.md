@@ -13,6 +13,8 @@ ms.author: danlep
 
 # API import restrictions and known issues
 
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
+
 When importing an API, you might encounter some restrictions or need to identify and rectify issues before you can successfully import. In this article, you'll learn:
 
 * API Management's behavior during OpenAPI import. 

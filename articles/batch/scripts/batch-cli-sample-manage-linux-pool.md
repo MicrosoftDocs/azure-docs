@@ -3,7 +3,7 @@ title: Azure CLI Script Example - Linux Pool in Batch | Microsoft Docs
 description: Learn the commands available in the Azure CLI to create and manage a pool of Linux compute nodes in Azure Batch.
 ms.topic: sample
 ms.date: 05/24/2022 
-ms.custom: devx-track-azurecli, seo-azure-cli
+ms.custom: devx-track-azurecli, seo-azure-cli, linux-related-content
 keywords: linux, azure cli samples, azure cli code samples, azure cli script samples
 ---
 

@@ -204,7 +204,7 @@ Below are the list of operators currently supported on Azure Cosmos DB for Mongo
 <tr><td><code>$text</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
 <tr><td><code>$where</code></td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
 
-<tr><td rowspan="1">Geospatial Operators</td><td></td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
+<tr><td rowspan="1">Geospatial Operators</td><td></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">In Private Preview*</td></tr>
 
 <tr><td rowspan="3">Array Query Operators</td><td><code>$all</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
 <tr><td><code>$elemMatch</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
@@ -272,7 +272,7 @@ Below are the list of operators currently supported on Azure Cosmos DB for Mongo
 <tr><td><code>$filter</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
 <tr><td><code>$firstN</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
 <tr><td><code>$in</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td><code>$indexOfArray</code></td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
+<tr><td><code>$indexOfArray</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
 <tr><td><code>$isArray</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
 <tr><td><code>$lastN</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
 <tr><td><code>$map</code></td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
@@ -307,7 +307,7 @@ Below are the list of operators currently supported on Azure Cosmos DB for Mongo
 <tr><td rowspan="1">Custom Aggregation Expression Operators</td><td colspan="2">Not supported.</td></tr>
 
 <tr><td rowspan="2">Data Size Operators</td><td><code>$bsonSize</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td><code>$binarySize</code></td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
+<tr><td><code>$binarySize</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
 
 <tr><td rowspan="22">Date Expression Operators</td><td><code>$dateAdd</code></td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
 <tr><td><code>$dateDiff</code></td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
@@ -340,7 +340,7 @@ Below are the list of operators currently supported on Azure Cosmos DB for Mongo
 
 <tr><td rowspan="3">Object Expression Operators</td><td><code>$mergeObjects</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
 <tr><td><code>$objectToArray</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td><code>$setField</code></td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
+<tr><td><code>$setField</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
 
 <tr><td rowspan="7">Set Expression Operators</td><td><code>$allElementsTrue</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
 <tr><td><code>$anyElementTrue</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
@@ -446,7 +446,7 @@ Below are the list of operators currently supported on Azure Cosmos DB for Mongo
 <tr><td><code>$facet</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
 <tr><td><code>$fill</code></td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
 <tr><td><code>$geoNear</code></td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
-<tr><td><code>$graphLookup</code></td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
+<tr><td><code>$graphLookup</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
 <tr><td><code>$group</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
 <tr><td><code>$indexStats</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
 <tr><td><code>$limit</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
@@ -500,7 +500,7 @@ Azure Cosmos DB for MongoDB vCore supports the following indexes and index prope
 <tr><td>Compound Index</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
 <tr><td>Multikey Index</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
 <tr><td>Text Index</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td>Geospatial Index</td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
+<tr><td>Geospatial Index</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">In Private Preview*</td></tr>
 <tr><td>Hashed Index</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
 <tr><td>Vector Index (only available in Cosmos DB)</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes, with <a href=vector-search.md>vector search</a></td></tr>
 </table>
