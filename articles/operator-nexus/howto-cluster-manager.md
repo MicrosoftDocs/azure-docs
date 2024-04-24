@@ -160,3 +160,7 @@ az networkcloud clustermanager delete \
   - **--IDs** - One or more resource IDs (space-delimited). It should be a complete resource ID containing all information of 'Resource ID' arguments.
   - **--resource-group -g** - Name of resource group. You can configure the default group using `az configure --defaults group=<name>`.
   - **--subscription** - Name or ID of subscription. You can configure the default subscription using `az account set -s NAME_OR_ID`.
+
+## Next steps
+
+After you successfully create an NFC, the next step is to create a [network fabric](./howto-configure-network-fabric.md).
