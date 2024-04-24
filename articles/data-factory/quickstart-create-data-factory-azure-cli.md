@@ -111,7 +111,7 @@ Next, create a linked service and two datasets.
    ```azurecli
    az datafactory linked-service create --resource-group ADFQuickStartRG \
        --factory-name ADFTutorialFactory --linked-service-name AzureStorageLinkedService \
-       --properties @AzureStorageLinkedService.json
+       --properties AzureStorageLinkedService.json
    ```
 
 1. In your working directory, create a JSON file with this content, named `InputDataset.json`:
@@ -140,7 +140,7 @@ Next, create a linked service and two datasets.
    ```azurecli
    az datafactory dataset create --resource-group ADFQuickStartRG \
        --dataset-name InputDataset --factory-name ADFTutorialFactory \
-       --properties @InputDataset.json
+       --properties InputDataset.json
    ```
 
 1. In your working directory, create a JSON file with this content, named `OutputDataset.json`:
@@ -168,7 +168,7 @@ Next, create a linked service and two datasets.
    ```azurecli
    az datafactory dataset create --resource-group ADFQuickStartRG \
        --dataset-name OutputDataset --factory-name ADFTutorialFactory \
-       --properties @OutputDataset.json
+       --properties OutputDataset.json
    ```
 
 ## Create and run the pipeline
