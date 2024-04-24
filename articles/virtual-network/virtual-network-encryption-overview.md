@@ -22,7 +22,7 @@ For more information about encryption in Azure, see [Azure encryption overview](
 
 Virtual network encryption has the following requirements:
 
-- Virtual Network encryption is supported on general-purpose and memory optimized VM instance sizes including:
+- Virtual Network encryption is supported on general-purpose and memory optimized virtual machine instance sizes including:
 
     | Type | VM Series | VM SKU |
     | --- | --- | --- |
