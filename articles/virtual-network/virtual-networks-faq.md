@@ -76,7 +76,7 @@ In addition, you can't add the following address ranges:
 
 ### Can I have public IP addresses in my virtual networks?
 
-Yes. For more information about public IP address ranges, see [Create a virtual network](manage-virtual-network.md#create-a-virtual-network). Public IP addresses are not directly accessible from the internet.
+Yes. For more information about public IP address ranges, see [Create a virtual network](manage-virtual-network.yml#create-a-virtual-network). Public IP addresses are not directly accessible from the internet.
 
 ### Is there a limit to the number of subnets in my virtual network?
 
@@ -255,7 +255,7 @@ The address is released from a VM deployed through either deployment model when 
 
 ### Can I manually assign IP addresses to NICs within the VM operating system?
 
-Yes, but we don't recommend it unless it's necessary, such as when you're assigning multiple IP addresses to a virtual machine. For details, see [Assign multiple IP addresses to virtual machines](./ip-services/virtual-network-multiple-ip-addresses-portal.md#os-config).
+Yes, but we don't recommend it unless it's necessary, such as when you're assigning multiple IP addresses to a virtual machine. For details, see [Assign multiple IP addresses to virtual machines](./ip-services/virtual-network-multiple-ip-addresses-portal.md).
 
 If the IP address assigned to an Azure NIC that's attached to a VM changes, and the IP address within the VM operating system is different, you lose connectivity to the VM.
 
@@ -366,7 +366,7 @@ Yes. You can use REST APIs for virtual networks in the [Azure Resource Manager](
 
 Yes. Learn more about using:
 
-* The Azure portal to deploy virtual networks through the [Azure Resource Manager](manage-virtual-network.md#create-a-virtual-network) and [classic](/previous-versions/azure/virtual-network/virtual-networks-create-vnet-classic-pportal) deployment models.
+* The Azure portal to deploy virtual networks through the [Azure Resource Manager](manage-virtual-network.yml#create-a-virtual-network) and [classic](/previous-versions/azure/virtual-network/virtual-networks-create-vnet-classic-pportal) deployment models.
 * PowerShell to manage virtual networks deployed through the [Resource Manager](/powershell/module/az.network) deployment model.
 * The Azure CLI or Azure classic CLI to deploy and manage virtual networks deployed through the [Resource Manager](/cli/azure/network/vnet) and [classic](/previous-versions/azure/virtual-machines/azure-cli-arm-commands?toc=%2fazure%2fvirtual-network%2ftoc.json#network-resources) deployment models.
 
@@ -624,7 +624,6 @@ There is no limit on the total number of service endpoints in a virtual network.
 |Azure Cosmos DB|    64|
 |Azure Event Hubs|    128|
 |Azure Service Bus|    128|
-|Azure Data Lake Storage Gen1|    100|
 
 >[!NOTE]
 > The limits are subject to change at the discretion of the Azure services. Refer to the respective service documentation for details.

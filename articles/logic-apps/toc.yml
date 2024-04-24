@@ -97,8 +97,6 @@ items:
       href: set-up-sql-db-storage-single-tenant-standard-workflows.md
     - name: Built-in versus Azure connector operations
       href: ../connectors/compare-built-in-azure-connectors.md
-    - name: Target-based scaling
-      href: target-based-scaling-standard.md
     - name: Edit app settings and host settings
       href: edit-app-settings-host-settings.md
     - name: Create and run .NET Framework code

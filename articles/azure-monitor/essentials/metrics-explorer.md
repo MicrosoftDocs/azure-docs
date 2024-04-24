@@ -16,7 +16,7 @@ ms.reviewer: priyamishra
 
 Azure Monitor metrics explorer with PromQL (Preview) allows you to analyze metrics using Prometheus query language (PromQL) for metrics stored in an Azure Monitor workspace. 
 
-Azure Monitor metrics explorer with PromQL (Preview) is available from the **Metrics** menu item of any Azure Monitor workspace. You can query metrics from form Azure Monitor workspaces using PromQL or any other Azure resource using the query builder.
+Azure Monitor metrics explorer with PromQL (Preview) is available from the **Metrics** menu item of any Azure Monitor workspace. You can query metrics from Azure Monitor workspaces using PromQL or any other Azure resource using the query builder.
 
 > [!NOTE]
 > You must have the *Monitoring Reader* role at the subscription level to visualize metrics across multiple resources, resource groups, or a subscription. For more information, see [Assign Azure roles in the Azure portal](/azure/role-based-access-control/role-assignments-portal).
@@ -30,6 +30,8 @@ The chart pane has two options for charting a metric:
 
 Adding a chart with the editor allows you to enter a PromQL query to retrieve metrics data. The editor provides syntax highlighting and intellisense for PromQL queries. Currently, queries are limited to the metrics stored in an Azure Monitor workspace. For more information on PromQL, see [Querying Prometheus](https://prometheus.io/docs/prometheus/latest/querying/basics/).
 
+> [!NOTE]
+> To write queries in the editor, the workspace must have at least one Azure Kubernetes Service (AKS) cluster or Azure Arc-enabled Kubernetes cluster connected to it.
 
 Adding a chart with the builder allows you to select metrics from any of your Azure resources. The builder provides a list of metrics available in the selected scope. Select the metric, aggregation type, and chart type from the builder. The builder can't be used to chart metrics stored in an Azure Monitor workspace.
 

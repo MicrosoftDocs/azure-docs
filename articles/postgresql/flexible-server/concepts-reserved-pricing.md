@@ -30,6 +30,8 @@ A reservation doesn't cover software, networking, or storage charges associated 
 > [!IMPORTANT]
 > Reserved capacity pricing is available for [Azure Database for PostgreSQL single server](../single-server/overview-single-server.md) and [Azure Database for PostgreSQL flexible server](overview.md) deployment options.
 
+> Starting July 1st, 2024, new reservations will not be available for Azure Database for PostgreSQL single server. Your existing single server reservations remain valid, and you can still purchase reservations for Azure Database for PostgreSQL flexible server.
+
 You can buy Azure Database for PostgreSQL flexible server reserved capacity in the [Azure portal](https://portal.azure.com/). Pay for the reservation [up front or with monthly payments](../../cost-management-billing/reservations/prepare-buy-reservation.md). To buy the reserved capacity:
 
 * To buy a reservation, you must have owner role or reservation purchaser role on an Azure subscription.

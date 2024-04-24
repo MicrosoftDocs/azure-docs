@@ -9,8 +9,8 @@ ms.custom:
 ms.topic: how-to
 ms.date: 2/7/2024
 ms.reviewer: fasantia
-ms.author: mopeakande
-author: msakande
+ms.author: lagayhar
+author: lgayhardt
 ---
 
 # Monitor quality and safety of deployed prompt flow applications 

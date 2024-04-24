@@ -545,8 +545,6 @@ Azure service: [Azure Monitor](/azure/azure-monitor/)
 > | Microsoft.Insights/MonitoredObjects/Read | Read a monitored object |
 > | Microsoft.Insights/MonitoredObjects/Write | Create or update a monitored object |
 > | Microsoft.Insights/MonitoredObjects/Delete | Delete a monitored object |
-> | Microsoft.Insights/MyWorkbooks/Read | Read a private Workbook |
-> | Microsoft.Insights/MyWorkbooks/Delete | Delete a private workbook |
 > | Microsoft.Insights/NotificationStatus/Read | Get the test notification status/detail |
 > | Microsoft.Insights/Operations/Read | Read operations |
 > | Microsoft.Insights/PrivateLinkScopeOperationStatuses/Read | Read a private link scoped operation status |

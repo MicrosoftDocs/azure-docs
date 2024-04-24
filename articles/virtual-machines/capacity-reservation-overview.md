@@ -57,10 +57,26 @@ From this example accumulation of Minutes Not Available, here's the calculation 
 - Creating capacity reservation is currently limited to certain VM Series and Sizes. The Compute [Resource SKUs list](/rest/api/compute/resource-skus/list) advertises the set of supported VM Sizes. 
 - The following VM Series support creation of capacity reservations: 
     - Av2 
-    - B 
-    - D series, v2 and newer; AMD and Intel 
-    - E series, all versions; AMD and Intel 
+    - B
+    - Bsv2 (Intel) and Basv2 (AMD)
+    - Bpsv2
+    - D series, v2 and newer; AMD and Intel
+    - DCsv2 series
+    - DCasv5 series
+    - DCesv5 and DCedsv5 series
+    - Dplsv5 series
+    - Dpsv series, v5 and newer
+    - Dpdsv6 series
+    - Dplsv6 series
+    - Dpldsv6 series
+    - Dlsv5 and newer series
+    - Dldsv5 and newer series
+    - E series, all versions; AMD and Intel
+    - Eav4 and Easv4 series
+    - ECasv5 and ECadsv5 series
+    - ECesv5 and ECedsv5 series
     - F series, all versions
+    - Fasv6 and Falsv6 series
     - Fx series 
     - Lsv3 (Intel) and Lasv3 (AMD)
     - At VM deployment, Fault Domain (FD) count of up to 3 may be set as desired using Virtual Machine Scale Sets. A deployment with more than 3 FDs will fail to deploy against a Capacity Reservation.

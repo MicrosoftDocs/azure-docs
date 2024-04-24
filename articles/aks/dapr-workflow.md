@@ -29,7 +29,7 @@ The workflow example is an ASP.NET Core project with:
 - Workflow activity definitions found in the [`Activities` directory][dapr-activities-dir].
 
 > [!NOTE]
-> Dapr Workflow is currently an [alpha][dapr-workflow-alpha] feature and is on a self-service, opt-in basis. Alpha Dapr APIs and components are provided "as is" and "as available," and are continually evolving as they move toward stable status. Alpha APIs and components are not covered by customer support.
+> Dapr Workflow is currently a [beta][dapr-workflow-preview] feature and is on a self-service, opt-in basis. Beta Dapr APIs and components are provided "as is" and "as available," and are continually evolving as they move toward stable status. Beta APIs and components are not covered by customer support.
 
 ## Prerequisites
 
@@ -199,7 +199,7 @@ Notice that the workflow status is marked as completed.
 [dapr-program]: https://github.com/Azure/dapr-workflows-aks-sample/blob/main/Program.cs
 [dapr-workflow-dir]: https://github.com/Azure/dapr-workflows-aks-sample/tree/main/Workflows
 [dapr-activities-dir]: https://github.com/Azure/dapr-workflows-aks-sample/tree/main/Activities
-[dapr-workflow-alpha]: https://docs.dapr.io/operations/support/support-preview-features/#current-preview-features
+[dapr-workflow-preview]: https://docs.dapr.io/operations/support/support-preview-features/#current-preview-features
 [deployment-yaml]: https://github.com/Azure/dapr-workflows-aks-sample/blob/main/Deploy/deployment.yaml
 [docker]: https://docs.docker.com/get-docker/
 [helm]: https://helm.sh/docs/intro/install/

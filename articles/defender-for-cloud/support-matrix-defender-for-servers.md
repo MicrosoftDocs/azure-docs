@@ -45,7 +45,7 @@ This table summarizes Azure cloud support for Defender for Servers features.
 | [VM vulnerability scanning-agentless](concept-agentless-data-collection.md) | GA | NA | NA |
 | [VM vulnerability scanning - Microsoft Defender for Endpoint sensor](deploy-vulnerability-assessment-defender-vulnerability-management.md) | GA | NA | NA |
 | [VM vulnerability scanning - Qualys](deploy-vulnerability-assessment-vm.md) | GA | NA | NA |
-| [Just-in-time VM access](./just-in-time-access-usage.md) | GA | GA | GA |
+| [Just-in-time VM access](./just-in-time-access-usage.yml) | GA | GA | GA |
 | [File integrity monitoring](./file-integrity-monitoring-overview.md)  | GA | GA | GA |
 | [Adaptive application controls](./adaptive-application-controls.md)  | GA | GA | GA |
 | [Adaptive network hardening](./adaptive-network-hardening.md) | GA | NA | NA |
@@ -64,7 +64,7 @@ The following table shows feature support for Windows machines in Azure, Azure A
 | [Virtual machine behavioral analytics (and security alerts)](alerts-reference.md) | ✔ | ✔ | Yes |
 | [Fileless security alerts](alerts-reference.md#alerts-for-windows-machines) | ✔ | ✔ | Yes |
 | [Network-based security alerts](other-threat-protections.md#network-layer) | ✔ | - | Yes |
-| [Just-in-time VM access](just-in-time-access-usage.md) | ✔ | - | Yes |
+| [Just-in-time VM access](just-in-time-access-usage.yml) | ✔ | - | Yes |
 | [Integrated Qualys vulnerability scanner](deploy-vulnerability-assessment-vm.md#overview-of-the-integrated-vulnerability-scanner) | ✔ | ✔ | Yes |
 | [File Integrity Monitoring](file-integrity-monitoring-overview.md) | ✔ | ✔ | Yes |
 | [Adaptive application controls](adaptive-application-controls.md) | ✔ | ✔ | Yes |
@@ -89,7 +89,7 @@ The following table shows feature support for Linux machines in Azure, Azure Arc
 | [Virtual machine behavioral analytics (and security alerts)](./azure-defender.md) | ✔</br>(on supported versions) | ✔ | Yes |
 | [Fileless security alerts](alerts-reference.md#alerts-for-windows-machines) | - | - | Yes |
 | [Network-based security alerts](other-threat-protections.md#network-layer) | ✔ | - | Yes |
-| [Just-in-time VM access](just-in-time-access-usage.md) | ✔ | - | Yes |
+| [Just-in-time VM access](just-in-time-access-usage.yml) | ✔ | - | Yes |
 | [Integrated Qualys vulnerability scanner](deploy-vulnerability-assessment-vm.md#overview-of-the-integrated-vulnerability-scanner) | ✔ | ✔ | Yes |
 | [File Integrity Monitoring](file-integrity-monitoring-overview.md) | ✔ | ✔ | Yes |
 | [Adaptive application controls](adaptive-application-controls.md) | ✔ | ✔ | Yes |
@@ -114,7 +114,7 @@ The following table shows feature support for AWS and GCP machines.
 | [Virtual machine behavioral analytics (and security alerts)](alerts-reference.md) | ✔ | ✔ |
 | [Fileless security alerts](alerts-reference.md#alerts-for-windows-machines) | ✔ | ✔ |
 | [Network-based security alerts](other-threat-protections.md#network-layer) | - | - |
-| [Just-in-time VM access](just-in-time-access-usage.md) | ✔ | - |
+| [Just-in-time VM access](just-in-time-access-usage.yml) | ✔ | - |
 | [Integrated Qualys vulnerability scanner](deploy-vulnerability-assessment-vm.md#overview-of-the-integrated-vulnerability-scanner) | ✔ | ✔ |
 | [File Integrity Monitoring](file-integrity-monitoring-overview.md) | ✔ | ✔ |
 | [Adaptive application controls](adaptive-application-controls.md) | ✔ | ✔ |
