@@ -93,7 +93,7 @@ To create a load test for a function app:
     Azure Load Testing now creates the load test. If you selected **Run test after creation** previously, the load test starts automatically.
    
 > [!NOTE]
-> If the test was converted from a URL test to a JMX test directly from the Load Testing resource, the test cannot be modified from the Function App.
+> If the test was converted from a URL test to a JMX test directly from the Load Testing resource, the test cannot be modified from the function app.
 
 ## View test runs
 
