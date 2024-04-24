@@ -40,23 +40,21 @@ Currently, no upgrade is available.
 ### Automatic upgrade
 
 Redis server version upgrades are made automatically as a part of the standard monthly patching process. Upgrades to the latest version of Redis occur once that Redis version reaches general availability (GA) on Azure.
-Your Redis instance is automatically upgraded to a preview version of Redis software.  
+
+Your Redis instance is automatically upgraded to a preview version of Redis software.
 
 ### Trigger an upgrade manually
 
-You're able to manually start an upgrade to the latest version of Redis software. Manual upgrades provides two other benefits instead waiting for the automatic upgrade to occur:
+As an alternative to automatic upgrade, you can manually start an upgrade to the latest version of Redis software. Manual upgrades provides two other benefits instead waiting for the automatic upgrade to occur:
 
 - You control when the upgrade occurs.
 - You can upgrade to preview releases of Redis server.
 
-1. In the portal, navigate to the **Overview** of the resource, and then choose **Upgrade** to start an upgrade.
+1. In the portal, navigate to the **Overview** of the cache using the Resource menu. Then, choose **Upgrade** to start an upgrade.
 
-What is the purpose of upgrading a resource?
-Can you provide more details about this process?
-Thank you for clarifying that.
 <!--- Fran-need a screenshot here of the overview blade--->
 
-1. Select the **Upgrade** button to shows a menu where you can see the Redis version available for upgrade. Select **Upgrade** in the context menu to confirm and begin the upgrade process.
+1. After selecting the **Upgrade** button, you see a menu where that shows Redis version available for upgrade. Select **Upgrade** in the context menu to confirm and begin the upgrade process.
 <!--- Fran-need a screenshot here of the upgrade blade--->
 
 If you're already running the latest version of Redis software available, the **Upgrade** button is disabled.
