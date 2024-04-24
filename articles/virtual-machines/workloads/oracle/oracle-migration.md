@@ -98,4 +98,4 @@ Throughout the migration process, it's essential to communicate effectively with
 
 ## Next steps 
 
-[Storage options for Oracle on Azure VMs](/azure/virtual-machines/workloads/oracle/oracle-storage) 
+[Storage options for Oracle on Azure VMs](https://learn.microsoft.com/azure/virtual-machines/workloads/oracle/oracle-performance-best-practice) 
