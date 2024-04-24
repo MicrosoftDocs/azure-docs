@@ -45,7 +45,7 @@ The following sections show how to create a web app and a storage account and co
 
 ### Provision source and target services
 
-### Authoring from scratch
+#### Authoring from scratch
 
 Authoring the template from scratch is the preferred and recommended way to provision source and target services, as it's easy to get started and makes the template simple and readable. Following is an example, using a minimal set of parameters to create a webapp and a storage account.
 
@@ -110,7 +110,7 @@ resource storageAccount 'Microsoft.Storage/storageAccounts@2023-01-01' = {
 }
 ```
 
-### Export and polish
+#### Export and polish
 
 If the resources you're provisioning are exactly the same ones as the ones you have in the cloud, exporting the template from Azure might be another option. The two premises of this approach are: the resources exist in Azure and you're using ARM templates for your IaC. The `Export template` button is usually at the bottom of the sidebar on Azure portal. The exported ARM template reflects the resource's current states, including the settings configured by Service Connector. You usually need to know about the resource properties to polish the exported template.
 
@@ -118,7 +118,7 @@ If the resources you're provisioning are exactly the same ones as the ones you h
 
 ### Build connection logic
 
-### Using Service Connector and storing configuration in App Configuration
+#### Using Service Connector and storing configuration in App Configuration
 
 Using the App Configuration to store configuration naturally supports IaC scenarios. We therefore recommend you use this method to build your IaC template if possible.
 
@@ -158,7 +158,7 @@ resource serviceConnector 'Microsoft.ServiceLinker/linkers@2022-05-01' = {
 }
 ```
 
-### Using Service Connector
+#### Using Service Connector
 
 Creating connections between the source and target service using Service Connector is the preferred and recommended way if the [Service Connector ](./known-limitations.md)[IaC limitation](./known-limitations.md) doesn't matter for your scenario. Service Connector makes the template simpler and also provides additional elements, such as the connection health validation, which you won't have if you're building connections through template logic directly.
 
@@ -202,7 +202,7 @@ For the formats of properties and values needed when creating a Service Connecto
 
 :::image type="content" source="./media/how-to/export-sc-template.png" alt-text="Screenshot of the Azure portal, exporting arm template of a service connector resource.":::
 
-### Using template logic
+#### Using template logic
 
 For the scenarios where the Service Connector [IaC limitation](./known-limitations.md) matters, consider building connections using the template logic directly. The following template is an example showing how to connect a storage account to a web app using a system-assigned identity.
 
