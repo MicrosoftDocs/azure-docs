@@ -113,19 +113,6 @@ When your resource has been provisioned, you can connect Azure Communications Ga
     - With MAPS Voice, BFD must bring up the BGP peer for each Private Network Interface (PNI).
 1. Meet any other requirements for your communications platform (for example, the *Network Connectivity Specification* for Operator Connect or Teams Phone Mobile). If you need access to Operator Connect or Teams Phone Mobile specifications, contact your onboarding team.
 
-## Configure domain delegation with Azure DNS
-
-> [!NOTE]
-> If you decided to use an automatically allocated `*.commsgw.azure.com` domain name for Azure Communications Gateway, skip this step.
-
-If you chose to delegate a subdomain when you created Azure Communications Gateway, you must update the name server (NS) records for this subdomain to point to name servers created for you in your Azure Communications Gateway deployment.
-
-1. Sign in to the [Azure portal](https://azure.microsoft.com/).
-1. In the search bar at the top of the page, search for your Communications Gateway resource.
-1. On the **Overview** page for your Azure Communications Gateway resource, find the four name servers that have been created for you.
-1. Note down the names of these name servers, including the trailing `.` at the end of the address.
-1. Follow [Delegate the domain](../dns/dns-delegate-domain-azure-dns.md#delegate-the-domain) and [Verify the delegation](../dns/dns-delegate-domain-azure-dns.md#verify-the-delegation) to configure all four name servers in your NS records. We recommend configuring a time-to-live (TTL) of two days.
-
 ## Configure alerts for upgrades, maintenance and resource health
 
 Azure Communications Gateway is integrated with Azure Service Health and Azure Resource Health.
