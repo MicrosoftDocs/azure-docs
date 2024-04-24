@@ -28,7 +28,7 @@ When you deploy an application in an Azure Spring Apps service instance with VNe
 
 ## Limitations
 
-- Before enabling this feature for your Azure Spring Apps service instance, ensure that there are at least four available IP addresses in the service runtime subnet.
+- Before enabling this feature for your Azure Spring Apps service instance, ensure that there are at least two available IP addresses in the service runtime subnet.
 - Enabling or disabling this feature changes the DNS resolution to the backend storage between private and public. You may experience the short period of time of deployments cannot work.
 - After enabling this feature, the backend storage can be privately accessed only, so you have to deploy your application within the virtual network.
 
@@ -49,7 +49,12 @@ az spring create \
 
 One more resource group is created in your subscription to host the private link resources for the Azure Spring Apps instance. The resource group is named as `ap-res_{service instance name}_{service instance region}`.
 
-   :::image type="content" source="media/how-to-private-network-access-backend-storage/ap-res-rg.png" alt-text="Screenshot of the Azure portal Resource Group page showing the private link resource details." lightbox="media/how-to-private-network-access-backend-storage/ap-res-rg.png":::
+   :::image type="content" source="media/how-to-private-network-access-backend-storage/ap-res-group.png" alt-text="Screenshot of the Azure portal Resource Group page showing the private link resource details." lightbox="media/how-to-private-network-access-backend-storage/ap-res-group.png":::
+
+There are two sets of private link resources being deployed in the resource group, each comprising the following Azure resources:
+- A private endpoint represents the backend blob or file storage account's private endpoint.
+- A network interface (NIC) maintains a private IP address within the service runtime subnet.
+- A private DNS zone is deployed for your virtual network, with a DNS A record also created for the storage account within this DNS zone.
 
 > [!IMPORTANT]
 > The resource groups are fully managed by the Azure Spring Apps service. Do *not* manually delete or modify any resource inside.
