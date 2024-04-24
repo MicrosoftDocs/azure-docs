@@ -425,7 +425,7 @@ def num_tokens_from_messages(messages, model="gpt-3.5-turbo-0613"):
         return num_tokens_from_messages(messages, model="gpt-4-0613")
     else:
         raise NotImplementedError(
-            f"""num_tokens_from_messages() is not implemented for model {model}. See https://github.com/openai/openai-python/blob/main/chatml.md for information on how messages are converted to tokens."""
+            f"""num_tokens_from_messages() is not implemented for model {model}."""
         )
     num_tokens = 0
     for message in messages:
@@ -547,13 +547,13 @@ The token counting portion of the code demonstrated previously is a simplified v
 
 Here's a troubleshooting tip.
 
-### Don't use ChatML syntax with the chat completion endpoint
+### Don't use ChatML syntax or special tokens with the chat completion endpoint
 
-Some customers try to use the [legacy ChatML syntax](../how-to/chat-markup-language.md) with the chat completion endpoints and newer models. ChatML was a preview capability that only worked with the legacy completions endpoint with the `gpt-35-turbo` version 0301 model. This model is [slated for retirement](../concepts/model-retirements.md). If you attempt to use ChatML syntax with newer models and the chat completion endpoint, it can result in errors and unexpected model response behavior. We don't recommend this use.
+Some customers try to use the [legacy ChatML syntax](../how-to/chat-markup-language.md) with the chat completion endpoints and newer models. ChatML was a preview capability that only worked with the legacy completions endpoint with the `gpt-35-turbo` version 0301 model. This model is [slated for retirement](../concepts/model-retirements.md). If you attempt to use ChatML syntax with newer models and the chat completion endpoint, it can result in errors and unexpected model response behavior. We don't recommend this use. This same issue can occur when using common special tokens.
 
 | Error |Cause | Solution |
 |---|---|---|
-| 400 - "Failed to generate output due to special tokens in the input." | Your prompt contains legacy ChatML tokens not recognized or supported by the model/endpoint. | Ensure that your prompt/messages array doesn't contain any legacy ChatML tokens. If you're upgrading from a legacy model, exclude all special tokens before you submit an API request to the model.|
+| 400 - "Failed to generate output due to special tokens in the input." | Your prompt contains legacy ChatML tokens not recognized or supported by the model/endpoint. | Ensure that your prompt/messages array doesn't contain any legacy ChatML tokens/special tokens. If you're upgrading from a legacy model, exclude all special tokens before you submit an API request to the model.|
 
 ## Next steps
 
