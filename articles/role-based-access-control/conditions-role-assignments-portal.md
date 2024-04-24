@@ -39,7 +39,7 @@ There are two ways that you can add a condition. You can add a condition when yo
 
 ### New role assignment
 
-1. Follow the steps to [Assign Azure roles using the Azure portal](role-assignments-portal.md).
+1. Follow the steps to [Assign Azure roles using the Azure portal](role-assignments-portal.yml).
 
 1. On the **Conditions (optional)** tab, click **Add condition**.
 
@@ -150,7 +150,7 @@ Once you have the Add role assignment condition page open, you can review the ba
 
     If you don't see the View/Edit link, be sure you're looking at the same scope as the role assignment.
 
-    ![Role assignment list with View/Edit link for condition.](./media/conditions-role-assignments-portal/condition-role-assignments-list-edit.png)
+    ![Role assignment list with View/Edit link for condition.](./media/shared/condition-role-assignments-list-edit.png)
 
     The Add role assignment condition page appears.
 

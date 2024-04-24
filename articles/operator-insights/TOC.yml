@@ -12,11 +12,13 @@
 - name: Quickstart
   expanded: false
   items:
-  - name: Create an Azure Operator Insights Data Product
+  - name: Deploy an Azure Operator Insights Data Product
     href: data-product-create.md
 - name: Concepts
   expanded: false
   items:
+  - name: Architecture
+    href: architecture.md
   - name: Quality of Experience - Affirmed MCC Data Products
     href: concept-mcc-data-product.md
   - name: Monitoring - Affirmed MCC Data Product
@@ -46,7 +48,7 @@
     href: data-query.md
   - name: Use Microsoft Purview with an Azure Operator Insights Data Product
     href: purview-setup.md
-  - name: Manage permissions to the consumption URL
+  - name: Manage permissions to the KQL consumption URL
     href: consumption-plane-configure-permissions.md
   - name: Manage Azure Operator Insights ingestion agents
     items:

@@ -76,6 +76,12 @@ The following table describes the workspaces that are required to support Manage
 ## Enable Prometheus and Grafana
 Use one of the following methods to enable scraping of Prometheus metrics from your cluster and enable Managed Grafana to visualize the metrics. See [Link a Grafana workspace](../../managed-grafana/quickstart-managed-grafana-portal.md) for options to connect your Azure Monitor workspace and Azure Managed Grafana workspace.
 
+> [!NOTE] 
+> If you have a single Azure Monitor Resource that is private-linked, then Prometheus enablement won't work if the AKS cluster and Azure Monitor Workspace are in different regions.
+> The configuration needed for the Prometheus add-on isn't available cross region because of the private link constraint.
+> To resolve this, create a new DCE in the AKS cluster location and a new DCRA (association) in the same AKS cluster region. Associate the new DCE with the AKS cluster and name the new association (DCRA) as configurationAccessEndpoint.
+> For full instructions on how to configure the DCEs associated with your Azure Monitor workspace to use a Private Link for data ingestion, see [Use a private link for Managed Prometheus data ingestion](../essentials/private-link-data-ingestion.md).
+
 ### [CLI](#tab/cli)
 
 If you don't specify an existing Azure Monitor workspace in the following commands, the default workspace for the resource group will be used. If a default workspace doesn't already exist in the cluster's region, one with a name in the format `DefaultAzureMonitorWorkspace-<mapped_region>` will be created in a resource group with the name `DefaultRG-<cluster_region>`.

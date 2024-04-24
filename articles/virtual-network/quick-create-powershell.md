@@ -300,9 +300,7 @@ Remove-AzResourceGroup -Name 'test-rg' -Force
 
 ## Next steps
 
-In this quickstart, you created a virtual network with a default subnet that contains two VMs. You deployed Bastion, and you used it to connect to the VMs and establish communication between the VMs. To learn more about virtual network settings, see [Create, change, or delete a virtual network](manage-virtual-network.md).
-
-Private communication between VMs in a virtual network is unrestricted. To learn more about configuring various types of VM network communications, continue to the next article:
+In this quickstart, you created a virtual network with a default subnet that contains two VMs. You deployed Azure Bastion and used it to connect to the VMs, and securely communicated between the VMs. To learn more about virtual network settings, see [Create, change, or delete a virtual network](manage-virtual-network.yml).
 
 > [!div class="nextstepaction"]
 > [Filter network traffic](tutorial-filter-network-traffic.md)
