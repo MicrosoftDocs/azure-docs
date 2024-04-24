@@ -33,17 +33,6 @@ To deploy Azure Virtual Desktop in Azure Extended Zone locations, you will need 
 For more information, see ....
 
 
-## Configuration
-
-- Announcement of the default outbound route for Azure being retired: https://azure.microsoft.com/en-us/updates/default-outbound-access-for-vms-in-azure-will-be-retired-updates-and-more-information/, we need this as Extended Zones are starting off without the outbound route. Which means we need a way to get to the internet.
-
-- There are a number of options to get to the internet and we are going to use option 1: Use the frontend IP address(es) of a load balancer for outbound via outbound rules - in this overview doc: https://learn.microsoft.com/en-us/azure/load-balancer/load-balancer-outbound-connections
-And this detailed doc: https://learn.microsoft.com/en-us/azure/load-balancer/outbound-rules
-
-- An Azure Load Balancer would need to exist already on the vnet that the Session hosts are being deployed to in order for all of those session hosts to get to the internet and join a host pool. Without this the deployment will fail.
-
-
-
 ## Licensing and pricing
 
 
