@@ -34,8 +34,8 @@ Azure AI Studio supports developing in VS Code - Web and Desktop. In each scenar
 1. For **Compute**, select your compute instance. If it's still starting, wait for it to switch to **Running**. You'll see a **Ready** status when the compute is ready for use.
 1. For **VS Code container**, select **Set up container** if the button appears. This configures the container on your compute for you. The compute setup might take a few minutes to complete. Once you set up the compute the first time, you can directly launch subsequent times. You might need to authenticate your compute when prompted. When setup is complete, you'll see **Ready**.
 
-  > [!WARNING]
-  > Once you set up the container for this compute instance, it will no longer idle shutdown, even if you [enable and configure idle shutdown](./create-manage-compute.md#configure-idle-shutdown). This is to ensure the compute doesn't shut down unexpectedly while you're working within a container.
+    > [!WARNING]
+    > Once you set up the container for this compute instance, it will no longer idle shutdown, even if you [enable and configure idle shutdown](./create-manage-compute.md#configure-idle-shutdown). This is to ensure the compute doesn't shut down unexpectedly while you're working within a container.
 
 1. Open the project in VS Code:
     * If you want to work in the browser, select **Open project in VS Code (Web)**. A new browser tab connected to *vscode.dev* opens.
