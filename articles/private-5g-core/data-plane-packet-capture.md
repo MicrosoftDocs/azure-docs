@@ -6,7 +6,7 @@ author: robswain
 ms.author: robswain
 ms.service: private-5g-core
 ms.topic: how-to
-ms.date: 10/26/2023
+ms.date: 04/24/2024
 ms.custom: template-how-to, devx-track-azurecli
 ---
 
@@ -56,7 +56,13 @@ To perform packet capture using the command line, you must:
 1. Select **Start packet capture**.
 1. Fill in the details on the **Start packet capture** pane and select **Create**.
 1. The page will refresh every few seconds until the packet capture has completed. You can also use the **Refresh** button to refresh the page. If you want to stop the packet capture early, select **Stop packet capture**.
+
+    The **Maximum bytes per session** limit is applied per node. In highly available (HA) deployments it is likely that the packet capture will reach this limit and complete on one node before the other, so a packet capture will still be running when the first has completed. You should stop any running packet captures before starting a new one.
+
 1. Once the packet capture has completed, the AP5GC online service will save the output at the provided storage account URL.
+
+    In HA deployments, two packet capture files will be uploaded, one for each node. These will be labelled with a 0 or a 1, corresponding to the `core-mec-dp-0` or `core-mec-dp-1` pod. If one packet capture fails, the status page will show an error, but the successful capture results will upload as normal.
+
 1. To download the packet capture output, you can use the **Copy to clipboard** button in the **Storage** or **File name** columns to copy those details and then paste them into the **Search** box in the portal. To download the output, right-click the file and select **Download**.
 
 ## Performing packet capture using the Azure CLI
@@ -66,6 +72,9 @@ To perform packet capture using the command line, you must:
     ```azurecli
     kubectl exec -it -n core core-mec-dp-0 -c troubleshooter -- bash
     ```
+
+    > [!NOTE]
+    > In an HA deployment, `core-mec-dp-0` may not exist because the node is down. In that case, enter `core-mec-dp-1` instead.
 
 1. View the list of configured user plane interfaces:
 
