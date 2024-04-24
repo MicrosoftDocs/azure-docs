@@ -211,7 +211,7 @@ A custom user-assigned managed identity for the control plane enables access to 
 > [!NOTE]
 > It may take up to 60 minutes for the permissions granted to your cluster's managed identity to populate.
 
-* Before creating the cluster, [add the role assignment for managed identity][add-role-assignment-for-managed-identity] using the [`az role assignment create`][az-role-assignment-create] command.
+* Before creating the cluster, [add the role assignment for managed identity][add-a-role-assignment-for-the-managed-identity] using the [`az role assignment create`][az-role-assignment-create] command.
 
 * Create the cluster with user-assigned managed identity.
 
@@ -255,7 +255,7 @@ A custom user-assigned managed identity for the control plane enables access to 
     }
     ```
   
-* After creating the custom user-assigned managed identity for the control plane, [add the role assignment for the managed identity][add-role-assignment-for-managed-identity] using the [`az role assignment create`][az-role-assignment-create] command.
+* After creating the custom user-assigned managed identity for the control plane, [add the role assignment for the managed identity][add-a-role-assignment-for-the-managed-identity] using the [`az role assignment create`][az-role-assignment-create] command.
 
 * Update your cluster with your existing identities using the [`az aks update`][az-aks-update] command. Make sure to provide the resource ID of the managed identity for the control plane by including the `assign-identity` argument.
 
@@ -506,7 +506,7 @@ Now you can create your AKS cluster with your existing identities. Make sure to 
 [use-a-pre-created-kubelet-managed-identity]: use-managed-identity.md#use-a-pre-created-kubelet-managed-identity
 [update-managed-identity-on-an-existing-cluster]: use-managed-identity.md#update-managed-identity-on-an-existing-cluster
 [workload-identity-overview]: workload-identity-overview.md
-[add-role-assignment-for-managed-identity]: use-managed-identity.md#add-role-assignment-for-managed-identity
+[add-a-role-assignment-for-the-managed-identity]: use-managed-identity.md#add-a-role-assignment-for-the-managed-identity
 [az-group-create]: /cli/azure/group#az_group_create
 [az-aks-create]: /cli/azure/aks#az_aks_create
 [az-aks-get-credentials]: /cli/azure/aks#az_aks_get_credentials
