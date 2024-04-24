@@ -254,6 +254,27 @@ Create **spn1-peer-vnet** with a scope to the virtual network created in the pre
 1. The service principal must have **User.Read.All** permissions to the directory. Use [Get-AzureADApplication](/powershell/module/azuread/get-azureadapplication), [Set-AzureADApplication](/powershell/module/azuread/set-azureadapplication), and [New-AzureADUserAppRoleAssignment](/powershell/module/azuread/new-azureaduserapproleassignment) to add the Microsoft Graph permissions of **User.Read.all** to the service principal.
 
     ```azurepowershell
+    $appId1 = Get-AzureADApplication -Filter "DisplayName eq 'spn-1-peer-vnet'" | Select-Object ObjectId
+
+    # Define the permission
+    $apiPermission = New-Object -TypeName Microsoft.Open.AzureAD.Model.RequiredResourceAccess
+    $apiPermission.ResourceAppId = "00000003-0000-0000-c000-000000000000"
+    $resourceAccess = New-Object -TypeName Microsoft.Open.AzureAD.Model.ResourceAccess -Property @{ Id = "e1fe6dd8-ba31-4d61-89e7-88639da4683d"; Type = "Scope" }
+    $apiPermission.ResourceAccess = $resourceAccess
+
+    # Get the application
+    $app = Get-AzureADApplication -ObjectId $appid1.ObjectId
+
+    # Add the permission
+    $app.RequiredResourceAccess.Add($apiPermission)
+
+    # Update the application
+    Set-AzureADApplication -ObjectId $appid1.ObjectId -RequiredResourceAccess $app.RequiredResourceAccess
+
+
+
+
+
     # Add permission
 
     $apiPermission = New-Object -TypeName 'Microsoft.Open.AzureAD.Model.RequiredResourceAccess'
@@ -290,7 +311,7 @@ Create **spn1-peer-vnet** with a scope to the virtual network created in the pre
     $userReadPermission = $sp.AppRoles | Where-Object {$_.Value -eq 'User.Read.All'}
 
     # Grant the permission
-    New-AzureADUserAppRoleAssignment -ObjectId $appid1 -PrincipalId $appid1 -ResourceId $sp.ObjectId -Id $userReadPermission.Id
+    New-AzureADUserAppRoleAssignment -ObjectId $app -PrincipalId $app -ResourceId $sp.ObjectId -Id $userReadPermission.Id
     ```
 
 ---
