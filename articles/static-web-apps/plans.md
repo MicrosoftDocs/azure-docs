@@ -5,7 +5,7 @@ services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic:  overview
-ms.date: 10/05/2021
+ms.date: 04/24/2024
 ms.author: cshoe
 ---
 
@@ -15,21 +15,21 @@ Azure Static Web Apps is available through two different plans, Free and Standar
 
 ## Features
 
-| Feature | Free plan <br> (For personal projects) | Standard plan <br> (For production apps) |
+| Feature | Free plan <br> (For personal projects) | Standard plan <br> (For production apps) | Dedicated plan |
 | --- | --- | --- |
-| Web hosting | ✔ | ✔ |
-| GitHub integration | ✔ | ✔ |
-| Azure DevOps integration | ✔ | ✔ |
-| Globally distributed static content | ✔ | ✔ |
-| Free, automatically renewing SSL certificates | ✔ | ✔ |
-| Staging environments | 3 per app | 10 per app |
-| Max app size | 250 MB per app | 500 MB per app |
-| Custom domains | 2 per app | 5 per app |
-| APIs via Azure Functions | Managed | Managed or<br>[Bring your own Functions app](functions-bring-your-own.md) |
+| Web hosting | ✔ | ✔ | ✔ |
+| GitHub integration | ✔ | ✔ | ✔ |
+| Azure DevOps integration | ✔ | ✔ | ✔ |
+| Globally distributed static content | ✔ | ✔ | ✗ |
+| Free, automatically renewing SSL certificates | ✔ | ✔ | ✔ |
+| Staging environments | 3 per app | 10 per app | 20 per app |
+| Max app size | 250 MB per app | 500 MB per app | 2GB |
+| Custom domains | 2 per app | 5 per app | 10 per app |
+| APIs via Azure Functions | Managed | Managed or<br>[Bring your own Functions app](functions-bring-your-own.md) | Managed or<br>[Bring your own Functions app](functions-bring-your-own.md) |
 | Authentication provider integration | [Pre-configured](authentication-authorization.yml)<br>(Service defined) | [Custom registrations](authentication-custom.md) |
-| [Assign custom roles with a function](authentication-custom.md#manage-roles) | - | ✔ |
-| Private endpoints | - | ✔ |
-| [Service Level Agreement (SLA)](https://azure.microsoft.com/support/legal/sla/app-service-static/v1_0/) | None  | ✔ |
+| [Assign custom roles with a function](authentication-custom.md#manage-roles) | ✗ | ✔ | ✔ |
+| Private endpoints | ✗ | ✔ | ✔ |
+| [Service Level Agreement (SLA)](https://azure.microsoft.com/support/legal/sla/app-service-static/v1_0/) | None  | ✔ | ✔ |
 
 ## Selecting a plan
 
