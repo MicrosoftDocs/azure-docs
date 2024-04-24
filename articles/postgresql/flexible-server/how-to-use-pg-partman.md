@@ -19,9 +19,9 @@ In this article, you learn how to optimize the Azure Database for PostgreSQL Fle
 
 ## Prerequisites
 
-To enable the pg_partman extension, follow these steps. 
+To enable the `pg_partman` extension, follow these steps. 
 
-- Add the pg_partman extension under Azure extensions as shown by the server parameters on the portal.
+- Add the `pg_partman` extension under Azure extensions as shown by the server parameters on the portal.
 
     :::image type="content" source="media/how-to-use-pg-partman/pg-partman-prerequisites.png" alt-text="Screenshot of prerequisites to get started.":::
 
@@ -35,15 +35,15 @@ To enable the pg_partman extension, follow these steps.
 
     You can use server parameters in the Azure portal to change the following configuration options that affect the BGW process: 
 
-    `pg_partman_bgw.dbname` - Required. This parameter should contain one or more databases that run_maintenance() needs to be run on. If more than one, use a comma separated list. If nothing is set, BGW doesn't run the procedure. 
+    `pg_partman_bgw.dbname` - Required. This parameter should contain one or more databases that `run_maintenance()` needs to be run on. If more than one, use a comma separated list. If nothing is set, `pg_partman_bgw` doesn't run the procedure. 
     
-    `pg_partman_bgw.interval` - Number of seconds between calls to run_maintenance() procedure. Default is 3600 (1 hour). This can be updated based on the requirement of the project. 
+    `pg_partman_bgw.interval` - Number of seconds between calls to `run_maintenance()` procedure. Default is 3600 (1 hour). This can be updated based on the requirement of the project. 
     
-    `pg_partman_bgw.role` - The role that run_maintenance() procedure runs as. Default is postgres. Only a single role name is allowed. 
+    `pg_partman_bgw.role` - The role that `run_maintenance()` procedure runs as. Default is postgres. Only a single role name is allowed. 
     
-    `pg_partman_bgw.analyze` - By default, it's set to OFF. Same purpose as the p_analyze argument to run_maintenance(). 
+    `pg_partman_bgw.analyze` - By default, it's set to OFF. Same purpose as the p_analyze argument to `run_maintenance()`. 
     
-    `pg_partman_bgw.jobmon` - Same purpose as the p_jobmon argument to run_maintenance(). By default, it's set to ON. 
+    `pg_partman_bgw.jobmon` - Same purpose as the `p_jobmon` argument to `run_maintenance()`. By default, it's set to ON. 
 
 > [!NOTE]
 > 1. When an identity feature uses sequences, the data from the parent table gets new sequence value. It doesn't generate new sequence values when the data is directly added to the child table. 
@@ -133,7 +133,7 @@ INSERT INTO partman.partition_test SELECT GENERATE_SERIES(400000,500000),GENERAT
 GENERATE_SERIES(400000,500000) || 'zyxwvutsrqponmlkjihgfedcba', GENERATE_SERIES (timestamp '2024-07-01',timestamp '2024-07-30', interval '1 day') ; 
 ```
 
-Run the command below to see the partitions created. 
+Run the command below on you psql to see the partitions created. 
 
 ```sql
 \d+ partman.partition_test;
