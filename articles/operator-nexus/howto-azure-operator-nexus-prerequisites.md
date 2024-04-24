@@ -23,26 +23,26 @@ In subsequent deployments of Operator Nexus, you will only need to create the NF
 
 - Ensure Azure Subscription for Operator Nexus resources has been permitted access to the
   necessary Azure Resource Providers:
-  az provider register --namespace Microsoft.NetworkCloud --wait
-  az provider register --namespace Microsoft.ManagedNetworkFabric --wait
-  az provider register --namespace Microsoft.Compute --wait
-  az provider register --namespace Microsoft.Storage --wait
-  az provider register --namespace Microsoft.Keyvault --wait
-  az provider register --namespace Microsoft.Network --wait
-  az provider register --namespace Microsoft.ContainerService --wait
-  az provider register --namespace Microsoft.ExtendedLocation --wait
-  az provider register --namespace Microsoft.HybridCompute --wait
-  az provider register --namespace Microsoft.HybridConnectivity --wait
-  az provider register --namespace Microsoft.HybridContainerService --wait
-  az provider register --namespace Microsoft.HybridNetwork --wait
-  az provider register --namespace Microsoft.Insights --wait
-  az provider register --namespace Microsoft.Kubernetes --wait
-  az provider register --namespace Microsoft.KubernetesConfiguration --wait
-  az provider register --namespace Microsoft.ManagedIdentity --wait
-  az provider register --namespace Microsoft.OperationalInsights --wait
-  az provider register --namespace Microsoft.OperationsManagement --wait
-  az provider register --namespace Microsoft.ResourceConnector --wait
-  az provider register --namespace Microsoft.Resources --wait
+  - az provider register --namespace Microsoft.NetworkCloud
+  - az provider register --namespace Microsoft.ManagedNetworkFabric
+  - az provider register --namespace Microsoft.Compute
+  - az provider register --namespace Microsoft.ContainerService
+  - az provider register --namespace Microsoft.ExtendedLocation
+  - az provider register --namespace Microsoft.HybridCompute
+  - az provider register --namespace Microsoft.HybridConnectivity
+  - az provider register --namespace Microsoft.HybridContainerService
+  - az provider register --namespace Microsoft.HybridNetwork
+  - az provider register --namespace Microsoft.Insights
+  - az provider register --namespace Microsoft.Keyvault
+  - az provider register --namespace Microsoft.Kubernetes
+  - az provider register --namespace Microsoft.KubernetesConfiguration
+  - az provider register --namespace Microsoft.ManagedIdentity
+  - az provider register --namespace Microsoft.Network
+  - az provider register --namespace Microsoft.OperationalInsights
+  - az provider register --namespace Microsoft.OperationsManagement
+  - az provider register --namespace Microsoft.ResourceConnector
+  - az provider register --namespace Microsoft.Resources
+  - az provider register --namespace Microsoft.Storage
 
 ## Dependent Azure resources setup
 
