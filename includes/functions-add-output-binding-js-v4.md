@@ -2,7 +2,7 @@
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 09/23/2019
+ms.date: 04/24/2024
 ms.author: glenga
 ---
 Add code that uses the output binding object on `context.extraOutputs` to create a queue message. Add this code before the return statement.

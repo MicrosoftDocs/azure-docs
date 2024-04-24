@@ -2,7 +2,7 @@
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 02/09/2023
+ms.date: 04/24/2024
 ms.author: glenga
 ms.custom: devdivchpfy22
 ---
@@ -16,22 +16,7 @@ Although a function can have only one trigger, it can have multiple input and ou
 ::: zone pivot="programming-language-javascript,programming-language-typescript"  
 When using the [Node.js v4 programming model](../articles/azure-functions/functions-reference-node.md), binding attributes are defined directly in the *./src/functions/HttpExample.js* file. From the previous quickstart, your file already contains an HTTP binding defined by the `app.http` method. 
 
-```javascript
-const { app } = require('@azure/functions');
-
-app.http('HttpExample', {
-    methods: ['GET', 'POST'],
-    authLevel: 'anonymous',
-    handler: async (request, context) => {
-        context.log(`Http function processed request for url "${request.url}"`);
-
-        const name = request.query.get('name') || await request.text() || 'world';
-
-        return { body: `Hello, ${name}!` };
-    }
-});
-```
-
+:::code language="javascript" range="22" source="~/functions-docs-javascript/src/functions/httpTrigger.js":::
 
 ::: zone-end  
 
