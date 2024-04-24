@@ -87,7 +87,10 @@ If you choose to install and use PowerShell locally, this article requires the A
 1. Create a resource group with [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup).
 
     ```azurepowershell
-    New-AzResourceGroup -Name test-rg-1 -Location eastus2
+    $rg = @{
+        Name = 'test-rg-1'
+        Location = 'eastus2'}
+    New-AzResourceGroup @rg
     ```
 
 1. Use [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) to create a virtual network named **vnet-1** in **subscription-1**.
@@ -248,7 +251,7 @@ Create **spn1-peer-vnet** with a scope to the virtual network created in the pre
     Set-AzureADApplication -ObjectId $app.ObjectId -ReplyUrls $replyURLList -AvailableToOtherTenants $true
     ```
 
-1. The service principal must have **User.Read.All** permissions to the directory. Use [az ad app permission add](/cli/azure/ad/app#az-ad-app-permission-add) and [az ad app permission grant](/cli/azure/ad/app#az-ad-app-permission-grant) to add the Microsoft Graph permissions of **User.Read.all** to the service principal.
+1. The service principal must have **User.Read.All** permissions to the directory. Use [Get-AzureADApplication](/powershell/module/azuread/get-azureadapplication), [Set-AzureADApplication](/powershell/module/azuread/set-azureadapplication), and [New-AzureADUserAppRoleAssignment](/powershell/module/azuread/new-azureaduserapproleassignment) to add the Microsoft Graph permissions of **User.Read.all** to the service principal.
 
     ```azurepowershell
     # Add permission
@@ -287,7 +290,7 @@ Create **spn1-peer-vnet** with a scope to the virtual network created in the pre
     $userReadPermission = $sp.AppRoles | Where-Object {$_.Value -eq 'User.Read.All'}
 
     # Grant the permission
-    New-AzureADUserAppRoleAssignment -PrincipalId $appid1 -ResourceId $sp.ObjectId -Id $userReadPermission.Id
+    New-AzureADUserAppRoleAssignment -ObjectId $appid1 -PrincipalId $appid1 -ResourceId $sp.ObjectId -Id $userReadPermission.Id
     ```
 
 ---
@@ -333,7 +336,10 @@ Create **spn1-peer-vnet** with a scope to the virtual network created in the pre
 1. Create a resource group with [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup).
 
     ```azurepowershell
-    New-AzResourceGroup -Name test-rg-2 -Location westus2
+    $rg = @{
+        Name = 'test-rg-2'
+        Location = 'westus2'}
+    New-AzResourceGroup @rg
     ```
 
 1. Use [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) to create a virtual network named **vnet-1** in **subscription-1**.
@@ -352,7 +358,7 @@ Create **spn1-peer-vnet** with a scope to the virtual network created in the pre
 
 Create a subnet configuration named **subnet-1** with [Add-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/add-azvirtualnetworksubnetconfig):
 
-```azurepowershell-interactive
+```azurepowershell
 $subnet = @{
     Name = 'subnet-1'
     VirtualNetwork = $virtualNetwork
@@ -365,7 +371,7 @@ $subnetConfig = Add-AzVirtualNetworkSubnetConfig @subnet
 
 Write the subnet configuration to the virtual network with [Set-AzVirtualNetwork](/powershell/module/az.network/Set-azVirtualNetwork).
 
-```azurepowershell-interactive
+```azurepowershell
 $virtualNetwork | Set-AzVirtualNetwork
 ```
 
@@ -495,7 +501,7 @@ Create **spn-2-peer-vnet** with a scope to the virtual network created in the pr
     Set-AzureADApplication -ObjectId $app.ObjectId -ReplyUrls $replyURLList -AvailableToOtherTenants $true
     ```
 
-1. The service principal must have **User.Read.All** permissions to the directory. Use [az ad app permission add](/cli/azure/ad/app#az-ad-app-permission-add) and [az ad app permission grant](/cli/azure/ad/app#az-ad-app-permission-grant) to add the Microsoft Graph permissions of **User.Read.All** to the service principal.
+1. The service principal must have **User.Read.All** permissions to the directory. Use [Get-AzureADApplication](/powershell/module/azuread/get-azureadapplication), [Set-AzureADApplication](/powershell/module/azuread/set-azureadapplication), and [New-AzureADUserAppRoleAssignment](/powershell/module/azuread/new-azureaduserapproleassignment) to add the Microsoft Graph permissions of **User.Read.all** to the service principal.
 
     ```azurepowershell
     # Add permission
@@ -534,7 +540,7 @@ Create **spn-2-peer-vnet** with a scope to the virtual network created in the pr
     $userReadPermission = $sp.AppRoles | Where-Object {$_.Value -eq 'User.Read.All'}
 
     # Grant the permission
-    New-AzureADUserAppRoleAssignment -PrincipalId $appid1 -ResourceId $sp.ObjectId -Id $userReadPermission.Id
+    New-AzureADUserAppRoleAssignment -PrincipalId $appid2 -ResourceId $sp.ObjectId -Id $userReadPermission.Id
     ```
 
 ---
@@ -549,10 +555,10 @@ An administrator in the **subscription-1** Microsoft Entra ID tenant must approv
 
 # [**Azure CLI**](#tab/create-peering-cli)
 
-1. Use [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) to sign-in to **subscription-2**.
+1. Use [az login](/cli/azure/reference-index#az-login) to sign-in to **subscription-2**.
 
-    ```azurepowershell
-    Connect-AzAccount
+    ```azurecli
+    az login
     ```
 
 1. Use [az ad sp list](/cli/azure/ad/sp#az-ad-sp-list) to obtain the appId of **spn-2-peer-vnet**. Note the appID in the output. This appID is used in the authentication URL in the later steps.
@@ -583,12 +589,12 @@ An administrator in the **subscription-1** Microsoft Entra ID tenant must approv
 
 # [**PowerShell**](#tab/create-peering-powershell)
 
-1. [az login](/cli/azure/reference-index#az-login) to sign-in to **subscription-2**.
+1. Use [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) to sign-in to **subscription-2**.
 
-    ```azurecli
-    az login
+    ```azurepowershell
+    Connect-AzAccount
     ```
-
+    
 1. Use [az ad sp list](/cli/azure/ad/sp#az-ad-sp-list) to obtain the appId of **spn-2-peer-vnet**. Note the appID in the output. This appID is used in the authentication URL in the later steps.
 
     ```azurecli
@@ -599,7 +605,7 @@ An administrator in the **subscription-1** Microsoft Entra ID tenant must approv
     echo $appid2
     ```
 
-1. Use the appid for **spn-2-peer-vnet** and the Microsoft Entra ID tenant ID for **subcription-1** to build the sign-in URL for the approval. The URL is built from the following example:
+1. Use the appid for **spn-2-peer-vnet** and the Microsoft Entra ID tenant ID for **subscription-1** to build the sign-in URL for the approval. The URL is built from the following example:
 
     ```
     https://login.microsoftonline.com/entra-tenant-id-subscription-1/oauth2/authorize?client_id={$appid2}&response_type=code&redirect_uri=https://www.microsoft.com
