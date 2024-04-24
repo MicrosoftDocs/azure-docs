@@ -97,7 +97,7 @@ An example might involve Host 1 at IP address 10.10.10.10 and Host 2 at IP addre
 
 Reduced logs are enhanced with geography, security, and topology information and then stored in a Log Analytics workspace. The following diagram shows the data flow:
 
-:::image type="content" source="./media/traffic-analytics/data-flow-for-nsg-flow-log-processing.png" alt-text="Diagram that shows how network traffic data flows from an network security group log to an analytics dashboard. Middle steps include aggregation and enhancement.":::
+:::image type="content" source="./media/traffic-analytics/data-flow-for-nsg-flow-log-processing.png" alt-text="Diagram that shows how network traffic data flows from a network security group log to an analytics dashboard. Middle steps include aggregation and enhancement.":::
 
 ## Prerequisites
 
