@@ -87,7 +87,7 @@ To use traffic analytics, you need the following components:
       For more information about virtual network flow logs, see [Virtual network flow logs overview](vnet-flow-logs-overview.md).
 
       > [!NOTE]
-      > For information about the differences between network security group flow logs and virtual network flow logs, see [VNet flow logs compared to network security group flow logs](vnet-flow-logs-overview.md#virtual-network-flow-logs-compared-to-network-security-group-flow-logs).
+      > For information about the differences between network security group flow logs and virtual network flow logs, see [Virtual network flow logs compared to network security group flow logs](vnet-flow-logs-overview.md#virtual-network-flow-logs-compared-to-network-security-group-flow-logs).
 
 ## How traffic analytics works
 
@@ -104,7 +104,7 @@ Reduced logs are enhanced with geography, security, and topology information and
 Traffic analytics requires the following prerequisites:
 
 - A Network Watcher enabled subscription. For more information, see [Enable or disable Azure Network Watcher](network-watcher-create.md).
-- Network security group flow logs enabled for the network security groups you want to monitor or virtual network flow logs enabled for the virtual network you want to monitor. For more information, see [Create a flow log](nsg-flow-logs-portal.md#create-a-flow-log) or [Enable virtual network flow logs](vnet-flow-logs-powershell.md#enable-vnet-flow-logs).
+- Network security group flow logs enabled for the network security groups you want to monitor or virtual network flow logs enabled for the virtual network you want to monitor. For more information, see [Create a network security group flow log](nsg-flow-logs-portal.md#create-a-flow-log) or [Create a virtual network flow log](vnet-flow-logs-portal.md#create-a-flow-log).
 - An Azure Log Analytics workspace with read and write access. For more information, see [Create a Log Analytics workspace](../azure-monitor/logs/quick-create-workspace.md?toc=/azure/network-watcher/toc.json).
 
 - One of the following [Azure built-in roles](../role-based-access-control/built-in-roles.md) needs to be assigned to your account:
