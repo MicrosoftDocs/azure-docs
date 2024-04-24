@@ -16,7 +16,7 @@ ms.date: 04/23/2024
 > [!IMPORTANT] 
 > This feature is in public preview under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). The [2024-05-01-Preview REST API](/rest/api/searchservice/skillsets/create-or-update?view=rest-searchservice-2024-05-01-Preview&preserve-view=true) supports this feature.
 
-The **Azure AI Services Vision Vectorize** skill uses the [AI Services Vision multi-model vectorization API](/azure/ai-services/computer-vision/concept-image-retrieval) to generate embeddings for image or text input.
+The **Azure AI Services Vision Vectorize** skill uses the [AI Services Vision multi-model vectorization API](../ai-services/computer-vision/concept-image-retrieval.md) to generate embeddings for image or text input.
 
 The skill is only supported in search services who are located in a region that supports the AI Services Vision Vectorize API. Currently this is East US, France Central, Korea Central, North Europe, Southeast Asia, West Europe, West US.
 
@@ -165,4 +165,4 @@ For mapping image embeddings to the index, you will need to use the [Index Proje
 + [Extract text and information from images](cognitive-search-concept-image-scenarios.md)
 + [How to define output fields mappings](cognitive-search-output-field-mapping.md)
 + [Index Projections](index-projections-concept-intro.md)
-+ [AI Services Vision multi-model vectorization](/azure/ai-services/computer-vision/concept-image-retrieval)
++ [AI Services Vision multi-model vectorization](../ai-services/computer-vision/concept-image-retrieval.md)
