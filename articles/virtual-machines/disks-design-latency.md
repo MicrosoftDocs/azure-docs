@@ -39,7 +39,7 @@ There might be more network latency between several availability zones than with
 
 #### Deploy VMs across three availability zones
 
-VMs deployed across three availability zones have the highest uptime [service level agreements](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services?lang=1) (SLA). This deployment provides redundancy in VMs across multiple datacenters in a region, and allows you to failover to another zone if there's a datacenter or zonal outage. This or [Use zone-redundant Virtual Machine Scale Sets](#use-zone-redundant-virtual-machine-scale-sets) are the configurations you should use to maximize your environment's availability.
+VMs deployed across three availability zones have the highest uptime [service level agreements](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services?lang=1) (SLA). This deployment provides redundancy in VMs across multiple datacenters in a region, and allows you to failover to another zone if there's a datacenter or zonal outage. This or [zone-redundant Virtual Machine Scale Sets](#use-zone-redundant-virtual-machine-scale-sets) are the configurations you should use to maximize your environment's availability.
 
 There might be more network latency between several availability zones than within a single availability zone, which could be a concern for workloads that require ultra-low latency. If low latency is your top priority, consider [regional Virtual Machine Scale Sets](#use-regional-virtual-machine-scale-sets) or [availability sets](#use-availability-sets).
 
