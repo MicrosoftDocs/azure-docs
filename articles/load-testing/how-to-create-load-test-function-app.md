@@ -17,7 +17,7 @@ Learn how to create a load test for an app in Azure Functions with Azure Load Te
 With the integrated load testing experience in Azure Functions, you can:
 
 - Create a [URL-based load test](./quickstart-create-and-run-load-test.md) for functions with an HTTP trigger
-- View the test runs associated with the Function app
+- View the load test runs associated with a function app
 - Create a load testing resource
   
 
