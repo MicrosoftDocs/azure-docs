@@ -40,7 +40,7 @@ You can also find a full view of the [request parameters here](/rest/api/cogniti
 ## Example request
 
 > [!NOTE]
-> The examples below are based on API version: 2024-04-01-preview. There might be changes between
+> The examples below are based on API version: 2024-04-01. There might be changes between
 API versions. For a specific API version, please use the reference to the REST API to see full description.
 
 
@@ -48,87 +48,112 @@ API versions. For a specific API version, please use the reference to the REST A
 
 You can use the data from this example, to test your first request to the Radiology Insights model.
 
+Definition {jobid}
+- unique identifier
+- maximum 36 characters
+- no spaces
+
+
 ```url
-POST
-https://{cognitive-services-account-endpoint}/health-insights/radiology-insights/jobs?api-version=2023-09-01-preview
+PUT
+https://{cognitive-services-account-endpoint}/health-insights/radiology-insights/jobs/{jobid}?api-version=2024-04-01
 Content-Type: application/json
 Ocp-Apim-Subscription-Key: {cognitive-services-account-key}
 ```
+
 ```json
 {
-  "configuration" : {
-    "inferenceOptions" : {
-      "followupRecommendationOptions" : {
-        "includeRecommendationsWithNoSpecifiedModality" : false,
-        "includeRecommendationsInReferences" : false,
-        "provideFocusedSentenceEvidence" : false
-      },
-      "findingOptions" : {
-        "provideFocusedSentenceEvidence" : false
-      }
-    },
-    "inferenceTypes" : [ "lateralityDiscrepancy" ],
-    "locale" : "en-US",
-    "verbose" : false,
-    "includeEvidence" : false
-  },
-  "patients" : [ {
-    "id" : "11111",
-    "info" : {
-      "sex" : "female",
-      "birthDate" : "1986-07-01T21:00:00+00:00",
-      "clinicalInfo" : [ {
-        "resourceType" : "Observation",
-        "status" : "unknown",
-        "code" : {
-          "coding" : [ {
-            "system" : "http://www.nlm.nih.gov/research/umls",
-            "code" : "C0018802",
-            "display" : "MalignantNeoplasms"
-          } ]
-        },
-        "valueBoolean" : "true"
-      } ]
-    },
-    "encounters" : [ {
-      "id" : "encounterid1",
-      "period" : {
-        "start" : "2021-08-28T00:00:00",
-        "end" : "2021-08-28T00:00:00"
-      },
-      "class" : "inpatient"
-    } ],
-    "patientDocuments" : [ {
-      "type" : "note",
-      "clinicalType" : "radiologyReport",
-      "id" : "docid1",
-      "language" : "en",
-      "authors" : [ {
-        "id" : "authorid1",
-        "name" : "authorname1"
-      } ],
-      "specialtyType" : "radiology",
-	  "createdDateTime" : "2021-8-28T00:00:00",
-      "administrativeMetadata" : {
-        "orderedProcedures" : [ {
-          "code" : {
-            "coding" : [ {
-              "system" : "Https://loinc.org",
-              "code" : "26688-1",
-              "display" : "US BREAST - LEFT LIMITED"
-            } ]
+      "jobData": {
+        "configuration": {
+          "inferenceOptions": {
+            "followupRecommendationOptions": {
+              "includeRecommendationsWithNoSpecifiedModality": false,
+              "includeRecommendationsInReferences": false,
+              "provideFocusedSentenceEvidence": false
+            },
+            "findingOptions": {
+              "provideFocusedSentenceEvidence": false
+            }
           },
-          "description" : "US BREAST - LEFT LIMITED"
-        } ],
-        "encounterId" : "encounterid1"
-      },
-      "content" : {
-        "sourceType" : "inline",
-        "value" : "Exam:   US LT BREAST TARGETED\r\n\r\nTechnique:  Targeted imaging of the  right breast  is performed.\r\n\r\nFindings:\r\n\r\nTargeted imaging of the left breast is performed from the 6:00 to the 9:00 position.  \r\n\r\nAt the 6:00 position, 5 cm from the nipple, there is a 3 x 2 x 4 mm minimally hypoechoic mass with a peripheral calcification. This may correspond to the mammographic finding. No other cystic or solid masses visualized.\r\n"
+          "inferenceTypes": ["lateralityDiscrepancy"],
+          "locale": "en-US",
+          "verbose": false,
+          "includeEvidence": false
+        },
+        "patients": [
+          {
+            "id": "111111",
+            "details": {
+              "sex": "female",
+			  "birthDate" : "1986-07-01T21:00:00+00:00",
+              "clinicalInfo": [
+                {
+                  "resourceType": "Observation",
+                  "status": "unknown",
+                  "code": {
+                    "coding": [
+                      {
+                        "system": "http://www.nlm.nih.gov/research/umls",
+                        "code": "C0018802",
+                        "display": "MalignantNeoplasms"
+                      }
+                    ]
+                  },
+                  "valueBoolean": "true"
+                }
+              ]
+            },
+            "encounters": [
+              {
+                "id": "encounterid1",
+                "period": {
+                  "start": "2021-8-28T00:00:00",
+                  "end": "2021-8-28T00:00:00"
+                },
+                "class": "inpatient"
+              }
+            ],
+            "patientDocuments": [
+              {
+                "type": "note",
+                "clinicalType": "radiologyReport",
+                "id": "docid1",
+                "language": "en",
+                "authors": [
+                  {
+                    "id": "authorid1",
+                    "fullName": "authorname1"
+                  }
+                ],
+                "specialtyType": "radiology",
+                "createdAt": "2021-8-28T00:00:00",
+                "administrativeMetadata": {
+                  "orderedProcedures": [
+                    {
+                      "code": {
+                        "coding": [
+                          {
+                            "system": "Https://loinc.org",
+                            "code": "26688-1",
+                            "display": "US BREAST - LEFT LIMITED"
+                          }
+                        ]
+                      },
+                      "description": "US BREAST - LEFT LIMITED"
+                    }
+                  ],
+                  "encounterId": "encounterid1"
+                },
+                "content": {
+                  "sourceType": "inline",
+                  "value" : "Exam:   US LT BREAST TARGETED\r\n\r\nTechnique:  Targeted imaging of the  right breast  is performed.\r\n\r\nFindings:\r\n\r\nTargeted imaging of the left breast is performed from the 6:00 to the 9:00 position.  \r\n\r\nAt the 6:00 position, 5 cm from the nipple, there is a 3 x 2 x 4 mm minimally hypoechoic mass with a peripheral calcification. This may correspond to the mammographic finding. No other cystic or solid masses visualized.\r\n"
+				}
+              }
+            ]
+          }
+        ]
       }
-    } ]
-  } ]
-}
+    }
 ```
 
 You can also find a full view of the [request parameters here](/rest/api/cognitiveservices/healthinsights/radiology-insights/create-job).
@@ -145,7 +170,7 @@ Example code snippet:
 
 ```url
 GET
-https://{cognitive-services-account-endpoint}/health-insights/radiology-insights/jobs/d48b4f4d-939a-446f-a000-002a80aa58dc?api-version=2023-09-01-preview
+https://{cognitive-services-account-endpoint}/health-insights/radiology-insights/jobs/{jobid}?api-version=2024-04-01
 Ocp-Apim-Subscription-Key: {cognitive-services-account-key}
 ```
 
@@ -161,7 +186,7 @@ Ocp-Apim-Subscription-Key: {cognitive-services-account-key}
             "lateralityIndication": {
               "coding": [
                 {
-                  "system": "*SNOMED",
+                  "system": "http://snomed.info/sct",
                   "code": "24028007",
                   "display": "RIGHT (QUALIFIER VALUE)"
                 }
@@ -173,7 +198,7 @@ Ocp-Apim-Subscription-Key: {cognitive-services-account-key}
       }
     ]
   },
-  "id": "862768cf-0590-4953-966b-1cc0ef8b8256",
+  "id": "jobid",
   "createdDateTime": "2023-12-18T12:25:37.8942771Z",
   "expirationDateTime": "2023-12-18T12:42:17.8942771Z",
   "lastUpdateDateTime": "2023-12-18T12:25:49.7221986Z",

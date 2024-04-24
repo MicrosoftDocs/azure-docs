@@ -198,8 +198,9 @@ Finding: Section
 Next to the provided evidence for this inference, there can be an extension with "url" : "section". This extension has an inner extension with a display name that describes the section, the inner extension will also have a LOINC code.
 
 
-When the findingOptions provideFocusedSentenceEvidence is on true (link to Model Configuration)
-, there can also be an extension with url "ci_sentence". This extension refers to the sentence containing the first word of the clinical indicator (that is, the medical problem), if any. The generation of such a sentence is switchable using the model configuration (link to Model Configuration).
+When the findingOptions provideFocusedSentenceEvidence is on true, there can also be an extension with url "ci_sentence". This extension refers to the sentence containing the first word of the clinical indicator (that is, the medical problem), if any. The generation of such a sentence is switchable using the model configuration.
+
+cfr [Model Configuration](model-configuration.md) for additional info.
 
 Finding: status and resourceType: 
 - status: is always set to "unknown"
@@ -339,10 +340,9 @@ This inference is created when the text recommends a specific medical procedure 
 
 Explanation of the different fields:
 - follow up Recommendation: sentences Next to the provided evidence for this inference , there can be an extension containing sentences.
-When the followupRecommendationOptions provideFocusedSentenceEvidence is on true (link to Model Configuration)
-, there can also be an extension with url "modality_sentences". This extension refers to the sentence containing the first word of the modality (that is, the procedure). The generation of such a sentence is switchable using the model configuration.(link to example in Model Configuration)
+When the followupRecommendationOptions provideFocusedSentenceEvidence is on true, there can also be an extension with url "modality_sentences". This extension refers to the sentence containing the first word of the modality (that is, the procedure). The generation of such a sentence is switchable using the model configuration.
 
-
+cfr [Model Configuration](model-configuration.md) for additional info.
 
 
 recommendedProcedure: ProcedureRecommendation
