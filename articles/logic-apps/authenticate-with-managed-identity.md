@@ -313,7 +313,7 @@ In your template's **resources** section, your logic app's resource definition r
 
 ### [Consumption](#tab/consumption)
 
-This example shows a Consumption logic app resource and workflow definition for an HTTP PUT request with a non-parameterized **identity** object. The response to the PUT request and subsequent GET operation also includes this **identity** object:
+This example shows a Consumption logic app resource and workflow definition for an HTTP PUT request with a nonparameterized **identity** object. The response to the PUT request and subsequent GET operation also includes this **identity** object:
 
 ```json
 {
@@ -396,7 +396,7 @@ If your template also includes the managed identity's resource definition, you c
 
 A Standard logic app resource can enable and have both the system-assigned identity and multiple user-assigned identities defined. The Standard logic app resource definition is based on the Azure Functions function app resource definition.
 
-This example shows a Standard logic app resource and workflow definition that includes a non-parameterized **identity** object:
+This example shows a Standard logic app resource and workflow definition that includes a nonparameterized **identity** object:
 
 ```json
 {
@@ -642,18 +642,20 @@ The following steps show how to use the managed identity with a trigger or actio
 
         - A **Managed Identity** list from where you can select a specific managed identity
 
-          > [!NOTE]
-          >
-          > The default selected option is the **System-assigned managed identity**, 
-          > even when you don't have any managed identities enabled.
-          > 
-          > To successfully use a managed identity, make sure to first enable that 
-          > identity on your logic app. You can have either the system-assigned 
-          > or user-assigned managed identity enabled on a Consumption logic app, not both.
-
         - The **Audience** property appears on specific triggers and actions so that you can set the [resource ID for the target resource or service](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication). Otherwise, by default, the **Audience** property uses the **`https://management.azure.com/`** resource ID, which is the resource ID for Azure Resource Manager.
 
+     1. From the **Managed Identity** list, select the identity that you want to use, for example:
+
         :::image type="content" source="media/authenticate-with-managed-identity/select-specific-managed-identity-consumption.png" alt-text="Screenshot shows Authentication section with Authentication Type list and Audience property." lightbox="media/authenticate-with-managed-identity/select-specific-managed-identity-consumption.png":::
+
+        > [!NOTE]
+        >
+        > The default selected option is the **System-assigned managed identity**, 
+        > even when you don't have any managed identities enabled.
+        > 
+        > To successfully use a managed identity, you must first enable that identity on your 
+        > logic app. On a Consumption logic app, you can have either the system-assigned or 
+        > user-assigned managed identity, but not both. 
 
      For more information, see [Example: Authenticate built-in trigger or action with a managed identity](#authenticate-built-in-managed-identity).
 
@@ -718,13 +720,30 @@ The following steps show how to use the managed identity with a trigger or actio
 
         :::image type="content" source="media/authenticate-with-managed-identity/built-in-managed-identity-standard.png" alt-text="Screenshot shows Standard workflow, example built-in action, opened Authentication Type list, and selected option for Managed Identity." lightbox="media/authenticate-with-managed-identity/built-in-managed-identity-standard.png":::
 
-        The **Authentication** section now shows the option to select a specific managed identity. The **Audience** property appears on specific triggers and actions so that you can set the [resource ID for the target resource or service](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication). Otherwise, by default, the **Audience** property uses the **`https://management.azure.com/`** resource ID, which is the resource ID for Azure Resource Manager.
+        The **Authentication** section now shows the following options:
 
+        - A **Managed Identity** list from where you can select a specific managed identity
+
+        - The **Audience** property appears on specific triggers and actions so that you can set the [resource ID for the target resource or service](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication). Otherwise, by default, the **Audience** property uses the **`https://management.azure.com/`** resource ID, which is the resource ID for Azure Resource Manager.
+        
         :::image type="content" source="media/authenticate-with-managed-identity/select-specific-managed-identity.png" alt-text="Screenshot shows Authentication section with Authentication Type list and Audience property." lightbox="media/authenticate-with-managed-identity/select-specific-managed-identity.png":::
 
-     1. From the enabled identities list, select the identity that you want to use, for example:
+     1. From the **Managed Identity** list, select the identity that you want to use, for example:
 
-        ![Screenshot shows Standard workflow, example built-in action, and selected managed identity selected to use.](./media/authenticate-with-managed-identity/built-in-select-identity-standard.png)
+        :::image type="content" source="media/authenticate-with-managed-identity/built-in-select-identity-standard.png" alt-text="Screenshot shows Standard workflow, example built-in action, and selected managed identity selected to use." lightbox="media/authenticate-with-managed-identity/built-in-select-identity-standard.png":::
+
+        > [!NOTE]
+        >
+        > The default selected option is the **System-assigned managed identity**, 
+        > even when you don't have any managed identities enabled.
+        > 
+        > To successfully use a managed identity, you must first enable that identity on your 
+        > logic app. On a Standard logic app, you can have both the system-assigned and 
+        > user-assigned managed identity defined and enabled. However, your logic app should 
+        > use only one managed identity at a time. 
+        >
+        > For example, a workflow that acceses different Azure Service Bus messaging entities 
+        > should use only one managed identity. See [Connect to Azure Service Bus](/connectors/connectors-create-api-servicebus#prerequisites).
 
      For more information, see [Example: Authenticate built-in trigger or action with a managed identity](#authenticate-built-in-managed-identity).
 
