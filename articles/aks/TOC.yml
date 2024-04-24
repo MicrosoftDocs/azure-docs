@@ -3,10 +3,9 @@
 - name: Overview
   items:
     - name: What is AKS?
-      href: intro-kubernetes.md
+      href: what-is-aks.md
     - name: What is AKS Automatic?
       href: intro-aks-automatic.md
-      href: what-is-aks.md
     - name: Quotas and regional limits
       href: quotas-skus-regions.md
     - name: Track releases and region availability
