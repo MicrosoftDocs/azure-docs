@@ -22,7 +22,7 @@
             href: set-up-api-center-azure-cli.md
     - name: Tutorials
       items:
-          - name: 1 - Customize metadata properties
+          - name: 1 - Define custom metadata
             href: add-metadata-properties.md
           - name: 2 - Add APIs to the inventory
             href: register-apis.md
