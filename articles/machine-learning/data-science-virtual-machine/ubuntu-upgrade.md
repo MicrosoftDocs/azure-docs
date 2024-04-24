@@ -161,7 +161,7 @@ For more information, see [Quickstart: Set up the Data Science Virtual Machine f
 
 4. Now, `/datadrive` contains the directories and files of your old Data Science Virtual Machine. Move or copy the directories or files you want from the data drive to the new VM as you wish.
 
-For more information, see [Use the portal to attach a data disk to a Linux VM](../../virtual-machines/linux/attach-disk-portal.md#connect-to-the-linux-vm-to-mount-the-new-disk).
+For more information, see [Use the portal to attach a data disk to a Linux VM](../../virtual-machines/linux/attach-disk-portal.yml#connect-to-the-linux-vm-to-mount-the-new-disk).
 
 ## Connect and confirm version upgrade
 

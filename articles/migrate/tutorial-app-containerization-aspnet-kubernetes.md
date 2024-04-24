@@ -80,7 +80,7 @@ If you just created a free Azure account, you're the owner of your subscription.
 
 1. Select **Add** > **Add role assignment** to open the **Add role assignment** page.
 
-1. Assign the following role. For detailed steps, see [Assigning Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+1. Assign the following role. For detailed steps, see [Assigning Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
 
     | **Setting** | **Value** |
     | --- | --- |

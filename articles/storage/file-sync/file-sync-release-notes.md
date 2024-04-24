@@ -23,9 +23,9 @@ The following Azure File Sync agent versions are supported:
 |----|----------------------|--------------|------------------|
 | V17.2 Release - [KB5023055](https://support.microsoft.com/topic/dfa4c285-a4cb-4561-b0ed-bbd4ae09d91d)| 17.2.0.0 | February 28, 2024 | Supported |
 | V17.1 Release - [KB5023054](https://support.microsoft.com/topic/azure-file-sync-agent-v17-1-release-february-2024-security-only-update-bd1ce41c-27f4-4e3d-a80f-92f74817c55b)| 17.1.0.0 | February 13, 2024 | Supported - Security Update|
-| V16.2 Release - [KB5023052](https://support.microsoft.com/topic/azure-file-sync-agent-v16-2-release-february-2024-security-only-update-8247bf99-8f51-4eb6-b378-b86b6d1d45b8)| 16.2.0.0 | February 13, 2024 | Supported - Security Update|
+| V16.2 Release - [KB5023052](https://support.microsoft.com/topic/azure-file-sync-agent-v16-2-release-february-2024-security-only-update-8247bf99-8f51-4eb6-b378-b86b6d1d45b8)| 16.2.0.0 | February 13, 2024 | Supported - Security Update - Agent version will expire on July 29, 2024|
 | V17.0 Release - [KB5023053](https://support.microsoft.com/topic/azure-file-sync-agent-v17-release-december-2023-flighting-2d8cba16-c035-4c54-b35d-1bd8fd795ba9)| 17.0.0.0 | December 6, 2023 | Supported |
-| V16.0 Release - [KB5013877](https://support.microsoft.com/topic/ffdc8fe2-c653-43c8-8b47-0865267fd520)| 16.0.0.0 | January 30, 2023 | Supported |
+| V16.0 Release - [KB5013877](https://support.microsoft.com/topic/ffdc8fe2-c653-43c8-8b47-0865267fd520)| 16.0.0.0 | January 30, 2023 | Supported - Agent version will expire on July 29, 2024 |
 
 ## Unsupported versions
 
@@ -170,6 +170,7 @@ The following release notes are for Azure File Sync version 17.0.0.0 (released D
 - New cloud tiering low disk space mode metric
 	- You can now configure an alert if a server is in low disk space mode. To learn more, see [Monitor Azure File Sync](file-sync-monitoring.md).
 - Fixed an issue that caused the agent upgrade to hang
+- Fixed a bug that caused the ESE database engine (also known as JET) to generate logs under C:\Windows\System32 directory
 - Miscellaneous reliability and telemetry improvements for cloud tiering and sync
 
 ### Evaluation Tool

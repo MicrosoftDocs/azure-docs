@@ -21,7 +21,7 @@ ms.custom: mode-other
 - Create a [custom subdomain](../../../../ai-services/cognitive-services-custom-subdomains.md) for your Azure AI services resource. 
 - [Node.js](https://nodejs.org/en/) LTS installation.
 - [Visual Studio Code](https://code.visualstudio.com/download) installed.
-- (Optional) A Microsoft Teams user with a phone license that is `voice` enabled. Teams phone license is required to add Teams users to the call. Learn more about Teams licenses [here](https://www.microsoft.com/microsoft-teams/compare-microsoft-teams-bundle-options).  Learn about enabling phone system with `voice` [here](https://learn.microsoft.com/microsoftteams/setting-up-your-phone-system).
+- (Optional) A Microsoft Teams user with a phone license that is `voice` enabled. Teams phone license is required to add Teams users to the call. Learn more about Teams licenses [here](https://www.microsoft.com/microsoft-teams/compare-microsoft-teams-bundle-options). For more information to enable `voice` on your phone system, see [setting up your phone system](/microsoftteams/setting-up-your-phone-system).
 
 ## Sample code
 
