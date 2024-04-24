@@ -55,4 +55,4 @@ The action property of an ACL statement can have one of the following types:
 
 ## Next steps:
 
-[Creating Access Control List (ACL) management for NNI and layer 3 isolation domain external networks](operator-nexus/howto-create-access-control-list-for-network-to-network-interconnects.md)
+[Creating Access Control List (ACL) management for NNI and layer 3 isolation domain external networks](howto-create-access-control-list-for-network-to-network-interconnects.md)
