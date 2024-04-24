@@ -3,7 +3,7 @@ title: Shared disks in Azure Site Recovery (preview)
 description: This article describes how to enable replication, failover, and failback Azure virtual machines for shared disks.
 ms.topic: conceptual
 ms.service: site-recovery
-ms.date: 04/04/2024
+ms.date: 04/24/2024
 ms.author: ankitadutta
 author: ankitaduttaMSFT
 ---
@@ -220,6 +220,8 @@ To disable replication of your cluster with Azure Site Recovery, follow these st
 
 ## Commonly asked questions
 
+#### Does ASR support Linux VMs with shared disks?
+No, we don't support Linux VMs with shared disks. Only VMs with WSFC-based shared disks are supported by Azure Site Recovery.
 
 #### Is PowerShell supported for Azure Site Recovery with shared disks?
 No, PowerShell support for shared disks will be available as part of General Availability.
