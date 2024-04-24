@@ -71,11 +71,6 @@ Microsoft Teams only sends traffic to domains that you confirm that you own. You
 
 You need to register the base domain for Azure Communications Gateway in your tenant and verify it. Registering and verifying the base domain proves that you control the domain.
 
-> [!TIP]
-> If the base domain name is a subdomain of a domain already registered and verified in this tenant:
-> - You must register Azure Communications Gateway's base domain name.
-> - Microsoft 365 automatically verifies the base domain name.
-
 Follow the instructions [to add a domain to your tenant](/microsoftteams/direct-routing-sbc-multiple-tenants#add-a-base-domain-to-the-tenant-and-verify-it). Use the base domain name that you found in [Find your Azure Communication Gateway's domain names for connecting to Microsoft Teams Direct Routing](#find-your-azure-communication-gateways-domain-names-for-connecting-to-microsoft-teams-direct-routing).
 
 If Microsoft 365 prompts you to verify the domain name:
@@ -96,9 +91,6 @@ Before your onboarding team can finish onboarding you to the Microsoft Teams Dir
 If you don't already have an onboarding team, contact azcog-enablement@microsoft.com, providing your Azure subscription ID and contact details.
 
 ## Finish verifying the base domain name in Microsoft 365
-
-> [!NOTE]
-> If Microsoft 365 did not prompt you to verify the domain in [Register the base domain name in your tenant](#register-the-base-domain-name-in-your-tenant), skip this step.
 
 After your onboarding team confirms that the DNS records have been set up, finish verifying the base domain name in the Microsoft 365 admin center.
 
