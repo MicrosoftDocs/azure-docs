@@ -118,7 +118,7 @@ If the resources you're provisioning are exactly the same ones as the ones you h
 
 ### Build connection logics
 
-**Using Service Connector and store configuration in App Configuration**
+### Using Service Connector and storing configuration in App Configuration
 
 While using the App Configuration to store configuration, it would naturally support IaC scenario. So, we would recommend you to use it to build IaC template if possible.
 
