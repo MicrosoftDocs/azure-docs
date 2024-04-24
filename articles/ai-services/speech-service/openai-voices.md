@@ -57,7 +57,7 @@ Here's a comparison of features between OpenAI text to speech voices in Azure Op
 | **Sample rate of synthesized audio** | 24 kHz | 8, 16, 24, and 48 kHz | 8, 16, 24, and 48 kHz |
 | **Speech output audio format** | opus, mp3, aac, flac | opus, mp3, pcm, truesilk | opus, mp3, pcm, truesilk |
 
-There are additional features and capabilities available in Azure AI Speech that aren't available in Azure OpenAI Service. For example:
+There are additional features and capabilities available in Azure AI Speech that aren't available with OpenAI voices. For example:
 - OpenAI text to speech voices in Azure AI Speech [only support a subset of SSML elements](#ssml-elements-supported-by-openai-text-to-speech-voices-in-azure-ai-speech). Azure AI Speech voices support the full set of SSML elements.
 - Azure AI Speech supports [word boundary events](./how-to-speech-synthesis.md#subscribe-to-synthesizer-events). OpenAI voices don't support word boundary events. 
 
