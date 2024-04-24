@@ -663,6 +663,35 @@ For more information on registering your model as an asset, see [Register your m
 
 # [Python SDK](#tab/python)
 
+1. Register a model
+
+    ```python
+    from azure.ai.ml.entities import Model
+    from azure.ai.ml.constants import AssetTypes
+    
+    file_model = Model(
+        path="../../model-1/model/",
+        type=AssetTypes.CUSTOM_MODEL,
+        name="my-model",
+        description="Model created from local file.",
+    )
+    ml_client.models.create_or_update(file_model)
+    ```
+
+1. Register the environment:
+
+    ```python
+    from azure.ai.ml.entities import Environment
+    
+    env_docker_conda = Environment(
+        image="mcr.microsoft.com/azureml/openmpi4.1.0-ubuntu20.04",
+        conda_file="../../model-1/environment/conda.yaml",
+        name="my-env",
+        description="Environment created from a Docker image plus Conda environment.",
+    )
+    ml_client.environments.create_or_update(env_docker_conda)
+    ```
+
 To learn how to register your model as an asset so that you can specify its registered name and version during deployment, see [Register your model as an asset in Machine Learning by using the SDK](how-to-manage-models.md#register-your-model-as-an-asset-in-machine-learning-by-using-the-sdk).
 
 For more information on creating an environment, see [Manage Azure Machine Learning environments with the CLI & SDK (v2)](how-to-manage-environments-v2.md#create-a-custom-environment).
