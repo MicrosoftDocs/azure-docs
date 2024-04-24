@@ -7,10 +7,12 @@ ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 2/7/2024
-ms.reviewer: fasantia
-ms.author: lagayhar
-author: lgayhardt
+ms.date: 04/24/2024
+ms.reviewer: alehughes
+reviewer: ahughes-msft
+ms.author: mopeakande
+author: msakande
+
 ---
 
 # Monitor quality and safety of deployed prompt flow applications 
@@ -36,6 +38,8 @@ Follow these steps to set up monitoring for your prompt flow deployment:
 1. Deploy your flow. By default, both inferencing data collection and application insights are enabled automatically. These are required for the creation of your monitor. 
 
     :::image type="content" source="../media/deploy-monitor/monitor/basic-settings.png" alt-text="Screenshot of basic settings in the deployment wizard." lightbox = "../media/deploy-monitor/monitor/basic-settings.png":::
+
+    :::image type="content" source="../media/deploy-monitor/monitor/basic-settings-with-connections-specified.png" alt-text="Screenshot of basic settings with connections specified in the deployment wizard." lightbox = "../media/deploy-monitor/monitor/basic-settings-with-connections-specified.png":::
 
 1. By default, all outputs of your deployment are collected using Azure AI's Model Data Collector. As an optional step, you can enter the advanced settings to confirm that your desired columns (for example, context of ground truth) are included in the endpoint response. 
 
