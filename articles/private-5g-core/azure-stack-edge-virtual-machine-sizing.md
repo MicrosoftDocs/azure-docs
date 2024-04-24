@@ -28,7 +28,7 @@ The following table lists the maximum supported limits for a range of parameters
 Your chosen service package may define lower limits, with overage charges for exceeding them - see [Azure Private 5G Core pricing](https://azure.microsoft.com/pricing/details/private-5g-core/) for details. If you require higher throughput for your use case, please contact us to discuss your needs.
 
 > [!NOTE]
-> Management plane operations are handled by Azure Resource Manager (ARM) and subject to rate limits. [Understand how Azure Resource Manager throttles requests](/azure/azure-resource-manager/management/request-limits-and-throttling).
+> Management plane operations are handled by Azure Resource Manager (ARM) and are subject to rate limits. [Understand how Azure Resource Manager throttles requests](/azure/azure-resource-manager/management/request-limits-and-throttling).
 
 ## Azure Stack Edge virtual machine sizing
 
