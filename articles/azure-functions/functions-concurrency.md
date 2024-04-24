@@ -90,7 +90,7 @@ To use dynamic concurrency for Blobs, you must use [version 5.x](https://www.nug
 
 The Service Bus trigger currently supports three execution models. Dynamic concurrency affects these execution models as follows:
  
-- **Single dispatch topic/queue processing**:  Each invocation of your function processes a single message. When using static config, concurrency is governed by the MaxConcurrentCalls config option. When using dynamic concurrency, that config value is ignored, and concurrency is adjusted dynamically. 
+- **Single dispatch topic/queue processing**:  Each invocation of your function processes a single message. When using static config, concurrency is governed by the `MaxConcurrentCalls` config option. When using dynamic concurrency, that config value is ignored, and concurrency is adjusted dynamically. 
 - **Session based single dispatch topic/queue processing**: Each invocation of your function processes a single message. Depending on the number of active sessions for your topic/queue, each instance leases one or more sessions. Messages in each session are processed serially, to guarantee ordering in a session. When not using dynamic concurrency, concurrency is governed by the `MaxConcurrentSessions` setting. With dynamic concurrency enabled, `MaxConcurrentSessions` is ignored and the number of sessions each instance is processing is dynamically adjusted. 
 - **Batch processing**: Each invocation of your function processes a batch of messages, governed by the `MaxMessageCount` setting. Because batch invocations are serial, concurrency for your batch-triggered function is always one and dynamic concurrency doesn't apply. 
 
