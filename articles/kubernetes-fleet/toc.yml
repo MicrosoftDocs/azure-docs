@@ -34,6 +34,8 @@
     href: update-orchestration.md
   - name: Multi-cluster Layer 4 Load Balancing
     href: l4-load-balancing.md
+  - name: Use taints and tolerations to schedule workloads
+    href: use-taints-tolerations.md
 - name: Resources
   items:
   - name: Pricing

@@ -33,6 +33,13 @@ Diagram above shows typical TLS 1.2 handshake sequence, consisting of following:
 1. As the final steps, the client sends the server its key share, enables encryption and sends a *Finished* message (which is a hash of a transcript of what happened so far). The server does the same: it mixes the key shares to get the key and sends its own Finished message.
 1. At that time application  data can be sent encrypted on the connection.
 
+## Certificate Chains
+
+A **certificate chain** is an ordered list of certificates, containing an SSL/TLS Certificate and Certificate Authority (CA) Certificates, that enables the receiver to verify that the sender and all CA's are trustworthy. The chain or path begins with the SSL/TLS certificate, and each certificate in the chain is signed by the entity identified by the next certificate in the chain.
+The chain terminates with a **root CA certificate**. The **root CA certificate** is always signed by the Certificate Authority (CA) itself. The signatures of all certificates in the chain must be verified up to the root CA certificate.
+Any certificate that sits between the SSL/TLS certificate and the root CA certificate in the chain is called an intermediate certificate. 
+
+
 ## TLS versions
 
 There are several government entities worldwide that maintain guidelines for TLS regarding network security, including Department of Health and Human Services (HHS) or the National Institute of Standards and Technology (NIST) in the United States. The level of security that TLS provides is most affected by the TLS protocol version and the supported cipher suites. A cipher suite is a set of algorithms, including a cipher, a key-exchange algorithm and a hashing algorithm, which are used together to establish a secure TLS connection. Most TLS clients and servers support multiple alternatives, so they have to negotiate when establishing a secure connection to select a common TLS version and cipher suite.
@@ -103,7 +110,7 @@ For more on SSL\TLS configuration on the client, see [PostgreSQL documentation](
 
 ### Downloading Root CA certificates and updating application clients in certificate pinning scenarios
 
-To update client applications in certificate pinning scenarios you can download certificates from following URIs:
+To update client applications in certificate pinning scenarios, you can download certificates from following URIs:
 * For connectivity to servers deployed to Azure Government cloud regions (US Gov Virginia, US Gov Texas, US Gov Arizona) download Microsoft RSA Root Certificate Authority 2017 and DigiCert Global Root G2 certificates from following URIs:
  Microsoft RSA Root Certificate Authority 2017  https://www.microsoft.com/pkiops/certs/Microsoft%20RSA%20Root%20Certificate%20Authority%202017.crt, 
  DigiCert Global Root G2  https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem.
@@ -163,7 +170,7 @@ A cipher suite is displayed as a long string of seemingly random information—b
 - Message authentication code algorithm (MAC)
 
 Different versions of SSL/TLS support different cipher suites. TLS 1.2 cipher suites can’t be negotiated with TLS 1.3 connections and vice versa.
-As of this time Azure Database for PostgreSQL flexible server supports many cipher suites with TLS 1.2 protocol version that fall into [HIGH:!aNULL](https://www.postgresql.org/docs/16/runtime-config-connection.html#GUC-SSL-CIPHERS)  category. 
+As of this time Azure Database for PostgreSQL flexible server supports many cipher suites with TLS 1.2 protocol version that fall into [HIGH:!aNULL](https://www.postgresql.org/docs/current/runtime-config-connection.html#GUC-SSL-CIPHERS) category. 
 
 ## Troubleshooting SSL\TLS connectivity errors
 
