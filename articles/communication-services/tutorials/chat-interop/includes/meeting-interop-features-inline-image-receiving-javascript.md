@@ -336,7 +336,7 @@ Upon clicking the preview image by the Azure Communication Services user, an ove
 
 [!INCLUDE [Public Preview Notice](../../../includes/public-preview-include.md)]
 
-In addition to handle messages with inline images, Chat SDK for JavaScript also provides a solution to allow the Communication User to send image attachments or inline images to the Microsoft Teams user in an interoperability chat.
+In addition to handle messages with inline images, Chat SDK for JavaScript also provides a solution to allow the Communication User to send inline images to the Microsoft Teams user in an interoperability chat.
  
 
 ### Prerequisites 
@@ -411,27 +411,32 @@ Lastly we need to modify the sendMessageButton event listener we created previou
 ```js
 sendMessageButton.addEventListener("click", async () => {
   let message = messagebox.value;
-
   let attachments = uploadedImageModels;
+
+    // inject image tags for images we have selected
+  // so they can be treated as inline images
+  // alternatively, we can use some 3rd party libraries 
+  // to have a rich text editor with inline image support
+  message += attachments.map((attachment) => `<img id="${attachment.id}" />`).join("");
+
   let sendMessageRequest = {
     content: message,
-    attachments: attachments, // NEW
+    attachments: attachments,
   };
-
 
   let sendMessageOptions = {
     senderDisplayName: "Jack",
+    type: "html"
   };
+
   let sendChatMessageResult = await chatThreadClient.sendMessage(
     sendMessageRequest,
     sendMessageOptions
   );
   let messageId = sendChatMessageResult.id;
-
-  uploadedImageModels = []; // NEW
+  uploadedImageModels = [];
 
   messagebox.value = "";
-
   document.getElementById("upload").value = "";
   console.log(`Message sent!, message id:${messageId}`);
 });
