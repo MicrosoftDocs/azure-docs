@@ -56,10 +56,5 @@ To register the resource provider using the portal:
 
 After deployment, your API center is ready to use!
 
-## Next steps
-
-Now you can start adding information to the inventory in your API center. To help you organize your APIs and other information, begin by defining custom metadata properties in your API center.
-
-> [!div class="nextstepaction"]
-> [Define metadata properties](add-metadata-properties.md)
+[!INCLUDE [quickstart-next-steps](includes/quickstart-next-steps.md)]
 

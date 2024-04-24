@@ -47,7 +47,7 @@ A deployment is a location (an address) where users can access an API. An API ca
 
 ## Metadata 
 
-In Azure API Center, organize your APIs, deployments, and other entities by setting metadata values, which can be used for search and filtering and to enforce governance standards. An API center provides several common built-in metadata types such as "API type" and "lifecycle stage". The API center owner can augment the built-in metadata by defining custom metdata in a metadata schema to organize their APIs, deployments, and environments. For example, create an *API approver* to identify the individual responsible for approving an API for use. 
+In Azure API Center, organize your APIs, deployments, and other entities by setting metadata values, which can be used for search and filtering and to enforce governance standards. An API center provides several common built-in metadata properties such as "API type" and "lifecycle stage". The API center owner can augment the built-in metadata by defining custom metadata in a metadata schema to organize their APIs, deployments, and environments. For example, create an *API approver* property to identify the individual responsible for approving an API for use. 
 
 Azure API Center supports custom metadata of type array, boolean, number, object, predefined choices, and string. 
 
