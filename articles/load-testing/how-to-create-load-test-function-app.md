@@ -103,7 +103,7 @@ You can view the list of test runs and a summary overview of the test results di
 
 1. On the left pane, select **Load testing**.
 
-1. In the **Test runs** tab, you can view the list of test runs for your Function App.
+1. In the **Test runs** tab, you can view the list of test runs for your function app.
 
     For each test run, you can view the test details and a summary of the test outcome, such as average response time, throughput, and error state.
 
