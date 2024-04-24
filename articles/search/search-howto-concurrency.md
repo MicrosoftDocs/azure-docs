@@ -183,6 +183,6 @@ private static Index AddSynonymMapsToFields(Index index)
 
 ## See also
 
-+ [ETag Struct](/dotnet/api/azure.etag?view=azure-dotnet)
++ [ETag Struct](/dotnet/api/azure.etag?view=azure-dotnet&preserve-view=true)
 + [Common HTTP request and response headers](/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search)
 + [HTTP status codes](/rest/api/searchservice/http-status-codes)
