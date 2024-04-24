@@ -1,5 +1,5 @@
 ---
-title: Design your Azure infrastructure for High Availability
+title: Design for high availability with Azure VMs and managed disks
 description: Learn the steps you can take to get the best availability with your Azure virtual machines and managed disks.
 author: roygara
 ms.author: rogarana
@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.service: azure-disk-storage
 ---
 
-# Best practices for designing Azure infrastructure with high availability
+# Best practices for deploying Azure virtual machines and managed disks with high availability
 
 Azure offers several configuration options for ensuring availability of Azure virtual machines (VMs) and Azure managed disks. Deploying or configuring existing environments with the options mentioned in this article helps ensure steady application performance. This article outlines the available options and gives recommendations on when to use them.
 
 ## At a glance
 
-|Environment  |Recommendation  |Benefits  |
+|Scenario  |Recommendation  |Benefits  |
 |---------|---------|---------|
 |Applications running on multiple VMs     |Deploy VMs across multiple availability zones using a zone redundant Virtual Machine Scale Set with flexible orchestration or by deploying VMs across three availability zones.         |Either of these configurations have the highest uptime SLA for multiple VMs deployed across availability zones.         |
 |Applications running on multiple VMs     |Deploy VMs across multiple fault domains with either regional Virtual Machine Scale Sets or availability sets.         |Either of these configurations offer the second highest uptime SLA for multiple VMs deployed across fault domains.         |
