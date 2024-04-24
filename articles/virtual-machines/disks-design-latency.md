@@ -43,7 +43,7 @@ Availability zones are separate groups of datacenters within a region that have 
 
 With zone-redundant Virtual Machine Scale Sets, VM resources replicate to one or more zones within the region they're deployed in to improve the resiliency and availability of your applications and data. This or [Deploy VMs across three availability zones](#deploy-vms-across-three-availability-zones) are the configurations you should use to maximize your environment's availability.
 
-There might be more network latency between several availability zones than within a single availability zone, which could be a concern for workloads that require ultra-low latency. If low latency is your top priority, consider [regional Virtual Machine Scale Sets](#use-regional-virtual-machine-scale-sets) or [availability sets](#use-availability-sets)..
+There might be more network latency between several availability zones than within a single availability zone, which could be a concern for workloads that require ultra-low latency. If low latency is your top priority, consider [regional Virtual Machine Scale Sets](#use-regional-virtual-machine-scale-sets) or [availability sets](#use-availability-sets).
 
 #### Deploy VMs across three availability zones
 
@@ -67,7 +67,7 @@ Regional Virtual Machine Scale Sets don't currently support Ultra Disks or Premi
 
 [Availability sets](availability-set-overview.md) are logical groupings of VMs that place VMs in different fault domains to limit the chance of correlated failures bringing related VMs down at the same time. Availability sets place VMs in different fault domains for increased reliability and have better VM to VM latencies compared to availability zones.
 
-Availability sets don't let you select fault domains, can't be used with availability zones, don't currently support Ultra Disks or Premium SSD v2 disks, and don't protect against large-scale outages like if an entire datacenter or region were to have an outage.
+Availability sets don't let you select fault domains, can't be used with availability zones, don't currently support Ultra Disks or Premium SSD v2 disks, and don't protect against large-scale outages like if an entire datacenter or region had an outage.
 
 ## Applications running on a single VM
 
