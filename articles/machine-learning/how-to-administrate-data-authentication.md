@@ -75,7 +75,7 @@ This table lists the identities to use for specific scenarios:
 
 | Configuration | SDK Local/Notebook VM | Job | Dataset Preview | Datastore Browse |
 | -- | -- | -- | -- | -- |
-| Credential + Workspace MSI | Credential | Credential | Workspace MSI | Credential (Only Account key and SAS token) | Credential |
+| Credential + Workspace MSI | Credential | Credential | Workspace MSI | Credential (Only Account key and SAS token) |
 | No Credential + Workspace MSI | Compute MSI/User Identity | Compute MSI/User identity | Workspace MSI | User identity |
 | Credential + No Workspace MSI | Credential | Credential | Credential(Not supported for Dataset Preview under private network) | Credential (Only Account key and SAS token) |
 | No Credential + No Workspace MSI | Compute MSI/User Identity | Compute MSI/User identity | User Identity | User Identity |
