@@ -63,7 +63,43 @@ Status code: 200
 }
 ```
 
-### Price Sheet properties
+### Sample request to poll report generation status
+
+```HTTP
+GET https://management.azure.com/providers/Microsoft.Billing/billingAccounts/0000000/providers/Microsoft.CostManagement/operationResults/00000000-0000-0000-0000-000000000000?api-version=2023-09-01
+```
+
+### Response body changes
+
+```json
+[
+        {
+              "id": "enrollments/57354989/billingperiods/201601/products/343/pricesheets",
+              "billingPeriodId": "201704",
+            "meterId": "dc210ecb-97e8-4522-8134-2385494233c0",
+              "meterName": "A1 VM",
+              "unitOfMeasure": "100 Hours",
+              "includedQuantity": 0,
+              "partNumber": "N7H-00015",
+              "unitPrice": 0.00,
+              "currencyCode": "USD"
+        },
+        {
+              "id": "enrollments/57354989/billingperiods/201601/products/2884/pricesheets",
+              "billingPeriodId": "201404",
+            "meterId": "dc210ecb-97e8-4522-8134-5385494233c0",
+              "meterName": "Locally Redundant Storage Premium Storage - Snapshots - AU East",
+              "unitOfMeasure": "100 GB",
+              "includedQuantity": 0,
+              "partNumber": "N9H-00402",
+              "unitPrice": 0.00,
+              "currencyCode": "USD"
+        },
+        ...
+]
+```
+
+### New response changes
 
 The price sheet properties are as follows:
 

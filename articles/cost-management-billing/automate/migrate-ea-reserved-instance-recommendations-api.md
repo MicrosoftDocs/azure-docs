@@ -44,7 +44,7 @@ https://management.azure.com/providers/Microsoft.Billing/billingAccounts/123456/
 
 #### Response body changes
 
-Recommendations for Shared and Single scopes are combined into one API.
+In the new API, recommendations for Shared and Single scopes are combined into one API.
 
 Old response for Shared scope:
 
@@ -81,34 +81,34 @@ Old response for Shared scope:
 Old response for Single scope:
 
 ```json
- {
-        "subscriptionId": "00000000-0000-0000-0000-000000000000",
-        "lookBackPeriod": "Last60Days",
-        "meterId": "00000000-0000-0000-0000-000000000000",
-        "skuName": "Standard_B1s",
-        "term": "P3Y",
-        "region": "eastus",
-        "costWithNoRI": 19.892601567999996,
-        "recommendedQuantity": 1,
-        "totalCostWithRI": 11.252968788943683,
-        "netSavings": 8.6396327790563134,
-        "firstUsageDate": "2024-02-23T00:00:00",
-        "resourceType": "virtualmachines",
-        "instanceFlexibilityRatio": 2.0,
-        "instanceFlexibilityGroup": "BS Series",
-        "normalizedSize": "Standard_B1ls",
-        "recommendedQuantityNormalized": 2.0,
-        "skuProperties": [
-          {
-            "name": "Cores",
-            "value": "1"
-          },
-          {
-            "name": "Ram",
-            "value": "1"
-          }
-        ]
-    }
+{
+      "subscriptionId": "00000000-0000-0000-0000-000000000000",
+      "lookBackPeriod": "Last60Days",
+      "meterId": "00000000-0000-0000-0000-000000000000",
+      "skuName": "Standard_B1s",
+      "term": "P3Y",
+      "region": "eastus",
+      "costWithNoRI": 19.892601567999996,
+      "recommendedQuantity": 1,
+      "totalCostWithRI": 11.252968788943683,
+      "netSavings": 8.6396327790563134,
+      "firstUsageDate": "2024-02-23T00:00:00",
+      "resourceType": "virtualmachines",
+      "instanceFlexibilityRatio": 2.0,
+      "instanceFlexibilityGroup": "BS Series",
+      "normalizedSize": "Standard_B1ls",
+      "recommendedQuantityNormalized": 2.0,
+      "skuProperties": [
+        {
+          "name": "Cores",
+          "value": "1"
+        },
+        {
+          "name": "Ram",
+          "value": "1"
+        }
+      ]
+}
 ```
 
 New response:

@@ -61,43 +61,43 @@ Old response:
         "amount": double,
         "currency": "string",
         "reservationOrderName": "string"
-    }
+    },
 ]
 ```
 
 New response:
 
 ```json
-    {
-      "id": "/billingAccounts/123456/providers/Microsoft.Consumption/reservationtransactions/201909091919",
-      "name": "201909091919",
-      "type": "Microsoft.Consumption/reservationTransactions",
-      "tags": [],
-      "properties": {
-        "eventDate": "2019-09-09T19:19:04Z",
-        "reservationOrderId": "00000000-0000-0000-0000-000000000000",
-        "description": "Standard_DS1_v2 westus 1 Year",
-        "eventType": "Refund",
-        "quantity": 1,
-        "amount": -21,
-        "currency": "USD",
-        "reservationOrderName": "Transaction-DS1_v2",
-        "purchasingEnrollment": "123456",
-        "armSkuName": "Standard_DS1_v2",
-        "term": "P1Y",
-        "region": "westus",
-        "purchasingSubscriptionGuid": "a838a8c3-a408-49e1-ac90-42cb95bff9b2",
-        "purchasingSubscriptionName": "Infrastructure Subscription",
-        "accountName": "Microsoft Infrastructure",
-        "accountOwnerEmail": "admin@microsoft.com",
-        "departmentName": "Unassigned",
-        "costCenter": "",
-        "currentEnrollment": "123456",
-        "billingFrequency": "recurring",
-        "billingMonth": 20190901,
-        "monetaryCommitment": 523123.9,
-        "overage": 23234.49
-      }
+{
+  "id": "/billingAccounts/123456/providers/Microsoft.Consumption/reservationtransactions/201909091919",
+  "name": "201909091919",
+  "type": "Microsoft.Consumption/reservationTransactions",
+  "tags": [],
+  "properties": {
+    "eventDate": "2019-09-09T19:19:04Z",
+    "reservationOrderId": "00000000-0000-0000-0000-000000000000",
+    "description": "Standard_DS1_v2 westus 1 Year",
+    "eventType": "Refund",
+    "quantity": 1,
+    "amount": -21,
+    "currency": "USD",
+    "reservationOrderName": "Transaction-DS1_v2",
+    "purchasingEnrollment": "123456",
+    "armSkuName": "Standard_DS1_v2",
+    "term": "P1Y",
+    "region": "westus",
+    "purchasingSubscriptionGuid": "a838a8c3-a408-49e1-ac90-42cb95bff9b2",
+    "purchasingSubscriptionName": "Infrastructure Subscription",
+    "accountName": "Microsoft Infrastructure",
+    "accountOwnerEmail": "admin@microsoft.com",
+    "departmentName": "Unassigned",
+    "costCenter": "",
+    "currentEnrollment": "123456",
+    "billingFrequency": "recurring",
+    "billingMonth": 20190901,
+    "monetaryCommitment": 523123.9,
+    "overage": 23234.49
+}
 ```
 
 ## Next steps
