@@ -120,7 +120,7 @@ If the resources you're provisioning are exactly the same ones as the ones you h
 
 ### Using Service Connector and storing configuration in App Configuration
 
-While using the App Configuration to store configuration, it would naturally support IaC scenario. So, we would recommend you to use it to build IaC template if possible.
+Using the App Configuration to store configuration naturally supports IaC scenarios. We therefore recommend you use this method to build your IaC template if possible.
 
 For simple portal instruction, you can refer to [another documentation](./tutorial-portal-app-configuration-store.md). When you want to add this feature into your bicep, just easily add the App Configuration id in the Service Connector payload.
 
