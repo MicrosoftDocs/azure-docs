@@ -253,7 +253,7 @@ Before you can enable the user-assigned identity on a Consumption logic app reso
 
    1. From the list that has *all* the managed identities in your subscription, select the user-assigned identity that you want. To filter the list, in the **User assigned managed identities** search box, enter the name for the identity or resource group.
 
-      :::image type="content" source="media/authenticate-with-managed-identity/select-user-assigned-identity-consumption.png" alt-text="Screenshot shows Consumption logic app and selected user-assigned identity." lightbox="media/authenticate-with-managed-identity/select-user-assigned-identity.png":::
+      :::image type="content" source="media/authenticate-with-managed-identity/select-user-assigned-identity.png" alt-text="Screenshot shows Consumption logic app and selected user-assigned identity." lightbox="media/authenticate-with-managed-identity/select-user-assigned-identity.png":::
 
    1. When you're done, select **Add**.
 
@@ -644,12 +644,12 @@ The following steps show how to use the managed identity with a trigger or actio
 
           > [!NOTE]
           >
-          > If you didn't enable the system identity on your logic app, the trigger or action fails.
-
-Although you can select **System-assigned managed identity** from the list, 
-
-
-          The default selected option is the **System-assigned managed identity**. If you added the user-assigned managed identity to your logic app, that identity also appears in the list.
+          > The default selected option is the **System-assigned managed identity**, 
+          > even when you don't have any managed identities enabled.
+          > 
+          > To successfully use a managed identity, make sure to first enable that 
+          > identity on your logic app. You can have either the system-assigned 
+          > or user-assigned managed identity enabled on a Consumption logic app, not both.
 
         - The **Audience** property appears on specific triggers and actions so that you can set the [resource ID for the target resource or service](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication). Otherwise, by default, the **Audience** property uses the **`https://management.azure.com/`** resource ID, which is the resource ID for Azure Resource Manager.
 
