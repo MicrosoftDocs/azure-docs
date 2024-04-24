@@ -44,7 +44,7 @@ Zone redundancy support is enabled in the following regions:
 
 | Americas         | Europe            | Africa            | Asia Pacific      |
 |------------------|-------------------|-------------------|-------------------|
-| East US          | West Europe       |                   | Australia East    |
+| East US          |                   |                   | Australia East    |
 | South Central US |                   |                   |                   |
 
 For a complete list of regions where Managed Grafana is available, see [Products available by region - Azure Managed Grafana](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=managed-grafana&regions=all)
