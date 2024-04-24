@@ -52,10 +52,6 @@ In general, identity-based data authentication involves these checks:
     - Please find more [Azure built-in roles for storage here](../role-based-access-control/built-in-roles/storage.md).
 
 
-## VNET specific checks for authetication
-
-
-
 ## Other general checks for authetication
 * Where does the access come from?
     - User: Is the client IP address in the VNet/subnet range?
@@ -73,33 +69,31 @@ This diagram shows the general flow of a data access call. Here, a user tries to
 
 :::image type="content" source="./media/concept-network-data-access/data-access-flow.svg" alt-text="Diagram of the logic flow when accessing data.":::
 
-## Scenarios and identities
+## Scenarios and authentication options
 
 This table lists the identities to use for specific scenarios:
 
-| Scenario | Use workspace</br>Managed Service Identity (MSI) | Identity to use |
-|--|--|--|
-| Access from UI | Yes | Workspace MSI |
-| Access from UI | No | User's Identity |
-| Access from Job | Yes/No | Compute MSI |
-| Access from Notebook | Yes/No | User's identity |
+| Configuration | SDK Local/Notebook VM | Job | Dataset Preview | Datastore Browse |
+| -- | -- | -- | -- | -- |
+| Credential + Workspace MSI | Credential | Credential | Workspace MSI | Credential (Only Account key and SAS token) | Credential |
+| No Credential + Workspace MSI | Compute MSI/User Identity | Compute MSI/User identity | Workspace MSI | User identity |
+| Credential + No Workspace MSI | Credential | Credential | Credential(Not supported for Dataset Preview under private network) | Credential (Only Account key and SAS token) |
+| No Credential + No Workspace MSI | Compute MSI/User Identity | Compute MSI/User identity | User Identity | User Identity |
 
-| Configuration | SDK Local | Job | Dataset Preview | Datastore browse | Notebook VM |
-| -- | -- | -- | -- | -- | -- |
-| Credential + Workspace MSI | Credential | Credential | Workspace MSI | Credential (Only Account key and SAS token) | Credential | Notebook VM |
-| No Credential + Workspace MSI | User Identity | Compute MSI/User identity | Workspace MSI | User identity | User identity |
-| Credential + No Workspace MSI | Credential | Credential | Credential | Credential (Only Account key and SAS token) | Credential |
-| No Credential + No Workspace MSI | User Identity | Compute MSI/User identity | User Identity | User Identity | User Identity |
+For SDK V1, data authentication in a job is always using compute MSI. And for SDK V2, data authentication in a job depends on the job setting.
 
-
-Data access is complex and it involves many pieces. For example, data access from Azure Machine Learning studio is different compared to use of the SDK for data access. When you use the SDK in your local development environment, you directly access data in the cloud. When you use studio, you don't always directly access the data store from your client. Studio relies on the workspace to access data on your behalf.
 
 > [!TIP]
 > To access data from outside Azure Machine Learning, for example with Azure Storage Explorer, that access probably relies on the *user* identity. For specific information, review the documentation for the tool or service you're using. For more information about how Azure Machine Learning works with data, see [Setup authentication between Azure Machine Learning and other services](how-to-identity-based-service-authentication.md).
 
-## Azure Storage Account
 
-When you use an Azure Storage Account from Azure Machine Learning studio, you must add the managed identity of the workspace to these Azure RBAC roles for the storage account:
+## VNET specific requirements
+
+The following will help you set up data authentication to access data behind VNET from an Azure Machine Learning workspace.
+
+### Add permissions of Azure Storage Account to AzureML workspace managed identity 
+
+When you use an Azure Storage Account from Azure Machine Learning studio, if you want to see Dataset Preview, you must enable "Use workspace managed identity for data preview and profiling in Azure Machine Learning Studio" in datastore setting, and add these Azure RBAC roles of the storage account to the workspace managed identity:
 
 * [Blob Data Reader](../role-based-access-control/built-in-roles.md#storage-blob-data-reader)
 * If the storage account uses a private endpoint to connect to the VNet, you must grant the [Reader](../role-based-access-control/built-in-roles.md#reader) role for the storage account private endpoint to the managed identity.
