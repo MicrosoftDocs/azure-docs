@@ -59,7 +59,13 @@ There are a number of configurations that you can apply to session pools, such a
 
 A session is a sandboxed environment that runs your code or application. Each session is isolated from other sessions and from the host environment with a Hyper-V sandbox. Optionally, you can enable network isolation to further enhance security.
 
-Sessions are accessed through a REST API. Each session is identified by a unique identifier. If a session with a given identifier doesn't exist, a new session is automatically allocated from the pool.
+### Session identifiers
+
+When you interact with sessions in a pool, you use a session identifier to reference each session. If there's a running session with the identifier, the session is reused. If there's no running session with the identifier, a new session is automatically created.
+
+The session identifier is a string that you define that is unique within the session pool. If you're building a web application, you can use the user's ID. If you're building a chatbot, you can use the conversation ID.
+
+The identifier must be a string that is 1 to 128 characters long and can contain only alphanumeric characters and special characters from this list: `|`, `-`, `&`, `^`, `%`, `$`, `#`, `(`, `)`, `{`, `}`, `[`, `]`, `;`, `<`, and `>`.
 
 #### Session lifecycle
 
