@@ -200,7 +200,7 @@ Create **spn-2-peer-vnet** with a scope to the virtual network created in the pr
                 --output tsv)
     ```
 
-1. The SPN created in the previous step must have a redirect URI to finish the authentication process approval and must be converted to multitenant use. Use Use [az ad app update](/cli/azure/ad/app##az-ad-app-update) to add **https://www.microsoft.com** as a redirect URI and enable multitenant on **spn-2-peer-vnet**. 
+1. The SPN created in the previous step must have a redirect URI to finish the authentication process approval and must be converted to multitenant use. Use [az ad app update](/cli/azure/ad/app##az-ad-app-update) to add **https://www.microsoft.com** as a redirect URI and enable multitenant on **spn-2-peer-vnet**. 
 
     ```azurecli
     az ad app update \
