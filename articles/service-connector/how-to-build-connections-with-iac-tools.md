@@ -122,7 +122,7 @@ If the resources you're provisioning are exactly the same ones as the ones you h
 
 Using the App Configuration to store configuration naturally supports IaC scenarios. We therefore recommend you use this method to build your IaC template if possible.
 
-For simple portal instruction, you can refer to [another documentation](./tutorial-portal-app-configuration-store.md). When you want to add this feature into your bicep, just easily add the App Configuration id in the Service Connector payload.
+For simple portal instructions, you can refer to [this App Configuration tutorial](./tutorial-portal-app-configuration-store.md). To add this feature into a bicep file, add the App Configuration ID in the Service Connector payload.
 
 ```bicep
 resource webApp 'Microsoft.Web/sites@2022-09-01' existing = {
