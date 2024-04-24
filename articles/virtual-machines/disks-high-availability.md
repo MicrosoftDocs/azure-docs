@@ -29,9 +29,11 @@ Quorum-based applications, clustered databases (SQL, MongoDB), enterprise-grade 
 
 Availability zones are separate groups of datacenters within a region that have independent power, cooling, and networking infrastructure. They're close enough to have low-latency connections to other availability zones but far enough to reduce the possibility that more than one is affected by local outages or weather. See [What are availability zones?](../reliability/availability-zones-overview.md) for details.
 
+VMs deployed across three availability zones have the highest uptime [service level agreements](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services?lang=1) (SLA).
+
 #### Use zone-redundant Virtual Machine Scale Sets
 
-[Virtual Machine Scale Sets](../virtual-machine-scale-sets/overview.md) let you create and manage a group of load balanced VMs. The number of VM instances can automatically adjust in response to demand or follow a schedule you define. A zone-redundant Virtual Machine Scale Set is a Virtual Machine Scale Set that has been deployed in three availability zones. See [Zone redundant or zone spanning](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md#zone-redundant-or-zone-spanning).
+[Virtual Machine Scale Sets](../virtual-machine-scale-sets/overview.md) let you create and manage a group of load balanced VMs. The number of VM instances can automatically adjust in response to demand or follow a schedule you define. A zone-redundant Virtual Machine Scale Set is a Virtual Machine Scale Set that has been deployed across more than one availability zones. See [Zone redundant or zone spanning](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md#zone-redundant-or-zone-spanning).
 
 With zone-redundant Virtual Machine Scale Sets, VM resources replicate to one or more zones within the region they're deployed in to improve the resiliency and availability of your applications and data. This or [Deploy VMs across three availability zones](#deploy-vms-across-three-availability-zones) are the configurations you should use to maximize your environment's availability.
 
@@ -39,7 +41,7 @@ There might be more network latency between several availability zones than with
 
 #### Deploy VMs across three availability zones
 
-VMs deployed across three availability zones have the highest uptime [service level agreements](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services?lang=1) (SLA). This deployment provides redundancy in VMs across multiple datacenters in a region, and allows you to failover to another zone if there's a datacenter or zonal outage. This or [zone-redundant Virtual Machine Scale Sets](#use-zone-redundant-virtual-machine-scale-sets) are the configurations you should use to maximize your environment's availability.
+This deployment provides redundancy in VMs across multiple datacenters in a region, and allows you to failover to another zone if there's a datacenter or zonal outage. This or [zone-redundant Virtual Machine Scale Sets](#use-zone-redundant-virtual-machine-scale-sets) are the configurations you should use to maximize your environment's availability.
 
 There might be more network latency between several availability zones than within a single availability zone, which could be a concern for workloads that require ultra-low latency. If low latency is your top priority, consider [regional Virtual Machine Scale Sets](#use-regional-virtual-machine-scale-sets) or [availability sets](#use-availability-sets).
 
