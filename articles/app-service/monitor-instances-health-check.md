@@ -160,7 +160,7 @@ After providing your application's Health check path, you can monitor the health
 ## Limitations
 
 - Health check can be enabled for **Free** and **Shared** App Service Plans so you can have metrics on the site's health and setup alerts, but because **Free** and **Shared** sites can't scale out, any unhealthy instances won't be replaced. You should scale up to the **Basic** tier or higher so you can scale out to 2 or more instances and utilize the full benefit of Health check. This is recommended for production-facing applications as it will increase your app's availability and performance.
-- The App Service plan can have a maximum of one unhealthy instance replaced per hour and, at most, three instances per day.
+- The App Service plan can have a maximum of one unhealthy instance replaced per hour and, at most, three instances per day. This instance replaced limitation reset 24 hours from the time of the first replacement instance.
 - There's a non-configurable limit on the total number of instances replaced by Health Check per scale unit. If this limit is reached, no unhealthy instances are replaced. This value gets reset every 12 hours.
 
 ## Frequently Asked Questions
