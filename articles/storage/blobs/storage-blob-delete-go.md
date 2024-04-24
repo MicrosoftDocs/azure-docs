@@ -19,26 +19,29 @@ ms.custom: devx-track-go, devguide-go
 
 This article shows how to delete blobs using the [Azure Storage client module for Go](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob#section-readme). If you've enabled [soft delete for blobs](soft-delete-blob-overview.md), you can restore deleted blobs during the retention period.
 
-## Prerequisites
+[!INCLUDE [storage-dev-guide-prereqs-go](../../../includes/storage-dev-guides/storage-dev-guide-prereqs-go.md)]
 
-- This article assumes you already have a project set up to work with the Azure Blob Storage client module for Go. To learn about setting up your project, including package installation, adding `import` statements, and creating an authorized client object, see [Get started with Azure Blob Storage and Go](storage-blob-go-get-started.md).
-- The [authorization mechanism](../common/authorize-data-access.md) must have permissions to delete a blob, or to restore a soft-deleted blob. To learn more, see the authorization guidance for the following REST API operations:
-    - [Delete Blob](/rest/api/storageservices/delete-blob#authorization)
-    - [Undelete Blob](/rest/api/storageservices/undelete-blob#authorization)
+## Set up your environment
+
+[!INCLUDE [storage-dev-guide-project-setup-go](../../../includes/storage-dev-guides/storage-dev-guide-project-setup-go.md)]
+
+### Authorization
+
+The authorization mechanism must have the necessary permissions to delete a blob, or to restore a soft-deleted blob. For authorization with Microsoft Entra ID (recommended), you need Azure RBAC built-in role **Storage Blob Data Contributor** or higher. To learn more, see the authorization guidance for [Delete Blob](/rest/api/storageservices/delete-blob#authorization) and [Undelete Blob](/rest/api/storageservices/undelete-blob#authorization).
 
 ## Delete a blob
 
 To delete a blob, call the following method:
 
-- [BlobClient.delete_blob](/python/api/azure-storage-blob/azure.storage.blob.blobclient#azure-storage-blob-blobclient-delete-blob)
+- [DeleteBlob](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob#Client.DeleteBlob)
 
 The following example deletes a blob:
 
-:::code language="go" source="~/blob-devguide-go/cmd/delete-blob/delete_-_blob.go id="snippet_delete_blob":::
+:::code language="go" source="~/blob-devguide-go/cmd/delete-blob/delete_blob.go id="snippet_delete_blob":::
 
 If the blob has any associated snapshots, you must delete all of its snapshots to delete the blob. The following example deletes a blob and its snapshots:
 
-:::code language="go" source="~/blob-devguide-go/cmd/delete-blob/delete_-_blob.go id="snippet_delete_blob_snapshots":::
+:::code language="go" source="~/blob-devguide-go/cmd/delete-blob/delete_blob.go id="snippet_delete_blob_snapshots":::
 
 To delete *only* the snapshots and not the blob itself, you can pass the parameter `delete_snapshots="only"`.
 
@@ -57,17 +60,17 @@ How you restore a soft-deleted blob depends on whether or not your storage accou
 
 To restore deleted blobs when versioning is disabled, call the following method:
 
-- [BlobClient.undelete_blob](/python/api/azure-storage-blob/azure.storage.blob.blobclient#azure-storage-blob-blobclient-undelete-blob)
+- [UndeleteBlob](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob/blob#Client.Undelete)
 
 This method restores the content and metadata of a soft-deleted blob and any associated soft-deleted snapshots. Calling this method for a blob that hasn't been deleted has no effect.
 
-:::code language="go" source="~/blob-devguide-go/cmd/delete-blob/delete_-_blob.go id="snippet_restore_blob":::
+:::code language="go" source="~/blob-devguide-go/cmd/delete-blob/delete_blob.go id="snippet_restore_blob":::
 
 #### Restore soft-deleted objects when versioning is enabled
 
 If a storage account is configured to enable blob versioning, deleting a blob causes the current version of the blob to become the previous version. To restore a soft-deleted blob when versioning is enabled, copy a previous version over the base blob. You can use the following method:
 
-- [start_copy_from_url](/python/api/azure-storage-blob/azure.storage.blob.blobclient#azure-storage-blob-blobclient-start-copy-from-url)
+- [StartCopyFromURL](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob/blob#Client.StartCopyFromURL)
 
 The following code example gets the latest version of a deleted blob, and restores the latest version by copying it to the base blob:
 
@@ -77,16 +80,16 @@ The following code example gets the latest version of a deleted blob, and restor
 
 To learn more about how to delete blobs and restore deleted blobs using the Azure Blob Storage client module for Go, see the following resources.
 
+### Code samples
+
+- View [code samples](https://github.com/Azure-Samples/blob-storage-devguide-go/cmd/delete-blobs/delete_blobs.go) from this article (GitHub)
+
 ### REST API operations
 
 The Azure SDK for Go contains libraries that build on top of the Azure REST API, allowing you to interact with REST API operations through familiar Go paradigms. The client library methods for deleting blobs and restoring deleted blobs use the following REST API operations:
 
 - [Delete Blob](/rest/api/storageservices/delete-blob) (REST API)
 - [Undelete Blob](/rest/api/storageservices/undelete-blob) (REST API)
-
-### Code samples
-
-- View [code samples](https://github.com/Azure-Samples/blob-storage-devguide-go/cmd/delete-blobs/delete_blobs.go) from this article (GitHub)
 
 [!INCLUDE [storage-dev-guide-resources-go](../../../includes/storage-dev-guides/storage-dev-guide-resources-go.md)]
 
