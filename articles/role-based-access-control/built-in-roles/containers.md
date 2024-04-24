@@ -1461,8 +1461,8 @@ Allows read-only access to see most objects in a namespace. It does not allow vi
 > | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/managedClusters/extensions/networkpolicies/read | Reads networkpolicies |
 > | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/managedClusters/extensions/replicasets/read | Reads replicasets |
 > | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/managedClusters/limitranges/read | Reads limitranges |
-> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/managedClusters/metrics.k8s.io/pods/read | Reads pods |
-> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/managedClusters/metrics.k8s.io/nodes/read | Reads nodes |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/managedClusters/metrics.k8s.io/pods/read | Reads pods metrics |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/managedClusters/metrics.k8s.io/nodes/read | Reads nodes metrics |
 > | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/managedClusters/namespaces/read | Reads namespaces |
 > | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/managedClusters/networking.k8s.io/ingresses/read | Reads ingresses |
 > | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/managedClusters/networking.k8s.io/networkpolicies/read | Reads networkpolicies |
@@ -1573,8 +1573,8 @@ Allows read/write access to most objects in a namespace. This role does not allo
 > | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/managedClusters/extensions/networkpolicies/* |  |
 > | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/managedClusters/extensions/replicasets/* |  |
 > | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/managedClusters/limitranges/read | Reads limitranges |
-> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/managedClusters/metrics.k8s.io/pods/read | Reads pods |
-> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/managedClusters/metrics.k8s.io/nodes/read | Reads nodes |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/managedClusters/metrics.k8s.io/pods/read | Reads pods metrics |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/managedClusters/metrics.k8s.io/nodes/read | Reads nodes metrics |
 > | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/managedClusters/namespaces/read | Reads namespaces |
 > | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/managedClusters/networking.k8s.io/ingresses/* |  |
 > | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/managedClusters/networking.k8s.io/networkpolicies/* |  |
