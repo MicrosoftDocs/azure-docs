@@ -73,6 +73,6 @@ In addition to its BareMetal offering, Azure Large Instances also has an offerin
 
 :::image type="content" source="media/support-diagram.png" alt-text="A diagram showing the support responsibilities for Microsoft and partners":::
 
-For more questions please reach out to azepicpm@microsoft.com or your Microsoft representative. 
+For more questions please reach out to your Microsoft representative. 
 
 
