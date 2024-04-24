@@ -182,7 +182,7 @@ In prior steps, you created a Managed Identity labeled identity-for-nginx-sns in
 
 1. Under the **Privileged administrator roles**, category pick _Contributor_ then proceed with **Next**.
 
-   :::image type="content" source="media/privileged-admin-roles-contributor-resource-group.png" alt-text="Screenshot showing the privileged administrator role with contributor selected." lightbox="media/privileged-admin-roles-contributor-resource-group.png":::
+   :::image type="content" source="media/privileged-admin-roles-contributor-resource-group.png" alt-text="Screenshot showing the privileged administrator role with contributor selected.":::
 
 1. Select **Managed identity**.
 
