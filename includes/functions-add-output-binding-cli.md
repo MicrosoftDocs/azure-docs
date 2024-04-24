@@ -69,7 +69,7 @@ To write to an Azure Storage queue from this function:
 
 * Add a `output.storageQueue` function above the `app.http` call
 
-    :::code language="json" source="~/functions-docs-javascript/functions-add-output-binding-storage-queue-cli-v4-programming-model/src/functions/httpTrigger1.js range="3-6":::
+    :::code language="json" source="~/functions-docs-javascript/functions-add-output-binding-storage-queue-cli-v4-programming-model/src/functions/httpTrigger1.js" range="3-6":::
 
 ::: zone-end  
 ::: zone pivot="programming-language-powershell"  

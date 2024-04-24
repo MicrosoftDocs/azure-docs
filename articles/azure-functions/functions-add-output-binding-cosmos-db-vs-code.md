@@ -103,13 +103,13 @@ dotnet add package Microsoft.Azure.Functions.Worker.Extensions.CosmosDB
 
 ::: zone-end  
 
-::: zone pivot="programming-language-javascript,programming-language-typescript"  
+::: zone pivot="programming-language-javascript"  
 
 Your project has been configured to use [extension bundles](functions-bindings-register.md#extension-bundles), which automatically installs a predefined set of extension packages. 
 
 Extension bundles usage is enabled in the *host.json* file at the root of the project, which appears as follows:
 
-:::code language="json" source="~/functions-quickstart-javascript/functions-add-output-binding-storage-queue-cli-v4-programming-model/host.json":::
+:::code language="json" source="~/functions-quickstart-javascript/functions-add-output-binding-cosmosdb-cli-v4-programming-model/host.json":::
 
 ::: zone-end  
 
@@ -138,7 +138,7 @@ The `MultiResponse` class allows you to both write to the specified collection i
 
 Specific attributes specify the name of the container and the name of its parent database. The connection string for your Azure Cosmos DB account is set by the `CosmosDbConnectionSetting`.  
 ::: zone-end  
-::: zone pivot="programming-language-javascript, programming-language-typescript"  
+::: zone pivot="programming-language-javascript"  
 Binding attributes are defined directly in the function file. The [Azure Cosmos DB output configuration](./functions-bindings-cosmosdb-v2-output.md#configuration) describes the fields required for an Azure Cosmos DB output binding.  
 
 For this `MultiResponse` scenario, you need to add an `extraOutputs` output binding to the function.
@@ -169,7 +169,7 @@ Replace the existing Run method with the following code:
 :::code language="csharp" source="~/functions-docs-csharp/functions-add-output-binding-cosmos-db-isolated/HttpExample.cs" range="11-34":::
 
 ::: zone-end  
-::: zone pivot="programming-language-javascript, programming-language-typescript"   
+::: zone pivot="programming-language-javascript"   
 Add code that uses the `extraInputs` output binding object on `context` to send a JSON document to the named output binding function, `sendToCosmosDb`. Add this code before the `return` statement.
 
 :::code language="javascript" source="~/functions-docs-javascript/functions-add-output-binding-cosmosdb-cli-v4-programming-model/src/functions/httpTrigger1.js" range="25-31":::
@@ -223,7 +223,7 @@ The document `{"id": "name"}` is created in the database collection specified in
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [functions-run-function-test-local-vs-code-csharp](../../includes/functions-run-function-test-local-vs-code-csharp.md)]
 ::: zone-end
-::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-python"
+::: zone pivot="programming-language-javascript,programming-language-python"
 ## Run the function locally
 
 1. As in the previous article, press <kbd>F5</kbd> to start the function app project and Core Tools. 
