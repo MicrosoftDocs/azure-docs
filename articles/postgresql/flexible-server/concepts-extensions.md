@@ -293,7 +293,7 @@ To do so, you should do following
    1. Install  tools as detailed [here](https://github.com/timescale/timescaledb-backup#installing-timescaledb-backup)
    1. Create a target Azure Database for PostgreSQL flexible server instance and database
    1. Enable Timescale extension as shown above
-   1. Grant azure_pg_admin [role](https://www.postgresql.org/docs/11/database-roles.html) to user that will be used by [ts-restore](https://github.com/timescale/timescaledb-backup#using-ts-restore)
+   1. Grant `azure_pg_admin` role to user that will be used by [ts-restore](https://github.com/timescale/timescaledb-backup#using-ts-restore)
    1. Run [ts-restore](https://github.com/timescale/timescaledb-backup#using-ts-restore) to restore database
 
 More details on these utilities can be found [here](https://github.com/timescale/timescaledb-backup).  
