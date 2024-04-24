@@ -4,7 +4,7 @@ titleSuffix: Azure OpenAI
 description: Learn about the model deprecations and retirements in Azure OpenAI.
 ms.service: azure-ai-openai
 ms.topic: conceptual
-ms.date: 03/12/2024
+ms.date: 04/24/2024
 ms.custom: 
 manager: nitinme
 author: mrbullwinkle
@@ -60,8 +60,8 @@ These models are currently available for use in Azure OpenAI Service.
 
 | Model | Version | Retirement date |
 | ---- | ---- | ---- |
-| `gpt-35-turbo` | 0301 | No earlier than June 13, 2024 |
-| `gpt-35-turbo`<br>`gpt-35-turbo-16k` | 0613 | No earlier than July 13, 2024 |
+| `gpt-35-turbo` | 0301 | No earlier than August 1, 2024 |
+| `gpt-35-turbo`<br>`gpt-35-turbo-16k` | 0613 | No earlier than August 1, 2024 |
 | `gpt-35-turbo` | 1106 | No earlier than Nov 17, 2024 |
 | `gpt-35-turbo` | 0125 | No earlier than Feb 22, 2025 |
 | `gpt-4`<br>`gpt-4-32k` | 0314 | No earlier than July 13, 2024 |
@@ -113,6 +113,10 @@ If you're an existing customer looking for information about these models, see [
 | code-search-babbage-text-001 | July 6, 2023 | July 5, 2024 | text-embedding-3-small |
 
 ## Retirement and deprecation history
+
+### April 24, 2024
+
+Earliest retirement date for `gpt-35-turbo` 0301 and 0613 has been updated to August 1, 2024.
 
 ### March 13, 2024
 
