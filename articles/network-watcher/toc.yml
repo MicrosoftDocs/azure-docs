@@ -55,9 +55,9 @@
     href: packet-capture-overview.md
   - name: Effective security rules
     href: effective-security-rules-overview.md
-  - name: Network security group flow logs
+  - name: NSG flow logs
     href: nsg-flow-logs-overview.md
-  - name: Virtual network flow logs
+  - name: VNet flow logs
     href: vnet-flow-logs-overview.md
   - name: Traffic analytics
     items:
@@ -175,7 +175,7 @@
         href: network-watcher-using-open-source-tools.md
   - name: Log network traffic
     items:
-    - name: Manage network security group flow logs
+    - name: Manage NSG flow logs
       items:
       - name: Azure portal
         href: nsg-flow-logs-portal.md
@@ -189,7 +189,7 @@
         href: nsg-flow-logs-azure-resource-manager.md
       - name: Built-in Policy
         href: nsg-flow-logs-policy-portal.md
-    - name: Manage virtual network flow logs
+    - name: Manage VNet flow logs
       items:
       - name: Azure portal
         href: vnet-flow-logs-portal.md
@@ -197,11 +197,11 @@
         href: vnet-flow-logs-powershell.md
       - name: Azure CLI
         href: vnet-flow-logs-cli.md
-    - name: Migrate network security group flow logs
+    - name: Migrate NSG flow logs
       href: nsg-flow-logs-migrate.md
     - name: Read flow logs
       href: flow-logs-read.md
-    - name: Analyze network security group flow logs
+    - name: Analyze NSG flow logs
       items:
       - name: Use Power BI
         href: network-watcher-visualize-nsg-flow-logs-power-bi.md
@@ -211,7 +211,7 @@
         href: network-watcher-nsg-grafana.md
       - name: Use Graylog
         href: network-watcher-analyze-nsg-flow-logs-graylog.md
-    - name: Delete flow log storage blobs
+    - name: Delete NSG flow log storage blobs
       href: network-watcher-delete-nsg-flow-log-blobs.md
     - name: Enable traffic analytics using Azure policy
       href: traffic-analytics-policy-portal.md
