@@ -638,6 +638,23 @@ The following steps show how to use the managed identity with a trigger or actio
 
         :::image type="content" source="media/authenticate-with-managed-identity/built-in-managed-identity-consumption.png" alt-text="Screenshot shows Consumption workflow with built-in action, opened Authentication Type list, and selected option for Managed Identity." lightbox="media/authenticate-with-managed-identity/built-in-managed-identity-consumption.png":::
 
+        The **Authentication** section now shows the following options:
+
+        - A **Managed Identity** list from where you can select a specific managed identity
+
+          > [!NOTE]
+          >
+          > If you didn't enable the system identity on your logic app, the trigger or action fails.
+
+Although you can select **System-assigned managed identity** from the list, 
+
+
+          The default selected option is the **System-assigned managed identity**. If you added the user-assigned managed identity to your logic app, that identity also appears in the list.
+
+        - The **Audience** property appears on specific triggers and actions so that you can set the [resource ID for the target resource or service](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication). Otherwise, by default, the **Audience** property uses the **`https://management.azure.com/`** resource ID, which is the resource ID for Azure Resource Manager.
+
+        :::image type="content" source="media/authenticate-with-managed-identity/select-specific-managed-identity-consumption.png" alt-text="Screenshot shows Authentication section with Authentication Type list and Audience property." lightbox="media/authenticate-with-managed-identity/select-specific-managed-identity-consumption.png":::
+
      For more information, see [Example: Authenticate built-in trigger or action with a managed identity](#authenticate-built-in-managed-identity).
 
    - **Managed connector operations that support managed identity authentication**
@@ -697,11 +714,15 @@ The following steps show how to use the managed identity with a trigger or actio
 
         :::image type="content" source="media/authenticate-with-managed-identity/authentication-parameter.png" alt-text="Screenshot shows advanced parameters section with added Authentication property and Authentication Type list." lightbox="media/authenticate-with-managed-identity/authentication-parameter.png":::
 
-     1. From the **Authentication Type** list, select **Managed identity**.
+     1. From the **Authentication Type** list, select **Managed Identity**.
 
         :::image type="content" source="media/authenticate-with-managed-identity/built-in-managed-identity-standard.png" alt-text="Screenshot shows Standard workflow, example built-in action, opened Authentication Type list, and selected option for Managed Identity." lightbox="media/authenticate-with-managed-identity/built-in-managed-identity-standard.png":::
 
-     1. From the list with enabled identities, select the identity that you want to use, for example:
+        The **Authentication** section now shows the option to select a specific managed identity. The **Audience** property appears on specific triggers and actions so that you can set the [resource ID for the target resource or service](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication). Otherwise, by default, the **Audience** property uses the **`https://management.azure.com/`** resource ID, which is the resource ID for Azure Resource Manager.
+
+        :::image type="content" source="media/authenticate-with-managed-identity/select-specific-managed-identity.png" alt-text="Screenshot shows Authentication section with Authentication Type list and Audience property." lightbox="media/authenticate-with-managed-identity/select-specific-managed-identity.png":::
+
+     1. From the enabled identities list, select the identity that you want to use, for example:
 
         ![Screenshot shows Standard workflow, example built-in action, and selected managed identity selected to use.](./media/authenticate-with-managed-identity/built-in-select-identity-standard.png)
 
