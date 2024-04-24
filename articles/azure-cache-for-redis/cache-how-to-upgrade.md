@@ -52,24 +52,26 @@ As an alternative to automatic upgrade, you can manually start an upgrade to the
 
 1. In the portal, navigate to the **Overview** of the cache using the Resource menu. Then, choose **Upgrade** to start an upgrade.
 
-<!--- Fran-need a screenshot here of the overview blade--->
+    <!--- Fran-need a screenshot here of the overview blade--->
+    :::image type="icon" source="media/cache-how-to-upgrade/cache-upgrade-overview.png" alt-text="Screenshot showing the upgrade pane, the current version and the available version. :::
 
-1. After selecting the **Upgrade** button, you see a menu where that shows Redis version available for upgrade. Select **Upgrade** in the context menu to confirm and begin the upgrade process.
-<!--- Fran-need a screenshot here of the upgrade blade--->
+1. After you select the button, you see an **Upgrade** pane that shows you the your current Redis version, and any version that you can upgrade to. As noted in the pane, upgrading is irreversible. You cannot downgrade. To confirm and begin the upgrade process, select **Upgrade** in the pane.
 
-If you're already running the latest version of Redis software available, the **Upgrade** button is disabled.
+    > [!WARNING]
+    > Once your Redis instance has been upgraded, it cannot be downgraded to the previous version.
+    >
+    <!--- Fran-need a screenshot here of the upgrade blade--->
+    :::image type="content" source="media/cache-how-to-upgrade/cache-upgrade-pane.png" alt-text="Screenshot showing overview selected in the resource menu and the Essentials of the cache.":::
 
-> [!WARNING]
-> Once your Redis instance has been upgraded, it cannot be downgraded to the previous version.
->
+    If you're already running the latest version of Redis software available, the **Upgrade** button is disabled.
 
 ### Defer Upgrades
 
-If you wish to avoid an automatic upgrade when a new version of Redis software is available and GA, you can choose to defer automatic upgrades by as many as 90 days. This option gives you time to test new versions and ensure that everything works smoothly. The cache is then upgraded either 90 days after the new Redis version reaches GA or whenever you trigger the upgrade manually.
+You can defer an automatic upgrade when a new version of Redis software is available and GA. You can defer automatic upgrades by as many as 90 days. This option gives you time to test new versions and ensure that everything works as expected. The cache is then upgraded either 90 days after the new Redis version reaches GA, or whenever you trigger the upgrade manually.
 
-To defer upgrades to your cache, navigate to the **Advanced Settings** on the Resource menu,  and select the box titled **Defer Redis DB version updates**.
-<!--- Fran-need a screenshot here--->
-
+To defer upgrades to your cache, navigate to the **Advanced Settings** on the Resource menu, and select the **Defer Redis DB version updates** box.
+    <!--- Fran-need a screenshot here--->
+:::image type="content" source="media/cache-how-to-upgrade/cache-defer-upgrade.png" alt-text="Screenshot showing Advanced settings selected in the Resource menu and a red box around Defer Redis DB version updates.":::
 > [!IMPORTANT]
 > Selecting the option to defer upgrades only applies to the next automatic upgrade event. Caches that have already been upgraded cannot be downgraded using the defer option.
 >
