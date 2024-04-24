@@ -32,7 +32,7 @@ The following sections provide you with a quick guide to the default quotas and 
 | Total number of training jobs per resource | 100 |
 | Max simultaneous running training jobs per resource | 1 |
 | Max training jobs queued | 20 |
-| Max Files per resource (fine-tuning) | 30 |
+| Max Files per resource (fine-tuning) | 50 |
 | Total size of all files per resource (fine-tuning) | 1 GB |
 | Max training job time (job will fail if exceeded) | 720 hours |
 | Max training job size (tokens in training file) x (# of epochs) | 2 Billion |
