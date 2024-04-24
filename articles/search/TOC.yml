@@ -656,6 +656,16 @@
         href: cognitive-search-skill-entity-recognition.md
       - name: Sentiment (v2)
         href: cognitive-search-skill-sentiment.md
+  - name: Vectorizers reference
+    items:
+    - name: Azure Open AI
+      href: vector-search-vectorizer-azure-open-ai.md
+    - name: AI Services Vision
+      href: vector-search-vectorizer-ai-services-vision.md
+    - name: AI Studio Model Catalog
+      href: vector-search-vectorizer-aml-ai-studio-catalog.md
+    - name: Custom Web API
+      href: vector-search-vectorizer-custom-web-api.md
 - name: Resources
   items:
   - name: Stack Overflow
