@@ -28,7 +28,7 @@ zone_pivot_groups: azure-cosmos-db-quickstart-env
 Get started with the MongoDB npm package to create databases, collections, and docs within your Azure Cosmos DB resource. Follow these steps to  install the package and try out example code for basic tasks.
 
 > [!NOTE]
-> The [example code snippets](https://github.com/alexwolfmsft/cosmos-db-mongodb-nodejs-quickstart) are available on GitHub as a JavaScript project.
+> The [example code snippets](https://github.com/Azure-Samples/cosmos-db-mongodb-nodejs-quickstart) are available on GitHub as a JavaScript project.
 
 [API for MongoDB reference documentation](https://www.mongodb.com/docs/drivers/csharp) | [MongoDB Package (NuGet)](https://www.nuget.org/packages/MongoDB.Driver)
 packages/Microsoft.Azure.Cosmos) | [Azure Developer CLI](/azure/developer/azure-developer-cli/overview)
@@ -43,13 +43,13 @@ Deploy this project's development container to your environment. Then, use the A
 
 ::: zone pivot="devcontainer-codespace"
 
-[![Open in GitHub Codespaces](https://img.shields.io/static/v1?style=for-the-badge&label=GitHub+Codespaces&message=Open&color=brightgreen&logo=github)](https://codespaces.new/alexwolfmsft/cosmos-db-mongodb-nodejs-quickstart?template=false&quickstart=1&azure-portal=true)
+[![Open in GitHub Codespaces](https://img.shields.io/static/v1?style=for-the-badge&label=GitHub+Codespaces&message=Open&color=brightgreen&logo=github)](https://codespaces.new/Azure-Samples/cosmos-db-mongodb-nodejs-quickstart?template=false&quickstart=1&azure-portal=true)
 
 ::: zone-end
 
 ::: zone pivot="devcontainer-vscode"
 
-[![Open in Dev Container](https://img.shields.io/static/v1?style=for-the-badge&label=Dev+Containers&message=Open&color=blue&logo=visualstudiocode)](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/alexwolfmsft/cosmos-db-mongodb-nodejs-quickstart)
+[![Open in Dev Container](https://img.shields.io/static/v1?style=for-the-badge&label=Dev+Containers&message=Open&color=blue&logo=visualstudiocode)](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/Azure-Samples/cosmos-db-mongodb-nodejs-quickstart)
 
 ::: zone-end
 
