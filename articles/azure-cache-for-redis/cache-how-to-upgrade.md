@@ -6,7 +6,7 @@ author: flang-msft
 ms.author: franlanglois
 ms.service: cache
 ms.topic: how-to
-ms.date: 08/17/2023
+ms.date: 04/24/2024
 ms.custom: template-how-to, devx-track-azurecli
 ---
 
@@ -45,17 +45,14 @@ Your Redis instance is automatically upgraded to a preview version of Redis soft
 
 ### Trigger an upgrade manually
 
-As an alternative to automatic upgrade, you can manually start an upgrade to the latest version of Redis software. Manual upgrades provides two other benefits instead waiting for the automatic upgrade to occur:
-
-- You control when the upgrade occurs.
-- You can upgrade to preview releases of Redis server.
+As an alternative to automatic upgrade, you can also manually upgrade to the latest Redis version. Manual upgrades provide two other benefits instead waiting for the automatic upgrade to occur: a) You control when the upgrade occurs, and b) you can upgrade to preview releases of Redis server.
 
 1. In the portal, navigate to the **Overview** of the cache using the Resource menu. Then, choose **Upgrade** to start an upgrade.
 
     <!--- Fran-need a screenshot here of the overview blade--->
-    :::image type="icon" source="media/cache-how-to-upgrade/cache-upgrade-overview.png" alt-text="Screenshot showing the upgrade pane, the current version and the available version. :::
+    :::image type="icon" source="media/cache-how-to-upgrade/cache-upgrade-overview.png" alt-text="Screenshot showing the upgrade pane, the current version, and the available version. :::
 
-1. After you select the button, you see an **Upgrade** pane that shows you the your current Redis version, and any version that you can upgrade to. As noted in the pane, upgrading is irreversible. You cannot downgrade. To confirm and begin the upgrade process, select **Upgrade** in the pane.
+1. After you select the button, you see an **Upgrade** pane that shows you the current Redis version, and any version that you can upgrade to. As noted in the pane, upgrading is irreversible. You can't downgrade. To confirm and begin the upgrade process, select **Upgrade** in the pane.
 
     > [!WARNING]
     > Once your Redis instance has been upgraded, it cannot be downgraded to the previous version.
