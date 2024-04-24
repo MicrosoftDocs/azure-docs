@@ -56,7 +56,7 @@ You have the following options to store the logs in your preferred location.
  ![Portal: resource ID for application gateway](./media/application-gateway-diagnostics/resource-specific.png)
  
 **Workspace Transformations:** Opting for the Resource specific option allows you to filter and modify your data before it’s ingested with [workspace transformations](../azure-monitor/essentials/data-collection-transformations-workspace.md). This provides granular control, allowing you to focus on the most relevant information from the logs there by reducing data costs and enhancing security.
-For detailed instructions on setting up workspace transformations, please refer:[Tutorial: Add a workspace transformation to Azure Monitor Logs by using the Azure portal](../azure-monitor/logs/tutorial-workspace-transformations-portal.md)
+For detailed instructions on setting up workspace transformations, please refer:[Tutorial: Add a workspace transformation to Azure Monitor Logs by using the Azure portal](../azure-monitor/logs/tutorial-workspace-transformations-portal.md).
 
  ### Examples of optimizing access logs using Workspace Transformations
  
@@ -69,8 +69,8 @@ For detailed instructions on setting up workspace transformations, please refer:
 
 **Recommended transition strategy to move from Azure diagnostic to resource specific table:**
 1. Assess current data retention: Determine the duration for which data is presently retained in the Azure diagnostics table (for example: assume the diagnostics table retains data for 15 days). 
-2. Establish resource-specific retention: Implement a new Diagnostic setting with resource specific table . 
-3. Parallel data collection : For a temporary period, collect data concurrently in both the Azure Diagnostics and the resource-specific settings. 
+2. Establish resource-specific retention: Implement a new Diagnostic setting with resource specific table. 
+3. Parallel data collection: For a temporary period, collect data concurrently in both the Azure Diagnostics and the resource-specific settings. 
 4. Confirm data accuracy: Verify that data collection is accurate and consistent in both settings. 
 5. Remove Azure diagnostics setting: Remove the Azure Diagnostic setting to prevent duplicate data collection. 
 
@@ -270,9 +270,9 @@ If the application gateway can't complete the request, it stores one of the foll
   |  ERRORINFO_INVALID_REQUEST	| The server can't fulfill the request because of incorrect syntax.|
   | ERRORINFO_INVALID_VERSION|	The application gateway received a request with an invalid or unsupported HTTP version.|
    | ERRORINFO_INVALID_09_METHOD|	The client sent request with HTTP Protocol version 0.9.|
-   | ERRORINFO_INVALID_HOST	|The value provided in the "Host" header is either missing, improperly formatted, or doesn't match the expected host value (when there's no Basic listener, and none of the hostnames of Multisite listeners match with the host).| 
+   | ERRORINFO_INVALID_HOST	|The value provided in the "Host" header is either missing, improperly formatted, or doesn't match the expected host value. For example, when there's no Basic listener, and none of the hostnames of Multisite listeners match with the host.| 
    | ERRORINFO_INVALID_CONTENT_LENGTH |	The length of the content specified by the client in the content-Length header doesn't match the actual length of the content in the request.|
-   | ERRORINFO_INVALID_METHOD_TRACE | The  client sent HTTP TRACE method which isn't supported by the application gateway.|
+   | ERRORINFO_INVALID_METHOD_TRACE | The  client sent HTTP TRACE method, which isn't supported by the application gateway.|
    |  ERRORINFO_CLIENT_CLOSED_REQUEST |	The client closed the connection with the application gateway before the idle timeout period elapsed. Check whether the client timeout period is greater than the [idle timeout period](./application-gateway-faq.yml#what-are-the-settings-for-keep-alive-timeout-and-tcp-idle-timeout) for the application gateway.|
    | ERRORINFO_REQUEST_URI_INVALID	|Indicates issue with the Uniform Resource Identifier (URI) provided in the client's request. |
    |  ERRORINFO_HTTP_NO_HOST_HEADER	| Client sent a request without Host header. |
