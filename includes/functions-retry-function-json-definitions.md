@@ -5,7 +5,7 @@ ms.topic: include
 ms.date: 04/23/2024
 ms.author: glenga
 ---
-|*function.json* property  | Description |
+| Property  | Description |
 |---------|-------------|
 |strategy|Required. The retry strategy to use. Valid values are `fixedDelay` or `exponentialBackoff`.|
 |maxRetryCount|Required. The maximum number of retries allowed per function execution. `-1` means to retry indefinitely.|

@@ -4,7 +4,7 @@ description: Learn how to handle errors and retry events in Azure Functions, wit
 ms.topic: conceptual
 ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
 ms.date: 04/23/2024
-zone_pivot_groups: programming-languages-set-functions-lang-workers
+zone_pivot_groups: programming-languages-set-functions
 ---
 
 # Azure Functions error handling and retries
@@ -75,7 +75,7 @@ Azure Functions lets you define retry policies for specific trigger types, which
 ::: zone pivot="programming-language-python"  
 Retry support is the same for both v1 and v2 Python programming models.
 ::: zone-end
-::: zone pivot="programming-language-csharp,programming-language-javascript"
+::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript"
 Retry policies aren't supported in version 1.x of the Functions runtime.
 ::: zone-end
 
@@ -182,7 +182,7 @@ public static async Task Run([EventHubTrigger("myHub", Connection = "EventHubCon
 ::: zone-end
 ::: zone pivot="programming-language-powershell"
 
-Here's the retry policy in the *function.json* file:
+Here's an example of a retry policy defined in the *function.json* file:
 
 ##### [Fixed delay](#tab/fixed-delay)
 
@@ -194,26 +194,125 @@ Here's the retry policy in the *function.json* file:
 
 ---
 
+You can set these properties on retry policy definitions:
+
 [!INCLUDE [functions-retry-function-json-definitions](../../includes/functions-retry-function-json-definitions.md)]
 
 ::: zone-end  
 ::: zone pivot="programming-language-javascript"  
+##### [Node.js v4](#tab/node-v4/fixed-delay)
+
+Here's an example of a Timer trigger function that uses a fixed delay retry strategy:
+
+```javascript
+const { app } = require('@azure/functions');
+
+app.timer('timerTriggerWithRetry', {
+    schedule: '0 */5 * * * *',
+    retry: {
+        strategy: 'fixedDelay',
+        delayInterval: {
+            seconds: 10,
+        },
+        maxRetryCount: 4,
+    },
+    handler: (myTimer, context) => {
+        if (context.retryContext?.retryCount < 2) {
+            throw new Error('Retry!');
+        } else {
+            context.log('Timer function processed request.');
+        }
+    },
+});
+```
+
+##### [Node.js v4](#tab/node-v4/exponential-backoff)
+
+TBD
+
+##### [Node.js v3](#tab/node-v3/fixed-delay)
+
+Here's an example of a fixed delay retry policy defined in the *function.json* file:
+
+[!INCLUDE [functions-retry-fixed-delay-json](../../includes/functions-retry-fixed-delay-json.md)]
+
+##### [Node.js v3](#tab/node-v3/exponential-backoff)
+
+Here's an example of an exponential backoff retry policy defined in the *function.json* file:
+
+[!INCLUDE [functions-retry-exponential-backoff-json](../../includes/functions-retry-exponential-backoff-json.md)]
+
+---
+
+::: zone-end  
+::: zone pivot="programming-language-typescript"  
+##### [Node.js v4](#tab/node-v4/fixed-delay)
+
+Here's an example of a Timer trigger function that uses a fixed delay retry strategy:
+
+```typescript
+import { app, InvocationContext, Timer } from '@azure/functions';
+
+export async function timerTriggerWithRetry(myTimer: Timer, context: InvocationContext): Promise<void> {
+    if (context.retryContext?.retryCount < 2) {
+        throw new Error('Retry!');
+    } else {
+        context.log('Timer function processed request.');
+    }
+}
+
+app.timer('timerTriggerWithRetry', {
+    schedule: '0 */5 * * * *',
+    retry: {
+        strategy: 'fixedDelay',
+        delayInterval: {
+            seconds: 10,
+        },
+        maxRetryCount: 4,
+    },
+    handler: timerTriggerWithRetry,
+});
+```
+
+##### [Node.js v4](#tab/node-v4/exponential-backoff)
+
+TBD
+
+##### [Node.js v3](#tab/node-v3/fixed-delay)
+
+Here's an example of a fixed delay retry policy defined in the *function.json* file:
+
+[!INCLUDE [functions-retry-fixed-delay-json](../../includes/functions-retry-fixed-delay-json.md)]
+
+##### [Node.js v3](#tab/node-v3/exponential-backoff)
+
+Here's an example of an exponential backoff retry policy defined in the *function.json* file:
+
+[!INCLUDE [functions-retry-exponential-backoff-json](../../includes/functions-retry-exponential-backoff-json.md)]
+
+---
+
+::: zone-end  
+::: zone pivot="programming-language-javascript,programming-language-typescript"
+You can set these properties on retry policy definitions:
+
+[!INCLUDE [functions-retry-function-json-definitions](../../includes/functions-retry-function-json-definitions.md)]
 
 ::: zone-end  
 ::: zone pivot="programming-language-python"  
-##### [Python v2 model](#tab/v2-model/fixed-delay)
+##### [Python v2 model](#tab/python-v2/fixed-delay)
 
 Here's an example of a Timer trigger function that uses a fixed delay retry strategy:
 
 :::code language="python" source="~/azure-functions-python-worker/tests/endtoend/retry_policy_functions/fixed_strategy/function_app.py" :::
 
-##### [Python v2 model](#tab/v2-model/exponential-backoff)
+##### [Python v2 model](#tab/python-v2/exponential-backoff)
 
 Here's an example of a Timer trigger function that uses an exponential backoff retry strategy:
 
 :::code language="python" source="~/azure-functions-python-worker/tests/endtoend/retry_policy_functions/exponential_strategy/function_app.py" :::
 
-##### [Python v1 model](#tab/v1-model/fixed-delay)
+##### [Python v1 model](#tab/python-v1/fixed-delay)
 
 The retry policy is defined in the function.json file:
 
@@ -236,9 +335,9 @@ def main(mytimer: azure.functions.TimerRequest, context: azure.functions.Context
 
 ```
 
-##### [Python v1 model](#tab/v1-model/exponential-backoff)
+##### [Python v1 model](#tab/python-v1/exponential-backoff)
 
-The retry policy is defined in the function.json file:
+Here's an example of an exponential backoff retry policy defined in the *function.json* file:
 
 [!INCLUDE [functions-retry-exponential-backoff-json](../../includes/functions-retry-exponential-backoff-json.md)]
 
@@ -246,7 +345,7 @@ The retry policy is defined in the function.json file:
 
 You can set these properties on retry policy definitions:
 
-##### [Python v2 model](#tab/v2-model)
+##### [Python v2 model](#tab/python-v2)
 
 |Property  | Description |
 |---------|-------------|
@@ -256,7 +355,7 @@ You can set these properties on retry policy definitions:
 |minimum_interval|The minimum retry delay when you're using an `exponential_backoff` strategy. Specify it as a string with the format `HH:mm:ss`.|
 |maximum_interval|The maximum retry delay when you're using `exponential_backoff` strategy. Specify it as a string with the format `HH:mm:ss`.|
 
-##### [Python v1 model](#tab/v1-model)
+##### [Python v1 model](#tab/python-v1)
 
 [!INCLUDE [functions-retry-function-json-definitions](../../includes/functions-retry-function-json-definitions.md)]
 
