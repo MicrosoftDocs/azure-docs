@@ -24,13 +24,13 @@ When you deploy an application in an Azure Spring Apps service instance with VNe
 
 - An Azure subscription. If you don't have a subscription, create a free account before you begin.
 - Azure CLI version 2.56.0 or higher.
-- An existing application in an Azure Spring Apps service instance deployed to a virtual network. For more information, see [Deploy Azure Spring Apps in a virtual network](./how-to-deploy-in-azure-virtual-network.md).
+- An existing Azure Spring Apps service instance deployed to a virtual network. For more information, see [Deploy Azure Spring Apps in a virtual network](./how-to-deploy-in-azure-virtual-network.md).
 
 ## Limitations
 
 - Before enabling this feature for your Azure Spring Apps service instance, ensure that there are at least two available IP addresses in the service runtime subnet.
-- Enabling or disabling this feature changes the DNS resolution to the backend storage between private and public. You may experience the short period of time of deployments cannot work.
-- After enabling this feature, the backend storage can be privately accessed only, so you have to deploy your application within the virtual network.
+- Enabling or disabling this feature changes the way of DNS resolution to the backend storage. You may experience the short period of time of deployments cannot work during the update.
+- After enabling this feature, the backend storage is only privately accessible, so you have to deploy your application within the virtual network.
 
 ## Enable Private Storage Access when creating a new Azure Spring Apps instance
 
@@ -38,12 +38,12 @@ Use the following command to enable private storage access when you create an Az
 
 ```azurecli
 az spring create \
-    --resource-group "$RESOURCE_GROUP" 
-    --name "$AZURE_SPRING_APPS_INSTANCE_NAME" 
-    --vnet "$VIRTUAL_NETWORK_NAME"
-    --service-runtime-subnet "$SERVICE_RUNTIME_SUBNET" 
-    --app-subnet "$APPS_SUBNET"
-    --location "$LOCATION"
+    --resource-group "$RESOURCE_GROUP" \
+    --name "$AZURE_SPRING_APPS_INSTANCE_NAME" \
+    --vnet "$VIRTUAL_NETWORK_NAME" \
+    --service-runtime-subnet "$SERVICE_RUNTIME_SUBNET" \
+    --app-subnet "$APPS_SUBNET" \
+    --location "$LOCATION" \
     --enable-private-storage-access true
 ```
 
@@ -52,7 +52,7 @@ One more resource group is created in your subscription to host the private link
    :::image type="content" source="media/how-to-private-network-access-backend-storage/ap-res-group.png" alt-text="Screenshot of the Azure portal Resource Group page showing the private link resource details." lightbox="media/how-to-private-network-access-backend-storage/ap-res-group.png":::
 
 There are two sets of private link resources being deployed in the resource group, each comprising the following Azure resources:
-- A private endpoint represents the backend blob or file storage account's private endpoint.
+- A private endpoint represents the backend storage account's private endpoint.
 - A network interface (NIC) maintains a private IP address within the service runtime subnet.
 - A private DNS zone is deployed for your virtual network, with a DNS A record also created for the storage account within this DNS zone.
 
@@ -65,16 +65,16 @@ Use the following command to update an existing Azure Spring Apps instance to en
 
 ```azurecli
 az spring update \
-    --resource-group "$RESOURCE_GROUP" 
-    --name "$AZURE_SPRING_APPS_INSTANCE_NAME" 
+    --resource-group "$RESOURCE_GROUP" \
+    --name "$AZURE_SPRING_APPS_INSTANCE_NAME" \
     --enable-private-storage-access true/false
 ```
 
 > [!IMPORTANT]
-> While enabling or disabling this feature, DNS resolution to the backend storage changes between private and public. You may experience the short period of time of deployments cannot work.
+> While enabling or disabling this feature, the way of DNS resolution to the backend storage will change. You may experience the short period of time of deployments cannot work.
 
 > [!IMPORTANT]
-> After enabling this feature, the backend storage can be privately accessed only, so you have to deploy your application within the virtual network.
+> After enabling this feature, the backend storage is only privately accessible, so you have to deploy your application within the virtual network.
 
 ## Additional Costs
 
