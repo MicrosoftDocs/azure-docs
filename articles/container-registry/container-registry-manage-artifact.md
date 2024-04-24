@@ -354,7 +354,7 @@ myregistry.azurecr.io/net-monitor:v1
     └── sha256:1a118663d1085e229ff1b2d4d89b5f6d67911f22e55...
 ```
 
-### Creating a deep graphs of artifacts
+### Creating a graphs of artifacts
 
 The OCI v1.1 Specification enables deep graphs, enabling signed software bill of materials (SBOM) and other artifact types.
 
