@@ -221,7 +221,7 @@ To disable replication of your cluster with Azure Site Recovery, follow these st
 ## Commonly asked questions
 
 #### Does Azure Site Recovery support Linux VMs with shared disks?
-No, we don't support Linux VMs with shared disks. Only VMs with WSFC-based shared disks are supported by Azure Site Recovery.
+No, Azure Site Recovery does not support Linux VMs with shared disks. Only VMs with WSFC-based shared disks are supported.
 
 #### Is PowerShell supported for Azure Site Recovery with shared disks?
 No, PowerShell support for shared disks will be available as part of General Availability.
