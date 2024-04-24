@@ -104,7 +104,7 @@ Here are the steps to migrate to a new gateway, using the Azure portal or PowerS
 
 1. Select **Prepare** to create the new gateway. This operation could take up to 15 minutes.
 
-1. After the new gateway is created, you'll proceed to the *Migrate* stage. Here, select the new ExpressRoute gateway you created. In this example it is **myERGateway_migrated**. This transfers the settings from your old gateway to the new one. All network traffic, and control plane and data path connections from your old gateway, will be transferred without any interruptions. To start this process, select **Migrate Traffic**. Note that this operation could take up to 5 minutes.
+1. After the new gateway is created, you'll proceed to the *Migrate* stage. Here, select the new ExpressRoute gateway you created. In this example it's **myERGateway_migrated**. This transfers the settings from your old gateway to the new one. All network traffic, and control plane and data path connections from your old gateway, will transfer without any interruptions. To start this process, select **Migrate Traffic**. This operation could take up to 5 minutes.
 
     :::image type="content" source="media/gateway-migration/migrate-traffic-step.png" alt-text="Screenshot of migrating traffic."lightbox="media/gateway-migration/migrate-traffic-step.png":::
 
