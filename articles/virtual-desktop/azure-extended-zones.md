@@ -18,6 +18,8 @@ By deploying Azure Virtual Desktop in an Azure Extended Zone, you can:
 
 - Ease low latency and/or data regulation needs for users.
 
+- Meet data locality requirements. If data residency needs the data to be in a specific location, Azure Extended Zones can guarantee that location. 
+
 ## Prerequisites
 
 Before you can use Azure Virtual Desktop with Azure Extended Zones, you need:
@@ -33,11 +35,12 @@ To deploy Azure Virtual Desktop in Azure Extended Zone locations, you will need 
 For more information, see ....
 
 
-## Licensing and pricing
-
-
-
 ## Limitations
+
+Azure Virtual Desktop with Azure Extended Zones has the following limitations:
+
+- With Azure Extended Zones, there is no default outbound internet access, as the default outbound route is being retired in September 2025. For more information, see [Default outbound access for VMs in Azure will be retired— transition to a new method of internet access.](https://azure.microsoft.com/en-us/updates/default-outbound-access-for-vms-in-azure-will-be-retired-transition-to-a-new-method-of-internet-access/)
+
 
 
 
