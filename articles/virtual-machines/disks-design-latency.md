@@ -1,6 +1,6 @@
 ---
 title: Design your Azure infrastructure for High Availability
-description: Learn the steps you can take to get the best availability with your Azure virtual machines and managed disks
+description: Learn the steps you can take to get the best availability with your Azure virtual machines and managed disks.
 author: roygara
 ms.author: rogarana
 ms.date: 04/24/2024
@@ -31,7 +31,7 @@ Applications running on a single VM
 
 ## Applications running on multiple VMs
 
-Quorum-based applications, clustered databases (SQL, MongoDB), enterprise-grade web applications, and gaming applications are all examples of applications running on multiple VMs. These applications can benefit from storage availability and redundancy, as well as replication across multiple VMs in various availability zones or fault domains.
+Quorum-based applications, clustered databases (SQL, MongoDB), enterprise-grade web applications, and gaming applications are all examples of applications running on multiple VMs. These applications can benefit from storage availability, redundancy, and replication across multiple VMs in various availability zones or fault domains.
 
 The following options are mutually exclusive, and are ordered by options with the highest availability.
 
