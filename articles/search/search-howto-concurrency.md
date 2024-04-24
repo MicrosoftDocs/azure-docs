@@ -35,7 +35,7 @@ Every time you update a resource, its ETag changes automatically. When you imple
 
 ## Use cases and sample code
 
-The following code demonstrates accessCondition checks for key update operations. It fails the update because the object's ETag is changed.
+The following code demonstrates optimistic concurrency for an update operation. It fails the second update because the object's ETag is changed by a previous update. More specifically, when the ETag in the request header no longer matches the ETag of the object, the search service return a status 400 bad request message, and the update fails.
 
 ```csharp
 using Azure;
