@@ -45,7 +45,7 @@ Continuous backup mode supports two ways to restore deleted containers and datab
 
 ## Multi region write account restores (preview)
 All the writes that are performed on the [hub region](multi-region-writes.md#hub-region) are immediately confirmed and backed up asynchronously within 100 seconds. The mutations that are performed on the satellite region(non conflict resolution region) are sent to hub region for confirmation. The hub region  checks to see if any [conflict resolution](conflict-resolution-policies.md) is needed, and assigns a [conflict resolved timestamp](multi-region-writes.md#understanding-timestamps) after resolving the conflicts and sends back to satellite region. The satellite region only backs up the entities after the confirmation is received from the hub region.  
-To summarize,the restore process only restores the entities that are confirmed with conflict resolution timestamp from the hub region.  
+To summarize, the restore process only restores the entities that are confirmed with conflict resolution timestamp from the hub region.  
 
 > [!NOTE]
 > More information about multi write region accounts can be found [here](multi-region-writes.md#hub-region), hub region is the first region in the portal. 
@@ -57,14 +57,14 @@ The collections with custom conflict resolution policy are reset to last writer 
 Example: 
 Given a multi-write region account with two regions East us and West us, out of which East US is the hub region, consider the following sequence of events: 
 
-In this scenario, if the restore timestamp is T3, only entity1 is restored. Entity2 has'nt been confirmed by hub region by T3. Only if the restore timestamp > T4, the entity2 will be restored. 
+In this scenario, if the restore timestamp is T3, only entity1 is restored. Entity2 hasn't been confirmed by hub region by T3. Only if the restore timestamp > T4, the entity2 will be restored. 
 T1: Client writes a document Doc1 to East US. (Since East US is the hub region, the write is immediately confirmed)  
 T2: Client writes a document Doc2 to West US.
 T3: West US sends Doc2 to East US for confirmation.
 T4: East US receives Doc2, it confirms the document, and sends of Doc2 back to West US.
 T5: West US receives confirmed Doc2.
 
-In this scenario, if the restore timestamp provided is T3, only Doc1 will get restored. Doc2 has'nt been confirmed by hub by T3. Only if the restore timestamp > T4, the doc2 will get restored.  
+In this scenario, if the restore timestamp provided is T3, only Doc1 will get restored. Doc2 hasn't been confirmed by hub by T3. Only if the restore timestamp > T4, the doc2 will get restored.  
 > [!NOTE]
 > Restore in hub region is supported in public preview. 
 
