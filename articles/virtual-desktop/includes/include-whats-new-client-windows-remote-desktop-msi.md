@@ -36,7 +36,7 @@ In this release, we've made the following changes:
 
 - Fixed an issue that caused the RemoteApp window to appear stretched.
 - When users enter text into the email or URL field to search for a workspace while subscribing to a feed, screen readers now announce whether the client can find the workspace.
-- - Fixed an issue that made the MFA prompt appear twice when users tried to connect to a resource 
+- Fixed an issue that made the MFA prompt appear twice when users tried to connect to a resource 
 - Fixed an issue that caused an extra string to appear next to a user's tenant URL.
 - Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues.
 

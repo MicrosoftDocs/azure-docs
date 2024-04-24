@@ -45,7 +45,7 @@ You can define rules for one or more routes in your static web app. Route rules 
 - Rules are evaluated in the order as they appear in the `routes` array.
 - Rule evaluation stops at the first match. A match occurs when the `route` property and a value in the `methods` array (if specified) match the request. Each request can match at most one rule.
 
-The routing concerns significantly overlap with authentication (identifying the user) and authorization (assigning abilities to the user) concepts. Make sure to read the [authentication and authorization](authentication-authorization.md) guide along with this article.
+The routing concerns significantly overlap with authentication (identifying the user) and authorization (assigning abilities to the user) concepts. Make sure to read the [authentication and authorization](authentication-authorization.yml) guide along with this article.
 
 ### Define routes
 
@@ -62,7 +62,7 @@ Each rule is composed of a route pattern, along with one or more of the optional
 | `redirect` | No | n/a | Defines the file or path redirect destination for a request.<ul><li>Is mutually exclusive to a `rewrite` rule.<li>Redirect rules change the browser's location.<li>Default response code is a [`302`](https://developer.mozilla.org/docs/Web/HTTP/Status/302) (temporary redirect), but you can override with a [`301`](https://developer.mozilla.org/docs/Web/HTTP/Status/301) (permanent redirect).</ul> |
 | `statusCode` | No | `301` or `302` for redirects | The [HTTP status code](https://developer.mozilla.org/docs/Web/HTTP/Status) of the response. |
 | `headers`<a id="route-headers"></a> | No | n/a | Set of [HTTP headers](https://developer.mozilla.org/docs/Web/HTTP/Headers) added to the response. <ul><li>Route-specific headers override [`globalHeaders`](#global-headers) when the route-specific header is the same as the global header is in the response.<li>To remove a header, set the value to an empty string.</ul> |
-| `allowedRoles` | No | anonymous | Defines an array of role names required to access a route. <ul><li>Valid characters include `a-z`, `A-Z`, `0-9`, and `_`.<li>The built-in role, [`anonymous`](./authentication-authorization.md), applies to all users.<li>The built-in role, [`authenticated`](./authentication-authorization.md), applies to any logged-in user.<li>Users must belong to at least one role.<li>Roles are matched on an _OR_ basis.<ul><li>If a user is in any of the listed roles, then access is granted.</ul><li>Individual users are associated to roles through [invitations](authentication-authorization.md).</ul> |
+| `allowedRoles` | No | anonymous | Defines an array of role names required to access a route. <ul><li>Valid characters include `a-z`, `A-Z`, `0-9`, and `_`.<li>The built-in role, [`anonymous`](./authentication-authorization.yml), applies to all users.<li>The built-in role, [`authenticated`](./authentication-authorization.yml), applies to any logged-in user.<li>Users must belong to at least one role.<li>Roles are matched on an _OR_ basis.<ul><li>If a user is in any of the listed roles, then access is granted.</ul><li>Individual users are associated to roles through [invitations](authentication-authorization.yml).</ul> |
 
 Each property has a specific purpose in the request/response pipeline.
 
@@ -145,7 +145,7 @@ Routes are secured by adding one or more role names into a rule's `allowedRoles`
 > [!IMPORTANT]
 > Routing rules can only secure HTTP requests to routes that are served from Static Web Apps. Many front-end frameworks use client-side routing that modifies routes in the browser without issuing requests to Static Web Apps. Routing rules don't secure client-side routes. Clients should call [HTTP APIs](apis-overview.md) to retrieve sensitive data. Ensure APIs validate a [user's identity](user-information.md) before returning data.
 
-By default, every user belongs to the built-in `anonymous` role, and all logged-in users are members of the `authenticated` role. Optionally, users are associated to custom roles via [invitations](./authentication-authorization.md).
+By default, every user belongs to the built-in `anonymous` role, and all logged-in users are members of the `authenticated` role. Optionally, users are associated to custom roles via [invitations](./authentication-authorization.yml).
 
 For instance, to restrict a route to only authenticated users, add the built-in `authenticated` role to the `allowedRoles` array.
 
@@ -166,7 +166,7 @@ You can create new roles as needed in the `allowedRoles` array. To restrict a ro
 ```
 
 - You have full control over role names; there's no list to which your roles must adhere.
-- Individual users are associated to roles through [invitations](authentication-authorization.md).
+- Individual users are associated to roles through [invitations](authentication-authorization.yml).
 
 > [!IMPORTANT]
 > When securing content, specify exact files when possible. If you have many files to secure, use wildcards after a shared prefix. For example: `/profile*` secures all possible routes that start with _/profile_, including _/profile_.
@@ -195,7 +195,7 @@ The following example configuration blocks anonymous access and redirects all un
 ```
 
 > [!NOTE]
-> By default, all pre-configured identity providers are enabled. To block an authentication provider, see [Authentication and authorization](authentication-authorization.md#block-an-authentication-provider).
+> By default, all pre-configured identity providers are enabled. To block an authentication provider, see [Authentication and authorization](authentication-authorization.yml#block-an-authentication-provider).
 
 ## Fallback routes
 
@@ -354,7 +354,7 @@ In addition to IP address blocks, you can also specify [service tags](../virtual
 
 ## Authentication
 
-* [Default authentication providers](authentication-authorization.md#set-up-sign-in) don't require settings in the configuration file.
+* [Default authentication providers](authentication-authorization.yml#set-up-sign-in) don't require settings in the configuration file.
 
 * [Custom authentication providers](authentication-custom.md) use the `auth` section of the settings file.
 
@@ -614,9 +614,9 @@ See the [Quotas article](quotas.md) for general restrictions and limitations.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Set up authentication and authorization](authentication-authorization.md)
+> [Set up authentication and authorization](authentication-authorization.yml)
 
 ## Related articles
 
-- [Set application-level settings and environment variables used by backend APIs](application-settings.md)
+- [Set application-level settings and environment variables used by backend APIs](application-settings.yml)
 - [Define settings that control the build process](./build-configuration.md)

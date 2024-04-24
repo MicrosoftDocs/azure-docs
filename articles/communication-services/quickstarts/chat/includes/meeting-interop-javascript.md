@@ -64,7 +64,7 @@ Create an **index.html** file in the root directory of your project. We use this
 ## Add the Teams UI controls
 
 Replace the code in index.html with the following snippet.
-The text boxes at the top of the page will be used to enter the Teams meeting context and meeting thread ID. The 'Join Teams Meeting' button is used to join the specified meeting.
+The text box at the top of the page will be used to enter the Teams meeting context. The 'Join Teams Meeting' button is used to join the specified meeting.
 A chat pop-up appears at the bottom of the page. It can be used to send messages on the meeting thread, and it displays in real time any messages sent on the thread while the Communication Services user is a member.
 
 ```html
@@ -349,7 +349,7 @@ Open your browser and navigate to `http://localhost:8080/`. You should see app l
 
 :::image type="content" source="../join-teams-meeting-chat-quickstart.png" alt-text="Screenshot of the completed JavaScript Application.":::
 
-Insert the Teams meeting link and thread ID into the text boxes. Press *Join Teams Meeting* to join the Teams meeting. After the Communication Services user has been admitted into the meeting, you can chat from within your Communication Services application. Navigate to the box at the bottom of the page to start chatting. For simplicity, the application only shows the last two messages in the chat.
+Insert the Teams meeting link into the text box. Press *Join Teams Meeting* to join the Teams meeting. After the Communication Services user has been admitted into the meeting, you can chat from within your Communication Services application. Navigate to the box at the bottom of the page to start chatting. For simplicity, the application only shows the last two messages in the chat.
 
 > [!NOTE] 
 > Certain features are currently not supported for interoperability scenarios with Teams. Learn more about the supported features, please see [Teams meeting capabilities for Teams external users](../../../concepts/interop/guest/capabilities.md)

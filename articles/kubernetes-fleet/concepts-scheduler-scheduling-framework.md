@@ -41,6 +41,7 @@ The fleet scheduler integrates the following fundamental built-in plugins:
 * **Cluster affinity plugin**: Facilitates the affinity clause in the placement policy.
 * **Same placement affinity plugin**: Designed specifically for fleet and prevents multiple replicas from being placed within the same cluster.
 * **Cluster eligibility plugin**: Enables cluster selection based on specific status criteria.
+* **Taint & toleration plugin**: Enables cluster selection based on [taints on the cluster](./concepts-fleet.md#taints) and [tolerations on the `ClusterResourcePlacement`](./concepts-resource-propagation.md#tolerations).
 
 For more information, see the [upstream Fleet Scheduling Framework documentation](https://github.com/Azure/fleet/blob/main/docs/concepts/Scheduling-Framework/README.md).
 

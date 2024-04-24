@@ -13,19 +13,11 @@ ms.author: mattmcinnes
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
-The 'M' family of VM size series are one of Azure's ultra memory-optimized VM instances. They're designed for extremely memory-intensive workloads, such as large in-memory databases, data warehousing, and high-performance computing (HPC). Equipped with substantial RAM capacities and high vCPU capabilities, M-family VMs support applications and services that require massive amounts of memory and significant computational power. This makes them particularly well-suited for handling tasks like real-time data processing with SAP HANA, complex scientific simulations, and large-scale enterprise resource planning (ERP) systems, ensuring peak performance for the most demanding data-centric applications.
+[!INCLUDE [m-family-summary](./includes/m-family-summary.md)]
 
 ## Workloads and use cases
 
-**In-Memory Databases:** The M-family is particularly effective for running in-memory databases like SAP HANA that require large amounts of RAM for real-time data processing and analytics.
-
-**Big Data Applications:** The M-family is ideal for handling big data applications that need to process and analyze huge datasets in memory, improving performance and reducing the time to insights.
-
-**Data Warehousing:** M-family VMs provide the performance and memory needed for data warehousing applications, facilitating faster queries and better handling of large volumes of data.
-
-**Enterprise Applications:** The M-family supports large-scale enterprise applications, including ERP and CRM systems, which benefit from having more memory to manage larger datasets and more complex transactions efficiently.
-
-**Heavy Workloads in Virtualized Environments:** The M-family is well-equipped to handle heavy virtualized environments, offering substantial memory for hosting multiple virtual machines and applications on a single physical server.
+[!INCLUDE [m-family-workloads](./includes/m-family-workloads.md)]
 
 ## Series in family
 

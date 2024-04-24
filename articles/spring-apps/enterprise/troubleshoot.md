@@ -4,7 +4,7 @@ description: Troubleshooting guide for Azure Spring Apps
 author: KarlErickson
 ms.service: spring-apps
 ms.topic: troubleshooting
-ms.date: 09/08/2020
+ms.date: 04/23/2024
 ms.author: karler
 ms.custom: devx-track-java, devx-track-extended-java
 ---

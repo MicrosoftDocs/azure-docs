@@ -1,5 +1,5 @@
 ---
-title: Upgrading from basic Load Balancer - Guidance
+title: Upgrading from Basic Load Balancer - Guidance
 description: Upgrade guidance for migrating basic Load Balancer to standard Load Balancer.
 author: mbender-ms
 ms.service: load-balancer
