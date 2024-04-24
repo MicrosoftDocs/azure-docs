@@ -44,10 +44,10 @@ Microsoft categorizes issues raised against the Dapr extension into two parts:
 
 The following table breaks down support priority levels for each of these categories.
 
-|   | Functional issues | Security risks/Regressions |
-| - | ----------------- | -------------------------- | 
-| **Extension operations**<br>_How Dapr is installed into an AKS cluster_ | Microsoft investigates and addresses as needed. | Microsoft prioritizes for immediate resolution.  
-| **Payload of the Dapr extension**<br>_Dapr runtime, APIs, and components_ | Microsoft investigates new functional issues. Known functional issues won't be investigated by Microsoft at this time. | Microsoft works with the open source community to investigate high priority payload issues. Issues may be resolved in a hotfix or future Dapr release, depending on priority, severity, and size of the issue. Once fixes are released in Dapr open source, they are then made available in the Dapr extension. |
+|   | Description | Functional issues | Security risks/Regressions |
+| - | ----------- | ----------------- | -------------------------- | 
+| **Extension operations** | Issues encountered while attempting to install Dapr into a cluster. | Microsoft investigates and addresses as needed. | Microsoft prioritizes for immediate resolution.  
+| **Payload of the Dapr extension** | Issues encountered when using the Dapr runtime, APIs, and components via the extension. | Microsoft investigates new functional issues. Known functional issues won't be investigated by Microsoft at this time. | Microsoft works with the open source community to investigate high priority payload issues. Issues may be resolved in a hotfix or future Dapr release, depending on priority, severity, and size of the issue. Once fixes are released in Dapr open source, they are then made available in the Dapr extension. |
 
 ### Dapr versions
 
