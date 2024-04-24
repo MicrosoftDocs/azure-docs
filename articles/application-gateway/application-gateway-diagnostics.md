@@ -6,7 +6,7 @@ services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
 ms.topic: article
-ms.date: 02/28/2024
+ms.date: 04/24/2024
 ms.author: greglin 
 ---
 
@@ -32,10 +32,49 @@ You can use different types of logs in Azure to manage and troubleshoot applicat
 
 You have the following options to store the logs in your preferred location.
 
-1. **Log Analytic workspace**: Recommended as it allows you to readily use the predefined queries, visualizations and set alerts based on specific log conditions.
-1. **Azure Storage account**: Storage accounts are best used for logs when logs are stored for a longer duration and reviewed when needed.
-1. **Azure Event Hubs**: Event hubs are a great option for integrating with other security information and event management (SIEM) tools to get alerts on your resources.
-1. **Azure Monitor partner integrations**
+1. **Log Analytic workspace**: Recommended as it allows you to readily use the predefined queries, visualizations and set alerts based on specific log conditions.The tables used by resource logs in log analytics workspace depends on what type of collection the resource is using:
+   
+  **Azure diagnostics**: Data is written to the [Azure Diagnostics table](../azure-monitor/reference/tables/azurediagnostics). Azure Diagnostics table is shared between multiple resource type, with 
+   each of them adding their own custom fields. When number of custom fields ingested to Azure Diagnostics table exceeds 
+   500, new fields aren't added as top level but added to "AdditionalFields" field as dynamic key value pairs. 
+
+  **Resource-specific(recommended)**: Data is written to dedicated tables for each category of the resource.In resource- 
+  specific mode, each log category selected in the diagnostic setting is assigned its own table within the chosen 
+  workspace. This has several benefits, including easier data manipulation in log queries,improved discoverability of schemas and their structures,enhanced performance in terms of ingestion latency and query times,ability to assign [Azure role-based access control rights to specific tables](../azure-monitor/logs/manage-access.md?tabs=portal#set-table-level-read-access).
+   * For Application Gateway resource specific mode creates three tables: 
+     * [AGWAccessLogs](../azure-monitor/reference/tables/agwaccesslogs)
+     * [AGWPerformanceLogs](../azure-monitor/reference/tables/agwperformancelogs)
+     * [AGWFirewallLogs](../azure-monitor/reference/tables/agwfirewalllogs)
+
+> [!NOTE]
+>  The resource specific option is currently available in all **public regions**. Existing users can continue using Azure Diagnostics or can opt for dedicated tables by switching the toggle in Diagnostic settings to "Resource specific", or to "Dedicated"  in API destination. There is no dual mode possible. The data in all the logs can either flow to Azure Diagnostics, or to dedicated tables. But customer can have Multiple diagnostic settings where, one can have data flow to azure diagnostic and other with resource specific at same time. 
+
+ **Selecting the destination table in Log analytics :** All Azure services will eventually use the resource-specific tables. As part of this transition, currently you can select Azure diagnostic or resource specific table in the diagnostic setting using a toggle button.The toggle will be set to "Resource specific" by default and in this mode, logs for new selected categories are sent to dedicated tables in Log Analytics, while existing streams remain unchanged.  
+ ![Portal: resource ID for application gateway](./media/application-gateway-diagnostics/resource-specific.png)
+ 
+**Workspace Transformations:** Opting for the Resource specific option allows you to filter and modify your data before it’s ingested with [workspace transformations](../azure-monitor/essentials/data-collection-transformations-workspace.md). This provides granular control, allowing you to focus on the most relevant information from the logs there by reducing data costs and enhancing security.
+For detailed instructions on setting up workspace transformations, please refer:[Tutorial: Add a workspace transformation to Azure Monitor Logs by using the Azure portal](../azure-monitor/logs/tutorial-workspace-transformations-portal.md)
+
+ **Examples of optimizing access logs using Workspace Transformations:**
+ 
+ **Example 1: Selective Projection of Columns**: Imagine you have application gateway access logs with 20 columns, but you’re interested in analyzing data from only 6 specific columns. By using workspace transformation, you can project these 6 columns into your workspace, effectively excluding the other 14 columns. Even though the original data from those excluded columns won’t be stored, empty placeholders for them will still appear in the Logs blade. This approach optimizes storage and ensures that only relevant data is retained for analysis.
+
+> [!NOTE]
+> Within the Logs blade, selecting the "Try New Log Analytics" option gives greater control over the columns displayed in your user interface (UI). 
+
+**Example 2: Focusing on Specific Status Codes**: When analyzing access logs, instead of processing all log entries, you can write a query to retrieve only rows with specific HTTP status codes (such as 4xx and 5xx). Since most requests will ideally fall under the 2xx and 3xx categories (representing successful responses), focusing on the problematic status codes narrows down the data set. This targeted approach allows you to extract the most relevant and actionable information, making it both beneficial and cost-effective.
+
+> [!NOTE]
+> **Recommended transition strategy to move from Azure Diagnostic to resource specific table**
+> * Assess Current Data Retention: Determine the duration for which data is presently retained in the Azure diagnostics table (for eg., assume the diagnostics table retains data for 15 days). 
+> * Establish Resource-Specific Retention: Implement a new Diagnostic setting with resource specific table . 
+>* Parallel Data Collection : For a temporary period, collect data concurrently in both the Azure Diagnostics and the resource-specific settings. 
+> * Confirm Data Accuracy: Verify that data collection is accurate and consistent in both settings. 
+>* Remove Azure Diagnostics setting: Remove the Azure Diagnostic setting to prevent duplicative data collection. 
+
+ 2. **Azure Storage account**: Storage accounts are best used for logs when logs are stored for a longer duration and reviewed when needed.
+3. **Azure Event Hubs**: Event hubs are a great option for integrating with other security information and event management (SIEM) tools to get alerts on your resources.
+4. **Azure Monitor partner integrations**
 
 [Learn more](../azure-monitor/essentials/diagnostic-settings.md?WT.mc_id=Portal-Microsoft_Azure_Monitoring&tabs=portal#destinations) about the Azure Monitor's Diagnostic settings destinations.
 
