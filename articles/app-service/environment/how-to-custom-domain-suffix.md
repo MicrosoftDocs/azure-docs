@@ -4,7 +4,7 @@ description: Configure a custom domain suffix for the Azure App Service Environm
 author: seligj95
 ms.topic: tutorial
 ms.custom: devx-track-arm-template
-ms.date: 04/11/2023
+ms.date: 04/23/2024
 ms.author: jordanselig
 zone_pivot_groups: app-service-environment-portal-arm
 ---
@@ -180,6 +180,10 @@ To configure DNS in Azure DNS private zones:
 1. Optionally create an A record in that zone that points *.scm to the inbound IP address used by your App Service Environment.
 
 For more information on configuring DNS for your domain, see [Use an App Service Environment](./using.md#dns-configuration).
+
+> [!NOTE]
+> In addition to configuring DNS for your custom domain suffix, you should also consider [configuring DNS for the default domain suffix](./using.md#dns-configuration) to ensure all App Service features function as expected.
+> 
 
 ## Access your apps
 

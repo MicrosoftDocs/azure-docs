@@ -23,7 +23,7 @@ Traffic analytics is a cloud-based solution that provides visibility into user a
 
 ## Data aggregation
 
-# [**NSG flow logs**](#tab/nsg)
+# [**Network security group flow logs**](#tab/nsg)
 
 - All flow logs at a network security group between `FlowIntervalStartTime_t` and `FlowIntervalEndTime_t` are captured at one-minute intervals as blobs in a storage account.
 - Default processing interval of traffic analytics is 60 minutes, meaning that every hour, traffic analytics picks blobs from the storage account for aggregation. However, if a processing interval of 10 minutes is selected, traffic analytics will instead pick blobs from the storage account every 10 minutes.
@@ -32,7 +32,7 @@ Traffic analytics is a cloud-based solution that provides visibility into user a
 - `FlowStartTime_t` field indicates the first occurrence of such an aggregated flow (same four-tuple) in the flow log processing interval between `FlowIntervalStartTime_t` and `FlowIntervalEndTime_t`.
 - For any resource in traffic analytics, the flows indicated in the Azure portal are total flows seen by the network security group, but in Azure Monitor logs, user sees only the single, reduced record. To see all the flows, use the `blob_id` field,  which can be referenced from storage. The total flow count for that record matches the individual flows seen in the blob.
 
-# [**VNet flow logs (preview)**](#tab/vnet)
+# [**Virtual network flow logs**](#tab/vnet)
 
 - All flow logs between `FlowIntervalStartTime` and `FlowIntervalEndTime` are captured at one-minute intervals as blobs in a storage account.
 - Default processing interval of traffic analytics is 60 minutes, meaning that every hour, traffic analytics picks blobs from the storage account for aggregation. However, if a processing interval of 10 minutes is selected, traffic analytics will instead pick blobs from the storage account every 10 minutes.
@@ -94,16 +94,16 @@ https://{storageAccountName}@insights-logs-networksecuritygroupflowevent/resoure
 
 Traffic analytics is built on top of Azure Monitor logs, so you can run custom queries on data decorated by traffic analytics and set alerts.
 
-# [**NSG flow logs**](#tab/nsg)
+# [**Network security group flow logs**](#tab/nsg)
 
-The following table lists the fields in the schema and what they signify for NSG flow logs.
+The following table lists the fields in the schema and what they signify for network security group flow logs.
 
 > [!div class="mx-tableFixed"]
 > | Field | Format | Comments |
 > | ----- | ------ | -------- |
 > | **TableName** | AzureNetworkAnalytics_CL | Table for traffic analytics data. |
 > | **SubType_s** | FlowLog | Subtype for the flow logs. Use only **FlowLog**, other values of **SubType_s** are for internal use. |
-> | **FASchemaVersion_s** | 2 | Schema version. Doesn't reflect NSG flow log version. |
+> | **FASchemaVersion_s** | 2 | Schema version. Doesn't reflect network security group flow log version. |
 > | **TimeProcessed_t** | Date and time in UTC	| Time at which the traffic analytics processed the raw flow logs from the storage account. |
 > | **FlowIntervalStartTime_t** | Date and time in UTC | Starting time of the flow log processing interval (time from which flow interval is measured). |
 > | **FlowIntervalEndTime_t** | Date and time in UTC | Ending time of the flow log processing interval. |
@@ -157,11 +157,11 @@ The following table lists the fields in the schema and what they signify for NSG
 > | **AllowedOutFlows_d** | |	Count of outbound flows that were allowed (Outbound to the network interface at which the flow was captured). |
 > | **DeniedOutFlows_d**	| |	Count of outbound flows that were denied (Outbound to the network interface at which the flow was captured). |
 > | **FlowCount_d** |	Deprecated. Total flows that matched the same four-tuple. In case of flow types ExternalPublic and AzurePublic, count includes the flows from various PublicIP addresses as well. |
-> | **InboundPackets_d** | Represents packets sent from the destination to the source of the flow | Populated only for Version 2 of NSG flow log schema. |
-> | **OutboundPackets_d** | Represents packets sent from the source to the destination of the flow | Populated only for Version 2 of NSG flow log schema. |
-> | **InboundBytes_d** |	Represents bytes sent from the destination to the source of the flow | Populated only for Version 2 of NSG flow log schema. |
-> | **OutboundBytes_d** | Represents bytes sent from the source to the destination of the flow | Populated only for Version 2 of NSG flow log schema. |
-> | **CompletedFlows_d**|  | Populated with nonzero value only for Version 2 of NSG flow log schema. |
+> | **InboundPackets_d** | Represents packets sent from the destination to the source of the flow | Populated only for Version 2 of network security group flow log schema. |
+> | **OutboundPackets_d** | Represents packets sent from the source to the destination of the flow | Populated only for Version 2 of network security group flow log schema. |
+> | **InboundBytes_d** |	Represents bytes sent from the destination to the source of the flow | Populated only for Version 2 of network security group flow log schema. |
+> | **OutboundBytes_d** | Represents bytes sent from the source to the destination of the flow | Populated only for Version 2 of network security group flow log schema. |
+> | **CompletedFlows_d**|  | Populated with nonzero value only for Version 2 of network security group flow log schema. |
 > | **PublicIPs_s** | <PUBLIC_IP>\|\<FLOW_STARTED_COUNT>\|\<FLOW_ENDED_COUNT>\|\<OUTBOUND_PACKETS>\|\<INBOUND_PACKETS>\|\<OUTBOUND_BYTES>\|\<INBOUND_BYTES> | Entries separated by bars. |
 > | **SrcPublicIPs_s** | <SOURCE_PUBLIC_IP>\|\<FLOW_STARTED_COUNT>\|\<FLOW_ENDED_COUNT>\|\<OUTBOUND_PACKETS>\|\<INBOUND_PACKETS>\|\<OUTBOUND_BYTES>\|\<INBOUND_BYTES> | Entries separated by bars. |
 > | **DestPublicIPs_s** | <DESTINATION_PUBLIC_IP>\|\<FLOW_STARTED_COUNT>\|\<FLOW_ENDED_COUNT>\|\<OUTBOUND_PACKETS>\|\<INBOUND_PACKETS>\|\<OUTBOUND_BYTES>\|\<INBOUND_BYTES> | Entries separated by bars. |
@@ -174,16 +174,16 @@ The following table lists the fields in the schema and what they signify for NSG
 > - Deprecated fields: `VMIP_s`, `Subscription_g`, `Region_s`, `NSGRules_s`, `Subnet_s`, `VM_s`, `NIC_s`, `PublicIPs_s`, `FlowCount_d`
 > - New fields: `SrcPublicIPs_s`, `DestPublicIPs_s`, `NSGRule_s`
 
-# [**VNet flow logs (preview)**](#tab/vnet)
+# [**Virtual network flow logs**](#tab/vnet)
 
-The following table lists the fields in the schema and what they signify for VNet flow logs.
+The following table lists the fields in the schema and what they signify for virtual network flow logs.
 
 > [!div class="mx-tableFixed"]
 > | Field | Format | Comments |
 > | ----- | ------ | -------- |
 > | **TableName** | NTANetAnalytics | Table for traffic analytics data. |
 > | **SubType** | FlowLog | Subtype for the flow logs. Use only **FlowLog**, other values of **SubType** are for internal use. |
-> | **FASchemaVersion** | 3 | Schema version. Doesn't reflect NSG flow log version. |
+> | **FASchemaVersion** | 3 | Schema version. Doesn't reflect virtual network flow log version. |
 > | **TimeProcessed** | Date and time in UTC | Time at which the traffic analytics processed the raw flow logs from the storage account. |
 > | **FlowIntervalStartTime** | Date and time in UTC | Starting time of the flow log processing interval (time from which flow interval is measured). |
 > | **FlowIntervalEndTime**| Date and time in UTC | Ending time of the flow log processing interval. |
@@ -233,18 +233,18 @@ The following table lists the fields in the schema and what they signify for VNe
 > | **AllowedOutFlows** | - | Count of outbound flows that were allowed (Outbound to the network interface at which the flow was captured). |
 > | **DeniedOutFlows** | - | Count of outbound flows that were denied (Outbound to the network interface at which the flow was captured). |
 > | **FlowCount** | Deprecated. Total flows that matched the same four-tuple. In flow types ExternalPublic and AzurePublic, count includes the flows from various PublicIP addresses as well. | - |
-> | **PacketsDestToSrc** | Represents packets sent from the destination to the source of the flow | Populated only for the Version 2 of NSG flow log schema. |
-> | **PacketsSrcToDest** | Represents packets sent from the source to the destination of the flow  | Populated only for the Version 2 of NSG flow log schema. |
-> | **BytesDestToSrc** | Represents bytes sent from the destination to the source of the flow | Populated only for the Version 2 of NSG flow log schema. |
-> | **BytesSrcToDest** | Represents bytes sent from the source to the destination of the flow | Populated only for the Version 2 of NSG flow log schema. |
-> | **CompletedFlows** | - | Populated with nonzero value only for the Version 2 of NSG flow log schema. |
+> | **PacketsDestToSrc** | Represents packets sent from the destination to the source of the flow | Populated only for the Version 2 of network security group flow log schema. |
+> | **PacketsSrcToDest** | Represents packets sent from the source to the destination of the flow  | Populated only for the Version 2 of network security group flow log schema. |
+> | **BytesDestToSrc** | Represents bytes sent from the destination to the source of the flow | Populated only for the Version 2 of network security group flow log schema. |
+> | **BytesSrcToDest** | Represents bytes sent from the source to the destination of the flow | Populated only for the Version 2 of network security group flow log schema. |
+> | **CompletedFlows** | - | Populated with nonzero value only for the Version 2 of network security group flow log schema. |
 > | **SrcPublicIPs** | \<SOURCE_PUBLIC_IP\>\|\<FLOW_STARTED_COUNT\>\|\<FLOW_ENDED_COUNT\>\|\<OUTBOUND_PACKETS\>\|\<INBOUND_PACKETS\>\|\<OUTBOUND_BYTES\>\|\<INBOUND_BYTES\> | Entries separated by bars. |
 > | **DestPublicIPs** | <DESTINATION_PUBLIC_IP>\|\<FLOW_STARTED_COUNT>\|\<FLOW_ENDED_COUNT>\|\<OUTBOUND_PACKETS>\|\<INBOUND_PACKETS>\|\<OUTBOUND_BYTES>\|\<INBOUND_BYTES> | Entries separated by bars. |
 > | **FlowEncryption** | - Encrypted <br>- Unencrypted <br>- Unsupported hardware <br>- Software not ready <br>- Drop due to no encryption <br>- Discovery not supported <br>- Destination on same host <br>- Fall back to no encryption. | Encryption level of flows. |
 > | **IsFlowCapturedAtUDRHop** | - True <br> - False | If the flow was captured at a UDR hop, the value is True. |
 
 > [!NOTE]
-> *NTANetAnalytics* in VNet flow logs replaces *AzureNetworkAnalytics_CL* used in NSG flow logs.
+> *NTANetAnalytics* in virtual network flow logs replaces *AzureNetworkAnalytics_CL* used in network security group flow logs.
 
 ---
 
@@ -254,13 +254,13 @@ Traffic analytics provides WHOIS data and geographic location for all public IPs
 
 The following table details public IP schema:
 
-# [**NSG flow logs**](#tab/nsg)
+# [**Network security group flow logs**](#tab/nsg)
 
 | Field | Format | Comments |
 | ----- | ------ | -------- |
 | **TableName** | AzureNetworkAnalyticsIPDetails_CL | Table that contains traffic analytics IP details data. |
 | **SubType_s**	| FlowLog |	Subtype for the flow logs. **Use only "FlowLog"**, other values of SubType_s are for internal workings of the product. |
-| **FASchemaVersion_s** | 2 | Schema version. Doesn't reflect NSG flow log version. |
+| **FASchemaVersion_s** | 2 | Schema version. Doesn't reflect network security group flow log version. |
 | **FlowIntervalStartTime_t** | Date and Time in UTC | Start time of the flow log processing interval (time from which flow interval is measured). |
 | **FlowIntervalEndTime_t** | Date and Time in UTC | End time of the flow log processing interval. |
 | **FlowType_s** | - AzurePublic <br> - ExternalPublic <br> - MaliciousFlow | See [Notes](#notes) for definitions. |
@@ -273,13 +273,13 @@ The following table details public IP schema:
 | **Url** | URL corresponding to the malicious IP | *For Malicious IPs only* |
 | **Port** | Port corresponding to the malicious IP | *For Malicious IPs only* |
 
-# [**VNet flow logs (preview)**](#tab/vnet)
+# [**Virtual network flow logs**](#tab/vnet)
 
 | Field | Format | Comments |
 | ----- | ------ | -------- |
 | **TableName**| NTAIpDetails | Table that contains traffic analytics IP details data. |
 | **SubType**| FlowLog | Subtype for the flow logs. Use only **FlowLog**. Other values of SubType are for internal workings of the product. |
-| **FASchemaVersion** | 2  | Schema version. Doesn't reflect NSG flow Log version. |
+| **FASchemaVersion** | 2  | Schema version. Doesn't reflect virtual network flow Log version. |
 | **FlowIntervalStartTime**| Date and time in UTC | Start time of the flow log processing interval (the time from which flow interval is measured). |
 | **FlowIntervalEndTime**| Date and time in UTC | End time of the flow log processing interval. |
 | **FlowType** | - AzurePublic <br> - ExternalPublic <br> - MaliciousFlow | See [Notes](#notes) for definitions. |
@@ -293,7 +293,7 @@ The following table details public IP schema:
 | **Port** | Port corresponding to the malicious IP | *For Malicious IPs only*. |
 
 > [!NOTE]
-> *NTAIPDetails* in VNet flow logs replaces *AzureNetworkAnalyticsIPDetails_CL* used in NSG flow logs.
+> *NTAIPDetails* in virtual network flow logs replaces *AzureNetworkAnalyticsIPDetails_CL* used in network security group flow logs.
 
 ---
 

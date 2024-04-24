@@ -6,7 +6,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: network-watcher
 ms.topic: how-to
-ms.date: 04/18/2024
+ms.date: 04/22/2024
 ms.custom: devx-track-azurepowershell
 
 #CustomerIntent: As an Azure administrator, I want to read my flow logs using a PowerShell script so I can see the latest data.
@@ -91,7 +91,7 @@ $CloudBlockBlob = Get-NSGFlowLogCloudBlockBlob -subscriptionId "yourSubscription
 $blockList = Get-NSGFlowLogBlockList -CloudBlockBlob $CloudBlockBlob
 ```
 
-# [**VNet flow logs (preview)**](#tab/vnet)
+# [**VNet flow logs**](#tab/vnet)
 
 The following PowerShell script sets up the variables needed to query the VNet flow log blob and list the blocks within the [CloudBlockBlob](/dotnet/api/microsoft.azure.storage.blob.cloudblockblob) block blob. Update the script to contain valid values for your environment.
 
@@ -218,7 +218,7 @@ function Get-NSGFlowLogReadBlock  {
 $valuearray = Get-NSGFlowLogReadBlock -blockList $blockList -CloudBlockBlob $CloudBlockBlob
 ```
 
-# [**VNet flow logs (preview)**](#tab/vnet)
+# [**VNet flow logs**](#tab/vnet)
 
 ```powershell
 function Get-VNetFlowLogReadBlock  {
@@ -333,7 +333,7 @@ The results of this value are shown in the following example:
 }
 ```
 
-# [**VNet flow logs (preview)**](#tab/vnet)
+# [**VNet flow logs**](#tab/vnet)
 
 ```json
 {
