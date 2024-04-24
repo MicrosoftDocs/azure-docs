@@ -14,7 +14,7 @@ Azure offers several configuration options for ensuring availability of Azure vi
 
 ## At a glance
 
-|Configuration  |Recommendation  |Benefits  |
+|Environment  |Recommendation  |Benefits  |
 |---------|---------|---------|
 |Applications running on multiple VMs     |Deploy VMs across multiple availability zones using a zone redundant Virtual Machine Scale Set with flexible orchestration or by deploying VMs across three availability zones.         |Either of these configurations have the highest uptime SLA for multiple VMs deployed across availability zones.         |
 |Applications running on multiple VMs     |Deploy VMs across multiple fault domains with either regional Virtual Machine Scale Sets or availability sets.         |Either of these configurations offer the second highest uptime SLA for multiple VMs deployed across fault domains.         |
