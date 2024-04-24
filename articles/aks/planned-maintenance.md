@@ -24,7 +24,7 @@ When you use the feature of planned maintenance in AKS, you can run both types o
 ## Before you begin
 
 * This article assumes that you have an existing AKS cluster. If you don't have an AKS cluster, see [Create an AKS cluster](./learn/quick-kubernetes-deploy-cli.md).
-* If you're using the Azure CLI, upgrade to the latest version by using the [az upgrade](/cli/azure/update-azure-cli#manual-update) command.
+* If you're using the Azure CLI, upgrade to the latest version by using the [`az upgrade`](/cli/azure/update-azure-cli#manual-update) command.
 
 ## Considerations
 
@@ -136,7 +136,7 @@ Valid values for `weekIndex` include `First`, `Second`, `Third`, `Fourth`, and `
 
 ### [Azure CLI](#tab/azure-cli)
 
-Add a maintenance window configuration to an AKS cluster by using the [az aks maintenanceconfiguration add][az-aks-maintenanceconfiguration-add] command.
+Add a maintenance window configuration to an AKS cluster by using the [`az aks maintenanceconfiguration add`][az-aks-maintenanceconfiguration-add] command.
 
 The first example adds a new `default` configuration that schedules maintenance to run from 1:00 AM to 2:00 AM every Monday. The second example adds a new `aksManagedAutoUpgradeSchedule` configuration that schedules maintenance to run every third Friday between 12:00 AM and 8:00 AM in the `UTC+5:30` time zone.
 
@@ -232,7 +232,7 @@ You can use a JSON file to create a maintenance configuration instead of using p
     }
     ```
 
-2. Add the maintenance window configuration by using the [az aks maintenanceconfiguration add][az-aks-maintenanceconfiguration-add] command with the `--config-file` parameter.
+2. Add the maintenance window configuration by using the [`az aks maintenanceconfiguration add`][az-aks-maintenanceconfiguration-add] command with the `--config-file` parameter.
 
     The first example adds a new `default` configuration by using the `default.json` file. The second example adds a new `aksManagedAutoUpgradeSchedule` configuration by using the `autoUpgradeWindow.json` file.
 
@@ -250,7 +250,7 @@ You can use a JSON file to create a maintenance configuration instead of using p
 
 ### [Azure CLI](#tab/azure-cli)
 
-Update an existing maintenance configuration by using the [az aks maintenanceconfiguration update][az-aks-maintenanceconfiguration-update] command.
+Update an existing maintenance configuration by using the [`az aks maintenanceconfiguration update`][az-aks-maintenanceconfiguration-update] command.
 
 The following example updates the `default` configuration to schedule maintenance to run from 2:00 AM to 3:00 AM every Monday:
 
@@ -295,7 +295,7 @@ az aks maintenanceconfiguration update --resource-group myResourceGroup --cluste
     }
     ```
 
-2. Update the maintenance window configuration by using the [az aks maintenanceconfiguration update][az-aks-maintenanceconfiguration-update] command with the `--config-file` parameter:
+2. Update the maintenance window configuration by using the [`az aks maintenanceconfiguration update`][az-aks-maintenanceconfiguration-update] command with the `--config-file` parameter:
 
     ```azurecli-interactive
     az aks maintenanceconfiguration update --resource-group myResourceGroup --cluster-name myAKSCluster --name default --config-file ./default.json
@@ -305,7 +305,7 @@ az aks maintenanceconfiguration update --resource-group myResourceGroup --cluste
 
 ## List all maintenance windows in an existing cluster
 
-List the current maintenance configuration windows in your AKS cluster by using the [az aks maintenanceconfiguration list][az-aks-maintenanceconfiguration-list] command:
+List the current maintenance configuration windows in your AKS cluster by using the [`az aks maintenanceconfiguration list`][az-aks-maintenanceconfiguration-list] command:
 
 ```azurecli-interactive
 az aks maintenanceconfiguration list --resource-group myResourceGroup --cluster-name myAKSCluster
@@ -313,7 +313,7 @@ az aks maintenanceconfiguration list --resource-group myResourceGroup --cluster-
 
 ## Show a specific maintenance configuration window in an existing cluster
 
-View a specific maintenance configuration window in your AKS cluster by using the [az aks maintenanceconfiguration show][az-aks-maintenanceconfiguration-show] command with the `--name` parameter:
+View a specific maintenance configuration window in your AKS cluster by using the [`az aks maintenanceconfiguration show`][az-aks-maintenanceconfiguration-show] command with the `--name` parameter:
 
 ```azurecli-interactive
 az aks maintenanceconfiguration show --resource-group myResourceGroup --cluster-name myAKSCluster --name aksManagedAutoUpgradeSchedule
@@ -358,7 +358,7 @@ The following example output shows the maintenance window for `aksManagedAutoUpg
 
 ### [Azure CLI](#tab/azure-cli)
 
-Delete a maintenance configuration window in your AKS cluster by using the [az aks maintenanceconfiguration delete][az-aks-maintenanceconfiguration-delete] command.
+Delete a maintenance configuration window in your AKS cluster by using the [`az aks maintenanceconfiguration delete`][az-aks-maintenanceconfiguration-delete] command.
 
 The following example deletes the `autoUpgradeSchedule` maintenance configuration:
 
@@ -380,7 +380,7 @@ az aks maintenanceconfiguration delete --resource-group myResourceGroup --cluste
 
 ### [JSON file](#tab/json-file)
 
-Delete a maintenance configuration window in your AKS cluster by using the [az aks maintenanceconfiguration delete][az-aks-maintenanceconfiguration-delete] command.
+Delete a maintenance configuration window in your AKS cluster by using the [`az aks maintenanceconfiguration delete`][az-aks-maintenanceconfiguration-delete] command.
 
 The following example deletes the `autoUpgradeSchedule` maintenance configuration:
 
