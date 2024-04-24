@@ -6,6 +6,7 @@ ms.service: bastion
 ms.topic: conceptual
 ms.date: 04/01/2024
 ms.author: cherylmc
+ms.custom: references_regions
 ---
 
 # Azure Bastion FAQ
@@ -34,6 +35,8 @@ Some regions support the ability to deploy Azure Bastion in an availability zone
 To deploy zonally, you can select the availability zones you want to deploy under instance details when you deploy Bastion using manually specified settings. You can't change zonal availability after Bastion is deployed.
 If you aren't able to select a zone, you might have selected an Azure region that doesn't yet support availability zones.
 For more information about availability zones, see [Availability Zones](../reliability/availability-zones-overview.md?tabs=azure-cli).
+
+[!INCLUDE [Availability Zones region support - Preview](../../includes/bastion-availability-zones-regions.md)]
 
 ### <a name="vwan"></a>Does Azure Bastion support Virtual WAN?
 
