@@ -34,6 +34,8 @@
         href: manage-apis-azure-cli.md
       - name: Import APIs from API Management
         href: import-api-management-apis.md
+      - name: Interact with inventory - VS Code extension
+        href: use-vscode-extension.md
 - name: API governance
   items:
       - name: Use metadata for governance
@@ -44,8 +46,6 @@
   items:
       - name: Enable Azure API Center portal
         href: enable-api-center-portal.md
-      - name: Use VS Code extension
-        href: use-vscode-extension.md
       - name: Discover APIs with GitHub Copilot Chat
         href: use-vscode-extension-copilot.md
 - name: API center management and operations

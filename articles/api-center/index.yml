@@ -49,6 +49,8 @@ landingContent:
             url: manage-apis-azure-cli.md
           - text: Import APIs from API Management
             url: import-api-management-apis.md
+          - text: Interact with inventory - VS Code extension
+            url: use-vscode-extension.md
 # Card
   - title: Govern APIs
     linkLists:
@@ -61,7 +63,7 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Use VS Code extension
-            url: use-vscode-extension.md
+          - text: Enable Azure API Center portal
+            url: enable-api-center-portal.md
           - text: Discover APIs with GitHub Copilot Chat
             url: use-vscode-extension-copilot.md

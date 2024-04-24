@@ -9,10 +9,9 @@ ms.author: danlep
 #customer intent: As an API program manager, I want to learn about using metadata to govern the APIs in my API center.
 ---
 
-# Create and apply metadata
+# Define and apply metadata
 
 This article provides background about metadata and how to use it for API governance in [Azure API Center](overview.md). You define metadata to organize and filter APIs and other [entities](key-concepts.md) in your API center. Metadata can be built in or custom, and you can develop a metadata schema to enforce consistency across your APIs, environments, and deployments.  
-
 
 ## Built-in metadata
 
