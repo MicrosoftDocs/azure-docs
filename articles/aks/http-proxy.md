@@ -13,7 +13,7 @@ ms.author: schaffererin
 
 In this article, you learn how to configure Azure Kubernetes Service (AKS) clusters to use an HTTP proxy for outbound internet access.
 
-AKS clusters deployed into managed or custom virtual networks have certain outbound dependencies that are necessary to function properly. Previously, in environments requiring internet access to be routed through HTTP proxies, this was a problem. Nodes had no way of bootstrapping the configuration, environment variables, and certificates necessary to access internet services.
+AKS clusters deployed into managed or custom virtual networks have certain outbound dependencies that are necessary to function properly, which created problems in environments requiring internet access to be routed through HTTP proxies. Nodes had no way of bootstrapping the configuration, environment variables, and certificates necessary to access internet services.
 
 The HTTP proxy feature adds HTTP proxy support to AKS clusters, exposing a straightforward interface that you can use to secure AKS-required network traffic in proxy-dependent environments. With this feature, both AKS nodes and pods are configured to use the HTTP proxy. The feature also enables installation of a trusted certificate authority onto the nodes as part of bootstrapping a cluster. More complex solutions might require creating a chain of trust to establish secure communications across the network.
 
@@ -23,7 +23,7 @@ The following scenarios are **not** supported:
 
 * Different proxy configurations per node pool
 * User/Password authentication
-* Custom CAs for API server communication
+* Custom certificate authorities (CAs) for API server communication
 * Windows-based clusters
 * Node pools using Virtual Machine Availability Sets (VMAS)
 * Using * as wildcard attached to a domain suffix for noProxy
@@ -63,8 +63,8 @@ The schema for the config file looks like this:
 ```
 
 * `httpProxy`: A proxy URL to use for creating HTTP connections outside the cluster. The URL scheme must be `http`.
-* `httpsProxy`: A proxy URL to use for creating HTTPS connections outside the cluster. If this isn't specified, then `httpProxy` is used for both HTTP and HTTPS connections.
-* `noProxy`: A list of destination domain names, domains, IP addresses or other network CIDRs to exclude proxying.
+* `httpsProxy`: A proxy URL to use for creating HTTPS connections outside the cluster. If not specified, then `httpProxy` is used for both HTTP and HTTPS connections.
+* `noProxy`: A list of destination domain names, domains, IP addresses, or other network CIDRs to exclude proxying.
 * `trustedCa`: A string containing the `base64 encoded` alternative CA certificate content. Currently only the `PEM` format is supported.
 
 > [!IMPORTANT]
@@ -120,7 +120,7 @@ In your template, provide values for `httpProxy`, `httpsProxy`, and `noProxy`. I
 > [!NOTE]
 > If switching to a new proxy, the new proxy must already exist for the update to be successful. After the upgrade is completed, you can delete the old proxy.
 
-You can update the proxy configuration on your cluster using the [`az aks update`][az-aks-update] command with the `--http-proxy-config` parameter set to a new JSON file with updated values for `httpProxy`, `httpsProxy`, `noProxy`, and `trustedCa` if necessary. The update injects new environment variables into pods with the new `httpProxy`, `httpsProxy`, or `noProxy` values. Pods must be rotated for the apps to pick it up, because the environment variable values are injected by a mutating admission webhook. For components under Kubernetes, like containerd and the node itself, this won't take effect until a node image upgrade is performed.
+You can update the proxy configuration on your cluster using the [`az aks update`][az-aks-update] command with the `--http-proxy-config` parameter set to a new JSON file with updated values for `httpProxy`, `httpsProxy`, `noProxy`, and `trustedCa` if necessary. The update injects new environment variables into pods with the new `httpProxy`, `httpsProxy`, or `noProxy` values. Pods must be rotated for the apps to pick it up, because the environment variable values are injected by a mutating admission webhook. For components under Kubernetes, like containerd and the node itself, this doesn't take effect until a node image upgrade is performed.
 
 For example, let's say you created a new file with the base64 encoded string of the new CA cert called *aks-proxy-config-2.json*. You can update the proxy configuration on your cluster with the following command:
 
@@ -130,7 +130,7 @@ az aks update --name $clusterName --resource-group $resourceGroup --http-proxy-c
 
 ## Upgrade AKS node images
 
-After configuring the proxy, you must upgrade the node image to apply the changes. The node image upgrade process is the only way to update the OS files required for proxy configuration updates. The node image upgrade process is a rolling upgrade that updates the OS image on each node in the node pool. The upgrade process is controlled by the AKS control plane and is non-disruptive to running applications.
+After configuring the proxy, you must upgrade the node image to apply the changes. The node image upgrade process is the only way to update the OS files required for proxy configuration updates. The node image upgrade process is a rolling upgrade that updates the OS image on each node in the node pool. The AKS control plane handles the upgrade process, which is nondisruptive to running applications.
 
 To upgrade AKS node images, see [Upgrade Azure Kubernetes Service (AKS) node images](./node-image-upgrade.md).
 
