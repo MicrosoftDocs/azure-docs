@@ -32,7 +32,7 @@ You can create a URL-based load test directly from your Azure Function App in th
 
 To create a load test for a function app:
 
-1. In the [Azure portal](https://portal.azure.com), go to your Azure Function App.
+1. In the [Azure portal](https://portal.azure.com), go to your function app.
 
 1. On the left pane, select **Load Testing (Preview)** under the **Performance** section.
 
