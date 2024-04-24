@@ -49,7 +49,7 @@ landingContent:
             url: manage-apis-azure-cli.md
           - text: Import APIs from API Management
             url: import-api-management-apis.md
-          - text: Interact with inventory - VS Code extension
+          - text: Build and register APIs - VS Code extension
             url: use-vscode-extension.md
 # Card
   - title: Govern APIs
