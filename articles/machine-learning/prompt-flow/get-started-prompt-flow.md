@@ -30,7 +30,7 @@ First you need to set up connection.
 
 Connection helps securely store and manage secret keys or other sensitive credentials required for interacting with LLM (Large Language Models) and other external tools, for example,  Azure Content Safety.
 
-Navigate to the prompt flow homepage, select **Connections** tab. Connection is a shared resource to all members in the workspace. So, if you already see a connection whose provider is AzureOpenAI, you can skip this step, go to create runtime.
+Navigate to the prompt flow homepage, select **Connections** tab. Connection is a shared resource to all members in the workspace. So, if you already see a connection whose provider is AzureOpenAI, you can skip this step, go to Start compute session.
 
 If you aren't already connected to AzureOpenAI, select the **Create** button then *AzureOpenAI* from the drop-down.
 
@@ -60,15 +60,14 @@ In this guide, we'll use **Web Classification** sample to walk you through the m
 
 After selecting **Clone**, a new flow is created, and saved in a specific folder within your workspace file share storage. You can customize the folder name according to your preferences in the right panel.
 
-### Start automatic runtime (preview)
+### Start compute session
 
-Then you'll enter the flow authoring page. Before we dive in, please first start a runtime.
+Then you'll enter the flow authoring page. Before we dive in, please first start a compute session.
 
-Runtime serves as the computing resources required for the application to run, including a Docker image that contains all necessary dependency packages. It's a must-have for flow execution. 
+Compute session serves as the computing resources required for the application to run, including a Docker image that contains all necessary dependency packages. It's a must-have for flow execution. 
 
-For new users, we would recommend using the automatic runtime (preview) that can be used out of box, and you can easily customize the environment by adding packages in requirements.txt file in flow folder. Since starting the automatic runtime takes a while, we suggest you start it first before authoring the flow.
 
-:::image type="content" source="./media/get-started-prompt-flow/views.png" alt-text="Screenshot of starting an automatic runtime." lightbox = "./media/get-started-prompt-flow/start-automatic-runtime.png":::
+:::image type="content" source="./media/get-started-prompt-flow/start-automatic-runtime.png" alt-text="Screenshot of starting an automatic runtime." lightbox = "./media/get-started-prompt-flow/start-automatic-runtime.png":::
 
 ### Flow authoring page
 
