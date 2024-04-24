@@ -80,7 +80,7 @@ PostgreSQL allows you to specify time zones in three different forms:
         (20 rows)
     </pre>
    
-2. A time zone abbreviation, for example PST. Such a specification merely defines a particular offset from UTC, in contrast to full time zone names which can imply a set of daylight savings transition-date rules as well. The recognized abbreviations are listed in the [**pg_timezone_abbrevs view**](https://www.postgresql.org/docs/9.4/view-pg-timezone-abbrevs.html)
+2. A time zone abbreviation, for example PST. Such a specification merely defines a particular offset from UTC, in contrast to full time zone names which can imply a set of daylight savings transition-date rules as well. The recognized abbreviations are listed in the [**pg_timezone_abbrevs view**](https://www.postgresql.org/docs/current/view-pg-timezone-abbrevs.html)
    Example to query this view in psql and get list of time zone abbreviations:
 
    <pre> select abbrev from pg_timezone_abbrevs limit 20;</pre>
