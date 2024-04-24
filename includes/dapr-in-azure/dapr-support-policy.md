@@ -5,12 +5,12 @@ ms.date: 04/22/2024
 ms.author: hannahhunter
 ---
 
-#### Tier 1 versus tier 2 components
+#### Tier 1 versus Tier 2 components
 
-A subset of Dapr components is supported for the Dapr extension for AKS and Arc-enabled Kubernetes. Within that subset, Dapr components are broken into two support categories: tier 1 or tier 2.  
+A subset of Dapr components is supported for the Dapr extension for AKS and Arc-enabled Kubernetes. Within that subset, Dapr components are broken into two support categories: Tier 1 or Tier 2.  
 
-- [Tier 1 components:](#tier-1-components) Fully managed, stable components that receive immediate investigation in critical (security or serious regression) scenarios. Otherwise, collaborate with open source to address in a hotfix or the next regular release.
-- [Tier 2 components:](#tier-2-components) Built-in components that receive immediate investigation and are supported with best effort attempt to address with third party provider.
+- [Tier 1 components:](../../articles/aks/dapr-overview.md#tier-1-components) Stable components that receive immediate investigation in critical (security or serious regression) scenarios. Otherwise, collaborate with open source to address in a hotfix or the next regular release.
+- [Tier 2 components:](../../articles/aks/dapr-overview.md#tier-2-components) Components that receive immediate investigation and are supported with best effort attempt to address with third party provider.
 
 ##### Tier 1 components
 

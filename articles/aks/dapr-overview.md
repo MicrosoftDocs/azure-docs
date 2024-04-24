@@ -44,10 +44,10 @@ Microsoft categorizes issues raised against the Dapr extension into two parts:
 
 The following table breaks down support priority levels for each of these categories.
 
-|   | Description | Functional issues | Security risks/Regressions |
-| - | ----------- | ----------------- | -------------------------- | 
-| **Extension operations** | Issues encountered while attempting to install Dapr into a cluster. | Microsoft investigates and addresses as needed. | Microsoft prioritizes for immediate resolution. | 
-| **Dapr runtime** | Issues encountered when using the Dapr runtime, APIs, and components via the extension. | Microsoft investigates new functional issues. Known open source functional issues won't be investigated by Microsoft at this time. | Microsoft works with the open source community to investigate high priority payload issues. Issues may be resolved in a hotfix or future Dapr open source release, depending on priority, severity, and size of the issue. Once fixes are released in Dapr open source, they are then made available in the Dapr extension. |
+|   | Description | Security risks/Regressions | Functional issues |
+| - | ----------- | -------------------------- | ----------------- |
+| **Extension operations** | Issues encountered during extension operations, such as installing/uninstalling or upgrading the Dapr extension. | Microsoft prioritizes for immediate resolution. | Microsoft investigates and addresses as needed. | 
+| **Dapr runtime** | Issues encountered when using the Dapr runtime, APIs, and components via the extension. | Microsoft works with the open source community to investigate high priority payload issues. Issues may be resolved in a hotfix or future Dapr open source release, depending on priority, severity, and size of the issue. Once fixes are released in Dapr open source, they are then made available in the Dapr extension. | Microsoft investigates new functional issues. Known open source functional issues won't be investigated by Microsoft at this time. |
 
 ### Dapr versions
 
