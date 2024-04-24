@@ -21,7 +21,6 @@ Applications running on multiple VMs
 |Deploy VMs across multiple availability zones using a zone redundant Virtual Machine Scale Set with flexible orchestration or by deploying VMs across three availability zones.     |Either of these configurations have the highest uptime SLA for multiple VMs deployed across availability zones.         |
 |Deploy VMs across multiple fault domains with either regional Virtual Machine Scale Sets or availability sets.    |Either of these configurations offer the second highest uptime SLA for multiple VMs deployed across fault domains.         |
 
-
 Applications running on a single VM
 
 |Recommendation  |Benefits  |
@@ -85,6 +84,6 @@ Zone-redundant storage (ZRS) disks synchronously replicate data across three ava
 
 ## Next steps
 
-- [Create a Virtual Machine Scale Set that uses Availability Zones](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md)
+- [What are availability zones?](../reliability/availability-zones-overview.md)
+-  [Create a Virtual Machine Scale Set that uses Availability Zones](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md)
 - [Availability sets overview](availability-set-overview.md)
-- [Deploy a managed disk that uses zone-redundant storage](disks-deploy-zrs.md)
