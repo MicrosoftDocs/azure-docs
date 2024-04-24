@@ -90,7 +90,7 @@ Your project has been configured to use [extension bundles](functions-bindings-r
 
 Extension bundles is already enabled in the *host.json* file at the root of the project, which should look like the following example:
 
-:::code language="json" source="~/functions-docs-javascript/host.json":::
+:::code language="json" source="~/functions-docs-javascript/functions-add-output-binding-storage-queue-cli-v4-programming-model/host.json":::
 
 Now, you can add the storage output binding to your project.
 
