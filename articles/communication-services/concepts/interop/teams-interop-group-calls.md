@@ -16,12 +16,12 @@ Azure Communication Services can interoperate with Teams in three ways:
 2.	Azure clients can directly call a Teams Voice App, such as Auto Attendant and Call Queues. Azure Communication Services enables you to connect customers from your website or application to Teams Voice Apps to handle requests and later handoff to Teams agents as configured in Teams admin center. 
 3.	Azure clients can join Teams meetings. This type of interoperability is described on a separate page.
 
-This page details capabilities for Teams (or M365) users in a call with Communication Services users (scenario #1). Your service can orchestrate and manage these calls, including adding Teams users to these calls, using Call automation SDK. Read more about it [here](./call-automation-teams-interop.md).
+This page details capabilities for Teams (or M365) users in a call with Communication Services users (scenario #1). Your service can orchestrate and manage these calls, including adding Teams users to these calls, using Call automation SDK. Read more about it [here](../call-automation/call-automation-teams-interop.md).
 
-[!INCLUDE [Teams Phone license](../../../includes/teams-phone-license-include.md)]
+[!INCLUDE [Teams Phone license](../../includes/teams-phone-license-include.md)]
 
 # Capabilities for Microsoft Teams users in Azure Communication Services group calls
-M365/Teams user can take calls with Communication Services users via Teams client or [a custom client](../../teams-endpoint) built using the Azure Communication Services SDKs. To learn about features available for Communication Services user, refer to [voice and video capabilities](../../voice-video-calling/calling-sdk-features.md) document.
+M365/Teams user can take calls with Communication Services users via Teams client or [a custom client](../teams-endpoint) built using the Azure Communication Services SDKs. To learn about features available for Communication Services user, refer to [voice and video capabilities](../voice-video-calling/calling-sdk-features.md) document.
 
 
 | **Group of features**              | **Capability**                                               | **M365 user on a custom client**  | **M365 user on a Teams client** |

@@ -14,8 +14,8 @@ ms.custom: public_preview
 
 # Deliver expedient customer service by adding Microsoft Teams users in Call Automation workflows
 
-[!INCLUDE [Public Preview Notice](../../../includes/public-preview-include.md)]
-[!INCLUDE [Teams Phone license](../../../includes/teams-phone-license-include.md)]
+[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
+[!INCLUDE [Teams Phone license](../../includes/teams-phone-license-include.md)]
 
 Businesses are looking for innovative ways to increase the efficiency of their customer service operations. Azure Communication Services Call Automation provides developers the ability to build programmable customer interactions using real-time event triggers to perform actions based on custom business logic. For example, with support for interoperability with Microsoft Teams, developers can use Call Automation APIs to add subject matter experts (SMEs). These SMEs, who use Microsoft Teams, can be added to an existing customer service call to provide expert advice and help resolve a customer issue.
 
@@ -31,7 +31,7 @@ A customer service agent, who is using a Contact Center Agent experience, wants 
 
 The dataflow diagram depicts a canonical scenario where a Teams user is added to an ongoing Azure Communication Services call for expert consultation.
 
-[ ![Diagram of calling flow for a customer service with Microsoft Teams and Call Automation.](../media/call-automation-teams-interop.png)](../media/call-automation-teams-interop.png#lightbox)
+[ ![Diagram of calling flow for a customer service with Microsoft Teams and Call Automation.](./media/call-automation-teams-interop.png)](./media/call-automation-teams-interop.png#lightbox)
 
 1. Customer is on an ongoing call with a Contact Center customer service agent. 
 1. During the call, the customer service agent needs expert help from one of the domain experts part of an engineering team. The agent is able to identify a knowledge worker who is available on Teams (presence via Graph APIs) and tries to add them to the call. 
@@ -84,10 +84,10 @@ The following list presents the set of features that are currently available in 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Get started with adding a Microsoft Teams user to an ongoing call using Call Automation](../../../how-tos/call-automation/teams-interop-call-automation.md)
+> [Get started with adding a Microsoft Teams user to an ongoing call using Call Automation](../../how-tos/call-automation/teams-interop-call-automation.md)
 
 Here are some articles of interest to you:
-- Learn more about [Call Automation](../../../concepts/call-automation/call-automation.md) and its features.
-- Learn about [Play action](../../../concepts/call-automation/play-Action.md) to play audio in a call.
-- Learn how to build a [call workflow](../../../quickstarts/call-automation/callflows-for-customer-interactions.md) for a customer support scenario.
-- Understand how your resource is [charged for various calling use cases](../../pricing.md) with examples.
+- Learn more about [Call Automation](../../concepts/call-automation/call-automation.md) and its features.
+- Learn about [Play action](../../concepts/call-automation/play-Action.md) to play audio in a call.
+- Learn how to build a [call workflow](../../quickstarts/call-automation/callflows-for-customer-interactions.md) for a customer support scenario.
+- Understand how your resource is [charged for various calling use cases](../pricing.md) with examples.
