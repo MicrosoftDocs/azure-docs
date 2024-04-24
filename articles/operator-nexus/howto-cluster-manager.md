@@ -163,4 +163,4 @@ az networkcloud clustermanager delete \
 
 ## Next steps
 
-After you successfully create an NFC, the next step is to create a [network fabric](./howto-configure-network-fabric.md).
+After you successfully create an NFC and Cluster Manager, the next step is to create a [network fabric](./howto-configure-network-fabric.md).
