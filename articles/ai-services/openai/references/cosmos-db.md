@@ -5,7 +5,7 @@ description: Learn how to use Azure OpenAI on your Azure Cosmos DB data Python &
 manager: nitinme
 ms.service: azure-ai-openai
 ms.topic: conceptual
-ms.date: 02/14/2024
+ms.date: 03/12/2024
 author: mrbullwinkle
 ms.author: mbullwin
 recommendations: false
@@ -14,7 +14,7 @@ ms.custom: devx-track-python
 
 # Data source - Azure Cosmos DB for MongoDB vCore
 
-The configurable options of Azure Cosmos DB for MongoDB vCore when using Azure OpenAI On Your Data. This data source is supported in API version `2024-02-15-preview`.
+The configurable options of Azure Cosmos DB for MongoDB vCore when using Azure OpenAI On Your Data. This data source is supported in API version `2024-02-01`.
 
 |Name | Type | Required | Description |
 |--- | --- | --- | --- |
@@ -127,7 +127,7 @@ token_provider = get_bearer_token_provider(
 client = AzureOpenAI(
     azure_endpoint=endpoint,
     azure_ad_token_provider=token_provider,
-    api_version="2024-02-15-preview",
+    api_version="2024-02-01",
 )
 
 completion = client.chat.completions.create(
@@ -178,7 +178,7 @@ print(completion.model_dump_json(indent=2))
 ```bash
 
 az rest --method POST \
- --uri $AzureOpenAIEndpoint/openai/deployments/$ChatCompletionsDeploymentName/chat/completions?api-version=2024-02-15-preview \
+ --uri $AzureOpenAIEndpoint/openai/deployments/$ChatCompletionsDeploymentName/chat/completions?api-version=2024-02-01 \
  --resource https://cognitiveservices.azure.com/ \
  --body \
 '

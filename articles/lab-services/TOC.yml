@@ -10,7 +10,7 @@
   items:
   - name: Lab accounts versus lab plans
     href: concept-lab-accounts-versus-lab-plans.md
-  - name: Migrate lab acounts to lab plans
+  - name: Migrate lab accounts to lab plans
     href: how-to-migrate-lab-acounts-to-lab-plans.md
   - name: Migrate lab account role assignments
     displayName: RBAC, authorization, security, roles, permissions, admin, lab creator, lab account, migrate, upgrade
@@ -323,5 +323,5 @@
     href: https://azure.microsoft.com/pricing/details/lab-services/
   - name: Q & A
     href: https://aka.ms/azlabs/questions
-  - name: Tech community forum
-    href: https://techcommunity.microsoft.com/t5/azure-lab-services/bd-p/AzureLabServices
+  - name: Code samples
+    href: https://github.com/Azure/LabServices

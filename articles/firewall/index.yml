@@ -31,6 +31,10 @@ landingContent:
             url: rule-processing.md
           - text: Frequently asked questions
             url: firewall-faq.yml
+      - linkListType: concept
+        links:
+          - text: Azure Firewall NAT behaviors
+            url: https://techcommunity.microsoft.com/t5/azure-network-security-blog/azure-firewall-nat-behaviors/ba-p/3825834
       - linkListType: learn
         links:
           - text: Introduction to Azure Firewall

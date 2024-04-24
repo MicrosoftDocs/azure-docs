@@ -19,11 +19,9 @@ In Defender for IoT Firmware Analysis, the most common roles are Owner, Contribu
 ## Understanding the Representation of Firmware Images in the Azure Resource Hierarchy
 Azure organizes resources into resource hierarchies, which are in a top-down structure, and you can assign roles at each level of the hierarchy. The level at which you assign a role is the "scope," and lower scopes may inherit roles assigned at higher scopes. Learn more about the [levels of hierarchy and how to organize your resources in the hierarchy](/azure/cloud-adoption-framework/ready/azure-setup-guide/organize-resources).
 
-When you register your subscription to the Defender for IoT Firmware Analysis tool, the action automatically creates the **FirmwareAnalysisRG** Resource Group for you. To locate **FirmwareAnalysisRG**, navigate to your **Resource groups** page in the left menu:
-
-:::image type="content" source="media/defender-for-iot-firmware-analysis-rbac/firmware-analysis-rg.png" alt-text="Screenshot of the location of the FirmwareAnalysisRG Resource Group." lightbox="media/defender-for-iot-firmware-analysis-rbac/firmware-analysis-rg.png":::
+When you onboard your subscription to Defender for IoT Firmware Analysis and select your resource group, the action automatically creates the **default** resource within your resource group.
  
-In **FirmwareAnalysisRG**, select **Show hidden types** to show the **default** resource. The **default** resource has the **Microsoft.iotfirmwaredefense.workspace** type.
+Navigate to your resource group and select **Show hidden types** to show the **default** resource. The **default** resource has the **Microsoft.IoTFirmwareDefense.workspaces** type.
 
 :::image type="content" source="media/defender-for-iot-firmware-analysis-rbac/default-workspace.png" alt-text="Screenshot of the toggle button 'Show hidden types' that reveals a resource named 'default'." lightbox="media/defender-for-iot-firmware-analysis-rbac/default-workspace.png":::
  
@@ -33,12 +31,12 @@ You can use RBAC at each level of the hierarchy, including at the hidden **defau
 
 Here's the resource hierarchy of Defender for IoT Firmware Analysis:
 
-:::image type="content" source="media/defender-for-iot-firmware-analysis-rbac/resource-hierarchy.png" alt-text="Screenshot of the hidden 'default' resource, of type 'Microsoft.iotfirmwaredefense.workspace'." lightbox="media/defender-for-iot-firmware-analysis-rbac/resource-hierarchy.png":::
+:::image type="content" source="media/defender-for-iot-firmware-analysis-rbac/resource-hierarchy.png" alt-text="Diagram that shows the resource hierarchy of firmware images of Defender for IoT Firmware Analysis." lightbox="media/defender-for-iot-firmware-analysis-rbac/resource-hierarchy.png":::
 
 ## Apply Azure RBAC
 
 > [!Note]
-> To begin using Defender for IoT Firmware Analysis, the user that onboards the subscription onto Defender for IoT Firmware Analysis ***must be*** a subscription Owner or Contributor. Follow the tutorial at [Analyze a firmware image with Microsoft Defender for IoT](../../../articles/defender-for-iot/device-builders/tutorial-analyze-firmware.md) to onboard your subscription. Once you've onboarded your subscription, a user only needs to be a Firmware Analysis Admin to use Defender for IoT Firmware Analysis.
+> To begin using Defender for IoT Firmware Analysis, the user that onboards the subscription onto Defender for IoT Firmware Analysis ***must be*** an Owner, Contributor, Firmware Analysis Admin, or Security Admin at the subscription level. Follow the tutorial at [Analyze a firmware image with Microsoft Defender for IoT](../../../articles/defender-for-iot/device-builders/tutorial-analyze-firmware.md#onboard-your-subscription-to-use-defender-for-firmware-analysis) to onboard your subscription. Once you've onboarded your subscription, a user only needs to be a Firmware Analysis Admin to use Defender for IoT Firmware Analysis.
 > 
 
 As a user of Defender for IoT Firmware Analysis, you may need to perform certain actions for your organization, such as uploading firmware images or sharing analysis results.
@@ -70,14 +68,14 @@ Invite users to the Subscription | Owner at the **Subscription** level (Owner at
 To upload firmware images:
 
 * Confirm that you have sufficient permission in [Defender for IoT Firmware Analysis Roles, Scopes, and Capabilities](#defender-for-iot-firmware-analysis-roles-scopes-and-capabilities).
-* [Upload a firmware image for analysis](../../../articles/defender-for-iot/device-builders/tutorial-analyze-firmware.md).
+* [Upload a firmware image for analysis](../../../articles/defender-for-iot/device-builders/tutorial-analyze-firmware.md#upload-a-firmware-image-for-analysis).
 
 ## Invite third parties to interact with your firmware analysis results
-You might want to invite someone to interact solely with your firmware analysis results, without allowing access to other parts of your organization (like other resource groups within your subscription). To allow this type of access, invite the user as a Firmware Analysis Admin at the FirmwareAnalysisRG Resource Group level.
+You might want to invite someone to interact solely with your firmware analysis results, without allowing access to other parts of your organization (like other resource groups within your subscription). To allow this type of access, invite the user as a Firmware Analysis Admin at the Resource Group level.
 
-To invite a third party, follow the [Assign Azure roles to external users using the Azure portal](../../../articles/role-based-access-control/role-assignments-external-users.md#invite-an-external-user-to-your-directory) tutorial.
+To invite a third party, follow the [Assign Azure roles to external guest users using the Azure portal](../../../articles/role-based-access-control/role-assignments-external-users.md#invite-an-external-user-to-your-directory) tutorial.
 
-* In step 3, navigate to the **FirmwareAnalysisRG** Resource Group.
+* In step 3, navigate to your resource group.
 * In step 7, select the **Firmware Analysis Admin** role.
 
 > [!Note]

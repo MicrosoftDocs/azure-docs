@@ -1,7 +1,7 @@
 ---
 title: Create and deploy template spec
 description: Learn how to create a template spec from ARM template. Then, deploy the template spec to a resource group in your subscription.
-ms.date: 05/22/2023
+ms.date: 03/20/2024
 ms.topic: quickstart
 ms.custom: mode-api, devx-track-azurecli, devx-track-arm-template
 ms.devlang: azurecli

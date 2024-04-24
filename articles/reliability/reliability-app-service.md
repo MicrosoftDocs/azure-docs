@@ -339,7 +339,7 @@ Steps to create an active-active architecture for your web app in App Service ar
 
 1. Deploy code to both the web apps with [continuous deployment](../app-service/deploy-continuous-deployment.md).
 
-[Tutorial: Create a highly available multi-region app in Azure App Service](../app-service/tutorial-multi-region-app.md) shows you how to set up an *active-passive* architecture. The same steps with minimal changes (setting priority to “1” for both origin groups in Azure Front Door) give you an *active-active* architecture.
+[Tutorial: Create a highly available multi-region app in Azure App Service](../app-service/tutorial-multi-region-app.md) shows you how to set up an *active-passive* architecture. The same steps with minimal changes (setting priority to “1” for both origins in the origin group in Azure Front Door) give you an active-active architecture.
 
 
 ##### Active-passive architecture

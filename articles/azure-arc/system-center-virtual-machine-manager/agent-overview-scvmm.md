@@ -8,6 +8,7 @@ ms.author: v-farhabano
 manager: jsuri
 ms.services: azure-arc
 ms.subservice: azure-arc-scvmm
+ms.custom: linux-related-content
 ---
 
 # Overview of Azure Connected Machine agent to manage Windows and Linux machines

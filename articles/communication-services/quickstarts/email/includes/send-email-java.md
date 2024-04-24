@@ -159,7 +159,7 @@ For simplicity, this quickstart uses connection strings, but in production envir
 
 ## Basic email sending 
 
-To send an email message, call the `beginSend` function from the `EmailClient`. This method returns a poller, which can be used to check on the status of the operation and retrieve the result once it's finished.
+To send an email message, call the `beginSend` function from the `EmailClient`. This method returns a poller, which can be used to check on the status of the operation and retrieve the result once it's finished. Note that the initial request to send an email will not be sent until either the `poll` method is called or we wait for completion of the poller.
 
 ```java
 EmailMessage message = new EmailMessage()

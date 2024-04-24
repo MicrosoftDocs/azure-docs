@@ -47,6 +47,12 @@ Azure AI Studio is currently available in preview in the following Azure regions
 
 Azure AI Studio preview is currently not available in Azure Government regions or air-gap regions.
 
+## Azure OpenAI
+
+[!INCLUDE [OpenAI Quotas](../../ai-services/openai/includes/model-matrix/quota.md)]
+
+For more information, see [Azure OpenAI quotas and limits](/azure/ai-services/openai/quotas-limits).
+
 ## Speech capabilities
 
 [!INCLUDE [Limited AI services](../includes/limited-ai-services.md)]

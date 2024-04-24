@@ -13,6 +13,12 @@ ms.service: azure-maps
 
 Migrating from the Azure Maps Android SDK to the Web SDK in a WebView involves transitioning your existing map view from a native implementation to a web-based map using the Azure Maps Web SDK. This guide shows you how to migrate your code and features from the Android SDK to the Web SDK.
 
+> [!NOTE]
+>
+> **Azure Maps Android SDK retirement**
+>
+> The Azure Maps Native SDK for Android is now deprecated and will be retired on 3/31/25. To avoid service disruptions, migrate to the Azure Maps Web SDK by 3/31/25.
+
 ## Prerequisites
 
 To use the Map Control in a web page, you must have one of the following prerequisites:

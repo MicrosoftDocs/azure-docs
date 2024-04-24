@@ -6,7 +6,7 @@ author: gmndrg
 ms.author: gimondra
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 12/01/2022
+ms.date: 03/18/2024
 ms.custom:
   - devx-track-csharp
   - ignite-2023
@@ -20,31 +20,33 @@ In this example, learn how to create a web API custom skill. This skill will acc
 
 + Read about [custom skill interface](cognitive-search-custom-skill-interface.md) article if you aren't familiar with the input/output interface that a custom skill should implement.
 
-+ Create a [Bing Search v7 resource](https://portal.azure.com/#create/Microsoft.BingSearch) through the Azure Portal. A free tier is available and sufficient for this example.
++ Create a [Bing Search resource](https://portal.azure.com/#create/Microsoft.BingSearch) through the Azure portal. A free tier is available and sufficient for this example.
 
-+ Install [Visual Studio 2019](https://www.visualstudio.com/vs/) or later, including the Azure development workload.
++ Install [Visual Studio](https://www.visualstudio.com/vs/) or later.
 
 ## Create an Azure Function
 
 Although this example uses an Azure Function to host a web API, it isn't required.  As long as you meet the [interface requirements for a cognitive skill](cognitive-search-custom-skill-interface.md), the approach you take is immaterial. Azure Functions, however, make it easy to create a custom skill.
 
-### Create a function app
+### Create a project
 
 1. In Visual Studio, select **New** > **Project** from the File menu.
 
-1. In the New Project dialog, select **Azure Functions** as the template and select **Next**. Type a name for your project, and select **Create**. The function app name must be valid as a C# namespace, so don't use underscores, hyphens, or any other non-alphanumeric characters.
+1. Choose **Azure Functions** as the template and select **Next**. Type a name for your project, and select **Create**. The function app name must be valid as a C# namespace, so don't use underscores, hyphens, or any other non-alphanumeric characters.
 
-1. Select the type to be **HTTP Trigger**
+1. Select a framework that has long term support.
 
-1. For Storage Account, you may select **None**, as you won't need any storage for this function.
+1. Choose **HTTP Trigger** for the type of function to add to the project.
+
+1. Choose **Function** for the authorization level.
 
 1. Select **Create** to create the function project and HTTP triggered function.
 
-### Modify the code to call the Bing Entity Search Service
+### Add code to call the Bing Entity API
 
-Visual Studio creates a project and in it a class that contains boilerplate code for the chosen function type. The *FunctionName* attribute on the method sets the name of the function. The *HttpTrigger* attribute specifies that the function is triggered by an HTTP request.
+Visual Studio creates a project with boilerplate code for the chosen function type. The *FunctionName* attribute on the method sets the name of the function. The *HttpTrigger* attribute specifies that the function is triggered by an HTTP request.
 
-Now, replace all of the content of the file *Function1.cs* with the following code:
+Replace the contents of *Function1.cs* with the following code:
 
 ```csharp
 using System;
@@ -307,10 +309,6 @@ namespace SampleSkills
 ```
 
 Make sure to enter your own *key* value in the `key` constant based on the key you got when signing up for the Bing entity search API.
-
-This sample includes all necessary code in a single file for convenience. You can find a slightly more structured version of that same skill in [the power skills repository](https://github.com/Azure-Samples/azure-search-power-skills/tree/main/Text/BingEntitySearch).
-
-Of course, you may rename the file from `Function1.cs` to `BingEntitySearch.cs`.
 
 ## Test the function from Visual Studio
 

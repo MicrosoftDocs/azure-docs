@@ -68,7 +68,7 @@ When you expose the global endpoint of a cross-region load balancer to customers
 
 ### Static anycast global IP address
 
-Cross-region load balancer comes with a static public IP, which ensures the IP address remains the same. To learn more about static IP, read more [here.](../virtual-network/ip-services/public-ip-addresses.md#ip-address-assignment)
+Cross-region load balancer comes with a static public IP, which ensures the IP address remains the same. Both IPv4 and IPv6 configurations are supported. To learn more about static IP, read more [here.](../virtual-network/ip-services/public-ip-addresses.md#ip-address-assignment)
 
 ### Client IP Preservation
 
@@ -151,8 +151,6 @@ Cross-region load balancer routes the traffic to the appropriate regional load b
 * Private or internal load balancer can't be added to the backend pool of a cross-region load balancer 
 
 * NAT64 translation isn't supported at this time. The frontend and backend IPs must be of the same type (v4 or v6).
-
-* UDP traffic isn't supported on Cross-region Load Balancer for IPv6.
 
 * UDP traffic on port 3 isn't supported on Cross-Region Load Balancer
 

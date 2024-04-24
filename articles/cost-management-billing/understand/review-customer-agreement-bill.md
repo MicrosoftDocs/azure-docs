@@ -6,7 +6,7 @@ ms.reviewer: lishepar
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: tutorial
-ms.date: 04/05/2023
+ms.date: 03/21/2024
 ms.author: banders
 ---
 
@@ -41,17 +41,17 @@ Check the agreement type to determine whether you have access to a billing accou
 
 In the Azure portal, type *cost management + billing* in the search box and then select **Cost Management + Billing**.
 
-![Screenshot shows Azure portal search for cost management + billing.](./media/review-customer-agreement-bill/billing-search-cost-management-billing.png)
+:::image type="content" border="true" source="./media/review-customer-agreement-bill/billing-search-cost-management-billing.png" alt-text="Screenshot showing an Azure portal search for Cost Management + Billing.":::
 
 If you have access to just one billing scope, select **Properties** from the left-hand side. You have access to a billing account for a Microsoft Customer Agreement if the billing account type is **Microsoft Customer Agreement**.
 
-![Screenshot that shows Microsoft Customer Agreement in properties page](./media/review-customer-agreement-bill/billing-mca-property.png)
+:::image type="content" border="true" source="./media/review-customer-agreement-bill/billing-mca-property.png" alt-text="Screenshot showing the Microsoft Customer Agreement properties page.":::
 
 If you have access to multiple billing scopes, check the type in the billing account column. You have access to a billing account for a Microsoft Customer Agreement if the billing account type for any of the scopes is **Microsoft Customer Agreement**.
 
 In the billing scopes page, select **Billing scopes** and then select the billing account, which would be used to pay for the subscriptions' usage. The billing account should be of type **Microsoft Customer Agreement**.
 
-![Screenshot that shows Microsoft Customer Agreement in billing account list page](./media/review-customer-agreement-bill/billing-mca-in-the-list.png)
+:::image type="content" border="true" source="./media/review-customer-agreement-bill/billing-mca-in-the-list.png" alt-text="Screenshot showing the Microsoft Customer Agreement type on the Billing Accounts page.":::
 
 ## Review invoiced transactions in the Azure portal
 
@@ -59,7 +59,7 @@ In the Azure portal, select **All transactions** from the left side of the page.
 
 The All transactions page displays the following information:
 
-![Screenshot that shows the billed transactions list](./media/review-customer-agreement-bill/mca-billed-transactions-list.png)
+:::image type="content" border="true" source="./media/review-customer-agreement-bill/mca-billed-transactions-list.png" alt-text="Screenshot that shows the billed transactions list.":::
 
 |Column  |Definition  |
 |---------|---------|
@@ -80,7 +80,7 @@ Invoice sections help you organize the costs for a billing profile's invoice. Fo
 
 The following image shows charges for the Accounting Dept invoice section on a sample invoice.
 
-![Example image showing the details by invoice section information](./media/review-customer-agreement-bill/invoicesection-details.png)
+:::image type="content" border="true" source="./media/review-customer-agreement-bill/invoicesection-details.png" alt-text="Screenshot showing the details by invoice section information.":::
 
 When you've identified the charges for an invoice section, you can view the transactions in the Azure portal to understand the charges.
 
@@ -102,7 +102,7 @@ Select the **Summary** tab from the top of the screen.
 
 The charges section display the month-to-date and last month's charges.
 
-![Screenshot shows a billing profile summary.](./media/review-customer-agreement-bill/mca-billing-profile-summary.png)
+:::image type="content" border="true" source="./media/review-customer-agreement-bill/mca-billing-profile-summary.png" alt-text="Screenshot showing a billing profile summary.":::
 
 The month-to-date charges are the pending charges for the current month and are billed when the invoice is generated for the month. If the invoice for last month is still not generated, then last month's charges are also pending and will appear on your next invoice.
 
@@ -120,7 +120,7 @@ Select **All transactions** from the left side of the page.
 
 Search for *pending*. Use the **Timespan** filter to view pending charges for current or last month.
 
-![Screenshot that shows the pending transactions list](./media/review-customer-agreement-bill/mca-pending-transactions-list.png)
+:::image type="content" border="true" source="./media/review-customer-agreement-bill/mca-pending-transactions-list.png" alt-text="Screenshot showing the pending transactions list.":::
 
 ### View pending usage charges
 
@@ -134,7 +134,7 @@ Select **All subscriptions** on the left side of the page.
 
 The Azure subscriptions page displays the current and last month's charges for each subscription in the billing profile. The month-to-date charges are the pending charges for the current month and are billed when the invoice is generated for the month. If the invoice for last month is still not generated, then last month's charges are also pending.
 
-![Screenshot shows subscriptions with month-to-date charges and last month's charges.](./media/review-customer-agreement-bill/mca-billing-profile-subscriptions-list.png)
+:::image type="content" border="true" source="./media/review-customer-agreement-bill/mca-billing-profile-subscriptions-list.png" alt-text="Screenshot showing subscriptions with month-to-date charges and last month's charges.":::
 
 ## Analyze your Azure usage charges
 
@@ -150,7 +150,7 @@ You can filter the Azure usage and charges file to reconcile the usage charges f
 
 The following information walks you through reconciling compute charges for the Accounting Dept invoice section:
 
-![Example image showing the details by invoice section information](./media/review-customer-agreement-bill/invoicesection-details.png)
+:::image type="content" border="true" source="./media/review-customer-agreement-bill/invoicesection-details.png" alt-text="Screenshot showing the details by invoice section.":::
 
 | Invoice PDF | Azure usage and charges CSV |
 | --- | --- |
@@ -160,7 +160,7 @@ The following information walks you through reconciling compute charges for the 
 
 Filter the **invoiceSectionName** column in the CSV file to **Accounting Dept**. Then, filter the **productOrderName** column in the CSV file to **Microsoft Azure Plan**. Next, filter the **serviceFamily** column in the CSV file to **Microsoft.Compute**.
 
-![Screenshot that shows the usage and charges file filtered by invoice section](./media/review-customer-agreement-bill/billing-usage-file-filtered-by-invoice-section.png)
+:::image type="content" border="true" source="./media/review-customer-agreement-bill/billing-usage-file-filtered-by-invoice-section.png" alt-text="Screenshot showing the usage and charges file filtered by invoice section.":::
 
 ### View detailed usage by subscription
 
@@ -168,11 +168,11 @@ You can filter the Azure usage and charges CSV file to reconcile usage charges f
 
 The following image shows the list of subscriptions in the Azure portal.
 
-![Screenshot shows the list of subscriptions in the Azure portal with one subscription called out.](./media/review-customer-agreement-bill/mca-billing-profile-subscriptions-list-highlighted.png)
+:::image type="content" border="true" source="./media/review-customer-agreement-bill/mca-billing-profile-subscriptions-list-highlighted.png" alt-text="Screenshot showing the list of subscriptions in the Azure portal with one subscription called out.":::
 
 Filter the **subscriptionName** column in the Azure usage and charges CSV file to **WA_Subscription** to view the detailed usage charges for WA_Subscription.
 
-![Screenshot that shows the usage and charges file filtered by subscription](./media/review-customer-agreement-bill/billing-usage-file-filtered-by-subscription.png)
+:::image type="content" border="true" source="./media/review-customer-agreement-bill/billing-usage-file-filtered-by-subscription.png" alt-text="Screenshot that shows the usage and charges file filtered by subscription.":::
 
 ## Pay your bill
 

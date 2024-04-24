@@ -659,7 +659,7 @@ For more information about custom data reporting in Application Insights, see [A
 ### How do I capture Request and Response body in my telemetry?
 
 ASP.NET Core has [built-in
-support](https://learn.microsoft.com/aspnet/core/fundamentals/http-logging) for
+support](/aspnet/core/fundamentals/http-logging) for
 logging HTTP Request/Response information (including body) via
 [`ILogger`](#ilogger-logs). It is recommended to leverage this. This may
 potentially expose personally identifiable information (PII) in telemetry, and
@@ -798,6 +798,8 @@ When you add Application Insights Telemetry to a Visual Studio ASP.NET Core temp
     ```
 
 ## Troubleshooting
+
+See the dedicated [troubleshooting article](/troubleshoot/azure/azure-monitor/app-insights/asp-net-troubleshoot-no-data).
 
 [!INCLUDE [azure-monitor-app-insights-test-connectivity](../../../includes/azure-monitor-app-insights-test-connectivity.md)]
 

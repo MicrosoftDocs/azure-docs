@@ -1,5 +1,5 @@
 ---
-title: Enable Azure Machine Learning studio in a virtual network
+title: Use Azure Machine Learning studio in a virtual network
 titleSuffix: Azure Machine Learning
 description: Learn how to configure Azure Machine Learning studio to access data stored inside of a virtual network.
 services: machine-learning
@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.reviewer: larryfr
 ms.author: jhirono
 author: jhirono
-ms.date: 01/29/2024
+ms.date: 03/06/2024
 ms.custom: tracking-python, security
 monikerRange: 'azureml-api-2 || azureml-api-1'
 ---
@@ -20,7 +20,7 @@ monikerRange: 'azureml-api-2 || azureml-api-1'
 
 This article explains how to use Azure Machine Learning studio in a virtual network. The studio includes features like AutoML, the designer, and data labeling.
 
-Some of the studio's features are disabled by default in a virtual network. To re-enable these features, you must enable managed identity for storage accounts you intend to use in the studio.
+Some of the studio's features are disabled by default in a virtual network. To re-enable these features, you must enable managed identity for storage accounts that you intend to use in the studio.
 
 The following operations are disabled by default in a virtual network:
 
@@ -61,7 +61,7 @@ In this article, you learn how to:
 * An existing [Azure storage account added your virtual network](v1/how-to-secure-workspace-vnet.md#secure-azure-storage-accounts).
 :::moniker-end
 
-* For a tutorial on creating a secure workspace, see [Tutorial: Create a secure workspace](tutorial-create-secure-workspace.md) or [Tutorial: Create a secure workspace using a template](tutorial-create-secure-workspace-template.md).
+* To learn how to create a secure workspace, see [Tutorial: Create a secure workspace](tutorial-create-secure-workspace.md) or [Tutorial: Create a secure workspace using a template](tutorial-create-secure-workspace-template.md).
 
 ## Limitations
 
@@ -69,8 +69,8 @@ In this article, you learn how to:
 
 * When the storage account is in the virtual network, there are extra validation requirements to use studio:
 
-    * If the storage account uses a [service endpoint](how-to-secure-workspace-vnet.md?tabs=se#secure-azure-storage-accounts), the workspace private endpoint and storage service endpoint must be in the same subnet of the VNet.
-    * If the storage account uses a [private endpoint](how-to-secure-workspace-vnet.md?tabs=pe#secure-azure-storage-accounts), the workspace private endpoint and storage private endpoint must be in the same VNet. In this case, they can be in different subnets.
+    * If the storage account uses a [service endpoint](how-to-secure-workspace-vnet.md?tabs=se#secure-azure-storage-accounts), the workspace private endpoint and storage service endpoint must be in the same subnet of the virtual network.
+    * If the storage account uses a [private endpoint](how-to-secure-workspace-vnet.md?tabs=pe#secure-azure-storage-accounts), the workspace private endpoint and storage private endpoint must be in the same virtual network. In this case, they can be in different subnets.
 
 ### Designer sample pipeline
 
@@ -83,13 +83,17 @@ To resolve this issue, use a public workspace to run the sample pipeline. Or rep
 Use the following steps to enable access to data stored in Azure Blob and File storage:
 
 > [!TIP]
-> The first step is not required for the default storage account for the workspace. All other steps are required for *any* storage account behind the VNet and used by the workspace, including the default storage account.
+> The first step isn't required for the default storage account for the workspace. All other steps are required for *any* storage account behind the VNet and used by the workspace, including the default storage account.
 
 1. **If the storage account is the *default* storage for your workspace, skip this step**. If it isn't the default, **grant the workspace managed identity the Storage Blob Data Reader role** for the Azure storage account so that it can read data from blob storage.
 
     For more information, see the [Blob Data Reader](../role-based-access-control/built-in-roles.md#storage-blob-data-reader) built-in role.
 
-1. **Grant the workspace managed identity the Reader role for storage private endpoints**. If your storage service uses a private endpoint, grant the workspace's managed identity **Reader** access to the private endpoint. The workspace's managed identity in Microsoft Entra ID has the same name as your Azure Machine Learning workspace. A private endpoint is necessary for both blob and file storage types.
+1. Grant **your Azure user identity** the **Storage Blob Data reader** role for the Azure storage account. The studio uses your identity to access data to blob storage, even if the workspace managed identity has the Reader role.
+
+    For more information, see the [Blob Data Reader](../role-based-access-control/built-in-roles.md#storage-blob-data-reader) built-in role.
+
+1. **Grant the workspace managed identity the Reader role for storage private endpoints**. If your storage service uses a private endpoint, grant the workspace's managed identity *Reader* access to the private endpoint. The workspace's managed identity in Microsoft Entra ID has the same name as your Azure Machine Learning workspace. A private endpoint is necessary for both blob and file storage types.
 
     > [!TIP]
     > Your storage account might have multiple private endpoints. For example, one storage account might have separate private endpoint for blob, file, and dfs (Azure Data Lake Storage Gen2). Add the managed identity to all these endpoints.
@@ -122,7 +126,7 @@ Use the following steps to enable access to data stored in Azure Blob and File s
 
     1. In the **Networking** settings for the Azure Storage Account, add the `Microsoft.MachineLearningService/workspaces` **Resource type**, and set the **Instance name** to the workspace.
 
-    These steps add the workspace's managed identity as a Reader to the new storage service using Azure RBAC. Reader access allows the workspace to view the resource, but not make changes.
+    These steps add the workspace's managed identity as a Reader to the new storage service using Azure role-based access control (RBAC). Reader access allows the workspace to view the resource, but not make changes.
 
 ## Datastore: Azure Data Lake Storage Gen1
 
@@ -156,18 +160,18 @@ Make sure that you have access to the intermediate storage accounts in your virt
 
 ## Access the studio from a resource inside the VNet
 
-If you're accessing the studio from a resource inside of a virtual network (for example, a compute instance or virtual machine), you must allow outbound traffic from the virtual network to the studio.
+If you access the studio from a resource inside of a virtual network (for example, a compute instance or virtual machine), you must allow outbound traffic from the virtual network to the studio.
 
-For example, if you're using network security groups (NSG) to restrict outbound traffic, add a rule to a **service tag** destination of `AzureFrontDoor.Frontend`.
+For example, if you use network security groups (NSG) to restrict outbound traffic, add a rule to a **service tag** destination of `AzureFrontDoor.Frontend`.
 
 ## Firewall settings
 
 Some storage services, such as Azure Storage Account, have firewall settings that apply to the public endpoint for that specific service instance. Usually this setting allows you to allow/disallow access from specific IP addresses from the public internet. **This is not supported** when using Azure Machine Learning studio. It's supported when using the Azure Machine Learning SDK or CLI.
 
 > [!TIP]
-> Azure Machine Learning studio is supported when using the Azure Firewall service. For more information, see [Use your workspace behind a firewall](how-to-access-azureml-behind-firewall.md).
+> Azure Machine Learning studio is supported when using the Azure Firewall service. For more information, see [Configure inbound and outbound network traffic](how-to-access-azureml-behind-firewall.md).
 
-## Next steps
+## Related content
 
 This article is part of a series on securing an Azure Machine Learning workflow. See the other articles in this series:
 

@@ -2,8 +2,8 @@
   href: manage/index.yml
 - name: Overview
   items:
-  - name: What is Cost Management and Billing?
-    displayName: azure cost management, cost management azure, azure cost management and billing
+  - name: What is Billing?
+    displayName: azure billing, billing
     href: cost-management-billing-overview.md
   - name: What's new?
     href: https://azure.microsoft.com/blog/tag/cost-management/
@@ -56,7 +56,7 @@
       - name: Account administrator tasks
         href: manage/account-admin-tasks.md
       - name: Edit billing contact information
-        href: manage/change-azure-account-profile.md
+        href: manage/change-azure-account-profile.yml
       - name: Update tax details
         href: manage/manage-tax-information.md
       - name: Grant access to billing
@@ -144,7 +144,7 @@
       - name: Transfer subscription to EA
         href: manage/mosp-ea-transfer.md
       - name: Transfer CSP subscriptions
-        href: manage/transfer-subscriptions-subscribers-csp.md
+        href: manage/transfer-subscriptions-subscribers-csp.yml
       - name: Transfer Microsoft Customer Agreement ownership
         href: manage/mca-request-billing-ownership.md
       - name: Transfer Microsoft Partner Agreement ownership
@@ -195,6 +195,8 @@
         href: understand/download-azure-invoice.md
       - name: View and download your Azure usage and charges
         href: understand/download-azure-daily-usage.md
+      - name: Billing meter ID updates
+        href: understand/billing-meter-id-updates.md
       - name: Download your invoice
         href: manage/download-azure-invoice-daily-usage-date.md
       - name: View and download tax documents
@@ -247,6 +249,8 @@
       href: ../azure-portal/supportability/how-to-create-azure-support-request.md
     - name: Create EA support request
       href: troubleshoot-billing/how-to-create-azure-support-request-ea.md
+    - name: Can't create VM - Contact reseller
+      href: troubleshoot-billing/cannot-create-vm.md
   - name: Troubleshoot subscriptions
     items:
     - name: No subscriptions found
@@ -259,6 +263,8 @@
       href: troubleshoot-subscription/create-subscriptions-deploy-resources.md
     - name: Not available due to conflict error
       href: troubleshoot-subscription/troubleshoot-not-available-conflict.md
+    - name: Can't sign up for an Azure subscription
+      href: troubleshoot-subscription/cannot-sign-up-subscription.md
 - name: Reference
   items:
   - name: Billing Automation Scenarios

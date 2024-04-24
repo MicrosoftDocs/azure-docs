@@ -19,6 +19,10 @@ This article includes sample [Azure Resource Manager templates (ARM templates)](
 
 In this sample, we add an Azure Cosmos DB instance by using [targets and capabilities](chaos-studio-targets-capabilities.md). To modify the template for any service-direct target and capabilities, see the [fault library](chaos-studio-fault-library.md).
 
+## Deploying templates
+
+Once you've reviewed the template and parameter files, learn how to deploy them into your Azure subscription with the [Deploy resources with ARM templates and Azure portal](../azure-resource-manager/templates/deploy-portal.md) article.
+
 ### Template file
 
 ```json
