@@ -4237,18 +4237,23 @@
     },
     {
         "source_path_from_root": "/articles/machine-learning/prompt-flow/concept-runtime.md",
-        "redirect_url": "/azure/machine-learning/prompt-flow/concept-session.md",
+        "redirect_url": "/azure/machine-learning/prompt-flow/concept-session",
         "redirect_document_id": true
     },
     {
         "source_path_from_root": "/articles/machine-learning/prompt-flow/how-to-create-manage-runtime.md",
-        "redirect_url": "/azure/machine-learning/prompt-flow/how-to-manage-compute-session.md",
+        "redirect_url": "/azure/machine-learning/prompt-flow/how-to-manage-compute-session",
         "redirect_document_id": true
     },    
     {
         "source_path_from_root": "/articles/machine-learning/prompt-flow/migrate-managed-inference-runtime.md",
-        "redirect_url": "/azure/machine-learning/prompt-flow/how-to-manage-compute-session.md",
+        "redirect_url": "/azure/machine-learning/prompt-flow/how-to-manage-compute-session",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/prompt-flow/how-to-customize-environment-runtime.md",
+        "redirect_url": "/azure/machine-learning/prompt-flow/how-to-customize-session-base-image",
         "redirect_document_id": true
-    }    
+    }        
 ]
 }

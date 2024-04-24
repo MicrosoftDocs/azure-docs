@@ -34,7 +34,6 @@ You can quickly start testing and evaluating your flow by following this video t
 
 To run a batch run and use an evaluation method, you need to have the following ready:
 - A test dataset for batch run. Your dataset should be in one of these formats: `.csv`, `.tsv`, or `.jsonl`. Your data should also include headers that match the input names of your flow. Further Reading: If you are building your own copilot, we recommend referring to [Guidance for creating Golden Datasets used for Copilot quality assurance](#further-reading-guidance-for-creating-golden-datasets-used-for-copilot-quality-assurance).
-- An available runtime to run your batch run. A runtime is a cloud-based resource that executes your flow and generates outputs. To learn more about runtime, see [Runtime](./how-to-create-manage-runtime.md).
 
 ## Submit a batch run and use a built-in evaluation method
 
@@ -50,7 +49,7 @@ First, you're asked to give your batch run a descriptive and recognizable name. 
 
 :::image type="content" source="./media/how-to-bulk-test-evaluate-flow/batch-run-name.png" alt-text="Screenshot of batch run settings where you specify run name and description. " lightbox = "./media/how-to-bulk-test-evaluate-flow/batch-run-name.png":::
 
-Second, you need to select or upload a dataset that you want to test your flow with. You also need to select an available runtime to execute this batch run. 
+Second, you need to select or upload a dataset that you want to test your flow with. 
 Prompt flow also  supports mapping your flow input to a specific data column in your dataset. This means that you can assign a column to a certain input. You can assign a column to an input by referencing with `${data.XXX}` format. If you want to assign a constant value to an input, you can directly type in that value.
 
 :::image type="content" source="./media/how-to-bulk-test-evaluate-flow/batch-run-setting.png" alt-text="Screenshot of batch run settings where you select a test dataset. " lightbox = "./media/how-to-bulk-test-evaluate-flow/batch-run-setting.png":::

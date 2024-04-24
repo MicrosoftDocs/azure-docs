@@ -67,11 +67,11 @@ Then you'll enter the flow authoring page. Before we dive in, please first start
 Compute session serves as the computing resources required for the application to run, including a Docker image that contains all necessary dependency packages. It's a must-have for flow execution. 
 
 
-:::image type="content" source="./media/get-started-prompt-flow/start-automatic-runtime.png" alt-text="Screenshot of starting an automatic runtime." lightbox = "./media/get-started-prompt-flow/start-automatic-runtime.png":::
+:::image type="content" source="./media/get-started-prompt-flow/start-compute-session.png" alt-text="Screenshot of starting an start-compute-session." lightbox = "./media/get-started-prompt-flow/start-compute-session.png":::
 
 ### Flow authoring page
 
-When the automatic runtime is creating, we can take a look at the flow authoring page.
+When the compute session is starting, we can take a look at the flow authoring page.
 
 :::image type="content" source="./media/get-started-prompt-flow/views.png" alt-text="Screenshot of web classification highlighting the main working area." lightbox = "./media/get-started-prompt-flow/flatten-view.png":::
 
@@ -157,7 +157,7 @@ Go to [GitHub](https://aka.ms/web-classification-data) to download "data.csv", t
 
 Select **Evaluate** button next to Run button, then a right panel pops up. It's a wizard that guides you to submit a batch run and to select the evaluation method (optional).​​​​​​​
 
-You need to set a batch run name, description, select a runtime, then select **Add new data** to upload the data you just downloaded. After uploading the data or if your colleagues in the workspace already created a dataset, you can choose the dataset from the drop-down and preview first five rows. The dataset selection drop down supports search and autosuggestion.
+You need to set a batch run name, description, then select **Add new data** to upload the data you just downloaded. After uploading the data or if your colleagues in the workspace already created a dataset, you can choose the dataset from the drop-down and preview first five rows. The dataset selection drop down supports search and autosuggestion.
 
 In addition, the **input mapping** supports mapping your flow input to a specific data column in your dataset, which means that you can use any column as the input, even if the column names don't match.
 
@@ -230,7 +230,7 @@ If you don't plan to use any of the resources that you created, delete them so y
 
 Now that you have an idea of what's involved in flow developing, testing, evaluating and deploying, learn more about the process in these tutorials:
 
-- [Create and manage runtimes](how-to-create-manage-runtime.md)
+- [Manage compute session](how-to-manage-compute-session.md)
 - [Develop a standard flow](how-to-develop-a-standard-flow.md)
 - [Submit bulk test and evaluate a flow](how-to-develop-a-standard-flow.md)
 - [Tune prompts using variants](how-to-tune-prompts-using-variants.md)
