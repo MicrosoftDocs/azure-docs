@@ -42,7 +42,7 @@ before you begin.
 Azure CLI (through an extension) and Azure PowerShell (through a module) support Azure Resource
 Graph. Before running any of the following queries, check that your environment is ready. See
 [Azure CLI](../first-query-azurecli.md#install-the-extension) and [Azure
-PowerShell](../first-query-powershell.md#add-the-resource-graph-module) for steps to install and
+PowerShell](../first-query-powershell.md#install-the-module) for steps to install and
 validate your shell environment of choice.
 
 ## Count Azure resources
