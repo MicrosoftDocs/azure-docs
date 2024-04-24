@@ -6,7 +6,7 @@ ms.author: antoniomanug
 ms.service: azure
 ms.custom: devx-track-java, devx-track-extended-java
 ms.topic: conceptual
-ms.date: 11/15/2023
+ms.date: 03/25/2024
 ---
 
 # Azure Migrate application and code assessment for Java

@@ -2,20 +2,18 @@
 title: How to manually evaluate prompts in Azure AI Studio playground 
 titleSuffix: Azure AI Studio
 description: Quickly test and evaluate prompts in Azure AI Studio playground.
-manager: nitinme
+manager: scottpolly
 ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
 ms.topic: how-to
 ms.date: 2/22/2024
 ms.reviewer: eur
-ms.author: eur
-author: eric-urban
+ms.author: lagayhar
+author: lgayhardt
 ---
 
 # Manually evaluate prompts in Azure AI Studio playground 
-
-[!INCLUDE [Azure AI Studio preview](../includes/preview-ai-studio.md)]
 
 When you get started with prompt engineering, you should test different inputs one at a time to evaluate the effectiveness of the prompt can be very time intensive. This is because it's important to check whether the content filters are working appropriately, whether the response is accurate, and more. 
 

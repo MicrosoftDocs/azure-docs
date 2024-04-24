@@ -6,7 +6,7 @@ manager: amycolannino
 ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: conceptual
-ms.date: 11/15/2023
+ms.date: 04/01/2024
 ms.author: rolyon
 ms.custom: subject-rbac-steps
 ---
@@ -39,7 +39,7 @@ There are two ways that you can add a condition. You can add a condition when yo
 
 ### New role assignment
 
-1. Follow the steps to [Assign Azure roles using the Azure portal](role-assignments-portal.md).
+1. Follow the steps to [Assign Azure roles using the Azure portal](role-assignments-portal.yml).
 
 1. On the **Conditions (optional)** tab, click **Add condition**.
 
@@ -105,7 +105,7 @@ Once you have the Add role assignment condition page open, you can review the ba
 
 1. In the **Attribute source** list, select where the attribute can be found.
 
-    - **Environment** (preview) indicates that the attribute is associated with the network environment over which the resource is accessed such as a private link, or the current date and time.
+    - **Environment** indicates that the attribute is associated with the network environment over which the resource is accessed such as a private link, or the current date and time.
     - **Resource** indicates that the attribute is on the resource, such as container name.
     - **Request** indicates that the attribute is part of the action request, such as setting the blob index tag.
     - **Principal** indicates that the attribute is a Microsoft Entra custom security attribute principal, such as a user, enterprise application (service principal), or managed identity.
@@ -150,7 +150,7 @@ Once you have the Add role assignment condition page open, you can review the ba
 
     If you don't see the View/Edit link, be sure you're looking at the same scope as the role assignment.
 
-    ![Role assignment list with View/Edit link for condition.](./media/conditions-role-assignments-portal/condition-role-assignments-list-edit.png)
+    ![Role assignment list with View/Edit link for condition.](./media/shared/condition-role-assignments-list-edit.png)
 
     The Add role assignment condition page appears.
 

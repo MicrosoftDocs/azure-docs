@@ -1,6 +1,6 @@
 ---
 title: Relocate Azure Key Vault to another region
-description: This article offers guidance on moving a key vault to a different region.
+description: This article offers guidance on moving a key vault to another region.
 services: key-vault
 author: anaharris
 ms.service: key-vault
@@ -35,6 +35,11 @@ Instead of relocation, you need to:
   - Access Policies and Network configuration settings.
   - Soft delete and purge protection.
   - Autorotation settings.
+   
+## Downtime
+
+To understand the possible downtimes involved, see [Cloud Adoption Framework for Azure: Select a relocation method](/azure/cloud-adoption-framework/relocate/select#select-a-relocation-method).
+
 
 ## Consideration for Service Endpoints
 
@@ -206,7 +211,7 @@ To deploy the template by using Azure portal:
             "ipRules": [],
             "virtualNetworkRules": [
                 {
-                    "id": "[concat(parameters('target_subnet_name'), concat('/subnets/', parameters('target_subnet_name')]",
+                    "id": "[concat(parameters('target_vnet_externalid'), concat('/subnets/', parameters('target_subnet_name')]",
                     "ignoreMissingVnetServiceEndpoint": false
                 }
             ]
@@ -288,7 +293,7 @@ To deploy the template by using PowerShell:
        "ipRules": [],
        "virtualNetworkRules": [
            {
-               "id": "[concat(parameters('target_subnet_name'), concat('/subnets/', parameters('target_subnet_name')]",
+               "id": "[concat(parameters('target_vnet_externalid'), concat('/subnets/', parameters('target_subnet_name')]",
                "ignoreMissingVnetServiceEndpoint": false
            }
        ]

@@ -28,10 +28,11 @@ There are two ways to enable monitoring for applications hosted on App Service:
   - [.NET](./azure-web-apps-net.md)
   - [Java](./azure-web-apps-java.md)
   - [Node.js](./azure-web-apps-nodejs.md)
+  - [Python](./azure-web-apps-python.md)
 
 * **Manually instrumenting the application through code** by installing the Application Insights SDK.
 
-  This approach is much more customizable, but it requires the following approaches: SDK for [.NET Core](./asp-net-core.md), [.NET](./asp-net.md), [Node.js](./nodejs.md), [Python](/previous-versions/azure/azure-monitor/app/opencensus-python), and a standalone agent for [Java](./opentelemetry-enable.md?tabs=java). This method also means you must manage the updates to the latest version of the packages yourself.
+  This approach is much more customizable, but it requires the following approaches: SDK for [.NET Core](./asp-net-core.md), [.NET](./asp-net.md), [Node.js](./nodejs.md), [Python](./opentelemetry-enable.md?tabs=python), and a standalone agent for [Java](./opentelemetry-enable.md?tabs=java). This method also means you must manage the updates to the latest version of the packages yourself.
   
   If you need to make custom API calls to track events/dependencies not captured by default with autoinstrumentation monitoring, you need to use this method. To learn more, see [Application Insights API for custom events and metrics](./api-custom-events-metrics.md).
 
@@ -165,4 +166,4 @@ The details depend on the type of project. For a web application:
 
 ## Next steps
 
-Learn how to enable autoinstrumentation application monitoring for your [.NET Core](./azure-web-apps-net-core.md), [.NET](./azure-web-apps-net.md), [Java](./azure-web-apps-java.md), or [Nodejs](./azure-web-apps-nodejs.md) application running on App Service.
+Learn how to enable autoinstrumentation application monitoring for your [.NET Core](./azure-web-apps-net-core.md), [.NET](./azure-web-apps-net.md), [Java](./azure-web-apps-java.md), [Nodejs](./azure-web-apps-nodejs.md), or [Python](./azure-web-apps-python.md) application running on App Service.

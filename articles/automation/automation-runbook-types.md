@@ -3,7 +3,7 @@ title: Azure Automation runbook types
 description: This article describes the types of runbooks that you can use in Azure Automation and considerations for determining which type to use.
 services: automation
 ms.subservice: process-automation
-ms.date: 02/29/2024
+ms.date: 03/23/2024
 ms.topic: conceptual
 ms.custom: references_regions, devx-track-python, devx-track-azurepowershell
 ---
@@ -262,7 +262,9 @@ PowerShell Workflow runbooks are text runbooks based on [Windows PowerShell Work
 
 ### Limitations
 
-* You must be familiar with PowerShell Workflow.
+* PowerShell workflow isn't supported in PowerShell 7+ versions. Hence, the outdated runbooks can't be upgraded.
+* Inefficient handling of parallel execution compared to newer PowerShell 7+ versions.
+* PowerShell Workflow internally works using multiple processes. Hence, modules available in one process may not be available in another and cause exceptions like *command not found*.
 * Runbooks must deal with the additional complexity of PowerShell Workflow, such as [deserialized objects](automation-powershell-workflow.md#deserialized-objects).
 * Runbooks take longer to start than PowerShell runbooks since they must be compiled before running.
 * You can only include PowerShell runbooks as child runbooks by using the `Start-AzAutomationRunbook` cmdlet.
@@ -281,7 +283,7 @@ Currently, Python 3.10 (preview) runtime version is supported for both Cloud and
 
 - Uses the robust Python libraries.
 - Can run in Azure or on Hybrid Runbook Workers.
-- For Python 2.7, Windows Hybrid Runbook Workers are supported with [python 2.7](https://www.python.org/downloads/release/latest/python2) installed.
+- For Python 2.7, Windows Hybrid Runbook Workers are supported with [python 2.7](https://www.python.org/downloads/release/python-2711/) installed.
 - For Python 3.8 Cloud Jobs, Python 3.8 version is supported. Scripts and packages from any 3.x version might work if the code is compatible across different versions.
 - For Python 3.8 Hybrid jobs on Windows machines, you can choose to install any 3.x version you may want to use.
 - For Python 3.8 Hybrid jobs on Linux machines, we depend on the Python 3 version installed on the machine to run DSC OMSConfig and the Linux Hybrid Worker. Different versions should work if there are no breaking changes in method signatures or contracts between versions of Python 3.

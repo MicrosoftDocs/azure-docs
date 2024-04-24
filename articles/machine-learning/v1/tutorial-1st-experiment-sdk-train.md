@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: Train a first Python machine learning model (SDK v1)"
 titleSuffix: Azure Machine Learning
-description: How to train a machine learning model in Azure Machine Learning, with SDK v1. This is part 2 of a three-part getting-started series.
+description: How to train a machine learning model in Azure Machine Learning, with SDK v1. This is part 2 of a two-part getting-started series.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: training
@@ -9,7 +9,7 @@ ms.topic: tutorial
 author: aminsaied
 ms.author: amsaied
 ms.reviewer: sgilley
-ms.date: 07/29/2022
+ms.date: 04/03/2024
 ms.custom: UpdateFrequency5, devx-track-python, contperf-fy21q, sdkv1
 ---
 
@@ -18,11 +18,11 @@ ms.custom: UpdateFrequency5, devx-track-python, contperf-fy21q, sdkv1
 [!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
 
-This tutorial shows you how to train a machine learning model in Azure Machine Learning.  This tutorial is *part 2 of a three-part tutorial series*.
+This tutorial shows you how to train a machine learning model in Azure Machine Learning. This tutorial is *part 2 of a two-part tutorial series*.
 
- In [Part 1: Run "Hello world!"](tutorial-1st-experiment-hello-world.md) of the series, you learned how to use a control script to run a job in the cloud.  
+ In [Part 1: Run "Hello world!"](tutorial-1st-experiment-hello-world.md) of the series, you learned how to use a control script to run a job in the cloud. 
 
-In this tutorial, you take the next step by submitting a script that trains a machine learning model. This example will help you understand how Azure Machine Learning eases consistent behavior between local debugging and remote runs.
+In this tutorial, you take the next step by submitting a script that trains a machine learning model. This example helps you understand how Azure Machine Learning eases consistent behavior between local debugging and remote runs.
 
 In this tutorial, you:
 
@@ -42,9 +42,9 @@ In this tutorial, you:
 
 ## Create training scripts
 
-First you define the neural network architecture in a *model.py* file. All your training code will go into the `src` subdirectory, including *model.py*.
+First you define the neural network architecture in a *model.py* file. All your training code goes into the `src` subdirectory, including *model.py*.
 
-The training code is taken from [this introductory example](https://pytorch.org/tutorials/beginner/blitz/cifar10_tutorial.html) from PyTorch. Note that the Azure Machine Learning concepts apply to any machine learning code, not just PyTorch.
+The training code is taken from [this introductory example](https://pytorch.org/tutorials/beginner/blitz/cifar10_tutorial.html) from PyTorch. The Azure Machine Learning concepts apply to any machine learning code, not just PyTorch.
 
 1. Create a *model.py* file in the **src** subfolder. Copy this code into the file:
 
@@ -72,7 +72,7 @@ The training code is taken from [this introductory example](https://pytorch.org/
             x = self.fc3(x)
             return x
     ```
-1. On the toolbar, select **Save** to save the file.  Close the tab if you wish.
+1. On the toolbar, select **Save** to save the file. Close the tab if you wish.
 
 1. Next, define the training script, also in the **src** subfolder. This script downloads the CIFAR10 dataset by using PyTorch `torchvision.dataset` APIs, sets up the network defined in *model.py*, and trains it for two epochs by using standard SGD and cross-entropy loss.
 
@@ -136,22 +136,22 @@ The training code is taken from [this introductory example](https://pytorch.org/
 
 1. You now have the following folder structure:
 
-    :::image type="content" source="../media/tutorial-1st-experiment-sdk-train/directory-structure.png" alt-text="Directory structure shows train.py in src subdirectory":::
+    :::image type="content" source="./media/tutorial-1st-experiment-sdk-train/directory-structure.png" alt-text="Directory structure shows train.py in src subdirectory":::
 
 
 ## Test locally
 
 Select **Save and run script in terminal** to run the *train.py* script directly on the compute instance.
 
-After the script completes, select **Refresh** above the file folders. You'll see the new data folder called **get-started/data** Expand this folder to view the downloaded data.  
+After the script completes, select **Refresh** above the file folders. You see the new data folder called **get-started/data** Expand this folder to view the downloaded data. 
 
-:::image type="content" source="../media/tutorial-1st-experiment-hello-world/directory-with-data.png" alt-text="Screenshot of folders shows new data folder created by running the file locally.":::
+:::image type="content" source="./media/tutorial-1st-experiment-hello-world/directory-with-data.png" alt-text="Screenshot of folders shows new data folder created by running the file locally.":::
 
 ## Create a Python environment
 
-Azure Machine Learning provides the concept of an [environment](/python/api/azureml-core/azureml.core.environment.environment) to represent a reproducible, versioned Python environment for running experiments.  It's easy to create an environment from a local Conda or pip environment.
+Azure Machine Learning provides the concept of an [environment](/python/api/azureml-core/azureml.core.environment.environment) to represent a reproducible, versioned Python environment for running experiments. It's easy to create an environment from a local Conda or pip environment.
 
-First you'll create a file with the package dependencies.
+First you create a file with the package dependencies.
 
 1. Create a new file in the **get-started** folder called `pytorch-env.yml`:
     
@@ -165,7 +165,7 @@ First you'll create a file with the package dependencies.
         - pytorch
         - torchvision
     ```
-1. On the toolbar, select **Save** to save the file.  Close the tab if you wish.
+1. On the toolbar, select **Save** to save the file. Close the tab if you wish.
 
 ## Create the control script
 
@@ -226,17 +226,20 @@ if __name__ == "__main__":
 
 1. Select **Save and run script in terminal** to run the *run-pytorch.py* script.
 
-1. You'll see a link in the terminal window that opens. Select the link to view the job.
+1. You see a link in the terminal window that opens. Select the link to view the job.
 
     > [!NOTE]
     > You may see some warnings starting with *Failure while loading azureml_run_type_providers...*. You can ignore these warnings. Use the link at the bottom of these warnings to view your output.
 
 ### View the output
 
-1. In the page that opens, you'll see the job status. The first time you run this script, Azure Machine Learning will build a new Docker image from your PyTorch environment. The whole job might take around 10 minutes to complete.  This image will be reused in future jobs to make them run much quicker.
-1. You can see view Docker build logs in the Azure Machine Learning studio. Select the **Outputs + logs** tab, and then select **20_image_build_log.txt**.
+1. In the page that opens, you see the job status. The first time you run this script, Azure Machine Learning builds a new Docker image from your PyTorch environment. The whole job might take around 10 minutes to complete. This image will be reused in future jobs to make them run much quicker.
+1. You can see view Docker build logs in the Azure Machine Learning studio. to view the build logs:
+    1. Select the **Outputs + logs** tab.
+    1. Select **azureml-logs** folder.
+    1. Select **20_image_build_log.txt**.
 1. When the status of the job is **Completed**, select **Output + logs**.
-1. Select **std_log.txt** to view the output of your job.
+1. Select **user_logs**, then **std_log.txt** to view the output of your job.
 
 ```txt
 Downloading https://www.cs.toronto.edu/~kriz/cifar-10-python.tar.gz to ../data/cifar-10-python.tar.gz
@@ -253,7 +256,7 @@ Finished Training
 
 If you see an error `Your total snapshot size exceeds the limit`, the **data** folder is located in the `source_directory` value used in `ScriptRunConfig`.
 
-Select the **...** at the end of the folder, then select **Move** to move **data** to the **get-started** folder.  
+Select the **...** at the end of the folder, then select **Move** to move **data** to the **get-started** folder. 
 
 
 ## Log training metrics
@@ -367,22 +370,34 @@ Make sure you save this file before you submit the run.
 
 ### Submit the run to Azure Machine Learning
 
-Select the tab for the *run-pytorch.py* script, then select **Save and run script in terminal** to re-run the *run-pytorch.py* script.  Make sure you've saved your changes to `pytorch-env.yml` first.
+Select the tab for the *run-pytorch.py* script, then select **Save and run script in terminal** to rerun the *run-pytorch.py* script. Make sure you save your changes to `pytorch-env.yml` first.
 
-This time when you visit the studio, go to the **Metrics** tab where you can now see live updates on the model training loss! It may take a 1 to 2  minutes before the training begins.  
+This time when you visit the studio, go to the **Metrics** tab where you can now see live updates on the model training loss! It may take a 1 to 2  minutes before the training begins. 
 
-:::image type="content" source="../media/tutorial-1st-experiment-sdk-train/logging-metrics.png" alt-text="Training loss graph on the Metrics tab.":::
+:::image type="content" source="./media/tutorial-1st-experiment-sdk-train/logging-metrics.png" alt-text="Training loss graph on the Metrics tab.":::
 
-## Next steps
+## Clean up resources
+
+If you plan to continue now to another tutorial, or to start your own training jobs, skip to [Related resources](#related-resources).
+
+### Stop compute instance
+
+If you're not going to use it now, stop the compute instance:
+
+1. In the studio, on the left, select **Compute**.
+1. In the top tabs, select **Compute instances**
+1. Select the compute instance in the list.
+1. On the top toolbar, select **Stop**.
+
+
+### Delete all resources
+
+[!INCLUDE [aml-delete-resource-group](../includes/aml-delete-resource-group.md)]
+
+You can also keep the resource group but delete a single workspace. Display the workspace properties and select **Delete**.
+
+## Related resources
 
 In this session, you upgraded from a basic "Hello world!" script to a more realistic training script that required a specific Python environment to run. You saw how to use curated Azure Machine Learning environments. Finally, you saw how in a few lines of code you can log metrics to Azure Machine Learning.
 
 There are other ways to create Azure Machine Learning environments, including [from a pip requirements.txt](/python/api/azureml-core/azureml.core.environment.environment#from-pip-requirements-name--file-path-) file or [from an existing local Conda environment](/python/api/azureml-core/azureml.core.environment.environment#from-existing-conda-environment-name--conda-environment-name-).
-
-In the next session, you'll see how to work with data in Azure Machine Learning by uploading the CIFAR10 dataset to Azure.
-
-> [!div class="nextstepaction"]
-> [Tutorial: Bring your own data](tutorial-1st-experiment-bring-data.md)
-
->[!NOTE] 
-> If you want to finish the tutorial series here and not progress to the next step, remember to [clean up your resources](tutorial-1st-experiment-bring-data.md#clean-up-resources).

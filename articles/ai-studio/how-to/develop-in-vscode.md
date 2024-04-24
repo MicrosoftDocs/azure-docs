@@ -1,7 +1,7 @@
 ---
-title: Work with Azure AI projects in VS Code
+title: Work with Azure AI Studio projects in VS Code
 titleSuffix: Azure AI Studio
-description: This article provides instructions on how to get started with Azure AI projects in VS Code.
+description: This article provides instructions on how to get started with Azure AI Studio projects in VS Code.
 manager: nitinme
 ms.service: azure-ai-studio
 ms.custom:
@@ -9,15 +9,13 @@ ms.custom:
 ms.topic: how-to
 ms.date: 1/10/2024
 ms.reviewer: eur
-ms.author: eur
-author: eric-urban
+ms.author: sgilley
+author: sdgilley
 ---
 
-# Get started with Azure AI projects in VS Code
+# Get started with Azure AI Studio projects in VS Code
 
-[!INCLUDE [Azure AI Studio preview](../includes/preview-ai-studio.md)]
-
-Azure AI Studio supports developing in VS Code - Web and Desktop. In each scenario, your VS Code instance is remotely connected to a prebuilt custom container running on a virtual machine, also known as a compute instance. To work in your local environment instead, or to learn more, follow the steps in [Install the Azure AI SDK](sdk-install.md) and [Install the Azure AI CLI](cli-install.md).
+Azure AI Studio supports developing in VS Code - Web and Desktop. In each scenario, your VS Code instance is remotely connected to a prebuilt custom container running on a virtual machine, also known as a compute instance. 
 
 ## Launch VS Code from Azure AI Studio
 
@@ -40,11 +38,11 @@ Azure AI Studio supports developing in VS Code - Web and Desktop. In each scenar
 
 ## The custom container folder structure
 
-Our prebuilt development environments are based on a docker container that has the Azure AI SDK generative packages, the Azure AI CLI, the Prompt flow SDK, and other tools. The environment is configured to run VS Code remotely inside of the container. The container is defined in a similar way to [this Dockerfile](https://github.com/Azure/aistudio-copilot-sample/blob/main/.devcontainer/Dockerfile), and is based on [Microsoft's Python 3.10 Development Container Image](https://mcr.microsoft.com/product/devcontainers/python/about). 
+Our prebuilt development environments are based on a docker container that has Azure AI SDKs, the prompt flow SDK, and other tools. The environment is configured to run VS Code remotely inside of the container. The container is defined in a similar way to [this Dockerfile](https://github.com/Azure/aistudio-copilot-sample/blob/main/.devcontainer/Dockerfile), and is based on [Microsoft's Python 3.10 Development Container Image](https://mcr.microsoft.com/product/devcontainers/python/about). 
 
 Your file explorer is opened to the specific project directory you launched from in AI Studio. 
 
-The container is configured with the Azure AI folder hierarchy (`afh` directory), which is designed to orient you within your current development context, and help you work with your code, data and shared files most efficiently. This `afh` directory houses your Azure AI projects, and each project has a dedicated project directory that includes `code`, `data` and `shared` folders. 
+The container is configured with the Azure AI folder hierarchy (`afh` directory), which is designed to orient you within your current development context, and help you work with your code, data and shared files most efficiently. This `afh` directory houses your Azure AI Studio projects, and each project has a dedicated project directory that includes `code`, `data` and `shared` folders. 
 
 This table summarizes the folder structure:
 
@@ -55,44 +53,19 @@ This table summarizes the folder structure:
 | `shared` | Use for working with a project's shared files and assets such as prompt flows.<br/><br/>For example, `shared\Users\{user-name}\promptflow` is where you find the project's prompt flows. |
 
 > [!IMPORTANT]
-> It's recommended that you work within this project directory. Files, folders, and repos you include in your project directory persist on your host machine (your compute instance). Files stored in the code and data folders will persist even when the compute instance is stopped or restarted, but will be lost if the compute is deleted. However, the shared files are saved in your Azure AI hub resource's storage account, and therefore aren't lost if the compute instance is deleted.
-
-### The Azure AI SDK
-
-To get started with the AI SDK, we recommend the [aistudio-copilot-sample repo](https://github.com/azure/aistudio-copilot-sample) as a comprehensive starter repository that includes a few different copilot implementations. For the full list of samples, check out the [Azure AI Samples repository](https://github.com/azure-samples/azureai-samples).
-
-1. Open a terminal
-1. Clone a sample repo into your project's `code` folder. You might be prompted to authenticate to GitHub
-
-    ```bash
-    cd code
-    git clone https://github.com/azure/aistudio-copilot-sample
-    ```
-
-1. If you have existing notebooks or code files, you can import `import azure.ai.generative` and use intellisense to browse capabilities included in that package
-
-### The Azure AI CLI
-
-If you prefer to work interactively, the Azure AI CLI has everything you need to build generative AI solutions.
-
-1. Open a terminal to get started
-1. `ai help` guides you through CLI capabilities
-1. `ai init` configures your resources in your development environment
+> It's recommended that you work within this project directory. Files, folders, and repos you include in your project directory persist on your host machine (your compute instance). Files stored in the code and data folders will persist even when the compute instance is stopped or restarted, but will be lost if the compute is deleted. However, the shared files are saved in your hub's storage account, and therefore aren't lost if the compute instance is deleted.
 
 ### Working with prompt flows
 
-You can use the Azure AI SDK and Azure AI CLI to create, reference and work with prompt flows.
+You can create, reference and work with prompt flows.
 
-Prompt flows already created in the Azure AI Studio can be found at `shared\Users\{user-name}\promptflow`. You can also create new flows in your `code` or `shared` folder using the Azure AI CLI and SDK.
+Prompt flows already created in the Azure AI Studio can be found at `shared\Users\{user-name}\promptflow`. You can also create new flows in your `code` or `shared` folder.
 
-- To reference an existing flow using the AI CLI, use `ai flow invoke`.
-- To create a new flow using the AI CLI, use `ai flow new`.
+Prompt flow will automatically use the Azure AI Studio connections your project has access to.
 
-Prompt flow will automatically use the Azure AI connections your project has access to when you use the AI CLI or SDK.
+You can also work with the prompt flow extension in VS Code, which is preinstalled in this environment. Within this extension, you can set the connection provider to your project. See [consume connections from Azure AI](https://microsoft.github.io/promptflow/cloud/azureai/consume-connections-from-azure-ai.html).
 
-You can also work with the prompt flow extension in VS Code, which is preinstalled in this environment. Within this extension, you can set the connection provider to your Azure AI project. See [consume connections from Azure AI](https://microsoft.github.io/promptflow/cloud/azureai/consume-connections-from-azure-ai.html).
-
-For prompt flow specific capabilities that aren't present in the AI SDK and CLI, you can work directly with the prompt flow CLI or SDK. For more information, see [prompt flow capabilities](https://microsoft.github.io/promptflow/reference/index.html).
+For more information, see [prompt flow capabilities](https://microsoft.github.io/promptflow/reference/index.html).
 
 ## Remarks
 
@@ -102,10 +75,9 @@ If you plan to work across multiple code and data directories, or multiple repos
 1. Select the repository folder that you want to load. You should see a new section in your file explorer for the folder you opened. If it was a repository, you can now work with source control in VS Code.
 1. If you want to save this configuration for future development sessions, again enter *Ctrl+Shift+p* and select **Workspaces: Save Workspace As**. This action saves a config file to your current folder.
 
-For cross-language compatibility and seamless integration of Azure AI capabilities, explore the Azure AI Hub at [https://aka.ms/azai](https://aka.ms/azai). Discover app templates and SDK samples in your preferred programming language.
+For app templates and SDK samples in your preferred programming language, see [Develop apps that use Azure AI services](/azure/developer/intro/azure-ai-for-developers).
 
 ## Next steps
 
-- [Get started with the Azure AI CLI](cli-install.md)
-- [Build your own copilot using Azure AI CLI and SDK](../tutorials/deploy-copilot-sdk.md)
+- [Get started with Azure AI SDKs](../how-to/develop/sdk-overview.md)
 - [Quickstart: Analyze images and video with GPT-4 for Vision in the playground](../quickstarts/multimodal-vision.md)

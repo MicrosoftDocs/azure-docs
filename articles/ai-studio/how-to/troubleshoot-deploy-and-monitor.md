@@ -15,8 +15,6 @@ author: msakande
 
 # How to troubleshoot your deployments and monitors in Azure AI Studio
 
-[!INCLUDE [Azure AI Studio preview](../includes/preview-ai-studio.md)]
-
 This article provides instructions on how to troubleshoot your deployments and monitors in Azure AI Studio. 
 
 ## Deployment issues
@@ -39,7 +37,7 @@ For the general deployment error code reference, you can go to the [Azure Machin
 
 **Answer:** You can follow this instruction to manually assign ML Data scientist role to your endpoint to resolve this issue. It might take several minutes for the new role to take effect.
 
-1. Go to your project and select **AI project settings** from the left menu.
+1. Go to your project and select **Project settings** from the left menu.
 2. Select the link to your resource group.
 3. Once you're redirected to the resource group in Azure portal, Select **Access control (IAM)** on the left navigation menu.
 4. Select **Add role assignment**.
@@ -65,8 +63,8 @@ You might have come across an ImageBuildFailure error: This happens when the env
 Option 1: Find the build log for the Azure default blob storage.
 
 1. Go to your project in [Azure AI Studio](https://ai.azure.com) and select the settings icon on the lower left corner.
-2. Select your Azure AI hub resource name under **Resource configurations** on the **AI project settings** page.
-3. On the Azure AI hub overview page, select your storage account name. This should be the name of storage account listed in the error message you received. You'll be taken to the storage account page in the [Azure portal](https://portal.azure.com).
+2. Select your hub name under **Resource configurations** on the **Project settings** page.
+3. On the hub overview page, select your storage account name. This should be the name of storage account listed in the error message you received. You'll be taken to the storage account page in the [Azure portal](https://portal.azure.com).
 4. On the storage account page, select **Containers** under **Data Storage** on the left menu.
 5. Select the container name listed in the error message you received.
 6. Select through folders to find the build logs.

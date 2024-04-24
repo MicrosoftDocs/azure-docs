@@ -4,7 +4,7 @@ description: Track engagements with Azure customers by linking a partner ID to t
 author: bandersmsft
 ms.reviewer: presharm
 ms.author: banders
-ms.date: 07/27/2023
+ms.date: 03/21/2024
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to 

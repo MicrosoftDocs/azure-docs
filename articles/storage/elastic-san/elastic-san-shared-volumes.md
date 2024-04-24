@@ -19,7 +19,6 @@ When used as a shared volume, elastic SAN volumes can be shared across availabil
 
 ## Limitations
 
-- Volumes in an Elastic SAN using [ZRS](elastic-san-planning.md#redundancy) can't be used as shared volumes.
 - Elastic SAN connection scripts can be used to attach shared volumes to virtual machines in Virtual Machine Scale Sets or virtual machines in Availability Sets. Fault domain alignment isn't supported.
 - The maximum number of sessions a shared volume supports is 128.
     - An individual client can create multiple sessions to an individual volume for increased performance. For example, if you create 32 sessions on each of your clients, only four clients could connect to a single volume.

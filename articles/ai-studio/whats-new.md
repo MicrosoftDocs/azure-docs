@@ -14,15 +14,13 @@ author: eric-urban
 
 # What's new in Azure AI Studio?
 
-[!INCLUDE [Azure AI Studio preview](./includes/preview-ai-studio.md)]
-
 Azure AI Studio is updated on an ongoing basis. To stay up-to-date with recent developments, this article provides you with information about new releases and features.
 
 ## February 2024
 
-### Azure AI hub
+### Azure AI Studio hub
 
-Azure AI resource is renamed Azure AI hub resource. For additional information about the Azure AI hub resource, check out [the Azure AI hub resource documentation](./concepts/ai-resources.md).
+Azure AI resource is renamed hub. For additional information about the hub, check out [the hub documentation](./concepts/ai-resources.md).
 
 ## January 2024
 

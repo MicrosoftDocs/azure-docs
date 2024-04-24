@@ -7,12 +7,42 @@
         },
         {
             "source_path_from_root": "/articles/ai-studio/how-to/deploy-models.md",
-            "redirect_URL": "/azure/ai-studio/concepts/deployments-overview",
+            "redirect_url": "/azure/ai-studio/concepts/deployments-overview",
             "redirect_document_id": true
         },
         {
             "source_path_from_root": "/articles/ai-studio/quickstarts/playground-completions.md",
-            "redirect_URL": "/azure/ai-studio/quickstarts/assistants",
+            "redirect_url": "/azure/ai-studio/quickstarts/assistants",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/ai-studio/how-to/cli-install.md",
+            "redirect_url": "/azure/ai-studio/how-to/develop/sdk-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/ai-studio/how-to/generate-data-qa.md",
+            "redirect_url": "/azure/ai-studio/how-to/data-add",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/ai-studio/how-to/simulator-interaction-data.md",
+            "redirect_url": "/azure/ai-studio/how-to/data-add",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/ai-studio/tutorials/deploy-copilot-sdk.md",
+            "redirect_url": "/azure/ai-studio/tutorials/deploy-copilot-ai-studio",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/ai-studio/how-to/sdk-install.md",
+            "redirect_url": "/azure/ai-studio/how-to/develop/sdk-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/ai-studio/how-to/sdk-generative-overview.md",
+            "redirect_url": "/azure/ai-studio/how-to/develop/sdk-overview",
             "redirect_document_id": true
         }
     ]
