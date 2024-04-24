@@ -6,12 +6,12 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: network-watcher
 ms.topic: concept-article
-ms.date: 12/05/2023
+ms.date: 04/24/2024
 
 #CustomerIntent: As a administrator, I want learn about traffic analytics schema so I can easily use the queries and understand their output.
 ---
 
-# Schema and data aggregation in Azure Network Watcher traffic analytics
+# Traffic analytics schema and data aggregation
 
 Traffic analytics is a cloud-based solution that provides visibility into user and application activity in cloud networks. Traffic analytics analyzes Azure Network Watcher flow logs to provide insights into traffic flow in your Azure cloud. With traffic analytics, you can:
 
@@ -268,8 +268,10 @@ The following table details public IP schema:
 | **Location** | Location of the IP | - For Azure Public IP: Azure region of virtual network/network interface/virtual machine to which the IP belongs OR Global for IP [168.63.129.16](../virtual-network/what-is-ip-address-168-63-129-16.md). <br> - For External Public IP and Malicious IP: 2-letter country code where IP is located (ISO 3166-1 alpha-2). |
 | **PublicIPDetails** | Information about IP | - For AzurePublic IP: Azure Service owning the IP or Microsoft virtual public IP for [168.63.129.16](../virtual-network/what-is-ip-address-168-63-129-16.md). <br> - ExternalPublic/Malicious IP: WhoIS information of the IP. |
 | **ThreatType** | Threat posed by malicious IP | **For Malicious IPs only**: One of the threats from the list of currently allowed values (described in the next table). |
-| **ThreatDescription** | Description of the threat | **For Malicious IPs only**: Description of the threat posed by the malicious IP. |
-| **DNSDomain** | DNS domain | **For Malicious IPs only**: Domain name associated with this IP. |
+| **ThreatDescription** | Description of the threat | *For Malicious IPs only*. Description of the threat posed by the malicious IP. |
+| **DNSDomain** | DNS domain | *For Malicious IPs only*. Domain name associated with the malicious IP. |
+| **Url** | URL corresponding to the malicious IP | *For Malicious IPs only* |
+| **Port** | Port corresponding to the malicious IP | *For Malicious IPs only* |
 
 # [**VNet flow logs (preview)**](#tab/vnet)
 
@@ -285,8 +287,10 @@ The following table details public IP schema:
 | **PublicIPDetails** | Information about IP | **For AzurePublic IP**: Azure Service owning the IP or **Microsoft Virtual Public IP** for the IP 168.63.129.16. <br> **ExternalPublic/Malicious IP**: WhoIS information of the IP. |
 | **ThreatType** | Threat posed by malicious IP | *For Malicious IPs only*. One of the threats from the list of currently allowed values. For more information, see [Notes](#notes). |
 | **DNSDomain** | DNS domain | *For Malicious IPs only*. Domain name associated with this IP. |
-| **ThreatDescription** |Description of the threat | *For Malicious IPs only*. Description of the threat posed by the malicious IP. |
+| **ThreatDescription** | Description of the threat | *For Malicious IPs only*. Description of the threat posed by the malicious IP. |
 | **Location** | Location of the IP | **For Azure Public IP**: Azure region of virtual network / network interface / virtual machine to which the IP belongs or Global for IP 168.63.129.16. <br> **For External Public IP and Malicious IP**: two-letter country code (ISO 3166-1 alpha-2) where IP is located. |
+| **Url** | URL corresponding to the malicious IP | *For Malicious IPs only* |
+| **Port** | Port corresponding to the malicious IP | *For Malicious IPs only* |
 
 > [!NOTE]
 > *NTAIPDetails* in VNet flow logs replaces *AzureNetworkAnalyticsIPDetails_CL* used in NSG flow logs.
