@@ -1,17 +1,17 @@
 ---
-title: Configuration options for optimal network latency with SAP applications | Microsoft Docs
-description: Describes SAP deployment scenarios to achieve optimal network latency
+title: Configuration options to minimize network latency with SAP applications | Microsoft Docs
+description: Describes SAP deployment scenarios to minimize network latency
 author: msjuergent
 manager: bburns
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.custom: devx-track-azurepowershell
 ms.topic: article
-ms.date: 03/15/2024
+ms.date: 04/24/2024
 ms.author: juergent
 ---
 
-# Configuration options for optimal network latency with SAP applications
+# Configuration options to minimize network latency with SAP applications
 
 > [!IMPORTANT]
 > In November 2021 we made significant changes in the way how proximity placement groups should be used with SAP workload in zonal deployments.
