@@ -50,7 +50,7 @@ The `default` option is meant exclusively for AKS weekly releases. You can switc
 ## Create a maintenance window
 
 > [!NOTE]
-> When you're using automatic upgrade, to ensure proper functionality, use a maintenance window with a duration of four hours or more.
+> When you're using automatic upgrades, to ensure proper functionality, use a maintenance window with a duration of four hours or more.
 
 Planned maintenance windows are specified in Coordinated Universal Time (UTC).
 
@@ -165,7 +165,7 @@ az aks maintenanceconfiguration add --resource-group myResourceGroup --cluster-n
     * **Frequency**: Select the day of the week for the maintenance window. We recommend selecting **Sunday**.
     * **Maintenance start date**: Select the start date for the maintenance window.
     * **Maintenance start time**: Select the start time for the maintenance window.
-    * **UTC offset**: Select the UTC offset for the maintenance window. If you don't specify an offset, the default is **+00:00**.
+    * **UTC offset**: Select the UTC offset for the maintenance window. The default is **+00:00**.
 
     :::image type="content" source="./media/planned-maintenance/add-maintenance-schedule-portal.png" alt-text="Screenshot that shows the pane for adding a maintenance schedule in the Azure portal.":::
 
@@ -402,7 +402,7 @@ az aks maintenanceconfiguration delete --resource-group myResourceGroup --cluste
 
 * How can I tell if a maintenance event occurred?
 
-  For releases, check your cluster's region and look up release information in [weekly releases][release-tracker] to see if it matches your maintenance schedule. To view the status of your automatic upgrades, look up [activity logs][monitor-aks] on your cluster. You can also look up specific upgrade-related events, as mentioned in [Upgrade an AKS cluster][aks-upgrade].
+  For releases, check your cluster's region and look up information in [weekly releases][release-tracker] to see if it matches your maintenance schedule. To view the status of your automatic upgrades, look up [activity logs][monitor-aks] on your cluster. You can also look up specific upgrade-related events, as mentioned in [Upgrade an AKS cluster][aks-upgrade].
   
   AKS also emits upgrade-related Azure Event Grid events. To learn more, see [AKS as an Event Grid source][aks-eventgrid].
 
@@ -410,9 +410,9 @@ az aks maintenanceconfiguration delete --resource-group myResourceGroup --cluste
 
   Yes, you can run all three configurations simultaneously: `default`, `aksManagedAutoUpgradeSchedule`, and `aksManagedNodeOSUpgradeSchedule`. If the windows overlap, AKS decides the running order.
 
-* I configured a maintenance window, but upgrade didn't happen - why?
+* I configured a maintenance window, but the upgrade didn't happen. Why?
 
-  AKS automatic upgrade needs a certain amount of time to take the maintenance window into consideration. We recommend at least 24 hours between the creation or update of a maintenance configuration and the scheduled start time.
+  An AKS automatic upgrade needs a certain amount of time to take the maintenance window into consideration. We recommend at least 24 hours between the creation or update of a maintenance configuration and the scheduled start time.
 
   Also, ensure that your cluster is started when the planned maintenance window starts. If the cluster is stopped, its control plane is deallocated and no operations can be performed.
 
