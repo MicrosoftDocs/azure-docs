@@ -23,9 +23,7 @@ This article describes how to create a Network Fabric by using the Azure Command
 * Express Route connectivity between NFC and Operator-Nexus instances.
 * Terminal server pre-configured with username and password [installed and configured](./howto-platform-prerequisites.md#set-up-terminal-server)
 * PE devices pre-configured with necessary VLANs, Route-Targets and IP addresses.
-* Supported SKUs from NFA Release 2.4 and beyond for Fabric are **M4-A400-A100-C16-ab**, **M8-A400-A100-C16-ab**, **M4-A400-A100-C16-aa** and **M8-A400-A100-C16-aa**.
-    * M4-A400-A100-C16-aa - up to four compute racks (BOM 1.6.2)
-    * M8-A400-A100-C16-aa - up to eight compute racks (BOM 1.6.2)
+* Supported SKUs from NFA Release 2.4 and beyond for Fabric are **M4-A400-A100-C16-ab** and **M8-A400-A100-C16-ab**.
     * M4-A400-A100-C16-ab - Up to four Compute Racks (BOM 1.7.3)
     * M8-A400-A100-C16-ab - Up to eight Compute Racks (BOM 1.7.3)
 
@@ -563,7 +561,7 @@ Run the following command to update Network Fabric Devices:
 az networkfabric device update \
 --resource-group "NFResourceGroup" \
 --resource-name "Network-Device-Name" \
---location "eastus" \
+--host-name "example-hostname" \
 --serial-number "xxxx"
 
 ```
@@ -1020,7 +1018,7 @@ Expected output:
 ```
 
 ## Deprovision a Fabric 
-To deprovision a fabric, ensure that the fabric is in a provisioned operational state and then run this command:
+To deprovision a fabric, ensure that the fabric is in a provisioned operational state, stop the dhcp service on the terminal server, and then run this command:
 
 ```azurecli
 az networkfabric fabric deprovision --resource-group "NFResourceGroup" --resource-name "NFName"
