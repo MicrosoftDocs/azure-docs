@@ -1586,6 +1586,9 @@
               href: reference-yaml-component-command.md
             - name: Pipeline
               href: reference-yaml-component-pipeline.md
+        - name: Connection
+            - name: Blob store
+              href: reference-yaml-connection-blob.md
         - name: Registry
           items:
             - name: Registry
