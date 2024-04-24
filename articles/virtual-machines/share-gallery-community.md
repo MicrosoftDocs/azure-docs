@@ -117,7 +117,7 @@ You can also use the following links to report issues, but the forms won't be pr
  
 ## Best practices
 
-- Images published to the community gallery should be [generalized](generalize.md) images that have had sensitive or machine specific information removed. For more information about preparing an image, see the OS specific information for [Linux](./linux/create-upload-generic.md) or [Windows](./windows/prepare-for-upload-vhd-image.md).
+- Images published to the community gallery should be [generalized](generalize.yml) images that have had sensitive or machine specific information removed. For more information about preparing an image, see the OS specific information for [Linux](./linux/create-upload-generic.md) or [Windows](./windows/prepare-for-upload-vhd-image.md).
 - If you would like to block sharing images to Community at the organization level, create an Azure policy with the following policy rule to deny sharing to Community.
 ```
   "policyRule": {
@@ -218,7 +218,7 @@ When you're ready to make the gallery public:
 ---
 
 > [!IMPORTANT]
-> If you are listed as the owner of your subscription, but you are having trouble sharing the gallery publicly, you may need to explicitly [add yourself as owner again](../role-based-access-control/role-assignments-portal-subscription-admin.md).
+> If you are listed as the owner of your subscription, but you are having trouble sharing the gallery publicly, you may need to explicitly [add yourself as owner again](../role-based-access-control/role-assignments-portal-subscription-admin.yml).
 
 To go back to only RBAC based sharing, use the [az sig share reset](/cli/azure/sig/share#az-sig-share-reset) command.
 

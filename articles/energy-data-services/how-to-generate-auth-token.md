@@ -96,6 +96,9 @@ You have two ways to get the list of data partitions in your Azure Data Manager 
 
    :::image type="content" source="media/how-to-generate-auth-token/data-partition-id-second-option-step-2.png" alt-text="Screenshot that shows finding the data-partition-id from the Azure Data Manager for Energy instance Overview page with the data partitions.":::
 
+### Find domain
+By default, the `domain` is dataservices.energy for all the Azure Data Manager for Energy instances.
+
 ## Generate the client-id auth token
 
 Run the following curl command in [Azure Cloud Bash](../cloud-shell/overview.md) after you replace the placeholder values with the corresponding values found earlier in the previous steps. The access token in the response is the `client-id` auth token.

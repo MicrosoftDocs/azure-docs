@@ -1,6 +1,6 @@
 ---
 title: Trusted Signing resources and roles
-description: Trusted Signing is a Microsoft fully managed end-to-end signing solution that simplifies the signing process for Azure developers. Learn all about the resources and roles specific to Trusted Signing, such as identity validations, certificate profiles, and the code signing identity verifier.
+description: Trusted Signing is a Microsoft fully managed end-to-end signing solution that simplifies the signing process for Azure developers. Learn all about the resources and roles specific to Trusted Signing, such as identity validations, certificate profiles, and the trusted signing identity verifier.
 author: ianjmcm
 ms.author: ianmcm
 ms.service: azure-code-signing
@@ -28,7 +28,7 @@ In the below example structure, notice that an Azure Subscription has a Resource
 
 ![Diagram of Trusted Signing resource group and cert profiles](./media/trusted-signing-resource-structure.png)
 
-This ability to have multiple Code Signing Accounts and Certificate Profiles is useful as the service supports Public Trust, Private Trust, CI Policy, VBS Enclave, and Test signing types. For more information on the Certificate Profile types and how they're used, review [Trusted Signing certificate types and management](./concept-trusted-signing-cert-management.md). 
+This ability to have multiple Trusted Signing Accounts and Certificate Profiles is useful as the service supports Public Trust, Private Trust, CI Policy, VBS Enclave, and Test signing types. For more information on the Certificate Profile types and how they're used, review [Trusted Signing certificate types and management](./concept-trusted-signing-cert-management.md). 
 
 > [!NOTE]
 > Identity Validations and Certificate Profiles align with either Public or Private Trust. Meaning that a Public Trust Identity Validation is only used for Certificate Profiles that are used for the Public Trust model. For more information, review [Trusted Signing trust models](./concept-trusted-signing-trust-models.md).
@@ -66,12 +66,12 @@ Trusted Signing provides five total Certificate Profile types that all subscribe
 
 ## Supported roles
 
-Azure Role Based Accesfnotes Controls (RBAC) is a cornerstone concept for all Azure resources. Trusted Signing adds two custom roles to meet subscribers’ needs for creating an Identity Validation (Code Signing Identity Verifier) and signing with Certificate Profiles (Code Signing Certificate Profile Signer). These custom roles explicitly must be assigned to perform those two critical functions in using Trusted Signing. Below is a complete list of roles Trusted Signing supports and their capabilities, including all standard Azure roles.
+Azure Role Based Accesfnotes Controls (RBAC) is a cornerstone concept for all Azure resources. Trusted Signing adds two custom roles to meet subscribers’ needs for creating an Identity Validation (Trusted Signing Identity Verifier) and signing with Certificate Profiles (Trusted Signing Certificate Profile Signer). These custom roles explicitly must be assigned to perform those two critical functions in using Trusted Signing. Below is a complete list of roles Trusted Signing supports and their capabilities, including all standard Azure roles.
 
 |Role|Managed/View Account|Manage Certificate Profiles|Sign with Certificate Profile|View Signing History|Manage Role Assignment|Manage Identity Validation|
 |---------------|---------------|-----------------|-----------------|-----------------|-----------------|-----------------|
-|Code Signing Identity Verifier<sub>1</sub>||||||X|
-|Code Signing Certificate Profile Signer<sub>2</sub>|||X|X|||
+|Trusted Signing Identity Verifier<sub>1</sub>||||||X|
+|Trusted Signing Certificate Profile Signer<sub>2</sub>|||X|X|||
 |Owner|X|X|||X||
 |Contributor|X|X|||||
 |Reader|X||||||

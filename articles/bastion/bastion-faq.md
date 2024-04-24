@@ -233,7 +233,7 @@ Yes, existing sessions on the target Bastion resource will disconnect during mai
 
 ### I'm connecting to a VM using a JIT policy, do I need additional permissions?
 
-If user is connecting to a VM using a JIT policy, there are no additional permissions needed. For more information on connecting to a VM using a JIT policy, see [Enable just-in-time access on VMs](../defender-for-cloud/just-in-time-access-usage.md).
+If user is connecting to a VM using a JIT policy, there are no additional permissions needed. For more information on connecting to a VM using a JIT policy, see [Enable just-in-time access on VMs](../defender-for-cloud/just-in-time-access-usage.yml).
 
 ## <a name="peering"></a>VNet peering FAQs
 

@@ -63,11 +63,7 @@ You can obtain a Microsoft Entra access token using PowerShell, Azure CLI, REST 
 
 #### Load data
 
-You can load data directly using the POST or PUT method against the FHIR service. To bulk load data, you can use one of the Open Source tools listed below.
- 
-- [FHIR Loader](https://github.com/microsoft/healthcare-apis-samples/tree/main/src/FHIRDL) This is a .NET console app and loads data stored in Azure storage to the FHIR service. It's a single thread app, but you can run multiple copies locally or in a Docker container. 
-- [FHIR Bulk Loader](https://github.com/microsoft/fhir-loader) This tool is an Azure function app (microservice) and runs in parallel threads.
-- [Bulk import](https://github.com/microsoft/fhir-server/blob/main/docs/BulkImport.md) This tool works with the Open Source FHIR server only. However, it will be available for Azure Health Data Services in the future.
+You can load data directly using the POST or PUT method against the FHIR service. To bulk load data, you can use $import operation. For information, visit [import operation](import-data.md).
 
 ### CMS, search, profile validation, and reindex
 
@@ -76,8 +72,6 @@ You can find more details on interoperability and patient access, search, profil
 ### Export data
 
 Optionally, you can export ($export) data to [Azure Storage](../data-transformation/export-data.md) and use it in your analytics or machine-learning projects. You can export the data "as-is" or [de-id](../data-transformation/de-identified-export.md) in `ndjson` format. 
-
-You can also export data to [Synapse](../data-transformation/move-to-synapse.md) using the Open Source project. In the future, this feature will be integrated to the managed service.
 
 ### Converting data
 

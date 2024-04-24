@@ -27,7 +27,7 @@ If you aren't familiar with Azure Monitor, learn more about how to [monitor Azur
 
 ## Configure alerts for sites in Azure Arc
 
-This section provides basic steps for configuring alerts for sites in Azure Arc. For more detailed information about Azure Monitor, see [Create or edit an alert rule](../../azure-monitor/alerts/alerts-create-metric-alert-rule.md).
+This section provides basic steps for configuring alerts for sites in Azure Arc. For more detailed information about Azure Monitor, see [Create or edit an alert rule](../../azure-monitor/alerts/alerts-create-metric-alert-rule.yml).
 
 To configure alerts for sites in Azure Arc, follow the below steps.
 
