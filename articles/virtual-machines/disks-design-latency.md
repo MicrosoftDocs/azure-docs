@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.service: azure-disk-storage
 ---
 
-# Best practices for configuring Azure infrastructure with high availability
+# Best practices for designing Azure infrastructure with high availability
 
 Azure offers several configuration options for ensuring availability of Azure virtual machines (VMs) and Azure managed disks. Deploying or configuring existing environments with the options mentioned in this article helps ensure steady application performance. This article outlines the available options and gives recommendations on when to use them.
 
