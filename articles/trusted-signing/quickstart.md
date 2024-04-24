@@ -94,13 +94,12 @@ The resources must be created in Azure regions where Trusted Signing is currentl
 | Region                               | Region Class Fields  | Endpoint URI Value                   |
 | :----------------------------------- | :------------------- |:-------------------------------------|
 | East US                              | EastUS               | `https://eus.codesigning.azure.net`  |
-| West US3<sup>[1](#myfootnote1)</sup> | WestUS3              | `https://wus3.codesigning.azure.net` |
+| West US                              | WestUS               | `https://wus.codesigning.azure.net`  |
 | West Central US                      | WestCentralUS        | `https://wcus.codesigning.azure.net` |
 | West US 2                            | WestUS2              | `https://wus2.codesigning.azure.net` |
 | North Europe                         | NorthEurope          | `https://neu.codesigning.azure.net`  |
 | West Europe                          | WestEurope           | `https://weu.codesigning.azure.net`  |
 
-<a name="myfootnote1">1</a>: WestUS3 coming soon!
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. From either the Azure portal menu or the Home page, select **Create a resource**.
@@ -132,13 +131,12 @@ The resources must be created in Azure regions where Trusted Signing is currentl
 | Region                               | Region Class Fields  | Endpoint URI Value                   |
 | :----------------------------------- | :------------------- |:-------------------------------------|
 | East US                              | EastUS               | `https://eus.codesigning.azure.net`  |
-| West US3<sup>[1](#myfootnote1)</sup> | WestUS3             | `https://wus3.codesigning.azure.net` |
+| West US                              | WestUS               | `https://wus.codesigning.azure.net`  |
 | West Central US                      | WestCentralUS        | `https://wcus.codesigning.azure.net` |
 | West US 2                            | WestUS2              | `https://wus2.codesigning.azure.net` |
 | North Europe                         | NorthEurope          | `https://neu.codesigning.azure.net`  |
 | West Europe                          | WestEurope           | `https://weu.codesigning.azure.net`  |
 
-<a name="myfootnote1">1</a>: WestUS3 coming soon!
 
 Complete the following steps to create a Trusted Signing account with Azure CLI:
 
@@ -159,7 +157,7 @@ Or
 ```
 trustedsigning create -n MyAccount -l eastus -g MyResourceGroup --sku Premium
 ```
-8. Verify your Trusted Signing account using the `trustedsigning show -g MyResourceGroup -n MyAccount` command.
+3. Verify your Trusted Signing account using the `trustedsigning show -g MyResourceGroup -n MyAccount` command.
 
 >[!Note]
 >If you are using older version of CLI from Trusted Signing Private Preview, your account is defaulted to Basic SKU. To use Premium either upgrade CLI to latest version or use Azure portal to create account.
@@ -174,11 +172,11 @@ trustedsigning create -n MyAccount -l eastus -g MyResourceGroup --sku Premium
 **Helpful commands**:
 
 | Command                               | Description  | 
-| :----------------------------------- | :------------------- |
-| `trustedsigning -h`                             | Show help commands and detailed options              |
-| `trustedsigning show -n MyAccount  -g MyResourceGroup`                            | Show the details of an account          |
+| :-----------------------------------  | :-------------------   |
+| `trustedsigning -h`                                  | Show help commands and detailed options              |
+| `trustedsigning show -n MyAccount  -g MyResourceGroup`          | Show the details of an account          |
 |  `trustedsigning update -n MyAccount -g MyResourceGroup --tags "key1=value1 key2=value2"`                             | Update tags             |
-| `trustedsigning list -g MyResourceGroup`                           | To list accounts under the resource group            |
+| `trustedsigning list -g MyResourceGroup`              | To list accounts under the resource group  |
 ---
 
 ## Create an Identity Validation request

@@ -8,9 +8,9 @@ ms.topic: how-to
 ms.date: 04/12/2024 
 ---
 
-# Renew Trusted Signing Identity Validation: 
+# Renew Trusted Signing Identity Validation 
 
-You can check the expiration date of your Identity Validation on the Identity Validation page.You can renew your Trusted Signing Identity Validation 60 days before the expiration. A notification is to the primary and secondary email addresses with the reminder to renew your Identity Validation.
+You can check the expiration date of your Identity Validation on the Identity Validation page. You can renew your Trusted Signing Identity Validation 60 days before the expiration. A notification is to the primary and secondary email addresses with the reminder to renew your Identity Validation.
 **Identity Validation can only be completed in the Azure portal – it can not be completed with Azure CLI.**
 
 >[!Note]
@@ -31,4 +31,4 @@ You can check the expiration date of your Identity Validation on the Identity Va
     - Navigate back to the trusted signing account overview page or from Objects, select **Certificate Profile**.
     - On the **Certificate Profiles**, delete the existing cert profile associated to the Identity Validation expiring soon:
     - Create new cert profile with the same name.
-    - Select the Identity Validation from the pull-down that expect to see two Identity Validations since your existing one is also active. Once the certificate profile is created successfully, signing resumes with new certificate and renewed Identity Validation requiring no configuration changes on your end.
+    - Select the Identity Validation from the pull-down. Once the certificate profile is created successfully, signing resumes requiring no configuration changes on your end.

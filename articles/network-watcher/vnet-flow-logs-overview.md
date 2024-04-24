@@ -1,25 +1,22 @@
 ---
-title: VNet flow logs (Preview)
+title: VNet flow logs
 titleSuffix: Azure Network Watcher
 description: Learn about Azure Network Watcher VNet flow logs and how to use them to record your virtual network's traffic. 
 author: halkazwini
 ms.author: halkazwini
 ms.service: network-watcher
 ms.topic: concept-article
-ms.date: 04/08/2024
+ms.date: 04/22/2024
 ms.custom: references_regions
 
 #CustomerIntent: As an Azure administrator, I want to learn about VNet flow logs so that I can log my network traffic to analyze and optimize network performance.
 ---
 
-# VNet flow logs (Preview)
+# VNet flow logs
 
 Virtual network (VNet) flow logs are a feature of Azure Network Watcher. You can use them to log information about IP traffic flowing through a virtual network.
 
 Flow data from VNet flow logs is sent to Azure Storage. From there, you can access the data and export it to any visualization tool, security information and event management (SIEM) solution, or intrusion detection system (IDS). VNet flow logs overcome some of the limitations of [NSG flow logs](nsg-flow-logs-overview.md).
-
-> [!IMPORTANT]
-> The VNet flow logs feature is currently in preview. This preview version is provided without a service-level agreement, and we don't recommend it for production workloads. Certain features might not be supported or might have constrained capabilities. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Why use flow logs?
 
@@ -217,33 +214,18 @@ For continuation (`C`) and end (`E`) flow states, byte and packet counts are agg
 
 ## Pricing
 
-Currently, VNet flow logs aren't billed. However, the following costs apply:
+- VNet flow logs are charged per gigabyte of ***Network flow logs collected*** and come with a free tier of 5 GB/month per subscription.
 
-- Traffic analytics: if traffic analytics is enabled for VNet flow logs, traffic analytics pricing applies at per gigabyte processing rates. For more information, see [Network Watcher pricing](https://azure.microsoft.com/pricing/details/network-watcher/).
+    > [!NOTE]
+    > VNet flow logs will be billed effective June 1, 2024.
 
-- Storage: flow logs are stored in a storage account, and their retention policy can be set from one day to 365 days. If a retention policy isn't set, the logs are maintained forever. Pricing of VNet flow logs doesn't include the costs of storage. For more information, see [Azure Blob Storage pricing](https://azure.microsoft.com/pricing/details/storage/blobs/).
+- If traffic analytics is enabled with VNet flow logs, traffic analytics pricing applies at per gigabyte processing rates. Traffic analytics isn't offered with a free tier of pricing. For more information, see [Network Watcher pricing](https://azure.microsoft.com/pricing/details/network-watcher/).
+
+- Storage of logs is charged separately. For more information, see [Azure Blob Storage pricing](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
 ## Availability
 
-VNet flow logs can be enabled during the preview in the following regions: 
-
-- Central India
-- East US
-- East US 2
-- France Central
-- Japan East
-- Japan West
-- North Europe
-- Switzerland North
-- UAE North
-- UK South
-- West Central US
-- West Europe
-- West US
-- West US 2
-
-> [!NOTE]
-> You no longer need to sign up to access the preview.
+VNet flow logs are generally available in all Azure public regions.
 
 ## Related content
 

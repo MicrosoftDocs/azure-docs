@@ -87,7 +87,7 @@ The following diagram shows the call flow for an INVITE from a number that is as
 :::image-end:::
 
 > [!NOTE]
-> The name of the custom header must be configured as part of [deploying Azure Communications Gateway](deploy.md#collect-configuration-values-for-each-communications-service). The name is the same for all messages. In this example, the name of the custom header is `X-MS-Operator-Content`.
+> The name of the custom header must be configured as part of [deploying Azure Communications Gateway](deploy.md#create-an-azure-communications-gateway-resource). The name is the same for all messages. In this example, the name of the custom header is `X-MS-Operator-Content`.
 
 The following diagram shows the call flow for an INVITE from a number that isn't assigned to a customer. Azure Communications Gateway rejects the call with a 403.
 

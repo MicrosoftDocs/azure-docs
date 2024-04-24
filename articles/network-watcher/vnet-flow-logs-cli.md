@@ -18,9 +18,6 @@ Virtual network flow logging is a feature of Azure Network Watcher that allows y
 
 In this article, you learn how to create, change, enable, disable, or delete a VNet flow log using the Azure CLI. You can learn how to manage a VNet flow log using the [Azure portal](vnet-flow-logs-portal.md) or [PowerShell](vnet-flow-logs-powershell.md).
 
-> [!IMPORTANT]
-> The VNet flow logs feature is currently in preview. This preview version is provided without a service-level agreement, and we don't recommend it for production workloads. Certain features might not be supported or might have constrained capabilities. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
