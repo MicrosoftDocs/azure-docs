@@ -54,7 +54,7 @@ If your organization already has Microsoft Purview accounts, follow the [existin
 1. Review the [Microsoft Purview governance solutions](/purview/governance-solutions-overview) for information about all the solutions available when you [upgrade to the enterprise version of Microsoft Purview governance solutions](/purview/upgrade).
 1. Determine the impact that a migration will have on your business.
     For example: how will Azure Data catalog be used until the transition is complete?
-1. Create a migration plan using the [data governance quick start](/purview/data-catalog-get-started) and the [Microsoft Purview data governance tutorial](/purview/section2-scan-your-assets)
+1. Create a migration plan using the [data governance quick start](/purview/data-catalog-get-started) and the [Microsoft Purview data governance tutorial](/purview/section2-scan-your-assets).
 
 ### Existing Microsoft Purview customer guide
 
