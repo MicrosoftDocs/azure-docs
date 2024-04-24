@@ -13,15 +13,15 @@ This article answers frequently asked questions (FAQs) about using the [Azure Ne
 
 ## When do my backups occur?   
 
-Azure NetApp Files backups start within a randomized time frame after the frequency of a backup policy is entered. For example, weekly backups are initiated Sunday within a randomly assigned interval after 12:00 a.m. midnight. This timing cannot be modified by the users at this time. The baseline backup is initiated as soon as you assign the backup policy to the volume.
+Azure NetApp Files backups start within a randomized time frame after the frequency of a backup policy is entered. For example, weekly backups are initiated Sunday within a randomly assigned interval after 12:00 a.m. midnight. This timing can't be modified by the users at this time. The baseline backup is initiated as soon as you assign the backup policy to the volume.
 
 ## What happens if a backup operation encounters a problem?
 
-If a problem occurs during a backup operation, Azure NetApp Files backup automatically retries the operation, without requiring user interaction. If the retries continue to fail, Azure NetApp Files backup will report the failure of the operation.
+If a problem occurs during a backup operation, Azure NetApp Files backup automatically retries the operation, without requiring user interaction. If the retries continue to fail, Azure NetApp Files backup reports the failure of the operation.
 
 ## Can I change the location or storage tier of my backup vault?
 
-No, Azure NetApp Files automatically manages the backup data location within Azure storage. This location or Azure storage tier cannot be modified by the user.
+No, Azure NetApp Files automatically manages the backup data location within Azure storage. This location or Azure storage tier can't be modified by the user.
 
 ## What types of security are provided for the backup data?
 
@@ -31,7 +31,7 @@ Azure NetApp Files uses AES-256 bit encryption during the encoding of the receiv
 
 When you delete an Azure NetApp Files volume, the backups are retained under the backup vault. If you don’t want to retain the backups, first delete the older backups followed by the most recent backup.
 
-If you wish to delete the backup vault, ensure that all the backups under the backup vault are deleted prior to deleting the backup vault.
+If you wish to delete the backup vault, ensure that all the backups under the backup vault are deleted before deleting the backup vault.
 
 ## What’s the system’s maximum backup retries for a volume?  
 
