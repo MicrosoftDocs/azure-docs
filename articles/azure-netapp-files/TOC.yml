@@ -367,8 +367,6 @@
         href: backup-search.md 
       - name: Restore a backup
         href: backup-restore-new-volume.md 
-      - name: Disable backup functionality
-        href: backup-disable.md
       - name: Delete backups 
         href: backup-delete.md 	
     - name: Manage replication

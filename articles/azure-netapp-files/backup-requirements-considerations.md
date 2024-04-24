@@ -42,7 +42,7 @@ Azure NetApp Files backup in a region can only protect an Azure NetApp Files vol
 
 * If you delete a volume, the backups remain. If you no longer need the backups, you should [manually delete the backups](backup-delete.md).
 
-* If you need to delete a parent resource group or subscription that contains backups, you should delete any backups first. Deleting the resource group or subscription won't delete the backups. You can remove backups  [manually deleting the backups](backup-disable.md).
+* If you need to delete a parent resource group or subscription that contains backups, you should delete any backups first. Deleting the resource group or subscription won't delete the backups.
 
 * If you use the standard storage with cool access, see [Manage Azure NetApp Files standard storage with cool access](manage-cool-access.md#considerations) for more considerations.
 
