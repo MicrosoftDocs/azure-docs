@@ -17,8 +17,6 @@ In this quickstart, you create a network security perimeter for an Azure key vau
 
 [!INCLUDE [network-security-perimeter-preview-message](../../includes/network-security-perimeter-preview-message.md)]
 
-[!INCLUDE [network-security-perimeter-add-preview](../../includes/network-security-perimeter-add-preview.md)]
-
 [!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
@@ -26,7 +24,7 @@ In this quickstart, you create a network security perimeter for an Azure key vau
   - This article requires version 2.38.0 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 - After upgrading to the latest version, you can import the network security perimeter commands using `az extension add --name nsp`.
 
-
+[!INCLUDE [network-security-perimeter-add-preview](../../includes/network-security-perimeter-add-preview.md)]
 
 
 ## Connect to your Azure account and select your subscription

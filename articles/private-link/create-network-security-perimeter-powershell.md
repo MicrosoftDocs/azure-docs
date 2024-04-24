@@ -37,6 +37,7 @@ Install-Module -Name Az.Tools.Installer -Repository PSGallery
 [!INCLUDE [network-security-perimeter-add-preview](../../includes/network-security-perimeter-add-preview.md)]
 
 [!INCLUDE [azure-powershell-requirements-no-header](../../includes/azure-powershell-requirements-no-header.md)]
+
 ## Sign in to your Azure account and select your subscription
 
 To begin your configuration, sign in to your Azure account:
