@@ -16,7 +16,7 @@ ms.custom:
 
 # Manage concurrency in Azure AI Search
 
-When managing Azure AI Search resources such as indexes and data sources, it's important to update resources safely, especially if resources are accessed concurrently by different components of your application. When two clients concurrently update a resource without coordination, race conditions are possible. To prevent this, Azure AI Search uses an *optimistic concurrency model*. There are no locks on a resource. Instead, there is an ETag for every resource that identifies the resource version so that you can formulate requests that avoid accidental overwrites.
+When managing Azure AI Search resources such as indexes and data sources, it's important to update resources safely, especially if resources are accessed concurrently by different components of your application. When two clients concurrently update a resource without coordination, race conditions are possible. To prevent this, Azure AI Search uses an *optimistic concurrency model*. There are no locks on a resource. Instead, there's an ETag for every resource that identifies the resource version so that you can formulate requests that avoid accidental overwrites.
 
 ## How it works
 
@@ -28,16 +28,14 @@ All resources have an [*entity tag (ETag)*](https://en.wikipedia.org/wiki/HTTP_E
 
 + The Azure SDK for .NET sets the ETag through an accessCondition object, setting the [If-Match | If-Match-None header](/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search) on the resource. Objects that use ETags, such as [SynonymMap.ETag](/dotnet/api/azure.search.documents.indexes.models.synonymmap.etag) and [SearchIndex.ETag](/dotnet/api/azure.search.documents.indexes.models.searchindex.etag), have an accessCondition object.
 
-Every time you update a resource, its ETag changes automatically. When you implement concurrency management, all you're doing is putting a precondition on the update request that requires the remote resource to have the same ETag as the copy of the resource that you modified on the client. If a concurrent process has changed the remote resource already, the ETag will not match the precondition and the request will fail with HTTP 412. If you're using the .NET SDK, this manifests as a `CloudException` where the `IsAccessConditionFailed()` extension method returns true.
+Every time you update a resource, its ETag changes automatically. When you implement concurrency management, all you're doing is putting a precondition on the update request that requires the remote resource to have the same ETag as the copy of the resource that you modified on the client. If another process changes the remote resource, the ETag doesn't match the precondition and the request fails with HTTP 412. If you're using the .NET SDK, this failure manifests as an exception where the `IsAccessConditionFailed()` extension method returns true.
 
 > [!Note]
 > There is only one mechanism for concurrency. It's always used regardless of which API or SDK is used for resource updates.
 
-<a name="samplecode"></a>
-
 ## Use cases and sample code
 
-The following code demonstrates accessCondition checks for key update operations. It fails an update if the object's ETag changes.
+The following code demonstrates accessCondition checks for key update operations. It fails the update because the object's ETag is changed.
 
 ```csharp
 using Azure;
@@ -144,7 +142,7 @@ namespace AzureSearch.SDKHowTo
 
 ## Design pattern
 
-A design pattern for implementing optimistic concurrency should include a loop that retries the access condition check, a test for the access condition, and optionally retrieves an updated resource before attempting to re-apply the changes.
+A design pattern for implementing optimistic concurrency should include a loop that retries the access condition check, a test for the access condition, and optionally retrieves an updated resource before attempting to reapply the changes.
 
 This code snippet illustrates the addition of a synonymMap to an index that already exists.
 
@@ -168,7 +166,7 @@ private static void EnableSynonymsInHotelsIndexSafely(SearchServiceClient servic
             Console.WriteLine("Updated the index successfully.\n");
             break;
         }
-        catch (CloudException e) when (e.IsAccessConditionFailed())
+        catch (Exception e) when (e.IsAccessConditionFailed())
         {
             Console.WriteLine($"Index update failed : {e.Message}. Attempt({i}/{MaxNumTries}).\n");
         }
