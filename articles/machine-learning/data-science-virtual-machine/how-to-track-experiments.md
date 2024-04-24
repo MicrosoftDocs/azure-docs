@@ -129,7 +129,7 @@ This section describes how to deploy models, trained on a DSVM, to Azure Machine
 
 On the left-hand menu in [Azure Machine Learning studio](https://ml.azure.com) select __Compute__, as shown in this screenshot:
 
-:::image type="content" source="./media/how-to-track-experiments/mlflow-experiments-6.png" alt-text="Screenshot showing the logged Mean Square Error of the experiment run." lightbox= "./media/how-to-track-experiments/mlflow-experiments-6.png":::
+:::image type="content" source="./media/how-to-track-experiments/mlflow-experiments-6.png" alt-text="Screenshot showing selection of 'Compute' in Azure Machine Learning studio." lightbox= "./media/how-to-track-experiments/mlflow-experiments-6.png":::
 
 In the __New Inference cluster__ pane, fill in the details for
 
@@ -173,13 +173,13 @@ The model will deploy to the Inference Cluster (Azure Kubernetes Service) we cre
 
 When the model successfully deploys, select Endpoints from the left-hand menu, then select the name of the deployed service. The model details pane should become visible, as shown in this screenshot:
 
-:::image type="content" source="./media/how-to-track-experiments/mlflow-experiments-8.png" alt-text="Screenshot showing details of the model deployment." lightbox= "./media/how-to-track-experiments/mlflow-experiments-8.png":::
+:::image type="content" source="./media/how-to-track-experiments/mlflow-experiments-8.png" alt-text="Screenshot showing the model details pane." lightbox= "./media/how-to-track-experiments/mlflow-experiments-8.png":::
 
 The deployment state should change from __transitioning__ to __healthy__. Additionally, the details section provides the REST endpoint and Swagger URLs that application developers can use to integrate your ML model into their apps.
 
 You can test the endpoint with [Postman](https://www.postman.com/), or you can use the Azure Machine Learning SDK:
 
-[SDK v1](../includes/machine-learning-sdk-v1.md)
+[SDK v1](includes/machine-learning-sdk-v1.md)
 
 ```python
 from azureml.core import Webservice
