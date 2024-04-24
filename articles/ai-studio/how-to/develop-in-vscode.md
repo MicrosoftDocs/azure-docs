@@ -25,14 +25,14 @@ Azure AI Studio supports developing in VS Code - Web and Desktop. In each scenar
 1. Go to [Azure AI Studio](https://ai.azure.com).
 1. Open your project.
 1. From the left menu, select **Settings**.
-1. If you don't have a compute instance, select **Create compute** and create one.  
+1. If you don't have a compute instance, select **Create compute** and create one. 
 1. If you have a stopped compute instance, start it now.
 
 ## Launch VS Code from Azure AI Studio 
 
 1. On the left menu, select **Code**.
-1. For **Compute**, select your compute instance. If it is still starting, wait for it to switch to **Running**.  You'll see a **Ready** status when the compute is ready for use.
-1. For **VS Code container**, select **Set up container** if the button appears. This configures the container on your compute for you. The compute setup might take a few minutes to complete. Once you set up the compute the first time, you can directly launch subsequent times. You might need to authenticate your compute when prompted.  When setup is complete, you'll see **Ready**.
+1. For **Compute**, select your compute instance. If it's still starting, wait for it to switch to **Running**. You'll see a **Ready** status when the compute is ready for use.
+1. For **VS Code container**, select **Set up container** if the button appears. This configures the container on your compute for you. The compute setup might take a few minutes to complete. Once you set up the compute the first time, you can directly launch subsequent times. You might need to authenticate your compute when prompted. When setup is complete, you'll see **Ready**.
 
   > [!WARNING]
   > Once you set up the container for this compute instance, it will no longer idle shutdown, even if you [enable and configure idle shutdown](./create-manage-compute.md#configure-idle-shutdown). This is to ensure the compute doesn't shut down unexpectedly while you're working within a container.
@@ -47,7 +47,7 @@ Our prebuilt development environments are based on a docker container that has A
 
 Your file explorer is opened to the specific project directory you launched from in AI Studio. 
 
-The container is configured with the Azure AI folder hierarchy (`afh` directory), which is designed to orient you within your current development context, and help you work with your code, data and shared files most efficiently. This `afh` directory houses your Azure AI Studio projects, and each project has a dedicated project directory that includes `code`, `data` and `shared` folders. 
+The container is configured with the Azure AI folder hierarchy (`afh` directory), which is designed to orient you within your current development context, and help you work with your code, data, and shared files most efficiently. This `afh` directory houses your Azure AI Studio projects, and each project has a dedicated project directory that includes `code`, `data`, and `shared` folders. 
 
 This table summarizes the folder structure:
 
@@ -62,11 +62,11 @@ This table summarizes the folder structure:
 
 ### Working with prompt flows
 
-You can create, reference and work with prompt flows.
+You can create, reference, and work with prompt flows.
 
 Prompt flows already created in the Azure AI Studio can be found at `shared\Users\{user-name}\promptflow`. You can also create new flows in your `code` or `shared` folder.
 
-Prompt flow will automatically use the Azure AI Studio connections your project has access to.
+Prompt flow automatically uses the Azure AI Studio connections your project has access to.
 
 You can also work with the prompt flow extension in VS Code, which is preinstalled in this environment. Within this extension, you can set the connection provider to your project. See [consume connections from Azure AI](https://microsoft.github.io/promptflow/cloud/azureai/consume-connections-from-azure-ai.html).
 
