@@ -19,24 +19,24 @@ Service Connector helps users connect their compute services to target backing s
 
 Translating the infrastructure to IaC templates usually involves two major parts: the logics to provision source and target services, and the logics to build connections. To implement the logics to provision source and target services, there are two options:
 
-* Authoring the template from scratch.
-* Exporting the template from Azure and polish it.
+* Authoring the template from scratch
+* Exporting the template from Azure and polish it
 
 To implement the logics to build connections, there are three options:
 
 * Using Service Connector and store configuration in App Configuration
-* Using Service Connector in the template.
-* Using template logics to configure source and target services directly.
+* Using Service Connector in the template
+* Using template logics to configure source and target services directly
 
 Combinations of these different options can produce different solutions. Due to [IaC limitations](./known-limitations.md) in Service Connector, we recommend that you implement the following solutions in the order presented below. To apply these solutions, you must understand the IaC tools and the template authoring grammar.
 
 | Solution | Provision source and target |                     Build connection                     |                           Applicable scenario                           | Pros                                                                                           | Cons                                                                                                                                        |
 | :------: | :-------------------------: | :-------------------------------------------------------: | :----------------------------------------------------------------------: | ---------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
-|    1    |   Authoring from scratch   | Use Service Connector and store configuration in App Configuration | Has liveness check on the cloud resources before allowing live traffics | - Template is simple and readable<br />- Service Connector brings extra values<br />- No IaC problem is introduced by Service Connector | - Need extra dependency to read configuration from App Configuration<br />- Cost to check cloud resources liveness |
-|    2    |   Authoring from scratch   |                   Use Service Connector                   | Has liveness check on the cloud resources before allowing live traffics | - Template is simple and readable<br />- Service Connector brings extra values                 | - Cost to check cloud resources liveness                                                                                                   |
+|    1    |   Authoring from scratch   | Use Service Connector and store configuration in App Configuration | Has liveness check on the cloud resources before allowing live traffic | - Template is simple and readable<br />- Service Connector brings additional value<br />- No IaC problem is introduced by Service Connector | - Need extra dependency to read configuration from App Configuration<br />- Cost to check cloud resources liveness |
+|    2    |   Authoring from scratch   |                   Use Service Connector                   | Has liveness check on the cloud resources before allowing live traffic | - Template is simple and readable<br />- Service Connector brings additional value                 | - Cost to check cloud resources liveness                                                                                                   |
 |    3    |   Authoring from scratch   | Configure source and target services directly in template |                No liveness check on the cloud resources                | - Template is simple and readable                                                              | - Service Connector features aren't available                                                                                               |
-|    4    |     Export and polish      | Use Service Connector and store configuration in App Configuration | Has liveness check on the cloud resources before allowing live traffics | - Resources are exactly the same as in the cloud<br />- Service Connector brings extra values<br />- No IaC problem is introduced by Service Connector | - Need extra dependency to read configuration from App Configuration<br />- Cost to check cloud resources liveness<br />- Supports only ARM templates<br />- Efforts required to understand and polish the template |
-|    5    |     Export and polish      |                   Use Service Connector                   | Has liveness check on the cloud resources before allowing live traffics | - Resources are exactly the same as in the cloud<br />- Service Connector brings extra values | - Cost to check cloud resources liveness<br />- Supports only ARM templates<br />- Efforts required to understand and polish the template |
+|    4    |     Export and polish      | Use Service Connector and store configuration in App Configuration | Has liveness check on the cloud resources before allowing live traffic | - Resources are exactly the same as in the cloud<br />- Service Connector brings additional value<br />- No IaC problem is introduced by Service Connector | - Need extra dependency to read configuration from App Configuration<br />- Cost to check cloud resources liveness<br />- Supports only ARM templates<br />- Efforts required to understand and polish the template |
+|    5    |     Export and polish      |                   Use Service Connector                   | Has liveness check on the cloud resources before allowing live traffic | - Resources are exactly the same as in the cloud<br />- Service Connector brings additional value | - Cost to check cloud resources liveness<br />- Supports only ARM templates<br />- Efforts required to understand and polish the template |
 |    6    |     Export and polish      | Configure source and target services directly in template |                No liveness check on the cloud resources                | - Resources are exactly same as on the cloud                                                  | - Support only ARM template<br />- Efforts to understand and polish the template<br />- Service Connector features aren't available       |
 
 ## Authoring templates
