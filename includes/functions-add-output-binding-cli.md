@@ -16,7 +16,7 @@ Although a function can have only one trigger, it can have multiple input and ou
 ::: zone pivot="programming-language-javascript,programming-language-typescript"  
 When using the [Node.js v4 programming model](../articles/azure-functions/functions-reference-node.md), binding attributes are defined directly in the *./src/functions/HttpExample.js* file. From the previous quickstart, your file already contains an HTTP binding defined by the `app.http` method. 
 
-:::code language="javascript" range="22" source="~/functions-docs-javascript/src/functions/httpTrigger.js":::
+:::code language="javascript" source="~/functions-docs-javascript/src/functions/httpTrigger.js":::
 
 ::: zone-end  
 
@@ -69,7 +69,7 @@ To write to an Azure Storage queue from this function:
 
 * Add a `output.storageQueue` function above the `app.http` call
 
-    :::code language="json" source="~/functions-docs-javascript/functions-add-output-binding-storage-queue-cli-v4-programming-model/src/functions/httpTrigger1.js" range="3-6":::
+    :::code language="javascript" source="~/functions-docs-javascript/functions-add-output-binding-storage-queue-cli-v4-programming-model/src/functions/httpTrigger1.js" range="3-6":::
 
 ::: zone-end  
 ::: zone pivot="programming-language-powershell"  
