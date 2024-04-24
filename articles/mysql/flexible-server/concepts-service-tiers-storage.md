@@ -3,7 +3,7 @@ title: Service tiers
 description: This article describes the compute and storage options in Azure Database for MySQL - Flexible Server.
 ms.service: mysql
 ms.subservice: flexible-server
-ms.topic: concerpt-article
+ms.topic: concept-article
 author: code-sidd
 ms.author: sisawant
 ms.reviewer: maghan
