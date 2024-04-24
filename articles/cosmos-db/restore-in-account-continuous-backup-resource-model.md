@@ -11,7 +11,8 @@ ms.topic: conceptual
 ms.date: 03/21/2024
 ---
 
-# Resource model for restore in same account for Azure Cosmos DB 
+# Resource model for restore in same account for Azure Cosmos DB  
+ 
 
 [!INCLUDE[NoSQL, MongoDB, Gremlin, Table](includes/appliesto-nosql-mongodb-gremlin-table.md)]
 
