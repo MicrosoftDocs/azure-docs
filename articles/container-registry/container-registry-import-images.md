@@ -13,21 +13,21 @@ ms.custom: devx-track-azurepowershell, devx-track-azurecli
 
 You can easily import (copy) container images to an Azure container registry, without using Docker commands. For example, import images from a development registry to a production registry, or copy base images from a public registry.
 
-Azure Container Registry handles a number of common scenarios to copy images and other artifacts from an existing registry:
+Azure Container Registry handles many common scenarios to copy images and other artifacts from an existing registry:
 
 * Import images from a public registry
 
-* Import images or OCI artifacts including Helm 3 charts from another Azure container registry, in the same or a different Azure subscription or tenant
+* Import images or OCI artifacts including Helm 3 charts from another Azure container registry, in the same, or a different Azure subscription or tenant
 
 * Import from a non-Azure private container registry
 
 Image import into an Azure container registry has the following benefits over using Docker CLI commands:
 
-* Because your client environment doesn't need a local Docker installation, import any container image, regardless of the supported OS type.
+* If your client environment doesn't need a local Docker installation, you can Import any container image, regardless of the supported OS type.
 
-* When you import multi-architecture images (such as official Docker images), images for all architectures and platforms specified in the manifest list get copied.
+* If you import multi-architecture images (such as official Docker images), images for all architectures and platforms specified in the manifest list get copied.
 
-* Access to the target registry doesn't have to use the registry's public endpoint.
+* If you access to the target registry, it doesn't have to use the registry's public endpoint.
 
 > [!IMPORTANT]
 >* Importing images requires the external registry support  [RFC 7233](https://www.rfc-editor.org/rfc/rfc7233#section-2.3). We recommend using a registry that supports RFC 7233 ranges while using az acr import command with the registry URI to avoid failures.
@@ -167,7 +167,7 @@ You can import an image from an Azure container registry in the same AD tenant u
 
 * [Public access](container-registry-access-selected-networks.md#disable-public-network-access) to the source registry may be disabled. If public access is disabled, specify the source registry by resource ID instead of by registry login server name.
 
-* If the source registry and/or the target registry has a private endpoint or registry firewall rules are applied, ensure that the restricted registry [allows trusted services](allow-access-trusted-services.md) to access the network.
+* The source registry and/or the target registry with a private endpoint or registry firewall rules must ensure the restricted registry [allows trusted services](allow-access-trusted-services.md) to access the network.
 
 ### Import from a registry in the same subscription
 
@@ -312,7 +312,7 @@ az login --identity --username <identity_ID>
 az account get-access-token
 ```
 
-In the target tenant, pass the access token as a password to the `az acr import` command. The source registry is specified by login server name. Notice that no username is needed in this command:
+In the target tenant, pass the access token as a password to the `az acr import` command. The source registry specifies the login server name. Notice that no username is needed in this command:
 
 ```azurecli
 az acr import \
@@ -332,7 +332,7 @@ Connect-AzAccount -Identity -AccountId <identity_ID>
 Get-AzAccessToken
 ```
 
-In the target tenant, pass the access token as a password to the `Import-AzContainerRegistryImage` cmdlet. The source registry is specified by login server name. Notice that no username is needed in this command:
+In the target tenant, pass the access token as a password to the `Import-AzContainerRegistryImage` cmdlet. The source registry specifies login server name. Notice that no username is needed in this command:
 
 ```azurepowershell
 Import-AzContainerRegistryImage -RegistryName myregistry -ResourceGroupName myResourceGroup -SourceRegistryUri sourceregistry.azurecr.io -SourceImage sourcerrepo:tag -Password <access-token>
@@ -363,6 +363,17 @@ az acr import \
 ```azurepowershell
 Import-AzContainerRegistryImage -RegistryName myregistry -ResourceGroupName myResourceGroup -SourceRegistryUri docker.io/sourcerepo -SourceImage sourcerrepo:tag -Username <username> -Password <password>
 ```
+> [!NOTE]
+> If you're importing from a non-Azure private registry with IP rules, [follow these steps.](container-registry-access-selected-networks.md) 
+
+### Troubleshoot Import Container Images
+#### Symptoms and Causes
+- `The remote server may not be RFC 7233 compliant`
+  - The [distribution-spec](https://github.com/opencontainers/distribution-spec/blob/main/spec.md) allows range header form of `Range: bytes=<start>-<end>`. However, the remote server may not be RFC 7233 compliant.
+- `Unexpected response status code`
+  - Get an unexpected response status code from source repository when doing range query.
+- `Unexpected length of body in response`
+  - The received content length does not match the size expected. Expected size is decided by blob size and range header.
 
 ---
 
@@ -382,7 +393,7 @@ In this article, you learned about importing container images to an Azure contai
 
 * Image import can help you move content to a container registry in a different Azure region, subscription, or Microsoft Entra tenant. For more information, see [Manually move a container registry to another region](manual-regional-move.md).
 
-* Learn how to [disable artifact export](data-loss-prevention.md) from a network-restricted container registry.
+* [Disable artifact export](data-loss-prevention.md) from a network-restricted container registry.
 
 
 <!-- LINKS - Internal -->

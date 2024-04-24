@@ -7,7 +7,7 @@ ms.author: halkazwini
 ms.service: network-watcher
 ms.topic: concept-article
 ms.reviewer: harshacs
-ms.date: 11/27/2023
+ms.date: 04/22/2024
 
 #CustomerIntent: As an Azure administrator, I want to use Traffic analytics to analyze Network Watcher flow logs so that I can view network activity, secure my networks, and optimize performance.
 ---
@@ -63,7 +63,7 @@ To use traffic analytics, you need the following components:
 
 - **Log Analytics workspace**: The environment that stores Azure Monitor log data that pertains to an Azure account. For more information about Log Analytics workspaces, see [Overview of Log Analytics workspace](../azure-monitor/logs/log-analytics-workspace-overview.md?toc=/azure/network-watcher/toc.json).
 
-- Additionally, you need a network security group enabled for flow logging if you're using traffic analytics to analyze [NSG flow logs](nsg-flow-logs-overview.md) or a virtual network enabled for flow logging if you're using traffic analytics to analyze [VNet flow logs (preview)](vnet-flow-logs-overview.md):
+- Additionally, you need a network security group enabled for flow logging if you're using traffic analytics to analyze [NSG flow logs](nsg-flow-logs-overview.md) or a virtual network enabled for flow logging if you're using traffic analytics to analyze [VNet flow logs](vnet-flow-logs-overview.md):
 
     - **Network security group (NSG)**: A resource that contains a list of security rules that allow or deny network traffic to or from resources that are connected to an Azure virtual network. Network security groups can be associated with subnets, network interfaces (NICs) that are attached to VMs (Resource Manager), or individual VMs (classic). For more information, see [Network security group overview](../virtual-network/network-security-groups-overview.md?toc=/azure/network-watcher/toc.json).
     
@@ -78,7 +78,7 @@ To use traffic analytics, you need the following components:
     
     - **Virtual network (VNet)**: A resource that enables many types of Azure resources to securely communicate with each other, the internet, and on-premises networks. For more information, see [Virtual network overview](../virtual-network/virtual-networks-overview.md?toc=/azure/network-watcher/toc.json).
     
-    - **VNet flow logs (preview)**: Recorded information about ingress and egress IP traffic through a virtual network. VNet flow logs are written in JSON format and include:
+    - **VNet flow logs**: Recorded information about ingress and egress IP traffic through a virtual network. VNet flow logs are written in JSON format and include:
     
       - Outbound and inbound flows.
       - Information about the flow, such as the source and destination IP addresses, the source and destination ports, and the protocol.
@@ -139,9 +139,9 @@ Traffic analytics requires the following prerequisites:
 
     <sup>1</sup> Network contributor doesn't cover `Microsoft.OperationalInsights/workspaces/*` actions.
 
-    <sup>2</sup> Only required when using traffic analytics to analyze VNet flow logs (preview). For more information, see [Data collection rules in Azure Monitor](../azure-monitor/essentials/data-collection-rule-overview.md?toc=/azure/network-watcher/toc.json) and [Data collection endpoints in Azure Monitor](../azure-monitor/essentials/data-collection-endpoint-overview.md?toc=/azure/network-watcher/toc.json).
+    <sup>2</sup> Only required when using traffic analytics to analyze VNet flow logs. For more information, see [Data collection rules in Azure Monitor](../azure-monitor/essentials/data-collection-rule-overview.md?toc=/azure/network-watcher/toc.json) and [Data collection endpoints in Azure Monitor](../azure-monitor/essentials/data-collection-endpoint-overview.md?toc=/azure/network-watcher/toc.json).
 
-    To learn how to check roles assigned to a user for a subscription, see [List Azure role assignments using the Azure portal](../role-based-access-control/role-assignments-list-portal.md?toc=/azure/network-watcher/toc.json). If you can't see the role assignments, contact the respective subscription admin.
+    To learn how to check roles assigned to a user for a subscription, see [List Azure role assignments using the Azure portal](../role-based-access-control/role-assignments-list-portal.yml?toc=/azure/network-watcher/toc.json). If you can't see the role assignments, contact the respective subscription admin.
 
     > [!CAUTION]
     > Data collection rule and data collection endpoint resources are created and managed by traffic analytics. If you perform any operation on these resources, traffic analytics may not function as expected.

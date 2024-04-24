@@ -10,7 +10,7 @@ metadata:
   ms.topic: landing-page
   author: bandersmsft
   ms.author: banders
-  ms.date: 09/05/2023
+  ms.date: 04/22/2024
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -22,7 +22,7 @@ landingContent:
     linkLists:
     - linkListType: overview
       links:
-      - text: What is a Microsoft Customer Agreement?
+      - text: Overview of Microsoft Customer Agreement billing structure
         url: ../understand/mca-overview.md
     - linkListType: get-started
       links:
@@ -32,16 +32,19 @@ landingContent:
       links:
 #      - text: Access subscriptions (placeholder)
 #        url: ../manage/create-subscription.md
-      - text: Transfer billing ownership from MOSA to MCA
+      - text: Transfer billing ownership from pay-as-you-go to MCA
         url: ../manage/mca-request-billing-ownership.md
-      - text: Transfer billing ownership from EA to MCA
+      - text: Transfer billing ownership from Enterprise Agreement (EA) to MCA
         url: ../manage/mca-setup-account.md
+      - text: View and download your Azure invoice
+        url: ../understand/download-azure-invoice.md
+
     - linkListType: reference
       links:
       - text: APIs overview - Migrating from EA to MCA
         url: ../costs/migrate-cost-management-api.md
       - text: API differences between EA and MCA
-        url: /rest/api/billing/
+        url: ../costs/migrate-cost-management-api.md
       - text: Cost Management Power BI connector
         url: /power-bi/connect-data/desktop-connect-azure-cost-management
       - text: Export Cost Management data
@@ -59,15 +62,15 @@ landingContent:
         url: ../understand/mca-understand-your-invoice.md#billing-period
     - linkListType: tutorial
       links:
-      - text: Receive a bill under my agreement
+      - text: Review your Microsoft Customer Agreement invoice
         url: ../understand/review-customer-agreement-bill.md
     - linkListType: how-to-guide
       links:
-      - text: What is a billing profile and how do I manage it?
+      - text: Organize costs by customizing your billing account
         url: ../manage/mca-section-invoice.md
-      - text: How to pay my bill
+      - text: Pay an MCA or pay-as-you-go invoice
         url: ../understand/pay-bill.md
-      - text: Set up an administrator to manage billing
+      - text: MCA administrative roles
         url: ../manage/understand-mca-roles.md
       - text: Start billing for my agreement
         url: ../manage/mca-request-billing-ownership.md
@@ -77,9 +80,9 @@ landingContent:
         url: https://www.youtube.com/watch?v=7RxTfShGHwU
       - text: Manage access to billing account
         url: https://www.youtube.com/watch?v=9sqglBlKkho
-      - text: Understand your invoice
+      - text: Understand your MCA invoice
         url: https://www.youtube.com/watch?v=e2LGZZ7GubA
-      - text: Transition billing for Azure subscriptions from MOSA to MCA
+      - text: Transition subscription billing from pay-as-you-go to MCA
         url: https://www.youtube.com/watch?v=gfiUI2YLsgc
 
 
@@ -90,11 +93,11 @@ landingContent:
       links:
       - text: What is Microsoft Entra ID?
         url: ../../active-directory/fundamentals/active-directory-whatis.md
-      - text: Manage tenants
+      - text: Manage tenants in your MCA billing account
         url: manage-tenants.md
       - text: Add, change, or find subscription administrators
         url: ../manage/add-change-subscription-administrator.md
-      - text: Create new subscriptions
+      - text: Create new MCA subscriptions
         url: ../manage/create-subscription.md
       - text: Troubleshoot subscription access
         url: troubleshoot-subscription-access.md
