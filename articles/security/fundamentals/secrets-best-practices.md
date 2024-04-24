@@ -2,7 +2,6 @@
 title: Best practices for protecting secrets - Microsoft Azure | Microsoft Docs
 description: This article links you to security best practices for protecting secrets.
 services: security
-documentationcenter: na
 author: TerryLanfear
 manager: rkarlin
 
@@ -10,8 +9,6 @@ ms.assetid: 1cbbf8dc-ea94-4a7e-8fa0-c2cb198956c5
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/09/2023
 ms.author: terrylan
 

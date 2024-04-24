@@ -8,35 +8,35 @@ author: PatrickFarley
 ms.author: pafarley
 ms.service: azure-ai-vision
 ms.topic: how-to
-ms.date: 03/03/2023
+ms.date: 01/19/2024
 ms.custom: references_regions
 ---
 
-# Remove the background from images
+# Remove the background in images
 
-This article demonstrates how to call the Image Analysis 4.0 API to segment an image. It also shows you how to parse the returned information.
+This article demonstrates how to call the Image Analysis 4.0 API to segment an image (separate the foreground from background). It also shows you how to parse the returned information.
+
+> [!IMPORTANT]
+> Background removal is only available through direct REST API calls. It is not available through the SDKs.
 
 ## Prerequisites
 
 This guide assumes you have successfully followed the steps mentioned in the [quickstart](../quickstarts-sdk/image-analysis-client-library-40.md) page. This means:
 
 * You have <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="created a Vision resource"  target="_blank">created a Vision resource </a> and obtained a key and endpoint URL.
-* If you're using the client SDK, you have the appropriate SDK package installed and you have a running quickstart application. You modify this quickstart application based on code examples here.
-* If you're using 4.0 REST API calls directly, you have successfully made a `curl.exe` call to the service (or used an alternative tool). You modify the `curl.exe` call based on the examples here.
+* You have successfully made a `curl.exe` call to the service (or used an alternative tool). You modify the `curl.exe` call based on the examples here.
 
-The quickstart shows you how to extract visual features from an image, however, the concepts are similar to background removal. Therefore you benefit from starting from the quickstart and making modifications.
+The [quickstart](../quickstarts-sdk/image-analysis-client-library-40.md) shows you how to extract visual features from an image. However, the concepts are similar to background removal. Therefore you benefit from starting with the quickstart and making modifications.
 
 > [!IMPORTANT]
 > Background removal is only available in the following Azure regions: East US, France Central, Korea Central, North Europe, Southeast Asia, West Europe, West US.
 
 ## Authenticate against the service
 
-To authenticate against the Image Analysis service, you need an Azure AI Vision key and endpoint URL.
+To authenticate against the Image Analysis service, you need a Computer Vision key and endpoint URL.
 
 > [!TIP]
 > Don't include the key directly in your code, and never post it publicly. See the Azure AI services [security](../../security-features.md) article for more authentication options like [Azure Key Vault](../../use-key-vault.md). 
-
-The SDK example assumes that you defined the environment variables `VISION_KEY` and `VISION_ENDPOINT` with your key and endpoint.
 
 <!--
 #### [C#](#tab/csharp)
@@ -70,7 +70,7 @@ Where we used this helper function to read the value of an environment variable:
 #### [REST API](#tab/rest)
 -->
 
-Authentication is done by adding the HTTP request header **Ocp-Apim-Subscription-Key** and setting it to your vision key. The call is made to the URL `https://<endpoint>/computervision/imageanalysis:segment?api-version=2023-02-01-preview`, where `<endpoint>` is your unique Azure AI Vision endpoint URL. See [Select a mode ](./background-removal.md#select-a-mode) section for another query string you add to this URL.
+Authentication is done by adding the HTTP request header **Ocp-Apim-Subscription-Key** and setting it to your vision key. The call is made to the URL `<endpoint>/computervision/imageanalysis:segment?api-version=2023-02-01-preview`, where `<endpoint>` is your unique Computer Vision endpoint URL. See [Select a mode ](./background-removal.md#select-a-mode) section for another query string you add to this URL.
 
 
 ## Select the image to analyze
@@ -157,14 +157,14 @@ Create a new [ImageAnalysisOptions](/cpp/cognitive-services/vision/imageanalysis
 ### [REST](#tab/rest)
 -->
 
-Set the query string *mode** to one of these two values. This query string is mandatory if you want to do image segmentation.
+Set the query string *mode* to one of these two values. This query string is mandatory if you want to do image segmentation.
 
 |URL parameter | Value               |Description  |
 |--------------|---------------------|-------------|
 | `mode`       | `backgroundRemoval` | Outputs an image of the detected foreground object with a transparent background. |
 | `mode`       | `foregroundMatting` | Outputs a gray-scale alpha matte image showing the opacity of the detected foreground object. |
 
-A populated URL for backgroundRemoval would look like this: `https://<endpoint>/computervision/imageanalysis:segment?api-version=2023-02-01-preview&mode=backgroundRemoval`
+A populated URL for backgroundRemoval would look like this: `<endpoint>/computervision/imageanalysis:segment?api-version=2023-02-01-preview&mode=backgroundRemoval`
 
 
 ## Get results from the service
@@ -220,12 +220,11 @@ The following one-channel PNG image is the response for the `foregroundMatting` 
 
 The API returns an image the same size as the original for the `foregroundMatting` mode, but at most 16 megapixels (preserving image aspect ratio) for the `backgroundRemoval` mode.
 
-
 ## Error codes
 
-[!INCLUDE [Image Analysis Error Codes](../includes/image-analysis-error-codes-40.md)]
+[!INCLUDE [image-analysis-error-codes-40](../includes/image-analysis-error-codes-40.md)]
 
----
+
 
 ## Next steps
 

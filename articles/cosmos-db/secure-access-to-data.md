@@ -7,7 +7,7 @@ ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: conceptual
 ms.date: 05/26/2022
-ms.custom: devx-track-csharp, subject-rbac-steps, ignite-2022
+ms.custom: devx-track-csharp, subject-rbac-steps
 ---
 # Secure access to data in Azure Cosmos DB
 [!INCLUDE[NoSQL](includes/appliesto-nosql.md)]
@@ -213,7 +213,7 @@ To add Azure Cosmos DB account reader access to your user account, have a subscr
 
 1. Select **Add** > **Add role assignment** to open the **Add role assignment** page.
 
-1. Assign the following role. For detailed steps, see [Assign Azure roles by using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+1. Assign the following role. For detailed steps, see [Assign Azure roles by using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
 
     | Setting | Value |
     | --- | --- |

@@ -1,10 +1,10 @@
 ---
-title: Best practices for managing identity
+title: Best practices for managing authentication and authorization
 titleSuffix: Azure Kubernetes Service
 description: Learn the cluster operator best practices for how to manage authentication and authorization for clusters in Azure Kubernetes Service (AKS)
 ms.topic: conceptual
-ms.custom: ignite-2022
-ms.date: 04/14/2023
+ms.subservice: aks-security
+ms.date: 02/16/2024
 ---
 
 # Best practices for authentication and authorization in Azure Kubernetes Service (AKS)
@@ -21,9 +21,18 @@ In this article, we discuss what recommended practices a cluster operator can fo
 > * Authenticate AKS cluster users with Microsoft Entra ID.
 > * Control access to resources with Kubernetes role-based access control (Kubernetes RBAC).
 > * Use Azure RBAC to granularly control access to the AKS resource, the Kubernetes API at scale, and the `kubeconfig`.
-> * Use a [managed identity][managed-identities] to authenticate pods with other services.
+> * Use a [workload identity](./workload-identity-overview.md) to access Azure resources from your pods.
 
 <a name='use-azure-active-directory-azure-ad'></a>
+
+> [!WARNING]
+> The open source Microsoft Entra pod-managed identity (preview) in Azure Kubernetes Service has been deprecated as of 10/24/2022.
+>
+> If you have [Microsoft Entra pod-managed identity][aad-pod-identity] enabled on your AKS cluster or are considering implementing it,
+> we recommend you **review the [workload identity overview][workload-identity-overview] article** to understand our
+> recommendations and options to set up your cluster to use a Microsoft Entra Workload ID (preview).
+> This authentication method replaces pod-managed identity (preview), which integrates with the Kubernetes native capabilities
+> to federate with any external identity providers.
 
 ## Use Microsoft Entra ID
 
@@ -118,23 +127,21 @@ There are two levels of access needed to fully operate an AKS cluster:
 
 ## Use pod-managed identities
 
-Don't use fixed credentials within pods or container images, as they are at risk of exposure or abuse. Instead, use *pod identities* to automatically request access using Microsoft Entra ID.
+> [!WARNING]
+> The open source Microsoft Entra pod-managed identity (preview) in Azure Kubernetes Service has been deprecated as of 10/24/2022.
+>
+> If you have [Microsoft Entra pod-managed identity][aad-pod-identity] enabled on your AKS cluster or are considering implementing it,
+> we recommend you **review the [workload identity overview][workload-identity-overview] article** to understand our
+> recommendations and options to set up your cluster to use a Microsoft Entra Workload ID (preview).
+> This authentication method replaces pod-managed identity (preview), which integrates with the Kubernetes native capabilities
+> to federate with any external identity providers.
 
-> [!NOTE]
-> Pod identities are intended for use with Linux pods and container images only. Pod-managed identities (preview) support for Windows containers is coming soon.
+
+Don't use fixed credentials within pods or container images, as they are at risk of exposure or abuse. Instead, use *pod identities* to automatically request access using Microsoft Entra ID.
 
 To access other Azure resources, like Azure Cosmos DB, Key Vault, or Blob storage, the pod needs authentication credentials. You could define authentication credentials with the container image or inject them as a Kubernetes secret. Either way, you would need to manually create and assign them. Usually, these credentials are reused across pods and aren't regularly rotated.
 
 With pod-managed identities (preview) for Azure resources, you automatically request access to services through Microsoft Entra ID. Pod-managed identities is currently in preview for AKS. Refer to the [Use Microsoft Entra pod-managed identities in Azure Kubernetes Service (Preview)](./use-azure-ad-pod-identity.md) documentation to get started.
-
-> [!NOTE]
-> If you have enabled [Microsoft Entra pod-managed identity][aad-pod-identity] on your AKS cluster or are considering implementing it,
-> we recommend you first review the [workload identity overview][workload-identity-overview] article to understand our
-> recommendations and options to set up your cluster to use a Microsoft Entra Workload ID (preview).
-> This authentication method replaces pod-managed identity (preview), which integrates with the Kubernetes native capabilities
-> to federate with any external identity providers.
->
-> The open source Microsoft Entra pod-managed identity (preview) in Azure Kubernetes Service has been deprecated as of 10/24/2022.
 
 Microsoft Entra pod-managed identity (preview) supports two modes of operation:
 
@@ -166,9 +173,9 @@ When pods request a security token from Microsoft Entra ID to access to an Azure
     * Identifies pods requesting access to Azure resources based on their remote address.
     * Queries the Azure Resource Provider.
 
-1. The Azure Resource Provider checks for Azure identity mappings in the AKS cluster.
-1. The NMI server requests an access token from Microsoft Entra ID based on the pod's identity mapping.
-1. Microsoft Entra ID provides access to the NMI server, which is returned to the pod.
+2. The Azure Resource Provider checks for Azure identity mappings in the AKS cluster.
+3. The NMI server requests an access token from Microsoft Entra ID based on the pod's identity mapping.
+4. Microsoft Entra ID provides access to the NMI server, which is returned to the pod.
     * This access token can be used by the pod to then request access to resources in Azure.
 
 In the following example, a developer creates a pod that uses a managed identity to request access to Azure SQL Database:
@@ -200,8 +207,7 @@ For more information about cluster operations in AKS, see the following best pra
 <!-- INTERNAL LINKS -->
 [aks-concepts-identity]: concepts-identity.md
 [azure-ad-integration]: managed-azure-ad.md
-[aks-aad]: azure-ad-integration-cli.md
-[managed-identities]: ../active-directory/managed-identities-azure-resources/overview.md
+[aks-aad]: enable-authentication-microsoft-entra-id.md
 [aks-best-practices-scheduler]: operator-best-practices-scheduler.md
 [aks-best-practices-advanced-scheduler]: operator-best-practices-advanced-scheduler.md
 [aks-best-practices-cluster-isolation]: operator-best-practices-cluster-isolation.md

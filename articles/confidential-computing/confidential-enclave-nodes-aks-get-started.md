@@ -2,12 +2,12 @@
 title: 'Quickstart: Deploy an AKS cluster with Enclave Confidential Container Intel SGX nodes by using the Azure CLI'
 description: Learn how to create an Azure Kubernetes Service (AKS) cluster with enclave confidential containers a Hello World app by using the Azure CLI.
 author: angarg05
-ms.service: virtual-machines 
+ms.service: virtual-machines
 ms.subservice: confidential-computing
 ms.topic: quickstart
 ms.date: 11/06/2023
 ms.author: ananyagarg
-ms.custom: contentperf-fy21q3, devx-track-azurecli, ignite-fall-2021, mode-api, devx-track-linux
+ms.custom: devx-track-azurecli, mode-api
 ---
 
 # Quickstart: Deploy an AKS cluster with confidential computing Intel SGX agent nodes by using the Azure CLI
@@ -100,7 +100,7 @@ This section assumes you're already running an AKS cluster that meets the prereq
 Run the following command to enable the confidential computing add-on:
 
 ```azurecli-interactive
-az aks enable-addons --addons confcom --name MyManagedCluster --resource-group MyResourceGroup 
+az aks enable-addons --addons confcom --name MyManagedCluster --resource-group MyResourceGroup
 ```
 
 ### Add a DCsv3 user node pool to the cluster
@@ -138,11 +138,11 @@ kubectl get pods --all-namespaces
 kube-system     sgx-device-plugin-xxxx     1/1     Running
 ```
 
-If the output matches the preceding code, your AKS cluster is now ready to run confidential applications. 
+If the output matches the preceding code, your AKS cluster is now ready to run confidential applications.
 
 ## Deploy Hello World from an isolated enclave application <a id="hello-world"></a>
 
-You're now ready to deploy a test application. 
+You're now ready to deploy a test application.
 
 Create a file named *hello-world-enclave.yaml* and paste in the following YAML manifest. You can find this sample application code in the [Open Enclave project](https://github.com/openenclave/openenclave/tree/master/samples/helloworld). This deployment assumes that you've deployed the *confcom* add-on.
 
@@ -264,13 +264,13 @@ Enclave called into host to print: Hello World!
 
 ## Clean up resources
 
-To remove the confidential computing node pool that you created in this quickstart, use the following command: 
+To remove the confidential computing node pool that you created in this quickstart, use the following command:
 
 ```azurecli-interactive
 az aks nodepool delete --cluster-name myAKSCluster --name confcompool1 --resource-group myResourceGroup
 ```
 
-To delete the AKS cluster, use the following command: 
+To delete the AKS cluster, use the following command:
 
 ```azurecli-interactive
 az aks delete --resource-group myResourceGroup --cluster-name myAKSCluster

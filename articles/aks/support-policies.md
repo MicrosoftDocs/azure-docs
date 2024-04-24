@@ -3,6 +3,9 @@ title: Support policies for Azure Kubernetes Service (AKS)
 description: Learn about Azure Kubernetes Service (AKS) support policies, shared responsibility, and features that are in preview (or alpha or beta).
 ms.topic: article
 ms.date: 08/28/2023
+author: nickomang
+ms.author: nickoman
+
 
 #Customer intent: As a cluster operator or developer, I want to understand what AKS components I need to manage, what components are managed by Microsoft (including security patches), and networking and preview features.
 ---
@@ -58,7 +61,7 @@ Microsoft provides technical support for the following examples:
   * Connectivity to other Azure services and applications
   * Ingress controllers and ingress or load balancer configurations
   * Network performance and latency
-  * [Network policies](use-network-policies.md#differences-between-azure-network-policy-manager-and-calico-network-policy-and-their-capabilities)
+  * [Network policies](use-network-policies.md#differences-between-network-policy-engines-cilium-azure-npm-and-calico)
 
 > [!NOTE]
 > Any cluster actions taken by Microsoft/AKS are made with your consent under a built-in Kubernetes role `aks-service` and built-in role binding `aks-service-rolebinding`. This role enables AKS to troubleshoot and diagnose cluster issues, but can't modify permissions nor create roles or role bindings, or other high privilege actions. Role access is only enabled under active support tickets with just-in-time (JIT) access.

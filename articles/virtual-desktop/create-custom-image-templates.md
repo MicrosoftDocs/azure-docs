@@ -4,7 +4,7 @@ description: Learn how to use custom image templates to create custom images whe
 ms.topic: how-to
 author: dknappettmsft
 ms.author: daknappe
-ms.date: 09/08/2023
+ms.date: 01/24/2024
 ---
 
 # Use custom image templates to create custom images in Azure Virtual Desktop
@@ -42,7 +42,7 @@ Before you can create a custom image template, you need to meet the following pr
    "Microsoft.Compute/images/delete"
    ```
 
-- [Assign the custom role to the managed identity](../role-based-access-control/role-assignments-portal-managed-identity.md#user-assigned-managed-identity). This should be scoped appropriately for your deployment, ideally to the resource group you use store custom image templates.
+- [Assign the custom role to the managed identity](../role-based-access-control/role-assignments-portal-managed-identity.yml#user-assigned-managed-identity). This should be scoped appropriately for your deployment, ideally to the resource group you use store custom image templates.
 
 - *Optional*: If you want to distribute your image to Azure Compute Gallery, [create an Azure Compute Gallery](../virtual-machines/create-gallery.md), then [create a VM image definition](../virtual-machines/image-version.md). When you create a VM image definition in the gallery you need to specify the *generation* of the image you intend to create, either *generation 1* or *generation 2*. The generation of the image you want to use as the source image needs to match the generation specified in the VM image definition. Don't create a *VM image version* at this stage. This will be done by Azure Virtual Desktop.
 
@@ -130,7 +130,7 @@ To create a custom image using the Azure portal:
 
    | Parameter | Value/Description |
    |--|--|
-   | Build timeout (minutes) | Enter the [maximum duration to wait](../virtual-machines/linux/image-builder-json.md#properties-buildtimeoutinminutes) while building the image template (includes all customizations, validations, and distributions). |
+   | Build timeout (minutes) | Enter the [maximum duration to wait](../virtual-machines/linux/image-builder-json.md#properties-buildtimeoutinminutes) while building the image template (includes all customizations, validations, and distributions). <br /><br />Customizations like Language Pack installation or Configure Windows Optimization require Windows Update and we recommend a higher build timeout. Windows Update is automatically triggered for those built-in scripts. |
    | Build VM size | Select a size for the temporary VM created and used to build the template. You need to select a [VM size that matches the generation](../virtual-machines/generation-2.md) of your source image. |
    | OS disk size (GB) | Select the resource group you assigned the managed identity to.<br /><br />Alternatively, if you assigned the managed identity to the subscription, you can create a new resource group here. |
    | Staging group | Enter a name for a new resource group you want Azure Image Builder to use to create the Azure resources it needs to create the image. If you leave this blank Azure Image Builder creates its own default resource group. |

@@ -6,7 +6,6 @@ ms.service: managed-instance-apache-cassandra
 ms.topic: how-to
 ms.date: 11/16/2021
 ms.author: thvankra
-ms.custom: ignite-fall-2021
 ---
 
 # Configure Grafana to visualize metrics emitted from the managed instance cluster
@@ -19,7 +18,7 @@ The following tasks are required to visualize metrics:
 * Install the [Prometheus Dashboards](https://github.com/datastax/metric-collector-for-apache-cassandra#installing-the-prometheus-dashboards) onto the VM.
 
 >[!WARNING]
-> Prometheus and Grafana are open-source software and not supported as part of the Azure Managed Instance for Apache Cassandra service. Visualizing metrics in the way described below will require you to host and maintain a virtual machine as the server for both Prometheus and Grafana. The instructions below were tested only for Ubuntu Server 18.04, there is no guarantee that they will work with other linux distributions. Following this approach will entail supporting any issues that may arise, such as running out of space, or availability of the server. For a fully supported and hosted metrics experience, consider using [Azure Monitor metrics](monitor-clusters.md#azure-metrics), or alternatively [Azure Monitor partner integrations](../azure-monitor/partners.md).
+> Prometheus and Grafana are open-source software and not supported as part of the Azure Managed Instance for Apache Cassandra service. Visualizing metrics in the way described below will require you to host and maintain a virtual machine as the server for both Prometheus and Grafana. The instructions below were tested only for Ubuntu Server 18.04, there is no guarantee that they will work with other linux distributions. Following this approach will entail supporting any issues that may arise, such as running out of space, or availability of the server. For a fully supported and hosted metrics experience, consider using [Azure Monitor metrics](monitor-clusters.md#azure-managed-instance-for-apache-cassandra-metrics), or alternatively [Azure Monitor partner integrations](../azure-monitor/partners.md).
 
 ## Deploy an Ubuntu server
 

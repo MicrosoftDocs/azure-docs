@@ -1,16 +1,13 @@
 ---
 title: REST API error codes - Azure Key Vault
 description: These error codes could be returned by an operation on an Azure Key Vault web service.
-keywords: 
 services: machine-learning
 author: msmbaldwin
-ms.custom: seodec18
 ms.author: mbaldwin
-
 ms.service: key-vault
 ms.subservice: general
 ms.topic: reference
-ms.date: 01/11/2023
+ms.date: 02/20/2024
 ---
  
 # Azure Key Vault REST API Error Codes

@@ -1,7 +1,6 @@
 ---
 title: include file
 description: include file
-services: event-hubs
 author: spelluru
 ms.service: stream-analytics
 ms.topic: include

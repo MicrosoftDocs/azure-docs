@@ -10,14 +10,14 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 09/29/2023
+ms.date: 03/27/2024
 ---
 
 # Troubleshooting common indexer errors and warnings in Azure AI Search
 
 This article provides information and solutions to common errors and warnings you might encounter during indexing and AI enrichment in Azure AI Search.
 
-Indexing stops when the error count exceeds ['maxFailedItems'](cognitive-search-concept-troubleshooting.md#tip-3-see-what-works-even-if-there-are-some-failures). 
+Indexing stops when the error count exceeds ['maxFailedItems'](cognitive-search-concept-troubleshooting.md#tip-2-see-what-works-even-if-there-are-some-failures). 
 
 If you want indexers to ignore these errors (and skip over "failed documents"), consider updating the `maxFailedItems` and `maxFailedItemsPerBatch` as described [here](/rest/api/searchservice/create-indexer#general-parameters-for-all-indexers).
 
@@ -27,6 +27,27 @@ If you want indexers to ignore these errors (and skip over "failed documents"), 
 The error information in this article can help you resolve errors, allowing indexing to continue.
 
 Warnings don't stop indexing, but they do indicate conditions that could result in unexpected outcomes. Whether you take action or not depends on the data and your scenario.
+
+## Where can you find specific indexer errors?
+
+To verify an indexer status and identify errors in the Azure portal, follow the steps below:
+
+1. Navigate to the Azure portal and locate your AI Search service.
+1. Once you're in the AI Search service, click on the 'Indexers' tab.
+1. From the list of indexers, identify the specific indexer you wish to verify.
+1. Under the 'Execution History' column, click on the 'Status' hyperlink associated with the selected indexer.
+1. If there's an error, hover over the error message. A pane will appear on the right side of your screen displaying detailed information about the error.
+
+## Transient errors 
+
+For various reasons, such as transient network communication interruptions, timeouts from long-running processes, or specific document nuances, it's common to encounter transient errors or warnings during indexer runs. However, these errors are temporary and should be resolved in subsequent indexer runs. 
+
+To manage these errors effectively, it is recommended [putting your indexer on a schedule](search-howto-schedule-indexers.md), for instance, to run every five minutes. This means the next run will commence five minutes after the completion of the first run, adhering to the [maximum runtime limit](search-limits-quotas-capacity.md#indexer-limits). Regularly scheduled runs help to rectify any transient errors or warnings swiftly. 
+
+If you notice an error persisting over multiple indexer runs, it's likely not a transient issue. In such cases, refer to the list below for potential solutions. Please note, always ensure your indexing schedule aligns with the limitations outlined in our indexer limits guide.
+
+
+## Error properties
 
 Beginning with API version `2019-05-06`, item-level Indexer errors and warnings are structured to provide increased clarity around causes and next steps. They contain the following properties:
 
@@ -72,7 +93,7 @@ Indexer read the document from the data source, but there was an issue convertin
 | Reason | Details/Example | Resolution |
 | --- | --- | --- |
 | The document key is missing | `Document key cannot be missing or empty` | Ensure all documents have valid document keys. The document key is determined by setting the 'key' property as part of the [index definition](/rest/api/searchservice/create-index#request-body). Indexers emit this error when the property flagged as the 'key' can't be found on a particular document. |
-| The document key is invalid | `Invalid document key. Keys can only contain letters, digits, underscore (_), dash (-), or equal sign (=). ` | Ensure all documents have valid document keys. Review [Indexing Blob Storage](search-howto-indexing-azure-blob-storage.md) for more details. If you are using the blob indexer, and your document key is the `metadata_storage_path` field, make sure that the indexer definition has a [base64Encode mapping function](search-indexer-field-mappings.md?tabs=rest#base64encode-function) with `parameters` equal to `null`, instead of the path in plain text. |
+| The document key is invalid | `Invalid document key. Keys can only contain letters, digits, underscore (_), dash (-), or equal sign (=). ` | Ensure all documents have valid document keys. Review [Indexing Blob Storage](search-howto-indexing-azure-blob-storage.md) for more details. If you're using the blob indexer, and your document key is the `metadata_storage_path` field, make sure that the indexer definition has a [base64Encode mapping function](search-indexer-field-mappings.md?tabs=rest#base64encode-function) with `parameters` equal to `null`, instead of the path in plain text. |
 | The document key is invalid | `Document key cannot be longer than 1024 characters` | Modify the document key to meet the validation requirements. |
 | Could not apply field mapping to a field | `Could not apply mapping function 'functionName' to field 'fieldName'. Array cannot be null. Parameter name: bytes` | Double check the [field mappings](search-indexer-field-mappings.md) defined on the indexer, and compare with the data of the specified field of the failed document. It might be necessary to modify the field mappings or the document data. |
 | Could not read field value | `Could not read the value of column 'fieldName' at index 'fieldIndex'. A transport-level error has occurred when receiving results from the server. (provider: TCP Provider, error: 0 - An existing connection was forcibly closed by the remote host.)` | These errors are typically due to unexpected connectivity issues with the data source's underlying service. Try running the document through your indexer again later. |
@@ -163,10 +184,10 @@ The document was read and processed, but the indexer couldn't add it to the sear
 | Reason | Details/Example | Resolution |
 | --- | --- | --- |
 | A field contains a term that is too large | A term in your document is larger than the [32-KB limit](search-limits-quotas-capacity.md#api-request-limits) | You can avoid this restriction by ensuring the field isn't configured as filterable, facetable, or sortable.
-| Document is too large to be indexed | A document is larger than the [maximum api request size](search-limits-quotas-capacity.md#api-request-limits) | [How to index large data sets](search-howto-large-index.md)
+| Document is too large to be indexed | A document is larger than the [maximum API request size](search-limits-quotas-capacity.md#api-request-limits) | [How to index large data sets](search-howto-large-index.md)
 | Document contains too many objects in collection | A collection in your document exceeds the [maximum elements across all complex collections limit](search-limits-quotas-capacity.md#index-limits). `The document with key '1000052' has '4303' objects in collections (JSON arrays). At most '3000' objects are allowed to be in collections across the entire document. Remove objects from collections and try indexing the document again.` | We recommend reducing the size of the complex collection in the document to below the limit and avoid high storage utilization.
 | Trouble connecting to the target index (that persists after retries) because the service is under other load, such as querying or indexing. | Failed to establish connection to update index. Search service is under heavy load. | [Scale up your search service](search-capacity-planning.md)
-| Search service is being patched for service update, or is in the middle of a topology reconfiguration. | Failed to establish connection to update index. Search service is currently down/Search service is undergoing a transition. | Configure service with at least 3 replicas for 99.9% availability per [SLA documentation](https://azure.microsoft.com/support/legal/sla/search/v1_0/)
+| Search service is being patched for service update, or is in the middle of a topology reconfiguration. | Failed to establish connection to update index. Search service is currently down/Search service is undergoing a transition. | Configure service with at least three replicas for 99.9% availability per [SLA documentation](https://azure.microsoft.com/support/legal/sla/search/v1_0/)
 | Failure in the underlying compute/networking resource (rare) | Failed to establish connection to update index. An unknown failure occurred. | Configure indexers to [run on a schedule](search-howto-schedule-indexers.md) to pick up from a failed state.
 | An indexing request made to the target index wasn't acknowledged within a timeout period due to network issues. | Could not establish connection to the search index in a timely manner. | Configure indexers to [run on a schedule](search-howto-schedule-indexers.md) to pick up from a failed state. Additionally, try lowering the indexer [batch size](/rest/api/searchservice/create-indexer#parameters) if this error condition persists.
 
@@ -178,7 +199,7 @@ The document was read and processed by the indexer, but due to a mismatch in the
 
 | Reason | Details/Example
 | --- | ---
-| Data type of the field(s) extracted by the indexer is incompatible with the data model of the corresponding target index field. | `The data field '_data_' in the document with key '888' has an invalid value 'of type 'Edm.String''. The expected type was 'Collection(Edm.String)'.` |
+| Data type of one or more fields extracted by the indexer is incompatible with the data model of the corresponding target index field. | `The data field '_data_' in the document with key '888' has an invalid value 'of type 'Edm.String''. The expected type was 'Collection(Edm.String)'.` |
 | Failed to extract any JSON entity from a string value. | `Could not parse value 'of type 'Edm.String'' of field '_data_' as a JSON object.` `Error:'After parsing a value an unexpected character was encountered: ''. Path '_path_', line 1, position 3162.'` |
 | Failed to extract a collection of JSON entities from a string value.  | `Could not parse value 'of type 'Edm.String'' of field '_data_' as a JSON array.` `Error:'After parsing a value an unexpected character was encountered: ''. Path '[0]', line 1, position 27.'` |
 | An unknown type was discovered in the source document. | `Unknown type '_unknown_' cannot be indexed` |
@@ -188,7 +209,7 @@ In all these cases, refer to [Supported Data types](/rest/api/searchservice/supp
 
 ## `Error: Integrated change tracking policy cannot be used because table has a composite primary key`
 
-This applies to SQL tables, and usually happens when the key is either defined as a composite key or, when the table has defined a unique clustered index (as in a SQL index, not an Azure Search index). The main reason is that the key attribute is modified to be a composite primary key in the case of a [unique clustered index](/sql/relational-databases/indexes/clustered-and-nonclustered-indexes-described). In that case, make sure that your SQL table doesn't have a unique clustered index, or that you map the key field to a field that is guaranteed not to have duplicate values.
+This applies to SQL tables, and usually happens when the key is either defined as a composite key or, when the table has defined a unique clustered index (as in a SQL index, not an Azure Search index). The main reason is that the key attribute is modified to be a composite primary key in a [unique clustered index](/sql/relational-databases/indexes/clustered-and-nonclustered-indexes-described). In that case, make sure that your SQL table doesn't have a unique clustered index, or that you map the key field to a field that is guaranteed not to have duplicate values.
 
 <a name="could-not-process-document-within-indexer-max-run-time"></a>
 
@@ -214,6 +235,10 @@ This error occurs when the indexer is attempting to [project data into a knowled
 
 Skill execution failed because the call to Azure AI services was throttled. Typically, this class of failure occurs when too many skills are executing in parallel. If you're using the Microsoft.Search.Documents client library to run the indexer, you can use the [SearchIndexingBufferedSender](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/search/Azure.Search.Documents/samples/Sample05_IndexingDocuments.md#searchindexingbufferedsender) to get automatic retry on failed steps. Otherwise, you can [reset and rerun the indexer](search-howto-run-reset-indexers.md).
 
+## `Error: Expected IndexAction metadata`
+
+An 'Expected IndexAction metadata' error means when the indexer attempted to read the document to identify what action should be taken, it did not find any corresponding metadata on the document. Typically, this error occurs when the indexer has an annotation cache added or removed without resetting the indexer. To address this, you should [reset and rerun the indexer](search-howto-run-reset-indexers.md).  
+
 <a name="could-not-execute-skill-because-a-skill-input-was-invalid"></a>
 
 ## `Warning: Skill input was invalid`
@@ -230,9 +255,9 @@ If necessary inputs are missing or if the input isn't the right type, the skill 
 
 If an optional input is missing, the skill still runs, but it might produce unexpected output due to the missing input.
 
-In both cases, this warning is due to the shape of your data. For example, if you have a document containing information about people with the fields `firstName`, `middleName`, and `lastName`, you might have some documents that don't have an entry for `middleName`. If you pass `middleName` as an input to a skill in the pipeline, then it's expected that this skill input is missing some of the time. You will need to evaluate your data and scenario to determine whether or not any action is required as a result of this warning.
+In both cases, this warning is due to the shape of your data. For example, if you have a document containing information about people with the fields `firstName`, `middleName`, and `lastName`, you might have some documents that don't have an entry for `middleName`. If you pass `middleName` as an input to a skill in the pipeline, then it's expected that this skill input is missing some of the time. You need to evaluate your data and scenario to determine whether or not any action is required as a result of this warning.
 
-If you want to provide a default value in case of missing input, you can use the [Conditional skill](cognitive-search-skill-conditional.md) to generate a default value and then use the output of the [Conditional skill](cognitive-search-skill-conditional.md) as the skill input.
+If you want to provide a default value for a missing input, you can use the [Conditional skill](cognitive-search-skill-conditional.md) to generate a default value and then use the output of the [Conditional skill](cognitive-search-skill-conditional.md) as the skill input.
 
 ```json
 {
@@ -249,7 +274,7 @@ If you want to provide a default value in case of missing input, you can use the
 
 | Reason | Details/Example | Resolution |
 | --- | --- | --- |
-| Skill input is the wrong type | "Required skill input was not of the expected type `String`. Name: `text`, Source: `/document/merged_content`."  "Required skill input was not of the expected format. Name: `text`, Source: `/document/merged_content`."  "Cannot iterate over non-array `/document/normalized_images/0/imageCelebrities/0/detail/celebrities`."  "Unable to select `0` in non-array `/document/normalized_images/0/imageCelebrities/0/detail/celebrities`" | Certain skills expect inputs of particular types, for example [Sentiment skill](cognitive-search-skill-sentiment-v3.md) expects `text` to be a string. If the input specifies a non-string value, then the skill doesn't execute and generates no outputs. Ensure your data set has input values uniform in type, or use a [Custom Web API skill](cognitive-search-custom-skill-web-api.md) to preprocess the input. If you're iterating the skill over an array, check the skill context and input have `*` in the correct positions. Usually both the context and input source should end with `*` for arrays. |
+| Skill input is the wrong type | "Required skill input was not of the expected type `String`. Name: `text`, Source: `/document/merged_content`."  "Required skill input wasn't of the expected format. Name: `text`, Source: `/document/merged_content`."  "Cannot iterate over non-array `/document/normalized_images/0/imageCelebrities/0/detail/celebrities`."  "Unable to select `0` in non-array `/document/normalized_images/0/imageCelebrities/0/detail/celebrities`" | Certain skills expect inputs of particular types, for example [Sentiment skill](cognitive-search-skill-sentiment-v3.md) expects `text` to be a string. If the input specifies a nonstring value, then the skill doesn't execute and generates no outputs. Ensure your data set has input values uniform in type, or use a [Custom Web API skill](cognitive-search-custom-skill-web-api.md) to preprocess the input. If you're iterating the skill over an array, check the skill context and input have `*` in the correct positions. Usually both the context and input source should end with `*` for arrays. |
 | Skill input is missing | `Required skill input is missing. Name: text, Source: /document/merged_content`  `Missing value /document/normalized_images/0/imageTags.`  `Unable to select 0 in array /document/pages of length 0.` | If this warning occurs for all documents, there could be a typo in the input paths. Check the property name casing. Check for an extra or missing `*` in the path. Verify that the documents from the data source provide the required inputs. |
 | Skill language code input is invalid | Skill input `languageCode` has the following language codes `X,Y,Z`, at least one of which is invalid. | See more details below. |
 
@@ -263,7 +288,7 @@ Note that you can also get a warning similar to this one if an invalid `countryH
 
 If you know that your data set is all in one language, you should remove the [LanguageDetectionSkill](cognitive-search-skill-language-detection.md) and the `languageCode` skill input and use the `defaultLanguageCode` skill parameter for that skill instead, assuming the language is supported for that skill.
 
-If you know that your data set contains multiple languages and thus you need the [LanguageDetectionSkill](cognitive-search-skill-language-detection.md) and `languageCode` input, consider adding a [ConditionalSkill](cognitive-search-skill-conditional.md) to filter out the text with languages that are not supported before passing in the text to the downstream skill. Here's an example of what this might look like for the EntityRecognitionSkill:
+If you know that your data set contains multiple languages and thus you need the [LanguageDetectionSkill](cognitive-search-skill-language-detection.md) and `languageCode` input, consider adding a [ConditionalSkill](cognitive-search-skill-conditional.md) to filter out the text with languages that aren't supported before passing in the text to the downstream skill. Here's an example of what this might look like for the EntityRecognitionSkill:
 
 ```json
 {
@@ -324,7 +349,7 @@ The indexer ran the skill in the skillset, but the response from the Web API req
 
 This warning only occurs for Azure Cosmos DB data sources.
 
-Incremental progress during indexing ensures that if indexer execution is interrupted by transient failures or execution time limit, the indexer can pick up where it left off next time it runs, instead of having to re-index the entire collection from scratch. This is especially important when indexing large collections.
+Incremental progress during indexing ensures that if indexer execution is interrupted by transient failures or execution time limit, the indexer can pick up where it left off next time it runs, instead of having to reindex the entire collection from scratch. This is especially important when indexing large collections.
 
 The ability to resume an unfinished indexing job is predicated on having documents ordered by the `_ts` column. The indexer uses the timestamp to determine which document to pick up next. If the `_ts` column is missing or if the indexer can't determine if a custom query is ordered by it, the indexer starts at beginning and you'll see this warning.
 
@@ -365,7 +390,7 @@ Output field mappings that reference non-existent/null data will produce warning
 <a name="document-text-appears-to-be-utf-16-encoded-but-is-missing-a-byte-order-mark"></a>
 
 ## `Warning: Document text appears to be UTF-16 encoded, but is missing a byte order mark`
-The [indexer parsing modes](/rest/api/searchservice/create-indexer#blob-configuration-parameters) need to know how text is encoded before parsing it. The two most common ways of encoding text are UTF-16 and UTF-8. UTF-8 is a variable-length encoding where each character is between 1 byte and 4 bytes long. UTF-16 is a fixed-length encoding where each character is 2 bytes long. UTF-16 has two different variants, "big endian" and "little endian". Text encoding is determined by a "byte order mark", a series of bytes before the text.
+The [indexer parsing modes](/rest/api/searchservice/create-indexer#blob-configuration-parameters) need to know how text is encoded before parsing it. The two most common ways of encoding text are UTF-16 and UTF-8. UTF-8 is a variable-length encoding where each character is between 1 byte and 4 bytes long. UTF-16 is a fixed-length encoding where each character is 2 bytes long. UTF-16 has two different variants, `big endian` and `little endian`. Text encoding is determined by a `byte order mark`, a series of bytes before the text.
 
 | Encoding | Byte Order Mark |
 | --- | --- |
@@ -385,8 +410,8 @@ Collections with [Lazy](../cosmos-db/index-policy.md#indexing-mode) indexing pol
 
 ## `Warning: The document contains very long words (longer than 64 characters). These words may result in truncated and/or unreliable model predictions.`
 
-This warning is passed from the Language service of Azure AI services. In some cases, it's safe to ignore this warning, such as when your document contains a long URL (which likely isn't a key phrase or driving sentiment, etc.).  Be aware that when a word is longer than 64 characters, it will be truncated to 64 characters which can affect model predictions.
+This warning is passed from the Language service of Azure AI services. In some cases, it's safe to ignore this warning, for example if the long string is just a long URL. Be aware that when a word is longer than 64 characters, it's 'truncated to 64 characters which can affect model predictions.
 
 ## `Error: Cannot write more bytes to the buffer than the configured maximum buffer size`
 
-Indexers have [document size limits](search-limits-quotas-capacity.md#indexer-limits). Make sure that the documents in your data source are smaller than the supported size limit, as documented for your service SKU. 
+Indexers have [document size limits](search-limits-quotas-capacity.md#indexer-limits). Make sure that the documents in your data source are smaller than the supported size limit, as documented for your service tier. 

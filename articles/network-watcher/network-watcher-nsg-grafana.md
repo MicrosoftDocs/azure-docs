@@ -4,19 +4,20 @@ titleSuffix: Azure Network Watcher
 description: Manage and analyze Network Security Group Flow Logs in Azure using Network Watcher and Grafana.
 services: network-watcher
 author: halkazwini
-tags: azure-resource-manager
 ms.service: network-watcher
 ms.topic: how-to
-ms.workload: infrastructure-services
 ms.date: 05/03/2023
 ms.author: halkazwini
-ms.custom: engagement-fy23, devx-track-linux
+ms.custom: engagement-fy23, linux-related-content
 ---
 # Manage and analyze network security group flow logs using Network Watcher and Grafana
 
-[Network Security Group (NSG) flow logs](network-watcher-nsg-flow-logging-overview.md) provide information that can be used to understand ingress and egress IP traffic on network interfaces. These flow logs show outbound and inbound flows on a per NSG rule basis, the NIC the flow applies to, 5-tuple information about the flow (Source/Destination IP, Source/Destination Port, Protocol), and if the traffic was allowed or denied.
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
-You can have many NSGs in your network with flow logging enabled. This amount of logging data makes it cumbersome to parse and gain insights from your logs. This article provides a solution to centrally manage these NSG flow logs using Grafana, an open source graphing tool, ElasticSearch, a distributed search and analytics engine, and Logstash, which is an open source server-side data processing pipeline.  
+[Network Security Group (NSG) flow logs](nsg-flow-logs-overview.md) provide information that can be used to understand ingress and egress IP traffic on network interfaces. These flow logs show outbound and inbound flows on a per NSG rule basis, the NIC the flow applies to, 5-tuple information about the flow (Source/Destination IP, Source/Destination Port, Protocol), and if the traffic was allowed or denied.
+
+You can have many NSGs in your network with flow logging enabled. This amount of logging data makes it cumbersome to parse and gain insights from your logs. This article provides a solution to centrally manage these NSG flow logs using Grafana, an open source graphing tool, ElasticSearch, a distributed search and analytics engine, and Logstash, which is an open source server-side data processing pipeline.
 
 ## Scenario
 
@@ -28,7 +29,7 @@ NSG flow logs are enabled using Network Watcher and are stored in Azure blob sto
 
 ### Enable Network Security Group flow logging
 
-For this scenario, you must have Network Security Group Flow Logging enabled on at least one Network Security Group in your account. For instructions on enabling Network Security Flow Logs, refer to the following article [Introduction to flow logging for Network Security Groups](network-watcher-nsg-flow-logging-overview.md).
+For this scenario, you must have Network Security Group Flow Logging enabled on at least one Network Security Group in your account. For instructions on enabling Network Security Flow Logs, refer to the following article [Introduction to flow logging for Network Security Groups](nsg-flow-logs-overview.md).
 
 ### Setup considerations
 
@@ -82,7 +83,7 @@ The following instructions are used to install Logstash in Ubuntu. For instructi
         split => { "[records][resourceId]" => "/"}
         add_field => { "Subscription" => "%{[records][resourceId][2]}"
           "ResourceGroup" => "%{[records][resourceId][4]}"
-          "NetworkSecurityGroup" => "%{[records][resourceId][8]}" 
+          "NetworkSecurityGroup" => "%{[records][resourceId][8]}"
         }
         convert => {"Subscription" => "string"}
         convert => {"ResourceGroup" => "string"}
@@ -116,9 +117,9 @@ The following instructions are used to install Logstash in Ubuntu. For instructi
         convert => {"unixtimestamp" => "integer"}
         convert => {"srcPort" => "integer"}
         convert => {"destPort" => "integer"}
-        add_field => { "message" => "%{Message}" }        
+        add_field => { "message" => "%{Message}" }
       }
- 
+
       date {
         match => ["unixtimestamp" , "UNIX"]
       }
@@ -133,7 +134,7 @@ The following instructions are used to install Logstash in Ubuntu. For instructi
    ```
 
 The Logstash config file provided is composed of three parts: the input, filter, and output.
-The input section designates the input source of the logs that Logstash will process – in this case we are going to use an “azureblob” input plugin (installed in the next steps) that will allow us to access the NSG flow log JSON files stored in blob storage. 
+The input section designates the input source of the logs that Logstash will process – in this case we are going to use an “azureblob” input plugin (installed in the next steps) that will allow us to access the NSG flow log JSON files stored in blob storage.
 
 The filter section then flattens each flow log file so that each individual flow tuple and its associated properties becomes a separate Logstash event.
 

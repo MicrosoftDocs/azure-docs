@@ -1,9 +1,8 @@
 ---
 title: Social media analysis with Azure Stream Analytics
 description: This article describes how to use Stream Analytics for social media analysis using the twitter client API. Step-by-step guidance from event generation to data on a live dashboard.
-services: stream-analytics 
-author: enkrumah
-ms.author: ebnkruma
+author: AliciaLiMicrosoft 
+ms.author: ali 
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: how-to
@@ -213,7 +212,7 @@ A job input, query, and output are specified. You're ready to start the Stream A
 3. On the **Start job** page, for **Job output start time**, select **Now** and then select **Start**.
 
 ## Get support
-For further assistance, try our [Microsoft Q&A question page for Azure Stream Analytics](/answers/topics/azure-stream-analytics.html).
+For further assistance, try our [Microsoft Q&A question page for Azure Stream Analytics](/answers/tags/179/azure-stream-analytics).
 
 ## Next steps
 * [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)

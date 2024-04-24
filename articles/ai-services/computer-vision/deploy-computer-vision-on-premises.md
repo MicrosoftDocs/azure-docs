@@ -7,7 +7,7 @@ author: PatrickFarley
 manager: nitinme
 ms.service: azure-ai-vision
 ms.topic: how-to
-ms.date: 05/09/2022
+ms.date: 02/27/2024
 ms.author: pafarley
 ms.custom: cogserv-non-critical-vision
 ---

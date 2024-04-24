@@ -3,7 +3,7 @@ title: Integrate your app with an Azure virtual network
 description: Integrate your app in Azure App Service with Azure virtual networks.
 author: madsd
 ms.topic: conceptual
-ms.date: 07/21/2023
+ms.date: 04/05/2024
 ms.author: madsd
 ms.custom: UpdateFrequency3
 
@@ -20,7 +20,7 @@ App Service has two variations:
 * The dedicated compute pricing tiers, which include the Basic, Standard, Premium, Premium v2, and Premium v3.
 * The App Service Environment, which deploys directly into your virtual network with dedicated supporting infrastructure and is using the Isolated and Isolated v2 pricing tiers.
 
-The virtual network integration feature is used in Azure App Service dedicated compute pricing tiers. If your app is in an [App Service Environment](./environment/overview.md), it's already integrated with a virtual network and doesn't require you to configure virtual network integration feature to reach resources in the same virtual network. For more information on all the networking features, see [App Service networking features](./networking-features.md).
+The virtual network integration feature is used in Azure App Service dedicated compute pricing tiers. If your app is in an [App Service Environment](./environment/overview.md), it already integrates with a virtual network and doesn't require you to configure virtual network integration feature to reach resources in the same virtual network. For more information on all the networking features, see [App Service networking features](./networking-features.md).
 
 Virtual network integration gives your app access to resources in your virtual network, but it doesn't grant inbound private access to your app from the virtual network. Private site access refers to making an app accessible only from a private network, such as from within an Azure virtual network. Virtual network integration is used only to make outbound calls from your app into your virtual network. Refer to [private endpoint](./networking/private-endpoint.md) for inbound private access.
 
@@ -28,7 +28,7 @@ The virtual network integration feature:
 
 * Requires a [supported Basic or Standard](./overview-vnet-integration.md#limitations), Premium, Premium v2, Premium v3, or Elastic Premium App Service pricing tier.
 * Supports TCP and UDP.
-* Works with App Service apps, function apps and Logic apps.
+* Works with App Service apps, function apps, and Logic apps.
 
 There are some things that virtual network integration doesn't support, like:
 
@@ -46,7 +46,7 @@ Virtual network integration supports connecting to a virtual network in the same
 
 When you use virtual network integration, you can use the following Azure networking features:
 
-* **Network security groups (NSGs)**: You can block outbound traffic with an NSG that's placed on your integration subnet. The inbound rules don't apply because you can't use virtual network integration to provide inbound access to your app.
+* **Network security groups (NSGs)**: You can block outbound traffic with an NSG that you use on your integration subnet. The inbound rules don't apply because you can't use virtual network integration to provide inbound access to your app.
 * **Route tables (UDRs)**: You can place a route table on the integration subnet to send outbound traffic where you want.
 * **NAT gateway**: You can use [NAT gateway](./networking/nat-gateway-integration.md) to get a dedicated outbound IP and mitigate SNAT port exhaustion.
 
@@ -62,32 +62,47 @@ When virtual network integration is enabled, your app makes outbound calls throu
 
 When all traffic routing is enabled, all outbound traffic is sent into your virtual network. If all traffic routing isn't enabled, only private traffic (RFC1918) and service endpoints configured on the integration subnet is sent into the virtual network. Outbound traffic to the internet is routed directly from the app.
 
-For Windows App Service plans, the virtual network integration feature supports two virtual interfaces per worker. Two virtual interfaces per worker mean two virtual network integrations per App Service plan. In other words, a Windows App Service plan can have virtual network integrations with up to two subnets/virtual networks. The apps in the same App Service plan can only use one of the virtual network integrations to a specific subnet, meaning an app can only have a single virtual network integration at a given time. Linux App Service plans support only one virtual network integration per plan.
+The virtual network integration feature supports two virtual interfaces per worker. Two virtual interfaces per worker mean two virtual network integrations per App Service plan. In other words, an App Service plan can have virtual network integrations with up to two subnets/virtual networks. The apps in the same App Service plan can only use one of the virtual network integrations to a specific subnet, meaning an app can only have a single virtual network integration at a given time.
 
 ## Subnet requirements
 
 Virtual network integration depends on a dedicated subnet. When you create a subnet, the Azure subnet consumes five IPs from the start. One address is used from the integration subnet for each App Service plan instance. If you scale your app to four instances, then four addresses are used.
 
-When you scale up/down in size or in/out in number of instances, the required address space is doubled for a short period of time. The scale operation adds the same number of new instances and then deletes the existing instances. The scale operation affects the real, available supported instances for a given subnet size. Platform upgrades need free IP addresses to ensure upgrades can happen without interruptions to outbound traffic. Finally, after scale up, down, or in operations complete, there might be a short period of time before IP addresses are released. 
+When you scale up/down in instance size, the amount of IP addresses used by the App Service plan is temporarily doubled while the scale operation completes. The new instances need to be fully operational before the existing instances are deprovisioned. The scale operation affects the real, available supported instances for a given subnet size. Platform upgrades need free IP addresses to ensure upgrades can happen without interruptions to outbound traffic. Finally, after scale up, down, or in operations complete, there might be a short period of time before IP addresses are released. In rare cases, this operation can be up to 12 hours.
 
-Because subnet size can't be changed after assignment, use a subnet that's large enough to accommodate whatever scale your app might reach. You should also reserve IP addresses for platform upgrades. To avoid any issues with subnet capacity, use a `/26` with 64 addresses. When you're creating subnets in Azure portal as part of integrating with the virtual network, a minimum size of /27 is required. If the subnet already exists before integrating through the portal, you can use a /28 subnet.
+Because subnet size can't be changed after assignment, use a subnet that's large enough to accommodate whatever scale your app might reach. You should also reserve IP addresses for platform upgrades. To avoid any issues with subnet capacity, use a `/26` with 64 addresses. When you're creating subnets in Azure portal as part of integrating with the virtual network, a minimum size of `/27` is required. If the subnet already exists before integrating through the portal, you can use a `/28` subnet.
+
+With multi plan subnet join (MPSJ), you can join multiple App Service plans in to the same subnet. All App Service plans must be in the same subscription but the virtual network/subnet can be in a different subscription. Each instance from each App Service plan requires an IP address from the subnet and to use MPSJ a minimum size of `/26` subnet is required. If you plan to join many and/or large scale plans, you should plan for larger subnet ranges.
 
 >[!NOTE]
-> Windows Containers uses an additional IP address per app for each App Service plan instance, and you need to size the subnet accordingly. If you have for example 10 Windows Container App Service plan instances with 4 apps running, you will need 50 IP addresses and additional addresses to support horizontal (in/out) scale.
->
-> Sample calculation:
->
-> For each App Service plan instance, you need:  
-> 4 Windows Container apps = 4 IP addresses  
-> 1 IP address per App Service plan instance  
-> 4 + 1 = 5 IP addresses
->
-> For 10 instances:  
-> 5 x 10 = 50 IP addresses per App Service plan
->
-> Since you have 1 App Service plan, 1 x 50 = 50 IP addresses.
+> Multi plan subnet join is currently in public preview. During preview the following known limitations should be observed:
+> 
+> * The minimum requirement for subnet size of `/26` is currently not enforced, but will be enforced at GA. If you have joined multiple plans to a smaller subnet during preview they will still work, but you cannot connect additional plans and if you disconnect you will not be able to connect again.
+> * There is currently no validation if the subnet has available IPs, so you might be able to join N+1 plan, but the instances will not get an IP. You can view available IPs in the Virtual network integration page in Azure portal in apps that are already connected to the subnet.
 
-When you want your apps in your plan to reach a virtual network that's already connected to by apps in another plan, select a different subnet than the one being used by the pre-existing virtual network integration.
+### Windows Containers specific limits
+
+Windows Containers uses an extra IP address per app for each App Service plan instance, and you need to size the subnet accordingly. If you have, for example, 10 Windows Container App Service plan instances with four apps running, you need 50 IP addresses and extra addresses to support horizontal (in/out) scale.
+
+Sample calculation:
+
+For each App Service plan instance, you need:
+4 Windows Container apps = 4 IP addresses
+1 IP address per App Service plan instance
+4 + 1 = 5 IP addresses
+
+For 10 instances:
+5 x 10 = 50 IP addresses per App Service plan
+
+Since you have 1 App Service plan, 1 x 50 = 50 IP addresses.
+
+You are in addition limited by the number of cores available in the worker tier used. Each core adds three networking units. The worker itself uses one unit and each virtual network connection uses one unit. The remaining units can be used for apps.
+
+Sample calculation:
+
+App Service plan instance with four apps running and using virtual network integration. The Apps are connected to two different subnets (virtual network connections). This configuration requires seven networking units (1 worker + 2 connections + 4 apps). The minimum size for running this configuration would be I2v2 (four cores x 3 units = 12 units).
+
+With I1v2, you can run a maximum of four apps using the same (1) connection or 3 apps using 2 connections.
 
 ## Permissions
 
@@ -99,17 +114,17 @@ You must have at least the following Role-based access control permissions on th
 | Microsoft.Network/virtualNetworks/subnets/read | Read a virtual network subnet definition |
 | Microsoft.Network/virtualNetworks/subnets/join/action | Joins a virtual network |
 
-If the virtual network is in a different subscription than the app, you must ensure that the subscription with the virtual network is registered for the `Microsoft.Web` resource provider. You can explicitly register the provider [by following this documentation](../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider), but it's automatically registered when creating the first web app in a subscription.
+If the virtual network is in a different subscription than the app, you must ensure that the subscription with the virtual network is registered for the `Microsoft.Web` resource provider. You can explicitly register the provider [by following this documentation](../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider), but it also automatically registers when creating the first web app in a subscription.
 
 ## Routes
 
 You can control what traffic goes through the virtual network integration. There are three types of routing to consider when you configure virtual network integration. [Application routing](#application-routing) defines what traffic is routed from your app and into the virtual network. [Configuration routing](#configuration-routing) affects operations that happen before or during startup of your app. Examples are container image pull and [app settings with Key Vault reference](./app-service-key-vault-references.md). [Network routing](#network-routing) is the ability to handle how both app and configuration traffic are routed from your virtual network and out.
 
-Through application routing or configuration routing options, you can configure what traffic is sent through the virtual network integration. Traffic is only subject to [network routing](#network-routing) if it's sent through the virtual network integration.
+Through application routing or configuration routing options, you can configure what traffic is sent through the virtual network integration. Traffic is only subject to [network routing](#network-routing) if sent through the virtual network integration.
 
 ### Application routing
 
-Application routing applies to traffic that is sent from your app after it has been started. See [configuration routing](#configuration-routing) for traffic during startup. When you configure application routing, you can either route all traffic or only private traffic (also known as [RFC1918](https://datatracker.ietf.org/doc/html/rfc1918#section-3) traffic) into your virtual network. You configure this behavior through the outbound internet traffic setting. If outbound internet traffic routing is disabled, your app only routes private traffic into your virtual network. If you want to route all your outbound app traffic into your virtual network, make sure that outbound internet traffic is enabled.
+Application routing applies to traffic that is sent from your app after it starts. See [configuration routing](#configuration-routing) for traffic during startup. When you configure application routing, you can either route all traffic or only private traffic (also known as [RFC1918](https://datatracker.ietf.org/doc/html/rfc1918#section-3) traffic) into your virtual network. You configure this behavior through the outbound internet traffic setting. If outbound internet traffic routing is disabled, your app only routes private traffic into your virtual network. If you want to route all your outbound app traffic into your virtual network, make sure that outbound internet traffic is enabled.
 
 * Only traffic configured in application or configuration routing is subject to the NSGs and UDRs that are applied to your integration subnet.
 * When outbound internet traffic routing is enabled, the source address for your outbound traffic from your app is still one of the IP addresses that are listed in your app properties. If you route your traffic through a firewall or a NAT gateway, the source IP address originates from this service.
@@ -147,9 +162,17 @@ App settings using Key Vault references attempt to get secrets over the public r
 > * Configure SSL/TLS certificates from private Key Vaults is currently not supported.
 > * App Service Logs to private storage accounts is currently not supported. We recommend using Diagnostics Logging and allowing Trusted Services for the storage account.
 
+### Routing app settings
+
+App Service has existing app settings to configure application and configuration routing. Site properties override the app settings if both exist. Site properties have the advantage of being auditable with Azure Policy and validated at the time of configuration. We recommend you to use site properties. 
+
+You can still use the existing `WEBSITE_VNET_ROUTE_ALL` app setting to configure application routing.
+
+App settings also exist for some configuration routing options. These app settings are named `WEBSITE_CONTENTOVERVNET` and `WEBSITE_PULL_IMAGE_OVER_VNET`.
+
 ### Network routing
 
-You can use route tables to route outbound traffic from your app without restriction. Common destinations can include firewall devices or gateways. You can also use a [network security group](../virtual-network/network-security-groups-overview.md) (NSG) to block outbound traffic to resources in your virtual network or the internet. An NSG that's applied to your integration subnet is in effect regardless of any route tables applied to your integration subnet.
+You can use route tables to route outbound traffic from your app without restriction. Common destinations can include firewall devices or gateways. You can also use a [network security group](../virtual-network/network-security-groups-overview.md) (NSG) to block outbound traffic to resources in your virtual network or the internet. An NSG that you apply to your integration subnet is in effect regardless of any route tables applied to your integration subnet.
 
 Route tables and network security groups only apply to traffic routed through the virtual network integration. See [application routing](#application-routing) and [configuration routing](#configuration-routing) for details. Routes don't apply to replies from inbound app requests and inbound rules in an NSG don't apply to your app. Virtual network integration affects only outbound traffic from your app. To control inbound traffic to your app, use the [access restrictions](./overview-access-restrictions.md) feature or [private endpoints](./networking/private-endpoint.md).
 
@@ -183,13 +206,12 @@ There are some limitations with using virtual network integration:
 * The feature is available from all App Service deployments in Premium v2 and Premium v3. It's also available in Basic and Standard tier but only from newer App Service deployments. If you're on an older deployment, you can only use the feature from a Premium v2 App Service plan. If you want to make sure you can use the feature in a Basic or Standard App Service plan, create your app in a Premium v3 App Service plan. Those plans are only supported on our newest deployments. You can scale down if you want after the plan is created.
 * The feature isn't available for Isolated plan apps in an App Service Environment.
 * You can't reach resources across peering connections with classic virtual networks.
-* The feature requires an unused subnet that's an IPv4 `/28` block or larger in an Azure Resource Manager virtual network.
+* The feature requires an unused subnet that's an IPv4 `/28` block or larger in an Azure Resource Manager virtual network. MPSJ requires a `/26` block or larger.
 * The app and the virtual network must be in the same region.
 * The integration virtual network can't have IPv6 address spaces defined.
 * The integration subnet can't have [service endpoint policies](../virtual-network/virtual-network-service-endpoint-policies-overview.md) enabled.
-* The integration subnet can be used by only one App Service plan.
 * You can't delete a virtual network with an integrated app. Remove the integration before you delete the virtual network.
-* You can't have more than two virtual network integrations per Windows App Service plan. You can't have more than one virtual network integration per Linux App Service plan. Multiple apps in the same App Service plan can use the same virtual network integration.
+* You can't have more than two virtual network integrations per App Service plan. Multiple apps in the same App Service plan can use the same virtual network integration.
 * You can't change the subscription of an app or a plan while there's an app that's using virtual network integration.
 
 ## Access on-premises resources
@@ -226,7 +248,7 @@ The feature is easy to set up, but that doesn't mean your experience is problem 
 
 ### Deleting the App Service plan or app before disconnecting the network integration
 
-If you deleted the app or the App Service plan without disconnecting the virtual network integration first, you aren't able to do any update/delete operations on the virtual network or subnet that was used for the integration with the deleted resource. A subnet delegation 'Microsoft.Web/serverFarms' remains assigned to your subnet and prevents the update/delete operations. 
+If you deleted the app or the App Service plan without disconnecting the virtual network integration first, you aren't able to do any update/delete operations on the virtual network or subnet that was used for the integration with the deleted resource. A subnet delegation 'Microsoft.Web/serverFarms' remains assigned to your subnet and prevents the update and delete operations. 
 
 In order to do update/delete the subnet or virtual network again, you need to re-create the virtual network integration, and then disconnect it:
 1. Re-create the App Service plan and app (it's mandatory to use the exact same web app name as before).

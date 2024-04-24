@@ -7,7 +7,7 @@ author: eric-urban
 ms.author: eur
 ms.service: azure-ai-speech
 ms.topic: how-to
-ms.date: 11/29/2022
+ms.date: 1/18/2024
 zone_pivot_groups: speech-cli-rest
 ms.custom: devx-track-csharp
 ---
@@ -20,10 +20,10 @@ To get transcription results, first check the [status](#get-transcription-status
 
 ::: zone pivot="rest-api"
 
-To get the status of the transcription job, call the [Transcriptions_Get](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Transcriptions_Get) operation of the [Speech to text REST API](rest-speech-to-text.md).
+To get the status of the transcription job, call the [Transcriptions_Get](/rest/api/speechtotext/transcriptions/get) operation of the [Speech to text REST API](rest-speech-to-text.md).
 
 > [!IMPORTANT]
-> Batch transcription jobs are scheduled on a best-effort basis. At pick hours it may take up to 30 minutes or longer for a transcription job to start processing. Most of the time during the execution the transcription status will be `Running`. This is because the job is assigned with `Running` status the moment it moves to the batch transcription backend system, which happens almost immediately when base model is used, and slightly slower for custom models. Thus the amount of time a transcription job spends in `Running` state doesn't correspond to the actual transcription time, but also includes waiting time in the internal queues.
+> Batch transcription jobs are scheduled on a best-effort basis. At peak hours, it may take up to 30 minutes or longer for a transcription job to start processing. Most of the time during the execution the transcription status will be `Running`. This is because the job is assigned the `Running` status the moment it moves to the batch transcription backend system. When the base model is used, this assignment happens almost immediately; it's slightly slower for custom models. Thus, the amount of time a transcription job spends in the `Running` state doesn't correspond to the actual transcription time but also includes waiting time in the internal queues.
 
 Make an HTTP GET request using the URI as shown in the following example. Replace `YourTranscriptionId` with your transcription ID, replace `YourSubscriptionKey` with your Speech resource key, and replace `YourServiceRegion` with your Speech resource region.
 
@@ -69,7 +69,7 @@ You should receive a response body in the following format:
 }
 ```
 
-The `status` property indicates the current status of the transcriptions. The transcriptions and transcription report will be available when the transcription status is `Succeeded`.
+The `status` property indicates the current status of the transcriptions. The transcriptions and transcription report are available when the transcription status is `Succeeded`.
 
 
 ::: zone-end
@@ -77,7 +77,7 @@ The `status` property indicates the current status of the transcriptions. The tr
 ::: zone pivot="speech-cli"
 
 > [!IMPORTANT]
-> Batch transcription jobs are scheduled on a best-effort basis. At pick hours it may take up to 30 minutes or longer for a transcription job to start processing. Most of the time during the execution the transcription status will be `Running`. This is because the job is assigned with `Running` status the moment it moves to the batch transcription backend system, which happens almost immediately when base model is used, and slightly slower for custom models. Thus the amount of time a transcription job spends in `Running` state doesn't correspond to the actual transcription time, but also includes waiting time in the internal queues.
+> Batch transcription jobs are scheduled on a best-effort basis. At peak hours, it may take up to 30 minutes or longer for a transcription job to start processing. Most of the time during the execution the transcription status will be `Running`. This is because the job is assigned the `Running` status the moment it moves to the batch transcription backend system. When the base model is used, this assignment happens almost immediately; it's slightly slower for custom models. Thus, the amount of time a transcription job spends in the `Running` state doesn't correspond to the actual transcription time but also includes waiting time in the internal queues.
 
 To get the status of the transcription job, use the `spx batch transcription status` command. Construct the request parameters according to the following instructions:
 
@@ -120,7 +120,7 @@ You should receive a response body in the following format:
 }
 ```
 
-The `status` property indicates the current status of the transcriptions. The transcriptions and transcription report will be available when the transcription status is `Succeeded`.
+The `status` property indicates the current status of the transcriptions. The transcriptions and transcription report are available when the transcription status is `Succeeded`.
 
 For Speech CLI help with transcriptions, run the following command:
 
@@ -134,7 +134,7 @@ spx help batch transcription
 
 ::: zone pivot="rest-api"
 
-The [Transcriptions_ListFiles](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Transcriptions_ListFiles) operation returns a list of result files for a transcription. A [transcription report](#transcription-report-file) file is provided for each submitted batch transcription job. In addition, one [transcription](#transcription-result-file) file (the end result) is provided for each successfully transcribed audio file.  
+The [Transcriptions_ListFiles](/rest/api/speechtotext/transcriptions/list-files) operation returns a list of result files for a transcription. A [transcription report](#transcription-report-file) file is provided for each submitted batch transcription job. In addition, one [transcription](#transcription-result-file) file (the end result) is provided for each successfully transcribed audio file.  
 
 Make an HTTP GET request using the "files" URI from the previous response body. Replace `YourTranscriptionId` with your transcription ID, replace `YourSubscriptionKey` with your Speech resource key, and replace `YourServiceRegion` with your Speech resource region.
 
@@ -375,22 +375,22 @@ Depending in part on the request parameters set when you created the transcripti
 |`combinedRecognizedPhrases`|The concatenated results of all phrases for the channel.|
 |`confidence`|The confidence value for the recognition.|
 |`display`|The display form of the recognized text. Added punctuation and capitalization are included.|
-|`displayWords`|The timestamps for each word of the transcription. The `displayFormWordLevelTimestampsEnabled` request property must be set to `true`, otherwise this property is not present.<br/><br/>**Note**: This property is only available with Speech to text REST API version 3.1.|
+|`displayWords`|The timestamps for each word of the transcription. The `displayFormWordLevelTimestampsEnabled` request property must be set to `true`, otherwise this property isn't present.<br/><br/>**Note**: This property is only available with Speech to text REST API version 3.1.|
 |`duration`|The audio duration. The value is an ISO 8601 encoded duration.|
-|`durationInTicks`|The audio duration in ticks (1 tick is 100 nanoseconds).|
+|`durationInTicks`|The audio duration in ticks (one tick is 100 nanoseconds).|
 |`itn`|The inverse text normalized (ITN) form of the recognized text. Abbreviations such as "Doctor Smith" to "Dr Smith", phone numbers, and other transformations are applied.|
 |`lexical`|The actual words recognized.|
-|`locale`|The locale identified from the input the audio. The `languageIdentification` request property must be set, otherwise this property is not present.<br/><br/>**Note**: This property is only available with Speech to text REST API version 3.1.|
+|`locale`|The locale identified from the input the audio. The `languageIdentification` request property must be set, otherwise this property isn't present.<br/><br/>**Note**: This property is only available with Speech to text REST API version 3.1.|
 |`maskedITN`|The ITN form with profanity masking applied.|
 |`nBest`|A list of possible transcriptions for the current phrase with confidences.|
 |`offset`|The offset in audio of this phrase. The value is an ISO 8601 encoded duration.|
-|`offsetInTicks`|The offset in audio of this phrase in ticks (1 tick is 100 nanoseconds).|
+|`offsetInTicks`|The offset in audio of this phrase in ticks (one tick is 100 nanoseconds).|
 |`recognitionStatus`|The recognition state. For example: "Success" or "Failure".|
 |`recognizedPhrases`|The list of results for each phrase.|
 |`source`|The URL that was provided as the input audio source. The source corresponds to the `contentUrls` or `contentContainerUrl` request property. The `source` property is the only way to confirm the audio input for a transcription.|
-|`speaker`|The identified speaker. The `diarization` and `diarizationEnabled` request properties must be set, otherwise this property is not present.|
+|`speaker`|The identified speaker. The `diarization` and `diarizationEnabled` request properties must be set, otherwise this property isn't present.|
 |`timestamp`|The creation date and time of the transcription. The value is an ISO 8601 encoded timestamp.|
-|`words`|A list of results with lexical text for each word of the phrase. The `wordLevelTimestampsEnabled` request property must be set to `true`, otherwise this property is not present.|
+|`words`|A list of results with lexical text for each word of the phrase. The `wordLevelTimestampsEnabled` request property must be set to `true`, otherwise this property isn't present.|
 
 
 ## Next steps

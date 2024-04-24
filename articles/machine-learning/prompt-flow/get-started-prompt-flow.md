@@ -36,7 +36,7 @@ If you aren't already connected to AzureOpenAI, select the **Create** button the
 
 :::image type="content" source="./media/get-started-prompt-flow/connection-creation-entry-point.png" alt-text="Screenshot of the connections tab with create highlighted." lightbox = "./media/get-started-prompt-flow/connection-creation-entry-point.png":::
 
-Then a right-hand panel will appear. Here, you'll need to select the subscription and resource name, provide the connection name, API key, API base, API type, and API version before selecting the **Save** button.
+Then a right-hand panel will appear. Here, you'll need to select the subscription and resource name, provide the connection name, API key (if auth type equals to API key), API base, API type, and API version before selecting the **Save** button. Prompt flow also support Microsoft Entra ID as auth type for identity based auth for Azure OpenAI resource. Learn more about [How to configure Azure OpenAI Service with managed identities](../../ai-services/openai/how-to/managed-identity.md).
 
 :::image type="content" source="./media/get-started-prompt-flow/azure-openai-connection.png" alt-text="Screenshot of the add Azure OpenAI connections." lightbox = "./media/get-started-prompt-flow/azure-openai-connection.png":::
 

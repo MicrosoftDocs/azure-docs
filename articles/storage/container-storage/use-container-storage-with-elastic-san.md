@@ -1,25 +1,35 @@
 ---
-title: Use Azure Container Storage Preview with Azure Elastic SAN Preview
-description: Configure Azure Container Storage Preview for use with Azure Elastic SAN Preview. Create a storage pool, select a storage class, create a persistent volume claim, and attach the persistent volume to a pod.
+title: Use Azure Container Storage Preview with Azure Elastic SAN
+description: Configure Azure Container Storage for use with Azure Elastic SAN. Create a storage pool, select a storage class, create a persistent volume claim, and attach the persistent volume to a pod.
 author: khdownie
 ms.service: azure-container-storage
 ms.topic: how-to
-ms.date: 11/06/2023
+ms.date: 03/21/2024
 ms.author: kendownie
 ms.custom: references_regions
 ---
 
-# Use Azure Container Storage Preview with Azure Elastic SAN Preview
-[Azure Container Storage](container-storage-introduction.md) is a cloud-based volume management, deployment, and orchestration service built natively for containers. This article shows you how to configure Azure Container Storage to use Azure Elastic SAN Preview as back-end storage for your Kubernetes workloads. At the end, you'll have a pod that's using Elastic SAN as its storage.
+# Use Azure Container Storage Preview with Azure Elastic SAN
+
+[Azure Container Storage](container-storage-introduction.md) is a cloud-based volume management, deployment, and orchestration service built natively for containers. This article shows you how to configure Azure Container Storage to use Azure Elastic SAN as back-end storage for your Kubernetes workloads. At the end, you'll have a pod that's using Elastic SAN as its storage.
 
 ## Prerequisites
 
 [!INCLUDE [container-storage-prerequisites](../../../includes/container-storage-prerequisites.md)]
 
-- If you haven't already installed Azure Container Storage Preview, follow the instructions in [Install Azure Container Storage](container-storage-aks-quickstart.md).
+- If you haven't already installed Azure Container Storage, follow the instructions in [Install Azure Container Storage](container-storage-aks-quickstart.md).
+
+- Ensure your subscription has [Azure role-based access control (Azure RBAC) Owner](../../role-based-access-control/built-in-roles/general.md#owner) role. For Azure Container Storage to successfully communicate with Elastic SAN's API, it needs special permissions that the Owner role will grant.
 
 > [!NOTE]
-> To use Azure Container Storage with Azure Elastic SAN Preview, your AKS cluster should have a node pool of at least three [general purpose VMs](../../virtual-machines/sizes-general.md) such as **standard_d4s_v5** for the cluster nodes, each with a minimum of four virtual CPUs (vCPUs).
+> To use Azure Container Storage with Azure Elastic SAN, your AKS cluster should have a node pool of at least three [general purpose VMs](../../virtual-machines/sizes-general.md) such as **standard_d4s_v5** for the cluster nodes, each with a minimum of four virtual CPUs (vCPUs).
+
+## Limitations
+
+The following features aren't currently supported when you use Azure Container Storage to deploy and orchestrate an Elastic SAN.
+
+- Volume snapshots
+- Storage pool expansion
 
 ## Regional availability
 
@@ -27,18 +37,18 @@ ms.custom: references_regions
 
 ## Create a storage pool
 
-First, create a storage pool, which is a logical grouping of storage for your Kubernetes cluster, by defining it in a YAML manifest file. 
+First, create a storage pool, which is a logical grouping of storage for your Kubernetes cluster, by defining it in a YAML manifest file.
 
 If you enabled Azure Container Storage using `az aks create` or `az aks update` commands, you might already have a storage pool. Use `kubectl get sp -n acstor` to get the list of storage pools. If you have a storage pool already available that you want to use, you can skip this section and proceed to [Display the available storage classes](#display-the-available-storage-classes).
 
-Follow these steps to create a storage pool with Azure Elastic SAN Preview.
+Follow these steps to create a storage pool with Azure Elastic SAN.
 
 1. Use your favorite text editor to create a YAML manifest file such as `code acstor-storagepool.yaml`.
 
-1. Paste in the following code and save the file. The storage pool **name** value can be whatever you want.
+1. Paste in the following code. The storage pool **name** value can be whatever you want. Adjust *storage* to reflect the storage capacity you want in Gi or Ti, and save the file. Azure Elastic SAN doesn't currently support resizing storage pools.
 
    ```yml
-   apiVersion: containerstorage.azure.com/v1alpha1
+   apiVersion: containerstorage.azure.com/v1
    kind: StoragePool
    metadata:
      name: managed
@@ -68,14 +78,14 @@ Follow these steps to create a storage pool with Azure Elastic SAN Preview.
    kubectl describe sp <storage-pool-name> -n acstor
    ```
 
-When the storage pool is created, Azure Container Storage will create a storage class on your behalf using the naming convention `acstor-<storage-pool-name>`. It will also create an Azure Elastic SAN Preview resource.
+When the storage pool is created, Azure Container Storage will create a storage class on your behalf using the naming convention `acstor-<storage-pool-name>`. It will also create an Azure Elastic SAN resource.
 
-## Assign Contributor role to AKS managed identity on Azure Elastic SAN Preview subscription
+## Assign Contributor role to AKS managed identity on Azure Elastic SAN subscription
 
-Next, you must assign the [Contributor](../../role-based-access-control/built-in-roles.md#contributor) Azure RBAC built-in role to the AKS managed identity on your Azure Elastic SAN Preview subscription. You'll need an [Owner](../../role-based-access-control/built-in-roles.md#owner) role for your Azure subscription in order to do this. If you don't have sufficient permissions, ask your admin to perform these steps.
+Next, you must assign the [Contributor](../../role-based-access-control/built-in-roles.md#contributor) Azure RBAC built-in role to the AKS managed identity on your Azure Elastic SAN subscription. You'll need an [Owner](../../role-based-access-control/built-in-roles.md#owner) role for your Azure subscription in order to do this. If you don't have sufficient permissions, ask your admin to perform these steps.
 
 1. Sign in to the [Azure portal](https://portal.azure.com?azure-portal=true).
-1. Select **Subscriptions**, and locate and select the subscription associated with the Azure Elastic SAN Preview resource that Azure Container Storage created on your behalf. This will likely be the same subscription as the AKS cluster that Azure Container Storage is installed on. You can verify this by locating the Elastic SAN resource in the resource group that AKS created (`MC_YourResourceGroup_YourAKSClusterName_Region`).
+1. Select **Subscriptions**, and locate and select the subscription associated with the Azure Elastic SAN resource that Azure Container Storage created on your behalf. This will likely be the same subscription as the AKS cluster that Azure Container Storage is installed on. You can verify this by locating the Elastic SAN resource in the resource group that AKS created (`MC_YourResourceGroup_YourAKSClusterName_Region`).
 1. Select **Access control (IAM)** from the left pane.
 1. Select **Add > Add role assignment**.
 1. Under **Assignment type**, select **Privileged administrator roles** and then **Contributor**, then select **Next**. If you don't have an Owner role on the subscription, you won't be able to add the Contributor role.
@@ -209,7 +219,7 @@ To reattach a persistent volume, simply reference the persistent volume claim na
 
 To check which persistent volume a persistent volume claim is bound to, run `kubectl get pvc <persistent-volume-claim-name>`.
 
-## Delete the storage pool
+## Delete a storage pool
 
 If you want to delete a storage pool, run the following command. Replace `<storage-pool-name>` with the storage pool name.
 
@@ -220,4 +230,4 @@ kubectl delete sp -n acstor <storage-pool-name>
 ## See also
 
 - [What is Azure Container Storage?](container-storage-introduction.md)
-- [What is Azure Elastic SAN? Preview](../elastic-san/elastic-san-introduction.md)
+- [What is Azure Elastic SAN?](../elastic-san/elastic-san-introduction.md)

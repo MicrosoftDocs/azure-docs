@@ -4,7 +4,7 @@ description: Show how to architect end-to-end geospatial data on Azure.
 author: rovin-ms
 ms.service: orbital
 ms.topic: conceptual
-ms.custom: ga, ignite-2022
+ms.custom: ga
 ms.date: 06/13/2022
 ms.author: rovin
 #Customer intent: As a geospatial architect, I'd like to understand how to architecture a solution on Azure.

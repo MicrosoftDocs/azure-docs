@@ -6,7 +6,7 @@ ms.author: aahi
 manager: nitinme
 ms.service: azure-ai-language
 ms.topic: include
-ms.date: 09/13/2022
+ms.date: 01/19/2024
 ---
 
 > [!IMPORTANT]

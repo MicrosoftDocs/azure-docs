@@ -7,7 +7,7 @@ author: PatrickFarley
 manager: nitinme
 ms.service: azure-ai-content-moderator
 ms.topic: how-to
-ms.date: 10/24/2019
+ms.date: 01/18/2024
 ms.author: pafarley
 ms.custom: devx-track-csharp, devx-track-dotnet
 #Customer intent: As a C# developer of content-providing software, I want to check images against a custom list of inappropriate images so that I can handle them more efficiently.

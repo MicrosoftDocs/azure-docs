@@ -2,11 +2,11 @@
 title: Overview of managed disk encryption options
 description: Overview of managed disk encryption options
 author: msmbaldwin
-ms.date: 05/15/2023
+ms.date: 02/20/2024
 ms.topic: conceptual
 ms.author: mbaldwin
 ms.service: virtual-machines
-ms.subservice: disks
+ms.subservice: security
 ms.custom: references_regions
 ---
 
@@ -22,7 +22,7 @@ There are several types of encryption available for your managed disks, includin
 
 - **Confidential disk encryption** binds disk encryption keys to the virtual machine's TPM and makes the protected disk content accessible only to the VM. The TPM and VM guest state is always encrypted in attested code using keys released by a secure protocol that bypasses the hypervisor and host operating system. Currently only available for the OS disk. Encryption at host may be used for other disks on a Confidential VM in addition to Confidential Disk Encryption. For full details, see [DCasv5 and ECasv5 series confidential VMs](../confidential-computing/confidential-vm-overview.md#confidential-os-disk-encryption).
 
-Encryption is part of a layered approach to security and should be used with other recommendations to secure Virtual Machines and their disks. For full details, see [Security recommendations for virtual machines in Azure](security-recommendations.md) and [Restrict import/export access to managed disks](disks-enable-private-links-for-import-export-portal.md).
+Encryption is part of a layered approach to security and should be used with other recommendations to secure Virtual Machines and their disks. For full details, see [Security recommendations for virtual machines in Azure](security-recommendations.md) and [Restrict import/export access to managed disks](disks-enable-private-links-for-import-export-portal.yml).
 
 ## Comparison
 
@@ -31,7 +31,7 @@ Here's a comparison of Disk Storage SSE, ADE, encryption at host, and Confidenti
 | &nbsp; | **Azure Disk Storage Server-Side Encryption** | **Encryption at Host**  | **Azure Disk Encryption** | **Confidential disk encryption (For the OS disk only)** |
 |--|--|--|--|--|
 | Encryption at rest (OS and data disks) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | 
-| Temp disk encryption | &#10060; | &#x2705; | &#x2705; | &#10060; |
+| Temp disk encryption | &#10060; | &#x2705; Only supported with platform managed key | &#x2705; | &#10060; |
 | Encryption of caches | &#10060; | &#x2705; | &#x2705; | &#x2705; |
 | Data flows encrypted between Compute and Storage | &#10060; | &#x2705; | &#x2705; | &#x2705; |
 | Customer control of keys | &#x2705; When configured with DES | &#x2705; When configured with DES | &#x2705; When configured with KEK | &#x2705; When configured with DES |

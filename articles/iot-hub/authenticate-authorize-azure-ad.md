@@ -32,7 +32,7 @@ After the Microsoft Entra principal is authenticated, the next step is *authoriz
 
 With Microsoft Entra ID and RBAC, IoT Hub requires the principal requesting the API to have the appropriate level of permission for authorization. To give the principal the permission, give it a role assignment. 
 
-- If the principal is a user, group, or application service principal, follow the guidance in [Assign Azure roles by using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+- If the principal is a user, group, or application service principal, follow the guidance in [Assign Azure roles by using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
 - If the principal is a managed identity, follow the guidance in [Assign a managed identity access to a resource by using the Azure portal](../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md).
 
 To ensure least privilege, always assign the appropriate role at the lowest possible [resource scope](#resource-scope), which is probably the IoT Hub scope.
@@ -92,7 +92,7 @@ The following table describes the permissions available for IoT Hub service API 
 > - Both [Invoke Component Command](/rest/api/iothub/service/digitaltwin/invokecomponentcommand) and [Invoke Root Level Command](/rest/api/iothub/service/digitaltwin/invokerootlevelcommand) require `Microsoft.Devices/IotHubs/directMethods/invoke/action`.
 
 > [!NOTE]
-> To get data from IoT Hub by using Microsoft Entra ID, [set up routing to a separate event hub](iot-hub-devguide-messages-d2c.md#event-hubs-as-a-routing-endpoint). To access the [the built-in Event Hubs compatible endpoint](iot-hub-devguide-messages-read-builtin.md), use the connection string (shared access key) method as before. 
+> To get data from IoT Hub by using Microsoft Entra ID, [set up routing to a custom Event Hubs endpoint](iot-hub-devguide-messages-d2c.md). To access the [the built-in Event Hubs compatible endpoint](iot-hub-devguide-messages-read-builtin.md), use the connection string (shared access key) method as before. 
 
 <a name='enforce-azure-ad-authentication'></a>
 

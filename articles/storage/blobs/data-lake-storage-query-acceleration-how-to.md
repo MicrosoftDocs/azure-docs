@@ -26,6 +26,8 @@ Query acceleration enables applications and analytics frameworks to dramatically
 
 - A **general-purpose v2** storage account. see [Create a storage account](../common/storage-account-create.md).
 
+- Double encryption is not supported.
+- If you are querying a JSON file, each record size in this file should be smaller than 1MB.
 - Choose a tab to view any SDK-specific prerequisites.
 
   ### [PowerShell](#tab/azure-powershell)

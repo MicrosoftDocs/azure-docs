@@ -174,7 +174,7 @@ call.unmute(appContext).get();
 
 ## Mute other participants
 > [!NOTE]
-> This API is provided as a public preview for developers and may change based on feedback that we receive.
+> This API is provided as a public preview for developers and may change based on feedback that we receive. To use this API please use 'beta' release of Azure Communication Services Calling Android SDK version 2.6.0-beta.5 or higher. 
 
 To mute all other participants in a call, use the `muteAllRemoteParticipants` API on the call.
 

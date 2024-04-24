@@ -9,7 +9,7 @@ ms.topic: tutorial
 ms.date: 03/14/2023
 ms.reviewer: mjbrown
 ms.devlang: csharp
-ms.custom: devx-track-csharp, ignite-2022
+ms.custom: devx-track-csharp
 ---
 
 # Tutorial: Query Azure Cosmos DB by using the API for Table

@@ -4,11 +4,14 @@ description: This article describes the Change Tracking and Inventory feature, w
 services: automation
 ms.subservice: change-inventory-management
 ms.date: 12/13/2023
-ms.custom: devx-track-linux
+ms.custom: linux-related-content
 ms.topic: conceptual
 ---
 
 # Change Tracking and Inventory overview
+
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 > [!Important]
 > - Change Tracking and Inventory using Log Analytics agent will  retire on **31 August 2024** and we recommend that you use Azure Monitoring Agent as the new supporting agent. Follow the guidelines for  [migration from Change Tracking and inventory using Log Analytics to Change Tracking and inventory using Azure Monitoring Agent version](guidance-migration-log-analytics-monitoring-agent.md).
@@ -51,7 +54,7 @@ Change Tracking and Inventory doesn't support or has the following limitations:
 - Different installation methods
 - ***.exe** files stored on Windows
 - The **Max File Size** column and values are unused in the current implementation.
-- If you are tracking file changes, it is limited to a file size of 5 MB or less. 
+- If you are tracking file changes, it is limited to a file size of 5 MB or less.
 - If the file size appears >1.25MB, then FileContentChecksum is incorrect due to memory constraints in the checksum calculation.
 - If you try to collect more than 2500 files in a 30-minute collection cycle, Change Tracking and Inventory performance might be degraded.
 - If network traffic is high, change records can take up to six hours to display.
@@ -67,7 +70,7 @@ For limits that apply to Change Tracking and Inventory, see [Azure Automation se
 
 Change Tracking and Inventory is supported on all operating systems that meet Log Analytics agent requirements. See [supported operating systems](../../azure-monitor/agents/agents-overview.md#supported-operating-systems) for a list of the Windows and Linux operating system versions that are currently supported by the Log Analytics agent.
 
-To understand client requirements for TLS 1.2 or higher, see [TLS 1.2 or higher for Azure Automation](../automation-managing-data.md#tls-12-or-higher-for-azure-automation).
+To understand client requirements for TLS 1.2 or higher, see [TLS for Azure Automation](../automation-managing-data.md#tls-for-azure-automation).
 
 ### Python requirement
 
@@ -76,20 +79,20 @@ Change Tracking and Inventory now support Python 2 and Python 3. If your machine
 > [!NOTE]
 > To use the OMS agent compatible with Python 3, ensure that you first uninstall Python 2; otherwise, the OMS agent will continue to run with python 2 by default.
 
-#### [Python 2](#tab/python-2)                                                                                                                                                      
-- Red Hat, CentOS, Oracle: 
+#### [Python 2](#tab/python-2)
+- Red Hat, CentOS, Oracle:
 
 ```bash
    sudo yum install -y python2
 ```
 - Ubuntu, Debian:
- 
+
 ```bash
    sudo apt-get update
    sudo apt-get install -y python2
 ```
 - SUSE:
- 
+
 ```bash
    sudo zypper install -y python2
 ```
@@ -104,18 +107,18 @@ Change Tracking and Inventory now support Python 2 and Python 3. If your machine
 ```bash
    sudo yum install -y python3
 ```
-- Ubuntu, Debian: 
+- Ubuntu, Debian:
 
 ```bash
    sudo apt-get update
    sudo apt-get install -y python3
 ```
-- SUSE: 
- 
+- SUSE:
+
 ```bash
    sudo zypper install -y python3
 ```
---- 
+---
 
 ## Network requirements
 
@@ -235,13 +238,13 @@ A key capability of Change Tracking and Inventory is alerting on changes to the 
 |ConfigurationChange <br>&#124; where RegistryKey contains @"HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Services\\SharedAccess\\Parameters\\FirewallPolicy"| Useful for tracking changes to firewall settings.|
 
 
-## Update Log Analytics agent to latest version 
+## Update Log Analytics agent to latest version
 
-For Change Tracking & Inventory, machines use the [Log Analytics agent](../../azure-monitor/agents/log-analytics-agent.md) to collect data about changes to installed software, Windows services, Windows registry and files, and Linux daemons on monitored servers. Soon, Azure will no longer accept connections from older versions of the Windows Log Analytics (LA) agent, also known as the Windows Microsoft Monitoring Agent (MMA), that uses an older method for certificate handling. We recommend to upgrade your agent to the latest version as soon as possible. 
+For Change Tracking & Inventory, machines use the [Log Analytics agent](../../azure-monitor/agents/log-analytics-agent.md) to collect data about changes to installed software, Windows services, Windows registry and files, and Linux daemons on monitored servers. Soon, Azure will no longer accept connections from older versions of the Windows Log Analytics (LA) agent, also known as the Windows Microsoft Monitoring Agent (MMA), that uses an older method for certificate handling. We recommend to upgrade your agent to the latest version as soon as possible.
 
-[Agents that are on version - 10.20.18053 (bundle) and 1.0.18053.0 (extension)](../../virtual-machines/extensions/oms-windows.md#agent-and-vm-extension-version) or newer aren't affected in response to this change. If you’re on an agent prior to that, your agent will be unable to connect, and the Change Tracking & Inventory pipeline & downstream activities can stop. You can check the current LA agent version in HeartBeat table within your LA Workspace. 
+[Agents that are on version - 10.20.18053 (bundle) and 1.0.18053.0 (extension)](../../virtual-machines/extensions/oms-windows.md#agent-and-vm-extension-version) or newer aren't affected in response to this change. If you’re on an agent prior to that, your agent will be unable to connect, and the Change Tracking & Inventory pipeline & downstream activities can stop. You can check the current LA agent version in HeartBeat table within your LA Workspace.
 
-Ensure to upgrade to the latest version of the Windows Log Analytics agent (MMA) following these [guidelines](../../azure-monitor/agents/agent-manage.md). 
+Ensure to upgrade to the latest version of the Windows Log Analytics agent (MMA) following these [guidelines](../../azure-monitor/agents/agent-manage.md).
 
 ## Next steps
 

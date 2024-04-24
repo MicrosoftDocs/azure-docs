@@ -2,16 +2,11 @@
 title: Azure threat protection | Microsoft Docs
 description: Learn about built-in threat protection functionality for Azure, such as the Microsoft Entra ID Protection service. 
 services: security
-documentationcenter: na
 author: TerryLanfear
 manager: rkarlin
-
-ms.assetid:
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 01/20/2023
 ms.author: terrylan
 
@@ -333,4 +328,4 @@ For examples of web application firewalls that are available in the Azure Market
 
 ## Next step
 
-- [Responding to today's threats](../../defender-for-cloud/managing-and-responding-alerts.md): Helps identify active threats that target your Azure resources and provides the insights you need to respond quickly.
+- [Responding to today's threats](../../defender-for-cloud/managing-and-responding-alerts.yml): Helps identify active threats that target your Azure resources and provides the insights you need to respond quickly.

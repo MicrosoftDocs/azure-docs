@@ -3,9 +3,9 @@ title: Reuse templates across clouds
 description: Develop Azure Resource Manager templates (ARM templates) that work consistently for different cloud environments. Create new or update existing templates for Azure Stack.
 author: marcvaneijk
 ms.topic: conceptual
-ms.date: 12/09/2018
+ms.date: 03/20/2024
 ms.author: mavane
-ms.custom: seodec18, devx-track-arm-template, devx-track-azurecli
+ms.custom: devx-track-arm-template, devx-track-azurecli
 ---
 
 # Develop ARM templates for cloud consistency

@@ -4,7 +4,7 @@ description: Learn how to integrate a VNET with an external Azure Container Apps
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps
-ms.custom: event-tier1-build-2022, devx-track-azurepowershell, devx-track-azurecli, devx-track-linux
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.topic:  how-to
 ms.date: 08/31/2022
 ms.author: cshoe
@@ -130,7 +130,7 @@ $VnetArgs = @{
     Location = $Location
     ResourceGroupName = $ResourceGroupName
     AddressPrefix = '10.0.0.0/16'
-    Subnet = $subnet 
+    Subnet = $subnet
 }
 $vnet = New-AzVirtualNetwork @VnetArgs
 ```
@@ -171,13 +171,13 @@ The following table describes the parameters used in `containerapp env create`.
 |---|---|
 | `name` | Name of the Container Apps environment. |
 | `resource-group` | Name of the resource group. |
-| `location` | The Azure location where the environment is to deploy.  |
+| `location` | The Azure location where the environment is to deploy. |
 | `infrastructure-subnet-resource-id` | Resource ID of a subnet for infrastructure components and user application containers. |
 
 
 # [Azure PowerShell](#tab/azure-powershell)
 
-A Log Analytics workspace is required for the Container Apps environment.  The following commands create a Log Analytics workspace and save the workspace ID and primary shared key to environment variables.
+A Log Analytics workspace is required for the Container Apps environment. The following commands create a Log Analytics workspace and save the workspace ID and primary shared key to environment variables.
 
 ```azurepowershell-interactive
 $WorkspaceArgs = @{
@@ -216,7 +216,7 @@ The following table describes the parameters used in for `New-AzContainerAppMana
 | `ResourceGroupName` | Name of the resource group. |
 | `LogAnalyticConfigurationCustomerId` | The ID of an existing the Log Analytics workspace. |
 | `LogAnalyticConfigurationSharedKey` | The Log Analytics client secret.|
-| `Location` | The Azure location where the environment is to deploy.  |
+| `Location` | The Azure location where the environment is to deploy. |
 | `VnetConfigurationInfrastructureSubnetId` | Resource ID of a subnet for infrastructure components and user application containers. |
 
 ---
@@ -306,7 +306,7 @@ $DnsRecordArgs = @{
     ZoneName = $EnvironmentDefaultDomain
     Name = '*'
     RecordType = 'A'
-    Ttl = 3600 
+    Ttl = 3600
     PrivateDnsRecords = $DnsRecords
 }
 New-AzPrivateDnsRecordSet @DnsRecordArgs
@@ -350,7 +350,7 @@ You must either provide values for all three of these properties, or none of the
 
 ## Clean up resources
 
-If you're not going to continue to use this application, you can delete the Azure Container Apps instance and all the associated services by removing the **my-container-apps** resource group.  Deleting this resource group will also delete the resource group automatically created by the Container Apps service containing the custom network components.
+If you're not going to continue to use this application, you can remove the **my-container-apps** resource group. This deletes the Azure Container Apps instance and all associated services. It also deletes the resource group that the Container Apps service automatically created and which contains the custom network components.
 
 ::: zone pivot="azure-cli"
 

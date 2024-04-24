@@ -1,14 +1,13 @@
 ---
 title: Considerations for running ISV file services in Azure
 titleSuffix: Azure Storage
-description: Basic guidance for different ISV options on running file services in Azure 
+description: Basic guidance for different ISV options on running file services in Azure
 author: dukicn
 ms.author: nikoduki
-ms.topic: conceptual 
+ms.topic: conceptual
 ms.date: 03/22/2022
 ms.service: azure-storage
 ms.subservice: storage-common-concepts
-ms.custom: ignite-2022
 ---
 
 # Running ISV file services in Azure

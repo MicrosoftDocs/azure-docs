@@ -18,7 +18,6 @@ The following table highlights each method so that you can determine which works
 | Interactively | Manually install the agent on a single or small number of machines by [connecting machines using a deployment script](onboard-portal.md).<br> From the Azure portal, you can generate a script and execute it on the machine to automate the install and configuration steps of the agent.|
 | Interactively | [Connect machines from Windows Admin Center](onboard-windows-admin-center.md) |
 | Interactively or at scale | [Connect machines using PowerShell](onboard-powershell.md) |
-| Interactively or at scale | [Connect machines using Windows PowerShell Desired State Configuration (DSC)](onboard-dsc.md) |
 | At scale | [Connect machines using a service principal](onboard-service-principal.md) to install the agent at scale non-interactively.|
 | At scale | [Connect machines by running PowerShell scripts with Configuration Manager](onboard-configuration-manager-powershell.md)
 | At scale | [Connect machines with a Configuration Manager custom task sequence](onboard-configuration-manager-custom-task.md)
@@ -31,6 +30,8 @@ The following table highlights each method so that you can determine which works
 > The Connected Machine agent cannot be installed on an Azure virtual machine. The install script will warn you and roll back if it detects the server is running in Azure.
 
 Be sure to review the basic [prerequisites](prerequisites.md) and [network configuration requirements](network-requirements.md) before deploying the agent, as well as any specific requirements listed in the steps for the onboarding method you choose. To learn more about what changes the agent will make to your system, see [Overview of the Azure Connected Machine Agent](agent-overview.md).
+
+[!INCLUDE [sql-server-auto-onboard](includes/sql-server-auto-onboard.md)]
 
 ## Next steps
 

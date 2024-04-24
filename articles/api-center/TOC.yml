@@ -28,8 +28,20 @@
   items:
       - name: Manage inventory - Azure CLI
         href: manage-apis-azure-cli.md
-#- name: API governance
-#- name: API discovery and consumption
+      - name: Import APIs from API Management
+        href: import-api-management-apis.md
+- name: API governance
+  items:
+      - name: Analyze APIs using linting rules
+        href: enable-api-analysis-linting.md
+- name: API discovery and consumption
+  items:
+      - name: Enable API Center portal
+        href: enable-api-center-portal.md
+      - name: Use VS Code extension
+        href: use-vscode-extension.md
+      - name: Discover APIs with GitHub Copilot Chat
+        href: use-vscode-extension-copilot.md
 - name: Reference
   items:
       - name: Azure CLI
@@ -44,5 +56,7 @@
             href: /java/api/overview/azure/apicenter
           - name: Python
             href: https://pypi.org/project/azure-mgmt-apicenter
+      - name: Event Grid schema
+        href: ../event-grid/event-schema-api-center.md
       - name: Resource Manager template
         href: /azure/templates/microsoft.apicenter/allversions

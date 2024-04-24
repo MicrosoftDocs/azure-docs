@@ -3,7 +3,7 @@ title: Bicep functions - string
 description: Describes the functions to use in a Bicep file to work with strings.
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 07/07/2023
+ms.date: 01/31/2024
 ---
 
 # String functions for Bicep
@@ -414,7 +414,7 @@ The output from the preceding example with the default values is:
 
 `first(arg1)`
 
-Returns the first character of the string, or first element of the array.
+Returns the first character of the string, or first element of the array. If an empty string is given, the function results in an empty string. In the case of an empty array, the function returns `null`.
 
 Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 

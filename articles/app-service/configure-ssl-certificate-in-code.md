@@ -2,12 +2,11 @@
 title: Use a TLS/SSL certificate in code
 description: Learn how to use client certificates in your code. Authenticate with remote resources with a client certificate, or run cryptographic tasks with them.
 ms.topic: article
+ms.custom: linux-related-content
 ms.date: 02/15/2023
 ms.reviewer: yutlin
-ms.custom: seodec18
 ms.author: msangapu
 author: msangapu-msft
-
 ---
 
 # Use a TLS/SSL certificate in your code in Azure App Service

@@ -1,16 +1,9 @@
 ---
 title: Understand dual-protocol security style and permission behaviors in Azure NetApp Files | Microsoft Docs
-description: This article helps you understand dual-protocol security style and permission when you use Azure NetApp Files.  
+description: This article helps you understand dual-protocol security style and permission when you use Azure NetApp Files.
 services: azure-netapp-files
-documentationcenter: ''
 author: whyistheinternetbroken
-manager: ''
-editor: ''
-
-ms.assetid:
 ms.service: azure-netapp-files
-ms.workload: storage
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/02/2023
 ms.author: anfdocs
@@ -103,7 +96,7 @@ One such example is if your storage resides in Azure NetApp Files, while your NA
 
 The following figure shows an example of that kind of configuration.
 
-:::image type="content" source="../media/azure-netapp-files/hub-spoke-dual-protocol.png" alt-text="Illustration that shows hub spoke architecture with Azure NetApp Files and Active Directory cloud resident, NAS clients on-premises." lightbox="../media/azure-netapp-files/hub-spoke-dual-protocol.png":::
+:::image type="content" source="./media/dual-protocol-permission-behaviors/hub-spoke-dual-protocol.png" alt-text="Illustration that shows hub spoke architecture with Azure NetApp Files and Active Directory cloud resident, NAS clients on-premises." lightbox="./media/dual-protocol-permission-behaviors/hub-spoke-dual-protocol.png":::
 
 ## Next steps
 

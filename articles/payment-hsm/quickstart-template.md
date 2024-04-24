@@ -4,10 +4,9 @@ description: Quickstart showing how to create Azure Payment HSM using Resource M
 services: payment-hsm
 author: msmbaldwin
 ms.author: mbaldwin
-ms.date: 09/22/2022
+ms.date: 01/30/2024
 ms.topic: quickstart
 ms.service: payment-hsm
-tags: azure-resource-manager
 ms.custom: mvc, mode-other, devx-track-arm-template, devx-track-azurepowershell, devx-track-azurecli
 #Customer intent: As a security admin who is new to Azure, I want to create a payment HSM using an Azure Resource Manager template.
 ---
@@ -29,9 +28,9 @@ This quickstart describes how to create a payment HSM with the host and manageme
 - You must register the "Microsoft.HardwareSecurityModules" and "Microsoft.Network" resource providers, as well as the Azure Payment HSM features. Steps for doing so are at [Register the Azure Payment HSM resource provider and resource provider features](register-payment-hsm-resource-providers.md).
 
   > [!WARNING]
-  > You must apply the "FastPathEnabled" feature flag to **every** subscription ID, and add the "fastpathenabled" tag to **every** virtual network. For more details, see [Fastpathenabled](fastpathenabled.md).
+  > You must apply the "FastPathEnabled" feature flag to **every** subscription ID, and add the "fastpathenabled" tag to **every** virtual network. For more information, see [Fastpathenabled](fastpathenabled.md).
 
-  To quickly ascertain if the resource providers and features are already registered, use the Azure CLI [az provider show](/cli/azure/provider#az-provider-show) command. (You will find the output of this command more readable if you display it in table-format.)
+  To quickly ascertain if the resource providers and features are already registered, use the Azure CLI [az provider show](/cli/azure/provider#az-provider-show) command. (The output of this command is more readable if you display it in table-format.)
 
   ```azurecli-interactive
   az provider show --namespace "Microsoft.HardwareSecurityModules" -o table
@@ -46,7 +45,7 @@ This quickstart describes how to create a payment HSM with the host and manageme
   You can continue with this quick start if all four of these commands return "Registered".
 - You must have an Azure subscription. You can [create a free account](https://azure.microsoft.com/free/) if you don't have one.
 
-[!INCLUDE [Azure CLI prepare your environment](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [Azure CLI prepare your environment](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 ## Review the template
 
@@ -236,7 +235,7 @@ The corresponding azuredeploy.parameters.json file is:
 
 # [Azure CLI](#tab/azure-cli)
 
-In this example, you will use the Azure CLI to deploy an ARM template to create an Azure payment HSM.  
+In this example, you use the Azure CLI to deploy an ARM template to create an Azure payment HSM.  
 
 First, save the "azuredeploy.json" and "azuredeploy.parameters.json" files locally, for use in the next step. The contents of these files can be found in the [Review the template](#review-the-template) section.  
 
@@ -263,7 +262,7 @@ When prompted, supply the following values for the parameters:
 
 # [Azure PowerShell](#tab/azure-powershell)
 
-In this example, you will use the Azure PowerShell to deploy an ARM template to create an Azure payment HSM.  
+In this example, you use the Azure PowerShell to deploy an ARM template to create an Azure payment HSM.  
 
 First, save the "azuredeploy.json" and "azuredeploy.parameters.json" files locally, for use in the next step. The contents of these files can be found in the [Review the template](#review-the-template) section.  
 
@@ -299,7 +298,7 @@ New-AzResourceGroupDeployment -Name $deploymentName -ResourceGroupName $resource
 
 # [Azure CLI](#tab/azure-cli)
 
-You can verify that the payment HSM was created with the Azure CLI [az dedicated-hsm list](/cli/azure/dedicated-hsm#az-dedicated-hsm-list) command. You will find the output easier to read if you format the results as a table:
+You can verify that the payment HSM was created with the Azure CLI [az dedicated-hsm list](/cli/azure/dedicated-hsm#az-dedicated-hsm-list) command. The output is easier to read if you format the results as a table:
 
 ```azurecli-interactive
 az dedicated-hsm list -o table

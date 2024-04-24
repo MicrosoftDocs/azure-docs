@@ -5,7 +5,6 @@ author: limwainstein
 ms.author: lwainstein
 ms.topic: reference
 ms.date: 11/09/2021
-ms.custom: ignite-fall-2021
 ---
 
 # CEF and CommonSecurityLog field mapping

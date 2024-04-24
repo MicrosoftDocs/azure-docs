@@ -9,13 +9,12 @@ ms.custom:
   - ignite-2023
 ms.service: azure-ai-services
 ms.topic: conceptual
-ms.date: 12/01/2022
+ms.date: 01/22/2024
 ---
 
 # Purchase commitment tier pricing
 
-Azure AI offers commitment tier pricing, each offering a discounted rate compared to the pay-as-you-go pricing model. With commitment tier pricing, you can commit to using the following Azure AI services features for a fixed fee, enabling you to have a predictable total cost based on the needs of your workload:
-
+Azure AI offers commitment tier pricing, allowing discounted rates compared to the pay-as-you-go pricing model. With commitment tier pricing, you can commit to using the following Azure AI services features for a fixed fee, enabling you to have a predictable total cost based on the needs of your workload:
 * Speech to text (Standard)
 * Text to speech (Neural)
 * Text Translation (Standard)
@@ -25,17 +24,7 @@ Azure AI offers commitment tier pricing, each offering a discounted rate compare
   * Key Phrase Extraction
   * Language Detection
   * Named Entity Recognition (NER)
-
-Commitment tier pricing is also available for the following Azure AI service:
-
-* Azure AI Language
-  * Sentiment Analysis
-  * Key Phrase Extraction
-  * Language Detection
-  * Named Entity Recognition (NER)
-
 * Azure AI Vision - OCR
-
 * Document Intelligence – Custom/Invoice
 
 For more information, see [Azure AI services pricing](https://azure.microsoft.com/pricing/details/cognitive-services/).

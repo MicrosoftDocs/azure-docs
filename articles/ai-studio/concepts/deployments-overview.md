@@ -32,7 +32,7 @@ Azure AI Studio simplifies deployments. A simple select or a line of code deploy
 
 ### Azure OpenAI models
 
-Azure OpenAI allows you to get access to the latest OpenAI models with the enterprise features from Azure. Learn more about [how to deploy OpenAI models in AI studio](../how-to/deploy-models-openai.md).
+Azure OpenAI allows you to get access to the latest OpenAI models with the enterprise features from Azure. Learn more about [how to deploy OpenAI models in AI Studio](../how-to/deploy-models-openai.md).
 
 ### Open models
 

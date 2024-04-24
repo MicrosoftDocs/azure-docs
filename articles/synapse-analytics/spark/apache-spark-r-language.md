@@ -3,7 +3,6 @@ title: Use R for Apache Spark
 description: Learn about using R and Apache Spark to do data preparation and machine learning in Azure Synapse Analytics notebooks.
 author: midesa
 ms.author: midesa
-services: synapse-analytics 
 ms.service: synapse-analytics 
 ms.topic: conceptual
 ms.subservice: spark

@@ -5,7 +5,6 @@ services: frontdoor
 author: johndowns
 ms.service: frontdoor
 ms.topic: conceptual
-ms.workload: infrastructure-services
 ms.date: 12/28/2023
 ms.author: jodowns
 ---

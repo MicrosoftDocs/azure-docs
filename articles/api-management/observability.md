@@ -2,19 +2,17 @@
 title: Observability in Azure API Management | Microsoft Docs
 description: Overview of all API observability and monitoring options in Azure API Management.
 services: api-management
-documentationcenter: ''
 author: dlepow
 
 ms.service: api-management
-ms.workload: mobile
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/01/2020
 ms.author: danlep
-
 ---
 
 # Observability in Azure API Management
+
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
 Observability is the ability to understand the internal state of a system from the data it produces and the ability to explore that data to answer questions about what happened and why. 
 
@@ -27,7 +25,7 @@ Azure API Management allows you to choose to use the managed gateway or [self-ho
 The table below summarizes all the observability capabilities supported by API Management to operate APIs and what deployment models they support. These capabilities can be used by API publishers and others who have permissions to operate or manage the API Management instance. 
 
 > [!NOTE]
-> For API consumers who use the developer portal, a built-in API report is available. It only provides information about their individual API usage during the preceding 90 days.
+> For API consumers who use the developer portal, a built-in API report is available. It only provides information about their individual API usage during the preceding 90 days. Currently, the built-in API report is not available in the developer portal for the v2 service tiers.
 >  
 | Tool        | Useful for    | Data lag | Retention | Sampling | Data kind | Supported Deployment Model(s) |
 |:------------- |:-------------|:---- |:----|:---- |:--- |:---- |

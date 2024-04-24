@@ -5,7 +5,6 @@ services: frontdoor
 author: duongau
 ms.service: frontdoor
 ms.topic: how-to
-ms.workload: infrastructure-services
 ms.date: 12/19/2023
 ms.author: duau
 zone_pivot_groups: front-door-tiers
@@ -170,6 +169,8 @@ To enable and store your diagnostic logs, see [Configure Azure Front Door logs](
 ::: zone-end
 
 ::: zone pivot="front-door-classic"
+
+[!INCLUDE [Azure Front Door (classic) retirement notice](../../includes/front-door-classic-retirement.md)]
 
 When using Azure Front Door (classic), you can monitor resources in the following ways:
 

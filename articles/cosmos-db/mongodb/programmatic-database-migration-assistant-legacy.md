@@ -6,7 +6,6 @@ author: sandeep-nair
 ms.author: sandnair
 ms.service: cosmos-db
 ms.subservice: mongodb
-ms.custom: 
 ms.topic: conceptual
 ms.date: 04/20/2023
 ---

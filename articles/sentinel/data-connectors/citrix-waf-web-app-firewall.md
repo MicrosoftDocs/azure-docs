@@ -141,4 +141,4 @@ Make sure to configure the machine's security according to your organization's s
 
 ## Next steps
 
-For more information, go to the [related solution](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/citrix.citrix_waf_mss?tab=Overview) in the Azure Marketplace.
+For more information, go to the [related solution](https://azuremarketplace.microsoft.com/en-us/marketplace/?tab=Overview) in the Azure Marketplace.

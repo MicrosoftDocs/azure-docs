@@ -10,7 +10,7 @@ ms.service: machine-learning
 ms.subservice: automl
 ms.date: 08/01/2023
 ms.topic: how-to
-ms.custom: devx-track-python, automl, sdkv2, event-tier1-build-2022, ignite-2022
+ms.custom: devx-track-python, automl, sdkv2
 show_latex: true
 ---
 
@@ -698,7 +698,7 @@ limits:
 
 ### Distributed training for forecasting
 
-To learn how distributed training works for forecasting tasks, see our [forecasting at scale](concept-automl-forecasting-at-scale.md#distributed-dnn-training) article. To use distributed training for forecasting, you need to set the `training_mode`, `enable_dnn_training`, `max_nodes`, and optionally the `max_concurrent_trials` properties of the job object.
+To learn how distributed training works for forecasting tasks, see our [forecasting at scale](concept-automl-forecasting-at-scale.md#distributed-dnn-training-preview) article. To use distributed training for forecasting, you need to set the `training_mode`, `enable_dnn_training`, `max_nodes`, and optionally the `max_concurrent_trials` properties of the job object.
 
 Property | Description
 -- | --

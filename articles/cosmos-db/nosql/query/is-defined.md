@@ -8,7 +8,8 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
-ms.date: 09/21/2023
+ms.devlang: nosql
+ms.date: 02/27/2024
 ms.custom: query-reference
 ---
 
@@ -20,7 +21,7 @@ Returns a boolean indicating if the property has been assigned a value.
 
 ## Syntax
 
-```sql
+```nosql
 IS_DEFINED(<expr>)  
 ```  
 
@@ -38,7 +39,7 @@ Returns a boolean expression.
 
 The following example checks for the presence of a property within the specified JSON document. 
 
-:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/is-defined/query.sql" highlight="2-3":::
+:::code language="nosql" source="~/cosmos-db-nosql-query-samples/scripts/is-defined/query.sql" highlight="2-3":::
 
 :::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/is-defined/result.json":::
 

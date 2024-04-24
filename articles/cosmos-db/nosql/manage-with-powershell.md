@@ -1,6 +1,6 @@
 ---
 title: Manage Azure Cosmos DB for NoSQL resources using PowerShell
-description: Manage Azure Cosmos DB for NoSQL resources using PowerShell. 
+description: Manage Azure Cosmos DB for NoSQL resources using PowerShell.
 author: seesharprun
 ms.service: cosmos-db
 ms.subservice: nosql
@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 02/18/2022
 ms.author: sidandrews
 ms.reviewer: mjbrown
-ms.custom: seodec18, devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell
 ---
 
 # Manage Azure Cosmos DB for NoSQL resources using PowerShell
@@ -49,7 +49,7 @@ The following sections demonstrate how to manage the Azure Cosmos DB account, in
 
 ### <a id="create-account"></a> Create an Azure Cosmos DB account
 
-This command creates an Azure Cosmos DB database account with [multiple regions][distribute-data-globally], [service-managed failover](../how-to-manage-database-account.md#automatic-failover) and bounded-staleness [consistency policy](../consistency-levels.md).
+This command creates an Azure Cosmos DB database account with [multiple regions][distribute-data-globally], [service-managed failover](../how-to-manage-database-account.yml#enable-service-managed-failover-for-your-azure-cosmos-db-account) and bounded-staleness [consistency policy](../consistency-levels.md).
 
 ```azurepowershell-interactive
 $resourceGroupName = "myResourceGroup"
@@ -827,7 +827,7 @@ Remove-AzResourceLock `
 ## Next steps
 
 * [All PowerShell Samples](powershell-samples.md)
-* [How to manage Azure Cosmos DB account](../how-to-manage-database-account.md)
+* [How to manage Azure Cosmos DB account](../how-to-manage-database-account.yml)
 * [Create an Azure Cosmos DB container](how-to-create-container.md)
 * [Configure time-to-live in Azure Cosmos DB](how-to-time-to-live.md)
 

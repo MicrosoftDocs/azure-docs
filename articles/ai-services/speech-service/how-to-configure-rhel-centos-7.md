@@ -6,11 +6,14 @@ author: pankopon
 manager: jhakulin
 ms.service: azure-ai-speech
 ms.topic: how-to
-ms.date: 04/01/2022
+ms.date: 1/18/2024
 ms.author: pankopon
 ---
 
 # Configure RHEL/CentOS 7
+
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 To use the Speech SDK on Red Hat Enterprise Linux (RHEL) 7 x64 and CentOS 7 x64, update the C++ compiler (for C++ development) and the shared C++ runtime library on your system.
 
@@ -48,7 +51,7 @@ make -j$(nproc)
 sudo make install-strip
 ```
 
-If the updated compiler and libraries need to be deployed on several machines, you can simply copy them from under `/usr/local` to other machines. If only the runtime libraries are needed then the files in `/usr/local/lib64` will be enough.
+If the updated compiler and libraries need to be deployed on several machines, you can copy them from under `/usr/local` to other machines. If only the runtime libraries are needed, then the files in `/usr/local/lib64` are enough.
 
 ## Environment settings
 

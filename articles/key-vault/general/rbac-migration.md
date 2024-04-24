@@ -6,7 +6,7 @@ author: msmbaldwin
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.date: 01/20/2023
+ms.date: 02/20/2024
 ms.author: mbaldwin
 
 ---
@@ -24,6 +24,7 @@ Key Vault built-in roles for keys, certificates, and secrets access management:
 - Key Vault Administrator
 - Key Vault Reader
 - Key Vault Certificates Officer
+- Key Vault Certificate User
 - Key Vault Crypto Officer
 - Key Vault Crypto User
 - Key Vault Crypto Service Encryption User
@@ -65,7 +66,7 @@ Access policy predefined permission templates:
 | Azure Information BYOK | Keys: get, decrypt, sign | N/A<br>Custom role required|
 
 > [!NOTE]
-> Azure App Service certificate configuration through Azure Portal does not support Key Vault RBAC permission model. You can use Azure PowerShell, Azure CLI, ARM template deployments with **Key Vault Secrets User** and **Key Vault Reader** role assignments for 'Microsoft Azure App Service' global indentity.
+> Azure App Service certificate configuration through Azure Portal does not support Key Vault RBAC permission model. You can use Azure PowerShell, Azure CLI, ARM template deployments with **Key Vault Certificate User** role assignment for App Service global identity, for example Microsoft Azure App Service' in public cloud.
 
 ## Assignment scopes mapping  
 
@@ -88,7 +89,7 @@ In general, it's best practice to have one key vault per application and manage 
 There are many differences between Azure RBAC and vault access policy permission model. In order, to avoid outages during migration, below steps are recommended.
  
 1. **Identify and assign roles**: identify built-in roles based on mapping table above and create custom roles when needed. Assign roles at scopes, based on scopes mapping guidance. For more information on how to assign roles to key vault, see [Provide access to Key Vault with an Azure role-based access control](rbac-guide.md)
-1. **Validate roles assignment**: role assignments in Azure RBAC can take several minutes to propagate. For guide how to check role assignments, see [List roles assignments at scope](../../role-based-access-control/role-assignments-list-portal.md#list-role-assignments-for-a-user-at-a-scope)
+1. **Validate roles assignment**: role assignments in Azure RBAC can take several minutes to propagate. For guide how to check role assignments, see [List roles assignments at scope](../../role-based-access-control/role-assignments-list-portal.yml#list-role-assignments-for-a-user-at-a-scope)
 1. **Configure monitoring and alerting on key vault**: it's important to enable logging and setup alerting for access denied exceptions. For more information, see [Monitoring and alerting for Azure Key Vault](./alert.md)
 1. **Set Azure role-based access control permission model on Key Vault**: enabling Azure RBAC permission model will invalidate all existing access policies. If an error, permission model can be switched back with all existing access policies remaining untouched.
 

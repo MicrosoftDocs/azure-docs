@@ -1,19 +1,19 @@
 ---
 title: "Configure Read Aloud"
 titleSuffix: Azure AI services
-description: This article will show you how to configure the various options for Read Aloud.
-author: rwallerms
+description: Learn how to configure the various options for Read Aloud in Immersive Reader.
+author: sharmas
 manager: nitinme
 
 ms.service: azure-ai-immersive-reader
 ms.topic: how-to
-ms.date: 06/29/2020
-ms.author: rwaller
+ms.date: 02/26/2024
+ms.author: sharmas
 ---
 
 # How to configure Read Aloud
 
-This article demonstrates how to configure the various options for Read Aloud in the Immersive Reader.
+This article demonstrates how to configure the various options for Read Aloud in your Immersive Reader application.
 
 ## Automatically start Read Aloud
 
@@ -34,7 +34,7 @@ ImmersiveReader.launchAsync(YOUR_TOKEN, YOUR_SUBDOMAIN, YOUR_DATA, options);
 
 ## Configure the voice
 
-Set `voice` to either `male` or `female`. Not all languages support both voices. For more information, see the [Language Support](./language-support.md) page.
+Set `voice` to either `male` or `female`. Not all languages support both voices. For more information, see [Language support](./language-support.md).
 
 ```typescript
 const options = {
@@ -46,7 +46,7 @@ const options = {
 
 ## Configure playback speed
 
-Set `speed` to a number between `0.5` (50%) and `2.5` (250%) inclusive. Values outside this range will get clamped to either 0.5 or 2.5.
+Set `speed` to a number between `0.5` (50%) and `2.5` (250%) inclusive. Values outside this range get clamped to either 0.5 or 2.5.
 
 ```typescript
 const options = {
@@ -56,6 +56,7 @@ const options = {
 };
 ```
 
-## Next steps
+## Next step
 
-* Explore the [Immersive Reader SDK Reference](./reference.md)
+> [!div class="nextstepaction"]
+> [Explore the Immersive Reader SDK reference](reference.md)

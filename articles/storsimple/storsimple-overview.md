@@ -1,18 +1,11 @@
 ---
 title: StorSimple 8000 series solution overview | Microsoft Docs
 description: Describes StorSimple data copy resources, data migration, device decommission operations, end of support, tiering, virtual device, and storage management.
-services: storsimple
-documentationcenter: NA
 author: alkohli
 manager: alkohli
-editor: ''
-
 ms.assetid: 7144d218-db21-4495-88fb-e3b24bbe45d1
 ms.service: storsimple
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.custom:
-ms.workload: TBD
 ms.date: 07/10/2023
 ms.author: alkohli
 ROBOTS: NOINDEX

@@ -4,6 +4,9 @@ description: Learn how to vertically autoscale your pod on an Azure Kubernetes S
 ms.topic: article
 ms.custom: devx-track-azurecli
 ms.date: 09/28/2023
+author: nickomang
+ms.author: nickoman
+
 ---
 
 # Vertical Pod Autoscaling in Azure Kubernetes Service (AKS)
@@ -107,15 +110,15 @@ In this section, you deploy, upgrade, or disable the Vertical Pod Autoscaler on 
 
     After a few minutes, the command completes and returns JSON-formatted information about the cluster.
 
-2. Optionally, to enable VPA on an existing cluster, use the `--enable-vpa` with the [az aks upgrade][az-aks-upgrade] command.
+2. Optionally, to enable VPA on an existing cluster, use the `--enable-vpa` with the [https://learn.microsoft.com/en-us/cli/azure/aks?view=azure-cli-latest#az-aks-update] command.
 
     ```azurecli-interactive
-    az aks update -n myAKSCluster -g myResourceGroup --enable-vpa
+    az aks update -n myAKSCluster -g myResourceGroup --enable-vpa 
     ```
 
     After a few minutes, the command completes and returns JSON-formatted information about the cluster.
 
-3. Optionally, to disable VPA on an existing cluster, use the `--disable-vpa` with the [az aks upgrade][az-aks-upgrade] command.
+3. Optionally, to disable VPA on an existing cluster, use the `--disable-vpa` with the [https://learn.microsoft.com/en-us/cli/azure/aks?view=azure-cli-latest#az-aks-update] command.
 
     ```azurecli-interactive
     az aks update -n myAKSCluster -g myResourceGroup --disable-vpa
@@ -632,3 +635,4 @@ This article showed you how to automatically scale resource utilization, such as
 [az-feature-register]: /cli/azure/feature#az-feature-register
 [az-feature-show]: /cli/azure/feature#az-feature-show
 [horizontal-pod-autoscaler-overview]: concepts-scale.md#horizontal-pod-autoscaler
+

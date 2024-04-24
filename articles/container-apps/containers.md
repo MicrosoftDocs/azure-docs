@@ -7,7 +7,6 @@ ms.service: container-apps
 ms.topic: conceptual
 ms.date: 08/29/2023
 ms.author: cshoe
-ms.custom: ignite-fall-2021, event-tier1-build-2022
 ---
 
 # Containers in Azure Container Apps

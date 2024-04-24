@@ -2,7 +2,6 @@
 title: Adding custom actions to Azure REST API
 description: Learn how to add custom actions to the Azure REST API. This article will walk through the requirements and best practices for endpoints that wish to implement custom actions.
 ms.topic: conceptual
-ms.custom: ignite-2022
 ms.author: jobreen
 author: jjbfour
 ms.date: 06/20/2019
