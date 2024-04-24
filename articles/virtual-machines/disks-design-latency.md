@@ -33,21 +33,23 @@ Applications running on a single VM
 
 Quorum-based applications, clustered databases (SQL, MongoDB), enterprise-grade web applications, and gaming applications are all examples of applications running on multiple VMs. These applications can benefit from storage availability, redundancy, and replication across multiple VMs in various availability zones or fault domains.
 
-The following options are mutually exclusive, and are ordered by options with the highest availability.
-
 ### Deploy VMs across multiple availability zones
 
 Availability zones are separate groups of datacenters within a region that have independent power, cooling, and networking infrastructure. They're close enough to have low-latency connections to other availability zones but far enough to reduce the possibility that more than one is affected by local outages or weather. See [What are availability zones?](../reliability/availability-zones-overview.md) for details.
-
-#### Deploy VMs across three availability zones
-
-VMs deployed across three availability zones have the highest uptime [service level agreements](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services?lang=1) (SLA). This deployment provides redundancy in VMs across multiple datacenters in a region, and allows you to failover to another zone if there's a datacenter or zonal outage.
 
 #### Use zone-redundant Virtual Machine Scale Sets
 
 [Virtual Machine Scale Sets](../virtual-machine-scale-sets/overview.md) let you create and manage a group of load balanced VMs. The number of VM instances can automatically adjust in response to demand or follow a schedule you define. A zone-redundant Virtual Machine Scale Set is a Virtual Machine Scale Set that has been deployed in three availability zones. See [Zone redundant or zone spanning](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md#zone-redundant-or-zone-spanning).
 
-With zone-redundant Virtual Machine Scale Sets, VM resources replicate to one or more zones within the region they're deployed in to improve the resiliency and availability of your applications and data. There might be more network latency between several availability zones than within a single availability zone, which could be a concern for workloads that require ultra-low latency. If low latency is your top priority, consider using regional Virtual Machine Scale Sets or availability sets.
+With zone-redundant Virtual Machine Scale Sets, VM resources replicate to one or more zones within the region they're deployed in to improve the resiliency and availability of your applications and data. This or [Deploy VMs across three availability zones](#deploy-vms-across-three-availability-zones) are the configurations you should use to maximize your environment's availability.
+
+There might be more network latency between several availability zones than within a single availability zone, which could be a concern for workloads that require ultra-low latency. If low latency is your top priority, consider [regional Virtual Machine Scale Sets](#use-regional-virtual-machine-scale-sets) or [availability sets](#use-availability-sets)..
+
+#### Deploy VMs across three availability zones
+
+VMs deployed across three availability zones have the highest uptime [service level agreements](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services?lang=1) (SLA). This deployment provides redundancy in VMs across multiple datacenters in a region, and allows you to failover to another zone if there's a datacenter or zonal outage. This or [Use zone-redundant Virtual Machine Scale Sets](#use-zone-redundant-virtual-machine-scale-sets) are the configurations you should use to maximize your environment's availability.
+
+There might be more network latency between several availability zones than within a single availability zone, which could be a concern for workloads that require ultra-low latency. If low latency is your top priority, consider [regional Virtual Machine Scale Sets](#use-regional-virtual-machine-scale-sets) or [availability sets](#use-availability-sets).
 
 ### Deploy VMs across multiple fault domains
 
@@ -55,13 +57,17 @@ Fault domains define groups of VMs that share a common power source and a networ
 
 If you can't deploy your applications across availability zones, you can deploy multiple VMs across fault domains instead. In terms of uptime SLA, Azure's second highest uptime SLA applies to multiple VMs deployed across fault domains. To learn more, see the Virtual Machines section of SLA https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services?lang=1
 
-#### Use regional virtual machine scale sets
+#### Use regional Virtual Machine Scale Sets
 
 A regional Virtual Machine Scale Set is a Virtual Machine Scale Set that has no explicitly defined availability zones. With regional virtual machine scale sets, VM resources are replicated across fault domains within the region they're deployed in to improve the resiliency and availability of applications and data. See [this section](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md#regional) for details.
+
+Regional Virtual Machine Scale Sets don't currently support Ultra Disks or Premium SSD v2 disks, and don't protect against large-scale outages like a datacenter or region outage.
 
 #### Use availability sets
 
 [Availability sets](availability-set-overview.md) are logical groupings of VMs that place VMs in different fault domains to limit the chance of correlated failures bringing related VMs down at the same time. Availability sets place VMs in different fault domains for increased reliability and have better VM to VM latencies compared to availability zones.
+
+Availability sets don't let you select fault domains, can't be used with availability zones, don't currently support Ultra Disks or Premium SSD v2 disks, and don't protect against large-scale outages like if an entire datacenter or region were to have an outage.
 
 ## Applications running on a single VM
 
@@ -73,4 +79,4 @@ VMs using only [Ultra Disks](disks-types.md#ultra-disks), [Premium SSD v2](disks
 
 ### Use zone-redundant storage disks
 
-Zone-redundant storage (ZRS) disks synchronously replicate data across three availability zones in the region they're deployed in. See [Zone-redundant storage for managed disks](disks-redundancy.md#zone-redundant-storage-for-managed-disks) for details.
+Zone-redundant storage (ZRS) disks synchronously replicate data across three availability zones in the region they're deployed in. Allowing you to maintain access to your data if one or two of the three availability zones were to have an outage. See [Zone-redundant storage for managed disks](disks-redundancy.md#zone-redundant-storage-for-managed-disks) for details.
