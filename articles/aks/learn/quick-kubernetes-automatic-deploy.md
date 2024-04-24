@@ -63,6 +63,7 @@ az feature register --namespace Microsoft.ContainerService --name NRGLockdownPre
 az feature register --namespace Microsoft.ContainerService --name SafeguardsPreview
 az feature register --namespace Microsoft.ContainerService --name NodeAutoProvisioningPreview
 az feature register --namespace Microsoft.ContainerService --name DisableSSHPreview
+az feature register --namespace Microsoft.ContainerService --name AKS-PrometheusAddonPreview
 ```
 
 Register the `AutomaticSKUPreview` feature flag by using the [az feature register][az-feature-register] command, as shown in the following example:
@@ -120,8 +121,6 @@ To create an AKS Automatic cluster, use the [az aks create][az-aks-create] comma
 az aks create \
   --resource-group myResourceGroup \
   --name myAKSAutomaticCluster \
-  --enable-azure-monitor-metrics \
-  --enable-addons monitoring \
   --sku automatic
 ```
 
@@ -193,7 +192,7 @@ The following sample output resembles successful creation of the resource group:
 
 ## Review the Bicep file
 
-This Bicep file defines an AKS Automatic cluster.
+This Bicep file defines an AKS Automatic cluster. While in preview, you'll need to specify the system nodepool agent pool profile.
 
 ```bicep
 @description('The name of the Managed Cluster resource.')
@@ -202,7 +201,7 @@ param clusterName string = 'myAKSAutomaticCluster'
 @description('The location of the Managed Cluster resource.')
 param location string = resourceGroup().location
 
-resource aks 'Microsoft.ContainerService/managedClusters@2024-02-02-preview' = {
+resource aks 'Microsoft.ContainerService/managedClusters@2024-03-02-preview' = {
   name: clusterName
   location: location  
   sku: {
