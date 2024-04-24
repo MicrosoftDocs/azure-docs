@@ -137,7 +137,7 @@ Enter the following asset information:
 | Asset Endpoint | `opc-ua-connector-0` |
 | Description | `A simulated thermostat asset` |
 
-Remove the existing **Custom properties** and add the following custom properties. Be careful to use the exact property names as the PowerBI template in a later quickstart queries for them:
+Remove the existing **Custom properties** and add the following custom properties. Be careful to use the exact property names as the Power BI template in a later quickstart queries for them:
 
 | Property name | Property detail |
 |---------------|-----------------|

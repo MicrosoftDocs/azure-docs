@@ -9,7 +9,7 @@ ms.custom:
   - ignite-2023
 ms.date: 04/19/2024
 
-#CustomerIntent: As an OT user, I want to send my OPC UA data to the cloud so that I can derive insights from it by using a tool such as PowerBI.
+#CustomerIntent: As an OT user, I want to send my OPC UA data to the cloud so that I can derive insights from it by using a tool such as Power BI.
 ---
 
 # Quickstart: Send asset telemetry to the cloud using the data lake connector for Azure IoT MQ Preview
@@ -34,7 +34,7 @@ To learn more, see [Microsoft Fabric > About tenant settings](/fabric/admin/tena
 
 ## What problem will we solve?
 
-To use a tool such as PowerBI to analyze your OPC UA data, you need to send the data to a cloud-based storage service. The data lake connector for Azure IoT MQ subscribes to MQTT topics and ingests the messages into Delta tables in a Microsoft Fabric lakehouse. The next quickstart shows you how to use PowerBI to analyze the data in the lakehouse.
+To use a tool such as Power BI to analyze your OPC UA data, you need to send the data to a cloud-based storage service. The data lake connector for Azure IoT MQ subscribes to MQTT topics and ingests the messages into Delta tables in a Microsoft Fabric lakehouse. The next quickstart shows you how to use Power BI to analyze the data in the lakehouse.
 
 ## Grant access to your Microsoft Fabric workspace
 
@@ -103,7 +103,7 @@ After a short time, the data from your MQ broker begins to populate the table in
 
 ## How did we solve the problem?
 
-In this quickstart, you used the data lake connector for Azure IoT MQ to ingest the data into a Microsoft Fabric lakehouse in the cloud. In the next quickstart, you use PowerBI to analyze the data in the lakehouse.
+In this quickstart, you used the data lake connector for Azure IoT MQ to ingest the data into a Microsoft Fabric lakehouse in the cloud. In the next quickstart, you use Power BI to analyze the data in the lakehouse.
 
 ## Clean up resources
 
