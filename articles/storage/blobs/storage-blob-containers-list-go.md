@@ -19,11 +19,15 @@ ms.custom: devx-track-go, devguide-go
 
 When you list the containers in an Azure Storage account from your code, you can specify several options to manage how results are returned from Azure Storage. This article shows how to list containers using the [Azure Storage client module for Go](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob#section-readme).
 
-## Prerequisites
+[!INCLUDE [storage-dev-guide-prereqs-go](../../../includes/storage-dev-guides/storage-dev-guide-prereqs-go.md)]
 
-- This article assumes you already have a project set up to work with the Azure Blob Storage client module for Go. To learn about setting up your project, including package installation, adding `import` statements, and creating an authorized client object, see [Get started with Azure Blob Storage and Go](storage-blob-go-get-started.md).
-- The [authorization mechanism](../common/authorize-data-access.md) must have permissions to list blob containers. To learn more, see the authorization guidance for the following REST API operation:
-    - [List Containers](/rest/api/storageservices/list-containers2#authorization)
+## Set up your environment
+
+[!INCLUDE [storage-dev-guide-project-setup-go](../../../includes/storage-dev-guides/storage-dev-guide-project-setup-go.md)]
+
+### Authorization
+
+The authorization mechanism must have the necessary permissions to list blob containers. For authorization with Microsoft Entra ID (recommended), you need Azure RBAC built-in role **Storage Blob Data Contributor** or higher. To learn more, see the authorization guidance for [List Containers](/rest/api/storageservices/list-containers2#authorization).
 
 ## About container listing options
 
@@ -31,29 +35,31 @@ When listing containers from your code, you can specify options to manage how re
 
 To list containers in a storage account, call the following method:
 
-- [BlobServiceClient.list_containers](/python/api/azure-storage-blob/azure.storage.blob.blobserviceclient#azure-storage-blob-blobserviceclient-list-containers)
+- [NewListContainersPager](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob#Client.NewListContainersPager)
 
-This method returns an iterable of type [ContainerProperties](/python/api/azure-storage-blob/azure.storage.blob.containerproperties). Containers are ordered lexicographically by name.
+This method returns a [Pager](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azcore/runtime#Pager), which allows your app to process one page of results at a time. Containers are ordered lexicographically by name.
+
+You can specify options for listing containers by using the [ListContainersOptions](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob#ListContainersOptions) struct. This struct includes fields for managing the number of results, filtering by prefix, and including container information using the [ListContainersInclude](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob/service#ListContainersInclude) struct.
 
 ### Manage how many results are returned
 
-By default, a listing operation returns up to 5000 results at a time. To return a smaller set of results, provide a nonzero value for the `results_per_page` keyword argument.
+By default, a listing operation returns up to 5000 results at a time. To return a smaller set of results, provide a nonzero value for the `MaxResults` field in the [ListContainersOptions](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob#ListContainersOptions) struct.
 
 ### Filter results with a prefix
 
-To filter the list of containers, specify a string or character for the `name_starts_with` keyword argument. The prefix string can include one or more characters. Azure Storage then returns only the containers whose names start with that prefix.
+To filter the list of containers, specify a string or character for the `Prefix` field in [ListContainersOptions](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob#ListContainersOptions). The prefix string can include one or more characters. Azure Storage then returns only the containers whose names start with that prefix.
 
 ### Include container metadata
 
-To include container metadata with the results, set the `include_metadata` keyword argument to `True`. Azure Storage includes metadata with each container returned, so you don't need to fetch the container metadata separately.
+To include container metadata with the results, set the `Metadata` field to `true` as part of [ListContainersInclude](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob/service#ListContainersInclude). Azure Storage includes metadata with each container returned, so you don't need to fetch the container metadata separately.
 
 ### Include deleted containers
 
-To include soft-deleted containers with the results, set the `include_deleted` keyword argument to `True`.
+To include soft-deleted containers with the results, set the `Deleted` field to `true` as part of [ListContainersInclude](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob/service#ListContainersInclude).
 
 ## Code examples
 
-The following example lists all containers and metadata. You can include container metadata by setting `include_metadata` to `True`:
+The following example lists all containers and metadata:
 
 :::code language="go" source="~/blob-devguide-go/cmd/list-containers/list_containers.go id="snippet_list_containers":::
 
@@ -69,15 +75,15 @@ You can also specify a limit for the number of results per page. This example pa
 
 To learn more about listing containers using the Azure Blob Storage client module for Go, see the following resources.
 
+### Code samples
+
+- View [code samples](https://github.com/Azure-Samples/blob-storage-devguide-go/cmd/list-containers/list_containers.go) from this article (GitHub)
+- 
 ### REST API operations
 
 The Azure SDK for Go contains libraries that build on top of the Azure REST API, allowing you to interact with REST API operations through familiar Go paradigms. The client library methods for listing containers use the following REST API operation:
 
 - [List Containers](/rest/api/storageservices/list-containers2) (REST API)
-
-### Code samples
-
-- View [code samples](https://github.com/Azure-Samples/blob-storage-devguide-go/cmd/list-containers/list_containers.go) from this article (GitHub)
 
 [!INCLUDE [storage-dev-guide-resources-go](../../../includes/storage-dev-guides/storage-dev-guide-resources-go.md)]
 

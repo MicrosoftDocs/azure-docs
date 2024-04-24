@@ -19,40 +19,35 @@ ms.custom: devx-track-go, devguide-go
 
 This article shows how to delete containers with the [Azure Storage client module for Go](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob#section-readme). If you've enabled [container soft delete](soft-delete-container-overview.md), you can restore deleted containers.
 
-## Prerequisites
+[!INCLUDE [storage-dev-guide-prereqs-go](../../../includes/storage-dev-guides/storage-dev-guide-prereqs-go.md)]
 
-- This article assumes you already have a project set up to work with the Azure Blob Storage client module for Go. To learn about setting up your project, including package installation, adding `import` statements, and creating an authorized client object, see [Get started with Azure Blob Storage and Go](storage-blob-go-get-started.md).
-- The [authorization mechanism](../common/authorize-data-access.md) must have permissions to delete a blob container, or to restore a soft-deleted container. To learn more, see the authorization guidance for the following REST API operations:
-    - [Delete Container](/rest/api/storageservices/delete-container#authorization)
-    - [Restore Container](/rest/api/storageservices/restore-container#authorization)
+## Set up your environment
+
+[!INCLUDE [storage-dev-guide-project-setup-go](../../../includes/storage-dev-guides/storage-dev-guide-project-setup-go.md)]
+
+### Authorization
+
+The authorization mechanism must have the necessary permissions to delete or restore a container. For authorization with Microsoft Entra ID (recommended), you need Azure RBAC built-in role **Storage Blob Data Contributor** or higher. To learn more, see the authorization guidance for [Delete Container (REST API)](/rest/api/storageservices/delete-container#authorization) and [Restore Container (REST API)](/rest/api/storageservices/restore-container#authorization).
 
 ## Delete a container
 
-To delete a container, use the following method from the [BlobServiceClient](/python/api/azure-storage-blob/azure.storage.blob.blobserviceclient) class:
+To delete a container, call the following method:
 
-- [BlobServiceClient.delete_container](/python/api/azure-storage-blob/azure.storage.blob.blobserviceclient#azure-storage-blob-blobserviceclient-delete-container)
-
-You can also delete a container using the following method from the [ContainerClient](/python/api/azure-storage-blob/azure.storage.blob.containerclient) class:
-
-- [ContainerClient.delete_container](/python/api/azure-storage-blob/azure.storage.blob.containerclient#azure-storage-blob-containerclient-delete-container)
+- [DeleteContainer](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob#Client.DeleteContainer)
 
 After you delete a container, you can't create a container with the same name for *at least* 30 seconds. Attempting to create a container with the same name will fail with HTTP error code `409 (Conflict)`. Any other operations on the container or the blobs it contains will fail with HTTP error code `404 (Not Found)`.
 
-The following example uses a `BlobServiceClient` object to delete the specified container:
+The following example shows how to delete a specified container:
 
 :::code language="go" source="~/blob-devguide-go/cmd/delete-container/delete_container.go id="snippet_delete_container":::
 
-The following example shows how to delete all containers that start with a specified prefix:
-
-:::code language="go" source="~/blob-devguide-go/cmd/delete-container/delete_container.go id="snippet_delete_container_prefix":::
-
 ## Restore a deleted container
 
-When container soft delete is enabled for a storage account, a deleted container and its contents may be recovered within a specified retention period. To learn more about container soft delete, see [Enable and manage soft delete for containers](soft-delete-container-enable.md). You can restore a soft-deleted container by calling the following method of the `BlobServiceClient` class:
+When container soft delete is enabled for a storage account, a deleted container and its contents may be recovered within a specified retention period. To learn more about container soft delete, see [Enable and manage soft delete for containers](soft-delete-container-enable.md). You can restore a soft-deleted container by calling the following method from the embedded [ServiceClient](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob#Client.ServiceClient) for the client object:
 
-- [BlobServiceClient.undelete_container](/python/api/azure-storage-blob/azure.storage.blob.blobserviceclient#azure-storage-blob-blobserviceclient-undelete-container)
+- [RestoreContainer](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob/service#Client.RestoreContainer)
 
-The following example finds a deleted container, gets the version of that deleted container, and then passes the version into the `undelete_container` method to restore the container.
+The following example lists containers, including soft-deleted containers, and iterates over the list to restore the specified soft-deleted container:
 
 :::code language="go" source="~/blob-devguide-go/cmd/delete-container/delete_container.go id="snippet_restore_container":::
 
@@ -60,16 +55,16 @@ The following example finds a deleted container, gets the version of that delete
 
 To learn more about deleting a container using the Azure Blob Storage client module for Go, see the following resources.
 
+### Code samples
+
+- View [code samples](https://github.com/Azure-Samples/blob-storage-devguide-go/cmd/delete-container/delete_container.go) from this article (GitHub)
+
 ### REST API operations
 
 The Azure SDK for Go contains libraries that build on top of the Azure REST API, allowing you to interact with REST API operations through familiar Go paradigms. The client library methods for deleting or restoring a container use the following REST API operations:
 
 - [Delete Container](/rest/api/storageservices/delete-container) (REST API)
 - [Restore Container](/rest/api/storageservices/restore-container) (REST API)
-
-### Code samples
-
-- View [code samples](https://github.com/Azure-Samples/blob-storage-devguide-go/cmd/delete-container/delete_container.go) from this article (GitHub)
 
 [!INCLUDE [storage-dev-guide-resources-go](../../../includes/storage-dev-guides/storage-dev-guide-resources-go.md)]
 
