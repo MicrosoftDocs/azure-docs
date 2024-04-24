@@ -50,7 +50,7 @@ As an alternative to automatic upgrade, you can also manually upgrade to the lat
 1. In the portal, navigate to the **Overview** of the cache using the Resource menu. Then, choose **Upgrade** to start an upgrade.
 
     <!--- Fran-need a screenshot here of the overview blade--->
-    :::image type="icon" source="media/cache-how-to-upgrade/cache-upgrade-overview.png" alt-text="Screenshot showing the upgrade pane, the current version, and the available version. :::
+    :::image type="content" source="media/cache-how-to-upgrade/cache-upgrade-overview.png" alt-text="Screenshot showing the upgrade pane, the current version, and the available version." :::
 
 1. After you select the button, you see an **Upgrade** pane that shows you the current Redis version, and any version that you can upgrade to. As noted in the pane, upgrading is irreversible. You can't downgrade. To confirm and begin the upgrade process, select **Upgrade** in the pane.
 
