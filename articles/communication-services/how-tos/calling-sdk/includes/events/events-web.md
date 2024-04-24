@@ -5,7 +5,10 @@ ms.topic: include
 ms.date: 09/08/2021
 ms.author: rifox
 ---
-[!INCLUDE [Install SDK](../install-sdk/install-sdk-web.md)]
+# Events on the Azure Communication Calling SDK
+
+This guide describes the various event or porperties changes your app can subsribe to.
+It assumes you have already install the Azure Calling SDK. If you have not done so, pleasre refer to our [Install guide](../install-sdk/install-sdk-web.md).
 
 Each object in the JavaScript calling sdk has properties and collections. Their values change throughout the lifetime of the object.
 Use the `on()` method to subscribe to objects' events, and use the `off()` method to unsubscribe from objects' events.
