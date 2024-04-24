@@ -54,8 +54,8 @@ namespace AzureSearch.SDKHowTo
         // on an Azure Search index.
         static void Main(string[] args)
         {
-            string serviceName = "heidist-basic-search-westus2";
-            string apiKey = "arHTHZIaN4WFOYZ9QrEbq8XIbKqBdrbA3APliIDSGfAzSeDAKgHJ";
+            string serviceName = "PLACEHOLDER FOR YOUR SEARCH SERVICE NAME";
+            string apiKey = "PLACEHOLDER FOR YOUR SEARCH SERVICE ADMIN API KEY";
 
             // Create a SearchIndexClient to send create/delete index commands
             Uri serviceEndpoint = new Uri($"https://{serviceName}.search.windows.net/");
