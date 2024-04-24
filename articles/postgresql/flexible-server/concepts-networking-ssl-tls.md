@@ -146,7 +146,7 @@ A cipher suite is displayed as a long string of seemingly random information—b
 - Message authentication code algorithm (MAC)
 
 Different versions of SSL/TLS support different cipher suites. TLS 1.2 cipher suites can’t be negotiated with TLS 1.3 connections and vice versa.
-As of this time Azure Database for PostgreSQL flexible server supports many cipher suites with TLS 1.2 protocol version that fall into [HIGH:!aNULL](https://www.postgresql.org/docs/16/runtime-config-connection.html#GUC-SSL-CIPHERS)  category. 
+As of this time Azure Database for PostgreSQL flexible server supports many cipher suites with TLS 1.2 protocol version that fall into [HIGH:!aNULL](https://www.postgresql.org/docs/current/runtime-config-connection.html#GUC-SSL-CIPHERS) category. 
 
 ## Troubleshooting SSL\TLS connectivity errors
 
