@@ -97,7 +97,7 @@ To create a load test for a function app:
 
 ## View test runs
 
-You can view the list of test runs and a summary overview of the test results directly from within the Function App configuration in the Azure portal.
+You can view the list of test runs and a summary overview of the test results directly from within the function app configuration in the Azure portal.
 
 1. In the [Azure portal](https://portal.azure.com), go to your Azure Function App.
 
