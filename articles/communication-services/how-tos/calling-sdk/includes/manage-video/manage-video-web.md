@@ -109,7 +109,7 @@ const type: MediaStreamType = localVideoStream.mediaStreamType;
 
 You can use `deviceManager` and `VideoStreamRenderer` to begin rendering streams from your local camera.
 Once a `LocalVideoStream` is created, use it to set up`VideoStreamRenderer`. Once the `VideoStreamRenderer`is
-created call its `createView() method to get a view that you can add as a child to your page.
+created call its `createView()` method to get a view that you can add as a child to your page.
 
 This stream isn't sent to other participants; it's a local preview feed.
 
