@@ -59,7 +59,7 @@ There are a number of configurations that you can apply to session pools, such a
 
 A session is a sandboxed environment that runs your code or application. Each session is isolated from other sessions and from the host environment with a Hyper-V sandbox. Optionally, you can enable network isolation to further enhance security.
 
-### Session identifiers
+#### Session identifiers
 
 When you interact with sessions in a pool, you use a session identifier to reference each session. If there's a running session with the identifier, the session is reused. If there's no running session with the identifier, a new session is automatically created.
 
