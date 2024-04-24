@@ -73,7 +73,9 @@ During the setup process, you create private endpoints to the following resource
    |--|--|--|--|--|
    | Connections to host pools | Microsoft.DesktopVirtualization/hostpools | connection | One per host pool | Four per endpoint |
    | Feed download | Microsoft.DesktopVirtualization/workspaces | feed | One per workspace | Two per endpoint |
-   | Initial feed discovery | Microsoft.DesktopVirtualization/workspaces | global | **Only one for all your Azure Virtual Desktop deployments** | One per endpoint |
+   | Initial feed discovery* | Microsoft.DesktopVirtualization/workspaces | global | **Only one for all your Azure Virtual Desktop deployments** | One per endpoint |
+
+   \*In this setup, it’s also possible to operate without any private endpoints for the global sub-resource. This approach streamlines the integration of the private link for Azure Virtual Desktop (AVD) in existing deployments, known as brownfield cases, without affecting other host pools.    
 
 1. Clients use public routes while session host VMs use private routes. You need the following private endpoints. Endpoints to workspaces aren't required.
 
@@ -554,7 +556,7 @@ To create a private endpoint for the *global* sub-resource used for the initial 
 > [!IMPORTANT]
 > - Only create one private endpoint for the *global* sub-resource for all your Azure Virtual Desktop deployments.
 > 
-> - A private endpoint to the global sub-resource of any workspace controls the shared fully qualified domain name (FQDN) for initial feed discovery. This in turn enables feed discovery for all workspaces. Because the workspace connected to the private endpoint is so important, deleting it will cause all feed discovery processes to stop working. We recommend you create an unused placeholder workspace for the global sub-resource.
+> - A private endpoint connected to a workspace’s global sub-resource governs the shared FQDN (Fully Qualified Domain Name), facilitating the initial discovery of feeds across all workspaces. It’s crucial to note that this private endpoint is not mandatory; clients have the option to utilize the public pathway for the initial feed discovery. However, the subsequent feed download and the connection to the host pool remain safeguarded by their respective private endpoint. Should you opt for a private endpoint for the global sub-resource, it’s advisable to set up a placeholder workspace that remains unused, specifically for this purpose. 
 
 # [Portal](#tab/portal)
 
