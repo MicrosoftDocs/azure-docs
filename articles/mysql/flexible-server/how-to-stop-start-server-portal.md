@@ -40,7 +40,8 @@ To mitigate potential disruptions resulting from servers inadvertently remaining
 
 Upon this automatic start, the server status will update to "Available," and billing for the server will commence accordingly.
 
-Please be advised that automatic start do not apply to stoppages exceeding 30 days. If you anticipate a requirement to stop your server for more than 30 days, we recommend [exporting a backup of your server data](how-to-trigger-on-demand-backup.md) and considering the deletion of the server instance to avoid unwarranted charges and enhance security.
+Please be advised that automatic start do not apply to stoppages exceeding 30 days. If you anticipate a requirement to stop your server for more than 30 days, we recommend exporting a backup of your server data. You can utilize our [Export Backup Feature (currently in preview)](how-to-trigger-on-demand-backup.md#trigger-an-on-demand-backup-and-export-preview), or employ a community tool such as [mysqldump](https://dev.mysql.com/doc/refman/8.0/en/mysqldump.html). Subsequently, consider deleting the server instance to prevent unnecessary charges and enhance security.
+
 
 ## Start a stopped server
 
