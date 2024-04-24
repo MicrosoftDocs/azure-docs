@@ -2,39 +2,44 @@
 title: Work with Azure AI Studio projects in VS Code
 titleSuffix: Azure AI Studio
 description: This article provides instructions on how to get started with Azure AI Studio projects in VS Code.
-manager: nitinme
+manager: scottpolly
 ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 1/10/2024
-ms.reviewer: eur
+ms.date: 04/24/2024
+ms.reviewer: lebaro
 ms.author: sgilley
 author: sdgilley
+# customer intent: As a Developer, I want to use Azure AI Studio projects in VS Code.
 ---
 
-# Get started with Azure AI Studio projects in VS Code
+# Get started with Azure AI Studio projects in VS Code (preview)
 
-Azure AI Studio supports developing in VS Code - Web and Desktop. In each scenario, your VS Code instance is remotely connected to a prebuilt custom container running on a virtual machine, also known as a compute instance. 
+Azure AI Studio supports developing in VS Code - Web and Desktop. In each scenario, your VS Code instance is remotely connected to a prebuilt custom container running on a virtual machine, also known as a compute instance.
 
-## Launch VS Code from Azure AI Studio
+[!INCLUDE [preview](../includes/generic-preview.md)]
+
+## Prerequisites
 
 1. Go to [Azure AI Studio](https://ai.azure.com).
+1. Open your project.
+1. From the left menu, select **Settings**.
+1. If you don't have a compute instance, select **Create compute** and create one.  
+1. If you have a stopped compute instance, start it now.
 
-1. Go to **Build** > **Projects** and select or create the project you want to work with.
+## Launch VS Code from Azure AI Studio 
 
-1. At the top-right of any page in the **Build** tab, select **Open project in VS Code (Web)** if you want to work in the browser. If you want to work in your local VS Code instance instead, select the dropdown arrow and choose **Open project in VS Code (Desktop)**.
+1. On the left menu, select **Code**.
+1. For **Compute**, select your compute instance. If it is still starting, wait for it to switch to **Running**.  You'll see a **Ready** status when the compute is ready for use.
+1. For **VS Code container**, select **Set up container** if the button appears. This configures the container on your compute for you. The compute setup might take a few minutes to complete. Once you set up the compute the first time, you can directly launch subsequent times. You might need to authenticate your compute when prompted.  When setup is complete, you'll see **Ready**.
 
-1. Within the dialog that opened following the previous step, select or create the compute instance that you want to use.
+  > [!WARNING]
+  > Once you set up the container for this compute instance, it will no longer idle shutdown, even if you [enable and configure idle shutdown](./create-manage-compute.md#configure-idle-shutdown). This is to ensure the compute doesn't shut down unexpectedly while you're working within a container.
 
-1. Once the compute is running, select **Set up** which configures the container on your compute for you. The compute setup might take a few minutes to complete. Once you set up the compute the first time, you can directly launch subsequent times. You might need to authenticate your compute when prompted.
-
-    > [!WARNING]
-    > Even if you [enable and configure idle shutdown on your compute instance](./create-manage-compute.md#configure-idle-shutdown), any computes that host this custom container for VS Code won't idle shutdown. This is to ensure the compute doesn't shut down unexpectedly while you're working within a container.
-
-1. Once the container is ready, select **Launch**. This launches your previously selected VS Code experience, remotely connected to a custom development environment running on your compute instance.
-
-    If you selected VS Code (Web), a new browser tab connected to *vscode.dev* opens. If you selected VS Code (Desktop), a new local instance of VS Code opens on your local machine.
+1. Open the project in VS Code:
+    * If you want to work in the browser, select **Open project in VS Code (Web)**. A new browser tab connected to *vscode.dev* opens.
+    * If you want to work in your local VS Code instance instead, select the dropdown arrow and choose **Open project in VS Code (Desktop)**. A new local instance of VS Code opens on your local machine.
 
 ## The custom container folder structure
 
@@ -77,7 +82,7 @@ If you plan to work across multiple code and data directories, or multiple repos
 
 For app templates and SDK samples in your preferred programming language, see [Develop apps that use Azure AI services](/azure/developer/intro/azure-ai-for-developers).
 
-## Next steps
+## Related resources
 
 - [Get started with Azure AI SDKs](../how-to/develop/sdk-overview.md)
 - [Quickstart: Analyze images and video with GPT-4 for Vision in the playground](../quickstarts/multimodal-vision.md)
