@@ -42,7 +42,7 @@ To create a load test for a function app:
 
 1. Optionally, select **Create load testing resource** if you don't have a load testing resource yet.
 
-1. Select **Create test** to start creating a URL-based load test for the Function App.
+1. Select **Create test** to start creating a URL-based load test for the function app.
 
 1. On the **Create test** page, first enter the test details:
 
