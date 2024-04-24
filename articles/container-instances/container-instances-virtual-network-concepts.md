@@ -48,6 +48,7 @@ Container groups deployed into an Azure virtual network enable scenarios like:
 * If you are connecting your container group to an Azure Storage Account, you must add a [service endpoint](../virtual-network/virtual-network-service-endpoints-overview.md) to that resource.
 * [IPv6 addresses](../virtual-network/ip-services/ipv6-overview.md) are not supported at this time.
 * Depending on your subscription type, [certain ports may be blocked](../virtual-network/network-security-groups-overview.md#azure-platform-considerations).
+* Container instances don't read or inherit DNS settings from an associated VNET. DNS settings must be explicity set for container instances.
 
 ## Required network resources
 
