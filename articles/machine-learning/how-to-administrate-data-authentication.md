@@ -59,7 +59,7 @@ In general, identity-based data authentication involves these checks:
     - Storage: Does the storage allow public access, or does it restrict access through a service endpoint or a private endpoint?
 * What operation will be performed?
     - Azure Machine Learning handles create, read, update, and delete (CRUD) operations on a data store/dataset.
-    - Archive operations on data assets in the Studio require this RBAC operation: `Microsoft.MachineLearningServices/workspaces/datasets/registered/delete`
+    - Archive operations on data assets in the studio require this RBAC operation: `Microsoft.MachineLearningServices/workspaces/datasets/registered/delete`
     - Data Access calls (for example, preview or schema) go to the underlying storage, and need extra permissions.
 * Will this operation run in your Azure subscription compute resources, or resources hosted in a Microsoft subscription?
     - All calls to dataset and datastore services (except the "Generate Profile" option) use resources hosted in a __Microsoft subscription__ to run the operations.
@@ -91,9 +91,9 @@ For SDK V1, data authentication in a job is always using compute MSI. And for SD
 
 The following will help you set up data authentication to access data behind VNET from an Azure Machine Learning workspace.
 
-### Add permissions of Azure Storage Account to AzureML workspace managed identity 
+### Add permissions of Azure Storage Account to Azure Machine Learning workspace managed identity 
 
-When you use an Azure Storage Account from Azure Machine Learning studio, if you want to see Dataset Preview, you must enable "Use workspace managed identity for data preview and profiling in Azure Machine Learning Studio" in datastore setting, and add these Azure RBAC roles of the storage account to the workspace managed identity:
+When you use an Azure Storage Account from Azure Machine Learning studio, if you want to see Dataset Preview, you must enable "Use workspace managed identity for data preview and profiling in Azure Machine Learning studio" in datastore setting, and add these Azure RBAC roles of the storage account to the workspace managed identity:
 
 * [Blob Data Reader](../role-based-access-control/built-in-roles.md#storage-blob-data-reader)
 * If the storage account uses a private endpoint to connect to the VNet, you must grant the [Reader](../role-based-access-control/built-in-roles.md#reader) role for the storage account private endpoint to the managed identity.
