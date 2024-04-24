@@ -68,7 +68,13 @@ The concept of the Azure Compute Unit (ACU) provides a way of comparing compute 
 | [Mv2](msv2-mdsv2-series.md) | 240 - 280 | 2:1\*\*\* |
 | [NVv4](nvv4-series.md) |230 - 260** | 2:1\*\*\*\* |
 
-Processor model information for each SKU is available in the SKU documentation (see links above).  Optimal performance may require the latest VM images (OS and [VM generation](generation-2.md)) to ensure the latest updates and fastest drivers.
+Processor model information for each SKU is available in the SKU documentation (see links above).  Optimal performance may require the latest VM images (OS and [VM generation](generation-2.md)) to ensure the latest updates and fastest drivers.  
+
+For example, if you have an Azure VM with size **Standard_D4v3** which offers 4 vCPUs (refer [Dv3-series](dv3-dsv3-series.md)). As mentioned in above table for size **D_v3**, the ratio for vCPU:cores is **2:1**, and hence size Standard_ D4v3 will offer **2 cores**.
+
+ > [!NOTE]
+        You can also check the cores offered by existing VM size for windows VM by checking the system summary:
+Go to Run-->search for msinfo32 --> Processor
 
 ### VM Series Retiring
 
