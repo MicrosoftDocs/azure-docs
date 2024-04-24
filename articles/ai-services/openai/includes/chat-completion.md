@@ -553,7 +553,7 @@ Some customers try to use the [legacy ChatML syntax](../how-to/chat-markup-langu
 
 | Error |Cause | Solution |
 |---|---|---|
-| 400 - "Failed to generate output due to special tokens in the input." | Your prompt contains legacy ChatML tokens not recognized or supported by the model/endpoint. | Ensure that your prompt/messages array doesn't contain any legacy ChatML tokens/special. If you're upgrading from a legacy model, exclude all special tokens before you submit an API request to the model.|
+| 400 - "Failed to generate output due to special tokens in the input." | Your prompt contains legacy ChatML tokens not recognized or supported by the model/endpoint. | Ensure that your prompt/messages array doesn't contain any legacy ChatML tokens/special tokens. If you're upgrading from a legacy model, exclude all special tokens before you submit an API request to the model.|
 
 ## Next steps
 
