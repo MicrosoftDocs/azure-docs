@@ -330,6 +330,7 @@ Response:
 | OpenAI SDK (experimental)    | [openaisdk.ipynb](https://aka.ms/samples/cohere-embed/openaisdk)                                    |
 | LangChain      | [langchain.ipynb](https://aka.ms/samples/cohere-embed/langchain)                                |
 | Cohere SDK     | [cohere-sdk.ipynb](https://aka.ms/samples/cohere-embed/cohere-python-sdk)                                 |
+| LiteLLM SDK    | [litellm.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/foundation-models/cohere/litellm.ipynb) |
 
 ##### Retrieval Augmented Generation (RAG) and Tool-Use samples
 **Description** | **Sample Type** | **Sample Notebook**
