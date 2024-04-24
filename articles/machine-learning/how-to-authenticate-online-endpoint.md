@@ -493,38 +493,58 @@ You can find the scoring URI on the __Details__ tab of the endpoint's page.
 
 A key or token can be used for data plane operations, even though the process of getting the key or token is a control plane operation. In other words, you use a control plane token to get the key or token that you later use to perform your data plane operations.
 
-Getting the _key_ or _Azure Machine Learning token_ requires that the correct role is assigned to the user identity that is requesting it, as described in [authorization for control plane operations](concept-endpoints-online-auth.md#control-plane-operations). 
-The user identity doesn't need any extra roles to get the _Microsoft Entra token_.
+Getting the _key_ or _Azure Machine Learning token_ requires that the correct role is assigned to the user identity that is requesting it, as described in [authorization for control plane operations](concept-endpoints-online-auth.md#control-plane-operations).
+Getting the _Microsoft Entra token_ doesn't require any extra roles for the user identity.
 
 ### [Azure CLI](#tab/azure-cli)
 
 If you plan to use the CLI to invoke the endpoint, and if the endpoint is set up to use an auth mode of key, Azure Machine Learning token (`aml_token`), or Microsoft Entra token (`aad_token`), you're not required to get the data plane token explicitly, as the CLI handles it for you. However, you can still use the CLI to get the data plane token so that you can use it with other channels, such as REST API.
 
-To get the key, or Azure Machine Learning token (`aml_token`), or Microsoft Entra token (`aad_token`), use the [az ml online-endpoint get-credentials](/cli/azure/ml/online-endpoint#az-ml-online-endpoint-get-credentials) command. This command returns a JSON document that contains the key or token.
+To get the keys, Azure Machine Learning token (`aml_token`), or Microsoft Entra token (`aad_token`), use the [az ml online-endpoint get-credentials](/cli/azure/ml/online-endpoint#az-ml-online-endpoint-get-credentials) command. This command returns a JSON document that contains the keys, token, and/or additional information.
 
-__Keys__ are returned in the `primaryKey` and `secondaryKey` fields. The following example shows how to use the `--query` parameter to return only the primary key:
+> [!TIP]
+> To extract a specific information from the JSON output, the `--query` parameter of the CLI command is used as an example. However, you can use any suitable tool for this purpose.
+
+__Keys__ are returned in the `primaryKey` and `secondaryKey` fields, when auth_mode of endpoint is `key`:
 
 ```bash
 export DATA_PLANE_TOKEN=$(az ml online-endpoint get-credentials -n $ENDPOINT_NAME -g $RESOURCE_GROUP -w $WORKSPACE_NAME -o tsv --query primaryKey)
 ```
 
-__Azure Machine Learning tokens__ and __Microsoft Entra tokens__ are returned in the `accessToken` field:
+__Azure Machine Learning tokens__ and __Microsoft Entra tokens__ are returned in the `accessToken` field, when auth_mode of endpoint is either `aml_token` or `aml_token`:
 
 ```bash
 export DATA_PLANE_TOKEN=$(az ml online-endpoint get-credentials -n $ENDPOINT_NAME -g $RESOURCE_GROUP -w $WORKSPACE_NAME -o tsv --query accessToken)
 ```
 
-Also, the `expiryTimeUtc` field contains the token expiration time.
+In addition, the `expiryTimeUtc` field contains the token expiration time for Azure Machine Learning token and Microsoft Entra token. The `refreshAfterTimeUtc` field contains the token refresh time for Azure Machine Learning token. The following example shows how to get the token expiration time for Azure Machine Learning token or Microsoft Entra token:
 
+```bash
+export DATA_PLANE_TOKEN=$(az ml online-endpoint get-credentials -n $ENDPOINT_NAME -g $RESOURCE_GROUP -w $WORKSPACE_NAME -o tsv --query expiryTimeUtc)
+```
 
 > [!NOTE]
 > The token for data plane operations is retrieved from the Azure resource endpoint `ml.azure.com` instead of `management.azure.com`, unlike the token for control plane operations.
 
 ### [REST](#tab/rest)
 
-#### Key or Azure Machine Learning token
+> [!TIP]
+> To extract a specific information from the JSON output, the `jq` utility is used as an example. However, you can use any suitable tool for this purpose.
 
-To get the key or Azure Machine Learning token (`aml_token`):
+#### Key
+
+To get the key:
+
+```bash
+response=$(curl -H "Content-Length: 0" --location --request POST "https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.MachineLearningServices/workspaces/$WORKSPACE/onlineEndpoints/$ENDPOINT_NAME/listkeys?api-version=$API_VERSION" \
+--header "Authorization: Bearer $CONTROL_PLANE_TOKEN")
+
+export DATA_PLANE_TOKEN=$(echo $response | jq -r '.primaryKey')
+```
+
+#### Azure Machine Learning token
+
+To get Azure Machine Learning token (`aml_token`):
 
 ```bash
 response=$(curl -H "Content-Length: 0" --location --request POST "https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.MachineLearningServices/workspaces/$WORKSPACE/onlineEndpoints/$ENDPOINT_NAME/token?api-version=$API_VERSION" \
@@ -544,9 +564,6 @@ You can acquire the token based on the managed identities for an Azure VM (when 
     ```bash
     export DATA_PLANE_TOKEN=`(curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fml.azure.com%2F' -H Metadata:true -s | jq -r '.access_token' )`
     ```
-
-    > [!TIP]
-    > To extract the token from the JSON output, the `jq` utility is used as an example. However, you can use any suitable tool for this purpose.
 
     For more information on getting tokens based on managed identities, see [Get a token using HTTP](/entra/identity/managed-identities-azure-resources/how-to-use-vm-token#get-a-token-using-http).
 
