@@ -88,7 +88,7 @@ The Linux VM is already provisioned with X2Go Server and is ready to accept clie
 1. Download and install the X2Go client for your client platform from [X2Go](https://wiki.x2go.org/doku.php/doc:installation:x2goclient).
 1. Note the public IP address of the virtual machine. In the Azure portal, open the virtual machine you created to find this information.
 
-   [Ubuntu machine IP address](./media/dsvm-ubuntu-intro/ubuntu-ip-address.png)
+   :::image type="content" source="./media/dsvm-ubuntu-intro/ubuntu-ip-address.png" alt-text="Screenshot showing the public IP address of the virtual machine." lightbox= "./media/dsvm-ubuntu-intro/ubuntu-ip-address.png":::
 
 1. Run the X2Go client. If the "New Session" window doesn't automatically pop up, go to Session -> New Session.
 
