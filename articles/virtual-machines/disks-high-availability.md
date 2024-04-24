@@ -18,7 +18,7 @@ Applications running on multiple VMs
 
 |Recommendation  |Benefits  |
 |---------|---------|
-|Deploy VMs across multiple availability zones using a zone redundant Virtual Machine Scale Set with flexible orchestration or by deploying VMs across three availability zones.     |Either of these configurations have the highest uptime SLA for multiple VMs deployed across availability zones.         |
+|Deploy VMs across multiple availability zones using a zone redundant Virtual Machine Scale Set with flexible orchestration mode or by deploying VMs across three availability zones.     |Either of these configurations have the highest uptime SLA for multiple VMs deployed across availability zones.         |
 |Deploy VMs across multiple fault domains with either regional Virtual Machine Scale Sets or availability sets.    |Either of these configurations offer the second highest uptime SLA for multiple VMs deployed across fault domains.         |
 
 Applications running on a single VM
@@ -42,7 +42,7 @@ VMs deployed across three availability zones have the highest uptime [service le
 
 [Virtual Machine Scale Sets](../virtual-machine-scale-sets/overview.md) let you create and manage a group of load balanced VMs. The number of VM instances can automatically adjust in response to demand or follow a schedule you define. A zone-redundant Virtual Machine Scale Set is a Virtual Machine Scale Set that has been deployed across more than one availability zones. See [Zone redundant or zone spanning](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md#zone-redundant-or-zone-spanning).
 
-With zone-redundant Virtual Machine Scale Sets using the flexible orchestration, VM resources replicate to one or more zones within the region they're deployed in to improve the resiliency and availability of your applications and data. This or [Deploy VMs across three availability zones](#deploy-vms-across-three-availability-zones) are the configurations you should use to maximize your environment's availability.
+With zone-redundant Virtual Machine Scale Sets using the flexible orchestration mode, VM resources replicate to one or more zones within the region they're deployed in to improve the resiliency and availability of your applications and data. This or [Deploy VMs across three availability zones](#deploy-vms-across-three-availability-zones) are the configurations you should use to maximize your environment's availability.
 
 There might be more network latency between several availability zones than within a single availability zone, which could be a concern for workloads that require ultra-low latency. If low latency is your top priority, consider [regional Virtual Machine Scale Sets](#use-regional-virtual-machine-scale-sets) or [availability sets](#use-availability-sets).
 
