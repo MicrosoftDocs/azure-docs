@@ -1256,7 +1256,7 @@
     displayName: Performance, cost, perf, disks, disk
   - name: Deploy a ZRS disk
     href: disks-deploy-zrs.md
-  - name: Design for high availability
+  - name: Best practices for achieving high availability
     href: disks-high-availability.md
   - name: Share a disk between VMs
     items:
