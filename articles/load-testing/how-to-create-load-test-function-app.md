@@ -12,7 +12,7 @@ ms.topic: how-to
 
 # Create a load test for Azure Functions
 
-In this article, you learn how to create a load test for an Azure Function app with Azure Load Testing. Directly create a URL-based load test from your Function App in the Azure portal, and then use the load testing dashboard to analyze performance issues and identify bottlenecks.
+Learn how to create a load test for an app in Azure Functions with Azure Load Testing. In this article, you'll learn how to create a URL-based load test for your function app in the Azure portal, and then use the load testing dashboard to analyze performance issues and identify bottlenecks.
 
 With the integrated load testing experience in Azure Functions, you can:
 
