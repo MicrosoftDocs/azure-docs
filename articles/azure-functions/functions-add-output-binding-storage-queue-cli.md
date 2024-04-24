@@ -61,12 +61,31 @@ With the queue binding defined, you can now update your function to receive the 
 [!INCLUDE [functions-add-output-binding-python](../../includes/functions-add-storage-binding-python-v2.md)]
 ::: zone-end  
 
-::: zone pivot="programming-language-javascript"  
+::: zone pivot="programming-language-javascript" 
+
+
+To write to an Azure Storage queue:
+
+* Add an `extraOutputs` property to the binding configuration
+
+    ```javascript
+    {
+        methods: ['GET', 'POST'],
+        extraOutputs: [sendToQueue], // add output binding to HTTP trigger
+        authLevel: 'anonymous',
+        handler: () => {}
+    }
+    ```
+
+* Add a `output.storageQueue` function above the `app.http` call
+
+    :::code language="javascript" source="~/functions-docs-javascript/functions-add-output-binding-storage-queue-cli-v4-programming-model/src/functions/httpTrigger1.js" range="3-6":::
+
 [!INCLUDE [functions-add-output-binding-js](../../includes/functions-add-output-binding-js-v4.md)]
 ::: zone-end  
 
 ::: zone pivot="programming-language-typescript"  
-[!INCLUDE [functions-add-output-binding-ts](../../includes/functions-add-output-binding-ts.md)]
+[!INCLUDE [functions-add-output-binding-ts](../../includes/functions-add-output-binding-ts-v4.md)]
 ::: zone-end  
 
 ::: zone pivot="programming-language-powershell"  

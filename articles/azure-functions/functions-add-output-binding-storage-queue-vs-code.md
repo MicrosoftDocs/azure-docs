@@ -135,7 +135,7 @@ After the binding is defined, you can use the `name` of the binding to access it
 ::: zone-end  
 
 ::: zone pivot="programming-language-typescript"  
-[!INCLUDE [functions-add-output-binding-ts](../../includes/functions-add-output-binding-ts.md)]
+[!INCLUDE [functions-add-output-binding-ts](../../includes/functions-add-output-binding-ts-v4.md)]
 ::: zone-end  
 
 ::: zone pivot="programming-language-powershell"

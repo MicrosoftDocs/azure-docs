@@ -54,7 +54,7 @@ In the decorator, `arg_name` identifies the binding parameter referenced in your
 ::: zone-end  
 ::: zone pivot="programming-language-javascript,programming-language-typescript"  
 
-To write to an Azure Storage queue from this function:
+To write to an Azure Storage queue:
 
 * Add an `extraOutputs` property to the binding configuration
 
