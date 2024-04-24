@@ -72,3 +72,9 @@ VMs using only [Ultra Disks](disks-types.md#ultra-disks), [Premium SSD v2](disks
 ### Use zone-redundant storage disks
 
 Zone-redundant storage (ZRS) disks synchronously replicate data across three availability zones in the region they're deployed in. Allowing you to maintain access to your data if one or two of the three availability zones were to have an outage. See [Zone-redundant storage for managed disks](disks-redundancy.md#zone-redundant-storage-for-managed-disks) for details.
+
+## Next steps
+
+- [Create a Virtual Machine Scale Set that uses Availability Zones](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md)
+- [Availability sets overview](availability-set-overview.md)
+- [Deploy a managed disk that uses zone-redundant storage](disks-deploy-zrs.md)
