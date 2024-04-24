@@ -1,8 +1,8 @@
 ---
 title: Data privacy for Device Update for Azure IoT Hub
 description: Understand how Device Update for IoT Hub protects data privacy.
-author: chrisjlin
-ms.author: lichris
+author: eshashah-msft
+ms.author: eshashah
 ms.date: 01/19/2023
 ms.topic: conceptual
 ms.service: iot-hub-device-update

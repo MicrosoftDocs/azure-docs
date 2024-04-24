@@ -36,38 +36,44 @@ First, create a resource group named *myResourceGroup* in the *eastus* location 
 New-AzResourceGroup -Name myResourceGroup -Location EastUS
 ```
 
-## Create a container
+## Create a container group
 
-Now that you have a resource group, you can run a container in Azure. To create a container instance with Azure PowerShell, provide a resource group name, container instance name, and Docker container image to the [New-AzContainerGroup][New-AzContainerGroup] cmdlet. In this quickstart, you use the public `mcr.microsoft.com/windows/servercore/iis:nanoserver` image. This image packages Microsoft Internet Information Services (IIS) to run in Nano Server.
+Now that you have a resource group, you can run a container in Azure. To create a container instance with Azure PowerShell, you'll first need to create a `ContainerInstanceObject` by providing a name and image for the container. In this quickstart, you use the public `mcr.microsoft.com/windows/servercore/iis:nanoserver` image. This image packages Microsoft Internet Information Services (IIS) to run in Nano Server.
+
+```azurepowershell-interactive
+New-AzContainerInstanceObject -Name myContainer -Image mcr.microsoft.com/windows/servercore/iis:nanoserver
+```
+
+Next, use the [New-AzContainerGroup][New-AzContainerGroup] cmdlet. You need to provide a name for the container group, your resource group's name, a location for the container group, the container instance you just created, the operating system type, and a unique IP address DNS name label.
 
 You can expose your containers to the internet by specifying one or more ports to open, a DNS name label, or both. In this quickstart, you deploy a container with a DNS name label so that IIS is publicly reachable.
 
-Execute a command similar to the following to start a container instance. Set a `-DnsNameLabel` value that's unique within the Azure region where you create the instance. If you receive a "DNS name label not available" error message, try a different DNS name label.
+Execute a command similar to the following to start a container instance. Set a `-IPAddressDnsNameLabel` value that's unique within the Azure region where you create the instance. If you receive a "DNS name label not available" error message, try a different DNS name label.
 
 ```azurepowershell-interactive
-New-AzContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer -Image mcr.microsoft.com/windows/servercore/iis:nanoserver -OsType Windows -DnsNameLabel aci-demo-win
+New-AzContainerInstanceObject -ResourceGroupName myResourceGroup -Name myContainerGroup -Location EastUS -Container myContainer -OsType Windows -IPAddressDnsNameLabel aci-demo-win
 ```
 
 Within a few seconds, you should receive a response from Azure. The container's `ProvisioningState` is initially **Creating**, but should move to **Succeeded** within a minute or two. Check the deployment state with the [Get-AzContainerGroup][Get-AzContainerGroup] cmdlet:
 
 ```azurepowershell-interactive
-Get-AzContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer
+Get-AzContainerGroup -ResourceGroupName myResourceGroup -Name myContainerGroup
 ```
 
 The container's provisioning state, fully qualified domain name (FQDN), and IP address appear in the cmdlet's output:
 
 ```console
-PS Azure:\> Get-AzContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer
+PS Azure:\> Get-AzContainerGroup -ResourceGroupName myResourceGroup -Name myContainerGroup
 
 
 ResourceGroupName        : myResourceGroup
-Id                       : /subscriptions/<Subscription ID>/resourceGroups/myResourceGroup/providers/Microsoft.ContainerInstance/containerGroups/mycontainer
-Name                     : mycontainer
+Id                       : /subscriptions/<Subscription ID>/resourceGroups/myResourceGroup/providers/Microsoft.ContainerInstance/containerGroups/myContainerGroup
+Name                     : myContainerGroup
 Type                     : Microsoft.ContainerInstance/containerGroups
 Location                 : eastus
 Tags                     :
 ProvisioningState        : Creating
-Containers               : {mycontainer}
+Containers               : {myContainer}
 ImageRegistryCredentials :
 RestartPolicy            : Always
 IpAddress                : 52.226.19.87
@@ -89,7 +95,7 @@ Once the container's `ProvisioningState` is **Succeeded**, navigate to its `Fqdn
 When you're done with the container, remove it with the [Remove-AzContainerGroup][Remove-AzContainerGroup] cmdlet:
 
 ```azurepowershell-interactive
-Remove-AzContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer
+Remove-AzContainerGroup -ResourceGroupName myResourceGroup -Name myContainerGroup
 ```
 
 ## Next steps

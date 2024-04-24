@@ -26,7 +26,7 @@ This article describes the different options to use Azure Cosmos DB for developm
 
 Azure Cosmos DB free tier makes it easy to get started, develop and test your applications, or even run small production workloads for free. When free tier is enabled on an account, you'll get the first 1000 RU/s and 25 GB of storage in the account free.
 
-Free tier lasts indefinitely for the lifetime of the account and comes with all the [benefits and features](introduction.md#an-ai-database-with-unmatched-reliability-and-flexibility) of a regular Azure Cosmos DB account, including unlimited storage and throughput (RU/s), SLAs, high availability, turnkey global distribution in all Azure regions, and more. You can create a free tier account using Azure portal, CLI, PowerShell, and a Resource Manager template. To learn more, see how to [create a free tier account](free-tier.md) article and the [pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/).
+Free tier lasts indefinitely for the lifetime of the account and comes with all the [benefits and features](introduction.md#with-unmatched-reliability-and-flexibility) of a regular Azure Cosmos DB account, including unlimited storage and throughput (RU/s), SLAs, high availability, turnkey global distribution in all Azure regions, and more. You can create a free tier account using Azure portal, CLI, PowerShell, and a Resource Manager template. To learn more, see how to [create a free tier account](free-tier.md) article and the [pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/).
 
 ## Azure free account
 

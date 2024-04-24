@@ -71,6 +71,11 @@ To learn how to move your virtual network using Resource Mover, see [Move Azure 
 
 
 
+## Downtime
+
+To understand the possible downtimes involved, see [Cloud Adoption Framework for Azure: Select a relocation method](/azure/cloud-adoption-framework/relocate/select#select-a-relocation-method).
+
+
 ## Plan
 
 To plan for your relocation of an Azure Virtual Network, you must understand whether you're relocating your virtual network in a connected or disconnected scenario. In a connected scenario, the virtual network has a routed IP connection to an on-premises datacenter using a hub, VPN Gateway, or an ExpressRoute connection. In a disconnected scenario, the virtual network is used by workload components to communicate with each other.

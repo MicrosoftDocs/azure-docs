@@ -6,7 +6,7 @@ ms.topic: reference
 author: rolyon
 manager: amycolannino
 ms.author: rolyon
-ms.date: 03/01/2024
+ms.date: 04/13/2024
 ms.custom: generated
 ---
 
@@ -14,6 +14,78 @@ ms.custom: generated
 
 This article lists the permissions for the Azure resource providers in the Integration category. You can use these permissions in your own [Azure custom roles](/azure/role-based-access-control/custom-roles) to provide granular access control to resources in Azure. Permission strings have the following format: `{Company}.{ProviderName}/{resourceType}/{action}`
 
+
+## Microsoft.ApiCenter
+
+Azure service: [Azure API Center](/azure/api-center/overview)
+
+> [!div class="mx-tableFixed"]
+> | Action | Description |
+> | --- | --- |
+> | Microsoft.ApiCenter/register/action | Register Microsoft.ApiCenter resource provider for the subscription. |
+> | Microsoft.ApiCenter/unregister/action | Unregister Microsoft.ApiCenter resource provider for the subscription. |
+> | Microsoft.ApiCenter/operations/read | Read all API operations available for Microsoft.ApiCenter resource provider. |
+> | Microsoft.ApiCenter/resourceTypes/read | Read all resource types available for Microsoft.ApiCenter resource provider. |
+> | Microsoft.ApiCenter/services/write | Creates or updates specified service. |
+> | Microsoft.ApiCenter/services/write | Patches specified service. |
+> | Microsoft.ApiCenter/services/read | Returns the details of the specified service. |
+> | Microsoft.ApiCenter/services/read | Checks if specified service exists. |
+> | Microsoft.ApiCenter/services/read | Returns paginated collection of services. |
+> | Microsoft.ApiCenter/services/delete | Deletes specified service. |
+> | Microsoft.ApiCenter/services/importFromApim/action | Imports API from API Management instance. |
+> | Microsoft.ApiCenter/services/exportMetadataSchema/action | Returns effective metadata schema document. |
+> | Microsoft.ApiCenter/services/analysisReports/read | Get a certain analysis report of an API Center instance |
+> | Microsoft.ApiCenter/services/eventGridFilters/read | Returns paginated collection of the Event Grid filters. |
+> | Microsoft.ApiCenter/services/eventGridFilters/read | Returns the details of the specified Event Grid filter. |
+> | Microsoft.ApiCenter/services/eventGridFilters/write | Creates or updates specified Event Grid filter. |
+> | Microsoft.ApiCenter/services/eventGridFilters/delete | Deletes the details of the specified Event Grid filter. |
+> | Microsoft.ApiCenter/services/metadataSchemas/write | Creates or updates specified metadataSchema. |
+> | Microsoft.ApiCenter/services/metadataSchemas/read | Returns paginated collection of metadataSchemas. |
+> | Microsoft.ApiCenter/services/metadataSchemas/read | Returns the details of the specified metadataSchema. |
+> | Microsoft.ApiCenter/services/metadataSchemas/read | Checks if specified metadataSchema exists |
+> | Microsoft.ApiCenter/services/metadataSchemas/delete | Deletes specified metadataSchema. |
+> | Microsoft.ApiCenter/services/operationResults/read | Checks status of individual import operation |
+> | Microsoft.ApiCenter/services/workspaces/write | Creates or updates specified workspace. |
+> | Microsoft.ApiCenter/services/workspaces/read | Returns paginated collection of workspaces. |
+> | Microsoft.ApiCenter/services/workspaces/read | Returns the details of the specified workspace. |
+> | Microsoft.ApiCenter/services/workspaces/read | Checks if specified workspace exists |
+> | Microsoft.ApiCenter/services/workspaces/delete | Deletes specified workspace. |
+> | Microsoft.ApiCenter/services/workspaces/apis/write | Creates or updates specified API. |
+> | Microsoft.ApiCenter/services/workspaces/apis/read | List APIs inside a catalog |
+> | Microsoft.ApiCenter/services/workspaces/apis/read | Returns the details of the specified API. |
+> | Microsoft.ApiCenter/services/workspaces/apis/read | Checks if specified API exists. |
+> | Microsoft.ApiCenter/services/workspaces/apis/delete | Deletes specified API. |
+> | Microsoft.ApiCenter/services/workspaces/apis/deployments/write | Creates or updates API Deployment. |
+> | Microsoft.ApiCenter/services/workspaces/apis/deployments/read | Checks if specified API Deployment exists. |
+> | Microsoft.ApiCenter/services/workspaces/apis/deployments/read | Returns the details of the specified API deployment. |
+> | Microsoft.ApiCenter/services/workspaces/apis/deployments/read | Returns paginated collection of API deployments. |
+> | Microsoft.ApiCenter/services/workspaces/apis/deployments/delete | Deletes specified API deployment. |
+> | Microsoft.ApiCenter/services/workspaces/apis/portals/write | Creates or updates the portal configuration. |
+> | Microsoft.ApiCenter/services/workspaces/apis/portals/write | Returns the configuration of the specified portal. |
+> | Microsoft.ApiCenter/services/workspaces/apis/versions/write | Creates or updates API version. |
+> | Microsoft.ApiCenter/services/workspaces/apis/versions/read | Checks if specified API version exists. |
+> | Microsoft.ApiCenter/services/workspaces/apis/versions/read | Returns the details of the specified API version. |
+> | Microsoft.ApiCenter/services/workspaces/apis/versions/read | Returns paginated collection of API versions. |
+> | Microsoft.ApiCenter/services/workspaces/apis/versions/delete | Deletes specified API version. |
+> | Microsoft.ApiCenter/services/workspaces/apis/versions/definition/read | Returns the details of the specified API definition. |
+> | Microsoft.ApiCenter/services/workspaces/apis/versions/definitions/updateAnalysisState/action | Updates analysis results for specified API definition. |
+> | Microsoft.ApiCenter/services/workspaces/apis/versions/definitions/exportSpecification/action | Exports API definition file. |
+> | Microsoft.ApiCenter/services/workspaces/apis/versions/definitions/importSpecification/action | Imports API definition file. |
+> | Microsoft.ApiCenter/services/workspaces/apis/versions/definitions/write | Creates or updates API Spec. |
+> | Microsoft.ApiCenter/services/workspaces/apis/versions/definitions/delete | Deletes specified API definition. |
+> | Microsoft.ApiCenter/services/workspaces/apis/versions/definitions/analysisResults/read | Returns analysis report for specified API definition. |
+> | Microsoft.ApiCenter/services/workspaces/apis/versions/definitions/operationResults/read | Checks status of individual import operation |
+> | Microsoft.ApiCenter/services/workspaces/environments/read | Returns paginated collection of environments |
+> | Microsoft.ApiCenter/services/workspaces/environments/write | Create or update environment |
+> | Microsoft.ApiCenter/services/workspaces/environments/delete | Deletes specified environment. |
+> | Microsoft.ApiCenter/services/workspaces/environments/read | Returns specified environment. |
+> | Microsoft.ApiCenter/services/workspaces/portals/delete | Deletes specified configuration. |
+> | **DataAction** | **Description** |
+> | Microsoft.ApiCenter/services/workspaces/apis/read | Read APIs from an API Center. |
+> | Microsoft.ApiCenter/services/workspaces/apis/deployments/read | Read API deployments from an API Center. |
+> | Microsoft.ApiCenter/services/workspaces/apis/versions/read | Read API versions from an API Center. |
+> | Microsoft.ApiCenter/services/workspaces/apis/versions/definitions/read | Read API definitions from an API Center. |
+> | Microsoft.ApiCenter/services/workspaces/environments/read | Read API environments from an API Center. |
 
 ## Microsoft.ApiManagement
 

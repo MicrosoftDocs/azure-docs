@@ -15,13 +15,13 @@ This article shows you how to configure a custom container to run on Azure App S
 
 ::: zone pivot="container-windows"
 
-This guide provides key concepts and instructions for containerization of Windows apps in App Service. If you've never used Azure App Service, follow the [custom container quickstart](quickstart-custom-container.md) and [tutorial](tutorial-custom-container.md) first.
+This guide provides key concepts and instructions for containerization of Windows apps in App Service. New Azure App Service users should follow the [custom container quickstart](quickstart-custom-container.md) and [tutorial](tutorial-custom-container.md) first.
 
 ::: zone-end
 
 ::: zone pivot="container-linux"
 
-This guide provides key concepts and instructions for containerization of Linux apps in App Service. If you've never used Azure App Service, follow the [custom container quickstart](quickstart-custom-container.md) and [tutorial](tutorial-custom-container.md) first. There's also a [multi-container app quickstart](quickstart-multi-container.md) and [tutorial](tutorial-multi-container-app.md). For sidecar containers (preview), see [Tutorial: Configure a sidecar container for custom container in Azure App Service (preview)](tutorial-custom-container-sidecar.md).
+This guide provides key concepts and instructions for containerization of Linux apps in App Service. If are new to Azure App Service, follow the [custom container quickstart](quickstart-custom-container.md) and [tutorial](tutorial-custom-container.md) first. There's also a [multi-container app quickstart](quickstart-multi-container.md) and [tutorial](tutorial-multi-container-app.md). For sidecar containers (preview), see [Tutorial: Configure a sidecar container for custom container in Azure App Service (preview)](tutorial-custom-container-sidecar.md).
 
 ::: zone-end
 
@@ -70,14 +70,14 @@ For *\<username>* and *\<password>*, supply the sign-in credentials for your pri
 
 ## Use managed identity to pull image from Azure Container Registry
 
-Use the following steps to configure your web app to pull from ACR using managed identity. The steps use system-assigned managed identity, but you can use user-assigned managed identity as well.
+Use the following steps to configure your web app to pull from Azure Container Registry (ACR) using managed identity. The steps use system-assigned managed identity, but you can use user-assigned managed identity as well.
 
 1. Enable [the system-assigned managed identity](./overview-managed-identity.md) for the web app by using the [`az webapp identity assign`](/cli/azure/webapp/identity#az-webapp-identity-assign) command:
 
     ```azurecli-interactive
     az webapp identity assign --resource-group <group-name> --name <app-name> --query principalId --output tsv
     ```
-    Replace `<app-name>` with the name you used in the previous step. The output of the command (filtered by the `--query` and `--output` arguments) is the service principal ID of the assigned identity, which you use shortly.
+    Replace `<app-name>` with the name you used in the previous step. The output of the command (filtered by the `--query` and `--output` arguments) is the service principal ID of the assigned identity.
 1. Get the resource ID of your Azure Container Registry:
     ```azurecli-interactive
     az acr show --resource-group <group-name> --name <registry-name> --query id --output tsv
@@ -105,7 +105,7 @@ Use the following steps to configure your web app to pull from ACR using managed
     - `<app-name>` with the name of your web app.
     >[!Tip]
     > If you are using PowerShell console to run the commands, you need to escape the strings in the `--generic-configurations` argument in this and the next step. For example: `--generic-configurations '{\"acrUseManagedIdentityCreds\": true'`
-1. (Optional) If your app uses a [user-assigned managed identity](overview-managed-identity.md#add-a-user-assigned-identity), make sure this is configured on the web app and then set the `acrUserManagedIdentityID` property to specify its client ID:
+1. (Optional) If your app uses a [user-assigned managed identity](overview-managed-identity.md#add-a-user-assigned-identity), make sure the identity is configured on the web app and then set the `acrUserManagedIdentityID` property to specify its client ID:
     
     ```azurecli-interactive
     az identity show --resource-group <group-name> --name <identity-name> --query clientId --output tsv
@@ -120,7 +120,7 @@ You're all set, and the web app now uses managed identity to pull from Azure Con
 
 ## Use an image from a network protected registry
 
-To connect and pull from a registry inside a virtual network or on-premises, your app must integrate with a virtual network. This is also needed for Azure Container Registry with private endpoint. When your network and DNS resolution is configured, you enable the routing of the image pull through the virtual network by configuring the `vnetImagePullEnabled` site setting:
+To connect and pull from a registry inside a virtual network or on-premises, your app must integrate with a virtual network (VNET). VNET integration is also needed for Azure Container Registry with private endpoint. When your network and DNS resolution is configured, you enable the routing of the image pull through the virtual network by configuring the `vnetImagePullEnabled` site setting:
 
 ```azurecli-interactive
 az resource update --resource-group <group-name> --name <app-name> --resource-type "Microsoft.Web/sites" --set properties.vnetImagePullEnabled [true|false]
@@ -259,7 +259,7 @@ You can connect to your Windows container directly for diagnostic tasks by navig
 
 - It functions separately from the graphical browser above it, which only shows the files in your [shared storage](#use-persistent-shared-storage).
 - In a scaled-out app, the SSH session is connected to one of the container instances. You can select a different instance from the **Instance** dropdown in the top Kudu menu.
-- Any change you make to the container from within the SSH session does *not* persist when your app is restarted (except for changes in the shared storage), because it's not part of the Docker image. To persist your changes, such as registry settings and software installation, make them part of the Dockerfile.
+- Any change you make to the container from within the SSH session **doesn't** persist when your app is restarted (except for changes in the shared storage), because it's not part of the Docker image. To persist your changes, such as registry settings and software installation, make them part of the Dockerfile.
 
 ## Access diagnostic logs
 
@@ -267,10 +267,10 @@ App Service logs actions by the Docker host and activities from within the cont
 
 There are several ways to access Docker logs:
 
-- [In the Azure portal](#in-azure-portal)
-- [From Kudu](#from-kudu)
-- [With the Kudu API](#with-the-kudu-api)
-- [Send logs to Azure monitor](troubleshoot-diagnostic-logs.md#send-logs-to-azure-monitor)
+- [Azure portal](#in-azure-portal)
+- [Kudu](#from-kudu)
+- [Kudu API](#with-the-kudu-api)
+- [Azure monitor](troubleshoot-diagnostic-logs.md#send-logs-to-azure-monitor)
 
 ### In Azure portal
 
@@ -278,7 +278,7 @@ Docker logs are displayed in the portal, in the **Container Settings** page of y
 
 ### From Kudu
 
-Navigate to `https://<app-name>.scm.azurewebsites.net/DebugConsole` and select the **LogFiles** folder to see the individual log files. To download the entire **LogFiles** directory, select the **Download** icon to the left of the directory name. You can also access this folder using an FTP client.
+Navigate to `https://<app-name>.scm.azurewebsites.net/DebugConsole` and select the **LogFiles** folder to see the individual log files. To download the entire **LogFiles** directory, select the **"Download"** icon to the left of the directory name. You can also access this folder using an FTP client.
 
 In the SSH terminal, you can't access the `C:\home\LogFiles` folder by default because persistent shared storage isn't enabled. To enable this behavior in the console terminal, [enable persistent shared storage](#use-persistent-shared-storage).
 
@@ -292,7 +292,7 @@ To download all the logs together in one ZIP file, access `https://<app-name>.sc
 
 ## Customize container memory
 
-By default all Windows Containers deployed in Azure App Service have a memory limit configured.  The following table lists the default settings per App Service Plan SKU. 
+By default all Windows Containers deployed in Azure App Service have a memory limit configured. The following table lists the default settings per App Service Plan SKU. 
 
 | App Service Plan SKU | Default memory limit per app in MB |
 |-|-|
@@ -317,7 +317,7 @@ In PowerShell:
 Set-AzWebApp -ResourceGroupName <group-name> -Name <app-name> -AppSettings @{"WEBSITE_MEMORY_LIMIT_MB"=2000}
 ```
 
-The value is defined in MB and must be less and equal to the total physical memory of the host. For example, in an App Service plan with 8GB RAM, the cumulative total of `WEBSITE_MEMORY_LIMIT_MB` for all the apps must not exceed 8 GB. Information on how much memory is available for each pricing tier can be found in [App Service pricing](https://azure.microsoft.com/pricing/details/app-service/windows/), in the **Premium v3 service plan** section.
+The value is defined in MB and must be less and equal to the total physical memory of the host. For example, in an App Service plan with 8 GB RAM, the cumulative total of `WEBSITE_MEMORY_LIMIT_MB` for all the apps must not exceed 8 GB. Information on how much memory is available for each pricing tier can be found in [App Service pricing](https://azure.microsoft.com/pricing/details/app-service/windows/), in the **Premium v3 service plan** section.
 
 ## Customize the number of compute cores
 
@@ -347,7 +347,7 @@ The processors might be multicore or hyperthreading processors. Information on h
 
 ## Customize health ping behavior
 
-App Service considers a container to be successfully started when the container starts and responds to an HTTP ping. The health ping request contains the header `User-Agent= "App Service Hyper-V Container Availability Check"`. If the container starts but doesn't respond to a ping after a certain amount of time, App Service logs an event in the Docker log, saying that the container didn't start. 
+App Service considers a container to be successfully started when the container starts and responds to an HTTP ping. The health ping request contains the header `User-Agent= "App Service Hyper-V Container Availability Check"`. If the container starts but doesn't respond pings after a certain amount of time, App Service logs an event in the Docker log, saying that the container didn't start. 
 
 If your application is resource-intensive, the container might not respond to the HTTP ping in time. To control the actions when HTTP pings fail, set the `CONTAINER_AVAILABILITY_CHECK_MODE` app setting. You can set it via the [Cloud Shell](https://shell.azure.com). In Bash:
 
@@ -469,7 +469,7 @@ Secure Shell (SSH) is commonly used to execute administrative commands remotely 
 
 4. Rebuild and push the Docker image to the registry, and then test the Web App SSH feature on Azure portal.
 
-Further troubleshooting information is available at the Azure App Service OSS blog: [Enabling SSH on Linux Web App for Containers](https://azureossd.github.io/2022/04/27/2022-Enabling-SSH-on-Linux-Web-App-for-Containers/index.html#troubleshooting)
+Further troubleshooting information is available at the Azure App Service blog: [Enabling SSH on Linux Web App for Containers](https://azureossd.github.io/2022/04/27/2022-Enabling-SSH-on-Linux-Web-App-for-Containers/index.html#troubleshooting)
 
 ## Access diagnostic logs
 
@@ -499,9 +499,9 @@ In your *docker-compose.yml* file, map the `volumes` option to `${WEBAPP_STORAGE
 wordpress:
   image: <image name:tag>
   volumes:
-  - ${WEBAPP_STORAGE_HOME}/site/wwwroot:/var/www/html
-  - ${WEBAPP_STORAGE_HOME}/phpmyadmin:/var/www/phpmyadmin
-  - ${WEBAPP_STORAGE_HOME}/LogFiles:/var/log
+  - "${WEBAPP_STORAGE_HOME}/site/wwwroot:/var/www/html"
+  - "${WEBAPP_STORAGE_HOME}/phpmyadmin:/var/www/phpmyadmin"
+  - "${WEBAPP_STORAGE_HOME}/LogFiles:/var/log"
 ```
 
 ### Preview limitations
@@ -541,7 +541,7 @@ The following lists show supported and unsupported Docker Compose configuration 
 
 - "version x.x" always needs to be the first YAML statement in the file
 - ports section must use quoted numbers
-- image > volume section must be quoted and cannot have permissions definitions
+- image > volume section must be quoted and can't have permissions definitions
 - volumes section must not have an empty curly brace after the volume name
 
 > [!NOTE]

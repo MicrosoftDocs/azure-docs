@@ -40,7 +40,7 @@ Currently, there's no in-place upgrade. You should [create a new search service]
 | Resource | Free | Basic  | S1 | S2 | S3 | S3&nbsp;HD | L1 | L2 |
 |----------|------|--------|----|----|----|------------|----|----|
 | Service level agreement (SLA) | No |Yes |Yes |Yes |Yes |Yes |Yes |Yes |
-| Storage (partition size)  | 50&nbsp;MB | 15&nbsp;GB | 160&nbsp;GB | 350&nbsp;GB | 700&nbsp;GB |200&nbsp;GB| 1&nbsp;TB | 2&nbsp;TB  |
+| Storage (partition size)  | 50&nbsp;MB | 15&nbsp;GB | 160&nbsp;GB | 350&nbsp;GB | 700&nbsp;GB |700&nbsp;GB| 1&nbsp;TB | 2&nbsp;TB  |
 | Partitions | N/A |3 |12 |12 |12 |3 |12 |12 |
 | Replicas | N/A | 3 |12 |12 |12 |12 |12 |12 |
 

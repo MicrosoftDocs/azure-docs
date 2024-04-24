@@ -26,7 +26,7 @@ In the `then` block, you define the effect that happens when the `if conditions 
 
 For more information about _policyRule_, go to the [policy definition schema](https://schema.management.azure.com/schemas/2020-10-01/policyDefinition.json).
 
-### Logical operators
+## Logical operators
 
 Supported logical operators are:
 

@@ -3,7 +3,7 @@ title: Architecture - Design considerations for vSAN stretched clusters
 description: Learn about how to use stretched clusters for Azure VMware Solution.
 ms.topic: concepts
 ms.service: azure-vmware
-ms.date: 3/22/2024
+ms.date: 4/10/2024
 ms.custom: references_regions, engagement-fy24
 ---
 
@@ -59,8 +59,9 @@ Azure VMware Solution stretched clusters are available in the following regions:
 
 - UK South (on AV36, and AV36P)
 - West Europe (on AV36, and AV36P) 
-- Germany West Central (on AV36) 
-- Australia East (on AV36P) 
+- Germany West Central (on AV36, and AV36P)
+- Australia East (on AV36P)
+- East US (on AV36P)
 
 ## Storage policies supported
 

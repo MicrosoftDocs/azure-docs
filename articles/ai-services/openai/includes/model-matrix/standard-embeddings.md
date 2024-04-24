@@ -27,3 +27,4 @@ ms.date: 03/13/2024
 | uksouth          | -                             | ✅                              | -                             | -                             |
 | westeurope       | -                             | ✅                              | -                             | -                             |
 | westus           | -                             | ✅                              | -                             | -                             |
+| westus3          | -                             | ✅                              | -                             | -                             |

@@ -16,6 +16,8 @@ Before you get started, review the [prerequisites](prerequisites.md) and verify 
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
+[!INCLUDE [sql-server-auto-onboard](includes/sql-server-auto-onboard.md)]
+
 ## Prerequisites
 
 - A machine with Azure PowerShell. For instructions, see [Install and configure Azure PowerShell](/powershell/azure/).

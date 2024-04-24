@@ -4,7 +4,7 @@ description: Copy, export or read data from Azure Blob Storage with the Azure St
 author: gennadNY
 ms.author: gennadyk
 ms.reviewer: maghan
-ms.date: 02/02/2024
+ms.date: 04/02/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.custom:
@@ -12,11 +12,11 @@ ms.custom:
 ms.topic: reference
 ---
 
-# pg_azure_storage extension - Preview
+# pg_azure_storage extension on Azure Database for PostgreSQL - Flexible Server reference
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
-The [pg_azure_storage extension](./concepts-storage-extension.md) allows you to import  or export data in multiple file formats directly between Azure blob storage and your Azure Database for PostgreSQL flexible server instance. Containers with access level "Private" or "Blob" requires adding private access key.  
+The [pg_azure_storage extension](./concepts-storage-extension.md) allows you to import  or export data in multiple file formats directly between Azure blob storage and your Azure Database for PostgreSQL flexible server instance. Containers with access level "Private" or "Blob" requires adding private access key.  Examples of data export and import using this extension can be found in this [doc](./concepts-storage-extension.md#import-data-from-azure-blob-storage-to-azure-database-for-postgresql-flexible-server)
 
 Before you can enable `azure_storage` on your Azure Database for PostgreSQL flexible server instance, you need to add the extension to your allowlist as described in [how to use PostgreSQL extensions](./concepts-extensions.md#how-to-use-postgresql-extensions) and check if correctly added by running `SHOW azure.extensions;`.
 

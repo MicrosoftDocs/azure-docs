@@ -4,7 +4,7 @@ titleSuffix: Microsoft Cost Management
 description: This article explains how to use cost details records to correlate meter-based charges with the specific resources responsible for the charges. Then you can properly reconcile your bill.
 author: bandersmsft
 ms.author: banders
-ms.date: 02/22/2024
+ms.date: 04/15/2024
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -52,7 +52,7 @@ Azure resource providers emit usage and charges to the billing system and popula
 The cost details file exposes multiple price points. They're outlined as follows.
 
 **PAYGPrice:** It's the market price, also referred to as retail or list price, for a given product or service.
-  - In all consumption usage records, `UnitPrice` reflects the market price of the meter, regardless of the benefit plan such as reservations or savings plan.
+  - In all consumption usage records, `PayGPrice` reflects the market price of the meter, regardless of the benefit plan such as reservations or savings plan.
   - Purchases and refunds have the market price for that transaction.
 
 When you deal with benefit-related records, where the `PricingModel` is `Reservations` or `SavingsPlan`, *PayGPrice* reflects the market price of the meter.
@@ -98,7 +98,7 @@ Sample amortized cost report:
 >    - For EA customers `PayGPrice` isn't populated when `PricingModel` = `Reservations` or `Marketplace`.
 >    - For MCA customers, `PayGPrice` isn't populated when `PricingModel` = `Reservations` or `Marketplace`.
 >- Limitations on `UnitPrice`
->    - For EA customers, `UnitPrice` isn't populated when `PricingModel` = `MarketPlace`.
+>    - For EA customers, `UnitPrice` isn't populated when `PricingModel` = `MarketPlace`. If the cost allocation rule is enabled, the `UnitPrice` will be 0 where `PricingModel` = `Reservations`. For more information, see [Current limitations](../costs/allocate-costs.md#current-limitations).
 >    - For MCA customers, `UnitPrice` isn't populated when `PricingModel` = `Reservations`.
 
 ## Unexpected charges
