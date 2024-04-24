@@ -125,7 +125,7 @@ Checklist for Oracle Automatic Storage Management:
 2.  [**ASMLib**](https://docs.oracle.com/en/database/oracle/oracle-database/19/ladbi/about-oracle-asm-with-oracle-asmlib.html)
     is used and not UDEV. UDEV is required for multiple SANs, a scenario that doesn't exist on Azure
 3.  ASM should be configured for **External Redundancy**. Azure Premium SSD storage provides triple redundancy. Azure Premium SSD matches the reliability and integrity of any other storage solution. For optional safety, customers can consider **Normal Redundancy** for the Log Disk Group
-4.  No Mirror Log is optional for ASM [888626 - Redo log layout for high-end systems](https://launchpad.support.sap.com/#/notes/888626)
+4.  Mirroring Redo Log files is optional for ASM [888626 - Redo log layout for high-end systems](https://launchpad.support.sap.com/#/notes/888626)
 5.  ASM Disk Groups configured as per Variant 1, 2 or 3 below
 6.  ASM Allocation Unit size = 4MB (default). Very Large Databases (VLDB) OLAP systems such as BW may benefit from larger ASM Allocation Unit size. Change only after confirming with Oracle support
 7.  ASM Sector Size and Logical Sector Size = default (UDEV isn't recommended but requires 4k)

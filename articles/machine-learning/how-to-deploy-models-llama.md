@@ -9,8 +9,8 @@ ms.topic: how-to
 ms.date: 04/16/2024
 ms.reviewer: shubhiraj
 reviewer: shubhirajMsft
-ms.author: mopeakande
-author: msakande
+ms.author: ssalgado
+author: ssalgadodev
 ms.custom: [references_regions]
 
 #This functionality is also available in Azure AI Studio: /azure/ai-studio/how-to/deploy-models-llama.md

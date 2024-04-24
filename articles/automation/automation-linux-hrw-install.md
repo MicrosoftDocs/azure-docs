@@ -58,11 +58,13 @@ The Hybrid Runbook Worker feature supports the following distributions. All oper
   16.04 LTS | Xenial Xerus
   14.04 LTS | Trusty Tahr
 
+> [!NOTE]
+> Hybrid Worker would follow support timelines of the OS vendor.
+
 > [!IMPORTANT]
 > Before enabling the Update Management feature, which depends on the system Hybrid Runbook Worker role, confirm the distributions it supports [here](update-management/operating-system-requirements.md).
 
-> [!NOTE]
-> Hybrid Worker extension would follow support timelines of the OS vendor.
+
 
 ### Minimum requirements
 
