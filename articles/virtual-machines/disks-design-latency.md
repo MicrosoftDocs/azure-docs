@@ -3,12 +3,12 @@ title: Design your Azure infrastructure for High Availability
 description: Learn the steps you can take to get the best availability with your Azure virtual machines and managed disks
 author: roygara
 ms.author: rogarana
-ms.date: 04/23/2024
+ms.date: 04/24/2024
 ms.topic: conceptual
 ms.service: azure-disk-storage
 ---
 
-# Best practices for availability with Virtual Machines and Disks
+# Best practices for configuring Azure infrastructure with high availability
 
 Azure offers several configuration options for ensuring availability of Azure virtual machines (VMs) and Azure managed disks. Deploying or configuring existing environments with the options mentioned in this article helps ensure steady application performance. This article outlines the available options and gives recommendations on when to use them.
 
@@ -65,7 +65,7 @@ A regional Virtual Machine Scale Set is a Virtual Machine Scale Set that has no 
 
 ## Applications running on a single VM
 
-Legacy applications, traditional web servers, line-of-business applications, development and testing environments, and small workloads are all examples of applications that may run on a single VM. These applications can't benefit from replication across multiple VMs in different fault domains or availability zones. But you can take steps increase their availability.
+Legacy applications, traditional web servers, line-of-business applications, development and testing environments, and small workloads are all examples of applications that may run on a single VM. These applications can't benefit from replication across multiple VMs in different fault domains or availability zones. But you can take steps to increase their availability.
 
 ### Use Ultra Disks, Premium SSD v2, or Premium SSD
 
