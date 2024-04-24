@@ -12,7 +12,31 @@ ms.custom: devdivchpfy22
 
 Although a function can have only one trigger, it can have multiple input and output bindings, which lets you connect to other Azure services and resources without writing custom integration code.
 ::: zone-end  
-::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-typescript"  
+
+::: zone pivot="programming-language-javascript,programming-language-typescript"  
+When using the [Node.js v4 programming model](../articles/azure-functions/functions-reference-node.md), binding attributes are defined directly in the *./src/functions/HttpExample.js* file. From the previous quickstart, your file already contains an HTTP binding defined by the `app.http` method. 
+
+```javascript
+const { app } = require('@azure/functions');
+
+app.http('HttpExample', {
+    methods: ['GET', 'POST'],
+    authLevel: 'anonymous',
+    handler: async (request, context) => {
+        context.log(`Http function processed request for url "${request.url}"`);
+
+        const name = request.query.get('name') || await request.text() || 'world';
+
+        return { body: `Hello, ${name}!` };
+    }
+});
+```
+
+
+::: zone-end  
+
+
+::: zone pivot="programming-language-powershell"  
 
 You declare these bindings in the *function.json* file in your function folder. From the previous quickstart, your *function.json* file in the *HttpExample* folder contains two bindings in the `bindings` collection:  
 ::: zone-end  
@@ -39,18 +63,29 @@ To write to an Azure Storage queue from this function, add the `queue_output` de
 
 In the decorator, `arg_name` identifies the binding parameter referenced in your code, `queue_name` is name of the queue that the binding writes to, and `connection` is the name of an application setting that contains the connection string for the Storage account. In quickstarts you use the same storage account as the function app, which is in the `AzureWebJobsStorage` setting (from *local.settings.json* file). When the `queue_name` doesn't exist, the binding creates it on first use.
 ::: zone-end  
-::: zone pivot="programming-language-javascript,programming-language-typescript"  
-:::code language="json" source="~/functions-quickstart-templates/Functions.Templates/Templates/HttpTrigger-JavaScript/function.json" range="2-18":::  
-::: zone-end  
+ 
 ::: zone pivot="programming-language-powershell"  
 :::code language="json" source="~/functions-quickstart-templates/Functions.Templates/Templates/HttpTrigger-PowerShell/function.json" range="2-18":::
 ::: zone-end  
 ::: zone pivot="programming-language-javascript,programming-language-typescript"  
-The second binding in the collection is named `res`. This `http` binding is an output binding (`out`) that is used to write the HTTP response.
 
-To write to an Azure Storage queue from this function, add an `out` binding of type `queue` with the name `msg`, as shown in the code below:
+To write to an Azure Storage queue from this function:
 
-:::code language="json" source="~/functions-docs-javascript/functions-add-output-binding-storage-queue-cli/HttpExample/function.json" range="3-26":::
+* Add an `extraOutputs` property to the binding configuration
+
+    ```javascript
+    {
+        methods: ['GET', 'POST'],
+        extraOutputs: [sendToQueue], // add output binding to HTTP trigger
+        authLevel: 'anonymous',
+        handler: () => {}
+    }
+    ```
+
+* Add a `output.storageQueue` function above the `app.http` call
+
+    :::code language="json" source="~/functions-docs-javascript/functions-add-output-binding-storage-queue-cli-v4-programming-model/src/functions/httpTrigger1.js range="3-6":::
+
 ::: zone-end  
 ::: zone pivot="programming-language-powershell"  
 The second binding in the collection is named `res`. This `http` binding is an output binding (`out`) that is used to write the HTTP response.
@@ -60,5 +95,5 @@ To write to an Azure Storage queue from this function, add an `out` binding of t
 :::code language="json" source="~/functions-docs-powershell/functions-add-output-binding-storage-queue-cli/HttpExample/function.json" range="3-26":::
 ::: zone-end  
 ::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-typescript"  
-In this case, `msg` is given to the function as an output argument. For a `queue` type, you must also specify the name of the queue in `queueName` and provide the *name* of the Azure Storage connection (from *local.settings.json* file) in `connection`. 
+For a `queue` type, you must specify the name of the queue in `queueName` and provide the *name* of the Azure Storage connection (from *local.settings.json* file) in `connection`. 
 ::: zone-end  
