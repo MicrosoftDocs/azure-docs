@@ -36,7 +36,7 @@ To create a load test for a function app:
 
 1. On the left pane, select **Load Testing (Preview)** under the **Performance** section.
 
-    On this page, you can see the list of tests and the load test runs for this Function App.
+    On this page, you can see the list of tests and the load test runs for this function app.
    
 :::image type="content" source="./media/how-to-create-load-test-app-service/app-service-load-testing.png" lightbox="./media/how-to-create-load-test-app-service/app-service-load-testing.png" alt-text="Screenshot that shows Load Testing page in App Service.":::
 
