@@ -30,6 +30,10 @@ The Developer SKU has different requirements and limitations than the other SKU 
 > [!NOTE]
 > VNet peering isn't currently supported for the Developer SKU.
 
+### Premium SKU (Preview)
+
+The Premium SKU is a new SKU that supports Bastion features such as Session Recording and Private-Only Bastion. When you deploy bastion, only select the Premium SKU if you need the features that it supports.
+
 ### Specify SKU
 
 | Method | SKU Value | Links |
@@ -56,8 +60,8 @@ You can configure this setting using the following method:
 
 ## <a name="subnet"></a>Azure Bastion subnet
 
->[!IMPORTANT]
->For Azure Bastion resources deployed on or after November 2, 2021, the minimum AzureBastionSubnet size is /26 or larger (/25, /24, etc.). All Azure Bastion resources deployed in subnets of size /27 prior to this date are unaffected by this change and will continue to work, but we highly recommend increasing the size of any existing AzureBastionSubnet to /26 in case you choose to take advantage of [host scaling](./configure-host-scaling.md) in the future.
+> [!IMPORTANT]
+> For Azure Bastion resources deployed on or after November 2, 2021, the minimum AzureBastionSubnet size is /26 or larger (/25, /24, etc.). All Azure Bastion resources deployed in subnets of size /27 prior to this date are unaffected by this change and will continue to work, but we highly recommend increasing the size of any existing AzureBastionSubnet to /26 in case you choose to take advantage of [host scaling](./configure-host-scaling.md) in the future.
 >
 
 When you deploy Azure Bastion using any SKU except the Developer SKU, Bastion requires a dedicated subnet named **AzureBastionSubnet**. You must create this subnet in the same virtual network that you want to deploy Azure Bastion to. The subnet must have the following configuration:
