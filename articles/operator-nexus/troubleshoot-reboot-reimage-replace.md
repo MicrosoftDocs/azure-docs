@@ -30,7 +30,7 @@ The time required to complete each of these actions is similar. Restarting is th
 >
 > Restart, Reimage and Replace are all considered disruptive actions.
 >
-> This check is done to maintain the integrity of the Nexus instance and ensure multiple KCP nodes don't go down at once due to simultaneous disruptive actions.
+> This check is done to maintain the integrity of the Nexus instance and ensure multiple KCP nodes don't go down at once due to simultaneous disruptive actions. If multiple nodes go down, it will break healthy quorum threshold of Kubernetes Control Plane.
 
 ## Identify the corrective action
 
