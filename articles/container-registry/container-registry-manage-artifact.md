@@ -86,7 +86,7 @@ To demonstrate this capability, this section shows how to use the [OCI Registry 
 > [!NOTE]
 > ACR and ORAS support multiple authentication options for users and system automation. This article uses individual identity, using an Azure token. For more authentication options see [Authenticate with an Azure container registry][acr-authentication]
 
-### Push a root artifact
+### Push an artifact
 
 A root artifact is an artifact that has no `subject` parent. Root artifacts can be anything from a container image, a helm chart, a readme file for the repository. Reference artifacts, described in [Attach, push, and pull supply chain artifacts](container-registry-oras-artifacts.md) are artifacts that refer to another artifact. Reference artifacts can be anything from a signature, software bill of materials, scan report or other evolving types.
 
