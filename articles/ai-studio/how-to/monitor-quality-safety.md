@@ -27,6 +27,26 @@ Capabilities and integrations for monitoring a prompt flow deployment include:
 - Preconfigured alerts and defaults to run monitoring on a recurring basis.
 - Consume result and configure advanced behavior in Azure AI Studio.
 
+## screenshots
+
+:::image type="content" source="../media/deploy-monitor/monitor/column-map-advanced-options.png" alt-text="Screenshot of advanced options when mapping columns for monitoring metrics." lightbox = "../media/deploy-monitor/monitor/column-map-advanced-options.png":::
+
+:::image type="content" source="../media/deploy-monitor/monitor/deployment-operational-tab.png" alt-text="Screenshot of the operational tab for the deployment." lightbox = "../media/deploy-monitor/monitor/deployment-operational-tab.png":::
+
+:::image type="content" source="../media/deploy-monitor/monitor/deployment-page.png" alt-text="Screenshot of the deployment page." lightbox = "../media/deploy-monitor/monitor/deployment-page.png":::
+
+:::image type="content" source="../media/deploy-monitor/monitor/deployment-page-highlight-monitoring.png" alt-text="Screenshot of the deployment page highlighting generation quality monitoring." lightbox = "../media/deploy-monitor/monitor/deployment-page-highlight-monitoring.png":::
+
+:::image type="content" source="../media/deploy-monitor/monitor/deployment-with-data-collection-enabled.png" alt-text="Screenshot of the review page when setting up the deployment with data collectin enabled." lightbox = "../media/deploy-monitor/monitor/deployment-with-data-collection-enabled.png":::
+
+:::image type="content" source="../media/deploy-monitor/monitor/generation-quality-trendline.png" alt-text="Screenshot showing the generation quality trendline on the deployment's monitoring page." lightbox = "../media/deploy-monitor/monitor/generation-quality-trendline.png":::
+
+:::image type="content" source="../media/deploy-monitor/monitor/generation-quality-tracing-information.png" alt-text="Screenshot showing the trace button for the generation quality." lightbox = "../media/deploy-monitor/monitor/generation-quality-tracing-information.png":::
+
+:::image type="content" source="../media/deploy-monitor/monitor/monitor-token-usage.png" alt-text="Screenshot showing the token usage on the deployment's monitoring page." lightbox = "../media/deploy-monitor/monitor/monitor-token-usage.png":::
+
+:::image type="content" source="../media/deploy-monitor/monitor/trace-information.png" alt-text="Screenshot showing the trace information." lightbox = "../media/deploy-monitor/monitor/trace-information.png":::
+
 ## Set up monitoring for prompt flow 
 
 Follow these steps to set up monitoring for your prompt flow deployment:
