@@ -138,11 +138,7 @@ With simplified pricing tiers, the same Commitment tier and billing mode used by
 ### Dedicated cluster billing examples
 Compare the following cluster scenarios to better understand simplified pricing when adding Microsoft Sentinel enabled workspaces to a dedicated cluster.
 
-| Cluster |
-|:---:|
-| Workspace A |
-| Workspace B |
-| Workspace C<br>Microsoft Sentinel |
+:::image type="content" source="media/enroll-simplified-pricing-tier/cluster.svg" alt-text="Image showing a color coded cluster with three workspaces. One of the workspaces is labeled Microsoft Sentinel.":::
 
 - Example 1: A dedicated cluster ingesting data over the Commitment tier level, but under the next highest tier (ideal).
    :::image type="content" source="media/enroll-simplified-pricing-tier/example-1.png" alt-text="Spreadsheet showing Commitment tier over usage billing example for a Microsoft Sentinel workspace in a dedicated cluster.":::
