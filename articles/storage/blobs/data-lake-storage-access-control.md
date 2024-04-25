@@ -116,18 +116,6 @@ As shown in the previous table, write permissions on the file are not required t
 > [!NOTE]
 > The root directory "/" can never be deleted.
 
-### Which permissions are required to recursively delete a directory and its contents?
-
-- The caller has 'super-user' permissions,
-
-Or
-
-- The parent directory must have Write + Execute permissions.
-- The directory to be deleted, and every directory within it, requires Read + Write + Execute permissions.
-
-> [!NOTE]
-> You do not need Write permissions to delete files in directories. Also, the root directory "/" can never be deleted.
-
 ## Users and identities
 
 Every file and directory has distinct permissions for these identities:
