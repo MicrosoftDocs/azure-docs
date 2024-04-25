@@ -52,7 +52,7 @@ Redis server version upgrades are made automatically as a part of the standard m
 
 Your Redis instance is automatically upgraded to a preview version of Redis server software.
 
-### Trigger an upgrade manually
+### Start an upgrade manually
 
 As an alternative to automatic upgrade, you can also manually upgrade to the latest Redis version. Manual upgrades provide two other benefits instead waiting for the automatic upgrade to occur: a) You control when the upgrade occurs, and b) you can upgrade to preview releases of Redis server.
 
