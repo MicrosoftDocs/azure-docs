@@ -47,7 +47,7 @@ SFTP clients can't be authorized by using Microsoft Entra identities. Instead, S
 Local users must use either a password or a Secure Shell (SSH) private key credential for authentication. You can have a maximum of 2000 local users for a storage account.
 
 To set up access permissions, you'll create a local user, and choose authentication methods. Then, for each container in your account, you can specify the level of access you want to give that user.
- 
+
 > [!CAUTION]
 > Local users do not interoperate with other Azure Storage permission models such as RBAC (role based access control) and ABAC (attribute based access control). Access control lists (ACLs) are supported for local users at the preview level.
 >
@@ -89,13 +89,13 @@ When performing write operations on blobs in sub directories, Read permission is
 
 > [!IMPORTANT]
 > This capability is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability. 
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ACLs let you grant "fine-grained" access, such as write access to a specific directory or file. An ACL is a permission construct that contains a series of ACL entries. Each ACL entry associates an identity with an access level. To learn more about ACLs, see [Access control lists (ACLs) in Azure Data Lake Storage Gen2](data-lake-storage-access-control.md).
 
-To authorize a local user by using ACLs, you must first enable ACL authorization for that local user. See [Give permission to containers](secure-file-transfer-protocol-support-authorize-accessmd#give-permission-to-containers).
+To authorize a local user by using ACLs, you must first enable ACL authorization for that local user. See [Give permission to containers](secure-file-transfer-protocol-support-authorize-acces.md#give-permission-to-containers).
 
-While an ACL can define the permission level for many different types of identities, only the owning user, owning group, and all other users identities can be used to authorize a local user. Named users and named groups are not yet supported for local user authorization. 
+While an ACL can define the permission level for many different types of identities, only the owning user, owning group, and all other users identities can be used to authorize a local user. Named users and named groups are not yet supported for local user authorization.
 
 ### How ACL permissions are evaluated
 
@@ -103,11 +103,15 @@ ACLs are evaluated only if the local user does not have the necessary container 
 
 ### Modifying ACLs with an SFTP client
 
-While an ACL can be modified by using any supported Azure tool or SDK, users can also modify them by using an SFTP client. To enable a local user to modify ACLs, you must first give the local user `Modify Permissions` permission. See [Give permission to containers](secure-file-transfer-protocol-support-authorize-access.md#give-permission-to-containers).
+While an ACL can be modified by using any supported Azure tool or SDK, local users can also modify them. To enable a local user to modify ACLs, you must first give the local user `Modify Permissions` permission. See [Give permission to containers](secure-file-transfer-protocol-support-authorize-access.md#give-permission-to-containers).
 
-Local users can change the permission level of the only the owning user, owning group, and all other users of an ACL. Adding or modifying ACL entries for named users, named groups, and named security principals is not yet supported. Users can also change the ID of the owning user and the owning group. To change owning user or owning group of a directory or blob. The local user must have been given `Modify Ownership` permission.
+Local users can change the permission level of the only the owning user, owning group, and all other users of an ACL. Adding or modifying ACL entries for named users, named groups, and named security principals is not yet supported.
 
-Most SFTP clients expose commands for changing these properties. The following table describes common commands in more detail.
+Local users can also change the ID of the owning user and the owning group. To change owning user or owning group of a directory or blob, the local user must be given `Modify Ownership` permission.
+
+Most SFTP clients expose commands for changing these properties. To view examples, see [Modify the ACL of a file or directory](secure-file-transfer-protocol-support-connect.md#modify-the-acl-of-a-file-or-directory).
+
+The following table describes common commands in more detail.
 
 | Command | Required Container Permission | Description |
 |---|---|---|
@@ -115,15 +119,13 @@ Most SFTP clients expose commands for changing these properties. The following t
 | chgrp | o | <li>Change owning group for file/directory</li><li>Must specify numeric ID</li> |
 | chmod | p | <li>Change permissions/mode for file/directory</li><li>Must specify POSIX style octal permissions</li> |
 
-The IDs required for changing owning user and owning group are part of new properties for Local Users. The following table describes each new Local User property in more detail.
+The IDs required for changing owning user and owning group are part of new properties for local users. The following table describes each new Local User property in more detail.
 
 | Property | Description |
 |---|---|
-| UserId | <li>Unique identifier for the Local User within the storage account</li><li>Generated by default when the Local User is created</li><li>Used for setting owning user on file/directory</li> |
-| GroupId | <li>Identifer for a group of Local Users</li><li>Used for setting owning group on file/directory</li> |
+| UserId | <li>Unique identifier for the local user within the storage account</li><li>Generated by default when the Local User is created</li><li>Used for setting owning user on file/directory</li> |
+| GroupId | <li>Identifer for a group of local users</li><li>Used for setting owning group on file/directory</li> |
 | AllowAclAuthorization | <li>Allow authorizing this Local User's requests with ACLs</li> |
-
-To see examples that ACLs from an SFTP client, see [Modify ACLs](secure-file-transfer-protocol-support-connect.md#modify-acls).
 
 ## Home directory
 

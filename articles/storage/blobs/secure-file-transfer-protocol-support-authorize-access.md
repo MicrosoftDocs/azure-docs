@@ -193,7 +193,7 @@ If you want to authorize access at the file and directory level, you can enable 
    > [!IMPORTANT]
    > The local user must have at least one container permission for the container it is connecting to otherwise the connection attempt will fail.
 
-2. If you want to authorize access by using the access control lists (acls) associated with files and directories in this container, then select the **Allow ACL authorization** checkbox. To learn more about using ACLS to authorize SFTP clients, see [ACLs](secure-file-transfer-protocol-support.md#acls).
+2. If you want to authorize access by using the access control lists (acls) associated with files and directories in this container, then select the **Allow ACL authorization** checkbox. To learn more about using ACLS to authorize SFTP clients, see [ACLs](secure-file-transfer-protocol-support.md#access-control-lists-acls).
 
    You can also add this local user to a group by assigning that user to a group ID. That ID can be any number or number scheme that you want. Grouping users allow you to add and remove users without the need to reapply ACLs to an entire directory structure. Instead, you can just add or remove users from the group.
 

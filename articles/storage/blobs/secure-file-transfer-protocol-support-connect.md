@@ -75,7 +75,7 @@ See the documentation of your SFTP client for guidance about how to connect and 
 
 ### Modify the ACL of a file or directory
 
-You can modify the permission level of the owning user, owning group, and all other users of an ACL by using an SFTP client. You can also change the ID of the owning user and the owning group. To learn more about ACL support for SFTP clients, see [ACLs](secure-file-transfer-protocol-support.md#acls).
+You can modify the permission level of the owning user, owning group, and all other users of an ACL by using an SFTP client. You can also change the ID of the owning user and the owning group. To learn more about ACL support for SFTP clients, see [ACLs](secure-file-transfer-protocol-support.md#access-control-lists-acls).
 
 #### Modify permissions
 
