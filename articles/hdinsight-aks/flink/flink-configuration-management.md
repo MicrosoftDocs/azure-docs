@@ -14,7 +14,7 @@ HDInsight on AKS provides a set of default configurations of Apache Flink for mo
 
 1. Go To Settings > Flink Jobs > Click on Update.
 
-    :::image type="content" source="./media/update-page.png" alt-text="Screenshot showing update page." lightbox="./media/flink-configuration-management/update-page.png":::
+    :::image type="content" source="./media/flink-configuration-managemen/update-page.png" alt-text="Screenshot showing update page." lightbox="./media/flink-configuration-management/update-page.png":::
 
 1. Click on **+ Add a row** to edit configuration.
 
@@ -93,11 +93,11 @@ By default, stored in the storage account, configured by the user. (We support A
 
 ## Job manager high availability
 
-In HDInsight on AKS, Flink uses Kubernetes as backend. Even if the Job Manager fails in between due to any known/unknown issue, the pod is restarted within a few seconds. Hence, even if the job restarts due to this issue, the job is recovered back from the **latest checkpoint**. 
+In HDInsight on AKS, Flink uses Kubernetes as backend. Even if the Job Manager fails in between due to any known/unknown issue, the pod is restarted within a few seconds. Hence, even if the job restarts due to this issue, the job is recovered back from the **latest checkpoint**.
 
 ### FAQ
 
-**Why does the Job failure in between 
+**Why does the Job failure in between.
 Even if the jobs fail abruptly, if the checkpoints are happening continuously, then the job is restarted by default from the latest checkpoint.** 
 
 Change the job strategy in between?
@@ -109,7 +109,7 @@ There are use cases, where the job needs to be modified while in production due 
 
 1. After savepoint completion, click on start and Start Job Tab will appear. Select the savepoint name from the dropdown. Edit any configurations if necessary. And click **OK**.  
 
-    :::image type="content" source="./media/flink-configuration-management/start-job.png" alt-text="Screenshot showing how to start job." lightbox="./media/flink-configuration-management/start.job.png":::
+    :::image type="content" source="./media/flink-configuration-management/start-job.png" alt-text="Screenshot showing how to start job." lightbox="./media/flink-configuration-management/start-job.png":::
 
 Since savepoint is provided in the job, the Flink knows from where to start processing the data. 
 

@@ -176,7 +176,7 @@ public class KafkaSinkToGen2 {
 
 1. Pass the job jar information in `AppMode` cluster creation.
 
-    :::image type="content" source="./media/assign-kafka-topic-event-message-to-azure-data-lake-storage-gen2/create-app-mode.png" alt-text="Screenshot showing create app mode." lightbox="./media/assign-kafka-topic-event-message-to-azure-data-lake-storage-gen2/-create-app-mode.png":::
+    :::image type="content" source="./media/assign-kafka-topic-event-message-to-azure-data-lake-storage-gen2/create-app-mode.png" alt-text="Screenshot showing create app mode." lightbox="./media/assign-kafka-topic-event-message-to-azure-data-lake-storage-gen2/create-app-mode.png":::
 
     > [!NOTE]
     >  Make sure to add classloader.resolve-order as ‘parent-first’ and hadoop.classpath.enable as `true`
