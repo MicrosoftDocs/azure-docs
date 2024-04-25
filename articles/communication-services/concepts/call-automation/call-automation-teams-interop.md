@@ -15,10 +15,11 @@ ms.custom: public_preview
 # Deliver expedient customer service by adding Microsoft Teams users in Call Automation workflows
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
+[!INCLUDE [Teams Phone license](../../includes/teams-phone-license-include.md)]
 
 Businesses are looking for innovative ways to increase the efficiency of their customer service operations. Azure Communication Services Call Automation provides developers the ability to build programmable customer interactions using real-time event triggers to perform actions based on custom business logic. For example, with support for interoperability with Microsoft Teams, developers can use Call Automation APIs to add subject matter experts (SMEs). These SMEs, who use Microsoft Teams, can be added to an existing customer service call to provide expert advice and help resolve a customer issue.
 
-This interoperability with Microsoft Teams over VoIP makes it easy for developers to implement per-region multi-tenant trunks that maximize value and reduce telephony infrastructure overhead. Each new tenant will be able to use this setup in a few minutes after Microsoft Teams admin has granted necessary permissions to the Azure Communication Services resource.
+This interoperability with Microsoft Teams over VoIP makes it easy for developers to implement per-region multitenant trunks that maximize value and reduce telephony infrastructure overhead. Each new tenant will be able to use this setup in a few minutes after Microsoft Teams admin has granted necessary permissions to the Azure Communication Services resource.
 
 ## Use-cases
 
@@ -71,9 +72,7 @@ The following list presents the set of features that are currently available in 
 | -----------------| ----------- |
 | Microsoft Teams Desktop | ✔️ |
 | Microsoft Teams Web | ✔️ |
-| Microsoft Teams iOS | ✔️ |
-| Microsoft Teams Android | ✔️ |
-| Azure Communications Services signed in with Microsoft 365 Identity | ❌ |
+| Azure Communications Services user app signed in with Microsoft 365 Identity | ✔️ |
 
 > [!NOTE]
 > While in preview, the support for Microsoft Teams mobile apps is available with limited functionality and some features might not work properly.   
@@ -85,7 +84,7 @@ The following list presents the set of features that are currently available in 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Get started with adding a Microsoft Teams user to an ongoing call using Call Automation](./../../how-tos/call-automation/teams-interop-call-automation.md)
+> [Get started with adding a Microsoft Teams user to an ongoing call using Call Automation](../../how-tos/call-automation/teams-interop-call-automation.md)
 
 Here are some articles of interest to you:
 - Learn more about [Call Automation](../../concepts/call-automation/call-automation.md) and its features.
