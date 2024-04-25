@@ -131,7 +131,7 @@ Use the Azure CLI to restore a deleted container or database. Child containers a
    > [!NOTE]
    > Listing all the restorable database deletion events allows you to choose the right container in a scenario in which the actual time of existence is unknown. If the event feed contains the **Delete** operation type in its response, then it’s a deleted container, and it can be restored within the same account. The restore time stamp can be set to any time stamp before the deletion time stamp and within the retention window.
 
-1. Initiate a restore operation for a deleted database by using [az cosmosdb sql database restore](/cli/azure/cosmosdb/sql/database#az-cosmosdb-sql-database-restore). The restore timestamp is optional, if it is not provided last deleted instance of database is restored. 
+1. Initiate a restore operation for a deleted database by using [az cosmosdb sql database restore](/cli/azure/cosmosdb/sql/database#az-cosmosdb-sql-database-restore). The restore timestamp is optional, if it isn't  provided last deleted instance of database is restored. 
 
     ```azurecli
     az cosmosdb sql database restore \
@@ -142,7 +142,7 @@ Use the Azure CLI to restore a deleted container or database. Child containers a
          --disable-ttl True
     ```
 
-1. Initiate a restore operation for a deleted container by using [az cosmosdb sql container restore](/cli/azure/cosmosdb/sql/container#az-cosmosdb-sql-container-restore). The restore timestamp is optional, if it is not provided last deleted instance of container is restored. 
+1. Initiate a restore operation for a deleted container by using [az cosmosdb sql container restore](/cli/azure/cosmosdb/sql/container#az-cosmosdb-sql-container-restore). The restore timestamp is optional, if it isn't  provided last deleted instance of container is restored. 
 
     ```azurecli
     az cosmosdb sql container restore \
@@ -216,7 +216,7 @@ Use the Azure CLI to restore a deleted container or database. Child containers a
          --disable-ttl True
     ```
 
-1. Initiate a restore operation for a deleted collection by using [az cosmosdb mongodb collection restore](/cli/azure/cosmosdb/mongodb/collection#az-cosmosdb-mongodb-collection-restore),restore timestamp is optional, if it is not provided last deleted instance of collection is restored. 
+1. Initiate a restore operation for a deleted collection by using [az cosmosdb mongodb collection restore](/cli/azure/cosmosdb/mongodb/collection#az-cosmosdb-mongodb-collection-restore),restore timestamp is optional, if it isn't  provided last deleted instance of collection is restored. 
 
     ```azurecli
     az cosmosdb mongodb collection restore \
@@ -278,7 +278,7 @@ Use the Azure CLI to restore a deleted container or database. Child containers a
         --location <location>
     ```
 
-1. Initiate a restore operation for a deleted database by using [az cosmosdb gremlin database restore](/cli/azure/cosmosdb/gremlin/database#az-cosmosdb-gremlin-database-restore). The restore timestamp is optional, if it is not provided last deleted instance of database is restored. 
+1. Initiate a restore operation for a deleted database by using [az cosmosdb gremlin database restore](/cli/azure/cosmosdb/gremlin/database#az-cosmosdb-gremlin-database-restore). The restore timestamp is optional, if it isn't  provided last deleted instance of database is restored. 
 
     ```azurecli
     az cosmosdb gremlin database restore \
@@ -289,7 +289,7 @@ Use the Azure CLI to restore a deleted container or database. Child containers a
         --disable-ttl True
     ```
 
-1. Initiate a restore operation for a deleted graph by using [az cosmosdb gremlin graph restore](/cli/azure/cosmosdb/gremlin/graph#az-cosmosdb-gremlin-graph-restore). The restore timestamp is optional, if it is not provided last deleted instance of graph is restored. 
+1. Initiate a restore operation for a deleted graph by using [az cosmosdb gremlin graph restore](/cli/azure/cosmosdb/gremlin/graph#az-cosmosdb-gremlin-graph-restore). The restore timestamp is optional, if it isn't  provided last deleted instance of graph is restored. 
 
     ```azurecli
     az cosmosdb gremlin graph restore \
@@ -342,7 +342,7 @@ Use the Azure CLI to restore a deleted container or database. Child containers a
         --location <location>
     ```
 
-1. Initiate a restore operation for a deleted table by using [az cosmosdb table restore](/cli/azure/cosmosdb/table#az-cosmosdb-table-restore). The restore timestamp is optional, if it is not provided last deleted instance of table is restored. 
+1. Initiate a restore operation for a deleted table by using [az cosmosdb table restore](/cli/azure/cosmosdb/table#az-cosmosdb-table-restore). The restore timestamp is optional, if it isn't  provided last deleted instance of table is restored. 
 
     ```azurecli
     az cosmosdb table restore \
@@ -411,7 +411,7 @@ Use Azure PowerShell to restore a deleted container or database. Child container
    > [!NOTE]
    > Listing all the restorable database deletion events allows you allows you to choose the right container in a scenario where the actual time of existence is unknown. If the event feed contains the **Delete** operation type in its response, then it’s a deleted container and it can be restored within the same account. The restore timestamp can be set to any timestamp before the deletion timestamp and within the retention window.
 
-1. Initiate a restore operation for a deleted database by using the Restore-AzCosmos DBSqlDatabase cmdlet. Restore timestamp is optional, In absence of this timestamp last deleted instance of database is  restored. 
+1. Initiate a restore operation for a deleted database by using the Restore-AzCosmos DBSqlDatabase cmdlet. Restore timestamp is optional. In absence of this timestamp last deleted instance of database is  restored. 
 
     ```azurepowershell
     $parameters = @{
@@ -423,7 +423,7 @@ Use Azure PowerShell to restore a deleted container or database. Child container
     Restore-AzCosmos DBSqlDatabase @parameters
     ```
 
-1. Initiate a restore operation for a deleted container by using the Restore-AzCosmos DBSqlContainer cmdlet. Restore timestamp is optional, In absence of this timestamp last deleted instance of container is  restored. 
+1. Initiate a restore operation for a deleted container by using the Restore-AzCosmos DBSqlContainer cmdlet. Restore timestamp is optional. In absence of this timestamp last deleted instance of container is  restored. 
 
     ```azurepowershell
     $parameters = @{
@@ -471,7 +471,7 @@ Use Azure PowerShell to restore a deleted container or database. Child container
     Get-AzCosmosDBMongoDBRestorableDatabase @parameters
     ```
 
-1. Use the [Get-AzCosmosDBMongoDBRestorableCollection](/powershell/module/az.cosmosdb/get-azcosmosdbmongodbrestorablecollection) cmdlet to list all the versions of restorable collections within a specific database. Restore timestamp is optional, In absence of this timestamp last deleted instance of collection is restored.   
+1. Use the [Get-AzCosmosDBMongoDBRestorableCollection](/powershell/module/az.cosmosdb/get-azcosmosdbmongodbrestorablecollection) cmdlet to list all the versions of restorable collections within a specific database. Restore timestamp is optional. In absence of this timestamp last deleted instance of collection is restored.   
 
     ```azurepowershell
     $parameters = @{
