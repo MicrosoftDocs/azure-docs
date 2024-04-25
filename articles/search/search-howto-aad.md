@@ -126,7 +126,7 @@ It's a best practice to grant minimum permissions. If your application only need
    + Search Index Data Reader
 
       > [!NOTE]
-   > The Owner, Contributor, Reader, and Search Service Contributor are control plane roles and don't give you access to the data within a search index. For data access, choose either the Search Index Data Contributor or Search Index Data Reader role. For more information on the scope and purpose of each role, see [Built-in roles used in Search](search-security-rbac.md#built-in-roles-used-in-search).
+      > The Owner, Contributor, Reader, and Search Service Contributor are control plane roles and don't give you access to the data within a search index. For data access, choose either the Search Index Data Contributor or Search Index Data Reader role. For more information on the scope and purpose of each role, see [Built-in roles used in Search](search-security-rbac.md#built-in-roles-used-in-search).
 
 1. On the **Members** tab, select the managed identity that you want to give access to your search service.
 

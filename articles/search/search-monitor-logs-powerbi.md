@@ -46,7 +46,7 @@ Azure AI Search can send operation logs and service metrics to an Azure Storage 
 
     :::image type="content" source="media/search-monitor-logs-powerbi/connect-to-storage-account.png" alt-text="Screenshot showing how to input the storage account name and the number of days to query in the Connect to Azure Cognitive Search page.":::
 
-1. Select **Key** as the authentication method and provide your storage account key. Select **None** or **Prviate** as the privacy level. Select **Sign In** and to begin the loading process.
+1. Select **Key** as the authentication method and provide your storage account key. Select **None** or **Private** as the privacy level. Select **Sign In** to begin the loading process.
 
     :::image type="content" source="media/search-monitor-logs-powerbi/connect-to-storage-account-step-two.png" alt-text="Screenshot showing how to input the authentication method, account key, and privacy level in the Connect to Azure Cognitive Search page.":::
 
