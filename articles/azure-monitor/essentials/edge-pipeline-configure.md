@@ -9,6 +9,9 @@ author: bwren
 
 # Configuration of Azure Monitor edge pipeline
 
+- Pipeline has small p
+
+
 [Azure Monitor pipeline](./pipeline-overview.md) is a data ingestion pipeline providing consistent and centralized data collection for Azure Monitor. The [edge pipeline](./pipeline-overview.md#edge-pipeline) enables at-scale collection, and routing of telemetry data before it's sent to the cloud. It can cache data locally and sync with the cloud when connectivity is restored and route telemetry to Azure Monitor in cases where the network is segmented and data cannot be sent directly to the cloud. This article describes how to enable and configure the edge pipeline in your environment. 
 
 ## Overview
@@ -89,6 +92,9 @@ The following tables and diagrams describe the detailed steps and components in 
 :::image type="content" source="media/edge-pipeline/cloud-pipeline-data-flow.png" lightbox="media/edge-pipeline/cloud-pipeline-data-flow.png" alt-text="Detailed diagram of the steps and components for data collection using Azure Monitor cloud pipeline." border="false"::: 
 
 ## Segmented network
+
+
+
 [Network segmentation](/azure/architecture/networking/guide/network-level-segmentation) is a model where you use software defined perimeters to create a different security posture for different parts of your network. In this model, you may have a network segment that can't connect to the internet or to other network segments. The edge pipeline can be used to collect data from these network segments and send it to the cloud pipeline.
 
 :::image type="content" source="media/edge-pipeline/layered-network.png" lightbox="media/edge-pipeline/layered-network.png" alt-text="Diagram of a layered network for Azure Monitor edge pipeline." border="false":::
@@ -96,7 +102,8 @@ The following tables and diagrams describe the detailed steps and components in 
 To use Azure Monitor pipeline in a layered network configuration, you must add the following URLs to the allowlist for the Arc-enabled Kubernetes cluster. See [Configure Azure IoT Layered Network Management Preview on level 4 cluster](/azure/iot-operations/manage-layered-network/howto-configure-l4-cluster-layered-network?tabs=k3s#configure-layered-network-management-preview-service).
 
 - `*.ingest.monitor.azure.com`
-- Url of DCE
+- `login.windows.net`
+- These are both external type
 
 
 ## Create table in Log Analytics workspace
