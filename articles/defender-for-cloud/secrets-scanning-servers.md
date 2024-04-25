@@ -33,7 +33,7 @@ Secrets scanning helps reduce risk with the following mitigations:
 - Eliminating secrets that aren’t needed.
 - Applying the principle of least privilege.
 - Strengthening secrets security by using secrets management systems such as Azure Key Vault.
-- ##Using short-lived secrets such as substituting Azure Storage connection strings with SAS tokens that possess shorter validity periods.
+- Using short-lived secrets such as substituting Azure Storage connection strings with SAS tokens that possess shorter validity periods.
 
 ## How do I identity and remediate secrets issues?
 
