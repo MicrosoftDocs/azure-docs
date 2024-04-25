@@ -10,11 +10,11 @@ author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
 
-# Review security posture (preview)
+# Review security posture
 
 Azure Backup offers security features at the vault level to safeguard the backup data stored in it. These security measures encompass the settings associated with the Azure Backup solution for the vault and apply to the protected data sources contained within the vault.
 
-Azure Business Continuity center (preview) allows you to view the Security level for each protected item from the Security posture view.
+Azure Business Continuity center allows you to view the Security level for each protected item from the Security posture view.
 
 ## View security level
 
