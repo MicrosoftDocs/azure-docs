@@ -46,7 +46,7 @@ The specific use case for Azure Monitor edge pipeline are:
 
 - **Scalability**. The edge pipeline can handle large volumes of data from monitored resources that may be limited by other collection methods such as Azure Monitor agent.
 - **Periodic connectivity**. Some environments may have unreliable connectivity to the cloud, or may have long unexpected periods without connection. The edge pipeline can cache data locally and sync with the cloud when connectivity is restored.
-- **Layered network**. In some environments, the network is segmented and data cannot be sent directly to the cloud. The edge pipeline can be used to collect data from monitored resources without cloud access and act as a proxy connection to Azure Monitor. **[xpathak: AzMon pipeline doesn't technically act as proxy. Azure IoT Layered Network Management acts as proxy. Edge pipeline can be configured with it, not sure how we want to make this claer]**
+- **Layered network**. In some environments, the network is segmented and data cannot be sent directly to the cloud. The edge pipeline can be used to collect data from monitored resources without cloud access and manage the connection to Azure Monitor in the cloud.
 
 ## Data collection scenarios
 The following table describes the data collection scenarios that are currently supported using the Azure Monitor pipeline. See the links in each entry for details.

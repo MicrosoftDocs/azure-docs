@@ -2,7 +2,7 @@
 title: Configuration of Azure Monitor pipeline for edge and multicloud
 description: Configuration of Azure Monitor pipeline for edge and multicloud
 ms.topic: conceptual
-ms.date: 04/23/2024
+ms.date: 04/25/2024
 ms.author: bwren
 author: bwren
 ---
@@ -12,13 +12,16 @@ author: bwren
 [Azure Monitor pipeline](./pipeline-overview.md) is a data ingestion pipeline providing consistent and centralized data collection for Azure Monitor. The [edge pipeline](./pipeline-overview.md#edge-pipeline) enables at-scale collection, and routing of telemetry data before it's sent to the cloud. It can cache data locally and sync with the cloud when connectivity is restored and route telemetry to Azure Monitor in cases where the network is segmented and data cannot be sent directly to the cloud. This article describes how to enable and configure the edge pipeline in your environment. 
 
 ## Overview
-The Azure Monitor edge pipeline is a containerized solution that is deployed on an [Arc-enabled Kubernetes cluster](../../azure-arc/kubernetes/overview.md). It leverages OpenTelemetry Collector as a foundation. The following diagram shows the components of the edge pipeline. One or more data flows listens for incoming data from clients, and the pipeline extension forwards the data to the cloud, using the local cache if necessary.
+The Azure Monitor edge pipeline is a containerized solution that is deployed on an [Arc-enabled Kubernetes cluster](../../azure-arc/kubernetes/overview.md) and leverages OpenTelemetry Collector as a foundation. The following diagram shows the components of the edge pipeline. One or more data flows listens for incoming data from clients, and the pipeline extension forwards the data to the cloud, using the local cache if necessary.
 
 The pipeline configuration file defines the data flows and cache properties for the edge pipeline. The [DCR](./pipeline-overview.md#data-collection-rules) defines the schema of the data being sent sent to the cloud pipeline, a transformation to filter or modify the data, and the destination where the data should be sent. Each data flow definition for the pipeline configuration specifies the DCR and stream within that DCR that will process that data in the cloud pipeline.
 
 :::image type="content" source="media/edge-pipeline/edge-pipeline-configuration.png" lightbox="media/edge-pipeline/edge-pipeline-configuration.png" alt-text="Overview diagram of the dataflow for Azure Monitor edge pipeline." border="false"::: 
 
-The following components are required to enable and configure the Azure Monitor edge pipeline. If you use the Azure portal to configure the edge pipeline, then each of these components is created for you. With other methods, you need to configure each one.
+> [!NOTE]
+> Private link is support by edge pipeline for the connection to the cloud pipeline.
+
+The following components and configurations are required to enable the Azure Monitor edge pipeline. If you use the Azure portal to configure the edge pipeline, then each of these components is created for you. With other methods, you need to configure each one.
 
 
 | Component | Description |
@@ -36,7 +39,7 @@ The following components are required to enable and configure the Azure Monitor 
 
 ## Supported configurations
 
-**Supported distros**
+**Supported distros**<br>
 Edge pipeline is supported on the following Kubernetes distributions:
 
 - Canonical
@@ -45,7 +48,7 @@ Edge pipeline is supported on the following Kubernetes distributions:
 - Rancher Kubernetes Engine
 - VMware Tanzu Kubernetes Grid
 
-**Supported locations**
+**Supported locations**<br>
 Edge pipeline is supported in the following Azure regions:
 
 - East US2
@@ -55,15 +58,15 @@ Edge pipeline is supported in the following Azure regions:
 ## Prerequisites
 
 - [Arc-enabled Kubernetes cluster](../../azure-arc/kubernetes/overview.md ) in your own environment with an external IP address. See [Connect an existing Kubernetes cluster to Azure Arc](../../azure-arc/kubernetes/quickstart-connect-cluster.md) for details on enabling Arc for a cluster.
+- The Arc-enabled Kubernetes cluster must have the the custom locations features enabled. See [Create and manage custom locations on Azure Arc-enabled Kubernetes](/azure/azure-arc/kubernetes/custom-locations#enable-custom-locations-on-your-cluster).
 - Log Analytics workspace in Azure Monitor to receive the data from the edge pipeline. See [Create a Log Analytics workspace in the Azure portal](../../azure-monitor/logs/quick-create-workspace.md) for details on creating a workspace.
 
-> [!NOTE]
-> Private link is support by edge pipeline for the connection to the cloud pipeline.
+
 
 ## Workflow
 You don't need a detail understanding of the different steps performed by the Azure Monitor pipeline to configure it using the Azure portal. You may need a more detailed understanding of it though if you use another method of installation or if you need to perform more advanced configuration such as transforming the data before it's stored in its destination.
 
-The following table and diagram describe the detailed steps and components in the process for collecting data using the edge pipeline and the configuration required for each of those components.
+The following tables and diagrams describe the detailed steps and components in the process for collecting data using the edge pipeline and passing it to the cloud pipeline for storage in Azure Monitor. Also included in the tables is the configuration required for each of those components.
 
 | Step | Action | Supporting configuration |
 |:---|:---|:---|
@@ -90,7 +93,7 @@ The following table and diagram describe the detailed steps and components in th
 To use Azure Monitor pipeline in a layered network configuration, you must add the following URLs to the allowlist for the Arc-enabled Kubernetes cluster. See [Configure Azure IoT Layered Network Management Preview on level 4 cluster](/azure/iot-operations/manage-layered-network/howto-configure-l4-cluster-layered-network?tabs=k3s#configure-layered-network-management-preview-service).
 
 - `*.ingest.monitor.azure.com`
-- Url of DCE.
+- Url of DCE
 
 
 ## Create table in Log Analytics workspace
@@ -136,7 +139,7 @@ The settings in this tab are described in the following table.
 | Subscription | Azure subscription to create the pipeline instance. |
 | Resource group | Resource group to create the pipeline instance. |
 | Cluster name | Select your Arc-enabled Kubernetes cluster that the pipeline will be installed on. |
-| Custom Location | Custom location for your Arc-enabled Kubernetes cluster. |
+| Custom Location | Custom location for your Arc-enabled Kubernetes cluster. This will be automatically populated with the name of a custom location that will be created for your cluster or you can select another custom location in the cluster. |
 
 The **Dataflow** tab allows you to create and edit dataflows for the pipeline instance. Each dataflow includes the following details:
 
@@ -156,11 +159,11 @@ The settings in this tab are described in the following table.
 ### [CLI](#tab/CLI)
 
 ### Configure pipeline using Azure CLI
-Following are the steps required to create and configure the components required for the Azure Monitor edge pipeline using Azure CLI.  Not all steps can 
+Following are the steps required to create and configure the components required for the Azure Monitor edge pipeline using Azure CLI.  
 
 
 ### Edge pipeline extension
-The following command adds the edge pipeline extension to your Arc-enabled Kubernetes cluster. Replace the properties in the following table before deploying the template.
+The following command adds the edge pipeline extension to your Arc-enabled Kubernetes cluster. 
 
 ```azurecli
 az k8s-extension create --name <pipeline-extension-name> --extension-type microsoft.monitor.pipelinecontroller --scope cluster --cluster-name <cluster-name> --resource-group <resource-group> --cluster-type connectedClusters --release-train Preview
@@ -170,16 +173,13 @@ az k8s-extension create --name my-pipe --extension-type microsoft.monitor.pipeli
 ```
 
 ### Custom location
-The following ARM template creates the custom location for to your Arc-enabled Kubernetes cluster. Replace the properties in the following table before deploying the template.
-
+The following ARM template creates the custom location for to your Arc-enabled Kubernetes cluster. 
 
 ```azurecli
-az connectedk8s enable-features -n <clusterName> -g <resourceGroupName> --features cluster-connect custom-locations
-az customlocation create -n <customLocationName> -g <resourceGroupName> --namespace <name of namespace> --host-resource-id <connectedClusterId> --cluster-extension-ids <extensionId>
+az customlocation create --name <custom-location-name>  --resource-group <resource-group-name> --namespace <name of namespace> --host-resource-id <connectedClusterId> --cluster-extension-ids <extensionId>
 
 ## Example
-az connectedk8s enable-features -n <clusterName> -g <resourceGroupName> --features cluster-connect custom-locations
-az customlocation create -n <customLocationName> -g <resourceGroupName> --namespace <name of namespace> --host-resource-id <connectedClusterId> --cluster-extension-ids <extensionId>
+az customlocation create --name my-cluster-custom-location --resource-group my-resource-group --namespace my-cluster-custom-location --host-resource-id /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/my-resource-group/providers/Microsoft.Kubernetes/connectedClusters/my-cluster --cluster-extension-ids /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/my-resource-group/providers/Microsoft.Kubernetes/connectedClusters/my-cluster/providers/Microsoft.KubernetesConfiguration/extensions/my-cluster
 ```
 
 
@@ -197,9 +197,9 @@ az monitor data-collection endpoint create -g "myResourceGroup" -l "eastus2euap"
 
 
 ### DCR
-The DCR is stored in Azure Monitor and defines how the data will be processed when its received from the edge pipeline.  The edge pipeline configuration specifies the `immutable ID` of the DCR and the `stream` in the DCR that will process the data. 
+The DCR is stored in Azure Monitor and defines how the data will be processed when its received from the edge pipeline.  The edge pipeline configuration specifies the `immutable ID` of the DCR and the `stream` in the DCR that will process the data. The `immutable ID` is automatically generated when the DCR is created.
 
-Replace the properties in the following table before deploying the template. See [Structure of a data collection rule in Azure Monitor](./data-collection-rule-overview.md) for details on the structure of a DCR.
+Replace the properties in the following template and save them in a json file before running the CLI command to create the DCR. See [Structure of a data collection rule in Azure Monitor](./data-collection-rule-overview.md) for details on the structure of a DCR.
 
 | Parameter | Description |
 |:---|:--|
@@ -304,9 +304,7 @@ az monitor data-collection rule create --name my-pipeline-dcr  --location westus
 
 
 ### DCR access
-The Arc-enabled Kubernetes cluster must have access to the DCR to send data to the cloud pipeline. You can use commands in the Azure CLI to grant the necessary permissions.
-
-Use the following command to retrieve the object id of the System Assigned Identity for your cluster.
+The Arc-enabled Kubernetes cluster must have access to the DCR to send data to the cloud pipeline. Use the following command to retrieve the object id of the System Assigned Identity for your cluster.
 
 ```azurecli
 az k8s-extension show --name <extension-name> --cluster-name <cluster-name> --resource-group <resource-group> --cluster-type connectedClusters --query "identity.principalId" -o tsv 
@@ -466,8 +464,18 @@ Replace the properties in the following table before deploying the template.
 }
 ```
 
+Install the template using the following command:
 
-### [ARM sample](#tab/ARMAll)
+```azurecli
+az deployment group create --resource-group <resource-group-name> --template-file <path-to-template>
+
+## Example
+az deployment group create --resource-group my-resource-group --template-file C:\MyPipelineConfig.json
+
+```
+
+
+### [ARM](#tab/arm)
 
 ### ARM template sample to configure all components
 
@@ -810,88 +818,6 @@ You can deploy all of the required components for the Azure Monitor edge pipelin
 }
 ```
 
-### [ARM](#tab/arm)
-
-| Parameter | Description |
-|:---|:--|
-| `name` | Name of the pipeline extension. Must be unique for the subscription. |
-| `scope` | Resource ID of your Arc-enabled Kubernetes cluster. |
-| `releaseNamespace` | Namespace in the cluster where the extension will be deployed. |
-
-```json
-{
-    "type": "Microsoft.KubernetesConfiguration/extensions",
-    "apiVersion": "2022-11-01",
-    "name": "my-pipeline-extension",
-    "scope": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/my-resource-group/providers/Microsoft.Kubernetes/connectedClusters/my-arc-cluster",
-    "identity": {
-        "type": "SystemAssigned"
-    },
-    "properties": {
-        "aksAssignedIdentity": {
-            "type": "SystemAssigned"
-        },
-        "autoUpgradeMinorVersion": false,
-        "extensionType": "microsoft.monitor.pipelinecontroller",
-        "releaseTrain": "preview",
-        "scope": {
-            "cluster": {
-                "releaseNamespace": "my-strato-ns"
-            }
-        },
-        "version": "0.37.3-privatepreview"
-    }
-}
-
-
-
-| Parameter | Description |
-|:---|:--|
-| `name` | Name of the custom location. Must be unique for the cluster. |
-| `location` | Location of the custom location. |
-| `hostResourceId` | Resource ID of the Arc-enabled Kubernetes cluster. |
-| `namespace` | Namespace for the custom location. Can use the custom location name. |
-| `clusterExtensionIds` | Resource ID of the edge pipeline extension created in the previous step. |
-
-
-```json
-{
-    "type": "Microsoft.ExtendedLocation/customLocations",
-    "name": "custom-location-name",
-    "location": "eastus",
-    "apiVersion": "2021-08-15",
-    "properties": {
-        "hostResourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/my-resource-group/providers/Microsoft.Kubernetes/connectedClusters/my-arc-cluster",
-        "namespace": "custom-location-name",
-        "clusterExtensionIds": [
-            "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/my-resource-group/providers/Microsoft.Kubernetes/connectedClusters/strato-01/providers/Microsoft.KubernetesConfiguration/extensions/my-pipeline-extension"
-        ],
-        "hostType": "Kubernetes"
-    }
-}
-```
-
-
-| Parameter | Description |
-|:---|:--|
-| `name` | Name of the DCE. Must be unique for the subscription. |
-| `location` | Location of the DCE. Must match the location of the DCR. |
-
-```json
-{
-    "type": "Microsoft.Insights/dataCollectionEndpoints",            
-    "name": "my-dce",
-    "location": "eastus",
-    "apiVersion": "2021-04-01",
-    "properties": {
-        "configurationAccess": {},
-        "logsIngestion": {},
-        "networkAcls": {
-            "publicNetworkAccess": "Enabled"
-        }
-    }
-}
-```
 ---
 
 ## Verify configuration
@@ -902,11 +828,11 @@ In the Azure portal, navigate to the **Kubernetes services** menu and select you
 - \<pipeline name\>-external-service 
 - \<pipeline name\>-service 
 
-:::image type="content" source="media/edge-pipeline/heartbeat-records.png" lightbox="media/edge-pipeline/heartbeat-records.png" alt-text="Screenshot of log query that returns heartbeat records for Azure Monitor edge pipeline." ::: 
+:::image type="content" source="media/edge-pipeline/edge-pipeline-cluster-components.png" lightbox="media/edge-pipeline/edge-pipeline-cluster-components.png" alt-text="Screenshot of cluster components supporting Azure Monitor edge pipeline." ::: 
 
 Click on the entry for **\<pipeline name\>-external-service** and note the IP address and port in the **Endpoints** column. This is the external IP address and port that your clients will send data to.
 
-## Verify heartbeat
+### Verify heartbeat
 Each pipeline configured in your pipeline instance will send a heartbeat record to the `Heartbeat` table in your Log Analytics workspace every minute. If there are multiple workspaces in the pipeline instance, then the first one configured will be used.
 
 Retrieve the heartbeat records using a log query as in the following example:
@@ -933,7 +859,9 @@ If the application producing logs is external to the cluster, copy the *external
 
 
 ## Verify data
-The final step is to verify that the data is received in the Log Analytics workspace.
+The final step is to verify that the data is received in the Log Analytics workspace. You can perform this verification by running a query in the Log Analytics workspace to retrieve data from the table.
+
+[Screenshot placeholder]
 
 ## Next steps
 
