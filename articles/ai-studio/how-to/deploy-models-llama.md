@@ -36,9 +36,7 @@ Meta Llama 3 models are deployed as a service with pay-as-you-go through Microso
 
 The following models are available in Azure Marketplace for Llama 3 when deployed as a service with pay-as-you-go:
 
-* [Meta Llama-3-8B (preview)](https://aka.ms/aistudio/landing/meta-llama-3-8b-base)
 * [Meta Llama-3 8B-Instruct (preview)](https://aka.ms/aistudio/landing/meta-llama-3-8b-chat)
-* [Meta Llama-3-70B (preview)](https://aka.ms/aistudio/landing/meta-llama-3-70b-base)
 * [Meta Llama-3 70B-Instruct (preview)](https://aka.ms/aistudio/landing/meta-llama-3-70b-chat)
 
 # [Meta Llama 2](#tab/llama-two)
