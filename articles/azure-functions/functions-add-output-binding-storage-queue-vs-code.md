@@ -104,7 +104,7 @@ Now, you can add the storage output binding to your project.
 
 ## Add an output binding
 
-::: zone pivot="programming-language-javascript,programming-language-typescript"
+::: zone pivot="programming-language-javascript"
 
 To write to an Azure Storage queue:
 
@@ -122,6 +122,27 @@ To write to an Azure Storage queue:
 * Add a `output.storageQueue` function above the `app.http` call
 
     :::code language="javascript" source="~/functions-docs-javascript/functions-add-output-binding-storage-queue-cli-v4-programming-model/src/functions/httpTrigger1.js" range="3-6":::
+::: zone-end
+
+
+::: zone pivot="programming-language-typescript"
+
+To write to an Azure Storage queue:
+
+* Add an `extraOutputs` property to the binding configuration
+
+    ```typescript
+    {
+        methods: ['GET', 'POST'],
+        extraOutputs: [sendToQueue], // add output binding to HTTP trigger
+        authLevel: 'anonymous',
+        handler: () => {}
+    }
+    ```
+
+* Add a `output.storageQueue` function above the `app.http` call
+
+    :::code language="typescript" source="~/functions-docs-javascript/functions-add-output-binding-storage-queue-cli-v4-programming-model-v4/src/functions/httpTrigger1.ts" range="10-13":::
 ::: zone-end
 
 ::: zone pivot="programming-language-powershell"
