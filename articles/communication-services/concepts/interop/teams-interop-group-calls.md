@@ -21,7 +21,7 @@ This page details capabilities for Teams (or M365) users in a call with Communic
 [!INCLUDE [Teams Phone license](../../includes/teams-phone-license-include.md)]
 
 # Capabilities for Microsoft Teams users in Azure Communication Services group calls
-M365/Teams user can take calls with Communication Services users via Teams client or [a custom client](../teams-endpoint) built using the Azure Communication Services SDKs. To learn about features available for Communication Services user, refer to [voice and video capabilities](../voice-video-calling/calling-sdk-features.md) document.
+M365/Teams user can take calls with Communication Services users via Teams client or [a custom client](../teams-endpoint.md) built using the Azure Communication Services SDKs. To learn about features available for Communication Services user, refer to [voice and video capabilities](../voice-video-calling/calling-sdk-features.md) document.
 
 
 | **Group of features**              | **Capability**                                               | **M365 user on a custom client**  | **M365 user on a Teams client** |
