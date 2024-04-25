@@ -13,10 +13,17 @@ ms.custom: devdivchpfy22
 Although a function can have only one trigger, it can have multiple input and output bindings, which lets you connect to other Azure services and resources without writing custom integration code.
 ::: zone-end  
 
-::: zone pivot="programming-language-javascript,programming-language-typescript"  
+::: zone pivot="programming-language-javascript"  
 When using the [Node.js v4 programming model](../articles/azure-functions/functions-reference-node.md), binding attributes are defined directly in the *./src/functions/HttpExample.js* file. From the previous quickstart, your file already contains an HTTP binding defined by the `app.http` method. 
 
 :::code language="javascript" source="~/functions-docs-javascript/src/functions/httpTrigger.js":::
+
+::: zone-end  
+
+::: zone pivot="programming-language-typescript"  
+When using the [Node.js v4 programming model](../articles/azure-functions/functions-reference-node.md), binding attributes are defined directly in the *./src/functions/HttpExample.js* file. From the previous quickstart, your file already contains an HTTP binding defined by the `app.http` method. 
+
+:::code language="typescript" source="~/functions-docs-javascript/functions-typescript/src/functions/httpTrigger1.ts":::
 
 ::: zone-end  
 
