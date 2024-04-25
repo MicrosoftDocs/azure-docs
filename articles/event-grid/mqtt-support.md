@@ -99,7 +99,7 @@ You can configure the maximum session expiry interval allowed for all your clien
 #### Session overflow
 MQTT broker maintains a queue of messages for each active MQTT session that isn't connected, until the client connects with MQTT broker again to receive the messages in the queue. If a client doesn't connect to receive the queued QOS1 messages, the session queue starts accumulating the messages until it reaches its limit: 100 messages or 1 MB. Once the queue reaches its limit during the lifespan of the session, the session is terminated.
 
-### Last Will and Testament (LWT) messages (preview)
+### Last Will and Testament (LWT) messages
 Last Will and Testament (LWT) notifies your MQTT clients with the abrupt disconnections of other MQTT clients. You can use LWT to ensure predictable and reliable flow of communication among MQTT clients during unexpected disconnections, which is valuable for scenarios where real-time communication, system reliability, and coordinated actions are critical. Clients that collaborate to perform complex tasks can react to LWT messages from each other by adjusting their behavior, redistributing tasks, or taking over certain responsibilities to maintain the system’s performance and stability.
 To use LWT, a client can specify the will message, will topic, and the rest of the will properties in the CONNECT packet during connection. When the client disconnects abruptly, the MQTT broker publishes the will message to all the clients that subscribed to the will topic.
 

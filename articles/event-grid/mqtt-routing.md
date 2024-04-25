@@ -52,7 +52,7 @@ The following table shows the difference between namespace topics and custom top
 |----------------------------------------------------------|----------------------------------------------------------------------------|------------------------------------------------------------|
 | Throughput                                               | High, up to 40 MB/s (ingress) and 80 MB/s (egress)                         | Low, up to 5 MB/s (ingress and egress)                     |
 | Pull delivery                                            | Yes                                                                        |                                                            |
-| Push delivery to Event Hubs                              | Yes (in preview)                                                           | Yes                                                        |
+| Push delivery to Event Hubs                              | Yes                                                           | Yes                                                        |
 | Push delivery to Azure services (Functions, Webhooks, Service Bus queues and topics, relay hybrid connections, and storage queues) |  | Yes                                                        |
 | Message retention                                        | 7 days                                                                     | 1 day                                                      |
 | Role assignment requirement | Not needed since the MQTT broker and the namespace topic are under the same namespace | Required since the namespace hosting the MQTT broker functionality and the custom topic are different resources |

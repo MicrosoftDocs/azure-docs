@@ -1,5 +1,5 @@
 ---
-title: Receive Microsoft Graph change notifications through Azure Event Grid (preview) 
+title: Receive Microsoft Graph change notifications through Azure Event Grid 
 description: This article explains how to subscribe to events published by Microsoft Graph API.
 author: jfggdl
 ms.author: jafernan
@@ -8,13 +8,10 @@ ms.custom: devx-track-azurecli, devx-track-azurepowershell, devx-track-extended-
 ms.date: 12/08/2023
 ---
 
-# Receive Microsoft Graph API change events through Azure Event Grid (preview)
+# Receive Microsoft Graph API change events through Azure Event Grid 
 
 This article describes steps to subscribe to events published by Microsoft Graph API. The following table lists the event sources for which events are available through Graph API. For most resources, events announcing its creation, update, and deletion are supported. For detailed information about the resources for which events are raised for event sources, see [supported resources by Microsoft Graph API change notifications](/graph/webhooks#supported-resources)
 .
-
-> [!IMPORTANT]
-> Microsoft Graph API's ability to send events to Azure Event Grid is currently in **public preview**. If you have questions or need support, email us at [ask-graph-and-grid@microsoft.com](mailto:ask-graph-and-grid@microsoft.com?subject=Support%20Request).
 
 |Microsoft event source |Available event types | 
 |:--- | :----|
@@ -141,8 +138,6 @@ Content-type: application/json
 > - Be mindful of certain [Graph API resources' service limits](/graph/webhooks#azure-ad-resource-limitations) when developing your solution.
 >
 > - Existing Graph API subscriptions without a `lifecycleNotificationUrl` property don't receive lifecycle events. To add the lifecycleNotificationUrl property, you should delete the existing subscription and create a new subscription specifying the property during subscription creation.
-> [!NOTE]
-> If your application uses the header `x-ms-enable-features` with your request to create a Graph API subscription during **private preview**, you should remove it as it is no longer necessary.
 
 After creating a Graph API subscription, you have a partner topic created on Azure.
 
