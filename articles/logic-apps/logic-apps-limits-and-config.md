@@ -179,7 +179,7 @@ The following table lists the values for an **Until** loop:
 The following table lists the values for a single workflow definition:
 
 | Name | Multitenant | Single-tenant | Notes |
-|------|--------------|---------------|-------|
+|------|-------------|---------------|-------|
 | Action - Executions per 5-minute rolling interval | Default: 100,000 executions <br>- High throughput mode: 300,000 executions | None | In multitenant Azure Logic Apps, you can raise the default value to the maximum value for your workflow. For more information, see [Run in high throughput mode](#run-high-throughput-mode), which is in preview. Or, you can [distribute the workload across more than one workflow](handle-throttling-problems-429-errors.md#logic-app-throttling) as necessary. |
 | Action - Concurrent outbound calls | ~2,500 calls | None | You can reduce the number of concurrent requests or reduce the duration as necessary. |
 | Managed connector throttling | Throttling limit varies based on connector | Throttling limit varies based on connector | For multitenant, review [each managed connector's technical reference page](/connectors/connector-reference/connector-reference-logicapps-connectors). <br><br>For more information about handling connector throttling, review [Handle throttling problems ("429 - Too many requests" errors)](handle-throttling-problems-429-errors.md#connector-throttling). |
@@ -194,21 +194,30 @@ The following table lists the values for a single workflow definition:
 
 ### [Standard](#tab/standard)
 
-Single-tenant Azure Logic Apps uses storage and compute as the primary resources to run your Standard logic app workflows.
+In single-tenant Azure Logic Apps, a Standard logic app resource uses storage and compute as the primary resources to run workflows.
 
 ### Storage
 
-Stateful workflows use Azure Table storage and Azure Blob storage for persistenting data storage during runtime and for maintaining run histories. These workflows also use Azure Queues for scheduling. A single storage account enables a substantial number of requests with rates of up to 2K per partition and 20K requests per second at the account level. Beyond these thresholds, request rates are subject to throttling. For storage scalability limits, see [Targets for data operations](../storage/tables/storage-performance-checklist.md#targets-for-data-operations).
+Stateful workflows in single-tenant Azure Logic Apps use Azure Table Storage for persistent data storage during runtime, Azure Blob Storage for maintaining workflow run histories, and Azure Queue Storage for scheduling purposes. For example, a single storage account enables handling a substantial number of requests with rates of up to 2,000 requests per partition and 20,000 requests per second at the storage account level. While a single storage account can handle reasonably high throughput, beyond these thresholds, request rates are subject to throttling, and your workflows might experience partition level throttling or account level throttling as workflow execution rate increases. To make sure that your workflows operate smoothly, it's crucial that you understand the possible limitations and the ways that you can address them.
 
-Although a single storage account can handle reasonably high throughput, as the workflow execution rate increases, you might encounter partition level throttling or account level throttling. To ensure smooth operations, make sure that you understand the possible limitations and ways that you can address them.
+For more information about scaling targets and limitations for the various Azure Storage services, see the following documentation:
 
-##### Share workload across multiple workflows
+- [Scale targets for Table Storage](../storage/tables/scalability-targets.md#scale-targets-for-table-storage)
+- [Data operation targets for Table Storage](../storage/tables/storage-performance-checklist.md#targets-for-data-operations)
+- [Scale targets for Blob Storage](../storage/blobs/scalability-targets.md#scale-targets-for-blob-storage)
+- [Scale targets for Queue Storage](../storage/queues/scalability-targets.md#scale-targets-for-queue-storage)
 
-Single-tenant Azure Logic Apps minimizes partition level throttling by distributing storage transactions across multiple partitions. However, to improve distribution and mitigate partition level throttling, [distribute the workload across multiple workflows](handle-throttling-problems-429-errors.md#logic-app-throttling), rather than a single workflow.
+#### Scale your logic app for storage limitations
 
-##### Share workload across multiple storage accounts
+The following recommendations apply to scaling Standard logic app workflows:
 
-  If your logic app's workflows require high throughput, use multiple storage accounts, rather than a single account. You can significantly increase throughput by distributing your logic app's workload across multiple storage accounts with 32 as the limit. To determine the number of storage accounts that you need, use the general guideline for ~100,000 action executions per minute, per storage account. While this estimate works well for most scenarios, the number of actions might be lower if your workflow actions are compute heavy, for example, a query action that processes large data arrays. Make sure that you perform load testing and tune your solution before using in production.
+- Share workload across multiple workflows.
+
+  Single-tenant Azure Logic Apps already minimizes partition-level throttling by distributing storage transactions across multiple partitions. However, to improve distribution and mitigate partition-level throttling, [distribute the workload across multiple workflows](handle-throttling-problems-429-errors.md#logic-app-throttling), rather than rely on a single workflow.
+
+- Share workload across multiple storage accounts.
+
+  If your workflows require high throughput, you can significantly increase throughput by distributing the workload across multiple storage accounts, rather than rely on a single storage account. You can set up your Standard logic app resource to use up to 32 storage accounts as the limit. To determine the number of storage accounts that you need, use the general guideline of aiming for ~100,000 action executions per minute, per storage account. While this estimate works well for most scenarios, you might use a lower number of action executions if your workflow actions are compute heavy, for example, a query action that processes large data arrays. Make sure that you perform load testing and tune your solution before using in production.
 
   To enable using multiple storage accounts, follow these steps before you create your Standard logic app. Otherwise, if you change the settings after creation, you might experience data loss or not achieve the necessary scalability.
 

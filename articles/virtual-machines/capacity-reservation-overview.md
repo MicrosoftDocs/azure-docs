@@ -74,7 +74,7 @@ From this example accumulation of Minutes Not Available, here's the calculation 
     - E series, all versions; AMD and Intel
     - Eav4 and Easv4 series
     - ECasv5 and ECadsv5 series
-    - ECesv5 and Ecedsv5 series
+    - ECesv5 and ECedsv5 series
     - F series, all versions
     - Fasv6 and Falsv6 series
     - Fx series 

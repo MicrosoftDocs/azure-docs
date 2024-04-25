@@ -31,11 +31,11 @@ Apart from [Azure Virtual Machines](https://azure.microsoft.com/pricing/details/
 
 Although compute reservation exchanges become unavailable at the end of the grace period, noncompute reservation exchanges are unchanged. You're able to continue to trade-in reservations for saving plans.​ To trade-in reservation(s) for a savings plan, you must meet the following criteria: 
 
-- You must have owner access on the Reservation Order to trade in an existing reservation. You can [Add or change users who can manage a savings plan](manage-savings-plan.md#who-can-manage-a-savings-plan).
-- You must have the Savings plan purchaser role, or Owner permission on the subscription you plan to use to purchase the savings plan.
+- You must be an owner of the Reservation Order(s) containing the reservation(s) you wish to trade in. To learn more, see [Grant access to individual reservations](../reservations/view-reservations.md#grant-access-to-individual-reservations).
+- You must have the Savings plan purchaser role, or an owner of the subscription you plan to use to purchase the savings plan.
     - EA Admin write permission or Billing profile contributor and higher, which are Cost Management + Billing permissions, are supported only for direct Savings plan purchases. They can't be used for savings plans purchases as a part of a reservation trade-in.
 
-The new savings plan's lifetime commitment must equal or be greater than the returned reservation(s)'s remaining commitment. Example: for a three-year reservation that's $100 per month and exchanged after the 18th payment, the new  savings plan's lifetime commitment should be $1,800 or more (paid monthly or upfront).
+The new savings plan's total commitment must equal or be greater than the returned reservation(s)'s remaining commitment. Example: for a three-year reservation that's $100 per month and exchanged after the 18th payment, the new  savings plan's lifetime commitment must be $1,800 or more.
 
 Microsoft isn't currently charging early termination fees for reservation trade ins. We might charge the fees made in the future. We currently don't have a date for enabling the fee.
 
@@ -51,7 +51,7 @@ You can trade in your reservation from [Azure portal](https://portal.azure.com/#
 
 ## Determine savings plan commitment needed to replace your reservation
 
-During a reservation trade-in, the default hourly commitment for the savings plan is calculated using the remaining monetary value of the reservations that are being traded in. The resulting hourly commitment might not be a large enough benefit commitment to cover the virtual machines that were previously covered by the returned reservations. You can calculate the necessary savings plan hourly commitment to cover the reservations as follows:
+During a reservation trade-in, the default hourly commitment for the savings plan is calculated using the remaining monetary value of the reservations that are being traded in. The resulting hourly commitment might not be a large enough benefit commitment to cover the virtual machines that were previously covered by the returned reservations. You can follow the steps below to calculate the necessary savings plan hourly commitment to cover the reservations. As savings plan is a flexible benefit, there isn’t an guarantee that the savings plan benefit will always be applied to usage from the resources that were previously covered by the reservations. These steps assume 100% utilization of the reservations that are being traded in. 
 
 1. Follow the first six steps in [Estimate costs with the Azure pricing calculator](../manage/ea-pricing.md#estimate-costs-with-the-azure-pricing-calculator).
 2. Search for the product that you want to return.
@@ -68,8 +68,6 @@ During a reservation trade-in, the default hourly commitment for the savings pla
 
 The preceding image's price is an example.
 
-The preceding process assumes 100% utilization of the savings plan.
-
 ## Determine savings difference from reservations to a savings plan
 
 To determine the cost savings difference when switching from reservations to a savings plan, use the following steps.
@@ -79,13 +77,13 @@ To determine the cost savings difference when switching from reservations to a s
 1. Under the Essentials section, select the **Reservation order ID**.
 1. In the left menu, select **Payments**.
 1. Depending on the payment schedule for the reservation, you're presented with either the monthly or full cost of the reservation. You need the monthly cost. If necessary, divide the value by either 12 or 36, depending on the reservation term.
-1. Multiply the monthly cost of the reservation by the number of instances you want to return. For example, the total monthly reservation cost.
-1. To determine the monthly cost of an equivalent-capable savings plan, follow the first six steps in [Estimate costs with the Azure pricing calculator](../manage/ea-pricing.md#estimate-costs-with-the-azure-pricing-calculator).
+1. Multiply the monthly cost of the reservation by the number of instances you want to return.
+1. To determine the monthly cost of an equivalent savings plan, follow the first six steps in [Estimate costs with the Azure pricing calculator](../manage/ea-pricing.md#estimate-costs-with-the-azure-pricing-calculator).
 1. Search for the compute product associated with the reservation that you want to return.
 1. Select savings plan term and operating system, if necessary.
-1. Select **Monthly** as the payment option. It's the monthly cost of a savings plan providing equivalent coverage to a resource that was previously covered by the reservation.  
+1. Select **Monthly** as the payment option. This is the monthly cost of a savings plan providing 100% coverage to the resource that was previously covered by the reservation.  
     :::image type="content" source="./media/reservation-trade-in/pricing-calculator-monthly-example.png" alt-text="Example screenshot showing the Azure pricing calculator monthly compute charge value example." lightbox="./media/reservation-trade-in/pricing-calculator-monthly-example.png" :::
-1.	Multiply the cost by the number of instances that are currently covered by the reservations to be returned.
+1.	Multiply the monthly cost by the number of product instances that are currently covered by the reservation(s) to be returned.
 
 The preceding image's price is an example.
 
@@ -93,7 +91,7 @@ The result is the total monthly savings plan cost. The difference between the to
 
 The preceding process assumes 100% utilization of both the reservation(s) and savings plan.
 
-## How transactions are processed
+## How a reservation trade-in transactions are processed
 
 The new savings plan is purchased and then the traded-in reservations are canceled. If the reservations were paid for upfront, we refund a pro-rated amount for the reservations. If the reservations were paid monthly, we refund a pro-rated amount for the current month and cancel any future payments. Microsoft processes refunds using one of the following methods, depending on your account type and payment method.
 

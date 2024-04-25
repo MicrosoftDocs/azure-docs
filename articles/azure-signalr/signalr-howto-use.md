@@ -152,7 +152,7 @@ You can increase this value to avoid client disconnect.
 
 - Default value: All transports are enabled.
 - This option defines a function to customize the transports that clients can use to send HTTP requests.
-- Use this options instead of [`HttpConnectionDispatcherOptions.Transports`](https://learn.microsoft.com/aspnet/core/signalr/configuration?&tabs=dotnet#advanced-http-configuration-options) to configure transports. 
+- Use this options instead of [`HttpConnectionDispatcherOptions.Transports`](/aspnet/core/signalr/configuration?&tabs=dotnet#advanced-http-configuration-options) to configure transports. 
 
 ### Sample
 

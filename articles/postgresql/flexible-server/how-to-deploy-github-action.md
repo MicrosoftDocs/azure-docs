@@ -1,8 +1,8 @@
 ---
 title: "Quickstart: Connect with GitHub Actions"
 description: Use Azure Database for PostgreSQL - Flexible Server from a GitHub Actions workflow.
-author: sunilagarwal
-ms.author: sunila
+author: nachoalonsoportillo
+ms.author: ialonso
 ms.reviewer: maghan
 ms.date: 03/20/2024
 ms.service: postgresql

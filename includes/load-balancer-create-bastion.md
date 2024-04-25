@@ -12,7 +12,7 @@
 
 ## Create a virtual network and bastion host
 
-In this section, you creates a virtual network with a resource subnet, an Azure Bastion subnet, and an Azure Bastion host.
+In this section, you create a virtual network with a resource subnet, an Azure Bastion subnet, and an Azure Bastion host.
 
 > [!IMPORTANT]
 > [!INCLUDE [Pricing](bastion-pricing.md)]
