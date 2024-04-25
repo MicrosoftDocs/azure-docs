@@ -18,16 +18,11 @@ ms.author: jushiman
 > The Azure NVads A10 v5 VMs only support vGPU 14.1(510.73) or higher driver version. The vGPU driver for the A10 SKU is a unified driver that supports both graphics and compute workloads.
 >
 
-NVIDIA Tesla (CUDA) drivers for NC, NCv2, NCv3, NCasT4_v3, ND, and NDv2-series VMs (optional for NV-series) are tested on the operating systems listed in the following table. CUDA driver is generic and not Azure specific. For the latest drivers, visit the [NVIDIA](https://www.nvidia.com/) website.
+NVIDIA Tesla (CUDA) drivers for all NC* and ND*-series VMs (optional for NV*-series) are generic and not Azure specific. For the latest drivers, visit the [NVIDIA](https://www.nvidia.com/) website.
 
 > [!TIP]
 > As an alternative to manual CUDA driver installation on a Windows Server VM, you can deploy an Azure [Data Science Virtual Machine](../articles/machine-learning/data-science-virtual-machine/overview.md) image. The DSVM editions for Windows Server 2016 pre-install NVIDIA CUDA drivers, the CUDA Deep Neural Network Library, and other tools.
 
-
-| OS | Driver |
-| -------- |------------- |
-| Windows Server 2019 | [451.82](https://us.download.nvidia.com/tesla/451.82/451.82-tesla-desktop-winserver-2019-2016-international.exe) (.exe) |
-| Windows Server 2016 | [451.82](https://us.download.nvidia.com/tesla/451.82/451.82-tesla-desktop-winserver-2019-2016-international.exe) (.exe) |
 
 ### NVIDIA GRID drivers
 > [!Note]
