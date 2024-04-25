@@ -119,6 +119,10 @@ Once GitHub Actions workflow is complete, you can select the URL link to open th
 
 1. Open the project in Visual Studio Code or your preferred code editor.
 
+## Set up server side rendering
+
+[!INCLUDE [Server side rendering](../../includes/static-web-apps/static-web-apps-nextjs-backends.md)]
+
 ## Add Server-Rendered data with a Server Component
 
 To add server-rendered data in your Next.js project using the App Router, edit a Next.js component to add a server-side operation to render data in the component. By default, Next.js components are [Server Components](https://nextjs.org/docs/app/building-your-application/data-fetching/fetching-caching-and-revalidating) that can be server-rendered.
@@ -135,7 +139,7 @@ To add server-rendered data in your Next.js project using the App Router, edit a
     ```
 
 1. Import `unstable_noStore` from `next/cache` and call it within the `Home` component to ensure the route is dynamically rendered.
-   
+
     ```ts
     import { unstable_noStore as noStore } from 'next/cache';
 
@@ -196,6 +200,7 @@ Begin by adding an API route.
     ```
 
 1. Create a new file at `app/components/CurrentTimeFromAPI.tsx`. This component creates a container for the Client Component that fetches the API from the browser.
+
 1. Add a client component that fetches the API in this file.
 
     ```ts
@@ -248,7 +253,7 @@ This Client Component fetches the API with a `useEffect` React hook to render th
         );
     }
     ```
-   
+
 1. The result from the API route is displayed on the page.
 
 :::image type="content" source="media/deploy-nextjs/nextjs-13-home-display.png" alt-text="Screenshot showing the display the output from the API route.":::
@@ -298,6 +303,7 @@ When your application size exceeds 250 MB, the Next.js [Output File Tracing](htt
 Output File Tracing creates a compressed version of the whole application with necessary package dependencies. This package is built into a folder named _.next/standalone_. With this package, your app can deploy on its own without _node_modules_ dependencies.
 
 In order to enable the `standalone` feature, add the following property to your `next.config.js`:
+
 ```js
 module.exports ={
     output:"standalone",

@@ -28,7 +28,6 @@ With hybrid Next.js applications, pages and components can be dynamically render
 
 Key features that are available in the preview are:
 
-
 - [App Router](https://nextjs.org/docs/app) and [Pages Router](https://nextjs.org/docs/pages)
 - [React Server Components](https://nextjs.org/docs/app/building-your-application/rendering/server-components)
 - [Hybrid rendering](https://nextjs.org/docs/app/building-your-application/rendering/server-components#server-rendering-strategies)
@@ -42,6 +41,9 @@ Follow the [deploy hybrid Next.js applications](deploy-nextjs-hybrid.md) tutoria
 
 [!INCLUDE [Unsupported Next.js features](../../includes/static-web-apps-nextjs-unsupported.md)]
 
+## Server side rendering
+
+[!INCLUDE [Server side rendering](../../includes/static-web-apps/static-web-apps-nextjs-backends.md)]
 
 ## Static HTML export
 
