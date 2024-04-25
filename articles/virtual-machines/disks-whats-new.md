@@ -52,7 +52,7 @@ Azure Disk Storage regularly receives updates for new features and enhancements.
 
 #### Generally Available: New Property for Disks-LastOwnershipUpdateTime
 
-We are excited to introduce a new property for Disks in the Azure Portal, PowerShell (PS), and Command-Line Interface (CLI). This property, LastOwnershipUpdateTime, reflects the time when the Disk’s state was last changed. This property can be used in conjunction with the diskState to identify the current state of the Disk, and when it was last updated. For more information, see the [Azure Update](https://azure.microsoft.com/updates/ga-new-property-for-diskslastownershipupdatetime/) or [the documentation.](/azure/virtual-machines/windows/find-unattached-disks)
+We are excited to introduce a new property for disks in the Azure Portal, Azure PowerShell module, and Azure CLI. This property, `LastOwnershipUpdateTime`, reflects the time when a disk’s state was last changed. This property can be used with the `diskState` to identify the current state of a disk, and when it was last updated. For more information, see the [Azure Update](https://azure.microsoft.com/updates/ga-new-property-for-diskslastownershipupdatetime/) or [the documentation.](/azure/virtual-machines/windows/find-unattached-disks)
 
 ### Quarter 1 (January, February, March)
 
