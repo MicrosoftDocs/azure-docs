@@ -191,7 +191,12 @@ Before starting your move operation, review the [checklist](./move-resource-grou
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
-> | SqlServerInstances | No | No | No |
+> | datacontrollers | No | No | No |
+> | postgresinstances | No | No | No |
+> | sqlmanagedinstances | No | No | No |
+> | sqlserverinstances | No | No | No |
+> | sqlserverlicenses | No | No | No |
+
 
 ## Microsoft.AzureData
 
