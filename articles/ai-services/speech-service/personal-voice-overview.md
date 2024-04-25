@@ -19,7 +19,7 @@ With personal voice, you can get AI generated replication of your voice (or user
 
 > [!NOTE]
 > Personal voice is available in these regions: West Europe, East US, and South East Asia. 
-> For supported locales, see [personal voice language support](./language-support.md#personal-voice).
+> For supported locales, see [personal voice language support](./language-support.md?tabs=tts#personal-voice).
 
 The following table summarizes the difference between personal voice and professional custom neural voice.  
  

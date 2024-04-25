@@ -10,7 +10,7 @@ ms.author: cwatson
 
 # Juniper SRX connector for Microsoft Sentinel
 
-The [Juniper SRX](https://www.juniper.net/us/en/products-services/security/srx-series/) connector allows you to easily connect your Juniper SRX logs with Microsoft Sentinel. This gives you more insight into your organization's network and improves your security operation capabilities.
+The [Juniper SRX](https://www.juniper.net/us/en/products/security/srx-series.html) connector allows you to easily connect your Juniper SRX logs with Microsoft Sentinel. This gives you more insight into your organization's network and improves your security operation capabilities.
 
 ## Connector attributes
 
