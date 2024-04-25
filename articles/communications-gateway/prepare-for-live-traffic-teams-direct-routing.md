@@ -53,7 +53,7 @@ Setting up test numbers requires configuration in the test customer tenant and o
 Follow [Manage Microsoft Teams Direct Routing customers and numbers with Azure Communications Gateway](manage-enterprise-teams-direct-routing.md) for your test customer tenant and numbers. For steps that describe asking a customer to make changes to their tenant, make those changes yourself in your test customer tenant.
 
 > [!IMPORTANT]
-> Ensure you configure a dedicated test customer tenant, not the tenant that contains Azure Communications Gateway. Using a dedicated test customer tenant matches the configuration required for a real customer.
+> Ensure you configure a dedicated test customer (Microsoft 365) tenant, not the Azure tenant that contains Azure Communications Gateway. Using a dedicated test customer tenant matches the configuration required for a real customer.
 
 ## Carry out integration testing and request changes
 
