@@ -36,8 +36,8 @@ Enrollment: `providers/Microsoft.Billing/billingAccounts/{billingAccountId}`
 
 [Download by billing account for the specified billing period](/rest/api/cost-management/price-sheet/download-by-billing-account)
 
-```HTTP POST
-https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingPeriods/{billingPeriodName}/providers/Microsoft.CostManagement/pricesheets/default/download?api-version=2023-11-01
+```HTTP
+POST https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingPeriods/{billingPeriodName}/providers/Microsoft.CostManagement/pricesheets/default/download?api-version=2023-11-01
 ```
 
 The POST request returns a location to poll the report generation status as outlined in the following response:
