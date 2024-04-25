@@ -10,11 +10,11 @@ ms.custom:
   - ignite-2023
 ---
 
-# Recover deleted item (preview)
+# Recover deleted item
 
 This tutorial describes the process to recover deleted items from the vault to ensure business continuity.
 
-Azure Business Continuity center (preview) allows you to recover protected items, that is, restore backup or failover or test failover etc., for the replication of the datasources from various views such as Overview, protected items, and so on.
+Azure Business Continuity center allows you to recover protected items, that is, restore backup or failover or test failover etc., for the replication of the datasources from various views such as Overview, protected items, and so on.
 
 ## Prerequisites
 
@@ -32,7 +32,7 @@ Follow these steps to initiate the recovery for Azure VMs:
 
     :::image type="content" source="./media/tutorial-recover-deleted-item/select-recover-from-menu.png" alt-text="Screenshot shows the recover selection on the menu." lightbox="./media/tutorial-recover-deleted-item/select-recover-from-menu.png":::
 
-2. On the Recover pane, choose **Resources managed by**, select the Datasource type for which you want to configure protection, and select the Solution (limited to Azure Backup and Azure Site Recovery in this preview) through which you want to recover the item.
+2. On the Recover pane, choose **Resources managed by**, select the Datasource type for which you want to configure protection, and select the Solution (limited to Azure Backup and Azure Site Recovery) through which you want to recover the item.
 
     :::image type="content" source="./media/tutorial-recover-deleted-item/select-data-source-type.png" alt-text="Screenshot shows the selection of datasource type." lightbox="./media/tutorial-recover-deleted-item/select-data-source-type.png":::
 

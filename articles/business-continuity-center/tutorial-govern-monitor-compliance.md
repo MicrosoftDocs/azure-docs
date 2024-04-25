@@ -11,9 +11,9 @@ ms.author: v-abhmallick
 ---
 
 
-# Tutorial – Govern and view compliance (preview)
+# Tutorial – Govern and view compliance
 
-Azure Business Continuity center  (preview) helps you govern your Azure environment to ensure that all your resources are compliant from a backup and replication perspective. 
+Azure Business Continuity center helps you govern your Azure environment to ensure that all your resources are compliant from a backup and replication perspective. 
 
 These are some of the governance capabilities of Azure Business Continuity center: 
 
@@ -37,7 +37,7 @@ Selecting any of the definitions allows you to assign the policy to a scope.
 
 Selecting the **Protection compliance** option helps you view the compliance of your resources based on the various built-in policies that you've assigned to your Azure environment. You can view the percentage of resources that are compliant on all policies, as well as the policies that have one or more non-compliant resources. 
 
-   :::image type="content" source="./media/tutorial-govern-monitor-compliance/protection-compliance.png" alt-text="Screenshot shows protection compliance page for backup."  lightbox="./media/tutorial-govern-monitor-compliance/protection-compliance.png":::
+   :::image type="content" source="./media/tutorial-govern-monitor-compliance/protection-compliance.png" alt-text="Screenshot shows protection compliance page for backup." lightbox="./media/tutorial-govern-monitor-compliance/protection-compliance.png":::
 
 Selecting the **Protectable resource** option allows you to view all your resources that haven't been configured for backup and replication.  
 
