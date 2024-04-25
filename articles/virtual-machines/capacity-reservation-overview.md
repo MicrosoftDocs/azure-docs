@@ -84,7 +84,7 @@ From this example accumulation of Minutes Not Available, here's the calculation 
     - M-series, v3
     - Lsv2
     - NC-series,v3
-    - NV-series,v2 and newer
+    - NV-series,v3 and newer
     - For above mentioned N series, at VM deployment, Fault Domain (FD) count of 1 can be set using Virtual Machine Scale Sets. A deployment with more than 1 FD will fail to deploy against a Capacity Reservation.
 - Support for other VM Series isn't currently available:  
     - M series, v1 and v2 
