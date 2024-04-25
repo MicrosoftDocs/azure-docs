@@ -195,6 +195,8 @@ Before starting your move operation, review the [checklist](./move-resource-grou
 > | postgresinstances | No | No | No |
 > | sqlmanagedinstances | No | No | No |
 > | sqlserverinstances | No | No | No |
+> | sqlserverlicenses | No | No | No |
+
 
 ## Microsoft.AzureData
 
