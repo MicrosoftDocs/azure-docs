@@ -22,7 +22,7 @@ The latency measurements are collected from Azure cloud regions worldwide, and c
 
 The monthly Percentile P50 round trip times between Azure regions for a 30-day window are shown in the following tabs. The latency is measured in milliseconds (ms).
 
-The current dataset was taken on *April 9th, 20247*, and it covers the 30-day period ending on *April 9th, 2024*.
+The current dataset was taken on *April 9th, 2024*, and it covers the 30-day period ending on *April 9th, 2024*.
 
 For readability, each table is split into tabs for groups of Azure regions. The tabs are organized by regions, and then by source region in the first column of each table. For example, the *East US* tab also shows the latency from all source regions to the two *East US* regions: *East US* and *East US 2*. 
 

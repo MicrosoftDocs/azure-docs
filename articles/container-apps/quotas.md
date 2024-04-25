@@ -15,9 +15,9 @@ ms.author: cshoe
 
 The following quotas are on a per subscription basis for Azure Container Apps.
 
-To request a [quota increase](faq.yml#how-can-i-request-a-quota-increase-), you can [submit a support ticket](https://azure.microsoft.com/support/create-ticket/).
+You can [request a quota increase in the Azure portal](/azure/quotas/quickstart-increase-quota-portal).
 
-The *Is Configurable* column in the following tables denotes a feature maximum may be increased through a [support request](https://azure.microsoft.com/support/create-ticket/). For more information, see [how to request a limit increase](faq.yml#how-can-i-request-a-quota-increase-).
+The *Is Configurable* column in the following tables denotes a feature maximum may be increased. For more information, see [how to request a limit increase](faq.yml#how-can-i-request-a-quota-increase-).
 
 | Feature | Scope | Default Quota | Is Configurable | Remarks |
 |--|--|--|--|--|
@@ -55,7 +55,7 @@ The *Is Configurable* column in the following tables denotes a feature maximum m
 For more information regarding quotas, see the [Quotas roadmap](https://github.com/microsoft/azure-container-apps/issues/503) in the Azure Container Apps GitHub repository.
 
 > [!NOTE]
-> For GPU enabled workload profiles, you need to request capacity via a [support ticket](https://azure.microsoft.com/support/create-ticket/).
+> For GPU enabled workload profiles, you need to request capacity via a [request for a quota increase in the Azure portal](/azure/quotas/quickstart-increase-quota-portal).
 
 > [!NOTE]
 > [Free trial](https://azure.microsoft.com/offers/ms-azr-0044p) and [Azure for Students](https://azure.microsoft.com/free/students/) subscriptions are limited to one environment per subscription globally and ten (10) cores per environment.

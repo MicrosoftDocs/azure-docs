@@ -1,7 +1,7 @@
 ---
 title: Quickstart - Create and manage resources in Azure Communication Services
 titleSuffix: An Azure Communication Services quickstart
-description: In this quickstart, you'll learn how to create and manage your first Azure Communication Services resource.
+description: In this quickstart, you learn how to create and manage your first Azure Communication Services resource.
 author: tophpalmer
 manager: chpalm
 services: azure-communication-services
@@ -16,7 +16,7 @@ ms.devlang: azurecli
 ---
 # Quickstart: Create and manage Communication Services resources
 
-Get started with Azure Communication Services by provisioning your first Communication Services resource. Communication Services resources can be provisioned through the [Azure portal](https://portal.azure.com) or with the .NET management SDK. The management SDK and the Azure portal allow you to create, configure, update and delete your resources and interface with [Azure Resource Manager](../../azure-resource-manager/management/overview.md), Azure's deployment and management service. All functionality available in the SDKs is available in the Azure portal.
+Get started with Azure Communication Services by provisioning your first Communication Services resource. Communication Services resources can be provisioned through the [Azure portal](https://portal.azure.com) or with the .NET management SDK. The management SDK and the Azure portal enable you to create, configure, update, and delete your resources and interface with [Azure Resource Manager](../../azure-resource-manager/management/overview.md), Azure's deployment and management service. All functions available in the SDKs are available in the Azure portal.
 
 >[!VIDEO https://www.youtube.com/embed/3In3o5DhOHU]
 
@@ -43,7 +43,7 @@ Get started with Azure Communication Services by provisioning your first Communi
 
 Connection strings allow the Communication Services SDKs to connect and authenticate to Azure. You can access your Communication Services connection strings and service endpoints from the Azure portal or programmatically with Azure Resource Manager APIs.
 
-After navigating to your Communication Services resource, select **Keys** from the navigation menu and copy the **Connection string** or **Endpoint** values for usage by the Communication Services SDKs. Note that you have access to primary and secondary keys. This can be useful in scenarios where you would like to provide temporary access to your Communication Services resources to a third party or staging environment.
+After navigating to your Communication Services resource, select **Keys** from the navigation menu and copy the **Connection string** or **Endpoint** values for usage by the Communication Services SDKs. You have access to primary and secondary keys. This can be useful when you would like to provide temporary access to your Communication Services resources to a third-party or staging environment.
 
 :::image type="content" source="./media/key.png" alt-text="Screenshot of Communication Services Key page.":::
 
@@ -51,7 +51,7 @@ After navigating to your Communication Services resource, select **Keys** from t
 
 You can also access key information using Azure CLI, like your resource group or the keys for a specific resource.
 
-Install [Azure CLI](/cli/azure/install-azure-cli-windows?tabs=azure-cli) and use the following command to login. You'll need to provide your credentials to connect with your Azure account.
+Install [Azure CLI](/cli/azure/install-azure-cli-windows?tabs=azure-cli) and use the following command to sign in. You need to provide your credentials to connect with your Azure account.
 
 ```azurepowershell-interactive
 az login
@@ -94,7 +94,7 @@ Open a console window and enter the following command:
 setx COMMUNICATION_SERVICES_CONNECTION_STRING "<yourConnectionString>"
 ```
 
-After you add the environment variable, you may need to restart any running programs that will need to read the environment variable, including the console window. For example, if you're using Visual Studio as your editor, restart Visual Studio before running the example.
+After you add the environment variable, you may need to restart any running programs that read the environment variable, including the console window. For example, if you're using Visual Studio as your editor, restart Visual Studio before running the example.
 
 #### [macOS](#tab/unix)
 
@@ -120,7 +120,7 @@ After you add the environment variable, run `source ~/.bash_profile` from your c
 
 ## Clean up resources
 
-If you want to clean up and remove a Communication Services subscription, you can delete the resource or resource group. You can delete your communication resource by running the command below.
+If you want to clean up and remove a Communication Services subscription, you can delete the resource or resource group. You can delete your communication resource by running the following command.
 
 ```azurecli-interactive
 az communication delete --name "acsResourceName" --resource-group "resourceGroup"
@@ -128,7 +128,7 @@ az communication delete --name "acsResourceName" --resource-group "resourceGroup
 
 [Deleting the resource group](../../azure-resource-manager/management/manage-resource-groups-portal.md#delete-resource-groups) also deletes any other resources associated with it.
 
-If you have any phone numbers assigned to your resource upon resource deletion, the phone numbers will be released from your resource automatically at the same time.
+If you have any phone numbers assigned to your resource upon resource deletion, the phone numbers are automatically released from your resource at the same time.
 
 > [!NOTE]
 > Resource deletion is **permanent** and no data, including event grid filters, phone numbers, or other data tied to your resource, can be recovered if you delete the resource.

@@ -1089,6 +1089,11 @@
             "source_path_from_root": "/articles/sentinel/notebooks-with-synapse-hunt.md",
             "redirect_url": "/azure/sentinel/notebooks-hunt",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/dns.md",
+            "redirect_url": "/azure/sentinel/data-connectors/windows-dns-events-via-ama",
+            "redirect_document_id": false
         }
     ]
 }

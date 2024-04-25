@@ -5,7 +5,7 @@ author: rcdun
 ms.author: rdunstan
 ms.service: communications-gateway
 ms.topic: how-to
-ms.date: 11/06/2023
+ms.date: 03/31/2024
 
 #CustomerIntent: As someone deploying Azure Communications Gateway, I want to test my deployment so that I can be sure that calls work.
 ---
@@ -26,7 +26,9 @@ You must complete the following procedures.
 - [Deploy Azure Communications Gateway](deploy.md)
 - [Connect Azure Communications Gateway to Zoom Phone Cloud Peering](connect-zoom.md)
 
-Your organization must [integrate with Azure Communications Gateway's Provisioning API](integrate-with-provisioning-api.md). Someone in your organization must be able to make requests using the Provisioning API during this procedure.
+You must provision Azure Communications Gateway with the numbers for integration testing during this procedure.
+
+[!INCLUDE [communications-gateway-provisioning-permissions](includes/communications-gateway-provisioning-permissions.md)]
 
 You must be an owner or admin of a Zoom account that you want to use for testing.
 
@@ -39,7 +41,40 @@ You must provision Azure Communications Gateway with the details of the test num
 > [!IMPORTANT]
 > Do not provision the service verification numbers for Zoom. Azure Communications Gateway routes calls involving those numbers automatically. Any provisioning you do for those numbers has no effect.
 
-This step requires Azure Communications Gateway's Provisioning API. The API allows you to indicate to Azure Communications Gateway which service(s) you're supporting for each number, using _account_ and _number_ resources.
+We recommend using the Number Management Portal (preview) to provision the test numbers. Alternatively, you can use Azure Communications Gateway's Provisioning API (preview).
+
+# [Number Management Portal (preview)](#tab/number-management-portal)
+
+You can configure numbers directly in the Number Management Portal, or by uploading a CSV file containing number configuration.
+
+1. From the overview page for your Communications Gateway resource, find the **Number Management** section in the sidebar. Select **Accounts**.
+1. Select **Create account**. Enter an **Account name** and select the **Enable Zoom Phone Cloud Peering** checkbox. Select **Create**.
+1. Select the checkbox next to the new **Account name** and select **View numbers**.
+1. Select **Create numbers**.
+1. To configure the numbers directly in the Number Management Portal:
+    1. Select **Manual input**.
+    1. Select **Enable Zoom Phone Cloud Peering**.
+    1. Optionally, enter a value for **Custom SIP header**.
+    1. Add the numbers in **Telephone Numbers**.
+    1. Select **Create**.
+1. To upload a CSV containing multiple numbers:
+    1. Prepare a `.csv` file. It must use the headings shown in the following table, and contain one number per line (up to 10,000 numbers).
+
+        | Heading | Description  | Valid values |
+        |---------|--------------|--------------|
+        | `telephoneNumber`|The number to upload | E.164 numbers, including `+` and the country code |
+        | `accountName` | The account to upload the number to | The name of an existing account |
+        | `serviceDetails_zoomPhoneCloudPeering_enabled`| Whether Zoom Phone Cloud Peering is enabled | `true` or `false`|
+        | `configuration_customSipHeader`| Optional: the value for a SIP custom header. | Can only contain letters, numbers, underscores, and dashes. Can be up to 100 characters in length. |
+
+    1. Select **File Upload**.
+    1. Select the `.csv` file that you prepared.
+    1. Select **Upload**.
+
+# [Provisioning API (preview)](#tab/provisioning-api)
+
+The API allows you to indicate to Azure Communications Gateway which service you're supporting for each number, using _account_ and _number_ resources.
+
 - Account resources are descriptions of your customers (typically, an enterprise), and per-customer settings for service provisioning.
 - Number resources belong to an account. They describe numbers, the services (for example, Zoom) that the numbers make use of, and any extra per-number configuration.
 
@@ -49,6 +84,8 @@ Use the Provisioning API for Azure Communications Gateway to:
 1. Provision the details of the numbers you chose under the account. Enable each number for Zoom service.
 
 For example API requests, see [Create an account to represent a customer](/rest/api/voiceservices/#create-an-account-to-represent-a-customer) and [Add one number to the account](/rest/api/voiceservices/#add-one-number-to-the-account) or [Add or update multiple numbers at once](/rest/api/voiceservices/#add-or-update-multiple-numbers-at-once) in the _API Reference_ for the Provisioning API.
+
+---
 
 ## Configure users in Zoom with the test numbers for integration testing
 

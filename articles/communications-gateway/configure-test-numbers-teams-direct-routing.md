@@ -5,7 +5,7 @@ author: rcdun
 ms.author: rdunstan
 ms.service: communications-gateway
 ms.topic: how-to
-ms.date: 03/22/2024
+ms.date: 03/31/2024
 
 #CustomerIntent: As someone deploying Azure Communications Gateway, I want to test my deployment so that I can be sure that calls work.
 ---
@@ -30,15 +30,50 @@ You must complete the following procedures.
 - [Connect Azure Communications Gateway to Microsoft Teams Direct Routing](connect-teams-direct-routing.md)
 - [Configure a test customer for Microsoft Teams Direct Routing](configure-test-customer-teams-direct-routing.md)
 
-Your organization must [integrate with Azure Communications Gateway's Provisioning API](integrate-with-provisioning-api.md). Someone in your organization must be able to make requests using the Provisioning API during this procedure.
+You must provision Azure Communications Gateway with numbers for integration testing during this procedure.
+
+[!INCLUDE [communications-gateway-provisioning-permissions](includes/communications-gateway-provisioning-permissions.md)]
 
 You must be able to sign in to the Microsoft 365 admin center for your test customer tenant as a Global Administrator.
 
-## Configure the test numbers on Azure Communications Gateway with the Provisioning API
+## Configure the test numbers on Azure Communications Gateway
 
 In [Configure a test customer for Microsoft Teams Direct Routing with Azure Communications Gateway](configure-test-customer-teams-direct-routing.md), you configured Azure Communications Gateway with an account for the test customer.
 
+We recommend using the Number Management Portal (preview) to provision the test numbers. Alternatively, you can use Azure Communications Gateway's Provisioning API (preview).
+
+# [Number Management Portal (preview)](#tab/number-management-portal)
+
+You can configure numbers directly in the Number Management Portal, or by uploading a CSV file containing number configuration.
+
+1. From the overview page for your Communications Gateway resource, find the **Number Management** section in the sidebar. Select **Accounts**.
+1. Select the checkbox next to the enterprise's **Account name** and select **View numbers**.
+1. Select **Create numbers**.
+1. To configure the numbers directly in the Number Management Portal:
+    1. Select **Manual input**.
+    1. Select **Enable Teams Direct Routing**.
+    1. Optionally, enter a value for **Custom SIP header**.
+    1. Add the numbers in **Telephone Numbers**.
+    1. Select **Create**.
+1. To upload a CSV containing multiple numbers:
+    1. Prepare a `.csv` file. It must use the headings shown in the following table, and contain one number per line (up to 10,000 numbers).
+
+        | Heading | Description  | Valid values |
+        |---------|--------------|--------------|
+        | `telephoneNumber`|The number to upload | E.164 numbers, including `+` and the country code |
+        | `accountName` | The account to upload the number to | The name of an existing account |
+        | `serviceDetails_teamsDirectRouting_enabled`| Whether Microsoft Teams Direct Routing is enabled | `true` or `false`|
+        | `configuration_customSipHeader`| Optional: the value for a SIP custom header. | Can only contain letters, numbers, underscores, and dashes. Can be up to 100 characters in length. |
+
+    1. Select **File Upload**.
+    1. Select the `.csv` file that you prepared.
+    1. Select **Upload**.
+
+# [Provisioning API (preview)](#tab/api)
+
 Use Azure Communications Gateway's Provisioning API to provision the details of the numbers you chose under the account. Enable each number for Teams Direct Routing. For example API requests, see [Add one number to the account](/rest/api/voiceservices/#add-one-number-to-the-account) or [Add or update multiple numbers at once](/rest/api/voiceservices/#add-or-update-multiple-numbers-at-once) in the _API Reference_ for the Provisioning API.
+
+---
 
 ## Update your network's routing configuration
 
@@ -50,7 +85,7 @@ Update your network configuration to route calls involving the test numbers to A
 
 Follow [Create a user and assign the license](/microsoftteams/direct-routing-enable-users#create-a-user-and-assign-the-license).
 
-If you are migrating users from Skype for Business Server Enterprise Voice, you must also [ensure that the user is homed online](/microsoftteams/direct-routing-enable-users#ensure-that-the-user-is-homed-online).
+If you're migrating users from Skype for Business Server Enterprise Voice, you must also [ensure that the user is homed online](/microsoftteams/direct-routing-enable-users#ensure-that-the-user-is-homed-online).
 
 ### Configure phone numbers for the user and enable enterprise voice
 

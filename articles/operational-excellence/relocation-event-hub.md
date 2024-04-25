@@ -1,6 +1,6 @@
 ---
 title: Relocation guidance in Azure Event Hubs
-description: Learn how to relocate Azure Event Hubs to a new region
+description: Learn how to relocate Azure Event Hubs to a another region
 author: anaharris-ms
 ms.author: anaharris
 ms.reviewer: anaharris
@@ -37,6 +37,12 @@ If you have other resources in the Azure resource group that contains the Event 
         >When Capture is enabled, you can either relocate a Storage Account from the source or use an existing one in the target region.
 
 - Identify all dependent resources. Event Hubs is a messaging system that lets applications publish and subscribe for messages.  Consider whether or not your application at target requires messaging support for the same set of dependent services that it had at the source target.
+
+
+## Downtime
+
+To understand the possible downtimes involved, see [Cloud Adoption Framework for Azure: Select a relocation method](/azure/cloud-adoption-framework/relocate/select#select-a-relocation-method).
+
 
 
 ## Considerations for Service Endpoints

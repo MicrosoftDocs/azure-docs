@@ -6,7 +6,7 @@ metadata:
   author: mbender-ms
   ms.service: load-balancer
   ms.topic: faq
-  ms.date: 04/17/2023
+  ms.date: 04/10/2024
   ms.author: mbender
   ms.custom: engagement-fy23
 title: Load Balancer frequently asked questions
@@ -75,7 +75,12 @@ sections:
       - question: |
           How do connections to Azure Storage in the same region work?
         answer: |
-          Having outbound connectivity via the scenarios above isn't necessary to connect to storage in the same region as the VM. Use network security groups (NSGs) as explained above to prevent this behavior. For connectivity to storage in other regions, outbound connectivity is required. The source IP address in the storage diagnostic logs is an internal provider address, and not the public IP address of your VM when connecting to storage from a VM in the same region. To restrict access to your storage account to VMs in one or more virtual network subnets in the same region, use [Virtual Network service endpoints](../virtual-network/virtual-network-service-endpoints-overview.md). Don't use your public IP address when configuring your storage account firewall. When service endpoints are configured, you see your virtual network private IP address in your storage diagnostic logs and not the internal provider address.
+          Azure's internal network infrastructure keeps traffic between Azure services in the same region stays within the Azure network, by default. This means when Load Balancer and Azure Storage account are in the same region, the traffic between them doesn't traverse the internet by remaining on the internal Azure network backbone. However, the exact behavior can depend on the specific configuration of your Azure services, including network security group rules, routing, and any other network controls you have in place.
+
+      - question: |
+          How do connections to Azure Storage in different regions work?
+        answer: |
+          For connectivity to storage in other regions, outbound connectivity is required. The source IP address in the storage diagnostic logs is an internal provider address, and not the public IP address of your VM when connecting to storage from a VM in the same region. To restrict access to your storage account to VMs in one or more virtual network subnets in the same region, use [Virtual Network service endpoints](../virtual-network/virtual-network-service-endpoints-overview.md). Don't use your public IP address when configuring your storage account firewall. When service endpoints are configured, you see your virtual network private IP address in your storage diagnostic logs and not the internal provider address.
           
       - question: |
           Does Azure Load Balancer support TLS/SSL termination?
