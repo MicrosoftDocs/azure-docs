@@ -171,18 +171,19 @@ public class KafkaSinkToGen2 {
 
 1. Upload the jar to ABFS.
 
-    :::image type="content" source="./media/assign-kafka-topic-event-message-to-azure-data-lake-storage-gen2/app-mode.png" alt-text="Screenshot showing Flink app mode screen.":::
+    :::image type="content" source="./media/assign-kafka-topic-event-message-to-azure-data-lake-storage-gen2/app-mode.png" alt-text="Screenshot showing Flink app mode screen." lightbox="./media/assign-kafka-topic-event-message-to-azure-data-lake-storage-gen2/app-mode.png":::
+
 
 1. Pass the job jar information in `AppMode` cluster creation.
 
-    :::image type="content" source="./media/assign-kafka-topic-event-message-to-azure-data-lake-storage-gen2/create-app-mode.png" alt-text="Screenshot showing create app mode.":::
+    :::image type="content" source="./media/assign-kafka-topic-event-message-to-azure-data-lake-storage-gen2/create-app-mode.png" alt-text="Screenshot showing create app mode." lightbox="./media/assign-kafka-topic-event-message-to-azure-data-lake-storage-gen2/-create-app-mode.png":::
 
     > [!NOTE]
     >  Make sure to add classloader.resolve-order as ‘parent-first’ and hadoop.classpath.enable as `true`
 
 1. You can see the job running.
 
-    :::image type="content" source="./media/assign-kafka-topic-event-message-to-azure-data-lake-storage-gen2/flink-ui.png" alt-text="Screenshot showing Flink UI.":::
+    :::image type="content" source="./media/assign-kafka-topic-event-message-to-azure-data-lake-storage-gen2/flink-ui.png" alt-text="Screenshot showing Flink UI." lightbox="./media/assign-kafka-topic-event-message-to-azure-data-lake-storage-gen2/flink-ui.png":::
 
 
 **Validate streaming data on ADLS Gen2**
