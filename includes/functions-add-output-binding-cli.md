@@ -65,7 +65,7 @@ To write to an Azure Storage queue:
 
 * Add an `extraOutputs` property to the binding configuration
 
-    ```javascript
+    ```typescript
     {
         methods: ['GET', 'POST'],
         extraOutputs: [sendToQueue], // add output binding to HTTP trigger
