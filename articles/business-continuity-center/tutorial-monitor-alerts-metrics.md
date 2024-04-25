@@ -10,10 +10,10 @@ author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
 
-# Tutorials: Monitor alerts and metrics for your business continuity estate (preview)
+# Tutorials: Monitor alerts and metrics for your business continuity estate
 
 
-This tutorial describes how Azure Business Continuity Center (preview) allows you to view alerts across Azure Backup and Azure Site Recovery, configure notifications, view metrics, and take appropriate action. 
+This tutorial describes how Azure Business Continuity Center allows you to view alerts across Azure Backup and Azure Site Recovery, configure notifications, view metrics, and take appropriate action. 
 
 ## Monitor alerts
 
