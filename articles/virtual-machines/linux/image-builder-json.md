@@ -24,7 +24,7 @@ The basic format is:
 ```json
 {
   "type": "Microsoft.VirtualMachineImages/imageTemplates",
-  "apiVersion": "2022-02-14",
+  "api-version": "2022-02-14",
   "location": "<region>",
   "tags": {
     "<name>": "<value>",
@@ -99,13 +99,13 @@ resource azureImageBuilder 'Microsoft.VirtualMachineImages/imageTemplates@2022-0
 
 ## Type and API version
 
-The `type` is the resource type, which must be `Microsoft.VirtualMachineImages/imageTemplates`. The `apiVersion` will change over time as the API changes. See [What's new in Azure VM Image Builder](../image-builder-api-update-release-notes.md) for all major API changes and feature updates for the Azure VM Image Builder service.
+The `type` is the resource type, which must be `Microsoft.VirtualMachineImages/imageTemplates`. The `api-version` will change over time as the API changes. See [What's new in Azure VM Image Builder](../image-builder-api-update-release-notes.md) for all major API changes and feature updates for the Azure VM Image Builder service.
 
 # [JSON](#tab/json)
 
 ```json
 "type": "Microsoft.VirtualMachineImages/imageTemplates",
-"apiVersion": "2022-02-14",
+"api-version": "2022-02-14",
 ```
 
 # [Bicep](#tab/bicep)
@@ -1205,7 +1205,7 @@ The `optimize` property can be enabled while creating a VM image and allows VM o
 
 ```json
 "optimize": {
-      "vmboot": {
+      "vmBoot": {
         "state": "Enabled"
       }
     }
@@ -1215,15 +1215,15 @@ The `optimize` property can be enabled while creating a VM image and allows VM o
 
 ```bicep
 optimize: {
-      vmboot: {
+      vmBoot: {
         state: 'Enabled'
       }
     }
 ```
 ---
 
-- **vmboot**: A configuration related to the booting process of the virtual machine (VM), used to control optimizations that can improve boot time or other performance aspects.
-- state: The state of the boot optimization feature within `vmboot`, with the value `Enabled` indicating that the feature is turned on to improve image creation time.
+- **vmBoot**: A configuration related to the booting process of the virtual machine (VM), used to control optimizations that can improve boot time or other performance aspects.
+- state: The state of the boot optimization feature within `vmBoot`, with the value `Enabled` indicating that the feature is turned on to improve image creation time.
 
 To learn more, see [VM optimization for gallery images with Azure VM Image Builder](../vm-boot-optimization.md).
 
@@ -1662,7 +1662,7 @@ How to use the `validate` property to validate Linux images:
 - **sha256Checksum** - Specifies the SHA256 checksum of the file.
 - **sourceUri** - The source URI of the file.
 
-<a id="vmprofile"></a>
+<a id="vmProfile"></a>
 
 ## Properties: vmProfile
 
