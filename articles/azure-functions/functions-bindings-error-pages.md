@@ -14,7 +14,7 @@ Handling errors in Azure Functions is important to help you avoid lost data, avo
 This article describes general strategies for error handling and the available retry strategies.
 
 > [!IMPORTANT]
-> We're removing retry policy support in the runtime for triggers other than Timer, Kafka, and Event Hubs after this feature becomes generally available (GA). Preview retry policy support for all triggers other than Timer and Event Hubs was removed in December 2022. For more information, see the [Retries](#retries) section.
+> Preview retry policy support for all triggers other than Timer, Kafka, and Event Hubs was removed in December 2022. For more information, see the [Retries](#retries) section. Retry policies for supported triggers is now generally available (GA).
 
 ## Handling errors
 
