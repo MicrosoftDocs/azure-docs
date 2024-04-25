@@ -357,16 +357,16 @@ Rattle can transform the dataset to handle some common issues. For example, it c
 
 Rattle also can handle cluster analyses. Let's exclude some features to make the output easier to read. On the **Data** tab, select **Ignore** next to each of the variables, except these 10 items:
 
-1. word_freq_hp
-1. word_freq_technology
-1. word_freq_george
-1. word_freq_remove
-1. word_freq_your
-1. word_freq_dollar
-1. word_freq_money
-1. capital_run_length_longest
-1. word_freq_business
-1. spam
+* word_freq_hp
+* word_freq_technology
+* word_freq_george
+* word_freq_remove
+* word_freq_your
+* word_freq_dollar
+* word_freq_money
+* capital_run_length_longest
+* word_freq_business
+* spam
 
 Return to the **Cluster** tab. Select **KMeans**, and then set **Number of clusters** to **4**. Select **Execute**. The output window shows the results. One cluster has high frequencies of _george_ and _hp_, and is probably a legitimate business email.
 
