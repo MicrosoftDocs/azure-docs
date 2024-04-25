@@ -361,7 +361,7 @@ For optimal designer responsiveness and performance, review and follow these gui
 
 - Have no more than 10-15 workflows per logic app resource.
 
-  More workflows in your logic app raise the risk of longer load times, which negatively affect performance. If you need to exceed the recommnedation, consider [setting up deployment slots](set-up-deployment-slots.md).
+More workflows in your logic app raise the risk of longer load times, which negatively affect performance. If you have mission-critical logic apps that require zero downtime deployments, consider [setting up deployment slots](set-up-deployment-slots.md).
 
 <a name="review-run-history"></a>
 
