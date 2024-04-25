@@ -172,11 +172,6 @@ await call.muteAllRemoteParticipants();
 
 //mute a specific participant
 await call.remoteParticipants[0].mute();
-
-// Subscribe to mutedByOthers event and notify local participant they have been muted
-call.on('mutedByOthers', () => {
-    console.log("You have been muted");
-});
 ```
 
 ## Manage remote participants
