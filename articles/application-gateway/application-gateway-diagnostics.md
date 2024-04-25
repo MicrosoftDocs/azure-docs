@@ -53,7 +53,7 @@ You have the following options to store the logs in your preferred location.
 
  **Selecting the destination table in Log analytics :** All Azure services eventually use the resource-specific tables. As part of this transition, you can select Azure diagnostic or resource specific table in the diagnostic setting using a toggle button. The toggle is set to **Resource specific** by default and in this mode, logs for new selected categories are sent to dedicated tables in Log Analytics, while existing streams remain unchanged. See the following example.
 
- ![Portal: resource ID for application gateway](./media/application-gateway-diagnostics/resource-specific.png)
+ [![Screenshot of the resource ID for application gateway in the portal.](./media/application-gateway-diagnostics/resource-specific.png)](./media/application-gateway-diagnostics/resource-specific.png#lightbox)
  
 **Workspace Transformations:** Opting for the Resource specific option allows you to filter and modify your data before it’s ingested with [workspace transformations](../azure-monitor/essentials/data-collection-transformations-workspace.md). This provides granular control, allowing you to focus on the most relevant information from the logs there by reducing data costs and enhancing security.
 For detailed instructions on setting up workspace transformations, please refer:[Tutorial: Add a workspace transformation to Azure Monitor Logs by using the Azure portal](../azure-monitor/logs/tutorial-workspace-transformations-portal.md).
