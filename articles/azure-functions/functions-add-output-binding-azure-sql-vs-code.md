@@ -1,7 +1,7 @@
 ---
 title: Connect Azure Functions to Azure SQL Database using Visual Studio Code
 description: Learn how to connect Azure Functions to Azure SQL Database by adding an output binding to your Visual Studio Code project.
-ms.date: 04/24/2024
+ms.date: 04/25/2024
 ms.topic: quickstart
 author: dzsquared
 ms.author: drskwier
