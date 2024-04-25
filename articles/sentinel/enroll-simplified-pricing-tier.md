@@ -140,10 +140,10 @@ Compare the following cluster scenarios to better understand simplified pricing 
 
 :::image type="content" source="media/enroll-simplified-pricing-tier/cluster.svg" alt-text="Image showing a color coded cluster with three workspaces. One of the workspaces is labeled Microsoft Sentinel.":::
 
-- Example 1: A dedicated cluster ingesting data over the Commitment tier level, but under the next highest tier (ideal).
+- Example 1: A dedicated cluster ingesting *more* data than the Commitment tier level, but under the next highest tier (ideal).
    :::image type="content" source="media/enroll-simplified-pricing-tier/example-1.png" alt-text="Spreadsheet showing Commitment tier over usage billing example for a Microsoft Sentinel workspace in a dedicated cluster." lightbox="media/enroll-simplified-pricing-tier/example-1.png":::
 
-- Example 2: A dedicated cluster ingesting less data than the Commitment tier level. Consider adding more workspaces to the cluster.
+- Example 2: A dedicated cluster ingesting *less* data than the Commitment tier level. Consider adding more workspaces to the cluster.
    :::image type="content" source="media/enroll-simplified-pricing-tier/example-2.png" alt-text="Spreadsheet showing Commitment tier under usage billing example for a Microsoft Sentinel workspace in a dedicated cluster." lightbox="media/enroll-simplified-pricing-tier/example-2.png":::
 
 Keep in mind, the simplified effective per GB price for a Microsoft Sentinel enabled workspace now includes the log analytics ingestion cost. For the latest **per day** and **Effective Per GB Price** for both types of workspaces, see: 
