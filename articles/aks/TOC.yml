@@ -333,7 +333,11 @@
         - name: Node autoprovision
           href: node-autoprovision.md
         - name: Availability zones
-          href: availability-zones.md
+          items:
+            - name: Availability zones overview
+              href: availability-zones-overview.md
+            - name: Create a cluster with availability zones
+              href: availability-zones.md
         - name: Propagate Kubernetes resources across multiple clusters
           href: ../kubernetes-fleet/resource-propagation.md?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
     - name: Cluster management
