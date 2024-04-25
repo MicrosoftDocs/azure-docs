@@ -137,13 +137,34 @@ When you allocate numbers to a customer, you need to provision those numbers on 
 
 ### Configure the numbers on Azure Communications Gateway
 
-When you [set up Direct Routing a the customer](#set-up-direct-routing-for-a-customer), you configured Azure Communications Gateway with an account for the customer. You must add the numbers that you allocate to the customer to this account.
+When you [set up Direct Routing for the customer](#set-up-direct-routing-for-a-customer), you configured Azure Communications Gateway with an account for the customer. You must configure the numbers that you allocate to the customer under this account.
 
 # [Number Management Portal (preview)](#tab/number-management-portal)
 
-To add new numbers:
+To add new numbers, you can configure the numbers directly in the Number Management Portal or upload a CSV file containing number configuration:
 
-[!INCLUDE [instructions for configuring Direct Routing numbers in the portal](includes/communications-gateway-direct-routing-configure-numbers-portal.md)]
+1. From the overview page for your Communications Gateway resource, find the **Number Management** section in the sidebar. Select **Accounts**.
+1. Select the checkbox next to the enterprise's **Account name** and select **View numbers**.
+1. Select **Create numbers**.
+1. To configure the numbers directly in the Number Management Portal:
+    1. Select **Manual input**.
+    1. Select **Enable Teams Direct Routing**.
+    1. Optionally, enter a value for **Custom SIP header**.
+    1. Add the numbers in **Telephone Numbers**.
+    1. Select **Create**.
+1. To upload a CSV containing multiple numbers:
+    1. Prepare a `.csv` file. It must use the headings shown in the following table, and contain one number per line (up to 10,000 numbers).
+
+        | Heading | Description  | Valid values |
+        |---------|--------------|--------------|
+        | `telephoneNumber`|The number to upload | E.164 numbers, including `+` and the country code |
+        | `accountName` | The account to upload the number to | The name of an existing account |
+        | `serviceDetails_teamsDirectRouting_enabled`| Whether Microsoft Teams Direct Routing is enabled | `true` or `false`|
+        | `configuration_customSipHeader`| Optional: the value for a SIP custom header. | Can only contain letters, numbers, underscores, and dashes. Can be up to 100 characters in length. |
+
+    1. Select **File Upload**.
+    1. Select the `.csv` file that you prepared.
+    1. Select **Upload**.
 
 To change or remove existing numbers:
 
@@ -164,6 +185,7 @@ Your customer can now set up users for Microsoft Teams Direct Routing. To add ne
 1. Enable users for Microsoft Teams Direct Routing, by following [Enable users for Direct Routing](/microsoftteams/direct-routing-enable-users).
 2. Configure these users with the voice route for Azure Communications Gateway that [they configured earlier](#ask-the-customer-to-configure-call-routing-that-uses-azure-communications-gateway). For instructions, see the steps for assigning voice routing policies in [Configure call routing for Direct Routing](/microsoftteams/direct-routing-voice-routing).
 
-## Next steps
+## Next step
 
-Learn more about [the metrics you can use to monitor calls](monitoring-azure-communications-gateway-data-reference.md).
+> [!div class="nextstepaction"]
+> [Learn about the metrics you can use to monitor calls.](monitoring-azure-communications-gateway-data-reference.md)
