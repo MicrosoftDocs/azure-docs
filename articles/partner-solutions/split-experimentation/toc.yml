@@ -1,0 +1,8 @@
+items:
+- name: Split Experimentation Workspace
+  href: index.yml
+- name: Quickstart
+  expanded: true
+  items:
+  - name: Create a Split Experimentation Workspace
+    href: create.md
