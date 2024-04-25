@@ -18,13 +18,13 @@ This article summarizes the steps to develop and test with local event hubs emul
 > [!NOTE]
 > Before you continue with the subsequent steps, make sure Docker Desktop is operational in the background.
 
-# Installation
+## Installation
 
-### 1. GitHub 
+### [GitHub](#tab/GitHub) 
 
 1. Clone the Git Repo -(Emulator Public Repo link) 
 
-### 2. Docker 
+### [Docker](#tab/Docker) 
 
 1. Event Hub emulator is available as docker container image. You can download the latest image from MCR endpoint
 2. Emulator has dependency on Azurite so we should spin up Azurite as well. 
@@ -34,7 +34,7 @@ This article summarizes the steps to develop and test with local event hubs emul
 
 This section highlights different steps to run Event Hubs emulator. Details are shared below:
 
-## [Automated Script](#tab/automated-script)
+### [Automated Script](#tab/automated-script)
 
 ### Windows
 Once the pre-requisites are complete, you could follow below manual steps to run Event Hubs emulator locally.
@@ -52,7 +52,7 @@ Once the pre-requisites (Docker & Azure CLI) are complete, you could follow belo
 1. Execute the setup script `~/EventHub/Execution_Scripts/Linux/LaunchEmulator.sh` ; this would fetch images and bring up 3 containers – EH Emulator, Azurite and SQL Edge (Dependencies for Emulator)
 2. Once the steps are successful, you could find containers running in Docker.
 
-## [Docker (Linux Container)](#tab/docker-linux-container)
+### [Docker (Linux Container)](#tab/docker-linux-container)
 
 You could use below Yaml file to spin up EH emulator along with its dependencies. 
 
