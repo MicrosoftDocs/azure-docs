@@ -3,7 +3,7 @@ title: Zone resiliency considerations for Azure Kubernetes Service (AKS)
 titleSuffix: Azure Kubernetes Service
 description: Learn about the various considerations for zone resiliency in Azure Kubernetes Service (AKS).
 ms.topic: conceptual
-ms.date: 04/10/2024
+ms.date: 04/25/2024
 author: schaffererin
 ms.author: schaffererin
 ---
@@ -21,9 +21,11 @@ In this article, you learn about the various considerations for zone resiliency 
 
 AZ resiliency is a key part of running production-grade Kubernetes clusters. With scalability at its core, Kubernetes takes full advantage of independent infrastructure in data centers without incurring additional costs by provisioning new nodes only when necessary.
 
-Simply scaling up or down the number of nodes in a cluster isn't enough to ensure application resiliency. You must gain a deeper understanding of your application and its dependencies to better plan for resiliency. While AKS provides AZ resiliency for its clusters, the decisions you make about your application's dependencies, such as the storage disk type and networking policies, play a critical role in ensuring that your application is resilient to failures.
+Simply scaling up or down the number of nodes in a cluster isn't enough to ensure application resiliency. You must gain a deeper understanding of your application and its dependencies to better plan for resiliency. AKS allows you to set up availability zones (AZs) for your clusters and node pools to ensure that your applications are resilient to failures and can continue to serve traffic even if an entire zone goes down.
 
 ## Make your AKS cluster components zone resilient
+
+The following sections provide guidance on major decision points for making your AKS cluster components zone resilient, but they aren't exhaustive. You should consider other factors based on your specific requirements and constraints and check your other dependencies for zone resiliency.
 
 ### Create zone redundant clusters and node pools
 
@@ -70,7 +72,7 @@ metadata:
 spec:
   topologySpreadConstraints:
   - maxSkew: 1
-    topologyKey: zone
+    topologyKey: "topology.kubernetes.io/zone"
     whenUnsatisfiable: DoNotSchedule
     labelSelector:
       matchLabels:
@@ -84,7 +86,7 @@ For more information, see [Kubernetes Pod Topology Spread Constraints](https://k
 
 ### Load balance traffic across AZs
 
-To ensure that your application is highly available and resilient to failures, you should load balance traffic across multiple AZs. You can use [Azure Load Balancer](../load-balancer/load-balancer-overview.md) to distribute incoming traffic across the nodes in your AKS cluster.
+If you have pods that serve network traffic, you should load balance traffic across multiple AZs to ensure that your application is highly available and resilient to failures. You can use [Azure Load Balancer](../load-balancer/load-balancer-overview.md) to distribute incoming traffic across the nodes in your AKS cluster.
 
 Azure Load Balancer supports both internal and external load balancing, and you can configure it to use a *Standard SKU* for zone-redundant load balancing. The Standard SKU supports AZs, zone resiliency, and cross-region load balancing to ensure your application isn't impacted by a region failure. In the event of a zone down scenario, a zone-redundant Standard SKU load balancer isn't impacted by the failure and enables your deployments to continue serving traffic from the remaining zones.
 
@@ -96,8 +98,10 @@ To ensure that your application's network traffic is resilient to failures, you 
 
 * [Azure VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md): You can deploy VPN and [ExpressRoute](../expressroute/designing-for-high-availability-with-expressroute.md) gateways in Azure AZs to enable better resiliency, scalability, and availability to virtual network gateways. For more information, see [Create a zone-redundant virtual network gateways in availability zones](../vpn-gateway/create-zone-redundant-vnet-gateway.md).
 * [Azure Application Gateway v2](../application-gateway/overview-v2.md): The v2 SKU of Azure Application Gateway supports performance enhancements, including support for zone-redundant deployments. For more information, see [Direct web traffic with Azure Application Gateway](../application-gateway/quick-create-cli.md).
-* [Azure NAT Gateway](../nat-gateway/nat-overview.md): With Azure NAT Gateway, you can create NAT gateways in specific AZs or use a zonal deployment for isolation to specific zones. For more information, see [NAT Gateway and availability zones](../nat-gateway/nat-overview.md#availability-zones).
 * [Azure Front Door](../frontdoor/front-door-overview.md): Azure Front Door is a global, scalable entry-point that uses the Microsoft global network to create fast, secure, and resilient applications. It provides a globally distributed network of points of presence (POP). For more information, see [Azure Front Door POP locations](../frontdoor/edge-locations-by-region.md).
+
+> [!IMPORTANT]
+> With [Azure NAT Gateway](../nat-gateway/nat-overview.md), you can create NAT gateways in specific AZs or use a zonal deployment for isolation to specific zones. NAT Gateway supports zonal deployments but not zone-redundant deployments. This might be an issue if you configure an AKS cluster with the outbound type equal to the NAT gateway and the NAT gateway is in a single zone. In this case, if the zone hosting your NAT gateway goes down, your cluster loses outbound connectivity. For more information, see [NAT Gateway and availability zones](../nat-gateway/nat-overview.md#availability-zones).
 
 ### Set up a zone-redundant, geo-replicated container registry
 
@@ -114,7 +118,10 @@ You can improve application availability and resiliency in AKS using autoscaling
 * Optimize resource utilization and cost efficiency by scaling up or down based on the CPU and memory usage of your pods.
 * Enhance fault tolerance and recovery by adding more nodes or pods when a zone failure occurs.
 
-You can use the [Horizontal Pod Autoscaler (HPA)](./concepts-scale.md#horizontal-pod-autoscaler) and [Cluster Autoscaler](./cluster-autoscaler-overview.md) to implement autoscaling in AKS. The HPA automatically scales the number of pods in a deployment based on observed CPU utilization, memory utilization, custom metrics, and metrics of other services. The Cluster Autoscaler automatically adjusts the number of nodes in a node pool based on the resource requests of the pods running on the nodes.
+You can use the [Horizontal Pod Autoscaler (HPA)](./concepts-scale.md#horizontal-pod-autoscaler) and [Cluster Autoscaler](./cluster-autoscaler-overview.md) to implement autoscaling in AKS. The HPA automatically scales the number of pods in a deployment based on observed CPU utilization, memory utilization, custom metrics, and metrics of other services. The Cluster Autoscaler automatically adjusts the number of nodes in a node pool based on the resource requests of the pods running on the nodes. If you want to use both autoscalers together, make sure the node pools with the autoscaler enabled span multiple zones. If the node pool is in a single zone and that zone goes down, the autoscaler can't scale the cluster across zones.
+
+> [!NOTE]
+> The AKS Karpenter Provider preview feature enables node autoprovisioning using [Karpenter](https://karpenter.sh/) on your AKS cluster. This feature currently only supports AKS clusters with Azure CNI Overlay + Cilium networking and Linux nodes. For more information, see the [AKS Karpenter Provider feature overview](https://github.com/Azure/karpenter-provider-azure?tab=readme-ov-file#features-overview).
 
 ## Design a stateless application
 
