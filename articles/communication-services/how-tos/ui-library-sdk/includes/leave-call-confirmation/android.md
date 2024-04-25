@@ -1,6 +1,6 @@
 ### Disabling Leave Call Confirmation
 
-To disable the leave call confirmation prompt when clicking the end call button, utilize `CallCompositeCallScreenOptions` to configure `CallCompositeCallScreenControlBarOptions`. Set `CallCompositeLeaveCallConfirmationMode.ALWAYS_DISABLED` as the constructor parameter. By default, the UI library employs `CallCompositeLeaveCallConfirmationMode.ALWAYS_ENABLED`.
+To disable the left call confirmation prompt when clicking the end call button, utilize `CallCompositeCallScreenOptions` to configure `CallCompositeCallScreenControlBarOptions`. Set `CallCompositeLeaveCallConfirmationMode.ALWAYS_DISABLED` as the constructor parameter. By default, the UI library employs `CallCompositeLeaveCallConfirmationMode.ALWAYS_ENABLED`.
 
 #### [Kotlin](#tab/kotlin)
 
@@ -28,4 +28,4 @@ CallComposite callComposite =
         .build();
 ```
 
-This setup ensures that the leave call confirmation prompt is disabled upon clicking the end call button.
+This setup ensures that the left call confirmation prompt is disabled upon clicking the end call button.

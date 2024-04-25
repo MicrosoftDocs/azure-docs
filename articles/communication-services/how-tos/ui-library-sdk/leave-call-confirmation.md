@@ -1,7 +1,7 @@
 ---
-title: Disable the leave call confirmation prompt when clicking the end call button in the UI Library
+title: Disable the left call confirmation prompt when clicking the end call button in the UI Library
 titleSuffix: An Azure Communication Services how-to guide
-description: Disable the leave call confirmation prompt in the Azure Communication Services UI Library.
+description: Disable the left call confirmation prompt in the Azure Communication Services UI Library.
 author: garchiro7
 ms.author: jorgegarc
 ms.service: azure-communication-services
@@ -16,9 +16,9 @@ zone_pivot_groups: acs-plat-ios-android
 
 # Skip the setup screen in an application
 
-The Azure Communication Services UI Library offers the option to disable the leave call confirmation prompt, by default the UI Library show a prompot asking the user to confirm the end of the call; one common customization might involve streamlining the user experience, such as disabling the leave call confirmation prompt when a user clicks the end call button. This adjustment can make the call termination process quicker and reduce friction for users who are accustomed to instant actions.
+The Azure Communication Services UI Library offers the option to disable the left call confirmation prompt, by default the UI Library show a prompt asking the user to confirm the end of the call; one common customization might involve streamlining the user experience, such as disabling the left call confirmation prompt when a user decide to end the call. This adjustment can make the call termination process quicker and reduce friction for users who are accustomed to instant actions.
 
-In this article, you learn how to disable the leave call confirmation prompt.
+In this article, you learn how to disable the left call confirmation prompt.
 
 ## Prerequisites
 
