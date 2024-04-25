@@ -139,7 +139,7 @@ The `MultiResponse` class allows you to both write to the specified collection i
 Specific attributes specify the name of the container and the name of its parent database. The connection string for your Azure Cosmos DB account is set by the `CosmosDbConnectionSetting`.  
 ::: zone-end  
 ::: zone pivot="programming-language-javascript"  
-Binding attributes are defined directly in the function file. The [Azure Cosmos DB output configuration](./functions-bindings-cosmosdb-v2-output.md#configuration) describes the fields required for an Azure Cosmos DB output binding.  
+Binding attributes are defined directly in your function code. The [Azure Cosmos DB output configuration](./functions-bindings-cosmosdb-v2-output.md#configuration) describes the fields required for an Azure Cosmos DB output binding.  
 
 For this `MultiResponse` scenario, you need to add an `extraOutputs` output binding to the function.
 
