@@ -1,11 +1,12 @@
 ---
-title: Plan costs, understand Microsoft Sentinel pricing and billing
+title: Plan costs, understand pricing and billing
+titleSuffix: Microsoft Sentinel
 description: Learn how to plan your Microsoft Sentinel costs, and understand pricing and billing using the pricing calculator and other methods.
-author: cwatson-cat
-ms.author: cwatson
+author: austinmccollum
+ms.author: austinmc
 ms.custom: subject-cost-optimization
-ms.topic: conceptual
-ms.date: 03/07/2024
+ms.topic: concept
+ms.date: 04/25/2024
 ms.collection: usx-security
 appliesto:
     - Microsoft Sentinel in the Azure portal
@@ -252,7 +253,7 @@ The following table lists the data sources in Microsoft Sentinel and Log Analyti
 
 For data connectors that include both free and paid data types, select which data types you want to enable.
 
-:::image type="content" source="media/billing/data-types.png" alt-text="Screenshot of the Data connector page for Defender for Cloud Apps, with the free security alerts selected and the paid MCAS Shadow IT Reporting data connection not enabled." lightbox="media/billing/data-types.png":::
+:::image type="content" source="media/billing/data-types.png" alt-text="Screenshot of the connector page for Defender for Cloud Apps, with the free security alerts selected and the paid MCAS Shadow IT Reporting not enabled." lightbox="media/billing/data-types.png":::
 
 Learn more about how to [connect data sources](connect-data-sources.md), including free and paid data sources.
 
