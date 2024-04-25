@@ -187,10 +187,28 @@ if ($null -eq $AutomaticByPlatformSettings) {
  
 Update-AzVM -VM $VirtualMachine -ResourceGroupName "<resourceGroup>"
 ```
+
+# [Azure CLI](#tab/new-prereq-CLI)  
+
+## Prerequisites
+
+- Patch mode = `AutomaticByPlatform`
+- `BypassPlatformSafetyChecksOnUserSchedule` = TRUE
+
+### Enable on Windows VMs
+
+```powershell-interactive
+az vm update --resource-group <resourceGroup> --name <vmName> --set osProfile.windowsConfiguration.patchSettings.patchMode="AutomaticByPlatform"  osProfile.windowsConfiguration.patchSettings.automaticByPlatformSettings.bypassPlatformSafetyChecksOnUserSchedule=true
+```
+### Enable on Linux VMs
+
+```powershell-interactive
+az vm update --resource-group <resourceGroup> --name <vmName> --set osProfile.linuxConfiguration.patchSettings.patchMode="AutomaticByPlatform"  osProfile.linuxConfiguration.patchSettings.automaticByPlatformSettings.bypassPlatformSafetyChecksOnUserSchedule=true
+```
 ---
 
 > [!NOTE]
-> Currently, you can only enable the new prerequisite for schedule patching via the Azure portal, REST API, and PowerShell. It can't be enabled via the Azure CLI.
+> Previously, you could only enable the new prerequisite for schedule patching via the Azure portal, REST API, and PowerShell. But now it can be enabled via the Azure CLI as well.
 
 ## Enable automatic guest VM patching on Azure VMs
 
