@@ -28,22 +28,23 @@ When you deploy an application in an Azure Spring Apps service instance with VNe
 
 ## Limitations
 
+- This feature applies to Azure Spring Apps VNet injected service instance only.
 - Before enabling this feature for your Azure Spring Apps service instance, ensure that there are at least two available IP addresses in the service runtime subnet.
-- Enabling or disabling this feature changes the way of DNS resolution to the backend storage. You may experience the short period of time of deployments cannot work during the update.
+- Enabling or disabling this feature changes the way of DNS resolution to the backend storage. You may experience a short period of time that deployments fail to establish connection to the backend storage or cannot resolve its endpoint during the update.
 - After enabling this feature, the backend storage is only privately accessible, so you have to deploy your application within the virtual network.
 
 ## Enable Private Storage Access when creating a new Azure Spring Apps instance
 
-Use the following command to enable private storage access when you create an Azure Spring Apps instance in the virtual network.
+When you [create an Azure Spring Apps instance in the virtual network](./how-to-deploy-in-azure-virtual-network.md), you can pass the argument `--enable-private-storage-access true` to enable private storage access.
 
 ```azurecli
 az spring create \
-    --resource-group "$RESOURCE_GROUP" \
-    --name "$AZURE_SPRING_APPS_INSTANCE_NAME" \
-    --vnet "$VIRTUAL_NETWORK_NAME" \
-    --service-runtime-subnet "$SERVICE_RUNTIME_SUBNET" \
-    --app-subnet "$APPS_SUBNET" \
-    --location "$LOCATION" \
+    --resource-group "<resource-group>" \
+    --name "<azure-spring-apps-instance-name>" \
+    --vnet "<virtual-network-name>" \
+    --service-runtime-subnet "<service-runtime-subnet>" \
+    --app-subnet "<apps-subnet>" \
+    --location "<location>" \
     --enable-private-storage-access true
 ```
 
@@ -65,13 +66,13 @@ Use the following command to update an existing Azure Spring Apps instance to en
 
 ```azurecli
 az spring update \
-    --resource-group "$RESOURCE_GROUP" \
-    --name "$AZURE_SPRING_APPS_INSTANCE_NAME" \
+    --resource-group "<resource-group>" \
+    --name "<azure-spring-apps-instance-name>" \
     --enable-private-storage-access true/false
 ```
 
 > [!IMPORTANT]
-> While enabling or disabling this feature, the way of DNS resolution to the backend storage will change. You may experience the short period of time of deployments cannot work.
+> While enabling or disabling this feature, the way of DNS resolution to the backend storage will change. You may experience a short period of time that deployments fail to establish connection to the backend storage or cannot resolve its endpoint.
 
 > [!IMPORTANT]
 > After enabling this feature, the backend storage is only privately accessible, so you have to deploy your application within the virtual network.
