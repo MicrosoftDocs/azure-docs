@@ -8,7 +8,7 @@ ms.author: heidist
 
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 04/25/2024
+ms.date: 05/26/2023
 ms.custom:
   - devx-track-csharp
   - ignite-2023
@@ -80,24 +80,25 @@ var telemetryClient = new TelemetryClient();
 telemetryClient.InstrumentationKey = "0000000000000000000000000000";
 ```
 
-### Request a Search ID for correlation
+<!-- ### Request a Search ID for correlation
+
+> [!IMPORTANT]
+> In the Azure portal, the snippets for request headers are made using an outdated version of the Azure SDK. Updates are pending.
 
 To correlate search requests with clicks, it's necessary to have a correlation ID that relates these two distinct events. Azure AI Search provides you with a search ID when you request it with an HTTP header.
 
 Having the search ID allows correlation of the metrics emitted by Azure AI Search for the request itself, with the custom metrics you're logging in Application Insights.
 
 ```csharp
-// Azure Search .NET SDK https://www.nuget.org/packages/Microsoft.Azure.Search 
-
-var client = new SearchIndexClient(<SEARCH SERVICE NAME>, <INDEX NAME>, new SearchCredentials(<QUERY KEY>))
+var client = new SearchClient(<SEARCH SERVICE NAME>, <INDEX NAME>, new AzureDefaultCredentials())
 var headers = new Dictionary<string, List<string>>() { { "x-ms-azs-return-searchid", new List<string>() { "true" } } };
 var response = await client.Documents.SearchWithHttpMessagesAsync(searchText: searchText, searchParameters: parameters, customHeaders: headers);
 IEnumerable<string> headerValues;
 string searchId = string.Empty;
 if (response.Response.Headers.TryGetValues("x-ms-azs-searchid", out headerValues)){
 	 searchId = headerValues.FirstOrDefault();
-}
-```
+} 
+```-->
 
 ### Log search events
 
