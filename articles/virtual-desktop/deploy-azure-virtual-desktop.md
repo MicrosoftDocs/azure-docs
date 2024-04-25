@@ -11,7 +11,11 @@ ms.date: 04/18/2024
 # Deploy Azure Virtual Desktop
 
 > [!IMPORTANT]
-> Azure Virtual Desktop for Azure Stack HCI is currently in preview for Azure Government and Azure China. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> The following features are currently in preview:
+> - Azure Virtual Desktop for Azure Stack HCI.
+> - Azure Virtual Desktop deployed in Azure Extended Zones.
+>
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 This article shows you how to deploy Azure Virtual Desktop on Azure or Azure Stack HCI by using the Azure portal, Azure CLI, or Azure PowerShell. To deploy Azure Virtual Desktop you:
 - Create a host pool.
