@@ -268,7 +268,7 @@ Updates in July include:
 
 |Date |Update  |
 |----------|----------|
-| July 31 | [Preview release of containers Vulnerability Assessment powered by Microsoft Defender Vulnerability Management in Defender for Containers and Defender for Container Registries](#preview-release-of-containers-vulnerability-assessment-powered-by-microsoft-defender-vulnerability-management-mdvm-in-defender-for-containers-and-defender-for-container-registries) |
+| July 31 | [Preview release of containers Vulnerability Assessment powered by Microsoft Defender Vulnerability Management in Defender for Containers and Defender for Container Registries](#preview-release-of-containers-vulnerability-assessment-with-microsoft-defender-vulnerability-management) |
 | July 30 | [Agentless container posture in Defender CSPM is now Generally Available](#agentless-container-posture-in-defender-cspm-is-now-generally-available) |
 | July 20 | [Management of automatic updates to Defender for Endpoint for Linux](#management-of-automatic-updates-to-defender-for-endpoint-for-linux) |
 | July 18 | [Agentless secrets scanning for virtual machines in Defender for servers P2 & Defender CSPM](#agentless-secrets-scanning-for-virtual-machines-in-defender-for-servers-p2--defender-cspm) |
@@ -276,7 +276,7 @@ Updates in July include:
 | July 9 | [Support for disabling specific vulnerability findings](#support-for-disabling-specific-vulnerability-findings) |
 | July 1 | [Data Aware Security Posture is now Generally Available](#data-aware-security-posture-is-now-generally-available) |
 
-### Preview release of containers Vulnerability Assessment powered by Microsoft Defender Vulnerability Management in Defender for Containers and Defender for Container Registries
+### Preview release of containers vulnerability assessment with Microsoft Defender Vulnerability Management 
 
 July 31, 2023
 
@@ -468,7 +468,7 @@ Updates in might include:
 - [Update of two Defender for DevOps recommendations to include Azure DevOps scan findings](#two-defender-for-devops-recommendations-now-include-azure-devops-scan-findings).
 - [New default setting for the Defender for Servers vulnerability assessment solution](#new-default-setting-for-defender-for-servers-vulnerability-assessment-solution).
 - [Ability to download a CSV report of your cloud security explorer query results (Preview)](#download-a-csv-report-of-your-cloud-security-explorer-query-results-preview).
-- [The release of containers Vulnerability Assessment powered by Microsoft Defender Vulnerability Management in Defender CSPM](#release-of-containers-vulnerability-assessment-powered-by-microsoft-defender-vulnerability-management-mdvm-in-defender-cspm).
+- [The release of containers vulnerability assessment with Microsoft Defender Vulnerability Management](#release-of-containers-vulnerability-assessment-powered-by-microsoft-defender-vulnerability-management-mdvm-in-defender-cspm).
 - [The renaming of container recommendations powered by Qualys](#renaming-container-recommendations-powered-by-qualys).
 - [An update to Defender for DevOps GitHub Application](#defender-for-devops-github-application-update).
 - [Change to Defender for DevOps Pull Request annotations in Azure DevOps repositories that now include Infrastructure as Code misconfigurations](#defender-for-devops-pull-request-annotations-in-azure-devops-repositories-now-includes-infrastructure-as-code-misconfigurations).
@@ -601,7 +601,7 @@ After your run a search for a query, you can select the **Download CSV report (P
 
 Learn how to [build queries with cloud security explorer](how-to-manage-cloud-security-explorer.md)
 
-### Release of containers vulnerability assessment with Microsoft Defender Vulnerability Management in Defender CSPM
+### The release of containers vulnerability assessment with Microsoft Defender Vulnerability Management
 
 We're announcing the release of Vulnerability Assessment for Linux images in Azure container registries powered by Microsoft Defender Vulnerability Management in Defender CSPM. This release includes daily scanning of images. Findings used in the Security Explorer and attack paths rely on Microsoft Defender Vulnerability Assessment, instead of the Qualys scanner.  
 
@@ -2170,7 +2170,7 @@ Other changes in November include:
 - [Snapshot export for recommendations and security findings (in preview)](#snapshot-export-for-recommendations-and-security-findings-in-preview)
 - [Autoprovisioning of vulnerability assessment solutions released for general availability (GA)](#autoprovisioning-of-vulnerability-assessment-solutions-released-for-general-availability-ga)
 - [Software inventory filters in asset inventory released for general availability (GA)](#software-inventory-filters-in-asset-inventory-released-for-general-availability-ga)
-- [New AKS security policy added to default initiative – preview](#new-aks-security-policy-added-to-default-initiative--for-use-by-private-preview-customers-only)
+- [New AKS security policy added to default initiative – preview](#new-aks-security-policy-added-to-default-initiative)
 - [Inventory display of on-premises machines applies different template for resource name](#inventory-display-of-on-premises-machines-applies-different-template-for-resource-name)
 
 ### Azure Security Center and Azure Defender become Microsoft Defender for Cloud
@@ -2312,7 +2312,7 @@ To use these features, you'll need to enable the [integration with Microsoft Def
 
 For full details, including sample Kusto queries for Azure Resource Graph, see [Access a software inventory](asset-inventory.md#access-a-software-inventory).
 
-### New AKS security policy added to default initiative – for use by preview customers only
+### New AKS security policy added to default initiative
 
 To ensure that Kubernetes workloads are secure by default, Defender for Cloud includes Kubernetes level policies and hardening recommendations, including enforcement options with Kubernetes admission control.
 
@@ -2986,7 +2986,7 @@ Updates in April include:
 - [Eleven Azure Defender alerts deprecated](#11-azure-defender-alerts-deprecated)
 - [Two recommendations from "Apply system updates" security control were deprecated](#two-recommendations-from-apply-system-updates-security-control-were-deprecated)
 - [Azure Defender for SQL on machine tile removed from Azure Defender dashboard](#azure-defender-for-sql-on-machine-tile-removed-from-azure-defender-dashboard)
-- [Recommendations were moved between security controls](#twenty-one-recommendations-moved-between-security-controls)
+- [Recommendations were moved between security controls](#recommendations-moved-between-security-controls)
 
 ### Refreshed resource health page (in preview)
 
@@ -4213,7 +4213,7 @@ Updates in August include:
 - [Added support for Azure Active Directory security defaults (for multifactor authentication)](#added-support-for-azure-active-directory-security-defaults-for-multifactor-authentication)
 - [Service principals recommendation added](#service-principals-recommendation-added)
 - [Vulnerability assessment on VMs - recommendations and policies consolidated](#vulnerability-assessment-on-vms---recommendations-and-policies-consolidated)
-- [New AKS security policies added to ASC_default initiative – for use by preview customers only](#new-aks-security-policies-added-to-asc_default-initiative--for-use-by-private-preview-customers-only)
+- [New AKS security policies added to ASC_default initiative](#new-aks-security-policies-added-to-asc_default-initiative--for-use-by-private-preview-customers-only)
 
 ### Asset inventory - powerful new view of the security posture of your assets
 
@@ -4291,7 +4291,7 @@ If you have scripts, queries, or automations referring to the previous recommend
 |----|:----|
 |[**Vulnerability assessment should be enabled on virtual machines**](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f501541f7-f7e7-4cd6-868c-4190fdad3ac9)<br>Policy ID: 501541f7-f7e7-4cd6-868c-4190fdad3ac9 |Built-in + BYOL|
 
-### New AKS security policies added to ASC_default initiative – for use by preview customers only
+### New AKS security policies added to ASC_default initiative
 
 To ensure that Kubernetes workloads are secure by default, Security Center is adding Kubernetes level policies and  hardening recommendations, including enforcement options with Kubernetes admission control.
 
