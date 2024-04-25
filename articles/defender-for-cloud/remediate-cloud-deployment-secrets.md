@@ -1,6 +1,6 @@
 ---
 title: Remediate cloud deployment secrets security issues in Microsoft Defender for Cloud
-description: Learn how to remediate cloud deployment secrets security issues in Microsoft Defender for Cloud
+description: Learn how to remediate cloud deployment secrets security issues in Microsoft Defender for Cloud.
 ms.topic: overview
 ms.date: 04/16/2024
 ---
@@ -8,7 +8,7 @@ ms.date: 04/16/2024
 
 # Remediate issues with cloud deployment secrets 
 
-Microsoft Defender for Cloud Defender for Cloud provides secrets scanning for virtual machines, and for cloud deployments, to reduce lateral movement risk.
+Microsoft Defender for Cloud provides secrets scanning for virtual machines, and for cloud deployments, to reduce lateral movement risk.
 
 This article helps you to identify and remediate security risks with cloud deployment secrets. 
 
@@ -25,7 +25,7 @@ This article helps you to identify and remediate security risks with cloud deplo
 
 ## Remediate secrets with attack paths
 
-Attack path analysis is a graph-based algorithm that scans your [cloud security graph](concept-attack-path.md#what-is-cloud-security-graph). to expose exploitable paths that attackers might use to reach high-impact assets. 
+Attack path analysis is a graph-based algorithm that scans your [cloud security graph](concept-attack-path.md#what-is-cloud-security-graph) to expose exploitable paths that attackers might use to reach high-impact assets. 
 
 
 1. Sign in to the [Azure portal](https://portal.azure.com).

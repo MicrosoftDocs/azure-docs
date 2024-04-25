@@ -12,7 +12,7 @@ Microsoft Defender for Cloud provides agentless secrets scanning for cloud deplo
 
 ## What is cloud deployment?
 
-Cloud deployments refers to the process of deploying and managing resources on cloud providers such as Azure and AWS at scale, using tools such as Azure Resource Manager templates and AWS CloudFormation stack. In other words, a cloud deployment is an instance of an infrastructure-as-code (IaC) template. 
+Cloud deployment refers to the process of deploying and managing resources on cloud providers such as Azure and AWS at scale, using tools such as Azure Resource Manager templates and AWS CloudFormation stack. In other words, a cloud deployment is an instance of an infrastructure-as-code (IaC) template. 
 
 Each cloud provide exposes an API query, and when querying APIs for cloud deployment resources, you typically retrieve deployment metadata such as deployment templates, parameters, output, and tags.
 
@@ -68,17 +68,13 @@ The following cloud deployment secrets security recommendations are available:
 
 ### Attack path scenarios
 
-The table summarizes supported attack paths. Currently an attack path for Azure Resource Manager deployments in Azure is supported: Internet exposed Azure VM with 
+Attack path analysis is a graph-based algorithm that scans your cloud security graph. to expose exploitable paths that attackers might use to reach high-impact assets.
 
  
 ### Predefined cloud security explorer queries
 
-In cloud security explorer, you can currently search for Azure Resource Manager deployments. For example, you might search for:
-Azure resource manager deployments, that contain secrets such as connection strings, SAS tokens, that can authenticate to 
+The cloud security explorer enables you to proactively identify potential security risks within your cloud environment. It does so by querying the cloud security graph. Create queries by selecting cloud deployment resource types, and the types of secrets you want to find.
 
-- VM with plaintext secret that can authenticate to another VM - Returns all Azure VMs, AWS EC2 instances, or GCP VM instances with plaintext secret that can access other VMs or EC2s.
-- VM with plaintext secret that can authenticate to a storage account - Returns all Azure VMs, AWS EC2 instances, or GCP VM instances with plaintext secret that can access storage accounts
-- VM with plaintext secret that can authenticate to an SQL database - Returns all Azure VMs, AWS EC2 instances, or GCP VM instances with plaintext secret that can access SQL databases.
 
 ## Related content
 

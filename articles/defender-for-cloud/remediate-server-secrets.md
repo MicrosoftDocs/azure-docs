@@ -1,6 +1,6 @@
 ---
 title: Remediate VM secrets security issues in Microsoft Defender for Cloud
-description: Learn how to remediate VM secrets security issues in Microsoft Defender for Cloud
+description: Learn how to remediate VM secrets security issues in Microsoft Defender for Cloud.
 ms.topic: overview
 ms.date: 04/16/2024
 ---
@@ -8,7 +8,7 @@ ms.date: 04/16/2024
 
 # Remediate VM secrets issues
 
-Microsoft Defender for Cloud Defender for Cloud provides secrets scanning for virtual machines (VMs), and for cloud deployments, to reduce lateral movement risk.
+Microsoft Defender for Cloud provides secrets scanning for virtual machines (VMs), and for cloud deployments, to reduce lateral movement risk.
 
 This article helps you to identify and remediate security risks with VM secrets.
 
@@ -19,17 +19,17 @@ This article helps you to identify and remediate security risks with VM secrets.
 
 - [Defender for Cloud](get-started.md) must be available in your Azure subscription.
 
-- One or either of these Defender for Cloud plans [must be enabled](enable-enhanced-security.md#enable-defender-plans-to-get-the-enhanced-security-features) either or both of the following two plans:
+- At least one of these plans [must be enabled](enable-enhanced-security.md#enable-defender-plans-to-get-the-enhanced-security-features):
   - [Defender for Servers Plan 2](plan-defender-for-servers-select-plan.md)
   - [Defender CSPM](concept-cloud-security-posture-management.md)
 
-- [Agentless machine scannins](enable-vulnerability-assessment-agentless.md#enabling-agentless-scanning-for-machines) must be enabled. Learn more about [agentless scanning](concept-agentless-data-collection.md#availability).
+- [Agentless machine scanning](enable-vulnerability-assessment-agentless.md#enabling-agentless-scanning-for-machines) must be enabled. Learn more about [agentless scanning](concept-agentless-data-collection.md#availability).
 
 
 
 ## Remediate secrets with attack paths
 
-Attack path analysis is a graph-based algorithm that scans your [cloud security graph](concept-attack-path.md#what-is-cloud-security-graph). to expose exploitable paths that attackers might use to reach high-impact assets. Defender for Cloud provides a number of attack paths scenarios for VM secrets.
+Attack path analysis is a graph-based algorithm that scans your [cloud security graph](concept-attack-path.md#what-is-cloud-security-graph) to expose exploitable paths that attackers might use to reach high-impact assets. Defender for Cloud provides a number of attack paths scenarios for VM secrets.
 
 
 1. Sign in to the [Azure portal](https://portal.azure.com).

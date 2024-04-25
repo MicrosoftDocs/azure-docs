@@ -16,15 +16,15 @@ Defender for Cloud's agentless secrets scanning for Virtual Machines (VM) locate
 
 Secrets scanning for VMs is agentless and uses cloud APIs.
 
-- Scanning captures disk snapshots and analyses them, with no impact on VM performance. 
-- After the Microsoft secrets scanning engine collects secrets metadata from disk, it sends them to Defender for Cloud. 
-- The secrets scanning engine verifies whether SSH private keys can be used to move laterally in your network.
+1. Scanning captures disk snapshots and analyses them, with no impact on VM performance.
+1. After the Microsoft secrets scanning engine collects secrets metadata from disk, it sends them to Defender for Cloud. 
+1. The secrets scanning engine verifies whether SSH private keys can be used to move laterally in your network.
     - SSH keys that aren’t successfully verified are categorized as unverified on the Defender for Cloud Recommendations page. 
     - Directories recognized as containing test-related content are excluded from scanning.
 
 ## What’s supported?
 
-VM secrets scanning is available when you’re using either of these plans: Defender for Servers plan 2/Defender Cloud Security Posture Management (CSPM). VM secrets scanning scans Azure VMs, and AWS/GCP instances onboarded to Defender for Cloud. Review the secrets that can be discovered by Defender for Cloud.
+VM secrets scanning is available when you’re using either Defender for Servers Plan 2 or Defender Cloud Security Posture Management (CSPM). VM secrets scanning is able to scan Azure VMs, and AWS/GCP instances onboarded to Defender for Cloud. Review the secrets that can be discovered by Defender for Cloud.
 
 ## How does VM secrets scanning mitigate risk?
 
@@ -41,7 +41,7 @@ There are a number of ways. Not every method is supported for every secret. Revi
 
 - Review secrets in the asset inventory: The inventory shows the security state of resources connected to Defender for Cloud. From the inventory you can view the secrets discovered on a specific machine.
 - Review secrets recommendations: When secrets are found on assets, a recommendation is triggered under the Remediate vulnerabilities security control on the Defender for Cloud Recommendations page. Recommendations are triggered as follows:
-- Review secrets with cloud security explorer.  Use cloud security explorer to query the cloud security graph. You can build your own queries, or use one of the built-in templates to query for VM secrets across your environment.
+- Review secrets with cloud security explorer. Use cloud security explorer to query the cloud security graph. You can build your own queries, or use one of the built-in templates to query for VM secrets across your environment.
 - Review attack paths: Attack path analysis scans the cloud security graph to expose exploitable paths that attacks might use to breach your environment and reach high-impact assets. VM secrets scanning supports a number of attack path scenarios.
     
 ### Security recommendations
@@ -60,7 +60,7 @@ The table summarizes supported attack paths.
 **VM** | **Attack paths**
 --- | ---
 Azure | Exposed Vulnerable VM has an insecure SSH private key that is used to authenticate to a VM.<br/>Exposed Vulnerable VM has insecure secrets that are used to authenticate to a storage account.<br/>Vulnerable VM has insecure secrets that are used to authenticate to a storage account.<br/>Exposed Vulnerable VM has insecure secrets that are used to authenticate to an SQL server.
-AWS | Exposed Vulnerable EC2 instance has an insecure SSH private key that is used to authenticate to an EC2 instance.<br/>Exposed Vulnerable EC2 instance has an insecure secret that are used to authenticate to a storage account.<br/>Exposed Vulnerable EC2 instance has insecure secrets that are used to authenticate to an AWS RDS server.<br/>Vulnerable EC2 instance has insecure secrets that are used to authenticate to an AWS RDS server.
+AWS | Exposed Vulnerable EC2 instance has an insecure SSH private key that is used to authenticate to an EC2 instance.<br/>Exposed Vulnerable EC2 instance has an insecure secret that is used to authenticate to a storage account.<br/>Exposed Vulnerable EC2 instance has insecure secrets that are used to authenticate to an AWS RDS server.<br/>Vulnerable EC2 instance has insecure secrets that are used to authenticate to an AWS RDS server.
 GCP | Exposed Vulnerable GCP VM instance has an insecure SSH private key that is used to authenticate to a GCP VM instance.
 
 ### Predefined cloud security explorer queries
