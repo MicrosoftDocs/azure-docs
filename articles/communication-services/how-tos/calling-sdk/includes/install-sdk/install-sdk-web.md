@@ -16,9 +16,9 @@ npm install @azure/communication-calling --save
 
 ## Initialize required objects
 
-A `CallClient` instance is required for most call operations. Here, you create a new `CallClient` instance. You can configure it with custom options like a `Logger` instance.
+A `CallClient` instance is required for most call operations. When you create a new `CallClient` instance, you can configure it with custom options like a `Logger` instance.
 
-When you have a `CallClient` instance, you can create a `CallAgent` instance by calling the `createCallAgent` method on the `CallClient` instance. This method asynchronously returns a `CallAgent` instance object.
+With the `CallClient` instance, you can create a `CallAgent` instance by calling the `createCallAgent`. This method asynchronously returns a `CallAgent` instance object.
 
 The `createCallAgent` method uses `CommunicationTokenCredential` as an argument. It accepts a [user access token](../../../../quickstarts/identity/access-tokens.md).
 

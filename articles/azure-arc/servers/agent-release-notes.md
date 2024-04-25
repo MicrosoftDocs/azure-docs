@@ -18,7 +18,11 @@ This page is updated monthly, so revisit it regularly. If you're looking for ite
 
 ## Version 1.40 - April 2024
 
-Download for [Windows](https://download.microsoft.com/download/c/c/e/cce7456c-e998-4fa1-9566-f43f4a2f6a6f/AzureConnectedMachineAgent.msi) or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
+Download for [Windows](https://download.microsoft.com/download/2/1/0/210f77ca-e069-412b-bd94-eac02a63255d/AzureConnectedMachineAgent.msi) or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
+
+### Known issues
+
+The first release of the 1.40 agent may impact SQL Server enabled by Azure Arc when configured with least privileges on Windows servers. The 1.40 agent was re-released to address this problem. To check if your server is affected, run `azcmagent show` and locate the agent version number. Agent version `1.40.02664.1629` has the known issue and agent `1.40.02669.1635` fixes it. Download and install the [latest version of the agent](https://aka.ms/AzureConnectedMachineAgent) to restore functionality for SQL Server enabled by Azure Arc.
 
 ### New features
 
