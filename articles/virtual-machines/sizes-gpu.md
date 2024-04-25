@@ -26,7 +26,7 @@ GPU optimized VM sizes are specialized virtual machines available with single, m
 
 - [NGads V620-series](ngads-v-620-series.md) VM sizes are optimized for high performance, interactive gaming experiences hosted in Azure.  They're powered by AMD Radeon PRO V620 GPUs and AMD EPYC 7763 (Milan) CPUs.
 
-- [NV-series](nv-series.md) and [NVv3-series](nvv3-series.md) sizes are optimized and designed for remote visualization, streaming, gaming, encoding, and VDI scenarios using frameworks such as OpenGL and DirectX. These VMs are backed by the NVIDIA Tesla M60 GPU.
+- [NVv3-series](nvv3-series.md) and [NVads A10 v5-series](nva10v5-series.md) sizes are optimized and designed for remote visualization, streaming, gaming, encoding, and VDI scenarios using frameworks such as OpenGL and DirectX. These VMs are backed by the NVIDIA Tesla M60 GPU (NVv3) and A10 GPUs(NVads A10 v5).
 
 - [NVv4-series](nvv4-series.md) VM sizes optimized and designed for VDI and remote visualization. With partitioned GPUs, NVv4 offers the right size for workloads requiring smaller GPU resources. These VMs are backed by the AMD Radeon Instinct MI25 GPU. NVv4 VMs currently support only Windows guest operating system.
 
