@@ -12,17 +12,27 @@ author: bwren
 [Azure Monitor pipeline](./pipeline-overview.md) is a data ingestion pipeline providing consistent and centralized data collection for Azure Monitor. The [edge pipeline](./pipeline-overview.md#edge-pipeline) enables at-scale collection, and routing of telemetry data before it's sent to the cloud. It can cache data locally and sync with the cloud when connectivity is restored and route telemetry to Azure Monitor in cases where the network is segmented and data cannot be sent directly to the cloud. This article describes how to enable and configure the edge pipeline in your environment. 
 
 ## Overview
-The Azure Monitor edge pipeline is a containerized solution that is deployed on an [Arc-enabled Kubernetes cluster](../../azure-arc/kubernetes/overview.md). It leverages OpenTelemetry Collector as a foundation.
-
-The following diagram shows the components of the edge pipeline. One or more data flows listens for incoming data from clients, and the pipeline extension forwards the data to the cloud, using the local cache if necessary.
+The Azure Monitor edge pipeline is a containerized solution that is deployed on an [Arc-enabled Kubernetes cluster](../../azure-arc/kubernetes/overview.md). It leverages OpenTelemetry Collector as a foundation. The following diagram shows the components of the edge pipeline. One or more data flows listens for incoming data from clients, and the pipeline extension forwards the data to the cloud, using the local cache if necessary.
 
 The pipeline configuration file defines the data flows and cache properties for the edge pipeline. The [DCR](./pipeline-overview.md#data-collection-rules) defines the schema of the data being sent sent to the cloud pipeline, a transformation to filter or modify the data, and the destination where the data should be sent. Each data flow definition for the pipeline configuration specifies the DCR and stream within that DCR that will process that data in the cloud pipeline.
 
 :::image type="content" source="media/edge-pipeline/edge-pipeline-configuration.png" lightbox="media/edge-pipeline/edge-pipeline-configuration.png" alt-text="Overview diagram of the dataflow for Azure Monitor edge pipeline." border="false"::: 
 
+The following components are required to enable and configure the Azure Monitor edge pipeline. If you use the Azure portal to configure the edge pipeline, then each of these components is created for you. With other methods, you need to configure each one.
+
+
+| Component | Description |
+|:---|:---|
+| Edge pipeline controller extension | Extension added to your Arc-enabled Kubernetes cluster to support pipeline functionality - `microsoft.monitor.pipelinecontroller`. |
+| Edge pipeline controller instance | Instance of the edge pipeline running on your Arc-enabled Kubernetes cluster. |
+| Data flow | Combination of receivers and exporters that run on the pipeline controller instance. Receivers accept data from clients, and exporters to deliver that data to Azure Monitor. |
+| Pipeline configuration | Configuration file that defines the data flows for the pipeline instance. Each data flow includes a receiver and an exporter. The receiver listens for incoming data, and the exporter sends the data to the destination. |
+| Data collection endpoint (DCE) | Endpoint where the data is sent to the Azure Monitor pipeline. The pipeline configuration includes a property for the URL of the DCE so the pipeline instance knows where to send the data. |
+| Data collection rule (DCR) | Configuration file that defines how the data is received in the cloud pipeline and where it's sent. The DCR can also include a transformation to filter or modify the data before it's sent to the destination. |
+
 ## Supported configurations
 
-### Supported distros
+**Supported distros**
 Edge pipeline is supported on the following Kubernetes distributions:
 
 - Canonical
@@ -31,7 +41,7 @@ Edge pipeline is supported on the following Kubernetes distributions:
 - Rancher Kubernetes Engine
 - VMware Tanzu Kubernetes Grid
 
-### Supported locations
+**Supported locations**
 Edge pipeline is supported in the following Azure regions:
 
 - East US2
@@ -57,23 +67,19 @@ The following table and diagram describe the detailed steps and components in th
 | 2. | Receiver forwards data to the exporter. | Receiver and exporter are configured in the same pipeline. |
 | 3. | Exporter tries to send the data to the cloud pipeline. | Exporter in the pipeline configuration includes URL of the DCE, a unique identifier for the DCR, and the stream in the DCR that defines how the data will be processed. |
 | 3a. | Exporter stores data in the local cache if it can't connect to the DCE. | Persistent volume for the cache and configuration of the local cache is enabled in the pipeline configuration. |
+
+:::image type="content" source="media/edge-pipeline/edge-pipeline-data-flow.png" lightbox="media/edge-pipeline/edge-pipeline-data-flow.png" alt-text="Detailed diagram of the steps and components for data collection using Azure Monitor edge pipeline." border="false":::
+
+| Step | Action | Supporting configuration |
+|:---|:---|:---|
 | 4. | Cloud pipeline accepts the incoming data. | The DCR includes a schema definition for the incoming stream that must match the schema of the data coming from the edge pipeline. |
 | 5. | Cloud pipeline applies a transformation to the data. | The DCR includes a transformation that filters or modifies the data before it's sent to the destination. The transformation may filter data, remove or add columns, or completely change its schema. The output of the transformation must match the schema of the destination table. |
 | 6. | Cloud pipeline sends the data to the destination. | The DCR includes a destination that specifies the Log Analytics workspace and table where the data will be stored. |
 
-:::image type="content" source="media/edge-pipeline/edge-pipeline-data-flows.png" lightbox="media/edge-pipeline/edge-pipeline-data-flows.png" alt-text="Detailed diagram of the steps and components for data collection using Azure Monitor edge pipeline." border="false"::: 
+:::image type="content" source="media/edge-pipeline/cloud-pipeline-data-flow.png" lightbox="media/edge-pipeline/cloud-pipeline-data-flow.png" alt-text="Detailed diagram of the steps and components for data collection using Azure Monitor cloud pipeline." border="false"::: 
 
-## Components
-The following components are required to enable and configure the Azure Monitor edge pipeline. If you use the Azure portal to configure the edge pipeline, then each of these components is created for you. With other methods, you need to configure each one.
+## Segmented network
 
-
-| Component | Description |
-|:---|:---|
-| Edge pipeline controller extension | Extension added to your Arc-enabled Kubernetes cluster to support pipeline functionality - `microsoft.monitor.pipelinecontroller`. |
-| Edge pipeline controller instance | Instance of the edge pipeline running on your Arc-enabled Kubernetes cluster with a set of receivers to accept client data and exporters to deliver that data to Azure Monitor. |
-| Pipeline configuration | Configuration file that defines the data flows for the pipeline instance. Each data flow includes a receiver and an exporter. The receiver listens for incoming data, and the exporter sends the data to the destination. |
-| Data collection endpoint (DCE) | Endpoint where the data is sent to the Azure Monitor pipeline. The pipeline configuration includes a property for the URL of the DCE so the pipeline instance knows where to send the data. |
-| Data collection rule (DCR) | Configuration file that defines how the data is received in the cloud pipeline and where it's sent. The DCR can also include a transformation to filter or modify the data before it's sent to the destination. |
 
 ## Create table in Log Analytics workspace
 
@@ -854,7 +860,7 @@ In the Azure portal, navigate to the **Kubernetes services** menu and select you
 - \<pipeline name\>-external-service 
 - \<pipeline name\>-service 
 
-:::image type="content" source="media/edge-pipeline/heartbeat-records.png" lightbox="media/edge-pipeline/heartbeat-records.png" alt-text="Screenshot of log query that returns heartbeat records for Azure Monitor edge pipeline." border="false"::: 
+:::image type="content" source="media/edge-pipeline/heartbeat-records.png" lightbox="media/edge-pipeline/heartbeat-records.png" alt-text="Screenshot of log query that returns heartbeat records for Azure Monitor edge pipeline." ::: 
 
 Click on the entry for **\<pipeline name\>-external-service** and note the IP address and port in the **Endpoints** column. This is the external IP address and port that your clients will send data to.
 
@@ -863,7 +869,7 @@ Each pipeline configured in your pipeline instance will send a heartbeat record 
 
 Retrieve the heartbeat records using a log query as in the following example:
 
-:::image type="content" source="media/edge-pipeline/heartbeat-records.png" lightbox="media/edge-pipeline/heartbeat-records.png" alt-text="Screenshot of log query that returns heartbeat records for Azure Monitor edge pipeline." border="false"::: 
+:::image type="content" source="media/edge-pipeline/heartbeat-records.png" lightbox="media/edge-pipeline/heartbeat-records.png" alt-text="Screenshot of log query that returns heartbeat records for Azure Monitor edge pipeline." ::: 
 
 
 ## Client configuration
