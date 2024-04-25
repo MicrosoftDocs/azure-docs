@@ -38,21 +38,21 @@ To use a tool such as Power BI to analyze your OPC UA data, you need to send the
 
 ## Grant access to your Microsoft Fabric workspace
 
-You need to allow the MQ extension on your cluster to connect to your Microsoft Fabric workspace. You made a note of the MQ extension name in the deployment quickstart. The name of the extension looks like `mq-z2ewy`.
+You need to allow the MQ extension on your cluster to connect to your Microsoft Fabric workspace. You made a note of the MQ extension name in the [deployment quickstart](quickstart-deploy.md#view-resources-in-your-cluster). The name of the extension looks like `mq-z2ewy`.
 
 > [!TIP]
 > If you need to find the unique name assigned to your MQ extension, run the following command to list your cluster extensions: `az k8s-extension list --resource-group <your-resource-group-name> --cluster-name <your-kubernetes-cluster-name> --cluster-type connectedClusters -o table`
 
 Navigate to the [Microsoft Fabric Power BI experience](https://msit.powerbi.com/groups/me/list?experience=power-bi). To ensure you can see the **Manage access** option in your Microsoft Fabric workspace, create a new workspace:
 
-1. Select **Workspaces** in the left navigation bar, then select **New Workspace**:
+1. Select **Workspaces** in the left navigation bar, then select **New workspace**:
 
     :::image type="content" source="media/quickstart-upload-telemetry-to-cloud/create-fabric-workspace.png" alt-text="Screenshot that shows how to create a new Microsoft Fabric workspace."::: <!-- TODO: Update this screenshot to a recommended name for the workspace -->
 
 1. Enter a name for your workspace, such as _yournameaioworkspace_, and select **Apply**. Make a note of this name, you need it later.
 
     > [!TIP]
-    > Don't include any spaces in the name of your workspace
+    > Don't include any spaces in the name of your workspace.
 
 To grant the MQ extension access to your Microsoft Fabric workspace:
 
@@ -107,7 +107,7 @@ In this quickstart, you used the data lake connector for Azure IoT MQ to ingest 
 
 ## Clean up resources
 
-If you're not going to continue to use this deployment, delete the Kubernetes cluster that you deployed Azure IoT Operations to and remove the Azure resource group that contains the cluster.
+If you're not going to continue to use this deployment, delete the Kubernetes cluster where you deployed Azure IoT Operations and remove the Azure resource group that contains the cluster.
 
 You can also delete your Microsoft Fabric workspace.
 
