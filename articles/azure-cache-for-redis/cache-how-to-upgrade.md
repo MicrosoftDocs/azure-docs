@@ -22,10 +22,19 @@ This article details how to upgrade your Redis instance to the latest version of
 
 ## Scope of availability
 
-| **Tier**         | Basic, Standard, Premium                                | Enterprise, Enterprise Flash |
-|:--------------------------|:----------------------------------------------:|:----------------------------:|
-| **Latest Redis Version** | Redis 6.0 (GA)                                 | Redis 6.2 (GA) / Redis 7.2 (Preview)|
-| **Upgrade Policy** | Manual upgrade to newer version     | Automatic upgrade to latest GA version         |
+This table contains the information for Redis upgrades features available in each tier.
+
+| Tier                         | Automatic Upgrade | Manual Upgrade |
+|:---------------------------- |:-----------------:|:--------------:|
+| Basic, Standard, Premium     |        Yes        |       No       |
+| Enterprise, Enterprise Flash |        Yes        |       No       |
+
+This table contains the information for which Redis version are available in each tier.
+
+| Tier                         |        Available Redis version       |
+|:---------------------------- |:------------------------------------:|
+| Basic, Standard, Premium     |               6.0 (GA)               |
+| Enterprise, Enterprise Flash | Redis 6.2 (GA), Redis 7.2 (preview)  |
 
 ## How to upgrade - Basic, Standard, and Premium tiers
 
@@ -41,7 +50,7 @@ Currently, no upgrade is available.
 
 Redis server version upgrades are made automatically as a part of the standard monthly patching process. Upgrades to the latest version of Redis occur once that Redis version reaches general availability (GA) on Azure.
 
-Your Redis instance is automatically upgraded to a preview version of Redis software.
+Your Redis instance is automatically upgraded to a preview version of Redis server software.
 
 ### Trigger an upgrade manually
 
