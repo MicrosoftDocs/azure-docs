@@ -33,6 +33,7 @@ Here are a few examples of the kinds of prompts you can use to generate Azure CL
 - "Create VNet service endpoints for Azure Database for PostgreSQL using CLI"
 - "I want to create a function app with a named storage account connection using Azure CLI"
 - "How to create an App Service app and deploy code to a staging environment using CLI?"
+- "I want to use Azure CLI to deploy and manage AKS using a private service endpoint."
 
 ## Examples
 
