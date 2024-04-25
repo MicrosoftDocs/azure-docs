@@ -1,31 +1,30 @@
 ---
 title: Request a quota limit increase for Dev Box resources
-description: Learn how to request a quota increase to expand the number of dev box resources you can use in your subscription. Request an increase for dev box cores and other resources.
+description: Extend the number of dev box resources you can use in your subscription by requesting a quota increase of dev box cores, dev centers, and other types of resources.
 services: dev-box
 ms.service: dev-box
 author: RoseHJM
 ms.author: rosemalcolm
 ms.topic: how-to
-ms.date: 01/11/2024
+ms.date: 04/25/2024
+
+#customer intent: As a platform engineer, I want to understand how to request a quota increase for Dev Box resources so that I can expand the number of resources developers can use in my subscriptions.
 ---
 
-
-# Quota limits for Microsoft Dev Box resources
+# Manage quota for Microsoft Dev Box resources
 
 This article describes how to determine your quota limits and usage. It also describes how to submit a support request to increase the number of resources for Microsoft Dev Box in your Azure subscription. 
 
 To ensure that resources are available for customers, Microsoft Dev Box has a limit on the number of each type of resource that can be used in a subscription. This limit is called a _quota_.  
 
-There are different types of quotas related to Dev Box that you might see in the Developer portal and Azure portal, such as quota for Dev Box vCPU for box creation as well as resource limits for Dev Centers, network connections, and Dev Box Definitions.
+There are different types of quotas related to Dev Box that you might see in the Developer portal and Azure portal. Quota types include quota for Dev Box vCPU for box creation, and resource limits for Dev Centers, network connections, and Dev Box Definitions.
 
 Here are some examples of quota limits you might encounter:
 
-- There are limits on the number of vCPUs available for dev boxes. You might encounter this quota error in the Microsoft **[developer portal](https://aka.ms/devbox-portal)** during dev box creation.
-- There are limits for dev centers, network connections, and dev box definitions. You can find information about these limits through the **Azure portal**.
+- There are limits on the number of vCPUs available for dev boxes. You might encounter this quota error in the developer portal during dev box creation. For example, if dev box users encounter a vCPU quota error such as *QuotaExceeded* during dev box creation there might be a need to increase this quota. 
+- There are default subscription limits for dev centers, network connections, and dev box definitions. For more information, see [Microsoft Dev Box limits](../azure-resource-manager/management/azure-subscription-service-limits.md#microsoft-dev-box-limits).
 
-When you reach the limit for a resource in your subscription, you can request a limit increase (sometimes called a capacity increase, or a quota increase) to extend the number of resources available. The request process allows the Microsoft Dev Box team to ensure your subscription isn't involved in any cases of fraud or unintentional, sudden large-scale deployments. 
-
-Learn more about the general [process for creating Azure support requests](../azure-portal/supportability/how-to-create-azure-support-request.md).
+When you reach the limit for a resource in your subscription, you can request an increase to extend the number of resources available. The request process allows the Microsoft Dev Box team to ensure your subscription isn't involved in any cases of fraud or unintentional, sudden large-scale deployments. 
 
 ## Prerequisites
 
@@ -33,15 +32,13 @@ Learn more about the general [process for creating Azure support requests](../az
 
 ## Determine resource usage and quota for Microsoft Dev Box  
 
-Understanding quota limits that affect your Dev Box resources helps you to plan for future use. You can check the [default quota level](/azure/azure-resource-manager/management/azure-subscription-service-limits?branch=main#microsoft-dev-box-limits) for each resource, view your current usage, and determine how much quota remains in each region. By monitoring the rate at which your quota is used, you can plan and prepare to request a quota limit increase before you reach the quota limit for the resource.
+Understanding quota limits that affect your Dev Box resources helps you to plan for future use. You can check the [default subscription limit](/azure/azure-resource-manager/management/azure-subscription-service-limits?branch=main#microsoft-dev-box-limits) for each resource, view your current usage, and determine how much quota remains in each region. By monitoring the rate at which your quota is used, you can plan and prepare to request a quota limit increase before you reach the quota limit for the resource. 
 
-To help you understand where and how you're using your quota, Azure provides the Quota Management System (QMS) to manage requests to view or alter quota. QMS provides several advantages to the Dev Box service including:  
+To help you understand where and how you're using your quota, the Quota Management System (QMS) provides a detailed report of resource usage across resources types in each of your subscriptions on the **My Quotas** page. QMS provides several advantages to the Dev Box service including:  
 
+- Improved User Experience for an easier requesting process.
 - Expedited approvals via automation based on thresholds.  
 - Metrics to monitor quota usage in existing subscription.  
-- Improved User Experience for an easier requesting experience 
-
-For example, if dev box users encounter a vCPU quota error such as *QuotaExceeded*, during dev box creation there might be a need to increase this quota. A great place to start is to determine the current quota available.   
 
 ## Request a quota increase through QMS
 
@@ -75,6 +72,8 @@ For example, if dev box users encounter a vCPU quota error such as *QuotaExceede
    :::image type="content" source="media/how-to-request-quota-increase/new-quota-request-result.png" alt-text="Screenshot of the Quota request pane showing the request result." lightbox="media/how-to-request-quota-increase/new-quota-request-result.png":::
 
 ## Initiate a support request by using Support + troubleshooting
+
+As an alternative to using the Quota Management System (QMS) in the Azure portal, you can initiate a support request to increase your quota limit by using the **Support + Troubleshooting** feature. This feature provides a guided experience to help you create a support request for quota increases.
 
 1. On the Azure portal home page, select the **Support + Troubleshooting** icon (question mark) on the toolbar.
  
@@ -161,7 +160,7 @@ To complete the support request form, configure the remaining settings. When you
    | Setting | Value |
    |---|---|
    | **First name** | Enter your first name. |
-   | **Last name** | Enter your last name. |
+   | **Last name** | Enter your last name or family name. |
    | **Email** | Enter your contact email. |
    | **Additional email for notification** | Enter an email for notifications. |
    | **Phone** | Enter your contact phone number. |
@@ -176,5 +175,5 @@ To complete the support request form, configure the remaining settings. When you
 
 ## Related content
 
-- Check your quota usage by [determining usage and quota](./how-to-determine-your-quota-usage.md)
-- Check the default quota for each resource type by subscription type with [Microsoft Dev Box limits](../azure-resource-manager/management/azure-subscription-service-limits.md#microsoft-dev-box-limits)
+- Check the default quota for each resource type by subscription type with [Microsoft Dev Box limits](../azure-resource-manager/management/azure-subscription-service-limits.md#microsoft-dev-box-limits).
+- Learn more about the general [process for creating Azure support requests](../azure-portal/supportability/how-to-create-azure-support-request.md).
