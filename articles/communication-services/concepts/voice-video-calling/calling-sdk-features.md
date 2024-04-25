@@ -96,11 +96,11 @@ The following list presents the set of features that are currently available in 
 |                   | Set / update scaling mode                                                                                           | ✔️   | ✔️       | ✔️              | ✔️                 |
 |                   | Render remote video stream                                                                                          | ✔️   | ✔️       | ✔️              | ✔️                 |
 | Video Effects     | [Background Blur](../../quickstarts/voice-video-calling/get-started-video-effects.md)          | ✔️   | ✔️       | ✔️              | ✔️                 |
-|                   | Custom background image                                                                                             | ✔️   | ❌       | ❌              | ❌                 |
-| Audio Effects     | [Music Mode](./music-mode.md)          | ❌   | ✔️       | ✔️              | ✔️                 |
-|      | [Audio filters](../../how-tos/calling-sdk/manage-audio-filters.md)          | ❌   | ✔️       | ✔️              | ✔️                 |
-|      | [Noise Supression](../../tutorials/audio-quality-enhancements/add-noise-supression.md)          | ✔️   | ❌       | ❌              | ❌                 |
-| Notifications <sup>4</sup>    | [Push notifications](../../how-tos/calling-sdk/push-notifications.md)          | ✔️  | ✔️       | ✔️              | ✔️                 |
+|                   | Custom background image                                                                                             | ✔️   | ✔️       | ✔️              | ✔️                 |
+| [Audio Effects](../../tutorials/audio-quality-enhancements/add-noise-supression.md)       | [Music Mode](./music-mode.md)          | ❌   | ✔️       | ✔️              | ✔️                 |
+|      | Echo cancellation <sup>4</sup>        | ❌   | ✔️       | ✔️              | ✔️                 |
+|      | Noise Supression          | ✔️   | ✔️       | ✔️              | ✔️                 |
+| Notifications <sup>5</sup>    | [Push notifications](../../how-tos/calling-sdk/push-notifications.md)          | ✔️  | ✔️       | ✔️              | ✔️                 |
 
 <sup>1</sup> The capability to Mute Others is currently in public preview.
 
@@ -108,7 +108,9 @@ The following list presents the set of features that are currently available in 
 
 <sup>3</sup> The Calling SDK doesn't have an explicit API for these functions, you should use the Android & iOS OS APIs to achieve instead.
 
-<sup>4</sup> The maximum value for TTL in native platforms, is **180 days (15,552,000 seconds)**, and the min value is **5 minutes (300 seconds)**. For CTE (Custom Teams Endpoint)/M365 Identity the max TTL value is **24 hrs (86,400 seconds)**.
+<sup>4</sup> Echo canellation powered by AI model called DeepVQE
+
+<sup>5</sup> The maximum value for TTL in native platforms, is **180 days (15,552,000 seconds)**, and the min value is **5 minutes (300 seconds)**. For CTE (Custom Teams Endpoint)/M365 Identity the max TTL value is **24 hrs (86,400 seconds)**.
 
 ## JavaScript Calling SDK support by OS and browser
 
