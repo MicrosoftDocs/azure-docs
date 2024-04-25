@@ -10,9 +10,9 @@ author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
 
-# Tutorial: Configure protection for data sources (preview) 
+# Tutorial: Configure protection for data sources 
 
-This tutorial guides you to configure protection for your data sources that are currently not protected by any solution using Azure Business Continuity center (preview). 
+This tutorial guides you to configure protection for your data sources that are currently not protected by any solution using Azure Business Continuity center. 
 
 The key principle of data protection is to safeguard and make data or application available under all circumstances.
 
@@ -55,7 +55,7 @@ This tutorial uses option 1 shown in the Getting started section to initiate the
 1. Go to one of the views from **Overview, Protectable resources**, **Protected items**, and so on, and then select **Configure Protection** from the menu available on the top of the view.
     :::image type="content" source="./media/tutorial-configure-protection-datasource/configure-multiple-resources.png" alt-text="Screenshot showing **Configure protection** option." lightbox="./media/tutorial-configure-protection-datasource/configure-multiple-resources.png":::
 
-2. On the **Configure protection** pane, choose **Resources managed by**, select **Datasource type** for which you want to configure protection, and then select the solution (limited to Azure Backup and Azure Site Recovery in this preview) by which you want to configure protection.
+2. On the **Configure protection** pane, choose **Resources managed by**, select **Datasource type** for which you want to configure protection, and then select the solution (limited to Azure Backup and Azure Site Recovery) by which you want to configure protection.
     :::image type="content" source="./media/tutorial-configure-protection-datasource/configure-protection.png" alt-text="Screenshot showing **Configure protection** page." lightbox="./media/tutorial-configure-protection-datasource/configure-protection.png":::
 
 > [!NOTE]
