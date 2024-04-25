@@ -162,7 +162,7 @@ When incoming audio is muted, the participant client SDK still receives the call
 
 ## Mute other participants
 > [!NOTE]
-> This API is provided as a preview for developers and may change based on feedback that we receive. To use this API please use 'beta' release of Azure Communication Services Calling Web SDK version 1.18.1 or higher. 
+> This API is provided as a preview for developers and may change based on feedback that we receive. To use this API please use 'beta' release of Azure Communication Services Calling Web SDK version 1.24.1 or higher. 
 
 To mute all other participants or mute a specific participant, you can use the asynchronous APIs `muteAllRemoteParticipants` on the call and `mute` on the remote participant. The `mutedByOthers` event from Call is raised when the local participant has been muted by others.
 
@@ -172,6 +172,11 @@ await call.muteAllRemoteParticipants();
 
 //mute a specific participant
 await call.remoteParticipants[0].mute();
+
+// Subscribe to mutedByOthers event and notify local participant they have been muted
+call.on('mutedByOthers', () => {
+    console.log("You have been muted");
+});
 ```
 
 ## Manage remote participants
