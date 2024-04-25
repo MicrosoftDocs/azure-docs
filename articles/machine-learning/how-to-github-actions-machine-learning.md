@@ -52,7 +52,7 @@ You'll need to first define how to authenticate with Azure. You can use a [servi
 
 You'll need to update the CLI setup file variables to match your workspace. 
 
-1. In your cloned repository, go to `azureml-examples/cli/`. 
+1. In your forked repository, go to `azureml-examples/cli/`. 
 1. Edit `setup.sh` and update these variables in the file. 
    
     |Variable  | Description  |
@@ -65,7 +65,7 @@ You'll need to update the CLI setup file variables to match your workspace.
 
 You'll use a `pipeline.yml` file to deploy your Azure Machine Learning pipeline. This is a machine learning pipeline and not a DevOps pipeline. You only need to make this update if you're using a name other than `cpu-cluster` for your computer cluster name. 
 
-1. In your cloned repository, go to `azureml-examples/cli/jobs/pipelines/nyc-taxi/pipeline.yml`. 
+1. In your forked repository, go to `azureml-examples/cli/jobs/pipelines/nyc-taxi/pipeline.yml`. 
 1. Each time you see `compute: azureml:cpu-cluster`, update the value of `cpu-cluster` with your compute cluster name. For example, if your cluster is named `my-cluster`, your new value would be `azureml:my-cluster`. There are five updates.
 
 ## Step 5: Run your GitHub Actions workflow
@@ -83,7 +83,7 @@ Your workflow file is made up of a trigger section and jobs:
 
 ### Enable your workflow
 
-1. In your cloned repository, open `.github/workflows/cli-jobs-pipelines-nyc-taxi-pipeline.yml` and verify that your workflow looks like this. 
+1. In your forked repository, open `.github/workflows/cli-jobs-pipelines-nyc-taxi-pipeline.yml` and verify that your workflow looks like this. 
 
     ```yaml
     name: cli-jobs-pipelines-nyc-taxi-pipeline
@@ -135,7 +135,7 @@ Your workflow file is made up of a trigger section and jobs:
 
 ### Enable your workflow
 
-1. In your cloned repository, open `.github/workflows/cli-jobs-pipelines-nyc-taxi-pipeline.yml` and verify that your workflow looks like this.
+1. In your forked repository, open `.github/workflows/cli-jobs-pipelines-nyc-taxi-pipeline.yml` and verify that your workflow looks like this.
 
     ```yaml
     name: cli-jobs-pipelines-nyc-taxi-pipeline
