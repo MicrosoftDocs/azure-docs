@@ -91,6 +91,22 @@ Azure Cache for Redis publishes runtime maintenance notifications on a publish/s
 > [!NOTE]
 > The `AzureRedisEvents` channel isn't a mechanism that can notify you days or hours in advance. The channel can notify clients of any upcoming planned server maintenance events that might affect server availability. `AzureRedisEvents` is only available for Basic, Standard, and Premium tiers.
 
+### What are the updates included under planned maintenance?
+
+Planned maintenance includes these updates or patches:
+
+- Redis Server updates or patches: Any update or patch of the Redis server binaries.
+- Host updates or patches: Any upgrade of the virtual machine hosting the Redis service.
+- Host OS updates or patches: An upgrade of the operating system of the virtual machine that is hosting the cache.
+
+### Does planned maintenance appear in the service health in the Azure portal before a patch?
+
+No, planned maintenance does not appear anywhere under the service health in the portal or any other place.
+
+### How much time can I get the notification before the planned maintenance?
+
+When using the `AzureRedisEvents` channel, you are notified 15 minutes before the maintenance.
+
 ### Client network-configuration changes
 
 Certain client-side network-configuration changes can trigger "No connection available" errors. Such changes might include:
