@@ -198,6 +198,8 @@ If you selected a different `embedding_types` in your skill definition that you 
 }
 ```
 
+---
+
 ## Sample AI Studio vectorizer payload
 
 The [AI Studio vectorizer](vector-search-vectorizer-aml-ai-studio-catalog.md), unlike the AMLSkill, is tailored to work only with those embedding models that are deployable via the AI Studio model catalog. The main difference is that you don't have to worry about the request and response payload, but you do have to provide the `modelName`, which corresponds to the "Model ID" that you copied after deploying the model in AI Studio. Here's a sample payload of how you would configure the vectorizer on your index definition given the properties copied from AI Studio.
