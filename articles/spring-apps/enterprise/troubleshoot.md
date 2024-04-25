@@ -148,7 +148,7 @@ If the polling is interrupted, you can still use the following command to fetch 
 az spring app show-deploy-log --name <app-name>
 ```
 
-Ensure that your application is packaged in the correct [executable JAR format](https://docs.spring.io/spring-boot/docs/current/reference/html/executable-jar.html). If it isn't packaged correctly, you receive an error message similar to the following example: `Error: Invalid or corrupt jarfile /jar/38bc8ea1-a6bb-4736-8e93-e8f3b52c8714`
+Ensure that your application is packaged in the correct [executable JAR format](https://docs.spring.io/spring-boot/docs/current/reference/html/executable-jar.html). If it isn't packaged correctly, you receive an error message similar to the following example: `Error: Invalid or corrupt jarfile /jar/11111111-1111-1111-1111-111111111111`.
 
 ### I can't deploy a source package
 
