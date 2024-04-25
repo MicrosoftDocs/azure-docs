@@ -222,8 +222,6 @@ Create **spn-2-peer-vnet** with a scope to the virtual network created in the pr
         --scope User.Read
     ```
 
-
-
 ## Register spn-2-peer-vnet in subscription-1 and assign permissions to vnet-1
 
 A user account with administrator permissions in the Microsoft Entra ID tenant must complete the process of adding **spn-2-vnet-peer** to **subscription-1**. Once completed, **spn-2-vnet-peer** can be assigned permissions to **vnet-1**. 
@@ -452,7 +450,7 @@ For the purposes of this article, sign-in to each subscription and obtain the ap
         --service-principal \
         --username $appid1 \
         --password $password \
-        --tenant 1e1cce84-0637-4693-99d9-27ff18dd65c8
+        --tenant c2d26d12-71cc-4f3b-8557-1fa18d077698
     ```
 
 1. Use [az login](/cli/azure/reference-index#az-login) to sign-in to **subscription-2** with **spn-2-peer-vnet**. You need the tenant ID of the Microsoft Entra ID tenant associated with **subscription-2** to complete the command. The password is shown in the example with a variable placeholder. Replace with the password you noted during the resource creation. Replace the placeholder in `--tenant` with the tenant ID of the Microsoft Entra ID tenant associated with **subscription-2**.
@@ -462,7 +460,7 @@ For the purposes of this article, sign-in to each subscription and obtain the ap
         --service-principal \
         --username $appid2 \
         --password $password \
-        --tenant 688647e7-9434-42d3-82c9-e19c24270a54
+        --tenant 24baaf57-f30d-4fba-a20e-822030f7eba3
     ```
 
 1. Use [az account set](/cli/azure/account#az-account-set) to change the context to **subscription-1**.
