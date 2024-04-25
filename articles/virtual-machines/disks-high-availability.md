@@ -42,13 +42,13 @@ VMs deployed across three availability zones have the highest uptime [service le
 
 [Virtual Machine Scale Sets](../virtual-machine-scale-sets/overview.md) let you create and manage a group of load balanced VMs. The number of VM instances can automatically adjust in response to demand or follow a schedule you define. A zone-redundant Virtual Machine Scale Set is a Virtual Machine Scale Set that has been deployed across multiple availability zones. See [Zone redundant or zone spanning](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md#zone-redundant-or-zone-spanning).
 
-With zone-redundant Virtual Machine Scale Sets using the flexible orchestration, VM resources are replicated to one or more zones within the region they're deployed in to improve the resiliency and availability of your applications and data. This configuration spreads VMs across selected zones in a best effort approach by default but also provides the ability to specify strict zone balance in the deployment.
+With zone-redundant Virtual Machine Scale Sets using the flexible orchestration, VM resources are replicated to one or more zones within the region they're deployed in to improve the resiliency and availability of your applications and data. This configuration spreads VMs across selected zones in a best effort approach by default but also provides the ability to specify strict zone balance in the deployment. You should use this or [Deploy VMs across three availability zones](#deploy-vms-across-three-availability-zones) configurations to maximize your environment's availability.
 
 There might be higher network latency between several availability zones than within a single availability zone, which could be a concern for workloads that require ultra-low latency. If low latency is your top priority, consider [regional Virtual Machine Scale Sets](#use-regional-virtual-machine-scale-sets) or [availability sets](#use-availability-sets).
 
 #### Deploy VMs across three availability zones
 
-This deployment provides redundancy in VMs across multiple datacenters in a region, and allows you to failover to another zone if there's a datacenter or zonal outage.
+This deployment provides redundancy in VMs across multiple datacenters in a region, and allows you to failover to another zone if there's a datacenter or zonal outage. You should use this or [zone-redundant Virtual Machine Scale Sets](#use-zone-redundant-virtual-machine-scale-sets) configurations to maximize your environment's availability.
 
 There might be higher network latency between several availability zones than within a single availability zone, which could be a concern for workloads that require ultra-low latency. If low latency is your top priority, consider [regional Virtual Machine Scale Sets](#use-regional-virtual-machine-scale-sets) or [availability sets](#use-availability-sets).
 
@@ -62,13 +62,13 @@ If you can't deploy your VMs across availability zones, you can deploy them acro
 
 A regional Virtual Machine Scale Set is a Virtual Machine Scale Set that has no explicitly defined availability zones. With regional virtual machine scale sets, VM resources are replicated across fault domains within the region they're deployed in to improve the resiliency and availability of applications and data. This configuration spreads VMs across fault domains by default but also provides the ability to assign fault domains on VM creation. See [this section](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md#regional) for details.
 
-Regional Virtual Machine Scale Sets don't currently support Ultra Disks or Premium SSD v2 disks, and don't protect against large-scale outages like a datacenter or region outage.
+Regional Virtual Machine Scale Sets don't currently support Ultra Disks or Premium SSD v2 disks, and doesn't protect against large-scale outages like a datacenter or region outage.
 
 #### Use availability sets
 
 [Availability sets](availability-set-overview.md) are logical groupings of VMs that place VMs in different fault domains to limit the chance of correlated failures bringing related VMs down at the same time. Availability sets also have better VM to VM latencies compared to availability zones.
 
-Availability sets don't let you select fault domains, can't be used with availability zones, don't currently support Ultra Disks or Premium SSD v2 disks, and don't protect against large-scale outages like if an entire datacenter or region had an outage.
+Availability sets don't let you select the fault domains for your VMs, can't be used with availability zones, don't currently support Ultra Disks or Premium SSD v2 disks, and doesn't protect against large-scale outages like a datacenter or region-wide outages.
 
 ## Applications running on a single VM
 
