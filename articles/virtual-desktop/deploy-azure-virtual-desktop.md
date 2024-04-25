@@ -213,12 +213,11 @@ Here's how to create a host pool using the Azure portal.
       | Name prefix | Enter a name for your session hosts, for example **hp01-sh**.<br /><br />This value is used as the prefix for your session hosts. Each session host has a suffix of a hyphen and then a sequential number added to the end, for example **hp01-sh-0**.<br /><br />This name prefix can be a maximum of 11 characters and is used in the computer name in the operating system. The prefix and the suffix combined can be a maximum of 15 characters. Session host names must be unique. |
       | Virtual machine type | Select **Azure virtual machine**. |
       | Virtual machine location | Select **West US**, then select **Deploy to an Azure Extended Zone**. |
-       | **Azure Extended Zones** |  |
+      | **Azure Extended Zones** |  |
       | Azure Extended Zone | Select **Los Angeles**. |
       | Place the session host(s) behind an existing load balancing solution? | Check the box. This will show options for selecting a load balancer and a backend pool.|
       | Select a load balancer | Select an existing load balancer on the virtual network that the session hosts are being deployed to. |
       | Select a backend pool | Select a backend pool on the load balancer to that you want to place the sessions host(s) into. |
-      
    </details>
 
 
