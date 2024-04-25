@@ -16,8 +16,8 @@ ms.custom: mode-other, devx-track-js
 Azure Communication Services is interoperable with Microsoft Teams. This is especially helpful for business-to-consumer use cases, where an external customer in a custom, branded Azure-powered app or website communicates with an employee using Microsoft Teams. This allows the external customer to enjoy a custom experience, and the employee to have all their communication needs satisfied in a single hub: Teams. 
 Azure Communication Services can interoperate with Teams in three ways:
 -	Azure clients can add an individual Teams user to a 1:1 and group calls. This is ideal for customer service situations where your application is adding Teams-hosted subject matter experts to a call to help agents improve their first call resolution rates.
-2.	Azure clients can directly call a Teams Voice App, such as Auto Attendant and Call Queues. Azure Communication Services enables you to connect customers from your website or application to Teams Voice Apps to handle requests and later handoff to Teams agents as configured in Teams admin center. 
-3.	Azure clients can join Teams meetings. This type of interoperability is described on a separate page.
+-	Azure clients can directly call a Teams Voice App, such as Auto Attendant and Call Queues. Azure Communication Services enables you to connect customers from your website or application to Teams Voice Apps to handle requests and later handoff to Teams agents as configured in Teams admin center. 
+-	Azure clients can join Teams meetings. This type of interoperability is described on a separate page.
 
 This page details capabilities for Teams (or Microsoft 365) users in a call with Communication Services users (scenario #1). Your service can orchestrate and manage these calls, including adding Teams users to these calls, using Call automation SDK. Read more about it [here](../call-automation/call-automation-teams-interop.md).
 
