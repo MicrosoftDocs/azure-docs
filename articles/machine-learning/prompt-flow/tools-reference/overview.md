@@ -45,4 +45,4 @@ To discover more custom tools developed by the open-source community, see [More 
   
 ## Remarks
 - If existing tools don't meet your requirements, you can [develop your own custom tool and make a tool package](https://microsoft.github.io/promptflow/how-to-guides/develop-a-tool/create-and-use-tool-package.html). 
-- To install custom tools or add more tools to the custom environment, see [Custom tool package creation and usage](../how-to-custom-tool-package-creation-and-usage.md#prepare-runtime) to prepare the runtime. Then the tools can be displayed in the tool list.
+- To install custom tools or add more tools to the custom environment, see [Custom tool package creation and usage](../how-to-custom-tool-package-creation-and-usage.md) to start compute session. Then the tools can be displayed in the tool list.

@@ -32,7 +32,7 @@ In order to add the custom tool to your tool list for use, it's necessary to pre
 When using compute session, you can readily install the publicly released package by adding the custom tool package name into the `requirements.txt` file in the flow folder. Then select the 'Save and install' button to start installation. After completion, you can see the custom tools displayed in the tool list. To learn more, see [How to manage compute session](./how-to-manage-compute-session.md).
 :::image type="content" source="./media/how-to-custom-tool-package-creation-and-usage/install_package-on-compute-session.png" alt-text="Screenshot of how to install packages on compute session."lightbox = "./media/how-to-custom-tool-package-creation-and-usage/install_package-on-compute-session.png":::
 
-Another method is applicable for not only publicly released packages, but also local or private feed packages. Firstly you should build an image following the two steps in [how to customize base image for compute session](./how-to-customize-session-base-image.md), and then [change the base image for compute session](./how-to-manage-compute-session#change-the-base-image-for-compute-session).
+Another method is applicable for not only publicly released packages, but also local or private feed packages. Firstly you should build an image following the two steps in [how to customize base image for compute session](./how-to-customize-session-base-image.md), and then [change the base image for compute session](./how-to-manage-compute-session.md#change-the-base-image-for-compute-session).
 
 ## Test from prompt flow UI
 1. Create a standard flow.

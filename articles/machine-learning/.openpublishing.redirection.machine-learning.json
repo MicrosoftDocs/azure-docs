@@ -4253,7 +4253,7 @@
     {
         "source_path_from_root": "/articles/machine-learning/prompt-flow/migrate-managed-inference-runtime.md",
         "redirect_url": "/azure/machine-learning/prompt-flow/how-to-manage-compute-session",
-        "redirect_document_id": true
+        "redirect_document_id": false
     },    
     {
         "source_path_from_root": "/articles/machine-learning/machine-learning-data-science-customize-hadoop-cluster.md",
@@ -4262,7 +4262,7 @@
     },
     {
         "source_path_from_root": "/articles/machine-learning/prompt-flow/how-to-customize-environment-runtime.md",
-        "redirect_url": "/azure/machine-learning/prompt-flow/hhow-to-customize-session-base-image",
+        "redirect_url": "/azure/machine-learning/prompt-flow/how-to-customize-session-base-image",
         "redirect_document_id": true
     },
     {
