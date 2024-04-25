@@ -35,8 +35,6 @@ Microsoft redistributes NVIDIA GRID driver installers for NV, NVv3 and NVads A10
 
 The GRID drivers redistributed by Azure don't work on non-NV series VMs like NCv2, NCv3, ND, and NDv2-series VMs. The one exception is the NCas_T4_V3 VM series where the GRID drivers enable the graphics functionalities similar to NV-series.
 
-The NC-Series with Nvidia K80 GPUs don't support GRID/graphics applications.  
-
 The Nvidia extension always installs the latest driver. 
 
 For Windows 11 22H2/21H2, Windows 10 22H2, Server 2019/2022:
