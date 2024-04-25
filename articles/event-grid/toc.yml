@@ -154,6 +154,10 @@ items:
               href: publish-deliver-events-with-namespace-topics.md
             - name: Azure portal
               href: publish-deliver-events-with-namespace-topics-portal.md
+          - name: Deliver events to Webhooks using namespace topics
+            items:
+            - name: Azure CLI
+              href: publish-deliver-events-with-namespace-topics-webhook.md
       - name: Concepts        
         items:
         - name: Terminology 
