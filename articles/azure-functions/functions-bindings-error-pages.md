@@ -111,7 +111,9 @@ It's possible for an instance to have a failure between retry attempts. When an 
 This behavior means that the maximum retry count is a best effort. In some rare cases, an execution could be retried more than the requested maximum number of times. For Timer triggers, the retries can be less than the maximum number requested.
 
 #### Retry examples
-
+::: zone pivot="programming-language-python,programming-language-csharp" 
+Examples are provided for both fixed delay and exponential backoff strategies. To see examples for a specific strategy, you must first select that strategy in the previous tab.
+::: zone-end
 ::: zone pivot="programming-language-csharp"
 
 ##### [Isolated worker model](#tab/isolated-process/fixed-delay)
