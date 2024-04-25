@@ -1,6 +1,6 @@
 ---
-title: Azure API Management - API version retirements (September 2023) | Microsoft Docs
-description: After 30 September 2023, the Azure API Management service is retiring all API versions prior to 2021-08-01. If you use one of these API versions, you must update affected tools, scripts, or programs to use the latest versions.
+title: Azure API Management - API version retirements (June 2024) | Microsoft Docs
+description: Starting June 1, 2024, the Azure API Management service is retiring all API versions prior to 2021-08-01. If you use one of these API versions, you must update affected tools, scripts, or programs to use the latest versions.
 services: api-management
 author: dlepow
 ms.service: api-management
@@ -9,13 +9,13 @@ ms.date: 04/24/2024
 ms.author: danlep
 ---
 
-# API version retirements (September 2023)
+# API version retirements (June 2024)
 
 [!INCLUDE [api-management-availability-premium-dev-standard-basic-consumption](../../../includes/api-management-availability-premium-dev-standard-basic-consumption.md)]
 
 Azure API Management uses Azure Resource Manager (ARM) to configure your API Management instances. The API version is embedded in your use of templates that describe your infrastructure, tools that are used to configure the service, and programs that you write to manage your Azure API Management services. 
 
-After 30 September 2023, all API versions for the Azure API Management service prior to [**2021-08-01**](/rest/api/apimanagement/operation-groups?view=rest-apimanagement-2021-08-01) are being retired (removed). At any time after 30 September 2023, API calls using an API version prior to 2021-08-01 may fail without further notice. You'll no longer be able to create or manage your API Management services with existing templates, tools, scripts, and programs using a retired API version until they've been updated to use API version 2021-08-01 or later. Data operations (such as accessing the APIs or Products configured on Azure API Management) will be unaffected by this update, including after 30 September 2023. 
+Starting June 1, 2024, all API versions for the Azure API Management service prior to [**2021-08-01**](/rest/api/apimanagement/operation-groups?view=rest-apimanagement-2021-08-01) are being retired (disabled). The previously communicated retirement date was September 30, 2023. At any time after June 1, 2024, API calls using an API version prior to 2021-08-01 may fail without further notice. You'll no longer be able to create or manage your API Management services with existing templates, tools, scripts, and programs using a retired API version until they've been updated to use API version 2021-08-01 or later. Data plane operations (such as mediating API requests in the gateway) will be unaffected by this update, including after June 1, 2024.
 
 ## Is my service affected by this?
 
@@ -23,7 +23,7 @@ While your service isn't affected by this change, any tool, script, or program t
 
 ## What is the deadline for the change?
 
-The affected API versions will be retired on a rolling basis after 30 September 2023.
+The affected API versions will be retired gradually starting June 1, 2024.
 
 After an API version is retired, if you prefer not to update your affected tools, scripts, and programs, your services will continue to run. However, you won't be able to add or remove APIs, change API policy, or otherwise configure your API Management service with affected tools. 
 
@@ -67,6 +67,7 @@ To set the **Minimum API version** in the portal:
    
 ## More information
 
+* [Supported API Management API versions](/rest/api/apimanagement/operation-groups)
 * [Azure CLI](/cli/azure/update-azure-cli)
 * [Azure PowerShell](/powershell/azure/install-azure-powershell)
 * [Azure Resource Manager](../../azure-resource-manager/management/overview.md)
