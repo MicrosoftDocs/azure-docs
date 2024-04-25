@@ -53,16 +53,16 @@ In this article:
     cp ./notation /usr/local/bin
     ```
 
-2. Install the Notation Azure Key Vault plugin `azure-kv` v1.0.2 on a Linux amd64 environment.
+2. Install the Notation Azure Key Vault plugin `azure-kv` v1.1.0 on a Linux amd64 environment.
 
     > [!NOTE]
     > The URL and SHA256 checksum for the Notation Azure Key Vault plugin can be found on the plugin's [release page](https://github.com/Azure/notation-azure-kv/releases).
 
     ```bash
-    notation plugin install --url https://github.com/Azure/notation-azure-kv/releases/download/v1.0.2/notation-azure-kv_1.0.2_linux_amd64.tar.gz --sha256sum f2b2e131a435b6a9742c202237b9aceda81859e6d4bd6242c2568ba556cee20e
+    notation plugin install --url https://github.com/Azure/notation-azure-kv/releases/download/v1.1.0/notation-azure-kv_1.1.0_linux_amd64.tar.gz --sha256sum 2fc959bf850275246b044203609202329d015005574fabbf3e6393345e49b884
     ```
 
-3. List the available plugins and confirm that the `azure-kv` plugin with version `1.0.2` is included in the list.
+3. List the available plugins and confirm that the `azure-kv` plugin with version `1.1.0` is included in the list.
     
     ```bash
     notation plugin ls
@@ -218,6 +218,19 @@ To import the certificate:
    ```bash
    notation sign --signature-format cose $IMAGE --id $KEY_ID --plugin azure-kv --plugin-config ca_certs=<ca_bundle_file> 
    ```
+
+   To authenticate with AKV, by default, the following credential types if enabled will be tried in order:
+
+   - [environment](/dotnet/api/azure.identity.environmentcredential)
+   - [workloadid](/dotnet/api/azure.identity.workloadidentitycredential)
+   - [managedid](/dotnet/api/azure.identity.managedidentitycredential)
+   - [azurecli](/dotnet/api/azure.identity.azureclicredential)
+
+   To customize the default behavior, consider using an additional plugin configuration called `credential_type`. For instance, you can explicitly set the credential type to `azurecli` as demonstrated below:
+
+    ```bash
+    notation sign --signature-format cose --id $KEY_ID --plugin azure-kv --plugin-config credential_type=azurecli $IMAGE
+    ```
 
 6. View the graph of signed images and associated signatures. 
 
