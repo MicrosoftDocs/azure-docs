@@ -14,7 +14,7 @@ HDInsight on AKS provides a set of default configurations of Apache Flink for mo
 
 1. Go To Settings > Flink Jobs > Click on Update.
 
-    :::image type="content" source="./media/flink-configuration-managemen/update-page.png" alt-text="Screenshot showing update page." lightbox="./media/flink-configuration-management/update-page.png":::
+    :::image type="content" source="./media/flink-configuration-management/update-page.png" alt-text="Screenshot showing update page." lightbox="./media/flink-configuration-management/update-page.png":::
 
 1. Click on **+ Add a row** to edit configuration.
 
