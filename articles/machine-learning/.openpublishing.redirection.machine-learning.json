@@ -4252,7 +4252,7 @@
     },    
     {
         "source_path_from_root": "/articles/machine-learning/prompt-flow/migrate-managed-inference-runtime.md",
-        "redirect_url": "/azure/machine-learning/prompt-flow/how-to-manage-compute-session.md",
+        "redirect_url": "/azure/machine-learning/prompt-flow/how-to-manage-compute-session",
         "redirect_document_id": true
     },    
     {
@@ -4261,9 +4261,10 @@
         "redirect_document_id": false
     },
     {
-        "source_path_from_root": "/articles/machine-learning/team-data-science-process/customize-hadoop-cluster.md",
-        "redirect_url": "/azure/hdinsight/spark/apache-spark-jupyter-spark-sql",
-        "redirect_document_id": false
-    }
+        "source_path_from_root": "/articles/machine-learning/prompt-flow/how-to-customize-environment-runtime.md.md",
+        "redirect_url": "/azure/machine-learning/prompt-flow/hhow-to-customize-session-base-image",
+        "redirect_document_id": true
+    }      
+
 ]
 }
