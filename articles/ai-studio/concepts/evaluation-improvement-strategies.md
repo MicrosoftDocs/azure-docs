@@ -15,8 +15,6 @@ author: lgayhardt
 
 # Harms mitigation strategies with Azure AI
 
-[!INCLUDE [Azure AI Studio preview](../includes/preview-ai-studio.md)]
- 
 Mitigating harms presented by large language models (LLMs) such as the Azure OpenAI models requires an iterative, layered approach that includes experimentation and continual measurement. We recommend developing a mitigation plan that encompasses four layers of mitigations for the harms identified in the earlier stages of this process: 
 
 :::image type="content" source="../media/evaluations/mitigation-layers.png" alt-text="Diagram of strategy to mitigate potential harms of generative AI applications." lightbox="../media/evaluations/mitigation-layers.png":::

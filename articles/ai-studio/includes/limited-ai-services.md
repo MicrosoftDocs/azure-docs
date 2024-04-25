@@ -11,4 +11,4 @@ ms.custom: include
 ---
 
 > [!NOTE]
-> This feature isn't available if you created an Azure AI hub resource together with an existing Azure OpenAI Service resource. You must create an AI hub with an Azure AI services provider. We're gradually rolling out this feature to all customers. If you don't see it yet, check back later.
+> This feature isn't available if you created a hub together with an existing Azure OpenAI Service resource. You must create an Azure AI Studio hub with an Azure AI services provider. We're gradually rolling out this feature to all customers. If you don't see it yet, check back later.

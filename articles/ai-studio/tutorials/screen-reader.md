@@ -1,5 +1,5 @@
 ---
-title: Using Azure AI Studio with a screen reader
+title: Use Azure AI Studio with a screen reader
 titleSuffix: Azure AI Studio
 description: This tutorial guides you through using Azure AI Studio with a screen reader.
 manager: nitinme
@@ -13,9 +13,7 @@ ms.author: eur
 author: eric-urban
 ---
 
-# Tutorial: Using Azure AI Studio with a screen reader
-
-[!INCLUDE [Azure AI Studio preview](../includes/preview-ai-studio.md)]
+# Tutorial: Use Azure AI Studio with a screen reader
 
 This article is for people who use screen readers such as Microsoft's Narrator, JAWS, NVDA or Apple's Voiceover. You learn how to use the Azure AI Studio with a screen reader.   
 

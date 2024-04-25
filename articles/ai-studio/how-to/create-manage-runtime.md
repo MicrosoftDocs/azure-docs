@@ -15,8 +15,6 @@ author: sdgilley
 
 # Create and manage prompt flow runtimes in Azure AI Studio
 
-[!INCLUDE [Azure AI Studio preview](../includes/preview-ai-studio.md)]
-
 In Azure AI Studio, you can create and manage prompt flow runtimes. You need a runtime to use prompt flow.
 
 A prompt flow runtime has computing resources that are required for the application to run, including a Docker image that contains all necessary dependency packages. In addition to flow execution, Azure AI Studio uses the runtime to ensure the accuracy and functionality of the tools incorporated within the flow when you make updates to the prompt or code content.
@@ -66,7 +64,7 @@ Automatic is the default option for a runtime. You can start an automatic runtim
 
 1. Sign in to [Azure AI Studio](https://ai.azure.com) and select your project from the **Build** page. If you don't have a project, create one.
 
-1. On the collapsible left menu, select **AI project settings**.
+1. On the collapsible left menu, select **Project settings**.
 
 1. In the **Compute instances** section, select **View all**.
 

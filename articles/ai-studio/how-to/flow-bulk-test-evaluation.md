@@ -15,8 +15,6 @@ author: lgayhardt
 
 # Submit a batch run and evaluate a flow
 
-[!INCLUDE [Azure AI Studio preview](../includes/preview-ai-studio.md)]
-
 To evaluate how well your flow performs with a large dataset, you can submit batch run and use an evaluation method in prompt flow.
 
 In this article you learn to:

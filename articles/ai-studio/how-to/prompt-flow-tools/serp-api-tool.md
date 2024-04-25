@@ -15,8 +15,6 @@ author: lgayhardt
 
 # Serp API tool for flows in Azure AI Studio
 
-[!INCLUDE [Azure AI Studio preview](../../includes/preview-ai-studio.md)]
-
 The prompt flow Serp API tool provides a wrapper to the [Serp API Google Search Engine Results API](https://serpapi.com/search-api) and [Serp API Bing Search Engine Results API](https://serpapi.com/bing-search-api).
 
 You can use the tool to retrieve search results from many different search engines, including Google and Bing. You can specify a range of search parameters, such as the search query, location, and device type.
@@ -28,7 +26,7 @@ Sign up on the [Serp API home page](https://serpapi.com/).
 To create a Serp connection:
 
 1. Sign in to [Azure AI Studio](https://studio.azureml.net/).
-1. Go to **AI project settings** > **Connections**.
+1. Go to **Project settings** > **Connections**.
 1. Select **+ New connection**.
 1. Add the following custom keys to the connection:
 

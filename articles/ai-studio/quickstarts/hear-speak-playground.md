@@ -15,8 +15,6 @@ author: eric-urban
 
 # Quickstart: Hear and speak with chat models in the Azure AI Studio playground
 
-[!INCLUDE [Azure AI Studio preview](../includes/preview-ai-studio.md)]
-
 Give your app the ability to hear and speak by pairing Azure OpenAI Service with Azure AI Speech to enable richer interactions.
 
 In this quickstart, you use Azure OpenAI Service and Azure AI Speech to:
@@ -35,8 +33,8 @@ The speech to text and text to speech features can be used together or separatel
 
     Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI by completing the form at <a href="https://aka.ms/oai/access" target="_blank">https://aka.ms/oai/access</a>. Open an issue on this repo to contact us if you have an issue.
 
-- An [Azure AI hub resource](../how-to/create-azure-ai-resource.md) with a chat model deployed. For more information about model deployment, see the [resource deployment guide](../../ai-services/openai/how-to/create-resource.md).
-- An [Azure AI project](../how-to/create-projects.md) in Azure AI Studio. 
+- An [AI Studio hub](../how-to/create-azure-ai-resource.md) with a chat model deployed. For more information about model deployment, see the [resource deployment guide](../../ai-services/openai/how-to/create-resource.md).
+- An [AI Studio project](../how-to/create-projects.md). 
 
 
 ## Configure the playground
@@ -118,7 +116,7 @@ To avoid incurring unnecessary Azure costs, you should delete the resources you 
 ## Next steps
 
 - [Create a project in Azure AI Studio](../how-to/create-projects.md)
-- [Deploy a web app for chat on your data](../tutorials/deploy-chat-web-app.md)
+- [Deploy an enterprise chat web app](../tutorials/deploy-chat-web-app.md)
 - [Learn more about Azure AI Speech](../../ai-services/speech-service/overview.md)
 
 

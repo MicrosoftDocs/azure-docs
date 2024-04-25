@@ -13,8 +13,6 @@ author: lgayhardt
 
 # Transparency Note for Azure AI Studio safety evaluations
 
-[!INCLUDE [Azure AI Studio preview](../includes/preview-ai-studio.md)]
-
 ## What is a Transparency Note
 
 An AI system includes not only the technology, but also the people who will use it, the people who will be affected by it, and the environment in which it's deployed. Creating a system that is fit for its intended purpose requires an understanding of how the technology works, what its capabilities and limitations are, and how to achieve the best performance. Microsoft’s Transparency Notes are intended to help you understand how our AI technology works, the choices system owners can make that influence system performance and behavior, and the importance of thinking about the whole system, including the technology, the people, and the environment. You can use Transparency Notes when developing or deploying your own system, or share them with the people who will use or be affected by your system.
@@ -51,7 +49,7 @@ The safety evaluations aren't intended to use for any purpose other than to eval
 
 - **Evaluating your generative AI application pre-deployment**: Using the evaluation wizard in the Azure AI studio or the Azure AI Python SDK, safety evaluations can assess in an automated way to evaluate potential content or security risks.
 - **Augmenting your red-teaming operations**: Using the adversarial simulator, safety evaluations can simulate adversarial interactions with your generative AI application to attempt to uncover content and security risks.
-- **Communicating content and security risks to stakeholders**: Using the Azure AI studio, you can share access to your AI project with safety evaluations results with auditors or compliance stakeholders.
+- **Communicating content and security risks to stakeholders**: Using the Azure AI studio, you can share access to your Azure AI Studio project with safety evaluations results with auditors or compliance stakeholders.
 
 #### Considerations when choosing a use case
 

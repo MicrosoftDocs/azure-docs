@@ -15,8 +15,6 @@ author: Blackmist
 
 # Autoscale Azure AI limits
 
-[!INCLUDE [Azure AI Studio preview](../includes/preview-ai-studio.md)]
-
 This article provides guidance for how you can manage and increase quotas for resources with Azure AI Studio.
 
 ## Overview
