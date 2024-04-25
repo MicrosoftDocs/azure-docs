@@ -737,10 +737,8 @@ For more information on working with registered models, see [Register and work w
 
 1. Select **Next** until you get to the "Review" page.
 1. select **Create**.
- 
-    :::image type="content" source="media/how-to-deploy-online-endpoints/create-environment.png" alt-text="A screenshot of the settings page when you create an environment." lightbox="media/how-to-deploy-online-endpoints/create-environment.png":::
 
-For information on creating an environment in the studio, see [Create an environment](how-to-manage-environments-in-studio.md#create-an-environment).
+For more information on creating an environment in the studio, see [Create an environment](how-to-manage-environments-in-studio.md#create-an-environment).
 
 # [ARM template](#tab/arm)
 
