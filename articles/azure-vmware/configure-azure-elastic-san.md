@@ -94,7 +94,7 @@ Once your SDDC express route is connected with the private endpoint for your Ela
 
 To delete the Elastic SAN-based datastore, use the following steps from the Azure portal.
 
-1.From the left navigation in your Azure VMware Solution private cloud, select Storage, then **Datastore list**.
+1. From the left navigation in your Azure VMware Solution private cloud, select Storage, then **Datastore list**.
 1. On the far right you is an **ellipsis**, select **Delete** to disconnect the datastore from the Cluster(s).
 1. Optionally you can delete the volume you previously created in your Elastic SAN.
 	> [!NOTE]
