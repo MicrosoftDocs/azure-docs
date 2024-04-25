@@ -28,7 +28,11 @@ The following components are required to enable and configure the Azure Monitor 
 | Data flow | Combination of receivers and exporters that run on the pipeline controller instance. Receivers accept data from clients, and exporters to deliver that data to Azure Monitor. |
 | Pipeline configuration | Configuration file that defines the data flows for the pipeline instance. Each data flow includes a receiver and an exporter. The receiver listens for incoming data, and the exporter sends the data to the destination. |
 | Data collection endpoint (DCE) | Endpoint where the data is sent to the Azure Monitor pipeline. The pipeline configuration includes a property for the URL of the DCE so the pipeline instance knows where to send the data. |
+
+| Configuration | Description |
+|:---|:---|
 | Data collection rule (DCR) | Configuration file that defines how the data is received in the cloud pipeline and where it's sent. The DCR can also include a transformation to filter or modify the data before it's sent to the destination. |
+| Pipeline configuration | Configuration that defines the data flows for the pipeline instance, including the data flows and cache. |
 
 ## Supported configurations
 
@@ -79,6 +83,14 @@ The following table and diagram describe the detailed steps and components in th
 :::image type="content" source="media/edge-pipeline/cloud-pipeline-data-flow.png" lightbox="media/edge-pipeline/cloud-pipeline-data-flow.png" alt-text="Detailed diagram of the steps and components for data collection using Azure Monitor cloud pipeline." border="false"::: 
 
 ## Segmented network
+[Network segmentation](/azure/architecture/networking/guide/network-level-segmentation) is a model where you use software defined perimeters to create a different security posture for different parts of your network. In this model, you may have a network segment that can't connect to the internet or to other network segments. The edge pipeline can be used to collect data from these network segments and send it to the cloud pipeline.
+
+:::image type="content" source="media/edge-pipeline/layered-network.png" lightbox="media/edge-pipeline/layered-network.png" alt-text="Diagram of a layered network for Azure Monitor edge pipeline." border="false":::
+
+To use Azure Monitor pipeline in a layered network configuration, you must add the following URLs to the allowlist for the Arc-enabled Kubernetes cluster. See [Configure Azure IoT Layered Network Management Preview on level 4 cluster](/azure/iot-operations/manage-layered-network/howto-configure-l4-cluster-layered-network?tabs=k3s#configure-layered-network-management-preview-service).
+
+- `*.ingest.monitor.azure.com`
+- Url of DCE.
 
 
 ## Create table in Log Analytics workspace
@@ -90,6 +102,7 @@ See [Add or delete tables and columns in Azure Monitor Logs](../logs/create-cust
 ```azurecli
 az monitor log-analytics workspace table create --workspace-name my-workspace --resource-group my-resource-group  --name my-table_CL --columns TimeGenerated=datetime Body=string SeverityText=string
 ```
+
 
 
 ## Enable cache
@@ -147,71 +160,26 @@ Following are the steps required to create and configure the components required
 
 
 ### Edge pipeline extension
-The following ARM template adds the edge pipeline extension to your Arc-enabled Kubernetes cluster. Replace the properties in the following table before deploying the template.
+The following command adds the edge pipeline extension to your Arc-enabled Kubernetes cluster. Replace the properties in the following table before deploying the template.
 
-| Parameter | Description |
-|:---|:--|
-| `name` | Name of the pipeline extension. Must be unique for the subscription. |
-| `scope` | Resource ID of your Arc-enabled Kubernetes cluster. |
-| `releaseNamespace` | Namespace in the cluster where the extension will be deployed. |
+```azurecli
+az k8s-extension create --name <pipeline-extension-name> --extension-type microsoft.monitor.pipelinecontroller --scope cluster --cluster-name <cluster-name> --resource-group <resource-group> --cluster-type connectedClusters --release-train Preview
 
-```json
-{
-    "type": "Microsoft.KubernetesConfiguration/extensions",
-    "apiVersion": "2022-11-01",
-    "name": "my-pipeline-extension",
-    "scope": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/my-resource-group/providers/Microsoft.Kubernetes/connectedClusters/my-arc-cluster",
-    "identity": {
-        "type": "SystemAssigned"
-    },
-    "properties": {
-        "aksAssignedIdentity": {
-            "type": "SystemAssigned"
-        },
-        "autoUpgradeMinorVersion": false,
-        "extensionType": "microsoft.monitor.pipelinecontroller",
-        "releaseTrain": "preview",
-        "scope": {
-            "cluster": {
-                "releaseNamespace": "my-strato-ns"
-            }
-        },
-        "version": "0.37.3-privatepreview"
-    }
-}
+## Example
+az k8s-extension create --name my-pipe --extension-type microsoft.monitor.pipelinecontroller --scope cluster --cluster-name my-cluster --resource-group my-resource-group --cluster-type connectedClusters --release-train Preview
 ```
 
 ### Custom location
 The following ARM template creates the custom location for to your Arc-enabled Kubernetes cluster. Replace the properties in the following table before deploying the template.
 
-| Parameter | Description |
-|:---|:--|
-| `name` | Name of the custom location. Must be unique for the cluster. |
-| `location` | Location of the custom location. |
-| `hostResourceId` | Resource ID of the Arc-enabled Kubernetes cluster. |
-| `namespace` | Namespace for the custom location. Can use the custom location name. |
-| `clusterExtensionIds` | Resource ID of the edge pipeline extension created in the previous step. |
-
-
-```json
-{
-    "type": "Microsoft.ExtendedLocation/customLocations",
-    "name": "custom-location-name",
-    "location": "eastus",
-    "apiVersion": "2021-08-15",
-    "properties": {
-        "hostResourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/my-resource-group/providers/Microsoft.Kubernetes/connectedClusters/my-arc-cluster",
-        "namespace": "custom-location-name",
-        "clusterExtensionIds": [
-            "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/my-resource-group/providers/Microsoft.Kubernetes/connectedClusters/strato-01/providers/Microsoft.KubernetesConfiguration/extensions/my-pipeline-extension"
-        ],
-        "hostType": "Kubernetes"
-    }
-}
-```
 
 ```azurecli
+az connectedk8s enable-features -n <clusterName> -g <resourceGroupName> --features cluster-connect custom-locations
+az customlocation create -n <customLocationName> -g <resourceGroupName> --namespace <name of namespace> --host-resource-id <connectedClusterId> --cluster-extension-ids <extensionId>
 
+## Example
+az connectedk8s enable-features -n <clusterName> -g <resourceGroupName> --features cluster-connect custom-locations
+az customlocation create -n <customLocationName> -g <resourceGroupName> --namespace <name of namespace> --host-resource-id <connectedClusterId> --cluster-extension-ids <extensionId>
 ```
 
 
@@ -219,26 +187,13 @@ The following ARM template creates the custom location for to your Arc-enabled K
 ### DCE
 The following ARM template creates the [data collection endpoint (DCE)](./data-collection-endpoint-overview.md) required for the edge pipeline to connect to the cloud pipeline. You can use an existing DCE if you already have one in the same region. Replace the properties in the following table before deploying the template.
 
-| Parameter | Description |
-|:---|:--|
-| `name` | Name of the DCE. Must be unique for the subscription. |
-| `location` | Location of the DCE. Must match the location of the DCR. |
+```azurecli
+az monitor data-collection endpoint create -g "myResourceGroup" -l "eastus2euap" --name "myCollectionEndpoint" --public-network-access "Enabled"
 
-```json
-{
-    "type": "Microsoft.Insights/dataCollectionEndpoints",            
-    "name": "my-dce",
-    "location": "eastus",
-    "apiVersion": "2021-04-01",
-    "properties": {
-        "configurationAccess": {},
-        "logsIngestion": {},
-        "networkAcls": {
-            "publicNetworkAccess": "Enabled"
-        }
-    }
-}
+## Example
+ az monitor data-collection endpoint create --name strato-06-dce --resource-group strato --public-network-access "Enabled"
 ```
+
 
 
 ### DCR
@@ -265,10 +220,6 @@ Replace the properties in the following table before deploying the template. See
 
 ```json
 {
-    "type": "Microsoft.Insights/dataCollectionRules",
-    "name": "my-dcr",
-    "location": "eastus",
-    "apiVersion": "2021-09-01-preview",
     "properties": {
         "dataCollectionEndpointId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/my-resource-group/providers/Microsoft.Insights/dataCollectionEndpoints/my-dce",
         "streamDeclarations": {
@@ -341,6 +292,17 @@ Replace the properties in the following table before deploying the template. See
 }
 ```
 
+Install the DCR using the following command:
+
+```azurecli
+az monitor data-collection rule create --name 'myDCRName' --location <location> --resource-group <resource-group>  --rule-file '<dcr-file-path.json>' 
+
+## Example
+az monitor data-collection rule create --name my-pipeline-dcr  --location westus2 --resource-group 'my-resource-group' --rule-file 'C:\MyDCR.json' 
+
+```
+
+
 ### DCR access
 The Arc-enabled Kubernetes cluster must have access to the DCR to send data to the cloud pipeline. You can use commands in the Azure CLI to grant the necessary permissions.
 
@@ -350,7 +312,7 @@ Use the following command to retrieve the object id of the System Assigned Ident
 az k8s-extension show --name <extension-name> --cluster-name <cluster-name> --resource-group <resource-group> --cluster-type connectedClusters --query "identity.principalId" -o tsv 
 
 ## Example:
-az k8s-extension show --name my-pipeline-extension--cluster-name my-cluster --resource-group my-resource-group --cluster-type connectedClusters --query "identity.principalId" -o tsv 
+az k8s-extension show --name my-pipeline-extension --cluster-name my-cluster --resource-group my-resource-group --cluster-type connectedClusters --query "identity.principalId" -o tsv 
 ```
 
 Use the output from this command as input to the following command to give Azure Monitor pipeline the authority to send its telemetry to the DCR.
@@ -848,8 +810,88 @@ You can deploy all of the required components for the Azure Monitor edge pipelin
 }
 ```
 
+### [ARM](#tab/arm)
+
+| Parameter | Description |
+|:---|:--|
+| `name` | Name of the pipeline extension. Must be unique for the subscription. |
+| `scope` | Resource ID of your Arc-enabled Kubernetes cluster. |
+| `releaseNamespace` | Namespace in the cluster where the extension will be deployed. |
+
+```json
+{
+    "type": "Microsoft.KubernetesConfiguration/extensions",
+    "apiVersion": "2022-11-01",
+    "name": "my-pipeline-extension",
+    "scope": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/my-resource-group/providers/Microsoft.Kubernetes/connectedClusters/my-arc-cluster",
+    "identity": {
+        "type": "SystemAssigned"
+    },
+    "properties": {
+        "aksAssignedIdentity": {
+            "type": "SystemAssigned"
+        },
+        "autoUpgradeMinorVersion": false,
+        "extensionType": "microsoft.monitor.pipelinecontroller",
+        "releaseTrain": "preview",
+        "scope": {
+            "cluster": {
+                "releaseNamespace": "my-strato-ns"
+            }
+        },
+        "version": "0.37.3-privatepreview"
+    }
+}
 
 
+
+| Parameter | Description |
+|:---|:--|
+| `name` | Name of the custom location. Must be unique for the cluster. |
+| `location` | Location of the custom location. |
+| `hostResourceId` | Resource ID of the Arc-enabled Kubernetes cluster. |
+| `namespace` | Namespace for the custom location. Can use the custom location name. |
+| `clusterExtensionIds` | Resource ID of the edge pipeline extension created in the previous step. |
+
+
+```json
+{
+    "type": "Microsoft.ExtendedLocation/customLocations",
+    "name": "custom-location-name",
+    "location": "eastus",
+    "apiVersion": "2021-08-15",
+    "properties": {
+        "hostResourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/my-resource-group/providers/Microsoft.Kubernetes/connectedClusters/my-arc-cluster",
+        "namespace": "custom-location-name",
+        "clusterExtensionIds": [
+            "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/my-resource-group/providers/Microsoft.Kubernetes/connectedClusters/strato-01/providers/Microsoft.KubernetesConfiguration/extensions/my-pipeline-extension"
+        ],
+        "hostType": "Kubernetes"
+    }
+}
+```
+
+
+| Parameter | Description |
+|:---|:--|
+| `name` | Name of the DCE. Must be unique for the subscription. |
+| `location` | Location of the DCE. Must match the location of the DCR. |
+
+```json
+{
+    "type": "Microsoft.Insights/dataCollectionEndpoints",            
+    "name": "my-dce",
+    "location": "eastus",
+    "apiVersion": "2021-04-01",
+    "properties": {
+        "configurationAccess": {},
+        "logsIngestion": {},
+        "networkAcls": {
+            "publicNetworkAccess": "Enabled"
+        }
+    }
+}
+```
 ---
 
 ## Verify configuration
