@@ -250,7 +250,7 @@ resource roleAssignment 'Microsoft.Authorization/roleAssignments@2022-04-01' = {
 }
 ```
 
-When building connections using template logic directly, it's crucial to understand what Service Connector does for each kind of authentication type, as the template logic are equivalent to the Service Connector backend operations. The following table shows the operation details that you need translate to template logic for each kind of authentication type.
+When building connections using template logic directly, it's crucial to understand what Service Connector does for each kind of authentication type, as the template logic is equivalent to the Service Connector backend operations. The following table shows the operation details that you need to translate to template logic for each kind of authentication type.
 
 | Auth type                        | Service Connector operations                                                                                                                                                                                                                                                                                                                               |
 | -------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
