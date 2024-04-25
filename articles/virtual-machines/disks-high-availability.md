@@ -10,7 +10,7 @@ ms.service: azure-disk-storage
 
 # Best practices for deploying Azure virtual machines and managed disks with high availability
 
-Azure offers several configuration options for ensuring high availability of Azure virtual machines (VMs) and Azure managed disks. This article provides recommendations for which of these configurations to use based on your application.
+Azure offers several configuration options for ensuring high availability of Azure virtual machines (VMs) and Azure managed disks. This article provides recommendations on which of these configurations to use based on your application.
 
 ## At a glance
 
@@ -56,13 +56,13 @@ There might be higher network latency between several availability zones than wi
 
 Fault domains define groups of VMs that share a common power source and a network switch. For details, see [How do availability sets work?](availability-set-overview.md#how-do-availability-sets-work).
 
-If you can't deploy your VMs across availability zones, you can deploy them across fault domains instead. Multiple VMs have the second highest uptime SLA when deployed across fault domains. To learn more, see the Virtual Machines section of SLA https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services?lang=1
+If you can't deploy your VMs across availability zones, you can deploy them across fault domains instead. Multiple VMs have the second highest uptime SLA when deployed across fault domains. To learn more, see the Virtual Machines section of the [SLA](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services?lang=1).
 
 #### Use regional Virtual Machine Scale Sets with flexible orchestration
 
 A regional Virtual Machine Scale Set is a Virtual Machine Scale Set that has no explicitly defined availability zones. With regional virtual machine scale sets, VM resources are replicated across fault domains within the region they're deployed in to improve the resiliency and availability of applications and data. This configuration spreads VMs across fault domains by default but also provides the ability to assign fault domains on VM creation. See [this section](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md#regional) for details.
 
-Regional Virtual Machine Scale Sets don't currently support Ultra Disks or Premium SSD v2 disks, and doesn't protect against large-scale outages like a datacenter or region outage.
+Regional Virtual Machine Scale Sets don't currently support Ultra Disks or Premium SSD v2 disks, and doesn't protect against large-scale outages like a data center or region outage.
 
 #### Use availability sets
 
@@ -85,5 +85,5 @@ Zone-redundant storage (ZRS) disks synchronously replicate data across three ava
 ## Next steps
 
 - [What are availability zones?](../reliability/availability-zones-overview.md)
--  [Create a Virtual Machine Scale Set that uses Availability Zones](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md)
+- [Create a Virtual Machine Scale Set that uses Availability Zones](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md)
 - [Availability sets overview](availability-set-overview.md)
