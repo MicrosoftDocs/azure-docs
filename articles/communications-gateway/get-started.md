@@ -50,6 +50,9 @@ For Zoom Phone Cloud Peering, also read:
 - [Overview of interoperability of Azure Communications Gateway with Zoom Phone Cloud Peering](interoperability-zoom.md).
 - [Emergency calling for Zoom Phone Cloud Peering with Azure Communications Gateway](emergency-calls-zoom.md).
 
+For Azure Operator Call Protection Preview, also read:
+- [Overview of deploying Azure Operator Call Protection Preview](../operator-call-protection/deployment-overview.md).
+
 As part of your planning, ensure your network can support the connectivity and interoperability requirements in these articles.
 
 Read through the procedures in [Deploy Azure Communications Gateway](#deploy-azure-communications-gateway) and [Integrate with your chosen communications services](#integrate-with-your-chosen-communications-services). Use those procedures as input into your planning for deployment, testing and going live. You need to work with an onboarding team (from Microsoft or one that you arrange yourself) during these phases, so ensure that you discuss timelines and requirements with this team.
@@ -83,6 +86,9 @@ Use the following procedures to integrate with Zoom Phone Cloud Peering.
 1. [Connect Azure Communications Gateway to Zoom Phone Cloud Peering](connect-zoom.md) describes how to connect Azure Communications Gateway to Zoom servers.
 1. [Configure test numbers for Zoom Phone Cloud Peering](configure-test-numbers-zoom.md) describes how to configure Azure Communications Gateway and Zoom with test numbers.
 1. [Prepare for live traffic with Zoom Phone Cloud Peering and Azure Communications Gateway](prepare-for-live-traffic-zoom.md) describes how to test your deployment and launch your service.
+
+Use the following procedures to integrate with Azure Operator Call Protection Preview.
+- [Set Up Azure Operator Call Protection Preview](../operator-call-protection/set-up-operator-call-protection.md).
 
 ## Next steps
 
