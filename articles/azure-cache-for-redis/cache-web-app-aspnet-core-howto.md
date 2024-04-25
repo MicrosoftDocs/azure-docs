@@ -7,7 +7,7 @@ ms.service: cache
 ms.devlang: csharp
 ms.custom: devx-track-csharp, mvc, mode-other
 ms.topic: quickstart
-ms.date: 03/25/2022
+ms.date: 04/24/2024
 
 ---
 
