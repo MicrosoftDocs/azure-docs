@@ -14,7 +14,7 @@ ms.custom: template-how-to, engagement-fy23, devx-track-azurepowershell, devx-tr
 
 # Dissociate a public IP address from an Azure VM 
 
-In this article, you learn how to dissociate a public IP address from an Azure virtual machine (VM).
+In this article, you learn how to dissociate a public IP address from an Azure virtual machine (VM). Removing the public IP address of your VM will also remove their ability to connect to the Internet.
 
 You can use the [Azure portal](#azure-portal), the [Azure CLI](#azure-cli), or [Azure PowerShell](#powershell) to dissociate a public IP address from a VM.
 
