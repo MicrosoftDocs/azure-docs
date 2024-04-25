@@ -178,6 +178,9 @@ A [Microsoft Entra Managed ID][managed-identity] is an identity that an administ
 
 In this security model, you can grant access to your cluster's resources to team members or tenants sharing a managed role. The role is checked for scope to access the keyvault and other credentials. When you [enabled the Azure Key Vault provider for Secrets Store CSI Driver on your AKS Cluster](./csi-secrets-store-driver.md#create-an-aks-cluster-with-azure-key-vault-provider-for-secrets-store-csi-driver-support), it created a user identity.
 
+> [!IMPORTANT]
+> Managed identity access modes will be deprecated in the future. The reason behind of deprecation is: in case of user-assigned and system-assigned managed identity, the identity is manually assigned to the underlying VMSS by running `az vmss identity assign`. This identity is then accessible by any pod running on the cluster. See also: [Deprecating User-assigned and System-assigned managed identity access modes](https://github.com/Azure/secrets-store-csi-driver-provider-azure/issues/837).
+
 ### Configure managed identity
 
 1. Access your key vault using the [`az aks show`][az-aks-show] command and the user-assigned managed identity created by the add-on. You should also retrieve the identity's `clientId`, which you'll use in later steps when creating a `SecretProviderClass`.
