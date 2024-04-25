@@ -48,16 +48,16 @@ To help you understand where and how you're using your quota, the Quota Manageme
 
 1. On the Quotas page, select **Dev Box**. 
  
-   :::image type="content" source="media/how-to-determine-your-quota-usage/quotas-page.png" alt-text="Screenshot of the Azure portal Quotas page with Microsoft Dev Box highlighted." lightbox="media/how-to-determine-your-quota-usage/quotas-page.png":::
+   :::image type="content" source="media/how-to-request-quota-increase/quotas-page.png" alt-text="Screenshot of the Azure portal Quotas page with Microsoft Dev Box highlighted." lightbox="media/how-to-request-quota-increase/quotas-page.png":::
 
 1. View your quota usage and limits for each resource type. 
 
-   :::image type="content" source="media/how-to-determine-your-quota-usage/my-quotas-page.png" alt-text="Screenshot of the Azure portal Quotas page with Microsoft Dev Box quotas." lightbox="media/how-to-determine-your-quota-usage/my-quotas-page.png":::
+   :::image type="content" source="media/how-to-request-quota-increase/my-quotas-page.png" alt-text="Screenshot of the Azure portal Quotas page with Microsoft Dev Box quotas." lightbox="media/how-to-request-quota-increase/my-quotas-page.png":::
 
 1. To submit a quota request for compute, select **New Quota Request**.  
 
    > [!TIP]
-   > To adjust other quotas and submit requests, in the **Request adjustment** column, select the pencil icon.
+   > To edit other quotas and submit requests, in the **Request adjustment** column, select the pencil icon.
 
 1. In the **Quota request** pane, enter the new quota limit that you want to request, and then select **Submit**.
 
