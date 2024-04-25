@@ -18,9 +18,9 @@ This tutorial shows how to retrieve supporting evidence of Radiology Insight inf
 In this tutorial, you:
 
 > [!div class="checklist"]
-> * send a document to the Radiology Insights service and retrieve the Followup Recommendation inference
+> * send a document to the Radiology Insights service and retrieve the Follow-up Recommendation inference
 > * display the supporting evidence for this inference
-> * retrieve the imaging procedure recommendation and imaging procedure contained in this followup recommendation
+> * retrieve the imaging procedure recommendation and imaging procedure contained in this follow-up recommendation
 > * display the (SNOMED) codes and the evidence for the Modality and the Anatomy contained in the imaging procedure
 
 If you don’t have a service subscription, create a free trial account: <a href="https://azure.microsoft.com/free/ai-services" target="_blank">Create one for free</a>.
@@ -29,13 +29,13 @@ A complete working example of the code contained in this tutorial (with some ext
 
 ## Prerequisites
 
-To use the Radiology Insights (Preview) model, you must have an Azure Health Insights service created. If you have no Azure Health Insights service, see [Deploy Azure AI Health Insights using the Azure portal](../deploy-portal.md) or [Deploy Azure Health Insights using CLI or Powershell](get-started-CLI.md).
+To use the Radiology Insights (Preview) model, you must have an Azure Health Insights service created. If you have no Azure Health Insights service, see [Deploy Azure AI Health Insights using the Azure portal](../deploy-portal.md) or [Deploy Azure Health Insights using CLI or PowerShell](get-started-CLI.md).
 
 See [Azure Cognitive Services Health Insights Radiology Insights client library for Java](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/healthinsights/azure-health-insights-radiologyinsights/README.md) for an explanation on how to create a RadiologyInsightsClient, send a document to it, and retrieve a RadiologyInsightsInferenceResult.
 
-## Retrieve the Followup Recommendation inference
+## Retrieve the Follow-up Recommendation inference
 
-Once you have a RadiologyInsightsInferenceResult, use the following code to retrieve the Followup Recommendation inference:
+Once you have a RadiologyInsightsInferenceResult, use the following code to retrieve the Follow-up Recommendation inference:
 
 ```java
         List<RadiologyInsightsPatientResult> patientResults = radiologyInsightsResult.getPatientResults();
@@ -53,14 +53,14 @@ Once you have a RadiologyInsightsInferenceResult, use the following code to retr
 
 ## Display the supporting evidence for this inference
 
-The objects as exposed by the Java SDK are closely aligned with the FHIR standard. Therefore the supporting evidence for the Followup Recommendation inferences is encoded inside FhirExtension objects. Retrieve those objects and display the evidence as in the following code:
+The objects as exposed by the Java SDK are closely aligned with the FHIR standard. Therefore the supporting evidence for the Follow-up Recommendation inferences is encoded inside FhirExtension objects. Retrieve those objects and display the evidence as in the following code:
 
 ```java
         List<FhirR4Extension> extensions = followupRecommendationInference.getExtension();
         System.out.println("   Evidence: " + extractEvidence(extensions));
 ```
 
-As the evidence is encoded in extensions wrapped in a top level extension, the extractEvidence() method loops over those "subExtensions":
+As the evidence is encoded in extensions wrapped in a top level extension, the extractEvidence() method loops over those subExtensions:
 
 ```java
     private static String extractEvidence(List<FhirR4Extension> extensions) {
@@ -77,7 +77,7 @@ As the evidence is encoded in extensions wrapped in a top level extension, the e
     }                    
 ```
 
-The extractEvidenceToken() method loops over these subExtensions and extracts the offsets and lengths for each token or word of the supporting evidence. Both offset and length are encoded as separate extensions with a corresponding "url" value ("offset" or "length"). Finally the offsets and length values are used to extract the tokens or words from the document text (as stored in the DOC_CONTENT constant):
+The extractEvidenceToken() method loops over the subExtensions and extracts the offsets and lengths for each token or word of the supporting evidence. Both offset and length are encoded as separate extensions with a corresponding "url" value ("offset" or "length"). Finally the offsets and length values are used to extract the tokens or words from the document text (as stored in the DOC_CONTENT constant):
 
 ```java
     private static String extractEvidenceToken(List<FhirR4Extension> subExtensions) {
@@ -99,7 +99,7 @@ The extractEvidenceToken() method loops over these subExtensions and extracts th
     }
 ```
                     
-## Retrieve the imaging procedure(s) contained in the followup recommendation
+## Retrieve the imaging procedures contained in the follow-up recommendation
 
 The imaging procedures are wrapped in an ImagingProcedureRecommendation (which is itself a subclass of ProcedureRecommendation), and can be retrieved as follows:
 
@@ -153,11 +153,11 @@ The codes (in this example SNOMED) can be displayed using the displayCodes() met
 
 ## Clean up resources
 
-If you created a resource or resource group for this tutorial, these can be cleaned up as explained here: [Deploy Azure Health Insights using CLI or Powershell](get-started-CLI.md).
+If you created a resource or resource group for this tutorial, these resources can be cleaned up as explained here: [Deploy Azure Health Insights using CLI or PowerShell](get-started-CLI.md).
 
 ## Related content
 
 * [SampleFollowupRecommendationInferenceAsync](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/healthinsights/azure-health-insights-radiologyinsights/src/samples/java/com/azure/health/insights/radiologyinsights/SampleFollowupRecommendationInferenceAsync.java)
 * [Deploy Azure AI Health Insights using the Azure portal](../deploy-portal.md)
-* [Deploy Azure Health Insights using CLI or Powershell](get-started-CLI.md)
+* [Deploy Azure Health Insights using CLI or PowerShell](get-started-CLI.md)
 * [Azure Cognitive Services Health Insights Radiology Insights client library for Java](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/healthinsights/azure-health-insights-radiologyinsights/README.md)

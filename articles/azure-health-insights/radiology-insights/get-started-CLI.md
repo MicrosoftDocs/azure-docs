@@ -2,7 +2,7 @@
 title: "Quickstart: Create and deploy a HealthInsights resource using CLI or PowerShell"
 description: "This document explains how to create and deploy a HealthInsights resource using CLI or PowerShell"
 author: hvanhoe
-ms.author: hvanhoe
+ms.author: henkvanhoe
 ms.service: azure-health-insights
 ms.topic: quickstart  #Don't change
 ms.date: 04/09/2024

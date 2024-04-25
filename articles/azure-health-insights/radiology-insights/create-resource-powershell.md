@@ -2,13 +2,12 @@
 title: 'Create and deploy a HealthInsights resource with the Azure PowerShell'
 titleSuffix: Azure  AI Health Insights
 description: Learn how to use Azure PowerShell to create a HealthInsights resource.
-author: henkvanhoe
+author: hvanhoe
 ms.author: henkvanhoe
 ms.service: azure-health-insights
 ms.topic: include
 ms.date: 04/16/2024
 ---
-# Create and deploy a HealthInsights resource with the Azure PowerShell
 
 ## Prerequisites
 
