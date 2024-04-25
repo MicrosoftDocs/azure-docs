@@ -28,11 +28,24 @@ call.on('isLocalVideoStartedChanged', () => {
 ```
 
 ### Collections
-- You must inspect their initial values, and subscribe to the `'<collection>Updated'` event for future value updates.
+You can subscribe to the '<collection>Updated' event to receive notifications about changes in an object collection. The '<collection>Updated' event is triggered whenever elements are added to or removed from the collection you are monitoring.
+
 - The `'<collection>Updated'` event's payload, has an `added` array that contains values that were added to the collection.
 - The `'<collection>Updated'` event's payload also has a `removed` array that contains values that were removed from the collection.
 
 #### Example subscription on a collection
 
+In this example, we subscribe to changes in values of the Call object `LocalVideoStream`.
+
+```javascript
+ call.on('localVideoStreamsUpdated', e => {
+    e.added.forEach(async (lvs) => {
+      console.log(`e.added contains an array of added LocalVideoStream`);
+    });
+    e.removed.forEach(lvs => {
+         console.log(`e.added contains an array of remove LocalVideoStream`);
+    });
+});
+```
 
 ### Collection and properties on the `Call` object
