@@ -24,7 +24,6 @@ The basic format is:
 ```json
 {
   "type": "Microsoft.VirtualMachineImages/imageTemplates",
-  "api-version": "2022-02-14",
   "location": "<region>",
   "tags": {
     "<name>": "<value>",
@@ -96,16 +95,16 @@ resource azureImageBuilder 'Microsoft.VirtualMachineImages/imageTemplates@2022-0
 ```
 
 ---
+## API version
+The API version will change over time as the API changes. See [What's new in Azure VM Image Builder](../image-builder-api-update-release-notes.md) for all major API changes and feature updates for the Azure VM Image Builder service.
 
-## Type and API version
-
-The `type` is the resource type, which must be `Microsoft.VirtualMachineImages/imageTemplates`. The `api-version` will change over time as the API changes. See [What's new in Azure VM Image Builder](../image-builder-api-update-release-notes.md) for all major API changes and feature updates for the Azure VM Image Builder service.
+## Type
+The `type` is the resource type, which must be `Microsoft.VirtualMachineImages/imageTemplates`. 
 
 # [JSON](#tab/json)
 
 ```json
 "type": "Microsoft.VirtualMachineImages/imageTemplates",
-"api-version": "2022-02-14",
 ```
 
 # [Bicep](#tab/bicep)
@@ -850,8 +849,7 @@ imageResourceGroup=<resourceGroup of image template>
 runOutputName=<runOutputName>
 
 az resource show \
-  --ids "/subscriptions/$subscriptionID/resourcegroups/$imageResourceGroup/providers/Microsoft.VirtualMachineImages/imageTemplates/ImageTemplateLinuxRHEL77/runOutputs/$runOutputName"  \
-  --api-version=2021-10-01
+  --ids "/subscriptions/$subscriptionID/resourcegroups/$imageResourceGroup/providers/Microsoft.VirtualMachineImages/imageTemplates/ImageTemplateLinuxRHEL77/runOutputs/$runOutputName"
 ```
 
 Output:
@@ -1725,7 +1723,7 @@ vnetConfig: {
 To start a build, you need to invoke 'Run' on the Image Template resource, examples of `run` commands:
 
 ```azurepowershell-interactive
-Invoke-AzResourceAction -ResourceName $imageTemplateName -ResourceGroupName $imageResourceGroup -ResourceType Microsoft.VirtualMachineImages/imageTemplates -ApiVersion "2021-10-01" -Action Run -Force
+Invoke-AzResourceAction -ResourceName $imageTemplateName -ResourceGroupName $imageResourceGroup -ResourceType Microsoft.VirtualMachineImages/imageTemplates -Action Run -Force
 ```
 
 ```azurecli-interactive
@@ -1745,7 +1743,7 @@ The build can be canceled anytime. If the distribution phase has started you can
 Examples of `cancel` commands:
 
 ```azurepowershell-interactive
-Invoke-AzResourceAction -ResourceName $imageTemplateName -ResourceGroupName $imageResourceGroup -ResourceType Microsoft.VirtualMachineImages/imageTemplates -ApiVersion "2021-10-01" -Action Cancel -Force
+Invoke-AzResourceAction -ResourceName $imageTemplateName -ResourceGroupName $imageResourceGroup -ResourceType Microsoft.VirtualMachineImages/imageTemplates -Action Cancel -Force
 ```
 
 ```azurecli-interactive
