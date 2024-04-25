@@ -117,7 +117,7 @@ The following tabs show how Microsoft Sentinel and Log Analytics costs appear in
 
 If you're billed at the simplified Commitment tier rate, this table shows how Microsoft Sentinel costs appear in the **Service name** and **Meter** columns of your Azure bill.
 
- Cost description | Service name | Meter |
+| Cost description | Service name | Meter |
 |--|--|--|
 | Microsoft Sentinel Commitment tier | `Sentinel` | **`n` GB Commitment Tier** |
 | Microsoft Sentinel Commitment tier overage | `Sentinel` |**Analysis**|
@@ -137,7 +137,7 @@ If you're billed at the classic Commitment tier rate, this table shows how Micro
 
 If you're billed at the simplified Pay-As-You-Go rate, this table shows how Microsoft Sentinel costs appear in the **Service name** and **Meter** columns of your Azure bill.
 
- Cost description | Service name | Meter |
+| Cost description | Service name | Meter |
 |--|--|--|
 | pay-as-you-go| `Sentinel` |**Pay-as-You-Go Analysis**|
 | Basic logs data analysis| `Sentinel` |**Basic Logs Analysis**|
@@ -147,7 +147,7 @@ If you're billed at the simplified Pay-As-You-Go rate, this table shows how Micr
 
 If you're billed at classic Pay-As-You-Go rate, this table shows how Microsoft Sentinel and Log Analytics costs appear in the **Service name** and **Meter** columns of your Azure bill.
 
- Cost description | Service name | Meter |
+| Cost description | Service name | Meter |
 |--|--|--|
 | pay-as-you-go| `Sentinel` |**Classic Pay-as-You-Go Analysis**|
 | pay-as-you-go| `Log Analytics` |**Pay-as-You-Go Data Ingestion**|
@@ -159,7 +159,7 @@ If you're billed at classic Pay-As-You-Go rate, this table shows how Microsoft S
 
 This table shows how Microsoft Sentinel and Log Analytics no charge costs appear in the **Service name** and **Meter** columns of your Azure bill for free data services when billing is at a simplified pricing tier. For more information, see [View Data Allocation Benefits](../azure-monitor/cost-usage.md#view-data-allocation-benefits).
 
- Cost description | Service name | Meter |
+| Cost description | Service name | Meter |
 |--|--|--|
 | Microsoft Sentinel Free Trial – Sentinel Analysis| `Sentinel` |**Free trial Analysis**|
 | Microsoft Defender XDR Benefit – Data Ingestion| `Azure Monitor` |**Free Benefit - M365 Defender Data Ingestion**|
@@ -170,7 +170,7 @@ This table shows how Microsoft Sentinel and Log Analytics no charge costs appear
 
 This table shows how Microsoft Sentinel and Log Analytics no charge costs appear in the **Service name** and **Meter** columns of your Azure bill for free data services when billing is at a classic pricing tier. For more information, see [View Data Allocation Benefits](../azure-monitor/cost-usage.md#view-data-allocation-benefits).
 
- Cost description | Service name | Meter |
+| Cost description | Service name | Meter |
 |--|--|--|
 | Microsoft Sentinel Free Trial – Log Analytics data ingestion| `Azure Monitor` |**Free Benefit - Az Sentinel Trial Data Ingestion**|
 | Microsoft Sentinel Free Trial – Sentinel Analysis| `Sentinel` |**Free trial Analysis**|
@@ -253,7 +253,7 @@ The following table lists the data sources in Microsoft Sentinel and Log Analyti
 
 For data connectors that include both free and paid data types, select which data types you want to enable.
 
-:::image type="content" source="media/billing/data-types.png" alt-text="Screenshot of the connector page for Defender for Cloud Apps, with the free security alerts selected and the paid MCAS Shadow IT Reporting not enabled." lightbox="media/billing/data-types.png":::
+:::image type="content" source="media/billing/data-types.png" alt-text="Screenshot of the connector page for Defender for Cloud Apps, with the free security alerts selected and paid MCAS Shadow IT Reporting not enabled." lightbox="media/billing/data-types.png":::
 
 Learn more about how to [connect data sources](connect-data-sources.md), including free and paid data sources.
 
