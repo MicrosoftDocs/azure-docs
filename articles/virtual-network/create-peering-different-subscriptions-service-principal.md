@@ -101,7 +101,6 @@ Create **spn1-peer-vnet** with a scope to the virtual network created in the pre
                 --display-name spn-1-peer-vnet \
                 --query [].appId \
                 --output tsv)
-    echo $appid1
     ```
 
 1. The SPN created in the previous step must have a redirect URI to finish the authentication process approval and must be converted to multitenant use. Use [az ad app update](/cli/azure/ad/app##az-ad-app-update) to add **https://www.microsoft.com** as a redirect URI and enable multitenant on **spn-1-peer-vnet**. 
@@ -282,7 +281,6 @@ After the administrator approves **spn-2-vnet-peer**, add it to the virtual netw
                 --display-name spn-2-peer-vnet \
                 --query [].appId \
                 --output tsv)
-    echo $appid2
     ```
 
 1. Use Use [az network vnet show](/cli/azure/network/vnet#az-network-vnet-show) to obtain the resource ID of **vnet-1** into a variable for use in the later steps.
@@ -360,7 +358,6 @@ Once the administrator approves **spn-1-vnet-peer**, add it to the virtual netwo
                 --display-name spn-1-peer-vnet \
                 --query [].appId \
                 --output tsv)
-    echo $appid1
     ```
 
 1. Use [az network vnet show](/cli/azure/network/vnet#az-network-vnet-show) to obtain the resource ID of **vnet-2** into a variable for use in the later steps.
@@ -412,7 +409,6 @@ For the purposes of this article, sign-in to each subscription and obtain the ap
                 --display-name spn-1-peer-vnet \
                 --query [].appId \
                 --output tsv)
-    echo $appid1
     ```
 
 1. Use [az login](/cli/azure/reference-index#az-login) to sign-in to **subscription-2** with a regular user account.
@@ -441,7 +437,7 @@ For the purposes of this article, sign-in to each subscription and obtain the ap
     echo $appid2
     ```
 
-1. Use [az logout](/cli/azure/reference-index#az-logout)Sign out of the Azure CLI session with the following command. **Don't close the terminal**.
+1. Use [az logout](/cli/azure/reference-index#az-logout) to sign out of the Azure CLI session with the following command. **Don't close the terminal**.
 
     ```azurecli
     az logout
@@ -472,7 +468,7 @@ For the purposes of this article, sign-in to each subscription and obtain the ap
 1. Use [az account set](/cli/azure/account#az-account-set) to change the context to **subscription-1**.
 
     ```azurecli
-    az account set --subscription "subscription-1-subscription-id-NOT-ENTRA-ID"
+    az account set --subscription "subscription-1-subscription-id-NOT-ENTRA-TENANT-ID"
     ```
 
 1. Use [az network vnet peering create](/cli/azure/network/vnet/peering#az-network-vnet-peering-create) to create the virtual network peering between **vnet-1** and **vnet-2**.
@@ -498,7 +494,7 @@ For the purposes of this article, sign-in to each subscription and obtain the ap
 1. Use [az account set](/cli/azure/account#az-account-set) to change the context to **subscription-2**.
 
     ```azurecli
-    az account set --subscription "subscription-2-subscription-id-NOT-ENTRA-ID"
+    az account set --subscription "subscription-2-subscription-id-NOT-ENTRA-TENANT-ID"
     ```
 
 1. Use [az network vnet peering create](/cli/azure/network/vnet/peering#az-network-vnet-peering-create) to create the virtual network peering between **vnet-2** and **vnet-1**.
