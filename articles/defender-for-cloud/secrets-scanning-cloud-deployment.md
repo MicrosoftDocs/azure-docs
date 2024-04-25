@@ -19,7 +19,7 @@ Each cloud provide exposes an API query, and when querying APIs for cloud deploy
 
 ## Security from software development to runtime
 
-Traditional secrets scanning solutions often detect misplaced secrets in code repositories, DevOps pipelines, or files within VMs and containers. Cloud deployment resources tend to be overlooked, and might potentially include plaintext secrets that can lead to critical assets, such as databases, blob storage, GitHub repositories, and Azure Open AI services. These secrets can allow attackers to exploit otherwise hidden attack surfaces within cloud environments.
+Traditional secrets scanning solutions often detect misplaced secrets in code repositories, code pipelines, or files within VMs and containers. Cloud deployment resources tend to be overlooked, and might potentially include plaintext secrets that can lead to critical assets, such as databases, blob storage, GitHub repositories, and Azure OpenAI services. These secrets can allow attackers to exploit otherwise hidden attack surfaces within cloud environments.
 
 
 Scanning for cloud deployment secrets adds an extra layer of security, addressing scenarios such as: 
@@ -68,7 +68,7 @@ The following cloud deployment secrets security recommendations are available:
 
 ### Attack path scenarios
 
-Attack path analysis is a graph-based algorithm that scans your cloud security graph. to expose exploitable paths that attackers might use to reach high-impact assets.
+Attack path analysis is a graph-based algorithm that scans your cloud security graph to expose exploitable paths that attackers might use to reach high-impact assets.
 
  
 ### Predefined cloud security explorer queries

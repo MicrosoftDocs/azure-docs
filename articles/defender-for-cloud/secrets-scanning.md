@@ -10,7 +10,7 @@ ms.date: 04/16/2024
 
 Microsoft Defender for Cloud helps security team to minimize the risk of attackers exploiting security secrets.
 
-After gaining initial access, attackers can move laterally across networks, find sensitive data, and exploit vulnerabilities to damage critical information systems by accessing cloud deployments, resources, and internet facing workloads. Lateral movement often involves credentials threats that typically exploit sensitive data such as exposed credentials and secrets such as passwords, keys, tokens, and connection strings to gain access to additional assets. Secrets are often found in files, stored on VM disks, or on containers, across multi-cloud deployments. Exposed secrets happen for a number of reasons:
+After gaining initial access, attackers can move laterally across networks, find sensitive data, and exploit vulnerabilities to damage critical information systems by accessing cloud deployments, resources, and internet facing workloads. Lateral movement often involves credentials threats that typically exploit sensitive data such as exposed credentials and secrets such as passwords, keys, tokens, and connection strings to gain access to additional assets. Secrets are often found in files, stored on VM disks, or on containers, across multicloud deployments. Exposed secrets happen for a number of reasons:
 
 - Lack of awareness: Organizations might not be aware of the risks and consequences of secrets exposure in their cloud environment. There might not be a clear policy on handling and protecting secrets in code and configuration files.
 - Lack of discovery tools: Tools might not be in place to detect and remediate secrets leaks.
@@ -50,12 +50,12 @@ Defender for Cloud supports discovery of the types of secrets summarized in the 
 **Secrets type** |	**VM secrets discovery** |	**Cloud deployment secrets discovery** |	**Review location**
 --- | --- | --- | ---
 Insecure SSH private keys<br/>Supports RSA algorithm for PuTTy files.<br/>PKCS#8 and PKCS#1 standards<br/>OpenSSH standard |Yes	|Yes | Inventory, cloud security explorer, recommendations, attack paths
-Plaintext Azure SQL connection strings supports SQL PAAS.|Yes	|Yes | Inventory, cloud security explorer, recommendations, attack paths
+Plaintext Azure SQL connection strings support SQL PAAS.|Yes	|Yes | Inventory, cloud security explorer, recommendations, attack paths
 Plaintext Azure database for PostgreSQL.|Yes	|Yes | Inventory, cloud security explorer, recommendations, attack paths
 Plaintext Azure database for MySQL.|Yes	|Yes | Inventory, cloud security explorer, recommendations, attack paths
 Plaintext Azure database for MariaDB.|Yes	|Yes | Inventory, cloud security explorer, recommendations, attack paths
 Plaintext Azure Cosmos DB, including PostgreSQL, MySQL and MariaDB.|Yes	|Yes | Inventory, cloud security explorer, recommendations, attack paths
-Plaintext AWS RDS connection string, supports SQL PAAS:<br/>Plaintext Amazon Aurora with Postgres and MySQL flavors.<br/>Plaintext Amazon custom RDS with Oracle and SQL Server flavors.|Yes	|Yes | Inventory, cloud security explorer, recommendations, attack paths
+Plaintext AWS RDS connection string supports SQL PAAS:<br/>Plaintext Amazon Aurora with Postgres and MySQL flavors.<br/>Plaintext Amazon custom RDS with Oracle and SQL Server flavors.|Yes	|Yes | Inventory, cloud security explorer, recommendations, attack paths
 Plaintext Azure storage account connection strings|Yes	|Yes | Inventory, cloud security explorer, recommendations, attack paths
 Plaintext Azure storage account connection strings.|Yes	|Yes | Inventory, cloud security explorer, recommendations, attack paths
 Plaintext Azure storage account SAS tokens.|Yes	|Yes | Inventory, cloud security explorer, recommendations, attack paths
