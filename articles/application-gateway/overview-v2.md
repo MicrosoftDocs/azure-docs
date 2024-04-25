@@ -1,11 +1,11 @@
 ---
 title: What is Azure Application Gateway v2?
-description: Learn about Azure application Gateway v2 features
+description: Learn about Azure application Gateway v2 features.
 services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
 ms.topic: overview
-ms.date: 02/26/2024
+ms.date: 04/25/2024
 ms.author: greglin
 ms.custom: references_regions
 ---
@@ -47,7 +47,7 @@ The Standard_v2 and WAF_v2 SKU isn't currently available in the following region
 
 With the v2 SKU, the pricing model is driven by consumption and is no longer attached to instance counts or sizes. The v2 SKU pricing has two components:
 
-- **Fixed price** - This is hourly (or partial hour) price to provision a Standard_v2 or WAF_v2 Gateway. Please note that 0 additional minimum instances still ensures high availability of the service which is always included with fixed price.
+- **Fixed price** - This is an hourly (or partial hour) price to provision a Standard_v2 or WAF_v2 Gateway. It's important to understand that zero additional minimum instances still ensures high availability of the service, and is always included with fixed price.
 - **Capacity Unit price** - This is a consumption-based cost that is charged in addition to the fixed cost. Capacity unit charge is also computed hourly or partial hourly. There are three dimensions to capacity unit - compute unit, persistent connections, and throughput. Compute unit is a measure of processor capacity consumed. Factors affecting compute unit are TLS connections/sec, URL Rewrite computations, and WAF rule processing. Persistent connection is a measure of established TCP connections to the application gateway in a given billing interval. Throughput is average Megabits/sec processed by the system in a given billing interval.  The billing is done at a Capacity Unit level for anything above the reserved instance count.
 
 Each capacity unit is composed of at most: 1 compute unit, 2500 persistent connections, and 2.22-Mbps throughput.
@@ -100,9 +100,9 @@ This section describes features and limitations of the v2 SKU that differ from t
 |Performance logs in Azure diagnostics|Not supported.<br>Azure metrics should be used.|
 |FIPS mode|Currently not supported.|
 |Private frontend configuration only mode|Currently in public preview [Learn more](application-gateway-private-deployment.md).|
-|Path based rule encoding |Not supported.<br> V2 decodes paths before routing. For eg : V2 will treat /abc%2Fdef same as /abc/def. |
-|Chunked file transfer |In the Standard_V2 configuration, turn off request buffering to support chunked file transfer . <br> In WAF_V2, turning off request buffering isn't possible because it has to look at the entire request to detect and block any threats. Therefore, the suggested alternative is to create a path rule for the affected URL and attach a disabled WAF policy to that path rule.|
-|Cookie Affinity |Current V2 doesn't support appending the domain in session affinity Set-Cookie ,which means that the cookie can't be used by client for the subdomains.|
+|Path based rule encoding |Not supported.<br> V2 decodes paths before routing. For example, V2 will treat `/abc%2Fdef` the same as `/abc/def`. |
+|Chunked file transfer |In the Standard_V2 configuration, turn off request buffering to support chunked file transfer. <br> In WAF_V2, turning off request buffering isn't possible because it has to look at the entire request to detect and block any threats. Therefore, the suggested alternative is to create a path rule for the affected URL and attach a disabled WAF policy to that path rule.|
+|Cookie Affinity |Current V2 doesn't support appending the domain in session affinity Set-Cookie, which means that the cookie can't be used by client for the subdomains.|
 |Microsoft Defender for Cloud integration|Not yet available.
 
 ## Migrate from v1 to v2
