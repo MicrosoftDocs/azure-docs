@@ -464,6 +464,28 @@ If you have a Prometheus instance served with TLS and you want to scrape metrics
 
 The secret should be created in kube-system namespace and then the configmap/CRD should be created in kube-system namespace. The order of secret creation matters. When there's no secret but a valid CRD/config map, you will find errors in collector log -> `no file found for cert....`
 
+Below is an example for creating secret object and how that can be auto-mounted into our ama-metrics-* pod(s) , after which you can reference the secret data specified in the secret in your scrape configmap/CRD.
+
+```yaml
+apiVersion: v1
+kind: Secret
+metadata:
+  name: ama-metrics-mtls-secret
+  namespace: kube-system
+data:
+  myfrontendpassword: <base 64 encoded value>
+  mybackendpassword: <base 64 encoded value>
+```
+
+1.	Create a secret object with name "ama-metrics-mtls-secret" in "kube-system" namespace  (it's an opaque secret). Note that the secret object has to be named exactly the same as above in kube-system namespace to be auto-mounted into the ama-metrics-* pod(s).
+2.	Inside the secret object , you can specify as many number of secret values under data section and name them how ever you want. Each secret name-value pair specified in the data section of the secret object will be mounted as a seperate file in this /etc/prometheus/certs  location with filename(s) same as key(s) specified in the data section. The secret values should be base64 encoded before putting them under the data section.
+3.	Apply/create the secret object in your cluster in kube-system namespace.
+4.	In a few seconds, all the ama-metrics-* pod(s) will do a rolling restart, the secret values will be mounted as seperate files into the ama-metric-* pod(s) in the following location in our ama-metric(s) pod(s) /etc/prometheus/certs 
+5. Now you can reference these password(s) from /etc/prometheus/certs location (ex;- /etc/prometheus/certs/myfrontendpassword) into any of your scrape job(s) in the configmap
+
+> [!NOTE]
+> Secret values will be base64 decoded automatically when mounted as files int our ama-metrics-* pod(s)
+
 Below are the details about how to provide the TLS config settings through a configmap or CRD.
 
 - To provide the TLS config setting in a configmap, please create the self-signed certificate and key inside your mtls enabled app.
