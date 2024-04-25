@@ -232,9 +232,9 @@ To import the certificate:
    notation sign --signature-format cose --id $KEY_ID --plugin azure-kv --plugin-config credential_type=azurecli $IMAGE
    ```
 
-   See below table for the values of `crendtial_type` for various credential types.
+   See below table for the values of `credential_type` for various credential types.
 
-   | Credential type              | Value for `crendtial_type` |
+   | Credential type              | Value for `credential_type` |
    | ---------------------------- | -------------------------- |
    | Environment credential       | `environment`              |
    | Workload identity credential | `workloadid`               |
