@@ -10,6 +10,9 @@ ms.service: azure-communication-services
 ms.subservice: teams-interop
 ms.custom: mode-other, devx-track-js
 ---
+
+# Capabilities for Microsoft Teams users in Azure Communication Services group calls
+
 Azure Communication Services is interoperable with Microsoft Teams. This is especially helpful for business-to-consumer use cases, where an external customer in a custom, branded Azure-powered app or website communicates with an employee using Microsoft Teams. This allows the external customer to enjoy a custom experience, and the employee to have all their communication needs satisfied in a single hub: Teams. 
 Azure Communication Services can interoperate with Teams in three ways:
 1.	Azure clients can add an individual Teams user to a 1:1 and group calls. This is ideal for customer service situations where your application is adding a Teams-hosted subject matter experts to a call to help agents improve their first call resolution rates.
@@ -20,7 +23,6 @@ This page details capabilities for Teams (or M365) users in a call with Communic
 
 [!INCLUDE [Teams Phone license](../../includes/teams-phone-license-include.md)]
 
-# Capabilities for Microsoft Teams users in Azure Communication Services group calls
 M365/Teams user can take calls with Communication Services users via Teams client or [a custom client](../teams-endpoint.md) built using the Azure Communication Services SDKs. To learn about features available for Communication Services user, refer to [voice and video capabilities](../voice-video-calling/calling-sdk-features.md) document.
 
 
