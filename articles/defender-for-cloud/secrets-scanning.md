@@ -76,7 +76,7 @@ Plaintext Azure API Management Subscription Key. |Yes	|Yes | Inventory, cloud se
 Plaintext Azure Bot Framework Secret Key. |Yes	|Yes | Inventory, cloud security explorer.
 Plaintext Azure Machine Learning Web Service API Key. |Yes	|Yes | Inventory, cloud security explorer.
 Plaintext Azure Communication Services Access Key.|Yes	|Yes | Inventory, cloud security explorer.
-Plaintext Azure EventGrid Access Key. |Yes	|Yes | Inventory, cloud security explorer.
+Plaintext Azure Event Grid Access Key. |Yes	|Yes | Inventory, cloud security explorer.
 Plaintext Amazon Marketplace Web Service (MWS) Access Key. |Yes	|Yes | Inventory, cloud security explorer.
 Plaintext Azure Maps Subscription Key. |Yes	|Yes | Inventory, cloud security explorer.
 Plaintext Azure Web PubSub Access Key.|Yes	|Yes | Inventory, cloud security explorer.
