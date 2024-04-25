@@ -20,7 +20,7 @@ Availability zones help protect your applications and data from datacenter failu
 
 AKS clusters deployed using availability zones can distribute nodes across multiple zones within a single region. For example, a cluster in the *East US 2* region can create nodes in all three availability zones in *East US 2*. This distribution of AKS cluster resources improves cluster availability as they're resilient to failure of a specific zone.
 
-![AKS node distribution across availability zones](media/availability-zones/aks-availability-zones.png)
+![Diagram that shows AKS node distribution across availability zones.](media/availability-zones/aks-availability-zones.png)
 
 If a single zone becomes unavailable, your applications continue to run on clusters configured to spread across multiple zones.
 

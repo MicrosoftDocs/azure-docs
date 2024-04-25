@@ -22,7 +22,7 @@ This article shows you how to create an AKS cluster and distribute the node comp
 Keep the following details in mind when creating an AKS cluster with availability zones using an Azure Resource Manager template:
 
 * If you explicitly define a [null value in a template][arm-template-null], for example, `"availabilityZones": null`, the template treats the property as if it doesn't exist. This means your cluster doesn't deploy in an availability zone.
-* If you don't include the `"availabilityZones":` property the template, your cluster doesn't deploy in an availability zone.
+* If you don't include the `"availabilityZones":` property in the template, your cluster doesn't deploy in an availability zone.
 * You can't update settings for availability zones on an existing cluster, as the behavior is different when you update an AKS cluster with Azure Resource Manager templates. If you explicitly set a null value in your template for availability zones and *update* your cluster, it doesn't update your cluster for availability zones. However, if you omit the availability zones property with syntax such as `"availabilityZones": []`, the deployment attempts to disable availability zones on your existing AKS cluster and **fails**.
 
 ## Create an AKS cluster across availability zones
@@ -104,12 +104,12 @@ As documented in [Well-Known Labels, Annotations and Taints][kubectl-well_known_
 
 1. Scale your AKS cluster from *3* to *5* nodes using the [`az aks scale`][az-aks-scale] command with the `--node-count` set to `5`.
 
-```azurecli-interactive
-az aks scale \
-    --resource-group $RESOURCE_GROUP \
-    --name $CLUSTER_NAME \
-    --node-count 5
-```
+    ```azurecli-interactive
+    az aks scale \
+        --resource-group $RESOURCE_GROUP \
+        --name $CLUSTER_NAME \
+        --node-count 5
+    ```
 
 2. When the scale operation completes, verify the pod distribution across the zones using the following [`kubectl describe`][kubectl-describe] command: 
 
