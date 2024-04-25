@@ -101,15 +101,13 @@ items:
           href: quickstarts/identity/access-tokens.md
         - name: Add Teams meeting calling to your app
           href: quickstarts/voice-video-calling/get-started-teams-interop.md
-        - name: Add Teams interop group calls to your app
-          href: quickstarts/voice-video-calling/get-started-teams-interop-group-calls.md  
       - name: Use a Teams identity
         items:
           - name: Generate an access token for a Teams User
             href: quickstarts/manage-teams-identity.md                
           - name: Add Teams video calling to your app
             href: quickstarts/voice-video-calling/get-started-with-voice-video-calling-custom-teams-client.md   
-    - name: Connect to a Teams calling applications
+    - name: Connect to a Teams calling application
       items:
         - name: Connect to Call Queue
           href: quickstarts/voice-video-calling/get-started-teams-call-queue.md
@@ -724,6 +722,8 @@ items:
             href: concepts/interop/custom-teams-endpoint-firewall-configuration.md
           - name: Government clouds
             href: concepts/interop/teams-user/government-cloud.md
+          - name: Add Teams interop group calls to your app
+            href: quickstarts/voice-video-calling/get-started-teams-interop-group-calls.md  
       - name: Virtual visits
         items:
           - name: Overview
@@ -738,6 +738,8 @@ items:
         href: concepts/voice-video-calling/closed-captions.md      
       - name: Pricing
         href: concepts/pricing/teams-interop-pricing.md
+      - name: Enable interoperability with Teams
+        href: concepts/interop/enable-interoperability-teams.md
     - name: Advanced audio and video
       items:    
       - name: Rooms API for structured meetings 
