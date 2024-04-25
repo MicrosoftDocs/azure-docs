@@ -720,6 +720,26 @@ To register the example model, follow these steps:
 
 For more information on working with registered models, see [Register and work with models](how-to-manage-models.md).
 
+### Create and register the environment
+
+1. In the left navigation bar, select the **Environments** page.
+1. Select **Create**.
+1. On the "Settings" page, provide a name, such as `my-env` for the environment.
+1. For "Select environment source" choose **Use existing docker image with optional conda source**.
+
+    :::image type="content" source="media/how-to-deploy-online-endpoints/create-environment.png" alt-text="A screenshot showing how to create a custom environment." lightbox="media/how-to-deploy-online-endpoints/create-environment.png":::
+
+1. Select **Next** to go to the "Customize" page.
+1. Copy the contents of the `\azureml-examples\cli\endpoints\online\model-1\environment\conda.yaml` file from the local copy of the repo you cloned or downloaded earlier.
+1. Paste the contents into the text box.
+
+    :::image type="content" source="media/how-to-deploy-online-endpoints/customize-environment-with-conda-file.png" alt-text="A screenshot showing how to customize the environment, using a conda file." lightbox="media/how-to-deploy-online-endpoints/customize-environment-with-conda-file.png":::
+
+1. Select **Next** until you get to the "Review" page.
+1. select **Create**.
+ 
+    :::image type="content" source="media/how-to-deploy-online-endpoints/create-environment.png" alt-text="A screenshot of the settings page when you create an environment." lightbox="media/how-to-deploy-online-endpoints/create-environment.png":::
+
 For information on creating an environment in the studio, see [Create an environment](how-to-manage-environments-in-studio.md#create-an-environment).
 
 # [ARM template](#tab/arm)
@@ -885,7 +905,7 @@ One way to create a managed online endpoint in the studio is from the **Models**
 1. Go to the [Azure Machine Learning studio](https://ml.azure.com).
 1. In the left navigation bar, select the **Models** page.
 1. Select the model named `model-1` by checking the circle next to its name.
-1. Select **Deploy** > **Deploy to real-time endpoint**.
+1. Select **Deploy** > **Real-time endpoint**.
 
     :::image type="content" source="media/how-to-deploy-online-endpoints/deploy-from-models-page.png" lightbox="media/how-to-deploy-online-endpoints/deploy-from-models-page.png" alt-text="A screenshot of creating a managed online endpoint from the Models UI.":::
     
@@ -897,10 +917,12 @@ One way to create a managed online endpoint in the studio is from the **Models**
 1. Keep the default selection: __Managed__ for the compute type.
 1. Keep the default selection: __key-based authentication__ for the authentication type. For more information on authenticating, see [Authenticate clients for online endpoints](how-to-authenticate-online-endpoint.md).
 1. Select __Next__, until you get to the "Deployment" page. Here, toggle __Application Insights diagnostics__ to Enabled to allow you to view graphs of your endpoint's activities in the studio later and analyze metrics and logs using Application Insights.
-1. Select __Next__ to go to the "Environment" page. Here, select the following options:
+1. Select __Next__ to go to the "Code + environment" page. Here, select the following options:
 
-    * __Select scoring file and dependencies__: Browse and select the `\azureml-examples\cli\endpoints\online\model-1\onlinescoring\score.py` file from the repo you cloned or downloaded earlier.
-    * __Choose an environment__ section: Select the **Scikit-learn 0.24.1** curated environment.
+    * __Select a scoring script for inferencing__: Browse and select the `\azureml-examples\cli\endpoints\online\model-1\onlinescoring\score.py` file from the repo you cloned or downloaded earlier.
+    * __Select environment__ section: Select **Custom environments** and then select the **my-env:1** environment that you created earlier.
+
+    :::image type="content" source="media/how-to-deploy-online-endpoints/deploy-with-custom-environment.png" lightbox="media/how-to-deploy-online-endpoints/deploy-with-custom-environment.png" alt-text="A screenshot showing selection of a custom environment for deployment.":::
 
 1. Select __Next__, accepting defaults, until you're prompted to create the deployment.
 1. Review your deployment settings and select the __Create__ button.
@@ -913,7 +935,7 @@ Alternatively, you can create a managed online endpoint from the **Endpoints** p
 
     :::image type="content" source="media/how-to-deploy-online-endpoints/endpoint-create-managed-online-endpoint.png" lightbox="media/how-to-deploy-online-endpoints/endpoint-create-managed-online-endpoint.png" alt-text="A screenshot for creating managed online endpoint from the Endpoints tab.":::
 
-This action opens up a window for you to specify details about your endpoint and deployment. Enter settings for your endpoint and deployment as described in the previous steps 5-10, accepting defaults until you're prompted to __Create__  the deployment.
+This action opens up a window for you to select your model and specify details about your endpoint and deployment. Enter settings for your endpoint and deployment as described previously, then __Create__  the deployment.
 
 # [ARM template](#tab/arm)
 
@@ -1030,7 +1052,7 @@ Check the logs to see whether the model was deployed without error.
 
 # [Studio](#tab/azure-studio)
 
-To view log output, select the **Deployment logs** tab in the endpoint's **Details** page. If you have multiple deployments in your endpoint, use the dropdown to select the deployment whose log you want to see.
+To view log output, select the **Logs** tab from the endpoint's page. If you have multiple deployments in your endpoint, use the dropdown to select the deployment whose log you want to see.
 
 :::image type="content" source="media/how-to-deploy-online-endpoints/deployment-logs.png" lightbox="media/how-to-deploy-online-endpoints/deployment-logs.png" alt-text="A screenshot of observing deployment logs in the studio.":::
 
@@ -1097,7 +1119,7 @@ Use the **Test** tab in the endpoint's details page to test your managed online 
 
 1. Select the **Test** tab in the endpoint's detail page.
 1. Use the dropdown to select the deployment you want to test.
-1. Enter sample input.
+1. Enter the [sample input](https://github.com/Azure/azureml-examples/blob/main/sdk/python/endpoints/online/model-1/sample-request.json).
 1. Select **Test**.
 
     :::image type="content" source="media/how-to-deploy-online-endpoints/test-deployment.png" lightbox="media/how-to-deploy-online-endpoints/test-deployment.png" alt-text="A screenshot of testing a deployment by providing sample data, directly in your browser.":::
