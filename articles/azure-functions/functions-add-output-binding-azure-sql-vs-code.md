@@ -138,7 +138,7 @@ using Microsoft.Azure.Functions.Worker.Extensions.Sql;
 ```  
 ::: zone-end  
 ::: zone pivot="programming-language-javascript"  
-Binding attributes are defined directly in the function.json file. The [Azure SQL output configuration](./functions-bindings-azure-sql-output.md#configuration) describes the fields required for an Azure SQL output binding.
+Binding attributes are defined directly in your code. The [Azure SQL output configuration](./functions-bindings-azure-sql-output.md#configuration) describes the fields required for an Azure SQL output binding.
 
 For this `MultiResponse` scenario, you need to add an `extraOutputs` output binding to the function.
 
