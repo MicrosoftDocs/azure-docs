@@ -49,6 +49,7 @@ The following table lists the property names and their description for creating 
 | Bootstrap server addresses   | A list of host/port pairs to establish the connection to the Kafka cluster.                                  |
 | Kafka topic                  | A named, ordered, and partitioned stream of data that allows for the publish-subscribe and event-driven processing of messages.|
 | Security Protocol            | How you want to connect to your Kafka cluster. Azure Stream Analytics supports mTLS, SASL_SSL, SASL_PLAINTEXT or None. |
+| Consumer Group Id            | The name of the Kafka consumer group that the input should be a part of. It will be automatically assigned if not provided. |
 | Event Serialization format   | The serialization format (JSON, CSV, Avro, Parquet, Protobuf) of the incoming data stream.                              |
 
 :::image type="content" source="./media/kafka/kafka-input.png" alt-text="Screenshot showing how to configure kafka input for a stream analytics job." lightbox="./media/kafka/kafka-input.png" :::
