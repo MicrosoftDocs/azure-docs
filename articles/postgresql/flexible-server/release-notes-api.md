@@ -23,7 +23,7 @@ This page provides latest news and updates regarding the recommended API version
 
 | API Version | Stable/Preview | Comments |
 | --- | --- | --- |
-| 2023-06-01-preview| Preview | Earlier GA features   +<br>Migration Pre-validation<br>Read replicas - Switchover (Site swap)<br>Read replicas - Virtual Endpoints<br>Private Endpoints<br>Azure Defender\Threat Protection APIs<br>PG 16 support<br>PremiumV2_LRS storage type support<br>Location capability changes for SSDv2<br>Quota Usage API<br> |
+| 2023-06-01-preview| Preview | Earlier GA features   +<br>Migration Prevalidation<br>Read replicas - Switchover (Site swap)<br>Read replicas - Virtual Endpoints<br>Private Endpoints<br>Azure Defender\Threat Protection APIs<br>PG 16 support<br>PremiumV2_LRS storage type support<br>Location capability changes for SSDv2<br>Quota Usage API<br> |
 | 2023-03-01-preview | Preview | New GA version features (2022-12-01) +<br>Geo + CMK<br>Storage auto growth<br>IOPS scaling<br>New location capability api<br>Azure Defender<br>Server Logs<br>Migrations<br> |
 | [2022-12-01](/rest/api/postgresql/) | Stable (GA) | Earlier GA features +<br>AAD<br>CMK<br>Backups<br>Administrators<br>Replicas<br>GeoRestore<br>MVU<br> |
 | 2022-05-01-preview | Preview | CheckMigrationNameAvailability<br>Migrations<br> |
@@ -41,7 +41,7 @@ All API versions
 Full Terraform state file fidelity
 Properties and values are saved to state
 No dependency on Swagger
-Common and consistent Azure authenticationazurerm/latest/docs/resources/postgresql_flexible_server)** that allows IaC management for Azure Database for PostgreSQL - Flexible Server based on GA Azure RM API. If particular feature currently is in Preview API, but has not been yet incorporated into GA API and AzureRM Terraform provider, you can use **AzAPI Terraform provider** to call Preview API directly. **The AzAPI provider** is a thin layer on top of the Azure ARM REST APIs. The AzAPI provider enables you to manage any Azure resource type using any API version.
+Common and consistent Azure authenticationazurerm/latest/docs/resources/postgresql_flexible_server)** that allows IaC management for Azure Database for PostgreSQL - Flexible Server based on GA Azure RM API. If particular feature currently is in Preview API, but hasn't been yet incorporated into GA API and AzureRM Terraform provider, you can use **AzAPI Terraform provider** to call Preview API directly. **The AzAPI provider** is a thin layer on top of the Azure Azure Resource Manager REST APIs. The AzAPI provider enables you to manage any Azure resource type using any API version.
 
 The AzAPI provider features the following benefits:
 
@@ -58,7 +58,7 @@ The [AzAPI2AzureRM](https://github.com/Azure/azapi2azurerm/releases) is an open 
 
 ## Contacts
 
-For any questions or suggestions you might have on Azure Database for PostgreSQL flexible server, send an email to the Azure Database for PostgreSQL flexible server Team ([@Ask Azure Database for PostgreSQL flexible server](mailto:AskAzureDBforPostgreSQL@service.microsoft.com)). Please note that this email address isn't a technical support alias.
+For any questions or suggestions you might have on Azure Database for PostgreSQL flexible server, send an email to the Azure Database for PostgreSQL flexible server Team ([@Ask Azure Database for PostgreSQL flexible server](mailto:AskAzureDBforPostgreSQL@service.microsoft.com)). Note that this email address isn't a technical support alias.
 
 In addition, consider the following points of contact as appropriate:
 
@@ -68,4 +68,4 @@ In addition, consider the following points of contact as appropriate:
 
 ## Next steps
 
-Now that you've read our API Release Notes on Azure Database for PostgreSQL flexible server, you're ready to create your first server: [Create an Azure Database for PostgreSQL - Flexible Server using Azure portal](./quickstart-create-server-portal.md)
+Now that you've read our API Release Notes on Azure Database for PostgreSQL flexible server, you're ready to create your first server: [Create an Azure Database for PostgreSQL - Flexible Server using Azure portal.](./quickstart-create-server-portal.md)
