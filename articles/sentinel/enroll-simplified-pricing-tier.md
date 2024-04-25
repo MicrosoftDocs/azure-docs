@@ -13,7 +13,7 @@ ms.author: austinmc
 For many Microsoft Sentinel workspaces created before July 2023, there's a separate pricing tier for Azure Monitor Log Analytics in addition to the classic pricing tier for Microsoft Sentinel. To combine the data ingestion costs for Log Analytics and the data analysis costs of Microsoft Sentinel, enroll your workspace in a simplified pricing tier. 
 
 ## Prerequisites
-- The Log Analytics workspace pricing tier must be on pay-as-you-go or a commitment tier before enrolling in a simplified pricing tier. Log Analytics legacy pricing tiers aren't supported.
+- The Log Analytics workspace pricing tier must be on pay-as-you-go or a Commitment tier before enrolling in a simplified pricing tier. Log Analytics legacy pricing tiers aren't supported.
 - Microsoft Sentinel was enabled on the workspace before July 2023. Workspaces that enable Microsoft Sentinel from July 2023 onwards are automatically set to the simplified pricing experience as the default. 
 - You must have **Contributor** or **Owner** for the Microsoft Sentinel workspace to change the pricing tier.
 
@@ -39,7 +39,7 @@ To set the pricing tier using an Azure Resource Manager template, set the follow
 
 For details on this template format, see [Microsoft.OperationalInsights workspaces](/azure/templates/microsoft.operationalinsights/workspaces).
 
-The following sample template configures Microsoft Sentinel simplified pricing with the 300 GB/day commitment tier. To set the simplified pricing tier to pay-as-you-go, omit the `capacityReservationLevel` property value and change `capacityreservation` to `pergb2018`.
+The following sample template configures Microsoft Sentinel simplified pricing with the 300 GB/day Commitment tier. To set the simplified pricing tier to pay-as-you-go, omit the `capacityReservationLevel` property value and change `capacityreservation` to `pergb2018`.
 
 ```json
 { 
@@ -82,7 +82,7 @@ The following sample template configures Microsoft Sentinel simplified pricing w
 
 Only tenants that had Microsoft Sentinel enabled before July 2023 are able to revert back to classic pricing tiers. To make the switch back, set the `Microsoft.OperationsManagement/solutions` `sku` name to `capacityreservation` and set the `capacityReservationLevel` for both sections to the appropriate pricing tier. 
 
-The following sample template sets Microsoft Sentinel to the classic pricing tier of pay-as-you-go and sets the Log Analytic workspace to the 100 GB/day commitment tier.
+The following sample template sets Microsoft Sentinel to the classic pricing tier of pay-as-you-go and sets the Log Analytic workspace to the 100 GB/day Commitment tier.
 
 ```json
 { 
@@ -133,10 +133,29 @@ To reference how to implement this template in Terraform or Bicep start [here](/
 ## Simplified pricing tiers for dedicated clusters
 In classic pricing tiers, Microsoft Sentinel was always billed as a secondary meter at the workspace level. The meter for Microsoft Sentinel could differ from the overall meter of the workspace. 
 
-With simplified pricing tiers, the same Commitment Tier used by the cluster is set for the Microsoft Sentinel workspace. Microsoft Sentinel usage is billed at the effective per GB price of that tier meter, and all usage is counted towards the total allocation for the dedicated cluster. This allocation is either at the cluster level or proportionately at the workspace level depending on the billing mode of the cluster. For more information, see [Cost details - Dedicated cluster](../azure-monitor/logs/cost-logs.md#dedicated-clusters).
-			
+With simplified pricing tiers, the same Commitment tier and billing mode used by the cluster is set for the Microsoft Sentinel workspace. Microsoft Sentinel usage is billed at the effective per GB price of that tier meter, and all usage is counted towards the total allocation for the dedicated cluster. This allocation is either at the cluster level or proportionately at the workspace level depending on the billing mode of the cluster. For more information, see [Cost details - Dedicated cluster](../azure-monitor/logs/cost-logs.md#dedicated-clusters).
+
+### Dedicated cluster billing examples
+Compare the following cluster scenarios to better understand simplified pricing when adding Microsoft Sentinel enabled workspaces to a dedicated cluster.
+
+| Cluster |
+|:---:|
+| Workspace A |
+| Workspace B |
+| Workspace C<br>Microsoft Sentinel |
+
+- Example 1: A dedicated cluster ingesting data over the Commitment tier level, but under the next highest tier (ideal).
+   :::image type="content" source="media/enroll-simplified-pricing-tier/example-1.png" alt-text="Spreadsheet showing Commitment tier over usage billing example for a Microsoft Sentinel workspace in a dedicated cluster.":::
+
+- Example 2: A dedicated cluster ingesting less data than the Commitment tier level. Consider adding more workspaces to the cluster.
+   :::image type="content" source="media/enroll-simplified-pricing-tier/example-2.png" alt-text="Spreadsheet showing Commitment tier under usage billing example for a Microsoft Sentinel workspace in a dedicated cluster.":::
+
+Keep in mind, the simplified effective per GB price for a Microsoft Sentinel enabled workspace now includes the log analytics ingestion cost. For the latest **per day** and **Effective Per GB Price** for both types of workspaces, see: 
+- [Microsoft Sentinel pricing](https://azure.microsoft.com/pricing/details/microsoft-sentinel/)
+- [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
+
 ## Offboarding behavior
-A Log Analytics workspace automatically configures its pricing tier to match the simplified pricing tier if Microsoft Sentinel is removed from a workspace while simplified pricing is enabled. For example, if the simplified pricing was configured for 100 GB/day commitment tier in Microsoft Sentinel, the pricing tier of the Log Analytics workspace changes to 100 GB/day commitment tier once Microsoft Sentinel is removed from the workspace.
+A Log Analytics workspace automatically configures its pricing tier to match the simplified pricing tier if Microsoft Sentinel is removed from a workspace while simplified pricing is enabled. For example, if the simplified pricing was configured for 100 GB/day Commitment tier in Microsoft Sentinel, the pricing tier of the Log Analytics workspace changes to 100 GB/day Commitment tier once Microsoft Sentinel is removed from the workspace.
 
 ### Will switching reduce my costs?
 Though the goal of the experience is to merely simplify the pricing and cost management experience without impacting actual costs, two primary scenarios exist for a cost reduction when switching to a simplified pricing tier.
