@@ -66,11 +66,11 @@ There are two ways to pay for the analytics logs: **Pay-As-You-Go** and **Commit
 
 - Log Analytics and Microsoft Sentinel have **Commitment Tier** pricing, formerly called Capacity Reservations. These pricing tiers are combined into simplified pricing tiers that are more predictable and offer substantial savings compared to **Pay-As-You-Go** pricing.
 
-    **Commitment Tier** pricing starts at 100 GB/day. Any usage above the commitment level is billed at the Commitment Tier rate you selected. For example, a Commitment Tier of 100-GB bills you for the committed 100-GB data volume, plus any extra GB/day at the discounted rate for that tier.
+    **Commitment Tier** pricing starts at 100 GB/day. Any usage above the commitment level is billed at the Commitment tier rate you selected. For example, a Commitment tier of **100 GB per day** bills you for the committed 100 GB data volume, plus any extra GB/day at the discounted effective rate for that tier.
 
-    Increase your commitment tier anytime to optimize costs as your data volume increases. Lowering the commitment tier is only allowed every 31 days. To see your current Microsoft Sentinel pricing tier, select **Settings** in Microsoft Sentinel, and then select the **Pricing** tab. Your current pricing tier is marked as **Current tier**.
+    Increase your Commitment tier anytime to optimize costs as your data volume increases. Lowering the Commitment tier is only allowed every 31 days. To see your current Microsoft Sentinel pricing tier, select **Settings** in Microsoft Sentinel, and then select the **Pricing** tab. Your current pricing tier is marked as **Current tier**.
 
-    To set and change your Commitment Tier, see [Set or change pricing tier](billing-reduce-costs.md#set-or-change-pricing-tier). Switch any workspaces older than July 2023 to the simplified pricing tiers experience to unify billing meters. Or, continue to use the classic pricing tiers that separate out the Log Analytics pricing from the classic Microsoft Sentinel classic pricing. For more information, see [simplified pricing tiers](#simplified-pricing-tiers).
+    To set and change your Commitment tier, see [Set or change pricing tier](billing-reduce-costs.md#set-or-change-pricing-tier). Switch any workspaces older than July 2023 to the simplified pricing tiers experience to unify billing meters. Or, continue to use the classic pricing tiers that separate out the Log Analytics pricing from the classic Microsoft Sentinel classic pricing. For more information, see [simplified pricing tiers](#simplified-pricing-tiers).
 
 #### Basic logs
 
@@ -102,7 +102,7 @@ The costs shown in the following image are for example purposes only. They're no
 
 :::image type="content" source="media/billing/sample-bill-classic.png" alt-text="Screenshot showing the Microsoft Sentinel section of a sample Azure bill, to help you estimate costs." lightbox="media/billing/sample-bill-classic.png":::
 
-Microsoft Sentinel and Log Analytics charges might appear on your Azure bill as separate line items based on your selected pricing plan. Simplified pricing tiers are represented as a single `sentinel` line item for the pricing tier. Ingestion and analysis are billed on a daily basis. If your workspace exceeds its Commitment Tier usage allocation in any given day, the Azure bill shows one line item for the Commitment Tier with its associated fixed cost, and a separate line item for the cost beyond the Commitment Tier, billed at the same effective Commitment Tier rate. 
+Microsoft Sentinel and Log Analytics charges might appear on your Azure bill as separate line items based on your selected pricing plan. Simplified pricing tiers are represented as a single `sentinel` line item for the pricing tier. Ingestion and analysis are billed on a daily basis. If your workspace exceeds its Commitment tier usage allocation in any given day, the Azure bill shows one line item for the Commitment tier with its associated fixed cost, and a separate line item for the cost beyond the Commitment tier, billed at the same effective Commitment tier rate. 
 
 # [Simplified](#tab/simplified)
 The following tabs show how Microsoft Sentinel costs appear in the **Service name** and **Meter** columns of your Azure bill depending on your simplified pricing tier. 
@@ -114,23 +114,23 @@ The following tabs show how Microsoft Sentinel and Log Analytics costs appear in
 
 # [Commitment tiers](#tab/commitment-tiers/simplified)
 
-If you're billed at the simplified commitment tier rate, this table shows how Microsoft Sentinel costs appear in the **Service name** and **Meter** columns of your Azure bill.
+If you're billed at the simplified Commitment tier rate, this table shows how Microsoft Sentinel costs appear in the **Service name** and **Meter** columns of your Azure bill.
 
  Cost description | Service name | Meter |
 |--|--|--|
-| Microsoft Sentinel Commitment Tier | `Sentinel` | **`n` GB Commitment Tier** |
-| Microsoft Sentinel Commitment Tier overage | `Sentinel` |**Analysis**|
+| Microsoft Sentinel Commitment tier | `Sentinel` | **`n` GB Commitment Tier** |
+| Microsoft Sentinel Commitment tier overage | `Sentinel` |**Analysis**|
 
 # [Commitment tiers](#tab/commitment-tiers/classic)
 
-If you're billed at the classic commitment tier rate, this table shows how Microsoft Sentinel and Log Analytics costs appear in the **Service name** and **Meter** columns of your Azure bill.
+If you're billed at the classic Commitment tier rate, this table shows how Microsoft Sentinel and Log Analytics costs appear in the **Service name** and **Meter** columns of your Azure bill.
 
 | Cost description | Service name | Meter |
 |--|--|--|
-| Microsoft Sentinel Commitment Tier | `Sentinel` | **Classic `n` GB commitment tier** |
-| Log Analytics Commitment Tier | `Azure Monitor` | **`n` GB commitment tier** |
-| Microsoft Sentinel Commitment Tier overage | `Sentinel` |**Classic Analysis**|
-| Log Analytics over the Commitment Tier| `Log Analytics` |**Data Ingestion**|
+| Microsoft Sentinel Commitment tier | `Sentinel` | **Classic `n` GB commitment tier** |
+| Log Analytics Commitment tier | `Azure Monitor` | **`n` GB commitment tier** |
+| Microsoft Sentinel Commitment tier overage | `Sentinel` |**Classic Analysis**|
+| Log Analytics over the Commitment tier| `Log Analytics` |**Data Ingestion**|
 
 # [Pay-As-You-Go](#tab/pay-as-you-go/simplified)
 
@@ -138,7 +138,7 @@ If you're billed at the simplified Pay-As-You-Go rate, this table shows how Micr
 
  Cost description | Service name | Meter |
 |--|--|--|
-| Pay-As-You-Go| `Sentinel` |**Pay-as-You-Go Analysis**|
+| pay-as-you-go| `Sentinel` |**Pay-as-You-Go Analysis**|
 | Basic logs data analysis| `Sentinel` |**Basic Logs Analysis**|
 
 
@@ -148,8 +148,8 @@ If you're billed at classic Pay-As-You-Go rate, this table shows how Microsoft S
 
  Cost description | Service name | Meter |
 |--|--|--|
-| Pay-As-You-Go| `Sentinel` |**Classic Pay-as-You-Go Analysis**|
-| Pay-As-You-Go| `Log Analytics` |**Pay-as-You-Go Data Ingestion**|
+| pay-as-you-go| `Sentinel` |**Classic Pay-as-You-Go Analysis**|
+| pay-as-you-go| `Log Analytics` |**Pay-as-You-Go Data Ingestion**|
 | Basic logs data analysis| `Sentinel` |**Classic Basic Logs Analysis**|
 | Basic logs data ingestion| `Azure Monitor` |**Basic Logs Data Ingestion**|
 
