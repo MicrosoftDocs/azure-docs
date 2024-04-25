@@ -54,7 +54,7 @@ When a user connects to Azure Virtual Desktop over Private Link, and Azure Virtu
 
 1. With a supported client, a user subscribes to a workspace. The user's device queries DNS for the address `rdweb.wvd.microsoft.com` (or the corresponding address for other Azure environments).
 
-1. Your private DNS zone for **privatelink-global.wvd.microsoft.com** returns the private IP address for the initial feed discovery (global sub-resource), in case you don't have setup this private endpoint, a public IP address is returned.
+1. Your private DNS zone for **privatelink-global.wvd.microsoft.com** returns the private IP address for the initial feed discovery (global sub-resource). If you're not using a private endpoint for initial feed discovery, a public IP address is returned.
 
 1. For each workspace in the feed, a DNS query is made for the address `<workspaceId>.privatelink.wvd.microsoft.com`.
 
