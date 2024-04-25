@@ -2,23 +2,29 @@
 author: eric-urban
 ms.service: azure-ai-speech
 ms.topic: include
-ms.date: 3/13/2024
+ms.date: 4/22/2024
 ms.author: eur
 ---
 
 ### April 2024 release
 
+#### Multi-lingual speech translation (Preview)
+
+Multi-lingual speech translation is available in public preview. Multi-lingual speech translation implements a new level of speech translation technology that unlocks various capabilities, including having no specified input language, handling language switches within the same session, and supporting live streaming translations into English. These features enable a new level of speech translation powers that can be implemented into your products. 
+
+For more information about multi-lingual speech translation, see [the multi-lingual speech translation overview](../../speech-translation.md#multi-lingual-speech-translation-preview). 
+
 #### Real-time speech to text with diariazation (GA)
 
 Real-time speech to text with diariazation is now generally available.
 
-Check out [Real-time diarization quickstart](../../get-started-stt-diarization.md) to learn more about how to create speech to text applications that use diarization to distinguish between the different speakers who participate in the conversation.
+You can create speech to text applications that use diarization to distinguish between the different speakers who participate in the conversation. For more information about real-time diarization, Check out the [real-time diarization quickstart](../../get-started-stt-diarization.md).
 
-#### Speech to Text model Update
+#### Speech to text model Update
 
-[Real-time Speech to Text](../../how-to-recognize-speech.md) has released new models with bilingual capabilities. The `en-IN` model now support both English and Hindi bilingual scenarios and offers improved accuracy. Arabic locales (`ar-AE`, `ar-BH`, `ar-DZ`, `ar-IL`, `ar-IQ`, `ar-KW`, `ar-LB`, `ar-LY`, `ar-MA`, `ar-OM`, `ar-PS`, `ar-QA`, `ar-SA`, `ar-SY`, `ar-TN`, `ar-YE`) are now equipped with bilingual support for English, enhanced accuracy and call center support. 
+[Real-time speech to text](../../how-to-recognize-speech.md) has released new models with bilingual capabilities. The `en-IN` model now support both English and Hindi bilingual scenarios and offers improved accuracy. Arabic locales (`ar-AE`, `ar-BH`, `ar-DZ`, `ar-IL`, `ar-IQ`, `ar-KW`, `ar-LB`, `ar-LY`, `ar-MA`, `ar-OM`, `ar-PS`, `ar-QA`, `ar-SA`, `ar-SY`, `ar-TN`, `ar-YE`) are now equipped with bilingual support for English, enhanced accuracy and call center support. 
 
-[Batch transcription](../../batch-transcription.md) has launched models with new architecture for `es-ES`, `es-MX`, `fr-FR`, `it-IT`, `ja-JP`, `ko-KR`, `pt-BR`, `zh-CN`. These models significantly enhance readability and entity recognition. 
+[Batch transcription](../../batch-transcription.md) provides models with new architecture for these locales: `es-ES`, `es-MX`, `fr-FR`, `it-IT`, `ja-JP`, `ko-KR`, `pt-BR`, and `zh-CN`. These models significantly enhance readability and entity recognition. 
 
 ### March 2024 release
 
