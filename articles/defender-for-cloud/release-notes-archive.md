@@ -468,7 +468,7 @@ Updates in might include:
 - [Update of two Defender for DevOps recommendations to include Azure DevOps scan findings](#two-defender-for-devops-recommendations-now-include-azure-devops-scan-findings).
 - [New default setting for the Defender for Servers vulnerability assessment solution](#new-default-setting-for-defender-for-servers-vulnerability-assessment-solution).
 - [Ability to download a CSV report of your cloud security explorer query results (Preview)](#download-a-csv-report-of-your-cloud-security-explorer-query-results-preview).
-- [The release of containers vulnerability assessment with Microsoft Defender Vulnerability Management](#release-of-containers-vulnerability-assessment-with-microsoft-defender-vulnerability-management).
+- [The release of containers vulnerability assessment with Microsoft Defender Vulnerability Management](#the-release-of-containers-vulnerability-assessment-with-microsoft-defender-vulnerability-management).
 - [The renaming of container recommendations powered by Qualys](#renaming-container-recommendations-powered-by-qualys).
 - [An update to Defender for DevOps GitHub Application](#defender-for-devops-github-application-update).
 - [Change to Defender for DevOps Pull Request annotations in Azure DevOps repositories that now include Infrastructure as Code misconfigurations](#defender-for-devops-pull-request-annotations-in-azure-devops-repositories-now-includes-infrastructure-as-code-misconfigurations).
