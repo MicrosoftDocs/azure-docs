@@ -15,17 +15,17 @@ ms.author: asabbour
 
 In Azure Kubernetes Service (AKS) Automatic, Azure manages your cluster configuration, including your nodes, scaling, security, and other preconfigured settings. Automatic clusters are optimized to run most production workloads, and provision compute resources based on your workload needs. The streamlined configuration follows AKS best practices and recommendations for cluster and workload setup, scalability, and security.
 
-- **Optimal cluster configuration**: Clusters are pre-configured for optimal production use, suitable for most applications. They offer fully managed node pools that automatically allocate and scale resources based on your workload needs. Pods are bin packed efficiently, to maximize the utilization.
+- **Optimal cluster configuration**: Clusters are pre-configured for optimal production use, suitable for most applications. They offer fully managed node pools that automatically allocate and scale resources based on your workload needs. Pods are bin packed efficiently, to maximize resource utilization.
 
-- **Streamlined application deployment**: Go from a container image to a deployed application following best practices patterns within minutes with access to the comprehensive capabilities of the Kubernetes API and its rich ecosystem.
+- **Streamlined application deployment**: Go from a container image to a deployed application that adheres to best practices patterns within minutes, with access to the comprehensive capabilities of the Kubernetes API and its rich ecosystem.
 
-- **Default security posture**: Clusters have hardened default configuration, with many cluster, application, and networking security settings enabled by default. AKS automatically patches your nodes and cluster components while adhering to any planned maintenance schedules.
+- **Default security posture**: AKS Automatic clusters have a hardened default configuration, with many cluster, application, and networking security settings enabled by default. AKS automatically patches your nodes and cluster components while adhering to any planned maintenance schedules.
 
 ## AKS Automatic and Standard feature comparison
 
 The following table provides a comparison of options that are available, pre-configured, and default in both AKS Automatic and AKS Standard. For more information on whether specific features are available in Automatic, you may need to check the documentation for that feature.
 
-**Pre-configured** features are always enabled and you can't disable or change their settings. **Default** features are configured for you however, you can change them. **Optional** features are available for you to configure, and they're not enabled by default. 
+**Pre-configured** features are always enabled and you can't disable or change their settings. **Default** features are configured for you but can be changed. **Optional** features are available for you to configure and are not enabled by default. 
 
 ### Application deployment, monitoring, and observability
 
@@ -46,7 +46,7 @@ Node management is automatically handled without the need for manual node pool c
 | Scaling   	            | **Pre-configured:** AKS Automatic creates nodes based on workload requests using [Node Autoprovisioning][node-autoprovisioning]. <br/>Horizontal Pod Autoscaler (HPA), [Kubernetes Event Driven Autoscaling (KEDA)][keda], and [Vertical Pod Autoscaler (VPA)][vpa] are enabled on the cluster. | **Default:** Manual scaling of node pools. <br/>  **Optional:** <ul><li>[Cluster autoscaler][cluster-autoscaler]</li><li>[Node Autoprovisioning][node-autoprovisioning]</li><li>[Kubernetes Event Driven Autoscaling (KEDA)][keda]</li><li>[Vertical Pod Autoscaler (VPA)][vpa]</li></ul>|
 | Cluster tier	        | **Pre-configured:** Standard tier cluster with up to 1,000 nodes and a [cluster uptime SLA][uptime-sla]. |  **Default:** Free tier cluster with 10 nodes but can support up to 1,000 nodes. <br/> **Optional:** <ul><li>Standard tier cluster with up to 5,000 nodes and a [cluster uptime SLA][uptime-sla].</li><li>Premium tier cluster with up to 5,000 nodes, [cluster uptime SLA][uptime-sla], and [long term support][long-term-support].</li></ul> |
 | Node operating system 	        | **Pre-configured:** [Azure Linux][azure-linux] | **Default:** Ubuntu <br/> **Optional:** <ul><li>[Azure Linux][azure-linux]</li><li>[Windows Server][windows-server]</li></ul> |
-| Node resource group 	        | **Pre-configured:** Fully managed node resource group to prevent accidental or intentional changes to cluster resources. | **Default:** Unrestricted <br/> **Optional:** [Read only][nrg-lockdown]  |
+| Node resource group 	        | **Pre-configured:** Fully managed node resource group to prevent accidental or intentional changes to cluster resources. | **Default:** Unrestricted <br/> **Optional:** [Read only][nrg-lockdown]  with node resource group lockdown (preview) |
 | Node auto-repair 	        | **Pre-configured:** Continuously monitors the health state of worker nodes and performs [automatic node repair][node-auto-repair] if they become unhealthy. |  **Pre-configured:** Continuously monitors the health state of worker nodes and performs [automatic node repair][node-auto-repair] if they become unhealthy.  |
 | Cluster upgrades	        | **Pre-configured:** Clusters are [automatically upgraded][cluster-upgrades]. |  **Default:** Manual upgrade. <br/> **Optional:** Automatic upgrade using a selectable [upgrade channel][cluster-upgrade-channels].  |
 | Kubernetes API breaking change detection 	        | **Pre-configured:** Cluster upgrades are stopped on detection of [deprecated Kubernetes standard API usage][stop-cluster-upgrade-api-breaking-changes]. |  **Pre-configured:** Cluster upgrades are stopped on detection of [deprecated Kubernetes standard API usage][stop-cluster-upgrade-api-breaking-changes].  |

@@ -13,7 +13,9 @@ zone_pivot_groups: bicep-azure-cli-portal
 
 **Applies to:** :heavy_check_mark: AKS Automatic (preview)
 
-Azure Kubernetes Service (AKS) Automatic (preview) provides the easiest managed Kubernetes experience for developers, DevOps, and platform engineers. Ideal for modern and AI applications, AKS Automatic automates AKS cluster setup and operations and embeds best practice configurations. Allowing users of any skill level are ensured security, performance, and dependability for their applications. In this quickstart, you learn to:
+Azure Kubernetes Service (AKS) Automatic (preview) provides the easiest managed Kubernetes experience for developers, DevOps engineers, and platform engineers. Ideal for modern and AI applications, AKS Automatic automates AKS cluster setup and operations and embeds best practice configurations. Users of any skill level can benefit from the security, performance, and dependability of AKS Automatic for their applications. 
+
+In this quickstart, you learn to:
 
 - Deploy an AKS Automatic cluster.
 - Run a sample multi-container application with a group of microservices and web front ends simulating a retail scenario.
@@ -72,7 +74,7 @@ Register the `AutomaticSKUPreview` feature flag by using the [az feature registe
 az feature register --namespace Microsoft.ContainerService --name AutomaticSKUPreview
 ```
 
-It takes a few minutes for the status to show *Registered*. Verify the registration status by using the [az feature show][az-feature-show] command, for example:
+Verify the registration status by using the [az feature show][az-feature-show] command. It takes a few minutes for the status to show *Registered*:
 
 ```azurecli-interactive
 az feature show --namespace Microsoft.ContainerService --name AutomaticSKUPreview
@@ -88,7 +90,7 @@ az provider register --namespace Microsoft.ContainerService
 
 ## Create a resource group
 
-An [Azure resource group][azure-resource-group] is a logical group in which Azure resources are deployed and managed. When you create a resource group, you're prompted to specify a location. This location is the storage location of your resource group metadata and where your resources run in Azure if you don't specify another region during resource creation.
+An [Azure resource group][azure-resource-group] is a logical group in which Azure resources are deployed and managed.
 
 The following example creates a resource group named *myResourceGroup* in the *eastus* location.
 
@@ -192,13 +194,13 @@ The following sample output resembles successful creation of the resource group:
 
 ## Review the Bicep file
 
-This Bicep file defines an AKS Automatic cluster. While in preview, you'll need to specify the system nodepool agent pool profile.
+This Bicep file defines an AKS Automatic cluster. While in preview, you'll need to specify the *system nodepool* agent pool profile.
 
 ```bicep
-@description('The name of the Managed Cluster resource.')
+@description('The name of the managed cluster resource.')
 param clusterName string = 'myAKSAutomaticCluster'
 
-@description('The location of the Managed Cluster resource.')
+@description('The location of the managed cluster resource.')
 param location string = resourceGroup().location
 
 resource aks 'Microsoft.ContainerService/managedClusters@2024-03-02-preview' = {
@@ -224,7 +226,7 @@ resource aks 'Microsoft.ContainerService/managedClusters@2024-03-02-preview' = {
 }
 ```
 
-The resource defined in the Bicep file:
+For more information about the resource defined in the Bicep file, see the [**Microsoft.ContainerService/managedClusters**](/azure/templates/microsoft.containerservice/managedclusters?tabs=bicep&pivots=deployment-language-bicep) reference.
 
 * [**Microsoft.ContainerService/managedClusters**](/azure/templates/microsoft.containerservice/managedclusters?tabs=bicep&pivots=deployment-language-bicep)
 
@@ -361,7 +363,7 @@ If you don't plan on going through the [AKS tutorial][aks-tutorial], clean up un
 :::zone-end
 
   > [!NOTE]
-  > The AKS cluster was created with a system-assigned managed identity, which is the default identity option used in this quickstart. The platform manages this identity so you don't need to manually remove it.
+  > The AKS cluster was created with a system-assigned managed identity, which is the default identity option used in this quickstart. The platform manages this identity, so you don't need to manually remove it.
 
 ## Next steps
 
