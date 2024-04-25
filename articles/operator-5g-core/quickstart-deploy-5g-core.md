@@ -103,7 +103,7 @@ Replace `YourResourceGroupName`, `YourCustomLocationName`, `YourAzureRegion`, `Y
 
 ## Deploy Azure Operator 5G Core via Bicep scripts
 
-Deployment of Azure Operator 5G Core consists of multiple resources including clusterServices, amfDeployments, smfDeployments, upfDeployments, nrfDeployments, nssfDeployments, and observabilityServices. Each resource is deployed by an individual Bicep script and corresponding parameters file. Contact your Microsoft account contact to get access to the required Azure Operator 5G Core files. 
+Deployment of Azure Operator 5G Core consists of multiple resources including (clusterServices, amfDeployments, smfDeployments, upfDeployments, nrfDeployments, nssfDeployments, and observabilityServices). Each resource is deployed by an individual Bicep script and corresponding parameters file. Contact your Microsoft account contact to get access to the required Azure Operator 5G Core files. 
 
 > [!NOTE]
 > The required files are shared as a zip file.

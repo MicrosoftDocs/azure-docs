@@ -11,15 +11,12 @@ ms.author: jushiman
 
 # Confidential Computing on Azure
 
- Azure already offers many tools to safeguard [**data at rest**](../security/fundamentals/encryption-atrest.md) through models such as client-side encryption and server-side encryption. Additionally, Azure offers mechanisms to encrypt [**data in transit**](../security/fundamentals/data-encryption-best-practices.md#protect-data-in-transit) through secure protocols like TLS and HTTPS. This page introduces  a third leg of data encryption - the encryption of **data in use**.
- 
+Azure offers many tools to encrypt [**data at rest**](../security/fundamentals/encryption-atrest.md) through models such as client-side encryption and server-side encryption. Additionally, Azure offers mechanisms to encrypt [**data in transit**](../security/fundamentals/data-encryption-best-practices.md#protect-data-in-transit) through secure protocols like TLS and HTTPS. Confidential computing addresses the protection of **data in use**, helping you extend encryption protections.
+<br>
 
 > [!VIDEO https://www.youtube.com/embed/rT6zMOoLEqI]
 
-
-Azure confidential computing makes it easier to trust the cloud provider, by reducing the need for trust across various aspects of the compute cloud infrastructure. Azure confidential computing minimizes trust for the host OS kernel, the hypervisor, the VM admin, and the host admin.
-
-Azure confidential computing can help you:
+Using confidential computing technologies, you can harden your virtualized environment from the host, the hypervisor, the host admin, and even your own VM admin. This helps organizations to:
 
 - **Prevent unauthorized access**: Run sensitive data in the cloud. Trust that Azure provides the best data protection possible, with little to no change from what gets done today.
 
@@ -35,9 +32,9 @@ Azure confidential computing can help you:
 
 ## Azure offerings
 
-Confidential computing support is expanding from foundational virtual machine, GPU and container offerings up to data, virtual desktop and managed HSM services with many more being planned.
+Confidential computing support continues to expand, from foundational virtual machines, to GPU-backed offerings, and up the stack via containers, and managed services. 
 
-:::image type="content" source="media/overview-azure-products/confidential-computing-product-line.jpg" alt-text="Diagram of the various confidential computing enabled VM SKUs, container and data services.":::
+:::image type="content" source="media/overview-azure-products/confidential-computing-product-line.jpg" alt-text="Diagram of the various confidential computing enabled VM SKUs, container and data services." lightbox="media/overview-azure-products/confidential-computing-product-line.jpg":::
 
 Verifying that applications are running confidentially form the very foundation of confidential computing. This verification is multi-pronged and relies on the following suite of Azure offerings:
 
@@ -55,7 +52,7 @@ Verifying that applications are running confidentially form the very foundation 
 
 - [Always Encrypted with secure enclaves in Azure SQL](/sql/relational-databases/security/encryption/always-encrypted-enclaves). The confidentiality of sensitive data is protected from malware and high-privileged unauthorized users by running SQL queries directly inside a TEE. 
 
-Technologies such as [AMD SEV-SNP](https://www.amd.com/en/processors/amd-secure-encrypted-virtualization), [Intel SGX](https://www.intel.com.au/content/www/au/en/architecture-and-technology/software-guard-extensions-enhanced-data-protection.html) and [Intel TDX](https://www.intel.com/content/www/us/en/developer/tools/trust-domain-extensions/overview.html) provide silicon-level hardware implementations of confidential computing. These technologies are designed as virtualization extensions and provide feature sets including memory encryption and integrity, CPU-state confidentiality and integrity, and attestation, for building the confidential computing threat model. Azure Computational Computing leverages these technologies in the following computation resources: 
+Technologies such as [AMD SEV-SNP](https://www.amd.com/en/processors/amd-secure-encrypted-virtualization), [Intel SGX](https://www.intel.com.au/content/www/au/en/architecture-and-technology/software-guard-extensions-enhanced-data-protection.html) and [Intel TDX](https://www.intel.com/content/www/us/en/developer/tools/trust-domain-extensions/overview.html) provide silicon-level hardware implementations of confidential computing. We provide the following technologies today:
 
 - [VMs with Intel SGX application enclaves](confidential-computing-enclaves.md). Azure offers the [DCsv2](../virtual-machines/dcv2-series.md), [DCsv3, and DCdsv3](../virtual-machines/dcv3-series.md) series built on Intel SGX technology for hardware-based enclave creation. You can build secure enclave-based applications to run in a series of VMs to protect your application data and code in use.
 

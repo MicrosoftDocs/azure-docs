@@ -1,7 +1,7 @@
 ---
-title: Azure AI REST API reference
+title: Azure AI services REST API reference
 titleSuffix: Azure AI services
-description: Provides an overview of available Azure AI REST APIs with links to reference documentation.
+description: Provides an overview of available Azure AI services REST APIs with links to reference documentation.
 author: eric-urban
 manager: nitinme
 ms.service: azure-ai-services
@@ -10,10 +10,10 @@ ms.date: 03/07/2024
 ms.author: lajanuar
 ---
 
-# Azure AI REST API reference
+# Azure AI services REST API reference
 
 
-This article provides an overview of available Azure AI REST APIs with links to service and feature level reference documentation.
+This article provides an overview of available Azure AI services REST APIs with links to service and feature level reference documentation.
 
 ## Available Azure AI services
 

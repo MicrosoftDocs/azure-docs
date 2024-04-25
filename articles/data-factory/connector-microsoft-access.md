@@ -37,7 +37,7 @@ To use this Microsoft Access connector, you need to:
 - Install the Microsoft Access ODBC driver for the data store on the Integration Runtime machine.
 
 >[!NOTE]
->Microsoft Access 2016 version of ODBC driver doesn't work with this connector. Use Microsoft Access 2013 or 2010 version of ODBC driver instead.
+>This connector works with Microsoft Access 2016 version of ODBC driver. The recommended driver version is 16.00.5378.1000 or above.
 
 ## Getting started
 

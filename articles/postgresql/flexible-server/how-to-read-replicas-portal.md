@@ -4,7 +4,7 @@ description: Learn how to manage read replicas for Azure Database for PostgreSQL
 author: AlicjaKucharczyk
 ms.author: alkuchar
 ms.reviewer: maghan
-ms.date: 04/02/2024
+ms.date: 04/03/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.custom: ignite-2023, devx-track-azurecli
@@ -16,14 +16,6 @@ ms.topic: how-to
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
 In this article, you learn how to create and manage read replicas in Azure Database for PostgreSQL flexible server from the Azure portal, CLI, and REST API. To learn more about read replicas, see the [overview](concepts-read-replicas.md).
-
-> [!NOTE]  
-> Azure Database for PostgreSQL flexible server is currently supporting the following features in Preview:
->
-> - Promote to primary server (to maintain backward compatibility, please use promote to independent server and remove from replication, which keeps the former behavior)
-> - Virtual endpoints
-> 
-> For these features, remember to use the API version `2023-06-01-preview` in your requests. This version is necessary to access the latest, albeit preview, functionalities of these features. 
 
 ## Prerequisites
 
@@ -483,7 +475,7 @@ Here, you need to replace `{subscriptionId}`, `{resourceGroupName}`, and `{sourc
 >  
 > To avoid issues during promotion of replicas constantly change the following server parameters on the replicas first, before applying them on the primary: `max_connections`, `max_prepared_transactions`, `max_locks_per_transaction`, `max_wal_senders`, `max_worker_processes`.
 
-## Create virtual endpoints (preview)
+## Create virtual endpoints
 
 > [!NOTE]
 > All operations involving virtual endpoints - like adding, editing, or removing - are executed in the context of the primary server. 
@@ -524,7 +516,7 @@ Replace `<resource-group>`, `<primary-name>`, `<virtual-endpoint-name>`, and `<r
 
 #### [REST API](#tab/restapi)
 
-To create a virtual endpoint in a preview environment using Azure's REST API, you would use an `HTTP PUT` request. The request would look like this:
+To create a virtual endpoint using Azure's REST API, you would use an `HTTP PUT` request. The request would look like this:
 
 ```http
 PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBForPostgreSql/flexibleServers/{sourceserverName}/virtualendpoints/{virtualendpointName}?api-version=2023-06-01-preview
@@ -546,9 +538,9 @@ Here, `{replicaserverName}` should be replaced with the name of the replica serv
 ---
 
 
-## List virtual endpoints (preview)
+## List virtual endpoints
 
-To list virtual endpoints in the preview version of Azure Database for PostgreSQL flexible server, use the following steps:
+To list virtual endpoints use the following steps:
 
 #### [Portal](#tab/portal)
 
@@ -919,7 +911,7 @@ PATCH https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups
    > Once a replica is promoted to an independent server, it cannot be added back to the replication set.
    
 
-## Delete virtual endpoint (preview)
+## Delete virtual endpoint
 
 #### [Portal](#tab/portal)
 
@@ -927,7 +919,7 @@ PATCH https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups
 
 2. On the server sidebar, under **Settings**, select **Replication**.
 
-3. At the top of the page, locate the `Virtual endpoints (Preview)` section. Navigate to the three dots (menu options) next to the endpoint name, expand it, and choose `Delete`.
+3. At the top of the page, locate the `Virtual endpoints` section. Navigate to the three dots (menu options) next to the endpoint name, expand it, and choose `Delete`.
 
 4. A delete confirmation dialog will appear. It will warn you: "This action will delete the virtual endpoint `virtualendpointName`. Any clients connected using these domains may lose access." Acknowledge the implications and confirm by clicking on **Delete**.
 
@@ -948,7 +940,7 @@ In this command, replace `<resource-group>`, `<server-name>`, and `<virtual-endp
 
 #### [REST API](#tab/restapi)
 
-To delete a virtual endpoint in a preview environment using Azure's REST API, you would issue an `HTTP DELETE` request. The request URL would be structured as follows:
+To delete a virtual endpoint using Azure's REST API, you would issue an `HTTP DELETE` request. The request URL would be structured as follows:
 
 ```http
 DELETE https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBForPostgreSql/flexibleServers/{serverName}/virtualendpoints/{virtualendpointName}?api-version=2023-06-01-preview

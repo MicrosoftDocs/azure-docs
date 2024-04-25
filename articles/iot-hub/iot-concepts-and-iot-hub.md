@@ -120,4 +120,4 @@ To try out an end-to-end IoT solution, check out the IoT Hub quickstarts:
 To learn more about the ways you can build and deploy IoT solutions with Azure IoT, visit:
 
 - [What is Azure Internet of Things?](../iot/iot-introduction.md)
-- [What is Azure IoT device and application development?](../iot-develop/about-iot-develop.md)
+- [What is Azure IoT device and application development?](../iot/concepts-iot-device-development.md)

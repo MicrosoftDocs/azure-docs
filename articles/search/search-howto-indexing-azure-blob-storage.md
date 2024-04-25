@@ -1,7 +1,7 @@
 ---
-title: Azure Blob indexer
+title: Azure blob indexer
 titleSuffix: Azure AI Search
-description: Set up an Azure Blob indexer to automate indexing of blob content for full text search operations and knowledge mining in Azure AI Search.
+description: Set up an Azure blob indexer to automate indexing of blob content for full text search operations and knowledge mining in Azure AI Search.
 author: gmndrg
 ms.author: gimondra
 manager: nitinme

@@ -1,12 +1,12 @@
 ---
-title: Signing CI Policies #Required; page title is displayed in search results. Include the brand.
-description: Learn how to sign new CI policies with Trusted Signing. #Required; article description that is displayed in search results. 
-author: microsoftshawarma #Required; your GitHub user alias, with correct capitalization.
-ms.author: rakiasegev #Required; microsoft alias of author; optional team alias.
-ms.service: azure-code-signing #Required; service per approved list. slug assigned by ACOM.
-ms.topic: how-to #Required; leave this attribute/value as-is.
-ms.date: 04/04/2024 #Required; mm/dd/yyyy format.
-ms.custom: template-how-to-pattern #Required; leave this attribute/value as-is.
+title: Signing CI Policies 
+description: Learn how to sign new CI policies with Trusted Signing.  
+author: microsoftshawarma 
+ms.author: rakiasegev 
+ms.service: azure-code-signing 
+ms.topic: how-to 
+ms.date: 04/04/2024 
+ms.custom: template-how-to-pattern 
 ---
 
 # Sign CI Policies with Trusted Signing

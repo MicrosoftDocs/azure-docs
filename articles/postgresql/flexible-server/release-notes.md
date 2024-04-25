@@ -16,8 +16,9 @@ ms.date: 4/8/2024
 This page provides latest news and updates regarding feature additions, engine versions support, extensions, and any other announcements relevant to Azure Database for PostgreSQL flexible server.
 
 ## Release: April 2024
-* Support for new [minor versions](./concepts-supported-versions.md) 16.2, 15.6, 14.11, 13.14, 12.18 <sup>$</sup>
-* Support for new [PgBouncer versions](./concepts-pgbouncer.md) 1.22.1 <sup>$</sup>
+* General availability of [virtual endpoints](concepts-read-replicas-virtual-endpoints.md) and [promote to primary server](concepts-read-replicas-promote.md) operation for [read replicas](concepts-read-replicas.md).
+* Support for new [minor versions](concepts-supported-versions.md) 16.2, 15.6, 14.11, 13.14, 12.18 <sup>$</sup>
+* Support for new [PgBouncer versions](concepts-pgbouncer.md) 1.22.1 <sup>$</sup>
 
 ## Release: March 2024
 * Public preview of [Major Version Upgrade Support for PostgreSQL 16](concepts-major-version-upgrade.md) for Azure Database for PostgreSQL flexible server.
@@ -25,9 +26,10 @@ This page provides latest news and updates regarding feature additions, engine v
 * Public preview of [real-time machine learning predictions](generative-ai-azure-machine-learning.md) with azure_ai extension on Azure Database for PostgreSQL flexible server.
 * General availability of version 0.6.0 of [vector](how-to-use-pgvector.md) extension on Azure Database for PostgreSQL flexible server.
 * General availability of [Migration service](../../postgresql/migrate/migration-service/concepts-migration-service-postgresql.md) in Azure Database for PostgreSQL flexible server.
+* Support for PostgreSQL 16 changes with [BYPASSRLS](concepts-security.md#bypassing-row-level-security)
 
 ## Release: February 2024
-* Support for new [minor versions](./concepts-supported-versions.md) 16.1, 15.5, 14.10, 13.13, 12.17, 11.22 <sup>$</sup>
+* Support for new [minor versions](concepts-supported-versions.md) 16.1, 15.5, 14.10, 13.13, 12.17, 11.22 <sup>$</sup>
 * General availability of [Major Version Upgrade logs](./concepts-major-version-upgrade.md#major-version-upgrade-logs)
 * General availability of [private endpoints](concepts-networking-private-link.md).
 
@@ -82,7 +84,7 @@ This page provides latest news and updates regarding feature additions, engine v
 * Public preview of [Database availability metric](./concepts-monitoring.md#database-availability-metric) for Azure Database for PostgreSQL flexible server.
 * PostgreSQL 15 is now available in public preview for Azure Database for PostgreSQL flexible server in limited regions (West Europe, East US, West US2, South East Asia, UK South, North Europe, Japan east).
 * General availability: [Pgvector extension](how-to-use-pgvector.md) for Azure Database for PostgreSQL - Flexible Server.
-* General availability :[Azure Key Vault Managed HSM](./concepts-data-encryption.md#using-azure-key-vault-managed-hsm) with Azure Database for PostgreSQL flexible server.
+* General availability :[Azure Key Vault Managed HSM](./concepts-data-encryption.md#managed-hsms) with Azure Database for PostgreSQL flexible server.
 * General availability  [32 TB Storage](./concepts-compute-storage.md) with Azure Database for PostgreSQL flexible server.
 * Support for [Ddsv5 and Edsv5 SKUs](./concepts-compute-storage.md) with Azure Database for PostgreSQL flexible server.
 
@@ -100,7 +102,7 @@ This page provides latest news and updates regarding feature additions, engine v
 * Public preview of [Autovacuum Metrics](./concepts-monitoring.md#autovacuum-metrics) for Azure Database for PostgreSQL flexible server.
 * Support for [extension](concepts-extensions.md) semver with new servers<sup>$</sup>
 * Public Preview of [Major Version Upgrade](concepts-major-version-upgrade.md) for Azure Database for PostgreSQL flexible server.
-* Support for [Geo-redundant backup feature](./concepts-backup-restore.md#geo-redundant-backup-and-restore) when using [Disk Encryption with Customer Managed Key (CMK)](./concepts-data-encryption.md#how-data-encryption-with-a-customer-managed-key-work) feature.
+* Support for [Geo-redundant backup feature](./concepts-backup-restore.md#geo-redundant-backup-and-restore) when using [Disk Encryption with Customer Managed Key (CMK)](./concepts-data-encryption.md#how-data-encryption-with-a-cmk-works) feature.
 * Support for [minor versions](./concepts-supported-versions.md) 14.6, 13.9, 12.13, 11.18 <sup>$</sup>
 
 ## Release: January 2023
