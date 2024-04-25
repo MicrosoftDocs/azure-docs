@@ -1660,7 +1660,7 @@ How to use the `validate` property to validate Linux images:
 - **sha256Checksum** - Specifies the SHA256 checksum of the file.
 - **sourceUri** - The source URI of the file.
 
-<a id="vmProfile"></a>
+<a id="vmprofile"></a>
 
 ## Properties: vmProfile
 
