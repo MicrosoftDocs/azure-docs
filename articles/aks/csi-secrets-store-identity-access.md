@@ -176,7 +176,7 @@ In this security model, the AKS cluster acts as token issuer. Microsoft Entra ID
 
 A [Microsoft Entra Managed ID][managed-identity] is an identity that an administrator uses to authenticate themselves against other Azure services. The managed identity uses RBAC to federate with external identity providers.
 
-In this security model, you can grant access to your cluster's resources to team members or tenants sharing a managed role. The role is checked for scope to access the keyvault and other credentials. When you [enabled the Azure Key Vault provider for Secrets Store CSI Driver on your AKS Cluster](./csi-secrets-store-driver.md#create-an-aks-cluster-with-azure-key-vault-provider-for-secrets-store-csi-driver-support), it created a user identity.
+In this security model, you can grant access to your cluster's resources to team members or tenants sharing a managed role. The role is checked for scope to access the keyvault and other credentials. When you [enabled the Azure Key Vault provider for Secrets Store CSI Driver on your AKS Cluster](./csi-secrets-store-driver.md#create-an-aks-cluster-with-azure-key-vault-provider-for-secrets-store-csi-driver-support), it created a user-assigned managed identity.
 
 > [!IMPORTANT]
 > Managed identity access modes will be deprecated in the future. The reason behind of deprecation is: in case of user-assigned and system-assigned managed identity, the identity is manually assigned to the underlying VMSS by running `az vmss identity assign`. This identity is then accessible by any pod running on the cluster. See also: [Deprecating User-assigned and System-assigned managed identity access modes](https://github.com/Azure/secrets-store-csi-driver-provider-azure/issues/837).
