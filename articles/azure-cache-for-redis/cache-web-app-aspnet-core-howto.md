@@ -58,8 +58,6 @@ The `RedisConnection` code ensures that there's always a healthy connection to t
 
 For more information, see [StackExchange.Redis](https://stackexchange.github.io/StackExchange.Redis/) and the code in a [GitHub repo](https://github.com/StackExchange/StackExchange.Redis).
 
-<!-- :::code language="csharp" source="~/samples-cache/quickstart/aspnet-core/ContosoTeamStats/RedisConnection.cs"::: -->
-
 ## Layout views in the sample
 
 The home page layout for this sample is stored in the *_Layout.cshtml* file. From this page, you start the actual cache testing by clicking the **Azure Cache for Redis Test** from this page.
@@ -131,7 +129,7 @@ From the home page, you select **Azure Cache for Redis Test** to see the sample 
     ```dos
     dotnet run
     ```
-    
+
 1. Browse to `https://localhost:5001` in your web browser.
 
 1. Select **Azure Cache for Redis Test** in the navigation bar of the web page to test cache access.
