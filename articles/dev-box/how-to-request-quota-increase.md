@@ -10,7 +10,7 @@ ms.date: 01/11/2024
 ---
 
 
-## Quota limits for Microsoft Dev Box resources
+# Quota limits for Microsoft Dev Box resources
 
 This article describes how to determine your quota limits and usage. It also describes how to submit a support request to increase the number of resources for Microsoft Dev Box in your Azure subscription. 
 
@@ -27,6 +27,10 @@ When you reach the limit for a resource in your subscription, you can request a 
 
 Learn more about the general [process for creating Azure support requests](../azure-portal/supportability/how-to-create-azure-support-request.md).
 
+## Prerequisites
+
+- To create a support request, your Azure account needs the [Owner](../role-based-access-control/built-in-roles.md#owner), [Contributor](../role-based-access-control/built-in-roles.md#contributor), or [Support Request Contributor](../role-based-access-control/built-in-roles.md#support-request-contributor) role at the subscription level.
+
 ## Determine resource usage and quota for Microsoft Dev Box  
 
 Understanding quota limits that affect your Dev Box resources helps you to plan for future use. You can check the [default quota level](/azure/azure-resource-manager/management/azure-subscription-service-limits?branch=main#microsoft-dev-box-limits) for each resource, view your current usage, and determine how much quota remains in each region. By monitoring the rate at which your quota is used, you can plan and prepare to request a quota limit increase before you reach the quota limit for the resource.
@@ -38,11 +42,6 @@ To help you understand where and how you're using your quota, Azure provides the
 - Improved User Experience for an easier requesting experience 
 
 For example, if dev box users encounter a vCPU quota error such as *QuotaExceeded*, during dev box creation there might be a need to increase this quota. A great place to start is to determine the current quota available.   
-
-## Prerequisites
-
-- To create a support request, your Azure account needs the [Owner](../role-based-access-control/built-in-roles.md#owner), [Contributor](../role-based-access-control/built-in-roles.md#contributor), or [Support Request Contributor](../role-based-access-control/built-in-roles.md#support-request-contributor) role at the subscription level.
-- Before you create a support request for a limit increase, you need to gather additional information.
 
 ## Request a quota increase through QMS
 
@@ -73,7 +72,7 @@ For example, if dev box users encounter a vCPU quota error such as *QuotaExceede
  
 1. If your request is approved, the new quota limit is updated in the Azure portal. If your request is denied, you can submit a new request with additional information.
 
-   :::image type="content" source="media/how-to-request-quota-increase/new-quota-request-result.png" alt-text="Screenshot of the Quota request pane showing the request review message." lightbox="media/how-to-request-quota-increase/new-quota-request-result.png":::
+   :::image type="content" source="media/how-to-request-quota-increase/new-quota-request-result.png" alt-text="Screenshot of the Quota request pane showing the request result." lightbox="media/how-to-request-quota-increase/new-quota-request-result.png":::
 
 ## Initiate a support request by using Support + troubleshooting
 
