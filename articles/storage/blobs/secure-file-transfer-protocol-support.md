@@ -93,7 +93,7 @@ When performing write operations on blobs in sub directories, Read permission is
 
 ACLs let you grant "fine-grained" access, such as write access to a specific directory or file. An ACL is a permission construct that contains a series of ACL entries. Each ACL entry associates an identity with an access level. To learn more about ACLs, see [Access control lists (ACLs) in Azure Data Lake Storage Gen2](data-lake-storage-access-control.md).
 
-To authorize a local user by using ACLs, you must first enable ACL authorization for that local user. See [Give permission to containers](secure-file-transfer-protocol-support-authorize-acces.md#give-permission-to-containers).
+To authorize a local user by using ACLs, you must first enable ACL authorization for that local user. See [Give permission to containers](secure-file-transfer-protocol-support-authorize-access.md#give-permission-to-containers).
 
 While an ACL can define the permission level for many different types of identities, only the owning user, owning group, and all other users identities can be used to authorize a local user. Named users and named groups are not yet supported for local user authorization.
 
