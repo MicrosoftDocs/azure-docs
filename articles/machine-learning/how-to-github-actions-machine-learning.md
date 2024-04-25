@@ -36,6 +36,13 @@ Fork the following repo at GitHub:
 https://github.com/azure/azureml-examples
 ```
 
+Clone your forked repo locally. 
+
+```
+git clone https://github.com/YOUR-USERNAME/azureml-examples
+```
+
+
 ## Step 2: Authenticate with Azure
 
 You'll need to first define how to authenticate with Azure. You can use a [service principal](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) or [OpenID Connect](https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect). 
