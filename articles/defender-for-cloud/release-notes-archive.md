@@ -468,7 +468,7 @@ Updates in might include:
 - [Update of two Defender for DevOps recommendations to include Azure DevOps scan findings](#two-defender-for-devops-recommendations-now-include-azure-devops-scan-findings).
 - [New default setting for the Defender for Servers vulnerability assessment solution](#new-default-setting-for-defender-for-servers-vulnerability-assessment-solution).
 - [Ability to download a CSV report of your cloud security explorer query results (Preview)](#download-a-csv-report-of-your-cloud-security-explorer-query-results-preview).
-- [The release of containers vulnerability assessment with Microsoft Defender Vulnerability Management](#release-of-containers-vulnerability-assessment-powered-by-microsoft-defender-vulnerability-management-mdvm-in-defender-cspm).
+- [The release of containers vulnerability assessment with Microsoft Defender Vulnerability Management](#release-of-containers-vulnerability-assessment-powered-by-microsoft-defender-vulnerability-management-in-defender-cspm).
 - [The renaming of container recommendations powered by Qualys](#renaming-container-recommendations-powered-by-qualys).
 - [An update to Defender for DevOps GitHub Application](#defender-for-devops-github-application-update).
 - [Change to Defender for DevOps Pull Request annotations in Azure DevOps repositories that now include Infrastructure as Code misconfigurations](#defender-for-devops-pull-request-annotations-in-azure-devops-repositories-now-includes-infrastructure-as-code-misconfigurations).
@@ -4213,7 +4213,7 @@ Updates in August include:
 - [Added support for Azure Active Directory security defaults (for multifactor authentication)](#added-support-for-azure-active-directory-security-defaults-for-multifactor-authentication)
 - [Service principals recommendation added](#service-principals-recommendation-added)
 - [Vulnerability assessment on VMs - recommendations and policies consolidated](#vulnerability-assessment-on-vms---recommendations-and-policies-consolidated)
-- [New AKS security policies added to ASC_default initiative](#new-aks-security-policies-added-to-asc_default-initiative--for-use-by-private-preview-customers-only)
+- [New AKS security policies added to ASC_default initiative](#new-aks-security-policies-added-to-asc_default-initiative)
 
 ### Asset inventory - powerful new view of the security posture of your assets
 
