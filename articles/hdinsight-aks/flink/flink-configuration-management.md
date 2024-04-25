@@ -20,31 +20,31 @@ HDInsight on AKS provides a set of default configurations of Apache Flink for mo
 
     :::image type="content" source="./media/flink-configuration-management/update-job.png" alt-text="Screenshot update job." lightbox="./media/flink-configuration-management/update-job.png":::
  
-Here the checkpoint interval is changed at *Cluster level*.
+    Here the checkpoint interval is changed at *Cluster level*.
 
 1. Update the changes by clicking **OK** and then **Save**.
 
-Once saved, the new configurations get updated in a few minutes (~5 minutes).
-
-Configurations, which can be updated using Configuration Management Settings
-
-`processMemory size:`
-
-The default settings for the process memory size of or job manager and task manager would be the memory configured by the user during cluster creation. 
-
-This size can be configured by using the below configuration property. In-order to change task manager process memory, use this configuration.
-
-`taskmanager.memory.process.size : <value>`
-
-Example:
-`taskmanager.memory.process.size : 2000mb`
-
-For job manager,
-
-`jobmanager.memory.process.size : <value>`
-
-> [!NOTE]
-> The maximum configurable process memory is equal to the memory configured for `jobmanager/taskmanager`. 
+1. Once saved, the new configurations get updated in a few minutes (~5 minutes).
+    
+1. Configurations, which can be updated using Configuration Management Settings.
+    
+    `processMemory size:`
+    
+1. The default settings for the process memory size of or job manager and task manager would be the memory configured by the user during cluster creation. 
+    
+1. This size can be configured by using the below configuration property. In-order to change task manager process memory, use this configuration.
+    
+   `taskmanager.memory.process.size : <value>`
+    
+   Example:
+    `taskmanager.memory.process.size : 2000mb`
+    
+1. For job manager
+    
+    `jobmanager.memory.process.size : <value>`
+    
+    > [!NOTE]
+    > The maximum configurable process memory is equal to the memory configured for `jobmanager/taskmanager`. 
 
 ## Checkpoint Interval
 
