@@ -201,7 +201,7 @@ public static OutputType Run([HttpTrigger(AuthorizationLevel.Anonymous, "get", "
 ::: zone pivot="programming-language-javascript"  
 Add code that uses the `extraInputs` output binding object on `context` to send a JSON document to the named output binding function, `sendToSql`. Add this code before the `return` statement.
 
-:::code language="javascript" source="~/functions-docs-javascript/functions-add-output-binding-sql-cli-v4-programming-model/src/functions/httpTrigger1.js" range="24-33":::
+:::code language="javascript" source="~/functions-docs-javascript/functions-add-output-binding-sql-cli-v4-programming-model/src/functions/httpTrigger1.js" range="23-31":::
 
 To utilize the `crypto` module, add the following line to the top of the file:
 

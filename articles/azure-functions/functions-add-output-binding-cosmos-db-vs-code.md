@@ -143,11 +143,11 @@ Binding attributes are defined directly in the function file. The [Azure Cosmos 
 
 For this `MultiResponse` scenario, you need to add an `extraOutputs` output binding to the function.
 
-:::code language="javascript" source="~/functions-docs-javascript/functions-add-output-binding-cosmosdb-cli-v4-programming-model/src/functions/httpTrigger1.js" range="11-14":::
+:::code language="javascript" source="~/functions-docs-javascript/functions-add-output-binding-cosmosdb-cli-v4-programming-model/src/functions/httpTrigger1.js" range="10-13":::
 
 Add the following properties to the binding configuration:
 
-:::code language="javascript" source="~/functions-docs-javascript/functions-add-output-binding-cosmosdb-cli-v4-programming-model/src/functions/httpTrigger1.js" range="3-9":::
+:::code language="javascript" source="~/functions-docs-javascript/functions-add-output-binding-cosmosdb-cli-v4-programming-model/src/functions/httpTrigger1.js" range="3-8":::
 
 ::: zone-end  
 ::: zone pivot="programming-language-python"  
@@ -172,7 +172,7 @@ Replace the existing Run method with the following code:
 ::: zone pivot="programming-language-javascript"   
 Add code that uses the `extraInputs` output binding object on `context` to send a JSON document to the named output binding function, `sendToCosmosDb`. Add this code before the `return` statement.
 
-:::code language="javascript" source="~/functions-docs-javascript/functions-add-output-binding-cosmosdb-cli-v4-programming-model/src/functions/httpTrigger1.js" range="25-31":::
+:::code language="javascript" source="~/functions-docs-javascript/functions-add-output-binding-cosmosdb-cli-v4-programming-model/src/functions/httpTrigger1.js" range="24-29":::
 
 At this point, your function should look as follows:
 
