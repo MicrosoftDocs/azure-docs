@@ -1,7 +1,7 @@
 ---
 title: Improve security and resiliency of storage accounts using Microsoft Copilot for Azure (preview)
 description: Learn how Microsoft Copilot for Azure (preview) can improve the security posture and data resiliency of storage accounts.
-ms.date: 04/23/2024
+ms.date: 04/25/2024
 ms.topic: conceptual
 ms.service: copilot-for-azure
 ms.custom:
