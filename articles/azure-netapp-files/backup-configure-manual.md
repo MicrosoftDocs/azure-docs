@@ -84,4 +84,4 @@ If you haven’t done so, assign a backup vault to the volume before creating ma
 * [Restore a backup to a new volume](backup-restore-new-volume.md)
 * [Delete backups of a volume](backup-delete.md)
 * [Volume backup metrics](azure-netapp-files-metrics.md#volume-backup-metrics)
-* [Azure NetApp Files backup FAQs](faq-backup.md)
+* [Azure NetApp Files backup FAQs](faq-bachkup.md)
