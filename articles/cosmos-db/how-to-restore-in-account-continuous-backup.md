@@ -957,11 +957,8 @@ To restore a table, update the following template as follows:
 
 :::zone-end
 
-
    > [!NOTE]
    > Use [az cosmosdb restorable-database-account list](/cli/azure/cosmosdb/restorable-database-account#az-cosmosdb-restorable-database-account-list) to retrieve a list of instance identifiers for all live and deleted restorable database accounts.
-
-## Deploy the template
 
 1. Deploy the template by using [az deployment group create](/cli/azure/deployment/group#az-deployment-group-create):
 
@@ -971,13 +968,13 @@ To restore a table, update the following template as follows:
         --template-file <template-filename>
     ```
 
-
+---
 
 ## Track the status of a restore operation
 
 When a point-in-time restore is initiated for a deleted container or database, the operation is identified as an **InAccount** restore operation on the resource.
 
-### [Azure portal](#tab/azure-portal)
+### [Azure portal](#tab/azure-portal) 
 
 To get a list of restore operations for a specific resource, filter the activity log of the account by using the **InAccount Restore Deleted** search filter and a time filter. The list that's returns includes the **UserPrincipalName** field, which identifies the user who initiated the restore operation. For more information about how to access activity logs, see [Audit point-in-time restore actions](audit-restore-continuous.md#audit-the-restores-that-were-triggered-on-a-live-database-account).
 
