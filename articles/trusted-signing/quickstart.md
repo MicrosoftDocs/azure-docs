@@ -173,10 +173,11 @@ trustedsigning create -n MyAccount -l eastus -g MyResourceGroup --sku Premium
 
 | Command                               | Description  | 
 | :-----------------------------------  | :-------------------   |
-| `trustedsigning -h`                                  | Show help commands and detailed options              |
+| `trustedsigning -h`                   | Show help commands and detailed options              |
 | `trustedsigning show -n MyAccount  -g MyResourceGroup`          | Show the details of an account          |
 |  `trustedsigning update -n MyAccount -g MyResourceGroup --tags "key1=value1 key2=value2"`                             | Update tags             |
 | `trustedsigning list -g MyResourceGroup`              | To list accounts under the resource group  |
+
 ---
 
 ## Create an Identity Validation request
