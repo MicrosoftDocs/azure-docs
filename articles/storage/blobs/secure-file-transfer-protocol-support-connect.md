@@ -73,13 +73,13 @@ After the transfer is complete, you can view and manage the file in the Azure po
 
 See the documentation of your SFTP client for guidance about how to connect and transfer files.
 
-### Modify ACLs
+### Modify the ACL of a file or directory
 
-You can modify the ACL of a directory or blob by using an SFTP client. You can also change the ID of the owning user and the owning group. To learn more about ACL support for SFTP clients, see [ACLs](secure-file-transfer-protocol-support.md#acls).
+You can modify the permission level of the owning user, owning group, and all other users of an ACL by using an SFTP client. You can also change the ID of the owning user and the owning group. To learn more about ACL support for SFTP clients, see [ACLs](secure-file-transfer-protocol-support.md#acls).
 
-#### Modify an ACL
+#### Modify permissions
 
-To change the ACL of a directory or blob, the local user must have been given `Modify Permission` permission. See [Give permission to containers](secure-file-transfer-protocol-support-authorize-access.md#give-permission-to-containers).
+To change the the permission level of the owning user, owning group, or all other users of an ACL, the local user must have been given `Modify Permission` permission. See [Give permission to containers](secure-file-transfer-protocol-support-authorize-access.md#give-permission-to-containers).
 
 The following example prints the ACL of a directory to the console. It then, sets the ACL to `777`. Each `7` is the numeric form of `rwx` (read, write, and execute). So `777` gives read, write, and execute permission to the owning user, owning group, and all other users. This example then prints the updated ACL to the console. To learn more about numeric and short forms of an ACL, see [Short forms for permissions](data-lake-storage-access-control.md#short-forms-for-permissions).
 

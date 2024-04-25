@@ -61,7 +61,7 @@ You can authenticate local users connecting via SFTP by using a password or a Se
 
 #### Passwords
 
-You can't set custom passwords, rather Azure generates one for you. If you choose password authentication, then your password will be provided after you finish configuring a local user. Make sure to copy that password and save it in a location where you can find it later. You won't be able to retrieve that password from Azure again. If you lose the password, you'll have to generate a new one. For security reasons, you can't set the password yourself.   
+You can't set custom passwords, rather Azure generates one for you. If you choose password authentication, then your password will be provided after you finish configuring a local user. Make sure to copy that password and save it in a location where you can find it later. You won't be able to retrieve that password from Azure again. If you lose the password, you'll have to generate a new one. For security reasons, you can't set the password yourself.
 
 #### SSH key pairs
 
@@ -87,15 +87,25 @@ When performing write operations on blobs in sub directories, Read permission is
 
 ## Access control lists (ACLs)
 
-You can authorize local users at the directory and blob level by using ACLs. To learn more about ACLs, see [Access control lists (ACLs) in Azure Data Lake Storage Gen2](data-lake-storage-access-control.md). You can authorize local users by using only the owning user, owning group, and all other users entries of an ACL. Named users, named groups are not yet supported.
-
 > [!IMPORTANT]
 > This capability is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability. 
 
-You can modify the ACL of a directory or blob by using any supported tool or SDKs. See [How to set ACLs](data-lake-storage-access-control.md#how-to-set-acls). 
+ACLs let you grant "fine-grained" access, such as write access to a specific directory or file. An ACL is a permission construct that contains a series of ACL entries. Each ACL entry associates an identity with an access level. To learn more about ACLs, see [Access control lists (ACLs) in Azure Data Lake Storage Gen2](data-lake-storage-access-control.md).
 
-To modify the ACL by using an SFTP client, you must give the local user `Modify Permission` permission. To change owning user or owning group of a directory or blob. The local user must have been given `Modify Ownership` permission.
+To authorize a local user by using ACLs, you must first enable ACL authorization for that local user. See [Give permission to containers](secure-file-transfer-protocol-support-authorize-accessmd#give-permission-to-containers).
+
+While an ACL can define the permission level for many different types of identities, only the owning user, owning group, and all other users identities can be used to authorize a local user. Named users and named groups are not yet supported for local user authorization. 
+
+### How ACL permissions are evaluated
+
+ACLs are evaluated only if the local user does not have the necessary container permissions to perform an operation. Because of the way that access permissions are evaluated by the system, you cannot use an ACL to restrict access that has already been granted by container-level permissions. That's because the system evaluates container permissions first, and if those permissions grant sufficient access permission, ACLs are ignored.
+
+### Modifying ACLs with an SFTP client
+
+While an ACL can be modified by using any supported Azure tool or SDK, users can also modify them by using an SFTP client. To enable a local user to modify ACLs, you must first give the local user `Modify Permissions` permission. See [Give permission to containers](secure-file-transfer-protocol-support-authorize-access.md#give-permission-to-containers).
+
+Local users can change the permission level of the only the owning user, owning group, and all other users of an ACL. Adding or modifying ACL entries for named users, named groups, and named security principals is not yet supported. Users can also change the ID of the owning user and the owning group. To change owning user or owning group of a directory or blob. The local user must have been given `Modify Ownership` permission.
 
 Most SFTP clients expose commands for changing these properties. The following table describes common commands in more detail.
 
@@ -105,9 +115,7 @@ Most SFTP clients expose commands for changing these properties. The following t
 | chgrp | o | <li>Change owning group for file/directory</li><li>Must specify numeric ID</li> |
 | chmod | p | <li>Change permissions/mode for file/directory</li><li>Must specify POSIX style octal permissions</li> |
 
-To see examples that modify ACLs by using [Open SSH](/windows-server/administration/openssh/openssh_overview), see [Modify ACLs](secure-file-transfer-protocol-support-connect.md#modify-acls).
-
-The IDs required for changing owning user and owning group are part of new properties for Local Users. The following table describes each new Local User property in more detail. 
+The IDs required for changing owning user and owning group are part of new properties for Local Users. The following table describes each new Local User property in more detail.
 
 | Property | Description |
 |---|---|
@@ -115,7 +123,7 @@ The IDs required for changing owning user and owning group are part of new prope
 | GroupId | <li>Identifer for a group of Local Users</li><li>Used for setting owning group on file/directory</li> |
 | AllowAclAuthorization | <li>Allow authorizing this Local User's requests with ACLs</li> |
 
-Once the desired ACLs have been configured and the Local User enables `AllowAclAuthorization`, they may use ACLs to authorize their requests. Similar to RBAC, container permissions can interoperate with ACLs. Only if the local user doesn't have sufficient container permissions will ACLs be evaluated. To learn more, see [Access control model in Azure Data Lake Storage Gen2](data-lake-storage-access-control-model.md).
+To see examples that ACLs from an SFTP client, see [Modify ACLs](secure-file-transfer-protocol-support-connect.md#modify-acls).
 
 ## Home directory
 
