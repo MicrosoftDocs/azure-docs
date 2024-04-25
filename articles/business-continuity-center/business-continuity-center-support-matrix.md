@@ -11,7 +11,7 @@ author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
 
-# Support matrix for Azure Business Continuity Center (preview)
+# Support matrix for Azure Business Continuity Center
 
 This article describes supportable scenarios and limitations.
 
@@ -78,8 +78,8 @@ This table lists the solutions and scenarios that are unsupported in Azure Busin
 | Actions | Move, delete is not available for vaults in Azure Business Continuity Center and can only be performed directly from individual vault pane. |
 
 >[!Note]
->Protection details for Azure Classic Virtual Machines and Azure Classic storage account protected by Azure Backup are currently not included in the Azure Business Continuity (preview).
+>Protection details for Azure Classic Virtual Machines and Azure Classic storage account protected by Azure Backup are currently not included in the Azure Business Continuity.
 
 ## Next steps
 
-- [About Azure Business Continuity Center (preview)](business-continuity-center-overview.md).
+- [About Azure Business Continuity Center](business-continuity-center-overview.md).
