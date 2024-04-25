@@ -59,7 +59,7 @@ Choose a target profile within your application project to use for your continuo
 
 Share your application source files to a project in Azure DevOps so you can generate builds.
 
-Create a new local Git repo for your project by selecting **Git** -> **Create Git Repository** on the top bar of Visual Studio using the [steps] (https://learn.microsoft.com/en-us/visualstudio/version-control/git-create-repository?view=vs-2022#create-a-github-repo)
+Create a new local Git repo for your project by selecting **Git** -> **Create Git Repository** on the top bar of Visual Studio using the [steps] (/visualstudio/version-control/git-create-repository?view=vs-2022#create-a-github-repo)
 
 In the **Push** view in **Team Explorer**, select the **Publish Git Repo** button under **Push to Azure DevOps**.
 
