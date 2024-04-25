@@ -12,7 +12,7 @@ ms.date: 04/24/2024
 
 Vector similarity search (VSS) is a popular use-case for AI-driven applications. Azure Cache for Redis can be used to store vector embeddings and compare them through vector similarity search. This article is a high-level introduction to the concept of vector embeddings, vector comparison, and how Redis can be used as a seamless part of a vector similarity workflow.
 
-For a tutorial on how to use Azure Cache for Redis and Azure OpenAI to perform vector similarity search, see [Tutorial: Conduct  vector similarity search on Azure OpenAI embeddings using Azure Cache for Redis](cache-tutorial-vector-similarity).
+For a tutorial on how to use Azure Cache for Redis and Azure OpenAI to perform vector similarity search, see [Tutorial: Conduct  vector similarity search on Azure OpenAI embeddings using Azure Cache for Redis](cache-tutorial-vector-similarity.md).
 
 ## Scope of Availability
 
