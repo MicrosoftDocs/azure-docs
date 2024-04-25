@@ -564,7 +564,7 @@ To create a private endpoint for the *global* sub-resource used for the initial 
 
 1. From the Azure Virtual Desktop overview, select **Workspaces**, then select the name of a workspace you want to use for the global sub-resource.
 
-   1. *Optional*: Instead, create a placeholder workspace to terminate the global endpoint by following the instructions to [Create a workspace](create-application-group-workspace.md?tabs=portal#create-a-workspace).
+   1. *Optional*: Instead, create a placeholder workspace to terminate the global endpoint by following the instructions to [Create a workspace](deploy-azure-virtual-desktop.md?tabs=portal#create-a-workspace).
 
 1. From the workspace overview, select **Networking**, then **Private endpoint connections**, and finally **New private endpoint**.
 
@@ -607,7 +607,7 @@ To create a private endpoint for the *global* sub-resource used for the initial 
 
 # [Azure PowerShell](#tab/powershell)
 
-1. *Optional*: Create a placeholder workspace to terminate the global endpoint by following the instructions to [Create a workspace](create-application-group-workspace.md?tabs=powershell#create-a-workspace).
+1. *Optional*: Create a placeholder workspace to terminate the global endpoint by following the instructions to [Create a workspace](deploy-azure-virtual-desktop.md?tabs=powershell#create-a-workspace).
 
 1. In the same PowerShell session, create a Private Link service connection for the workspace with the global sub-resource by running the following commands. In these examples, the same virtual network and subnet are used.
 
@@ -685,7 +685,7 @@ To create a private endpoint for the *global* sub-resource used for the initial 
 
 # [Azure CLI](#tab/cli)
 
-1. *Optional*: Create a placeholder workspace to terminate the global endpoint by following the instructions to [Create a workspace](create-application-group-workspace.md?tabs=cli#create-a-workspace).
+1. *Optional*: Create a placeholder workspace to terminate the global endpoint by following the instructions to [Create a workspace](deploy-azure-virtual-desktop.md?tabs=cli#create-a-workspace).
 
 1. In the same CLI session, create a Private Link service connection and the private endpoint for the workspace with the global sub-resource by running the following commands:
 
