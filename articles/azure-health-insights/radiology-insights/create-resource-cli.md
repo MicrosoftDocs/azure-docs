@@ -2,12 +2,13 @@
 title: 'Create and deploy a HealthInsights resource using CLI'
 titleSuffix: Azure AI Health Insights
 description: Learn how to use the Azure CLI to create a HealthInsights resource.
-author: hvanhoe
-ms.author: hvanhoe
+author: henkvanhoe
+ms.author: henkvanhoe
 ms.service: azure-health-insights
 ms.topic: include
 ms.date: 04/16/2024
 ---
+# Create and deploy a HealthInsights resource using CLI
 
 ## Prerequisites
 
