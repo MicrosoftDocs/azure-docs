@@ -1,10 +1,11 @@
 ---
 title: Enroll in a simplified pricing tier for Microsoft Sentinel
-description: Learn how to enroll in simplified billing, the impact of the switch to simplified pricing tiers, and frequently asked questions about enrollment.
+description: Learn how to enroll in simplified billing, the impact of the switch to commitment pricing tiers, and frequently asked questions about enrollment.
 author: austinmccollum
 ms.topic: how-to
-ms.date: 07/06/2023
+ms.date: 04/25/2024
 ms.author: austinmc
+#customerintent: As a SOC administrator or a billing specialist, I want to know how to switch to simplified pricing and whether it will benefit us financially or simplify our administration of Microsoft Sentinel and log analytics workspaces.
 ---
 
 # Switch to the simplified pricing tiers for Microsoft Sentinel
@@ -146,13 +147,17 @@ Though the goal of the experience is to merely simplify the pricing and cost man
 ### Is there ever a reason NOT to switch?
 It's possible your Microsoft account team negotiated a discounted price for Log Analytics or Microsoft Sentinel charges on the classic tiers. You can't tell if this is so from the Microsoft Sentinel pricing interface alone. It might be possible to calculate the expected cost vs. actual charge in Microsoft Cost Management to see if there's a discount included. In such cases, we recommend contacting your Microsoft account team if you want to switch to the simplified pricing tiers or have any questions.
 
-## Next steps
+## Learn more
 
-- [Plan costs, understand Microsoft Sentinel pricing and billing](billing.md)
-- [Monitor costs for Microsoft Sentinel](billing-monitor-costs.md)
-- [Reduce costs for Microsoft Sentinel](billing-reduce-costs.md)
+- For more tips on reducing Log Analytics data volume, see [Azure Monitor best practices - Cost management](../azure-monitor/best-practices-cost.md).
 - Learn [how to optimize your cloud investment with Azure Cost Management](../cost-management-billing/costs/cost-mgt-best-practices.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 - Learn more about managing costs with [cost analysis](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 - Learn about how to [prevent unexpected costs](../cost-management-billing/understand/analyze-unexpected-charges.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 - Take the [Cost Management](/training/paths/control-spending-manage-bills?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) guided learning course.
-- For more tips on reducing Log Analytics data volume, see [Azure Monitor best practices - Cost management](../azure-monitor/best-practices-cost.md).
+
+## Related content
+
+- [Plan costs, understand Microsoft Sentinel pricing and billing](billing.md)
+- [Monitor costs for Microsoft Sentinel](billing-monitor-costs.md)
+- [Reduce costs for Microsoft Sentinel](billing-reduce-costs.md)
+
