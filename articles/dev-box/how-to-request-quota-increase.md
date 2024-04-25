@@ -30,7 +30,7 @@ When you reach the limit for a resource in your subscription, you can request an
 
 - To create a support request, your Azure account needs the [Owner](../role-based-access-control/built-in-roles.md#owner), [Contributor](../role-based-access-control/built-in-roles.md#contributor), or [Support Request Contributor](../role-based-access-control/built-in-roles.md#support-request-contributor) role at the subscription level.
 
-## Determine resource usage and quota for Microsoft Dev Box  
+## Determine resource usage and quota for Dev Box  
 
 Understanding quota limits that affect your Dev Box resources helps you to plan for future use. You can check the [default subscription limit](/azure/azure-resource-manager/management/azure-subscription-service-limits?branch=main#microsoft-dev-box-limits) for each resource, view your current usage, and determine how much quota remains in each region. By monitoring the rate at which your quota is used, you can plan and prepare to request a quota limit increase before you reach the quota limit for the resource. 
 
