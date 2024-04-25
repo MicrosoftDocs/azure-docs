@@ -29,6 +29,32 @@ This page provides latest news and updates regarding the recommended API version
 | 2022-05-01-preview | Preview | CheckMigrationNameAvailability<br>Migrations<br> |
 | 2021-06-01 | Stable (GA) | Earlier GA features +<br>Server CRUD<br>CheckNameAvailability<br>Configurations (Server parameters)<br>Database<br>Firewall rules<br>Private<br>DNS zone suffix<br>PITR<br>Server Restart<br>Server Start<br>Server Stop<br>Maintenance window<br>Virtual network subnet usage<br> |
 
+## Using preview versions of API from Terraform
+
+[Terraform](https://www.hashicorp.com/products/terraform) is an infrastructure-as-code software tool created by HashiCorp. Users define and provide data center infrastructure using a declarative configuration language known as HashiCorp Configuration Language (HCL), or optionally JSON. 
+Terraform community releases regular updates for **[Azure Resource Manager (AzureRM) Terraform provider](https://registry.terraform.io/providers/hashicorp/he AzAPI provider features the following benefits:
+
+Supports all Azure services:
+Private preview services and features
+Public preview services and features
+All API versions
+Full Terraform state file fidelity
+Properties and values are saved to state
+No dependency on Swagger
+Common and consistent Azure authenticationazurerm/latest/docs/resources/postgresql_flexible_server)** that allows IaC management for Azure Database for PostgreSQL - Flexible Server based on GA Azure RM API. If particular feature currently is in Preview API, but has not been yet incorporated into GA API and AzureRM Terraform provider, you can use **AzAPI Terraform provider** to call Preview API directly. **The AzAPI provider** is a thin layer on top of the Azure ARM REST APIs. The AzAPI provider enables you to manage any Azure resource type using any API version.
+
+The AzAPI provider features the following benefits:
+
+* Supports all Azure services:
+* Private preview services and features
+* Public preview services and features
+* All API versions
+* Full Terraform state file fidelity
+* Properties and values are saved to state
+* No dependency on Swagger
+* Common and consistent Azure authentication
+
+The [AzAPI2AzureRM](https://github.com/Azure/azapi2azurerm/releases) is an open source tool that's designed to help migrate from the AzAPI provider to the AzureRM provider.
 
 ## Contacts
 
