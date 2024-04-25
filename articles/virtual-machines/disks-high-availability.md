@@ -25,18 +25,18 @@ Applications running on a single VM
 
 |Recommendation  |Benefits  |
 |---------|---------|
-|Use Ultra Disks, Premium SSD v2, and Premium SSD disks.     |Single VMs using only Ultra Disks, Premium SSD v2, or Premium SSD disks have the highest uptime SLA, and these disk types offer the best performance.         |
+|Use Ultra Disks, Premium SSD v2, and Premium SSD disks.     |Single VMs using only Ultra Disks, Premium SSD v2, or Premium SSD disks have the highest uptime service level agreement (SLA), and these disk types offer the best performance.         |
 |Use zone-redundant storage (ZRS) disks     |Access to your data even if an entire zone experiences an outage.         |
 
 ## Applications running on multiple VMs
 
-Quorum-based applications, clustered databases (SQL, MongoDB), enterprise-grade web applications, and gaming applications are all examples of applications running on multiple VMs. Multiple VMs have the highest uptime SLA when deployed across multiple availability zones, and they have the second highest uptime SLA when deployed across multiple fault domains.
+Quorum-based applications, clustered databases (SQL, MongoDB), enterprise-grade web applications, and gaming applications are all examples of applications running on multiple VMs. Multiple VMs have the highest uptime service level agreement (SLA) when deployed across multiple availability zones, and they have the second highest uptime SLA when deployed across multiple fault domains.
 
 ### Deploy VMs across multiple availability zones
 
 Availability zones are separated groups of data centers within a region that have independent power, cooling, and networking infrastructure. They're close enough to have low-latency connections to other availability zones but far enough to reduce the possibility that more than one is affected by local outages or weather. See [What are availability zones?](../reliability/availability-zones-overview.md) for details.
 
-VMs deployed across three availability zones have the highest uptime [service level agreements](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services?lang=1) (SLA).
+VMs deployed across three availability zones have the highest uptime [SLA](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services?lang=1).
 
 #### Use zone-redundant Virtual Machine Scale Sets with flexible orchestration
 
