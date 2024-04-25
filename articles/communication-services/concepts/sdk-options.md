@@ -1,7 +1,7 @@
 ---
-title: SDKs and REST APIs for Azure Communication Services
+title: SDK's and REST APIs for Azure Communication Services
 titleSuffix: An Azure Communication Services concept document
-description: Learn more about Azure Communication Services SDKs and REST APIs.
+description: Learn more about Azure Communication Services SDK's and REST APIs.
 author: tophpalmer
 manager: chpalm
 services: azure-communication-services
@@ -100,6 +100,18 @@ All other Communication Services packages target .NET Standard 2.0, which suppor
   - Xamarin iOS 10.14
   - Xamarin Mac 3.8
 
+#### SDK package size
+
+| SDK                   |      Compressed size (MB)     |    Uncompressed size (MB)     |
+|-----------------------| ------------------------------|-------------------------------|
+|iOS SDK                |  ARM64 - 17.1 MB              | ARM64 - 61.1 MB               |
+|Android SDK            |  x86 – 13.3 MB                | x86 – 33.75 MB                |
+|                       |  x86_64 – 13.3 MB             | x86_64 – 35.75 MB             |
+|                       |  ARM64-v8a – 13.1 MB          | ARM64-v8a – 37.02 MB          |
+|                       |  armeabi-v7a – 11.4 MB        | armeabi-v7a – 23.97 MB        |
+
+If you want to improve your app, we suggest read [the Best Practices article](./best-practices.md). It provides recommendations and a checklist to review before releasing your app.
+
 ## REST APIs
 
 Communication Services APIs are documented alongside other [Azure REST APIs](/rest/api/azure/). This documentation tells you how to structure your HTTP messages and offers guidance for using [Postman](../tutorials/postman-tutorial.md). REST interface documentation is also published in Swagger format on [GitHub](https://github.com/Azure/azure-rest-api-specs). You can find throttling limits for individual APIs on [service limits page](./service-limits.md).
@@ -122,7 +134,7 @@ You'll get three years warning before these APIs stop working and are forced to 
 
 **You've integrated the v2.02 version of the Calling SDK into your application. Azure Communication releases v2.05.**
 
-You may be required to update to the v2.05 version of the Calling SDK within 12 months of the release of v2.05. The update should be a simple replacement of the artifact without requiring a code change because v2.05 is in the v2 major version and has no breaking changes.
+You may be required to update to the v2.05 version of the Calling SDK within 12 months of the release of v2.05. The update should be a replacement of the artifact without requiring a code change because v2.05 is in the v2 major version and has no breaking changes.
 
 ## Next steps
 
