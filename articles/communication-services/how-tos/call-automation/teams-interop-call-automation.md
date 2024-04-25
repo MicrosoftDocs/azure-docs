@@ -137,7 +137,7 @@ On the Microsoft Teams desktop client, Jack's call will be sent to the Microsoft
 
 ![Screenshot of Microsoft Teams desktop client, Jack's call is sent to the Microsoft Teams user through an incoming call toast notification.](./media/incoming-call-toast-notification-teams-user.png)
 
-After the Microsoft Teams user accepts the call, the in-call experience for the Microsoft Teams user will have all the participants displayed on the Microsoft Teams roster. Note that your application that is managing the call using Call Automation API will remain hidden to Teams user on the call screen. 
+After the Microsoft Teams user accepts the call, the in-call experience for the Microsoft Teams user will have all the participants displayed on the Microsoft Teams roster. Note that your application that is managing the call using Call Automation API will remain hidden to Teams user on the call screen, except in the case where you start a 1:1 call with the Teams user.  
 ![Screenshot of Microsoft Teams user accepting the call and entering the in-call experience for the Microsoft Teams user.](./media/active-call-teams-user.png)
 
 ## Step 4: Remove a Teams user from an existing Communication Services call controlled by Call Automation APIs

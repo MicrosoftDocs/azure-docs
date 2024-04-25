@@ -6,7 +6,7 @@ author: gmndrg
 ms.author: gimondra
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 05/09/2023
+ms.date: 04/25/2024
 ms.custom:
   - subject-rbac-steps
   - ignite-2023
@@ -18,9 +18,9 @@ Search applications that are built on Azure AI Search can now use the [Microsoft
 
 This article shows you how to configure your client for Microsoft Entra ID:
 
-+ For authentication, you'll create a [managed identity](../active-directory/managed-identities-azure-resources/overview.md) as the security principle. You could also use a different type of service principal object, but this article uses managed identities because they eliminate the need to manage credentials.
++ For authentication, create a [managed identity](../active-directory/managed-identities-azure-resources/overview.md) for your application. You can use a different type of security principal object, but this article uses managed identities because they eliminate the need to manage credentials.
 
-+ For authorization, you'll assign an Azure role to the managed identity that grants permissions to run queries or manage indexing jobs.
++ For authorization, assign an Azure role to the managed identity that grants permissions to run queries or manage indexing jobs.
 
 + Update your client code to call [`TokenCredential()`](/dotnet/api/azure.core.tokencredential).  For example, you can get started with new SearchClient(endpoint, new `DefaultAzureCredential()`) to authenticate via a Microsoft Entra ID using [Azure.Identity](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/identity/Azure.Identity/README.md).
 
@@ -48,15 +48,15 @@ In this step, configure your search service to recognize an **authorization** he
 
 The change is effective immediately, but wait a few seconds before testing. 
 
-All network calls for search service operations and content will respect the option you select: API keys, bearer token, or either one if you select **Both**.
+All network calls for search service operations and content respect the option you select: API keys, bearer token, or either one if you select **Both**.
 
-When you enable role-based access control in the portal, the failure mode will be "http401WithBearerChallenge" if authorization fails.
+When you enable role-based access control in the portal, the failure mode is "http401WithBearerChallenge" if authorization fails.
 
 ### [**REST API**](#tab/config-svc-rest)
 
 Use the Management REST API [Create or Update Service](/rest/api/searchmanagement/services/create-or-update) to configure your service.
 
-All calls to the Management REST API are authenticated through Microsoft Entra ID, with Contributor or Owner permissions. For help setting up authenticated requests in a REST client, see [Manage Azure AI Search using REST](search-manage-rest.md).
+All calls to the Management REST API are authenticated through Microsoft Entra ID, with Contributor or Owner permissions. For help with setting up authenticated requests in a REST client, see [Manage Azure AI Search using REST](search-manage-rest.md).
 
 1. Get service settings so that you can review the current configuration.
 
@@ -94,7 +94,7 @@ In this step, create a [managed identity](../active-directory/managed-identities
 
 1. Search for **Managed Identities**.
 
-1. Select **+ Create**.
+1. Select **Create**.
 
 1. Give your managed identity a name and select a region. Then, select **Create**.
 
@@ -102,9 +102,9 @@ In this step, create a [managed identity](../active-directory/managed-identities
 
 ## Assign a role to the managed identity
 
-Next, you need to grant your managed identity access to your search service. Azure AI Search has various [built-in roles](search-security-rbac.md#built-in-roles-used-in-search). You can also create a [custom role](search-security-rbac.md#create-a-custom-role).
+Next, you need to grant your client's managed identity access to your search service. Azure AI Search has various [built-in roles](search-security-rbac.md#built-in-roles-used-in-search). You can also create a [custom role](search-security-rbac.md#create-a-custom-role).
 
-It's a best practice to grant minimum permissions. If your application only needs to handle queries, you should assign the [Search Index Data Reader](../role-based-access-control/built-in-roles.md#search-index-data-reader) role. Alternatively, if it needs both read and write access on a search index, you should use the [Search Index Data Contributor](../role-based-access-control/built-in-roles.md#search-index-data-contributor) role.
+It's a best practice to grant minimum permissions. If your application only needs to handle queries, you should assign the [Search Index Data Reader](../role-based-access-control/built-in-roles.md#search-index-data-reader) role. Alternatively, if the client needs both read and write access on a search index, you should use the [Search Index Data Contributor](../role-based-access-control/built-in-roles.md#search-index-data-contributor) role.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -125,10 +125,8 @@ It's a best practice to grant minimum permissions. If your application only need
    + Search Index Data Contributor
    + Search Index Data Reader
 
-   For more information on the available roles, see [Built-in roles used in Search](search-security-rbac.md#built-in-roles-used-in-search).
-
-   > [!NOTE]
-   > The Owner, Contributor, Reader, and Search Service Contributor roles don't give you access to the data within a search index, so you can't query a search index or index data using those roles. For data access to a search index, you need either the Search Index Data Contributor or Search Index Data Reader role.
+      > [!NOTE]
+      > The Owner, Contributor, Reader, and Search Service Contributor are control plane roles and don't give you access to the data within a search index. For data access, choose either the Search Index Data Contributor or Search Index Data Reader role. For more information on the scope and purpose of each role, see [Built-in roles used in Search](search-security-rbac.md#built-in-roles-used-in-search).
 
 1. On the **Members** tab, select the managed identity that you want to give access to your search service.
 
@@ -177,9 +175,9 @@ The following instructions reference an existing C# sample to demonstrate the co
 
 ### Local testing
 
-User-assigned managed identities work only in Azure environments. If you run this code locally, `DefaultAzureCredential` will fall back to authenticating with your credentials. Make sure you've also given yourself the required access to the search service if you plan to run the code locally. 
+User-assigned managed identities work only in Azure environments. If you run this code locally, `DefaultAzureCredential` falls back to authenticating with your credentials. Make sure you give yourself the required access to the search service if you plan to run the code locally. 
 
-1. Verify your account has role assignments to run all of the operations in the quickstart sample. To both create and query an index, you'll need "Search Index Data Reader" and "Search Index Data Contributor".
+1. Verify your account has role assignments to run all of the operations in the quickstart sample. To both create and query an index, use "Search Index Data Reader" and "Search Index Data Contributor".
 
 1. Go to **Tools** > **Options** > **Azure Service Authentication** to choose your Azure sign-on account.
 
