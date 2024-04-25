@@ -28,12 +28,18 @@ The following table provides a comparison of options that are available, pre-con
 **Pre-configured** features are always enabled and you can't disable or change their settings. **Default** features are configured for you however, you can change them. **Optional** features are available for you to configure, and they're not enabled by default. 
 
 ### Application deployment, monitoring, and observability
+
+Application deployment can be streamlined using [automated deployments][automated-deployments] from source control which creates Kubernetes manifest and generates CI/CD workflows. Additionally, the cluster is configured with monitoring tools such as Managed Prometheus for metrics, Managed Grafana for visualization and Container Insights for log collection.
+
 | Option                    | AKS Automatic   	| AKS Standard  	|
 |---	                    |---	            |---	            |
 | Application deployment	        | **Optional:** <ul><li>[Automated deployments][automated-deployments] can be used to containerize applications from source control, create Kubernetes manifests, and continuous integration/continuous deployment (CI/CD) workflows.</li><li>[GitHub Actions for Kubernetes][kubernetes-action] for creating deployment pipelines using GitHub Actions.</li><li>Bring your own CI/CD pipeline.</li></ul>  | **Optional:** <ul><li>[Automated deployments][automated-deployments] can be used to containerize applications from source control, create Kubernetes manifests, and continuous integration/continuous deployment (CI/CD) workflows.</li><li>[GitHub Actions for Kubernetes][kubernetes-action] for creating deployment pipelines using GitHub Actions.</li><li>Bring your own CI/CD pipeline.</li></ul> |
 | Monitoring, logging, and visualization       | **Default:** <ul><li>[Managed Prometheus][managed-prometheus] for metric collection</li><li>[Managed Grafana][managed-grafana] for visualization</li><li>[Container insights][container-insights] for log collection</li></ul>  | **Optional:** <ul><li>[Managed Prometheus][managed-prometheus] for metric collection</li><li>[Managed Grafana][managed-grafana] for visualization</li><li>[Container insights][container-insights] for log collection</li></ul> |
 
 ### Node management, scaling, and cluster operations
+
+Node management is automatically handled without the need for manual node pool creation. Scaling is seamless, with nodes created based on workload requests. Additionally, features for workload scaling like Horizontal Pod Autoscaler (HPA), [Kubernetes Event Driven Autoscaling (KEDA)][keda], and [Vertical Pod Autoscaler (VPA)][vpa] are enabled. Clusters are configured for automatic node repair, automatic cluster upgrades, and detection of deprecated Kubernetes standard API usage. You can also set a planned maintenance schedule for upgrades if needed.
+
 | Option                    | AKS Automatic   	| AKS Standard  	|
 |---	                    |---	            |---	            |
 | Node management 	        | **Pre-configured:** AKS Automatic manages the node pools using [Node Autoprovisioning][node-autoprovisioning]. | **Default:** You create and manage system and user node pools <br/> **Optional:** Managed user node pools using [Node Autoprovisioning][node-autoprovisioning]. |
@@ -47,6 +53,9 @@ The following table provides a comparison of options that are available, pre-con
 | Planned maintenance windows	        | **Optional:** Set [planned maintenance schedule][planned-maintenance] configuration to control upgrades. |  **Optional:** Set [planned maintenance schedule][planned-maintenance] configuration to control upgrades.  |
 
 ### Security and policies
+
+Cluster authentication and authorization leverage [Azure RBAC for Kubernetes authorization][azure-rbac-for-k8s-auth] and applications can leverage features like [workload identity with Microsoft Entra Workload ID][workload-identity] and [OpenID Connect (OIDC) cluster issuer][oidc-issuer] to have secure communication with Azure services. [Deployment safeguards][deployment-safeguards] enforce Kubernetes best practices through Azure Policy controls and the built-in [image cleaner][image-cleaner] removes stale and vulnerable images, enhancing image security.
+
 | Option                    | AKS Automatic   	| AKS Standard  	|
 |---	                    |---	            |---	            |
 | Cluster authentication and authorization	        | **Pre-configured:** [Azure RBAC for Kubernetes authorization][azure-rbac-for-k8s-auth] for managing cluster authentication and authorization using Azure role-based access control.  | **Default:** Local accounts. <br/> **Optional:** <ul><li>[Azure RBAC for Kubernetes authorization][azure-rbac-for-k8s-auth]</li><li>[Kubernetes RBAC with Microsoft Entra integration][k8s-rbac-with-entra]</li></ul> |
@@ -56,6 +65,9 @@ The following table provides a comparison of options that are available, pre-con
 | Policy enforcement	        | **Pre-configured:** [Deployment safeguards][deployment-safeguards] that enforce Kubernetes best practices in your AKS cluster through Azure Policy controls. | **Optional:** [Deployment safeguards][deployment-safeguards] enforce Kubernetes best practices in your AKS cluster through Azure Policy controls. |
 
 ### Networking
+
+AKS Automatic clusters use [managed Virtual Network powered by Azure CNI Overlay with Cilium][azure-cni-powered-by-cilium] for high-performance networking and robust security. Ingress is handled by [managed NGINX using the application routing add-on][app-routing], integrating seamlessly with Azure DNS and Azure Key Vault. Egress uses a [managed NAT gateway][managed-nat-gateway] for scalable outbound connections. Additionally, you have the flexibility to enable [Azure Service Mesh (Istio) ingress][istio-mesh] or bring your own service mesh.
+
 | Option                    | AKS Automatic   	| AKS Standard  	|
 |---	                    |---	            |---	            |
 | Virtual network	        | **Pre-configured:** [Managed Virtual Network using Azure CNI Overlay powered by Cilium][azure-cni-powered-by-cilium] combines the robust control plane of Azure CNI with the data plane of Cilium to provide high-performance networking and security. | **Default:** [Managed Virtual Network with kubenet][kubenet] <br/> **Optional:** <ul><li>[Azure CNI][azure-cni]</li><li>[Azure CNI Overlay][azure-cni-overlay]</li><li>[Azure CNI Overlay powered by Cilium][azure-cni-powered-by-cilium]</li><li>[Bring your own CNI][use-byo-cni]</li></ul> |
