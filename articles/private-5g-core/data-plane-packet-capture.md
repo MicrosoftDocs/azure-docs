@@ -55,9 +55,10 @@ To perform packet capture using the command line, you must:
     1. Return to the **Packet Capture** view.
 1. Select **Start packet capture**.
 1. Fill in the details on the **Start packet capture** pane and select **Create**.
-1. The page will refresh every few seconds until the packet capture has completed. You can also use the **Refresh** button to refresh the page. If you want to stop the packet capture early, select **Stop packet capture**.
 
     The **Maximum bytes per session** limit is applied per node. In highly available (HA) deployments, it's likely that the packet capture will reach this limit and complete on one node before the other, so a packet capture will still be running when the first has completed. You should stop any running packet captures before starting a new one.
+
+1. The page will refresh every few seconds until the packet capture has completed. You can also use the **Refresh** button to refresh the page. If you want to stop the packet capture early, select **Stop packet capture**.
 
 1. Once the packet capture has completed, the AP5GC online service will save the output at the provided storage account URL.
 
