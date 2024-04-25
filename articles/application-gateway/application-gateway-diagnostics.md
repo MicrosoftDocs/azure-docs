@@ -74,7 +74,7 @@ For detailed instructions on setting up workspace transformations, please refer:
 4. Confirm data accuracy: Verify that data collection is accurate and consistent in both settings. 
 5. Remove Azure diagnostics setting: Remove the Azure Diagnostic setting to prevent duplicate data collection. 
 
-Example account types:
+Other storage locations:
 - **Azure Storage account**: Storage accounts are best used for logs when logs are stored for a longer duration and reviewed when needed.
 - **Azure Event Hubs**: Event hubs are a great option for integrating with other security information and event management (SIEM) tools to get alerts on your resources.
 - **Azure Monitor partner integrations**.
