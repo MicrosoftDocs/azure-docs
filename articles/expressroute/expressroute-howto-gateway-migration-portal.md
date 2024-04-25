@@ -1,5 +1,5 @@
 ---
-title: Migrate to an availability zone-enabled ExpressRoute virtual network gateway in Azure Portal
+title: Migrate to an availability zone-enabled ExpressRoute virtual network gateway in Azure portal
 titleSuffix: Azure ExpressRoute
 description: This article explains how to seamlessly migrate from Standard/HighPerf/UltraPerf SKUs to ErGw1/2/3AZ SKUs in Azure portal.
 services: expressroute
@@ -11,7 +11,7 @@ ms.date: 04/25/2024
 ms.author: duau
 ---
 
-# Migrate to an availability zone-enabled ExpressRoute virtual network gateway in Azure Portal
+# Migrate to an availability zone-enabled ExpressRoute virtual network gateway in Azure portal
 
 When you create an ExpressRoute virtual network gateway, you need to choose the gateway SKU. If you choose a higher-level SKU, more CPUs and network bandwidth are allocated to the gateway. As a result, the gateway can support higher network throughput and more dependable network connections to the virtual network. 
 
@@ -32,7 +32,7 @@ The following SKUs are available for ExpressRoute virtual network gateways:
   
 ## Migrate to a new gateway in Azure portal
 
-Here are the steps to migrate to a new gateway in Azure portal
+Here are the steps to migrate to a new gateway in Azure portal.
 
 1. In the [Azure portal](https://portal.azure.com/), navigate to the ExpressRoute Gateway Resource that you want to migrate to.
 1. the left-hand menu under *Settings*, select **Gateway SKU Migration**.
@@ -58,7 +58,7 @@ Here are the steps to migrate to a new gateway in Azure portal
 
 1. Select **Prepare** to create the new gateway. This operation could take up to 15 minutes.
 
-1. After the new gateway is created, you'll proceed to the *Migrate* stage. Here, select the new ExpressRoute gateway you created. In this example it's **myERGateway_migrated**. This transfers the settings from your old gateway to the new one. All network traffic, and control plane and data path connections from your old gateway, will transfer without any interruptions. To start this process, select **Migrate Traffic**. This operation could take up to 5 minutes.
+1. After the new gateway is created, you'll proceed to the *Migrate* stage. Here, select the new ExpressRoute gateway you created. In this example, it's **myERGateway_migrated**. This transfers the settings from your old gateway to the new one. All network traffic, and control plane and data path connections from your old gateway, will transfer without any interruptions. To start this process, select **Migrate Traffic**. This operation could take up to 5 minutes.
 
     :::image type="content" source="media/gateway-migration/migrate-traffic-step.png" alt-text="Screenshot of migrating traffic for migrating a virtual network gateway."lightbox="media/gateway-migration/migrate-traffic-step.png":::
 

@@ -77,6 +77,6 @@ The virtual network gateway connection resource isn't in a succeed state.
 
 ## Next steps
 
-* Learn how to [Migrate to an availability zone-enabled ExpressRoute virtual network gateway in Azure Portal](expressroute-howto-gateway-migration-portal.md).
+* Learn how to [Migrate to an availability zone-enabled ExpressRoute virtual network gateway in Azure portal](expressroute-howto-gateway-migration-portal.md).
 * Learn more about [Designing for high availability](designing-for-high-availability-with-expressroute.md).
 * Plan for [Disaster recovery](designing-for-disaster-recovery-with-expressroute-privatepeering.md) and [using VPN as a backup](use-s2s-vpn-as-backup-for-expressroute-privatepeering.md).
