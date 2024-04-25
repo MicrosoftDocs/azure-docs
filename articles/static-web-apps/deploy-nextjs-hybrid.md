@@ -5,7 +5,7 @@ services: static-web-apps
 author: aaronpowell
 ms.service: static-web-apps
 ms.topic:  tutorial
-ms.date: 10/12/2022
+ms.date: 04/25/2024
 ms.author: aapowell
 ms.custom: devx-track-js
 ---
@@ -121,7 +121,7 @@ Once GitHub Actions workflow is complete, you can select the URL link to open th
 
 ## Add Server-Rendered data with a Server Component
 
-To add server-rendered data in your Next.js project using the App Router, edit a Next.js component to add a server-side operations to render data in the component. By default, Next.js components are [Server Components](https://nextjs.org/docs/app/building-your-application/data-fetching/fetching-caching-and-revalidating) that can be server-rendered.
+To add server-rendered data in your Next.js project using the App Router, edit a Next.js component to add a server-side operation to render data in the component. By default, Next.js components are [Server Components](https://nextjs.org/docs/app/building-your-application/data-fetching/fetching-caching-and-revalidating) that can be server-rendered.
 
 1. Open the `app/page.tsx` file and add an operation that sets the value of a variable, which is computed server-side. Examples include fetching data or other server operations.
 
@@ -293,18 +293,19 @@ Next.js uses environment variables at build time and at request time, to support
 
 ## Enable standalone feature
 
-When your application size exceeds 250Mb, the Next.js [Output File Tracing](https://nextjs.org/docs/advanced-features/output-file-tracing) feature helps optimize the app size and enhance performance.
+When your application size exceeds 250 MB, the Next.js [Output File Tracing](https://nextjs.org/docs/advanced-features/output-file-tracing) feature helps optimize the app size and enhance performance.
 
-Output File Tracing creates a compressed version of the whole application with necessary package dependencies built into a folder named *.next/standalone*. This folder is meant to deploy on its own without additional *node_modules* dependencies.
+Output File Tracing creates a compressed version of the whole application with necessary package dependencies. This package is built into a folder named _.next/standalone_. With this package, your app can deploy on its own without _node_modules_ dependencies.
 
-In order to enable the `standalone` feature, add the following additional property to your `next.config.js`:
+In order to enable the `standalone` feature, add the following property to your `next.config.js`:
 ```js
 module.exports ={
     output:"standalone",
 }
 ```
 
-You will also need to configure the `build` command in the `package.json` file in order to copy static files to your standalone output. 
+Next, configure the `build` command in the `package.json` file in order to copy static files to your standalone output.
+
 ```json
 {
   ...
@@ -319,7 +320,7 @@ You will also need to configure the `build` command in the `package.json` file i
 
 ## Configure your Next.js routing and middleware for deployment to Azure Static Web Apps
 
-Your Next.js project can be configured to have custom handling of routes with redirects, rewrites, and middleware. These handlers are commonly used for authentication, personalization, routing, and internationalization.  Custom handling affects the default routing of your Next.js site and the configuration must be compatible with hosting on Static Web Apps.
+Your Next.js project can be configured to have custom handling of routes with redirects, rewrites, and middleware. These handlers are commonly used for authentication, personalization, routing, and internationalization. Custom handling affects the default routing of your Next.js site and the configuration must be compatible with hosting on Static Web Apps.
 
 Static Web Apps validates that your Next.js site is successfully deployed by adding a page to your site at build time. The page is named `public/.swa/health.html`, and Static Web Apps verifies the successful startup and deployment of your site by navigating to `/.swa/health.html` and verifying a successful response. Middleware and custom routing, which includes redirects and rewrites, can affect the access of the `/.swa/health.html` path, which can prevent Static Web Apps' deployment validation. To configure middleware and routing for a successful deployment to Static Web Apps, follow these steps:
 
@@ -353,7 +354,7 @@ Static Web Apps validates that your Next.js site is successfully deployed by add
     };
     ```
 
-1. Configure your rewrites in `next.config.js` to exclude routes starting with `.swa`
+1. Configure your rewrite rules in `next.config.js` to exclude routes starting with `.swa`
 
     ```js
     module.exports = {
@@ -369,11 +370,12 @@ Static Web Apps validates that your Next.js site is successfully deployed by add
         },
     };
     ```
-These code snippets exclude paths that start with `.swa` from being handled by your custom routing or middleware. These rules ensure that the paths resolve as expected during deployment validation.
+
+These code snippets exclude paths that start with `.swa` to stop your custom routing or middleware from processing these requests. These rules ensure that the paths resolve as expected during deployment validation.
 
 ## Enable logging for Next.js
 
-Following best practices for Next.js server API troubleshooting, add logging to the API to catch these errors. Logging on Azure uses **Application Insights**. In order to preload this SDK, you need to create a custom start up script. To learn more:
+Following best practices for Next.js server API troubleshooting, add logging to the API to catch these errors. Logging on Azure uses **Application Insights**. In order to preload this SDK, you need to create a custom startup script. To learn more:
 
 * [Example preload script for Application Insights + Next.js](https://medium.com/microsoftazure/enabling-the-node-js-application-insights-sdk-in-next-js-746762d92507)
 * [GitHub issue](https://github.com/microsoft/ApplicationInsights-node.js/issues/808)
