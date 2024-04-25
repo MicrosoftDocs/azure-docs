@@ -14,6 +14,10 @@ ms.author: anfdocs
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
 
+* [Dynamic service level change enhancement:](dynamic-change-volume-service-level.md) shortened wait time for changing to lower service levels
+
+    To address rapidly changing performance requirements, Azure NetApp Files allows [dynamic service level changes of volume](dynamic-change-volume-service-level.md)s. The wait time for moving Azure NetApp Files volumes to a lower service level (after first moving service levels upwards) is now 24 hours--an improvement from the original seven days--enabling you to more actively benefit from this cost optimization capability. 
+    
 ## April 2024 
 
 * [Application volume group for Oracle](application-volume-group-oracle-introduction.md) (Preview)

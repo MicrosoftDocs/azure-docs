@@ -20,9 +20,9 @@ The capacity pool that you want to move the volume to must already exist. The ca
 
 * This functionality is supported within the same NetApp account. You can't move the volume to a capacity pool in a different NetApp Account.
 
-* After the volume is moved to another capacity pool, you'll no longer have access to the previous volume activity logs and volume metrics. The volume will start with new activity logs and metrics under the new capacity pool.
+* After the volume is moved to another capacity pool, you'll no longer have access to the previous volume activity logs and volume metrics. The volume starts with new activity logs and metrics under the new capacity pool.
 
-* If you move a volume to a capacity pool of a higher service level (for example, moving from *Standard* to *Premium* or *Ultra* service level), you must wait at least seven days before you can move that volume *again* to a capacity pool of a lower service level (for example, moving from *Ultra* to *Premium* or *Standard*). You can always change to higher service level without wait time.
+* If you move a volume to a capacity pool of a higher service level (for example, moving from *Standard* to *Premium* or *Ultra* service level), you must wait at least 24 hours before you can move that volume *again* to a capacity pool of a lower service level (for example, moving from *Ultra* to *Premium* or *Standard*). You can always change to higher service level without wait time.
 
 * If the target capacity pool is of the *manual* QoS type, the volume's throughput isn't changed with the volume move. You can [modify the allotted throughput](manage-manual-qos-capacity-pool.md#modify-the-allotted-throughput-of-a-manual-qos-volume) subsequently in the target manual capacity pool.
 
