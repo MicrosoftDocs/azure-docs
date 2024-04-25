@@ -6,9 +6,10 @@ manager: scottpolly
 ms.service: azure-ai-studio
 ms.topic: how-to
 ms.date: 3/6/2024
-ms.reviewer: fasantia
-ms.author: mopeakande
-author: msakande
+ms.reviewer: shubhiraj
+reviewer: shubhirajMsft
+ms.author: ssalgado
+author: ssalgadodev
 ms.custom: [references_regions]
 ---
 
@@ -244,7 +245,7 @@ __Body__
 {
     "prompt": "What's the distance to the moon?",
     "temperature": 0.8,
-    "max_tokens": 512,
+    "max_tokens": 512
 }
 ```
 

@@ -120,9 +120,10 @@ For customers that wish to carry out an in-place migration, the AKS service will
 To carry out an in-place upgrade to the latest LTS version, you need to specify an LTS enabled Kubernetes version as the upgrade target.
 
 ```azurecli
-az aks upgrade --resource-group myResourceGroup --name myAKSCluster --kubernetes-version 1.30.2
+az aks upgrade --resource-group myResourceGroup --name myAKSCluster --kubernetes-version 1.32.2
 ```
 
 > [!NOTE]
-> Kubernetes 1.30.2 is used as an example version in this article. Check the [AKS release tracker](release-tracker.md) for available Kubernetes releases.
+> Kubernetes version 1.32 is the next Long Term Support Version after 1.27. Customers will get a minimum 6 months of overlap between 1.27 LTS and 1.32 LTS versions to plan upgrades.  
+> Kubernetes 1.32.2 is used as an example version in this article. Check the [AKS release tracker](release-tracker.md) for available Kubernetes releases.
 

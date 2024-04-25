@@ -117,6 +117,16 @@ items:
       href: estimate-storage-costs.md
     - name: Create custom built-in connectors
       href: create-custom-built-in-connector-standard.md
+    - name: DevOps deployment for Standard workflows
+      href: devops-deployment-single-tenant-azure-logic-apps.md
+    - name: Set up DevOps deployment for Standard workflows
+      href: set-up-devops-deployment-single-tenant-azure-logic-apps.md
+    - name: Automate build and deployment for Standard workflows
+      href: automate-build-deployment-standard.md
+    - name: Deploy Standard logic apps to private storage accounts
+      href: deploy-single-tenant-logic-apps-private-storage-account.md
+    - name: Estimate storage costs for Standard workflows
+      href: estimate-storage-costs.md
     - name: Export Consumption workflows to Standard logic app
       href: export-from-consumption-to-standard-logic-app.md
     - name: Export from integration service environment to Standard logic app
