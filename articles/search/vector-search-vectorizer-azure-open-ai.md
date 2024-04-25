@@ -40,7 +40,7 @@ The Azure OpenAI vectorizer only supports `text` vector queries.
 
 ## Expected field dimensions
 
-The expected field dimensions for a field configured with an Azure Open AI vectorizer depends on the `modelName` that is configured.
+The expected field dimensions for a field configured with an Azure OpenAI vectorizer depend on the `modelName` that is configured.
 
 | `modelName` | Minimum dimensions | Maximum dimensions |
 |--------------------|-------------|-------------|

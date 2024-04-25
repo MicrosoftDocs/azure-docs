@@ -20,7 +20,7 @@ The **Azure AI Studio model catalog** vectorizer connects to an embedding model 
 
 ## Vectorizer parameters
 
-Parameters are case-sensitive. Which parameters you choose to use depends on what [authentication your AML online endpoint requires, if any](#WhatParametersToUse)
+Parameters are case-sensitive. Which parameters you choose to use depends on what [authentication your AML online endpoint requires, if any.](#WhatParametersToUse)
 
 | Parameter name | Description |
 |--------------------|-------------|
@@ -58,7 +58,7 @@ Which vector query types are supported by the AI Studio model catalog vectorizer
 
 ## Expected field dimensions
 
-The expected field dimensions for a field configured with an AI Studio model catalog vectorizer depends on the `modelName` that is configured.
+The expected field dimensions for a field configured with an AI Studio model catalog vectorizer depend on the `modelName` that is configured.
 
 | `modelName` | Expected dimensions |
 |--------------------|-------------|

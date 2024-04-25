@@ -33,7 +33,7 @@ Parameters are case-sensitive.
 
 ## Supported vector query types.
 
-The Custom Web API vectorizer supports `text`, `imageUrl` and `imageBinary` vector queries.
+The Custom Web API vectorizer supports `text`, `imageUrl`, and `imageBinary` vector queries.
 
 ## Sample definition
 
@@ -60,13 +60,13 @@ The Custom Web API vectorizer supports `text`, `imageUrl` and `imageBinary` vect
 
 The required JSON payload structure that is expected for an endpoint when using it with the custom web API vectorizer is the same as that of the custom web API skill, which is discussed in more detail in [the documentation for the skill](cognitive-search-custom-skill-web-api.md#sample-input-json-structure).
 
-There are the following additional considerations to make when implementing a web API endpoint to use with the custom web API vectorizer.
+There are the following other considerations to make when implementing a web API endpoint to use with the custom web API vectorizer.
 
-+ The vectorizer will only ever send one record in the `values` array at a time when making a request to the endpoint.
-+ The vectorizer will pass the data to be vectorized in a specific key in the `data` JSON object in the request payload. That key will be `text`, `imageUrl`, or `imageBinary`, depending on which type of vector query was requested.
++ The vectorizer sends only one record at a time in the `values` array when making a request to the endpoint.
++ The vectorizer passes the data to be vectorized in a specific key in the `data` JSON object in the request payload. That key is `text`, `imageUrl`, or `imageBinary`, depending on which type of vector query was requested.
 + The vectorizer expects the resulting embedding to be under the `vector` key in the `data` JSON object in the response payload.
-+ Any errors or warnings returned by the endpoint will be ignored by the vectorizer and not obtainable for debugging purposes at query time.
-+ If an `imageBinary` vector query was requested, the request payload sent to the endpoint will be the following:
++ Any errors or warnings returned by the endpoint are ignored by the vectorizer and not obtainable for debugging purposes at query time.
++ If an `imageBinary` vector query was requested, the request payload sent to the endpoint is the following:
 
     ```json
     {
@@ -89,4 +89,4 @@ There are the following additional considerations to make when implementing a we
 + [Integrated vectorization](vector-search-integrated-vectorization.md)
 + [How to configure a vectorizer in a search index](vector-search-how-to-configure-vectorizer.md)
 + [Custom Web API skill](cognitive-search-custom-skill-web-api.md)
-+ [Huggingface Embeddings Generator power skill (can be used for a custom web API vectorizer as well)](https://github.com/Azure-Samples/azure-search-power-skills/tree/main/Vector/EmbeddingGenerator)
++ [Hugging Face Embeddings Generator power skill (can be used for a custom web API vectorizer as well)](https://github.com/Azure-Samples/azure-search-power-skills/tree/main/Vector/EmbeddingGenerator)
