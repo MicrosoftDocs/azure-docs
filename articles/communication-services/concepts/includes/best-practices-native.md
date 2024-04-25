@@ -103,3 +103,14 @@ Make sure to dispose of the `VideoStreamRendererView` when the video is no longe
 ## Camera or microphone being used by another process
 
 It's important to note that on mobile devices if multiple processes try to access the camera or microphone at the same time, the first process to request access will take control of the device. As a result, the second process will immediately lose access to it.
+
+## Optimize the APP size using UI Library
+
+Optimizing the size of libraries in software development is crucial for several reasons, particularly as applications become increasingly complex and resource-intensive.
+
+Improved Application Performance: Smaller libraries reduce the amount of code that must be loaded, parsed, and executed by an application. This can significantly enhance the startup time and overall performance of the application, especially on devices with limited resources.
+
+Reduced Memory Usage: By minimizing library size, developers can decrease the runtime memory footprint of an application. This is particularly important for mobile and embedded devices, where memory is often constrained. Lower memory usage can lead to fewer system crashes and better multitasking performance.
+
+- [UI Library for iOS](https://github.com/Azure/communication-ui-library-ios/wiki/Calling-Composite-Demo-Application-Size)
+- [UI Library for Android](https://github.com/Azure/communication-ui-library-android/wiki/Calling-Composite-Demo-Application-Size)
