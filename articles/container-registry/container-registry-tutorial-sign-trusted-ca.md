@@ -220,17 +220,26 @@ To import the certificate:
    ```
 
    To authenticate with AKV, by default, the following credential types if enabled will be tried in order:
+ 
+   - [Environment credential](/dotnet/api/azure.identity.environmentcredential)
+   - [Workload identity credential](/dotnet/api/azure.identity.workloadidentitycredential)
+   - [Managed identity credential](/dotnet/api/azure.identity.managedidentitycredential)
+   - [Azure CLI credential](/dotnet/api/azure.identity.azureclicredential)
+    
+   If you want to specify a credential type, use an additional plugin configuration called `credential_type`. For example, you can explicitly set `credential_type` to `azurecli` for using Azure CLI credential, as demonstrated below:
+    
+   ```bash
+   notation sign --signature-format cose --id $KEY_ID --plugin azure-kv --plugin-config credential_type=azurecli $IMAGE
+   ```
 
-   - [environment](/dotnet/api/azure.identity.environmentcredential)
-   - [workloadid](/dotnet/api/azure.identity.workloadidentitycredential)
-   - [managedid](/dotnet/api/azure.identity.managedidentitycredential)
-   - [azurecli](/dotnet/api/azure.identity.azureclicredential)
+   See below table for the values of `crendtial_type` for various credential types.
 
-   To customize the default behavior, consider using an additional plugin configuration called `credential_type`. For instance, you can explicitly set the credential type to `azurecli` as demonstrated below:
-
-    ```bash
-    notation sign --signature-format cose --id $KEY_ID --plugin azure-kv --plugin-config credential_type=azurecli $IMAGE
-    ```
+   | Credential type              | Value for `crendtial_type` |
+   | ---------------------------- | -------------------------- |
+   | Environment credential       | `environment`              |
+   | Workload identity credential | `workloadid`               |
+   | Managed identity credential  | `managedid`                |
+   | Azure CLI credential         | `azurecli`                 |
 
 6. View the graph of signed images and associated signatures. 
 
