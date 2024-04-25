@@ -80,12 +80,12 @@ items:
     items:
     - name: Connect
       href: connect-zoom.md
-    - name: Configure test numbers
-      href: configure-test-numbers-zoom.md
     - name: Prepare for live traffic
       href: prepare-for-live-traffic-zoom.md
   - name: Emergency calling
     href: emergency-calls-zoom.md
+  - name: Manage Zoom Phone Cloud Peering customers
+    href: manage-enterprise-zoom.md
 - name: Integration with Azure Operator Call Protection
   items:
     - name: Overview of Operator Call Protection

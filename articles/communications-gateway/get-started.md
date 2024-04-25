@@ -79,7 +79,6 @@ Use the following procedures to integrate with Microsoft Teams Direct Routing.
 Use the following procedures to integrate with Zoom Phone Cloud Peering.
 
 1. [Connect Azure Communications Gateway to Zoom Phone Cloud Peering](connect-zoom.md) describes how to connect Azure Communications Gateway to Zoom servers.
-1. [Configure test numbers for Zoom Phone Cloud Peering](configure-test-numbers-zoom.md) describes how to configure Azure Communications Gateway and Zoom with test numbers.
 1. [Prepare for live traffic with Zoom Phone Cloud Peering and Azure Communications Gateway](prepare-for-live-traffic-zoom.md) describes how to test your deployment and launch your service.
 
 ## Next steps

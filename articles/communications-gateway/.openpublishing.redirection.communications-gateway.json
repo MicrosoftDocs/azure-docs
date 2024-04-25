@@ -44,6 +44,11 @@
       "source_path_from_root": "/articles/communications-gateway/configure-test-numbers-teams-direct-routing.md",
       "redirect_url": "/azure/communications-gateway/prepare-for-live-traffic-teams-direct-routing#configure-numbers-for-integration-testing",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/communications-gateway/configure-test-numbers-zoom.md",
+      "redirect_url": "/azure/communications-gateway/prepare-for-live-traffic-zoom",
+      "redirect_document_id": false
     }
   ]
 }

@@ -9,7 +9,7 @@ metadata:
   ms.topic: landing-page
   author: rcdun
   ms.author: rdunstan
-  ms.date: 11/06/2023
+  ms.date: 04/25/2024
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -108,8 +108,6 @@ landingContent:
         links:
           - text: Connect to Zoom Phone Cloud Peering
             url: connect-zoom.md
-          - text: Configure test numbers
-            url: configure-test-numbers-zoom.md
           - text: Prepare for live traffic
             url: prepare-for-live-traffic-zoom.md
       - linkListType: concept
@@ -118,6 +116,10 @@ landingContent:
             url: interoperability-zoom.md
           - text: Emergency calling
             url: emergency-calls-zoom.md
+      - linkListType: how-to-guide
+        links:
+          - text: Manage Zoom Phone Cloud Peering customers
+            url: manage-enterprise-zoom.md
 
   # Card
   - title: Manage Azure Communications Gateway
