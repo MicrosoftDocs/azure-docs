@@ -1,17 +1,17 @@
 ---
-title: Migrate to an availability zone-enabled ExpressRoute virtual network gateway
+title: About migrating to an availability zone-enabled ExpressRoute virtual network gateway
 titleSuffix: Azure ExpressRoute
 description: This article explains how to seamlessly migrate from Standard/HighPerf/UltraPerf SKUs to ErGw1/2/3AZ SKUs.
 services: expressroute
 author: duongau
 ms.service: expressroute
 ms.custom: ignite-2023, devx-track-azurepowershell
-ms.topic: how-to
-ms.date: 04/23/2024
+ms.topic: conceptual
+ms.date: 04/25/2024
 ms.author: duau
 ---
 
-# Migrate to an availability zone-enabled ExpressRoute virtual network gateway 
+# About migrating to an availability zone-enabled ExpressRoute virtual network gateway 
 
 When you create an ExpressRoute virtual network gateway, you need to choose the gateway SKU. If you choose a higher-level SKU, more CPUs and network bandwidth are allocated to the gateway. As a result, the gateway can support higher network throughput and more dependable network connections to the virtual network. 
 
@@ -74,76 +74,9 @@ In the gateway migration experience, you need to validate if your resource is ca
 
 The virtual network gateway connection resource isn't in a succeed state. 
 
-## Migrate to a new gateway
-
-Here are the steps to migrate to a new gateway, using the Azure portal or PowerShell.
-
-### [**Portal**](#tab/nic-address-portal)
-
-1. In the [Azure portal](https://portal.azure.com/), navigate to the ExpressRoute Gateway Resource that you want to migrate to.
-1. the left-hand menu under *Settings*, select **Gateway SKU Migration**.
-
-    :::image type="content" source="media/gateway-migration/gateway-sku-migration-location.png" alt-text="Screenshot of Gateway migration location."lightbox="media/gateway-migration/gateway-sku-migration-location.png":::
-
-1. Select **Validate** to check if the gateway is ready for migration. You'll first see a list of prerequisites that must be met before migration can begin. If these prerequisites aren't met, validation fails and you can't proceed.
-
-    :::image type="content" source="media/gateway-migration/validate-step.png" alt-text="Screenshot of the validate step."lightbox="media/gateway-migration/validate-step.png":::
-
-1. Once validation is successful, you enter the *Prepare* stage. Here, a new Virtual Network gateway is created. Under **Virtual Network Gateway Details**, enter the following information.
-    
-    :::image type="content" source="media/gateway-migration/gateway-prepare-stage.png" alt-text="Screenshot of the Prepare stage."lightbox="media/gateway-migration/gateway-prepare-stage.png":::
-
-    | Setting | Value |
-    | --------| ----- |
-    | **Gateway Name** | Enter a name for the new gateway. |
-    | **Gateway SKU** | Select the SKU for the new gateway. |
-    | **Public IP Address** | Select **Add new**, then enter a name for the new public IP, select your availability zone, and select **OK** |
-
-    > [!NOTE]
-    > Be aware that your existing Virtual Network gateway will be locked during this process, preventing any creation or modification of connections to this gateway.
-
-1. Select **Prepare** to create the new gateway. This operation could take up to 15 minutes.
-
-1. After the new gateway is created, you'll proceed to the *Migrate* stage. Here, select the new ExpressRoute gateway you created. In this example it's **myERGateway_migrated**. This transfers the settings from your old gateway to the new one. All network traffic, and control plane and data path connections from your old gateway, will transfer without any interruptions. To start this process, select **Migrate Traffic**. This operation could take up to 5 minutes.
-
-    :::image type="content" source="media/gateway-migration/migrate-traffic-step.png" alt-text="Screenshot of migrating traffic."lightbox="media/gateway-migration/migrate-traffic-step.png":::
-
-1. "After the traffic migration is finished, you'll proceed to the *Commit* stage. In this stage, you finalize the migration, which involves deleting the old gateway. To do this, select on 'Commit Migration'. This final step is designed to occur without causing any downtime. 
-
-    :::image type="content" source="media/gateway-migration/commit-step.png" alt-text="Screenshot of the commit step."lightbox="media/gateway-migration/commit-step.png":::
-
-
-### [**PowerShell**](#tab/nic-address-powershell)
-
-1. First, update the `Az.Network` module to the latest version by running this PowerShell command:
-
-    ```powershell-interactive
-    Update-Module -Name Az.Network -Force
-    ```
-
-1. Then, add a second prefix to the **GatewaySubnet** by running these PowerShell commands:
-
-    ```powershell-interactive
-    $vnet = Get-AzVirtualNetwork -Name $vnetName -ResourceGroupName $resourceGroup
-    $subnet = Get-AzVirtualNetworkSubnetConfig -Name GatewaySubnet -VirtualNetwork $vnet
-    $prefix = "Enter new prefix"
-    $subnet.AddressPrefix.Add($prefix)
-    Set-AzVirtualNetworkSubnetConfig -Name GatewaySubnet -VirtualNetwork $vnet -AddressPrefix $subnet.AddressPrefix
-    Set-AzVirtualNetwork -VirtualNetwork $vnet
-    ```
-
-1. Next, run the **PrepareMigration.ps1** script to prepare the migration. This script creates a new ExpressRoute virtual network gateway on the same GatewaySubnet and connects it to your existing ExpressRoute circuits.
-
-1. After that, run the **Migration.ps1** script to perform the migration. This script transfers the configuration from the old gateway to the new one.
-
-1. Finally, run the **CommitMigration.ps1** script to complete the migration. This script deletes the old gateway and its connections.
-
-    >[!IMPORTANT]
-    > - Before running this step, verify that the new virtual network gateway has a working ExpressRoute connection.
-    > - When migrating your gateway, you can expect possible interruption for a maximum of 30 seconds.
-    
 
 ## Next steps
 
+* Learn how to [Migrate to an availability zone-enabled ExpressRoute virtual network gateway in Azure Portal](expressroute-howto-gateway-migration-portal.md).
 * Learn more about [Designing for high availability](designing-for-high-availability-with-expressroute.md).
 * Plan for [Disaster recovery](designing-for-disaster-recovery-with-expressroute-privatepeering.md) and [using VPN as a backup](use-s2s-vpn-as-backup-for-expressroute-privatepeering.md).
