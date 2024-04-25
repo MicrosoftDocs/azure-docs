@@ -9,7 +9,8 @@ ms.author: rifox
 
 This guide describes the various events or porperties changes your app can subsribe to. Subsribing to those events allows your app to be informed about state change in the calling SDK and react accordingly.
 
-This guide assumes you have already gone through the QuickStart or have an application that is able to make and receive calls. If you have not completed the getting starting guide, refer to our [Quickstart: Add voice calling to your app](https://learn.microsoft.com/azure/communication-services/quickstarts/voice-video-calling/getting-started-with-calling?tabs=uwp&pivots=platform-web).
+This guide assumes you have already gone through the QuickStart or have an application that is able to make and receive calls. If you have not completed the getting starting guide, refer to our [Quickstart: Add voice calling to your app](../../../quickstarts/voice-video-calling
+/getting-started-with-calling.md).
 
 Each object in the JavaScript calling sdk has `properties` and `collections`. Their values change throughout the lifetime of the object.
 Use the `on()` method to subscribe to objects' events, and use the `off()` method to unsubscribe from objects' events.
@@ -34,5 +35,5 @@ call.on('isLocalVideoStartedChanged', () => {
 
 #### Example subscription on a collection
 
-### Collection and properties on the `Call` object
 
+### Collection and properties on the `Call` object
