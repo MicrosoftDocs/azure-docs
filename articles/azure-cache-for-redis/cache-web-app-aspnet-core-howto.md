@@ -7,7 +7,7 @@ ms.service: cache
 ms.devlang: csharp
 ms.custom: devx-track-csharp, mvc, mode-other
 ms.topic: quickstart
-ms.date: 03/25/2022
+ms.date: 04/24/2024
 
 ---
 
@@ -48,13 +48,13 @@ The connection to your cache is managed by the `RedisConnection` class. The conn
 _redisConnection = await _redisConnectionFactory;
 ```
 
-In `RedisConnection.cs`, you see the `StackExchange.Redis` namespace has been added to the code. This is needed for the `RedisConnection` class.
+In `RedisConnection.cs`, you see the `StackExchange.Redis` namespace is added to the code. This namespace is needed for the `RedisConnection` class.
 
 ```csharp
 using StackExchange.Redis;
 ```
 
-The `RedisConnection` code ensures that there is always a healthy connection to the cache by managing the `ConnectionMultiplexer` instance from `StackExchange.Redis`. The `RedisConnection` class recreates the connection when a connection is lost and unable to reconnect automatically.
+The `RedisConnection` code ensures that there's always a healthy connection to the cache by managing the `ConnectionMultiplexer` instance from `StackExchange.Redis`. The `RedisConnection` class recreates the connection when a connection is lost and unable to reconnect automatically.
 
 For more information, see [StackExchange.Redis](https://stackexchange.github.io/StackExchange.Redis/) and the code in a [GitHub repo](https://github.com/StackExchange/StackExchange.Redis).
 
@@ -119,7 +119,7 @@ From the home page, you select **Azure Cache for Redis Test** to see the sample 
 
 ## Run the app locally
 
-1. Execute the following command in your command window to build the app:
+1. To build the app, execute the following command in your command window:
 
     ```dos
     dotnet build
@@ -137,27 +137,9 @@ From the home page, you select **Azure Cache for Redis Test** to see the sample 
 
 :::image type="content" source="./media/cache-web-app-aspnet-core-howto/cache-simple-test-complete-local.png" alt-text="Screenshot of simple test completed local":::
 
-## Clean up resources
+[!INCLUDE [cache-delete-resource-group](includes/cache-delete-resource-group.md)]
 
-If you continue to use this quickstart, you can keep the resources you created and reuse them.
+## Related content
 
-Otherwise, if you're finished with the quickstart sample application, you can delete the Azure resources that you created in this quickstart to avoid charges.
-
-> [!IMPORTANT]
-> Deleting a resource group is irreversible. When you delete a resource group, all the resources in it are permanently deleted. Make sure that you do not accidentally delete the wrong resource group or resources. If you created the resources for hosting this sample inside an existing resource group that contains resources you want to keep, you can delete each resource individually on the left instead of deleting the resource group.
-
-### To delete a resource group
-
-1. Sign in to the [Azure portal](https://portal.azure.com), and then select **Resource groups**.
-
-1. In the **Filter by name...** box, type the name of your resource group. The instructions for this article used a resource group named *TestResources*. On your resource group, in the results list, select **...**, and then select **Delete resource group**.
-
-   :::image type="content" source="media/cache-web-app-howto/cache-delete-resource-group.png" alt-text="Delete":::
-
-1. You're asked to confirm the deletion of the resource group. Type the name of your resource group to confirm, and then select **Delete**.
-
-After a few moments, the resource group and all of its resources are deleted.
-
-## Next steps
 - [Connection resilience](cache-best-practices-connection.md)
 - [Best Practices Development](cache-best-practices-development.md)

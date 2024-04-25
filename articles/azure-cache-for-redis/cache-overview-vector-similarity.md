@@ -5,7 +5,7 @@ author: flang-msft
 ms.author: franlanglois
 ms.service: cache
 ms.topic: overview
-ms.date: 09/18/2023
+ms.date: 04/24/2024
 ---
 
 # About Vector Embeddings and Vector Search in Azure Cache for Redis
@@ -42,7 +42,7 @@ Many machine learning models support embeddings APIs. For an example of how to c
 
 ## What is a vector database?
 
-A vector database is a database that can store, manage, retrieve, and compare vectors. Vector databases must be able to efficiently store a high-dimensional vector and retrieve it with minimal latency and high throughput. Non-relational datastores are most commonly used as vector databases, although it's possible to use relational databases like PostgreSQL, for example, with the [pgvector](https://github.com/pgvector/pgvector) extension.
+A vector database is a database that can store, manage, retrieve, and compare vectors. Vector databases must be able to efficiently store a high-dimensional vector and retrieve it with minimal latency and high throughput. Nonrelational datastores are most commonly used as vector databases, although it's possible to use relational databases like PostgreSQL, for example, with the [pgvector](https://github.com/pgvector/pgvector) extension.
 
 ### Index method
 
@@ -76,7 +76,7 @@ Redis has a wide range of vector search capabilities through the [RediSearch mod
 - Support for both KNN (using `FLAT`) and ANN (using `HNSW`) indexing methods.
 - Vector storage in hash or JSON data structures
 - Top K queries
-- [Vector range queries](https://redis.io/docs/interact/search-and-query/search/vectors/#creating-a-vss-range-query) (i.e., find all items within a specific vector distance)
+- [Vector range queries](https://redis.io/docs/interact/search-and-query/search/vectors/#creating-a-vss-range-query) (that is, find all items within a specific vector distance)
 - Hybrid search with [powerful query features](https://redis.io/docs/interact/search-and-query/) such as:
   - Geospatial filtering
   - Numeric and text filters
@@ -84,11 +84,11 @@ Redis has a wide range of vector search capabilities through the [RediSearch mod
   - Phonetic matching
   - Boolean queries
 
-Additionally, Redis is often an economical choice because it's already so commonly used for caching or session store applications. In these scenarios, it can pull double-duty by serving a typical caching role while simultaneously handling vector search applications.
+Additionally, a Redis server is often an economical choice because it's already so commonly used for caching or session store applications. In these scenarios, it can pull double-duty by serving a typical caching role while simultaneously handling vector search applications.
 
 ## What are my other options for storing and searching for vectors?
 
-There are multiple other solutions on Azure for vector storage and search. These include:
+There are multiple other solutions on Azure for vector storage and search. These other choices include:
 
 - [Azure AI Search](../search/vector-search-overview.md)
 - [Azure Cosmos DB](../cosmos-db/mongodb/vcore/vector-search.md) using the MongoDB vCore API
