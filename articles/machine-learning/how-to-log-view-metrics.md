@@ -146,9 +146,9 @@ params = {
 mlflow.log_params(params)
 ```
 
-## Log metrics synchronously
+## Log metrics
 
-Metrics, as opposite to parameters, are always numeric. MLflow allows the logging of metrics in a synchronous way, meaning that metrics are persisted and immediately available for consumption upon call return. The following table describes how to log specific numeric types:
+Metrics, as opposite to parameters, are always numeric, and they can be logged either synchronously or asynchronously. When metrics are logged, they are immediately available for consumption upon call return. The following table describes how to log specific numeric types:
 
 |Logged value|Example code| Notes|
 |----|----|----|
@@ -157,30 +157,29 @@ Metrics, as opposite to parameters, are always numeric. MLflow allows the loggin
 |Log a boolean value | `mlflow.log_metric("my_metric", 0)`| 0 = True, 1 = False|
 
 > [!IMPORTANT]
-> **Performance considerations:** If you need to log multiple metrics (or multiple values for the same metric), avoid making calls to `mlflow.log_metric` in loops. Better performance can be achieved by logging a batch of metrics. Use the method `mlflow.log_metrics` which accepts a dictionary with all the metrics you want to log at once or use `MLflowClient.log_batch` which accepts multiple type of elements for logging. See [Log curves or list of values](#log-curves-or-list-of-values) for an example.
+> **Performance considerations:** If you need to log multiple metrics (or multiple values for the same metric), avoid making calls to `mlflow.log_metric` in loops. Better performance can be achieved by using [asynchronous logging](#log-metrics-asynchronously) with `mlflow.log_metric("metric1", 9.42, synchronous=False)` or [logging a batch of metrics](#log-curves-or-list-of-values).
 
-### Log curves or list of values
-
-Curves (or a list of numeric values) can be logged with MLflow by logging the same metric multiple times. The following example shows how to do it:
-
-```python
-list_to_log = [1, 2, 3, 2, 1, 2, 3, 2, 1]
-from mlflow.entities import Metric
-from mlflow.tracking import MlflowClient
-import time
-
-client = MlflowClient()
-client.log_batch(mlflow.active_run().info.run_id, 
-                 metrics=[Metric(key="sample_list", value=val, timestamp=int(time.time() * 1000), step=0) for val in list_to_log])
-```
-
-## Log metrics asynchronously
+### Log metrics asynchronously
 
 MLflow also allows logging of metrics in an asynchronous way. Asynchronous metric logging is particularly useful in cases with high throughput where large training jobs with hundreds of compute nodes might be running and trying to log metrics concurrently.
 
 Asynchronous metric logging allows you to log metrics and wait for them to be ingested before trying to read them back. This approach scales to large training routines that log hundreds of thousands of metric values.
 
-To log metrics asynchronously, use the MLflow logging API as you typically would, but add the extra parameter `synchronous=False`.
+MLflow logs metrics synchronously by default, however, you can change this behavior at any time:
+
+```python
+import mlflow
+
+mlflow.config.enable_async_logging()
+```
+
+The same property can be set, using an environment variable:
+
+```python
+export MLFLOW_ENABLE_ASYNC_LOGGING=True
+```
+
+To log specific metrics asynchronously, use the MLflow logging API as you typically would, but add the extra parameter `synchronous=False`.
 
 ```python
 import mlflow
@@ -238,21 +237,22 @@ run_operation.wait()
 
 You don't have to call `wait()` on your routines if you don't need immediate access to the metric values. Azure Machine Learning automatically waits when the job is about to finish, to see if there is any pending metric to be persisted. By the time a job is completed in Azure Machine Learning, all metrics are guaranteed to be persisted.
 
-### Changing the default logging behavior
 
-If you're performiong [automatic logging](#automatic-logging), using `autolog`, or you're using a logger like PyTorch lightning, You won't have access to the method `log_metric(synchronous=False)` directly. In such cases, you can change the default logging behavior by using the following configuration:
+### Log curves or list of values
 
-```python
-import mlflow
-
-mlflow.config.enable_async_logging()
-```
-
-The same property can be set, using an environment variable:
+Curves (or a list of numeric values) can be logged with MLflow by logging the same metric multiple times. The following example shows how to do it:
 
 ```python
-export MLFLOW_ENABLE_ASYNC_LOGGING=True
+list_to_log = [1, 2, 3, 2, 1, 2, 3, 2, 1]
+from mlflow.entities import Metric
+from mlflow.tracking import MlflowClient
+import time
+
+client = MlflowClient()
+client.log_batch(mlflow.active_run().info.run_id, 
+                 metrics=[Metric(key="sample_list", value=val, timestamp=int(time.time() * 1000), step=0) for val in list_to_log])
 ```
+
 
 ## Log images
 
