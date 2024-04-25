@@ -38,7 +38,7 @@ You can also add IP firewall rules to a Synapse workspace after the workspace is
 
 You can connect to your Synapse workspace using Synapse Studio. You can also use SQL Server Management Studio (SSMS) to connect to the SQL resources (dedicated SQL pools and serverless SQL pool) in your workspace.
 
-Make sure that the firewall on your network and local computer allows outgoing communication on TCP ports 80, 443 and 1443. These ports are used by Synapse Studio.
+Make sure that the firewall on your network and local computer allows outgoing communication on TCP ports 80, 443 and 1433. These ports are used by Synapse Studio.
 
 To connect using tools such as SSMS and Power BI, you must allow outgoing communication on TCP port 1433. The 1433 port used by SSMS (Desktop Application).
 
