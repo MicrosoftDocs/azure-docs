@@ -54,10 +54,11 @@ ms.custom: template-how-to
 <br>
 **Recommended workaround:** Await a forthcoming update or patch from Google.<br>
 
-### Incoming audio is noticeably quieter after Third-party app call on Android devices
+### Incoming audio is noticeably quieter in Azure Communication Services call after Third-party app call on Android devices
 **Browser version:** All.<br>
 **Azure Communication Service calling SDK version:** All.<br>
-**Description:** Users experience noticeably quieter incoming audio after receiving and accepting a call from a third-party app (e.g., WhatsApp, Viber) during an Azure Communication Services call. This issue persists across various Android devices and browsers. Additionally, volume controls indicate maximum levels, although the audio remains quieter than before the third-party call.<br>
+**Description:** Users experience noticeably quieter incoming audio after receiving and accepting a call from a third-party app (e.g., WhatsApp, Viber) during an Azure Communication Services call. 
+This issue occurs on Android devices using the mobile browser. Additionally, volume controls indicate maximum levels, although the audio remains quieter than before the third-party call.<br>
 **Known issue reference:** This is a known issue on [Chromium](https://bugs.chromium.org/p/webrtc/issues/detail?id=14986). <br>
 **Recommended workaround:** Users are advised to either rejoin the Azure Communication Services call or handle third-party app calls separately.<br>
 
