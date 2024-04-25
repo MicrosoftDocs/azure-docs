@@ -162,6 +162,22 @@ String values can be enclosed in single `'` or double `"` quotes.
 |`="unicod\u0065"`|`"unicode"`|
 |`=false`|`false`|
 
+### In line arrays
+
+If a certain skill input requires an array of data, but the data is represented as a single value currently or you need to combine multiple different single values into an array field, then you can create an array value inline as part of a skill input expression by wrapping a comma separated list of expressions in brackets (`[` and `]`). The array value can be a combination of expression paths or literal values as needed. You can also create nested arrays within arrays this way.
+
+|Expression|Value|
+|---|---|
+|`=['item']`|["item"]|
+|`=[$(/document/merged_content/entities/0/text), 'item']`|["BMN", "item"]|
+|`=[1, 3, 5]`|[1, 3, 5]|
+|`=[true, true, false]`|[true, true,  false]|
+|`=[[$(/document/merged_content/entities/0/text), 'item'],['item2', $(/document/merged_content/keyphrases/1)]]`|[["BMN", "item"], ["item2", "Syndrome"]]|
+
+If the skill has a context that explains to run the skill per an array input (i.e. how `"context": "/document/pages/*"` means the skill will run once per "page" in `pages`) then passing that value as the expression as input to an in line array will still only use one of those values at a time. 
+
+For an example with our sample enriched data, if your skill's `context` is `/document/merged_content/keyphrases/*` and then you create an inline array of the following `=['keyphrase', $(/document/merged_content/keyphrases/*)]` on a input of that skill, then the skill will be executed 3 times, once with a value of ["keyphrase", "Study of BMN"], another with a value of ["keyphrase", "Syndrome"], and finally with a value of ["keyphrase", "Pediatric Patients"]. The literal "keyphrase" value stays the same each time, but the value of the expression path changes with each skill execution.
+
 ## Composite expressions
 
 It's possible to combine values together using unary, binary and ternary operators.
