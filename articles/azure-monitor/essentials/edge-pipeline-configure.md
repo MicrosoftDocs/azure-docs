@@ -60,6 +60,9 @@ Edge pipeline is supported in the following Azure regions:
 - [Arc-enabled Kubernetes cluster](../../azure-arc/kubernetes/overview.md ) in your own environment with an external IP address. See [Connect an existing Kubernetes cluster to Azure Arc](../../azure-arc/kubernetes/quickstart-connect-cluster.md) for details on enabling Arc for a cluster.
 - The Arc-enabled Kubernetes cluster must have the the custom locations features enabled. See [Create and manage custom locations on Azure Arc-enabled Kubernetes](/azure/azure-arc/kubernetes/custom-locations#enable-custom-locations-on-your-cluster).
 - Log Analytics workspace in Azure Monitor to receive the data from the edge pipeline. See [Create a Log Analytics workspace in the Azure portal](../../azure-monitor/logs/quick-create-workspace.md) for details on creating a workspace.
+- The following resource providers mst be registered in your Azure subscription. See [Azure resource providers and types](/azure/azure-resource-manager/management/resource-providers-and-types).
+  - Microsoft.Insights
+  - Microsoft.Monitor 
 
 
 
