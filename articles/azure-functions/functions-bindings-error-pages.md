@@ -14,7 +14,7 @@ Handling errors in Azure Functions is important to help you avoid lost data, avo
 This article describes general strategies for error handling and the available retry strategies.
 
 > [!IMPORTANT]
-> Preview retry policy support for all triggers other than Timer, Kafka, and Event Hubs was removed in December 2022. For more information, see the [Retries](#retries) section. Retry policies for supported triggers is now generally available (GA).
+> Preview retry policy support for certain triggers was removed in December 2022. Retry policies for supported triggers is now generally available (GA). For a list of extensions that currently support retry policies, see the [Retries](#retries) section. 
 
 ## Handling errors
 
@@ -27,21 +27,12 @@ Errors that occur in an Azure function can come from:
 
 To avoid loss of data or missed messages, it's important to practice good error handling. This section describes some recommended error-handling practices and provides links to more information.
 
-### Enable Application Insights
-
-Azure Functions integrates with Application Insights to collect error data, performance data, and runtime logs. You should use Application Insights to discover and better understand errors that occur in your function executions. To learn more, see [Monitor Azure Functions](functions-monitoring.md).
-
-### Use structured error handling
-
-Capturing and logging errors is critical to monitoring the health of your application. The top-most level of any function code should include a try/catch block. In the catch block, you can capture and log errors. For information about what errors might be raised by bindings, see [Binding error codes](#binding-error-codes).
-
-### Plan your retry strategy
-
-Several Functions bindings extensions provide built-in support for retries. In addition, the runtime lets you define retry policies for Timer, Kafka, and Event Hubs-triggered functions. To learn more, see [Retries](#retries). For triggers that don't provide retry behaviors, you might want to implement your own retry scheme.
-
-### Design for idempotency
-
-The occurrence of errors when you're processing data can be a problem for your functions, especially when you're processing messages. It's important to consider what happens when the error occurs and how to avoid duplicate processing. To learn more, see [Designing Azure Functions for identical input](functions-idempotent.md).
+| Recommendation | Details | 
+| ---- | ---- |
+| **Enable Application Insights** | Azure Functions integrates with Application Insights to collect error data, performance data, and runtime logs. You should use Application Insights to discover and better understand errors that occur in your function executions. To learn more, see [Monitor Azure Functions](functions-monitoring.md). |
+| **Use structured error handling** | Capturing and logging errors is critical to monitoring the health of your application. The top-most level of any function code should include a try/catch block. In the catch block, you can capture and log errors. For information about what errors might be raised by bindings, see [Binding error codes](#binding-error-codes). Depending on your specific retry strategy, you might also raise a new exception to run the function again.  |
+| **Plan your retry strategy** | Several Functions bindings extensions provide built-in support for retries and others let you define retry policies, which are implemented by the Functions runtime. For triggers that don't provide retry behaviors, you should consider implementing your own retry scheme. For more infiormation, see [Retries](#retries).|
+| **Design for idempotency** | The occurrence of errors when you're processing data can be a problem for your functions, especially when you're processing messages. It's important to consider what happens when the error occurs and how to avoid duplicate processing. To learn more, see [Designing Azure Functions for identical input](functions-idempotent.md). |
 
 ## Retries
 
@@ -54,14 +45,16 @@ The following table indicates which triggers support retries and where the retry
 | Trigger/binding | Retry source | Configuration |
 | ---- | ---- | ----- |
 | Azure Cosmos DB | [Retry policies](#retry-policies) | Function-level |
-| Azure Blob Storage | [Binding extension](functions-bindings-storage-blob-trigger.md#poison-blobs) |  [host.json](functions-bindings-storage-queue.md#host-json) |
-| Azure Event Grid | [Binding extension](../event-grid/delivery-and-retry.md) | Event subscription |
-| Azure Event Hubs | [Retry policies](#retry-policies) | Function-level |
-| Azure Queue Storage | [Binding extension](functions-bindings-storage-queue-trigger.md#poison-messages) | [host.json](functions-bindings-storage-queue.md#host-json) |
+| Blob Storage | [Binding extension](functions-bindings-storage-blob-trigger.md#poison-blobs) |  [host.json](functions-bindings-storage-queue.md#host-json) |
+| Event Grid | [Binding extension](../event-grid/delivery-and-retry.md) | Event subscription |
+| Event Hubs | [Retry policies](#retry-policies) | Function-level |
+| Kafka | [Retry policies](#retry-policies) | Function-level |
+| Queue Storage | [Binding extension](functions-bindings-storage-queue-trigger.md#poison-messages) | [host.json](functions-bindings-storage-queue.md#host-json) |
 | RabbitMQ | [Binding extension](functions-bindings-rabbitmq-trigger.md#dead-letter-queues) | [Dead letter queue](https://www.rabbitmq.com/dlx.html) |
-| Azure Service Bus | [Binding extension](../service-bus-messaging/service-bus-dead-letter-queues.md) | [Dead letter queue](../service-bus-messaging/service-bus-dead-letter-queues.md#maximum-delivery-count) |
-|Timer | [Retry policies](#retry-policies) | Function-level |
-|Kafka | [Retry policies](#retry-policies) | Function-level |
+| Service Bus | [Binding extension](functions-bindings-service-bus-trigger.md) | [host.json](functions-bindings-service-bus.md#hostjson-settings)<sup>*</sup> |
+| Timer | [Retry policies](#retry-policies) | Function-level |
+
+<sup>*</sup>Requires version 5.x of the Azure Service Bus extension. In older extension versions, retry behaviors are implemented by the [Service Bus dead letter queue](../service-bus-messaging/service-bus-dead-letter-queues.md#maximum-delivery-count).
 
 ### Retry policies
 
@@ -81,7 +74,7 @@ Retry policies aren't supported in version 1.x of the Functions runtime.
 
 The retry policy tells the runtime to rerun a failed execution until either successful completion occurs or the maximum number of retries is reached.
 
-A retry policy is evaluated when a function executed by a supported trigger type raises an uncaught exception. As a best practice, you should catch all exceptions in your code and rethrow any errors that you want to result in a retry.
+A retry policy is evaluated when a function executed by a supported trigger type raises an uncaught exception. As a best practice, you should catch all exceptions in your code and raise new exceptions for any errors that you want to result in a retry.
 
 > [!IMPORTANT]
 > Event Hubs checkpoints aren't written until after the retry policy for the execution has completed. Because of this behavior, progress on the specific partition is paused until the current batch is done processing.
@@ -101,6 +94,8 @@ A specified amount of time is allowed to elapse between each retry.
 The first retry waits for the minimum delay. On subsequent retries, time is added exponentially to the initial duration for each retry, until the maximum delay is reached. Exponential back-off adds some small randomization to delays to stagger retries in high-throughput scenarios.
 
 ---
+
+When running in a Consumption plan, you are only billed for time your function code is executing. You aren't billed for the wait time between executions in either of these retry strategies.
 
 #### Max retry counts
 
