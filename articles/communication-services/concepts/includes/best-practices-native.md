@@ -41,7 +41,7 @@ Here are the minimum OS platform requirements to ensure optimal functionality of
 
 ## App request device permissions
 
-To use the Calling Native SDKs for making or receiving calls, it's necessary to authorize each platform to access device resources. As a developer, you should prompt the user for access and ensure that it's enabled. The consumer authorizes these access rights, so verify that they have been granted permission previously.
+To use the Calling Native SDKs for making or receiving calls, it's necessary to authorize each platform to access device resources. As a developer, you should prompt the user for access and ensure that are enabled. The consumer authorizes these access rights, so verify that they have been granted permission previously.
 
 ### [iOS](#tab/ios)
 
@@ -106,11 +106,11 @@ It's important to note that on mobile devices if multiple processes try to acces
 
 ## Optimize the APP size using UI Library
 
-Optimizing the size of libraries in software development is crucial for several reasons, particularly as applications become increasingly complex and resource-intensive.
+Optimizing the size of libraries in software development is crucial for several reasons, particularly as applications become increasingly complex, and resource-intensive.
 
-Improved Application Performance: Smaller libraries reduce the amount of code that must be loaded, parsed, and executed by an application. This can significantly enhance the startup time and overall performance of the application, especially on devices with limited resources.
+Application Performance: Smaller libraries reduce the amount of code that must be loaded, parsed, and executed by an application. This can significantly enhance the startup time and overall performance of your application, especially on devices with limited resources.
 
-Reduced Memory Usage: By minimizing library size, developers can decrease the runtime memory footprint of an application. This is particularly important for mobile and embedded devices, where memory is often constrained. Lower memory usage can lead to fewer system crashes and better multitasking performance.
+Memory Usage: By minimizing library size, you can decrease the runtime memory footprint of an application. This is important for mobile devices, where memory is often constrained. Lower memory usage can lead to fewer system crashes and better multitasking performance.
 
 - [UI Library for iOS](https://github.com/Azure/communication-ui-library-ios/wiki/Calling-Composite-Demo-Application-Size)
 - [UI Library for Android](https://github.com/Azure/communication-ui-library-android/wiki/Calling-Composite-Demo-Application-Size)
