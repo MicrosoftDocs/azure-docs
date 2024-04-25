@@ -6,7 +6,7 @@ manager: scottpolly
 ms.service: azure-ai-studio
 ms.custom: ignite-2023, devx-track-azurecli
 ms.topic: how-to
-ms.date: 04/10/2024
+ms.date: 04/25/2024
 ms.reviewer: jhirono
 ms.author: larryfr
 author: Blackmist
@@ -221,7 +221,20 @@ To enable public access, use the following steps:
 
 # [Azure CLI](#tab/cli)
 
-You can use [Azure Machine Learning CLI](../../machine-learning/how-to-configure-private-link.md#enable-public-access). Use your hub name as workspace name in Azure Machine Learning CLI.
+Use the following Azure CLI command to enable public access:
+
+```azurecli
+az ml workspace update \
+    --set public_network_access=Enabled \
+    -n <workspace-name> \
+    -g <resource-group-name>
+```
+
+If you receive an error that the `ml` command isn't found, use the following commands to install the Azure Machine Learning CLI extension:
+
+```azurecli
+az extension add --name ml
+```
 
 ---
 
