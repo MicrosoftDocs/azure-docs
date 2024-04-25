@@ -55,7 +55,7 @@ On the top toolbar of your prompt flow, select **Start compute session**.
     - Select **Next** to review your settings.
     - Select **Apply and start compute session** to start the compute session.
 
-## Update a compute session
+## <a name="update"></a> Update a compute session
 
 To manage a compute session, select the **Compute session running** on the top toolbar of the flow page.:
 
@@ -103,15 +103,21 @@ If you want to use a private feed in Azure DevOps, follow these steps:
 
 ### Change the base image
 
-By default, we use the latest prompt flow image as the base image. If you want to use a different base image, you need to build your own base image. The docker image should be built from the prompt flow base image, `mcr.microsoft.com/azureml/promptflow/promptflow-runtime:<newest_version>`. If possible use the [latest version of the base image](https://mcr.microsoft.com/v2/azureml/promptflow/promptflow-runtime/tags/list). To use the new base image, you need to reset the compute session via the `reset` command. This process takes several minutes as it pulls the new base image and reinstalls packages.
+By default, we use the latest prompt flow image as the base image. If you want to use a different base image, you need to build your own base image. The docker image should be built from the prompt flow base image, `mcr.microsoft.com/azureml/promptflow/promptflow-runtime:<newest_version>`. If possible use the [latest version of the base image](https://mcr.microsoft.com/v2/azureml/promptflow/promptflow-runtime/tags/list). 
 
-:::image type="content" source="../media/prompt-flow/how-to-create-manage-runtime/runtime-creation-automatic-image-flow-dag.png" alt-text="Screenshot of actions for customizing a base image for a compute session on a flow page." lightbox = "../media/prompt-flow/how-to-create-manage-runtime/runtime-creation-automatic-image-flow-dag.png":::
+1. Open the prompt flow.
+1. On the top toolbar, select **Raw file mode** to enable editing in the file editor.
+1. Open the **Files** section and select **flow.dag.yaml**. 
 
-```yaml
-environment:
-    image: <your-custom-image>
-    python_requirements_txt: requirements.txt
-```
+    :::image type="content" source="../media/prompt-flow/how-to-create-manage-runtime/runtime-creation-automatic-image-flow-dag.png" alt-text="Screenshot of actions for customizing a base image for a compute session on a flow page." lightbox = "../media/prompt-flow/how-to-create-manage-runtime/runtime-creation-automatic-image-flow-dag.png":::
+
+1. Specify your image in the `environment` section of the `flow.dag.yaml` file. For example, to use the image `<your-custom-image>`, add the following code:
+
+    ```yaml
+    environment:
+        image: <your-custom-image>
+        python_requirements_txt: requirements.txt
+    ```
 
 ## Related resources
 
