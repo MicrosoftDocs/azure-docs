@@ -26,8 +26,8 @@ Azure Stream Analytics lets you connect directly to Kafka clusters to ingest dat
 This article shows how to set up Kafka as an input source for Azure Stream Analytics. There are six steps:
 
 1. Create an Azure Stream Analytics job.
-2. Configure your Azure Stream Analytics job to use managed identity if you are using mTLS or SASL_SSl security protocols.
-3. Configure Azure Key vault if you are using mTLS or SASL_SSl security protocols.
+2. Configure your Azure Stream Analytics job to use managed identity if you are using mTLS or SASL_SSL security protocols.
+3. Configure Azure Key vault if you are using mTLS or SASL_SSL security protocols.
 4. Upload certificates as secrets into Azure Key vault.
 5. Grant Azure Stream Analytics permissions to access the uploaded certificate.
 6. Configure Kafka input in your Azure Stream Analytics job.
