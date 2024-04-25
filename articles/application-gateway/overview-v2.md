@@ -21,7 +21,7 @@ The new v2 SKU includes the following enhancements:
 - **Zone redundancy**: An Application Gateway or WAF deployment can span multiple Availability Zones, removing the need to provision separate Application Gateway instances in each zone with a Traffic Manager. You can choose a single zone or multiple zones where Application Gateway instances are deployed, which makes it more resilient to zone failure. The backend pool for applications can be similarly distributed across availability zones.
 
   Zone redundancy is available only where Azure Zones are available. In other regions, all other features are supported. For more information, see [Regions and Availability Zones in Azure](../reliability/availability-zones-service-support.md)
-- **Static VIP**: Application Gateway v2 SKU supports the static VIP type exclusively. This ensures that the VIP associated with the application gateway doesn't change for the lifecycle of the deployment, even after a restart.  There isn't a static VIP in v1, so you must use the application gateway URL instead of the IP address for domain name routing to App Services via the application gateway.
+- **Static VIP**: Application Gateway v2 SKU supports the static VIP type exclusively. This ensures that the VIP associated with the application gateway doesn't change for the lifecycle of the deployment, even after a restart.  There isn't a static VIP in v1, so you must use the application gateway URL instead of the IP address to route App Services via the application gateway.
 - **Header Rewrite**: Application Gateway allows you to add, remove, or update HTTP request and response headers with v2 SKU. For more information, see [Rewrite HTTP headers with Application Gateway](./rewrite-http-headers-url.md)
 - **Key Vault Integration**: Application Gateway v2 supports integration with Key Vault for server certificates that are attached to HTTPS enabled listeners. For more information, see [TLS termination with Key Vault certificates](key-vault-certs.md).
 - **Mutual Authentication (mTLS)**: Application Gateway v2 supports authentication of client requests. For more information, see [Overview of mutual authentication with Application Gateway](mutual-authentication-overview.md).
@@ -45,7 +45,7 @@ The Standard_v2 and WAF_v2 SKU isn't currently available in the following region
 
 ## Pricing
 
-With the v2 SKU, the pricing model is driven by consumption and is no longer attached to instance counts or sizes. The v2 SKU pricing has two components:
+With the v2 SKU, the pricing model is based on consumption. It's no longer attached to instance counts or sizes. The v2 SKU pricing has two components:
 
 - **Fixed price** - This is an hourly (or partial hour) price to provision a Standard_v2 or WAF_v2 Gateway. It's important to understand that zero additional minimum instances still ensures high availability of the service, and is always included with fixed price.
 - **Capacity Unit price** - This is a consumption-based cost that is charged in addition to the fixed cost. Capacity unit charge is also computed hourly or partial hourly. There are three dimensions to capacity unit - compute unit, persistent connections, and throughput. Compute unit is a measure of processor capacity consumed. Factors affecting compute unit are TLS connections/sec, URL Rewrite computations, and WAF rule processing. Persistent connection is a measure of established TCP connections to the application gateway in a given billing interval. Throughput is average Megabits/sec processed by the system in a given billing interval.  The billing is done at a Capacity Unit level for anything above the reserved instance count.
@@ -100,7 +100,7 @@ This section describes features and limitations of the v2 SKU that differ from t
 |Performance logs in Azure diagnostics|Not supported.<br>Azure metrics should be used.|
 |FIPS mode|Currently not supported.|
 |Private frontend configuration only mode|Currently in public preview [Learn more](application-gateway-private-deployment.md).|
-|Path based rule encoding |Not supported.<br> V2 decodes paths before routing. For example, V2 will treat `/abc%2Fdef` the same as `/abc/def`. |
+|Path based rule encoding |Not supported.<br> V2 decodes paths before routing. For example, V2 treats `/abc%2Fdef` the same as `/abc/def`. |
 |Chunked file transfer |In the Standard_V2 configuration, turn off request buffering to support chunked file transfer. <br> In WAF_V2, turning off request buffering isn't possible because it has to look at the entire request to detect and block any threats. Therefore, the suggested alternative is to create a path rule for the affected URL and attach a disabled WAF policy to that path rule.|
 |Cookie Affinity |Current V2 doesn't support appending the domain in session affinity Set-Cookie, which means that the cookie can't be used by client for the subdomains.|
 |Microsoft Defender for Cloud integration|Not yet available.
