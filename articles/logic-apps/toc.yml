@@ -87,13 +87,13 @@ items:
       href: single-tenant-overview-compare.md
     - name: About the Standard workflow designer
       href: designer-overview.md
-    - name: Create single-tenant workflows - Portal
+    - name: Create Standard workflows - Portal
       href: create-single-tenant-workflows-azure-portal.md
     - name: Get AI-powered help from the workflow assistant
       href: workflow-assistant-standard.md
-    - name: Create single-tenant workflows - Visual Studio Code
+    - name: Create Standard workflows - Visual Studio Code
       href: create-single-tenant-workflows-visual-studio-code.md
-    - name: Set up SQL storage for single-tenant workflows
+    - name: Set up SQL storage for Standard workflows
       href: set-up-sql-db-storage-single-tenant-standard-workflows.md
     - name: Built-in versus Azure connector operations
       href: ../connectors/compare-built-in-azure-connectors.md
@@ -103,18 +103,20 @@ items:
       href: create-run-custom-code-functions.md
     - name: Enable stateful mode for stateless built-in connectors
       href: ../connectors/enable-stateful-affinity-built-in-connectors.md
-    - name: DevOps deployment for single-tenant
-      href: devops-deployment-single-tenant-azure-logic-apps.md
-    - name: Set up DevOps deployment for single-tenant
-      href: set-up-devops-deployment-single-tenant-azure-logic-apps.md
-    - name: Secure traffic between single-tenant logic apps and virtual networks
+    - name: Secure traffic between Standard logic apps and virtual networks
       href: secure-single-tenant-workflow-virtual-network-private-endpoint.md
-    - name: Deploy single-tenant Standard logic apps to private storage accounts
-      href: deploy-single-tenant-logic-apps-private-storage-account.md
-    - name: Estimate storage costs for single-tenant workflows
-      href: estimate-storage-costs.md
-    - name: Create custom built-in connectors for single-tenant workflows
+    - name: Create custom built-in connectors for Standard workflows
       href: create-custom-built-in-connector-standard.md
+    - name: DevOps deployment for Standard workflows
+      href: devops-deployment-single-tenant-azure-logic-apps.md
+    - name: Set up DevOps deployment for Standard workflows
+      href: set-up-devops-deployment-single-tenant-azure-logic-apps.md
+    - name: Automate build and deployment for Standard workflows
+      href: automate-build-deployment-standard.md
+    - name: Deploy Standard logic apps to private storage accounts
+      href: deploy-single-tenant-logic-apps-private-storage-account.md
+    - name: Estimate storage costs for Standard workflows
+      href: estimate-storage-costs.md
     - name: Export Consumption workflows to Standard logic app
       href: export-from-consumption-to-standard-logic-app.md
     - name: Export from integration service environment to Standard logic app

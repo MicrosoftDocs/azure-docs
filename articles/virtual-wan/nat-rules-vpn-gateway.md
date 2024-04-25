@@ -208,4 +208,4 @@ The following table shows common configuration patterns that arise when configur
 
 ## Next steps
 
-For more information about site-to-site configurations, see [Configure a Virtual WAN site-to-site connection] (virtual-wan-site-to-site-portal.md).
+For more information about site-to-site configurations, see [Configure a Virtual WAN site-to-site connection](virtual-wan-site-to-site-portal.md).
