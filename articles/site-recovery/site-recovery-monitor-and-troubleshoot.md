@@ -192,7 +192,7 @@ To test the working of the alerts for a test VM using Azure Site Recovery, you c
 
 You can view the alerts settings under **Recovery Services Vault** > **Settings** > **Properties** > **Monitoring Settings**. The built-in alerts for Site Recovery are enabled by default, but you can disable either or both categories of Site Recovery alerts.  
 
-:::image type="content" source="./media/site-recovery-monitor-and-troubleshoot/azure-monitor-site-recovery-alert-registration.png" alt-text="Screenshot displays feature flag to register for alerting feature." lightbox="./media/site-recovery-monitor-and-troubleshoot/azure-monitor-site-recovery-alert-registration.png":::
+:::image type="content" source="./media/site-recovery-monitor-and-troubleshoot/properties.png" alt-text="Screenshot displays properties for alerting feature." lightbox="./media/site-recovery-monitor-and-troubleshoot/properties.png":::
 
 
 ### View the generated Azure Site Recovery alerts in Azure Monitor
@@ -220,12 +220,36 @@ Follow these steps to view the alerts generated for a particular vault via the v
 
 1.	On the [Azure portal](https://ms.portal.azure.com), go to the Recovery Services vault that you are using. 
 2.	Select the **Alerts** section and filter for **Monitor Service** = **Azure Site Recovery** to see Azure Site Recovery specific alerts.   You can customize the values of the other filters to see alerts of a specific time range up to 30 days, for vaults, subscriptions, severity and alert state (user response).
-    
-
-
 3.	Select any alert of your interest to see further details such as the affected VM, possible causes, recommended action, etc. 
 4. Once the event is mitigated, you can modify its state to **Closed** or **Acknowledged**.
 
+
+### View the generated Azure Site Recovery alerts in Backup Center
+
+Follow these steps to view the alerts generated for a particular vault via the Backup Center:
+
+1. Select the **Click here to take action** to manage built-in alerts for Site Recovery.
+
+    :::image type="content" source="./media/site-recovery-monitor-and-troubleshoot/backup-center-alerts.png" alt-text="Screenshot displays Backup Center alerts." lightbox="./media/site-recovery-monitor-and-troubleshoot/backup-center-alerts.png":::
+
+1. Select **Manage alerts** to view alert configurations. 
+
+    :::image type="content" source="./media/site-recovery-monitor-and-troubleshoot/manage-alerts.png" alt-text="Screenshot displays Manage alerts option." lightbox="./media/site-recovery-monitor-and-troubleshoot/manage-alerts.png":::
+
+1. Select **Create rule** to create alert processing rules to route alerts to different notification channels.
+1. Review which vaults have classic alerts configured for Backup and Site Recovery. The two columns **Backup Classic Alerts** and **Site Recovery Classic Alerts** display **Yes** if classic alerts are on. 
+    We recommend that you switch to Azure Monitor based alerts for a better monitoring experience by selecting on **Update**.
+
+    :::image type="content" source="./media/site-recovery-monitor-and-troubleshoot/opt-in-alerts.png" alt-text="Screenshot displays Classic alerts." lightbox="./media/site-recovery-monitor-and-troubleshoot/opt-in-alerts.png":::
+
+1. Select the check boxes to enable Azure Monitor alerts and disable classic alerts. You can also choose to disable certain categories of built-in alerts that are enabled by default. 
+
+    > [!NOTE]
+    >  Security alerts can't be disabled.
+
+1. Update settings and select on **Update**.
+    
+    :::image type="content" source="./media/site-recovery-monitor-and-troubleshoot/monitor-alerts.png" alt-text="Screenshot displays Monitoring settings." lightbox="./media/site-recovery-monitor-and-troubleshoot/monitor-alerts.png":::
 
 
 ### Configure email notifications for alerts
@@ -236,7 +260,7 @@ To configure email notifications for built-in Azure Monitor alerts for Azure Sit
  
 1.	Go to **Azure Monitor** > **Alerts** and select **Alert processing rules** on the top pane.
 
-    
+    :::image type="content" source="./media/site-recovery-monitor-and-troubleshoot/alert-processing.png" alt-text="Screenshot displays create new alert processing option." lightbox="./media/site-recovery-monitor-and-troubleshoot/alert-processing.png":::
 
 2.	Select **Create**.
 
@@ -252,9 +276,6 @@ To configure email notifications for built-in Azure Monitor alerts for Azure Sit
     :::image type="content" source="./media/site-recovery-monitor-and-troubleshoot/create-action-group.png" alt-text="Screenshot displays the Create new action group option." lightbox="./media/site-recovery-monitor-and-troubleshoot/create-action-group.png":::
 
 5.	For the creation of an action group, in the **Basics** tab select the name of the action group, the subscription, and the resource group under which it must be created.
-
-    :::image type="content" source="./media/site-recovery-monitor-and-troubleshoot/azure-monitor-action-groups-basic.png" alt-text="Screenshot displays Configure notifications by creating action group." lightbox="./media/site-recovery-monitor-and-troubleshoot/azure-monitor-action-groups-basic.png":::
-
 6.	Under the **Notifications** tab, select the destination of the notification **Email/ SMS Message/ Push/ Voice** and enter the recipient's email ID and other details as necessary.
 
     :::image type="content" source="./media/site-recovery-monitor-and-troubleshoot/azure-monitor-email.png" alt-text="Screenshot displays the select required notification channel option." lightbox="./media/site-recovery-monitor-and-troubleshoot/azure-monitor-email.png":::
@@ -264,13 +285,7 @@ To configure email notifications for built-in Azure Monitor alerts for Azure Sit
     > The created action group appears in the **Rule settings** page.
 
 8.	In the **Scheduling** tab select **Always**.
-
-    :::image type="content" source="./media/site-recovery-monitor-and-troubleshoot/alert-processing-rule-scheduling.png" alt-text="Screenshot displays Scheduling options for alert processing rule." lightbox="./media/site-recovery-monitor-and-troubleshoot/alert-processing-rule-scheduling.png":::
-
 9.	Under the **Details** tab specify the subscription, resource group and name of the alert processing rule being created.
-
-    :::image type="content" source="./media/site-recovery-monitor-and-troubleshoot/alert-processing-rule-details.png" alt-text="Screenshot displays Save the alert processing rule in any subscription." lightbox="./media/site-recovery-monitor-and-troubleshoot/alert-processing-rule-details.png":::
-
 10.	Add Tags if needed and select **Review+Create** > **Create**. The alert processing rule will be active in a few minutes.
 
 ### Configure notifications to non-email channels
