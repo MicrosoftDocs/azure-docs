@@ -1,6 +1,6 @@
 # QuickStart: Send and receive large messages with Azure Event Hubs (Preview)
 
-In this QuickStart, you learn how to Send and Receive large messages (up to 20 MB) using Azure Event Hubs.  
+In this QuickStart, you learn how to Send and receive large messages (up to 20 MB) using Azure Event Hubs.  
 
 ### Prerequisites
 
@@ -13,21 +13,24 @@ To complete this QuickStart, you need the following prerequisites:
 - Create Self-serve scalable dedicated cluster, Event Hubs namespace and an event hub. The first step is to use the Azure portal to create an Event Hubs namespace and an event hub in the namespace. To create a namespace and an event hub, see [QuickStart: Create an event hub using Azure portal. ](/azure/event-hubs/event-hubs-create)
 
 > [!NOTE]
-> Large Message Support, currently in Public Preview, is exclusively available with Event Hubs’ self-serve dedicated clusters. Streaming large messages with these clusters incurs no extra charges.
+> Large Message Support, currently in Public Preview, is exclusively available with certain Event Hubs self-serve dedicated clusters. Streaming large messages with these clusters incurs no extra charges.
 
 ## Configuring Event Hubs Dedicated Cluster
 
 To stream large messages, you must configure your self-serve scalable dedicated clusters. You could follow below steps below:
 
 -  Create a self-serve dedicated cluster from Azure Portal. Follow for detailed steps:<link to cluster creation doc>. You could skip this step if you already have a self-serve scalable dedicated cluster.
-- After the cluster is successfully created, navigate to the ‘Settings’ section and select the ‘Configuration’ tab.
+- After the cluster is successfully created, navigate to the ‘Settings’ section and select the ‘Quota’ tab under Settings.
 - < add image of Azure Portal UI- wip>
+- Validate that the value for read-only key **supportslargemessages** is set to true. 
 - You could update the key : **eventhubmaxmessagesizeinbytes** to suitable value in bytes. Acceptable range for this value is between 1048576 and 20971520 bytes.
 
 Once the configuration is saved, you're all set to stream Large messages with event hubs.
 
+
 > [!IMPORTANT]
-> Kindly ensure to review any Event Hubs AMQP client or Kafka client configuration that could be limiting maximum message size that you stream into event hubs.You must update Client timeout to higher value to be able to stream large messages. 
+> Large message streaming is only supported with Self-serve scalable dedicated clusters built out of latest infrastructure. This capability is reflected by the “Supportslargemessages” key.
+> If its value is False, the cluster will not support large message streaming. To enable this feature, you may need to recreate the cluster.
 
 ## Streaming Large messages with Azure Event hubs
 
@@ -35,7 +38,8 @@ Being able to stream large messages or events requires no client code changes ap
 
 Reference:
 [Send and Receive Quickstart ](articles/event-hubs/event-hubs-dotnet-standard-getstarted-send.md)
-
+> [!NOTE]
+> Make sure to review any Event Hubs AMQP client or Kafka client configuration that could be limiting maximum message size that you stream into event hubs.You must update Client timeout to higher value to be able to stream large messages. 
 
 For complete .NET library reference, see our [SDK documentation](/dotnet/api/overview/azure/event-hubs). 
 
