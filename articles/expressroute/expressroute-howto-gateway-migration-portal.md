@@ -34,7 +34,7 @@ The following SKUs are available for ExpressRoute virtual network gateways:
 
 Here are the steps to migrate to a new gateway in Azure portal.
 
-1. In the [Azure portal](https://portal.azure.com/), navigate to the ExpressRoute Gateway Resource that you want to migrate to.
+1. In the [Azure portal](https://portal.azure.com/), navigate to the ExpressRoute Gateway resource that you want to migrate to.
 1. the left-hand menu under *Settings*, select **Gateway SKU Migration**.
 
     :::image type="content" source="media/gateway-migration/gateway-sku-migration-location.png" alt-text="Screenshot of Gateway migration location."lightbox="media/gateway-migration/gateway-sku-migration-location.png":::
@@ -58,15 +58,15 @@ Here are the steps to migrate to a new gateway in Azure portal.
 
 1. Select **Prepare** to create the new gateway. This operation could take up to 15 minutes.
 
-1. After the new gateway is created, you'll proceed to the *Migrate* stage. Here, select the new ExpressRoute gateway you created. In this example, it's **myERGateway_migrated**. This transfers the settings from your old gateway to the new one. All network traffic, and control plane and data path connections from your old gateway, will transfer without any interruptions. To start this process, select **Migrate Traffic**. This operation could take up to 5 minutes.
+1. After the new gateway is created, you'll proceed to the *Migrate* stage. Here, select the new gateway you created. In this example, it's **myERGateway_migrated**. This transfers the settings from your old gateway to the new one. All network traffic, control plane, and data path connections from your old gateway will transfer without any interruptions. To start this process, select **Migrate Traffic**. This operation could take up to 5 minutes.
 
     :::image type="content" source="media/gateway-migration/migrate-traffic-step.png" alt-text="Screenshot of migrating traffic for migrating a virtual network gateway."lightbox="media/gateway-migration/migrate-traffic-step.png":::
 
-1. "After the traffic migration is finished, you'll proceed to the *Commit* stage. In this stage, you finalize the migration, which involves deleting the old gateway. To do this, select on 'Commit Migration'. This final step is designed to occur without causing any downtime. 
+1. After the traffic migration is finished, you'll proceed to the *Commit* stage. In this stage, you finalize the migration, which involves deleting the old gateway. To do this, select **Commit Migration**. This final step is designed to occur without causing any downtime. 
 
     :::image type="content" source="media/gateway-migration/commit-step.png" alt-text="Screenshot of the commit step for migrating a virtual network gateway."lightbox="media/gateway-migration/commit-step.png":::
 
 ## Next steps
 
-* Learn more about [Designing for high availability](designing-for-high-availability-with-expressroute.md).
-* Plan for [Disaster recovery](designing-for-disaster-recovery-with-expressroute-privatepeering.md) and [using VPN as a backup](use-s2s-vpn-as-backup-for-expressroute-privatepeering.md).
+* Learn more about [designing for high availability](designing-for-high-availability-with-expressroute.md).
+* Plan for [disaster recovery](designing-for-disaster-recovery-with-expressroute-privatepeering.md) and [using VPN as a backup](use-s2s-vpn-as-backup-for-expressroute-privatepeering.md).
