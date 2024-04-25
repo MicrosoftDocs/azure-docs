@@ -1,7 +1,7 @@
 ---
 title: Radiology Insight inference information
 titleSuffix: Azure AI Health Insights
-description: This article provides RI inference information.
+description: This article provides Radiology Insights inference information.
 services: azure-health-insights
 author: JanSchietse
 manager: JoeriVDV
@@ -76,7 +76,7 @@ Examples request/response json:
 
 **Laterality Discrepancy**
 
-A laterality mismatch is flagged when the orderedProcedure is for a body part with a laterality and the text refers to the opposite laterality or does not contain a laterality.
+A laterality mismatch is flagged when the orderedProcedure is for a body part with a laterality and the text refers to the opposite laterality or doesn't contain a laterality.
 Example: "x-ray right foot", "left foot is normal"
 A laterality mismatch is also flagged when there's a body part with left or right in the finding section, and the same body part occurs with the opposite laterality in the impression section.
 
@@ -99,7 +99,7 @@ The meaning of this field is as follows:
 -	For textLateralityContradiction: concept in the impression section that the laterality was flagged for.
 -	For "textLateralityMissing", this field isn't filled in.
 
-For a mismatch with discrepancy type "textLaterityMissing" no evidence is returned..
+For a mismatch with discrepancy type "textLaterityMissing", no evidence is returned.
 
 
 Examples request/response json:
@@ -146,7 +146,7 @@ Field "ordertype" contains one Coding, with one of the following Loinc codes:
 Fields "missingBodyParts" and/or "missingBodyPartsMeasurements" contain body parts (radlex codes) that are missing or whose measurements are missing. The provided evidence for this inference refers to body parts or measurements that are present (or words that imply them).
 
 Example: 
-A report with "ULTRASOUND, PELVIC (NONOBSTETRIC), REAL TIME WITH IMAGE DOCUMENTATION; COMPLETE" as orderedProcedure needs to mention the bodyparts uterus, left  ovary, right ovary, endometrium and their measurements.        
+A report with "ULTRASOUND, PELVIC (NONOBSTETRIC), REAL TIME WITH IMAGE DOCUMENTATION; COMPLETE" as orderedProcedure needs to mention the body parts uterus, left  ovary, right ovary, endometrium and their measurements.        
 
 
 Examples request/response json:
@@ -175,7 +175,7 @@ Field "ordertype" contains one Coding, with one of the following Loinc codes:
 
 Fields "presentBodyParts" and/or "presentBodyPartsMeasurements" contain body parts (radlex codes) that are present or whose measurements are present. The provided evidence for this inference refers  to body parts or measurements that are present (or words that imply them).
 Example: 
-A report with "US ABDOMEN LIMITED"" as orderedProcedure should not mention all bodyparts corresponding to a complete order.
+A report with "US ABDOMEN LIMITED" as orderedProcedure shouldn't mention all body parts corresponding to a complete order.
 
 
 
@@ -195,12 +195,12 @@ This inference is created for a medical problem (for example "acute infection of
 - finding: FHIR.R4.Observation
         
 Finding: Section
-Next to the provided evidence for this inference, there can be an extension with "url" : "section". This extension has an inner extension with a display name that describes the section, the inner extension will also have a LOINC code.
+Next to the provided evidence for this inference, there can be an extension with "url" : "section". This extension has an inner extension with a display name that describes the section, the inner extension contains a LOINC code.
 
 
 When the findingOptions provideFocusedSentenceEvidence is on true, there can also be an extension with url "ci_sentence". This extension refers to the sentence containing the first word of the clinical indicator (that is, the medical problem), if any. The generation of such a sentence is switchable using the model configuration.
 
-cfr [Model Configuration](model-configuration.md) for additional info.
+Cfr [Model Configuration](model-configuration.md) for more info.
 
 Finding: status and resourceType: 
 - status: is always set to "unknown"
@@ -239,7 +239,7 @@ Much relevant information is in the components. The component’s "code" field c
 
 
 Component description:
-(some of the components are optional)
+(S inference ,ome of the components are optional)
 
 Finding: component "subject of information"
 This component has SNOMED code 131195008: SUBJECT OF INFORMATION (ATTRIBUTE). It also has the "valueCodeableConcept" field filled. The value is a SNOMED code describing the medical problem that the finding pertains to.
@@ -306,14 +306,14 @@ Examples request/response json:
 
 
 **Critical Result**
-This inference is made for a new medical problem that requires attention within a specific time frame, possibly urgently.
+This inference is made for a new medical problem that requires attention within a specific time frame, possibly urgent.
 - kind: RadiologyInsightsInferenceType.criticalResult
 - result: CriticalResult
 
 Field "result.description" gives a description of the medical problem, for example "MALIGNANCY".
 Field "result.finding", if set, contains the same information as the "finding" field in a finding inference.
 
-Next to provided evidence for this inference , there can be an extension for a section. This field contains the most specific section that the first token of the critical result is in (or to be precise, the first token that is in a section). This section is in the same format as a section for a finding. This extension has an inner extension with a display name that describes the section. When a Loinc code is known for this section, the inner extension  will also have a code. 
+Next to provided evidence for this inference, there can be an extension for a section. This field contains the most specific section that the first token of the critical result is in (or to be precise, the first token that is in a section). This section is in the same format as a section for a finding. This extension has an inner extension with a display name that describes the section. When a Loinc code is known for this section, the inner extension  will also have a code. 
 
 
 Examples request/response json:
@@ -339,19 +339,19 @@ This inference is created when the text recommends a specific medical procedure 
 - recommendedProcedure:  ProcedureRecommendation.
 
 Explanation of the different fields:
-- follow up Recommendation: sentences Next to the provided evidence for this inference , there can be an extension containing sentences.
+- follow-up Recommendation: sentences Next to the provided evidence for this inference, there can be an extension containing sentences.
 When the followupRecommendationOptions provideFocusedSentenceEvidence is on true, there can also be an extension with url "modality_sentences". This extension refers to the sentence containing the first word of the modality (that is, the procedure). The generation of such a sentence is switchable using the model configuration.
 
-cfr [Model Configuration](model-configuration.md) for additional info.
+Cfr [Model Configuration](model-configuration.md) for more info.
 
 
 recommendedProcedure: ProcedureRecommendation
-- follow up Recommendation: sentences
+- follow-up Recommendation: sentences
 Next to the token extensions, there can be an extension containing sentences. This behavior is switchable.
-- follow up Recommendation: boolean fields
-"isHedging" mean that the recommendation is uncertain, for example, "a follow-up could be done". "isConditional" is for input like "If the patient continues having pain, an MRI should be performed."
+- follow-up Recommendation: boolean fields
+"isHedging" mean that the recommendation is uncertain, for example, "a follow-up could be done". "isConditional" is for input like "If the patient continues having pain, Magnetic Resonance Imaging should be performed."
 "isOptions": is also for conditional input.
-"isGuideline" means that the recommendation is in a general guideline like the following:
+"isGuideline" means that the recommendation is in a general guideline:
 
 BI-RADS CATEGORIES: 
 - Incomplete: Needs more imaging evaluation 
@@ -362,14 +362,14 @@ BI-RADS CATEGORIES:
 - Highly suggestive of malignancy - Appropriate action should be taken. 
 - Known biopsy-proven malignancy
 
-- follow up Recommendation: effectiveDateTime/effectiveAt  and effectivePeriod.
+- follow-up Recommendation: effectiveDateTime/effectiveAt  and effectivePeriod.
 Field "effectiveDateTime" or "effectiveAt"  will be set when the procedure needs to be done (recommended) at a specific point in time. For example, "next Wednesday". Field "effectivePeriod" will be set if a specific period is mentioned, with a start and end datetime. For example, for "within six months", the start datetime will be the date of service, and the end datetime will be the day six months after that.
-- follow up Recommendation: findings
+- follow-up Recommendation: findings
 If set, field "findings" contains one or more findings that have to do with the recommendation. For example, a leg scan (procedure) can be recommended because of leg pain (finding).
 Every array element of field "findings" is a RecommendationFinding. Field RecommendationFinding.finding has the same information as a FindingInference.finding field.
 For field "RecommendationFinding.RecommendationFindingStatus", see the OpenAPI specification for the possible values.
 Field "RecommendationFinding.criticalFinding" is set if a critical result is associated with the finding. It then contains the same information as described for a critical result inference.
-- follow up Recommendation: recommended procedure
+- follow-up Recommendation: recommended procedure
 Field "recommendedProcedure" is either a GenericProcedureRecommendation, or an ImagingProcedureRecommendation. (Type "procedureRecommendation" is a supertype for these two types.)
 A GenericProcedureRecommendation has the following:
 -	Field "kind" has value "genericProcedureRecommendation"
@@ -396,7 +396,7 @@ Examples request/response json:
 
 
 
-**Follow up Communication**
+**Follow-up Communication**
 
 This inference is created when findings or test results were communicated to a medical professional.
 - kind: RadiologyInsightsInferenceType.FollowupCommunication
@@ -404,7 +404,7 @@ This inference is created when findings or test results were communicated to a m
 - recipient: Array MedicalProfessionalType
 - wasAcknowledged: boolean
         
-Field "wasAcknowledged" is set to true if the communication was verbal (nonverbal communication might not have reached the recipient yet and cannot be considered acknowledged). Field "dateTime/communicatedAt" is set if the date-time of the communication is known. Field "recipient" is set if the recipient(s) are known. See the OpenAPI spec for its possible values.
+Field "wasAcknowledged" is set to true if the communication was verbal (nonverbal communication might not have reached the recipient yet and can't be considered acknowledged). Field "dateTime/communicatedAt" is set if the date-time of the communication is known. Field "recipient" is set if the recipients are known. See the OpenAPI spec for its possible values.
 
 Examples request/response json:
 
@@ -417,15 +417,15 @@ Examples request/response json:
 
 **Radiology Procedure**
 
-This inference is for the ordered radiology procedure(s).
+This inference is for the ordered radiology procedures.
 - kind: RadiologyInsightsInferenceType.RadiologyProcedure
 - procedureCodes: Array FHIR.R4.CodeableConcept
 - imagingProcedures: Array ImagingProcedure
 - orderedProcedure: OrderedProcedure
         
-Field "imagingProcedures" contains one or more instances of an imaging procedure, as documented for the follow up recommendations.
+Field "imagingProcedures" contains one or more instances of an imaging procedure, as documented for the follow-up recommendations.
 Field "procedureCodes", if set, contains LOINC codes.
-Field "orderedProcedure" contains the description(s) and the code(s) of the ordered procedure(s) as given by the client. The descriptions are in field "orderedProcedure.description", separated by ";;". The codes are in "orderedProcedure.code.coding". In every coding in the array, only field "coding" is set.
+Field "orderedProcedure" contains (one or more) the descriptions and the codes of the ordered procedures as given by the client. The descriptions are in field "orderedProcedure.description", separated by ";;". The codes are in "orderedProcedure.code.coding". In every coding in the array, only field "coding" is set.
         
 
 Examples request/response json:
