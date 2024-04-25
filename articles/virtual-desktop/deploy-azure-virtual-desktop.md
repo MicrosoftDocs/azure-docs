@@ -206,6 +206,7 @@ Here's how to create a host pool using the Azure portal.
 
    <details>
        <summary>To add session hosts on <b>Azure Extended Zones</b>, select to expand this section.</summary>
+
       | Parameter | Value/Description |
       |--|--|
       | Add virtual machines | Select **Yes**. This shows several new options. |
