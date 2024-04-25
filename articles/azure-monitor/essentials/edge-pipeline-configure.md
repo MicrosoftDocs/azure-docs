@@ -20,19 +20,9 @@ The pipeline configuration file defines the data flows and cache properties for 
 
 :::image type="content" source="media/edge-pipeline/edge-pipeline-configuration.png" lightbox="media/edge-pipeline/edge-pipeline-configuration.png" alt-text="Overview diagram of the dataflow for Azure Monitor edge pipeline." border="false"::: 
 
+## Supported configurations
 
-The following components are required to enable and configure the Azure Monitor edge pipeline. If you use the Azure portal to configure the edge pipeline, then each of these components is created for you. With other methods, you need to configure each one.
-
-
-| Component | Description |
-|:---|:---|
-| Edge pipeline controller extension | Extension added to your Arc-enabled Kubernetes cluster to support pipeline functionality - `microsoft.monitor.pipelinecontroller`. |
-| Edge pipeline controller instance | Instance of the edge pipeline running on your Arc-enabled Kubernetes cluster with a set of receivers to accept client data and exporters to deliver that data to Azure Monitor. |
-| Pipeline configuration | Configuration file that defines the data flows for the pipeline instance. Each data flow includes a receiver and an exporter. The receiver listens for incoming data, and the exporter sends the data to the destination. |
-| Data collection endpoint (DCE) | Endpoint where the data is sent to the Azure Monitor pipeline. The pipeline configuration includes a property for the URL of the DCE so the pipeline instance knows where to send the data. |
-| Data collection rule (DCR) | Configuration file that defines how the data is received in the cloud pipeline and where it's sent. The DCR can also include a transformation to filter or modify the data before it's sent to the destination. |
-
-## Supported distros
+### Supported distros
 Edge pipeline is supported on the following Kubernetes distributions:
 
 - Canonical
@@ -41,8 +31,8 @@ Edge pipeline is supported on the following Kubernetes distributions:
 - Rancher Kubernetes Engine
 - VMware Tanzu Kubernetes Grid
 
-## Supported locations
-Edge pipeline is supported in the following locations:
+### Supported locations
+Edge pipeline is supported in the following Azure regions:
 
 - East US2
 - West US2
@@ -52,6 +42,9 @@ Edge pipeline is supported in the following locations:
 
 - [Arc-enabled Kubernetes cluster](../../azure-arc/kubernetes/overview.md ) in your own environment with an external IP address. See [Connect an existing Kubernetes cluster to Azure Arc](../../azure-arc/kubernetes/quickstart-connect-cluster.md) for details on enabling Arc for a cluster.
 - Log Analytics workspace in Azure Monitor to receive the data from the edge pipeline. See [Create a Log Analytics workspace in the Azure portal](../../azure-monitor/logs/quick-create-workspace.md) for details on creating a workspace.
+
+> [!NOTE]
+> Private link is support by edge pipeline for the connection to the cloud pipeline.
 
 ## Workflow
 You don't need a detail understanding of the different steps performed by the Azure Monitor pipeline to configure it using the Azure portal. You may need a more detailed understanding of it though if you use another method of installation or if you need to perform more advanced configuration such as transforming the data before it's stored in its destination.
@@ -70,22 +63,27 @@ The following table and diagram describe the detailed steps and components in th
 
 :::image type="content" source="media/edge-pipeline/edge-pipeline-data-flows.png" lightbox="media/edge-pipeline/edge-pipeline-data-flows.png" alt-text="Detailed diagram of the steps and components for data collection using Azure Monitor edge pipeline." border="false"::: 
 
+## Components
+The following components are required to enable and configure the Azure Monitor edge pipeline. If you use the Azure portal to configure the edge pipeline, then each of these components is created for you. With other methods, you need to configure each one.
 
+
+| Component | Description |
+|:---|:---|
+| Edge pipeline controller extension | Extension added to your Arc-enabled Kubernetes cluster to support pipeline functionality - `microsoft.monitor.pipelinecontroller`. |
+| Edge pipeline controller instance | Instance of the edge pipeline running on your Arc-enabled Kubernetes cluster with a set of receivers to accept client data and exporters to deliver that data to Azure Monitor. |
+| Pipeline configuration | Configuration file that defines the data flows for the pipeline instance. Each data flow includes a receiver and an exporter. The receiver listens for incoming data, and the exporter sends the data to the destination. |
+| Data collection endpoint (DCE) | Endpoint where the data is sent to the Azure Monitor pipeline. The pipeline configuration includes a property for the URL of the DCE so the pipeline instance knows where to send the data. |
+| Data collection rule (DCR) | Configuration file that defines how the data is received in the cloud pipeline and where it's sent. The DCR can also include a transformation to filter or modify the data before it's sent to the destination. |
 
 ## Create table in Log Analytics workspace
 
-Before you configure the data collection process for the edge pipeline, you need to create a table in the Log Analytics workspace to receive the data. This must be a custom table since built-in tables aren't currently supported. The schema of the table must match the data that it receives, but there are multiple steps in the collection process where you can modify the incoming data, so you the table schema doesn't need to match the data that you're collecting. The only requirement for the table in the Log Analytics workspace is that it has a `TimeGenerated` column.
+Before you configure the data collection process for the edge pipeline, you need to create a table in the Log Analytics workspace to receive the data. This must be a custom table since built-in tables aren't currently supported. The schema of the table must match the data that it receives, but there are multiple steps in the collection process where you can modify the incoming data, so you the table schema doesn't need to match the source data that you're collecting. The only requirement for the table in the Log Analytics workspace is that it has a `TimeGenerated` column.
 
-See [Add or delete tables and columns in Azure Monitor Logs](../logs/create-custom-table.md) for details on different methods for creating a table. For example, use the CLI command below to create a table with the following three columns:
-
-- TimeGenerated: datetime 
-- Body: string 
-- SeverityText: string 
+See [Add or delete tables and columns in Azure Monitor Logs](../logs/create-custom-table.md) for details on different methods for creating a table. For example, use the CLI command below to create a table with the three columns called `Body`, `TimeGenerated`, and `SeverityText`.
 
 ```azurecli
 az monitor log-analytics workspace table create --workspace-name my-workspace --resource-group my-resource-group  --name my-table_CL --columns TimeGenerated=datetime Body=string SeverityText=string
 ```
-
 
 
 ## Enable cache
@@ -105,9 +103,9 @@ The current options for enabling and configuration are detailed in the tabs belo
 ### [Portal](#tab/Portal)
 
 ### Configure pipeline using Azure Portal
-When you use the Azure portal to enable and configure the pipeline, all required components are created based on your selections.
+When you use the Azure portal to enable and configure the pipeline, all required components are created based on your selections. This saves you from the complexity of creating each component individually, but you made need to use other methods for 
 
-From the **Monitor** menu in the Azure portal, select **Pipelines** and then click **Create Azure Monitor pipeline extension**. The **Basic** tab prompts you for the following information to deploy the extension and pipeline instance on your cluster.
+From the **Monitor** menu in the Azure portal, select **Pipelines** and then click **Create**. The **Basic** tab prompts you for the following information to deploy the extension and pipeline instance on your cluster.
 
 :::image type="content" source="media/edge-pipeline/create-pipeline.png" lightbox="media/edge-pipeline/create-pipeline.png" alt-text="Screenshot of Create Azure Monitor pipeline screen.":::
 
@@ -118,8 +116,7 @@ The settings in this tab are described in the following table.
 | Instance name | Name for the Azure Monitor pipeline instance. Must be unique for the subscription. |
 | Subscription | Azure subscription to create the pipeline instance. |
 | Resource group | Resource group to create the pipeline instance. |
-| Location | Location of the pipeline instance. |
-| Arc K8 Cluster | Select your Arc-enabled Kubernetes cluster. |
+| Cluster name | Select your Arc-enabled Kubernetes cluster that the pipeline will be installed on. |
 | Custom Location | Custom location for your Arc-enabled Kubernetes cluster. |
 
 The **Dataflow** tab allows you to create and edit dataflows for the pipeline instance. Each dataflow includes the following details:
@@ -133,15 +130,14 @@ The settings in this tab are described in the following table.
 | Name | Name for the dataflow. Must be unique for this pipeline. |
 | Source type | The type of data being collected. The following source types are currently supported:<br>- Syslog<br>- OTLP |
 | Port | Port that the pipeline listens on for incoming data. If two dataflows use the same port, they will both receive and process the data. |
-| Destination Type | Destination for the data. Currently, only Log Analytics workspace is supported. |
 | Log Analytics Workspace | Log Analytics workspace to send the data to. |
 | Table Name | The name of the table in the Log Analytics workspace to send the data to.   |
 
 
-### [ARM](#tab/ARM)
+### [CLI](#tab/CLI)
 
-### Configure pipeline using ARM templates
-The following sections provide sample ARM templates to create each of the resources required to enable and configure the Azure Monitor edge pipeline. 
+### Configure pipeline using Azure CLI
+Following are the steps required to create and configure the components required for the Azure Monitor edge pipeline using Azure CLI.  Not all steps can 
 
 
 ### Edge pipeline extension
@@ -207,6 +203,11 @@ The following ARM template creates the custom location for to your Arc-enabled K
     }
 }
 ```
+
+```azurecli
+
+```
+
 
 
 ### DCE
@@ -845,7 +846,24 @@ You can deploy all of the required components for the Azure Monitor edge pipelin
 
 ---
 
+## Verify configuration
 
+### Verify pipeline components running in the cluster
+In the Azure portal, navigate to the **Kubernetes services** menu and select your Arc-enabled Kubernetes cluster. Select **Services and ingresses** and ensure that you see the following services:
+
+- \<pipeline name\>-external-service 
+- \<pipeline name\>-service 
+
+:::image type="content" source="media/edge-pipeline/heartbeat-records.png" lightbox="media/edge-pipeline/heartbeat-records.png" alt-text="Screenshot of log query that returns heartbeat records for Azure Monitor edge pipeline." border="false"::: 
+
+Click on the entry for **\<pipeline name\>-external-service** and note the IP address and port in the **Endpoints** column. This is the external IP address and port that your clients will send data to.
+
+## Verify heartbeat
+Each pipeline configured in your pipeline instance will send a heartbeat record to the `Heartbeat` table in your Log Analytics workspace every minute. If there are multiple workspaces in the pipeline instance, then the first one configured will be used.
+
+Retrieve the heartbeat records using a log query as in the following example:
+
+:::image type="content" source="media/edge-pipeline/heartbeat-records.png" lightbox="media/edge-pipeline/heartbeat-records.png" alt-text="Screenshot of log query that returns heartbeat records for Azure Monitor edge pipeline." border="false"::: 
 
 
 ## Client configuration
@@ -865,6 +883,9 @@ If the application producing logs is external to the cluster, copy the *external
 | Syslog | Update Syslog clients to send data to the pipeline endpoint and the port of your Syslog dataflow. |
 | OTLP | The Azure Monitor edge pipeline exposes a gRPC-based OTLP endpoint on port 4317. Configuring your instrumentation to send to this OTLP endpoint will depend on the instrumentation library itself. See [OTLP endpoint or Collector](https://opentelemetry.io/docs/instrumentation/python/exporters/#otlp-endpoint-or-collector) for OpenTelemetry documentation. The environment variable method is documented at [OTLP Exporter Configuration](https://opentelemetry.io/docs/concepts/sdk-configuration/otlp-exporter-configuration/). |
 
+
+## Verify data
+The final step is to verify that the data is received in the Log Analytics workspace.
 
 ## Next steps
 
