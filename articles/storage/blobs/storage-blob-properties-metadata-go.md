@@ -19,14 +19,15 @@ ms.custom: devx-track-go, devguide-go
 
 In addition to the data they contain, blobs support system properties and user-defined metadata. This article shows how to manage system properties and user-defined metadata using the [Azure Storage client module for Go](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob#section-readme).
 
-## Prerequisites
+[!INCLUDE [storage-dev-guide-prereqs-go](../../../includes/storage-dev-guides/storage-dev-guide-prereqs-go.md)]
 
-- This article assumes you already have a project set up to work with the Azure Blob Storage client module for Go. To learn about setting up your project, including package installation, adding `import` statements, and creating an authorized client object, see [Get started with Azure Blob Storage and Go](storage-blob-go-get-started.md).
-- The [authorization mechanism](../common/authorize-data-access.md) must have permissions to work with blob properties or metadata. To learn more, see the authorization guidance for the following REST API operations:
-    - [Set Blob Properties](/rest/api/storageservices/set-blob-properties#authorization)
-    - [Get Blob Properties](/rest/api/storageservices/get-blob-properties#authorization)
-    - [Set Blob Metadata](/rest/api/storageservices/set-blob-metadata#authorization)
-    - [Get Blob Metadata](/rest/api/storageservices/get-blob-metadata#authorization)
+## Set up your environment
+
+[!INCLUDE [storage-dev-guide-project-setup-go](../../../includes/storage-dev-guides/storage-dev-guide-project-setup-go.md)]
+
+### Authorization
+
+The authorization mechanism must have the necessary permissions to work with container properties or metadata. For authorization with Microsoft Entra ID (recommended), you need Azure RBAC built-in role **Storage Blob Data Reader** or higher for the *get* operations, and **Storage Blob Data Contributor** or higher for the *set* operations. To learn more, see the authorization guidance for [Set Blob Properties](/rest/api/storageservices/set-blob-properties#authorization), [Get Blob Properties](/rest/api/storageservices/get-blob-properties#authorization), [Set Blob Metadata](/rest/api/storageservices/set-blob-metadata#authorization), or [Get Blob Metadata](/rest/api/storageservices/get-blob-metadata#authorization).
 
 ## About properties and metadata
 
@@ -43,19 +44,19 @@ In addition to the data they contain, blobs support system properties and user-d
 
 ## Set and retrieve properties
 
-To set properties on a blob, use the following method:
+To set properties on a blob, call the following method from a blob client object:
 
-- [BlobClient.set_http_headers](/python/api/azure-storage-blob/azure.storage.blob.blobclient#azure-storage-blob-blobclient-set-http-headers)
+- [SetHTTPHeaders](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob/blob#Client.SetHTTPHeaders)
 
 Any properties not explicitly set are cleared. To preserve any existing properties, you can first retrieve the blob properties, then use them to populate the headers that aren't being updated.
 
-The following code example sets the `content_type` and `content_language` system properties on a blob, while preserving the existing properties:
+The following code example sets the `BlobContentType` and `BlobContentLanguage` system properties on a blob, while preserving the existing properties:
 
 :::code language="go" source="~/blob-devguide-go/cmd/blob-properties-metadata/blob_properties_metadata.go id="snippet_set_blob_properties":::
 
-To retrieve properties on a blob, use the following method:
+To retrieve properties on a blob, call  the following method from a blob client object:
 
-- [BlobClient.get_blob_properties](/python/api/azure-storage-blob/azure.storage.blob.blobclient#azure-storage-blob-blobclient-get-blob-properties)
+- [GetProperties](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob/blob#Client.GetProperties)
 
 The following code example gets a blob's system properties and displays some of the values:
 
@@ -63,15 +64,15 @@ The following code example gets a blob's system properties and displays some of 
 
 ## Set and retrieve metadata
 
-You can specify metadata as one or more name-value pairs on a blob or container resource. To set metadata, send a [dictionary](https://docs.python.org/3/library/stdtypes.html#dict) containing name-value pairs using the following method:
+You can specify metadata as one or more name-value pairs on a blob or container resource. To set metadata, send a map containing name-value pairs using the following method from a blob client object:
 
-- [BlobClient.set_blob_metadata](/python/api/azure-storage-blob/azure.storage.blob.blobclient#azure-storage-blob-blobclient-set-blob-metadata)
+- [SetMetadata](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob/blob#Client.SetMetadata)
 
 The following code example sets metadata on a blob:
 
 :::code language="go" source="~/blob-devguide-go/cmd/blob-properties-metadata/blob_properties_metadata.go id="snippet_set_blob_metadata":::
 
-To retrieve metadata, call the [get_blob_properties](/python/api/azure-storage-blob/azure.storage.blob.blobclient#azure-storage-blob-blobclient-get-blob-properties) method on your blob to populate the metadata collection, then read the values, as shown in the example below. The `get_blob_properties` method retrieves blob properties and metadata by calling both the [Get Blob Properties](/rest/api/storageservices/get-blob-properties) operation and the [Get Blob Metadata](/rest/api/storageservices/get-blob-metadata) operation.
+To retrieve metadata, call the [GetProperties](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob/blob#Client.GetProperties) method from a blob client object, and access the `Metadata` field in the response. The `GetProperties` method retrieves blob properties and metadata by calling both the [Get Blob Properties](/rest/api/storageservices/get-blob-properties) operation and the [Get Blob Metadata](/rest/api/storageservices/get-blob-metadata) operation.
 
 The following code example reads metadata on a blob and prints each key/value pair: 
 
@@ -81,6 +82,10 @@ The following code example reads metadata on a blob and prints each key/value pa
 
 To learn more about how to manage system properties and user-defined metadata using the Azure Blob Storage client module for Go, see the following resources.
 
+### Code samples
+
+- View [code samples](https://github.com/Azure-Samples/blob-storage-devguide-go/cmd/blob-properties-metadata/blob_properties_metadata.go) from this article (GitHub)
+
 ### REST API operations
 
 The Azure SDK for Go contains libraries that build on top of the Azure REST API, allowing you to interact with REST API operations through familiar Go paradigms. The client library methods for managing system properties and user-defined metadata use the following REST API operations:
@@ -89,9 +94,5 @@ The Azure SDK for Go contains libraries that build on top of the Azure REST API,
 - [Get Blob Properties](/rest/api/storageservices/get-blob-properties) (REST API)
 - [Set Blob Metadata](/rest/api/storageservices/set-blob-metadata) (REST API)
 - [Get Blob Metadata](/rest/api/storageservices/get-blob-metadata) (REST API)
-
-### Code samples
-
-- View [code samples](https://github.com/Azure-Samples/blob-storage-devguide-go/cmd/blob-properties-metadata/blob_properties_metadata.go) from this article (GitHub)
 
 [!INCLUDE [storage-dev-guide-resources-go](../../../includes/storage-dev-guides/storage-dev-guide-resources-go.md)]

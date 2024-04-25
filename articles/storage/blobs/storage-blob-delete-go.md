@@ -72,7 +72,7 @@ If a storage account is configured to enable blob versioning, deleting a blob ca
 
 - [StartCopyFromURL](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob/blob#Client.StartCopyFromURL)
 
-The following code example gets the latest version of a deleted blob, and restores the latest version by copying it to the base blob:
+The following code example identifies a version of a deleted blob, and restores that version by copying it to the base blob:
 
 :::code language="go" source="~/blob-devguide-go/cmd/delete-blob/delete_blob.go id="snippet_restore_blob_version":::
 

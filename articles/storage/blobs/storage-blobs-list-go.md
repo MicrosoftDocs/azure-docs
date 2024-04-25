@@ -19,24 +19,27 @@ ms.custom: devx-track-go, devguide-go
 
 This article shows how to list blobs using the [Azure Storage client module for Go](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob#section-readme).
 
-## Prerequisites
+[!INCLUDE [storage-dev-guide-prereqs-go](../../../includes/storage-dev-guides/storage-dev-guide-prereqs-go.md)]
 
-- This article assumes you already have a project set up to work with the Azure Blob Storage client module for Go. To learn about setting up your project, including package installation, adding `import` statements, and creating an authorized client object, see [Get started with Azure Blob Storage and Go](storage-blob-go-get-started.md).
-- The [authorization mechanism](../common/authorize-data-access.md) must have permissions to list blobs. To learn more, see the authorization guidance for the following REST API operation:
-    - [List Blobs](/rest/api/storageservices/list-blobs#authorization)
+## Set up your environment
+
+[!INCLUDE [storage-dev-guide-project-setup-go](../../../includes/storage-dev-guides/storage-dev-guide-project-setup-go.md)]
+
+### Authorization
+
+The authorization mechanism must have the necessary permissions to upload a blob. For authorization with Microsoft Entra ID (recommended), you need Azure RBAC built-in role **Storage Blob Data Reader** or higher. To learn more, see the authorization guidance for [List Blobs](/rest/api/storageservices/list-blobs#authorization).
 
 ## About blob listing options
 
 When you list blobs from your code, you can specify many options to manage how results are returned from Azure Storage. You can specify the number of results to return in each set of results, and then retrieve the subsequent sets. You can specify a prefix to return blobs whose names begin with that character or string. And you can list blobs in a flat listing structure, or hierarchically. A hierarchical listing returns blobs as though they were organized into folders.
 
-To list the blobs in a container using a flat listing, call one of these methods:
+To list the blobs in a container using a flat listing, call the following method:
 
-- [ContainerClient.list_blobs](/python/api/azure-storage-blob/azure.storage.blob.containerclient#azure-storage-blob-containerclient-list-blobs) (along with the name, you can optionally include metadata, tags, and other information associated with each blob)
-- [ContainerClient.list_blob_names](/python/api/azure-storage-blob/azure.storage.blob.containerclient#azure-storage-blob-containerclient-list-blobs) (only returns blob name)
+- [NewListBlobsFlatPager](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob#Client.NewListBlobsFlatPager)
 
-To list the blobs in a container using a hierarchical listing, call the following method:
+To list the blobs in a container using a hierarchical listing, call the following method from a container client object:
 
-- [ContainerClient.walk_blobs](/python/api/azure-storage-blob/azure.storage.blob.containerclient#azure-storage-blob-containerclient-walk-blobs) (along with the name, you can optionally include metadata, tags, and other information associated with each blob)
+- [NewListBlobsHierarchyPager](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob/container#Client.NewListBlobsHierarchyPager)
 
 ### Filter results with a prefix
 

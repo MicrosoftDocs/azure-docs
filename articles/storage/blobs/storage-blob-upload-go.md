@@ -19,97 +19,74 @@ ms.custom: devx-track-go, devguide-go
 
 This article shows how to upload a blob using the [Azure Storage client module for Go](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob#section-readme). You can upload data to a block blob from a file path, a stream, a binary object, or a text string. You can also upload blobs with index tags.
 
-## Prerequisites
+[!INCLUDE [storage-dev-guide-prereqs-go](../../../includes/storage-dev-guides/storage-dev-guide-prereqs-go.md)]
 
-- This article assumes you already have a project set up to work with the Azure Blob Storage client module for Go. To learn about setting up your project, including package installation, adding `import` statements, and creating an authorized client object, see [Get started with Azure Blob Storage and Go](storage-blob-go-get-started.md).
-- The [authorization mechanism](../common/authorize-data-access.md) must have permissions to perform an upload operation. To learn more, see the authorization guidance for the following REST API operations:
-    - [Put Blob](/rest/api/storageservices/put-blob#authorization)
-    - [Put Block](/rest/api/storageservices/put-block#authorization)
+## Set up your environment
+
+[!INCLUDE [storage-dev-guide-project-setup-go](../../../includes/storage-dev-guides/storage-dev-guide-project-setup-go.md)]
+
+### Authorization
+
+The authorization mechanism must have the necessary permissions to upload a blob. For authorization with Microsoft Entra ID (recommended), you need Azure RBAC built-in role **Storage Blob Data Contributor** or higher. To learn more, see the authorization guidance for [Put Blob](/rest/api/storageservices/put-blob#authorization) and [Put Block](/rest/api/storageservices/put-block#authorization).
 
 ## Upload data to a block blob
 
-To upload a blob using a stream or a binary object, use the following method:
+To upload a blob, call any of the following methods from the client object:
 
-- [upload_blob](/python/api/azure-storage-blob/azure.storage.blob.blobclient#azure-storage-blob-blobclient-upload-blob)
+- [UploadBuffer](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob#Client.UploadBuffer)
+- [UploadFile](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob#Client.UploadFile)
+- [UploadStream](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob#Client.UploadStream)
 
-This method creates a new blob from a data source with automatic chunking, meaning that the data source may be split into smaller chunks and uploaded. To perform the upload, the client library may use either [Put Blob](/rest/api/storageservices/put-blob) or a series of [Put Block](/rest/api/storageservices/put-block) calls followed by [Put Block List](/rest/api/storageservices/put-block-list). This behavior depends on the overall size of the object and how the [data transfer options](#specify-data-transfer-options-for-upload) are set.
+To perform the upload, the client library may use either [Put Blob](/rest/api/storageservices/put-blob) or a series of [Put Block](/rest/api/storageservices/put-block) calls followed by [Put Block List](/rest/api/storageservices/put-block-list). This behavior depends on the overall size of the object and how the data transfer options are set.
 
 ## Upload a block blob from a local file path
 
 The following example uploads a file to a block blob using a `BlobClient` object:
 
-:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob_devguide_upload.py" id="Snippet_upload_blob_file":::
+:::code language="go" source="~/blob-devguide-go/cmd/upload-blob/upload-blob.go id="snippet_upload_blob_file":::
 
 ## Upload a block blob from a stream
 
 The following example creates random bytes of data and uploads a `BytesIO` object to a block blob using a `BlobClient` object:
 
-:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob_devguide_upload.py" id="Snippet_upload_blob_stream":::
+:::code language="go" source="~/blob-devguide-go/cmd/upload-blob/upload-blob.go id="snippet_upload_blob_stream":::
 
 ## Upload binary data to a block blob
 
 The following example uploads binary data to a block blob using a `BlobClient` object:
 
-:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob_devguide_upload.py" id="Snippet_upload_blob_data":::
+:::code language="go" source="~/blob-devguide-go/cmd/upload-blob/upload-blob.go id="snippet_upload_blob_data":::
 
 ## Upload a block blob with index tags
 
 The following example uploads a block blob with index tags:
 
-:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob_devguide_upload.py" id="Snippet_upload_blob_tags":::
+:::code language="go" source="~/blob-devguide-go/cmd/upload-blob/upload-blob.go id="snippet_upload_blob_tags":::
 
 ## Upload a block blob with configuration options
 
-You can define client library configuration options when uploading a blob. These options can be tuned to improve performance, enhance reliability, and optimize costs. The following code examples show how to define configuration options for an upload both at the method level, and at the client level when instantiating [BlobClient](/python/api/azure-storage-blob/azure.storage.blob.blobclient). These options can also be configured for a [ContainerClient](/python/api/azure-storage-blob/azure.storage.blob.containerclient) instance or a [BlobServiceClient](/python/api/azure-storage-blob/azure.storage.blob.blobserviceclient) instance.
+You can define client library configuration options when uploading a blob. These options can be tuned to improve performance, enhance reliability, and optimize costs. The following code examples show how to define configuration options for an upload operation.
 
 ### Specify data transfer options for upload
 
-You can set configuration options when instantiating a client to optimize performance for data transfer operations. You can pass the following keyword arguments when constructing a client object in Go:
+You can set configuration options when uploading a blob to optimize performance. The following configuration options are available for upload operations:
 
-- `max_block_size` - The maximum chunk size for uploading a block blob in chunks. Defaults to 4 MiB.
-- `max_single_put_size` - If the blob size is less than or equal to `max_single_put_size`, the blob is uploaded with a single `Put Blob` request. If the blob size is larger than `max_single_put_size` or unknown, the blob is uploaded in chunks using `Put Block` and committed using `Put Block List`. Defaults to 64 MiB.
+- `BlockSize`: The size of each block when uploading a block blob. The default value is 1 MiB.
+- `Concurrency`: The maximum number of parallel connections to use during upload. The default value is 1.
 
 For more information on transfer size limits for Blob Storage, see [Scale targets for Blob storage](scalability-targets.md#scale-targets-for-blob-storage).
 
-For upload operations, you can also pass the `max_concurrency` argument when calling [upload_blob](/python/api/azure-storage-blob/azure.storage.blob.blobclient#azure-storage-blob-blobclient-upload-blob). This argument defines the maximum number of parallel connections to use when the blob size exceeds 64 MiB.
+The following code example shows how to specify data transfer options using the [UploadFileOptions](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob/blockblob#UploadFileOptions). The values provided in this sample aren't intended to be a recommendation. To properly tune these values, you need to consider the specific needs of your app.
 
-The following code example shows how to specify data transfer options when creating a `BlobClient` object, and how to upload data using that client object. The values provided in this sample aren't intended to be a recommendation. To properly tune these values, you need to consider the specific needs of your app.
-
-:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob_devguide_upload.py" id="Snippet_upload_blob_transfer_options":::
-
-To learn more about tuning data transfer options, see [Performance tuning for uploads and downloads with Go](storage-blobs-tune-upload-download-python.md).
-
-### Set a blob's access tier on upload
-
-You can set a blob's access tier on upload by passing the `standard_blob_tier` keyword argument to [upload_blob](/python/api/azure-storage-blob/azure.storage.blob.blobclient#azure-storage-blob-blobclient-upload-blob). Azure Storage offers different access tiers so that you can store your blob data in the most cost-effective manner based on how it's being used.
-
-The following code example shows how to set the access tier when uploading a blob:
-
-:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob_devguide_upload.py" id="Snippet_upload_blob_access_tier":::
-
-Setting the access tier is only allowed for block blobs.  You can set the access tier for a block blob to `Hot`, `Cool`, `Cold`, or `Archive`. To set the access tier to `Cold`, you must use a minimum [client library](/python/api/azure-storage-blob) version of 12.15.0.
-
-To learn more about access tiers, see [Access tiers overview](access-tiers-overview.md).
-
-## Upload a block blob by staging blocks and committing
-
-You can have greater control over how to divide uploads into blocks by manually staging individual blocks of data. When all of the blocks that make up a blob are staged, you can commit them to Blob Storage.
-
-Use the following method to create a new block to be committed as part of a blob:
-
-- [stage_block](/python/api/azure-storage-blob/azure.storage.blob.blobclient#azure-storage-blob-blobclient-stage-block)
-
-Use the following method to write a blob by specifying the list of block IDs that make up the blob:
-
-- [commit_block_list](/python/api/azure-storage-blob/azure.storage.blob.blobclient#azure-storage-blob-blobclient-commit-block-list)
-
-The following example reads data from a file and stages blocks to be committed as part of a blob:
-
-:::code language="go" source="~/blob-devguide-go/cmd/upload-blob/upload_blob.go id="snippet_upload_blob_blocks":::
+:::code language="go" source="~/blob-devguide-go/cmd/upload-blob/upload-blob.go id="snippet_upload_blob_transfer_options":::
 
 ## Resources
 
 To learn more about uploading blobs using the Azure Blob Storage client module for Go, see the following resources.
+
+### Code samples
+
+- View [code samples](https://github.com/Azure-Samples/blob-storage-devguide-go/cmd/upload-blob/upload_blob.go) from this article (GitHub)
 
 ### REST API operations
 
@@ -117,10 +94,6 @@ The Azure SDK for Go contains libraries that build on top of the Azure REST API,
 
 - [Put Blob](/rest/api/storageservices/put-blob) (REST API)
 - [Put Block](/rest/api/storageservices/put-block) (REST API)
-
-### Code samples
-
-- View [code samples](https://github.com/Azure-Samples/blob-storage-devguide-go/cmd/upload-blob/upload_blob.go) from this article (GitHub)
 
 [!INCLUDE [storage-dev-guide-resources-go](../../../includes/storage-dev-guides/storage-dev-guide-resources-go.md)]
 
