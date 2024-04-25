@@ -541,6 +541,8 @@ basic_auth:
 This is because the secret **ama-metrics-mtls-secret** is mounted in the path **/etc/prometheus/certs/** within the container.
 >
 > The base64 encoded value is automatically decoded by the agent pods when the secret is mounted as file.
+>
+> Any other configuration setting that is considered as a secret in the [prometheus configuration](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#scrape_config) needs to use the file setting alternative instead as described above.
 
 ## Next steps
 
