@@ -12,8 +12,8 @@ ms.date: 04/18/2024
 
 > [!IMPORTANT]
 > The following features are currently in preview:
-> - Azure Virtual Desktop for Azure Stack HCI.
-> - Azure Virtual Desktop deployed in Azure Extended Zones.
+> - Azure Virtual Desktop for Azure Stack HCI for Azure Government and Azure China.
+> - Azure Extended Zones for Azure Virtual Desktop.
 >
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
