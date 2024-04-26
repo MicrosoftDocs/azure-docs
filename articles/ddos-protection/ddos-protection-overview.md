@@ -5,7 +5,7 @@ services: ddos-protection
 author: AbdullahBell
 ms.service: ddos-protection
 ms.topic: overview
-ms.date: 11/08/2023
+ms.date: 04/26/2024
 ms.author: abell
 ms.custom: references_regions
 ---
