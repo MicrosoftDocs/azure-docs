@@ -26,7 +26,7 @@ These shortcuts are used with the toolbar present in the Data Explorer.
 | **Discard edit Query/Item/Stored Procedure/Trigger/UDF** | <kbd>Esc</kbd> | <kbd>Esc</kbd> |
 | **Download Query to Disk** | <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>S</kbd> | <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>S</kbd> |
 | **Enable/Disable Copilot** | <kbd>Ctrl</kbd>+<kbd>P</kbd> | <kbd>Ctrl</kbd>+<kbd>P</kbd> |
-| **Execute Query/Stored Procedure** | <kbd>Shift</kbd>+<kbd>Enter</kbd> `or` <kbd>F5</kbd> | <kbd>Shift</kbd>+<kbd>Return</kbd> `or` <kbd>F5</kbd> |
+| **Execute Query/Stored Procedure** | <kbd>Shift</kbd>+<kbd>Enter</kbd> or <kbd>F5</kbd> | <kbd>Shift</kbd>+<kbd>Return</kbd> or <kbd>F5</kbd> |
 | **New Container** | <kbd>Alt</kbd>+<kbd>N</kbd>&nbsp;<kbd>C</kbd> | <kbd>Opt</kbd>+<kbd>N</kbd>&nbsp;<kbd>C</kbd> |
 | **New Database** | <kbd>Alt</kbd>+<kbd>N</kbd>&nbsp;<kbd>D</kbd> | <kbd>Opt</kbd>+<kbd>N</kbd>&nbsp;<kbd>D</kbd> |
 | **New Item** | <kbd>Alt</kbd>+<kbd>N</kbd>&nbsp;<kbd>I</kbd> | <kbd>Opt</kbd>+<kbd>N</kbd>&nbsp;<kbd>I</kbd> |
@@ -36,10 +36,10 @@ These shortcuts are used with the toolbar present in the Data Explorer.
 | **New User Defined Function (UDF)** | <kbd>Alt</kbd>+<kbd>N</kbd>&nbsp;<kbd>F</kbd> | <kbd>Opt</kbd>+<kbd>N</kbd>&nbsp;<kbd>F</kbd> |
 | **Open Query** | <kbd>Ctrl</kbd>+<kbd>O</kbd> | <kbd>Ctrl</kbd>+<kbd>O</kbd> |
 | **Open Query from Disk in Query editor** | <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>O</kbd> | <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>O</kbd> |
-| **Run query** | <kbd>Shift</kbd>+<kbd>Enter</kbd> `or` <kbd>F5</kbd> | <kbd>Shift</kbd>+<kbd>Return</kbd> `or` <kbd>F5</kbd> |
+| **Run query** | <kbd>Shift</kbd>+<kbd>Enter</kbd> or <kbd>F5</kbd> | <kbd>Shift</kbd>+<kbd>Return</kbd> or <kbd>F5</kbd> |
 | **Save Query** | <kbd>Ctrl</kbd>+<kbd>S</kbd> | <kbd>Ctrl</kbd>+<kbd>S</kbd> |
-| **Switch to Tab on the left** | <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>[</kbd> `or` <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>F6</kbd> | <kbd>Ctrl</kbd>+<kbd>Opt</kbd>+<kbd>[</kbd> `or` <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>F6</kbd> |
-| **Switch to Tab on the right** | <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>]</kbd> `or` <kbd>Ctrl</kbd>+<kbd>F6</kbd> | <kbd>Ctrl</kbd>+<kbd>Opt</kbd>+<kbd>]</kbd> `or` <kbd>Ctrl</kbd>+<kbd>F6</kbd> |
+| **Switch to Tab on the left** | <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>F6</kbd> or <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>[</kbd>| <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>F6</kbd> or <kbd>Ctrl</kbd>+<kbd>Opt</kbd>+<kbd>[</kbd> |
+| **Switch to Tab on the right** | <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>]</kbd> or <kbd>Ctrl</kbd>+<kbd>F6</kbd> | <kbd>Ctrl</kbd>+<kbd>Opt</kbd>+<kbd>]</kbd> or <kbd>Ctrl</kbd>+<kbd>F6</kbd> |
 | **Update Item/SPROC/UDF/Trigger** | <kbd>Ctrl</kbd>+<kbd>S</kbd> | <kbd>Ctrl</kbd>+<kbd>S</kbd> |
 
 ## Keyboard shortcuts for filters and items
