@@ -15,7 +15,7 @@ This article provides detailed metrics and logs that you can use to monitor perf
 > 
 > - Logs collected using [Azure Monitor Agent (AMA)](../agents/agents-overview.md)
 > - Logs ingested using [Log Ingestion API](../logs/logs-ingestion-api-overview.md)
-> - Logs collected by other methods that use a [workspace transformation DCR](./data-collection-transformations.md#workspace-transformation-dcr)
+> - Logs collected by other methods that use a [workspace transformation DCR](./data-collection-transformations-workspace.md)
 >
 > See the documentation for other scenarios for any monitoring and troubleshooting information that may be available.
 

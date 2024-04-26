@@ -27,7 +27,7 @@ landingContent:
           - text: Azure Monitor integration
             url: concept-azure-monitor-integration.md
           - text: Release notes
-            url: overview.md
+            url: ./release-notes/hdinsight-aks-release-notes.md
   - title: Get started
     linkLists:
       - linkListType: quickstart

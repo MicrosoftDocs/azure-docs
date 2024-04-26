@@ -44,6 +44,11 @@
             "source_path_from_root": "/articles/operator-5g-core/quickstart-deploy-network-functions.md",
             "redirect_url": "/azure/operator-5g-core/how-to-deploy-network-functions",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/operator-5g-core/quickstart-perform-checks-post-deployment.md",
+            "redirect_url": "/azure/operator-5g-core/quickstart-configure-extension-for-status-monitoring",
+            "redirect_document_id": false
         }
    ]
 }

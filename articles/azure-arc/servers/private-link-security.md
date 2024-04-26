@@ -1,5 +1,5 @@
 ---
-title: Use Azure Private Link to securely connect servers to Azure Arc
+title: Use Azure Private Link to connect servers to Azure Arc using a private endpoint
 description: Learn how to use Azure Private Link to securely connect networks to Azure Arc.
 ms.topic: conceptual
 ms.custom:
@@ -282,10 +282,7 @@ For Azure Arc-enabled servers that were set up prior to your private link scope,
 
 1. Select the servers in the list that you want to associate with the Private Link Scope, and then select **Select** to save your changes.
 
-    > [!NOTE]
-    > Only Azure Arc-enabled servers in the same subscription and region as your Private Link Scope is shown.
-
-    :::image type="content" source="./media/private-link-security/select-servers-private-link-scope.png" lightbox="./media/private-link-security/select-servers-private-link-scope.png" alt-text="Selecting Azure Arc resources" border="true":::
+  :::image type="content" source="./media/private-link-security/select-servers-private-link-scope.png" lightbox="./media/private-link-security/select-servers-private-link-scope.png" alt-text="Selecting Azure Arc resources" border="true":::
 
 It might take up to 15 minutes for the Private Link Scope to accept connections from the recently associated server(s).
 

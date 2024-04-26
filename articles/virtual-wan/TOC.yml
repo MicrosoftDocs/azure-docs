@@ -72,7 +72,7 @@
       href: about-virtual-hub-routing.md
     - name: About Route-maps
       href: route-maps-about.md
-    - name: Routing scenarios
+    - name: Scenarios
       items:
       - name: Virtual hub routing preference
         href: about-virtual-hub-routing-preference.md

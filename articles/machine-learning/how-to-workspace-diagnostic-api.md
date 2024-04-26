@@ -1,5 +1,5 @@
 ---
-title: Workspace diagnostics
+title: How to use workspace diagnostics
 titleSuffix: Azure Machine Learning
 description: Learn how to use Azure Machine Learning workspace diagnostics in the Azure portal or with the Python SDK.
 services: machine-learning
@@ -8,7 +8,7 @@ ms.subservice: enterprise-readiness
 ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
-ms.date: 02/27/2024
+ms.date: 03/27/2024
 ms.topic: how-to
 ms.custom: sdkv2, devx-track-python
 monikerRange: 'azureml-api-2 || azureml-api-1'
@@ -39,15 +39,15 @@ You can use the workspace diagnostics from the Azure Machine Learning studio or 
 
 ## Diagnostics from studio
 
-From [Azure Machine Learning studio](https://ml.azure.com) or the Python SDK, you can run diagnostics on your workspace to check your setup. To run diagnostics, select the '__?__' icon from the upper right corner of the page. Then select __Run workspace diagnostics__.
+From the [Azure Machine Learning studio](https://ml.azure.com), you can run diagnostics on your workspace to check your setup. To run diagnostics, select the '__?__' icon in the upper right corner of the page. Then select __Run workspace diagnostics__.
 
-:::image type="content" source="./media/how-to-workspace-diagnostic-api/diagnostics.png" alt-text="Screenshot of the workspace diagnostics button":::
+:::image type="content" source="./media/how-to-workspace-diagnostic-api/diagnostics.png" alt-text="Screenshot of the workspace diagnostics button.":::
 
 After diagnostics run, a list of any detected problems is returned. This list includes links to possible solutions.
 
 ## Diagnostics from Python
 
-The following snippet demonstrates how to use workspace diagnostics from Python
+The following snippet demonstrates how to use workspace diagnostics from Python.
 
 :::moniker range="azureml-api-2"
 [!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
@@ -117,9 +117,10 @@ If no problems are detected, an empty JSON document is returned.
 For more information, see the [Workspace](/python/api/azure-ai-ml/azure.ai.ml.entities.workspace) reference.
 :::moniker-end
 :::moniker range="azureml-api-1"
-For more information, see the [Workspace.diagnose_workspace()](/python/api/azureml-core/azureml.core.workspace(class)#diagnose-workspace-diagnose-parameters-) reference.
+For more information, see the [Workspace.diagnose_workspace()](/python/api/azureml-core/azureml.core.workspace(class)#azureml-core-workspace-diagnose-workspace) reference.
 :::moniker-end
 
-## Next steps
+## Next step
 
-* [How to manage workspaces in portal or SDK](how-to-manage-workspace.md)
+> [!div class="nextstepaction"]
+> [Manage Azure Machine Learning workspaces in the portal or with the Python SDK (v2)](how-to-manage-workspace.md)

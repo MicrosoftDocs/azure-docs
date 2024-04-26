@@ -11,7 +11,7 @@ ms.custom:
   - devx-track-azurecli
   - ignite-2023
 ms.topic: how-to
-ms.date: 02/21/2024
+ms.date: 04/05/2024
 ---
 
 # Manage your Azure AI Search service with the Azure CLI
@@ -21,10 +21,12 @@ ms.date: 02/21/2024
 > * [Azure CLI](search-manage-azure-cli.md)
 > * [REST API](search-manage-rest.md)
 
-You can run Azure CLI commands and scripts on Windows, macOS, Linux, or in [Azure Cloud Shell](../cloud-shell/overview.md) to create and configure Azure AI Search. The [**az search**](/cli/azure/search) module extends the [Azure CLI](/cli/) with full parity to the [Search Management REST APIs](/rest/api/searchmanagement) and the ability to perform the following tasks:
+You can run Azure CLI commands and scripts on Windows, macOS, Linux, or in Azure Cloud Shell to create and configure Azure AI Search.
+
+Use the [**az search module**](/cli/azure/search) to perform the following tasks:
 
 > [!div class="checklist"]
-> * [List search services in a subscription](#list-search-services)
+> * [List search services in a subscription](#list-services-in-a-subscription)
 > * [Return service information](#get-search-service-information)
 > * [Create or delete a service](#create-or-delete-a-service)
 > * [Create a service with a private endpoint](#create-a-service-with-a-private-endpoint)
@@ -45,7 +47,7 @@ Preview administration features are typically not available in the **az search**
 
 Azure CLI versions are [listed on GitHub](https://github.com/Azure/azure-cli/releases).
 
-<a name="list-search-services"></a>
+The [**az search**](/cli/azure/search) module extends the [Azure CLI](/cli/) with full parity to the stable versions of the [Search Management REST APIs](/rest/api/searchmanagement).
 
 ## List services in a subscription
 

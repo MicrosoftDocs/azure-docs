@@ -7,7 +7,7 @@ ms.custom: references_regions
 ms.service: application-gateway
 ms.subservice: appgw-for-containers
 ms.topic: overview
-ms.date: 03/07/2024
+ms.date: 03/26/2024
 ms.author: greglin
 ---
 
@@ -58,6 +58,7 @@ Application Gateway for Containers supports the following features for traffic m
 - Availability zone resiliency
 - Default and custom health probes
 - Header rewrite
+- HTTP/2
 - HTTPS traffic management:
   - SSL termination
   - End to End SSL
@@ -79,7 +80,7 @@ Application Gateway for Containers supports the following features for traffic m
 
 There are two deployment strategies for management of Application Gateway for Containers:
 
-- **Bring your own (BYO) deployment:** In this deployment strategy, deployment and lifecycle of the Application Gateway for Containers resource, Association and Frontend resource is assumed via Azure portal, CLI, PowerShell, Terraform, etc. and referenced in configuration within Kubernetes.
+- **Bring your own (BYO) deployment:** In this deployment strategy, deployment and lifecycle of the Application Gateway for Containers resource, Association, and Frontend resource is assumed via Azure portal, CLI, PowerShell, Terraform, etc. and referenced in configuration within Kubernetes.
   - **In Gateway API:** Every time you wish to create a new Gateway resource in Kubernetes, a Frontend resource should be provisioned in Azure prior and referenced by the Gateway resource. Deletion of the Frontend resource is responsible by the Azure administrator and isn't deleted when the Gateway resource in Kubernetes is deleted.
 - **Managed by ALB Controller:** In this deployment strategy ALB Controller deployed in Kubernetes is responsible for the lifecycle of the Application Gateway for Containers resource and its sub resources. ALB Controller creates Application Gateway for Containers resource when an ApplicationLoadBalancer custom resource is defined on the cluster and its lifecycle is based on the lifecycle of the custom resource.
   - **In Gateway API:** Every time a Gateway resource is created referencing the ApplicationLoadBalancer resource, ALB Controller provisions a new Frontend resource and manage its lifecycle based on the lifecycle of the Gateway resource.
@@ -111,7 +112,7 @@ Application Gateway for Containers is currently offered in the following regions
 
 ### Implementation of Gateway API
 
-ALB Controller implements version [v1](https://gateway-api.sigs.k8s.io/reference/spec/#gateway.networking.k8s.io%2fv1) of the [Gateway API](https://gateway-api.sigs.k8s.io/)
+ALB Controller implements version [v1](https://gateway-api.sigs.k8s.io/reference/spec/#gateway.networking.k8s.io%2fv1) of the [Gateway API](https://gateway-api.sigs.k8s.io/).
 
 | Gateway API Resource      | Support | Comments     |
 | ------------------------- | ------- | ------------ |
@@ -122,7 +123,7 @@ ALB Controller implements version [v1](https://gateway-api.sigs.k8s.io/reference
 
 ### Implementation of Ingress API
 
-ALB Controller implements support for [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/)
+ALB Controller implements support for [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/).
 
 | Ingress API Resource      | Support | Comments     |
 | ------------------------- | ------- | ------------ |

@@ -27,6 +27,8 @@ A return value attribute isn't required. To learn more, see [Usage](#usage).
 
 # [In-process model](#tab/in-process)
 
+[!INCLUDE [functions-in-process-model-retirement-note](../../includes/functions-in-process-model-retirement-note.md)]
+
 A return value attribute isn't required. To learn more, see [Usage](#usage).
 
 ---

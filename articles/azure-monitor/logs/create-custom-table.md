@@ -151,11 +151,10 @@ Use the [Tables - Update PATCH API](/rest/api/loganalytics/tables/update) to cre
 
 ## Delete a table
 
-There are several types of tables in Log Analytics and the delete experience is different for each:
-- [Azure table](../logs/manage-logs-tables.md#table-type-and-schema) -- Can't be deleted. Tables that are part of a solution are removed from workspace when [deleting the solution](/cli/azure/monitor/log-analytics/solution#az-monitor-log-analytics-solution-delete), but data remains in workspace for the duration of the retention policy defined for the tables, or if not exist, for the duration of the retention policy defined in workspace. If the [solution is re-created](/cli/azure/monitor/log-analytics/solution#az-monitor-log-analytics-solution-create) in the workspace, these tables and previously ingested data become visible again. To avoid charges, define [retention policy for tables in solutions](/rest/api/loganalytics/tables/update) to minimum (4-days) before deleting the solution.
- - [Restored table](./restore.md) (table_RST) -- Deletes the hot cache provisioned for the restore, but source table data isn't deleted.
- - [Search results table](./search-jobs.md) (table_SRCH) -- Deletes the table and data immediately and permanently.
- - [Custom log table](./create-custom-table.md#create-a-custom-table) (table_CL) -- Deletes the table definition immediately, but data remains in workspace for the duration of the retention policy defined for the table, or workspace. The retention policy for table is removed in 14-days and workspace retention governs. If custom log table is created with the same name and schema, the table and previously ingested data become visible again. To avoid charges and remove data from table, define [retention policy for table](/rest/api/loganalytics/tables/update) to minimum (4-days) before deleting the table.
+There are several types of tables in Azure Monitor Logs. You can delete any table that's not an Azure table, but what happens to the data when you delete the table is different for each type of table. 
+
+For more information, see [What happens to data when you delete a table in a Log Analytics workspace](../logs/data-retention-archive.md#what-happens-to-data-when-you-delete-a-table-in-a-log-analytics-workspace).
+
 
 # [Portal](#tab/azure-portal-2)
 

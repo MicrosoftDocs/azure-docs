@@ -2042,8 +2042,13 @@
     },
     {
       "source_path_from_root": "/articles/cognitive-services/speech-service/migrate-v2-to-v3.md",
-      "redirect_url": "/azure/ai-services/speech-service/migrate-v2-to-v3",
+      "redirect_url": "/azure/ai-services/speech-service/migrate-v3-1-to-v3-2",
       "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/ai-services/speech-service/migrate-v2-to-v3.md",
+      "redirect_url": "/azure/ai-services/speech-service/migrate-v3-1-to-v3-2",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/cognitive-services/speech-service/migrate-v3-0-to-v3-1.md",
@@ -2341,7 +2346,7 @@
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/cognitive-services/translator/create-translator-resource.md",
+      "source_path_from_root": "/articles/cognitive-services/translator/create-translator-resource.yml",
       "redirect_url": "/azure/ai-services/translator/create-translator-resource",
       "redirect_document_id": true
     },
@@ -3296,7 +3301,7 @@
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/cognitive-services/openai/how-to/switching-endpoints.md",
+      "source_path_from_root": "/articles/cognitive-services/openai/how-to/switching-endpoints.yml",
       "redirect_url": "/azure/ai-services/openai/how-to/switching-endpoints",
       "redirect_document_id": true
     },
@@ -4498,11 +4503,6 @@
     {
       "source_path_from_root": "/articles/cognitive-services/Translator/custom-translator/how-to/enable-vnet-service-endpoint.md",
       "redirect_url": "/azure/ai-services/translator/custom-translator/how-to/enable-vnet-service-endpoint",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/ai-services/openai/how-to/prepare-dataset.md",
-      "redirect_url": "/azure/ai-services/openai/how-to/fine-tuning",
       "redirect_document_id": false
     }
   ]

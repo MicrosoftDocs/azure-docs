@@ -19,7 +19,7 @@ In this article, you install the Azure Developer CLI (AZD), create a new deploym
 
 Azure Developer CLI (AZD) is an open-source tool that accelerates the time it takes for you to get your application from local development environment to Azure. AZD provides best practice, developer-friendly commands that map to key stages in your workflow, whether you’re working in the terminal, your editor or integrated development environment (IDE), or CI/CD (continuous integration/continuous deployment).
 
-<!-- To learn how to set up AZD to work with Azure Deployment Environments, see [Use Azure Developer CLI with Azure Deployment Environments](/azure/deployment-environments/concept-azure-developer-cli-with-deployment-environments). -->
+To learn how to set up AZD to work with Azure Deployment Environments, see [Use Azure Developer CLI with Azure Deployment Environments](/azure/deployment-environments/concept-azure-developer-cli-with-deployment-environments).
 
 ## Prerequisites
 
@@ -141,7 +141,7 @@ AZD uses an *azure.yaml* file to define the environment. The azure.yaml file def
 
 # [Visual Studio Code](#tab/visual-studio-code)
 
-1. In Visual Studio Code, and then open the folder that contains your application code.
+1. In Visual Studio Code, open the folder that contains your application code.
 
 1. Open the command palette, and enter *Azure Developer CLI init*, then from the list, select **Azure Developer CLI (azd): init**.
  
@@ -374,7 +374,7 @@ When your environment is provisioned, you can deploy your code to the environmen
 Deploy your application code to the remote Azure Deployment Environments environment you provisioned using the following command:
 
 ```bash
-azd env deploy
+azd deploy
 ```
 Deploying your code to the remote environment can take several minutes. 
 
@@ -399,7 +399,7 @@ For this sample application, you see something like this:
 Deploy your application code to the remote Azure Deployment Environments environment you provisioned using the following command:
 
 ```bash
-azd env deploy
+azd deploy
 ```
 Deploying your code to the remote environment can take several minutes. 
 

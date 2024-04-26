@@ -128,7 +128,7 @@ Typically applications use the Windows provided TLS stack called [Schannel](/win
 
 ## Use certificates with Azure IoT SDKs
 
-[Azure IoT SDKs](../iot-develop/about-iot-sdks.md) connect to an IoT Edge device using simple sample applications. The samples' goal is to connect the device client and send telemetry messages to the gateway, then close the connection and exit.
+[Azure IoT SDKs](../iot/iot-sdks.md) connect to an IoT Edge device using simple sample applications. The samples' goal is to connect the device client and send telemetry messages to the gateway, then close the connection and exit.
 
 Before using the application-level samples, obtain the following items:
 

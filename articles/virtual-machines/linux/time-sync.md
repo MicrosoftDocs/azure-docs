@@ -13,7 +13,7 @@ ms.author: jushiman
 # Time sync for Linux VMs in Azure
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets 
 
@@ -167,7 +167,7 @@ $ sudo systemctl disable systemd-timesyncd
 ````
 In most cases, systemd-timesyncd will try during boot but once chrony starts up it will overwrite and become the default time sync source.
 
-For more information about Ubuntu and NTP, see [Time Synchronization](https://ubuntu.com/server/docs/network-ntp).
+For more information about Ubuntu and NTP, see [Time Synchronization](https://ubuntu.com/server/docs/about-time-synchronisation).
 
 For more information about Red Hat and NTP, see [Configure NTP](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/system_administrators_guide/ch-configuring_ntp_using_ntpd#s1-Configure_NTP). 
 

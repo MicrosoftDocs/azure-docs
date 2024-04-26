@@ -6,7 +6,7 @@ ms.topic: article
 ms.date: 06/29/2023
 ms.author: msangapu
 author: msangapu-msft
-ms.custom: devx-track-csharp, ai-video-demo
+ms.custom: devx-track-csharp, ai-video-demo, linux-related-content
 ai-usage: ai-assisted
 ---
 

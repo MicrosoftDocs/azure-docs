@@ -41,8 +41,8 @@ before you begin.
 
 Azure CLI (through an extension) and Azure PowerShell (through a module) support Azure Resource
 Graph. Before running any of the following queries, check that your environment is ready. See
-[Azure CLI](../first-query-azurecli.md#add-the-resource-graph-extension) and [Azure
-PowerShell](../first-query-powershell.md#add-the-resource-graph-module) for steps to install and
+[Azure CLI](../first-query-azurecli.md#install-the-extension) and [Azure
+PowerShell](../first-query-powershell.md#install-the-module) for steps to install and
 validate your shell environment of choice.
 
 ## Count Azure resources
@@ -115,7 +115,7 @@ Search-AzGraph -Query "Resources | summarize count()" -UseTenantScope
 
 # [Portal](#tab/azure-portal)
 
-:::image type="icon" source="../media/resource-graph-small.png"::: Try this query in Azure Resource Graph Explorer:
+
 
 - Azure portal: <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%0D%0A%7C%20summarize%20count%28%29" target="_blank">portal.azure.com</a>
 - Azure Government portal: <a href="https://portal.azure.us/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%0D%0A%7C%20summarize%20count%28%29" target="_blank">portal.azure.us</a>
@@ -148,7 +148,7 @@ Search-AzGraph -Query "Resources | where type =~ 'microsoft.keyvault/vaults' | c
 
 # [Portal](#tab/azure-portal)
 
-:::image type="icon" source="../media/resource-graph-small.png"::: Try this query in Azure Resource Graph Explorer:
+
 
 - Azure portal: <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%0D%0A%7C%20where%20type%20%3D~%20%27microsoft.keyvault%2Fvaults%27%0D%0A%7C%20count" target="_blank">portal.azure.com</a>
 - Azure Government portal: <a href="https://portal.azure.us/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%0D%0A%7C%20where%20type%20%3D~%20%27microsoft.keyvault%2Fvaults%27%0D%0A%7C%20count" target="_blank">portal.azure.us</a>
@@ -182,7 +182,7 @@ Search-AzGraph -Query "Resources | project name, type, location | order by name 
 
 # [Portal](#tab/azure-portal)
 
-:::image type="icon" source="../media/resource-graph-small.png"::: Try this query in Azure Resource Graph Explorer:
+
 
 - Azure portal: <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%0D%0A%7C%20project%20name%2C%20type%2C%20location%0D%0A%7C%20order%20by%20name%20asc" target="_blank">portal.azure.com</a>
 - Azure Government portal: <a href="https://portal.azure.us/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%0D%0A%7C%20project%20name%2C%20type%2C%20location%0D%0A%7C%20order%20by%20name%20asc" target="_blank">portal.azure.us</a>
@@ -217,7 +217,7 @@ Search-AzGraph -Query "Resources | project name, location, type| where type =~ '
 
 # [Portal](#tab/azure-portal)
 
-:::image type="icon" source="../media/resource-graph-small.png"::: Try this query in Azure Resource Graph Explorer:
+
 
 - Azure portal: <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%0D%0A%7C%20project%20name%2C%20location%2C%20type%0D%0A%7C%20where%20type%20%3D~%20%27Microsoft.Compute%2FvirtualMachines%27%0D%0A%7C%20order%20by%20name%20desc" target="_blank">portal.azure.com</a>
 - Azure Government portal: <a href="https://portal.azure.us/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%0D%0A%7C%20project%20name%2C%20location%2C%20type%0D%0A%7C%20where%20type%20%3D~%20%27Microsoft.Compute%2FvirtualMachines%27%0D%0A%7C%20order%20by%20name%20desc" target="_blank">portal.azure.us</a>
@@ -252,7 +252,7 @@ Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Compute/virtualMachi
 
 # [Portal](#tab/azure-portal)
 
-:::image type="icon" source="../media/resource-graph-small.png"::: Try this query in Azure Resource Graph Explorer:
+
 
 - Azure portal: <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%0D%0A%7C%20where%20type%20%3D~%20%27Microsoft.Compute%2FvirtualMachines%27%0D%0A%7C%20project%20name%2C%20properties.storageProfile.osDisk.osType%0D%0A%7C%20top%205%20by%20name%20desc" target="_blank">portal.azure.com</a>
 - Azure Government portal: <a href="https://portal.azure.us/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%0D%0A%7C%20where%20type%20%3D~%20%27Microsoft.Compute%2FvirtualMachines%27%0D%0A%7C%20project%20name%2C%20properties.storageProfile.osDisk.osType%0D%0A%7C%20top%205%20by%20name%20desc" target="_blank">portal.azure.us</a>
@@ -289,7 +289,7 @@ Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Compute/virtualMachi
 
 # [Portal](#tab/azure-portal)
 
-:::image type="icon" source="../media/resource-graph-small.png"::: Try this query in Azure Resource Graph Explorer:
+
 
 - Azure portal: <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%0D%0A%7C%20where%20type%20%3D~%20%27Microsoft.Compute%2FvirtualMachines%27%0D%0A%7C%20summarize%20count%28%29%20by%20tostring%28properties.storageProfile.osDisk.osType%29" target="_blank">portal.azure.com</a>
 - Azure Government portal: <a href="https://portal.azure.us/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%0D%0A%7C%20where%20type%20%3D~%20%27Microsoft.Compute%2FvirtualMachines%27%0D%0A%7C%20summarize%20count%28%29%20by%20tostring%28properties.storageProfile.osDisk.osType%29" target="_blank">portal.azure.us</a>
@@ -322,7 +322,7 @@ Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Compute/virtualMachi
 
 # [Portal](#tab/azure-portal)
 
-:::image type="icon" source="../media/resource-graph-small.png"::: Try this query in Azure Resource Graph Explorer:
+
 
 - Azure portal: <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%0D%0A%7C%20where%20type%20%3D~%20%27Microsoft.Compute%2FvirtualMachines%27%0D%0A%7C%20extend%20os%20%3D%20properties.storageProfile.osDisk.osType%0D%0A%7C%20summarize%20count%28%29%20by%20tostring%28os%29" target="_blank">portal.azure.com</a>
 - Azure Government portal: <a href="https://portal.azure.us/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%0D%0A%7C%20where%20type%20%3D~%20%27Microsoft.Compute%2FvirtualMachines%27%0D%0A%7C%20extend%20os%20%3D%20properties.storageProfile.osDisk.osType%0D%0A%7C%20summarize%20count%28%29%20by%20tostring%28os%29" target="_blank">portal.azure.us</a>
@@ -360,7 +360,7 @@ Search-AzGraph -Query "Resources | where type contains 'storage' | distinct type
 
 # [Portal](#tab/azure-portal)
 
-:::image type="icon" source="../media/resource-graph-small.png"::: Try this query in Azure Resource Graph Explorer:
+
 
 - Azure portal: <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%0D%0A%7C%20where%20type%20contains%20%27storage%27%20%7C%20distinct%20type" target="_blank">portal.azure.com</a>
 - Azure Government portal: <a href="https://portal.azure.us/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%0D%0A%7C%20where%20type%20contains%20%27storage%27%20%7C%20distinct%20type" target="_blank">portal.azure.us</a>
@@ -394,7 +394,7 @@ Search-AzGraph -Query "Resources | where type == 'microsoft.network/virtualnetwo
 
 # [Portal](#tab/azure-portal)
 
-:::image type="icon" source="../media/resource-graph-small.png"::: Try this query in Azure Resource Graph Explorer:
+
 
 - Azure portal: <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%0A%7C%20where%20type%20%3D%3D%20%27microsoft.network%2Fvirtualnetworks%27%0A%7C%20extend%20subnets%20%3D%20properties.subnets%0A%7C%20mv-expand%20subnets%0A%7C%20project%20name%2C%20subnets.name%2C%20subnets.properties.addressPrefix%2C%20location%2C%20resourceGroup%2C%20subscriptionId" target="_blank">portal.Azure.com</a>
 - Azure Government portal: <a href="https://portal.azure.us/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%0A%7C%20where%20type%20%3D%3D%20%27microsoft.network%2Fvirtualnetworks%27%0A%7C%20extend%20subnets%20%3D%20properties.subnets%0A%7C%20mv-expand%20subnets%0A%7C%20project%20name%2C%20subnets.name%2C%20subnets.properties.addressPrefix%2C%20location%2C%20resourceGroup%2C%20subscriptionId" target="_blank">portal.Azure.us</a>
@@ -430,7 +430,7 @@ Search-AzGraph -Query "Resources | where type contains 'publicIPAddresses' and i
 
 # [Portal](#tab/azure-portal)
 
-:::image type="icon" source="../media/resource-graph-small.png"::: Try this query in Azure Resource Graph Explorer:
+
 
 - Azure portal: <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%0D%0A%7C%20where%20type%20contains%20%27publicIPAddresses%27%20and%20isnotempty%28properties.ipAddress%29%0D%0A%7C%20project%20properties.ipAddress%0D%0A%7C%20limit%20100" target="_blank">portal.azure.com</a>
 - Azure Government portal: <a href="https://portal.azure.us/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%0D%0A%7C%20where%20type%20contains%20%27publicIPAddresses%27%20and%20isnotempty%28properties.ipAddress%29%0D%0A%7C%20project%20properties.ipAddress%0D%0A%7C%20limit%20100" target="_blank">portal.azure.us</a>
@@ -462,7 +462,7 @@ Search-AzGraph -Query "Resources | where type contains 'publicIPAddresses' and i
 
 # [Portal](#tab/azure-portal)
 
-:::image type="icon" source="../media/resource-graph-small.png"::: Try this query in Azure Resource Graph Explorer:
+
 
 - Azure portal: <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%0D%0A%7C%20where%20type%20contains%20%27publicIPAddresses%27%20and%20isnotempty%28properties.ipAddress%29%0D%0A%7C%20summarize%20count%20%28%29%20by%20subscriptionId" target="_blank">portal.azure.com</a>
 - Azure Government portal: <a href="https://portal.azure.us/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%0D%0A%7C%20where%20type%20contains%20%27publicIPAddresses%27%20and%20isnotempty%28properties.ipAddress%29%0D%0A%7C%20summarize%20count%20%28%29%20by%20subscriptionId" target="_blank">portal.azure.us</a>
@@ -496,7 +496,7 @@ Search-AzGraph -Query "Resources | where tags.environment=~'internal' | project 
 
 # [Portal](#tab/azure-portal)
 
-:::image type="icon" source="../media/resource-graph-small.png"::: Try this query in Azure Resource Graph Explorer:
+
 
 - Azure portal: <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%0D%0A%7C%20where%20tags.environment%3D~%27internal%27%0D%0A%7C%20project%20name" target="_blank">portal.azure.com</a>
 - Azure Government portal: <a href="https://portal.azure.us/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%0D%0A%7C%20where%20tags.environment%3D~%27internal%27%0D%0A%7C%20project%20name" target="_blank">portal.azure.us</a>
@@ -527,7 +527,7 @@ Search-AzGraph -Query "Resources | where tags.environment=~'internal' | project 
 
 # [Portal](#tab/azure-portal)
 
-:::image type="icon" source="../media/resource-graph-small.png"::: Try this query in Azure Resource Graph Explorer:
+
 
 - Azure portal: <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%0D%0A%7C%20where%20tags.environment%3D~%27internal%27%0D%0A%7C%20project%20name%2C%20tags" target="_blank">portal.azure.com</a>
 - Azure Government portal: <a href="https://portal.azure.us/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%0D%0A%7C%20where%20tags.environment%3D~%27internal%27%0D%0A%7C%20project%20name%2C%20tags" target="_blank">portal.azure.us</a>
@@ -561,7 +561,7 @@ Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Storage/storageAccou
 
 # [Portal](#tab/azure-portal)
 
-:::image type="icon" source="../media/resource-graph-small.png"::: Try this query in Azure Resource Graph Explorer:
+
 
 - Azure portal: <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%0D%0A%7C%20where%20type%20%3D~%20%27Microsoft.Storage%2FstorageAccounts%27%0D%0A%7C%20where%20tags%5B%27tag%20with%20a%20space%27%5D%3D%3D%27Custom%20value%27" target="_blank">portal.azure.com</a>
 - Azure Government portal: <a href="https://portal.azure.us/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%0D%0A%7C%20where%20type%20%3D~%20%27Microsoft.Storage%2FstorageAccounts%27%0D%0A%7C%20where%20tags%5B%27tag%20with%20a%20space%27%5D%3D%3D%27Custom%20value%27" target="_blank">portal.azure.us</a>
@@ -614,7 +614,7 @@ Search-AzGraph -Query "ResourceContainers | where isnotempty(tags) | project tag
 
 # [Portal](#tab/azure-portal)
 
-:::image type="icon" source="../media/resource-graph-small.png"::: Try this query in Azure Resource Graph Explorer:
+
 
 - Azure portal: <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/ResourceContainers%20%0A%7C%20where%20isnotempty%28tags%29%0A%7C%20project%20tags%0A%7C%20mvexpand%20tags%0A%7C%20extend%20tagKey%20%3D%20tostring%28bag_keys%28tags%29%5B0%5D%29%0A%7C%20extend%20tagValue%20%3D%20tostring%28tags%5BtagKey%5D%29%0A%7C%20union%20%28%0A%20%20%20%20resources%0A%20%20%20%20%7C%20where%20isnotempty%28tags%29%0A%20%20%20%20%7C%20project%20tags%0A%20%20%20%20%7C%20mvexpand%20tags%0A%20%20%20%20%7C%20extend%20tagKey%20%3D%20tostring%28bag_keys%28tags%29%5B0%5D%29%0A%20%20%20%20%7C%20extend%20tagValue%20%3D%20tostring%28tags%5BtagKey%5D%29%0A%29%0A%7C%20distinct%20tagKey%2C%20tagValue%0A%7C%20where%20tagKey%20%21startswith%20%22hidden-%22" target="_blank">portal.azure.com</a>
 - Azure Government portal: <a href="https://portal.azure.us/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/ResourceContainers%20%0A%7C%20where%20isnotempty%28tags%29%0A%7C%20project%20tags%0A%7C%20mvexpand%20tags%0A%7C%20extend%20tagKey%20%3D%20tostring%28bag_keys%28tags%29%5B0%5D%29%0A%7C%20extend%20tagValue%20%3D%20tostring%28tags%5BtagKey%5D%29%0A%7C%20union%20%28%0A%20%20%20%20resources%0A%20%20%20%20%7C%20where%20isnotempty%28tags%29%0A%20%20%20%20%7C%20project%20tags%0A%20%20%20%20%7C%20mvexpand%20tags%0A%20%20%20%20%7C%20extend%20tagKey%20%3D%20tostring%28bag_keys%28tags%29%5B0%5D%29%0A%20%20%20%20%7C%20extend%20tagValue%20%3D%20tostring%28tags%5BtagKey%5D%29%0A%29%0A%7C%20distinct%20tagKey%2C%20tagValue%0A%7C%20where%20tagKey%20%21startswith%20%22hidden-%22" target="_blank">portal.azure.us</a>
@@ -648,7 +648,7 @@ Search-AzGraph -Query "Resources | where type =~ 'microsoft.network/networksecur
 
 # [Portal](#tab/azure-portal)
 
-:::image type="icon" source="../media/resource-graph-small.png"::: Try this query in Azure Resource Graph Explorer:
+
 
 - Azure portal: <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%0D%0A%7C%20where%20type%20%3D~%20%22microsoft.network%2Fnetworksecuritygroups%22%20and%20isnull%28properties.networkInterfaces%29%20and%20isnull%28properties.subnets%29%0D%0A%7C%20project%20name%2C%20resourceGroup%0D%0A%7C%20sort%20by%20name%20asc" target="_blank">portal.azure.com</a>
 - Azure Government portal: <a href="https://portal.azure.us/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%0D%0A%7C%20where%20type%20%3D~%20%22microsoft.network%2Fnetworksecuritygroups%22%20and%20isnull%28properties.networkInterfaces%29%20and%20isnull%28properties.subnets%29%0D%0A%7C%20project%20name%2C%20resourceGroup%0D%0A%7C%20sort%20by%20name%20asc" target="_blank">portal.azure.us</a>
@@ -682,7 +682,7 @@ Search-AzGraph -Query "alertsmanagementresources | where type =~ 'microsoft.aler
 
 # [Portal](#tab/azure-portal)
 
-:::image type="icon" source="../media/resource-graph-small.png"::: Try this query in Azure Resource Graph Explorer:
+
 
 - Azure portal: <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/alertsmanagementresources%0D%0A%7C%20where%20type%20%3D~%20%27microsoft.alertsmanagement%2Falerts%27%0D%0A%7C%20where%20todatetime%28properties.essentials.startDateTime%29%20%3E%3D%20ago%282h%29%20and%20todatetime%28properties.essentials.startDateTime%29%20%3C%20now%28%29%0D%0A%7C%20project%20Severity%20%3D%20tostring%28properties.essentials.severity%29%0D%0A%7C%20summarize%20AlertsCount%20%3D%20count%28%29%20by%20Severity" target="_blank">portal.azure.com</a>
 - Azure Government portal: <a href="https://portal.azure.us/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/alertsmanagementresources%0D%0A%7C%20where%20type%20%3D~%20%27microsoft.alertsmanagement%2Falerts%27%0D%0A%7C%20where%20todatetime%28properties.essentials.startDateTime%29%20%3E%3D%20ago%282h%29%20and%20todatetime%28properties.essentials.startDateTime%29%20%3C%20now%28%29%0D%0A%7C%20project%20Severity%20%3D%20tostring%28properties.essentials.severity%29%0D%0A%7C%20summarize%20AlertsCount%20%3D%20count%28%29%20by%20Severity" target="_blank">portal.azure.us</a>
@@ -716,7 +716,7 @@ Search-AzGraph -Query "alertsmanagementresources | where type =~ 'microsoft.aler
 
 # [Portal](#tab/azure-portal)
 
-:::image type="icon" source="../media/resource-graph-small.png"::: Try this query in Azure Resource Graph Explorer:
+
 
 - Azure portal: <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/alertsmanagementresources%0D%0A%7C%20where%20type%20%3D~%20%27microsoft.alertsmanagement%2Falerts%27%0D%0A%7C%20where%20todatetime%28properties.essentials.startDateTime%29%20%3E%3D%20ago%282h%29%20and%20todatetime%28properties.essentials.startDateTime%29%20%3C%20now%28%29%0D%0A%7C%20project%20Severity%20%3D%20tostring%28properties.essentials.severity%29%2C%20AlertState%20%3D%20tostring%28properties.essentials.alertState%29%0D%0A%7C%20summarize%20AlertsCount%20%3D%20count%28%29%20by%20Severity%2C%20AlertState" target="_blank">portal.azure.com</a>
 - Azure Government portal: <a href="https://portal.azure.us/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/alertsmanagementresources%0D%0A%7C%20where%20type%20%3D~%20%27microsoft.alertsmanagement%2Falerts%27%0D%0A%7C%20where%20todatetime%28properties.essentials.startDateTime%29%20%3E%3D%20ago%282h%29%20and%20todatetime%28properties.essentials.startDateTime%29%20%3C%20now%28%29%0D%0A%7C%20project%20Severity%20%3D%20tostring%28properties.essentials.severity%29%2C%20AlertState%20%3D%20tostring%28properties.essentials.alertState%29%0D%0A%7C%20summarize%20AlertsCount%20%3D%20count%28%29%20by%20Severity%2C%20AlertState" target="_blank">portal.azure.us</a>
@@ -757,7 +757,7 @@ Search-AzGraph -Query "alertsmanagementresources | where type =~ 'microsoft.aler
 
 # [Portal](#tab/azure-portal)
 
-:::image type="icon" source="../media/resource-graph-small.png"::: Try this query in Azure Resource Graph Explorer:
+
 
 - Azure portal: <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/alertsmanagementresources%0D%0A%7C%20where%20type%20%3D~%20%27microsoft.alertsmanagement%2Falerts%27%0D%0A%7C%20where%20todatetime%28properties.essentials.startDateTime%29%20%3E%3D%20ago%282h%29%20and%20todatetime%28properties.essentials.startDateTime%29%20%3C%20now%28%29%0D%0A%7C%20project%20Severity%20%3D%20tostring%28properties.essentials.severity%29%2C%0D%0AMonitorCondition%20%3D%20tostring%28properties.essentials.monitorCondition%29%2C%0D%0AObjectState%20%3D%20tostring%28properties.essentials.alertState%29%2C%0D%0AMonitorService%20%3D%20tostring%28properties.essentials.monitorService%29%2C%0D%0AAlertRuleId%20%3D%20tostring%28properties.essentials.alertRule%29%2C%0D%0ASignalType%20%3D%20tostring%28properties.essentials.signalType%29%2C%0D%0ATargetResource%20%3D%20tostring%28properties.essentials.targetResourceName%29%2C%0D%0ATargetResourceType%20%3D%20tostring%28properties.essentials.targetResourceName%29%2C%20id%0D%0A%7C%20summarize%20AlertsCount%20%3D%20count%28%29%20by%20Severity%2C%20MonitorService%20%2C%20TargetResourceType" target="_blank">portal.azure.com</a>
 - Azure Government portal: <a href="https://portal.azure.us/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/alertsmanagementresources%0D%0A%7C%20where%20type%20%3D~%20%27microsoft.alertsmanagement%2Falerts%27%0D%0A%7C%20where%20todatetime%28properties.essentials.startDateTime%29%20%3E%3D%20ago%282h%29%20and%20todatetime%28properties.essentials.startDateTime%29%20%3C%20now%28%29%0D%0A%7C%20project%20Severity%20%3D%20tostring%28properties.essentials.severity%29%2C%0D%0AMonitorCondition%20%3D%20tostring%28properties.essentials.monitorCondition%29%2C%0D%0AObjectState%20%3D%20tostring%28properties.essentials.alertState%29%2C%0D%0AMonitorService%20%3D%20tostring%28properties.essentials.monitorService%29%2C%0D%0AAlertRuleId%20%3D%20tostring%28properties.essentials.alertRule%29%2C%0D%0ASignalType%20%3D%20tostring%28properties.essentials.signalType%29%2C%0D%0ATargetResource%20%3D%20tostring%28properties.essentials.targetResourceName%29%2C%0D%0ATargetResourceType%20%3D%20tostring%28properties.essentials.targetResourceName%29%2C%20id%0D%0A%7C%20summarize%20AlertsCount%20%3D%20count%28%29%20by%20Severity%2C%20MonitorService%20%2C%20TargetResourceType" target="_blank">portal.azure.us</a>

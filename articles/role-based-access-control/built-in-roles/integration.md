@@ -7,7 +7,7 @@ ms.workload: identity
 author: rolyon
 manager: amycolannino
 ms.author: rolyon
-ms.date: 03/01/2024
+ms.date: 04/13/2024
 ms.custom: generated
 ---
 
@@ -594,6 +594,194 @@ Allows read access to App Configuration data.
     }
   ],
   "roleName": "App Configuration Data Reader",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Azure API Center Compliance Manager
+
+Allows managing API compliance in Azure API Center service.
+
+[Learn more](/azure/api-center/enable-api-analysis-linting)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.ApiCenter](../permissions/integration.md#microsoftapicenter)/services/*/read |  |
+> | [Microsoft.ApiCenter](../permissions/integration.md#microsoftapicenter)/services/workspaces/apis/versions/definitions/updateAnalysisState/action | Updates analysis results for specified API definition. |
+> | [Microsoft.ApiCenter](../permissions/integration.md#microsoftapicenter)/services/workspaces/apis/versions/definitions/exportSpecification/action | Exports API definition file. |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Allows managing API compliance in Azure API Center service.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/ede9aaa3-4627-494e-be13-4aa7c256148d",
+  "name": "ede9aaa3-4627-494e-be13-4aa7c256148d",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.ApiCenter/services/*/read",
+        "Microsoft.ApiCenter/services/workspaces/apis/versions/definitions/updateAnalysisState/action",
+        "Microsoft.ApiCenter/services/workspaces/apis/versions/definitions/exportSpecification/action"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Azure API Center Compliance Manager",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Azure API Center Data Reader
+
+Allows for access to Azure API Center data plane read operations.
+
+[Learn more](/azure/api-center/enable-api-center-portal)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | *none* |  |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | [Microsoft.ApiCenter](../permissions/integration.md#microsoftapicenter)/services/*/read |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Allows for access to Azure API Center data plane read operations.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/c7244dfb-f447-457d-b2ba-3999044d1706",
+  "name": "c7244dfb-f447-457d-b2ba-3999044d1706",
+  "permissions": [
+    {
+      "actions": [],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.ApiCenter/services/*/read"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Azure API Center Data Reader",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Azure API Center Service Contributor
+
+Allows managing Azure API Center service.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.ApiCenter](../permissions/integration.md#microsoftapicenter)/services/* |  |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
+> | [Microsoft.ResourceHealth](../permissions/management-and-governance.md#microsoftresourcehealth)/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | **NotActions** |  |
+> | [Microsoft.ApiCenter](../permissions/integration.md#microsoftapicenter)/services/workspaces/apis/versions/definitions/updateAnalysisState/action | Updates analysis results for specified API definition. |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Allows managing Azure API Center service.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/dd24193f-ef65-44e5-8a7e-6fa6e03f7713",
+  "name": "dd24193f-ef65-44e5-8a7e-6fa6e03f7713",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.ApiCenter/services/*",
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Insights/alertRules/*",
+        "Microsoft.ResourceHealth/availabilityStatuses/read",
+        "Microsoft.Resources/deployments/*",
+        "Microsoft.Resources/subscriptions/resourceGroups/read"
+      ],
+      "notActions": [
+        "Microsoft.ApiCenter/services/workspaces/apis/versions/definitions/updateAnalysisState/action"
+      ],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Azure API Center Service Contributor",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Azure API Center Service Reader
+
+Allows read-only access to Azure API Center service.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.ApiCenter](../permissions/integration.md#microsoftapicenter)/services/*/read |  |
+> | [Microsoft.ApiCenter](../permissions/integration.md#microsoftapicenter)/services/workspaces/apis/versions/definitions/exportSpecification/action | Exports API definition file. |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
+> | [Microsoft.ResourceHealth](../permissions/management-and-governance.md#microsoftresourcehealth)/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Allows read-only access to Azure API Center service.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/6cba8790-29c5-48e5-bab1-c7541b01cb04",
+  "name": "6cba8790-29c5-48e5-bab1-c7541b01cb04",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.ApiCenter/services/*/read",
+        "Microsoft.ApiCenter/services/workspaces/apis/versions/definitions/exportSpecification/action",
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Insights/alertRules/*",
+        "Microsoft.ResourceHealth/availabilityStatuses/read",
+        "Microsoft.Resources/deployments/*",
+        "Microsoft.Resources/subscriptions/resourceGroups/read"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Azure API Center Service Reader",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }

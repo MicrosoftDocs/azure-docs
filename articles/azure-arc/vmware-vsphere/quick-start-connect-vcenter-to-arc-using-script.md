@@ -44,7 +44,7 @@ First, the script deploys a virtual appliance called [Azure Arc resource bridge]
 
 - A resource pool or a cluster with a minimum capacity of 16 GB of RAM and four vCPUs.
 
-- A datastore with a minimum of 100 GB of free disk space available through the resource pool or cluster.
+- A datastore with a minimum of 200 GB of free disk space available through the resource pool or cluster.
 
 > [!NOTE]
 > Azure Arc-enabled VMware vSphere supports vCenter Server instances with a maximum of 9,500 virtual machines (VMs). If your vCenter Server instance has more than 9,500 VMs, we don't recommend that you use Azure Arc-enabled VMware vSphere with it at this point.

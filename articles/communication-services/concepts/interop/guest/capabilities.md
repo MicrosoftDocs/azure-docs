@@ -12,7 +12,7 @@ ms.subservice: teams-interop
 
 # Teams meeting capabilities for Teams external users
 
-In this article, you will learn which capabilities are supported for Teams external users using Azure Communication Services SDKs in Teams meetings. You can find per platform availability in [voice and video calling capabilities](../../voice-video-calling/calling-sdk-features.md).
+This article describes which capabilities Azure Communication Services SDKs support for Teams external users in Teams meetings. For availability by platform, see [voice and video calling capabilities](../../voice-video-calling/calling-sdk-features.md).
 
 
 | Group of features | Capability                                                                                                          | Supported |
@@ -25,7 +25,7 @@ In this article, you will learn which capabilities are supported for Teams exter
 |                   | Prevent joining locked meeting                                                                                      | ✔️        |
 |                   | Honor assigned Teams meeting role                                                                                   |   ✔️      |
 | Chat              | Send and receive chat messages                                                                                      | ✔️ |
-|                   | [Receive inline images](../../../tutorials/chat-interop/meeting-interop-features-inline-image.md)                                                                    | ✔️ |
+|                   | [Receive inline images](../../../tutorials/chat-interop/meeting-interop-features-inline-image.md)                                                                    | ✔️** |
 |                   | Send inline images                                                                                                        | ❌ |
 |                   | [Receive file attachments](../../../tutorials/chat-interop/meeting-interop-features-file-attachment.md)                                                                                                           | ✔️** |
 |                   | Send file attachments                                                                                                        | ❌ |
@@ -140,7 +140,7 @@ In this article, you will learn which capabilities are supported for Teams exter
 |                   | Honor setting "Mode for IP video"                                                                                   | ❌ |
 |                   | Honor setting "IP video"                                                                                            | ❌ |
 |                   | Honor setting "Local broadcasting"                                                                                  | ❌ |
-|                   | Honor setting "Media bit rate (Kbs)"                                                                                | ❌ |
+|                   | Honor setting "Media bit rate (Kbps)"                                                                                | ❌ |
 |                   | Honor setting "Network configuration lookup"                                                                        | ❌ |
 |                   | Honor setting "Transcription"                                                                                       | No API available |
 |                   | Honor setting "Cloud recording"                                                                                     | No API available |
@@ -170,11 +170,11 @@ In this article, you will learn which capabilities are supported for Teams exter
 |                   | [Teams Call Analytics](/MicrosoftTeams/use-call-analytics-to-troubleshoot-poor-call-quality)                        | ✔️ |
 |                   | [Teams real-time Analytics](/microsoftteams/use-real-time-telemetry-to-troubleshoot-poor-meeting-quality)           | ❌ |
 
-When Teams external users leave the meeting, or the meeting ends, they can no longer send or receive new chat messages and no longer have access to messages sent and received during the meeting. 
+When Teams external users leave the meeting, or the meeting ends, they can no longer exchange new chat messages nor access messages sent and received during the meeting. 
 
-*Azure Communication Services provides developers tools to integrate Microsoft Teams Data Loss Prevention that is compatible with Microsoft Teams. For more information, go to [how to implement Data Loss Prevention (DLP)](../../../how-tos/chat-sdk/data-loss-prevention.md)
+\* Azure Communication Services provides developer tools to integrate Microsoft Teams Data Loss Prevention compatible with Microsoft Teams. For more information, see [how to implement Data Loss Prevention (DLP)](../../../how-tos/chat-sdk/data-loss-prevention.md).
 
-**File attachment support is currently in public preview and is available in the Chat SDK for JavaScript only. Preview APIs and SDKs are provided without a service-level agreement. We recommend that you don't use them for production workloads. Some features might not be supported, or they might have constrained capabilities. For more information, review [Supplemental Terms of Use for Microsoft Azure Previews.](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
+\*\* Inline image and file attachment support are available in the Chat SDK for JavaScript and C# only.
 
 ## Server capabilities
 
@@ -205,4 +205,4 @@ The following table shows supported Teams capabilities:
 - [Join Teams meeting audio and video as Teams external user](../../../quickstarts/voice-video-calling/get-started-teams-interop.md)
 - [Join Teams meeting chat as Teams external user](../../../quickstarts/chat/meeting-interop.md)
 - [Join meeting options](../../../how-tos/calling-sdk/teams-interoperability.md)
-- [Communicate as Teams user](../../teams-endpoint.md).
+- [Communicate as Teams user](../../teams-endpoint.md)

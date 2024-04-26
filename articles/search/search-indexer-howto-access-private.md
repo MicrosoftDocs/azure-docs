@@ -10,7 +10,7 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 02/22/2024
+ms.date: 04/03/2024
 ---
 
 # Make outbound connections through a shared private link
@@ -28,12 +28,15 @@ Shared private link is a premium feature that's billed by usage. When you set up
 
 Azure AI Search makes outbound calls to other Azure PaaS resources in the following scenarios:
 
-+ Indexer connection requests to supported data sources
-+ Indexer (skillset) connections to Azure Storage for caching enrichments or writing to a knowledge store
++ Indexer or search engine connects to Azure OpenAI for text-to-vector embeddings
++ Indexer connects to supported data sources
++ Indexer (skillset) connections to Azure Storage for caching enrichments, debug session sate, or writing to a knowledge store
 + Encryption key requests to Azure Key Vault
 + Custom skill requests to Azure Functions or similar resource
 
-In service-to-service communications, Azure AI Search typically sends a request over a public internet connection. However, if your data, key vault, or function should be accessed through a [private endpoint](../private-link/private-endpoint-overview.md), you must create a *shared private link*.
+Shared private links only work for Azure-to-Azure connections. If you're connecting to OpenAI or another external model, the connection must be over the public internet.
+
+Shared private links are for operations and data accessed through a [private endpoint](../private-link/private-endpoint-overview.md) for Azure resources or clients that run in an Azure virtual network.
 
 A shared private link is:
 
@@ -51,13 +54,15 @@ There are two scenarios for using [Azure Private Link](../private-link/private-l
 
 + Scenario two: [configure search for a private *inbound* connection](service-create-private-endpoint.md) from clients that run in a virtual network. 
 
+Scenario one is covered in this article.
+
 While both scenarios have a dependency on Azure Private Link, they are independent. You can create a shared private link without having to configure your own search service for a private endpoint.
 
 ### Limitations
 
 When evaluating shared private links for your scenario, remember these constraints.
 
-+ Several of the resource types used in a shared private link are in preview. If you're connecting to a preview resource (Azure Database for MySQL, Azure Functions, or Azure SQL Managed Instance), use a preview version of the Management REST API to create the shared private link. These versions include `2020-08-01-preview` or `2021-04-01-preview`.
++ Several of the resource types used in a shared private link are in preview. If you're connecting to a preview resource (Azure Database for MySQL, Azure Functions, or Azure SQL Managed Instance), use a preview version of the Management REST API to create the shared private link. These versions include `2020-08-01-preview`, `2021-04-01-preview`, and `2024-03-01-preview`.
 
 + Indexer execution must use the private execution environment that's specific to your search service. Private endpoint connections aren't supported from the multitenant environment. The configuration setting for this requirement is covered in this article.
 
@@ -65,7 +70,8 @@ When evaluating shared private links for your scenario, remember these constrain
 
 + An Azure AI Search at the Basic tier or higher. If you're using [AI enrichment](cognitive-search-concept-intro.md) and skillsets, the tier must be Standard 2 (S2) or higher. See [Service limits](search-limits-quotas-capacity.md#shared-private-link-resource-limits) for details.
 
-+ An Azure PaaS resource from the following list of supported resource types, configured to run in a virtual network.
++ An Azure PaaS resource from the following list of [supported resource types](#supported-resource-types), configured to run in a virtual network.
+
 
 + Permissions on both Azure AI Search and the data source:
 
@@ -275,11 +281,14 @@ A `202 Accepted` response is returned on success. The process of creating an out
 
 ## 2 - Approve the private endpoint connection
 
-Approval of the private endpoint connection is granted on the Azure PaaS side. If the service consumer has a role assignment on the service provider resource, the approval will be automatic. Otherwise, manual approval is required. For details, see [Manage Azure private endpoints](/azure/private-link/manage-private-endpoint).
+Approval of the private endpoint connection is granted on the Azure PaaS side. Explicit approval by the resource owner is required. The following steps cover approval using the Azure portal, but here are some links to approve the connection programmatically from the Azure PaaS side:
 
-This section assumes manual approval and the portal for this step, but you can also use the REST APIs of the Azure PaaS resource. [Private Endpoint Connections (Storage Resource Provider)](/rest/api/storagerp/privateendpointconnections) and [Private Endpoint Connections (Cosmos DB Resource Provider)](/rest/api/cosmos-db-resource-provider/2023-03-15/private-endpoint-connections) are two examples.
++ On Azure Storage, use [Private Endpoint Connections - Put](/rest/api/storagerp/private-endpoint-connections/put)
++ On Azure Cosmos DB, use [Private Endpoint Connections - Create Or Update](/rest/api/cosmos-db-resource-provider/private-endpoint-connections/create-or-update)
 
-1. In the Azure portal, open the **Networking** page of the Azure PaaS resource.[text](https://ms.portal.azure.com/#blade%2FHubsExtension%2FResourceMenuBlade%2Fid%2F%2Fsubscriptions%2Fa5b1ca8b-bab3-4c26-aebe-4cf7ec4791a0%2FresourceGroups%2Ftest-private-endpoint%2Fproviders%2FMicrosoft.Network%2FprivateEndpoints%2Ftest-private-endpoint)
+Using the Azure portal, perform the following steps:
+
+1. Open the **Networking** page of the Azure PaaS resource.[text](https://ms.portal.azure.com/#blade%2FHubsExtension%2FResourceMenuBlade%2Fid%2F%2Fsubscriptions%2Fa5b1ca8b-bab3-4c26-aebe-4cf7ec4791a0%2FresourceGroups%2Ftest-private-endpoint%2Fproviders%2FMicrosoft.Network%2FprivateEndpoints%2Ftest-private-endpoint)
 
 1. Find the section that lists the private endpoint connections. The following example is for a storage account. 
 

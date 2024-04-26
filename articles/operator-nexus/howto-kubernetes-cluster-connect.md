@@ -1,6 +1,6 @@
 ---
 title: Connect to Azure Operator Nexus Kubernetes cluster
-description: Learn how to connect to Azure Operator Nexus Kubernetes cluster for interacting, troubleshooting, and maintenance tasks
+description: Learn how to connect to Azure Operator Nexus Kubernetes cluster for interacting, troubleshooting, and maintenance tasks.
 author: dramasamy
 ms.author: dramasamy
 ms.service: azure-operator-nexus
@@ -11,79 +11,35 @@ ms.custom: template-how-to-pattern, devx-track-azurecli
 
 # Connect to Azure Operator Nexus Kubernetes cluster
 
-This article provides instructions on how to connect to Azure Operator Nexus Kubernetes cluster and its nodes. It includes details on how to connect to the cluster from both Azure and on-premises environments, and how to do so when the ExpressRoute is in both connected and disconnected modes.
-
-In Azure, connected mode and disconnected mode refer to the state of an ExpressRoute circuit. [ExpressRoute](../expressroute/expressroute-introduction.md) is a service provided by Azure that enables organizations to establish a private, high-throughput connection between their on-premises infrastructure and Azure datacenters.
-
-* Connected Mode: In connected mode, the ExpressRoute circuit is fully operational and provides a private connection between your on-premises infrastructure and Azure services. This mode is ideal for scenarios where you need constant connectivity to Azure.
-* Disconnected Mode: In disconnected mode, the ExpressRoute circuit is partially or fully down and is unable to provide connectivity to Azure services. This mode is useful when you want to perform maintenance on the circuit or need to temporarily disconnect from Azure.
-
-> [!IMPORTANT]
-> While the ExpressRoute circuit is in disconnected mode, traffic will not be able to flow between your on-premises environment and Azure. Therefore, it is recommended to only use disconnected mode when necessary, and to monitor the circuit closely to ensure it is brought back to connected mode as soon as possible.
+Throughout the lifecycle of your Azure Operator Nexus Kubernetes cluster, you eventually need to directly access a cluster node. This access could be for maintenance, log collection, or troubleshooting operations. You access a node through authentication, which methods vary depending on your method of connection. You securely authenticate against cluster nodes through two options discussed in this article. For security reasons, cluster nodes aren't exposed to the internet. Instead, to connect directly to  cluster nodes, you need to use either `kubectl debug` or the host's IP address from a jumpbox.
 
 ## Prerequisites
 
 * An Azure Operator Nexus Kubernetes cluster deployed in a resource group in your Azure subscription.
 * SSH private key for the cluster nodes.
-* If you're connecting in disconnected mode, you must have a jumpbox VM deployed in the same virtual network as the cluster nodes.
+* To SSH using the node IP address, you must deploy a jumpbox VM on the same Container Network Interface (CNI) network as the cluster nodes.
 
-## Connected mode access
+## Access to cluster nodes via Azure Arc for servers
 
-When operating in connected mode, it's possible to connect to the cluster's kube-api server using the `az connectedk8s proxy` CLI command. Also it's possible to SSH into the worker nodes for troubleshooting or maintenance tasks from Azure using the ExpressRoute circuit.
+The `az ssh arc` command allows users to remotely access a cluster VM that has been connected to Azure Arc. This method is a secure way to SSH into the cluster node directly from the command line, making it a quick and efficient method for remote management.
 
-### Azure Arc for Kubernetes
+> [!NOTE]
+> Operator Nexus Kubernetes cluster nodes are Arc connected servers by default.
 
-[!INCLUDE [quickstart-cluster-connect](./includes/kubernetes-cluster/cluster-connect.md)]
-
-### Access to cluster nodes via Azure Arc for Kubernetes
-Once you are connected to a cluster via Arc for Kuberentes, you can connect to individual Kubernetes Node using the `kubectl debug` command to run a privileged container on your node.
-
-1. List the nodes in your Nexus Kubernetes cluster:
-
-    ```console
-    $> kubectl get nodes
-    NAME                                     STATUS   ROLES           AGE    VERSION
-    cluster-01-627e99ee-agentpool1-md-chfwd   Ready    <none>          125m   v1.27.1
-    cluster-01-627e99ee-agentpool1-md-kfw4t   Ready    <none>          125m   v1.27.1
-    cluster-01-627e99ee-agentpool1-md-z2n8n   Ready    <none>          124m   v1.27.1
-    cluster-01-627e99ee-control-plane-5scjz   Ready    control-plane   129m   v1.27.1
-    ```
-
-2. Start a privileged container on your node and connect to it:
-
-    ```console
-    $> kubectl debug node/cluster-01-627e99ee-agentpool1-md-chfwd -it --image=mcr.microsoft.com/cbl-mariner/base/core:2.0
-    Creating debugging pod node-debugger-cluster-01-627e99ee-agentpool1-md-chfwd-694gg with container debugger on node cluster-01-627e99ee-agentpool1-md-chfwd.
-    If you don't see a command prompt, try pressing enter.
-    root [ / ]#
-    ```
-
-    This privileged container gives access to the node. Execute commands on the baremetal host machine by running `chroot /host` at the command line. 
-
-3. When you are done with a debugging pod, enter the `exit` command to end the interactive shell session. After exiting the shell, make sure to delete the pod:
+1. Set the required variables. Replace the placeholders with the actual values relevant to your Azure environment and Nexus Kubernetes cluster.
 
     ```bash
-    kubectl delete pod node-debugger-cluster-01-627e99ee-agentpool1-md-chfwd-694gg 
-    ```
-
-### Azure Arc for servers
-
-The `az ssh arc` command allows users to remotely access a cluster VM that has been connected to Azure Arc. This method is a secure way to SSH into the cluster node directly from the command line, while in connected mode. Once the cluster VM has been registered with Azure Arc, the `az ssh arc` command can be used to manage the machine remotely, making it a quick and efficient method for remote management.
-
-1. Set the required variables.
-
-    ```bash
-    RESOURCE_GROUP="myResourceGroup"
-    CLUSTER_NAME="myNexusK8sCluster"
-    SUBSCRIPTION_ID="<Subscription ID>"
-    USER_NAME="azureuser"
-    SSH_PRIVATE_KEY_FILE="<vm_ssh_id_rsa>"
+    RESOURCE_GROUP="myResourceGroup" # Resource group where the Nexus Kubernetes cluster is deployed
+    CLUSTER_NAME="myNexusK8sCluster" # Name of the Nexus Kubernetes cluster
+    SUBSCRIPTION_ID="<Subscription ID>" # Azure subscription ID
+    ADMIN_USERNAME="azureuser" # Username for the cluster administrator (--admin-username parameter value used during cluster creation)
+    SSH_PRIVATE_KEY_FILE="<vm_ssh_id_rsa>" # Path to the SSH private key file
     MANAGED_RESOURCE_GROUP=$(az networkcloud kubernetescluster show -n $CLUSTER_NAME -g $RESOURCE_GROUP --subscription $SUBSCRIPTION_ID --output tsv --query managedResourceGroupConfiguration.name)
     ```
 
 2. Get the available cluster node names.
 
-    ```azurecli
+    ```azurecli-interactive
     az networkcloud kubernetescluster show --name $CLUSTER_NAME --resource-group $RESOURCE_GROUP --subscription $SUBSCRIPTION_ID -o json | jq '.nodes[].name'
     ```
 
@@ -95,25 +51,72 @@ The `az ssh arc` command allows users to remotely access a cluster VM that has b
     "mynexusk8scluster-0b32128d-control-plane-qq5jm"
     ```
 
-4. Run the following command to SSH into the cluster node.
+4. Set the cluster node name to the VM_NAME variable.
 
-    ```azurecli
+    ```bash
+    VM_NAME="mynexusk8scluster-0b32128d-agentpool1-md-7h9t4"
+    ```
+
+5. Run the following command to SSH into the cluster node.
+
+    ```azurecli-interactive
     az ssh arc --subscription $SUBSCRIPTION_ID \
         --resource-group $MANAGED_RESOURCE_GROUP \
-        --name <VM Name> \
-        --local-user $USER_NAME \
+        --name $VM_NAME \
+        --local-user $ADMIN_USERNAME \
         --private-key-file $SSH_PRIVATE_KEY_FILE
     ```
 
-### Direct access to cluster nodes
+## Access nodes using the Kubernetes API
 
-Another option for securely connecting to an Azure Operator Nexus Kubernetes cluster node is to set up a direct access to the cluster's CNI network from Azure. Using this approach, you can SSH into the cluster nodes, also execute kubectl commands against the cluster using the `kubeconfig` file. Reach out to your network administrator to set up this direct connection from Azure to the cluster's CNI network.
+This method requires usage of `kubectl debug` command. This method is limited to containers and may miss wider system issues, unlike SSH (using 'az ssh arc' or direct IP), which offers full node access and control.
 
-## Disconnected mode access
+### Access to Kubernetes API via Azure Arc for Kubernetes
 
-When the ExpressRoute is in a disconnected mode, you can't access the cluster's kube-api server using the `az connectedk8s proxy` CLI command. Similarly, the `az ssh` CLI command doesn't work for accessing the worker nodes, which can be crucial for troubleshooting or maintenance tasks.
+[!INCLUDE [quickstart-cluster-connect](./includes/kubernetes-cluster/cluster-connect.md)]
 
-However, you can still ensure a secure and effective connection to your cluster. To do so, establish direct access to the cluster's CNI (Container Network Interface) from within your on-premises infrastructure. This direct access enables you to SSH into the cluster nodes, and lets you execute `kubectl` commands using the `kubeconfig` file.
+### Access to cluster nodes via Azure Arc for Kubernetes
+
+Once you're connected to a cluster via Arc for Kubernetes, you can connect to individual Kubernetes node using the `kubectl debug` command to run a privileged container on your node.
+
+1. List the nodes in your Nexus Kubernetes cluster:
+
+    ```console
+    $> kubectl get nodes
+    NAME                                             STATUS   ROLES           AGE    VERSION
+    mynexusk8scluster-0b32128d-agentpool1-md-7h9t4   Ready    <none>          125m   v1.24.9
+    mynexusk8scluster-0b32128d-agentpool1-md-c6xbs   Ready    <none>          125m   v1.24.9
+    mynexusk8scluster-0b32128d-control-plane-qq5jm   Ready    <none>          124m   v1.24.9
+    ```
+
+2. Start a privileged container on your node and connect to it:
+
+    ```console
+    $> kubectl debug node/mynexusk8scluster-0b32128d-agentpool1-md-7h9t4 -it --image=mcr.microsoft.com/cbl-mariner/base/core:2.0
+    Creating debugging pod node-debugger-mynexusk8scluster-0b32128d-agentpool1-md-7h9t4-694gg with container debugger on node mynexusk8scluster-0b32128d-agentpool1-md-7h9t4.
+    If you don't see a command prompt, try pressing enter.
+    root [ / ]#
+    ```
+
+    This privileged container gives access to the node. Execute commands on the cluster node by running `chroot /host` at the command line. 
+
+3. When you're done with a debugging pod, enter the `exit` command to end the interactive shell session. After exiting the shell, make sure to delete the pod:
+
+    ```bash
+    kubectl delete pod node-debugger-mynexusk8scluster-0b32128d-agentpool1-md-7h9t4-694gg 
+    ```
+
+## Create an interactive shell connection to a node using the IP address
+
+### Connect to the cluster node from Azure jumpbox
+
+Another option for securely connecting to an Azure Operator Nexus Kubernetes cluster node is to set up a direct access to the cluster's CNI network from Azure jumpbox VM. Using this approach, you can SSH into the cluster nodes, also execute `kubectl` commands against the cluster using the `kubeconfig` file.
+
+Reach out to your network administrator to set up a direct connection from Azure jumpbox VM to the cluster's CNI network.
+
+### Connect to the cluster node from on-premises jumpbox
+
+Establish direct access to the cluster's CNI (Container Network Interface) from within your on-premises jumpbox. This direct access enables you to SSH into the cluster nodes, and lets you execute `kubectl` commands using the `kubeconfig` file.
 
 Reach out to your network administrator to set up this direct connection to the cluster's CNI network.
 
@@ -133,7 +136,7 @@ Before you can connect to the cluster nodes, you need to find the IP address of 
 
 2. Execute the following command to get the IP address of the nodes.
 
-    ```azurecli
+    ```azurecli-interactive
     az networkcloud kubernetescluster show --name $CLUSTER_NAME --resource-group $RESOURCE_GROUP --subscription $SUBSCRIPTION_ID -o json | jq '.nodes[] | select(any(.networkAttachments[]; .networkAttachmentName == "defaultcni")) | {name: .name, ipv4Address: (.networkAttachments[] | select(.networkAttachmentName == "defaultcni").ipv4Address)}'
     ```
 

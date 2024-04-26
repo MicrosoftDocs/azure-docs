@@ -74,8 +74,12 @@ Execute these commands inside the VM:
 ```bash
 sudo apt install ubuntu-advantage-tools
 sudo pro auto-attach
+
+
 ```
 
+> [!IMPORTANT]
+> The change of the "licenseType" property may take some time to propagate thru the system. If the auto-attach process fails, please wait for a few minutes and try again. If the auto-attach process continues to fail, please open a support ticket with Microsoft.
 If the `pro --version` is lower than 28, execute this command:
 
 ```bash

@@ -5,7 +5,7 @@
  author: duongau
  ms.service: expressroute
  ms.topic: include
- ms.date: 02/16/2023
+ ms.date: 04/05/2024
  ms.author: duau
  ms.custom: include file
 ---
@@ -26,7 +26,7 @@ The following table provides a map of Azure regions to ExpressRoute locations wi
 | **South Korea** | Korea Central<br/>Korea South |Busan<br/>Seoul<br/>Seoul2|
 | **UAE** | UAE Central<br/>UAE North | Abu Dhabi<br/>Dubai<br/>Dubai2 |
 | **South Africa** | South Africa West<br/>South Africa North |Cape Town<br/>Johannesburg |
-| **South America** | Brazil South |Bogota<br/>Campinas<br/>Rio de Janeiro<br/>Sao Paulo<br/>Sao Paulo2<br/>Santiago |
+| **South America** | Brazil South | Campinas<br/>Rio de Janeiro<br/>Sao Paulo<br/>Sao Paulo2<br/>Santiago |
 | **Qatar** | Qatar Central | Doha<br/>Doha2 |
 
 ## Azure regions and geopolitical boundaries for national clouds

@@ -2,6 +2,7 @@
 title: Trino CLI
 description: Using Trino via CLI
 ms.service: hdinsight-aks
+ms.custom: linux-related-content
 ms.topic: how-to
 ms.date: 10/19/2023
 ---

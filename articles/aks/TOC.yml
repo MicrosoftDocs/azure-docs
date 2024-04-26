@@ -3,7 +3,7 @@
 - name: Overview
   items:
     - name: What is AKS?
-      href: intro-kubernetes.md
+      href: what-is-aks.md
     - name: Quotas and regional limits
       href: quotas-skus-regions.md
     - name: Track releases and region availability
@@ -136,6 +136,8 @@
           href: concepts-network.md
         - name: CNI networking
           href: azure-cni-overview.md
+        - name: Services
+          href: concepts-network-services.md
     - name: Storage
       href: concepts-storage.md
     - name: Scaling
@@ -238,9 +240,9 @@
       items:
         - name: Deploy a cluster in an Edge Zone
           href: edge-zones.md
-        - name: Cluster configuration options
-          href: cluster-configuration.md 
-        - name: Manually scale nodes in an AKS cluster
+        - name: Deploy a cluster with a fully managed resource group
+          href: node-resource-group-lockdown.md
+        - name: Scale an AKS cluster
           href: scale-cluster.md
         - name: Stop and start an AKS cluster
           href: start-stop-cluster.md
@@ -260,6 +262,8 @@
                   href: cluster-extensions.md
                 - name: Use the Azure CLI
                   href: deploy-extensions-az-cli.md
+            - name: Use the AKS Visual Studio Code extension
+              href: aks-extension-vs-code.md
     - name: Nodes
       items:
         - name: Cluster nodes
@@ -329,7 +333,11 @@
         - name: Node autoprovision
           href: node-autoprovision.md
         - name: Availability zones
-          href: availability-zones.md
+          items:
+            - name: Availability zones overview
+              href: availability-zones-overview.md
+            - name: Create a cluster with availability zones
+              href: availability-zones.md
         - name: Propagate Kubernetes resources across multiple clusters
           href: ../kubernetes-fleet/resource-propagation.md?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
     - name: Cluster management
@@ -651,6 +659,8 @@
               href: istio-plugin-ca.md
             - name: Upgrade Istio service mesh add-on
               href: istio-upgrade.md
+            - name: Istio service mesh add-on performance
+              href: istio-scale.md
         - name: Open Service Mesh AKS add-on
           items:
             - name: About Open Service Mesh
@@ -743,6 +753,8 @@
           href: use-windows-hpc.md
         - name: Upgrade from Windows Server 2019 to 2022
           href: upgrade-windows-2019-2022.md
+        - name: Use generation 2 VMs
+          href: generation-2-vm-windows.md
         - name: Create Dockerfiles for Windows Server containers
           href: /virtualization/windowscontainers/manage-docker/manage-windows-dockerfile?context=/azure/aks/context/aks-context
         - name: Optimize Dockerfiles for Windows Server containers
@@ -847,7 +859,7 @@
 - name: Resources
   items:
     - name: Build your skills with Microsoft Learn training
-      href: /training/browse/?products=azure-container-instances&azure-container-registry
+      href: /training/browse/?products=azure-kubernetes-service
     - name: Region availability
       href: https://azure.microsoft.com/global-infrastructure/services/
     - name: Pricing

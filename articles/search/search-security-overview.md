@@ -10,7 +10,7 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 03/25/2024
+ms.date: 04/03/2024
 ---
 
 # Security overview for Azure AI Search
@@ -45,23 +45,34 @@ At a minimum, all inbound requests must be authenticated using either of these o
 
 Additionally, you can add [network security features](#service-access-and-authentication) to further restrict access to the endpoint. You can create either inbound rules in an IP firewall, or create private endpoints that fully shield your search service from the public internet. 
 
+### Internal traffic
+
+Internal requests are secured and managed by Microsoft. You can't configure or control these connections. If you're locking down network access, no action on your part is required because internal traffic isn't customer-configurable.
+
+Internal traffic consists of:
+
++ Service-to-service calls for tasks like authentication and authorization through Microsoft Entra ID, resource logging sent to Azure Monitor, and [private endpoint connections](service-create-private-endpoint.md) that utilize Azure Private Link.
++ Requests made to Azure AI services APIs for [built-in skills](cognitive-search-predefined-skills.md).
++ Requests made to the machine learning models that support [semantic ranking](semantic-search-overview.md#availability-and-pricing).
+
 ### Outbound traffic
 
-Outbound requests from a search service to other applications are typically made by indexers for text-based indexing, skills-based AI enrichment, and vectorization. Outbound requests include both read and write operations.
+Outbound requests can be secured and managed by you. Outbound requests originate from a search service to other applications. These requests are typically made by indexers for text-based indexing, skills-based AI enrichment, and vectorizations at query time. Outbound requests include both read and write operations.
 
-The following list is a full enumeration of the outbound requests that can be made by a search service. A search service makes requests on its own behalf, and on the behalf of an indexer or custom skill.
+The following list is a full enumeration of the outbound requests for which you can configure secure connections. A search service makes requests on its own behalf, and on the behalf of an indexer or custom skill.
 
 | Operation | Scenario |
 | ----------| -------- |
 | Indexers | Connect to external data sources to retrieve data. For more information, see [Indexer access to content protected by Azure network security](search-indexer-securing-resources.md). |
 | Indexers | Connect to Azure Storage to persist [knowledge stores](knowledge-store-concept-intro.md), [cached enrichments](cognitive-search-incremental-indexing-conceptual.md), [debug sessions](cognitive-search-debug-session.md). |
 | Custom skills | Connect to Azure functions, Azure web apps, or other apps running external code that's hosted off-service. The request for external processing is sent during skillset execution. |
-| Indexers and [integrated vectorization](vector-search-integrated-vectorization.md) | Connect to Azure OpenAI and a deployed embedding model, or it goes through a custom skill to connect to an embedding model that you provide. The search service sends text to embedding models for vectorization during indexing or query execution. |
-| Search service | Connect to Azure Key Vault for customer-managed keys, used to encrypt and decrypt sensitive data. |
+| Indexers and [integrated vectorization](vector-search-integrated-vectorization.md) | Connect to Azure OpenAI and a deployed embedding model, or it goes through a custom skill to connect to an embedding model that you provide. The search service sends text to embedding models for vectorization during indexing. |
+| Vectorizers | Connect to Azure OpenAI or other embedding models at query time to [convert user text strings to vectors](vector-search-how-to-configure-vectorizer.md) for vector search. |
+| Search service | Connect to Azure Key Vault for [customer-managed encyrption keys](search-security-manage-encryption-keys.md), used to encrypt and decrypt sensitive data. |
 
 Outbound connections can be made using a resource's full access connection string that includes a key or a database login, or [a managed identity](search-howto-managed-identities-data-sources.md) if you're using Microsoft Entra ID and role-based access.
 
-To reach Azure resources behind a firewall, [create inbound rules that admit search service requests](search-indexer-howto-access-ip-restricted.md). 
+To reach Azure resources behind a firewall, [create inbound rules on other Azure resources that admit search service requests](search-indexer-howto-access-ip-restricted.md). 
 
 To reach Azure resources protected by Azure Private Link, [create a shared private link](search-indexer-howto-access-private.md) that an indexer uses to make its connection.
 
@@ -73,16 +84,6 @@ Configure same-region connections using either of the following approaches:
 
 + [Trusted service exception](search-indexer-howto-access-trusted-service-exception.md)
 + [Resource instance rules](/azure/storage/common/storage-network-security?tabs=azure-portal#grant-access-from-azure-resource-instances)
-
-### Internal traffic
-
-Internal requests are secured and managed by Microsoft. You can't configure or control these connections. If you're locking down network access, no action on your part is required because internal traffic isn't customer-configurable.
-
-Internal traffic consists of:
-
-+ Service-to-service calls for tasks like authentication and authorization through Microsoft Entra ID, resource logging sent to Azure Monitor, and private endpoint connections that utilize Azure Private Link.
-+ Requests made to Azure AI services APIs for [built-in skills](cognitive-search-predefined-skills.md).
-+ Requests made to the machine learning models that support [semantic ranking](semantic-search-overview.md#availability-and-pricing).
 
 <a name="service-access-and-authentication"></a>
 

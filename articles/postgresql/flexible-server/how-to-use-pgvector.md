@@ -10,7 +10,7 @@ ms.custom:
   - build-2023
   - ignite-2023
 ms.topic: how-to
-ms.date: 02/26/2024
+ms.date: 03/01/2024
 ---
 
 # How to enable and use `pgvector` on Azure Database for PostgreSQL - Flexible Server
@@ -25,7 +25,7 @@ Before you can enable `pgvector` on your Azure Database for PostgreSQL flexible 
 
 Then you can install the extension, by connecting to your target database and running the [CREATE EXTENSION](https://www.postgresql.org/docs/current/static/sql-createextension.html) command. You need to repeat the command separately for every database you want the extension to be available in.
 
-```postgresql
+```sql
 CREATE EXTENSION vector;
 ```
 
