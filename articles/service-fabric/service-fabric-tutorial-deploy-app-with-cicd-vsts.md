@@ -139,21 +139,21 @@ Verify that the deployment succeeded and the application is running in the clust
 
 To verify that the continuous integration pipeline is functioning by checking in some code changes to Azure DevOps.
 
-As you write your code, your changes are automatically tracked by Visual Studio. Commit changes to your local Git repository by selecting the pending changes icon (![Pending changes icon shows a pencil and a number.][pending]) from the status bar in the bottom right.
+As you write your code, Visual Studio keeps track of the file changes to your project in the **Changes** section of the **Git Changes** window.
 
-On the **Changes** view in Team Explorer, add a message describing your update and commit your changes.
+On the **Changes** view, add a message describing your update and commit your changes.
 
 ![Commit all][changes]
 
-Select the unpublished changes status bar icon (![Unpublished changes][unpublished-changes]) or the Sync view in Team Explorer. Select **Push** to update your code in Azure Pipelines.
+In the **Git Changes** window, select **Push** button (the up arrow) to update code in Azure Pipelines.
 
 ![Push changes][push]
 
-Pushing the changes to Azure Pipelines automatically triggers a build.  When the build pipeline successfully completes, a release is automatically created and starts upgrading the application on the cluster.
+Pushing the changes to Azure Pipelines automatically triggers a build.  To check your build progress, switch to **Pipelines** tab in https://dev.azure.com/organizationname/VotingSample. 
 
-To check your build progress, switch to the **Builds** tab in **Team Explorer** in Visual Studio.  Once you verify that the build executes successfully, define a release pipeline that deploys your application to a cluster.
+When the build completes, a release is automatically created and starts upgrading the application on the cluster.
 
-Verify that the deployment succeeded and the application is running in the cluster.  Open a web browser and navigate to `http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/`.  Note the application version, in this example it is "1.0.0.20170815.3".
+Verify that the deployment succeeded and the application is running in the cluster.  Open a web browser and navigate to `https://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/`.  Note the application version, in this example it is "1.0.0.20170815.3".
 
 ![Screenshot of the Voting app in Service Fabric Explorer running in a browser window. The app version "1.0.0.20170815.3" is highlighted.][sfx1]
 
@@ -191,8 +191,8 @@ Advance to the next tutorial:
 [classic-editor]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/ClassicEditor.png
 [select-repo]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SelectRepoLatest.png
 [select-build-template]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SelectBuildTemplateLatest.png
-[save-and-queue]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SaveAndQueueLatest.png
-[save-and-queue2]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SaveAndQueueLatest2.png
+[save-and-queue]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SaveandQueueLatest.png
+[save-and-queue2]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SaveandQueueLatest2.png
 [select-release-template]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SelectReleaseTemplateLatest.png
 [set-continuous-integration]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SetContinuousIntegration.png
 [add-cluster-connection]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/AddClusterConnectionLatest.png
@@ -202,9 +202,9 @@ Advance to the next tutorial:
 [sfx2]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SFX2.png
 [sfx3]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SFX3.png
 [pending]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/Pending.png
-[changes]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/Changes.png
+[changes]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/ChangesLatest.png
 [unpublished-changes]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/UnpublishedChanges.png
-[push]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/Push.png
+[push]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/PushLatest.png
 [continuous-delivery-with-AzureDevOpsServices]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/VSTS-Dialog.png
 [new-service-endpoint]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/NewServiceEndpoint.png
 [new-service-endpoint-dialog]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/NewServiceEndpointDialog.png
