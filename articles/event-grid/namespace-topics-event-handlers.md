@@ -5,7 +5,7 @@ ms.topic: conceptual
 ms.date: 06/16/2023
 ---
 
-# Event handlers in Azure Event Grid
+# Event handlers for Azure Event Grid namespace topics
 An event handler is the place where the event is sent. The handler takes some further action to process the event.
 
 Several Azure services are automatically configured to handle events. You can also use any webhook for handling events. The webhook doesn't need to be hosted in Azure to handle events. Event Grid only supports HTTPS webhook endpoints.
