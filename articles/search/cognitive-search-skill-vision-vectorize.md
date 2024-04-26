@@ -7,6 +7,7 @@ ms.author: chalton
 ms.service: cognitive-search
 ms.custom:
   - build-2024
+  - references_regions
 ms.topic: reference
 ms.date: 04/23/2024
 ---
@@ -16,9 +17,9 @@ ms.date: 04/23/2024
 > [!IMPORTANT] 
 > This feature is in public preview under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). The [2024-05-01-Preview REST API](/rest/api/searchservice/skillsets/create-or-update?view=rest-searchservice-2024-05-01-Preview&preserve-view=true) supports this feature.
 
-The **Azure AI Services Vision Vectorize** skill uses the [AI Services Vision multi-model vectorization API](../ai-services/computer-vision/concept-image-retrieval.md) to generate embeddings for image or text input.
+The **Azure AI Services Vision Vectorize** skill uses Azure AI Vision's [multimodal embeddings API](../ai-services/computer-vision/concept-image-retrieval.md) to generate embeddings for image or text input.
 
-The skill is only supported in search services who are located in a region that supports the AI Services Vision Vectorize API. Currently this is East US, France Central, Korea Central, North Europe, Southeast Asia, West Europe, West US.
+The skill is only supported in search services located in a region that supports the [Azure AI Vision Multimodal embeddings API](../ai-services/computer-vision/how-to/image-retrieval). Currently this is East US, France Central, Korea Central, North Europe, Southeast Asia, West Europe, and West US.
 
 > [!NOTE]
 > This skill is bound to Azure AI services and requires [a billable resource](cognitive-search-attach-cognitive-services.md) for transactions that exceed 20 documents per indexer per day. Execution of built-in skills is charged at the existing [Azure AI services pay-as-you go price](https://azure.microsoft.com/pricing/details/cognitive-services/).
@@ -57,11 +58,11 @@ Only one of `text`, `image` or `url`/`queryString` can be configured for a singl
 
 | Output	 | Description |
 |--------------------|-------------|
-| `vector` | Vectorized embedding for the input text or image. |
+| `vector` | Output embedding array of floats for the input text or image. |
 
 ## Sample definition
 
-Consider a record that has the following fields:
+For text input, consider a record that has the following fields:
 
 ```json
 {
@@ -112,6 +113,31 @@ For image input, your skill definition might look like this:
 }
 ```
 
+If you want to vectorize images directly from your blob storage datasource, your skill definition might look like this:
+
+```json
+{
+    "@odata.type": "#Microsoft.Skills.Vision.VectorizeSkill",
+    "context": "/document",
+    "modelVersion": "2023-04-15", 
+    "inputs": [
+        {
+            "name": "url",
+            "source": "/document/metadata_storage_path"
+        },
+        {
+            "name": "queryString",
+            "source": "/document/metadata_storage_sas_token"
+        }
+    ],
+    "outputs": [
+        {
+            "name": "vector"
+        }
+    ]
+}
+```
+
 ## Sample output
 
 For the given input text, a vectorized embedding output is produced.
@@ -138,7 +164,7 @@ The output resides in memory. To send this output to a field in the search index
   ]
 ```
 
-For mapping image embeddings to the index, you will need to use the [Index Projections](index-projections-concept-intro.md) feature. The payload for `indexProjections` may look something like this:
+For mapping image embeddings to the index, you will need to use the [Index Projections](index-projections-concept-intro.md) feature. The payload for `indexProjections` might look something like this:
 
 ```json
 "indexProjections": {
