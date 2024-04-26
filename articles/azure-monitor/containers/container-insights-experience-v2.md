@@ -82,6 +82,7 @@ If the banner was previously dismissed, you can instead us the dropdown in the t
 ![Screenshot of AKS cluster with Prometheus based container insights, with recording rule banner.](media/container-insights-experience-v2/ci-prom-recording-rules-loading.png)
 
 
+
 ## Optional steps
 
 While the above steps are sufficient, for the full visualization experience, a few optional steps can be completed.
