@@ -6,8 +6,8 @@ author: laujan
 manager: nitinme
 ms.service: azure-ai-document-intelligence
 ms.topic: conceptual
-ms.date: 02/29/2024
-ms.author: bemabonsu
+ms.date: 04/24/2024
+ms.author: lajanuar
 monikerRange: '>=doc-intel-4.0.0'
 ---
 <!-- markdownlint-disable MD033 -->
@@ -72,9 +72,9 @@ To see how data extraction works for the mortgage documents service, you need th
 
 *See* our [Language Support—prebuilt models](language-support-prebuilt.md) page for a complete list of supported languages.
 
-## Field extraction 1003 End-User License Agreement (EULA)
+## Field extraction 1003 EULA
 
-The following are the fields extracted from a 1003 EULA form in the JSON output response.
+The following are the fields extracted from a 1003 end-user license agreement (EULA) form in the JSON output response.
 
 |Name| Type | Description | Example output |
 |:-----|:----|:----|:---:|
@@ -88,7 +88,7 @@ The following are the fields extracted from a 1003 EULA form in the JSON output 
 
 The 1003 EULA key-value pairs and line items extracted are in the `documentResults` section of the JSON output.
 
-## Field extraction form 1008
+## Field extraction tax form 1008
 
 The following are the fields extracted from a 1008 form in the JSON output response.
 

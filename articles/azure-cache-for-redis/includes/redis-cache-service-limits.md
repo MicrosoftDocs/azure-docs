@@ -1,6 +1,6 @@
 ---
 author: flang-msft
-ms.service: redis-cache
+ms.service: cache
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: franlanglois

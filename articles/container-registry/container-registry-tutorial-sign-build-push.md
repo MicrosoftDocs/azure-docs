@@ -41,16 +41,16 @@ In this tutorial:
     cp ./notation /usr/local/bin
     ```
 
-2. Install the Notation Azure Key Vault plugin `azure-kv` v1.0.2 on a Linux amd64 environment.
+2. Install the Notation Azure Key Vault plugin `azure-kv` v1.1.0 on a Linux amd64 environment.
 
     > [!NOTE]
     > The URL and SHA256 checksum for the Notation Azure Key Vault plugin can be found on the plugin's [release page](https://github.com/Azure/notation-azure-kv/releases).
 
     ```bash
-    notation plugin install --url https://github.com/Azure/notation-azure-kv/releases/download/v1.0.2/notation-azure-kv_1.0.2_linux_amd64.tar.gz --sha256sum f2b2e131a435b6a9742c202237b9aceda81859e6d4bd6242c2568ba556cee20e
+    notation plugin install --url https://github.com/Azure/notation-azure-kv/releases/download/v1.1.0/notation-azure-kv_1.1.0_linux_amd64.tar.gz --sha256sum 2fc959bf850275246b044203609202329d015005574fabbf3e6393345e49b884
     ```
 
-3. List the available plugins and confirm that the `azure-kv` plugin with version `1.0.2` is included in the list. 
+3. List the available plugins and confirm that the `azure-kv` plugin with version `1.1.0` is included in the list. 
 
     ```bash
     notation plugin ls
@@ -200,6 +200,28 @@ The following steps show how to create a self-signed certificate for testing pur
     ```bash
     notation sign --signature-format cose --id $KEY_ID --plugin azure-kv --plugin-config self_signed=true $IMAGE
     ```
+
+    To authenticate with AKV, by default, the following credential types if enabled will be tried in order:
+ 
+    - [Environment credential](/dotnet/api/azure.identity.environmentcredential)
+    - [Workload identity credential](/dotnet/api/azure.identity.workloadidentitycredential)
+    - [Managed identity credential](/dotnet/api/azure.identity.managedidentitycredential)
+    - [Azure CLI credential](/dotnet/api/azure.identity.azureclicredential)
+    
+    If you want to specify a credential type, use an additional plugin configuration called `credential_type`. For example, you can explicitly set `credential_type` to `azurecli` for using Azure CLI credential, as demonstrated below:
+    
+    ```bash
+    notation sign --signature-format cose --id $KEY_ID --plugin azure-kv --plugin-config self_signed=true --plugin-config credential_type=azurecli $IMAGE
+    ```
+
+    See below table for the values of `credential_type` for various credential types.
+
+    | Credential type              | Value for `credential_type` |
+    | ---------------------------- | -------------------------- |
+    | Environment credential       | `environment`              |
+    | Workload identity credential | `workloadid`               |
+    | Managed identity credential  | `managedid`                |
+    | Azure CLI credential         | `azurecli`                 |
     
 5. View the graph of signed images and associated signatures.
 
