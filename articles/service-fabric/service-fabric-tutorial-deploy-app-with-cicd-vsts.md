@@ -77,7 +77,7 @@ An Azure Pipelines release pipeline describes a workflow that deploys an applica
 
 ### Create a build pipeline
 
-Open a web browser and navigate to your new project at: https://dev.azure.com/<organizationname>/VotingSample
+Open a web browser and navigate to your new project at: https://dev.azure.com/\<organizationname\>/VotingSample
 
 Select the **Pipelines** tab and click **Create Pipeline**.
 
