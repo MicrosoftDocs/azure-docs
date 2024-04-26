@@ -106,6 +106,7 @@ After learning about Dapr and some of the challenges it solves, try [Deploying a
 [dapr-quickstart]: ./quickstart-dapr.md
 [dapr-migration]: ./dapr-migration.md
 [aks-msi]: ./use-managed-identity.md
+[dapr-configuration-options]: ./dapr-settings.md
 
 <!-- Links External -->
 [dapr-docs]: https://docs.dapr.io/
