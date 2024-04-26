@@ -12,7 +12,7 @@ ms.topic: how-to
 ---
 # Export test results from Azure Load Testing for use in third-party tools
 
-In this article, you learn how to export your Azure Load Testing test results and reports. You can download the results by using the Azure portal, as an artifact in your CI/CD workflow, in JMeter by using a backend listener, or by copying the results from an Azure storage account. You might use these results for reporting in third-party tools or for diagnosing test failures. Azure Load Testing generates the test results in comma-separated values (CSV) file format, and provides details of each application request for the load test. 
+In this article, you learn how to export your Azure Load Testing test results and reports. You can download the results by using the Azure portal, as an artifact in your CI/CD workflow, in JMeter by using a backend listener, or by copying the results from an Azure storage account. You might use these results for reporting in third-party tools or for diagnosing test failures. Azure Load Testing generates the test results in comma-separated values (CSV) file format, and provides details of each application request for the load test.
 
 You can also use the test results to diagnose errors during a load test. The `responseCode` and `responseMessage` fields give you more information about failed requests. For more information about investigating errors, see [Diagnose failing load tests](./how-to-diagnose-failing-load-test.md).
 
@@ -77,7 +77,7 @@ To download the test results and report for a test run in the Azure portal:
      
    * To download the HTML report, select **Download** on the **Test run details** pane, and then select **Report**.
 
-     :::image type="content" source="media/how-to-export-test-results/dashboard-download.png" alt-text="Screenshot that shows how to download the test results from the 'Test run details' pane.":::
+     :::image type="content" source="media/how-to-export-test-results/dashboard-report.png" alt-text="Screenshot that shows how to download the test report from the 'Test run details' pane.":::
 
 1. You can use any zip tool to extract the folder and access the downloaded files.
 
