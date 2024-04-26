@@ -122,3 +122,23 @@ As this feature is currently in preview, there are several, known limitations, t
 * Partial or no data available in the multi-cluster view based on container insights DCR settings
 
 ## Troubleshooting
+
+### Unable to access Data Collection Rule
+
+This occurs when the user does not have permissions to view the associated Prometheus data collection rule for the cluster. To resolve this error, grant access to the Prometheus data collection rule.
+
+### Unable to access Azure Monitor workspace
+
+This occurs when the user does not have permissions to view the associated Azure Monitor workspace for the cluster. To resolve this error, grant access to the Azure Monitor workspace.
+
+### The data could not be retrieved
+
+This error typically occurs when querying large volumes of data. This can be resolved by reducing the time range to a shorter window or filtering for fewer objects.
+
+### Access denied
+
+This occurs when the user's portal token expires or does not have permissions to view the associated Azure Monitor workspace for the cluster. This can typically be resolved by refreshing the browser session or logging in again.
+
+### An unknown error occurred
+
+If this error message persists, please contact support to open up a ticket.
