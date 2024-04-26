@@ -41,8 +41,8 @@ As a fully managed service, Azure Cosmos DB takes database administration off yo
 
 The following free options are available:
 
-* [Azure Cosmos DB lifetime free tier](free-tier.md) provides the first 1000 [RU/s](request-units.md) of throughput and 25 GB of storage free.
-* [Azure AI Advantage](ai-advantage.md) offers 40,000 [RU/s](request-units.md) (equivalent of up to $6,000) of throughput for 90 days to Azure AI or GitHub Copilot customers.
+* [Azure Cosmos DB lifetime free tier](free-tier.md) provides 1000 [RU/s](request-units.md) of throughput and 25 GB of storage free.
+* [Azure AI Advantage](ai-advantage.md) offers 40,000 [RU/s](request-units.md) of throughput for 90 days (equivalent of up to $6,000) to Azure AI or GitHub Copilot customers.
 * [Try Azure Cosmos DB free](https://azure.microsoft.com/try/cosmosdb/) for 30 days without creating an Azure account; no commitment follows when the trial period ends.
 
 When you decide that Azure Cosmos DB is right for you, you can receive up to 63% discount on [Azure Cosmos DB prices through Reserved Capacity](reserved-capacity.md).
