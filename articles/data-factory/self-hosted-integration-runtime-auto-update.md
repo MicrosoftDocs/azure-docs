@@ -48,6 +48,45 @@ If you have multiple nodes, and for some reasons that some of them aren't auto-u
 ## Self-hosted Integration Runtime Expire Notification
 If you want to manually control which version of self-hosted integration runtime, you can disable the setting of auto-update and install it manually. Each version of self-hosted integration runtime expires in one year. The expiring message is shown in ADF portal and self-hosted integration runtime client **90 days** before expiration.
 
+When you receive the expire notification, you can use below PowerShell command to find all expired and expiring self-hosted integration runtime in your environment. Then you can upgrade them accordingly.
+
+```powershell
+$upperVersion = "<expiring version>" # the format is [major].[minor]. For example: 5.25
+$subscription = "<subscription id>"
+ 
+az login
+az account set --subscription "$subscription"
+ 
+$factories = az datafactory list | ConvertFrom-Json
+ 
+$results = @();
+for ($i = 0; $i -lt $factories.Count; $i++) {
+    $factory = $factories[$i]
+    Write-Progress -Activity "Checking data factory '$($factory.name)'" -PercentComplete $($i * 100.0 / $factories.Count)
+    $shirs = az datafactory integration-runtime list --factory-name $factory.name --resource-group $factory.resourceGroup | ConvertFrom-Json | Where-Object {$_.properties.type -eq "SelfHosted"}
+    for ($j = 0; $j -lt $shirs.Count; $j++) {
+        $shir = $shirs[$j]
+        Write-Progress -Activity "Checking data factory '$($factory.name)', checking integration runtime '$($shir.name)'" -PercentComplete $($i * 100.0 / $factories.Count + (100.0 * $j / ($factories.Count * $shirs.Count)))
+        $status = az datafactory integration-runtime get-status --factory-name $factory.name --resource-group $factory.resourceGroup --integration-runtime-name $shir.name | ConvertFrom-Json
+        $shirVersion = $status.properties.version
+        $result = @{
+            subscription = $subscription
+            resourceGroup = $factory.resourceGroup
+            factory = $factory.name
+            integrationRuntime = $shir.name
+            integrationRuntimeVersion = $shirVersion
+            expiring_or_expired = (-not [string]::IsNullOrWhiteSpace($shirVersion) -and ((([Version]$shirVersion) -lt ([Version]"$($upperVersion).0.0")) -or $shirVersion.StartsWith("$($upperVersion).")))
+        }
+        $result | Format-Table -AutoSize
+        $results += [PSCustomObject]$result
+    }
+}
+ 
+Write-Host "Expiring or expired Self-Hosted Integration Runtime includes: "
+$results | Where-Object {$_.expiring_or_expired -eq $true} | Select-Object -Property subscription,resourceGroup,factory,integrationRuntime,integrationRuntimeVersion | Format-Table -AutoSize
+```
+
+
 ## Related content
 
 - Review [integration runtime concepts in Azure Data Factory](./concepts-integration-runtime.md).
