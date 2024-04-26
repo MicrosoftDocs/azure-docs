@@ -722,8 +722,8 @@ items:
             href: concepts/interop/custom-teams-endpoint-firewall-configuration.md
           - name: Government clouds
             href: concepts/interop/teams-user/government-cloud.md
-          - name: Add Teams interop group calls to your app
-            href: quickstarts/voice-video-calling/get-started-teams-interop-group-calls.md  
+          - name: Capabilities for Microsoft Teams users in Azure Communication Services group calls
+            href: concepts/interop/teams-interop-group-calls.md
       - name: Virtual visits
         items:
           - name: Overview
