@@ -2,8 +2,8 @@
 title: Introduction to Azure Kubernetes Service (AKS) Automatic (preview)
 description: Learn the features and benefits of Azure Kubernetes Service Automatic to deploy and manage container-based applications in Azure.
 ms.topic: overview
-ms.custom: build-2023
-ms.date: 05/02/2023
+ms.custom: build-2024
+ms.date: 05/21/2024
 author: sabbour
 ms.author: asabbour
 
