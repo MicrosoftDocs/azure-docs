@@ -35,8 +35,6 @@ This quickstart can be run on macOS, Windows, or Linux.  You will need the follo
 [!INCLUDE [Create instance](includes/signalr-quickstart-create-instance.md)]
 
 ::: zone pivot="python-mode-decorators"
-#### Python v2 model
-
 ## Create the Azure Function project
 
 Create a local Azure Function project.
@@ -133,8 +131,6 @@ This function uses a time trigger to periodically broadcast messages to all clie
 ::: zone-end
 
 ::: zone pivot="python-mode-configuration"
-#### Python v1 model
-
 ## Create the Azure Function project
 
 Create a local Azure Function project.
