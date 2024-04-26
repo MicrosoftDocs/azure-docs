@@ -30,15 +30,15 @@ When you reach the limit for a resource in your subscription, you can request an
 
 - To create a support request, your Azure account needs the [Owner](../role-based-access-control/built-in-roles.md#owner), [Contributor](../role-based-access-control/built-in-roles.md#contributor), or [Support Request Contributor](../role-based-access-control/built-in-roles.md#support-request-contributor) role at the subscription level.
 
-## Determine resource usage and quota for Dev Box  
-
-Understanding quota limits that affect your Dev Box resources helps you to plan for future use. You can check the [default subscription limit](/azure/azure-resource-manager/management/azure-subscription-service-limits?branch=main#microsoft-dev-box-limits) for each resource, view your current usage, and determine how much quota remains in each region. By monitoring the rate at which your quota is used, you can plan and prepare to request a quota limit increase before you reach the quota limit for the resource. 
+## Determine resource usage and quota for Dev Box through QMS  
 
 To help you understand where and how you're using your quota, the Quota Management System (QMS) provides a detailed report of resource usage across resources types in each of your subscriptions on the **My Quotas** page. QMS provides several advantages to the Dev Box service including:  
 
 - Improved User Experience for an easier requesting process.
 - Expedited approvals via automation based on thresholds.  
-- Metrics to monitor quota usage in existing subscription.  
+- Metrics to monitor quota usage in existing subscription.
+
+Understanding quota limits that affect your Dev Box resources helps you to plan for future use. You can check the [default subscription limit](/azure/azure-resource-manager/management/azure-subscription-service-limits?branch=main#microsoft-dev-box-limits) for each resource, view your current usage, and determine how much quota remains in each region. By monitoring the rate at which your quota is used, you can plan and prepare to request a quota limit increase before you reach the quota limit for the resource. 
 
 ## Request a quota increase through QMS
 
