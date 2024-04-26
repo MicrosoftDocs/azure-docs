@@ -41,7 +41,7 @@ Before you can enable `azure_ai` and `pgvector` on your Azure Database for Postg
 
 Then you can install the extension, by connecting to your target database and running the [CREATE EXTENSION](https://www.postgresql.org/docs/current/static/sql-createextension.html) command. You need to repeat the command separately for every database you want the extension to be available in.
 
-```postgresql
+```sql
 CREATE EXTENSION azure_ai;
 CREATE EXTENSION pgvector;
 ```
@@ -50,7 +50,7 @@ CREATE EXTENSION pgvector;
 
 In the Azure AI services under **Resource Management** > **Keys and Endpoints** you can find the endpoint and the keys for your Azure AI resource. Use the endpoint and one of the keys to enable `azure_ai` extension to invoke the model deployment.
 
-```postgresql
+```sql
 select azure_ai.set_setting('azure_openai.endpoint','https://<endpoint>.openai.azure.com');
 select azure_ai.set_setting('azure_openai.subscription_key', '<API Key>');
 ```
@@ -66,7 +66,7 @@ select azure_ai.set_setting('azure_openai.subscription_key', '<API Key>');
 
 ### Create the table
 
-```postgresql
+```sql
 CREATE TABLE public.recipes( 
     rid integer NOT NULL, 
     recipe_name text, 
@@ -109,7 +109,7 @@ psql -d <database> -h <host> -U <user> -c "\copy recipes FROM <local recipe data
 
 ### Add a column to store the embeddings
 
-```postgresql
+```sql
 ALTER TABLE recipes ADD COLUMN embedding vector(1536); 
 ```
 
@@ -117,7 +117,7 @@ ALTER TABLE recipes ADD COLUMN embedding vector(1536);
 
 Generate embeddings for your data using the azure_ai extension. In the following, we vectorize a few different fields, concatenated:
 
-```postgresql
+```sql
 WITH ro AS (
     SELECT ro.rid
     FROM
@@ -146,7 +146,7 @@ Repeat the command, until there are no more rows to process.
 
 Create a search function in your database for convenience:
 
-```postgresql
+```sql
 create function
     recipe_search(searchQuery text, numResults int)
 returns table(
@@ -174,7 +174,7 @@ language plpgsql;
 
 Now just invoke the function to search:
 
-```postgresql
+```sql
 select recipeid, recipe_name, score from recipe_search('vegan recipes', 10);
 ```
 
