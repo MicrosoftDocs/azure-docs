@@ -36,7 +36,7 @@ Quorum-based applications, clustered databases (SQL, MongoDB), enterprise-grade 
 
 Availability zones are separated groups of data centers within a region that have independent power, cooling, and networking infrastructure. They're close enough to have low-latency connections to other availability zones but far enough to reduce the possibility that more than one is affected by local outages or weather. See [What are availability zones?](../reliability/availability-zones-overview.md) for details.
 
-VMs deployed across three availability zones have the highest uptime [SLA](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services?lang=1).
+VMs deployed across three availability zones have the highest uptime [SLA](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services?lang=1). Availability zones aren't currently available in every region, see [Azure regions with availability zone support](../reliability/availability-zones-service-support.md#azure-regions-with-availability-zone-support).
 
 #### Use zone-redundant Virtual Machine Scale Sets with flexible orchestration
 
