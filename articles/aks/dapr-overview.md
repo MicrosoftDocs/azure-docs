@@ -15,7 +15,7 @@ ms.date: 04/22/2024
 - Observability
 - Secret management 
 
-Dapr is incrementally adoptable. You can use any of the API building blocks as needed. [Learn the support level Microsoft offers for each Dapr API and component.](#components-and-apis)
+Dapr is incrementally adoptable. You can use any of the API building blocks as needed. [Learn the support level Microsoft offers for each Dapr API and component.](#currently-supported)
 
 :::image type="content" source="./media/dapr-overview/dapr-building-blocks.png" alt-text="Diagram showing how many different code frameworks can interface with the various building blocks of Dapr via HTTP or gRPC." lightbox="./media/dapr-overview/dapr-building-blocks.png":::
 
@@ -47,26 +47,24 @@ The following table breaks down support priority levels for each of these catego
 |   | Description | Security risks/Regressions | Functional issues |
 | - | ----------- | -------------------------- | ----------------- |
 | **Extension operations** | Issues encountered during extension operations, such as installing/uninstalling or upgrading the Dapr extension. | Microsoft prioritizes for immediate resolution. | Microsoft investigates and addresses as needed. | 
-| **Dapr runtime** | Issues encountered when using the Dapr runtime, APIs, and components via the extension. | Microsoft works with the open source community to investigate high priority issues. Depending on priority, severity, and size of the issue, Microsoft either resolves them immediately in the extension, or works with the Dapr open source project to resolve in a hotfix or future Dapr open source release. Once fixes are released in Dapr open source, they are then made available in the Dapr extension. | Microsoft investigates new functional issues alongside the Dapr open source project and collaborates with them to resolve in a hotfix or future Dapr open source release. Known open source functional issues won't be investigated by Microsoft at this time. |
+| **Dapr runtime** | Issues encountered when using the Dapr runtime, APIs, and components via the extension. | Microsoft works with the open source community to investigate high priority issues. Depending on priority, severity, and size of the issue, Microsoft either resolves them directly in the extension, or works with the Dapr open source project to resolve in a hotfix or future Dapr open source release. Once fixes are released in Dapr open source, they are then made available in the Dapr extension. | Microsoft investigates new functional issues alongside the Dapr open source project and collaborates with them to resolve in a hotfix or future Dapr open source release. Known open source functional issues won't be investigated by Microsoft at this time. |
 
 ### Dapr versions
 
-The Dapr extension support varies depending on how you manage the runtime. 
+Microsoft provides best-effort support for [the latest version of Dapr and two previous versions (N-2)][dapr-supported-version]. The latest patch version is the only supported version of each minor version release. Currently, the Dapr extension for AKS or Arc-enabled Kubernetes supports the following Dapr versions:
 
-**Self-managed**  
-For self-managed runtime, Microsoft provides best-effort support for [the latest version of Dapr and two previous versions (N-2)][dapr-supported-version]. The latest patch version is the only supported version of each minor version release.
+- 1.13.x 
+- 1.12.x 
+- 1.11.x 
 
-Currently, the Dapr extension for AKS or Arc-enabled Kubernetes supports the following Dapr versions:
+The Dapr extension support varies depending on how you manage the runtime.
 
-- 1.13.2 
-- 1.12.4 
-- 1.11.6* 
-
-_*This version will be retired once the next Dapr version is released._
-
+#### Self-managed 
 Self-managed runtime requires manual upgrade to remain in the support window. To upgrade Dapr via the extension, follow the [Update extension instance](deploy-extensions-az-cli.md#update-extension-instance) instructions.
 
-**Auto-upgrade**  
+After a Dapr runtime version reaches end of Microsoft support, your applications continue to run unchanged. However, Microsoft can no longer provide security patches or related customer support for that runtime version. If your application encounters any problems past the end-of-support date for that version, we recommend upgrading to a supported version to receive the latest security patches and features.
+
+#### Auto-upgrade  
 Enabling auto-upgrade requires careful consideration. While auto-upgrade keeps your Dapr extension updated to the latest minor version, you may experience breaking changes between updates. Microsoft isn't responsible for any downtime caused due to breaking changes between auto-updates.
 
 ### Components and APIs
