@@ -25,10 +25,12 @@ Fast transcription API is used to transcribe audio files with returning results 
 
 ## Prerequisites
 
-- A Speech resource in one of the regions where the fast transcription API is available. The supported regions are: Australia East, Brazil South, Central India, East US, East US 2, Japan East, North Central US, North Europe, South Central US, Southeast Asia, Sweden Central, West Europe, West US, and West US 2. For more information about regions supported for other Speech service features, see [Speech service regions](./regions.md).
+- An Azure AI Speech resource in one of the regions where the fast transcription API is available. The supported regions are: Australia East, Brazil South, Central India, East US, East US 2, Japan East, North Central US, North Europe, South Central US, Southeast Asia, Sweden Central, West Europe, West US, and West US 2. For more information about regions supported for other Speech service features, see [Speech service regions](./regions.md).
 - An audio file (less than 2 hours long and less than 200 MB in size) in one of the supported formats and codecs: WAV, MP3, OPUS/OGG, FLAC, WMA, AAC, ALAW in WAV container, MULAW in WAV container, AMR, WebM, M4A, and SPEEX.
 
 ## Use the fast transcription API
+
+The fast transcription API is a REST API that uses multipart/form-data to submit audio files for transcription. The API returns the transcription results synchronously.
 
 Construct the request body according to the following instructions:
 
@@ -63,7 +65,6 @@ curl --location 'https://YourServiceRegion.api.cognitive.microsoft.com/speechtot
 The response will include `timestamp`, `durationInTicks`, `duration`, and more. 
 - The `combinedRecognizedPhrases` property contains the full transcriptions for each channel separately. For example, everything the first speaker said is in the first element of the `combinedRecognizedPhrases` array, and everything the second speaker said is in the second element of the array. 
 - Since we specified `wordLevelTimestampsEnabled` as `true`, the response will include word-level timestamps. 
-- 
 
 ```json
 {
@@ -204,7 +205,7 @@ You can compare transcription results with the [speech to text real-time API](./
 - The real-time API is limited to 60 seconds of audio. The fast transcription API is designed for longer audio files and returns results much faster than real-time audio.
 - The real-time API doesn't support channel separation. The fast transcription API supports channel separation and returns results for each channel separately.
 
-Here's an example request:
+Here's an example transcription request using the [speech to text real-time API](./rest-speech-to-text-short.md). 
 
 - Replace `YourSubscriptionKey` with your Speech resource key.
 - Replace `YourServiceRegion` with your Speech resource region.
@@ -218,7 +219,7 @@ curl --location --request POST \
 --data-binary YourAudioFile
 ```
 
-Here's an example transcription response using the [speech to text real-time API](./rest-speech-to-text-short.md). Only the first 60 seconds of the provided audio file is transcribed to text.
+Here's an example response. Only the first 60 seconds of the provided audio file is transcribed to text.
 
 ```json
 {
