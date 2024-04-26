@@ -25,7 +25,7 @@ Fast transcription API is used to transcribe audio files with returning results 
 
 ## Prerequisites
 
-- A Speech resource in one of the regions where the fast transcription API is available. The supported regions are: Australia East, Brazil South, Central India, East US, East US 2, Japan East, North Central US, North Europe, South Central US, Southeast Asia, Sweden Central, West Europe, West US, and West US 2. For more information about regions supported for other Speech service features, see [Speech service regions](./speech-service-regions.md).
+- A Speech resource in one of the regions where the fast transcription API is available. The supported regions are: Australia East, Brazil South, Central India, East US, East US 2, Japan East, North Central US, North Europe, South Central US, Southeast Asia, Sweden Central, West Europe, West US, and West US 2. For more information about regions supported for other Speech service features, see [Speech service regions](./regions.md).
 - An audio file (less than 2 hours long and less than 200 MB in size) in one of the supported formats and codecs: WAV, MP3, OPUS/OGG, FLAC, WMA, AAC, ALAW in WAV container, MULAW in WAV container, AMR, WebM, M4A, and SPEEX.
 
 ## Use the fast transcription API
