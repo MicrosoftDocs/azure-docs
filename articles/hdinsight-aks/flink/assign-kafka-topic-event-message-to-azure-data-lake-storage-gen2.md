@@ -133,7 +133,7 @@ public class KafkaSinkToGen2 {
 
          env.getConfig().setGlobalJobParameters(flinkConfig);  
 
-        // 1. read kafka message as stream input, update your broker ip's
+        // 2. read kafka message as stream input, update your broker ip's
         String brokers = "<update-broker-ip>:9092,<update-broker-ip>:9092,<update-broker-ip>:9092";
         KafkaSource<String> source = KafkaSource.<String>builder()
                 .setBootstrapServers(brokers)
