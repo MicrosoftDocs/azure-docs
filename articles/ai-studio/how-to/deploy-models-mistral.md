@@ -24,7 +24,7 @@ Mistral AI offers two categories of models in [Azure AI Studio](https://ai.azure
 
 You can browse the Mistral family of models in the [Model Catalog](model-catalog.md) by filtering on the Mistral collection.
 
-## Mistral family of Models
+## Mistral family of models
 
 # [Mistral Large](#tab/mistral-large)
 
