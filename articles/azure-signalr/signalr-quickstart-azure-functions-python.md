@@ -8,6 +8,7 @@ ms.topic: quickstart
 ms.service: signalr
 ms.devlang: python
 ms.custom: devx-track-python, mode-api
+zone_pivot_groups: python-mode-functions
 ---
 # Quickstart: Create a serverless app with Azure Functions and Azure SignalR Service in Python
 
@@ -33,7 +34,8 @@ This quickstart can be run on macOS, Windows, or Linux.  You will need the follo
 
 [!INCLUDE [Create instance](includes/signalr-quickstart-create-instance.md)]
 
-#### [Python v2 model](#tab/python-v2)
+::: zone pivot="python-mode-decorators"
+#### Python v2 model
 
 ## Create the Azure Function project
 
@@ -128,8 +130,10 @@ Add the function `broadcast` by adding the following code
     ```
 
 This function uses a time trigger to periodically broadcast messages to all clients.
+::: zone-end
 
-#### [Python v1 model](#tab/python-v1)
+::: zone pivot="python-mode-configuration"
+#### Python v1 model
 
 ## Create the Azure Function project
 
@@ -310,8 +314,7 @@ You can use this sample function as a template for your own functions.
           'arguments': [ 'Current star count of https://github.com/Azure/azure-signalr is: ' + str(start_count) ]
       }))
   ```
-
----
+::: zone-end
 
 ### Create the index.html file
 
