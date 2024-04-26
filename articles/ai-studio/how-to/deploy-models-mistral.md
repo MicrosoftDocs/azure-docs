@@ -5,9 +5,9 @@ description: Learn how to deploy Mistral Large with Azure AI Studio.
 manager: scottpolly
 ms.service: azure-ai-studio
 ms.topic: how-to
-ms.date: 4/22/2024
-ms.reviewer: mopeakande
-ms.author: fkriti
+ms.date: 04/26/2024
+ms.reviewer: fkriti
+ms.author: mopeakande
 author: msakande
 ms.custom: [references_regions]
 ---
@@ -16,27 +16,26 @@ ms.custom: [references_regions]
 
 [!INCLUDE [Azure AI Studio preview](../includes/preview-ai-studio.md)]
 
-In this article, you learn how to use Azure AI Studio to deploy the Mistral family of models as a service with pay-as you go billing.
+In this article, you learn how to use Azure AI Studio to deploy the Mistral family of models as a service with pay-as-you-go billing.
 
 Mistral AI offers two categories of models in [Azure AI Studio](https://ai.azure.com):
-* Premium models: Mistral Large and Mistral Small. These models are available with pay-as-you-go token based billing with Models as a Service in the AI Studio model catalog. 
-* Open models: Mixtral-8x7B-Instruct-v01, Mixtral-8x7B-v01, Mistral-7B-Instruct-v01, and Mistral-7B-v01. These models are also available in the AI Studio model catalog and can be deployed to dedicated VM instances in your own Azure subscription with Managed Online Endpoints.
+* __Premium models__: Mistral Large and Mistral Small. These models are available with pay-as-you-go token-based billing with Models as a Service in the AI Studio model catalog. 
+* __Open models__: Mixtral-8x7B-Instruct-v01, Mixtral-8x7B-v01, Mistral-7B-Instruct-v01, and Mistral-7B-v01. These models are also available in the AI Studio model catalog and can be deployed to dedicated VM instances in your own Azure subscription with managed online endpoints.
 
 You can browse the Mistral family of models in the [Model Catalog](model-catalog.md) by filtering on the Mistral collection.
 
 ## Mistral family of Models
 
-In this article, you learn how to use Azure AI Studio to deploy the Mistral family of models as a service with pay-as-you-go billing.
 # [Mistral Large](#tab/mistral-large)
 
-Mistral Large is Mistral AI's most advanced Large Language Model (LLM). It can be used on any language-based task thanks to its state-of-the-art reasoning and knowledge capabilities.
+Mistral Large is Mistral AI's most advanced Large Language Model (LLM). It can be used on any language-based task, thanks to its state-of-the-art reasoning and knowledge capabilities.
 
-Additionally, mistral-large is:
+Additionally, Mistral Large is:
 
-* Specialized in RAG. Crucial information isn't lost in the middle of long context windows (up to 32-K tokens).
-* Strong in coding. Code generation, review, and comments. Supports all mainstream coding languages.
-* Multi-lingual by design. Best-in-class performance in French, German, Spanish, and Italian - in addition to English. Dozens of other languages are supported.
-* Responsible AI. Efficient guardrails baked in the model and another safety layer with the `safe_mode` option.
+* __Specialized in RAG.__ Crucial information isn't lost in the middle of long context windows (up to 32-K tokens).
+* __Strong in coding.__ Code generation, review, and comments. Supports all mainstream coding languages.
+* __Multi-lingual by design.__ Best-in-class performance in French, German, Spanish, Italian, and English. Dozens of other languages are supported.
+* __Responsible AI compliant.__ Efficient guardrails baked in the model and another safety layer with the `safe_mode` option.
 
 # [Mistral Small](#tab/mistral-small)
 
@@ -44,17 +43,17 @@ Mistral Small is Mistral AI's most efficient Large Language Model (LLM). It can 
 
 Mistral Small is:
 
-- **A small model optimized for low latency.** Very efficient for high volume and low latency worloads. Mistral Small is Mistral's smallest proprietary model, it outperforms Mixtral 8x7B and has lower latency. 
-- **Specialized in RAG.** Crucial information is not lost in the middle of long context windows (up to 32K tokens).
-- **Strong in coding.** Code generation, review and comments. Supports all mainstream coding languages.
-- **Multi-lingual by design.** Best-in-class performance in French, German, Spanish, and Italian - in addition to English. Dozens of other languages are supported.
-- **Responsible AI.** Efficient guardrails baked in the model, with additional safety layer with safe_mode option
+- **A small model optimized for low latency.** Very efficient for high volume and low latency workloads. Mistral Small is Mistral's smallest proprietary model, it outperforms Mixtral-8x7B and has lower latency. 
+- **Specialized in RAG.** Crucial information isn't lost in the middle of long context windows (up to 32K tokens).
+- **Strong in coding.** Code generation, review, and comments. Supports all mainstream coding languages.
+- **Multi-lingual by design.** Best-in-class performance in French, German, Spanish, Italian, and English. Dozens of other languages are supported.
+- **Responsible AI compliant.** Efficient guardrails baked in the model, and extra safety layer with the `safe_mode` option.
 ---
 ## Deploy Mistral family of models with pay-as-you-go
 
-Certain models in the model catalog can be deployed as a service with pay-as-you-go, providing a way to consume them as an API without hosting them on your subscription, while keeping the enterprise security and compliance organizations need. This deployment option doesn't require quota from your subscription.
+Certain models in the model catalog can be deployed as a service with pay-as-you-go. Pay-as-you-go deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. This deployment option doesn't require quota from your subscription.
 
-**Mistral Large** and **Mistral Small** can be deployed as a service with pay-as-you-go, and is offered by Mistral AI through the Microsoft Azure Marketplace. Mistral AI can change or update the terms of use and pricing of this model.
+**Mistral Large** and **Mistral Small** can be deployed as a service with pay-as-you-go and are offered by Mistral AI through the Microsoft Azure Marketplace. Mistral AI can change or update the terms of use and pricing of these models.
 
 ### Prerequisites
 
@@ -65,14 +64,12 @@ Certain models in the model catalog can be deployed as a service with pay-as-you
     > For Mistral family models, the pay-as-you-go model deployment offering is only available with AI hubs created in **East US 2** and **France Central** regions.
 
 - An [Azure AI project](../how-to/create-projects.md) in Azure AI Studio.
-- Azure role-based access controls (Azure RBAC) are used to grant access to operations in Azure AI Studio. To perform the steps in this article, your user account must be assigned the __Azure AI Developer role__ on the resource group.
-
-    For more information on permissions, see [Role-based access control in Azure AI Studio](../concepts/rbac-ai-studio.md).
+- Azure role-based access controls (Azure RBAC) are used to grant access to operations in Azure AI Studio. To perform the steps in this article, your user account must be assigned the __Azure AI Developer role__ on the resource group. For more information on permissions, see [Role-based access control in Azure AI Studio](../concepts/rbac-ai-studio.md).
 
 
 ### Create a new deployment
 
-Following steps demonstrate the deployment of Mistral Large but same steps can be followed to deploy Mistal Small by replacing the model name.
+The following steps demonstrate the deployment of Mistral Large, but you can use the same steps to deploy Mistral Small by replacing the model name.
 
 To create a deployment:
 
@@ -85,7 +82,7 @@ To create a deployment:
 
     :::image type="content" source="../media/deploy-monitor/mistral/mistral-deploy-pay-as-you-go.png" alt-text="A screenshot showing how to deploy a model with the pay-as-you-go option." lightbox="../media/deploy-monitor/mistral/mistral-deploy-pay-as-you-go.png":::
 
-1. Select the project in which you want to deploy your model. To deploy the Mistral-large model your project must be in the **East US 2** or **France Central** regions.
+1. Select the project in which you want to deploy your model. To deploy the Mistral-large model, your project must be in the **East US 2** or **France Central** regions.
 1. In the deployment wizard, select the link to **Azure Marketplace Terms** to learn more about the terms of use.
 1. You can also select the **Marketplace offer details** tab to learn about pricing for the selected model.
 1. If this is your first time deploying the model in the project, you have to subscribe your project for the particular offering. This step requires that your account has the **Azure AI Developer role** permissions on the Resource Group, as listed in the prerequisites. Each project has its own subscription to the particular Azure Marketplace offering of the model, which allows you to control and monitor spending. Select **Subscribe and Deploy**. Currently you can have only one deployment for each model within a project.
@@ -107,9 +104,9 @@ To create a deployment:
 
 To learn about billing for the Mistral AI model deployed with pay-as-you-go, see [Cost and quota considerations for Mistral Large deployed as a service](#cost-and-quota-considerations-for-mistral-large-deployed-as-a-service).
 
-### Consume the Mistral faamily of models as a service
+### Consume the Mistral family of models as a service
 
-Mistral Large can be consumed using the chat API.
+You can consume Mistral Large by using the chat API.
 
 1. On the **Build** page, select **Deployments**.
 
@@ -119,7 +116,7 @@ Mistral Large can be consumed using the chat API.
 
 1. Make an API request using the [`/v1/chat/completions`](#chat-api) API using [`<target_url>/v1/chat/completions`](#chat-api).
 
-    For more information on using the APIs, see the [reference](#reference-for-mistral-large-deployed-as-a-service) section.
+For more information on using the APIs, see the [reference](#reference-for-mistral-large-deployed-as-a-service) section.
 
 ### Reference for Mistral family of models deployed as a service
 
@@ -146,7 +143,7 @@ Payload is a JSON formatted string containing the following parameters:
 | `stream`      | `boolean` | `False` | Streaming allows the generated tokens to be sent as data-only server-sent events whenever they become available.  |
 | `max_tokens`  | `integer` | `8192`    | The maximum number of tokens to generate in the completion. The token count of your prompt plus `max_tokens` can't exceed the model's context length. |
 | `top_p`       | `float`   | `1`     | An alternative to sampling with temperature, called nucleus sampling, where the model considers the results of the tokens with `top_p` probability mass. So 0.1 means only the tokens comprising the top 10% probability mass are considered. We generally recommend altering `top_p` or `temperature`, but not both.  |
-| `temperature` | `float`   | `1`     | The sampling temperature to use, between 0 and 2. Higher values mean the model samples more broadly the distribution of tokens. Zero means greedy sampling. We recommend altering this or `top_p`, but not both.  |
+| `temperature` | `float`   | `1`     | The sampling temperature to use, between 0 and 2. Higher values mean the model samples more broadly the distribution of tokens. Zero means greedy sampling. We recommend altering this parameter or `top_p`, but not both.  |
 | `ignore_eos`          | `boolean` | `False`  | Whether to ignore the EOS token and continue generating tokens after the EOS token is generated. |
 | `safe_prompt` | `boolean` | `False`  | Whether to inject a safety prompt before all conversations. |
 
@@ -226,7 +223,7 @@ The `logprobs` object is a dictionary with the following fields:
 
 #### Example
 
-The following is an example response:
+The following JSON is an example response:
 
 ```json
 {
@@ -277,7 +274,7 @@ Quota is managed per deployment. Each deployment has a rate limit of 200,000 tok
 
 Models deployed as a service with pay-as-you-go are protected by [Azure AI Content Safety](../../ai-services/content-safety/overview.md). With Azure AI content safety, both the prompt and completion pass through an ensemble of classification models aimed at detecting and preventing the output of harmful content. The content filtering system detects and takes action on specific categories of potentially harmful content in both input prompts and output completions. Learn more about [content filtering here](../concepts/content-filtering.md).
 
-## Next steps
+## Related content
 
 - [What is Azure AI Studio?](../what-is-ai-studio.md)
 - [Azure AI FAQ article](../faq.yml)
