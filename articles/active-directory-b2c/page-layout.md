@@ -311,7 +311,7 @@ Azure AD B2C page layout uses the following versions of the [jQuery library](htt
 - Fixed accessibility bugs.
 
 **1.2.9**
-- Fixed `Enter` event trigger on MFA.
+- Fixes `Enter` event trigger on MFA.
 - CSS changes render page text/control in vertical manner for small screens
 - Fixed Multifactor tab navigation bug.
 
