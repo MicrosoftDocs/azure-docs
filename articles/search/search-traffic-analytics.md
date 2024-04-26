@@ -177,7 +177,7 @@ Metrics included the following items:
 
 The following screenshot shows what a built-in report might look like if you have used all of the schema elements.
 
-:::image type="content" source="/media/search-traffic-analytics/azuresearch-powerbi-dashboard.png" alt-text="Screenshot showing the built-in report using all available schema elements. ":::
+:::image type="content" source="media/search-traffic-analytics/azuresearch-powerbi-dashboard.png" alt-text="Screenshot showing the built-in report using all available schema elements. ":::
 
 ## Next steps
 
