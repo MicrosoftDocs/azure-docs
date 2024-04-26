@@ -22,7 +22,7 @@ Use this article to troubleshoot and resolve common issues that you might encoun
 When you're creating a build, do the following:
 
 - The VM Image Builder service communicates to the build VM by using WinRM or Secure Shell (SSH). Don't* disable these settings as part of the build.
-- VM Image Builder creates resources in the staging resource group as part of the builds. Be sure to verify that Azure Policy doesn't prevent VM Image Builder from creating or using necessary resources.
+- VM Image Builder creates resources in the staging resource group as part of the builds. The exact list of resources depends on the [networking configuration](./image-builder-json.md#vnetconfig-optional) specified in the image template.  Be sure to verify that Azure Policy doesn't prevent VM Image Builder from creating or using necessary resources.
   - Create an IT_ resource group.
   - Create a storage account without a firewall.
   - Deploy [Azure Container Instances](../../container-instances/container-instances-overview.md).
@@ -800,7 +800,7 @@ Azure Image Builder builds can fail for reasons listed elsewhere in this documen
 
 #### Solution
 If you determine that a build is failing due to Isolated Image Builds, you can do the following:
-- Ensure there's no [Azure Policy](../../governance/policy/overview.md) blocking the deployment of resources mentioned in the Prerequisites section, specifically Azure Container Instances, Azure Virtual Networks, and Azure Private Endpoints.
+- Ensure there's no [Azure Policy](../../governance/policy/overview.md) blocking the deployment of resources mentioned in the [Prerequisites section](./image-builder-troubleshoot.md#prerequisites), specifically Azure Container Instances.
 - Ensure your subscription has sufficient quota of Azure Container Instances to support all your concurrent image builds. For more information, see, Azure Container Instances [quota exceeded](./image-builder-troubleshoot.md#azure-container-instances-quota-exceeded).
 
 Azure Image Builder is currently in the process of deploying Isolated Image Builds. Specific image templates are not tied to Isolated Image Builds and the same image template might or might not utilize Isolated Image Builds during different builds. You can do the following to temporarily run your build without Isolated Image Builds.

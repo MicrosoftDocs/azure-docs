@@ -10,49 +10,68 @@ ms.service: virtual-machines
 ms.subservice: image-builder
 ---
 
-# What is Isolated Image Builds for Azure Image Builder?
+# Isolated Image Builds for Azure VM Image Builder
 
-Isolated Image Builds is a feature of Azure Image Builder (AIB). It transitions the core process of VM image customization/validation from shared infrastructure to dedicated Azure Container Instances (ACI) resources in your subscription, providing compute and network isolation.
+Isolated Image Builds is a feature of Azure VM Image Builder (AIB). It transitions the core process of VM image customization/validation from shared platform infrastructure to dedicated Azure Container Instances (ACI) resources in your subscription, providing compute and network isolation.
 
 ## Advantages of Isolated Image Builds
 
-Isolated Image Builds enable defense-in-depth by limiting network access of your build VM to just your subscription. Isolated Image Builds also provide you with more transparency by allowing your inspection of the processing done by Image Builder to customize/validate your VM image. Further, Isolated Image Builds eases viewing of live build logs. Specifically:
+Isolated Image Builds enables defense-in-depth by limiting network access of your build VM to just your subscription. Isolated Image Builds also provides you with more transparency by allowing your inspection of the processing done by AIB to customize/validate your VM image. Further, Isolated Image Builds eases viewing of live build logs. Specifically:
 
-1. **Compute Isolation:** Isolated Image Builds perform major portion of image building processing in Azure Container Instances resources in your subscription instead of on AIB's shared platform resources. ACI provides hypervisor isolation for each container group to ensure containers run in isolation without sharing a kernel.
-2. **Network Isolation:**  Isolated Image Builds remove all direct network WinRM/ssh communication between your build VM and Image Builder service. 
-    - If you're provisioning an Image Builder template without your own Virtual Network, then a Public IP Address resource will no more be provisioned in your staging resource group at image build time.
-    - If you're provisioning an Image Builder template with an existing Virtual Network in your subscription, then a Private Link based communication channel will no more be set up between your Build VM and AIB's backend platform resources. Instead, the communication channel is set up between the Azure Container Instance and the Build VM resources - both of which reside in the staging resource group in your subscription.
+1. **Compute Isolation:** Isolated Image Builds performs major portion of image building processing in ACI resources in your subscription instead of on AIB's shared platform resources. ACI provides hypervisor isolation for each container group to ensure containers run in isolation without sharing a kernel.
+2. **Network Isolation:**  Isolated Image Builds removes all direct network WinRM/ssh communication between your build VM and backend components of the AIB service.
+    - If you're provisioning an AIB template without your own subnet for build VM, then a Public IP Address resource will no more be provisioned in your staging resource group at image build time.
+    - If you're provisioning an AIB template with an existing subnet for build VM, then a Private Link based communication channel is no more set up between your build VM and AIB's backend platform resources. Instead, the communication channel is set up between the ACI and the build VM resources - both of which reside in the staging resource group in your subscription.
+    - Starting API version 2024-02-01, you can specify a second subnet for deploying the ACI in addition to the subnet for build VM. If specified, AIB will deploy ACI on this subnet and there will be no need for AIB to set up the Private Link based communication channel between the ACI and the build VM. See [below](./security-isolated-image-builds-image-builder.md#bring-your-own-build-vm-subnet-and-bring-your-own-aci-subnet) for further details. 
+
 3. **Transparency:** AIB is built on HashiCorp [Packer](https://www.packer.io/). Isolated Image Builds executes Packer in the ACI in your subscription, which allows you to inspect the ACI resource and its containers. Similarly, having the entire network communication pipeline in your subscription allows you to inspect all the network resources, their settings, and their allowances.
-4. **Better viewing of live logs:** AIB writes customization logs to a storage account in the staging resource group in your subscription. Isolated Image Builds provides with another way to follow the same logs directly in the Azure portal, which can be done by navigating to Image Builder's container in the ACI resource.
+4. **Better viewing of live logs:** AIB writes customization logs to a storage account in the staging resource group in your subscription. Isolated Image Builds provides with another way to follow the same logs directly in the Azure portal, which can be done by navigating to AIB's container in the ACI resource.
+
+## Network topologies
+Isolated Image Builds deploys the ACI and the build VM both in the staging resource group in your subscription. For AIB to customize/validate your image, container instances running in the ACI need to have a network path to the build VM. Based on your custom networking needs and policies, you can configure AIB to use different network topologies for this purpose:
+### Do not bring your own Build VM subnet
+- This topology can be selected by not specifying the `vnetConfig` field in the Image Template or by specifying the field but without `subnetId` and `containerInstanceSubnetId` sub-fields.
+- In this case, AIB will deploy a Virtual Network in the staging resource group along with two subnets and Network Security Groups (NSGs). One of the subnets is used to deploy the ACI, while the other subnet is used to deploy the Build VM. NSGs are setup to allow communication between the two subnets.
+- AIB will not deploy a Public IP resource or a Private link based communication pipeline in this case.
+### Bring your own Build VM subnet but do not bring your own ACI subnet
+- This topology can be selected by specifying the `vnetConfig` field along with the `subnetId` sub-field, but not the `containerInstanceSubnetId` sub-field in the Image Template.
+- In this case, AIB will deploy a temporary Virtual Network in the staging resource group along with two subnets and Network Security Groups (NSGs). One of the subnets is used to deploy the ACI, while the other subnet is used to deploy the Private Endpoint resource. The build VM is deployed in your specified subnet. A Private link based communication pipeline consisting of a Private Endpoint, Private Link Service, Azure Load Balancer, and Proxy Virtual Machine is also deployed in the staging resource group to facilitate communication between the ACI subnet and your build VM subnet.
+### Bring your own Build VM subnet and bring your own ACI subnet
+- This topology can be selected by specifying the `vnetConfig` field along with the `subnetId` & `containerInstanceSubnetId` sub-fields in the Image Template. This option (and sub-field `containerInstanceSubnetId`) is available starting API version 2024-02-01. You can also update your existing templates to use this topology.
+- In this case, AIB will deploy build VM to the specified build VM subnet and ACI to the specified ACI subnet.
+- AIB will not deploy any of the networking resources in the staging resource group including Public IP, Virtual Network, subnets, Network Security Groups, Private Endpoint, Private Link Service, Azure Load Balancer, and Proxy Virtual Machine. This topology can be used if you have quota restrictions or policies disallowing deployment of these resources. 
+- The ACI subnet must meet certain conditions to allow its use with Isolated Image Builds.
+
+You can see details about these fields in the [template reference](./linux/image-builder-json.md#vnetconfig-optional). Networking options are discussed in detail [here](./linux/image-builder-networking.md).
 
 ## Backward compatibility
 
-This is a platform level change and doesn't affect AIB's interfaces. So, your existing Image Template and Trigger resources continue to function and there's no change in the way you deploy new resources of these types. Similarly, customization logs continue to be available in the storage account.
+This is a platform level change and doesn't affect AIB's interfaces. So, your existing Image Template and Trigger resources continue to function and there's no change in the way you deploy new resources of these types. You will need to create new templates or update existing templates if you want to use [the network topology allowing bringing your own ACI subnet](./security-isolated-image-builds-image-builder.md#bring-your-own-build-vm-subnet-and-bring-your-own-aci-subnet).
 
-You might observe a few new resources temporarily appear in the staging resource group (for example, Azure Container Instance, Virtual Network, Network Security Group, and Private Endpoint) while some other resource may no longer appear (for example, Public IP Address). As earlier, these temporary resources exist only during the build and will be deleted by Image Builder thereafter.
+Your image builds will automatically be migrated to Isolated Image Builds and you need to take no action to opt in. Also, customization logs continue to be available in the storage account.
 
-Your image builds will automatically be migrated to Isolated Image Builds and you need to take no action to opt in.
-
-> [!NOTE]
-> Image Builder is in the process of rolling this change out to all locations and customers. Some of these details (especially around deployment of new Networking related resources) might change as the process is fine-tuned based on service telemetry and feedback. Please refer to the [troubleshooting guide](./linux/image-builder-troubleshoot.md#troubleshoot-build-failures) for more information.
+Depending on the network topology specified in the Image Template, you might observe a few new resources temporarily appear in the staging resource group (for example, ACI, Virtual Network, Network Security Group, and Private Endpoint) while some other resource may no longer appear (for example, Public IP Address). As earlier, these temporary resources exist only during the build and will be deleted by AIB thereafter.
 
 > [!IMPORTANT] 
 > Make sure your subscription is registered for `Microsoft.ContainerInstance provider`: 
 > - Azure CLI: `az provider register -n Microsoft.ContainerInstance`
 > - PowerShell: `Register-AzResourceProvider -ProviderNamespace Microsoft.ContainerInstance`
 >
-> After successfully registering your subscription, make sure there are no Azure Policies in your subscription that deny deployment of required resources. Policies allowing only a restricted set of resource types not including Azure Container Instance would block deployment. 
+> After successfully registering your subscription, make sure there are no Azure Policies in your subscription that deny deployment of ACI resoures. Policies allowing only a restricted set of resource types not including ACI would cause Isolated Image Builds to fail. 
 >
-> Ensure that your subscription also has a sufficient [quota of resources](../container-instances/container-instances-resource-and-quota-limits.md) required for deployment of Azure Container Instance resources.
+> Ensure that your subscription also has a sufficient [quota of resources](../container-instances/container-instances-resource-and-quota-limits.md) required for deployment of ACI resources.
 >
 
 > [!IMPORTANT]
-> Image Builder may need to deploy temporary networking related resources in the staging resource group in your subscription. Ensure that no Azure Policies deny the deployment of such resources (Virtual Network with Subnets, Network Security Group, Private endpoint) in the resource group.
+> Depending on the network topology specified in the Image Template, AIB may need to deploy temporary networking related resources in the staging resource group in your subscription. Ensure that no Azure Policies deny the deployment of such resources (Virtual Network with Subnets, Network Security Group, Private endpoint) in the resource group.
 >
-> If you have Azure Policies applying DDoS protection plans to any newly created Virtual Network, either relax the Policy for the resource group or ensure that the Template Managed Identity has permissions to join the plan.
+> If you have Azure Policies applying DDoS protection plans to any newly created Virtual Network, either relax the Policy for the resource group or ensure that the Template Managed Identity has permissions to join the plan. Alternatively, you can use the network topology that does not require deployment of a new Virtual Network by AIB.
 
 > [!IMPORTANT]
-> Make sure you follow all [best practices](image-builder-best-practices.md) while using Azure VM Image Builder.
+> Make sure you follow all [best practices](image-builder-best-practices.md) while using AIB.
+
+> [!NOTE]
+> AIB is in the process of rolling this change out to all locations and customers. Some of these details (especially around deployment of new Networking related resources) might change as the process is fine-tuned based on service telemetry and feedback. Please refer to the [troubleshooting guide](./linux/image-builder-troubleshoot.md#troubleshoot-build-failures) for more information.
 
 ## Next steps
 

@@ -687,7 +687,7 @@
           href: ./windows/image-builder-virtual-desktop.md
       - name: Security
         items:
-        - name: Security mechanisms
+        - name: Isolated image builds
           displayName: Image builder, images, building
           href: ./security-isolated-image-builds-image-builder.md
         - name: Security controls by Azure Policy
