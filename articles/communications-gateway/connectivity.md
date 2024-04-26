@@ -95,7 +95,7 @@ VNet injection preview for Azure Communications Gateway allows the network inter
 
 If you use VNet injection preview with Operator Connect or Teams Phone Mobile, your network must still meet the redundancy and resiliency requirements described in the _Network Connectivity Specification_ provided to you by your onboarding team. This mandates that your network is connected to Azure by at least 2 ExpressRoute circuits, each deployed with local redundancy and configured so that each region can use both circuits in the case of failure as described in the diagram below:
 
-:::image type="content" source="./media/designing-for-disaster-recovery-with-expressroute-pvt/multi-region.png" alt-text="Diagram of two regions with connectivity compliant with Operator Connect and Teams Phone Mobile.":::
+:::image type="content" source="../expressroute/media/designing-for-disaster-recovery-with-expressroute-pvt/multi-region.png" alt-text="Diagram of two regions with connectivity compliant with Operator Connect and Teams Phone Mobile.":::
 
 > [!WARNING]
 > Any traffic in your own VNet is subject to standard Azure VNet and bandwidth charges.
