@@ -50,10 +50,42 @@ In this example, we subscribe to changes in values of the Call object `LocalVide
 
 ### Events on the `Call` object
 
-#### Event Name**: `stateChanged`
+#### Event Name: `stateChanged`
 
 **When does it occurs ?**
+
 The `stateChanged`  events is fired when the call state changes. For example when a call goes from `connected` to `disconnected`.
 
 **How should your application react to the event ?**
+
 Your application should update its UI accordingly. Disabling or enabling appropriate buttons and other UI elements based on the new call state.
+
+#### Event: `stateChanged`
+
+**When does it occurs ?**
+
+The `stateChanged`  event is fired when the call state changes. For example when a call goes from `connected` to `disconnected`.
+
+**How might your application react to the event ?**
+
+Your application should update its UI accordingly. Disabling or enabling appropriate buttons and other UI elements based on the new call state.
+
+#### Event: `idChanged`
+
+**When does it occurs ?**
+
+The `idChanged`  event is fired when the id of a call changes. The id of a call changes when the call is established and should not change after.
+
+**How might your application react to the event ?**
+
+Your application should save the new call ID but it can also be retreived from the call object later when needed.
+
+#### Event: `isMutedChanged`
+
+**When does it occurs ?**
+
+The `isMutedChanged` event is fired when the call is muted or unmuted.
+
+**How might your application react to the event ?**
+
+Your application should update the mute / unmute button to the proper state.
