@@ -91,8 +91,6 @@
       href: intro.md
     - name: Create ASE v2 from template
       href: create-from-template.md
-    - name: Create external ASE v2
-      href: create-external-ase.md
     - name: Create internal ASE v2
       href: create-ilb-ase.md
     - name: Use an ASE v2
