@@ -17,6 +17,8 @@ recommendations: false
 
 The Assistants API supports function calling, which allows you to describe the structure of functions to an Assistant and then return the functions that need to be called along with their arguments.
 
+[!INCLUDE [Assistants v2 note](../includes/assistants-v2-note.md)]
+
 ## Function calling support
 
 ### Supported models
