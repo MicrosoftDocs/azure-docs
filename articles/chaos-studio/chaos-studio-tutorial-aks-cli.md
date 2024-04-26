@@ -85,15 +85,15 @@ Chaos Studio can't inject faults against a resource unless that resource is adde
 
 Replace `$CAPABILITY` with the ["Capability Name" of the fault you're adding](chaos-studio-fault-library.md).
     
-    ```azurecli-interactive
-    az rest --method put --url "https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$resourceGroupName/providers/Microsoft.ContainerService/managedClusters/$AKS_CLUSTER_NAME/providers/Microsoft.Chaos/targets/Microsoft-AzureKubernetesServiceChaosMesh/capabilities/$CAPABILITY?api-version=2024-01-01"  --body "{\"properties\":{}}"
-    ```
+```azurecli-interactive
+az rest --method put --url "https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$resourceGroupName/providers/Microsoft.ContainerService/managedClusters/$AKS_CLUSTER_NAME/providers/Microsoft.Chaos/targets/Microsoft-AzureKubernetesServiceChaosMesh/capabilities/$CAPABILITY?api-version=2024-01-01"  --body "{\"properties\":{}}"
+```
 
 **Here's an example of enabling the `PodChaos` capability for your reference:**
 
-    ```azurecli-interactive
-    az rest --method put --url "https://management.azure.com/subscriptions/b65f2fec-d6b2-4edd-817e-9339d8c01dc4/resourceGroups/myRG/providers/Microsoft.ContainerService/managedClusters/myCluster/providers/Microsoft.Chaos/targets/Microsoft-AzureKubernetesServiceChaosMesh/capabilities/PodChaos-2.1?api-version=2024-01-01"  --body "{\"properties\":{}}"
-    ```
+```azurecli-interactive
+az rest --method put --url "https://management.azure.com/subscriptions/b65f2fec-d6b2-4edd-817e-9339d8c01dc4/resourceGroups/myRG/providers/Microsoft.ContainerService/managedClusters/myCluster/providers/Microsoft.Chaos/targets/Microsoft-AzureKubernetesServiceChaosMesh/capabilities/PodChaos-2.1?api-version=2024-01-01"  --body "{\"properties\":{}}"
+```
 
     This step must be done for each capability you want to enable on the cluster.
 
