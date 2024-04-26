@@ -166,11 +166,6 @@
             "redirect_document_id": true
         },
         {
-            "source_path": "articles/sentinel/data-connectors/zero-networks-segment-audit-function-using-azure-function.md",
-            "redirect_url": "/azure/sentinel/data-connectors/zero-networks-segment-audit",
-            "redirect_document_id": true
-        },
-        {
             "source_path": "articles/sentinel/data-connectors/zoom-reports-using-azure-function.md",
             "redirect_url": "/azure/sentinel/data-connectors/zoom-reports-using-azure-functions",
             "redirect_document_id": true
