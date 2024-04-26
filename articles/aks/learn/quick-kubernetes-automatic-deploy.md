@@ -13,7 +13,7 @@ zone_pivot_groups: bicep-azure-cli-portal
 
 **Applies to:** :heavy_check_mark: AKS Automatic (preview)
 
-Azure Kubernetes Service (AKS) Automatic (preview) provides the easiest managed Kubernetes experience for developers, DevOps engineers, and platform engineers. Ideal for modern and AI applications, AKS Automatic automates AKS cluster setup and operations and embeds best practice configurations. Users of any skill level can benefit from the security, performance, and dependability of AKS Automatic for their applications. 
+[Azure Kubernetes Service (AKS) Automatic (preview)][what-is-aks-automatic] provides the easiest managed Kubernetes experience for developers, DevOps engineers, and platform engineers. Ideal for modern and AI applications, AKS Automatic automates AKS cluster setup and operations and embeds best practice configurations. Users of any skill level can benefit from the security, performance, and dependability of AKS Automatic for their applications. 
 
 In this quickstart, you learn to:
 
@@ -57,7 +57,7 @@ az extension update --name aks-preview
 
 ### Register the feature flags
 
-While in preview, AKS Automatic use other features that require their feature flags to be registered. Register the following flags using the [az feature register][az-feature-register] command.
+To use AKS Automatic in preview, you must register feature flags for additional required features. Register the following flags using the [az feature register][az-feature-register] command.
 
 ```azurecli-interactive
 az feature register --namespace Microsoft.ContainerService --name EnableAPIServerVnetIntegrationPreview
@@ -66,11 +66,6 @@ az feature register --namespace Microsoft.ContainerService --name SafeguardsPrev
 az feature register --namespace Microsoft.ContainerService --name NodeAutoProvisioningPreview
 az feature register --namespace Microsoft.ContainerService --name DisableSSHPreview
 az feature register --namespace Microsoft.ContainerService --name AKS-PrometheusAddonPreview
-```
-
-Register the `AutomaticSKUPreview` feature flag by using the [az feature register][az-feature-register] command, as shown in the following example:
-
-```azurecli-interactive
 az feature register --namespace Microsoft.ContainerService --name AutomaticSKUPreview
 ```
 
@@ -228,22 +223,20 @@ resource aks 'Microsoft.ContainerService/managedClusters@2024-03-02-preview' = {
 
 For more information about the resource defined in the Bicep file, see the [**Microsoft.ContainerService/managedClusters**](/azure/templates/microsoft.containerservice/managedclusters?tabs=bicep&pivots=deployment-language-bicep) reference.
 
-* [**Microsoft.ContainerService/managedClusters**](/azure/templates/microsoft.containerservice/managedclusters?tabs=bicep&pivots=deployment-language-bicep)
-
 ## Deploy the Bicep file
 
 1. Save the Bicep file as **main.bicep** to your local computer.
 
-> [!IMPORTANT]
-> The Bicep file sets the `clusterName` param to the string *myAKSAutomaticCluster*. If you want to use a different cluster name, make sure to update the string to your preferred cluster name before saving the file to your computer.
+    > [!IMPORTANT]
+    > The Bicep file sets the `clusterName` param to the string *myAKSAutomaticCluster*. If you want to use a different cluster name, make sure to update the string to your preferred cluster name before saving the file to your computer.
 
 1. Deploy the Bicep file using the Azure CLI.
 
-```azurecli
-az deployment group create --resource-group myResourceGroup --template-file main.bicep
-```
+      ```azurecli
+    az deployment group create --resource-group myResourceGroup --template-file main.bicep
+    ```
 
-It takes a few minutes to create the AKS cluster. Wait for the cluster to be successfully deployed before you move on to the next step.
+    It takes a few minutes to create the AKS cluster. Wait for the cluster to be successfully deployed before you move on to the next step.
 
 ## Connect to the cluster
 
@@ -251,25 +244,25 @@ To manage a Kubernetes cluster, use the Kubernetes command-line client, [kubectl
 
 1. Configure `kubectl` to connect to your Kubernetes cluster using the [az aks get-credentials][az-aks-get-credentials] command. This command downloads credentials and configures the Kubernetes CLI to use them.
 
-```azurecli
-az aks get-credentials --resource-group myResourceGroup --name myAKSAutomaticCluster
-```
+    ```azurecli
+    az aks get-credentials --resource-group myResourceGroup --name myAKSAutomaticCluster
+    ```
 
 1. Verify the connection to your cluster using the [kubectl get][kubectl-get] command. This command returns a list of the cluster nodes.
 
-```bash
-kubectl get nodes
-```
+    ```bash
+    kubectl get nodes
+    ```
 
-The following sample output shows the managed node pools created in the previous steps. Make sure the node status is *Ready*.
+    The following sample output shows the managed node pools created in the previous steps. Make sure the node status is *Ready*.
 
-```output
-NAME                                STATUS   ROLES   AGE     VERSION
-aks-default-f8vj2                   Ready    agent   2m26s   v1.28.5
-aks-nodepool1-13213685-vmss000000   Ready    agent   2m26s   v1.28.5
-aks-nodepool1-13213685-vmss000001   Ready    agent   2m26s   v1.28.5
-aks-nodepool1-13213685-vmss000002   Ready    agent   2m26s   v1.28.5
-```
+    ```output
+    NAME                                STATUS   ROLES   AGE     VERSION
+    aks-default-f8vj2                   Ready    agent   2m26s   v1.28.5
+    aks-nodepool1-13213685-vmss000000   Ready    agent   2m26s   v1.28.5
+    aks-nodepool1-13213685-vmss000001   Ready    agent   2m26s   v1.28.5
+    aks-nodepool1-13213685-vmss000002   Ready    agent   2m26s   v1.28.5
+    ```
 
 :::zone-end
 
@@ -294,7 +287,7 @@ To deploy the application, you use a manifest file to create all the objects req
     kubectl create ns aks-store-demo
     ```
 
-1. Deploy the application using the [kubectl apply][kubectl-apply] command into the `aks-store-demo` namespace.
+1. Deploy the application using the [kubectl apply][kubectl-apply] command into the `aks-store-demo` namespace. The YAML file defining the deployment is on [GitHub](https://github.com/Azure-Samples/aks-store-demo).
 
     ```bash
     kubectl apply -n aks-store-demo -f https://raw.githubusercontent.com/Azure-Samples/aks-store-demo/main/aks-store-ingress-quickstart.yaml
@@ -353,26 +346,23 @@ When the application runs, a Kubernetes service exposes the application front en
 
 ## Delete the cluster
 
-:::zone target="docs" pivot="azure-cli"
-
 If you don't plan on going through the [AKS tutorial][aks-tutorial], clean up unnecessary resources to avoid Azure charges. Run the [az group delete][az-group-delete] command to remove the resource group, container service, and all related resources.
 
   ```azurecli
   az group delete --name myResourceGroup --yes --no-wait
   ```
-:::zone-end
 
   > [!NOTE]
   > The AKS cluster was created with a system-assigned managed identity, which is the default identity option used in this quickstart. The platform manages this identity, so you don't need to manually remove it.
 
 ## Next steps
 
-In this quickstart, you deployed a Kubernetes cluster using AKS Automatic and then deployed a simple multi-container application to it. This sample application is for demo purposes only and doesn't represent all the best practices for Kubernetes applications. For guidance on creating full solutions with AKS for production, see [AKS solution guidance][aks-solution-guidance].
+In this quickstart, you deployed a Kubernetes cluster using [AKS Automatic][what-is-aks-automatic] and then deployed a simple multi-container application to it. This sample application is for demo purposes only and doesn't represent all the best practices for Kubernetes applications. For guidance on creating full solutions with AKS for production, see [AKS solution guidance][aks-solution-guidance].
 
-To learn more about AKS and walk through a complete code-to-deployment example, continue to the Kubernetes cluster tutorial.
+To learn more about AKS Automatic, continue to the introduction.
 
 > [!div class="nextstepaction"]
-> [AKS tutorial][aks-tutorial]
+> [Introduction to Azure Kubernetes Service (AKS) Automatic (preview)][what-is-aks-automatic]
 
 
 <!-- LINKS - external -->
@@ -395,3 +385,4 @@ To learn more about AKS and walk through a complete code-to-deployment example, 
 [baseline-reference-architecture]: /azure/architecture/reference-architectures/containers/aks/baseline-aks?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
 [az-feature-register]: /cli/azure/feature#az_feature_register
 [az-provider-register]: /cli/azure/provider#az_provider_register
+[what-is-aks-automatic]: ../intro-aks-automatic.md
