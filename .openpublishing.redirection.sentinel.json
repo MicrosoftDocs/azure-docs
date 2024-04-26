@@ -1509,6 +1509,11 @@
             "source_path_from_root": "/articles/sentinel/data-connectors/zoom-reports-using-azure-functions.md",
             "redirect_url": "/azure/sentinel/data-connectors/zoom-reports",
             "redirect_document_id": true
+        },
+       {
+            "source_path_from_root": "/articles/sentinel/data-connectors/azure-data-lake-storage-gen1.md",
+            "redirect_url": "/azure/sentinel/data-connectors-reference",
+            "redirect_document_id": false
         }
     ]
 }
