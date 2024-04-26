@@ -11,7 +11,7 @@ This guide describes the various events or properties changes your app can subsc
 
 This guide assumes you went through the QuickStart or have an application that is able to make and receive calls. If you didn't complete the getting starting guide, refer to our [Quickstart](../../../../quickstarts/voice-video-calling/getting-started-with-calling.md).
 
-Each object in the JavaScript calling sdk has `properties` and `collections`. Their values change throughout the lifetime of the object.
+Each object in the JavaScript calling SDK has `properties` and `collections`. Their values change throughout the lifetime of the object.
 Use the `on()` method to subscribe to objects' events, and use the `off()` method to unsubscribe from objects' events.
 
 ### Properties
@@ -48,4 +48,12 @@ In this example, we subscribe to changes in values of the Call object `LocalVide
 });
 ```
 
-### Collection and properties on the `Call` object
+### Events on the `Call` object
+
+#### Event Name**: `stateChanged`
+
+**When does it occurs ?**
+The `stateChanged`  events is fired when the call state changes. For example when a call goes from `connected` to `disconnected`.
+
+**How should your application react to the event ?**
+Your application should update its UI accordingly. Disabling or enabling appropriate buttons and other UI elements based on the new call state.
