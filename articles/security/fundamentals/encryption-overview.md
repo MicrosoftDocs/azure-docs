@@ -110,7 +110,7 @@ Whenever Azure Customer traffic moves between datacenters-- outside physical bou
 
 Microsoft gives customers the ability to use [Transport Layer Security](https://en.wikipedia.org/wiki/Transport_Layer_Security) (TLS) protocol to protect data when it’s traveling between the cloud services and customers. Microsoft datacenters negotiate a TLS connection with client systems that connect to Azure services. TLS provides strong authentication, message privacy, and integrity (enabling detection of message tampering, interception, and forgery), interoperability, algorithm flexibility, and ease of deployment and use.
 
-[Perfect Forward Secrecy](https://en.wikipedia.org/wiki/Forward_secrecy) (PFS) protects connections between customers’ client systems and Microsoft cloud services by unique keys. Connections also use RSA-based 2,048-bit encryption key lengths and support AES 256 data encryption. This combination makes it difficult for someone to intercept and access data that is in transit.
+[Perfect Forward Secrecy](https://en.wikipedia.org/wiki/Forward_secrecy) (PFS) protects connections between customers’ client systems and Microsoft cloud services by unique keys. Connections also support RSA-based 2,048 bit key lengths, ECC 256 bit key lengths, SHA 384 message authentication, and AES 256 data encryption. This combination makes it difficult for someone to intercept and access data that is in transit.
 
 ### Azure Storage transactions
 
