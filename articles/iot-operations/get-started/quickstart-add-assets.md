@@ -48,12 +48,12 @@ After you sign in, the portal displays a list of sites that you have access to. 
 
 ## Select your instance
 
-Select the instance that you deployed Azure IoT Operations to in the previous quickstart:
+Select the instance where you deployed Azure IoT Operations in the previous quickstart:
 
 :::image type="content" source="media/quickstart-add-assets/cluster-list.png" alt-text="Screenshot of Azure IoT Operations instance list.":::
 
 > [!TIP]
-> If you don't see any instances, you might not be in the right Azure Active Directory tenant. You can change the tenant from the top right menu in the portal.
+> If you don't see any instances, you might not be in the right Microsoft Entra ID tenant. You can change the tenant from the top right menu in the portal.
 
 ## Add an asset endpoint
 
@@ -137,7 +137,7 @@ Enter the following asset information:
 | Asset Endpoint | `opc-ua-connector-0` |
 | Description | `A simulated thermostat asset` |
 
-Remove the existing **Custom properties** and add the following custom properties. Be careful to use the exact property names as the Power BI template in a later quickstart queries for them:
+Remove the existing **Custom properties** and add the following custom properties. Be careful to use the exact property names, as the Power BI template in a later quickstart queries for them:
 
 | Property name | Property detail |
 |---------------|-----------------|
@@ -274,7 +274,7 @@ To confirm that Akri connected to the OPC UA Broker, copy and paste the name of 
 kubectl get akrii <AKRI_INSTANCE_NAME> -n azure-iot-operations -o json
 ```
 
-The command output looks like the following example. This example output shows the Akri instance `brokerProperties` values and confirms that the OPC UA Broker is connected.
+The command output looks like the following example. This example excerpt from the output shows the Akri instance `brokerProperties` values and confirms that the OPC UA Broker is connected.
 
 ```json
 "spec": {
@@ -290,7 +290,7 @@ In this quickstart, you added an asset endpoint and then defined an asset and ta
 
 ## Clean up resources
 
-If you won't use this deployment further, delete the Kubernetes cluster that you deployed Azure IoT Operations to and remove the Azure resource group that contains the cluster.
+If you won't use this deployment further, delete the Kubernetes cluster where you deployed Azure IoT Operations and remove the Azure resource group that contains the cluster.
 
 ## Next step
 
