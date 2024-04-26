@@ -66,11 +66,6 @@
             "redirect_document_id": true
         },
         {
-            "source_path": "articles/sentinel/data-connectors/cyberarkepm.md",
-            "redirect_url": "/azure/sentinel/data-connectors/cyberarkepm-using-azure-functions",
-            "redirect_document_id": true
-        },
-        {
             "source_path": "articles/sentinel/data-connectors/cybersixgill-actionable-alerts-using-azure-function.md",
             "redirect_url": "/azure/sentinel/data-connectors/cybersixgill-actionable-alerts-using-azure-functions",
             "redirect_document_id": true

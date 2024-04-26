@@ -116,32 +116,32 @@ Use this method for automated deployment of the Vectra connector.
 	[![Deploy To Azure](https://aka.ms/deploytoazurebutton)](https://aka.ms/sentinel-VectraXDRAPI-azuredeploy)
 2. Select the preferred **Subscription**, **Resource Group** and **Location**. 
 3. Enter the below information : 
-		Function Name 
-		Workspace ID 
-		Workspace Key 
-		Vectra Base URL (https://<vectra-portal-url>) 
-		Vectra Client Id - Health 
-		Vectra Client Secret Key - Health 
-		Vectra Client Id - Entity Scoring 
-		Vectra Client Secret - Entity Scoring 
-		Vectra Client Id - Detections 
-		Vectra Client Secret - Detections 
-		Vectra Client ID - Audits 
-		Vectra Client Secret - Audits 
-		Vectra Client ID - Lockdown 
-		Vectra Client Secret - Lockdown 
-		StartTime (in MM/DD/YYYY HH:MM:SS Format) 
-		Audits Table Name 
-		Detections Table Name 
-		Entity Scoring Table Name 
-		Lockdown Table Name 
-		Health Table Name 
-		Log Level (Default: INFO) 
-		Lockdown Schedule 
-		Health Schedule 
-		Detections Schedule 
-		Audits Schedule 
-		Entity Scoring Schedule 
+	- Function Name 
+	- Workspace ID 
+	- Workspace Key 
+	- Vectra Base URL `https://<vectra-portal-url>`
+	- Vectra Client Id - Health 
+	- Vectra Client Secret Key - Health 
+	- Vectra Client Id - Entity Scoring 
+	- Vectra Client Secret - Entity Scoring 
+	- Vectra Client Id - Detections 
+	- Vectra Client Secret - Detections 
+	- Vectra Client ID - Audits 
+	- Vectra Client Secret - Audits 
+	- Vectra Client ID - Lockdown 
+	- Vectra Client Secret - Lockdown 
+	- StartTime (in MM/DD/YYYY HH:MM:SS Format) 
+	- Audits Table Name 
+	- Detections Table Name 
+	- Entity Scoring Table Name 
+	- Lockdown Table Name 
+	- Health Table Name 
+	- Log Level (Default: INFO) 
+	- Lockdown Schedule 
+	- Health Schedule 
+	- Detections Schedule 
+	- Audits Schedule 
+	- Entity Scoring Schedule 
 4. Mark the checkbox labeled **I agree to the terms and conditions stated above**. 
 5. Click **Purchase** to deploy.
 
@@ -183,32 +183,32 @@ If you're already signed in, go to the next step.
 1. In the Function App, select the Function App Name and select **Configuration**.
 2. In the **Application settings** tab, select **+ New application setting**.
 3. Add each of the following application settings individually, with their respective values (case-sensitive): 
-		Workspace ID 
-		Workspace Key 
-		Vectra Base URL (https://<vectra-portal-url>) 
-		Vectra Client Id - Health 
-		Vectra Client Secret Key - Health 
-		Vectra Client Id - Entity Scoring 
-		Vectra Client Secret - Entity Scoring 
-		Vectra Client Id - Detections 
-		Vectra Client Secret - Detections 
-		Vectra Client ID - Audits 
-		Vectra Client Secret - Audits 
-		Vectra Client ID - Lockdown 
-		Vectra Client Secret - Lockdown 
-		StartTime (in MM/DD/YYYY HH:MM:SS Format) 
-		Audits Table Name 
-		Detections Table Name 
-		Entity Scoring Table Name 
-		Lockdown Table Name 
-		Health Table Name 
-		Log Level (Default: INFO) 
-		Lockdown Schedule 
-		Health Schedule 
-		Detections Schedule 
-		Audits Schedule 
-		Entity Scoring Schedule 
-		logAnalyticsUri (optional) 
+	- Workspace ID 
+	- Workspace Key 
+	- Vectra Base URL `https://<vectra-portal-url>` 
+	- Vectra Client Id - Health 
+	- Vectra Client Secret Key - Health 
+	- Vectra Client Id - Entity Scoring 
+	- Vectra Client Secret - Entity Scoring 
+	- Vectra Client Id - Detections 
+	- Vectra Client Secret - Detections 
+	- Vectra Client ID - Audits 
+	- Vectra Client Secret - Audits 
+	- Vectra Client ID - Lockdown 
+	- Vectra Client Secret - Lockdown 
+	- StartTime (in MM/DD/YYYY HH:MM:SS Format) 
+	- Audits Table Name 
+	- Detections Table Name 
+	- Entity Scoring Table Name 
+	- Lockdown Table Name 
+	- Health Table Name 
+	- Log Level (Default: INFO) 
+	- Lockdown Schedule 
+	- Health Schedule 
+	- Detections Schedule 
+	- Audits Schedule 
+	- Entity Scoring Schedule 
+	- logAnalyticsUri (optional) 
  - Use logAnalyticsUri to override the log analytics API endpoint for dedicated cloud. For example, for public cloud, leave the value empty; for Azure GovUS cloud environment, specify the value in the following format: `https://<CustomerId>.ods.opinsights.azure.us`.
 4. Once all application settings have been entered, click **Save**.
 
