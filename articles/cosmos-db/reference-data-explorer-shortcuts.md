@@ -48,7 +48,16 @@ These shortcuts are used when applying filters or working with items.
 
 | | Windows | macOS |
 | --- | --- | --- |
-| **&nbsp;** | | |
+| **Apply Filter** | <kbd>Enter</kbd> | <kbd>Return</kbd> |
+| **Close Filter** | <kbd>Esc</kbd> | <kbd>Esc</kbd> |
+| **Delete Item** | <kbd>Alt</kbd>+<kbd>D</kbd> | <kbd>Opt</kbd>+<kbd>D</kbd> |
+| **Discard edit Item** | <kbd>Esc</kbd> | <kbd>Esc</kbd> |
+| **New Item** | <kbd>Alt</kbd>+<kbd>N</kbd>&nbsp;<kbd>I</kbd> | <kbd>Opt</kbd>+<kbd>N</kbd>&nbsp;<kbd>I</kbd> |
+| **Move cursor from item to filter** | <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>F</kbd> | <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>F</kbd> |
+| **Open Edit Filter** | <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>F</kbd> | <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>F</kbd> |
+| **Open properties menu** | <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>O</kbd> | <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>O</kbd> |
+| **Select filter from menu** | <kbd>Ctrl</kbd>+<kbd>Down Arrow</kbd> | <kbd>Ctrl</kbd>+<kbd>Down Arrow</kbd> |
+| **Update Item** | <kbd>Ctrl</kbd>+<kbd>S</kbd> | <kbd>Ctrl</kbd>+<kbd>S</kbd> |
 
 ## Keyboard shortcuts for the query editor
 
@@ -56,7 +65,46 @@ These shortcuts are used within the query editor.
 
 | | Windows | macOS |
 | --- | --- | --- |
-| **&nbsp;** | | |
+| **Add new query tab** | <kbd>Ctrl</kbd>+<kbd>J</kbd> | <kbd>Ctrl</kbd>+<kbd>J</kbd> |
+| **Cancel Query** | <kbd>Esc</kbd> | <kbd>Esc</kbd> |
+| **Close tab** | <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>W</kbd> | <kbd>Ctrl</kbd>+<kbd>Opt</kbd>+<kbd>W</kbd> |
+| **Copy line down** | <kbd>Shift</kbd>+<kbd>Alt</kbd>+<kbd>Down Arrow</kbd> | <kbd>Shift</kbd>+<kbd>Opt</kbd>+<kbd>Down Arrow</kbd> |
+| **Comment line** | <kbd>Ctrl</kbd>+<kbd>K</kbd>&nbsp;<kbd>Ctrl</kbd>+<kbd>C</kbd> | <kbd>Ctrl</kbd>+<kbd>K</kbd>&nbsp;<kbd>Ctrl</kbd>+<kbd>C</kbd> |
+| **Copy line up** | <kbd>Shift</kbd>+<kbd>Alt</kbd>+<kbd>Up Arrow</kbd> | <kbd>Shift</kbd>+<kbd>Opt</kbd>+<kbd>Up Arrow</kbd> |
+| **Copy query clipboard** | <kbd>Shift</kbd>+<kbd>Alt</kbd>+<kbd>C</kbd> | <kbd>Shift</kbd>+<kbd>Opt</kbd>+<kbd>C</kbd> |
+| **Cut the selected text** | <kbd>Ctrl</kbd>+<kbd>X</kbd> | <kbd>Ctrl</kbd>+<kbd>X</kbd> |
+| **Delete the current line** | <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>K</kbd> | <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>K</kbd> |
+| **Download Query to Disk** | <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>S</kbd> | <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>S</kbd> |
+| **Duplicate the current query** | <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>D</kbd> | <kbd>Ctrl</kbd>+<kbd>Opt</kbd>+<kbd>D</kbd> |
+| **Enable Copilot/Disable Copilot** | <kbd>Ctrl</kbd>+<kbd>P</kbd> | <kbd>Ctrl</kbd>+<kbd>P</kbd> |
+| **Find** | <kbd>Ctrl</kbd>+<kbd>F</kbd> | <kbd>Ctrl</kbd>+<kbd>F</kbd> |
+| **Format all** | <kbd>Shift</kbd>+<kbd>Alt</kbd>+<kbd>F</kbd> | <kbd>Shift</kbd>+<kbd>Opt</kbd>+<kbd>F</kbd> |
+| **Format selection** | <kbd>Ctrl</kbd>+<kbd>K</kbd>&nbsp;<kbd>Ctrl</kbd>+<kbd>F</kbd> | <kbd>Ctrl</kbd>+<kbd>K</kbd>&nbsp;<kbd>Ctrl</kbd>+<kbd>F</kbd> |
+| **Go to line** | <kbd>Ctrl</kbd>+<kbd>G</kbd> | <kbd>Ctrl</kbd>+<kbd>G</kbd> |
+| **Indent the current line or the selected lines** | <kbd>Tab</kbd> | <kbd>Tab</kbd> |
+| **Insert line prior to current row** | <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Enter</kbd> | <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Return</kbd> |
+| **Insert Line after current row** | <kbd>Ctrl</kbd>+<kbd>Enter</kbd> | <kbd>Ctrl</kbd>+<kbd>Return</kbd> |
+| **Move line down** | <kbd>Alt</kbd>+<kbd>Down Arrow</kbd> | <kbd>Opt</kbd>+<kbd>Down Arrow</kbd> |
+| **Move line up** | <kbd>Alt</kbd>+<kbd>Up Arrow</kbd> | <kbd>Opt</kbd>+<kbd>Up Arrow</kbd> |
+| **Move the cursor to the end of the line** | <kbd>Shift</kbd>+<kbd>Alt</kbd>+<kbd>I</kbd> | <kbd>Shift</kbd>+<kbd>Opt</kbd>+<kbd>I</kbd> |
+| **Move the cursor to the next word** | <kbd>Ctrl</kbd>+<kbd>Right</kbd> | <kbd>Ctrl</kbd>+<kbd>Right</kbd> |
+| **Move the cursor to the previous word** | <kbd>Ctrl</kbd>+<kbd>Left</kbd> | <kbd>Ctrl</kbd>+<kbd>Left</kbd> |
+| **Open Query** | <kbd>Ctrl</kbd>+<kbd>O</kbd> | <kbd>Ctrl</kbd>+<kbd>O</kbd> |
+| **Open Query from Disk** | <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>O</kbd> | <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>O</kbd> |
+| **Paste the copied or cut text** | <kbd>Ctrl</kbd>+<kbd>V</kbd> | <kbd>Ctrl</kbd>+<kbd>V</kbd> |
+| **Restore previous undone edit** | <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Z</kbd> | <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Z</kbd> |
+| **Run Query/Stored Procedure** | <kbd>Shift</kbd>+<kbd>Enter</kbd> or <kbd>F5</kbd> | <kbd>Shift</kbd>+<kbd>Return</kbd> or <kbd>F5</kbd> |
+| **Save Query to Disk** | <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>S</kbd> | <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>S</kbd> |
+| **Select all the text in the query editor** | <kbd>Ctrl</kbd>+<kbd>A</kbd> | <kbd>Ctrl</kbd>+<kbd>A</kbd> |
+| **Select the text from the cursor to the next word** | <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Right</kbd> | <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Right</kbd> |
+| **Select the text from the cursor to the previous word** | <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Left</kbd> | <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Left</kbd> |
+| **Show Editor Context Menu** | <kbd>Shift</kbd>+<kbd>F10</kbd> | <kbd>Shift</kbd>+<kbd>F10</kbd> |
+| **Switch to tab on the left** | <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>F6</kbd> or <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>[</kbd> | <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>F6</kbd> or <kbd>Ctrl</kbd>+<kbd>Opt</kbd>+<kbd>[</kbd> |
+| **Switch to tab on the right** | <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>]</kbd> or <kbd>Ctrl</kbd>+<kbd>F6</kbd> | <kbd>Ctrl</kbd>+<kbd>Opt</kbd>+<kbd>]</kbd> or <kbd>Ctrl</kbd>+<kbd>F6</kbd> |
+| **Toggle comment on/off** | <kbd>Ctrl</kbd>+<kbd>/</kbd> | <kbd>Ctrl</kbd>+<kbd>/</kbd> |
+| **Uncomment line** | <kbd>Ctrl</kbd>+<kbd>K</kbd>&nbsp;<kbd>Ctrl</kbd>+<kbd>U</kbd>  | <kbd>Ctrl</kbd>+<kbd>K</kbd>&nbsp;<kbd>Ctrl</kbd>+<kbd>U</kbd> |
+| **Undo last editing** | <kbd>Ctrl</kbd>+<kbd>Z</kbd> | <kbd>Ctrl</kbd>+<kbd>Z</kbd> |
+| **Unindent the current line or the selected lines** | <kbd>Shift</kbd>+<kbd>Tab</kbd> | <kbd>Shift</kbd>+<kbd>Tab</kbd> |
 
 ## Related content
 
