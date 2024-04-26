@@ -59,16 +59,16 @@ Besides AI, Azure Cosmos DB should also be your goto database for a variety of u
 
 ### For what kinds of apps is Azure Cosmos DB a good fit?
 
-- **Flexible Schema for Iterative Development.** E.g., apps wanting to adopt flexible modern DevOps practices and accelerate feature deployment timelines.
-- **Latency sensitive workloads.** E.g., real-time Personalization.
-- **Highly elastic workloads.** E.g., concert booking platform.
-- **High throughput workloads.** E.g., IoT device state/telemetry.
-- **Highly available mission critical workloads.** E.g., customer-facing Web Apps.
+- **Flexible Schema for Iterative Development.** For example, apps wanting to adopt flexible modern DevOps practices and accelerate feature deployment timelines.
+- **Latency sensitive workloads.** For example, real-time Personalization.
+- **Highly elastic workloads.** For example, concert booking platform.
+- **High throughput workloads.** For example, IoT device state/telemetry.
+- **Highly available mission critical workloads.** For example, customer-facing Web Apps.
 
 ### For what kinds of apps is Azure Cosmos DB a poor fit?
 
-- **Analytical workloads (OLAP).** E.g., interactive, streaming, and batch analytics to enable Data Scientist / Data Analyst scenarios. Consider Microsoft Fabric instead.
-- **Highly relational apps.** E.g., white-label CRM applications. Consider Azure SQL, Azure Database for MySQL, or Azure Database for PostgreSQL instead.
+- **Analytical workloads (OLAP).** For example, interactive, streaming, and batch analytics to enable Data Scientist / Data Analyst scenarios. Consider Microsoft Fabric instead.
+- **Highly relational apps.** For example, white-label CRM applications. Consider Azure SQL, Azure Database for MySQL, or Azure Database for PostgreSQL instead.
 
 ## ...with unmatched reliability and flexibility
 
