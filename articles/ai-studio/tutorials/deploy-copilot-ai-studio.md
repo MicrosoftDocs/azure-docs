@@ -43,7 +43,7 @@ The steps in this tutorial are:
 
 ## Create a project in Azure AI Studio
 
-Your project is used to organize your work and save state while building your copilot. During this tutorial, your project contains your data, prompt flow runtime, evaluations, and other resources. For more information about the projects and resources model, see [hubs](../concepts/ai-resources.md).
+Your project is used to organize your work and save state while building your copilot. During this tutorial, your project contains your data, prompt flow compute sessions, evaluations, and other resources. For more information about the projects and resources model, see [hubs](../concepts/ai-resources.md).
 
 [!INCLUDE [Create project](../includes/create-projects.md)]
 
@@ -141,15 +141,15 @@ Follow these steps to add your data to the playground to help the assistant answ
    :::image type="content" source="../media/tutorials/copilot-deploy-flow/chat-with-data.png" alt-text="Screenshot of the assistant's reply with grounding data." lightbox="../media/tutorials/copilot-deploy-flow/chat-with-data.png":::
 
 
-## Create compute and runtime that are needed for prompt flow
+## Create compute and compute sessions that are needed for prompt flow
 
-You use prompt flow to optimize the messages that are sent to the copilot's chat model. Prompt flow requires a compute instance and a runtime. If you already have a compute instance and a runtime, you can skip this section and remain in the playground.
+You use prompt flow to optimize the messages that are sent to the copilot's chat model. Prompt flow requires a compute instance and a compute session. If you already have a compute instance and a compute session, you can skip this section and remain in the playground.
 
-To create a compute instance and a runtime, follow these steps:
+To create a compute instance and a compute session, follow these steps:
 1. If you don't have a compute instance, you can [create one in Azure AI Studio](../how-to/create-manage-compute.md). 
-1. Then create a runtime by following the steps in [how to create a runtime](../how-to/create-manage-runtime.md).
+1. Then create a compute session. by following the steps in [how to create a compute session](../how-to/create-manage-compute-session.md).
 
-To complete the rest of the tutorial, make sure that your runtime is in the **Running** status. You might need to select **Refresh** to see the updated status.
+To complete the rest of the tutorial, make sure that your compute session is in the **Running** status. You might need to select **Refresh** to see the updated status.
 
 > [!IMPORTANT]
 > You're charged for compute instances while they are running. To avoid incurring unnecessary Azure costs, pause the compute instance when you're not actively working in prompt flow. For more information, see [how to start and stop compute](../how-to/create-manage-compute.md#start-or-stop-a-compute-instance).
@@ -192,7 +192,7 @@ The **FormatReply** node formats the output of the **DetermineReply** node.
 
 In prompt flow, you should also see:
 - **Save**: You can save your prompt flow at any time by selecting **Save** from the top menu. Be sure to save your prompt flow periodically as you make changes in this tutorial. 
-- **Runtime**: The runtime that you created [earlier in this tutorial](#create-compute-and-runtime-that-are-needed-for-prompt-flow). You can start and stop runtimes and compute instances via **Project settings** in the left menu. To work in prompt flow, make sure that your runtime is in the **Running** status.
+- **Compute session.**: The compute session that you created [earlier in this tutorial](#create-compute-and-compute session-that-are-needed-for-prompt-flow). You can start and stop compute sessions and compute instances via **Project settings** in the left menu. To work in prompt flow, make sure that your compute session is in the **Running** status.
 
     :::image type="content" source="../media/tutorials/copilot-deploy-flow/prompt-flow-overview.png" alt-text="Screenshot of the prompt flow editor and surrounding menus." lightbox="../media/tutorials/copilot-deploy-flow/prompt-flow-overview.png":::
 
@@ -397,7 +397,7 @@ Now that you have your evaluation dataset, you can evaluate your flow by followi
 
     You're taken to the **Create a new evaluation** wizard.
 
-1. Enter a name for your evaluation and select a runtime.
+1. Enter a name for your evaluation and select a compute session.
 1. Select **Question and answer pairs with retrieval-augmented generation** from the scenario options.
 
     :::image type="content" source="../media/tutorials/copilot-deploy-flow/evaluate-basic-scenario.png" alt-text="Screenshot of selecting an evaluation scenario." lightbox="../media/tutorials/copilot-deploy-flow/evaluate-basic-scenario.png":::
@@ -449,7 +449,7 @@ Now you can view the evaluation status and results by following these steps:
     :::image type="content" source="../media/tutorials/copilot-deploy-flow/evaluate-status-completed.png" alt-text="Screenshot of the metric evaluations page." lightbox="../media/tutorials/copilot-deploy-flow/evaluate-status-completed.png":::
 
     > [!TIP]
-    > Once the evaluation is in **Completed** status, you don't need runtime or compute to complete the rest of this tutorial. You can stop your compute instance to avoid incurring unnecessary Azure costs. For more information, see [how to start and stop compute](../how-to/create-manage-compute.md#start-or-stop-a-compute-instance).
+    > Once the evaluation is in **Completed** status, you don't need compute session or compute to complete the rest of this tutorial. You can stop your compute instance to avoid incurring unnecessary Azure costs. For more information, see [how to start and stop compute](../how-to/create-manage-compute.md#start-or-stop-a-compute-instance).
 
 1. Select the name of the evaluation that completed first (*contoso-evaluate-from-flow_variant_0*) to see the evaluation details with the columns that you mapped earlier.
 
