@@ -47,20 +47,13 @@ Follow these steps to delegate your subnets for use with your Azure Communicatio
 1. Go to your [virtual networks](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Microsoft.Network%2FvirtualNetworks) and select the virtual network to use in the first service region for Azure Communications Gateway.
 
 1. Select  **Subnets**.
-
 1. Select a subnet you wish to delegate to Azure Communications Gateway.
 
     > [!IMPORTANT]
     > The subnet you use must be dedicated to Azure Communications Gateway.
  
 1. In **Delegate subnet to a service**, select *Microsoft.AzureCommunicationsGateway/networkSettings*, and then select **Save**.
-
-  @@@todo insert screenshot 
-
 1. Verify that *Microsoft.AzureCommunicationsGateway/networkSettings* appears in the **Delegated to** column for your subnet.
-
-@@@ TODO insert screenshot
-
 1. Repeat the above steps for the virtual network and subnet in the other Azure Communications Gateway service region.
 
 ## 3. Configure network security groups.
@@ -90,15 +83,9 @@ Your network security group configuration should allow traffic to the necessary 
 Go to your network security group, and select **Subnets**.
 
 1. Select **+ Associate** from the top menu bar.
-
 1. For **Virtual network**, select your virtual network.
-
 1. For **Subnet**, select your virtual network subnet.
-
-@@@TODO insert screenshot
-
 1. Select **OK** to associate the virtual network subnet with the network security group.
-
 1. Repeat these steps for the other service region.
 
 ## Next Steps
