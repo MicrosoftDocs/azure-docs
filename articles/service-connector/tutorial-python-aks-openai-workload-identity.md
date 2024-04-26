@@ -44,7 +44,7 @@ You start this tutorial by creating several Azure resources.
         --location eastus
     ```
 
-1. Create an AKS cluster with the following command, or referring to the [AKS tutorial](../aks/learn/quick-kubernetes-deploy-cli.md). In this tutorial, we create the service connection, pod definition and deploy the sample application to this cluster.
+1. Create an AKS cluster with the following command, or by referring to the [AKS quickstart](../aks/learn/quick-kubernetes-deploy-cli.md). In this tutorial, we create the service connection and pod definition and deploy the sample application to this cluster.
 
     ```azurecli-interactive
     az aks create \
@@ -99,7 +99,7 @@ You start this tutorial by creating several Azure resources.
         --sku Standard
     ```
 
-1. Enable anonymous pull using [az acr update](/cli/azure/acr#az-acr-update) commandso that the AKS cluster can consume the images in the registr
+1. Enable anonymous pull using [az acr update](/cli/azure/acr#az-acr-update) command so that the AKS cluster can consume the images in the registry.
 
     ```azurecli-interactive
     az acr update \
@@ -108,7 +108,7 @@ You start this tutorial by creating several Azure resources.
         --anonymous-pull-enabled
     ```
 
-1. Create a user-assigned managed identity with the [az identity create](/cli/azure/identity#az-identity-create) command, or referring to [this tutorial](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities). When the connection is created, the user-assigned managed identity is used to enable the workload identity for the AKS workloads.
+1. Create a user-assigned managed identity with the [az identity create](/cli/azure/identity#az-identity-create) command, or by referring to [this tutorial](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities). When the connection is created, the user-assigned managed identity is used to enable the workload identity for AKS workloads.
 
     ```azurecli
     az identity create \
@@ -120,7 +120,7 @@ You start this tutorial by creating several Azure resources.
 
 Create a service connection between an AKS cluster and Azure OpenAI Service in the Azure portal.
 
-Refer to [AKS quickstart](quickstart-portal-aks-connection.md) for instructions to create a new connection and fill in the settings refering to the examples in the following table. Leave all other settings with their default values.
+Refer to the [AKS service connection quickstart](quickstart-portal-aks-connection.md) for instructions to create a new connection and fill in the settings refering to the examples in the following table. Leave all other settings with their default values.
 
 1. Basics tab:
 
@@ -181,7 +181,7 @@ Once the connection has been created, you can view its details in the **Service 
    * Replace `<ServiceAccountCreatedByServiceConnector>` with the service account created by Service Connector after the connection creation. You may check the service account name in the Azure portal, in the **Service Connector** pane.
    * Replace `<SecretCreatedByServiceConnector>` with the secret created by Service Connector after the connection creation. You may check the secret name in the Azure portal, in the **Service Connector** pane.
 
-1. Deploy the pod to your cluster with `kubectl apply` command. Install `kubectl` locally using the [az aks install-cli](/cli/azure/aks#az_aks_install_cli) command if it isn't installed. The command creates a pod named `sc-demo-openai-identity` in the default namespace of your AKS cluster.
+1. Deploy the pod to your cluster with the `kubectl apply` command, which creates a pod named `sc-demo-openai-identity` in the default namespace of your AKS cluster. Install `kubectl` locally using the [az aks install-cli](/cli/azure/aks#az_aks_install_cli) command if it isn't installed. 
 
    ```Bash
    kubectl apply -f pod.yaml

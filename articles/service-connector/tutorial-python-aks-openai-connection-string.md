@@ -41,7 +41,7 @@ In this tutorial, you learn how to create a pod in an Azure Kubernetes (AKS) clu
         --location eastus
     ```
 
-1. Create an AKS cluster with the following command, or referring to the [AKS tutorial](../aks/learn/quick-kubernetes-deploy-cli.md). This cluster is where we create the service connection, pod definition and deploy the sample application.
+1. Create an AKS cluster with the following command, or by referring to the [AKS quickstart](../aks/learn/quick-kubernetes-deploy-cli.md). This cluster is where we create the service connection and pod definition and deploy the sample application.
 
     ```azurecli-interactive
     az aks create \
@@ -96,7 +96,7 @@ In this tutorial, you learn how to create a pod in an Azure Kubernetes (AKS) clu
         --sku Standard
     ```
 
-1. Enable anonymous pull using [az acr update](/cli/azure/acr#az-acr-update) commandso that the AKS cluster can consume the images in the registry.
+1. Enable anonymous pull using [az acr update](/cli/azure/acr#az-acr-update) command so that the AKS cluster can consume the images in the registry.
 
     ```azurecli-interactive
     az acr update \
@@ -109,7 +109,7 @@ In this tutorial, you learn how to create a pod in an Azure Kubernetes (AKS) clu
 
 Create a service connection between an AKS cluster and Azure OpenAI Service in the Azure portal.
 
-Refer to [AKS quickstart](quickstart-portal-aks-connection.md) for instructions to create a new connection and fill in the settings refering to the examples in the following table. Leave all other settings with their default values.
+Refer to the [AKS service connection quickstart](quickstart-portal-aks-connection.md) for instructions to create a new connection and fill in the settings refering to the examples in the following table. Leave all other settings with their default values.
 
 1. Basics tab:
 
