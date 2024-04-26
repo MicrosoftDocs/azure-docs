@@ -41,9 +41,19 @@ To list the blobs in a container using a hierarchical listing, call the followin
 
 - [NewListBlobsHierarchyPager](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob/container#Client.NewListBlobsHierarchyPager)
 
+### Manage how many results are returned
+
+By default, a listing operation returns up to 5000 results at a time. To return a smaller set of results, provide a nonzero value for the `MaxResults` field in [ListBlobsFlatOptions](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob/container#ListBlobsFlatOptions) or [ListBlobsHierarchyOptions](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob/container#ListBlobsFlatOptions).
+
 ### Filter results with a prefix
 
-To filter the list of blobs, specify a string for the `name_starts_with` keyword argument. The prefix string can include one or more characters. Azure Storage then returns only the blobs whose names start with that prefix.
+To filter the list of blobs returned, specify a string or character for the `Prefix` field in [ListBlobsFlatOptions](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob/container#ListBlobsFlatOptions) or [ListBlobsHierarchyOptions](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob/container#ListBlobsFlatOptions). The prefix string can include one or more characters. Azure Storage then returns only the blobs whose names start with that prefix.
+
+### Include blob metadata or other information
+
+To include blob metadata with the results, set the `Metadata` field to `true` as part of [ListBlobsInclude](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob/container#ListBlobsInclude). Azure Storage includes metadata with each blob returned, so you don't need to fetch the blob metadata separately.
+
+See [ListBlobsInclude](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob/container#ListBlobsInclude) for additional options to include snapshots, versions, blob index tags, and other information with the results.
 
 ### Flat listing versus hierarchical listing
 
@@ -57,7 +67,7 @@ If you name your blobs using a delimiter, then you can choose to list blobs hier
 
 By default, a listing operation returns blobs in a flat listing. In a flat listing, blobs aren't organized by virtual directory.
 
-The following example lists the blobs in the specified container using a flat listing:
+The following example lists the blobs in the specified container using a flat listing. This example   blob snapshots and blob versions, if they exist:
 
 :::code language="go" source="~/blob-devguide-go/cmd/list-blobs/list_blobs.go id="snippet_list_blobs_flat":::
 
@@ -65,28 +75,29 @@ Sample output is similar to:
 
 ```console
 List blobs flat:
-Name: file4.txt
-Name: folderA/file1.txt
-Name: folderA/file2.txt
-Name: folderA/folderB/file3.txt
+file4.txt
+folderA/file1.txt
+folderA/file2.txt
+folderA/folderB/file3.txt
 ```
 
-You can also specify options to filter list results or show additional information. The following example lists blobs and blob tags:
+The following example lists blobs in a container that begin with a specific prefix:
 
 :::code language="go" source="~/blob-devguide-go/cmd/list-blobs/list_blobs.go id="snippet_list_blobs_flat_options":::
 
-Sample output is similar to:
+When passing a prefix string of "sample", output is similar to:
 
 ```console
-List blobs flat:
-Name: file4.txt, Tags: None
-Name: folderA/file1.txt, Tags: None
-Name: folderA/file2.txt, Tags: None
-Name: folderA/folderB/file3.txt, Tags: {'tag1': 'value1', 'tag2': 'value2'}
+List blobs with prefix:
+sample-blob1.txt
+sample-blob2.txt
+sample-blob3.txt
 ```
 
 > [!NOTE]
-> The sample output shown assumes that you have a storage account with a flat namespace. If you've enabled the hierarchical namespace feature for your storage account, directories are not virtual. Instead, they are concrete, independent objects. As a result, directories appear in the list as zero-length blobs.</br></br>For an alternative listing option when working with a hierarchical namespace, see [List directory contents (Azure Data Lake Storage Gen2)](data-lake-storage-directory-file-acl-python.md#list-directory-contents).
+> The sample output shown assumes that you have a storage account with a flat namespace. If you've enabled the hierarchical namespace feature for your storage account, directories are not virtual. Instead, they are concrete, independent objects. As a result, directories appear in the list as zero-length blobs.
+>
+> For an alternative listing option when working with a hierarchical namespace, see [NewListPathsPager](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azdatalake/filesystem#Client.NewListPathsPager).
 
 ## Use a hierarchical listing
 
@@ -94,21 +105,23 @@ When you call a listing operation hierarchically, Azure Storage returns the virt
 
 To list blobs hierarchically, use the following method:
 
-- [ContainerClient.walk_blobs](/python/api/azure-storage-blob/azure.storage.blob.containerclient#azure-storage-blob-containerclient-walk-blobs)
+- [NewListBlobsHierarchyPager](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob/container#Client.NewListBlobsHierarchyPager)
 
-The following example lists the blobs in the specified container using a hierarchical listing:
+The following example lists the blobs in the specified container using a hierarchical listing. In this example, the prefix parameter is initially set to an empty string to list all blobs in the container. The example then calls the listing operation recursively to traverse the virtual directory hierarchy and list blobs. 
 
 :::code language="go" source="~/blob-devguide-go/cmd/list-blobs/list_blobs.go id="snippet_list_blobs_hierarchical":::
 
 Sample output is similar to:
 
 ```console
-folderA/
-  folderA/folderB/
-    folderA/folderB/file3.txt
-  folderA/file1.txt
-  folderA/file2.txt
-file4.txt
+Virtual directory prefix: folderA/
+Blob: folderA/file1.txt
+Blob: folderA/file2.txt
+Blob: folderA/file3.txt
+Virtual directory prefix: folderA/folderB/
+Blob: folderA/folderB/file1.txt
+Blob: folderA/folderB/file2.txt
+Blob: folderA/folderB/file3.txt
 ```
 
 > [!NOTE]
@@ -118,15 +131,15 @@ file4.txt
 
 To learn more about how to list blobs using the Azure Blob Storage client module for Go, see the following resources.
 
+### Code samples
+
+- View [code samples](https://github.com/Azure-Samples/blob-storage-devguide-go/cmd/list-blobs/list_blobs.go) from this article (GitHub)
+
 ### REST API operations
 
 The Azure SDK for Go contains libraries that build on top of the Azure REST API, allowing you to interact with REST API operations through familiar Go paradigms. The client library methods for listing blobs use the following REST API operation:
 
 - [List Blobs](/rest/api/storageservices/list-blobs) (REST API)
-
-### Code samples
-
-- View [code samples](https://github.com/Azure-Samples/blob-storage-devguide-go/cmd/list-blobs/list_blobs.go) from this article (GitHub)
 
 [!INCLUDE [storage-dev-guide-resources-go](../../../includes/storage-dev-guides/storage-dev-guide-resources-go.md)]
 
