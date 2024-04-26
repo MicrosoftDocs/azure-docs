@@ -91,6 +91,7 @@ The expected field dimensions for a field configured with an AI Studio model cat
 ## See also
 
 + [Integrated vectorization](vector-search-integrated-vectorization.md)
++ [Integrated vectorization with models from Azure AI Studio](vector-search-integrated-vectorization-ai-studio.md)
 + [How to configure a vectorizer in a search index](vector-search-how-to-configure-vectorizer.md)
 + [Azure Machine Learning skill](cognitive-search-aml-skill.md)
 + [Azure AI Studio model catalog](../ai-studio/how-to/model-catalog.md)

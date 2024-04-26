@@ -165,3 +165,4 @@ For cases when the AML online endpoint is unavailable or returns an HTTP error, 
 
 + [How to define a skillset](cognitive-search-defining-skillset.md)
 + [AML online endpoint troubleshooting](../machine-learning/how-to-troubleshoot-online-endpoints.md)
++ [Integrated vectorization with models from Azure AI Studio](vector-search-integrated-vectorization-ai-studio.md)

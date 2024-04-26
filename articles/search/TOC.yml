@@ -338,6 +338,8 @@
       href: vector-search-how-to-generate-embeddings.md
     - name: Chunk and embed in Azure portal (preview)
       href: search-get-started-portal-import-vectors.md
+    - name: Integrated vectorization with Azure AI Studio models
+      href: vector-search-integrated-vectorization-ai-studio.md
   - name: Keyword search
     items:
     - name: Full text query
