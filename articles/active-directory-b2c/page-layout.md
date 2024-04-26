@@ -215,7 +215,7 @@ Azure AD B2C page layout uses the following versions of the [jQuery library](htt
  
 **2.1.17**
 - Included Aria-required for UnifiedSSP (Accessibility).
-- Implementation of Captcha Control
+- Implement CAPTCHA Control
 
 **2.1.14**
 - Replaced `Keypress` to `Key Down` event.
