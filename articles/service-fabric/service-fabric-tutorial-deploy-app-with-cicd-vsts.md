@@ -85,13 +85,17 @@ Select the **Pipelines** tab and click **Create Pipeline**.
 
 Select **Use the classic editor** to create a pipeline without YAML.
 
-![Select repo][select-repo]
+![Classic Editor][classic-editor]
+
+Select **Azure Repos Git** as source, **VotingSample** Team project, **VotingApplication** Repository, and **master** Default branch for manual and scheduled builds. Then click **Continue**.
+
+![Select Repo][select-repo]
 
 In **Select a template**, select the **Azure Service Fabric application** template and click **Apply**.
 
 ![Choose build template][select-build-template]
 
-In **Tasks**, enter "Hosted VS2017" as the **Agent pool**.
+In **Tasks**, enter "Azure Pipelines" as the **Agent pool** and **windows-2022** as Agent Specification
 
 ![Select tasks][save-and-queue]
 
@@ -107,17 +111,17 @@ Select the **Pipelines** tab, then **Releases**, then **+ New pipeline**.  In **
 
 ![Choose release template][select-release-template]
 
-Select **Tasks**->**Environment 1** and then **+New** to add a new cluster connection.
+Select **Tasks** and then **+New** to add a new cluster connection.
 
 ![Add cluster connection][add-cluster-connection]
 
-In the **Add new Service Fabric Connection** view select **Certificate Based** or **Microsoft Entra ID** authentication.  Specify a connection name of "mysftestcluster" and a cluster endpoint of "tcp://mysftestcluster.southcentralus.cloudapp.azure.com:19000" (or the endpoint of the cluster you are deploying to).
+In the **New Service Fabric Connection** view select **Certificate Based** or **Microsoft Entra credential** authentication.  Specify cluster endpoint of tcp://mysftestcluster.southcentralus.cloudapp.azure.com:19000" (or the endpoint of the cluster you are deploying to).
 
 For certificate-based authentication, add the **Server certificate thumbprint** of the server certificate used to create the cluster.  In **Client certificate**, add the base-64 encoding of the client certificate file. See the help pop-up on that field for info on how to get that base-64 encoded representation of the certificate. Also add the **Password** for the certificate.  You can use the cluster or server certificate if you don't have a separate client certificate.
 
 For Microsoft Entra credentials, add the **Server certificate thumbprint** of the server certificate used to create the cluster and the credentials you want to use to connect to the cluster in the **Username** and **Password** fields.
 
-Click **Add** to save the cluster connection.
+Click **Save**.
 
 Next, add a build artifact to the pipeline so the release pipeline can find the output from the build. Select **Pipeline** and **Artifacts**->**+Add**.  In **Source (Build definition)**, select the build pipeline you created previously.  Click **Add** to save the build artifact.
 
@@ -127,9 +131,9 @@ Enable a continuous deployment trigger so that a release is automatically create
 
 ![Enable trigger][enable-trigger]
 
-Select **+ Release** -> **Create a Release** -> **Create** to manually create a release. You can monitor the release progress in the **Releases** tab.
+Select **Create Release** -> **Create** to manually create a release. You can monitor the release progress in the **Releases** tab.
 
-Verify that the deployment succeeded and the application is running in the cluster.  Open a web browser and navigate to `http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/`.  Note the application version, in this example it is "1.0.0.20170616.3".
+Verify that the deployment succeeded and the application is running in the cluster.  Open a web browser and navigate to https://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/.  Note the application version, in this example it is "1.0.0.20170616.3".
 
 ## Commit and push changes, trigger a release
 
@@ -184,15 +188,16 @@ Advance to the next tutorial:
 [push-git-repo]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/PublishAppProfileNew.png
 [publish-code]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/PublishCode.png
 [new-pipeline]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/NewPipelineLatest.png
-[select-repo]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SelectRepo.png
-[select-build-template]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SelectBuildTemplate.png
-[save-and-queue]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SaveAndQueue.png
-[save-and-queue2]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SaveAndQueue2.png
-[select-release-template]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SelectReleaseTemplate.png
+[classic-editor]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/ClassicEditor.png
+[select-repo]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SelectRepoLatest.png
+[select-build-template]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SelectBuildTemplateLatest.png
+[save-and-queue]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SaveAndQueueLatest.png
+[save-and-queue2]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SaveAndQueueLatest2.png
+[select-release-template]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SelectReleaseTemplateLatest.png
 [set-continuous-integration]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SetContinuousIntegration.png
-[add-cluster-connection]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/AddClusterConnection.png
-[add-artifact]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/AddArtifact.png
-[enable-trigger]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/EnableTrigger.png
+[add-cluster-connection]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/AddClusterConnectionLatest.png
+[add-artifact]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/AddArtifactLatest.png
+[enable-trigger]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/EnableTriggerLatest.png
 [sfx1]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SFX1.png
 [sfx2]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SFX2.png
 [sfx3]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SFX3.png
