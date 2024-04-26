@@ -723,7 +723,7 @@ items:
           - name: Government clouds
             href: concepts/interop/teams-user/government-cloud.md
           - name: Capabilities for Microsoft Teams users in Azure Communication Services group calls
-            href: concepts/interop/teams-user/teams-interop-group-calls.md
+            href: concepts/interop/teams-interop-group-calls.md
       - name: Virtual visits
         items:
           - name: Overview
