@@ -103,7 +103,7 @@ If you want to use a private feed in Azure DevOps, follow these steps:
 
 ### <a name="base"></a> Change the base image
 
-By default, we use the latest prompt flow image as the base image. If you want to use a different base image, you need to build your own base image. The docker image should be built from the prompt flow base image, `mcr.microsoft.com/azureml/promptflow/promptflow-runtime:<newest_version>`. If possible use the [latest version of the base image](https://mcr.microsoft.com/v2/azureml/promptflow/promptflow-compute-session/tags/list). 
+By default, we use the latest prompt flow image as the base image. If you want to use a different base image, you need to build your own base image. The docker image should be built from the prompt flow base image, `mcr.microsoft.com/azureml/promptflow/promptflow-runtime:<newest_version>`. If possible use the [latest version of the base image](https://mcr.microsoft.com/v2/azureml/promptflow/promptflow-runtime/tags/list). 
 
 1. Open the prompt flow.
 1. On the top toolbar, select **Raw file mode** to enable editing in the file editor.
