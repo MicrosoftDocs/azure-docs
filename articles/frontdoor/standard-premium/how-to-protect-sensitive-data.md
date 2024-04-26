@@ -27,17 +27,17 @@ Before you can use the log scrubbing tool, you must have an Azure Front Door Sta
 
 1. Under **Scrub sensitive data from access logs**, select **Manage log scrubbing**. 
 
-   :::image type="content" source="../media/protect-sensitive-data/log-scrubbing-disabled.png" alt-text="Screenshot that shows log scrubbing is disabled.":::
+   :::image type="content" source="../media/how-to-protect-sensitive-data/log-scrubbing-disabled.png" alt-text="Screenshot that shows log scrubbing is disabled.":::
 
 1. In **Manage log scrubbing**, select **Enable access log scrubbing** to enable scrubbing. 
 
 1. Select the log fields that you want to scrub, then select **Save**.
 
-   :::image type="content" source="../media/protect-sensitive-data/manage-log-scrubbing.png" alt-text="Screenshot that shows log scrubbing fields.":::
+   :::image type="content" source="../media/how-to-protect-sensitive-data/manage-log-scrubbing.png" alt-text="Screenshot that shows log scrubbing fields.":::
 
 1. In the **Configuration** page, you can see that log scrubbing is enabled.
 
-   :::image type="content" source="../media/protect-sensitive-data/log-scrubbing-enabled.png" alt-text="Screenshot that shows log scrubbing is enabled.":::
+   :::image type="content" source="../media/how-to-protect-sensitive-data/log-scrubbing-enabled.png" alt-text="Screenshot that shows log scrubbing is enabled.":::
 
 To verify your sensitive data protection rules, open the Azure Front Door log and search for `****` in place of the sensitive fields.
 

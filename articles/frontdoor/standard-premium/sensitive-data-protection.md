@@ -36,4 +36,4 @@ The following fields can be scrubbed from the logs:
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Protect sensitive data in Azure Front Door logs](protect-sensitive-data.md)
+> [Protect sensitive data in Azure Front Door logs](how-to-protect-sensitive-data.md)
