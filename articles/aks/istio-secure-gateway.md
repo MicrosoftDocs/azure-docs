@@ -394,7 +394,7 @@ Extend your gateway definition to support mutual TLS.
 
 ### Verification
 
-Attempt to send HTTPS request using the prior approach and see it fail.
+Attempt to send HTTPS request using the prior approach - without passing the client certificate - and see it fail.
 
 ```bash
 curl -v -HHost:productpage.bookinfo.com --resolve "productpage.bookinfo.com:$SECURE_INGRESS_PORT_EXTERNAL:$INGRESS_HOST_EXTERNAL" --cacert bookinfo_certs/bookinfo.com.crt "https://productpage.bookinfo.com:$SECURE_INGRESS_PORT_EXTERNAL/productpage" 
