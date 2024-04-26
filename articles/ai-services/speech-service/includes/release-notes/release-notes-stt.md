@@ -6,6 +6,12 @@ ms.date: 3/13/2024
 ms.author: eur
 ---
 
+### May 2024 release
+
+#### Fast transcription API (Preview)
+
+The fast transcription API is now available in preview. Fast transcription API is used to transcribe audio files with returning results synchronously and much faster than real-time audio. For more information, see the [fast transcription API guide](../../fast-transcription.md).
+
 ### April 2024 release
 
 #### Real-time speech to text with diariazation (GA)

@@ -31,7 +31,19 @@ With real-time speech to text, the audio is transcribed as speech is recognized 
 
 Real-time speech to text is available via the [Speech SDK](speech-sdk.md) and the [Speech CLI](spx-overview.md). 
 
-## Batch transcription
+## Fast transcription API (Preview)
+
+Fast transcription API is used to transcribe audio files with returning results synchronously and much faster than real-time audio. Use fast transcription in the scenarios that you need the transcript of an audio recording as quickly as possible with predictable latency, such as: 
+
+- Quick audio or video transcription, subtitles, and edit. 
+- Video dubbing  
+
+> [!NOTE]
+> Fast transcription API is only available via the speech to text REST API version 3.3. 
+
+To get started with fast transcription, see [use the fast transcription API (preview)](fast-transcription-create.md).
+
+## Batch transcription API
 
 [Batch transcription](batch-transcription.md) is used to transcribe a large amount of audio in storage. You can point to audio files with a shared access signature (SAS) URI and asynchronously receive transcription results. Use batch transcription for applications that need to transcribe audio in bulk such as:
 - Transcriptions, captions, or subtitles for prerecorded audio
