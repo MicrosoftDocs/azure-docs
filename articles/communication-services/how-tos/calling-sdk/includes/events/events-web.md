@@ -89,3 +89,14 @@ The `isMutedChanged` event is fired when the call is muted or unmuted.
 **How might your application react to the event ?**
 
 Your application should update the mute / unmute button to the proper state.
+
+#### Event: `isScreenSharingOnChanged`
+
+**When does it occurs ?**
+
+The `isScreenSharingOnChanged` event is fired when screensharing for the local user is enabled or disabled.
+
+**How might your application react to the event ?**
+
+Your application should show a preview and/or a warning to the user if the screen sharing became on.
+If the screen sharing went off, then the application should remove the preview and warning.
