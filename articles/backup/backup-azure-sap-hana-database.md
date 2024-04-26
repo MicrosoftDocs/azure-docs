@@ -261,7 +261,7 @@ Learn about the [supported scenarios](sap-hana-backup-support-matrix.md#support-
 
 ## Review backup status 
 
-Azure Backup synchronizes the datasource between the extension installed on the VM and Azure Backup service periodically, and shows the backup status in the Azure portal. The following table lists the four backup status for a datasource:
+Azure Backup periodically synchronizes the datasource between the extension installed on the VM and Azure Backup service, and shows the backup status in the Azure portal. The following table lists the (four) backup status for a datasource:
 
 | Backup state | Description |
 | --- | --- |
@@ -270,7 +270,7 @@ Azure Backup synchronizes the datasource between the extension installed on the 
 | **NotReachable** | There's currently no synchronization occurring between the extension on the VM and the Azure Backup service. |
 | **IRPending** | The first backup on the datasource hasn't occurred yet. |
  
-Generally, the synchronization occurs *every hour*. However, at the extension level, Azure Backup polls every *5 minutes* to check for any changes in the status of the latest backup compared to the previous one. For example, if the previous backup is successful but the latest backup has failed, Azure Backup syncs that information to the service to update the backup status in the Azure portal accordingly to *Healthy* or *Unhealthy*.
+Generally, synchronization occurs *every hour*. However, at the extension level, Azure Backup polls every *5 minutes* to check for any changes in the status of the latest backup compared to the previous one. For example, if the previous backup is successful but the latest backup has failed, Azure Backup syncs that information to the service to update the backup status in the Azure portal accordingly to *Healthy* or *Unhealthy*.
  
 If no data sync occurs to the Azure Backup service for more than *2 hours*, Azure Backup shows the backup status as *NotReachable*. This scenario might occur if the VM is shut down for an extended period or there's a network connectivity issue on the VM, causing the synchronization to cease. Once the VM is operational again and the extension services restart, the data sync operation to the service resumes, and the backup status changes to *Healthy* or *Unhealthy* based on the status of the last backup.
 
