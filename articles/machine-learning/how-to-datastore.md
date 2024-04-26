@@ -430,22 +430,22 @@ OneLake datastore creation requires the following information from your Microsof
 
  The following three screenshots describe the retrieval of these required information resources from your Microsoft Fabric instance.
 
-#### OneLake workspace name
+### OneLake workspace name
 In your Microsoft Fabric instance, you can find the workspace information, as shown in this screenshot. You can use either a GUID value or a "friendly name" to create a Machine Learning OneLake datastore.
 
 :::image type="content" source="media/how-to-datastore/fabric-workspace.png" alt-text="Screenshot that shows Microsoft Fabric workspace details in the Microsoft Fabric UI." lightbox="./media/how-to-datastore/fabric-workspace.png":::
 
-#### OneLake endpoint
+### OneLake endpoint
 This screenshot shows how you can find endpoint information in your Microsoft Fabric instance.
 
 :::image type="content" source="media/how-to-datastore/fabric-endpoint.png" alt-text="Screenshot that shows Microsoft Fabric endpoint details in the Microsoft Fabric UI." lightbox="./media/how-to-datastore/fabric-endpoint.png":::
 
-#### OneLake artifact name
+### OneLake artifact name
 This screenshot shows how you can find the artifact information in your Microsoft Fabric instance. The screenshot also shows how you can use either a GUID value or a friendly name to create a Machine Learning OneLake datastore.
 
 :::image type="content" source="media/how-to-datastore/fabric-lakehouse.png" alt-text="Screenshot that shows how to get Microsoft Fabric lakehouse artifact details in the Microsoft Fabric UI." lightbox="./media/how-to-datastore/fabric-lakehouse.png":::
 
-### Create a OneLake datastore
+## Create a OneLake datastore
 
 # [Python SDK: Identity-based access](#tab/sdk-onelake-identity-access)
 
