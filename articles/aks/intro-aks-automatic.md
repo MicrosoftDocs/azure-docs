@@ -75,6 +75,13 @@ AKS Automatic clusters use [managed Virtual Network powered by Azure CNI Overlay
 | Egress	        | **Pre-configured:** [AKS managed NAT gateway][managed-nat-gateway] for a scalable outbound connection flows| **Default:** <ul><li>[Azure Load Balancer][egress-load-balancer]</li><li>[User-assigned NAT gateway][managed-nat-gateway]</li><li>[AKS managed NAT gateway][userassigned-nat-gateway]</li></ul> |
 | Service mesh	        | **Optional:** <ul><li>[Azure Service Mesh (Istio) ingress][istio-mesh]</li><li>Bring your own service mesh.</li></ul> | **Optional:** <ul><li>[Azure Service Mesh (Istio) ingress][istio-mesh]</li><li>Bring your own service mesh.</li></ul> |
 
+## Next steps
+
+To learn more about AKS Automatic, follow the quickstart to create a cluster.
+
+> [!div class="nextstepaction"]
+> [Quickstart: Deploy an Azure Kubernetes Service (AKS) Automatic cluster (preview)][quickstart-aks-automatic]
+
 <!-- LINKS - internal -->
 [node-autoprovisioning]: node-autoprovision.md
 [cluster-autoscaler]: cluster-autoscaler-overview.md
@@ -113,3 +120,4 @@ AKS Automatic clusters use [managed Virtual Network powered by Azure CNI Overlay
 [container-insights]: ../azure-monitor/containers/container-insights-overview.md
 [uptime-sla]: free-standard-pricing-tiers.md#uptime-sla-terms-and-conditions
 [long-term-support]: long-term-support.md
+[quickstart-aks-automatic]: ./learn/quick-kubernetes-automatic-deploy.md
