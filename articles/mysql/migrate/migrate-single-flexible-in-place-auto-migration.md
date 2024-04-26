@@ -53,6 +53,7 @@ Following described are the ways to review your migration schedule once you have
 * For Single Server instance with **SSL enabled**, ensure you have all three certificates (**[BaltimoreCyberTrustRoot](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem), [DigiCertGlobalRootG2 Root CA](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem) and [DigiCertGlobalRootCA Root CA](https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem)**) available in the trusted root store. Additionally, if you have the certificate pinned to the connection string create a combined CA certificate with all three certificates before scheduled auto-migration to ensure business continuity post-migration.
 * The MySQL engine doesn't guarantee any sort order if there is no 'SORT' clause present in queries. Post in-place automigration, you may observe a change in the sort order. If preserving sort order is crucial, ensure your queries are updated to include 'SORT' clause before the scheduled in-place automigration.
 * If your source Azure Database for MySQL Single Server has engine version v8.x, ensure to upgrade your source server's .NET client driver version to 8.0.32 to avoid any encoding incompatibilities post migration to Flexible Server.
+* If your source Azure Database for MySQL Single Server has firewall rule names exceeding 80 characters, please rename them to ensure length of name is less than 80 characters. (The firewall rule name length supported on Flexible Server is 80 characters whereas on Single Servers the allowed length is 12 8 characters.)
 
 ## How is the target MySQL Flexible Server auto-provisioned?
 
@@ -87,6 +88,12 @@ Following described are the ways to review your migration schedule once you have
   * Monitoring page settings (Alerts, Metrics, and Diagnostic settings)
   * Any Terraform/CLI scripts you host to manage your Single Server instance should be updated with Flexible Server references.
 * For Single Server instance with Query store enabled, the server parameter 'slow_query_log' on target instance is set to ON to ensure feature parity when migrating to Flexible Server. Please note, for certain workloads this could impact performance and if you observe any performance degradation, set this server parameter to 'OFF' on the Flexible Server instance.
+* For Single Server instance with Advance Threat Protection enabled, consider configuring the following properties post auto-migration in the following table to maintain parity as you are auto-migrated to Azure Defender for Cloud :
+**Property** | **Configuration**
+---|---|---
+properties.disabledAlerts | You can disable specific alert types by using the Microsoft Defender for Cloud platform. For more information, see the article [Suppress alerts from Microsoft Defender for Cloud guide](../../defender-for-cloud/alerts-suppression-rules.md).
+properties.emailAccountAdmins, properties.emailAddresses | You can centrally define email notification for Microsoft Defender for Cloud Alerts for all resources in a subscription. For more information, see the article [Quickstart: Configure email notifications for security alerts](../../defender-for-cloud/configure-email-notifications.md).
+properties.retentionDays, properties.storageAccountAccessKey, properties.storageEndpoint | The Microsoft Defender for Cloud platform exposes alerts through Azure Resource Graph. You can export alerts to a different store and manage retention separately. For more about continuous export, see the article [Set up continuous export in the Azure portal - Microsoft Defender for Cloud](../../defender-for-cloud/continuous-export.md?tabs=azure-portal).
 
 ## Frequently Asked Questions (FAQs)
 
@@ -108,13 +115,6 @@ Following described are the ways to review your migration schedule once you have
 **Q. How can I defer the scheduled migration?​**
 
 **A.** You can review the migration schedule by navigating to the Migration blade of your Single Server instance. If you wish to defer the migration, you can defer by a month at the most by navigating to the Migration blade of your single server instance on the Azure portal and re-scheduling the migration by selecting another migration window within a month. Note that the migration details will be locked 7 days prior to the scheduled migration window after which you're unable to reschedule. This in-place migration can be deferred monthly until 16 September 2024.  
-
-**Q. What are some post-migration activities I need to perform?​**
-
-**A.** Following are some post-migration activities:
-
-* Monitoring page settings (Alerts, Metrics, and Diagnostic settings)
-* Any Terraform/CLI scripts you host to manage your Single Server instance should be updated with Flexible Server references.
 
 **Q. What username and connection string would be supported for the migrated Flexible Server?  ​​**
 
