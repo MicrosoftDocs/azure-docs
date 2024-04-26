@@ -224,7 +224,7 @@ To enable public access, use the following steps:
 Use the following Azure CLI command to enable public access:
 
 ```azurecli
-az ml workspace update \
+az ml workspace-hub update \
     --set public_network_access=Enabled \
     -n <workspace-name> \
     -g <resource-group-name>
