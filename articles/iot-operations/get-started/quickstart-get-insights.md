@@ -108,9 +108,9 @@ The dashboard now loads visual data.
 
 In this section, you'll review the report that was created and consider how such reports can be used in your business.
 
-This report offers a view of your asset and telemetry data. You can view multiple assets and their associated telemetry simultaneously, to compare data points at a specified time period.
+This report offers a view of your asset and telemetry data. You can use the asset checkboxes to view multiple assets and their associated telemetry simultaneously, to compare data points at a specified time period.
 
-For this quickstart, you only created one asset. However, if you experiment with adding other assets, you'll be able to add them to the selection by using the check boxes next to the asset names. Take some time to explore the filters for each visual to explore and do more with your data.
+Take some time to explore the filters for each visual to explore and do more with your data.
 
 By relating edge data from various sources together in Power BI, this report uses visualizations and interactive features to offer deeper insights into asset health, utilization, and operational trends. This can empower you to enhance productivity, improve asset performance, and drive informed decision-making for better business outcomes.
 
