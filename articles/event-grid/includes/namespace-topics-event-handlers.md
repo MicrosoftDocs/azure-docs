@@ -1,6 +1,6 @@
 ---
  title: List of supported event handlers for Event Grid namespace topics
- description: This include file provides you a list of supported event handlers for Azure Event Grid namespace topics. 
+ description: This include file provides you with a list of supported event handlers for Azure Event Grid namespace topics. 
  services: event-grid
  author: spelluru
  ms.service: event-grid
