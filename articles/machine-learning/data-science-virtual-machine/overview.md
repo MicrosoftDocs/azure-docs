@@ -23,7 +23,7 @@ The DSVM is available on:
 + Windows Server 2022
 + Ubuntu 20.04 LTS
 
-Additionally, we offer Azure DSVM for PyTorch - an Ubuntu 20.04 image from Azure Marketplace optimized for large, distributed deep learning workloads. This preinstalled DSVM comes validated with the latest PyTorch version, to reduce setup costs and accelerate time to value. It comes packaged with both various optimization features
+Additionally, we offer Azure DSVM for PyTorch - an Ubuntu 20.04 image from Azure Marketplace optimized for large, distributed deep learning workloads. This preinstalled DSVM comes validated with the latest PyTorch version, to reduce setup costs and accelerate time to value. It comes packaged with various optimization features:
 
 - ONNX Runtime​
 - DeepSpeed​
@@ -31,8 +31,7 @@ Additionally, we offer Azure DSVM for PyTorch - an Ubuntu 20.04 image from Azure
 - ORTMoE​
 - Fairscale​
 - Nvidia Apex​
-
-and an up-to-date stack with the latest compatible versions of Ubuntu, Python, PyTorch, and CUDA.
+- An up-to-date stack with the latest compatible versions of Ubuntu, Python, PyTorch, and CUDA
 
 ## Comparison with Azure Machine Learning
 
@@ -54,7 +53,7 @@ The DSVM is a customized VM image for Data Science, but [Azure Machine Learning]
 
 [Azure Machine Learning Compute Instances](../concept-compute-instance.md) are a fully configured and __managed__ VM image, while the DSVM is an __unmanaged__ VM.
 
-Key differences between a DSVM and an Azure Machine Learning Compute Instance:
+Key differences between a DSVM and an Azure Machine Learning compute instance:
 
 |Feature |Data Science<br>VM |Azure Machine Learning<br>Compute Instance  |
 |---------|---------|---------|
@@ -94,7 +93,7 @@ The DSVM creates an on-demand environment with a consistent setup, to ease the s
 
 ## What does the DSVM include?
 
-FOR a full list of tools on both the Windows and Linux DSVMs, visit [this resource](tools-included.md).
+For more information, see this [full list of tools on both Windows and Linux DSVMs](tools-included.md).
 
 ## Next steps
 
