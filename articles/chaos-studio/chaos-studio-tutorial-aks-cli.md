@@ -95,7 +95,7 @@ az rest --method put --url "https://management.azure.com/subscriptions/$SUBSCRIP
 az rest --method put --url "https://management.azure.com/subscriptions/b65f2fec-d6b2-4edd-817e-9339d8c01dc4/resourceGroups/myRG/providers/Microsoft.ContainerService/managedClusters/myCluster/providers/Microsoft.Chaos/targets/Microsoft-AzureKubernetesServiceChaosMesh/capabilities/PodChaos-2.1?api-version=2024-01-01"  --body "{\"properties\":{}}"
 ```
 
-    This step must be done for each capability you want to enable on the cluster.
+This step must be done for **each*** capability you want to enable on the cluster.
 
 You've now successfully added your AKS cluster to Chaos Studio.
 
