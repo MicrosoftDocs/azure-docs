@@ -55,7 +55,7 @@ On the top toolbar of your prompt flow, select **Start compute session**.
     - Select **Next** to review your settings.
     - Select **Apply and start compute session** to start the compute session.
 
-## <a name="update"></a> Update a compute session
+## <a name="manage"></a> Manage a compute session
 
 To manage a compute session, select the **Compute session running** on the top toolbar of the flow page.:
 
@@ -101,7 +101,7 @@ If you want to use a private feed in Azure DevOps, follow these steps:
 
     :::image type="content" source="../media/prompt-flow/how-to-create-manage-runtime/runtime-advanced-setting-msi.png" alt-text="Screenshot that shows the toggle for using a workspace user-assigned managed identity." lightbox = "../media/prompt-flow/how-to-create-manage-runtime/runtime-advanced-setting-msi.png":::
 
-### Change the base image
+### <a name="base"></a> Change the base image
 
 By default, we use the latest prompt flow image as the base image. If you want to use a different base image, you need to build your own base image. The docker image should be built from the prompt flow base image, `mcr.microsoft.com/azureml/promptflow/promptflow-runtime:<newest_version>`. If possible use the [latest version of the base image](https://mcr.microsoft.com/v2/azureml/promptflow/promptflow-runtime/tags/list). 
 
@@ -118,6 +118,15 @@ By default, we use the latest prompt flow image as the base image. If you want t
         image: <your-custom-image>
         python_requirements_txt: requirements.txt
     ```
+
+## <a name="upgrade"></a> Upgrade compute instance runtime
+
+If you previously created a compute instance runtime, switch it to a compute session by using the following steps:
+
+- Prepare your `requirements.txt` file in the flow folder. See [Manage a compute session](#manage) for more information.
+- If you created a custom environment, get the image from the environment detail page, and specify it in the `flow.dag.yaml` file in the flow folder. To learn more, see [Change the base image](#base). Make sure you have `acr pull` permission for the image.
+
+- You can continue to use the existing compute instance if you would like to manually manage the lifecycle.
 
 ## Related resources
 
