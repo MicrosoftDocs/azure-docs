@@ -640,6 +640,13 @@ Before starting your move operation, review the [checklist](./move-resource-grou
 > | ------------- | ----------- | ---------- | ----------- |
 > | connectionmanagers | No | No | No |
 
+## Microsoft.DataDog
+
+> [!div class="mx-tableFixed"]
+> | Resource type | Resource group | Subscription | Region move |
+> | ------------- | ----------- | ---------- | ----------- |
+> | monitors | No | No |  No |
+
 ## Microsoft.DataExchange
 
 > [!div class="mx-tableFixed"]
