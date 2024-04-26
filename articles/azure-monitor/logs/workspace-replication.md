@@ -42,12 +42,9 @@ Workspace replication provides higher resilience to Log Analytics workspace and 
 
 <!-- Reviewer:
 
-   Please identify any prerequisites.
-   I added some items for consideration.
+   Please identify any prerequisites. I added some items for consideration.
    
 -->
-
-- To enable replication for your Log Analytics workspace, you must ...
 
 - For limits and restrictions related to workspace replication in Log Analytics, see [Azure Monitor service limits](../service-limits.md#log-analytics-workspaces).
 
@@ -55,8 +52,11 @@ Workspace replication provides higher resilience to Log Analytics workspace and 
 
 <!-- Reviewer:
 
-   I created the following table from the Note alerts about roles in this article, and the Permissions section in the new Summary rules article.
-   Please verify and adjust as needed.
+   I created the following table from the Note alerts about roles in this article,
+   along with the Permissions section in the new Summary rules article
+   (see PR https://github.com/MicrosoftDocs/azure-docs-pr/pull/272706).
+
+   Please verify the content and adjust as needed.
    
 -->
 
@@ -116,7 +116,7 @@ The following region groups and regions are currently supported:
 
 ### Data residency requirements
 
-Different customers have different data residency requirements, so it's important that you control where your data is stored. Workspace logs are stored only in the primary and secondary locations that you chose, and processed in one or more Azure geographies based on your selected regions. For more information, see [Supported regions and region groups](#supported-regions-and-region-groups).
+Different customers have different data residency requirements, so it's important that you control where your data is stored. Workspace logs are stored only in the primary and secondary locations that you chose, and processed in one or more Azure geographies based on your selected regions. For more information, see [Supported regions and region groups](#support-for-regions-and-region-groups).
 
 ### Support for Sentinel and other products
 
@@ -136,13 +136,13 @@ If your workspace is linked to a dedicated cluster, you first enable replication
 
 You enable replication on your dedicated cluster with a `PUT` command that uses the following values:
 
-- `/subscriptions/<subscription_id>`: Your account subscription ID.
-- `/resourcegroups/<resourcegroup_name>` : The resource group that contains your cluster resource.
-- `/clusters/<cluster_name>`: The name of your dedicated cluster resource.
+- `<subscription_id>`: Your account subscription ID.
+- `<resourcegroup_name>` : The resource group that contains your cluster resource.
+- `<cluster_name>`: The name of your dedicated cluster resource.
 - `<primary_location>`: The original region where you created your dedicated cluster.
 - `<secondary_location>`: The region to switch to when the primary region isn't healthy.
 
-The secondary region of the workspaces linked to the dedicated cluster must be identical to the cluster's secondary region. For the allowed region values, see [Supported regions and region groups](#supported-regions-and-region-groups).
+The secondary region of the workspaces linked to the dedicated cluster must be identical to the cluster's secondary region. For the allowed region values, see [Supported regions and region groups](#support-for-regions-and-region-groups).
 
 The `PUT` command is a long running operation that can take some time to complete. The call to the command returns 201. You can track the process, as described in [Check workspace state](#check-workspace-state).
 
@@ -170,13 +170,13 @@ body:
 
 You enable replication for one or more workspaces linked to a cluster with a `PUT` command that uses the following values:
 
-- `/subscriptions/<subscription_id>`: Your account subscription ID.
-- `/resourcegroups/<resourcegroup_name>` : The resource group that contains your workspace resource.
-- `/workspaces/<workspace_name>`: The name of your workspace linked to your dedicated cluster.
+- `<subscription_id>`: Your account subscription ID.
+- `<resourcegroup_name>` : The resource group that contains your workspace resource.
+- `<workspace_name>`: The name of your workspace linked to your dedicated cluster.
 - `<primary_location>`: The primary region for your workspace.
 - `<secondary_location>`: The region to switch to when the primary workspace region isn't healthy.
 
-For the allowed region values, see [Supported regions and region groups](#supported-regions-and-region-groups).
+For the allowed region values, see [Supported regions and region groups](#support-for-regions-and-region-groups).
 
 The `PUT` command is a long running operation that can take some time to complete. The call to the command returns 200. You can track the process, as described in [Check workspace state](#check-workspace-state).
 
@@ -203,9 +203,9 @@ body:
 
 You can confirm successful completion of workspace replication operations by using a `GET` command with the following values:
 
-- `/subscriptions/<subscription_id>`: Your account subscription ID.
-- `/resourcegroups/<resourcegroup_name>` : The resource group that contains your workspace resource.
-- `/workspaces/<workspace_name>`: The name of your workspace linked to your dedicated cluster.
+- `<subscription_id>`: Your account subscription ID.
+- `<resourcegroup_name>` : The resource group that contains your workspace resource.
+- `<workspace_name>`: The name of your workspace linked to your dedicated cluster.
  
 The `GET` command verifies that the workspace provisioning state changes from "Updating" to "Succeeded," and the secondary region is set as expected.
 
@@ -251,9 +251,9 @@ To learn more about how to link a DCR to a DCE during DCR creation, see step 5b 
 
 You disable replication for a workspace with a `PUT` command that uses the following values:
 
-- `/subscriptions/<subscription_id>`: Your account subscription ID.
-- `/resourcegroups/<resourcegroup_name>` : The resource group that contains your workspace resource.
-- `/workspaces/<workspace_name>`: The name of your workspace.
+- `<subscription_id>`: Your account subscription ID.
+- `<resourcegroup_name>` : The resource group that contains your workspace resource.
+- `<workspace_name>`: The name of your workspace.
 - `<primary_location>`: The primary region for your workspace.
 
 The `PUT` command is a long running operation that can take some time to complete. The call to the command returns 200. You can track the process, as described in [Check workspace state](#check-workspace-state).
@@ -285,9 +285,9 @@ After you disable replication for all workspaces linked to a dedicated cluster, 
 
 You disable replication for the cluster with a `PUT` command that uses the following values:
 
-- `/subscriptions/<subscription_id>`: Your account subscription ID.
-- `/resourcegroups/<resourcegroup_name>` : The resource group that contains your cluster resource.
-- `/clusters/<cluster_name>`: The name of your dedicated cluster resource.
+- `<subscription_id>`: Your account subscription ID.
+- `<resourcegroup_name>` : The resource group that contains your cluster resource.
+- `<cluster_name>`: The name of your dedicated cluster resource.
 - `<primary_location>`: The primary region for your dedicated cluster.
 
 The following code demonstrates the `PUT` command to disable replication for the cluster:
@@ -318,7 +318,7 @@ Service Health notifications are useful for service-wise issues. To identify iss
 
 - [Create alerts based on the workspace resource health](log-analytics-workspace-health.md#view-log-analytics-workspace-health-and-set-up-health-status-alerts)
 - Set your own thresholds for [workspace health metrics](log-analytics-workspace-health.md#view-log-analytics-workspace-health-metrics)
-- Create your own monitoring queries to serve as custom health indicators for your workspace, as described in [Use queries to monitor workspace performance](#using-queries-to-monitor-workspace-performance). This option allows you to accomplish many tasks:
+- Create your own monitoring queries to serve as custom health indicators for your workspace, as described in [Use queries to monitor workspace performance](#use-queries-to-monitor-workspace-performance). This option allows you to accomplish many tasks:
    - Measure ingestion latency, per data type or for all types
    - Identify the cause of latency, from agents other from the ingestion pipeline
    - Monitor ingestion volume anomalies, per data type and resource
@@ -339,9 +339,9 @@ The failover process updates your Domain Name System (DNS) records. After the DN
 
 There are several points to consider in your plan for failover:
 
-- The type and scope of the issue
-- The duration of the issue, momentary or continuous
-- The data available in your secondary workspace
+- Type and scope of the issue
+- Duration of the issue, momentary or continuous
+- Data available in your secondary workspace
 
 The following sections explore these considerations.
 
@@ -525,10 +525,8 @@ Query auditing lets you discover the workspace region target for a query. You ca
 
 To support query auditing, the following properties are available in the LAQueryLogs schema:
 
-| Property | Type | Description |
-| --- | --- | --- |
-| `isWorkspaceInFailover` | Boolean (True, False) | Indicates whether the workspace was in failover mode during the query. |
-| `workspaceRegion` | String | The region of the workspace targeted by the query. |
+- `isWorkspaceInFailover`: Indicates whether the workspace was in failover mode during the query. The data type is Boolean (True, False).
+- `workspaceRegion`: The region of the workspace targeted by the query. The data type is String.
 
 ## Use queries to monitor workspace performance
 
