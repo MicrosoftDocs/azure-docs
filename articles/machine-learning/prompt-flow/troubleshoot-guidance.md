@@ -32,10 +32,10 @@ To resolve the issue, you have two options:
   - Update your compute session to the latest base image version.
   - Select **Raw file mode** to switch to the raw code view. Then open the *flow.dag.yaml* file.
   
-     ![Screenshot that shows how to switch to Raw file mode.](../media/faq/switch-to-raw-file-mode.png)
+     ![Screenshot that shows how to switch to Raw file mode.](./media/faq/switch-to-raw-file-mode.png)
   - Update the tool names.
   
-     ![Screenshot that shows how to update the tool name.](../media/faq/update-tool-name.png)
+     ![Screenshot that shows how to update the tool name.](./media/faq/update-tool-name.png)
      
       | Tool | New tool name |
       | ---- | ---- |
@@ -53,51 +53,51 @@ To resolve the issue, you have two options:
 
 Prompt flow relies on a file share storage to store a snapshot of the flow. If the file share storage has an issue, you might encounter the following problem. Here are some workarounds you can try:
 
-- If you're using a private storage account, see [Network isolation in prompt flow](../how-to-secure-prompt-flow.md) to make sure your workspace can access your storage account.
+- If you're using a private storage account, see [Network isolation in prompt flow](./how-to-secure-prompt-flow.md) to make sure your workspace can access your storage account.
 - If the storage account is enabled for public access, check whether there's a datastore named `workspaceworkingdirectory` in your workspace. It should be a file share type.
 
-   ![Screenshot that shows workspaceworkingdirectory.](../media/faq/working-directory.png)
+   ![Screenshot that shows workspaceworkingdirectory.](./media/faq/working-directory.png)
     - If you didn't get this datastore, you need to add it in your workspace.
         - Create a file share with the name `code-391ff5ac-6576-460f-ba4d-7e03433c68b6`.
-        - Create a datastore with the name `workspaceworkingdirectory`. See [Create datastores](../../how-to-datastore.md).
-    - If you have a `workspaceworkingdirectory` datastore but its type is `blob` instead of `fileshare`, create a new workspace. Use storage that doesn't enable hierarchical namespaces for Azure Data Lake Storage Gen2 as a workspace default storage account. For more information, see [Create workspace](../../how-to-manage-workspace.md#create-a-workspace).
+        - Create a datastore with the name `workspaceworkingdirectory`. See [Create datastores](../how-to-datastore.md).
+    - If you have a `workspaceworkingdirectory` datastore but its type is `blob` instead of `fileshare`, create a new workspace. Use storage that doesn't enable hierarchical namespaces for Azure Data Lake Storage Gen2 as a workspace default storage account. For more information, see [Create workspace](../how-to-manage-workspace.md#create-a-workspace).
      
 ### Flow is missing
 
-:::image type="content" source="../media/faq/flow-missing.png" alt-text="Screenshot that shows a flow missing an authoring page." lightbox = "../media/faq/flow-missing.png":::
+:::image type="content" source="./media/faq/flow-missing.png" alt-text="Screenshot that shows a flow missing an authoring page." lightbox = "./media/faq/flow-missing.png":::
 
 There are possible reasons for this issue:
 - If public access to your storage account is disabled, you must ensure access by either adding your IP to the storage firewall or enabling access through a virtual network that has a private endpoint connected to the storage account.
 
-    :::image type="content" source="../media/faq/storage-account-networking-firewall.png" alt-text="Screenshot that shows firewall setting on storage account." lightbox = "../media/faq/storage-account-networking-firewall.png":::
+    :::image type="content" source="./media/faq/storage-account-networking-firewall.png" alt-text="Screenshot that shows firewall setting on storage account." lightbox = "./media/faq/storage-account-networking-firewall.png":::
 
 - There are some cases, the account key in data store is out of sync with the storage account, you can try to update the account key in data store detail page to fix this.
 
-    :::image type="content" source="../media/faq/datastore-with-wrong-account-key.png" alt-text="Screenshot that shows datastore with wrong account key." lightbox = "../media/faq/datastore-with-wrong-account-key.png":::
+    :::image type="content" source="./media/faq/datastore-with-wrong-account-key.png" alt-text="Screenshot that shows datastore with wrong account key." lightbox = "./media/faq/datastore-with-wrong-account-key.png":::
  
 - If you're using AI studio, the storage account needs to set CORS to allow AI studio access the storage account, otherwise, you'll see the flow missing issue. You can add following CORS settings to the storage account to fix this issue.
     - Go to storage account page, select `Resource sharing (CORS)` under `settings`, and select to `File service` tab.
     - Allowed origins: `https://mlworkspace.azure.ai,https://ml.azure.com,https://*.ml.azure.com,https://ai.azure.com,https://*.ai.azure.com,https://mlworkspacecanary.azure.ai,https://mlworkspace.azureml-test.net`
     - Allowed methods: `DELETE, GET, HEAD, POST, OPTIONS, PUT`
 
-    :::image type="content" source="../media/faq/resource-sharing-setting-storage-account.png" alt-text="Screenshot that shows data store with wrong account key." lightbox = "../media/faq/resource-sharing-setting-storage-account.png":::
+    :::image type="content" source="./media/faq/resource-sharing-setting-storage-account.png" alt-text="Screenshot that shows data store with wrong account key." lightbox = "./media/faq/resource-sharing-setting-storage-account.png":::
 
 ## Compute session related issues
 
 ### Run failed because of "No module named XXX"
 
-This type of error related to compute session lacks required packages. If you're using a default environment, make sure the image of your compute session is using the latest version.  If you're using a custom base image, make sure you installed all the required packages in your docker context. For more information, see [Customize base image for compute session](../how-to-customize-session-base-image.md).
+This type of error related to compute session lacks required packages. If you're using a default environment, make sure the image of your compute session is using the latest version.  If you're using a custom base image, make sure you installed all the required packages in your docker context. For more information, see [Customize base image for compute session](./how-to-customize-session-base-image.md).
 
 ### Where to find the serverless instance used by compute session?
 
-You can view the serverless instance used by compute session in the compute session list tab under compute page. Learn more about [how to manage serverless instance](../how-to-manage-compute-session.md#manage-serverless-instance-used-by-compute-session).
+You can view the serverless instance used by compute session in the compute session list tab under compute page. Learn more about [how to manage serverless instance](./how-to-manage-compute-session.md#manage-serverless-instance-used-by-compute-session).
 
 
 ### Compute session failures using custom base image
 
 #### Compute session start failure with requirements.txt or custom base image
 
-Compute session support to use `requirements.txt` or custom base image in `flow.dag.yaml` to customize the image. We would recommend you to use `requirements.txt` for common case, which will use `pip install -r requirements.txt` to install the packages. If you have dependency more then python packages, you need follow the [Customize base image](../how-to-customize-session-base-image.md) to create build a new image base on top of promptflow base image. Then use it in `flow.dag.yaml`. Learn more [how to specify base image in compute session](../how-to-manage-compute-session.md#change-the-base-image-for-compute-session)
+Compute session support to use `requirements.txt` or custom base image in `flow.dag.yaml` to customize the image. We would recommend you to use `requirements.txt` for common case, which will use `pip install -r requirements.txt` to install the packages. If you have dependency more then python packages, you need follow the [Customize base image](./how-to-customize-session-base-image.md) to create build a new image base on top of promptflow base image. Then use it in `flow.dag.yaml`. Learn more [how to specify base image in compute session](./how-to-manage-compute-session.md#change-the-base-image-for-compute-session)
 
 - You can not use arbitrary base image to create Compute session, you need use the base image provide by promptflow.
 - Don't pin the version of `promptflow` and `promptflow-tools` in `requirements.txt`, because we already include them in the base image. Using old version of `promptflow` and `promptflow-tools` may cause unexpected behavior.
@@ -108,17 +108,17 @@ Compute session support to use `requirements.txt` or custom base image in `flow.
 
 In prompt flow, on flow page with successful run and run detail page, you can find the raw inputs and outputs of LLM tool in the output section. Select the `view full output` button to view full output. 
 
-:::image type="content" source="../media/faq/view-full-output.png" alt-text="Screenshot that shows view full output on LLM node." lightbox = "../media/faq/view-full-output.png":::
+:::image type="content" source="./media/faq/view-full-output.png" alt-text="Screenshot that shows view full output on LLM node." lightbox = "../media/faq/view-full-output.png":::
 
 `Trace` section includes each request and response to the LLM tool. You can check the raw message sent to the LLM model and the raw response from the LLM model.
 
-:::image type="content" source="../media/faq/trace-large-language-model-tool.png" alt-text="Screenshot that shows raw request send to LLM model and response from LLM model." lightbox = "../media/faq/trace-large-language-model-tool.png":::
+:::image type="content" source="./media/faq/trace-large-language-model-tool.png" alt-text="Screenshot that shows raw request send to LLM model and response from LLM model." lightbox = "../media/faq/trace-large-language-model-tool.png":::
 
 ### How to fix 409 error from Azure OpenAI? 
 
-You may encounter 409 error from Azure OpenAI, it means you have reached the rate limit of Azure OpenAI. You can check the error message in the output section of LLM node. Learn more about [Azure OpenAI rate limit](../../../ai-services/openai/quotas-limits.md).
+You may encounter 409 error from Azure OpenAI, it means you have reached the rate limit of Azure OpenAI. You can check the error message in the output section of LLM node. Learn more about [Azure OpenAI rate limit](../../ai-services/openai/quotas-limits.md).
 
-:::image type="content" source="../media/faq/429-rate-limit.png" alt-text="Screenshot that shows 429 rate limit error from Azure OpenAI." lightbox = "../media/faq/429-rate-limit.png":::
+:::image type="content" source="./media/faq/429-rate-limit.png" alt-text="Screenshot that shows 429 rate limit error from Azure OpenAI." lightbox = "../media/faq/429-rate-limit.png":::
 
 ### Identify which node consumes the most time
 
@@ -132,13 +132,13 @@ You may encounter 409 error from Azure OpenAI, it means you have reached the rat
 
    - **Case 1:** Python script node runs for a long time.
 
-        :::image type="content" source="../media/how-to-create-manage-runtime/runtime-timeout-running-for-long-time.png" alt-text="Screenshot that shows a timeout run sign in the studio UI." lightbox = "../media/how-to-create-manage-runtime/runtime-timeout-running-for-long-time.png":::
+        :::image type="content" source="./media/how-to-create-manage-runtime/runtime-timeout-running-for-long-time.png" alt-text="Screenshot that shows a timeout run sign in the studio UI." lightbox = "../media/how-to-create-manage-runtime/runtime-timeout-running-for-long-time.png":::
 
         In this case, you can find that `PythonScriptNode` was running for a long time (almost 300 seconds). Then you can check the node details to see what's the problem.
 
    - **Case 2:** LLM node runs for a long time.
 
-        :::image type="content" source="../media/how-to-create-manage-runtime/runtime-timeout-by-language-model-timeout.png" alt-text="Screenshot that shows timeout logs caused by an LLM timeout in the studio UI." lightbox = "../media/how-to-create-manage-runtime/runtime-timeout-by-language-model-timeout.png":::
+        :::image type="content" source="./media/how-to-create-manage-runtime/runtime-timeout-by-language-model-timeout.png" alt-text="Screenshot that shows timeout logs caused by an LLM timeout in the studio UI." lightbox = "../media/how-to-create-manage-runtime/runtime-timeout-by-language-model-timeout.png":::
 
         In this case, if you find the message `request canceled` in the logs, it might be because the OpenAI API call is taking too long and exceeding the timeout limit.
 
