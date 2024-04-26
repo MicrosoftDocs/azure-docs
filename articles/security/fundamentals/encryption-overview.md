@@ -46,7 +46,7 @@ The three server-side encryption models offer different key management character
 
 ### Azure disk encryption
 
-All Managed Disks, Snapshots, and Images are encrypted using Storage Service Encryption using a service-managed key. For more information on options to protect temp disks, caches, and manage keys in Azure Key Vault, see the [Overview of managed disk encryption options](../../virtual-machines/disk-encryption-overview.md).
+All Managed Disks, Snapshots, and Images are encrypted using Storage Service Encryption using a service-managed key. For more information on options to protect temp disks, caches, and manage keys in Azure Key Vault, see [Overview of managed disk encryption options](../../virtual-machines/disk-encryption-overview.md).
 
 ### Azure Storage Service Encryption
 
