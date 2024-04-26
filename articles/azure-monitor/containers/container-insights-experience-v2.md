@@ -18,6 +18,7 @@ Container insights currently uses data from Log Analytics to power the visualiza
 To view your container insights data using Prometheus, ensure the following steps are complete
 
 * AKS cluster [configured with managed Prometheus](./kubernetes-monitoring-enable.md#existing-cluster-prometheus-only)
+    * If your cluster does not yet have Prometheus enabled, you may follow the link above or steps below to enable 
 * User has `Reader` permission or higher on the associated [Azure Monitor workspace](../essentials/azure-monitor-workspace-overview.md)
 * Ad block is disabled or set to allow `monitor.azure.com` traffic
 * For Windows clusters, [enable Windows metric collection](./kubernetes-monitoring-enable.md#enable-windows-metrics-collection-preview)
@@ -44,17 +45,19 @@ To view your container insights data using Prometheus, ensure the following step
 
 2.) Choose the Insights menu item from the menu, a banner will be displayed at the top to configure managed Prometheus
 
-3.) Using the banner, select the Configure button to complete onboarding to managed Prometheus or deploy the requisite recording rules
-
-4.) If the banner was dismissed, you can instead us the dropdown in the toolbar that says "Log Analytics visualizations (classic)", and select the "Managed Prometheus visualizations (new)" option to complete onboarding
+3.) Using the banner, select the Configure button to complete onboarding to managed Prometheus or deploy the requisite recording rules. If the banner was previously dismissed, you can instead us the dropdown in the toolbar that says "Log Analytics visualizations (classic)", and select the "Managed Prometheus visualizations (new)" option to complete onboarding
 
 4.) Once the monitoring deployment is complete, the Insights blade should switch to using Prometheus as the data source, indicated by the toolbar dropdown showing "Managed Prometheus visualizations"
 
-1.) Open the Azure portal using the [feature flag](https://aka.ms/civ2)
+### Using a cluster with Prometheus and logs-based Container Insights is not enabled or with custom settings applied
 
-2.) Navigate to your desired AKS cluster
+1.) Open the Azure portal and navigate to your desired AKS cluster
 
-3.) Select the Insights menu item from the menu, which should display the following experience
+2.) Choose the Insights menu item from the menu, a screen will be displayed with a banner to enable Prometheus recording rules
+
+3.) Click enable to deploy the recording rules
+
+4.) Once the monitoring deployment is complete, the Insights blade should switch to using Prometheus as the data source, indicated by the toolbar dropdown showing "Managed Prometheus visualizations"
 
 ![Screenshot of AKS cluster with Prometheus based container insights.](media/container-insights-experience-v2/container-insights-prometheus-based.png)
 
