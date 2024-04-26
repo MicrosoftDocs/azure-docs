@@ -45,6 +45,8 @@ Alternatively, you may use the [Azure Cosmos DB lifetime free tier](free-tier.md
 
 If you aren't already using Azure, you may Try Azure Cosmos DB free for 30 days without an Azure subscription ([learn more](https://azure.microsoft.com/try/cosmosdb/)). No commitment follows the end of your trial period.
 
+If you decide that Azure Cosmos DB is right for you, you can receive up to 63% discount on [Azure Cosmos DB prices through Reserved Capacity](reserved-capacity.md).
+
 > [!div class="nextstepaction"]
 > [Try Azure Cosmos DB free](https://azure.microsoft.com/try/cosmosdb/)
 
