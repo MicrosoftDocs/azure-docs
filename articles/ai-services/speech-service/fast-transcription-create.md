@@ -1,5 +1,5 @@
 ---
-title: Create a batch transcription - Speech service
+title: Use the fast transcription API - Speech service
 titleSuffix: Azure AI services
 description: Learn how to use Azure AI Speech for fast transcriptions, where you submit audio get the transcription results much faster than real-time audio.
 manager: nitinme
@@ -7,7 +7,7 @@ author: eric-urban
 ms.author: eur
 ms.service: azure-ai-speech
 ms.topic: how-to
-ms.date: 4/15/2024
+ms.date: 5/21/2024
 # Customer intent: As a user who implements audio transcription, I want create transcriptions as quickly as possible.
 ---
 

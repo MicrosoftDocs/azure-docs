@@ -2,7 +2,7 @@
 author: eric-urban
 ms.service: azure-ai-speech
 ms.topic: include
-ms.date: 3/13/2024
+ms.date: 5/21/2024
 ms.author: eur
 ---
 
@@ -10,7 +10,7 @@ ms.author: eur
 
 #### Fast transcription API (Preview)
 
-The fast transcription API is now available in preview. Fast transcription API is used to transcribe audio files with returning results synchronously and much faster than real-time audio. For more information, see the [fast transcription API guide](../../fast-transcription.md).
+The fast transcription API is now available in preview. Fast transcription API is used to transcribe audio files with returning results synchronously and much faster than real-time audio. For more information, see the [fast transcription API guide](../../fast-transcription-create.md).
 
 ### April 2024 release
 

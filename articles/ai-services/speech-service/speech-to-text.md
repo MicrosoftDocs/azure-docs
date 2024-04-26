@@ -6,16 +6,16 @@ author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech
 ms.topic: overview
-ms.date: 1/22/2024
+ms.date: 5/21/2024
 ms.author: eur
 ---
 
 # What is speech to text?
 
-In this overview, you learn about the benefits and capabilities of the speech to text feature of the Speech service, which is part of Azure AI services. Speech to text can be used for [real-time](#real-time-speech-to-text) or [batch transcription](#batch-transcription) of audio streams into text. 
+In this overview, you learn about the benefits and capabilities of the speech to text feature of the Speech service, which is part of Azure AI services. Speech to text can be used for [real-time](#real-time-speech-to-text) or [batch transcription](#batch-transcription-api) of audio streams into text. 
 
 > [!NOTE]
-> To compare pricing of [real-time](#real-time-speech-to-text) to [batch transcription](#batch-transcription), see [Speech service pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/). 
+> To compare pricing of [real-time](#real-time-speech-to-text) to [batch transcription](#batch-transcription-api), see [Speech service pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/). 
 
 For a full list of available speech to text languages, see [Language and voice support](language-support.md?tabs=stt).
 
