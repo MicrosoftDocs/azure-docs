@@ -3,9 +3,10 @@ title: "Exchange Security Insights On-Premise Collector connector for Microsoft 
 description: "Learn how to install the connector Exchange Security Insights On-Premise Collector to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 04/25/2024
+ms.date: 04/26/2024
 ms.service: microsoft-sentinel
 ms.author: cwatson
+ms.collection: sentinel-data-connector
 ---
 
 # Exchange Security Insights On-Premise Collector connector for Microsoft Sentinel

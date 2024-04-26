@@ -3,9 +3,10 @@ title: "Google Cloud Platform IAM (using Azure Functions) connector for Microsof
 description: "Learn how to install the connector Google Cloud Platform IAM (using Azure Functions) to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 04/25/2024
+ms.date: 04/26/2024
 ms.service: microsoft-sentinel
 ms.author: cwatson
+ms.collection: sentinel-data-connector
 ---
 
 # Google Cloud Platform IAM (using Azure Functions) connector for Microsoft Sentinel

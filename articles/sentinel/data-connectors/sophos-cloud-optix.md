@@ -3,9 +3,10 @@ title: "Sophos Cloud Optix connector for Microsoft Sentinel"
 description: "Learn how to install the connector Sophos Cloud Optix to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 04/25/2024
+ms.date: 04/26/2024
 ms.service: microsoft-sentinel
 ms.author: cwatson
+ms.collection: sentinel-data-connector
 ---
 
 # Sophos Cloud Optix connector for Microsoft Sentinel

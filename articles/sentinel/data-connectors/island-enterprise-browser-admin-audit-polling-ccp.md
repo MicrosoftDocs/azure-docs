@@ -3,9 +3,10 @@ title: "Island Enterprise Browser Admin Audit (Polling CCP) connector for Micros
 description: "Learn how to install the connector Island Enterprise Browser Admin Audit (Polling CCP) to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 04/25/2024
+ms.date: 04/26/2024
 ms.service: microsoft-sentinel
 ms.author: cwatson
+ms.collection: sentinel-data-connector
 ---
 
 # Island Enterprise Browser Admin Audit (Polling CCP) connector for Microsoft Sentinel

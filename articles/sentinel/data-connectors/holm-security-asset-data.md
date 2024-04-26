@@ -3,9 +3,10 @@ title: "Holm Security Asset Data (using Azure Functions) connector for Microsoft
 description: "Learn how to install the connector Holm Security Asset Data (using Azure Functions) to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 04/25/2024
+ms.date: 04/26/2024
 ms.service: microsoft-sentinel
 ms.author: cwatson
+ms.collection: sentinel-data-connector
 ---
 
 # Holm Security Asset Data (using Azure Functions) connector for Microsoft Sentinel

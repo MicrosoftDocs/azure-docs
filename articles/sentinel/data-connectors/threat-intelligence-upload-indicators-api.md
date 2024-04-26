@@ -3,9 +3,10 @@ title: "Threat Intelligence Upload Indicators API (Preview) connector for Micros
 description: "Learn how to install the connector Threat Intelligence Upload Indicators API (Preview) to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 04/25/2024
+ms.date: 04/26/2024
 ms.service: microsoft-sentinel
 ms.author: cwatson
+ms.collection: sentinel-data-connector
 ---
 
 # Threat Intelligence Upload Indicators API (Preview) connector for Microsoft Sentinel

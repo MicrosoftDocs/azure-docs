@@ -3,9 +3,10 @@ title: "SailPoint IdentityNow (using Azure Function) connector for Microsoft Sen
 description: "Learn how to install the connector SailPoint IdentityNow (using Azure Function) to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 04/25/2024
+ms.date: 04/26/2024
 ms.service: microsoft-sentinel
 ms.author: cwatson
+ms.collection: sentinel-data-connector
 ---
 
 # SailPoint IdentityNow (using Azure Function) connector for Microsoft Sentinel
