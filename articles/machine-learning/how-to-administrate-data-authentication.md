@@ -56,6 +56,7 @@ In general, identity-based data authentication involves these checks:
     - For more information, see [Azure built-in roles for storage](../role-based-access-control/built-in-roles/storage.md).
 
 ## Other general checks for authentication
+
 * Where does the access come from?
     - User: Is the client IP address in the virtual network/subnet range?
     - Workspace: Is the workspace public, or does it have a private endpoint in a virtual network/subnet?
