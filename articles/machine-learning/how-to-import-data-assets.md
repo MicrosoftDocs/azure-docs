@@ -41,7 +41,7 @@ To create and work with data assets, you need:
 * [Workspace connections created](how-to-connection.md)
 
 > [!NOTE]
-> For a successful data import, please verify that you installed the latest azure-ai-ml package (version 1.5.0 or later) for SDK, and the ml extension (version 2.15.1 or later).
+> For a successful data import, please verify that you installed the latest azure-ai-ml package (version 1.15.0 or later) for SDK, and the ml extension (version 2.15.1 or later).
 >
 > If you have an older SDK package or CLI extension, please remove the old one and install the new one with the code shown in the tab section. Follow the instructions for SDK and CLI as shown here:
 
@@ -59,7 +59,7 @@ az extension show -n ml #(the version value needs to be 2.15.1 or later)
 
 ```python
 pip uninstall azure-ai-ml
-pip show azure-ai-ml #(the version value needs to be 1.5.0 or later)
+pip show azure-ai-ml #(the version value needs to be 1.15.0 or later)
 ```
 
 # [Studio](#tab/azure-studio)
