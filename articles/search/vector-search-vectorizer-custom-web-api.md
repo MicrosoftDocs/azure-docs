@@ -1,5 +1,5 @@
 ---
-title: Custom Web API Vectorizer
+title: Custom Web API vectorizer
 titleSuffix: Azure AI Search
 description: Use the Custom Web API vectorizer to integrate your custom code for generating embeddings at query time.
 author: careyjmac
@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 04/24/2024
 ---
 
-#   Custom Web API Vectorizer
+#   Custom Web API vectorizer
 
 > [!IMPORTANT] 
 > This feature is in public preview under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). The [2023-10-01-Preview REST API](/rest/api/searchservice/indexes/create-or-update?view=rest-searchservice-2023-10-01-preview&preserve-view=true) supports this feature.
 
-The **Custom Web API** vectorizer allows you to configure your search queries to call out to a Web API endpoint to generate embeddings at query time. The structure of the JSON payload required to be implemented in the provided endpoint is described further down in this document.
+The **custom web API** vectorizer allows you to configure your search queries to call out to a Web API endpoint to generate embeddings at query time. The structure of the JSON payload required to be implemented in the provided endpoint is described further down in this document.
 
 ## Vectorizer parameters
 
@@ -31,7 +31,7 @@ Parameters are case-sensitive.
 | `authIdentity`   | (Optional) A user-managed identity used by the search service for connecting to the function or app hosting the code. You can use either a [system or user managed identity](search-howto-managed-identities-data-sources.md). To use a system manged identity, leave `authIdentity` blank. |
 | `timeout` | (Optional) When specified, indicates the timeout for the http client making the API call. It must be formatted as an XSD "dayTimeDuration" value (a restricted subset of an [ISO 8601 duration](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) value). For example, `PT60S` for 60 seconds. If not set, a default value of 30 seconds is chosen. The timeout can be set to a maximum of 230 seconds and a minimum of 1 second. |
 
-## Supported vector query types.
+## Supported vector query types
 
 The Custom Web API vectorizer supports `text`, `imageUrl`, and `imageBinary` vector queries.
 
@@ -56,7 +56,7 @@ The Custom Web API vectorizer supports `text`, `imageUrl`, and `imageBinary` vec
 ]
 ```
 
-## JSON payload structure.
+## JSON payload structure
 
 The required JSON payload structure that is expected for an endpoint when using it with the custom web API vectorizer is the same as that of the custom web API skill, which is discussed in more detail in [the documentation for the skill](cognitive-search-custom-skill-web-api.md#sample-input-json-structure).
 

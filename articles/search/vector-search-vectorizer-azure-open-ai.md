@@ -1,5 +1,5 @@
 ---
-title: Azure OpenAI Vectorizer
+title: Azure OpenAI vectorizer
 titleSuffix: Azure AI Search
 description: Connects to a deployed model on your Azure OpenAI resource at query time.
 author: careyjmac
@@ -11,7 +11,7 @@ ms.topic: reference
 ms.date: 04/24/2024
 ---
 
-#	Azure OpenAI Vectorizer
+#	Azure OpenAI vectorizer
 
 > [!IMPORTANT] 
 > This feature is in public preview under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). The [2023-10-01-Preview REST API](/rest/api/searchservice/indexes/create-or-update?view=rest-searchservice-2023-10-01-preview&preserve-view=true) supports this feature.
@@ -34,7 +34,7 @@ Parameters are case-sensitive.
 | `authIdentity`   | A user-managed identity used by the search service for connecting to Azure OpenAI. You can use either a [system or user managed identity](search-howto-managed-identities-data-sources.md). To use a system manged identity, leave `apiKey` and `authIdentity` blank. The system-managed identity is used automatically. A managed identity must have [Cognitive Services OpenAI User](/azure/ai-services/openai/how-to/role-based-access-control#azure-openai-roles) permissions to send text to Azure OpenAI. |
 | `modelName` | (Required in API version 2024-05-01-Preview and later). The name of the Azure OpenAI embedding model that is deployed at the provided `resourceUri` and `deploymentId`. Currently supported values are `text-embedding-ada-002`, `text-embedding-3-large`, and `text-embedding-3-small` |
 
-## Supported vector query types.
+## Supported vector query types
 
 The Azure OpenAI vectorizer only supports `text` vector queries.
 

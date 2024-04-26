@@ -658,11 +658,11 @@
         href: cognitive-search-skill-sentiment.md
   - name: Vectorizers reference
     items:
-    - name: Azure Open AI
+    - name: Azure OpenAI
       href: vector-search-vectorizer-azure-open-ai.md
-    - name: AI Services Vision
+    - name: Azure AI Vision
       href: vector-search-vectorizer-ai-services-vision.md
-    - name: AI Studio Model Catalog
+    - name: Azure AI Studio model catalog
       href: vector-search-vectorizer-aml-ai-studio-catalog.md
     - name: Custom Web API
       href: vector-search-vectorizer-custom-web-api.md

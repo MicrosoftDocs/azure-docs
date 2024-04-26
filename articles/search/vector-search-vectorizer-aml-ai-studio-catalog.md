@@ -1,5 +1,5 @@
 ---
-title: Azure AI Studio model catalog Vectorizer
+title: Azure AI Studio model catalog vectorizer
 titleSuffix: Azure AI Search
 description: Connects to a deployed model from the Azure AI Studio model catalog at query time.
 author: careyjmac
@@ -11,7 +11,7 @@ ms.topic: reference
 ms.date: 04/24/2024
 ---
 
-#	Azure AI Studio model catalog Vectorizer
+#	Azure AI Studio model catalog vectorizer
 
 > [!IMPORTANT] 
 > This feature is in public preview under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). The [2024-05-01-Preview REST API](/rest/api/searchservice/indexes/create-or-update?view=rest-searchservice-2024-05-01-Preview&preserve-view=true) supports this feature.
@@ -20,11 +20,11 @@ The **Azure AI Studio model catalog** vectorizer connects to an embedding model 
 
 ## Vectorizer parameters
 
-Parameters are case-sensitive. Which parameters you choose to use depends on what [authentication your AML online endpoint requires, if any.](#WhatParametersToUse)
+Parameters are case-sensitive. Which parameters you choose to use depends on what [authentication your AML online endpoint requires, if any](#WhatParametersToUse).
 
 | Parameter name | Description |
 |--------------------|-------------|
-| `uri` | (Required) The [scoring URI of the AML online endpoint](../machine-learning/how-to-authenticate-online-endpoint.md) to which the _JSON_ payload is sent. Only the **https** URI scheme is allowed. |
+| `uri` | (Required) The [URI of the AML online endpoint](../machine-learning/how-to-authenticate-online-endpoint.md) to which the _JSON_ payload is sent. Only the **https** URI scheme is allowed. |
 | `modelName` | (Required) The model ID from the AI Studio model catalog that is deployed at the provided endpoint. Currently supported values are <ul><li>OpenAI-CLIP-Image-Text-Embeddings-vit-base-patch32 </li><li>OpenAI-CLIP-Image-Text-Embeddings-ViT-Large-Patch14-336 </li><li>Facebook-DinoV2-Image-Embeddings-ViT-Base </li><li>Facebook-DinoV2-Image-Embeddings-ViT-Giant </li><li>Cohere-embed-v3-english </li><li>Cohere-embed-v3-multilingual</ul> |
 | `key` | (Required for [key authentication](#WhatParametersToUse)) The [key for the AML online endpoint](../machine-learning/how-to-authenticate-online-endpoint.md). |
 | `resourceId` | (Required for [token authentication](#WhatParametersToUse)). The Azure Resource Manager resource ID of the AML online endpoint. It should be in the format subscriptions/{guid}/resourceGroups/{resource-group-name}/Microsoft.MachineLearningServices/workspaces/{workspace-name}/onlineendpoints/{endpoint_name}. |
@@ -43,7 +43,7 @@ Which authentication parameters are required depends on what authentication your
   * Use the _resourceId_ parameter.
   * If the search service is in a different region from the AML workspace, use the _region_ parameter to set the region the AML online endpoint was deployed in
 
-## Supported vector query types.
+## Supported vector query types
 
 Which vector query types are supported by the AI Studio model catalog vectorizer depends on the `modelName` that is configured.
 

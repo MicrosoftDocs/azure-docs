@@ -1,7 +1,7 @@
 ---
-title: Azure AI Services Vision Vectorizer
+title: Azure AI Vision Vectorizer
 titleSuffix: Azure AI Search
-description: Connects to an AI Services Vision resource to generate embeddings at query time.
+description: Connects to an Azure AI Vision resource to generate embeddings at query time.
 author: careyjmac
 ms.author: chalton
 ms.service: cognitive-search
@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 04/24/2024
 ---
 
-#	Azure AI Services Vision Vectorizer
+#	Azure AI Vision Vectorizer
 
 > [!IMPORTANT] 
 > This feature is in public preview under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). The [2024-05-01-Preview REST API](/rest/api/searchservice/indexes/create-or-update?view=rest-searchservice-2024-05-01-Preview&preserve-view=true) supports this feature.
 
-The **Azure AI Services Vision** vectorizer connects to an AI Services Vision resource to generate embeddings at query time using [the Vision Multimodal embeddings API](../ai-services/computer-vision/concept-image-retrieval.md).
+The **Azure AI Vision** vectorizer connects to an Azure AI Vision resource to generate embeddings at query time using [the Multimodal embeddings API](../ai-services/computer-vision/concept-image-retrieval.md).
 
 > [!NOTE]
 > This vectorizer is bound to Azure AI services. Execution of the vectorizer is charged at the existing [Azure AI services pay-as-you go price](https://azure.microsoft.com/pricing/details/cognitive-services/).
@@ -32,7 +32,7 @@ Parameters are case-sensitive.
 | `modelVersion` | (Required) The model version to be passed to the Azure AI Services Vision API for generating embeddings. It's important that all embeddings stored in a given index field are generated using the same `modelVersion`. |
 | `authIdentity`   | A user-managed identity used by the search service for connecting to AI Services. You can use either a [system or user managed identity](search-howto-managed-identities-data-sources.md). To use a system manged identity, leave `apiKey` and `authIdentity` blank. The system-managed identity is used automatically. A managed identity must have Cognitive Services User permissions to use this vectorizer. |
 
-## Supported vector query types.
+## Supported vector query types
 
 The Azure AI Services Vision vectorizer supports `text`, `imageUrl`, and `imageBinary` vector queries.
 
