@@ -299,7 +299,7 @@ mlflow.autolog()
 > [!TIP]
 > You can control what gets automatically logged with autolog. For instance, if you indicate `mlflow.autolog(log_models=False)`, MLflow logs everything but models for you. Such control is useful in cases where you want to log models manually but still enjoy automatic logging of metrics and parameters. Also notice that some frameworks might disable automatic logging of models if the trained model goes beyond specific boundaries. Such behavior depends on the flavor used and we recommend that you view the documentation if this is your case.
 
-## View jobs/runs information with MLflow
+## View information about jobs or runs with MLflow
 
 You can view the logged information using MLflow through the [MLflow.entities.Run](https://mlflow.org/docs/latest/python_api/mlflow.entities.html#mlflow.entities.Run) object:
 
@@ -342,7 +342,7 @@ file_path = client.download_artifacts("<RUN_ID>", path="feature_importance_weigh
 
 For more information, please refer to [Getting metrics, parameters, artifacts and models](how-to-track-experiments-mlflow.md#get-metrics-parameters-artifacts-and-models).
 
-## View jobs/runs information in the studio
+## View information about jobs or runs in the studio
 
 You can browse completed job records, including logged metrics, in the [Azure Machine Learning studio](https://ml.azure.com).
 
