@@ -9,7 +9,7 @@ ms.date: 8/31/2023
 zone_pivot_groups: app-service-getting-started-stacks
 ---
 
-# Getting started with Azure App Service
+# Getting started with Azure App Services
 
 ## Introduction
 ::: zone pivot="stack-net"
