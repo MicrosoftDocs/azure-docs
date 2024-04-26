@@ -1,5 +1,5 @@
 ---
-title: Azure AI Vision Vectorizer
+title: Azure AI Vision vectorizer
 titleSuffix: Azure AI Search
 description: Connects to an Azure AI Vision resource to generate embeddings at query time.
 author: careyjmac
@@ -11,7 +11,7 @@ ms.topic: reference
 ms.date: 04/24/2024
 ---
 
-#	Azure AI Vision Vectorizer
+#	Azure AI Vision vectorizer
 
 > [!IMPORTANT] 
 > This feature is in public preview under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). The [2024-05-01-Preview REST API](/rest/api/searchservice/indexes/create-or-update?view=rest-searchservice-2024-05-01-Preview&preserve-view=true) supports this feature.
