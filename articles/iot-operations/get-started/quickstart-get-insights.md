@@ -48,24 +48,9 @@ This section prepares your lakehouse data to be a source for Power BI. You'll cr
     >:::image type="content" source="media/quickstart-get-insights/new-semantic-model-workaround-1.png" alt-text="Screenshot of a Fabric lakehouse showing the SQL analytics endpoint option.":::
     >Then, open the options next to the *OPCUA* table and select **Add to default semantic model**. Alternatively, you can select **Manage default Power BI semantic model** and select the *OPCUA* table from that dialogue.
     >:::image type="content" source="media/quickstart-get-insights/new-semantic-model-workaround-2.png" alt-text="Screenshot of a Fabric lakehouse showing the Add to default semantic model option.":::
-    >Skip the next step and go ahead to step 3, as you can now create measures directly from this page.
+    >Skip the next step.
 
 1. Enter a recognizable name for your dataset such as *aiomqdestination*, select *OPCUA* (the contextualized telemetry table from the previous quickstart), and confirm. This action creates a new dataset and opens a new page.
-
-1. In this new page, create four measures. **Measures** in Power BI are custom calculators that perform math or summarize data from your table, to help you find answers from your data. To learn more, see [Create measures for data analysis in Power BI Desktop](/power-bi/transform-model/desktop-measures).
-
-    To create a measure, select **New measure** from the menu, enter one line of measure text from the following code block, and select **Commit**. Complete this process four times, once for each line of measure text:
-    
-    ```power-bi
-    MinTemperature = CALCULATE(MINX(OPCUA, OPCUA[CurrentTemperature]))
-    MaxTemperature = CALCULATE(MAXX(OPCUA, OPCUA[CurrentTemperature]))
-    MinPressure = CALCULATE(MINX(OPCUA, OPCUA[Pressure]))
-    MaxPressure = CALCULATE(MAXX(OPCUA, OPCUA[Pressure]))
-    ```
-
-    Make sure you're selecting **New measure** each time, so the measures are not overwriting each other.
-    
-    :::image type="content" source="media/quickstart-get-insights/power-bi-new-measure.png" alt-text="Screenshot of Power BI showing the creation of a new measure.":::
 
 ## Configure Power BI report
 
