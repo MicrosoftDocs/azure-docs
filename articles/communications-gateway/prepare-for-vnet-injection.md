@@ -14,8 +14,7 @@ This article describes the steps required to connect an Azure Communications Gat
 
 The following diagram shows an overview of Azure Communications Gateway deployed with VNet injection. The network interfaces on Azure Communications Gateway facing your network are deployed into your subnet, while the network interfaces facing backend communications services remain managed by Microsoft.
 
-@@@!TODO
-add diagram in here. 
+:::image type="content" source="media/azure-communications-gateway-vnet-injection.svg" alt-text="Network diagram showing Azure Communications Gateway deployed into two Azure regions. The Azure Communications Gateway resource in each region connects to an Operator virtual network with Operator controlled IPs." lightbox="media/azure-communications-gateway-vnet-injection.svg":::
 
 ## Prerequisites
 - Your Azure subscription is [enabled for Azure Communications Gateway](prepare-to-deploy.md#get-access-to-azure-communications-gateway-for-your-azure-subscription).
