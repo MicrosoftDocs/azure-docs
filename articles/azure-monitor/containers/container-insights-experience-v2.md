@@ -61,9 +61,6 @@ If the banner was previously dismissed, you can instead us the dropdown in the t
 
 4.) Once the monitoring deployment is complete, the Insights blade should switch to using Prometheus as the data source, indicated by the toolbar dropdown showing `Managed Prometheus visualizations (new)`
 
-> [!Note]
-> Some charts will only have partial data for the default time range until sufficient time has elapsed for the recording rules to collect data.
-
 ![Screenshot of AKS cluster with Prometheus based container insights.](media/container-insights-experience-v2/ci-prom-full.png)
 
 
@@ -78,6 +75,9 @@ If the banner was previously dismissed, you can instead us the dropdown in the t
 3.) Click `Enable` to deploy the recording rules
 
 4.) Once the monitoring deployment is complete, the Insights blade should switch to using Prometheus as the data source, indicated by the toolbar dropdown showing `Managed Prometheus visualizations (new)`
+
+> [!Note]
+> Some charts will only have partial data for the default time range until sufficient time has elapsed for the recording rules to collect data.
 
 ![Screenshot of AKS cluster with Prometheus based container insights, with recording rule banner.](media/container-insights-experience-v2/ci-prom-recording-rules-loading.png)
 
