@@ -8,7 +8,7 @@ author: s-polly
 ms.author: scottpolly
 ms.topic: quickstart
 ms.reviewer: franksolomon
-ms.date: 04/26/2024
+ms.date: 04/27/2024
 ms.custom: mode-other
 #Customer intent: As a data scientist, I want to learn how to provision the Windows DSVM so that I can move my existing workflow to the cloud.
 ---
