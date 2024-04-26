@@ -8,7 +8,7 @@ author: santiagxf
 ms.reviewer: mopeakande
 ms.service: machine-learning
 ms.subservice: mlops
-ms.date: 04/11/2024
+ms.date: 04/26/2024
 ms.topic: how-to
 ms.custom: sdkv2
 ---
