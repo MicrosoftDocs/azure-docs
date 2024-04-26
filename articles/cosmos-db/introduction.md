@@ -39,19 +39,19 @@ App development is faster and more productive thanks to:
 
 As a fully managed service, Azure Cosmos DB takes database administration off your hands with automatic management, updates, and patching. It also handles capacity management with cost-effective serverless and automatic scaling options that respond to application needs to match capacity with demand.
 
-If you're an existing Azure AI or GitHub Copilot customer, you may try Azure Cosmos DB for free with 40,000 [RU/s](request-units.md) (equivalent of up to $6,000) of throughput for 90 days under the [Azure AI Advantage offer](ai-advantage.md).
+The following free options are available:
 
-Alternatively, you may use the [Azure Cosmos DB lifetime free tier](free-tier.md) with the first 1000 [RU/s](request-units.md) of throughput and 25 GB of storage free.
+* [Azure Cosmos DB lifetime free tier](free-tier.md) provides 1000 [RU/s](request-units.md) of throughput and 25 GB of storage free.
+* [Azure AI Advantage](ai-advantage.md) offers 40,000 [RU/s](request-units.md) of throughput for 90 days (equivalent of up to $6,000) to Azure AI or GitHub Copilot customers.
+* [Try Azure Cosmos DB free](https://azure.microsoft.com/try/cosmosdb/) for 30 days without creating an Azure account; no commitment follows when the trial period ends.
 
-If you aren't already using Azure, you may Try Azure Cosmos DB free for 30 days without an Azure subscription ([learn more](https://azure.microsoft.com/try/cosmosdb/)). No commitment follows the end of your trial period.
-
-If you decide that Azure Cosmos DB is right for you, you can receive up to 63% discount on [Azure Cosmos DB prices through Reserved Capacity](reserved-capacity.md).
+When you decide that Azure Cosmos DB is right for you, you can receive up to 63% discount on [Azure Cosmos DB prices through Reserved Capacity](reserved-capacity.md).
 
 > [!div class="nextstepaction"]
 > [Try Azure Cosmos DB free](https://azure.microsoft.com/try/cosmosdb/)
 
 > [!TIP]
-> To learn more about Azure Cosmos DB, join us every Thursday at 1PM Pacific on Azure Cosmos DB Live TV. See the [Upcoming session schedule and past episodes](https://gotcosmos.com/tv).
+> To learn more about Azure Cosmos DB, join us every Thursday at 1PM Pacific on Azure Cosmos DB Live TV. See the [Upcoming session schedule and past episodes](https://www.youtube.com/@AzureCosmosDB/streams).
 
 ## ...for more than just AI apps
 
