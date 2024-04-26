@@ -21,7 +21,7 @@ Using confidential computing technologies, you can harden your virtualized envir
 
 - **Isolate processing**: Offer a new wave of products that remove liability on private data with blind processing. User data can't even be retrieved by the service provider.
 
-# Scenarios
+## Scenarios
 
 Confidential computing can apply to various scenarios for protecting data in regulated industries such as government, financial services, and healthcare institutes. For example, preventing access to sensitive data helps protect the digital identity of citizens from all parties involved, including the cloud provider that stores it. The same sensitive data may contain biometric data that is used for finding and removing known images of child exploitation, preventing human trafficking, and aiding digital forensics investigations.
 
