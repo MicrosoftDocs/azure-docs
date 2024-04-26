@@ -9,31 +9,17 @@ ms.date: 06/09/2023
 ms.author: jushiman
 ---
 
-# Confidential computing on Azure
-
-Using confidential computing technologies, you can harden your virtualized environment from the host, the hypervisor, the host admin, and even your own VM admin. This helps organizations to:
-
-- **Prevent unauthorized access**: Run sensitive data in the cloud. Trust that Azure provides the best data protection possible, with little to no change from what gets done today.
-
-- **Meet regulatory compliance**: Migrate to the cloud and keep full control of data to satisfy government regulations for protecting personal information and secure organizational IP.
-
-- **Ensure secure and untrusted collaboration**: Tackle industry-wide work-scale problems by combing data across organizations, even competitors, to unlock broad data analytics and deeper insights.
-
-- **Isolate processing**: Offer a new wave of products that remove liability on private data with blind processing. User data can't even be retrieved by the service provider.
-
-## Available Azure offerings
-
-Confidential computing support continues to expand, from foundational virtual machines, to GPU-backed offerings, and up the stack via containers, and managed services. 
+## Azure offerings
 
 :::image type="content" source="media/overview-azure-products/confidential-computing-product-line.jpg" alt-text="Diagram of the various confidential computing enabled VM SKUs, container and data services." lightbox="media/overview-azure-products/confidential-computing-product-line.jpg":::
 
-Technologies such as [AMD SEV-SNP](https://www.amd.com/en/processors/amd-secure-encrypted-virtualization), [Intel SGX](https://www.intel.com.au/content/www/au/en/architecture-and-technology/software-guard-extensions-enhanced-data-protection.html) and [Intel TDX](https://www.intel.com/content/www/us/en/developer/tools/trust-domain-extensions/overview.html) provide silicon-level hardware implementations of confidential computing. We provide the following technologies today:
+Azure provides the broadest support for hardened technologies such as [AMD SEV-SNP](https://www.amd.com/en/developer/sev.html), [Intel TDX](https://www.intel.com/content/www/us/en/developer/tools/trust-domain-extensions/overview.html) and [Intel SGX](https://www.intel.com.au/content/www/au/en/architecture-and-technology/software-guard-extensions-enhanced-data-protection.html). All technologies meet our definition of confidential computing, helping organizations prevent unauthorized access or modification of code and data while in use.
 
-- Confidential VMs based on [AMD SEV-SNP technology](https://azure.microsoft.com/blog/azure-and-amd-enable-lift-and-shift-confidential-computing/) enable lift-and-shift of existing workloads and protect data from the cloud operator with VM-level confidentiality.
+- Confidential VMs using AMD SEV-SNP. [DCasv5](../virtual-machines/dcasv5-dcadsv5-series.md) and [ECasv5](../virtual-machines/ecasv5-ecadsv5-series.md) enable lift-and-shift of existing workloads and helps protect data from the cloud operator with VM-level confidentiality. 
 
-- Confidential VMs based on [Intel TDX technology](https://azure.microsoft.com/blog/azure-confidential-computing-on-4th-gen-intel-xeon-scalable-processors-with-intel-tdx/) enable lift-and-shift of existing workloads and protect data from the cloud operator with VM-level confidentiality.
+- Confidential VMs using on Intel TDX. [DCesv5](../virtual-machines/dcasv5-dcadsv5-series.md) and [ECesv5](../virtual-machines/ecasv5-ecadsv5-series.md) enable lift-and-shift of existing workloads and helps protect data from the cloud operator with VM-level confidentiality.
 
-- [VMs with Intel SGX application enclaves](confidential-computing-enclaves.md). Azure offers the [DCsv2](../virtual-machines/dcv2-series.md), [DCsv3, and DCdsv3](../virtual-machines/dcv3-series.md) series built on Intel SGX technology for hardware-based enclave creation. You can build secure enclave-based applications to run in a series of VMs to protect your application data and code in use.
+- VMs with Application Enclaves using Intel SGX. [DCsv2](../virtual-machines/dcv2-series.md), [DCsv3, and DCdsv3](../virtual-machines/dcv3-series.md) enable organizations to create hardware enclaves. These secure enclaves help protect from cloud operators, and your own VM admins.
 
 - [App-enclave aware containers](enclave-aware-containers.md) running on Azure Kubernetes Service (AKS). Confidential computing nodes on AKS use Intel SGX to create isolated enclave environments in the nodes between each container application.
 
