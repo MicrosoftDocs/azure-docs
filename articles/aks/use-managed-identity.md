@@ -1,15 +1,15 @@
 ---
 title: Use a managed identity in Azure Kubernetes Service (AKS)
 description: Learn how to use a system-assigned or user-assigned managed identity in Azure Kubernetes Service (AKS).
+author: tamram
+
 ms.topic: article
 ms.subservice: aks-security
 ms.custom:
   - devx-track-azurecli
   - ignite-2023
 ms.date: 03/07/2024
-author: tamram
 ms.author: tamram
-
 ---
 
 # Use a managed identity in Azure Kubernetes Service (AKS)
