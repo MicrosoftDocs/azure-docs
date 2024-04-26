@@ -106,7 +106,7 @@ Use this tab to view key billing parameters for your backups. The information sh
 
 Use this tab to view long-running trends on jobs, such as the number of failed jobs per day and the top causes of job failure. You can view this information at both an aggregate level and at a Backup-item level. Select a particular Backup item in a grid to view detailed information on each job that was triggered on that Backup item in the selected time range.
 
-   :::image type="content" source="{source}" alt-text="Screenshot shows the Jobs tab." lightbox="./media/backup-azure-configure-backup-reports/jobs.png":::
+   :::image type="content" source="./media/backup-azure-configure-backup-reports/jobs.png" alt-text="Screenshot shows the Jobs tab." lightbox="./media/backup-azure-configure-backup-reports/jobs.png":::
 
 > [!NOTE]
 > For Azure Database for PostgreSQL, Azure Blob, and Azure Disk workloads, data transferred field is currently not available in the *Jobs* table.
