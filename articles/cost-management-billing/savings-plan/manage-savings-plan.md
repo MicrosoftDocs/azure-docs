@@ -24,7 +24,7 @@ You can't make the following types of changes after purchase:
 - Term length
 - Billing frequency
 
-To learn more, visit [savings plan permissions](/permission-view-manage.md).
+To learn more, visit [savings plan permissions](permission-view-manage.md).
 _Permission needed to manage a savings plan is separate from subscription permission._
 
 
