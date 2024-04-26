@@ -16,13 +16,15 @@ For a tutorial on how to use Azure Cache for Redis and Azure OpenAI to perform v
 
 ## Scope of Availability
 
-This table contains the information for TLS availability in different tiers.
+Vector search capabilities in Redis require [Redis Stack](https://redis.io/docs/latest/operate/oss_and_stack/stack-with-enterprise/), specifically the [RediSearch](https://redis.io/docs/interact/search-and-query/) module. This capability is only available in the [Enterprise tiers of Azure Cache for Redis](./cache-redis-modules.md).
+
+This table contains the information for vector search availability in different tiers.
 
 |Tier      | Basic / Standard  | Premium  |Enterprise | Enterprise Flash  |
 |--------- |:------------------:|:----------:|:---------:|:---------:|
 |Available | No          | No       |  Yes  | Yes (preview) |
 
-Vector search capabilities in Redis require [Redis Stack](https://redis.io/docs/latest/operate/oss_and_stack/stack-with-enterprise/), specifically the [RediSearch](https://redis.io/docs/interact/search-and-query/) module. This capability is only available in the [Enterprise tiers of Azure Cache for Redis](./cache-redis-modules.md).
+
 
 ## What are vector embeddings?
 
