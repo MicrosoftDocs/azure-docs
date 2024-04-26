@@ -60,10 +60,10 @@ On the top toolbar of your prompt flow, select **Start compute session**.
 To manage a compute session, select the **Compute session running** on the top toolbar of the flow page.:
 
 - **Change compute session settings** opens the compute session configuration page, where you can define the VM side and the idle time for the compute session.
-- **Install packages from requirements.txt** Open `requirements.txt` in prompt flow UI, you can add packages in it.
-- **View installed packages** shows the packages that are installed in the compute session. It includes the packages baked to base image and packages specify in the `requirements.txt` file in the flow folder.
+- **Install packages from requirements.txt** Opens `requirements.txt` in prompt flow UI so you can add packages.
+- **View installed packages** shows the packages that are installed in the compute session. It includes the packages baked into base image and packages specified in the `requirements.txt` file in the flow folder.
 - **Reset compute session** deletes the current compute session and creates a new one with the same environment. If you encounter a package conflict, you can try this option.
-- **Stop compute session** deletes the current compute session. If there's no active compute session on the underlying compute, the compute resource is also delete if it use serverless compute, if it is using compute instance then it will follow the idle shut down settings.
+- **Stop compute session** deletes the current compute session. If there's no active compute session on an underlying serverless compute, the compute resource is also deleted. If the compute session is on a compute instance, stopping the session will allow the instance to become idle.
 
 :::image type="content" source="../media/prompt-flow/how-to-create-manage-runtime/runtime-create-automatic-actions.png" alt-text="Screenshot of actions for a compute session on a flow page." lightbox = "../media/prompt-flow/how-to-create-manage-runtime/runtime-create-automatic-actions.png":::
 
