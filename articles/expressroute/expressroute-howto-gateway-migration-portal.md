@@ -27,7 +27,7 @@ The following SKUs are available for ExpressRoute virtual network gateways:
 
 ## Prerequisites
 
-- Review the [prerequisites](expressroute-prerequisites.md) and [workflows](expressroute-workflows.md) before you begin.
+- Review the [Gateway migration](gateway-migration.md) article before you begin.
 - You must have an existing [ExpressRoute Virtual network gateway](expressroute-howto-add-gateway-portal-resource-manager.md) in your Azure subscription.
 - A second prefix is required for the gateway subnet. If you have only one prefix, you can add a second prefix by following the steps in the [Add a second prefix to the gateway subnet](#add-a-second-prefix-to-the-gateway-subnet) section.
   
