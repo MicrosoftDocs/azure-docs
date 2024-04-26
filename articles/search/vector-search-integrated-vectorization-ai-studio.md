@@ -7,7 +7,7 @@ ms.author: chalton
 ms.service: cognitive-search
 ms.custom:
   - build-2024
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/25/2024
 ---
 
@@ -220,9 +220,9 @@ For Cohere models, you should NOT add the `/v1/embed` path to the end of your UR
 ]
 ```
 
-## Changes to for token authentication
+## Connect using token authentication
 
-If your security needs require that you not use key based authentication, you can use token authentication for both the AMLSkill and the AI Studio vectorizer. To do so, the search service's [managed identity](search-howto-managed-identities-data-sources.md) must be enabled, and its identity must be assigned owner or contributor role for your AML project workspace. You would then remove the `key` field from your skill and vectorizer definition and replace it with the `resourceId` field. If your AML project lives in a different region from your search service, you'll need to provide the `region` field.
+If you can't use key based authentication, you can instead configure the skill and vectorizer connection for [token authentication](../machine-learning/how-to-authenticate-online-endpoint.md) via role based access control on Azure. The search service must have a [system or user-assigned managed identity](search-howto-managed-identities-data-sources.md), and the identity must have Owner or Contributor permissions for your AML project workspace. You can then remove the key field from your skill and vectorizer definition, replacing it with the resourceId field. If your AML project and search service are in different regsions, also provide the region field.
 
 ```json
 "uri": "{YOUR_URL_HERE}",
@@ -235,5 +235,5 @@ If your security needs require that you not use key based authentication, you ca
 + [Configure a vectorizer in a search index](vector-search-how-to-configure-vectorizer.md)
 + [Configure index projections in a skillset](index-projections-concept-intro.md)
 + [AML skill](cognitive-search-aml-skill.md)
-+ [AI Studio vectorizer](vector-search-vectorizer-aml-ai-studio-catalog.md)
++ [Azure AI Studio vectorizer](vector-search-vectorizer-aml-ai-studio-catalog.md)
 + [Skill context and input annotation language](cognitive-search-skill-annotation-language.md)
