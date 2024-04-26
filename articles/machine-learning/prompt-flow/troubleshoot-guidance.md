@@ -108,17 +108,17 @@ Compute session support to use `requirements.txt` or custom base image in `flow.
 
 In prompt flow, on flow page with successful run and run detail page, you can find the raw inputs and outputs of LLM tool in the output section. Select the `view full output` button to view full output. 
 
-:::image type="content" source="./media/faq/view-full-output.png" alt-text="Screenshot that shows view full output on LLM node." lightbox = "../media/faq/view-full-output.png":::
+:::image type="content" source="./media/faq/view-full-output.png" alt-text="Screenshot that shows view full output on LLM node." lightbox = "./media/faq/view-full-output.png":::
 
 `Trace` section includes each request and response to the LLM tool. You can check the raw message sent to the LLM model and the raw response from the LLM model.
 
-:::image type="content" source="./media/faq/trace-large-language-model-tool.png" alt-text="Screenshot that shows raw request send to LLM model and response from LLM model." lightbox = "../media/faq/trace-large-language-model-tool.png":::
+:::image type="content" source="./media/faq/trace-large-language-model-tool.png" alt-text="Screenshot that shows raw request send to LLM model and response from LLM model." lightbox = "./media/faq/trace-large-language-model-tool.png":::
 
 ### How to fix 409 error from Azure OpenAI? 
 
 You may encounter 409 error from Azure OpenAI, it means you have reached the rate limit of Azure OpenAI. You can check the error message in the output section of LLM node. Learn more about [Azure OpenAI rate limit](../../ai-services/openai/quotas-limits.md).
 
-:::image type="content" source="./media/faq/429-rate-limit.png" alt-text="Screenshot that shows 429 rate limit error from Azure OpenAI." lightbox = "../media/faq/429-rate-limit.png":::
+:::image type="content" source="./media/faq/429-rate-limit.png" alt-text="Screenshot that shows 429 rate limit error from Azure OpenAI." lightbox = "./media/faq/429-rate-limit.png":::
 
 ### Identify which node consumes the most time
 
