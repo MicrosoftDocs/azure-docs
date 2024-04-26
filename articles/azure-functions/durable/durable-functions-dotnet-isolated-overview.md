@@ -162,7 +162,6 @@ This table isn't an exhaustive list of changes.
 | `IDurableEntityContext.DispatchAsync` | `TaskEntityDispatcher.DispatchAsync`. Constructor params removed. |
 | `IDurableOrchestrationClient.GetStatusAsync` | `DurableTaskClient.GetInstanceAsync`. |
 
-
 #### Behavioral changes
 
 - Serialization default behavior has changed from `Newtonsoft.Json` to `System.Text.Json`. For more information, see [here](./durable-functions-serialization-and-persistence.md).
