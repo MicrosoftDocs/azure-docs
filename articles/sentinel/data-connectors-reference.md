@@ -130,7 +130,6 @@ Data connectors are available as part of the following offerings:
 ## Cisco
 
 - [Cisco Application Centric Infrastructure](data-connectors/cisco-application-centric-infrastructure.md)
-- [Cisco ASA via Legacy Agent](data-connectors/cisco-asa-via-legacy-agent.md)
 - [Cisco ASA/FTD via AMA (Preview)](data-connectors/cisco-asa-ftd-via-ama.md)
 - [Cisco Duo Security (using Azure Functions)](data-connectors/cisco-duo-security.md)
 - [Cisco Identity Services Engine](data-connectors/cisco-identity-services-engine.md)

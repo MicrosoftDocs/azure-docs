@@ -418,8 +418,6 @@
       href: data-connectors/box.md
     - name: Cisco Application Centric Infrastructure
       href: data-connectors/cisco-application-centric-infrastructure.md
-    - name: Cisco ASA via Legacy Agent
-      href: data-connectors/cisco-asa-via-legacy-agent.md
     - name: Cisco ASA/FTD via AMA (Preview)
       href: data-connectors/cisco-asa-ftd-via-ama.md
     - name: Cisco Duo Security (using Azure Functions)
