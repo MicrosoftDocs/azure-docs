@@ -407,7 +407,7 @@ Azure AD B2C page layout uses the following versions of the [jQuery library](htt
 ## Other pages (ProviderSelection, ClaimsConsent, UnifiedSSD)
 
 **1.2.4**
-- Removed `ReplaceAll` function for IE11 compatibility.
+- Remove `ReplaceAll` function for IE11 compatibility.
 
 **1.2.3**
 - Fixed accessibility bugs.
