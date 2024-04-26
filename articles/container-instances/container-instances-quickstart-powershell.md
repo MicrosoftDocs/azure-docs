@@ -16,7 +16,7 @@ Use Azure Container Instances to run serverless Docker containers in Azure with 
 
 In this quickstart, you use Azure PowerShell to deploy an isolated Windows container and make its application available with a fully qualified domain name (FQDN) and port. A few seconds after you execute a single deployment command, you can browse to the application running in the container:
 
-![App deployed to Azure Container Instances viewed in browser][qs-powershell-01]
+![App deployed to Azure Container Instances viewed in browser][./media/container-instances-quickstart/view-an-application-running-in-an-azure-container-instance.png]
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 
