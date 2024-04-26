@@ -26,7 +26,7 @@ Azure Communications Gateway supports multiple types of connection to your netwo
 - We strongly recommend using Microsoft Azure Peering Service Voice (also called MAPS Voice or MAPSV).
 - If you can't use MAPS Voice, we recommend ExpressRoute Microsoft Peering.
 
-Azure Communications Gateway is normally deployed with Public IP addresses on both the interfaces facing your network and the interfaces facing backend services. This means that you can use connectivity methods supporting Public IP addresses to connect your network to Azure Communications Gateway such as MAPS voice, ExpressRoute Microsoft Peering and the public internet. If you want to control and manage the traffic between your network and Azure Communications Gateway you can use VNet injection Preview to deploy Azure Communications Gateway into your own subnet. 
+Azure Communications Gateway is normally deployed with Public IP addresses on all interfaces. This means that you can use connectivity methods supporting public IP addresses to connect your network to Azure Communications Gateway such as MAPS voice, ExpressRoute Microsoft Peering and the public internet. If you want to control and manage the traffic between your network and Azure Communications Gateway you can use VNet injection Preview to deploy Azure Communications Gateway into your own subnet.
 
 The following table lists all the available connection types and whether they're supported for each communications service. The connection types are in the order that we recommend (with recommended types first).
 
@@ -91,7 +91,11 @@ Azure Communications Gateway provides multiple FQDNs:
 
 ## VNet injection preview
 
-VNet injection preview for Azure Communications Gateway allows the network interfaces on your Azure Communications Gateway which face towards your network to be deployed into VNets in your subscription. This allows you to control the traffic flowing between your network and your Azure Communications Gateway instance using private subnets, and lets you use private connectivity to your premises such as ExpressRoute Private Peering and Virtual Private Networks.
+VNet injection preview for Azure Communications Gateway allows the network interfaces on your Azure Communications Gateway which connect to your network to be deployed into VNets in your subscription. This allows you to control the traffic flowing between your network and your Azure Communications Gateway instance using private subnets, and lets you use private connectivity to your premises such as ExpressRoute Private Peering and Virtual Private Networks.
+
+If you use VNet injection preview with Operator Connect or Teams Phone Mobile, your network must still meet the redundancy and resiliency requirements described in the _Network Connectivity Specification_ provided to you by your onboarding team. This mandates that your network is connected to Azure by at least 2 ExpressRoute circuits, each deployed with local redundancy and configured so that each region can use both circuits in the case of failure as described in the diagram below:
+
+:::image type="content" source="./media/designing-for-disaster-recovery-with-expressroute-pvt/multi-region.png" alt-text="Diagram of two regions with connectivity compliant with Operator Connect and Teams Phone Mobile.":::
 
 > [!WARNING]
 > Any traffic in your own VNet is subject to standard Azure VNet and bandwidth charges.
