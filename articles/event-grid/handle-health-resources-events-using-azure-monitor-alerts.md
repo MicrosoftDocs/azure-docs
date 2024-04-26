@@ -17,7 +17,7 @@ ms.author: robece
 - Learn about the event types supported by the system topic and their properties by reading through the [Health Resources events in Azure Event Grid](event-schema-health-resources.md#event-types) article.
     - [Properties for the AvailabilityStatusChanged event](event-schema-health-resources.md#properties-for-the-availabilitystatuschanged-event)
     - [Properties for the ResourceAnnotated event](event-schema-health-resources.md#properties-for-the-resourceannotated-event)
-- To learn about Azure Monitor alerts, see [How to send events to Azure monitor alerts](handler-azure-monitor-alerts.md)
+- To learn about Azure Monitor alerts, see [How to send events to Azure monitor alerts](handler-azure-monitor-alerts.md).
 
 ## Create and configure the event subscription
 
@@ -67,7 +67,7 @@ The event filter enables users to receive alerts for a specific resource group, 
 
     For example, to get alerted when VMs go down, set a filter to look for VM availability transitions that go from `Available` to `Unavailable`. It's done by creating the following conditions: 
 
-    - `Available` is in the key `data.resourceInfo.properties.previousAvailabilityState` and
+    - `Available` is in the key `data.resourceInfo.properties.availabilityState` and
     - `Unavailable` is in `data.resourceInfo.properties.availabilityState`
     
         :::image type="content" source="./media/handle-health-resources-events-using-azure-monitor-alerts/advanced-filters.png" alt-text="Screenshot that shows the advanced filters in the event subscription." lightbox="./media/handle-health-resources-events-using-azure-monitor-alerts/advanced-filters.png":::     
