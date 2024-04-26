@@ -9,7 +9,7 @@ ms.date: 06/09/2023
 ms.author: jushiman
 ---
 
-## Azure offerings
+# Azure offerings
 
 :::image type="content" source="media/overview-azure-products/confidential-computing-product-line.jpg" alt-text="Diagram of the various confidential computing enabled VM SKUs, container and data services." lightbox="media/overview-azure-products/confidential-computing-product-line.jpg":::
 
