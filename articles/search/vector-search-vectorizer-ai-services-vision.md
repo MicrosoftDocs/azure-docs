@@ -29,16 +29,16 @@ Parameters are case-sensitive.
 |---------------------|-------------|
 | `resourceUri` | The URI of the AI Services resource.  |
 | `apiKey`   |  The API key of the AI Services resource. |
-| `modelVersion` | (Required) The model version to be passed to the Azure AI Services Vision API for generating embeddings. It's important that all embeddings stored in a given index field are generated using the same `modelVersion`. |
+| `modelVersion` | (Required) The model version to be passed to the Azure AI Vision API for generating embeddings. It's important that all embeddings stored in a given index field are generated using the same `modelVersion`. |
 | `authIdentity`   | A user-managed identity used by the search service for connecting to AI Services. You can use either a [system or user managed identity](search-howto-managed-identities-data-sources.md). To use a system manged identity, leave `apiKey` and `authIdentity` blank. The system-managed identity is used automatically. A managed identity must have Cognitive Services User permissions to use this vectorizer. |
 
 ## Supported vector query types
 
-The Azure AI Services Vision vectorizer supports `text`, `imageUrl`, and `imageBinary` vector queries.
+The Azure AI Vision vectorizer supports `text`, `imageUrl`, and `imageBinary` vector queries.
 
 ## Expected field dimensions
 
-A field configured with the Azure AI Services Vision vectorizer should have a dimensions value of 1024.
+A field configured with the Azure AI Vision vectorizer should have a dimensions value of 1024.
 
 ## Sample definition
 
@@ -61,4 +61,4 @@ A field configured with the Azure AI Services Vision vectorizer should have a di
 
 + [Integrated vectorization](vector-search-integrated-vectorization.md)
 + [How to configure a vectorizer in a search index](vector-search-how-to-configure-vectorizer.md)
-+ [Azure AI Services Vision skill](cognitive-search-skill-vision-vectorize.md)
++ [Azure AI Vision Vectorize skill](cognitive-search-skill-vision-vectorize.md)
