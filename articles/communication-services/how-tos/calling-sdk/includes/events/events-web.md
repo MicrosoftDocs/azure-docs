@@ -52,7 +52,7 @@ In this example, we subscribe to changes in values of the Call object `LocalVide
 
 #### Event Name: `stateChanged`
 
-**When does it occurs ?**
+**When does it occur ?**
 
 The `stateChanged`  events is fired when the call state changes. For example when a call goes from `connected` to `disconnected`.
 
@@ -62,7 +62,7 @@ Your application should update its UI accordingly. Disabling or enabling appropr
 
 #### Event: `stateChanged`
 
-**When does it occurs ?**
+**When does it occur ?**
 
 The `stateChanged`  event is fired when the call state changes. For example when a call goes from `connected` to `disconnected`.
 
@@ -72,7 +72,7 @@ Your application should update its UI accordingly. Disabling or enabling appropr
 
 #### Event: `idChanged`
 
-**When does it occurs ?**
+**When does it occur ?**
 
 The `idChanged`  event is fired when the id of a call changes. The id of a call changes when the call is established and should not change after.
 
@@ -82,7 +82,7 @@ Your application should save the new call ID but it can also be retreived from t
 
 #### Event: `isMutedChanged`
 
-**When does it occurs ?**
+**When does it occur ?**
 
 The `isMutedChanged` event is fired when the call is muted or unmuted.
 
@@ -92,7 +92,7 @@ Your application should update the mute / unmute button to the proper state.
 
 #### Event: `isScreenSharingOnChanged`
 
-**When does it occurs ?**
+**When does it occur ?**
 
 The `isScreenSharingOnChanged` event is fired when screensharing for the local user is enabled or disabled.
 
@@ -100,3 +100,62 @@ The `isScreenSharingOnChanged` event is fired when screensharing for the local u
 
 Your application should show a preview and/or a warning to the user if the screen sharing became on.
 If the screen sharing went off, then the application should remove the preview and warning.
+
+#### Event: `isLocalVideoStartedChanged`
+
+**When does it occur ?**
+
+The `isLocalVideoStartedChanged` event is fired when the user enabled our disabled its local video.
+
+**How might your application react to the event ?**
+
+Your application should show a preview of the local video and enable or disable the camera activation button.
+
+#### Event: `remoteParticipantsUpdated`
+
+**When does it occur ?**
+
+Your application should subrscibe to event for each added `RemoteParticipants` and unsubscribe of events for participant that are gone from the call.
+
+**How might your application react to the event ?**
+
+Your application should show a preview of the local video and enable or disable the camera activation button.
+
+#### Event: `localVideoStreamsUpdated`
+
+**When does it occur ?**
+
+The `localVideoStreamsUpdated` event is fired when the list of remote particpants changes. These changes happen when particpants join or leave the call
+
+**How might your application react to the event ?**
+
+Your application should show previews for the `LocalVideoStream` added.
+
+#### Event: `remoteAudioStreamsUpdated`
+
+**When does it occur ?**
+
+The `remoteAudioStreamsUpdated` event is fired when the list of remote audio stream. These changes happen when remote particpants add or remove audio streams to the call.
+
+**How might your application react to the event ?**
+
+<!--TODO KLG Fill this once we have the infos -->
+
+#### Event: `totalParticipantCountChanged`
+
+**When does it occur ?**
+
+The `totalParticipantCountChanged` fires when the number of totalParticipant changed in a call.
+
+**How might your application react to the event ?**
+
+If your application is displaying a participant counter,  your application can update it's  participant counter when the event is received.
+
+#### Event: `roleChanged`
+
+**When does it occur ?**
+
+The `roleChanged` participant fires when the localParticipant roles changes in the call. An example would be when the local particpant become presenter `ACSCallParticipantRolePresenter` in a call.
+
+**How might your application react to the event ?**
+Your application should enable or disabled button base on the user new role.
