@@ -201,7 +201,7 @@ Each component of the vector is mapped to the closest representative value withi
 
 Here's a composite example of a search index that specifies narrow data types, reduced storage, and vector compression. 
 
-+ "HotelNameVector" provides a narrow data type example, recasting `Float32` to `Float16`, expressed as `Collection(Edm.Half)` in the search index. The embedding model produces `Float32`, but in the index, the data is `Float16`.
++ "HotelNameVector" provides a narrow data type example, recasting the original `Float32` values to `Float16`, expressed as `Collection(Edm.Half)` in the search index.
 + "HotelNameVector" also has `stored` set to false. Extra embeddings used in a query response are not stored.
 + "DescriptionVector" provides an example of vector compression. Vector compression is defined in the index, referenced in a profile, and then assigned to a vector field. "DescriptionVector" also has `stored` set to false. 
 
