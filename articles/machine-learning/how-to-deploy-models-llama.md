@@ -41,9 +41,7 @@ The following models are available in Azure Marketplace for Meta Llama models wh
 # [Meta Llama 3](#tab/llama-three)
 
 * [Meta Llama-3-8B (preview)](https://aka.ms/aistudio/landing/meta-llama-3-8b-base)
-* [Meta Llama-3 8B-Instruct (preview)](https://aka.ms/aistudio/landing/meta-llama-3-8b-chat)
 * [Meta Llama-3-70B (preview)](https://aka.ms/aistudio/landing/meta-llama-3-70b-base)
-* [Meta Llama-3 70B-Instruct (preview)](https://aka.ms/aistudio/landing/meta-llama-3-70b-chat)
 
 If you need to deploy a different model, [deploy it to real-time endpoints](#deploy-meta-llama-models-to-real-time-endpoints) instead.
 
@@ -66,7 +64,7 @@ If you need to deploy a different model, [deploy it to real-time endpoints](#dep
 - An Azure Machine Learning workspace and a compute instance. If you don't have these, use the steps in the [Quickstart: Create workspace resources](quickstart-create-resources.md) article to create them.
 
     > [!IMPORTANT]
-    > Pay-as-you-go model deployment offering is only available in workspaces created in **East US 2** and **West US 3** regions.
+    > Pay-as-you-go model deployment offering is only available in workspaces created in **East US 2**, **West US 3** **Sweden Central** regions.
 
 - Azure role-based access controls (Azure RBAC) are used to grant access to operations in Azure Machine Learning. To perform the steps in this article, your user account must be assigned the __owner__ or __contributor__ role for the Azure subscription. Alternatively, your account can be assigned a custom role that has the following permissions:
 
@@ -94,7 +92,7 @@ To create a deployment:
 # [Meta Llama 3](#tab/llama-three)
 
 1. Go to [Azure Machine Learning studio](https://ml.azure.com/home).
-1. Select the workspace in which you want to deploy your models. To use the pay-as-you-go model deployment offering, your workspace must belong to the **East US 2** region.
+1. Select the workspace in which you want to deploy your models. To use the pay-as-you-go model deployment offering, your workspace must belong to the **East US 2** or **Sweden Central** region.
 1. Choose the model you want to deploy from the [model catalog](https://ml.azure.com/model/catalog).
 
    Alternatively, you can initiate deployment by going to your workspace and selecting **Endpoints** > **Serverless endpoints** > **Create**.
