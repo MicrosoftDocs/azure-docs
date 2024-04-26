@@ -7,7 +7,7 @@ author: robece
 ms.author: robece
 ---
 
-## Handle Azure Key Vault system events using Azure Monitor alerts
+# Handle Azure Key Vault system events using Azure Monitor alerts
 Azure Key Vault can emit events to a system topic when a certificate, key, or secret is about to expire (30 days heads up), and other events when they do expire. For more information, see ([Azure Key Vault event schema](event-schema-key-vault.md)). You can set up alerts on these events so you can fix expiration issues before your services are affected.
 
 ## Prerequisites

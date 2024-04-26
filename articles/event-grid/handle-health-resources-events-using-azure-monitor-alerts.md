@@ -7,16 +7,16 @@ author: robece
 ms.author: robece
 ---
 
-## Subscribe to Health Resources events and send them to Azure monitor alerts
+# Subscribe to Health Resources events and send them to Azure monitor alerts
 
 [Health Resources system topic](event-schema-health-resources.md) in Azure Event Grid provides accurate, reliable, and comprehensive information on health of your Azure resources such as single instance virtual machines (VMs), Virtual Machine Scale Set VMS, and Virtual Machine Scale Sets. This feature enables a deeper understanding of the diverse service issues impacting your resources. You can now set up Azure Monitor alerts to notify you when your workload is impacted.
 
 ## Prerequisites
 
 - Create a Health Resources system topic by following instructions from [Subscribe to Azure Resource Notifications - Health Resources events](subscribe-to-resource-notifications-health-resources-events.md). 
-- Learn about the event types supported by the system topic and their properties by reading through the [Health Resources events in Azure Event Grid](event-schema-health-resources#event-types) article.
-    - [Properties for the AvailabilityStatusChanged event](event-schema-health-resources#properties-for-the-availabilitystatuschanged-event)
-    - [Properties for the ResourceAnnotated event](hevent-schema-health-resources.md#properties-for-the-resourceannotated-event)
+- Learn about the event types supported by the system topic and their properties by reading through the [Health Resources events in Azure Event Grid](event-schema-health-resources.md#event-types) article.
+    - [Properties for the AvailabilityStatusChanged event](event-schema-health-resources.md#properties-for-the-availabilitystatuschanged-event)
+    - [Properties for the ResourceAnnotated event](event-schema-health-resources.md#properties-for-the-resourceannotated-event)
 - To learn about Azure Monitor alerts, see [How to send events to Azure monitor alerts](handler-azure-monitor-alerts.md)
 
 ## Create and configure the event subscription
@@ -70,7 +70,7 @@ The event filter enables users to receive alerts for a specific resource group, 
     - `Available` is in the key `data.resourceInfo.properties.previousAvailabilityState` and
     - `Unavailable` is in `data.resourceInfo.properties.availabilityState`
     
-        :::image type="content" source="./media/handle-health-resources-events-using-azure-monitor-alerts/advanced-filters.png" alt-text="Screenshot that shows the filters in the event subscription." lightbox="./media/handle-health-resources-events-using-azure-monitor-alerts/advanced-filters.png":::     
+        :::image type="content" source="./media/handle-health-resources-events-using-azure-monitor-alerts/advanced-filters.png" alt-text="Screenshot that shows the advanced filters in the event subscription." lightbox="./media/handle-health-resources-events-using-azure-monitor-alerts/advanced-filters.png":::     
 
   
 ## Sample JSON events
