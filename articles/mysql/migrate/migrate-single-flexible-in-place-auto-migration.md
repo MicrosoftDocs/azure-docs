@@ -25,6 +25,7 @@ The in-place migration provides a highly resilient and self-healing offline migr
 > If your Single Server instance has General Purpose V1 storage, your scheduled instance will undergo an additional restart operation 12 hours prior to the scheduled migration time. This restart operation serves to enable the log_bin server parameter needed to upgrade the instance to General Purpose V2 storage before undergoing the in-place auto-migration.
 
 ## Eligibility
+
 * If you own a Single Server workload with Basic, General Purpose or Memory Optimized SKU, data storage used <= 20 GiB and no complex features (CMK, AAD, Read Replica, Private Link) enabled, you can now nominate yourself (if not already scheduled by the service) for auto-migration by submitting your server details through this [form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR4lhLelkCklCuumNujnaQ-ZUQzRKSVBBV0VXTFRMSDFKSUtLUDlaNTA5Wi4u).
 
 ## Configure migration alerts and review migration schedule
@@ -89,11 +90,12 @@ Following described are the ways to review your migration schedule once you have
   * Any Terraform/CLI scripts you host to manage your Single Server instance should be updated with Flexible Server references.
 * For Single Server instance with Query store enabled, the server parameter 'slow_query_log' on target instance is set to ON to ensure feature parity when migrating to Flexible Server. Please note, for certain workloads this could impact performance and if you observe any performance degradation, set this server parameter to 'OFF' on the Flexible Server instance.
 * For Single Server instance with Advance Threat Protection enabled, consider configuring the following properties post auto-migration in the following table to maintain parity as you are auto-migrated to Azure Defender for Cloud :
-**Property** | **Configuration**
----|---|---
-properties.disabledAlerts | You can disable specific alert types by using the Microsoft Defender for Cloud platform. For more information, see the article [Suppress alerts from Microsoft Defender for Cloud guide](../../defender-for-cloud/alerts-suppression-rules.md).
-properties.emailAccountAdmins, properties.emailAddresses | You can centrally define email notification for Microsoft Defender for Cloud Alerts for all resources in a subscription. For more information, see the article [Quickstart: Configure email notifications for security alerts](../../defender-for-cloud/configure-email-notifications.md).
-properties.retentionDays, properties.storageAccountAccessKey, properties.storageEndpoint | The Microsoft Defender for Cloud platform exposes alerts through Azure Resource Graph. You can export alerts to a different store and manage retention separately. For more about continuous export, see the article [Set up continuous export in the Azure portal - Microsoft Defender for Cloud](../../defender-for-cloud/continuous-export.md?tabs=azure-portal).
+
+| **Property** | **Configuration** |
+|---|---|
+| properties.disabledAlerts | You can disable specific alert types by using the Microsoft Defender for Cloud platform. For more information, see the article [Suppress alerts from Microsoft Defender for Cloud guide](../../defender-for-cloud/alerts-suppression-rules.md). |
+| properties.emailAccountAdmins, properties.emailAddresses | You can centrally define email notification for Microsoft Defender for Cloud Alerts for all resources in a subscription. For more information, see the article [Quickstart: Configure email notifications for security alerts](../../defender-for-cloud/configure-email-notifications.md). |
+| properties.retentionDays, properties.storageAccountAccessKey, properties.storageEndpoint | The Microsoft Defender for Cloud platform exposes alerts through Azure Resource Graph. You can export alerts to a different store and manage retention separately. For more about continuous export, see the article [Set up continuous export in the Azure portal - Microsoft Defender for Cloud](../../defender-for-cloud/continuous-export.md?tabs=azure-portal). |
 
 ## Frequently Asked Questions (FAQs)
 
