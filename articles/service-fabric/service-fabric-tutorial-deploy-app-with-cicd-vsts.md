@@ -67,7 +67,7 @@ Select your account in the drop-down and enter your repository name and click **
 
 Publishing the repo creates a new project in Azure DevOps account with the same name as the local repo. 
 
-View the newly created repository by navigating to https://dev.azure.com/<OrganizationName>, hover mouse over the name of your project, and select the **Repos** icon.
+View the newly created repository by navigating to https://dev.azure.com/\<organizationname\>, hover mouse over the name of your project, and select the **Repos** icon.
 
 ## Configure Continuous Delivery with Azure Pipelines
 
