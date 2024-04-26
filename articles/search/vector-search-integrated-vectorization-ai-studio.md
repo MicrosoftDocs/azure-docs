@@ -222,7 +222,7 @@ For Cohere models, you should NOT add the `/v1/embed` path to the end of your UR
 
 ## Connect using token authentication
 
-If you can't use key based authentication, you can instead configure the skill and vectorizer connection for [token authentication](../machine-learning/how-to-authenticate-online-endpoint.md) via role based access control on Azure. The search service must have a [system or user-assigned managed identity](search-howto-managed-identities-data-sources.md), and the identity must have Owner or Contributor permissions for your AML project workspace. You can then remove the key field from your skill and vectorizer definition, replacing it with the resourceId field. If your AML project and search service are in different regsions, also provide the region field.
+If you can't use key based authentication, you can instead configure the skill and vectorizer connection for [token authentication](../machine-learning/how-to-authenticate-online-endpoint.md) via role based access control on Azure. The search service must have a [system or user-assigned managed identity](search-howto-managed-identities-data-sources.md), and the identity must have Owner or Contributor permissions for your AML project workspace. You can then remove the key field from your skill and vectorizer definition, replacing it with the resourceId field. If your AML project and search service are in different regions, also provide the region field.
 
 ```json
 "uri": "{YOUR_URL_HERE}",
