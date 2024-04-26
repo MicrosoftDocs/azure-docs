@@ -26,19 +26,19 @@ CREATE EXTENSION pg_partman;
 
 ## Overview
 
-When an identity feature uses sequences, the data that comes from the parent table gets new sequence value. It doesn't generate new sequence values when the data is directly added to the child table. 
+When an identity feature uses sequences, the data that comes from the parent table gets new sequence value. It doesn't generate new sequence values when the data is directly added to the child table.
 
-`pg_partman` uses a template to control whether the table is UNLOGGED or not. This means that the Alter table command can't change this status for a partition set. By changing the status on the template, you can apply it to all future partitions. But for existing child tables, you must use the `ALTER` command manually. [Here](https://www.postgresql.org/message-id/flat/15954-b61523bed4b110c4%40postgresql.org) is an email thread that shows why.    
+`pg_partman` uses a template to control whether the table is UNLOGGED or not. This means that the Alter table command can't change this status for a partition set. By changing the status on the template, you can apply it to all future partitions. But for existing child tables, you must use the `ALTER` command manually. [Here](https://www.postgresql.org/message-id/flat/15954-b61523bed4b110c4%40postgresql.org) is an email thread that shows why.
 
-There's another extension related to `pg_partman` called `pg_partman_bgw`, which must be included in the `shared_preload_libraries`. It offers a scheduled function `run_maintenance()`. It takes care of the partition sets that have `automatic_maintenance` turned ON in `part_config`. 
+There's another extension related to `pg_partman` called `pg_partman_bgw`, which must be included in the `shared_preload_libraries`. It offers a scheduled function `run_maintenance()`. It takes care of the partition sets that have `automatic_maintenance` turned ON in `part_config`.
 
 :::image type="content" source="media/how-to-use-pg-partman/pg-partman-prerequisites-outlined.png" alt-text="Screenshot of prerequisites highlighted.":::
 
 You can use server parameters in the Azure portal to change the following configuration options that affect the BGW process: 
 
-`pg_partman_bgw.dbname` - Required. This parameter should contain one or more databases that `run_maintenance()` needs to be run on. If more than one, use a comma separated list. If nothing is set, BGW doesn't run the procedure. 
+`pg_partman_bgw.dbname` - Required. This parameter should contain one or more databases that `run_maintenance()` needs to be run on. If more than one, use a comma separated list. If nothing is set, BGW doesn't run the procedure.
 
-`pg_partman_bgw.interval` - Number of seconds between calls to `run_maintenance()` procedure. Default is 3600 (1 hour). This can be updated based on the requirement of the project. 
+`pg_partman_bgw.interval` - Number of seconds between calls to `run_maintenance()` procedure. Default is 3600 (1 hour). The parameter value can be updated based on the requirement of the project.
 
 `pg_partman_bgw.role` - The role that `run_maintenance()` procedure runs as. Default is `postgres`. Only a single role name is allowed. 
 
@@ -48,7 +48,7 @@ You can use server parameters in the Azure portal to change the following config
 
 ## Permissions 
 
-`pg_partman` doesn't require a super user role to run. The only requirement is that the role that runs `pg_partman` functions has ownership over all the partition sets/schema where new objects will be created. It's recommended to create a separate role for `pg_partman` and give it ownership over the schema/all the objects that `pg_partman` will operate on. 
+`pg_partman` doesn't require a super user role to run. The only requirement is that the role that runs `pg_partman` functions has ownership over all the partition sets/schema where new objects are created. It's recommended to create a separate role for `pg_partman` and give it ownership over the schema/all the objects that `pg_partman` operate on. 
 
 ```sql
 CREATE ROLE partman_role WITH LOGIN; 
@@ -205,7 +205,7 @@ Run the maintenance procedure using `pg_cron`. To enable `pg_cron` on your serve
 
 7. To unschedule the cron job, use the command below. 
 
-    ```sql    
+    ```SQL    
     SELECT cron.unschedule(1); 
     ```
 
@@ -217,7 +217,7 @@ Run the maintenance procedure using `pg_cron`. To enable `pg_cron` on your serve
 
 - I'm encountering an error when my bgw is running the maintenance proc. What could be the reasons? 
 
-    Same as above. 
+    Same as mentioned in the previous answer. 
 
 - How to set the partitions to start from the previous day. 
 
