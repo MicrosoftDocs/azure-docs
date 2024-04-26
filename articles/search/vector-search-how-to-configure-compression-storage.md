@@ -202,7 +202,7 @@ Each component of the vector is mapped to the closest representative value withi
 Here's a composite example of a search index that specifies narrow data types, reduced storage, and vector compression. 
 
 + "HotelNameVector" provides a narrow data type example, recasting the original `Float32` values to `Float16`, expressed as `Collection(Edm.Half)` in the search index.
-+ "HotelNameVector" also has `stored` set to false. Extra embeddings used in a query response are not stored.
++ "HotelNameVector" also has `stored` set to false. Extra embeddings used in a query response are not stored. When `stored` is false, `retrievable` must also be false.
 + "DescriptionVector" provides an example of vector compression. Vector compression is defined in the index, referenced in a profile, and then assigned to a vector field. "DescriptionVector" also has `stored` set to false. 
 
 ```json
@@ -255,7 +255,7 @@ POST {{baseUrl}}/indexes?api-version=2024-03-01-preview  HTTP/1.1
             "name": "DescriptionVector",
             "type": "Collection(Edm.Single)",
             "searchable": true,
-            "retrievable": true,
+            "retrievable": false,
             "dimensions": 1536,
             "stored": false,
             "vectorSearchProfile": "my-vector-profile-with-compression"
