@@ -60,7 +60,7 @@ If you need to deploy a different model, [deploy it to real-time endpoints](#dep
 - An [Azure AI hub resource](../how-to/create-azure-ai-resource.md).
 
     > [!IMPORTANT]
-    > For Meta Llama models, the pay-as-you-go model deployment offering is only available with AI hubs created in **East US 2** and **West US 3** regions.
+    > For Meta Llama models, the pay-as-you-go model deployment offering is only available with AI hubs created in **East US 2** and **Sweden Central**, or **West US 3 (Llama 2 only)** regions.
 
 - An [Azure AI project](../how-to/create-projects.md) in Azure AI Studio.
 - Azure role-based access controls (Azure RBAC) are used to grant access to operations in Azure AI Studio. To perform the steps in this article, your user account must be assigned the __owner__ or __contributor__ role for the Azure subscription. Alternatively, your account can be assigned a custom role that has the following permissions:
@@ -96,7 +96,7 @@ To create a deployment:
 
 1. On the model's **Details** page, select **Deploy** and then select **Pay-as-you-go**.
 
-1. Select the project in which you want to deploy your models. To use the pay-as-you-go model deployment offering, your workspace must belong to the **East US 2** region.
+1. Select the project in which you want to deploy your models. To use the pay-as-you-go model deployment offering, your workspace must belong to the **East US 2** or **Sweden Central** region.
 1. On the deployment wizard, select the link to **Azure Marketplace Terms** to learn more about the terms of use. You can also select the **Marketplace offer details** tab to learn about pricing for the selected model.
 1. If this is your first time deploying the model in the project, you have to subscribe your project for the particular offering (for example, Meta-Llama-3-70B) from Azure Marketplace. This step requires that your account has the Azure subscription permissions and resource group permissions listed in the prerequisites. Each project has its own subscription to the particular Azure Marketplace offering, which allows you to control and monitor spending. Select **Subscribe and Deploy**.
 
