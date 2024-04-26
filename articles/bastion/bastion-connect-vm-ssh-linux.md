@@ -65,6 +65,23 @@ In order to connect to the Linux VM via SSH, you must have the following ports o
    * [Password - Azure Key Vault](#password-authentication---azure-key-vault)
    * [SSH private key from local file](#ssh-private-key-authentication---local-file)
    * [SSH private key - Azure Key Vault](#ssh-private-key-authentication---azure-key-vault)
+   * [Microsoft Entra ID Authentication](#microsoft-entra-id-authentication-preview)
+
+## Microsoft Entra ID Authentication (Preview)
+
+> [!NOTE]
+> Microsoft Entra ID Authentication support for SSH connections within the portal is in Preview and is currently being rolled out.
+
+If  the following prerequisites are met, Microsoft Entra ID becomes the default option to connect to your VM. If not, Microsoft Entra ID won't appear as an option.
+
+Prerequisites:
+
+* Microsoft Entra ID Login should be enabled on the VM. Microsoft Entra ID Login can be enabled during VM creation or by adding the **Microsoft Entra ID Login** extension to a pre-existing VM.
+
+* One of the following required roles should be configured on the VM for the user:
+
+  * **Virtual Machine Administrator Login**: This role is necessary if you want to sign in with administrator privileges.
+  * **Virtual Machine User Login**: This role is necessary if you want to sign in with regular user privileges.
 
 ## Password authentication
 
