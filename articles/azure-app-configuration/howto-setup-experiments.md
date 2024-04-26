@@ -12,14 +12,14 @@ ms.date: 04/23/2024
 
 # How to set up experiments (preview) in Azure App Configuration
 
-Running A/B testing experiments can help you make informed decisions to improve your app’s performance and user experience. In this guide, you learn how to set up and execute experimentations within an App Configuration store. You learn how to collect and measure data, leveraging the capabilities of App Configuration, Application Insights and Split Experimentation Workspace (preview). By doing so, you can make data-driven decisions to improve your application.
+Running A/B testing experiments can help you make informed decisions to improve your app’s performance and user experience. In this guide, you learn how to set up and execute experimentations within an App Configuration store. You learn how to collect and measure data, using the capabilities of App Configuration, Application Insights, and Split Experimentation Workspace (preview). By doing so, you can make data-driven decisions to improve your application.
 
 ## Prerequisites
 
 - An Azure subscription. If you don’t have one, [create one for free](https://azure.microsoft.com/free/).
 - An App Configuration store. If you don’t have one, [create an App Configuration store](./quickstart-azure-app-configuration-create.md).
-- A Split Experimentation Workspace resource connected to your App Configuration store. <!--Add link to Split Experimentation Workspace quickstart>
-- A variant feature flag with at least two variants. <!--Add link to Split Experimentation Workspace quickstart>
+- A Split Experimentation Workspace resource <!--Add link to Split Experimentation Workspace quickstart>
+- A variant feature flag with at least two variants. <!--Add link to feature flags quickstart > variant feature flags>
 
 ## Add an Application Insights resource to your App Configuration store
 
@@ -31,6 +31,20 @@ To run an experiment, you first need to connect a workspace-based Application In
 
 1. Select the Application Insights resource you want to use as the data source for your experiment and select **Save**. If you don't have an Application Insights resource, create one by selecting **Create new**. For more information about how to proceed, go to [Create a worskpace-based resource](../azure-monitor/app/create-workspace-resource.md#create-a-workspace-based-resource). Then, back in **Application Insights (preview)**, reload the list of available Application Insights resources and select your new Application Insights resource.
 1. A notification indicates that the Application Insights resource was updated successfully for the App Configuration store.
+
+## Add a Split Experimentation Workspace to your App Configuration store
+
+To run experiments in Azure App Configuration, we're going to use Split Experimentation Workspace. Follow the steps below to add a Split Experimentation Workspace to your store.
+
+1. In your App Configuration store, select **Experimentation** > **Split Experimentation Workspace (preview)** from the left menu.
+
+    :::image type="content" source="./media/set-up-experiments/find-in-app-configuration-store.png" alt-text="Screenshot of the Azure portal, finding Split Experimentation Workspace from the App Configuration store left menu.":::
+
+1. Select a **Split Experimentation Workspace**, then **Save**. If you don't have a Split Experimentation Workspace, follow the Split Experimentation Workspace quickstart to create one<!--link to Split Experimentation workspace quickstart-->.
+
+    :::image type="content" source="./media/set-up-experiments/add-split-experimentation-workspace.png" alt-text="Screenshot of the Azure portal, adding a Split Experimentation Workspace to the App Configuration store.":::
+
+1. A notification indicates that the operation was successful.
 
 ## Make changes to application code or create a new application
 
@@ -54,7 +68,7 @@ Navigate to your Split Experimentation Workspace resource. Under **Configuration
 
 A *metric* in Split Experimentation Workspace measures an event sent to Application Insights. Earlier, you added `TrackEvent` to your application code, which is an event that represents user actions such as button selections.
 
-In the Quote of the day app, the event we're tracking is when a user selects the heart-shaped like button, for which we entered `_telemetryClient.TrackEvent("Like")`, where `Like` is the name of the telemetry event sent to Application Insights, which you will connect to the metric you're about to create using the blade that appears when you select **Create**. The quickstart only specifies one event, but you may have multiple events that take in user actions.
+In the Quote of the day app, the event we're tracking is when a user selects the heart-shaped like button, for which we entered `_telemetryClient.TrackEvent("Like")`. `Like` is the name of the telemetry event sent to Application Insights you'll connect to the metric you're about to create using the blade that appears when you select **Create**. The quickstart only specifies one event, but you may have multiple events that take in user actions.
 
 The event allows you to measure how many users are clicking on that button as an action, and creating a metric for an experiment means you're interested in collecting data on how users are interacting with the given action being tracked as an event and be able to derive results from that data. At this step, creating a metric requires you to specify how you want to measure the user action (i.e the Application Insights event).
 
@@ -63,7 +77,7 @@ If you're creating an application from scratch using the quickstart listed above
 > [!NOTE]
 > When filling out the **Create an Experimentation Metric** form, make sure the **Name** and **Application Insights Event Name** match the code added in your application for this event. In the Quickstart, we used *Heart Vote Button* and *Like*.
 
-For this experiment, the tutorial is based on the hypothesis that more users click on the heart-shaped like button when there is a special message next to the Quote of the Day. The application code takes in this click as an event named *Like*. The application sends the Like event as telemetry to Application Insights and the **Desired Impact** for this experiment is to see an **Increase** in the number of user clicks (Measured as: **Count**) on the *Heart Vote Button*, to be able to validate the given hypothesis. If there is a decrease in the number of clicks on the button despite the special message being shown to the allocated audience, then the hypothesis is invalidated for this experiment.
+For this experiment, the tutorial is based on the hypothesis that more users click on the heart-shaped like button when there is a special message next to the Quote of the Day. The application code takes in this click as an event named *Like*. The application sends the Like event as telemetry to Application Insights and the **Desired Impact** for this experiment is to see an **Increase** in the number of user clicks (measured as **Count**) on the *Heart Vote Button*, to be able to validate the given hypothesis. If there is a decrease in the number of clicks on the button despite the special message being shown to the allocated audience, then the hypothesis is invalidated for this experiment.
 
 Fill out the **Create an Experimentation Metric** form and save with **Create**.
 
@@ -90,6 +104,9 @@ Once created, the new metric is displayed in the portal. You can edit it or dele
 
 ## Next step
 
-<!--
+> [!div class="nextstepaction"]
+> [Manage feature flags](./manage-feature-flags.md)
+
+<!-- update to following next step when doc is published
 > [!div class="nextstepaction"]
 > [Use cases for experimentation](./linktbd.md) -->
