@@ -157,7 +157,7 @@ Metrics, as opposite to parameters, are always numeric, and they can be logged e
 |Log a boolean value | `mlflow.log_metric("my_metric", 0)`| 0 = True, 1 = False|
 
 > [!IMPORTANT]
-> **Performance considerations:** If you need to log multiple metrics (or multiple values for the same metric), avoid making calls to `mlflow.log_metric` in loops. Better performance can be achieved by using [asynchronous logging](#log-metrics-asynchronously) with `mlflow.log_metric("metric1", 9.42, synchronous=False)` or [logging a batch of metrics](#log-curves-or-list-of-values).
+> **Performance considerations:** If you need to log multiple metrics (or multiple values for the same metric), avoid making calls to `mlflow.log_metric` in loops. Better performance can be achieved by using [asynchronous logging](#log-metrics-asynchronously) with `mlflow.log_metric("metric1", 9.42, synchronous=False)` or by [logging a batch of metrics](#log-curves-or-list-of-values).
 
 ### Log metrics asynchronously
 
