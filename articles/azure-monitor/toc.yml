@@ -533,11 +533,8 @@ items:
         href: containers/container-insights-prometheus-logs.md
     - name: Remote-write with Prometheus
       items:
-      - name: Overview
-        displayName: Prometheus,remote-write
-        href: essentials/remote-write-prometheus.md
-      - name: Remote-write using Azure Monitor sidecar
-        displayName: Prometheus,remote-write
+      - name: Prometheus remote-write
+        displayName: Prometheus,remote-write, azure monitor
         href: containers/prometheus-remote-write.md
       - name: Microsoft Entra authorization proxy
         displayName: Prometheus
@@ -554,22 +551,13 @@ items:
       - name: Microsoft Entra Workload ID (preview) authentication
         displayName: Prometheus,remote-write
         href: containers/prometheus-remote-write-azure-workload-identity.md
+      - name: Troubleshoot remote-write
+        displayName: Prometheus,remote-write
+        href: containers/prometheus-remote-write-troubleshooting.md
     - name: Private Link
       items:
-      - name: Private link data ingestion with Prometheus metrics
-        displayName: Private link data ingestion
-        href: essentials/private-link-data-ingestion.md
-      - name: Private link data query of Prometheus metrics
-        displayName: Private link data query
-        href: ../managed-grafana/how-to-connect-to-data-source-privately.md
       - name: Private link for Container Insights          
-        href: containers/container-insights-private-link.md
-      - name: Query using Azure workbooks
-        displayName: Prometheus
-        href: essentials/prometheus-workbooks.md
-      - name: Query using the API and PromQL
-        displayName: Prometheus
-        href: essentials/prometheus-api-promql.md        
+        href: containers/container-insights-private-link.md    
     - name: Monitor
       items:
       - name: Monitor performance
@@ -623,7 +611,7 @@ items:
       items:
       - name: Overview
         href: ../network-watcher/network-insights-overview.md?toc=/azure/azure-monitor/toc.json&bc=/azure/azure-monitor/breadcrumb/toc.json
-      - name: View network topology
+      - name: Topology
         href: ../network-watcher/network-insights-topology.md?toc=/azure/azure-monitor/toc.json&bc=/azure/azure-monitor/breadcrumb/toc.json
       - name: Troubleshoot
         href: ../network-watcher/network-insights-troubleshooting.md?toc=/azure/azure-monitor/toc.json&bc=/azure/azure-monitor/breadcrumb/toc.json
@@ -933,8 +921,9 @@ items:
         href: essentials/prometheus-metrics-overview.md
       - name: FAQ
         href: essentials/prometheus-metrics-overview.md#frequently-asked-questions
-      - name: Get started
-        href: essentials/prometheus-get-started.md
+      - name: Prometheus remote-write from virtual-machines
+        displayName: Prometheus remote-write
+        href: essentials/prometheus-remote-write-virtual-machines.md
       - name: Azure Monitor workspace
         items:
         - name: Overview
@@ -947,9 +936,9 @@ items:
           href: essentials/azure-monitor-workspace-private-endpoint.md
         - name: Private link for Prometheus data ingestion
           href: essentials/private-link-data-ingestion.md
-      - name: Remote-write from self-managed Prometheus
-        displayName: Prometheus
-        href: essentials/remote-write-prometheus.md
+        - name: Private link data query of Prometheus metrics
+        displayName: Private link data query
+        href: ../managed-grafana/how-to-connect-to-data-source-privately.md?toc=/azure/azure-monitor/toc.json
       - name: Alerting and rule groups
         displayName: Prometheus
         href: essentials/prometheus-rule-groups.md
@@ -1303,7 +1292,7 @@ items:
         - name: Set up alert rules
           items:
           - name: Metric alert rules
-            href: alerts/alerts-create-metric-alert-rule.md
+            href: alerts/alerts-create-metric-alert-rule.yml
           - name: Log search alert rules
             href: alerts/alerts-create-log-alert-rule.md
           - name: Activity log, service health or resource health alert rules

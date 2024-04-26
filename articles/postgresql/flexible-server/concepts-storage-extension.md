@@ -227,10 +227,6 @@ When the Azure Database for PostgreSQL flexible server administrator decides tha
 SELECT * FROM azure_storage.account_user_remove('mystorageaccount', 'support');
 ```
 
-## Limitations and known issues
-
-[!INCLUDE [Note Query Store and Azure Storage compability](includes/note-query-store-azure-storage-compability.md)]
-
 ## Next steps
 
 - If you don't see an extension that you want to use, let us know. Vote for existing requests or create new feedback requests in our [feedback forum](https://aka.ms/pgfeedback).

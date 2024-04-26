@@ -176,7 +176,7 @@ All Hyper-V replication events are logged in the Hyper-V-VMMS\Admin log, located
 
 ### Log collection for advanced troubleshooting
 
-These tools can help with advanced troubleshooting:
+This tool can help with advanced troubleshooting:
 
 -	For VMM, perform Site Recovery log collection using the [Support Diagnostics Platform (SDP) tool](https://social.technet.microsoft.com/wiki/contents/articles/28198.asr-data-collection-and-analysis-using-the-vmm-support-diagnostics-platform-sdp-tool.aspx).
--	For Hyper-V without VMM, [download this tool](https://dcupload.microsoft.com/tools/win7files/DIAG_ASRHyperV_global.DiagCab), and run it on the Hyper-V host to collect the logs.
+-	For Hyper-V without VMM, [download this tool](https://answers.microsoft.com/en-us/windows/forum/all/unable-to-open-diagcab-files/e7f8e4e5-b442-4e53-af7a-90e74985a73f), and run it on the Hyper-V host to collect the logs.
