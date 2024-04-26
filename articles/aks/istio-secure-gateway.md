@@ -31,7 +31,7 @@ Following steps are complete:
 
 ## Required client/server certificates and keys
 
-This article requires several certificates and keys. Use your favorite tool to create them or following [openssl][openssl] commands mentioned.
+This article requires several certificates and keys. You can use your favorite tool to create them or you can use the following [openssl][openssl] commands.
 
 1. Create a root certificate and private key for signing the certificates for sample services:
     
