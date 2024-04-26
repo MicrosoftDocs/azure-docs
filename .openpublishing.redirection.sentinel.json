@@ -167,7 +167,7 @@
         },
         {
             "source_path": "articles/sentinel/data-connectors/zero-networks-segment-audit-function-using-azure-function.md",
-            "redirect_url": "/azure/sentinel/data-connectors/zero-networks-segment-audit-function",
+            "redirect_url": "/azure/sentinel/data-connectors/zero-networks-segment-audit",
             "redirect_document_id": true
         },
         {
