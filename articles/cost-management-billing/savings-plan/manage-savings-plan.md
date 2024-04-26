@@ -41,7 +41,7 @@ To update a savings plan scope as a billing administrator:
 4. Select **Settings** > **Configuration**.
 5. Change the scope.
 
-If you purchased a savings plan, have been added to a savings plan, or have been assigned a one or more savings plan RBAC roles, use the following steps to update a savings plan scope:
+If you purchased a savings plan, have been added to a savings plan, or have been assigned one or more savings plan RBAC roles, use the following steps to update a savings plan scope:
 1. Sign in to the Azure portal.
 2. Select All Services > Savings plans to list savings plans that you have access to.
 3. Select the desired savings plan.
