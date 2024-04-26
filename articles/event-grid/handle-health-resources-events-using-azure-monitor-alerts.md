@@ -62,16 +62,18 @@ The event filter enables users to receive alerts for a specific resource group, 
     1. In the **Subject Filters** section, for **Subject begins with**, provide the value of the resource group in this format: `/subscriptions/{subscription-id}/resourceGroups/{resourceGroup-id}`.
     
         :::image type="content" source="./media/handle-health-resources-events-using-azure-monitor-alerts/filters.png" alt-text="Screenshot that shows the filters in the event subscription.":::        
-    1. Alternately, filter for a specific resource by specifying the resource name in the `subjectEndsWith` parameter within the advanced filters introduced in the next step.
-2.	For advanced filtering, navigate to the Filters tab of the event subscription and select advanced filters. For detailed instructions, see [Event filtering for Azure Event Grid](event-filtering.md#advanced-filtering). 
+    1. Alternately, filter for a specific resource by specifying the resource name in the **Subject ends with** parameter within the advanced filters introduced in the next step.
+2.	For advanced filtering, navigate to the **Filters** tab of the event subscription and select **Advanced filters**. For detailed instructions, see [Event filtering for Azure Event Grid](event-filtering.md#advanced-filtering). 
 
     For example, to get alerted when VMs go down, set a filter to look for VM availability transitions that go from `Available` to `Unavailable`. It's done by creating the following conditions: 
 
     - `Available` is in the key `data.resourceInfo.properties.previousAvailabilityState` and
     - `Unavailable` is in `data.resourceInfo.properties.availabilityState`
     
-        :::image type="content" source="./media/handle-health-resources-events-using-azure-monitor-alerts/advanced-filters.png" alt-text="Screenshot that shows the filters in the event subscription.":::       
-## Sample JSON event
+        :::image type="content" source="./media/handle-health-resources-events-using-azure-monitor-alerts/advanced-filters.png" alt-text="Screenshot that shows the filters in the event subscription." lightbox="./media/handle-health-resources-events-using-azure-monitor-alerts/advanced-filters.png":::     
+
+  
+## Sample JSON events
 
 Here's the sample JSON event:
 
