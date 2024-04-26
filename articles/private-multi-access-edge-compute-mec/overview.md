@@ -5,7 +5,7 @@ description: Learn about the Azure private multi-access edge compute (MEC) solut
 author: niravi-msft
 ms.service: private-multi-access-edge-compute-mec
 ms.topic: overview
-ms.date: 06/16/2023
+ms.date: 04/26/2024
 ms.author: kumud
 
 ---
@@ -76,4 +76,3 @@ For more information, see [Azure Private 5G Core](../private-5g-core/private-5g-
 - Learn more about [Azure Network Function Manager](/azure/network-function-manager/overview)
 - Learn more about [Azure Kubernetes Service (AKS) hybrid deployment](/azure/aks/hybrid/)
 - Learn more about [Azure Stack Edge](/azure/databox-online/)
-- Learn more about [Affirmed Private Network Service](affirmed-private-network-service-overview.md)
