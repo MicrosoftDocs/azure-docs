@@ -60,7 +60,7 @@ If you need to deploy a different model, [deploy it to real-time endpoints](#dep
 - An [Azure AI hub resource](../how-to/create-azure-ai-resource.md).
 
     > [!IMPORTANT]
-    > For Meta Llama models, the pay-as-you-go model deployment offering is only available with AI hubs created in **East US 2** and **Sweden Central**, or **West US 3 (Llama 2 only)** regions.
+    > For Meta Llama models, the pay-as-you-go model deployment offering is only available with AI hubs created in **East US 2** and **Sweden Central (Llama 3 only)**, or **West US 3 (Llama 2 only)** regions.
 
 - An [Azure AI project](../how-to/create-projects.md) in Azure AI Studio.
 - Azure role-based access controls (Azure RBAC) are used to grant access to operations in Azure AI Studio. To perform the steps in this article, your user account must be assigned the __owner__ or __contributor__ role for the Azure subscription. Alternatively, your account can be assigned a custom role that has the following permissions:

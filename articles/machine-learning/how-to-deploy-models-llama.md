@@ -64,7 +64,7 @@ If you need to deploy a different model, [deploy it to real-time endpoints](#dep
 - An Azure Machine Learning workspace and a compute instance. If you don't have these, use the steps in the [Quickstart: Create workspace resources](quickstart-create-resources.md) article to create them.
 
     > [!IMPORTANT]
-    > Pay-as-you-go model deployment offering is only available in workspaces created in **East US 2**, **Sweden Central** or **West US 3 (Llama 2 only)** regions.
+    > Pay-as-you-go model deployment offering is only available in workspaces created in **East US 2**, **Sweden Central (Llama 3 only)** or **West US 3 (Llama 2 only)** regions.
 
 - Azure role-based access controls (Azure RBAC) are used to grant access to operations in Azure Machine Learning. To perform the steps in this article, your user account must be assigned the __owner__ or __contributor__ role for the Azure subscription. Alternatively, your account can be assigned a custom role that has the following permissions:
 
