@@ -47,7 +47,7 @@ There are some things that you can't do when you use an ILB ASE:
 
 ## Create an ILB ASE ##
 
-To create an ILB ASE, see [Create an ASE by using an Azure Resource Manager template](./create-from-template.md)
+To create an ILB ASE, see [Create an ASE by using an Azure Resource Manager template](./create-from-template.md).
 
 > [!NOTE]
 > The App Service Environment name must be no more than 36 characters.
