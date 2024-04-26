@@ -72,7 +72,7 @@ You can use the following example values when creating this configuration as an 
 
 ## <a name="createvmset"></a>Deploy Bastion and connect to VM
 
-These steps help you deploy Bastion using the developer SKU and auotmatically connect to your VM via the portal. To connect to a VM, your NSG rules must allow traffic to ports 22 and 3389 from the private IP address 168.63.129.16.
+These steps help you deploy Bastion using the developer SKU and automatically connect to your VM via the portal. To connect to a VM, your NSG rules must allow traffic to ports 22 and 3389 from the private IP address 168.63.129.16.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. In the portal, go to the VM to which you want to connect. The values from the virtual network in which this VM resides are used to create the Bastion deployment. The VM must be located in a region that supports the Developer SKU.
