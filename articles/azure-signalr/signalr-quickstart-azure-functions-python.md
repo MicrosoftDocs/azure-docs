@@ -127,7 +127,7 @@ Add the function `broadcast` by adding the following code
           'target': 'newMessage',
           'arguments': [ 'Current star count of https://api.github.com/repos/azure/azure-functions-python-worker is: ' + str(start_count) ]
       }))
-    ```
+  ```
 
 This function uses a time trigger to periodically broadcast messages to all clients.
 ::: zone-end
