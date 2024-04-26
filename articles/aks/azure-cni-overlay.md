@@ -37,7 +37,7 @@ Like Azure CNI Overlay, Kubenet assigns IP addresses to pods from an address spa
 |------------------------------|--------------------------------------------------------------|-------------------------------------------------------------------------------|
 | Cluster scale                | 5000 nodes and 250 pods/node                                 | 400 nodes and 250 pods/node                                                   |
 | Network configuration        | Simple - no extra configurations required for pod networking | Complex - requires route tables and UDRs on cluster subnet for pod networking |
-| Pod connectivity performance | Performance on par with VMs in a VNet                        | Extra hop adds minor latency                                                  |
+| Pod connectivity performance | Performance on par with VMs in a VNet                        | Extra hop adds latency                                                  |
 | Kubernetes Network Policies  | Azure Network Policies, Calico, Cilium                       | Calico                                                                        |
 | OS platforms supported       | Linux and Windows Server 2022, 2019                          | Linux only                                                                    |
 
