@@ -103,7 +103,8 @@ To delegate the Administrator, Contributor, or Reader role to a specific savings
 4.	Click **Add**, then **Add role assignment** from the top navigation bar
 
 ### Delegate Savings plan Administrator, Contributor or Reader role to all savings plans
-[User Access Administrator](https://learn.microsoft.com/azure/role-based-access-control/built-in-roles#user-access-administrator) rights are required to grant RBAC roles at the tenant level. To get User Access Administrator rights, follow [Elevate access steps](https://learn.microsoft.com/azure/role-based-access-control/elevate-access-global-admin).
+[User Access Administrator](../../role-based-access-control/built-in-roles#user-access-administrator) rights are required to grant RBAC roles at the tenant level. To get User Access Administrator rights, follow [Elevate access steps](../../role-based-access-control/elevate-access-global-admin).
+
 ### To delegate the administrator, contributor, or reader role to all savings plans in a tenant
 1.	Navigate to **Home** > **Savings plans**
 2.	Click **Role assignment** from the top navigation bar
