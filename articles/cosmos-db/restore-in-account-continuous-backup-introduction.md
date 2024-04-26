@@ -68,7 +68,7 @@ Here's a list of the current behavior characteristics of the point-in-time in-ac
 
 - Restoration of a container or database is blocked if a delete operation is already in process on either the container or the database.
 
-- If an account has more than three different resources, more than three resources in an account can not be restored in parallel.  
+- If an account has more than three different resources, more than three resources in an account cannot be restored in parallel.  
 
 - Restoration of a database or container resource succeeds when the resource is present as of restore time in the current write region of the account.
 
