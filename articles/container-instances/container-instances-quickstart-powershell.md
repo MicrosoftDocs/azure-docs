@@ -116,9 +116,6 @@ In this quickstart, you created an Azure container instance from an image in the
 > [!div class="nextstepaction"]
 > [Azure Container Instances tutorial](./container-instances-tutorial-prepare-app.md)
 
-<!-- IMAGES -->
-[qs-powershell-01]: ./media/container-instances-quickstart-powershell/qs-powershell-01.png
-
 <!-- LINKS -->
 [New-AzResourceGroup]: /powershell/module/az.resources/new-Azresourcegroup
 [New-AzContainerGroup]: /powershell/module/az.containerinstance/new-Azcontainergroup
