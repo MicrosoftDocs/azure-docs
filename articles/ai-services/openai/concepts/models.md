@@ -181,7 +181,7 @@ See [model versions](../concepts/model-versions.md) to learn about how Azure Ope
 | `gpt-35-turbo-16k` (0613) | 16,384 | Sep 2021 |
 | `gpt-35-turbo-instruct` (0914) | 4,097 |Sep 2021 |
 | `gpt-35-turbo` (1106) | Input: 16,385<br> Output: 4,096 |  Sep 2021|
-| `gpt-35-turbo` (0125) **NEW** | 16,385 | Sep 2021 |
+| `gpt-35-turbo` (0125) **NEW** | Input: 16,385<br> Output: 4,096  | Sep 2021 |
 
 ### GPT-3.5-Turbo model availability
 
