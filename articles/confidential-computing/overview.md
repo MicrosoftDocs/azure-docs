@@ -23,7 +23,7 @@ The threat model aims to reduce or remove the ability for a cloud provider opera
 
 :::image type="content" source="media/overview/three-states-and-confidential-computing-consortium-definition.png" alt-text="Diagram of three states of data protection, with confidential computing's data in use highlighted.":::
 
-When used with data encryption at rest and in transit, confidential computing extends data protections further to protect data whilst its in use. This is beneficial for organizations seeking further protections for sensitive data and applications hosted in cloud environments. 
+When used with data encryption at rest and in transit, confidential computing extends data protections further to protect data whilst it's in use. This is beneficial for organizations seeking further protections for sensitive data and applications hosted in cloud environments. 
 
 ## Lessen the need for trust
 Running workloads on the cloud requires trust. You give this trust to various providers enabling different components of your application.
