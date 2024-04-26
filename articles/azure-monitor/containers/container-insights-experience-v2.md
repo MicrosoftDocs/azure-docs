@@ -33,6 +33,8 @@ Because Azure Monitor supports various levels of customization, your cluster may
 
 2.) Choose the Insights menu item from the menu, which will display a splash screen indicating no monitoring enabled
 
+![Screenshot of unmonitoring cluster.](media/container-insights-experience-v2/splash-screen-nothing-enabled.png)
+
 3.) Select the Configure monitoring button to open up the monitoring configuration blade
 
 4.) Underneath the advanced settings blade, choose the "Logs and events" from the Cost presets dropdown
@@ -49,9 +51,18 @@ Because Azure Monitor supports various levels of customization, your cluster may
 
 2.) Choose the Insights menu item from the menu, a banner will be displayed at the top to configure managed Prometheus
 
-3.) Using the banner, select the Configure button to complete onboarding to managed Prometheus or deploy the requisite recording rules. If the banner was previously dismissed, you can instead us the dropdown in the toolbar that says "Log Analytics visualizations (classic)", and select the "Managed Prometheus visualizations (new)" option to complete onboarding
+3.) Using the banner, select the Configure button to complete onboarding to managed Prometheus or deploy the requisite recording rules.
+
+![Screenshot of AKS cluster with Prometheus banner](media/container-insights-experience-v2/ci-logs-prom-banner.png)
+
+If the banner was previously dismissed, you can instead us the dropdown in the toolbar that says "Log Analytics visualizations (classic)", and select the "Managed Prometheus visualizations (new)" option to complete onboarding
+
+![Screenshot of AKS cluster with toggle dropdown](media/container-insights-experience-v2/ci-logs-dropdown.png)
 
 4.) Once the monitoring deployment is complete, the Insights blade should switch to using Prometheus as the data source, indicated by the toolbar dropdown showing "Managed Prometheus visualizations"
+
+> [!Note]
+> Some charts will only have partial data for the default time range until sufficient time has elapsed for the recording rules to collect data.
 
 ![Screenshot of AKS cluster with Prometheus based container insights.](media/container-insights-experience-v2/ci-prom-full.png)
 
@@ -62,20 +73,20 @@ Because Azure Monitor supports various levels of customization, your cluster may
 
 2.) Choose the Insights menu item from the menu, a screen will be displayed with a banner to enable Prometheus recording rules
 
+![Screenshot of AKS cluster with Prometheus based container insights.](media/container-insights-experience-v2/ci-splash-screen-prom-only.png)
+
 3.) Click enable to deploy the recording rules
 
 4.) Once the monitoring deployment is complete, the Insights blade should switch to using Prometheus as the data source, indicated by the toolbar dropdown showing "Managed Prometheus visualizations"
 
 ![Screenshot of AKS cluster with Prometheus based container insights, with recording rule banner.](media/container-insights-experience-v2/ci-prom-recording-rules-loading.png)
 
-> [!Note]
-> Some charts will only have partial data for the default time range until sufficient time has elapsed for the recording rules to collect data.
 
 ## Optional steps
 
 While the above steps are sufficient, for the full visualization experience, a few optional steps can be completed.
 
-### Node and pod labels collection 
+### Node and Pod labels collection 
 
 By default the labels for nodes and pods aren't available, but can be collected through re-enabling the addon. Node labels are required for filtering data by node pools.
 
@@ -97,7 +108,7 @@ If you're currently using the logs based container insights experience, then you
 
 1.) Navigate to the monitoring settings for your clusters by following the instructions on how to configure your [container insights DCR](./container-insights-data-collection-dcr.md#configure-data-collection)
 
-2.) Under the [`Collected data`](./container-insights-data-collection-dcr.md#collected-data) section, select only the `Logs and Events` checkbox and save your settings.
+2.) From the Cost presets dropdown, select "Logs and Events" and save to configure.
 
 ## Known limitations and issues
 
@@ -109,8 +120,5 @@ As this feature is currently in preview, there are several, known limitations, t
 * Workbooks reports data
 * Node memory working set and RSS metrics
 * Partial or no data available in the multi-cluster view based on container insights DCR settings
-* Recommended alerts
 
-In addition, due to query limitations, users running clusters of over 5000 containers or on a time range exceeding seven days may experience throttling issues and 429 errors when retrieving data.
-
-For all other issues or bugs identified not included in the list, reach out to askcoin@microsoft.com to resolve.
+## Troubleshooting
