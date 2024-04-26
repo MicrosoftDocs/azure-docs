@@ -77,13 +77,13 @@ An Azure Pipelines release pipeline describes a workflow that deploys an applica
 
 ### Create a build pipeline
 
-Open a web browser and navigate to your new project at: [https://&lt;myaccount&gt;.visualstudio.com/Voting/Voting%20Team/_git/Voting](https://myaccount.visualstudio.com/Voting/Voting%20Team/_git/Voting).
+Open a web browser and navigate to your new project at: https://dev.azure.com/<organizationname>/VotingSample
 
-Select the **Pipelines** tab, then **Builds**, then click **New Pipeline**.
+Select the **Pipelines** tab and click **Create Pipeline**.
 
 ![New Pipeline][new-pipeline]
 
-Select **Azure Repos Git** as source, **Voting** Team project, **Voting** Repository, and **master** Default branch for manual and scheduled builds.  Then click **Continue**.
+Select **Use the classic editor** to create a pipeline without YAML.
 
 ![Select repo][select-repo]
 
@@ -183,7 +183,7 @@ Advance to the next tutorial:
 [publish-app-profile]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/PublishAppProfile.png
 [push-git-repo]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/PublishAppProfileNew.png
 [publish-code]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/PublishCode.png
-[new-pipeline]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/NewPipeline.png
+[new-pipeline]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/NewPipelineLatest.png
 [select-repo]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SelectRepo.png
 [select-build-template]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SelectBuildTemplate.png
 [save-and-queue]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SaveAndQueue.png
