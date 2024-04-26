@@ -296,7 +296,7 @@ const attachmentSelectionHandler: AttachmentSelectionHandler = async (uploadTask
 
 ## File downloads - advanced usage
 
-By default, the UI library will open a new tab pointing to the URL you have set when you `notifyUploadComplete`. Alternatively, you can have a custom logic to handle attachment downloads via `actionsForAttachment`. Let's take a look of an example.
+By default, the UI library will open a new tab pointing to the URL you have set when you `notifyUploadCompleted`. Alternatively, you can have a custom logic to handle attachment downloads via `actionsForAttachment`. Let's take a look of an example.
 
 `App.tsx`
 
